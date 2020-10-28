@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 273f12765f60eb1a0d65037e30e33e58b16463bf
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 10956953f9ab3a9e32b9da4ab8a3501d38b0e2c3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372310"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369662"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Dodawanie lub zmienianie administratorów subskrypcji platformy Azure
 
@@ -39,8 +39,8 @@ Aby nadać użytkownikowi uprawnienia administratora subskrypcji platformy Azure
 Jeśli nie wiesz, kto jest administratorem konta dla subskrypcji, wykonaj poniższe kroki, aby to sprawdzić.
 
 1. Otwórz [stronę Subskrypcje w witrynie Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Wybierz subskrypcję, którą chcesz sprawdzić, a następnie przejrzyj **Ustawienia**.
-1. Wybierz pozycję **Właściwości**. Administrator konta subskrypcji jest wyświetlany w polu **Administrator konta**.
+1. Wybierz subskrypcję, którą chcesz sprawdzić, a następnie przejrzyj **Ustawienia** .
+1. Wybierz pozycję **Właściwości** . Administrator konta subskrypcji jest wyświetlany w polu **Administrator konta** .
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>Aby przypisać użytkownika jako administratora
 
@@ -50,21 +50,21 @@ Jeśli nie wiesz, kto jest administratorem konta dla subskrypcji, wykonaj poniż
 
 1. Kliknij pozycję **Kontrola dostępu (IAM)** .
 
-1. Kliknij kartę **Przypisania ról**, aby wyświetlić wszystkie przypisania ról dla tej subskrypcji.
+1. Kliknij kartę **Przypisania ról** , aby wyświetlić wszystkie przypisania ról dla tej subskrypcji.
 
     ![Zrzut ekranu pokazujący przypisania ról](./media/add-change-subscription-administrator/role-assignments.png)
 
-1. Kliknij pozycję **Dodaj** > **Dodaj przypisanie roli**, aby otworzyć okienko **Dodawanie przypisania roli**.
+1. Kliknij pozycję **Dodaj** > **Dodaj przypisanie roli** , aby otworzyć okienko **Dodawanie przypisania roli** .
 
     Jeśli nie masz uprawnień do przypisywania ról, ta opcja będzie wyłączona.
 
-1. Z listy rozwijanej **Rola** wybierz rolę **Właściciel**.
+1. Z listy rozwijanej **Rola** wybierz rolę **Właściciel** .
 
-1. Z listy **Wybierz** wybierz użytkownika. Jeśli nie widzisz użytkownika na liście, możesz wpisać tekst w polu **Wybierz**, aby wyszukać w katalogu nazwy wyświetlane i adresy e-mail.
+1. Z listy **Wybierz** wybierz użytkownika. Jeśli nie widzisz użytkownika na liście, możesz wpisać tekst w polu **Wybierz** , aby wyszukać w katalogu nazwy wyświetlane i adresy e-mail.
 
     ![Zrzut ekranu przedstawiający wybraną rolę właściciela](./media/add-change-subscription-administrator/add-role.png)
 
-1. Kliknij przycisk **Zapisz**, aby przypisać rolę.
+1. Kliknij przycisk **Zapisz** , aby przypisać rolę.
 
     Po kilku chwilach użytkownikowi zostanie przypisana rola właściciela w zakresie subskrypcji.
 
@@ -73,7 +73,7 @@ Jeśli nie wiesz, kto jest administratorem konta dla subskrypcji, wykonaj poniż
 * [Co to jest kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 * [Understand the different roles in Azure (Omówienie ról na platformie Azure)](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub dodawanie subskrypcji](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-* [Uprawnienia ról administratorów w usłudze Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+* [Uprawnienia ról administratorów w usłudze Azure Active Directory](../../active-directory/roles/permissions-reference.md)
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Kontakt z pomocą techniczną
 

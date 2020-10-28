@@ -9,16 +9,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: e2561b6cfce0da2ede9cda567091f9a7e23610de
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: db9c8d18d975661edf4a120a2e82b073c884d2a9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682998"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369679"
 ---
 # <a name="sign-up-for-a-microsoft-365-subscription-with-your-azure-account"></a>Rejestracja przy użyciu konta platformy Azure w celu uzyskania subskrypcji platformy Microsoft 365
 
-Jeśli jesteś subskrybentem platformy Azure, możesz użyć swojego konta platformy Azure do zarejestrowania subskrypcji platformy Microsoft 365. Jeśli reprezentujesz organizację, która ma subskrypcję platformy Azure, możesz utworzyć subskrypcje platformy Microsoft 365 dla użytkowników w istniejącej usłudze Azure Active Directory (Azure AD). Zarejestruj się w usłudze Office 365 przy użyciu konta z uprawnieniami administratora globalnego lub administratora rozliczeń w dzierżawie usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Sprawdzanie uprawnień konta w usłudze Azure AD](#RoleInAzureAD) i [Przypisywanie ról administratorów w usłudze Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Jeśli jesteś subskrybentem platformy Azure, możesz użyć swojego konta platformy Azure do zarejestrowania subskrypcji platformy Microsoft 365. Jeśli reprezentujesz organizację, która ma subskrypcję platformy Azure, możesz utworzyć subskrypcje platformy Microsoft 365 dla użytkowników w istniejącej usłudze Azure Active Directory (Azure AD). Zarejestruj się w usłudze Office 365 przy użyciu konta z uprawnieniami administratora globalnego lub administratora rozliczeń w dzierżawie usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Sprawdzanie uprawnień konta w usłudze Azure AD](#RoleInAzureAD) i [Przypisywanie ról administratorów w usłudze Azure Active Directory](../../active-directory/roles/permissions-reference.md).
 
 Jeśli masz już konto platformy Microsoft 365 i subskrypcję platformy Azure, możesz [skojarzyć dzierżawę platformy Microsoft 365 z subskrypcją platformy Azure](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -31,17 +31,17 @@ Jeśli masz już konto platformy Microsoft 365 i subskrypcję platformy Azure, m
 3. Zaloguj się przy użyciu poświadczeń konta platformy Azure. Jeśli tworzysz subskrypcję dla swojej organizacji, użyj konta platformy Azure, które ma uprawnienia roli katalogu Administrator globalny lub Administrator rozliczeń w dzierżawie usługi Azure Active Directory.
 
     ![Zrzut ekranu przedstawiający logowanie firmy Microsoft](./media/azure-account-for-microsoft-365-subscription/13-office-365-sign-in.png)
-4. Kliknij pozycję **Wypróbuj teraz**.
+4. Kliknij pozycję **Wypróbuj teraz** .
 
     ![Zrzut ekranu z potwierdzeniem zamówienia platformy Microsoft 365.](./media/azure-account-for-microsoft-365-subscription/14-office-365-confirm-your-order.png)
-5. Na stronie potwierdzenia zamówienia kliknij pozycję **Kontynuuj**.
+5. Na stronie potwierdzenia zamówienia kliknij pozycję **Kontynuuj** .
 
     ![Zrzut ekranu przedstawiający potwierdzenie zamówienia platformy Microsoft 365](./media/azure-account-for-microsoft-365-subscription/15-office-365-order-receipt.png)
 
 Teraz wszystko jest już gotowe. Jeśli utworzono subskrypcję platformy Microsoft 365 dla organizacji, wykonaj następujące kroki, aby sprawdzić, czy użytkownicy usługi Azure AD mają dostęp do platformy Microsoft 365.
 
 1. Otwórz Centrum administracyjne platformy Microsoft 365.
-2. Rozwiń węzeł **UŻYTKOWNICY**, a następnie kliknij pozycję **Aktywni użytkownicy**.
+2. Rozwiń węzeł **UŻYTKOWNICY** , a następnie kliknij pozycję **Aktywni użytkownicy** .
 
     ![Zrzut ekranu przedstawiający użytkowników Centrum administracyjnego platformy Microsoft 365](./media/azure-account-for-microsoft-365-subscription/16-microsoft-365-admin-center-users.png)
 
@@ -49,18 +49,18 @@ Po zarejestrowaniu subskrypcja platformy Microsoft 365 jest dodawana do tego sam
 
 ## <a name="check-my-account-permissions-in-azure-ad"></a><a id="RoleInAzureAD"></a>Sprawdzanie uprawnień konta w usłudze Azure AD
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Kliknij pozycję **Wszystkie usługi**, a następnie wyszukaj usługę **Active Directory**.
+2. Kliknij pozycję **Wszystkie usługi** , a następnie wyszukaj usługę **Active Directory** .
 
     ![Zrzut ekranu przedstawiający usługę Active Directory w witrynie Azure Portal](./media/azure-account-for-microsoft-365-subscription/billing-more-services-active-directory.png)
-3. Kliknij pozycję **Użytkownicy i grupy** > **Wszyscy użytkownicy**.
+3. Kliknij pozycję **Użytkownicy i grupy** > **Wszyscy użytkownicy** .
 4. Wybierz nazwę użytkownika.
 
     ![Zrzut ekranu przedstawiający użytkowników usługi Azure Active Directory](./media/azure-account-for-microsoft-365-subscription/billing-users-groups.png)
 
-5. Kliknij pozycję **Rola katalogu**.
+5. Kliknij pozycję **Rola katalogu** .
 
     ![Zrzut ekranu przedstawiający rolę katalogu w witrynie Azure Portal](./media/azure-account-for-microsoft-365-subscription/billing-user-directory-role.png)
-6.  Aby utworzyć subskrypcję platformy Microsoft 365 dla użytkowników w istniejącej usłudze Azure Active Directory, wymagana jest rola **Administrator globalny** lub rola **Administrator z ograniczonymi uprawnieniami** > **Administrator rozliczeń**.
+6.  Aby utworzyć subskrypcję platformy Microsoft 365 dla użytkowników w istniejącej usłudze Azure Active Directory, wymagana jest rola **Administrator globalny** lub rola **Administrator z ograniczonymi uprawnieniami** > **Administrator rozliczeń** .
 
     ![Zrzut ekranu przedstawiający rolę katalogu Administrator rozliczeń w witrynie Azure Portal](./media/azure-account-for-microsoft-365-subscription/billing-directoryrole-limited.png)
 

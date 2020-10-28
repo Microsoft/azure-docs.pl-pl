@@ -4,17 +4,17 @@ description: Funkcja Zarządzanie kosztami i rozliczenia na platformie Azure umo
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 10/26/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
-ms.custom: ''
-ms.openlocfilehash: 1e5f49fb48cfc9be9cfb6970641ad7b4b3c06fb5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: contentperfq2
+ms.openlocfilehash: 2c533ea08534444e5bf8d8d57d585e2bf975a93b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131058"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677387"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Co to jest Zarządzanie kosztami i rozliczenia na platformie Azure?
 
@@ -43,11 +43,11 @@ Konto rozliczeniowe jest tworzone podczas rejestrowania się w celu korzystania 
 
 W witrynie Azure Portal są obecnie obsługiwane następujące typy kont rozliczeniowych:
 
-- **Microsoft Online Services Program**: Indywidualne konto rozliczeniowe dla programu Microsoft Online Services Program jest tworzone podczas rejestrowania się na platformie Azure za pomocą witryny internetowej platformy Azure. Na przykład po zarejestrowaniu się w celu uzyskania [bezpłatnego konta platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), [konta ze stawkami płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/) lub jako [subskrybent programu Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+- **Microsoft Online Services Program** : Indywidualne konto rozliczeniowe dla programu Microsoft Online Services Program jest tworzone podczas rejestrowania się na platformie Azure za pomocą witryny internetowej platformy Azure. Na przykład po zarejestrowaniu się w celu uzyskania bezpłatnego konta platformy Azure, konta ze stawkami płatności zgodnie z rzeczywistym użyciem lub jako subskrybent programu Visual Studio.
 
-- **Umowa Enterprise Agreement**: Konto rozliczeniowe dla umowy Enterprise Agreement jest tworzone, gdy organizacja podpisuje [umowę Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) w celu korzystania z platformy Azure.
+- **Umowa Enterprise Agreement** : Konto rozliczeniowe dla umowy Enterprise Agreement jest tworzone, gdy organizacja podpisuje umowę Enterprise Agreement (EA) w celu korzystania z platformy Azure.
 
-- **Umowa klienta firmy Microsoft**: Konto rozliczeniowe dla umowy klienta firmy Microsoft jest tworzone, gdy organizacja współpracuje z przedstawicielem firmy Microsoft w celu podpisania umowy klienta firmy Microsoft. Niektórzy klienci w wybranych regionach, którzy zarejestrują się za pomocą witryny internetowej Azure w celu [utworzenia konta ze stawkami płatności zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/offers/ms-azr-0003p/) lub dokonają podwyższenia poziomu swojego [bezpłatnego konta platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), mogą mieć również konto rozliczeniowe do umowy klienta firmy Microsoft. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z kontem rozliczeniowym do umowy klienta firmy Microsoft](./understand/mca-overview.md).
+- **Umowa klienta firmy Microsoft** : Konto rozliczeniowe dla umowy klienta firmy Microsoft jest tworzone, gdy organizacja współpracuje z przedstawicielem firmy Microsoft w celu podpisania umowy klienta firmy Microsoft. Niektórzy klienci w wybranych regionach, którzy zarejestrują się za pomocą witryny internetowej Azure w celu utworzenia konta ze stawkami płatności zgodnie z rzeczywistym użyciem lub dokonają podwyższenia poziomu swojego bezpłatnego konta platformy Azure, mogą mieć również konto rozliczeniowe do umowy klienta firmy Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Zakresy kont rozliczeniowych
 Zakres to węzeł w ramach konta rozliczeniowego umożliwiający wyświetlanie rozliczeń i zarządzanie nimi. Jest to miejsce, w którym zarządzasz danymi rozliczeniowymi, płatnościami i fakturami oraz przeprowadzasz ogólne czynności dotyczące zarządzania kontami.
@@ -83,7 +83,7 @@ Usługa Cost Management przedstawia koszty i wzorce użycia w organizacji za pom
 
 Witryny Azure Portal i różnych interfejsów API można używać do automatyzacji eksportu w celu zintegrowania danych kosztów z procesami i systemami zewnętrznymi. Dostępna jest również funkcja zautomatyzowanego eksportu danych rozliczeń oraz raporty zaplanowane.
 
-Obejrzyj [wideo z przeglądem usługi Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0), aby zapoznać się z krótkim omówieniem, jak usługa Azure Cost Management może pomóc w zaoszczędzeniu pieniędzy na platformie Azure. Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
+Obejrzyj wideo z przeglądem usługi Azure Cost Management, aby zapoznać się z krótkim omówieniem, jak usługa Azure Cost Management może pomóc w zaoszczędzeniu pieniędzy na platformie Azure. Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -101,18 +101,14 @@ Jeśli używasz systemów zewnętrznych do uzyskiwania dostępu do danych zarzą
 
 ### <a name="cloudyn-deprecation"></a>Wycofywanie rozwiązania Cloudyn
 
-[Cloudyn](./cloudyn/overview.md) to usługa platformy Azure powiązana z usługą Cost Management, która zostanie wycofana do końca 2020 r. Istniejące funkcje usługi Cloudyn są zintegrowane bezpośrednio z witryną Azure Portal, gdzie tylko jest to możliwe. W tej chwili nie ma żadnych nowych klientów, ale produkt będzie nadal obsługiwany do czasu całkowitego wycofania.
+Cloudyn to usługa platformy Azure powiązana z usługą Cost Management, która zostanie wycofana do końca 2020 r. Istniejące funkcje usługi Cloudyn są zintegrowane bezpośrednio z witryną Azure Portal, gdzie tylko jest to możliwe. W tej chwili nie ma żadnych nowych klientów, ale produkt będzie nadal obsługiwany do czasu całkowitego wycofania.
  
-Obejrzyj [wideo z porównaniem usług Azure Cost Management i Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM), aby dowiedzieć się więcej o przypadkach, w których należy skorzystać z usługi Azure Cost Management lub Cloudyn w zależności od potrzeb firmy. Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
- 
->[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
-
 ### <a name="additional-azure-tools"></a>Dodatkowe narzędzia platformy Azure
 
 Platforma Azure oferuje inne narzędzia, które nie są częścią zestawu funkcji Zarządzanie kosztami i rozliczenia na platformie Azure. Pełnią one jednak ważną rolę w procesie zarządzania kosztami. Aby dowiedzieć się więcej o tych narzędziach, skorzystaj z poniższych linków.
 
 - [Kalkulator cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) — to narzędzie umożliwia szacowanie początkowych kosztów chmury.
-- [Usługa Azure Migrate](/azure/cost-management-billing/migrate-services-overview) — umożliwia ocenianie bieżącego obciążenia centrum danych w celu uzyskania szczegółowych informacji o potrzebach w zakresie zastępczego rozwiązania platformy Azure.
+- [Usługa Azure Migrate](/azure/migrate/migrate-services-overview) — umożliwia ocenianie bieżącego obciążenia centrum danych w celu uzyskania szczegółowych informacji o potrzebach w zakresie zastępczego rozwiązania platformy Azure.
 - [Usługa Azure Advisor](../advisor/advisor-overview.md) — umożliwia zidentyfikowanie nieużywanych maszyn wirtualnych i zapoznanie się z rekomendacjami w zakresie zakupów wystąpień zarezerwowanych platformy Azure.
 - [Korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) — umożliwia oszczędzanie dzięki użyciu bieżących licencji systemu Windows Server lub programu SQL Server dla maszyn wirtualnych na platformie Azure.
 

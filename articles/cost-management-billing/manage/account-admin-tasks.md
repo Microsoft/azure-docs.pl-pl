@@ -7,14 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 10/26/2020
 ms.author: banders
-ms.openlocfilehash: 469ccad773693047391f56c1f1109a9c444ee90b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.custom: contentperfq2
+ms.openlocfilehash: c9f344ec6eae40db2c76f3712df6f1f9d8cead37
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447696"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668863"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Zadania administratora konta w witrynie Azure Portal
 
@@ -27,9 +28,9 @@ Aby wykonać dowolne z tych zadań, musisz być administratorem konta.
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Przechodzenie do form płatności dla subskrypcji
 
-1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) jako administrator konta.
+1. Zaloguj się w witrynie Azure Portal jako administrator konta.
 
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .
 
     ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeniami ](./media/account-admin-tasks/search-bar.png)
 
@@ -40,7 +41,7 @@ Aby wykonać dowolne z tych zadań, musisz być administratorem konta.
    > [!NOTE]
    > Jeśli niektóre subskrypcje nie są tutaj widoczne, może to oznaczać, że w pewnym momencie zmieniono katalog subskrypcji. Dla tych subskrypcji należy przełączyć katalog na katalog oryginalny (katalog, w którym początkowo utworzono konto). Następnie powtórz krok 2.
 
-1. Wybierz pozycję **Formy płatności**.
+1. Wybierz pozycję **Formy płatności** .
 
     ![Zrzut ekranu przedstawia stronę Formy płatności, na której można dodać metodę płatności.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
@@ -62,7 +63,7 @@ Aktywną formę płatności możesz zmienić, dodając nową kartę kredytową l
 
     ![Zrzut ekranu przedstawiający pole wyboru służące do ustawiania karty jako aktywnej formy płatności.](./media/account-admin-tasks/subscription-make-active-payment-method-x.png)
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz opcję **Dalej** .
 
 Aby zmienić aktywną formę płatności na kartę kredytową, która została już zapisana:
 
@@ -70,7 +71,7 @@ Aby zmienić aktywną formę płatności na kartę kredytową, która została j
 
     ![Zrzut ekranu przedstawiający zaznaczone pole obok karty kredytowej](./media/account-admin-tasks/subscription-checked-payment-method-x.png)
 
-1. Na pasku poleceń kliknij przycisk **Ustaw aktywną**.
+1. Na pasku poleceń kliknij przycisk **Ustaw aktywną** .
 
     ![Zrzut ekranu przedstawiający przycisk Ustaw aktywną](./media/account-admin-tasks/subscription-checked-payment-method-set-active.png)
 
@@ -80,7 +81,7 @@ Aby edytować szczegółowe informacje o karcie kredytowej, takie jak data wyga�
 
 ![Zrzut ekranu przedstawiający wybraną kartę kredytową](./media/account-admin-tasks/subscription-edit-payment-method-x.png)
 
-Zaktualizuj szczegółowe informacje o karcie kredytowej i kliknij przycisk **Zapisz**.
+Zaktualizuj szczegółowe informacje o karcie kredytowej i kliknij przycisk **Zapisz** .
 
 ### <a name="remove-a-credit-card-from-the-account"></a>Usuwanie karty kredytowej z konta
 
@@ -88,7 +89,7 @@ Zaktualizuj szczegółowe informacje o karcie kredytowej i kliknij przycisk **Za
 
     ![Zrzut ekranu przedstawiający zaznaczone pole obok karty kredytowej](./media/account-admin-tasks/subscription-checked-payment-method-x.png)
 
-1. Na pasku poleceń kliknij przycisk **Usuń**.
+1. Na pasku poleceń kliknij przycisk **Usuń** .
 
     ![Zrzut ekranu pokazujący przycisk Usuń](./media/account-admin-tasks/subscription-checked-payment-method-delete.png)
 
@@ -103,7 +104,7 @@ Jeśli kwalifikujesz się do płatności za pomocą faktury (czek/przelew), moż
     ![Zrzut ekranu przedstawia stronę Formy płatności z wybraną opcją Płatność przy użyciu faktury.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Wprowadź adres dla formy płatności za pomocą faktury.
-1. Kliknij przycisk **Dalej**.
+1. Kliknij przycisk **Dalej** .
 
 Jeśli chcesz uzyskać zgodę na płatności za pomocą faktury, zobacz artykuł [Dowiedz się, jak płacić za pomocą faktury](pay-by-invoice.md).
 
@@ -115,10 +116,10 @@ Aby edytować adres formy płatności za pomocą faktury, kliknij pozycję **Fak
 
 Dzięki limitowi wydatków na platformie Azure nie można wydawać więcej niż wynosi kwota środków. Możesz usunąć limit wydatków w dowolnym momencie, o ile z subskrypcją platformy Azure została skojarzona prawidłowa forma płatności. W przypadku typów subskrypcji ze środkami na wiele miesięcy, takich jak Visual Studio Enterprise i Visual Studio Professional, możesz ponownie włączyć limit wydatków na początku następnego okresu rozliczeniowego.
 
-Limit wydatków nie jest dostępny dla subskrypcji z planami zobowiązań lub z cenami po stawkach płatności zgodnie z rzeczywistym użyciem. Zobacz [pełną listę typów subskrypcji platformy Azure i dostępność limitu wydatków](https://azure.microsoft.com/support/legal/offer-details/).
+Limit wydatków nie jest dostępny dla subskrypcji z planami zobowiązań lub z cenami po stawkach płatności zgodnie z rzeczywistym użyciem.
 
-1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) jako administrator konta.
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
+1. Zaloguj się w witrynie Azure Portal jako administrator konta.
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .
 
     ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeniami ](./media/account-admin-tasks/search-bar.png)
 
@@ -137,7 +138,7 @@ Limit wydatków nie jest dostępny dla subskrypcji z planami zobowiązań lub z 
 
    ![Zrzut ekranu przedstawiający blok usuwania limitu wydatków](./media/account-admin-tasks/remove-spending-limit-blade-x.png)
 
-1. Kliknij pozycję **Wybierz formę płatności**, aby wybrać formę płatności dla subskrypcji. Stanie się ona aktywną formą płatności dla danej subskrypcji.
+1. Kliknij pozycję **Wybierz formę płatności** , aby wybrać formę płatności dla subskrypcji. Stanie się ona aktywną formą płatności dla danej subskrypcji.
 
 1. Kliknij przycisk **Finish** (Zakończ).
 
@@ -145,8 +146,8 @@ Limit wydatków nie jest dostępny dla subskrypcji z planami zobowiązań lub z 
 
 Jeśli masz subskrypcję platformy Azure w ramach programu licencjonowania Open, możesz dodać środki do subskrypcji w witrynie Azure Portal przez zrealizowanie klucza produktu lub wykupienie środków za pomocą karty kredytowej.
 
-1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) jako administrator konta.
-1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
+1. Zaloguj się w witrynie Azure Portal jako administrator konta.
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia** .
 
     ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeniami ](./media/account-admin-tasks/search-bar.png)
 
@@ -157,7 +158,7 @@ Jeśli masz subskrypcję platformy Azure w ramach programu licencjonowania Open,
    > [!NOTE]
    > Jeśli Twoja subskrypcja nie jest tutaj widoczna, może to oznaczać, że w pewnym momencie zmieniono jej katalog. Należy przełączyć katalog subskrypcji na katalog oryginalny (katalog, w którym początkowo utworzono konto). Następnie powtórz krok 2.
 
-1. Wybierz pozycję **Historia środków**.
+1. Wybierz pozycję **Historia środków** .
 
     ![Zrzut ekranu przedstawiający historię środków](./media/account-admin-tasks/aio-credit-history-blade.png)
 
@@ -174,7 +175,7 @@ Jeśli masz subskrypcję platformy Azure w ramach programu licencjonowania Open,
     - Kliknij pozycję **Sprawdź poprawność**
 
 1. W przypadku użycia karty kredytowej:
-    - Kliknij pozycję **Wybierz formę płatności**, aby dodać kartę kredytową lub wybrać już istniejącą.
+    - Kliknij pozycję **Wybierz formę płatności** , aby dodać kartę kredytową lub wybrać już istniejącą.
     - Określ ilość środków, które chcesz dodać.
 
 1. Kliknij przycisk **Zastosuj**
