@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 99eea73add47b6498833de7bfd7728feb4c5c4ab
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516209"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671573"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiuj spójnie transakcyjną kopię bazy danych w Azure SQL Database
 
@@ -43,7 +43,7 @@ Jeśli do uzyskiwania dostępu do danych i kopiowania bazy danych na inny serwer
 
 ## <a name="copy-using-the-azure-portal"></a>Kopiowanie za pomocą witryny Azure Portal
 
-Aby skopiować bazę danych przy użyciu Azure Portal, Otwórz stronę dla bazy danych, a następnie kliknij przycisk **Kopiuj**.
+Aby skopiować bazę danych przy użyciu Azure Portal, Otwórz stronę dla bazy danych, a następnie kliknij przycisk **Kopiuj** .
 
    ![Kopia bazy danych](./media/database-copy/database-copy.png)
 
@@ -51,7 +51,7 @@ Aby skopiować bazę danych przy użyciu Azure Portal, Otwórz stronę dla bazy 
 
 Aby skopiować bazę danych, należy użyć następujących przykładów.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 W przypadku programu PowerShell należy użyć polecenia cmdlet [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) .
 
@@ -82,7 +82,7 @@ Kopia bazy danych jest operacją asynchroniczną, ale docelowa baza danych jest 
 
 Zaloguj się do bazy danych Master przy użyciu identyfikatora logowania administratora serwera lub nazwy logowania, która utworzyła bazę danych, którą chcesz skopiować. Aby Kopiowanie bazy danych zakończyło się pomyślnie, logowania, które nie są administratora serwera, muszą należeć do `dbmanager` roli. Aby uzyskać więcej informacji na temat nazw logowania i łączenia się z serwerem, zobacz Zarządzanie nazwami [logowania](logins-create-manage.md).
 
-Rozpocznij kopiowanie źródłowej bazy danych za pomocą programu [CREATE DATABASE... JAKO kopia](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) instrukcji. Instrukcja T-SQL kontynuuje działanie do momentu ukończenia operacji kopiowania bazy danych.
+Rozpocznij kopiowanie źródłowej bazy danych za pomocą programu [CREATE DATABASE... JAKO kopia](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) instrukcji. Instrukcja T-SQL kontynuuje działanie do momentu ukończenia operacji kopiowania bazy danych.
 
 > [!NOTE]
 > Zakończenie instrukcji języka T-SQL nie kończy operacji kopiowania bazy danych. Aby zakończyć operację, Porzuć docelową bazę danych.
@@ -143,13 +143,13 @@ Aby skopiować bazę danych na serwer w innej subskrypcji przy użyciu języka T
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitoruj postęp operacji kopiowania
 
-Monitoruj proces kopiowania, wykonując zapytania dotyczące widoków [sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)i [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Podczas kopiowania jest w toku, kolumna **state_desc** widoku sys. databases dla nowej bazy danych jest ustawiona do **kopiowania**.
+Monitoruj proces kopiowania, wykonując zapytania dotyczące widoków [sys. databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)i [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Podczas kopiowania jest w toku, kolumna **state_desc** widoku sys. databases dla nowej bazy danych jest ustawiona do **kopiowania** .
 
-* Jeśli kopiowanie nie powiedzie się, kolumna **state_desc** widoku sys. databases dla nowej bazy danych jest ustawiona na **podejrzane**. Wykonaj instrukcję DROP w nowej bazie danych i spróbuj ponownie później.
-* Jeśli kopiowanie powiedzie się, kolumna **state_desc** widoku sys. databases dla nowej bazy danych jest ustawiona na **online**. Kopiowanie zostało ukończone, a nowa baza danych jest zwykłą bazą danych, która może zostać zmieniona niezależnie od źródłowej bazy danych.
+* Jeśli kopiowanie nie powiedzie się, kolumna **state_desc** widoku sys. databases dla nowej bazy danych jest ustawiona na **podejrzane** . Wykonaj instrukcję DROP w nowej bazie danych i spróbuj ponownie później.
+* Jeśli kopiowanie powiedzie się, kolumna **state_desc** widoku sys. databases dla nowej bazy danych jest ustawiona na **online** . Kopiowanie zostało ukończone, a nowa baza danych jest zwykłą bazą danych, która może zostać zmieniona niezależnie od źródłowej bazy danych.
 
 > [!NOTE]
-> Jeśli zdecydujesz się anulować kopiowanie w trakcie wykonywania, wykonaj instrukcję [Drop Database](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql) w nowej bazie danych.
+> Jeśli zdecydujesz się anulować kopiowanie w trakcie wykonywania, wykonaj instrukcję [Drop Database](/sql/t-sql/statements/drop-database-transact-sql) w nowej bazie danych.
 
 > [!IMPORTANT]
 > Jeśli trzeba utworzyć kopię z znacznie mniejszym celem usługi niż źródło, docelowa baza danych może nie mieć wystarczających zasobów do ukończenia procesu tworzenia i może spowodować niepowodzenie operacji kopiowania. W tym scenariuszu Użyj żądania przywracania geograficznego, aby utworzyć kopię na innym serwerze i/lub innym regionie. Aby uzyskać więcej informacji [, zobacz odzyskiwanie Azure SQL Database przy użyciu kopii zapasowych bazy danych](recovery-using-backups.md#geo-restore) .
@@ -182,7 +182,7 @@ Jeśli chcesz zobaczyć operacje w obszarze wdrożenia w grupie zasobów portalu
 
 ## <a name="resolve-logins"></a>Rozwiązywanie logowań
 
-Gdy nowa baza danych jest w trybie online na serwerze docelowym, użyj instrukcji [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) , aby ponownie zamapować użytkowników z nowej bazy danych na nazwy logowania na serwerze docelowym. Aby rozwiązać użytkowników oddzielonych, zobacz [Rozwiązywanie problemów z użytkownikami](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server)oddzielonymi. Zobacz również [jak zarządzać zabezpieczeniami Azure SQL Database po odzyskaniu po awarii](active-geo-replication-security-configure.md).
+Gdy nowa baza danych jest w trybie online na serwerze docelowym, użyj instrukcji [ALTER USER](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) , aby ponownie zamapować użytkowników z nowej bazy danych na nazwy logowania na serwerze docelowym. Aby rozwiązać użytkowników oddzielonych, zobacz [Rozwiązywanie problemów z użytkownikami](/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server)oddzielonymi. Zobacz również [jak zarządzać zabezpieczeniami Azure SQL Database po odzyskaniu po awarii](active-geo-replication-security-configure.md).
 
 Wszyscy użytkownicy w nowej bazie danych zachowują uprawnienia, które miały w źródłowej bazie danych. Użytkownik, który zainicjował kopię bazy danych, zostaje właścicielem bazy danych nowej bazy danych. Po pomyślnym zakończeniu kopiowania i wcześniejszym zamapowaniu użytkowników tylko właściciel bazy danych może zalogować się do nowej bazy danych.
 

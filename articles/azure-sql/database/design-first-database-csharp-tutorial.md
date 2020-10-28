@@ -10,12 +10,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 07/29/2019
-ms.openlocfilehash: fe4bcb10db33c6f68abeb779e668726fc1a59345
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b3235f457f1c6475c18045886c49d3dd2ca2242
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360246"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671172"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Samouczek: projektowanie relacyjnej bazy danych w Azure SQL Database C&#x23; i ADO.NET
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Usługa Azure SQL Database to relacyjna baza danych oferowana jako usługa (DBaa
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 > [!TIP]
-> Poniższy moduł Microsoft Learn umożliwia zapoznanie się z bezpłatnymi sposobami tworzenia [i konfigurowania aplikacji ASP.NET, która wysyła zapytanie do Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), w tym tworzenia prostej bazy danych.
+> Poniższy moduł Microsoft Learn umożliwia zapoznanie się z bezpłatnymi sposobami tworzenia [i konfigurowania aplikacji ASP.NET, która wysyła zapytanie do Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/), w tym tworzenia prostej bazy danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -47,7 +47,7 @@ Baza danych w Azure SQL Database jest tworzona ze zdefiniowanym zestawem zasobó
 Wykonaj następujące kroki, aby utworzyć pustą bazę danych.
 
 1. Kliknij pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal.
-2. Na stronie **Nowy** wybierz pozycję **Bazy danych** w sekcji Azure Marketplace, a następnie kliknij pozycję **Baza danych SQL** w sekcji **Polecane**.
+2. Na stronie **Nowy** wybierz pozycję **Bazy danych** w sekcji Azure Marketplace, a następnie kliknij pozycję **Baza danych SQL** w sekcji **Polecane** .
 
    ![tworzenie pustej bazy danych](./media/design-first-database-csharp-tutorial/create-empty-database.png)
 
@@ -71,16 +71,16 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych.
 
     ![tworzenie serwera bazy danych](./media/design-first-database-csharp-tutorial/create-database-server.png)
 
-5. Kliknij pozycję **Wybierz**.
-6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi, liczbę jednostek DTU lub rdzeni wirtualnych i ilość miejsca do magazynowania. Możesz przejrzeć opcje liczby jednostek DTU/rdzeni wirtualnych i miejsca do magazynowania dostępne dla poszczególnych warstw usług.
+5. Kliknij pozycję **Wybierz** .
+6. Kliknij pozycję **Warstwa cenowa** , aby określić warstwę usługi, liczbę jednostek DTU lub rdzeni wirtualnych i ilość miejsca do magazynowania. Możesz przejrzeć opcje liczby jednostek DTU/rdzeni wirtualnych i miejsca do magazynowania dostępne dla poszczególnych warstw usług.
 
-    Po wybraniu warstwy usługi, liczby jednostek DTU lub rdzeni wirtualnych i ilości miejsca do magazynowania kliknij pozycję **Zastosuj**.
+    Po wybraniu warstwy usługi, liczby jednostek DTU lub rdzeni wirtualnych i ilości miejsca do magazynowania kliknij pozycję **Zastosuj** .
 
 7. Wprowadź **sortowanie** dla pustej bazy danych (na potrzeby tego samouczka użyj wartości domyślnej). Aby uzyskać więcej informacji na temat sortowań, zobacz [Sortowania](/sql/t-sql/statements/collations)
 
-8. Teraz, po uzupełnieniu formularza usługi **SQL Database**, kliknij przycisk **Utwórz**, aby aprowizować bazę danych. Może to potrwać kilka minut.
+8. Teraz, po uzupełnieniu formularza usługi **SQL Database** , kliknij przycisk **Utwórz** , aby aprowizować bazę danych. Może to potrwać kilka minut.
 
-9. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
+9. Na pasku narzędzi kliknij pozycję **Powiadomienia** , aby monitorować proces wdrażania.
 
    ![Zrzut ekranu przedstawia powiadomienia w Azure Portal z wdrożeniem w toku.](./media/design-first-database-csharp-tutorial/notification.png)
 
@@ -91,7 +91,7 @@ SQL Database tworzy zaporę IP na poziomie serwera. Ta zapora uniemożliwia zewn
 > [!IMPORTANT]
 > Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz nawiązać połączenie z tą usługą z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z bazą danych, chyba że administrator otworzy port 1433.
 
-1. Po zakończeniu wdrażania kliknij pozycję **bazy danych SQL** w menu po lewej stronie, a następnie kliknij pozycję *yourDatabase* na stronach **bazy danych SQL** . Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną **nazwę serwera** (na przykład *yourserver.database.windows.net*) i opcje dalszej konfiguracji.
+1. Po zakończeniu wdrażania kliknij pozycję **bazy danych SQL** w menu po lewej stronie, a następnie kliknij pozycję *yourDatabase* na stronach **bazy danych SQL** . Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną **nazwę serwera** (na przykład *yourserver.database.windows.net* ) i opcje dalszej konfiguracji.
 
 2. Skopiuj tę w pełni kwalifikowaną nazwę serwera w celu nawiązania połączenia z serwerem i bazami danych w programie SQL Server Management Studio.
 
@@ -103,9 +103,9 @@ SQL Database tworzy zaporę IP na poziomie serwera. Ta zapora uniemożliwia zewn
 
 4. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory bazującej na adresach IP. Reguła zapory bazująca na adresach IP może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
 
-5. Kliknij przycisk **Zapisz**. Reguła zapory adresów IP na poziomie serwera jest tworzona dla bieżącego adresu IP otwierającego port 1433 na serwerze.
+5. Kliknij pozycję **Zapisz** . Reguła zapory adresów IP na poziomie serwera jest tworzona dla bieżącego adresu IP otwierającego port 1433 na serwerze.
 
-6. Kliknij przycisk **OK**, a następnie zamknij stronę **Ustawienia zapory**.
+6. Kliknij przycisk **OK** , a następnie zamknij stronę **Ustawienia zapory** .
 
 Adres IP może teraz być przekazywany przez zaporę IP. Teraz możesz nawiązać połączenie z bazą danych przy użyciu SQL Server Management Studio lub innego wybranego narzędzia. Używaj wcześniej utworzonego konta administratora serwera.
 

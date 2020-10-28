@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: cd08b02cb3b67ce615ffa1003ee1e4441a281c17
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 9203cebbd721b918f2514f7615712c035a0460ed
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92285140"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669758"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Używanie akcji usługi GitHub do nawiązywania połączenia z usługą Azure SQL Database
 
@@ -26,7 +26,7 @@ Potrzebne elementy:
 - Repozytorium GitHub z pakietem dacpac ( `Database.dacpac` ). Jeśli nie masz konta usługi GitHub, [zarejestruj się bezpłatnie](https://github.com/join).  
 - Azure SQL Database.
     - [Szybki Start: Tworzenie Azure SQL Database pojedynczej bazy danych](single-database-create-quickstart.md)
-    - [Jak utworzyć pakiet DACPAC z istniejącej bazy danych SQL Server](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+    - [Jak utworzyć pakiet DACPAC z istniejącej bazy danych SQL Server](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 
 ## <a name="workflow-file-overview"></a>Omówienie pliku przepływu pracy
 
@@ -68,7 +68,7 @@ Dane wyjściowe są obiektem JSON z poświadczeniami przypisania roli, które za
 
 ## <a name="copy-the-sql-connection-string"></a>Kopiuj parametry połączenia SQL 
 
-W Azure Portal przejdź do Azure SQL Database i Otwórz **Ustawienia**  >  **Parametry połączenia**. Skopiuj parametry połączenia **ADO.NET**. Zastąp wartości symboli zastępczych dla `your_database` i `your_password` . Parametry połączenia będą wyglądać podobnie do tych danych wyjściowych. 
+W Azure Portal przejdź do Azure SQL Database i Otwórz **Ustawienia**  >  **Parametry połączenia** . Skopiuj parametry połączenia **ADO.NET** . Zastąp wartości symboli zastępczych dla `your_database` i `your_password` . Parametry połączenia będą wyglądać podobnie do tych danych wyjściowych. 
 
 ```output
     Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog={your-database};Persist Security Info=False;User ID={admin-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -80,7 +80,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
 1. W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium.
 
-1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło**.
+1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło** .
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
@@ -101,7 +101,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
 1. Przejdź do **akcji** dla repozytorium GitHub. 
 
-2. Wybierz **samodzielnie Skonfiguruj swój przepływ pracy**. 
+2. Wybierz **samodzielnie Skonfiguruj swój przepływ pracy** . 
 
 2. Usuń wszystko po `on:` sekcji pliku przepływu pracy. Na przykład pozostały przepływ pracy może wyglądać następująco. 
 
@@ -194,4 +194,4 @@ Gdy usługa Azure SQL Database i repozytorium nie są już potrzebne, Oczyść w
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o integracji z platformą Azure i usługą GitHub](https://docs.microsoft.com/azure/developer/github/)
+> [Dowiedz się więcej o integracji z platformą Azure i usługą GitHub](/azure/developer/github/)

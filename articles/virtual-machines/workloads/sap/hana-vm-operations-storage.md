@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9194b461cdceab889e1dfd20e3e70f3f69cb4369
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0861d1fd3ab2a378f0b9afc4e8b35b32badfc3db
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978258"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670674"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
@@ -44,9 +44,9 @@ Minimalny SAP HANA warunki certyfikowania dla różnych typów magazynu to:
 
 - Usługa Azure Premium Storage — **/Hana/log** jest wymagana do obsługi przez usługę Azure [Akcelerator zapisu](../../how-to-enable-write-accelerator.md). Wolumin **/Hana/Data** może być umieszczony w magazynie w warstwie Premium bez systemu Azure akcelerator zapisu lub na dysku Ultra Disk
 - Platforma Azure Ultra Disk co najmniej dla woluminu **/Hana/log** . Wolumin **/Hana/Data** można umieścić w usłudze Premium Storage bez systemu Azure akcelerator zapisu lub w celu szybszego ponownego uruchomienia komputera
-- Woluminy **NFS v 4.1** na Azure NetApp Files dla **/Hana/log i/Hana/Data**. Wolumin/Hana/Shared może korzystać z protokołu NFS v3 lub NFS v 4.1
+- Woluminy **NFS v 4.1** na Azure NetApp Files dla **/Hana/log i/Hana/Data** . Wolumin/Hana/Shared może korzystać z protokołu NFS v3 lub NFS v 4.1
 
-Niektóre typy magazynów można łączyć. Na przykład można umieścić **/Hana/Data** w usłudze Premium Storage, a **/Hana/log** może zostać umieszczony w magazynie Ultra Disk w celu uzyskania wymaganego niskiego opóźnienia. Jeśli używasz woluminu opartego na ANF dla **/Hana/Data**, wolumin  **/Hana/log** musi być oparty na systemie plików NFS również na ANF. Korzystanie z systemu plików NFS na ANF dla jednego z woluminów (na przykład/Hana/Data) i usługi Azure Premium Storage lub Ultra Disk dla innego woluminu (na przykład **/Hana/log**) **nie jest obsługiwane**.
+Niektóre typy magazynów można łączyć. Na przykład można umieścić **/Hana/Data** w usłudze Premium Storage, a **/Hana/log** może zostać umieszczony w magazynie Ultra Disk w celu uzyskania wymaganego niskiego opóźnienia. Jeśli używasz woluminu opartego na ANF dla **/Hana/Data** , wolumin  **/Hana/log** musi być oparty na systemie plików NFS również na ANF. Korzystanie z systemu plików NFS na ANF dla jednego z woluminów (na przykład/Hana/Data) i usługi Azure Premium Storage lub Ultra Disk dla innego woluminu (na przykład **/Hana/log** ) **nie jest obsługiwane** .
 
 W lokalnym świecie rzadko trzeba zadbać o podsystemy we/wy i możliwości. Przyczyną jest to, że dostawca urządzenia jest wymagany do upewnienia się, że minimalne wymagania dotyczące magazynu są spełnione dla SAP HANA. Podczas tworzenia infrastruktury platformy Azure należy pamiętać o niektórych wymaganiach wystawionych przez SAP. Niektóre z minimalnych cech przepływności zalecane przez SAP to:
 
@@ -93,7 +93,7 @@ Zalecenia dotyczące buforowania dla dysków z systemem Azure Premium są zakła
 - **Dysk systemu operacyjnego** — nie zmieniaj domyślnego buforowania ustawionego przez platformę Azure podczas tworzenia maszyny wirtualnej
 
 
-Jeśli używasz LVM lub mdadm do tworzenia zestawów rozłożonych na kilku dyskach w warstwie Premium platformy Azure, musisz zdefiniować rozmiary rozłożenia. Rozmiary te różnią się między **/Hana/Data** i **/Hana/log**. **Zalecenie: jako rozmiary rozłożone zaleca się użycie:**
+Jeśli używasz LVM lub mdadm do tworzenia zestawów rozłożonych na kilku dyskach w warstwie Premium platformy Azure, musisz zdefiniować rozmiary rozłożenia. Rozmiary te różnią się między **/Hana/Data** i **/Hana/log** . **Zalecenie: jako rozmiary rozłożone zaleca się użycie:**
 
 - 256 KB dla **/Hana/Data**
 - 64 KB dla **/Hana/log**
@@ -143,36 +143,36 @@ Szczególnie w przypadku mniejszych systemów DBMS, w których obciążenie obs�
 
 Konfiguracja woluminu SAP **/Hana/Data** :
 
-| Jednostka SKU maszyny wirtualnej | Pamięć RAM | Maksymalnie z WE/WY MASZYNY WIRTUALNEJ<br /> Przepływność | /hana/data | Maksymalna przepływność serii | Liczba operacji we/wy na sekundę | Operacje we/wy na sekundę |
+| Jednostka SKU maszyny wirtualnej | Pamięć RAM | Maksymalnie z WE/WY MASZYNY WIRTUALNEJ<br /> Przepływność | /hana/data | Aprowizowana przepływność | Maksymalna przepływność serii | Liczba operacji we/wy na sekundę | Operacje we/wy na sekundę |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 MB/s | 4 x P6 | 680 MB/s | 960 | 14 000 |
-| M32ls | 256 GiB | 500 MB/s | 4 x P6 | 680 MB/s | 960 | 14 000 |
-| M64ls | 512 GiB | 1 000 MB/s | 4 x P10 |  680 MB/s | 2000 | 14 000 |
-| M64s | 1 000 GiB | 1 000 MB/s | 4 x P15 | 680 MB/s | 4 400 | 14 000 |
-| M64ms | 1 750 GiB | 1 000 MB/s | 4 x P20 | 680 MB/s | 9 200 | 14 000 |  
-| M128s | 2 000 GiB | 2 000 MB/s | 4 x P20 | 680 MB/s | 9 200| 14 000 | 
-| M128ms | 3 800 GiB | 2 000 MB/s | 4 x P30 | 800 MB/s (z obsługą administracyjną) | 20 000 | Brak serii | 
-| M208s_v2 | 2 850 GiB | 1 000 MB/s | 4 x P30 | 800 MB/s (z obsługą administracyjną) | 20 000| Brak serii | 
-| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 4 x P40 | 1 000 MB/s (z obsługą administracyjną) | 25 000 | Brak serii |
-| M416s_v2 | 5 700 GiB | 2 000 MB/s | 4 x P40 | 1 000 MB/s (z obsługą administracyjną) | 25 000 | Brak serii |
-| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 4 x P50 | 2 000 MB/s (z obsługą administracyjną) | 25 000 | Brak serii |
+| M32ts | 192 GiB | 500 MB/s | 4 x P6 | 200 MB/s | 680 MB/s | 960 | 14 000 |
+| M32ls | 256 GiB | 500 MB/s | 4 x P6 | 200 MB/s | 680 MB/s | 960 | 14 000 |
+| M64ls | 512 GiB | 1 000 MB/s | 4 x P10 | 400 MB/s | 680 MB/s | 2000 | 14 000 |
+| M64s | 1 000 GiB | 1 000 MB/s | 4 x P15 | 500 MB/s | 680 MB/s | 4 400 | 14 000 |
+| M64ms | 1 750 GiB | 1 000 MB/s | 4 x P20 | 600 MB/s | 680 MB/s | 9 200 | 14 000 |  
+| M128s | 2 000 GiB | 2 000 MB/s | 4 x P20 | 600 MB/s | 680 MB/s | 9 200| 14 000 | 
+| M128ms | 3 800 GiB | 2 000 MB/s | 4 x P30 | 800 MB/s | bez rozerwania | 20 000 | bez rozerwania | 
+| M208s_v2 | 2 850 GiB | 1 000 MB/s | 4 x P30 | 800 MB/s | bez rozerwania | 20 000| bez rozerwania | 
+| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 4 x P40 | 1 000 MB/s | bez rozerwania | 30 000 | bez rozerwania |
+| M416s_v2 | 5 700 GiB | 2 000 MB/s | 4 x P40 | 1 000 MB/s | bez rozerwania | 30 000 | bez rozerwania |
+| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 4 x P50 | 2 000 MB/s | bez rozerwania | 30 000 | bez rozerwania |
 
 
 Dla woluminu **/Hana/log** . Konfiguracja będzie wyglądać następująco:
 
-| Jednostka SKU maszyny wirtualnej | Pamięć RAM | Maksymalnie z WE/WY MASZYNY WIRTUALNEJ<br /> Przepływność | wolumin **/Hana/log** | Maksymalna przepływność serii | Liczba operacji we/wy na sekundę | Operacje we/wy na sekundę |
+| Jednostka SKU maszyny wirtualnej | Pamięć RAM | Maksymalnie z WE/WY MASZYNY WIRTUALNEJ<br /> Przepływność | wolumin **/Hana/log** | Aprowizowana przepływność | Maksymalna przepływność serii | Liczba operacji we/wy na sekundę | Operacje we/wy na sekundę |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 MB/s | 3 x P10 | 510 MB/s | 1500 | 10 500 | 
-| M32ls | 256 GiB | 500 MB/s | 3 x P10 | 510 MB/s | 1500 | 10 500 | 
-| M64ls | 512 GiB | 1 000 MB/s | 3 x P10 | 510 MB/s | 1500 | 10 500 | 
-| M64s | 1 000 GiB | 1 000 MB/s | 3 x P15 | 510 MB/s | 3 300 | 10 500 | 
-| M64ms | 1 750 GiB | 1 000 MB/s | 3 x P15 | 510 MB/s | 3 300 | 10 500 |  
-| M128s | 2 000 GiB | 2 000 MB/s | 3 x P15 | 510 MB/s | 3 300 | 10 500|  
-| M128ms | 3 800 GiB | 2 000 MB/s | 3 x P15 | 510 MB/s | 3 300 | 10 500 | 
-| M208s_v2 | 2 850 GiB | 1 000 MB/s | 3 x P15 | 510 MB/s | 3 300 | 10 500 |  
-| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 3 x P15 | 510 MB/s | 3 300 | 10 500 |  
-| M416s_v2 | 5 700 GiB | 2 000 MB/s | 3 x P15 | 510 MB/s | 3 300 | 10 500 |  
-| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 3 x P15 | 510 MB/s | 3 300 | 10 500 | 
+| M32ts | 192 GiB | 500 MB/s | 3 x P10 | 300 MB/s | 510 MB/s | 1500 | 10 500 | 
+| M32ls | 256 GiB | 500 MB/s | 3 x P10 | 300 MB/s | 510 MB/s | 1500 | 10 500 | 
+| M64ls | 512 GiB | 1 000 MB/s | 3 x P10 | 300 MB/s | 510 MB/s | 1500 | 10 500 | 
+| M64s | 1 000 GiB | 1 000 MB/s | 3 x P15 | 375 MB/s | 510 MB/s | 3 300 | 10 500 | 
+| M64ms | 1 750 GiB | 1 000 MB/s | 3 x P15 | 375 MB/s | 510 MB/s | 3 300 | 10 500 |  
+| M128s | 2 000 GiB | 2 000 MB/s | 3 x P15 | 375 MB/s | 510 MB/s | 3 300 | 10 500|  
+| M128ms | 3 800 GiB | 2 000 MB/s | 3 x P15 | 375 MB/s | 510 MB/s | 3 300 | 10 500 | 
+| M208s_v2 | 2 850 GiB | 1 000 MB/s | 3 x P15 | 375 MB/s | 510 MB/s | 3 300 | 10 500 |  
+| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 3 x P15 | 375 MB/s | 510 MB/s | 3 300 | 10 500 |  
+| M416s_v2 | 5 700 GiB | 2 000 MB/s | 3 x P15 | 375 MB/s | 510 MB/s | 3 300 | 10 500 |  
+| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 3 x P15 | 375 MB/s | 510 MB/s | 3 300 | 10 500 | 
 
 
 W przypadku innych woluminów konfiguracja będzie wyglądać następująco:
@@ -192,19 +192,19 @@ W przypadku innych woluminów konfiguracja będzie wyglądać następująco:
 | M416ms_v2 | 11 400 GiB | 2 000 MB/s | 1 x P30 | 1 x P10 | 1 x P6 | 
 
 
-Sprawdź, czy przepływność magazynu dla różnych sugerowanych woluminów spełnia obciążenie, które chcesz uruchomić. Jeśli obciążenie wymaga wyższych woluminów dla **/Hana/Data** i **/Hana/log**, należy zwiększyć liczbę wirtualnych dysków twardych usługi Azure Premium Storage. Ustalanie wielkości woluminu o większej liczbie dysków VHD nie powoduje zwiększenia przepływności operacji we/wy w ramach limitów typu maszyny wirtualnej platformy Azure.
+Sprawdź, czy przepływność magazynu dla różnych sugerowanych woluminów spełnia obciążenie, które chcesz uruchomić. Jeśli obciążenie wymaga wyższych woluminów dla **/Hana/Data** i **/Hana/log** , należy zwiększyć liczbę wirtualnych dysków twardych usługi Azure Premium Storage. Ustalanie wielkości woluminu o większej liczbie dysków VHD nie powoduje zwiększenia przepływności operacji we/wy w ramach limitów typu maszyny wirtualnej platformy Azure.
 
 Usługa Azure akcelerator zapisu działa tylko w połączeniu z usługą [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Dlatego co najmniej dyski usługi Azure Premium Storage tworzące wolumin **/Hana/log** muszą zostać wdrożone jako dyski zarządzane. Więcej szczegółowych instrukcji i ograniczeń dotyczących usługi Azure akcelerator zapisu można znaleźć w artykule [Akcelerator zapisu](../../how-to-enable-write-accelerator.md).
 
 Dla certyfikowanych maszyn wirtualnych platformy Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) Family i [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series)należy ANF dla woluminu **/Hana/Data** i **/Hana/log** . Lub musisz użyć usługi Azure Ultra Disk Storage zamiast magazynu Azure Premium Storage tylko dla woluminu **/Hana/log** . W związku z tym konfiguracje woluminu **/Hana/Data** w usłudze Azure Premium Storage mogą wyglądać następująco:
 
-| Jednostka SKU maszyny wirtualnej | Pamięć RAM | Maksymalnie z WE/WY MASZYNY WIRTUALNEJ<br /> Przepływność | /hana/data | Maksymalna przepływność serii | Liczba operacji we/wy na sekundę | Operacje we/wy na sekundę |
+| Jednostka SKU maszyny wirtualnej | Pamięć RAM | Maksymalnie z WE/WY MASZYNY WIRTUALNEJ<br /> Przepływność | /hana/data | Aprowizowana przepływność | Maksymalna przepływność serii | Liczba operacji we/wy na sekundę | Operacje we/wy na sekundę |
 | --- | --- | --- | --- | --- | --- | --- |
-| E20ds_v4 | 160 GiB | 480 MB/s | 3 x P10 | 510 MB/s | 1500 | 10 500 |
-| E32ds_v4 | 256 GiB | 768 MB/s | 3 x P10 |  510 MB/s | 1500 | 10 500|
-| E48ds_v4 | 384 GiB | 1 152 Mb/s | 3 x P15 |  510 MB/s | 3 300  | 10 500 | 
-| E64ds_v4 | 504 GiB | 1 200 MB/s | 3 x P15 |  510 MB/s | 3 300 | 10 500 | 
-| E64s_v3 | 432 GiB | 1 200 MB/s | 3 x P15 |  510 MB/s | 3 300 | 10 500 | 
+| E20ds_v4 | 160 GiB | 480 MB/s | 3 x P10 | 300 MB/s | 510 MB/s | 1500 | 10 500 |
+| E32ds_v4 | 256 GiB | 768 MB/s | 3 x P10 |  300 MB/s | 510 MB/s | 1500 | 10 500|
+| E48ds_v4 | 384 GiB | 1 152 Mb/s | 3 x P15 |  375 MB/s |510 MB/s | 3 300  | 10 500 | 
+| E64ds_v4 | 504 GiB | 1 200 MB/s | 3 x P15 |  375 MB/s | 510 MB/s | 3 300 | 10 500 | 
+| E64s_v3 | 432 GiB | 1 200 MB/s | 3 x P15 |  375 MB/s | 510 MB/s | 3 300 | 10 500 | 
 
 W przypadku innych woluminów, w tym **/Hana/log** na obudowie Ultra Disk, konfiguracja może wyglądać następująco:
 

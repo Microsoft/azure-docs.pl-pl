@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 871a764c549de75d5a9e1449ba2e0737d38a4094
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69541ec652188bc3826b7829fbc5c182193d6ba9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83799942"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670934"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Używanie inteligentnych wersji routingu i oprogramowania Kanaryjskie z Istio w usłudze Azure Kubernetes Service (AKS)
 
@@ -39,7 +39,7 @@ Jeśli potrzebujesz pomocy dotyczącej któregokolwiek z tych elementów, zobacz
 
 ## <a name="about-this-application-scenario"></a>Informacje o tym scenariuszu aplikacji
 
-Przykładowa aplikacja do głosowania AKS udostępnia dwie opcje głosowania (**koty** lub **psy**) dla użytkowników. Istnieje składnik magazynu, który zachowuje liczbę głosów dla każdej opcji. Ponadto istnieje składnik analityczny, który zawiera szczegółowe informacje na temat rzutowania głosów dla każdej opcji.
+Przykładowa aplikacja do głosowania AKS udostępnia dwie opcje głosowania ( **koty** lub **psy** ) dla użytkowników. Istnieje składnik magazynu, który zachowuje liczbę głosów dla każdej opcji. Ponadto istnieje składnik analityczny, który zawiera szczegółowe informacje na temat rzutowania głosów dla każdej opcji.
 
 W tym scenariuszu aplikacji Zacznij od wdrożenia wersji `1.0` aplikacji do głosowania i wersji `1.0` składnika analitycznego. Składnik analizy oferuje proste liczniki liczby głosów. Aplikacja do głosowania i składnik analizy współdziałają z wersją `1.0` składnika magazynu, która jest obsługiwana przez Redis.
 
@@ -53,7 +53,7 @@ Po upewnieniu się, że wersja `2.0` działa zgodnie z oczekiwaniami w podzbiorz
 
 Zacznijmy od wdrożenia aplikacji do klastra usługi Azure Kubernetes Service (AKS). Na poniższym diagramie przedstawiono działania wykonywane na końcu tej sekcji — wersja `1.0` wszystkich składników z żądaniami przychodzącymi, które są realizowane za pośrednictwem bramy Istioal:
 
-![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-01.png)
+![Diagram przedstawiający wersję 1,0 wszystkich składników z żądaniami przychodzącymi, które są serwisowane za pośrednictwem bramy Istio.](media/servicemesh/istio/scenario-routing-components-01.png)
 
 Artefakty, które należy wykonać wraz z tym artykułem, są dostępne w repozytorium [Azure-Samples/AKS-głosujących aplikacji][github-azure-sample] . Możesz pobrać artefakty lub sklonować repozytorium w następujący sposób:
 
@@ -180,7 +180,7 @@ Wdróżmy nową wersję składnika analizy. W tej nowej wersji `1.1` są wyświe
 
 Na poniższym diagramie przedstawiono, co będzie działać na końcu tej sekcji `1.1` . wersja naszego `voting-analytics` składnika zawiera ruch kierowany ze `voting-app` składnika. Mimo że wersja `1.0` naszego `voting-analytics` składnika nadal jest uruchomiona i odwołuje się do niej `voting-analytics` Usługa, serwery proxy Istio nie zezwalają na ruch do i z niego.
 
-![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-02.png)
+![Diagram przedstawiający tylko wersję 1,1 składnika do głosowania-Analytics ma ruch kierowany z składnika głosu-App.](media/servicemesh/istio/scenario-routing-components-02.png)
 
 Wdróżmy wersję `1.1` `voting-analytics` składnika. Utwórz ten składnik w `voting` przestrzeni nazw:
 
@@ -361,7 +361,7 @@ Na poniższym diagramie przedstawiono działanie, które zostanie uruchomione na
 * Wersja składnika `2.0` `voting-app` , wersja `2.0` `voting-analytics` składnika i wersja składnika, `2.0` `voting-storage` są w stanie komunikować się ze sobą.
 * Wersja `2.0` `voting-app` składnika jest dostępna tylko dla użytkowników, którzy mają określoną flagę funkcji. Ta zmiana jest zarządzana przy użyciu flagi funkcji za pośrednictwem pliku cookie.
 
-![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-03.png)
+![Diagram pokazujący, co zostało uruchomione na końcu tej sekcji.](media/servicemesh/istio/scenario-routing-components-03.png)
 
 Najpierw należy zaktualizować reguły docelowe Istio i usługi wirtualne, aby były one przeznaczone dla nowych składników. Te aktualizacje gwarantują, że nie są nieprawidłowo kierowane ruch do nowych składników, a użytkownicy nie otrzymują nieoczekiwanego dostępu:
 
@@ -415,7 +415,7 @@ Liczby głosu są różne w zależności od wersji aplikacji. Ta różnica oznac
 
 Po pomyślnym przetestowaniu wersji programu kanaryjskiej zaktualizuj `voting-app` usługę wirtualną, aby kierować cały ruch do wersji `2.0` `voting-app` składnika. Wszyscy użytkownicy zobaczą wersję `2.0` aplikacji, niezależnie od tego, czy flaga funkcji jest ustawiona, czy nie:
 
-![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-04.png)
+![Diagram pokazujący, że użytkownicy widzą wersję 2,0 aplikacji, niezależnie od tego, czy flaga funkcji jest ustawiona, czy nie.](media/servicemesh/istio/scenario-routing-components-04.png)
 
 Zaktualizuj wszystkie reguły docelowe, aby usunąć wersje składników, które nie powinny już być aktywne. Następnie zaktualizuj wszystkie usługi wirtualne, aby zakończyć odwoływanie się do tych wersji.
 

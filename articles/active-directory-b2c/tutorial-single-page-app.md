@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e485065588fefa95868df9865f317de54e6ef020
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 3a3eb77315953c3791e09c4326af7cc3e3231a69
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628783"
+ms.locfileid: "92670036"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
 
@@ -117,13 +117,13 @@ Teraz, gdy uzyskano przykład, zaktualizuj kod przy użyciu nazwy dzierżawy Azu
     };
     ```
 
-1. Otwórz `authConfig.js` plik w folderze *JavaScriptSPA* .
+1. Otwórz plik *authConfig.js* w folderze *JavaScriptSPA* .
 1. W `msalConfig` obiekcie zaktualizuj:
     * `clientId` przy użyciu **identyfikatora aplikacji (klienta)** zapisanego we wcześniejszym kroku
     * `authority` Identyfikator URI z nazwą dzierżawy Azure AD B2C i nazwą przepływu użytkownika tworzenia konta/logowania utworzonego w ramach wymagań wstępnych (na przykład *B2C_1_signupsignin1* )
-1. Otwórz plik `policies.js`.
+1. Otwórz plik *policies.js* .
 1. Znajdź wpisy dla `names` i `authorities` zastąp je odpowiednio odpowiednimi nazwami zasad, które zostały utworzone w kroku 2. Zamień na `fabrikamb2c.onmicrosoft.com` nazwę dzierżawy Azure AD B2C, na przykład `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>` .
-1. Otwórz plik `apiConfig.js`.
+1. Otwórz plik *apiConfig.js* .
 1. Znajdź przypisanie zakresów `b2cScopes` i Zastąp adres URL zakresem, który został utworzony dla internetowego interfejsu API, na przykład `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]` .
 1. Znajdź przypisanie dla adresu URL interfejsu API `webApi` i zastąp bieżący adres URL adresem URL, na którym został wdrożony internetowy interfejs API w kroku 4, na przykład `webApi: http://localhost:5000/hello` .
 

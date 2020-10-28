@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d0242ceec62db6548d91e5e58c21981a4f0246a0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479089"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672500"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database i architektura łączności usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "92479089"
 W tym artykule opisano architekturę różnych składników, które kierują ruch sieciowy do serwera w Azure SQL Database lub Azure Synapse Analytics. Opisano w nim również różne zasady połączeń i wpływ na klientów nawiązujących połączenie z platformy Azure i klientów nawiązujących połączenie spoza platformy Azure.
 
 > [!IMPORTANT]
-> Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL**. Zapoznaj się z [architekturą łączności dla wystąpienia zarządzanego](../managed-instance/connectivity-architecture-overview.md).
+> Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL** . Zapoznaj się z [architekturą łączności dla wystąpienia zarządzanego](../managed-instance/connectivity-architecture-overview.md).
 
 ## <a name="connectivity-architecture"></a>Architektura łączności
 
@@ -51,7 +51,7 @@ Serwery w SQL Database i Azure Synapse obsługują następujące trzy opcje dla 
 
 - **Wartość domyślna:** Jest to zasada połączenia obowiązująca na wszystkich serwerach po utworzeniu, chyba że jawnie zmienisz zasady połączenia na `Proxy` lub `Redirect` . Zasady domyślne są `Redirect` przeznaczone dla wszystkich połączeń klientów pochodzących z platformy Azure (na przykład z maszyny wirtualnej platformy Azure) i `Proxy` dla wszystkich połączeń klientów pochodzących z zewnątrz (na przykład połączeń z lokalnej stacji roboczej).
 
-Zdecydowanie zalecamy stosowanie `Redirect` zasad połączenia za pośrednictwem `Proxy` zasad połączenia dla najniższych opóźnień i najwyższej przepływności. Należy jednak spełnić dodatkowe wymagania dotyczące zezwalania na ruch sieciowy opisany powyżej. Jeśli klient jest maszyną wirtualną platformy Azure, możesz to zrobić za pomocą sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) z [tagami usług](../../virtual-network/security-overview.md#service-tags). Jeśli klient nawiązuje połączenie z lokalnej stacji roboczej, może być konieczne skontaktowanie się z administratorem sieci w celu zezwolenia na ruch sieciowy za pośrednictwem firmowej zapory.
+Zdecydowanie zalecamy stosowanie `Redirect` zasad połączenia za pośrednictwem `Proxy` zasad połączenia dla najniższych opóźnień i najwyższej przepływności. Należy jednak spełnić dodatkowe wymagania dotyczące zezwalania na ruch sieciowy opisany powyżej. Jeśli klient jest maszyną wirtualną platformy Azure, możesz to zrobić za pomocą sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) z [tagami usług](../../virtual-network/network-security-groups-overview.md#service-tags). Jeśli klient nawiązuje połączenie z lokalnej stacji roboczej, może być konieczne skontaktowanie się z administratorem sieci w celu zezwolenia na ruch sieciowy za pośrednictwem firmowej zapory.
 
 ## <a name="connectivity-from-within-azure"></a>Łączność z poziomu platformy Azure
 
@@ -66,7 +66,7 @@ Jeśli łączysz się z spoza systemu Azure, połączenia mają domyślnie zasad
 ![Diagram przedstawiający sposób ustanawiania sesji protokołu TCP za pośrednictwem bramy Azure SQL Database i wszystkie kolejne pakiety są przesyłane przez bramę.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Dodatkowo Otwórz porty TCP 1434 i 14000-14999, aby włączyć [łączenie z programem DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Dodatkowo Otwórz porty TCP 1434 i 14000-14999, aby włączyć [łączenie z programem DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 ## <a name="gateway-ip-addresses"></a>Adresy IP bramy
 
@@ -83,7 +83,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Brazil South         | 104.41.11.5, 191.233.200.14 |
 | Kanada Środkowa       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Kanada Wschodnia          | 40.86.226.166, 52.242.30.154 |
-| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
+| Środkowe stany USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Chiny Wschodnie           | 139.219.130.35     |
 | Chiny Wschodnie 2         | 40.73.82.1         |
 | Chiny Północne          | 139.219.15.17      |
@@ -98,7 +98,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Indie Środkowe        | 104.211.96.159     |
 | Indie Południowe          | 104.211.224.146    |
 | Indie Zachodnie           | 104.211.160.80     |
-| Japonia Wschodnia           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
+| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | Japonia Zachodnia           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
 | Korea Środkowa        | 52.231.32.42       |
 | Korea Południowa          | 52.231.200.86      |
@@ -124,6 +124,6 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać informacje na temat zmiany zasad połączenia Azure SQL Database dla serwera, zobacz Connection [-Policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- Aby uzyskać informacje na temat zmiany zasad połączenia Azure SQL Database dla serwera, zobacz Connection [-Policy](/cli/azure/sql/server/conn-policy).
 - Aby uzyskać informacje dotyczące zachowania Azure SQL Database połączenia dla klientów korzystających z ADO.NET 4,5 lub nowszej wersji, zobacz [porty wykraczające poza 1433 dla ADO.NET 4,5](adonet-v12-develop-direct-route-ports.md).
 - Ogólne informacje dotyczące opracowywania aplikacji można znaleźć w temacie [Omówienie tworzenia aplikacji SQL Database](develop-overview.md).

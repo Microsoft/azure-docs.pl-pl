@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1ef29eb71ccd945552550f64e5ae95bc85be44d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284367"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672118"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Zalecenia dotyczące wydajności Database Advisor Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,10 +29,10 @@ Przegląd wydajności zawiera podsumowanie wydajności bazy danych, a także uł
 
 ![Przegląd wydajności dla Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-overview-annotated.png)
 
-- Kafelek **rekomendacje** zawiera podział zaleceń dotyczących dostrajania dla bazy danych (w przypadku większej liczby najważniejszych zaleceń są wyświetlane trzy zalecenia). Kliknięcie tego kafelka spowoduje przejście do **[opcji zalecenia dotyczące wydajności](database-advisor-find-recommendations-portal.md#viewing-recommendations)**.
+- Kafelek **rekomendacje** zawiera podział zaleceń dotyczących dostrajania dla bazy danych (w przypadku większej liczby najważniejszych zaleceń są wyświetlane trzy zalecenia). Kliknięcie tego kafelka spowoduje przejście do **[opcji zalecenia dotyczące wydajności](database-advisor-find-recommendations-portal.md#viewing-recommendations)** .
 - Kafelek **działania dostrajania** zawiera podsumowanie bieżących i ukończonych akcji dostrajania dla bazy danych, dzięki czemu można szybko wyświetlić historię działania dostrajania. Kliknięcie tego kafelka spowoduje przejście do widoku historii pełnego dostrajania dla bazy danych.
 - Kafelek **autodostrajania** pokazuje **[konfigurację](automatic-tuning-enable.md)** autodostrajania dla bazy danych (opcje dostrajania, które są automatycznie stosowane do bazy danych). Kliknięcie tego kafelka spowoduje otwarcie okna dialogowego konfiguracji automatyzacji.
-- Kafelek **zapytania bazy danych** pokazuje podsumowanie wydajności zapytań dla bazy danych (ogólne użycie jednostek DTU i najpopularniejsze zapytania zużywające zasoby). Kliknięcie tego kafelka spowoduje przejście do **[szczegółowe informacje o wydajności zapytań](query-performance-insight-use.md)**.
+- Kafelek **zapytania bazy danych** pokazuje podsumowanie wydajności zapytań dla bazy danych (ogólne użycie jednostek DTU i najpopularniejsze zapytania zużywające zasoby). Kliknięcie tego kafelka spowoduje przejście do **[szczegółowe informacje o wydajności zapytań](query-performance-insight-use.md)** .
 
 ## <a name="performance-recommendation-options"></a>Opcje rekomendacji dotyczących wydajności
 
@@ -55,9 +55,9 @@ Możesz również znaleźć pełną historię działań dostrajania, które zost
 
 Azure SQL Database stale monitoruje uruchomione zapytania i identyfikuje indeksy, które mogą poprawić wydajność. Po upływie wystarczającej pewności od braku określonego indeksu zostanie utworzony nowy zalecenie **tworzenia indeksu** .
 
-Azure SQL Database kompilacja jest niedostępna, co szacuje wzrost wydajności, indeks przekroczy czas. W zależności od szacowanego wzmocnienia wydajności zalecenia są klasyfikowane jako wysokie, średnie lub niskie.
+Azure SQL Database kompilacja jest niedostępna, co szacuje wzrost wydajności, indeks przekroczy czas. W zależności od szacowanego zwiększenia wydajności poziom zaleceń jest klasyfikowany jako wysoki, średni lub niski.
 
-Indeksy tworzone przy użyciu rekomendacji są zawsze oflagowane jako indeksy tworzone przez Autostart. Możesz zobaczyć, które indeksy są tworzone w sposób tworzony, przeglądając [Widok sys. Indexs](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Tworzone indeksy nie blokują poleceń ALTER/RENAME.
+Indeksy tworzone przy użyciu rekomendacji są zawsze oflagowane jako indeksy tworzone przez Autostart. Możesz zobaczyć, które indeksy są tworzone w sposób tworzony, przeglądając [Widok sys. Indexs](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Tworzone indeksy nie blokują poleceń ALTER/RENAME.
 
 W przypadku próby porzucenia kolumny, która ma utworzony przez niego indeks, polecenie kończy się powodzeniem. Tworzony przez siebie indeks został również usunięty przy użyciu polecenia. Indeksy regularne blokują polecenie Zmień/Zmień nazwę dla kolumn, które są indeksowane.
 
@@ -105,7 +105,7 @@ Zalecenie "Rozwiąż problem ze schematem" pojawia się, gdy Azure SQL Database 
 
 | Kod błędu SQL | Wiadomość |
 | --- | --- |
-| 201 |Procedura lub funkcja "*" oczekuje parametru "*", który nie został podany. |
+| 201 |Procedura lub funkcja " *" oczekuje parametru "* ", który nie został podany. |
 | 207 |Nieprawidłowa nazwa kolumny "*". |
 | 208 |Nieprawidłowa nazwa obiektu "*". |
 | 213 |Nazwa kolumny lub liczba podanych wartości nie pasują do definicji tabeli. |
@@ -114,7 +114,7 @@ Zalecenie "Rozwiąż problem ze schematem" pojawia się, gdy Azure SQL Database 
 
 ## <a name="custom-applications"></a>Aplikacje niestandardowe
 
-Deweloperzy mogą rozważyć tworzenie niestandardowych aplikacji przy użyciu zaleceń dotyczących wydajności Azure SQL Database. Do wszystkich zaleceń wymienionych w portalu dla bazy danych można uzyskać dostęp za pomocą interfejsu API [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) .
+Deweloperzy mogą rozważyć tworzenie niestandardowych aplikacji przy użyciu zaleceń dotyczących wydajności Azure SQL Database. Do wszystkich zaleceń wymienionych w portalu dla bazy danych można uzyskać dostęp za pomocą interfejsu API [Get-AzSqlDatabaseRecommendedAction](/powershell/module/az.sql/get-azsqldatabaserecommendedaction) .
 
 ## <a name="next-steps"></a>Następne kroki
 

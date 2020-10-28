@@ -3,14 +3,14 @@ title: Przegląd Change Tracking Azure Automation i spisu
 description: W tym artykule opisano Change Tracking i funkcję spisu, która pomaga identyfikować zmiany oprogramowania i usług firmy Microsoft w danym środowisku.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9654529723b5b69c15358be9e06db4f8cbed35e3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210278"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670728"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
@@ -48,7 +48,7 @@ Change Tracking i spis nie obsługują lub mają następujące ograniczenia:
 - Rekursja śledzenia rejestru systemu Windows
 - Systemy plików sieciowych
 - Różne metody instalacji
-- *pliki **. exe** przechowywane w systemie Windows
+- *pliki *_. exe_* przechowywane w systemie Windows
 - Kolumny **Maksymalny rozmiar pliku** i wartości są nieużywane w bieżącej implementacji.
 - Jeśli spróbujesz zebrać więcej niż 2500 plików w cyklu zbierania danych o 30 minutach, Change Tracking i wydajność spisu może być obniżona.
 - Jeśli ruch sieciowy jest wysoki, wyświetlanie rekordów może potrwać do 6 godzin.
@@ -73,17 +73,19 @@ Poniższe adresy są wymagane dla Change Tracking i spisu. Komunikacja z tymi ad
 |*.blob.core.windows.net | *. blob.core.usgovcloudapi.net|
 |*.azure-automation.net | *. azure-automation.us|
 
-Podczas tworzenia reguł zabezpieczeń grupy sieciowej lub konfigurowania zapory platformy Azure, aby zezwalać na ruch do usługi Automation i obszaru roboczego Log Analytics, należy użyć [znacznika usługi](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** i **AzureMonitor**. Upraszcza to ciągłe zarządzanie regułami zabezpieczeń sieci. Aby bezpiecznie i prywatnie połączyć się z usługą Automation z maszyn wirtualnych platformy Azure, zapoznaj się z tematem [Korzystanie z prywatnego linku platformy Azure](../how-to/private-link-security.md). Aby uzyskać bieżący tag usługi i informacje o zakresie do uwzględnienia w ramach konfiguracji lokalnych zapór, zobacz [pliki JSON do pobrania](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Podczas tworzenia reguł zabezpieczeń grupy sieciowej lub konfigurowania zapory platformy Azure, aby zezwalać na ruch do usługi Automation i obszaru roboczego Log Analytics, należy użyć [znacznika usługi](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** i **AzureMonitor** . Upraszcza to ciągłe zarządzanie regułami zabezpieczeń sieci. Aby bezpiecznie i prywatnie połączyć się z usługą Automation z maszyn wirtualnych platformy Azure, zapoznaj się z tematem [Korzystanie z prywatnego linku platformy Azure](../how-to/private-link-security.md). Aby uzyskać bieżący tag usługi i informacje o zakresie do uwzględnienia w ramach konfiguracji lokalnych zapór, zobacz [pliki JSON do pobrania](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Włączanie rozwiązania Change Tracking and Inventory
 
-Poniżej przedstawiono sposoby włączania Change Tracking i spisu oraz wybierania maszyn, które mają być zarządzane:
+Change Tracking i spis można włączyć w następujący sposób:
 
-* [Z maszyny wirtualnej platformy Azure](enable-from-vm.md).
-* [Przeglądanie wielu maszyn wirtualnych platformy Azure](enable-from-portal.md).
-* [Z konta Azure Automation](enable-from-automation-account.md).
-* W przypadku serwerów z obsługą łuku lub maszyn spoza platformy Azure należy zainstalować agenta Log Analytics z serwerów z obsługą usługi Azure ARC przy użyciu [rozszerzenia maszyny wirtualnej](../../azure-arc/servers/manage-vm-extensions.md) , a następnie [włączyć maszynę w obszarze roboczym](enable-from-automation-account.md#enable-machines-in-the-workspace) do Change Tracking i spisu.
-* [Korzystanie z elementu Runbook usługi Automation](enable-from-runbook.md).
+- Z [konta usługi Automation](enable-from-automation-account.md) dla co najmniej jednej maszyny platformy Azure i spoza niej.
+
+- Ręcznie dla maszyn spoza platformy Azure, w tym maszyn lub serwerów zarejestrowanych przy użyciu [usługi Azure ARC z obsługą serwerów](../../azure-arc/servers/overview.md). W przypadku maszyn hybrydowych zaleca się zainstalowanie agenta Log Analytics dla systemu Windows, najpierw łącząc maszynę z [usługą Azure ARC z włączonymi serwerami](../../azure-arc/servers/overview.md), a następnie używając Azure Policy do przypisywania w zasadach wbudowanych zasad [wdrażania agenta log Analytics do *systemu* *Linux* lub Windows Azure](../../governance/policy/samples/built-in-policies.md#monitoring) . Jeśli planujesz również monitorować komputery przy użyciu Azure Monitor dla maszyn wirtualnych, zamiast tego użyj inicjatywy [włącz Azure monitor dla maszyn wirtualnych](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
+
+- Dla jednej maszyny wirtualnej platformy Azure na [stronie maszyny wirtualnej](enable-from-vm.md) w Azure Portal. Ten scenariusz jest dostępny dla maszyn wirtualnych z systemami Linux i Windows.
+
+- Dla [wielu maszyn wirtualnych platformy Azure](enable-from-portal.md) , wybierając je na stronie maszyny wirtualne w Azure Portal.
 
 ## <a name="tracking-file-changes"></a>Śledzenie zmian plików
 
@@ -106,8 +108,8 @@ Change Tracking i spis umożliwia monitorowanie zmian kluczy rejestru systemu Wi
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitoruje skrypty uruchamiane przy zamykaniu.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitoruje klucze, które są ładowane przed zalogowaniem się użytkownika do konta systemu Windows. Ten klucz jest używany dla aplikacji 32-bitowych uruchomionych na komputerach 64-bitowych.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitoruje zmiany w ustawieniach aplikacji.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitoruje programy obsługi menu kontekstowych, które są podłączane bezpośrednio do Eksploratora Windows i zwykle są uruchamiane w procesie przy użyciu **explorer.exe**.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitoruje programy obsługi punktu zaczepienia kopiowania, które są podłączane bezpośrednio do Eksploratora Windows i zwykle są uruchamiane w procesie przy użyciu **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitoruje programy obsługi menu kontekstowych, które są podłączane bezpośrednio do Eksploratora Windows i zwykle są uruchamiane w procesie przy użyciu **explorer.exe** .
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitoruje programy obsługi punktu zaczepienia kopiowania, które są podłączane bezpośrednio do Eksploratora Windows i zwykle są uruchamiane w procesie przy użyciu **explorer.exe** .
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitory dla rejestracji obsługi nakładki ikon.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitoruje rejestrację obsługi nakładki ikon dla aplikacji 32-bitowych uruchomionych na komputerach 64-bitowych.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitoruje nowe wtyczki obiektów pomocników przeglądarki dla programu Internet Explorer. Służy do uzyskiwania dostępu do Document Object Model (DOM) bieżącej strony i kontrolowania nawigacji.
@@ -117,7 +119,7 @@ Change Tracking i spis umożliwia monitorowanie zmian kluczy rejestru systemu Wi
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitoruje 32-bitowe sterowniki skojarzone z wavemapper, wave1 i Wave2, msacm. imaadpcm,. msadpcm,. msgsm610 i vidc. Podobnie jak w sekcji [Drivers] w pliku **system.ini** .
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitoruje 32-bitowe sterowniki skojarzone z wavemapper, wave1 i Wave2, msacm. imaadpcm,. msadpcm,. msgsm610 i vidc dla aplikacji 32-bitowych uruchomionych na komputerach 64-bitowych. Podobnie jak w sekcji [Drivers] w pliku **system.ini** .
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitoruje listę znanych lub powszechnie używanych systemowych bibliotek DLL. Monitorowanie uniemożliwia użytkownikom wykorzystywanie słabych uprawnień katalogu aplikacji przez porzucanie w systemie plików DLL systemu koń trojański.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoruje listę pakietów, które mogą odbierać powiadomienia o zdarzeniach z **winlogon.exe**, modelu obsługi logowania interaktywnego dla systemu Windows.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoruje listę pakietów, które mogą odbierać powiadomienia o zdarzeniach z **winlogon.exe** , modelu obsługi logowania interaktywnego dla systemu Windows.
 
 ## <a name="recursion-support"></a>Obsługa rekursji
 
@@ -125,7 +127,7 @@ Change Tracking i spis obsługuje rekursję, co pozwala na określenie symboli w
 
 - Do śledzenia wielu plików wymagane są symbole wieloznaczne.
 
-- Symboli wieloznacznych można używać tylko w ostatnim segmencie ścieżki pliku, na przykład **c:\Folder \\ pliku*** lub **/etc/*. conf**.
+- Symboli wieloznacznych można używać tylko w ostatnim segmencie ścieżki pliku, na przykład **c:\Folder \\ pliku** _ lub _ */etc/* . conf * *.
 
 - Jeśli zmienna środowiskowa ma nieprawidłową ścieżkę, walidacja powiedzie się, ale ścieżka kończy się niepowodzeniem podczas wykonywania.
 
@@ -141,9 +143,9 @@ W następnej tabeli przedstawiono częstotliwość zbierania danych dla typów z
 | Plik systemu Windows | 30 minut |
 | Plik systemu Linux | 15 minut |
 | Usługi firmy Microsoft | 10 sekund do 30 minut</br> Wartość domyślna: 30 minut |
-| Demony systemu Linux | 5 min |
+| Demony systemu Linux | 5 minut |
 | Oprogramowanie systemu Windows | 30 minut |
-| Oprogramowanie systemu Linux | 5 min |
+| Oprogramowanie systemu Linux | 5 minut |
 
 W poniższej tabeli przedstawiono limity śledzonych elementów na maszynę dla Change Tracking i spisu.
 
@@ -160,7 +162,7 @@ W poniższej tabeli przedstawiono limity śledzonych elementów na maszynę dla 
 
 ### <a name="microsoft-service-data"></a>Dane usługi firmy Microsoft
 
-Domyślna częstotliwość zbierania danych dla usług firmy Microsoft to 30 minut. Częstotliwość można skonfigurować za pomocą suwaka na karcie **usługi firmy Microsoft** w obszarze **Edytuj ustawienia**.
+Domyślna częstotliwość zbierania danych dla usług firmy Microsoft to 30 minut. Częstotliwość można skonfigurować za pomocą suwaka na karcie **usługi firmy Microsoft** w obszarze **Edytuj ustawienia** .
 
 ![Suwak usług firmy Microsoft](./media/overview/windowservices.png)
 

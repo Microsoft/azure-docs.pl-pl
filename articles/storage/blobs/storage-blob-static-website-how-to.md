@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2359c762c9ad653ee2eed294709ad7bf6b2a31c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289875"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671109"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hostowanie statycznej witryny sieci Web w usłudze Azure Storage
 
@@ -34,19 +34,19 @@ Hostowanie statycznej witryny sieci Web to funkcja, którą należy włączyć n
 
 2. Znajdź konto magazynu i wyświetl omówienie konta.
 
-3. Wybierz pozycję **Statyczna witryna internetowa**, aby wyświetlić stronę konfiguracji dla statycznych witryn internetowych.
+3. Wybierz pozycję **Statyczna witryna internetowa** , aby wyświetlić stronę konfiguracji dla statycznych witryn internetowych.
 
-4. Wybierz pozycję **Włączone**, aby umożliwić hostowanie statycznej witryny internetowej na koncie magazynu.
+4. Wybierz pozycję **Włączone** , aby umożliwić hostowanie statycznej witryny internetowej na koncie magazynu.
 
-5. W polu **Nazwa dokumentu indeksu** określ domyślną stronę indeksu (na przykład: *index.html*). 
+5. W polu **Nazwa dokumentu indeksu** określ domyślną stronę indeksu (na przykład: *index.html* ). 
 
    Gdy użytkownik przejdzie do głównego elementu statycznej witryny internetowej, wyświetlona zostanie domyślna strona indeksu.  
 
-6. W polu **ścieżka dokumentu błędu** określ domyślną stronę błędów (na przykład: *404.html*). 
+6. W polu **ścieżka dokumentu błędu** określ domyślną stronę błędów (na przykład: *404.html* ). 
 
    Gdy użytkownik spróbuje przejść do strony, która nie istnieje w statycznej witrynie internetowej, wyświetlona zostanie domyślna strona błędu.
 
-7. Kliknij przycisk **Zapisz**. W witrynie Azure Portal jest teraz wyświetlany punkt końcowy statycznej witryny internetowej. 
+7. Kliknij pozycję **Zapisz** . W witrynie Azure Portal jest teraz wyświetlany punkt końcowy statycznej witryny internetowej. 
 
     ![Włączanie hostowania statycznej witryny internetowej na koncie magazynu](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -78,7 +78,7 @@ Można włączyć obsługę statycznej witryny sieci Web przy użyciu [interfejs
 
    * Zastąp `<index-document-name>` symbol zastępczy nazwą dokumentu indeksu. Ten dokument jest często "index.html".
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 <a id="powershell"></a>
 
@@ -138,7 +138,7 @@ Można włączyć hosting statycznej witryny sieci Web przy użyciu modułu Azur
 
 W tych instrukcjach pokazano, jak przekazywać pliki przy użyciu wersji Eksplorator usługi Storage, która pojawia się w Azure Portal. Można jednak również użyć wersji [Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/) , która działa poza programem Azure Portal. Można użyć [AzCopy](../common/storage-use-azcopy-v10.md), programu PowerShell, interfejsu wiersza polecenia lub dowolnej aplikacji niestandardowej, która może przekazywać pliki do kontenera **$Web** Twojego konta. Aby zapoznać się z samouczkiem krok po kroku, który przekazuje pliki przy użyciu programu Visual Studio Code, zobacz [Samouczek: hostuje statyczną witrynę sieci Web na BLOB Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
-1. Wybierz pozycję **Eksplorator usługi Storage (wersja zapoznawcza)**.
+1. Wybierz pozycję **Eksplorator usługi Storage (wersja zapoznawcza)** .
 
 2. Rozwiń węzeł **kontenery obiektów BLOB** , a następnie wybierz kontener **$Web** .
 
@@ -151,7 +151,7 @@ W tych instrukcjach pokazano, jak przekazywać pliki przy użyciu wersji Eksplor
    ![Sprawdź typy zawartości](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
    >[!NOTE]
-   > Eksplorator usługi Storage automatycznie ustawia tę właściwość na `text/html` dla powszechnie rozpoznanych rozszerzeń, takich jak `.html` . Jednak w niektórych przypadkach trzeba będzie ustawić to samodzielnie. Jeśli nie ustawisz tej właściwości na `text/html` , przeglądarka wyświetli monit o pobranie pliku zamiast renderowania zawartości. Aby ustawić tę właściwość, kliknij plik prawym przyciskiem myszy, a następnie kliknij polecenie **Właściwości**.
+   > Eksplorator usługi Storage automatycznie ustawia tę właściwość na `text/html` dla powszechnie rozpoznanych rozszerzeń, takich jak `.html` . Jednak w niektórych przypadkach trzeba będzie ustawić to samodzielnie. Jeśli nie ustawisz tej właściwości na `text/html` , przeglądarka wyświetli monit o pobranie pliku zamiast renderowania zawartości. Aby ustawić tę właściwość, kliknij plik prawym przyciskiem myszy, a następnie kliknij polecenie **Właściwości** .
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -175,7 +175,7 @@ az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-
 >
 > Jeśli używasz Azure Cloud Shell, musisz odwołać się do udziału plików, który jest widoczny dla Cloud Shell. Ta lokalizacja może być udziałem plików w udziale w chmurze lub istniejącym udziałem plików, który można zainstalować z Cloud Shell. Aby dowiedzieć się, jak to zrobić, zobacz [utrwalanie plików w Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Przekaż obiekty do kontenera *$Web* z katalogu źródłowego.
 
@@ -204,7 +204,7 @@ Możesz wyświetlić strony witryny z przeglądarki, używając publicznego adre
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-W okienku, które pojawia się obok strony Przegląd konta na koncie magazynu, wybierz pozycję **statyczna witryna sieci Web**. Adres URL witryny zostanie wyświetlony w polu **podstawowy punkt końcowy** .
+W okienku, które pojawia się obok strony Przegląd konta na koncie magazynu, wybierz pozycję **statyczna witryna sieci Web** . Adres URL witryny zostanie wyświetlony w polu **podstawowy punkt końcowy** .
 
 ![Metryka statycznych witryn sieci Web usługi Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
@@ -220,7 +220,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 * Zastąp `<resource-group-name>` wartość symbolu zastępczego nazwą grupy zasobów.
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Znajdź publiczny adres URL statycznej witryny sieci Web za pomocą następującego polecenia:
 
@@ -249,7 +249,7 @@ Po włączeniu metryk statystyki ruchu dla plików w kontenerze **$Web** są rap
    > [!NOTE]
    > Dane metryk są generowane przez Podłączanie do różnych interfejsów API metryk. W portalu są wyświetlane tylko elementy API używane w danym przedziale czasowym, aby skoncentrować się tylko na elementach członkowskich, które zwracają dane. Aby upewnić się, że można wybrać wymagany element członkowski interfejsu API, pierwszym krokiem jest rozwinięcie przedziału czasu.
 
-2. Kliknij przycisk ramy czasowe, wybierz przedział czasu, a następnie kliknij przycisk **Zastosuj**.
+2. Kliknij przycisk ramy czasowe, wybierz przedział czasu, a następnie kliknij przycisk **Zastosuj** .
 
    ![Zakres czasu metryk statycznych witryn sieci Web usługi Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
@@ -259,7 +259,7 @@ Po włączeniu metryk statystyki ruchu dla plików w kontenerze **$Web** są rap
 
 4. Następnie wybierz metrykę **ruchu** wychodzącego.
 
-   ![Metryka statycznych witryn sieci Web usługi Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Zrzut ekranu przedstawiający metrykę ruchu wychodzącego statycznych witryn sieci Web usługi Azure Storage.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
 5. Wybierz pozycję **sum** z selektora *agregacji* .
 

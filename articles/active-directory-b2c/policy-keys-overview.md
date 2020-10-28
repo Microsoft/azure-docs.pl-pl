@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8019c049d830df0c2f3301a450eed60145c8eab3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02294d4832224f1c94a4c586f3dcc455255bfbbf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570478"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670114"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Omówienie kluczy zasad w Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Można skonfigurować wpisy tajne i certyfikaty do ustanawiania relacji zaufania
 
 ## <a name="policy-keyset-and-keys"></a>Klucze kluczy i kluczy zasad
 
-Zasób najwyższego poziomu dla kluczy zasad w Azure AD B2C jest kontenerem **zestawu kluczy** . Każdy zestaw kluczy zawiera co najmniej jeden **klucz**. Klucz ma następujące atrybuty:
+Zasób najwyższego poziomu dla kluczy zasad w Azure AD B2C jest kontenerem **zestawu kluczy** . Każdy zestaw kluczy zawiera co najmniej jeden **klucz** . Klucz ma następujące atrybuty:
 
 | Atrybut |  Wymagane | Uwagi |
 | --- | --- |--- |
@@ -58,7 +58,7 @@ Ze względów bezpieczeństwa Azure AD B2C może okresowo wycofać klucze lub na
 
 Jeśli zestaw kluczy Azure AD B2C ma wiele kluczy, tylko jeden z kluczy jest aktywny w dowolnym momencie, na podstawie następujących kryteriów:
 
-- Aktywacja klucza opiera się na **dacie aktywacji**.
+- Aktywacja klucza opiera się na **dacie aktywacji** .
   - Klucze są sortowane według daty aktywacji w kolejności rosnącej. Klucze z datami aktywacji w przyszłości pojawiają się na liście poniżej. Klucze bez daty aktywacji znajdują się u dołu listy.
   - Gdy bieżąca data i godzina jest późniejsza niż Data aktywacji klucza, Azure AD B2C uaktywni klucz i zaprzestanie korzystania z wcześniejszego aktywnego klucza.
 - Po upływie czasu wygaśnięcia bieżącego klucza, gdy kontener kluczy zawiera nowy klucz z prawidłowym terminem *niewcześniejszym niż* czas *wygaśnięcia* , nowy klucz zostanie automatycznie uaktywniony.
@@ -71,13 +71,20 @@ Aby uzyskać bieżący aktywny klucz w kontenerze kluczy, użyj punktu końcoweg
 
 Aby dodać lub usunąć klucze podpisywania i szyfrowania:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure portal](https://portal.azure.com).
 1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
-1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Na stronie Przegląd w obszarze **zasady**wybierz pozycję **platforma obsługi tożsamości**.
+1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C** .
+1. Na stronie Przegląd w obszarze **zasady** wybierz pozycję **platforma obsługi tożsamości** .
 1. Wybierz **klucze zasad** 
-    1. Aby dodać nowy klucz, wybierz pozycję **Dodaj**.
-    1. Aby usunąć nowy klucz, wybierz klucz, a następnie wybierz pozycję **Usuń**. Aby usunąć klucz, wpisz nazwę kontenera kluczy do usunięcia. Azure AD B2C usunie klucz i utworzysz kopię klucza z sufiksem. bak.
+    1. Aby dodać nowy klucz, wybierz pozycję **Dodaj** .
+    1. Aby usunąć nowy klucz, wybierz klucz, a następnie wybierz pozycję **Usuń** . Aby usunąć klucz, wpisz nazwę kontenera kluczy do usunięcia. Azure AD B2C usunie klucz i utworzysz kopię klucza z sufiksem. bak.
+
+### <a name="replace-a-key"></a>Zastąp klucz
+
+Klucze w zestawie kluczy nie są wymienne ani usuwalne. Jeśli musisz zmienić istniejący klucz:
+
+- Zalecamy dodanie nowego klucza z **datą aktywacji** ustawioną na bieżącą datę i godzinę. Azure AD B2C aktywuje nowy klucz i zatrzyma poprzedni klucz aktywny.
+- Alternatywnie można utworzyć nowy zestaw kluczy z prawidłowymi kluczami. Zaktualizuj zasady tak, aby korzystały z nowego zestawu kluczy, a następnie usuń stary zestaw kluczy. 
 
 ## <a name="next-steps"></a>Następne kroki
 

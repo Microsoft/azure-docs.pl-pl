@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: a84308ba06a38cea475fcb1bae022da16424a731
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ee906b406f5fd09fc870626f1905541a4270c66
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90033000"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670534"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (wersja zapoznawcza)
 
@@ -73,7 +73,7 @@ Zaświadczanie o platformie Azure jest preferowanym wyborem dla zaświadczania T
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>Obsługa ciągłości działania i odzyskiwania po awarii (BCDR)
 
-[Ciągłość działania i odzyskiwanie po awarii](/azure/best-practices-availability-paired-regions) (BCDR) na potrzeby zaświadczania platformy Azure umożliwia zapobieganie zakłóceniom działania usług wynikających z znaczących problemów dotyczących dostępności lub zdarzeń awarii w regionie.
+[Ciągłość działania i odzyskiwanie po awarii](../best-practices-availability-paired-regions.md) (BCDR) na potrzeby zaświadczania platformy Azure umożliwia zapobieganie zakłóceniom działania usług wynikających z znaczących problemów dotyczących dostępności lub zdarzeń awarii w regionie.
 
 Poniżej znajdują się regiony, które są obecnie obsługiwane przez BCDR
 - Wschodnie stany USA 2 => łączyć się z środkowe stany USA.
@@ -91,4 +91,3 @@ Klastry wdrożone w dwóch regionach będą działać niezależnie w normalnych 
 - Informacje o [podstawowych pojęciach dotyczących zaświadczania platformy Azure](basic-concepts.md)
 - [Tworzenie i podpisywanie zasad zaświadczania](author-sign-policy.md)
 - [Konfigurowanie zaświadczania platformy Azure przy użyciu programu PowerShell](quickstart-powershell.md)
-

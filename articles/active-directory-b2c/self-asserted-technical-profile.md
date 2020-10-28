@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096219"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670119"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj własny profil techniczny w Azure Active Directory B2C zasad niestandardowych
 
@@ -53,7 +53,7 @@ W profilu technicznym z własnym potwierdzeniem można użyć elementów **Input
 
 ## <a name="display-claims"></a>Wyświetl oświadczenia
 
-Funkcja wyświetlania oświadczeń jest obecnie w **wersji zapoznawczej**.
+Funkcja wyświetlania oświadczeń jest obecnie w **wersji zapoznawczej** .
 
 Element **DisplayClaims** zawiera listę oświadczeń, które mają być wyświetlane na ekranie w celu zbierania danych od użytkownika. Aby wstępnie wypełnić wartości oświadczeń ekranu, użyj oświadczeń wejściowych, które zostały wcześniej opisane. Element może również zawierać wartość domyślną.
 
@@ -114,7 +114,7 @@ Jeśli zasada liścia, która dziedziczy ten element podstawowy, określa `offic
 </TechnicalProfile>
 ```
 
-`age`W zasadach podstawowych nie jest już wyświetlane na ekranie użytkownika — jest to efektywnie "ukryte". Aby wyświetlić to `age` zdarzenie i zebrać wartość wieku od użytkownika, należy dodać `age` **DisplayClaim**.
+`age`W zasadach podstawowych nie jest już wyświetlane na ekranie użytkownika — jest to efektywnie "ukryte". Aby wyświetlić to `age` zdarzenie i zebrać wartość wieku od użytkownika, należy dodać `age` **DisplayClaim** .
 
 ## <a name="output-claims"></a>Oświadczenia wyjściowe
 
@@ -133,10 +133,10 @@ W profilu technicznym z własnym potwierdzeniem kolekcja oświadczeń wychodząc
 
 Użyj oświadczeń wyjściowych, gdy:
 
-- **Oświadczenia są wyprowadzane przez transformację oświadczeń wyjściowych**.
+- **Oświadczenia są wyprowadzane przez transformację oświadczeń wyjściowych** .
 - **Ustawianie wartości domyślnej w ramach zgłoszenia wyjściowego** bez zbierania danych od użytkownika lub zwracania danych z profilu kontroli technicznej. `LocalAccountSignUpWithLogonEmail`Profil techniczny z własnym potwierdzeń ustawia **SelfAsserted** do wykonania `true` .
 - **Profil techniczny weryfikacji zwraca oświadczenia wyjściowe** — Twój profil techniczny może wywołać profil techniczny weryfikacji, który zwraca pewne oświadczenia. Można chcieć wyrównać oświadczenia i zwrócić je do następnych kroków aranżacji w podróży użytkownika. Na przykład podczas logowania się przy użyciu konta lokalnego, z własnym profilem technicznym, nazywa `SelfAsserted-LocalAccountSignin-Email` się profilem technicznym weryfikacji o nazwie `login-NonInteractive` . Ten profil techniczny sprawdza poprawność poświadczeń użytkownika, a także zwraca profil użytkownika. Takie jak "userPrincipalName", "displayName", "podaną nazwę" i "nazwisko".
-- **Kontrolka wyświetlania zwraca oświadczenia wyjściowe** — Twój profil techniczny może mieć odwołanie do [kontrolki wyświetlania](display-controls.md). Kontrolka wyświetlania zwraca pewne oświadczenia, takie jak zweryfikowany adres e-mail. Można chcieć wyrównać oświadczenia i zwrócić je do następnych kroków aranżacji w podróży użytkownika. Funkcja kontrolki wyświetlania jest obecnie w **wersji zapoznawczej**.
+- **Kontrolka wyświetlania zwraca oświadczenia wyjściowe** — Twój profil techniczny może mieć odwołanie do [kontrolki wyświetlania](display-controls.md). Kontrolka wyświetlania zwraca pewne oświadczenia, takie jak zweryfikowany adres e-mail. Można chcieć wyrównać oświadczenia i zwrócić je do następnych kroków aranżacji w podróży użytkownika. Funkcja kontrolki wyświetlania jest obecnie w **wersji zapoznawczej** .
 
 W poniższym przykładzie zademonstrowano korzystanie z własnego profilu technicznego, który używa zarówno oświadczeń, jak i oświadczeń wyjściowych.
 
@@ -175,6 +175,14 @@ W poniższym przykładzie zademonstrowano korzystanie z własnego profilu techni
 </TechnicalProfile>
 ```
 
+### <a name="output-claims-sign-up-or-sign-in-page"></a>Strona rejestracji lub logowania oświadczeń wyjściowych
+
+Na połączonej stronie rejestracji i logowania należy pamiętać o następujących kwestiach podczas używania elementu [DataUri](contentdefinitions.md#datauri) definicji zawartości, który określa `unifiedssp` `unifiedssd` Typ strony lub:
+
+- Renderowane są tylko oświadczenia nazwy użytkownika i hasła.
+- Pierwsze dwa oświadczenia wyjściowe muszą mieć nazwę użytkownika i hasło (w tej kolejności). 
+- Inne oświadczenia nie są renderowane; w przypadku tych oświadczeń należy ustawić `defaultValue` lub wywołać profil techniczny walidacji formularza oświadczeń. 
+
 ## <a name="persist-claims"></a>Utrwalanie oświadczeń
 
 Element PersistedClaims nie jest używany. Profil techniczny z własnym potwierdzeniem nie utrwala danych do Azure AD B2C. Zamiast tego jest wykonywane wywołanie w profilu technicznym weryfikacji, który jest odpowiedzialny za utrwalanie danych. Na przykład zasady tworzenia konta używają `LocalAccountSignUpWithLogonEmail` profilu technicznego z własnym potwierdzeniem do zebrania nowego profilu użytkownika. `LocalAccountSignUpWithLogonEmail`Profil techniczny wywołuje sprawdzanie poprawności profilu technicznego w celu utworzenia konta w Azure AD B2C.
@@ -203,7 +211,7 @@ Możesz również wywołać profil techniczny interfejsu API REST z logiką bizn
 | Ustawianie. forgotPasswordLinkLocation <sup>2</sup>| Nie| Wyświetla łącze zapomniane hasło. Możliwe wartości: `AfterInput` (domyślnie) łącze jest wyświetlane w dolnej części strony lub `None` usuwa łącze zapomniane hasło.|
 | Ustawianie. enableRememberMe <sup>2</sup>| Nie| Wyświetla pole wyboru nie wylogowuj [mnie](custom-policy-keep-me-signed-in.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). |
 | Ustawianie. inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Nie| Usprawnia środowisko użytkownika, czekając na zakończenie wpisywania przez użytkownika, a następnie sprawdza poprawność wartości. Wartość domyślna 2000 milisekund. |
-| IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false`   (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
+| IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
 
 Uwagi:
 1. Dostępne dla definicji zawartości [DataUri](contentdefinitions.md#datauri) typu `unifiedssp` lub `unifiedssd` .

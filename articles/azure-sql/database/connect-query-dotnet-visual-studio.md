@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/10/2020
-ms.openlocfilehash: 30cf90f6020ecd4eb560ac0fe2886ff03c552d13
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a864b2b3e0379a8b0a1d67c97a63b3d5c52f9e58
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825577"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669713"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie platformy .NET i języka C# w programie Visual Studio do łączenia się z bazą danych i wykonywania w niej zapytań w Azure SQL Database lub wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,8 +35,8 @@ Do wykonania czynności opisanych w tym przewodniku Szybki start potrzebne są n
   |:--- |:--- |:---|:---|
   | Utwórz| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [Interfejs wiersza polecenia](scripts/create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [Program PowerShell](scripts/create-and-configure-database-powershell.md) | [Program PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [Program PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
-  | Konfigurowanie | [Reguła zapory bazująca na adresach IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md)| [Łączność z maszyny wirtualnej](../managed-instance/connect-vm-instance-configure.md)|
+  || [Program PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
+  | Konfiguracja | [Reguła zapory bazująca na adresach IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md)| [Łączność z maszyny wirtualnej](../managed-instance/connect-vm-instance-configure.md)|
   |||[Łączność z lokalnego](../managed-instance/point-to-site-p2s-configure.md) | [Ustanawianie połączenia z programem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   |Ładowanie danych|Ładowanie bazy danych Adventure Works na potrzeby samouczka Szybki start|[Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
   |||Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
@@ -51,11 +51,11 @@ Do wykonania czynności opisanych w tym przewodniku Szybki start potrzebne są n
 
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure portal](https://portal.azure.com/).
 
 2. Przejdź do strony **bazy danych SQL**  lub **wystąpienia zarządzane SQL** .
 
-3. Na stronie **Przegląd** Przejrzyj w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera (lub adres IP) obok **hosta** dla wystąpienia zarządzanego usługi Azure SQL lub SQL Server na maszynie wirtualnej platformy Azure. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
+3. Na stronie **Przegląd** Przejrzyj w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera (lub adres IP) obok **hosta** dla wystąpienia zarządzanego usługi Azure SQL lub SQL Server na maszynie wirtualnej platformy Azure. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj** .
 
 > [!NOTE]
 > Aby uzyskać informacje o połączeniu dla SQL Server na maszynie wirtualnej platformy Azure, zobacz [nawiązywanie połączenia z wystąpieniem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
@@ -64,19 +64,19 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 
 1. Utwórz nowy projekt w programie Visual Studio. 
    
-1. W oknie dialogowym **Nowy projekt** wybierz **Visual C#**, **aplikację konsolową (.NET Framework)**.
+1. W oknie dialogowym **Nowy projekt** wybierz **Visual C#** , **aplikację konsolową (.NET Framework)** .
    
-1. Wprowadź *sqltest* jako nazwę projektu i wybierz **OK**. Zostanie utworzony nowy projekt. 
+1. Wprowadź *sqltest* jako nazwę projektu i wybierz **OK** . Zostanie utworzony nowy projekt. 
    
-1. Wybierz pozycję **projekt**  >  **Zarządzaj pakietami NuGet**. 
+1. Wybierz pozycję **projekt**  >  **Zarządzaj pakietami NuGet** . 
    
-1. W **Menedżerze pakietów NuGet**wybierz kartę **Przeglądaj** , a następnie wyszukaj i wybierz pozycję **Microsoft. Data. SqlClient**.
+1. W **Menedżerze pakietów NuGet** wybierz kartę **Przeglądaj** , a następnie wyszukaj i wybierz pozycję **Microsoft. Data. SqlClient** .
    
-1. Na stronie **Microsoft. Data. SqlClient** wybierz pozycję **Zainstaluj**. 
-   - W odpowiedzi na monit wybierz **OK**, aby kontynuować instalację. 
-   - W przypadku wyświetlenia okna **Akceptacja licencji** wybierz przycisk **Akceptuję**.
+1. Na stronie **Microsoft. Data. SqlClient** wybierz pozycję **Zainstaluj** . 
+   - W odpowiedzi na monit wybierz **OK** , aby kontynuować instalację. 
+   - W przypadku wyświetlenia okna **Akceptacja licencji** wybierz przycisk **Akceptuję** .
    
-1. Po zakończeniu instalacji można zamknąć **Menedżera pakietów NuGet**. 
+1. Po zakończeniu instalacji można zamknąć **Menedżera pakietów NuGet** . 
    
 1. W edytorze kodu zastąp zawartość **Program.cs** następującym kodem. Zastąp wartości dla `<your_server>` , `<your_username>` , `<your_password>` i `<your_database>` .
    
@@ -139,7 +139,7 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-1. Aby uruchomić aplikację, wybierz pozycję **Debuguj**  >  **Rozpocznij debugowanie**lub wybierz pozycję **Rozpocznij** na pasku narzędzi lub naciśnij klawisz **F5**.
+1. Aby uruchomić aplikację, wybierz pozycję **Debuguj**  >  **Rozpocznij debugowanie** lub wybierz pozycję **Rozpocznij** na pasku narzędzi lub naciśnij klawisz **F5** .
 1. Sprawdź, czy jest zwracanych 20 pierwszych wierszy kategorii/produktu z bazy danych, a następnie zamknij okno aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -147,11 +147,10 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 - Dowiedz się [, jak nawiązać połączenie z bazą danych i zbadać ją w Azure SQL Database przy użyciu platformy .NET Core](connect-query-dotnet-core.md) w systemie Windows/Linux/macOS.  
 - Dowiedz się więcej o [rozpoczynaniu pracy z platformą .NET Core w systemie Windows/Linux/macOS przy użyciu wiersza polecenia](/dotnet/core/tutorials/using-with-xplat-cli).
 - Dowiedz się, jak [zaprojektować pierwszą bazę danych w Azure SQL Database za pomocą programu SSMS](design-first-database-tutorial.md) lub [zaprojektować pierwszą bazę danych w Azure SQL Database przy użyciu platformy .NET](design-first-database-csharp-tutorial.md).
-- Aby uzyskać więcej informacji na temat platformy .NET, zobacz [.NET documentation](https://docs.microsoft.com/dotnet/) (Dokumentacja platformy .NET).
+- Aby uzyskać więcej informacji na temat platformy .NET, zobacz [.NET documentation](/dotnet/) (Dokumentacja platformy .NET).
 - Przykład logiki ponownych prób: [Połącz się odpornowo z usługą Azure SQL za pomocą ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
-
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net

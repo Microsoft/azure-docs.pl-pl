@@ -3,20 +3,22 @@ title: Pojęcia — API Management
 description: Dowiedz się, jak API Management chroni interfejsy API działające na maszynach wirtualnych rozwiązań VMware platformy Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 346d0f795c3d19b115ced771991263cce2104217
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f412ee81fc77435f2586a31c1bf6f6bdf22c66e2
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262981"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670330"
 ---
 # <a name="api-management-to-publish-and-protect-apis-running-on-azure-vmware-solution-based-vms"></a>API Management publikowania i ochrony interfejsów API działających na maszynach wirtualnych opartych na rozwiązaniach VMware platformy Azure
 
-Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/) umożliwia deweloperom i zespołom DevOps bezpieczne publikowanie do klientów wewnętrznych lub zewnętrznych.
+Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/) umożliwia bezpieczne publikowanie do użytkowników wewnętrznych lub zewnętrznych.  Tylko wersje SKU Developer i Premium umożliwiają integrację z usługą Azure Virtual Network w celu publikowania interfejsów API działających w ramach obciążeń rozwiązań VMware platformy Azure.  Obie jednostki SKU bezpiecznie zapewniają łączność między usługą API Management i zapleczem. 
 
-Chociaż oferowane w kilku jednostkach SKU, tylko jednostki SKU Developer i Premium umożliwiają integrację z usługą Azure Virtual Network w celu publikowania interfejsów API działających w ramach obciążeń rozwiązań VMware platformy Azure. Te dwie jednostki SKU bezpiecznie umożliwiają połączenie między usługą API Management i zapleczem. Jednostka SKU dla deweloperów jest przeznaczona do programowania i testowania, a jednostka SKU Premium to dla wdrożeń produkcyjnych.
+>[!NOTE]
+>Jednostka SKU dla deweloperów jest przeznaczona do programowania i testowania, a jednostka SKU Premium to dla wdrożeń produkcyjnych.
 
-W przypadku usług zaplecza, które są uruchamiane na podstawie maszyn wirtualnych rozwiązań VMware platformy Azure, domyślnie konfiguracja w API Management jest taka sama jak w przypadku lokalnych usług zaplecza. W przypadku wdrożeń wewnętrznych i zewnętrznych usługa API Management konfiguruje wirtualny adres IP (VIP) usługi równoważenia obciążenia jako punkt końcowy zaplecza, gdy serwer wewnętrznej bazy danych jest umieszczony za NSX Load Balancer na stronie rozwiązanie platformy Azure VMware.
+Konfiguracja API Management jest taka sama dla usług zaplecza, które są uruchamiane na maszynach wirtualnych rozwiązań VMware platformy Azure i lokalnie. W przypadku obu wdrożeń program API Management konfiguruje wirtualny adres IP (VIP) w usłudze równoważenia obciążenia jako punkt końcowy zaplecza, gdy serwer wewnętrznej bazy danych jest umieszczony za NSX Load Balancer w rozwiązaniu VMware platformy Azure. 
+
 
 ## <a name="external-deployment"></a>Wdrożenie zewnętrzne
 
@@ -28,9 +30,9 @@ Zewnętrzny diagram wdrażania pokazuje cały proces i zaangażowane aktory (wid
 
 - **Użytkownicy:**  Reprezentuje odbiorców dostępnych interfejsów API i reprezentuje użytkowników i usługi korzystające z interfejsów API.
 
-Przepływ ruchu przechodzi przez wystąpienie API Management, które jest abstrakcyjne usług zaplecza, podłączone do koncentratora sieci wirtualnej. Brama ExpressRoute kieruje ruch do ExpressRoute Global Reach kanału i osiągnie NSX Load Balancer rozpowszechnić ruch przychodzący do różnych wystąpień usług zaplecza.
+Przepływ ruchu przechodzi przez wystąpienie API Management, które jest abstrakcyjne usług zaplecza, podłączone do sieci wirtualnej centrum. Brama ExpressRoute kieruje ruch do kanału ExpressRoute Global Reach i osiągnie NSX Load Balancer rozpowszechnić ruch przychodzący do różnych wystąpień usług zaplecza.
 
-API Management ma publicznego interfejsu API platformy Azure i jest zalecane Aktywowanie usługi Azure DDOS Protection. 
+API Management ma publicznego interfejsu API platformy Azure i zalecane jest Aktywowanie usługi Azure DDOS Protection. 
 
 :::image type="content" source="media/api-management/external-deployment.png" alt-text="Wdrożenie zewnętrzne — API Management rozwiązania VMware dla platformy Azure":::
 
@@ -39,7 +41,7 @@ API Management ma publicznego interfejsu API platformy Azure i jest zalecane Akt
 
 Wdrożenie wewnętrzne publikuje interfejsy API używane przez użytkowników wewnętrznych lub systemy. Deweloperzy zespołu DevOps i interfejsów API używają tych samych narzędzi do zarządzania i portalu dla deweloperów, jak w przypadku wdrożenia zewnętrznego.
 
-Wewnętrzne wdrożenia mogą mieć [Application Gateway platformy Azure](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md) , aby utworzyć publiczny i bezpieczny punkt końcowy dla interfejsu API, wykorzystując jego możliwości i tworząc wdrożenie hybrydowe, które umożliwia wykonywanie różnych scenariuszy.  Interfejs API wykorzystuje swoje możliwości i tworzy wdrożenie hybrydowe, które umożliwia wykonywanie różnych scenariuszy.
+Wdrożenie wewnętrzne można przeprowadzić [za pomocą usługi Azure Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md) , aby utworzyć publiczny i bezpieczny punkt końcowy dla interfejsu API.  Możliwości bramy służą do tworzenia wdrożenia hybrydowego, które umożliwia wykonywanie różnych scenariuszy.  
 
 * Użyj tego samego zasobu API Management do wykorzystania przez użytkowników wewnętrznych i zewnętrznych.
 
@@ -49,11 +51,12 @@ Wewnętrzne wdrożenia mogą mieć [Application Gateway platformy Azure](../api-
 
 Na poniższym diagramie wdrożenia przedstawiono odbiorców, którzy mogą być wewnętrznymi lub zewnętrznymi, przy czym każdy typ uzyskuje dostęp do tych samych lub różnych interfejsów API.
 
-W ramach wewnętrznego wdrożenia interfejsy API są dostępne dla tego samego wystąpienia API Management. Przed API Management, Application Gateway można wdrożyć przy użyciu funkcji Zapora aplikacji sieci Web (WAF) platformy Azure aktywowanej oraz zestawu odbiorników HTTP i zasad służących do filtrowania ruchu, przez ujawnienie tylko podzestawu usług zaplecza działających w ramach rozwiązania Azure VMware.
+W ramach wewnętrznego wdrożenia interfejsy API są dostępne dla tego samego wystąpienia API Management. Przed API Management, Application Gateway można wdrożyć przy użyciu funkcji Zapora aplikacji sieci Web (WAF) platformy Azure. Wdrożono również zestaw odbiorników HTTP i reguł służących do filtrowania ruchu, uwidaczniając tylko podzestaw usług zaplecza działających w rozwiązaniu VMware platformy Azure.
 
-* Ruch wewnętrzny jest kierowany przez bramę ExpressRoute do zapory platformy Azure, a następnie do API Management w przypadku ustanowienia reguł ruchu lub bezpośrednio do API Management.  
+
+* Wewnętrzne trasy ruchu za pomocą bramy ExpressRoute do zapory platformy Azure, a następnie do API Management, bezpośrednio lub za pomocą reguł ruchu.   
 
 * Ruch zewnętrzny przechodzi do platformy Azure za pośrednictwem Application Gateway, który używa warstwy ochrony zewnętrznej dla API Management.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Wdrożenie zewnętrzne — API Management rozwiązania VMware dla platformy Azure":::
+:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Wdrożenie zewnętrzne — API Management rozwiązania VMware dla platformy Azure" lightbox="media/api-management/internal-deployment.png":::
