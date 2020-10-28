@@ -2,16 +2,14 @@
 title: Dostęp do zasobów Kubernetes z Azure Portal (wersja zapoznawcza)
 description: Dowiedz się, jak korzystać z zasobów Kubernetes, aby zarządzać klastrem usługi Azure Kubernetes Service (AKS) z poziomu Azure Portal.
 services: container-service
-author: laurenhughes
 ms.topic: article
 ms.date: 09/21/2020
-ms.author: lahugh
-ms.openlocfilehash: ce51e76829c19def1c1603b1a88592d1e683ccae
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ae617615a8ba83e311a416581fb41d3cb6ca1b05
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070643"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635613"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Dostęp do zasobów Kubernetes z Azure Portal (wersja zapoznawcza)
 
@@ -62,7 +60,7 @@ Widok zasobów Kubernetes zawiera również edytor YAML. Wbudowany edytor YAML o
 
 :::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Kubernetes pod informacje wyświetlane w Azure Portal.":::
 
-Po przeprowadzeniu edycji YAML zmiany są stosowane, wybierając pozycję **Przegląd + Zapisz**, potwierdź zmiany, a następnie Zapisz ponownie.
+Po przeprowadzeniu edycji YAML zmiany są stosowane, wybierając pozycję **Przegląd + Zapisz** , potwierdź zmiany, a następnie Zapisz ponownie.
 
 >[!WARNING]
 > Wykonywanie bezpośrednich zmian produkcyjnych za pomocą interfejsu użytkownika lub interfejsu wiersza polecenia nie jest zalecane. należy użyć [najlepszych rozwiązań integracji ciągłej (ci) i ciągłego wdrażania (CD)](kubernetes-action.md). Możliwości zarządzania Kubernetesami w witrynie Azure Portal i edytor YAML zostały stworzone w celu uczenia i przeprowadzenia nowego wdrożenia w ramach ustawienia tworzenia i testowania.

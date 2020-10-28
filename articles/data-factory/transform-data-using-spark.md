@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: c4a7eabe35e501aa840693f6fad3803b73160a25
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d8cc934ebe8b465bc43e37d0d3a3fc58feda8c0a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368897"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637721"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania Spark w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -62,10 +62,10 @@ W poniższej tabeli opisano właściwości JSON używane w definicji JSON:
 | Właściwość              | Opis                              | Wymagane |
 | --------------------- | ---------------------------------------- | -------- |
 | name                  | Nazwa działania w potoku.    | Tak      |
-| description           | Tekst opisujący działanie działania.  | Nie       |
+| description (opis)           | Tekst opisujący działanie działania.  | Nie       |
 | typ                  | Dla działania platformy Spark typem działania jest HDInsightSpark. | Tak      |
 | linkedServiceName     | Nazwa połączonej usługi HDInsight Spark, na której jest uruchamiany program Spark. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
-| SparkJobLinkedService | Połączona usługa Azure Storage, która przechowuje plik zadania platformy Spark, zależności i dzienniki. W tym miejscu są obsługiwane tylko połączone usługi **[BLOB Storage platformy Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** i **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** . Jeśli nie określisz wartości tej właściwości, zostanie użyty magazyn skojarzony z klastrem usługi HDInsight. Wartością tej właściwości może być tylko połączona usługa Azure Storage. | Nie       |
+| SparkJobLinkedService | Połączona usługa Azure Storage, która przechowuje plik zadania platformy Spark, zależności i dzienniki. W tym miejscu są obsługiwane tylko połączone usługi **[BLOB Storage platformy Azure](./connector-azure-blob-storage.md)** i **[ADLS Gen2](./connector-azure-data-lake-storage.md)** . Jeśli nie określisz wartości tej właściwości, zostanie użyty magazyn skojarzony z klastrem usługi HDInsight. Wartością tej właściwości może być tylko połączona usługa Azure Storage. | Nie       |
 | Właściwość RootPath              | Kontener i folder obiektów blob platformy Azure, który zawiera plik Spark. W nazwie pliku rozróżniana jest wielkość liter. Szczegółowe informacje na temat struktury tego folderu można znaleźć w sekcji struktury folderów (w następnej sekcji). | Tak      |
 | entryFilePath         | Ścieżka względna do folderu głównego kodu/pakietu platformy Spark. Plik wejściowy musi być plikiem w języku Python lub plikiem jar. | Tak      |
 | Nazwą             | Główna Klasa środowiska Java/Spark aplikacji      | Nie       |
@@ -77,7 +77,7 @@ W poniższej tabeli opisano właściwości JSON używane w definicji JSON:
 ## <a name="folder-structure"></a>Struktura folderów
 Zadania platformy Spark są bardziej rozszerzalne niż zadania dla trzody chlewnej/Hive. W przypadku zadań platformy Spark można podać wiele zależności, takich jak pakiety jar (umieszczone w ścieżce klas Java), pliki Python (umieszczone na PYTHONPATH) i inne pliki.
 
-Utwórz następującą strukturę folderów w magazynie obiektów blob platformy Azure, do której odwołuje się połączona Usługa HDInsight. Następnie Przekaż pliki zależne do odpowiednich podfolderów w folderze głównym reprezentowane przez **entryFilePath**. Na przykład przekazanie plików Python do podfolderu pyFiles i plików jar do podfolderu Jars folderu głównego. W czasie wykonywania Usługa Data Factory oczekuje następującej struktury folderów w usłudze Azure Blob Storage:     
+Utwórz następującą strukturę folderów w magazynie obiektów blob platformy Azure, do której odwołuje się połączona Usługa HDInsight. Następnie Przekaż pliki zależne do odpowiednich podfolderów w folderze głównym reprezentowane przez **entryFilePath** . Na przykład przekazanie plików Python do podfolderu pyFiles i plików jar do podfolderu Jars folderu głównego. W czasie wykonywania Usługa Data Factory oczekuje następującej struktury folderów w usłudze Azure Blob Storage:     
 
 | Ścieżka                  | Opis                              | Wymagane | Typ   |
 | --------------------- | ---------------------------------------- | -------- | ------ |

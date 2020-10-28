@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f95ffb662d830c432d3286eca8c935e2737f8043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9341ff9a2ee0a6bfc79d94eea99bfb9aebceadf
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649562"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637041"
 ---
 # <a name="eav4-and-easv4-series"></a>Serie Eav4 i Easv4
 

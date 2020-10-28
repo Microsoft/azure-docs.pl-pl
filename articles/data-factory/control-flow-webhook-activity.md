@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417882"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634984"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Działanie elementu webhook w Azure Data Factory
 
@@ -55,14 +55,14 @@ Działanie elementu webhook może kontrolować wykonywanie potoków za pomocą k
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-**Nazwij** | Nazwa działania elementu webhook. | Ciąg | Tak |
-**Wprowadź** | Musi być ustawiona na "webhook". | Ciąg | Tak |
+**Nazwij** | Nazwa działania elementu webhook. | String | Tak |
+**Wprowadź** | Musi być ustawiona na "webhook". | String | Tak |
 **Method** | Metoda interfejsu API REST dla docelowego punktu końcowego. | Ciąg. Obsługiwany typ to "POST". | Tak |
 **adres URL** | Docelowy punkt końcowy i ścieżka. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak |
 **nagłówka** | Nagłówki wysyłane do żądania. Oto przykład, który ustawia język i typ żądania: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Tak. `Content-Type` `"headers":{ "Content-Type":"application/json"}` Wymagany jest następujący nagłówek. |
-**jednostce** | Reprezentuje ładunek, który jest wysyłany do punktu końcowego. | Prawidłowy kod JSON lub wyrażenie z wartością **ResultType** JSON. Zobacz [schemat ładunku żądania](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) dla schematu ładunku żądania. | Tak |
-**ponowne** | Metoda uwierzytelniania użyta do wywołania punktu końcowego. Obsługiwane typy to "Basic" i "ClientCertificate". Aby uzyskać więcej informacji, zobacz [Authentication](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication) (Uwierzytelnianie). Jeśli uwierzytelnianie nie jest wymagane, Wyklucz tę właściwość. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Nie |
-**limit czasu** | Jak długo działanie czeka na wywołanie wywołania zwrotnego określonego przez **callBackUri** . Wartość domyślna to 10 minut ("00:10:00"). Wartości mają format TimeSpan *d*. *hh*:*mm*:*SS*. | Ciąg | Nie |
+**jednostce** | Reprezentuje ładunek, który jest wysyłany do punktu końcowego. | Prawidłowy kod JSON lub wyrażenie z wartością **ResultType** JSON. Zobacz [schemat ładunku żądania](./control-flow-web-activity.md#request-payload-schema) dla schematu ładunku żądania. | Tak |
+**ponowne** | Metoda uwierzytelniania użyta do wywołania punktu końcowego. Obsługiwane typy to "Basic" i "ClientCertificate". Aby uzyskać więcej informacji, zobacz [Authentication](./control-flow-web-activity.md#authentication) (Uwierzytelnianie). Jeśli uwierzytelnianie nie jest wymagane, Wyklucz tę właściwość. | Ciąg lub wyrażenie z wartością **ResultType** ciągu. | Nie |
+**limit czasu** | Jak długo działanie czeka na wywołanie wywołania zwrotnego określonego przez **callBackUri** . Wartość domyślna to 10 minut ("00:10:00"). Wartości mają format TimeSpan *d* . *hh* : *mm* : *SS* . | String | Nie |
 **Stan raportu dla wywołania zwrotnego** | Umożliwia użytkownikowi zgłaszanie stanu niepowodzenia działania elementu webhook. | Boolean | Nie |
 
 ## <a name="authentication"></a>Authentication
@@ -73,7 +73,7 @@ Działanie elementu webhook obsługuje następujące typy uwierzytelniania.
 
 Jeśli uwierzytelnianie nie jest wymagane, nie należy uwzględniać właściwości **uwierzytelnianie** .
 
-### <a name="basic"></a>Podstawowy
+### <a name="basic"></a>Podstawowa
 
 Określ nazwę użytkownika i hasło, które mają być używane z uwierzytelnianiem podstawowym.
 
@@ -99,7 +99,7 @@ Określ zawartość pliku PFX i hasło w formacie base64.
 
 ### <a name="managed-identity"></a>Tożsamość zarządzana
 
-Użyj tożsamości zarządzanej fabryki danych, aby określić identyfikator URI zasobu, dla którego żądano tokenu dostępu. Aby wywołać interfejs API zarządzania zasobami platformy Azure, użyj programu `https://management.azure.com/` . Aby uzyskać więcej informacji o tym, jak działają zarządzane tożsamości, zobacz [Omówienie zarządzanych tożsamości dla zasobów platformy Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Użyj tożsamości zarządzanej fabryki danych, aby określić identyfikator URI zasobu, dla którego żądano tokenu dostępu. Aby wywołać interfejs API zarządzania zasobami platformy Azure, użyj programu `https://management.azure.com/` . Aby uzyskać więcej informacji o tym, jak działają zarządzane tożsamości, zobacz [Omówienie zarządzanych tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -119,7 +119,7 @@ Działanie elementu webhook kończy się niepowodzeniem, gdy wywołanie do niest
 
 W przypadku każdego wywołania interfejsu API REST klient przekracza limit czasu, jeśli punkt końcowy nie odpowie w ciągu minuty. To zachowanie jest standardowym najlepszym rozwiązaniem HTTP. Aby rozwiązać ten problem, zaimplementuj wzorzec 202. W bieżącym przypadku punkt końcowy zwraca 202 (zaakceptowane) i sondy klienta.
 
-Limit czasu dla żądania nie ma nic do wykonania z limitem czasu działania. Ten ostatni jest używany do oczekiwania na wywołanie zwrotne określone przez **callbackUri**.
+Limit czasu dla żądania nie ma nic do wykonania z limitem czasu działania. Ten ostatni jest używany do oczekiwania na wywołanie zwrotne określone przez **callbackUri** .
 
 Treść przeniesiona z powrotem do identyfikatora URI wywołania zwrotnego musi być prawidłowym kodem JSON. Ustaw `Content-Type` nagłówek na `application/json` .
 

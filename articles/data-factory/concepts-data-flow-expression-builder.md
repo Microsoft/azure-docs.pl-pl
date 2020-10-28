@@ -7,18 +7,18 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531055"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635375"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Tworzenie wyrażeń w mapowaniu przepływu danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W mapowaniu przepływu danych wiele właściwości transformacji jest wprowadzanych jako wyrażenia. Te wyrażenia składają się z wartości kolumn, parametrów, funkcji, operatorów i literałów, które są obliczane do typu danych Spark w czasie wykonywania. Mapowanie przepływów danych ma dedykowane środowisko w celu ułatwienia tworzenia tych wyrażeń nazywanych **konstruktorem wyrażeń**. Przy użyciu uzupełniania kodu  [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) do wyróżniania, sprawdzania składni i automatycznego uzupełniania, Konstruktor wyrażeń służy do łatwego tworzenia przepływów danych. W tym artykule wyjaśniono, jak efektywnie kompilować logikę biznesową za pomocą Konstruktora wyrażeń.
+W mapowaniu przepływu danych wiele właściwości transformacji jest wprowadzanych jako wyrażenia. Te wyrażenia składają się z wartości kolumn, parametrów, funkcji, operatorów i literałów, które są obliczane do typu danych Spark w czasie wykonywania. Mapowanie przepływów danych ma dedykowane środowisko w celu ułatwienia tworzenia tych wyrażeń nazywanych **konstruktorem wyrażeń** . Przy użyciu uzupełniania kodu  [IntelliSense](/visualstudio/ide/using-intellisense) do wyróżniania, sprawdzania składni i automatycznego uzupełniania, Konstruktor wyrażeń służy do łatwego tworzenia przepływów danych. W tym artykule wyjaśniono, jak efektywnie kompilować logikę biznesową za pomocą Konstruktora wyrażeń.
 
 ![Konstruktor wyrażeń](media/data-flow/expresion-builder.png "Konstruktor wyrażeń")
 
@@ -32,7 +32,7 @@ W przypadku niektórych przekształceń, takich jak [Filter](data-flow-filter.md
 
 ![Niebieskie pole wyrażenia](media/data-flow/expressionbox.png "Konstruktor wyrażeń")
 
-W przypadku odwoływania się do kolumn w zgodnym lub grupowym warunku wyrażenie może wyodrębnić wartości z kolumn. Aby utworzyć wyrażenie, wybierz **kolumnę obliczaną**.
+W przypadku odwoływania się do kolumn w zgodnym lub grupowym warunku wyrażenie może wyodrębnić wartości z kolumn. Aby utworzyć wyrażenie, wybierz **kolumnę obliczaną** .
 
 ![Opcja kolumny obliczanej](media/data-flow/computedcolumn.png "Konstruktor wyrażeń")
 

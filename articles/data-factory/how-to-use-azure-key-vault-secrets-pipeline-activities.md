@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 5a662119d9ccf95eac23785c5fe9a787da882531
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1766705e73afab5d15cdb5aa2c5bb1487ad3d7c5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537399"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634287"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Używanie wpisów tajnych usługi Azure Key Vault w działaniach potoku
 
@@ -25,7 +25,7 @@ Poświadczenia lub wartości tajne można przechowywać w Azure Key Vault i uży
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ta funkcja opiera się na tożsamości zarządzanej przez fabrykę danych.  Dowiedz się, jak działa z [tożsamości zarządzanej dla Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) i upewnij się, że Fabryka danych ma już skojarzoną.
+Ta funkcja opiera się na tożsamości zarządzanej przez fabrykę danych.  Dowiedz się, jak działa z [tożsamości zarządzanej dla Data Factory](./data-factory-service-identity.md) i upewnij się, że Fabryka danych ma już skojarzoną.
 
 ## <a name="steps"></a>Kroki
 
@@ -39,7 +39,7 @@ Ta funkcja opiera się na tożsamości zarządzanej przez fabrykę danych.  Dowi
 
     ![Zasady dostępu Key Vault](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
-    Kliknij przycisk **Dodaj**, a następnie kliknij przycisk **Zapisz**.
+    Kliknij przycisk **Dodaj** , a następnie kliknij przycisk **Zapisz** .
 
 3. Przejdź do wpisu tajnego Key Vault i skopiuj identyfikator wpisu tajnego.
 
@@ -54,7 +54,7 @@ Ta funkcja opiera się na tożsamości zarządzanej przez fabrykę danych.  Dowi
     |Bezpieczne wyjście     |Prawda         |
     |Adres URL     |[Tajna wartość identyfikatora URI]? API-version = 7.0         |
     |Metoda     |GET         |
-    |Uwierzytelnianie     |Tożsamość usługi zarządzanej         |
+    |Authentication     |Tożsamość usługi zarządzanej         |
     |Zasób        |https://vault.azure.net       |
 
     ![Aktywność sieci Web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
@@ -65,10 +65,10 @@ Ta funkcja opiera się na tożsamości zarządzanej przez fabrykę danych.  Dowi
     > [!CAUTION]
     > Ustaw opcję bezpieczne wyjście na wartość true, aby uniemożliwić Logowanie wartości klucza tajnego w postaci zwykłego tekstu.  Wszelkie dalsze działania, które zużywają tę wartość, powinny mieć ustawioną opcję bezpiecznego wprowadzania wartość true.
 
-5. Aby użyć wartości w innym działaniu, użyj następującego wyrażenia kodu ** @activity ("sieci Web 1"). Output. Value**.
+5. Aby użyć wartości w innym działaniu, użyj następującego wyrażenia kodu **@activity ("sieci Web 1"). Output. Value** .
 
     ![Wyrażenie kodu](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak używać Azure Key Vault do przechowywania poświadczeń dla magazynów danych i obliczeń, zobacz temat [przechowywanie poświadczeń w programie Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+Aby dowiedzieć się, jak używać Azure Key Vault do przechowywania poświadczeń dla magazynów danych i obliczeń, zobacz temat [przechowywanie poświadczeń w programie Azure Key Vault](./store-credentials-in-key-vault.md)

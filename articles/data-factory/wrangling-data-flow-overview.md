@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe3fd25753344c5ccfd21310ae01fca9962e3971
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082872"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636072"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Co to są przepływy danych przetwarzanie?
 
@@ -21,7 +21,7 @@ ms.locfileid: "87082872"
 
 Organizacje muszą wykonywać przygotowanie i przetwarzanie danych w celu uzyskania dokładnej analizy złożonych danych, które w dalszym ciągu rosną. Przygotowanie danych jest wymagane, aby organizacje mogły korzystać z danych w różnych procesach firmowych i skrócić czas do wartości.
 
-Przetwarzanie przepływy danych w Azure Data Factory umożliwiają iteracyjne wykonywanie bezobsługowego przygotowywania danych w skali chmury. Przetwarzanie przepływy danych integrują się z usługą [Power Query online](https://docs.microsoft.com/power-query/) i udostępniają funkcje Power Query M dla użytkowników usługi Data Factory.
+Przetwarzanie przepływy danych w Azure Data Factory umożliwiają iteracyjne wykonywanie bezobsługowego przygotowywania danych w skali chmury. Przetwarzanie przepływy danych integrują się z usługą [Power Query online](/power-query/) i udostępniają funkcje Power Query M dla użytkowników usługi Data Factory.
 
 Przepływ danych przetwarzanie umożliwia przetłumaczenie M wygenerowanego przez Edytor zestawu połączonych online Power Query na kod Spark na potrzeby wykonywania w skali chmury.
 
@@ -51,7 +51,7 @@ Wizualnie Skanuj dane w sposób niezależny od kodu, aby usunąć wszelkie eleme
 | [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | Klucz konta |
 | [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md) | CSV | Jednostka usługi |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Klucz konta, nazwa główna usługi |
-| [Azure SQL Database](connector-azure-sql-database.md) | - | Uwierzytelnianie SQL |
+| [Baza danych SQL Azure](connector-azure-sql-database.md) | - | Uwierzytelnianie SQL |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Uwierzytelnianie SQL |
 
 ## <a name="the-mashup-editor"></a>Edytor mashupów

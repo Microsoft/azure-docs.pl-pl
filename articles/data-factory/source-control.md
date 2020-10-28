@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/08/2020
-ms.openlocfilehash: 5888f2c432757b3139306df12711353859ead9e1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 43e3916e47aa0305209b8e6e32803426ac1ebe3d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101906"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637568"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Kontrola źródła w Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -50,7 +50,7 @@ Poniżej znajduje się lista zalet integracji usługi git zapewnia środowisko t
 
 ## <a name="author-with-azure-repos-git-integration"></a>Tworzenie za pomocą integracji usługi Azure Repos z usługą Git
 
-Tworzenie wizualne za pomocą integracji Azure Repos git obsługuje kontrolę źródła i współpracę w zakresie pracy w potokach usługi Data Factory. Fabrykę danych można skojarzyć z Azure Repos repozytorium organizacji Git na potrzeby kontroli źródła, współpracy, obsługi wersji i tak dalej. Pojedyncza organizacja usługi git Azure Repos może mieć wiele repozytoriów, ale repozytorium Azure Repos git można skojarzyć tylko z jedną fabryką danych. Jeśli nie masz Azure Repos organizacji lub repozytorium, postępuj zgodnie z [tymi instrukcjami](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) , aby utworzyć zasoby.
+Tworzenie wizualne za pomocą integracji Azure Repos git obsługuje kontrolę źródła i współpracę w zakresie pracy w potokach usługi Data Factory. Fabrykę danych można skojarzyć z Azure Repos repozytorium organizacji Git na potrzeby kontroli źródła, współpracy, obsługi wersji i tak dalej. Pojedyncza organizacja usługi git Azure Repos może mieć wiele repozytoriów, ale repozytorium Azure Repos git można skojarzyć tylko z jedną fabryką danych. Jeśli nie masz Azure Repos organizacji lub repozytorium, postępuj zgodnie z [tymi instrukcjami](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) , aby utworzyć zasoby.
 
 > [!NOTE]
 > Pliki skryptów i danych można przechowywać w Azure Repos repozytorium git. Należy jednak ręcznie przekazać pliki do usługi Azure Storage. Potok Data Factory nie przekazuje automatycznie plików skryptu lub danych przechowywanych w repozytorium Azure Repos git do usługi Azure Storage.
@@ -61,12 +61,12 @@ Azure Repos repozytorium git można skonfigurować przy użyciu fabryki danych z
 
 #### <a name="configuration-method-1-azure-data-factory-home-page"></a>Konfiguracja Metoda 1: Strona główna Azure Data Factory
 
-Na stronie głównej Azure Data Factory wybierz pozycję **Skonfiguruj repozytorium kodu**.
+Na stronie głównej Azure Data Factory wybierz pozycję **Skonfiguruj repozytorium kodu** .
 
 ![Konfigurowanie repozytorium kodu Azure Repos](media/author-visually/configure-repo.png)
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Konfiguracja Metoda 2: Kanwa tworzenia środowiska użytkownika
-Na kanwie tworzenia Azure Data Factory środowiska użytkownika wybierz **Data Factory** menu rozwijanego, a następnie wybierz pozycję **Konfiguruj repozytorium kodu**.
+Na kanwie tworzenia Azure Data Factory środowiska użytkownika wybierz **Data Factory** menu rozwijanego, a następnie wybierz pozycję **Konfiguruj repozytorium kodu** .
 
 ![Konfigurowanie ustawień repozytorium kodu dla tworzenia środowiska użytkownika](media/author-visually/configure-repo-2.png)
 
@@ -93,13 +93,13 @@ W okienku Konfiguracja są wyświetlane następujące Azure Repos ustawienia rep
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Korzystanie z innej dzierżawy Azure Active Directory
 
-Repozytorium git Azure Repos może znajdować się w innej dzierżawie Azure Active Directory. Aby określić inną dzierżawę usługi Azure AD, musisz mieć uprawnienia administratora w używanej subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [Zmienianie administratora subskrypcji](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#to-assign-a-user-as-an-administrator)
+Repozytorium git Azure Repos może znajdować się w innej dzierżawie Azure Active Directory. Aby określić inną dzierżawę usługi Azure AD, musisz mieć uprawnienia administratora w używanej subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [Zmienianie administratora subskrypcji](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator)
 
 ### <a name="use-your-personal-microsoft-account"></a>Korzystanie z konto Microsoft osobistych
 
 Aby skorzystać z osobistego konto Microsoft na potrzeby integracji z usługą git, możesz połączyć swoje osobiste repozytorium platformy Azure z Active Directoryą swojej organizacji.
 
-1. Dodaj osobistą konto Microsoft do Active Directory organizacji jako gość. Aby uzyskać więcej informacji, zobacz [dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../active-directory/b2b/add-users-administrator.md).
+1. Dodaj osobistą konto Microsoft do Active Directory organizacji jako gość. Aby uzyskać więcej informacji, zobacz [dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](../active-directory/external-identities/add-users-administrator.md).
 
 2. Zaloguj się do Azure Portal przy użyciu konto Microsoft osobistych. Następnie przejdź do Active Directory organizacji.
 
@@ -111,7 +111,7 @@ Aby uzyskać więcej informacji na temat łączenia Azure Repos z Active Directo
 
 ## <a name="author-with-github-integration"></a>Tworzenie za pomocą integracji z usługą GitHub
 
-Tworzenie wizualne dzięki integracji z usługą GitHub obsługuje kontrolę źródła i współpracę w ramach potoków usługi Data Factory. Możesz skojarzyć fabrykę danych z repozytorium konta usługi GitHub na potrzeby kontroli źródła, współpracy i przechowywania wersji. Pojedyncze konto usługi GitHub może mieć wiele repozytoriów, ale repozytorium GitHub może być skojarzone tylko z jedną fabryką danych. Jeśli nie masz konta lub repozytorium usługi GitHub, postępuj zgodnie z [tymi instrukcjami](https://github.com/join),   Aby utworzyć zasoby.
+Tworzenie wizualne dzięki integracji z usługą GitHub obsługuje kontrolę źródła i współpracę w ramach potoków usługi Data Factory. Możesz skojarzyć fabrykę danych z repozytorium konta usługi GitHub na potrzeby kontroli źródła, współpracy i przechowywania wersji. Pojedyncze konto usługi GitHub może mieć wiele repozytoriów, ale repozytorium GitHub może być skojarzone tylko z jedną fabryką danych. Jeśli nie masz konta lub repozytorium usługi GitHub, postępuj zgodnie z [tymi instrukcjami](https://github.com/join) , aby utworzyć zasoby.
 
 Integracja z usługą GitHub Data Factory obsługuje zarówno publiczną witrynę GitHub (czyli [https://github.com](https://github.com) ), jak i witrynę GitHub Enterprise. Można używać publicznych i prywatnych repozytoriów GitHub z Data Factory, jak długo masz uprawnienia do odczytu i zapisu do repozytorium w serwisie GitHub.
 
@@ -127,13 +127,13 @@ Repozytorium GitHub można skonfigurować przy użyciu fabryki danych za pomocą
 
 #### <a name="configuration-method-1-azure-data-factory-home-page"></a>Konfiguracja Metoda 1: Strona główna Azure Data Factory
 
-Na stronie głównej Azure Data Factory wybierz pozycję **Skonfiguruj repozytorium kodu**.
+Na stronie głównej Azure Data Factory wybierz pozycję **Skonfiguruj repozytorium kodu** .
 
 ![Konfigurowanie repozytorium kodu Azure Repos](media/author-visually/configure-repo.png)
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Konfiguracja Metoda 2: Kanwa tworzenia środowiska użytkownika
 
-Na kanwie tworzenia Azure Data Factory środowiska użytkownika wybierz **Data Factory** menu rozwijanego, a następnie wybierz pozycję **Konfiguruj repozytorium kodu**.
+Na kanwie tworzenia Azure Data Factory środowiska użytkownika wybierz **Data Factory** menu rozwijanego, a następnie wybierz pozycję **Konfiguruj repozytorium kodu** .
 
 ![Konfigurowanie ustawień repozytorium kodu dla tworzenia środowiska użytkownika](media/author-visually/configure-repo-2.png)
 
@@ -147,7 +147,7 @@ W okienku Konfiguracja są wyświetlane następujące ustawienia repozytorium Gi
 |:--- |:--- |:--- |
 | **Typ repozytorium** | Typ repozytorium kodu Azure Repos. | GitHub |
 | **Korzystanie z usługi GitHub Enterprise** | Zaznacz pole wyboru usługi GitHub Enterprise | niezaznaczony (domyślnie) |
-| **Adres URL przedsiębiorstwa usługi GitHub** | Główny adres URL przedsiębiorstwa usługi GitHub (musi być adresem HTTPS dla lokalnego serwera usługi GitHub Enterprise). Przykład: `https://github.mydomain.com`. Wymagane tylko wtedy, gdy wybrano korzystanie z usługi **GitHub Enterprise** | `<your GitHub enterprise url>` |                                                           
+| **Adres URL przedsiębiorstwa usługi GitHub** | Główny adres URL przedsiębiorstwa usługi GitHub (musi być adresem HTTPS dla lokalnego serwera usługi GitHub Enterprise). Na przykład: `https://github.mydomain.com`. Wymagane tylko wtedy, gdy wybrano korzystanie z usługi **GitHub Enterprise** | `<your GitHub enterprise url>` |                                                           
 | **Konto usługi GitHub** | Nazwa konta usługi GitHub. Tę nazwę można znaleźć z protokołu https: \/ /GitHub.com/{account name}/{Repository Name}. Przechodzenie na stronę z prośbą o wprowadzenie poświadczeń OAuth usługi GitHub na Twoje konto w usłudze GitHub. | `<your GitHub account name>` |
 | **Nazwa repozytorium**  | Nazwa repozytorium kodu usługi GitHub. Konta usługi GitHub zawierają repozytoria Git do zarządzania kodem źródłowym. Można utworzyć nowe repozytorium lub użyć istniejącego repozytorium, które już znajduje się na Twoim koncie. | `<your repository name>` |
 | **Rozgałęzienie współpracy** | Gałąź współpracy GitHub, która jest używana do publikowania. Domyślnie jego główna. Zmień to ustawienie, jeśli chcesz opublikować zasoby z innej gałęzi. | `<your collaboration branch>` |
@@ -169,7 +169,7 @@ W okienku Konfiguracja są wyświetlane następujące ustawienia repozytorium Gi
 
 ## <a name="version-control"></a>Kontrola wersji
 
-Systemy kontroli wersji (znane także jako _Kontrola źródła_) umożliwiają deweloperom współpracę w kodzie i śledzenie zmian wprowadzonych w bazie kodu. Kontrola źródła to podstawowe narzędzie dla projektów z obsługą kilku deweloperów.
+Systemy kontroli wersji (znane także jako _Kontrola źródła_ ) umożliwiają deweloperom współpracę w kodzie i śledzenie zmian wprowadzonych w bazie kodu. Kontrola źródła to podstawowe narzędzie dla projektów z obsługą kilku deweloperów.
 
 ### <a name="creating-feature-branches"></a>Tworzenie gałęzi funkcji
 
@@ -177,7 +177,7 @@ Każde Azure Repos repozytorium git skojarzone z fabryką danych ma rozgałęzie
 
 ![Utwórz nową gałąź](media/author-visually/new-branch.png)
 
-Gdy wszystko będzie gotowe do scalenia zmian z gałęzi funkcji z gałęzią współpracy, kliknij listę rozwijaną rozgałęzienie i wybierz pozycję **Utwórz żądanie ściągnięcia**. Ta akcja spowoduje przejście do Azure Repos git, gdzie można zgłaszać żądania ściągnięcia, przeprowadzać przeglądy kodu i scalać zmiany w gałęzi współpracy. (wartość `master` domyślna). Możliwe jest tylko publikowanie w usłudze Data Factory z poziomu gałęzi współpracy. 
+Gdy wszystko będzie gotowe do scalenia zmian z gałęzi funkcji z gałęzią współpracy, kliknij listę rozwijaną rozgałęzienie i wybierz pozycję **Utwórz żądanie ściągnięcia** . Ta akcja spowoduje przejście do Azure Repos git, gdzie można zgłaszać żądania ściągnięcia, przeprowadzać przeglądy kodu i scalać zmiany w gałęzi współpracy. (wartość `master` domyślna). Możliwe jest tylko publikowanie w usłudze Data Factory z poziomu gałęzi współpracy. 
 
 ![Utwórz nowe żądanie ściągnięcia](media/author-visually/create-pull-request.png)
 
@@ -244,7 +244,7 @@ Poniżej przedstawiono przykładowe sytuacje, które mogą spowodować nieodświ
 
 ## <a name="switch-to-a-different-git-repository"></a>Przechodzenie do innego repozytorium git
 
-Aby przełączyć się do innego repozytorium git, przejdź do strony Konfiguracja usługi Git w centrum zarządzania pod **kontrolą źródła**. Wybierz pozycję **Rozłącz**. 
+Aby przełączyć się do innego repozytorium git, przejdź do strony Konfiguracja usługi Git w centrum zarządzania pod **kontrolą źródła** . Wybierz pozycję **Rozłącz** . 
 
 ![Ikona git](media/author-visually/remove-repository.png)
 

@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: ebcab92c40705bf108d5839a7e67aee345c1bbc7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1377743fbaefdb812f18768307421fdae637ed54
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91292391"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637585"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Szybki start: Tworzenie fabryki danych platformy Azure przy użyciu programu PowerShell
 
@@ -65,7 +65,7 @@ Zainstaluj najnowsze moduły Azure PowerShell, postępując zgodnie z instrukcja
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. Zdefiniuj zmienną nazwy grupy zasobów, której użyjesz później w poleceniach programu PowerShell. Skopiuj poniższy tekst polecenia do programu PowerShell, podaj nazwę [grupy zasobów platformy Azure](../azure-resource-manager/management/overview.md) w podwójnych cudzysłowach, a następnie uruchom polecenie. Przykład: `"ADFQuickStartRG"`.
+1. Zdefiniuj zmienną nazwy grupy zasobów, której użyjesz później w poleceniach programu PowerShell. Skopiuj poniższy tekst polecenia do programu PowerShell, podaj nazwę [grupy zasobów platformy Azure](../azure-resource-manager/management/overview.md) w podwójnych cudzysłowach, a następnie uruchom polecenie. Na przykład: `"ADFQuickStartRG"`.
 
      ```powershell
     $resourceGroupName = "ADFQuickStartRG";
@@ -107,7 +107,7 @@ Pamiętaj o następujących kwestiach:
 
 * Aby utworzyć wystąpienia usługi Data Factory, konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli **współautora** lub **właściciela** albo **administratorem** subskrypcji platformy Azure.
 
-* Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
+* Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza** , aby zlokalizować pozycję **Data Factory** : [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 
 
 ## <a name="create-a-linked-service"></a>Tworzenie usługi połączonej
@@ -115,8 +115,8 @@ Pamiętaj o następujących kwestiach:
 Utwórz połączone usługi w fabryce danych w celu połączenia swoich magazynów danych i usług obliczeniowych z fabryką danych. W tym samouczku Szybki start utworzysz połączoną usługę Azure Storage, która będzie używana zarówno jako źródło, jak i ujście magazynu. Połączona usługa ma informacje o połączeniu, których usługa Data Factory używa w środowisku uruchomieniowym do nawiązywania z nią połączenia.
 
 >[!TIP]
->W tym przewodniku szybki start użyjesz *klucza konta* jako typu uwierzytelniania dla magazynu danych, ale możesz wybrać inne obsługiwane metody uwierzytelniania: *Identyfikator URI sygnatury dostępu współdzielonego*,*nazwę główną usługi* i *tożsamość zarządzaną* , jeśli jest to konieczne. Aby uzyskać szczegółowe informacje, zapoznaj się z odpowiednimi sekcjami w [tym artykule](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties) .
->Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zaleca się również korzystanie z Azure Key Vault. Szczegółowe ilustracje znajdują się w [tym artykule](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) .
+>W tym przewodniku szybki start użyjesz *klucza konta* jako typu uwierzytelniania dla magazynu danych, ale możesz wybrać inne obsługiwane metody uwierzytelniania: *Identyfikator URI sygnatury dostępu współdzielonego* , *nazwę główną usługi* i *tożsamość zarządzaną* , jeśli jest to konieczne. Aby uzyskać szczegółowe informacje, zapoznaj się z odpowiednimi sekcjami w [tym artykule](./connector-azure-blob-storage.md#linked-service-properties) .
+>Aby bezpiecznie przechowywać wpisy tajne dla magazynów danych, zaleca się również korzystanie z Azure Key Vault. Szczegółowe ilustracje znajdują się w [tym artykule](./store-credentials-in-key-vault.md) .
 
 1. Utwórz plik JSON o nazwie **AzureStorageLinkedService.json** w folderze **C:\ADFv2QuiclStartPSH** o następującej zawartości: (Utwórz folder ADFv2QuickStartPSH, jeśli jeszcze nie istnieje).
 
@@ -136,15 +136,15 @@ Utwórz połączone usługi w fabryce danych w celu połączenia swoich magazyn�
     }
     ```
 
-    Jeśli używasz programu Notatnik, wybierz pozycję **Wszystkie pliki** na liście **Zapisz jako typ** w oknie dialogowym **Zapisywanie jako**. W przeciwnym razie do pliku może zostać dodane rozszerzenie `.txt`. Na przykład `AzureStorageLinkedService.json.txt`. W przypadku utworzenia pliku w Eksploratorze plików przed jego otwarciem w programie Notatnik rozszerzenie `.txt` może nie być widoczne, ponieważ opcja **Ukryj rozszerzenia znanych typów plików** jest domyślnie ustawiona. Przed przejściem do następnego kroku usuń rozszerzenie `.txt`.
+    Jeśli używasz programu Notatnik, wybierz pozycję **Wszystkie pliki** na liście **Zapisz jako typ** w oknie dialogowym **Zapisywanie jako** . W przeciwnym razie do pliku może zostać dodane rozszerzenie `.txt`. Na przykład `AzureStorageLinkedService.json.txt`. W przypadku utworzenia pliku w Eksploratorze plików przed jego otwarciem w programie Notatnik rozszerzenie `.txt` może nie być widoczne, ponieważ opcja **Ukryj rozszerzenia znanych typów plików** jest domyślnie ustawiona. Przed przejściem do następnego kroku usuń rozszerzenie `.txt`.
 
-2. W programie **PowerShell** przejdź do folderu **ADFv2QuickStartPSH**.
+2. W programie **PowerShell** przejdź do folderu **ADFv2QuickStartPSH** .
 
     ```powershell
     Set-Location 'C:\ADFv2QuickStartPSH'
     ```
 
-3. Uruchom polecenie cmdlet **Set-AzDataFactoryV2LinkedService** , aby utworzyć połączoną usługę: **AzureStorageLinkedService**.
+3. Uruchom polecenie cmdlet **Set-AzDataFactoryV2LinkedService** , aby utworzyć połączoną usługę: **AzureStorageLinkedService** .
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
@@ -163,9 +163,9 @@ Utwórz połączone usługi w fabryce danych w celu połączenia swoich magazyn�
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
 
-W tej procedurze tworzone są dwa zestawy danych: **InputDataset** i **OutputDataset**. Te zestawy danych są typu **Binary**. Odwołują się one do połączonej usługi Azure Storage utworzonej w poprzedniej sekcji.
-Wejściowy zestaw danych reprezentuje dane źródłowe w folderze wejściowym. W definicji wejściowego zestawu danych określany jest kontener obiektów blob (**adftutorial**), folder (**input**) i plik (**emp.txt**), który zawiera dane źródłowe.
-Wyjściowy zestaw danych reprezentuje dane, które są kopiowane do lokalizacji docelowej. W definicji wyjściowego zestawu danych określany jest kontener obiektów blob (**adftutorial**), folder (**output**) i plik, do którego kopiowane są dane. 
+W tej procedurze tworzone są dwa zestawy danych: **InputDataset** i **OutputDataset** . Te zestawy danych są typu **Binary** . Odwołują się one do połączonej usługi Azure Storage utworzonej w poprzedniej sekcji.
+Wejściowy zestaw danych reprezentuje dane źródłowe w folderze wejściowym. W definicji wejściowego zestawu danych określany jest kontener obiektów blob ( **adftutorial** ), folder ( **input** ) i plik ( **emp.txt** ), który zawiera dane źródłowe.
+Wyjściowy zestaw danych reprezentuje dane, które są kopiowane do lokalizacji docelowej. W definicji wyjściowego zestawu danych określany jest kontener obiektów blob ( **adftutorial** ), folder ( **output** ) i plik, do którego kopiowane są dane. 
 1. Utwórz plik JSON o nazwie **InputDataset.js** w folderze **C:\ADFv2QuickStartPSH** o następującej zawartości:
 
     ```json
@@ -190,7 +190,7 @@ Wyjściowy zestaw danych reprezentuje dane, które są kopiowane do lokalizacji 
     }
     ```
 
-2. Aby utworzyć zestaw danych: **InputDataset**, uruchom polecenie cmdlet **Set-AzDataFactoryV2Dataset** .
+2. Aby utworzyć zestaw danych: **InputDataset** , uruchom polecenie cmdlet **Set-AzDataFactoryV2Dataset** .
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -231,7 +231,7 @@ Wyjściowy zestaw danych reprezentuje dane, które są kopiowane do lokalizacji 
     }
     ```
 
-4. Uruchom polecenie cmdlet **Set-AzDataFactoryV2Dataset** , aby utworzyć zestaw **danych**.
+4. Uruchom polecenie cmdlet **Set-AzDataFactoryV2Dataset** , aby utworzyć zestaw **danych** .
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -306,7 +306,7 @@ W tej procedurze utworzysz potok za pomocą działania kopiowania, które korzys
     }
     ```
 
-2. Aby utworzyć potok: **Adfv2QuickStartPipeline**, uruchom polecenie cmdlet **Set-AzDataFactoryV2Pipeline** .
+2. Aby utworzyć potok: **Adfv2QuickStartPipeline** , uruchom polecenie cmdlet **Set-AzDataFactoryV2Pipeline** .
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline `

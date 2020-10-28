@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 3f3dd5898518a9788a7079ab903b6f88b9f82989
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d5e20b1fc0ce32eae8dc2888fdda982f0de95d90
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371209"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636650"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastruktura Integration Runtime w usłudze Azure Data Factory 
 
@@ -24,10 +24,10 @@ ms.locfileid: "92371209"
 
 Integration Runtime (IR) to infrastruktura obliczeniowa używana przez usługę Azure Data Factory do zapewnienia następujących możliwości integracji danych w różnych środowiskach sieciowych:
 
-- **Przepływ danych**: wykonywanie [przepływu danych](concepts-data-flow-overview.md) w zarządzanym środowisku obliczeniowym platformy Azure.  
-- **Przenoszenie danych**: Skopiuj dane między magazynami danych w sieci publicznej i magazynami danych w sieci prywatnej (lokalnej lub wirtualnej sieci prywatnej). Zapewnia obsługę wbudowanych łączników, konwersji formatów i mapowania kolumn oraz wydajne i skalowalne przenoszenie danych.
-- **Wysyłanie działań**: wysyłanie i monitorowanie działań przekształcania działających na różnych usługach obliczeniowych, takich jak Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server i innych.
-- **Wykonanie pakietów SSIS**: natywne wykonywanie pakietów SQL Server Integration Services (SSIS) w zarządzanym środowisku obliczeniowym platformy Azure.
+- **Przepływ danych** : wykonywanie [przepływu danych](concepts-data-flow-overview.md) w zarządzanym środowisku obliczeniowym platformy Azure.  
+- **Przenoszenie danych** : Skopiuj dane między magazynami danych w sieci publicznej i magazynami danych w sieci prywatnej (lokalnej lub wirtualnej sieci prywatnej). Zapewnia obsługę wbudowanych łączników, konwersji formatów i mapowania kolumn oraz wydajne i skalowalne przenoszenie danych.
+- **Wysyłanie działań** : wysyłanie i monitorowanie działań przekształcania działających na różnych usługach obliczeniowych, takich jak Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server i innych.
+- **Wykonanie pakietów SSIS** : natywne wykonywanie pakietów SQL Server Integration Services (SSIS) w zarządzanym środowisku obliczeniowym platformy Azure.
 
 W usłudze Data Factory działanie definiuje akcję do wykonania. Połączona usługa definiuje docelowy magazyn danych lub usługę obliczeniową. Infrastruktura Integration Runtime zapewnia połączenie między działaniem i połączonymi usługami.  Jest on przywoływany przez połączoną usługę lub działanie i udostępnia środowisko obliczeniowe, w którym działanie jest uruchamiane lub wysyłane z programu. Dzięki temu działanie można wykonać w regionie najbliższym docelowemu magazynowi danych lub usłudze obliczeniowej, w sposób najbardziej wydajny, jednocześnie spełniając wymagania dotyczące zabezpieczeń i zgodności.
 
@@ -113,7 +113,7 @@ Więcej informacji można znaleźć w artykule przewodnika How to create and con
 
 Aby uzyskać więcej informacji o środowisku uruchomieniowym Azure-SSIS, zobacz następujące artykuły: 
 
-- [Samouczek: Wdrażanie pakietów usług SSIS na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia Azure-SSIS IR i używania Azure SQL Database do hostowania wykazu usług SSIS. 
+- [Samouczek: Wdrażanie pakietów usług SSIS na platformie Azure](./tutorial-deploy-ssis-packages-azure.md). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia Azure-SSIS IR i używania Azure SQL Database do hostowania wykazu usług SSIS. 
 - [How to: Create an Azure-SSIS integration runtime (Jak: Tworzenie środowiska Azure SSIS Integration Runtime)](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego SQL i przyłączania środowiska IR do sieci wirtualnej. 
 - [Monitor an Azure-SSIS IR (Monitorowanie środowiska Azure-SSIS IR)](monitor-integration-runtime.md#azure-ssis-integration-runtime). W tym artykule przedstawiono sposób pobierania informacji o środowisku Azure-SSIS IR i opisów stanów w pobranych informacjach. 
 - [Manage an Azure-SSIS IR (Zarządzanie środowiskiem Azure-SSIS IR)](manage-azure-ssis-integration-runtime.md). W tym artykule przedstawiono sposób zatrzymywania, uruchamiania lub usuwania środowiska Azure-SSIS IR. Zawiera on również instrukcje skalowania środowiska Azure-SSIS IR do wewnątrz za pomocą dodawania do niego węzłów. 
@@ -180,9 +180,9 @@ Na poniższym diagramie przedstawiono ustawienia lokalizacji usługi Data Factor
 
 Działanie kopiowania wymaga połączonych usług źródła i ujścia w celu zdefiniowania kierunku przepływu danych. Poniższa logika jest stosowana do określenia, które wystąpienie środowiska IR jest używane do wykonania kopii: 
 
-- **Kopiowanie między dwoma źródłami danych w chmurze**: gdy są Azure IR używane połączone usługi źródłowe i ujścia, funkcja ADF używa Azure IR regionalnych, jeśli została określona, lub automatycznie określa lokalizację Azure IR w przypadku wybrania opcji automatycznego rozwiązywania problemów ze środowiskiem IR (domyślnie), zgodnie z opisem w sekcji [Lokalizacja Integration Runtime](#integration-runtime-location) .
-- **Kopiowanie między źródłem danych w chmurze i źródłem danych w sieci prywatnej**: jeśli połączona usługa źródła lub ujścia wskazuje środowisko IR (Self-hosted), działanie kopiowania jest wykonywane w tym środowisku IT (Self-hosted).
-- **Kopiowanie między dwoma źródłami danych w sieci prywatnej**: usługa połączona źródłowa i ujścia musi wskazywać na to samo wystąpienie środowiska Integration Runtime i czy środowisko Integration Runtime jest używane do wykonania działania kopiowania.
+- **Kopiowanie między dwoma źródłami danych w chmurze** : gdy są Azure IR używane połączone usługi źródłowe i ujścia, funkcja ADF używa Azure IR regionalnych, jeśli została określona, lub automatycznie określa lokalizację Azure IR w przypadku wybrania opcji automatycznego rozwiązywania problemów ze środowiskiem IR (domyślnie), zgodnie z opisem w sekcji [Lokalizacja Integration Runtime](#integration-runtime-location) .
+- **Kopiowanie między źródłem danych w chmurze i źródłem danych w sieci prywatnej** : jeśli połączona usługa źródła lub ujścia wskazuje środowisko IR (Self-hosted), działanie kopiowania jest wykonywane w tym środowisku IT (Self-hosted).
+- **Kopiowanie między dwoma źródłami danych w sieci prywatnej** : usługa połączona źródłowa i ujścia musi wskazywać na to samo wystąpienie środowiska Integration Runtime i czy środowisko Integration Runtime jest używane do wykonania działania kopiowania.
 
 ### <a name="lookup-and-getmetadata-activity"></a>Działanie wyszukiwania i uzyskiwania metadanych
 
@@ -202,4 +202,4 @@ Zobacz następujące artykuły:
 
 - [Tworzenie środowiska Azure Integration Runtime](create-azure-integration-runtime.md)
 - [Tworzenie własnego środowiska Integration Runtime](create-self-hosted-integration-runtime.md)
-- [Utwórz środowisko Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego SQL i przyłączania środowiska IR do sieci wirtualnej. 
+- [Utwórz środowisko Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego SQL i przyłączania środowiska IR do sieci wirtualnej.

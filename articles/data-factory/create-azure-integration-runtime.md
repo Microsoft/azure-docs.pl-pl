@@ -10,12 +10,12 @@ ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9615dc358b1c5bed0e48c07c2571ccce05fcdf2e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84659696"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637211"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Jak utworzyć i skonfigurować Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -41,27 +41,27 @@ Integration Runtime można utworzyć przy użyciu polecenia cmdlet **Set-AzDataF
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
-W przypadku Azure IR typ musi być ustawiony na **zarządzany**. Nie trzeba określać szczegółów obliczeń, ponieważ jest w pełni zarządzana elastycznie w chmurze. Określ szczegóły obliczeń, takie jak rozmiar węzła i liczba węzłów, jeśli chcesz utworzyć Azure-SSIS IR. Aby uzyskać więcej informacji, zobacz [Tworzenie i konfigurowanie Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
+W przypadku Azure IR typ musi być ustawiony na **zarządzany** . Nie trzeba określać szczegółów obliczeń, ponieważ jest w pełni zarządzana elastycznie w chmurze. Określ szczegóły obliczeń, takie jak rozmiar węzła i liczba węzłów, jeśli chcesz utworzyć Azure-SSIS IR. Aby uzyskać więcej informacji, zobacz [Tworzenie i konfigurowanie Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
 
 Istniejące Azure IR można skonfigurować w celu zmiany jego lokalizacji za pomocą polecenia cmdlet programu PowerShell Set-AzDataFactoryV2IntegrationRuntime. Aby uzyskać więcej informacji na temat lokalizacji Azure IR, zobacz [wprowadzenie do środowiska Integration Runtime](concepts-integration-runtime.md).
 
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Tworzenie Azure IR za pośrednictwem interfejsu użytkownika Azure Data Factory
 Wykonaj następujące kroki, aby utworzyć Azure IR przy użyciu Azure Data Factory interfejsu użytkownika.
 
-1. Na stronie Wprowadzenie Azure Data Factory interfejsu użytkownika wybierz [kartę Zarządzanie](https://docs.microsoft.com/azure/data-factory/author-management-hub) w okienku po **lewej stronie.**
+1. Na stronie Wprowadzenie Azure Data Factory interfejsu użytkownika wybierz [kartę Zarządzanie](./author-management-hub.md) w okienku po **lewej stronie.**
 
    ![Przycisk zarządzania stroną główną](media/doc-common-process/get-started-page-manage-button.png)
 
-1. W lewym okienku wybierz pozycję **Integration Runtimes** , a następnie wybierz pozycję **+ Nowy**.
+1. W lewym okienku wybierz pozycję **Integration Runtimes** , a następnie wybierz pozycję **+ Nowy** .
 
    ![Tworzenie środowiska Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny**, a następnie wybierz pozycję **Kontynuuj**. 
+1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny** , a następnie wybierz pozycję **Kontynuuj** . 
 
-1. Na poniższej stronie wybierz pozycję **Azure** , aby utworzyć Azure IR, a następnie wybierz pozycję **Kontynuuj**.
+1. Na poniższej stronie wybierz pozycję **Azure** , aby utworzyć Azure IR, a następnie wybierz pozycję **Kontynuuj** .
    ![Tworzenie środowiska Integration Runtime](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
-1. Wprowadź nazwę Azure IR i wybierz pozycję **Utwórz**.
+1. Wprowadź nazwę Azure IR i wybierz pozycję **Utwórz** .
    ![Tworzenie Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. Po zakończeniu tworzenia zostanie wyświetlone wyskakujące powiadomienie. Na stronie **Integration Runtime (środowisko uruchomieniowe** ) Upewnij się, że na liście jest widoczny nowo utworzony port IR.
@@ -92,4 +92,3 @@ Zapoznaj się z następującymi artykułami dotyczącymi tworzenia innych typów
 
 - [Tworzenie własnego środowiska Integration Runtime](create-self-hosted-integration-runtime.md)
 - [Tworzenie środowiska Azure SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)
- 

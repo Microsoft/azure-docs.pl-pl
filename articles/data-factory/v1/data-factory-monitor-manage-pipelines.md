@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4473df318f65c0e0097aed298d0be57e3bca382b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73666979"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636939"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorowanie potoków Azure Data Factory i zarządzanie nimi przy użyciu Azure Portal i programu PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ W tym artykule opisano sposób monitorowania i debugowania potoków oraz zarząd
 > Aplikacja do zarządzania & monitorowania zapewnia lepszą obsługę monitorowania potoków danych i zarządzania nimi oraz rozwiązywania problemów. Aby uzyskać szczegółowe informacje na temat korzystania z aplikacji, zobacz [monitorowanie potoków Data Factory i zarządzanie nimi za pomocą aplikacji do monitorowania i zarządzania](data-factory-monitor-manage-app.md). 
 
 > [!IMPORTANT]
-> Azure Data Factory wersja 1 używa teraz nowej [infrastruktury alertów Azure monitor](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Stara infrastruktura alertów jest przestarzała. W związku z tym istniejące alerty skonfigurowane dla fabryk danych w wersji 1 nie będą już działać. Istniejące alerty dla fabryk danych w wersji 1 nie są migrowane automatycznie. Należy ponownie utworzyć te alerty dla nowej infrastruktury alertów. Zaloguj się do Azure Portal i wybierz pozycję **Monitoruj** , aby utworzyć nowe alerty dotyczące metryk (na przykład nieudanych uruchomień lub przebiegów zakończonych powodzeniem) dla fabryk danych w wersji 1.
+> Azure Data Factory wersja 1 używa teraz nowej [infrastruktury alertów Azure monitor](../../azure-monitor/platform/alerts-metric.md). Stara infrastruktura alertów jest przestarzała. W związku z tym istniejące alerty skonfigurowane dla fabryk danych w wersji 1 nie będą już działać. Istniejące alerty dla fabryk danych w wersji 1 nie są migrowane automatycznie. Należy ponownie utworzyć te alerty dla nowej infrastruktury alertów. Zaloguj się do Azure Portal i wybierz pozycję **Monitoruj** , aby utworzyć nowe alerty dotyczące metryk (na przykład nieudanych uruchomień lub przebiegów zakończonych powodzeniem) dla fabryk danych w wersji 1.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -46,7 +46,7 @@ Za pomocą Azure Portal można:
 W tej części opisano również sposób przejścia wycinka zestawu danych z jednego stanu do drugiego.   
 
 ### <a name="navigate-to-your-data-factory"></a>Przejdź do fabryki danych
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure portal](https://portal.azure.com).
 2. Kliknij pozycję **fabryki danych** w menu po lewej stronie. Jeśli go nie widzisz, kliknij pozycję **więcej usług >** a następnie kliknij pozycję **fabryki danych** w kategorii **Analiza i analiza** .
 
    ![Przeglądaj wszystkie > fabryki danych](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -79,7 +79,7 @@ Możesz powiększać, pomniejszać, powiększyć, powiększyć do 100%, zablokow
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Wyświetlanie stanu poszczególnych działań w potoku
 Bieżący stan działania można wyświetlić, wyświetlając stan dowolnego zestawu danych, który jest wytwarzany przez działanie.
 
-Dwukrotne kliknięcie **OutputBlobTable** na **diagramie**pozwala zobaczyć wszystkie wycinki, które są generowane przez różne uruchomienia w potoku. Można zobaczyć, że działanie kopiowania zostało wykonane pomyślnie przez ostatnie osiem godzin i wygenerowało wycinki w stanie **gotowe** .  
+Dwukrotne kliknięcie **OutputBlobTable** na **diagramie** pozwala zobaczyć wszystkie wycinki, które są generowane przez różne uruchomienia w potoku. Można zobaczyć, że działanie kopiowania zostało wykonane pomyślnie przez ostatnie osiem godzin i wygenerowało wycinki w stanie **gotowe** .  
 
 ![Stan potoku](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
@@ -87,7 +87,7 @@ Wycinki zestawu danych w fabryce danych mogą mieć jeden z następujących stan
 
 <table>
 <tr>
-    <th align="left">State</th><th align="left">Podstanu</th><th align="left">Opis</th>
+    <th align="left">Stan</th><th align="left">Podstanu</th><th align="left">Opis</th>
 </tr>
 <tr>
     <td rowspan="8">Oczekiwanie</td><td>ScheduleTime</td><td>Czas, który nie jest przeznaczony dla wycinka do uruchomienia.</td>
@@ -163,9 +163,9 @@ Po wdrożeniu fabryki danych, gdy potoki mają prawidłowy aktywny okres, wycink
 
 Przepływ przejścia stanu zestawu danych w usłudze Fabryka danych jest następujący: oczekiwanie na > w toku/w toku (sprawdzanie poprawności) — > gotowe/niepowodzenie.
 
-Wycinek zaczyna się w stanie **oczekiwania** , czekając na spełnienie warunków wstępnych przed wykonaniem. Następnie działanie zostanie uruchomione, a plasterek przechodzi w stan **w toku** . Wykonanie działania może zakończyć się powodzeniem lub niepowodzeniem. Wycinek jest oznaczony jako **gotowy** lub **Niepowodzenie**w oparciu o wynik wykonania.
+Wycinek zaczyna się w stanie **oczekiwania** , czekając na spełnienie warunków wstępnych przed wykonaniem. Następnie działanie zostanie uruchomione, a plasterek przechodzi w stan **w toku** . Wykonanie działania może zakończyć się powodzeniem lub niepowodzeniem. Wycinek jest oznaczony jako **gotowy** lub **Niepowodzenie** w oparciu o wynik wykonania.
 
-Możesz zresetować wycinek, aby wrócić do stanu **gotowości** lub stanu **niepowodzenia** na stan **oczekiwania** . Możesz również oznaczyć stan wycinka do **pominięcia**, co uniemożliwia wykonanie działania i nie przetwarza wycinka.
+Możesz zresetować wycinek, aby wrócić do stanu **gotowości** lub stanu **niepowodzenia** na stan **oczekiwania** . Możesz również oznaczyć stan wycinka do **pominięcia** , co uniemożliwia wykonanie działania i nie przetwarza wycinka.
 
 ## <a name="pause-and-resume-pipelines"></a>Wstrzymywanie i wznawianie potoków
 Potokami można zarządzać przy użyciu Azure PowerShell. Można na przykład wstrzymywać i wznawiać potoki, uruchamiając polecenia cmdlet Azure PowerShell. 
@@ -205,7 +205,7 @@ Azure Data Factory oferuje bogate możliwości debugowania i rozwiązywania prob
 Jeśli uruchomienie działania nie powiedzie się w potoku, zestaw danych, który jest generowany przez potok, jest w stanie błędu z powodu błędu. Błędy w Azure Data Factory można debugować i rozwiązywać przy użyciu poniższych metod.
 
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Użyj Azure Portal do debugowania błędu
-1. W bloku **tabela** kliknij wycinek problemu, którego **stan** ma wartość **Niepowodzenie**.
+1. W bloku **tabela** kliknij wycinek problemu, którego **stan** ma wartość **Niepowodzenie** .
 
    ![Blok tabeli z wycinkem problemu](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 2. W bloku **wycinka danych** kliknij uruchomienie działania, które nie powiodło się.
@@ -216,8 +216,8 @@ Jeśli uruchomienie działania nie powiedzie się w potoku, zestaw danych, któr
    ![Blok szczegółów uruchamiania działania z błędem](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Debugowanie błędu przy użyciu programu PowerShell
-1. Uruchom program **PowerShell**.
-2. Uruchom polecenie **Get-AzDataFactorySlice** , aby wyświetlić wycinki i ich Stany. Powinien zostać wyświetlony wycink o stanie **Niepowodzenie**.        
+1. Uruchom program **PowerShell** .
+2. Uruchom polecenie **Get-AzDataFactorySlice** , aby wyświetlić wycinki i ich Stany. Powinien zostać wyświetlony wycink o stanie **Niepowodzenie** .        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -288,7 +288,7 @@ Jeśli wycinek nie zakończył walidacji z powodu błędu zasad (na przykład je
 ![Usuń błędy i sprawdź poprawność](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
-Błędy można ponownie uruchomić za pomocą polecenia cmdlet **Set-AzDataFactorySliceStatus** . Zobacz temat [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) , aby poznać składnię i inne szczegółowe informacje o poleceniu cmdlet.
+Błędy można ponownie uruchomić za pomocą polecenia cmdlet **Set-AzDataFactorySliceStatus** . Zobacz temat [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) , aby poznać składnię i inne szczegółowe informacje o poleceniu cmdlet.
 
 **Przykład:**
 
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Utwórz nowy Alert](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Zdefiniuj **warunek alertu**. (Pamiętaj o wybraniu **fabryk danych** w polu **Filtruj według typu zasobu** ). Można również określić wartości **wymiarów**.
+3.  Zdefiniuj **warunek alertu** . (Pamiętaj o wybraniu **fabryk danych** w polu **Filtruj według typu zasobu** ). Można również określić wartości **wymiarów** .
 
     ![Zdefiniuj warunek alertu — wybierz element docelowy](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 
@@ -317,11 +317,11 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Definiowanie warunku alertu — Dodawanie logiki alertu](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
 
-4.  Zdefiniuj **szczegóły alertu**.
+4.  Zdefiniuj **szczegóły alertu** .
 
     ![Zdefiniuj szczegóły alertu](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
 
-5.  Zdefiniuj **grupę akcji**.
+5.  Zdefiniuj **grupę akcji** .
 
     ![Definiowanie grupy akcji — Tworzenie nowej grupy akcji](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
 

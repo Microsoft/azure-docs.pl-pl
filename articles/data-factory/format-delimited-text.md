@@ -9,18 +9,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: jingwang
-ms.openlocfilehash: c491a0b5e4c4fc517368c5947fa6181201a5b5fd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9d4322ff8f9d67ecfd1b55fbee36d5379b987fab
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127271"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636378"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Format tekstu rozdzielanego w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Postępuj zgodnie z tym artykułem, jeśli chcesz **przeanalizować rozdzielane pliki tekstowe lub zapisać dane w formacie tekstu rozdzielanego**. 
+Postępuj zgodnie z tym artykułem, jeśli chcesz **przeanalizować rozdzielane pliki tekstowe lub zapisać dane w formacie tekstu rozdzielanego** . 
 
 Format tekstu rozdzielanego jest obsługiwany dla następujących łączników: [Amazon S3](connector-amazon-simple-storage-service.md), [azure BLOB](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [system plików](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)i [SFTP](connector-sftp.md).
 
@@ -30,17 +30,17 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 | Właściwość         | Opis                                                  | Wymagane |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **DelimitedText**. | Tak      |
+| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **DelimitedText** . | Tak      |
 | location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` .  | Tak      |
-| columnDelimiter  | Znaki używane do oddzielania kolumn w pliku. <br>Wartość domyślna to **przecinek `,` **. Gdy ogranicznik kolumny jest zdefiniowany jako pusty ciąg, co oznacza brak ogranicznika, cały wiersz jest traktowany jako jedna kolumna.<br>Obecnie ogranicznik kolumny jako pusty ciąg lub wiele znaków jest obsługiwany tylko na potrzeby mapowania przepływu danych, ale nie jest to działanie kopiowania.  | Nie       |
-| rowDelimiter     | Pojedynczy znak lub "\r\n" używany do oddzielania wierszy w pliku. <br>Wartość domyślna to dowolna z następujących wartości **podczas odczytu: ["\r\n", "\r", "\n"]**, **"\n" lub "\r\n" przy zapisie** odpowiednio mapując przepływ danych i działanie kopiowania. <br>Gdy ogranicznik wiersza jest ustawiony na brak ogranicznika (pusty ciąg), ogranicznik kolumny musi być ustawiony jako brak ogranicznika (pusty ciąg), co oznacza, że cała zawartość jest traktowana jako pojedyncza wartość.<br>Obecnie ogranicznik wiersza jako pusty ciąg jest obsługiwany tylko w przypadku mapowania przepływu danych, ale bez działania kopiowania. | Nie       |
+| columnDelimiter  | Znaki używane do oddzielania kolumn w pliku. <br>Wartość domyślna to **przecinek `,`** . Gdy ogranicznik kolumny jest zdefiniowany jako pusty ciąg, co oznacza brak ogranicznika, cały wiersz jest traktowany jako jedna kolumna.<br>Obecnie ogranicznik kolumny jako pusty ciąg lub wiele znaków jest obsługiwany tylko na potrzeby mapowania przepływu danych, ale nie jest to działanie kopiowania.  | Nie       |
+| rowDelimiter     | Pojedynczy znak lub "\r\n" używany do oddzielania wierszy w pliku. <br>Wartość domyślna to dowolna z następujących wartości **podczas odczytu: ["\r\n", "\r", "\n"]** , **"\n" lub "\r\n" przy zapisie** odpowiednio mapując przepływ danych i działanie kopiowania. <br>Gdy ogranicznik wiersza jest ustawiony na brak ogranicznika (pusty ciąg), ogranicznik kolumny musi być ustawiony jako brak ogranicznika (pusty ciąg), co oznacza, że cała zawartość jest traktowana jako pojedyncza wartość.<br>Obecnie ogranicznik wiersza jako pusty ciąg jest obsługiwany tylko w przypadku mapowania przepływu danych, ale bez działania kopiowania. | Nie       |
 | quoteChar        | Pojedynczy znak do wartości kolumny QUOTE, jeśli zawiera ogranicznik kolumny. <br>Wartość domyślna to **podwójne cudzysłowy** `"` . <br>Gdy `quoteChar` jest zdefiniowany jako pusty ciąg, oznacza to, że nie istnieje znak cudzysłowu, a wartość kolumny nie jest ujęta w cudzysłów i `escapeChar` jest używana do ucieczki ogranicznika kolumny i samego siebie. | Nie       |
-| escapeChar       | Pojedynczy znak do cudzysłowu ucieczki wewnątrz wartości w cudzysłowie.<br>Wartość domyślna to **ukośnik odwrotny `\` **. <br>Gdy `escapeChar` jest zdefiniowany jako pusty ciąg, `quoteChar` należy ustawić jako pusty ciąg, a w takim przypadku upewnij się, że wszystkie wartości kolumn nie zawierają ograniczników. | Nie       |
+| escapeChar       | Pojedynczy znak do cudzysłowu ucieczki wewnątrz wartości w cudzysłowie.<br>Wartość domyślna to **ukośnik odwrotny `\`** . <br>Gdy `escapeChar` jest zdefiniowany jako pusty ciąg, `quoteChar` należy ustawić jako pusty ciąg, a w takim przypadku upewnij się, że wszystkie wartości kolumn nie zawierają ograniczników. | Nie       |
 | firstRowAsHeader | Określa, czy pierwszy wiersz ma być traktowany jak wiersz nagłówka z nazwami kolumn.<br>Dozwolone wartości to **true** i **false** (wartość domyślna).<br>Gdy pierwszy wiersz jako nagłówek ma wartość false, Uwaga: Podgląd danych interfejsu użytkownika i wyszukiwanie działania wyszukiwania automatyczne generowanie nazw kolumn jako Prop_ {n} (począwszy od 0), działanie kopiowania wymaga [jawnego mapowania](copy-activity-schema-and-type-mapping.md#explicit-mapping) ze źródła do ujścia i lokalizuje kolumny według liczby porządkowej (rozpoczynając od 1), a następnie mapuje kolumny o nazwie jako Column_ {n} (rozpoczynając od 1).  | Nie       |
-| nullValue        | Określa reprezentację ciągu wartości null. <br>Wartość domyślna to **pusty ciąg**. | Nie       |
+| nullValue        | Określa reprezentację ciągu wartości null. <br>Wartość domyślna to **pusty ciąg** . | Nie       |
 | encodingName     | Typ kodowania używany do odczytu/zapisu plików testowych. <br>Dozwolone wartości są następujące: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Przepływ danych mapowania notatek nie obsługuje kodowania UTF-7. | Nie       |
-| compressionCodec | Koder-dekoder kompresji używany do odczytu/zapisu plików tekstowych. <br>Dozwolone wartości to **bzip2**, **gzip**, **Wklęśnięcie**, **ZipDeflate**, **TarGzip**, **przyciąganie**lub **lz4**. Wartość domyślna nie jest skompresowana. <br>Działanie kopiowania w **tej chwili nie** obsługuje "przyciągania" & "lz4", a przepływ danych mapowania nie obsługuje "ZipDeflate". <br>**Uwaga** w przypadku używania działania kopiowania do dekompresowania plików **ZipDeflate** / **TarGzip** i zapisywania w magazynie danych ujścia opartych na plikach, domyślnie pliki są wyodrębniane do folderu: `<path specified in dataset>/<folder named as source compressed file>/` , użyj `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` w [źródle działania Copy](#delimited-text-as-source) , aby określić, czy należy zachować nazwę skompresowanych plików jako strukturę folderów. | Nie       |
-| compressionLevel | Współczynnik kompresji. <br>Dozwolone wartości to **optymalne** lub **najszybszy**.<br>- **Najszybsze:** Operacja kompresji powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli plik nie jest optymalnie kompresowany.<br>- **Optymalnie**: operacja kompresji powinna być optymalnie skompresowana, nawet jeśli operacja trwa dłużej. Aby uzyskać więcej informacji, zobacz temat [poziom kompresji](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nie       |
+| compressionCodec | Koder-dekoder kompresji używany do odczytu/zapisu plików tekstowych. <br>Dozwolone wartości to **bzip2** , **gzip** , **Wklęśnięcie** , **ZipDeflate** , **TarGzip** , **przyciąganie** lub **lz4** . Wartość domyślna nie jest skompresowana. <br>Działanie kopiowania w **tej chwili nie** obsługuje "przyciągania" & "lz4", a przepływ danych mapowania nie obsługuje "ZipDeflate". <br>**Uwaga** w przypadku używania działania kopiowania do dekompresowania plików **ZipDeflate** / **TarGzip** i zapisywania w magazynie danych ujścia opartych na plikach, domyślnie pliki są wyodrębniane do folderu: `<path specified in dataset>/<folder named as source compressed file>/` , użyj `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` w [źródle działania Copy](#delimited-text-as-source) , aby określić, czy należy zachować nazwę skompresowanych plików jako strukturę folderów. | Nie       |
+| compressionLevel | Współczynnik kompresji. <br>Dozwolone wartości to **optymalne** lub **najszybszy** .<br>- **Najszybsze:** Operacja kompresji powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli plik nie jest optymalnie kompresowany.<br>- **Optymalnie** : operacja kompresji powinna być optymalnie skompresowana, nawet jeśli operacja trwa dłużej. Aby uzyskać więcej informacji, zobacz temat [poziom kompresji](/dotnet/api/system.io.compression.compressionlevel) . | Nie       |
 
 Poniżej znajduje się przykład rozdzielanego zestawu danych tekstowych w usłudze Azure Blob Storage:
 
@@ -76,11 +76,11 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 ### <a name="delimited-text-as-source"></a>Rozdzielany tekst jako źródło 
 
-W sekcji *** \* Źródło \* *** działania kopiowania są obsługiwane następujące właściwości.
+W sekcji działanie copy **_ \_ Source \*** * są obsługiwane następujące właściwości.
 
 | Właściwość       | Opis                                                  | Wymagane |
 | -------------- | ------------------------------------------------------------ | -------- |
-| typ           | Właściwość Type źródła działania Copy musi być ustawiona na wartość **DelimitedTextSource**. | Tak      |
+| typ           | Właściwość Type źródła działania Copy musi być ustawiona na wartość **DelimitedTextSource** . | Tak      |
 | formatSettings | Grupa właściwości. Zapoznaj się z rozdzieloną tabelą **Ustawienia odczytu tekstu** poniżej. |  Nie       |
 | storeSettings  | Grupa właściwości do odczytywania danych z magazynu danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia odczytu w obszarze `storeSettings` . | Nie       |
 
@@ -88,11 +88,11 @@ Obsługiwane **rozdzielane tekstem ustawienia odczytu** w obszarze `formatSettin
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ formatSettings musi być ustawiony na **DelimitedTextReadSettings**. | Tak      |
+| typ          | Typ formatSettings musi być ustawiony na **DelimitedTextReadSettings** . | Tak      |
 | skipLineCount | Wskazuje liczbę **niepustych** wierszy do pominięcia podczas odczytywania danych z plików wejściowych. <br>Jeśli określono zarówno właściwość skipLineCount, jak i firstRowAsHeader, najpierw zostaną pominięte wiersze, a następnie zostaną odczytane informacje nagłówka z pliku wejściowego. | Nie       |
 | compressionProperties | Grupa właściwości na temat sposobu dekompresowania danych dla danego kodera kompresji. | Nie       |
-| preserveZipFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `ZipDeflateReadSettings` *) |  Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **ZipDeflate** . Wskazuje, czy podczas kopiowania zachować nazwę źródłowego pliku zip jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje niespakowane pliki do `<path specified in dataset>/<folder named as source zip file>/` .<br>-Po ustawieniu na **wartość false**Data Factory zapisuje niespakowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych źródłowych plikach ZIP, aby uniknąć wyścigów lub nieoczekiwanych zachowań.  | Nie |
-| preserveCompressionFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `TarGZipReadSettings` *)  | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **TarGzip** . Wskazuje, czy podczas kopiowania zachować źródłową nazwę pliku skompresowanego jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje zdekompresować pliki do `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Po ustawieniu na **wartość false**Data Factory zapisuje dekompresowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych plikach źródłowych, aby uniknąć wyścigów lub nieoczekiwanych zachowań. | Nie |
+| preserveZipFileNameAsFolder<br>( *w obszarze `compressionProperties` -> `type` jako `ZipDeflateReadSettings`* ) |  Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **ZipDeflate** . Wskazuje, czy podczas kopiowania zachować nazwę źródłowego pliku zip jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje niespakowane pliki do `<path specified in dataset>/<folder named as source zip file>/` .<br>-Po ustawieniu na **wartość false** Data Factory zapisuje niespakowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych źródłowych plikach ZIP, aby uniknąć wyścigów lub nieoczekiwanych zachowań.  | Nie |
+| preserveCompressionFileNameAsFolder<br>( *w obszarze `compressionProperties` -> `type` jako `TarGZipReadSettings`* )  | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **TarGzip** . Wskazuje, czy podczas kopiowania zachować źródłową nazwę pliku skompresowanego jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje zdekompresować pliki do `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Po ustawieniu na **wartość false** Data Factory zapisuje dekompresowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych plikach źródłowych, aby uniknąć wyścigów lub nieoczekiwanych zachowań. | Nie |
 
 ```json
 "activities": [
@@ -124,11 +124,11 @@ Obsługiwane **rozdzielane tekstem ustawienia odczytu** w obszarze `formatSettin
 
 ### <a name="delimited-text-as-sink"></a>Tekst rozdzielony jako ujścia
 
-W sekcji *** \* ujścia \* *** działania kopiowania są obsługiwane następujące właściwości.
+W sekcji działanie kopiowania **_ \_ ujścia \*** * są obsługiwane następujące właściwości.
 
 | Właściwość       | Opis                                                  | Wymagane |
 | -------------- | ------------------------------------------------------------ | -------- |
-| typ           | Właściwość Type źródła działania Copy musi być ustawiona na wartość **DelimitedTextSink**. | Tak      |
+| typ           | Właściwość Type źródła działania Copy musi być ustawiona na wartość **DelimitedTextSink** . | Tak      |
 | formatSettings | Grupa właściwości. Zapoznaj się z rozdzieloną tabelą **ustawień zapisu tekstu** poniżej. |    Nie      |
 | storeSettings  | Grupa właściwości do zapisywania danych w magazynie danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia zapisu w obszarze `storeSettings` .  | Nie       |
 
@@ -136,7 +136,7 @@ Obsługiwane **rozdzielone ustawienia zapisu tekstu** w obszarze `formatSettings
 
 | Właściwość      | Opis                                                  | Wymagane                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Typ formatSettings musi być ustawiony na **DelimitedTextWriteSettings**. | Tak                                                   |
+| typ          | Typ formatSettings musi być ustawiony na **DelimitedTextWriteSettings** . | Tak                                                   |
 | fileExtension | Rozszerzenie pliku używane do nazwy plików wyjściowych, na przykład `.csv` , `.txt` . Musi być określony, jeśli `fileName` nie jest określony w wyjściowym zestawie danych DelimitedText. Jeśli nazwa pliku jest skonfigurowana w wyjściowym zestawie danych, zostanie użyta jako nazwa pliku ujścia i ustawienie rozszerzenia pliku zostanie zignorowane.  | Tak, jeśli nazwa pliku nie jest określona w wyjściowym zestawie danych |
 | maxRowsPerFile | Podczas zapisywania danych w folderze można wybrać opcję zapisu w wielu plikach i określić maksymalną liczbę wierszy na plik.  | Nie |
 | fileNamePrefix | Ma zastosowanie, gdy `maxRowsPerFile` jest skonfigurowany.<br> Określ prefiks nazwy pliku podczas zapisywania danych do wielu plików, co spowodowało następujący wzorzec: `<fileNamePrefix>_00000.<fileExtension>` . Jeśli nie zostanie określony, prefiks nazwy pliku zostanie wygenerowany automatycznie. Ta właściwość nie ma zastosowania, gdy źródło jest magazynem opartym na plikach lub [z magazynem danych z włączoną opcją partycji](copy-activity-performance-features.md).  | Nie |
@@ -152,10 +152,10 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez rozdzielane 
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Ścieżki symboli wieloznacznych | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | nie | Ciąg [] | wildcardPaths |
-| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie | Ciąg | partitionRootPath |
+| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie | String | partitionRootPath |
 | Lista plików | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie | `true` lub `false` | fileList |
 | Wiersze wielowierszowe | Czy plik źródłowy zawiera wiersze, które rozciągają się na wiele wierszy. Wartości wielowierszowe muszą być w cudzysłowach. | nie `true` lub `false` | multiLineRow |
-| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | nie | Ciąg | rowUrlColumn |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | nie | String | rowUrlColumn |
 | Po zakończeniu | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie | Usuń: `true` lub `false` <br> Przenieś `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie | Timestamp | modifiedAfter <br> modifiedBefore |
 | Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
@@ -204,7 +204,7 @@ CSVSource sink(allowSchemaDrift: true,
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie działania kopiowania](copy-activity-overview.md)
+- [Przegląd działania kopiowania](copy-activity-overview.md)
 - [Mapowanie przepływu danych](concepts-data-flow-overview.md)
 - [Działanie Lookup](control-flow-lookup-activity.md)
 - [Działanie GetMetadata](control-flow-get-metadata-activity.md)

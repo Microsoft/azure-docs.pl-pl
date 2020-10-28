@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/26/2020
 ms.author: lle
-ms.openlocfilehash: c85e27cedfbcebe7060dfed2f96fc53aea9838c9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 3598db409e5493737753a8a1b03de168af5c664b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629394"
+ms.locfileid: "92637194"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
@@ -183,7 +183,7 @@ Na poniższym błędzie można jasno zobaczyć zestaw *System. ValueTuple* nie i
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
-Aby uzyskać więcej informacji na temat GAC, zobacz [ten artykuł](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+Aby uzyskać więcej informacji na temat GAC, zobacz [ten artykuł](/dotnet/framework/app-domains/gac).
 
 
 ### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Jak przeprowadzić inspekcję braku klucza własnego środowiska IR
@@ -468,7 +468,7 @@ Oczekiwana jest następująca odpowiedź:
 
 > [!NOTE] 
 > Zagadnienia dotyczące serwerów proxy:
-> *    Sprawdź, czy serwer proxy należy umieścić na liście bezpiecznych adresatów. Jeśli tak, upewnij się, że [te domeny](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) znajdują się na liście bezpiecznych adresatów.
+> *    Sprawdź, czy serwer proxy należy umieścić na liście bezpiecznych adresatów. Jeśli tak, upewnij się, że [te domeny](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) znajdują się na liście bezpiecznych adresatów.
 > *    Sprawdź, czy certyfikat TLS/SSL "wu2.frontend.clouddatahub.net/" jest zaufany na serwerze proxy.
 > *    Jeśli używasz uwierzytelniania Active Directory na serwerze proxy, Zmień konto usługi na konto użytkownika, które ma dostęp do serwera proxy jako "usługa Integration Runtime".
 
@@ -632,7 +632,7 @@ Jak ustalić, czy ma to wpływ:
 - Jeśli definiujesz reguły zapory na podstawie nazw FQDN przy użyciu metody opisanej w tym dokumencie, nie ma to wpływu na [Ustawienia zapory: Konfiguracja i lista dozwolonych adresów IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
 - Ma to wpływ na to, że użytkownik jawnie włącza listę dozwolonych wychodzących adresów IP w zaporze firmowej.
 
-Akcja, która ma zostać podjęta, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizować konfigurację sieci tak, aby korzystała z najnowszych Data Factory adresów IP do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Akcja, która ma zostać podjęta, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizować konfigurację sieci tak, aby korzystała z najnowszych Data Factory adresów IP do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>Scenariusz 2: komunikacja wychodząca z samoobsługowego Integration Runtime uruchomionego na maszynie wirtualnej platformy Azure w sieci wirtualnej platformy Azure zarządzanej przez klienta
 Jak ustalić, czy ma to wpływ:
@@ -641,14 +641,14 @@ Jak ustalić, czy ma to wpływ:
  ![Sprawdzenie lokalizacji docelowej](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 - Dotyczy to jednak jawnie włączenia listy dozwolonych adresów IP w ustawieniach reguł sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure.
 
-Akcja do wykonania, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizował reguły sieciowej grupy ZABEZPIECZEŃymi w konfiguracji sieci wirtualnej platformy Azure, aby używać najnowszych adresów IP Data Factory do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Akcja do wykonania, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizował reguły sieciowej grupy ZABEZPIECZEŃymi w konfiguracji sieci wirtualnej platformy Azure, aby używać najnowszych adresów IP Data Factory do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Scenariusz 3: komunikacja wychodząca z usług SSIS Integration Runtime w sieci wirtualnej platformy Azure zarządzanej przez klienta
 - Sprawdź, czy masz jakiekolwiek reguły sieciowej grupy zabezpieczeń ruchu wychodzącego w sieci prywatnej, która zawiera Integration Runtime SSIS. W przypadku braku ograniczeń wychodzących nie ma to żadnego wpływu.
 - Jeśli istnieją ograniczenia reguły ruchu wychodzącego, należy sprawdzić, czy jest używany tag usługi. Jeśli używasz znacznika usługi, nie trzeba zmieniać ani dodawać żadnych elementów, ponieważ nowe zakresy adresów IP są objęte istniejącym tagiem usługi.
 - Dotyczy to jednak jawnie włączenia listy dozwolonych adresów IP w ustawieniach reguł sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure.
 
-Akcja do wykonania, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizował reguły sieciowej grupy ZABEZPIECZEŃymi w konfiguracji sieci wirtualnej platformy Azure, aby używać najnowszych adresów IP Data Factory do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Akcja do wykonania, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizował reguły sieciowej grupy ZABEZPIECZEŃymi w konfiguracji sieci wirtualnej platformy Azure, aby używać najnowszych adresów IP Data Factory do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Nie można ustanowić relacji zaufania dla bezpiecznego kanału SSLTLS 
 
@@ -709,7 +709,7 @@ Aby uzyskać pomoc dotyczącą rozwiązywania problemów, wypróbuj następując
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Żądania funkcji Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Wideo na platformie Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Strona pytania&pytań i odpowiedzi](/answers/topics/azure-data-factory.html)
 *  [Forum przepełnienia stosu dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Przewodnik wydajności dotyczący mapowania przepływów danych](concepts-data-flow-performance.md)

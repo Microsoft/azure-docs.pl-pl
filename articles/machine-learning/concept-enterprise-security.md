@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495999"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637092"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -111,7 +111,7 @@ Możesz również włączyć prywatne łącze platformy Azure dla Twojego obszar
 ## <a name="data-encryption"></a>Szyfrowanie danych
 
 > [!IMPORTANT]
-> W przypadku szyfrowania klasy produkcyjnej w trakcie __szkolenia__firma Microsoft zaleca korzystanie z Azure Machine Learning klastra obliczeniowego. W przypadku szyfrowania klasy produkcyjnej podczas __wnioskowania__firma Microsoft zaleca korzystanie z usługi Azure Kubernetes Service.
+> W przypadku szyfrowania klasy produkcyjnej w trakcie __szkolenia__ firma Microsoft zaleca korzystanie z Azure Machine Learning klastra obliczeniowego. W przypadku szyfrowania klasy produkcyjnej podczas __wnioskowania__ firma Microsoft zaleca korzystanie z usługi Azure Kubernetes Service.
 >
 > Wystąpienie obliczeniowe Azure Machine Learning jest środowiskiem deweloperskim/testowym. W przypadku korzystania z tego programu zalecamy przechowywanie plików, takich jak Notesy i skrypty, w udziale plików. Dane powinny być przechowywane w magazynie danych.
 
@@ -158,12 +158,7 @@ Aby włączyć obsługę administracyjną wystąpienia Cosmos DB w ramach subskr
         > [!NOTE]
         > To wystąpienie magazynu kluczy może być inne niż magazyn kluczy tworzony przez Azure Machine Learning podczas aprowizacji obszaru roboczego. Jeśli chcesz użyć tego samego wystąpienia magazynu kluczy dla obszaru roboczego, Przekaż ten sam magazyn kluczy podczas aprowizacji obszaru roboczego za pomocą [parametru key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-To wystąpienie Cosmos DB jest tworzone w grupie zasobów zarządzanej przez firmę Microsoft w ramach subskrypcji wraz z potrzebnymi zasobami. Zarządzana Grupa zasobów ma nazwę w formacie `<AML Workspace Resource Group Name><GUID>` . Jeśli obszar roboczy Azure Machine Learning używa prywatnego punktu końcowego, Sieć wirtualna jest również tworzona dla wystąpienia Cosmos DB. Ta sieć wirtualna jest używana do zabezpieczania komunikacji między Cosmos DB i Azure Machine Learning.
-
-> [!IMPORTANT]
-> * Nie usuwaj grupy zasobów zawierającej to wystąpienie Cosmos DB lub żadnego z zasobów utworzonych automatycznie w tej grupie. Jeśli musisz usunąć grupę zasobów, Cosmos DB wystąpienie itd., musisz usunąć obszar roboczy Azure Machine Learning, który go używa. Grupa zasobów, wystąpienie Cosmos DB i inne automatycznie tworzone zasoby zostaną usunięte po usunięciu skojarzonego obszaru roboczego.
-> * Domyślne [__jednostki żądań__](../cosmos-db/request-units.md) dla tego konta Cosmos DB są ustawione na __8000__. Zmiana tej wartości nie jest obsługiwana.
-> * Nie można udostępnić własnej sieci wirtualnej do użycia z tworzonym wystąpieniem Cosmos DB. Nie można również modyfikować sieci wirtualnej. Na przykład nie można zmienić zakresu adresów IP, z którego korzysta.
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Jeśli musisz __obrócić lub odwołać__ klucz, możesz to zrobić w dowolnym momencie. Podczas obracania klucza Cosmos DB rozpocznie się przy użyciu nowego klucza (Najnowsza wersja) do szyfrowania danych przechowywanych w spoczynku. W przypadku odwoływania się (wyłączania) klucza Cosmos DB są ważne żądania. Trwa to zwykle godzinę, w której obrót lub odwołanie będzie obowiązywać.
 
@@ -261,7 +256,7 @@ Możesz również zaszyfrować [informacje diagnostyczne zarejestrowane ze wdro�
 
 ### <a name="metrics"></a>Metryki
 
-Za pomocą metryk Azure Monitor można wyświetlać i monitorować metryki dla Azure Machine Learningego obszaru roboczego. W [Azure Portal](https://portal.azure.com)wybierz swój obszar roboczy, a następnie wybierz pozycję **metryki**:
+Za pomocą metryk Azure Monitor można wyświetlać i monitorować metryki dla Azure Machine Learningego obszaru roboczego. W [Azure Portal](https://portal.azure.com)wybierz swój obszar roboczy, a następnie wybierz pozycję **metryki** :
 
 [![Zrzut ekranu przedstawiający przykładowe metryki dla obszaru roboczego](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
@@ -371,8 +366,8 @@ Oto szczegółowe informacje:
 
 [Azure Policy](/azure/governance/policy) jest narzędziem do zarządzania, które umożliwia upewnienie się, że zasoby platformy Azure są zgodne z zasadami. Za pomocą Azure Machine Learning można przypisać następujące zasady:
 
-* **Klucz zarządzany przez klienta**: Inspekcja lub wymuszanie, czy obszary robocze muszą używać klucza zarządzanego przez klienta.
-* **Link prywatny**: Inspekcja, czy obszary robocze używają prywatnego punktu końcowego do komunikacji z siecią wirtualną.
+* **Klucz zarządzany przez klienta** : Inspekcja lub wymuszanie, czy obszary robocze muszą używać klucza zarządzanego przez klienta.
+* **Link prywatny** : Inspekcja, czy obszary robocze używają prywatnego punktu końcowego do komunikacji z siecią wirtualną.
 
 Aby uzyskać więcej informacji na temat Azure Policy, zobacz [dokumentację Azure Policy](/azure/governance/policy/overview).
 

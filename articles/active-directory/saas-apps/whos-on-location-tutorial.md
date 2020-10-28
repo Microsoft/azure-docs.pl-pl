@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 84b2937672212957f7c8e10b8b78ae72b00dd69c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d0e5134da9083e97b3977b05d601c2cfba25f5d4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521598"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636684"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whosonlocation"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą WhosOnLocation
 
@@ -49,15 +49,15 @@ Aby skonfigurować integrację programu WhosOnLocation z usługą Azure AD, musi
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja** .
 1. W sekcji **Dodaj z galerii** wpisz **WhosOnLocation** w polu wyszukiwania.
 1. Wybierz pozycję **WhosOnLocation** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-whosonlocation"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla WhosOnLocation
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą WhosOnLocation przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w WhosOnLocation.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą WhosOnLocation przy użyciu użytkownika testowego o nazwie **B. Simon** . Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w WhosOnLocation.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą WhosOnLocation, wykonaj następujące bloki konstrukcyjne:
 
@@ -72,8 +72,8 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **WhosOnLocation** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
-1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **WhosOnLocation** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne** .
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML** .
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
@@ -101,25 +101,25 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** , wybierz pozycję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło** .
+   1. Kliknij pozycję **Utwórz** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi WhosOnLocation.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Na liście Aplikacje wybierz pozycję **WhosOnLocation**.
-1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Na liście Aplikacje wybierz pozycję **WhosOnLocation** .
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy** .
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. Wybierz pozycję **Dodaj użytkownika** , a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
     ![Link Dodaj użytkownika](common/add-assign-user.png)
 
@@ -131,19 +131,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W innym oknie przeglądarki Zaloguj się do witryny firmy WhosOnLocation jako administrator.
 
-2. Kliknij pozycję **Narzędzia**  ->  **konto**.
+2. Kliknij pozycję **Narzędzia**  ->  **konto** .
 
-    ![Konfiguracja WhosOnLocation](./media/WhosOnLocation-tutorial/config1.png)
+    ![Zrzut ekranu przedstawia konto wybrane z menu Narzędzia w witrynie WhosOnLocation.](./media/WhosOnLocation-tutorial/config1.png)
 
-3. W Nawigatorze po lewej stronie wybierz pozycję **dostęp pracownika**.
+3. W Nawigatorze po lewej stronie wybierz pozycję **dostęp pracownika** .
 
-    ![Konfiguracja WhosOnLocation](./media/WhosOnLocation-tutorial/config2.png)
+    ![Zrzut ekranu przedstawia dostęp pracownika wybrany z profilu konta.](./media/WhosOnLocation-tutorial/config2.png)
 
 4. Wykonaj następujące czynności na poniższej stronie.
 
-    ![Konfiguracja WhosOnLocation](./media/WhosOnLocation-tutorial/config3.png)
+    ![Zrzut ekranu przedstawia kartę dostęp z employess, w której można wprowadzać dane użytkownika.](./media/WhosOnLocation-tutorial/config3.png)
 
-    a. Zmień pozycję **Logowanie jednokrotne za pomocą protokołu SAML** na **wartość tak**.
+    a. Zmień pozycję **Logowanie jednokrotne za pomocą protokołu SAML** na **wartość tak** .
 
     b. W polu tekstowym **adres URL wystawcy** wklej wartość **identyfikatora jednostki** skopiowaną z Azure Portal.
 
@@ -151,7 +151,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     d. Otwórz pobrany **certyfikat (base64)** z Azure Portal do Notatnika i wklej zawartość do pola tekstowego **certyfikatu** .
 
-    e. Kliknij pozycję **Zapisz konfigurację SAML**.
+    e. Kliknij pozycję **Zapisz konfigurację SAML** .
 
 ### <a name="create-whosonlocation-test-user"></a>Utwórz użytkownika testowego WhosOnLocation
 
@@ -163,7 +163,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka WhosOnLocation w panelu dostępu należy automatycznie zalogować się do WhosOnLocation, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 

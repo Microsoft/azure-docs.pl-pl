@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7669b49735843bf941c52aee5cc3b71d1644c01a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440562"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635817"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Zagadnienia dotyczące zabezpieczeń dotyczące przenoszenia danych w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -51,8 +51,8 @@ Jeśli interesuje Cię zgodność z platformą Azure i sposób zabezpieczania in
 
 W tym artykule opisano zagadnienia dotyczące zabezpieczeń w następujących dwóch scenariuszach przenoszenia danych: 
 
-- **Scenariusz chmury**: w tym scenariuszu zarówno źródło, jak i miejsce docelowe są publicznie dostępne przez Internet. Obejmują one zarządzane usługi magazynu w chmurze, takie jak Azure Storage, Azure Synapse Analytics (dawniej SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon RedShift, SaaS Services, takie jak Salesforce i protokoły sieci Web, takie jak FTP i OData. Zapoznaj się z pełną listą obsługiwanych źródeł danych w  [obsługiwanych sklepach i formatach danych](copy-activity-overview.md#supported-data-stores-and-formats).
-- **Scenariusz hybrydowy**: w tym scenariuszu Źródło lub miejsce docelowe znajduje się za zaporą lub wewnątrz lokalnej sieci firmowej. Magazyn danych znajduje się w sieci prywatnej lub sieci wirtualnej (najczęściej w źródle) i nie jest publicznie dostępny. Serwery baz danych hostowane na maszynach wirtualnych są również objęte tym scenariuszem.
+- **Scenariusz chmury** : w tym scenariuszu zarówno źródło, jak i miejsce docelowe są publicznie dostępne przez Internet. Obejmują one zarządzane usługi magazynu w chmurze, takie jak Azure Storage, Azure Synapse Analytics (dawniej SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon RedShift, SaaS Services, takie jak Salesforce i protokoły sieci Web, takie jak FTP i OData. Zapoznaj się z pełną listą obsługiwanych źródeł danych w  [obsługiwanych sklepach i formatach danych](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Scenariusz hybrydowy** : w tym scenariuszu Źródło lub miejsce docelowe znajduje się za zaporą lub wewnątrz lokalnej sieci firmowej. Magazyn danych znajduje się w sieci prywatnej lub sieci wirtualnej (najczęściej w źródle) i nie jest publicznie dostępny. Serwery baz danych hostowane na maszynach wirtualnych są również objęte tym scenariuszem.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -60,8 +60,8 @@ W tym artykule opisano zagadnienia dotyczące zabezpieczeń w następujących dw
 
 ### <a name="securing-data-store-credentials"></a>Zabezpieczanie poświadczeń magazynu danych
 
-- **Przechowuj poświadczenia zaszyfrowane w magazynie zarządzanym Azure Data Factory**. Data Factory pomaga chronić poświadczenia magazynu danych przez szyfrowanie ich certyfikatami zarządzanymi przez firmę Microsoft. Te certyfikaty są obracane co dwa lata (co obejmuje odnowienie certyfikatu i migrację poświadczeń). Aby uzyskać więcej informacji o zabezpieczeniach usługi Azure Storage, zobacz [Omówienie zabezpieczeń usługi Azure Storage](../security/fundamentals/storage-overview.md).
-- **Przechowuj poświadczenia w Azure Key Vault**. Możesz również przechowywać poświadczenia magazynu danych w [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory Pobiera poświadczenia podczas wykonywania działania. Aby uzyskać więcej informacji, zobacz [przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md).
+- **Przechowuj poświadczenia zaszyfrowane w magazynie zarządzanym Azure Data Factory** . Data Factory pomaga chronić poświadczenia magazynu danych przez szyfrowanie ich certyfikatami zarządzanymi przez firmę Microsoft. Te certyfikaty są obracane co dwa lata (co obejmuje odnowienie certyfikatu i migrację poświadczeń). Aby uzyskać więcej informacji o zabezpieczeniach usługi Azure Storage, zobacz [Omówienie zabezpieczeń usługi Azure Storage](../storage/blobs/security-recommendations.md).
+- **Przechowuj poświadczenia w Azure Key Vault** . Możesz również przechowywać poświadczenia magazynu danych w [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory Pobiera poświadczenia podczas wykonywania działania. Aby uzyskać więcej informacji, zobacz [przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Szyfrowanie danych podczas przesyłania
 Jeśli magazyn danych w chmurze obsługuje protokół HTTPS lub TLS, wszystkie transfery danych między usługami przenoszenia danych w Data Factory i magazynem danych w chmurze są realizowane za pośrednictwem protokołu HTTPS lub TLS bezpiecznego kanału.
@@ -83,8 +83,8 @@ Niektóre magazyny danych obsługują szyfrowanie danych magazynowanych. Zalecam
 #### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 Transparent Data Encryption (TDE) w usłudze Azure Synapse Analytics pomaga chronić przed zagrożeniami złośliwymi działaniami, wykonując szyfrowanie w czasie rzeczywistym i odszyfrowywanie danych przechowywanych na bieżąco. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie bazy danych w usłudze Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL Database obsługuje również funkcję transparent Data Encryption (TDE), która pomaga chronić przed zagrożeniami złośliwego działania przez wykonywanie szyfrowania i odszyfrowywania danych w czasie rzeczywistym bez konieczności wprowadzania zmian w aplikacji. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [przezroczyste szyfrowanie danych dla SQL Database i magazynu danych](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+#### <a name="azure-sql-database"></a>Usługa Azure SQL Database
+Azure SQL Database obsługuje również funkcję transparent Data Encryption (TDE), która pomaga chronić przed zagrożeniami złośliwego działania przez wykonywanie szyfrowania i odszyfrowywania danych w czasie rzeczywistym bez konieczności wprowadzania zmian w aplikacji. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [przezroczyste szyfrowanie danych dla SQL Database i magazynu danych](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store również zapewnia szyfrowanie danych przechowywanych na koncie. Po włączeniu Data Lake Store automatycznie szyfruje dane przed utrwaleniem i odszyfrowaniem przed pobraniem, co sprawia, że jest ono niewidoczne dla klienta, który uzyskuje dostęp do danych. Aby uzyskać więcej informacji, zobacz [zabezpieczenia w Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
@@ -102,7 +102,7 @@ Amazon RedShift obsługuje szyfrowanie klastra dla danych przechowywanych w spoc
 Usługi Salesforce obsługują szyfrowanie platformy osłony, które umożliwiają szyfrowanie wszystkich plików, załączników i pól niestandardowych. Aby uzyskać więcej informacji, zobacz [Omówienie przepływu uwierzytelniania OAuth serwera sieci Web](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Scenariusze hybrydowe
-Scenariusze hybrydowe wymagają, aby środowisko Integration Runtime było instalowane w sieci lokalnej, wewnątrz sieci wirtualnej (Azure) lub wewnątrz wirtualnej chmury prywatnej (Amazon). Własne środowisko Integration Runtime musi mieć dostęp do lokalnych magazynów danych. Aby uzyskać więcej informacji na temat środowiska Integration Runtime (własne środowisko uruchomieniowe), zobacz [jak utworzyć i skonfigurować własne środowisko Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
+Scenariusze hybrydowe wymagają, aby środowisko Integration Runtime było instalowane w sieci lokalnej, wewnątrz sieci wirtualnej (Azure) lub wewnątrz wirtualnej chmury prywatnej (Amazon). Własne środowisko Integration Runtime musi mieć dostęp do lokalnych magazynów danych. Aby uzyskać więcej informacji na temat środowiska Integration Runtime (własne środowisko uruchomieniowe), zobacz [jak utworzyć i skonfigurować własne środowisko Integration Runtime](./create-self-hosted-integration-runtime.md). 
 
 ![własne kanały środowiska Integration Runtime](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -111,11 +111,11 @@ Kanał polecenia umożliwia komunikację między usługami przenoszenia danych w
 ### <a name="on-premises-data-store-credentials"></a>Poświadczenia lokalnego magazynu danych
 Poświadczenia mogą być przechowywane w usłudze Fabryka danych lub [odwoływać się do nich przez fabrykę danych](store-credentials-in-key-vault.md) podczas środowiska uruchomieniowego z Azure Key Vault. W przypadku przechowywania poświadczeń w usłudze Fabryka danych są one zawsze przechowywane w postaci zaszyfrowanej w ramach własnego środowiska Integration Runtime. 
  
-- **Przechowuj poświadczenia lokalnie**. Jeśli bezpośrednio używasz polecenia cmdlet **Set-AzDataFactoryV2LinkedService** z parametrami połączenia i poświadczeniami wbudowanymi w kod JSON, połączona usługa jest zaszyfrowana i zapisywana w środowisku Integration Runtime.  W takim przypadku poświadczenia są przesyłane za pomocą usługi zaplecza platformy Azure, która jest niezwykle bezpieczna, do samodzielnej maszyny integracyjnej, w której jest ona zaszyfrowana i przechowywana. Własne środowisko Integration runtime używa funkcji [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) systemu Windows do szyfrowania poufnych danych i informacji o poświadczeniach.
+- **Przechowuj poświadczenia lokalnie** . Jeśli bezpośrednio używasz polecenia cmdlet **Set-AzDataFactoryV2LinkedService** z parametrami połączenia i poświadczeniami wbudowanymi w kod JSON, połączona usługa jest zaszyfrowana i zapisywana w środowisku Integration Runtime.  W takim przypadku poświadczenia są przesyłane za pomocą usługi zaplecza platformy Azure, która jest niezwykle bezpieczna, do samodzielnej maszyny integracyjnej, w której jest ona zaszyfrowana i przechowywana. Własne środowisko Integration runtime używa funkcji [DPAPI](/previous-versions/ms995355(v=msdn.10)) systemu Windows do szyfrowania poufnych danych i informacji o poświadczeniach.
 
-- **Przechowuj poświadczenia w Azure Key Vault**. Możesz również przechowywać poświadczenia magazynu danych w [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory Pobiera poświadczenia podczas wykonywania działania. Aby uzyskać więcej informacji, zobacz [przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md).
+- **Przechowuj poświadczenia w Azure Key Vault** . Możesz również przechowywać poświadczenia magazynu danych w [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory Pobiera poświadczenia podczas wykonywania działania. Aby uzyskać więcej informacji, zobacz [przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md).
 
-- **Przechowuj poświadczenia lokalnie bez przekazywania poświadczeń za pomocą zaplecza platformy Azure do własnego środowiska Integration Runtime**. Jeśli chcesz zaszyfrować i przechowywać poświadczenia lokalnie w środowisku środowiska Integration Runtime (samodzielne) bez konieczności przekazywania poświadczeń za pomocą zaplecza usługi Data Factory, wykonaj kroki opisane w temacie [szyfrowanie poświadczeń dla lokalnych magazynów danych w Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Wszystkie łączniki obsługują tę opcję. Własne środowisko Integration runtime używa funkcji [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) systemu Windows do szyfrowania poufnych danych i informacji o poświadczeniach. 
+- **Przechowuj poświadczenia lokalnie bez przekazywania poświadczeń za pomocą zaplecza platformy Azure do własnego środowiska Integration Runtime** . Jeśli chcesz zaszyfrować i przechowywać poświadczenia lokalnie w środowisku środowiska Integration Runtime (samodzielne) bez konieczności przekazywania poświadczeń za pomocą zaplecza usługi Data Factory, wykonaj kroki opisane w temacie [szyfrowanie poświadczeń dla lokalnych magazynów danych w Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Wszystkie łączniki obsługują tę opcję. Własne środowisko Integration runtime używa funkcji [DPAPI](/previous-versions/ms995355(v=msdn.10)) systemu Windows do szyfrowania poufnych danych i informacji o poświadczeniach. 
 
    Użyj polecenia cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** , aby zaszyfrować poświadczenia połączonej usługi i szczegółowe informacje poufne w połączonej usłudze. Następnie można użyć zwróconego JSON (z elementem **EncryptedCredential** w parametrach połączenia), aby utworzyć połączoną usługę za pomocą polecenia cmdlet **Set-AzDataFactoryV2LinkedService** .  
 
@@ -159,7 +159,7 @@ Na poniższych ilustracjach przedstawiono użycie własnego środowiska Integrat
 > Może być konieczne zarządzanie portami lub Konfigurowanie listy dozwolonych domen na poziomie zapory firmowej zgodnie z wymaganiami odpowiednich źródeł danych. Ta tabela używa tylko Azure SQL Database, usługi Azure Synapse Analytics i Azure Data Lake Store jako przykładów.
 
 > [!NOTE] 
-> Aby uzyskać szczegółowe informacje na temat strategii dostępu do danych za poorednictwem Azure Data Factory, zobacz [ten artykuł](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
+> Aby uzyskać szczegółowe informacje na temat strategii dostępu do danych za poorednictwem Azure Data Factory, zobacz [ten artykuł](./data-access-strategies.md#data-access-strategies-through-azure-data-factory).
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Wymagania dotyczące zapory dla sieci lokalnej/prywatnej    
 W przedsiębiorstwie firmowa Zapora jest uruchamiana na centralnym routerze organizacji. Zapora systemu Windows jest uruchamiana jako demon na komputerze lokalnym, na którym jest zainstalowany własny środowisko Integration Runtime. 
@@ -184,10 +184,10 @@ Niektóre magazyny danych w chmurze wymagają również, aby adres IP komputera 
 
 Następujące magazyny danych w chmurze wymagają zezwolenia na adres IP komputera Integration Runtime. Niektóre z tych magazynów danych domyślnie mogą nie wymagać listy dozwolonych. 
 
-- [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
-- [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Baza danych SQL Azure](../azure-sql/database/firewall-configure.md) 
+- [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Cosmos DB](../cosmos-db/firewall-support.md)
+- [Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
@@ -204,4 +204,3 @@ Własne środowisko Integration Runtime umożliwia nawiązywanie połączeń opa
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać informacje o wydajności działania kopiowania Azure Data Factory, zobacz [Przewodnik dotyczący wydajności i dostrajania działania kopiowania](copy-activity-performance.md).
 
- 

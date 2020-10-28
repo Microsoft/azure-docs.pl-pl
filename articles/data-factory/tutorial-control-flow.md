@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 6eaf00679566aa8dfb7a90db95228349c81fcfec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983419"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637704"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Rozgałęzianie działań i tworzenie łańcuchów działań w potoku usługi Data Factory
 
@@ -40,7 +40,7 @@ W tym samouczku przedstawiono sposób wykonywania następujących zadań:
 > * Uruchamianie potoku
 > * Monitorowanie uruchomień działań i potoku
 
-W tym samouczku jest używany zestaw SDK platformy .NET. Można użyć innych mechanizmów do współpracy z Azure Data Factory. Aby uzyskać Data Factory przewodników Szybki Start, zobacz [5-minutowe Przewodniki Szybki Start](/azure/data-factory/quickstart-create-data-factory-portal).
+W tym samouczku jest używany zestaw SDK platformy .NET. Można użyć innych mechanizmów do współpracy z Azure Data Factory. Aby uzyskać Data Factory przewodników Szybki Start, zobacz [5-minutowe Przewodniki Szybki Start](./quickstart-create-data-factory-portal.md).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -54,11 +54,11 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Listę regionów świadczenia usługi Azure, w których Data Factory są obecnie dostępne, można znaleźć w temacie [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych i obliczenia mogą znajdować się w innych regionach. Magazyny obejmują usługę Azure Storage i Azure SQL Database. Obliczenia obejmują HDInsight, który Data Factory używany.
 
-Utwórz aplikację zgodnie z opisem w temacie [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Przypisz aplikację do roli **współautor** , wykonując instrukcje opisane w tym samym artykule. Potrzebujesz kilku wartości dla nowszych części tego samouczka, takich jak identyfikator **aplikacji (klienta)** i **Identyfikator katalogu (dzierżawy)**.
+Utwórz aplikację zgodnie z opisem w temacie [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Przypisz aplikację do roli **współautor** , wykonując instrukcje opisane w tym samym artykule. Potrzebujesz kilku wartości dla nowszych części tego samouczka, takich jak identyfikator **aplikacji (klienta)** i **Identyfikator katalogu (dzierżawy)** .
 
 ### <a name="create-a-blob-table"></a>Tworzenie tabeli obiektów BLOB
 
-1. Otwórz edytor tekstów. Skopiuj poniższy tekst i Zapisz go lokalnie jako *input.txt*.
+1. Otwórz edytor tekstów. Skopiuj poniższy tekst i Zapisz go lokalnie jako *input.txt* .
 
    ```
    Ethel|Berg
@@ -72,14 +72,14 @@ Utwórz aplikację zgodnie z opisem w temacie [Tworzenie aplikacji Azure Active 
 
 Tworzenie aplikacji konsolowej .NET w języku C#:
 
-1. Uruchom program Visual Studio i wybierz pozycję **Utwórz nowy projekt**.
-1. W obszarze **Utwórz nowy projekt**wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# i wybierz pozycję **dalej**.
-1. Nazwij projekt *ADFv2BranchTutorial*.
-1. Wybierz pozycję **.NET w wersji 4.5.2** lub nowszej, a następnie wybierz pozycję **Utwórz**.
+1. Uruchom program Visual Studio i wybierz pozycję **Utwórz nowy projekt** .
+1. W obszarze **Utwórz nowy projekt** wybierz pozycję **aplikacja konsoli (.NET Framework)** dla języka C# i wybierz pozycję **dalej** .
+1. Nazwij projekt *ADFv2BranchTutorial* .
+1. Wybierz pozycję **.NET w wersji 4.5.2** lub nowszej, a następnie wybierz pozycję **Utwórz** .
 
 ### <a name="install-nuget-packages"></a>Instalowanie pakietów NuGet
 
-1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
+1. Wybierz kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** .
 1. W oknie **Konsola menedżera pakietów** uruchom następujące polecenia, aby zainstalować pakiety. Aby uzyskać szczegółowe informacje, zapoznaj się z [pakietem NuGet Microsoft. Azure. Management. DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) .
 
    ```powershell
@@ -211,7 +211,7 @@ W tej sekcji utworzysz dwa zestawy danych, jeden dla źródła i jeden dla ujśc
 
 ### <a name="create-a-dataset-for-a-source-azure-blob"></a>Tworzenie zestawu danych dla źródłowego obiektu blob platformy Azure
 
-Dodaj metodę, która tworzy *zestaw danych obiektów blob platformy Azure*. Aby uzyskać więcej informacji o obsługiwanych właściwościach i szczegółach, zobacz [Właściwości zestawu danych obiektów blob platformy Azure](connector-azure-blob-storage.md#dataset-properties).
+Dodaj metodę, która tworzy *zestaw danych obiektów blob platformy Azure* . Aby uzyskać więcej informacji o obsługiwanych właściwościach i szczegółach, zobacz [Właściwości zestawu danych obiektów blob platformy Azure](connector-azure-blob-storage.md#dataset-properties).
 
 Dodaj `SourceBlobDatasetDefinition` metodę do pliku *program.cs* :
 
@@ -234,9 +234,9 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 }
 ```
 
-Należy zdefiniować zestaw danych reprezentujący źródło danych w obiekcie blob platformy Azure. Ten zestaw danych obiektu BLOB odwołuje się do połączonej usługi Azure Storage obsługiwanej w poprzednim kroku. Zestaw danych obiektów BLOB opisuje lokalizację obiektu BLOB do skopiowania: *FolderPath* i *filename*.
+Należy zdefiniować zestaw danych reprezentujący źródło danych w obiekcie blob platformy Azure. Ten zestaw danych obiektu BLOB odwołuje się do połączonej usługi Azure Storage obsługiwanej w poprzednim kroku. Zestaw danych obiektów BLOB opisuje lokalizację obiektu BLOB do skopiowania: *FolderPath* i *filename* .
 
-Zwróć uwagę na użycie parametrów dla *FolderPath*. `sourceBlobContainer` jest nazwą parametru, a wyrażenie jest zamieniane na wartości przesłane w przebiegu potoku. Składnia umożliwiająca zdefiniowanie parametrów: `@pipeline().parameters.<parameterName>`
+Zwróć uwagę na użycie parametrów dla *FolderPath* . `sourceBlobContainer` jest nazwą parametru, a wyrażenie jest zamieniane na wartości przesłane w przebiegu potoku. Składnia umożliwiająca zdefiniowanie parametrów: `@pipeline().parameters.<parameterName>`
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Tworzenie zestawu danych dla ujścia obiektu blob platformy Azure
 
@@ -308,7 +308,7 @@ Aby wyzwolić wysyłanie wiadomości e-mail, zdefiniuj przepływ pracy przy uży
 
 ### <a name="success-email-workflow"></a>Przepływ pracy wiadomości e-mail z informacją o powodzeniu
 
-W [Azure Portal](https://portal.azure.com)Utwórz przepływ pracy Logic Apps o nazwie *CopySuccessEmail*. Zdefiniuj wyzwalacz przepływu pracy jako `When an HTTP request is received` . W wyzwalaczu żądania wypełnij pole `Request Body JSON Schema` przy użyciu następującego kodu JSON:
+W [Azure Portal](https://portal.azure.com)Utwórz przepływ pracy Logic Apps o nazwie *CopySuccessEmail* . Zdefiniuj wyzwalacz przepływu pracy jako `When an HTTP request is received` . W wyzwalaczu żądania wypełnij pole `Request Body JSON Schema` przy użyciu następującego kodu JSON:
 
 ```json
 {
@@ -344,7 +344,7 @@ Po zapisaniu przepływu pracy skopiuj i Zapisz wartość **adresu URL post proto
 
 ## <a name="fail-email-workflow"></a>Przepływ pracy wiadomości e-mail z informacją o niepowodzeniu
 
-Klonuj **CopySuccessEmail** jako inny przepływ pracy Logic Apps o nazwie *nazwie copyfailemail*. W wyzwalaczu żądania element `Request Body JSON schema` jest taki sam. Zmień format wiadomości e-mail, na przykład element `Subject`, aby przekształcić wiadomość e-mail w wiadomość z informacją o niepowodzeniu. Oto przykład:
+Klonuj **CopySuccessEmail** jako inny przepływ pracy Logic Apps o nazwie *nazwie copyfailemail* . W wyzwalaczu żądania element `Request Body JSON schema` jest taki sam. Zmień format wiadomości e-mail, na przykład element `Subject`, aby przekształcić wiadomość e-mail w wiadomość z informacją o niepowodzeniu. Oto przykład:
 
 ![Projektant aplikacji logiki — przepływ pracy poczty e-mail zakończony niepowodzeniem](media/tutorial-control-flow/fail-email-workflow.png)
 
@@ -610,7 +610,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -753,7 +753,7 @@ Press any key to exit...
 W tym samouczku zostały wykonane następujące zadania:
 
 > [!div class="checklist"]
-> * Tworzenie fabryki danych
+> _ Tworzenie fabryki danych
 > * Tworzenie połączonej usługi Azure Storage
 > * Tworzenie zestawu danych obiektów blob platformy Azure
 > * Tworzenie potoku zawierającego działanie kopiowania i działanie internetowe

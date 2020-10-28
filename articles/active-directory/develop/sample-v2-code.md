@@ -12,12 +12,12 @@ ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e4327d8426a5dc1668993efd418c3f21624d407d
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 49bba8054065123d7409f26b61d1dfc2580ef720
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327658"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636055"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Przykłady kodu platformy tożsamości firmy Microsoft (punkt końcowy v 2.0)
 
@@ -41,10 +41,12 @@ Te przykłady przedstawiają sposób pisania aplikacji jednostronicowej zabezpie
 | ![Ten obraz pokazuje logo JavaScript ](media/sample-v2-code/logo_js.png) [javascript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Wywołania SPA Microsoft Graph |[JavaScript-graphapi-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
 | ![Ten obraz pokazuje logo JavaScript ](media/sample-v2-code/logo_js.png) [javascript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | Wywołania SPA Microsoft Graph przy użyciu przepływu kodu uwierzytelniania w/PKCE |[JavaScript — v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) |
 | ![Ten obraz pokazuje logo JavaScript ](media/sample-v2-code/logo_js.png) [javascript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Wywołania SPA B2C |[B2C-JavaScript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
-| ![Ten obraz pokazuje logo kątowe ](media/sample-v2-code/logo_angular.png) [JavaScript (MSAL-kątowy)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| Wywołania SPA Microsoft Graph  | [Active-Directory-JavaScript-singlepageapp — kątowy](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) |
+| ![Ten obraz pokazuje logo JavaScript ](media/sample-v2-code/logo_js.png) [javascript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | Wywołania SPA B2C przy użyciu przepływu kodu uwierzytelniania w/PKCE |[B2C-JavaScript-Spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) |
+| ![Ten obraz pokazuje kątowe logo kątowe ](media/sample-v2-code/logo_angular.png) [(MSAL-kątowy)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| Wywołania SPA Microsoft Graph  | [Active-Directory-JavaScript-singlepageapp — kątowy](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) |
 | ![Ten obraz pokazuje kątowe logo kątowe ](media/sample-v2-code/logo_angular.png) [(MSAL-kątowy)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| Wywołania SPA niestandardowego interfejsu API sieci Web | [MS-Identity-JavaScript-aspnetcore-WebApi](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi) |
 | ![Ten obraz pokazuje kątowe logo kątowe ](media/sample-v2-code/logo_angular.png) [(MSAL-kątowy)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | Wywołania SPA B2C |[Active-Directory-B2C-JavaScript — Spa](https://github.com/Azure-Samples/active-directory-b2c-javascript-angular-spa) |
 | ![Ten obraz przedstawia reaguje na logo reakcji ](media/sample-v2-code/logo_react.png) [(MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)| SPA wywołuje niestandardowy internetowy interfejs API, który z kolei wywołuje wywołania Microsoft Graph  | [MS-Identity-JavaScript-reagować-Spa-dotnetcore-WebAPI-OBO](https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo) |
+| ![Ten obraz pokazuje logo JavaScript ](media/sample-v2-code/logo_js.png) [javascript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA wywołuje niestandardowy internetowy interfejs API, który z kolei wywołuje wywołania Microsoft Graph  | [MS-Identity-JavaScript-samouczek-chapter4-OBO](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/4-1-call-api-graph) |
 | ![Ten obraz pokazuje kątowe logo kątowe ](media/sample-v2-code/logo_angular.png) [(MSAL-kątowy)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | SPA wywołuje niestandardowy internetowy interfejs API z rolami aplikacji i grupami zabezpieczeń |[MS-Identity-JavaScript-dotnetcore-WebAPI-role-Groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups) |
 
 ## <a name="web-applications"></a>Aplikacje internetowe
@@ -129,14 +131,14 @@ W poniższych przykładach pokazano, jak chronić funkcję platformy Azure przy 
 | Platforma | Przykład |
 | -------- | ------------------- |
 | ![Ten obraz zawiera logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | ASP.NET Core Web API (usługa) Azure Function of [dotnet-Native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
-| ![Ten obraz zawiera logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Web API (Service) of [NodeJS i Passport-Azure-AD](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
 | ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)</p>Python | Internetowy interfejs API (usługa) języka [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
+| ![Ten obraz zawiera logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>Node.js | Interfejs API sieci Web (usługa) [Node.js i paszport-Azure-AD](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
 | ![Ten obraz zawiera logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | Internetowy interfejs API (usługa) [NodeJS i paszport-Azure-AD przy użyciu w imieniu](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
 
 ## <a name="other-microsoft-graph-samples"></a>Inne przykłady Microsoft Graph
 
 Aby dowiedzieć się więcej na temat [przykładów](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) i samouczków demonstrujących różne wzorce użycia dla interfejsu API Microsoft Graph, w tym uwierzytelniania za pomocą usługi Azure AD, zobacz [Microsoft Graph przykłady społeczności & samouczków](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Informacje koncepcyjne i informacje o interfejsie API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)

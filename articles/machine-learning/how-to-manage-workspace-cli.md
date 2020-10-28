@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: fd6fc3ee88d63c1d933d3405437ec1bf49e0432e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 45f9f61712903436d63f483673705650f5470b3f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426364"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635953"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -24,9 +24,9 @@ W tym artykule dowiesz się, jak utworzyć obszar roboczy Azure Machine Learning
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure**. Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
+* **Subskrypcja platformy Azure** . Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Aby korzystać z poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego**, wymagany jest [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Aby korzystać z poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego** , wymagany jest [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
     Jeśli używasz [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), interfejs wiersza polecenia jest dostępny za pomocą przeglądarki i przebywa w chmurze.
 
@@ -72,13 +72,13 @@ Obszar roboczy Azure Machine Learning opiera się na następujących usługach l
 | ---- | ---- |
 | **Grupa zasobów platformy Azure** | `-g <resource-group-name>`
 | **Konto usługi Azure Storage** | `--storage-account <service-id>` |
-| **Azure Application Insights** | `--application-insights <service-id>` |
+| **Application Insights platformy Azure** | `--application-insights <service-id>` |
 | **Usługa Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Obszar roboczy Azure Machine Learning należy utworzyć w grupie zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć nową. Aby __utworzyć nową grupę zasobów__, użyj następującego polecenia. Zamień na `<resource-group-name>` nazwę, która ma być używana dla tej grupy zasobów. Zamień na `<location>` region platformy Azure, który ma być używany dla tej grupy zasobów:
+Obszar roboczy Azure Machine Learning należy utworzyć w grupie zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć nową. Aby __utworzyć nową grupę zasobów__ , użyj następującego polecenia. Zamień na `<resource-group-name>` nazwę, która ma być używana dla tej grupy zasobów. Zamień na `<location>` region platformy Azure, który ma być używany dla tej grupy zasobów:
 
 > [!TIP]
 > Należy wybrać region, w którym Azure Machine Learning jest dostępna. Aby uzyskać więcej informacji, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
@@ -107,7 +107,7 @@ Aby uzyskać więcej informacji na temat pracy z grupami zasobów, zobacz [AZ Gr
 
 ### <a name="automatically-create-required-resources"></a>Automatycznie twórz wymagane zasoby
 
-Aby utworzyć nowy obszar roboczy, w którym __usługi są tworzone automatycznie__, użyj następującego polecenia:
+Aby utworzyć nowy obszar roboczy, w którym __usługi są tworzone automatycznie__ , użyj następującego polecenia:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -160,18 +160,17 @@ Domyślnie metryki i metadane obszaru roboczego są przechowywane w Azure Cosmos
 
 Zamiast używać klucza zarządzanego przez firmę Microsoft, możesz użyć opcji podaj własny klucz. Spowoduje to utworzenie wystąpienia Azure Cosmos DB, które przechowuje metryki i metadane w ramach subskrypcji platformy Azure. Użyj `--cmk-keyvault` parametru, aby określić Azure Key Vault, który zawiera klucz, i `--resource-cmk-uri` określić adres URL klucza w ramach magazynu.
 
-> [!IMPORTANT]
-> Przed użyciem `--cmk-keyvault` parametrów i `--resource-cmk-uri` należy najpierw wykonać następujące czynności:
->
-> 1. Autoryzuj __aplikację Machine Learning__ (w temacie Zarządzanie tożsamościami i dostępem) z uprawnieniami współautora w ramach subskrypcji.
-> 1. Wykonaj kroki opisane w temacie [Konfigurowanie kluczy zarządzanych przez klienta](/azure/cosmos-db/how-to-setup-cmk) do:
->     * Rejestrowanie dostawcy Azure Cosmos DB
->     * Tworzenie i Konfigurowanie Azure Key Vault
->     * Generowanie klucza
->
->     Nie musisz ręcznie tworzyć wystąpienia Azure Cosmos DB, po utworzeniu obszaru roboczego zostanie ono utworzone. To wystąpienie Azure Cosmos DB zostanie utworzone w oddzielnej grupie zasobów przy użyciu nazwy opartej na tym wzorcu: `<your-resource-group-name>_<GUID>` .
->
-> Tego ustawienia nie można zmienić po utworzeniu obszaru roboczego. Jeśli usuniesz Azure Cosmos DB używany przez obszar roboczy, musisz również usunąć obszar roboczy, który go używa.
+Przed użyciem `--cmk-keyvault` parametrów i `--resource-cmk-uri` należy najpierw wykonać następujące czynności:
+
+1. Autoryzuj __aplikację Machine Learning__ (w temacie Zarządzanie tożsamościami i dostępem) z uprawnieniami współautora w ramach subskrypcji.
+1. Wykonaj kroki opisane w temacie [Konfigurowanie kluczy zarządzanych przez klienta](/azure/cosmos-db/how-to-setup-cmk) do:
+    * Rejestrowanie dostawcy Azure Cosmos DB
+    * Tworzenie i Konfigurowanie Azure Key Vault
+    * Generowanie klucza
+
+Nie musisz ręcznie tworzyć wystąpienia Azure Cosmos DB, po utworzeniu obszaru roboczego zostanie ono utworzone. To wystąpienie Azure Cosmos DB zostanie utworzone w oddzielnej grupie zasobów przy użyciu nazwy opartej na tym wzorcu: `<your-resource-group-name>_<GUID>` .
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Aby ograniczyć ilość danych zbieranych przez firmę Microsoft w obszarze roboczym, użyj `--hbi-workspace` parametru. 
 
@@ -187,7 +186,7 @@ Aby utworzyć obszar roboczy, który korzysta z istniejących zasobów, należy 
 > [!IMPORTANT]
 > Nie musisz określać wszystkich istniejących zasobów. Można określić jeden lub więcej. Na przykład możesz określić istniejące konto magazynu, a w obszarze roboczym zostaną utworzone inne zasoby.
 
-+ **Konto usługi Azure Storage**: `az storage account show --name <storage-account-name> --query "id"`
++ **Konto usługi Azure Storage** : `az storage account show --name <storage-account-name> --query "id"`
 
     Odpowiedź z tego polecenia jest podobna do poniższego tekstu i jest IDENTYFIKATORem konta magazynu:
 
@@ -196,7 +195,7 @@ Aby utworzyć obszar roboczy, który korzysta z istniejących zasobów, należy 
     > [!IMPORTANT]
     > Jeśli chcesz użyć istniejącego konta usługi Azure Storage, nie może ono być kontem Premium (Premium_LRS i Premium_GRS). Nie może ona również mieć hierarchicznej przestrzeni nazw (używane z Azure Data Lake Storage Gen2). _W przypadku konta magazynu w_ warstwie Premium ani hierarchicznej przestrzeni nazw nie są obsługiwane. Możesz użyć magazynu w warstwie Premium lub hierarchicznej przestrzeni nazw z kontami magazynu _innego niż domyślne_ .
 
-+ **Application Insights platformy Azure**:
++ **Application Insights platformy Azure** :
 
     1. Zainstaluj rozszerzenie usługi Application Insights:
 
@@ -214,13 +213,13 @@ Aby utworzyć obszar roboczy, który korzysta z istniejących zasobów, należy 
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault** : `az keyvault show --name <key-vault-name> --query "ID"`
 
     Odpowiedź z tego polecenia jest podobna do poniższego tekstu i jest IDENTYFIKATORem magazynu kluczy:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry** : `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     Odpowiedź z tego polecenia jest podobna do poniższego tekstu i jest IDENTYFIKATORem rejestru kontenerów:
 

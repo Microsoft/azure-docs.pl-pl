@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caec9b802bb347333dd861ebe499f72249d75aa2
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440647"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634781"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Odporność na uszkodzenia w działaniu kopiowania w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -93,7 +93,7 @@ path | Ścieżka do plików dziennika. | Określ ścieżkę, która ma być uży
 > - W przypadku określenia wielu plików w źródłowym zestawie danych, które mogą być folderem, symbolem wieloznacznym lub listą plików, działanie Copy może pominąć określone pliki błędów. Jeśli jeden plik zostanie określony w źródłowym zestawie danych do skopiowania do miejsca docelowego, działanie kopiowania zakończy się niepowodzeniem, jeśli wystąpił błąd.
 >
 > W przypadku pomijania określonych plików, gdy są one zweryfikowane jako niespójne między magazynem źródłowym i docelowym:
-> - W [tym miejscu](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency)możesz uzyskać więcej szczegółowych informacji z dokumentu spójności danych.
+> - W [tym miejscu](./copy-activity-data-consistency.md)możesz uzyskać więcej szczegółowych informacji z dokumentu spójności danych.
 
 ### <a name="monitoring"></a>Monitorowanie 
 
@@ -146,22 +146,22 @@ W powyższym dzienniku można zobaczyć, że bigfile.csv został pominięty z po
 ### <a name="supported-scenarios"></a>Obsługiwane scenariusze
 Działanie Copy obsługuje trzy scenariusze wykrywania, pomijania i rejestrowania niezgodnych danych tabelarycznych:
 
-- **Niezgodność między typem danych źródłowych a typem natywnym ujścia**. 
+- **Niezgodność między typem danych źródłowych a typem natywnym ujścia** . 
 
     Na przykład: Skopiuj dane z pliku CSV w usłudze BLOB Storage do bazy danych SQL z definicją schematu, która zawiera trzy kolumny typu INT. Wiersze pliku CSV zawierające dane liczbowe, takie jak 123 456 789, zostały pomyślnie skopiowane do magazynu ujścia. Jednak wiersze, które zawierają wartości nieliczbowych, na przykład 123 456, ABC są wykrywane jako niezgodne i pomijane.
 
-- **Niezgodność liczby kolumn między źródłem i ujściam**.
+- **Niezgodność liczby kolumn między źródłem i ujściam** .
 
     Na przykład: Skopiuj dane z pliku CSV w usłudze BLOB Storage do bazy danych SQL z definicją schematu, która zawiera sześć kolumn. Wiersze pliku CSV zawierające sześć kolumn zostały pomyślnie skopiowane do magazynu ujścia. Wiersze pliku CSV zawierające więcej niż sześć kolumn są wykrywane jako niezgodne i pomijane.
 
-- **Naruszenie klucza podstawowego podczas zapisywania do SQL Server/Azure SQL Database/Azure Cosmos DB**.
+- **Naruszenie klucza podstawowego podczas zapisywania do SQL Server/Azure SQL Database/Azure Cosmos DB** .
 
     Na przykład: kopiowanie danych z programu SQL Server do bazy danych SQL. Klucz podstawowy jest zdefiniowany w usłudze SQL Database ujścia, ale nie jest on zdefiniowany w źródłowym programie SQL Server. Zduplikowane wiersze istniejące w źródle nie mogą zostać skopiowane do ujścia. Działanie Copy kopiuje tylko pierwszy wiersz danych źródłowych do ujścia. Kolejne wiersze źródłowe, które zawierają zduplikowaną wartość klucza podstawowego, są wykrywane jako niezgodne i pomijane.
 
 >[!NOTE]
 >- Aby załadować dane do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) za pomocą bazy danych Base, skonfiguruj natywne ustawienia odporności na uszkodzenia na podstawie, określając odrzucanie zasad za pośrednictwem elementu "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" w działaniu kopiowania. Nadal można włączyć przekierowywanie niezgodnych wierszy podrzędnych do obiektu BLOB lub ADLS, jak pokazano poniżej.
 >- Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania usługi [Amazon RedShift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
->- Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania [procedury składowanej z ujścia bazy danych SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
+>- Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania [procedury składowanej z ujścia bazy danych SQL](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
 
 ### <a name="configuration"></a>Konfiguracja
 Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgodnych wierszy w działaniu kopiowania:
@@ -296,7 +296,5 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Omówienie działania kopiowania](copy-activity-overview.md)
+- [Przegląd działania kopiowania](copy-activity-overview.md)
 - [Wydajność działania kopiowania](copy-activity-performance.md)
-
-

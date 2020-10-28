@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1d524e34623d5fde3d6f22afbdd63ce95699fe6f
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 52ecc1f7de2afb83d3f37ddae6b1b618a8a8e34d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494500"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636021"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -26,16 +26,16 @@ Ten artykuł zawiera omówienie dostępnych interfejsów API oraz metod współp
 
 Interfejsy API płaszczyzny kontroli są interfejsami API [ARM](../azure-resource-manager/management/overview.md) używanymi do zarządzania wystąpieniem usługi Azure Digital bliźniaczych reprezentacji jako całością, więc obejmują operacje, takie jak tworzenie lub usuwanie całego wystąpienia. Są one również używane do tworzenia i usuwania punktów końcowych.
 
-Najbardziej aktualna wersja interfejsu API płaszczyzny kontroli dla publicznej wersji zapoznawczej to _**2020-10-31**_.
+Najbardziej aktualna wersja interfejsu API płaszczyzny kontroli dla publicznej wersji zapoznawczej to _**2020-10-31**_ .
 
 Aby używać interfejsów API płaszczyzny kontroli:
 * Interfejsy API można wywoływać bezpośrednio, odwołując się do najnowszej struktury Swagger w [folderze płaszczyzny kontroli Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). To repozytorium zawiera również folder przykładów, które pokazują użycie.
 * Obecnie możesz uzyskiwać dostęp do zestawów SDK dla formantów API w...
   - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([Źródło](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([odwołanie [generowane automatycznie]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview))
-  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([Źródło](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([odwołanie [generowane automatycznie]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))
+  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([Źródło](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31)) ([odwołanie [generowane automatycznie]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))
   - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([Źródło](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
-  - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([Źródło](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins))
-  - [Przejdź](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins)
+  - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([Źródło](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
+  - [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([Źródło](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
 
 Możesz również wykonywać interfejsy API płaszczyzny kontroli, współpracując z usługą Azure Digital bliźniaczych reprezentacji za pomocą [Azure Portal](https://portal.azure.com) i [interfejsu wiersza polecenia](how-to-use-cli.md).
 
@@ -47,7 +47,7 @@ Interfejsy API płaszczyzny danych to interfejsy API Digital bliźniaczych repre
 * **Zapytanie** — Kategoria zapytania umożliwia deweloperom [znalezienie zestawów bliźniaczych reprezentacji cyfrowych w grafie bliźniaczym](how-to-query-graph.md) między relacjami.
 * **Trasy zdarzeń** — Kategoria trasy zdarzeń zawiera interfejsy API do [przesyłania danych](concepts-route-events.md)za pomocą systemu i usług podrzędnych.
 
-Najbardziej aktualna wersja interfejsu API płaszczyzny danych dla publicznej wersji zapoznawczej to _**2020-10-31**_.
+Najbardziej aktualna wersja interfejsu API płaszczyzny danych dla publicznej wersji zapoznawczej to _**2020-10-31**_ .
 
 Aby używać interfejsów API płaszczyzny danych:
 * Interfejsy API można wywoływać bezpośrednio, przez...
@@ -80,7 +80,7 @@ Zestaw SDK platformy Azure Digital bliźniaczych reprezentacji .NET (C#) jest cz
 
 Aby użyć zestawu SDK, Dołącz pakiet NuGet **Azure. DigitalTwins. Core** z projektem. Potrzebna będzie również Najnowsza wersja pakietu **Azure. Identity** .
 
-* W programie Visual Studio można dodać pakiety za pomocą Menedżera pakietów NuGet (dostępne za pomocą *narzędzi > menedżerze pakietów nuget > zarządzanie pakietami NuGet dla rozwiązania*). 
+* W programie Visual Studio można dodać pakiety za pomocą Menedżera pakietów NuGet (dostępne za pomocą *narzędzi > menedżerze pakietów nuget > zarządzanie pakietami NuGet dla rozwiązania* ). 
 * Za pomocą narzędzia wiersza polecenia platformy .NET można uruchomić polecenie:
 
     ```cmd/sh
@@ -275,7 +275,7 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ## <a name="general-apisdk-usage-notes"></a>Ogólne informacje o użyciu interfejsu API/zestawu SDK
 
 > [!NOTE]
-> Należy pamiętać, że usługa Azure Digital bliźniaczych reprezentacji obecnie nie obsługuje **udostępniania zasobów między źródłami (CORS)**. Aby uzyskać więcej informacji na temat strategii wpływu i rozwiązywania problemów, zobacz sekcję dotyczącą [*współużytkowania zasobów między źródłami (CORS, cross-Origin Resource Sharing)*](concepts-security.md#cross-origin-resource-sharing-cors) *koncepcji: Security for Azure Digital bliźniaczych reprezentacji Solutions*.
+> Należy pamiętać, że usługa Azure Digital bliźniaczych reprezentacji obecnie nie obsługuje **udostępniania zasobów między źródłami (CORS)** . Aby uzyskać więcej informacji na temat strategii wpływu i rozwiązywania problemów, zobacz sekcję dotyczącą [*współużytkowania zasobów między źródłami (CORS, cross-Origin Resource Sharing)*](concepts-security.md#cross-origin-resource-sharing-cors) *koncepcji: Security for Azure Digital bliźniaczych reprezentacji Solutions* .
 
 Poniższa lista zawiera dodatkowe szczegółowe informacje i ogólne wskazówki dotyczące korzystania z interfejsów API i zestawów SDK.
 

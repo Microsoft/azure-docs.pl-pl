@@ -8,12 +8,12 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 36660854b9a7ae13431545392ef551694b48e97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2b95e0de642dc17865643ec569e7220fe5581b2
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82628916"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637500"
 ---
 # <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Otwieranie i zapisywanie plików lokalnych i na platformie Azure z pakietami SSIS wdrożonymi na platformie Azure
 
@@ -33,7 +33,7 @@ Aby nadal korzystać z lokalnych **udziałów plików** podczas podnoszenia i pr
 
 2. Dołącz udziały plików lokalnych do sieci wirtualnej platformy Azure.
 
-3. Dołącz do Azure-SSIS IR do tej samej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [dołączanie środowiska Azure-SSIS Integration Runtime do sieci wirtualnej](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+3. Dołącz do Azure-SSIS IR do tej samej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [dołączanie środowiska Azure-SSIS Integration Runtime do sieci wirtualnej](./join-azure-ssis-integration-runtime-virtual-network.md).
 
 4. Połącz Azure-SSIS IR z lokalnymi udziałami plików w tej samej sieci wirtualnej przez skonfigurowanie poświadczeń dostępu, które używają uwierzytelniania systemu Windows. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z danymi i udziałami plików przy użyciu uwierzytelniania systemu Windows](ssis-azure-connect-with-windows-auth.md).
 
@@ -51,6 +51,6 @@ Aby użyć **Azure Files** podczas podnoszenia i przesunięcia pakietów, które
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Wdróż pakiety. Aby uzyskać więcej informacji, zobacz [wdrażanie projektu SSIS na platformie Azure za pomocą programu SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms).
-- Uruchom pakiety. Aby uzyskać więcej informacji, zobacz [uruchamianie pakietów SSIS na platformie Azure za pomocą programu SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms).
-- Zaplanuj pakiety. Aby uzyskać więcej informacji, zobacz [Planowanie pakietów usług SSIS na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).
+- Wdróż pakiety. Aby uzyskać więcej informacji, zobacz [wdrażanie projektu SSIS na platformie Azure za pomocą programu SSMS](/sql/integration-services/ssis-quickstart-deploy-ssms).
+- Uruchom pakiety. Aby uzyskać więcej informacji, zobacz [uruchamianie pakietów SSIS na platformie Azure za pomocą programu SSMS](/sql/integration-services/ssis-quickstart-run-ssms).
+- Zaplanuj pakiety. Aby uzyskać więcej informacji, zobacz [Planowanie pakietów usług SSIS na platformie Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).

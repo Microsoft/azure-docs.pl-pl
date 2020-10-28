@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: f609cfb0945d79cfa8ae21b786a5761b92b9dabb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7545f593aea2aca8c0aa240d44bcef3b7a1ca7c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84324627"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636276"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Ponowne konfigurowanie środowiska Azure SSIS Integration Runtime
 
@@ -28,10 +28,10 @@ W tym artykule opisano sposób zmiany konfiguracji istniejącego środowiska Azu
 Za pomocą interfejsu użytkownika Data Factory można zatrzymać, edytować/zmienić konfigurację lub usunąć Azure-SSIS IR. 
 
 1. Otwórz Data Factory interfejs użytkownika, wybierając kafelek **tworzenie & monitor** na stronie głównej fabryki danych.
-2. Wybierz pozycję **Zarządzaj** centrum poniżej **strony głównej**, **Edytuj**i **Monitoruj** centra, aby wyświetlić okienko **połączenia** .
+2. Wybierz pozycję **Zarządzaj** centrum poniżej **strony głównej** , **Edytuj** i **Monitoruj** centra, aby wyświetlić okienko **połączenia** .
 
 ### <a name="to-reconfigure-an-azure-ssis-ir"></a>Aby skonfigurować Azure-SSIS IR
-W okienku **połączenia** okienka **Zarządzanie** centrum przejdź do strony **Integration Runtimes** i wybierz pozycję **Odśwież**. 
+W okienku **połączenia** okienka **Zarządzanie** centrum przejdź do strony **Integration Runtimes** i wybierz pozycję **Odśwież** . 
 
    ![Okienko połączenia](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
 
@@ -92,7 +92,7 @@ Po zainicjowaniu i uruchomieniu wystąpienia środowiska Azure-SSIS Integration 
 Aby uzyskać więcej informacji na temat środowiska uruchomieniowego Azure-SSIS, zobacz następujące tematy: 
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Ten artykuł zawiera ogólne informacje koncepcyjne dotyczące środowiska Integration Runtime, w tym Azure-SSIS IR. 
-- [Samouczek: Wdrażanie pakietów usług SSIS na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia Azure-SSIS IR i używania Azure SQL Database do hostowania wykazu usług SSIS. 
+- [Samouczek: Wdrażanie pakietów usług SSIS na platformie Azure](./tutorial-deploy-ssis-packages-azure.md). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia Azure-SSIS IR i używania Azure SQL Database do hostowania wykazu usług SSIS. 
 - [How to: Create an Azure-SSIS integration runtime (Jak: Tworzenie środowiska Azure SSIS Integration Runtime)](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego usługi Azure SQL i dołączania do sieci wirtualnej. 
 - [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md) (Dołączanie środowiska IR Azure SSIS do sieci wirtualnej). Ten artykuł zawiera podstawowe informacje na temat dołączania środowiska IR Azure-SSIS do sieci wirtualnej platformy Azure. Opisano w nim kroki konfigurowania sieci wirtualnej za pomocą witryny Azure Portal tak, aby umożliwić dołączanie środowiska IR Azure-SSIS do sieci wirtualnej. 
 - [Monitor an Azure-SSIS IR (Monitorowanie środowiska Azure-SSIS IR)](monitor-integration-runtime.md#azure-ssis-integration-runtime). W tym artykule przedstawiono sposób pobierania informacji o środowisku Azure-SSIS IR i opisów stanów w pobranych informacjach.

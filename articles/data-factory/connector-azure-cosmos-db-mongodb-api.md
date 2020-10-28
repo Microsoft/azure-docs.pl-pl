@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: 9b23f46a418f2663531cc121f00b83d00d84e48d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67e5fba562a398fe8f0e9639b3db2fd3d325b60f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415445"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635885"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Kopiowanie danych do lub z interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB za pomocą usługi Azure Data Factory
 
@@ -33,11 +33,11 @@ Możesz skopiować dane z interfejsu API Azure Cosmos DB MongoDB do dowolnego ob
 
 Możesz użyć interfejsu API Azure Cosmos DB dla łącznika MongoDB, aby:
 
-- Skopiuj dane z i do [interfejsu API Azure Cosmos DB dla MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction).
-- Zapisz do Azure Cosmos DB jako **INSERT** lub **upsert**.
+- Skopiuj dane z i do [interfejsu API Azure Cosmos DB dla MongoDB](../cosmos-db/mongodb-introduction.md).
+- Zapisz do Azure Cosmos DB jako **INSERT** lub **upsert** .
 - Importuj i Eksportuj dokumenty JSON jako-is lub Kopiuj dane z lub do tabelarycznego zestawu danych. Przykładami mogą być baza danych SQL i plik CSV. Aby skopiować dokumenty jako-is do lub z plików JSON lub z innej kolekcji Azure Cosmos DB, zobacz Importowanie lub eksportowanie dokumentów JSON.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -49,8 +49,8 @@ Następujące właściwości są obsługiwane dla interfejsu API Azure Cosmos DB
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** musi być ustawiona na wartość **CosmosDbMongoDbApi**. | Tak |
-| Parametry połączenia |Określ parametry połączenia dla interfejsu API Azure Cosmos DB dla MongoDB. Można go znaleźć w Azure Portal-> Cosmos DB w bloku > podstawowego lub pomocniczego, z wzorcem `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb` . <br/><br />Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć  `password`   konfigurację z parametrów połączenia.Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md)   .|Tak |
+| typ | Właściwość **Type** musi być ustawiona na wartość **CosmosDbMongoDbApi** . | Tak |
+| Parametry połączenia |Określ parametry połączenia dla interfejsu API Azure Cosmos DB dla MongoDB. Można go znaleźć w Azure Portal-> Cosmos DB w bloku > podstawowego lub pomocniczego, z wzorcem `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb` . <br/><br />Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md) .|Tak |
 | database | Nazwa bazy danych, do której chcesz uzyskać dostęp. | Tak |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
@@ -79,7 +79,7 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **CosmosDbMongoDbApiCollection**. |Tak |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **CosmosDbMongoDbApiCollection** . |Tak |
 | CollectionName |Nazwa kolekcji Azure Cosmos DB. |Tak |
 
 **Przykład**
@@ -113,16 +113,16 @@ W sekcji **Źródło** działania kopiowania są obsługiwane następujące wła
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **CosmosDbMongoDbApiSource**. |Tak |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **CosmosDbMongoDbApiSource** . |Tak |
 | filter | Określa filtr wyboru przy użyciu operatorów zapytań. Aby zwrócić wszystkie dokumenty w kolekcji, Pomiń ten parametr lub Przekaż pusty dokument ( {} ). | Nie |
 | cursorMethods. Project | Określa pola do zwrócenia w dokumentach dla projekcji. Aby zwrócić wszystkie pola w pasujących dokumentach, Pomiń ten parametr. | Nie |
 | cursorMethods. Sort | Określa kolejność, w której zapytanie zwraca pasujące dokumenty. Zapoznaj się z [kursorem. Sort ()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Nie |
 | cursorMethods. limit | Określa maksymalną liczbę dokumentów zwracanych przez serwer. Zapoznaj się z [kursorem. limit ()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Nie | 
 | cursorMethods. Skip | Określa liczbę dokumentów do pominięcia oraz miejsce, z którego MongoDB zaczyna zwracać wyniki. Zapoznaj się z [kursorem. Skip ()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Nie |
-| batchSize | Określa liczbę dokumentów do zwrócenia w każdej partii odpowiedzi z wystąpienia MongoDB. W większości przypadków modyfikacja rozmiaru partii nie wpłynie na użytkownika ani aplikację. Cosmos DB ogranicza każda partia zadań nie może przekroczyć 40MB rozmiaru, która jest sumą rozmiaru batchSize dokumentów, dlatego Zmniejsz tę wartość, jeśli rozmiar dokumentu jest duży. | Nie<br/>(wartość domyślna to **100**) |
+| batchSize | Określa liczbę dokumentów do zwrócenia w każdej partii odpowiedzi z wystąpienia MongoDB. W większości przypadków modyfikacja rozmiaru partii nie wpłynie na użytkownika ani aplikację. Cosmos DB ogranicza każda partia zadań nie może przekroczyć 40MB rozmiaru, która jest sumą rozmiaru batchSize dokumentów, dlatego Zmniejsz tę wartość, jeśli rozmiar dokumentu jest duży. | Nie<br/>(wartość domyślna to **100** ) |
 
 >[!TIP]
->ADF obsługuje dokument BSON w **trybie Strict**. Upewnij się, że zapytanie filtru jest w trybie Strict zamiast w trybie powłoki. Więcej opisu można znaleźć w [podręczniku MongoDB](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
+>ADF obsługuje dokument BSON w **trybie Strict** . Upewnij się, że zapytanie filtru jest w trybie Strict zamiast w trybie powłoki. Więcej opisu można znaleźć w [podręczniku MongoDB](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
 
 **Przykład**
 
@@ -168,9 +168,9 @@ W sekcji **ujścia** działania kopiowania są obsługiwane następujące właś
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **CosmosDbMongoDbApiSink**. |Tak |
-| writeBehavior |Opisuje sposób zapisywania danych w Azure Cosmos DB. Dozwolone wartości: **INSERT** i **upsert**.<br/><br/>Zachowanie **upsert** polega na zastępowaniu dokumentu, jeśli dokument o tym samym `_id` już istnieje; w przeciwnym razie Wstaw dokument.<br /><br />**Uwaga**: `_id` Jeśli element `_id` nie został określony w oryginalnym dokumencie lub mapowaniu kolumn, Data Factory automatycznie generuje dokument dla dokumentu. Oznacza to, że aby program **upsert** działał zgodnie z oczekiwaniami, dokument ma identyfikator. |Nie<br />(wartość domyślna to **INSERT**) |
-| writeBatchSize | Właściwość **writeBatchSize** określa rozmiar dokumentów do zapisu w każdej partii. Możesz spróbować zwiększyć wartość **writeBatchSize** , aby zwiększyć wydajność i zmniejszyć wartość w przypadku dużego rozmiaru dokumentu. |Nie<br />(wartość domyślna to **10 000**) |
+| typ | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **CosmosDbMongoDbApiSink** . |Tak |
+| writeBehavior |Opisuje sposób zapisywania danych w Azure Cosmos DB. Dozwolone wartości: **INSERT** i **upsert** .<br/><br/>Zachowanie **upsert** polega na zastępowaniu dokumentu, jeśli dokument o tym samym `_id` już istnieje; w przeciwnym razie Wstaw dokument.<br /><br />**Uwaga** : `_id` Jeśli element `_id` nie został określony w oryginalnym dokumencie lub mapowaniu kolumn, Data Factory automatycznie generuje dokument dla dokumentu. Oznacza to, że aby program **upsert** działał zgodnie z oczekiwaniami, dokument ma identyfikator. |Nie<br />(wartość domyślna to **INSERT** ) |
+| writeBatchSize | Właściwość **writeBatchSize** określa rozmiar dokumentów do zapisu w każdej partii. Możesz spróbować zwiększyć wartość **writeBatchSize** , aby zwiększyć wydajność i zmniejszyć wartość w przypadku dużego rozmiaru dokumentu. |Nie<br />(wartość domyślna to **10 000** ) |
 | writeBatchTimeout | Czas oczekiwania na zakończenie operacji wstawiania wsadowego przed przekroczeniem limitu czasu. Dozwolona wartość to TimeSpan. | Nie<br/>(wartość domyślna to **00:30:00** – 30 minut) |
 
 >[!TIP]

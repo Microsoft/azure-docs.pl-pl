@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 10/26/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2dc7458dd905ff84455927c81b4ea93765d4f5cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdc0ae3fef2fb70b7372ab4fb28497ea6a6400a4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928823"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635466"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -24,7 +24,10 @@ Szyfrowanie CMK jest zależne od [Azure Key Vault](../key-vault/general/overview
 
 Szyfrowanie przy użyciu kluczy zarządzanych przez klienta jest stosowane do poszczególnych indeksów lub mapowań synonimów, gdy te obiekty są tworzone i nie są określone na poziomie usługi wyszukiwania. Tylko nowe obiekty mogą być szyfrowane. Nie można zaszyfrować zawartości, która już istnieje.
 
-Klucze nie muszą znajdować się w tym samym magazynie kluczy. Pojedyncza usługa wyszukiwania może obsługiwać wiele szyfrowanych indeksów lub map synonimów, z których każda została zaszyfrowana przy użyciu własnych kluczy szyfrowania zarządzanych przez klienta, przechowywanych w różnych magazynach kluczy. Można również mieć indeksy i mapy synonimów w tej samej usłudze, które nie są szyfrowane przy użyciu kluczy zarządzanych przez klienta. 
+Klucze nie muszą znajdować się w tym samym magazynie kluczy. Pojedyncza usługa wyszukiwania może obsługiwać wiele szyfrowanych indeksów lub map synonimów, z których każda została zaszyfrowana przy użyciu własnych kluczy szyfrowania zarządzanych przez klienta, przechowywanych w różnych magazynach kluczy. Można również mieć indeksy i mapy synonimów w tej samej usłudze, które nie są szyfrowane przy użyciu kluczy zarządzanych przez klienta.
+
+>[!Important]
+> W przypadku implementowania kluczy zarządzanych przez klienta należy przestrzegać ścisłych procedur podczas rutynowego rotacji kluczy magazynu kluczy oraz Active Directory wpisów tajnych i rejestracji aplikacji. Zawsze należy aktualizować całą zaszyfrowaną zawartość, aby użyć nowych kluczy tajnych i klucze przed usunięciem starych. Jeśli ten krok zostanie pominięty, nie będzie można odszyfrować zawartości.
 
 ## <a name="double-encryption"></a>Podwójne szyfrowanie
 
@@ -40,22 +43,30 @@ Jeśli używasz innego regionu lub usługi utworzonej przed 1 sierpnia, CMK szyf
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym przykładzie użyto następujących usług i usług. 
+W tym przykładzie są używane następujące narzędzia i usługi. 
 
-+ [Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
++ [Utwórz usługę wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
 
-+ [Utwórz zasób Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) lub Znajdź istniejący magazyn w tej samej subskrypcji co usługa Azure wyszukiwanie poznawcze. Ta funkcja ma to samo wymaganie dotyczące subskrypcji.
++ [Utwórz zasób Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) lub Znajdź istniejący. Oba Key Vault i Wyszukiwanie poznawcze muszą znajdować się w tej samej subskrypcji. Magazyn kluczy musi mieć włączoną ochronę **nietrwałego usuwania** i **przeczyszczania** .
 
-+ [Azure PowerShell](/powershell/azure/) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) jest używany na potrzeby zadań konfiguracyjnych.
++ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) zarejestrować aplikację i utworzyć tajny ciąg używany przez aplikację do uwierzytelniania. Jeśli go nie masz, [Skonfiguruj nową dzierżawę](../active-directory/develop/quickstart-create-new-tenant.md).
 
-+ Do wywoływania interfejsu API REST, który tworzy indeksy i mapy synonimów, które zawierają parametr klucza szyfrowania, można użyć programu [Poster](search-get-started-postman.md), [Azure PowerShell](./search-get-started-powershell.md) i [zestawu .NET SDK Preview](https://aka.ms/search-sdk-preview) . W tej chwili nie jest obsługiwane Dodawanie klucza do indeksów lub mapowań synonimów.
+Należy mieć aplikację wyszukiwania, która może utworzyć zaszyfrowany obiekt. W tym kodzie będziesz odwoływać się do klucza magazynu kluczy i Active Directory informacji o rejestracji. Ten kod może być działającą aplikacją lub kodem prototypu, takim jak [przykładowy kod C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
->[!Note]
-> Ze względu na rodzaj szyfrowania z kluczami zarządzanymi przez klienta usługa Azure Wyszukiwanie poznawcze nie będzie mogła pobrać danych, jeśli klucz magazynu kluczy platformy Azure zostanie usunięty. Aby zapobiec utracie danych przez przypadkowe Key Vault usuwania kluczy, należy włączyć ochronę nietrwałego usuwania i przeczyszczania w magazynie kluczy. Funkcja usuwania nietrwałego jest domyślnie włączona, dzięki czemu w razie potrzeby zostaną napotkane tylko problemy. Ochrona przeczyszczania nie jest domyślnie włączona, ale jest wymagana w przypadku szyfrowania Azure Wyszukiwanie poznawcze CMK. Aby uzyskać więcej informacji, zobacz artykuł [usuwanie nietrwałe](../key-vault/general/soft-delete-overview.md) i [przeczyszczanie ochrony](../key-vault/general/soft-delete-overview.md#purge-protection) .
+> [!TIP]
+> Do wywoływania interfejsów API REST, które tworzą indeksy i mapy synonimów, które zawierają parametr klucza szyfrowania, można użyć programu [Poster](search-get-started-postman.md) lub [Azure PowerShell](./search-get-started-powershell.md) . W tej chwili nie jest obsługiwane Dodawanie klucza do indeksów lub mapowań synonimów.
 
 ## <a name="1---enable-key-recovery"></a>1 — Włączanie odzyskiwania klucza
 
-Magazyn kluczy musi mieć włączoną ochronę **nietrwałego usuwania** i **przeczyszczania** . Te funkcje można ustawić przy użyciu portalu lub następujących poleceń interfejsu wiersza polecenia platformy Azure.
+Ze względu na rodzaj szyfrowania z kluczami zarządzanymi przez klienta nikt nie może pobrać danych po usunięciu klucza magazynu kluczy platformy Azure. Aby zapobiec utracie danych przez przypadkowe Key Vault usuwania kluczy, należy włączyć ochronę nietrwałego usuwania i przeczyszczania w magazynie kluczy. Funkcja usuwania nietrwałego jest domyślnie włączona, dzięki czemu w razie potrzeby zostaną napotkane tylko problemy. Ochrona przeczyszczania nie jest domyślnie włączona, ale jest wymagana w przypadku szyfrowania Azure Wyszukiwanie poznawcze CMK. Aby uzyskać więcej informacji, zobacz artykuł [usuwanie nietrwałe](../key-vault/general/soft-delete-overview.md) i [przeczyszczanie ochrony](../key-vault/general/soft-delete-overview.md#purge-protection) .
+
+Obie właściwości można ustawić za pomocą poleceń portalu, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+
+### <a name="using-azure-portal"></a>Korzystanie z witryny Azure Portal
+
+1. [Zaloguj się do Azure Portal](https://portal.azure.com) i Otwórz stronę omówienia magazynu kluczy.
+
+1. Na stronie **Przegląd** w obszarze **podstawowe** Włącz ochronę przed **usuwaniem** i **przeczyszczaniem** .
 
 ### <a name="using-powershell"></a>Korzystanie z programu PowerShell
 
@@ -87,98 +98,85 @@ Magazyn kluczy musi mieć włączoną ochronę **nietrwałego usuwania** i **prz
 
 ### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
-```azurecli-interactive
-az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
-```
++ Jeśli masz [instalację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), możesz uruchomić następujące polecenie, aby włączyć wymagane właściwości.
 
-## <a name="2---create-a-new-key"></a>2 — Tworzenie nowego klucza
+   ```azurecli-interactive
+   az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
+   ```
 
-Jeśli używasz istniejącego klucza do szyfrowania zawartości platformy Azure Wyszukiwanie poznawcze, Pomiń ten krok.
+## <a name="2---create-a-key-in-key-vault"></a>2 — Tworzenie klucza w Key Vault
+
+Pomiń ten krok, jeśli masz już klucz w Azure Key Vault.
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com) i Otwórz stronę omówienia magazynu kluczy.
 
-1. Wybierz ustawienie **klucze** w lewym okienku nawigacji, a następnie kliknij pozycję **+ Generuj/Importuj**.
+1. Wybierz pozycję **klucze** po lewej stronie, a następnie wybierz pozycję **+ Generuj/Importuj** .
 
-1. W okienku **Utwórz klucz** z listy **opcji**wybierz metodę, która ma zostać użyta do utworzenia klucza. Można **wygenerować** nowy klucz, **przekazać** istniejący klucz lub użyć **Przywróć kopię zapasową** , aby wybrać kopię zapasową klucza.
+1. W okienku **Utwórz klucz** z listy **opcji** wybierz metodę, która ma zostać użyta do utworzenia klucza. Można **wygenerować** nowy klucz, **przekazać** istniejący klucz lub użyć **Przywróć kopię zapasową** , aby wybrać kopię zapasową klucza.
 
 1. Wprowadź **nazwę** klucza i opcjonalnie wybierz inne właściwości klucza.
 
-1. Kliknij przycisk **Utwórz** , aby rozpocząć wdrażanie.
+1. Wybierz pozycję **Utwórz** , aby rozpocząć wdrażanie.
 
-Zanotuj identyfikator klucza — to jest składający się z **identyfikatora URI wartości klucza**, **nazwy klucza**i **wersji klucza**. Będą one potrzebne do zdefiniowania zaszyfrowanego indeksu w usłudze Azure Wyszukiwanie poznawcze.
- 
-![Utwórz nowy klucz magazynu kluczy](./media/search-manage-encryption-keys/create-new-key-vault-key.png "Utwórz nowy klucz magazynu kluczy")
+1. Zanotuj identyfikator klucza — składający się z **identyfikatora URI wartości klucza** , **nazwy klucza** i **wersji klucza** . Musisz mieć identyfikator, aby zdefiniować zaszyfrowany indeks w usłudze Azure Wyszukiwanie poznawcze.
 
-## <a name="3---create-a-service-identity"></a>3 — Tworzenie tożsamości usługi
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Utwórz nowy klucz magazynu kluczy":::
 
-Przypisanie tożsamości do usługi wyszukiwania umożliwia udzielenie Key Vault uprawnień dostępu do usługi wyszukiwania. Twoja usługa wyszukiwania będzie używać swojej tożsamości do uwierzytelniania w usłudze Azure Key magazyn.
+## <a name="3---register-an-app-in-active-directory"></a>3 — rejestrowanie aplikacji w Active Directory
 
-Usługa Azure Wyszukiwanie poznawcze obsługuje dwa sposoby przypisywania tożsamości: zarządzaną tożsamością lub zewnętrznie zarządzaną aplikacją Azure Active Directory. 
+1. W [Azure Portal](https://portal.azure.com)znajdź zasób Azure Active Directory dla subskrypcji.
 
-Jeśli to możliwe, Użyj tożsamości zarządzanej. Jest to najprostszy sposób przypisywania tożsamości do usługi wyszukiwania i działania w większości scenariuszy. Jeśli używasz wielu kluczy w przypadku indeksów i map synonimów lub jeśli Twoje rozwiązanie znajduje się w rozproszonej architekturze, która nie kwalifikuje się do uwierzytelniania opartego na tożsamościach, użyj zaawansowanej [metody Azure Active Directory zarządzanej zewnętrznie](#aad-app) opisanej na końcu tego artykułu.
+1. Po lewej stronie w obszarze **Zarządzaj** wybierz pozycję **rejestracje aplikacji** , a następnie wybierz pozycję **Nowa rejestracja** .
 
- Ogólnie rzecz biorąc, zarządzana tożsamość umożliwia usłudze wyszukiwania uwierzytelnianie Azure Key Vault bez zapisywania poświadczeń w kodzie. Cykl życia tego typu tożsamości zarządzanej jest powiązany z cyklem życia usługi wyszukiwania, która może mieć tylko jedną tożsamość zarządzaną. [Dowiedz się więcej o tożsamościach zarządzanych](../active-directory/managed-identities-azure-resources/overview.md).
+1. Nadaj nazwę rejestracji, która jest podobna do nazwy aplikacji wyszukiwania. Wybierz pozycję **Zarejestruj** .
 
-1. [Zaloguj się do Azure Portal](https://portal.azure.com) i Otwórz stronę omówienia usługi wyszukiwania. 
+1. Po utworzeniu rejestracji aplikacji Skopiuj identyfikator aplikacji. Musisz podać ten ciąg dla swojej aplikacji. 
 
-1. Kliknij pozycję **tożsamość** w lewym okienku nawigacji, zmień jej stan na **włączone**, a następnie kliknij przycisk **Zapisz**.
+   Jeśli przechodzenie odbywa się przez [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK), wklej tę wartość do **appsettings.jsna** pliku.
 
-![Włącz zarządzaną tożsamość](./media/search-enable-msi/enable-identity-portal.png "Włączanie zarządzanej tożsamości")
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Utwórz nowy klucz magazynu kluczy":::
+
+1. Następnie wybierz pozycję **certyfikaty & wpisy tajne** po lewej stronie.
+
+1. Wybierz pozycję **Nowy wpis tajny klienta** . Podaj klucz tajny z nazwą wyświetlaną i wybierz pozycję **Dodaj** .
+
+1. Skopiuj klucz tajny aplikacji. W przypadku przechodzenia przez próbkę należy wkleić tę wartość do **appsettings.jsna** pliku.
+
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="Utwórz nowy klucz magazynu kluczy":::
 
 ## <a name="4---grant-key-access-permissions"></a>4 — przyznaj uprawnienia dostępu do klucza
 
-Aby umożliwić usłudze wyszukiwania korzystanie z klucza Key Vault, należy przyznać usłudze wyszukiwania określone uprawnienia dostępu.
+W tym kroku utworzysz zasady dostępu w Key Vault. Te zasady nadają aplikacji zarejestrowanej za pomocą Active Directory uprawnienia do korzystania z klucza zarządzanego przez klienta.
 
 Uprawnienia dostępu można odwołać w dowolnym momencie. Po odwołaniu każdy indeks usługi wyszukiwania lub mapa synonimu, która używa tego magazynu kluczy, stanie się bezużyteczny. Przywrócenie uprawnień dostępu do magazynu kluczy w późniejszym czasie spowoduje przywrócenie dostępu do mapy index\synonym. Aby uzyskać więcej informacji, zobacz [bezpieczny dostęp do magazynu kluczy](../key-vault/general/secure-your-key-vault.md).
 
-1. [Zaloguj się do Azure Portal](https://portal.azure.com) i Otwórz stronę omówienia magazynu kluczy. 
+1. W Azure Portal Otwórz stronę **omówienia** magazynu kluczy. 
 
-1. Wybierz ustawienie **zasady dostępu** w lewym okienku nawigacji, a następnie kliknij pozycję **+ Dodaj nowe**.
+1. Wybierz pozycję **zasady dostępu** po lewej stronie, a następnie wybierz pozycję **+ Dodaj zasady dostępu** .
 
-   ![Dodawanie nowych zasad dostępu do magazynu kluczy](./media/search-manage-encryption-keys/add-new-key-vault-access-policy.png "Dodawanie nowych zasad dostępu do magazynu kluczy")
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="Utwórz nowy klucz magazynu kluczy":::
 
-1. Kliknij pozycję **Wybierz podmiot zabezpieczeń** i wybierz usługę Azure wyszukiwanie poznawcze. Możesz wyszukać je według nazwy lub identyfikatora obiektu, który został wyświetlony po włączeniu tożsamości zarządzanej.
+1. Wybierz **pozycję Wybierz podmiot zabezpieczeń** i wybierz aplikację, która została zarejestrowana w Active Directory. Możesz wyszukać je według nazwy.
 
-   ![Wybierz podmiot zabezpieczeń zasad dostępu magazynu kluczy](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "Wybierz podmiot zabezpieczeń zasad dostępu magazynu kluczy")
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Utwórz nowy klucz magazynu kluczy":::
 
-1. Kliknij pozycję **uprawnienia klucza** i wybierz pozycję *Pobierz*, *Odpakuj klucz* i *Zawijaj klucz*. Możesz użyć szablonu *Azure Data Lake Storage lub Azure Storage* , aby szybko wybrać wymagane uprawnienia.
+1. W obszarze **uprawnienia klucza** wybierz pozycję *Pobierz* , *Odpakuj klucz* i *Zawijaj klucz* .
 
-   Na platformie Azure Wyszukiwanie poznawcze należy udzielić następujących [uprawnień dostępu](../key-vault/keys/about-keys.md#key-operations):
+1. W obszarze **uprawnienia klucza tajnego** wybierz pozycję *Pobierz* .
 
-   * *Get* — zezwala usłudze wyszukiwania na pobieranie publicznych części klucza w Key Vault
-   * *Zawijanie klucza* — umożliwia usłudze wyszukiwania używanie klucza do ochrony wewnętrznego klucza szyfrowania
-   * *Odpakuj klucz* — umożliwia usłudze wyszukiwania używanie klucza w celu odpakowania wewnętrznego klucza szyfrowania
+1. W **uprawnienia certyfikatów** wybierz pozycję *Pobierz* .
 
-   ![Wybieranie uprawnień klucza zasad dostępu do magazynu kluczy](./media/search-manage-encryption-keys/select-key-vault-access-policy-key-permissions.png "Wybieranie uprawnień klucza zasad dostępu do magazynu kluczy")
-
-1. W przypadku uprawnień do wpisów **tajnych**wybierz pozycję *Pobierz*.
-
-1. W obszarze **uprawnienia certyfikatów**wybierz pozycję *Pobierz*.
-
-1. Kliknij przycisk **OK** i **Zapisz** zmiany zasad dostępu.
+1. Wybierz pozycję **Dodaj** , a następnie **Zapisz** .
 
 > [!Important]
-> Zaszyfrowana zawartość w usłudze Azure Wyszukiwanie poznawcze jest skonfigurowana do używania określonego klucza Azure Key Vault z określoną **wersją**. W przypadku zmiany klucza lub wersji należy zaktualizować indeks lub mapę synonimu, aby korzystała z nowego key\version **przed** usunięciem poprzedniej key\version. Niewykonanie tej czynności spowoduje, że indeks lub mapa synonimu stanie się niezdatna, nie będzie można odszyfrować zawartości po utracie dostępu do klucza.   
+> Zaszyfrowana zawartość w usłudze Azure Wyszukiwanie poznawcze jest skonfigurowana do używania określonego klucza Azure Key Vault z określoną **wersją** . W przypadku zmiany klucza lub wersji należy zaktualizować indeks lub mapę synonimu, aby korzystała z nowego key\version **przed** usunięciem poprzedniej key\version. Niewykonanie tej czynności spowoduje, że indeks lub mapa synonimu stanie się niezdatna, nie będzie można odszyfrować zawartości po utracie dostępu do klucza.
 
 ## <a name="5---encrypt-content"></a>5 — Szyfruj zawartość
 
-Aby dodać klucz zarządzany przez klienta na indeksie lub mapie synonimów, należy użyć [interfejsu API REST](/rest/api/searchservice/) lub zestawu SDK usługi Search. W portalu nie są ujawniane mapy synonimów ani właściwości szyfrowania. Jeśli używasz prawidłowego interfejsu API, oba indeksy i mapy synonimów obsługują właściwość **EncryptionKey** najwyższego poziomu. 
+Aby dodać klucz zarządzany przez klienta na indeksie lub mapie synonimów, użyj interfejsu API REST lub zestawu SDK, aby utworzyć obiekt, którego definicja zawiera `encryptionKey` .
 
-Za pomocą **identyfikatora URI magazynu kluczy**oraz **nazwy** klucza i **wersji klucza** magazynu kluczy Utwórz definicję **EncryptionKey** w następujący sposób:
+W tym przykładzie jest używany interfejs API REST z wartościami dla Azure Key Vault i Azure Active Directory:
 
-```json
-{
-  "encryptionKey": {
-    "keyVaultUri": "https://demokeyvault.vault.azure.net",
-    "keyVaultKeyName": "myEncryptionKey",
-    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
-  }
-}
-```
-> [!Note] 
-> Żadna z tych informacji nie jest uważana za klucz tajny i można ją łatwo pobrać, przechodząc do odpowiedniej strony klucza Azure Key Vault w Azure Portal.
-
-Jeśli używasz aplikacji usługi AAD do uwierzytelniania Key Vault, a nie przy użyciu tożsamości zarządzanej, Dodaj **poświadczenia dostępu** do aplikacji usługi AAD do klucza szyfrowania: 
 ```json
 {
   "encryptionKey": {
@@ -193,8 +191,16 @@ Jeśli używasz aplikacji usługi AAD do uwierzytelniania Key Vault, a nie przy 
 }
 ```
 
-## <a name="example-index-encryption"></a>Przykład: szyfrowanie indeksu
-Szczegóły dotyczące tworzenia nowego indeksu za pośrednictwem interfejsu API REST można znaleźć w artykule [Tworzenie indeksu (interfejs API REST platformy Azure wyszukiwanie poznawcze)](/rest/api/searchservice/create-index), gdzie jedyną różnicą jest określenie szczegółów klucza szyfrowania w ramach definicji indeksu: 
+> [!Note]
+> Żadna z tych informacji nie jest uważana za klucz tajny i można ją łatwo pobrać, przechodząc do odpowiedniej strony klucza Azure Key Vault w Azure Portal.
+
+## <a name="rest-examples"></a>Przykłady REST
+
+W tej sekcji przedstawiono pełny kod JSON dla zaszyfrowanego indeksu i mapy synonimów
+
+### <a name="index-encryption"></a>Szyfrowanie indeksu
+
+Szczegółowe informacje na temat tworzenia nowego indeksu za pośrednictwem interfejsu API REST można znaleźć w artykule [Tworzenie indeksu (interfejs API REST)](/rest/api/searchservice/create-index), gdzie jedyną różnicą jest określenie informacji o kluczu szyfrowania w ramach definicji indeksu:
 
 ```json
 {
@@ -211,18 +217,23 @@ Szczegóły dotyczące tworzenia nowego indeksu za pośrednictwem interfejsu API
   {"name": "Rating", "type": "Edm.Double", "filterable": true, "sortable": true, "facetable": true},
   {"name": "Location", "type": "Edm.GeographyPoint", "filterable": true, "sortable": true},
  ],
- "encryptionKey": {
-   "keyVaultUri": "https://demokeyvault.vault.azure.net",
-   "keyVaultKeyName": "myEncryptionKey",
-   "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
- }
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
 }
 ```
+
 Teraz możesz wysłać żądanie utworzenia indeksu, a następnie zacząć używać indeksu normalnie.
 
-## <a name="example-synonym-map-encryption"></a>Przykład: szyfrowanie mapy synonimów
+### <a name="synonym-map-encryption"></a>Szyfrowanie mapy synonimów
 
-Szczegóły tworzenia nowej mapy synonimów za pośrednictwem interfejsu API REST można znaleźć na stronie [Tworzenie mapy synonimów (interfejs API REST platformy Azure wyszukiwanie poznawcze)](/rest/api/searchservice/create-synonym-map), gdzie jedyną różnicą jest określenie informacji o kluczu szyfrowania w ramach definicji mapy synonimów: 
+Szczegóły tworzenia nowej mapy synonimów za pośrednictwem interfejsu API REST można znaleźć na stronie [Tworzenie mapy synonimów (interfejs API REST)](/rest/api/searchservice/create-synonym-map), gdzie jedyną różnicą jest określenie informacji o kluczu szyfrowania w ramach definicji mapy synonimów: 
 
 ```json
 {   
@@ -233,35 +244,51 @@ Szczegóły tworzenia nowej mapy synonimów za pośrednictwem interfejsu API RES
   "encryptionKey": {
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
-    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "activeDirectoryAccessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
   }
 }
 ```
+
 Teraz można wysłać żądanie utworzenia mapy synonimów, a następnie rozpocząć korzystanie z niej normalnie.
 
->[!Important] 
-> Chociaż nie można dodać **EncryptionKey** do istniejących indeksów usługi Azure wyszukiwanie poznawcze lub mapowań synonimów, można je zaktualizować, podając różne wartości dla każdego z trzech szczegółów magazynu kluczy (na przykład aktualizacji wersji klucza). W przypadku zmiany na nowy klucz Key Vault lub nowej wersji klucza należy najpierw zaktualizować dowolny indeks Wyszukiwanie poznawcze systemu Azure lub mapę synonimów, która używa tego klucza do korzystania z nowego key\version **przed** usunięciem poprzedniej key\version. Niewykonanie tej czynności spowoduje renderowanie indeksu lub mapy synonimów, ponieważ nie będzie można odszyfrować zawartości po utracie dostępu do klucza.   
-> Przywrócenie uprawnień dostępu do magazynu kluczy w późniejszym czasie spowoduje przywrócenie dostępu do zawartości.
-
-## <a name="advanced-use-an-externally-managed-azure-active-directory-application"></a><a name="aad-app"></a> Zaawansowane: Użyj zarządzanej zewnętrznie aplikacji Azure Active Directory
-
-Jeśli zarządzana tożsamość nie jest możliwa, możesz utworzyć aplikację Azure Active Directory z podmiotem zabezpieczeń dla usługi Azure Wyszukiwanie poznawcze. W tym przypadku tożsamość zarządzana nie jest wykonalna w następujących warunkach:
-
-* Nie można bezpośrednio udzielić uprawnień dostępu do usługi wyszukiwania do magazynu kluczy (na przykład jeśli usługa wyszukiwania znajduje się w innej dzierżawie Active Directory niż Azure Key Vault).
-
-* Pojedyncza usługa wyszukiwania jest wymagana do hostowania wielu szyfrowanych map indexes\synonym, z których każdy korzysta z innego klucza niż inny magazyn kluczy, gdzie każdy Magazyn kluczy musi używać **innej tożsamości** do uwierzytelniania. Jeśli użycie innej tożsamości do zarządzania różnymi magazynami kluczy nie jest wymagane, należy rozważyć użycie opcji tożsamości zarządzanej powyżej.  
-
-Aby można było obsłużyć takie topologie, usługa Azure Wyszukiwanie poznawcze obsługuje używanie aplikacji Azure Active Directory (AAD) do uwierzytelniania między usługą wyszukiwania i Key Vault.    
-Aby utworzyć aplikację usługi AAD w portalu:
-
-1. [Utworzenie aplikacji usługi Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
-
-1. [Pobierz identyfikator aplikacji i klucz uwierzytelniania](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) , ponieważ będą one wymagane do utworzenia zaszyfrowanego indeksu. Wartości należy podać **Identyfikator aplikacji** i **klucz uwierzytelniania**.
-
 >[!Important]
-> Przy podejmowaniu decyzji o użyciu uwierzytelniania aplikacji usługi AAD zamiast tożsamości zarządzanej należy wziąć pod uwagę fakt, że usługa Azure Wyszukiwanie poznawcze nie jest autoryzowana do zarządzania swoją aplikacją w usłudze AAD w Twoim imieniu i służy do zarządzania swoją aplikacją w usłudze AAD, na przykład okresowego obrotu kluczem uwierzytelniania aplikacji.
-> W przypadku zmiany aplikacji usługi AAD lub jej klucza uwierzytelniania należy najpierw zaktualizować indeks lub mapę synonimów Wyszukiwanie poznawcze platformy Azure, która używa tej aplikacji, aby użyć nowej aplikacji ID\key **przed** usunięciem poprzedniej aplikacji lub jej klucza autoryzacji oraz przed wywołaniem Key Vault dostępu do niej.
-> Niewykonanie tej czynności spowoduje renderowanie indeksu lub mapy synonimów, ponieważ nie będzie można odszyfrować zawartości po utracie dostępu do klucza.
+> Chociaż `encryptionKey` nie można dodać do istniejących indeksów wyszukiwania lub mapowań synonimów, można je zaktualizować, podając różne wartości dla każdego z trzech szczegółów magazynu kluczy (na przykład aktualizacji wersji klucza). W przypadku zmiany na nowy klucz Key Vault lub nowej wersji klucza należy najpierw zaktualizować każdy indeks wyszukiwania lub mapę synonimów, które używają klucza, aby użyć nowego key\version **przed** usunięciem poprzedniej key\version. Niewykonanie tej czynności spowoduje renderowanie indeksu lub mapy synonimów, ponieważ nie będzie można odszyfrować zawartości po utracie dostępu do klucza. Chociaż przywrócenie uprawnień dostępu do magazynu kluczy w późniejszym czasie spowoduje przywrócenie dostępu do zawartości.
+
+## <a name="simpler-alternative-trusted-service"></a>Prostsze alternatywa: usługa zaufana
+
+W zależności od konfiguracji dzierżawy i wymagań dotyczących uwierzytelniania można wdrożyć prostsze podejście do uzyskiwania dostępu do klucza magazynu kluczy. Zamiast tworzyć i używać aplikacji Active Directory, można utworzyć usługę wyszukiwania jako zaufaną, włączając dla niej tożsamość zarządzaną przez system. W celu uzyskania dostępu do klucza magazynu kluczy można użyć zaufanej usługi wyszukiwania jako zasady zabezpieczeń, a nie aplikacji zarejestrowanej w usłudze AD.
+
+Takie podejście umożliwia pominięcie kroków rejestracji aplikacji i wpisów tajnych aplikacji oraz uproszczenie definicji klucza szyfrowania tylko do składników magazynu kluczy (identyfikatora URI, nazwy magazynu, wersji klucza).
+
+Ogólnie rzecz biorąc, zarządzana tożsamość umożliwia usłudze wyszukiwania uwierzytelnianie Azure Key Vault bez zapisywania poświadczeń (identyfikatora aplikacji lub ApplicationSecret) w kodzie. Cykl życia tego typu tożsamości zarządzanej jest powiązany z cyklem życia usługi wyszukiwania, która może mieć tylko jedną tożsamość zarządzaną. Aby uzyskać więcej informacji na temat działania tożsamości zarządzanych, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
+
+1. Utwórz usługę wyszukiwania jako zaufaną.
+
+   ![Włącz tożsamość zarządzaną przypisaną przez system](./media/search-managed-identities/turn-on-system-assigned-identity.png "Włącz tożsamość zarządzaną przypisaną przez system")
+
+1. Podczas konfigurowania zasad dostępu w programie Azure Key Vault wybierz usługę zaufanego wyszukiwania jako zasadę (zamiast aplikacji zarejestrowanej w usłudze AD). Przypisz te same uprawnienia (wielokrotne pobieranie, ZAWIJAnie, cofanie ZAWIJAnia) zgodnie z instrukcjami w kroku Udziel uprawnień klucza dostępu.
+
+1. Użyj uproszczonej konstrukcji `encryptionKey` , która pomija właściwości Active Directory.
+
+    ```json
+    {
+      "encryptionKey": {
+        "keyVaultUri": "https://demokeyvault.vault.azure.net",
+        "keyVaultKeyName": "myEncryptionKey",
+        "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660"
+      }
+    }
+    ```
+
+Warunki, które uniemożliwią przyjęcie tego uproszczonego podejścia, obejmują:
+
++ Nie można bezpośrednio udzielić uprawnień dostępu do usługi wyszukiwania do magazynu kluczy (na przykład jeśli usługa wyszukiwania znajduje się w innej dzierżawie Active Directory niż Azure Key Vault).
+
++ Pojedyncza usługa wyszukiwania jest wymagana do hostowania wielu szyfrowanych map indexes\synonym, z których każdy korzysta z innego klucza niż inny magazyn kluczy, gdzie każdy Magazyn kluczy musi używać **innej tożsamości** do uwierzytelniania. Ponieważ usługa wyszukiwania może mieć tylko jedną tożsamość zarządzaną, wymagania dotyczące wielu tożsamości nie kwalifikują uproszczonego podejścia do danego scenariusza.  
 
 ## <a name="work-with-encrypted-content"></a>Pracuj z zaszyfrowaną zawartością
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ce40d1a46a6448e678a8a86812d08e9013310d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28169e43d0e6949a16cc56c7e7d5d91d6db1ef57
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086912"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636922"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Łatwe kopiowanie lub przenoszenie danych za pomocą Kreatora kopiowania Azure Data Factory
 > [!NOTE]
@@ -62,7 +62,7 @@ W przykładzie zapytanie SQL używa `Text.Format` funkcji i `WindowStart` zmienn
 ![Weryfikuj wyrażenia](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrowanie danych w folderze obiektów blob platformy Azure
-W ścieżce folderu można używać zmiennych do kopiowania danych z folderu określonego w czasie wykonywania na podstawie [zmiennych systemowych](data-factory-functions-variables.md#data-factory-system-variables). Obsługiwane są następujące zmienne: **{Year}**, **{Month}**, **{Day}**, **{Hour}**, **{min}** i **{Custom}**. Przykład: inputfolder/{Year}/{Month}/{Day}.
+W ścieżce folderu można używać zmiennych do kopiowania danych z folderu określonego w czasie wykonywania na podstawie [zmiennych systemowych](data-factory-functions-variables.md#data-factory-system-variables). Obsługiwane są następujące zmienne: **{Year}** , **{Month}** , **{Day}** , **{Hour}** , **{min}** i **{Custom}** . Przykład: inputfolder/{Year}/{Month}/{Day}.
 
 Załóżmy, że masz foldery wejściowe w następującym formacie:
 
@@ -73,11 +73,11 @@ Załóżmy, że masz foldery wejściowe w następującym formacie:
 ...
 ```
 
-Kliknij przycisk **Przeglądaj** dla **pliku lub folderu**, przejdź do jednego z tych folderów (na przykład 2016->03->01->02), a następnie kliknij pozycję **Wybierz**. Powinien być widoczny `2016/03/01/02` w polu tekstowym. Teraz Zamień **2016** na **{Year}**, **03** z **{Month}**, **01** z **{Day}** i **02** z **{Hour}**, a następnie naciśnij klawisz Tab. Powinny pojawić się listy rozwijane, aby wybrać format dla tych czterech zmiennych:
+Kliknij przycisk **Przeglądaj** dla **pliku lub folderu** , przejdź do jednego z tych folderów (na przykład 2016->03->01->02), a następnie kliknij pozycję **Wybierz** . Powinien być widoczny `2016/03/01/02` w polu tekstowym. Teraz Zamień **2016** na **{Year}** , **03** z **{Month}** , **01** z **{Day}** i **02** z **{Hour}** , a następnie naciśnij klawisz Tab. Powinny pojawić się listy rozwijane, aby wybrać format dla tych czterech zmiennych:
 
 ![Używanie zmiennych systemowych](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Jak pokazano na poniższym zrzucie ekranu, można również użyć zmiennej **niestandardowej** i dowolnego [obsługiwanego ciągu formatu](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Aby wybrać folder z tą strukturą, najpierw Użyj przycisku **przeglądania** . Następnie Zastąp wartość **{Custom}**, a następnie naciśnij klawisz Tab, aby zobaczyć pole tekstowe, w którym można wpisać ciąg formatu.     
+Jak pokazano na poniższym zrzucie ekranu, można również użyć zmiennej **niestandardowej** i dowolnego [obsługiwanego ciągu formatu](/dotnet/standard/base-types/custom-date-and-time-format-strings). Aby wybrać folder z tą strukturą, najpierw Użyj przycisku **przeglądania** . Następnie Zastąp wartość **{Custom}** , a następnie naciśnij klawisz Tab, aby zobaczyć pole tekstowe, w którym można wpisać ciąg formatu.     
 
 ![Używanie zmiennej niestandardowej](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
@@ -95,4 +95,3 @@ Jednorazowa operacja kopiowania umożliwia przenoszenie danych ze źródła do m
 
 ## <a name="next-steps"></a>Następne kroki
 Aby zapoznać się z krótkim przewodnikiem dotyczącym tworzenia potoku za pomocą działania kopiowania przy użyciu Kreatora kopiowania Data Factory, zobacz [Samouczek: Tworzenie potoku przy użyciu Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md).
-

@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2c308bd038f273a7cec0442e42f8a749bc4bb8fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3539b867d8f03d11e7799498d0207a65ac9db7d8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073560"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636633"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Czyszczenie dzienników SSISDB za pomocą zadań Elastic Database platformy Azure
 
@@ -160,7 +160,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 ## <a name="clean-up-logs-with-transact-sql"></a>Czyszczenie dzienników przy użyciu języka Transact-SQL
 
-Następujące przykładowe skrypty Transact-SQL tworzą nowe zadanie elastyczne, aby wyzwolić procedurę składowaną dla czyszczenia dziennika SSISDB. Aby uzyskać więcej informacji, zobacz [Używanie języka Transact-SQL (T-SQL) w celu tworzenia zadań Elastic Database i zarządzania nimi](../sql-database/elastic-jobs-tsql.md).
+Następujące przykładowe skrypty Transact-SQL tworzą nowe zadanie elastyczne, aby wyzwolić procedurę składowaną dla czyszczenia dziennika SSISDB. Aby uzyskać więcej informacji, zobacz [Używanie języka Transact-SQL (T-SQL) w celu tworzenia zadań Elastic Database i zarządzania nimi](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
 
 1. Utwórz lub Zidentyfikuj pustą S0ę lub wyższą Azure SQL Database, aby być bazą danych zadań SSISDBCleanup. Następnie Utwórz agenta elastycznego zadania w [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 

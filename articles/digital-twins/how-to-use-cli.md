@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c8eabd7d2ef02a92684b51de0bf45bdf7d995421
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 5e4c49e7aea05b6f430860eb6975713f59ad8080
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494453"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635987"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Korzystanie z interfejsu wiersza polecenia usługi Azure Digital Twins
 
-Poza zarządzaniem wystąpieniem usługi Azure Digital bliźniaczych reprezentacji w Azure Portal, usługa Azure Digital bliźniaczych reprezentacji ma **interfejs wiersza polecenia (CLI)** , którego można użyć do wykonywania większości najważniejszych działań związanych z usługą, w tym:
+Poza zarządzaniem wystąpieniem usługi Azure Digital bliźniaczych reprezentacji w Azure Portal, usługa Azure Digital bliźniaczych reprezentacji ma **ustawione polecenie dla [interfejsu wiersza polecenia platformy Azure](/cli/azure/what-is-azure-cli)** , za pomocą którego można wykonywać większość najważniejszych działań związanych z usługą, w tym:
 * Zarządzanie wystąpieniem usługi Azure Digital bliźniaczych reprezentacji
 * Zarządzanie modelami
 * Zarządzanie cyfrowym bliźniaczych reprezentacji
@@ -25,17 +25,32 @@ Poza zarządzaniem wystąpieniem usługi Azure Digital bliźniaczych reprezentac
 * Zarządzanie [trasami](concepts-route-events.md)
 * Konfigurowanie [zabezpieczeń](concepts-security.md) za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC)
 
+Zestaw poleceń jest wywoływany **AZ DT** i jest częścią [rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension). Pełną listę poleceń i ich użycia można wyświetlić jako część dokumentacji referencyjnej dotyczącej `az iot` zestawu poleceń: [ *AZ DT* Command Reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
+
 ## <a name="uses-deploy-and-validate"></a>Używa (Wdróż i Weryfikuj)
 
 Oprócz ogólnego zarządzania wystąpieniem, interfejs wiersza polecenia jest również użytecznym narzędziem do wdrażania i walidacji.
 * Za pomocą poleceń płaszczyzny kontroli można wykonać wdrożenie nowego wystąpienia powtarzalnego lub zautomatyzowanego.
 * Za pomocą poleceń płaszczyzny danych można szybko sprawdzać wartości w wystąpieniu i sprawdzać, czy operacje zostały wykonane zgodnie z oczekiwaniami.
 
-## <a name="get-the-extension"></a>Pobierz rozszerzenie
+## <a name="get-the-command-set"></a>Pobierz zestaw poleceń
 
-Polecenia usługi Azure Digital bliźniaczych reprezentacji są częścią [rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension). Pełną listę poleceń i ich użycia można wyświetlić jako część dokumentacji referencyjnej dotyczącej `az iot` zestawu poleceń: [ *AZ DT* Command Reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
+Polecenia usługi Azure Digital bliźniaczych reprezentacji są częścią [rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure (Azure-IoT)](https://github.com/Azure/azure-iot-cli-extension), dlatego wykonaj następujące kroki, aby upewnić się, że masz najnowsze `azure-iot` rozszerzenie z poleceniami **AZ DT** .
 
-Aby upewnić się, że masz najnowszą wersję rozszerzenia, wykonaj te kroki. Te polecenia można uruchomić w [Azure Cloud Shell](../cloud-shell/overview.md) lub [lokalnego interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+### <a name="cli-version-requirements"></a>Wymagania dotyczące wersji interfejsu wiersza polecenia
+
+Jeśli używasz interfejsu wiersza polecenia platformy Azure z programem PowerShell, pakiet rozszerzenia wymaga, aby wersja interfejsu wiersza polecenia platformy **Azure była** nowsza lub wyższa.
+
+Aby sprawdzić wersję interfejsu wiersza polecenia platformy Azure, możesz wykonać następujące polecenie:
+```azurecli
+az --version
+```
+
+Aby uzyskać instrukcje dotyczące instalowania lub aktualizowania interfejsu wiersza polecenia platformy Azure do nowszej wersji, zobacz [*Instalowanie interfejsu wiersza polecenia platformy Azure*](/cli/azure/install-azure-cli).
+
+### <a name="get-the-extension"></a>Pobierz rozszerzenie
+
+Aby upewnić się, że masz najnowszą wersję rozszerzenia, `azure-iot` wykonaj te kroki. Te polecenia można uruchomić w [Azure Cloud Shell](../cloud-shell/overview.md) lub [lokalnego interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 

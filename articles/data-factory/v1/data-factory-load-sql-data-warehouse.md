@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a5bf53597c0706a5ef435d6ab8cc06e14726db8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb0138603cad52c40b3471c60104f091367e88e9
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442483"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636905"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Załaduj 1 TB do usługi Azure Synapse Analytics poniżej 15 minut z Data Factory
 > [!NOTE]
@@ -26,11 +26,11 @@ ms.locfileid: "89442483"
 
 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) to oparta na chmurze baza danych skalowalna w poziomie, która umożliwia przetwarzanie ogromnych ilości danych, zarówno relacyjnych, jak i nierelacyjnych.  Usługa Azure Synapse Analytics oparta na architekturze wysoce Parallel Processing (MPP) jest zoptymalizowana pod kątem obciążeń związanych z magazynem danych w przedsiębiorstwie.  Oferuje elastyczność chmury i umożliwia niezależne skalowanie magazynu i obliczanie.
 
-Wprowadzenie do usługi Azure Synapse Analytics jest teraz łatwiejsze niż kiedykolwiek wcześniej przy użyciu **Azure Data Factory**.  Azure Data Factory to w pełni zarządzana usługa integracji danych oparta na chmurze, która może służyć do wypełniania analiz usługi Azure Synapse przy użyciu danych z istniejącego systemu i oszczędności czasu podczas oceniania usługi Azure Synapse Analytics i tworzenia rozwiązań analitycznych. Oto najważniejsze zalety ładowania danych do usługi Azure Synapse Analytics przy użyciu Azure Data Factory:
+Wprowadzenie do usługi Azure Synapse Analytics jest teraz łatwiejsze niż kiedykolwiek wcześniej przy użyciu **Azure Data Factory** .  Azure Data Factory to w pełni zarządzana usługa integracji danych oparta na chmurze, która może służyć do wypełniania analiz usługi Azure Synapse przy użyciu danych z istniejącego systemu i oszczędności czasu podczas oceniania usługi Azure Synapse Analytics i tworzenia rozwiązań analitycznych. Oto najważniejsze zalety ładowania danych do usługi Azure Synapse Analytics przy użyciu Azure Data Factory:
 
-* **Łatwa konfiguracja**: Intuicyjny kreator 5-etapowy bez konieczności wykonywania skryptów.
-* **Obsługa rozbudowanych magazynów danych**: Wbudowana obsługa bogatego zestawu lokalnych i opartych na chmurze magazynów danych.
-* **Bezpieczeństwo i zgodność**: dane są przesyłane za pośrednictwem protokołu HTTPS lub ExpressRoute, a Globalna obecność usługi gwarantuje, że dane nigdy nie opuszczą granicy geograficznej
+* **Łatwa konfiguracja** : Intuicyjny kreator 5-etapowy bez konieczności wykonywania skryptów.
+* **Obsługa rozbudowanych magazynów danych** : Wbudowana obsługa bogatego zestawu lokalnych i opartych na chmurze magazynów danych.
+* **Bezpieczeństwo i zgodność** : dane są przesyłane za pośrednictwem protokołu HTTPS lub ExpressRoute, a Globalna obecność usługi gwarantuje, że dane nigdy nie opuszczą granicy geograficznej
 * **Niezrównana wydajność przy użyciu** bazy danych bazowych — korzystając z funkcji wielobase — jest to najbardziej wydajny sposób, aby przenieść dane do usługi Azure Synapse Analytics. Za pomocą funkcji tymczasowego obiektu BLOB można osiągnąć duże szybkości ładowania z wszystkich typów magazynów danych niż usługa Azure Blob Storage, które są obsługiwane domyślnie przez bazę.
 
 W tym artykule pokazano, jak za pomocą Kreatora kopiowania Data Factory załadować dane o pojemności 1 TB z usługi Azure Blob Storage do usługi Azure Synapse Analytics w ciągu 15 minut, o ponad 1,2 GB/s.
@@ -56,7 +56,7 @@ Ten artykuł zawiera instrukcje krok po kroku dotyczące przemieszczania danych 
     Teraz Skopiuj wygenerowane pliki do obiektu blob platformy Azure.  Zapoznaj się z tematem [przenoszenie danych do i z lokalnego systemu plików przy użyciu Azure Data Factory](data-factory-onprem-file-system-connector.md) , jak to zrobić za pomocą kopii ADF.    
 * Azure Synapse Analytics: ten eksperyment ładuje dane do usługi Azure Synapse Analytics utworzonej przy użyciu 6 000 jednostek dwu
 
-    Zapoznaj się z tematem [Tworzenie usługi Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) , aby uzyskać szczegółowe instrukcje dotyczące tworzenia bazy danych analiz usługi Azure Synapse.  Aby uzyskać najlepszą możliwą wydajność ładowania do usługi Azure Synapse Analytics przy użyciu platformy Base, wybieramy maksymalną liczbę jednostek magazynu danych (jednostek dwu) dozwoloną w ustawieniu wydajności, co to jest 6 000 jednostek dwu.
+    Zapoznaj się z tematem [Tworzenie usługi Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) , aby uzyskać szczegółowe instrukcje dotyczące tworzenia bazy danych analiz usługi Azure Synapse.  Aby uzyskać najlepszą możliwą wydajność ładowania do usługi Azure Synapse Analytics przy użyciu platformy Base, wybieramy maksymalną liczbę jednostek magazynu danych (jednostek dwu) dozwoloną w ustawieniu wydajności, co to jest 6 000 jednostek dwu.
 
   > [!NOTE]
   > Podczas ładowania z obiektu blob platformy Azure wydajność ładowania danych jest bezpośrednio proporcjonalna do liczby jednostek dwu skonfigurowanych dla usługi Azure Synapse Analytics:
@@ -79,7 +79,7 @@ Ten artykuł zawiera instrukcje krok po kroku dotyczące przemieszczania danych 
 
     Ten eksperyment ładuje dane do usługi Azure Synapse Analytics przy użyciu `xlargerc` klasy zasobów.
 
-    Aby osiągnąć najlepszą możliwą przepustowość, należy wykonać kopię przy użyciu użytkownika usługi Azure Synapse Analytics należącego do `xlargerc` klasy zasobów.  Dowiedz się, jak to zrobić, wykonując następujące czynności: [Zmień przykład klasy zasobów użytkownika](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
+    Aby osiągnąć najlepszą możliwą przepustowość, należy wykonać kopię przy użyciu użytkownika usługi Azure Synapse Analytics należącego do `xlargerc` klasy zasobów.  Dowiedz się, jak to zrobić, wykonując następujące czynności: [Zmień przykład klasy zasobów użytkownika](../../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md).  
 * Utwórz schemat tabeli docelowej w bazie danych analizy usługi Azure Synapse, uruchamiając następującą instrukcję języka DDL:
 
     ```SQL  
@@ -112,78 +112,78 @@ Ten artykuł zawiera instrukcje krok po kroku dotyczące przemieszczania danych 
 
 ## <a name="launch-copy-wizard"></a>Uruchamianie Kreatora kopiowania
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
-2. Kliknij pozycję **Utwórz zasób** w lewym górnym rogu, kliknij pozycję **Analiza i analiza**, a następnie kliknij pozycję **Data Factory**.
+2. Kliknij pozycję **Utwórz zasób** w lewym górnym rogu, kliknij pozycję **Analiza i analiza** , a następnie kliknij pozycję **Data Factory** .
 3. W okienku **Nowa fabryka danych** :
 
-   1. Wprowadź **LoadIntoSQLDWDataFactory** dla **nazwy**.
-       Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli wystąpi błąd: **Nazwa fabryki danych "LoadIntoSQLDWDataFactory" jest niedostępna**, Zmień nazwę fabryki danych (np. yournameLoadIntoSQLDWDataFactory) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.  
-   2. Wybierz swoją **subskrypcję**platformy Azure.
+   1. Wprowadź **LoadIntoSQLDWDataFactory** dla **nazwy** .
+       Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli wystąpi błąd: **Nazwa fabryki danych "LoadIntoSQLDWDataFactory" jest niedostępna** , Zmień nazwę fabryki danych (np. yournameLoadIntoSQLDWDataFactory) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.  
+   2. Wybierz swoją **subskrypcję** platformy Azure.
    3. Wykonaj jedną z następujących czynności dotyczącą grupy zasobów:
-      1. Wybierz pozycję **Użyj istniejącej**, aby wybrać istniejącą grupę zasobów.
-      2. Wybierz pozycję **Utwórz nowy**, aby wprowadzić nazwę grupy zasobów.
+      1. Wybierz pozycję **Użyj istniejącej** , aby wybrać istniejącą grupę zasobów.
+      2. Wybierz pozycję **Utwórz nowy** , aby wprowadzić nazwę grupy zasobów.
    4. Wybierz **lokalizację** fabryki danych.
    5. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** u dołu bloku.  
-   6. Kliknij przycisk **Utwórz**.
+   6. Kliknij pozycję **Utwórz** .
 4. Po zakończeniu tworzenia zostanie wyświetlony blok **Data Factory** , jak pokazano na poniższej ilustracji:
 
    ![Strona główna fabryki danych](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
-5. Na stronie głównej usługi Fabryka danych kliknij kafelek **Kopiowanie danych**, aby uruchomić **Kreatora kopiowania**.
+5. Na stronie głównej usługi Fabryka danych kliknij kafelek **Kopiowanie danych** , aby uruchomić **Kreatora kopiowania** .
 
    > [!NOTE]
-   > Jeśli widać, że przeglądarka sieci Web jest zablokowana podczas wyświetlania komunikatu „Autoryzowanie...”, wyłącz ustawienie **Blokuj pliki cookie i dane witryn innych firm** lub pozostaw je włączone i utwórz wyjątek dla witryny **login.microsoftonline.com**, a następnie spróbuj ponownie uruchomić kreatora.
+   > Jeśli widać, że przeglądarka sieci Web jest zablokowana podczas wyświetlania komunikatu „Autoryzowanie...”, wyłącz ustawienie **Blokuj pliki cookie i dane witryn innych firm** lub pozostaw je włączone i utwórz wyjątek dla witryny **login.microsoftonline.com** , a następnie spróbuj ponownie uruchomić kreatora.
    >
    >
 
 ## <a name="step-1-configure-data-loading-schedule"></a>Krok 1. Konfigurowanie harmonogramu ładowania danych
 Pierwszym krokiem jest skonfigurowanie harmonogramu ładowania danych.  
 
-Na stronie **Właściwości**:
+Na stronie **Właściwości** :
 
 1. Wprowadź **CopyFromBlobToAzureSqlDataWarehouse** dla **nazwy zadania**
 2. Wybierz opcję **Uruchom raz teraz** .   
-3. Kliknij przycisk **Dalej**.  
+3. Kliknij przycisk **Dalej** .  
 
     ![Kreator kopiowania — Strona właściwości](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>Krok 2. Konfigurowanie źródła
 W tej sekcji przedstawiono kroki konfigurowania źródła: obiekt blob platformy Azure zawierający pliki elementów wiersza 1-TB TPC-H.
 
-1. Wybierz **BLOB Storage platformy Azure** jako magazyn danych, a następnie kliknij przycisk **dalej**.
+1. Wybierz **BLOB Storage platformy Azure** jako magazyn danych, a następnie kliknij przycisk **dalej** .
 
     ![Kreator kopiowania — Wybieranie strony źródłowej](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
-2. Wprowadź informacje o połączeniu dla konta usługi Azure Blob Storage, a następnie kliknij przycisk **dalej**.
+2. Wprowadź informacje o połączeniu dla konta usługi Azure Blob Storage, a następnie kliknij przycisk **dalej** .
 
     ![Kreator kopiowania — informacje o połączeniu ze źródłem](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
-3. Wybierz **folder** zawierający pliki elementu wiersza TPC-H i kliknij przycisk **dalej**.
+3. Wybierz **folder** zawierający pliki elementu wiersza TPC-H i kliknij przycisk **dalej** .
 
     ![Kreator kopiowania — Wybieranie folderu wejściowego](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Po kliknięciu **przycisku Dalej**ustawienia formatu pliku są wykrywane automatycznie.  Upewnij się, że ogranicznik kolumny to "|" zamiast domyślnego przecinka ",".  Po przejrzeniu danych kliknij przycisk **dalej** .
+4. Po kliknięciu **przycisku Dalej** ustawienia formatu pliku są wykrywane automatycznie.  Upewnij się, że ogranicznik kolumny to "|" zamiast domyślnego przecinka ",".  Po przejrzeniu danych kliknij przycisk **dalej** .
 
     ![Kreator kopiowania — ustawienia formatu pliku](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## <a name="step-3-configure-destination"></a>Krok 3. Konfigurowanie miejsca docelowego
 W tej sekcji przedstawiono sposób konfigurowania lokalizacji docelowej: `lineitem` tabeli w bazie danych usługi Azure Synapse Analytics.
 
-1. Wybierz pozycję **Azure Synapse Analytics** jako magazyn docelowy, a następnie kliknij przycisk **dalej**.
+1. Wybierz pozycję **Azure Synapse Analytics** jako magazyn docelowy, a następnie kliknij przycisk **dalej** .
 
     ![Kreator kopiowania — Wybieranie docelowego magazynu danych](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-2. Wprowadź informacje o połączeniu dla usługi Azure Synapse Analytics.  Upewnij się, że określono użytkownika, który jest członkiem roli `xlargerc` (zobacz sekcję **wymagania wstępne** , aby uzyskać szczegółowe instrukcje), a następnie kliknij przycisk **dalej**.
+2. Wprowadź informacje o połączeniu dla usługi Azure Synapse Analytics.  Upewnij się, że określono użytkownika, który jest członkiem roli `xlargerc` (zobacz sekcję **wymagania wstępne** , aby uzyskać szczegółowe instrukcje), a następnie kliknij przycisk **dalej** .
 
     ![Kreator kopiowania — informacje o połączeniu docelowym](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
-3. Wybierz tabelę docelową, a następnie kliknij przycisk **dalej**.
+3. Wybierz tabelę docelową, a następnie kliknij przycisk **dalej** .
 
     ![Kreator kopiowania — strona mapowania tabeli](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-4. Na stronie mapowanie schematu Pozostaw zaznaczenie pola wyboru Zastosuj Mapowanie kolumn, a następnie kliknij przycisk **dalej**.
+4. Na stronie mapowanie schematu Pozostaw zaznaczenie pola wyboru Zastosuj Mapowanie kolumn, a następnie kliknij przycisk **dalej** .
 
 ## <a name="step-4-performance-settings"></a>Krok 4. ustawienia wydajności
 
-Opcja **Zezwalaj na bazę wielobazową** jest domyślnie zaznaczona.  Kliknij przycisk **Dalej**.
+Opcja **Zezwalaj na bazę wielobazową** jest domyślnie zaznaczona.  Kliknij przycisk **Dalej** .
 
 ![Kreator kopiowania — Strona mapowanie schematu](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metan
+ms.author: metang
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ac23ad66cadc553095ff869b665a6bba2fba6f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac7bca305b0c23cceb00f97f426b3f68fbea91b3
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262284"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636446"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Samouczek: uruchamianie czytnika immersyjny (Node.js)
 
@@ -69,7 +69,7 @@ ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-Po uzyskaniu tych wartości Utwórz nowy plik o nazwie _ENV_i wklej do niego następujący kod, dostarczając wartości właściwości niestandardowych z powyższych. Nie należy zawierać cudzysłowów ani znaków "{" i "}".
+Po uzyskaniu tych wartości Utwórz nowy plik o nazwie _ENV_ i wklej do niego następujący kod, dostarczając wartości właściwości niestandardowych z powyższych. Nie należy zawierać cudzysłowów ani znaków "{" i "}".
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -133,14 +133,14 @@ Punkt końcowy interfejsu API **getimmersivereaderlaunchparams** powinien być z
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Uruchom czytnik immersyjny z przykładową zawartością
 
-1. Otwórz _views\layout.Pug_i Dodaj następujący kod pod `head` tagiem przed `body` tagiem. `script`Tagi te ładują [zestaw SDK programu immersyjny](https://github.com/microsoft/immersive-reader-sdk) i jQuery.
+1. Otwórz _views\layout.Pug_ i Dodaj następujący kod pod `head` tagiem przed `body` tagiem. `script`Tagi te ładują [zestaw SDK programu immersyjny](https://github.com/microsoft/immersive-reader-sdk) i jQuery.
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
-2. Otwórz _views\index.Pug_i Zastąp jego zawartość następującym kodem. Ten kod wypełnia stronę z niepewną przykładową zawartością i dodaje przycisk, który uruchamia czytnik immersyjny.
+2. Otwórz _views\index.Pug_ i Zastąp jego zawartość następującym kodem. Ten kod wypełnia stronę z niepewną przykładową zawartością i dodaje przycisk, który uruchamia czytnik immersyjny.
 
     ```pug
     extends layout
@@ -211,13 +211,13 @@ Czytnik immersyjny obsługuje wiele różnych języków. Język zawartości moż
     });
     ```
 
-3. Przejdź do _http://localhost:3000_ ponownie. Na stronie powinien zostać wyświetlony tekst hiszpański, a po kliknięciu **czytnika immersyjny**zostanie on wyświetlony również w czytniku immersyjny.
+3. Przejdź do _http://localhost:3000_ ponownie. Na stronie powinien zostać wyświetlony tekst hiszpański, a po kliknięciu **czytnika immersyjny** zostanie on wyświetlony również w czytniku immersyjny.
 
 ## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Określ język interfejsu czytnika immersyjny
 
 Domyślnie język interfejsu czytnika immersyjny jest zgodny z ustawieniami języka przeglądarki. Można również określić język interfejsu czytnika immersyjny z poniższym kodem.
 
-1. W _views\index.Pug_Zastąp wywołanie `ImmersiveReader.launchAsync(token, subdomain, content)` poniższym kodem.
+1. W _views\index.Pug_ Zastąp wywołanie `ImmersiveReader.launchAsync(token, subdomain, content)` poniższym kodem.
 
     ```javascript
     const options = {

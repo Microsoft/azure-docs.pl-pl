@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 297fb51dd1dd8f1dabdcf2fe9e0d2ead5c906c6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0335f4f58645ae481b0fb4127a1235c4d0800f1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531835"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636395"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Format binarny w Azure Data Factory
 
@@ -33,11 +33,11 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 | Właściwość         | Opis                                                  | Wymagane |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **binarną**. | Tak      |
-| location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . **Zobacz szczegóły w sekcji łącznik — > właściwości zestawu danych**. | Tak      |
+| typ             | Właściwość Type zestawu danych musi być ustawiona na wartość **binarną** . | Tak      |
+| location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location` . **Zobacz szczegóły w sekcji łącznik — > właściwości zestawu danych** . | Tak      |
 | kompresja | Grupa właściwości do konfigurowania kompresji plików. Skonfiguruj tę sekcję, jeśli chcesz przeprowadzić kompresję/dekompresowanie podczas wykonywania działania. | Nie |
-| typ | Koder-dekoder kompresji używany do odczytu/zapisu plików binarnych. <br>Dozwolone wartości to **bzip2**, **gzip**, **Wklęśnięcie**, **ZipDeflate**lub **TarGzip**. <br>**Uwaga** w przypadku używania działania kopiowania do dekompresowania plików **ZipDeflate** / **TarGzip** i zapisywania w magazynie danych ujścia opartych na plikach, domyślnie pliki są wyodrębniane do folderu: `<path specified in dataset>/<folder named as source compressed file>/` , użyj `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` w [źródle działania Copy](#binary-as-source) , aby określić, czy należy zachować nazwę skompresowanych plików jako strukturę folderów.| Nie       |
-| poziom | Współczynnik kompresji. Zastosuj, gdy zestaw danych jest używany w ujścia działania kopiowania.<br>Dozwolone wartości to **optymalne** lub **najszybszy**.<br>- **Najszybsze:** Operacja kompresji powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli plik nie jest optymalnie kompresowany.<br>- **Optymalnie**: operacja kompresji powinna być optymalnie skompresowana, nawet jeśli operacja trwa dłużej. Aby uzyskać więcej informacji, zobacz temat [poziom kompresji](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nie       |
+| typ | Koder-dekoder kompresji używany do odczytu/zapisu plików binarnych. <br>Dozwolone wartości to **bzip2** , **gzip** , **Wklęśnięcie** , **ZipDeflate** lub **TarGzip** . <br>**Uwaga** w przypadku używania działania kopiowania do dekompresowania plików **ZipDeflate** / **TarGzip** i zapisywania w magazynie danych ujścia opartych na plikach, domyślnie pliki są wyodrębniane do folderu: `<path specified in dataset>/<folder named as source compressed file>/` , użyj `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` w [źródle działania Copy](#binary-as-source) , aby określić, czy należy zachować nazwę skompresowanych plików jako strukturę folderów.| Nie       |
+| poziom | Współczynnik kompresji. Zastosuj, gdy zestaw danych jest używany w ujścia działania kopiowania.<br>Dozwolone wartości to **optymalne** lub **najszybszy** .<br>- **Najszybsze:** Operacja kompresji powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli plik nie jest optymalnie kompresowany.<br>- **Optymalnie** : operacja kompresji powinna być optymalnie skompresowana, nawet jeśli operacja trwa dłużej. Aby uzyskać więcej informacji, zobacz temat [poziom kompresji](/dotnet/api/system.io.compression.compressionlevel) . | Nie       |
 
 Poniżej znajduje się przykładowy binarny zestaw danych na platformie Azure Blob Storage:
 
@@ -73,22 +73,22 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 ### <a name="binary-as-source"></a>Plik binarny jako źródło
 
-W sekcji *** \* Źródło \* *** działania kopiowania są obsługiwane następujące właściwości.
+W sekcji działanie copy **_ \_ Source \*** * są obsługiwane następujące właściwości.
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **BinarySource**. | Tak      |
+| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **BinarySource** . | Tak      |
 | formatSettings | Grupa właściwości. Zapoznaj się z tabelą **ustawień odczytu danych binarnych** poniżej. | Nie       |
-| storeSettings | Grupa właściwości do odczytywania danych z magazynu danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia odczytu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
+| storeSettings | Grupa właściwości do odczytywania danych z magazynu danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia odczytu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania** . | Nie       |
 
 Obsługiwane **Ustawienia odczytu danych binarnych** w obszarze `formatSettings` :
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ formatSettings musi być ustawiony na **BinaryReadSettings**. | Tak      |
+| typ          | Typ formatSettings musi być ustawiony na **BinaryReadSettings** . | Tak      |
 | compressionProperties | Grupa właściwości na temat sposobu dekompresowania danych dla danego kodera kompresji. | Nie       |
-| preserveZipFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `ZipDeflateReadSettings` *) | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **ZipDeflate** . Wskazuje, czy podczas kopiowania zachować nazwę źródłowego pliku zip jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje niespakowane pliki do `<path specified in dataset>/<folder named as source zip file>/` .<br>-Po ustawieniu na **wartość false**Data Factory zapisuje niespakowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych źródłowych plikach ZIP, aby uniknąć wyścigów lub nieoczekiwanych zachowań.  | Nie |
-| preserveCompressionFileNameAsFolder<br>(*w obszarze `compressionProperties` -> `type` jako `TarGZipReadSettings` *) | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **TarGzip** . Wskazuje, czy podczas kopiowania zachować źródłową nazwę pliku skompresowanego jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje zdekompresować pliki do `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Po ustawieniu na **wartość false**Data Factory zapisuje dekompresowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych plikach źródłowych, aby uniknąć wyścigów lub nieoczekiwanych zachowań. | Nie |
+| preserveZipFileNameAsFolder<br>( *w obszarze `compressionProperties` -> `type` jako `ZipDeflateReadSettings`* ) | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **ZipDeflate** . Wskazuje, czy podczas kopiowania zachować nazwę źródłowego pliku zip jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje niespakowane pliki do `<path specified in dataset>/<folder named as source zip file>/` .<br>-Po ustawieniu na **wartość false** Data Factory zapisuje niespakowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych źródłowych plikach ZIP, aby uniknąć wyścigów lub nieoczekiwanych zachowań.  | Nie |
+| preserveCompressionFileNameAsFolder<br>( *w obszarze `compressionProperties` -> `type` jako `TarGZipReadSettings`* ) | Stosuje się, gdy zestaw danych wejściowych jest skonfigurowany z kompresją **TarGzip** . Wskazuje, czy podczas kopiowania zachować źródłową nazwę pliku skompresowanego jako strukturę folderów.<br>-Po ustawieniu na **wartość true (domyślnie)** Data Factory zapisuje zdekompresować pliki do `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Po ustawieniu na **wartość false** Data Factory zapisuje dekompresowane pliki bezpośrednio do `<path specified in dataset>` . Upewnij się, że nie masz zduplikowanych nazw plików w różnych plikach źródłowych, aby uniknąć wyścigów lub nieoczekiwanych zachowań. | Nie |
 
 ```json
 "activities": [
@@ -120,15 +120,15 @@ Obsługiwane **Ustawienia odczytu danych binarnych** w obszarze `formatSettings`
 
 ### <a name="binary-as-sink"></a>Dane binarne jako ujścia
 
-W sekcji *** \* ujścia \* *** działania kopiowania są obsługiwane następujące właściwości.
+W sekcji działanie kopiowania **_ \_ ujścia \*** * są obsługiwane następujące właściwości.
 
 | Właściwość      | Opis                                                  | Wymagane |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **BinarySink**. | Tak      |
-| storeSettings | Grupa właściwości do zapisywania danych w magazynie danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia zapisu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
+| typ          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **BinarySink** . | Tak      |
+| storeSettings | Grupa właściwości do zapisywania danych w magazynie danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia zapisu w obszarze `storeSettings` . **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania** . | Nie       |
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie działania kopiowania](copy-activity-overview.md)
+- [Przegląd działania kopiowania](copy-activity-overview.md)
 - [Działanie GetMetadata](control-flow-get-metadata-activity.md)
 - [Usuń działanie](delete-activity.md)

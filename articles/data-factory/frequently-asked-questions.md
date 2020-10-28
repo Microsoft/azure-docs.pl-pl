@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440511"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635766"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory — często zadawane pytania
 
@@ -67,10 +67,10 @@ Użytkownicy mogą również używać udokumentowanych interfejsów API REST do 
 ### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Iteracyjne programowanie i debugowanie za pomocą narzędzi wizualnych
 Azure Data Factory narzędzia wizualne umożliwiają programowanie iteracyjne i debugowanie. Możesz tworzyć potoki i uruchamiać testy przy użyciu możliwości **debugowania** na kanwie potoku bez konieczności pisania pojedynczego wiersza kodu. Wyniki przebiegów testowych można wyświetlić w oknie **danych wyjściowych** kanwy potoku. Po pomyślnym uruchomieniu testu można dodać więcej działań do potoku i kontynuować debugowanie w sposób iteracyjny. Możesz również anulować przebiegi testowe po ich zakończeniu. 
 
-Nie jest wymagane publikowanie zmian w usłudze Data Factory przed wybraniem opcji **Debuguj**. Jest to przydatne w scenariuszach, w których chcesz mieć pewność, że nowe dodatki lub zmiany będą działały zgodnie z oczekiwaniami przed aktualizacją przepływów pracy fabryki danych w środowiskach programistycznych, testowych lub produkcyjnych. 
+Nie jest wymagane publikowanie zmian w usłudze Data Factory przed wybraniem opcji **Debuguj** . Jest to przydatne w scenariuszach, w których chcesz mieć pewność, że nowe dodatki lub zmiany będą działały zgodnie z oczekiwaniami przed aktualizacją przepływów pracy fabryki danych w środowiskach programistycznych, testowych lub produkcyjnych. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Możliwość wdrażania pakietów usług SSIS na platformie Azure 
-Jeśli chcesz przenieść obciążenia usług SSIS, możesz utworzyć Data Factory i zainicjować obsługę środowiska Azure-SSIS Integration Runtime. Azure-SSIS Integration Runtime to w pełni zarządzany klaster maszyn wirtualnych platformy Azure (węzłów), które są przeznaczone do uruchamiania pakietów SSIS w chmurze. Instrukcje krok po kroku znajdują się w samouczku [wdrażanie pakietów usług SSIS na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md) . 
+Jeśli chcesz przenieść obciążenia usług SSIS, możesz utworzyć Data Factory i zainicjować obsługę środowiska Azure-SSIS Integration Runtime. Azure-SSIS Integration Runtime to w pełni zarządzany klaster maszyn wirtualnych platformy Azure (węzłów), które są przeznaczone do uruchamiania pakietów SSIS w chmurze. Instrukcje krok po kroku znajdują się w samouczku [wdrażanie pakietów usług SSIS na platformie Azure](./tutorial-deploy-ssis-packages-azure.md) . 
  
 ### <a name="sdks"></a>Zestawy SDK
 Jeśli jesteś użytkownikiem zaawansowanym i szukasz interfejsu programowego, Data Factory udostępnia bogaty zestaw zestawów SDK, których można używać do tworzenia i monitorowania potoków oraz zarządzania nimi przy użyciu ulubionego środowiska IDE. Obsługa języków obejmuje .NET, PowerShell, Python i REST.
@@ -95,9 +95,9 @@ Począwszy od początkowej publicznej wersji zapoznawczej w 2017, Data Factory d
 ## <a name="what-is-the-integration-runtime"></a>Co to jest środowisko Integration Runtime?
 Środowisko Integration Runtime to infrastruktura obliczeniowa, która Azure Data Factory używa do zapewniania następujących możliwości integracji danych w różnych środowiskach sieciowych:
 
-- **Przenoszenie danych**: w przypadku przenoszenia danych środowisko Integration Runtime przenosi dane między źródłowym i docelowym magazynem danych, a jednocześnie zapewnia obsługę wbudowanych łączników, konwersji formatów, mapowania kolumn oraz wydajnego i skalowalnego transferu danych.
-- **Działania wysyłania**: w przypadku transformacji środowisko Integration Runtime zapewnia możliwość natywnego wykonywania pakietów usług SSIS.
-- **Wykonaj pakiety SSIS**: środowisko Integration Runtime natywnie wykonuje pakiety usług SSIS w zarządzanym środowisku obliczeniowym platformy Azure. Środowisko Integration runtime obsługuje również wysyłanie i monitorowanie działań przekształcania działających w różnych usługach obliczeniowych, takich jak Azure HDInsight, Azure Machine Learning, SQL Database i SQL Server.
+- **Przenoszenie danych** : w przypadku przenoszenia danych środowisko Integration Runtime przenosi dane między źródłowym i docelowym magazynem danych, a jednocześnie zapewnia obsługę wbudowanych łączników, konwersji formatów, mapowania kolumn oraz wydajnego i skalowalnego transferu danych.
+- **Działania wysyłania** : w przypadku transformacji środowisko Integration Runtime zapewnia możliwość natywnego wykonywania pakietów usług SSIS.
+- **Wykonaj pakiety SSIS** : środowisko Integration Runtime natywnie wykonuje pakiety usług SSIS w zarządzanym środowisku obliczeniowym platformy Azure. Środowisko Integration runtime obsługuje również wysyłanie i monitorowanie działań przekształcania działających w różnych usługach obliczeniowych, takich jak Azure HDInsight, Azure Machine Learning, SQL Database i SQL Server.
 
 Do przenoszenia i przekształcania danych można wdrożyć jedno lub wiele wystąpień środowiska Integration Runtime. Środowisko Integration Runtime może działać w sieci publicznej platformy Azure lub w sieci prywatnej (lokalnej, na platformie Azure Virtual Network lub w Amazon Web Services wirtualnej chmurze prywatnej [VPC]). 
 
@@ -127,7 +127,7 @@ Połączone usługi działają podobnie do parametrów połączenia, umożliwiaj
 Połączone usługi mają dwa cele w Data Factory:
 
 - Do reprezentowania *magazynu danych* , który zawiera, ale nie jest ograniczony do, wystąpienia SQL Server, wystąpienia bazy danych Oracle, udziału plików lub konta usługi Azure Blob Storage. Listę obsługiwanych magazynów danych można znaleźć w temacie [copy Activity in Azure Data Factory](copy-activity-overview.md).
-- Reprezentowanie *zasobu obliczeniowego*, który może hostować wykonywanie działania. Na przykład działanie programu Hive w usłudze HDInsight działa w klastrze usługi HDInsight Hadoop. Listę działań przekształcania i obsługiwanych środowisk obliczeniowych można znaleźć [w temacie Przekształcanie danych w Azure Data Factory](transform-data.md).
+- Reprezentowanie *zasobu obliczeniowego* , który może hostować wykonywanie działania. Na przykład działanie programu Hive w usłudze HDInsight działa w klastrze usługi HDInsight Hadoop. Listę działań przekształcania i obsługiwanych środowisk obliczeniowych można znaleźć [w temacie Przekształcanie danych w Azure Data Factory](transform-data.md).
 
 ### <a name="triggers"></a>Wyzwalacze
 Wyzwalacze reprezentują jednostki przetwarzania, które określają, kiedy zostanie rozpoczęte wykonywanie potoku. Istnieją różne typy wyzwalaczy dla różnych typów zdarzeń. 
@@ -159,7 +159,7 @@ Aby uzyskać szczegółowe informacje o cenach Azure Data Factory, zobacz [Data 
 Aby uzyskać najbardziej aktualne informacje dotyczące Azure Data Factory, przejdź do następujących lokacji:
 
 - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [Strona główna dokumentacji](/azure/data-factory)
+- [Strona główna dokumentacji](./index.yml)
 - [Strona główna produktu](https://azure.microsoft.com/services/data-factory/)
 
 ## <a name="technical-deep-dive"></a>Głębokie szczegółowee techniczne 

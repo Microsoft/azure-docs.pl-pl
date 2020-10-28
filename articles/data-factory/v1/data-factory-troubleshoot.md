@@ -13,12 +13,12 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7afc16beaacee5b75d57c4e4216a105734d20a09
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195898"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637075"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Rozwiązywanie problemów z usługą Data Factory
 > [!NOTE]
@@ -65,9 +65,9 @@ Instalacja ekspresowa bramy zarządzania danymi wymaga przeglądarki Internet Ex
 Uruchom **Zarządzanie danymi bramę Configuration Manager** na maszynie bramy i Użyj karty **Rozwiązywanie problemów** , aby przetestować połączenie z SQL Server z maszyny bramy. Zobacz [Rozwiązywanie problemów z bramą](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) , aby uzyskać porady dotyczące rozwiązywania problemów związanych z połączeniem/bramą.   
 
 ### <a name="problem-input-slices-are-in-waiting-state-forever"></a>Problem: wycinki wejściowe są w stanie oczekiwania w nieskończoność
-Wycinki mogą znajdować się w stanie **oczekiwania** z różnych powodów. Jednym z typowych przyczyn jest to, że właściwość **zewnętrzna** nie jest ustawiona na **wartość true**. Każdy zestaw danych, który jest tworzony poza zakresem Azure Data Factory powinien być oznaczony przy użyciu właściwości **zewnętrznej** . Ta właściwość wskazuje, że dane są zewnętrzne i nie są obsługiwane przez żadne potoki w fabryce danych. Wycinki danych są oznaczane jako **Gotowy**, gdy dane staną się dostępne w odpowiednim magazynie.
+Wycinki mogą znajdować się w stanie **oczekiwania** z różnych powodów. Jednym z typowych przyczyn jest to, że właściwość **zewnętrzna** nie jest ustawiona na **wartość true** . Każdy zestaw danych, który jest tworzony poza zakresem Azure Data Factory powinien być oznaczony przy użyciu właściwości **zewnętrznej** . Ta właściwość wskazuje, że dane są zewnętrzne i nie są obsługiwane przez żadne potoki w fabryce danych. Wycinki danych są oznaczane jako **Gotowy** , gdy dane staną się dostępne w odpowiednim magazynie.
 
-Zobacz poniższy przykład wykorzystania właściwości **external**. Opcjonalnie można określić **externalData*** po ustawieniu zewnętrzny na true.
+Zobacz poniższy przykład wykorzystania właściwości **external** . Opcjonalnie można określić **externalData** _, gdy ustawisz zewnętrzny na true.
 
 Dodatkowe informacje na temat tej właściwości można znaleźć w artykule [Zestawy danych](data-factory-create-datasets.md).
 
@@ -97,7 +97,7 @@ Dodatkowe informacje na temat tej właściwości można znaleźć w artykule [Ze
 }
 ```
 
-Aby rozwiązać ten problem, dodaj właściwość **external** i opcjonalną sekcję **externalData** do definicji JSON tabeli wejściowej i utwórz tabelę ponownie.
+Aby rozwiązać ten problem, należy dodać właściwość _ *External* * i opcjonalną sekcję **EXTERNALDATA** do definicji JSON tabeli wejściowej i ponownie utworzyć tabelę.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problem: operacja kopiowania hybrydowego kończy się niepowodzeniem
 Zobacz [Rozwiązywanie problemów z bramą](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) , aby uzyskać instrukcje dotyczące rozwiązywania problemów z kopiowaniem do/z lokalnego magazynu danych przy użyciu bramy zarządzanie danymi.
@@ -130,9 +130,9 @@ Aby uzyskać szczegółowe informacje, zobacz [monitorowanie potoków Data Facto
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
-[json-scripting-reference]: https://go.microsoft.com/fwlink/?LinkId=516971
+[json-scripting-reference]: /previous-versions/azure/dn835050(v=azure.100)
 
 [azure-portal]: https://portal.azure.com/
 

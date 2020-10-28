@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 79cc17ba4f845e2263d1a09af4a3f9ae4150f362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24347d86a99251d0bf02d5ea5cb6985df5814b29
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292204"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635188"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Wyrażenia i funkcje w usłudze Azure Data Factory
 
@@ -57,8 +57,8 @@ Wyrażenia mogą znajdować się w dowolnym miejscu w wartości ciągu JSON i za
 |----------------|------------|  
 |" \@ potok (). Parameters. substring"| Zwraca `foo` jako ciąg.|  
 |" \@ {Pipeline (). Parameters.| Zwraca `foo` jako ciąg.|  
-|" \@ potok (). Parameters. mój numer"| Zwraca `42` jako *liczbę*.|  
-|" \@ {potok (). Parameters}"| Zwraca `42` jako *ciąg*.|  
+|" \@ potok (). Parameters. mój numer"| Zwraca `42` jako *liczbę* .|  
+|" \@ {potok (). Parameters}"| Zwraca `42` jako *ciąg* .|  
 |"Odpowiedź to: @ {potoku (). Parameters.! Number}"| Zwraca ciąg `Answer is: 42` .|  
 |" \@ concat (odpowiedź:", String (potok (). Parameters.-Number)) "| Zwraca ciąg. `Answer is: 42`|  
 |"Odpowiedź to: \@ \@ {Pipeline (). Parameters.! Number}"| Zwraca ciąg `Answer is: @{pipeline().parameters.myNumber}` .|  
@@ -68,10 +68,10 @@ Wyrażenia mogą znajdować się w dowolnym miejscu w wartości ciągu JSON i za
 ### <a name="complex-expression-example"></a>Przykład wyrażenia złożonego
 Poniższy przykład pokazuje złożony przykład, który odwołuje się do głębokiego podobszaru danych wyjściowych działania. Aby odwołać się do parametru potoku, który jest obliczany do podpola, użyj składni [] zamiast kropki (.) (jak w przypadku subfield1 i subfield2)
 
-@activity("*ActivityName*"). Output. *subfield1*. *subfield2*[potok (). Parameters.* subfield3*]. *subfield4*
+@activity(" *ActivityName* "). Output. *subfield1* . *subfield2* [potok (). Parameters. *subfield3* ]. *subfield4*
 
 ### <a name="a-dataset-with-a-parameter"></a>Zestaw danych z parametrem
-W poniższym przykładzie BlobDataset przyjmuje parametr o nazwie **Path**. Jej wartość służy do ustawiania wartości właściwości **folderPath** przy użyciu wyrażenia: `dataset().path` . 
+W poniższym przykładzie BlobDataset przyjmuje parametr o nazwie **Path** . Jej wartość służy do ustawiania wartości właściwości **folderPath** przy użyciu wyrażenia: `dataset().path` . 
 
 ```json
 {
@@ -196,19 +196,19 @@ Te funkcje są przydatne w warunkach, ale mogą służyć do szacowania dowolneg
 | Logiczna funkcja porównywania | Zadanie |
 | --------------------------- | ---- |
 | [and](control-flow-expression-language-functions.md#and) | Sprawdź, czy wszystkie wyrażenia mają wartość PRAWDA. |
-| [equals](control-flow-expression-language-functions.md#equals) | Sprawdź, czy obie wartości są równoważne. |
+| [ubiegł](control-flow-expression-language-functions.md#equals) | Sprawdź, czy obie wartości są równoważne. |
 | [greater](control-flow-expression-language-functions.md#greater) | Sprawdź, czy pierwsza wartość jest większa od drugiej wartości. |
 | [greaterOrEquals](control-flow-expression-language-functions.md#greaterOrEquals) | Sprawdź, czy pierwsza wartość jest większa lub równa drugiej wartości. |
 | [if](control-flow-expression-language-functions.md#if) | Sprawdź, czy wyrażenie ma wartość true lub false. W oparciu o wynik Zwraca określoną wartość. |
 | [wcześniejsz](control-flow-expression-language-functions.md#less) | Sprawdź, czy pierwsza wartość jest mniejsza od drugiej wartości. |
 | [lessOrEquals](control-flow-expression-language-functions.md#lessOrEquals) | Sprawdź, czy pierwsza wartość jest mniejsza lub równa drugiej wartości. |
 | [niemożliwe](control-flow-expression-language-functions.md#not) | Sprawdź, czy wyrażenie ma wartość false. |
-| [oraz](control-flow-expression-language-functions.md#or) | Sprawdź, czy co najmniej jedno wyrażenie ma wartość true. |
+| [lub](control-flow-expression-language-functions.md#or) | Sprawdź, czy co najmniej jedno wyrażenie ma wartość true. |
   
 ## <a name="conversion-functions"></a>Funkcje konwersji  
 
  Te funkcje są używane do konwersji między poszczególnymi typami natywnymi w języku:  
--   ciąg
+-   string
 -   liczba całkowita
 -   float
 -   boolean
@@ -235,7 +235,7 @@ Te funkcje są przydatne w warunkach, ale mogą służyć do szacowania dowolneg
 | [liczba zmiennoprzecinkowa](control-flow-expression-language-functions.md#float) | Zwróć liczbę zmiennoprzecinkową dla wartości wejściowej. |
 | [int](control-flow-expression-language-functions.md#int) | Zwróć wersję całkowitą dla ciągu. |
 | [kodu](control-flow-expression-language-functions.md#json) | Zwróć wartość typu JavaScript Object Notation (JSON) lub obiekt dla ciągu lub XML. |
-| [parametry](control-flow-expression-language-functions.md#string) | Zwraca wersję ciągu dla wartości wejściowej. |
+| [string](control-flow-expression-language-functions.md#string) | Zwraca wersję ciągu dla wartości wejściowej. |
 | [uriComponent](control-flow-expression-language-functions.md#uriComponent) | Zwróć wersję z kodowaniem URI dla wartości wejściowej przez zastępowanie znaków w adresie URL bez znaku ucieczki. |
 | [uriComponentToBinary](control-flow-expression-language-functions.md#uriComponentToBinary) | Zwróć wersję binarną dla ciągu zakodowanego za pomocą identyfikatora URI. |
 | [uriComponentToString](control-flow-expression-language-functions.md#uriComponentToString) | Zwraca wersję ciągu dla ciągu zakodowanego przy użyciu identyfikatora URI. |
@@ -243,7 +243,7 @@ Te funkcje są przydatne w warunkach, ale mogą służyć do szacowania dowolneg
 | [Lokalizacja](control-flow-expression-language-functions.md#xpath) | Sprawdź XML dla węzłów lub wartości, które pasują do wyrażenia XPath (język ścieżki XML) i zwracają pasujące węzły lub wartości. |
 
 ## <a name="math-functions"></a>Funkcje matematyczne  
- Te funkcje mogą być używane dla każdego typu liczb: **liczb całkowitych** i **zmiennoprzecinkowych**.  
+ Te funkcje mogą być używane dla każdego typu liczb: **liczb całkowitych** i **zmiennoprzecinkowych** .  
 
 | Funkcja matematyczna | Zadanie |
 | ------------- | ---- |
@@ -298,10 +298,10 @@ add(<summand_1>, <summand_2>)
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1*>, <*summand_2*> | Tak | Liczba całkowita, zmiennoprzecinkowa lub mieszana | Liczby do dodania |
+| <*summand_1* >, < *summand_2*> | Tak | Liczba całkowita, zmiennoprzecinkowa lub mieszana | Liczby do dodania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | -----| ----------- |
 | <*wynik — suma*> | Liczba całkowita lub zmiennoprzecinkowa | Wynik dodawania określonych liczb |
 ||||
@@ -330,12 +330,12 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 | <*dni*> | Tak | Liczba całkowita | Dodatnia lub ujemna liczba dni do dodania |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowane — znacznik czasu*> | Ciąg | Sygnatura czasowa powiększona o określoną liczbę dni  |
+| <*zaktualizowane — znacznik czasu*> | String | Sygnatura czasowa powiększona o określoną liczbę dni  |
 ||||
 
 *Przykład 1*
@@ -372,12 +372,12 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 | <*liczb*> | Tak | Liczba całkowita | Dodatnia lub ujemna liczba godzin do dodania |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowane — znacznik czasu*> | Ciąg | Sygnatura czasowa powiększona o określoną liczbę godzin  |
+| <*zaktualizowane — znacznik czasu*> | String | Sygnatura czasowa powiększona o określoną liczbę godzin  |
 ||||
 
 *Przykład 1*
@@ -414,12 +414,12 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 | <*minut*> | Tak | Liczba całkowita | Dodatnia lub ujemna liczba minut do dodania |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowane — znacznik czasu*> | Ciąg | Sygnatura czasowa powiększona o określoną liczbę minut |
+| <*zaktualizowane — znacznik czasu*> | String | Sygnatura czasowa powiększona o określoną liczbę minut |
 ||||
 
 *Przykład 1*
@@ -456,12 +456,12 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 | <*s*> | Tak | Liczba całkowita | Dodatnia lub ujemna liczba sekund do dodania |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowane — znacznik czasu*> | Ciąg | Sygnatura czasowa powiększona o określoną liczbę sekund.  |
+| <*zaktualizowane — znacznik czasu*> | String | Sygnatura czasowa powiększona o określoną liczbę sekund.  |
 ||||
 
 *Przykład 1*
@@ -499,13 +499,13 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 | <*dat*> | Tak | Liczba całkowita | Liczba określonych jednostek czasu do dodania |
-| <*timeUnit*> | Tak | Ciąg | Jednostka czasu do użycia z *interwałem*: "sekunda", "minuta", "godzina", "dzień", "tydzień", "Month", "Year" |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*timeUnit*> | Tak | Ciąg | Jednostka czasu do użycia z *interwałem* : "sekunda", "minuta", "godzina", "dzień", "tydzień", "Month", "Year" |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowane — znacznik czasu*> | Ciąg | Sygnatura czasowa powiększona o określoną liczbę jednostek czasu  |
+| <*zaktualizowane — znacznik czasu*> | String | Sygnatura czasowa powiększona o określoną liczbę jednostek czasu  |
 ||||
 
 *Przykład 1*
@@ -541,12 +541,12 @@ and(<expression1>, <expression2>)
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*wyrażenie1*>, <*wyrażenie2*> | Tak | Boolean (wartość logiczna) | Wyrażenia do sprawdzenia |
+| <*wyrażenie1* >, < *wyrażenie2*> | Tak | Boolean | Wyrażenia do sprawdzenia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | -----| ----------- |
-| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli oba wyrażenia mają wartość true. Zwraca wartość false, jeśli co najmniej jedno wyrażenie ma wartość false. |
+| true lub false | Boolean | Zwraca wartość true, jeśli oba wyrażenia mają wartość true. Zwraca wartość false, jeśli co najmniej jedno wyrażenie ma wartość false. |
 ||||
 
 *Przykład 1*
@@ -597,9 +597,9 @@ array('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg do tworzenia tablicy |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| [<*wartość*>] | Tablica | Tablica zawierająca pojedyncze określone dane wejściowe |
+| [< *wartość* >] | Tablica | Tablica zawierająca pojedyncze określone dane wejściowe |
 ||||
 
 *Przykład*
@@ -627,9 +627,9 @@ base64('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg wejściowy |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*ciąg Base64*> | Ciąg | Wersja zakodowana algorytmem Base64 dla ciągu wejściowego |
+| <*ciąg Base64*> | String | Wersja zakodowana algorytmem Base64 dla ciągu wejściowego |
 ||||
 
 *Przykład*
@@ -657,9 +657,9 @@ base64ToBinary('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg zakodowany w formacie base64 do przekonwertowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*Binary-for-Base64-String*> | Ciąg | Wersja binarna dla ciągu zakodowanego algorytmem Base64 |
+| <*Binary-for-Base64-String*> | String | Wersja binarna dla ciągu zakodowanego algorytmem Base64 |
 ||||
 
 *Przykład*
@@ -691,9 +691,9 @@ base64ToString('<value>')
 | <*wartościami*> | Tak | Ciąg | Zakodowany w formacie base64 ciąg do zdekodowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zdekodowane-Base64-String*> | Ciąg | Wersja ciągu dla ciągu zakodowanego algorytmem Base64 |
+| <*zdekodowane-Base64-String*> | String | Wersja ciągu dla ciągu zakodowanego algorytmem Base64 |
 ||||
 
 *Przykład*
@@ -721,9 +721,9 @@ binary('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg do przekonwertowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*binarne — wartość wejściowa*> | Ciąg | Wersja binarna określonego ciągu |
+| <*binarne — wartość wejściowa*> | String | Wersja binarna określonego ciągu |
 ||||
 
 *Przykład*
@@ -753,9 +753,9 @@ bool(<value>)
 | <*wartościami*> | Tak | Dowolne | Wartość do przekonwertowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false | Boolean (wartość logiczna) | Wersja logiczna dla określonej wartości |
+| true lub false | Boolean | Wersja logiczna dla określonej wartości |
 ||||
 
 *Przykład*
@@ -785,10 +785,10 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*object_1*>, <*object_2*>,... | Tak | Any, można mieszać typy | Co najmniej jeden element do sprawdzenia dla wartości null |
+| <*object_1* >, < *object_2* >,... | Tak | Any, można mieszać typy | Co najmniej jeden element do sprawdzenia dla wartości null |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*element pierwszy-inny niż null*> | Dowolne | Pierwszy element lub wartość, która nie jest równa null. Jeśli wszystkie parametry mają wartość null, ta funkcja zwraca wartość null. |
 ||||
@@ -821,12 +821,12 @@ concat('<text1>', '<text2>', ...)
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*tekst1*>, <*Tekst2*>,... | Tak | Ciąg | Co najmniej dwa ciągi do połączenia |
+| <*tekst1* >, < *Tekst2* >,... | Tak | Ciąg | Co najmniej dwa ciągi do połączenia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*text1text2...*> | Ciąg | Ciąg utworzony na podstawie połączonych ciągów wejściowych |
+| <*text1text2...*> | String | Ciąg utworzony na podstawie połączonych ciągów wejściowych |
 ||||
 
 *Przykład*
@@ -864,9 +864,9 @@ W przypadku tej funkcji działa ona na następujących typach kolekcji:
 | <*wartościami*> | Tak | Odpowiednio ciąg, tablica lub słownik | Element do znalezienia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli element zostanie znaleziony. Zwraca wartość false, jeśli nie znaleziono. |
+| true lub false | Boolean | Zwraca wartość true, jeśli element zostanie znaleziony. Zwraca wartość false, jeśli nie znaleziono. |
 ||||
 
 *Przykład 1*
@@ -899,12 +899,12 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 | <*destinationTimeZone*> | Tak | Ciąg | Nazwa docelowej strefy czasowej. W przypadku nazw stref czasowych zobacz [wartości indeksów strefy czasowej firmy Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ale może być konieczne usunięcie znaków interpunkcyjnych z nazwy strefy czasowej. |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*przekonwertowano sygnaturę czasową*> | Ciąg | Sygnatura czasowa konwertowana na docelową strefę czasową |
+| <*przekonwertowano sygnaturę czasową*> | String | Sygnatura czasowa konwertowana na docelową strefę czasową |
 ||||
 
 *Przykład 1*
@@ -942,12 +942,12 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 | <*sourceTimeZone*> | Tak | Ciąg | Nazwa źródłowej strefy czasowej. W przypadku nazw stref czasowych zobacz [wartości indeksów strefy czasowej firmy Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ale może być konieczne usunięcie znaków interpunkcyjnych z nazwy strefy czasowej. |
 | <*destinationTimeZone*> | Tak | Ciąg | Nazwa docelowej strefy czasowej. W przypadku nazw stref czasowych zobacz [wartości indeksów strefy czasowej firmy Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ale może być konieczne usunięcie znaków interpunkcyjnych z nazwy strefy czasowej. |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*przekonwertowano sygnaturę czasową*> | Ciąg | Sygnatura czasowa konwertowana na docelową strefę czasową |
+| <*przekonwertowano sygnaturę czasową*> | String | Sygnatura czasowa konwertowana na docelową strefę czasową |
 ||||
 
 *Przykład 1*
@@ -984,12 +984,12 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 | <*sourceTimeZone*> | Tak | Ciąg | Nazwa źródłowej strefy czasowej. W przypadku nazw stref czasowych zobacz [wartości indeksów strefy czasowej firmy Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ale może być konieczne usunięcie znaków interpunkcyjnych z nazwy strefy czasowej. |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*przekonwertowano sygnaturę czasową*> | Ciąg | Sygnatura czasowa konwertowana na UTC |
+| <*przekonwertowano sygnaturę czasową*> | String | Sygnatura czasowa konwertowana na UTC |
 ||||
 
 *Przykład 1*
@@ -1025,12 +1025,12 @@ createArray('<object1>', '<object2>', ...)
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*obiekt1*>, <*Obiekt2*>,... | Tak | Wszystkie, ale nie mieszane | Co najmniej dwa elementy, aby utworzyć tablicę |
+| <*obiekt1* >, < *Obiekt2* >,... | Tak | Wszystkie, ale nie mieszane | Co najmniej dwa elementy, aby utworzyć tablicę |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| [<*obiekt1*>, <*Obiekt2*>,...] | Tablica | Tablica utworzona na podstawie wszystkich elementów wejściowych |
+| [< *obiekt1* >, < *Obiekt2* >,...] | Tablica | Tablica utworzona na podstawie wszystkich elementów wejściowych |
 ||||
 
 *Przykład*
@@ -1058,9 +1058,9 @@ dataUri('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg do przekonwertowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*Identyfikator URI danych*> | Ciąg | Identyfikator URI danych dla ciągu wejściowego |
+| <*Identyfikator URI danych*> | String | Identyfikator URI danych dla ciągu wejściowego |
 ||||
 
 *Przykład*
@@ -1090,9 +1090,9 @@ dataUriToBinary('<value>')
 | <*wartościami*> | Tak | Ciąg | Identyfikator URI danych do przekonwertowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*Binary-for-Data-URI*> | Ciąg | Wersja binarna identyfikatora URI danych |
+| <*Binary-for-Data-URI*> | String | Wersja binarna identyfikatora URI danych |
 ||||
 
 *Przykład*
@@ -1125,9 +1125,9 @@ dataUriToString('<value>')
 | <*wartościami*> | Tak | Ciąg | Identyfikator URI danych do przekonwertowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*ciąg-for-Data-URI*> | Ciąg | Wersja ciągu dla identyfikatora URI danych |
+| <*ciąg-for-Data-URI*> | String | Wersja ciągu dla identyfikatora URI danych |
 ||||
 
 *Przykład*
@@ -1155,7 +1155,7 @@ dayOfMonth('<timestamp>')
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*dzień miesiąca*> | Liczba całkowita | Dzień miesiąca od określonej sygnatury czasowej |
 ||||
@@ -1185,7 +1185,7 @@ dayOfWeek('<timestamp>')
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*dzień tygodnia*> | Liczba całkowita | Dzień tygodnia od określonej sygnatury czasowej, gdzie Niedziela ma wartość 0, poniedziałek wynosi 1 itd. |
 ||||
@@ -1215,7 +1215,7 @@ dayOfYear('<timestamp>')
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*dzień roku*> | Liczba całkowita | Dzień roku od określonej sygnatury czasowej |
 ||||
@@ -1247,9 +1247,9 @@ decodeBase64('<value>')
 | <*wartościami*> | Tak | Ciąg | Zakodowany w formacie base64 ciąg do zdekodowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zdekodowane-Base64-String*> | Ciąg | Wersja ciągu dla ciągu zakodowanego algorytmem Base64 |
+| <*zdekodowane-Base64-String*> | String | Wersja ciągu dla ciągu zakodowanego algorytmem Base64 |
 ||||
 
 *Przykład*
@@ -1279,9 +1279,9 @@ decodeDataUri('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg identyfikatora URI danych do zdekodowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*Binary-for-Data-URI*> | Ciąg | Wersja binarna ciągu identyfikatora URI danych |
+| <*Binary-for-Data-URI*> | String | Wersja binarna ciągu identyfikatora URI danych |
 ||||
 
 *Przykład*
@@ -1314,9 +1314,9 @@ decodeUriComponent('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg znaków ucieczki do zdekodowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zdekodowane-URI*> | Ciąg | Zaktualizowany ciąg z zdekodowanymi znakami ucieczki |
+| <*zdekodowane-URI*> | String | Zaktualizowany ciąg z zdekodowanymi znakami ucieczki |
 ||||
 
 *Przykład*
@@ -1343,10 +1343,10 @@ div(<dividend>, <divisor>)
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
 | <*płacone*> | Tak | Liczba całkowita lub zmiennoprzecinkowa | Liczba do podzielenia przez *dzielnik* |
-| <*dzielnik*> | Tak | Liczba całkowita lub zmiennoprzecinkowa | Liczba dzieląca *dzielną*, ale nie może być równa 0. |
+| <*dzielnik*> | Tak | Liczba całkowita lub zmiennoprzecinkowa | Liczba dzieląca *dzielną* , ale nie może być równa 0. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*wynik ilorazu*> | Liczba całkowita | Wynik z wartości całkowitej dzielącej pierwszą liczbę przez drugą liczbę |
 ||||
@@ -1379,9 +1379,9 @@ encodeUriComponent('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg do przekonwertowania na format zakodowany przy użyciu identyfikatora URI |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zakodowany identyfikator URI*> | Ciąg | Ciąg znaków w formacie URI z znakami ucieczki |
+| <*zakodowany identyfikator URI*> | String | Ciąg znaków w formacie URI z znakami ucieczki |
 ||||
 
 *Przykład*
@@ -1411,9 +1411,9 @@ empty([<collection>])
 | <*zbiera*> | Tak | Ciąg, tablica lub obiekt | Kolekcja do sprawdzenia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli kolekcja jest pusta. Zwraca wartość false, jeśli nie jest pusta. |
+| true lub false | Boolean | Zwraca wartość true, jeśli kolekcja jest pusta. Zwraca wartość false, jeśli nie jest pusta. |
 ||||
 
 *Przykład*
@@ -1448,9 +1448,9 @@ endsWith('<text>', '<searchText>')
 | <*Tekstprzeszukiwany*> | Tak | Ciąg | Końcowy podciąg do znalezienia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false  | Boolean (wartość logiczna) | Zwraca wartość true, gdy zostanie znaleziony końcowy podciąg. Zwraca wartość false, jeśli nie znaleziono. |
+| true lub false  | Boolean | Zwraca wartość true, gdy zostanie znaleziony końcowy podciąg. Zwraca wartość false, jeśli nie znaleziono. |
 ||||
 
 *Przykład 1*
@@ -1475,7 +1475,7 @@ I zwraca ten wynik: `false`
 
 <a name="equals"></a>
 
-### <a name="equals"></a>equals
+### <a name="equals"></a>równa się
 
 Sprawdź, czy obie wartości, wyrażenia lub obiekty są równoważne.
 Zwraca wartość true, jeśli oba są równoważne, lub zwraca wartość false, jeśli nie są równoważne.
@@ -1486,12 +1486,12 @@ equals('<object1>', '<object2>')
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*obiekt1*>, <*Obiekt2*> | Tak | Poszczególne | Wartości, wyrażenia lub obiekty do porównania |
+| <*obiekt1* >, < *Obiekt2*> | Tak | Poszczególne | Wartości, wyrażenia lub obiekty do porównania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli oba są równoważne. Zwraca wartość false, jeśli nie jest równoważne. |
+| true lub false | Boolean | Zwraca wartość true, jeśli oba są równoważne. Zwraca wartość false, jeśli nie jest równoważne. |
 ||||
 
 *Przykład*
@@ -1524,7 +1524,7 @@ first([<collection>])
 | <*zbiera*> | Tak | Ciąg lub tablica | Kolekcja, w której ma zostać znaleziony pierwszy element. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*pierwsza kolekcja-element*> | Dowolne | Pierwszy element w kolekcji |
 ||||
@@ -1558,9 +1558,9 @@ float('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg, który ma prawidłową liczbę zmiennoprzecinkową do przekonwertowania. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*Wartość zmiennoprzecinkowa*> | Liczba zmiennoprzecinkowa | Liczba zmiennoprzecinkowa dla podanego ciągu. |
+| <*Wartość zmiennoprzecinkowa*> | Float | Liczba zmiennoprzecinkowa dla podanego ciągu. |
 ||||
 
 *Przykład*
@@ -1586,12 +1586,12 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*ponowne formatowanie — znacznik czasu*> | Ciąg | Zaktualizowana sygnatura czasowa w określonym formacie |
+| <*ponowne formatowanie — znacznik czasu*> | String | Zaktualizowana sygnatura czasowa w określonym formacie |
 ||||
 
 *Przykład*
@@ -1617,13 +1617,13 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
 | <*dat*> | Tak | Liczba całkowita | Liczba określonych jednostek czasu do dodania |
-| <*timeUnit*> | Tak | Ciąg | Jednostka czasu do użycia z *interwałem*: "sekunda", "minuta", "godzina", "dzień", "tydzień", "Month", "Year" |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*timeUnit*> | Tak | Ciąg | Jednostka czasu do użycia z *interwałem* : "sekunda", "minuta", "godzina", "dzień", "tydzień", "Month", "Year" |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowane — znacznik czasu*> | Ciąg | Bieżąca sygnatura czasowa powiększona o określoną liczbę jednostek czasu |
+| <*zaktualizowane — znacznik czasu*> | String | Bieżąca sygnatura czasowa powiększona o określoną liczbę jednostek czasu |
 ||||
 
 *Przykład 1*
@@ -1661,13 +1661,13 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
 | <*dat*> | Tak | Liczba całkowita | Liczba określonych jednostek czasu do odjęcia |
-| <*timeUnit*> | Tak | Ciąg | Jednostka czasu do użycia z *interwałem*: "sekunda", "minuta", "godzina", "dzień", "tydzień", "Month", "Year" |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*timeUnit*> | Tak | Ciąg | Jednostka czasu do użycia z *interwałem* : "sekunda", "minuta", "godzina", "dzień", "tydzień", "Month", "Year" |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowane — znacznik czasu*> | Ciąg | Bieżąca sygnatura czasowa pomniejszona o określoną liczbę jednostek czasu |
+| <*zaktualizowane — znacznik czasu*> | String | Bieżąca sygnatura czasowa pomniejszona o określoną liczbę jednostek czasu |
 ||||
 
 *Przykład 1*
@@ -1710,9 +1710,9 @@ greater('<value>', '<compareTo>')
 | <*compareTo*> | Tak | Odpowiednio liczby całkowite, zmiennoprzecinkowe lub ciąg | Wartość porównania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli pierwsza wartość jest większa niż druga wartość. Zwraca wartość false, gdy pierwsza wartość jest równa lub mniejsza od drugiej wartości. |
+| true lub false | Boolean | Zwraca wartość true, jeśli pierwsza wartość jest większa niż druga wartość. Zwraca wartość false, gdy pierwsza wartość jest równa lub mniejsza od drugiej wartości. |
 ||||
 
 *Przykład*
@@ -1747,9 +1747,9 @@ greaterOrEquals('<value>', '<compareTo>')
 | <*compareTo*> | Tak | Odpowiednio liczby całkowite, zmiennoprzecinkowe lub ciąg | Wartość porównania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli pierwsza wartość jest większa lub równa drugiej wartości. Zwraca wartość false, jeśli pierwsza wartość jest mniejsza od drugiej wartości. |
+| true lub false | Boolean | Zwraca wartość true, jeśli pierwsza wartość jest większa lub równa drugiej wartości. Zwraca wartość false, jeśli pierwsza wartość jest mniejsza od drugiej wartości. |
 ||||
 
 *Przykład*
@@ -1784,12 +1784,12 @@ guid('<format>')
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*Formatowanie*> | Nie | Ciąg | Pojedynczy [specyfikator formatu](https://msdn.microsoft.com/library/97af8hh4) dla ZWRÓCONEGO identyfikatora GUID. Domyślnie formatem jest "D", ale można użyć "N", "D", "B", "P" lub "X". |
+| <*Formatowanie*> | Nie | Ciąg | Pojedynczy [specyfikator formatu](/dotnet/api/system.guid.tostring) dla ZWRÓCONEGO identyfikatora GUID. Domyślnie formatem jest "D", ale można użyć "N", "D", "B", "P" lub "X". |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*Wartość identyfikatora GUID*> | Ciąg | Losowo wygenerowany identyfikator GUID |
+| <*Wartość identyfikatora GUID*> | String | Losowo wygenerowany identyfikator GUID |
 ||||
 
 *Przykład*
@@ -1815,12 +1815,12 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*wyrażenia*> | Tak | Boolean (wartość logiczna) | Wyrażenie do sprawdzenia |
+| <*wyrażenia*> | Tak | Boolean | Wyrażenie do sprawdzenia |
 | <*valueIfTrue*> | Tak | Dowolne | Wartość, która ma zostać zwrócona, gdy wyrażenie ma wartość true. |
 | <*valueIfFalse*> | Tak | Dowolne | Wartość, która ma zostać zwrócona, gdy wyrażenie ma wartość false. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*określona — zwraca wartość*> | Dowolne | Określona wartość, która zwraca w zależności od tego, czy wyrażenie ma wartość Prawda czy fałsz. |
 ||||
@@ -1851,7 +1851,7 @@ indexOf('<text>', '<searchText>')
 | <*Tekstprzeszukiwany*> | Tak | Ciąg | Podciąg do znalezienia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*wartość indeksu*>| Liczba całkowita | Pozycja początkowa lub wartość indeksu dla podanego podciągu. <p>Jeśli ciąg nie zostanie znaleziony, Zwróć liczbę-1. |
 ||||
@@ -1881,7 +1881,7 @@ int('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg do przekonwertowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*Liczba całkowita-wynik*> | Liczba całkowita | Wersja całkowita dla podanego ciągu |
 ||||
@@ -1911,7 +1911,7 @@ json('<value>')
 | <*wartościami*> | Tak | Ciąg lub XML | Ciąg lub XML do przekonwertowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*Wynik JSON*> | Natywny typ lub obiekt JSON | Wartość lub obiekt natywnego typu JSON dla określonego ciągu lub XML. Jeśli ciąg ma wartość null, funkcja zwraca pusty obiekt. |
 ||||
@@ -1980,10 +1980,10 @@ intersection('<collection1>', '<collection2>', ...)
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*kolekcji collection1*>, <*Collection2*>,... | Tak | Tablica lub obiekt, ale nie oba | Kolekcje, z których mają być *tylko* wspólne elementy |
+| <*kolekcji collection1* >, < *Collection2* >,... | Tak | Tablica lub obiekt, ale nie oba | Kolekcje, z których mają być *tylko* wspólne elementy |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*elementy wspólne*> | Odpowiednio tablica lub obiekt | Kolekcja, która ma tylko wspólne elementy w określonej kolekcji |
 ||||
@@ -2002,7 +2002,7 @@ I zwraca tablicę zawierającą *tylko* te elementy: `[1, 2]`
 
 ### <a name="join"></a>join
 
-Zwraca ciąg, który zawiera wszystkie elementy z tablicy i zawiera każdy znak oddzielony *ogranicznikiem*.
+Zwraca ciąg, który zawiera wszystkie elementy z tablicy i zawiera każdy znak oddzielony *ogranicznikiem* .
 
 ```
 join([<collection>], '<delimiter>')
@@ -2014,9 +2014,9 @@ join([<collection>], '<delimiter>')
 | <*ogranicznik*> | Tak | Ciąg | Separator, który pojawia się między poszczególnymi znakami w ciągu wynikiem |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*CHAR1* >< *ogranicznik* >< *CHAR2* ><> *ogranicznika* ... | Ciąg | Powstały ciąg utworzony na podstawie wszystkich elementów w określonej tablicy. |
+| <*CHAR1* >< *ogranicznik* >< *CHAR2* ><> *ogranicznika* ... | String | Powstały ciąg utworzony na podstawie wszystkich elementów w określonej tablicy. |
 ||||
 
 *Przykład*
@@ -2045,7 +2045,7 @@ last([<collection>])
 | <*zbiera*> | Tak | Ciąg lub tablica | Kolekcja, w której ma zostać znaleziony ostatni element |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*Ostatnia kolekcja-element*> | Odpowiednio ciąg lub tablicę | Ostatni element w kolekcji |
 ||||
@@ -2081,7 +2081,7 @@ lastIndexOf('<text>', '<searchText>')
 | <*Tekstprzeszukiwany*> | Tak | Ciąg | Podciąg do znalezienia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*wartość końcowa indeksu*> | Liczba całkowita | Pozycja początkowa lub wartość indeksu dla ostatniego wystąpienia określonego podciągu. <p>Jeśli ciąg nie zostanie znaleziony, Zwróć liczbę-1. |
 ||||
@@ -2112,7 +2112,7 @@ length([<collection>])
 | <*zbiera*> | Tak | Ciąg lub tablica | Kolekcja zawierająca elementy do zliczenia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*Długość-lub-liczba*> | Liczba całkowita | Liczba elementów w kolekcji |
 ||||
@@ -2146,9 +2146,9 @@ less('<value>', '<compareTo>')
 | <*compareTo*> | Tak | Odpowiednio liczby całkowite, zmiennoprzecinkowe lub ciąg | Element porównania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli pierwsza wartość jest mniejsza od drugiej wartości. Zwraca wartość false, gdy pierwsza wartość jest równa lub większa od drugiej wartości. |
+| true lub false | Boolean | Zwraca wartość true, jeśli pierwsza wartość jest mniejsza od drugiej wartości. Zwraca wartość false, gdy pierwsza wartość jest równa lub większa od drugiej wartości. |
 ||||
 
 *Przykład*
@@ -2183,9 +2183,9 @@ lessOrEquals('<value>', '<compareTo>')
 | <*compareTo*> | Tak | Odpowiednio liczby całkowite, zmiennoprzecinkowe lub ciąg | Element porównania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false  | Boolean (wartość logiczna) | Zwraca wartość true, jeśli pierwsza wartość jest mniejsza lub równa drugiej wartości. Zwraca wartość false, gdy pierwsza wartość jest większa niż druga wartość. |
+| true lub false  | Boolean | Zwraca wartość true, jeśli pierwsza wartość jest mniejsza lub równa drugiej wartości. Zwraca wartość false, gdy pierwsza wartość jest większa niż druga wartość. |
 ||||
 
 *Przykład*
@@ -2215,11 +2215,11 @@ max([<number1>, <number2>, ...])
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*liczba1*>, <*liczba2*>,... | Tak | Liczba całkowita, zmiennoprzecinkowa lub oba | Zbiór liczb, z których ma być najwyższa wartość |
-| [<*liczba1*>, <*liczba2*>,...] | Tak | Array-Integer, float lub Both | Tablica liczb, z której ma być najwyższa wartość |
+| <*liczba1* >, < *liczba2* >,... | Tak | Liczba całkowita, zmiennoprzecinkowa lub oba | Zbiór liczb, z których ma być najwyższa wartość |
+| [< *liczba1* >, < *liczba2* >,...] | Tak | Array-Integer, float lub Both | Tablica liczb, z której ma być najwyższa wartość |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*Max-Value*> | Liczba całkowita lub zmiennoprzecinkowa | Najwyższa wartość w określonej tablicy lub zestawie liczb |
 ||||
@@ -2248,11 +2248,11 @@ min([<number1>, <number2>, ...])
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*liczba1*>, <*liczba2*>,... | Tak | Liczba całkowita, zmiennoprzecinkowa lub oba | Zbiór liczb, z których ma być najmniejsza wartość. |
-| [<*liczba1*>, <*liczba2*>,...] | Tak | Array-Integer, float lub Both | Tablica liczb, z której ma być najmniejsza wartość. |
+| <*liczba1* >, < *liczba2* >,... | Tak | Liczba całkowita, zmiennoprzecinkowa lub oba | Zbiór liczb, z których ma być najmniejsza wartość. |
+| [< *liczba1* >, < *liczba2* >,...] | Tak | Array-Integer, float lub Both | Tablica liczb, z której ma być najmniejsza wartość. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*wartość minimalna*> | Liczba całkowita lub zmiennoprzecinkowa | Najniższa wartość w określonym zestawie liczb lub określonej tablicy. |
 ||||
@@ -2282,10 +2282,10 @@ mod(<dividend>, <divisor>)
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
 | <*płacone*> | Tak | Liczba całkowita lub zmiennoprzecinkowa | Liczba do podzielenia przez *dzielnik* |
-| <*dzielnik*> | Tak | Liczba całkowita lub zmiennoprzecinkowa | Liczba dzieląca *dzielną*, ale nie może być równa 0. |
+| <*dzielnik*> | Tak | Liczba całkowita lub zmiennoprzecinkowa | Liczba dzieląca *dzielną* , ale nie może być równa 0. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*modulo — wynik*> | Liczba całkowita lub zmiennoprzecinkowa | Reszta z dzielenia pierwszej liczby przez drugą liczbę |
 ||||
@@ -2316,7 +2316,7 @@ mul(<multiplicand1>, <multiplicand2>)
 | <*multiplicand2*> | Tak | Liczba całkowita lub zmiennoprzecinkowa | Liczba, która *multiplicand1* wielokrotność |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*produkt — wynik*> | Liczba całkowita lub zmiennoprzecinkowa | Produkt nie pomnożyć pierwszej liczby przez drugą liczbę |
 ||||
@@ -2348,12 +2348,12 @@ not(<expression>)
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*wyrażenia*> | Tak | Boolean (wartość logiczna) | Wyrażenie do sprawdzenia |
+| <*wyrażenia*> | Tak | Boolean | Wyrażenie do sprawdzenia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli wyrażenie ma wartość false. Zwraca wartość false, jeśli wyrażenie ma wartość true. |
+| true lub false | Boolean | Zwraca wartość true, jeśli wyrażenie ma wartość false. Zwraca wartość false, jeśli wyrażenie ma wartość true. |
 ||||
 
 *Przykład 1*
@@ -2397,12 +2397,12 @@ or(<expression1>, <expression2>)
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*wyrażenie1*>, <*wyrażenie2*> | Tak | Boolean (wartość logiczna) | Wyrażenia do sprawdzenia |
+| <*wyrażenie1* >, < *wyrażenie2*> | Tak | Boolean | Wyrażenia do sprawdzenia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli co najmniej jedno wyrażenie ma wartość true. Zwraca wartość false, jeśli oba wyrażenia mają wartość false. |
+| true lub false | Boolean | Zwraca wartość true, jeśli co najmniej jedno wyrażenie ma wartość true. Zwraca wartość false, jeśli oba wyrażenia mają wartość false. |
 ||||
 
 *Przykład 1*
@@ -2449,7 +2449,7 @@ rand(<minValue>, <maxValue>)
 | <*maxValue*> | Tak | Liczba całkowita | Liczba całkowita, która następuje po największej liczbie całkowitej z zakresu, który może zwracać funkcja |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*wynik losowy*> | Liczba całkowita | Losowa liczba całkowita zwrócona z określonego zakresu |
 ||||
@@ -2480,9 +2480,9 @@ range(<startIndex>, <count>)
 | <*liczbą*> | Tak | Liczba całkowita | Liczba liczb całkowitych w tablicy |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| [<*zakres — wynik*>] | Tablica | Tablica z liczbami całkowitymi rozpoczynającymi się od określonego indeksu |
+| [< *zakres — wynik* >] | Tablica | Tablica z liczbami całkowitymi rozpoczynającymi się od określonego indeksu |
 ||||
 
 *Przykład*
@@ -2512,9 +2512,9 @@ replace('<text>', '<oldText>', '<newText>')
 | <*newText*> | Tak | Ciąg | Ciąg zamienny |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowany — tekst*> | Ciąg | Zaktualizowany ciąg po zamianie podciągu <p>Jeśli podciąg nie zostanie znaleziony, zwróć oryginalny ciąg. |
+| <*zaktualizowany — tekst*> | String | Zaktualizowany ciąg po zamianie podciągu <p>Jeśli podciąg nie zostanie znaleziony, zwróć oryginalny ciąg. |
 ||||
 
 *Przykład*
@@ -2543,9 +2543,9 @@ skip([<collection>], <count>)
 | <*liczbą*> | Tak | Liczba całkowita | Dodatnia liczba całkowita liczby elementów do usunięcia na przedniej |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| [<*Zaktualizowano — zbieranie*>] | Tablica | Zaktualizowana kolekcja po usunięciu określonych elementów |
+| [< *Zaktualizowano — zbieranie* >] | Tablica | Zaktualizowana kolekcja po usunięciu określonych elementów |
 ||||
 
 *Przykład*
@@ -2574,9 +2574,9 @@ split('<text>', '<delimiter>')
 | <*ogranicznik*> | Tak | Ciąg | Znak w oryginalnym ciągu, który ma być używany jako ogranicznik |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| [<*podciąg1*>, <*subciąg2*>,...] | Tablica | Tablica zawierająca podciągi z oryginalnego ciągu, rozdzielona przecinkami |
+| [< *podciąg1* >, < *subciąg2* >,...] | Tablica | Tablica zawierająca podciągi z oryginalnego ciągu, rozdzielona przecinkami |
 ||||
 
 *Przykład*
@@ -2602,12 +2602,12 @@ startOfDay('<timestamp>', '<format>'?)
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowane — znacznik czasu*> | Ciąg | Określona sygnatura czasowa, ale rozpoczynająca się od znaku zero godziny na dzień |
+| <*zaktualizowane — znacznik czasu*> | String | Określona sygnatura czasowa, ale rozpoczynająca się od znaku zero godziny na dzień |
 ||||
 
 *Przykład*
@@ -2633,12 +2633,12 @@ startOfHour('<timestamp>', '<format>'?)
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowane — znacznik czasu*> | Ciąg | Określona sygnatura czasowa, ale rozpoczynająca się od znaku 0 minuty dla godziny |
+| <*zaktualizowane — znacznik czasu*> | String | Określona sygnatura czasowa, ale rozpoczynająca się od znaku 0 minuty dla godziny |
 ||||
 
 *Przykład*
@@ -2664,12 +2664,12 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowane — znacznik czasu*> | Ciąg | Określona sygnatura czasowa, ale rozpoczyna się pierwszego dnia miesiąca w znaku 0-godzinnym |
+| <*zaktualizowane — znacznik czasu*> | String | Określona sygnatura czasowa, ale rozpoczyna się pierwszego dnia miesiąca w znaku 0-godzinnym |
 ||||
 
 *Przykład*
@@ -2700,9 +2700,9 @@ startsWith('<text>', '<searchText>')
 | <*Tekstprzeszukiwany*> | Tak | Ciąg | Ciąg początkowy do znalezienia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false  | Boolean (wartość logiczna) | Zwraca wartość true, gdy zostanie znaleziony początkowy podciąg. Zwraca wartość false, jeśli nie znaleziono. |
+| true lub false  | Boolean | Zwraca wartość true, gdy zostanie znaleziony początkowy podciąg. Zwraca wartość false, jeśli nie znaleziono. |
 ||||
 
 *Przykład 1*
@@ -2727,7 +2727,7 @@ I zwraca ten wynik: `false`
 
 <a name="string"></a>
 
-### <a name="string"></a>ciąg
+### <a name="string"></a>string
 
 Zwraca wersję ciągu dla wartości.
 
@@ -2740,9 +2740,9 @@ string(<value>)
 | <*wartościami*> | Tak | Dowolne | Wartość do przekonwertowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*wartość ciągu*> | Ciąg | Wersja ciągu dla określonej wartości. |
+| <*wartość ciągu*> | String | Wersja ciągu dla określonej wartości. |
 ||||
 
 *Przykład 1*
@@ -2781,7 +2781,7 @@ sub(<minuend>, <subtrahend>)
 | <*odjemnik*> | Tak | Liczba całkowita lub zmiennoprzecinkowa | Liczba, która ma zostać odjęta od *odjemna* |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*wynika*> | Liczba całkowita lub zmiennoprzecinkowa | Wynik odejmowania drugiej liczby od pierwszej liczby |
 ||||
@@ -2814,9 +2814,9 @@ substring('<text>', <startIndex>, <length>)
 | <*Długość*> | Tak | Liczba całkowita | Dodatnia liczba znaków, które mają być używane w podciągu. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*podciąg — wynik*> | Ciąg | Podciąg z określoną liczbą znaków, zaczynając od określonej pozycji indeksu w ciągu źródłowym. |
+| <*podciąg — wynik*> | String | Podciąg z określoną liczbą znaków, zaczynając od określonej pozycji indeksu w ciągu źródłowym. |
 ||||
 
 *Przykład*
@@ -2844,13 +2844,13 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg zawierający sygnaturę czasową. |
 | <*dat*> | Tak | Liczba całkowita | Liczba określonych jednostek czasu do odjęcia |
-| <*timeUnit*> | Tak | Ciąg | Jednostka czasu do użycia z *interwałem*: "sekunda", "minuta", "godzina", "dzień", "tydzień", "Month", "Year" |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*timeUnit*> | Tak | Ciąg | Jednostka czasu do użycia z *interwałem* : "sekunda", "minuta", "godzina", "dzień", "tydzień", "Month", "Year" |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zaktualizowane — znacznik czasu*> | Ciąg | Sygnatura czasowa pomniejszona o określoną liczbę jednostek czasu |
+| <*zaktualizowane — znacznik czasu*> | String | Sygnatura czasowa pomniejszona o określoną liczbę jednostek czasu |
 ||||
 
 *Przykład 1*
@@ -2890,9 +2890,9 @@ take([<collection>], <count>)
 | <*liczbą*> | Tak | Liczba całkowita | Dodatnia liczba całkowita liczby elementów, które mają być od przodu |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*podzbiór*> lub [ *podzbiór* <>] | Odpowiednio ciąg lub tablicę | Ciąg lub tablica, która ma określoną liczbę elementów pobranych z przodu oryginalnej kolekcji |
+| <*podzbiór* > lub [ *podzbiór* <>] | Odpowiednio ciąg lub tablicę | Ciąg lub tablica, która ma określoną liczbę elementów pobranych z przodu oryginalnej kolekcji |
 ||||
 
 *Przykład*
@@ -2925,7 +2925,7 @@ ticks('<timestamp>')
 | <*znacznik czasu*> | Tak | Ciąg | Ciąg dla sygnatury czasowej |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*Takty — liczba*> | Liczba całkowita | Liczba taktów od określonej sygnatury czasowej |
 ||||
@@ -2945,9 +2945,9 @@ toLower('<text>')
 | <*Opis*> | Tak | Ciąg | Ciąg do zwrócenia w formacie małymi literami |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*małe litery tekstu*> | Ciąg | Oryginalny ciąg w formacie małymi literami |
+| <*małe litery tekstu*> | String | Oryginalny ciąg w formacie małymi literami |
 ||||
 
 *Przykład*
@@ -2975,9 +2975,9 @@ toUpper('<text>')
 | <*Opis*> | Tak | Ciąg | Ciąg do zwrócenia w formacie wielką literą |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*wielkie litery — tekst*> | Ciąg | Oryginalny ciąg w formacie wielką literą |
+| <*wielkie litery — tekst*> | String | Oryginalny ciąg w formacie wielką literą |
 ||||
 
 *Przykład*
@@ -3005,9 +3005,9 @@ trim('<text>')
 | <*Opis*> | Tak | Ciąg | Ciąg, który zawiera spacje wiodące i końcowe do usunięcia |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*updatedText*> | Ciąg | Zaktualizowana wersja oryginalnego ciągu bez spacji wiodących lub końcowych |
+| <*updatedText*> | String | Zaktualizowana wersja oryginalnego ciągu bez spacji wiodących lub końcowych |
 ||||
 
 *Przykład*
@@ -3034,10 +3034,10 @@ union([<collection1>], [<collection2>], ...)
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*kolekcji collection1*>, <*Collection2*>,...  | Tak | Tablica lub obiekt, ale nie oba | Kolekcje, z których mają być *wszystkie* elementy |
+| <*kolekcji collection1* >, < *Collection2* >,...  | Tak | Tablica lub obiekt, ale nie oba | Kolekcje, z których mają być *wszystkie* elementy |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*Zaktualizowano*> | Odpowiednio tablica lub obiekt | Kolekcja zawierająca wszystkie elementy z określonych kolekcji — brak duplikatów |
 ||||
@@ -3069,9 +3069,9 @@ uriComponent('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg do przekonwertowania na format zakodowany przy użyciu identyfikatora URI |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zakodowany identyfikator URI*> | Ciąg | Ciąg znaków w formacie URI z znakami ucieczki |
+| <*zakodowany identyfikator URI*> | String | Ciąg znaków w formacie URI z znakami ucieczki |
 ||||
 
 *Przykład*
@@ -3099,9 +3099,9 @@ uriComponentToBinary('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg zakodowany przy użyciu identyfikatora URI do przekonwertowania |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*binarny dla kodowanego identyfikatora URI*> | Ciąg | Wersja binarna dla ciągu zakodowanego przy użyciu identyfikatora URI. Zawartość binarna jest zakodowana algorytmem Base64 i reprezentowana przez `$content` . |
+| <*binarny dla kodowanego identyfikatora URI*> | String | Wersja binarna dla ciągu zakodowanego przy użyciu identyfikatora URI. Zawartość binarna jest zakodowana algorytmem Base64 i reprezentowana przez `$content` . |
 ||||
 
 *Przykład*
@@ -3134,9 +3134,9 @@ uriComponentToString('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg zakodowany przy użyciu identyfikatora URI, który ma zostać zdekodowany |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*zdekodowane-URI*> | Ciąg | Zdekodowana wersja dla ciągu zakodowanego przy użyciu identyfikatora URI |
+| <*zdekodowane-URI*> | String | Zdekodowana wersja dla ciągu zakodowanego przy użyciu identyfikatora URI |
 ||||
 
 *Przykład*
@@ -3159,16 +3159,16 @@ Zwróć bieżącą sygnaturę czasową.
 utcNow('<format>')
 ```
 
-Opcjonalnie można określić inny format z parametrem> <*Format* .
+Opcjonalnie można określić inny format z parametrem> < *Format* .
 
 | Parametr | Wymagane | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
+| <*Formatowanie*> | Nie | Ciąg | [Pojedynczy specyfikator formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [wzorzec formatowania niestandardowego](/dotnet/standard/base-types/custom-date-and-time-format-strings). Domyślny format sygnatury czasowej to ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (RRRR-MM-DDTgg: mm: SS: fffffffK), który jest zgodny z [normą ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i zachowuje informacje o strefie czasowej. |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*Current — znacznik czasu*> | Ciąg | Bieżąca data i godzina |
+| <*Current — znacznik czasu*> | String | Bieżąca data i godzina |
 ||||
 
 *Przykład 1*
@@ -3208,7 +3208,7 @@ xml('<value>')
 | <*wartościami*> | Tak | Ciąg | Ciąg z obiektem JSON do przekonwertowania <p>Obiekt JSON musi mieć tylko jedną właściwość root, która nie może być tablicą. <br>Użyj znaku ukośnika odwrotnego ( \\ ) jako znaku ucieczki dla podwójnego cudzysłowu ("). |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
 | <*Wersja XML*> | Obiekt | Zakodowany kod XML dla określonego ciągu lub obiektu JSON. |
 ||||
@@ -3267,11 +3267,11 @@ xpath('<xml>', '<xpath>')
 | <*Lokalizacja*> | Tak | Dowolne | Wyrażenie XPath używane do znajdowania pasujących węzłów lub wartości XML |
 |||||
 
-| Wartość zwracana | Type | Opis |
+| Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| <*węzeł XML*> | XML | Węzeł XML, gdy tylko jeden węzeł pasuje do określonego wyrażenia XPath |
+| <*węzeł XML*> | Plik XML | Węzeł XML, gdy tylko jeden węzeł pasuje do określonego wyrażenia XPath |
 | <*wartościami*> | Dowolne | Wartość z węzła XML, gdy tylko jedna wartość jest zgodna z określonym wyrażeniem XPath |
-| [<*XML-węzeł1*>, <*xml-Węzeł2*>,...] </br>-lub- </br>[<*wartość1*>, <*wartość2*>,...] | Tablica | Tablica z węzłami lub wartościami XML, które pasują do określonego wyrażenia XPath |
+| [< *XML-węzeł1* >, < *xml-Węzeł2* >,...] </br>-lub- </br>[< *wartość1* >, < *wartość2* >,...] | Tablica | Tablica z węzłami lub wartościami XML, które pasują do określonego wyrażenia XPath |
 ||||
 
 *Przykład 1*

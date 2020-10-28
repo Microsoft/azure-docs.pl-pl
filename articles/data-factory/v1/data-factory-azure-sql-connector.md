@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cf731b09115558fc4280fe322d7e952ccb420c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83ab9e212e71ad53007a84ad8c10979bfea4516b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254875"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637398"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Kopiowanie danych do i z Azure SQL Database przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -34,7 +34,7 @@ Dane **z Azure SQL Database** można kopiować do następujących magazynów dan
 
 [!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
 
-Dane z następujących magazynów danych można kopiować **do Azure SQL Database**:
+Dane z następujących magazynów danych można kopiować **do Azure SQL Database** :
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
@@ -44,13 +44,13 @@ Dane z następujących magazynów danych można kopiować **do Azure SQL Databas
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok z działaniem kopiowania, które przenosi dane do/z Azure SQL Database przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
+Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania** . Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
 
-Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET**i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio** , **Azure PowerShell** , **szablon Azure Resource Manager** , interfejs API **platformy .NET** i **interfejs API REST** . Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia:
 
-1. Utwórz **fabrykę danych**. Fabryka danych może zawierać jeden lub więcej potoków.
+1. Utwórz **fabrykę danych** . Fabryka danych może zawierać jeden lub więcej potoków.
 2. Utwórz **połączone usługi** , aby połączyć magazyny danych wejściowych i wyjściowych z fabryką danych. Na przykład jeśli kopiujesz dane z usługi Azure Blob Storage do Azure SQL Database, utworzysz dwie połączone usługi, aby połączyć konto usługi Azure Storage i Azure SQL Database z fabryką danych. Aby uzyskać właściwości połączonej usługi, które są specyficzne dla Azure SQL Database, zobacz sekcję [Właściwości połączonej usługi](#linked-service-properties) .
 3. Utwórz **zestawy** danych, aby reprezentować dane wejściowe i wyjściowe dla operacji kopiowania. W przykładzie opisanym w ostatnim kroku utworzysz zestaw danych, aby określić kontener obiektów blob i folder zawierający dane wejściowe. Ponadto utworzysz kolejny zestaw danych, aby określić tabelę SQL w Azure SQL Database, która zawiera dane skopiowane z magazynu obiektów BLOB. Dla właściwości zestawu danych, które są specyficzne dla Azure Data Lake Store, zobacz sekcję [Właściwości zestawu danych](#dataset-properties) .
 4. Utwórz **potok** z działaniem kopiowania, które pobiera zestaw danych jako dane wejściowe i zestaw danych jako dane wyjściowe. W powyższym przykładzie użyto BlobSource jako źródła i obiektu sqlsink jako ujścia dla działania kopiowania. Podobnie, jeśli kopiujesz z Azure SQL Database do Blob Storage platformy Azure, użyjesz sqlsource i wartość blobsink w działaniu kopiowania. Aby uzyskać właściwości działania kopiowania, które są specyficzne dla Azure SQL Database, zobacz sekcję [właściwości działania kopiowania](#copy-activity-properties) . Aby uzyskać szczegółowe informacje na temat używania magazynu danych jako źródła lub ujścia, kliknij link w poprzedniej sekcji dla magazynu danych.
@@ -68,10 +68,10 @@ Linki połączonej usługi Azure SQL Azure SQL Database do fabryki danych. Poni�
 | Parametry połączenia |Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem Azure SQL Database dla właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. |Tak |
 
 > [!IMPORTANT]
-> Skonfiguruj [Azure SQL Database zaporą](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) serwera bazy danych, aby [umożliwić usługom platformy Azure dostęp do serwera](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Ponadto, jeśli kopiujesz dane do Azure SQL Database spoza platformy Azure, w tym z lokalnych źródeł danych za pomocą bramy usługi Data Factory, skonfiguruj odpowiedni zakres adresów IP dla maszyny wysyłającej dane do Azure SQL Database.
+> Skonfiguruj [Azure SQL Database zaporą](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure) serwera bazy danych, aby [umożliwić usługom platformy Azure dostęp do serwera](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure). Ponadto, jeśli kopiujesz dane do Azure SQL Database spoza platformy Azure, w tym z lokalnych źródeł danych za pomocą bramy usługi Data Factory, skonfiguruj odpowiedni zakres adresów IP dla maszyny wysyłającej dane do Azure SQL Database.
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
-Aby określić zestaw danych do reprezentowania danych wejściowych lub wyjściowych w Azure SQL Database, należy ustawić Właściwość Type zestawu danych na: **wartość azuresqltable**. Ustaw właściwość **linkedServiceName** zestawu danych na nazwę połączonej usługi Azure SQL.
+Aby określić zestaw danych do reprezentowania danych wejściowych lub wyjściowych w Azure SQL Database, należy ustawić Właściwość Type zestawu danych na: **wartość azuresqltable** . Ustaw właściwość **linkedServiceName** zestawu danych na nazwę połączonej usługi Azure SQL.
 
 Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania zestawów danych, zobacz artykuł [Tworzenie zestawów danych](data-factory-create-datasets.md) . Sekcje, takie jak struktura, dostępność i zasady JSON zestawu danych są podobne dla wszystkich typów zestawu danych (Azure SQL, Azure Blob, Azure Table itp.).
 
@@ -89,10 +89,10 @@ Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania dz
 
 Natomiast właściwości dostępne w sekcji **typeProperties** działania różnią się w zależności od typu działania. W przypadku działania kopiowania różnią się w zależności od typów źródeł i ujścia.
 
-Jeśli przenosisz dane z Azure SQL Database, musisz ustawić typ źródła w działaniu Kopiuj do **sqlsource**. Podobnie, Jeśli przenosisz dane do Azure SQL Database, należy ustawić typ ujścia w działaniu kopiowania na **sqlsink**. Ta sekcja zawiera listę właściwości obsługiwanych przez element sqlsource i sqlsink.
+Jeśli przenosisz dane z Azure SQL Database, musisz ustawić typ źródła w działaniu Kopiuj do **sqlsource** . Podobnie, Jeśli przenosisz dane do Azure SQL Database, należy ustawić typ ujścia w działaniu kopiowania na **sqlsink** . Ta sekcja zawiera listę właściwości obsługiwanych przez element sqlsource i sqlsink.
 
 ### <a name="sqlsource"></a>Wartość sqlsource
-W działaniu kopiowania, gdy źródłem jest typ **sqlsource**, w sekcji **typeProperties** są dostępne następujące właściwości:
+W działaniu kopiowania, gdy źródłem jest typ **sqlsource** , w sekcji **typeProperties** są dostępne następujące właściwości:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
@@ -105,7 +105,7 @@ Jeśli **sqlReaderQuery** jest określony dla elementu sqlsource, działanie Cop
 Jeśli nie określisz opcji sqlReaderQuery ani sqlReaderStoredProcedureName, kolumny zdefiniowane w sekcji Struktura JSON zestawu danych są używane do tworzenia zapytania ( `select column1, column2 from mytable` ) w celu uruchomienia względem Azure SQL Database. Jeśli definicja zestawu danych nie ma struktury, wszystkie kolumny są wybierane z tabeli.
 
 > [!NOTE]
-> W przypadku korzystania z **sqlReaderStoredProcedureName**, nadal trzeba określić wartość właściwości **TableName** w kodzie JSON zestawu danych. Nie przeprowadzono żadnych operacji sprawdzania poprawności dla tej tabeli, chociaż.
+> W przypadku korzystania z **sqlReaderStoredProcedureName** , nadal trzeba określić wartość właściwości **TableName** w kodzie JSON zestawu danych. Nie przeprowadzono żadnych operacji sprawdzania poprawności dla tej tabeli, chociaż.
 >
 >
 
@@ -150,7 +150,7 @@ GO
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy rozmiar buforu osiągnie writeBatchSize. |Liczba całkowita (liczba wierszy) |Nie (domyślnie: 10000) |
 | sqlWriterCleanupScript |Określ zapytanie dla działania kopiowania, które ma zostać wykonane, aby dane określonego wycinka zostały oczyszczone. Aby uzyskać więcej informacji, zobacz [powtórzona kopia](#repeatable-copy). |Instrukcja zapytania. |Nie |
 | sliceIdentifierColumnName |Określ nazwę kolumny dla działania kopiowania, która ma zostać wypełniona automatycznie wygenerowaną identyfikatorem wycinka, która jest używana do czyszczenia danych określonego wycinka po ponownym uruchomieniu. Aby uzyskać więcej informacji, zobacz [powtórzona kopia](#repeatable-copy). |Nazwa kolumny kolumny zawierającej dane typu binary (32). |Nie |
-| sqlWriterStoredProcedureName |Nazwa procedury składowanej, która definiuje sposób zastosowania danych źródłowych do tabeli docelowej, np. w celu przeprowadzenia upserts lub przekształcenia przy użyciu własnej logiki biznesowej. <br/><br/>Należy zauważyć, że ta procedura składowana zostanie **wywołana na partię**. Jeśli chcesz wykonać operację, która jest uruchamiana tylko raz i nie ma nic do zrobienia z danymi źródłowymi, np. Delete/Truncate, USE `sqlWriterCleanupScript` Property. |Nazwa procedury składowanej. |Nie |
+| sqlWriterStoredProcedureName |Nazwa procedury składowanej, która definiuje sposób zastosowania danych źródłowych do tabeli docelowej, np. w celu przeprowadzenia upserts lub przekształcenia przy użyciu własnej logiki biznesowej. <br/><br/>Należy zauważyć, że ta procedura składowana zostanie **wywołana na partię** . Jeśli chcesz wykonać operację, która jest uruchamiana tylko raz i nie ma nic do zrobienia z danymi źródłowymi, np. Delete/Truncate, USE `sqlWriterCleanupScript` Property. |Nazwa procedury składowanej. |Nie |
 | storedProcedureParameters |Parametry procedury składowanej. |Pary nazwa/wartość. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. |Nie |
 | sqlWriterTableType |Określ nazwę typu tabeli, która ma zostać użyta w procedurze składowanej. Działanie kopiowania sprawia, że dane są dostępne w tabeli tymczasowej z tym typem tabeli. Kod procedury składowanej może następnie scalić dane kopiowane z istniejącymi danymi. |Nazwa typu tabeli. |Nie |
 
@@ -312,7 +312,7 @@ Zobacz sekcję [właściwości typu zestawu danych obiektów blob platformy Azur
 
 **Działanie kopiowania w potoku ze źródłem SQL i obiektem BLOB:**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma ustawioną wartość **sqlsource** , a typ **ujścia** to **wartość blobsink**. Zapytanie SQL określone dla właściwości **SqlReaderQuery** wybiera dane w ciągu ostatniej godziny do skopiowania.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma ustawioną wartość **sqlsource** , a typ **ujścia** to **wartość blobsink** . Zapytanie SQL określone dla właściwości **SqlReaderQuery** wybiera dane w ciągu ostatniej godziny do skopiowania.
 
 ```JSON
 {
@@ -362,7 +362,7 @@ Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z
 ```
 W przykładzie **sqlReaderQuery** jest określony dla elementu sqlsource. Działanie kopiowania uruchamia to zapytanie względem źródła Azure SQL Database, aby uzyskać dane. Alternatywnie można określić procedurę składowaną, określając **sqlReaderStoredProcedureName** i **storedProcedureParameters** (Jeśli procedura składowana pobiera parametry).
 
-Jeśli nie określisz opcji sqlReaderQuery ani sqlReaderStoredProcedureName, kolumny zdefiniowane w sekcji Struktura JSON elementu DataSet są używane do tworzenia zapytania do uruchomienia względem Azure SQL Database. Przykład: `select column1, column2 from mytable`. Jeśli definicja zestawu danych nie ma struktury, wszystkie kolumny są wybierane z tabeli.
+Jeśli nie określisz opcji sqlReaderQuery ani sqlReaderStoredProcedureName, kolumny zdefiniowane w sekcji Struktura JSON elementu DataSet są używane do tworzenia zapytania do uruchomienia względem Azure SQL Database. Na przykład: `select column1, column2 from mytable`. Jeśli definicja zestawu danych nie ma struktury, wszystkie kolumny są wybierane z tabeli.
 
 Zobacz sekcję [Źródło SQL](#sqlsource) i [wartość blobsink](data-factory-azure-blob-connector.md#copy-activity-properties) , aby uzyskać listę właściwości obsługiwanych przez sqlsource i wartość blobsink.
 
@@ -502,7 +502,7 @@ Zobacz sekcję właściwości typu zestawu danych usługi Azure SQL, aby zapozna
 
 **Działanie kopiowania w potoku ze źródłem obiektów blob i obiektem SQL:**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **BlobSource** , a typ **ujścia** to **sqlsink**.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **BlobSource** , a typ **ujścia** to **sqlsink** .
 
 ```JSON
 {
@@ -646,7 +646,7 @@ Podczas przemieszczania danych do i z Azure SQL Database następujące mapowania
 | DateTimeOffset |DateTimeOffset |
 | Liczba dziesiętna |Liczba dziesiętna |
 | FILESTREAM — atrybut (varbinary (max)) |Byte [] |
-| Liczba zmiennoprzecinkowa |Double |
+| Float |Double |
 | image (obraz) |Byte [] |
 | int |Int32 |
 | pieniędzy |Liczba dziesiętna |

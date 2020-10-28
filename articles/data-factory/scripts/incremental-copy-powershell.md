@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 1919f89d2e39981effe14c1203446f8f9d930f41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2024fc6c4640f79e5001472f29803c6cef1c07a1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79462493"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636616"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Skrypt programu PowerShell — przyrostowe ładowanie danych przy użyciu Azure Data Factory
 
@@ -65,6 +65,6 @@ W tym skrypcie użyto następujących poleceń:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](https://docs.microsoft.com/powershell/).
+Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/).
 
 Dodatkowe przykłady skryptów programu Azure Data Factory PowerShell można znaleźć w [skryptach programu Azure Data Factory PowerShell](../samples-powershell.md).

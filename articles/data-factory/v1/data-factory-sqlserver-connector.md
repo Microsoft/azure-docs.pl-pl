@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe9a50b5557e6165835abf1df67f7486c260c1c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2d69f9f70861799d941bbeaed7eb8d338fa8a5e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195923"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636174"
 ---
 # <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Przenoszenie danych do i z SQL Server przy użyciu Azure Data Factory
 
@@ -37,7 +37,7 @@ Dane **z bazy danych SQL Server** można kopiować do następujących magazynów
 
 [!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
 
-Dane z następujących magazynów danych można kopiować **do bazy danych SQL Server**:
+Dane z następujących magazynów danych można kopiować **do bazy danych SQL Server** :
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
@@ -54,13 +54,13 @@ Aby zainstalować bramę na tym samym komputerze lokalnym lub w chmurze jako SQL
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok za pomocą działania kopiowania, które przenosi dane do/z bazy danych SQL Server przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
+Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania** . Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
 
-Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET**i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio** , **Azure PowerShell** , **szablon Azure Resource Manager** , interfejs API **platformy .NET** i **interfejs API REST** . Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia:
 
-1. Utwórz **fabrykę danych**. Fabryka danych może zawierać jeden lub więcej potoków.
+1. Utwórz **fabrykę danych** . Fabryka danych może zawierać jeden lub więcej potoków.
 2. Utwórz **połączone usługi** , aby połączyć magazyny danych wejściowych i wyjściowych z fabryką danych. Na przykład jeśli kopiujesz dane z bazy danych SQL Server do magazynu obiektów blob platformy Azure, utworzysz dwie połączone usługi, aby połączyć bazę danych SQL Server i konto usługi Azure Storage z fabryką danych. Aby uzyskać właściwości połączonej usługi, które są specyficzne dla SQL Server Database, zobacz sekcję [Właściwości połączonej usługi](#linked-service-properties) .
 3. Utwórz **zestawy** danych, aby reprezentować dane wejściowe i wyjściowe dla operacji kopiowania. W przykładzie opisanym w ostatnim kroku utworzysz zestaw danych, aby określić tabelę SQL w bazie danych SQL Server, która zawiera dane wejściowe. Ponadto utworzysz kolejny zestaw danych, aby określić kontener obiektów blob i folder, który zawiera dane skopiowane z bazy danych SQL Server. Dla właściwości zestawu danych, które są specyficzne dla bazy danych SQL Server, zobacz sekcję [Właściwości zestawu danych](#dataset-properties) .
 4. Utwórz **potok** z działaniem kopiowania, które pobiera zestaw danych jako dane wejściowe i zestaw danych jako dane wyjściowe. W powyższym przykładzie użyto elementu sqlsource jako źródła i wartość blobsink jako ujścia dla działania kopiowania. Podobnie, jeśli kopiujesz z usługi Azure Blob Storage do SQL Server Database, używasz BlobSource i sqlsink w działaniu kopiowania. Dla właściwości działania kopiowania, które są specyficzne dla SQL Server bazy danych, zobacz sekcję [właściwości działania kopiowania](#copy-activity-properties) . Aby uzyskać szczegółowe informacje na temat używania magazynu danych jako źródła lub ujścia, kliknij link w poprzedniej sekcji dla magazynu danych.
@@ -76,13 +76,13 @@ Poniższa tabela zawiera opis elementów JSON specyficznych dla SQL Server poł�
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| typ |Właściwość Type powinna mieć wartość: **OnPremisesSqlServer**. |Tak |
+| typ |Właściwość Type powinna mieć wartość: **OnPremisesSqlServer** . |Tak |
 | Parametry połączenia |Określ informacje o connectionString, które są konieczne do nawiązania połączenia z bazą danych SQL Server przy użyciu uwierzytelniania SQL lub uwierzytelniania systemu Windows. |Tak |
 | gatewayName |Nazwa bramy, która ma być używana przez usługę Data Factory do łączenia się z bazą danych SQL Server. |Tak |
-| nazwa użytkownika |Określ nazwę użytkownika, jeśli używasz uwierzytelniania systemu Windows. Przykład: **nazwa_domeny \\ nazwa_użytkownika**. |Nie |
+| nazwa użytkownika |Określ nazwę użytkownika, jeśli używasz uwierzytelniania systemu Windows. Przykład: **nazwa_domeny \\ nazwa_użytkownika** . |Nie |
 | hasło |Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. |Nie |
 
-Poświadczenia można szyfrować za pomocą polecenia cmdlet **New-AzDataFactoryEncryptValue** i używać ich w parametrach połączenia, jak pokazano w poniższym przykładzie (Właściwość**EncryptedCredential** ):
+Poświadczenia można szyfrować za pomocą polecenia cmdlet **New-AzDataFactoryEncryptValue** i używać ich w parametrach połączenia, jak pokazano w poniższym przykładzie (Właściwość **EncryptedCredential** ):
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -136,7 +136,7 @@ Sekcja typeProperties jest inna dla każdego typu zestawu danych i zawiera infor
 | tableName |Nazwa tabeli lub widoku w wystąpieniu bazy danych SQL Server, do której odwołuje się połączona usługa. |Tak |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
-Jeśli przenosisz dane z bazy danych SQL Server, wpisz typ źródła w działaniu Kopiuj do elementu **sqlsource**. Podobnie, Jeśli przenosisz dane do bazy danych SQL Server, należy ustawić typ ujścia w działaniu kopiowania na **sqlsink**. Ta sekcja zawiera listę właściwości obsługiwanych przez element sqlsource i sqlsink.
+Jeśli przenosisz dane z bazy danych SQL Server, wpisz typ źródła w działaniu Kopiuj do elementu **sqlsource** . Podobnie, Jeśli przenosisz dane do bazy danych SQL Server, należy ustawić typ ujścia w działaniu kopiowania na **sqlsink** . Ta sekcja zawiera listę właściwości obsługiwanych przez element sqlsource i sqlsink.
 
 Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania działań, zobacz artykuł [Tworzenie potoków](data-factory-create-pipelines.md) . Właściwości, takie jak nazwa, opis, tabele wejściowe i wyjściowe, oraz zasady są dostępne dla wszystkich typów działań.
 
@@ -146,7 +146,7 @@ Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania dz
 Natomiast właściwości dostępne w sekcji typeProperties działania różnią się w zależności od typu działania. W przypadku działania kopiowania różnią się w zależności od typów źródeł i ujścia.
 
 ### <a name="sqlsource"></a>Wartość sqlsource
-Gdy źródło w działaniu kopiowania jest typu **sqlsource**, w sekcji **typeProperties** są dostępne następujące właściwości:
+Gdy źródło w działaniu kopiowania jest typu **sqlsource** , w sekcji **typeProperties** są dostępne następujące właściwości:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
@@ -161,7 +161,7 @@ Alternatywnie można określić procedurę składowaną, określając **sqlReade
 Jeśli nie określisz opcji sqlReaderQuery ani sqlReaderStoredProcedureName, kolumny zdefiniowane w sekcji Structure są używane do tworzenia zapytania select do uruchamiania w bazie danych SQL Server. Jeśli definicja zestawu danych nie ma struktury, wszystkie kolumny są wybierane z tabeli.
 
 > [!NOTE]
-> W przypadku korzystania z **sqlReaderStoredProcedureName**, nadal trzeba określić wartość właściwości **TableName** w kodzie JSON zestawu danych. Nie przeprowadzono żadnych operacji sprawdzania poprawności dla tej tabeli, chociaż.
+> W przypadku korzystania z **sqlReaderStoredProcedureName** , nadal trzeba określić wartość właściwości **TableName** w kodzie JSON zestawu danych. Nie przeprowadzono żadnych operacji sprawdzania poprawności dla tej tabeli, chociaż.
 
 ### <a name="sqlsink"></a>Ujściem element sqlsink
 **Obiekt sqlsink** obsługuje następujące właściwości:
@@ -172,7 +172,7 @@ Jeśli nie określisz opcji sqlReaderQuery ani sqlReaderStoredProcedureName, kol
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy rozmiar buforu osiągnie writeBatchSize. |Liczba całkowita (liczba wierszy) |Nie (domyślnie: 10000) |
 | sqlWriterCleanupScript |Określ zapytanie dla działania kopiowania, które ma zostać wykonane, aby dane określonego wycinka zostały oczyszczone. Aby uzyskać więcej informacji, zobacz sekcję [powtarzania kopiowania](#repeatable-copy) . |Instrukcja zapytania. |Nie |
 | sliceIdentifierColumnName |Określ nazwę kolumny dla działania kopiowania, która ma zostać wypełniona automatycznie wygenerowaną identyfikatorem wycinka, która jest używana do czyszczenia danych określonego wycinka po ponownym uruchomieniu. Aby uzyskać więcej informacji, zobacz sekcję [powtarzania kopiowania](#repeatable-copy) . |Nazwa kolumny kolumny zawierającej dane typu binary (32). |Nie |
-| sqlWriterStoredProcedureName |Nazwa procedury składowanej, która definiuje sposób zastosowania danych źródłowych do tabeli docelowej, np. w celu przeprowadzenia upserts lub przekształcenia przy użyciu własnej logiki biznesowej. <br/><br/>Należy zauważyć, że ta procedura składowana zostanie **wywołana na partię**. Jeśli chcesz wykonać operację, która jest uruchamiana tylko raz i nie ma nic do zrobienia z danymi źródłowymi, np. Delete/Truncate, USE `sqlWriterCleanupScript` Property. |Nazwa procedury składowanej. |Nie |
+| sqlWriterStoredProcedureName |Nazwa procedury składowanej, która definiuje sposób zastosowania danych źródłowych do tabeli docelowej, np. w celu przeprowadzenia upserts lub przekształcenia przy użyciu własnej logiki biznesowej. <br/><br/>Należy zauważyć, że ta procedura składowana zostanie **wywołana na partię** . Jeśli chcesz wykonać operację, która jest uruchamiana tylko raz i nie ma nic do zrobienia z danymi źródłowymi, np. Delete/Truncate, USE `sqlWriterCleanupScript` Property. |Nazwa procedury składowanej. |Nie |
 | storedProcedureParameters |Parametry procedury składowanej. |Pary nazwa/wartość. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. |Nie |
 | sqlWriterTableType |Określ nazwę typu tabeli, która ma zostać użyta w procedurze składowanej. Działanie kopiowania sprawia, że dane są dostępne w tabeli tymczasowej z tym typem tabeli. Kod procedury składowanej może następnie scalić dane kopiowane z istniejącymi danymi. |Nazwa typu tabeli. |Nie |
 
@@ -310,7 +310,7 @@ Dane są zapisywane w nowym obiekcie blob co godzinę (częstotliwość: godzina
 ```
 **Potok z działaniem kopiowania**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do używania tych wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma ustawioną wartość **sqlsource** , a typ **ujścia** to **wartość blobsink**. Zapytanie SQL określone dla właściwości **SqlReaderQuery** wybiera dane w ciągu ostatniej godziny do skopiowania.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do używania tych wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma ustawioną wartość **sqlsource** , a typ **ujścia** to **wartość blobsink** . Zapytanie SQL określone dla właściwości **SqlReaderQuery** wybiera dane w ciągu ostatniej godziny do skopiowania.
 
 ```json
 {
@@ -492,7 +492,7 @@ Przykład kopiuje dane do tabeli o nazwie "MyTable" w SQL Server. Utwórz tabel�
 ```
 **Potok z działaniem kopiowania**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do używania tych wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **BlobSource** , a typ **ujścia** to **sqlsink**.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do używania tych wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **BlobSource** , a typ **ujścia** to **sqlsink** .
 
 ```json
 {
@@ -542,20 +542,20 @@ Potok zawiera działanie kopiowania, które jest skonfigurowane do używania tyc
 ```
 
 ## <a name="troubleshooting-connection-issues"></a>Rozwiązywanie problemów z połączeniem
-1. Skonfiguruj SQL Server tak, aby akceptowały połączenia zdalne. Uruchom **SQL Server Management Studio**, kliknij prawym przyciskiem myszy pozycję **serwer**, a następnie kliknij polecenie **Właściwości**. Wybierz z listy pozycję **połączenia** i zaznacz pole wyboru **Zezwalaj na połączenia zdalne z serwerem**.
+1. Skonfiguruj SQL Server tak, aby akceptowały połączenia zdalne. Uruchom **SQL Server Management Studio** , kliknij prawym przyciskiem myszy pozycję **serwer** , a następnie kliknij polecenie **Właściwości** . Wybierz z listy pozycję **połączenia** i zaznacz pole wyboru **Zezwalaj na połączenia zdalne z serwerem** .
 
     ![Włącz połączenia zdalne](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
 
-    Szczegółowe instrukcje można znaleźć w temacie [Konfigurowanie serwera dostępu zdalnego](https://msdn.microsoft.com/library/ms191464.aspx) .
-2. Uruchom **Configuration Manager SQL Server**. Rozwiń **SQL Server konfigurację sieci** dla żądanego wystąpienia, a następnie wybierz pozycję **Protokoły dla MSSQLSERVER**. Protokoły powinny być widoczne w okienku po prawej stronie. Aby włączyć protokół TCP/IP, kliknij prawym przyciskiem myszy pozycję **TCP/IP** , a następnie kliknij pozycję **Włącz**.
+    Szczegółowe instrukcje można znaleźć w temacie [Konfigurowanie serwera dostępu zdalnego](/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option) .
+2. Uruchom **Configuration Manager SQL Server** . Rozwiń **SQL Server konfigurację sieci** dla żądanego wystąpienia, a następnie wybierz pozycję **Protokoły dla MSSQLSERVER** . Protokoły powinny być widoczne w okienku po prawej stronie. Aby włączyć protokół TCP/IP, kliknij prawym przyciskiem myszy pozycję **TCP/IP** , a następnie kliknij pozycję **Włącz** .
 
     ![Włącz protokół TCP/IP](./media/data-factory-sqlserver-connector/EnableTCPProptocol.png)
 
-    Zobacz [Włączanie lub wyłączanie protokołu sieciowego serwera](https://msdn.microsoft.com/library/ms191294.aspx) , aby uzyskać szczegółowe informacje i alternatywne sposoby włączania protokołu TCP/IP.
+    Zobacz [Włączanie lub wyłączanie protokołu sieciowego serwera](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol) , aby uzyskać szczegółowe informacje i alternatywne sposoby włączania protokołu TCP/IP.
 3. W tym samym oknie kliknij dwukrotnie pozycję **TCP/IP** , aby uruchomić okno **właściwości protokołu TCP/IP** .
-4. Przejdź do karty **adresy IP** . Przewiń w dół, aby wyświetlić sekcję **IPAll** . Zanotuj **port TCP**(domyślnie **1433**).
+4. Przejdź do karty **adresy IP** . Przewiń w dół, aby wyświetlić sekcję **IPAll** . Zanotuj **port TCP** (domyślnie **1433** ).
 5. Utwórz **regułę dla zapory systemu Windows** na komputerze, aby zezwolić na ruch przychodzący przez ten port.
-6. **Sprawdź połączenie**: Aby nawiązać połączenie z SQL Server przy użyciu w pełni kwalifikowanej nazwy, użyj SQL Server Management Studio z innego komputera. Na przykład: " \<machine\> . \<domain\> . Corp. \<company\> . com, 1433. "
+6. **Sprawdź połączenie** : Aby nawiązać połączenie z SQL Server przy użyciu w pełni kwalifikowanej nazwy, użyj SQL Server Management Studio z innego komputera. Na przykład: " \<machine\> . \<domain\> . Corp. \<company\> . com, 1433. "
 
    > [!IMPORTANT]
    > 
@@ -655,7 +655,7 @@ Mapowanie jest takie samo jak mapowanie typu danych SQL Server ADO.NET.
 | --- | --- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Boolean (wartość logiczna) |
+| bit |Boolean |
 | char |String, Char [] |
 | date |DateTime |
 | Datetime (data/godzina) |DateTime |
@@ -663,7 +663,7 @@ Mapowanie jest takie samo jak mapowanie typu danych SQL Server ADO.NET.
 | DateTimeOffset |DateTimeOffset |
 | Liczba dziesiętna |Liczba dziesiętna |
 | FILESTREAM — atrybut (varbinary (max)) |Byte [] |
-| Liczba zmiennoprzecinkowa |Double |
+| Float |Double |
 | image (obraz) |Byte [] |
 | int |Int32 |
 | pieniędzy |Liczba dziesiętna |

@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276668"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635324"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurowanie Azure-SSIS Integration Runtime na potrzeby wysokiej wydajności
 
@@ -118,11 +118,11 @@ Oś y to liczba pakietów, które ukończyły wykonywanie w ciągu godziny. Nale
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** dostosowuje skalowalność środowiska Integration Runtime. Przepływność środowiska Integration Runtime jest proporcjonalna do **AzureSSISNodeNumber**. W pierwszej kolejności ustaw **AzureSSISNodeNumber** na małą wartość, Monitoruj przepływność środowiska Integration Runtime, a następnie Dostosuj wartość dla danego scenariusza. Aby ponownie skonfigurować liczbę węzłów procesu roboczego, zobacz [Zarządzanie środowiskiem Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** dostosowuje skalowalność środowiska Integration Runtime. Przepływność środowiska Integration Runtime jest proporcjonalna do **AzureSSISNodeNumber** . W pierwszej kolejności ustaw **AzureSSISNodeNumber** na małą wartość, Monitoruj przepływność środowiska Integration Runtime, a następnie Dostosuj wartość dla danego scenariusza. Aby ponownie skonfigurować liczbę węzłów procesu roboczego, zobacz [Zarządzanie środowiskiem Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Gdy używasz już zaawansowanego węzła procesu roboczego do uruchamiania pakietów, zwiększenie **AzureSSISMaxParallelExecutionsPerNode** może zwiększyć ogólną przepływność środowiska Integration Runtime. Jeśli chcesz zwiększyć maksymalną wartość, musisz użyć Azure PowerShell, aby zaktualizować **AzureSSISMaxParallelExecutionsPerNode**. Można oszacować odpowiednią wartość w oparciu o koszt pakietu oraz następujące konfiguracje dla węzłów procesu roboczego. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych ogólnego przeznaczenia](../virtual-machines/windows/sizes-general.md).
+Gdy używasz już zaawansowanego węzła procesu roboczego do uruchamiania pakietów, zwiększenie **AzureSSISMaxParallelExecutionsPerNode** może zwiększyć ogólną przepływność środowiska Integration Runtime. Jeśli chcesz zwiększyć maksymalną wartość, musisz użyć Azure PowerShell, aby zaktualizować **AzureSSISMaxParallelExecutionsPerNode** . Można oszacować odpowiednią wartość w oparciu o koszt pakietu oraz następujące konfiguracje dla węzłów procesu roboczego. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych ogólnego przeznaczenia](../virtual-machines/sizes-general.md).
 
 | Rozmiar             | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -161,7 +161,7 @@ Poniżej przedstawiono wskazówki dotyczące ustawiania prawidłowej wartości w
 
 -   Wybierz bardziej wydajną bazę danych, na przykład S3, jeśli poziom rejestrowania jest ustawiony na pełne. Zgodnie z naszymi nieoficjalnymi testami, warstwa cenowa S3 może obsługiwać wykonywanie pakietów SSIS z 2 węzłami, 128 liczbą równoległą i pełnym poziomem rejestrowania.
 
-Warstwę cenową bazy danych można również dostosować na podstawie informacji o użyciu [jednostek transakcji bazy danych](../sql-database/sql-database-what-is-a-dtu.md) (DTU) dostępnych na Azure Portal.
+Warstwę cenową bazy danych można również dostosować na podstawie informacji o użyciu [jednostek transakcji bazy danych](../azure-sql/database/service-tiers-dtu.md) (DTU) dostępnych na Azure Portal.
 
 ## <a name="design-for-high-performance"></a>Projektowanie pod kątem wysokiej wydajności
 Projektowanie pakietu usług SSIS do uruchamiania na platformie Azure różni się od projektowania pakietu do wykonania lokalnego. Zamiast łączyć wiele niezależnych zadań w tym samym pakiecie, rozdziel je na kilka pakietów, aby zwiększyć efektywność wykonywania w Azure-SSIS IR. Utwórz wykonanie pakietu dla każdego pakietu, aby nie musiały czekać na zakończenie każdego z nich. To podejście korzysta ze skalowalności środowiska Azure-SSIS Integration Runtime i zwiększa ogólną przepływność.

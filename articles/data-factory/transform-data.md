@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 039afdafdccbefe03b5b366a89256409fda482e9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 37eac4acab7232e44f94e852b1c04c5549447b09
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368863"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637687"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Przekształcanie danych w usłudze Azure Data Factory
 
@@ -49,7 +49,7 @@ Mapowanie przepływów danych to wizualnie zaprojektowane przekształcenia danyc
 
 ### <a name="wrangling-data-flows"></a>Przetwarzanie przepływy danych
 
-Przetwarzanie przepływy danych w Azure Data Factory umożliwiają iteracyjne wykonywanie bezobsługowego przygotowywania danych w skali chmury. Przetwarzanie przepływy danych integrują się z usługą [Power Query online](https://docs.microsoft.com/power-query/) i udostępniają funkcje Power Query M dla danych przetwarzanie w skali chmury za pośrednictwem wykonywania platformy Spark. Aby uzyskać więcej informacji, zobacz [Przetwarzanie Data](wrangling-data-flow-overview.md)Flows.
+Przetwarzanie przepływy danych w Azure Data Factory umożliwiają iteracyjne wykonywanie bezobsługowego przygotowywania danych w skali chmury. Przetwarzanie przepływy danych integrują się z usługą [Power Query online](/power-query/) i udostępniają funkcje Power Query M dla danych przetwarzanie w skali chmury za pośrednictwem wykonywania platformy Spark. Aby uzyskać więcej informacji, zobacz [Przetwarzanie Data](wrangling-data-flow-overview.md)Flows.
 
 ## <a name="external-transformations"></a>Przekształcenia zewnętrzne
 
@@ -103,8 +103,8 @@ Możesz utworzyć niestandardowe działanie, aby uruchamiać skrypty w klastrze 
 ### <a name="compute-environments"></a>Środowiska obliczeniowe
 Należy utworzyć połączoną usługę dla środowiska obliczeniowego, a następnie użyć połączonej usługi podczas definiowania działania transformacji. Istnieją dwa typy środowisk obliczeniowych obsługiwanych przez Data Factory. 
 
-- **Na żądanie**: w tym przypadku środowisko komputerowe jest w pełni zarządzane przez Data Factory. Jest automatycznie tworzony przez usługę Data Factory przed przesłaniem zadania w celu przetworzenia danych i usunięciu po zakończeniu zadania. Można skonfigurować i kontrolować szczegółowe ustawienia środowiska obliczeniowego na żądanie na potrzeby wykonywania zadań, zarządzania klastrami i uruchamiania akcji. 
-- **Wprowadź swój własny**: w tym przypadku możesz zarejestrować własne środowisko obliczeniowe (na przykład klaster usługi HDInsight) jako połączoną usługę w Data Factory. Środowisko komputerowe jest zarządzane przez Ciebie, a usługa Data Factory używa jej do wykonywania działań. 
+- **Na żądanie** : w tym przypadku środowisko komputerowe jest w pełni zarządzane przez Data Factory. Jest automatycznie tworzony przez usługę Data Factory przed przesłaniem zadania w celu przetworzenia danych i usunięciu po zakończeniu zadania. Można skonfigurować i kontrolować szczegółowe ustawienia środowiska obliczeniowego na żądanie na potrzeby wykonywania zadań, zarządzania klastrami i uruchamiania akcji. 
+- **Wprowadź swój własny** : w tym przypadku możesz zarejestrować własne środowisko obliczeniowe (na przykład klaster usługi HDInsight) jako połączoną usługę w Data Factory. Środowisko komputerowe jest zarządzane przez Ciebie, a usługa Data Factory używa jej do wykonywania działań. 
 
 Zobacz artykuł dotyczący [połączonych usług](compute-linked-services.md) , aby dowiedzieć się więcej o usługach obliczeniowych obsługiwanych przez Data Factory. 
 

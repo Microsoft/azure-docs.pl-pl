@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 31d0d7f3ecb9ddb8a52c8ddda8a076e32283ae16
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545722"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635783"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Managed Virtual Network (wersja zapoznawcza)
 
@@ -55,7 +55,7 @@ Azure Data Factory obsługuje linki prywatne. Link prywatny umożliwia dostęp d
 
 W przypadku korzystania z prywatnego linku ruch między magazynami danych i zarządzanym Virtual Network przechodzi całkowicie za pośrednictwem sieci szkieletowej firmy Microsoft. Prywatne łącze chroniące przed ryzykiem eksfiltracji danych. Aby utworzyć prywatny link do zasobu, można utworzyć prywatny punkt końcowy.
 
-Prywatny punkt końcowy używa prywatnego adresu IP w zarządzanym Virtual Network w celu efektywnego przełączenia usługi do niej. Prywatne punkty końcowe są mapowane na określony zasób na platformie Azure, a nie całej usługi. Klienci mogą ograniczyć łączność z określonym zasobem zatwierdzonym przez organizację. Dowiedz się więcej na temat [linków prywatnych i prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/).
+Prywatny punkt końcowy używa prywatnego adresu IP w zarządzanym Virtual Network w celu efektywnego przełączenia usługi do niej. Prywatne punkty końcowe są mapowane na określony zasób na platformie Azure, a nie całej usługi. Klienci mogą ograniczyć łączność z określonym zasobem zatwierdzonym przez organizację. Dowiedz się więcej na temat [linków prywatnych i prywatnych punktów końcowych](../private-link/index.yml).
 
 > [!NOTE]
 > Zaleca się utworzenie zarządzanych prywatnych punktów końcowych, aby połączyć się ze wszystkimi źródłami danych platformy Azure. 
@@ -83,7 +83,7 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - Azure SQL Database (nie obejmuje wystąpienia zarządzanego usługi Azure SQL)
 - Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
 - Azure CosmosDB — SQL
-- W usłudze Azure Key Vault
+- Azure Key Vault
 - Usługa linków prywatnych platformy Azure
 - Azure Search
 - Azure Database for MySQL

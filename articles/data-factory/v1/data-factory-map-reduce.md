@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 98e352024ceea322f09947baf1bc759459a2af19
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 089a2e6a0b90c1682e2ebdd146626c93cec35f77
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359972"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636854"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Wywoływanie programów MapReduce z Data Factory
 > [!div class="op_single_selector" title1="Działania transformacji"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359972"
 > * [Działanie MapReduce](data-factory-map-reduce.md)
 > * [Działanie przesyłania strumieniowego Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Działanie platformy Spark](data-factory-spark.md)
-> * [Działanie wykonywania wsadowego w Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Działanie aktualizacji zasobów Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-update-resource-activity.md)
+> * [Działanie wykonywania wsadowego w usłudze Azure Machine Learning Studio (wersja klasyczna)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Działanie aktualizacji zasobów w usłudze Azure Machine Learning Studio (wersja klasyczna)](data-factory-azure-ml-update-resource-activity.md)
 > * [Działania procedur składowanych](data-factory-stored-proc-activity.md)
 > * [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 > * [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
@@ -49,7 +49,7 @@ Zobacz [świnie](data-factory-pig-activity.md) i [Hive](data-factory-hive-activi
 ## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON dla działania MapReduce usługi HDInsight
 W definicji JSON dla działania usługi HDInsight: 
 
-1. Ustaw **Typ** **działania** na **HDInsight**.
+1. Ustaw **Typ** **działania** na **HDInsight** .
 2. Określ nazwę klasy dla właściwości **ClassName** .
 3. Określ ścieżkę do pliku JAR, łącznie z nazwą pliku dla właściwości **jarFilePath** .
 4. Określ połączoną usługę odwołującą się do Blob Storage platformy Azure, która zawiera plik JAR dla właściwości **jarLinkedService** .   
@@ -183,7 +183,7 @@ Potok w tym przykładzie ma tylko jedno działanie, którego typem jest: HDInsig
 
 | Właściwość | Uwagi |
 |:--- |:--- |
-| typ |Typ musi być ustawiony na **HDInsightMapReduce**. |
+| typ |Typ musi być ustawiony na **HDInsightMapReduce** . |
 | Nazwą |Nazwa klasy to: **WORDCOUNT** |
 | jarFilePath |Ścieżka do pliku JAR zawierającego klasę. Jeśli skopiujesz/wkleisz Poniższy kod, nie zapomnij zmienić nazwy klastra. |
 | jarLinkedService |Połączona usługa Azure Storage, która zawiera plik JAR. Ta połączona usługa odwołuje się do magazynu skojarzonego z klastrem usługi HDInsight. |
@@ -235,14 +235,14 @@ Potok w tym przykładzie ma tylko jedno działanie, którego typem jest: HDInsig
 ## <a name="run-spark-programs"></a>Uruchamianie programów Spark
 Możesz użyć działania MapReduce, aby uruchomić programy platformy Spark w klastrze usługi HDInsight Spark. Zobacz [Wywoływanie programów platformy Spark z usługi Azure Data Factory](data-factory-spark.md).  
 
-[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
-[Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[Developer Reference]: /previous-versions/azure/dn834987(v=azure.100)
 [Azure Portal]: https://portal.azure.com
 
 ## <a name="see-also"></a>Zobacz też
@@ -251,4 +251,3 @@ Możesz użyć działania MapReduce, aby uruchomić programy platformy Spark w k
 * [Działanie przesyłania strumieniowego Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Wywoływanie programów platformy Spark](data-factory-spark.md)
 * [Wywoływanie skryptów języka R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
-

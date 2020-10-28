@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 7aef08f4ba1948c32fe83a2d0064a21459c003b4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: af03dde724b4f1ec75c9505bb2f9311ad09f5fd0
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148945"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635919"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Blob Storage za pomocą Azure Data Factory
 
@@ -51,7 +51,7 @@ Dla działania kopiowania ten łącznik magazynu obiektów BLOB obsługuje:
 >[!IMPORTANT]
 >Jeśli włączysz opcję **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w ustawieniach zapory usługi Azure Storage i chcesz używać środowiska Azure Integration Runtime do nawiązywania połączenia z usługą BLOB Storage, musisz użyć [uwierzytelniania tożsamości zarządzanej](#managed-identity).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -115,13 +115,13 @@ Data Factory obsługuje następujące właściwości uwierzytelniania klucza kon
         "type": "AzureBlobStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;",
-            "accountKey": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -138,10 +138,10 @@ Sygnatura dostępu współdzielonego zapewnia delegowany dostęp do zasobów na 
 
 Nie musisz udostępniać kluczy dostępu do konta. Sygnatura dostępu współdzielonego to identyfikator URI, który obejmuje parametry zapytania wszystkie informacje niezbędne do uzyskania dostępu uwierzytelnionego do zasobu magazynu. Aby uzyskać dostęp do zasobów magazynu za pomocą sygnatury dostępu współdzielonego, klient musi przekazać sygnaturę dostępu współdzielonego tylko do odpowiedniego konstruktora lub metody. 
 
-Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [sygnatury dostępu współdzielonego: Opis modelu sygnatury dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [sygnatury dostępu współdzielonego: Opis modelu sygnatury dostępu współdzielonego](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
->- Data Factory obsługuje teraz zarówno *sygnatury dostępu współdzielonego usługi* , jak i *sygnatury dostępu współdzielonego konta*. Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage przy użyciu sygnatur dostępu współdzielonego](../storage/common/storage-sas-overview.md).
+>- Data Factory obsługuje teraz zarówno *sygnatury dostępu współdzielonego usługi* , jak i *sygnatury dostępu współdzielonego konta* . Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage przy użyciu sygnatur dostępu współdzielonego](../storage/common/storage-sas-overview.md).
 >- W późniejszych konfiguracjach zestawu danych ścieżka folderu jest ścieżką bezwzględną rozpoczynającą się od poziomu kontenera. Należy skonfigurować jeden wyrównany z ścieżką w identyfikatorze URI SAS.
 
 Data Factory obsługuje następujące właściwości używane do uwierzytelniania sygnatury dostępu współdzielonego:
@@ -188,13 +188,13 @@ Data Factory obsługuje następujące właściwości używane do uwierzytelniani
                 "type": "SecureString",
                 "value": "<SAS URI of the Azure Storage resource without token e.g. https://<accountname>.blob.core.windows.net/>"
             },
-            "sasToken": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
+            "sasToken": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
             }
         },
         "connectVia": {
@@ -225,20 +225,20 @@ Aby użyć uwierzytelniania jednostki usługi, wykonaj następujące kroki:
 
 2. Przyznaj jednostce usługi odpowiednie uprawnienia w usłudze Azure Blob Storage. Aby uzyskać więcej informacji na temat ról, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../storage/common/storage-auth-aad-rbac-portal.md).
 
-    - **Jako źródło**w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **czytnika danych obiektów blob magazynu** .
-    - **Jako ujścia**w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **współautor danych obiektu blob magazynu** .
+    - **Jako źródło** w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **czytnika danych obiektów blob magazynu** .
+    - **Jako ujścia** w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **współautor danych obiektu blob magazynu** .
 
 Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage**. |Tak |
+| typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage** . |Tak |
 | Końcowego | Określ punkt końcowy usługi Azure Blob Storage z wzorcem `https://<accountName>.blob.core.windows.net/` . |Tak |
-| accountKind | Określ rodzaj konta magazynu. Dozwolone wartości to: **Storage** (ogólnego przeznaczenia w wersji 1), **StorageV2** (ogólnego przeznaczenia w wersji 2), **BlobStorage**lub **BlockBlobStorage**. <br/> W przypadku korzystania z połączonej usługi Azure BLOB w przepływie danych tożsamość zarządzana lub uwierzytelnianie nazwy głównej usługi nie są obsługiwane, jeśli typ konta jest pusty lub "magazyn". Określ odpowiedni rodzaj konta, wybierz inne uwierzytelnianie lub Uaktualnij konto magazynu do ogólnego przeznaczenia w wersji 2. |Nie |
+| accountKind | Określ rodzaj konta magazynu. Dozwolone wartości to: **Storage** (ogólnego przeznaczenia w wersji 1), **StorageV2** (ogólnego przeznaczenia w wersji 2), **BlobStorage** lub **BlockBlobStorage** . <br/> W przypadku korzystania z połączonej usługi Azure BLOB w przepływie danych tożsamość zarządzana lub uwierzytelnianie nazwy głównej usługi nie są obsługiwane, jeśli typ konta jest pusty lub "magazyn". Określ odpowiedni rodzaj konta, wybierz inne uwierzytelnianie lub Uaktualnij konto magazynu do ogólnego przeznaczenia w wersji 2. |Nie |
 | servicePrincipalId | Określ identyfikator klienta aplikacji. | Tak |
 | servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | dzierżaw | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Pobierz ją przez umieszczenie kursora w prawym górnym rogu Azure Portal. | Tak |
-| azureCloudType | W polu Uwierzytelnianie nazwy głównej usługi Określ typ środowiska chmury platformy Azure, do którego zarejestrowano aplikację Azure Active Directory. <br/> Dozwolone wartości to **AzurePublic**, **AzureChina**, **AzureUsGovernment**i **AzureGermany**. Domyślnie używane jest środowisko chmury fabryki danych. | Nie |
+| azureCloudType | W polu Uwierzytelnianie nazwy głównej usługi Określ typ środowiska chmury platformy Azure, do którego zarejestrowano aplikację Azure Active Directory. <br/> Dozwolone wartości to **AzurePublic** , **AzureChina** , **AzureUsGovernment** i **AzureGermany** . Domyślnie używane jest środowisko chmury fabryki danych. | Nie |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. |Nie |
 
 >[!NOTE]
@@ -282,8 +282,8 @@ Aby uzyskać ogólne informacje o uwierzytelnianiu usługi Azure Storage, zobacz
 
 2. Udziel uprawnienia zarządzanej tożsamości w usłudze Azure Blob Storage. Aby uzyskać więcej informacji na temat ról, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../storage/common/storage-auth-aad-rbac-portal.md).
 
-    - **Jako źródło**w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **czytnika danych obiektów blob magazynu** .
-    - **Jako ujścia**w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **współautor danych obiektu blob magazynu** .
+    - **Jako źródło** w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **czytnika danych obiektów blob magazynu** .
+    - **Jako ujścia** w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **współautor danych obiektu blob magazynu** .
 
 >[!IMPORTANT]
 >Jeśli korzystasz z bazy danych Base, aby załadować dane z magazynu obiektów BLOB (jako źródło lub jako tymczasowe) do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), podczas korzystania z uwierzytelniania tożsamości zarządzanej dla magazynu obiektów blob, upewnij się, że w [tych wskazówkach](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)zostały opisane kroki 1 i 2. Te kroki spowodują zarejestrowanie serwera w usłudze Azure AD i przypisanie roli współautor danych obiektów blob magazynu do serwera. Data Factory obsługuje resztę. Jeśli usługa BLOB Storage została skonfigurowana za pomocą punktu końcowego usługi Azure Virtual Network, aby można było załadować z niej dane, należy użyć uwierzytelniania tożsamości zarządzanej, zgodnie z wymaganiami firmy Base.
@@ -292,9 +292,9 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage**. |Tak |
+| typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage** . |Tak |
 | Końcowego | Określ punkt końcowy usługi Azure Blob Storage z wzorcem `https://<accountName>.blob.core.windows.net/` . |Tak |
-| accountKind | Określ rodzaj konta magazynu. Dozwolone wartości to: **Storage** (ogólnego przeznaczenia w wersji 1), **StorageV2** (ogólnego przeznaczenia w wersji 2), **BlobStorage**lub **BlockBlobStorage**. <br/> W przypadku korzystania z połączonej usługi Azure BLOB w przepływie danych tożsamość zarządzana lub uwierzytelnianie nazwy głównej usługi nie są obsługiwane, jeśli typ konta jest pusty lub "magazyn". Określ odpowiedni rodzaj konta, wybierz inne uwierzytelnianie lub Uaktualnij konto magazynu do ogólnego przeznaczenia w wersji 2. |Nie |
+| accountKind | Określ rodzaj konta magazynu. Dozwolone wartości to: **Storage** (ogólnego przeznaczenia w wersji 1), **StorageV2** (ogólnego przeznaczenia w wersji 2), **BlobStorage** lub **BlockBlobStorage** . <br/> W przypadku korzystania z połączonej usługi Azure BLOB w przepływie danych tożsamość zarządzana lub uwierzytelnianie nazwy głównej usługi nie są obsługiwane, jeśli typ konta jest pusty lub "magazyn". Określ odpowiedni rodzaj konta, wybierz inne uwierzytelnianie lub Uaktualnij konto magazynu do ogólnego przeznaczenia w wersji 2. |Nie |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. |Nie |
 
 > [!NOTE]
@@ -332,7 +332,7 @@ Następujące właściwości są obsługiwane w przypadku usługi Azure Blob Sto
 
 | Właściwość   | Opis                                                  | Wymagane |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Właściwość **Type** lokalizacji w zestawie danych musi być ustawiona na wartość **AzureBlobStorageLocation**. | Tak      |
+| typ       | Właściwość **Type** lokalizacji w zestawie danych musi być ustawiona na wartość **AzureBlobStorageLocation** . | Tak      |
 | kontener  | Kontener obiektów BLOB.                                          | Tak      |
 | folderPath | Ścieżka do folderu pod podanym kontenerem. Jeśli chcesz użyć symbolu wieloznacznego do filtrowania folderu, pomiń to ustawienie i określ je w obszarze Ustawienia źródła działania. | Nie       |
 | fileName   | Nazwa pliku w podanym kontenerze i ścieżce folderu. Jeśli chcesz użyć symboli wieloznacznych do filtrowania plików, pomiń to ustawienie i określ je w obszarze Ustawienia źródła działania. | Nie       |
@@ -376,19 +376,19 @@ Następujące właściwości są obsługiwane w przypadku usługi Azure Blob Sto
 
 | Właściwość                 | Opis                                                  | Wymagane                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| typ                     | Właściwość **Type** w obszarze `storeSettings` musi być ustawiona na wartość **AzureBlobStorageReadSettings**. | Tak                                           |
-| ***Zlokalizuj pliki do skopiowania:*** |  |  |
-| Opcja 1: ścieżka statyczna<br> | Kopiuj z danego kontenera lub folderu/ścieżki pliku określonego w zestawie danych. Jeśli chcesz skopiować wszystkie obiekty blob z kontenera lub folderu, należy również określić `wildcardFileName` jako `*` . |  |
+| typ                     | Właściwość **Type** w obszarze `storeSettings` musi być ustawiona na wartość **AzureBlobStorageReadSettings** . | Tak                                           |
+| **_Zlokalizuj pliki do skopiowania:_* _ |  |  |
+| Opcja 1: ścieżka statyczna<br> | Kopiuj z danego kontenera lub folderu/ścieżki pliku określonego w zestawie danych. Jeśli chcesz skopiować wszystkie obiekty blob z kontenera lub folderu, należy również określić `wildcardFileName` jako `_` . |  |
 | Opcja 2: prefiks obiektu BLOB<br>-prefix | Prefiks nazwy obiektu BLOB w danym kontenerze skonfigurowanym w zestawie danych do filtrowania źródłowych obiektów BLOB. Obiekty blob, których nazwy rozpoczynają się od, `container_in_dataset/this_prefix` są zaznaczone. Korzysta ona z filtru po stronie usług dla usługi BLOB Storage, który zapewnia lepszą wydajność niż filtr symboli wieloznacznych. | Nie                                                          |
 | Opcja 3: symbol wieloznaczny<br>- wildcardFolderPath | Ścieżka folderu z symbolami wieloznacznymi pod podanym kontenerem skonfigurowanym w zestawie danych do filtrowania folderów źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br>Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Nie                                            |
 | Opcja 3: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi w danym kontenerze i ścieżce folderu (lub ścieżki do symboli wieloznacznych) do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Tak |
 | OPCJA 4: Lista plików<br>- fileListPath | Wskazuje, aby skopiować dany zestaw plików. Wskaż plik tekstowy zawierający listę plików, które chcesz skopiować, jeden plik w wierszu, który jest ścieżką względną do ścieżki skonfigurowanej w zestawie danych.<br/>W przypadku korzystania z tej opcji nie należy określać nazwy pliku w zestawie danych. Zobacz więcej przykładów na [listach plików](#file-list-examples). |Nie |
-| ***Ustawienia dodatkowe:*** |  | |
-| rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość **cykliczna** jest ustawiona na **wartość true** , a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. <br>Dozwolone wartości to **true** (wartość domyślna) i **false**.<br>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . |Nie |
+| ***Ustawienia dodatkowe:** _ |  | |
+| rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość _ *cykliczna* * jest ustawiona na **wartość true** , a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. <br>Dozwolone wartości to **true** (wartość domyślna) i **false** .<br>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . |Nie |
 | deleteFilesAfterCompletion | Wskazuje, czy pliki binarne zostaną usunięte z magazynu źródłowego po pomyślnym przeniesieniu do magazynu docelowego. Plik jest usuwany dla każdego pliku, więc w przypadku niepowodzenia działania kopiowania niektóre pliki zostały już skopiowane do lokalizacji docelowej i usunięte ze źródła, podczas gdy inne nadal pozostają w magazynie źródłowym. <br/>Ta właściwość jest prawidłowa tylko w scenariuszu kopiowania plików binarnych. Wartość domyślna: false. |Nie |
-| modifiedDatetimeStart    | Pliki są filtrowane na podstawie atrybutu: Ostatnia modyfikacja. <br>Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br> Właściwości mogą mieć **wartość null**, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest **równa null**, to pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime zostanie zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest **równa null**, pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.<br/>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . | Nie                                            |
+| modifiedDatetimeStart    | Pliki są filtrowane na podstawie atrybutu: Ostatnia modyfikacja. <br>Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br> Właściwości mogą mieć **wartość null** , co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest **równa null** , to pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime zostanie zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest **równa null** , pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.<br/>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . | Nie                                            |
 | modifiedDatetimeEnd      | Tak samo jak powyżej.                                               | Nie                                            |
-| enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true**. | Nie                                            |
+| enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true** . | Nie                                            |
 | partitionRootPath | Gdy odnajdywanie partycji jest włączone, określ bezwzględną ścieżkę katalogu głównego, aby odczytać partycjonowane foldery jako kolumny danych.<br/><br/>Jeśli nie jest określony, domyślnie,<br/>— Jeśli używasz ścieżki pliku w zestawie danych lub liście plików w źródle, ścieżka katalogu głównego partycji jest ścieżką skonfigurowaną w zestawie danych.<br/>— Jeśli używasz wieloznacznego filtru folderów, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed pierwszym symbolem wieloznacznym.<br/>— Jeśli używasz prefiksu, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed ostatnią "/". <br/><br/>Na przykład przy założeniu, że ścieżka w zestawie danych jest konfigurowana jako "root/folder/Year = 2020/miesiąc = 08/Day = 27":<br/>— W przypadku określenia ścieżki katalogu głównego partycji jako "root/folder/Year = 2020" działanie Copy (kopiowanie) wygeneruje dwie kolejne kolumny `month` i `day` wartości "08" i "27" (oprócz kolumn wewnątrz plików).<br/>— Jeśli ścieżka katalogu głównego partycji nie zostanie określona, nie zostanie wygenerowane żadne dodatkowe kolumny. | Nie                                            |
 | maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie                                            |
 
@@ -444,9 +444,9 @@ Następujące właściwości są obsługiwane w przypadku usługi Azure Blob Sto
 
 | Właściwość                 | Opis                                                  | Wymagane |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| typ                     | Właściwość **Type** w obszarze `storeSettings` musi być ustawiona na wartość **AzureBlobStorageWriteSettings**. | Tak      |
+| typ                     | Właściwość **Type** w obszarze `storeSettings` musi być ustawiona na wartość **AzureBlobStorageWriteSettings** . | Tak      |
 | copyBehavior             | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku lub obiektu BLOB jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie       |
-| blockSizeInMB | Określ rozmiar bloku (w megabajtach), który będzie używany do zapisywania danych w blokowych obiektach Blob. Dowiedz się więcej na [temat blokowych obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Dozwolona wartość wynosi *od 4 MB do 100 MB*. <br/>Domyślnie Data Factory automatycznie określa rozmiar bloku na podstawie typu i danych magazynu źródłowego. W przypadku kopiowania niebinarnego do magazynu obiektów BLOB domyślny rozmiar bloku to 100 MB, co może zmieścić się w (maksymalnie) 4,95 TB danych. Nie jest to optymalne, gdy dane nie są duże, szczególnie w przypadku korzystania z własnego środowiska Integration Runtime z nieprawidłowymi połączeniami sieciowymi, które powodują problemy z upływem limitu czasu operacji lub wydajności. Można jawnie określić rozmiar bloku, dzięki czemu `blockSizeInMB*50000` jest wystarczająco duży, aby przechowywać dane. W przeciwnym razie uruchomienie działania kopiowania zakończy się niepowodzeniem. | Nie |
+| blockSizeInMB | Określ rozmiar bloku (w megabajtach), który będzie używany do zapisywania danych w blokowych obiektach Blob. Dowiedz się więcej na [temat blokowych obiektów BLOB](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Dozwolona wartość wynosi *od 4 MB do 100 MB* . <br/>Domyślnie Data Factory automatycznie określa rozmiar bloku na podstawie typu i danych magazynu źródłowego. W przypadku kopiowania niebinarnego do magazynu obiektów BLOB domyślny rozmiar bloku to 100 MB, co może zmieścić się w (maksymalnie) 4,95 TB danych. Nie jest to optymalne, gdy dane nie są duże, szczególnie w przypadku korzystania z własnego środowiska Integration Runtime z nieprawidłowymi połączeniami sieciowymi, które powodują problemy z upływem limitu czasu operacji lub wydajności. Można jawnie określić rozmiar bloku, dzięki czemu `blockSizeInMB*50000` jest wystarczająco duży, aby przechowywać dane. W przeciwnym razie uruchomienie działania kopiowania zakończy się niepowodzeniem. | Nie |
 | maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie       |
 
 **Przykład:**
@@ -602,11 +602,11 @@ W transformacji ujścia można pisać do kontenera lub folderu w usłudze Azure 
 **Wyczyść folder:** Określa, czy folder docelowy jest usuwany przed zapisaniem danych.
 
 **Opcja nazwy pliku:** Określa sposób nazywania plików docelowych w folderze docelowym. Nazwy plików są następujące:
-   * **Domyślnie**: Zezwalaj platformie Spark na nazwy plików na podstawie wartości domyślnych części.
-   * **Wzorzec**: wprowadź wzorzec, który wylicza pliki wyjściowe na partycję. Na przykład **pożyczki [n]. csv** utworzy loans1.csv, loans2.csv i tak dalej.
-   * **Na partycję**: Wprowadź jedną nazwę pliku na partycję.
-   * **Jako dane w kolumnie**: Ustaw plik wyjściowy na wartość kolumny. Ścieżka jest względna wobec kontenera DataSet, a nie folderu docelowego. Jeśli masz ścieżkę folderu w zestawie danych, zostanie ona zastąpiona.
-   * **Dane wyjściowe do pojedynczego pliku**: Połącz podzielone na partycje pliki wyjściowe w jeden nazwany plik. Ścieżka jest określana względem folderu DataSet. Należy pamiętać, że operacja scalania może być niemożliwa w zależności od rozmiaru węzła. Nie zalecamy tej opcji w przypadku dużych zestawów danych.
+   * **Domyślnie** : Zezwalaj platformie Spark na nazwy plików na podstawie wartości domyślnych części.
+   * **Wzorzec** : wprowadź wzorzec, który wylicza pliki wyjściowe na partycję. Na przykład **pożyczki [n]. csv** utworzy loans1.csv, loans2.csv i tak dalej.
+   * **Na partycję** : Wprowadź jedną nazwę pliku na partycję.
+   * **Jako dane w kolumnie** : Ustaw plik wyjściowy na wartość kolumny. Ścieżka jest względna wobec kontenera DataSet, a nie folderu docelowego. Jeśli masz ścieżkę folderu w zestawie danych, zostanie ona zastąpiona.
+   * **Dane wyjściowe do pojedynczego pliku** : Połącz podzielone na partycje pliki wyjściowe w jeden nazwany plik. Ścieżka jest określana względem folderu DataSet. Należy pamiętać, że operacja scalania może być niemożliwa w zależności od rozmiaru węzła. Nie zalecamy tej opcji w przypadku dużych zestawów danych.
 
 **Wszystkie oferty:** Określa, czy wszystkie wartości mają być ujęte w cudzysłów.
 
@@ -631,13 +631,13 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **AzureBlob**. |Tak |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **AzureBlob** . |Tak |
 | folderPath | Ścieżka do kontenera i folderu w usłudze BLOB Storage. <br/><br/>Filtr symboli wieloznacznych jest obsługiwany dla ścieżki, z wyłączeniem nazwy kontenera. Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br/><br/>Przykład: myblobcontainer/myblobfolder/. Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). |Tak dla działania kopiowania lub wyszukiwania — nie dla działania GetMetadata |
-| fileName | Nazwa lub filtr symboli wieloznacznych dla obiektów BLOB pod określoną wartością **folderPath** . Jeśli nie określisz wartości tej właściwości, zestaw danych wskazuje wszystkie obiekty blob w folderze. <br/><br/>W przypadku filtru dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak).<br/>-Przykład 1: `"fileName": "*.csv"`<br/>-Przykład 2: `"fileName": "???20180427.txt"`<br/>Użyj `^` do ucieczki, jeśli nazwa pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.<br/><br/>Jeśli **Nazwa pliku** nie została określona dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w obiekcie ujścia aktywności, działanie kopiowania automatycznie generuje nazwę obiektu BLOB z następującym wzorcem: "*Data. [ Identyfikator GUID przebiegu działania]. [GUID if FlattenHierarchy]. [Format, jeśli skonfigurowano]. [kompresja, jeśli jest skonfigurowana]*". Na przykład: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. gz". <br/><br/>Jeśli skopiujesz ze źródła tabelarycznego przy użyciu nazwy tabeli zamiast zapytania, wzorzec nazwy to "*[nazwa tabeli]. [ Format]. [kompresja, jeśli jest skonfigurowana]*". Na przykład: "MyTable.csv". |Nie |
-| modifiedDatetimeStart | Pliki są filtrowane na podstawie atrybutu: Ostatnia modyfikacja. Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Należy pamiętać, że włączenie tego ustawienia wpłynie na ogólną wydajność przenoszenia danych, gdy chcesz filtrować ogromne ilości plików. <br/><br/> Właściwości mogą mieć **wartość null**, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest **równa null**, to pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime zostanie zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest **równa null**, pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.| Nie |
-| modifiedDatetimeEnd | Pliki są filtrowane na podstawie atrybutu: Ostatnia modyfikacja. Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Należy pamiętać, że włączenie tego ustawienia wpłynie na ogólną wydajność przenoszenia danych, gdy chcesz filtrować ogromne ilości plików. <br/><br/> Właściwości mogą mieć **wartość null**, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest **równa null**, to pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime zostanie zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest **równa null**, pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.| Nie |
-| format | Jeśli chcesz skopiować pliki w postaci między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych.<br/><br/>Jeśli chcesz analizować lub generować pliki o określonym formacie, obsługiwane są następujące typy formatu plików: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**i **ParquetFormat**. Ustaw właściwość **Type** w polu **Format** na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz sekcję [Format tekstu](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)i [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |Nie (tylko w przypadku scenariusza kopiowania binarnego) |
-| kompresja | Określ typ i poziom kompresji danych. Aby uzyskać więcej informacji, zobacz [obsługiwane formaty plików i kodery-dekoder kompresji](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Obsługiwane typy to **gzip**, **Wklęśnięcie**, **BZip2**i **ZipDeflate**.<br/>Obsługiwane poziomy są **optymalne** i **najszybciej**. |Nie |
+| fileName | Nazwa lub filtr symboli wieloznacznych dla obiektów BLOB pod określoną wartością **folderPath** . Jeśli nie określisz wartości tej właściwości, zestaw danych wskazuje wszystkie obiekty blob w folderze. <br/><br/>W przypadku filtru dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak).<br/>-Przykład 1: `"fileName": "*.csv"`<br/>-Przykład 2: `"fileName": "???20180427.txt"`<br/>Użyj `^` do ucieczki, jeśli nazwa pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.<br/><br/>Jeśli **Nazwa pliku** nie została określona dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w obiekcie ujścia aktywności, działanie kopiowania automatycznie generuje nazwę obiektu BLOB z następującym wzorcem: " *Data. [ Identyfikator GUID przebiegu działania]. [GUID if FlattenHierarchy]. [Format, jeśli skonfigurowano]. [kompresja, jeśli jest skonfigurowana]* ". Na przykład: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. gz". <br/><br/>Jeśli skopiujesz ze źródła tabelarycznego przy użyciu nazwy tabeli zamiast zapytania, wzorzec nazwy to " *[nazwa tabeli]. [ Format]. [kompresja, jeśli jest skonfigurowana]* ". Na przykład: "MyTable.csv". |Nie |
+| modifiedDatetimeStart | Pliki są filtrowane na podstawie atrybutu: Ostatnia modyfikacja. Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Należy pamiętać, że włączenie tego ustawienia wpłynie na ogólną wydajność przenoszenia danych, gdy chcesz filtrować ogromne ilości plików. <br/><br/> Właściwości mogą mieć **wartość null** , co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest **równa null** , to pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime zostanie zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest **równa null** , pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.| Nie |
+| modifiedDatetimeEnd | Pliki są filtrowane na podstawie atrybutu: Ostatnia modyfikacja. Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Należy pamiętać, że włączenie tego ustawienia wpłynie na ogólną wydajność przenoszenia danych, gdy chcesz filtrować ogromne ilości plików. <br/><br/> Właściwości mogą mieć **wartość null** , co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest **równa null** , to pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime zostanie zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest **równa null** , pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.| Nie |
+| format | Jeśli chcesz skopiować pliki w postaci między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych.<br/><br/>Jeśli chcesz analizować lub generować pliki o określonym formacie, obsługiwane są następujące typy formatu plików: **TextFormat** , **formatu jsonformat** , **AvroFormat** , **OrcFormat** i **ParquetFormat** . Ustaw właściwość **Type** w polu **Format** na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz sekcję [Format tekstu](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)i [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |Nie (tylko w przypadku scenariusza kopiowania binarnego) |
+| kompresja | Określ typ i poziom kompresji danych. Aby uzyskać więcej informacji, zobacz [obsługiwane formaty plików i kodery-dekoder kompresji](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Obsługiwane typy to **gzip** , **Wklęśnięcie** , **BZip2** i **ZipDeflate** .<br/>Obsługiwane poziomy są **optymalne** i **najszybciej** . |Nie |
 
 >[!TIP]
 >Aby skopiować wszystkie obiekty blob w folderze, określ tylko **folderPath** .<br>Aby skopiować pojedynczy obiekt BLOB o podanej nazwie, należy określić **folderPath** dla części folderu **i nazwy pliku w nazwie** .<br>Aby skopiować podzestaw obiektów BLOB w folderze, określ **folderPath** dla części folderu i **nazwy pliku** z filtrem symboli wieloznacznych. 
@@ -676,8 +676,8 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **BlobSource**. |Tak |
-| rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość **cykliczna** jest ustawiona na **wartość true** , a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia.<br/>Dozwolone wartości to **true** (wartość domyślna) i **false**. | Nie |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **BlobSource** . |Tak |
+| rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość **cykliczna** jest ustawiona na **wartość true** , a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia.<br/>Dozwolone wartości to **true** (wartość domyślna) i **false** . | Nie |
 | maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie |
 
 **Przykład:**
@@ -716,7 +716,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **wartość blobsink**. |Tak |
+| typ | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **wartość blobsink** . |Tak |
 | copyBehavior | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku lub obiektu BLOB jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie |
 | maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie |
 

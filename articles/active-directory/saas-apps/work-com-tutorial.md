@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: c549e8169ad7fc7a5eb7f810d76deb33af0e5f65
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a77b6472ea91a6ba4b6e31d1b7739aae236a1783
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508965"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636157"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Samouczek: integracja Azure Active Directory z usługą Work.com
 
@@ -129,11 +129,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Work.com, w
 
 2. Przejdź do pozycji **Konfiguracja** .
    
-    ![Instalacja](./media/work-com-tutorial/ic794108.png "Konfigurowanie")
+    ![Zrzut ekranu przedstawia konfigurację wybraną z menu użytkownika.](./media/work-com-tutorial/ic794108.png "Konfigurowanie")
 
 3. W okienku nawigacji po lewej stronie w sekcji **Administruj** kliknij pozycję **Zarządzanie domeną** , aby rozwinąć sekcję pokrewne, a następnie kliknij pozycję **moja domena** , aby otworzyć stronę **Moje domeny** . 
    
-    ![Moja domena](./media/work-com-tutorial/ic767825.png "Moja domena")
+    ![Zrzut ekranu przedstawia moją domenę Zarządzanie domeną w okienku Administruj.](./media/work-com-tutorial/ic767825.png "Moja domena")
 
 4. Aby sprawdzić, czy domena została prawidłowo skonfigurowana, upewnij się, że znajduje się w sekcji " **krok 4 wdrożony dla użytkowników** " i przejrzyj " **Moje ustawienia domeny** ".
    
@@ -143,7 +143,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Work.com, w
 
 6. Przejdź do pozycji **Konfiguracja** .
     
-    ![Instalacja](./media/work-com-tutorial/ic794108.png "Konfigurowanie")
+    ![Zrzut ekranu przedstawia konfigurację wybraną z menu użytkownika.](./media/work-com-tutorial/ic794108.png "Konfigurowanie")
 
 7. Rozwiń menu **Security Controls** , a następnie kliknij pozycję **Single Sign-On Settings (ustawienia** ).
     
@@ -186,15 +186,15 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Work.com, w
 
 10. W klasycznym portalu Work.com w okienku nawigacji po lewej stronie kliknij pozycję **Zarządzanie domeną** , aby rozwinąć sekcję pokrewne, a następnie kliknij pozycję **moja domena** , aby otworzyć stronę **Moje domeny** . 
     
-    ![Moja domena](./media/work-com-tutorial/ic794115.png "Moja domena")
+    ![Zrzut ekranu przedstawia moją domenę wybraną z zarządzania domeną.](./media/work-com-tutorial/ic794115.png "Moja domena")
 
 11. Na stronie **moja domena** w sekcji **znakowanie strony logowania** kliknij przycisk **Edytuj** .
     
-    ![Znakowanie strony logowania](./media/work-com-tutorial/ic767826.png "Znakowanie strony logowania")
+    ![Zrzut ekranu przedstawia sekcję znakowania strony logowania, w której można wybrać opcję Edytuj.](./media/work-com-tutorial/ic767826.png "Znakowanie strony logowania")
 
 12. Na stronie **znakowanie strony logowania** w sekcji **Usługa uwierzytelniania** zostanie wyświetlona nazwa **ustawień logowania jednokrotnego protokołu SAML** . Wybierz go, a następnie kliknij przycisk **Zapisz** .
     
-    ![Znakowanie strony logowania](./media/work-com-tutorial/ic784366.png "Znakowanie strony logowania")
+    ![Zrzut ekranu przedstawia znakowanie strony logowania, w którym można wybrać nazwę ustawienia, czyli P P E.](./media/work-com-tutorial/ic784366.png "Znakowanie strony logowania")
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -256,7 +256,7 @@ Aby użytkownicy Azure Active Directory mogli się zalogować, muszą zostać za
 
 2. Przejdź do pozycji **Konfiguracja** .
    
-    ![Instalacja](./media/work-com-tutorial/IC794108.png "Konfigurowanie")
+    ![Zrzut ekranu przedstawia konfigurację wybraną z menu użytkownika.](./media/work-com-tutorial/ic794108.png "Konfigurowanie")
 
 3. Przejdź do pozycji **Zarządzaj \> użytkownikami** użytkownicy.
    

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d7802a3fe4fb904aad7fd9257edbf8b10efe127
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84702315"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637432"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Przenoszenie danych do i z tabeli platformy Azure przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -36,9 +36,9 @@ Dane można kopiować z dowolnego obsługiwanego źródłowego magazynu danych n
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok za pomocą działania kopiowania, które przenosi dane do/z Table Storage platformy Azure przy użyciu różnych narzędzi/interfejsów API.
 
-Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
+Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania** . Zobacz [Samouczek: Tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) na potrzeby szybkiego instruktażu dotyczącego tworzenia potoku przy użyciu Kreatora kopiowania danych.
 
-Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio**, **Azure PowerShell**, **szablon Azure Resource Manager**, interfejs API **platformy .NET**i **interfejs API REST**. Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
+Do utworzenia potoku można także użyć następujących narzędzi: **Visual Studio** , **Azure PowerShell** , **szablon Azure Resource Manager** , interfejs API **platformy .NET** i **interfejs API REST** . Aby uzyskać instrukcje krok po kroku dotyczące tworzenia potoku za pomocą działania kopiowania, zobacz [Samouczek dotyczący działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) . 
 
 Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia: 
 
@@ -104,7 +104,7 @@ Jeśli kolumna tabeli platformy Azure jest typu DateTime:
 | azureTableDefaultPartitionKeyValue |Domyślna wartość klucza partycji, która może być używana przez ujścia. |Wartość ciągu. |Nie |
 | azureTablePartitionKeyName |Określ nazwę kolumny, której wartości są używane jako klucze partycji. Jeśli nie zostanie określony, AzureTableDefaultPartitionKeyValue jest używany jako klucz partycji. |Nazwa kolumny. |Nie |
 | azureTableRowKeyName |Określ nazwę kolumny, której wartości kolumn są używane jako klucz wiersza. Jeśli nie zostanie określony, użyj identyfikatora GUID dla każdego wiersza. |Nazwa kolumny. |Nie |
-| azureTableInsertType |Tryb wstawiania danych do tabeli platformy Azure.<br/><br/>Ta właściwość określa, czy istniejące wiersze w tabeli wyjściowej ze zgodnymi partycjami i kluczami wierszy mają zamienione lub scalone wartości. <br/><br/>Aby dowiedzieć się, jak działają te ustawienia (Scalanie i zamienianie), zobacz sekcję [Wstawianie lub scalanie jednostek](https://msdn.microsoft.com/library/azure/hh452241.aspx) oraz [Wstawianie lub zastępowanie](https://msdn.microsoft.com/library/azure/hh452242.aspx) tematów. <br/><br> To ustawienie jest stosowane na poziomie wiersza, a nie na poziomie tabeli, a żadna opcja usuwa wiersze w tabeli wyjściowej, które nie istnieją w danych wejściowych. |Scal (domyślnie)<br/>Zastąp |Nie |
+| azureTableInsertType |Tryb wstawiania danych do tabeli platformy Azure.<br/><br/>Ta właściwość określa, czy istniejące wiersze w tabeli wyjściowej ze zgodnymi partycjami i kluczami wierszy mają zamienione lub scalone wartości. <br/><br/>Aby dowiedzieć się, jak działają te ustawienia (Scalanie i zamienianie), zobacz sekcję [Wstawianie lub scalanie jednostek](/rest/api/storageservices/Insert-Or-Merge-Entity) oraz [Wstawianie lub zastępowanie](/rest/api/storageservices/Insert-Or-Replace-Entity) tematów. <br/><br> To ustawienie jest stosowane na poziomie wiersza, a nie na poziomie tabeli, a żadna opcja usuwa wiersze w tabeli wyjściowej, które nie istnieją w danych wejściowych. |Scal (domyślnie)<br/>Zastąp |Nie |
 | writeBatchSize |Wstawia dane do tabeli platformy Azure po trafieniu writeBatchSize lub writeBatchTimeout. |Liczba całkowita (liczba wierszy) |Nie (domyślnie: 10000) |
 | writeBatchTimeout |Wstawia dane do tabeli platformy Azure po trafieniu writeBatchSize lub writeBatchTimeout |zakres czasu<br/><br/>Przykład: "00:20:00" (20 minut) |Nie (Domyślnie wartość domyślna limitu czasu klienta magazynu 90 s) |
 
@@ -155,7 +155,7 @@ Przykład kopiuje dane należące do domyślnej partycji w tabeli platformy Azur
   }
 }
 ```
-Azure Data Factory obsługuje dwa typy połączonych usług Azure Storage: **AzureStorage** i **AzureStorageSas**. W pierwszej kolejności należy określić parametry połączenia, które zawierają klucz konta i dla późniejszej, należy określić identyfikator URI sygnatury dostępu współdzielonego (SAS). Szczegóły można znaleźć w sekcji [połączone usługi](#linked-service-properties) .  
+Azure Data Factory obsługuje dwa typy połączonych usług Azure Storage: **AzureStorage** i **AzureStorageSas** . W pierwszej kolejności należy określić parametry połączenia, które zawierają klucz konta i dla późniejszej, należy określić identyfikator URI sygnatury dostępu współdzielonego (SAS). Szczegóły można znaleźć w sekcji [połączone usługi](#linked-service-properties) .  
 
 **Zestaw danych wejściowych tabeli platformy Azure:**
 
@@ -250,7 +250,7 @@ Dane są zapisywane w nowym obiekcie blob co godzinę (częstotliwość: godzina
 
 **Działanie Copy w potoku z AzureTableSource i wartość blobsink:**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **AzureTableSource** , a typ **ujścia** to **wartość blobsink**. Zapytanie SQL określone za pomocą właściwości **AzureTableSourceQuery** wybiera dane z partycji domyślnej co godzinę do skopiowania.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **AzureTableSource** , a typ **ujścia** to **wartość blobsink** . Zapytanie SQL określone za pomocą właściwości **AzureTableSourceQuery** wybiera dane z partycji domyślnej co godzinę do skopiowania.
 
 ```JSON
 {
@@ -323,7 +323,7 @@ Przykład kopiuje dane szeregów czasowych z obiektu blob platformy Azure do tab
 }
 ```
 
-Azure Data Factory obsługuje dwa typy połączonych usług Azure Storage: **AzureStorage** i **AzureStorageSas**. W pierwszej kolejności należy określić parametry połączenia, które zawierają klucz konta i dla późniejszej, należy określić identyfikator URI sygnatury dostępu współdzielonego (SAS). Szczegóły można znaleźć w sekcji [połączone usługi](#linked-service-properties) .
+Azure Data Factory obsługuje dwa typy połączonych usług Azure Storage: **AzureStorage** i **AzureStorageSas** . W pierwszej kolejności należy określić parametry połączenia, które zawierają klucz konta i dla późniejszej, należy określić identyfikator URI sygnatury dostępu współdzielonego (SAS). Szczegóły można znaleźć w sekcji [połączone usługi](#linked-service-properties) .
 
 **Zestaw danych wejściowych obiektów blob platformy Azure:**
 
@@ -417,7 +417,7 @@ Przykład kopiuje dane do tabeli o nazwie "MyTable" w tabeli platformy Azure. Ut
 
 **Działanie Copy w potoku z BlobSource i AzureTableSink:**
 
-Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **BlobSource** , a typ **ujścia** to **AzureTableSink**.
+Potok zawiera działanie kopiowania, które jest skonfigurowane do korzystania z wejściowych i wyjściowych zestawów danych i zaplanowane do uruchomienia co godzinę. W definicji JSON potoku typ **źródła** ma wartość **BlobSource** , a typ **ujścia** to **AzureTableSink** .
 
 ```JSON
 {
@@ -472,7 +472,7 @@ Jak wspomniano w artykule [działania związane z przenoszeniem danych](data-fac
 1. Konwertuj z natywnych typów źródła na typ .NET
 2. Konwertuj z typu .NET na natywny typ ujścia
 
-Podczas przeniesienia danych do & z tabeli platformy Azure następujące [mapowania zdefiniowane przez usługę azure Table Service](https://msdn.microsoft.com/library/azure/dd179338.aspx) są używane w ramach typów OData w tabeli platformy Azure do typu .NET i na odwrót.
+Podczas przeniesienia danych do & z tabeli platformy Azure następujące [mapowania zdefiniowane przez usługę azure Table Service](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) są używane w ramach typów OData w tabeli platformy Azure do typu .NET i na odwrót.
 
 | Typ danych protokołu OData | Typ .NET | Szczegóły |
 | --- | --- | --- |
@@ -483,7 +483,7 @@ Podczas przeniesienia danych do & z tabeli platformy Azure następujące [mapowa
 | EDM. GUID |Guid (identyfikator GUID) |128-bitowy unikatowy identyfikator globalny. |
 | Edm.Int32 |Int32 |32-bitowa liczba całkowita. |
 | Edm.Int64 |Int64 |64-bitowa liczba całkowita. |
-| Edm.String |Ciąg |Wartość zakodowana w formacie UTF-16. Wartości ciągu mogą należeć do 64 KB. |
+| Edm.String |String |Wartość zakodowana w formacie UTF-16. Wartości ciągu mogą należeć do 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Przykład konwersji typu
 Poniższy przykład służy do kopiowania danych z obiektu blob platformy Azure do tabeli platformy Azure z konwersjemi typów.
@@ -534,7 +534,7 @@ Uwzględniając mapowanie typu z tabeli platformy Azure typu OData na typ .NET, 
 
 **Schemat tabeli platformy Azure:**
 
-| Nazwa kolumny | Type |
+| Nazwa kolumny | Typ |
 | --- | --- |
 | userid |Edm.Int64 |
 | name |Edm.String |

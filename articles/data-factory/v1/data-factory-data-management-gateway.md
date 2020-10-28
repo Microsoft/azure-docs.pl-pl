@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b362e1aecfa2cd4e5677230fcb94113b27a44ec6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441123"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637466"
 ---
 # <a name="data-management-gateway"></a>Brama zarządzania danymi
 > [!NOTE]
@@ -53,7 +53,7 @@ W przypadku używania działania kopiowania do kopiowania danych między środow
 
 Poniżej przedstawiono przepływ danych wysokiego poziomu dla i Podsumowanie kroków kopiowania z bramą Data Gateway: ![ przepływ danych przy użyciu bramy](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
-1. Deweloper danych tworzy bramę dla Azure Data Factory przy użyciu [Azure Portal](https://portal.azure.com) lub [polecenia cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.datafactory/).
+1. Deweloper danych tworzy bramę dla Azure Data Factory przy użyciu [Azure Portal](https://portal.azure.com) lub [polecenia cmdlet programu PowerShell](/powershell/module/az.datafactory/).
 2. Deweloper danych tworzy połączoną usługę dla lokalnego magazynu danych, określając bramę. W ramach konfigurowania połączonej usługi deweloperzy danych używają aplikacji Ustawienia poświadczeń, aby określić typy uwierzytelniania i poświadczenia. Okno dialogowe Ustawianie poświadczeń aplikacji komunikuje się z magazynem danych w celu przetestowania połączenia i bramy w celu zapisania poświadczeń.
 3. Usługa Gateway szyfruje poświadczenia z certyfikatem skojarzonym z bramą (dostarczoną przez dewelopera danych) przed zapisaniem poświadczeń w chmurze.
 4. Usługa Data Factory komunikuje się z bramą w celu planowania & zarządzania zadaniami za pośrednictwem kanału kontrolnego korzystającego z udostępnionej kolejki usługi Azure Service Bus. Gdy zadanie działania kopiowania musi zostać rozpoczęte, Data Factory kolejkuje żądanie wraz z informacjami o poświadczeniach. Brama uruchamia zadanie po sondowaniu kolejki.
@@ -63,17 +63,17 @@ Poniżej przedstawiono przepływ danych wysokiego poziomu dla i Podsumowanie kro
 ### <a name="considerations-for-using-gateway"></a>Zagadnienia dotyczące korzystania z bramy
 * Pojedyncze wystąpienie bramy zarządzania danymi może być używane dla wielu lokalnych źródeł danych. Jednak **pojedyncze wystąpienie bramy jest powiązane tylko z jedną fabryką danych Azure** i nie może być współużytkowane z inną fabryką danych.
 * Na jednym komputerze można zainstalować **tylko jedno wystąpienie bramy zarządzania danymi** . Załóżmy, że masz dwa fabryki danych, które muszą uzyskać dostęp do lokalnych źródeł danych, musisz zainstalować bramy na dwóch komputerach lokalnych. Innymi słowy, Brama jest powiązana z określoną fabryką danych
-* **Brama nie musi znajdować się na tym samym komputerze co źródło danych**. Jednak Brama bliżej źródła danych skraca czas, w którym Brama może połączyć się ze źródłem danych. Zalecamy zainstalowanie bramy na komputerze, który jest inny niż ten, który jest hostem lokalnego źródła danych. Gdy brama i źródło danych znajdują się na różnych komputerach, Brama nie konkuruje o zasoby ze źródłem danych.
-* Można mieć **wiele bram na różnych komputerach łączących się z tym samym lokalnym źródłem danych**. Na przykład mogą istnieć dwie bramy obsługujące dwa fabryki danych, ale to samo lokalne źródło danych jest rejestrowane zarówno dla fabryk danych.
+* **Brama nie musi znajdować się na tym samym komputerze co źródło danych** . Jednak Brama bliżej źródła danych skraca czas, w którym Brama może połączyć się ze źródłem danych. Zalecamy zainstalowanie bramy na komputerze, który jest inny niż ten, który jest hostem lokalnego źródła danych. Gdy brama i źródło danych znajdują się na różnych komputerach, Brama nie konkuruje o zasoby ze źródłem danych.
+* Można mieć **wiele bram na różnych komputerach łączących się z tym samym lokalnym źródłem danych** . Na przykład mogą istnieć dwie bramy obsługujące dwa fabryki danych, ale to samo lokalne źródło danych jest rejestrowane zarówno dla fabryk danych.
 * Jeśli na komputerze jest już zainstalowana Brama obsługująca **Power BI** scenariuszu, zainstaluj **oddzielną bramę dla Azure Data Factory** na innym komputerze.
-* Bramy należy używać nawet w przypadku korzystania z **ExpressRoute**.
-* Traktuj źródło danych jako lokalne źródło danych (znajdujące się za zaporą), nawet jeśli korzystasz z **ExpressRoute**. Użyj bramy, aby nawiązać połączenie między usługą a źródłem danych.
-* Musisz **użyć bramy,** nawet jeśli magazyn danych znajduje się w chmurze na **maszynie wirtualnej IaaS platformy Azure**.
+* Bramy należy używać nawet w przypadku korzystania z **ExpressRoute** .
+* Traktuj źródło danych jako lokalne źródło danych (znajdujące się za zaporą), nawet jeśli korzystasz z **ExpressRoute** . Użyj bramy, aby nawiązać połączenie między usługą a źródłem danych.
+* Musisz **użyć bramy,** nawet jeśli magazyn danych znajduje się w chmurze na **maszynie wirtualnej IaaS platformy Azure** .
 
 ## <a name="installation"></a>Instalacja
 ### <a name="prerequisites"></a>Wymagania wstępne
 * Obsługiwane wersje **systemu operacyjnego** to Windows 7, Windows 8/8.1, Windows 10, windows Server 2008 R2, windows Server 2012, windows Server 2012 R2. Instalacja bramy zarządzania danymi na kontrolerze domeny nie jest obecnie obsługiwana.
-* Wymagany jest .NET Framework 4.5.1 lub nowszy. Jeśli instalujesz bramę na komputerze z systemem Windows 7, Zainstaluj .NET Framework 4,5 lub nowszą. Aby uzyskać szczegółowe informacje, zobacz [wymagania systemowe .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) .
+* Wymagany jest .NET Framework 4.5.1 lub nowszy. Jeśli instalujesz bramę na komputerze z systemem Windows 7, Zainstaluj .NET Framework 4,5 lub nowszą. Aby uzyskać szczegółowe informacje, zobacz [wymagania systemowe .NET Framework](/dotnet/framework/get-started/system-requirements) .
 * Zalecana **Konfiguracja** maszyny bramy wynosi co najmniej 2 GHz, 4 rdzenie, 8 GB pamięci RAM i dysk 80 GB.
 * Jeśli maszyna hosta jest w stanie hibernacji, Brama nie odpowiada na żądania danych. W związku z tym przed zainstalowaniem bramy należy skonfigurować odpowiedni **Plan** na komputerze. Jeśli komputer jest skonfigurowany do hibernacji, instalacja bramy monituje o komunikat.
 * Aby pomyślnie zainstalować i skonfigurować bramę zarządzania danymi, musisz być administratorem na komputerze. Możesz dodać dodatkowych użytkowników do lokalnej grupy systemu Windows **Użytkownicy bramy zarządzania danymi** . Członkowie tej grupy mogą korzystać z narzędzia **Configuration Manager gateway zarządzanie danymi** , aby skonfigurować bramę.
@@ -92,18 +92,18 @@ Bramę zarządzania danymi można zainstalować w następujący sposób:
 
 ### <a name="install-the-gateway-from-download-center"></a>Zainstaluj bramę z centrum pobierania
 1. Przejdź do [strony pobierania programu Microsoft zarządzanie danymi Gateway](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Kliknij pozycję **Pobierz**, wybierz wersję **64-** bitową (32-bit nie jest więcej obsługiwane), a następnie kliknij przycisk **dalej**.
+2. Kliknij pozycję **Pobierz** , wybierz wersję **64-** bitową (32-bit nie jest więcej obsługiwane), a następnie kliknij przycisk **dalej** .
 3. Uruchom plik **MSI** bezpośrednio lub Zapisz go na dysku twardym i Uruchom.
-4. Na stronie **powitalnej** wybierz **Język** , a następnie kliknij przycisk **dalej**.
-5. **Zaakceptuj** umowę licencyjną End-User i kliknij przycisk **dalej**.
-6. Wybierz **folder** , aby zainstalować bramę, a następnie kliknij przycisk **dalej**.
-7. Na stronie **gotowy do instalacji** kliknij przycisk **Zainstaluj**.
+4. Na stronie **powitalnej** wybierz **Język** , a następnie kliknij przycisk **dalej** .
+5. **Zaakceptuj** umowę licencyjną End-User i kliknij przycisk **dalej** .
+6. Wybierz **folder** , aby zainstalować bramę, a następnie kliknij przycisk **dalej** .
+7. Na stronie **gotowy do instalacji** kliknij przycisk **Zainstaluj** .
 8. Kliknij przycisk **Zakończ** , aby zakończyć instalację.
 9. Pobierz klucz z Azure Portal. Instrukcje krok po kroku znajdują się w następnej sekcji.
 10. Na stronie **Rejestrowanie bramy** **Zarządzanie danymi bramy Configuration Manager** uruchomionej na maszynie wykonaj następujące czynności:
     1. Wklej klucz w tekście.
     2. Opcjonalnie kliknij pozycję **Pokaż klucz bramy** , aby zobaczyć tekst klucza.
-    3. Kliknij pozycję **Zarejestruj**.
+    3. Kliknij pozycję **Zarejestruj** .
 
 ### <a name="register-gateway-using-key"></a>Rejestrowanie bramy przy użyciu klucza
 #### <a name="if-you-havent-already-created-a-logical-gateway-in-the-portal"></a>Jeśli nie utworzono jeszcze bramy logicznej w portalu
@@ -116,10 +116,10 @@ Aby utworzyć bramę w portalu i pobrać klucz ze strony **konfiguracji** , wyko
 2. Na stronie **połączone usługi** wybierz **bramę** logiczną utworzoną w portalu.
 
     ![Brama logiczna](media/data-factory-data-management-gateway/data-factory-select-gateway.png)
-3. Na stronie **brama danych** kliknij pozycję **Pobierz i zainstaluj bramę Data Gateway**.
+3. Na stronie **brama danych** kliknij pozycję **Pobierz i zainstaluj bramę Data Gateway** .
 
     ![Link do pobierania w portalu](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
-4. Na stronie **Konfiguracja** kliknij pozycję **Utwórz ponownie klucz**. Kliknij przycisk tak w komunikacie ostrzegawczym po starannym przeczytaniu.
+4. Na stronie **Konfiguracja** kliknij pozycję **Utwórz ponownie klucz** . Kliknij przycisk tak w komunikacie ostrzegawczym po starannym przeczytaniu.
 
     ![Przycisk ponownego tworzenia klucza](media/data-factory-data-management-gateway/recreate-key-button.png)
 5. Kliknij przycisk Kopiuj obok klucza. Klucz jest kopiowany do Schowka.
@@ -151,20 +151,20 @@ Na poziomie zapory systemu Windows te porty wychodzące są zwykle włączone. W
 
 > [!NOTE]
 > 1. W oparciu o źródło/ujścia, może być konieczne zezwolenie na dodatkowe domeny i porty wychodzące w zaporze firmowej/systemie Windows.
-> 2. W przypadku niektórych baz danych w chmurze (na przykład: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access)itp.) może być konieczne zezwolenie na adres IP maszyny bramy w konfiguracji zapory.
+> 2. W przypadku niektórych baz danych w chmurze (na przykład: [Azure SQL Database](../../azure-sql/database/firewall-configure.md), [Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)itp.) może być konieczne zezwolenie na adres IP maszyny bramy w konfiguracji zapory.
 >
 >
 
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>Kopiowanie danych ze źródłowego magazynu danych do magazynu danych ujścia
 Upewnij się, że reguły zapory są prawidłowo włączone w zaporze firmowej, zaporze systemu Windows na maszynie bramy i w samym magazynie danych. Włączenie tych reguł umożliwia bramie łączenie się ze źródłem i ujściam pomyślnie. Włącz reguły dla wszystkich magazynów danych, które są związane z operacją kopiowania.
 
-Na przykład, aby skopiować z **lokalnego magazynu danych do ujścia Azure SQL Database lub ujścia usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)**, wykonaj następujące czynności:
+Na przykład, aby skopiować z **lokalnego magazynu danych do ujścia Azure SQL Database lub ujścia usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)** , wykonaj następujące czynności:
 
 * Zezwalaj na wychodzącą komunikację **TCP** na porcie **1433** dla zapory systemu Windows i zapory firmowej.
 * Skonfiguruj ustawienia zapory dla logicznego programu SQL Server, aby dodać adres IP maszyny bramy do listy dozwolonych adresów IP.
 
 > [!NOTE]
-> Jeśli Zapora nie zezwala na port wychodzący 1433, Brama nie może bezpośrednio uzyskać dostępu do usługi Azure SQL. W takim przypadku można użyć [kopii przygotowanej](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) do SQL Database/wystąpienia zarządzanego SQL/DW usługi SQL Azure. W tym scenariuszu do przenoszenia danych jest wymagany tylko protokół HTTPS (port 443).
+> Jeśli Zapora nie zezwala na port wychodzący 1433, Brama nie może bezpośrednio uzyskać dostępu do usługi Azure SQL. W takim przypadku można użyć [kopii przygotowanej](./data-factory-copy-activity-performance.md#staged-copy) do SQL Database/wystąpienia zarządzanego SQL/DW usługi SQL Azure. W tym scenariuszu do przenoszenia danych jest wymagany tylko protokół HTTPS (port 443).
 >
 >
 
@@ -179,15 +179,15 @@ Brama używa serwera proxy w celu nawiązania połączenia z usługą w chmurze.
 
 Dostępne są trzy opcje konfiguracji:
 
-* **Nie używaj serwera proxy**: Brama nie używa jawnie serwera proxy do nawiązywania połączenia z usługami w chmurze.
-* **Użyj systemowego serwera proxy**: Brama używa ustawień serwera proxy skonfigurowanych w diahost.exe.config i diawp.exe.config. Jeśli żaden serwer proxy nie jest skonfigurowany w diahost.exe.config i diawp.exe.config, Brama łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy.
-* **Użyj niestandardowego serwera proxy**: Skonfiguruj ustawienia serwera proxy HTTP do użycia dla bramy, zamiast używać konfiguracji w diahost.exe.config i diawp.exe.config. Wymagany jest adres i port. Nazwa użytkownika i hasło są opcjonalne w zależności od ustawienia uwierzytelniania serwera proxy. Wszystkie ustawienia są szyfrowane za pomocą certyfikatu poświadczeń bramy i przechowywane lokalnie na komputerze hosta bramy.
+* **Nie używaj serwera proxy** : Brama nie używa jawnie serwera proxy do nawiązywania połączenia z usługami w chmurze.
+* **Użyj systemowego serwera proxy** : Brama używa ustawień serwera proxy skonfigurowanych w diahost.exe.config i diawp.exe.config. Jeśli żaden serwer proxy nie jest skonfigurowany w diahost.exe.config i diawp.exe.config, Brama łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy.
+* **Użyj niestandardowego serwera proxy** : Skonfiguruj ustawienia serwera proxy HTTP do użycia dla bramy, zamiast używać konfiguracji w diahost.exe.config i diawp.exe.config. Wymagany jest adres i port. Nazwa użytkownika i hasło są opcjonalne w zależności od ustawienia uwierzytelniania serwera proxy. Wszystkie ustawienia są szyfrowane za pomocą certyfikatu poświadczeń bramy i przechowywane lokalnie na komputerze hosta bramy.
 
 Usługa hosta bramy zarządzania danymi jest uruchamiana automatycznie po zapisaniu zaktualizowanych ustawień serwera proxy.
 
 Po pomyślnym zarejestrowaniu bramy, jeśli chcesz wyświetlić lub zaktualizować ustawienia serwera proxy, użyj Zarządzanie danymi Configuration Manager bramy.
 
-1. Uruchom **Configuration Manager bramy zarządzanie danymi**.
+1. Uruchom **Configuration Manager bramy zarządzanie danymi** .
 2. Przejdź do karty **Ustawienia** .
 3. Kliknij pozycję **Zmień** link w sekcji **serwer proxy HTTP** , aby uruchomić okno dialogowe **Ustawianie serwera proxy HTTP** .
 4. Po kliknięciu przycisku **dalej** zobaczysz okno dialogowe z ostrzeżeniem z pytaniem, czy masz uprawnienia do zapisania ustawienia serwera proxy i ponownego uruchomienia usługi hosta bramy.
@@ -205,7 +205,7 @@ Serwer proxy HTTP można wyświetlić i zaktualizować za pomocą narzędzia Con
 W przypadku wybrania opcji **Użyj systemowego serwera proxy** dla serwera proxy HTTP brama używa ustawienia proxy w diahost.exe.config i diawp.exe.config. Jeśli w diahost.exe.config i diawp.exe.config nie określono żadnego serwera proxy, Brama łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy. Poniższa procedura zawiera instrukcje dotyczące aktualizowania pliku diahost.exe.config.
 
 1. W Eksploratorze plików wykonaj bezpieczną kopię *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared \\diahost.exe.config* , aby utworzyć kopię zapasową oryginalnego pliku.
-2. Uruchom Notepad.exe uruchomiony jako administrator i Otwórz plik tekstowy *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared \\diahost.exe.config*. Znajdziesz tag domyślny dla system.net, jak pokazano w poniższym kodzie:
+2. Uruchom Notepad.exe uruchomiony jako administrator i Otwórz plik tekstowy *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared \\diahost.exe.config* . Znajdziesz tag domyślny dla system.net, jak pokazano w poniższym kodzie:
 
     ```
     <system.net>
@@ -223,12 +223,12 @@ W przypadku wybrania opcji **Użyj systemowego serwera proxy** dla serwera proxy
     </system.net>
     ```
 
-    Dodatkowe właściwości są dozwolone wewnątrz tagu proxy, aby określić wymagane ustawienia, takie jak scriptLocation. Zapoznaj się z [elementem proxy (ustawienia sieciowe)](https://msdn.microsoft.com/library/sa91de1e.aspx) w składni.
+    Dodatkowe właściwości są dozwolone wewnątrz tagu proxy, aby określić wymagane ustawienia, takie jak scriptLocation. Zapoznaj się z [elementem proxy (ustawienia sieciowe)](/dotnet/framework/configure-apps/file-schema/network/proxy-element-network-settings) w składni.
 
     ```
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
     ```
-3. Zapisz plik konfiguracji w oryginalnej lokalizacji, a następnie uruchom ponownie usługę hosta bramy Zarządzanie danymi, która pobiera zmiany. Aby ponownie uruchomić usługę: użyj apletu usługi w panelu sterowania lub **Configuration Manager zarządzanie danymi bramy** , > kliknij przycisk **Zatrzymaj usługę** , a następnie kliknij przycisk **Uruchom usługę**. Jeśli usługa nie zostanie uruchomiona, prawdopodobnie dodano niepoprawną składnię tagu XML do pliku konfiguracji aplikacji, który był edytowany.
+3. Zapisz plik konfiguracji w oryginalnej lokalizacji, a następnie uruchom ponownie usługę hosta bramy Zarządzanie danymi, która pobiera zmiany. Aby ponownie uruchomić usługę: użyj apletu usługi w panelu sterowania lub **Configuration Manager zarządzanie danymi bramy** , > kliknij przycisk **Zatrzymaj usługę** , a następnie kliknij przycisk **Uruchom usługę** . Jeśli usługa nie zostanie uruchomiona, prawdopodobnie dodano niepoprawną składnię tagu XML do pliku konfiguracji aplikacji, który był edytowany.
 
 > [!IMPORTANT]
 > Nie zapomnij zaktualizować **obu** diahost.exe.config i diawp.exe.config.
@@ -251,7 +251,7 @@ Jeśli używasz zapory innej firmy, możesz ręcznie otworzyć port 8050. Jeśli
 msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 ```
 
-W przypadku wybrania opcji nie należy otwierać portu 8050 na maszynie bramy należy użyć mechanizmów innych niż ustawienia aplikacji **poświadczenia** w celu skonfigurowania poświadczeń magazynu danych. Można na przykład użyć polecenia cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) programu PowerShell. Zapoznaj się z sekcją Ustawianie poświadczeń i zabezpieczeń w temacie jak można ustawić poświadczenia magazynu danych.
+W przypadku wybrania opcji nie należy otwierać portu 8050 na maszynie bramy należy użyć mechanizmów innych niż ustawienia aplikacji **poświadczenia** w celu skonfigurowania poświadczeń magazynu danych. Można na przykład użyć polecenia cmdlet [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) programu PowerShell. Zapoznaj się z sekcją Ustawianie poświadczeń i zabezpieczeń w temacie jak można ustawić poświadczenia magazynu danych.
 
 ## <a name="update"></a>Aktualizacja
 Domyślnie Brama zarządzania danymi jest automatycznie aktualizowana, gdy jest dostępna nowsza wersja bramy. Brama nie jest aktualizowana, dopóki nie zostaną wykonane wszystkie zaplanowane zadania. Żadne dalsze zadania nie są przetwarzane przez bramę do momentu ukończenia operacji aktualizacji. Jeśli aktualizacja nie powiedzie się, Brama zostanie wycofana do starej wersji.
@@ -281,7 +281,7 @@ Funkcję autoaktualizacji można wyłączyć lub włączyć, wykonując następu
 
 [Dla bramy o pojedynczym węźle]
 1. Uruchom program Windows PowerShell na maszynie bramy.
-2. Przejdź do folderu *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\ * .
+2. Przejdź do folderu *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\* .
 3. Uruchom następujące polecenie, aby wyłączyć funkcję autoaktualizacji (Wyłącz).
 
     ```powershell
@@ -294,7 +294,7 @@ Funkcję autoaktualizacji można wyłączyć lub włączyć, wykonując następu
     ```
    [W przypadku bramy o wysokiej dostępności i skalowalności wielowęzłowej](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Uruchom program Windows PowerShell na maszynie bramy.
-2. Przejdź do folderu *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\ * .
+2. Przejdź do folderu *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\* .
 3. Uruchom następujące polecenie, aby wyłączyć funkcję autoaktualizacji (Wyłącz).
 
     W przypadku bramy z funkcją wysokiej dostępności wymagany jest dodatkowy parametr AuthKey.
@@ -311,7 +311,7 @@ Funkcję autoaktualizacji można wyłączyć lub włączyć, wykonując następu
 Po zainstalowaniu bramy można uruchomić Zarządzanie danymi Configuration Manager bramy w jeden z następujących sposobów:
 
 1. W oknie **wyszukiwania** wpisz **Zarządzanie danymi Gateway** , aby uzyskać dostęp do tego narzędzia.
-2. Uruchom plik wykonywalny *ConfigManager.exe* w folderze: *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared*.
+2. Uruchom plik wykonywalny *ConfigManager.exe* w folderze: *C: \\ \\ Program Files \\ Microsoft zarządzanie danymi Gateway \\ 2,0 \\ Shared* .
 
 ### <a name="home-page"></a>Strona główna
 Strona główna umożliwia wykonywanie następujących czynności:
@@ -320,7 +320,7 @@ Strona główna umożliwia wykonywanie następujących czynności:
 * **Zarejestruj** się przy użyciu klucza z portalu.
 * **Zatrzymaj** i uruchom **usługę hosta bramy zarządzanie danymi** na maszynie bramy.
 * **Zaplanuj aktualizacje** w określonym czasie dni.
-* Wyświetl datę **ostatniej aktualizacji**bramy.
+* Wyświetl datę **ostatniej aktualizacji** bramy.
 
 ### <a name="settings-page"></a>Strona Ustawienia
 Strona ustawienia umożliwia wykonywanie następujących czynności:
@@ -336,7 +336,7 @@ Ta funkcja zostanie włączona w przyszłości. W nadchodzących aktualizacjach 
 ### <a name="diagnostics-page"></a>Strona diagnostyki
 Strona Diagnostyka umożliwia wykonywanie następujących czynności:
 
-* Włącz pełne **Rejestrowanie**, wyświetl dzienniki w Podglądzie zdarzeń i Wyślij dzienniki do firmy Microsoft, jeśli wystąpił błąd.
+* Włącz pełne **Rejestrowanie** , wyświetl dzienniki w Podglądzie zdarzeń i Wyślij dzienniki do firmy Microsoft, jeśli wystąpił błąd.
 * **Test connection** ze źródłem danych.
 
 ### <a name="help-page"></a>Strona pomocy
@@ -378,7 +378,7 @@ Rola | Istnieją dwa typy ról w ramach wielowęzłowej bramy i procesu roboczeg
 Na tej stronie zobaczysz niektóre ustawienia, które są bardziej zrozumiałe, gdy w bramie występuje co najmniej dwa węzły (scenariusz skalowania w poziomie). Aby uzyskać szczegółowe informacje na temat konfigurowania bramy wielowęzłowej [, zobacz Zarządzanie danymi Gateway — wysoka dostępność i skalowalność](data-factory-data-management-gateway-high-availability-scalability.md) .
 
 ### <a name="gateway-status"></a>Stan bramy
-W poniższej tabeli przedstawiono możliwe stany **węzła bramy**:
+W poniższej tabeli przedstawiono możliwe stany **węzła bramy** :
 
 Stan  | Komentarze/scenariusze
 :------- | :------------------
@@ -388,7 +388,7 @@ Unowocześnieni | Węzeł jest aktualizowany w sposób autouzupełniania.
 Ograniczone | Z powodu problemu z łącznością. Może to być spowodowane problemem z portem HTTP 8050, problemem z łącznością usługi Service Bus lub problemem z synchronizacją poświadczeń.
 Nieaktywne | Węzeł jest w konfiguracji innej niż Konfiguracja innych węzłów większości.<br/><br/> Węzeł może być nieaktywny, jeśli nie może połączyć się z innymi węzłami.
 
-W poniższej tabeli przedstawiono możliwe stany **bramy logicznej**. Stan bramy zależy od stanu węzłów bramy.
+W poniższej tabeli przedstawiono możliwe stany **bramy logicznej** . Stan bramy zależy od stanu węzłów bramy.
 
 Stan | Komentarze
 :----- | :-------
@@ -408,16 +408,16 @@ Zobacz artykuł [Rozwiązywanie problemów z bramą](data-factory-troubleshoot-g
 ## <a name="move-gateway-from-one-machine-to-another"></a>Przenoszenie bramy z jednej maszyny do innej
 Ta sekcja zawiera instrukcje dotyczące przeniesienia klienta bramy z jednego komputera na inny.
 
-1. W portalu przejdź do **strony głównej Data Factory**i kliknij kafelek **połączone usługi** .
+1. W portalu przejdź do **strony głównej Data Factory** i kliknij kafelek **połączone usługi** .
 
     ![Link do bram danych](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
 2. Wybierz bramę w sekcji **bramy danych** na stronie **połączone usługi** .
 
     ![Strona połączone usługi z wybraną bramą](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
-3. Na stronie **brama danych** kliknij pozycję **Pobierz i zainstaluj bramę Data Gateway**.
+3. Na stronie **brama danych** kliknij pozycję **Pobierz i zainstaluj bramę Data Gateway** .
 
     ![Link do pobierania bramy](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
-4. Na stronie **Konfiguracja** kliknij pozycję **Pobierz i zainstaluj bramę Data Gateway**, a następnie postępuj zgodnie z instrukcjami, aby zainstalować bramę danych na komputerze.
+4. Na stronie **Konfiguracja** kliknij pozycję **Pobierz i zainstaluj bramę Data Gateway** , a następnie postępuj zgodnie z instrukcjami, aby zainstalować bramę danych na komputerze.
 
     ![Konfiguruj stronę](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. Pozostaw otwarte **Configuration Manager Microsoft zarządzanie danymi Gateway** .
@@ -430,7 +430,7 @@ Ta sekcja zawiera instrukcje dotyczące przeniesienia klienta bramy z jednego ko
 
     ![Kopiuj klucz i zarejestruj](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
 8. Kliknij pozycję **zarejestruj** , aby zarejestrować bramę w usłudze w chmurze.
-9. Na karcie **Ustawienia** kliknij pozycję **Zmień** , aby wybrać ten sam certyfikat, który był używany w przypadku starej bramy, wprowadź **hasło**i kliknij przycisk **Zakończ**.
+9. Na karcie **Ustawienia** kliknij pozycję **Zmień** , aby wybrać ten sam certyfikat, który był używany w przypadku starej bramy, wprowadź **hasło** i kliknij przycisk **Zakończ** .
 
    ![Określ certyfikat](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
@@ -440,11 +440,11 @@ Ta sekcja zawiera instrukcje dotyczące przeniesienia klienta bramy z jednego ko
 ## <a name="encrypting-credentials"></a>Szyfrowanie poświadczeń
 Aby zaszyfrować poświadczenia w edytorze Data Factory, wykonaj następujące czynności:
 
-1. Uruchom przeglądarkę sieci Web na **maszynie bramy**, przejdź do [Azure Portal](https://portal.azure.com). W razie potrzeby Wyszukaj fabrykę danych, Otwórz pozycję Fabryka danych na stronie **Fabryka danych** , a następnie kliknij pozycję **Utwórz & Wdróż** , aby uruchomić Edytor Data Factory.
+1. Uruchom przeglądarkę sieci Web na **maszynie bramy** , przejdź do [Azure Portal](https://portal.azure.com). W razie potrzeby Wyszukaj fabrykę danych, Otwórz pozycję Fabryka danych na stronie **Fabryka danych** , a następnie kliknij pozycję **Utwórz & Wdróż** , aby uruchomić Edytor Data Factory.
 2. Kliknij istniejącą **połączoną usługę** w widoku drzewa, aby wyświetlić jej definicję JSON, lub Utwórz połączoną usługę, która wymaga bramy zarządzania danymi (na przykład: SQL Server lub Oracle).
 3. W edytorze JSON dla właściwości **gatewayname** wprowadź nazwę bramy.
-4. Wprowadź nazwę serwera dla właściwości **źródła danych** w **elemencie ConnectionString**.
-5. Wprowadź nazwę bazy danych dla właściwości **katalogu początkowego** w **elemencie ConnectionString**.
+4. Wprowadź nazwę serwera dla właściwości **źródła danych** w **elemencie ConnectionString** .
+5. Wprowadź nazwę bazy danych dla właściwości **katalogu początkowego** w **elemencie ConnectionString** .
 6. Kliknij przycisk **Szyfruj** na pasku poleceń, który uruchamia aplikację **Menedżer poświadczeń** dwukrotnego kliknięcia. Powinno zostać wyświetlone okno dialogowe **Ustawienia poświadczeń** .
 
     ![Okno dialogowe poświadczeń ustawienia](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
@@ -472,7 +472,7 @@ Aby zaszyfrować poświadczenia w edytorze Data Factory, wykonaj następujące c
 
 W przypadku korzystania z aplikacji **Ustawienia poświadczeń** Portal szyfruje poświadczenia za pomocą certyfikatu określonego na karcie **certyfikat** w **Configuration Manager bramy** na maszynie bramy.
 
-Jeśli szukasz podejścia opartego na interfejsie API na potrzeby szyfrowania poświadczeń, możesz użyć polecenia cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) programu PowerShell, aby zaszyfrować poświadczenia. Polecenie cmdlet używa certyfikatu, który jest skonfigurowany do szyfrowania poświadczeń przez bramę. Zaszyfrowane poświadczenia są dodawane do elementu **EncryptedCredential** obiektu **CONNECTIONSTRING** w formacie JSON. Plik JSON jest używany z poleceniem cmdlet [New-AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) lub edytorem Data Factory.
+Jeśli szukasz podejścia opartego na interfejsie API na potrzeby szyfrowania poświadczeń, możesz użyć polecenia cmdlet [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) programu PowerShell, aby zaszyfrować poświadczenia. Polecenie cmdlet używa certyfikatu, który jest skonfigurowany do szyfrowania poświadczeń przez bramę. Zaszyfrowane poświadczenia są dodawane do elementu **EncryptedCredential** obiektu **CONNECTIONSTRING** w formacie JSON. Plik JSON jest używany z poleceniem cmdlet [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) lub edytorem Data Factory.
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -494,7 +494,7 @@ W tej sekcji opisano sposób tworzenia i rejestrowania bramy przy użyciu polece
     ```powershell
     $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
-    **Przykładowe polecenie i dane wyjściowe**:
+    **Przykładowe polecenie i dane wyjściowe** :
 
     ```
     PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description "gateway for walkthrough"
@@ -512,7 +512,7 @@ W tej sekcji opisano sposób tworzenia i rejestrowania bramy przy użyciu polece
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. W Azure PowerShell przejdź do folderu: *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\ *. Uruchom *RegisterGateway.ps1* skojarzone ze zmienną lokalną **$Key** , jak pokazano w poniższym poleceniu. Ten skrypt rejestruje agenta klienta zainstalowanego na maszynie przy użyciu utworzonej wcześniej bramy logicznej.
+1. W Azure PowerShell przejdź do folderu: *C: \\ \\ Program Files \\ Microsoft Integration Runtime \\ 3,0 \\ PowerShellScript \\* . Uruchom *RegisterGateway.ps1* skojarzone ze zmienną lokalną **$Key** , jak pokazano w poniższym poleceniu. Ten skrypt rejestruje agenta klienta zainstalowanego na maszynie przy użyciu utworzonej wcześniej bramy logicznej.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -525,7 +525,7 @@ W tej sekcji opisano sposób tworzenia i rejestrowania bramy przy użyciu polece
     ```powershell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
-2. Możesz użyć polecenia cmdlet **Get-AzDataFactoryGateway** , aby uzyskać listę bram w fabryce danych. Gdy **stan** zostanie wyświetlony w **trybie online**, oznacza to, że brama jest gotowa do użycia.
+2. Możesz użyć polecenia cmdlet **Get-AzDataFactoryGateway** , aby uzyskać listę bram w fabryce danych. Gdy **stan** zostanie wyświetlony w **trybie online** , oznacza to, że brama jest gotowa do użycia.
 
     ```powershell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF

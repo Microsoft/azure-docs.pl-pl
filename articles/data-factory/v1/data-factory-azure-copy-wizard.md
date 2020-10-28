@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cf8d847bd4e950ab17cc1f04b52be2589607f99c
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629497"
+ms.locfileid: "92637670"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Kreator kopiowania Azure Data Factory
 
@@ -78,7 +78,7 @@ Kliknij przycisk **Przeglądaj** dla **pliku lub folderu** , przejdź do jednego
 
 ![Używanie zmiennych systemowych](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Jak pokazano na poniższym zrzucie ekranu, można również użyć zmiennej **niestandardowej** i dowolnego [obsługiwanego ciągu formatu](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Aby wybrać folder z tą strukturą, najpierw Użyj przycisku **przeglądania** . Następnie Zastąp wartość **{Custom}** , a następnie naciśnij klawisz **Tab** , aby zobaczyć pole tekstowe, w którym można wpisać ciąg formatu.     
+Jak pokazano na poniższym zrzucie ekranu, można również użyć zmiennej **niestandardowej** i dowolnego [obsługiwanego ciągu formatu](/dotnet/standard/base-types/custom-date-and-time-format-strings). Aby wybrać folder z tą strukturą, najpierw Użyj przycisku **przeglądania** . Następnie Zastąp wartość **{Custom}** , a następnie naciśnij klawisz **Tab** , aby zobaczyć pole tekstowe, w którym można wpisać ciąg formatu.     
 
 ![Używanie zmiennej niestandardowej](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
