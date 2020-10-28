@@ -11,21 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2e6efc08cb7d38a856098395aff363d9d7ec2bab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60e8b4b21a9e62279cd0eccfabbbed680183e2a9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442980"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787027"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-an-appropriate-database"></a>Używanie routingu zależnego od danych do kierowania zapytania do odpowiedniej bazy danych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-**Routing zależny od danych** umożliwia kierowanie żądania do odpowiedniej bazy danych przy użyciu danych w zapytaniu. Routing zależny od danych jest podstawowym wzorcem podczas pracy z bazami danych podzielonej na fragmenty. Kontekst żądania może również służyć do kierowania żądania, zwłaszcza jeśli klucz fragmentowania nie jest częścią zapytania. Poszczególne zapytania lub transakcje w aplikacji korzystające z routingu zależnego od danych są ograniczone do uzyskiwania dostępu do jednej bazy danych na żądanie. W przypadku narzędzi elastycznych Azure SQL Database ten Routing jest realizowany za pomocą klasy **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)).
+**Routing zależny od danych** umożliwia kierowanie żądania do odpowiedniej bazy danych przy użyciu danych w zapytaniu. Routing zależny od danych jest podstawowym wzorcem podczas pracy z bazami danych podzielonej na fragmenty. Kontekst żądania może również służyć do kierowania żądania, zwłaszcza jeśli klucz fragmentowania nie jest częścią zapytania. Poszczególne zapytania lub transakcje w aplikacji korzystające z routingu zależnego od danych są ograniczone do uzyskiwania dostępu do jednej bazy danych na żądanie. W przypadku narzędzi elastycznych Azure SQL Database ten Routing jest realizowany za pomocą klasy **ShardMapManager** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)).
 
-Aplikacja nie musi śledzić różnych parametrów połączenia lub lokalizacji bazy danych skojarzonych z różnymi wycinkami danych w środowisku podzielonej na fragmenty. Zamiast tego [Menedżer mapy fragmentu](elastic-scale-shard-map-management.md) otwiera połączenia z prawidłowymi bazami danych, gdy jest to konieczne, na podstawie danych z mapy fragmentu i wartości klucza fragmentowania, który jest celem żądania aplikacji. Klucz jest zwykle *Customer_ID*, *tenant_id*, *date_key*lub inny konkretny identyfikator, który jest podstawowym parametrem żądania bazy danych.
+Aplikacja nie musi śledzić różnych parametrów połączenia lub lokalizacji bazy danych skojarzonych z różnymi wycinkami danych w środowisku podzielonej na fragmenty. Zamiast tego [Menedżer mapy fragmentu](elastic-scale-shard-map-management.md) otwiera połączenia z prawidłowymi bazami danych, gdy jest to konieczne, na podstawie danych z mapy fragmentu i wartości klucza fragmentowania, który jest celem żądania aplikacji. Klucz jest zwykle *Customer_ID* , *tenant_id* , *date_key* lub inny konkretny identyfikator, który jest podstawowym parametrem żądania bazy danych.
 
-Aby uzyskać więcej informacji, zobacz [skalowanie w SQL Server przy użyciu Data-Dependent routingu](https://technet.microsoft.com/library/cc966448.aspx).
+Aby uzyskać więcej informacji, zobacz [skalowanie w SQL Server przy użyciu Data-Dependent routingu](/previous-versions/sql/sql-server-2005/administrator/cc966448(v=technet.10)).
 
 ## <a name="download-the-client-library"></a>Pobierz bibliotekę kliencką
 
@@ -36,7 +36,7 @@ Do pobrania:
 
 ## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>Korzystanie z ShardMapManager w aplikacji routingu zależnej od danych
 
-Aplikacje powinny tworzyć wystąpienia **ShardMapManager** podczas inicjowania przy użyciu wywołania fabryki **GetSQLShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)). W tym przykładzie jest inicjowana zarówno **ShardMapManager** , jak i określony **ShardMap** . Ten przykład pokazuje metody GetSqlShardMapManager i GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap), [.NET](https://docs.microsoft.com/previous-versions/azure/dn824173(v=azure.100))).
+Aplikacje powinny tworzyć wystąpienia **ShardMapManager** podczas inicjowania przy użyciu wywołania fabryki **GetSQLShardMapManager** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)). W tym przykładzie jest inicjowana zarówno **ShardMapManager** , jak i określony **ShardMap** . Ten przykład pokazuje metody GetSqlShardMapManager i GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap), [.NET](/previous-versions/azure/dn824173(v=azure.100))).
 
 ```Java
 ShardMapManager smm = ShardMapManagerFactory.getSqlShardMapManager(connectionString, ShardMapManagerLoadPolicy.Lazy);
@@ -54,7 +54,7 @@ Jeśli aplikacja nie operuje na mapie fragmentu, poświadczenia używane w metod
 
 ## <a name="call-the-openconnectionforkey-method"></a>Wywoływanie metody OpenConnectionForKey
 
-**Metoda ShardMap. OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) zwraca połączenie gotowe do wydawania poleceń do odpowiedniej bazy danych na podstawie wartości parametru **klucza** . Informacje fragmentu są przechowywane w pamięci podręcznej w aplikacji przez **ShardMapManager**, więc te żądania nie obejmują zazwyczaj wyszukiwania bazy danych dla globalnej bazy danych **map fragmentu** .
+**Metoda ShardMap. OpenConnectionForKey** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) zwraca połączenie gotowe do wydawania poleceń do odpowiedniej bazy danych na podstawie wartości parametru **klucza** . Informacje fragmentu są przechowywane w pamięci podręcznej w aplikacji przez **ShardMapManager** , więc te żądania nie obejmują zazwyczaj wyszukiwania bazy danych dla globalnej bazy danych **map fragmentu** .
 
 ```Java
 // Syntax:
@@ -67,14 +67,14 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 ```
 
 * Parametr **klucza** służy jako klucz wyszukiwania do mapy fragmentu w celu określenia odpowiedniej bazy danych dla żądania.
-* Parametr **ConnectionString** służy do przekazywania tylko poświadczeń użytkownika dla żądanego połączenia. Nazwa bazy danych lub nazwa serwera nie jest uwzględniona w tym parametrze *ConnectionString* , ponieważ Metoda określa bazę danych i serwer przy użyciu **ShardMap**.
-* **ConnectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) powinien mieć ustawioną wartość **ConnectionOptions. Sprawdź** , czy środowisko, w którym mapy fragmentu mogą ulec zmianie, a wiersze mogą być przenoszone do innych baz danych w wyniku operacji dzielenia lub scalania. Ta walidacja obejmuje krótkie zapytanie do lokalnej mapy fragmentu w docelowej bazie danych (nie do globalnej mapy fragmentu) przed dostarczeniem połączenia do aplikacji.
+* Parametr **ConnectionString** służy do przekazywania tylko poświadczeń użytkownika dla żądanego połączenia. Nazwa bazy danych lub nazwa serwera nie jest uwzględniona w tym parametrze *ConnectionString* , ponieważ Metoda określa bazę danych i serwer przy użyciu **ShardMap** .
+* **ConnectionOptions** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) powinien mieć ustawioną wartość **ConnectionOptions. Sprawdź** , czy środowisko, w którym mapy fragmentu mogą ulec zmianie, a wiersze mogą być przenoszone do innych baz danych w wyniku operacji dzielenia lub scalania. Ta walidacja obejmuje krótkie zapytanie do lokalnej mapy fragmentu w docelowej bazie danych (nie do globalnej mapy fragmentu) przed dostarczeniem połączenia do aplikacji.
 
 Jeśli sprawdzanie poprawności mapy fragmentu lokalnego nie powiedzie się (wskazując, że pamięć podręczna jest nieprawidłowa), Menedżer mapy fragmentu kwerenduje mapę Global fragmentu, aby uzyskać nową poprawną wartość dla wyszukiwania, zaktualizować pamięć podręczną oraz uzyskać i zwrócić odpowiednie połączenie z bazą danych.
 
 Użyj **ConnectionOptions. None** tylko wtedy, gdy zmiany mapowania fragmentu nie są oczekiwane, gdy aplikacja jest w trybie online. W takim przypadku wartości pamięci podręcznej można przyjąć, że zawsze są poprawne, i można bezpiecznie pominąć dodatkowe wywołanie walidacji z docelową bazą danych. Zmniejsza to ruch bazy danych. **ConnectionOptions** można również ustawić za pośrednictwem wartości w pliku konfiguracji, aby wskazać, czy fragmentowania zmiany są oczekiwane, czy nie w danym okresie czasu.  
 
-W tym przykładzie użyto wartości parametru **CustomerID**-Integer przy użyciu obiektu **ShardMap** o nazwie **customerShardMap**.  
+W tym przykładzie użyto wartości parametru **CustomerID** -Integer przy użyciu obiektu **ShardMap** o nazwie **customerShardMap** .  
 
 ```Java
 int customerId = 12345;
@@ -112,11 +112,11 @@ using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Co
 
 Metoda **OpenConnectionForKey** zwraca nowe, już otwarte połączenie z poprawną bazą danych. Połączenia używane w ten sposób nadal korzystają z puli połączeń.
 
-**Metoda OpenConnectionForKeyAsync** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkeyasync), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync)) jest również dostępna, jeśli aplikacja korzysta z programowania asynchronicznego.
+**Metoda OpenConnectionForKeyAsync** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkeyasync), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync)) jest również dostępna, jeśli aplikacja korzysta z programowania asynchronicznego.
 
 ## <a name="integrating-with-transient-fault-handling"></a>Integracja z obsługą błędów przejściowych
 
-Najlepszym rozwiązaniem w zakresie opracowywania aplikacji do uzyskiwania dostępu do danych w chmurze jest upewnienie się, że błędy przejściowe są przechwytywane przez aplikację i że operacje są ponawiane kilka razy przed wygenerowaniem błędu. Obsługa błędów przejściowych dla aplikacji w chmurze została omówiona w przejściowej obsłudze błędów ([Java](/java/api/com.microsoft.azure.elasticdb.core.commons.transientfaulthandling), [.NET](https://docs.microsoft.com/previous-versions/msp-n-p/dn440719(v=pandp.60))).
+Najlepszym rozwiązaniem w zakresie opracowywania aplikacji do uzyskiwania dostępu do danych w chmurze jest upewnienie się, że błędy przejściowe są przechwytywane przez aplikację i że operacje są ponawiane kilka razy przed wygenerowaniem błędu. Obsługa błędów przejściowych dla aplikacji w chmurze została omówiona w przejściowej obsłudze błędów ([Java](/java/api/com.microsoft.azure.elasticdb.core.commons.transientfaulthandling), [.NET](/previous-versions/msp-n-p/dn440719(v=pandp.60))).
 
 Przejściowa obsługa błędów może być naturalnie ze wzorcem routingu Data-Dependent. Kluczowym wymaganiem jest ponowienie próby wykonania całego żądania dostępu do danych, w tym bloku **using** , który uzyskał połączenie routingu zależnego od danych. Poprzedni przykład można napisać ponownie w następujący sposób.
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 2829b1c71aebcc97452fc658e6509e4fae42da8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a1035f8a213a6ce02dd3252ff7d3ddea46faf7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616809"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786585"
 ---
 # <a name="in-memory-sample"></a>Przykład In-Memory
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -49,7 +49,7 @@ Aby uzyskać więcej uproszczony, ale bardziej atrakcyjny wizualnie pokaz wydajn
 
 1. W [Azure Portal](https://portal.azure.com/)Utwórz bazę danych Premium lub krytyczne dla działania firmy na serwerze. Ustaw **Źródło** na przykładową bazę danych AdventureWorksLT. Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie pierwszej bazy danych w Azure SQL Database](database/single-database-create-quickstart.md).
 
-2. Nawiąż połączenie z bazą danych za pomocą SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
+2. Nawiąż połączenie z bazą danych za pomocą SQL Server Management Studio [(SSMS.exe)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 3. Skopiuj [skrypt OLTP języka Transact-SQL w pamięci](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) do Schowka. Skrypt T-SQL tworzy niezbędne In-Memory obiektów w przykładowej bazie danych AdventureWorksLT utworzonej w kroku 1.
 
@@ -74,7 +74,7 @@ Wynik **0** oznacza, że In-Memory nie jest obsługiwana i **1** oznacza, że je
 
 ### <a name="about-the-created-memory-optimized-items"></a>Informacje o utworzonych elementach zoptymalizowanych pod kątem pamięci
 
-**Tabele**: przykład zawiera następujące tabele zoptymalizowane pod kątem pamięci:
+**Tabele** : przykład zawiera następujące tabele zoptymalizowane pod kątem pamięci:
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -82,7 +82,7 @@ Wynik **0** oznacza, że In-Memory nie jest obsługiwana i **1** oznacza, że je
 - Demonstracja. DemoSalesOrderHeaderSeed
 - Demonstracja. DemoSalesOrderDetailSeed
 
-Tabele zoptymalizowane pod kątem pamięci można sprawdzić za pomocą **Eksplorator obiektów** w programie SSMS. Kliknij prawym przyciskiem myszy pozycję **tabele**  >  **Filter**  >  **Ustawienia filtru**filtr  >  **jest zoptymalizowane pod kątem pamięci**. Wartość jest równa 1.
+Tabele zoptymalizowane pod kątem pamięci można sprawdzić za pomocą **Eksplorator obiektów** w programie SSMS. Kliknij prawym przyciskiem myszy pozycję **tabele**  >  **Filter**  >  **Ustawienia filtru** filtr  >  **jest zoptymalizowane pod kątem pamięci** . Wartość jest równa 1.
 
 Lub można wykonywać zapytania dotyczące widoków wykazu, takich jak:
 
@@ -92,7 +92,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
     WHERE is_memory_optimized = 1;
 ```
 
-**Procedura składowana skompilowana w sposób macierzysty**: można sprawdzić SalesLT.usp_InsertSalesOrder_inmem za pomocą zapytania widoku wykazu:
+**Procedura składowana skompilowana w sposób macierzysty** : można sprawdzić SalesLT.usp_InsertSalesOrder_inmem za pomocą zapytania widoku wykazu:
 
 ```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
@@ -122,7 +122,7 @@ Można jednak zacząć od dużo mniejszych wartości takich jak-N10 i-R50, aby u
 
 W tej sekcji jest wyświetlany skrypt T-SQL osadzony w naszym ostress.exe wierszu polecenia. Skrypt używa elementów, które zostały utworzone przez skrypt T-SQL, który został zainstalowany wcześniej.
 
-Poniższy skrypt wstawia przykładowy porządek sprzedaży z pięcioma wierszami wierszy do następujących *tabel*zoptymalizowanych pod kątem pamięci:
+Poniższy skrypt wstawia przykładowy porządek sprzedaży z pięcioma wierszami wierszy do następujących *tabel* zoptymalizowanych pod kątem pamięci:
 
 - SalesLT.SalesOrderHeader_inmem
 - SalesLT.SalesOrderDetail_inmem
@@ -150,7 +150,7 @@ begin;
 end
 ```
 
-Aby *_ondisk* wersja poprzedniego skryptu T-SQL dla ostress.exe, należy zamienić oba wystąpienia *_inmem* podciągu na *_ondisk*. Te zamienniki mają wpływ na nazwy tabel i procedur składowanych.
+Aby *_ondisk* wersja poprzedniego skryptu T-SQL dla ostress.exe, należy zamienić oba wystąpienia *_inmem* podciągu na *_ondisk* . Te zamienniki mają wpływ na nazwy tabel i procedur składowanych.
 
 #### <a name="install-rml-utilities-and-ostress"></a>Zainstaluj narzędzia RML i `ostress`
 
@@ -160,8 +160,8 @@ Na maszynie wirtualnej lub na dowolnym z wybranych hostów Zainstaluj narzędzia
 
 Aby uzyskać więcej informacji, zobacz:
 
-- Dyskusja ostress.exe w [przykładowej bazie danych dla In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
-- [Przykładowa baza danych dla In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
+- Dyskusja ostress.exe w [przykładowej bazie danych dla In-Memory OLTP](/sql/relational-databases/in-memory-oltp/sample-database-for-in-memory-oltp).
+- [Przykładowa baza danych dla In-Memory OLTP](/sql/relational-databases/in-memory-oltp/sample-database-for-in-memory-oltp).
 - [Blog służący do instalowania ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 <!--
@@ -205,7 +205,7 @@ Po `ostress.exe` zakończeniu zapisuje czas wykonywania jako ostatni wiersz dany
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
-#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Zresetuj, Edytuj pod kątem *_ondisk*, a następnie uruchom ponownie
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Zresetuj, Edytuj pod kątem *_ondisk* , a następnie uruchom ponownie
 
 Po uruchomieniu *_inmem* wykonaj następujące czynności w celu uruchomienia *_ondisk* :
 
@@ -215,7 +215,7 @@ Po uruchomieniu *_inmem* wykonaj następujące czynności w celu uruchomienia *_
    EXECUTE Demo.usp_DemoReset;
    ```
 
-2. Edytuj wiersz polecenia ostress.exe, aby zastąpić wszystkie *_inmem* z *_ondisk*.
+2. Edytuj wiersz polecenia ostress.exe, aby zastąpić wszystkie *_inmem* z *_ondisk* .
 
 3. Ponownie uruchom ostress.exe po raz drugi i Przechwyć wynik trwania.
 
@@ -233,7 +233,7 @@ Nasze testy In-Memory pokazują, że wydajność ulepszona przez **dziewięć ra
 
 W tej sekcji porównano wyniki operacji we/wy i statystyki w przypadku używania indeksu magazynu kolumn w porównaniu z tradycyjnym indeksem drzewa b.
 
-W przypadku analiz w czasie rzeczywistym w obciążeniu OLTP często najlepszym rozwiązaniem jest użycie nieklastrowanego indeksu magazynu kolumn. Aby uzyskać szczegółowe informacje, zobacz [Opis indeksów magazynu kolumn](https://msdn.microsoft.com/library/gg492088.aspx).
+W przypadku analiz w czasie rzeczywistym w obciążeniu OLTP często najlepszym rozwiązaniem jest użycie nieklastrowanego indeksu magazynu kolumn. Aby uzyskać szczegółowe informacje, zobacz [Opis indeksów magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-overview).
 
 ### <a name="prepare-the-columnstore-analytics-test"></a>Przygotuj test analizy magazynu kolumn
 
@@ -335,13 +335,13 @@ W bazie danych z warstwą cenową P2 można oczekiwać około dziewięciu razy w
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szybki Start 1: In-Memory technologii OLTP w celu uzyskania szybszej wydajności T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Szybki Start 1: In-Memory technologii OLTP w celu uzyskania szybszej wydajności T-SQL](/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)
 
 - [Używanie In-Memory OLTP w istniejącej aplikacji Azure SQL](in-memory-oltp-configure.md)
 
 - [Monitoruj In-Memory magazyn OLTP](in-memory-oltp-monitor-space.md) dla In-Memory OLTP
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 ### <a name="deeper-information"></a>Dokładniejsze informacje
 
@@ -349,24 +349,24 @@ W bazie danych z warstwą cenową P2 można oczekiwać około dziewięciu razy w
 
 - [Przetwarzanie OLTP w pamięci w Azure SQL Database wpis w blogu](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-- [Dowiedz się więcej o In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
+- [Dowiedz się więcej o In-Memory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 
-- [Informacje o indeksach magazynu kolumn](https://msdn.microsoft.com/library/gg492088.aspx)
+- [Informacje o indeksach magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-overview)
 
-- [Informacje o analizie operacyjnej w czasie rzeczywistym](https://msdn.microsoft.com/library/dn817827.aspx)
+- [Informacje o analizie operacyjnej w czasie rzeczywistym](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
 
-- Zapoznaj się [z typowymi wzorcami obciążeń i zagadnieniami](https://msdn.microsoft.com/library/dn673538.aspx) dotyczącymi migracji (które opisują wzorce obciążeń, w których In-Memory OLTP często zapewnia znaczny wzrost wydajności)
+- Zapoznaj się [z typowymi wzorcami obciążeń i zagadnieniami](/previous-versions/dn673538(v=msdn.10)) dotyczącymi migracji (które opisują wzorce obciążeń, w których In-Memory OLTP często zapewnia znaczny wzrost wydajności)
 
 #### <a name="application-design"></a>Projekt aplikacji
 
-- [Przetwarzanie OLTP w pamięci (Optymalizacja w pamięci)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [Przetwarzanie OLTP w pamięci (Optymalizacja w pamięci)](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 
 - [Używanie In-Memory OLTP w istniejącej aplikacji Azure SQL](in-memory-oltp-configure.md)
 
 #### <a name="tools"></a>Narzędzia
 
-- [Azure Portal](https://portal.azure.com/)
+- [Witryna Azure Portal](https://portal.azure.com/)
 
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)
 
-- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359003"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787163"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Samouczek: Klasyfikacja, badanie i reagowanie na alerty zabezpieczeń
 Security Center stale analizuje obciążenia chmury hybrydowej dzięki zaawansowanej analizie i analizie zagrożeń, aby otrzymywać alerty o potencjalnie złośliwych działaniach w zasobach w chmurze. Możesz także zintegrować alerty z innych produktów i usług zabezpieczeń w Security Center. Po podniesieniu alertu w celu zbadania i skorygowania potencjalnego problemu z zabezpieczeniami jest wymagana akcja Swift. 
@@ -49,7 +49,7 @@ Ta strona służy do przeglądania aktywnych alertów zabezpieczeń w środowisk
 W przypadku alertów zabezpieczeń segregowania należy określić priorytety alertów na podstawie ważności alertu przez adresowanie alertów o wyższej ważności. Dowiedz się więcej o ważności alertów w [przypadku sklasyfikowania alertów?](security-center-alerts-overview.md#how-are-alerts-classified)
 
 > [!TIP]
-> Możesz połączyć Azure Security Center z najpopularniejszymi rozwiązaniami SIEM, w tym z platformą Azure, i korzystać z alertów z wybranego narzędzia. Dowiedz się więcej w temacie [Eksportowanie alertów do Siem](continuous-export.md).
+> Możesz połączyć Azure Security Center z najpopularniejszymi rozwiązaniami SIEM, w tym z platformą Azure, i korzystać z alertów z wybranego narzędzia. Dowiedz się więcej w temacie [alerty przesyłania strumieniowego do rozwiązania do zarządzania usługami Siem, o i IT](export-to-siem.md).
 
 
 ## <a name="investigate-a-security-alert"></a>Badanie alertu zabezpieczeń
@@ -87,14 +87,14 @@ Po zbadaniu alertu i zrozumieniu jego zakresu można odpowiedzieć na alert zabe
 1.  Aby wyzwolić aplikację logiki z zautomatyzowanymi krokami odpowiedzi, użyj sekcji **wyzwalanie automatycznej odpowiedzi** .
 1.  Jeśli wykryte działanie *nie jest* złośliwe, możesz pominąć przyszłe alerty tego rodzaju za pomocą sekcji **Pomiń podobne alerty** .
 
-1.  Po zakończeniu badania do alertu i odpowiedziano w odpowiedni sposób, Zmień stan na **odrzucony**.
+1.  Po zakończeniu badania do alertu i odpowiedziano w odpowiedni sposób, Zmień stan na **odrzucony** .
 
     :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Strona listy alertów zabezpieczeń":::
 
     Spowoduje to usunięcie alertu z głównej listy alertów. Możesz użyć filtru na stronie listy alertów, aby wyświetlić wszystkie alerty z **odrzuconym** stanem.
 
 1.  Zachęcamy do przekazywania informacji zwrotnych o alercie do firmy Microsoft:
-    1. Oznaczanie alertu jako **przydatnego** lub **nieprzydatnego**.
+    1. Oznaczanie alertu jako **przydatnego** lub **nieprzydatnego** .
     1. Wybierz przyczynę i Dodaj komentarz.
 
         :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Strona listy alertów zabezpieczeń":::
@@ -108,11 +108,11 @@ Inne przewodniki szybkiego startu i samouczki w tej kolekcji bazują na tym prze
 
 Jeśli nie planujesz kontynuować pracy lub chcesz wyłączyć jedną z następujących funkcji:
 
-1. Wróć do menu głównego Security Center i wybierz pozycję **Cennik i ustawienia**.
+1. Wróć do menu głównego Security Center i wybierz pozycję **Cennik i ustawienia** .
 1. Wybierz odpowiednią subskrypcję.
-1. Aby zmienić wersję, wybierz pozycję **Azure Defender off**.
-1. Aby **wyłączyć automatyczne**Inicjowanie obsługi, Otwórz stronę **zbieranie danych** i ustaw **Automatyczne Inicjowanie obsługi** .
-4. Wybierz pozycję **Zapisz**.
+1. Aby zmienić wersję, wybierz pozycję **Azure Defender off** .
+1. Aby **wyłączyć automatyczne** Inicjowanie obsługi, Otwórz stronę **zbieranie danych** i ustaw **Automatyczne Inicjowanie obsługi** .
+4. Wybierz pozycję **Zapisz** .
 
 >[!NOTE]
 > Wyłączenie automatycznej aprowizacji nie powoduje usunięcia agenta Log Analytics z maszyn wirtualnych platformy Azure, które już mają agenta. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.

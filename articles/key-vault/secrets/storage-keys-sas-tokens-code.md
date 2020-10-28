@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6072c71fa675bd203e94f3f42814a1183b12ae8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d2d28a525f38aad3f48e439992a23abde0b7718
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597976"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786075"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Tworzenie definicji SAS i pobieranie tokenów sygnatury dostępu współdzielonego w kodzie
 
@@ -23,7 +23,7 @@ Kontem magazynu można zarządzać za pomocą tokenów sygnatury dostępu wspó�
 > [!NOTE]
 > Zalecamy używanie [Access Control opartej na rolach (RBAC)](../../storage/common/storage-auth-aad.md) , aby zabezpieczyć konto magazynu w celu zapewnienia bezpieczeństwa i łatwość użycia w ramach autoryzacji klucza współużytkowanego.
 
-Ten artykuł zawiera przykłady kodu platformy .NET, który tworzy definicję sygnatury dostępu współdzielonego i pobiera tokeny sygnatury dostępu współdzielonego. Zapoznaj się z naszym Przykładem [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/) , aby uzyskać pełne szczegóły, w tym wygenerowany klient dla kont magazynu zarządzanych przez Key Vault. Aby uzyskać informacje na temat tworzenia i przechowywania tokenów SAS, zobacz [Zarządzanie kluczami konta magazynu przy użyciu Key Vault i interfejsu wiersza polecenia platformy Azure](overview-storage-keys.md) lub [Zarządzanie kluczami konta magazynu za pomocą Key Vault i Azure PowerShell](overview-storage-keys-powershell.md).
+Ten artykuł zawiera przykłady kodu platformy .NET, który tworzy definicję sygnatury dostępu współdzielonego i pobiera tokeny sygnatury dostępu współdzielonego. Zapoznaj się z naszym Przykładem [ShareLink](/samples/azure/azure-sdk-for-net/share-link/) , aby uzyskać pełne szczegóły, w tym wygenerowany klient dla kont magazynu zarządzanych przez Key Vault. Aby uzyskać informacje na temat tworzenia i przechowywania tokenów SAS, zobacz [Zarządzanie kluczami konta magazynu przy użyciu Key Vault i interfejsu wiersza polecenia platformy Azure](overview-storage-keys.md) lub [Zarządzanie kluczami konta magazynu za pomocą Key Vault i Azure PowerShell](overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Przykłady kodu
 
@@ -41,7 +41,7 @@ Po utworzeniu definicji sygnatury dostępu współdzielonego można pobrać toke
 
 Jeśli token sygnatury dostępu współdzielonego niedługo wygaśnie, możesz pobrać ten sam klucz tajny, aby wygenerować nowy.
 
-Aby uzyskać informacje na temat używania pobranego z Key Vault token SAS do uzyskiwania dostępu do usług Azure Storage, zobacz [używanie sygnatury dostępu współdzielonego konta w celu BLOB Service](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
+Aby uzyskać informacje na temat używania pobranego z Key Vault token SAS do uzyskiwania dostępu do usług Azure Storage, zobacz [używanie sygnatury dostępu współdzielonego konta w celu BLOB Service](../../storage/common/storage-account-sas-create-dotnet.md#use-an-account-sas-from-a-client)
 
 > [!NOTE]
 > Aplikacja musi być gotowa do odświeżenia sygnatury dostępu współdzielonego, jeśli otrzymuje 403 z magazynu, dzięki czemu można obsłużyć przypadek, w którym klucz został złamany, i należy go obrócić szybciej niż normalny okres rotacji. 

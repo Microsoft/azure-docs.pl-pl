@@ -10,19 +10,19 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: f3708885759a6a353742fe89b4454b39496aeeab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619988"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788285"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Skonfiguruj publiczny punkt końcowy w wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Publiczny punkt końcowy dla [wystąpienia zarządzanego](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) umożliwia dostęp do danych w wystąpieniu zarządzanym spoza [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md). Możesz uzyskać dostęp do wystąpienia zarządzanego z wielodostępnych usług platformy Azure, takich jak Power BI, Azure App Service lub sieci lokalnej. Za pomocą publicznego punktu końcowego w wystąpieniu zarządzanym nie trzeba używać sieci VPN, co może pomóc w uniknięciu problemów z przepływem pracy w sieci VPN.
+Publiczny punkt końcowy dla [wystąpienia zarządzanego](./sql-managed-instance-paas-overview.md) umożliwia dostęp do danych w wystąpieniu zarządzanym spoza [sieci wirtualnej](../../virtual-network/virtual-networks-overview.md). Możesz uzyskać dostęp do wystąpienia zarządzanego z wielodostępnych usług platformy Azure, takich jak Power BI, Azure App Service lub sieci lokalnej. Za pomocą publicznego punktu końcowego w wystąpieniu zarządzanym nie trzeba używać sieci VPN, co może pomóc w uniknięciu problemów z przepływem pracy w sieci VPN.
 
-W tym artykule dowiesz się, jak:
+Ten artykuł obejmuje następujące zagadnienia:
 
 > [!div class="checklist"]
 >
@@ -112,7 +112,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Uzyskiwanie parametrów połączenia publicznego punktu końcowego wystąpienia zarządzanego
 
 1. Przejdź do strony konfiguracji wystąpienia zarządzanego, która została włączona dla publicznego punktu końcowego. Wybierz kartę **Parametry połączenia** w obszarze Konfiguracja **ustawień** .
-1. Należy pamiętać, że nazwa hosta publicznego punktu końcowego jest w formacie <mi_name>. **Public**. <dns_zone>. Database.Windows.NET i że port używany do połączenia to 3342.
+1. Należy pamiętać, że nazwa hosta publicznego punktu końcowego jest w formacie <mi_name>. **Public** . <dns_zone>. Database.Windows.NET i że port używany do połączenia to 3342.
 
     ![Zrzut ekranu przedstawia parametry połączenia dla publicznych i prywatnych punktów końcowych.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

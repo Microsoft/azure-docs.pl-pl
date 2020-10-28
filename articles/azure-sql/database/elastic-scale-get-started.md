@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 46eee878ba8cf1d12edf262241d5df8ef8ccc82f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 423fd0f91de3e936e2920d57e5bc606bb86a2437
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442933"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786721"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Wprowadzenie do narzędzi Elastic Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -98,25 +98,25 @@ Aby pobrać i uruchomić przykład, wykonaj następujące kroki:
 Gratulacje! Pomyślnie skompilowano i uruchomiono pierwszą aplikację podzielonej na fragmenty przy użyciu narzędzi Elastic Database w SQL Database. Użyj programu Visual Studio lub SQL Server Management Studio, aby nawiązać połączenie z bazą danych, i zapoznaj się z fragmentów, aby utworzyć próbkę. Zobaczysz nowe przykładowe bazy danych fragmentu oraz bazę danych Menedżera map fragmentu utworzoną przez przykład.
 
 > [!IMPORTANT]
-> Zalecamy, aby zawsze używać najnowszej wersji Management Studio, aby zachować synchronizację z aktualizacjami platformy Azure i SQL Database. [Zaktualizuj program SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Zalecamy, aby zawsze używać najnowszej wersji Management Studio, aby zachować synchronizację z aktualizacjami platformy Azure i SQL Database. [Zaktualizuj program SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="key-pieces-of-the-code-sample"></a>Najważniejsze fragmenty przykładu kodu
 
-* **Zarządzanie mapami fragmentów i fragmentu**: kod ilustruje sposób pracy z fragmentów, zakresami i mapowaniami w pliku *ShardManagementUtils.cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).  
+* **Zarządzanie mapami fragmentów i fragmentu** : kod ilustruje sposób pracy z fragmentów, zakresami i mapowaniami w pliku *ShardManagementUtils.cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).  
 
-* **Routing zależny od danych**: Routing transakcji do prawej fragmentu jest wyświetlany w pliku *DataDependentRoutingSample.cs* . Aby uzyskać więcej informacji, zobacz [Routing zależny od danych](https://go.microsoft.com/?linkid=9862596).
+* **Routing zależny od danych** : Routing transakcji do prawej fragmentu jest wyświetlany w pliku *DataDependentRoutingSample.cs* . Aby uzyskać więcej informacji, zobacz [Routing zależny od danych](https://go.microsoft.com/?linkid=9862596).
 
-* **Wykonywanie zapytania dotyczącego wielu fragmentów**: zapytania w fragmentów są zilustrowane w pliku *MultiShardQuerySample.cs* . Aby uzyskać więcej informacji, zobacz [zapytania dotyczące wielu fragmentu](https://go.microsoft.com/?linkid=9862597).
+* **Wykonywanie zapytania dotyczącego wielu fragmentów** : zapytania w fragmentów są zilustrowane w pliku *MultiShardQuerySample.cs* . Aby uzyskać więcej informacji, zobacz [zapytania dotyczące wielu fragmentu](https://go.microsoft.com/?linkid=9862597).
 
-* **Dodawanie pustego fragmentów**: iteracyjne Dodawanie nowej pustej fragmentów jest wykonywane przez kod w pliku *CreateShardSample.cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).
+* **Dodawanie pustego fragmentów** : iteracyjne Dodawanie nowej pustej fragmentów jest wykonywane przez kod w pliku *CreateShardSample.cs* . Aby uzyskać więcej informacji, zobacz [skalowanie baz danych za pomocą Menedżera mapy fragmentu](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Inne operacje skalowania elastycznego
 
-* **Dzielenie istniejącej fragmentu**: możliwość podziału fragmentów jest zapewniana przez narzędzie Split-Merge. Aby uzyskać więcej informacji, zobacz temat [przeniesienie danych między skalowanymi bazami danych w chmurze](elastic-scale-overview-split-and-merge.md).
+* **Dzielenie istniejącej fragmentu** : możliwość podziału fragmentów jest zapewniana przez narzędzie Split-Merge. Aby uzyskać więcej informacji, zobacz temat [przeniesienie danych między skalowanymi bazami danych w chmurze](elastic-scale-overview-split-and-merge.md).
 
-* **Scalanie istniejących fragmentów**: scalanie fragmentu odbywa się również przy użyciu narzędzia Split-Merge. Aby uzyskać więcej informacji, zobacz temat [przeniesienie danych między skalowanymi bazami danych w chmurze](elastic-scale-overview-split-and-merge.md).
+* **Scalanie istniejących fragmentów** : scalanie fragmentu odbywa się również przy użyciu narzędzia Split-Merge. Aby uzyskać więcej informacji, zobacz temat [przeniesienie danych między skalowanymi bazami danych w chmurze](elastic-scale-overview-split-and-merge.md).
 
-## <a name="cost"></a>Koszty
+## <a name="cost"></a>Koszt
 
 Biblioteka narzędzi Elastic Database Tools jest bezpłatna. W przypadku korzystania z Elastic Database narzędzi nie są naliczane żadne dodatkowe opłaty poza kosztem korzystania z platformy Azure.
 
@@ -134,7 +134,7 @@ Aby uzyskać więcej informacji na temat narzędzi Elastic Database, zobacz nast
   * [Elastyczność fragmentu w centrum skryptów](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [powiadomienie dotyczące skalowania elastycznego](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * Channel 9: [wideo — Omówienie skalowania elastycznego](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Forum dyskusyjne: [Microsoft Q&stronę pytania dla Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
+* Forum dyskusyjne: [Microsoft Q&stronę pytania dla Azure SQL Database](/answers/topics/azure-sql-database.html)
 * Aby zmierzyć wydajność: [liczniki wydajności dla Menedżera map fragmentu](elastic-database-client-library.md)
 
 <!--Anchors-->

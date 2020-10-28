@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: db4383526874c98f717c5f166b296d814724184a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b4bc291c21ca1ccabec3cfd9544deaa5d45fcf51
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044639"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787197"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: metryki
 
@@ -26,19 +26,19 @@ Metryki są domyślnie włączone. Możesz wyświetlić metryki usługi Azure Di
 
 2. Znajdź wystąpienie usługi Azure Digital bliźniaczych reprezentacji w [Azure Portal](https://portal.azure.com) (możesz otworzyć stronę, wpisując jej nazwę na pasku wyszukiwania portalu). 
 
-    Z menu wystąpienie wybierz pozycję **metryki**.
+    Z menu wystąpienie wybierz pozycję **metryki** .
    
     :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Zrzut ekranu przedstawiający stronę metryki usługi Azure Digital bliźniaczych reprezentacji":::
 
     Na tej stronie są wyświetlane metryki wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Widoki niestandardowe metryk można również utworzyć, wybierając te, które mają zostać wyświetlone na liście.
     
-3. Możesz wysłać dane metryk do punktu końcowego Event Hubs lub konta usługi Azure Storage, wybierając z menu pozycję **Ustawienia diagnostyczne** , a następnie **Dodaj ustawienie diagnostyczne**.
+3. Możesz wysłać dane metryk do punktu końcowego Event Hubs lub konta usługi Azure Storage, wybierając z menu pozycję **Ustawienia diagnostyczne** , a następnie **Dodaj ustawienie diagnostyczne** .
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający stronę metryki usługi Azure Digital bliźniaczych reprezentacji":::
 
     Aby uzyskać więcej informacji o tym procesie, zobacz [*Rozwiązywanie problemów: Konfigurowanie diagnostyki*](troubleshoot-diagnostics.md).
 
-4. Możesz skonfigurować alerty dla danych metryk, wybierając pozycję **alerty** z menu, a następnie **+ Nowa reguła alertu**.
+4. Możesz skonfigurować alerty dla danych metryk, wybierając pozycję **alerty** z menu, a następnie **+ Nowa reguła alertu** .
     :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Zrzut ekranu przedstawiający stronę metryki usługi Azure Digital bliźniaczych reprezentacji":::
 
     Aby uzyskać więcej informacji o tym procesie, zobacz [*Rozwiązywanie problemów: Konfigurowanie alertów*](troubleshoot-alerts.md).
@@ -55,22 +55,22 @@ Metryki mające na celu wykonywanie żądań interfejsu API:
 
 | Metryka | Nazwa wyświetlana metryki | Jednostka | Typ agregacji| Opis | Wymiary |
 | --- | --- | --- | --- | --- | --- |
-| ApiRequests | Żądania interfejsu API (wersja zapoznawcza) | Liczba | Łącznie | Liczba żądań interfejsu API dla operacji odczytu, zapisu, usuwania i zapytań cyfrowych bliźniaczych reprezentacji. |  Ponowne <br>Operacje <br>Protokol <br>Kod stanu, <br>Klasa kodu stanu, <br>Tekst stanu |
-| ApiRequestsFailureRate | Współczynnik błędów żądań interfejsu API (wersja zapoznawcza) | Procent | Średnia | Procent żądań interfejsu API odbieranych przez usługę dla wystąpienia, które dają wewnętrzny błąd (500) kod odpowiedzi dla operacji odczytu, zapisu, usuwania i zapytań cyfrowych bliźniaczych reprezentacji. | Ponowne <br>Operacje <br>Protokol <br>Kod stanu, <br>Klasa kodu stanu, <br>Tekst stanu
-| ApiRequestsLatency | Opóźnienie żądań interfejsu API (wersja zapoznawcza) | ) | Średnia | Czas odpowiedzi dla żądań interfejsu API. Odnosi się to do czasu od momentu odebrania żądania przez usługę Azure Digital bliźniaczych reprezentacji, dopóki usługa nie wyśle wyniku sukcesu/niepowodzenia dla operacji odczytu, zapisu, usuwania i wykonywania zapytań w funkcji Digital bliźniaczych reprezentacji. | Ponowne <br>Operacje <br>Protokół |
+| ApiRequests | Żądania interfejsu API | Liczba | Łącznie | Liczba żądań interfejsu API dla operacji odczytu, zapisu, usuwania i zapytań cyfrowych bliźniaczych reprezentacji. |  Ponowne <br>Operacje <br>Protokol <br>Kod stanu, <br>Klasa kodu stanu, <br>Tekst stanu |
+| ApiRequestsFailureRate | Częstotliwość niepowodzeń żądań interfejsu API | Procent | Średnia | Procent żądań interfejsu API odbieranych przez usługę dla wystąpienia, które dają wewnętrzny błąd (500) kod odpowiedzi dla operacji odczytu, zapisu, usuwania i zapytań cyfrowych bliźniaczych reprezentacji. | Ponowne <br>Operacje <br>Protokol <br>Kod stanu, <br>Klasa kodu stanu, <br>Tekst stanu
+| ApiRequestsLatency | Opóźnienie żądań interfejsu API | ) | Średnia | Czas odpowiedzi dla żądań interfejsu API. Odnosi się to do czasu od momentu odebrania żądania przez usługę Azure Digital bliźniaczych reprezentacji, dopóki usługa nie wyśle wyniku sukcesu/niepowodzenia dla operacji odczytu, zapisu, usuwania i wykonywania zapytań w funkcji Digital bliźniaczych reprezentacji. | Ponowne <br>Operacje <br>Protokół |
 
 #### <a name="billing-metrics"></a>Metryki rozliczeń
 
 Metryki mające na celu rozliczanie:
 
 >[!NOTE]
-> W okresie zapoznawczym **opłaty nie są**naliczane. Mimo że te metryki nadal pojawiają się na liście możliwej do wyboru, nie mają zastosowania w wersji zapoznawczej i pozostaną na zero, dopóki usługa nie przejdzie poza wersję zapoznawczą.
+> W okresie zapoznawczym **opłaty nie są** naliczane. Mimo że te metryki nadal pojawiają się na liście możliwej do wyboru, nie mają zastosowania w wersji zapoznawczej i pozostaną na zero, dopóki usługa nie przejdzie poza wersję zapoznawczą.
 
 | Metryka | Nazwa wyświetlana metryki | Jednostka | Typ agregacji| Opis | Wymiary |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | Operacje interfejsu API rozliczeń (wersja zapoznawcza) | Liczba | Łącznie | Metryka rozliczeń dla wszystkich żądań interfejsu API w usłudze Azure Digital bliźniaczych reprezentacji. | Identyfikator miernika |
-| BillingMessagesProcessed | Przetworzone komunikaty rozliczeń (wersja zapoznawcza) | Liczba | Łącznie | Metryka rozliczania dla liczby komunikatów wysyłanych z usługi Azure Digital bliźniaczych reprezentacji do zewnętrznych punktów końcowych.<br><br>Aby można było traktować pojedynczy komunikat do celów rozliczania, ładunek nie może być większy niż 1 KB. Ładunki większe niż ten będą zliczane jako dodatkowe komunikaty w przyrostach 1 KB (więc komunikat z przedziału od 1 do 2 KB będzie liczony jako 2 komunikaty, między 2 a 3 KB będzie 3 komunikaty itd.).<br>To ograniczenie ma zastosowanie również do odpowiedzi, więc wywołanie zwracające wartość 1,5 KB w treści odpowiedzi, na przykład, będzie rozliczane jako dwie operacje. | Identyfikator miernika |
-| BillingQueryUnits | Jednostki zapytań rozliczeń (wersja zapoznawcza) | Liczba | Łącznie | Liczba jednostek zapytania, wewnętrznie obliczona miara użycia zasobów usługi używana do wykonywania zapytań. Dostępny jest również pomocnik interfejsu API do mierzenia jednostek zapytania: [Klasa QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | Identyfikator miernika |
+| BillingApiOperations | Operacje interfejsu API rozliczeń | Liczba | Łącznie | Metryka rozliczeń dla wszystkich żądań interfejsu API w usłudze Azure Digital bliźniaczych reprezentacji. | Identyfikator miernika |
+| BillingMessagesProcessed | Przetworzone komunikaty dotyczące rozliczeń | Liczba | Łącznie | Metryka rozliczania dla liczby komunikatów wysyłanych z usługi Azure Digital bliźniaczych reprezentacji do zewnętrznych punktów końcowych.<br><br>Aby można było traktować pojedynczy komunikat do celów rozliczania, ładunek nie może być większy niż 1 KB. Ładunki większe niż ten będą zliczane jako dodatkowe komunikaty w przyrostach 1 KB (więc komunikat z przedziału od 1 do 2 KB będzie liczony jako 2 komunikaty, między 2 a 3 KB będzie 3 komunikaty itd.).<br>To ograniczenie ma zastosowanie również do odpowiedzi, więc wywołanie zwracające wartość 1,5 KB w treści odpowiedzi, na przykład, będzie rozliczane jako dwie operacje. | Identyfikator miernika |
+| BillingQueryUnits | Jednostki zapytań dotyczących rozliczeń | Liczba | Łącznie | Liczba jednostek zapytania, wewnętrznie obliczona miara użycia zasobów usługi używana do wykonywania zapytań. Dostępny jest również pomocnik interfejsu API do mierzenia jednostek zapytania: [Klasa QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | Identyfikator miernika |
 
 #### <a name="ingress-metrics"></a>Metryki transferu danych przychodzących
 
@@ -78,9 +78,9 @@ Metryki mające na celu wykonywanie danych wejściowych:
 
 | Metryka | Nazwa wyświetlana metryki | Jednostka | Typ agregacji| Opis | Wymiary |
 | --- | --- | --- | --- | --- | --- |
-| IngressEvents | Zdarzenia związane z transferem danych przychodzących (wersja zapoznawcza) | Liczba | Łącznie | Liczba przychodzących zdarzeń telemetrii do usługi Azure Digital bliźniaczych reprezentacji. | Wynik |
-| IngressEventsFailureRate | Współczynnik błędów zdarzeń związanych z transferem danych przychodzących (wersja zapoznawcza) | Procent | Średnia | Procent przychodzących zdarzeń telemetrii, dla których usługa zwraca kod odpowiedzi z błędu wewnętrznego (500). | Wynik |
-| IngressEventsLatency | Opóźnienie zdarzeń związanych z transferem danych przychodzących (wersja zapoznawcza) | ) | Średnia | Czas od momentu nadejścia zdarzenia do momentu, gdy jest on gotowy do egressed przez usługę Azure Digital bliźniaczych reprezentacji, w którym usługa wysyła wynik sukces/niepowodzenie. | Wynik |
+| IngressEvents | Zdarzenia związane z transferem danych przychodzących | Liczba | Łącznie | Liczba przychodzących zdarzeń telemetrii do usługi Azure Digital bliźniaczych reprezentacji. | Wynik |
+| IngressEventsFailureRate | Współczynnik błędów zdarzeń związanych z transferem danych przychodzących | Procent | Średnia | Procent przychodzących zdarzeń telemetrii, dla których usługa zwraca kod odpowiedzi z błędu wewnętrznego (500). | Wynik |
+| IngressEventsLatency | Opóźnienie zdarzeń związanych z transferem danych przychodzących | ) | Średnia | Czas od momentu nadejścia zdarzenia do momentu, gdy jest on gotowy do egressed przez usługę Azure Digital bliźniaczych reprezentacji, w którym usługa wysyła wynik sukces/niepowodzenie. | Wynik |
 
 #### <a name="routing-metrics"></a>Metryki routingu
 
@@ -88,9 +88,9 @@ Metryki, które mają wykonywać Routing:
 
 | Metryka | Nazwa wyświetlana metryki | Jednostka | Typ agregacji| Opis | Wymiary |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Komunikaty kierowane (wersja zapoznawcza) | Liczba | Łącznie | Liczba komunikatów kierowanych do usługi platformy Azure dla punktów końcowych, takich jak centrum zdarzeń, Service Bus lub Event Grid. | Typ punktu końcowego, <br>Wynik |
-| RoutingFailureRate | Współczynnik błędów routingu (wersja zapoznawcza) | Procent | Średnia | Wartość procentowa zdarzeń spowodowanych błędem, ponieważ są one kierowane z usługi Azure Digital bliźniaczych reprezentacji do usługi platformy Azure w punkcie końcowym, takiej jak centrum zdarzeń, Service Bus lub Event Grid. | Typ punktu końcowego, <br>Wynik |
-| RoutingLatency | Opóźnienie routingu (wersja zapoznawcza) | ) | Średnia | Czas między zdarzeniem, które ma być przesyłane z usługi Azure Digital bliźniaczych reprezentacji do momentu opublikowania w usłudze Azure Endpoint Service, takiej jak centrum zdarzeń, Service Bus lub Event Grid. | Typ punktu końcowego, <br>Wynik |
+| MessagesRouted | Komunikaty kierowane | Liczba | Łącznie | Liczba komunikatów kierowanych do usługi platformy Azure dla punktów końcowych, takich jak centrum zdarzeń, Service Bus lub Event Grid. | Typ punktu końcowego, <br>Wynik |
+| RoutingFailureRate | Współczynnik błędów routingu | Procent | Średnia | Wartość procentowa zdarzeń spowodowanych błędem, ponieważ są one kierowane z usługi Azure Digital bliźniaczych reprezentacji do usługi platformy Azure w punkcie końcowym, takiej jak centrum zdarzeń, Service Bus lub Event Grid. | Typ punktu końcowego, <br>Wynik |
+| RoutingLatency | Opóźnienie routingu | ) | Średnia | Czas między zdarzeniem, które ma być przesyłane z usługi Azure Digital bliźniaczych reprezentacji do momentu opublikowania w usłudze Azure Endpoint Service, takiej jak centrum zdarzeń, Service Bus lub Event Grid. | Typ punktu końcowego, <br>Wynik |
 
 ## <a name="dimensions"></a>Wymiary
 

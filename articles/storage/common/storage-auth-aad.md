@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 391cbbca79560ba57ae2be62accdad8451446227
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7128a11ae9d5c9844353404309f8ad40cba53972
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488728"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787588"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory
 
@@ -37,7 +37,7 @@ Gdy podmiot zabezpieczeń (użytkownik, Grupa lub aplikacja) próbuje uzyskać d
 
 Krok uwierzytelniania wymaga, aby aplikacja zażądała tokenu dostępu OAuth 2,0 w czasie wykonywania. Jeśli aplikacja jest uruchomiona w ramach jednostki platformy Azure, takiej jak maszyna wirtualna platformy Azure, zestaw skalowania maszyn wirtualnych lub aplikacja Azure Functions, może używać [tożsamości zarządzanej](../../active-directory/managed-identities-azure-resources/overview.md) do uzyskiwania dostępu do obiektów blob lub kolejek. Aby dowiedzieć się, jak autoryzować żądania wysyłane przez zarządzaną tożsamość do obiektu blob platformy Azure lub usługa kolejki, zobacz [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu tożsamości Azure Active Directory i zarządzanych dla zasobów platformy Azure](storage-auth-aad-msi.md).
 
-Krok autoryzacji wymaga, aby co najmniej jedna rola platformy Azure była przypisana do podmiotu zabezpieczeń. Usługa Azure Storage udostępnia role platformy Azure, które obejmują wspólne zestawy uprawnień dla danych obiektów blob i kolejek. Role, które są przypisane do podmiotu zabezpieczeń, określają uprawnienia, które będą miały. Aby dowiedzieć się więcej na temat przypisywania ról platformy Azure dla usługi Azure Storage, zobacz [Zarządzanie prawami dostępu do danych magazynu za pomocą usługi Azure RBAC](storage-auth-aad-rbac.md).
+Krok autoryzacji wymaga, aby co najmniej jedna rola platformy Azure była przypisana do podmiotu zabezpieczeń. Usługa Azure Storage udostępnia role platformy Azure, które obejmują wspólne zestawy uprawnień dla danych obiektów blob i kolejek. Role, które są przypisane do podmiotu zabezpieczeń, określają uprawnienia, które będą miały. Aby dowiedzieć się więcej na temat przypisywania ról platformy Azure dla usługi Azure Storage, zobacz [Zarządzanie prawami dostępu do danych magazynu za pomocą usługi Azure RBAC](./storage-auth-aad-rbac-portal.md).
 
 Natywne aplikacje i aplikacje sieci Web, które wysyłają żądania do obiektu blob platformy Azure lub usługa kolejki mogą również autoryzować dostęp za pomocą usługi Azure AD. Aby dowiedzieć się, jak zażądać tokenu dostępu i używać go do autoryzacji żądań dotyczących danych obiektów blob lub kolejek, zobacz temat [autoryzowanie dostępu do usługi Azure Storage za pomocą usługi Azure AD z aplikacji usługi Azure Storage](storage-auth-aad-app.md).
 
@@ -75,7 +75,7 @@ Dostęp do danych obiektów blob lub kolejek za pośrednictwem Azure Portal, pro
 
 Azure Portal może korzystać z konta usługi Azure AD lub kluczy dostępu do konta w celu uzyskiwania dostępu do danych obiektów blob i kolejek na koncie usługi Azure Storage. Który schemat autoryzacji używany przez Azure Portal zależy od ról platformy Azure, które są przypisane do użytkownika.
 
-Gdy próbujesz uzyskać dostęp do danych obiektu BLOB lub kolejki, Azure Portal najpierw sprawdzisz, czy masz przypisaną rolę platformy Azure z **firmą Microsoft. Storage/storageAccounts/ListKeys/Action**. Jeśli przypisano rolę z tą akcją, Azure Portal używa klucza konta do uzyskiwania dostępu do danych obiektów blob i kolejek za pośrednictwem autoryzacji klucza wspólnego. Jeśli nie masz przypisanej roli z tą akcją, Azure Portal próbuje uzyskać dostęp do danych przy użyciu konta usługi Azure AD.
+Gdy próbujesz uzyskać dostęp do danych obiektu BLOB lub kolejki, Azure Portal najpierw sprawdzisz, czy masz przypisaną rolę platformy Azure z **firmą Microsoft. Storage/storageAccounts/ListKeys/Action** . Jeśli przypisano rolę z tą akcją, Azure Portal używa klucza konta do uzyskiwania dostępu do danych obiektów blob i kolejek za pośrednictwem autoryzacji klucza wspólnego. Jeśli nie masz przypisanej roli z tą akcją, Azure Portal próbuje uzyskać dostęp do danych przy użyciu konta usługi Azure AD.
 
 Aby uzyskać dostęp do danych obiektu BLOB lub kolejki z Azure Portal przy użyciu konta usługi Azure AD, musisz mieć uprawnienia dostępu do danych obiektów blob i kolejek, a także potrzebujesz uprawnień do nawigowania po zasobach konta magazynu w Azure Portal. Wbudowane role udostępniane przez usługę Azure Storage zapewniają dostęp do zasobów obiektów blob i kolejek, ale nie udzielają uprawnień do zasobów konta magazynu. Z tego powodu dostęp do portalu wymaga również przypisania roli Azure Resource Manager, takiej jak rola [czytnika](../../role-based-access-control/built-in-roles.md#reader) , w zakresie do poziomu konta magazynu lub wyższego. Rola **czytelnika** umożliwia dostęp do najbardziej ograniczonych uprawnień, ale można również uzyskać inną rolę Azure Resource Manager, która udziela dostępu do zasobów zarządzania kontami magazynu. Aby dowiedzieć się więcej na temat przypisywania uprawnień użytkownikom na potrzeby dostępu do danych w Azure Portal za pomocą konta usługi Azure AD, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](storage-auth-aad-rbac-portal.md).
 
@@ -83,7 +83,7 @@ Azure Portal wskazuje, który schemat autoryzacji jest używany podczas przechod
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Dostęp do danych z programu PowerShell lub interfejsu wiersza polecenia platformy Azure
 
-Interfejs wiersza polecenia platformy Azure i program PowerShell obsługują Logowanie przy użyciu poświadczeń usługi Azure AD. Po zalogowaniu się sesja zostanie uruchomiona w ramach tych poświadczeń. Aby dowiedzieć się więcej, zobacz [Uruchamianie interfejsu wiersza polecenia platformy Azure lub poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektu BLOB lub kolejki](authorize-active-directory-powershell.md)
+Interfejs wiersza polecenia platformy Azure i program PowerShell obsługują Logowanie przy użyciu poświadczeń usługi Azure AD. Po zalogowaniu się sesja zostanie uruchomiona w ramach tych poświadczeń. Aby dowiedzieć się więcej, zobacz [Uruchamianie interfejsu wiersza polecenia platformy Azure lub poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektu BLOB lub kolejki](../blobs/authorize-active-directory-powershell.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

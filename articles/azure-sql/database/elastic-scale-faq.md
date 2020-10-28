@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8998f03fa44529a5f006936a01f711a279178245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e15a8dc5e9f918c630397d6d6593f5bf561755
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84045683"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786908"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Narzędzia elastycznej bazy danych — często zadawane pytania
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,11 +39,11 @@ Nie używaj poświadczeń w postaci "User ID = username@servername ", zamiast te
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Czy muszę utworzyć Menedżera mapy fragmentu i wypełnić fragmentów przy każdym uruchomieniu aplikacji
 
-Nie — tworzenie Menedżera mapy fragmentu (na przykład [ShardMapManagerFactory. CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) jest operacją jednorazową.  Aplikacja powinna używać wywołania [ShardMapManagerFactory. TryGetSqlShardMapManager ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) podczas uruchamiania aplikacji.  Powinno istnieć tylko jedno takie wywołanie dla każdej domeny aplikacji.
+Nie — tworzenie Menedżera mapy fragmentu (na przykład [ShardMapManagerFactory. CreateSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) jest operacją jednorazową.  Aplikacja powinna używać wywołania [ShardMapManagerFactory. TryGetSqlShardMapManager ()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) podczas uruchamiania aplikacji.  Powinno istnieć tylko jedno takie wywołanie dla każdej domeny aplikacji.
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Mam pytania dotyczące korzystania z narzędzi elastycznych baz danych, jak uzyskać odpowiedzi na nie
 
-Skontaktuj się z nami na [stronie pytania&pytań SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
+Skontaktuj się z nami na [stronie pytania&pytań SQL Database](/answers/topics/azure-sql-database.html).
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Gdy Uzyskuję połączenie z bazą danych przy użyciu klucza fragmentowania, mogę nadal wykonywać zapytania o dane dla innych kluczy fragmentowania w tym samym fragmentu.  Jest to zaprojektowane przez
 

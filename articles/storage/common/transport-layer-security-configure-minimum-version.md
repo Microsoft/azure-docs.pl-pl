@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/27/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07f506ac46b8aa503138cec33918534ea309defc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018581"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785803"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Wymuś minimalną wymaganą wersję Transport Layer Security (TLS) dla żądań kierowanych do konta magazynu
 
@@ -33,7 +33,7 @@ Aby uzyskać informacje dotyczące sposobu określania określonej wersji protok
 
 Po wymuszeniu minimalnej wersji protokołu TLS dla konta magazynu ryzyko odrzucenia żądań od klientów wysyłających dane przy użyciu starszej wersji protokołu TLS. Aby zrozumieć, jak konfigurowanie minimalnej wersji protokołu TLS może mieć wpływ na aplikacje klienckie, firma Microsoft zaleca włączenie rejestrowania dla konta usługi Azure Storage i przeanalizowanie dzienników po upływie interwału czasu w celu wykrycia, które wersje aplikacji klienckich TLS są używane.
 
-Aby rejestrować żądania na koncie usługi Azure Storage i określać wersję protokołu TLS używaną przez klienta, można użyć rejestrowania w usłudze Azure Storage w Azure Monitor (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [monitorowanie usługi Azure Storage](monitor-storage.md).
+Aby rejestrować żądania na koncie usługi Azure Storage i określać wersję protokołu TLS używaną przez klienta, można użyć rejestrowania w usłudze Azure Storage w Azure Monitor (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [monitorowanie usługi Azure Storage](../blobs/monitor-blob-storage.md).
 
 Rejestrowanie w usłudze Azure Storage w Azure Monitor obsługuje używanie zapytań dzienników do analizowania danych dziennika. Aby wykonywać zapytania dotyczące dzienników, możesz użyć obszaru roboczego usługi Azure Log Analytics. Aby dowiedzieć się więcej o zapytaniach dziennika, zobacz [Samouczek: Rozpoczynanie pracy z zapytaniami log Analytics](../../azure-monitor/log-query/get-started-portal.md).
 
@@ -42,18 +42,18 @@ Aby rejestrować dane usługi Azure Storage za pomocą Azure Monitor i analizowa
 1. Zarejestruj się w [usłudze Azure Storage w wersji zapoznawczej Azure monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Utwórz nowy obszar roboczy Log Analytics w subskrypcji zawierającej konto usługi Azure Storage. Po skonfigurowaniu rejestrowania dla konta magazynu dzienniki będą dostępne w obszarze roboczym Log Analytics. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego log Analytics w Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
 1. W witrynie Azure Portal przejdź do swojego konta magazynu.
-1. W sekcji monitorowanie wybierz pozycję **Ustawienia diagnostyczne (wersja zapoznawcza)**.
+1. W sekcji monitorowanie wybierz pozycję **Ustawienia diagnostyczne (wersja zapoznawcza)** .
 1. Wybierz usługę Azure Storage, dla której chcesz rejestrować żądania. Na przykład wybierz **obiekt BLOB** , aby rejestrować żądania do magazynu obiektów BLOB.
-1. Wybierz pozycję **Dodaj ustawienie diagnostyczne**.
+1. Wybierz pozycję **Dodaj ustawienie diagnostyczne** .
 1. Podaj nazwę dla ustawienia diagnostyki.
-1. W obszarze **szczegóły kategorii**w sekcji **Dziennik** wybierz typy żądań do zarejestrowania. Można rejestrować żądania odczytu, zapisu i usuwania. Na przykład wybranie **StorageRead** i **StorageWrite** będzie rejestrować żądania odczytu i zapisu do wybranej usługi.
-1. W obszarze **szczegóły miejsca docelowego**wybierz pozycję **Wyślij do log Analytics**. Wybierz swoją subskrypcję i utworzony wcześniej obszar roboczy Log Analytics, jak pokazano na poniższej ilustracji.
+1. W obszarze **szczegóły kategorii** w sekcji **Dziennik** wybierz typy żądań do zarejestrowania. Można rejestrować żądania odczytu, zapisu i usuwania. Na przykład wybranie **StorageRead** i **StorageWrite** będzie rejestrować żądania odczytu i zapisu do wybranej usługi.
+1. W obszarze **szczegóły miejsca docelowego** wybierz pozycję **Wyślij do log Analytics** . Wybierz swoją subskrypcję i utworzony wcześniej obszar roboczy Log Analytics, jak pokazano na poniższej ilustracji.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia ustawień diagnostycznych żądań rejestrowania":::
 
 Po utworzeniu ustawienia diagnostycznego żądania kierowane do konta magazynu są następnie rejestrowane zgodnie z tym ustawieniem. Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników zasobów i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Aby uzyskać informacje na temat pól dostępnych w dziennikach usługi Azure Storage w Azure Monitor, zobacz [dzienniki zasobów (wersja zapoznawcza)](monitor-storage-reference.md#resource-logs-preview).
+Aby uzyskać informacje na temat pól dostępnych w dziennikach usługi Azure Storage w Azure Monitor, zobacz [dzienniki zasobów (wersja zapoznawcza)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
 ### <a name="query-logged-requests-by-tls-version"></a>Wysyłanie zapytań o zarejestrowane żądania według wersji protokołu TLS
 
@@ -91,9 +91,6 @@ Jeśli masz pewność, że ruch od klientów korzystających ze starszych wersji
 
 Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu, ustaw wersję **MinimumTlsVersion** dla konta. Ta właściwość jest dostępna dla wszystkich kont magazynu utworzonych za pomocą modelu wdrażania Azure Resource Manager. Aby uzyskać więcej informacji o modelu wdrażania Azure Resource Manager, zobacz temat [konto magazynu — Omówienie](storage-account-overview.md).
 
-> [!NOTE]
-> Właściwość **MinimumTlsVersion** jest obecnie dostępna tylko dla kont magazynu w chmurze publicznej platformy Azure.
-
 # <a name="portal"></a>[Portal](#tab/portal)
 
 Podczas tworzenia konta magazynu przy użyciu Azure Portal minimalna wersja protokołu TLS jest domyślnie ustawiona na 1,2.
@@ -102,15 +99,15 @@ Aby skonfigurować minimalną wersję protokołu TLS dla istniejącego konta mag
 
 1. W witrynie Azure Portal przejdź do swojego konta magazynu.
 1. Wybierz ustawienie **konfiguracji** .
-1. W obszarze **minimalna wersja protokołu TLS**Użyj listy rozwijanej, aby wybrać minimalną wersję protokołu TLS wymaganą do uzyskania dostępu do danych na tym koncie magazynu, jak pokazano na poniższej ilustracji.
+1. W obszarze **minimalna wersja protokołu TLS** Użyj listy rozwijanej, aby wybrać minimalną wersję protokołu TLS wymaganą do uzyskania dostępu do danych na tym koncie magazynu, jak pokazano na poniższej ilustracji.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Zrzut ekranu przedstawiający sposób tworzenia ustawień diagnostycznych żądań rejestrowania":::
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu za pomocą programu PowerShell, zainstaluj [Azure PowerShell w wersji 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) lub nowszej. Następnie skonfiguruj Właściwość **MinimumTLSVersion** dla nowego lub istniejącego konta magazynu. Prawidłowe wartości dla **MinimumTlsVersion** to `TLS1_0` , `TLS1_1` i `TLS1_2` .
 
-Właściwość **MinimumTlsVersion** nie jest domyślnie ustawiana podczas tworzenia konta magazynu przy użyciu programu PowerShell. Ta właściwość nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej, jeśli wartość właściwości jest **równa null**.
+Właściwość **MinimumTlsVersion** nie jest domyślnie ustawiana podczas tworzenia konta magazynu przy użyciu programu PowerShell. Ta właściwość nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej, jeśli wartość właściwości jest **równa null** .
 
 Poniższy przykład tworzy konto magazynu i ustawia **MinimumTLSVersion** na TLS 1,1, a następnie aktualizuje konto i ustawia **MinimumTLSVersion** na TLS 1,2. Przykład pobiera również wartość właściwości w każdym przypadku. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
@@ -142,7 +139,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 
 Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure, zainstaluj interfejs wiersza polecenia platformy Azure w wersji 2.9.0 lub nowszej. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Następnie skonfiguruj Właściwość **minimumTlsVersion** dla nowego lub istniejącego konta magazynu. Prawidłowe wartości dla **minimumTlsVersion** to `TLS1_0` , `TLS1_1` i `TLS1_2` .
 
-Właściwość **minimumTlsVersion** nie jest domyślnie ustawiana podczas tworzenia konta magazynu przy użyciu interfejsu wiersza polecenia platformy Azure. Ta właściwość nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej, jeśli wartość właściwości jest **równa null**.
+Właściwość **minimumTlsVersion** nie jest domyślnie ustawiana podczas tworzenia konta magazynu przy użyciu interfejsu wiersza polecenia platformy Azure. Ta właściwość nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej, jeśli wartość właściwości jest **równa null** .
 
 Poniższy przykład tworzy konto magazynu i ustawia **minimumTLSVersion** na TLS 1,1. Następnie aktualizuje konto i ustawia właściwość **minimumTLSVersion** na TLS 1,2. Przykład pobiera również wartość właściwości w każdym przypadku. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
@@ -176,9 +173,9 @@ az storage account show \
 
 Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu z szablonem, Utwórz szablon z właściwością **MinimumTLSVersion** ustawioną na wartość `TLS1_0` , `TLS1_1` lub `TLS1_2` . Poniższe kroki opisują sposób tworzenia szablonu w Azure Portal.
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób**.
-1. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
-1. Wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych) (wersja zapoznawcza)**, wybierz pozycję **Utwórz**, a następnie wybierz opcję **Kompiluj własny szablon w edytorze**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób** .
+1. W obszarze **Wyszukaj w portalu Marketplace** wpisz **wdrożenie szablonu** , a następnie naciśnij klawisz **Enter** .
+1. Wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych) (wersja zapoznawcza)** , wybierz pozycję **Utwórz** , a następnie wybierz opcję **Kompiluj własny szablon w edytorze** .
 1. W edytorze szablonów wklej poniższy kod JSON, aby utworzyć nowe konto i ustawić minimalną wersję protokołu TLS na TLS 1,2. Pamiętaj, aby zastąpić symbole zastępcze w nawiasach kątowe własnymi wartościami.
 
     ```json
@@ -221,7 +218,7 @@ Skonfigurowanie minimalnej wersji protokołu TLS wymaga wersji 2019-04-01 lub no
 
 ### <a name="check-the-minimum-required-tls-version-for-multiple-accounts"></a>Sprawdź minimalną wymaganą wersję protokołu TLS dla wielu kont
 
-Aby sprawdzić minimalną wymaganą wersję protokołu TLS w zestawie kont magazynu z optymalną wydajnością, można użyć Eksploratora Azure Resource Graph w Azure Portal. Aby dowiedzieć się więcej o korzystaniu z Eksploratora grafów zasobów, zobacz [Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph](/azure/governance/resource-graph/first-query-portal).
+Aby sprawdzić minimalną wymaganą wersję protokołu TLS w zestawie kont magazynu z optymalną wydajnością, można użyć Eksploratora Azure Resource Graph w Azure Portal. Aby dowiedzieć się więcej o korzystaniu z Eksploratora grafów zasobów, zobacz [Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph](../../governance/resource-graph/first-query-portal.md).
 
 Uruchomienie następującego zapytania w Eksploratorze grafu zasobów zwraca listę kont magazynu i wyświetla minimalną wersję protokołu TLS dla każdego konta:
 
@@ -249,11 +246,11 @@ Azure Policy obsługuje efekty, które określają, co się dzieje, gdy reguła 
 Aby utworzyć zasady z efektem inspekcji dla minimalnej wersji protokołu TLS z Azure Portal, wykonaj następujące czynności:
 
 1. W Azure Portal przejdź do usługi Azure Policy.
-1. W sekcji **Tworzenie** wybierz pozycję **definicje**.
+1. W sekcji **Tworzenie** wybierz pozycję **definicje** .
 1. Wybierz pozycję **Dodaj definicję zasad** , aby utworzyć nową definicję zasad.
 1. W polu **Lokalizacja definicji** wybierz przycisk **więcej** , aby określić, gdzie znajduje się zasób zasady inspekcji.
 1. Określ nazwę zasad. Opcjonalnie można określić opis i kategorię.
-1. W obszarze **reguła zasad**Dodaj następującą definicję zasad do sekcji **Klasa policyrule** .
+1. W obszarze **reguła zasad** Dodaj następującą definicję zasad do sekcji **Klasa policyrule** .
 
     ```json
     {
@@ -286,12 +283,12 @@ Następnie przypisz zasady do zasobu. Zakres zasad odpowiada ten zasób i wszyst
 Aby przypisać zasady do Azure Portal, wykonaj następujące kroki:
 
 1. W Azure Portal przejdź do usługi Azure Policy.
-1. W sekcji **Tworzenie** wybierz pozycję **przypisania**.
+1. W sekcji **Tworzenie** wybierz pozycję **przypisania** .
 1. Wybierz pozycję **Przypisz zasady** , aby utworzyć nowe przypisanie zasad.
 1. Dla pola **zakres** wybierz zakres przypisania zasad.
 1. W polu **Definicja zasad** wybierz przycisk **więcej** , a następnie wybierz zasady zdefiniowane w poprzedniej sekcji z listy.
 1. Podaj nazwę przypisania zasad. Opis jest opcjonalny.
-1. Pozostaw ustawienie **wymuszania zasad** ustawiony na *włączone*. To ustawienie nie ma wpływu na zasady inspekcji.
+1. Pozostaw ustawienie **wymuszania zasad** ustawiony na *włączone* . To ustawienie nie ma wpływu na zasady inspekcji.
 1. Wybierz pozycję **Przegląd + Utwórz** , aby utworzyć przypisanie.
 
 ### <a name="view-compliance-report"></a>Wyświetl raport zgodności
@@ -303,7 +300,7 @@ Po utworzeniu przypisania zasad może upłynąć kilka minut, zanim raport zgodn
 Aby wyświetlić raport zgodności w Azure Portal, wykonaj następujące kroki:
 
 1. W Azure Portal przejdź do usługi Azure Policy.
-1. Wybierz pozycję **zgodność**.
+1. Wybierz pozycję **zgodność** .
 1. Filtruje wyniki dla nazwy przypisania zasad utworzonego w poprzednim kroku. Raport przedstawia, ile zasobów nie jest zgodnych z zasadami.
 1. Możesz przejść do raportu, aby uzyskać dodatkowe szczegóły, w tym listę kont magazynu, które nie są zgodne.
 

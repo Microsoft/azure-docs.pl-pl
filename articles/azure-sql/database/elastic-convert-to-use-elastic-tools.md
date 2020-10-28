@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443469"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787146"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrowanie istniejących baz danych w celu skalowania w poziomie
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -72,7 +72,7 @@ W przypadku modelu z jedną dzierżawą Utwórz mapę **listy mapowania** fragme
 
 ![Mapowanie listy][1]
 
-Model wielu dzierżawców przypisuje kilka dzierżawców do pojedynczej bazy danych (i można dystrybuować grupy dzierżawców w wielu bazach danych). Użyj tego modelu, gdy oczekuje się, że każda dzierżawa będzie miała małe potrzeby w zakresie danych. W tym modelu Przypisz zakres dzierżawców do bazy danych przy użyciu **mapowania zakresu**.
+Model wielu dzierżawców przypisuje kilka dzierżawców do pojedynczej bazy danych (i można dystrybuować grupy dzierżawców w wielu bazach danych). Użyj tego modelu, gdy oczekuje się, że każda dzierżawa będzie miała małe potrzeby w zakresie danych. W tym modelu Przypisz zakres dzierżawców do bazy danych przy użyciu **mapowania zakresu** .
 
 ![Mapowanie zakresu][2]
 
@@ -162,13 +162,13 @@ Narzędzia są również w serwisie GitHub: [Azure/Elastic-DB-Tools](https://git
 
 Użyj narzędzia Split-Merge do przenoszenia danych do modelu z wieloma dzierżawcami lub z niego do modelu z jednym dzierżawcą. Zobacz [dzielenie narzędzia do scalania](elastic-scale-get-started.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Aby uzyskać informacje na temat typowych wzorców architektury danych w aplikacjach baz danych typu oprogramowanie jako usługa (SaaS), zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database).
 
 ## <a name="questions-and-feature-requests"></a>Pytania i żądania funkcji
 
-Pytania można uzyskać, korzystając z [&stronie](https://docs.microsoft.com/answers/topics/azure-sql-database.html) pytań i odpowiedzi dla SQL Database i dla żądań funkcji, Dodaj je do [forum SQL Database opinii](https://feedback.azure.com/forums/217321-sql-database/).
+Pytania można uzyskać, korzystając z [&stronie](/answers/topics/azure-sql-database.html) pytań i odpowiedzi dla SQL Database i dla żądań funkcji, Dodaj je do [forum SQL Database opinii](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1a2c4364337083be005c550a8859079cd3bb1218
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167954"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786432"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Najlepsze rozwiązania dotyczące konfiguracji klastra (SQL Server w usłudze Azure Virtual Machines)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ Klaster jest używany w celu zapewnienia wysokiej dostępności i odzyskiwania p
 W tym artykule przedstawiono najlepsze rozwiązania w zakresie konfiguracji klastra dla [wystąpień klastra trybu failover (FCIS)](failover-cluster-instance-overview.md) i [grupy dostępności](availability-group-overview.md) , gdy są używane z SQL Server na maszynach wirtualnych platformy Azure. 
 
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 Użyj pojedynczej karty sieciowej na serwer (węzeł klastra) i pojedynczej podsieci. Sieć platformy Azure ma fizyczną nadmiarowość, co sprawia, że dodatkowe karty sieciowe i podsieci nie są potrzebne w klastrze gościa maszyny wirtualnej platformy Azure. Raport weryfikacji klastra ostrzega o tym, że węzły są dostępne tylko w jednej sieci. To ostrzeżenie można zignorować w klastrach trybu failover gościa maszyny wirtualnej platformy Azure.
 
@@ -56,7 +56,7 @@ Skonfiguruj dysk udostępniony platformy Azure jako monitor dysku.
 Aby rozpocząć, zobacz [Konfigurowanie monitora dysku](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Obsługiwany system operacyjny**: wszystkie   
+**Obsługiwany system operacyjny** : wszystkie   
 
 
 ### <a name="cloud-witness"></a>Monitor w chmurze
@@ -66,7 +66,7 @@ Monitor w chmurze to typ monitora kworum klastra trybu failover, który używa M
 Aby rozpocząć, zobacz [Configure a Cloud monitor](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
 
 
-**Obsługiwane systemy operacyjne**: Windows Server 2016 i nowsze   
+**Obsługiwane systemy operacyjne** : Windows Server 2016 i nowsze   
 
 
 ### <a name="file-share-witness"></a>Monitor udziału plików
@@ -78,7 +78,7 @@ Jeśli zamierzasz korzystać z udziału plików platformy Azure, możesz go zain
 Aby rozpocząć, zobacz [Konfigurowanie monitora udziału plików](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Obsługiwane systemy operacyjne**: Windows Server 2012 i nowsze   
+**Obsługiwane systemy operacyjne** : Windows Server 2012 i nowsze   
 
 ## <a name="connectivity"></a>Łączność
 
@@ -89,7 +89,7 @@ Użyj VNN z Azure Load Balancer lub nazwy sieci rozproszonej (DNN), aby skierowa
 
 Poniższa tabela zawiera porównanie obsługi połączeń HADR cluster: 
 
-| |**Nazwa sieci wirtualnej (VNN)**  |**Nazwa sieci rozproszonej (DNN)**  |
+| |**Nazwa Virtual Network (VNN)**  |**Nazwa sieci rozproszonej (DNN)**  |
 |---------|---------|---------|
 |**Minimalna wersja systemu operacyjnego**| Wszystko | Windows Server 2016 |
 |**Minimalna wersja SQL Server** |Wszystko |SQL Server 2019 ZASTOSUJESZ pakietu CU2 (dla FCI)<br/> SQL Server 2019 CU8 (for AG)|
@@ -104,9 +104,9 @@ W przypadku korzystania z modułu równoważenia obciążenia występuje niewiel
 
 Aby rozpocząć, Dowiedz się, jak skonfigurować Azure Load Balancer dla [wystąpienia klastra trybu failover](failover-cluster-instance-vnn-azure-load-balancer-configure.md) lub [grupy dostępności](availability-group-vnn-azure-load-balancer-configure.md)
 
-**Obsługiwany system operacyjny**: wszystkie   
-**Obsługiwana wersja programu SQL**: wszystkie   
-**Obsługiwane rozwiązanie HADR Cluster**: wystąpienie klastra trybu failover i Grupa dostępności   
+**Obsługiwany system operacyjny** : wszystkie   
+**Obsługiwana wersja programu SQL** : wszystkie   
+**Obsługiwane rozwiązanie HADR Cluster** : wystąpienie klastra trybu failover i Grupa dostępności   
 
 
 ### <a name="distributed-network-name-dnn"></a>Nazwa sieci rozproszonej (DNN)
@@ -124,9 +124,9 @@ Większość SQL Server funkcje działają w sposób przezroczysty z FCI i grupa
 
 Aby rozpocząć, zapoznaj się z tematem Konfigurowanie zasobu rozproszonej nazwy sieciowej dla [wystąpienia klastra trybu failover](failover-cluster-instance-distributed-network-name-dnn-configure.md) lub [grupy dostępności](availability-group-distributed-network-name-dnn-listener-configure.md)
 
-**Obsługiwane systemy operacyjne**: Windows Server 2016 i nowsze   
-**Obsługiwana wersja programu SQL**: SQL Server 2019 ZASTOSUJESZ pakietu CU2 (FCI) i SQL Server 2019 CU8 (AG)   
-**Obsługiwane rozwiązanie HADR Cluster**: wystąpienie klastra trybu failover i Grupa dostępności   
+**Obsługiwane systemy operacyjne** : Windows Server 2016 i nowsze   
+**Obsługiwana wersja programu SQL** : SQL Server 2019 ZASTOSUJESZ pakietu CU2 (FCI) i SQL Server 2019 CU8 (AG)   
+**Obsługiwane rozwiązanie HADR Cluster** : wystąpienie klastra trybu failover i Grupa dostępności   
 
 
 ## <a name="limitations"></a>Ograniczenia
@@ -135,7 +135,7 @@ Podczas pracy z FCI lub grupami dostępności oraz SQL Server na platformie Azur
 
 ### <a name="msdtc"></a>ZNAJDUJĄC 
 
-Usługa Azure Virtual Machines obsługuje usługę Microsoft Distributed Transaction Coordinator (MSDTC) w systemie Windows Server 2019 z magazynem na udostępnionych woluminach klastra (CSV) i [Usługa Load Balancer w warstwie Standardowa platformy Azure](../../../load-balancer/load-balancer-standard-overview.md) lub na SQL Server maszynach wirtualnych korzystających z dysków udostępnionych na platformie Azure. 
+Usługa Azure Virtual Machines obsługuje usługę Microsoft Distributed Transaction Coordinator (MSDTC) w systemie Windows Server 2019 z magazynem na udostępnionych woluminach klastra (CSV) i [Usługa Load Balancer w warstwie Standardowa platformy Azure](../../../load-balancer/load-balancer-overview.md) lub na SQL Server maszynach wirtualnych korzystających z dysków udostępnionych na platformie Azure. 
 
 Na platformie Azure Virtual Machines usługa MSDTC nie jest obsługiwana w przypadku systemu Windows Server 2016 lub starszego z klastrowanymi woluminami udostępnionymi, ponieważ:
 
@@ -145,5 +145,4 @@ Na platformie Azure Virtual Machines usługa MSDTC nie jest obsługiwana w przyp
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po ustaleniu odpowiednich najlepszych rozwiązań dla Twojego rozwiązania Zacznij od [przygotowania SQL Server maszyny wirtualnej do FCI](failover-cluster-instance-prepare-vm.md) lub przez utworzenie grupy dostępności przy użyciu [Azure Portal](availability-group-azure-portal-configure.md), [interfejsu wiersza polecenia platformy Azure/programu PowerShell](availability-group-az-cli-configure.md)lub [szablonów szybkiego startu platformy Azure](availability-group-quickstart-template-configure.md). 
-
+Po ustaleniu odpowiednich najlepszych rozwiązań dla Twojego rozwiązania Zacznij od [przygotowania SQL Server maszyny wirtualnej do FCI](failover-cluster-instance-prepare-vm.md) lub przez utworzenie grupy dostępności przy użyciu [Azure Portal](availability-group-azure-portal-configure.md), [interfejsu wiersza polecenia platformy Azure/programu PowerShell](./availability-group-az-commandline-configure.md)lub [szablonów szybkiego startu platformy Azure](availability-group-quickstart-template-configure.md).

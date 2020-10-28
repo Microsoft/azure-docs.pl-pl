@@ -9,18 +9,18 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 37e56caa8242709214265af0e1fc03c3853300f1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 971f0cd74d7ccc6e2b0d8049a4441ba3d465b70a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488796"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787673"
 ---
-# <a name="azure-storage-analytics-logging"></a>Rejestrowanie analizy usługi Azure Storage
+# <a name="azure-storage-analytics-logging"></a>Rejestrowanie usługi Azure Storage Analytics
 
 Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku.
 
- Rejestrowanie w usłudze Storage Analytics nie jest domyślnie włączone dla Twojego konta magazynu. Można ją włączyć w [Azure Portal](https://portal.azure.com/); Aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w Azure Portal](/azure/storage/storage-monitor-storage-account). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Aby włączyć analityka magazynu dla każdej usługi, użyj [właściwości get BLOB Service](/rest/api/storageservices/Blob-Service-REST-API), [Pobierz właściwości usługi kolejkowania](/rest/api/storageservices/Get-Queue-Service-Properties)i [Pobierz właściwości usługi Table](/rest/api/storageservices/Get-Table-Service-Properties) Service.
+ Rejestrowanie w usłudze Storage Analytics nie jest domyślnie włączone dla Twojego konta magazynu. Można ją włączyć w [Azure Portal](https://portal.azure.com/); Aby uzyskać szczegółowe informacje, zobacz [Monitorowanie konta magazynu w Azure Portal](./storage-monitor-storage-account.md). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Aby włączyć analityka magazynu dla każdej usługi, użyj [właściwości get BLOB Service](/rest/api/storageservices/Blob-Service-REST-API), [Pobierz właściwości usługi kolejkowania](/rest/api/storageservices/Get-Queue-Service-Properties)i [Pobierz właściwości usługi Table](/rest/api/storageservices/Get-Table-Service-Properties) Service.
 
  Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do punktu końcowego usługi. Na przykład jeśli konto magazynu ma aktywność w swoim punkcie końcowym obiektu BLOB, ale nie znajduje się w jego punktach końcowych tabeli lub kolejki, zostaną utworzone tylko dzienniki dotyczące Blob service.
 
@@ -77,7 +77,7 @@ Większość narzędzi do przeglądania magazynu umożliwia przeglądanie metada
  }  
  ```  
 
-Aby uzyskać informacje na temat programistycznego tworzenia listy obiektów blob, zobacz [wyliczanie zasobów obiektów BLOB](https://msdn.microsoft.com/library/azure/hh452233.aspx) i [Ustawianie właściwości i metadanych dla zasobów obiektów BLOB](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
+Aby uzyskać informacje na temat programistycznego tworzenia listy obiektów blob, zobacz [wyliczanie zasobów obiektów BLOB](/rest/api/storageservices/Enumerating-Blob-Resources) i [Ustawianie właściwości i metadanych dla zasobów obiektów BLOB](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources).  
 
 ### <a name="log-naming-conventions"></a>Konwencje nazewnictwa dzienników
 
@@ -131,7 +131,7 @@ Rejestrowanie magazynu można włączyć przy użyciu zestawów SDK Azure Portal
 
 ### <a name="enable-storage-logging-using-the-azure-portal"></a>Włącz rejestrowanie magazynu przy użyciu Azure Portal  
 
-W Azure Portal użyj bloku **ustawień diagnostycznych (klasyczny)** , aby kontrolować Rejestrowanie magazynu, dostępne w sekcji **monitorowanie (klasyczne)** w **bloku menu**konta magazynu.
+W Azure Portal użyj bloku **ustawień diagnostycznych (klasyczny)** , aby kontrolować Rejestrowanie magazynu, dostępne w sekcji **monitorowanie (klasyczne)** w **bloku menu** konta magazynu.
 
 Możesz określić usługi magazynu, które mają być rejestrowane, oraz okres przechowywania (w dniach) dla zarejestrowanych danych.  
 
@@ -139,7 +139,7 @@ Możesz określić usługi magazynu, które mają być rejestrowane, oraz okres 
 
  Aby skonfigurować rejestrowanie magazynu na koncie magazynu przy Azure PowerShell użyciu polecenia cmdlet **Get-AzStorageServiceLoggingProperty** w programie PowerShell, można użyć narzędzia do pobrania bieżących ustawień oraz polecenia cmdlet **Set-AzStorageServiceLoggingProperty** w celu zmiany bieżących ustawień.  
 
- Polecenia cmdlet kontrolujące Rejestrowanie magazynu używają **LoggingOperations** parametru, który jest ciągiem zawierającym rozdzielaną przecinkami listę typów żądań do rejestrowania. Trzy możliwe typy żądań to **Odczyt**, **zapis**i **usuwanie**. Aby wyłączyć rejestrowanie, użyj wartości **none** dla parametru **LoggingOperations** .  
+ Polecenia cmdlet kontrolujące Rejestrowanie magazynu używają **LoggingOperations** parametru, który jest ciągiem zawierającym rozdzielaną przecinkami listę typów żądań do rejestrowania. Trzy możliwe typy żądań to **Odczyt** , **zapis** i **usuwanie** . Aby wyłączyć rejestrowanie, użyj wartości **none** dla parametru **LoggingOperations** .  
 
  Następujące polecenie przełącza do rejestrowania żądań odczytu, zapisu i usuwania w usługa kolejki na domyślnym koncie magazynu z ustawionym okresem przechowywania na pięć dni:  
 
@@ -153,7 +153,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,w
 Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
- Aby uzyskać informacje dotyczące sposobu konfigurowania Azure PowerShell poleceń cmdlet do pracy z subskrypcją platformy Azure i wybierania domyślnego konta magazynu do użycia, zobacz: [jak zainstalować i skonfigurować Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+ Aby uzyskać informacje dotyczące sposobu konfigurowania Azure PowerShell poleceń cmdlet do pracy z subskrypcją platformy Azure i wybierania domyślnego konta magazynu do użycia, zobacz: [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Programowo Włącz rejestrowanie magazynu  
 
@@ -179,9 +179,9 @@ queueClient.SetServiceProperties(serviceProperties);
 ---
 
 
- Aby uzyskać więcej informacji na temat konfigurowania rejestrowania magazynu przy użyciu języka .NET, zobacz [Dokumentacja biblioteki klienta usługi Storage](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
+ Aby uzyskać więcej informacji na temat konfigurowania rejestrowania magazynu przy użyciu języka .NET, zobacz [Dokumentacja biblioteki klienta usługi Storage](/previous-versions/azure/dn261237(v=azure.100)).  
 
- Aby uzyskać ogólne informacje o konfigurowaniu rejestrowania magazynu za pomocą interfejsu API REST, zobacz [Włączanie i konfigurowanie analityka magazynu](https://msdn.microsoft.com/library/azure/hh360996.aspx).  
+ Aby uzyskać ogólne informacje o konfigurowaniu rejestrowania magazynu za pomocą interfejsu API REST, zobacz [Włączanie i konfigurowanie analityka magazynu](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
 ## <a name="download-storage-logging-log-data"></a>Pobieranie danych dziennika rejestrowania magazynu
 
@@ -204,7 +204,7 @@ Poniższy przykład pokazuje, jak można pobrać dane dziennika dla usługi kole
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Aby dowiedzieć się więcej o pobieraniu określonych plików, zobacz [pobieranie określonych plików](/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
+Aby dowiedzieć się więcej o pobieraniu określonych plików, zobacz [pobieranie określonych plików](./storage-use-azcopy-blobs.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#download-specific-files).
 
 Po pobraniu danych dziennika można wyświetlić wpisy dziennika w plikach. Te pliki dzienników używają rozdzielanego formatu tekstu, który umożliwia przeanalizowanie wielu narzędzi do odczytywania dzienników (Aby uzyskać więcej informacji, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Różne narzędzia mają różne pomieszczenia do formatowania, filtrowania, sortowania, wyszukiwania w usłudze AD zawartości plików dziennika. Aby uzyskać więcej informacji na temat formatu i zawartości pliku dziennika rejestrowania magazynu, zobacz [analityka magazynu format dziennika](/rest/api/storageservices/storage-analytics-log-format) i [analityka magazynu zarejestrowanych operacji i komunikatów o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

@@ -474,6 +474,10 @@
               href: flexible-server/concepts-audit-logs.md
             - name: Metryki
               href: flexible-server/concepts-monitoring.md
+        - name: Replikacja
+          items:
+            - name: Repliki do odczytu
+              href: flexible-server/concepts-read-replicas.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Zarządzanie serwerem
@@ -536,6 +540,16 @@
               items:
                 - name: Azure Portal
                   href: flexible-server/how-to-configure-audit-logs-portal.md
+        - name: Ponowne uruchamianie serwera
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-restart-server-portal.md
+        - name: Replikacja
+          items:
+            - name: Tworzenie replik do odczytu w witrynie Azure Portal
+              href: flexible-server/how-to-read-replicas-portal.md
+            - name: Tworzenie replik do odczytu za pomocą interfejsu wiersza polecenia platformy Azure
+              href: flexible-server/how-to-read-replicas-cli.md
         - name: Rozwiązywanie problemów
           items:
             - name: Błędy połączenia

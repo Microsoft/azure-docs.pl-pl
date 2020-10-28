@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855926"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787469"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
 
@@ -71,7 +71,7 @@ Aby ukończyć ten samouczek, należy odwołać się do następujących czterech
 
 Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące kroki:
 
-1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**i wybierz polecenie **Zarządzaj pakietami NuGet**.
+1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet** .
 1. Wybierz pozycję **Przeglądaj**
 1. Wyszukaj w trybie online pozycję "Azure. Storage. Queues" i wybierz pozycję **Zainstaluj** , aby zainstalować bibliotekę klienta magazynu i jej zależności. Spowoduje to również zainstalowanie bibliotek Azure. Storage. Common i Azure. Core, które są zależnościami biblioteki kolejki.
 1. Wyszukaj w trybie online pozycję "System.Configuration.ConfigurationManager", a następnie wybierz pozycję **Zainstaluj** , aby zainstalować Configuration Manager.
@@ -86,7 +86,7 @@ Aby ukończyć ten samouczek, należy odwołać się do następujących trzech p
 
 Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące kroki:
 
-1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**i wybierz polecenie **Zarządzaj pakietami NuGet**.
+1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet** .
 1. Wybierz pozycję **Przeglądaj**
 1. Wyszukaj w trybie online pozycję "Microsoft. Azure. Storage. queue" i wybierz pozycję **Zainstaluj** , aby zainstalować bibliotekę klienta magazynu i jej zależności. Spowoduje to również zainstalowanie biblioteki Microsoft. Azure. Storage. Common, która jest zależna od biblioteki kolejki.
 1. Wyszukaj w trybie online pozycję "Microsoft.Azure.ConfigurationManager", a następnie wybierz pozycję **Zainstaluj** , aby zainstalować usługę Azure Configuration Manager.
@@ -113,8 +113,8 @@ Przykładowy kod musi autoryzować dostęp do konta magazynu. Na potrzeby autory
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
 2. Odszukaj konto magazynu.
-3. W sekcji **Ustawienia** omówienia kont magazynu wybierz pozycję **Klucze dostępu**. Zostaną wyświetlone klucze dostępu do Twojego konta, a także pełne parametry połączenia dla każdego klucza.
-4. Znajdź wartość **Parametry połączenia** w obszarze **key1**i kliknij przycisk **Kopiuj**, aby skopiować parametry połączenia. W następnym kroku dodasz wartość parametrów połączenia do zmiennej środowiskowej.
+3. W sekcji **Ustawienia** omówienia kont magazynu wybierz pozycję **Klucze dostępu** . Zostaną wyświetlone klucze dostępu do Twojego konta, a także pełne parametry połączenia dla każdego klucza.
+4. Znajdź wartość **Parametry połączenia** w obszarze **key1** i kliknij przycisk **Kopiuj** , aby skopiować parametry połączenia. W następnym kroku dodasz wartość parametrów połączenia do zmiennej środowiskowej.
 
     ![Zrzut ekranu pokazujący sposób kopiowania parametrów połączenia z witryny Azure Portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
@@ -349,7 +349,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Używanie wzorca Async-Await z wspólnymi interfejsami API usługi Queue Storage
 
-Ten przykład przedstawia sposób użycia wzorca Async-Await z wykorzystaniem wspólnych interfejsów API usługi Queue Storage. Przykład wywołuje asynchroniczną wersję każdej z danych metod, co jest wskazane przez sufiks *Async* każdej metody. Jeśli zostanie użyta metoda asynchroniczna, wzorzec Async-Await zawiesi lokalne wykonanie do momentu ukończenia wywołania. Takie zachowanie umożliwia wykonywanie innych zadań przez bieżący wątek, co pomaga unikać wąskich gardeł zmniejszających wydajność i poprawia ogólną szybkość reakcji aplikacji. Aby uzyskać szczegółowe informacje o wykorzystaniu wzorca Async-Await w programie .NET, zobacz [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) (Async i Await [C# i Visual Basic]).
+Ten przykład przedstawia sposób użycia wzorca Async-Await z wykorzystaniem wspólnych interfejsów API usługi Queue Storage. Przykład wywołuje asynchroniczną wersję każdej z danych metod, co jest wskazane przez sufiks *Async* każdej metody. Jeśli zostanie użyta metoda asynchroniczna, wzorzec Async-Await zawiesi lokalne wykonanie do momentu ukończenia wywołania. Takie zachowanie umożliwia wykonywanie innych zadań przez bieżący wątek, co pomaga unikać wąskich gardeł zmniejszających wydajność i poprawia ogólną szybkość reakcji aplikacji. Aby uzyskać szczegółowe informacje o wykorzystaniu wzorca Async-Await w programie .NET, zobacz [Async and Await (C# and Visual Basic)](/previous-versions/hh191443(v=vs.140)) (Async i Await [C# i Visual Basic]).
 
 # <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 
@@ -489,10 +489,10 @@ queue.Delete();
 Teraz, kiedy znasz już podstawy usługi Queue Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
 
 - Przejrzyj dokumentację referencyjną usługi kolejki, aby uzyskać szczegółowe informacje o dostępnych interfejsach API:
-  - [Dokumentacja biblioteki klienta usługi Storage dla platformy .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [Dokumentacja interfejsu API REST](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Dokumentacja biblioteki klienta usługi Storage dla platformy .NET](/dotnet/api/overview/azure/storage)
+  - [Dokumentacja interfejsu API REST](/rest/api/storageservices/)
 - Wyświetl więcej poradników dotyczących funkcji, aby dowiedzieć się więcej o dodatkowych opcjach przechowywania danych na platformie Azure.
-  - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md), aby przechowywać dane strukturalne.
-  - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../blobs/storage-dotnet-how-to-use-blobs.md), aby przechowywać dane bez struktury.
+  - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](../../cosmos-db/tutorial-develop-table-dotnet.md), aby przechowywać dane strukturalne.
+  - Zapoznaj się z tematem [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../blobs/storage-quickstart-blobs-dotnet.md), aby przechowywać dane bez struktury.
   - [Połącz się z usługą SQL Database przy użyciu platformy .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md), aby zapisać dane relacyjne.
 - Dowiedz się, jak uprościć zapisywany kod, aby pracować z usługą Azure Storage za pomocą zestawu [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 396d2785d80ff29212dddcfb97adbff8ba9ce4c8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425162"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787486"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure queue storage
 
@@ -36,7 +36,7 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 
 #### <a name="queue-storage"></a>Queue Storage
 
-W tej tabeli przedstawiono [metryki magazynu kolejki](/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
+W tej tabeli przedstawiono [metryki magazynu kolejki](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Metryka | Opis |
 | ------------------- | ----------------- |
@@ -77,7 +77,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - Zobacz [monitorowanie usługi Azure queue storage](monitor-queue-storage.md) , aby uzyskać opis monitorowania usługi Azure Storage.
 - Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) .

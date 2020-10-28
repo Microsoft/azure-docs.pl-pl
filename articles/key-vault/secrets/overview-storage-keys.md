@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612187"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786279"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Zarządzanie kluczami konta magazynu przy użyciu Key Vault i interfejsu wiersza polecenia platformy Azure
 
@@ -32,13 +32,13 @@ Korzystając z funkcji zarządzanego klucza konta magazynu, należy rozważyć n
 
 Zalecamy korzystanie z integracji usługi Azure Storage z usługą Azure Active Directory (Azure AD), opartą na chmurze firmą Microsoft do zarządzania tożsamościami i dostępem. Integracja z usługą Azure AD jest dostępna dla [obiektów blob i kolejek platformy Azure](../../storage/common/storage-auth-aad.md)oraz zapewnia dostęp oparty na tokenach OAuth2 do usługi Azure Storage (podobnie jak Azure Key Vault).
 
-Usługa Azure AD umożliwia uwierzytelnianie aplikacji klienckiej przy użyciu tożsamości aplikacji lub użytkownika, a nie poświadczeń konta magazynu. Możesz użyć [tożsamości zarządzanej usługi Azure AD](/azure/active-directory/managed-identities-azure-resources/) podczas uruchamiania na platformie Azure. Tożsamości zarządzane usuwają potrzebę uwierzytelniania klienta i przechowywania poświadczeń w aplikacji lub w aplikacjach.
+Usługa Azure AD umożliwia uwierzytelnianie aplikacji klienckiej przy użyciu tożsamości aplikacji lub użytkownika, a nie poświadczeń konta magazynu. Możesz użyć [tożsamości zarządzanej usługi Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) podczas uruchamiania na platformie Azure. Tożsamości zarządzane usuwają potrzebę uwierzytelniania klienta i przechowywania poświadczeń w aplikacji lub w aplikacjach.
 
 Usługa Azure AD używa kontroli dostępu opartej na rolach (RBAC) do zarządzania autoryzacją, która również jest obsługiwana przez Key Vault.
 
 ## <a name="service-principal-application-id"></a>Identyfikator aplikacji głównej usługi
 
-Dzierżawa usługi Azure AD udostępnia każdą zarejestrowaną aplikację z jednostką [usługi](/azure/active-directory/develop/developer-glossary#service-principal-object). Jednostka usługi służy jako identyfikator aplikacji, który jest używany podczas konfigurowania autoryzacji w celu uzyskania dostępu do innych zasobów platformy Azure za pośrednictwem RBAC.
+Dzierżawa usługi Azure AD udostępnia każdą zarejestrowaną aplikację z jednostką [usługi](../../active-directory/develop/developer-glossary.md#service-principal-object). Jednostka usługi służy jako identyfikator aplikacji, który jest używany podczas konfigurowania autoryzacji w celu uzyskania dostępu do innych zasobów platformy Azure za pośrednictwem RBAC.
 
 Key Vault to aplikacja firmy Microsoft, która jest wstępnie zarejestrowana we wszystkich dzierżawach usługi Azure AD. Key Vault jest zarejestrowany w ramach tego samego identyfikatora aplikacji w każdej chmurze platformy Azure.
 
@@ -163,6 +163,6 @@ W danych wyjściowych tego polecenia zostanie wyświetlony ciąg definicji sygna
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [kluczach, wpisach tajnych i certyfikatach](https://docs.microsoft.com/rest/api/keyvault/).
-- Zapoznaj się z artykułami na [blogu zespołu Azure Key Vault](https://blogs.technet.microsoft.com/kv/).
-- Zapoznaj się z dokumentacją [AZ magazynu Storage](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest) Reference.
+- Dowiedz się więcej o [kluczach, wpisach tajnych i certyfikatach](/rest/api/keyvault/).
+- Zapoznaj się z artykułami na [blogu zespołu Azure Key Vault](/archive/blogs/kv/).
+- Zapoznaj się z dokumentacją [AZ magazynu Storage](/cli/azure/keyvault/storage?view=azure-cli-latest) Reference.

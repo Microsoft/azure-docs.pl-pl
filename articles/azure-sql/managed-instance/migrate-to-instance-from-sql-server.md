@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e7775f289e0221862d11c585ae85a5b0bc6cc27
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887656"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788554"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server migracji wystąpień do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ Na wysokim poziomie proces migracji bazy danych wygląda następująco:
 
 Najpierw Ustal, czy wystąpienie zarządzane SQL jest zgodne z wymaganiami dotyczącymi bazy danych aplikacji. Wystąpienie zarządzane SQL zostało zaprojektowane w celu zapewnienia łatwego podnoszenia i migracji w celu uzyskania większości istniejących aplikacji, które używają SQL Server. Czasami jednak może być wymagana funkcja lub możliwości, które nie są jeszcze obsługiwane, a koszt wdrożenia obejścia jest zbyt duży.
 
-Użyj [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) , aby wykryć potencjalne problemy ze zgodnością mające wpływ na funkcjonalność bazy danych na Azure SQL Database. Jeśli występują pewne problemy z blokowaniem, może być konieczne rozważenie alternatywnej opcji, takiej jak [SQL Server na maszynie wirtualnej platformy Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Oto kilka przykładów:
+Użyj [Data Migration Assistant](/sql/dma/dma-overview) , aby wykryć potencjalne problemy ze zgodnością mające wpływ na funkcjonalność bazy danych na Azure SQL Database. Jeśli występują pewne problemy z blokowaniem, może być konieczne rozważenie alternatywnej opcji, takiej jak [SQL Server na maszynie wirtualnej platformy Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Oto kilka przykładów:
 
 - Jeśli wymagany jest bezpośredni dostęp do systemu operacyjnego lub systemu plików, na przykład w celu zainstalowania agentów innych firm lub niestandardowych na tej samej maszynie wirtualnej z SQL Server.
 - Jeśli masz ścisłą zależność od funkcji, które nadal nie są obsługiwane, takich jak transakcje typu FileStream/FileTable, wielopodstawowy i międzywystąpień.
@@ -69,8 +69,8 @@ Linia bazowa wydajności to zestaw parametrów, takich jak średnie/maksymalne u
 Niektóre parametry, które należy zmierzyć w wystąpieniu SQL Server, to:
 
 - [Monitoruj użycie procesora CPU w wystąpieniu SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) i zarejestruj średnie i szczytowe użycie procesora CPU.
-- [Monitoruj użycie pamięci w wystąpieniu SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) i określ ilość pamięci używanej przez różne składniki, takie jak pula buforów, pamięć podręczna planu, pula magazynu kolumn, przetwarzanie [OLTP w pamięci](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)itp. Ponadto należy znaleźć wartości średnie i szczytowe licznika wydajności stron pamięci na stronie.
-- Monitoruj użycie operacji we/wy dysku na źródłowym wystąpieniu SQL Server przy użyciu widoku [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) lub [liczników wydajności](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- [Monitoruj użycie pamięci w wystąpieniu SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) i określ ilość pamięci używanej przez różne składniki, takie jak pula buforów, pamięć podręczna planu, pula magazynu kolumn, przetwarzanie [OLTP w pamięci](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)itp. Ponadto należy znaleźć wartości średnie i szczytowe licznika wydajności stron pamięci na stronie.
+- Monitoruj użycie operacji we/wy dysku na źródłowym wystąpieniu SQL Server przy użyciu widoku [sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) lub [liczników wydajności](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitoruj obciążenia i wydajność zapytań lub wystąpienie SQL Server, badając dynamiczne widoki zarządzania lub magazyn zapytań w przypadku migrowania z wersji SQL Server 2016 +. Zidentyfikuj średni czas trwania i użycie procesora przez najważniejsze zapytania w obciążeniu, aby porównać je z kwerendami uruchomionymi w wystąpieniu zarządzanym.
 
 > [!Note]
@@ -116,7 +116,7 @@ Wystąpienie zarządzane SQL obsługuje następujące opcje migracji bazy danych
 
 [Azure Database Migration Service](../../dms/dms-overview.md) to w pełni zarządzana usługa, która umożliwia bezproblemowe Migrowanie z wielu źródeł baz danych do platform danych platformy Azure z minimalnym czasem przestoju. Ta usługa usprawnia zadania wymagane do przeniesienia istniejących baz danych innych firm i SQL Server na platformę Azure. Opcje wdrażania w publicznej wersji zapoznawczej obejmują bazy danych Azure SQL Database i SQL Server baz danych na maszynie wirtualnej platformy Azure. Database Migration Service jest zalecaną metodą migracji obciążeń przedsiębiorstwa.
 
-Jeśli używasz SQL Server Integration Services (SSIS) na SQL Server lokalnym, Database Migration Service nie obsługuje jeszcze migracji wykazu usług SSIS (SSISDB), który przechowuje pakiety SSIS, ale możesz udostępnić Azure-SSIS Integration Runtime (IR) w Azure Data Factory, co spowoduje utworzenie nowego SSISDB w wystąpieniu zarządzanym, aby umożliwić ponowne wdrożenie pakietów. Zobacz [tworzenie Azure-SSIS IR w Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+Jeśli używasz SQL Server Integration Services (SSIS) na SQL Server lokalnym, Database Migration Service nie obsługuje jeszcze migracji wykazu usług SSIS (SSISDB), który przechowuje pakiety SSIS, ale możesz udostępnić Azure-SSIS Integration Runtime (IR) w Azure Data Factory, co spowoduje utworzenie nowego SSISDB w wystąpieniu zarządzanym, aby umożliwić ponowne wdrożenie pakietów. Zobacz [tworzenie Azure-SSIS IR w Azure Data Factory](../../data-factory/create-azure-ssis-integration-runtime.md).
 
 Aby dowiedzieć się więcej na temat tego scenariusza i kroków konfiguracji dla Database Migration Service, zobacz [Migrowanie lokalnej bazy danych do wystąpienia zarządzanego przy użyciu Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -133,8 +133,8 @@ Poniższa tabela zawiera więcej informacji na temat metod, których można uży
 |Krok|Aparat i wersja SQL|Metoda tworzenia kopii zapasowej/przywracania|
 |---|---|---|
 |Umieszczanie kopii zapasowej w usłudze Azure Storage|Przed 2012 SP1 ZASTOSUJESZ pakietu CU2|Przekaż plik. bak bezpośrednio do usługi Azure Storage|
-||2012 SP1 ZASTOSUJESZ PAKIETU CU2-2016|Bezpośrednia kopia zapasowa przy użyciu przestarzałej składni [poświadczeń](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)|
-||2016 i więcej|Bezpośrednia kopia zapasowa przy użyciu [poświadczeń SAS](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
+||2012 SP1 ZASTOSUJESZ PAKIETU CU2-2016|Bezpośrednia kopia zapasowa przy użyciu przestarzałej składni [poświadczeń](/sql/t-sql/statements/restore-statements-transact-sql)|
+||2016 i więcej|Bezpośrednia kopia zapasowa przy użyciu [poświadczeń SAS](/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
 |Przywracanie z usługi Azure Storage do wystąpienia zarządzanego|[Przywróć z adresu URL przy użyciu poświadczeń sygnatury dostępu współdzielonego](restore-sample-database-quickstart.md)|
 
 > [!IMPORTANT]
@@ -164,7 +164,7 @@ Jako warunek wstępny upewnij się, że zostały wykonane następujące działan
 - Wyrównaj ustawienia do wystąpienia zarządzanego przy użyciu ustawień z wystąpienia źródłowego SQL Server, badając różne wystąpienia, bazę danych, ustawienia tempdb i konfiguracje. Przed uruchomieniem pierwszego porównania wydajności upewnij się, że nie zmieniono ustawień, takich jak poziomy zgodności lub szyfrowanie, lub zaakceptuj ryzyko, że niektóre nowe funkcje, które zostały włączone, mogą mieć wpływ na niektóre zapytania. Aby zmniejszyć ryzyko związane z migracją, należy zmienić poziom zgodności bazy danych tylko po monitorowaniu wydajności.
 - Zaimplementuj [wskazówki dotyczące najlepszych rozwiązań w zakresie magazynu dla ogólnego przeznaczenia](https://techcommunity.microsoft.com), na przykład wstępnie przydzielić rozmiar plików, aby uzyskać lepszą wydajność.
 - Zapoznaj się z [najważniejszymi różnicami w środowisku, które mogą spowodować różnice w wydajności między wystąpieniem zarządzanym i SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/), i zidentyfikuj czynniki ryzyka, które mogą mieć wpływ na wydajność.
-- Upewnij się, że włączono obsługę magazynu zapytań i dostrajania automatycznego na zarządzanym wystąpieniu. Te funkcje umożliwiają mierzenie wydajności obciążeń i automatyczne rozwiązanie potencjalnych problemów z wydajnością. Dowiedz się, jak używać magazynu zapytań jako optymalnego narzędzia do uzyskiwania informacji o wydajności obciążeń przed i po zmianie poziomu zgodności bazy danych, zgodnie z opisem w temacie [zachowanie stabilności wydajności podczas uaktualniania do nowszej wersji SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+- Upewnij się, że włączono obsługę magazynu zapytań i dostrajania automatycznego na zarządzanym wystąpieniu. Te funkcje umożliwiają mierzenie wydajności obciążeń i automatyczne rozwiązanie potencjalnych problemów z wydajnością. Dowiedz się, jak używać magazynu zapytań jako optymalnego narzędzia do uzyskiwania informacji o wydajności obciążeń przed i po zmianie poziomu zgodności bazy danych, zgodnie z opisem w temacie [zachowanie stabilności wydajności podczas uaktualniania do nowszej wersji SQL Server](/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Po przygotowaniu środowiska, które jest porównywalne, jak to możliwe, z środowiskiem lokalnym, możesz rozpocząć pracę z obciążeniem i zmierzyć wydajność. Proces pomiaru powinien zawierać te same parametry, które są mierzone [podczas tworzenia linii bazowej wydajności miar obciążenia w wystąpieniu SQL Server źródłowym](#create-a-performance-baseline).
 W związku z tym należy porównać parametry wydajności z linią bazową i identyfikować różnice krytyczne.
 
@@ -194,16 +194,16 @@ Wystąpienie zarządzane SQL udostępnia wiele zaawansowanych narzędzi do monit
 
 Gdy korzystasz z w pełni zarządzanej platformy i sprawdzono, że osiągi obciążeń są zgodne z wydajnością obciążeń SQL Server, Skorzystaj z zalet, które są udostępniane automatycznie w ramach usługi.
 
-Nawet jeśli nie wprowadzisz zmian w wystąpieniu zarządzanym podczas migracji, istnieje duże prawdopodobieństwo, że niektóre nowe funkcje zostaną włączone podczas pracy z wystąpieniem, aby korzystać z najnowszych ulepszeń aparatu bazy danych. Niektóre zmiany są włączone tylko po [zmianie poziomu zgodności bazy danych](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
+Nawet jeśli nie wprowadzisz zmian w wystąpieniu zarządzanym podczas migracji, istnieje duże prawdopodobieństwo, że niektóre nowe funkcje zostaną włączone podczas pracy z wystąpieniem, aby korzystać z najnowszych ulepszeń aparatu bazy danych. Niektóre zmiany są włączone tylko po [zmianie poziomu zgodności bazy danych](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
 
 Na przykład nie trzeba tworzyć kopii zapasowych w wystąpieniu zarządzanym — usługa automatycznie wykonuje kopie zapasowe. Nie musisz już martwić się o planowanie i tworzenie kopii zapasowych oraz zarządzanie nimi. Wystąpienie zarządzane SQL umożliwia przywracanie do dowolnego punktu w czasie w tym okresie przechowywania przy użyciu funkcji odzyskiwania do momentu [(kopie)](../database/recovery-using-backups.md#point-in-time-restore). Ponadto nie trzeba martwić się o skonfigurowanie wysokiej dostępności, ponieważ [wysoka dostępność](../database/high-availability-sla.md) jest wbudowana.
 
-Aby zwiększyć bezpieczeństwo, należy rozważyć użycie [uwierzytelniania Azure Active Directory](../database/security-overview.md), [inspekcji](auditing-configure.md), [wykrywania zagrożeń](../database/azure-defender-for-sql.md), [zabezpieczeń na poziomie wiersza](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)i [dynamicznego maskowania danych](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
+Aby zwiększyć bezpieczeństwo, należy rozważyć użycie [uwierzytelniania Azure Active Directory](../database/security-overview.md), [inspekcji](auditing-configure.md), [wykrywania zagrożeń](../database/azure-defender-for-sql.md), [zabezpieczeń na poziomie wiersza](/sql/relational-databases/security/row-level-security)i [dynamicznego maskowania danych](/sql/relational-databases/security/dynamic-data-masking).
 
-Oprócz zaawansowanych funkcji zarządzania i zabezpieczeń, wystąpienie zarządzane udostępnia zestaw zaawansowanych narzędzi, które mogą ułatwić [monitorowanie i dostrajanie obciążenia](../database/monitor-tune-overview.md). [Azure SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) umożliwia monitorowanie dużego zestawu wystąpień zarządzanych i scentralizowanie monitorowania dużej liczby wystąpień i baz danych. [Dostrajanie automatyczne](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) w wystąpieniach zarządzanych stale monitoruje wydajność statystyk wykonywania planu SQL i automatycznie naprawia zidentyfikowane problemy z wydajnością.
+Oprócz zaawansowanych funkcji zarządzania i zabezpieczeń, wystąpienie zarządzane udostępnia zestaw zaawansowanych narzędzi, które mogą ułatwić [monitorowanie i dostrajanie obciążenia](../database/monitor-tune-overview.md). [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) umożliwia monitorowanie dużego zestawu wystąpień zarządzanych i scentralizowanie monitorowania dużej liczby wystąpień i baz danych. [Dostrajanie automatyczne](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) w wystąpieniach zarządzanych stale monitoruje wydajność statystyk wykonywania planu SQL i automatycznie naprawia zidentyfikowane problemy z wydajnością.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać informacje na temat wystąpienia zarządzanego usługi Azure SQL, zobacz [co to jest wystąpienie zarządzane Azure SQL?](sql-managed-instance-paas-overview.md).
 - Aby zapoznać się z samouczkiem zawierającym przywracanie z kopii zapasowej, zobacz [Tworzenie wystąpienia zarządzanego](instance-create-quickstart.md).
-- Aby zapoznać się z samouczkiem dotyczącym migracji przy użyciu Database Migration Service, zobacz [Migrowanie lokalnej bazy danych do wystąpienia zarządzanego usługi Azure SQL przy użyciu Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).  
+- Aby zapoznać się z samouczkiem dotyczącym migracji przy użyciu Database Migration Service, zobacz [Migrowanie lokalnej bazy danych do wystąpienia zarządzanego usługi Azure SQL przy użyciu Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).

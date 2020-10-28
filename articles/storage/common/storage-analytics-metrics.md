@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: ef38e36ce1d2c7968e3eb7079270626629523334
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f1ab2be598a24a2448fed44742733633a8e0fc8f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518739"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787605"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metryki analityka magazynu platformy Azure (klasyczne)
 
@@ -23,11 +23,11 @@ Usługa Azure Storage korzysta z rozwiązania analityka magazynu do przechowywan
 - Diagnozuj problemy z żądaniami skierowanymi do usługi Storage.
 - Zwiększenie wydajności aplikacji korzystających z usługi.
 
- Metryki analityka magazynu są domyślnie włączone dla nowych kont magazynu. Metryki można skonfigurować w [Azure Portal](https://portal.azure.com/). Aby uzyskać więcej informacji, zobacz [Monitorowanie konta magazynu w Azure Portal](/azure/storage/storage-monitor-storage-account). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Użyj operacji ustawiania właściwości usługi, aby włączyć analityka magazynu dla każdej usługi.  
+ Metryki analityka magazynu są domyślnie włączone dla nowych kont magazynu. Metryki można skonfigurować w [Azure Portal](https://portal.azure.com/). Aby uzyskać więcej informacji, zobacz [Monitorowanie konta magazynu w Azure Portal](./storage-monitor-storage-account.md). Możesz również włączyć analityka magazynu programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Użyj operacji ustawiania właściwości usługi, aby włączyć analityka magazynu dla każdej usługi.  
 
 > [!NOTE]
 > Metryki analityka magazynu są dostępne dla usługi Azure Blob Storage, Azure queue storage, Azure Table Storage i Azure Files.
-> Metryki analityka magazynu są teraz metrykami klasycznymi. Zalecamy używanie [metryk magazynu w Azure monitor](monitor-storage.md) zamiast metryk analityka magazynu.
+> Metryki analityka magazynu są teraz metrykami klasycznymi. Zalecamy używanie [metryk magazynu w Azure monitor](../blobs/monitor-blob-storage.md) zamiast metryk analityka magazynu.
 
 ## <a name="transaction-metrics"></a>Metryki transakcji  
  Niezawodny zestaw danych jest rejestrowany w co godzinę lub w minutę interwałów dla każdej usługi magazynu i żądana operacja interfejsu API, która obejmuje wartości procentowe i wychodzące, dostępność, błędy i przydzielone żądania według kategorii. Aby uzyskać pełną listę szczegółów transakcji, zobacz [analityka magazynu metryk tabeli schematu](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
@@ -45,9 +45,9 @@ Usługa Azure Storage korzysta z rozwiązania analityka magazynu do przechowywan
 
  Dane pojemności są rejestrowane codziennie dla usługi BLOB konta magazynu, a dwie jednostki tabeli są zapisywane. Jedna jednostka zawiera statystyki dotyczące danych użytkownika, a drugi zawiera dane statystyczne dotyczące `$logs` kontenera obiektów BLOB używanych przez analityka magazynu. Tabela *$MetricsCapacityBlob* zawiera następujące statystyki:  
 
-- **Pojemność**: ilość miejsca do magazynowania używanego przez usługę BLOB konta magazynu w bajtach.  
-- **ContainerCount**: liczba kontenerów obiektów BLOB w usłudze obiektów BLOB konta magazynu.  
-- **ObjectCount**: Liczba przekazanych i nieprzydzielonych bloków lub stronicowych obiektów BLOB w usłudze obiektów BLOB konta magazynu.  
+- **Pojemność** : ilość miejsca do magazynowania używanego przez usługę BLOB konta magazynu w bajtach.  
+- **ContainerCount** : liczba kontenerów obiektów BLOB w usłudze obiektów BLOB konta magazynu.  
+- **ObjectCount** : Liczba przekazanych i nieprzydzielonych bloków lub stronicowych obiektów BLOB w usłudze obiektów BLOB konta magazynu.  
 
   Aby uzyskać więcej informacji na temat metryk pojemności, zobacz [analityka magazynu metryk tabeli schematu](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
 
@@ -71,10 +71,10 @@ Wykonaj następujące kroki, aby włączyć metryki w [Azure Portal](https://por
 
 1. Przejdź do swojego konta magazynu.
 1. W okienku menu wybierz pozycję **Ustawienia diagnostyczne (klasyczne)** .
-1. Upewnij się, że **stan** jest ustawiony na wartość **włączone**.
+1. Upewnij się, że **stan** jest ustawiony na wartość **włączone** .
 1. Wybierz metryki dla usług, które chcesz monitorować.
 1. Określ zasady przechowywania, aby określić, jak długo mają być przechowywane metryki i dane dziennika.
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz** .
 
 [Azure Portal](https://portal.azure.com) obecnie nie umożliwia konfigurowania metryk minut na koncie magazynu. Należy włączyć metryki minut przy użyciu programu PowerShell lub programowo.
 
@@ -83,12 +83,12 @@ Aby skonfigurować metryki magazynu na koncie magazynu przy Azure PowerShell uż
 
 Polecenia cmdlet kontrolujące metryki magazynu wykorzystują następujące parametry:  
 
-* **ServiceType**: możliwe wartości to **obiekt BLOB**, **Kolejka**, **tabela**i **plik**.
-* **Metrictype**: możliwe wartości to **Hour** i **minuta**.  
-* **MetricsLevel**: możliwe wartości to:
-   * **Brak**: wyłącza monitorowanie.
-   * **Usługa**: zbiera metryki, takie jak ruch przychodzący i wychodzący, dostępność, opóźnienie i procent sukcesu, które są agregowane dla usług obiektów blob, kolejek, tabel i plików.
-   * **ServiceAndApi**: oprócz metryk usług zbiera ten sam zestaw metryk dla każdej operacji magazynu w interfejsie API usługi Azure Storage.
+* **ServiceType** : możliwe wartości to **obiekt BLOB** , **Kolejka** , **tabela** i **plik** .
+* **Metrictype** : możliwe wartości to **Hour** i **minuta** .  
+* **MetricsLevel** : możliwe wartości to:
+   * **Brak** : wyłącza monitorowanie.
+   * **Usługa** : zbiera metryki, takie jak ruch przychodzący i wychodzący, dostępność, opóźnienie i procent sukcesu, które są agregowane dla usług obiektów blob, kolejek, tabel i plików.
+   * **ServiceAndApi** : oprócz metryk usług zbiera ten sam zestaw metryk dla każdej operacji magazynu w interfejsie API usługi Azure Storage.
 
 Na przykład następujące polecenie przełącza metryki minut dla usługi BLOB Service na koncie magazynu z okresem przechowywania ustawionym na pięć dni: 
 
@@ -112,12 +112,12 @@ Następujące polecenie pobiera bieżące godzinowe poziomy metryk i dni przecho
 Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
-Informacje o sposobie konfigurowania Azure PowerShell poleceń cmdlet do pracy z subskrypcją platformy Azure i wybierania domyślnego konta magazynu do użycia znajdują się w temacie [Install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+Informacje o sposobie konfigurowania Azure PowerShell poleceń cmdlet do pracy z subskrypcją platformy Azure i wybierania domyślnego konta magazynu do użycia znajdują się w temacie [Install and configure Azure PowerShell](/powershell/azure/).  
 
 ## <a name="enable-storage-metrics-programmatically"></a>Programowo Włącz metryki magazynu  
 Oprócz używania Azure Portal lub Azure PowerShell poleceń cmdlet do kontrolowania metryk magazynu, można również użyć jednego z interfejsów API usługi Azure Storage. Jeśli na przykład używasz języka .NET, możesz użyć biblioteki klienta usługi Azure Storage.  
 
-Klasy **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**i **CloudFileClient** mają takie metody jak **SetServiceProperties** i **SetServicePropertiesAsync** , które przyjmują obiekt **serviceproperties** jako parametr. Aby skonfigurować metryki magazynu, można użyć obiektu **serviceproperties** . Na przykład poniższy fragment kodu w języku C# pokazuje, jak zmienić poziom metryk i dni przechowywania dla metryk kolejki godzinowej:  
+Klasy **CloudBlobClient** , **CloudQueueClient** , **CloudTableClient** i **CloudFileClient** mają takie metody jak **SetServiceProperties** i **SetServicePropertiesAsync** , które przyjmują obiekt **serviceproperties** jako parametr. Aby skonfigurować metryki magazynu, można użyć obiektu **serviceproperties** . Na przykład poniższy fragment kodu w języku C# pokazuje, jak zmienić poziom metryk i dni przechowywania dla metryk kolejki godzinowej:  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -130,7 +130,7 @@ serviceProperties.HourMetrics.RetentionDays = 10;
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
 
-Aby uzyskać więcej informacji o korzystaniu z języka .NET do konfigurowania metryk magazynu, zobacz [biblioteki klienta usługi Azure Storage dla platformy .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
+Aby uzyskać więcej informacji o korzystaniu z języka .NET do konfigurowania metryk magazynu, zobacz [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage).  
 
 Aby uzyskać ogólne informacje na temat konfigurowania metryk magazynu za pomocą interfejsu API REST, zobacz [Włączanie i konfigurowanie analityka magazynu](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
@@ -140,11 +140,11 @@ Po skonfigurowaniu metryk analityka magazynu do monitorowania konta magazynu, an
 1. Przejdź do swojego konta magazynu w [Azure Portal](https://portal.azure.com).
 1. Wybierz pozycję **metryki (klasyczne)** w okienku menu dla usługi, której metryki chcesz wyświetlić.
 1. Wybierz wykres, który chcesz skonfigurować.
-1. W okienku **Edycja wykresu** wybierz **zakres czasu**, **Typ wykresu**i metryki, które mają być wyświetlane na wykresie.
+1. W okienku **Edycja wykresu** wybierz **zakres czasu** , **Typ wykresu** i metryki, które mają być wyświetlane na wykresie.
 
 W sekcji **monitorowanie (klasycznej)** okienka menu konta magazynu w Azure Portal można skonfigurować [reguły alertów](#metrics-alerts). Możesz na przykład wysłać alerty e-mail, aby powiadomić Cię, gdy określona Metryka osiągnie określoną wartość.
 
-Jeśli chcesz pobrać metryki dla magazynu długoterminowego lub przeanalizować je lokalnie, musisz użyć narzędzia lub napisać kod w celu odczytania tabel. Należy pobrać metryki minut na potrzeby analizy. Tabele nie są wyświetlane w przypadku wyświetlenia listy wszystkich tabel na koncie magazynu, ale możesz uzyskać do nich dostęp bezpośrednio według nazwy. Wiele narzędzi do przeglądania magazynu jest świadomych tych tabel i umożliwia ich bezpośrednie wyświetlanie. Aby uzyskać listę dostępnych narzędzi, zobacz [narzędzia klienckie usługi Azure Storage](/azure/storage/storage-explorers).
+Jeśli chcesz pobrać metryki dla magazynu długoterminowego lub przeanalizować je lokalnie, musisz użyć narzędzia lub napisać kod w celu odczytania tabel. Należy pobrać metryki minut na potrzeby analizy. Tabele nie są wyświetlane w przypadku wyświetlenia listy wszystkich tabel na koncie magazynu, ale możesz uzyskać do nich dostęp bezpośrednio według nazwy. Wiele narzędzi do przeglądania magazynu jest świadomych tych tabel i umożliwia ich bezpośrednie wyświetlanie. Aby uzyskać listę dostępnych narzędzi, zobacz [narzędzia klienckie usługi Azure Storage](./storage-explorers.md).
 
 |Metryki|Nazwy tabel|Uwagi| 
 |-|-|-|  
@@ -163,13 +163,13 @@ Aby uzyskać szczegółowe informacje o schematach dla tych tabel, zobacz [anali
 
 W tym przykładzie danych metryk minuta klucz partycji używa czasu o rozdzielczości minutowej. Klucz wiersza określa typ informacji przechowywanych w wierszu. Informacje składają się z typu dostępu i typu żądania:  
 
--   Typem dostępu jest **użytkownik** lub **system**, gdzie **użytkownik** odwołuje się do wszystkich żądań użytkowników do usługi magazynu, a **system** odnosi się do żądań wysyłanych przez analityka magazynu.  
--   Typem żądania jest **wszystkie**, w którym przypadku jest to linia podsumowania lub identyfikuje określony interfejs API, taki jak **QueryEntity** lub **UpdateEntity**.  
+-   Typem dostępu jest **użytkownik** lub **system** , gdzie **użytkownik** odwołuje się do wszystkich żądań użytkowników do usługi magazynu, a **system** odnosi się do żądań wysyłanych przez analityka magazynu.  
+-   Typem żądania jest **wszystkie** , w którym przypadku jest to linia podsumowania lub identyfikuje określony interfejs API, taki jak **QueryEntity** lub **UpdateEntity** .  
 
 Te przykładowe dane przedstawiają wszystkie rekordy przez pojedynczą minutę (od 11:10:00), więc liczba żądań **QueryEntities** i liczba żądań **QueryEntity** oraz liczba żądań **UpdateEntity** dodaje do siedmiu. Ta suma jest pokazywana w wierszu **User: ALL** . Analogicznie, można utworzyć średni czas oczekiwania na zakończenie na 104,4286 dla **użytkownika: cały** wiersz przez obliczenie ((143,8 * 5) + 3 + 9)/7.  
 
 ## <a name="metrics-alerts"></a>Alerty metryk
-Rozważ skonfigurowanie alertów w [Azure Portal](https://portal.azure.com) , aby otrzymywać powiadomienia o ważnych zmianach w zachowaniu usług magazynu. Jeśli użyjesz narzędzia Eksplorator usługi Storage, aby pobrać te dane metryk w formacie rozdzielanym, możesz użyć programu Microsoft Excel do przeanalizowania danych. Aby uzyskać listę dostępnych narzędzi Eksplorator usługi Storage, zobacz [narzędzia klienckie usługi Azure Storage](/azure/storage/storage-explorers). Alerty można skonfigurować w okienku **alertu (klasycznego)** , które jest dostępne w obszarze **monitorowanie (klasyczne)** w okienku menu konto magazynu.
+Rozważ skonfigurowanie alertów w [Azure Portal](https://portal.azure.com) , aby otrzymywać powiadomienia o ważnych zmianach w zachowaniu usług magazynu. Jeśli użyjesz narzędzia Eksplorator usługi Storage, aby pobrać te dane metryk w formacie rozdzielanym, możesz użyć programu Microsoft Excel do przeanalizowania danych. Aby uzyskać listę dostępnych narzędzi Eksplorator usługi Storage, zobacz [narzędzia klienckie usługi Azure Storage](./storage-explorers.md). Alerty można skonfigurować w okienku **alertu (klasycznego)** , które jest dostępne w obszarze **monitorowanie (klasyczne)** w okienku menu konto magazynu.
 
 > [!IMPORTANT]
 > Może wystąpić opóźnienie między zdarzeniem magazynu i w przypadku rejestrowania odpowiednich danych metryk godzinowych lub minutowych. W przypadku metryk minut, kilka minut danych może być jednocześnie zapisywana. Przyczyną tego problemu może być transakcja z wcześniejszych minut agregowania do transakcji przez bieżącą minutę. Gdy ten problem wystąpi, usługa alertów może nie mieć wszystkich dostępnych danych metryk dla skonfigurowanego interwału alertów, co może prowadzić do nieoczekiwanego uruchamiania alertów.

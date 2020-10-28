@@ -13,18 +13,18 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b09d808201d58b571b2fe5ceb2e228d4e1c21d11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28ab0a158507e3f29ecfdc026203d92d71877633
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316957"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786517"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Zmienianie modelu licencjonowania maszyny wirtualnej z programem SQL na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-W tym artykule opisano, jak zmienić model licencji dla SQL Server maszyny wirtualnej na platformie Azure przy użyciu nowego SQL Server dostawcy zasobów maszyny wirtualnej, **Microsoft. SqlVirtualMachine**.
+W tym artykule opisano, jak zmienić model licencji dla SQL Server maszyny wirtualnej na platformie Azure przy użyciu nowego SQL Server dostawcy zasobów maszyny wirtualnej, **Microsoft. SqlVirtualMachine** .
 
 Istnieją trzy modele licencji dla maszyny wirtualnej, która obsługuje SQL Server: płatność zgodnie z rzeczywistym użyciem, Korzyść użycia hybrydowego platformy Azure (AHB) i odzyskiwanie po awarii (DR). Model licencji maszyny wirtualnej SQL Server można zmodyfikować przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell. 
 
@@ -49,7 +49,7 @@ Typ licencji SQL Server można skonfigurować, gdy maszyna wirtualna jest obsłu
 Zmiana modelu licencjonowania maszyny wirtualnej SQL Server ma następujące wymagania: 
 
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free/).
-- [Maszyna wirtualna SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) zarejestrowana w [dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md).
+- [Maszyna wirtualna SQL Server](./create-sql-vm-portal.md) zarejestrowana w [dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md).
 - [Program Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) jest wymagana do korzystania z [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
@@ -62,7 +62,7 @@ Zmiana modelu licencjonowania maszyny wirtualnej SQL Server ma następujące wym
 Możesz zmodyfikować model licencji bezpośrednio z portalu: 
 
 1. Otwórz [Azure Portal](https://portal.azure.com) i Otwórz zasób usługi [SQL Virtual Machines](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) dla maszyny wirtualnej SQL Server. 
-1. W obszarze **Ustawienia**wybierz pozycję **Konfiguruj** . 
+1. W obszarze **Ustawienia** wybierz pozycję **Konfiguruj** . 
 1. Wybierz opcję **korzyść użycia hybrydowego platformy Azure** , a następnie zaznacz pole wyboru, aby potwierdzić, że masz licencję na SQL Server z programem Software Assurance. 
 1. Wybierz pozycję **Zastosuj** w dolnej części strony **Konfigurowanie** . 
 
@@ -83,7 +83,7 @@ Aby zmienić model licencji, możesz użyć interfejsu wiersza polecenia platfor
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 ```
 
-**Płatność zgodnie z rzeczywistym**użyciem: 
+**Płatność zgodnie z rzeczywistym** użyciem: 
 
 ```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
@@ -101,7 +101,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type DR
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby zmienić model licencji, możesz użyć programu PowerShell.
 
@@ -180,5 +180,3 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 * [Często zadawane pytania dotyczące SQL Server na maszynie wirtualnej z systemem Windows](frequently-asked-questions-faq.md)
 * [Wskazówki dotyczące cen dla SQL Server na maszynie wirtualnej z systemem Windows](pricing-guidance.md)
 * [Informacje o wersji SQL Server na maszynie wirtualnej z systemem Windows](../../database/doc-changes-updates-release-notes.md)
-
-

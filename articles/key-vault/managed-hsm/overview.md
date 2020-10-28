@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d2d5d6ad23f5e6a2cac2dc97904154d5912573b0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91320561"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787928"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Co to jest Azure Key Vault zarządzanym modułem HSM (wersja zapoznawcza)?
 
@@ -24,21 +24,21 @@ Azure Key Vault zarządzanym modułem HSM jest w pełni zarządzana usługa w ch
 
 ### <a name="fully-managed-highly-available-single-tenant-hsm-as-a-service"></a>W pełni zarządzane, wysoce dostępne i jednodostępne moduły HSM jako usługa
 
-- W **pełni zarządzane**: Inicjowanie obsługi, konfiguracja, stosowanie poprawek i konserwacja modułu HSM jest obsługiwane przez usługę. 
+- W **pełni zarządzane** : Inicjowanie obsługi, konfiguracja, stosowanie poprawek i konserwacja modułu HSM jest obsługiwane przez usługę. 
 - **Wysoce dostępna i odporna na strefy (w** których są obsługiwane strefy dostępności): każdy klaster HSM składa się z wielu partycji modułu HSM, które obejmują co najmniej dwie strefy dostępności. Jeśli sprzęt ulegnie awarii, partycje elementów członkowskich dla klastra HSM zostaną automatycznie zmigrowane do węzłów w dobrej kondycji.
-- **Pojedyncze dzierżawca**: każde zarządzane wystąpienie modułu HSM jest przeznaczone dla jednego klienta i składa się z klastra wielu partycji modułu HSM. Każdy klaster HSM używa oddzielnej domeny zabezpieczeń specyficznej dla klienta, która kryptograficznie izoluje klaster modułu HSM każdego klienta.
+- **Pojedyncze dzierżawca** : każde zarządzane wystąpienie modułu HSM jest przeznaczone dla jednego klienta i składa się z klastra wielu partycji modułu HSM. Każdy klaster HSM używa oddzielnej domeny zabezpieczeń specyficznej dla klienta, która kryptograficznie izoluje klaster modułu HSM każdego klienta.
 
 
 ### <a name="access-control-enhanced-data-protection--compliance"></a>Kontrola dostępu, Ulepszona ochrona danych &
 
-- **Scentralizowane zarządzanie kluczami**: Zarządzaj kluczami o krytycznym znaczeniu w organizacji w jednym miejscu. Z szczegółowymi uprawnieniami na klucz, kontrolują dostęp do każdego klucza w zasadzie "najmniej uprzywilejowany dostęp".
-- **Izolowana kontrola dostępu**: zarządzany model modułu HSM "Local RBAC" modelu kontroli dostępu umożliwia Wyznaczeni administratorom klastrów modułu HSM pełną kontrolę nad sprzętowych modułów zabezpieczeńem, że nawet Administratorzy grupy zarządzania, subskrypcji lub grupy zasobów nie mogą przesłonić.
-- **Fips 140-2 Level 3 sprawdzony sprzętowych modułów zabezpieczeń**: Chroń dane i spełniaj wymagania dotyczące zgodności z FIPS ((Federal Information Protection standard)) 140-2 zweryfikowane sprzętowych modułów zabezpieczeń poziomu 3. Zarządzane sprzętowych modułów zabezpieczeń używają kart HSM LiquidSecurity firmy Marvell.
-- **Monitorowanie i inspekcja**: w pełni zintegrowana z usługą Azure monitor. Pobierz pełne dzienniki wszystkich działań za pośrednictwem Azure Monitor. Użyj usługi Azure Log Analytics na potrzeby analiz i alertów.
+- **Scentralizowane zarządzanie kluczami** : Zarządzaj kluczami o krytycznym znaczeniu w organizacji w jednym miejscu. Z szczegółowymi uprawnieniami na klucz, kontrolują dostęp do każdego klucza w zasadzie "najmniej uprzywilejowany dostęp".
+- **Izolowana kontrola dostępu** : zarządzany model modułu HSM "Local RBAC" modelu kontroli dostępu umożliwia Wyznaczeni administratorom klastrów modułu HSM pełną kontrolę nad sprzętowych modułów zabezpieczeńem, że nawet Administratorzy grupy zarządzania, subskrypcji lub grupy zasobów nie mogą przesłonić.
+- **Fips 140-2 Level 3 sprawdzony sprzętowych modułów zabezpieczeń** : Chroń dane i spełniaj wymagania dotyczące zgodności z FIPS ((Federal Information Protection standard)) 140-2 zweryfikowane sprzętowych modułów zabezpieczeń poziomu 3. Zarządzane sprzętowych modułów zabezpieczeń używają kart HSM LiquidSecurity firmy Marvell.
+- **Monitorowanie i inspekcja** : w pełni zintegrowana z usługą Azure monitor. Pobierz pełne dzienniki wszystkich działań za pośrednictwem Azure Monitor. Użyj usługi Azure Log Analytics na potrzeby analiz i alertów.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integracja z platformą Azure i usługami Microsoft PaaS/SaaS 
 
-- Generuj (lub Importuj przy użyciu [BYOK](hsm-protected-keys-byok.md)) klucze i używaj ich do szyfrowania danych przechowywanych w usługach platformy Azure, takich jak [Azure Storage](../../storage/common/encryption-customer-managed-keys.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md)i [Azure Information Protection](/azure/information-protection/byok-price-restrictions).
+- Generuj (lub Importuj przy użyciu [BYOK](hsm-protected-keys-byok.md)) klucze i używaj ich do szyfrowania danych przechowywanych w usługach platformy Azure, takich jak [Azure Storage](../../storage/common/customer-managed-keys-overview.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md)i [Azure Information Protection](/azure/information-protection/byok-price-restrictions).
 
 ### <a name="uses-same-api-and-management-interfaces-as-key-vault"></a>Używa tych samych interfejsów API i zarządzania co Key Vault
 

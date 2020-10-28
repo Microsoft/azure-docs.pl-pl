@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f56da93d0ea0f346e73b34990d8ec4c222bb8813
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488575"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785786"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Szyfrowanie w usłudze Azure Storage dla danych magazynowanych
 
@@ -38,7 +38,7 @@ Aby uzyskać informacje na temat szyfrowania i zarządzania kluczami dla usługi
 
 Dane na nowym koncie magazynu są domyślnie szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Możesz w dalszym ciągu korzystać z kluczy zarządzanych przez firmę Microsoft do szyfrowania danych lub możesz zarządzać szyfrowaniem przy użyciu własnych kluczy. W przypadku wybrania opcji zarządzania szyfrowaniem przy użyciu własnych kluczy dostępne są dwie opcje. Można użyć dowolnego typu zarządzania kluczami lub obu:
 
-- Możesz określić *klucz zarządzany przez klienta* , który będzie używany do szyfrowania i odszyfrowywania danych w magazynie obiektów blob i w Azure Files. <sup>1, 2</sup> klucze zarządzane przez klienta muszą być przechowywane w Azure Key Vault lub Azure Key Vault zarządzanym sprzętowym modelem zabezpieczeń (HSM) (wersja zapoznawcza). Aby uzyskać więcej informacji o kluczach zarządzanych przez klienta, zobacz [Korzystanie z kluczy zarządzanych przez klienta do szyfrowania usługi Azure Storage](encryption-customer-managed-keys.md).
+- Możesz określić *klucz zarządzany przez klienta* , który będzie używany do szyfrowania i odszyfrowywania danych w magazynie obiektów blob i w Azure Files. <sup>1, 2</sup> klucze zarządzane przez klienta muszą być przechowywane w Azure Key Vault lub Azure Key Vault zarządzanym sprzętowym modelem zabezpieczeń (HSM) (wersja zapoznawcza). Aby uzyskać więcej informacji o kluczach zarządzanych przez klienta, zobacz [Korzystanie z kluczy zarządzanych przez klienta do szyfrowania usługi Azure Storage](./customer-managed-keys-overview.md).
 - *Klucz dostarczony przez klienta* można określić w operacjach magazynu obiektów BLOB. Klient wykonujący żądanie odczytu lub zapisu w usłudze BLOB Storage może dołączyć klucz szyfrowania żądania, aby uzyskać szczegółową kontrolę nad sposobem szyfrowania i odszyfrowywania danych obiektów BLOB. Więcej informacji o kluczach dostarczonych przez klienta znajduje się [w temacie zapewnianie klucza szyfrowania w żądaniu usługi BLOB Storage](../blobs/encryption-customer-provided-keys.md).
 
 Poniższa tabela zawiera porównanie opcji zarządzania kluczami dla szyfrowania usługi Azure Storage.
@@ -46,7 +46,7 @@ Poniższa tabela zawiera porównanie opcji zarządzania kluczami dla szyfrowania
 | Parametr zarządzania kluczami | Klucze zarządzane przez firmę Microsoft | Klucze zarządzane przez klienta | Klucze dostarczone przez klienta |
 |--|--|--|--|
 | Operacje szyfrowania/odszyfrowywania | Azure | Azure | Azure |
-| Obsługiwane usługi Azure Storage | Wszystkie | BLOB Storage, Azure Files<sup>1, 2</sup> | Blob Storage |
+| Obsługiwane usługi Azure Storage | Wszystko | BLOB Storage, Azure Files<sup>1, 2</sup> | Blob Storage |
 | Magazyn kluczy | Magazyn kluczy firmy Microsoft | Moduł HSM Azure Key Vault lub Key Vault | Własny magazyn kluczy klienta |
 | Odpowiedzialność za kluczowe rotacje | Microsoft | Klient | Klient |
 | Klucz — formant | Microsoft | Klient | Klient |
@@ -101,8 +101,8 @@ Po wyłączeniu zakresu szyfrowania nie są już naliczane opłaty. Wyłącz wsz
 
 Jeśli zakres szyfrowania jest chroniony przy użyciu kluczy zarządzanych przez klienta Azure Key Vault, można również usunąć skojarzony klucz w magazynie kluczy, aby wyłączyć zakres szyfrowania. Należy pamiętać, że klucze zarządzane przez klienta w Azure Key Vault są chronione przez programowe usuwanie i przeczyszczanie ochrony, a usunięty klucz podlega zachowaniu zdefiniowanym przez te właściwości. Aby uzyskać więcej informacji, zobacz jeden z następujących tematów w dokumentacji Azure Key Vault:
 
-- [Jak używać nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [Jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/soft-delete-cli.md)
+- [Jak używać nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [Jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > Nie można usunąć zakresu szyfrowania.

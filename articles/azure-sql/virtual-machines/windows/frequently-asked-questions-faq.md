@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566996"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786500"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Często zadawane pytania dotyczące SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > SQL Server na maszynach wirtualnych platformy Azure, w tym tych wdrożonych z niestandardowych obrazów uogólnionych, należy [zarejestrować w dostawcy zasobów maszyny wirtualnej SQL](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) , aby spełnić wymagania dotyczące zgodności i korzystać z funkcji opcjonalnych, takich jak automatyczne stosowanie poprawek i automatyczne tworzenie kopii zapasowych. Dostawca zasobów pozwala także [określić typ licencji](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) dla każdej maszyny wirtualnej SQL Server.
+   > SQL Server na maszynach wirtualnych platformy Azure, w tym tych wdrożonych z niestandardowych obrazów uogólnionych, należy [zarejestrować w dostawcy zasobów maszyny wirtualnej SQL](./sql-vm-resource-provider-register.md?tabs=azure-cli%252cbash) , aby spełnić wymagania dotyczące zgodności i korzystać z funkcji opcjonalnych, takich jak automatyczne stosowanie poprawek i automatyczne tworzenie kopii zapasowych. Dostawca zasobów pozwala także [określić typ licencji](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal) dla każdej maszyny wirtualnej SQL Server.
 
 1. **Czy mogę użyć własnego wirtualnego dysku twardego do wdrożenia maszyny wirtualnej SQL Server?**
 
@@ -145,11 +145,11 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
  
    Tak, pod warunkiem, że maszyna wirtualna SQL Server została wdrożona w chmurze publicznej przy użyciu modelu Menedżer zasobów, a nie modelu klasycznego. Wszyscy inni klienci mogą zarejestrować się przy użyciu nowego dostawcy zasobów maszyny wirtualnej SQL Server. Jednak tylko klienci z korzyścią z pakietu [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) mogą korzystać z własnej licencji, aktywując [korzyść użycia hybrydowego platformy Azure (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) na maszynie wirtualnej SQL Server. 
 
-1. **Co się stanie z zasobem dostawcy zasobów (_Microsoft. SqlVirtualMachine_), jeśli zasób maszyny wirtualnej zostanie przeniesiony lub porzucony?** 
+1. **Co się stanie z zasobem dostawcy zasobów ( _Microsoft. SqlVirtualMachine_ ), jeśli zasób maszyny wirtualnej zostanie przeniesiony lub porzucony?** 
 
    Gdy zasób Microsoft. COMPUTE/VirtualMachine zostanie usunięty lub przeniesiony, skojarzony z nim zasób Microsoft. SqlVirtualMachine zostanie powiadomiony o asynchronicznym replikacji operacji.
 
-1. **Co się stanie z maszyną wirtualną, jeśli zasób dostawcy zasobów (_Microsoft. SqlVirtualMachine_) zostanie porzucony?**
+1. **Co się stanie z maszyną wirtualną, jeśli zasób dostawcy zasobów ( _Microsoft. SqlVirtualMachine_ ) zostanie porzucony?**
 
     Nie ma to wpływu na zasób Microsoft. COMPUTE/VirtualMachine, gdy zostanie usunięty zasób Microsoft. SqlVirtualMachine. Zmiany licencjonowania zostaną jednak domyślnie przywrócone do oryginalnego źródła obrazu. 
 
@@ -169,13 +169,13 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Czy mogę odinstalować domyślne wystąpienie programu SQL Server?**
 
-   Tak, ale należy wziąć pod uwagę pewne kwestie. Po pierwsze rozliczenia skojarzone z SQL Server mogą być nadal wykonywane w zależności od modelu licencji dla maszyny wirtualnej. Po drugie, zgodnie z opisem w poprzedniej odpowiedzi, istnieją funkcje, które opierają się na [rozszerzeniu SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). W przypadku odinstalowania wystąpienia domyślnego bez usuwania rozszerzenia IaaS, rozszerzenie nadal szuka wystąpienia domyślnego i może generować błędy dziennika zdarzeń. Te błędy pochodzą z następujących dwóch źródeł: **Microsoft SQL Server zarządzania poświadczeniami** i **Microsoft SQL Server agenta IaaS**. Jeden z błędów może być podobny do następującego:
+   Tak, ale należy wziąć pod uwagę pewne kwestie. Po pierwsze rozliczenia skojarzone z SQL Server mogą być nadal wykonywane w zależności od modelu licencji dla maszyny wirtualnej. Po drugie, zgodnie z opisem w poprzedniej odpowiedzi, istnieją funkcje, które opierają się na [rozszerzeniu SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). W przypadku odinstalowania wystąpienia domyślnego bez usuwania rozszerzenia IaaS, rozszerzenie nadal szuka wystąpienia domyślnego i może generować błędy dziennika zdarzeń. Te błędy pochodzą z następujących dwóch źródeł: **Microsoft SQL Server zarządzania poświadczeniami** i **Microsoft SQL Server agenta IaaS** . Jeden z błędów może być podobny do następującego:
 
       Podczas nawiązywania połączenia z serwerem SQL wystąpił błąd dotyczący sieci lub wystąpienia. Serwer nie został znaleziony lub był niedostępny.
 
    W przypadku podjęcia decyzji o odinstalowaniu wystąpienia domyślnego należy również odinstalować także [rozszerzenie Agent SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md) . 
 
-1. **Czy można użyć nazwanego wystąpienia SQL Server z rozszerzeniem IaaS**?
+1. **Czy można użyć nazwanego wystąpienia SQL Server z rozszerzeniem IaaS** ?
    
    Tak, jeśli nazwane wystąpienie jest jedynym wystąpieniem w SQL Server i jeśli oryginalne wystąpienie domyślne zostało [odinstalowane prawidłowo](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Jeśli nie ma wystąpienia domyślnego i istnieje wiele wystąpień nazwanych na jednej maszynie wirtualnej SQL Server, instalacja rozszerzenia agenta SQL Server IaaS nie powiedzie się. 
 
@@ -210,7 +210,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Czy mogę uaktualnić wystąpienie SQL Server 2008/2008 R2 po zarejestrowaniu go u dostawcy zasobów maszyny wirtualnej SQL Server?**
 
-   Tak. Możesz użyć dowolnego nośnika instalacyjnego, aby uaktualnić wersję i wydanie SQL Server, a następnie uaktualnić [tryb rozszerzenia SQL IaaS](sql-vm-resource-provider-register.md#management-modes)) _bez agenta_ do _pełnego_. Dzięki temu będzie można uzyskać dostęp do wszystkich korzyści z rozszerzenia IaaS języka SQL, takich jak Zarządzanie portalem, zautomatyzowane kopie zapasowe i automatyczne stosowanie poprawek. 
+   Tak. Możesz użyć dowolnego nośnika instalacyjnego, aby uaktualnić wersję i wydanie SQL Server, a następnie uaktualnić [tryb rozszerzenia SQL IaaS](sql-vm-resource-provider-register.md#management-modes)) _bez agenta_ do _pełnego_ . Dzięki temu będzie można uzyskać dostęp do wszystkich korzyści z rozszerzenia IaaS języka SQL, takich jak Zarządzanie portalem, zautomatyzowane kopie zapasowe i automatyczne stosowanie poprawek. 
 
 1. **Jak mogę uzyskać bezpłatne rozszerzone aktualizacje zabezpieczeń dla moich wystąpień programu SQL Server 2008 i SQL Server 2008 R2, dla których kończy się wsparcie?**
 
@@ -241,7 +241,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 ## <a name="resources"></a>Zasoby
 
-**Maszyny wirtualne z systemem Windows**:
+**Maszyny wirtualne z systemem Windows** :
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Windows](create-sql-vm-portal.md)
@@ -250,9 +250,9 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 * [Najlepsze rozwiązania w zakresie wydajności SQL Server na platformie Azure Virtual Machines](performance-guidelines-best-practices.md)
 * [Wzorce aplikacji i strategie programowania dla SQL Server na platformie Azure Virtual Machines](application-patterns-development-strategies.md)
 
-**Maszyny wirtualne z systemem Linux**:
+**Maszyny wirtualne z systemem Linux** :
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Linux](../linux/sql-vm-create-portal-quickstart.md)
 * [Często zadawane pytania (Linux)](../linux/frequently-asked-questions-faq.md)
-* [Dokumentacja SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Dokumentacja SQL Server on Linux](/sql/linux/sql-server-linux-overview)

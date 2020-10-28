@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować kontener niestandardowy w Azure Ap
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 5b1bf9b205fc1eb90c6eeae3a101def764381213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264579"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787061"
 ---
-# <a name="configure-a-custom-container-for-azure-app-service"></a>Konfigurowanie niestandardowego kontenera dla Azure App Service
+# <a name="configure-a-custom-container-for-azure-app-service"></a>Konfigurowanie niestandardowego kontenera dla usługi Azure App Service
 
 W tym artykule opisano sposób konfigurowania niestandardowego kontenera do uruchamiania na Azure App Service.
 
@@ -212,7 +212,7 @@ Istnieje kilka sposobów uzyskiwania dostępu do dzienników platformy Docker:
 
 ### <a name="in-azure-portal"></a>W Azure Portal
 
-Dzienniki platformy Docker są wyświetlane w portalu, na stronie **Ustawienia kontenera** aplikacji. Dzienniki są obcinane, ale można pobrać wszystkie dzienniki, klikając przycisk **Pobierz**. 
+Dzienniki platformy Docker są wyświetlane w portalu, na stronie **Ustawienia kontenera** aplikacji. Dzienniki są obcinane, ale można pobrać wszystkie dzienniki, klikając przycisk **Pobierz** . 
 
 ### <a name="from-the-kudu-console"></a>Z poziomu konsoli kudu
 
@@ -272,7 +272,7 @@ Procesory mogą być procesorami wielordzeniowymi lub wielowątkowymi. Informacj
 
 ## <a name="customize-health-ping-behavior"></a>Dostosuj zachowanie polecenia ping kondycji
 
-App Service traktuje kontener, aby mógł zostać pomyślnie uruchomiony podczas uruchamiania kontenera i reaguje na polecenie ping protokołu HTTP. Żądanie ping kondycji kontenerów w nagłówku `User-Agent= "App Service Hyper-V Container Availability Check"` . Jeśli kontener zostanie uruchomiony, ale nie odpowiada na polecenie ping po określonym czasie, App Service rejestruje zdarzenie w dzienniku platformy Docker, co oznacza, że kontener nie został uruchomiony. 
+App Service traktuje kontener, aby mógł zostać pomyślnie uruchomiony podczas uruchamiania kontenera i reaguje na polecenie ping protokołu HTTP. Żądanie ping kondycji zawiera nagłówek `User-Agent= "App Service Hyper-V Container Availability Check"` . Jeśli kontener zostanie uruchomiony, ale nie odpowiada na polecenie ping po określonym czasie, App Service rejestruje zdarzenie w dzienniku platformy Docker, co oznacza, że kontener nie został uruchomiony. 
 
 Jeśli aplikacja korzysta z dużej ilości zasobów, kontener może nie odpowiadać na pingowanie HTTP w czasie. Aby kontrolować akcje w przypadku niepowodzenia ping protokołu HTTP, należy ustawić `CONTAINER_AVAILABILITY_CHECK_MODE` ustawienie aplikacji. Można ustawić go za pośrednictwem [Cloud Shell](https://shell.azure.com). W bash:
 
