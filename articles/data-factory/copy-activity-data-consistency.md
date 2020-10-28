@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522911"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634916"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Weryfikacja spójności danych w działaniu kopiowania (wersja zapoznawcza)
 
@@ -79,7 +79,7 @@ linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-a
 path | Ścieżka do plików dziennika. | Określ ścieżkę, w której mają być przechowywane pliki dziennika. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
 
 >[!NOTE]
->- Podczas kopiowania plików binarnych z, lub do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2, usługa ADF umożliwia weryfikację sum kontrolnych MD5 poziomu blokowego, wykorzystując [interfejs API obiektów blob platformy Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) i [interfejs API Azure Data Lake Storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Jeśli ContentMD5 w plikach istnieje w obiekcie blob platformy Azure lub Azure Data Lake Storage Gen2 jako źródła danych, na AUTOMATYCZNYm przeczytaniu plików zostanie zweryfikowana suma kontrolna MD5 na poziomie pliku. Po skopiowaniu plików do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2 jako miejsce docelowe danych usługa ADF zapisuje ContentMD5 do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2, które mogą być dodatkowo używane przez aplikacje podrzędne do weryfikacji spójności danych.
+>- Podczas kopiowania plików binarnych z, lub do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2, usługa ADF umożliwia weryfikację sum kontrolnych MD5 poziomu blokowego, wykorzystując [interfejs API obiektów blob platformy Azure](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) i [interfejs API Azure Data Lake Storage Gen2](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Jeśli ContentMD5 w plikach istnieje w obiekcie blob platformy Azure lub Azure Data Lake Storage Gen2 jako źródła danych, na AUTOMATYCZNYm przeczytaniu plików zostanie zweryfikowana suma kontrolna MD5 na poziomie pliku. Po skopiowaniu plików do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2 jako miejsce docelowe danych usługa ADF zapisuje ContentMD5 do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2, które mogą być dodatkowo używane przez aplikacje podrzędne do weryfikacji spójności danych.
 >- W przypadku kopiowania plików binarnych między dowolnymi magazynami magazynów jest przeprowadzana weryfikacja rozmiaru pliku.
 
 ## <a name="monitoring"></a>Monitorowanie
@@ -106,15 +106,15 @@ Po całkowitym uruchomieniu działania kopiowania można zobaczyć wynik weryfik
 ```
 Szczegóły weryfikacji spójności danych można zobaczyć ze "właściwością dataConsistencyVerification".
 
-Wartość **VerificationResult**: 
--   **Zweryfikowano**: skopiowane dane zostały zweryfikowane pod kątem spójności między magazynem źródłowym i docelowym. 
--   **NotVerified**: skopiowane dane nie zostały zweryfikowane pod kątem spójności, ponieważ nie włączono validateDataConsistency w działaniu kopiowania. 
--   **Nieobsługiwane**: skopiowane dane nie zostały zweryfikowane pod kątem spójności, ponieważ Weryfikacja spójności danych nie jest obsługiwana dla danej pary kopiowania. 
+Wartość **VerificationResult** : 
+-   **Zweryfikowano** : skopiowane dane zostały zweryfikowane pod kątem spójności między magazynem źródłowym i docelowym. 
+-   **NotVerified** : skopiowane dane nie zostały zweryfikowane pod kątem spójności, ponieważ nie włączono validateDataConsistency w działaniu kopiowania. 
+-   **Nieobsługiwane** : skopiowane dane nie zostały zweryfikowane pod kątem spójności, ponieważ Weryfikacja spójności danych nie jest obsługiwana dla danej pary kopiowania. 
 
-Wartość **InconsistentData**: 
--   **Znaleziono**: działanie kopiowania ADF wykryło niespójne dane. 
--   **Pominięto**: działanie kopiowania APD zostało znalezione i pominięto niespójne dane. 
--   **Brak**: działanie kopiowania APD nie znalazło żadnych niespójnych danych. Może to być spowodowane faktem, że dane zostały zweryfikowane w celu zapewnienia spójności między magazynem źródłowym i docelowym lub ponieważ wyłączono validateDataConsistency w działaniu kopiowania. 
+Wartość **InconsistentData** : 
+-   **Znaleziono** : działanie kopiowania ADF wykryło niespójne dane. 
+-   **Pominięto** : działanie kopiowania APD zostało znalezione i pominięto niespójne dane. 
+-   **Brak** : działanie kopiowania APD nie znalazło żadnych niespójnych danych. Może to być spowodowane faktem, że dane zostały zweryfikowane w celu zapewnienia spójności między magazynem źródłowym i docelowym lub ponieważ wyłączono validateDataConsistency w działaniu kopiowania. 
 
 ### <a name="session-log-from-copy-activity"></a>Dziennik sesji z działania kopiowania
 
@@ -142,7 +142,5 @@ W pliku dziennika powyżej można zobaczyć, że sample1.csv został pominięty,
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Omówienie działania kopiowania](copy-activity-overview.md)
+- [Przegląd działania kopiowania](copy-activity-overview.md)
 - [Odporność na uszkodzenia działania kopiowania](copy-activity-fault-tolerance.md)
-
-

@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 17e5b5eaea90b5f67ad91f0b09a51b2f1aeffd68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5e53cab30f1adca05652a3b3b7541e12ebebbdb
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322619"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631465"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Przekształcanie danych przez uruchamianie skryptów U-SQL w usłudze Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -48,14 +48,14 @@ Poniższa tabela zawiera opis właściwości ogólnych używanych w definicji JS
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| **Wprowadź** |Właściwość Type powinna mieć wartość: **AzureDataLakeAnalytics**. |Tak |
+| **Wprowadź** |Właściwość Type powinna mieć wartość: **AzureDataLakeAnalytics** . |Tak |
 | **accountName** |Nazwa konta Azure Data Lake Analytics. |Tak |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics identyfikator URI. |Nie |
 | **Identyfikator** |Identyfikator subskrypcji platformy Azure |Nie (jeśli nie zostanie określony, zostanie użyta subskrypcja fabryki danych). |
 | **resourceGroupName** |Nazwa grupy zasobów platformy Azure |Nie (jeśli nie zostanie określony, zostanie użyta Grupa zasobów fabryki danych). |
 
 ### <a name="service-principal-authentication-recommended"></a>Uwierzytelnianie jednostki usługi (zalecane)
-Aby użyć uwierzytelniania nazwy głównej usługi, zarejestruj jednostkę aplikacji w Azure Active Directory (Azure AD) i Udziel jej dostępu do Data Lake Store. Aby uzyskać szczegółowe instrukcje, zobacz [uwierzytelnianie między usługami](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Należy zwrócić uwagę na następujące wartości, których można użyć do zdefiniowania połączonej usługi:
+Aby użyć uwierzytelniania nazwy głównej usługi, zarejestruj jednostkę aplikacji w Azure Active Directory (Azure AD) i Udziel jej dostępu do Data Lake Store. Aby uzyskać szczegółowe instrukcje, zobacz [uwierzytelnianie między usługami](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Należy zwrócić uwagę na następujące wartości, których można użyć do zdefiniowania połączonej usługi:
 * Identyfikator aplikacji
 * Klucz aplikacji 
 * Identyfikator dzierżawy
@@ -114,7 +114,7 @@ Alternatywnie można użyć uwierzytelniania poświadczeń użytkownika dla Data
 ```
 
 #### <a name="token-expiration"></a>Wygaśnięcie tokenu
-Kod autoryzacji wygenerowany przy użyciu przycisku **Autoryzuj** wygaśnie po pewnym czasie. Zapoznaj się z poniższą tabelą czasów wygaśnięcia dla różnych typów kont użytkowników. Po **wygaśnięciu tokenu**uwierzytelniania może zostać wyświetlony następujący komunikat o błędzie: błąd operacji poświadczeń: INVALID_GRANT-AADSTS70002: błąd podczas walidacji poświadczeń. AADSTS70008: podany przydział dostępu wygasł lub został odwołany. Identyfikator śledzenia: identyfikator korelacji d18629e8-af88-43c5-88e3-d8419eb1fca1: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 sygnatura czasowa: 2015-12-15 21:09:31Z
+Kod autoryzacji wygenerowany przy użyciu przycisku **Autoryzuj** wygaśnie po pewnym czasie. Zapoznaj się z poniższą tabelą czasów wygaśnięcia dla różnych typów kont użytkowników. Po **wygaśnięciu tokenu** uwierzytelniania może zostać wyświetlony następujący komunikat o błędzie: błąd operacji poświadczeń: INVALID_GRANT-AADSTS70002: błąd podczas walidacji poświadczeń. AADSTS70008: podany przydział dostępu wygasł lub został odwołany. Identyfikator śledzenia: identyfikator korelacji d18629e8-af88-43c5-88e3-d8419eb1fca1: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 sygnatura czasowa: 2015-12-15 21:09:31Z
 
 | Typ użytkownika | Wygasa po |
 |:--- |:--- |
@@ -148,7 +148,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-Aby uzyskać szczegółowe informacje o klasach Data Factory używanych w kodzie, zobacz [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)i [AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) . Dodaj odwołanie do: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll dla klasy WindowsFormsWebAuthenticationDialog. 
+Aby uzyskać szczegółowe informacje o klasach Data Factory używanych w kodzie, zobacz [AzureDataLakeStoreLinkedService Class](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice), [AzureDataLakeAnalyticsLinkedService Class](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice)i [AuthorizationSessionGetResponse](/dotnet/api/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse) . Dodaj odwołanie do: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll dla klasy WindowsFormsWebAuthenticationDialog. 
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Działania języka U-SQL usługi Data Lake Analytics
 Poniższy fragment kodu JSON definiuje potok z działaniem Data Lake Analytics U-SQL. Definicja działania zawiera odwołanie do utworzonej wcześniej połączonej usługi Azure Data Lake Analytics.   
@@ -208,11 +208,11 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 
 | Właściwość            | Opis                              | Wymagane                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| typ                | Właściwość Type musi być ustawiona na wartość **DataLakeAnalyticsU-SQL**. | Tak                                      |
+| typ                | Właściwość Type musi być ustawiona na wartość **DataLakeAnalyticsU-SQL** . | Tak                                      |
 | linkedServiceName   | Odwołanie do Azure Data Lake Analytics zarejestrowanego jako połączona usługa w Data Factory | Tak                                      |
 | scriptPath          | Ścieżka do folderu, który zawiera skrypt U-SQL. Nazwa pliku jest rozróżniana wielkość liter. | Nie (Jeśli używasz skryptu)                   |
 | Elementu scriptlinkedservice | Połączona usługa, która łączy magazyn zawierający skrypt z fabryką danych | Nie (Jeśli używasz skryptu)                   |
-| skrypt              | Określ skrypt wbudowany zamiast określania scriptPath i elementu scriptlinkedservice. Przykład: `"script": "CREATE DATABASE test"`. | Nie (Jeśli używasz scriptPath i elementu scriptlinkedservice) |
+| skrypt              | Określ skrypt wbudowany zamiast określania scriptPath i elementu scriptlinkedservice. Na przykład: `"script": "CREATE DATABASE test"`. | Nie (Jeśli używasz scriptPath i elementu scriptlinkedservice) |
 | degreeOfParallelism | Maksymalna liczba węzłów jednocześnie używanych do uruchomienia zadania. | Nie                                       |
 | priority            | Określa, które zadania z wszystkich znajdujących się w kolejce powinny zostać wybrane do uruchomienia jako pierwsze. Im niższa wartość, tym wyższy priorytet. | Nie                                       |
 | parameters          | Parametry skryptu U-SQL          | Nie                                       |
@@ -317,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Wartości parametrów ** \@ in** i ** \@ out** w skrypcie U-SQL są przesyłane dynamicznie przez ADF przy użyciu sekcji "Parameters". Zobacz sekcję "Parameters" w definicji potoku.
+Wartości parametrów **\@ in** i **\@ out** w skrypcie U-SQL są przesyłane dynamicznie przez ADF przy użyciu sekcji "Parameters". Zobacz sekcję "Parameters" w definicji potoku.
 
 Można określić inne właściwości, takie jak degreeOfParallelism i Priority, jak również w definicji potoku dla zadań uruchamianych w usłudze Azure Data Lake Analytics.
 
@@ -340,6 +340,4 @@ Zamiast tego można użyć parametrów dynamicznych. Na przykład:
 }
 ```
 
-W takim przypadku pliki wejściowe są nadal pobierane z folderu/datalake/Input, a pliki wyjściowe są generowane w folderze/datalake/Output. Nazwy plików są dynamiczne na podstawie czasu rozpoczęcia wycinka.  
-
-
+W takim przypadku pliki wejściowe są nadal pobierane z folderu/datalake/Input, a pliki wyjściowe są generowane w folderze/datalake/Output. Nazwy plików są dynamiczne na podstawie czasu rozpoczęcia wycinka.

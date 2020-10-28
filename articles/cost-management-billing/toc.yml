@@ -48,8 +48,6 @@
           href: costs/manage-automation.md
         - name: Usługa Cost Management dla partnerów
           href: costs/get-started-partners.md
-        - name: Wybieranie między usługami Cost Management i Cloudyn
-          href: costs/choose-between-azure-cost-management-cloudyn.md
     - name: Rezerwacje
       items:
         - name: Co to jest Azure Reservations?
@@ -440,10 +438,6 @@
           href: cloudyn/overview.md
     - name: Przewodniki Szybki start
       items:
-        - name: Wyświetlanie danych kosztów
-          href: cloudyn/quick-register-azure-sub.md
-        - name: Wyświetlanie danych kosztów — EA
-          href: cloudyn/quick-register-ea.md
         - name: Wyświetlanie danych kosztów — CSP
           href: cloudyn/quick-register-csp.md
     - name: Samouczki
@@ -468,8 +462,6 @@
           href: cloudyn/activate-subs-accounts.md
         - name: Dodawanie rozszerzonych metryk dla maszyn wirtualnych
           href: cloudyn/azure-vm-extended-metrics.md
-        - name: Łączenie z kontem Google
-          href: cloudyn/connect-google-account.md
         - name: Łączenie z kontem usług AWS
           href: cloudyn/connect-aws-account.md
         - name: Konfigurowanie kont magazynu

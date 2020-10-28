@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9ae4970383802adad755fff4a6ce382db6ce32fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0da49a6f5299ef4e53b06acd5ce3fb838915a661
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619920"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633930"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory — zagadnienia dotyczące zabezpieczeń związane z przenoszeniem danych
 
@@ -28,7 +28,7 @@ W tym artykule opisano podstawową infrastrukturę zabezpieczeń, której usług
 
 W ramach rozwiązania fabryki danych jest tworzony co najmniej jeden [potok](data-factory-create-pipelines.md) danych. Potok jest logicznym grupowaniem działań, które wspólnie wykonują zadanie. Te potoki znajdują się w regionie, w którym została utworzona Fabryka danych. 
 
-Mimo że Data Factory jest dostępna tylko w regionach **zachodnie stany USA**, **Wschodnie stany USA**i **Europa Północna** , Usługa przenoszenia danych jest dostępna [globalnie w kilku regionach](data-factory-data-movement-activities.md#global). Usługa Data Factory zapewnia, że dane nie opuszczają obszaru geograficznego/regionu, chyba że jawnie poinstruuje usługę, aby używała alternatywnego regionu, jeśli usługa przenoszenia danych nie została jeszcze wdrożona w tym regionie. 
+Mimo że Data Factory jest dostępna tylko w regionach **zachodnie stany USA** , **Wschodnie stany USA** i **Europa Północna** , Usługa przenoszenia danych jest dostępna [globalnie w kilku regionach](data-factory-data-movement-activities.md#global). Usługa Data Factory zapewnia, że dane nie opuszczają obszaru geograficznego/regionu, chyba że jawnie poinstruuje usługę, aby używała alternatywnego regionu, jeśli usługa przenoszenia danych nie została jeszcze wdrożona w tym regionie. 
 
 Azure Data Factory samo nie przechowuje żadnych danych z wyjątkiem poświadczeń połączonej usługi dla magazynów danych w chmurze, które są szyfrowane przy użyciu certyfikatów. Umożliwia tworzenie przepływów pracy opartych na danych w celu organizowania przenoszenia danych między [obsługiwanymi magazynami danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) i przetwarzaniem danych przy użyciu [usług obliczeniowych](data-factory-compute-linked-services.md) w innych regionach lub w środowisku lokalnym. Umożliwia także [monitorowanie przepływów pracy i zarządzanie nimi](data-factory-monitor-manage-pipelines.md) przy użyciu mechanizmów programistycznych i interfejsu użytkownika.
 
@@ -42,20 +42,20 @@ Jeśli interesuje Cię zgodność z platformą Azure i sposób, w jaki platforma
 
 W tym artykule opisano zagadnienia dotyczące zabezpieczeń w następujących dwóch scenariuszach przenoszenia danych: 
 
-- **Scenariusz w chmurze**— w tym scenariuszu zarówno źródło, jak i miejsce docelowe są publicznie dostępne za poorednictwem Internetu. Obejmują one zarządzane usługi magazynu w chmurze, takie jak Azure Storage, Azure Synapse Analytics (dawniej SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon RedShift, SaaS Services, takie jak Salesforce i protokoły sieci Web, takie jak FTP i OData. Pełną listę obsługiwanych źródeł danych można znaleźć [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- **Scenariusz hybrydowy**— w tym scenariuszu źródłowa lub docelowa znajduje się za zaporą lub wewnątrz lokalnej sieci firmowej albo magazyn danych znajduje się w sieci prywatnej/sieci wirtualnej (najczęściej w źródle) i nie jest publicznie dostępna. Serwery baz danych hostowane na maszynach wirtualnych są również objęte tym scenariuszem.
+- **Scenariusz w chmurze** — w tym scenariuszu zarówno źródło, jak i miejsce docelowe są publicznie dostępne za poorednictwem Internetu. Obejmują one zarządzane usługi magazynu w chmurze, takie jak Azure Storage, Azure Synapse Analytics (dawniej SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon RedShift, SaaS Services, takie jak Salesforce i protokoły sieci Web, takie jak FTP i OData. Pełną listę obsługiwanych źródeł danych można znaleźć [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+- **Scenariusz hybrydowy** — w tym scenariuszu źródłowa lub docelowa znajduje się za zaporą lub wewnątrz lokalnej sieci firmowej albo magazyn danych znajduje się w sieci prywatnej/sieci wirtualnej (najczęściej w źródle) i nie jest publicznie dostępna. Serwery baz danych hostowane na maszynach wirtualnych są również objęte tym scenariuszem.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Scenariusze chmury
 ### <a name="securing-data-store-credentials"></a>Zabezpieczanie poświadczeń magazynu danych
-Azure Data Factory chroni poświadczenia magazynu danych przez ich **szyfrowanie** przy użyciu **certyfikatów zarządzanych przez firmę Microsoft**. Te certyfikaty są obracane co **dwa lata** (co obejmuje odnowienie certyfikatu i migracji poświadczeń). Te zaszyfrowane poświadczenia są bezpiecznie przechowywane w usłudze **Azure Storage zarządzanej przez Azure Data Factory usług zarządzania**. Aby uzyskać więcej informacji o zabezpieczeniach usługi Azure Storage, zobacz [Omówienie zabezpieczeń usługi Azure Storage](../../security/fundamentals/storage-overview.md).
+Azure Data Factory chroni poświadczenia magazynu danych przez ich **szyfrowanie** przy użyciu **certyfikatów zarządzanych przez firmę Microsoft** . Te certyfikaty są obracane co **dwa lata** (co obejmuje odnowienie certyfikatu i migracji poświadczeń). Te zaszyfrowane poświadczenia są bezpiecznie przechowywane w usłudze **Azure Storage zarządzanej przez Azure Data Factory usług zarządzania** . Aby uzyskać więcej informacji o zabezpieczeniach usługi Azure Storage, zobacz [Omówienie zabezpieczeń usługi Azure Storage](../../storage/blobs/security-recommendations.md).
 
 ### <a name="data-encryption-in-transit"></a>Szyfrowanie danych podczas przesyłania
 Jeśli magazyn danych w chmurze obsługuje protokół HTTPS lub TLS, wszystkie transfery danych między usługami przenoszenia danych w Data Factory i magazynem danych w chmurze są realizowane za pośrednictwem protokołu HTTPS lub TLS bezpiecznego kanału.
 
 > [!NOTE]
-> Wszystkie połączenia do **Azure SQL Database** i **Azure Synapse Analytics** zawsze wymagają szyfrowania (SSL/TLS), gdy dane są przesyłane do i z bazy danych. Podczas tworzenia potoku przy użyciu edytora JSON należy dodać właściwość **szyfrowania** i ustawić dla niej **wartość true** w **parametrach połączenia**. W przypadku korzystania z [Kreatora kopiowania](data-factory-azure-copy-wizard.md)Kreator domyślnie ustawia tę właściwość. W przypadku **usługi Azure Storage**można użyć **protokołu HTTPS** w parametrach połączenia.
+> Wszystkie połączenia do **Azure SQL Database** i **Azure Synapse Analytics** zawsze wymagają szyfrowania (SSL/TLS), gdy dane są przesyłane do i z bazy danych. Podczas tworzenia potoku przy użyciu edytora JSON należy dodać właściwość **szyfrowania** i ustawić dla niej **wartość true** w **parametrach połączenia** . W przypadku korzystania z [Kreatora kopiowania](data-factory-azure-copy-wizard.md)Kreator domyślnie ustawia tę właściwość. W przypadku **usługi Azure Storage** można użyć **protokołu HTTPS** w parametrach połączenia.
 
 ### <a name="data-encryption-at-rest"></a>Szyfrowanie danych w spoczynku
 Niektóre magazyny danych obsługują szyfrowanie danych magazynowanych. Zalecamy włączenie mechanizmu szyfrowania danych dla tych magazynów danych. 
@@ -63,8 +63,8 @@ Niektóre magazyny danych obsługują szyfrowanie danych magazynowanych. Zalecam
 #### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 Transparent Data Encryption (TDE) w usłudze Azure Synapse Analytics pomaga chronić przed zagrożeniami złośliwych działań, wykonując szyfrowanie i odszyfrowywanie danych w czasie rzeczywistym. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie bazy danych w programie Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL Database obsługuje również funkcję transparent Data Encryption (TDE), która pomaga chronić przed zagrożeniami złośliwego działania przez wykonywanie szyfrowania i odszyfrowywanie danych w czasie rzeczywistym bez konieczności wprowadzania zmian w aplikacji. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [transparent Data Encryption z Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
+#### <a name="azure-sql-database"></a>Usługa Azure SQL Database
+Azure SQL Database obsługuje również funkcję transparent Data Encryption (TDE), która pomaga chronić przed zagrożeniami złośliwego działania przez wykonywanie szyfrowania i odszyfrowywanie danych w czasie rzeczywistym bez konieczności wprowadzania zmian w aplikacji. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [transparent Data Encryption z Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Magazyn Azure Data Lake udostępnia również szyfrowanie danych przechowywanych na koncie. Po włączeniu Data Lake magazyn automatycznie szyfruje dane przed utrwaleniem i odszyfrowaniem przed pobraniem, co sprawia, że jest ono niewidoczne dla klienta uzyskującego dostęp do danych. Aby uzyskać więcej informacji, zobacz [zabezpieczenia w Azure Data Lake Store](../../data-lake-store/data-lake-store-security-overview.md). 
@@ -92,12 +92,12 @@ Scenariusze hybrydowe wymagają zainstalowania bramy Zarządzanie danymi w sieci
 Poświadczenia lokalnych magazynów danych są przechowywane lokalnie (nie w chmurze). Można je ustawić na trzy różne sposoby. 
 
 - Używanie **zwykłego tekstu** (mniej bezpieczne) za pośrednictwem protokołu HTTPS w witrynie Azure Portal/Kreator kopiowania. Poświadczenia są przesyłane w postaci zwykłego tekstu do bramy lokalnej.
-- Używanie **biblioteki kryptograficznej JavaScript w Kreatorze kopiowania**.
-- Za pomocą **aplikacji Menedżer poświadczeń opartych na kliknięciach**. Aplikacja dwukrotnego kliknięcia jest uruchamiana na maszynie lokalnej, która ma dostęp do bramy i ustawia poświadczenia dla magazynu danych. Ta opcja i następny z nich są najbardziej bezpiecznymi opcjami. Aplikacja Menedżer poświadczeń domyślnie używa portu 8050 na komputerze z bramą do bezpiecznej komunikacji.  
+- Używanie **biblioteki kryptograficznej JavaScript w Kreatorze kopiowania** .
+- Za pomocą **aplikacji Menedżer poświadczeń opartych na kliknięciach** . Aplikacja dwukrotnego kliknięcia jest uruchamiana na maszynie lokalnej, która ma dostęp do bramy i ustawia poświadczenia dla magazynu danych. Ta opcja i następny z nich są najbardziej bezpiecznymi opcjami. Aplikacja Menedżer poświadczeń domyślnie używa portu 8050 na komputerze z bramą do bezpiecznej komunikacji.  
 - Użyj polecenia cmdlet [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) programu PowerShell, aby zaszyfrować poświadczenia. Polecenie cmdlet używa certyfikatu, który jest skonfigurowany do szyfrowania poświadczeń przez bramę. Można użyć zaszyfrowanych poświadczeń zwracanych przez to polecenie cmdlet i dodać je do elementu **EncryptedCredential** obiektu **CONNECTIONSTRING** w pliku JSON, który jest używany z poleceniem cmdlet [New-AZDATAFACTORYLINKEDSERVICE](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) lub w fragmencie kodu JSON w edytorze Data Factory w portalu. Ta opcja i aplikacja dwukrotnego kliknięcia są najbardziej bezpiecznymi opcjami. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Szyfrowanie oparte na bibliotece Java kryptografii
-Poświadczenia magazynu danych można szyfrować przy użyciu [biblioteki kryptografii JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) z [Kreatora kopiowania](data-factory-copy-wizard.md). Po wybraniu tej opcji Kreator kopiowania Pobiera klucz publiczny bramy i używa go do szyfrowania poświadczeń magazynu danych. Poświadczenia są odszyfrowywane przez maszynę bramy i chronione przez [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)systemu Windows.
+Poświadczenia magazynu danych można szyfrować przy użyciu [biblioteki kryptografii JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) z [Kreatora kopiowania](data-factory-copy-wizard.md). Po wybraniu tej opcji Kreator kopiowania Pobiera klucz publiczny bramy i używa go do szyfrowania poświadczeń magazynu danych. Poświadczenia są odszyfrowywane przez maszynę bramy i chronione przez [DPAPI](/previous-versions/ms995355(v=msdn.10))systemu Windows.
 
 **Obsługiwane przeglądarki:** IE8, IE9, programu IE10, IE11, Microsoft Edge i najnowsze przeglądarki Firefox, Chrome, operac i Safari. 
 
@@ -106,7 +106,7 @@ Korzystając z Kreatora Azure Portal/Copy, można uruchomić aplikację Menedże
   
 ![Port HTTPS dla bramy](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
 
-Obecnie Brama Zarządzanie danymi używa jednego **certyfikatu**. Ten certyfikat jest tworzony podczas instalacji bramy (dotyczy Zarządzanie danymi Brama utworzona po listopad 2016 i w wersji 2.4. xxxx. x lub nowszej). Można zastąpić ten certyfikat własnym certyfikatem SSL/TLS. Ten certyfikat jest używany przez aplikację Menedżer poświadczeń kliknij raz, aby bezpiecznie połączyć się z maszyną bramy w celu ustawienia poświadczeń magazynu danych. Przechowuje bezpieczne poświadczenia magazynu danych przy użyciu funkcji [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) systemu Windows na komputerze z bramą. 
+Obecnie Brama Zarządzanie danymi używa jednego **certyfikatu** . Ten certyfikat jest tworzony podczas instalacji bramy (dotyczy Zarządzanie danymi Brama utworzona po listopad 2016 i w wersji 2.4. xxxx. x lub nowszej). Można zastąpić ten certyfikat własnym certyfikatem SSL/TLS. Ten certyfikat jest używany przez aplikację Menedżer poświadczeń kliknij raz, aby bezpiecznie połączyć się z maszyną bramy w celu ustawienia poświadczeń magazynu danych. Przechowuje bezpieczne poświadczenia magazynu danych przy użyciu funkcji [DPAPI](/previous-versions/ms995355(v=msdn.10)) systemu Windows na komputerze z bramą. 
 
 > [!NOTE]
 > Starsze bramy zainstalowane przed listopadem 2016 lub wersja 2.3. xxxx. x nadal używają poświadczeń zaszyfrowanych i przechowywanych w chmurze. Nawet w przypadku uaktualnienia bramy do najnowszej wersji poświadczenia nie są migrowane do maszyny lokalnej    
@@ -147,7 +147,7 @@ Na poniższych ilustracjach przedstawiono użycie bramy Zarządzanie danymi do p
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Wymagania dotyczące zapory dla sieci lokalnej/prywatnej  
 W przedsiębiorstwie **firmowa Zapora** jest uruchamiana na centralnym routerze organizacji. Ponadto **Zapora systemu Windows** jest uruchamiana jako demon na komputerze lokalnym, na którym zainstalowano bramę. 
 
-W poniższej tabeli przedstawiono wymagania dotyczące **portów wychodzących** i domen dla **zapory firmowej**.
+W poniższej tabeli przedstawiono wymagania dotyczące **portów wychodzących** i domen dla **zapory firmowej** .
 
 | Nazwy domen | Porty wychodzące | Opis |
 | ------------ | -------------- | ----------- | 
@@ -160,7 +160,7 @@ W poniższej tabeli przedstawiono wymagania dotyczące **portów wychodzących**
 > [!NOTE] 
 > Może być konieczne zarządzanie portami/filtrowanie domen na poziomie zapory firmowej zgodnie z wymaganiami odpowiednich źródeł danych. Ta tabela używa tylko Azure SQL Database usługi Azure Synapse Analytics, Azure Data Lake Store jako przykłady.   
 
-W poniższej tabeli przedstawiono wymagania dotyczące **portów ruchu przychodzącego** dla **zapory systemu Windows**.
+W poniższej tabeli przedstawiono wymagania dotyczące **portów ruchu przychodzącego** dla **zapory systemu Windows** .
 
 | Porty wejściowe | Opis | 
 | ------------- | ----------- | 
@@ -173,10 +173,10 @@ Niektóre magazyny danych w chmurze wymagają również zatwierdzenia adresu IP 
 
 Następujące magazyny danych w chmurze wymagają zatwierdzenia adresu IP maszyny bramy. Niektóre z tych magazynów danych domyślnie mogą nie wymagać zatwierdzania adresu IP. 
 
-- [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
-- [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Baza danych SQL Azure](../../azure-sql/database/firewall-configure.md) 
+- [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
+- [Azure Cosmos DB](../../cosmos-db/how-to-configure-firewall.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania

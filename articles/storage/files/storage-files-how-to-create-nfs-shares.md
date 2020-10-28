@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: d5b394833dbc920612f521b01f4da88af6c3e015
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 293fc1bca47f7c58f89a8dac50cc636be8231d4f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220751"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633505"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Jak utworzyć udział NFS
 
@@ -86,21 +86,21 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 Po utworzeniu konta FileStorage i skonfigurowaniu sieci można utworzyć udział plików NFS. Ten proces jest podobny do tworzenia udziału SMB, podczas tworzenia udziału wybiera się system **plików NFS** zamiast **SMB** .
 
-1. Przejdź do konta magazynu i wybierz pozycję **udziały plików**.
+1. Przejdź do konta magazynu i wybierz pozycję **udziały plików** .
 1. Wybierz pozycję **+ udział plików** , aby utworzyć nowy udział plików.
 1. Nazwij udział plików, wybierz pojemność zainicjowaną.
-1. Dla opcji wybór **protokołu** **NFS (wersja zapoznawcza)**.
+1. Dla opcji wybór **protokołu** **NFS (wersja zapoznawcza)** .
 1. Dla **elementu głównego squash** wybierz opcję.
 
     - Root squash (domyślnie) — dostęp do zdalnej administratora (root) jest mapowany na UID (65534) i GID (65534).
     - Brak elementu głównego squash-Remote administratora (root) odbiera dostęp jako główny.
     - Wszystkie squash — dostęp wszystkich użytkowników jest mapowany na UID (65534) i GID (65534).
     
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Utwórz** .
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Zrzut ekranu bloku tworzenia udziału plików":::
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Upewnij się, że program .NET Framework jest zainstalowany. Zobacz [pobieranie .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
  
@@ -120,7 +120,7 @@ Po utworzeniu konta FileStorage i skonfigurowaniu sieci można utworzyć udział
 
 1. Zamknij program, a następnie ponownie otwórz konsolę programu PowerShell.
 
-1. Zainstaluj moduł **AZ. Storage** Preview w wersji **2.5.2-Preview**.
+1. Zainstaluj moduł **AZ. Storage** Preview w wersji **2.5.2-Preview** .
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
@@ -152,10 +152,9 @@ Aby utworzyć udział plików w warstwie Premium za pomocą interfejsu wiersza p
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0f30edeb24f3c4abed6f144f3fb7f755cc08a72
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604414"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629463"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą dla Azure Machine Learning
 
@@ -45,7 +45,7 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 
 | **Nazwa hosta** | **Cel** |
 | ---- | ---- |
-| **login.microsoftonline.com** | Uwierzytelnianie |
+| **login.microsoftonline.com** | Authentication |
 | **management.azure.com** | Służy do uzyskiwania informacji o obszarze roboczym |
 | **\*. batchai.core.windows.net** | Klastry szkoleniowe |
 | **ml.azure.com** | Studio uczenia maszynowego Azure |
@@ -58,11 +58,13 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | **\*. instances.azureml.net** | Wystąpienia obliczeniowe Azure Machine Learning |
 | **\*. instances.azureml.ms** | Wystąpienia obliczeniowe Azure Machine Learning, gdy w obszarze roboczym jest włączone łącze prywatne |
 | **windows.net** | Azure Blob Storage |
-| **vault.azure.net** | W usłudze Azure Key Vault |
+| **vault.azure.net** | Azure Key Vault |
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | Microsoft Container Registry dla podstawowych obrazów platformy Docker |
 | **your-acr-server-name.azurecr.io** | Wymagany tylko wtedy, gdy Azure Container Registry znajduje się za siecią wirtualną. W tej konfiguracji link prywatny jest tworzony ze środowiska firmy Microsoft do wystąpienia usługi ACR w ramach subskrypcji. Użyj nazwy serwera ACR dla obszaru roboczego Azure Machine Learning. |
 | **\*. notebooks.azure.net** | Wymagany przez notesy w programie Azure Machine Learning Studio. |
+| **\*. file.core.windows.net** | Wymagany przez Eksploratora plików w programie Azure Machine Learning Studio. |
+| **\*. dfs.core.windows.net** | Wymagany przez Eksploratora plików w programie Azure Machine Learning Studio. |
 | **graph.windows.net** | Potrzeba dla notesów |
 
 > [!TIP]
@@ -76,7 +78,7 @@ Hosty w tej sekcji służą do instalowania pakietów języka Python. Są one wy
 | ---- | ---- |
 | **anaconda.com**</br>**\*. anaconda.com** | Służy do instalowania pakietów domyślnych. |
 | **\*. anaconda.org** | Służy do pobierania danych repozytorium. |
-| **pypi.org** | Służy do wyświetlania listy zależności od domyślnego indeksu (jeśli istnieje), a indeks nie jest zastępowany przez ustawienia użytkownika. Jeśli indeks jest zastępowany, należy również zezwolić na ** \* . pythonhosted.org**. |
+| **pypi.org** | Służy do wyświetlania listy zależności od domyślnego indeksu (jeśli istnieje), a indeks nie jest zastępowany przez ustawienia użytkownika. Jeśli indeks jest zastępowany, należy również zezwolić na **\* . pythonhosted.org** . |
 
 ## <a name="r-hosts"></a>Hosty języka R
 

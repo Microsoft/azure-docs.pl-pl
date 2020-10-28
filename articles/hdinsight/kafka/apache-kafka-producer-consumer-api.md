@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: ca796b09f10127c68c5a22ff58f95c89cbda2610
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b942fb321d2bceef64930bea0c660f66747508b6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534400"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629310"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Samouczek: korzystanie z interfejsów API producentów i odbiorców platformy Apache Kafka
 
@@ -217,9 +217,9 @@ Rekordy przechowywane w Kafka są przechowywane w kolejności, w jakiej są odbi
 
 ## <a name="common-issues-faced"></a>Często spotykane problemy
 
-1. **Tworzenie tematu kończy się niepowodzeniem** Jeśli w klastrze jest włączony pakiet Enterprise Security Pack, użyj [wstępnie utworzonych plików jar dla producenta i konsumenta](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). Plik JAR. ESP można skompilować z kodu w [ `DomainJoined-Producer-Consumer` podkatalogu](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Należy zauważyć, że właściwości producent i odbiorca wyapisz dodatkową właściwość `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` dla klastrów obsługujących ESP.
+1. **Tworzenie tematu kończy się niepowodzeniem** Jeśli w klastrze jest włączony pakiet Enterprise Security Pack, użyj [wstępnie utworzonych plików jar dla producenta i konsumenta](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). Plik JAR. ESP można utworzyć na podstawie kodu w [ `DomainJoined-Producer-Consumer` podkatalogu](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Właściwości producent i konsument mają dodatkową właściwość `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` dla klastrów obsługujących ESP.
 
-2. **Problem z problemem z klastrami z obsługą ESP** Jeśli operacje tworzenia i zużywania nie powiodą się i jest używany klaster obsługujący ESP, sprawdź, czy użytkownik `kafka` jest obecny we wszystkich zasadach Ranger. Jeśli go nie ma, Dodaj go do wszystkich zasad Rangerymi.
+2. **Niepowodzenie w klastrach obsługujących ESP: w** przypadku niepowodzenia operacji tworzenia i używania z obsługą protokołu ESP Sprawdź, czy użytkownik `kafka` jest obecny we wszystkich zasadach Ranger. Jeśli go nie ma, Dodaj go do wszystkich zasad Rangerymi.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

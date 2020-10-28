@@ -10,17 +10,18 @@ ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2dfb5876922fd53c372afe82ecdfa843179fb135
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf8d847bd4e950ab17cc1f04b52be2589607f99c
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439014"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629497"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Kreator kopiowania Azure Data Factory
+
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Data Factory. 
 
@@ -35,8 +36,6 @@ Ten Kreator umożliwia łatwe przenoszenie danych z wielu źródeł do miejsc do
 
 > [!NOTE]
 > Aby uzyskać instrukcje krok po kroku dotyczące tworzenia przykładowego potoku do kopiowania danych z obiektu blob platformy Azure do tabeli Azure SQL Database, zobacz [samouczek Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md).
->
->
 
 Kreator został zaprojektowany z myślą o rozpoczęciu pracy z obsługą różnorodnych danych i typów obiektów. Można tworzyć potoki Data Factory, które przenoszą setki folderów, plików lub tabel. Kreator obsługuje automatyczne podglądy danych, przechwytywanie schematu i mapowanie oraz filtrowanie danych.
 
@@ -50,7 +49,6 @@ Schemat danych wejściowych może być niezgodny ze schematem danych wyjściowyc
 
 > [!TIP]
 > W przypadku kopiowania danych z SQL Server lub Azure SQL Database do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), jeśli tabela nie istnieje w magazynie docelowym, Data Factory obsługuje tworzenie tabel przy użyciu schematu źródła. Dowiedz się więcej od [przenoszenia danych do i z usługi Azure Synapse Analytics przy użyciu Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
->
 
 Użyj listy rozwijanej, aby wybrać kolumnę ze schematu źródłowego do zmapowania do kolumny w schemacie docelowym. Kreator kopiowania próbuje zrozumieć wzorzec dla mapowania kolumn. Stosuje ten sam wzorzec do reszty kolumn, dzięki czemu nie trzeba wybierać każdej z kolumn pojedynczo, aby ukończyć mapowanie schematu. Jeśli wolisz, możesz zastąpić te mapowania przy użyciu list rozwijanych, aby mapować kolumny jeden według jednego. Wzorzec jest dokładniejszy podczas mapowania większej liczby kolumn. Kreator kopiowania ciągle aktualizuje wzorzec i ostatecznie osiągnie prawy wzorzec dla mapowania kolumn, które mają być osiągnięte.     
 
@@ -65,7 +63,7 @@ Poniższy zrzut ekranu przedstawia zapytanie SQL przy użyciu `Text.Format` funk
 ![Weryfikuj wyrażenia](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrowanie danych w folderze obiektów blob platformy Azure
-W ścieżce folderu można używać zmiennych do kopiowania danych z folderu określonego w czasie wykonywania na podstawie [zmiennych systemowych](data-factory-functions-variables.md#data-factory-system-variables). Obsługiwane są następujące zmienne: **{Year}**, **{Month}**, **{Day}**, **{Hour}**, **{min}** i **{Custom}**. Na przykład: inputfolder/{Year}/{Month}/{Day}.
+W ścieżce folderu można używać zmiennych do kopiowania danych z folderu określonego w czasie wykonywania na podstawie [zmiennych systemowych](data-factory-functions-variables.md#data-factory-system-variables). Obsługiwane są następujące zmienne: **{Year}** , **{Month}** , **{Day}** , **{Hour}** , **{min}** i **{Custom}** . Na przykład: inputfolder/{Year}/{Month}/{Day}.
 
 Załóżmy, że masz foldery wejściowe w następującym formacie:
 
@@ -76,11 +74,11 @@ Załóżmy, że masz foldery wejściowe w następującym formacie:
 ...
 ```
 
-Kliknij przycisk **Przeglądaj** dla **pliku lub folderu**, przejdź do jednego z tych folderów (na przykład 2016->03->01->02), a następnie kliknij pozycję **Wybierz**. Powinien być widoczny `2016/03/01/02` w polu tekstowym. Teraz Zastąp **2016** ciąg 2016 **{Year}**, **03** przez **{Month}**, **01** z **{Day}** i **02** z **{Hour}**, a następnie naciśnij klawisz **Tab** . Powinny pojawić się listy rozwijane, aby wybrać format dla tych czterech zmiennych:
+Kliknij przycisk **Przeglądaj** dla **pliku lub folderu** , przejdź do jednego z tych folderów (na przykład 2016->03->01->02), a następnie kliknij pozycję **Wybierz** . Powinien być widoczny `2016/03/01/02` w polu tekstowym. Teraz Zastąp **2016** ciąg 2016 **{Year}** , **03** przez **{Month}** , **01** z **{Day}** i **02** z **{Hour}** , a następnie naciśnij klawisz **Tab** . Powinny pojawić się listy rozwijane, aby wybrać format dla tych czterech zmiennych:
 
 ![Używanie zmiennych systemowych](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Jak pokazano na poniższym zrzucie ekranu, można również użyć zmiennej **niestandardowej** i dowolnego [obsługiwanego ciągu formatu](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Aby wybrać folder z tą strukturą, najpierw Użyj przycisku **przeglądania** . Następnie Zastąp wartość **{Custom}**, a następnie naciśnij klawisz **Tab** , aby zobaczyć pole tekstowe, w którym można wpisać ciąg formatu.     
+Jak pokazano na poniższym zrzucie ekranu, można również użyć zmiennej **niestandardowej** i dowolnego [obsługiwanego ciągu formatu](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Aby wybrać folder z tą strukturą, najpierw Użyj przycisku **przeglądania** . Następnie Zastąp wartość **{Custom}** , a następnie naciśnij klawisz **Tab** , aby zobaczyć pole tekstowe, w którym można wpisać ciąg formatu.     
 
 ![Używanie zmiennej niestandardowej](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
@@ -90,6 +88,49 @@ Operację kopiowania można wykonać raz lub zgodnie z harmonogramem (co godzin�
 Jednorazowa operacja kopiowania umożliwia przenoszenie danych ze źródła do miejsca docelowego tylko raz. Ma to zastosowanie do danych o dowolnym rozmiarze i dowolnym obsługiwanym formacie. Zaplanowana kopia umożliwia kopiowanie danych zgodnie z określonym cyklem. Aby skonfigurować zaplanowaną kopię, można użyć zaawansowanych ustawień (takich jak ponowna próba, limit czasu i alerty).
 
 ![Właściwości planowania](./media/data-factory-copy-wizard/scheduling-properties.png)
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+W tej sekcji przedstawiono typowe metody rozwiązywania problemów z Kreatorem kopiowania w Azure Data Factory.
+
+> [!NOTE] 
+> Te wskazówki dotyczące rozwiązywania problemów dotyczą kreatora kopiowania w wersji 1 Data Factory. W przypadku Data Factory v2 zobacz Przewodnik rozwiązywania problemów w temacie [Rozwiązywanie problemów Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-ux-troubleshoot-guide).
+
+### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Kod błędu: nie można przeprowadzić walidacji w Kreatorze kopiowania
+
+- **Objawy** : w pierwszym kroku Kreatora kopiowania występuje komunikat ostrzegawczy "nie można sprawdzić poprawności".
+- **Przyczyny** : może to być spowodowane wyłączeniem wszystkich plików cookie innych firm.
+- **Rozwiązanie** : 
+    - Użyj programu Internet Explorer lub przeglądarki Microsoft Edge.
+    - Jeśli używasz przeglądarki Chrome, postępuj zgodnie z poniższymi instrukcjami, aby dodać wyjątek dla plików cookie dla *microsoftonline.com* i *Windows.NET* .
+        1.  Otwórz przeglądarkę Chrome.
+        2.  Kliknij klucz lub trzy wiersze po prawej stronie (Dostosowywanie i kontrolowanie Google Chrome).
+        3.  Kliknij polecenie **Ustawienia** .
+        4.  Wyszukaj **pliki cookie** lub przejdź do obszaru **Ochrona prywatności** w obszarze Ustawienia zaawansowane.
+        5.  Wybierz pozycję **ustawienia zawartości** .    
+        6.  Pliki cookie powinny być ustawione tak, aby **zezwalały na ustawianie danych lokalnych (zalecane)** .
+        7.  Kliknij pozycję **Zarządzaj wyjątkami** . W obszarze **wzorzec nazwy hosta** wprowadź następujące polecenie i upewnij się, że opcja **Zezwalaj** jest ustawionym zachowaniem.
+            - login.microsoftonline.com
+            - login.windows.net
+        8.  Zamknij przeglądarkę i uruchom ponownie.
+    - Jeśli używasz przeglądarki Firefox, postępuj zgodnie z poniższymi instrukcjami, aby dodać wyjątek dla plików cookie.
+        1. W menu Firefox przejdź do pozycji **Narzędzia**  >  **Opcje** .
+        2. W **Privacy** obszarze  >  **historia** prywatności może być widoczne, że bieżące ustawienie **używa ustawień niestandardowych dla historii** .
+        3. W obszarze **Zaakceptuj pliki cookie innych firm** bieżące ustawienie może nie być **nigdy** , a następnie kliknij pozycję **wyjątki** po prawej stronie, aby dodać poniższe lokacje.
+            - https://login.microsoftonline.com
+            - https://login.windows.net
+        4.  Zamknij przeglądarkę i uruchom ponownie. 
+
+
+### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>Kod błędu: nie można otworzyć strony logowania i wprowadzić hasła
+
+- **Objawy** : Kreator kopiowania przekierowuje użytkownika do strony logowania, ale strona logowania nie jest wyświetlana pomyślnie.
+- **Przyczyny** : ten problem może wystąpić, Jeśli zmieniono środowisko sieciowe z sieci biurowej na sieć domową. W przeglądarkach znajdują się niektóre pamięci podręczne. 
+- **Rozwiązanie** : 
+    1.  Zamknij przeglądarkę i spróbuj ponownie. Jeśli problem nadal istnieje, przejdź do następnego kroku.   
+    2.  Jeśli używasz przeglądarki Internet Explorer, spróbuj otworzyć ją w trybie prywatnym (naciśnij klawisze "Ctrl" + "Shift" + "P"). Jeśli używasz przeglądarki Chrome, spróbuj otworzyć ją w trybie incognito (naciśnij klawisze "Ctrl" + "Shift" + "N"). Jeśli problem nadal istnieje, przejdź do następnego kroku. 
+    3.  Spróbuj użyć innej przeglądarki. 
+
 
 ## <a name="next-steps"></a>Następne kroki
 Aby zapoznać się z krótkim przewodnikiem dotyczącym tworzenia potoku za pomocą działania kopiowania przy użyciu Kreatora kopiowania Data Factory, zobacz [Samouczek: Tworzenie potoku przy użyciu Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md).

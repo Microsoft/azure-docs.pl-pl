@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: ab5a76a9734ca879e468a1921554f91680be8339
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d890f73ea8b2294755b14055cb11904d50160cc4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370665"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632128"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Przetwarzanie danych przez uruchamianie skryptów U-SQL na Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -38,14 +38,14 @@ Poniższa tabela zawiera opis właściwości ogólnych używanych w definicji JS
 
 | Właściwość                 | Opis                              | Wymagane                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **Wprowadź**                 | Właściwość Type powinna mieć wartość: **AzureDataLakeAnalytics**. | Tak                                      |
+| **Wprowadź**                 | Właściwość Type powinna mieć wartość: **AzureDataLakeAnalytics** . | Tak                                      |
 | **accountName**          | Nazwa konta Azure Data Lake Analytics.  | Tak                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics identyfikator URI.           | Nie                                       |
 | **Identyfikator**       | Identyfikator subskrypcji platformy Azure                    | Nie                                       |
 | **resourceGroupName**    | Nazwa grupy zasobów platformy Azure                | Nie                                       |
 
 ### <a name="service-principal-authentication"></a>Uwierzytelnianie jednostki usługi
-Połączona usługa Azure Data Lake Analytics wymaga uwierzytelniania jednostki usługi w celu nawiązania połączenia z usługą Azure Data Lake Analytics. Aby skorzystać z uwierzytelniania jednostki usługi, zarejestruj jednostkę aplikacji w Azure Active Directory (Azure AD) i Udziel jej dostępu zarówno do Data Lake Analytics, jak i Data Lake Store. Aby uzyskać szczegółowe instrukcje, zobacz [uwierzytelnianie między usługami](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Należy zwrócić uwagę na następujące wartości, których można użyć do zdefiniowania połączonej usługi:
+Połączona usługa Azure Data Lake Analytics wymaga uwierzytelniania jednostki usługi w celu nawiązania połączenia z usługą Azure Data Lake Analytics. Aby skorzystać z uwierzytelniania jednostki usługi, zarejestruj jednostkę aplikacji w Azure Active Directory (Azure AD) i Udziel jej dostępu zarówno do Data Lake Analytics, jak i Data Lake Store. Aby uzyskać szczegółowe instrukcje, zobacz [uwierzytelnianie między usługami](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Należy zwrócić uwagę na następujące wartości, których można użyć do zdefiniowania połączonej usługi:
 
 * Identyfikator aplikacji
 * Klucz aplikacji 
@@ -122,8 +122,8 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 | Właściwość            | Opis                              | Wymagane |
 | :------------------ | :--------------------------------------- | :------- |
 | name                | Nazwa działania w potoku     | Tak      |
-| description         | Tekst opisujący działanie działania.  | Nie       |
-| typ                | W przypadku Data Lake Analytics działania U-SQL typ działania to  **DataLakeAnalyticsU-SQL**. | Tak      |
+| description (opis)         | Tekst opisujący działanie działania.  | Nie       |
+| typ                | W przypadku Data Lake Analytics działania U-SQL typ działania to  **DataLakeAnalyticsU-SQL** . | Tak      |
 | linkedServiceName   | Połączona usługa do Azure Data Lake Analytics. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) .  |Tak       |
 | scriptPath          | Ścieżka do folderu, który zawiera skrypt U-SQL. Nazwa pliku jest rozróżniana wielkość liter. | Tak      |
 | Elementu scriptlinkedservice | Połączona usługa łącząca **Azure Data Lake Store** lub **Magazyn platformy Azure** , który zawiera skrypt do fabryki danych | Tak      |
@@ -164,7 +164,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-W powyższym przykładzie skryptu dane wejściowe i wyjściowe do skryptu są zdefiniowane w parametrze ** \@ in** i ** \@ out** . Wartości parametrów ** \@ in** i ** \@ out** w skrypcie U-SQL są przesyłane dynamicznie przez Data Factory przy użyciu sekcji "Parameters". 
+W powyższym przykładzie skryptu dane wejściowe i wyjściowe do skryptu są zdefiniowane w parametrze **\@ in** i **\@ out** . Wartości parametrów **\@ in** i **\@ out** w skrypcie U-SQL są przesyłane dynamicznie przez Data Factory przy użyciu sekcji "Parameters". 
 
 Można określić inne właściwości, takie jak degreeOfParallelism i Priority, jak również w definicji potoku dla zadań uruchamianych w usłudze Azure Data Lake Analytics.
 

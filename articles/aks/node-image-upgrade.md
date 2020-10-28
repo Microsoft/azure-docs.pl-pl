@@ -1,17 +1,15 @@
 ---
 title: Uaktualnij obrazy węzła usługi Azure Kubernetes Service (AKS)
 description: Dowiedz się, jak uaktualnić obrazy w węzłach klastra AKS i w pulach węzłów.
-author: laurenhughes
-ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 744e62f8a2207cff400a96069fc6ea82866f6e2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6abb0eb98e2548e53ff67a943970613e6981c2b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055689"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631125"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Uaktualnianie obrazu węzła usługi Azure Kubernetes Service (AKS)
 
