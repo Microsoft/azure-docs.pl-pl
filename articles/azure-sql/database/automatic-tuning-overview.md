@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/30/2020
-ms.openlocfilehash: 4c2faa6f015a8c1ce8f360155abdc14367d3057b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 180f6e8902dc881c99a74a6491eeb3012bc03d0f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330744"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675229"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Dostrajanie automatyczne w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Funkcja automatycznego dostrajania Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL zapewniają wydajność szczytową i stabilną w ramach ciągłego dostrajania wydajności na podstawie systemu AI i uczenia maszynowego.
 
-Dostrajanie automatyczne to w pełni zarządzana usługa Intelligent Performance, która używa wbudowanej analizy do ciągłego monitorowania zapytań wykonywanych w bazie danych i automatycznie usprawnia ich wydajność. Jest to osiągane dzięki dynamicznej adaptacji bazy danych do zmieniających się obciążeń i stosowania zaleceń dostrajania. Dostrajanie automatyczne nauczy się w poziomie od wszystkich baz danych na platformie Azure za pośrednictwem AI i dynamicznie ulepsza jego akcje dostrajania. Im dłużej działa baza danych z dostrajaniem automatycznym, tym lepiej jest to wykonywane.
+Automatyczne dostrajanie to w pełni zarządzana, inteligentna usługa wydajności, która używa wbudowanej inteligencji do ciągłego monitorowania zapytań wykonywanych na bazie danych i automatycznie zwiększa ich wydajność. Jest to osiągane dzięki dynamicznej adaptacji bazy danych do zmieniających się obciążeń i stosowania zaleceń dostrajania. Dostrajanie automatyczne nauczy się w poziomie od wszystkich baz danych na platformie Azure za pośrednictwem AI i dynamicznie ulepsza jego akcje dostrajania. Im dłużej działa baza danych z dostrajaniem automatycznym, tym lepiej jest to wykonywane.
 
 Azure SQL Database i automatyczne dostrajanie wystąpienia zarządzanego usługi Azure SQL może być jedną z najważniejszych funkcji, które można włączyć, aby zapewnić stabilne i szczytowe obciążenia baz danych.
 
@@ -46,7 +46,7 @@ Automatyczne mechanizmy dostrajania są wczesne i idealnie nadaje się do kilku 
 
 ![Jak działa dostrajanie automatyczne](./media/automatic-tuning-overview/how-does-automatic-tuning-work.png)
 
-Azure SQL Database dostrajanie automatyczne udostępnia swoją podstawową logikę przy użyciu funkcji dostrajania automatycznego SQL Server w aparacie bazy danych. Aby uzyskać dodatkowe informacje techniczne na temat wbudowanego mechanizmu analizy, zobacz [SQL Server dostrajania automatycznego](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
+Azure SQL Database dostrajanie automatyczne udostępnia swoją podstawową logikę przy użyciu funkcji dostrajania automatycznego SQL Server w aparacie bazy danych. Aby uzyskać dodatkowe informacje techniczne na temat wbudowanego mechanizmu analizy, zobacz [SQL Server dostrajania automatycznego](/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 Aby zapoznać się z omówieniem działania dostrajania automatycznego i dla typowych scenariuszy użycia, zobacz osadzony film wideo:
 
@@ -54,8 +54,8 @@ Aby zapoznać się z omówieniem działania dostrajania automatycznego i dla typ
 
 ## <a name="enable-automatic-tuning"></a>Włączanie automatycznego dostrajania
 
-- [Włączenie dostrajania automatycznego dla Azure SQL Database w Azure Portal](automatic-tuning-enable.md) lub przy użyciu instrukcji [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL.
-- Automatyczne dostrajanie dla wystąpienia zarządzanego usługi Azure SQL można włączyć za pomocą instrukcji [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL.
+- [Włączenie dostrajania automatycznego dla Azure SQL Database w Azure Portal](automatic-tuning-enable.md) lub przy użyciu instrukcji [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL.
+- Automatyczne dostrajanie dla wystąpienia zarządzanego usługi Azure SQL można włączyć za pomocą instrukcji [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL.
 
 ## <a name="automatic-tuning-options"></a>Opcje dostrajania automatycznego
 
@@ -69,7 +69,7 @@ Opcje dostrajania automatycznego dostępne w Azure SQL Database i wystąpieniu z
 
 ### <a name="automatic-tuning-for-sql-database"></a>Dostrajanie automatyczne dla SQL Database
 
-Dostrajanie automatyczne dla Azure SQL Database używa zaleceń **tworzenia indeksu**, **Drop index**i **Wymuś ostatni dobry plan** usługi Database Advisor, aby zoptymalizować wydajność bazy danych. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące usługi Database Advisor w Azure Portal](database-advisor-find-recommendations-portal.md), w programie [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)i w [interfejsie API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+Dostrajanie automatyczne dla Azure SQL Database używa zaleceń **tworzenia indeksu** , **Drop index** i **Wymuś ostatni dobry plan** usługi Database Advisor, aby zoptymalizować wydajność bazy danych. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące usługi Database Advisor w Azure Portal](database-advisor-find-recommendations-portal.md), w programie [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)i w [interfejsie API REST](/rest/api/sql/serverautomatictuning).
 
 Możesz ręcznie zastosować zalecenia dostosowawcze przy użyciu Azure Portal lub zezwolić na automatyczne dostosowywanie w sposób autonomiczny. Korzyści wynikające z zapewnienia, że system autonomicznie stosują zalecenia dostosowawcze, są automatycznie sprawdzane, czy istnieje pozytywny wzrost wydajności obciążeń i czy nie wykryto znacznej poprawy wydajności. spowoduje to automatyczne przywrócenie zalecenia dotyczącego dostrajania. Należy pamiętać, że w przypadku zapytań, na które mają wpływ zalecenia strojenia, które nie są wykonywane często, faza weryfikacji może trwać do 72 godzin.
 
@@ -90,7 +90,7 @@ Aby dowiedzieć się więcej o tworzeniu powiadomień e-mail dotyczących zalece
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Dostrajanie automatyczne dla wystąpienia zarządzanego usługi Azure SQL
 
-Dostrajanie automatyczne dla wystąpienia zarządzanego SQL obsługuje tylko **wymuszanie ostatniego dobrego planu**. Aby uzyskać więcej informacji na temat konfigurowania opcji dostrajania automatycznego przy użyciu języka T-SQL, zobacz [dostrajanie automatyczne wprowadza automatyczne korekcje planu](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) i [automatyczną korektę planu](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+Dostrajanie automatyczne dla wystąpienia zarządzanego SQL obsługuje tylko **wymuszanie ostatniego dobrego planu** . Aby uzyskać więcej informacji na temat konfigurowania opcji dostrajania automatycznego przy użyciu języka T-SQL, zobacz [dostrajanie automatyczne wprowadza automatyczne korekcje planu](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) i [automatyczną korektę planu](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
 
 ## <a name="next-steps"></a>Następne kroki
 

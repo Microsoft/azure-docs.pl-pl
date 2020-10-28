@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
-ms.custom: fasttrack-new
-ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-new, devx-track-js
+ms.openlocfilehash: aa3bce73d2a91538dff0fdeb9e0eb814d878459a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253698"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676020"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Ochrona zaplecza SPA przy użyciu protokołu OAuth 2,0 Azure Active Directory B2C i platformy Azure API Management
 
@@ -180,7 +180,7 @@ Musisz dodać bloki z formatowaniem CIDR do panelu ograniczenia adresów IP. Gdy
    > Teraz interfejs API funkcji nie powinien być wywoływany z innych lokalizacji niż za pośrednictwem usługi API Management ani Twojego adresu.
    
 ## <a name="import-the-function-app-definition"></a>Importowanie definicji aplikacji funkcji
-1. Otwórz *blok API Management*, a następnie otwórz *wystąpienie*.
+1. Otwórz *blok API Management* , a następnie otwórz *wystąpienie* .
 1. Wybierz blok interfejsy API z sekcji API Management tego wystąpienia.
 1. W okienku "Dodawanie nowego interfejsu API" Wybierz pozycję "aplikacja funkcji", a następnie wybierz pozycję "pełne" w górnej części okna podręcznego.
 1. Kliknij przycisk Przeglądaj, wybierz aplikację funkcji, w której znajduje się interfejs API, a następnie kliknij przycisk Wybierz.

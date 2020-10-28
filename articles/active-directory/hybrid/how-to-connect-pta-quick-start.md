@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bdfb1ca21860f1dc338f85a82caf643f9f7be6d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89280183"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678161"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory uwierzytelnianie przekazywane: Szybki Start
 
@@ -72,9 +72,9 @@ Upewnij się, że są spełnione następujące wymagania wstępne.
      | **8080** (opcjonalnie) | Agenci uwierzytelniania raportują swój stan co dziesięć minut w porcie 8080, jeśli port 443 jest niedostępny. Ten stan jest wyświetlany w portalu usługi Azure AD. Port 8080 _nie_ jest używany podczas logowania użytkownika. |
      
      Jeśli Zapora wymusza reguły zależne od użytkowników inicjujących, należy otworzyć te porty dla ruchu z usług systemu Windows, które działają jako usługa sieciowa.
-   - Jeśli zapora lub serwer proxy zezwala na listy dozwolonych DNS, Dodaj połączenia z ** \* . msappproxy.NET** i ** \* . ServiceBus.Windows.NET**. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień.
+   - Jeśli zapora lub serwer proxy zezwala na listy dozwolonych DNS, Dodaj połączenia z **\* . msappproxy.NET** i **\* . ServiceBus.Windows.NET** . W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień.
    - Agenci uwierzytelniania muszą mieć dostęp do **login.Windows.NET** i **login.microsoftonline.com** na potrzeby rejestracji wstępnej. Należy również otworzyć Zaporę dla tych adresów URL.
-   - Aby sprawdzić poprawność certyfikatu, Odblokuj następujące adresy URL: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**i **www \. Microsoft.com:80**. Ponieważ te adresy URL są używane do sprawdzania poprawności certyfikatu z innymi produktami firmy Microsoft, te adresy URL mogą już być odblokowane.
+    - Aby sprawdzić poprawność certyfikatu, Odblokuj następujące adresy URL: **crl3.DigiCert.com:80** , **crl4.DigiCert.com:80** , **ocsp.digicert.com:80** , **www \. d-trust.net:80** , **root-C3-CA2-2009.OCSP.d-Trust.NET:80** , **CRL.Microsoft.com:80** , **oneocsp.Microsoft.com:80** i **OCSP.msocsp.com:80** . Ponieważ te adresy URL są używane do sprawdzania poprawności certyfikatu z innymi produktami firmy Microsoft, te adresy URL mogą już być odblokowane.
 
 ### <a name="azure-government-cloud-prerequisite"></a>Azure Government wymagań wstępnych w chmurze
 Przed włączeniem uwierzytelniania przekazywanego za pośrednictwem Azure AD Connect z krok 2 Pobierz najnowszą wersję agenta PTA z Azure Portal.  Musisz się upewnić, że Agent jest w wersji **1.5.1742.0.** lub nowsza wersja.  Aby zweryfikować agenta, zobacz [uaktualnianie agentów uwierzytelniania](how-to-connect-pta-upgrade-preview-authentication-agents.md)
@@ -88,11 +88,11 @@ Włącz uwierzytelnianie przekazywane za [Azure AD Connect](whatis-hybrid-identi
 >[!IMPORTANT]
 >Uwierzytelnianie przekazywane można włączyć na serwerze podstawowym lub tymczasowym Azure AD Connect. Zdecydowanie zaleca się włączenie go z poziomu serwera podstawowego. W przypadku konfigurowania Azure AD Connect tymczasowego serwera w przyszłości **należy** kontynuować wybieranie uwierzytelniania przekazywanego jako opcję logowania; wybranie innej opcji spowoduje **wyłączenie** uwierzytelniania przekazywanego w dzierżawie i zastąpienie ustawienia na serwerze podstawowym.
 
-Jeśli instalujesz Azure AD Connect po raz pierwszy, wybierz [ścieżkę instalacji niestandardowej](how-to-connect-install-custom.md). Na stronie **logowania użytkownika** wybierz opcję **uwierzytelnianie przekazywane** jako **metodę logowania**. Po pomyślnym ukończeniu Agent uwierzytelniania przekazywanego jest instalowany na tym samym serwerze co Azure AD Connect. Ponadto funkcja uwierzytelniania przekazywanego jest włączona w dzierżawie.
+Jeśli instalujesz Azure AD Connect po raz pierwszy, wybierz [ścieżkę instalacji niestandardowej](how-to-connect-install-custom.md). Na stronie **logowania użytkownika** wybierz opcję **uwierzytelnianie przekazywane** jako **metodę logowania** . Po pomyślnym ukończeniu Agent uwierzytelniania przekazywanego jest instalowany na tym samym serwerze co Azure AD Connect. Ponadto funkcja uwierzytelniania przekazywanego jest włączona w dzierżawie.
 
 ![Azure AD Connect: Logowanie użytkownika](./media/how-to-connect-pta-quick-start/sso3.png)
 
-Jeśli zainstalowano już Azure AD Connect przy użyciu [instalacji ekspresowej](how-to-connect-install-express.md) lub niestandardowej ścieżki [instalacji](how-to-connect-install-custom.md) , wybierz zadanie **zmiany logowania użytkownika** na Azure AD Connect, a następnie wybierz przycisk **dalej**. Następnie wybierz opcję **uwierzytelnianie przekazywane** jako metodę logowania. Po pomyślnym ukończeniu Agent uwierzytelniania przekazywanego jest instalowany na tym samym serwerze co Azure AD Connect i funkcja ta jest włączona w dzierżawie.
+Jeśli zainstalowano już Azure AD Connect przy użyciu [instalacji ekspresowej](how-to-connect-install-express.md) lub niestandardowej ścieżki [instalacji](how-to-connect-install-custom.md) , wybierz zadanie **zmiany logowania użytkownika** na Azure AD Connect, a następnie wybierz przycisk **dalej** . Następnie wybierz opcję **uwierzytelnianie przekazywane** jako metodę logowania. Po pomyślnym ukończeniu Agent uwierzytelniania przekazywanego jest instalowany na tym samym serwerze co Azure AD Connect i funkcja ta jest włączona w dzierżawie.
 
 ![Azure AD Connect: Zmień Logowanie użytkownika](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
@@ -105,9 +105,9 @@ Postępuj zgodnie z tymi instrukcjami, aby sprawdzić, czy włączono uwierzytel
 
 1. Zaloguj się do [Centrum administracyjnego Azure Active Directory](https://aad.portal.azure.com) przy użyciu poświadczeń administratora globalnego dla dzierżawy.
 2. W lewym okienku wybierz pozycję **Azure Active Directory** .
-3. Wybierz **Azure AD Connect**.
-4. Sprawdź, czy funkcja **uwierzytelniania przekazywanego** jest wyświetlana jako **włączona**.
-5. Wybierz pozycję **uwierzytelnianie przekazywane**. Okienko **uwierzytelnianie przekazywane** zawiera listę serwerów, na których są zainstalowane agenci uwierzytelniania.
+3. Wybierz **Azure AD Connect** .
+4. Sprawdź, czy funkcja **uwierzytelniania przekazywanego** jest wyświetlana jako **włączona** .
+5. Wybierz pozycję **uwierzytelnianie przekazywane** . Okienko **uwierzytelnianie przekazywane** zawiera listę serwerów, na których są zainstalowane agenci uwierzytelniania.
 
 ![Azure Active Directory centrum administracyjnego: Azure AD Connect okienko](./media/how-to-connect-pta-quick-start/pta7.png)
 
@@ -134,7 +134,7 @@ Aby rozpocząć, postępuj zgodnie z poniższymi instrukcjami, aby pobrać oprog
 
 1. Aby pobrać najnowszą wersję agenta uwierzytelniania (w wersji 1.5.193.0 lub nowszej), zaloguj się do [Centrum administracyjnego Azure Active Directory](https://aad.portal.azure.com) przy użyciu poświadczeń administratora globalnego dzierżawy.
 2. W lewym okienku wybierz pozycję **Azure Active Directory** .
-3. Wybierz pozycję **Azure AD Connect**, wybierz pozycję **uwierzytelnianie przekazywane**, a następnie wybierz pozycję **Pobierz agenta**.
+3. Wybierz pozycję **Azure AD Connect** , wybierz pozycję **uwierzytelnianie przekazywane** , a następnie wybierz pozycję **Pobierz agenta** .
 4. Wybierz przycisk **Akceptuj postanowienia & Pobierz** .
 
 ![Azure Active Directory centrum administracyjnego: Pobierz agenta uwierzytelniania przycisk](./media/how-to-connect-pta-quick-start/pta9.png)
@@ -166,7 +166,7 @@ Następnie można utworzyć i uruchomić skrypt wdrożenia nienadzorowanego. Jes
   ```
 
 >[!IMPORTANT]
->Jeśli na maszynie wirtualnej jest zainstalowany agent uwierzytelniania, nie można sklonować maszyny wirtualnej w celu skonfigurowania innego agenta uwierzytelniania. Ta metoda nie jest **obsługiwana**.
+>Jeśli na maszynie wirtualnej jest zainstalowany agent uwierzytelniania, nie można sklonować maszyny wirtualnej w celu skonfigurowania innego agenta uwierzytelniania. Ta metoda nie jest **obsługiwana** .
 
 ## <a name="step-5-configure-smart-lockout-capability"></a>Krok 5. Konfigurowanie możliwości inteligentnego blokowania
 

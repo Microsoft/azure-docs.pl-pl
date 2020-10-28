@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: a3382f93990612b0ab34eb0848cbf3d6577c44ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a9a8f3fe7422468ff2c8886dff7415322cf70f0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087938"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676871"
 ---
 # <a name="how-to-manually-fix-servicenow-sync-problems"></a>Ręczne rozwiązywanie problemów z synchronizacją usługi ServiceNow
 
@@ -23,16 +23,16 @@ Aby ponownie uaktywnić połączenie i odświeżyć token, użyj następującego
 
 1. Wyszukaj rozwiązanie na banerze z góry wyszukiwania, a następnie wybierz odpowiednie rozwiązania
 
-    ![Nowe połączenie](media/itsmc-resync-servicenow/solution-search-8bit.png)
+    ![Zrzut ekranu pokazujący górny baner wyszukiwania i miejsce, w którym należy wybrać odpowiednie rozwiązania.](media/itsmc-resync-servicenow/solution-search-8bit.png)
 
 1. Na ekranie rozwiązania wybierz opcję "Zaznacz wszystko" w filtrze subskrypcji, a następnie Przefiltruj według "Servicedesk"
 
-    ![Nowe połączenie](media/itsmc-resync-servicenow/solutions-list-8bit.png)
+    ![Zrzut ekranu pokazujący, gdzie wybrać opcję Zaznacz wszystko i miejsce, w którym ma zostać przefiltrowane według Servicedesk.](media/itsmc-resync-servicenow/solutions-list-8bit.png)
 
 1. Wybierz rozwiązanie połączenia usługi narzędzia ITSM.
 1. Wybierz pozycję połączenie narzędzia ITSM na lewym transparencie.
 
-    ![Nowe połączenie](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
+    ![Zrzut ekranu pokazujący lokalizację wybierania połączeń narzędzia ITSM.](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
 
 1. Wybierz każdy łącznik z listy. 
     1. Kliknij nazwę łącznika, aby go skonfigurować
@@ -42,7 +42,7 @@ Aby ponownie uaktywnić połączenie i odświeżyć token, użyj następującego
 
     1. Kliknij pozycję Synchronizuj.
 
-       ![Nowe połączenie](media/itsmc-resync-servicenow/resync-8bit2.png)
+       ![Zrzut ekranu, który podświetla przycisk Synchronizuj.](media/itsmc-resync-servicenow/resync-8bit2.png)
 
     1. Kliknij pozycję Zapisz
 

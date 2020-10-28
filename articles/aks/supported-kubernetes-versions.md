@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335538"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735058"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
 
@@ -95,7 +95,7 @@ New Supported Version List
 
 Możesz użyć jednej wersji pomocniczej starszej lub nowszej `kubectl` względem wersji *polecenia-apiserver* , która jest zgodna z [zasadami pomocy technicznej Kubernetes dla polecenia kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
-Na przykład jeśli Twój *polecenia-apiserver* ma *1,17*, możesz użyć wersji *1,16* do *1,18* z `kubectl` *polecenia-apiserver*.
+Na przykład jeśli Twój *polecenia-apiserver* ma *1,17* , możesz użyć wersji *1,16* do *1,18* z `kubectl` *polecenia-apiserver* .
 
 Aby zainstalować lub zaktualizować wersję programu `kubectl` , uruchom polecenie `az aks install-cli` .
 
@@ -121,7 +121,7 @@ Określone wersje poprawek mogą zostać pominięte lub przyspieszone wdrożenia
 
 ## <a name="azure-portal-and-cli-versions"></a>Wersje Azure Portal i interfejsu wiersza polecenia
 
-W przypadku wdrażania klastra AKS w portalu lub za pomocą interfejsu wiersza polecenia platformy Azure klaster jest domyślnie przystosowany do wersji pomocniczej N-1 i najnowszej poprawki. Na przykład jeśli AKS obsługuje *1.17. a*, *1.17. b*, *1.16. c*, *1.16. d*, *1.15. e*i *1.15. f*, wybrana wersja domyślna to *1.16. c*.
+W przypadku wdrażania klastra AKS w portalu lub za pomocą interfejsu wiersza polecenia platformy Azure klaster jest domyślnie przystosowany do wersji pomocniczej N-1 i najnowszej poprawki. Na przykład jeśli AKS obsługuje *1.17. a* , *1.17. b* , *1.16. c* , *1.16. d* , *1.15. e* i *1.15. f* , wybrana wersja domyślna to *1.16. c* .
 
 Aby dowiedzieć się, jakie wersje są obecnie dostępne dla Twojej subskrypcji i regionu, użyj polecenia [AZ AKS Get-Versions][az-aks-get-versions] . Poniższy przykład zawiera listę dostępnych wersji Kubernetes dla regionu *wschodniego* :
 
@@ -135,13 +135,14 @@ Aby uzyskać historię wcześniejszych wersji, zobacz [tutaj](https://en.wikiped
 
 |  Wersja K8s | Wersja nadrzędna  | AKS wersja zapoznawcza  | AKS GA  | Koniec okresu istnienia |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | Wrz-19-19  | Sty 2019   | Mar 2020  | 1,19 GA | 
+| 1.16  | Wrz-19-19  | Sty 2019   | Mar 2020  | Sty 2021 * | 
 | 1,17  | Gru-09-19  | Sty 2019   | Lip 2020  | 1,20 GA | 
 | 1,18  | Mar-23-20  | Maj 2020 r.   | 2020 sie  | 1,21 GA | 
 | 1,19  | Sie-04-20  | Wrz 2020   | Lis 2020  | 1,22 GA | 
 | 1,20  | Gru-08-20  | Sty 2021   | Mar 2021  | 1,23 GA | 
+\* Ze względu na sezon świąteczny AKS wydłużą okres istnienia 1,16 od listopada 2020 do 2021 stycznia. Przeczytaj więcej [tutaj](https://github.com/Azure/AKS/releases/tag/2020-10-12)
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Jak często należy oczekiwać, aby uaktualnienie wersji Kubernetes było pozostawać w pomocy technicznej?**
 
@@ -176,7 +177,7 @@ Płaszczyzna kontroli musi znajdować się w oknie wersji ze wszystkich pul węz
 
 W przypadku uaktualniania obsługiwanego klastra AKS nie można pominąć wersji pomocniczych Kubernetes. Na przykład uaktualnienia między *1.12. x*  ->  *1.13. x* lub *1.13. x*  ->  *1.14. x* są dozwolone, jednak *1.12. x*  ->  *1.14. x* nie jest.
 
-Aby przeprowadzić uaktualnienie, z wersji *1.12. x*  ->  *1.14. x*, najpierw Uaktualnij z wersji *1.12. x*  ->  *1.13. x*, a następnie Uaktualnij z *1.13. x*  ->  *1.14. x*.
+Aby przeprowadzić uaktualnienie, z wersji *1.12. x*  ->  *1.14. x* , najpierw Uaktualnij z wersji *1.12. x*  ->  *1.13. x* , a następnie Uaktualnij z *1.13. x*  ->  *1.14. x* .
 
 Pomijanie wielu wersji można wykonać tylko w przypadku uaktualniania z nieobsługiwanej wersji z powrotem do obsługiwanej wersji. Na przykład uaktualnienie z nieobsługiwanej wersji *1.10. x* --> można ukończyć obsługiwane *1.15. x* .
 

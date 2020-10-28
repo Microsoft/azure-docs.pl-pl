@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284085"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677722"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Tworzenie obiektów blob i zarządzanie nimi w usłudze Azure Blob Storage przy użyciu Azure Logic Apps
 
@@ -29,11 +29,11 @@ Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zapoznaj [się z tematem Azu
 
 ## <a name="limits"></a>Limity
 
-* Domyślnie akcje Blob Storage platformy Azure mogą odczytywać lub zapisywać pliki o *rozmiarze 50 MB lub mniejszym*. Do obsługi plików o rozmiarze większym niż 50 MB, ale nawet do 1024 MB, działania Blob Storage platformy Azure obsługują [fragmenty komunikatów](../logic-apps/logic-apps-handle-large-messages.md). Akcja **Pobierz zawartość obiektu BLOB** niejawnie używa podziału.
+* Domyślnie akcje Blob Storage platformy Azure mogą odczytywać lub zapisywać pliki o *rozmiarze 50 MB lub mniejszym* . Do obsługi plików o rozmiarze większym niż 50 MB, ale nawet do 1024 MB, działania Blob Storage platformy Azure obsługują [fragmenty komunikatów](../logic-apps/logic-apps-handle-large-messages.md). Akcja **Pobierz zawartość obiektu BLOB** niejawnie używa podziału.
 
 * Wyzwalacze usługi Azure Blob Storage nie obsługują rozdzielenie. Podczas żądania zawartości pliku wyzwalane są tylko pliki o rozmiarze 50 MB lub mniejszej. Aby uzyskać pliki o rozmiarze większym niż 50 MB, wykonaj następujące czynności:
 
-  * Użyj wyzwalacza Blob Storage platformy Azure, który zwraca właściwości pliku, na przykład **gdy obiekt BLOB jest dodawany lub modyfikowany (tylko właściwości)**.
+  * Użyj wyzwalacza Blob Storage platformy Azure, który zwraca właściwości pliku, na przykład **gdy obiekt BLOB jest dodawany lub modyfikowany (tylko właściwości)** .
 
   * Obserwuj wyzwalacz z akcją **Pobierz zawartość obiektu Blob** BLOB Storage platformy Azure, która odczytuje kompletny plik i niejawnie używa podziału.
 
@@ -73,7 +73,7 @@ Ten przykład pokazuje, jak uruchomić przepływ pracy aplikacji logiki przy uż
 
    3. Wybierz interwał i częstotliwość sprawdzania przez wyzwalacza zmian w folderze.
 
-4. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
+4. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz** .
 
 5. Teraz Kontynuuj dodawanie co najmniej jednej akcji do aplikacji logiki w celu wykonywania zadań, które chcesz wykonać z wynikami wyzwalacza.
 
@@ -85,11 +85,11 @@ W Azure Logic Apps [Akcja](../logic-apps/logic-apps-overview.md#logic-app-concep
 
 1. W [Azure Portal](https://portal.azure.com) lub Visual Studio Otwórz aplikację logiki w Projektancie aplikacji logiki. Ten przykład używa Azure Portal.
 
-2. W Projektancie aplikacji logiki w obszarze wyzwalacza lub akcji wybierz pozycję **nowy krok**.
+2. W Projektancie aplikacji logiki w obszarze wyzwalacza lub akcji wybierz pozycję **nowy krok** .
 
    ![Dodawanie nowego kroku do przepływu pracy aplikacji logiki](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy na strzałkę łączącą. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy na strzałkę łączącą. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję** .
 
 3. W polu wyszukiwania wprowadź ciąg "Azure Blob" jako filtr. Z listy Akcje wybierz żądaną akcję.
 
@@ -108,7 +108,7 @@ Lub, jeśli połączenie już istnieje, podaj niezbędne informacje dla tej akcj
 
    2. Znajdź i wybierz odpowiedni plik na podstawie numeru **identyfikacyjnego** obiektu BLOB. Ten numer **identyfikacyjny** można znaleźć w metadanych obiektu BLOB, które są zwracane przez poprzednio opisany wyzwalacz magazynu obiektów BLOB.
 
-5. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
+5. Gdy skończysz, na pasku narzędzi projektanta wybierz pozycję **Zapisz** .
 Aby przetestować aplikację logiki, upewnij się, że wybrany folder zawiera obiekt BLOB.
 
 W tym przykładzie pobierana jest tylko zawartość obiektu BLOB. Aby wyświetlić zawartość, Dodaj kolejną akcję, która tworzy plik z obiektem BLOB przy użyciu innego łącznika. Na przykład Dodaj akcję OneDrive, która tworzy plik na podstawie zawartości obiektu BLOB.
@@ -183,9 +183,9 @@ Aby przyznać zaufanym usługom firmy Microsoft dostęp do konta magazynu za pom
 
 Aby skonfigurować wyjątek i obsługę tożsamości zarządzanej, wykonaj następujące ogólne czynności:
 
-1. Na koncie magazynu w obszarze **Ustawienia**wybierz pozycję **zapory i sieci wirtualne**. W obszarze **Zezwalaj na dostęp z**, zaznacz opcję **wybrane sieci** , aby wyświetlić ustawienia pokrewne.
+1. Na koncie magazynu w obszarze **Ustawienia** wybierz pozycję **zapory i sieci wirtualne** . W obszarze **Zezwalaj na dostęp z** , zaznacz opcję **wybrane sieci** , aby wyświetlić ustawienia pokrewne.
 
-1. W obszarze **wyjątki**wybierz opcję **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu**, a następnie wybierz pozycję **Zapisz**.
+1. W obszarze **wyjątki** wybierz opcję **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** , a następnie wybierz pozycję **Zapisz** .
 
    ![Wybierz wyjątek, który umożliwia korzystanie z zaufanych usług firmy Microsoft](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 
@@ -202,9 +202,8 @@ Aby skonfigurować wyjątek i obsługę tożsamości zarządzanej, wykonaj nast�
 
 ### <a name="access-storage-accounts-through-azure-api-management"></a>Dostęp do kont magazynu za pomocą usługi Azure API Management
 
-W przypadku korzystania z warstwy dedykowanej dla [API Management](../api-management/api-management-key-concepts.md)można skorzystać z interfejsu API usługi Storage, korzystając z API Management i zezwalając na te adresy IP w ramach zapory. W zasadzie należy dodać sieć wirtualną platformy Azure używaną przez API Management do ustawienia zapory dla konta magazynu. Następnie można użyć akcji API Management lub akcji HTTP do wywołania interfejsów API usługi Azure Storage. Jednak w przypadku wybrania tej opcji musisz samodzielnie obsłużyć proces uwierzytelniania. Aby uzyskać więcej informacji, zobacz [prosta architektura integracji przedsiębiorstwa](https://aka.ms/aisarch).
+W przypadku korzystania z warstwy dedykowanej dla [API Management](../api-management/api-management-key-concepts.md)można skorzystać z interfejsu API usługi Storage, korzystając z API Management i zezwalając na te adresy IP w ramach zapory. W zasadzie należy dodać sieć wirtualną platformy Azure używaną przez API Management do ustawienia zapory dla konta magazynu. Następnie można użyć akcji API Management lub akcji HTTP do wywołania interfejsów API usługi Azure Storage. Jednak w przypadku wybrania tej opcji musisz samodzielnie obsłużyć proces uwierzytelniania. Aby uzyskać więcej informacji, zobacz [prosta architektura integracji przedsiębiorstwa](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
-

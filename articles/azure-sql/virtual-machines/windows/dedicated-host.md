@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 40c851e5ff5fc83ccf6b6d67e319bb97bd860bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 140d95aeb7baf4b342044bc178d108239236229b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669107"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677667"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Uruchamianie SQL Server VM na dedykowanym hoście platformy Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,15 +30,14 @@ W tym artykule szczegółowo opisano, jak używać maszyny wirtualnej SQL Server
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Zestawy skalowania maszyn wirtualnych nie są obecnie obsługiwane na dedykowanych hostach.
-- Obsługiwane są następujące serie maszyn wirtualnych: DSv3 i ESv3. 
+- Nie wszystkie serie maszyn wirtualnych są obsługiwane na dedykowanych hostach, a dostępność serii maszyn wirtualnych zależy od regionu. Aby uzyskać więcej informacji, zobacz [Omówienie dedykowanych hostów platformy Azure](../../../virtual-machines/dedicated-hosts.md).
 
 ## <a name="licensing"></a>Licencjonowanie
 
 Możesz wybrać jedną z dwóch różnych opcji licencjonowania, gdy umieścisz SQL Server maszynę wirtualną na dedykowanym hoście platformy Azure. 
 
-  - **Licencjonowanie maszyn wirtualnych SQL**: jest to istniejąca opcja licencjonowania, w przypadku której płacisz osobno za każdą licencję na SQL Server maszynę wirtualną. 
-  - **Dedykowane Licencjonowanie hosta**: nowy model licencjonowania dostępny dla dedykowanego hosta platformy Azure, w którym SQL Server licencje są powiązane i płatne na poziomie hosta. 
+  - **Licencjonowanie maszyn wirtualnych SQL** : jest to istniejąca opcja licencjonowania, w przypadku której płacisz osobno za każdą licencję na SQL Server maszynę wirtualną. 
+  - **Dedykowane Licencjonowanie hosta** : nowy model licencjonowania dostępny dla dedykowanego hosta platformy Azure, w którym SQL Server licencje są powiązane i płatne na poziomie hosta. 
 
 
 Opcje na poziomie hosta dotyczące korzystania z istniejących licencji SQL Server: 
@@ -65,7 +64,7 @@ Jedną z zalet dedykowanego hosta jest nieograniczona wirtualizacja. Na przykła
 
 Ponieważ jest to Twój host, kwalifikujesz się do ustawienia wirtualizacji o współczynniku 1:2. 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **P: jak działa Korzyść użycia hybrydowego platformy Azure dla licencji systemu Windows Server/SQL Server na dedykowanym hoście platformy Azure?**
 

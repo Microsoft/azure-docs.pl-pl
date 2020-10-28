@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3fb177afa804788632f22d24bbd376d64cbe1c9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a81e60e3bb7a1b0f34a29ccd9cebf3d82279027e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250695"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676648"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Śledź przebiegi eksperymentu i wdrażaj modele ML przy użyciu MLflow i Azure Machine Learning (wersja zapoznawcza)
 
@@ -50,7 +50,7 @@ Na poniższym diagramie przedstawiono, że śledzenie MLflow umożliwia śledzen
 
  Śledzenie MLflow oferuje funkcje rejestrowania metryk i magazynu artefaktów, które są dostępne tylko w innym przypadku za pośrednictwem [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
-| Możliwość | MLflow śledzenie & | Azure Machine Learning Python SDK |  Interfejs wiersza polecenia Azure Machine Learning | Studio uczenia maszynowego Azure|
+| Możliwość | MLflow śledzenie & | Azure Machine Learning Python SDK |  Interfejs wiersza polecenia usługi Azure Machine Learning | Studio uczenia maszynowego Azure|
 |---|---|---|---|---|
 | Zarządzanie obszarem roboczym |   | ✓ | ✓ | ✓ |
 | Korzystanie z magazynów danych  |   | ✓ | ✓ | |
@@ -347,19 +347,22 @@ Wdrożenie usługi może potrwać kilka minut.
 
 Jeśli nie planujesz używania zarejestrowanych metryk i artefaktów w obszarze roboczym, możliwość ich usunięcia osobno jest obecnie niedostępna. Zamiast tego należy usunąć grupę zasobów zawierającą konto magazynu i obszar roboczy, dzięki czemu nie zostaną naliczone żadne opłaty:
 
-1. W witrynie Azure Portal na końcu z lewej strony wybierz pozycję **Grupy zasobów**.
+1. W witrynie Azure Portal na końcu z lewej strony wybierz pozycję **Grupy zasobów** .
 
    ![Usuwanie w witrynie Azure Portal](./media/how-to-use-mlflow/delete-resources.png)
 
 1. Wybierz utworzoną grupę zasobów z listy.
 
-1. Wybierz pozycję **Usuń grupę zasobów**.
+1. Wybierz pozycję **Usuń grupę zasobów** .
 
-1. Wpisz nazwę grupy zasobów. Następnie wybierz pozycję **Usuń**.
+1. Wpisz nazwę grupy zasobów. Następnie wybierz pozycję **Usuń** .
 
 ## <a name="example-notebooks"></a>Przykładowe notesy
 
 [MLflow z usługami Azure ml notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) pokazują i rozszerzają w oparciu o koncepcje przedstawione w tym artykule.
+
+> [!NOTE]
+> Repozytorium oparte na społeczności przykłady korzystające z usługi mlflow można znaleźć pod adresem https://github.com/Azure/azureml-examples .
 
 ## <a name="next-steps"></a>Następne kroki
 

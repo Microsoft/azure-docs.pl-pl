@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3c941139b12fdf19bf1080b4dddecb8ab761568
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457995"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676120"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Informacje o wersji usługi Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="oct-2020"></a>2020 października
+
+| Ulepszenia usługi | Szczegóły |
+| --- | --- |
+|**Wbudowane funkcje Table-Valued języka T-SQL (wersja zapoznawcza)**|W tej wersji możesz teraz tworzyć wbudowane funkcje z wartościami przechowywanymi w tabeli przy użyciu języka Transact-SQL i badać ich wyniki w postaci tabeli. Ta funkcja jest obecnie dostępna w wersji zapoznawczej i będzie obsługiwana w narzędziach na bieżąco. Aby uzyskać więcej informacji, zobacz [Tworzenie funkcji (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest).|
+|**MERGE — polecenie (wersja zapoznawcza)**|Teraz można uruchamiać operacje wstawiania, aktualizowania lub usuwania w tabeli docelowej z wyników sprzężenia z tabelą źródłową. Na przykład można synchronizować dwie tabele przez wstawianie, aktualizowanie lub usuwanie wierszy w jednej tabeli na podstawie różnic znalezionych w drugiej tabeli.  Aby uzyskać szczegółowe informacje, sprawdź [scalanie](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) .|
 
 ## <a name="aug-2020"></a>2020 sie
 

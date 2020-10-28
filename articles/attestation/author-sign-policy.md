@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a3afb12ac831d87b03d0bb16d1b7ef553f1bb906
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8ffdcd0615913649e80b20f6873d005f4ad4410
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90006823"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675992"
 ---
 # <a name="how-to-author-and-sign-an-attestation-policy"></a>Tworzenie i podpisywanie zasad zaświadczania
 
@@ -36,7 +36,7 @@ issuancerules
  
 Plik zasad ma trzy segmenty, jak pokazano powyżej:
 
-- **wersja**: wersja jest numerem wersji gramatyki, która jest obserwowana. 
+- **wersja** : wersja jest numerem wersji gramatyki, która jest obserwowana. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ Plik zasad ma trzy segmenty, jak pokazano powyżej:
 
     Obecnie jedyną obsługiwaną wersją jest wersja 1,0.
 
-- **reguł autoryzacji**: Kolekcja reguł poświadczeń, które będą sprawdzane jako pierwsze, aby określić, czy zaświadczenie platformy Azure ma przebiegać do **issuancerules**. Reguły dotyczące roszczeń są stosowane w kolejności, w jakiej zostały zdefiniowane.
+- **reguł autoryzacji** : Kolekcja reguł poświadczeń, które będą sprawdzane jako pierwsze, aby określić, czy zaświadczenie platformy Azure ma przebiegać do **issuancerules** . Reguły dotyczące roszczeń są stosowane w kolejności, w jakiej zostały zdefiniowane.
 
-- **issuancerules**: Kolekcja reguł dotyczących roszczeń, które zostaną ocenione w celu dodania dodatkowych informacji do wyniku zaświadczania zgodnie z definicją w zasadach. Reguły dotyczące roszczeń są stosowane w kolejności, w jakiej są zdefiniowane, i są opcjonalne.
+- **issuancerules** : Kolekcja reguł dotyczących roszczeń, które zostaną ocenione w celu dodania dodatkowych informacji do wyniku zaświadczania zgodnie z definicją w zasadach. Reguły dotyczące roszczeń są stosowane w kolejności, w jakiej są zdefiniowane, i są opcjonalne.
 
 Aby uzyskać więcej informacji [, zobacz zasady dotyczące roszczeń i roszczeń](claim-rule-grammar.md) .
    
@@ -54,7 +54,7 @@ Aby uzyskać więcej informacji [, zobacz zasady dotyczące roszczeń i roszcze�
 
 1. Utwórz nowy plik.
 1. Dodaj wersję do pliku.
-1. Dodaj sekcje dla **reguł autoryzacji** i **issuancerules**.
+1. Dodaj sekcje dla **reguł autoryzacji** i **issuancerules** .
 
   ```
   version=1.0;
@@ -84,9 +84,9 @@ Aby uzyskać więcej informacji [, zobacz zasady dotyczące roszczeń i roszcze�
   };
   ```
 
-  Jeśli zestaw zgłaszanych roszczeń zawiera zastrzeżenie pasujące do typu, wartości i wystawcy, Akcja Zezwalaj () wykryje aparat zasad, aby przetworzyć **issuancerules**.
+  Jeśli zestaw zgłaszanych roszczeń zawiera zastrzeżenie pasujące do typu, wartości i wystawcy, Akcja Zezwalaj () wykryje aparat zasad, aby przetworzyć **issuancerules** .
   
-5. Dodaj reguły dotyczące roszczeń do **issuancerules**.
+5. Dodaj reguły dotyczące roszczeń do **issuancerules** .
 
   ```
   version=1.0;
@@ -128,8 +128,8 @@ Po utworzeniu pliku zasad, aby przekazać zasady w formacie JWS, wykonaj poniżs
      ```
 
 2. Obowiązkowe Podpisz zasady. Zaświadczanie platformy Azure obsługuje następujące algorytmy:
-     - **Brak**: nie Podpisz ładunku zasad.
-     - **RS256**: obsługiwany algorytm podpisywania ładunku zasad
+     - **Brak** : nie Podpisz ładunku zasad.
+     - **RS256** : obsługiwany algorytm podpisywania ładunku zasad
 
 3. Przekaż JWS i sprawdź poprawność zasad.
      - Jeśli plik zasad nie zawiera błędów składni, plik zasad zostanie zaakceptowany przez usługę.
@@ -172,4 +172,4 @@ print(encoded.decode('utf-8'))
 
 ## <a name="next-steps"></a>Następne kroki
 - [Konfigurowanie zaświadczania platformy Azure przy użyciu programu PowerShell](quickstart-powershell.md)
-- [Zaświadcz SGX enklawy przy użyciu przykładów kodu](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)
+- [Zaświadcz SGX enklawy przy użyciu przykładów kodu](/samples/browse/?expanded=azure&terms=attestation)

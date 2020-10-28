@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: eb3acc9b30b9016ae33f223911cc01cbf8daea47
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 6aa08f91a9289984d15beac5fb215d112a5558da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999118"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676038"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Wdrażanie modelu przy użyciu niestandardowego obrazu platformy Docker
 
@@ -41,7 +41,7 @@ Ten dokument jest podzielony na dwie sekcje:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Azure Machine Learning grupy roboczej. Aby uzyskać więcej informacji, zobacz artykuł [Tworzenie obszaru roboczego](how-to-manage-workspace.md) .
+* Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz artykuł [Tworzenie obszaru roboczego](how-to-manage-workspace.md) .
 * [Zestaw SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
 * [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * [Rozszerzenie interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -54,12 +54,12 @@ Informacje w tej sekcji założono, że używasz Azure Container Registry do prz
 
 * Czy będziesz używać Azure Container Registry utworzonych dla obszaru roboczego Azure Machine Learning lub autonomicznej Azure Container Registry?
 
-    W przypadku używania obrazów przechowywanych w __rejestrze kontenerów dla obszaru roboczego__nie trzeba uwierzytelniać się w rejestrze. Uwierzytelnianie jest obsługiwane przez obszar roboczy.
+    W przypadku używania obrazów przechowywanych w __rejestrze kontenerów dla obszaru roboczego__ nie trzeba uwierzytelniać się w rejestrze. Uwierzytelnianie jest obsługiwane przez obszar roboczy.
 
     > [!WARNING]
     > Azure Container Registry dla obszaru roboczego jest __tworzony podczas pierwszego uczenia lub wdrożenia modelu__ przy użyciu obszaru roboczego. Jeśli utworzono nowy obszar roboczy, ale nie został przeszkolony ani utworzony model, w obszarze roboczym nie będą dostępne żadne Azure Container Registry.
 
-    W przypadku używania obrazów przechowywanych w __autonomicznym rejestrze kontenerów__należy skonfigurować jednostkę usługi, która ma co najmniej dostęp do odczytu. Następnie podaj identyfikator jednostki usługi (username) i hasło dla każdej osoby, która używa obrazów z rejestru. Wyjątek polega na tym, że rejestr kontenerów jest publicznie dostępny.
+    W przypadku używania obrazów przechowywanych w __autonomicznym rejestrze kontenerów__ należy skonfigurować jednostkę usługi, która ma co najmniej dostęp do odczytu. Następnie podaj identyfikator jednostki usługi (username) i hasło dla każdej osoby, która używa obrazów z rejestru. Wyjątek polega na tym, że rejestr kontenerów jest publicznie dostępny.
 
     Aby uzyskać informacje na temat tworzenia prywatnego Azure Container Registry, zobacz [Tworzenie prywatnego rejestru kontenerów](/azure/container-registry/container-registry-get-started-azure-cli).
 
@@ -197,14 +197,14 @@ Aby uzyskać więcej informacji na temat przekazywania istniejących obrazów do
 
 Aby użyć obrazu niestandardowego, potrzebne są następujące informacje:
 
-* __Nazwa obrazu__. Na przykład `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` jest ścieżką do prostego obrazu platformy Docker dostarczonego przez firmę Microsoft.
+* __Nazwa obrazu__ . Na przykład `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` jest ścieżką do prostego obrazu platformy Docker dostarczonego przez firmę Microsoft.
 
     > [!IMPORTANT]
     > W przypadku obrazów niestandardowych, które zostały utworzone, pamiętaj o uwzględnieniu wszelkich tagów, które były używane w obrazie. Na przykład, jeśli obraz został utworzony przy użyciu określonego tagu, takiego jak `:v1` . Jeśli nie korzystasz z określonego tagu podczas tworzenia obrazu, znacznik `:latest` został zastosowany.
 
-* Jeśli obraz znajduje się w __repozytorium prywatnym__, potrzebne są następujące informacje:
+* Jeśli obraz znajduje się w __repozytorium prywatnym__ , potrzebne są następujące informacje:
 
-    * __Adres__rejestru. Na przykład `myregistry.azureecr.io`.
+    * __Adres__ rejestru. Na przykład `myregistry.azureecr.io`.
     * __Nazwa__ główna usługi i __hasło__ , które mają dostęp do odczytu do rejestru.
 
     Jeśli nie masz tych informacji, porozmawiaj z administratorem, aby uzyskać Azure Container Registry, który zawiera obraz.
@@ -231,7 +231,7 @@ Aby uzyskać więcej informacji, zobacz repozytorium [kontenerów Azure Machine 
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Korzystanie z obrazu z zestawem SDK Azure Machine Learning
 
-Aby użyć obrazu przechowywanego w **Azure Container Registry dla obszaru roboczego**lub **dostępnego publicznie rejestru kontenerów**, ustaw następujące atrybuty [środowiska](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) :
+Aby użyć obrazu przechowywanego w **Azure Container Registry dla obszaru roboczego** lub **dostępnego publicznie rejestru kontenerów** , ustaw następujące atrybuty [środowiska](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) :
 
 + `docker.enabled=True`
 + `docker.base_image`: Ustaw rejestr i ścieżkę do obrazu.

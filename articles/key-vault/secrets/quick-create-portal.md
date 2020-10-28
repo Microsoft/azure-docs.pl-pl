@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 126df6e7f4d227c20c2173a1e2d4c0d7361b043f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 080e2daf5065c0762fb039a84e62580e5c915ddb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962449"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735165"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Szybki start: konfigurowanie i pobieranie wpisów tajnych z usługi Key Vault przy użyciu witryny Azure Portal
 
 Azure Key Vault to usługa w chmurze, która zapewnia bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku Szybki start utworzysz magazyn kluczy, a następnie użyjesz go do przechowywania wpisu tajnego. Aby uzyskać więcej informacji na temat usługi Key Vault, możesz zapoznać się z [omówieniem](../general/overview.md).
 
-Aby uzyskać więcej informacji na temat wpisów tajnych, zobacz (about-secrets.md).
+Aby uzyskać więcej informacji na temat wpisów tajnych, zobacz [Informacje o wpisach tajnych](about-secrets.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,25 +34,26 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
-1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
-2. W polu wyszukiwania wpisz **Key Vault**.
-3. Na liście wyników wybierz pozycję **Key Vault**.
-4. W sekcji Key Vault, wybierz przycisk **Utwórz**.
+1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób** .
+2. W polu wyszukiwania wpisz **Key Vault** .
+3. Na liście wyników wybierz pozycję **Key Vault** .
+4. W sekcji Key Vault, wybierz przycisk **Utwórz** .
 5. W sekcji **Tworzenie magazynu kluczy** podaj następujące informacje:
-    - **Nazwa**: wymagana jest unikatowa nazwa. W tym przewodniku szybki start użyjemy **contoso-vault2**. 
-    - **Subskrypcja**: wybierz subskrypcję.
-    - W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
+    - **Nazwa** : wymagana jest unikatowa nazwa. W tym przewodniku szybki start użyjemy **contoso-vault2** . 
+    - **Subskrypcja** : wybierz subskrypcję.
+    - W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
     - W menu rozwijanym **Lokalizacja** wybierz lokalizację.
     - Dla pozostałych opcji zostaw wartości domyślne.
-6. Po podaniu powyższych informacje wybierz przycisk **Utwórz**.
+6. Po podaniu powyższych informacje wybierz przycisk **Utwórz** .
 
 Zanotuj dwie poniższe właściwości:
 
-* **Nazwa magazynu**: w tym przykładzie jest to **Contoso-Vault2**. Użyjesz tej nazwy w innych krokach.
-* **Identyfikator URI magazynu**: w tym przykładzie jest to https://contoso-vault2.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+* **Nazwa magazynu** : w tym przykładzie jest to **Contoso-Vault2** . Użyjesz tej nazwy w innych krokach.
+* **Identyfikator URI magazynu** : w tym przykładzie jest to https://contoso-vault2.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
-Możesz również utworzyć Key Vault za pomocą interfejsu wiersza polecenia platformy Azure i programu PowerShell: [Tworzenie Key Vault przy użyciu programu PowerShell](../general/quick-create-powershell.md) 
- [Tworzenie Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](../general/quick-create-cli.md)
+Możesz również utworzyć Key Vault za pomocą interfejsu wiersza polecenia platformy Azure i programu PowerShell:
+- [Tworzenie Key Vault przy użyciu programu PowerShell](../general/quick-create-powershell.md)
+- [Tworzenie Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](../general/quick-create-cli.md)
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania operacji na tym nowym magazynie.
 
@@ -60,15 +61,15 @@ Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonyw
 
 ## <a name="add-a-secret-to-key-vault"></a>Dodawanie wpisu tajnego do usługi Key Vault
 
-Aby dodać wpis tajny do magazynu, wystarczy tylko wykonać kilka dodatkowych czynności. W tym przypadku dodamy hasło, którego będzie mogła używać aplikacja. Hasło ma nazwę **ExamplePassword** i przechowujemy w nim wartość **hVFkk965BuUv**.
+Aby dodać wpis tajny do magazynu, wystarczy tylko wykonać kilka dodatkowych czynności. W tym przypadku dodamy hasło, którego będzie mogła używać aplikacja. Hasło ma nazwę **ExamplePassword** i przechowujemy w nim wartość **hVFkk965BuUv** .
 
-1. Na stronie właściwości Key Vault wybierz pozycję wpisy **tajne**.
-2. Kliknij pozycję **Wygeneruj/zaimportuj**.
+1. Na stronie właściwości Key Vault wybierz pozycję wpisy **tajne** .
+2. Kliknij pozycję **Wygeneruj/zaimportuj** .
 3. Na ekranie **Tworzenie wpisu tajnego** wybierz następujące wartości:
-    - **Opcje przekazywania**: Ręcznie.
-    - **Nazwa**: ExamplePassword.
-    - **Wartość**: hVFkk965BuUv
-    - Dla pozostałych opcji zostaw wartości domyślne. Kliknij pozycję **Utwórz**.
+    - **Opcje przekazywania** : Ręcznie.
+    - **Nazwa** : ExamplePassword.
+    - **Wartość** : hVFkk965BuUv
+    - Dla pozostałych opcji zostaw wartości domyślne. Kliknij pozycję **Utwórz** .
 
 Gdy otrzymasz komunikat o pomyślnym utworzeniu wpisu tajnego, możesz kliknąć go na liście. 
 
@@ -88,8 +89,8 @@ Inne przewodniki Szybki start i samouczki usługi Key Vault bazują na tym przew
 Jeśli nie będą Ci one już potrzebne, usuń grupę zasobów, a zostanie także usunięta usługa Key Vault i powiązane zasoby. Aby usunąć grupę zasobów za pośrednictwem portalu:
 
 1. Wprowadź nazwę grupy zasobów w polu wyszukiwania w górnej części portalu. Gdy w wynikach wyszukiwania zobaczysz grupę zasobów używaną w tym przewodniku Szybki start, wybierz ją.
-2. Wybierz pozycję **Usuń grupę zasobów**.
-3. W polu **WPISZ NAZWĘ GRUPY ZASOBÓW:** wpisz nazwę grupy zasobów i wybierz pozycję **Usuń**.
+2. Wybierz pozycję **Usuń grupę zasobów** .
+3. W polu **WPISZ NAZWĘ GRUPY ZASOBÓW:** wpisz nazwę grupy zasobów i wybierz pozycję **Usuń** .
 
 
 ## <a name="next-steps"></a>Następne kroki

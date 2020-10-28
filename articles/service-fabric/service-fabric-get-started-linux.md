@@ -4,12 +4,12 @@ description: Zainstaluj środowisko uruchomieniowe i zestaw SDK oraz utwórz lok
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f8639287ea65347319cb438a5ff6e8c96c8279e1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 39ed4a394a54112c03145c0d481e5459ecbf6d8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168413"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675270"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Przygotowywanie środowiska projektowego w systemie Linux
 > [!div class="op_single_selector"]
@@ -17,9 +17,9 @@ ms.locfileid: "92168413"
 > * [Linux](service-fabric-get-started-linux.md)
 > * [Mac OS X](service-fabric-get-started-mac.md)
 
-Aby wdrożyć i uruchomić program (aplikacje platformy Azure Service Fabric) [Service-Fabric-Application-model.md] na komputerze deweloperskim z systemem Linux, zainstaluj środowisko uruchomieniowe i wspólny zestaw SDK. Można także zainstalować opcjonalne zestawy SDK na potrzeby programowania na platformach Java i .NET Core. 
+Aby wdrażać i uruchamiać [aplikacje usługi Azure Service Fabric](service-fabric-application-model.md) na maszynie deweloperskiej z systemem Linux, należy zainstalować środowisko uruchomieniowe i wspólny zestaw SDK. Można także zainstalować opcjonalne zestawy SDK na potrzeby programowania na platformach Java i .NET Core. 
 
-W krokach w tym artykule przyjęto założenie, że instalacja natywna w systemie Linux lub użycie (Service Fabric obraz kontenera jednopunktowy) [ https://hub.docker.com/_/microsoft-service-fabric-onebox ], tj `mcr.microsoft.com/service-fabric/onebox:u18` .
+W krokach w tym artykule założono, że instalujesz natywnie w systemie Linux lub używasz [obrazu kontenera Service Fabric jednopunktowy](https://hub.docker.com/_/microsoft-service-fabric-onebox), np. `mcr.microsoft.com/service-fabric/onebox:u18` .
 
 Za pomocą interfejsu wiersza polecenia platformy Azure Service Fabric można zarządzać jednostkami Service Fabric hostowanymi w chmurze lub lokalnymi. Aby uzyskać informacje na temat instalowania interfejsu wiersza polecenia, zobacz [Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric](./service-fabric-cli.md).
 
@@ -50,7 +50,7 @@ Aby zainstalować zestaw SDK i skojarzony pakiet środowiska uruchomieniowego pr
 
 ## <a name="script-installation"></a>Instalacja skryptu
 
-Dla wygody skrypt jest dostarczany w celu zainstalowania środowiska uruchomieniowego Service Fabric i Service Fabric wspólnego zestawu SDK wraz z [interfejsem wiersza polecenia **sfctl** ](service-fabric-cli.md). Podczas uruchamiania skryptu jest przyjmowane założenie, że wyrażasz zgodę na warunki licencji wszystkich instalowanych programów. Alternatywnie można uruchomić kroki [instalacji ręcznej](#manual-installation) w następnej sekcji, w której będą obecne skojarzone licencje oraz instalowane składniki.
+Dla wygody skrypt jest dostarczany w celu zainstalowania środowiska uruchomieniowego Service Fabric i Service Fabric wspólnego zestawu SDK wraz z [interfejsem wiersza polecenia **sfctl**](service-fabric-cli.md). Podczas uruchamiania skryptu jest przyjmowane założenie, że wyrażasz zgodę na warunki licencji wszystkich instalowanych programów. Alternatywnie można uruchomić kroki [instalacji ręcznej](#manual-installation) w następnej sekcji, w której będą obecne skojarzone licencje oraz instalowane składniki.
 
 Po pomyślnym uruchomieniu skryptu możesz przejść do części [Konfigurowanie klastra lokalnego](#set-up-a-local-cluster).
 
@@ -298,21 +298,21 @@ Wtyczkę środowiska Eclipse dla usługi Service Fabric można zainstalować z p
 > 
 > W systemie Ubuntu zaleca się instalowanie bezpośrednio z witryny środowiska Eclipse, a nie za pomocą instalatora pakietu (`apt` lub `apt-get`). Gwarantuje to uzyskanie najnowszej wersji środowiska Eclipse. Można zainstalować środowisko Eclipse IDE for Java Developers lub Java EE Developers.
 
-1. W środowisku Eclipse upewnij się, że masz zainstalowaną wersję Eclipse Neon lub nowszą oraz zestaw Buildship 2.2.1 lub nowszy. Sprawdź wersje zainstalowanych składników, wybierając **Pomoc**dotyczącą  >  **przezaćmienia**  >  **szczegóły instalacji**. Zestaw Buildship można zaktualizować zgodnie z instrukcjami podanymi w artykule [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: wtyczka Eclipse dla narzędzia Gradle).
+1. W środowisku Eclipse upewnij się, że masz zainstalowaną wersję Eclipse Neon lub nowszą oraz zestaw Buildship 2.2.1 lub nowszy. Sprawdź wersje zainstalowanych składników, wybierając **Pomoc** dotyczącą  >  **przezaćmienia**  >  **szczegóły instalacji** . Zestaw Buildship można zaktualizować zgodnie z instrukcjami podanymi w artykule [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: wtyczka Eclipse dla narzędzia Gradle).
 
-2. Aby zainstalować wtyczkę Service Fabric, wybierz pozycję **Pomoc**  >  **Instalowanie nowego oprogramowania**.
+2. Aby zainstalować wtyczkę Service Fabric, wybierz pozycję **Pomoc**  >  **Instalowanie nowego oprogramowania** .
 
-3. W polu **Pracuj z** wprowadź wartość **https: \/ /DL.Microsoft.com/Eclipse**.
+3. W polu **Pracuj z** wprowadź wartość **https: \/ /DL.Microsoft.com/Eclipse** .
 
-4. Wybierz pozycję **Dodaj**.
+4. Wybierz pozycję **Dodaj** .
 
     ![Strona dostępnego oprogramowania][sf-eclipse-plugin]
 
-5. Wybierz wtyczkę usługi **Service Fabric**, a następnie wybierz pozycję **Next** (Dalej).
+5. Wybierz wtyczkę usługi **Service Fabric** , a następnie wybierz pozycję **Next** (Dalej).
 
 6. Wykonaj kroki instalacji. Następnie zaakceptuj umowę licencyjną użytkownika oprogramowania.
 
-Jeśli wtyczka usługi Service Fabric Eclipse jest już zainstalowana, upewnij się, że używasz najnowszej wersji. Zapoznaj się z tematem Wybieranie **pomocy**  >  **dotyczącej**przeszukania  >  **szczegółów instalacji**. Następnie wyszukaj Service Fabric na liście zainstalowanych wtyczek. Wybierz pozycję **Aktualizuj** , jeśli jest dostępna nowsza wersja.
+Jeśli wtyczka usługi Service Fabric Eclipse jest już zainstalowana, upewnij się, że używasz najnowszej wersji. Zapoznaj się z tematem Wybieranie **pomocy**  >  **dotyczącej** przeszukania  >  **szczegółów instalacji** . Następnie wyszukaj Service Fabric na liście zainstalowanych wtyczek. Wybierz pozycję **Aktualizuj** , jeśli jest dostępna nowsza wersja.
 
 Aby uzyskać więcej informacji, zobacz artykuł [Wtyczka usługi Service Fabric na potrzeby tworzenia aplikacji Java w środowisku Eclipse](service-fabric-get-started-eclipse.md).
 

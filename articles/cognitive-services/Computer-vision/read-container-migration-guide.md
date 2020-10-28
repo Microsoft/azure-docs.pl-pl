@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973126"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676167"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrowanie do kontenerów OCR odczytu v3. x
 
@@ -29,21 +29,11 @@ Jeśli używasz wersji 2 przetwarzanie obrazów kontenera OCR do odczytu, Skorzy
 
 ## <a name="api-changes"></a>Zmiany interfejsu API
 
-Kontenery Read v3. x używają wersji 3 interfejs API przetwarzania obrazów i mają następujące punkty końcowe:
-
-#### <a name="version-31-preview"></a>[Wersja 3,1-Preview](#tab/version-3-1)
+Kontener Read v 3.1 używa wersji 3 interfejs API przetwarzania obrazów i ma następujące punkty końcowe:
 
 * `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
-
-#### <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
-
-* `/vision/v3.0/read/analyzeResults/{operationId}`
-* `/vision/v3.0/read/analyze`
-* `/vision/v3.0/read/syncAnalyze`
-
----
 
 Aby uzyskać szczegółowe informacje na temat aktualizowania aplikacji do korzystania z wersji 3 interfejsu API odczytu opartego na chmurze, zobacz [Przewodnik migracji interfejsu API REST przetwarzanie obrazów v3](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) . Te informacje odnoszą się również do kontenera. Należy zauważyć, że operacje synchronizacji są obsługiwane tylko w kontenerach.
 
@@ -53,8 +43,7 @@ Wymagania i zalecenia są oparte na testach porównawczych z pojedynczym żądan
 
 |Kontener  |Minimum | Zalecane  |
 |---------|---------|------|
-|Przeczytaj 3,0 — wersja zapoznawcza     | 8 rdzeni, 16 GB pamięci         | 8 rdzeni, 24 GB pamięci
-|Przeczytaj 3,1 — wersja zapoznawcza | 8 rdzeni, 16 GB pamięci         | 8 rdzeni, 24 GB pamięci
+|Przeczytaj 3,1 — wersja zapoznawcza | 8 rdzeni, 16 GB pamięci         | 8 rdzeni, 24 GB pamięci |
 
 Każdy rdzeń musi mieć co najmniej 2,6 gigaherca (GHz) lub szybszy.
 

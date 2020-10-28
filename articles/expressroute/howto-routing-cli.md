@@ -7,20 +7,20 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/09/2020
 ms.author: duau
-ms.custom: seodec18
-ms.openlocfilehash: 292f50877fe40127e5aea95e395109bc76e1f75d
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 7a482e268137946222f1c8b427424598bd78f935
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940875"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735093"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Samouczek: Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute przy użyciu interfejsu wiersza polecenia
 
 W tym samouczku pokazano, jak utworzyć konfigurację routingu/komunikację równorzędną dla obwodu usługi ExpressRoute w Menedżer zasobów modelu wdrażania przy użyciu interfejsu wiersza polecenia i zarządzać nią. Możesz również sprawdzić stan, aktualizowanie i usuwanie komunikacji równorzędnej dla obwodu usługi ExpressRoute. Jeśli chcesz użyć innej metody do pracy z obwodem, wybierz artykuł z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-routing-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
 > * [Publiczna Komunikacja równorzędna](about-public-peering.md)
@@ -29,7 +29,7 @@ W tym samouczku pokazano, jak utworzyć konfigurację routingu/komunikację rów
 > * [PowerShell (klasyczny)](expressroute-howto-routing-classic.md)
 > 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Konfigurowanie, aktualizowanie i usuwanie komunikacji równorzędnej firmy Microsoft dla obwodu
 > - Konfigurowanie, aktualizowanie i usuwanie prywatnej komunikacji równorzędnej Azure dla obwodu
@@ -185,7 +185,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 az network express-route peering update -g ExpressRouteResourceGroup --circuit-name MyCircuit --peering-type MicrosoftPeering --ip-version ipv6 --primary-peer-subnet 2002:db00::/126 --secondary-peer-subnet 2003:db00::/126 --advertised-public-prefixes 2002:db00::/126
 ```
 
-## <a name="azure-private-peering"></a><a name="private"></a>Prywatna komunikacja równorzędna platformy Azure
+## <a name="azure-private-peering"></a><a name="private"></a>Prywatna komunikacja równorzędna Azure
 
 Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji prywatnej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute.
 

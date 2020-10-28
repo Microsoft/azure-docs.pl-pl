@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 14360ab7668248f39c8ad0916eb964ffe11f7959
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331298"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677819"
 ---
 # <a name="vm-certification-troubleshooting"></a>Rozwiązywanie problemów z certyfikacją maszyn wirtualnych
 
@@ -37,6 +37,9 @@ Aby rozwiązać ten problem, pobierz obraz z witryny Azure Marketplace i wprowad
 > [!Note]
 > Jeśli używasz podstawowego obrazu systemu Linux, który nie został pobrany z portalu Azure Marketplace, możesz przesunąć pierwszą partycję o 2048 KB. Pozwala to na niesformatowane miejsce na dodanie nowych informacji dotyczących rozliczeń i umożliwi korzystanie z platformy Azure z publikowaniem maszyny wirtualnej w portalu Azure Marketplace.  
 
+> [!Note]
+> Jeśli używasz podstawowego obrazu systemu Linux, który nie został pobrany z witryny Marketplace, możesz przesunąć pierwszą partycję o 2048 KB. Pozwala to na niesformatowane miejsce na dodanie nowych informacji dotyczących rozliczeń i umożliwi korzystanie z platformy Azure z publikowaniem maszyny wirtualnej w portalu Marketplace.  
+
 ## <a name="vm-extension-failure"></a>Niepowodzenie rozszerzenia maszyny wirtualnej
 
 Sprawdź, czy obraz obsługuje rozszerzenia maszyn wirtualnych.
@@ -44,18 +47,18 @@ Sprawdź, czy obraz obsługuje rozszerzenia maszyn wirtualnych.
 Aby włączyć rozszerzenia maszyny wirtualnej, wykonaj następujące czynności:
 
 1. Wybierz maszynę wirtualną z systemem Linux.
-1. Przejdź do pozycji **Ustawienia diagnostyki**.
-1. Aby włączyć macierze podstawowe, zaktualizuj **konto magazynu**.
-1. Wybierz pozycję **Zapisz**.
+1. Przejdź do pozycji **Ustawienia diagnostyki** .
+1. Aby włączyć macierze podstawowe, zaktualizuj **konto magazynu** .
+1. Wybierz pozycję **Zapisz** .
 
    ![Włącz monitorowanie na poziomie gościa](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 Aby sprawdzić, czy rozszerzenia maszyn wirtualnych zostały prawidłowo aktywowane, wykonaj następujące czynności:
 
-1. Na maszynie wirtualnej wybierz kartę **rozszerzenia maszyn wirtualnych** , a następnie sprawdź stan **rozszerzenia diagnostyki systemu Linux**.
+1. Na maszynie wirtualnej wybierz kartę **rozszerzenia maszyn wirtualnych** , a następnie sprawdź stan **rozszerzenia diagnostyki systemu Linux** .
 1. 
-    * W przypadku *pomyślnego stanu aprowizacji*, przypadek testowy rozszerzeń został zakończony pomyślnie.  
-    * W przypadku *niepowodzenia inicjowania obsługi administracyjnej*przypadek testowy rozszerzeń zakończył się niepowodzeniem i należy ustawić flagę z ograniczeniami.
+    * W przypadku *pomyślnego stanu aprowizacji* , przypadek testowy rozszerzeń został zakończony pomyślnie.  
+    * W przypadku *niepowodzenia inicjowania obsługi administracyjnej* przypadek testowy rozszerzeń zakończył się niepowodzeniem i należy ustawić flagę z ograniczeniami.
 
       ![Zrzut ekranu przedstawiający pomyślne zainicjowanie obsługi](./media/create-vm/vm-certification-issues-solutions-2.png)
 
@@ -120,8 +123,8 @@ Poniższa tabela zawiera listę typowych błędów znalezionych podczas wykonywa
 |---|---|---|---|
 |1|Przypadek testowy wersji agenta systemu Linux|Minimalna wersja agenta systemu Linux to 2.2.41 lub nowsza. To wymaganie jest obowiązkowe od 1 maja 2020.|Zaktualizuj wersję agenta systemu Linux i powinna być 2,241 lub nowsza. Więcej informacji można znaleźć na [stronie aktualizacji agenta systemu Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Przypadek testowy historii bash|Zobaczysz błąd, jeśli rozmiar historii bash w przesłanym obrazie przekracza 1 kilobajt (KB). Rozmiar jest ograniczony do 1 KB, aby upewnić się, że wszystkie potencjalnie poufne informacje nie są przechwytywane w pliku historii bash.|Aby rozwiązać ten problem, Zainstaluj wirtualny dysk twardy w przypadku dowolnej innej działającej maszyny wirtualnej i wprowadź żądane zmiany (na przykład Usuń pliki historii *. bash* ), aby zmniejszyć rozmiar do 1 KB.|
-|3|Wymagany przypadek testowy parametru jądra|Ten błąd zostanie wyświetlony, gdy wartość dla **konsoli** nie zostanie ustawiona na **ttyS0**. Sprawdź, uruchamiając następujące polecenie:<br>`cat /proc/cmdline`|Ustaw wartość dla **konsoli** na **ttyS0**i ponownie prześlij żądanie.|
-|4|Przypadek testowy interwału ClientAlive|Jeśli wynik zestawu narzędzi daje wynik niepowodzenia dla tego przypadku testowego, istnieje niewłaściwa wartość dla **ClientAliveInterval**.|Dla opcji **ClientAliveInterval** ustaw wartość mniejszą lub równą 235, a następnie prześlij żądanie ponownie.|
+|3|Wymagany przypadek testowy parametru jądra|Ten błąd zostanie wyświetlony, gdy wartość dla **konsoli** nie zostanie ustawiona na **ttyS0** . Sprawdź, uruchamiając następujące polecenie:<br>`cat /proc/cmdline`|Ustaw wartość dla **konsoli** na **ttyS0** i ponownie prześlij żądanie.|
+|4|Przypadek testowy interwału ClientAlive|Jeśli wynik zestawu narzędzi daje wynik niepowodzenia dla tego przypadku testowego, istnieje niewłaściwa wartość dla **ClientAliveInterval** .|Dla opcji **ClientAliveInterval** ustaw wartość mniejszą lub równą 235, a następnie prześlij żądanie ponownie.|
 
 ### <a name="windows-test-cases"></a>Przypadki testowe systemu Windows
 
@@ -148,7 +151,7 @@ W poniższej tabeli przedstawiono przypadki testowe systemu Windows, które będ
 |17|Usługa bezprzewodowej sieci LAN|Usługa bezprzewodowej sieci LAN. Ta funkcja serwera nie jest jeszcze obsługiwana. Aplikacja nie powinna być zależna od tej funkcji.|
 |
 
-Jeśli występują problemy z poprzednimi przypadkami testowymi, zapoznaj się z kolumną **Opis** rozwiązania w tabeli. Jeśli potrzebujesz więcej informacji, skontaktuj się z zespołem pomocy technicznej.
+Jeśli występują problemy z poprzednimi przypadkami testowymi, zapoznaj się z kolumną **Opis** rozwiązania w tabeli. Jeśli potrzebujesz więcej informacji, skontaktuj się z zespołem pomocy technicznej. 
 
 ## <a name="data-disk-size-verification"></a>Weryfikacja rozmiaru dysku danych
 
@@ -181,7 +184,7 @@ Ponieważ maszyny wirtualne umożliwiają dostęp do podstawowego systemu operac
 
 Aby zapobiec potencjalnym atakom związanym z wirusem atak wannacry, upewnij się, że wszystkie żądania obrazów systemu Windows są aktualizowane przy użyciu najnowszej poprawki.
 
-Aby sprawdzić wersję poprawki systemu Windows Server dla szczegółów systemu operacyjnego i wersji minimalnej, która będzie obsługiwana, zapoznaj się z poniższą tabelą:
+Aby sprawdzić wersję poprawki systemu Windows Server dla szczegółów systemu operacyjnego i wersji minimalnej, która będzie obsługiwana, zapoznaj się z poniższą tabelą: 
 
 Wersja pliku obrazu może być zweryfikowana z `C:\windows\system32\drivers\srv.sys` lub `srv2.sys` .
 
@@ -205,13 +208,13 @@ Zaktualizuj jądro przy użyciu zatwierdzonej wersji i ponownie prześlij żąda
 
 Jeśli obraz nie jest zainstalowany z jedną z następujących wersji jądra, zaktualizuj go przy użyciu poprawnych poprawek. Zażądaj niepotrzebnego zatwierdzenia od zespołu pomocy technicznej po zaktualizowaniu obrazu przy użyciu wymaganych poprawek:
 
-- CVE-2019-11477
-- CVE-2019-11478
+- CVE-2019-11477 
+- CVE-2019-11478 
 - CVE-2019-11479
 
 |Rodzina systemów operacyjnych|Wersja|Jądro|
 |---|---|---|
-|Ubuntu|14,04 LTS|4.4.0 — 151|
+|Ubuntu|14,04 LTS|4.4.0 — 151| 
 ||14,04 LTS|4.15.0-1049-*-Azure|
 ||16,04 LTS|4.15.0 — 1049|
 ||18,04 LTS|4.18.0 — 1023|
@@ -242,7 +245,7 @@ Jeśli obraz nie jest zainstalowany z jedną z następujących wersji jądra, za
 ||SLES15|4.12.14-5.30.1 (jądro — Azure)|
 ||SLES15 dla SAP|4.12.14-5.30.1 (jądro — Azure)|
 ||SLES15SP1|4.12.14-5.30.1 (jądro — Azure)|
-|Oracle|6,10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3
+|Oracle|6,10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
 ||7.0 — 7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK następuje po RHEL powyżej|
 ||7,6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
 |CoreOS stabilny 2079.6.0|4.19.43*|
@@ -267,13 +270,22 @@ Jeśli występują problemy z odmową dostępu podczas wykonywania przypadków t
 
 Sprawdź, czy w ramach konta, na którym są uruchomione przypadki samotestowe, jest włączony prawidłowy dostęp. Jeśli dostęp nie jest włączony, włącz go, aby uruchomić przypadki testowe. Jeśli nie chcesz włączyć dostępu, możesz udostępnić wyniki przypadków testowych z zespołem pomocy technicznej.
 
-## <a name="download-failure"></a>Błąd pobierania
+Jeśli chcesz przesłać żądanie z wyłączonym obrazem SSH dla procesu certyfikacji, wykonaj poniższe czynności.
 
+1. Wykonaj zestaw narzędzi platformy Azure na Twoim obrazie. (Pobierz [najnowszy zestaw narzędzi](https://aka.ms/AzureCertificationTestTool)
+
+2. Zgłoś [bilet pomocy technicznej](https://aka.ms/marketplacepublishersupport), Dołącz raport zestawu narzędzi i podaj szczegóły oferty — nazwę oferty, nazwę wydawcy, identyfikator planu/jednostkę SKU i wersję.
+
+3. Prześlij ponownie żądanie certyfikacji...
+
+
+## <a name="download-failure"></a>Błąd pobierania
+    
 Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podczas pobierania obrazu maszyny wirtualnej przy użyciu adresu URL sygnatury dostępu współdzielonego (SAS).
 
 |Scenariusz|Błąd|Przyczyna|Rozwiązanie|
 |---|---|---|---|
-|1|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji.||
+|1|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji.|| 
 |2|Obiekt BLOB w użyciu|Wirtualny dysk twardy jest używany przez inny proces wewnętrzny.|Wirtualny dysk twardy powinien znajdować się w stanie używanym podczas pobierania go przy użyciu adresu URL sygnatury dostępu współdzielonego.|
 |3|Nieprawidłowy adres URL SAS|Skojarzony adres URL sygnatury dostępu współdzielonego dla wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
 |4|Nieprawidłowy podpis|Skojarzony adres URL sygnatury dostępu współdzielonego dla wirtualnego dysku twardego jest niepoprawny.|Uzyskaj prawidłowy adres URL sygnatury dostępu współdzielonego.|
@@ -288,13 +300,98 @@ Podczas przesyłania wirtualnego dysku twardego upewnij się, że pierwsze 2048 
 >[!NOTE]
 >* W przypadku niektórych obrazów specjalnych, takich jak te, które zostały utworzone na podstawie obrazów podstawowych systemu Windows Azure z portalu Azure Marketplace, sprawdzimy tag rozliczania i zignorujesz partycję MB, jeśli tag rozliczania jest obecny i jest zgodny z naszymi wewnętrznymi dostępnymi wartościami.
 
+
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-on-an-empty-vhd"></a>Kroki umożliwiające utworzenie partycji pierwszej MB (2048 KB) (tylko dla systemu Linux) na pustym dysku VHD
+
+Krok 1. Tworzenie dowolnego rodzaju maszyny wirtualnej (przykład: Ubuntu, Cent OS itp.). Wypełnij wymagane pola i kliknij przycisk "dalej: dyski>" \
+![Dalej: dyski polecenie](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+Krok 2. Utwórz dysk niezarządzany dla powyższej maszyny wirtualnej.
+![Utwórz dysk niezarządzany](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Należy pamiętać, że można przejść z wartościami domyślnymi lub określić dowolną wartość dla pól, takich jak karta sieciowa, sieciowej grupy zabezpieczeń i publiczny adres IP.
+
+Krok 3. po utworzeniu maszyny wirtualnej kliknij pozycję "dyski" znajdującą się po lewej stronie, jak pokazano poniżej, a ![ następnie kliknij pozycję "dyski"](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+Krok 4. Dołącz dysk VHD jako dysk danych do powyższej maszyny wirtualnej w celu utworzenia tabeli partycji poniżej.
+![Dołącz wirtualny dysk twardy](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Kliknij pozycję Dodaj dysk danych — > istniejący obiekt BLOB — > Przeglądaj konto magazynu wirtualnego dysku twardego — > kontener — > wybierz pozycję VHD — > kliknij przycisk OK w następujący sposób.
+![Wybieranie wirtualnego dysku twardego](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+Twój wirtualny dysk twardy zostanie dodany jako dysk danych LUN 0, a następnie ponownie uruchom maszynę wirtualną po dodaniu dysku
+
+Krok 5. po ponownym uruchomieniu maszyny wirtualnej Zaloguj się do maszyny wirtualnej za pomocą pozyskanych danych (lub dowolnego innego klienta) i uruchom polecenie "sudo-i", aby uzyskać dostęp do katalogu głównego.
+
+![Zaloguj się do maszyny wirtualnej](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+Krok 6. Postępuj zgodnie z poniższymi krokami, aby utworzyć partycję na dysku VHD.
+
+a) wpisz polecenie fdisk/dev/sdb
+
+b) aby wyświetlić istniejącą listę partycji z dysku VHD, wpisz p
+
+c) wpisz d, aby usunąć wszystkie istniejące partycje dostępne na dysku VHD (można pominąć ten krok, jeśli nie jest to wymagane) ![ Usuń wszystkie istniejące partycje](./media/create-vm/vm-certification-issues-solutions-21.png)
+
+d) wpisz n, aby utworzyć nową partycję, a następnie wybierz pozycję p dla (partycja podstawowa).
+
+e) wprowadź 2048 jako wartość "pierwszy sektor" i pozostaw "ostatni sektor", ponieważ będzie ona przyjmować wartość domyślną. Należy pamiętać, że wszystkie dane zostaną wymazane do 2048 KB.
+           
+>[!NOTE]
+>* Należy zauważyć, że przez utworzenie partycji, jak powyżej, wszystkie istniejące dane zostaną wymazane do 2048 KB, dlatego zaleca się wykonanie kopii zapasowej wirtualnego dysku twardego przed wykonaniem powyższego polecenia.
+
+Znajdź Poniższy zrzut ekranu, aby uzyskać odwołanie.
+![Wymazane dane](./media/create-vm/vm-certification-issues-solutions-22.png)
+
+f) wpisz w, aby potwierdzić tworzenie partycji. 
+
+![Tworzenie partycji](./media/create-vm/vm-certification-issues-solutions-23.png)
+
+g) możesz sprawdzić tabelę partycji, uruchamiając polecenie n fdisk/dev/sdb i wpisując p, a następnie zobaczysz, że ta partycja jest tworzona z 2048 wartością przesunięcia. 
+
+ ![2048 — przesunięcie](./media/create-vm/vm-certification-issues-solutions-24.png)
+
+Krok 7. Odłącz wirtualny dysk twardy od maszyny wirtualnej i Usuń maszynę wirtualną.
+
+         
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-by-moving-the-existing-data-on-vhd"></a>Kroki umożliwiające utworzenie partycji pierwszej (2048 KB) (tylko dla systemu Linux) przez przeniesienie istniejących danych z dysku VHD
+
+Krok 1. Tworzenie dowolnego rodzaju maszyny wirtualnej (przykład: Ubuntu, Cent OS itp.). Wypełnij wymagane pola i kliknij przycisk "dalej: dyski>" \
+![Kliknij przycisk "dalej: dyski>"](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+Krok 2. Utwórz dysk niezarządzany dla powyższej maszyny wirtualnej.
+![Utwórz dysk niezarządzany](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Należy pamiętać, że można przejść z wartościami domyślnymi lub określić dowolną wartość dla pól, takich jak karta sieciowa, sieciowej grupy zabezpieczeń i publiczny adres IP.
+
+Krok 3. po utworzeniu maszyny wirtualnej kliknij pozycję "dyski" znajdującą się po lewej stronie, jak pokazano poniżej, a ![ następnie kliknij pozycję "dyski"](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+Krok 4. Dołącz dysk VHD jako dysk danych do powyższej maszyny wirtualnej w celu utworzenia tabeli partycji poniżej.
+![Tabela partycji](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Kliknij pozycję Dodaj dysk danych — > istniejący obiekt BLOB — > Przeglądaj konto magazynu wirtualnego dysku twardego — > kontener — > wybierz pozycję VHD — > kliknij przycisk OK w następujący sposób.
+![Wybieranie wirtualnego dysku twardego](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+Twój wirtualny dysk twardy zostanie dodany jako dysk danych LUN 0, a następnie ponownie uruchom maszynę wirtualną po dodaniu dysku
+
+Krok 5. po ponownym uruchomieniu maszyny wirtualnej Zaloguj się do maszyny wirtualnej przy użyciu polecenia "sudo-i", aby uzyskać dostęp do katalogu głównego. \
+![Zaloguj po ponownym uruchomieniu](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+Krok 6. excute polecenia Echo "+ 1M" | sfdisk--Move-Data/dev/SDC-N 1 ![ wykonywanie polecenia](./media/create-vm/vm-certification-issues-solutions-25.png)
+
+>[!NOTE]
+>* Należy zwrócić uwagę, że powyższe polecenie może zająć więcej czasu, ponieważ zależy ono od rozmiaru dysku.
+
+Krok 7. Odłącz wirtualny dysk twardy od maszyny wirtualnej i Usuń maszynę wirtualną.
+
+
 ## <a name="default-credentials"></a>Poświadczenia domyślne
 
 Zawsze upewnij się, że poświadczenia domyślne nie są wysyłane przy użyciu przesłanego wirtualnego dysku twardego. Dodanie poświadczeń domyślnych sprawia, że dysk VHD jest bardziej narażony na zagrożenia bezpieczeństwa. Zamiast tego należy utworzyć własne poświadczenia podczas przesyłania wirtualnego dysku twardego.
   
 ## <a name="datadisk-mapped-incorrectly"></a>Nieprawidłowo mapowany dysk
 
-Gdy żądanie jest przesyłane z wieloma dyskami danych, ale ich kolejność nie jest w kolejności, jest to traktowane jako problem z mapowaniem. Na przykład jeśli istnieją trzy dyski danych, kolejność numerów musi wynosić *0, 1, 2*. Każda inna kolejność jest traktowana jako problem z mapowaniem.
+Gdy żądanie jest przesyłane z wieloma dyskami danych, ale ich kolejność nie jest w kolejności, jest to traktowane jako problem z mapowaniem. Na przykład jeśli istnieją trzy dyski danych, kolejność numerów musi wynosić *0, 1, 2* . Każda inna kolejność jest traktowana jako problem z mapowaniem.
 
 Prześlij ponownie żądanie z prawidłową kolejnością na dyskach danych.
 
@@ -306,11 +403,11 @@ Po utworzeniu obrazu można go zamapować lub przypisać do nieprawidłowej etyk
 
 Jeśli wszystkie obrazy pobierane z witryny Azure Marketplace będą używane ponownie, należy przeprowadzić uogólniony dysk VHD systemu operacyjnego.
 
-* W przypadku systemu **Linux**następujący proces służy do UOGÓLNIANIA maszyny wirtualnej z systemem Linux i wdrażania jej ponownie jako oddzielnej maszyny wirtualnej.
+* W przypadku systemu **Linux** następujący proces służy do UOGÓLNIANIA maszyny wirtualnej z systemem Linux i wdrażania jej ponownie jako oddzielnej maszyny wirtualnej.
 
   W oknie SSH wprowadź następujące polecenie: `sudo waagent -deprovision+user`
 
-* W przypadku **systemu Windows**można uogólniać obrazy systemu Windows przy użyciu programu `sysreptool` .
+* W przypadku **systemu Windows** można uogólniać obrazy systemu Windows przy użyciu programu `sysreptool` .
 
 Aby uzyskać więcej informacji na temat tego narzędzia, zobacz temat [przygotowanie systemu (Sysprep) — Omówienie]( https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
@@ -326,7 +423,7 @@ W przypadku rozwiązań błędów, które są związane z dyskiem danych, należ
 
 ## <a name="remote-access-issue"></a>Problem z dostępem zdalnym
 
-Jeśli opcja Remote Desktop Protocol (RDP) nie jest włączona dla obrazu systemu Windows, zostanie wyświetlony ten błąd.
+Jeśli opcja Remote Desktop Protocol (RDP) nie jest włączona dla obrazu systemu Windows, zostanie wyświetlony ten błąd. 
 
 Włącz dostęp RDP dla obrazów systemu Windows przed ich przesłaniem.
 
@@ -404,36 +501,36 @@ Aby zapewnić stały obraz maszyny wirtualnej w celu zastąpienia obrazu maszyny
 Aby wykonać te kroki, należy przygotować zasoby techniczne dla obrazu maszyny wirtualnej, który ma zostać dodany. Aby uzyskać więcej informacji, zobacz temat [Tworzenie maszyny wirtualnej przy użyciu zatwierdzonej bazy](azure-vm-create-using-approved-base.md) lub [Tworzenie maszyny wirtualnej przy użyciu własnego obrazu](azure-vm-create-using-own-image.md)oraz [generowanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej](azure-vm-get-sas-uri.md).
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+2. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
 3. W kolumnie **alias oferty** wybierz ofertę.
 4. Na karcie **Przegląd planu** w kolumnie **Nazwa** wybierz plan, do którego chcesz dodać maszynę wirtualną.
-5. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych** wybierz pozycję **+ Dodaj obraz maszyny wirtualnej**.
+5. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych** wybierz pozycję **+ Dodaj obraz maszyny wirtualnej** .
 
 > [!NOTE]
 > Do jednego planu można dodać tylko jeden obraz maszyny wirtualnej. Aby dodać wiele obrazów maszyn wirtualnych, Opublikuj pierwszy na żywo przed dodaniem kolejnego obrazu maszyny wirtualnej.
 
 6. W wyświetlonych polach Podaj nową wersję dysku i obraz maszyny wirtualnej.
-7. Wybierz pozycję **Zapisz wersję roboczą**.
+7. Wybierz pozycję **Zapisz wersję roboczą** .
 
 Przejdź do następnej sekcji poniżej, aby usunąć obraz maszyny wirtualnej z luką w zabezpieczeniach.
 
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>Usuwanie obrazu maszyny wirtualnej z wykorzystaniem luk w zabezpieczeniach lub wykorzystania
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+2. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
 3. W kolumnie **alias oferty** wybierz ofertę.
 4. Na karcie **Przegląd planu** w kolumnie **Nazwa** wybierz plan z maszyną wirtualną, którą chcesz usunąć.
-5. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych** obok obrazu maszyny wirtualnej, który chcesz usunąć, wybierz pozycję **Usuń obraz maszyny wirtualnej**.
-6. W wyświetlonym oknie dialogowym wybierz pozycję **Kontynuuj**.
-7. Wybierz pozycję **Zapisz wersję roboczą**.
+5. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych** obok obrazu maszyny wirtualnej, który chcesz usunąć, wybierz pozycję **Usuń obraz maszyny wirtualnej** .
+6. W wyświetlonym oknie dialogowym wybierz pozycję **Kontynuuj** .
+7. Wybierz pozycję **Zapisz wersję roboczą** .
 
 Aby ponownie opublikować ofertę, przejdź do następnej sekcji poniżej.
 
 #### <a name="republish-the-offer"></a>Ponowne opublikowanie oferty
 
-1. Wybierz pozycję **Przejrzyj i Opublikuj**.
+1. Wybierz pozycję **Przejrzyj i Opublikuj** .
 2. Jeśli musisz podać informacje dotyczące zespołu certyfikacji, Dodaj go do pola **uwagi dotyczące certyfikacji** .
-3. Kliknij pozycję **Opublikuj**.
+3. Kliknij pozycję **Opublikuj** .
 
 Aby zakończyć proces publikowania, zobacz [Przegląd i publikowanie ofert](review-publish-offer.md).
 

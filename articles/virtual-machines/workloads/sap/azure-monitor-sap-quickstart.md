@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 6deb7b535c3876ae8a8e83174b97a75582e82e58
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dc8aa50c5c4ecb5e4b56a7e49453c266dad28818
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996426"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678104"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Wdrażanie Azure Monitor dla rozwiązań SAP z Azure Portal
 
@@ -24,7 +24,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com
 
 ## <a name="create-monitoring-resource"></a>Utwórz zasób monitorowania
 
-1. Wybierz **Azure monitor dla rozwiązań SAP** z **witryny Azure Marketplace**.
+1. Wybierz **Azure monitor dla rozwiązań SAP** z **witryny Azure Marketplace** .
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="Obraz przedstawia wybór oferty Azure Monitor dla rozwiązań SAP z witryny Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-1.png":::
 
@@ -47,15 +47,18 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com
 
 2. Wybierz pozycję **Dodaj dostawcę** i wybierz pozycję **SAP HANA** z listy rozwijanej. 
 
+   > [!IMPORTANT]
+   > Upewnij się, że dostawca SAP HANA jest skonfigurowany dla SAP HANA węzła "Master".
+
 3. Wprowadź prywatny adres IP dla serwera HANA.
 
 4. Wprowadź nazwę dzierżawy bazy danych, której chcesz użyć. Można jednak wybrać dowolną dzierżawę, zalecamy użycie **SYSTEMDB** , ponieważ umożliwia ona szersze wykorzystanie obszarów monitorowania. 
 
-5. Wprowadź numer portu SQL skojarzony z bazą danych platformy HANA. Numer portu musi mieć format **[3]**  +  **[wystąpienie #]**  +  **[13]** lub **[3]**  +  **[wystąpienie #]**  +  **[15]**. Na przykład 30013 lub 30015. 
+5. Wprowadź numer portu SQL skojarzony z bazą danych platformy HANA. Numer portu musi mieć format **[3]**  +  **[wystąpienie #]**  +  **[13]** lub **[3]**  +  **[wystąpienie #]**  +  **[15]** . Na przykład 30013 lub 30015. 
 
 6. Wprowadź nazwę użytkownika bazy danych, której chcesz użyć. Upewnij się, że użytkownik bazy danych ma przypisane role **monitorowania** i **odczytu katalogu** . 
 
-7. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie dodatkowych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
+7. Po zakończeniu wybierz pozycję **Dodaj dostawcę** . W razie potrzeby Kontynuuj dodawanie dodatkowych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Obraz przedstawia wybór oferty Azure Monitor dla rozwiązań SAP z witryny Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
@@ -70,7 +73,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com
  
 3. Wprowadź identyfikator systemowy (SID), nazwę hosta i nazwa klastra.
 
-4. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie dodatkowych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
+4. Po zakończeniu wybierz pozycję **Dodaj dostawcę** . W razie potrzeby Kontynuuj dodawanie dodatkowych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Obraz przedstawia wybór oferty Azure Monitor dla rozwiązań SAP z witryny Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
@@ -108,7 +111,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com
 
 3. Wypełnij pola przy użyciu informacji skojarzonych z Microsoft SQL Server. 
 
-4. Po zakończeniu wybierz pozycję **Dodaj dostawcę**. W razie potrzeby Kontynuuj dodawanie dodatkowych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
+4. Po zakończeniu wybierz pozycję **Dodaj dostawcę** . W razie potrzeby Kontynuuj dodawanie dodatkowych dostawców lub wybierz pozycję **Przegląd + Utwórz** , aby zakończyć wdrażanie.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Obraz przedstawia wybór oferty Azure Monitor dla rozwiązań SAP z witryny Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 

@@ -11,19 +11,19 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 48a2c00f7ff487def13e9872c4f43a3ca36809ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5202145af6f60f34bdce57aa94f4fec92a8b227f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444645"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677263"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Szablony Azure Resource Manager dla Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Szablony usługi Azure Resource Manager pozwalają zdefiniować Twoją infrastrukturę jako kod, a następnie wdrożyć Twoje rozwiązania w chmurze platformy Azure dla usługi Azure SQL Database i usługi Azure SQL Managed Instance.
 
-## <a name="azure-sql-database"></a>[Azure SQL Database](#tab/single-database)
+## <a name="azure-sql-database"></a>[Baza danych SQL Azure](#tab/single-database)
 
 Poniższa tabela zawiera linki do szablonów usługi Azure Resource Manager dla usługi Azure SQL Database.
 
@@ -39,7 +39,7 @@ Poniższa tabela zawiera linki do szablonów usługi Azure Resource Manager dla 
 | [Aplikacja internetowa platformy Azure z usługą SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | W tym przykładzie zostanie utworzona bezpłatna aplikacja internetowa platformy Azure i baza danych w Azure SQL Database na poziomie usługi "podstawowa".|
 | [Aplikacja internetowa platformy Azure i pamięć podręczna Redis Cache z usługą SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Ten szablon umożliwia utworzenie aplikacji sieci Web, Redis Cache i bazy danych w tej samej grupie zasobów i utworzenie dwóch parametrów połączenia w aplikacji sieci Web dla bazy danych i Redis Cache.|
 | [Importowanie danych z usługi BLOB Storage przy użyciu usługi ADF w wersji 2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Ten Azure Resource Manager szablon tworzy wystąpienie Azure Data Factory v2, które kopiuje dane z usługi Azure Blob Storage do SQL Database.|
-| [Klaster usługi HDInsight z bazą danych](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Ten szablon umożliwia utworzenie klastra usługi HDInsight, logicznego serwera SQL, bazy danych i dwóch tabel. Ten szablon jest używany w [artykule use Sqoop with Hadoop w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop). |
+| [Klaster usługi HDInsight z bazą danych](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Ten szablon umożliwia utworzenie klastra usługi HDInsight, logicznego serwera SQL, bazy danych i dwóch tabel. Ten szablon jest używany w [artykule use Sqoop with Hadoop w usłudze HDInsight](../../hdinsight/hadoop/hdinsight-use-sqoop.md). |
 | [Aplikacja logiki platformy Azure, która uruchamia procedurę składowaną SQL zgodnie z harmonogramem](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Ten szablon umożliwia utworzenie aplikacji logiki, która spowoduje uruchomienie procedury składowanej SQL zgodnie z harmonogramem. Wszelkie argumenty dla procedury można umieścić w sekcji treści szablonu.|
 
 ## <a name="azure-sql-managed-instance"></a>[Wystąpienie zarządzane Azure SQL](#tab/managed-instance)
@@ -54,4 +54,3 @@ Poniższa tabela zawiera linki do Azure Resource Manager szablonów dla wystąpi
 | [Wystąpienie zarządzane SQL z maszyną wirtualną](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | To wdrożenie spowoduje utworzenie sieci wirtualnej platformy Azure z dwiema podsieciami `ManagedInstance` i `Management` . Wystąpienie zarządzane SQL zostanie wdrożone w `ManagedInstance` podsieci. W podsieci zostanie wdrożona maszyna wirtualna z najnowszą wersją programu SQL Server Management Studio (SSMS) `Management` . |
 
 ---
-

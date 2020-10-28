@@ -2,17 +2,24 @@
 title: Przycisk Wdróż na platformie Azure
 description: Użyj przycisku, aby wdrożyć szablony Azure Resource Manager z repozytorium GitHub.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079460"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675395"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub
 
-W tym artykule opisano sposób wdrażania szablonów z repozytorium GitHub za pomocą przycisku **Wdróż na platformie Azure** . Możesz dodać przycisk bezpośrednio do pliku README.md w repozytorium GitHub lub do strony sieci Web, która odwołuje się do repozytorium. Ta metoda obsługuje tylko wdrożenie na poziomie grupy zasobów.
+W tym artykule opisano sposób wdrażania szablonów z repozytorium GitHub za pomocą przycisku **Wdróż na platformie Azure** . Możesz dodać przycisk bezpośrednio do pliku README.md w repozytorium GitHub. Można też dodać przycisk do strony sieci Web, która odwołuje się do repozytorium.
+
+Zakres wdrożenia jest określany przez schemat szablonu. Aby uzyskać więcej informacji, zobacz:
+
+* [grupy zasobów](deploy-to-resource-group.md)
+* [opłaty](deploy-to-subscription.md)
+* [grupy zarządzania](deploy-to-management-group.md)
+* [dzierżawcy](deploy-to-tenant.md).
 
 ## <a name="use-common-image"></a>Użyj wspólnego obrazu
 
@@ -28,7 +35,7 @@ Obraz jest wyświetlany jako:
 
 ## <a name="create-url-for-deploying-template"></a>Utwórz adres URL do wdrożenia szablonu
 
-Aby utworzyć adres URL dla szablonu, Zacznij od pierwotnego adresu URL do szablonu w repozytorium. Aby wyświetlić nieprzetworzony adres URL, wybierz opcję **RAW**.
+Aby utworzyć adres URL dla szablonu, Zacznij od pierwotnego adresu URL do szablonu w repozytorium. Aby wyświetlić nieprzetworzony adres URL, wybierz opcję **RAW** .
 
 :::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="Wybierz surowce":::
 
@@ -38,7 +45,7 @@ Format adresu URL:
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Następnie należy zakodować ten adres URL. Możesz użyć kodera online lub uruchomić polecenie. Poniższy przykład programu PowerShell przedstawia sposób kodowania wartości przy użyciu adresu URL.
+Następnie przekonwertuj adres URL na wartość zakodowaną w adresie URL. Możesz użyć kodera online lub uruchomić polecenie. Poniższy przykład programu PowerShell przedstawia sposób kodowania wartości przy użyciu adresu URL.
 
 ```powershell
 [uri]::EscapeDataString($url)

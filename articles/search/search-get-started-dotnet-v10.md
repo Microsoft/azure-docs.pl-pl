@@ -8,24 +8,25 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ce676c8966f67aeb233b2b9daf3f8f1c57327e6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6dd64ae8b7b7307d7dcd510d1fdb877365c6f36
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462092"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675949"
 ---
-# <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>Szybki Start: Tworzenie indeksu wyszukiwania przy użyciu biblioteki klienta Microsoft. Azure. Search v10
+# <a name="quickstart-create-a-search-index-using-the-legacy-microsoftazuresearch-v10-client-library"></a>Szybki Start: Tworzenie indeksu wyszukiwania przy użyciu starszej biblioteki klienta Microsoft. Azure. Search v10
 
-Ten artykuł jest przewodnikiem Szybki Start dla starszej wersji biblioteki klienta Microsoft. Azure. Search (wersja 10), która została zastąpiona przez bibliotekę kliencką Azure.Search.Documents (wersja 11). Jeśli masz istniejące rozwiązania wyszukiwania korzystające z bibliotek Microsoft. Azure. Search, możesz skorzystać z tego przewodnika Szybki Start, aby dowiedzieć się więcej na temat tych interfejsów API. 
+Ten artykuł jest przewodnikiem Szybki Start dla starszej wersji biblioteki klienta [**Microsoft. Azure. Search**](/dotnet/api/overview/azure/search/client10) (wersja 10), która została zastąpiona przez bibliotekę kliencką [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) (wersja 11).
 
-W przypadku nowych rozwiązań zalecamy korzystanie z nowej biblioteki Azure.Search.Documents. Aby zapoznać się z wprowadzeniem, zobacz [Szybki Start: Tworzenie indeksu wyszukiwania za pomocą Azure.Search.Documents Library](search-get-started-dotnet.md).
+> [!NOTE]
+> Jeśli masz istniejące lub numerów porządkowych określających projekty deweloperskie, możesz nadal korzystać z wersji 10. Ale w przypadku nowych projektów lub do korzystania z nowych funkcji należy przejść do [nowej biblioteki](/dotnet/api/overview/azure/search.documents-readme).
 
 ## <a name="about-this-quickstart"></a>Informacje o tym przewodniku Szybki Start
 
-Tworzenie aplikacji konsolowej platformy .NET Core w języku C#, która tworzy, ładuje i bada indeks Wyszukiwanie poznawcze platformy Azure przy użyciu programu Visual Studio i [bibliotek klienckich Microsoft. Azure. Search](/dotnet/api/overview/azure/search/client10?view=azure-dotnet). 
+Tworzenie aplikacji konsolowej platformy .NET Core w języku C#, która tworzy, ładuje i bada indeks Wyszukiwanie poznawcze platformy Azure przy użyciu programu Visual Studio i [bibliotek klienckich Microsoft. Azure. Search](/dotnet/api/overview/azure/search/client10). 
 
 W tym artykule wyjaśniono, jak utworzyć aplikację. Możesz również [pobrać i uruchomić kompletną aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v10).
 
@@ -50,7 +51,7 @@ Wywołania usługi wymagają punktu końcowego adresu URL i klucza dostępu dla 
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-2. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
+2. W obszarze **Ustawienia**  >  **klucze** Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
    Pobierz również klucz zapytania. Najlepszym rozwiązaniem jest wydawanie żądań zapytań z dostępem tylko do odczytu.
 
@@ -68,9 +69,9 @@ Zacznij od otwierania programu Visual Studio i tworzenia nowego projektu aplikac
 
 W przypadku tego projektu należy użyć wersji 10 `Microsoft.Azure.Search` pakietu NuGet i najnowszego `Microsoft.Extensions.Configuration.Json` pakietu NuGet.
 
-1. W obszarze **Narzędzia**  >  **Menedżer pakietów NuGet**wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania.**.. 
+1. W obszarze **Narzędzia**  >  **Menedżer pakietów NuGet** wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania.** .. 
 
-1. Kliknij pozycję **Browse (Przeglądaj)**.
+1. Kliknij pozycję **Browse (Przeglądaj)** .
 
 1. Wyszukaj `Microsoft.Azure.Search` i wybierz wersję 10.
 
@@ -85,9 +86,9 @@ W przypadku tego projektu należy użyć wersji 10 `Microsoft.Azure.Search` paki
 
 1. W obszarze Dodaj nowy element Wyszukaj ciąg "JSON", aby zwrócić listę typów elementów związanych ze standardem JSON.
 
-1. Wybierz **plik JSON**, Nazwij plik "appsettings.json", a następnie kliknij przycisk **Dodaj**. 
+1. Wybierz **plik JSON** , Nazwij plik "appsettings.json", a następnie kliknij przycisk **Dodaj** . 
 
-1. Dodaj plik do katalogu wyjściowego. Kliknij prawym przyciskiem myszy appsettings.jsna i wybierz pozycję **Właściwości**. W obszarze **Kopiuj do katalogu wyjściowego**wybierz opcję **Kopiuj, jeśli nowszy**.
+1. Dodaj plik do katalogu wyjściowego. Kliknij prawym przyciskiem myszy appsettings.jsna i wybierz pozycję **Właściwości** . W obszarze **Kopiuj do katalogu wyjściowego** wybierz opcję **Kopiuj, jeśli nowszy** .
 
 1. Skopiuj poniższy kod JSON do nowego pliku JSON. 
 
@@ -103,7 +104,7 @@ W przypadku tego projektu należy użyć wersji 10 `Microsoft.Azure.Search` paki
 
 ### <a name="add-class-method-files-to-your-project"></a>Dodaj klasę ". Metoda "pliki do projektu
 
-Ten krok jest wymagany w celu utworzenia znaczących danych wyjściowych w konsoli programu. Podczas drukowania wyników do okna konsoli, poszczególne pola z obiektu hotelu muszą zostać zwrócone jako ciągi. Ten krok implementuje program [ToString ()](/dotnet/api/system.object.tostring?view=netframework-4.8) w celu wykonania tego zadania, które można skopiować do dwóch nowych plików.
+Ten krok jest wymagany w celu utworzenia znaczących danych wyjściowych w konsoli programu. Podczas drukowania wyników do okna konsoli, poszczególne pola z obiektu hotelu muszą zostać zwrócone jako ciągi. Ten krok implementuje program [ToString ()](/dotnet/api/system.object.tostring) w celu wykonania tego zadania, które można skopiować do dwóch nowych plików.
 
 1. Dodaj dwie puste definicje klas do projektu: Address.Methods.cs, Hotel.Methods.cs
 
@@ -198,15 +199,15 @@ Indeks hoteli zawiera proste i złożone pola, w których proste pole to "Hoteln
     Atrybuty w polu określają, w jaki sposób jest używany w aplikacji. Na przykład, `IsSearchable` atrybut musi być przypisany do każdego pola, które powinny być uwzględnione w wyszukiwaniu pełnotekstowym. 
     
     > [!NOTE]
-    > W zestawie .NET SDK pola muszą być jawnie przypisane do,, [`IsSearchable`](/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet) [`IsFilterable`](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) [`IsSortable`](/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet) , i [`IsFacetable`](/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet) . To zachowanie jest w przeciwieństwie do interfejsu API REST, który niejawnie włącza przypisanie na podstawie typu danych (na przykład proste pola ciągów są automatycznie przeszukiwane).
+    > W zestawie .NET SDK pola muszą być jawnie przypisane do,, [`IsSearchable`](/dotnet/api/microsoft.azure.search.models.field.issearchable) [`IsFilterable`](/dotnet/api/microsoft.azure.search.models.field.isfilterable) [`IsSortable`](/dotnet/api/microsoft.azure.search.models.field.issortable) , i [`IsFacetable`](/dotnet/api/microsoft.azure.search.models.field.isfacetable) . To zachowanie jest w przeciwieństwie do interfejsu API REST, który niejawnie włącza przypisanie na podstawie typu danych (na przykład proste pola ciągów są automatycznie przeszukiwane).
 
     Dokładnie jedno pole w indeksie typu `string` musi być polem *klucza* , jednoznacznie identyfikując każdy dokument. W tym schemacie klucz ma wartość `HotelId` .
 
-    W tym indeksie pola Description używają [`analyzer`](/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) Właściwości opcjonalne, określonej podczas przesłonięcia domyślnego standardowego analizatora Lucene. W `description_fr` polu jest używany francuski Analizator Luces ([FrLucene](/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)), ponieważ zawiera on tekst w języku francuskim. `description`Używa opcjonalnego narzędzia Microsoft Language Analyzer ([EnMicrosoft](/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
+    W tym indeksie pola Description używają [`analyzer`](/dotnet/api/microsoft.azure.search.models.field.analyzer) Właściwości opcjonalne, określonej podczas przesłonięcia domyślnego standardowego analizatora Lucene. W `description_fr` polu jest używany francuski Analizator Luces ([FrLucene](/dotnet/api/microsoft.azure.search.models.analyzername.frlucene)), ponieważ zawiera on tekst w języku francuskim. `description`Używa opcjonalnego narzędzia Microsoft Language Analyzer ([EnMicrosoft](/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft)).
 
-1. W Program.cs Utwórz wystąpienie [`SearchServiceClient`](/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) klasy w celu nawiązania połączenia z usługą przy użyciu wartości, które są przechowywane w pliku konfiguracyjnym aplikacji (appsettings.json). 
+1. W Program.cs Utwórz wystąpienie [`SearchServiceClient`](/dotnet/api/microsoft.azure.search.searchserviceclient) klasy w celu nawiązania połączenia z usługą przy użyciu wartości, które są przechowywane w pliku konfiguracyjnym aplikacji (appsettings.json). 
 
-   `SearchServiceClient` ma [`Indexes`](/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) Właściwość, dostarczając wszystkie metody, które są potrzebne do tworzenia, wyświetlania, aktualizowania lub usuwania indeksów wyszukiwanie poznawcze platformy Azure. 
+   `SearchServiceClient` ma [`Indexes`](/dotnet/api/microsoft.azure.search.searchserviceclient.indexes) Właściwość, dostarczając wszystkie metody, które są potrzebne do tworzenia, wyświetlania, aktualizowania lub usuwania indeksów wyszukiwanie poznawcze platformy Azure. 
 
     ```csharp
     using System;
@@ -306,7 +307,7 @@ Indeks hoteli zawiera proste i złożone pola, w których proste pole to "Hoteln
 
 Na platformie Azure Wyszukiwanie poznawcze dokumenty są strukturami danych, które są danymi wejściowymi do indeksowania i wyjść z zapytań. Jak uzyskano z zewnętrznego źródła danych, dane wejściowe dokumentu mogą być wierszami w bazie danych, obiektami BLOB w magazynie obiektów blob lub dokumentami JSON na dysku. W tym przykładzie przygotowujemy skrót i osadzamy dokumenty JSON dla czterech hoteli w samym kodzie. 
 
-Podczas przekazywania dokumentów należy użyć [`IndexBatch`](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) obiektu. `IndexBatch`Zawiera kolekcję [`IndexAction`](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) obiektów, z których każdy zawiera dokument i Właściwość informującą platformę Azure wyszukiwanie poznawcze czynności do wykonania ([przekazywanie, scalanie, usuwanie i mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
+Podczas przekazywania dokumentów należy użyć [`IndexBatch`](/dotnet/api/microsoft.azure.search.models.indexbatch) obiektu. `IndexBatch`Zawiera kolekcję [`IndexAction`](/dotnet/api/microsoft.azure.search.models.indexaction) obiektów, z których każdy zawiera dokument i Właściwość informującą platformę Azure wyszukiwanie poznawcze czynności do wykonania ([przekazywanie, scalanie, usuwanie i mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
 1. W Program.cs Utwórz tablicę dokumentów i akcji indeksu, a następnie Przekaż tablicę do `IndexBatch` . Poniższe dokumenty są zgodne z indeksem hotelu — Szybki Start, zdefiniowanym przez klasy hotelowe i adresowe.
 
@@ -428,7 +429,7 @@ Podczas przekazywania dokumentów należy użyć [`IndexBatch`](/dotnet/api/micr
     }
     ```
 
-    Po zainicjowaniu `IndexBatch` obiektu można wysłać go do indeksu, wywołując [`Documents.Index`](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) [`SearchIndexClient`](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) obiekt. `Documents` jest właściwością `SearchIndexClient` , która zapewnia metody dodawania, modyfikowania, usuwania lub wykonywania zapytań o dokumenty w indeksie.
+    Po zainicjowaniu `IndexBatch` obiektu można wysłać go do indeksu, wywołując [`Documents.Index`](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) [`SearchIndexClient`](/dotnet/api/microsoft.azure.search.searchindexclient) obiekt. `Documents` jest właściwością `SearchIndexClient` , która zapewnia metody dodawania, modyfikowania, usuwania lub wykonywania zapytań o dokumenty w indeksie.
 
     `try` / `catch` Otaczające wywołanie `Index` metody przechwytuje błędy indeksowania, co może się zdarzyć, jeśli usługa jest mocno obciążona. W kodzie produkcyjnym można opóźnić, a następnie ponowić próbę indeksowania dokumentów, które zakończyły się niepowodzeniem, lub rejestrować i kontynuować, podobnie jak w przypadku przykładu, lub obsłużyć je w inny sposób, który spełnia wymagania dotyczące spójności danych aplikacji.
 
@@ -446,16 +447,15 @@ Podczas przekazywania dokumentów należy użyć [`IndexBatch`](/dotnet/api/micr
 
     W przypadku pomyślnego skompilowania projektu zostanie otwarte okno konsoli, w którym są zapisywane komunikaty o stanie, tym razem z komunikatem dotyczącym przekazywania dokumentów. W Azure Portal na stronie **Przegląd** usługi wyszukiwania Hotele-szybki indeks powinien teraz zawierać 4 dokumenty.
 
-Aby uzyskać więcej informacji na temat przetwarzania dokumentów, zobacz ["jak zestaw SDK .NET obsługuje dokumenty"](search-howto-dotnet-sdk.md#how-dotnet-handles-documents).
+Aby uzyskać więcej informacji na temat przetwarzania dokumentów, zobacz ["jak zestaw SDK .NET obsługuje dokumenty"](search-howto-dotnet-sdk-v10.md#how-dotnet-handles-documents).
 
 ## <a name="3---search-an-index"></a>3 — Przeszukiwanie indeksu
 
 Wyniki zapytania można uzyskać zaraz po indeksowaniu pierwszego dokumentu, ale rzeczywiste testy indeksu powinny poczekać do momentu indeksowania wszystkich dokumentów. 
 
-W tej sekcji dodano dwie elementy funkcjonalności: Logika zapytań i wyniki. W przypadku zapytań Użyj [`Search`](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.search?view=azure-dotnet
-) metody. Ta metoda pobiera tekst wyszukiwania oraz inne [Parametry](/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet). 
+W tej sekcji dodano dwie elementy funkcjonalności: Logika zapytań i wyniki. W przypadku zapytań Użyj [`Search`](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.search) metody. Ta metoda pobiera tekst wyszukiwania oraz inne [Parametry](/dotnet/api/microsoft.azure.search.models.searchparameters). 
 
-[`DocumentsSearchResult`](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1?view=azure-dotnet)Klasa reprezentuje wyniki.
+[`DocumentsSearchResult`](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1)Klasa reprezentuje wyniki.
 
 
 1. W Program.cs Utwórz metodę WriteDocuments, która drukuje wyniki wyszukiwania w konsoli programu.

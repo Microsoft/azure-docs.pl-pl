@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 74926411b659cf5973b03b2caca58d7666803f9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f916fdcf632cc369d1fb7e2faefad6dddafd1e15
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444527"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677248"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Inspekcja zapisu na koncie magazynu za siecią wirtualną i zaporą
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -41,16 +41,16 @@ Aby przeprowadzić inspekcję zapisu na koncie magazynu za siecią wirtualną lu
 >
 > * Konto magazynu ogólnego przeznaczenia w wersji 2. Jeśli masz konto magazynu ogólnego przeznaczenia w wersji 1 lub BLOB, [Przeprowadź uaktualnienie do konta magazynu ogólnego przeznaczenia w wersji 2](../../storage/common/storage-account-upgrade.md). Aby uzyskać więcej informacji, zobacz [typy kont magazynu](../../storage/common/storage-account-overview.md#types-of-storage-accounts).
 > * Konto magazynu musi znajdować się w tej samej subskrypcji i w tej samej lokalizacji co [serwer logiczny programu SQL Server](logical-servers.md).
-> * Wymagane jest konto usługi Azure Storage `Allow trusted Microsoft services to access this storage account` . Ustaw tę wartość na **zaporach konta magazynu i w sieciach wirtualnych**.
+> * Wymagane jest konto usługi Azure Storage `Allow trusted Microsoft services to access this storage account` . Ustaw tę wartość na **zaporach konta magazynu i w sieciach wirtualnych** .
 > * Musisz mieć `Microsoft.Authorization/roleAssignments/write` uprawnienie do wybranego konta magazynu. Aby uzyskać więcej informacji, zobacz [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="configure-in-azure-portal"></a>Konfigurowanie w witrynie Azure Portal
 
 Połącz się z [Azure Portalą](https://portal.azure.com) z subskrypcją. Przejdź do grupy zasobów i serwera.
 
-1. Kliknij pozycję **Inspekcja** pod nagłówkiem zabezpieczenia. Wybierz pozycję **włączone**.
+1. Kliknij pozycję **Inspekcja** pod nagłówkiem zabezpieczenia. Wybierz pozycję **włączone** .
 
-2. Wybierz pozycję **Magazyn**. Wybierz konto magazynu, w którym będą zapisywane dzienniki. Konto magazynu musi być zgodne z wymaganiami wymienionymi w sekcji [wymagania wstępne](#prerequisites).
+2. Wybierz pozycję **Magazyn** . Wybierz konto magazynu, w którym będą zapisywane dzienniki. Konto magazynu musi być zgodne z wymaganiami wymienionymi w sekcji [wymagania wstępne](#prerequisites).
 
 3. Otwórz **szczegóły magazynu**
 
@@ -61,7 +61,7 @@ Połącz się z [Azure Portalą](https://portal.azure.com) z subskrypcją. Przej
   >
   >Jeśli ten komunikat nie jest wyświetlany, konto magazynu nie należy do sieci wirtualnej.
 
-4. Wybierz liczbę dni okresu przechowywania. Następnie kliknij przycisk **OK**. Dzienniki starsze niż okres przechowywania są usuwane.
+4. Wybierz liczbę dni okresu przechowywania. Następnie kliknij przycisk **OK** . Dzienniki starsze niż okres przechowywania są usuwane.
 
 5. Wybierz pozycję **Zapisz** w ustawieniach inspekcji.
 
@@ -85,7 +85,7 @@ Aby skonfigurować inspekcję SQL do zapisywania zdarzeń na koncie magazynu za 
 
 1. Zarejestruj serwer w usłudze Azure Active Directory (Azure AD). Użyj programu PowerShell lub interfejsu API REST.
 
-   **Program PowerShell**
+   **PowerShell**
 
    ```powershell
    Connect-AzAccount
@@ -93,7 +93,7 @@ Aby skonfigurować inspekcję SQL do zapisywania zdarzeń na koncie magazynu za 
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**interfejs API REST**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**interfejs API REST**](/rest/api/sql/servers/createorupdate):
 
    Przykładowe żądanie
 
@@ -117,12 +117,12 @@ Aby skonfigurować inspekcję SQL do zapisywania zdarzeń na koncie magazynu za 
    }
    ```
 
-2. Otwórz witrynę [Azure Portal](https://portal.azure.com). Przejdź do konta magazynu. Znajdź **Access Control (IAM)**, a następnie kliknij pozycję **Dodaj przypisanie roli**. Przypisywanie **danych obiektów blob magazynu współautor** roli platformy Azure do serwera, na którym znajduje się baza danych, która została zarejestrowana w Azure Active Directory (Azure AD), jak w poprzednim kroku.
+2. Otwórz witrynę [Azure Portal](https://portal.azure.com). Przejdź do konta magazynu. Znajdź **Access Control (IAM)** , a następnie kliknij pozycję **Dodaj przypisanie roli** . Przypisywanie **danych obiektów blob magazynu współautor** roli platformy Azure do serwera, na którym znajduje się baza danych, która została zarejestrowana w Azure Active Directory (Azure AD), jak w poprzednim kroku.
 
    > [!NOTE]
    > Tylko członkowie z uprawnieniami właściciela mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z [wbudowanymi rolami platformy Azure](../../role-based-access-control/built-in-roles.md).
 
-3. Skonfiguruj [zasady inspekcji obiektów BLOB serwera](/rest/api/sql/server%20auditing%20settings/createorupdate)bez określania *storageAccountAccessKey*:
+3. Skonfiguruj [zasady inspekcji obiektów BLOB serwera](/rest/api/sql/server%20auditing%20settings/createorupdate)bez określania *storageAccountAccessKey* :
 
    Przykładowe żądanie
 

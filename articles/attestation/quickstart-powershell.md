@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d25cdce2670de64fecc8590a2f5f833c10d2df69
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6050dd43b91299cd776d1121d7398f46e95bc096
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315999"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678201"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Szybki Start: Konfigurowanie zaświadczania platformy Azure za pomocą Azure PowerShell
 
@@ -83,7 +83,7 @@ Get-InstalledModule
 ```
 Jeśli wersje nie są zgodne z wymaganiem minimalnym, uruchom polecenia Update-Module.
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się do platformy Azure w konsoli programu PowerShell (bez podniesionych uprawnień dostępu).
 
@@ -231,4 +231,4 @@ Aby uzyskać więcej informacji na temat poleceń cmdlet i ich parametrów, zoba
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie i podpisywanie zasad zaświadczania](author-sign-policy.md)
-- [Zaświadcz SGX enklawy przy użyciu przykładów kodu](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)
+- [Zaświadcz SGX enklawy przy użyciu przykładów kodu](/samples/browse/?expanded=azure&terms=attestation)

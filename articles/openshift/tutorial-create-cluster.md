@@ -5,19 +5,20 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 04/24/2020
-ms.openlocfilehash: 1ba383b99b8265e01cf757bfb1589a86a934e0e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: 7b0aead6ada87ca259c838f3f56e68f1030302a2
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053875"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675713"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
-W tym samouczku część jednej z trzech zostanie przygotowana do utworzenia klastra usługi Azure Red Hat OpenShift z systemem OpenShift 4 i utworzenia klastra. Poznasz następujące czynności:
+W tym samouczku część jednej z trzech zostanie przygotowana do utworzenia klastra usługi Azure Red Hat OpenShift z systemem OpenShift 4 i utworzenia klastra. Omawiane tematy:
 > [!div class="checklist"]
-> * Skonfiguruj wymagania wstępne i utwórz wymaganą sieć wirtualną i podsieci
+> * Skonfiguruj wymagania wstępne 
+> * Utwórz wymaganą sieć wirtualną i podsieci
 > * Wdrażanie klastra
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
@@ -28,12 +29,9 @@ Do utworzenia i uruchomienia klastra OpenShift na platformie Azure Red Hat OpenS
 
 ### <a name="verify-your-permissions"></a>Sprawdzanie uprawnień
 
-Aby utworzyć klaster usługi Azure Red Hat OpenShift, sprawdź następujące uprawnienia dotyczące subskrypcji platformy Azure, użytkownika Azure Active Directory lub nazwy głównej usługi:
+W tym samouczku utworzysz grupę zasobów, która będzie zawierać sieć wirtualną dla klastra. Użytkownik musi mieć uprawnienia administratora i dostępu współautora albo uprawnienia właściciela, bezpośrednio w sieci wirtualnej lub do grupy zasobów lub subskrypcji zawierającej tę opcję.
 
-|Uprawnienia|Grupa zasobów zawierająca sieć wirtualną|Wykonywane przez użytkownika `az aro create`|Nazwa główna usługi przebiegła jako `–client-id`|
-|----|:----:|:----:|:----:|
-|**Administrator dostępu użytkowników**|X|X| |
-|**Współautor**|X|X|X|
+Wymagane są również wystarczające uprawnienia Azure Active Directory dla narzędzi, aby utworzyć aplikację i jednostkę usługi w Twoim imieniu dla klastra.
 
 ### <a name="register-the-resource-providers"></a>Rejestrowanie dostawców zasobów
 
@@ -65,17 +63,17 @@ Aby utworzyć klaster usługi Azure Red Hat OpenShift, sprawdź następujące up
 
 Klucz tajny w systemie Red Hat umożliwia klastrowi dostęp do rejestrów kontenerów Red Hat oraz dodatkową zawartość. Ten krok jest opcjonalny, ale zalecany.
 
-1. **[Przejdź do portalu Menedżera klastra Red Hat OpenShift](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) i zaloguj się.**
+1. [Przejdź do portalu Menedżera klastra Red Hat OpenShift](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) i zaloguj się.
 
    Musisz zalogować się do swojego konta Red Hat lub utworzyć nowe konto Red Hat przy użyciu firmowej poczty e-mail i zaakceptować warunki i postanowienia.
 
-2. Jeśli tworzysz klaster po raz pierwszy, przejdź na [**stronę produktu OpenShift**](https://developers.redhat.com/products/codeready-containers) . Po rejestracji przejdź do [**strony Menedżer klastra Red Hat OpenShift**](https://cloud.redhat.com/openshift/), na której można kliknąć pozycję **Pobierz klucz tajny** i pobrać klucz tajny do użycia z klastrem ARO.
+1. Kliknij pozycję **Pobierz klucz tajny** i Pobierz klucz tajny ściągania, który ma być używany z klastrem ARO.
 
-Przechowuj zapisany `pull-secret.txt` plik w bezpiecznym miejscu. Plik będzie używany podczas tworzenia klastra, jeśli trzeba utworzyć klaster zawierający przykłady lub operatorów dla systemów Red Hat lub certyfikowanych partnerów.
+    Przechowuj zapisany `pull-secret.txt` plik w bezpiecznym miejscu. Plik będzie używany podczas tworzenia klastra, jeśli trzeba utworzyć klaster zawierający przykłady lub operatorów dla systemów Red Hat lub certyfikowanych partnerów.
 
-Po uruchomieniu `az aro create` polecenia można odwoływać się do klucza tajnego ściągnięcia przy użyciu `--pull-secret @pull-secret.txt` parametru. Wykonaj `az aro create` z katalogu, w którym zapisano `pull-secret.txt` plik. W przeciwnym razie Zamień `@pull-secret.txt` na `@<path-to-my-pull-secret-file>` .
+    Po uruchomieniu `az aro create` polecenia można odwoływać się do klucza tajnego ściągnięcia przy użyciu `--pull-secret @pull-secret.txt` parametru. Wykonaj `az aro create` z katalogu, w którym zapisano `pull-secret.txt` plik. W przeciwnym razie Zamień `@pull-secret.txt` na `@/path/to/my/pull-secret.txt` .
 
-Jeśli kopiujesz klucz tajny ściągania lub odwołujesz się do niego w innych skryptach, klucz tajny ściągania powinien być sformatowany jako prawidłowy ciąg JSON.
+    Jeśli kopiujesz klucz tajny ściągania lub odwołujesz się do niego w innych skryptach, klucz tajny ściągania powinien być sformatowany jako prawidłowy ciąg JSON.
 
 ### <a name="prepare-a-custom-domain-for-your-cluster-optional"></a>Przygotuj domenę niestandardową dla klastra (opcjonalnie)
 
@@ -84,13 +82,13 @@ Podczas uruchamiania `az aro create` polecenia można określić domenę niestan
 Jeśli podano domenę niestandardową dla klastra, należy zwrócić uwagę na następujące kwestie:
 
 * Po utworzeniu klastra należy utworzyć 2 rekordy A systemu DNS na serwerze DNS dla `--domain` określonych:
-    * **interfejs API** — wskazanie serwera interfejsu API
-    * ** \* aplikacje** — wskazuje na ruch przychodzący
-    * Pobierz te wartości, wykonując następujące polecenie: `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'` .
+    * **interfejs API** — wskazuje adres IP serwera interfejsu API
+    * **\* . Apps** — wskazuje adres IP protokołu przychodzącego
+    * Pobierz te wartości, wykonując następujące polecenie po utworzeniu klastra: `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'` .
 
-* Konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com` , a nie wbudowaną domeną `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
+* Konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.example.com` , a nie wbudowaną domeną `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
 
-* Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras utworzonych w usłudze `*.apps.<random>.<location>.aroapp.io` .  Jeśli zdecydujesz się używać niestandardowej usługi DNS po nawiązaniu połączenia z klastrem, musisz postępować zgodnie z dokumentacją OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+* Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras tworzonych w domenach niestandardowych `*.apps.example.com` .  Jeśli zdecydujesz się używać niestandardowej usługi DNS po nawiązaniu połączenia z klastrem, musisz postępować zgodnie z dokumentacją OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/aro/4/authentication/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/aro/4/authentication/certificates/api-server.html).
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Tworzenie sieci wirtualnej zawierającej dwie puste podsieci
 
@@ -106,96 +104,98 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
 
 2. **Utwórz grupę zasobów.**
 
-Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także czy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów przy użyciu polecenia [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create).
+   Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także w przypadku, gdy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów przy użyciu polecenia [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create).
     
-> [!NOTE] 
-> Usługa Azure Red Hat OpenShift nie jest dostępna we wszystkich regionach, w których można utworzyć grupę zasobów platformy Azure. Zobacz [dostępne regiony](https://docs.openshift.com/aro/4/welcome/index.html#available-regions) , aby uzyskać informacje na temat tego, gdzie jest obsługiwana usługa Azure Red Hat OpenShift.
+   > [!NOTE] 
+   > Usługa Azure Red Hat OpenShift nie jest dostępna we wszystkich regionach, w których można utworzyć grupę zasobów platformy Azure. Zobacz [dostępne regiony](https://azure.microsoft.com/en-gb/global-infrastructure/services/?products=openshift) , aby uzyskać informacje na temat tego, gdzie jest obsługiwana usługa Azure Red Hat OpenShift.
 
-```azurecli-interactive
-az group create \
-  --name $RESOURCEGROUP \
-  --location $LOCATION
-```
+   ```azurecli-interactive
+   az group create \
+     --name $RESOURCEGROUP \
+     --location $LOCATION
+   ```
 
-Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzoną grupę zasobów:
+   Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzoną grupę zasobów:
 
-```json
-    {
-    "id": "/subscriptions/<guid>/resourceGroups/aro-rg",
-    "location": "eastus",
-    "managedBy": null,
-    "name": "aro-rg",
-    "properties": {
-        "provisioningState": "Succeeded"
-    },
-    "tags": null
-    }
-```
+   ```json
+   {
+     "id": "/subscriptions/<guid>/resourceGroups/aro-rg",
+     "location": "eastus",
+     "name": "aro-rg",
+     "properties": {
+       "provisioningState": "Succeeded"
+     },
+     "type": "Microsoft.Resources/resourceGroups"
+   }
+   ```
 
-3. **Utwórz sieć wirtualną.**
+2. **Utwórz sieć wirtualną.**
 
-Klastry usługi Azure Red Hat OpenShift z systemem OpenShift 4 wymagają sieci wirtualnej z dwiema pustymi podsieciami dla węzłów głównych i procesów roboczych.
+   Klastry usługi Azure Red Hat OpenShift z systemem OpenShift 4 wymagają sieci wirtualnej z dwiema pustymi podsieciami dla węzłów głównych i procesów roboczych.
 
-Utwórz nową sieć wirtualną w tej samej grupie zasobów, która została utworzona wcześniej:
+   Utwórz nową sieć wirtualną w tej samej grupie zasobów, która została utworzona wcześniej:
 
-```azurecli-interactive
-az network vnet create \
-   --resource-group $RESOURCEGROUP \
-   --name aro-vnet \
-   --address-prefixes 10.0.0.0/22
-```
+   ```azurecli-interactive
+   az network vnet create \
+      --resource-group $RESOURCEGROUP \
+      --name aro-vnet \
+      --address-prefixes 10.0.0.0/22
+   ```
 
-Następujące przykładowe dane wyjściowe pokazują, że sieć wirtualna została utworzona pomyślnie:
+   Następujące przykładowe dane wyjściowe pokazują, że sieć wirtualna została utworzona pomyślnie:
 
-```json
-    {
-    "newVNet": {
-        "addressSpace": {
-        "addressPrefixes": [
-            "10.0.0.0/22"
-        ]
-        },
-        "id": "/subscriptions/<guid>/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet",
-        "location": "eastus",
-        "name": "aro-vnet",
-        "provisioningState": "Succeeded",
-        "resourceGroup": "aro-rg",
-        "type": "Microsoft.Network/virtualNetworks"
-    }
-    }
-```
+   ```json
+   {
+     "newVNet": {
+       "addressSpace": {
+         "addressPrefixes": [
+           "10.0.0.0/22"
+         ]
+       },
+       "dhcpOptions": {
+         "dnsServers": []
+       },
+       "id": "/subscriptions/<guid>/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet",
+       "location": "eastus",
+       "name": "aro-vnet",
+       "provisioningState": "Succeeded",
+       "resourceGroup": "aro-rg",
+       "type": "Microsoft.Network/virtualNetworks"
+     }
+   }
+   ```
 
-4. **Dodaj pustą podsieć dla węzłów głównych.**
+3. **Dodaj pustą podsieć dla węzłów głównych.**
 
-    ```azurecli-interactive
-    az network vnet subnet create \
-    --resource-group $RESOURCEGROUP \
-    --vnet-name aro-vnet \
-    --name master-subnet \
-    --address-prefixes 10.0.0.0/23 \
-    --service-endpoints Microsoft.ContainerRegistry
-    ```
+   ```azurecli-interactive
+   az network vnet subnet create \
+     --resource-group $RESOURCEGROUP \
+     --vnet-name aro-vnet \
+     --name master-subnet \
+     --address-prefixes 10.0.0.0/23 \
+     --service-endpoints Microsoft.ContainerRegistry
+   ```
 
-5. **Dodaj pustą podsieć dla węzłów procesu roboczego.**
+4. **Dodaj pustą podsieć dla węzłów procesu roboczego.**
 
-    ```azurecli-interactive
-    az network vnet subnet create \
-    --resource-group $RESOURCEGROUP \
-    --vnet-name aro-vnet \
-    --name worker-subnet \
-    --address-prefixes 10.0.2.0/23 \
-    --service-endpoints Microsoft.ContainerRegistry
-    ```
+   ```azurecli-interactive
+   az network vnet subnet create \
+     --resource-group $RESOURCEGROUP \
+     --vnet-name aro-vnet \
+     --name worker-subnet \
+     --address-prefixes 10.0.2.0/23 \
+     --service-endpoints Microsoft.ContainerRegistry
+   ```
 
-6. **[Wyłącz zasady prywatnego punktu końcowego podsieci](../private-link/disable-private-link-service-network-policy.md) w podsieci głównej.** Jest to wymagane, aby mieć możliwość nawiązywania połączenia z klastrem i zarządzania nim.
+5. **[Wyłącz zasady prywatnego punktu końcowego podsieci](../private-link/disable-private-link-service-network-policy.md) w podsieci głównej.** Jest to wymagane, aby usługa mogła nawiązać połączenie z klastrem i zarządzać nim.
 
-    ```azurecli-interactive
-    az network vnet subnet update \
-    --name master-subnet \
-    --resource-group $RESOURCEGROUP \
-    --vnet-name aro-vnet \
-    --disable-private-link-service-network-policies true
-    ```
+   ```azurecli-interactive
+   az network vnet subnet update \
+     --name master-subnet \
+     --resource-group $RESOURCEGROUP \
+     --vnet-name aro-vnet \
+     --disable-private-link-service-network-policies true
+   ```
 
 ## <a name="create-the-cluster"></a>Tworzenie klastra
 

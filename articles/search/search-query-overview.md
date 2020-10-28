@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 0c05db39e02a6bc2a7fa5d62b8b891626eb0d241
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537722"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675809"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Typy i kompozycje zapytań w usłudze Azure Wyszukiwanie poznawcze
 
@@ -59,9 +59,9 @@ Jeśli wykonano ten [Przewodnik Szybki Start, aby utworzyć indeks demonstracyjn
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Jak operacje zapytań są włączane przez indeks
 
-Projekt indeksu i projekt zapytania są ściśle powiązane z platformą Azure Wyszukiwanie poznawcze. Podstawowym faktem, że wiadomo, że *schemat indeksu*, z atrybutami każdego pola, określa rodzaj zapytania, które można skompilować. 
+Projekt indeksu i projekt zapytania są ściśle powiązane z platformą Azure Wyszukiwanie poznawcze. Podstawowym faktem, że wiadomo, że *schemat indeksu* , z atrybutami każdego pola, określa rodzaj zapytania, które można skompilować. 
 
-Atrybuty indeksu w polu ustawiają dozwolone operacje — czy pole można *wyszukiwać* w indeksie, *pobrać* z wyników, do *sortowania*, *filtrować*i tak dalej. W przykładowym ciągu zapytania `"$orderby": "Rating"` działa tylko, ponieważ pole Rating jest oznaczone jako do *sortowania* w schemacie indeksu. 
+Atrybuty indeksu w polu ustawiają dozwolone operacje — czy pole można *wyszukiwać* w indeksie, *pobrać* z wyników, do *sortowania* , *filtrować* i tak dalej. W przykładowym ciągu zapytania `"$orderby": "Rating"` działa tylko, ponieważ pole Rating jest oznaczone jako do *sortowania* w schemacie indeksu. 
 
 ![Definicja indeksu dla przykładu hotelu](./media/search-query-overview/hotel-sample-index-definition.png "Definicja indeksu dla przykładu hotelu")
 
@@ -78,8 +78,8 @@ Wymagane elementy w żądaniu zapytania obejmują następujące składniki:
 
 + Punkt końcowy usługi i kolekcja dokumentów indeksu, wyrażone jako adres URL zawierający stałe i zdefiniowane przez użytkownika składniki: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (Tylko REST) jest konieczne, ponieważ wiele wersji interfejsu API jest dostępnych przez cały czas. 
-+ **`api-key`**, zapytanie lub klucz API-Key, uwierzytelnia żądanie do usługi.
-+ **`queryType`**— prosta lub pełna, która może zostać pominięta, jeśli używasz wbudowanej domyślnej składni prostej.
++ **`api-key`** , zapytanie lub klucz API-Key, uwierzytelnia żądanie do usługi.
++ **`queryType`** — prosta lub pełna, która może zostać pominięta, jeśli używasz wbudowanej domyślnej składni prostej.
 + **`search`** lub **`filter`** zawiera kryteria dopasowania, które można określić, jeśli chcesz przeprowadzić puste wyszukiwanie. Oba typy zapytań są omówione w sekcji prostego analizatora, ale nawet zapytania zaawansowane wymagają parametru wyszukiwania do przekazywania złożonych wyrażeń zapytania.
 
 Wszystkie inne parametry wyszukiwania są opcjonalne. Aby zapoznać się z pełną listą atrybutów, zobacz [create index (REST)](/rest/api/searchservice/create-index). Aby lepiej poznać, jak parametry są używane podczas przetwarzania, zobacz [jak wyszukiwanie pełnotekstowe działa na platformie Azure wyszukiwanie poznawcze](search-lucene-query-architecture.md).
@@ -92,7 +92,7 @@ W poniższej tabeli przedstawiono interfejsy API i oparte na narzędziach podej�
 |-------------|-------------|
 | [Eksplorator wyszukiwania (portal)](search-explorer.md) | Udostępnia pasek wyszukiwania i opcje dotyczące opcji indeks i wersja interfejsu API. Wyniki są zwracane jako dokumenty JSON. Zalecane do eksploracji, testowania i weryfikacji. <br/>[Dowiedz się więcej.](search-get-started-portal.md#query-index) | 
 | [Ogłoś lub inne narzędzia REST](search-get-started-postman.md) | Narzędzia do testowania sieci Web to doskonały wybór w zakresie opracowywania wywołań REST. Interfejs API REST obsługuje wszystkie możliwe operacje na platformie Azure Wyszukiwanie poznawcze. W tym artykule dowiesz się, jak skonfigurować nagłówek i treść żądania HTTP w celu wysyłania żądań do usługi Azure Wyszukiwanie poznawcze.  |
-| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient) | Klient, który może służyć do wykonywania zapytań względem indeksu Wyszukiwanie poznawcze platformy Azure.  <br/>[Dowiedz się więcej.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Klient, który może służyć do wykonywania zapytań względem indeksu Wyszukiwanie poznawcze platformy Azure.  <br/>[Dowiedz się więcej.](search-howto-dotnet-sdk.md)  |
 | [Wyszukaj dokumenty (interfejs API REST)](/rest/api/searchservice/search-documents) | Pobieranie lub OGŁASZAnie metod na indeksie przy użyciu parametrów zapytania dla dodatkowych danych wejściowych.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Wybierz parser: prosty | szczegółowe
@@ -159,13 +159,13 @@ Więcej informacji na temat wyników wyszukiwania stronicowania można znaleźć
 ### <a name="ordering-results"></a>Porządkowanie wyników
 Podczas otrzymywania wyników dla zapytania wyszukiwania można zażądać, aby usługa Azure Wyszukiwanie poznawcze służyła wyniki uporządkowane według wartości w określonym polu. Domyślnie usługa Azure Wyszukiwanie poznawcze porządkuje wyniki wyszukiwania na podstawie rangi wyniku wyszukiwania każdego dokumentu, który pochodzi od [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Jeśli chcesz, aby usługa Azure Wyszukiwanie poznawcze zwracała wyniki uporządkowane według wartości innej niż wynik wyszukiwania, możesz użyć **`orderby`** parametru wyszukiwania. Można określić wartość **`orderby`** parametru, aby uwzględnić nazwy pól i wywołania [** `geo.distance()` funkcji**](query-odata-filter-orderby-syntax.md) dla wartości geoprzestrzennych. Po każdym wyrażeniu można następować, `asc` Aby wskazać, że wyniki są żądane w kolejności rosnącej, i **`desc`** wskazywać, że wyniki są żądane w kolejności malejącej. Domyślnie jest stosowana kolejność rosnąca.
+Jeśli chcesz, aby usługa Azure Wyszukiwanie poznawcze zwracała wyniki uporządkowane według wartości innej niż wynik wyszukiwania, możesz użyć **`orderby`** parametru wyszukiwania. Można określić wartość **`orderby`** parametru, aby uwzględnić nazwy pól i wywołania [**`geo.distance()` funkcji**](query-odata-filter-orderby-syntax.md) dla wartości geoprzestrzennych. Po każdym wyrażeniu można następować, `asc` Aby wskazać, że wyniki są żądane w kolejności rosnącej, i **`desc`** wskazywać, że wyniki są żądane w kolejności malejącej. Domyślnie jest stosowana kolejność rosnąca.
 
 
 ### <a name="hit-highlighting"></a>Wyróżnianie trafień
 Na platformie Azure Wyszukiwanie poznawcze naciskanie dokładnej części wyników wyszukiwania, które pasują do zapytania wyszukiwania, jest łatwe przy użyciu **`highlight`** **`highlightPreTag`** parametrów, i **`highlightPostTag`** . Możesz określić, które pola z *możliwością wyszukiwania* mają być wyróżnione dopasowanym tekstem, a także określić dokładne znaczniki ciągu do dołączenia do początku i końca dopasowanego tekstu zwracanego przez usługę Azure wyszukiwanie poznawcze.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze (architektura analizy zapytań)](search-lucene-query-architecture.md)
 + [Eksplorator wyszukiwania](search-explorer.md)

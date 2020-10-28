@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: a69332f1534e32a85ce084289dd00533612cc282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327565"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678038"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Omówienie zagadnień dotyczących ciągłości działalności biznesowej zapewnianej przez usługę Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ Wystąpienia zarządzane SQL Database i SQL oferują również kilka funkcji ci�
 
 - [Tabele danych czasowych](../temporal-tables.md) umożliwiają przywrócenie wersji wiersza z dowolnego punktu w czasie.
 - [Wbudowane automatyczne kopie zapasowe](automated-backups-overview.md) i [przywracanie do punktu w czasie](recovery-using-backups.md#point-in-time-restore) umożliwiają przywrócenie kompletnej bazy danych do pewnego momentu w skonfigurowanym okresie przechowywania do 35 dni.
-- [Usuniętą bazę danych można przywrócić](recovery-using-backups.md#deleted-database-restore) do punktu, w którym został usunięty, jeśli **serwer nie został usunięty**.
+- [Usuniętą bazę danych można przywrócić](recovery-using-backups.md#deleted-database-restore) do punktu, w którym został usunięty, jeśli **serwer nie został usunięty** .
 - [Długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md) umożliwia przechowywanie kopii zapasowych do 10 lat. Jest to w ograniczonej publicznej wersji zapoznawczej wystąpienia zarządzanego SQL
 - [Aktywna replikacja geograficzna](active-geo-replication-overview.md) pozwala na tworzenie replik z możliwością odczytu i ręczne przełączenie w tryb failover do dowolnej repliki w przypadku awarii centrum danych lub uaktualnienia aplikacji.
 - [Automatyczna Grupa trybu failover](auto-failover-group-overview.md#terminology-and-capabilities) umożliwia aplikacji automatyczne odzyskiwanie w przypadku awarii centrum danych.
@@ -141,7 +141,7 @@ Po odzyskaniu za pomocą dowolnego mechanizmu odzyskiwania należy wykonać nast
 
 - Przekieruj klientów i aplikacje klienckie do nowego serwera i przywróconej bazy danych.
 - Upewnij się, że istnieją odpowiednie reguły zapory adresów IP na poziomie serwera umożliwiające użytkownikom łączenie się z [zaporami na poziomie bazy danych](firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) lub korzystanie z nich w celu włączenia odpowiednich reguł.
-- Upewnij się, że istnieją odpowiednie uprawnienia na poziomie bazy danych (lub Użyj [zawartych użytkowników](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+- Upewnij się, że istnieją odpowiednie uprawnienia na poziomie bazy danych (lub Użyj [zawartych użytkowników](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 - Skonfiguruj inspekcję zgodnie z potrzebami.
 - Skonfiguruj alerty odpowiednio do potrzeb.
 

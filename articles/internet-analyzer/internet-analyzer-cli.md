@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: e5a7984cd868e7fbac08ec80f92fe28ad13d84e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308099"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676210"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Utwórz test analizatora internetowego przy użyciu interfejsu wiersza polecenia (wersja zapoznawcza)
 
@@ -37,7 +37,7 @@ Interfejs wiersza polecenia programu Internet Analyzer udostępnia następujące
 
 ## <a name="profile-and-test-creation"></a>Tworzenie profilu i testu
 1. Uzyskaj dostęp do usługi Internet Analyzer w wersji zapoznawczej, wykonując **Jak mogę uczestnictwo w wersji zapoznawczej** [usługi Azure Internet Analyzer — często zadawane pytania](internet-analyzer-faq.md).
-2. [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. Uruchom `login` polecenie, aby uruchomić sesję interfejsu wiersza polecenia:
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ Interfejs wiersza polecenia programu Internet Analyzer udostępnia następujące
 
 5. Wybierz identyfikator subskrypcji, którym udzielono dostępu do publicznej wersji zapoznawczej analizatora internetowego.
 
-    Po zalogowaniu zostanie wyświetlona lista subskrypcji skojarzonych z Twoim kontem platformy Azure. Informacje o subskrypcji `isDefault: true` są obecnie aktywowaną subskrypcją po zalogowaniu się. Aby wybrać inną subskrypcję, użyj polecenia [AZ Account Set](https://docs.microsoft.com/cli/azure/account#az-account-set) z identyfikatorem subskrypcji, aby przełączyć się do. Aby uzyskać więcej informacji na temat wyboru subskrypcji, zobacz [Korzystanie z wielu subskrypcji platformy Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Po zalogowaniu zostanie wyświetlona lista subskrypcji skojarzonych z Twoim kontem platformy Azure. Informacje o subskrypcji `isDefault: true` są obecnie aktywowaną subskrypcją po zalogowaniu się. Aby wybrać inną subskrypcję, użyj polecenia [AZ Account Set](/cli/azure/account#az-account-set) z identyfikatorem subskrypcji, aby przełączyć się do. Aby uzyskać więcej informacji na temat wyboru subskrypcji, zobacz [Korzystanie z wielu subskrypcji platformy Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
-    Istnieją sposoby logowania nieinterakcyjnego, które opisano szczegółowo w artykule [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Istnieją sposoby logowania nieinterakcyjnego, które opisano szczegółowo w artykule [Logowanie się za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 6. **[Opcjonalne]** Utwórz nową grupę zasobów platformy Azure:
     ```azurecli-interactive
@@ -132,6 +132,6 @@ Interfejs wiersza polecenia programu Internet Analyzer udostępnia następujące
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Przejrzyj [Informacje o interfejsie wiersza polecenia analizatora Internetu](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) , aby zapoznać się z pełną listą obsługiwanych poleceń i przykładów użycia.
+* Przejrzyj [Informacje o interfejsie wiersza polecenia analizatora Internetu](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) , aby zapoznać się z pełną listą obsługiwanych poleceń i przykładów użycia.
 * Przeczytaj [często zadawane pytania dotyczące analizatora Internetu](internet-analyzer-faq.md).
-* Dowiedz się więcej o osadzaniu [klienta analizatora Internetu](internet-analyzer-embed-client.md) i tworzeniu [niestandardowego punktu końcowego](internet-analyzer-custom-endpoint.md). 
+* Dowiedz się więcej o osadzaniu [klienta analizatora Internetu](internet-analyzer-embed-client.md) i tworzeniu [niestandardowego punktu końcowego](internet-analyzer-custom-endpoint.md).

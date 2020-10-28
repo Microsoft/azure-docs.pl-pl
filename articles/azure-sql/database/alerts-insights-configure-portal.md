@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 2fdaaf153f242a25e1ad9d8f926d6ac77d285df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444902"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675142"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Tworzenie alertów dla Azure SQL Database i usługi Azure Synapse Analytics przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -43,9 +43,9 @@ Można skonfigurować alert, aby wykonać następujące czynności podczas wyzwa
 Można skonfigurować i uzyskać informacje o regułach alertów za pomocą
 
 * [Witryna Azure Portal](../../azure-monitor/platform/alerts-classic-portal.md)
-* [Program PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
+* [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Interfejs wiersza polecenia (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [Interfejs API REST usługi Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Interfejs API REST usługi Azure Monitor](/rest/api/monitor/alertrules)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Tworzenie reguły alertu w ramach metryki z Azure Portal
 
@@ -57,14 +57,14 @@ Można skonfigurować i uzyskać informacje o regułach alertów za pomocą
 3. Wybierz przycisk **Nowa reguła alertu** , aby otworzyć stronę **Tworzenie reguły** .
   ![Tworzenie reguły](./media/alerts-insights-configure-portal/create-rule.png)
 
-4. W sekcji **warunek** kliknij pozycję **Dodaj**.
+4. W sekcji **warunek** kliknij pozycję **Dodaj** .
   ![Zdefiniuj warunek](./media/alerts-insights-configure-portal/create-rule.png)
 5. Na stronie **Konfiguruj logikę sygnału** Wybierz sygnał.
   ![Wybierz sygnał](./media/alerts-insights-configure-portal/select-signal.png)
-6. Po wybraniu sygnału, takiego jak **procent procesora CPU**, zostanie wyświetlona strona **Konfiguruj logikę sygnału** .
+6. Po wybraniu sygnału, takiego jak **procent procesora CPU** , zostanie wyświetlona strona **Konfiguruj logikę sygnału** .
   ![Konfigurowanie logiki sygnału](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. Na tej stronie Skonfiguruj typ progu, operator, typ agregacji, wartość progu, stopień szczegółowości agregacji oraz częstotliwość obliczania. Następnie kliknij przycisk **gotowe**.
-8. Na stronie **Tworzenie reguły**wybierz istniejącą **grupę akcji** lub Utwórz nową. Grupa akcji umożliwia zdefiniowanie akcji, która ma zostać wykonana w przypadku wystąpienia warunku alertu.
+7. Na tej stronie Skonfiguruj typ progu, operator, typ agregacji, wartość progu, stopień szczegółowości agregacji oraz częstotliwość obliczania. Następnie kliknij przycisk **gotowe** .
+8. Na stronie **Tworzenie reguły** wybierz istniejącą **grupę akcji** lub Utwórz nową. Grupa akcji umożliwia zdefiniowanie akcji, która ma zostać wykonana w przypadku wystąpienia warunku alertu.
   ![Zdefiniuj grupę akcji](./media/alerts-insights-configure-portal/action-group.png)
 
 9. Zdefiniuj nazwę reguły, podaj opcjonalny opis, wybierz poziom ważności reguły, wybierz, czy włączyć regułę przy tworzeniu reguły, a następnie kliknij pozycję **Utwórz alert reguły** , aby utworzyć alert reguły metryki.

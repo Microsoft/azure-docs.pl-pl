@@ -7,12 +7,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: ae2c1072b9490931609dd61f1cac2a47f1cffef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 254a9737b805aeeae2008923a8178cd971602132
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469953"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677760"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: usuwanie klastra usługi Azure Red Hat OpenShift 4
 
@@ -28,7 +28,7 @@ W poprzednich samouczkach klaster usługi Azure Red Hat OpenShift został utworz
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, uruchom polecenie, `az login` Aby zalogować się do platformy Azure.
 
@@ -44,13 +44,13 @@ W poprzednich samouczkach zostały ustawione następujące zmienne.
 
 ```bash
 CLUSTER=yourclustername
-RESOURCE_GROUP=yourresourcegroup
+RESOURCEGROUP=yourresourcegroup
 ```
 
 Korzystając z tych wartości, Usuń klaster:
 
 ```bash
-az aro delete --resource-group $RESOURCE_GROUP --name $CLUSTER
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
 Następnie zostanie wyświetlony monit o potwierdzenie, czy chcesz usunąć klaster. Po potwierdzeniu z programem `y` usunięcie klastra zajmie kilka minut. Po zakończeniu wykonywania polecenia cała grupa zasobów i wszystkie znajdujące się w niej zasoby — w tym klaster — zostaną usunięte.

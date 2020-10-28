@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: bddb33210f3b1d76a89ce18ddf6884898905f388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b592591f3d2190fdcc9ed7b3b12b2eca20a25a5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91286407"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675841"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi ServiceNow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -35,16 +35,16 @@ W tym samouczku opisano kroki, które należy wykonać w programie usługi Servi
 
 Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
-* [Dzierżawa usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego). 
+* [Dzierżawa usługi Azure AD](../develop/quickstart-create-new-tenant.md) 
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami ](../users-groups-roles/directory-assign-admin-roles.md) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego). 
 * [Wystąpienie usługi ServiceNow](https://www.servicenow.com/) o wartości Calgary lub wyższej
 * [Wystąpienie usługi ServiceNow Express](https://www.servicenow.com/) w wersji Helsinki lub nowszej
 * Konto użytkownika w usługi ServiceNow z rolą administratora
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
-1. Dowiedz się więcej na temat [sposobu działania usługi aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Określ, kto znajdzie się [w zakresie aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Określ, które dane mają być [mapowane między usługą Azure AD i usługi ServiceNow](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Dowiedz się więcej na temat [sposobu działania usługi aprowizacji](../app-provisioning/user-provisioning.md).
+2. Określ, kto znajdzie się [w zakresie aprowizacji](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Określ, które dane mają być [mapowane między usługą Azure AD i usługi ServiceNow](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-servicenow-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie usługi ServiceNow w celu obsługi aprowizacji za pomocą usługi Azure AD
 
@@ -58,23 +58,23 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 3. Upewnij się, że następujące ustawienia są **wyłączone** w usługi ServiceNow:
 
-   1. Wybierz pozycję **zabezpieczenia systemu**  >  **Ustawienia wysokie zabezpieczenia**  >  **wymagają uwierzytelniania podstawowego dla przychodzących żądań schematu**.
-   2. Wybieranie **Właściwości systemu**  >  **usługi sieci Web**  >  **wymagają podstawowej autoryzacji dla przychodzących żądań SOAP**.
+   1. Wybierz pozycję **zabezpieczenia systemu**  >  **Ustawienia wysokie zabezpieczenia**  >  **wymagają uwierzytelniania podstawowego dla przychodzących żądań schematu** .
+   2. Wybieranie **Właściwości systemu**  >  **usługi sieci Web**  >  **wymagają podstawowej autoryzacji dla przychodzących żądań SOAP** .
      
    > [!IMPORTANT]
-   > Jeśli te ustawienia są *włączone*, aparat aprowizacji nie będzie mógł komunikować się z usługą usługi ServiceNow.
+   > Jeśli te ustawienia są *włączone* , aparat aprowizacji nie będzie mógł komunikować się z usługą usługi ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie usługi ServiceNow z galerii aplikacji usługi Azure AD
 
-Dodaj usługi ServiceNow z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do usługi ServiceNow. Jeśli wcześniej skonfigurowano usługi ServiceNow do logowania jednokrotnego, możesz użyć tej samej aplikacji. Zalecane jest jednak utworzenie osobnej aplikacji na potrzeby początkowych testów integracji. Więcej informacji o dodawaniu aplikacji z galerii znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Dodaj usługi ServiceNow z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do usługi ServiceNow. Jeśli wcześniej skonfigurowano usługi ServiceNow do logowania jednokrotnego, możesz użyć tej samej aplikacji. Zalecane jest jednak utworzenie osobnej aplikacji na potrzeby początkowych testów integracji. Więcej informacji o dodawaniu aplikacji z galerii znajdziesz [tutaj](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Określenie, kto znajdzie się w zakresie aprowizacji 
 
-Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podstawie przypisania do aplikacji lub na podstawie atrybutów użytkownika/grupy. Jeśli zdecydujesz się na określenie zakresu aprowizacji w aplikacji na podstawie przypisania, możesz skorzystać z następujących [instrukcji](../manage-apps/assign-user-or-group-access-portal.md) w celu przypisania użytkowników i grup do aplikacji. Jeśli zdecydujesz się na określenie zakresu aprowizacji wyłącznie na podstawie atrybutów użytkownika lub grupy, możesz użyć filtra zakresu zgodnie z opisem zamieszczonym [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podstawie przypisania do aplikacji lub na podstawie atrybutów użytkownika/grupy. Jeśli zdecydujesz się na określenie zakresu aprowizacji w aplikacji na podstawie przypisania, możesz skorzystać z następujących [instrukcji](../manage-apps/assign-user-or-group-access-portal.md) w celu przypisania użytkowników i grup do aplikacji. Jeśli zdecydujesz się na określenie zakresu aprowizacji wyłącznie na podstawie atrybutów użytkownika lub grupy, możesz użyć filtra zakresu zgodnie z opisem zamieszczonym [tutaj](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Podczas przypisywania użytkowników i grup do usługi ServiceNow należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps), aby dodać więcej ról. 
+* Podczas przypisywania użytkowników i grup do usługi ServiceNow należy wybrać rolę inną niż **domyślny dostęp** . Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](../develop/howto-add-app-roles-in-azure-ad-apps.md), aby dodać więcej ról. 
 
-* Zacznij od mniejszej skali. Przeprowadź test z użyciem mniejszego zestawu użytkowników i grup, zanim wdrożysz to rozwiązanie dla wszystkich. W przypadku ustawienia zakresu aprowizacji na przypisanych użytkowników i grupy możesz w tym celu przypisać do aplikacji jednego czy dwóch użytkowników bądź jedną lub dwie grupy. W przypadku ustawienia zakresu na wszystkich użytkowników i wszystkie grupy, możesz określić [filtrowanie zakresu na podstawie atrybutów](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Zacznij od mniejszej skali. Przeprowadź test z użyciem mniejszego zestawu użytkowników i grup, zanim wdrożysz to rozwiązanie dla wszystkich. W przypadku ustawienia zakresu aprowizacji na przypisanych użytkowników i grupy możesz w tym celu przypisać do aplikacji jednego czy dwóch użytkowników bądź jedną lub dwie grupy. W przypadku ustawienia zakresu na wszystkich użytkowników i wszystkie grupy, możesz określić [filtrowanie zakresu na podstawie atrybutów](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-servicenow"></a>Krok 5. Konfigurowanie automatycznej aprowizacji użytkowników do usługi ServiceNow 
@@ -83,19 +83,19 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-servicenow-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla usługi ServiceNow w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje** .
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **ServiceNow**.
+2. Na liście aplikacji wybierz pozycję **ServiceNow** .
 
     ![Link do usługi ServiceNow na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Aprowizacja**.
+3. Wybierz kartę **Aprowizacja** .
 
     ![Zrzut ekranu przedstawiający opcje zarządzania z opcją aprowizacji o nazwie out.](common/provisioning.png)
 
-4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
+4. Ustaw **Tryb aprowizacji** na **Automatyczny** .
 
     ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
@@ -103,17 +103,17 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zrzut ekranu przedstawia stronę aprowizacji usługi, na której można wprowadzić poświadczenia administratora.](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
+6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu** .
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Wybierz pozycję **Zapisz**.
+7. Wybierz pozycję **Zapisz** .
 
-8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do usługi ServiceNow**.
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do usługi ServiceNow** .
 
-9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do usługi ServiceNow w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie usługi ServiceNow for Updates. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), należy się upewnić, że interfejs API usługi ServiceNow obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
+9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do usługi ServiceNow w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie usługi ServiceNow for Updates. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](../app-provisioning/customize-application-attributes.md), należy się upewnić, że interfejs API usługi ServiceNow obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do usługi ServiceNow**.
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do usługi ServiceNow** .
 
 11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD, do usługi ServiceNow w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w usługi ServiceNow dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
@@ -127,22 +127,22 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
+15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz** .
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia**. Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
+Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia** . Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
 Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, aby monitorować wdrożenie:
 
-1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs), aby określić, których użytkowników udało się lub nie udało aprowizować
-2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
-3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+1. Użyj [dzienników aprowizacji](../reports-monitoring/concept-provisioning-logs.md), aby określić, których użytkowników udało się lub nie udało aprowizować
+2. Sprawdź [pasek postępu](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
+3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 * **InvalidLookupReference:** W przypadku inicjowania obsługi niektórych atrybutów, takich jak dział i lokalizacja w usługi ServiceNow, wartości muszą już istnieć w tabeli referencyjnej w usługi ServiceNow. Na przykład możesz mieć dwie lokalizacje (Seattle, Los Angeles) i trzy działy (sprzedaż, finanse, Marketing) w tabeli **Wstaw nazwę tabeli** w usługi ServiceNow. Jeśli próbujesz zainicjować obsługę administracyjną użytkownika, gdzie jego dział jest "sprzedaż", a lokalizacja to "Seattle", zostanie ona zainicjowana pomyślnie. W przypadku próby aprowizacji użytkownika z działem "sprzedaż" i lokalizacją "LA" użytkownik nie zostanie zainicjowany. Lokalizację LA należy dodać do tabeli referencyjnej w usługi ServiceNow lub atrybut użytkownika w usłudze Azure AD musi zostać zaktualizowany w taki sposób, aby był zgodny z formatem w usługi ServiceNow. 
-* **EntryJoiningPropertyValueIsMissing:** Przejrzyj [mapowania atrybutów](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) , aby zidentyfikować pasujący atrybut. Ta wartość musi być obecna dla użytkownika lub grupy, którą próbujesz udostępnić. 
+* **EntryJoiningPropertyValueIsMissing:** Przejrzyj [mapowania atrybutów](../app-provisioning/customize-application-attributes.md) , aby zidentyfikować pasujący atrybut. Ta wartość musi być obecna dla użytkownika lub grupy, którą próbujesz udostępnić. 
 * Zapoznaj się z [interfejsem API protokołu SOAP usługi ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) , aby poznać wszelkie wymagania lub ograniczenia (na przykład format, aby określić kod kraju dla użytkownika).
 * Żądania aprowizacji są domyślnie wysyłane do protokołu https://{nazwa wystąpienia}. Service-Now. com/{Table-Name}. Jeśli potrzebujesz niestandardowego adresu URL dzierżawy, możesz podać cały adres URL w polu Nazwa wystąpienia.
 * **ServiceNowInstanceInvalid** 
@@ -151,10 +151,10 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 
    Ten błąd wskazuje na problem z komunikacją z wystąpieniem usługi ServiceNow. Sprawdź podwójne, aby upewnić się, że następujące ustawienia są *wyłączone* w usługi ServiceNow:
    
-   1. Wybierz pozycję **zabezpieczenia systemu**  >  **Ustawienia wysokie zabezpieczenia**  >  **wymagają uwierzytelniania podstawowego dla przychodzących żądań schematu**.
-   2. Wybieranie **Właściwości systemu**  >  **usługi sieci Web**  >  **wymagają podstawowej autoryzacji dla przychodzących żądań SOAP**.
+   1. Wybierz pozycję **zabezpieczenia systemu**  >  **Ustawienia wysokie zabezpieczenia**  >  **wymagają uwierzytelniania podstawowego dla przychodzących żądań schematu** .
+   2. Wybieranie **Właściwości systemu**  >  **usługi sieci Web**  >  **wymagają podstawowej autoryzacji dla przychodzących żądań SOAP** .
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

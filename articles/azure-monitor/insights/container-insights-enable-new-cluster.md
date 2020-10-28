@@ -3,13 +3,13 @@ title: Monitoruj nowy klaster usługi Azure Kubernetes Service (AKS) | Microsoft
 description: Dowiedz się, jak włączyć monitorowanie dla nowego klastra usługi Azure Kubernetes Service (AKS) przy użyciu subskrypcji kontenerów Azure Monitor.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.custom: devx-track-terraform
-ms.openlocfilehash: 7706df4f457167f5bb4d17f1d506594615364380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320327"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735084"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Włącz monitorowanie nowego klastra usługi Azure Kubernetes Service (AKS)
 
@@ -34,12 +34,12 @@ Jeśli [wdrażasz nowy klaster AKS przy użyciu Terraform](/azure/developer/terr
 >[!NOTE]
 >Jeśli zdecydujesz się na korzystanie z Terraform, musisz mieć uruchomiony program Terraform platformy Azure RM w wersji 1.17.0 lub nowszej.
 
-Aby dodać Azure Monitor kontenerów do obszaru roboczego, zapoznaj się z tematem [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) i Ukończ profil, dołączając [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) i określ **oms_agent**. 
+Aby dodać Azure Monitor kontenerów do obszaru roboczego, zapoznaj się z tematem [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) i Ukończ profil, dołączając [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) i określ **oms_agent** . 
 
 Po włączeniu monitorowania i zakończeniu wszystkich zadań konfiguracji można monitorować wydajność klastra na jeden z dwóch sposobów:
 
 * Bezpośrednio w klastrze AKS, wybierając pozycję **kondycja** w okienku po lewej stronie.
-* Wybierając kafelek **monitoruj informacje o kontenerze** na stronie klastra AKS dla wybranego klastra. W obszarze Azure Monitor w lewym okienku wybierz pozycję **kondycja**. 
+* Wybierając kafelek **monitoruj informacje o kontenerze** na stronie klastra AKS dla wybranego klastra. W obszarze Azure Monitor w lewym okienku wybierz pozycję **kondycja** . 
 
   ![Opcje wybierania Azure Monitor dla kontenerów w AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 

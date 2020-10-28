@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a1ae0971b016ed226351167cfabfca7d3cafd19f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905409"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677342"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optymalizowanie Azure Data Lake Storage Gen2 na potrzeby wydajności
 
@@ -27,7 +27,7 @@ Data Lake Storage Gen2 można skalować w celu zapewnienia odpowiedniej przepły
 
 W przypadku pozyskiwania danych z systemu źródłowego do Data Lake Storage Gen2 należy pamiętać, że sprzęt źródłowy, sprzęt sieciowy i połączenie sieciowe, które mają Data Lake Storage Gen2 może być wąskim gardłem.  
 
-![Data Lake Storage Gen2 wydajność](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![Diagram przedstawiający czynniki, które należy wziąć pod uwagę podczas pozyskiwania danych z systemu źródłowego do Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
 Ważne jest, aby upewnić się, że te czynniki nie wpływają na przeniesienie danych.
 
@@ -45,9 +45,9 @@ Po rozwiązaniu problemów ze źródłem zasobów sprzętowych i połączeń sie
 
 | Narzędzie               | Ustawienia     | Więcej szczegółów                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Pomocą distcp            | -m (mapowanie)   | [Powiązań](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies    | [Powiązań](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS. Azure. Block. size,-m (Maper)    |   [Powiązań](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Pomocą distcp            | -m (mapowanie)   | [Łącze](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies    | [Łącze](../../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | FS. Azure. Block. size,-m (Maper)    |   [Łącze](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Struktura zestawu danych
 
@@ -107,7 +107,7 @@ W klastrze usługi HDInsight znajdują się trzy warstwy, które można dostraja
 
 **Uruchom klaster z większą liczbą węzłów i/lub maszynami wirtualnymi o większej wielkości.**  Większy klaster umożliwi Ci uruchamianie więcej kontenerów PRZĘDZy, jak pokazano na poniższej ilustracji.
 
-![Data Lake Storage Gen2 wydajność](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![Diagram przedstawiający sposób, w jaki większy klaster umożliwi uruchamianie większej liczby kontenerów PRZĘDZy.](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
 **Używaj maszyn wirtualnych z większą przepustowością sieci.**  Przepustowość sieci może stanowić wąskie gardło, jeśli przepustowość sieci jest mniejsza niż Data Lake Storage Gen2 przepływność.  Różne maszyny wirtualne będą miały różne rozmiary przepustowości sieci.  Wybierz typ maszyny wirtualnej, który ma największą możliwą przepustowość sieci.
 
@@ -115,7 +115,7 @@ W klastrze usługi HDInsight znajdują się trzy warstwy, które można dostraja
 
 **Używaj mniejszych kontenerów PRZĘDZy.**  Zmniejsz rozmiar każdego kontenera PRZĘDZy, aby utworzyć więcej kontenerów z taką samą ilością zasobów.
 
-![Data Lake Storage Gen2 wydajność](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![Diagram pokazujący wynik w przypadku zmniejszenia rozmiaru każdego kontenera PRZĘDZy, aby utworzyć więcej kontenerów.](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
 W zależności od obciążenia będzie zawsze wymagany minimalny rozmiar kontenera PRZĘDZy. W przypadku wybrania zbyt małego kontenera zadania będą działać w przypadku problemów z brakiem pamięci. Zwykle kontenery PRZĘDZy nie powinny być mniejsze niż 1 GB. Typowym sposobem jest zobaczenie kontenerów PRZĘDZy WŁĄCZONĄ. W przypadku niektórych obciążeń może zajść potrzeba większego kontenera PRZĘDZy.  
 
@@ -125,7 +125,7 @@ W zależności od obciążenia będzie zawsze wymagany minimalny rozmiar kontene
 
 **Użyj wszystkich dostępnych kontenerów.**  Ustaw liczbę zadań, która ma być równa lub większa niż liczba dostępnych kontenerów w celu wykorzystania wszystkich zasobów.
 
-![Data Lake Storage Gen2 wydajność](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![Diagram przedstawiający użycie wszystkich kontenerów.](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
 **Zadania zakończone niepowodzeniem są kosztowne.** Jeśli każde zadanie zawiera dużą ilość danych do przetworzenia, wówczas niepowodzenie zadania skutkuje kosztowną ponowną próbą.  W związku z tym lepiej jest utworzyć więcej zadań, z których każdy przetwarza niewielką ilość danych.
 
@@ -138,5 +138,5 @@ Oprócz ogólnych wytycznych, każda aplikacja ma inne parametry dostępne do do
 | [MapReduce w usłudze HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>MapReduce. map. Memory</li><li>MapReduce. job. Maps</li><li>MapReduce. Zmniejsz ilość pamięci</li><li>MapReduce. job. Zmniejsz</li></ul> |
 | [Usługa Storm w usłudze HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Liczba procesów roboczych</li><li>Liczba wystąpień programu wykonującego elementu Spout</li><li>Liczba wystąpień programu wykonującego Piorun </li><li>Liczba zadań elementu Spout</li><li>Liczba zadań obiektu Piorun</li></ul>|
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Omówienie Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

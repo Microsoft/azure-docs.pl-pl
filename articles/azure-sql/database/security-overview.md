@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
-ms.date: 09/21/2020
-ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: bb9e17a4befcdcf1a322734c6cc5d75d653f23e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321428"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676149"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Omówienie funkcji zabezpieczeń wystąpienia zarządzanego w Azure SQL Database i SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -41,22 +41,22 @@ Reguły zapory adresów IP umożliwiają dostęp do baz danych na podstawie źr�
 [Reguły sieci wirtualnej](vnet-service-endpoint-rule-overview.md) umożliwiają Azure SQL Database tylko akceptowanie komunikacji wysyłanej z wybranych podsieci w sieci wirtualnej.
 
 > [!NOTE]
-> Kontrolowanie dostępu za pomocą reguł *zapory nie ma zastosowania do* **wystąpienia zarządzanego SQL**. Aby uzyskać więcej informacji o wymaganej konfiguracji sieci, zobacz [nawiązywanie połączenia z wystąpieniem zarządzanym](../managed-instance/connect-application-instance.md)
+> Kontrolowanie dostępu za pomocą reguł *zapory nie ma zastosowania do* **wystąpienia zarządzanego SQL** . Aby uzyskać więcej informacji o wymaganej konfiguracji sieci, zobacz [nawiązywanie połączenia z wystąpieniem zarządzanym](../managed-instance/connect-application-instance.md)
 
 ## <a name="access-management"></a>Zarządzanie dostępem
 
 > [!IMPORTANT]
 > Zarządzanie bazami danych i serwerami na platformie Azure jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji na temat tego artykułu, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Database i wystąpienie zarządzane SQL obsługują dwa typy uwierzytelniania:
 
-- **Uwierzytelnianie SQL**:
+- **Uwierzytelnianie SQL** :
 
     Uwierzytelnianie SQL odnosi się do uwierzytelniania użytkownika podczas nawiązywania połączenia z usługą Azure SQL Database lub wystąpieniem zarządzanym usługi Azure SQL przy użyciu nazwy użytkownika i hasła. Podczas tworzenia serwera należy określić identyfikator logowania **administratora serwera** z nazwą użytkownika i hasłem. Korzystając z tych poświadczeń, **administrator serwera** może uwierzytelniać się w dowolnej bazie danych na tym serwerze lub wystąpieniu jako właściciel bazy danych. Następnie administrator serwera może utworzyć dodatkowe identyfikatory logowania i użytkowników SQL, które umożliwią użytkownikom łączenie się przy użyciu nazwy użytkownika i hasła.
 
-- **Uwierzytelnianie Azure Active Directory**:
+- **Uwierzytelnianie Azure Active Directory** :
 
     Uwierzytelnianie Azure Active Directory jest mechanizmem łączenia się z [Azure SQL Database](sql-database-paas-overview.md), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) i [analizy Synapse azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) przy użyciu tożsamości w Azure Active Directory (Azure AD). Uwierzytelnianie za pomocą usługi Azure AD pozwala administratorom centralnie zarządzać tożsamościami i uprawnieniami użytkowników baz danych wraz z innymi usługami platformy Azure w jednej centralnej lokalizacji. Obejmuje to minimalizowanie magazynu haseł i umożliwia scentralizowane zasady rotacji haseł.
 
@@ -65,7 +65,7 @@ Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Da
     Dostępne są dodatkowe opcje uwierzytelniania usługi Azure AD [Active Directory uniwersalnego uwierzytelniania dla połączeń SQL Server Management Studio, w](authentication-mfa-ssms-overview.md) tym [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) i [dostępu warunkowego](conditional-access-configure.md).
 
 > [!IMPORTANT]
-> Zarządzanie bazami danych i serwerami na platformie Azure jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji na temat tego artykułu, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../../role-based-access-control/overview.md). Kontrolowanie dostępu za pomocą reguł *zapory nie ma zastosowania do* **wystąpienia zarządzanego SQL**. Aby uzyskać więcej informacji na temat konfiguracji sieci, należy zapoznać się z poniższym artykułem dotyczącym [łączenia się z wystąpieniem zarządzanym](../managed-instance/connect-application-instance.md) .
+> Zarządzanie bazami danych i serwerami na platformie Azure jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji na temat tego artykułu, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../../role-based-access-control/overview.md). Kontrolowanie dostępu za pomocą reguł *zapory nie ma zastosowania do* **wystąpienia zarządzanego SQL** . Aby uzyskać więcej informacji na temat konfiguracji sieci, należy zapoznać się z poniższym artykułem dotyczącym [łączenia się z wystąpieniem zarządzanym](../managed-instance/connect-application-instance.md) .
 
 ## <a name="authorization"></a>Autoryzacja
 
@@ -97,13 +97,13 @@ Zaawansowana ochrona przed zagrożeniami analizuje dzienniki, aby wykrywać niet
 
 ### <a name="transport-layer-security-encryption-in-transit"></a>Transport Layer Security (szyfrowanie w trakcie przesyłania)
 
-SQL Database i wystąpienie zarządzane SQL zabezpieczają dane klienta przez szyfrowanie danych w ruchu przy użyciu [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+SQL Database, wystąpienie zarządzane SQL i usługa Azure Synapse Analytics zabezpieczają dane klientów przez szyfrowanie danych w ruchu przy użyciu [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-SQL Database i wystąpienie zarządzane SQL wymusza szyfrowanie (SSL/TLS) przez cały czas dla wszystkich połączeń. Gwarantuje to, że wszystkie dane są szyfrowane "podczas przesyłania" między klientem i serwerem niezależnie od ustawienia **szyfrowania** lub **TrustServerCertificate** w parametrach połączenia.
+SQL Database, wystąpienie zarządzane SQL i usługa Azure Synapse Wymuś szyfrowanie (SSL/TLS) przez cały czas dla wszystkich połączeń. Gwarantuje to, że wszystkie dane są szyfrowane "podczas przesyłania" między klientem i serwerem niezależnie od ustawienia **szyfrowania** lub **TrustServerCertificate** w parametrach połączenia.
 
 Najlepszym rozwiązaniem jest zalecanie, aby w parametrach połączenia używanych przez aplikację określić połączenie szyfrowane i _**nie**_ ufać certyfikatowi serwera. Oznacza to, że aplikacja weryfikuje certyfikat serwera i w związku z tym uniemożliwia aplikacji atak na ataki typu średniego.
 
-Na przykład podczas korzystania z sterownika ADO.NET jest to realizowane za pośrednictwem  **szyfrowania = true** i **TrustServerCertificate = false**. W przypadku uzyskania parametrów połączenia z Azure Portal będzie on miał poprawne ustawienia.
+Na przykład podczas korzystania z sterownika ADO.NET jest to realizowane za pośrednictwem  **szyfrowania = true** i **TrustServerCertificate = false** . W przypadku uzyskania parametrów połączenia z Azure Portal będzie on miał poprawne ustawienia.
 
 > [!IMPORTANT]
 > Należy pamiętać, że niektóre sterowniki inne niż firmy Microsoft mogą nie używać protokołu TLS domyślnie lub korzystają ze starszej wersji protokołu TLS (<1,2), aby móc działać. W takim przypadku serwer nadal umożliwia nawiązanie połączenia z bazą danych. Zaleca się jednak, aby oszacować zagrożenia bezpieczeństwa, które umożliwiają łączenie takich sterowników i aplikacji z SQL Database, szczególnie w przypadku przechowywania poufnych danych.
@@ -112,7 +112,7 @@ Na przykład podczas korzystania z sterownika ADO.NET jest to realizowane za po�
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Transparent Data Encryption (szyfrowanie w spoczynku)
 
-[Transparent Data Encryption (TDE) dla Azure SQL Database i wystąpienia zarządzane SQL](transparent-data-encryption-tde-overview.md) dodaje warstwę zabezpieczeń, aby chronić dane przechowywane przed dostępem nieautoryzowanym lub w trybie offline do plików RAW lub kopii zapasowych. Typowe scenariusze obejmują kradzież centrum danych lub niezabezpieczone usuwanie sprzętu lub nośników, takich jak stacje dysków i taśmy kopii zapasowych.TDE szyfruje całą bazę danych przy użyciu algorytmu szyfrowania AES, który nie wymaga, aby deweloperzy aplikacji wprowadzali jakiekolwiek zmiany do istniejących aplikacji.
+[Usługa transparent Data Encryption (TDE) dla SQL Database, wystąpienia zarządzane SQL i Azure Synapse Analytics](transparent-data-encryption-tde-overview.md) dodaje warstwę zabezpieczeń, aby chronić dane przechowywane przed dostępem nieautoryzowanym lub w trybie offline do nieprzetworzonych plików lub kopii zapasowych. Typowe scenariusze obejmują kradzież centrum danych lub niezabezpieczone usuwanie sprzętu lub nośników, takich jak stacje dysków i taśmy kopii zapasowych.TDE szyfruje całą bazę danych przy użyciu algorytmu szyfrowania AES, który nie wymaga, aby deweloperzy aplikacji wprowadzali jakiekolwiek zmiany do istniejących aplikacji.
 
 Na platformie Azure wszystkie nowo utworzone bazy danych są szyfrowane domyślnie, a klucz szyfrowania bazy danych jest chroniony przez wbudowany certyfikat serwera.  Obsługa i rotacja certyfikatów są zarządzane przez usługę i nie wymagają wprowadzania danych przez użytkownika. Klienci, którzy wolą przejąć kontrolę nad kluczami szyfrowania, mogą zarządzać kluczami w [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
 

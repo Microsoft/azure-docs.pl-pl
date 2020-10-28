@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9be94183fc34c2dbee3503d21e2e643d5296a82b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461128"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677421"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Wprowadzenie do przykładu Hero rozmowy z grupą
 
@@ -56,9 +56,9 @@ Po naciśnięciu przycisku &quot;Rozpocznij rozmowę":::
 
 Składniki głównego ekranu czatu:
 
-- **Główny obszar rozmowy**: jest to podstawowe środowisko rozmowy, w którym użytkownicy mogą wysyłać i odbierać wiadomości. Aby wysyłać komunikaty, możesz użyć obszaru wprowadzania i nacisnąć klawisz ENTER (lub użyć przycisku Wyślij). Odebrane komunikaty czatu są kategoryzowane przez nadawcę przy użyciu poprawnej nazwy i Emoji. W obszarze rozmowa są wyświetlane dwa typy powiadomień: 1) wpisywanie powiadomień podczas wpisywania przez użytkownika i 2) wysyłania i odczytywania powiadomień dotyczących komunikatów.
-- **Nagłówek**: to miejsce, w którym użytkownik zobaczy tytuł wątku rozmowy i kontrolki do przełączania uczestników i ustawień paski boczne oraz przycisk opuszczania, aby zakończyć sesję rozmowy.
-- **Pasek boczny**: wskazuje, że uczestnicy i informacje o ustawieniach są wyświetlane po przełączeniu przy użyciu kontrolek w nagłówku. Pasek boczny uczestników zawiera listę uczestników rozmowy i link umożliwiający Zapraszanie uczestników do sesji rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie tytułu wątku rozmowy. 
+- **Główny obszar rozmowy** : jest to podstawowe środowisko rozmowy, w którym użytkownicy mogą wysyłać i odbierać wiadomości. Aby wysyłać komunikaty, możesz użyć obszaru wprowadzania i nacisnąć klawisz ENTER (lub użyć przycisku Wyślij). Odebrane komunikaty czatu są kategoryzowane przez nadawcę przy użyciu poprawnej nazwy i Emoji. W obszarze rozmowa są wyświetlane dwa typy powiadomień: 1) wpisywanie powiadomień podczas wpisywania przez użytkownika i 2) wysyłania i odczytywania powiadomień dotyczących komunikatów.
+- **Nagłówek** : to miejsce, w którym użytkownik zobaczy tytuł wątku rozmowy i kontrolki do przełączania uczestników i ustawień paski boczne oraz przycisk opuszczania, aby zakończyć sesję rozmowy.
+- **Pasek boczny** : wskazuje, że uczestnicy i informacje o ustawieniach są wyświetlane po przełączeniu przy użyciu kontrolek w nagłówku. Pasek boczny uczestników zawiera listę uczestników rozmowy i link umożliwiający Zapraszanie uczestników do sesji rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie tytułu wątku rozmowy. 
 
 Poniżej znajdziesz więcej informacji na temat wymagań wstępnych i kroków związanych z konfigurowaniem przykładu.
 
@@ -81,7 +81,7 @@ Możesz przetestować przykład lokalnie, otwierając wiele sesji przeglądarki 
 ## <a name="before-running-the-sample-for-the-first-time"></a>Przed uruchomieniem przykładu po raz pierwszy
 
 1. Otwórz wystąpienie programu PowerShell, terminalu systemu Windows, wiersza polecenia lub równoważne i przejdź do katalogu, do którego chcesz sklonować przykład.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. Pobierz `Connection String` z Azure Portal. Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [Tworzenie zasobów usługi Azure Communication](../quickstarts/create-communication-resource.md)
 4. Po otrzymaniu programu `Connection String` Dodaj parametry połączenia do okna **rozmowa/appsettings.jsw** pliku znalezionym w folderze rozmowa. Wprowadź parametry połączenia w zmiennej: `ResourceConnectionString` .
 

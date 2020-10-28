@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 277acbc84ab435ce1076c30a1e49f6ffdd2a0586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc27b1fea97471e9ca1991467902e666c1451605
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543724"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675550"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z piaskownicą usługi Salesforce
 
@@ -26,7 +26,7 @@ W tym samouczku dowiesz się, jak zintegrować piaskownicę usługi Salesforce z
 * Zezwól użytkownikom na automatyczne logowanie do piaskownicy usług Salesforce przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,7 +42,7 @@ W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azu
 * Piaskownica usługi Salesforce obsługuje usługi **SP i dostawcy tożsamości** zainicjowane przez usługę SSO
 * Piaskownica usługi Salesforce obsługuje funkcję aprowizacji użytkowników **just in Time**
 * Piaskownica usługi Salesforce obsługuje [ **Automatyczne** Inicjowanie obsługi użytkowników](salesforce-sandbox-provisioning-tutorial.md)
-* Po skonfigurowaniu piaskownicy usługi Salesforce można wymusić kontrolki sesji, które chronią eksfiltracji i niefiltrowanie danych poufnych w organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Po skonfigurowaniu piaskownicy usługi Salesforce można wymusić kontrolki sesji, które chronią eksfiltracji i niefiltrowanie danych poufnych w organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-salesforce-sandbox-from-the-gallery"></a>Dodawanie piaskownicy usługi Salesforce z galerii
 
@@ -50,15 +50,15 @@ Aby skonfigurować integrację piaskownicy usług Salesforce z usługą Azure AD
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja** .
 1. W sekcji **Dodaj z galerii** wpisz **piaskownicę Salesforce** w polu wyszukiwania.
 1. Wybierz pozycję **piaskownica usługi Salesforce** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-salesforce-sandbox"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla piaskownicy usług Salesforce
 
-Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD za pomocą piaskownicy usługi Salesforce przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w piaskownicy Salesforce.
+Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD za pomocą piaskownicy usługi Salesforce przy użyciu użytkownika testowego o nazwie **B. Simon** . Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w piaskownicy Salesforce.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą piaskownicy Salesforce, wykonaj następujące bloki konstrukcyjne:
 
@@ -73,19 +73,19 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **piaskownicy Salesforce** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
-1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **piaskownicy Salesforce** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne** .
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML** .
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** , jeśli masz **plik metadanych dostawcy usług** i chcesz skonfigurować w trybie zainicjowania programu **dostawcy tożsamości** , wykonaj następujące czynności:
 
-    a. Kliknij pozycję **Przekaż plik metadanych**.
+    a. Kliknij pozycję **Przekaż plik metadanych** .
 
     ![Przekazywanie pliku metadanych](common/upload-metadata.png)
 
-    b. Kliknij **logo folderu**, aby wybrać plik metadanych, a następnie kliknij pozycję **Przekaż**.
+    b. Kliknij **logo folderu** , aby wybrać plik metadanych, a następnie kliknij pozycję **Przekaż** .
 
     ![wybierz plik metadanych](common/browse-upload-metadata.png)
 
@@ -99,7 +99,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     > [!Note]
     > Jeśli wartość **adresu URL odpowiedzi** nie pobiera autopolulated, wprowadź wartość ręcznie zgodnie z wymaganiami.
 
-5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
+5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz** , aby pobrać **kod XML metadanych** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
@@ -117,25 +117,25 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** , wybierz pozycję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło** .
+   1. Kliknij pozycję **Utwórz** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do piaskownicy usługi Salesforce.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Na liście Aplikacje wybierz pozycję **piaskownica usługi Salesforce**.
-1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Na liście Aplikacje wybierz pozycję **piaskownica usługi Salesforce** .
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy** .
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. Wybierz pozycję **Dodaj użytkownika** , a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
     ![Link Dodaj użytkownika](common/add-assign-user.png)
 
@@ -151,23 +151,23 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure1.png)
 
-3. Przewiń w dół do **ustawień** w okienku nawigacji po lewej stronie, kliknij pozycję **tożsamość** , aby rozwinąć sekcję powiązaną. Następnie kliknij pozycję **Ustawienia logowania jednokrotnego**.
+3. Przewiń w dół do **ustawień** w okienku nawigacji po lewej stronie, kliknij pozycję **tożsamość** , aby rozwinąć sekcję powiązaną. Następnie kliknij pozycję **Ustawienia logowania jednokrotnego** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
-4. Na stronie **Ustawienia logowania jednokrotnego** kliknij przycisk **Edytuj**.
+4. Na stronie **Ustawienia logowania jednokrotnego** kliknij przycisk **Edytuj** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure3.png)
 
-5. Wybierz pozycję **Włączona obsługa protokołu SAML**, a następnie kliknij pozycję **Zapisz**.
+5. Wybierz pozycję **Włączona obsługa protokołu SAML** , a następnie kliknij pozycję **Zapisz** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-6. Aby skonfigurować ustawienia logowania jednokrotnego SAML, kliknij pozycję **Nowe z pliku metadanych**.
+6. Aby skonfigurować ustawienia logowania jednokrotnego SAML, kliknij pozycję **Nowe z pliku metadanych** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-7. Kliknij pozycję **Wybierz plik**, aby przekazać plik metadanych XML pobrany z witryny Azure Portal, i kliknij pozycję **Utwórz**.
+7. Kliknij pozycję **Wybierz plik** , aby przekazać plik metadanych XML pobrany z witryny Azure Portal, i kliknij pozycję **Utwórz** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
@@ -204,27 +204,27 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure1.png)
 
-14. Przewiń w dół do **ustawień** w okienku nawigacji po lewej stronie, kliknij pozycję **tożsamość** , aby rozwinąć sekcję powiązaną. Następnie kliknij pozycję **Ustawienia logowania jednokrotnego**.
+14. Przewiń w dół do **ustawień** w okienku nawigacji po lewej stronie, kliknij pozycję **tożsamość** , aby rozwinąć sekcję powiązaną. Następnie kliknij pozycję **Ustawienia logowania jednokrotnego** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
-15. Na stronie **Ustawienia logowania jednokrotnego** kliknij przycisk **Edytuj**.
+15. Na stronie **Ustawienia logowania jednokrotnego** kliknij przycisk **Edytuj** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure3.png)
 
-16. Wybierz pozycję **Włączona obsługa protokołu SAML**, a następnie kliknij pozycję **Zapisz**.
+16. Wybierz pozycję **Włączona obsługa protokołu SAML** , a następnie kliknij pozycję **Zapisz** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-17. Aby skonfigurować ustawienia logowania jednokrotnego SAML, kliknij pozycję **Nowe z pliku metadanych**.
+17. Aby skonfigurować ustawienia logowania jednokrotnego SAML, kliknij pozycję **Nowe z pliku metadanych** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-18. Kliknij pozycję **Wybierz plik** , aby przekazać plik XML metadanych, a następnie kliknij przycisk **Utwórz**.
+18. Kliknij pozycję **Wybierz plik** , aby przekazać plik XML metadanych, a następnie kliknij przycisk **Utwórz** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-19. Na stronie **Ustawienia pojedynczej Sign-On SAML** pola wypełniają automatycznie, wpisz nazwę konfiguracji (na przykład: *SPSSOWAAD_Test*), w polu tekstowym **Nazwa** , a następnie kliknij przycisk Zapisz.
+19. Na stronie **Ustawienia pojedynczej Sign-On SAML** pola wypełniają automatycznie, wpisz nazwę konfiguracji (na przykład: *SPSSOWAAD_Test* ), w polu tekstowym **Nazwa** , a następnie kliknij przycisk Zapisz.
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
@@ -233,15 +233,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     > [!NOTE]
     > Przed włączeniem domeny należy utworzyć tę samą w piaskownicy usługi Salesforce. Aby uzyskać więcej informacji, zobacz [Definiowanie nazwy domeny](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US). Po utworzeniu domeny upewnij się, że została prawidłowo skonfigurowana.
 
-21. W okienku nawigacji po lewej stronie w obszarze piaskownicy usługi Salesforce kliknij pozycję **Ustawienia firmy** , aby rozwinąć sekcję powiązaną, a następnie kliknij pozycję **moja domena**.
+21. W okienku nawigacji po lewej stronie w obszarze piaskownicy usługi Salesforce kliknij pozycję **Ustawienia firmy** , aby rozwinąć sekcję powiązaną, a następnie kliknij pozycję **moja domena** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
-22. W sekcji **konfiguracja uwierzytelniania** kliknij pozycję **Edytuj**.
+22. W sekcji **konfiguracja uwierzytelniania** kliknij pozycję **Edytuj** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
-23. W sekcji **konfiguracja uwierzytelniania** jako **Usługa uwierzytelniania**wybierz nazwę ustawienia Single Sign-On SAML, które zostało ustawione podczas konfigurowania logowania jednokrotnego w piaskownicy usługi Salesforce, a następnie kliknij przycisk **Zapisz**.
+23. W sekcji **konfiguracja uwierzytelniania** jako **Usługa uwierzytelniania** wybierz nazwę ustawienia Single Sign-On SAML, które zostało ustawione podczas konfigurowania logowania jednokrotnego w piaskownicy usługi Salesforce, a następnie kliknij przycisk **Zapisz** .
 
     ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure2.png)
 
@@ -253,20 +253,20 @@ W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w piaskownicy usłu
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka piaskownicy usługi Salesforce w panelu dostępu należy automatycznie zalogować się do piaskownicy usługi Salesforce, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka piaskownicy usługi Salesforce w panelu dostępu należy automatycznie zalogować się do piaskownicy usługi Salesforce, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](./tutorial-list.md)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
 
 - [Wypróbuj piaskownicę usług Salesforce z usługą Azure AD](https://aad.portal.azure.com/)
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-salesforce)
+- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/protect-salesforce)
 
 - [Konfigurowanie aprowizacji użytkowników](salesforce-sandbox-provisioning-tutorial.md)
 
-- [Jak chronić piaskownicę usługi Salesforce przy użyciu zaawansowanej widoczności i kontroli](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić piaskownicę usługi Salesforce przy użyciu zaawansowanej widoczności i kontroli](/cloud-app-security/proxy-intro-aad)

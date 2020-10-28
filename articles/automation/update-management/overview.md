@@ -3,14 +3,14 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 09/23/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 92d8c52ee9da1df67be27ea0867e788e2aaed37b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 217ccbcef28545710ea0875a318bcf5b4b555825
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222489"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677712"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -18,15 +18,18 @@ Update Management w Azure Automation służy do zarządzania aktualizacjami syst
 
 Update Management dla maszyn wirtualnych można włączyć w następujący sposób:
 
-* Z [konta usługi Azure Automation](enable-from-automation-account.md) na co najmniej jedną maszynę w systemie Azure i poza platformą Azure.
-* Ręcznie dla maszyn spoza platformy Azure, w tym maszyn lub serwerów zarejestrowanych przy użyciu [usługi Azure ARC z obsługą serwerów](../../azure-arc/servers/overview.md) (wersja zapoznawcza).
-* Dla jednej maszyny wirtualnej platformy Azure na stronie maszyny wirtualnej w Azure Portal. Ten scenariusz jest dostępny dla maszyn wirtualnych z systemami [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) i [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) .
-* Dla [wielu maszyn wirtualnych platformy Azure](enable-from-portal.md) , wybierając je na stronie maszyny wirtualne w Azure Portal.
+- Z [konta usługi Azure Automation](enable-from-automation-account.md) na co najmniej jedną maszynę w systemie Azure i poza platformą Azure.
+
+- Ręcznie dla maszyn spoza platformy Azure, w tym maszyn lub serwerów zarejestrowanych przy użyciu [usługi Azure ARC z obsługą serwerów](../../azure-arc/servers/overview.md).
+
+- Dla jednej maszyny wirtualnej platformy Azure na [stronie maszyny wirtualnej](enable-from-vm.md) w Azure Portal. Ten scenariusz jest dostępny dla maszyn wirtualnych z systemami Linux i Windows.
+
+- Dla [wielu maszyn wirtualnych platformy Azure](enable-from-portal.md) , wybierając je na stronie maszyny wirtualne w Azure Portal.
 
 > [!NOTE]
 > Update Management wymaga połączenia obszaru roboczego Log Analytics z kontem usługi Automation. Aby uzyskać ostateczną listę obsługiwanych regionów, zobacz [mapowania obszaru roboczego platformy Azure](../how-to/region-mappings.md). Mapowania regionów nie mają wpływu na możliwość zarządzania maszynami wirtualnymi w innym regionie niż konto usługi Automation.
 
-[Azure Resource Manager szablon](enable-from-template.md) jest dostępny, aby ułatwić wdrożenie Update Management na nowym lub istniejącym koncie usługi Automation i log Analytics obszarze roboczym w ramach subskrypcji.
+[Azure Resource Manager szablon](enable-from-template.md) jest dostępny, aby ułatwić włączenie funkcji Update Management na nowym lub istniejącym koncie usługi Automation i log Analytics obszarze roboczym w ramach subskrypcji. Nie włącza na platformie Azure ani maszyn wirtualnych z systemem innym niż Azure za pomocą tej funkcji, ten krok jest wykonywany ponownie przy użyciu jednej z wymienionych wcześniej metod.
 
 > [!NOTE]
 > Nie można użyć komputera skonfigurowanego przy użyciu Update Management do uruchamiania skryptów niestandardowych z Azure Automation. Na tym komputerze można uruchomić tylko skrypt aktualizacji podpisany przez firmę Microsoft.
@@ -106,7 +109,7 @@ Poniższe informacje opisują wymagania klienta specyficzne dla systemu operacyj
 
 #### <a name="windows"></a>Windows
 
-Agenci systemu Windows muszą być skonfigurowani do komunikowania się z serwerem WSUS lub muszą mieć dostęp do Microsoft Update. Aby uzyskać informacje na temat sposobu instalowania agenta Log Analytics dla systemu Windows, zobacz [łączenie komputerów z systemem Windows w Azure monitor](../../azure-monitor/platform/agent-windows.md).
+Agenci systemu Windows muszą być skonfigurowani do komunikowania się z serwerem WSUS lub muszą mieć dostęp do Microsoft Update. Aby uzyskać informacje na temat sposobu instalowania agenta Log Analytics dla systemu Windows, zobacz [łączenie komputerów z systemem Windows w Azure monitor](../../azure-monitor/platform/agent-windows.md). W przypadku maszyn hybrydowych zaleca się zainstalowanie agenta Log Analytics dla systemu Windows, najpierw łącząc maszynę z [włączonymi serwerami usługi Azure Arc](../../azure-arc/servers/overview.md), a następnie używając Azure Policy do przypisywania [agenta wdrożenia log Analytics do zasad wbudowanych dla maszyn usługi Windows Azure](../../governance/policy/samples/built-in-policies.md#monitoring) . Jeśli planujesz również monitorować komputery przy użyciu Azure Monitor dla maszyn wirtualnych, zamiast tego użyj inicjatywy [Enable Azure monitor dla maszyn wirtualnych](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
 Możesz użyć Update Management z usługą Microsoft Endpoint Configuration Manager. Aby dowiedzieć się więcej na temat scenariuszy integracji, zobacz [integrowanie Update Management z Configuration Manager punktu końcowego systemu Windows](mecmintegration.md). [Agent log Analytics dla systemu Windows](../../azure-monitor/platform/agent-windows.md) jest wymagany dla serwerów z systemem Windows zarządzanych przez lokacje w środowisku Configuration Manager. 
 
@@ -122,7 +125,7 @@ W przypadku systemu Linux maszyna wymaga dostępu do repozytorium aktualizacji �
 > [!NOTE]
 > Ocena aktualizacji maszyn z systemem Linux jest obsługiwana tylko w określonych regionach. Zobacz [tabelę mapowania](../how-to/region-mappings.md#supported-mappings)obszaru roboczego konta usługi Automation i log Analytics.
 
-Aby uzyskać informacje na temat sposobu instalowania agenta Log Analytics dla systemu Linux i pobierania najnowszej wersji, zobacz [log Analytics Agent dla systemu Linux](../../azure-monitor/platform/agent-linux.md).
+Aby uzyskać informacje na temat sposobu instalowania agenta Log Analytics dla systemu Linux i pobierania najnowszej wersji, zobacz [log Analytics Agent dla systemu Linux](../../azure-monitor/platform/agent-linux.md). W przypadku maszyn hybrydowych zaleca się zainstalowanie agenta Log Analytics dla systemu Windows, najpierw łącząc maszynę z [usługą Azure ARC z włączonymi serwerami](../../azure-arc/servers/overview.md), a następnie używając Azure Policy do przypisywania programu [Deploy log Analytics Agent do systemu Linux Azure Arc Machines](../../governance/policy/samples/built-in-policies.md#monitoring) Policy. Jeśli planujesz również monitorować komputery przy użyciu Azure Monitor dla maszyn wirtualnych, zamiast tego użyj inicjatywy [włącz Azure monitor dla maszyn wirtualnych](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
 Maszyny wirtualne utworzone na podstawie obrazów na żądanie Red Hat Enterprise Linux (RHEL), które są dostępne w portalu Azure Marketplace, są zarejestrowane w celu uzyskania dostępu do [infrastruktury aktualizacji firmy Red Hat (RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) wdrożonej na platformie Azure. Wszystkie inne dystrybucje systemu Linux należy zaktualizować z repozytorium plików online dystrybucji przy użyciu metod obsługiwanych przez dystrybucję.
 
@@ -191,7 +194,7 @@ Poniższe adresy są wymagane dla Update Management. Komunikacja z tymi adresami
 |`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 |`*.azure-automation.net` | `*.azure-automation.us`|
 
-Podczas tworzenia reguł zabezpieczeń grupy sieciowej lub konfigurowania zapory platformy Azure, aby zezwalać na ruch do usługi Automation i obszaru roboczego Log Analytics, należy użyć [znacznika usługi](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** i **AzureMonitor**. Upraszcza to ciągłe zarządzanie regułami zabezpieczeń sieci. Aby bezpiecznie i prywatnie połączyć się z usługą Automation z maszyn wirtualnych platformy Azure, zapoznaj się z tematem [Korzystanie z prywatnego linku platformy Azure](../how-to/private-link-security.md). Aby uzyskać bieżący tag usługi i informacje o zakresie do uwzględnienia w ramach konfiguracji lokalnych zapór, zobacz [pliki JSON do pobrania](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Podczas tworzenia reguł zabezpieczeń grupy sieciowej lub konfigurowania zapory platformy Azure, aby zezwalać na ruch do usługi Automation i obszaru roboczego Log Analytics, należy użyć [znacznika usługi](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** i **AzureMonitor** . Upraszcza to ciągłe zarządzanie regułami zabezpieczeń sieci. Aby bezpiecznie i prywatnie połączyć się z usługą Automation z maszyn wirtualnych platformy Azure, zapoznaj się z tematem [Korzystanie z prywatnego linku platformy Azure](../how-to/private-link-security.md). Aby uzyskać bieżący tag usługi i informacje o zakresie do uwzględnienia w ramach konfiguracji lokalnych zapór, zobacz [pliki JSON do pobrania](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 W przypadku maszyn z systemem Windows należy również zezwolić na ruch do wszystkich punktów końcowych wymaganych przez Windows Update. Zaktualizowaną listę wymaganych punktów końcowych można znaleźć w przypadku [problemów związanych z protokołem HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Jeśli masz lokalny [serwer Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), musisz również zezwolić na ruch do serwera określonego w [kluczu WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -213,7 +216,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.

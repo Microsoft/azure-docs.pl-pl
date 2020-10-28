@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: f47a23a3b95975d98d3825bc5b14ed0522102a0c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 344e15d3c15474fc8959b120f86bb86f22217ef6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547643"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676973"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami ITSM przy użyciu łącznika zarządzania usługami IT
 
@@ -65,7 +65,7 @@ Aby można było utworzyć połączenie, należy dodać rozwiązanie łącznik I
    >[!NOTE]
    >W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako Log Analytics obszary robocze.
 
-5. Kliknij pozycję **Utwórz** .
+5. Kliknij pozycję **OK** .
 
 Gdy zasób rozwiązania zostanie wdrożony, w prawym górnym rogu okna pojawi się powiadomienie.
 
@@ -122,28 +122,29 @@ Grupy akcji umożliwiają modularne i wielokrotne użycie metody wyzwalania akcj
 
 Postępuj zgodnie z następującą procedurą:
 
-1. W Azure Portal kliknij pozycję  **Monitoruj** .
-2. W lewym okienku kliknij pozycję  **grupy akcji** . Zostanie wyświetlone okno **Dodaj grupę akcji** .
+1. W Azure Portal kliknij pozycję  **alerty** .
+2. W górnym okienku kliknij pozycję  **Zarządzaj akcjami** . Zostanie wyświetlone okno **Dodaj grupę akcji** .
 
     ![Grupy akcji](media/itsmc-overview/action-groups.png)
 
-3. Podaj **nazwę** i **ShortName** dla grupy akcji. Wybierz **grupę zasobów** i **subskrypcję** , w której chcesz utworzyć grupę akcji.
+3. Wybierz **subskrypcję** i **grupę zasobów** , w której chcesz utworzyć grupę akcji. Podaj **nazwę grupy akcji** i **nazwę wyświetlaną** dla grupy akcji. Kliknij przycisk **Dalej: powiadomienia** .
 
     ![Szczegóły grup akcji](media/itsmc-overview/action-groups-details.png)
 
-4. Na liście Akcje wybierz pozycję **Narzędzia ITSM** z menu rozwijanego dla **typu akcji** . Podaj **nazwę** akcji, a następnie kliknij pozycję **Edytuj szczegóły** .
-5. Wybierz **subskrypcję** , w której znajduje się obszar roboczy log Analytics. Wybierz nazwę **połączenia** (nazwę łącznik ITSM), a następnie nazwę obszaru roboczego. Na przykład "MyITSMMConnector (mój obszar roboczy)".
+4. Na liście powiadomień kliknij pozycję **zagnieżdżanie: akcje** .
+5. Na liście Akcje wybierz pozycję **Narzędzia ITSM** z menu rozwijanego dla **typu akcji** . Podaj **nazwę** akcji i kliknij pióro, które reprezentuje **szczegóły edycji** .
+6. Wybierz **subskrypcję** , w której znajduje się obszar roboczy log Analytics. Wybierz nazwę **połączenia** (nazwę łącznik ITSM), a następnie nazwę obszaru roboczego. Na przykład "MyITSMMConnector (mój obszar roboczy)".
 
     ![Szczegóły akcji narzędzia ITSM](media/itsmc-overview/itsm-action-details.png)
 
-6. Z menu rozwijanego wybierz pozycję typ **elementu pracy** .
+7. Z menu rozwijanego wybierz pozycję typ **elementu pracy** .
 
-7. Jeśli chcesz wypełnić pola pola wartościami stałymi, należy zaznaczyć pole wyboru "Użyj szablonu niestandardowego", w przeciwnym razie wybierz opcję Użyj istniejącego [szablonu](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) z listy rozwijanej i wypełnij pola szablonu wartościami stałymi.
+8. Jeśli chcesz wypełnić pola pola wartościami stałymi, należy zaznaczyć pole wyboru "Użyj szablonu niestandardowego", w przeciwnym razie wybierz opcję Użyj istniejącego [szablonu](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) z listy rozwijanej i wypełnij pola szablonu wartościami stałymi.
 
-8. Zaznaczając pole wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** , każdy element konfiguracji będzie miał własny element roboczy. Oznacza to, że będzie istnieć jeden element roboczy dla każdego elementu konfiguracji i zostanie on zaktualizowany zgodnie z alertami, które zostaną utworzone.
+9. Zaznaczając pole wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** , każdy element konfiguracji będzie miał własny element roboczy. Oznacza to, że będzie istnieć jeden element roboczy dla każdego elementu konfiguracji i zostanie on zaktualizowany zgodnie z alertami, które zostaną utworzone.
 Po cofnięciu zaznaczenia pola wyboru **Utwórz poszczególne elementy robocze dla każdego elementu konfiguracji** każdy alert utworzy nowy element roboczy, co oznacza, że może istnieć więcej niż jeden alert dla każdego elementu konfiguracji.
 
-9. Kliknij pozycję **OK** .
+10. Kliknij pozycję **OK** .
 
 Podczas tworzenia/edytowania reguły alertu platformy Azure Użyj grupy akcji, która ma akcję narzędzia ITSM. Gdy wyzwalacze alertów, element roboczy jest tworzony/aktualizowany w narzędziu narzędzia ITSM.
 
@@ -162,7 +163,7 @@ Na podstawie konfiguracji podczas konfigurowania połączenia Łącznik narzędz
 
 Dane zdarzenia i żądania zmiany można wizualizować przy użyciu pulpitu nawigacyjnego łącznik ITSM w rozwiązaniu.
 
-![Ekran Log Analytics](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+![Zrzut ekranu przedstawiający pulpit nawigacyjny łącznik ITSM.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 Pulpit nawigacyjny zawiera również informacje o stanie łącznika, który może służyć jako punkt wyjścia do analizowania wszelkich problemów z połączeniami.
 
@@ -203,7 +204,7 @@ ServiceDeskWorkItemType_s = "zdarzenie"
 - Created By
 - Rozwiązane przez
 - Zamknięte przez
-- Element źródłowy
+- Źródło
 - Przypisano do
 - Kategoria
 - Tytuł
@@ -224,7 +225,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Identyfikator działu obsługi
 - Created By
 - Zamknięte przez
-- Element źródłowy
+- Źródło
 - Przypisano do
 - Tytuł
 - Typ

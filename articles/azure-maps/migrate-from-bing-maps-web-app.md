@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 42ba92a0134ae1e8da91bbe7513668fa24c4718f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 168b3d51b66078b3d4c2e113711d3124820dd6bd
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876519"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677799"
 ---
 # <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Samouczek — Migrowanie aplikacji internetowej z usługi mapy Bing
 
@@ -668,7 +668,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Dodatkowe zasoby**
 
--   [Dodawanie wierszy do mapy](https://docs.microsoft.com/azure/azure-maps/map-add-shape#add-lines-to-the-map)
+-   [Dodawanie wierszy do mapy](https://docs.microsoft.com/azure/azure-maps/map-add-line-layer)
 -   [Opcje warstwy linii](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 -   [Korzystanie z wyrażeń stylu opartych na danych](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
 
@@ -744,7 +744,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Dodatkowe zasoby**
 
--   [Dodawanie wielokąta do mapy](https://docs.microsoft.com/azure/azure-maps/map-add-shape#add-a-polygon-to-the-map)
+-   [Dodawanie wielokąta do mapy](https://docs.microsoft.com/azure/azure-maps/map-add-shape#use-a-polygon-layer)
 -   [Dodaj okrąg do mapy](https://docs.microsoft.com/azure/azure-maps/map-add-shape#add-a-circle-to-the-map)
 -   [Opcje warstw wielokątów](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 -   [Opcje warstwy linii](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
@@ -932,12 +932,12 @@ W Azure Maps dane są dodawane i zarządzane przez źródło danych. Warstwy ł�
 
 Po włączeniu klastrowania źródło danych wyśle klastrowane i nieklastrowane punkty danych do warstw na potrzeby renderowania. Źródło danych umożliwia klastrowanie setek tysięcy punktów danych. Klastrowany punkt danych ma następujące właściwości:
 
-| Nazwa właściwości               | Type    | Opis                                    |
+| Nazwa właściwości               | Typ    | Opis                                    |
 |-----------------------------|---------|------------------------------------------------|
 | `cluster`                   | boolean | Wskazuje, czy funkcja reprezentuje klaster.     |
-| `cluster_id`                | ciąg  | Unikatowy identyfikator klastra, który może być używany z `DataSource` klasami `getClusterExpansionZoom` , `getClusterChildren` i i `getClusterLeaves` funkcjami. |
+| `cluster_id`                | string  | Unikatowy identyfikator klastra, który może być używany z `DataSource` klasami `getClusterExpansionZoom` , `getClusterChildren` i i `getClusterLeaves` funkcjami. |
 | `point_count`               | liczba  | Liczba punktów, które zawiera klaster.     |
-| `point_count_abbreviated`   | ciąg  | Ciąg, który skróci wartość, `point_count` Jeśli jest długi. (na przykład 4 000 to 4K) |
+| `point_count_abbreviated`   | string  | Ciąg, który skróci wartość, `point_count` Jeśli jest długi. (na przykład 4 000 to 4K) |
 
 `DataSource`Klasa ma następującą funkcję pomocniczą do uzyskiwania dostępu do dodatkowych informacji o klastrze przy użyciu `cluster_id` .
 
@@ -1467,7 +1467,7 @@ Uruchomienie tego kodu w przeglądarce spowoduje wyświetlenie mapy, która wygl
 
 **Po: Azure Maps**
 
-W Azure Maps GEOJSON jest głównym formatem danych używanym w zestawie SDK sieci Web, dodatkowe formaty danych przestrzennych można łatwo zintegrować przy użyciu [przestrzennego modułu we/wy](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/). Ten moduł ma funkcje do odczytu i zapisu danych przestrzennych, a także prostą warstwę danych, która może łatwo renderować dane z dowolnego z tych formatów danych przestrzennych. Aby odczytać dane w pliku danych przestrzennych, Przekaż adres URL lub dane pierwotne jako ciąg lub obiekt BLOB do  `atlas.io.read`   funkcji. Spowoduje to zwrócenie wszystkich przeanalizowanych danych z pliku, który można następnie dodać do mapy. KML jest nieco bardziej skomplikowany niż format danych przestrzennych, ponieważ zawiera on wiele informacji o stylu.  `SpatialDataLayer`   Klasa obsługuje renderowanie większości tych stylów, ale obrazy ikon muszą zostać załadowane do mapy przed załadowaniem danych funkcji, a nakładki gruntowe muszą być dodawane do mapy osobno. Podczas ładowania danych za pośrednictwem adresu URL powinno ono być hostowane w punkcie końcowym z włączoną funkcją CORs lub usługa serwera proxy powinna zostać przeniesiona jako opcja do funkcji Read.
+W Azure Maps GEOJSON jest głównym formatem danych używanym w zestawie SDK sieci Web, dodatkowe formaty danych przestrzennych można łatwo zintegrować przy użyciu [przestrzennego modułu we/wy](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/). Ten moduł ma funkcje do odczytu i zapisu danych przestrzennych, a także prostą warstwę danych, która może łatwo renderować dane z dowolnego z tych formatów danych przestrzennych. Aby odczytać dane w pliku danych przestrzennych, Przekaż adres URL lub dane pierwotne jako ciąg lub obiekt BLOB do `atlas.io.read` funkcji. Spowoduje to zwrócenie wszystkich przeanalizowanych danych z pliku, który można następnie dodać do mapy. KML jest nieco bardziej skomplikowany niż format danych przestrzennych, ponieważ zawiera on wiele informacji o stylu. `SpatialDataLayer`Klasa obsługuje renderowanie większości tych stylów, ale obrazy ikon muszą zostać załadowane do mapy przed załadowaniem danych funkcji, a nakładki gruntowe muszą być dodawane do mapy osobno. Podczas ładowania danych za pośrednictwem adresu URL powinno ono być hostowane w punkcie końcowym z włączoną funkcją CORs lub usługa serwera proxy powinna zostać przeniesiona jako opcja do funkcji Read.
 
 ```html
 <!DOCTYPE html>

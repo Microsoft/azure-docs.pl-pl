@@ -7,16 +7,16 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 10/25/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Niestandardowa wizja, rozpoznawanie obrazów, aplikacja do rozpoznawania obrazów, analiza obrazu, oprogramowanie do rozpoznawania obrazów
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 6583086c4b64c50f0cbef1fc12b7f4dc9e36be1f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a76f9cdd30fbdb5696149f57901dfc7e1b60e673
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91321066"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678289"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-client-library"></a>Szybki Start: Tworzenie projektu klasyfikacji obrazów przy użyciu biblioteki klienta Custom Vision
 

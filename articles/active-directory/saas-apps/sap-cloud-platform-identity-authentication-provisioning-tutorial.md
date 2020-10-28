@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b3fa2996edf5882cc02eeee92bcc3114bcd33348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a2a0c94dc4691c17eebe235055015a2853bacb4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273419"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677589"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie uwierzytelniania tożsamości platformy SAP w chmurze na potrzeby automatycznej aprowizacji użytkowników
 
@@ -50,22 +50,22 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
 ## <a name="setup-sap-cloud-platform-identity-authentication-for-provisioning"></a>Skonfiguruj uwierzytelnianie tożsamości platformy SAP Cloud Platform na potrzeby aprowizacji
 
-1. Zaloguj się do [konsoli administracyjnej uwierzytelniania platformy SAP Cloud Identity Authentication](https://sapmsftintegration.accounts.ondemand.com/admin). Przejdź do **użytkowników & autoryzacje > Administratorzy**.
+1. Zaloguj się do [konsoli administracyjnej uwierzytelniania platformy SAP Cloud Identity Authentication](https://sapmsftintegration.accounts.ondemand.com/admin). Przejdź do **użytkowników & autoryzacje > Administratorzy** .
 
     ![Konsola administracyjna uwierzytelniania tożsamości platformy SAP Cloud Platform](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/adminconsole.png)
 
 2.  Naciśnij przycisk **+ Dodaj** w panelu po lewej stronie, aby dodać nowego administratora do listy. Wybierz pozycję **Dodaj system** i wprowadź nazwę systemu.   
 
 > [!NOTE]
-> Administratora użytkownika w oprogramowaniu SAP Cloud Platform Authentication musi być typu **system**. Tworzenie normalnego użytkownika administratora może prowadzić do *nieautoryzowanych* błędów podczas aprowizacji.   
+> Administratora użytkownika w oprogramowaniu SAP Cloud Platform Authentication musi być typu **system** . Tworzenie normalnego użytkownika administratora może prowadzić do *nieautoryzowanych* błędów podczas aprowizacji.   
 
-3.  W obszarze Konfigurowanie autoryzacji przejdź na przycisk przełączania, aby **zarządzać użytkownikami** i **zarządzać grupami**.
+3.  W obszarze Konfigurowanie autoryzacji przejdź na przycisk przełączania, aby **zarządzać użytkownikami** i **zarządzać grupami** .
 
     ![Uwierzytelnianie tożsamości platformy SAP Cloud Platform Dodawanie Standard scim](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/configurationauth.png)
 
-4. Otrzymasz wiadomość e-mail umożliwiającą aktywowanie konta i Ustawianie hasła dla **usługi SAP Cloud Identity Authentication**.
+4. Otrzymasz wiadomość e-mail umożliwiającą aktywowanie konta i Ustawianie hasła dla **usługi SAP Cloud Identity Authentication** .
 
-4.  Skopiuj **Identyfikator użytkownika** i **hasło**. Te wartości zostaną wprowadzone w polach Nazwa użytkownika i hasło administratora odpowiednio na karcie aprowizacji aplikacji do uwierzytelniania tożsamości platformy SAP Cloud Platform w Azure Portal.
+4.  Skopiuj **Identyfikator użytkownika** i **hasło** . Te wartości zostaną wprowadzone w polach Nazwa użytkownika i hasło administratora odpowiednio na karcie aprowizacji aplikacji do uwierzytelniania tożsamości platformy SAP Cloud Platform w Azure Portal.
 
 ## <a name="add-sap-cloud-platform-identity-authentication-from-the-gallery"></a>Dodawanie uwierzytelniania tożsamości platformy SAP w chmurze z galerii
 
@@ -73,11 +73,11 @@ Przed skonfigurowaniem uwierzytelniania tożsamości platformy SAP w chmurze w c
 
 **Aby dodać uwierzytelnianie tożsamości platformy SAP w chmurze z galerii aplikacji usługi Azure AD, wykonaj następujące czynności:**
 
-1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
+1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory** .
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+2. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje** .
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -85,7 +85,7 @@ Przed skonfigurowaniem uwierzytelniania tożsamości platformy SAP w chmurze w c
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wprowadź **uwierzytelnianie tożsamości platformy w chmurze SAP**, wybierz pozycję **SAP Cloud Platform Identity Authentication** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wprowadź **uwierzytelnianie tożsamości platformy w chmurze SAP** , wybierz pozycję **SAP Cloud Platform Identity Authentication** w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![Aplikacja SAP Cloud Platform Identity Authentication na liście wyników](common/search-new-app.png)
 
@@ -94,37 +94,37 @@ Przed skonfigurowaniem uwierzytelniania tożsamości platformy SAP w chmurze w c
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w usłudze SAP Cloud Platform Authentication na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
 
 > [!TIP]
-> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML na potrzeby uwierzytelniania tożsamości platformy SAP w chmurze, postępując zgodnie z instrukcjami podanymi w [samouczku Logowanie jednokrotne w usłudze SAP Cloud Platform Authentication](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem
+> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML na potrzeby uwierzytelniania tożsamości platformy SAP w chmurze, postępując zgodnie z instrukcjami podanymi w [samouczku Logowanie jednokrotne w usłudze SAP Cloud Platform Authentication](./sap-hana-cloud-platform-identity-authentication-tutorial.md). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-cloud-platform-identity-authentication-in-azure-ad"></a>Aby skonfigurować automatyczną obsługę administracyjną uwierzytelniania tożsamości platformy SAP w chmurze w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje** .
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **SAP Cloud Platform Identity Authentication**.
+2. Na liście aplikacji wybierz pozycję **SAP Cloud Platform Identity Authentication** .
 
     ![Link do usługi SAP Cloud Platform Identity Authentication na liście Aplikacje](common/all-applications.png)
 
-3. Wybierz kartę **Aprowizacja**.
+3. Wybierz kartę **Aprowizacja** .
 
     ![Zrzut ekranu przedstawiający opcje zarządzania z opcją aprowizacji o nazwie out.](common/provisioning.png)
 
-4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
+4. Ustaw **Tryb aprowizacji** na **Automatyczny** .
 
     ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź `https://<tenantID>.accounts.ondemand.com/service/scim ` **adres URL dzierżawy**. Wprowadź odpowiednio wartości **identyfikatora użytkownika** i **hasła** pobrane wcześniej w polu **Nazwa użytkownika administratora** i **hasło administratora** . Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z uwierzytelnianiem tożsamości platformy SAP Cloud Platform. Jeśli połączenie nie powiedzie się, upewnij się, że konto uwierzytelniania tożsamości platformy SAP Cloud Platform ma uprawnienia administratora, a następnie spróbuj ponownie.
+5. W sekcji **poświadczenia administratora** wprowadź `https://<tenantID>.accounts.ondemand.com/service/scim ` **adres URL dzierżawy** . Wprowadź odpowiednio wartości **identyfikatora użytkownika** i **hasła** pobrane wcześniej w polu **Nazwa użytkownika administratora** i **hasło administratora** . Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z uwierzytelnianiem tożsamości platformy SAP Cloud Platform. Jeśli połączenie nie powiedzie się, upewnij się, że konto uwierzytelniania tożsamości platformy SAP Cloud Platform ma uprawnienia administratora, a następnie spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/testconnection.png)
 
-6. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria**.
+6. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru — **Wyślij powiadomienie e-mail, gdy wystąpi awaria** .
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz** .
 
-8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy do uwierzytelniania tożsamości platformy w chmurze SAP**.
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy do uwierzytelniania tożsamości platformy w chmurze SAP** .
 
     ![Mapowania użytkownika uwierzytelniania tożsamości platformy SAP Cloud Platform](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/mapping.png)
 
@@ -142,7 +142,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-13. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
+13. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz** .
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
@@ -154,7 +154,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 * Punkt końcowy Standard scim uwierzytelniania tożsamości platformy w chmurze SAP wymaga, aby pewne atrybuty miały określony format. Więcej informacji o tych atrybutach i ich konkretnym formacie można znaleźć [tutaj](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/b10fc6a9a37c488a82ce7489b1fab64c.html#).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
@@ -162,4 +162,3 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
-

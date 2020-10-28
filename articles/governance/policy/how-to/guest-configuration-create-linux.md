@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gości
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9d80ae44e5cc34ec3b3378f8ed4a68cc02464216
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542900"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676636"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -116,6 +116,9 @@ Zapisz ten plik o nazwie `linux-path.rb` w nowym folderze o nazwie `controls` we
 Na koniec Utwórz konfigurację, zaimportuj moduł zasobów **PSDesiredStateConfiguration** i skompiluj konfigurację.
 
 ```powershell
+# import PSDesiredStateConfiguration module
+import-module PSDesiredStateConfiguration
+
 # Define the configuration and import GuestConfiguration
 Configuration AuditFilePathExists
 {
@@ -131,7 +134,6 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
-import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
@@ -146,7 +148,7 @@ Teraz należy mieć strukturę projektu w następujący sposób:
     / Config
         AuditFilePathExists.mof
     / linux-path
-        linux-path.yml
+        inspec.yml
         / controls
             linux-path.rb 
 ```
@@ -237,7 +239,7 @@ Aby uruchomić polecenie publikowania, musisz mieć dostęp do tworzenia zasad n
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
-  -Path '.\policyDefinitions'
+  -Path './policies'
 ```
 
  `Publish-GuestConfigurationPolicy`Polecenie cmdlet akceptuje ścieżkę z potoku programu PowerShell. Ta funkcja oznacza, że można tworzyć pliki zasad i publikować je w pojedynczym zestawie poleceń potokowych.

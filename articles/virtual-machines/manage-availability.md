@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 11444fc599b46ceff90eda562d2fd557bcaf53b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9d9a9c878c96c7f5a38466c494e4b90287c984da
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961344"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92734938"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Zarządzanie dostępnością maszyn wirtualnych z systemem Linux
 
@@ -34,7 +34,7 @@ Istnieją trzy scenariusze, które mogą spowodować wpływ na maszynę wirtualn
 
 Aby zmniejszyć wpływ przestoju spowodowanego co najmniej jednym z tych zdarzeń, zalecamy zastosowanie następujących najlepszych rozwiązań zapewniających wysoką dostępność maszyn wirtualnych:
 
-* Używanie stref Availabiilty do ochrony przed awariami centrum danych
+* Używanie Strefy dostępności do ochrony przed awariami centrum danych
 * Konfigurowanie wielu maszyn wirtualnych w zestawie dostępności w celu zapewnienia nadmiarowości
 * Używanie dysków zarządzanych dla maszyn wirtualnych w zestawie dostępności
 * Używanie zaplanowanych zdarzeń do aktywnego reagowania na zdarzenia wpływające na maszynę wirtualną
@@ -46,7 +46,7 @@ Aby zmniejszyć wpływ przestoju spowodowanego co najmniej jednym z tych zdarze�
 
 [Strefy dostępności](../availability-zones/az-overview.md) rozszerzają poziom kontroli, aby zachować dostępność aplikacji i danych na maszynach wirtualnych. Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. Aby zapewnić odporność, istnieją co najmniej trzy oddzielne strefy we wszystkich włączonych regionach. Fizyczna separacja stref dostępności w ramach regionu chroni aplikacje i dane przed awariami centrum danych. Usługi strefowo nadmiarowe replikujeją aplikacje i dane między Strefy dostępności, aby chronić je przed awariami jednego punktu.
 
-Strefa dostępności w regionie świadczenia usługi Azure to kombinacja **domeny błędów** i **domeny aktualizacji**. Jeśli na przykład utworzysz trzy lub więcej maszyn wirtualnych w trzech strefach w regionie świadczenia usługi Azure, maszyny wirtualne będą rozproszone w trzech domenach błędów i trzech domenach aktualizacji. Platforma Azure rozpoznaje to rozproszenie w domenach aktualizacji, aby upewnić się, że maszyny wirtualne w różnych strefach nie są aktualizowane w tym samym czasie.
+Strefa dostępności w regionie świadczenia usługi Azure to kombinacja **domeny błędów** i **domeny aktualizacji** . Jeśli na przykład utworzysz trzy lub więcej maszyn wirtualnych w trzech strefach w regionie świadczenia usługi Azure, maszyny wirtualne będą rozproszone w trzech domenach błędów i trzech domenach aktualizacji. Platforma Azure rozpoznaje to rozproszenie w domenach aktualizacji, aby upewnić się, że maszyny wirtualne w różnych strefach nie są aktualizowane w tym samym czasie.
 
 Dzięki strefom dostępności platforma Azure oferuje najlepszą w branży umowę dotycząca poziomu usług (SLA) gwarantującą czas działania na poziomie 99,99%. Dzięki zaprojektowaniu rozwiązań do korzystania z replikowanych maszyn wirtualnych w strefach można chronić aplikacje i dane przed utratą centrum danych. W przypadku naruszenia zabezpieczeń jednej strefy zreplikowane aplikacje i dane są natychmiast dostępne w innej strefie.
 

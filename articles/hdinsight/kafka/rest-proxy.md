@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: a99c6412650cac565414817c91752ae85b8ad37d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8447eae4ea7234a7f47219cc81441650121b84ae
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539602"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676178"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Korzystanie z klastrów Apache Kafka w usłudze Azure HDInsight przy użyciu serwera proxy REST
 
-Serwer proxy REST Kafka umożliwia współdziałanie z klastrem Kafka za pośrednictwem interfejsu API REST za pośrednictwem protokołu HTTP. Ta akcja oznacza, że klienci Kafka mogą znajdować się poza siecią wirtualną. Klienci mogą tworzyć proste wywołania HTTP do klastra Kafka zamiast polegać na bibliotekach Kafka. W tym artykule przedstawiono sposób tworzenia klastra Kafka z włączonym serwerem proxy REST. Zawiera również przykładowy kod, który pokazuje, jak wykonywać wywołania do serwera proxy REST.
+Serwer proxy REST Kafka umożliwia współdziałanie z klastrem Kafka za pośrednictwem interfejsu API REST za pośrednictwem protokołu HTTPS. Ta akcja oznacza, że klienci Kafka mogą znajdować się poza siecią wirtualną. Klienci mogą wykonywać proste i bezpieczne wywołania HTTPS do klastra Kafka zamiast polegać na bibliotekach Kafka. W tym artykule przedstawiono sposób tworzenia klastra Kafka z włączonym serwerem proxy REST. Zawiera również przykładowy kod, który pokazuje, jak wykonywać wywołania do serwera proxy REST.
 
 ## <a name="rest-api-reference"></a>Dokumentacja interfejsu API REST
 
@@ -37,7 +37,7 @@ Tworzenie klastra Kafka usługi HDInsight z serwerem proxy REST tworzy nowy Publ
 
 Dostęp do serwera proxy REST Kafka jest zarządzany przy użyciu grup zabezpieczeń Azure Active Directory. Podczas tworzenia klastra Kafka Podaj grupę zabezpieczeń usługi Azure AD z dostępem do punktu końcowego REST. Kafka klientów, którzy potrzebują dostępu do serwera proxy REST, powinny być zarejestrowane dla tej grupy przez właściciela grupy. Właściciel grupy może rejestrować się za pośrednictwem portalu lub za pomocą programu PowerShell.
 
-W przypadku żądań punktu końcowego serwera proxy REST aplikacje klienckie powinny uzyskać token OAuth. Token jest używany do weryfikowania przynależności do grupy zabezpieczeń. Znajdź [przykład aplikacji klienckiej](#client-application-sample) , który pokazuje, jak uzyskać token OAuth. Aplikacja kliencka przekazuje token OAuth w żądaniu HTTP do serwera proxy REST.
+W przypadku żądań punktu końcowego serwera proxy REST aplikacje klienckie powinny uzyskać token OAuth. Token jest używany do weryfikowania przynależności do grupy zabezpieczeń. Znajdź [przykład aplikacji klienckiej](#client-application-sample) , który pokazuje, jak uzyskać token OAuth. Aplikacja kliencka przekazuje token OAuth w żądaniu HTTPS do serwera proxy REST.
 
 > [!NOTE]
 > Zobacz [Zarządzanie dostępem do aplikacji i zasobów przy użyciu grup Azure Active Directory](../../active-directory/fundamentals/active-directory-manage-groups.md), aby dowiedzieć się więcej na temat grup zabezpieczeń usługi AAD. Aby uzyskać więcej informacji na temat działania tokenów OAuth, zobacz [Autoryzuj dostęp do aplikacji sieci web Azure Active Directory przy użyciu przepływu przyznawania kodu OAuth 2,0](../../active-directory/azuread-dev/v1-protocols-oauth-code.md).

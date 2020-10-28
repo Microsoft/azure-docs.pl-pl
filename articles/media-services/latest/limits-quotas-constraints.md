@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: b1836b1d0dc69a2a0b186a54974895eb0d8cd91a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6ca7a444f2a3d4babe220548edb10bd37784be7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265494"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678119"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Przydziały i limity Azure Media Services
@@ -32,7 +32,7 @@ W tym artykule wymieniono niektóre z najczęstszych limitów Microsoft Azure Me
 
 | Zasób | Limit domyślny |
 | --- | --- |
-| [Media Services kont](media-services-account-concept.md) w ramach jednej subskrypcji | 25 (stały) |
+| [Media Services kont](media-services-account-concept.md) w ramach jednej subskrypcji | 100 (stałe) |
 
 ## <a name="asset-limits"></a>Limity zasobów
 
@@ -90,7 +90,7 @@ Każdy rekord zadania na koncie starszej niż 90 dni zostanie automatycznie usun
 
 | Zasób | Limit domyślny |
 | --- | --- |
-| [Punkty końcowe przesyłania strumieniowego](streaming-endpoint-concept.md) (zatrzymane lub uruchomione) dla konta Media Services|2 |
+| [Punkty końcowe przesyłania strumieniowego](streaming-endpoint-concept.md) (zatrzymane lub uruchomione) dla konta Media Services | 2 |
 | Jednostki przesyłania strumieniowego Premium | 10 |
 | [Filtry manifestów dynamicznych](filters-dynamic-manifest-overview.md)|100|
 | [Zasady przesyłania strumieniowego](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
@@ -102,9 +102,9 @@ Każdy rekord zadania na koncie starszej niż 90 dni zostanie automatycznie usun
 
 ## <a name="protection-limits"></a>Limity ochrony
 
-| Zasób | Limit domyślny | 
-| --- | --- | 
-| Opcje dla [zasad klucza zawartości](content-key-policy-concept.md) |30 | 
+| Zasób | Limit domyślny |
+| --- | --- |
+| Opcje dla [zasad klucza zawartości](content-key-policy-concept.md) |30 |
 | Licencje na miesiąc dla każdego z typów DRM w usłudze Media Services Key Delivery na konto|1 000 000|
 
 ## <a name="support-ticket"></a>Bilet pomocy technicznej

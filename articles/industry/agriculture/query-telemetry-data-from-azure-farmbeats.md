@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
-ms.openlocfilehash: f717903b3f953e04c793092c86802f2006de7e82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9067e2f78c8098d4a21263ac89caf03da631274
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80349807"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677479"
 ---
 # <a name="query-ingested-telemetry-data"></a>Dane telemetryczne pozyskiwane z zapytań
 
@@ -24,7 +24,7 @@ Przed przejściem do tego artykułu upewnij się, że zainstalowano FarmBeats i 
 
 Aby pozyskać dane telemetryczne czujnika, odwiedź stronę pozyskiwania [danych telemetrycznych](ingest-historical-telemetry-data-in-azure-farmbeats.md)
 
-Przed kontynuowaniem musisz upewnić się, że znasz interfejsy API REST FarmBeats, ponieważ będziesz wykonywać zapytania dotyczące pozyskanych danych telemetrycznych za pomocą interfejsów API. Aby uzyskać więcej informacji na temat interfejsów API FarmBeats, zobacz [FarmBeats API REST](rest-api-in-azure-farmbeats.md). **Upewnij się, że możesz wykonywać żądania interfejsu API w punkcie końcowym usługi FarmBeats Datahub**.
+Przed kontynuowaniem musisz upewnić się, że znasz interfejsy API REST FarmBeats, ponieważ będziesz wykonywać zapytania dotyczące pozyskanych danych telemetrycznych za pomocą interfejsów API. Aby uzyskać więcej informacji na temat interfejsów API FarmBeats, zobacz [FarmBeats API REST](rest-api-in-azure-farmbeats.md). **Upewnij się, że możesz wykonywać żądania interfejsu API w punkcie końcowym usługi FarmBeats Datahub** .
 
 ## <a name="query-ingested-sensor-telemetry-data"></a>Kwerenda pozyskiwania danych telemetrycznych czujnika
 
@@ -111,12 +111,12 @@ W powyższym przykładzie odpowiedzi dane telemetryczne czujnika są dostępne d
 
 FarmBeats wykorzystuje [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) do pozyskiwania, przechowywania, wykonywania zapytań i wizualizacji danych w skali IoT — dane, które są wysoce kontekstowe i zoptymalizowane pod kątem szeregów czasowych.
 
-Dane telemetryczne są odbierane w centrum EventHub, a następnie przetwarzane i wypychane do środowiska TSI w ramach grupy zasobów FarmBeats. Dane mogą następnie być wysyłane bezpośrednio z TSI. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer) .
+Dane telemetryczne są odbierane w centrum EventHub, a następnie przetwarzane i wypychane do środowiska TSI w ramach grupy zasobów FarmBeats. Dane mogą następnie być wysyłane bezpośrednio z TSI. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą TSI](../../time-series-insights/time-series-insights-explorer.md) .
 
 Postępuj zgodnie z instrukcjami, aby wizualizować dane w ramach TSI:
 
-1. Przejdź do **Azure Portal**  >  **grupy zasobów FarmBeats DataHub** w witrynie Azure Portal, > Wybierz środowisko **Time Series Insights** Environment (TSI-xxxx) > **zasad dostępu do danych**. Dodaj użytkownika z dostępem czytelnika lub współautorem.
-2. Przejdź do strony **Przegląd** środowiska **Time Series Insights** (TSI-xxxx) i wybierz **adres URL Eksploratora Time Series Insights**. Teraz będzie można wizualizować pozyskiwaną telemetrię.
+1. Przejdź do **Azure Portal**  >  **grupy zasobów FarmBeats DataHub** w witrynie Azure Portal, > Wybierz środowisko **Time Series Insights** Environment (TSI-xxxx) > **zasad dostępu do danych** . Dodaj użytkownika z dostępem czytelnika lub współautorem.
+2. Przejdź do strony **Przegląd** środowiska **Time Series Insights** (TSI-xxxx) i wybierz **adres URL Eksploratora Time Series Insights** . Teraz będzie można wizualizować pozyskiwaną telemetrię.
 
 Oprócz przechowywania, wykonywania zapytań i wizualizacji danych telemetrycznych, TSI również umożliwia integrację z pulpitem nawigacyjnym Power BI. Aby uzyskać więcej informacji, zobacz [tutaj]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
 

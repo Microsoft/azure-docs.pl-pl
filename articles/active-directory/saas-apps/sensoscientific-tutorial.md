@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 61807f90caad9e6be2a25e54dcaa837595afc729
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27512ac694f20544f1fdd5b79b27d7bf2cabdd66
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543180"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675490"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Samouczek: integracja Azure Active Directory z systemem monitorowania temperatury sieci bezprzewodowej SensoScientific
 
@@ -27,7 +27,7 @@ Integracja systemu monitorowania temperatury bezprzewodowej SensoScientific z us
 * Możesz pozwolić użytkownikom na automatyczne logowanie do SensoScientific systemu monitorowania temperatury sieci bezprzewodowej (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -49,11 +49,11 @@ Aby skonfigurować integrację systemu monitorowania temperatury sieci bezprzewo
 
 **Aby dodać system monitorowania temperatury sieci bezprzewodowej SensoScientific z galerii, wykonaj następujące czynności:**
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
+1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory** .
 
     ![Przycisk Azure Active Directory](common/select-azuread.png)
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
+2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje** .
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Aby skonfigurować integrację systemu monitorowania temperatury sieci bezprzewo
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **SensoScientific system monitorowania temperatury sieci bezprzewodowej**, wybierz pozycję **SensoScientific system monitorowania temperatury bezprzewodowej** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+4. W polu wyszukiwania wpisz **SensoScientific system monitorowania temperatury sieci bezprzewodowej** , wybierz pozycję **SensoScientific system monitorowania temperatury bezprzewodowej** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
     ![System monitorowania temperatury bezprzewodowej SensoScientific na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji należy skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu systemu monitorowania temperatury sieci bezprzewodowej SensoScientific na podstawie użytkownika testowego o nazwie **Britta Simon**.
+W tej sekcji należy skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu systemu monitorowania temperatury sieci bezprzewodowej SensoScientific na podstawie użytkownika testowego o nazwie **Britta Simon** .
 Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w systemie monitorowania temperatury sieci bezprzewodowej SensoScientific.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD przy użyciu systemu monitorowania temperatury bezprzewodowej SensoScientific, należy wykonać następujące bloki konstrukcyjne:
@@ -85,15 +85,15 @@ W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure 
 
 Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu systemu monitorowania temperatury bezprzewodowej SensoScientific, wykonaj następujące czynności:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **systemu monitorowania temperatury bezprzewodowej SensoScientific** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **systemu monitorowania temperatury bezprzewodowej SensoScientific** wybierz pozycję **Logowanie jednokrotne** .
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
+2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed** , aby włączyć logowanie jednokrotne.
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
+3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj** , aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML** .
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -101,7 +101,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu systemu m
 
     ![SensoScientific sieci bezprzewodowej monitorowania temperatury i adresów URL logowania jednokrotnego](common/preintegrated.png)
 
-5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
+5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz** , aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -133,13 +133,13 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu systemu m
 
     e. Przejrzyj certyfikat pobrany z Azure Portal i przekaż go tutaj.
 
-    f. Kliknij przycisk **Zapisz**.
+    f. Kliknij pozycję **Zapisz** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
 W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory** , wybierz opcję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
@@ -151,31 +151,31 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Okno dialogowe Użytkownik](common/user-properties.png)
 
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
+    a. W polu **Nazwa** wprowadź **BrittaSimon** .
   
     b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do systemu monitorowania temperatury SensoScientific bezprzewodowej.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **SensoScientific system monitorowania temperatury sieci bezprzewodowej**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz pozycję **wszystkie aplikacje** , a następnie wybierz pozycję **SensoScientific system monitorowania temperatury sieci bezprzewodowej** .
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **SensoScientific system monitorowania temperatury sieci bezprzewodowej**.
+2. Na liście Aplikacje wybierz pozycję **SensoScientific system monitorowania temperatury sieci bezprzewodowej** .
 
     ![Łącze systemu monitorowania temperatury bezprzewodowej SensoScientific na liście aplikacji](common/all-applications.png)
 
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
+3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy** .
 
     ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
+4. Kliknij przycisk **Dodaj użytkownika** , a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania** .
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
@@ -183,23 +183,22 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
+7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
 ### <a name="create-sensoscientific-wireless-temperature-monitoring-system-test-user"></a>Utwórz użytkownika testowego systemu monitorowania temperatury sieci bezprzewodowej SensoScientific
 
-Aby umożliwić użytkownikom usługi Azure AD logowanie się w systemie monitorowania temperatury bezprzewodowej SensoScientific, muszą one być obsługiwane w systemie monitorowania temperatury sieci bezprzewodowej SensoScientific. Współpraca z [zespołem pomocy technicznej systemu monitorowania temperatury bezprzewodowej SensoScientific](https://www.sensoscientific.com/contact-us/),   Aby dodać użytkowników na platformie systemu monitorowania temperatury bezprzewodowej SensoScientific. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+Aby umożliwić użytkownikom usługi Azure AD logowanie się w systemie monitorowania temperatury bezprzewodowej SensoScientific, muszą one być obsługiwane w systemie monitorowania temperatury sieci bezprzewodowej SensoScientific. Współpraca z [zespołem pomocy technicznej systemu monitorowania temperatury bezprzewodowej SensoScientific](https://www.sensoscientific.com/contact-us/) , aby dodać użytkowników na platformie systemu monitorowania temperatury bezprzewodowej SensoScientific. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka system monitorowania temperatury bezprzewodowej SensoScientific w panelu dostępu należy automatycznie zalogować się do systemu monitorowania temperatury sieci SensoScientific, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka system monitorowania temperatury bezprzewodowej SensoScientific w panelu dostępu należy automatycznie zalogować się do systemu monitorowania temperatury sieci SensoScientific, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
 
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

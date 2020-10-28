@@ -3,13 +3,13 @@ title: 'Szybki Start: Tworzenie grupy zarządzania przy użyciu języka JavaScri
 description: W tym przewodniku szybki start utworzysz grupę zarządzania w celu zorganizowania zasobów w hierarchii zasobów przy użyciu języka JavaScript.
 ms.date: 09/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7a234a6619eafd650451ae5d6bce37388c824f33
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: devx-track-js
+ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91604674"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676221"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Szybki Start: Tworzenie grupy zarządzania przy użyciu języka JavaScript
 
@@ -90,7 +90,7 @@ Aby włączyć JavaScript do tworzenia zapytań dotyczących grafu zasobów plat
    node index.js --groupID "<NEW_MG_GROUP_ID>" --displayName "<NEW_MG_FRIENDLY_NAME>"
    ```
 
-   Pamiętaj, aby zastąpić każdy `<>` symbol zastępczy tokenu _identyfikatorem grupy zarządzania_ i _przyjazną nazwą grupy zarządzania_.
+   Pamiętaj, aby zastąpić każdy `<>` symbol zastępczy tokenu _identyfikatorem grupy zarządzania_ i _przyjazną nazwą grupy zarządzania_ .
 
    Po próbie uwierzytelnienia skryptu w terminalu zostanie wyświetlony komunikat podobny do następującego:
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c670c011f911e9b27f1280800508124d32e696cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19a9abe3a03a384a69950a8ed9b63353e6e36588
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489847"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676269"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Szybki Start: kierowanie zdarzeń magazynu do punktu końcowego sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -24,7 +24,7 @@ Zazwyczaj użytkownik wysyła zdarzenia do punktu końcowego, w którym następu
 
 Po wykonaniu czynności opisanych w tym artykule dane powinny zostać wysłane do aplikacji internetowej.
 
-![Wyświetlanie zdarzenia subskrypcji](./media/storage-blob-event-quickstart/view-results.png)
+![Zrzut ekranu przedstawiający Podgląd Azure Event Grid wyświetlający dane zdarzeń, które zostały wysłane do aplikacji sieci Web.](./media/storage-blob-event-quickstart/view-results.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,7 +40,7 @@ Tematy usługi Event Grid to zasoby platformy Azure i muszą być umieszczone w 
 
 Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group). 
 
-Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `<resource_group_name>` w lokalizacji *westcentralus*.  Zamień `<resource_group_name>` na unikatową nazwę grupy zasobów.
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `<resource_group_name>` w lokalizacji *westcentralus* .  Zamień `<resource_group_name>` na unikatową nazwę grupy zasobów.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westcentralus

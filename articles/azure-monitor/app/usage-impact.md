@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7393c36099795bbc989ae4b690100284d53f08e5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323710"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678385"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analiza wpływu za pomocą Application Insights
 
-Wpływ analizuje, jak czasy ładowania i inne właściwości wpływają na szybkość konwersji dla różnych części aplikacji. Aby dokładniej wprowadzić ten element, wykrywa on, jak **każdy wymiar** **widoku strony**, **zdarzenia niestandardowe**lub **żądanie** ma wpływ na użycie innego **widoku strony** lub **zdarzenia niestandardowego**. 
+Wpływ analizuje, jak czasy ładowania i inne właściwości wpływają na szybkość konwersji dla różnych części aplikacji. Aby dokładniej wprowadzić ten element, wykrywa on, jak **każdy wymiar** **widoku strony** , **zdarzenia niestandardowe** lub **żądanie** ma wpływ na użycie innego **widoku strony** lub **zdarzenia niestandardowego** . 
 
 ![Narzędzie do wpływu](./media/usage-impact/0001-impact.png)
 
@@ -36,10 +36,10 @@ Jednak analizowanie wydajności jest tylko podzbiorem możliwości. Ze względu 
 
 Aby zacząć odpowiadać na pytania za pomocą narzędzia do obsługi, wybierz początkowy widok strony, zdarzenie niestandardowe lub żądanie.
 
-![Narzędzie do wpływu](./media/usage-impact/0002-dropdown.png)
+![Zrzut ekranu pokazujący, gdzie wybrać początkowy widok strony, zdarzenie niestandardowe lub żądanie.](./media/usage-impact/0002-dropdown.png)
 
 1. Wybierz widok strony z listy rozwijanej **dla widoku strony** .
-2. Pozostaw listę rozwijaną, w **jaki sposób** zostanie ona rozwinięta, w domyślnym wyborze **czasu trwania** (w tym **czasie trwania** kontekstu jest alias **czasu ładowania strony**).
+2. Pozostaw listę rozwijaną, w **jaki sposób** zostanie ona rozwinięta, w domyślnym wyborze **czasu trwania** (w tym **czasie trwania** kontekstu jest alias **czasu ładowania strony** ).
 3. Aby uzyskać **wpływ na użycie** listy rozwijanej, wybierz zdarzenie niestandardowe. To zdarzenie powinno odpowiadać elementowi interfejsu użytkownika w widoku strony wybranym w kroku 1.
 
 ![Zrzut ekranu przedstawiający wyniki](./media/usage-impact/0003-results.png)
@@ -65,18 +65,18 @@ W obszarze okapu narzędzie do wpływu zależy od [współczynnika korelacji Pea
 
 Podstawowe informacje na temat sposobu działania analizy wpływu są następujące:
 
-Zezwól _na to_ , aby widok strony głównej/zdarzenie niestandardowe/żądanie wybrane w pierwszej liście rozwijanej. (**W przypadku widoku strony**).
+Zezwól _na to_ , aby widok strony głównej/zdarzenie niestandardowe/żądanie wybrane w pierwszej liście rozwijanej. ( **W przypadku widoku strony** ).
 
-Zezwól _B_ = widok strony dodatkowej/wybrane zdarzenie niestandardowe (**wpływ na użycie**).
+Zezwól _B_ = widok strony dodatkowej/wybrane zdarzenie niestandardowe ( **wpływ na użycie** ).
 
-Wpływ na próbkę wszystkich sesji od użytkowników w wybranym zakresie czasu. Dla każdej sesji szuka każdego wystąpienia _A_.
+Wpływ na próbkę wszystkich sesji od użytkowników w wybranym zakresie czasu. Dla każdej sesji szuka każdego wystąpienia _A_ .
 
 Sesje są podzielone na dwa różne rodzaje _podsesji_ w oparciu o jeden z dwóch warunków:
 
-- Przekonwertowane podsesja składa się z sesji kończącej się na zdarzeniu _b_ i _obejmuje wszystkie zdarzenia, które_ wystąpiły przed _B_.
-- Nieskonwertowane podsesja _występuje, gdy wszystkie wystąpienia_wystąpią bez terminalu _B_.
+- Przekonwertowane podsesja składa się z sesji kończącej się na zdarzeniu _b_ i _obejmuje wszystkie zdarzenia, które_ wystąpiły przed _B_ .
+- Nieskonwertowane podsesja _występuje, gdy wszystkie wystąpienia_ wystąpią bez terminalu _B_ .
 
-Sposób obliczenia wpływu jest różny w zależności od tego, czy analizujemy według metryki, czy przez wymiar. Dla metryk wszystkie _a_w podsesji są uśredniane. W odniesieniu do wymiarów każda wartość _A_ składa się z _1/N_ do wartości przypisanej do _B_ , gdzie _N_ to _Liczba w_podsesji.
+Sposób obliczenia wpływu jest różny w zależności od tego, czy analizujemy według metryki, czy przez wymiar. Dla metryk wszystkie _a_ w podsesji są uśredniane. W odniesieniu do wymiarów każda wartość _A_ składa się z _1/N_ do wartości przypisanej do _B_ , gdzie _N_ to _Liczba w_ podsesji.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -84,7 +84,7 @@ Sposób obliczenia wpływu jest różny w zależności od tego, czy analizujemy 
 - Jeśli masz już wysłane zdarzenia niestandardowe lub widoki stron, zapoznaj się z narzędziami użycia, aby dowiedzieć się, jak użytkownicy korzystają z usługi.
     - [Lejki](usage-funnels.md)
     - [Przechowywanie](usage-retention.md)
-    - [Przepływy użytkownika](usage-flows.md)
+    - [Przepływy użytkowników](usage-flows.md)
     - [Skoroszyty](../platform/workbooks-overview.md)
     - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
 

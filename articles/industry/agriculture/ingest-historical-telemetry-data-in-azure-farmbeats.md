@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1bee00261cd96f61a39389f31a52109f4e64b5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510270"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675813"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Pozyskiwanie historycznych danych telemetrycznych
 
@@ -19,7 +19,7 @@ W tym artykule opisano sposób pozyskiwania historycznych danych czujników do u
 
 Pozyskiwanie danych historycznych z zasobów Internet rzeczy (IoT), takich jak urządzenia i czujniki, jest typowym scenariuszem w FarmBeats. Tworzysz metadane dla urządzeń i czujników, a następnie pozyskasz dane historyczne do FarmBeats w postaci kanonicznej.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Przed przejściem do tego artykułu upewnij się, że zainstalowano FarmBeats i zebrano dane historyczne z urządzeń IoT. Należy również włączyć dostęp partnera, jak wspomniano w poniższych krokach.
 
@@ -46,13 +46,13 @@ Wykonaj następujące kroki:
 
       b. Wybierz **rejestrację aplikacji** , która została utworzona w ramach wdrożenia FarmBeats. Ma taką samą nazwę jak FarmBeats datahub.
 
-      c. Wybierz opcję **Uwidacznianie interfejsu API** > wybierz pozycję **Dodaj aplikację kliencką** i wprowadź **04b07795-8ddb-461a-bbee-02f9e1bf7b46** i sprawdź **zakres autoryzacji**. Umożliwi to dostęp do interfejsu wiersza polecenia platformy Azure (Cloud Shell) w celu wykonania poniższych czynności:
+      c. Wybierz opcję **Uwidacznianie interfejsu API** > wybierz pozycję **Dodaj aplikację kliencką** i wprowadź **04b07795-8ddb-461a-bbee-02f9e1bf7b46** i sprawdź **zakres autoryzacji** . Umożliwi to dostęp do interfejsu wiersza polecenia platformy Azure (Cloud Shell) w celu wykonania poniższych czynności:
 
 3. Otwórz usługę Cloud Shell. Ta opcja jest dostępna na pasku narzędzi w prawym górnym rogu Azure Portal.
 
     ![Azure Portal pasek narzędzi](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. Upewnij się, że środowisko jest ustawione na **PowerShell**. Domyślnie jest ono ustawione na bash.
+4. Upewnij się, że środowisko jest ustawione na **PowerShell** . Domyślnie jest ono ustawione na bash.
 
     ![Ustawienie paska narzędzi programu PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -70,13 +70,13 @@ Wykonaj następujące kroki:
 
 7. Uruchom następujące polecenie. Spowoduje to pobranie skryptu do katalogu macierzystego.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive 
 
     wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
     ```
 
-8. Uruchom poniższy skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze **Azure Active Directory**  >  strony**Przegląd** Azure Active Directory.
+8. Uruchom poniższy skrypt. Skrypt monituje o podanie identyfikatora dzierżawy, który można uzyskać ze **Azure Active Directory**  >  strony **Przegląd** Azure Active Directory.
 
     ```azurepowershell-interactive
 
@@ -84,7 +84,7 @@ Wykonaj następujące kroki:
 
     ```
 
-9. Postępuj zgodnie z instrukcjami na ekranie, aby przechwycić wartości dla **punktów końcowych interfejsu API**, **identyfikatora dzierżawy**, **identyfikatora klienta**, **klucza tajnego klienta**i **parametrów połączenia centrum EventHub**.
+9. Postępuj zgodnie z instrukcjami na ekranie, aby przechwycić wartości dla **punktów końcowych interfejsu API** , **identyfikatora dzierżawy** , **identyfikatora klienta** , **klucza tajnego klienta** i **parametrów połączenia centrum EventHub** .
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Tworzenie metadanych urządzenia lub czujnika
@@ -96,10 +96,10 @@ Wykonaj następujące kroki:
  > [!NOTE]
  > Jako partner masz dostęp tylko do odczytu, tworzenia i aktualizowania metadanych; **Opcja usuwania jest ograniczona do partnera.**
 
-- /**DeviceModel**: DeviceModel odpowiada metadanych urządzenia, takich jak producent i typ urządzenia, który jest bramą lub węzłem.
-- /**Urządzenie**: urządzenie odpowiada urządzeniu fizycznemu znajdującemu się w farmie.
-- /**SensorModel**: SensorModel odpowiada metadanych czujnika, takich jak producent, typ czujnika, który jest analogowy lub cyfrowy i pomiar czujnika, taki jak temperatura otoczenia i ciśnienie.
-- /**Czujnik**: czujnik odnosi się do czujnika fizycznego, który rejestruje wartości. Czujnik jest zwykle podłączony do urządzenia z IDENTYFIKATORem urządzenia.
+- /**DeviceModel** : DeviceModel odpowiada metadanych urządzenia, takich jak producent i typ urządzenia, który jest bramą lub węzłem.
+- /**Urządzenie** : urządzenie odpowiada urządzeniu fizycznemu znajdującemu się w farmie.
+- /**SensorModel** : SensorModel odpowiada metadanych czujnika, takich jak producent, typ czujnika, który jest analogowy lub cyfrowy i pomiar czujnika, taki jak temperatura otoczenia i ciśnienie.
+- /**Czujnik** : czujnik odnosi się do czujnika fizycznego, który rejestruje wartości. Czujnik jest zwykle podłączony do urządzenia z IDENTYFIKATORem urządzenia.
 
 
 |        DeviceModel   |  Sugestie   |
@@ -148,7 +148,7 @@ Aby uzyskać więcej informacji na temat obiektów, zobacz [Swagger](https://aka
 
 Aby wykonać żądanie interfejsu API, należy połączyć metodę HTTP (POST), adres URL usługi interfejsu API i identyfikator URI zasobu do wysłania zapytania, przesłać dane do żądania, utworzyć lub usunąć żądanie. Następnie dodasz co najmniej jeden nagłówek żądania HTTP. Adres URL usługi interfejsu API to punkt końcowy interfejsu API, czyli adres URL Datahub (https:// \<yourdatahub> . azurewebsites.NET).
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 FarmBeats Datahub używa uwierzytelniania okaziciela, który wymaga następujących poświadczeń, które zostały wygenerowane w poprzedniej sekcji:
 
@@ -192,9 +192,9 @@ access_token = token_response.get('access_token')
 
 Poniżej znajdują się najczęstsze nagłówki żądań, które muszą zostać określone podczas wywołania interfejsu API FarmBeats Datahub:
 
-- **Content-Type**: Application/JSON
-- **Autoryzacja**: <okaziciela Access-Token>
-- **Akceptuj**: Application/JSON
+- **Content-Type** : Application/JSON
+- **Autoryzacja** : <okaziciela Access-Token>
+- **Akceptuj** : Application/JSON
 
 ### <a name="input-payload-to-create-metadata"></a>Ładunek wejściowy do tworzenia metadanych
 
@@ -336,7 +336,7 @@ Teraz, po utworzeniu urządzeń i czujników w FarmBeats, można wysłać skojar
 
 ### <a name="create-a-telemetry-client"></a>Tworzenie klienta telemetrii
 
-Musisz wysłać dane telemetryczne do usługi Azure Event Hubs w celu przetworzenia. Azure Event Hubs to usługa, która umożliwia pozyskiwanie danych w czasie rzeczywistym z połączonych urządzeń i aplikacji. Aby wysłać dane telemetryczne do FarmBeats, należy utworzyć klienta wysyłającego komunikaty do centrum zdarzeń w FarmBeats. Aby uzyskać więcej informacji na temat wysyłania telemetrii, zobacz [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+Musisz wysłać dane telemetryczne do usługi Azure Event Hubs w celu przetworzenia. Azure Event Hubs to usługa, która umożliwia pozyskiwanie danych w czasie rzeczywistym z połączonych urządzeń i aplikacji. Aby wysłać dane telemetryczne do FarmBeats, należy utworzyć klienta wysyłającego komunikaty do centrum zdarzeń w FarmBeats. Aby uzyskać więcej informacji na temat wysyłania telemetrii, zobacz [Azure Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>Wyślij komunikat telemetrii jako klienta
 
@@ -431,9 +431,9 @@ Oto przykład komunikatu telemetrii:
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Nie można wyświetlić danych telemetrycznych po pozyskaniu danych historycznych/przesyłanych strumieniowo z czujników
 
-**Objaw**: wdrożono urządzenia lub czujniki, a w usłudze EventHub zostały utworzone urządzenia/czujniki dotyczące FarmBeats i pozyskiwanej telemetrii, ale nie można uzyskać ani wyświetlić danych telemetrycznych w FarmBeats.
+**Objaw** : wdrożono urządzenia lub czujniki, a w usłudze EventHub zostały utworzone urządzenia/czujniki dotyczące FarmBeats i pozyskiwanej telemetrii, ale nie można uzyskać ani wyświetlić danych telemetrycznych w FarmBeats.
 
-**Działanie naprawcze**:
+**Działanie naprawcze** :
 
 1. Upewnij się, że wykonano odpowiednią rejestrację partnera — możesz to sprawdzić, przechodząc do datahub Swagger, przejdź do interfejsu API/partner, a następnie wybierz pozycję Pobierz i sprawdź, czy partner został zarejestrowany. Jeśli nie, wykonaj [kroki opisane tutaj](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) , aby dodać partnera.
 

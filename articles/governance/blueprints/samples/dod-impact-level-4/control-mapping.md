@@ -1,20 +1,20 @@
 ---
 title: Poziom wpływu 4 — przykładowe kontrolki planu
 description: Sterowanie mapowaniem przykładu planu wpływu na poziom 4. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
-ms.date: 09/17/2020
+ms.date: 10/26/2020
 ms.topic: sample
-ms.openlocfilehash: 433e77775fdd28032db27c017fe370ab32074a95
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 376ddd68373026a93eaf08774cee0a1f8ce06bec
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929527"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675728"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Sterowanie mapowaniem przykładu planu wpływu na poziom DoD 4
 
 W tym artykule szczegółowo przedstawiono sposób, w jaki dział planu usługi Azure planuje wpływ obrony na poziom 4 (DoD IL4) jest mapowany na kontrolki poziomu 4. Aby uzyskać więcej informacji na temat kontrolek, zobacz [dod Cloud obliczeniowe Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). Agencja ds. systemów informatycznych (DISA) jest agencją Departamentu Obrony Stanów Zjednoczonych (DoD), która jest odpowiedzialna za opracowywanie i utrzymywanie przewodnika dotyczącego wymagań w zakresie zabezpieczeń w chmurze DoD (SRG). SRG definiuje podstawowe wymagania dotyczące zabezpieczeń dla dostawców usług w chmurze (CSP), którzy hostią informacje, systemy i aplikacje, oraz do korzystania z usług w chmurze w wysokości DoD.  
 
-Następujące mapowania są przyłączone do formantów **poziomu wpływu na wartość dod 4** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję ** \[ zapoznawczą \] : poziom wpływu na 4** .
+Następujące mapowania są przyłączone do formantów **poziomu wpływu na wartość dod 4** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję **\[ zapoznawczą \] : poziom wpływu na 4** .
 
 > [!IMPORTANT]
 > Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../../../policy/overview.md) . Te zasady mogą pomóc w [ocenie zgodności](../../../policy/how-to/get-compliance-data.md) z kontrolką; jednak często nie jest to jeden lub kompletny odpowiednik między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy odnosi się tylko do samych zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między kontrolkami i definicjami Azure Policy dla tego przykładowego planu zgodności mogą ulec zmianie z upływem czasu. Aby wyświetlić historię zmian, zobacz [historię zatwierdzeń usługi GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).

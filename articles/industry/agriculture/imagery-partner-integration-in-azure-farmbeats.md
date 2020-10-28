@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 430907f43fb40f0ee24505bdc366a98a49f23b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82613289"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675935"
 ---
 # <a name="imagery-partner-integration"></a>Integracja z partnerami obsługującymi obrazy
 
@@ -41,11 +41,11 @@ Aby połączyć FarmBeats, należy użyć następujących poświadczeń w oprogr
 
 Interfejsy API zawierają dokumentację techniczną struktury Swagger. Aby uzyskać informacje o interfejsach API i odpowiadających im żądania lub odpowiedzi, zobacz [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
-FarmBeats używa [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) Microsoft Azure (Azure AD). Azure App Service zapewnia wbudowaną obsługę uwierzytelniania i autoryzacji. 
+FarmBeats używa [Active Directory](../../app-service/overview-authentication-authorization.md) Microsoft Azure (Azure AD). Azure App Service zapewnia wbudowaną obsługę uwierzytelniania i autoryzacji. 
 
-Aby uzyskać więcej informacji na temat usługi Azure AD, zobacz [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
+Aby uzyskać więcej informacji na temat usługi Azure AD, zobacz [Azure Active Directory](../../app-service/overview-authentication-authorization.md).   
 
 FarmBeats Datahub używa uwierzytelniania okaziciela, które wymaga następujących poświadczeń:
 
@@ -138,10 +138,10 @@ Gdy partner ma poświadczenia, aby nawiązać połączenie z usługą FarmBeats 
 
 1.  Utwórz nowy typ rozszerzony dla następujących pól, zgodnie z typem obrazów do załadowania:
 
-    - **Źródło sceny**: na przykład drone_partner_name
-    - **Typ sceny**: na przykład drona
-    - **Typ pliku sceny**: na przykład indeks CHLOROPHYLL
-    - **Typ zawartości pliku sceny**: na przykład Image/TIFF
+    - **Źródło sceny** : na przykład drone_partner_name
+    - **Typ sceny** : na przykład drona
+    - **Typ pliku sceny** : na przykład indeks CHLOROPHYLL
+    - **Typ zawartości pliku sceny** : na przykład Image/TIFF
 
 2.  Wywołaj interfejs API/Farms, aby uzyskać listę Farm z systemu Azure FarmBeats.
 3.  Zapewnij klientowi możliwość wyboru pojedynczej farmy z listy Farm.

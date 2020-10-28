@@ -4,16 +4,16 @@ description: Dowiedz się, jak używać języka Java i JDBC z Azure Database for
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 1cc9d8bf253a7282a5893af75b5e2ed71b3ab4b6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 402e69606196ecb1030023c49fa5afefd31b9e94
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490156"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92734980"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Używanie języka Java i JDBC z Azure Database for PostgreSQL
 
@@ -166,7 +166,7 @@ password=$AZ_POSTGRESQL_PASSWORD
 
 ### <a name="create-an-sql-file-to-generate-the-database-schema"></a>Utwórz plik SQL, aby wygenerować schemat bazy danych
 
-Użyjemy *src/Main/sources `schema.sql` * , aby utworzyć schemat bazy danych. Utwórz ten plik z następującą zawartością:
+Użyjemy *src/Main/sources `schema.sql`* , aby utworzyć schemat bazy danych. Utwórz ten plik z następującą zawartością:
 
 ```sql
 DROP TABLE IF EXISTS todo;

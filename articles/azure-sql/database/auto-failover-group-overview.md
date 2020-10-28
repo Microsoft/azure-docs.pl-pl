@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c64112e30bdaf0da2218177bd2737c3ebe688b0c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627231"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675289"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Ponadto grupy autotrybu failover udostępniają punkty końcowe odbiornika do od
 
 W przypadku korzystania z grup automatycznych trybu failover z automatycznymi zasadami trybu failover wszelkie awarie, które mają wpływ na bazy danych na serwerze lub wystąpieniu zarządzanym, są wykonywane automatycznie w trybie failover. Grupa autotrybu failover można zarządzać przy użyciu:
 
-- [Azure Portal](geo-distributed-application-configure-tutorial.md)
+- [Witryna Azure Portal](geo-distributed-application-configure-tutorial.md)
 - [Interfejs wiersza polecenia platformy Azure: Grupa trybu failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: Grupa trybu failover](scripts/add-database-to-failover-group-powershell.md)
 - [Interfejs API REST: Grupa trybu failover](/rest/api/sql/failovergroups).
@@ -243,7 +243,7 @@ Ze względu na to, że każde wystąpienie jest izolowane w własnej sieci wirtu
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Tworzenie grupy trybu failover między wystąpieniami zarządzanymi w różnych subskrypcjach
 
-Można utworzyć grupę trybu failover między wystąpieniami zarządzanymi SQL w dwóch różnych subskrypcjach, o ile subskrypcje są skojarzone z tą samą [dzierżawą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Korzystając z interfejsu API programu PowerShell, można to zrobić, określając `PartnerSubscriptionId` parametr pomocniczego wystąpienia zarządzanego SQL. W przypadku korzystania z interfejsu API REST każdy identyfikator wystąpienia zawarty w `properties.managedInstancePairs` parametrze może mieć swój własny identyfikatora subskrypcji.
+Można utworzyć grupę trybu failover między wystąpieniami zarządzanymi SQL w dwóch różnych subskrypcjach, o ile subskrypcje są skojarzone z tą samą [dzierżawą Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md#terminology). Korzystając z interfejsu API programu PowerShell, można to zrobić, określając `PartnerSubscriptionId` parametr pomocniczego wystąpienia zarządzanego SQL. W przypadku korzystania z interfejsu API REST każdy identyfikator wystąpienia zawarty w `properties.managedInstancePairs` parametrze może mieć swój własny identyfikatora subskrypcji.
   
 > [!IMPORTANT]
 > Azure Portal nie obsługuje tworzenia grup trybu failover w różnych subskrypcjach. Ponadto w przypadku istniejących grup trybu failover w różnych subskrypcjach i/lub grupach zasobów nie można zainicjować trybu failover ręcznie za pośrednictwem portalu z podstawowego wystąpienia zarządzanego SQL. Zamiast tego należy zainicjować go z wystąpienia pomocniczego obszaru geograficznego.
@@ -341,8 +341,8 @@ Jeśli plan ciągłości działalności biznesowej wymaga przejścia w tryb fail
 1. [Tworzenie publicznego adresu IP](../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 2. [Utwórz publiczny moduł równoważenia obciążenia](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) i przypisz do niego publiczny adres IP.
 3. [Tworzenie sieci wirtualnej i maszyn wirtualnych](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) dla składników frontonu
-4. [Utwórz sieciową grupę zabezpieczeń](../../virtual-network/security-overview.md) i skonfiguruj połączenia przychodzące.
-5. Upewnij się, że połączenia wychodzące są otwarte do Azure SQL Database przy użyciu [tagu usługi](../../virtual-network/security-overview.md#service-tags)"SQL".
+4. [Utwórz sieciową grupę zabezpieczeń](../../virtual-network/network-security-groups-overview.md) i skonfiguruj połączenia przychodzące.
+5. Upewnij się, że połączenia wychodzące są otwarte do Azure SQL Database przy użyciu [tagu usługi](../../virtual-network/network-security-groups-overview.md#service-tags)"SQL".
 6. Utwórz [regułę zapory SQL Database](firewall-configure.md) , aby zezwalać na ruch przychodzący z publicznego adresu IP utworzonego w kroku 1.
 
 Aby uzyskać więcej informacji na temat konfigurowania dostępu wychodzącego i adresu IP do użycia w regułach zapory, zobacz [połączenia wychodzące modułu równoważenia obciążenia](../../load-balancer/load-balancer-outbound-connections.md).
@@ -362,7 +362,7 @@ Po skonfigurowaniu grupy trybu failover między podstawowym i pomocniczym wystą
 - Sieci wirtualne używane przez wystąpienia wystąpienia zarządzanego SQL muszą być połączone za pomocą [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Gdy dwie sieci wirtualne nawiązują połączenie za pośrednictwem sieci lokalnej, upewnij się, że nie ma reguły zapory blokującej porty 5022 i 11000-11999. Globalna komunikacja równorzędna sieci wirtualnych jest obsługiwana z ograniczeniami opisanymi w poniższej uwadze.
 
    > [!IMPORTANT]
-   > [W dniu 9/22/2020 ogłoszono globalne wirtualne sieci równorzędne dla nowo utworzonych klastrów wirtualnych](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Oznacza to, że globalne wirtualne sieci równorzędne są obsługiwane dla wystąpień zarządzanych SQL utworzonych w pustych podsieciach, a także dla wszystkich kolejnych wystąpień zarządzanych utworzonych w tych podsieciach. W przypadku wszystkich innych obsługi komunikacji równorzędnej usługi SQL Managed Instances jest ograniczone do sieci w tym samym regionie ze względu na [ograniczenia globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Więcej informacji można znaleźć w sekcji dotyczącej [często zadawanych pytań dotyczących usługi Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
+   > [W dniu 9/22/2020 ogłoszono globalne wirtualne sieci równorzędne dla nowo utworzonych klastrów wirtualnych](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Oznacza to, że globalne wirtualne sieci równorzędne są obsługiwane dla wystąpień zarządzanych SQL utworzonych w pustych podsieciach, a także dla wszystkich kolejnych wystąpień zarządzanych utworzonych w tych podsieciach. W przypadku wszystkich innych obsługi komunikacji równorzędnej usługi SQL Managed Instances jest ograniczone do sieci w tym samym regionie ze względu na [ograniczenia globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Więcej informacji można znaleźć w sekcji dotyczącej [często zadawanych pytań dotyczących usługi Azure Virtual Networks](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
 
 - Dwa sieci wirtualnych wystąpienie zarządzane SQL nie może mieć nakładających się adresów IP.
 - Należy skonfigurować sieciowe grupy zabezpieczeń tak, aby porty 5022 i zakres 11000 ~12000 były dla połączeń przychodzących i wychodzących z podsieci drugiego wystąpienia zarządzanego. Ma to na celu umożliwienie ruchu związanego z replikacją pomiędzy wystąpieniami.
@@ -406,11 +406,11 @@ Należy pamiętać o następujących ograniczeniach:
 
 ## <a name="programmatically-managing-failover-groups"></a>Programowe zarządzanie grupami trybu failover
 
-Jak wspomniano wcześniej, grupy autotrybu failover i aktywnej replikacji geograficznej mogą być również zarządzane programowo przy użyciu Azure PowerShell i interfejsu API REST. W poniższych tabelach opisano zestaw dostępnych poleceń. Aktywna replikacja geograficzna obejmuje zestaw Azure Resource Manager interfejsów API do zarządzania, w tym [Azure SQL Database interfejsu API REST](https://docs.microsoft.com/rest/api/sql/) i [poleceń cmdlet Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Te interfejsy API wymagają użycia grup zasobów i obsługują zabezpieczenia oparte na rolach (RBAC). Aby uzyskać więcej informacji na temat implementowania ról dostępu, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../../role-based-access-control/overview.md).
+Jak wspomniano wcześniej, grupy autotrybu failover i aktywnej replikacji geograficznej mogą być również zarządzane programowo przy użyciu Azure PowerShell i interfejsu API REST. W poniższych tabelach opisano zestaw dostępnych poleceń. Aktywna replikacja geograficzna obejmuje zestaw Azure Resource Manager interfejsów API do zarządzania, w tym [Azure SQL Database interfejsu API REST](/rest/api/sql/) i [poleceń cmdlet Azure PowerShell](/powershell/azure/). Te interfejsy API wymagają użycia grup zasobów i obsługują zabezpieczenia oparte na rolach (RBAC). Aby uzyskać więcej informacji na temat implementowania ról dostępu, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Zarządzanie trybem failover SQL Database
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 | Polecenie cmdlet | Opis |
 | --- | --- |
@@ -435,20 +435,20 @@ Jak wspomniano wcześniej, grupy autotrybu failover i aktywnej replikacji geogra
 
 | Interfejs API | Opis |
 | --- | --- |
-| [Utwórz lub Zaktualizuj grupę trybu failover](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Tworzy lub aktualizuje grupę trybu failover |
-| [Usuń grupę trybu failover](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Usuwa grupę trybu failover z serwera |
-| [Tryb failover (zaplanowany)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Wyzwala tryb failover z bieżącego serwera podstawowego na serwerze pomocniczym z pełną synchronizacją danych.|
-| [Wymuś utratę danych w trybie failover](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Wyzwala tryb failover z bieżącego serwera podstawowego na serwerze pomocniczym bez synchronizowania danych. Ta operacja może spowodować utratę danych. |
-| [Pobierz grupę trybu failover](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Pobiera konfigurację grupy trybu failover. |
-| [Wyświetl listę grup trybu failover według serwera](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Wyświetla listę grup trybu failover na serwerze. |
-| [Aktualizuj grupę trybu failover](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Aktualizuje konfigurację grupy trybu failover. |
+| [Utwórz lub Zaktualizuj grupę trybu failover](/rest/api/sql/failovergroups/createorupdate) | Tworzy lub aktualizuje grupę trybu failover |
+| [Usuń grupę trybu failover](/rest/api/sql/failovergroups/delete) | Usuwa grupę trybu failover z serwera |
+| [Tryb failover (zaplanowany)](/rest/api/sql/failovergroups/failover) | Wyzwala tryb failover z bieżącego serwera podstawowego na serwerze pomocniczym z pełną synchronizacją danych.|
+| [Wymuś utratę danych w trybie failover](/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Wyzwala tryb failover z bieżącego serwera podstawowego na serwerze pomocniczym bez synchronizowania danych. Ta operacja może spowodować utratę danych. |
+| [Pobierz grupę trybu failover](/rest/api/sql/failovergroups/get) | Pobiera konfigurację grupy trybu failover. |
+| [Wyświetl listę grup trybu failover według serwera](/rest/api/sql/failovergroups/listbyserver) | Wyświetla listę grup trybu failover na serwerze. |
+| [Aktualizuj grupę trybu failover](/rest/api/sql/failovergroups/update) | Aktualizuje konfigurację grupy trybu failover. |
 
 ---
 
 ### <a name="manage-sql-managed-instance-failover"></a>Zarządzanie trybem failover wystąpienia zarządzanego SQL
 
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 | Polecenie cmdlet | Opis |
 | --- | --- |
@@ -473,12 +473,12 @@ Jak wspomniano wcześniej, grupy autotrybu failover i aktywnej replikacji geogra
 
 | Interfejs API | Opis |
 | --- | --- |
-| [Utwórz lub Zaktualizuj grupę trybu failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Tworzy lub aktualizuje konfigurację grupy trybu failover |
-| [Usuń grupę trybu failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Usuwa grupę trybu failover z wystąpienia |
-| [Tryb failover (zaplanowany)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Wyzwala przejście w tryb failover z bieżącego wystąpienia podstawowego do tego wystąpienia z pełną synchronizacją danych. |
-| [Wymuś utratę danych w trybie failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Wyzwala przejście w tryb failover z bieżącego wystąpienia podstawowego do wystąpienia pomocniczego bez synchronizowania danych. Ta operacja może spowodować utratę danych. |
-| [Pobierz grupę trybu failover](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Pobiera konfigurację grupy trybu failover. |
-| [Lista grup trybu failover — lista według lokalizacji](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Wyświetla listę grup trybu failover w lokalizacji. |
+| [Utwórz lub Zaktualizuj grupę trybu failover](/rest/api/sql/instancefailovergroups/createorupdate) | Tworzy lub aktualizuje konfigurację grupy trybu failover |
+| [Usuń grupę trybu failover](/rest/api/sql/instancefailovergroups/delete) | Usuwa grupę trybu failover z wystąpienia |
+| [Tryb failover (zaplanowany)](/rest/api/sql/instancefailovergroups/failover) | Wyzwala przejście w tryb failover z bieżącego wystąpienia podstawowego do tego wystąpienia z pełną synchronizacją danych. |
+| [Wymuś utratę danych w trybie failover](/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Wyzwala przejście w tryb failover z bieżącego wystąpienia podstawowego do wystąpienia pomocniczego bez synchronizowania danych. Ta operacja może spowodować utratę danych. |
+| [Pobierz grupę trybu failover](/rest/api/sql/instancefailovergroups/get) | Pobiera konfigurację grupy trybu failover. |
+| [Lista grup trybu failover — lista według lokalizacji](/rest/api/sql/instancefailovergroups/listbylocation) | Wyświetla listę grup trybu failover w lokalizacji. |
 
 ---
 

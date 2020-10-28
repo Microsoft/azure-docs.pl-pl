@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 7de9de7e1ba8028cbdb24744775294a4890afe40
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547745"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677096"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między produktem narzędzia ITSM/usługą a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](./itsmc-overview.md).
@@ -350,7 +350,7 @@ Aby utworzyć połączenie Provance, wykonaj czynności opisane w poniższej pro
 | **Synchronizuj dane** | Wpisz liczbę dni, z których dane mają być używane. **Maksymalny limit** : 120 dni. |
 | **Utwórz nowy element konfiguracji w rozwiązaniu narzędzia ITSM** | Wybierz tę opcję, jeśli chcesz utworzyć elementy konfiguracji w produkcie narzędzia ITSM. W przypadku wybrania tej pozycji ITSMC tworzy odpowiednie usługi CIs jako elementy konfiguracji (w przypadku nieistniejących CIs) w obsługiwanym systemie narzędzia ITSM. **Domyślnie** : wyłączone.|
 
-![Połączenie Provance](media/itsmc-connections/itsm-connections-provance-latest.png)
+![Zrzut ekranu, który wyróżnia listę Nazwa połączenia i typ partnera.](media/itsmc-connections/itsm-connections-provance-latest.png)
 
 **Po pomyślnym nawiązaniu połączenia i zsynchronizowaniu** :
 

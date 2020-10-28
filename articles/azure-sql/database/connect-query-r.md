@@ -5,7 +5,7 @@ description: W tym artykule pokazano, jak używać skryptu języka R z Machine L
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
-ms.custom: sqldbrb=2 
+ms.custom: sqldbrb=2
 ms.devlang: python
 ms.topic: quickstart
 author: garyericson
@@ -14,12 +14,12 @@ ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a939c816cac44ed85802ecfa591564effc1ee73
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 62f1015bc945b5c01f719d7e96e6446c49ac8b8a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328838"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675164"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Szybki Start: używanie języka R z Azure SQL Database Machine Learning Services (wersja zapoznawcza) w celu wykonywania zapytań względem bazy danych 
 
@@ -33,7 +33,7 @@ W tym przewodniku szybki start użyjesz języka R z Azure SQL Database Machine L
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure SQL Database](single-database-create-quickstart.md)
-- [Machine Learning Services](machine-learning-services-overview.md) z włączonym językiem R.
+- [Machine Learning Services](../managed-instance/machine-learning-services-overview.md) z włączonym językiem R.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 > [!IMPORTANT]
@@ -45,11 +45,11 @@ Machine Learning Services z R to funkcja Azure SQL Database używana do wykonywa
 
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych w Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure portal](https://portal.azure.com/).
 
 2. Przejdź do strony **bazy danych SQL**  lub **wystąpienia zarządzane SQL** .
 
-3. Na stronie **Przegląd** Sprawdź w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera obok **hosta** dla wystąpienia zarządzanego w wystąpieniu zarządzanym Azure SQL. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
+3. Na stronie **Przegląd** Sprawdź w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera obok **hosta** dla wystąpienia zarządzanego w wystąpieniu zarządzanym Azure SQL. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj** .
 
 ## <a name="create-code-to-query-your-database"></a>Utwórz kod, aby wykonać zapytanie dotyczące bazy danych
 
@@ -57,7 +57,7 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 
    Jeśli potrzebujesz pomocy przy nawiązywaniu połączenia, zobacz [Szybki Start: użyj SQL Server Management Studio, aby nawiązać połączenie z bazą danych i zbadać ją w programie Azure SQL Database](connect-query-ssms.md).
 
-1. Przekaż kompletny skrypt języka R do [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) procedury składowanej.
+1. Przekaż kompletny skrypt języka R do [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) procedury składowanej.
 
    Skrypt jest przesyłany przez `@script` argument. Wszystkie elementy wewnątrz `@script` argumentu muszą być prawidłowym kodem R.
    
@@ -76,12 +76,12 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-1. Wykonaj [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) procedury składowanej.
+1. Wykonaj [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) procedury składowanej.
 
 1. Sprawdź, czy pierwsze 20 wierszy kategorii/produktu jest zwracanych w oknie **komunikaty** .
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Projektuj swoją pierwszą bazę danych w Azure SQL Database](design-first-database-tutorial.md)
-- [Azure SQL Database Machine Learning Services (z językiem R)](machine-learning-services-overview.md)
-- [Twórz i uruchamiaj proste skrypty języka R w Azure SQL Database Machine Learning Services (wersja zapoznawcza)](r-script-create-quickstart.md)
+- [Azure SQL Database Machine Learning Services (z językiem R)](../managed-instance/machine-learning-services-overview.md)
+- [Twórz i uruchamiaj proste skrypty języka R w Azure SQL Database Machine Learning Services (wersja zapoznawcza)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 147247c663311cfb3e05a986c6fb2bffbb41158b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269747"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675212"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Dodaj zasoby do środowiska usługi integracji (ISE) w Azure Logic Apps
 
@@ -34,7 +34,7 @@ Po utworzeniu [środowiska usługi integracji (ISE)](../logic-apps/connect-virtu
 
 Aby skompilować Aplikacje logiki, które działają w środowisku usługi integracji (ISE), wykonaj następujące kroki:
 
-1. Znajdź i Otwórz ISE, jeśli nie jest jeszcze otwarty. W menu ISE w obszarze **Ustawienia**wybierz pozycję **Aplikacje logiki**  >  **Dodaj**.
+1. Znajdź i Otwórz ISE, jeśli nie jest jeszcze otwarty. W menu ISE w obszarze **Ustawienia** wybierz pozycję **Aplikacje logiki**  >  **Dodaj** .
 
    ![Dodaj nową aplikację logiki do ISE](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
@@ -47,10 +47,10 @@ Aby skompilować Aplikacje logiki, które działają w środowisku usługi integ
    | **Nazwa** | Tak | Nazwa aplikacji logiki do utworzenia |
    | **Subskrypcja** | Tak | Nazwa subskrypcji platformy Azure do użycia |
    | **Grupa zasobów** | Tak | Nazwa grupy zasobów platformy Azure (nowej lub istniejącej) do użycia |
-   | **Lokalizacja** | Tak | W obszarze **środowiska usługi integracji**wybierz opcję ISE, która ma być używana, jeśli nie została jeszcze wybrana. <p><p> **Ważne**: Aby używać aplikacji logiki z kontem integracji, oba muszą używać tego samego ISE. |
+   | **Lokalizacja** | Tak | W obszarze **środowiska usługi integracji** wybierz opcję ISE, która ma być używana, jeśli nie została jeszcze wybrana. <p><p> **Ważne** : Aby używać aplikacji logiki z kontem integracji, oba muszą używać tego samego ISE. |
    ||||
 
-1. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
+1. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz** .
 
 1. Kontynuuj [Tworzenie aplikacji logiki w zwykły sposób](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -66,7 +66,7 @@ W oparciu o [ISEą jednostkę SKU](../logic-apps/connect-virtual-network-vnet-is
 
 Aby utworzyć konto integracji korzystające z ISE, wykonaj następujące kroki:
 
-1. Znajdź i Otwórz ISE, jeśli nie jest jeszcze otwarty. W menu ISE w obszarze **Ustawienia**wybierz pozycję **konta integracji**  >  **Dodaj**.
+1. Znajdź i Otwórz ISE, jeśli nie jest jeszcze otwarty. W menu ISE w obszarze **Ustawienia** wybierz pozycję **konta integracji**  >  **Dodaj** .
 
    ![Dodaj nowe konto integracji do ISE](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
@@ -80,10 +80,10 @@ Aby utworzyć konto integracji korzystające z ISE, wykonaj następujące kroki:
    | **Subskrypcja** | Tak | Nazwa subskrypcji platformy Azure, która ma być używana |
    | **Grupa zasobów** | Tak | Nazwa grupy zasobów platformy Azure (nowej lub istniejącej) do użycia |
    | **Warstwa cenowa** | Tak | Warstwa cenowa do użycia dla konta integracji |
-   | **Lokalizacja** | Tak | W obszarze **środowiska usługi integracji**zaznacz te same ISE, które są używane przez aplikacje logiki, jeśli nie zostały jeszcze wybrane. <p><p> **Ważne**: Aby korzystać z konta integracji z usługą Logic Apps, oba muszą używać tego samego ISE. |
+   | **Lokalizacja** | Tak | W obszarze **środowiska usługi integracji** zaznacz te same ISE, które są używane przez aplikacje logiki, jeśli nie zostały jeszcze wybrane. <p><p> **Ważne** : Aby korzystać z konta integracji z usługą Logic Apps, oba muszą używać tego samego ISE. |
    ||||
 
-1. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
+1. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz** .
 
 1. [Połącz aplikację logiki z kontem integracji w zwykły sposób](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
@@ -95,13 +95,27 @@ Aby utworzyć konto integracji korzystające z ISE, wykonaj następujące kroki:
 
 ## <a name="add-ise-connectors"></a>Dodawanie łączników ISE
 
-Łączniki zarządzane przez firmę Microsoft, które staną się dostępne po utworzeniu ISE, nie są automatycznie wyświetlane w selektorze łącznika w Projektancie aplikacji logiki. Aby można było używać tych łączników ISE, należy ręcznie dodać i wdrożyć te łączniki do ISE, aby były wyświetlane w Projektancie aplikacji logiki.
+Po utworzeniu ISE zarządzane łączniki ISE nie są automatycznie wyświetlane w selektorze łącznika w Projektancie aplikacji logiki. Aby można było używać tych łączników ISE, należy ręcznie dodać i wdrożyć te łączniki do ISE, aby były wyświetlane w Projektancie aplikacji logiki.
 
-1. W menu ISE w obszarze **Ustawienia**wybierz pozycję **Łączniki zarządzane**. Na pasku narzędzi wybierz pozycję **Dodaj**.
+> [!IMPORTANT]
+> Zarządzane łączniki ISE obecnie nie obsługują [tagów](../azure-resource-manager/management/tag-support.md). W przypadku skonfigurowania zasad, które wymuszają tagowanie, próba dodania łączników ISE może zakończyć się niepowodzeniem z błędem podobnym do tego przykładu:
+> 
+> ```json
+> {
+>    "error": { 
+>       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+>       "message": "The tags are not supported in the managed API 'azureblob'."
+>    }
+> }
+> ```
+> 
+> Aby dodać łączniki ISE, należy wyłączyć lub usunąć zasady. 
+
+1. W menu ISE w obszarze **Ustawienia** wybierz pozycję **Łączniki zarządzane** . Na pasku narzędzi wybierz pozycję **Dodaj** .
 
    ![Wyświetlanie łączników zarządzanych](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. W okienku **Dodaj nowe łączniki zarządzane** Otwórz listę **Znajdź łącznik** . Wybierz łącznik ISE, który ma być używany, ale jeszcze nie został wdrożony w ISE. Wybierz przycisk **Utwórz**.
+1. W okienku **Dodaj nowe łączniki zarządzane** Otwórz listę **Znajdź łącznik** . Wybierz łącznik ISE, który ma być używany, ale jeszcze nie został wdrożony w ISE. Wybierz pozycję **Utwórz** .
 
    ![Wybierz łącznik ISE, który ma zostać wdrożony w ISE](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
@@ -113,17 +127,17 @@ Aby utworzyć konto integracji korzystające z ISE, wykonaj następujące kroki:
 
 Aby używać łączników niestandardowych w ISE, Utwórz te łączniki niestandardowe bezpośrednio wewnątrz ISE.
 
-1. Znajdź i Otwórz ISE, jeśli nie jest jeszcze otwarty. Z menu ISE w obszarze **Ustawienia**wybierz pozycję **Łączniki niestandardowe**  >  **Dodaj**.
+1. Znajdź i Otwórz ISE, jeśli nie jest jeszcze otwarty. Z menu ISE w obszarze **Ustawienia** wybierz pozycję **Łączniki niestandardowe**  >  **Dodaj** .
 
    ![Tworzenie łącznika niestandardowego](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 
 1. Podaj nazwę, subskrypcję platformy Azure i grupę zasobów platformy Azure (nową lub istniejącą) do użycia w łączniku niestandardowym.
 
-1. Z listy **Lokalizacja** w sekcji **środowiska usługi integracji** wybierz tę samą ISEę, w której używane są aplikacje logiki, a następnie wybierz pozycję **Utwórz**, na przykład:
+1. Z listy **Lokalizacja** w sekcji **środowiska usługi integracji** wybierz tę samą ISEę, w której używane są aplikacje logiki, a następnie wybierz pozycję **Utwórz** , na przykład:
 
    ![Zrzut ekranu pokazujący okno "Tworzenie Logic Apps łącznika niestandardowego" z wybranymi przykładowymi informacjami.](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
-1. Wybierz nowy łącznik niestandardowy, a następnie wybierz pozycję **Edytuj**, na przykład:
+1. Wybierz nowy łącznik niestandardowy, a następnie wybierz pozycję **Edytuj** , na przykład:
 
    ![Wybieranie i edytowanie łącznika niestandardowego](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 

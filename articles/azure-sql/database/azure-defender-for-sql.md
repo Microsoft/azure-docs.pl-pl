@@ -1,5 +1,5 @@
 ---
-title: Azure Defender for SQL
+title: Usługa Azure Defender dla bazy danych SQL
 description: Dowiedz się więcej o funkcji zarządzania lukami w bazie danych i wykrywaniu nietypowych działań, które mogą wskazywać na zagrożenie dla bazy danych w Azure SQL Database, wystąpieniu zarządzanym Azure SQL lub Azure Synapse.
 services: sql-database
 ms.service: sql-db-mi
@@ -12,14 +12,14 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: d567876e0210c025fa34c5b82791eafe4cdff561
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d147303df43c4f86843df518c71316e6a97b6671
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372157"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678073"
 ---
-# <a name="azure-defender-for-sql"></a>Azure Defender for SQL
+# <a name="azure-defender-for-sql"></a>Usługa Azure Defender dla bazy danych SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 
@@ -31,7 +31,7 @@ Usługa Azure Defender oferuje zestaw zaawansowanych funkcji zabezpieczeń SQL, 
 - [Ocena luk w zabezpieczeniach](sql-vulnerability-assessment.md) to prosta w konfiguracji usługa, która umożliwia odnajdywanie, śledzenie i rozwiązywanie problemów z potencjalnymi lukami w zabezpieczeniach bazy danych. Zapewnia wgląd w stan zabezpieczeń i obejmuje czynności do wykonania w celu rozwiązywania problemów z zabezpieczeniami i ulepszania bazy danych FORTIFICATIONS.
 - Usługa [Advanced Threat Protection](threat-detection-overview.md) wykrywa nietypowe działania wskazujące na nieprawidłowe i potencjalnie szkodliwe próby uzyskania dostępu do bazy danych lub wykorzystania jej. Ciągle monitoruje bazę danych pod kątem podejrzanych działań i zapewnia natychmiastowe alerty zabezpieczeń dotyczące potencjalnych luk w zabezpieczeniach, ataki iniekcji SQL Azure oraz nietypowe wzorce dostępu do bazy danych. Alerty usługi Advanced Threat Protection zawierają szczegółowe informacje o podejrzanych działaniach i zalecane czynności dotyczące sposobu badania i ograniczenia zagrożenia.
 
-Włącz usługę Azure Defender dla programu SQL raz, aby włączyć wszystkie te funkcje. Po jednym kliknięciu można włączyć usługę Azure Defender dla wszystkich baz danych na [serwerze](logical-servers.md) na platformie Azure lub w wystąpieniu zarządzanym SQL. Włączanie ustawień usługi Azure Defender lub zarządzanie nimi wymaga przynależności do roli [programu SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) lub jednej z ról administratora bazy danych lub serwera.
+Włącz usługę Azure Defender dla SQL raz, aby włączyć wszystkie te funkcje. Po jednym kliknięciu można włączyć usługę Azure Defender dla wszystkich baz danych na [serwerze](logical-servers.md) na platformie Azure lub w wystąpieniu zarządzanym SQL. Włączanie ustawień usługi Azure Defender lub zarządzanie nimi wymaga przynależności do roli [programu SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) lub jednej z ról administratora bazy danych lub serwera.
 
 Aby uzyskać więcej informacji na temat cennika usługi Azure Defender for SQL, zobacz [stronę z cennikiem Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -62,10 +62,10 @@ Aby zastąpić ustawienia usługi Azure Defender dla konkretnej bazy danych, zaz
 
 Po zaznaczeniu pola wyboru można skonfigurować odpowiednie ustawienia dla tej bazy danych.
 
-Ustawienia usługi Azure Defender dla serwera lub wystąpienia zarządzanego można również uzyskać z okienka bazy danych usługi Azure Defender. Kliknij pozycję **Ustawienia** w głównym okienku usługi Azure Defender, a następnie kliknij pozycję **Wyświetl ustawienia usługi Azure Defender dla programu SQL Server**.
+Ustawienia usługi Azure Defender dla serwera lub wystąpienia zarządzanego można również uzyskać z okienka bazy danych usługi Azure Defender. Kliknij pozycję **Ustawienia** w głównym okienku usługi Azure Defender, a następnie kliknij pozycję **Wyświetl ustawienia usługi Azure Defender dla programu SQL Server** .
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat [oceny luk w zabezpieczeniach](sql-vulnerability-assessment.md)
 - Dowiedz się więcej na temat [zaawansowanej ochrony przed zagrożeniami](threat-detection-configure.md)
-- Dowiedz się więcej o [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Dowiedz się więcej o [Azure Security Center](../../security-center/security-center-introduction.md)

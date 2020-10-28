@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 00c96333e612c7f92d7c53630eaa006b060986ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5094bd4aa5ac68c24f284cfb74e410fbdf089af7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536243"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677175"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Konfigurowanie kontenerów platformy Docker OCR
 
@@ -92,17 +92,17 @@ Dokładna składnia lokalizacji instalacji hosta różni się w zależności od 
 
 |Opcjonalne| Nazwa | Typ danych | Opis |
 |-------|------|-----------|-------------|
-|Niedozwolone| `Input` | Ciąg | Kontenery przetwarzanie obrazów nie używają tego.|
-|Opcjonalne| `Output` | Ciąg | Obiekt docelowy instalacji wyjściowej. Wartość domyślna to `/output`. Jest to lokalizacja dzienników. Dotyczy to również dzienników kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Niedozwolone| `Input` | String | Kontenery przetwarzanie obrazów nie używają tego.|
+|Opcjonalne| `Output` | String | Obiekt docelowy instalacji wyjściowej. Wartość domyślna to `/output`. Jest to lokalizacja dzienników. Dotyczy to również dzienników kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Przykładowe polecenia uruchamiania platformy Docker
 
 W poniższych przykładach użyto ustawień konfiguracji, aby zilustrować sposób pisania i używania `docker run` poleceń.  Po uruchomieniu kontenera kontynuuje działanie, dopóki nie zostanie [zatrzymane](computer-vision-how-to-install-containers.md#stop-the-container) .
 
-* **Znak kontynuacji wiersza**: polecenia platformy Docker w poniższych sekcjach używają ukośnika odwrotnego, `\` jako znaku kontynuacji wiersza. Zastąp lub usuń to w zależności od wymagań systemu operacyjnego hosta. 
-* **Kolejność**argumentów: nie zmieniaj kolejności argumentów, o ile nie znasz już kontenerów platformy Docker.
+* **Znak kontynuacji wiersza** : polecenia platformy Docker w poniższych sekcjach używają ukośnika odwrotnego, `\` jako znaku kontynuacji wiersza. Zastąp lub usuń to w zależności od wymagań systemu operacyjnego hosta. 
+* **Kolejność** argumentów: nie zmieniaj kolejności argumentów, o ile nie znasz już kontenerów platformy Docker.
 
-Zastąp ciąg {_argument_name_} własnymi wartościami:
+Zastąp ciąg { _argument_name_ } własnymi wartościami:
 
 | Symbol zastępczy | Wartość | Format lub przykład |
 |-------------|-------|---|
@@ -138,29 +138,6 @@ ApiKey={API_KEY}
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
 mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-Logging:Console:LogLevel:Default=Information
-```
-
-# <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
-
-### <a name="basic-example"></a>Przykład podstawowy
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-### <a name="logging-example"></a>Przykład rejestrowania 
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

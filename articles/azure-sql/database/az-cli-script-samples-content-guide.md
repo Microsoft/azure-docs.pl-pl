@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 893ea607b322c2f9b2d8a4e8b5b087e21c476d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f28d8f82796f54002312514b1a34e3dd8b666a3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497175"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675260"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla Azure SQL Database i wystąpienia zarządzanego SQL 
  
@@ -31,7 +31,7 @@ Za pomocą <a href="/cli/azure">interfejsu wiersza polecenia platformy Azure</a>
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-# <a name="azure-sql-database"></a>[Azure SQL Database](#tab/single-database)
+# <a name="azure-sql-database"></a>[Baza danych SQL Azure](#tab/single-database)
 
 Poniższa tabela zawiera linki do przykładów skryptów interfejsu wiersza polecenia platformy Azure do zarządzania pojedynczymi bazami danych w puli w Azure SQL Database. 
 
@@ -73,7 +73,7 @@ Poniższa tabela zawiera linki do przykładów skryptów interfejsu wiersza pole
 | [Konfigurowanie grupy trybu failover dla wystąpienia zarządzanego SQL](../../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md) | Tworzy dwa wystąpienia wystąpienia zarządzanego SQL, dodaje je do grupy trybu failover, a następnie testuje tryb failover z podstawowego wystąpienia zarządzanego SQL do pomocniczego wystąpienia zarządzanego SQL. |
 |||
 
-Dodatkowe przykłady wystąpienia zarządzanego SQL można znaleźć w temacie [Tworzenie](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/), [Aktualizowanie](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/), [przenoszenie bazy danych](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/)i [Praca ze](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) skryptami.
+Dodatkowe przykłady wystąpienia zarządzanego SQL można znaleźć w temacie [Tworzenie](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli), [Aktualizowanie](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli), [przenoszenie bazy danych](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance)i [Praca ze](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) skryptami.
 
 Dowiedz się więcej o [interfejsie API interfejsu wiersza polecenia platformy Azure o wystąpieniu zarządzanym SQL](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances).
 

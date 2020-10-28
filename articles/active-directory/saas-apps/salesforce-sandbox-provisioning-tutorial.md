@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 38fac23b3fdc5820a7a407a4a7d89d0064cf8e93
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: cc094376ed6d5a183b65a598ca9d0a55670be70e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101787"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676716"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie piaskownicy usługi Salesforce na potrzeby automatycznego aprowizacji użytkowników
 
@@ -33,7 +33,7 @@ W scenariuszu opisanym w tym samouczku założono, że masz już następujące e
 
 Azure Active Directory używa koncepcji o nazwie "przydziały", aby określić, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi kont użytkowników są synchronizowane tylko użytkownicy i grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
 
-Przed skonfigurowaniem i włączeniem usługi aprowizacji należy zdecydować, którzy użytkownicy lub które grupy w usłudze Azure AD potrzebują dostępu do aplikacji piaskownicy usługi Salesforce. Po wykonaniu tej decyzji można przypisać tych użytkowników do aplikacji piaskownicy usługi Salesforce, postępując zgodnie z instrukcjami w temacie [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) .
+Przed skonfigurowaniem i włączeniem usługi aprowizacji należy zdecydować, którzy użytkownicy lub które grupy w usłudze Azure AD potrzebują dostępu do aplikacji piaskownicy usługi Salesforce. Po wykonaniu tej decyzji można przypisać tych użytkowników do aplikacji piaskownicy usługi Salesforce, postępując zgodnie z instrukcjami w temacie [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md) .
 
 ### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Ważne porady dotyczące przypisywania użytkowników do piaskownicy usługi Salesforce
 
@@ -61,7 +61,7 @@ Celem tej sekcji jest zaprojektowanie sposobu włączania obsługi administracyj
 
 1. Wybierz wystąpienie piaskownicy usługi Salesforce, a następnie wybierz kartę **aprowizacji** .
 
-1. Ustaw **Tryb aprowizacji** na **Automatyczny**.
+1. Ustaw **Tryb aprowizacji** na **Automatyczny** .
 
     ![Zrzut ekranu przedstawia stronę aprowizacji piaskownicy usługi Salesforce, z trybem aprowizacji ustawionym na automatyczne i inne wartości, które można ustawić.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
@@ -71,11 +71,11 @@ Celem tej sekcji jest zaprojektowanie sposobu włączania obsługi administracyj
    
     b. W polu tekstowym **hasło administratora** wpisz hasło dla tego konta.
 
-1. Aby uzyskać token zabezpieczający piaskownicy usług Salesforce, Otwórz nową kartę i zaloguj się do tego samego konta administratora piaskownicy usługi Salesforce. W prawym górnym rogu strony kliknij swoją nazwę, a następnie kliknij pozycję **Ustawienia**.
+1. Aby uzyskać token zabezpieczający piaskownicy usług Salesforce, Otwórz nową kartę i zaloguj się do tego samego konta administratora piaskownicy usługi Salesforce. W prawym górnym rogu strony kliknij swoją nazwę, a następnie kliknij pozycję **Ustawienia** .
 
      ![Zrzut ekranu przedstawia wybrane łącze ustawienia.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Włącz automatyczne Inicjowanie obsługi użytkowników")
 
-1. W okienku nawigacji po lewej stronie kliknij pozycję **moje dane osobowe** , aby rozwinąć sekcję powiązaną, a następnie kliknij pozycję **Zresetuj mój token zabezpieczający**.
+1. W okienku nawigacji po lewej stronie kliknij pozycję **moje dane osobowe** , aby rozwinąć sekcję powiązaną, a następnie kliknij pozycję **Zresetuj mój token zabezpieczający** .
   
     ![Zrzut ekranu przedstawia Resetowanie mojego tokenu zabezpieczającego wybranego z informacji osobistych.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Włącz automatyczne Inicjowanie obsługi użytkowników")
 
@@ -109,4 +109,4 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurowanie logowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)
+* [Konfigurowanie logowania jednokrotnego](./salesforce-sandbox-tutorial.md)

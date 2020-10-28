@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 10/22/2020
 ms.author: aahi
 keywords: lokalna, Docker, kontener, Kubernetes
-ms.openlocfilehash: cf0ea6339de1ba6aca93a1a71990515d296f2e3a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999698"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677431"
 ---
 # <a name="azure-cognitive-services-containers"></a>Kontenery usługi Azure Cognitive Services
 
@@ -45,12 +45,12 @@ Zasoby Cognitive Services są dostępne na [Microsoft Azure](https://azure.micro
 
 ## <a name="features-and-benefits"></a>Funkcje i korzyści
 
-- **Niezmienna infrastruktura**: Włącz zespoły DevOps ", aby korzystały z spójnego i niezawodnego zestawu znanych parametrów systemowych, jednocześnie umożliwiając dostosowanie się do zmian. Kontenery zapewniają elastyczność przestawiania w przewidywalnym ekosystemie i unikają dryfowania konfiguracji.
-- **Kontrola nad danymi**: Wybierz miejsce, w którym dane są przetwarzane przez Cognitive Services. Może to być konieczne, jeśli nie można wysłać danych do chmury, ale wymagany jest dostęp do interfejsy API usług Cognitive Services. Obsługa spójności w środowiskach hybrydowych — między danymi, zarządzaniem, tożsamością i zabezpieczeniami.
-- **Kontrola nad aktualizacjami modelu**: elastyczność w zakresie przechowywania wersji i aktualizowania modeli wdrożonych w ich rozwiązaniach.
-- **Architektura przenośna**: umożliwia tworzenie architektury aplikacji przenośnej, którą można wdrożyć na platformie Azure, lokalnie i na krawędzi. Kontenery można wdrażać bezpośrednio w [usłudze Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml)lub do klastra [Kubernetes](https://kubernetes.io/) wdrożonego w [Azure Stack](/azure-stack/operator). Aby uzyskać więcej informacji, zobacz [wdrażanie Kubernetes do Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **Wysoka przepływność/małe opóźnienia**: umożliwiają klientom skalowanie w celu uzyskania wysokiej przepływności i małych opóźnień przez umożliwienie Cognitive Services uruchamiania w pobliżu ich logiki i danych aplikacji. Kontenery nie przekraczają transakcji na sekundę (TPS) i można je skalować w górę i w dół, aby obsługiwać zapotrzebowanie w przypadku podania niezbędnych zasobów sprzętowych.
-- **Skalowalność**: dzięki coraz większej popularności oprogramowania kontenerach i aranżacji kontenerów, takich jak Kubernetes; skalowalność jest w programie Forefront z góry postępów technologicznych. Tworzenie aplikacji na skalowalnym serwerze klastra zapewnia wysoką dostępność.
+- **Niezmienna infrastruktura** : Włącz zespoły DevOps ", aby korzystały z spójnego i niezawodnego zestawu znanych parametrów systemowych, jednocześnie umożliwiając dostosowanie się do zmian. Kontenery zapewniają elastyczność przestawiania w przewidywalnym ekosystemie i unikają dryfowania konfiguracji.
+- **Kontrola nad danymi** : Wybierz miejsce, w którym dane są przetwarzane przez Cognitive Services. Może to być konieczne, jeśli nie można wysłać danych do chmury, ale wymagany jest dostęp do interfejsy API usług Cognitive Services. Obsługa spójności w środowiskach hybrydowych — między danymi, zarządzaniem, tożsamością i zabezpieczeniami.
+- **Kontrola nad aktualizacjami modelu** : elastyczność w zakresie przechowywania wersji i aktualizowania modeli wdrożonych w ich rozwiązaniach.
+- **Architektura przenośna** : umożliwia tworzenie architektury aplikacji przenośnej, którą można wdrożyć na platformie Azure, lokalnie i na krawędzi. Kontenery można wdrażać bezpośrednio w [usłudze Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml)lub do klastra [Kubernetes](https://kubernetes.io/) wdrożonego w [Azure Stack](/azure-stack/operator). Aby uzyskać więcej informacji, zobacz [wdrażanie Kubernetes do Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **Wysoka przepływność/małe opóźnienia** : umożliwiają klientom skalowanie w celu uzyskania wysokiej przepływności i małych opóźnień przez umożliwienie Cognitive Services uruchamiania w pobliżu ich logiki i danych aplikacji. Kontenery nie przekraczają transakcji na sekundę (TPS) i można je skalować w górę i w dół, aby obsługiwać zapotrzebowanie w przypadku podania niezbędnych zasobów sprzętowych.
+- **Skalowalność** : dzięki coraz większej popularności oprogramowania kontenerach i aranżacji kontenerów, takich jak Kubernetes; skalowalność jest w programie Forefront z góry postępów technologicznych. Tworzenie aplikacji na skalowalnym serwerze klastra zapewnia wysoką dostępność.
 
 ## <a name="containers-in-azure-cognitive-services"></a>Kontenery w usłudze Azure Cognitive Services
 
@@ -58,19 +58,19 @@ Kontenery usługi Azure Cognitive Services oferują następujący zestaw kontene
 
 | Usługa | Obsługiwana warstwa cenowa | Kontener | Opis |
 |--|--|--|--|
-| [Wykrywacz anomalii][ad-containers] | F0, S0 | **Anomalia — detektor** ([obraz](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Interfejs API wykrywania anomalii umożliwia monitorowanie i wykrywanie anomalii w danych szeregów czasowych przy użyciu uczenia maszynowego.<br>[Żądanie dostępu][request-access] |
-| [Przetwarzanie obrazów][cv-containers] | F0, S1 | **Przeczytaj** OCR ([obraz](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Kontener OCR do odczytu umożliwia wyodrębnienie tekstu napisanego i odręcznego z obrazów i dokumentów z obsługą formatów plików JPEG, PNG, BMP, PDF i TIFF. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API odczytu](./computer-vision/concept-recognizing-text.md).<br>[Żądanie dostępu][request-access] |
+| [Wykrywacz anomalii][ad-containers] | F0, S0 | **Anomalia — detektor** ( [obraz](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Interfejs API wykrywania anomalii umożliwia monitorowanie i wykrywanie anomalii w danych szeregów czasowych przy użyciu uczenia maszynowego.<br>[Żądanie dostępu][request-access] |
+| [Przetwarzanie obrazów][cv-containers] | F0, S1 | **Przeczytaj** OCR ( [obraz](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Kontener OCR do odczytu umożliwia wyodrębnienie tekstu napisanego i odręcznego z obrazów i dokumentów z obsługą formatów plików JPEG, PNG, BMP, PDF i TIFF. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API odczytu](./computer-vision/concept-recognizing-text.md).<br>[Żądanie dostępu][request-access] |
 | [Rozpoznawanie twarzy][fa-containers] | F0, S0 | **Rozpoznawanie twarzy** | Wykrywa ludzkie twarze w obrazach i identyfikuje atrybuty, w tym dzielnice twarzy (takie jak nos i oczy), płeć, wiek i inne funkcje twarzy przewidziane dla maszyn. Oprócz wykrywania, twarz może sprawdzić, czy dwie twarze w tym samym obrazie lub różnych obrazach są takie same, przy użyciu oceny pewności, czy też można porównać twarze z bazą danych, aby zobaczyć, czy podobna lub identyczna twarz już istnieje. Może również organizować podobne twarze w grupy przy użyciu współużytkowanych cech wizualnych. |
 | [Aparat rozpoznawania formularzy][fr-containers] | F0, S0 | **Rozpoznawanie formularzy** | Zrozumienie formularza stosuje technologię uczenia maszynowego do identyfikowania i wyodrębniania par klucz-wartość oraz tabel z formularzy. |
-| [LUIS][lu-containers] | F0, S0 | **Luis** ([obraz](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Ładuje przeszkolony lub opublikowany model Language Understanding, znany również jako aplikacja LUIS, do kontenera Docker i zapewnia dostęp do prognoz zapytania z punktów końcowych interfejsu API kontenera. Można zebrać dzienniki zapytań z kontenera i przekazać je z powrotem do [portalu Luis](https://www.luis.ai) , aby zwiększyć dokładność przewidywania aplikacji. |
-| [Interfejs API usługi rozpoznawania mowy][sp-containers-stt] | F0, S0 | **Zamiana mowy na tekst** ([obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Przekształca w czasie rzeczywistym ciągłą mowę na tekst. |
-| [Interfejs API usługi rozpoznawania mowy][sp-containers-cstt] | F0, S0 | **Custom Speech do tekstu** ([obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Przekształca ciągłe używanie mowy w czasie rzeczywistym do tekstu przy użyciu modelu niestandardowego. |
-| [Interfejs API usługi rozpoznawania mowy][sp-containers-tts] | F0, S0 | **Zamiana tekstu na mowę** ([obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Konwertuje tekst na naturalnie brzmiącą mowę. |
-| [Interfejs API usługi rozpoznawania mowy][sp-containers-ctts] | F0, S0 | **Niestandardowa Zamiana tekstu na mowę** ([obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | Konwertuje tekst na mowę dźwięku naturalnego przy użyciu modelu niestandardowego. |
-| [Interfejs API usługi rozpoznawania mowy][sp-containers-ntts] | F0, S0 | **Neuronowych Zamiana tekstu na mowę** ([obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) | Konwertuje tekst na naturalną dźwiękową mowę przy użyciu technologii sieci głębokiej neuronowych, co pozwala na bardziej naturalną syntezę mowy. |
-| [Analiza tekstu][ta-containers-keyphrase] | F0, S | **Wyodrębnianie kluczowych fraz** ([obraz](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Wyodrębnia kluczowe frazy do identyfikowania głównych punktów. Na przykład dla tekstu wejściowego „Jedzenie było pyszne, a serwowała je doskonała obsługa” interfejs API zwraca główne tematy wypowiedzi: „jedzenie” i „doskonała obsługa”. |
-| [Analiza tekstu][ta-containers-language] | F0, S | **Wykrywanie języka** ([obraz](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | W przypadku do 120 języków program wykrywa język, w którym wprowadzany jest tekst wejściowy, i raportuje jeden kod języka dla każdego dokumentu przesłanego w żądaniu. Kod języka jest powiązany z oceną, co wskazuje siłę oceny. |
-| [Analiza tekstu][ta-containers-sentiment] | F0, S | **Analiza tonacji v3** ([obraz](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analizuje nieprzetworzony tekst, aby uzyskać wskazówki dotyczące tonacji pozytywnej lub ujemnej. Ta wersja analizy tonacji zwraca etykiety tonacji (na przykład *dodatnie* lub *ujemne*) dla każdego dokumentu i zdania w nim. |
+| [LUIS][lu-containers] | F0, S0 | **Luis** ( [obraz](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Ładuje przeszkolony lub opublikowany model Language Understanding, znany również jako aplikacja LUIS, do kontenera Docker i zapewnia dostęp do prognoz zapytania z punktów końcowych interfejsu API kontenera. Można zebrać dzienniki zapytań z kontenera i przekazać je z powrotem do [portalu Luis](https://www.luis.ai) , aby zwiększyć dokładność przewidywania aplikacji. |
+| [Interfejs API usługi rozpoznawania mowy][sp-containers-stt] | F0, S0 | **Zamiana mowy na tekst** ( [obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Przekształca w czasie rzeczywistym ciągłą mowę na tekst. |
+| [Interfejs API usługi rozpoznawania mowy][sp-containers-cstt] | F0, S0 | **Custom Speech do tekstu** ( [obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Przekształca ciągłe używanie mowy w czasie rzeczywistym do tekstu przy użyciu modelu niestandardowego. |
+| [Interfejs API usługi rozpoznawania mowy][sp-containers-tts] | F0, S0 | **Zamiana tekstu na mowę** ( [obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Konwertuje tekst na naturalnie brzmiącą mowę. |
+| [Interfejs API usługi rozpoznawania mowy][sp-containers-ctts] | F0, S0 | **Niestandardowa Zamiana tekstu na mowę** ( [obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | Konwertuje tekst na mowę dźwięku naturalnego przy użyciu modelu niestandardowego. |
+| [Interfejs API usługi rozpoznawania mowy][sp-containers-ntts] | F0, S0 | **Neuronowych Zamiana tekstu na mowę** ( [obraz](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) | Konwertuje tekst na naturalną dźwiękową mowę przy użyciu technologii sieci głębokiej neuronowych, co pozwala na bardziej naturalną syntezę mowy. |
+| [Analiza tekstu][ta-containers-keyphrase] | F0, S | **Wyodrębnianie kluczowych fraz** ( [obraz](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Wyodrębnia kluczowe frazy do identyfikowania głównych punktów. Na przykład dla tekstu wejściowego „Jedzenie było pyszne, a serwowała je doskonała obsługa” interfejs API zwraca główne tematy wypowiedzi: „jedzenie” i „doskonała obsługa”. |
+| [Analiza tekstu][ta-containers-language] | F0, S | **Wykrywanie języka** ( [obraz](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | W przypadku do 120 języków program wykrywa język, w którym wprowadzany jest tekst wejściowy, i raportuje jeden kod języka dla każdego dokumentu przesłanego w żądaniu. Kod języka jest powiązany z oceną, co wskazuje siłę oceny. |
+| [Analiza tekstu][ta-containers-sentiment] | F0, S | **Analiza tonacji v3** ( [obraz](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analizuje nieprzetworzony tekst, aby uzyskać wskazówki dotyczące tonacji pozytywnej lub ujemnej. Ta wersja analizy tonacji zwraca etykiety tonacji (na przykład *dodatnie* lub *ujemne* ) dla każdego dokumentu i zdania w nim. |
 | [Analiza tekstu][ta-containers-health] | F0, S | **analiza tekstu dla kondycji** | Wyodrębnij i Oznacz informacje medyczne z niestrukturalnego tekstu klinicznego. |
 | [Analiza przestrzenna][spa-containers] | S0 | **Analiza przestrzenna** | Analizuje wideo w czasie rzeczywistym, aby zrozumieć relacje przestrzenne między osobami, ich przenoszeniem i interakcją z obiektami w środowiskach fizycznych. |
 
@@ -95,11 +95,11 @@ Kontenery usługi Azure Cognitive Services są publicznie dostępne za pośredni
 
 Przed rozpoczęciem korzystania z kontenerów Cognitive Services platformy Azure należy spełnić następujące wymagania wstępne:
 
-**Aparat platformy Docker**: aparat platformy Docker musi być zainstalowany lokalnie. Platforma Docker zawiera pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms)i [Windows](https://docs.docker.com/docker-for-windows/). W systemie Windows program Docker musi być skonfigurowany do obsługi kontenerów systemu Linux. Kontenery platformy Docker można także wdrażać bezpośrednio w [usłudze Azure Kubernetes Service](../aks/index.yml) lub [Azure Container Instances](../container-instances/index.yml).
+**Aparat platformy Docker** : aparat platformy Docker musi być zainstalowany lokalnie. Platforma Docker zawiera pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms)i [Windows](https://docs.docker.com/docker-for-windows/). W systemie Windows program Docker musi być skonfigurowany do obsługi kontenerów systemu Linux. Kontenery platformy Docker można także wdrażać bezpośrednio w [usłudze Azure Kubernetes Service](../aks/index.yml) lub [Azure Container Instances](../container-instances/index.yml).
 
 Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure.
 
-**Znajomość programu microsoft Container Registry i platformy Docker**: należy dysponować podstawową wiedzą na temat koncepcji firmy Microsoft Container Registry i platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów, a także znajomość podstawowych `docker` poleceń.
+**Znajomość programu microsoft Container Registry i platformy Docker** : należy dysponować podstawową wiedzą na temat koncepcji firmy Microsoft Container Registry i platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów, a także znajomość podstawowych `docker` poleceń.
 
 Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).
 

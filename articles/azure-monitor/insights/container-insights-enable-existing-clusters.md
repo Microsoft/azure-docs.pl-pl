@@ -3,13 +3,13 @@ title: Monitoruj wdrożony klaster usługi Azure Kubernetes Service (AKS) | Micr
 description: Dowiedz się, jak włączyć monitorowanie klastra usługi Azure Kubernetes Service (AKS) za pomocą Azure Monitor dla kontenerów już wdrożonych w ramach subskrypcji.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform
-ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: 9f3b9240bc10f4eaa4c9967d8c7bbb956eeab4e1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165404"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735136"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Włącz monitorowanie już wdrożonego klastra usługi Azure Kubernetes Service (AKS)
 
@@ -24,11 +24,11 @@ Można włączyć monitorowanie klastra AKS, który jest już wdrożony przy uż
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+Zaloguj się do [Azure portal](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Włączanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Poniższy krok umożliwia monitorowanie klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure. W tym przykładzie nie trzeba wstępnie tworzyć ani określać istniejącego obszaru roboczego. To polecenie upraszcza proces przez utworzenie domyślnego obszaru roboczego w domyślnej grupie zasobów subskrypcji klastra AKS, jeśli jeszcze nie istnieje w regionie.  Utworzony domyślny obszar roboczy jest podobny do formatu *DefaultWorkspace- \<GUID> - \<Region> *.
+Poniższy krok umożliwia monitorowanie klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure. W tym przykładzie nie trzeba wstępnie tworzyć ani określać istniejącego obszaru roboczego. To polecenie upraszcza proces przez utworzenie domyślnego obszaru roboczego w domyślnej grupie zasobów subskrypcji klastra AKS, jeśli jeszcze nie istnieje w regionie.  Utworzony domyślny obszar roboczy jest podobny do formatu *DefaultWorkspace- \<GUID> - \<Region>* .
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -58,7 +58,7 @@ Jeśli wolisz zintegrować z istniejącym obszarem roboczym, wykonaj następują
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
     ```
 
-    Skopiuj wartość identyfikatora **subskrypcji**.
+    Skopiuj wartość identyfikatora **subskrypcji** .
 
 2. Przejdź do subskrypcji, w której znajduje się obszar roboczy Log Analytics, przy użyciu następującego polecenia:
 
@@ -72,7 +72,7 @@ Jeśli wolisz zintegrować z istniejącym obszarem roboczym, wykonaj następują
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    W danych wyjściowych Znajdź nazwę obszaru roboczego, a następnie skopiuj pełny identyfikator zasobu tego Log Analytics obszaru roboczego pod **identyfikatorem**pola.
+    W danych wyjściowych Znajdź nazwę obszaru roboczego, a następnie skopiuj pełny identyfikator zasobu tego Log Analytics obszaru roboczego pod **identyfikatorem** pola.
 
 4. Uruchom następujące polecenie, aby włączyć dodatek monitorowania, zastępując wartość `--workspace-resource-id` parametru. Wartość ciągu musi znajdować się w podwójnych cudzysłowach:
 
@@ -105,13 +105,13 @@ Jeśli wolisz zintegrować z istniejącym obszarem roboczym, wykonaj następują
 
 Aby włączyć monitorowanie klastra AKS w Azure Portal z Azure Monitor, wykonaj następujące czynności:
 
-1. W Azure Portal wybierz pozycję **Monitoruj**.
+1. W Azure Portal wybierz pozycję **Monitoruj** .
 
 2. Z listy wybierz **kontenery** .
 
-3. Na stronie **monitorowanie kontenerów** wybierz opcję **Niemonitorowane klastry**.
+3. Na stronie **monitorowanie kontenerów** wybierz opcję **Niemonitorowane klastry** .
 
-4. Na liście niemonitorowanych klastrów Znajdź kontener na liście i kliknij pozycję **Włącz**.
+4. Na liście niemonitorowanych klastrów Znajdź kontener na liście i kliknij pozycję **Włącz** .
 
 5. Na stronie Dołączanie **do Azure monitor dla kontenerów** Jeśli masz istniejący obszar roboczy log Analytics w tej samej subskrypcji co klaster, wybierz go z listy rozwijanej.
     Na tej liście jest wybierany domyślny obszar roboczy i lokalizacja, w ramach której jest wdrażany kontener AKS.
@@ -127,15 +127,15 @@ Po włączeniu monitorowania może upłynąć około 15 minut, zanim będzie mo�
 
 Aby włączyć monitorowanie bezpośrednio z jednego z klastrów AKS w Azure Portal, wykonaj następujące czynności:
 
-1. W Azure Portal wybierz pozycję **wszystkie usługi**.
+1. W Azure Portal wybierz pozycję **wszystkie usługi** .
 
-2. Na liście zasobów Rozpocznij wpisywanie **kontenerów**.  Lista filtruje się na podstawie danych wejściowych.
+2. Na liście zasobów Rozpocznij wpisywanie **kontenerów** .  Lista filtruje się na podstawie danych wejściowych.
 
-3. Wybierz pozycję **Kubernetes Services**.
+3. Wybierz pozycję **Kubernetes Services** .
     
 4. Na liście usług Kubernetes wybierz usługę.
 
-5. Na stronie Przegląd usługi Kubernetes wybierz pozycję **monitorowanie — szczegółowe informacje**.
+5. Na stronie Przegląd usługi Kubernetes wybierz pozycję **monitorowanie — szczegółowe informacje** .
 
 6. Na stronie Dołączanie **do Azure monitor dla kontenerów** Jeśli masz istniejący obszar roboczy log Analytics w tej samej subskrypcji co klaster, wybierz go na liście rozwijanej.
     Na tej liście jest wybierany domyślny obszar roboczy i lokalizacja, w ramach której jest wdrażany kontener AKS.

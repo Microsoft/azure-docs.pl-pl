@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9189be5f2f513cd27fe8783d6a1825aac016522c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987485"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677739"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Zainstaluj program TmaxSoft OpenFrame na platformie Azure
 
@@ -118,15 +118,15 @@ Przed rozpoczęciem wykonaj następujące czynności:
 
 1. Przejdź do Azure Portal <https://portal.azure.com> i zaloguj się na swoim koncie.
 
-2. Kliknij pozycję **Maszyny wirtualne**.
+2. Kliknij pozycję **Maszyny wirtualne** .
 
     ![Lista zasobów w Azure Portal](media/vm-01.png)
 
-3. Kliknij pozycję **Dodaj**.
+3. Kliknij pozycję **Dodaj** .
 
     ![Dodaj opcję w Azure Portal](media/vm-02.png)
 
-4. Na prawo od **systemów operacyjnych**kliknij przycisk **więcej**.
+4. Na prawo od **systemów operacyjnych** kliknij przycisk **więcej** .
 
      ![Więcej opcji w Azure Portal](media/vm-03.png)
 
@@ -134,12 +134,12 @@ Przed rozpoczęciem wykonaj następujące czynności:
 
      ![Opcje systemu operacyjnego w Azure Portal](media/vm-04.png)
 
-6. W obszarze Ustawienia **podstawowe** wprowadź wartość w polu **Nazwa**, **Nazwa użytkownika**, **Typ uwierzytelniania**, **subskrypcja** (płatność zgodnie z rzeczywistym użyciem to styl AWS płatności) i **Grupa zasobów** (Użyj istniejącej grupy lub Utwórz grupę TmaxSoft).
+6. W obszarze Ustawienia **podstawowe** wprowadź wartość w polu **Nazwa** , **Nazwa użytkownika** , **Typ uwierzytelniania** , **subskrypcja** (płatność zgodnie z rzeczywistym użyciem to styl AWS płatności) i **Grupa zasobów** (Użyj istniejącej grupy lub Utwórz grupę TmaxSoft).
 
-7. Po zakończeniu (łącznie z parą klucza publicznego/prywatnego dla **typu uwierzytelniania**) kliknij przycisk **Prześlij**.
+7. Po zakończeniu (łącznie z parą klucza publicznego/prywatnego dla **typu uwierzytelniania** ) kliknij przycisk **Prześlij** .
 
 > [!NOTE]
-> Jeśli używasz klucza publicznego SSH dla **typu uwierzytelniania**, zapoznaj się z instrukcjami w następnej sekcji, aby wygenerować parę kluczy publiczny/prywatny, a następnie Wznów kroki opisane tutaj.
+> Jeśli używasz klucza publicznego SSH dla **typu uwierzytelniania** , zapoznaj się z instrukcjami w następnej sekcji, aby wygenerować parę kluczy publiczny/prywatny, a następnie Wznów kroki opisane tutaj.
 
 ### <a name="generate-a-publicprivate-key-pair"></a>Generuj parę kluczy publiczny/prywatny
 
@@ -164,7 +164,7 @@ W przypadku uzyskiwania dostępu do maszyny wirtualnej przez nowych użytkownik�
 
 3.  Kliknij pozycję **Generate** (Generuj).
 
-    ![Okno dialogowe Generator klucza](media/puttygen-02.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe Generator kluczy, w którym jest wyróżniony przycisk Generuj.](media/puttygen-02.png)
 
 4.  Po generacji Zapisz klucz publiczny i klucz prywatny. Wklej zawartość klucza publicznego z sekcji **klucz publiczny SSH** w okienku **Tworzenie \> podstawowych maszyn wirtualnych** (pokazane w krokach 6 i 7 w poprzedniej sekcji).
 
@@ -183,23 +183,23 @@ W przypadku uzyskiwania dostępu do maszyny wirtualnej przez nowych użytkownik�
 
 4. Prześlij wybrane opcje. Na platformie Azure rozpocznie się Wdrażanie maszyny wirtualnej. Ten proces zazwyczaj trwa kilka minut.
 
-5. Po wdrożeniu maszyny wirtualnej jest wyświetlany jej pulpit nawigacyjny pokazujący wszystkie ustawienia, które zostały wybrane podczas konfiguracji. Zanotuj **publiczny adres IP**.
+5. Po wdrożeniu maszyny wirtualnej jest wyświetlany jej pulpit nawigacyjny pokazujący wszystkie ustawienia, które zostały wybrane podczas konfiguracji. Zanotuj **publiczny adres IP** .
 
     ![Tmax na pulpicie nawigacyjnym platformy Azure](media/create-vm-03.png)
 
 6. Otwórz program PuTTY.
 
-7. W polu **Nazwa hosta**wpisz swoją nazwę użytkownika i publiczny adres IP, który został skopiowany. Na przykład **nazwa_użytkownika \@ przywołującym element publicip**.
+7. W polu **Nazwa hosta** wpisz swoją nazwę użytkownika i publiczny adres IP, który został skopiowany. Na przykład **nazwa_użytkownika \@ przywołującym element publicip** .
 
-    ![Okno dialogowe Konfiguracja konfiguracji](media/putty-01.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe Konfiguracja i wyróżnienie pola Nazwa hosta (lub adres IP).](media/putty-01.png)
 
-8. W polu **Kategoria** kliknij pozycję **połączenie \> SSH \> AUTH**. Podaj ścieżkę do pliku **klucza prywatnego** .
+8. W polu **Kategoria** kliknij pozycję **połączenie \> SSH \> AUTH** . Podaj ścieżkę do pliku **klucza prywatnego** .
 
     ![Okno dialogowe Konfiguracja konfiguracji](media/putty-02.png)
 
 9. Kliknij przycisk **Otwórz** , aby uruchomić okno pozostało. Jeśli się powiedzie, nastąpi połączenie z nową maszyną wirtualną CentOS działającą na platformie Azure.
 
-10. Aby zalogować się jako użytkownik główny, wpisz **sudo bash**.
+10. Aby zalogować się jako użytkownik główny, wpisz **sudo bash** .
 
     ![Logowanie użytkownika root w oknie polecenia](media/putty-03.png)
 
@@ -909,7 +909,7 @@ Sortowanie jest narzędziem używanym w transakcjach wsadowych do sortowania dan
 
 **Aby zainstalować sortowanie**
 
-1. Upewnij się, że instalacja wsadowa zakończyła się pomyślnie, a następnie sprawdź, czy jest obecny plik Instalatora ** \_ 2sp3-linux64-2123-opt. tar. gz** .
+1. Upewnij się, że instalacja wsadowa zakończyła się pomyślnie, a następnie sprawdź, czy jest obecny plik Instalatora **\_ 2sp3-linux64-2123-opt. tar. gz** .
 
 2. Uruchom Instalatora przy użyciu pliku właściwości. W wierszu polecenia wpisz polecenie:
 
@@ -1359,7 +1359,7 @@ Przed zainstalowaniem JEUS Zainstaluj pakiet Apache Ant, który udostępnia bibl
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11. *Opcjonalne*. Utwórz alias do łatwego zamykania i rozruchu składników JEUS:
+11. *Opcjonalne* . Utwórz alias do łatwego zamykania i rozruchu składników JEUS:
 
      ```     
      # JEUS alias
@@ -1389,11 +1389,11 @@ Przed zainstalowaniem JEUS Zainstaluj pakiet Apache Ant, który udostępnia bibl
      > [!NOTE]
      > Jeśli występują problemy z zabezpieczeniami portów, otwórz port 9736 lub wyłącz zaporę ( `systemctl stop firewall` ).
 
-14. Aby zmienić nazwę hosta dla serwer1, kliknij pozycję **Zablokuj & Edytuj**, a następnie kliknij pozycję **serwer1**. W oknie serwer Zmień nazwę hosta w następujący sposób:
+14. Aby zmienić nazwę hosta dla serwer1, kliknij pozycję **Zablokuj & Edytuj** , a następnie kliknij pozycję **serwer1** . W oknie serwer Zmień nazwę hosta w następujący sposób:
 
-    1.  Zmień **węzeł nodename** na **ofdemo**.
+    1.  Zmień **węzeł nodename** na **ofdemo** .
     2.  Kliknij przycisk **OK** po prawej stronie okna.
-    3.  Kliknij przycisk **Zastosuj zmiany** w lewej dolnej części okna i w polu Opis, wprowadź *zmianę nazwy hosta*.
+    3.  Kliknij przycisk **Zastosuj zmiany** w lewej dolnej części okna i w polu Opis, wprowadź *zmianę nazwy hosta* .
 
     ![Ekran JEUS webadmin](media/jeus-02.png)
 

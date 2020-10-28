@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: e305795f4f45a0ea858eb8d74880aedca8ec538d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57afbe2ebdde7755eec659f56e402315a60ec7d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979837"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676618"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Samouczek: Konfigurowanie programu SAP SuccessFactors do Active Directory aprowizacji użytkowników 
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia użytkownikom SuccessFactorsego Active Directory w centrum danych (AD) i usługi Azure AD z opcjonalnym zwrotem adresu e-mail na SuccessFactors. 
@@ -95,32 +95,32 @@ Skontaktuj się z zespołem administracyjnym SuccessFactors lub partnerem implem
 ### <a name="create-an-api-permissions-role"></a>Utwórz rolę uprawnień interfejsu API
 
 * Zaloguj się do platformy SAP SuccessFactors przy użyciu konta użytkownika, które ma dostęp do centrum administracyjnego.
-* Wyszukaj pozycje *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
+* Wyszukaj pozycje *Zarządzaj rolami uprawnień* , a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
   ![Zarządzanie rolami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* Na liście rola uprawnień kliknij pozycję **Utwórz nową**.
+* Na liście rola uprawnień kliknij pozycję **Utwórz nową** .
   > [!div class="mx-imgBorder"]
   > ![Utwórz nową rolę uprawnienia](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
 * Dodaj nazwę i **Opis** **roli** dla nowej roli uprawnienia. Nazwa i opis powinny wskazywać, że rola ma uprawnienia do użycia interfejsu API.
   > [!div class="mx-imgBorder"]
   > ![Szczegóły roli uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* W obszarze Ustawienia uprawnień kliknij pozycję **uprawnienie...**, a następnie przewiń w dół listę uprawnień i kliknij pozycję **Zarządzaj narzędzia integracji**. Zaznacz pole wyboru **Zezwalaj administratorowi na dostęp do interfejsu API OData za pomocą uwierzytelniania podstawowego**.
+* W obszarze Ustawienia uprawnień kliknij pozycję **uprawnienie...** , a następnie przewiń w dół listę uprawnień i kliknij pozycję **Zarządzaj narzędzia integracji** . Zaznacz pole wyboru **Zezwalaj administratorowi na dostęp do interfejsu API OData za pomocą uwierzytelniania podstawowego** .
   > [!div class="mx-imgBorder"]
   > ![Zarządzanie narzędziami integracji](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Przewiń w dół do tego samego pola i wybierz pozycję **Employee Central API**. Dodaj uprawnienia, jak pokazano poniżej, aby czytać przy użyciu interfejsu API ODATA i edytować za pomocą interfejsu API ODATA. Wybierz opcję Edytuj, jeśli planujesz używać tego samego konta do scenariusza zapisywania zwrotnego SuccessFactors. 
+* Przewiń w dół do tego samego pola i wybierz pozycję **Employee Central API** . Dodaj uprawnienia, jak pokazano poniżej, aby czytać przy użyciu interfejsu API ODATA i edytować za pomocą interfejsu API ODATA. Wybierz opcję Edytuj, jeśli planujesz używać tego samego konta do scenariusza zapisywania zwrotnego SuccessFactors. 
   > [!div class="mx-imgBorder"]
   > ![Odczyt uprawnień do zapisu](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
   >[!NOTE]
   >Aby uzyskać pełną listę atrybutów pobranych przez tę aplikację aprowizacji, zapoznaj się z [odwołaniem do atrybutu SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
 
-* Kliknij przycisk **gotowe**. Kliknij przycisk **Zapisz zmiany**.
+* Kliknij przycisk **gotowe** . Kliknij przycisk **Zapisz zmiany** .
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Tworzenie grupy uprawnień dla użytkownika interfejsu API
 
-* W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj grupami uprawnień*, a następnie wybierz pozycję **Zarządzaj grupami uprawnień** z wyników wyszukiwania.
+* W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj grupami uprawnień* , a następnie wybierz pozycję **Zarządzaj grupami uprawnień** z wyników wyszukiwania.
   > [!div class="mx-imgBorder"]
   > ![Zarządzaj grupami uprawnień](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* W oknie Zarządzanie grupami uprawnień kliknij pozycję **Utwórz nowe**.
+* W oknie Zarządzanie grupami uprawnień kliknij pozycję **Utwórz nowe** .
   > [!div class="mx-imgBorder"]
   > ![Dodaj nową grupę](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
 * Dodaj nazwę grupy dla nowej grupy. Nazwa grupy powinna wskazywać, że grupa jest przeznaczony dla użytkowników interfejsu API.
@@ -133,8 +133,8 @@ Skontaktuj się z zespołem administracyjnym SuccessFactors lub partnerem implem
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Udziel uprawnienia roli do grupy uprawnień
 
-* W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj rolami uprawnień*, a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
-* Z **listy rola uprawnień**wybierz rolę utworzoną na potrzeby uprawnień użycia interfejsu API.
+* W centrum administracyjnym SuccessFactors Wyszukaj pozycję *Zarządzaj rolami uprawnień* , a następnie wybierz pozycję **Zarządzaj rolami uprawnień** z wyników wyszukiwania.
+* Z **listy rola uprawnień** wybierz rolę utworzoną na potrzeby uprawnień użycia interfejsu API.
 * W obszarze **Przypisz tę rolę do...** kliknij przycisk **Dodaj.** ...
 * Z menu rozwijanego wybierz pozycję **Grupa uprawnień** , a następnie kliknij pozycję **Wybierz...** , aby otworzyć okno grupy, aby wyszukać i wybrać utworzoną powyżej grupę. 
   > [!div class="mx-imgBorder"]
@@ -142,7 +142,7 @@ Skontaktuj się z zespołem administracyjnym SuccessFactors lub partnerem implem
 * Przejrzyj uprawnienia przyznane grupie uprawnień. 
   > [!div class="mx-imgBorder"]
   > ![Szczegóły roli i grupy uprawnień](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Kliknij przycisk **Zapisz zmiany**.
+* Kliknij przycisk **Zapisz zmiany** .
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>Konfigurowanie aprowizacji użytkowników z SuccessFactors do Active Directory
 
@@ -162,11 +162,11 @@ Ta sekcja zawiera kroki związane z inicjowaniem obsługi kont użytkowników z 
 
 2. Na lewym pasku nawigacyjnym wybierz pozycję **Azure Active Directory**
 
-3. Wybierz **aplikacje przedsiębiorstwa**, a następnie **wszystkie aplikacje**.
+3. Wybierz **aplikacje przedsiębiorstwa** , a następnie **wszystkie aplikacje** .
 
-4. Wybierz pozycję **Dodaj aplikację**, a następnie wybierz kategorię **wszystkie** .
+4. Wybierz pozycję **Dodaj aplikację** , a następnie wybierz kategorię **wszystkie** .
 
-5. Wyszukaj **SuccessFactors, aby Active Directory aprowizacji użytkowników**i dodać tę aplikację z galerii.
+5. Wyszukaj **SuccessFactors, aby Active Directory aprowizacji użytkowników** i dodać tę aplikację z galerii.
 
 6. Po dodaniu aplikacji i wyświetleniu ekranu Szczegóły aplikacji wybierz opcję **aprowizacji**
 
@@ -182,7 +182,7 @@ Ta sekcja zawiera kroki związane z inicjowaniem obsługi kont użytkowników z 
 Aby zapewnić Active Directory lokalnego, Agent aprowizacji musi być zainstalowany na serwerze, który ma .NET 4.7.1 + Framework i dostęp sieciowy do żądanych Active Directory domen.
 
 > [!TIP]
-> Możesz sprawdzić wersję programu .NET Framework na serwerze, korzystając z instrukcji przedstawionych [tutaj](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
+> Możesz sprawdzić wersję programu .NET Framework na serwerze, korzystając z instrukcji przedstawionych [tutaj](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Jeśli na serwerze nie jest zainstalowany program .NET 4.7.1 lub nowszy, możesz go pobrać z tego [miejsca](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
 Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki podane poniżej, aby ukończyć konfigurację agenta.
@@ -247,7 +247,7 @@ W tym kroku ustanawiamy łączność z usługą SuccessFactors i Active Director
 
    * **Hasło administratora —** Wprowadź hasło dla konta użytkownika interfejsu API SuccessFactors. 
 
-   * **Adres URL dzierżawy —** Wprowadź nazwę punktu końcowego usług interfejsu API OData SuccessFactors. Wprowadź tylko nazwę hosta serwera bez protokołu HTTP lub https. Ta wartość powinna wyglądać następująco: **<API-Server-name>. SuccessFactors.com**.
+   * **Adres URL dzierżawy —** Wprowadź nazwę punktu końcowego usług interfejsu API OData SuccessFactors. Wprowadź tylko nazwę hosta serwera bez protokołu HTTP lub https. Ta wartość powinna wyglądać następująco: **<API-Server-name>. SuccessFactors.com** .
 
    * **Active Directory Las** "Nazwa" domeny Active Directory, zarejestrowana w agencie. Użyj listy rozwijanej, aby wybrać domenę docelową do aprowizacji. Ta wartość jest zazwyczaj ciągiem: *contoso.com*
 
@@ -258,7 +258,7 @@ W tym kroku ustanawiamy łączność z usługą SuccessFactors i Active Director
 
    * **Wiadomość e-mail z powiadomieniem —** Wprowadź adres e-mail, a następnie zaznacz pole wyboru "Wyślij wiadomość e-mail, jeśli wystąpi błąd".
     > [!NOTE]
-    > Usługa Azure AD Provisioning wysyła powiadomienie e-mail, jeśli zadanie aprowizacji przejdzie do stanu [kwarantanny](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
+    > Usługa Azure AD Provisioning wysyła powiadomienie e-mail, jeśli zadanie aprowizacji przejdzie do stanu [kwarantanny](../app-provisioning/application-provisioning-quarantine-status.md) .
 
    * Kliknij przycisk **Testuj połączenie** . Jeśli test połączenia zakończy się pomyślnie, kliknij przycisk **Zapisz** u góry. Jeśli to się nie powiedzie, sprawdź, czy poświadczenia SuccessFactors i poświadczenia usługi AD skonfigurowane w instalatorze agenta są prawidłowe.
     >[!div class="mx-imgBorder"]
@@ -270,7 +270,7 @@ W tym kroku ustanawiamy łączność z usługą SuccessFactors i Active Director
 
 W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z SuccessFactors do Active Directory.
 
-1. Na karcie Inicjowanie obsługi w obszarze **mapowania**kliknij pozycję **Synchronizuj SuccessFactors użytkowników do lokalnego Active Directory**.
+1. Na karcie Inicjowanie obsługi w obszarze **mapowania** kliknij pozycję **Synchronizuj SuccessFactors użytkowników do lokalnego Active Directory** .
 
 1. W polu **Zakres obiektu źródłowego** możesz wybrać, które zestawy użytkowników w SuccessFactors powinny znajdować się w zakresie dla aprowizacji do usługi AD przez zdefiniowanie zestawu filtrów opartych na atrybutach. Zakresem domyślnym jest "Wszyscy użytkownicy w SuccessFactors". Przykładowe filtry:
 
@@ -340,9 +340,9 @@ Po zakończeniu konfiguracji aplikacji SuccessFactorsing (Inicjowanie obsługi a
 > [!TIP]
 > Domyślnie po włączeniu usługi aprowizacji zostaną zainicjowane operacje aprowizacji dla wszystkich użytkowników w zakresie. Jeśli występują błędy związane z mapowaniem lub SuccessFactors danych, zadanie aprowizacji może się nie powieść i przejść do stanu kwarantanny. Aby tego uniknąć, najlepszym rozwiązaniem jest zalecamy skonfigurowanie filtru **zakresu obiektów źródłowych** i przetestowanie mapowań atrybutów z kilkoma użytkownikami testowymi przed uruchomieniem pełnej synchronizacji dla wszystkich użytkowników. Po sprawdzeniu, czy mapowania działają i dają odpowiednie wyniki, można usunąć filtr lub stopniowo rozwijać go, aby uwzględnić więcej użytkowników.
 
-1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
+1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone** .
 
-2. Kliknij przycisk **Zapisz**.
+2. Kliknij pozycję **Zapisz** .
 
 3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie SuccessFactors. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 

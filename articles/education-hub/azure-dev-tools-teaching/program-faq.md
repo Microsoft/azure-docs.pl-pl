@@ -7,12 +7,12 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: d52dd19667da005de54bbf9b4d30207976511c7d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89567813"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675703"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Często zadawane pytania dotyczące Education Hub
 
@@ -46,7 +46,7 @@ Twoja subskrypcja platformy Azure for Students zapewnia dostęp do niektórych n
 
 ### <a name="what-is-microsoft-learn"></a>Co to jest Microsoft Learn?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/) to bezpłatna platforma szkoleniowa online, która umożliwia naukę technologii platformy Azure we własnym tempie. Ścieżki szkoleniowe łączą moduły, które umożliwiają rozpoczęcie od podstaw, a następnie przechodzenie do zaawansowanych metod, które dotyczą rzeczywistych wyzwań.
+[Microsoft Learn](/learn/) to bezpłatna platforma szkoleniowa online, która umożliwia naukę technologii platformy Azure we własnym tempie. Ścieżki szkoleniowe łączą moduły, które umożliwiają rozpoczęcie od podstaw, a następnie przechodzenie do zaawansowanych metod, które dotyczą rzeczywistych wyzwań.
 
 ### <a name="can-azure-for-students-be-used-for-production-or-only-for-development"></a>Czy platforma Azure for Students może być używana w środowisku produkcyjnym, czy tylko w programowaniu?
 
@@ -97,7 +97,7 @@ To oprogramowanie można pobrać z [Education Hub](https://ms.portal.azure.com/#
 
 ### <a name="what-is-microsoft-learn"></a>Co to jest Microsoft Learn?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/) to bezpłatna platforma szkoleniowa online, która umożliwia naukę technologii platformy Azure we własnym tempie. Ścieżki szkoleniowe łączą moduły, które umożliwiają rozpoczęcie od podstaw, a następnie przechodzenie do zaawansowanych metod, które dotyczą rzeczywistych wyzwań.
+[Microsoft Learn](/learn/) to bezpłatna platforma szkoleniowa online, która umożliwia naukę technologii platformy Azure we własnym tempie. Ścieżki szkoleniowe łączą moduły, które umożliwiają rozpoczęcie od podstaw, a następnie przechodzenie do zaawansowanych metod, które dotyczą rzeczywistych wyzwań.
 
 ## <a name="azure-academic-grant"></a>Przyznanie na platformę Azure
 
@@ -186,7 +186,7 @@ Program Microsoft Visio<br>
 Visual Studio Code<br>
 Visual Studio Community<br>
 Visual Studio Enterprise<br>
-Visual Studio dla komputerów Mac<br>
+Visual Studio for Mac<br>
 Windows 10<br>
 Windows Server<br>
    :::column-end:::
@@ -252,8 +252,8 @@ Jeśli nadal nie możesz się zalogować, skontaktuj się z administratorem subs
 
 ### <a name="how-do-i-find-my-subscriber-id"></a>Jak mogę znaleźć mój identyfikator subskrybenta?
 
-- **Po pierwszym zarejestrowaniu w programie**: numer identyfikacyjny subskrybenta znajduje się w otrzymanej powitalnej wiadomości e-mail z subskrypcją.
-- W **przypadku odnowienia subskrypcji**: Identyfikator subskrybenta znajduje się w wiadomości e-mail z odnowieniem uzyskanym przez administratora subskrypcji.
+- **Po pierwszym zarejestrowaniu w programie** : numer identyfikacyjny subskrybenta znajduje się w otrzymanej powitalnej wiadomości e-mail z subskrypcją.
+- W **przypadku odnowienia subskrypcji** : Identyfikator subskrybenta znajduje się w wiadomości e-mail z odnowieniem uzyskanym przez administratora subskrypcji.
 
 Identyfikator subskrybenta jest również używany w portalu Visual Studio Subscription. Po zalogowaniu się poszukaj w obszarze **moja subskrypcja** na stronie **Moje konto** .
 
@@ -282,7 +282,7 @@ Jeśli nie otrzymasz tych wiadomości e-mail z przypomnieniem, że subskrypcja w
 
 Alternatywnie przejdź do [strony Azure dev Tools for nauczania-Renew](https://portal.azureforeducation.microsoft.com/)i Ukończ proces odnawiania.
 
-Aby sprawdzić datę wygaśnięcia subskrypcji, przejdź do [portalu zarządzania usługi Azure dev Tools for nauczania](https://azureforeducation.microsoft.com/account/Subscriptions)i zapoznaj się z tematem **subskrypcje**.
+Aby sprawdzić datę wygaśnięcia subskrypcji, przejdź do [portalu zarządzania usługi Azure dev Tools for nauczania](https://azureforeducation.microsoft.com/account/Subscriptions)i zapoznaj się z tematem **subskrypcje** .
 
 ### <a name="what-if-i-need-more-help"></a>Co zrobić, jeśli potrzebuję więcej pomocy?
 
