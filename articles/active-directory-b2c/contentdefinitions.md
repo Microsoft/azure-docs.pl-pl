@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd2f7d46df09085d19b19709c7f45cd3d6566988
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202861"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628664"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -24,7 +24,7 @@ ms.locfileid: "85202861"
 
 Możesz dostosować wygląd i działanie dowolnego [profilu technicznego](self-asserted-technical-profile.md), który został potwierdzony. Azure Active Directory B2C (Azure AD B2C) uruchamia kod w przeglądarce klienta i korzysta z nowoczesnego podejścia zwanego współużytkowaniem zasobów między źródłami (CORS).
 
-Aby dostosować interfejs użytkownika, należy określić adres URL w elemencie **ContentDefinition** z dostosowaną zawartością HTML. W profilu technicznym z własnym potwierdzeń lub **OrchestrationStep**należy wskazać ten identyfikator definicji zawartości. Definicja zawartości może zawierać element **LocalizedResourcesReferences** , który określa listę zlokalizowanych zasobów do załadowania. Usługa Azure AD B2C scala elementy interfejsu użytkownika z zawartością HTML ładowaną z adresu URL, a następnie wyświetla stronę użytkownikowi.
+Aby dostosować interfejs użytkownika, należy określić adres URL w elemencie **ContentDefinition** z dostosowaną zawartością HTML. W profilu technicznym z własnym potwierdzeń lub **OrchestrationStep** należy wskazać ten identyfikator definicji zawartości. Definicja zawartości może zawierać element **LocalizedResourcesReferences** , który określa listę zlokalizowanych zasobów do załadowania. Usługa Azure AD B2C scala elementy interfejsu użytkownika z zawartością HTML ładowaną z adresu URL, a następnie wyświetla stronę użytkownikowi.
 
 Element **ContentDefinitions** zawiera adresy URL do szablonów HTML5, które mogą być używane w podróży użytkownika. Identyfikator URI strony HTML5 jest używany przez określony krok interfejsu użytkownika. Na przykład strony logowania lub rejestracji, resetowania haseł lub błędów. Możesz zmodyfikować wygląd i działanie, zastępując LoadUri pliku HTML5. Można tworzyć nowe definicje zawartości zgodnie z potrzebami. Ten element może zawierać odwołanie do zlokalizowanych zasobów w identyfikatorze lokalizacji określonym w elemencie [lokalizacji](localization.md) .
 
@@ -111,7 +111,7 @@ W poniższym przykładzie przedstawiono **DataUri** `selfasserted` wersji `1.2.0
 
 #### <a name="migrating-to-page-layout"></a>Migrowanie do układu strony
 
-Format wartości musi zawierać słowo `contract` : _urn: com: Microsoft: AAD: B2C: elementy:**Contract**:p Age-Name: Version_. Aby określić układ strony w niestandardowych zasadach, które używają starej wartości **DataUri** , użyj poniższej tabeli do przeprowadzenia migracji do nowego formatu.
+Format wartości musi zawierać słowo `contract` : _urn: com: Microsoft: AAD: B2C: elementy: **Contract** :p Age-Name: Version_ . Aby określić układ strony w niestandardowych zasadach, które używają starej wartości **DataUri** , użyj poniższej tabeli do przeprowadzenia migracji do nowego formatu.
 
 | Stara wartość DataUri | Nowa wartość DataUri |
 | ----------------- | ----------------- |
@@ -126,6 +126,39 @@ Format wartości musi zawierać słowo `contract` : _urn: com: Microsoft: AAD: B
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
+W poniższym przykładzie przedstawiono identyfikatory definicji zawartości i odpowiadające im **DataUri** z umową strony: 
+
+```xml
+<ContentDefinitions>
+  <ContentDefinition Id="api.error">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections.signup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.signuporsignin">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted.profileupdate">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountsignup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountpasswordreset">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.phonefactor">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0</DataUri>
+  </ContentDefinition>
+</ContentDefinitions>
+```
 
 ### <a name="metadata"></a>Metadane
 

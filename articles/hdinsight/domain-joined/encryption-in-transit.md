@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 85382ecd627ec8afc63a85de0debd98f94a89849
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544889"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628987"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Szyfrowanie IPSec podczas przesyłania dla usługi Azure HDInsight
 
 W tym artykule omówiono implementację szyfrowania podczas przesyłania komunikacji między węzłami klastra usługi Azure HDInsight.
 
 > [!Note]
-> Szyfrowanie podczas przesyłania jest obecnie włączone dla następujących regionów: Wschodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2. 
+> Szyfrowanie podczas przesyłania jest obecnie włączone dla następujących regionów: Wschodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2.
 
 ## <a name="background"></a>Tło
 
@@ -27,11 +27,11 @@ Usługa Azure HDInsight oferuje różne funkcje zabezpieczeń w celu zabezpiecza
 
 Szyfrowanie w spoczynku obejmuje szyfrowanie po stronie serwera na kontach usługi Azure Storage, a także szyfrowanie dysków na maszynach wirtualnych platformy Azure, które są częścią klastra usługi HDInsight.
 
-Szyfrowanie danych przesyłanych w usłudze HDInsight jest realizowane z użyciem [Transport Layer Security (TLS)](../transport-layer-security.md) accssing bramy klastra i [zabezpieczenia protokołu internetowego (IPSec)](https://en.wikipedia.org/wiki/IPsec) między węzłami klastra. Protokół IPSec może być opcjonalnie włączony między wszystkimi węzłami głównymi, węzłami procesu roboczego, węzłami krawędzi i węzłami dozorcy. Nie jest on włączony dla ruchu między węzłami bramy lub [brokera identyfikatora](./identity-broker.md) , które są maszynami wirtualnymi opartymi na systemie Windows i innymi węzłami systemu Linux w klastrze.
+Szyfrowanie danych przesyłanych w usłudze HDInsight jest realizowane przy użyciu [Transport Layer Security (TLS)](../transport-layer-security.md) w celu uzyskania dostępu do bram klastra i [zabezpieczeń protokołu internetowego (IPSec)](https://wikipedia.org/wiki/IPsec) między węzłami klastra. Protokół IPSec może być opcjonalnie włączony między wszystkimi węzłami głównymi, węzłami procesu roboczego, węzłami krawędzi i węzłami dozorcy. Nie jest on włączony dla ruchu między węzłami bramy lub [brokera identyfikatora](./identity-broker.md) , które są maszynami wirtualnymi opartymi na systemie Windows i innymi węzłami systemu Linux w klastrze.
 
 ## <a name="enable-encryption-in-transit"></a>Włącz szyfrowanie podczas przesyłania
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Aby utworzyć nowy klaster z włączonym szyfrowaniem przy użyciu Azure Portal, wykonaj następujące czynności:
 
@@ -40,7 +40,7 @@ Aby utworzyć nowy klaster z włączonym szyfrowaniem przy użyciu Azure Portal,
 
     :::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="Utwórz klaster — karta Zabezpieczenia i sieć.":::
 
-1. Na karcie **zabezpieczenia i sieć** kliknij pole wyboru **Włącz szyfrowanie podczas przesyłania** .
+1. Na karcie **zabezpieczenia i sieć** zaznacz pole wyboru **Włącz szyfrowanie podczas przesyłania** .
 
     :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Utwórz klaster — karta Zabezpieczenia i sieć.":::
 

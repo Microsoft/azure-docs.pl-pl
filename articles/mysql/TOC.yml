@@ -102,10 +102,10 @@
         - name: Tworzenie aplikacji internetowej w języku PHP przy użyciu programu MySQL
           items:
             - name: Witryny WordPress w kontenerach z użyciem bazy danych MySQL
-              href: ../app-service/containers/tutorial-multi-container-app.md
+              href: ../app-service/tutorial-multi-container-app.md
               maintainContext: true
             - name: PHP z bazą danych MySQL
-              href: ../app-service/app-service-web-tutorial-php-mysql.md
+              href: ../app-service/tutorial-php-mysql-app.md
               maintainContext: true
     - name: Samples
       items:
@@ -114,7 +114,7 @@
         - name: Buforowanie połączeń Java
           href: sample-scripts-java-connection-pooling.md
         - name: Elementy wbudowane usługi Azure Policy
-          href: ./policy-samples.md
+          href: ./policy-reference.md
     - name: Pojęcia
       items:
         - name: Serwery
@@ -224,7 +224,7 @@
               displayName: 'manage, reset password, scale'
             - name: Reguły zapory
               items:
-                - name: Azure Portal
+                - name: Witryna Azure Portal
                   href: howto-manage-firewall-using-portal.md
                   displayName: firewall
                 - name: Interfejs wiersza polecenia platformy Azure
@@ -240,7 +240,7 @@
               displayName: 'managed identity, msi'
         - name: Przywracanie serwera
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-restore-server-portal.md
               displayName: 'restore server,backup'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -271,7 +271,7 @@
               displayName: 'development, redirection , php'
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Interfejs wiersza polecenia platformy Azure
@@ -286,7 +286,7 @@
               href: how-to-stop-start-server.md
         - name: Automatyczne zwiększanie rozmiaru magazynu
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'storage, business continuity , downtime, portal'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -297,7 +297,7 @@
               displayName: 'storage, business continuity , downtime, powershell'
         - name: Dzienniki wolnych zapytań
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'debug, slow query log , performance'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -305,7 +305,7 @@
               displayName: 'debug, slow query log , performance'
         - name: Dzienniki inspekcji
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-configure-audit-logs-portal.md
               displayName: 'debug, audit log'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -357,7 +357,7 @@
               displayName: 'atp, advanced thread, security'
             - name: Virtual Network
               items:
-                - name: Azure Portal
+                - name: Witryna Azure Portal
                   href: howto-manage-vnet-using-portal.md
                   displayName: 'vnet, virtual network, service endpoint'
                 - name: Interfejs wiersza polecenia platformy Azure
@@ -394,7 +394,7 @@
               displayName: 'security, public access'
         - name: Ponowne uruchamianie serwera
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-restart-server-portal.md
               displayName: restart
             - name: Interfejs wiersza polecenia platformy Azure
@@ -427,6 +427,7 @@
             - name: Interfejs wiersza polecenia platformy Azure
               href: flexible-server/quickstart-create-server-cli.md
             - name: Szablon ARM
+              displayName: Resource Manager
               href: flexible-server/quickstart-create-arm-template.md
         - name: Nawiązywanie połączeń i wykonywanie zapytań
           items:
@@ -517,7 +518,7 @@
                   href: flexible-server/how-to-connect-tls-ssl.md
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Interfejs wiersza polecenia platformy Azure
@@ -558,7 +559,7 @@
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/mysql/'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-database-mysql.html'
+      href: /answers/topics/azure-database-mysql.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mysql'
     - name: Filmy wideo

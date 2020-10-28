@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9b75df9df2e81f01543b407b019c752c77ee6807
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207062"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628834"
 ---
 # <a name="app-service-networking-features"></a>App Service funkcje sieciowe
 
@@ -29,6 +29,7 @@ Azure App Service jest systemem rozproszonym. Role obsługujące przychodzące �
 | Adres przypisany do aplikacji | Połączenia hybrydowe |
 | Ograniczenia dostępu | Integracja sieci wirtualnej wymagana przez bramę |
 | Punkty końcowe usługi | Integracja z siecią wirtualną |
+| Prywatne punkty końcowe ||
 
 O ile nie określono inaczej, wszystkie funkcje mogą być używane razem. Możesz mieszać funkcje, aby rozwiązać różne problemy.
 
@@ -36,20 +37,20 @@ O ile nie określono inaczej, wszystkie funkcje mogą być używane razem. Może
 
 W przypadku dowolnego danego przypadku użycia może istnieć kilka sposobów rozwiązania problemu.  Odpowiednia funkcja jest czasami spowodowana tylko przypadkiem użycia. Następujące przypadki użycia ruchu przychodzącego zasugerują sposób użycia App Service funkcje sieciowe do rozwiązywania problemów związanych z kontrolowaniem ruchu kierowanego do aplikacji. 
  
-| Przychodzące przypadki użycia | Cecha |
+| Przychodzące przypadki użycia | Cechy |
 |---------------------|-------------------|
 | Obsługa protokołu SSL opartego na protokole IP dla aplikacji | adres przypisany do aplikacji |
 | Nieudostępniony, dedykowany adres przychodzący dla aplikacji | adres przypisany do aplikacji |
 | Ograniczanie dostępu do aplikacji z zestawu dobrze zdefiniowanych adresów | Ograniczenia dostępu |
 | Ograniczanie dostępu do mojej aplikacji z zasobów w sieci wirtualnej | Punkty końcowe usługi </br> ILB ASE </br> Prywatne punkty końcowe |
-| Uwidacznianie mojej aplikacji w prywatnym adresie IP w mojej sieci wirtualnej | ILB ASE </br> Prywatne punkty końcowe </br> prywatny adres IP dla ruchu przychodzącego na Application Gateway z punktami końcowymi usługi |
-| Ochrona mojej aplikacji za pomocą zapory aplikacji sieci Web (WAF) | Application Gateway i ILB ASE </br> Application Gateway z prywatnymi punktami końcowymi </br> Application Gateway z punktami końcowymi usługi </br> Moje drzwi platformy Azure z ograniczeniami dostępu |
+| Uwidacznianie mojej aplikacji w prywatnym adresie IP w mojej sieci wirtualnej | ILB ASE </br> Prywatne punkty końcowe </br> Prywatny adres IP dla ruchu przychodzącego na Application Gateway z punktami końcowymi usługi |
+| Ochrona mojej aplikacji za pomocą zapory aplikacji sieci Web (WAF) | Application Gateway i ILB ASE </br> Application Gateway z prywatnymi punktami końcowymi </br> Usługa Application Gateway z punktami końcowymi usługi </br> Moje drzwi platformy Azure z ograniczeniami dostępu |
 | Równoważenie obciążenia ruchu do moich aplikacji w różnych regionach | Moje drzwi platformy Azure z ograniczeniami dostępu | 
 | Równoważenie obciążenia ruchu w tym samym regionie | [Usługa Application Gateway z punktami końcowymi usługi][appgwserviceendpoints] | 
 
 Następujące wychodzące przypadki użycia sugerują, jak używać funkcji sieciowych App Service do rozwiązywania potrzeby dostępu wychodzącego dla aplikacji. 
 
-| Wychodzące przypadki użycia | Cecha |
+| Wychodzące przypadki użycia | Cechy |
 |---------------------|-------------------|
 | Dostęp do zasobów w Virtual Network platformy Azure w tym samym regionie | Integracja z siecią wirtualną </br> ASE |
 | Dostęp do zasobów w usłudze Azure Virtual Network w innym regionie | Integracja sieci wirtualnej wymagana przez bramę </br> Środowisko ASE i Komunikacja równorzędna sieci wirtualnych |
@@ -89,20 +90,23 @@ Możesz dowiedzieć się, jak ustawić adres w aplikacji za pomocą samouczka na
 
 ### <a name="access-restrictions"></a>Ograniczenia dostępu 
 
-Funkcja ograniczenia dostępu umożliwia filtrowanie żądań **przychodzących** na podstawie źródłowego adresu IP. Akcja filtrowania odbywa się w rolach frontonu, które są nadrzędne od ról procesu roboczego, w których są uruchomione aplikacje. Ponieważ role frontonu są nadrzędne dla procesów roboczych, możliwość ograniczenia dostępu może być traktowana jako ochrona na poziomie sieci dla aplikacji. Funkcja ta umożliwia tworzenie listy bloków dozwolonych i zablokowanych adresów, które są oceniane w kolejności priorytetów. Jest podobna do sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń), która istnieje w sieci platformy Azure.  Tej funkcji można użyć w środowisku ASE lub w usłudze wielu dzierżawców. Gdy jest używany z ILB ASE, można ograniczyć dostęp z bloków adresów prywatnych.
+Funkcja ograniczenia dostępu umożliwia filtrowanie żądań **przychodzących** . Akcja filtrowania odbywa się w rolach frontonu, które są nadrzędne od ról procesu roboczego, w których są uruchomione aplikacje. Ponieważ role frontonu są nadrzędne dla procesów roboczych, możliwość ograniczenia dostępu może być traktowana jako ochrona na poziomie sieci dla aplikacji. Funkcja umożliwia tworzenie listy reguł zezwalania i odmowy, które są oceniane w kolejności priorytetów. Jest podobna do sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń), która istnieje w sieci platformy Azure.  Tej funkcji można użyć w środowisku ASE lub w usłudze wielu dzierżawców. Gdy jest używany z ILB ASE lub prywatnym punktem końcowym, można ograniczyć dostęp z bloków adresów prywatnych.
+> [!NOTE]
+> Dla każdej aplikacji można skonfigurować maksymalnie 512 reguł ograniczeń dostępu. 
 
 ![Ograniczenia dostępu](media/networking-features/access-restrictions.png)
+#### <a name="ip-based-access-restriction-rules"></a>Reguły ograniczeń dostępu opartego na protokole IP
 
-Funkcja ograniczeń dostępu pomaga w scenariuszach, w których chcesz ograniczyć adresy IP, które mogą być używane do uzyskiwania dostępu do aplikacji. Wśród przypadków użycia tej funkcji są następujące:
+Funkcja ograniczeń dostępu opartych na protokole IP pomaga w scenariuszach, w których chcesz ograniczyć adresy IP, które mogą być używane do uzyskiwania dostępu do aplikacji. Obsługiwane są zarówno adresy IPv4, jak i IPv6. Wśród przypadków użycia tej funkcji są następujące:
 
 * Ograniczanie dostępu do aplikacji z zestawu dobrze zdefiniowanych adresów 
-* Ogranicz dostęp do sieci za pomocą usługi równoważenia obciążenia, takiej jak frontony platformy Azure. Jeśli chcesz zablokować ruch przychodzący do platformy Azure, utwórz reguły zezwalające na ruch z 147.243.0.0/16 i 2a01:111:2050::/44. 
+* Ograniczanie dostępu za pomocą usługi równoważenia obciążenia, takiej jak frontony platformy Azure
 
 ![Ograniczenia dostępu z przednim Drzwiem](media/networking-features/access-restrictions-afd.png)
 
-Jeśli chcesz zablokować dostęp do aplikacji, tak aby można ją było uzyskać tylko z zasobów w ramach usługi Azure Virtual Network (VNet), musisz mieć statyczny adres publiczny, na którym znajduje się źródło w sieci wirtualnej. Jeśli zasoby nie mają adresu publicznego, należy zamiast tego użyć funkcji punktów końcowych usługi. Dowiedz się, jak włączyć tę funkcję w samouczku dotyczącym [konfigurowania ograniczeń dostępu][iprestrictions].
+Dowiedz się, jak włączyć tę funkcję w samouczku dotyczącym [konfigurowania ograniczeń dostępu][iprestrictions].
 
-### <a name="service-endpoints"></a>Punkty końcowe usługi
+#### <a name="service-endpoint-based-access-restriction-rules"></a>Reguły ograniczeń dostępu oparte na punktach końcowych usługi
 
 Punkty końcowe usługi umożliwiają zablokowanie dostępu **przychodzącego** do aplikacji w taki sposób, że adres źródłowy musi pochodzić z zestawu podsieci, które zostały wybrane. Ta funkcja działa w połączeniu z ograniczeniami dostępu do adresów IP. Punkty końcowe usługi nie są zgodne z debugowaniem zdalnym. Aby używać zdalnego debugowania z aplikacją, klient nie może znajdować się w podsieci z włączonymi punktami końcowymi usługi. Punkty końcowe usługi są ustawiane w tym samym środowisku użytkownika co ograniczenia dostępu do adresów IP. Można utworzyć listę dozwolonych/zablokowanych reguł dostępu, które zawierają adresy publiczne, a także podsieci w sieci wirtualnych. Ta funkcja obsługuje takie scenariusze, jak:
 
@@ -225,7 +229,7 @@ Ten styl wdrożenia nie daje dedykowanego adresu dla ruchu wychodzącego do Inte
 
 ### <a name="create-multi-tier-applications"></a>Tworzenie aplikacji wielowarstwowych
 
-Aplikacja wielowarstwowa to aplikacja, w której do aplikacji zaplecza API można uzyskać dostęp tylko z warstwy frontonu. Istnieją dwa sposoby tworzenia aplikacji wielowarstwowej. Oba zaczynają korzystać z integracji sieci wirtualnej, aby połączyć swoją aplikację internetową frontonu z podsiecią w sieci wirtualnej. Dzięki temu aplikacja sieci Web będzie mogła nawiązywać wywołania do sieci wirtualnej. Gdy aplikacja frontonu zostanie połączona z siecią wirtualną, musisz wybrać sposób blokowania dostępu do aplikacji interfejsu API.  Można:
+Aplikacja wielowarstwowa to aplikacja, w której do aplikacji zaplecza API można uzyskać dostęp tylko z warstwy frontonu. Istnieją dwa sposoby tworzenia aplikacji wielowarstwowej. Oba zaczynają korzystać z integracji sieci wirtualnej, aby połączyć swoją aplikację internetową frontonu z podsiecią w sieci wirtualnej. Dzięki temu aplikacja sieci Web będzie mogła nawiązywać wywołania do sieci wirtualnej. Gdy aplikacja frontonu zostanie połączona z siecią wirtualną, musisz wybrać sposób blokowania dostępu do aplikacji interfejsu API.  Oto co możesz zrobić:
 
 * Hostowanie zarówno aplikacji frontonu, jak i interfejsu API w tym samym ILB ASE i Uwidacznianie aplikacji frontonu w Internecie za pomocą bramy aplikacji
 * Hostowanie frontonu w usłudze z wieloma dzierżawcami i zaplecza w środowisku ILB ASE

@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 86d89dc6973e61f0cff80b5c65a8c5b836485575
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e485065588fefa95868df9865f317de54e6ef020
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216535"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628783"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
 
@@ -55,24 +55,24 @@ Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 
 #### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
-1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Wybierz pozycję **rejestracje aplikacji**, wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *webapp1* .
-1. W obszarze **Sieć Web**wybierz łącze **Dodaj identyfikator URI** , a następnie wprowadź `http://localhost:6420` .
-1. W obszarze **niejawne przyznanie**zaznacz pola wyboru **tokenów dostępu** i **tokenów identyfikatorów** , jeśli nie została jeszcze wybrana, a następnie wybierz pozycję **Zapisz**.
-1. Wybierz pozycję **Omówienie**.
+1. W menu po lewej stronie wybierz pozycję **Azure AD B2C** . Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C** .
+1. Wybierz pozycję **rejestracje aplikacji** , wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *webapp1* .
+1. W obszarze **Sieć Web** wybierz łącze **Dodaj identyfikator URI** , a następnie wprowadź `http://localhost:6420` .
+1. W obszarze **niejawne przyznanie** zaznacz pola wyboru **tokenów dostępu** i **tokenów identyfikatorów** , jeśli nie została jeszcze wybrana, a następnie wybierz pozycję **Zapisz** .
+1. Wybierz pozycję **Omówienie** .
 1. Rejestrowanie **identyfikatora aplikacji (klienta)** do użycia w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
 
 #### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [Azure portal](https://portal.azure.com).
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
-1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Wybierz pozycję **aplikacje (starsza wersja)**, a następnie wybierz aplikację *webapp1* .
+1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure AD B2C** .
+1. Wybierz pozycję **aplikacje (starsza wersja)** , a następnie wybierz aplikację *webapp1* .
 1. W obszarze **Adres URL odpowiedzi** dodaj `http://localhost:6420`.
-1. Wybierz pozycję **Zapisz**.
-1. Na stronie właściwości Zapisz **Identyfikator aplikacji**. IDENTYFIKATORA aplikacji można użyć w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
+1. Wybierz pozycję **Zapisz** .
+1. Na stronie właściwości Zapisz **Identyfikator aplikacji** . IDENTYFIKATORA aplikacji można użyć w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
 
 * * *
 
@@ -93,7 +93,7 @@ Teraz, gdy uzyskano przykład, zaktualizuj kod przy użyciu nazwy dzierżawy Azu
 1. Otwórz plik *authConfig.js* w folderze *JavaScriptSPA* .
 1. W `msalConfig` obiekcie zaktualizuj:
     * `clientId` z wartością z **identyfikatorem aplikacji (klienta)** zapisanym we wcześniejszym kroku
-    * `authority` Identyfikator URI z nazwą dzierżawy Azure AD B2C i nazwą przepływu użytkownika tworzenia konta/logowania utworzonego w ramach wymagań wstępnych (na przykład *B2C_1_signupsignin1*)
+    * `authority` Identyfikator URI z nazwą dzierżawy Azure AD B2C i nazwą przepływu użytkownika tworzenia konta/logowania utworzonego w ramach wymagań wstępnych (na przykład *B2C_1_signupsignin1* )
 
     ```javascript
     const msalConfig = {
@@ -116,6 +116,72 @@ Teraz, gdy uzyskano przykład, zaktualizuj kod przy użyciu nazwy dzierżawy Azu
       scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
     };
     ```
+
+1. Otwórz `authConfig.js` plik w folderze *JavaScriptSPA* .
+1. W `msalConfig` obiekcie zaktualizuj:
+    * `clientId` przy użyciu **identyfikatora aplikacji (klienta)** zapisanego we wcześniejszym kroku
+    * `authority` Identyfikator URI z nazwą dzierżawy Azure AD B2C i nazwą przepływu użytkownika tworzenia konta/logowania utworzonego w ramach wymagań wstępnych (na przykład *B2C_1_signupsignin1* )
+1. Otwórz plik `policies.js`.
+1. Znajdź wpisy dla `names` i `authorities` zastąp je odpowiednio odpowiednimi nazwami zasad, które zostały utworzone w kroku 2. Zamień na `fabrikamb2c.onmicrosoft.com` nazwę dzierżawy Azure AD B2C, na przykład `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>` .
+1. Otwórz plik `apiConfig.js`.
+1. Znajdź przypisanie zakresów `b2cScopes` i Zastąp adres URL zakresem, który został utworzony dla internetowego interfejsu API, na przykład `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]` .
+1. Znajdź przypisanie dla adresu URL interfejsu API `webApi` i zastąp bieżący adres URL adresem URL, na którym został wdrożony internetowy interfejs API w kroku 4, na przykład `webApi: http://localhost:5000/hello` .
+
+Otrzymany kod powinien wyglądać następująco:
+
+### <a name="authconfigjs"></a>authConfig.js
+
+```javascript
+const msalConfig = {
+  auth: {
+    clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902",
+    authority: b2cPolicies.authorities.signUpSignIn.authority,
+    validateAuthority: false
+  },
+  cache: {
+    cacheLocation: "localStorage",
+    storeAuthStateInCookie: true
+  }
+};
+
+const loginRequest = {
+  scopes: ["openid", "profile"],
+};
+
+const tokenRequest = {
+  scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
+};
+```
+### <a name="policiesjs"></a>policies.js
+
+```javascript
+const b2cPolicies = {
+    names: {
+        signUpSignIn: "b2c_1_susi",
+        forgotPassword: "b2c_1_reset",
+        editProfile: "b2c_1_edit_profile"
+    },
+    authorities: {
+        signUpSignIn: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
+        },
+        forgotPassword: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
+        },
+        editProfile: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile"
+        }
+    },
+}
+```
+### <a name="apiconfigjs"></a>apiConfig.js
+
+```javascript
+const apiConfig = {
+  b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+  webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+};
+```
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
@@ -154,7 +220,7 @@ Ta przykładowa aplikacja obsługuje rejestrowanie, logowanie i resetowanie has�
 
 1. Wybierz pozycję **Utwórz** , aby utworzyć konto lokalne w katalogu Azure AD B2C.
 
-Po wybraniu opcji **Utwórz**aplikacja wyświetli nazwę zalogowanego użytkownika.
+Po wybraniu opcji **Utwórz** aplikacja wyświetli nazwę zalogowanego użytkownika.
 
 :::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Przeglądarka sieci Web przedstawiająca aplikację jednostronicową działającą lokalnie":::
 

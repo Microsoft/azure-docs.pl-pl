@@ -11,36 +11,38 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 73560c49e10ab96c934d4dd3cea9395093a26420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82629052"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629429"
 ---
-# <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Kopiowanie plików z wielu kontenerów za pomocą Azure Data Factory
+# <a name="copy-multiple-folders-with-azure-data-factory"></a>Kopiuj wiele folderów za pomocą Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym artykule opisano szablon rozwiązania, którego można użyć do kopiowania plików z wielu kontenerów między magazynami plików. Na przykład możesz użyć jej do migrowania usługi Data Lake z AWS S3 do Azure Data Lake Store. Można też użyć szablonu, aby replikować wszystko z jednego konta usługi Azure Blob Storage do innego.
+W tym artykule opisano szablon rozwiązania, którego można użyć do kopiowania kontenerów lub folderów między magazynami opartymi na plikach, gdzie każde działanie kopiowania ma mieć możliwość kopiowania jednego kontenera lub folderu. 
 
 > [!NOTE]
 > Jeśli chcesz skopiować pliki z jednego kontenera, bardziej wydajne jest użycie [narzędzia kopiowanie danych](copy-data-tool.md) , aby utworzyć potok z jednym działaniem kopiowania. Szablon w tym artykule jest bardziej niezbędny dla tego prostego scenariusza.
 
 ## <a name="about-this-solution-template"></a>Informacje o tym szablonie rozwiązania
 
-Ten szablon wylicza kontenery ze źródłowego magazynu magazynu. Następnie kopiuje te kontenery do magazynu docelowego.
+Ten szablon wylicza foldery z danego folderu nadrzędnego w źródłowym magazynie magazynu. Następnie kopiuje wszystkie foldery do magazynu docelowego.
 
 Szablon zawiera trzy działania:
-- **GetMetadata** skanuje źródłowy magazyn magazynu i pobiera listę kontenerów.
-- Instrukcja **foreach** pobiera listę kontenerów z działania **GetMetadata** , a następnie wykonuje iterację na liście i przekazuje poszczególne kontenery do działania kopiowania.
-- **Kopiuj** kopiuje każdy kontener ze źródłowego magazynu magazynu do magazynu docelowego.
+- **GetMetadata** skanuje źródłowy magazyn magazynu i pobiera listę podfolderów z danego folderu nadrzędnego.
+- Instrukcja **foreach** pobiera listę podfolderów z działania **GetMetadata** , a następnie wykonuje iterację na liście i przekazuje poszczególne foldery do działania kopiowania.
+- **Kopiuj** kopiuje wszystkie foldery ze źródłowego magazynu magazynu do magazynu docelowego.
 
 Szablon definiuje następujące parametry:
-- *SourceFileFolder* to ścieżka folderu magazynu źródła danych, w której można uzyskać listę kontenerów. Ścieżka jest katalogiem głównym, który zawiera wiele folderów kontenerów. Wartość domyślna tego parametru to `sourcefolder` .
-- *SourceFileDirectory* to ścieżka podfolderu w katalogu głównym magazynu źródła danych. Wartość domyślna tego parametru to `subfolder` .
-- *DestinationFileFolder* to ścieżka folderu, w której pliki zostaną skopiowane do magazynu docelowego. Wartość domyślna tego parametru to `destinationfolder` .
-- *DestinationFileDirectory* to ścieżka podfolderu, w którym pliki zostaną skopiowane do magazynu docelowego. Wartość domyślna tego parametru to `subfolder` .
+- *SourceFileFolder* jest częścią ścieżki folderu nadrzędnego magazynu źródła danych: *SourceFileFolder/SourceFileDirectory* , gdzie można uzyskać listę podfolderów. 
+- *SourceFileDirectory* jest częścią ścieżki folderu nadrzędnego magazynu źródła danych: *SourceFileFolder/SourceFileDirectory* , gdzie można uzyskać listę podfolderów. 
+- *DestinationFileFolder* jest częścią ścieżki folderu nadrzędnego: *DestinationFileFolder/DestinationFileDirectory* , gdzie pliki zostaną skopiowane do magazynu docelowego. 
+- *DestinationFileDirectory* jest częścią ścieżki folderu nadrzędnego: *DestinationFileFolder/DestinationFileDirectory* , gdzie pliki zostaną skopiowane do magazynu docelowego. 
+
+Jeśli chcesz skopiować wiele kontenerów z folderów głównych między magazynami magazynów, możesz wprowadzić wszystkie cztery parametry jako */* . Dzięki temu będziesz replikować wszystkie elementy między magazynami.
 
 ## <a name="how-to-use-this-solution-template"></a>Jak używać tego szablonu rozwiązania
 
@@ -52,7 +54,7 @@ Szablon definiuje następujące parametry:
 
     ![Utwórz nowe połączenie z miejscem docelowym](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Wybierz pozycję **Użyj tego szablonu**.
+3. Wybierz pozycję **Użyj tego szablonu** .
 
     ![Użyj tego szablonu](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
@@ -60,7 +62,7 @@ Szablon definiuje następujące parametry:
 
     ![Pokaż potok](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Wybierz pozycję **Debuguj**, wprowadź **Parametry**, a następnie wybierz pozycję **Zakończ**.
+5. Wybierz pozycję **Debuguj** , wprowadź **Parametry** , a następnie wybierz pozycję **Zakończ** .
 
     ![Uruchamianie potoku](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

@@ -190,7 +190,7 @@ Wykonaj następujące kroki, aby sprawdzić, czy serwer został utworzony na pla
 1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **Azure Database for PostgreSQL elastyczne serwery (wersja zapoznawcza)** .
 1. Na liście baza danych wybierz nowy serwer, aby wyświetlić stronę **przeglądu** , aby zarządzać serwerem.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 Musisz wprowadzić nazwę nowego serwera, aby wyświetlić szczegółowe informacje o Azure Database for PostgreSQL serwerze elastycznym.
 

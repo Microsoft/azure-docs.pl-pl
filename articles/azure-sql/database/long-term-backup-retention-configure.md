@@ -11,19 +11,19 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
-ms.openlocfilehash: a9ff0219a9b811cae15f9b34ec85240d303ab841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7c66c37be1d200a73aa04854f946946b69c6b76
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450280"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629140"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Zarządzanie długoterminowym przechowywaniem kopii zapasowych Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W Azure SQL Database można skonfigurować bazę danych z zasadami [długoterminowego przechowywania kopii zapasowych](long-term-retention-overview.md) (LTR), aby automatycznie zachować kopie zapasowe bazy danych w oddzielnych kontenerach usługi Azure Blob Storage przez maksymalnie 10 lat. Następnie można odzyskać bazę danych przy użyciu tych kopii zapasowych przy użyciu Azure Portal lub programu PowerShell. Możesz również skonfigurować długoterminowe przechowywanie dla [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/long-term-backup-retention-configure.md) , ale jest ono obecnie w ograniczonej publicznej wersji zapoznawczej.
 
-## <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+## <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
 W poniższych sekcjach pokazano, jak za pomocą Azure Portal skonfigurować długoterminowe przechowywanie, wyświetlać kopie zapasowe w długoterminowym przechowywaniu oraz przywracać kopie zapasowe z długoterminowego przechowywania.
 
@@ -31,7 +31,7 @@ W poniższych sekcjach pokazano, jak za pomocą Azure Portal skonfigurować dłu
 
 Można skonfigurować SQL Database, aby [zachować automatyczne kopie zapasowe](long-term-retention-overview.md) przez okres dłuższy niż okres przechowywania w warstwie usług.
 
-1. W Azure Portal wybierz wystąpienie SQL Server, a następnie kliknij pozycję **Zarządzaj kopiami zapasowymi**. Na karcie **Konfigurowanie zasad** zaznacz pole wyboru dla bazy danych, dla której chcesz ustawić lub zmodyfikować długoterminowe zasady przechowywania kopii zapasowych. Jeśli pole wyboru obok bazy danych nie jest zaznaczone, zmiany zasad nie będą miały zastosowania do tej bazy danych.  
+1. W Azure Portal wybierz wystąpienie SQL Server, a następnie kliknij pozycję **Zarządzaj kopiami zapasowymi** . Na karcie **Konfigurowanie zasad** zaznacz pole wyboru dla bazy danych, dla której chcesz ustawić lub zmodyfikować długoterminowe zasady przechowywania kopii zapasowych. Jeśli pole wyboru obok bazy danych nie jest zaznaczone, zmiany zasad nie będą miały zastosowania do tej bazy danych.  
 
    ![Link zarządzania kopiami zapasowymi](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -39,7 +39,7 @@ Można skonfigurować SQL Database, aby [zachować automatyczne kopie zapasowe](
 
    ![Konfigurowanie zasad](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
 
-3. Po zakończeniu kliknij przycisk **Zastosuj**.
+3. Po zakończeniu kliknij przycisk **Zastosuj** .
 
 > [!IMPORTANT]
 > Włączenie długoterminowych zasad przechowywania kopii zapasowych może zająć do 7 dni, zanim pierwsza kopia zapasowa stanie się widoczna i będzie dostępna do przywrócenia. Aby uzyskać szczegółowe informacje dotyczące CADANCE kopii zapasowych LTR, zobacz [długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md).
@@ -48,7 +48,7 @@ Można skonfigurować SQL Database, aby [zachować automatyczne kopie zapasowe](
 
 Wyświetl kopie zapasowe, które są zachowywane dla określonej bazy danych za pomocą zasad oddzielania i Przywróć te kopie zapasowe.
 
-1. W Azure Portal wybierz serwer, a następnie kliknij pozycję **Zarządzaj kopiami zapasowymi**. Na karcie **dostępne kopie zapasowe** wybierz bazę danych, dla której chcesz wyświetlić dostępne kopie zapasowe.
+1. W Azure Portal wybierz serwer, a następnie kliknij pozycję **Zarządzaj kopiami zapasowymi** . Na karcie **dostępne kopie zapasowe** wybierz bazę danych, dla której chcesz wyświetlić dostępne kopie zapasowe.
 
    ![Wybierz bazę danych](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
 
@@ -82,7 +82,7 @@ W poniższych sekcjach pokazano, jak za pomocą programu PowerShell skonfigurowa
 
 ### <a name="azure-roles-to-manage-long-term-retention"></a>Role platformy Azure do zarządzania długoterminowym przechowywaniem
 
-W przypadku funkcji **Get-AzSqlDatabaseLongTermRetentionBackup** i **Restore-AzSqlDatabase**konieczne będzie posiadanie jednej z następujących ról:
+W przypadku funkcji **Get-AzSqlDatabaseLongTermRetentionBackup** i **Restore-AzSqlDatabase** konieczne będzie posiadanie jednej z następujących ról:
 
 - Rola właściciela subskrypcji lub
 - SQL Server rolę współautor lub
@@ -90,7 +90,7 @@ W przypadku funkcji **Get-AzSqlDatabaseLongTermRetentionBackup** i **Restore-AzS
 
    Microsoft. SQL/Locations/longTermRetentionBackups/Read Microsoft. SQL/Locations/longTermRetentionServers/longTermRetentionBackups/Read Microsoft. SQL/Locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/Read
 
-W przypadku **usunięcia-AzSqlDatabaseLongTermRetentionBackup**należy mieć jedną z następujących ról:
+W przypadku **usunięcia-AzSqlDatabaseLongTermRetentionBackup** należy mieć jedną z następujących ról:
 
 - Rola właściciela subskrypcji lub
 - Rola niestandardowa z następującymi uprawnieniami:
@@ -200,6 +200,9 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 > [!NOTE]
 > W tym miejscu możesz połączyć się z przywróconą bazą danych przy użyciu programu SQL Server Management Studio, aby wykonać niezbędne zadania, takie jak wyodrębnienie bitu danych z przywróconej bazy danych w celu skopiowania do istniejącej bazy danych lub usunięcie istniejącej bazę danych i zmiana nazwy przywróconej bazy danych na istniejącą nazwę bazy danych. Zobacz [przywracanie do punktu w czasie](recovery-using-backups.md#point-in-time-restore).
+
+## <a name="limitations"></a>Ograniczenia
+- W przypadku przywracania z kopii zapasowej LTR Właściwość Skala odczytu jest wyłączona. Aby włączyć, odczytywać skalowanie w przywróconej bazie danych, zaktualizuj bazę danych po jej utworzeniu.
 
 ## <a name="next-steps"></a>Następne kroki
 

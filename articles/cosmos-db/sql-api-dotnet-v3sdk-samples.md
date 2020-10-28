@@ -37,7 +37,7 @@ Repozytorium GitHub [Azure-Cosmos-dotnet-v3](https://github.com/Azure/azure-cosm
 
 Program Visual Studio 2019 z zainstalowanym przepływem pracy projektowania platformy Azure
 
-- Możesz pobrać **bezpłatnie** [program Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)i korzystać z niego. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
+- Możesz pobrać **bezpłatnie** [program Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)i korzystać z niego. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure** .
 
    [Pakiet NuGet Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.cosmos/)
 

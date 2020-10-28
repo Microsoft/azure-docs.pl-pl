@@ -98,7 +98,7 @@ Aby przetestować aplikację na lokalnym komputerze z systemem Windows, można u
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Aby uruchomić emulator usługi Azure Storage, z poziomu pulpitu systemu Windows wybierz przycisk **Start** lub klawisz systemu Windows. Wprowadź i uruchom *emulator magazynu Microsoft Azure*. Aby uzyskać więcej informacji, zobacz [Używanie emulatora usługi Azure Storage do programowania i testowania](../storage/common/storage-use-emulator.md).
+Aby uruchomić emulator usługi Azure Storage, z poziomu pulpitu systemu Windows wybierz przycisk **Start** lub klawisz systemu Windows. Wprowadź i uruchom *emulator magazynu Microsoft Azure* . Aby uzyskać więcej informacji, zobacz [Używanie emulatora usługi Azure Storage do programowania i testowania](../storage/common/storage-use-emulator.md).
 
 ### <a name="retrieve-your-connection-string"></a>Pobieranie parametrów połączenia
 
@@ -499,11 +499,11 @@ else
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-W przypadku programu Visual Studio Community Edition, jeśli projekt pobiera błędy kompilacji z powodu plików dołączanych *storage_account. h* i *Table. h*, Usuń przełącznik kompilatora **/permissive-** :
+W przypadku programu Visual Studio Community Edition, jeśli projekt pobiera błędy kompilacji z powodu plików dołączanych *storage_account. h* i *Table. h* , Usuń przełącznik kompilatora **/permissive-** :
 
-1. Kliknij prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań** i wybierz pozycję **Właściwości**.
-1. W oknie dialogowym **Strony właściwości** rozwiń węzeł **Właściwości konfiguracji**, rozwiń węzeł **C/C++**, a następnie wybierz pozycję **Język**.
-1. Zmień ustawienie **Tryb zgodności** na **Nie**.
+1. Kliknij prawym przyciskiem myszy projekt w **Eksploratorze rozwiązań** i wybierz pozycję **Właściwości** .
+1. W oknie dialogowym **Strony właściwości** rozwiń węzeł **Właściwości konfiguracji** , rozwiń węzeł **C/C++** , a następnie wybierz pozycję **Język** .
+1. Zmień ustawienie **Tryb zgodności** na **Nie** .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,14 +5,14 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: lle
-ms.openlocfilehash: d35dd94c8aa264c9b4dd679d3b50f3783acb2fde
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c85e27cedfbcebe7060dfed2f96fc53aea9838c9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427216"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629394"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
@@ -34,13 +34,13 @@ W przypadku działań zakończonych niepowodzeniem w przypadku samodzielnego śr
 
     ![Wysyłanie dzienników](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
-1. Możesz wybrać dzienniki, które chcesz wysłać. W przypadku *samodzielnego środowiska IR*można przekazać dzienniki powiązane z działaniem zakończonym niepowodzeniem lub wszystkie dzienniki w autonomicznym węźle IR. W przypadku *udostępnionego środowiska IR*można przekazać tylko dzienniki powiązane z działaniem zakończonym niepowodzeniem.
+1. Możesz wybrać dzienniki, które chcesz wysłać. W przypadku *samodzielnego środowiska IR* można przekazać dzienniki powiązane z działaniem zakończonym niepowodzeniem lub wszystkie dzienniki w autonomicznym węźle IR. W przypadku *udostępnionego środowiska IR* można przekazać tylko dzienniki powiązane z działaniem zakończonym niepowodzeniem.
 
     ![Wybieranie dzienników](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
 1. Podczas przekazywania dzienników należy zachować rekord identyfikatora raportu, jeśli potrzebna jest dalsza pomoc w rozwiązaniu problemu.
 
-    ![Przekaż dzienniki](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+    ![Przekazywanie dzienników](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
 
 > [!NOTE]
 > Przeglądanie dzienników i przekazywanie żądań zostanie wykonane we wszystkich wystąpieniach samoobsługowego środowiska IR w trybie online. Upewnij się, że wszystkie własne wystąpienia środowiska IR są w trybie online w przypadku brakujących dzienników. 
@@ -65,14 +65,14 @@ Jest to znany problem w usłudze WCF: Podczas walidacji certyfikatu TLS/SSL w us
 #### <a name="resolution"></a>Rozwiązanie
 
 Własne środowisko IR usługi Azure Data Factory v2 obsługuje certyfikat z symbolami wieloznacznymi. Ten problem występuje zwykle z powodu nieprawidłowego certyfikatu SSL. Ostatnia nazwa DNSName w sieci SAN powinna być prawidłowa. Wykonaj poniższe czynności, aby to sprawdzić. 
-1.  Otwórz konsolę zarządzania, dokładnie sprawdź *podmiot* i *alternatywną nazwę podmiotu* w szczegółach certyfikatu. W powyższym przypadku na przykład ostatni element w *alternatywnej nazwie podmiotu*, czyli "DNS name = Microsoft.com.com", nie jest prawidłowy.
+1.  Otwórz konsolę zarządzania, dokładnie sprawdź *podmiot* i *alternatywną nazwę podmiotu* w szczegółach certyfikatu. W powyższym przypadku na przykład ostatni element w *alternatywnej nazwie podmiotu* , czyli "DNS name = Microsoft.com.com", nie jest prawidłowy.
 2.  Skontaktuj się z firmą wystawienia certyfikatu w celu usunięcia nieprawidłowej nazwy DNS.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problem z limitem zadań współbieżnych
 
 #### <a name="symptoms"></a>Objawy
 
-Przy próbie zwiększenia limitu zadań współbieżnych z poziomu interfejsu użytkownika usługi Azure Data Factory stan zawiesza się na wartości *trwa aktualizacja*.
+Przy próbie zwiększenia limitu zadań współbieżnych z poziomu interfejsu użytkownika usługi Azure Data Factory stan zawiesza się na wartości *trwa aktualizacja* .
 Maksymalna wartość zadań współbieżnych została ustawiona na 24 i chcesz zwiększyć tę liczbę, aby umożliwić szybsze uruchamianie zadań. Minimalna wartość, którą można wprowadzić, to 3, a maksymalna wartość to 32. Zwiększono wartość z 24 do 32 i trafisz na przycisk *aktualizacji* w interfejsie użytkownika, który został zablokowany podczas *aktualizowania* , jak widać poniżej. Po odświeżeniu klient nadal widzi wartość 24, która nigdy nie została zaktualizowana do 32.
 
 ![Aktualizowanie stanu](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
@@ -102,7 +102,7 @@ Podczas obsługi przypadków związanych z uzgadnianiem certyfikatów SSL/TLS mo
 
 - Oto szybki i intuicyjny sposób rozwiązywania problemów z kompilacją łańcucha certyfikatów X. 509.
  
-    1. Wyeksportuj certyfikat, który ma zostać zweryfikowany. Przejdź do zarządzania certyfikatem komputera i znajdź certyfikat, który chcesz sprawdzić, a następnie kliknij prawym przyciskiem myszy pozycję **Wszystkie zadania** -> **Eksportuj**.
+    1. Wyeksportuj certyfikat, który ma zostać zweryfikowany. Przejdź do zarządzania certyfikatem komputera i znajdź certyfikat, który chcesz sprawdzić, a następnie kliknij prawym przyciskiem myszy pozycję **Wszystkie zadania** -> **Eksportuj** .
     
         ![Eksportuj zadania](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +138,7 @@ Podczas obsługi przypadków związanych z uzgadnianiem certyfikatów SSL/TLS mo
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Następnie zostanie otwarte **narzędzie do pobierania adresu URL**. Aby sprawdzić certyfikaty z protokołów AIA, CDP i OCSP, kliknij przycisk **Pobierz**.
+    1. Następnie zostanie otwarte **narzędzie do pobierania adresu URL** . Aby sprawdzić certyfikaty z protokołów AIA, CDP i OCSP, kliknij przycisk **Pobierz** .
 
         ![Przycisk pobierania](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -164,8 +164,8 @@ Jeśli monitor zostanie przetworzony, zobaczysz następujący wynik:
 
 > [!TIP] 
 > Można ustawić filtr, jak pokazano na poniższym zrzucie ekranu.
-> Informuje nas, że biblioteka DLL **System. ValueTuple** nie znajduje się w folderze związanym z pamięcią GAC lub w folderze *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway*, lub w *katalogu c:\Program Files\Microsoft Integration Runtime\4.0\Shared* .
-> Zasadniczo załaduje on bibliotekę dll najpierw z folderu pamięci *GAC*, następnie z folderu *Shared* (Udostępnione), a na końcu z folderu *Gateway* (Brama). W związku z tym możesz umieścić bibliotekę dll w dowolnej ścieżce, która może być przydatna.
+> Informuje nas, że biblioteka DLL **System. ValueTuple** nie znajduje się w folderze związanym z pamięcią GAC lub w folderze *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* , lub w *katalogu c:\Program Files\Microsoft Integration Runtime\4.0\Shared* .
+> Zasadniczo załaduje on bibliotekę dll najpierw z folderu pamięci *GAC* , następnie z folderu *Shared* (Udostępnione), a na końcu z folderu *Gateway* (Brama). W związku z tym możesz umieścić bibliotekę dll w dowolnej ścieżce, która może być przydatna.
 
 ![Skonfiguruj filtry](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -179,7 +179,7 @@ Tej samej metody można użyć do rozwiązywania problemów z innymi brakującym
 
 Powód, dla którego widzisz System.ValueTuple.dll w obszarze *%windir%\Microsoft.NET\assembly* i *%windir%\assembly* , jest to zachowanie platformy .NET. 
 
-Na poniższym błędzie można jasno zobaczyć zestaw *System. ValueTuple* nie istnieje. Taki problem występuje, gdy aplikacja próbuje sprawdzić zestaw *System.ValueTuple.dll*.
+Na poniższym błędzie można jasno zobaczyć zestaw *System. ValueTuple* nie istnieje. Taki problem występuje, gdy aplikacja próbuje sprawdzić zestaw *System.ValueTuple.dll* .
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
@@ -201,7 +201,7 @@ Własne środowisko Integration Runtime nagle przechodzi do trybu offline bez kl
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Jeśli żaden z powyższych przyczyn nie ma zastosowania, możesz przejść do folderu: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway*i sprawdzić, czy plik o nazwie **Configurations** został usunięty. Jeśli został on usunięty, postępuj zgodnie z instrukcjami dostępnymi [tutaj](https://www.netwrix.com/how_to_detect_who_deleted_file.html), aby sprawdzić, kto usunął plik.
+Jeśli żaden z powyższych przyczyn nie ma zastosowania, możesz przejść do folderu: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway* i sprawdzić, czy plik o nazwie **Configurations** został usunięty. Jeśli został on usunięty, postępuj zgodnie z instrukcjami dostępnymi [tutaj](https://www.netwrix.com/how_to_detect_who_deleted_file.html), aby sprawdzić, kto usunął plik.
 
 ![Sprawdź plik konfiguracji](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
@@ -210,7 +210,7 @@ Jeśli żaden z powyższych przyczyn nie ma zastosowania, możesz przejść do f
 
 #### <a name="symptoms"></a>Objawy
 
-Po utworzeniu własnych środowisk IR dla źródłowego i docelowego magazynu danych, chcesz połączyć te dwa środowiska IR, aby zakończyć kopię. Jeśli magazyny danych są skonfigurowane w różnych sieci wirtualnychach lub nie mogą zrozumieć mechanizmu bramy, wystąpią błędy, takie jak: *nie można znaleźć sterownika źródła w docelowym środowisku IR*; *nie można uzyskać dostępu do źródła za pomocą docelowego środowiska IR*.
+Po utworzeniu własnych środowisk IR dla źródłowego i docelowego magazynu danych, chcesz połączyć te dwa środowiska IR, aby zakończyć kopię. Jeśli magazyny danych są skonfigurowane w różnych sieci wirtualnychach lub nie mogą zrozumieć mechanizmu bramy, wystąpią błędy, takie jak: *nie można znaleźć sterownika źródła w docelowym środowisku IR* ; *nie można uzyskać dostępu do źródła za pomocą docelowego środowiska IR* .
  
 #### <a name="cause"></a>Przyczyna
 
@@ -288,14 +288,14 @@ Aby sprawdzić błąd, przejdź do dziennika zdarzeń Integration Runtime.
 
 ![Dziennik zdarzeń IR](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-Jeśli błąd jest wyświetlany jak powyżej *UnauthorizedAccessException*, postępuj zgodnie z poniższymi instrukcjami:
+Jeśli błąd jest wyświetlany jak powyżej *UnauthorizedAccessException* , postępuj zgodnie z poniższymi instrukcjami:
 
 
 1. Sprawdź konto usługi logowania *DIAHostService* w panelu usługi systemu Windows.
 
     ![Konto usługi logowania](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Sprawdź, czy konto usługi logowania ma uprawnienie R/W odniesieniu do folderu: *%ProgramData%\Microsoft\DataTransfer\DataManagementGateway*.
+2. Sprawdź, czy konto usługi logowania ma uprawnienie R/W odniesieniu do folderu: *%ProgramData%\Microsoft\DataTransfer\DataManagementGateway* .
 
     - Domyślnie, jeśli konto logowania do usługi nie zostało zmienione, powinno mieć uprawnienie R/W.
 
@@ -305,7 +305,7 @@ Jeśli błąd jest wyświetlany jak powyżej *UnauthorizedAccessException*, post
         1. Wyczyść, aby odinstalować bieżące środowisko IR samoobsługowego.
         1. Zainstaluj własne bity IR.
         1. Postępuj zgodnie z poniższymi instrukcjami, aby zmienić konto usługi: 
-            1. Przejdź do folderu instalacji środowiska IR selfhosted, przełącz się do folderu: *Microsoft Integration Runtime\4.0\Shared*.
+            1. Przejdź do folderu instalacji środowiska IR selfhosted, przełącz się do folderu: *Microsoft Integration Runtime\4.0\Shared* .
             1. Uruchom wiersz polecenia przy użyciu podwyższonego poziomu uprawnień. Zamień *\<user>* i *\<password>* przy użyciu własnej nazwy użytkownika i hasła, a następnie uruchom polecenie poniżej:
                        
                 ```
@@ -325,7 +325,7 @@ Jeśli błąd jest wyświetlany jak powyżej *UnauthorizedAccessException*, post
             1. Możesz użyć użytkownika lokalnego/domeny dla konta logowania usługi IR.            
         1. Zarejestruj Integration Runtime.
 
-Jeśli błąd jest wyświetlany jako: *nie można uruchomić usługi Integration Runtime Service "(DIAHostService). Sprawdź, czy masz wystarczające uprawnienia do uruchamiania usług systemowych*, postępując zgodnie z poniższymi instrukcjami:
+Jeśli błąd jest wyświetlany jako: *nie można uruchomić usługi Integration Runtime Service "(DIAHostService). Sprawdź, czy masz wystarczające uprawnienia do uruchamiania usług systemowych* , postępując zgodnie z poniższymi instrukcjami:
 
 1. Sprawdź konto usługi logowania *DIAHostService* w panelu usługi systemu Windows.
    
@@ -351,7 +351,7 @@ Nie można znaleźć przycisku **register** w interfejsie użytkownika Configura
 
 #### <a name="cause"></a>Przyczyna
 
-Ponieważ wersja *Integration Runtime 3,0*, przycisk **zarejestruj** na istniejącym węźle Integration Runtime został usunięty, aby umożliwić bardziej przejrzyste i bezpieczniejsze środowisko. Jeśli zarejestrowano węzeł w dowolnym środowisku IR (online lub nie), to aby zainstalować go ponownie w innym środowisku IR, należy odinstalować poprzedni węzeł, a następnie zainstalować i zarejestrować nowy.
+Ponieważ wersja *Integration Runtime 3,0* , przycisk **zarejestruj** na istniejącym węźle Integration Runtime został usunięty, aby umożliwić bardziej przejrzyste i bezpieczniejsze środowisko. Jeśli zarejestrowano węzeł w dowolnym środowisku IR (online lub nie), to aby zainstalować go ponownie w innym środowisku IR, należy odinstalować poprzedni węzeł, a następnie zainstalować i zarejestrować nowy.
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -431,7 +431,7 @@ Własne środowisko Integration Runtime nie może nawiązać połączenia z usł
     ```
         
    > [!NOTE]     
-   > Adres URL usługi może się różnić w zależności od lokalizacji Data Factory. Adres URL usługi można znaleźć w obszarze **połączenia interfejsu użytkownika funkcji ADF**  >  **Connections**  >  **środowisko Integration Runtimes**  >  **Edycja samohostowanych**  >  **węzłów**IR  >  **przeglądanie adresów URL usług**.
+   > Adres URL usługi może się różnić w zależności od lokalizacji Data Factory. Adres URL usługi można znaleźć w obszarze **połączenia interfejsu użytkownika funkcji ADF**  >  **Connections**  >  **środowisko Integration Runtimes**  >  **Edycja samohostowanych**  >  **węzłów** IR  >  **przeglądanie adresów URL usług** .
             
     Oczekiwana jest następująca odpowiedź:
             
@@ -484,7 +484,7 @@ To zachowanie występuje, gdy węzły nie mogą komunikować się ze sobą.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-1. Zaloguj się do maszyny wirtualnej hostowanej na węźle. W obszarze **Dzienniki aplikacji i usług**  >  **Integration Runtime**Otwórz Podgląd zdarzeń i przefiltruj wszystkie dzienniki błędów.
+1. Zaloguj się do maszyny wirtualnej hostowanej na węźle. W obszarze **Dzienniki aplikacji i usług**  >  **Integration Runtime** Otwórz Podgląd zdarzeń i przefiltruj wszystkie dzienniki błędów.
 
 1. Sprawdź, czy dziennik błędów zawiera następujący błąd: 
     
@@ -569,7 +569,7 @@ Wykonaj śledzenie netmon i Przeanalizuj je ponownie.
  
     *Pakiet sieciowy z systemu Linux system A z parametrem TTL 64-> B TTL 64 minus 1 = 63-> C TTL 63 minus 1 = 62-> TTL 62 minus 1 = 61 własne środowisko IR*
 
-- W idealnej sytuacji czas wygaśnięcia będzie wynosił 128, co oznacza, że system Windows działa w naszym Data Factory. Jak pokazano w poniższym przykładzie, *128 – 107 = 21 przeskoków*, co oznacza, że 21 przeskoków dla pakietu zostało wysłanych z Data Factory do samodzielnego środowiska IR podczas uzgadniania TCP 3.
+- W idealnej sytuacji czas wygaśnięcia będzie wynosił 128, co oznacza, że system Windows działa w naszym Data Factory. Jak pokazano w poniższym przykładzie, *128 – 107 = 21 przeskoków* , co oznacza, że 21 przeskoków dla pakietu zostało wysłanych z Data Factory do samodzielnego środowiska IR podczas uzgadniania TCP 3.
  
     ![CZAS WYGAŚNIĘCIA 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,11 +587,11 @@ Gdy próbujesz wykonać polecenie telnet **8.8.8.8 888** przy użyciu zebranych 
 ![Śledzenie netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Oznacza to, że nie można nawiązać połączenia TCP ze stroną serwera **8.8.8.8** w oparciu o port **888**, dlatego w tym miejscu widoczne są dwa **SynReTransmit** dodatkowe pakiety. Ze względu na to, że źródło **host2** nie może nawiązać połączenia z **8.8.8.8em** w pierwszym pakiecie, będzie nadal mieć połączenie.
+Oznacza to, że nie można nawiązać połączenia TCP ze stroną serwera **8.8.8.8** w oparciu o port **888** , dlatego w tym miejscu widoczne są dwa **SynReTransmit** dodatkowe pakiety. Ze względu na to, że źródło **host2** nie może nawiązać połączenia z **8.8.8.8em** w pierwszym pakiecie, będzie nadal mieć połączenie.
 
 > [!TIP]
-> - Możesz kliknąć pozycję Filtr **obciążenia**filtr  ->  **Standardowy**  ->  **adresy**  ->  **adresy IPv4**.
-> - Wprowadź wartość **IPv4. Address = = 8.8.8.8** jako filtr, a następnie kliknij przycisk **Zastosuj**. Następnie zostanie wyświetlona tylko komunikacja z komputera lokalnego do lokalizacji docelowej **8.8.8.8**.
+> - Możesz kliknąć pozycję Filtr **obciążenia** filtr  ->  **Standardowy**  ->  **adresy**  ->  **adresy IPv4** .
+> - Wprowadź wartość **IPv4. Address = = 8.8.8.8** jako filtr, a następnie kliknij przycisk **Zastosuj** . Następnie zostanie wyświetlona tylko komunikacja z komputera lokalnego do lokalizacji docelowej **8.8.8.8** .
 
 ![Filtruj adresy 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         
@@ -630,7 +630,7 @@ To powiadomienie ma wpływ na następujące scenariusze:
 ##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>Scenariusz 1: komunikacja wychodząca z samoobsługowego Integration Runtime działającego w środowisku lokalnym za zaporą firmową
 Jak ustalić, czy ma to wpływ:
 - Jeśli definiujesz reguły zapory na podstawie nazw FQDN przy użyciu metody opisanej w tym dokumencie, nie ma to wpływu na [Ustawienia zapory: Konfiguracja i lista dozwolonych adresów IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
-- Ma to wpływ na to, że użytkownik jawnie listy dozwolonych wychodzące adresy IP w zaporze firmowej.
+- Ma to wpływ na to, że użytkownik jawnie włącza listę dozwolonych wychodzących adresów IP w zaporze firmowej.
 
 Akcja, która ma zostać podjęta, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizować konfigurację sieci tak, aby korzystała z najnowszych Data Factory adresów IP do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
@@ -639,16 +639,55 @@ Jak ustalić, czy ma to wpływ:
 - Sprawdź, czy masz jakiekolwiek reguły sieciowej grupy zabezpieczeń ruchu wychodzącego w sieci prywatnej, które zawierają Integration Runtime samoobsługowe. W przypadku braku ograniczeń wychodzących nie ma to żadnego wpływu.
 - Jeśli istnieją ograniczenia reguły ruchu wychodzącego, należy sprawdzić, czy jest używany tag usługi. Jeśli używasz znacznika usługi, nie trzeba zmieniać ani dodawać żadnych elementów, ponieważ nowe zakresy adresów IP są objęte istniejącym tagiem usługi. 
  ![Sprawdzenie lokalizacji docelowej](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
-- Ma to wpływ na to, że jednak jawnie listy dozwolonych wychodzące adresy IP w ustawieniach reguł sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure.
+- Dotyczy to jednak jawnie włączenia listy dozwolonych adresów IP w ustawieniach reguł sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure.
 
 Akcja do wykonania, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizował reguły sieciowej grupy ZABEZPIECZEŃymi w konfiguracji sieci wirtualnej platformy Azure, aby używać najnowszych adresów IP Data Factory do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Scenariusz 3: komunikacja wychodząca z usług SSIS Integration Runtime w sieci wirtualnej platformy Azure zarządzanej przez klienta
 - Sprawdź, czy masz jakiekolwiek reguły sieciowej grupy zabezpieczeń ruchu wychodzącego w sieci prywatnej, która zawiera Integration Runtime SSIS. W przypadku braku ograniczeń wychodzących nie ma to żadnego wpływu.
 - Jeśli istnieją ograniczenia reguły ruchu wychodzącego, należy sprawdzić, czy jest używany tag usługi. Jeśli używasz znacznika usługi, nie trzeba zmieniać ani dodawać żadnych elementów, ponieważ nowe zakresy adresów IP są objęte istniejącym tagiem usługi.
-- Ma to wpływ na to, że jednak jawnie listy dozwolonych wychodzący adres IP w ustawieniach reguł sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure.
+- Dotyczy to jednak jawnie włączenia listy dozwolonych adresów IP w ustawieniach reguł sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure.
 
 Akcja do wykonania, jeśli ma to wpływ: powiadom zespół infrastruktury sieciowej, aby zaktualizował reguły sieciowej grupy ZABEZPIECZEŃymi w konfiguracji sieci wirtualnej platformy Azure, aby używać najnowszych adresów IP Data Factory do 8 listopada 2020.  Aby pobrać najnowsze adresy IP, przejdź do pozycji [Tagi usługi łącze pobierania zakresu adresów IP](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+
+### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Nie można ustanowić relacji zaufania dla bezpiecznego kanału SSLTLS 
+
+#### <a name="symptoms"></a>Objawy
+
+Własne środowisko IR nie mogło nawiązać połączenia z usługą ADF.
+
+Sprawdzając dziennik zdarzeń SHIR lub dzienniki powiadomień klienta w tabeli CustomLogEvent, zostanie znaleziony następujący komunikat o błędzie:
+
+`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.The remote certificate is invalid according to the validation procedure.`
+
+Jak sprawdzić certyfikat serwera usługi ADF:
+
+Najprostszym sposobem jest otwarcie adresu URL usługi ADF w przeglądarce, na przykład otwarcie https://eu.frontend.clouddatahub.net/ na komputerze, na którym zainstalowano SHIR, a następnie wyświetlenie informacji o certyfikacie serwera:
+
+  ![Sprawdź certyfikat serwera usługi ADF](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+
+  ![Sprawdź ścieżkę certyfikatu serwera](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+
+#### <a name="cause"></a>Przyczyna
+
+Dwie możliwe przyczyny tego problemu:
+
+- Główny urząd certyfikacji certyfikatu serwera usługi ADF nie jest zaufany na komputerze, na którym zainstalowano SHIR. 
+- Używasz serwera proxy w danym środowisku, a certyfikat serwera usługi ADF został zastąpiony przez serwer proxy, podczas gdy zastąpiony certyfikat serwera nie jest zaufany na komputerze, na którym zainstalowano SHIR.
+
+#### <a name="solution"></a>Rozwiązanie
+
+- W przypadku przyczyny 1 Upewnij się, że certyfikat serwera ADF i jego łańcuch certyfikatów są zaufane przez maszynę, na której zainstalowano SHIR.
+- W przypadku przyczyny 2 należy zaufać zamienionemu głównemu urzędowi certyfikacji na maszynie SHIR lub skonfigurować serwer proxy, aby nie zastępować certyfikatu serwera ADF.
+
+Zapoznaj się z [tym artykułem](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) , aby uzyskać szczegółowe informacje dotyczące zaufania certyfikatu w systemie Windows.
+
+#### <a name="additional-info"></a>Dodatkowe informacje
+Wprowadzamy nowy certyfikat SSL, który jest podpisany z DigiCert, sprawdź, czy globalny główny urząd certyfikacji DigiCert jest w zaufanym głównym urzędzie wystawcy.
+
+  ![DigiCert Global root — G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+
+Jeśli nie, pobierz ją z tego [miejsca](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
 ## <a name="self-hosted-ir-sharing"></a>Udostępnianie własnego środowiska IR
 

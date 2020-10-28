@@ -90,8 +90,8 @@ W tym filmie wideo pokazano, jak ukończyć aplikację i zakończyć dołączani
 
 Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego samouczka. 
 
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu. 
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
+1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów** , a następnie kliknij nazwę utworzonego zasobu. 
+2. Na stronie grupy zasobów kliknij pozycję **Usuń** , wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -55,7 +55,7 @@ Zainstaluj język PHP na własnym serwerze lub utwórz [aplikację internetową]
 
 Pobierz informacje o połączeniu, które są konieczne do nawiązania połączenia z serwerem elastycznym Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure portal](https://portal.azure.com/).
 2. Z menu po lewej stronie w obszarze Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wyszukaj utworzony serwer (na przykład **mydemoserver** ).
 3. Wybierz nazwę serwera.
 4. Po przejściu do panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę logowania administratora serwera** . Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.

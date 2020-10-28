@@ -137,7 +137,7 @@
                 - name: Instalowanie aplikacji niestandardowych
                   href: hdinsight-apps-install-custom-applications.md
                 - name: Instalowanie aplikacji przy użyciu architektury REST
-                  href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+                  href: /rest/api/hdinsight/hdinsight-application
                 - name: Publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace
                   href: hdinsight-apps-publish-applications.md
         - name: Bezpieczeństwo
@@ -301,7 +301,7 @@
         - name: Włączanie zrzutów sterty dla usług Apache Hadoop
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
         - name: Uzyskaj pomoc na stronie pytania Pytania i odpowiedzi Microsoft
-          href: 'https://docs.microsoft.com/answers/topics/azure-hdinsight.html'
+          href: /answers/topics/azure-hdinsight.html
         - name: Kalkulator cen
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Narzędzia systemu Windows dla usługi HDInsight
@@ -433,8 +433,6 @@
                   href: ./spark/apache-spark-use-with-data-lake-store.md
                 - name: Łączenie z bazą danych Azure SQL Database
                   href: ./spark/apache-spark-connect-to-sql-database.md
-                - name: Implementowanie architektury lambda przy użyciu platformy Apache Spark i usługi Cosmos DB
-                  href: ../cosmos-db/lambda-architecture.md
                 - name: Uruchamianie obciążeń usługi Azure ML przy użyciu rozwiązania AutoML
                   href: ./spark/apache-spark-run-machine-learning-automl.md
         - name: Rozwiązywanie problemów

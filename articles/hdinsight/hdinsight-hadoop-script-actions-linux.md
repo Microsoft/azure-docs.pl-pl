@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545994"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629446"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Tworzenie akcji skryptu za pomocą usługi HDInsight
 
@@ -26,7 +26,7 @@ Akcje skryptu można stosować przy użyciu następujących metod:
 
 | Użyj tej metody, aby zastosować skrypt... | Podczas tworzenia klastra... | Na uruchomionym klastrze... |
 | --- |:---:|:---:|
-| Azure Portal |✓ |✓ |
+| Witryna Azure Portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | Klasyczny interfejs wiersza polecenia platformy Azure |&nbsp; |✓ |
 | Zestaw SDK usługi HDInsight dla platformy .NET |✓ |✓ |
@@ -239,7 +239,7 @@ Następujące pomocnicy są dostępni do użycia w skrypcie:
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Pobiera plik ze źródłowego identyfikatora URI do określonej ścieżki pliku. Domyślnie nie zastępuje istniejącego pliku. |
 | `untar_file TARFILE DESTDIR` |Wyodrębnia plik tar (przy użyciu `-xf` ) do katalogu docelowego. |
-| `test_is_headnode` |Jeśli uruchomiono w węźle głównym klastra, zwróć 1; w przeciwnym razie 0. |
+| `test_is_headnode` |Jeśli skrypt uruchomiono w węźle głównym klastra, zwróć 1; w przeciwnym razie 0. |
 | `test_is_datanode` |Jeśli bieżący węzeł jest węzłem danych (Worker), zwróć 1; w przeciwnym razie 0. |
 | `test_is_first_datanode` |Jeśli bieżącym węzłem jest pierwszy węzeł danych (Worker) (o nazwie workernode0), zwróć 1; w przeciwnym razie 0. |
 | `get_headnodes` |Zwróć w pełni kwalifikowaną nazwę domeny węzłów głównych w klastrze. Nazwy są rozdzielane przecinkami. Podczas błędu zwracany jest pusty ciąg. |
@@ -268,7 +268,7 @@ Ustawienie zmiennej środowiskowej jest wykonywane przez następującą instrukc
 VARIABLENAME=value
 ```
 
-Gdzie VARIABLEname jest nazwą zmiennej. Aby uzyskać dostęp do zmiennej, użyj `$VARIABLENAME` . Na przykład, aby przypisać wartość dostarczoną przez parametr pozycyjny jako zmienną środowiskową o nazwie PASSWORD, należy użyć następującej instrukcji:
+W poprzednim przykładzie `VARIABLENAME` jest nazwą zmiennej. Aby uzyskać dostęp do zmiennej, użyj `$VARIABLENAME` . Na przykład, aby przypisać wartość dostarczoną przez parametr pozycyjny jako zmienną środowiskową o nazwie PASSWORD, należy użyć następującej instrukcji:
 
 ```bash
 PASSWORD=$1
@@ -317,7 +317,7 @@ Poniżej przedstawiono kroki, które należy wykonać podczas przygotowywania do
 
 Za pomocą akcji skryptu można dostosować klastry usługi HDInsight przy użyciu następujących metod:
 
-* Azure Portal
+* Witryna Azure Portal
 * Azure PowerShell
 * Szablony usługi Azure Resource Manager
 * Zestaw SDK usługi HDInsight dla platformy .NET.

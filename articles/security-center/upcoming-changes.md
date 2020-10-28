@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2020
 ms.author: memildin
-ms.openlocfilehash: bf89135d3b5d33936d0b5d4142e966fa3f8f52b9
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: ba0c68589f7ea4b32970e3ad81fea5175b998dc7
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92559044"
+ms.locfileid: "92629157"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -78,7 +78,7 @@ Zalecenia dotyczące wersji zapoznawczej nie powodują złej kondycji zasobu i n
 
 Powiązane linki:
 
-- [Dowiedz się więcej o teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
+- [Dowiedz się więcej o teście zabezpieczeń Azure](../security/benchmarks/introduction.md)
 - [Dowiedz się więcej o usłudze Azure API Apps](../app-service/app-service-web-tutorial-rest-api.md)
 - [Dowiedz się więcej na temat aplikacji funkcji platformy Azure](../azure-functions/functions-overview.md)
 - [Dowiedz się więcej o usłudze Azure Web Apps](../app-service/overview.md)
@@ -88,4 +88,4 @@ Powiązane linki:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wszystkie ostatnie zmiany w produkcie można znaleźć w artykule [co nowego w programie Azure Security Center](release-notes.md).
+Aby zapoznać się z najnowszymi zmianami w produkcie, zobacz [co nowego w programie Azure Security Center?](release-notes.md).
