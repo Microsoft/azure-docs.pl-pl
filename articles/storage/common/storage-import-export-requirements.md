@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d17b9cdebf06e7d754a23a7224bbe3dba1a2832c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276401"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783610"
 ---
 # <a name="azure-importexport-system-requirements"></a>Wymagania systemowe usługi Azure Import/Export
 
@@ -50,7 +50,7 @@ Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie kont 
 Każde zadanie może służyć do transferowania danych do lub z tylko jednego konta magazynu. Innymi słowy, pojedyncze zadanie importu/eksportu nie może obejmować wielu kont magazynu. Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [jak utworzyć konto magazynu](storage-account-create.md).
 
 > [!IMPORTANT]
-> W przypadku kont magazynu, na których włączono funkcję [punktów końcowych usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md)   , użyj ustawienia **Zezwalaj na zaufane usługi firmy Microsoft..** ., aby [włączyć usługę Import/Export](/azure/storage/common/storage-network-security) w celu wykonywania importu/eksportu danych do/z platformy Azure.
+> W przypadku kont magazynu, na których włączono funkcję [punktów końcowych usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md) , użyj ustawienia **Zezwalaj na zaufane usługi firmy Microsoft..** ., aby [włączyć usługę Import/Export](./storage-network-security.md) w celu wykonywania importu/eksportu danych do/z platformy Azure.
 
 ## <a name="supported-storage-types"></a>Obsługiwane typy magazynu
 
@@ -59,8 +59,8 @@ Poniższa lista typów magazynu jest obsługiwana przez usługę Azure Import/Ex
 
 |Zadanie  |Usługa magazynu |Obsługiwane  |Nieobsługiwane  |
 |---------|---------|---------|---------|
-|Import     |  Azure Blob Storage <br><br> Azure File Storage       | Obsługiwane obiekty blob i stronicowe obiekty blob <br><br> Obsługiwane pliki          |
-|Eksportowanie     |   Azure Blob Storage       | Obsługiwane są blokowe obiekty blob, stronicowe obiekty blob i dołączane obiekty blob         | Nieobsługiwane Azure Files
+|Importuj     |  Azure Blob Storage <br><br> Azure File Storage       | Obsługiwane obiekty blob i stronicowe obiekty blob <br><br> Obsługiwane pliki          |
+|Eksportowanie     |   Usługa Azure Blob Storage       | Obsługiwane są blokowe obiekty blob, stronicowe obiekty blob i dołączane obiekty blob         | Nieobsługiwane Azure Files
 
 
 ## <a name="supported-hardware"></a>Obsługiwany sprzęt
@@ -94,4 +94,4 @@ Podczas przygotowywania dysków twardych i kopiowania danych przy użyciu narzę
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Transferowanie danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md)
+* [Transferowanie danych za pomocą narzędzia wiersza polecenia AzCopy](./storage-use-azcopy-v10.md)

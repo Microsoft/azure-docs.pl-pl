@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: bb7619500cc142eca52ca0a1a6e0b670e6b8f51a
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7270ea589d82c09081aec5d81d1cd0b50b1b8a9f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425469"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785582"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Jak używać Magazynu kolejek w języku Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -22,14 +22,14 @@ ms.locfileid: "92425469"
 
 ## <a name="overview"></a>Omówienie
 W tym przewodniku pokazano, jak wykonywać typowe scenariusze za pomocą usługi Microsoft Azure Queue Storage. Przykłady są zapisywane przy użyciu interfejsu API Ruby platformy Azure.
-Omówione scenariusze obejmują **Wstawianie**, **wgląd**, **pobieranie**i **usuwanie** komunikatów w kolejce, a także **Tworzenie i usuwanie kolejek**.
+Omówione scenariusze obejmują **Wstawianie** , **wgląd** , **pobieranie** i **usuwanie** komunikatów w kolejce, a także **Tworzenie i usuwanie kolejek** .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Tworzenie aplikacji języka Ruby
-Tworzenie aplikacji Ruby. Aby uzyskać instrukcje, zobacz [Tworzenie aplikacji Ruby w App Service w systemie Linux](/azure/app-service/quickstart-ruby).
+Tworzenie aplikacji Ruby. Aby uzyskać instrukcje, zobacz [Tworzenie aplikacji Ruby w App Service w systemie Linux](../../app-service/quickstart-ruby.md).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji w celu uzyskania dostępu do magazynu
 Aby korzystać z usługi Azure Storage, należy pobrać i użyć pakietu platformy Azure w języku Ruby, który obejmuje zestaw wygodnych bibliotek, które komunikują się z usługami REST usługi Storage.
@@ -46,7 +46,7 @@ require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Konfigurowanie połączenia usługi Azure Storage
-Moduł Azure odczyta zmienne środowiskowe **konta usługi Azure \_ Storage \_ ** i **usługi Azure \_ Storage \_ ACCESS_KEY** , aby uzyskać informacje wymagane do nawiązania połączenia z kontem usługi Azure Storage. Jeśli te zmienne środowiskowe nie są ustawione, należy określić informacje o koncie przed użyciem **platformy Azure:: QueueService** z następującym kodem:
+Moduł Azure odczyta zmienne środowiskowe **konta usługi Azure \_ Storage \_** i **usługi Azure \_ Storage \_ ACCESS_KEY** , aby uzyskać informacje wymagane do nawiązania połączenia z kontem usługi Azure Storage. Jeśli te zmienne środowiskowe nie są ustawione, należy określić informacje o koncie przed użyciem **platformy Azure:: QueueService** z następującym kodem:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
@@ -57,7 +57,7 @@ Aby uzyskać te wartości z klasycznego konta magazynu lub konta magazynu mened�
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 2. Przejdź do konta magazynu, którego chcesz użyć.
-3. W bloku Ustawienia po prawej stronie kliknij pozycję **Klucze dostępu**.
+3. W bloku Ustawienia po prawej stronie kliknij pozycję **Klucze dostępu** .
 4. W wyświetlonym bloku Klucze dostępu widoczny będzie klucz dostępu 1 i klucz dostępu 2. Możesz użyć jednego z nich. 
 5. Kliknij ikonę kopiowania, aby skopiować klucz do schowka. 
 
@@ -86,7 +86,7 @@ azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Instrukcje: wgląd do następnego komunikatu
-Możesz uzyskać wgląd w komunikat z przodu kolejki bez usuwania go z kolejki, wywołując metodę **wglądu \_ wiadomości ()** . Domyślnie wgląd do ** \_ wiadomości ()** wgląd w jeden komunikat. Możesz również określić liczbę wiadomości, które chcesz uzyskać.
+Możesz uzyskać wgląd w komunikat z przodu kolejki bez usuwania go z kolejki, wywołując metodę **wglądu \_ wiadomości ()** . Domyślnie wgląd do **\_ wiadomości ()** wgląd w jeden komunikat. Możesz również określić liczbę wiadomości, które chcesz uzyskać.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
@@ -96,8 +96,8 @@ result = azure_queue_service.peek_messages("test-queue",
 ## <a name="how-to-dequeue-the-next-message"></a>Instrukcje: dequeueing Next Message
 Możesz usunąć komunikat z kolejki w dwóch krokach.
 
-1. Gdy wywołujesz **listę \_ komunikatów ()**, domyślnie otrzymujesz następny komunikat w kolejce. Można również określić liczbę wiadomości, które mają zostać pobrane. Komunikaty zwrócone z **komunikatów list \_ ()** staną się niewidoczne dla innych kodów odczytujących komunikaty z tej kolejki. Limit czasu widoczności (w sekundach) jest przekazywany jako parametr.
-2. Aby zakończyć usuwanie komunikatu z kolejki, należy również wywołać **delete_message ()**.
+1. Gdy wywołujesz **listę \_ komunikatów ()** , domyślnie otrzymujesz następny komunikat w kolejce. Można również określić liczbę wiadomości, które mają zostać pobrane. Komunikaty zwrócone z **komunikatów list \_ ()** staną się niewidoczne dla innych kodów odczytujących komunikaty z tej kolejki. Limit czasu widoczności (w sekundach) jest przekazywany jako parametr.
+2. Aby zakończyć usuwanie komunikatu z kolejki, należy również wywołać **delete_message ()** .
 
 Ten dwuetapowy proces usuwania komunikatu gwarantuje, że gdy kod nie może przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu może uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje **komunikat usuwania \_ ()** bezpośrednio po przetworzeniu komunikatu.
 

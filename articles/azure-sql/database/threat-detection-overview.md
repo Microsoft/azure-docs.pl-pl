@@ -13,12 +13,12 @@ ms.author: ronmat
 ms.reviewer: vanto, sstein
 ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: bf228d31180f5c2223fde7433d2d9b335e2b8853
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83b9515e16fcf2c2158586297545206d57e1a6e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284163"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785123"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,7 +35,7 @@ Aby przeprowadzić pełne badanie, zaleca się włączenie inspekcji, która zap
 
 ## <a name="alerts"></a>Alerty
 
-Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania. Listę alertów dla Azure SQL Database można znaleźć [w temacie alerty dotyczące SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) w Azure Security Center](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse).
+Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania. Listę alertów dla Azure SQL Database można znaleźć [w temacie alerty dotyczące SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) w Azure Security Center](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>Eksplorowanie wykrywania podejrzanego zdarzenia
 
@@ -65,5 +65,5 @@ Kliknij **alert zaawansowanej ochrony przed zagrożeniami** , aby uruchomić str
 - Dowiedz się więcej [na temat zaawansowanej ochrony przed zagrożeniami w wystąpieniu zarządzanym usługi Azure SQL](../managed-instance/threat-detection-configure.md).
 - Dowiedz się więcej o [usłudze Azure Defender dla języka SQL](azure-defender-for-sql.md).
 - Dowiedz się więcej na temat [inspekcji Azure SQL Database](../../azure-sql/database/auditing-overview.md)
-- Dowiedz się więcej o [usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- Aby uzyskać więcej informacji na temat cen, zobacz [stronę z cennikiem Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) .  
+- Dowiedz się więcej o [usłudze Azure Security Center](../../security-center/security-center-introduction.md)
+- Aby uzyskać więcej informacji na temat cen, zobacz [stronę z cennikiem Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) .

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: 3273324044f5d99a2400eee5325d3adb20f4ac0c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f98927e71a675cc6264c413ba07b3cf689b91560
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631380"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784290"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alerty zabezpieczeń — przewodnik informacyjny
 
@@ -25,7 +25,7 @@ W tym artykule wymieniono alerty zabezpieczeń, które mogą zostać wyświetlon
 
 Aby dowiedzieć się, jak odpowiedzieć na te alerty, zobacz temat [Zarządzanie alertami zabezpieczeń i reagowanie na nie w Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-Aby dowiedzieć się, jak wyeksportować alerty (i zalecenia), zobacz temat [Eksportowanie alertów zabezpieczeń i zaleceń (wersja zapoznawcza)](continuous-export.md).
+Aby dowiedzieć się, jak wyeksportować alerty (i zalecenia), zobacz [ciągły eksport danych Security Center](continuous-export.md).
 
 W dolnej części tej strony znajduje się tabela opisująca łańcuch kasowania Azure Security Center, który jest używany do kategoryzowania intencji tych alertów. 
 
@@ -462,4 +462,4 @@ Aby dowiedzieć się więcej o alertach, zobacz następujące tematy:
 
 - [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](security-center-alerts-overview.md)
 - [Zarządzanie alertami zabezpieczeń i reagowanie na nie w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md)
-- [Eksportowanie alertów zabezpieczeń i zaleceń (wersja zapoznawcza)](continuous-export.md)
+- [Ciągłe eksportowanie danych Security Center](continuous-export.md)

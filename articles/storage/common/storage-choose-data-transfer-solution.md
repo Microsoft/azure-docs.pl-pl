@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 08f677c23cce6eb840a1caee15dcddf6c8311517
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488694"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784052"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Wybieranie rozwiązania platformy Azure do transferu danych
 
@@ -71,14 +71,14 @@ Możesz również przejść do konta usługi Azure Storage w Azure Portal i wybr
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zapoznaj się z wprowadzeniem do Eksplorator usługi Azure Storage](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [Zapoznaj się z omówieniem AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+- [Zapoznaj się z omówieniem AzCopy](./storage-use-azcopy-v10.md).
 - [Szybki Start: przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą programu PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Szybki Start: Tworzenie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure](../blobs/storage-quickstart-blobs-cli.md)
 - Dowiedz się więcej:
 
-    - [Azure Data Box, Azure Data Box Disk i Azure Data Box Heavy do transferów w trybie offline](/azure/databox/).
-    - [Azure Data Box Gateway i Azure Stack Edge do transferów online](/azure/databox-online/).
-- [Dowiedz się, co to jest Azure Data Factory](/azure/data-factory/copy-activity-overview).
+    - [Azure Data Box, Azure Data Box Disk i Azure Data Box Heavy do transferów w trybie offline](../../databox/index.yml).
+    - [Azure Data Box Gateway i Azure Stack Edge do transferów online](../../databox-online/index.yml).
+- [Dowiedz się, co to jest Azure Data Factory](../../data-factory/copy-activity-overview.md).
 - Transferowanie danych za pomocą interfejsów API REST
 
     - [W programie .NET](/dotnet/api/overview/azure/storage)

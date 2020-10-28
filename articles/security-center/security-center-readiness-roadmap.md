@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 38e1fc7f062908f8c4a4b9aa903ca09dd7fb9ea5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: fcaf427c2e0ab275a5a6e08306dda785bca690d6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342335"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784171"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Plan gotowości Azure Security Center
 Ten dokument zapewnia mapę gotowości, która będzie pomocna w rozpoczynaniu pracy z usługą Azure Security Center.
@@ -78,7 +78,7 @@ Filmy wideo
 
 Artykuły    
 * [Używanie usługi Azure Security Center do reagowania na zdarzenia](./tutorial-security-incident.md)
-* [Automatyzowanie odpowiedzi z automatyzacją przepływu pracy](workflow-automation.md)
+* [Reagowanie na wyzwalacze Security Center przy użyciu usługi Automation](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Zaawansowana ochrona w chmurze
 
@@ -100,7 +100,7 @@ Artykuły
 * [Podręcznik dotyczący zaleceń zapory aplikacji internetowej (WAF) w usłudze Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
 * [Podręcznik dotyczący usługi Azure Security Center: alerty zabezpieczeń](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Strona dokumentacji usługi Security Center](./index.yml)
 * [Strona dokumentacji interfejsu API REST usługi Security Center](/previous-versions/azure/reference/mt704034(v=azure.100))
 * [Często zadawane pytania dotyczące usługi Azure Security Center](./faq-general.md)

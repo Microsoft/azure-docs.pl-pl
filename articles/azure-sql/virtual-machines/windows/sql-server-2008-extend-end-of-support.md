@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbfc4619e8af86a89b82f32ff3bc9a39c92b355a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84668750"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784868"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Rozszerzona pomoc techniczna dla SQL Server 2008 i SQL Server 2008 R2 z platformą Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ Klienci korzystający z SQL Server 2008 będą musieli samodzielnie zainstalowa�
 Obrazy wdrożone za pomocą witryny Azure Marketplace są dostarczane z wstępnie zainstalowanym rozszerzeniem SQL IaaS. Rozszerzenie SQL IaaS jest wymaganiem do elastycznego licencjonowania i zautomatyzowanego stosowania poprawek. Klienci, którzy wdrażają samoinstalujące się maszyny wirtualne, będą musieli ręcznie zainstalować rozszerzenie SQL IaaS. Rozszerzenie SQL IaaS nie jest obsługiwane w systemie Windows Server 2008.
 
 > [!NOTE]
-> Mimo że SQL Server **tworzenia** i **zarządzania** blokami będzie współdziałać z obrazem SQL Server 2008 R2 w Azure Portal, następujące funkcje _nie są obsługiwane_: automatyczne kopie zapasowe, integracja Azure Key Vault, usługi języka R i Konfiguracja magazynu.
+> Mimo że SQL Server **tworzenia** i **zarządzania** blokami będzie współdziałać z obrazem SQL Server 2008 R2 w Azure Portal, następujące funkcje _nie są obsługiwane_ : automatyczne kopie zapasowe, integracja Azure Key Vault, usługi języka R i Konfiguracja magazynu.
 
 ## <a name="licensing"></a>Licencjonowanie
 Wdrożenia z opcją płatność zgodnie z rzeczywistym użyciem SQL Server 2008 R2 mogą być konwertowane na [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
@@ -54,21 +54,21 @@ Można migrować wystąpienia EOS SQL Server na maszynę wirtualną platformy Az
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
 
-W przypadku migracji zbiorczych zaleca się [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) usługi. Dzięki Azure Site Recovery klienci mogą replikować całą maszynę wirtualną, w tym SQL Server z lokalizacji lokalnej do maszyny wirtualnej platformy Azure.
+W przypadku migracji zbiorczych zaleca się [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) usługi. Dzięki Azure Site Recovery klienci mogą replikować całą maszynę wirtualną, w tym SQL Server z lokalizacji lokalnej do maszyny wirtualnej platformy Azure.
 
 Aby zagwarantować odzyskiwanie, SQL Server wymaga spójnych Azure Site Recovery migawek na poziomie aplikacji. Azure Site Recovery obsługuje migawki spójne z aplikacjami z co najmniej 1-godzinnym interwałem. Minimalny cel punktu odzyskiwania (RPO) możliwy dla SQL Server z Azure Site Recovery migracji wynosi 1 godzinę. Cel czasu odzyskiwania (RTO) to 2 godziny, a SQL Server czas odzyskiwania.
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-[Azure Database Migration Service](/azure/dms/dms-overview) jest opcją dla klientów w przypadku migrowania z lokalizacji lokalnej do maszyny wirtualnej platformy Azure przez uaktualnienie SQL Server do wersji 2012 lub nowszej.
+[Azure Database Migration Service](../../../dms/dms-overview.md) jest opcją dla klientów w przypadku migrowania z lokalizacji lokalnej do maszyny wirtualnej platformy Azure przez uaktualnienie SQL Server do wersji 2012 lub nowszej.
 
 ## <a name="disaster-recovery"></a>Odzyskiwanie po awarii
 
 Rozwiązania do odzyskiwania po awarii dla EOS SQL Server na maszynie wirtualnej platformy Azure są następujące:
 
-- **SQL Server kopii zapasowych**: Użyj Azure Backup, aby chronić EOS SQL Server 2008 i 2008 R2 przed wypadekm oprogramowania wymuszającego okup, przypadkowym usunięciem i uszkodzeniem z 15-minimalnym punktem odzyskiwania i odzyskiwaniem do punktu w czasie. Aby uzyskać więcej informacji, zobacz [ten artykuł](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
-- **Wysyłanie dziennika**: możesz utworzyć replikę wysyłania dziennika w innej strefie lub regionie platformy Azure z ciągłymi przywracaniami, aby zmniejszyć RTO. Musisz ręcznie skonfigurować wysyłanie dziennika.
-- **Azure Site Recovery**: można replikować maszynę wirtualną między strefami i regionami za poorednictwem replikacji Azure Site Recovery. SQL Server wymaga migawek spójnych z aplikacjami w celu zagwarantowania odzyskiwania w przypadku awarii. Azure Site Recovery oferuje co najmniej 1-godzinny cel punktu odzyskiwania oraz 2-godzinny (plus SQL Server) RTO na potrzeby odzyskiwania po awarii SQL Server.
+- **SQL Server kopii zapasowych** : Użyj Azure Backup, aby chronić EOS SQL Server 2008 i 2008 R2 przed wypadekm oprogramowania wymuszającego okup, przypadkowym usunięciem i uszkodzeniem z 15-minimalnym punktem odzyskiwania i odzyskiwaniem do punktu w czasie. Aby uzyskać więcej informacji, zobacz [ten artykuł](../../../backup/sql-support-matrix.md#scenario-support).
+- **Wysyłanie dziennika** : możesz utworzyć replikę wysyłania dziennika w innej strefie lub regionie platformy Azure z ciągłymi przywracaniami, aby zmniejszyć RTO. Musisz ręcznie skonfigurować wysyłanie dziennika.
+- **Azure Site Recovery** : można replikować maszynę wirtualną między strefami i regionami za poorednictwem replikacji Azure Site Recovery. SQL Server wymaga migawek spójnych z aplikacjami w celu zagwarantowania odzyskiwania w przypadku awarii. Azure Site Recovery oferuje co najmniej 1-godzinny cel punktu odzyskiwania oraz 2-godzinny (plus SQL Server) RTO na potrzeby odzyskiwania po awarii SQL Server.
 
 ## <a name="security-patching"></a>Stosowanie poprawek zabezpieczeń
 Rozszerzone aktualizacje zabezpieczeń dla maszyn wirtualnych SQL Server są dostarczane za pośrednictwem kanałów Microsoft Update po zarejestrowaniu maszyny wirtualnej SQL Server z [dostawcą zasobów](sql-vm-resource-provider-register.md)maszyny wirtualnej SQL. Poprawki można pobrać ręcznie lub automatycznie.

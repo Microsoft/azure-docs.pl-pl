@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b4408b2f8c631453281ecf6f214d49318252a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408219"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785055"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Rozwiązywanie problemów sporadyczne błędy połączenia wychodzącego w Azure App Service
 
-Ten artykuł pomaga w rozwiązywaniu problemów z sporadycznymi błędami połączeń i powiązanymi problemami z wydajnością w [Azure App Service](./overview.md). Ten temat zawiera więcej informacji na temat metod rozwiązywania problemów z portami translacji sieci adresów źródłowych (NAT). Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, skontaktuj się z ekspertami platformy Azure w [witrynie MSDN Azure i na forach Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.
+Ten artykuł pomaga w rozwiązywaniu problemów z sporadycznymi błędami połączeń i powiązanymi problemami z wydajnością w [Azure App Service](./overview.md). Ten temat zawiera więcej informacji na temat metod rozwiązywania problemów z portami translacji sieci adresów źródłowych (NAT). Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, skontaktuj się z ekspertami platformy Azure w [witrynie MSDN Azure i na forach Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną** .
 
 ## <a name="symptoms"></a>Objawy
 
@@ -32,7 +32,7 @@ Aplikacje i funkcje hostowane w usłudze Azure App Service mogą mieć co najmni
 Główną przyczyną tych objawów jest fakt, że wystąpienie aplikacji nie może otworzyć nowego połączenia z zewnętrznym punktem końcowym, ponieważ osiągnęło jeden z następujących limitów:
 
 * Połączenia TCP: istnieje limit liczby połączeń wychodzących, które mogą zostać wykonane. Jest to związane z rozmiarem używanego procesu roboczego.
-* Porty protokołu wiązania adresów sieciowych: jak opisano w [połączeniach wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md), platforma Azure korzysta z translatora adresów sieciowych (Resources) i Load Balancer (nieujawnionych dla klientów) do komunikowania się z punktami końcowymi poza platformą Azure w publicznej przestrzeni adresów IP, a także punktom końcowym wewnętrznym na platformie Azure, które nie korzystają z punktów końcowych usługi. Każde wystąpienie w usłudze Azure App Service początkowo uzyskało wstępnie przydzieloną liczbę portów przydziałów adresów sieciowych **128** . Ten limit wpływa na otwieranie połączeń z tym samym hostem i kombinacją portów. Jeśli aplikacja tworzy połączenia z kombinacją kombinacji adresów i portów, nie będziesz używać portów. Porty przyłączone do nich są używane, gdy powtórzone wywołania tego samego adresu i kombinacji portów. Gdy port zostanie wystawiony, port będzie dostępny do ponownego użycia w razie potrzeby. Moduł równoważenia obciążenia sieci platformy Azure ponownie przejmuje port z zamkniętych połączeń dopiero po upływie 4 minut.
+* Porty protokołu Resources: jak opisano w [połączeniach wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md), platforma Azure korzysta z translatora adresów sieciowych (Resources) i Load Balancer (nieujawnionych dla klientów) do komunikowania się z punktami końcowymi poza platformą Azure w publicznej przestrzeni adresów IP, a także punkty końcowe wewnętrzne na platformie Azure, które nie korzystają z zalet usługi/prywatnych punktów końcowych. Każde wystąpienie w usłudze Azure App Service początkowo uzyskało wstępnie przydzieloną liczbę portów przydziałów adresów sieciowych **128** . Ten limit wpływa na otwieranie połączeń z tym samym hostem i kombinacją portów. Jeśli aplikacja tworzy połączenia z kombinacją kombinacji adresów i portów, nie będziesz używać portów. Porty przyłączone do nich są używane, gdy powtórzone wywołania tego samego adresu i kombinacji portów. Gdy port zostanie wystawiony, port będzie dostępny do ponownego użycia w razie potrzeby. Moduł równoważenia obciążenia sieci platformy Azure ponownie przejmuje port z zamkniętych połączeń dopiero po upływie 4 minut.
 
 Gdy aplikacje lub funkcje szybko otwierają nowe połączenie, mogą szybko wyczerpać wstępnie przydzieloną liczbę portów 128. Są one następnie blokowane do momentu udostępnienia nowego portu protokołu reportowego, poprzez dynamiczne przydzielanie dodatkowych portów lub ponowne użycie odnoszącego się do niego portu. Aplikacje lub funkcje, które są blokowane z powodu niemożności utworzenia nowych połączeń, zostaną uruchomione co najmniej jednego problemu opisanego w sekcji **objawy** tego artykułu.
 
@@ -130,7 +130,7 @@ Jeśli nie wiesz, że zachowanie aplikacji jest wystarczające, aby szybko ustal
 
 Możesz użyć [diagnostyki App Service](./overview-diagnostics.md) , aby znaleźć informacje o alokacji portu dla interfejsu podrzędnego i obserwować metrykę alokacji portów dla App Service lokacji. Aby znaleźć informacje o alokacji portów dla translatora adresów sieciowych, wykonaj następujące czynności:
 
-1. Aby uzyskać dostęp do diagnostyki App Service, przejdź do aplikacji internetowej App Service lub App Service Environment w [Azure Portal](https://portal.azure.com/). W lewym okienku nawigacji wybierz pozycję **Diagnozuj i rozwiąż problemy**.
+1. Aby uzyskać dostęp do diagnostyki App Service, przejdź do aplikacji internetowej App Service lub App Service Environment w [Azure Portal](https://portal.azure.com/). W lewym okienku nawigacji wybierz pozycję **Diagnozuj i rozwiąż problemy** .
 2. Wybierz kategorię dostępności i wydajności
 3. Na liście dostępnych kafelków w kategorii wybierz pozycję kafelek wyczerpania portów. Celem jest zachowanie go poniżej 128.
 Jeśli to konieczne, można nadal otworzyć bilet pomocy technicznej, a inżynier pomocy technicznej otrzyma metrykę od zaplecza.

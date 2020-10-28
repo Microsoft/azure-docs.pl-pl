@@ -10,12 +10,12 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f1cdd04be4b5774944f70e551221a08261aef22d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488898"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784358"
 ---
 # <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Brak.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby utworzyć konto usługi Azure Storage przy użyciu programu PowerShell, upewnij się, że zainstalowano moduł Azure PowerShell module AZ w wersji 0,7 lub nowszej. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).
 
@@ -76,9 +76,9 @@ Brak.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Zaloguj się do [portalu Azure](https://portal.azure.com).
+Zaloguj się do [Azure portal](https://portal.azure.com).
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie w celu uwierzytelnienia.
 
@@ -199,7 +199,7 @@ Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 z inną opcją r
 
 # <a name="template"></a>[Szablon](#tab/template)
 
-Aby wdrożyć szablon Menedżer zasobów w celu utworzenia konta magazynu, można użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Szablon używany w tym artykule z [przewodnikiem pochodzi z Azure Resource Manager szablonów szybkiego startu](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Aby uruchomić skrypty, wybierz opcję **Wypróbuj** , aby otworzyć Azure Cloud Shell. Aby wkleić skrypt, kliknij prawym przyciskiem myszy powłokę, a następnie wybierz polecenie **Wklej**.
+Aby wdrożyć szablon Menedżer zasobów w celu utworzenia konta magazynu, można użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Szablon używany w tym artykule z [przewodnikiem pochodzi z Azure Resource Manager szablonów szybkiego startu](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Aby uruchomić skrypty, wybierz opcję **Wypróbuj** , aby otworzyć Azure Cloud Shell. Aby wkleić skrypt, kliknij prawym przyciskiem myszy powłokę, a następnie wybierz polecenie **Wklej** .
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -223,7 +223,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 Aby dowiedzieć się, jak zmodyfikować ten szablon lub utworzyć nowe, zobacz:
 
-- [Dokumentacja Azure Resource Manager](/azure/azure-resource-manager/).
+- [Dokumentacja Azure Resource Manager](../../azure-resource-manager/index.yml).
 - [Odwołanie do szablonu konta magazynu](/azure/templates/microsoft.storage/allversions).
 - [Dodatkowe przykłady szablonów kont magazynu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
@@ -236,9 +236,9 @@ Usunięcie konta magazynu spowoduje usunięcie całego konta, w tym wszystkich d
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Przejdź do konta magazynu w [Azure Portal](https://portal.azure.com).
-1. Kliknij polecenie **Usuń**.
+1. Kliknij polecenie **Usuń** .
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Aby usunąć konto magazynu, użyj polecenia [Remove-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) :
 
@@ -279,7 +279,7 @@ Alternatywnie można usunąć grupę zasobów, która spowoduje usunięcie konta
 > [!WARNING]
 > Nie można przywrócić usuniętego konta magazynu ani odzyskać żadnej zawartości znajdującej się na koncie przed usunięciem. Zanim usuniesz konto, wykonaj kopię zapasową wszystkich danych, które chcesz zapisać. Dotyczy to również wszystkich zasobów na koncie — po usunięciu obiektu Blob, tabeli, kolejki lub pliku elementy te są trwale usuwane.
 >
-> Podczas próby usunięcia konta magazynu skojarzonego z maszyną wirtualną platformy Azure może zostać wyświetlony komunikat o błędzie dotyczący wciąż używanego konta magazynu. Aby uzyskać pomoc w rozwiązywaniu tego błędu, zobacz [Rozwiązywanie problemów podczas usuwania kont magazynu](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+> Podczas próby usunięcia konta magazynu skojarzonego z maszyną wirtualną platformy Azure może zostać wyświetlony komunikat o błędzie dotyczący wciąż używanego konta magazynu. Aby uzyskać pomoc w rozwiązywaniu tego błędu, zobacz [Rozwiązywanie problemów podczas usuwania kont magazynu](../../virtual-machines/troubleshooting/index.yml).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a16199891c00e2b8133aebebd1eaa6488423896c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487895"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784222"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Zmienianie sposobu replikowania konta magazynu
 
@@ -66,7 +66,7 @@ Aby zmienić opcję nadmiarowości dla konta magazynu w Azure Portal, wykonaj na
 
 ![Zrzut ekranu przedstawiający sposób zmiany opcji replikacji w portalu](media/redundancy-migration/change-replication-option.png)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby zmienić opcję nadmiarowości dla konta magazynu za pomocą programu PowerShell, wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) i określ `-SkuName` parametr:
 
@@ -123,30 +123,30 @@ Należy przeprowadzić migrację ręczną, jeśli:
 
 Możesz zażądać migracji na żywo za pomocą [portalu pomocy technicznej systemu Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). W portalu wybierz konto magazynu, które chcesz skonwertować do ZRS.
 
-1. Wybierz pozycję **nowe żądanie obsługi**.
+1. Wybierz pozycję **nowe żądanie obsługi** .
 2. Wypełnij **podstawowe** informacje na podstawie informacji o koncie: 
-    - **Typ problemu**: wybierz pozycję **techniczne**.
-    - **Usługa**: wybierz pozycję **Moje usługi** i **Zarządzanie kontem magazynu**.
-    - **Zasób**: wybierz zasób, który chcesz przekonwertować na ZRS.
-3. Wybierz pozycję **Dalej**.
+    - **Typ problemu** : wybierz pozycję **techniczne** .
+    - **Usługa** : wybierz pozycję **Moje usługi** i **Zarządzanie kontem magazynu** .
+    - **Zasób** : wybierz zasób, który chcesz przekonwertować na ZRS.
+3. Wybierz pozycję **Dalej** .
 4. Określ następujące wartości w sekcji **problem** :
-    - **Ważność**: pozostaw wartość domyślną równą-is.
-    - **Typ problemu**: wybierz pozycję **migracja danych**.
-    - **Kategoria**: wybierz pozycję **Migruj do ZRS**.
-    - **Title**: wpisz opisowy tytuł, na przykład **ZRS**.
-    - **Szczegóły**: wpisz dodatkowe szczegóły w polu **szczegóły** , na przykład chcę przeprowadzić migrację do ZRS z [LRS, GRS] w \_ \_ regionie.
-5. Wybierz pozycję **Dalej**.
+    - **Ważność** : pozostaw wartość domyślną równą-is.
+    - **Typ problemu** : wybierz pozycję **migracja danych** .
+    - **Kategoria** : wybierz pozycję **Migruj do ZRS** .
+    - **Title** : wpisz opisowy tytuł, na przykład **ZRS** .
+    - **Szczegóły** : wpisz dodatkowe szczegóły w polu **szczegóły** , na przykład chcę przeprowadzić migrację do ZRS z [LRS, GRS] w \_ \_ regionie.
+5. Wybierz pozycję **Dalej** .
 6. Sprawdź, czy informacje kontaktowe są poprawne w bloku **informacje kontaktowe** .
-7. Wybierz przycisk **Utwórz**.
+7. Wybierz pozycję **Utwórz** .
 
 Osoba odpowiedzialna za pomoc techniczną skontaktuje się z Tobą i pomoże Ci uzyskać pomoc.
 
 > [!NOTE]
 > Migracja na żywo nie jest obecnie obsługiwana dla udziałów plików w warstwie Premium. Obecnie obsługiwane są tylko ręczne kopiowanie lub przeniesienie danych.
 >
-> Konta magazynu GZRS nie obsługują obecnie warstwy archiwum. Aby uzyskać więcej informacji [, zobacz warstwy dostępu gorąca, chłodna i archiwalna](/azure/storage/blobs/storage-blob-storage-tiers) .
+> Konta magazynu GZRS nie obsługują obecnie warstwy archiwum. Aby uzyskać więcej informacji [, zobacz warstwy dostępu gorąca, chłodna i archiwalna](../blobs/storage-blob-storage-tiers.md) .
 >
-> Dyski zarządzane są dostępne tylko dla LRS i nie można ich migrować do ZRS. Można przechowywać migawki i obrazy dla dysków zarządzanych przy standardowych dyskach SSD w standardowym magazynie DYSKowym i [wybierać między opcjami LRS i ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Aby uzyskać informacje na temat integracji z zestawami dostępności, zobacz [wprowadzenie do usługi Azure Managed disks](/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
+> Dyski zarządzane są dostępne tylko dla LRS i nie można ich migrować do ZRS. Można przechowywać migawki i obrazy dla dysków zarządzanych przy standardowych dyskach SSD w standardowym magazynie DYSKowym i [wybierać między opcjami LRS i ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Aby uzyskać informacje na temat integracji z zestawami dostępności, zobacz [wprowadzenie do usługi Azure Managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).
 
 ## <a name="switch-from-zrs-classic"></a>Przełącz z ZRS klasycznego
 
@@ -165,11 +165,11 @@ Możesz również uaktualnić konto magazynu ZRS klasycznego do ZRS przy użyciu
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Aby uaktualnić do ZRS w Azure Portal, przejdź do ustawień **konfiguracji** konta i wybierz pozycję **Uaktualnij**:
+Aby uaktualnić do ZRS w Azure Portal, przejdź do ustawień **konfiguracji** konta i wybierz pozycję **Uaktualnij** :
 
 ![Uaktualnianie klasycznego magazynu ZRS do magazynu ZRS w portalu](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby uaktualnić program do ZRS przy użyciu programu PowerShell, wywołaj następujące polecenie:
 
@@ -198,7 +198,7 @@ Jeśli przeprowadzisz migrację konta magazynu z usługi GRS do LRS, nie ma żad
 > [!IMPORTANT]
 > Jeśli przeprowadzono migrację konta magazynu z usługi RA-GRS do usługi GRS lub LRS, to konto jest rozliczane jako RA-GRS przez dodatkowe 30 dni poza datą przekonwertowania.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Nadmiarowość usługi Azure Storage](storage-redundancy.md)
 - [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)

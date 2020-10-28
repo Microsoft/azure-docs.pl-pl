@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8bffe0c3871eae12f3b875a96301136d11dfc516
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488626"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783797"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z Eksploratorem usługi Azure Storage
 
@@ -23,7 +23,7 @@ Ten przewodnik zawiera podsumowanie rozwiązań dotyczących problemów, które 
 
 ## <a name="azure-rbac-permissions-issues"></a>Problemy z uprawnieniami kontroli RBAC platformy Azure
 
-Kontrola dostępu oparta na rolach na [platformie Azure](/azure/role-based-access-control/overview) pozwala uzyskać wysoce szczegółowe zarządzanie zasobami platformy Azure przez łączenie zestawów uprawnień z _rolami_. Poniżej przedstawiono niektóre strategie, które umożliwiają optymalną pracę z usługą Azure RBAC w Eksplorator usługi Storage.
+Kontrola dostępu oparta na rolach na [platformie Azure](../../role-based-access-control/overview.md) pozwala uzyskać wysoce szczegółowe zarządzanie zasobami platformy Azure przez łączenie zestawów uprawnień z _rolami_ . Poniżej przedstawiono niektóre strategie, które umożliwiają optymalną pracę z usługą Azure RBAC w Eksplorator usługi Storage.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Jak mogę uzyskać dostęp do moich zasobów w Eksplorator usługi Storage?
 
@@ -46,7 +46,7 @@ Musisz mieć przypisaną co najmniej jedną rolę, która przyznaje dostęp do o
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Dlaczego do wyświetlania moich zasobów w Eksplorator usługi Storage jest potrzebna rola warstwy zarządzania?
 
-Usługa Azure Storage ma dwie warstwy dostępu: _Zarządzanie_ i _dane_. Do subskrypcji i kont magazynu uzyskuje się dostęp za pomocą warstwy zarządzania. Do kontenerów, obiektów blob i innych zasobów danych uzyskuje się dostęp za pomocą warstwy danych. Jeśli na przykład chcesz uzyskać listę kont magazynu z platformy Azure, Wyślij żądanie do punktu końcowego zarządzania. Jeśli potrzebujesz listy kontenerów obiektów BLOB na koncie, Wyślij żądanie do odpowiedniego punktu końcowego usługi.
+Usługa Azure Storage ma dwie warstwy dostępu: _Zarządzanie_ i _dane_ . Do subskrypcji i kont magazynu uzyskuje się dostęp za pomocą warstwy zarządzania. Do kontenerów, obiektów blob i innych zasobów danych uzyskuje się dostęp za pomocą warstwy danych. Jeśli na przykład chcesz uzyskać listę kont magazynu z platformy Azure, Wyślij żądanie do punktu końcowego zarządzania. Jeśli potrzebujesz listy kontenerów obiektów BLOB na koncie, Wyślij żądanie do odpowiedniego punktu końcowego usługi.
 
 Role platformy Azure mogą przyznawać uprawnienia do zarządzania lub dostępu do warstwy danych. Rola czytelnik, na przykład, umożliwia dostęp tylko do odczytu do zasobów warstwy zarządzania.
 
@@ -65,30 +65,30 @@ Jeśli chcesz uzyskać dostęp do kontenerów obiektów blob lub kolejek, możes
 3. Wybierz konto użytkownika i dzierżawcę skojarzone z zasobem, do którego jest dołączane. Kliknij przycisk Dalej.
 4. Wybierz typ zasobu, wprowadź adres URL do zasobu, a następnie wprowadź unikatową nazwę wyświetlaną dla połączenia. Kliknij przycisk Dalej. Kliknij przycisk Podłącz.
 
-W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego kontroli RBAC platformy Azure. Obejście tego problemu pozwala na zażądanie identyfikatora URI sygnatury dostępu współdzielonego w celu [dołączenia do zasobu](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+W przypadku innych typów zasobów nie ma obecnie rozwiązania dotyczącego kontroli RBAC platformy Azure. Obejście tego problemu pozwala na zażądanie identyfikatora URI sygnatury dostępu współdzielonego w celu [dołączenia do zasobu](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Zalecane role wbudowane platformy Azure
 
 Istnieje kilka wbudowanych ról platformy Azure, które mogą zapewnić uprawnienia, które są konieczne do korzystania z Eksplorator usługi Storage. Niektóre z tych ról są następujące:
-- [Właściciel](/azure/role-based-access-control/built-in-roles#owner): Zarządzanie wszystko, w tym dostęp do zasobów. **Uwaga**: Ta rola zapewnia dostęp do klucza.
-- [Współautor](/azure/role-based-access-control/built-in-roles#contributor): Zarządzaj wszystkimi elementami, wykluczając dostęp do zasobów. **Uwaga**: Ta rola zapewnia dostęp do klucza.
-- [Czytelnik](/azure/role-based-access-control/built-in-roles#reader): Odczytuj i wyświetlaj zasoby.
-- [Współautor konta magazynu](/azure/role-based-access-control/built-in-roles#storage-account-contributor): pełne zarządzanie kontami magazynu. **Uwaga**: Ta rola zapewnia dostęp do klucza.
-- [Właściciel danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): pełny dostęp do kontenerów obiektów blob i danych usługi Azure Storage.
-- [Współautor danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Odczytuj, zapisuj i usuwaj kontenery i obiekty blob usługi Azure Storage.
-- [Czytnik danych obiektów blob magazynu](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Odczytuj i wyświetlaj kontenery i obiekty blob usługi Azure Storage.
+- [Właściciel](../../role-based-access-control/built-in-roles.md#owner): Zarządzanie wszystko, w tym dostęp do zasobów. **Uwaga** : Ta rola zapewnia dostęp do klucza.
+- [Współautor](../../role-based-access-control/built-in-roles.md#contributor): Zarządzaj wszystkimi elementami, wykluczając dostęp do zasobów. **Uwaga** : Ta rola zapewnia dostęp do klucza.
+- [Czytelnik](../../role-based-access-control/built-in-roles.md#reader): Odczytuj i wyświetlaj zasoby.
+- [Współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor): pełne zarządzanie kontami magazynu. **Uwaga** : Ta rola zapewnia dostęp do klucza.
+- [Właściciel danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): pełny dostęp do kontenerów obiektów blob i danych usługi Azure Storage.
+- [Współautor danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Odczytuj, zapisuj i usuwaj kontenery i obiekty blob usługi Azure Storage.
+- [Czytnik danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Odczytuj i wyświetlaj kontenery i obiekty blob usługi Azure Storage.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Błąd: certyfikat z podpisem własnym w łańcuchu certyfikatów (i podobne błędy)
 
 Błędy certyfikatów zwykle występują w jednej z następujących sytuacji:
 
-- Aplikacja jest połączona za pomocą _przezroczystego serwera proxy_. Oznacza to, że serwer (na przykład serwer firmy) przechwytuje ruch HTTPS, odszyfrowuje go, a następnie szyfruje przy użyciu certyfikatu z podpisem własnym.
+- Aplikacja jest połączona za pomocą _przezroczystego serwera proxy_ . Oznacza to, że serwer (na przykład serwer firmy) przechwytuje ruch HTTPS, odszyfrowuje go, a następnie szyfruje przy użyciu certyfikatu z podpisem własnym.
 - Korzystasz z aplikacji, która wprowadza certyfikat TLS/SSL z podpisem własnym do odbieranych komunikatów HTTPS. Przykładami aplikacji, które wprowadzają certyfikaty, są oprogramowanie antywirusowe i program inspekcji ruchu sieciowego.
 
 Gdy Eksplorator usługi Storage widzi certyfikat z podpisem własnym lub niezaufany, nie wie, czy odebrany komunikat HTTPS został zmieniony. Jeśli masz kopię certyfikatu z podpisem własnym, możesz poinstruować Eksplorator usługi Storage, aby go ufa, wykonując następujące czynności:
 
 1. Uzyskaj kopię certyfikatu X. 509 z kodowaniem Base-64 (CER).
-2. Przejdź do pozycji **Edytuj**  >  **Certyfikaty SSL**  >  **Importuj certyfikaty**, a następnie użyj selektora plików, aby znaleźć, wybrać i otworzyć plik. cer.
+2. Przejdź do pozycji **Edytuj**  >  **Certyfikaty SSL**  >  **Importuj certyfikaty** , a następnie użyj selektora plików, aby znaleźć, wybrać i otworzyć plik. cer.
 
 Ten problem może również wystąpić, jeśli istnieje wiele certyfikatów (głównych i pośrednich). Aby naprawić ten błąd, należy dodać oba certyfikaty.
 
@@ -98,12 +98,12 @@ Jeśli nie masz pewności, skąd pochodzi certyfikat, wykonaj następujące krok
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): wszystkie wersje oświetlenia powinny być wystarczające.
     * Komputery Mac i Linux: powinny być dołączone do systemu operacyjnego.
 2. Uruchom OpenSSL.
-    * Windows: Otwórz katalog instalacji, wybierz pozycję **/bin/**, a następnie kliknij dwukrotnie przycisk **openssl.exe**.
+    * Windows: Otwórz katalog instalacji, wybierz pozycję **/bin/** , a następnie kliknij dwukrotnie przycisk **openssl.exe** .
     * Komputery Mac i Linux: uruchamianie `openssl` z poziomu terminalu.
 3. Uruchom polecenie `s_client -showcerts -connect microsoft.com:443`.
 4. Wyszukaj certyfikaty z podpisem własnym. Jeśli nie masz pewności, które certyfikaty są z podpisem własnym, pamiętaj o tym, gdzie temat `("s:")` i wystawca `("i:")` są takie same.
 5. Po znalezieniu certyfikatów z podpisem własnym dla każdej z nich skopiuj i Wklej wszystko z (i włącznie z `-----BEGIN CERTIFICATE-----` ) `-----END CERTIFICATE-----` do nowego pliku. cer.
-6. Otwórz Eksplorator usługi Storage i przejdź do pozycji **Edytuj**  >  **Certyfikaty SSL**  >  **Importuj certyfikaty**. Następnie użyj selektora plików, aby znaleźć, wybrać i otworzyć utworzone pliki CER.
+6. Otwórz Eksplorator usługi Storage i przejdź do pozycji **Edytuj**  >  **Certyfikaty SSL**  >  **Importuj certyfikaty** . Następnie użyj selektora plików, aby znaleźć, wybrać i otworzyć utworzone pliki CER.
 
 Jeśli nie możesz znaleźć żadnych certyfikatów z podpisem własnym, wykonaj następujące kroki, aby skontaktować się z nami za pomocą narzędzia do przesyłania opinii. Możesz również otworzyć Eksplorator usługi Storage z wiersza polecenia przy użyciu `--ignore-certificate-errors` flagi. Po otwarciu z tą flagą Eksplorator usługi Storage ignoruje błędy certyfikatów.
 
@@ -113,10 +113,10 @@ Jeśli nie możesz znaleźć żadnych certyfikatów z podpisem własnym, wykonaj
 
 Puste okna dialogowe logowania najczęściej występują, gdy Active Directory Federation Services (AD FS) poprosi Eksplorator usługi Storage o przeprowadzenie przekierowania, który jest nieobsługiwany przez elektron. Aby obejść ten problem, możesz spróbować użyć przepływu kodu urządzenia do logowania. W tym celu wykonaj następujące czynności:
 
-1. Na pasku narzędzi po lewej stronie, Otwórz pozycję **Ustawienia**. W panelu Ustawienia przejdź do pozycji Logowanie do **aplikacji**  >  **Sign in**. Włącz **Logowanie za pomocą przepływu kodu urządzenia**.
+1. Na pasku narzędzi po lewej stronie, Otwórz pozycję **Ustawienia** . W panelu Ustawienia przejdź do pozycji Logowanie do **aplikacji**  >  **Sign in** . Włącz **Logowanie za pomocą przepływu kodu urządzenia** .
 2. Otwórz okno dialogowe **łączenie** (za pomocą ikony wtyczki na pasku pionowym po lewej stronie lub wybierając pozycję **Dodaj konto** w panelu konta).
 3. Wybierz środowisko, do którego chcesz się zalogować.
-4. Wybierz polecenie **Zaloguj się**.
+4. Wybierz polecenie **Zaloguj się** .
 5. Postępuj zgodnie z instrukcjami wyświetlanymi na następnym panelu.
 
 Jeśli nie możesz zalogować się do konta, którego chcesz użyć, ponieważ domyślna przeglądarka została już zarejestrowana na innym koncie, wykonaj jedną z następujących czynności:
@@ -130,7 +130,7 @@ Jeśli jesteś w pętli ponownego uwierzytelniania lub zmieniono nazwę UPN jedn
 
 1. Usuń wszystkie konta, a następnie zamknij Eksplorator usługi Storage.
 2. Usuń. IdentityService z komputera. W systemie Windows folder znajduje się w folderze `C:\users\<username>\AppData\Local` . W przypadku systemów Mac i Linux można znaleźć folder w katalogu głównym katalogu użytkownika.
-3. W przypadku korzystania z systemu Mac lub Linux należy również usunąć wpis Microsoft. developer. IdentityService z magazynu kluczy używanego przez system operacyjny. Na komputerze Mac magazyn kluczy jest aplikacją GNOME z *łańcucha* . W systemie Linux aplikacja jest zazwyczaj nazywana _dzwonkiem_, ale nazwa może się różnić w zależności od dystrybucji.
+3. W przypadku korzystania z systemu Mac lub Linux należy również usunąć wpis Microsoft. developer. IdentityService z magazynu kluczy używanego przez system operacyjny. Na komputerze Mac magazyn kluczy jest aplikacją GNOME z *łańcucha* . W systemie Linux aplikacja jest zazwyczaj nazywana _dzwonkiem_ , ale nazwa może się różnić w zależności od dystrybucji.
 
 ### <a name="conditional-access"></a>Dostęp warunkowy
 
@@ -141,7 +141,7 @@ Z powodu ograniczenia w bibliotece usługi Azure AD używanej przez Eksplorator 
 MacOS pęku kluczy może czasami wprowadzić stan, który powoduje problemy z biblioteką uwierzytelniania Eksplorator usługi Storage. Aby uzyskać łańcuch kluczy z tego stanu, wykonaj następujące kroki:
 
 1. Zamknij Eksplorator usługi Storage.
-2. Otwórz pęku kluczy (naciśnij klawisze Command + Spacja, typ **pęku kluczy**i naciśnij klawisz ENTER).
+2. Otwórz pęku kluczy (naciśnij klawisze Command + Spacja, typ **pęku kluczy** i naciśnij klawisz ENTER).
 3. Wybierz łańcuch kluczy logowania.
 4. Wybierz ikonę kłódki, aby zablokować łańcucha kluczy. (Kłódka zostanie wyświetlona po zakończeniu procesu. Może to potrwać kilka sekund, w zależności od tego, jakie aplikacje zostały otwarte).
 
@@ -230,7 +230,7 @@ Jeśli nawiązano połączenie z platformą Azure za pomocą serwera proxy, spra
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Parametry połączenia nie mają pełnych ustawień konfiguracji
 
-Jeśli zostanie wyświetlony komunikat o błędzie, istnieje możliwość, że nie masz wystarczających uprawnień, aby uzyskać klucze dla konta magazynu. Aby upewnić się, że jest to przypadek, przejdź do portalu i Znajdź swoje konto magazynu. Aby to zrobić, kliknij prawym przyciskiem myszy węzeł konta magazynu i wybierz polecenie **Otwórz w portalu**. Następnie przejdź do bloku **klucze dostępu** . Jeśli nie masz uprawnień do wyświetlania kluczy, zobaczysz komunikat "nie masz dostępu". Aby obejść ten problem, możesz uzyskać klucz konta od kogoś innego i dołączyć nazwę i klucz lub poprosił kogoś o sygnaturę dostępu współdzielonego z kontem magazynu i użyć go do dołączenia konta magazynu.
+Jeśli zostanie wyświetlony komunikat o błędzie, istnieje możliwość, że nie masz wystarczających uprawnień, aby uzyskać klucze dla konta magazynu. Aby upewnić się, że jest to przypadek, przejdź do portalu i Znajdź swoje konto magazynu. Aby to zrobić, kliknij prawym przyciskiem myszy węzeł konta magazynu i wybierz polecenie **Otwórz w portalu** . Następnie przejdź do bloku **klucze dostępu** . Jeśli nie masz uprawnień do wyświetlania kluczy, zobaczysz komunikat "nie masz dostępu". Aby obejść ten problem, możesz uzyskać klucz konta od kogoś innego i dołączyć nazwę i klucz lub poprosił kogoś o sygnaturę dostępu współdzielonego z kontem magazynu i użyć go do dołączenia konta magazynu.
 
 Jeśli widzisz klucze konta, w usłudze GitHub prosimy o problem, aby pomóc w rozwiązaniu problemu.
 
@@ -238,8 +238,8 @@ Jeśli widzisz klucze konta, w usłudze GitHub prosimy o problem, aby pomóc w r
 
 Jeśli podczas próby dodania połączenia niestandardowego zostanie wyświetlony komunikat o błędzie, dane połączenia przechowywane w lokalnym Menedżerze poświadczeń mogą być uszkodzone. Aby obejść ten problem, spróbuj usunąć uszkodzone połączenia lokalne, a następnie dodaj je ponownie:
 
-1. Rozpocznij Eksplorator usługi Storage. W menu Przejdź do pozycji **Pomoc**i  >  **Przełącz narzędzia deweloperskie**.
-2. W otwartym oknie na karcie **aplikacja** przejdź do obszaru **Magazyn lokalny** (po lewej stronie) > **File://**.
+1. Rozpocznij Eksplorator usługi Storage. W menu Przejdź do pozycji **Pomoc** i  >  **Przełącz narzędzia deweloperskie** .
+2. W otwartym oknie na karcie **aplikacja** przejdź do obszaru **Magazyn lokalny** (po lewej stronie) > **File://** .
 3. W zależności od typu połączenia, z którym występuje problem, poszukaj jego klucza, a następnie skopiuj jego wartość do edytora tekstu. Wartość jest tablicą niestandardowych nazw połączeń, takich jak następujące:
     * Konta magazynu
         * `StorageExplorer_CustomConnections_Accounts_v1`
@@ -265,13 +265,13 @@ Po przejściu przez wszystkie połączenia w przypadku wszystkich nazw połącze
 # <a name="windows"></a>[Windows](#tab/Windows)
 
 1. W menu **Start** Wyszukaj pozycję **Menedżer poświadczeń** i otwórz ją.
-2. Przejdź do **poświadczeń systemu Windows**.
-3. W obszarze **poświadczenia ogólne**Wyszukaj wpisy, które mają `<connection_type_key>/<corrupted_connection_name>` klucz (na przykład `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
+2. Przejdź do **poświadczeń systemu Windows** .
+3. W obszarze **poświadczenia ogólne** Wyszukaj wpisy, które mają `<connection_type_key>/<corrupted_connection_name>` klucz (na przykład `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Usuń te wpisy i Dodaj je jeszcze raz.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
-1. Otwórz centrum uwagi (Command + SPACEBAR) i Wyszukaj **dostęp do łańcucha kluczy**.
+1. Otwórz centrum uwagi (Command + SPACEBAR) i Wyszukaj **dostęp do łańcucha kluczy** .
 2. Wyszukaj wpisy, które mają `<connection_type_key>/<corrupted_connection_name>` klucz (na przykład `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Usuń te wpisy i Dodaj je jeszcze raz.
 

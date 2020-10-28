@@ -7,22 +7,22 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: 55fff7e4e36f066ba8ae5734e483df393fbd72cd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488660"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783831"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Przewodnik dotyczący obsługi wersji obiektów BLOB Eksplorator usługi Azure Storage
 
-Eksplorator usługi Microsoft Azure Storage zapewnia łatwy dostęp do wersji obiektów blob i zarządzanie nimi. Ten przewodnik pomoże Ci zrozumieć, jak działa wersja obiektów BLOB w Eksplorator usługi Storage. Przed kontynuowaniem zaleca się zapoznanie się z informacjami na temat [przechowywania wersji obiektów BLOB](/azure/storage/blobs/versioning-overview).
+Eksplorator usługi Microsoft Azure Storage zapewnia łatwy dostęp do wersji obiektów blob i zarządzanie nimi. Ten przewodnik pomoże Ci zrozumieć, jak działa wersja obiektów BLOB w Eksplorator usługi Storage. Przed kontynuowaniem zaleca się zapoznanie się z informacjami na temat [przechowywania wersji obiektów BLOB](../blobs/versioning-overview.md).
 
 ## <a name="terminology"></a>Terminologia
 
 Ta sekcja zawiera definicje ułatwiające zrozumienie ich użycia w tym artykule.
 
-- Usuwanie nietrwałe: alternatywna funkcja automatycznej ochrony danych. Więcej informacji na temat usuwania nietrwałego można znaleźć [tutaj](/azure/storage/blobs/soft-delete-blob-overview).
+- Usuwanie nietrwałe: alternatywna funkcja automatycznej ochrony danych. Więcej informacji na temat usuwania nietrwałego można znaleźć [tutaj](../blobs/soft-delete-blob-overview.md).
 - Aktywny obiekt BLOB: w stanie aktywnym zostanie utworzona wersja obiektu BLOB lub obiektu BLOB. Operacje można wykonywać tylko na obiektach Blob lub wersjach obiektów BLOB w stanie aktywnym.
 - Obiekt BLOB usunięty z niewygładzony: obiekt BLOB lub wersja obiektu BLOB oznaczona jako nietrwała. Nietrwałe usunięte obiekty blob są przechowywane tylko dla swojego okresu przechowywania.
 - Wersja obiektu BLOB: obiekt BLOB utworzony z włączoną obsługą wersji obiektów BLOB. Każda wersja obiektu BLOB jest skojarzona z IDENTYFIKATORem wersji.
@@ -117,5 +117,5 @@ Każda wersja obiektu BLOB ma własną warstwę dostępu. Aby zmienić warstwę 
 
 ## <a name="see-also"></a>Zobacz też
 
-* [Przechowywanie wersji obiektów BLOB](/azure/storage/blobs/versioning-overview)
-* [Usuwanie nietrwałe dla obiektów blob](/azure/storage/blobs/soft-delete-blob-overview)
+* [Przechowywanie wersji obiektów BLOB](../blobs/versioning-overview.md)
+* [Usuwanie nietrwałe dla obiektów blob](../blobs/soft-delete-blob-overview.md)

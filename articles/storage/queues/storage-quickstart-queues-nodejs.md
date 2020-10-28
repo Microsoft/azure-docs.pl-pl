@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: f174ba30251757182866f9f446eefb10588618e9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1446b501b9d91c94c12c82755d0e31f361f8cd8f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428099"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783423"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Szybki Start: Biblioteka kliencka usługi Azure queue storage V12 dla języka JavaScript
 
@@ -34,12 +34,12 @@ Dodatkowe zasoby:
 * [Dokumentacja referencyjna interfejsu API](/javascript/api/@azure/storage-queue/)
 * [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
 * [Pakiet (Menedżer pakietów węzła)](https://www.npmjs.com/package/@azure/storage-queue)
-* [Samples](/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Samples](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
-* Konto magazynu platformy Azure — [Tworzenie konta magazynu](/azure/storage/common/storage-quickstart-create-account)
+* Konto magazynu platformy Azure — [Tworzenie konta magazynu](../common/storage-account-create.md)
 * Bieżąca [Node.js](https://nodejs.org/en/download/) dla danego systemu operacyjnego.
 
 ## <a name="setting-up"></a>Konfigurowanie
@@ -48,7 +48,7 @@ W tej sekcji omówiono przygotowanie projektu do pracy z biblioteką klienta us�
 
 ### <a name="create-the-project"></a>Tworzenie projektu
 
-Tworzenie aplikacji Node.js nazwanych *kolejek — szybki start-V12*.
+Tworzenie aplikacji Node.js nazwanych *kolejek — szybki start-V12* .
 
 1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla projektu.
 
@@ -62,7 +62,7 @@ Tworzenie aplikacji Node.js nazwanych *kolejek — szybki start-V12*.
     cd queues-quickstart-v12
     ```
 
-1. Utwórz nowy plik tekstowy o nazwie *package.json*. Ten plik definiuje projekt Node.js. Zapisz ten plik w katalogach *Queues-szybki start-V12* . Poniżej znajduje się zawartość pliku:
+1. Utwórz nowy plik tekstowy o nazwie *package.json* . Ten plik definiuje projekt Node.js. Zapisz ten plik w katalogach *Queues-szybki start-V12* . Poniżej znajduje się zawartość pliku:
 
     ```json
     {

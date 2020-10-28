@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 008991a6eda8a2eac9e7a39074c9e0bddb0c51b5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488711"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784102"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Generowanie listy zasobów usługi Azure Storage w języku C++
 
@@ -34,7 +34,7 @@ Każda z tych metod jest pokazywana przy użyciu różnych przeciążeń dla ró
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynchroniczna a synchroniczna
 
-Ponieważ Biblioteka klienta usługi Storage dla języka C++ jest oparta na [bibliotece REST języka c++](https://github.com/Microsoft/cpprestsdk), nie obsługujemy operacji asynchronicznych za pomocą programu [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Przykład:
+Ponieważ Biblioteka klienta usługi Storage dla języka C++ jest oparta na [bibliotece REST języka c++](https://github.com/Microsoft/cpprestsdk), nie obsługujemy operacji asynchronicznych za pomocą programu [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Na przykład:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -59,8 +59,8 @@ W związku z tym nie można wyświetlić listy wszystkich obiektów w pojedyncze
 
 Odpowiedź na operację tworzenia segmentów z segmentacją obejmuje:
 
-* *_segment*, który zawiera zestaw wyników zwróconych dla pojedynczego wywołania interfejsu API wyświetlania.
-* *continuation_token*, która jest przenoszona do następnego wywołania w celu uzyskania następnej strony wyników. Gdy nie ma więcej wyników do zwrócenia, token kontynuacji ma wartość null.
+* *_segment* , który zawiera zestaw wyników zwróconych dla pojedynczego wywołania interfejsu API wyświetlania.
+* *continuation_token* , która jest przenoszona do następnego wywołania w celu uzyskania następnej strony wyników. Gdy nie ma więcej wyników do zwrócenia, token kontynuacji ma wartość null.
 
 Na przykład typowe wywołanie listy wszystkich obiektów BLOB w kontenerze może wyglądać podobnie jak w poniższym fragmencie kodu. Kod jest dostępny w naszych [przykładach](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 
@@ -198,7 +198,7 @@ Aby uzyskać więcej informacji na temat usługi Azure Storage i biblioteki klie
 
 * [Jak używać Blob Storage z C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Jak używać Table Storage z C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Jak używać usługi Queue Storage z poziomu języka C++](../storage-c-plus-plus-how-to-use-queues.md)
+* [Jak używać usługi Queue Storage z poziomu języka C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Biblioteka klienta usługi Azure Storage dla interfejsu API języka C++.](https://azure.github.io/azure-storage-cpp/)
 * [Blog zespołu usługi Azure Storage](/archive/blogs/windowsazurestorage/)
 * [Dokumentacja usługi Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

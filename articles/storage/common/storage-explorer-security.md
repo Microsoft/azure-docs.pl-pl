@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: b403a960016be3795857ddd5645eb73e53e83bd6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488609"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783763"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Przewodnik po zabezpieczeniach Eksplorator usługi Azure Storage
 
@@ -44,13 +44,13 @@ W tej sekcji opisano dwie technologie oparte na usłudze Azure AD, które mogą 
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)
 
-[Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview) zapewnia precyzyjną kontrolę dostępu do zasobów platformy Azure. Rolami i uprawnieniami platformy Azure można zarządzać z poziomu Azure Portal.
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/overview.md) zapewnia precyzyjną kontrolę dostępu do zasobów platformy Azure. Rolami i uprawnieniami platformy Azure można zarządzać z poziomu Azure Portal.
 
 Eksplorator usługi Storage obsługuje dostęp do usługi Azure RBAC do kont magazynu, obiektów blob i kolejek. Jeśli potrzebujesz dostępu do udziałów plików lub tabel, musisz przypisać role platformy Azure, które przyznają uprawnienia do wyświetlania kluczy konta magazynu.
 
 #### <a name="access-control-lists-acls"></a>Listy kontroli dostępu (ACL)
 
-[Listy kontroli dostępu (ACL)](/azure/storage/blobs/data-lake-storage-access-control) umożliwiają kontrolowanie dostępu na poziomie plików i folderów w kontenerach obiektów BLOB ADLS Gen2. Listami ACL można zarządzać przy użyciu Eksplorator usługi Storage.
+[Listy kontroli dostępu (ACL)](../blobs/data-lake-storage-access-control.md) umożliwiają kontrolowanie dostępu na poziomie plików i folderów w kontenerach obiektów BLOB ADLS Gen2. Listami ACL można zarządzać przy użyciu Eksplorator usługi Storage.
 
 ### <a name="shared-access-signatures-sas"></a>Sygnatury dostępu współdzielonego (SAS)
 
@@ -81,7 +81,7 @@ Klucze konta magazynu udzielają nieograniczonego dostępu do usług i zasobów 
 
 Niektóre role platformy Azure przyznają uprawnienia do pobierania kluczy konta magazynu. Osoby mające te role mogą efektywnie obejść uprawnienia udzielone lub odrzucone przez kontrolę RBAC platformy Azure. Nie zaleca się udzielania tego uprawnienia, chyba że jest to konieczne.
 
-Eksplorator usługi Storage podejmie próbę użycia kluczy konta magazynu, jeśli są dostępne, do uwierzytelniania żądań. Tę funkcję można wyłączyć w obszarze Ustawienia (**usługi > konta magazynu > wyłączyć użycie kluczy**). Niektóre funkcje nie obsługują kontroli RBAC platformy Azure, na przykład podczas pracy z klasycznymi kontami magazynu. Takie funkcje nadal wymagają kluczy i nie wpływają na to ustawienie.
+Eksplorator usługi Storage podejmie próbę użycia kluczy konta magazynu, jeśli są dostępne, do uwierzytelniania żądań. Tę funkcję można wyłączyć w obszarze Ustawienia ( **usługi > konta magazynu > wyłączyć użycie kluczy** ). Niektóre funkcje nie obsługują kontroli RBAC platformy Azure, na przykład podczas pracy z klasycznymi kontami magazynu. Takie funkcje nadal wymagają kluczy i nie wpływają na to ustawienie.
 
 Aby uzyskać dostęp do zasobów magazynu, należy użyć kluczy, zalecamy następujące wytyczne:
 
@@ -102,4 +102,4 @@ Podczas włączania dostępu publicznego do kontenera obiektów BLOB zalecamy na
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zalecenia dotyczące zabezpieczeń](/azure/storage/blobs/security-recommendations)
+- [Zalecenia dotyczące zabezpieczeń](../blobs/security-recommendations.md)

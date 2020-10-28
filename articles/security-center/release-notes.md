@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 047bfac9179fd10383fc91155c7cb6e737fda516
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 78eb7ae9a73217bfe7b9ef58cb46a70cc312c481
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558707"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784375"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -37,6 +37,7 @@ Aby dowiedzieć się o *planowanych* zmianach, które wkrótce zostaną udostęp
 - [Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych (wersja zapoznawcza)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Dodane zalecenie dotyczące zapory platformy Azure (wersja zapoznawcza)](#azure-firewall-recommendation-added-preview)
 - [Autoryzowane zakresy adresów IP powinny być zdefiniowane w zaleceniu usług Kubernetes Services zaktualizowanym z opcją szybkie rozwiązanie.](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [Pulpit nawigacyjny zgodności z przepisami zawiera teraz opcję usuwania standardów](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
 - [Tabela Microsoft. Security/securityStatuses została usunięta z grafu zasobów platformy Azure (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Ocena luk w zabezpieczeniach dla maszyn lokalnych i wielochmurowych (wersja zapoznawcza)
@@ -77,11 +78,20 @@ Aby uzyskać więcej informacji na temat tego zalecenia i wszystkich innych Secu
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="Autoryzowane zakresy adresów IP należy zdefiniować w rekomendacji usług Kubernetes Services z opcją szybkie rozwiązanie":::
 
 
+### <a name="regulatory-compliance-dashboard-now-includes-option-to-remove-standards"></a>Pulpit nawigacyjny zgodności z przepisami zawiera teraz opcję usuwania standardów
+
+Pulpit nawigacyjny zgodności z przepisami Security Center zapewnia wgląd w stan zgodności w zależności od tego, jak spełniasz określone wymagania kontroli zgodności.
+
+Pulpit nawigacyjny zawiera domyślny zestaw standardów prawnych. Jeśli którekolwiek z podanych standardów nie są odpowiednie dla Twojej organizacji, to teraz prosty proces, po prostu usunąć go z interfejsu użytkownika dla subskrypcji. Standardy można usuwać tylko na poziomie *subskrypcji* . to nie jest zakres grupy zarządzania.
+
+Dowiedz się więcej w temacie [usuwanie standardu z pulpitu nawigacyjnego](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard).
+
+
 ### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Tabela Microsoft. Security/securityStatuses została usunięta z grafu zasobów platformy Azure (ARG)
 
 Azure Resource Graph to usługa platformy Azure, która została zaprojektowana w celu zapewnienia wydajnej eksploracji zasobów dzięki możliwości wykonywania zapytań na dużą skalę w ramach danego zestawu subskrypcji, dzięki czemu możesz efektywnie zarządzać środowiskiem. 
 
-Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Przykład:
+Aby uzyskać Azure Security Center, można użyć ARG i [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) do wykonywania zapytań o szeroki zakres danych stan zabezpieczeń. Na przykład:
 
 - Wykorzystanie spisu zasobów (ARG)
 - Zarejestrowano przykładowe zapytanie ARG dotyczące [identyfikowania kont bez włączonej usługi uwierzytelniania wieloskładnikowego (MFA)](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
@@ -669,7 +679,7 @@ Zasady można znaleźć w usłudze Azure Policy:
 
 Wprowadzenie do [szablonów automatyzacji przepływu pracy](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 
-Dowiedz się więcej o korzystaniu z dwóch zasad eksportu w celu [ciągłego eksportowania Azure Security Center alertów i zaleceń za pośrednictwem zasad](https://techcommunity.microsoft.com/t5/azure-security-center/continuously-export-azure-security-center-alerts-and/ba-p/1440745).
+Dowiedz się więcej o korzystaniu z dwóch zasad eksportu w obszarze [Konfigurowanie automatyzacji przepływu pracy na dużą skalę przy użyciu dostarczonych zasad](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies) i [Skonfiguruj eksport ciągły](continuous-export.md#set-up-a-continuous-export).
 
 
 ### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>Nowe zalecenie dotyczące używania sieciowych grup zabezpieczeń do ochrony maszyn wirtualnych niepołączonych z Internetem

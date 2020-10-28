@@ -10,18 +10,18 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 27a742b5f683a7e542ca8d51a711d903b00bda61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6937f3aa136ee4d5b906492c3f8cffc86acbc2e5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715476"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785667"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Uruchamianie poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych kolejki
 
 Usługa Azure Storage udostępnia rozszerzenia dla programu PowerShell, które umożliwiają logowanie i uruchamianie poleceń skryptów przy użyciu poświadczeń Azure Active Directory (Azure AD). Gdy zalogujesz się do programu PowerShell przy użyciu poświadczeń usługi Azure AD, zwracany jest token dostępu OAuth 2,0. Ten token jest automatycznie używany przez program PowerShell do autoryzacji kolejnych operacji na danych względem magazynu kolejek. W przypadku obsługiwanych operacji nie jest już konieczne przekazywanie klucza konta ani tokenu SAS przy użyciu polecenia.
 
-Można przypisać uprawnienia do kolejki danych do podmiotu zabezpieczeń usługi Azure AD za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). Aby uzyskać więcej informacji na temat ról platformy Azure w usłudze Azure Storage, zobacz [Zarządzanie prawami dostępu do danych usługi Azure Storage za pomocą funkcji RBAC platformy Azure](../common/storage-auth-aad-rbac.md).
+Można przypisać uprawnienia do kolejki danych do podmiotu zabezpieczeń usługi Azure AD za pośrednictwem kontroli dostępu opartej na rolach (Azure RBAC). Aby uzyskać więcej informacji na temat ról platformy Azure w usłudze Azure Storage, zobacz [Zarządzanie prawami dostępu do danych usługi Azure Storage za pomocą funkcji RBAC platformy Azure](../common/storage-auth-aad-rbac-portal.md).
 
 ## <a name="supported-operations"></a>Obsługiwane operacje
 
@@ -68,7 +68,7 @@ Poniższy przykład pokazuje, jak utworzyć kolejkę na nowym koncie magazynu z 
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Przed utworzeniem kolejki Przypisz rolę [współautor danych kolejki magazynu](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) do siebie. Mimo że jesteś właścicielem konta, potrzebujesz jawnych uprawnień do wykonywania operacji na danych na koncie magazynu. Aby uzyskać więcej informacji na temat przypisywania ról platformy Azure, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../common/storage-auth-aad-rbac.md).
+1. Przed utworzeniem kolejki Przypisz rolę [współautor danych kolejki magazynu](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) do siebie. Mimo że jesteś właścicielem konta, potrzebujesz jawnych uprawnień do wykonywania operacji na danych na koncie magazynu. Aby uzyskać więcej informacji na temat przypisywania ról platformy Azure, zobacz [używanie Azure Portal do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek](../common/storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > Propagowanie przypisań ról platformy Azure może potrwać kilka minut.

@@ -11,12 +11,12 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ac54282135759f14f17ed16b9779013f849bd8d7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488677"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783967"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Zarządzanie współbieżnością w usłudze Microsoft Azure Storage
 
@@ -85,7 +85,7 @@ catch (StorageException ex)
 }
 ```
 
-Usługa Azure Storage obejmuje również obsługę nagłówków warunkowych, takich jak **If-Modified-** AS, **if-unmodifiedd — od**, **If-None-Match**i kombinacje tych nagłówków. Aby uzyskać więcej informacji, zobacz [Określanie nagłówków warunkowych dla operacji usługi BLOB Service](https://msdn.microsoft.com/library/azure/dd179371.aspx).
+Usługa Azure Storage obejmuje również obsługę nagłówków warunkowych, takich jak **If-Modified-** AS, **if-unmodifiedd — od** , **If-None-Match** i kombinacje tych nagłówków. Aby uzyskać więcej informacji, zobacz [Określanie nagłówków warunkowych dla operacji usługi BLOB Service](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 Poniższa tabela zawiera podsumowanie operacji kontenera akceptujących nagłówki warunkowe, takie jak **if-Match** w żądaniu i zwracające wartość ETag w odpowiedzi.
 
@@ -128,9 +128,9 @@ Poniższa tabela zawiera podsumowanie operacji obiektów blob, które akceptują
 
 ### <a name="pessimistic-concurrency-for-blobs"></a>Współbieżność pesymistyczna dla obiektów BLOB
 
-Aby zablokować obiekt BLOB do wyłącznego użytku, uzyskaj na nim [dzierżawę](https://msdn.microsoft.com/library/azure/ee691972.aspx) . Podczas uzyskiwania dzierżawy należy określić okres dla dzierżawy. Okres obejmuje wartości z zakresu od 15 do 60 sekund lub nieskończoności, które są przyłączane do wyłącznej blokady. Odnów skończoną dzierżawę, aby ją przedłużyć. Zwolnij dzierżawę po zakończeniu jej używania. Blob Storage automatycznie zwalnia skończone dzierżawy po ich wygaśnięciu.
+Aby zablokować obiekt BLOB do wyłącznego użytku, uzyskaj na nim [dzierżawę](/rest/api/storageservices/Lease-Blob) . Podczas uzyskiwania dzierżawy należy określić okres dla dzierżawy. Okres obejmuje wartości z zakresu od 15 do 60 sekund lub nieskończoności, które są przyłączane do wyłącznej blokady. Odnów skończoną dzierżawę, aby ją przedłużyć. Zwolnij dzierżawę po zakończeniu jej używania. Blob Storage automatycznie zwalnia skończone dzierżawy po ich wygaśnięciu.
 
-Dzierżawy umożliwiają obsługę różnych strategii synchronizacji. Strategie obejmują *wyłączne odczyty zapisu/udostępniania*, *wyłączne odczyty zapisu/wyłączność*oraz *udostępnianie zapisu/odczytu na wyłączność*. W przypadku istnienia dzierżawy usługa Azure Storage wymusza wykluczające operacje zapisu (Put, Set i Delete), jednak zapewnienie wyłączności operacji odczytu wymaga dewelopera, aby upewnić się, że wszystkie aplikacje klienckie używają identyfikatora dzierżawy i że tylko jeden klient w danym momencie ma prawidłowy identyfikator dzierżawy. Operacje odczytu, które nie zawierają identyfikatora dzierżawy, powodują odczyty udostępnione.
+Dzierżawy umożliwiają obsługę różnych strategii synchronizacji. Strategie obejmują *wyłączne odczyty zapisu/udostępniania* , *wyłączne odczyty zapisu/wyłączność* oraz *udostępnianie zapisu/odczytu na wyłączność* . W przypadku istnienia dzierżawy usługa Azure Storage wymusza wykluczające operacje zapisu (Put, Set i Delete), jednak zapewnienie wyłączności operacji odczytu wymaga dewelopera, aby upewnić się, że wszystkie aplikacje klienckie używają identyfikatora dzierżawy i że tylko jeden klient w danym momencie ma prawidłowy identyfikator dzierżawy. Operacje odczytu, które nie zawierają identyfikatora dzierżawy, powodują odczyty udostępnione.
 
 Poniższy fragment kodu w języku C# przedstawia przykład uzyskiwania wyłącznej dzierżawy przez 30 sekund na obiekcie blob, aktualizowania zawartości obiektu BLOB, a następnie zwalniania dzierżawy. Jeśli w obiekcie blob istnieje już prawidłowa dzierżawa podczas próby uzyskania nowej dzierżawy, Blob service zwróci wynik stanu "HTTP (409). Poniższy fragment kodu używa obiektu **AccessCondition** do hermetyzacji informacji o dzierżawie, gdy zgłasza żądanie zaktualizowania obiektu BLOB w usłudze Storage.  Pełny przykład można pobrać tutaj: [Zarządzanie współbieżnością przy użyciu usługi Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
@@ -161,7 +161,7 @@ catch (StorageException ex)
 }
 ```
 
-Jeśli podjęto próbę wykonania operacji zapisu na wydzierżawionym obiekcie blob bez przekazania identyfikatora dzierżawy, żądanie kończy się niepowodzeniem z błędem 412. Jeśli dzierżawa wygaśnie przed wywołaniem metody **UploadText** , ale nadal zostanie przekazany identyfikator dzierżawy, żądanie również zakończy się niepowodzeniem z błędem **412** . Aby uzyskać więcej informacji na temat zarządzania czasem wygaśnięcia dzierżawy i identyfikatorami dzierżawy, zobacz dokumentację dotyczącą [dzierżawy obiektu BLOB](https://msdn.microsoft.com/library/azure/ee691972.aspx) .
+Jeśli podjęto próbę wykonania operacji zapisu na wydzierżawionym obiekcie blob bez przekazania identyfikatora dzierżawy, żądanie kończy się niepowodzeniem z błędem 412. Jeśli dzierżawa wygaśnie przed wywołaniem metody **UploadText** , ale nadal zostanie przekazany identyfikator dzierżawy, żądanie również zakończy się niepowodzeniem z błędem **412** . Aby uzyskać więcej informacji na temat zarządzania czasem wygaśnięcia dzierżawy i identyfikatorami dzierżawy, zobacz dokumentację dotyczącą [dzierżawy obiektu BLOB](/rest/api/storageservices/Lease-Blob) .
 
 Następujące operacje BLOB mogą używać dzierżaw do zarządzania pesymistyczną współbieżnością:
 
@@ -184,7 +184,7 @@ Następujące operacje BLOB mogą używać dzierżaw do zarządzania pesymistycz
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Współbieżność pesymistyczna dla kontenerów
 
-Dzierżawy w kontenerach umożliwiają korzystanie z tych samych strategii synchronizacji, jak w przypadku obiektów BLOB (*wyłącznych odczyty zapisu/udostępniania*, *wyłączny zapis/odczyt*) i *udostępnianie zapisu/wyłącznego odczytu*) jednak w przeciwieństwie do obiektów BLOB usługa magazynu wymusza wyłączność operacji usuwania. Aby usunąć kontener z aktywną dzierżawą, klient musi uwzględnić aktywny identyfikator dzierżawy z żądaniem usuwania. Wszystkie inne operacje kontenera powiodły się w kontenerze dzierżawionym bez uwzględnienia identyfikatora dzierżawy, w takim przypadku są to operacje udostępnione. Jeśli wymagana jest niewyłączność operacji Update (put lub Set) lub odczytu, deweloperzy powinni upewnić się, że wszyscy klienci używają identyfikatora dzierżawy i że tylko jeden klient w danym momencie ma prawidłowy identyfikator dzierżawy.
+Dzierżawy w kontenerach umożliwiają korzystanie z tych samych strategii synchronizacji, jak w przypadku obiektów BLOB ( *wyłącznych odczyty zapisu/udostępniania* , *wyłączny zapis/odczyt* ) i *udostępnianie zapisu/wyłącznego odczytu* ) jednak w przeciwieństwie do obiektów BLOB usługa magazynu wymusza wyłączność operacji usuwania. Aby usunąć kontener z aktywną dzierżawą, klient musi uwzględnić aktywny identyfikator dzierżawy z żądaniem usuwania. Wszystkie inne operacje kontenera powiodły się w kontenerze dzierżawionym bez uwzględnienia identyfikatora dzierżawy, w takim przypadku są to operacje udostępnione. Jeśli wymagana jest niewyłączność operacji Update (put lub Set) lub odczytu, deweloperzy powinni upewnić się, że wszyscy klienci używają identyfikatora dzierżawy i że tylko jeden klient w danym momencie ma prawidłowy identyfikator dzierżawy.
 
 Następujące operacje kontenera mogą używać dzierżaw do zarządzania pesymistyczną współbieżnością:
 
@@ -198,9 +198,9 @@ Następujące operacje kontenera mogą używać dzierżaw do zarządzania pesymi
 
 Aby uzyskać więcej informacji, zobacz:
 
-* [Określanie nagłówków warunkowych dla operacji usługi Blob Service](https://msdn.microsoft.com/library/azure/dd179371.aspx)
-* [Kontener dzierżawy](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Dzierżawienie obiektu blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Określanie nagłówków warunkowych dla operacji usługi Blob Service](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations)
+* [Kontener dzierżawy](/rest/api/storageservices/Lease-Container)
+* [Dzierżawienie obiektu blob](/rest/api/storageservices/Lease-Blob)
 
 ## <a name="managing-concurrency-in-table-storage"></a>Zarządzanie współbieżnością w magazynie tabel
 
@@ -259,7 +259,7 @@ Ogólnie rzecz biorąc deweloperzy korzystający z tabel powinni polegać na opt
 
 Aby uzyskać więcej informacji, zobacz:
 
-* [Operacje na jednostkach](https://msdn.microsoft.com/library/azure/dd179375.aspx)
+* [Operacje na jednostkach](/rest/api/storageservices/Operations-on-Entities)
 
 ## <a name="managing-concurrency-in-the-queue-service"></a>Zarządzanie współbieżnością w usłudze Queue Service
 
@@ -269,8 +269,8 @@ Usługa kolejki nie obsługuje optymistycznej lub pesymistycznej współbieżno�
 
 Aby uzyskać więcej informacji, zobacz:
 
-* [Interfejs API REST usługi Queue (Kolejka)](https://msdn.microsoft.com/library/azure/dd179363.aspx)
-* [Pobierz komunikaty](https://msdn.microsoft.com/library/azure/dd179474.aspx)
+* [Interfejs API REST usługi Queue (Kolejka)](/rest/api/storageservices/Queue-Service-REST-API)
+* [Pobierz komunikaty](/rest/api/storageservices/Get-Messages)
 
 ## <a name="managing-concurrency-in-azure-files"></a>Zarządzanie współbieżnością w Azure Files
 
@@ -280,7 +280,7 @@ Gdy klient SMB otwiera plik do usunięcia, oznacza plik jako oczekujący na usun
 
 Aby uzyskać więcej informacji, zobacz:
 
-* [Zarządzanie blokadami plików](https://msdn.microsoft.com/library/azure/dn194265.aspx)
+* [Zarządzanie blokadami plików](/rest/api/storageservices/Managing-File-Locks)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -292,5 +292,5 @@ Aby uzyskać więcej informacji na temat usługi Azure Storage, zobacz:
 
 * [Strona główna Microsoft Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Wprowadzenie do usługi Azure Storage](storage-introduction.md)
-* Wprowadzenie magazynu dla [obiektów BLOB](../blobs/storage-dotnet-how-to-use-blobs.md), [tabel](../../cosmos-db/table-storage-how-to-use-dotnet.md),  [kolejek](../storage-dotnet-how-to-use-queues.md)i [plików](../storage-dotnet-how-to-use-files.md)
+* Wprowadzenie magazynu dla [obiektów BLOB](../blobs/storage-quickstart-blobs-dotnet.md), [tabel](../../cosmos-db/tutorial-develop-table-dotnet.md),  [kolejek](../queues/storage-dotnet-how-to-use-queues.md)i [plików](../files/storage-dotnet-how-to-use-files.md)
 * Architektura magazynu — [Azure Storage: usługa magazynu w chmurze o wysokiej dostępności z silną spójnością](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)

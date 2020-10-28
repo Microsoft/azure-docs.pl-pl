@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654263"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785616"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migracja do udziałów plików usługi Azure File
 
@@ -34,11 +34,11 @@ Klucz w każdej migracji ma na celu przechwycenie całej odpowiedniej wierności
 
 Poniżej przedstawiono dwa podstawowe składniki pliku:
 
-- **Strumień danych**: strumień danych pliku przechowuje zawartość pliku.
-- **Metadane pliku**: w metadanych pliku znajdują się następujące składniki:
+- **Strumień danych** : strumień danych pliku przechowuje zawartość pliku.
+- **Metadane pliku** : w metadanych pliku znajdują się następujące składniki:
    * Atrybuty plików, takie jak tylko do odczytu
    * Uprawnienia do plików, które mogą być określane jako *uprawnienia systemu plików NTFS* lub *listy ACL plików i folderów*
-   * Sygnatury czasowe, w szczególności utworzone i ostatnio modyfikowane sygnatury czasowe
+   * Sygnatury czasowe, w szczególności tworzenie i ostatnio modyfikowane sygnatury czasowe
    * Alternatywny strumień danych, który jest miejscem do przechowywania większych ilości niestandardowych właściwości
 
 Wierność pliku w migracji można zdefiniować jako możliwość:
@@ -78,7 +78,7 @@ Jak korzystać z tabeli:
 
 Scenariusz bez linku jeszcze nie ma opublikowanego przewodnika migracji. Sprawdź, czy w tej tabeli od czasu są aktualizowane aktualizacje. Nowe prowadnice zostaną opublikowane, gdy staną się dostępne.
 
-| Element źródłowy | Cel: </br>Wdrożenie hybrydowe | Cel: </br>Wdrażanie tylko w chmurze |
+| Źródło | Cel: </br>Wdrożenie hybrydowe | Cel: </br>Wdrażanie tylko w chmurze |
 |:---|:--|:--|
 | | Kombinacja narzędzi:| Kombinacja narzędzi: |
 | System Windows Server 2012 R2 lub nowszy | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync i Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync i wstępnie rozsiane pliki w chmurze](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Usługa migracji Azure File Sync i magazynu</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync i urządzenie Data Box</li><li>Usługa migracji Azure File Sync i magazynu</li><li>RoboCopy</li></ul> |
@@ -111,7 +111,7 @@ Istnieje kilka narzędzi do kopiowania plików dostępnych w firmie Microsoft i 
 
     Przy pierwszym uruchomieniu narzędzia są kopiowane zbiorczo dane. Ten początkowy przebieg może być ostatnim czasem. Często trwa dłużej niż chcesz, aby dane były przełączane do trybu offline w ramach procesów firmy.
 
-    Przez dublowanie źródła do obiektu docelowego (podobnie jak w przypadku **ROBOCOPY/MIR**), można uruchomić narzędzie ponownie w tym samym źródle i miejscu docelowym. Przebieg działa znacznie szybciej, ponieważ wymaga przetransportowania tylko zmian źródłowych, które wystąpiły po poprzednim uruchomieniu. Oddziałanie narzędzia kopiowania w ten sposób może znacznie skrócić czas przestoju.
+    Przez dublowanie źródła do obiektu docelowego (podobnie jak w przypadku **ROBOCOPY/MIR** ), można uruchomić narzędzie ponownie w tym samym źródle i miejscu docelowym. Przebieg działa znacznie szybciej, ponieważ wymaga przetransportowania tylko zmian źródłowych, które wystąpiły po poprzednim uruchomieniu. Oddziałanie narzędzia kopiowania w ten sposób może znacznie skrócić czas przestoju.
 
 Poniższa tabela klasyfikuje narzędzia firmy Microsoft i ich bieżącą przydatność dla udziałów plików platformy Azure:
 
@@ -121,7 +121,7 @@ Poniższa tabela klasyfikuje narzędzia firmy Microsoft i ich bieżącą przydat
 |![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Natywnie zintegrowane z udziałami plików platformy Azure. | Pełna wierność. * |
 |![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| Usługa migracji magazynu | Obsługiwane pośrednio. Udziały plików platformy Azure można instalować jako dyski sieciowe na serwerach docelowych programu SMS. | Pełna wierność. * |
 |![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, wersja 10,4 lub nowsza| Obsługiwane. | Pełna wierność. * |
-|![Nie w pełni zalecane](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Obsługiwane. | Nie kopiuje metadanych. [Urządzenie Data Box można używać z Azure File Sync](storage-sync-offline-data-transfer.md). |
+|![Tak, zalecane](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Obsługiwane. | DataBox teraz w pełni obsługuje metadane. [Urządzenie Data Box można również używać w połączeniu z Azure File Sync](storage-sync-offline-data-transfer.md). |
 |![Nie w pełni zalecane](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Eksplorator usługi Azure Storage, wersja 1,14 | Obsługiwane. | Nie kopiuje list ACL. Obsługuje sygnatury czasowe.  |
 |![Niezalecane](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Obsługiwane. | Nie kopiuje metadanych. |
 |||||

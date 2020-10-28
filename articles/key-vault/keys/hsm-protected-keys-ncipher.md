@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: de14cf8cc79b4e1387950a2ae048da41738f5db1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d58f89aa87a39d12b2d6f6a3a91254a653a088
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589939"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784664"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importuj klucze chronione przez moduł HSM dla Key Vault (oprogramowanie wspomagające nCipher)
 
@@ -231,7 +231,7 @@ KeyVault-BYOK-Tools-Switzerland.zip
 ---
 
 
-Aby sprawdzić integralność pobranego zestawu narzędzi BYOK, należy użyć polecenia cmdlet [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) w ramach sesji Azure PowerShell.
+Aby sprawdzić integralność pobranego zestawu narzędzi BYOK, należy użyć polecenia cmdlet [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) w ramach sesji Azure PowerShell.
 
    ```powershell
    Get-FileHash KeyVault-BYOK-Tools-*.zip
@@ -255,7 +255,7 @@ W tym drugim kroku wykonaj następujące procedury na stacji roboczej, która ni
 
 Zainstaluj oprogramowanie oprogramowanie wspomagające nCipher support na komputerze z systemem Windows, a następnie Dołącz moduł HSM oprogramowanie wspomagające nCipher sprzętowego nshield do tego komputera.
 
-Upewnij się, że narzędzia oprogramowanie wspomagające nCipher znajdują się w ścieżce (**% nfast_home% \ bin**). Na przykład wpisz następujące polecenie:
+Upewnij się, że narzędzia oprogramowanie wspomagające nCipher znajdują się w ścieżce ( **% nfast_home% \ bin** ). Na przykład wpisz następujące polecenie:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
@@ -416,7 +416,7 @@ Aby zweryfikować pobrany pakiet:
      >
 2. Potwierdź, że zobaczysz następujące polecenie, które wskazuje na pomyślne sprawdzenie poprawności: **wynik: sukces**
 
-Ten skrypt sprawdza poprawność łańcucha podpisywania do klucza głównego sprzętowego nshield. Skrót klucza głównego jest osadzony w skrypcie; jego wartość powinna wynosić **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Tę wartość można także potwierdzić osobno, odwiedzając [witrynę sieci Web oprogramowanie wspomagające nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
+Ten skrypt sprawdza poprawność łańcucha podpisywania do klucza głównego sprzętowego nshield. Skrót klucza głównego jest osadzony w skrypcie; jego wartość powinna wynosić **59178a47 de508c3f 291277ee 184f46c4 f1d9c639** . Tę wartość można także potwierdzić osobno, odwiedzając [witrynę sieci Web oprogramowanie wspomagające nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
 
 Teraz możesz utworzyć nowy klucz.
 
@@ -432,11 +432,11 @@ generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey
 
 Podczas uruchamiania tego polecenia należy zastosować się do następujących instrukcji:
 
-* Parametr *protect* musi mieć ustawioną wartość **module**, jak przedstawiono. Spowoduje to utworzenie klucza chronionego przez moduł. Zestaw narzędzi BYOK nie obsługuje kluczy chronionych z użyciem protokołu OCS.
+* Parametr *protect* musi mieć ustawioną wartość **module** , jak przedstawiono. Spowoduje to utworzenie klucza chronionego przez moduł. Zestaw narzędzi BYOK nie obsługuje kluczy chronionych z użyciem protokołu OCS.
 * Zamień wartość *contosokey* dla pozycji **ident** i **plainname** na dowolną wartość ciągu. Aby zminimalizować ogólne koszty administracyjne i zmniejszyć ryzyko błędów, zalecamy użycie tej samej wartości dla obu tych elementów. Wartość **ident** musi zawierać tylko cyfry, łączniki i małe litery.
 * W tym przykładzie parametr pubexp został pozostawiony pusty (wartość domyślna), można jednak określić konkretne jego wartości. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją oprogramowanie wspomagające nCipher.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
 
-To polecenie tworzy plik klucza z tokenem w folderze% NFAST_KMDATA% \ Local o nazwie rozpoczynającej się od **key_simple_**, a następnie **ident** , który został określony w poleceniu. Na przykład: **key_simple_contosokey**. Ten plik zawiera zaszyfrowany klucz.
+To polecenie tworzy plik klucza z tokenem w folderze% NFAST_KMDATA% \ Local o nazwie rozpoczynającej się od **key_simple_** , a następnie **ident** , który został określony w poleceniu. Na przykład: **key_simple_contosokey** . Ten plik zawiera zaszyfrowany klucz.
 
 Utwórz w bezpiecznej lokalizacji kopię zapasową tego pliku stokenizowanego klucza.
 
@@ -668,7 +668,7 @@ Podczas uruchamiania tego polecenia należy zastosować się do następujących 
 * Zastąp *Identyfikator subskrypcji kluczem* subskrypcji platformy Azure, który zawiera Magazyn kluczy. Ta wartość została wcześniej pobrana, w **kroku 1,2: Pobierz swój identyfikator subskrypcji platformy Azure** z kroku [przygotowanie stacji roboczej z połączeniem z Internetem](#step-1-prepare-your-internet-connected-workstation) .
 * Zastąp *ContosoFirstHSMKey* etykietą, która jest używana jako nazwa pliku wyjściowego.
 
-Po pomyślnym zakończeniu zostanie wyświetlony **wynik: sukces** , a w bieżącym folderze istnieje nowy plik o następującej nazwie: KeyTransferPackage-*ContosoFirstHSMkey*. BYOK
+Po pomyślnym zakończeniu zostanie wyświetlony **wynik: sukces** , a w bieżącym folderze istnieje nowy plik o następującej nazwie: KeyTransferPackage- *ContosoFirstHSMkey* . BYOK
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Krok 4,3: Skopiuj pakiet transferu klucza do stacji roboczej połączonej z Internetem
 

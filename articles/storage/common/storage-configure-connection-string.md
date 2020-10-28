@@ -10,12 +10,12 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091614"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783882"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Konfiguracja parametrów połączenia usługi Azure Storage
 
@@ -35,7 +35,7 @@ Aplikacja musi uzyskać dostęp do parametrów połączenia w czasie wykonywania
 
 * Parametry połączenia można przechowywać w zmiennej środowiskowej.
 * Aplikacja działająca na komputerze stacjonarnym lub na urządzeniu może przechowywać parametry połączenia w pliku **app.config** lub **web.config** . Dodaj parametry połączenia do sekcji **AppSettings** w tych plikach.
-* W aplikacji uruchomionej w usłudze w chmurze platformy Azure można przechowywać parametry połączenia w [pliku schematu konfiguracji usługi platformy Azure (cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Dodaj parametry połączenia do sekcji **ConfigurationSettings** w pliku konfiguracji usługi.
+* W aplikacji uruchomionej w usłudze w chmurze platformy Azure można przechowywać parametry połączenia w [pliku schematu konfiguracji usługi platformy Azure (cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)). Dodaj parametry połączenia do sekcji **ConfigurationSettings** w pliku konfiguracji usługi.
 
 Przechowywanie parametrów połączenia w pliku konfiguracji ułatwia aktualizowanie parametrów połączenia w celu przełączania się między [emulatorem magazynu azurite](../common/storage-use-azurite.md) a kontem usługi Azure Storage w chmurze. Wystarczy edytować parametry połączenia, aby wskazywały na środowisko docelowe.
 
@@ -57,7 +57,7 @@ Na przykład parametry połączenia mogą wyglądać podobnie do następujących
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-Mimo że usługa Azure Storage obsługuje zarówno protokół HTTP, jak i HTTPS w parametrach połączenia, *zdecydowanie zaleca się użycie protokołu HTTPS*.
+Mimo że usługa Azure Storage obsługuje zarówno protokół HTTP, jak i HTTPS w parametrach połączenia, *zdecydowanie zaleca się użycie protokołu HTTPS* .
 
 > [!TIP]
 > Parametry połączenia konta magazynu można znaleźć w [Azure Portal](https://portal.azure.com). Przejdź do **ustawień**  >  **klucze dostępu** w bloku menu konta magazynu, aby wyświetlić parametry połączenia dla podstawowych i pomocniczych kluczy dostępu.

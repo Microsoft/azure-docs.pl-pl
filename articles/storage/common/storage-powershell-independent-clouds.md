@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b610a5537d110a4046bd42ac86f5c938aeafe953
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072962"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783576"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Zarządzanie magazynem w chmurach niezależnych platformy Azure przy użyciu programu PowerShell
 
@@ -51,7 +51,7 @@ Zaloguj się do swojego konta, które ma dostęp do chmury, z którą chcesz naw
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-Aby uzyskać dostęp do chmury chińskiej, użyj środowiska **AzureChinaCloud**. Aby uzyskać dostęp do chmury niemieckiej, użyj **AzureGermanCloud**.
+Aby uzyskać dostęp do chmury chińskiej, użyj środowiska **AzureChinaCloud** . Aby uzyskać dostęp do chmury niemieckiej, użyj **AzureGermanCloud** .
 
 W tym momencie, jeśli potrzebujesz listy lokalizacji do utworzenia konta magazynu lub innego zasobu, możesz wysyłać zapytania o lokalizacje dostępne dla wybranej chmury przy użyciu polecenia [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
@@ -69,7 +69,7 @@ W poniższej tabeli przedstawiono lokalizacje zwrócone dla chmury niemieckiej.
 
 ## <a name="endpoint-suffix"></a>Sufiks punktu końcowego
 
-Sufiks punktu końcowego dla każdego z tych środowisk różni się od publicznego punktu końcowego platformy Azure. Na przykład sufiks punktu końcowego obiektu BLOB dla publicznej platformy Azure to **BLOB.Core.Windows.NET**. W przypadku chmury rządowej sufiks punktu końcowego obiektu BLOB to **BLOB.Core.usgovcloudapi.NET**.
+Sufiks punktu końcowego dla każdego z tych środowisk różni się od publicznego punktu końcowego platformy Azure. Na przykład sufiks punktu końcowego obiektu BLOB dla publicznej platformy Azure to **BLOB.Core.Windows.NET** . W przypadku chmury rządowej sufiks punktu końcowego obiektu BLOB to **BLOB.Core.usgovcloudapi.NET** .
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Pobierz punkt końcowy przy użyciu Get-AzEnvironment
 
@@ -167,7 +167,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Następne kroki
 
 * [Zachowywanie danych logowania użytkownika między sesjami programu PowerShell](/powershell/azure/context-persistence)
-* [Magazyn Azure Government](../../azure-government/documentation-government-services-storage.md)
+* [Magazyn Azure Government](../../azure-government/compare-azure-government-global-azure.md)
 * [Przewodnik dla deweloperów Microsoft Azure Government](../../azure-government/documentation-government-developer-guide.md)
 * [Uwagi dla deweloperów dotyczące aplikacji 21Vianet platformy Azure w Chinach](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Dokumentacja platformy Azure (Niemcy)](../../germany/germany-welcome.md)

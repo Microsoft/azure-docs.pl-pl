@@ -9,23 +9,23 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: a21d0db383e8c563f0b187061a95ac818dd2a4f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 803dc4d1a7b78df891780eb741cba4e57ab2d5dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996865"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784426"
 ---
 # <a name="managed-hsm-access-control"></a>Kontrola dostępu zarządzanego modułu HSM
 
 > [!NOTE]
-> Dostawca zasobów Key Vault obsługuje dwa typy zasobów: **magazyny** i **zarządzane sprzętowych modułów zabezpieczeń**. Kontrola dostępu opisana w tym artykule dotyczy tylko **zarządzanych sprzętowych modułów zabezpieczeń**. Aby dowiedzieć się więcej na temat kontroli dostępu do zarządzanego modułu HSM, zobacz [zapewnianie dostępu do Key Vault kluczy, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach platformy Azure](../general/rbac-guide.md).
+> Dostawca zasobów Key Vault obsługuje dwa typy zasobów: **magazyny** i **zarządzane sprzętowych modułów zabezpieczeń** . Kontrola dostępu opisana w tym artykule dotyczy tylko **zarządzanych sprzętowych modułów zabezpieczeń** . Aby dowiedzieć się więcej na temat kontroli dostępu do zarządzanego modułu HSM, zobacz [zapewnianie dostępu do Key Vault kluczy, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach platformy Azure](../general/rbac-guide.md).
 
 Azure Key Vault zarządzany moduł HSM to usługa w chmurze, która chroni klucze szyfrowania. Ponieważ te dane są poufne i krytyczne dla działania firmy, należy zabezpieczyć dostęp do zarządzanego sprzętowych modułów zabezpieczeń, zezwalając na dostęp do niego tylko autoryzowanym aplikacjom i użytkownikom. Ten artykuł zawiera omówienie modelu kontroli dostępu zarządzanego modułu HSM. W tym artykule wyjaśniono uwierzytelnianie i autoryzację oraz opisano sposób zabezpieczania dostępu do zarządzanego sprzętowych modułów zabezpieczeń.
 
 ## <a name="access-control-model"></a>Model kontroli dostępu
 
-Dostęp do zarządzanego modułu HSM jest kontrolowany przez dwa interfejsy: **płaszczyzny zarządzania** i **płaszczyzny danych**. Płaszczyzna zarządzania to miejsce, w którym można zarządzać modułem HSM. Operacje na tej płaszczyźnie obejmują tworzenie i usuwanie zarządzanych sprzętowych modułów zabezpieczeń oraz pobieranie właściwości zarządzanych modułów HSM. Płaszczyzna danych to miejsce, w którym pracujesz z danymi przechowywanymi w zarządzanym module HSM — czyli kluczami szyfrowania opartymi na module HSM. Można dodawać, usuwać, modyfikować i używać kluczy do wykonywania operacji kryptograficznych, zarządzania przypisaniami ról w celu kontrolowania dostępu do kluczy, tworzenia pełnej kopii zapasowej HSM, przywracania pełnej kopii zapasowej i zarządzania domeną zabezpieczeń z poziomu interfejsu płaszczyzny danych.
+Dostęp do zarządzanego modułu HSM jest kontrolowany przez dwa interfejsy: **płaszczyzny zarządzania** i **płaszczyzny danych** . Płaszczyzna zarządzania to miejsce, w którym można zarządzać modułem HSM. Operacje na tej płaszczyźnie obejmują tworzenie i usuwanie zarządzanych sprzętowych modułów zabezpieczeń oraz pobieranie właściwości zarządzanych modułów HSM. Płaszczyzna danych to miejsce, w którym pracujesz z danymi przechowywanymi w zarządzanym module HSM — czyli kluczami szyfrowania opartymi na module HSM. Można dodawać, usuwać, modyfikować i używać kluczy do wykonywania operacji kryptograficznych, zarządzania przypisaniami ról w celu kontrolowania dostępu do kluczy, tworzenia pełnej kopii zapasowej HSM, przywracania pełnej kopii zapasowej i zarządzania domeną zabezpieczeń z poziomu interfejsu płaszczyzny danych.
 
 Aby można było uzyskać dostęp do zarządzanego modułu HSM w jednej z płaszczyzn, wszyscy wywołujący muszą mieć odpowiednie uwierzytelnianie i autoryzację. Uwierzytelnianie ustanawia tożsamość obiektu wywołującego. Autoryzacja określa, które operacje mogą zostać wykonane przez obiekt wywołujący. Obiekt wywołujący może być dowolnymi [podmiotami zabezpieczeń](../../role-based-access-control/overview.md#security-principal) zdefiniowanymi w Azure Active Directory — użytkownik, Grupa, nazwa główna usługi lub tożsamość zarządzana.
 
@@ -46,7 +46,7 @@ Na przykład administrator subskrypcji (ponieważ ma uprawnienie "Współautor" 
 
 Podczas tworzenia zarządzanego modułu HSM w ramach subskrypcji platformy Azure jest on automatycznie kojarzony z dzierżawą Azure Active Directory subskrypcji. Wszystkie obiekty wywołujące w obu płaszczyznach muszą być zarejestrowane w tej dzierżawie i uwierzytelniać się w celu uzyskania dostępu do zarządzanego modułu HSM.
 
-Aplikacja uwierzytelnia się za pomocą Azure Active Directory przed wywołaniem dowolnej płaszczyzny. Aplikacja może korzystać z dowolnej [obsługiwanej metody uwierzytelniania](../../active-directory/develop/authentication-scenarios.md) na podstawie typu aplikacji. Aplikacja uzyskuje token dla zasobu na płaszczyźnie, aby uzyskać dostęp. Zasób jest punktem końcowym w obszarze zarządzania lub płaszczyzny danych w oparciu o środowisko platformy Azure. Aplikacja używa tokenu i wysyła żądanie interfejsu API REST do zarządzanego punktu końcowego modułu HSM. Aby dowiedzieć się więcej, zapoznaj się z [całym przepływem uwierzytelniania](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
+Aplikacja uwierzytelnia się za pomocą Azure Active Directory przed wywołaniem dowolnej płaszczyzny. Aplikacja może korzystać z dowolnej [obsługiwanej metody uwierzytelniania](../../active-directory/develop/authentication-vs-authorization.md) na podstawie typu aplikacji. Aplikacja uzyskuje token dla zasobu na płaszczyźnie, aby uzyskać dostęp. Zasób jest punktem końcowym w obszarze zarządzania lub płaszczyzny danych w oparciu o środowisko platformy Azure. Aplikacja używa tokenu i wysyła żądanie interfejsu API REST do zarządzanego punktu końcowego modułu HSM. Aby dowiedzieć się więcej, zapoznaj się z [całym przepływem uwierzytelniania](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 Korzystanie z jednego mechanizmu uwierzytelniania dla obu płaszczyzn ma kilka zalet:
 
@@ -63,18 +63,18 @@ W poniższej tabeli przedstawiono punkty końcowe dla punktów zarządzania i p�
 | &nbsp;Płaszczyzna dostępu | Punkty końcowe dostępu | Operacje | Mechanizm kontroli dostępu |
 | --- | --- | --- | --- |
 | Płaszczyzna zarządzania | **Globalne**<br> management.azure.com:443<br> | Tworzenie, odczytywanie, aktualizowanie, usuwanie i przenoszenie zarządzanych sprzętowych modułów zabezpieczeń<br>Ustawianie zarządzanych tagów modułu HSM | Kontrola dostępu na podstawie ról platformy Azure |
-| Płaszczyzna danych | **Globalne**<br> &lt;HSM-Name &gt; . Vault.Azure.NET:443<br> | **Klucze**: Odszyfruj, Szyfruj,<br> odpakowywanie, zawijanie, sprawdzanie, podpisywanie, pobieranie, wyświetlanie, aktualizowanie, tworzenie, importowanie, usuwanie, tworzenie kopii zapasowej, przywracanie, przeczyszczanie<br/><br/> **Zarządzanie rolami płaszczyzny danych (zarządzane lokalne RBAC modułu HSM) * * *: list definicji ról, przypisywanie ról, usuwanie przypisań ról, Definiowanie <br/> <br/> ról niestandardowych** Kopia zapasowa/przywracanie **: kopia zapasowa, przywracanie, sprawdzanie stanu <br/> <br/> kopii zapasowej/przywracanie — **domena zabezpieczeń operacji * *: pobieranie i przekazywanie domeny zabezpieczeń | Zarządzane lokalne RBAC modułu HSM |
+| Płaszczyzna danych | **Globalne**<br> &lt;HSM-Name &gt; . Vault.Azure.NET:443<br> | **Klucze** : Odszyfruj, Szyfruj,<br> odpakowywanie, zawijanie, sprawdzanie, podpisywanie, pobieranie, wyświetlanie, aktualizowanie, tworzenie, importowanie, usuwanie, tworzenie kopii zapasowej, przywracanie, przeczyszczanie<br/><br/> **Zarządzanie rolami płaszczyzny danych (zarządzana lokalna RBAC modułu HSM)**_: lista definicji ról, przypisywanie ról, usuwanie przypisań ról, <br/> <br/> Definiowanie ról niestandardowych_ * kopia zapasowa/przywracanie **: kopia zapasowa, przywracanie <br/> <br/> , sprawdzanie stanu kopii zapasowej/przywracanie** — domena zabezpieczeń * *: pobieranie i przekazywanie domeny zabezpieczeń | Zarządzane lokalne RBAC modułu HSM |
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Płaszczyzna zarządzania i kontrola RBAC platformy Azure
 
-W płaszczyźnie zarządzania korzystasz z usługi Azure RBAC do autoryzacji operacji, które mogą zostać wykonane przez obiekt wywołujący. W modelu RBAC Każda subskrypcja platformy Azure ma wystąpienie Azure Active Directory. Przyznasz użytkownikom, grupom i aplikacjom dostęp do tego katalogu. Dostęp jest udzielany do zarządzania zasobami w ramach subskrypcji platformy Azure, która używa modelu wdrażania Azure Resource Manager. Aby udzielić dostępu, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](../../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs)lub [interfejsów API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+W płaszczyźnie zarządzania korzystasz z usługi Azure RBAC do autoryzacji operacji, które mogą zostać wykonane przez obiekt wywołujący. W modelu RBAC Każda subskrypcja platformy Azure ma wystąpienie Azure Active Directory. Przyznasz użytkownikom, grupom i aplikacjom dostęp do tego katalogu. Dostęp jest udzielany do zarządzania zasobami w ramach subskrypcji platformy Azure, która używa modelu wdrażania Azure Resource Manager. Aby udzielić dostępu, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs)lub [interfejsów API REST Azure Resource Manager](/rest/api/authorization/roleassignments).
 
 Należy utworzyć magazyn kluczy w grupie zasobów i zarządzać dostępem przy użyciu Azure Active Directory. Użytkownicy lub grupy mogą zarządzać magazynami kluczy w grupie zasobów. Przyznanie dostępu do określonego poziomu zakresu przez przypisanie odpowiednich ról RBAC. Aby udzielić użytkownikowi dostępu do zarządzania magazynami kluczy, należy przypisać wstępnie zdefiniowaną `key vault Contributor` rolę do użytkownika w określonym zakresie. Następujące poziomy zakresów można przypisać do roli RBAC:
 
-- **Grupa zarządzania**: rola RBAC przypisana na poziomie subskrypcji ma zastosowanie do wszystkich subskrypcji w tej grupie zarządzania.
-- **Subskrypcja**: rola RBAC przypisana na poziomie subskrypcji ma zastosowanie do wszystkich grup zasobów i zasobów w ramach tej subskrypcji.
-- **Grupa zasobów**: rola RBAC przypisana na poziomie grupy zasobów ma zastosowanie do wszystkich zasobów w tej grupie zasobów.
-- **Określony zasób**: dla danego zasobu jest stosowana rola RBAC przypisana do określonego zasobu. W tym przypadku zasób jest określonym magazynem kluczy.
+- **Grupa zarządzania** : rola RBAC przypisana na poziomie subskrypcji ma zastosowanie do wszystkich subskrypcji w tej grupie zarządzania.
+- **Subskrypcja** : rola RBAC przypisana na poziomie subskrypcji ma zastosowanie do wszystkich grup zasobów i zasobów w ramach tej subskrypcji.
+- **Grupa zasobów** : rola RBAC przypisana na poziomie grupy zasobów ma zastosowanie do wszystkich zasobów w tej grupie zasobów.
+- **Określony zasób** : dla danego zasobu jest stosowana rola RBAC przypisana do określonego zasobu. W tym przypadku zasób jest określonym magazynem kluczy.
 
 Istnieje kilka wstępnie zdefiniowanych ról. Jeśli wstępnie zdefiniowana rola nie spełnia Twoich potrzeb, możesz zdefiniować własną rolę. Aby uzyskać więcej informacji, zobacz [RBAC: role wbudowane](../../role-based-access-control/built-in-roles.md).
 
@@ -82,8 +82,8 @@ Istnieje kilka wstępnie zdefiniowanych ról. Jeśli wstępnie zdefiniowana rola
 
 Przyznaje podmiotowi zabezpieczeń dostęp do wykonywania określonych operacji kluczowych, przypisując rolę. Dla każdego przypisania roli należy określić rolę i zakres, w których ma zastosowanie to przypisanie. W przypadku zarządzanych modułów HSM Local RBAC dostępne są dwa zakresy.
 
-- **"/" lub "/Keys"**: zakres poziomu modułu HSM. Podmioty zabezpieczeń przypisane do roli w tym zakresie mogą wykonywać operacje zdefiniowane w roli dla wszystkich obiektów (kluczy) w zarządzanym module HSM.
-- **"/Keys/ &lt; Key Name &gt; "**: zakres poziomu klucza. Podmioty zabezpieczeń przypisane do roli w tym zakresie mogą wykonywać operacje zdefiniowane w tej roli tylko dla wszystkich wersji określonego klucza.
+- **"/" lub "/Keys"** : zakres poziomu modułu HSM. Podmioty zabezpieczeń przypisane do roli w tym zakresie mogą wykonywać operacje zdefiniowane w roli dla wszystkich obiektów (kluczy) w zarządzanym module HSM.
+- **"/Keys/ &lt; Key Name &gt; "** : zakres poziomu klucza. Podmioty zabezpieczeń przypisane do roli w tym zakresie mogą wykonywać operacje zdefiniowane w tej roli tylko dla wszystkich wersji określonego klucza.
 
 ## <a name="next-steps"></a>Następne kroki
 

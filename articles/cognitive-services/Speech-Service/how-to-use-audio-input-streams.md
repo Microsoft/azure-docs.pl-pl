@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3c8d3162e13c31204ed317edc653756b04ef8dd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3baedd49843c7721b6dba464054d5535b4c4f1cd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934127"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785344"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Informacje o interfejsie API strumieniowego wejścia audio zestawu mowy SDK
 
@@ -26,7 +26,7 @@ Następujące kroki są wymagane w przypadku korzystania ze strumieni danych wej
 
 - Określ format strumienia audio. Ten format musi być obsługiwany przez zestaw mowy SDK i usługę mowy. Obecnie obsługiwana jest tylko następująca konfiguracja:
 
-  Próbki audio w formacie PCM, jeden kanał, 16 bitów na próbkę, 8000 lub 16000 próbek na sekundę (16000 lub 32000 bajty na sekundę), Wyrównaj do dwóch bloków (16 bitów włącznie z uzupełnieniem dla przykładu).
+  Próbki audio są w formacie PCM, jeden kanał, 16 bitów na próbkę, 8000 lub 16000 próbek na sekundę (16000 lub 32000 bajtów na sekundę), dwa bloki wyrównania (16 bitów włącznie z uzupełnieniem dla przykładu).
 
   Odpowiedni kod w zestawie SDK, aby utworzyć format audio wygląda następująco:
 
@@ -37,7 +37,7 @@ Następujące kroki są wymagane w przypadku korzystania ze strumieni danych wej
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Upewnij się, że kod może dostarczyć nieprzetworzone dane audio zgodnie z tymi specyfikacjami. Jeśli dane źródłowe audio nie są zgodne z obsługiwanymi formatami, dźwięk musi być przekształcony w wymagany format.
+- Upewnij się, że kod zawiera PIERWOTNe dane audio zgodnie z tymi specyfikacjami. Zapewnij również 16-bitowe przykłady w formacie little-endian. Są również obsługiwane przykłady ze znakiem. Jeśli dane źródłowe audio nie są zgodne z obsługiwanymi formatami, dźwięk musi być przekształcony w wymagany format.
 
 - Utwórz własną klasę strumienia wejściowego audio pochodną `PullAudioInputStreamCallback` . Zaimplementuj elementy członkowskie `Read()` i `Close()`. Dokładna sygnatura funkcji jest zależna od języka, ale kod będzie wyglądać podobnie do tego przykładu kodu:
 

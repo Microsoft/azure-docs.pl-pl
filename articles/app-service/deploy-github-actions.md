@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: bdc236c3ba4c70ba44e61457e2bade7df65f3153
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 638dfc63b6a37bae3905703bbd5ecabaa94d2020
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108052"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783083"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie do App Service przy użyciu akcji usługi GitHub
 
@@ -71,11 +71,11 @@ Profil publikowania to poświadczenie na poziomie aplikacji. Skonfiguruj swój p
 
 1. Przejdź do usługi App Service w Azure Portal. 
 
-1. Na stronie **Przegląd** wybierz pozycję **Pobierz profil publikowania**.
+1. Na stronie **Przegląd** wybierz pozycję **Pobierz profil publikowania** .
 
 1. Zapisz pobrany plik. Zawartość pliku zostanie użyta do utworzenia wpisu tajnego usługi GitHub.
 
-# <a name="service-principal"></a>[Nazwa główna usługi](#tab/userlevel)
+# <a name="service-principal"></a>[Jednostka usługi](#tab/userlevel)
 
 Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) można utworzyć jednostkę [usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) [.](/cli/azure/) Uruchom to polecenie z [Azure Cloud Shell](https://shell.azure.com/) w Azure Portal lub wybierając przycisk **Wypróbuj** .
 
@@ -107,7 +107,7 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
 
 # <a name="publish-profile"></a>[Publikuj profil](#tab/applevel)
 
-W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło**.
+W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło** .
 
 Aby użyć [poświadczeń na poziomie aplikacji](#generate-deployment-credentials), wklej zawartość pobranego pliku profilu publikowania w polu wartość klucza tajnego. Nazwij klucz tajny `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
@@ -119,11 +119,11 @@ Podczas konfigurowania przepływu pracy w usłudze GitHub należy użyć `AZURE_
     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 ```
 
-# <a name="service-principal"></a>[Nazwa główna usługi](#tab/userlevel)
+# <a name="service-principal"></a>[Jednostka usługi](#tab/userlevel)
 
-W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło**.
+W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium, wybierz pozycję **Ustawienia > wpisy tajne > Dodaj nowe hasło** .
 
-Aby użyć [poświadczeń na poziomie użytkownika](#generate-deployment-credentials), Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj tajną nazwę, taką jak `AZURE_CREDENTIALS` .
+Aby użyć [poświadczeń na poziomie użytkownika](#generate-deployment-credentials), Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
 Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
 
@@ -272,7 +272,7 @@ W przypadku Node.js można ustawić `working-directory` lub zmienić dla katalog
 
 Aby wdrożyć kod w aplikacji App Service, użyj `azure/webapps-deploy@v2` akcji. Ta akcja ma cztery parametry:
 
-| **Parametr**  | **Objaśnienie**  |
+| **Parametr**  | **Wyjaśnienie**  |
 |---------|---------|
 | **Nazwa aplikacji** | Potrzeb Nazwa aplikacji App Service | 
 | **Publikuj — profil** | Obowiązkowe Publikuj zawartość pliku profilu za pomocą wpisów tajnych Web Deploy |
@@ -490,7 +490,7 @@ jobs:
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 ```
 
-# <a name="service-principal"></a>[Nazwa główna usługi](#tab/userlevel)
+# <a name="service-principal"></a>[Jednostka usługi](#tab/userlevel)
 
 ### <a name="net-core"></a>.NET Core 
 

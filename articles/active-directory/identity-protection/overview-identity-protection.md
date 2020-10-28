@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996538"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783185"
 ---
 # <a name="what-is-identity-protection"></a>Co to jest ochrona tożsamości?
 
@@ -39,9 +39,9 @@ W swoim [wpisie w blogu w październiku 2018](https://techcommunity.microsoft.co
 >
 > Przy zapłonie w ubiegłym roku mam do 3 najlepszych ataków na nasze systemy tożsamości. Poniżej przedstawiono ostatnią ilość tych ataków
 >   
->   - **Powtarzanie naruszenia**: w maju 2018 wykryto ataki mld USD z 4.6
->   - **Rozpylanie hasła**: 350K w kwietniu 2018
->   - **Phishing**: jest to trudne do wypróbowania dokładnie, ale 23M zdarzenia o podwyższonym ryzyku w marcu 2018, wiele z nich jest związanych z phishingiem
+>   - **Powtarzanie naruszenia** : w maju 2018 wykryto ataki mld USD z 4.6
+>   - **Rozpylanie hasła** : 350K w kwietniu 2018
+>   - **Phishing** : jest to trudne do wypróbowania dokładnie, ale 23M zdarzenia o podwyższonym ryzyku w marcu 2018, wiele z nich jest związanych z phishingiem
 
 ## <a name="risk-detection-and-remediation"></a>Wykrywanie ryzyka i korygowanie
 
@@ -104,15 +104,15 @@ Administratorzy dostępu warunkowego mogą również tworzyć zasady, które są
 
 | Możliwość | Szczegóły  | Aplikacje Azure AD — wersja Bezpłatna/Microsoft 365 | Usługa Azure AD — wersja Premium P1|Usługa Azure AD — wersja Premium P2 |
 | --- | --- | --- | --- | --- |
-| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości)  | Nie | Nie |Yes | 
-| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego)  | Nie |  Nie |Yes |
-| Raporty dotyczące zabezpieczeń | Omówienie |  Nie | Nie |Yes |
-| Raporty dotyczące zabezpieczeń | Ryzykowni użytkownicy  | Ograniczone informacje | Ograniczone informacje | Dostęp pełny|
-| Raporty dotyczące zabezpieczeń | Ryzykowne logowania  | Ograniczone informacje | Ograniczone informacje | Dostęp pełny|
-| Raporty dotyczące zabezpieczeń | Wykrycia ryzyka   | Nie | Ograniczone informacje| Dostęp pełny|
-| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami  | Nie | Nie |Yes |
-| Powiadomienia | Podsumowanie tygodniowe| Nie | Nie | Yes | 
-| | Zasady rejestracji uwierzytelniania wieloskładnikowego | Nie | Nie | Yes |
+| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości)  | Nie | Nie |Tak | 
+| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego)  | Nie |  Nie |Tak |
+| Raporty dotyczące zabezpieczeń | Omówienie |  Nie | Nie |Tak |
+| Raporty dotyczące zabezpieczeń | Ryzykowni użytkownicy  | Ograniczone informacje. Wyświetlane są tylko użytkownicy z średnim i wysokim ryzykiem. Brak szczegółów szuflady lub historii ryzyka. | Ograniczone informacje. Wyświetlane są tylko użytkownicy z średnim i wysokim ryzykiem. Brak szczegółów szuflady lub historii ryzyka. | Dostęp pełny|
+| Raporty dotyczące zabezpieczeń | Ryzykowne logowania  | Ograniczone informacje. Nie podano szczegółów ryzyka ani poziomu ryzyka. | Ograniczone informacje. Nie podano szczegółów ryzyka ani poziomu ryzyka. | Dostęp pełny|
+| Raporty dotyczące zabezpieczeń | Wykrycia ryzyka   | Nie | Ograniczone informacje. Brak szuflady szczegółów.| Dostęp pełny|
+| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami  | Nie | Nie |Tak |
+| Powiadomienia | Podsumowanie tygodniowe| Nie | Nie | Tak | 
+| | Zasady rejestracji uwierzytelniania wieloskładnikowego | Nie | Nie | Tak |
 
 Więcej informacji na temat tych bogatych raportów można znaleźć w artykule, [jak: badanie ryzyka](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 

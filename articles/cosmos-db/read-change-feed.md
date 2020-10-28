@@ -5,18 +5,18 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 399f81a5246633912d1e17a13492e404119e362f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0252af90a6afb5b2a59620afaa61702f208991e7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282074"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785259"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Odczytywanie zestawienia zmian w usłudze Azure Cosmos DB
 
-Możesz współpracować ze źródłem zmian Azure Cosmos DB, korzystając z modelu wypychania lub modelu ściągania. W przypadku modelu wypychania serwer (procesor źródła zmian) wypychaje zadania do klienta, który ma logikę biznesową na potrzeby przetwarzania tej pracy. Jednak złożoność sprawdzania pracy i przechowywania stanu dla ostatnio przetworzonej pracy jest obsługiwana na serwerze.
+Możesz współpracować ze źródłem zmian Azure Cosmos DB, korzystając z modelu wypychania lub modelu ściągania. W przypadku modelu wypychania procesor kanału informacyjnego zmiany wypycha zadania do klienta, który ma logikę biznesową na potrzeby przetwarzania tej pracy. Jednak złożoność sprawdzania pracy i przechowywania stanu dla ostatnio przetworzonej pracy jest obsługiwana w ramach procesora źródła zmian.
 
 W przypadku modelu ściągania klient musi ściągnąć swoją służbę z serwera. Klient w tym przypadku nie tylko ma logikę biznesową do przetwarzania pracy, ale również zapisuje stan dla ostatnio przetworzonej pracy, obsługując Równoważenie obciążenia między wieloma klientami i przetwarza błędy.
 
@@ -68,7 +68,7 @@ Można zrównoleglanie przetwarzanie zmian między wieloma klientami, podobnie j
 Nie ma żadnej wbudowanej gwarancji dostarczania "co najmniej raz" z modelem ściągania. Model ściągania zapewnia kontrolę niskiego poziomu, aby zdecydować, w jaki sposób chcesz obsłużyć błędy.
 
 > [!NOTE]
-> Model ściągania źródła zmian jest obecnie w [wersji zapoznawczej tylko w Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview) . Wersja zapoznawcza nie jest jeszcze dostępna dla innych wersji zestawu SDK.
+> Model ściągania źródła zmian jest obecnie w [wersji zapoznawczej tylko w Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview) . Wersja zapoznawcza nie jest jeszcze dostępna dla innych wersji zestawu SDK.
 
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Źródło zmian w interfejsach API dla Cassandra i MongoDB
 
