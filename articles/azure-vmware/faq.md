@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 816f64f9987abbdcd49de93b3bc218ec1606d9f3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 91be1c51639aa3ae8acbf0c37f5c4a8174b5a592
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461655"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779445"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -19,7 +19,7 @@ Odpowiedzi na często zadawane pytania dotyczące rozwiązań VMware platformy A
 
 #### <a name="what-is-azure-vmware-solution"></a>Co to jest usługa Azure VMware Solution?
 
-W miarę jak przedsiębiorstwa wykonują strategie modernizacji, aby poprawić elastyczność biznesową, obniżyć koszty i przyspieszyć innowacje, hybrydowe platformy w chmurze zostały wyznaczone jako klucze do obsługi transformacji cyfrowej klientów. Rozwiązanie VMware platformy Azure łączy oprogramowanie firmy VMware z centrum danych (SDDC), które ma Microsoft Azure globalny ekosystem usług w chmurze. Rozwiązaniem VMware platformy Azure jest zarządzanie w celu spełnienia wymagań dotyczących wydajności, dostępności, zabezpieczeń i zgodności.
+W miarę jak przedsiębiorstwa wykonują strategie modernizacji, aby poprawić elastyczność biznesową, obniżyć koszty i przyspieszyć innowacje, hybrydowe platformy w chmurze zostały wyznaczone jako klucze do obsługi transformacji cyfrowej klientów. Rozwiązanie VMware platformy Azure łączy oprogramowanie VMware Software-Defined Data Center (SDDC) z Microsoft Azure globalnym ekosystemem usługi w chmurze. Rozwiązaniem VMware platformy Azure jest zarządzanie w celu spełnienia wymagań dotyczących wydajności, dostępności, zabezpieczeń i zgodności.
 
 ## <a name="azure-vmware-solution-service"></a>Usługa rozwiązań VMware platformy Azure
 
@@ -49,7 +49,7 @@ Tak. Migracja maszyn wirtualnych i vMotion mogą służyć do przenoszenia maszy
 
 #### <a name="is-a-specific-version-of-vsphere-required-in-on-premises-environments"></a>Czy określona wersja vSphere jest wymagana w środowiskach lokalnych?
 
-Ze względu na to, że wszystkie środowiska chmury są dostarczane z oprogramowaniem VMware HCX, vSphere 5,5 lub nowszym w środowiskach lokalnych dla vMotion.
+Wszystkie środowiska chmury są dostarczane z oprogramowaniem VMware HCX, vSphere 5,5 lub nowszym w środowiskach lokalnych dla vMotion.
 
 #### <a name="what-does-the-change-control-process-look-like"></a>Jak wygląda proces kontroli zmian?
 
@@ -68,7 +68,7 @@ Firma Microsoft i Red Hat współdzielą zintegrowany, współpracujący zespó�
 Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX EE for Azure VMware jest w wersji zapoznawczej, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Gdy usługa VMware HCX EE stanie się dostępna, otrzymasz 30-dniowy komunikat, że rozliczenie zostanie przełączone. Możesz wyłączyć lub zrezygnować z usługi.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Czy maszyny wirtualne rozwiązań VMware platformy Azure mogą być zarządzane przez funkcję autosterowania?
-Tak, pod warunkiem, że system, w którym jest zainstalowany, może uzyskać dostęp do prywatnej chmury vCenter i korzysta z publicznej usługi DNS (aby można było rozpoznać nazwy hostów ESXi).
+Tak, pod warunkiem, że system, w którym jest zainstalowany, może uzyskać dostęp do programu vCenter chmury prywatnej i używa publicznego systemu DNS do rozpoznawania nazw hostów ESXi.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Czy istnieją specjalne instrukcje dotyczące instalowania i używania funkcji niedostępności z maszynami wirtualnymi rozwiązań VMware platformy Azure?
 Nie, należy użyć [instrukcji dostarczonych przez oprogramowanie VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) i spełnić wymagania wstępne dotyczące maszyn wirtualnych określone w tych instrukcjach. 
@@ -102,7 +102,7 @@ Każdy host ESXi ma dwie sieci vSAN diskgroups z warstwą wydajności 15,2 TB i 
 
 #### <a name="how-much-network-bandwidth-is-available-in-each-esxi-host"></a>Jaka przepustowość sieci jest dostępna na każdym hoście ESXi?
 
-Każdy host ESXi ma rozwiązanie Azure VMware, które jest skonfigurowane z kartami sieciowymi 4 25 GB/s, z dwiema kartami sieciowymi obsługującymi ruch systemowy ESXi i dwie karty sieciowe obsługiwane dla ruchu obciążeń. 
+Każdy host ESXi w rozwiązaniu VMware platformy Azure jest skonfigurowany z kartami sieciowymi 4 25 GB/s, z dwiema kartami sieciowymi obsługującymi ruch systemowy ESXi i dwie karty sieciowe obsługiwane dla ruchu obciążeń. 
 
 #### <a name="is-data-stored-on-the-vsan-datastores-encrypted-at-rest"></a>Czy dane są przechowywane w magazynach danych sieci vSAN szyfrowanych w spoczynku?
 
@@ -116,9 +116,9 @@ O ile wiemy, każde rozwiązanie do tworzenia kopii zapasowych, które korzysta 
 
 Ponieważ te rozwiązania do tworzenia kopii zapasowych są instalowane i zarządzane przez klientów, mogą skontaktować się z odpowiednim dostawcą oprogramowania, aby uzyskać pomoc techniczną. 
 
-#### <a name="what-is-the-correct-storage-policy-for-the-dedup-setup"></a>Jakie są poprawne zasady magazynu dla konfiguracji deduplikacji?
+#### <a name="what-is-the-correct-storage-policy-for-the-dedupe-setup"></a>Jakie są poprawne zasady magazynu dla konfiguracji deduplikacji?
 
-Użyj zasad magazynu *thin_provision* dla szablonu maszyny wirtualnej.  Wartość domyślna to *thick_provision*.
+Użyj zasad magazynu *thin_provision* dla szablonu maszyny wirtualnej.  Wartość domyślna to *thick_provision* .
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>Czy dzienniki infrastruktury SNMP są udostępnione?
 
@@ -130,17 +130,17 @@ Nie.
 
 Nie, hosty i klastry w chmurze prywatnej są dedykowane i bezpiecznie usuwane przed i po użyciu.
 
-#### <a name="what-are-the-minimum-and-maximum-number-of-hosts-per-cluster"></a>Co to jest minimalna i Maksymalna liczba hostów na klaster?
+#### <a name="what-are-the-minimum-and-the-maximum-number-of-hosts-per-cluster"></a>Co to jest minimalna i Maksymalna liczba hostów na klaster?
 
 Klastry mogą skalować od 3 do 16 hostów ESXi. Klastry próbne są ograniczone do trzech hostów.
 
 #### <a name="can-i-scale-my-private-cloud-clusters"></a>Czy mogę skalować swoje klastry chmur prywatnych?
 
-Tak, liczba klastrów jest skalowana między minimalną i maksymalną liczbą hostów ESXi. Klastry próbne są ograniczone do trzech hostów.
+Tak, rozmiar klastrów między minimalną i maksymalną liczbą hostów ESXi. Klastry próbne są ograniczone do trzech hostów.
 
 #### <a name="what-are-trial-clusters"></a>Co to są klastry próbne?
 
-Klastry próbne to trzy klastry hostów używane do oceny w jednym miesiącu chmur prywatnych rozwiązań Azure VMware.
+Klastry próbne to trzy klastry hostów używane do comiesięcznych ocen chmur prywatnych rozwiązań VMware platformy Azure.
 
 #### <a name="can-i-use-high-end-hosts-for-trial-clusters"></a>Czy można używać hostów wysokiej klasy na potrzeby klastrów próbnych?
 
@@ -166,11 +166,11 @@ Nie, nie musisz używać NSX lokalnie.
 
 #### <a name="what-is-the-upgrade-and-update-schedule-for-vmware-software-in-a-private-cloud"></a>Co to jest harmonogram uaktualniania i aktualizacji oprogramowania VMware w chmurze prywatnej?
 
-Uaktualnienia pakietu oprogramowania w chmurze prywatnej są wykonywane w celu zachowania oprogramowania w ramach jednej wersji najnowszej wersji pakietu oprogramowania z programu VMware. Wersje oprogramowania w chmurze prywatnej mogą różnić się od najnowszych wersji poszczególnych składników oprogramowania (ESXi, NSX-T, vCenter, sieci vSAN).
+Uaktualnienia pakietu oprogramowania w chmurze prywatnej są wykonywane w celu zachowania oprogramowania w ramach jednej wersji najnowszego pakietu oprogramowania w oprogramowaniu VMware. Wersje oprogramowania w chmurze prywatnej mogą różnić się od najnowszych wersji poszczególnych składników oprogramowania (ESXi, NSX-T, vCenter, sieci vSAN).
 
 #### <a name="how-often-will-the-private-cloud-software-stack-be-updated"></a>Jak często będzie aktualizowany stos oprogramowania chmury prywatnej?
 
-Oprogramowanie chmury prywatnej jest uaktualniane zgodnie z harmonogramem, który śledzi wersję pakietu oprogramowania z programu VMware. Chmura prywatna nie wymaga przestojów w przypadku uaktualnień.
+Oprogramowanie chmury prywatnej jest uaktualniane zgodnie z harmonogramem, który śledzi wydanie pakietu oprogramowania z programu VMware. Chmura prywatna nie wymaga przestojów w przypadku uaktualnień.
 
 ## <a name="connectivity"></a>Łączność
 
@@ -228,7 +228,7 @@ Ogólne pytania dotyczące cen można znaleźć na stronie z [cennikiem](https:/
 
 #### <a name="who-supports-azure-vmware-solution"></a>Kto obsługuje rozwiązanie Azure VMware?
 
-Pomoc techniczna dla rozwiązań VMware platformy Azure jest dostarczana przez firmę Microsoft. Możesz przesłać [żądanie pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Firma Microsoft zapewnia pomoc techniczną dla rozwiązań VMware platformy Azure. Możesz przesłać [żądanie pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Jakie konta muszę utworzyć chmurę prywatną rozwiązania Azure VMware?
 
@@ -239,10 +239,10 @@ Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
 * Będziesz potrzebować [platformy Azure Umowa Enterprise (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
 * Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
 
-Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomocy technicznej w celu przydzielenia węzłów. Potwierdzenie żądania i przydzielenia węzłów trwa do pięciu dni roboczych. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu.
+Przed utworzeniem zasobu rozwiązania VMware platformy Azure należy przesłać bilet pomocy technicznej w celu przydzielenia węzłów. Potwierdzenie żądania i przydzielenia węzłów trwa do pięciu dni roboczych. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu.
 
 
-1. W Azure Portal w obszarze **Pomoc i obsługa techniczna**Utwórz **[nowe żądanie pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support)** i podaj następujące informacje dotyczące biletu:
+1. W Azure Portal w obszarze **Pomoc i obsługa techniczna** Utwórz **[nowe żądanie pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support)** i podaj następujące informacje dotyczące biletu:
    - **Typ problemu:** Naukow
    - **Subskrypcja:** Wybierz swoją subskrypcję
    - **Usługa:** Wszystkie usługi > rozwiązanie VMware dla platformy Azure
@@ -272,9 +272,9 @@ Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomo
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   ```
+   `"
 
-   Aby uzyskać dodatkowe sposoby rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522

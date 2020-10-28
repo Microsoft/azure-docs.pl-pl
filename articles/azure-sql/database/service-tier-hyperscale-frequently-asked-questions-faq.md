@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488970"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780193"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database często zadawane pytania dotyczące skalowania
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,17 +42,17 @@ Warstwy usług oparte na rdzeń wirtualny są zróżnicowane w zależności od d
 
 | | Typ zasobu | Ogólnego przeznaczenia |  Hiperskala | Krytyczne dla działania firmy |
 |:---:|:---:|:---:|:---:|:---:|
-| **Optymalne zastosowanie** |Wszystkie|Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe.|Większość obciążeń firmowych. Skalowanie automatyczne magazynu o rozmiarze do 100 TB, szybkie skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych.|Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
+| **Optymalne zastosowanie** |Wszystko|Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe.|Większość obciążeń firmowych. Skalowanie automatyczne magazynu o rozmiarze do 100 TB, szybkie skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych.|Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
 |  **Typ zasobu** ||Wystąpienie zarządzane SQL Database/SQL | Pojedyncza baza danych | Wystąpienie zarządzane SQL Database/SQL |
 | **Rozmiar obliczeń**|SQL Database * | od 1 do 80 rdzeni wirtualnych | od 1 do 80 rdzeni wirtualnych * | od 1 do 80 rdzeni wirtualnych |
 | **Rozmiar obliczeń**|Wystąpienie zarządzane SQL | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Nie dotyczy | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
-| **Typ magazynu** | Wszystkie |Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
+| **Typ magazynu** | Wszystko |Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
 | **Rozmiar magazynu** | SQL Database *| 5 GB – 4 TB | Do 100 TB | 5 GB – 4 TB |
 | **Rozmiar magazynu** | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Nie dotyczy | 32 GB – 4 TB |
 | **Liczba operacji we/wy na sekundę** | Pojedyncza baza danych | 500 operacji we/wy na sekundę z 7000 maksymalną liczbą IOPS | Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy będą zależeć od obciążenia. | 5000 operacji we/wy z maksymalną liczbą IOPS 200 000|
 | **Liczba operacji we/wy na sekundę** | Wystąpienie zarządzane SQL | Zależy od rozmiaru pliku | Nie dotyczy | 1375 operacji we/wy na sekundę |
-|**Dostępność**|Wszystkie|1 replika, brak skalowania do odczytu, brak lokalnej pamięci podręcznej | Wiele replik, do 4 odczyt skalowalny w poziomie, częściowa lokalna pamięć podręczna | 3 repliki, odczyt skalowalny w poziomie, strefa nadmiarowa, pełny magazyn lokalny |
-|**Tworzenie kopii zapasowych**|Wszystkie|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
+|**Dostępność**|Wszystko|1 replika, brak skalowania do odczytu, brak lokalnej pamięci podręcznej | Wiele replik, do 4 odczyt skalowalny w poziomie, częściowa lokalna pamięć podręczna | 3 repliki, odczyt skalowalny w poziomie, strefa nadmiarowa, pełny magazyn lokalny |
+|**Tworzenie kopii zapasowych**|Wszystko|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
 
 \* Pule elastyczne nie są obsługiwane w warstwie usługi w ramach skalowania
 
@@ -136,7 +136,7 @@ Nie.
 
 ### <a name="how-many-read-scale-out-replicas-are-supported"></a>Ile replik skalowalnych w poziomie jest obsługiwanych
 
-Bazy danych w ramach skalowania są tworzone z jedną repliką skalowalną w poziomie (dwie repliki, w tym podstawowe) domyślnie. Liczbę replik tylko do odczytu można skalować między 0 a 4 przy użyciu [Azure Portal](https://portal.azure.com) lub [interfejsu API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Bazy danych w ramach skalowania są tworzone z jedną repliką skalowalną w poziomie (dwie repliki, w tym podstawowe) domyślnie. Liczbę replik tylko do odczytu można skalować między 0 a 4 przy użyciu [Azure Portal](https://portal.azure.com) lub [interfejsu API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-replicas"></a>Aby zapewnić wysoką dostępność, należy zastanowić się nad dodatkowymi replikami obliczeniowymi
 
@@ -198,7 +198,7 @@ Tak, łącznie z kompresją wiersza, strony i magazynu kolumn.
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Jeśli mam ogromną tabelę, dane tabeli są rozłożone na wiele plików danych
 
-Tak. Strony danych skojarzone z daną tabelą mogą kończyć się wieloma plikami danych, które są częścią tej samej grupy plików. SQL Server używa [strategii wypełnienia proporcjonalnego](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) do dystrybuowania danych za pośrednictwem plików danych.
+Tak. Strony danych skojarzone z daną tabelą mogą kończyć się wieloma plikami danych, które są częścią tej samej grupy plików. SQL Server używa [strategii wypełnienia proporcjonalnego](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) do dystrybuowania danych za pośrednictwem plików danych.
 
 ## <a name="data-migration-questions"></a>Pytania dotyczące migracji danych
 
@@ -231,9 +231,9 @@ Skalowanie jest w stanie zużywać 100 MB/s nowych/zmienionych danych, ale czas 
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Czy mogę odczytywać dane z usługi BLOB Storage i wykonywać szybkie ładowanie (na przykład baza danych w usłudze Azure Synapse Analytics)
 
-Aplikacja kliencka może odczytywać dane z usługi Azure Storage i ładować obciążenia danych do bazy danych w formie wieloskali (podobnie jak w przypadku każdej innej bazy danych w Azure SQL Database). Baza Base nie jest obecnie obsługiwana w Azure SQL Database. Alternatywnie, aby zapewnić szybkie ładowanie, można użyć [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)lub użyć zadania spark w [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) z [łącznikiem Spark dla SQL](spark-connector.md). Łącznik platformy Spark do bazy danych SQL obsługuje wstawianie zbiorcze.
+Aplikacja kliencka może odczytywać dane z usługi Azure Storage i ładować obciążenia danych do bazy danych w formie wieloskali (podobnie jak w przypadku każdej innej bazy danych w Azure SQL Database). Baza Base nie jest obecnie obsługiwana w Azure SQL Database. Alternatywnie, aby zapewnić szybkie ładowanie, można użyć [Azure Data Factory](../../data-factory/index.yml)lub użyć zadania spark w [Azure Databricks](/azure/azure-databricks/) z [łącznikiem Spark dla SQL](spark-connector.md). Łącznik platformy Spark do bazy danych SQL obsługuje wstawianie zbiorcze.
 
-Istnieje również możliwość zbiorczego odczytywania danych z magazynu obiektów blob platformy Azure przy użyciu BULK INSERT lub OPENROWSET: [przykłady dostępu zbiorczego do danych w usłudze Azure Blob Storage](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+Istnieje również możliwość zbiorczego odczytywania danych z magazynu obiektów blob platformy Azure przy użyciu BULK INSERT lub OPENROWSET: [przykłady dostępu zbiorczego do danych w usłudze Azure Blob Storage](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 Proste odzyskiwanie lub model rejestrowania zbiorczego nie jest obsługiwany w ramach skalowania. Model odzyskiwania pełnego jest wymagany w celu zapewnienia wysokiej dostępności i odzyskiwania do punktu w czasie. Jednak architektura dziennika z przeskalowaniem zapewnia lepszą szybkość pozyskiwania danych w porównaniu z innymi Azure SQL Database warstwami usług.
 
@@ -277,7 +277,7 @@ Nie. Kopie zapasowe są zarządzane przez podsystem magazynowania i wykorzystuj�
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Czy można wykonać przywracanie geograficzne za pomocą bazy danych w ramach skalowania
 
-Tak. Przywracanie geograficzne jest w pełni obsługiwane. W przeciwieństwie do przywracania do punktu w czasie, przywracanie geograficzne wymaga operacji o rozmiarze danych. Pliki danych są kopiowane równolegle, dlatego czas trwania tej operacji zależy głównie od rozmiaru największego pliku w bazie danych, a nie do całkowitego rozmiaru bazy danych. Czas przywracania geograficznego będzie znacznie krótszy, jeśli baza danych zostanie przywrócona w regionie świadczenia usługi Azure, który jest [sparowany](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) z regionem źródłowej bazy danych.
+Tak. Przywracanie geograficzne jest w pełni obsługiwane. W przeciwieństwie do przywracania do punktu w czasie, przywracanie geograficzne wymaga operacji o rozmiarze danych. Pliki danych są kopiowane równolegle, dlatego czas trwania tej operacji zależy głównie od rozmiaru największego pliku w bazie danych, a nie do całkowitego rozmiaru bazy danych. Czas przywracania geograficznego będzie znacznie krótszy, jeśli baza danych zostanie przywrócona w regionie świadczenia usługi Azure, który jest [sparowany](../../best-practices-availability-paired-regions.md) z regionem źródłowej bazy danych.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Czy można skonfigurować replikację geograficzną za pomocą bazy danych ze skalowaniem
 
@@ -357,7 +357,7 @@ Nie. Tylko podstawowa replika obliczeniowa akceptuje żądania odczytu i zapisu.
 
 ### <a name="how-many-secondary-compute-replicas-can-i-provision"></a>Ile pomocniczych replik obliczeniowych można udostępnić
 
-Domyślnie tworzymy jedną replikę pomocniczą dla baz danych. Jeśli chcesz dostosować liczbę replik, możesz to zrobić za pomocą [Azure Portal](https://portal.azure.com) lub [interfejsu API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Domyślnie tworzymy jedną replikę pomocniczą dla baz danych. Jeśli chcesz dostosować liczbę replik, możesz to zrobić za pomocą [Azure Portal](https://portal.azure.com) lub [interfejsu API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Jak mogę połączyć się z tymi dodatkowymi replikami obliczeniowymi
 

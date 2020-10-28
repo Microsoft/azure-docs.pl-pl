@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: bded48b59d10e47a9bbf476583fed78b5b97431d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21ef06f37e6840df08b1477f9c0ff24f6e15d1a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887432"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778007"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Zabezpieczanie zasobów Azure CDN przy użyciu uwierzytelniania tokenów
 
@@ -64,7 +64,7 @@ Poniższy schemat blokowy opisuje, jak Azure CDN sprawdza poprawność żądania
 
     ![Przycisk zarządzania profilem CDN](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Umieść kursor na **dużym formacie http**, a następnie wybierz pozycję **uwierzytelnianie tokenu** w menu wysuwanym. Następnie można skonfigurować klucz szyfrowania i parametry szyfrowania w następujący sposób:
+2. Umieść kursor na **dużym formacie http** , a następnie wybierz pozycję **uwierzytelnianie tokenu** w menu wysuwanym. Następnie można skonfigurować klucz szyfrowania i parametry szyfrowania w następujący sposób:
 
    1. Utwórz jeden lub więcej kluczy szyfrowania. Klucz szyfrowania uwzględnia wielkość liter i może zawierać dowolną kombinację znaków alfanumerycznych. Wszystkie inne typy znaków, w tym spacje, są niedozwolone. Maksymalna długość to 250 znaków. Aby upewnić się, że klucze szyfrowania są losowo, zaleca się ich utworzenie za pomocą [Narzędzia OpenSSL](https://www.openssl.org/). 
 
@@ -80,9 +80,9 @@ Poniższy schemat blokowy opisuje, jak Azure CDN sprawdza poprawność żądania
     
    2. Wprowadź unikatowy klucz szyfrowania w polu **klucz podstawowy** i opcjonalnie wprowadź klucz kopii zapasowej w polu **klucz kopii zapasowej** .
 
-   3. Wybierz minimalną wersję szyfrowania dla każdego klucza z listy **minimalna wersja szyfrowania** , a następnie wybierz pozycję **Aktualizuj**:
-      - **V2**: wskazuje, że klucz może być używany do generowania tokenów w wersji 2,0 i 3,0. Tej opcji należy użyć tylko w przypadku przejścia ze starszego klucza szyfrowania 2,0 do wersji 3,0.
-      - **V3**: (zalecane) wskazuje, że klucz może być używany tylko do generowania tokenów w wersji 3,0.
+   3. Wybierz minimalną wersję szyfrowania dla każdego klucza z listy **minimalna wersja szyfrowania** , a następnie wybierz pozycję **Aktualizuj** :
+      - **V2** : wskazuje, że klucz może być używany do generowania tokenów w wersji 2,0 i 3,0. Tej opcji należy użyć tylko w przypadku przejścia ze starszego klucza szyfrowania 2,0 do wersji 3,0.
+      - **V3** : (zalecane) wskazuje, że klucz może być używany tylko do generowania tokenów w wersji 3,0.
 
       ![Klucz instalacji uwierzytelniania tokenu usługi CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
@@ -164,26 +164,26 @@ Poniższy schemat blokowy opisuje, jak Azure CDN sprawdza poprawność żądania
 
       Po wygenerowaniu tokenu zostanie on wyświetlony w polu **wygenerowany token** . Aby użyć tokenu, dołącz go jako ciąg zapytania do końca pliku w ścieżce adresu URL. Na przykład `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-   8. Opcjonalnie Przetestuj token za pomocą narzędzia deszyfrującego, aby można było wyświetlić parametry tokenu. Wklej wartość tokenu w polu **token do odszyfrowania** . Wybierz klucz szyfrowania do użycia z listy **klucz do odszyfrowania** , a następnie wybierz opcję **Odszyfruj**.
+   8. Opcjonalnie Przetestuj token za pomocą narzędzia deszyfrującego, aby można było wyświetlić parametry tokenu. Wklej wartość tokenu w polu **token do odszyfrowania** . Wybierz klucz szyfrowania do użycia z listy **klucz do odszyfrowania** , a następnie wybierz opcję **Odszyfruj** .
 
       Gdy token zostanie odszyfrowany, jego parametry są wyświetlane w polu **pierwotne parametry** .
 
-   9. Opcjonalnie można dostosować typ kodu odpowiedzi, który jest zwracany w przypadku odrzucenia żądania. Wybierz opcję **włączone**, a następnie wybierz kod odpowiedzi z listy **kod odpowiedzi** . **Nazwa nagłówka** jest automatycznie ustawiana na **lokalizację**. Wybierz pozycję **Zapisz** , aby zaimplementować nowy kod odpowiedzi. W przypadku niektórych kodów odpowiedzi należy również wprowadzić adres URL strony błędu w polu **wartość nagłówka** . Kod odpowiedzi **403** (zabroniony) jest domyślnie wybrany. 
+   9. Opcjonalnie można dostosować typ kodu odpowiedzi, który jest zwracany w przypadku odrzucenia żądania. Wybierz opcję **włączone** , a następnie wybierz kod odpowiedzi z listy **kod odpowiedzi** . **Nazwa nagłówka** jest automatycznie ustawiana na **lokalizację** . Wybierz pozycję **Zapisz** , aby zaimplementować nowy kod odpowiedzi. W przypadku niektórych kodów odpowiedzi należy również wprowadzić adres URL strony błędu w polu **wartość nagłówka** . Kod odpowiedzi **403** (zabroniony) jest domyślnie wybrany. 
 
-3. W obszarze **http Large**wybierz pozycję **aparat reguł**. Aparat reguł służy do definiowania ścieżek do zastosowania funkcji, włączania funkcji uwierzytelniania tokenu i włączania dodatkowych funkcji związanych z uwierzytelnianiem tokenu. Aby uzyskać więcej informacji, zobacz temat [Informacje o aparacie reguł](cdn-rules-engine-reference.md).
+3. W obszarze **http Large** wybierz pozycję **aparat reguł** . Aparat reguł służy do definiowania ścieżek do zastosowania funkcji, włączania funkcji uwierzytelniania tokenu i włączania dodatkowych funkcji związanych z uwierzytelnianiem tokenu. Aby uzyskać więcej informacji, zobacz temat [Informacje o aparacie reguł](./cdn-verizon-premium-rules-engine-reference.md).
 
    1. Wybierz istniejącą regułę lub Utwórz nową regułę, aby zdefiniować element zawartości lub ścieżkę, dla której chcesz zastosować uwierzytelnianie tokenu. 
-   2. Aby włączyć uwierzytelnianie tokenu dla reguły, wybierz pozycję **[uwierzytelnianie tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** z listy **funkcje** , a następnie wybierz pozycję **włączone**. Wybierz pozycję **Aktualizuj** w przypadku aktualizowania reguły lub **Dodaj** , jeśli tworzysz regułę.
+   2. Aby włączyć uwierzytelnianie tokenu dla reguły, wybierz pozycję **[uwierzytelnianie tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** z listy **funkcje** , a następnie wybierz pozycję **włączone** . Wybierz pozycję **Aktualizuj** w przypadku aktualizowania reguły lub **Dodaj** , jeśli tworzysz regułę.
         
       ![Przykład włączenia uwierzytelniania tokenu aparatu reguł sieci CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. W aparacie reguł można także włączyć dodatkowe funkcje związane z uwierzytelnianiem tokenu. Aby włączyć dowolne z następujących funkcji, wybierz je z listy **funkcje** , a następnie wybierz pozycję **włączone**.
+4. W aparacie reguł można także włączyć dodatkowe funkcje związane z uwierzytelnianiem tokenu. Aby włączyć dowolne z następujących funkcji, wybierz je z listy **funkcje** , a następnie wybierz pozycję **włączone** .
     
-   - **[Kod odmowy uwierzytelniania tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm)**: określa typ odpowiedzi zwracanej do użytkownika, gdy żądanie zostanie odrzucone. Reguły ustawione w tym miejscu zastępują kod odpowiedzi ustawiony w sekcji **Niestandardowa obsługa odmowy** na stronie uwierzytelniania opartego na tokenach.
+   - **[Kod odmowy uwierzytelniania tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm)** : określa typ odpowiedzi zwracanej do użytkownika, gdy żądanie zostanie odrzucone. Reguły ustawione w tym miejscu zastępują kod odpowiedzi ustawiony w sekcji **Niestandardowa obsługa odmowy** na stronie uwierzytelniania opartego na tokenach.
 
-   - **[Wielkość liter w adresie URL ignorowania uwierzytelniania tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm)**: określa, czy adres URL używany do sprawdzania poprawności tokenu jest uwzględniana wielkość liter.
+   - **[Wielkość liter w adresie URL ignorowania uwierzytelniania tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm)** : określa, czy adres URL używany do sprawdzania poprawności tokenu jest uwzględniana wielkość liter.
 
-   - **[Parametr uwierzytelniania tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm)**: zmienia nazwę parametru ciągu zapytania uwierzytelniania tokenu, który pojawia się w ŻĄDANYm adresie URL. 
+   - **[Parametr uwierzytelniania tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm)** : zmienia nazwę parametru ciągu zapytania uwierzytelniania tokenu, który pojawia się w ŻĄDANYm adresie URL. 
         
      ![Przykład ustawień uwierzytelniania tokenu aparatu reguł sieci CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 

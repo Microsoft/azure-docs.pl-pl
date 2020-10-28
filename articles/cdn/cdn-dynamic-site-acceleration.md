@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: bae131c086e8fbf062015ee27c563bb988731cad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5387fdc224cd77ee5273767df5033a51dc27608c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84888536"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778867"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Przyspieszanie witryn dynamicznych za pośrednictwem Azure CDN
 
@@ -27,7 +27,7 @@ Dzięki rozłożeniu mediów społecznościowych, handlu elektronicznego i witry
 
 Funkcja usługi Content Delivery Network (CDN) obejmuje możliwość przełączenia plików do pamięci podręcznej do użytkowników końcowych w celu przyspieszenia dostarczania plików statycznych. Jednak dzięki dynamicznym aplikacjom sieci Web buforowanie zawartości w lokalizacjach brzegowych nie jest możliwe, ponieważ serwer generuje zawartość w odpowiedzi na zachowanie użytkownika. Przyspieszenie dostarczania takiej zawartości jest bardziej skomplikowane niż tradycyjne buforowanie brzegowe i wymaga kompleksowego rozwiązania, które w sposób dostraja każdy element do całej ścieżki danych od rozpoczęcia do dostarczenia. Dzięki optymalizacji Azure CDN dynamicznej (DSA) można mierzyć wydajność stron sieci Web z zawartością dynamiczną.
 
-**Azure CDN z Akamai** i **Azure CDN z usługi Verizon** oferują optymalizację DSA za pośrednictwem **zoptymalizowanego** menu podczas tworzenia punktu końcowego. Przyspieszanie witryn dynamicznych od firmy Microsoft jest oferowane przez [usługę Azure front-drzwi](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+**Azure CDN z Akamai** i **Azure CDN z usługi Verizon** oferują optymalizację DSA za pośrednictwem **zoptymalizowanego** menu podczas tworzenia punktu końcowego. Przyspieszanie witryn dynamicznych od firmy Microsoft jest oferowane przez [usługę Azure front-drzwi](../frontdoor/front-door-overview.md).
 
 > [!Important]
 > W przypadku **Azure CDN z profilów Akamai** można zmienić optymalizację punktu końcowego usługi CDN po jego utworzeniu.
@@ -40,21 +40,21 @@ Aby skonfigurować punkt końcowy usługi CDN w celu zoptymalizowania dostarczan
 
 **Aby skonfigurować punkt końcowy usługi CDN na potrzeby optymalizacji DSA przy użyciu Azure Portal:**
 
-1. Na stronie **profil usługi CDN** wybierz pozycję **punkt końcowy**.
+1. Na stronie **profil usługi CDN** wybierz pozycję **punkt końcowy** .
 
    ![Dodaj nowy punkt końcowy usługi CDN](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
 
-   Zostanie wyświetlone okienko **Dodawanie punktu końcowego**.
+   Zostanie wyświetlone okienko **Dodawanie punktu końcowego** .
 
-2. W obszarze **zoptymalizowane**pod kątem wybierz pozycję **przyspieszenie witryny dynamicznej**.
+2. W obszarze **zoptymalizowane** pod kątem wybierz pozycję **przyspieszenie witryny dynamicznej** .
 
     ![Utwórz nowy punkt końcowy usługi CDN przy użyciu agenta DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
-3. Dla **ścieżki sondy**Wprowadź prawidłową ścieżkę do pliku.
+3. Dla **ścieżki sondy** Wprowadź prawidłową ścieżkę do pliku.
 
     Ścieżka sondy jest funkcją specyficzną dla DSA, a do utworzenia wymagana jest prawidłowa ścieżka. Agent DSA używa pliku z małym *sondowaniem* umieszczonym na serwerze źródłowym w celu zoptymalizowania konfiguracji routingu sieciowego dla sieci CDN. Plik z ścieżką sondy umożliwia pobranie i przekazanie przykładowego pliku do witryny lub użycie istniejącego elementu zawartości dla źródła o rozmiarze około 10 KB.
 
-4. Wprowadź inne wymagane opcje punktu końcowego (Aby uzyskać więcej informacji, zobacz [Tworzenie nowego punktu końcowego usługi CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), a następnie wybierz pozycję **Dodaj**.
+4. Wprowadź inne wymagane opcje punktu końcowego (Aby uzyskać więcej informacji, zobacz [Tworzenie nowego punktu końcowego usługi CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), a następnie wybierz pozycję **Dodaj** .
 
    Po utworzeniu punktu końcowego usługi CDN stosowane są optymalizacje DSA dla wszystkich plików spełniających określone kryteria. 
 
@@ -63,11 +63,11 @@ Aby skonfigurować punkt końcowy usługi CDN w celu zoptymalizowania dostarczan
 
 1. Na stronie **profil usługi CDN** wybierz punkt końcowy, który chcesz zmodyfikować.
 
-2. W okienku po lewej stronie wybierz pozycję **Optymalizacja**. 
+2. W okienku po lewej stronie wybierz pozycję **Optymalizacja** . 
 
    Zostanie wyświetlona strona **Optymalizacja** .
 
-3. W obszarze **zoptymalizowane**pod kątem wybierz pozycję **przyspieszenie witryny dynamicznej**, a następnie wybierz pozycję **Zapisz**.
+3. W obszarze **zoptymalizowane** pod kątem wybierz pozycję **przyspieszenie witryny dynamicznej** , a następnie wybierz pozycję **Zapisz** .
 
 > [!Note]
 > DSA wiąże się z dodatkowymi opłatami. Aby uzyskać więcej informacji, zobacz [Cennik usługi Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
@@ -109,9 +109,9 @@ Transmission Control Protocol (TCP) to standardowy zestaw protokołów interneto
 
 1. Monitorowanie kondycji i przepustowości służy do mierzenia przepustowości połączeń między serwerami z punktami PoP.
     
-2. Metryki są współdzielone przez serwery z systemem Edge, aby każdy serwer był świadomy warunków sieciowych i kondycji serwera innych punktów obecności.  
+2. Metryki są współdzielone przez serwery z systemem Edge, aby każdy serwer był świadomy warunków sieciowych i kondycji serwera innych punktów obecności.  
     
-3. Serwery brzegowe usługi CDN tworzą założenia dotyczące niektórych parametrów transmisji, takich jak optymalny rozmiar okna, który powinien być w trakcie komunikacji z innymi serwerami brzegowymi usługi CDN w sąsiedztwie. Ten krok oznacza, że rozmiar okna początkowej przeciążenia można zwiększyć, jeśli kondycja połączenia między serwerami brzegowymi usługi CDN jest w stanie wyższym niż transfer danych pakietów.  
+3. Serwery brzegowe usługi CDN tworzą założenia dotyczące niektórych parametrów transmisji, takich jak optymalny rozmiar okna, który powinien być w trakcie komunikacji z innymi serwerami brzegowymi usługi CDN w sąsiedztwie. Ten krok oznacza, że rozmiar okna początkowej przeciążenia można zwiększyć, jeśli kondycja połączenia między serwerami brzegowymi usługi CDN jest w stanie wyższym niż transfer danych pakietów.  
 
 #### <a name="leveraging-persistent-connections"></a>Korzystanie z połączeń trwałych
 
@@ -157,7 +157,7 @@ W przypadku **Azure CDN Standard from Verizon** i **Azure CDN Standard z profil�
 
 Aby uzyskać dostęp do reguł buforowania:
 
-1. Na stronie **profil usługi CDN** w obszarze Ustawienia wybierz pozycję **Zasady buforowania**.  
+1. Na stronie **profil usługi CDN** w obszarze Ustawienia wybierz pozycję **Zasady buforowania** .  
     
     ![Przycisk Reguły buforowania usługi CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -165,17 +165,17 @@ Aby uzyskać dostęp do reguł buforowania:
 
 2. Utwórz globalną lub niestandardową regułę buforowania, aby włączyć buforowanie dla punktu końcowego DSA. 
 
-W przypadku **Azure CDN Premium tylko w** profilach Verizon należy włączyć buforowanie dla określonych punktów KOŃCOWYch DSA przy użyciu [aparatu reguł](cdn-rules-engine.md). Wszystkie utworzone reguły mają wpływ tylko na punkty końcowe Twojego profilu zoptymalizowane pod kątem DSA. 
+W przypadku **Azure CDN Premium tylko w** profilach Verizon należy włączyć buforowanie dla określonych punktów KOŃCOWYch DSA przy użyciu [aparatu reguł](./cdn-verizon-premium-rules-engine.md). Wszystkie utworzone reguły mają wpływ tylko na punkty końcowe Twojego profilu zoptymalizowane pod kątem DSA. 
 
 Aby uzyskać dostęp do aparatu reguł:
     
-1. Na stronie **profil usługi CDN** wybierz pozycję **Zarządzaj**.  
+1. Na stronie **profil usługi CDN** wybierz pozycję **Zarządzaj** .  
     
     ![Przycisk zarządzania profilem CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     Zostanie otwarty portal zarządzania sieci CDN.
 
-2. W portalu zarządzania usługi CDN wybierz pozycję **wdrożenie**, a następnie wybierz pozycję **aparat reguł**. 
+2. W portalu zarządzania usługi CDN wybierz pozycję **wdrożenie** , a następnie wybierz pozycję **aparat reguł** . 
 
     ![Aparat reguł dla agenta DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 
@@ -183,7 +183,4 @@ Aby uzyskać dostęp do aparatu reguł:
 
 Alternatywnie można użyć dwóch punktów końcowych usługi CDN: jednego punktu końcowego zoptymalizowanego za pomocą agenta DSA do dostarczania dynamicznych zasobów i innego punktu końcowego zoptymalizowanego za pomocą typu optymalizacji statycznej, takiego jak ogólne dostarczanie w sieci Web, do dostarczania zasobów pamięci podręcznej. Zmodyfikuj adresy URL strony sieci Web, aby połączyć się bezpośrednio z zasobem w punkcie końcowym usługi CDN, który ma być używany. 
 
-Na przykład: `mydynamic.azureedge.net/index.html` jest stroną dynamiczną i jest załadowana z punktu końcowego DSA.Strona HTML odwołuje się do wielu statycznych zasobów, takich jak biblioteki lub obrazy języka JavaScript, które są ładowane ze statycznego punktu końcowego sieci CDN, takiego jak `mystatic.azureedge.net/banner.jpg` i `mystatic.azureedge.net/scripts.js` . 
-
-
-
+Na przykład: `mydynamic.azureedge.net/index.html` jest stroną dynamiczną i jest załadowana z punktu końcowego DSA.  Strona HTML odwołuje się do wielu statycznych zasobów, takich jak biblioteki lub obrazy języka JavaScript, które są ładowane ze statycznego punktu końcowego sieci CDN, takiego jak `mystatic.azureedge.net/banner.jpg` i `mystatic.azureedge.net/scripts.js` .

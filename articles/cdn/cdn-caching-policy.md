@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: 6beaee98e78e79c48270801f5696e4e487b0a2c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5807d38e22d8cecf40b5ad4262f9e4662b77ec4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84883717"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779139"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Zarządzanie zasadami buforowania Azure CDN w programie Azure Media Services
 Azure Media Services zapewnia oparty na protokole HTTP adaptacyjne przesyłanie strumieniowe i pobieranie progresywne. Przesyłanie strumieniowe oparte na protokole HTTP jest wysoce skalowalne dzięki zaletom buforowania w warstwach serwera proxy i sieci CDN, a także buforowania po stronie klienta. Punkty końcowe przesyłania strumieniowego zapewniają ogólne możliwości przesyłania strumieniowego, a także konfigurację dla nagłówków pamięci podręcznej HTTP. Punkty końcowe przesyłania strumieniowego ustawiają pamięć podręczną HTTP: max-age i Expiress. Więcej informacji o nagłówkach pamięci podręcznej HTTP można uzyskać z [w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -40,10 +40,9 @@ Aby skonfigurować wartości nagłówka pamięci podręcznej, można użyć inte
 
 1. Aby skonfigurować nagłówki pamięci podręcznej przy użyciu Azure Portal, zobacz sekcję [jak zarządzać punktami końcowymi przesyłania strumieniowego](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) konfigurowanie punktu końcowego przesyłania strumieniowego.
 2. Azure Media Services interfejs API REST, [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl).
-3. Azure Media Services .NET SDK, [Właściwości StreamingEndpointCacheControl](https://go.microsoft.com/fwlink/?LinkId=615302).
+3. Azure Media Services .NET SDK, [Właściwości StreamingEndpointCacheControl](/dotnet/api/microsoft.windowsazure.mediaservices.client.streamingendpointcachecontrol).
 
 ## <a name="cache-configuration-precedence-order"></a>Kolejność pierwszeństwa konfiguracji pamięci podręcznej
 1. Azure Media Services skonfigurowana wartość pamięci podręcznej przesłania wartość domyślną.
 2. Jeśli nie istnieje konfiguracja ręczna, stosowane są wartości domyślne.
 3. Domyślnie 2 s nagłówki pamięci podręcznej mają zastosowanie do manifestu przesyłania strumieniowego na żywo, niezależnie od konfiguracji usługi Azure Media lub Azure Storage, a zastąpienie tej wartości jest niedostępne.
-

@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: c1302822715a37ef1b85007130067ac02a8fd17a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58c1177fb3c4d241a3efe1759b3900abbd04ca1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887592"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778382"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migrowanie profilu Azure CDN ze standardowego Verizon do warstwy Premium Verizon
 
@@ -42,7 +42,7 @@ Aby uaktualnić **Standard Azure CDN z profilu Verizon** , skontaktuj się z [Po
 
 **Azure CDN Premium from profile Verizon** mają następujące dodatkowe funkcje:
 - [Uwierzytelnianie tokenu](cdn-token-auth.md): umożliwia użytkownikom uzyskiwanie i używanie tokenu w celu pobierania bezpiecznych zasobów.
-- [Aparat reguł](cdn-rules-engine.md): umożliwia dostosowywanie sposobu obsługi żądań HTTP.
+- [Aparat reguł](./cdn-verizon-premium-rules-engine.md): umożliwia dostosowywanie sposobu obsługi żądań HTTP.
 - Zaawansowane narzędzia analityczne:
    - [Szczegółowa analiza HTTP](cdn-advanced-http-reports.md)
    - [Analiza wydajności Edge](cdn-edge-performance.md)
@@ -50,5 +50,4 @@ Aby uaktualnić **Standard Azure CDN z profilu Verizon** , skontaktuj się z [Po
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o aparacie reguł, zobacz [Informacje o aparacie Azure CDN reguł](cdn-rules-engine-reference.md).
-
+Aby dowiedzieć się więcej o aparacie reguł, zobacz [Informacje o aparacie Azure CDN reguł](./cdn-verizon-premium-rules-engine-reference.md).

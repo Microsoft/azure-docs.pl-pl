@@ -5,19 +5,19 @@ description: Dowiedz się, jak skonfigurować Azure SQL Database i usługę Azur
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38be8b97b3255e4e63301e693d2a5f295e8d801b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619121"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779972"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell i interfejs wiersza polecenia platformy Azure: Włącz Transparent Data Encryption z kluczem zarządzanym przez klienta w programie Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -36,11 +36,11 @@ W tym artykule przedstawiono sposób użycia klucza z Azure Key Vault dla Transp
 - Klucz musi mieć następujące atrybuty, aby można było używać go dla TDE:
   - Brak daty wygaśnięcia
   - Niewyłączone
-  - Możliwość wykonania operacji *Get*, *zawijania klucza*, *odpakowania klucza*
+  - Możliwość wykonania operacji *Get* , *zawijania klucza* , *odpakowania klucza*
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Aby uzyskać instrukcje dotyczące instalacji modułu Az, zobacz [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps). Aby poznać konkretne polecenia cmdlet, zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+Aby uzyskać instrukcje dotyczące instalacji modułu Az, zobacz [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps). Aby poznać konkretne polecenia cmdlet, zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
 
 Aby uzyskać szczegółowe informacje na temat Key Vault, zobacz [instrukcje programu PowerShell w artykule Key Vault](../../key-vault/secrets/quick-create-powershell.md) i [sposób korzystania z Key Vault nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/soft-delete-powershell.md).
 
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby zainstalować wymaganą wersję interfejsu wiersza polecenia platformy Azure (w wersji 2,0 lub nowszej) i nawiązać połączenie z subskrypcją platformy Azure, zobacz [Instalowanie i Konfigurowanie międzyplatformowego interfejsu Command-Line platformy azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Aby zainstalować wymaganą wersję interfejsu wiersza polecenia platformy Azure (w wersji 2,0 lub nowszej) i nawiązać połączenie z subskrypcją platformy Azure, zobacz [Instalowanie i Konfigurowanie międzyplatformowego interfejsu Command-Line platformy azure 2,0](/cli/azure/install-azure-cli).
 
 Aby uzyskać szczegółowe informacje na temat Key Vault, zobacz [zarządzanie Key Vault przy użyciu interfejsu wiersza polecenia 2,0](../../key-vault/general/manage-with-cli2.md) i [sposobu używania Key Vault nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/soft-delete-cli.md).
 
@@ -184,7 +184,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 ## <a name="useful-powershell-cmdlets"></a>Przydatne polecenia cmdlet programu PowerShell
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 - Aby wyłączyć TDE, należy użyć polecenia cmdlet [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) .
 
@@ -223,7 +223,7 @@ Jeśli wystąpi problem, sprawdź następujące kwestie:
 
 - Jeśli nie można znaleźć magazynu kluczy, upewnij się, że jesteś w odpowiedniej subskrypcji.
 
-   # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell
    Get-AzSubscription -SubscriptionId <SubscriptionId>
@@ -239,7 +239,7 @@ Jeśli wystąpi problem, sprawdź następujące kwestie:
 
 - Jeśli nie można dodać nowego klucza do serwera lub nie można zaktualizować nowego klucza jako funkcji ochrony TDE, sprawdź następujące kwestie:
    - Klucz nie powinien mieć daty wygaśnięcia
-   - Klucz musi mieć włączone operacje *Get*, *zawijania*klucza i *dezawijania kluczy* .
+   - Klucz musi mieć włączone operacje *Get* , *zawijania* klucza i *dezawijania kluczy* .
 
 ## <a name="next-steps"></a>Następne kroki
 

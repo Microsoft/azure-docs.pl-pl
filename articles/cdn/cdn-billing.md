@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191159"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779173"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Omówienie rozliczania za usługę Azure CDN
 
@@ -38,7 +38,7 @@ Region rozliczeniowy jest obszar geograficzny używany do określania, jaka staw
 
 - Strefa 5: Indie
 
-Aby uzyskać informacje o regionach punktów obecności (POP), zobacz [Azure CDN lokalizacje pop według regionów](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Na przykład punkt obecności znajdujący się w Meksyku znajduje się w regionie Ameryka Północna i dlatego jest uwzględniony w strefie 1. 
+Aby uzyskać informacje o regionach punktów obecności (POP), zobacz [Azure CDN lokalizacje pop według regionów](./cdn-pop-locations.md). Na przykład punkt obecności znajdujący się w Meksyku znajduje się w regionie Ameryka Północna i dlatego jest uwzględniony w strefie 1. 
 
 Aby uzyskać informacje na temat cennika Azure CDN, zobacz [Cennik usługi Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
@@ -48,7 +48,7 @@ Obszar rozliczeń Azure CDN jest oparty na lokalizacji serwera źródłowego dos
 Na przykład jeśli użytkownik znajdujący się w Meksyku wystawi żądanie, a to żądanie jest obsługiwany przez serwer znajdujący się w Stany Zjednoczone POP z powodu komunikacji równorzędnej lub ruchu, obszar rozliczeń będzie Stany Zjednoczone.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>Co to jest transakcja Azure CDN rozliczana?
-Każde żądanie HTTP (S) kończące się w sieci CDN jest zdarzeniem rozliczanym, które obejmuje wszystkie typy odpowiedzi: sukces, Niepowodzenie lub inne. Jednak różne odpowiedzi mogą generować różne ilości ruchu. Na przykład *nie można modyfikować 304* i inne odpowiedzi tylko do nagłówka generują niewielki ruch, ponieważ są to niewielka odpowiedź nagłówka; Podobnie odpowiedzi na błędy (na przykład *nie znaleziono 404*) są płatne, ale ponoszą niewielki koszt ze względu na mały ładunek odpowiedzi.
+Każde żądanie HTTP (S) kończące się w sieci CDN jest zdarzeniem rozliczanym, które obejmuje wszystkie typy odpowiedzi: sukces, Niepowodzenie lub inne. Jednak różne odpowiedzi mogą generować różne ilości ruchu. Na przykład *nie można modyfikować 304* i inne odpowiedzi tylko do nagłówka generują niewielki ruch, ponieważ są to niewielka odpowiedź nagłówka; Podobnie odpowiedzi na błędy (na przykład *nie znaleziono 404* ) są płatne, ale ponoszą niewielki koszt ze względu na mały ładunek odpowiedzi.
 
 ## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Jakie inne koszty platformy Azure są skojarzone z Azure CDN użycia?
 Korzystanie z Azure CDN również wiąże się z niektórymi opłatami za użycie usług używanych jako źródło dla obiektów. Te koszty są zwykle małą częścią całkowitego kosztu użycia usługi CDN.
@@ -66,7 +66,7 @@ Jeśli używasz magazynu obiektów blob platformy Azure jako źródła zawartoś
 
 Aby uzyskać więcej informacji na temat rozliczeń usługi Azure Storage, zobacz [Opis rozliczeń usługi Azure Storage — przepustowość, transakcje i pojemność](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-W przypadku korzystania z *dostarczania usług hostowanych*opłaty będą naliczane w następujący sposób:
+W przypadku korzystania z *dostarczania usług hostowanych* opłaty będą naliczane w następujący sposób:
 
 - Czas obliczeń na platformie Azure: wystąpienia obliczeniowe, które działają jako źródło.
 
@@ -94,7 +94,7 @@ W przypadku korzystania z jednej z następujących usług platformy Azure jako �
 - Azure Media Services
 - Azure Virtual Machines
 - Virtual Network
-- Moduł równoważenia obciążenia
+- Load Balancer
 - Application Gateway
 - System DNS platformy Azure
 - ExpressRoute
@@ -108,7 +108,7 @@ W przypadku korzystania z jednej z następujących usług platformy Azure jako �
 - Azure Functions
 - Azure Data Factory
 - Azure API Management
-- Azure Batch 
+- Usługa Azure Batch 
 - Azure Data Explorer
 - HDInsight
 - Azure Cosmos DB
@@ -119,4 +119,4 @@ W przypadku korzystania z jednej z następujących usług platformy Azure jako �
 - Azure Cache for Redis
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Jak najlepiej Jak mogę zarządzać moimi kosztami?
-Ustaw najdłuższy możliwy czas wygaśnięcia dla zawartości. 
+Ustaw najdłuższy możliwy czas wygaśnięcia dla zawartości.

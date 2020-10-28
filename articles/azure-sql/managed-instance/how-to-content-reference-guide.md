@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 04/16/2019
-ms.openlocfilehash: 208793d3ba8c3463abe892b368beb41d4b79f214
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7f2f060f32cf3bf92660a2e8b75a45b7ec76b82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617455"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779768"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Informacje o zawartości wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -64,7 +64,7 @@ W tym artykule można znaleźć odwołanie do zawartości do różnych przewodni
 
 - [Ręczne dostrajanie](../database/performance-guidance.md)
 - [Korzystanie z widoków DMV do monitorowania wydajności](../database/monitoring-with-dmvs.md)
-- [Monitorowanie wydajności za pomocą magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [Monitorowanie wydajności za pomocą magazynu zapytań](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Rozwiązywanie problemów z wydajnością przy użyciu funkcji Intelligent Insights](../database/intelligent-insights-troubleshoot-performance.md)
 - [Korzystanie z dziennika diagnostyki Intelligent Insights](../database/intelligent-insights-use-diagnostics-log.md)
 - [Monitoruj In-Memory miejsce OLTP](../in-memory-oltp-monitor-space.md)
@@ -85,7 +85,7 @@ W tym artykule można znaleźć odwołanie do zawartości do różnych przewodni
 
 ## <a name="develop-applications"></a>Tworzenie aplikacji
 
-- [Łączność](../database/connect-query-content-reference-guide.md#libraries)
+- [Połączenia](../database/connect-query-content-reference-guide.md#libraries)
 - [Korzystanie z łącznika Spark](../../cosmos-db/spark-connector.md)
 - [Uwierzytelnianie aplikacji](../database/application-authentication-get-client-id-keys.md)
 - [Korzystanie z usługi Batch w celu uzyskania lepszej wydajności](../performance-improve-use-batching.md)

@@ -12,23 +12,23 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: bb9e17a4befcdcf1a322734c6cc5d75d653f23e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676149"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780363"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Omówienie funkcji zabezpieczeń wystąpienia zarządzanego w Azure SQL Database i SQL
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-W tym artykule przedstawiono podstawowe informacje dotyczące zabezpieczania warstwy danych aplikacji przy użyciu [Azure SQL Database](sql-database-paas-overview.md) i [wystąpienia zarządzanego Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md). Opisana poniżej strategia zabezpieczeń ma zastosowanie do opartego na warstwach podejścia do kompleksowej ochrony, jak pokazano na ilustracji poniżej, i przemieszcza się z zewnątrz w:
+W tym artykule przedstawiono podstawowe informacje dotyczące zabezpieczania warstwy danych aplikacji przy użyciu [Azure SQL Database](sql-database-paas-overview.md), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)i [usługi Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Opisana poniżej strategia zabezpieczeń ma zastosowanie do opartego na warstwach podejścia do kompleksowej ochrony, jak pokazano na ilustracji poniżej, i przemieszcza się z zewnątrz w:
 
 ![Diagram warstwowych zabezpieczeń. Dane klienta są encased w warstwach zabezpieczeń sieci, zarządzania dostępem oraz ochrony przed zagrożeniami i informacjami.](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-Microsoft Azure SQL Database i wystąpienie zarządzane SQL zapewniają usługę relacyjnej bazy danych dla aplikacji w chmurze i dla przedsiębiorstw. Aby chronić dane klientów, zapory uniemożliwiają dostęp do sieci do serwera do momentu, gdy dostęp zostanie jawnie udzielony na podstawie adresu IP lub źródła ruchu w sieci wirtualnej platformy Azure.
+Microsoft Azure SQL Database, wystąpienie zarządzane SQL i usługa Azure Synapse Analytics zapewniają usługę relacyjnej bazy danych dla aplikacji w chmurze i dla przedsiębiorstw. Aby chronić dane klientów, zapory uniemożliwiają dostęp do sieci do serwera do momentu, gdy dostęp zostanie jawnie udzielony na podstawie adresu IP lub źródła ruchu w sieci wirtualnej platformy Azure.
 
 ### <a name="ip-firewall-rules"></a>Reguły zapory adresów IP
 
@@ -36,7 +36,7 @@ Reguły zapory adresów IP umożliwiają dostęp do baz danych na podstawie źr�
 
 ### <a name="virtual-network-firewall-rules"></a>Reguły zapory sieci wirtualnej
 
-[Punkty końcowe usługi sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md) zwiększają łączność sieci wirtualnej przez sieć szkieletową platformy Azure i umożliwiają Azure SQL Database identyfikowania podsieci sieci wirtualnej, z której pochodzi ruch. Aby zezwolić na dostęp do Azure SQL Database, użyj [tagów usługi](../../virtual-network/security-overview.md) SQL, aby zezwolić na ruch wychodzący za pomocą sieciowych grup zabezpieczeń.
+[Punkty końcowe usługi sieci wirtualnej](../../virtual-network/virtual-network-service-endpoints-overview.md) zwiększają łączność sieci wirtualnej przez sieć szkieletową platformy Azure i umożliwiają Azure SQL Database identyfikowania podsieci sieci wirtualnej, z której pochodzi ruch. Aby zezwolić na dostęp do Azure SQL Database, użyj [tagów usługi](../../virtual-network/network-security-groups-overview.md) SQL, aby zezwolić na ruch wychodzący za pomocą sieciowych grup zabezpieczeń.
 
 [Reguły sieci wirtualnej](vnet-service-endpoint-rule-overview.md) umożliwiają Azure SQL Database tylko akceptowanie komunikacji wysyłanej z wybranych podsieci w sieci wirtualnej.
 
@@ -99,7 +99,7 @@ Zaawansowana ochrona przed zagrożeniami analizuje dzienniki, aby wykrywać niet
 
 SQL Database, wystąpienie zarządzane SQL i usługa Azure Synapse Analytics zabezpieczają dane klientów przez szyfrowanie danych w ruchu przy użyciu [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-SQL Database, wystąpienie zarządzane SQL i usługa Azure Synapse Wymuś szyfrowanie (SSL/TLS) przez cały czas dla wszystkich połączeń. Gwarantuje to, że wszystkie dane są szyfrowane "podczas przesyłania" między klientem i serwerem niezależnie od ustawienia **szyfrowania** lub **TrustServerCertificate** w parametrach połączenia.
+SQL Database, wystąpienie zarządzane SQL i usługa Azure Synapse Analytics wymuszają szyfrowanie (SSL/TLS) przez cały czas dla wszystkich połączeń. Gwarantuje to, że wszystkie dane są szyfrowane "podczas przesyłania" między klientem i serwerem niezależnie od ustawienia **szyfrowania** lub **TrustServerCertificate** w parametrach połączenia.
 
 Najlepszym rozwiązaniem jest zalecanie, aby w parametrach połączenia używanych przez aplikację określić połączenie szyfrowane i _**nie**_ ufać certyfikatowi serwera. Oznacza to, że aplikacja weryfikuje certyfikat serwera i w związku z tym uniemożliwia aplikacji atak na ataki typu średniego.
 

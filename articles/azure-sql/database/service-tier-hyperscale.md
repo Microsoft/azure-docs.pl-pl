@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/19/2020
-ms.openlocfilehash: 547e56dbc72e283b6c186380a01580982e029a64
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: ee9bcedea15b039982e73304a25073c85b496635
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216644"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780057"
 ---
 # <a name="hyperscale-service-tier"></a>Warstwa usługi Hiperskala
 
@@ -67,11 +67,11 @@ Warstwa usługi do skalowania obsługuje szeroką gamę obciążeń SQL Server, 
 
 Warstwa usługi do skalowania jest dostępna tylko w [modelu rdzeń wirtualny](service-tiers-vcore.md). Aby dostosować się do nowej architektury, model cen jest nieco różny od Ogólnego przeznaczenia lub Krytyczne dla działania firmy warstw usług:
 
-- **Obliczenia**:
+- **Obliczenia** :
 
   Cena jednostkowa obliczeń w ramach skalowania jest przypadana na replikę. [Korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) cena jest stosowana do automatycznego odczytu replik w skali. Utworzymy replikę podstawową i jedną replikę tylko do odczytu dla bazy danych w ramach jednej skali.  Użytkownicy mogą dostosowywać łączną liczbę replik z uwzględnieniem elementu podstawowego z 1-5.
 
-- **Magazyn**:
+- **Magazyn** :
 
   Nie trzeba określać maksymalnego rozmiaru danych podczas konfigurowania bazy danych w ramach skalowania. W warstwie skalowania jest naliczana opłata za magazyn bazy danych na podstawie rzeczywistej alokacji. Magazyn jest automatycznie przypisywany do zakresu od 40 GB do 100 TB, w przyrostach 10 GB. W razie konieczności można zwiększyć wiele plików danych w tym samym czasie. Baza danych wieloskalowego jest tworzona z rozmiarem rozpoczynającym 10 GB i rośnie o 10 GB co 10 minut, aż osiągnie rozmiar 40 GB.
 
@@ -87,7 +87,7 @@ Na poniższym diagramie przedstawiono różne typy węzłów w bazie danych w sk
 
 Baza danych wieloskali zawiera następujące różne typy składników:
 
-### <a name="compute"></a>Obliczenia
+### <a name="compute"></a>Wystąpienia obliczeniowe
 
 Węzeł obliczeniowy to miejsce, w którym znajduje się aparat relacyjny. Jest to miejsce, w którym występuje język, zapytanie i przetwarzanie transakcji. Wszystkie interakcje użytkownika z bazą danych w ramach skalowania są wykonywane za pomocą tych węzłów obliczeniowych. Węzły obliczeniowe mają pamięć podręczną opartą na dyskach SSD (z etykietami RBPEX-odporny na błędy w powyższym diagramie), aby zminimalizować liczbę podróży w sieci wymaganych do pobrania strony danych. Istnieje jeden podstawowy węzeł obliczeniowy, w którym są przetwarzane wszystkie obciążenia odczytu i zapisu. Istnieje co najmniej jeden pomocniczy węzeł obliczeniowy działający jako węzły rezerwy aktywnej do pracy w trybie failover, a także działający jako węzeł obliczeniowy tylko do odczytu do odciążania obciążeń odczytu (Jeśli ta funkcja jest wymagana).
 
@@ -117,9 +117,9 @@ Dzięki możliwości szybkiej zmiany w górę i w dół dodatkowych węzłów ob
 
 ## <a name="create-a-hyperscale-database"></a>Tworzenie bazy danych w ramach skalowania
 
-Bazę danych ze skalowaniem można utworzyć przy użyciu [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase)lub [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Bazy danych ze skalowaniem są dostępne tylko przy użyciu [modelu zakupu opartego na rdzeń wirtualny](service-tiers-vcore.md).
+Bazę danych ze skalowaniem można utworzyć przy użyciu [Azure Portal](https://portal.azure.com), [T-SQL](/sql/t-sql/statements/create-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/new-azurermsqldatabase)lub [interfejsu wiersza polecenia](/cli/azure/sql/db#az-sql-db-create). Bazy danych ze skalowaniem są dostępne tylko przy użyciu [modelu zakupu opartego na rdzeń wirtualny](service-tiers-vcore.md).
 
-Następujące polecenie T-SQL tworzy bazę danych w skali. W instrukcji należy określić zarówno cel wersji, jak i usługi `CREATE DATABASE` . Zapoznaj się z [limitami zasobów](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) , aby uzyskać listę prawidłowych celów usługi.
+Następujące polecenie T-SQL tworzy bazę danych w skali. W instrukcji należy określić zarówno cel wersji, jak i usługi `CREATE DATABASE` . Zapoznaj się z [limitami zasobów](./resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen4) , aby uzyskać listę prawidłowych celów usługi.
 
 ```sql
 -- Create a Hyperscale Database
@@ -131,7 +131,7 @@ Spowoduje to utworzenie bazy danych w skali na sprzęcie 5 rdzeń z czterema rdz
 
 ## <a name="upgrade-existing-database-to-hyperscale"></a>Uaktualnianie istniejącej bazy danych do funkcji skalowania
 
-Istniejące bazy danych można przenosić w Azure SQL Database do skalowania przy użyciu [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)lub [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). W tej chwili jest to jednokierunkowa migracja. Nie można przenieść baz danych ze skalowania do innej warstwy usług, poza eksportowaniem i importowaniem danych. W przypadku dowodu koncepcji (POCs) zalecamy utworzenie kopii produkcyjnych baz danych i migrowanie kopii do obszaru skalowania. Migrowanie istniejącej bazy danych w Azure SQL Database do warstwy skalowania jest rozmiarem operacji na danych.
+Istniejące bazy danych można przenosić w Azure SQL Database do skalowania przy użyciu [Azure Portal](https://portal.azure.com), [T-SQL](/sql/t-sql/statements/alter-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)lub [interfejsu wiersza polecenia](/cli/azure/sql/db#az-sql-db-update). W tej chwili jest to jednokierunkowa migracja. Nie można przenieść baz danych ze skalowania do innej warstwy usług, poza eksportowaniem i importowaniem danych. W przypadku dowodu koncepcji (POCs) zalecamy utworzenie kopii produkcyjnych baz danych i migrowanie kopii do obszaru skalowania. Migrowanie istniejącej bazy danych w Azure SQL Database do warstwy skalowania jest rozmiarem operacji na danych.
 
 Następujące polecenie T-SQL przenosi bazę danych do warstwy usługi. W instrukcji należy określić zarówno cel wersji, jak i usługi `ALTER DATABASE` .
 
@@ -165,7 +165,7 @@ Aby zapoznać się z umową SLA, zobacz [Umowa SLA dla Azure SQL Database](https
 Jeśli chcesz przywrócić bazę danych w ramach skalowania w Azure SQL Database do regionu innego niż ten, w którym jest obecnie hostowana, w ramach operacji odzyskiwania po awarii lub przechodzenia do szczegółów, relokacji lub z innego powodu, podstawowa metoda polega na wykonaniu przywracania geograficznego bazy danych. Obejmuje to dokładnie te same kroki jak w przypadku przywracania innych baz danych w SQL Database do innego regionu:
 
 1. Utwórz [serwer](logical-servers.md) w regionie docelowym, jeśli nie masz jeszcze odpowiedniego serwera.  Ten serwer powinien należeć do tej samej subskrypcji co oryginalny serwer (źródłowy).
-2. Postępuj zgodnie z instrukcjami w temacie dotyczącym [przywracania geograficznego](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) strony dotyczącej przywracania bazy danych w Azure SQL Database z automatycznych kopii zapasowych.
+2. Postępuj zgodnie z instrukcjami w temacie dotyczącym [przywracania geograficznego](./recovery-using-backups.md#geo-restore) strony dotyczącej przywracania bazy danych w Azure SQL Database z automatycznych kopii zapasowych.
 
 > [!NOTE]
 > Ze względu na to, że źródło i cel znajdują się w oddzielnych regionach, baza danych nie może współużytkować magazynu migawek ze źródłową bazą danych jako do przywracania geograficznego, co kończy się niezwykle szybko. W przypadku przywracania geograficznego bazy danych w ramach skalowania jest to operacja o rozmiarze danych, nawet jeśli obiekt docelowy znajduje się w sparowanym regionie magazynu z replikacją geograficzną.  Oznacza to, że wykonanie operacji przywracania geograficznego będzie trwać proporcjonalnie do rozmiaru przywracanej bazy danych.  Jeśli obiekt docelowy znajduje się w sparowanym regionie, kopia będzie znajdować się w regionie, który będzie znacznie szybszy niż kopiowanie między regionami, ale nadal będzie operacją typu danych.
@@ -185,7 +185,7 @@ Włączone regiony:
 - Australia Środkowa
 - Brazil South
 - Kanada Środkowa
-- Central US
+- Środkowe stany USA
 - Chiny Wschodnie 2
 - Chiny Północne 2
 - Azja Wschodnia
@@ -227,7 +227,7 @@ Są to bieżące ograniczenia dotyczące warstwy usług w ramach skalowania na p
 | Jeśli baza danych ma co najmniej jeden plik danych o rozmiarze większym niż 1 TB, migracja nie powiedzie się | W niektórych przypadkach może być możliwe obejście tego problemu, zmniejszając duże ilości plików poniżej 1 TB. W przypadku migrowania bazy danych używanej podczas procesu migracji upewnij się, że żaden plik nie będzie większy niż 1 TB. Użyj następującego zapytania, aby określić rozmiar plików bazy danych. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Wystąpienie zarządzane SQL | Wystąpienie zarządzane Azure SQL nie jest obecnie obsługiwane z bazami danych w skali. |
 | Pule elastyczne |  Pule elastyczne nie są obecnie obsługiwane ze skalą.|
-| Migracja do funkcji Moje skalowanie jest obecnie operacją jednokierunkową | Po migracji bazy danych do funkcji wieloskalowania nie można jej migrować bezpośrednio do warstwy usługi, która nie jest w skali. W obecnym czasie jedynym sposobem migrowania bazy danych z Azure Databricks Azure Data Factory funkcji ze skalowaniem do poziomu non------------------------------------------- BACPAC Export/Import z Azure Portal z programu PowerShell przy użyciu polecenia [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) lub [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport)z interfejsu wiersza polecenia platformy Azure przy użyciu polecenia [AZ SQL DB Export](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-export) i [AZ SQL DB import](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-import)i from [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) nie jest obsługiwana. BACPAC Import/Export w przypadku mniejszych baz danych w postaci większej skali (do 200 GB) jest obsługiwana przy użyciu programu SSMS i [sqlpackage](https://docs.microsoft.com/sql/tools/sqlpackage) w wersji 18,4 lub nowszej. W przypadku większych baz danych eksport/import BACPAC może zająć dużo czasu i może się nie powieść z różnych powodów.|
+| Migracja do funkcji Moje skalowanie jest obecnie operacją jednokierunkową | Po migracji bazy danych do funkcji wieloskalowania nie można jej migrować bezpośrednio do warstwy usługi, która nie jest w skali. W obecnym czasie jedynym sposobem migrowania bazy danych z Azure Databricks Azure Data Factory funkcji ze skalowaniem do poziomu non------------------------------------------- BACPAC Export/Import z Azure Portal z programu PowerShell przy użyciu polecenia [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) lub [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport)z interfejsu wiersza polecenia platformy Azure przy użyciu polecenia [AZ SQL DB Export](/cli/azure/sql/db#az-sql-db-export) i [AZ SQL DB import](/cli/azure/sql/db#az-sql-db-import)i from [API REST](/rest/api/sql/databases%20-%20import%20export) nie jest obsługiwana. BACPAC Import/Export w przypadku mniejszych baz danych w postaci większej skali (do 200 GB) jest obsługiwana przy użyciu programu SSMS i [sqlpackage](/sql/tools/sqlpackage) w wersji 18,4 lub nowszej. W przypadku większych baz danych eksport/import BACPAC może zająć dużo czasu i może się nie powieść z różnych powodów.|
 | Migracja baz danych przy użyciu obiektów In-Memory OLTP | Funkcja skalowania obsługuje podzestaw In-Memory obiektów OLTP, w tym typów tabel zoptymalizowanych pod kątem pamięci, zmiennych tabel i modułów skompilowanych w sposób macierzysty. Jeśli jednak dowolny rodzaj In-Memory obiektów OLTP jest obecny w migrowanej bazie danych, migracja z warstw usług premium i Krytyczne dla działania firmy do skalowania nie jest obsługiwana. Aby przeprowadzić migrację takiej bazy danych do skalowania, należy porzucić wszystkie In-Memory obiekty OLTP i ich zależności. Po migracji bazy danych można odtworzyć te obiekty. Trwałe i nietrwałe tabele zoptymalizowane pod kątem pamięci nie są obecnie obsługiwane w ramach skalowania i muszą zostać utworzone ponownie jako tabele dysków.|
 | Replikacja geograficzna  | Nie można jeszcze skonfigurować replikacji geograficznej na potrzeby Azure SQL Database skalowania. |
 | Kopia bazy danych | Kopia bazy danych w ramach skalowania jest teraz w publicznej wersji zapoznawczej. |
@@ -244,4 +244,3 @@ Są to bieżące ograniczenia dotyczące warstwy usług w ramach skalowania na p
 - Zobacz [Omówienie limitów zasobów na serwerze](resource-limits-logical-server.md) , aby uzyskać informacje na temat limitów na poziomach serwera i subskrypcji.
 - Aby uzyskać ograniczenia modelu zakupów dla pojedynczej bazy danych, zobacz [Azure SQL Database limity modelu zakupu opartego na rdzeń wirtualny dla jednej bazy danych](resource-limits-vcore-single-databases.md).
 - Aby zapoznać się z funkcjami i listą porównania, zobacz [funkcje wspólne SQL](features-comparison.md).
- 

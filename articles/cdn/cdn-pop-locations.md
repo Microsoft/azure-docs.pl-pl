@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: e9092e9564fadb07311b151948656bc6cd007323
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: a707cde306006aef685c22cf1a9f9332449ee1c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951727"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778233"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN pokrycia według Metro 
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ W tym artykule wymieniono bieżące Metro zawierające lokalizacje punktów obec
 
 | Region | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
-| Ameryka Północna | Toronto, Kanada<br />Vancouver, Kanada<br />Montrealu, Kanada<br />Querétaro, Meksyk<br />San Juan, Portoryko<br />Ashburn, VA, USA<br />Atlanta, GA, USA<br />Raleigh, NC, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Dallas, TX, USA<br />Denver, CO, USA<br />Honolulu, HI, USA<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />Nowy Jork, NY, USA<br />Newark, NJ, USA<br />Phoenix, AZ, USA<br />Portland, lub, USA<br />San Antonio, TX, USA<br />San Jose, CA, USA<br />Seattle, WA, USA | Guadalajara, Meksyk<br />Mexico City, Mexico<br />Puebla, Meksyk<br />Querétaro, Meksyk<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />Nowy Jork, NY, USA<br />Philadelphia, PA, USA<br />San Jose, CA, USA<br />Seattle, WA, USA<br />Waszyngton, DC, USA <br /> Ashburn, VA, USA <br /> Phoenix, AZ, USA | Canada<br />Meksyk<br />Stany Zjednoczone |
+| Ameryka Północna | Toronto, Kanada<br />Vancouver, Kanada<br />Montrealu, Kanada<br />Querétaro, Meksyk<br />San Juan, Portoryko<br />Ashburn, VA, USA<br />Atlanta, GA, USA<br />Raleigh, NC, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Dallas, TX, USA<br />Denver, CO, USA<br />Honolulu, HI, USA<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />Nowy Jork, NY, USA<br />Newark, NJ, USA<br />Phoenix, AZ, USA<br />Portland, lub, USA<br />San Antonio, TX, USA<br />San Jose, CA, USA<br />Seattle, WA, USA | Guadalajara, Meksyk<br />Mexico City, Mexico<br />Puebla, Meksyk<br />Querétaro, Meksyk<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />Nowy Jork, NY, USA<br />Philadelphia, PA, USA<br />San Jose, CA, USA<br />Seattle, WA, USA<br />Waszyngton, DC, USA <br /> Ashburn, VA, USA <br /> Phoenix, AZ, USA | Kanada<br />Meksyk<br />Stany Zjednoczone |
 | Ameryka Południowa | Campinas, Brazylia<br />Rio de Janeiro, Brazylia<br />Wyspa Świętego Paulo, Brazylia<br />Do dnia, Chile<br />Bogota, Kolumbia<br />Buenos Aires, Argentyna | Buenos Aires, Argentyna<br />Rio de Janeiro, Brazylia<br />So Paulo, Brazylia<br />Valparaíso, Chile<br />Bogota, Kolumbia<br />Barranquilla, Kolumbia<br />Medellin, Kolumbia<br />Quito, Ekwador<br />Lima, Peru | Argentyna<br />Brazylia<br />Chile<br />Kolumbia<br />Ekwador<br />Peru<br />Urugwaj |
 | Europa | Wiedeń, Austria<br />Bruksela, Belgia<br />Sofia, Bułgaria<br />Zagrzeb, Chorwacja<br />Praga, Czechy<br />Kopenhaga, Dania<br /> Helsinki, Finlandia<br /> Oslo, Norwegia<br />Marsylii, Francja<br />Paryż, Francja<br />Berlin, Niemcy<br />Frankfurt, Niemcy<br />Ateny, Grecja<br />Budapeszt, Węgry<br />Dublin, Irlandia<br />Mediolan, Włochy<br />Rzym, Włochy<br />Amsterdam, Holandia<br />Warszawa, Polska<br />Lizbona, Portugalia<br />Bukareszt, Rumunia<br />Barcelona, Hiszpania<br />Madryt, Hiszpania<br />Sztokholm, Szwecja<br />Zurych, Szwajcaria<br />Genewa, Szwajcaria<br />Londyn, Zjednoczone Królestwo<br />Manchester, Zjednoczone Królestwo | Wiedeń, Austria<br />Kopenhaga, Dania<br />Helsinki, Finlandia<br />Marsylii, Francja<br />Paryż, Francja<br />Frankfurt, Niemcy<br />Mediolan, Włochy<br />Ryga, Łotwa<br />Amsterdam, Holandia<br />Warszawa, Polska<br />Madryt, Hiszpania<br />Sztokholm, Szwecja<br />Londyn, Zjednoczone Królestwo <br /> Manchester, Zjednoczone Królestwo| Austria<br />Bułgaria<br />Dania<br />Finlandia<br />Francja<br />Niemcy<br />Grecja<br />Irlandia<br />Włochy<br />Holandia<br />Polska<br />Rosja<br />Hiszpania<br />Szwecja<br />Szwajcaria<br />Zjednoczone Królestwo |
 | Afryka | Miasto, Republika Południowej Afryki<br />Johannesburg, Republika Południowej Afryki<br />Lagos, Nigeria<br />Nairobi, Kenia | Johannesburg, Republika Południowej Afryki <br/> Nairobi, Kenia | Republika Południowej Afryki |
@@ -49,4 +49,4 @@ W tym artykule wymieniono bieżące Metro zawierające lokalizacje punktów obec
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać najnowsze adresy IP dla listy dozwolonych, zapoznaj się z [interfejsem API Azure CDN węzłów krawędzi](https://docs.microsoft.com/rest/api/cdn/edgenodes).
+* Aby uzyskać najnowsze adresy IP dla listy dozwolonych, zapoznaj się z [interfejsem API Azure CDN węzłów krawędzi](/rest/api/cdn/edgenodes).

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5b6fe2b2704f101a7775b7eb700375105b0a9eca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6061de0a330518baaa829a9a1c8a05f196d68dcb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81259888"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777847"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Samouczek: uzyskiwanie dostępu do obiektów blob magazynu w domenie niestandardowej usługi Azure CDN za pośrednictwem protokołu HTTPS
 
@@ -37,7 +37,7 @@ Po utworzeniu punktu końcowego usługi CDN w profilu nazwa punktu końcowego, c
 Korzystając z protokołu HTTPS w domenie niestandardowej masz pewność, że dane są przesyłane przez Internet w bezpieczny sposób przy użyciu szyfrowania TLS/SSL. Gdy przeglądarka internetowa łączy się z witryną internetową za pośrednictwem protokołu HTTPS, sprawdza, czy certyfikat zabezpieczeń witryny internetowej jest poprawny i czy został wystawiony przez autentyczny urząd certyfikacji. Aby skonfigurować protokół HTTPS w domenie niestandardowej, postępuj zgodnie z instrukcjami w tym samouczku: [Konfigurowanie protokołu HTTPS w domenie niestandardowej usługi Azure CDN](cdn-custom-ssl.md).
 
 ## <a name="shared-access-signatures"></a>Sygnatury dostępu współdzielonego
-Jeśli konfiguracja punktu końcowego magazynu obiektów blob nie zezwala na anonimowy dostęp w trybie odczytu, należy podać token [sygnatury dostępu współdzielonego (SAS)](cdn-sas-storage-support.md) w każdym żądaniu wysłanym do domeny niestandardowej. Domyślnie punkty końcowe magazynu obiektów blob nie zezwalają na anonimowy dostęp w trybie odczytu. Aby uzyskać więcej informacji o sygnaturze SAS, zobacz [Zarządzanie dostępem anonimowym w trybie odczytu do kontenerów i obiektów blob](../storage/blobs/storage-manage-access-to-resources.md).
+Jeśli konfiguracja punktu końcowego magazynu obiektów blob nie zezwala na anonimowy dostęp w trybie odczytu, należy podać token [sygnatury dostępu współdzielonego (SAS)](cdn-sas-storage-support.md) w każdym żądaniu wysłanym do domeny niestandardowej. Domyślnie punkty końcowe magazynu obiektów blob nie zezwalają na anonimowy dostęp w trybie odczytu. Aby uzyskać więcej informacji o sygnaturze SAS, zobacz [Zarządzanie dostępem anonimowym w trybie odczytu do kontenerów i obiektów blob](../storage/blobs/anonymous-read-access-configure.md).
 
 Usługa Azure CDN ignoruje wszelkie ograniczenia dodane do tokenu SAS. Na przykład wszystkie tokeny SAS mają czas wygaśnięcia, co oznacza, że wciąż można uzyskać dostęp do zawartości przy użyciu wygasłej sygnatury SAS do momentu wyczyszczenia zawartości z serwerów punktu obecności (POP) usługi CDN. Możesz kontrolować, jak długo dane są buforowane w usłudze Azure CDN, ustawiając nagłówek odpowiedzi pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Zarządzanie wygasaniem obiektów blob usługi Azure Storage w usłudze Azure CDN](cdn-manage-expiration-of-blob-content.md).
 
@@ -61,7 +61,3 @@ Jeśli na przykład masz konto magazynu w Stanach Zjednoczonych, do którego dos
 
 ## <a name="next-steps"></a>Następne kroki
 [Samouczek: ustawianie reguł buforowania usługi Azure CDN](cdn-caching-rules-tutorial.md)
-
-
-
-

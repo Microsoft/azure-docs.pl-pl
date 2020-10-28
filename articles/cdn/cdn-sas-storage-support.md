@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: d716b026159311c12341c30a8c32d5a9ecc6fa3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff205069c31d50813a4fad71a3c9e2f8e2462844
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432752"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778127"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Używanie Azure CDN z sygnaturą dostępu współdzielonego
 
@@ -27,13 +27,13 @@ Po skonfigurowaniu konta magazynu dla usługi Azure Content Delivery Network (CD
 
 Jeśli chcesz przyznać ograniczony dostęp do prywatnych kontenerów magazynu, możesz użyć funkcji sygnatury dostępu współdzielonego konta usługi Azure Storage. Sygnatura dostępu współdzielonego to identyfikator URI, który zapewnia ograniczone prawa dostępu do zasobów usługi Azure Storage bez ujawniania klucza konta. Możesz udostępnić sygnatury dostępu współdzielonego klientom, którzy nie są zaufani przy użyciu klucza konta magazynu, ale do kogo chcesz delegować dostęp do określonych zasobów konta magazynu. Przez dystrybuowanie identyfikatora URI sygnatury dostępu współdzielonego do tych klientów można przyznać im dostęp do zasobu przez określony czas.
  
-Za pomocą sygnatury dostępu współdzielonego można definiować różne parametry, które mają dostęp do obiektu BLOB, takie jak godziny rozpoczęcia i wygaśnięcia, uprawnienia (odczyt/zapis) i zakresy adresów IP. W tym artykule opisano, jak używać sygnatury dostępu współdzielonego w połączeniu z Azure CDN. Aby uzyskać więcej informacji na temat sygnatury dostępu współdzielonego, w tym sposobu tworzenia jej opcji i parametrów, zobacz [using Shared Access Signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Za pomocą sygnatury dostępu współdzielonego można definiować różne parametry, które mają dostęp do obiektu BLOB, takie jak godziny rozpoczęcia i wygaśnięcia, uprawnienia (odczyt/zapis) i zakresy adresów IP. W tym artykule opisano, jak używać sygnatury dostępu współdzielonego w połączeniu z Azure CDN. Aby uzyskać więcej informacji na temat sygnatury dostępu współdzielonego, w tym sposobu tworzenia jej opcji i parametrów, zobacz [using Shared Access Signatures (SAS)](../storage/common/storage-sas-overview.md).
 
 ## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>Konfigurowanie Azure CDN do pracy z funkcją SAS magazynu
 Poniższe trzy opcje są zalecane w przypadku używania sygnatury dostępu współdzielonego z Azure CDN. Wszystkie opcje zakładają, że utworzono już działające SAS (Zobacz wymagania wstępne). 
  
 ### <a name="prerequisites"></a>Wymagania wstępne
-Aby rozpocząć, Utwórz konto magazynu, a następnie Wygeneruj sygnaturę dostępu współdzielonego dla zasobu. Można generować dwa typy sygnatur dostępu: SAS lub SAS usługi. Aby uzyskać więcej informacji, zobacz [typy sygnatur dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
+Aby rozpocząć, Utwórz konto magazynu, a następnie Wygeneruj sygnaturę dostępu współdzielonego dla zasobu. Można generować dwa typy sygnatur dostępu: SAS lub SAS usługi. Aby uzyskać więcej informacji, zobacz [typy sygnatur dostępu współdzielonego](../storage/common/storage-sas-overview.md#types-of-shared-access-signatures).
 
 Po wygenerowaniu tokenu SAS można uzyskać dostęp do pliku magazynu obiektów BLOB przez dołączenie `?sv=<SAS token>` go do adresu URL. Ten adres URL ma następujący format: 
 
@@ -44,7 +44,7 @@ Na przykład:
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
-Aby uzyskać więcej informacji na temat parametrów ustawień, zobacz [uwagi dotyczące parametrów SAS](#sas-parameter-considerations) i [sygnatury dostępu współdzielonego](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works).
+Aby uzyskać więcej informacji na temat parametrów ustawień, zobacz [uwagi dotyczące parametrów SAS](#sas-parameter-considerations) i [sygnatury dostępu współdzielonego](../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works).
 
 ![Ustawienia SAS sieci CDN](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
@@ -52,7 +52,7 @@ Aby uzyskać więcej informacji na temat parametrów ustawień, zobacz [uwagi do
 
 Ta opcja jest najprostszym i używa jednego tokenu sygnatury dostępu współdzielonego, który jest przesyłany z Azure CDN do serwera pochodzenia.
  
-1. Wybierz punkt końcowy, wybierz pozycję **reguły buforowania**, a następnie wybierz pozycję **Buforuj każdy unikatowy adres URL** z listy **buforowanie ciągu zapytania** .
+1. Wybierz punkt końcowy, wybierz pozycję **reguły buforowania** , a następnie wybierz pozycję **Buforuj każdy unikatowy adres URL** z listy **buforowanie ciągu zapytania** .
 
     ![Reguły buforowania sieci CDN](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
@@ -71,13 +71,13 @@ Ta opcja jest najprostszym i używa jednego tokenu sygnatury dostępu współdzi
  
 Ta opcja jest dostępna tylko dla **Azure CDN Premium z profilów Verizon** . Za pomocą tej opcji można zabezpieczyć magazyn obiektów BLOB na serwerze źródłowym. Możesz użyć tej opcji, jeśli nie potrzebujesz określonych ograniczeń dostępu do pliku, ale chcesz uniemożliwić użytkownikom dostęp do źródła danych źródłowych bezpośrednio w celu usprawnienia Azure CDN odciążania. Token sygnatury dostępu współdzielonego, który jest nieznany dla użytkownika, jest wymagany dla każdego, kto uzyskuje dostęp do plików znajdujących się w określonym kontenerze serwera pochodzenia. Jednak ze względu na regułę ponownego zapisywania adresu URL token sygnatury dostępu współdzielonego nie jest wymagany w punkcie końcowym usługi CDN.
  
-1. Użyj [aparatu reguł](cdn-rules-engine.md) , aby utworzyć regułę ponownego zapisywania adresu URL. Propagowanie nowych reguł trwa do 4 godzin.
+1. Użyj [aparatu reguł](./cdn-verizon-premium-rules-engine.md) , aby utworzyć regułę ponownego zapisywania adresu URL. Propagowanie nowych reguł trwa do 4 godzin.
 
    ![Przycisk zarządzania CDN](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
    ![Przycisk aparatu reguł sieci CDN](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   Następująca przykładowa reguła ponownego zapisywania adresu URL używa wzorca wyrażenia regularnego z grupą przechwytywania i punktem końcowym o nazwie *sasstoragedemo*:
+   Następująca przykładowa reguła ponownego zapisywania adresu URL używa wzorca wyrażenia regularnego z grupą przechwytywania i punktem końcowym o nazwie *sasstoragedemo* :
    
    Źródło:   
    `(container1\/.*)`
@@ -102,7 +102,7 @@ Ta opcja jest dostępna tylko dla **Azure CDN Premium z profilów Verizon** . Za
 
 Aby można było korzystać z uwierzytelniania Azure CDN tokenów zabezpieczających, musisz mieć **Azure CDN Premium z profilu Verizon** . Ta opcja jest najbezpieczniejsza i dostosowywalna. Dostęp klienta jest oparty na parametrach zabezpieczeń ustawionych w tokenie zabezpieczającym. Po utworzeniu i skonfigurowaniu tokenu zabezpieczającego będzie on wymagany dla wszystkich adresów URL punktów końcowych usługi CDN. Jednak ze względu na regułę ponownego zapisywania adresu URL token sygnatury dostępu współdzielonego nie jest wymagany w punkcie końcowym usługi CDN. Jeśli token sygnatury dostępu współdzielonego później stanie się nieprawidłowy, Azure CDN nie będzie już można ponownie sprawdzić poprawności zawartości z serwera pochodzenia.
 
-1. [Utwórz token zabezpieczający Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) i aktywuj go przy użyciu aparatu reguł dla punktu końcowego usługi CDN i ścieżki, w której użytkownicy mogą uzyskać dostęp do pliku.
+1. [Utwórz token zabezpieczający Azure CDN](./cdn-token-auth.md#setting-up-token-authentication) i aktywuj go przy użyciu aparatu reguł dla punktu końcowego usługi CDN i ścieżki, w której użytkownicy mogą uzyskać dostęp do pliku.
 
    Adres URL punktu końcowego tokenu zabezpieczającego ma następujący format:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
@@ -114,9 +114,9 @@ Aby można było korzystać z uwierzytelniania Azure CDN tokenów zabezpieczają
        
    Opcje parametrów uwierzytelniania tokenu zabezpieczającego są inne niż opcje parametrów dla tokenu SAS. Jeśli podczas tworzenia tokenu zabezpieczającego zdecydujesz się używać czasu wygaśnięcia, należy ustawić tę samą wartość jako czas wygaśnięcia tokenu SAS. Dzięki temu zagwarantujesz przewidywalność czasu wygaśnięcia. 
  
-2. Użyj [aparatu reguł](cdn-rules-engine.md) , aby utworzyć regułę ponownego zapisywania adresu URL, aby umożliwić dostęp tokenu SAS do wszystkich obiektów BLOB w kontenerze. Propagowanie nowych reguł trwa do 4 godzin.
+2. Użyj [aparatu reguł](./cdn-verizon-premium-rules-engine.md) , aby utworzyć regułę ponownego zapisywania adresu URL, aby umożliwić dostęp tokenu SAS do wszystkich obiektów BLOB w kontenerze. Propagowanie nowych reguł trwa do 4 godzin.
 
-   Następująca przykładowa reguła ponownego zapisywania adresu URL używa wzorca wyrażenia regularnego z grupą przechwytywania i punktem końcowym o nazwie *sasstoragedemo*:
+   Następująca przykładowa reguła ponownego zapisywania adresu URL używa wzorca wyrażenia regularnego z grupą przechwytywania i punktem końcowym o nazwie *sasstoragedemo* :
    
    Źródło:   
    `(container1\/.*)`
@@ -138,13 +138,13 @@ Ponieważ parametry sygnatury dostępu współdzielonego nie są widoczne dla Az
 | --- | --- |
 | Rozpocznij | Czas, który Azure CDN może rozpocząć dostęp do pliku obiektu BLOB. Ze względu na pochylenie zegara (gdy sygnał zegara dociera do różnych składników), wybierz czas 15 minut wcześniej, jeśli chcesz, aby zasób był dostępny od razu. |
 | End | Czas, po upływie którego Azure CDN nie może uzyskać dostępu do pliku obiektu BLOB. Poprzednio buforowane pliki w Azure CDN są nadal dostępne. Aby kontrolować czas wygaśnięcia pliku, ustaw odpowiedni czas wygaśnięcia w tokenie zabezpieczającym Azure CDN lub Przeczyść element zawartości. |
-| Dozwolone adresy IP | Opcjonalny. Jeśli używasz **Azure CDN z Verizon**, możesz ustawić ten parametr na zakresy zdefiniowane w [Azure CDN z zakresów adresów IP Verizon Edge](/azure/cdn/cdn-pop-list-api). Jeśli używasz **Azure CDN z Akamai**, nie można ustawić parametru zakresy adresów IP, ponieważ adresy IP nie są statyczne.|
+| Dozwolone adresy IP | Opcjonalny. Jeśli używasz **Azure CDN z Verizon** , możesz ustawić ten parametr na zakresy zdefiniowane w [Azure CDN z zakresów adresów IP Verizon Edge](./cdn-pop-list-api.md). Jeśli używasz **Azure CDN z Akamai** , nie można ustawić parametru zakresy adresów IP, ponieważ adresy IP nie są statyczne.|
 | Dozwolone protokoły | Protokoły dozwolone dla żądania wysłanego za pomocą sygnatury dostępu współdzielonego konta. Ustawienie HTTPS jest zalecane.|
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat sygnatury dostępu współdzielonego, zobacz następujące artykuły:
-- [Używanie sygnatury dostępu współdzielonego (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Sygnatury dostępu współdzielonego, część 2: Tworzenie i używanie SAS z magazynem obiektów BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [Używanie sygnatury dostępu współdzielonego (SAS)](../storage/common/storage-sas-overview.md)
+- [Sygnatury dostępu współdzielonego, część 2: Tworzenie i używanie SAS z magazynem obiektów BLOB](../storage/common/storage-sas-overview.md)
 
-Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania tokenów, zobacz [Zabezpieczanie zasobów platformy Azure Content Delivery Network przy użyciu uwierzytelniania tokenu](https://docs.microsoft.com/azure/cdn/cdn-token-auth).
+Aby uzyskać więcej informacji na temat konfigurowania uwierzytelniania tokenów, zobacz [Zabezpieczanie zasobów platformy Azure Content Delivery Network przy użyciu uwierzytelniania tokenu](./cdn-token-auth.md).

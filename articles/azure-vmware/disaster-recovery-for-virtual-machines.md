@@ -1,22 +1,22 @@
 ---
-title: Wykonaj odzyskiwanie po awarii maszyn wirtualnych
-description: W tym artykule pokazano, jak wykonać odzyskiwanie po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMware
+title: Ukończ odzyskiwanie po awarii maszyn wirtualnych
+description: W tym artykule pokazano, jak ukończyć odzyskiwanie po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMware
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 3608243600eb5d00dcfe10db5bc6b907ecb9aee8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 688d91bc181e1479f5090a10af4b3b262d7ddb7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508438"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779615"
 ---
-# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Kończenie odzyskiwania po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMware
+# <a name="complete-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Ukończ odzyskiwanie po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMware
 
-Ten artykuł zawiera proces kończenia odzyskiwania po awarii maszyn wirtualnych przy użyciu rozwiązania VMware HCX i korzystania z chmury prywatnej rozwiązania VMware platformy Azure jako lokacji odzyskiwania lub docelowej.
+Ten artykuł zawiera proces kończenia odzyskiwania po awarii maszyn wirtualnych z rozwiązaniem VMware HCX i korzystania z chmury prywatnej rozwiązania VMware platformy Azure jako lokacji odzyskiwania lub docelowej.
 
 Program VMware HCX udostępnia różne operacje zapewniające ścisłą kontrolę i stopień szczegółowości zasad replikacji. Dostępne są następujące operacje:
 
-- **Wstecz** — po wystąpieniu awarii. Odwróć pomaga utworzyć lokację w lokacji źródłowej i lokacji A, w której znajduje się chroniona maszyna wirtualna.
+- **Wstecz** — po wystąpieniu awarii. Odwróć pomaga utworzyć lokację w lokacji źródłowej i lokacji a, w której znajduje się chroniona maszyna wirtualna.
 
 - **Wstrzymaj** — Wstrzymaj bieżące zasady replikacji skojarzone z WYBRANą maszyną wirtualną.
 
@@ -26,7 +26,7 @@ Program VMware HCX udostępnia różne operacje zapewniające ścisłą kontrol�
 
 - **Synchronizuj teraz** — poza powiązaniem ŹRÓDŁOWEJ maszyny wirtualnej synchronizacji z CHRONIONą maszyną wirtualną.
 
-W tym przewodniku omówiono następujące scenariusze replikacji:
+Ten przewodnik obejmuje następujące scenariusze replikacji:
 
 - Ochrona maszyny wirtualnej lub grupy maszyn wirtualnych.
 
@@ -38,11 +38,11 @@ W tym przewodniku omówiono następujące scenariusze replikacji:
 
 ## <a name="protect-vms"></a>Ochrona maszyn wirtualnych
 
-1. Zaloguj się do **klienta vSphere** w lokacji źródłowej i uzyskaj dostęp do **wtyczki HCX**.
+1. Zaloguj się do **klienta vSphere** w lokacji źródłowej i uzyskaj dostęp do **wtyczki HCX** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="Opcja HCX w vSphere" border="true":::
 
-1. Wprowadź obszar **odzyskiwania po awarii** i wybierz pozycję **Chroń maszyny wirtualne**.
+1. Wprowadź obszar **odzyskiwania po awarii** i wybierz pozycję **Chroń maszyny wirtualne** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="Opcja HCX w vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
 
@@ -56,13 +56,13 @@ W tym przewodniku omówiono następujące scenariusze replikacji:
 
    - **Włącz Quiescence:** Wstrzymuje maszynę wirtualną, aby upewnić się, że spójna kopia jest synchronizowana z lokacją zdalną.
 
-   - **Magazyn docelowy:** Zdalny magazyn danych dla chronionych maszyn wirtualnych oraz w chmurze prywatnej rozwiązania VMware firmy Azure powinien to być magazyn danych sieci vSAN.
+   - **Magazyn docelowy:** Zdalny magazyn danych dla chronionych maszyn wirtualnych oraz w prywatnej chmurze rozwiązania VMware platformy Azure, który powinien być magazynem danych sieci vSAN.
 
    - **Kontener obliczeniowy:** Zdalny klaster vSphere lub Pula zasobów.
 
-   - **Folder docelowy:** Zdalny folder docelowy, który jest opcjonalny i jeśli nie wybrano żadnego folderu, maszyny wirtualne zostaną umieszczone bezpośrednio w wybranym klastrze.
+   - **Folder docelowy:** Zdalny folder docelowy, który jest opcjonalny, a jeśli folder nie jest zaznaczony, maszyny wirtualne są umieszczane bezpośrednio w wybranym klastrze.
 
-   - **Cel punktu odzyskiwania:** Interwał synchronizacji między źródłową maszyną wirtualną a chronioną maszyną wirtualną i może znajdować się w dowolnym miejscu od 5 minut do 24 godzin.
+   - **Cel punktu odzyskiwania:** Interwał synchronizacji między źródłową maszyną wirtualną a chronioną maszyną wirtualną. Może ona znajdować się w dowolnym miejscu od 5 minut do 24 godzin.
 
    - **Interwał migawek:** Interwał między migawkami.
 
@@ -84,14 +84,14 @@ W tym przewodniku omówiono następujące scenariusze replikacji:
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="Opcja HCX w vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
 
-   Żółty trójkąt oznacza, że migawki i wirtualne nie zostały przetestowane w operacji odzyskiwania testowego.
+   Żółty trójkąt oznacza, że migawki i maszyny wirtualne nie zostały przetestowane w testowej operacji odzyskiwania.
 
-   Istnieją kluczowe różnice między maszyną wirtualną, która jest wyłączona, a tą, która jest włączona. Obraz przedstawia proces synchronizowania z obsługą maszyny wirtualnej. Uruchamia proces synchronizacji do momentu zakończenia pierwszej migawki, która jest pełną kopią maszyny wirtualnej, a następnie kończy kolejne z nich w skonfigurowanym interwale. W przypadku maszyny wirtualnej z wyłączeniem zsynchronizuje kopię, a następnie maszyna wirtualna pojawia się jako nieaktywna, a operacja ochrony jest pokazywana jako ukończona.  Gdy maszyna wirtualna jest włączona, rozpocznie proces synchronizacji do zdalnej lokacji.
+   Istnieją kluczowe różnice między maszyną wirtualną, która jest wyłączona, a jednym włączonym. Obraz przedstawia proces synchronizacji dla maszyny wirtualnej z obsługą. Uruchamia proces synchronizacji do momentu zakończenia pierwszej migawki, która jest pełną kopią maszyny wirtualnej, a następnie kończy kolejne z nich w skonfigurowanym interwale. Synchronizuje kopię dla wyłączonej maszyny wirtualnej, a następnie maszyna wirtualna jest wyświetlana jako nieaktywna, a operacja ochrony jest pokazywana jako ukończona.  Gdy maszyna wirtualna jest włączona, rozpocznie proces synchronizacji do zdalnej lokacji.
 
 ## <a name="complete-a-test-recover-of-vms"></a>Ukończ odzyskiwanie testów maszyn wirtualnych
 
 1. Zaloguj się do **VSphere Client** w zdalnej witrynie, która jest chmurą prywatną rozwiązania Azure VMware. 
-1. W ramach **wtyczki HCX**w obszarze odzyskiwania po awarii wybierz wielokropek pionowy na dowolnej maszynie wirtualnej, aby wyświetlić menu operacje, a następnie wybierz pozycję **Testuj odzyskiwanie maszyny wirtualnej**.
+1. W ramach **wtyczki HCX** w obszarze odzyskiwania po awarii wybierz wielokropek pionowy na dowolnej maszynie wirtualnej, aby wyświetlić menu operacje, a następnie wybierz pozycję **Testuj odzyskiwanie maszyny wirtualnej** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="Opcja HCX w vSphere" border="true":::
 
@@ -99,7 +99,7 @@ W tym przewodniku omówiono następujące scenariusze replikacji:
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="Opcja HCX w vSphere" border="true":::
 
-1. Po wybraniu **testu**rozpocznie się operacja odzyskiwania.
+1. Po wybraniu **testu** rozpocznie się operacja odzyskiwania.
 
 1. Po zakończeniu możesz sprawdzić nową maszynę wirtualną w rozwiązaniu Azure VMware Private Cloud chmurowego vCenter.
 
@@ -111,11 +111,11 @@ W tym przewodniku omówiono następujące scenariusze replikacji:
 
 ## <a name="recover-vms"></a>Odzyskiwanie maszyn wirtualnych
 
-1. Zaloguj się do **VSphere Client** w zdalnej witrynie, która jest chmurą prywatną rozwiązania Azure VMware, i uzyskaj dostęp do **wtyczki HCX**.
+1. Zaloguj się do **VSphere Client** w zdalnej witrynie, która jest chmurą prywatną rozwiązania Azure VMware, i uzyskaj dostęp do **wtyczki HCX** .
 
    W przypadku scenariusza odzyskiwania Grupa maszyn wirtualnych użyta w tym przykładzie.
 
-1. Z listy wybierz maszynę wirtualną do odzyskania, otwórz menu **Akcje** , a następnie wybierz polecenie **Odzyskaj maszyny wirtualne**.
+1. Z listy wybierz maszynę wirtualną do odzyskania, otwórz menu **Akcje** , a następnie wybierz polecenie **Odzyskaj maszyny wirtualne** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="Opcja HCX w vSphere" border="true":::
 
@@ -127,12 +127,12 @@ W tym przewodniku omówiono następujące scenariusze replikacji:
 
 ## <a name="complete-a-reverse-replication-on-vms"></a>Ukończ replikację odwrotną na maszynach wirtualnych
 
-1. Zaloguj się do **klienta vSphere** w chmurze prywatnej rozwiązania platformy Azure VMware i uzyskaj dostęp do **wtyczki HCX**.
+1. Zaloguj się do **klienta vSphere** w chmurze prywatnej rozwiązania platformy Azure VMware i uzyskaj dostęp do **wtyczki HCX** .
    
    >[!NOTE]
-   >Przed rozpoczęciem replikacji odwrotnej upewnij się, że oryginalne maszyny wirtualne w lokacji źródłowej są wyłączone. Operacja kończy się niepowodzeniem, jeśli maszyny wirtualne nie są wyłączone.
+   > Przed rozpoczęciem replikacji odwrotnej upewnij się, że oryginalne maszyny wirtualne w lokacji źródłowej są wyłączone. Operacja kończy się niepowodzeniem, jeśli maszyny wirtualne nie są wyłączone.
 
-1. Z listy wybierz maszyny wirtualne do replikacji z powrotem do lokacji źródłowej, otwórz menu **Akcje** i wybierz polecenie **Odwróć**. 
+1. Z listy wybierz maszyny wirtualne do replikacji z powrotem do lokacji źródłowej, otwórz menu **Akcje** i wybierz polecenie **Odwróć** . 
 1. Wybierz pozycję **Odwróć** , aby rozpocząć replikację.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="Opcja HCX w vSphere" border="true":::
@@ -163,7 +163,7 @@ Te interfejsy API obejmują następujące operacje odzyskiwania po awarii.
 
 - Wstrzymanie
 
-- Wznawianie
+- Wznów
 
 - Usuń ochronę
 
@@ -241,4 +241,4 @@ Poniżej przedstawiono przykład ładunku operacji odzyskiwania w formacie JSON.
 ]
 ```
 
-Korzystając z tych interfejsów API, klient może utworzyć niestandardowy mechanizm do automatyzowania tworzenia i wykonywania planu odzyskiwania po awarii.
+Za pomocą tych interfejsów API można utworzyć niestandardowy mechanizm do automatyzowania tworzenia i wykonywania planu odzyskiwania po awarii.

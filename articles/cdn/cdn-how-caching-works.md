@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86201803"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778622"
 ---
 # <a name="how-caching-works"></a>Jak działa buforowanie
 
@@ -65,7 +65,7 @@ Dwa nagłówki mogą służyć do definiowania Aktualności pamięci podręcznej
 ## <a name="cache-directive-headers"></a>Pamięć podręczna — nagłówki dyrektywy
 
 > [!IMPORTANT]
-> Domyślnie punkt końcowy Azure CDN, który jest zoptymalizowany pod kątem DSA ignoruje nagłówki podręcznej dyrektywy i pomija buforowanie. W przypadku **Azure CDN Standard from Verizon** i **Azure CDN Standard z profilów Akamai** można dostosować, jak punkt końcowy Azure CDN traktuje te nagłówki przy użyciu [reguł buforowania usługi CDN](cdn-caching-rules.md) w celu włączenia buforowania. W przypadku **Azure CDN Premium tylko w** profilach Verizon należy użyć [aparatu reguł](cdn-rules-engine.md) , aby włączyć buforowanie.
+> Domyślnie punkt końcowy Azure CDN, który jest zoptymalizowany pod kątem DSA ignoruje nagłówki podręcznej dyrektywy i pomija buforowanie. W przypadku **Azure CDN Standard from Verizon** i **Azure CDN Standard z profilów Akamai** można dostosować, jak punkt końcowy Azure CDN traktuje te nagłówki przy użyciu [reguł buforowania usługi CDN](cdn-caching-rules.md) w celu włączenia buforowania. W przypadku **Azure CDN Premium tylko w** profilach Verizon należy użyć [aparatu reguł](./cdn-verizon-premium-rules-engine.md) , aby włączyć buforowanie.
 
 Azure CDN obsługuje następujące nagłówki dyrektywy pamięci podręcznej HTTP, które definiują czas trwania pamięci podręcznej i udostępnianie pamięci podręcznej.
 
@@ -129,14 +129,11 @@ W poniższej tabeli opisano domyślne zachowanie buforowania dla produktów Azur
 | **Pochodzenie honorowe**       | Tak    | Tak   | Nie   | Tak    | Nie   | Tak   | Tak    |
 | **Czas trwania pamięci podręcznej usługi CDN** | 2 dni |7 dni | Brak | 7 dni | Brak | 1 dzień | 1 rok |
 
-**Pochodzenie**: określa, czy w odpowiedzi HTTP z serwera pochodzenia mają być uznawane obsługiwane nagłówki dyrektywy Cache-dyrektyw.
+**Pochodzenie** : określa, czy w odpowiedzi HTTP z serwera pochodzenia mają być uznawane obsługiwane nagłówki dyrektywy Cache-dyrektyw.
 
-**Czas trwania pamięci podręcznej usługi CDN**: określa ilość czasu, przez który zasób jest buforowany w Azure CDN. Jeśli jednak **pochodzenie Honor** ma wartość tak, a odpowiedź HTTP z serwera pochodzenia zawiera nagłówek dyrektywy Cache-dyrektywa `Expires` lub `Cache-Control: max-age` Azure CDN używa wartości czasu trwania określonej przez nagłówek zamiast tego. 
+**Czas trwania pamięci podręcznej usługi CDN** : określa ilość czasu, przez który zasób jest buforowany w Azure CDN. Jeśli jednak **pochodzenie Honor** ma wartość tak, a odpowiedź HTTP z serwera pochodzenia zawiera nagłówek dyrektywy Cache-dyrektywa `Expires` lub `Cache-Control: max-age` Azure CDN używa wartości czasu trwania określonej przez nagłówek zamiast tego. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby dowiedzieć się, jak dostosować i zastąpić domyślne zachowanie pamięci podręcznej w usłudze CDN za pomocą zasad buforowania, zobacz [kontrola Azure CDN buforowania przy użyciu reguł buforowania](cdn-caching-rules.md). 
 - Aby dowiedzieć się, jak za pomocą ciągów zapytań kontrolować zachowanie pamięci podręcznej, zobacz [sterowania zachowaniem buforowania Azure CDN przy użyciu ciągów zapytań](cdn-query-string.md).
-
-
-

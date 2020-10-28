@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4086a8f354e5e906325d9c324410f3546a32f658
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996151"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778901"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Szybki Start: Integrowanie konta usługi Azure Storage z usługą Azure CDN
 
@@ -40,27 +40,27 @@ Konto magazynu zapewnia dostęp do usług Azure Storage. Konto magazynu reprezen
 
 Aby utworzyć konto magazynu, musisz być administratorem usługi albo współadministratorem subskrypcji skojarzonej.
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób** w lewym górnym rogu. Zostanie wyświetlone okienko **Nowy**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób** w lewym górnym rogu. Zostanie wyświetlone okienko **Nowy** .
 
-1. Wyszukaj **konto magazynu** i wybierz pozycję **konto magazynu — obiekt BLOB, plik, tabela, kolejka** z listy rozwijanej. Następnie wybierz pozycję **Utwórz**:
+1. Wyszukaj **konto magazynu** i wybierz pozycję **konto magazynu — obiekt BLOB, plik, tabela, kolejka** z listy rozwijanej. Następnie wybierz pozycję **Utwórz** :
     
     ![Wybierz zasób magazynu](./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png)
 
-1. W **okienku Tworzenie konta magazynu**wprowadź następujące szczegóły:
+1. W **okienku Tworzenie konta magazynu** wprowadź następujące szczegóły:
 
     | Ustawienie | Wartość | 
     | --- | --- |
-    | Szczegóły projektu > Grupa zasobów | Wybierz pozycję **Utwórz nową** i użyj nazwy *CDNQuickstart-RG*. Jeśli wolisz, możesz również użyć istniejącej grupy zasobów. |
-    | Szczegóły wystąpienia > nazwa konta magazynu | Wprowadź nazwę konta, używając tylko małych liter i cyfr 3-24. Nazwa musi być unikatowa w obrębie platformy Azure i stać się nazwą hosta w adresie URL używanym do adresowania zasobów obiektów blob, kolejek lub tabel w ramach subskrypcji. Aby rozwiązać zasób kontenera w usłudze BLOB Storage, użyj identyfikatora URI w następującym formacie: http://* &lt; storageaccountname &gt; *. blob.Core.Windows.NET/* &lt; Container-Name &gt; *.
+    | Szczegóły projektu > Grupa zasobów | Wybierz pozycję **Utwórz nową** i użyj nazwy *CDNQuickstart-RG* . Jeśli wolisz, możesz również użyć istniejącej grupy zasobów. |
+    | Szczegóły wystąpienia > nazwa konta magazynu | Wprowadź nazwę konta, używając tylko małych liter i cyfr 3-24. Nazwa musi być unikatowa w obrębie platformy Azure i stać się nazwą hosta w adresie URL używanym do adresowania zasobów obiektów blob, kolejek lub tabel w ramach subskrypcji. Aby rozwiązać zasób kontenera w usłudze BLOB Storage, użyj identyfikatora URI w następującym formacie: http:// *&lt; storageaccountname &gt;* . blob.Core.Windows.NET/ *&lt; Container-Name &gt;* .
     | Szczegóły wystąpienia > lokalizacji | Wybierz region platformy Azure znajdujący się w sąsiedztwie z listy rozwijanej. |
     
-    Pozostaw wszystkie inne szczegóły ustawione na wartości domyślne, a następnie wybierz pozycję **Przegląd + Utwórz**.
+    Pozostaw wszystkie inne szczegóły ustawione na wartości domyślne, a następnie wybierz pozycję **Przegląd + Utwórz** .
 
 1. Utworzenie konta magazynu może potrwać kilka minut. Po zakończeniu tworzenia wybierz pozycję **Przejdź do zasobu** , aby otworzyć stronę konta magazynu dla kolejnego kroku.
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Włączanie usługi Azure CDN dla konta magazynu
 
-1. Na stronie konta magazynu wybierz pozycję **BLOB Service**  >  **Azure CDN** z menu po lewej stronie. Zostanie wyświetlona strona **Azure CDN**.
+1. Na stronie konta magazynu wybierz pozycję **BLOB Service**  >  **Azure CDN** z menu po lewej stronie. Zostanie wyświetlona strona **Azure CDN** .
 
     ![Tworzenie punktu końcowego usługi CDN](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
     
@@ -68,12 +68,12 @@ Aby utworzyć konto magazynu, musisz być administratorem usługi albo współad
 
     | Ustawienie  | Wartość |
     | -------- | ----- |
-    | **Profil CDN** | Wybierz pozycję **Utwórz nową** i wprowadź nazwę profilu, na przykład *CDN-profile-123*. Profil jest kolekcją punktów końcowych. |
-    | **Warstwa cenowa** | Wybierz jedną z opcji **standardowych** , takich jak **standardowa firma Microsoft**. |
-    | **Nazwa punktu końcowego usługi CDN** | Wprowadź nazwę hosta punktu końcowego, na przykład *CDN-Endpoint-123*. Ta nazwa musi być globalnie unikatowa na platformie Azure, ponieważ umożliwia dostęp do buforowanych zasobów przy użyciu adresu URL _ &lt; punktu końcowego name &gt; _. azureedge.NET. |
+    | **Profil CDN** | Wybierz pozycję **Utwórz nową** i wprowadź nazwę profilu, na przykład *CDN-profile-123* . Profil jest kolekcją punktów końcowych. |
+    | **Warstwa cenowa** | Wybierz jedną z opcji **standardowych** , takich jak **standardowa firma Microsoft** . |
+    | **Nazwa punktu końcowego usługi CDN** | Wprowadź nazwę hosta punktu końcowego, na przykład *CDN-Endpoint-123* . Ta nazwa musi być globalnie unikatowa na platformie Azure, ponieważ umożliwia dostęp do buforowanych zasobów przy użyciu adresu URL _&lt; punktu końcowego name &gt;_ . azureedge.NET. |
     | **Nazwa hosta źródła** | Domyślnie nowy punkt końcowy CDN używa jako nazwy serwera pochodzenia nazwy hosta konta magazynu. |
 
-1. Wybierz przycisk **Utwórz**. Po utworzeniu punktu końcowego zostanie on wyświetlony na liście punktów końcowych.
+1. Wybierz pozycję **Utwórz** . Po utworzeniu punktu końcowego zostanie on wyświetlony na liście punktów końcowych.
 
     ![Przechowywanie nowego punktu końcowego usługi CDN](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
@@ -95,7 +95,7 @@ Jeśli chcesz udzielić ograniczonego dostępu do prywatnych kontenerów magazyn
 
 Aby uzyskać dostęp do zawartości w pamięci podręcznej w sieci CDN, użyj adresu URL sieci CDN w portalu. Adres buforowanego obiektu blob ma następujący format:
 
-http://<*punkt końcowy Name* \> . azureedge.NET/<*myPublicContainer* \> /< *blobname*\>
+http://< *punkt końcowy Name* \> . azureedge.NET/< *myPublicContainer* \> /< *blobname*\>
 
 > [!NOTE]
 > Po włączeniu dostępu usługi Azure CDN do konta magazynu wszystkie publicznie dostępne obiekty kwalifikują się do buforowania POP w sieci CDN. Jeśli zmodyfikujesz obiekt, który jest aktualnie w pamięci podręcznej w sieci CDN, nowa zawartość nie będzie dostępna za pośrednictwem usługi Azure CDN, dopóki usługa Azure CDN nie odświeży zawartości po wygaśnięciu okresu czasu wygaśnięcia zawartości w pamięci podręcznej.
@@ -104,7 +104,7 @@ http://<*punkt końcowy Name* \> . azureedge.NET/<*myPublicContainer* \> /< *blo
 
 Jeśli nie chcesz już buforować obiektu w usłudze Azure CDN, możesz wykonać jedną z następujących czynności:
 
-- Ustaw kontener jako prywatny, a nie publiczny. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](../storage/blobs/storage-manage-access-to-resources.md).
+- Ustaw kontener jako prywatny, a nie publiczny. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](../storage/blobs/anonymous-read-access-configure.md).
 - Wyłącz lub usuń punkt końcowy usługi CDN przy użyciu witryny Azure Portal.
 - Zmodyfikuj usługę hostowaną w taki sposób, aby nie odpowiadała już na żądania dla obiektu.
 
@@ -116,7 +116,7 @@ W poprzednich krokach utworzono profil i punkt końcowy usługi CDN w grupie zas
 
 1. Z menu po lewej stronie w Azure Portal wybierz pozycję **grupy zasobów** , a następnie wybierz pozycję * CDNQuickstart-RG * *.
 
-2. Na stronie **Grupa zasobów** wybierz pozycję **Usuń grupę zasobów**, w polu tekstowym wpisz *CDNQuickstart-RG* , a następnie wybierz pozycję **Usuń**.
+2. Na stronie **Grupa zasobów** wybierz pozycję **Usuń grupę zasobów** , w polu tekstowym wpisz *CDNQuickstart-RG* , a następnie wybierz pozycję **Usuń** .
 
     Ta akcja spowoduje usunięcie grupy zasobów, profilu i punktu końcowego, które utworzono w tym przewodniku Szybki start.
 

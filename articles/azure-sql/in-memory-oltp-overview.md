@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 43527e8e5860e0bbfc50643210156be943d2f174
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48b74a5507eb4a1d48b7bf70133e476a30fe8169
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85985194"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779955"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optymalizowanie wydajności przy użyciu technologii znajdujących się w pamięci w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Technologie w pamięci mogą zwiększyć wydajność tych obciążeń, zachowuj�
 
 Azure SQL Database i wystąpienie zarządzane SQL platformy Azure mają następujące technologie w pamięci:
 
-- Przetwarzanie wsadowe *[w pamięci](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* zwiększa liczbę transakcji na sekundę i zmniejsza opóźnienia w przetwarzaniu transakcji. Scenariusze korzystające z In-Memory OLTP to: przetwarzanie transakcji o wysokiej przepływności, takie jak handel i granie, pozyskiwanie danych z zdarzeń lub urządzeń IoT, buforowanie, ładowanie danych i tymczasowe tabele i zmienne tabeli.
+- Przetwarzanie wsadowe *[w pamięci](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* zwiększa liczbę transakcji na sekundę i zmniejsza opóźnienia w przetwarzaniu transakcji. Scenariusze korzystające z In-Memory OLTP to: przetwarzanie transakcji o wysokiej przepływności, takie jak handel i granie, pozyskiwanie danych z zdarzeń lub urządzeń IoT, buforowanie, ładowanie danych i tymczasowe tabele i zmienne tabeli.
 - *Klastrowane indeksy magazynu kolumn* zmniejszają rozmiar magazynu (do 10 razy) i zwiększają wydajność raportów i kwerend analitycznych. Można jej używać z tabelami faktów w składnic danych, aby zmieścić więcej danych w bazie danych i zwiększyć wydajność. Ponadto można użyć jej z danymi historycznymi w operacyjnej bazie danych, aby archiwizować i mieć możliwość wykonywania zapytań do 10 razy więcej danych.
 - *Nieklastrowane indeksy magazynu kolumn* dla HTAP ułatwiają uzyskiwanie wglądu w dane biznesowe w czasie rzeczywistym za pomocą zapytań bezpośrednio do operacyjnej bazy danych bez konieczności uruchamiania kosztownych procesów wyodrębniania, przekształcania i ładowania (ETL) i poczekaj na wypełnienie hurtowni danych. Nieklastrowane indeksy magazynu kolumn umożliwiają szybkie wykonywanie zapytań analitycznych w bazie danych OLTP, jednocześnie zmniejszając wpływ na obciążenie operacyjne.
 - *Klastrowane indeksy magazynu kolumn* dla usługi HTAP umożliwiają szybkie przetwarzanie transakcji i *współbieżne* uruchamianie zapytań analitycznych na tych samych danych.
@@ -93,7 +93,7 @@ Krótki przewodnik po In-Memory OLTP: szybki [Start 1: In-Memory technologii OLT
 Szczegółowe wideo dotyczące technologii:
 
 - [OLTP w pamięci](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (który zawiera demonstrację korzyści z wydajności i kroków, aby odtworzyć te wyniki samodzielnie)
-- [Wideo OLTP w pamięci: co to jest i kiedy go używać](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [Wideo OLTP w pamięci: co to jest i kiedy go używać](/archive/blogs/sqlserverstorageengine/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it)
 
 Istnieje programistyczny sposób, aby zrozumieć, czy dana baza danych obsługuje In-Memory OLTP. Można wykonać następujące zapytanie w języku Transact-SQL:
 
@@ -101,7 +101,7 @@ Istnieje programistyczny sposób, aby zrozumieć, czy dana baza danych obsługuj
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
-Jeśli zapytanie zwróci wartość **1**, In-Memory OLTP jest obsługiwane w tej bazie danych. Następujące zapytania identyfikują wszystkie obiekty, które należy usunąć przed obniżeniem poziomu bazy danych do Ogólnego przeznaczenia, Standard lub Basic:
+Jeśli zapytanie zwróci wartość **1** , In-Memory OLTP jest obsługiwane w tej bazie danych. Następujące zapytania identyfikują wszystkie obiekty, które należy usunąć przed obniżeniem poziomu bazy danych do Ogólnego przeznaczenia, Standard lub Basic:
 
 ```sql
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Rozmiar danych i limit pamięci dla In-Memory OLTP
 
-In-Memory OLTP obejmuje tabele zoptymalizowane pod kątem pamięci, które są używane do przechowywania danych użytkownika. Te tabele są wymagane do dopasowania do pamięci. Ze względu na to, że zarządzasz pamięcią bezpośrednio w SQL Database, mamy koncepcji przydziału danych użytkownika. Ten pomysł jest określany mianem *magazynu OLTP w pamięci*.
+In-Memory OLTP obejmuje tabele zoptymalizowane pod kątem pamięci, które są używane do przechowywania danych użytkownika. Te tabele są wymagane do dopasowania do pamięci. Ze względu na to, że zarządzasz pamięcią bezpośrednio w SQL Database, mamy koncepcji przydziału danych użytkownika. Ten pomysł jest określany mianem *magazynu OLTP w pamięci* .
 
 Każda obsługiwana warstwa cenowa pojedynczej bazy danych i każda warstwa cenowa puli elastycznej zawiera pewną ilość In-Memory magazynu OLTP.
 
@@ -149,7 +149,7 @@ Jednak obniżenie warstwy może mieć negatywny wpływ na bazę danych. Ten wpł
 
 Przed obniżeniem poziomu bazy danych do Ogólnego przeznaczenia, Standard lub Basic, Usuń wszystkie tabele zoptymalizowane pod kątem pamięci i typy tabel, a także wszystkie natywnie skompilowane moduły T-SQL.
 
-*Skalowanie zasobów w warstwie krytyczne dla działania firmy*: dane w tabelach zoptymalizowanych pod kątem pamięci muszą mieścić się w In-Memory magazynie OLTP, który jest skojarzony z warstwą bazy danych lub wystąpienia zarządzanego, lub jest dostępny w puli elastycznej. Próba skalowania w dół warstwy lub przeniesienie bazy danych do puli, która nie ma wystarczającej ilości dostępnego In-Memory magazynie OLTP, operacja kończy się niepowodzeniem.
+*Skalowanie zasobów w warstwie krytyczne dla działania firmy* : dane w tabelach zoptymalizowanych pod kątem pamięci muszą mieścić się w In-Memory magazynie OLTP, który jest skojarzony z warstwą bazy danych lub wystąpienia zarządzanego, lub jest dostępny w puli elastycznej. Próba skalowania w dół warstwy lub przeniesienie bazy danych do puli, która nie ma wystarczającej ilości dostępnego In-Memory magazynie OLTP, operacja kończy się niepowodzeniem.
 
 ## <a name="in-memory-columnstore"></a>Magazyn kolumn w pamięci
 
@@ -164,13 +164,13 @@ Istnieją dwa typy modeli magazynu kolumn, za pomocą których można organizowa
 
 Szczegółowy film dotyczący technologii:
 
-- [Indeks magazynu kolumn: wideo analizy w pamięci z zapłonem 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Indeks magazynu kolumn: wideo analizy w pamięci z zapłonem 2016](/archive/blogs/sqlserverstorageengine/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Rozmiar danych i magazyn dla indeksów magazynu kolumn
 
 Indeksy magazynu kolumn nie są wymagane do dopasowania do pamięci. W związku z tym jedynym limitem rozmiaru indeksów jest maksymalny całkowity rozmiar bazy danych, który jest udokumentowany w [modelu zakupu opartego na](database/service-tiers-dtu.md) jednostkach DTU oraz w artykułach [modelu zakupu opartego na rdzeń wirtualny](database/service-tiers-vcore.md) .
 
-W przypadku korzystania z klastrowanych indeksów magazynu kolumn, kompresja kolumnowa jest używana dla magazynu tabeli podstawowej. Ta kompresja może znacznie zmniejszyć rozmiar przestrzeni dyskowej danych użytkownika, co oznacza, że można zmieścić więcej danych w bazie danych. Kompresję można również zwiększyć przy użyciu [kompresji archiwalnej](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression). Ilość kompresji, którą można osiągnąć, zależy od rodzaju danych, ale 10 razy kompresja nie jest nietypowa.
+W przypadku korzystania z klastrowanych indeksów magazynu kolumn, kompresja kolumnowa jest używana dla magazynu tabeli podstawowej. Ta kompresja może znacznie zmniejszyć rozmiar przestrzeni dyskowej danych użytkownika, co oznacza, że można zmieścić więcej danych w bazie danych. Kompresję można również zwiększyć przy użyciu [kompresji archiwalnej](/sql/relational-databases/data-compression/data-compression#using-columnstore-and-columnstore-archive-compression). Ilość kompresji, którą można osiągnąć, zależy od rodzaju danych, ale 10 razy kompresja nie jest nietypowa.
 
 Na przykład jeśli masz bazę danych o maksymalnym rozmiarze wynoszącym 1 terabajt (TB), a następnie przeniesiesz 10 razy kompresję przy użyciu indeksów magazynu kolumn, możesz dopasować łącznie 10 TB danych użytkownika do bazy danych.
 
@@ -189,29 +189,29 @@ Jeśli masz **klastrowany** indeks magazynu kolumn, cała tabela staną się nie
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szybki Start 1: In-Memory technologii OLTP w celu uzyskania szybszej wydajności T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Szybki Start 1: In-Memory technologii OLTP w celu uzyskania szybszej wydajności T-SQL](/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)
 - [Używanie In-Memory OLTP w istniejącej aplikacji Azure SQL](in-memory-oltp-configure.md)
 - [Monitoruj In-Memory magazyn OLTP](in-memory-oltp-monitor-space.md) dla In-Memory OLTP
 - [Próbowanie funkcji w pamięci](in-memory-sample.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 ### <a name="deeper-information"></a>Dokładniejsze informacje
 
 - [Dowiedz się, jak kworum podwaja obciążenie bazy danych przy jednoczesnym obniżeniu liczby jednostek DTU o 70% dzięki In-Memory OLTP w SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 - [Wpis w blogu OLTP w pamięci](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
-- [Dowiedz się więcej o In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
-- [Informacje o indeksach magazynu kolumn](https://msdn.microsoft.com/library/gg492088.aspx)
-- [Informacje o analizie operacyjnej w czasie rzeczywistym](https://msdn.microsoft.com/library/dn817827.aspx)
-- Zapoznaj się [z typowymi wzorcami obciążeń i zagadnieniami](https://msdn.microsoft.com/library/dn673538.aspx) dotyczącymi migracji (które opisują wzorce obciążeń, w których In-Memory OLTP często zapewnia znaczny wzrost wydajności)
+- [Dowiedz się więcej o In-Memory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
+- [Informacje o indeksach magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [Informacje o analizie operacyjnej w czasie rzeczywistym](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
+- Zapoznaj się [z typowymi wzorcami obciążeń i zagadnieniami](/previous-versions/dn673538(v=msdn.10)) dotyczącymi migracji (które opisują wzorce obciążeń, w których In-Memory OLTP często zapewnia znaczny wzrost wydajności)
 
 ### <a name="application-design"></a>Projekt aplikacji
 
-- [Przetwarzanie OLTP w pamięci (Optymalizacja w pamięci)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [Przetwarzanie OLTP w pamięci (Optymalizacja w pamięci)](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 - [Używanie In-Memory OLTP w istniejącej aplikacji Azure SQL](in-memory-oltp-configure.md)
 
 ### <a name="tools"></a>Narzędzia
 
-- [Azure Portal](https://portal.azure.com/)
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Witryna Azure Portal](https://portal.azure.com/)
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt)

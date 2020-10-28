@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 65b3d5a29028214a52e6b26430472394c91c6f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81c92b6ef5bdf89391364bc238f55200eb3679f6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887062"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778173"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorowanie kondycji zasobów usługi Azure CDN
   
-Azure CDN Kondycja zasobów jest podzbiorem [usługi Azure Resource Health](../resource-health/resource-health-overview.md).  Usługa Azure Resource Health służy do monitorowania kondycji zasobów sieci CDN i uzyskiwania odpowiednich wskazówek dotyczących rozwiązywania problemów.
+Azure CDN Kondycja zasobów jest podzbiorem [usługi Azure Resource Health](../service-health/resource-health-overview.md).  Usługa Azure Resource Health służy do monitorowania kondycji zasobów sieci CDN i uzyskiwania odpowiednich wskazówek dotyczących rozwiązywania problemów.
 
 >[!IMPORTANT] 
 >Azure CDN kondycji zasobów obecnie konta dotyczące kondycji globalnych funkcji dostarczania i interfejsu API usługi CDN.  Azure CDN kondycji zasobów nie weryfikuje poszczególnych punktów końcowych usługi CDN.
@@ -38,7 +38,7 @@ Azure CDN Kondycja zasobów jest podzbiorem [usługi Azure Resource Health](../r
 
     ![Przycisk Ustawienia](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. W obszarze *Pomoc techniczna i rozwiązywanie problemów*kliknij pozycję **kondycja zasobu**.
+3. W obszarze *Pomoc techniczna i rozwiązywanie problemów* kliknij pozycję **kondycja zasobu** .
 
     ![Kondycja zasobów usługi CDN](./media/cdn-resource-health/cdn-resource-health3.png)
 
@@ -51,7 +51,7 @@ Azure CDN Kondycja zasobów jest podzbiorem [usługi Azure Resource Health](../r
 
 Stany dotyczące kondycji zasobów Azure CDN można znaleźć poniżej.
 
-|Wiadomość | Zalecana akcja |
+|Wiadomość | Zalecana akcja |
 |---|---|
 |Co najmniej jeden punkt końcowy sieci CDN mógł zostać zatrzymany, usunięty lub nieprawidłowo skonfigurowany | Co najmniej jeden punkt końcowy sieci CDN mógł zostać zatrzymany, usunięty lub nieprawidłowo skonfigurowany.|
 |Niestety, usługa zarządzania sieci CDN jest aktualnie niedostępna | Wróć tutaj, aby sprawdzić aktualizacje stanu; Jeśli problem będzie się powtarzać po upływie oczekiwanego czasu rozwiązania problemu, skontaktuj się z pomocą techniczną.|
@@ -62,6 +62,6 @@ Niestety, występują problemy z niektórymi z naszych dostawców sieci CDN | Wr
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zapoznaj się z omówieniem usługi Azure Resource Health](../resource-health/resource-health-overview.md)
+- [Zapoznaj się z omówieniem usługi Azure Resource Health](../service-health/resource-health-overview.md)
 - [Rozwiązywanie problemów z kompresją usługi CDN](./cdn-troubleshoot-compression.md)
 - [Rozwiązywanie problemów z błędami 404](./cdn-troubleshoot-endpoint.md)

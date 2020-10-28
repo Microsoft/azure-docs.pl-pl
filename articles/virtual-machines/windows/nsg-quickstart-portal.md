@@ -1,18 +1,18 @@
 ---
 title: Otwieranie portów do maszyny wirtualnej przy użyciu Azure Portal
-description: Dowiedz się, jak otworzyć port/utworzyć punkt końcowy na maszynie wirtualnej z systemem Windows przy użyciu Azure Portal
+description: Dowiedz się, jak otworzyć port/utworzyć punkt końcowy na maszynie wirtualnej przy użyciu Azure Portal
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 06f682bc697f93d436e2cd71b161c01e1360944a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1c3c39dd8c907f780876f97f9703857653d4e359
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973992"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777762"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Jak otworzyć porty na maszynie wirtualnej przy użyciu Azure Portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -23,9 +23,9 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 
-1. Wyszukaj i wybierz grupę zasobów dla maszyny wirtualnej, wybierz pozycję **Dodaj**, a następnie wyszukaj i wybierz pozycję **sieciowa Grupa zabezpieczeń**.
+1. Wyszukaj i wybierz grupę zasobów dla maszyny wirtualnej, wybierz pozycję **Dodaj** , a następnie wyszukaj i wybierz pozycję **sieciowa Grupa zabezpieczeń** .
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Utwórz** .
 
     Zostanie otwarte okno **Tworzenie sieciowej grupy zabezpieczeń** .
 
@@ -41,15 +41,15 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 1. Wybierz nową sieciową grupę zabezpieczeń. 
 
-1. Z menu po lewej stronie wybierz pozycję **reguły zabezpieczeń ruchu przychodzącego** , a następnie wybierz pozycję **Dodaj**.
+1. Z menu po lewej stronie wybierz pozycję **reguły zabezpieczeń ruchu przychodzącego** , a następnie wybierz pozycję **Dodaj** .
 
     ![Przełącz na stronę zaawansowaną](./media/nsg-quickstart-portal/advanced.png)
 
 1. Na stronie **Dodaj regułę zabezpieczeń dla ruchu przychodzącego** Przełącz na **Advanced** pozycję Zaawansowane **w górnej** części strony. 
 
-1. Wybierz wspólną **usługę** z menu rozwijanego, na przykład **http**. Możesz również wybrać opcję **niestandardowe** , jeśli chcesz podać konkretny port. 
+1. Wybierz wspólną **usługę** z menu rozwijanego, na przykład **http** . Możesz również wybrać opcję **niestandardowe** , jeśli chcesz podać konkretny port. 
 
-1. Opcjonalnie można zmienić **priorytet** lub **nazwę**. Priorytet ma wpływ na kolejność stosowania reguł: mniejsza wartość liczbowa, przed zastosowaniem reguły.
+1. Opcjonalnie można zmienić **priorytet** lub **nazwę** . Priorytet ma wpływ na kolejność stosowania reguł: mniejsza wartość liczbowa, przed zastosowaniem reguły.
 
 1. Wybierz pozycję **Dodaj** , aby utworzyć regułę.
 
@@ -57,13 +57,13 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 Ostatni krok to skojarzenie sieciowej grupy zabezpieczeń z podsiecią lub określonym interfejsem sieciowym. Na potrzeby tego przykładu zostanie skojarzona sieciowa Grupa zabezpieczeń z podsiecią. 
 
-1. Z menu po lewej stronie wybierz pozycję **podsieci** , a następnie wybierz pozycję **Skojarz**.
+1. Z menu po lewej stronie wybierz pozycję **podsieci** , a następnie wybierz pozycję **Skojarz** .
 
 1. Wybierz sieć wirtualną, a następnie wybierz odpowiednią podsieć.
 
     ![Kojarzenie sieciowej grupy zabezpieczeń z sieciami wirtualnymi](./media/nsg-quickstart-portal/select-vnet-subnet.png)
 
-1. Gdy wszystko będzie gotowe, wybierz przycisk **OK**.
+1. Gdy wszystko będzie gotowe, wybierz przycisk **OK** .
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 

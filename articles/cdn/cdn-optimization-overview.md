@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 0710f2f31510ae299fafe89dc1798f40e325e8b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c7e4ff05307452da67c37b23bf492db8855e2ef
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192597"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778377"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optymalizuj Azure CDN dla typu dostarczania zawartości
 
@@ -39,7 +39,7 @@ Ten artykuł zawiera omówienie różnych funkcji optymalizacji i korzystania z 
 * [Ogólne dostarczanie w sieci Web](#general-web-delivery). Ta optymalizacja służy również do przesyłania strumieniowego multimediów i dużego pobierania plików.
 
 > [!NOTE]
-> Przyspieszanie witryn dynamicznych od firmy Microsoft jest oferowane przez [usługę Azure front-drzwi](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+> Przyspieszanie witryn dynamicznych od firmy Microsoft jest oferowane przez [usługę Azure front-drzwi](../frontdoor/front-door-overview.md).
 
 **Azure CDN Standard from Verizon** i **Azure CDN Premium z profilów Verizon** obsługują następujące optymalizacje:
 
@@ -70,7 +70,7 @@ Podczas tworzenia punktu końcowego usługi CDN wybierz typ optymalizacji, któr
 
     ![Wybór punktu końcowego](./media/cdn-optimization-overview/01_Akamai.png)
 
-2. W obszarze Ustawienia wybierz pozycję **Optymalizacja**. Następnie wybierz typ z listy rozwijanej **zoptymalizowane dla** .
+2. W obszarze Ustawienia wybierz pozycję **Optymalizacja** . Następnie wybierz typ z listy rozwijanej **zoptymalizowane dla** .
 
     ![Optymalizacja i wybór typu](./media/cdn-optimization-overview/02_Select.png)
 
@@ -95,7 +95,7 @@ Przesyłanie strumieniowe multimediów jest zależne od czasu, ponieważ pakiety
 
 Ten scenariusz jest typowy dla klientów usługi Azure Media Service. Gdy korzystasz z usługi Azure Media Services, uzyskasz pojedynczy punkt końcowy przesyłania strumieniowego, który może być używany zarówno w przypadku przesyłania strumieniowego na żywo, jak i na żądanie. W tym scenariuszu klienci nie muszą przełączać się do innego punktu końcowego, gdy zmieniają się z żywo na przesyłanie strumieniowe na żądanie. Ogólna Optymalizacja przesyłania strumieniowego multimediów obsługuje ten typ scenariusza.
 
-W przypadku **standardu Azure CDN firmy Microsoft**, **Azure CDN Standard from Verizon**i **Azure CDN Premium z Verizon**, użyj ogólnego typu optymalizacji dostarczania w sieci Web, aby dostarczyć ogólną zawartość multimediów strumieniowych.
+W przypadku **standardu Azure CDN firmy Microsoft** , **Azure CDN Standard from Verizon** i **Azure CDN Premium z Verizon** , użyj ogólnego typu optymalizacji dostarczania w sieci Web, aby dostarczyć ogólną zawartość multimediów strumieniowych.
 
 Aby uzyskać więcej informacji na temat optymalizacji przesyłania strumieniowego multimediów, zobacz [Optymalizacja przesyłania strumieniowego multimediów](cdn-media-streaming-optimization.md).
 
@@ -103,7 +103,7 @@ Aby uzyskać więcej informacji na temat optymalizacji przesyłania strumieniowe
 
 Optymalizacja przesyłania strumieniowego multimediów wideo na żądanie usprawnia przesyłanie strumieniowe zawartości wideo na żądanie. Jeśli używasz punktu końcowego do przesyłania strumieniowego wideo na żądanie, Użyj tej opcji.
 
-W przypadku **Azure CDN standard firmy Microsoft**, **Azure CDN Standard from Verizon**i **Azure CDN Premium z profilów Verizon** , użyj ogólnego typu optymalizacji dostarczania w sieci Web, aby dostarczać zawartość multimediów przesyłanych strumieniowo na żądanie wideo.
+W przypadku **Azure CDN standard firmy Microsoft** , **Azure CDN Standard from Verizon** i **Azure CDN Premium z profilów Verizon** , użyj ogólnego typu optymalizacji dostarczania w sieci Web, aby dostarczać zawartość multimediów przesyłanych strumieniowo na żądanie wideo.
 
 Aby uzyskać więcej informacji na temat optymalizacji przesyłania strumieniowego multimediów, zobacz [Optymalizacja przesyłania strumieniowego multimediów](cdn-media-streaming-optimization.md).
 
@@ -115,22 +115,19 @@ Aby uzyskać więcej informacji na temat optymalizacji przesyłania strumieniowe
 
 W przypadku **Azure CDN standardowych z profilów Akamai** pliki o dużym rozmiarze są zoptymalizowane pod kątem zawartości większej niż 10 MB. Jeśli średni rozmiar pliku jest mniejszy niż 10 MB, użyj ogólnego dostarczania w sieci Web. Jeśli średnie rozmiary plików są stale większe niż 10 MB, może być bardziej wydajne, aby utworzyć oddzielny punkt końcowy dla dużych plików. Na przykład oprogramowanie układowe lub aktualizacje oprogramowania zwykle są dużymi plikami. Aby dostarczać pliki o rozmiarze większym niż 1,8 GB, wymagana jest optymalizacja pobierania plików o dużym rozmiarze.
 
-W przypadku **standardu Azure CDN firmy Microsoft**, **Azure CDN Standard from Verizon**i **Azure CDN Premium z profilów Verizon** , użyj ogólnego typu optymalizacji dostarczania w sieci Web, aby dostarczyć zawartość pobierania dużych plików. Nie ma ograniczenia dotyczącego rozmiaru pobierania plików.
+W przypadku **standardu Azure CDN firmy Microsoft** , **Azure CDN Standard from Verizon** i **Azure CDN Premium z profilów Verizon** , użyj ogólnego typu optymalizacji dostarczania w sieci Web, aby dostarczyć zawartość pobierania dużych plików. Nie ma ograniczenia dotyczącego rozmiaru pobierania plików.
 
 Aby uzyskać więcej informacji na temat optymalizacji dużych plików, zobacz [Optymalizacja dużych plików](cdn-large-file-optimization.md).
 
 ### <a name="dynamic-site-acceleration"></a>Przyspieszanie witryn dynamicznych
 
- Przyspieszanie witryn dynamicznych (DSA) jest dostępne dla **Azure CDN Standard od Akamai**, **Azure CDN Standard z Verizon**i **Azure CDN Premium z profilów Verizon** . Ta optymalizacja obejmuje dodatkową opłatę za korzystanie z programu; Aby uzyskać więcej informacji, zobacz [Cennik usługi Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
+ Przyspieszanie witryn dynamicznych (DSA) jest dostępne dla **Azure CDN Standard od Akamai** , **Azure CDN Standard z Verizon** i **Azure CDN Premium z profilów Verizon** . Ta optymalizacja obejmuje dodatkową opłatę za korzystanie z programu; Aby uzyskać więcej informacji, zobacz [Cennik usługi Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
 > [!NOTE]
-> Przyspieszanie witryn dynamicznych od firmy Microsoft jest oferowane przez [usługę Azure Predrzwiczki](https://docs.microsoft.com/azure/frontdoor/front-door-overview) , która jest globalną usługą [emisji](https://en.wikipedia.org/wiki/Anycast) pojedynczej korzystającej z prywatnej sieci globalnej firmy Microsoft do dostarczania obciążeń aplikacji.
+> Przyspieszanie witryn dynamicznych od firmy Microsoft jest oferowane przez [usługę Azure Predrzwiczki](../frontdoor/front-door-overview.md) , która jest globalną usługą [emisji](https://en.wikipedia.org/wiki/Anycast) pojedynczej korzystającej z prywatnej sieci globalnej firmy Microsoft do dostarczania obciążeń aplikacji.
 
 Agent DSA zawiera różne techniki, które korzystają z opóźnienia i wydajności zawartości dynamicznej. Techniki obejmują optymalizację tras i sieci, optymalizację protokołu TCP i wiele więcej. 
 
 Ta optymalizacja umożliwia przyspieszenie aplikacji sieci Web, która zawiera wiele odpowiedzi, które nie są buforowane. Przykładami są wyniki wyszukiwania, transakcje wyewidencjonowania lub dane w czasie rzeczywistym. Można nadal używać podstawowych możliwości buforowania Azure CDN w przypadku danych statycznych. 
 
 Aby uzyskać więcej informacji na temat przyspieszania witryn dynamicznych, zobacz [przyspieszanie witryn dynamicznych](cdn-dynamic-site-acceleration.md).
-
-
-

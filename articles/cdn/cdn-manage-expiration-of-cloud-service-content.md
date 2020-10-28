@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: 562d5010458fc938d9d62fed5d0d2c8284f2055d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fefa19e8dfee295d34231d36df079b80d1e82768
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936949"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778586"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Zarządzanie wygasaniem zawartości internetowej w usłudze Azure CDN
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "88936949"
 
 Pliki z publicznie dostępnych źródeł serwerów sieci Web mogą być buforowane w usłudze Azure Content Delivery Network (CDN), dopóki nie upłynie czas wygaśnięcia (TTL). Czas wygaśnięcia jest określany przez `Cache-Control` nagłówek w odpowiedzi HTTP z serwera pochodzenia. W tym artykule opisano sposób ustawiania `Cache-Control` nagłówków dla Web Apps funkcji Microsoft Azure App Service, Cloud Services platformy Azure, aplikacji ASP.NET oraz witryn Internet Information Services (IIS), które są skonfigurowane w podobny sposób. Nagłówek można ustawić przy `Cache-Control` użyciu plików konfiguracyjnych lub programowo. 
 
-Ustawienia pamięci podręcznej można również kontrolować przy użyciu Azure Portal przez ustawienie [reguł buforowania usługi CDN](cdn-caching-rules.md). Jeśli utworzysz co najmniej jedną regułę buforowania i ustawisz zachowanie buforowania w celu **przesłonięcia** lub **obejścia pamięci podręcznej**, ustawienia buforowania podane w tym artykule zostaną zignorowane. Aby uzyskać informacje na temat ogólnych pojęć dotyczących buforowania, zobacz [jak działa buforowanie](cdn-how-caching-works.md).
+Ustawienia pamięci podręcznej można również kontrolować przy użyciu Azure Portal przez ustawienie [reguł buforowania usługi CDN](cdn-caching-rules.md). Jeśli utworzysz co najmniej jedną regułę buforowania i ustawisz zachowanie buforowania w celu **przesłonięcia** lub **obejścia pamięci podręcznej** , ustawienia buforowania podane w tym artykule zostaną zignorowane. Aby uzyskać informacje na temat ogólnych pojęć dotyczących buforowania, zobacz [jak działa buforowanie](cdn-how-caching-works.md).
 
 > [!TIP]
 > Możesz ustawić brak czasu wygaśnięcia dla pliku. W takim przypadku Azure CDN automatycznie stosuje domyślny czas wygaśnięcia o wartości siedem dni, chyba że w Azure Portal skonfigurowano reguły buforowania. Ten domyślny czas TTL dotyczy tylko optymalizacji ogólnego dostarczania w sieci Web. W przypadku optymalizacji dużych plików domyślny czas wygaśnięcia wynosi jeden dzień, a w przypadku optymalizacji przesyłania strumieniowego multimediów domyślny czas wygaśnięcia wynosi jeden rok.
@@ -42,46 +42,46 @@ Ustawienia pamięci podręcznej można również kontrolować przy użyciu Azure
 Preferowaną metodą ustawiania nagłówka serwera sieci Web `Cache-Control` jest użycie reguł buforowania w Azure Portal. Aby uzyskać więcej informacji na temat reguł buforowania usługi CDN, zobacz [kontrola Azure CDN buforowania przy użyciu reguł buforowania](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Reguły buforowania są dostępne tylko dla **Azure CDN Standard from Verizon** i **Azure CDN Standard from Akamai** profile. W przypadku **Azure CDN Premium z profilów Verizon** należy użyć [aparatu reguł Azure CDN](cdn-rules-engine.md) w portalu **zarządzania** , aby korzystać z podobnych funkcji.
+> Reguły buforowania są dostępne tylko dla **Azure CDN Standard from Verizon** i **Azure CDN Standard from Akamai** profile. W przypadku **Azure CDN Premium z profilów Verizon** należy użyć [aparatu reguł Azure CDN](./cdn-verizon-premium-rules-engine.md) w portalu **zarządzania** , aby korzystać z podobnych funkcji.
 
-**Aby przejść do strony reguły buforowania usługi CDN**:
+**Aby przejść do strony reguły buforowania usługi CDN** :
 
 1. W Azure Portal wybierz profil CDN, a następnie wybierz punkt końcowy dla serwera sieci Web.
 
-1. W lewym okienku w obszarze Ustawienia zaznacz pole **Reguły buforowania**.
+1. W lewym okienku w obszarze Ustawienia zaznacz pole **Reguły buforowania** .
 
    ![Przycisk reguły buforowania usługi CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
-   Zostanie wyświetlona strona **Reguły buforowania**.
+   Zostanie wyświetlona strona **Reguły buforowania** .
 
    ![Strona buforowania usługi CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
 **Aby ustawić nagłówki Cache-Control serwera sieci Web przy użyciu globalnych zasad buforowania:**
 
-1. W obszarze **globalne reguły buforowania**Ustaw **zachowanie buforowania ciągu zapytania** , aby **zignorować ciągi zapytań** i ustawić **zachowanie buforowania** w celu **przesłonięcia**.
+1. W obszarze **globalne reguły buforowania** Ustaw **zachowanie buforowania ciągu zapytania** , aby **zignorować ciągi zapytań** i ustawić **zachowanie buforowania** w celu **przesłonięcia** .
       
-1. W przypadku **czasu wygaśnięcia pamięci podręcznej**wprowadź 3600 w polu **sekundy** lub 1 w polu **godziny** . 
+1. W przypadku **czasu wygaśnięcia pamięci podręcznej** wprowadź 3600 w polu **sekundy** lub 1 w polu **godziny** . 
 
    ![Przykład globalnych zasad buforowania usługi CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    Ta Globalna reguła buforowania ustawia czas trwania pamięci podręcznej o jedną godzinę i ma wpływ na wszystkie żądania do punktu końcowego. Zastępuje wszystkie `Cache-Control` nagłówki lub `Expires` http, które są wysyłane przez serwer pochodzenia określony przez punkt końcowy.   
 
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz** .
 
 **Aby ustawić nagłówki Cache-Control pliku serwera sieci Web przy użyciu niestandardowych reguł buforowania:**
 
-1. W obszarze **niestandardowe reguły buforowania**Utwórz dwa warunki dopasowywania:
+1. W obszarze **niestandardowe reguły buforowania** Utwórz dwa warunki dopasowywania:
 
-     a. W przypadku pierwszego warunku dopasowywania Ustaw **warunek dopasowania** na wartość **Path** , a następnie wprowadź `/webfolder1/*` dla **wartości dopasowywania**. Ustaw **zachowanie buforowania** w celu **przesłonięcia** i wprowadź 4 w polu **godziny** .
+     a. W przypadku pierwszego warunku dopasowywania Ustaw **warunek dopasowania** na wartość **Path** , a następnie wprowadź `/webfolder1/*` dla **wartości dopasowywania** . Ustaw **zachowanie buforowania** w celu **przesłonięcia** i wprowadź 4 w polu **godziny** .
 
-     b. W przypadku drugiego warunku dopasowywania Ustaw **warunek dopasowania** na wartość **Path** i wprowadź `/webfolder1/file1.txt` dla **wartości dopasowywania**. Ustaw **zachowanie buforowania** w celu **przesłonięcia** i wprowadź wartość 2 w polu **godziny** .
+     b. W przypadku drugiego warunku dopasowywania Ustaw **warunek dopasowania** na wartość **Path** i wprowadź `/webfolder1/file1.txt` dla **wartości dopasowywania** . Ustaw **zachowanie buforowania** w celu **przesłonięcia** i wprowadź wartość 2 w polu **godziny** .
 
     ![Przykład niestandardowych reguł buforowania usługi CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
     Pierwsza Niestandardowa reguła buforowania ustawia czas trwania pamięci podręcznej wynoszący cztery godziny dla wszystkich plików w `/webfolder1` folderze na serwerze źródłowym określonym przez punkt końcowy. Druga reguła zastępuje pierwszą regułę `file1.txt` tylko dla pliku i ustawia dla niej okres istnienia pamięci podręcznej wynoszący 2 godziny.
 
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz** .
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Ustawianie nagłówków Cache-Control przy użyciu plików konfiguracji
@@ -129,7 +129,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## <a name="testing-the-cache-control-header"></a>Testowanie nagłówka Cache-Control
-Można łatwo zweryfikować ustawienia czasu wygaśnięcia zawartości sieci Web. Za pomocą [narzędzi deweloperskich](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)przeglądarki Sprawdź, czy zawartość sieci Web zawiera `Cache-Control` Nagłówek odpowiedzi. Do sprawdzenia nagłówków odpowiedzi można także użyć narzędzia, takiego jak **Wget**, [Poster](https://www.getpostman.com/)lub [programu Fiddler](https://www.telerik.com/fiddler) .
+Można łatwo zweryfikować ustawienia czasu wygaśnięcia zawartości sieci Web. Za pomocą [narzędzi deweloperskich](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)przeglądarki Sprawdź, czy zawartość sieci Web zawiera `Cache-Control` Nagłówek odpowiedzi. Do sprawdzenia nagłówków odpowiedzi można także użyć narzędzia, takiego jak **Wget** , [Poster](https://www.getpostman.com/)lub [programu Fiddler](https://www.telerik.com/fiddler) .
 
 ## <a name="next-steps"></a>Następne kroki
 * [Przeczytaj szczegóły dotyczące elementu **clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
