@@ -3,21 +3,21 @@ title: 'Szybki Start: Tworzenie aplikacji w języku Python'
 description: Rozpocznij pracę z Azure App Service, wdrażając pierwszą aplikację w języku Python w kontenerze systemu Linux w programie App Service.
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: 8a0cce6dd68513380759319c378d15aeb0e029c3
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 8f48f31cdaaa555e0a8f6f0fd4756bb61a9f417d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813189"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741093"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
 
 W tym przewodniku szybki start wdrożono aplikację sieci Web w języku Python w celu [App Service w systemie Linux](overview.md#app-service-on-linux)— wysoce skalowalna, samoobsługowa usługa hostingu sieci Web na platformie Azure. Za pomocą lokalnego [interfejsu wiersza polecenia platformy Azure (CLI)](/cli/azure/install-azure-cli) na komputerze Mac, Linux lub Windows można wdrożyć przykład za pomocą kolby lub platform Django. Skonfigurowana aplikacja internetowa korzysta z bezpłatnej warstwy App Service, więc nie ponosisz żadnych kosztów w ramach tego artykułu.
 
 > [!TIP]
-> Jeśli wolisz używać Visual Studio Code zamiast tego, postępuj zgodnie z naszymi **[Visual Studio Code App Service przewodnika Szybki Start](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
+> Jeśli wolisz używać Visual Studio Code zamiast tego, postępuj zgodnie z naszymi **[Visual Studio Code App Service przewodnika Szybki Start](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .
 
 ## <a name="set-up-your-initial-environment"></a>Konfigurowanie środowiska początkowego
 
@@ -33,7 +33,7 @@ Otwórz okno terminalu i sprawdź, czy wersja języka Python to 3,6 lub nowszego
 python3 --version
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```cmd
 py -3 --version
@@ -114,13 +114,13 @@ Przykład zawiera kod specyficzny dla platformy, który Azure App Service rozpoz
     flask run
     ```
     
-    Domyślnie na serwerze założono, że moduł wprowadzania aplikacji jest w *App.py*, jak użyty w przykładzie. (Jeśli używasz innej nazwy modułu, ustaw `FLASK_APP` zmienną środowiskową na tę nazwę).
+    Domyślnie na serwerze założono, że moduł wprowadzania aplikacji jest w *App.py* , jak użyty w przykładzie. (Jeśli używasz innej nazwy modułu, ustaw `FLASK_APP` zmienną środowiskową na tę nazwę).
 
-1. Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:5000/` . Aplikacja wyświetla komunikat **Hello, World!**.
+1. Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:5000/` . Aplikacja wyświetla komunikat **Hello, World!** .
 
     ![Uruchamianie przykładowej aplikacji w języku Python lokalnie](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
-1. W oknie terminalu naciśnij klawisz **Ctrl**, + Aby wyjść**z** serwera deweloperskiego.
+1. W oknie terminalu naciśnij klawisz **Ctrl** , + Aby wyjść **z** serwera deweloperskiego.
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
@@ -138,18 +138,18 @@ Przykład zawiera kod specyficzny dla platformy, który Azure App Service rozpoz
     python manage.py runserver
     ```
 
-1. Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:8000/` . Aplikacja wyświetla komunikat **Hello, World!**.
+1. Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:8000/` . Aplikacja wyświetla komunikat **Hello, World!** .
 
     ![Uruchamianie przykładowej aplikacji w języku Python lokalnie](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
-1. W oknie terminalu naciśnij klawisz **Ctrl**, + Aby wyjść**z** serwera deweloperskiego.
+1. W oknie terminalu naciśnij klawisz **Ctrl** , + Aby wyjść **z** serwera deweloperskiego.
 ::: zone-end
 
 [Masz problemy? Daj nam znać.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="deploy-the-sample"></a>Wdróż przykład
 
-Wdróż kod w folderze lokalnym (*Python-docs-Hello-World*) przy użyciu `az webapp up` polecenia:
+Wdróż kod w folderze lokalnym ( *Python-docs-Hello-World* ) przy użyciu `az webapp up` polecenia:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -157,7 +157,7 @@ az webapp up --sku F1 --name <app-name>
 
 - Jeśli `az` polecenie nie zostanie rozpoznane, upewnij się, że masz zainstalowany interfejs wiersza polecenia platformy Azure zgodnie z opisem w artykule [Konfigurowanie początkowego środowiska](#set-up-your-initial-environment).
 - Jeśli `webapp` polecenie nie zostanie rozpoznane, ponieważ wersja interfejsu wiersza polecenia platformy Azure to 2.0.80 lub nowszego. Jeśli nie, [Zainstaluj najnowszą wersję](/cli/azure/install-azure-cli).
-- Zamień na `<app_name>` nazwę, która jest unikatowa na całym systemie Azure (*prawidłowe znaki to `a-z` , `0-9` i `-` *). Dobrym wzorcem jest użycie kombinacji nazwy firmy i identyfikatora aplikacji.
+- Zamień na `<app_name>` nazwę, która jest unikatowa na całym systemie Azure ( *prawidłowe znaki to `a-z` , `0-9` i `-`* ). Dobrym wzorcem jest użycie kombinacji nazwy firmy i identyfikatora aplikacji.
 - `--sku F1`Argument tworzy aplikację sieci Web w warstwie cenowej bezpłatna. Pomiń ten argument, aby użyć szybszej warstwy Premium, która wiąże się z godziną.
 - Opcjonalnie możesz dołączyć argument, `--location <location-name>` gdzie `<location_name>` jest dostępny region platformy Azure. Możesz pobrać listę dozwolonych regionów dla Twojego konta platformy Azure, uruchamiając [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) polecenie.
 - Jeśli widzisz błąd, "nie można automatycznie wykryć stosu środowiska uruchomieniowego aplikacji", upewnij się, że uruchomiono polecenie w folderze *Python-docs-Hello-World* (*) lub w folderze *Python-docs-Hello-Django* (Django), który zawiera plik *requirements.txt* . (Zobacz [Rozwiązywanie problemów z wykrywaniem automatyczne przy użyciu AZ webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
@@ -244,7 +244,7 @@ Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, naciś
 
 ## <a name="manage-the-azure-app"></a>Zarządzanie aplikacją platformy Azure
 
-Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać utworzoną aplikacją. Wyszukaj i wybierz **App Services**.
+Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać utworzoną aplikacją. Wyszukaj i wybierz **App Services** .
 
 ![Przejdź do App Services w Azure Portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
 

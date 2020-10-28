@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: a1d89def944529235a0141d7e700049f15d1d0a7
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 8eb042b214ba1e4aea1eda1c65996d55ddde216e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424984"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741877"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy
 
@@ -25,8 +25,8 @@ Dowiedz się, jak uwierzytelniać się w obszarze roboczym Azure Machine Learnin
 
 Ogólnie rzecz biorąc, istnieją dwa typy uwierzytelniania, których można używać z Azure Machine Learning:
 
-* __Interaktywny__: konto jest używane w Azure Active Directory do bezpośredniego uwierzytelniania lub do uzyskania tokenu używanego do uwierzytelniania. Uwierzytelnianie interakcyjne jest używane podczas eksperymentowania i iteracyjnego programowania. Lub, gdzie chcesz kontrolować dostęp do zasobów (takich jak usługa sieci Web) dla poszczególnych użytkowników.
-* Nazwa __główna usługi__: Utwórz konto jednostki usługi w Azure Active Directory i użyj go do uwierzytelnienia lub pobrania tokenu. Nazwa główna usługi jest używana, gdy potrzebny jest zautomatyzowany proces do uwierzytelniania w usłudze, bez konieczności interakcji z użytkownikiem. Na przykład ciągły skrypt integracji i wdrażania, który pociąga i testuje model przy każdym zmianie kodu szkoleniowego. Możesz również użyć jednostki usługi, aby pobrać token do uwierzytelniania w usłudze sieci Web, jeśli nie chcesz wymagać uwierzytelniania użytkownika końcowego usługi. Lub w przypadku, gdy uwierzytelnianie użytkownika końcowego nie jest wykonywane bezpośrednio przy użyciu Azure Active Directory.
+* __Interaktywny__ : konto jest używane w Azure Active Directory do bezpośredniego uwierzytelniania lub do uzyskania tokenu używanego do uwierzytelniania. Uwierzytelnianie interakcyjne jest używane podczas eksperymentowania i iteracyjnego programowania. Lub, gdzie chcesz kontrolować dostęp do zasobów (takich jak usługa sieci Web) dla poszczególnych użytkowników.
+* Nazwa __główna usługi__ : Utwórz konto jednostki usługi w Azure Active Directory i użyj go do uwierzytelnienia lub pobrania tokenu. Nazwa główna usługi jest używana, gdy potrzebny jest zautomatyzowany proces do uwierzytelniania w usłudze, bez konieczności interakcji z użytkownikiem. Na przykład ciągły skrypt integracji i wdrażania, który pociąga i testuje model przy każdym zmianie kodu szkoleniowego. Możesz również użyć jednostki usługi, aby pobrać token do uwierzytelniania w usłudze sieci Web, jeśli nie chcesz wymagać uwierzytelniania użytkownika końcowego usługi. Lub w przypadku, gdy uwierzytelnianie użytkownika końcowego nie jest wykonywane bezpośrednio przy użyciu Azure Active Directory.
 
 Niezależnie od używanego typu uwierzytelniania kontrola dostępu oparta na rolach na platformie Azure (RBAC) służy do określania zakresu dostępu do zasobów. Na przykład konto, które jest używane w celu uzyskania tokenu dostępu dla wdrożonego modelu, wymaga tylko dostępu do odczytu w obszarze roboczym. Aby uzyskać więcej informacji na temat usługi Azure RBAC, zobacz [Zarządzanie dostępem do Azure Machine Learning obszaru roboczego](how-to-assign-roles.md).
 
@@ -285,8 +285,8 @@ Służy `token_response["accessToken"]` do pobierania tokenu uwierzytelniania. Z
 
 Wdrożenia modelu utworzone przez Azure Machine Learning mają dwie metody uwierzytelniania:
 
-* **oparte na kluczach**: klucz statyczny jest używany do uwierzytelniania w usłudze sieci Web.
-* **oparta na tokenach**: tymczasowy token musi zostać uzyskany z obszaru roboczego i użyty do uwierzytelnienia w usłudze sieci Web. Ten token wygasa po upływie okresu czasu i musi zostać odświeżony, aby kontynuować pracę z usługą sieci Web.
+* **oparte na kluczach** : klucz statyczny jest używany do uwierzytelniania w usłudze sieci Web.
+* **oparta na tokenach** : tymczasowy token musi zostać uzyskany z obszaru roboczego i użyty do uwierzytelnienia w usłudze sieci Web. Ten token wygasa po upływie okresu czasu i musi zostać odświeżony, aby kontynuować pracę z usługą sieci Web.
 
     > [!NOTE]
     > Uwierzytelnianie oparte na tokenach jest dostępne tylko w przypadku wdrażania w usłudze Azure Kubernetes Service.
@@ -319,7 +319,7 @@ aci_service = Model.deploy(workspace=ws,
 aci_service.wait_for_deployment(True)
 ```
 
-Aby pobrać klucze uwierzytelniania, użyj `aci_service.get_keys()` . Aby ponownie wygenerować klucz, użyj `regen_key()` funkcji i przekaż wartość **podstawową** lub **pomocniczą**.
+Aby pobrać klucze uwierzytelniania, użyj `aci_service.get_keys()` . Aby ponownie wygenerować klucz, użyj `regen_key()` funkcji i przekaż wartość **podstawową** lub **pomocniczą** .
 
 ```python
 aci_service.regen_key("Primary")
@@ -335,7 +335,7 @@ Po włączeniu uwierzytelniania tokenów dla usługi sieci Web użytkownicy musz
 
 * Uwierzytelnianie tokenu jest **domyślnie wyłączone** w przypadku wdrażania w usłudze Azure Kubernetes Service.
 * Uwierzytelnianie tokenu **nie jest obsługiwane** w przypadku wdrażania programu w celu Azure Container Instances.
-* Uwierzytelnianie tokenu **nie może być używane w tym samym czasie, co uwierzytelnianie oparte na kluczach**.
+* Uwierzytelnianie tokenu **nie może być używane w tym samym czasie, co uwierzytelnianie oparte na kluczach** .
 
 Aby kontrolować uwierzytelnianie tokenu, użyj `token_auth_enabled` parametru podczas tworzenia lub aktualizowania wdrożenia:
 

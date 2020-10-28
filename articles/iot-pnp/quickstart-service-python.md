@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946080"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741494"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play, które jest połączone z rozwiązaniem (Python)
 
@@ -80,14 +80,14 @@ W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w język
 1. Otwórz plik *registry_manager_pnp_sample. PR* i Przejrzyj kod. Ten przykład pokazuje, jak używać klasy **IoTHubRegistryManager** w celu współdziałania z urządzeniem IoT Plug and Play.
 
 > [!NOTE]
-> Te przykłady usługi używają klasy **IoTHubRegistryManager** z poziomu **klienta usługi IoT Hub**. Aby dowiedzieć się więcej na temat interfejsów API, w tym Digital bliźniaczych reprezentacji API, zobacz [Przewodnik dla deweloperów usług](concepts-developer-guide-service.md).
+> Te przykłady usługi używają klasy **IoTHubRegistryManager** z poziomu **klienta usługi IoT Hub** . Aby dowiedzieć się więcej na temat interfejsów API, w tym Digital bliźniaczych reprezentacji API, zobacz [Przewodnik dla deweloperów usług](concepts-developer-guide-service.md).
 
 ### <a name="get-the-device-twin"></a>Pobieranie sznurka urządzenia
 
 W obszarze [Konfigurowanie środowiska dla usługi IoT Plug and Play Przewodniki Szybki Start i samouczki](set-up-environment.md) zostały utworzone dwie zmienne środowiskowe w celu skonfigurowania przykładu w celu połączenia z Centrum IoT i urządzeniem:
 
-* **IOTHUB_CONNECTION_STRING**: parametry połączenia usługi IoT Hub, dla których wykonano wcześniej adnotację.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"` .
+* **IOTHUB_CONNECTION_STRING** : parametry połączenia usługi IoT Hub, dla których wykonano wcześniej adnotację.
+* **IOTHUB_DEVICE_ID** : `"my-pnp-device"` .
 
 Aby uruchomić ten przykład, użyj następującego polecenia w terminalu **usługi** :
 
@@ -107,7 +107,7 @@ The Model ID for this device is:
 dtmi:com:example:Thermostat;1
 ```
 
-Poniższy fragment kodu przedstawia przykładowy kod z *registry_manager_pnp_sample. PR*:
+Poniższy fragment kodu przedstawia przykładowy kod z *registry_manager_pnp_sample. PR* :
 
 ```python
     # Create IoTHubRegistryManager

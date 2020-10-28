@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 823f5f90bc1a72b1df87ee21e37cf39fed0b2340
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 452259015cf78234aa6a96194342de20db9a3724
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486161"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740876"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Udostępnianie przepływności automatycznego skalowania w bazie danych lub kontenerze w interfejsie API Azure Cosmos DB-SQL
 
@@ -21,7 +21,7 @@ W tym artykule wyjaśniono, jak zainicjować przepływność automatycznego skal
 
 Jeśli używasz innego interfejsu API, zobacz artykuł [API for MongoDB](how-to-provision-throughput-mongodb.md), [interfejs API CASSANDRA](how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) , aby zapewnić przepływność.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Witryna Azure Portal
 
 ### <a name="create-new-database-or-container-with-autoscale"></a>Tworzenie nowej bazy danych lub kontenera przy użyciu automatycznego skalowania
 
@@ -29,11 +29,11 @@ Jeśli używasz innego interfejsu API, zobacz artykuł [API for MongoDB](how-to-
 
 1. Przejdź do konta Azure Cosmos DB i Otwórz kartę **Eksplorator danych** .
 
-1. Wybierz pozycję **nowy kontener.** Wprowadź nazwę bazy danych, kontenera i klucza partycji. W obszarze **przepływność**wybierz opcję **automatycznego skalowania** i ustaw [maksymalną przepływność (ru/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) , na którą ma zostać przeskalowana baza danych lub kontener.
+1. Wybierz pozycję **nowy kontener.** Wprowadź nazwę bazy danych, kontenera i klucza partycji. W obszarze **przepływność** wybierz opcję **automatycznego skalowania** i ustaw [maksymalną przepływność (ru/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) , na którą ma zostać przeskalowana baza danych lub kontener.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Tworzenie kontenera i Konfigurowanie przepływności aprowizacji automatycznego skalowania":::
 
-1. Wybierz przycisk **OK**.
+1. Wybierz przycisk **OK** .
 
 Aby zainicjować automatyczne skalowanie w udostępnionej bazie danych przepływności, wybierz opcję **zainicjuj przepływność bazy danych** podczas tworzenia nowej bazy danych. 
 
@@ -48,7 +48,7 @@ Aby zainicjować automatyczne skalowanie w udostępnionej bazie danych przepływ
 
 1. Wybierz pozycję **Skala i ustawienia** dla swojego kontenera albo **Skaluj** do swojej bazy danych.
 
-1. W obszarze **Skala**wybierz opcję **automatycznego skalowania** i **Zapisz**.
+1. W obszarze **Skala** wybierz opcję **automatycznego skalowania** i **Zapisz** .
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Tworzenie kontenera i Konfigurowanie przepływności aprowizacji automatycznego skalowania":::
 

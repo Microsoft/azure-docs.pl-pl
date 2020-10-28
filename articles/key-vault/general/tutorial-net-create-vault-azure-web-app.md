@@ -9,13 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp
-ms.openlocfilehash: e537bb74655bce5c8438e22fb9b990b72eab73d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 77845a91ed2d185c0fe05e2f40e53b2edf3d1ca7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336687"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741389"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Samouczek: używanie tożsamości zarządzanej do łączenia Key Vault z aplikacją sieci Web platformy Azure przy użyciu platformy .NET
 
@@ -85,7 +85,7 @@ Na stronie zostanie wyświetlony komunikat **Hello World** z przykładowej aplik
 
 ### <a name="initialize-the-git-repository"></a>Inicjowanie repozytorium git
 
-W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć serwer sieci Web.  Inicjowanie repozytorium Git dla projektu platformy .NET Core.
+W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C** , aby zamknąć serwer sieci Web.  Inicjowanie repozytorium Git dla projektu platformy .NET Core.
 
 ```bash
 git init
@@ -95,7 +95,7 @@ git commit -m "first commit"
 
 ### <a name="configure-a-deployment-user"></a>Konfigurowanie użytkownika wdrożenia
 
-Usługa FTP i lokalne narzędzia Git można wdrożyć w aplikacji sieci Web platformy Azure przy użyciu *użytkownika wdrożenia*. Po skonfigurowaniu użytkownika wdrożenia można go użyć do wszystkich wdrożeń platformy Azure. Nazwa użytkownika i hasło wdrożenia na poziomie konta różnią się od poświadczeń subskrypcji platformy Azure. 
+Usługa FTP i lokalne narzędzia Git można wdrożyć w aplikacji sieci Web platformy Azure przy użyciu *użytkownika wdrożenia* . Po skonfigurowaniu użytkownika wdrożenia można go użyć do wszystkich wdrożeń platformy Azure. Nazwa użytkownika i hasło wdrożenia na poziomie konta różnią się od poświadczeń subskrypcji platformy Azure. 
 
 Aby skonfigurować użytkownika wdrożenia, uruchom polecenie [AZ webapp Deployment User Set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Wybierz nazwę użytkownika i hasło, które są zgodne z następującymi wskazówkami: 
 
@@ -173,7 +173,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 
 Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
 
-Przejdź do nowo utworzonej aplikacji. Zastąp _ &lt; ciąg-webapp-Name>_ nazwą swojej aplikacji.
+Przejdź do nowo utworzonej aplikacji. Zastąp _&lt; ciąg-webapp-Name>_ nazwą swojej aplikacji.
 
 ```bash
 https://<your-webapp-name>.azurewebsites.net
@@ -323,7 +323,7 @@ git push azure master
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Gdzie przed rozpoczęciem **Hello World**powinna zostać wyświetlona wartość wpisu tajnego: **sukces!**
+Gdzie przed rozpoczęciem **Hello World** powinna zostać wyświetlona wartość wpisu tajnego: **sukces!**
 
 ## <a name="next-steps"></a>Następne kroki
 

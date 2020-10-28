@@ -14,13 +14,13 @@ ms.topic: troubleshooting
 ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: seohack1
-ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: seohack1, devx-track-azurecli
+ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368234"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741060"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -120,7 +120,7 @@ Jeśli użytkownik ostatnio zaprosił użytkownika podczas tworzenia przypisania
 
 Jeśli jednak ten podmiot zabezpieczeń nie jest ostatnio zaproszonym użytkownikiem, może być usuniętym podmiotem zabezpieczeń. Jeśli przypiszesz rolę do podmiotu zabezpieczeń, a następnie usuniesz ten podmiot zabezpieczeń bez wcześniejszego usunięcia przypisania roli, podmiot zabezpieczeń będzie wymieniony jako **tożsamość nie zostanie znaleziona** i **nieznany** typ.
 
-Jeśli lista tego przypisania roli zostanie wyświetlona przy użyciu Azure PowerShell, może być widoczny pusty `DisplayName` i `ObjectType` ustawiony jako **nieznany**. Na przykład polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) zwraca przypisanie roli podobne do następujących danych wyjściowych:
+Jeśli lista tego przypisania roli zostanie wyświetlona przy użyciu Azure PowerShell, może być widoczny pusty `DisplayName` i `ObjectType` ustawiony jako **nieznany** . Na przykład polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) zwraca przypisanie roli podobne do następujących danych wyjściowych:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -222,14 +222,14 @@ Podobnie jak w przypadku aplikacji sieci Web, niektóre funkcje w bloku maszyny 
 
 Maszyny wirtualne są powiązane z nazwami domen, sieciami wirtualnymi, kontami magazynu i regułami alertów.
 
-Elementy te wymagają dostępu do **zapisu** dla **maszyny wirtualnej**:
+Elementy te wymagają dostępu do **zapisu** dla **maszyny wirtualnej** :
 
 * Punkty końcowe  
 * Adresy IP  
 * Dyski  
 * Rozszerzenia  
 
-Wymagają one dostępu do **zapisu** zarówno dla **maszyny wirtualnej**, jak i **grupy zasobów** (wraz z nazwą domeny), w której znajduje się:  
+Wymagają one dostępu do **zapisu** zarówno dla **maszyny wirtualnej** , jak i **grupy zasobów** (wraz z nazwą domeny), w której znajduje się:  
 
 * Zestaw dostępności  
 * Zestaw o zrównoważonym obciążeniu  
@@ -239,7 +239,7 @@ Jeśli nie możesz uzyskać dostępu do żadnego z tych kafelków, poprosimy adm
 
 ## <a name="azure-functions-and-write-access"></a>Dostęp Azure Functions i zapisu
 
-Niektóre funkcje [Azure Functions](../azure-functions/functions-overview.md) wymagają dostępu do zapisu. Jeśli na przykład użytkownik ma przypisaną rolę [czytelnik](built-in-roles.md#reader) , nie będzie mógł wyświetlać funkcji w ramach aplikacji funkcji. Zostanie wyświetlony portal **(brak dostępu)**.
+Niektóre funkcje [Azure Functions](../azure-functions/functions-overview.md) wymagają dostępu do zapisu. Jeśli na przykład użytkownik ma przypisaną rolę [czytelnik](built-in-roles.md#reader) , nie będzie mógł wyświetlać funkcji w ramach aplikacji funkcji. Zostanie wyświetlony portal **(brak dostępu)** .
 
 ![Aplikacje funkcji Brak dostępu](./media/troubleshooting/functionapps-noaccess.png)
 

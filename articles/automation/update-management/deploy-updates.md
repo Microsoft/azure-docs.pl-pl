@@ -3,14 +3,14 @@ title: Jak utworzyć wdrożenia aktualizacji dla Azure Automation Update Managem
 description: W tym artykule opisano sposób planowania wdrożeń aktualizacji i przeglądania ich stanu.
 services: automation
 ms.subservice: update-management
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d6594e1cdd7925a4287cf9edbfd5324b427338f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 41ccecfb844f11a0d234271bcddc1851d3c02fda
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637602"
+ms.locfileid: "92742286"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Jak wdrażać aktualizacje i przeglądać wyniki
 
@@ -75,9 +75,6 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
 
    > [!NOTE]
    > Nie można określić aktualizacji, które zostały zastąpione w celu uwzględnienia w wdrożeniu aktualizacji.
-
-   > [!IMPORTANT]
-   > W przypadku systemu Red Hat Enterprise uaktualnienia jądra są również wyświetlane jako pakiety w YUM. Jeśli nie wykluczasz aktualizacji obejmujących uaktualnienia jądra, Update Management zostaną zastosowane te aktualizacje.
 
 9. Wybierz pozycję **ustawienia harmonogramu** . Domyślny czas rozpoczęcia to 30 minut po bieżącej godzinie. Czas rozpoczęcia można ustawić na dowolny czas od 10 minut w przyszłości.
 

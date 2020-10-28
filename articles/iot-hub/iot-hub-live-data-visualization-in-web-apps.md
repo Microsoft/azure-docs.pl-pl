@@ -11,12 +11,13 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: c6452d1c5c9792e8d021838635686e8621629ff2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: 35df99d0a30b0952521281fa0d6bb95ce0509695
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146668"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740998"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Wizualizowanie danych z czujników w czasie rzeczywistym z poziomu usługi Azure IoT Hub w aplikacji sieci Web
 
@@ -252,7 +253,7 @@ Jeśli występują problemy z tym przykładem, spróbuj wykonać kroki opisane w
 
 ### <a name="azure-app-service-issues"></a>Problemy Azure App Service
 
-* W Azure Portal przejdź do aplikacji sieci Web. W obszarze **monitorowanie** w okienku po lewej stronie wybierz pozycję **dzienniki App Service**. Włącz **Rejestrowanie aplikacji (system plików)** w systemie, ustaw **poziom** na błąd, a następnie wybierz pozycję **Zapisz**. Następnie otwórz **strumień dziennika** (w obszarze **monitorowanie**).
+* W Azure Portal przejdź do aplikacji sieci Web. W obszarze **monitorowanie** w okienku po lewej stronie wybierz pozycję **dzienniki App Service** . Włącz **Rejestrowanie aplikacji (system plików)** w systemie, ustaw **poziom** na błąd, a następnie wybierz pozycję **Zapisz** . Następnie otwórz **strumień dziennika** (w obszarze **monitorowanie** ).
 
 * Z poziomu aplikacji sieci Web w Azure Portal w obszarze **Narzędzia deweloperskie**  wybierz pozycję  **konsola** i sprawdź wersje węzła i npm z `node -v` i `npm -v` .
 
