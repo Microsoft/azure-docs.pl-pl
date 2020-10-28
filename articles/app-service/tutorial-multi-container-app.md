@@ -6,13 +6,13 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.custom: cli-validate
-ms.openlocfilehash: 9c984daa380f1d4f0a7b067604ab66ba14a0b70b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: cli-validate, devx-track-azurecli
+ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88084571"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743442"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Samouczek: tworzenie aplikacji wielokontenerowej (w wersji zapoznawczej) przy użyciu funkcji Web App for Containers
 
@@ -63,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-W Cloud Shell Utwórz grupę zasobów za pomocą [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) polecenia. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *Południowo-środkowe stany USA*. Aby wyświetlić wszystkie obsługiwane lokalizacje dla usługi App Service w systemie Linux w warstwie **Standardowa**, uruchom polecenie [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+W Cloud Shell Utwórz grupę zasobów za pomocą [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) polecenia. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *Południowo-środkowe stany USA* . Aby wyświetlić wszystkie obsługiwane lokalizacje dla usługi App Service w systemie Linux w warstwie **Standardowa** , uruchom polecenie [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -138,7 +138,7 @@ Przejdź do wdrożonej aplikacji pod adresem `http://<app-name>.azurewebsites.ne
 
 ![Przykładowa aplikacja wielokontenerowa funkcji Web App for Containers][1]
 
-**Gratulacje**, utworzono aplikację z obsługą kontenera w Web App for Containers. Następnie skonfigurujesz aplikację do użycia usługi Azure Database for MySQL. Na razie nie instaluj rozwiązania WordPress.
+**Gratulacje** , utworzono aplikację z obsługą kontenera w Web App for Containers. Następnie skonfigurujesz aplikację do użycia usługi Azure Database for MySQL. Na razie nie instaluj rozwiązania WordPress.
 
 ## <a name="connect-to-production-database"></a>Nawiązywanie połączenia z produkcyjną bazą danych
 
@@ -148,7 +148,7 @@ Używanie kontenerów baz danych w środowisku produkcyjnym jest niezalecane. Ko
 
 Utwórz serwer Azure Database for MySQL za pomocą [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) polecenia.
 
-W poniższym poleceniu Zastąp nazwę serwera MySQL, gdzie zobaczysz symbol zastępczy _ &lt; MySQL-Server-Name>_ (prawidłowe znaki to `a-z` , `0-9` i `-` ). Ta nazwa jest częścią nazwy hosta serwera MySQL (`<mysql-server-name>.database.windows.net`) i musi być unikatowa w skali globalnej.
+W poniższym poleceniu Zastąp nazwę serwera MySQL, gdzie zobaczysz symbol zastępczy _&lt; MySQL-Server-Name>_ (prawidłowe znaki to `a-z` , `0-9` i `-` ). Ta nazwa jest częścią nazwy hosta serwera MySQL (`<mysql-server-name>.database.windows.net`) i musi być unikatowa w skali globalnej.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
@@ -464,7 +464,7 @@ Wykonaj odpowiednie czynności i zainstaluj rozwiązanie WordPress.
 
 ### <a name="connect-wordpress-to-redis"></a>Łączenie rozwiązania WordPress z usługą Redis
 
-Zaloguj się do administratora WordPress. W lewym okienku nawigacji wybierz pozycję **wtyczki**, a następnie wybierz pozycję **zainstalowane wtyczki**.
+Zaloguj się do administratora WordPress. W lewym okienku nawigacji wybierz pozycję **wtyczki** , a następnie wybierz pozycję **zainstalowane wtyczki** .
 
 ![Wybieranie wtyczek rozwiązania WordPress][2]
 
@@ -486,7 +486,7 @@ Rozwiązanie WordPress połączy się z serwerem usługi Redis. **Stan** połąc
 
 ![Rozwiązanie WordPress połączy się z serwerem usługi Redis. **Stan** połączenia jest widoczny na tej samej stronie.][6]
 
-**Gratulacje**, udało Ci się połączyć rozwiązanie WordPress z usługą Redis. Aplikacja gotowa do produkcji korzysta teraz z **usługi Azure Database for MySQL, magazynu trwałego i usługi Redis**. Możesz teraz skalować swój plan usługi App Service na wiele wystąpień.
+**Gratulacje** , udało Ci się połączyć rozwiązanie WordPress z usługą Redis. Aplikacja gotowa do produkcji korzysta teraz z **usługi Azure Database for MySQL, magazynu trwałego i usługi Redis** . Możesz teraz skalować swój plan usługi App Service na wiele wystąpień.
 
 ## <a name="find-docker-container-logs"></a>Znajdowanie dzienników kontenerów platformy Docker
 

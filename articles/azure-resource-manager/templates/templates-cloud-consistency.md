@@ -5,13 +5,13 @@ author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18
-ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356889"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744754"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Opracowywanie szablonów ARM w celu zapewnienia spójności chmury
 
@@ -205,7 +205,7 @@ Aby skonstruować bezwzględny identyfikator URI artefaktu, preferowana metoda p
 }
 ```
 
-W tym podejściu wszystkie artefakty wdrożenia, w tym skrypty konfiguracyjne, mogą być przechowywane w tej samej lokalizacji z samym szablonem. Aby zmienić lokalizację wszystkich linków, należy określić inny podstawowy adres URL dla _parametrów artifactsLocation_.
+W tym podejściu wszystkie artefakty wdrożenia, w tym skrypty konfiguracyjne, mogą być przechowywane w tej samej lokalizacji z samym szablonem. Aby zmienić lokalizację wszystkich linków, należy określić inny podstawowy adres URL dla _parametrów artifactsLocation_ .
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Współczynnik w różnych możliwościach regionalnych
 
@@ -641,7 +641,7 @@ Wszystkie określone rozszerzenia są również w wersji. Ta wersja jest pokazan
         ...
 ```
 
-Aby pobrać listę dostępnych wersji dla określonego rozszerzenia maszyny wirtualnej, użyj polecenia cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) . Poniższy przykład pobiera dostępne wersje rozszerzenia maszyny wirtualnej DSC programu PowerShell (Konfiguracja żądanego stanu) z **lokalizacji**:
+Aby pobrać listę dostępnych wersji dla określonego rozszerzenia maszyny wirtualnej, użyj polecenia cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) . Poniższy przykład pobiera dostępne wersje rozszerzenia maszyny wirtualnej DSC programu PowerShell (Konfiguracja żądanego stanu) z **lokalizacji** :
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT

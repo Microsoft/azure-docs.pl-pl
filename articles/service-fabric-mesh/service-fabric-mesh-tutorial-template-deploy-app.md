@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: cc4912545bedb650268b3d8e4a3e9820b70b5fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842533"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745981"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Samouczek: wdrażanie aplikacji w usłudze Service Fabric Mesh przy użyciu szablonu
 
@@ -50,7 +50,7 @@ Obrazy kontenera skojarzone z usługami w aplikacji usługi Service Fabric Mesh 
 
 Utwórz wystąpienie usługi ACR przy użyciu poniższej procedury.  Jeśli masz już skonfigurowane wystąpienia usługi ACR, możesz pominąć ten krok i przejść dalej.
 
-### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
 
 Zaloguj się do platformy Azure i ustaw aktywną subskrypcję.
 
@@ -61,7 +61,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Przy użyciu poniższego polecenia utwórz grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
+Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Przy użyciu poniższego polecenia utwórz grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus* .
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -69,7 +69,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-the-container-registry"></a>Tworzenie rejestru kontenerów
 
-Utwórz wystąpienie usługi ACR za pomocą polecenia `az acr create`. Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. W poniższym przykładzie użyto nazwy *myContainerRegistry*. Jeśli zostanie wyświetlony komunikat o błędzie z informacją, że nazwa rejestru jest już używana, wybierz inną nazwę.
+Utwórz wystąpienie usługi ACR za pomocą polecenia `az acr create`. Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. W poniższym przykładzie użyto nazwy *myContainerRegistry* . Jeśli zostanie wyświetlony komunikat o błędzie z informacją, że nazwa rejestru jest już używana, wybierz inną nazwę.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
@@ -156,7 +156,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-Poniższy przykład wyświetla listę tagów w repozytorium **azure-mesh-todo-service**.
+Poniższy przykład wyświetla listę tagów w repozytorium **azure-mesh-todo-service** .
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table
@@ -196,7 +196,7 @@ Aplikacja usługi Service Fabric Mesh jest zasobem platformy Azure, który możn
 W tym samouczku używamy przykładowej aplikacji To Do List.  Zamiast tworzyć nowy szablon i nowe pliki parametrów, pobierz pliki [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) i [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>Parametry
-Gdy masz w szablonie wartości, które planujesz zmienić po wdrożeniu aplikacji, lub chcesz mieć możliwość ich zmiany w poszczególnych wdrożeniach (jeśli planujesz ponownie użyć tego szablonu dla innych wdrożeń), najlepszym rozwiązaniem jest sparametryzowanie wartości. Najlepiej zrobić to, tworząc sekcję „parameters” (parametry) w górnej części szablonu wdrożenia, gdzie można określić nazwy i właściwości parametrów, które następnie są przywoływane w dalszej części szablonu wdrożenia. Każda definicja parametru zawiera sekcję *type* (typ), *defaultValue* (wartość_domyślna) oraz opcjonalną sekcję *metadata* (metadane) wraz z *opisem*.
+Gdy masz w szablonie wartości, które planujesz zmienić po wdrożeniu aplikacji, lub chcesz mieć możliwość ich zmiany w poszczególnych wdrożeniach (jeśli planujesz ponownie użyć tego szablonu dla innych wdrożeń), najlepszym rozwiązaniem jest sparametryzowanie wartości. Najlepiej zrobić to, tworząc sekcję „parameters” (parametry) w górnej części szablonu wdrożenia, gdzie można określić nazwy i właściwości parametrów, które następnie są przywoływane w dalszej części szablonu wdrożenia. Każda definicja parametru zawiera sekcję *type* (typ), *defaultValue* (wartość_domyślna) oraz opcjonalną sekcję *metadata* (metadane) wraz z *opisem* .
 
 Sekcja parametrów jest definiowana w górnej części szablonu wdrożenia bezpośrednio przed sekcją *resources* (zasoby):
 

@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a248699b47cf99980c9490bf16c10e7196ee6ecf
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 22abdb64a2349045923e148db57f683b4be87636
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091087"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742698"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>Szybki Start: udostępnianie usługi Azure wiosennej w chmurze
 
@@ -103,25 +103,25 @@ Poniższa procedura umożliwia utworzenie wystąpienia chmury wiosennej platform
 
 1. Na nowej karcie Otwórz [Azure Portal](https://ms.portal.azure.com/). 
 
-2. W górnym polu wyszukiwania Wyszukaj **chmurę Azure wiosenną**.
+2. W górnym polu wyszukiwania Wyszukaj **chmurę Azure wiosenną** .
 
 3. Z wyników wybierz **chmurę ze sprężyną Azure** .
 
     ![Początek ikony ASC](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
-4. Na stronie chmura Wiosenna Azure kliknij pozycję **+ Dodaj**.
+4. Na stronie chmura Wiosenna Azure kliknij pozycję **+ Dodaj** .
 
     ![Dodawanie ikony ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Wypełnij formularz na stronie **Tworzenie** chmury Azure wiosennej.  Należy wziąć pod uwagę następujące wytyczne:
-    - **Subskrypcja**: wybierz subskrypcję, dla której chcesz naliczać opłaty za ten zasób.
-    - **Grupa zasobów**: najlepszym rozwiązaniem jest utworzenie nowych grup zasobów dla nowych zasobów. Należy zauważyć, że ta procedura zostanie użyta w dalszych krokach **\<resource group name\>** .
-    - **Szczegóły/nazwa usługi**: Określ **\<service instance name\>** .  Nazwa musi mieć długość od 4 do 32 znaków i może zawierać tylko małe litery, cyfry i łączniki.  Pierwszy znak nazwy usługi musi być literą, a ostatni znak musi być literą lub cyfrą.
-    - **Lokalizacja**: Wybierz lokalizację wystąpienia usługi.
+    - **Subskrypcja** : wybierz subskrypcję, dla której chcesz naliczać opłaty za ten zasób.
+    - **Grupa zasobów** : najlepszym rozwiązaniem jest utworzenie nowych grup zasobów dla nowych zasobów. Należy zauważyć, że ta procedura zostanie użyta w dalszych krokach **\<resource group name\>** .
+    - **Szczegóły/nazwa usługi** : Określ **\<service instance name\>** .  Nazwa musi mieć długość od 4 do 32 znaków i może zawierać tylko małe litery, cyfry i łączniki.  Pierwszy znak nazwy usługi musi być literą, a ostatni znak musi być literą lub cyfrą.
+    - **Lokalizacja** : Wybierz lokalizację wystąpienia usługi.
 
     ![Początek portalu ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
-6. Kliknij pozycję **Przejrzyj i utwórz**.
+6. Kliknij pozycję **Przejrzyj i utwórz** .
 
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

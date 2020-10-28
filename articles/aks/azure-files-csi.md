@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 986db4edbf7b8856a12067fb66a370627642e970
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078361"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745802"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Korzystanie ze sterowników interfejsu magazynu kontenera Azure Files (CSI) w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -33,13 +33,13 @@ Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz [Opcje ma
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Dynamicznie Twórz Azure Files PVs przy użyciu wbudowanych klas magazynu
 
-Klasa magazynu służy do definiowania sposobu tworzenia udziału Azure Files. Konto magazynu jest tworzone automatycznie w [grupie zasobów węzła][node-resource-group] do użytku z klasą magazynu w celu przechowywania udziałów Azure Files. Wybierz jedną z następujących [jednostek SKU nadmiarowości usługi Azure Storage][storage-skus] dla *skuName*:
+Klasa magazynu służy do definiowania sposobu tworzenia udziału Azure Files. Konto magazynu jest tworzone automatycznie w [grupie zasobów węzła][node-resource-group] do użytku z klasą magazynu w celu przechowywania udziałów Azure Files. Wybierz jedną z następujących [jednostek SKU nadmiarowości usługi Azure Storage][storage-skus] dla *skuName* :
 
-* **Standard_LRS**: standardowy magazyn lokalnie nadmiarowy
-* **Standard_GRS**: standardowy magazyn Geograficznie nadmiarowy
-* **Standard_ZRS**: Strefa standardowa — magazyn nadmiarowy
-* **Standard_RAGRS**: standardowy magazyn Geograficznie nadmiarowy do odczytu
-* **Premium_LRS**: Magazyn lokalnie nadmiarowy w warstwie Premium
+* **Standard_LRS** : standardowy magazyn lokalnie nadmiarowy
+* **Standard_GRS** : standardowy magazyn Geograficznie nadmiarowy
+* **Standard_ZRS** : Strefa standardowa — magazyn nadmiarowy
+* **Standard_RAGRS** : standardowy magazyn Geograficznie nadmiarowy do odczytu
+* **Premium_LRS** : Magazyn lokalnie nadmiarowy w warstwie Premium
 
 > [!NOTE]
 > Azure Files obsługuje platformę Azure Premium Storage. Minimalny udział plików w warstwie Premium to 100 GB.
@@ -212,7 +212,7 @@ Zarejestruj `AllowNfsFileShares` flagę funkcji za pomocą polecenia [AZ Feature
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-Wyświetlenie stanu *rejestracji*może potrwać kilka minut. Sprawdź stan rejestracji za pomocą polecenia [AZ Feature list][az-feature-list] :
+Wyświetlenie stanu *rejestracji* może potrwać kilka minut. Sprawdź stan rejestracji za pomocą polecenia [AZ Feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
@@ -259,7 +259,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 Można wdrożyć przykładowy [zestaw stanowy](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) , który zapisuje sygnatury czasowe do pliku `data.txt` , wdrażając następujące polecenie za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] :
 
  ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```

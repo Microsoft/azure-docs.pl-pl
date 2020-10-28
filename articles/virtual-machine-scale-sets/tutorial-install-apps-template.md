@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 19eb5ae89598a0ebe040f1ffda5afd2b9e3d5e7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 357d3aaa9cf9e324f8dd27636b9f34f503f566de
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059246"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746018"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Samouczek: instalowanie aplikacji w zestawach skalowania maszyn wirtualnych za pomocą szablonu platformy Azure
 Aby uruchamiać aplikacje na wystąpieniach maszyn wirtualnych w zestawie skalowania, musisz najpierw zainstalować składniki aplikacji i wymagane pliki. W poprzednim samouczku omówiono tworzenie niestandardowego obrazu maszyny wirtualnej i wdrażanie własnych wystąpień maszyn wirtualnych. Niestandardowy obraz zawierał ręczne instalacje i konfiguracje aplikacji. Można również zautomatyzować instalację aplikacji w zestawie skalowania po wdrożeniu poszczególnych wystąpień maszyn wirtualnych lub zaktualizować już uruchomioną aplikację. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -40,9 +40,9 @@ Aby zobaczyć, jak działa rozszerzenie niestandardowego skryptu, utworzymy zest
 
 
 ## <a name="create-custom-script-extension-definition"></a>Tworzenie definicji rozszerzenia niestandardowego skryptu
-Podczas definiowania zestawu skalowania maszyn wirtualnych za pomocą szablonu platformy Azure możesz skorzystać z sekcji rozszerzeń udostępnianej przez dostawcę zasobów *Microsoft.Compute/virtualMachineScaleSets*. Sekcja *extensionsProfile* określa, co jest stosowane do wystąpień maszyn wirtualnych w zestawie skalowania. Aby używać rozszerzenia niestandardowego skryptu, wskaż wydawcę *Microsoft.Azure.Extensions* i typ *CustomScript*.
+Podczas definiowania zestawu skalowania maszyn wirtualnych za pomocą szablonu platformy Azure możesz skorzystać z sekcji rozszerzeń udostępnianej przez dostawcę zasobów *Microsoft.Compute/virtualMachineScaleSets* . Sekcja *extensionsProfile* określa, co jest stosowane do wystąpień maszyn wirtualnych w zestawie skalowania. Aby używać rozszerzenia niestandardowego skryptu, wskaż wydawcę *Microsoft.Azure.Extensions* i typ *CustomScript* .
 
-Właściwość *fileUris* służy do definiowania źródłowych skryptów lub pakietów instalacji. Wymagane skrypty są zdefiniowane w sekcji *commandToExecute*, co umożliwia rozpoczęcie procesu instalacji. W poniższym przykładzie zdefiniowano przykładowy skrypt z usługi GitHub, który instaluje i konfiguruje serwer internetowy NGINX:
+Właściwość *fileUris* służy do definiowania źródłowych skryptów lub pakietów instalacji. Wymagane skrypty są zdefiniowane w sekcji *commandToExecute* , co umożliwia rozpoczęcie procesu instalacji. W poniższym przykładzie zdefiniowano przykładowy skrypt z usługi GitHub, który instaluje i konfiguruje serwer internetowy NGINX:
 
 ```json
 "extensionProfile": {
@@ -108,9 +108,9 @@ Nie zamykaj przeglądarki internetowej, aby w następnym kroku można było zoba
 
 
 ## <a name="update-app-deployment"></a>Aktualizowanie wdrożenia aplikacji
-W całym cyklu życia zestawu skalowania konieczne może być wdrożenie zaktualizowanej wersji aplikacji. Rozszerzenie niestandardowego skryptu umożliwia odwołanie się do zaktualizowanego skryptu wdrażania i ponowne zastosowanie rozszerzenia do zestawu skalowania. Gdy zestaw skalowania został utworzony w poprzednim kroku, *upgradePolicy* został ustawiony na *automatyczny*. To ustawienie pozwala wystąpieniom maszyn wirtualnych w zestawie skalowania automatycznie aktualizować aplikację i stosować jej najnowszą wersję.
+W całym cyklu życia zestawu skalowania konieczne może być wdrożenie zaktualizowanej wersji aplikacji. Rozszerzenie niestandardowego skryptu umożliwia odwołanie się do zaktualizowanego skryptu wdrażania i ponowne zastosowanie rozszerzenia do zestawu skalowania. Gdy zestaw skalowania został utworzony w poprzednim kroku, *upgradePolicy* został ustawiony na *automatyczny* . To ustawienie pozwala wystąpieniom maszyn wirtualnych w zestawie skalowania automatycznie aktualizować aplikację i stosować jej najnowszą wersję.
 
-Aby zaktualizować definicję rozszerzenia niestandardowego skryptu, zmodyfikuj szablon, podając odwołanie do nowego skryptu instalacji. Dla rozszerzenia niestandardowego skryptu należy podać nową nazwę pliku w celu umożliwienia rozpoznania zmiany. Rozszerzenie niestandardowego skryptu nie analizuje zawartości skryptu pod kątem zmian. Następująca definicja używa zaktualizowanego skryptu instalacji, do którego nazwy dołączono element *_v2*:
+Aby zaktualizować definicję rozszerzenia niestandardowego skryptu, zmodyfikuj szablon, podając odwołanie do nowego skryptu instalacji. Dla rozszerzenia niestandardowego skryptu należy podać nową nazwę pliku w celu umożliwienia rozpoznania zmiany. Rozszerzenie niestandardowego skryptu nie analizuje zawartości skryptu pod kątem zmian. Następująca definicja używa zaktualizowanego skryptu instalacji, do którego nazwy dołączono element *_v2* :
 
 ```json
 "extensionProfile": {
@@ -134,7 +134,7 @@ Aby zaktualizować definicję rozszerzenia niestandardowego skryptu, zmodyfikuj 
 }
 ```
 
-Za pomocą polecenia [az group deployment create](/cli/azure/group/deployment) ponownie zastosuj konfigurację rozszerzenia niestandardowego skryptu do wystąpień maszyn wirtualnych w zestawie skalowania. Plik *azuredeployv2.json* umożliwia zastosowanie zaktualizowanej wersji aplikacji. W praktyce należy zmodyfikować istniejący szablon *azuredeploy.json*, podając odwołanie do zaktualizowanego skryptu instalacji, jak pokazano w poprzedniej sekcji. Po wyświetleniu monitu wprowadź nazwę użytkownika i hasło użyte podczas tworzenia zestawu skalowania:
+Za pomocą polecenia [az group deployment create](/cli/azure/group/deployment) ponownie zastosuj konfigurację rozszerzenia niestandardowego skryptu do wystąpień maszyn wirtualnych w zestawie skalowania. Plik *azuredeployv2.json* umożliwia zastosowanie zaktualizowanej wersji aplikacji. W praktyce należy zmodyfikować istniejący szablon *azuredeploy.json* , podając odwołanie do zaktualizowanego skryptu instalacji, jak pokazano w poprzedniej sekcji. Po wyświetleniu monitu wprowadź nazwę użytkownika i hasło użyte podczas tworzenia zestawu skalowania:
 
 ```azurecli-interactive
 az group deployment create \

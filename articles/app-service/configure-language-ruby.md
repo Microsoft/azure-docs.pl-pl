@@ -4,13 +4,13 @@ description: Dowiedz się, jak skonfigurować wstępnie skompilowany kontener j�
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
-ms.openlocfilehash: c822dbdf9940db7b38d354fa32906c16977df0c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 038d62573b491325adc60647debf17fa87e06cfe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88085074"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743692"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Konfigurowanie aplikacji Ruby systemu Linux dla usługi Azure App Service
 
@@ -65,7 +65,7 @@ ENV['WEBSITE_SITE_NAME']
 
 Gdy wdrażasz [repozytorium Git](deploy-local-git.md) lub [pakiet ZIP](deploy-zip.md) z włączonymi procesami kompilacji, aparat wdrażania (Kudu) automatycznie wykonuje domyślnie następujące kroki po wdrożeniu:
 
-1. Sprawdź, czy istnieje plik *Gemfile*.
+1. Sprawdź, czy istnieje plik *Gemfile* .
 1. Uruchom polecenie `bundle clean`. 
 1. Uruchom polecenie `bundle install --path "vendor/bundle"`.
 1. Uruchom polecenie `bundle package`, aby spakować rozwiązania Gem do folderu vendor/cache.
@@ -97,7 +97,7 @@ Domyślnie kontener języka Ruby uruchamia serwer Rails w następującej kolejno
 1. Wygeneruj wartość [secret_key_base](https://edgeguides.rubyonrails.org/security.html#environmental-security), jeśli jeszcze nie istnieje. Ta wartość jest wymagana, aby można było uruchomić aplikację w trybie produkcyjnym.
 1. Ustaw zmienną środowiskową `RAILS_ENV` na `production`.
 1. W katalogu *tmp/pids* usuń każdy plik *PID* pozostawiony przez wcześniej uruchomiony serwer Rails.
-1. Sprawdź, czy są zainstalowane wszystkie zależności. W przeciwnym razie spróbuj zainstalować rozwiązania Gem z katalogu lokalnego *vendor/cache*.
+1. Sprawdź, czy są zainstalowane wszystkie zależności. W przeciwnym razie spróbuj zainstalować rozwiązania Gem z katalogu lokalnego *vendor/cache* .
 1. Uruchom polecenie `rails server -e $RAILS_ENV`.
 
 Proces uruchamiania można dostosować w następujący sposób:

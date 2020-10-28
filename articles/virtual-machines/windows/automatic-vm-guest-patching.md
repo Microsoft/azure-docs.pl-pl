@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842873"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744716"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Wersja zapoznawcza: automatyczne stosowanie poprawek gościa maszyny wirtualnej dla maszyn wirtualnych z systemem Windows na platformie Azure
 
@@ -80,17 +80,20 @@ Maszyny wirtualne z systemem Windows na platformie Azure obsługują teraz nast�
 
 **AutomaticByPlatform:**
 - Ten tryb włącza automatyczne stosowanie poprawek gościa maszyn wirtualnych dla maszyny wirtualnej z systemem Windows, a kolejne instalacje poprawek są zorganizowane przez platformę Azure.
+- Ten tryb jest wymagany w przypadku stosowania poprawek po pierwszej dostępności.
 - Ustawienie tego trybu wyłącza również natywne aktualizacje automatyczne na maszynie wirtualnej z systemem Windows, aby uniknąć duplikowania.
 - Ten tryb jest obsługiwany tylko w przypadku maszyn wirtualnych, które są tworzone za pomocą powyższych obrazów platformy obsługiwanej przez system operacyjny.
 - Aby użyć tego trybu, należy ustawić właściwość `osProfile.windowsConfiguration.enableAutomaticUpdates=true` i ustawić właściwość  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` w szablonie maszyny wirtualnej.
 
 **AutomaticByOS:**
 - Ten tryb włącza aktualizacje automatyczne na maszynie wirtualnej z systemem Windows, a poprawki są instalowane na maszynie wirtualnej za pomocą funkcji Aktualizacje automatyczne.
+- Ten tryb nie obsługuje stosowania poprawek po pierwszej dostępności.
 - Ten tryb jest ustawiany domyślnie, jeśli nie określono innego trybu poprawek.
 - Aby użyć tego trybu, ustaw właściwość `osProfile.windowsConfiguration.enableAutomaticUpdates=true` i ustaw właściwość  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` w szablonie maszyny wirtualnej.
 
 **Ręcznie:**
 - Ten tryb wyłącza aktualizacje automatyczne na maszynie wirtualnej z systemem Windows.
+- Ten tryb nie obsługuje stosowania poprawek po pierwszej dostępności.
 - Ten tryb należy ustawić w przypadku używania niestandardowych rozwiązań poprawek.
 - Aby użyć tego trybu, ustaw właściwość `osProfile.windowsConfiguration.enableAutomaticUpdates=false` i ustaw właściwość  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` w szablonie maszyny wirtualnej.
 

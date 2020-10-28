@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
-ms.custom: seodec18, devx-track-java
+ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 65b31bd39c85ea9073bb9415b9829df12b7d9e35
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2e77d76ddae540a311655eca36c53b23c418f5e3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171578"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744142"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java dla Azure App Service
 
@@ -330,29 +330,29 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 ::: zone pivot="platform-windows"
 
 1. Utwórz konto NewRelic na [newrelic.com](https://newrelic.com/signup)
-2. Pobierz agenta Java z NewRelic, będzie on miał nazwę pliku podobną do *newrelic-java-x.x.x.zip*.
+2. Pobierz agenta Java z NewRelic, będzie on miał nazwę pliku podobną do *newrelic-java-x.x.x.zip* .
 3. Skopiuj klucz licencji, który będzie potrzebny do późniejszego skonfigurowania agenta.
-4. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM*.
-5. Przekaż pliki agenta NewRelic języka Java rozpakowane do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/newrelic*.
+4. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM* .
+5. Przekaż pliki agenta NewRelic języka Java rozpakowane do katalogu w obszarze */Home/site/wwwroot/APM* . Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/newrelic* .
 6. Zmodyfikuj plik YAML pod adresem */Home/site/wwwroot/APM/newrelic/newrelic.yml* i Zastąp wartość licencji zastępczej własnym kluczem licencji.
 7. W Azure Portal przejdź do aplikacji w App Service i Utwórz nowe ustawienie aplikacji.
 
     - W przypadku aplikacji **Java SE** Utwórz zmienną środowiskową o nazwie `JAVA_OPTS` z wartością `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Dla **Tomcat**Utwórz zmienną środowiskową o nazwie `CATALINA_OPTS` z wartością `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Dla **Tomcat** Utwórz zmienną środowiskową o nazwie `CATALINA_OPTS` z wartością `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 ::: zone pivot="platform-linux"
 
 1. Utwórz konto NewRelic na [newrelic.com](https://newrelic.com/signup)
-2. Pobierz agenta Java z NewRelic, będzie on miał nazwę pliku podobną do *newrelic-java-x.x.x.zip*.
+2. Pobierz agenta Java z NewRelic, będzie on miał nazwę pliku podobną do *newrelic-java-x.x.x.zip* .
 3. Skopiuj klucz licencji, który będzie potrzebny do późniejszego skonfigurowania agenta.
-4. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM*.
-5. Przekaż pliki agenta NewRelic języka Java rozpakowane do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/newrelic*.
+4. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM* .
+5. Przekaż pliki agenta NewRelic języka Java rozpakowane do katalogu w obszarze */Home/site/wwwroot/APM* . Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/newrelic* .
 6. Zmodyfikuj plik YAML pod adresem */Home/site/wwwroot/APM/newrelic/newrelic.yml* i Zastąp wartość licencji zastępczej własnym kluczem licencji.
 7. W Azure Portal przejdź do aplikacji w App Service i Utwórz nowe ustawienie aplikacji.
    
     - W przypadku aplikacji **Java SE** Utwórz zmienną środowiskową o nazwie `JAVA_OPTS` z wartością `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Dla **Tomcat**Utwórz zmienną środowiskową o nazwie `CATALINA_OPTS` z wartością `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Dla **Tomcat** Utwórz zmienną środowiskową o nazwie `CATALINA_OPTS` z wartością `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 
@@ -364,8 +364,8 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 
 1. Utwórz konto AppDynamics na [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Pobierz agenta Java z witryny internetowej AppDynamics nazwa pliku będzie podobna do *AppServerAgent-x.x.x.xxxxx.zip*
-3. Za pomocą [konsoli kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) Utwórz nowy katalog */Home/site/wwwroot/APM*.
-4. Przekaż pliki agenta Java do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/AppDynamics*.
+3. Za pomocą [konsoli kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) Utwórz nowy katalog */Home/site/wwwroot/APM* .
+4. Przekaż pliki agenta Java do katalogu w obszarze */Home/site/wwwroot/APM* . Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/AppDynamics* .
 5. W Azure Portal przejdź do aplikacji w App Service i Utwórz nowe ustawienie aplikacji.
 
    - W przypadku aplikacji **Java SE** Utwórz zmienną środowiskową o nazwie `JAVA_OPTS` z wartością, `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` gdzie `<app-name>` to nazwa App Service.
@@ -376,8 +376,8 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 
 1. Utwórz konto AppDynamics na [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Pobierz agenta Java z witryny internetowej AppDynamics nazwa pliku będzie podobna do *AppServerAgent-x.x.x.xxxxx.zip*
-3. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM*.
-4. Przekaż pliki agenta Java do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/AppDynamics*.
+3. Użyj protokołu [SSH do wystąpienia App Service](configure-linux-open-ssh-session.md) i Utwórz nowy katalog */Home/site/wwwroot/APM* .
+4. Przekaż pliki agenta Java do katalogu w obszarze */Home/site/wwwroot/APM* . Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/AppDynamics* .
 5. W Azure Portal przejdź do aplikacji w App Service i Utwórz nowe ustawienie aplikacji.
 
    - W przypadku aplikacji **Java SE** Utwórz zmienną środowiskową o nazwie `JAVA_OPTS` z wartością, `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` gdzie `<app-name>` to nazwa App Service.
@@ -437,7 +437,7 @@ Następnie ustal, czy źródło danych powinno być dostępne dla jednej aplikac
 
 1. Utwórz plik *context.xml* w *META-INF/* katalogu projektu. Utwórz *plik META-INF/* katalog, jeśli nie istnieje.
 
-2. W *context.xml*Dodaj element, `Context` Aby połączyć źródło danych z adresem JNDI. Zastąp `driverClassName` symbol zastępczy nazwą klasy sterownika z powyższej tabeli.
+2. W *context.xml* Dodaj element, `Context` Aby połączyć źródło danych z adresem JNDI. Zastąp `driverClassName` symbol zastępczy nazwą klasy sterownika z powyższej tabeli.
 
     ```xml
     <Context>
@@ -515,7 +515,7 @@ Następnie ustal, czy źródło danych powinno być dostępne dla jednej aplikac
 
 1. Utwórz plik *context.xml* w *META-INF/* katalogu projektu. Utwórz *plik META-INF/* katalog, jeśli nie istnieje.
 
-2. W *context.xml*Dodaj element, `Context` Aby połączyć źródło danych z adresem JNDI. Zastąp `driverClassName` symbol zastępczy nazwą klasy sterownika z powyższej tabeli.
+2. W *context.xml* Dodaj element, `Context` Aby połączyć źródło danych z adresem JNDI. Zastąp `driverClassName` symbol zastępczy nazwą klasy sterownika z powyższej tabeli.
 
     ```xml
     <Context>
@@ -541,16 +541,16 @@ Następnie ustal, czy źródło danych powinno być dostępne dla jednej aplikac
 
 #### <a name="shared-server-level-resources"></a>Udostępnione zasoby na poziomie serwera
 
-Dodanie udostępnionego źródła danych na poziomie serwera wymaga edytowania server.xml tomcat. Najpierw przekaż [skrypt uruchamiania](faq-app-service-linux.md#built-in-images) i Ustaw ścieżkę do skryptu w **Configuration**  >  **poleceniu uruchamiania**konfiguracji. Można przekazać skrypt uruchamiania przy użyciu [protokołu FTP](deploy-ftp.md).
+Dodanie udostępnionego źródła danych na poziomie serwera wymaga edytowania server.xml tomcat. Najpierw przekaż [skrypt uruchamiania](faq-app-service-linux.md#built-in-images) i Ustaw ścieżkę do skryptu w **Configuration**  >  **poleceniu uruchamiania** konfiguracji. Można przekazać skrypt uruchamiania przy użyciu [protokołu FTP](deploy-ftp.md).
 
 Skrypt uruchamiania wykona [przekształcenie XSL](https://www.w3schools.com/xml/xsl_intro.asp) do pliku server.xml i wyprowadza wynikowy plik XML do `/usr/local/tomcat/conf/server.xml` . Skrypt uruchamiania powinien instalować libxslt za pośrednictwem APK. Plik XSL i skrypt uruchamiania można przekazać za pośrednictwem protokołu FTP. Poniżej znajduje się przykładowy skrypt uruchamiania.
 
 ```sh
-# Install libxslt. Also copy the transform file to /home/tomcat/conf/
+# Install libxslt. Also copy the transform file to /home/tomcat/conf/
 apk add --update libxslt
 
-# Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
+# Usage: xsltproc --output output.xml style.xsl input.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 Poniżej przedstawiono przykładowy plik XSL. Przykładowy plik XSL dodaje nowy węzeł łącznika do server.xml tomcat.
@@ -678,7 +678,7 @@ Podczas [rejestrowania źródła danych przy użyciu protokołu EAP JBoss](https
     ```
 
 1. Za pomocą wybranego klienta FTP Przekaż swój sterownik JDBC,, `jboss-cli-commands.cli` `startup_script.sh` i definicję modułu do programu `/site/deployments/tools/` .
-2. Skonfiguruj swoją lokację do uruchamiania `startup_script.sh` podczas uruchamiania kontenera. W witrynie Azure Portal przejdź do polecenia **Konfiguracja**  >  **Ogólne ustawienia**  >  **uruchamiania**. Ustaw pole polecenia uruchamiania na `/home/site/deployments/tools/startup_script.sh` . **Zapisz** zmiany.
+2. Skonfiguruj swoją lokację do uruchamiania `startup_script.sh` podczas uruchamiania kontenera. W witrynie Azure Portal przejdź do polecenia **Konfiguracja**  >  **Ogólne ustawienia**  >  **uruchamiania** . Ustaw pole polecenia uruchamiania na `/home/site/deployments/tools/startup_script.sh` . **Zapisz** zmiany.
 
 Aby potwierdzić, że źródło danych zostało dodane do serwera JBoss, Użyj protokołu SSH do webapp i uruchom polecenie `$JBOSS_HOME/bin/jboss-cli.sh --connect` . Po nawiązaniu połączenia z usługą JBoss Uruchom, `/subsystem=datasources:read-resource` Aby wydrukować listę źródeł danych.
 

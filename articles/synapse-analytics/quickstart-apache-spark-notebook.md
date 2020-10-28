@@ -8,13 +8,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
-ms.date: 04/15/2020
-ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/16/2020
+ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91651721"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742525"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Szybki Start: Tworzenie puli Apache Spark w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+Zaloguj się do [Azure portal](https://portal.azure.com/).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -41,15 +41,16 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpł
 
 Notes to interaktywny środowisko obsługujące różne języki programowania. Notes pozwala na posługiwanie się danymi, łączenie kodu z opcją promocji, tekstu i wykonywanie prostych wizualizacji.
 
-1. W widoku Azure Portal dla obszaru roboczego usługi Azure Synapse, którego chcesz użyć, wybierz pozycję **Uruchom Synapse Studio**.
-2. Po uruchomieniu programu Synapse Studio wybierz pozycję **Utwórz**. Następnie umieść kursor nad pozycją **notesy** . Wybierz wielokropek (**...**).
-3. W tym miejscu wybierz pozycję **Nowy Notes**. Nowy Notes zostanie utworzony i otwarty z automatycznie wygenerowaną nazwą.
-  ![Nowy Notes](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Nowy Notes")
+1. W widoku Azure Portal dla obszaru roboczego usługi Azure Synapse, którego chcesz użyć, wybierz pozycję **Uruchom Synapse Studio** .
+2. Po uruchomieniu programu Synapse Studio wybierz pozycję **Utwórz** . Następnie wybierz **+** ikonę "", aby dodać nowy zasób.
+3. Z tego miejsca wybierz pozycję **Notes** . Nowy Notes zostanie utworzony i otwarty z automatycznie wygenerowaną nazwą.
+ 
+     ![Nowy Notes](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Nowy Notes")
 
 4. W oknie **Właściwości** Podaj nazwę notesu.
-5. Na pasku narzędzi kliknij przycisk **Publikuj**.
+5. Na pasku narzędzi kliknij przycisk **Publikuj** .
 6. Jeśli w obszarze roboczym istnieje tylko jedna pula Apache Spark, zostanie ona domyślnie wybrana. Użyj listy rozwijanej, aby wybrać poprawną pulę Apache Spark, jeśli żadna nie została wybrana.
-7. Kliknij przycisk **Dodaj kod**. Język domyślny to `Pyspark` . Zamierzasz używać kombinacji Pyspark i Spark SQL, więc wybór domyślny jest prawidłowy. Inne obsługiwane języki to Scala i .NET for Spark.
+7. Kliknij przycisk **Dodaj kod** . Język domyślny to `Pyspark` . Zamierzasz używać kombinacji Pyspark i Spark SQL, więc wybór domyślny jest prawidłowy. Inne obsługiwane języki to Scala i .NET for Spark.
 8. Następnie utworzysz prosty obiekt Dataframe platformy Spark do manipulowania. W takim przypadku należy utworzyć go z poziomu kodu. Istnieją trzy wiersze i trzy kolumny:
 
    ```python
@@ -60,15 +61,15 @@ Notes to interaktywny środowisko obsługujące różne języki programowania. N
 
 9. Teraz uruchom komórkę przy użyciu jednej z następujących metod:
 
-   - Naciśnij klawisze **SHIFT + ENTER**.
+   - Naciśnij klawisze **SHIFT + ENTER** .
    - Wybierz niebieską ikonę odtwarzania z lewej strony komórki.
    - Wybierz przycisk **Uruchom wszystko** na pasku narzędzi.
 
-   ![Utwórz obiekt ramki danych](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Wyjście z zadania platformy Spark")
+       ![Utwórz obiekt ramki danych](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png)
 
 10. Jeśli wystąpienie puli Apache Spark nie jest już uruchomione, zostanie automatycznie uruchomione. Stan wystąpienia puli Apache Spark można zobaczyć poniżej używanej komórki, a także w panelu stanu w dolnej części notesu. W zależności od rozmiaru puli rozpoczęcie powinno trwać 2-5 minut. Po zakończeniu działania kodu informacje znajdujące się poniżej komórki pokazują, jak długo wymagało uruchomienia i jego wykonania. W komórce danych wyjściowych są wyświetlane dane wyjściowe.
 
-    ![Wyjście z wykonywania komórki](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Wyjście z zadania platformy Spark")
+    ![Wyjście z wykonywania komórki](./media/quickstart-apache-spark-notebook/run-cell-with-output.png)
 
 11. Dane teraz istnieją w ramce danych, z której można korzystać na wiele różnych sposobów. Będzie ona potrzebna w różnych formatach dla pozostałej części tego przewodnika Szybki Start.
 12. Wprowadź Poniższy kod w innej komórce i uruchom go. spowoduje to utworzenie tabeli Spark, CSV i pliku Parquet z kopiami danych:
@@ -113,13 +114,13 @@ Structured Query Language (SQL) to najbardziej typowy i szeroko używany język 
 
     ![Zapytanie wyjściowe zapytania w usłudze Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Zapytanie wyjściowe zapytania w usłudze Azure Synapse Spark")
 
-3. W przełączniku **widoku** wybierz pozycję **Wykres**.
+3. W przełączniku **widoku** wybierz pozycję **Wykres** .
 4. Wybierz ikonę **Wyświetl opcje** z prawej strony.
 5. W polu **Typ wykresu** wybierz pozycję "wykres słupkowy".
 6. W polu kolumna osi X wybierz pozycję stan.
 7. W polu kolumna osi Y wybierz pozycję "wynagrodzenie".
 8. W polu **agregacja** wybierz wartość "Średnia".
-9. Wybierz pozycję **Zastosuj**.
+9. Wybierz przycisk **Zastosuj** .
 
    ![Dane wyjściowe wykresu na platformie Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Dane wyjściowe wykresu na platformie Azure Synapse Spark")
 
@@ -129,7 +130,7 @@ Structured Query Language (SQL) to najbardziej typowy i szeroko używany język 
     display(spark.sql('SELECT * FROM demo_df'))
     ```
 
-11. Każda z wcześniej wykonanych komórek miała opcję przejścia do **serwera historii** i **monitorowania**. Kliknięcie linków prowadzi do różnych części środowiska użytkownika.
+11. Każda z wcześniej wykonanych komórek miała opcję przejścia do **serwera historii** i **monitorowania** . Kliknięcie linków prowadzi do różnych części środowiska użytkownika.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

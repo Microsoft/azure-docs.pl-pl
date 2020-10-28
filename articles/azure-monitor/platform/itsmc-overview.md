@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 344e15d3c15474fc8959b120f86bb86f22217ef6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676973"
+ms.locfileid: "92745704"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami ITSM przy użyciu łącznika zarządzania usługami IT
 
@@ -125,7 +125,7 @@ Postępuj zgodnie z następującą procedurą:
 1. W Azure Portal kliknij pozycję  **alerty** .
 2. W górnym okienku kliknij pozycję  **Zarządzaj akcjami** . Zostanie wyświetlone okno **Dodaj grupę akcji** .
 
-    ![Grupy akcji](media/itsmc-overview/action-groups.png)
+    [![Grupy akcji](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
 
 3. Wybierz **subskrypcję** i **grupę zasobów** , w której chcesz utworzyć grupę akcji. Podaj **nazwę grupy akcji** i **nazwę wyświetlaną** dla grupy akcji. Kliknij przycisk **Dalej: powiadomienia** .
 
@@ -135,7 +135,7 @@ Postępuj zgodnie z następującą procedurą:
 5. Na liście Akcje wybierz pozycję **Narzędzia ITSM** z menu rozwijanego dla **typu akcji** . Podaj **nazwę** akcji i kliknij pióro, które reprezentuje **szczegóły edycji** .
 6. Wybierz **subskrypcję** , w której znajduje się obszar roboczy log Analytics. Wybierz nazwę **połączenia** (nazwę łącznik ITSM), a następnie nazwę obszaru roboczego. Na przykład "MyITSMMConnector (mój obszar roboczy)".
 
-    ![Szczegóły akcji narzędzia ITSM](media/itsmc-overview/itsm-action-details.png)
+    ![Szczegóły akcji narzędzia ITSM](media/itsmc-overview/itsm-action-configuration.png)
 
 7. Z menu rozwijanego wybierz pozycję typ **elementu pracy** .
 

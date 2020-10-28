@@ -5,14 +5,14 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: Azure App Service, Web App, Linux, Windows, Docker, kontener
-ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
+ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 0cb1aa2d922db96eff21a128eaa60363b37db9d7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3c687d5c8b4e4c6d0b7f4ff912137066fe10bbb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152103"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743715"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrowanie oprogramowania niestandardowego do Azure App Service przy użyciu niestandardowego kontenera
 
@@ -30,8 +30,8 @@ W celu ukończenia tego samouczka:
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Zainstaluj program Docker for Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Przełącz platformę Docker na potrzeby uruchamiania kontenerów systemu Windows</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Zainstaluj program Visual Studio 2019</a> przy użyciu obciążeń **ASP.NET oraz tworzenia aplikacji sieci Web** i **platformy Azure** . Jeśli zainstalowano już program Visual Studio 2019:
-    - Zainstaluj najnowsze aktualizacje w programie Visual Studio, klikając pozycję **Pomoc**  >  **Sprawdź dostępność aktualizacji**.
-    - Dodaj obciążenia w programie Visual Studio, klikając kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje**.
+    - Zainstaluj najnowsze aktualizacje w programie Visual Studio, klikając pozycję **Pomoc**  >  **Sprawdź dostępność aktualizacji** .
+    - Dodaj obciążenia w programie Visual Studio, klikając kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje** .
 
 ## <a name="set-up-the-app-locally"></a>Lokalne konfigurowanie aplikacji
 
@@ -40,13 +40,13 @@ W celu ukończenia tego samouczka:
 Ten krok umożliwia skonfigurowanie lokalnego projektu platformy .NET.
 
 - [Pobierz przykładowy projekt](https://github.com/Azure-Samples/custom-font-win-container/archive/master.zip).
-- Wyodrębnij (rozpakuj) plik *custom-font-win-container.zip*.
+- Wyodrębnij (rozpakuj) plik *custom-font-win-container.zip* .
 
 Przykładowy projekt zawiera prostą aplikację platformy ASP.NET, która używa niestandardowej czcionki zainstalowanej w bibliotece czcionek systemu Windows. Instalowanie czcionek nie jest konieczne, ale jest to przykład aplikacji, która jest zintegrowana z bazowym systemem operacyjnym. Aby przeprowadzić migrację takiej aplikacji do usługi App Service, należy zmienić architekturę jej kodu w celu usunięcia integracji lub zmigrować ją w takim stanie, w jakim jest, korzystając z niestandardowego kontenera systemu Windows.
 
 ### <a name="install-the-font"></a>Instalowanie czcionki
 
-W Eksploratorze Windows przejdź do folderu _custom-font-win-container-master/CustomFontSample_, kliknij prawym przyciskiem myszy plik _FrederickatheGreat Regular.ttf_ i wybierz pozycję **Zainstaluj**.
+W Eksploratorze Windows przejdź do folderu _custom-font-win-container-master/CustomFontSample_ , kliknij prawym przyciskiem myszy plik _FrederickatheGreat Regular.ttf_ i wybierz pozycję **Zainstaluj** .
 
 Ta czcionka jest dostępna publicznie w serwisie [Google Fonts](https://fonts.google.com/specimen/Fredericka+the+Great).
 
@@ -62,15 +62,15 @@ Ponieważ ta aplikacja używa zainstalowanej czcionki, nie może ona działać w
 
 ### <a name="configure-windows-container"></a>Konfigurowanie kontenera systemu Windows
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CustomFontSample** i wybierz pozycję **Dodaj** > **Obsługa aranżacji kontenerów**.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CustomFontSample** i wybierz pozycję **Dodaj** > **Obsługa aranżacji kontenerów** .
 
 :::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Zrzut ekranu przedstawiający aplikację wyświetlaną w domyślnej przeglądarce.":::
 
-Wybierz pozycję **Docker Compose**  >  **OK**.
+Wybierz pozycję **Docker Compose**  >  **OK** .
 
-Projekt jest teraz skonfigurowany do uruchamiania w kontenerze systemu Windows. Plik _Dockerfile_ został dodany do projektu **CustomFontSample**, a projekt **docker-compose** został dodany do rozwiązania. 
+Projekt jest teraz skonfigurowany do uruchamiania w kontenerze systemu Windows. Plik _Dockerfile_ został dodany do projektu **CustomFontSample** , a projekt **docker-compose** został dodany do rozwiązania. 
 
-W Eksploratorze rozwiązań otwórz plik **Dockerfile**.
+W Eksploratorze rozwiązań otwórz plik **Dockerfile** .
 
 Konieczne będzie użycie [obsługiwanego obrazu nadrzędnego](configure-custom-container.md#supported-parent-images). Zmień obraz nadrzędny, zastępując wiersz `FROM` następującym kodem:
 
@@ -84,7 +84,7 @@ Na końcu pliku dodaj następujący wiersz, a następnie zapisz plik:
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
-W projekcie **CustomFontSample** znajduje się plik _InstallFont.ps1_. Jest to prosty skrypt, który instaluje czcionkę. Bardziej złożoną wersję tego skryptu można znaleźć w witrynie [Script Center](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
+W projekcie **CustomFontSample** znajduje się plik _InstallFont.ps1_ . Jest to prosty skrypt, który instaluje czcionkę. Bardziej złożoną wersję tego skryptu można znaleźć w witrynie [Script Center](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
 
 > [!NOTE]
 > Aby przetestować kontener systemu Windows lokalnie, upewnij się, że platforma Docker została uruchomiona na komputerze lokalnym.
@@ -96,13 +96,13 @@ Usługa [Azure Container Registry](../container-registry/index.yml) może przech
 
 ### <a name="open-publish-wizard"></a>Otwieranie kreatora publikacji
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CustomFontSample** i wybierz polecenie **Publikuj**.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CustomFontSample** i wybierz polecenie **Publikuj** .
 
 :::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Zrzut ekranu przedstawiający aplikację wyświetlaną w domyślnej przeglądarce.":::
 
 ### <a name="create-registry-and-publish"></a>Tworzenie rejestru i publikowanie
 
-W Kreatorze publikacji wybierz pozycję **Container Registry**  >  **Utwórz nowy Azure Container Registry**  >  **Publikuj**.
+W Kreatorze publikacji wybierz pozycję **Container Registry**  >  **Utwórz nowy Azure Container Registry**  >  **Publikuj** .
 
 :::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Zrzut ekranu przedstawiający aplikację wyświetlaną w domyślnej przeglądarce.":::
 
@@ -110,17 +110,17 @@ W Kreatorze publikacji wybierz pozycję **Container Registry**  >  **Utwórz now
 
 W oknie dialogowym **Utwórz nowy rejestr Azure Container Registry** wybierz pozycję **Dodaj konto** i zaloguj się do swojej subskrypcji platformy Azure. Po zalogowaniu wybierz z listy rozwijanej konto zawierające odpowiednią subskrypcję.
 
-![Logowanie do platformy Azure](./media/tutorial-custom-container/add-an-account.png)
+![Logowanie się do platformy Azure](./media/tutorial-custom-container/add-an-account.png)
 
 ### <a name="configure-the-registry"></a>Konfigurowanie rejestru
 
-Skonfiguruj nowy rejestr kontenerów, korzystając z sugerowanych wartości z poniższej tabeli. Po zakończeniu kliknij pozycję **Gotowe**.
+Skonfiguruj nowy rejestr kontenerów, korzystając z sugerowanych wartości z poniższej tabeli. Po zakończeniu kliknij pozycję **Gotowe** .
 
 | Ustawienie  | Sugerowana wartość | Więcej informacji |
 | ----------------- | ------------ | ----|
 |**Prefiks DNS**| Zachowaj wygenerowaną nazwę rejestru lub zmień ją na inną unikatową nazwę. |  |
-|**Grupa zasobów**| Kliknij pozycję **Nowy**, wpisz **myResourceGroup** i kliknij przycisk **OK**. |  |
-|**SKU**| Podstawowy | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**Grupa zasobów**| Kliknij pozycję **Nowy** , wpisz **myResourceGroup** i kliknij przycisk **OK** . |  |
+|**SKU**| Podstawowa | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Lokalizacja rejestru**| West Europe | |
 
 ![Konfigurowanie rejestru kontenerów platformy Azure](./media/tutorial-custom-container/configure-registry.png)
@@ -133,21 +133,21 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
-Z menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **Sieć Web**  >  **Web App for Containers**.
+Z menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **Sieć Web**  >  **Web App for Containers** .
 
 ### <a name="configure-app-basics"></a>Konfigurowanie podstaw aplikacji
 
-Na karcie **podstawy** Skonfiguruj ustawienia zgodnie z poniższą tabelą, a następnie kliknij przycisk **Dalej: Docker**.
+Na karcie **podstawy** Skonfiguruj ustawienia zgodnie z poniższą tabelą, a następnie kliknij przycisk **Dalej: Docker** .
 
 | Ustawienie  | Sugerowana wartość | Więcej informacji |
 | ----------------- | ------------ | ----|
 |**Subskrypcja**| Upewnij się, że wybrano poprawną subskrypcję. |  |
-|**Grupa zasobów**| Wybierz pozycję **Utwórz nowy**, wpisz pozycję Moja **zasobów**i kliknij przycisk **OK**. |  |
+|**Grupa zasobów**| Wybierz pozycję **Utwórz nowy** , wpisz pozycję Moja **zasobów** i kliknij przycisk **OK** . |  |
 |**Nazwa**| Wpisz unikatową nazwę. | Adres URL aplikacji internetowej to `http://<app-name>.azurewebsites.net`, gdzie `<app-name>` to nazwa aplikacji. |
 |**Publikowanie**| Kontener platformy Docker | |
 |**System operacyjny**| Windows | |
 |**Region**| West Europe | |
-|**Plan systemu Windows**| Wybierz pozycję **Utwórz nowy**, wpisz **myAppServicePlan**, a następnie kliknij przycisk **OK**. | |
+|**Plan systemu Windows**| Wybierz pozycję **Utwórz nowy** , wpisz **myAppServicePlan** , a następnie kliknij przycisk **OK** . | |
 
 Twoja karta **podstawy** powinna wyglądać następująco:
 
@@ -155,7 +155,7 @@ Twoja karta **podstawy** powinna wyglądać następująco:
 
 ### <a name="configure-windows-container"></a>Konfigurowanie kontenera systemu Windows
 
-Na karcie **Docker** Skonfiguruj niestandardowy kontener systemu Windows, jak pokazano w poniższej tabeli, a następnie wybierz kolejno pozycje **Recenzja + Utwórz**.
+Na karcie **Docker** Skonfiguruj niestandardowy kontener systemu Windows, jak pokazano w poniższej tabeli, a następnie wybierz kolejno pozycje **Recenzja + Utwórz** .
 
 | Ustawienie  | Sugerowana wartość |
 | ----------------- | ------------ |
@@ -174,9 +174,9 @@ Po zakończeniu operacji platformy Azure zostanie wyświetlone okno powiadomieni
 
 ![Pokazuje, że operacja na platformie Azure została ukończona.](media/tutorial-custom-container/portal-create-finished.png)
 
-1. Kliknij opcję **Przejdź do zasobu**.
+1. Kliknij opcję **Przejdź do zasobu** .
 
-2. Na stronie aplikacji kliknij link w obszarze **Adres URL**.
+2. Na stronie aplikacji kliknij link w obszarze **Adres URL** .
 
 W przeglądarce zostanie otwarta następująca strona:
 
@@ -213,7 +213,7 @@ Przesyłane strumieniowo dzienniki wyglądają następująco:
 
 Azure App Service używa technologii kontenera Docker do hostowania zarówno wbudowanych obrazów, jak i obrazów niestandardowych. Aby wyświetlić listę wbudowanych obrazów, uruchom polecenie interfejsu wiersza polecenia platformy Azure, ["AZ webapp list-Runtimes--Linux"](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-list-runtimes). Jeśli te obrazy nie spełniają Twoich potrzeb, można skompilować i wdrożyć niestandardowy obraz.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie obrazu niestandardowego, jeśli żaden wbudowany obraz nie spełnia Twoich potrzeb
@@ -276,9 +276,9 @@ cd docker-django-webapp-linux
 
 ### <a name="download-from-github"></a>Pobieranie z witryny GitHub
 
-Zamiast używać klonowania git, można odwiedzać [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux) , wybrać opcję **klonowanie**, a następnie wybrać pozycję **Pobierz plik zip**. 
+Zamiast używać klonowania git, można odwiedzać [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux) , wybrać opcję **klonowanie** , a następnie wybrać pozycję **Pobierz plik zip** . 
 
-Rozpakuj plik ZIP do folderu o nazwie *Docker-Django-webapp-Linux*. 
+Rozpakuj plik ZIP do folderu o nazwie *Docker-Django-webapp-Linux* . 
 
 Następnie otwórz okno terminalu w folderze *Docker-Django-webapp-Linux* .
 
@@ -334,7 +334,7 @@ ENTRYPOINT ["init.sh"]
     To [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) polecenie określa port z `-p` argumentem, po którym następuje nazwa obrazu. 
     
     > [!TIP]
-    > Jeśli używasz programu w systemie Windows i widzisz błąd, *standard_init_linux. go: 211: exec proces użytkownika spowodował "Brak takiego pliku lub katalogu"*, plik *init.sh* zawiera końce wiersza CR-LF zamiast oczekiwanych końców LF. Ten błąd występuje, jeśli używasz narzędzia Git do klonowania przykładowego repozytorium, ale pominięto `--config core.autocrlf=input` parametr. W takim przypadku należy ponownie sklonować repozytorium z argumentem "--config". Ten błąd może również zostać wyświetlony, Jeśli edytowano *init.sh* i zapisano go z zakończeniami CRLF. W takim przypadku Zapisz ponownie plik z znakami LF.
+    > Jeśli używasz programu w systemie Windows i widzisz błąd, *standard_init_linux. go: 211: exec proces użytkownika spowodował "Brak takiego pliku lub katalogu"* , plik *init.sh* zawiera końce wiersza CR-LF zamiast oczekiwanych końców LF. Ten błąd występuje, jeśli używasz narzędzia Git do klonowania przykładowego repozytorium, ale pominięto `--config core.autocrlf=input` parametr. W takim przypadku należy ponownie sklonować repozytorium z argumentem "--config". Ten błąd może również zostać wyświetlony, Jeśli edytowano *init.sh* i zapisano go z zakończeniami CRLF. W takim przypadku Zapisz ponownie plik z znakami LF.
 
 1. Przejdź do `http://localhost:8000` strony, aby sprawdzić, czy aplikacja sieci Web i kontener działają prawidłowo.
 
@@ -497,7 +497,7 @@ Te kroki można wykonać po wypchnięciu obrazu do rejestru kontenerów, a App S
 
 W tej sekcji wprowadzisz zmiany w kodzie aplikacji sieci Web, odbudujesz kontener, a następnie wypchnij kontener do rejestru. App Service następnie automatycznie pobiera zaktualizowany obraz z rejestru w celu zaktualizowania uruchomionej aplikacji sieci Web.
 
-1. W lokalnym folderze *Docker-Django-webapp-Linux* Otwórz plik *App/templates/App/index.html*.
+1. W lokalnym folderze *Docker-Django-webapp-Linux* Otwórz plik *App/templates/App/index.html* .
 
 1. Zmień pierwszy element HTML w taki sposób, aby był zgodny z poniższym kodem.
 
@@ -561,7 +561,7 @@ W tej sekcji wprowadzisz zmiany w kodzie aplikacji sieci Web, odbudujesz kontene
 
     Pliki dzienników można także sprawdzać w przeglądarce pod adresem `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-1. Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, wpisz **Ctrl** + **C**.
+1. Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, wpisz **Ctrl** + **C** .
 
 ## <a name="connect-to-the-container-using-ssh"></a>Nawiązywanie połączenia z kontenerem przy użyciu protokołu SSH
 
@@ -569,7 +569,7 @@ Protokół SSH umożliwia bezpieczną komunikację między kontenerem i klientem
 
 ### <a name="configure-the-container-for-ssh"></a>Konfigurowanie kontenera dla protokołu SSH
 
-Przykładowa aplikacja używana w tym samouczku ma już niezbędną konfigurację w *pliku dockerfile*, która instaluje serwer SSH, a także ustawia poświadczenia logowania. Ta sekcja ma tylko informacje informacyjne. Aby nawiązać połączenie z kontenerem, przejdź do następnej sekcji
+Przykładowa aplikacja używana w tym samouczku ma już niezbędną konfigurację w *pliku dockerfile* , która instaluje serwer SSH, a także ustawia poświadczenia logowania. Ta sekcja ma tylko informacje informacyjne. Aby nawiązać połączenie z kontenerem, przejdź do następnej sekcji
 
 ```Dockerfile
 ENV SSH_PASSWD "root:Docker!"
@@ -595,7 +595,7 @@ EXPOSE 8000 2222
 
 Port 2222 jest portem wewnętrznym dostępnym tylko przez kontenery w sieci mostkowej prywatnej sieci wirtualnej. 
 
-Na koniec skrypt wejścia, *init.sh*, uruchamia serwer SSH.
+Na koniec skrypt wejścia, *init.sh* , uruchamia serwer SSH.
 
 ```bash
 #!/bin/bash

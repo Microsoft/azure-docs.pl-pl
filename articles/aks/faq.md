@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: c68810e0fd9ee3593aa014243c3f75fb8a63a7fd
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: bbe4d43fde3746e6c992b7f03927f081d3814597
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494531"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745764"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -57,12 +57,12 @@ AKS kompiluje się z wielu zasobów infrastruktury platformy Azure, w tym zestaw
 
 Aby włączyć tę architekturę, każde wdrożenie AKS obejmuje dwie grupy zasobów:
 
-1. Należy utworzyć pierwszą grupę zasobów. Ta grupa zawiera tylko zasób usługi Kubernetes. Dostawca zasobów AKS automatycznie tworzy drugą grupę zasobów podczas wdrażania. Przykładem drugiej grupy zasobów jest *MC_myResourceGroup_myAKSCluster_eastus*. Aby uzyskać informacje na temat sposobu określania nazwy tej drugiej grupy zasobów, zobacz następną sekcję.
-1. Druga grupa zasobów, znana jako *Grupa zasobów węzła*, zawiera wszystkie zasoby infrastruktury skojarzone z klastrem. Te zasoby obejmują maszyny wirtualne węzła Kubernetes, wirtualne sieci i magazyn. Domyślnie grupa zasobów węzła ma nazwę, taką jak *MC_myResourceGroup_myAKSCluster_eastus*. AKS automatycznie usuwa zasób węzła przy każdym usunięciu klastra, dlatego powinien być używany tylko w przypadku zasobów, które współdzielą cykl życia klastra.
+1. Należy utworzyć pierwszą grupę zasobów. Ta grupa zawiera tylko zasób usługi Kubernetes. Dostawca zasobów AKS automatycznie tworzy drugą grupę zasobów podczas wdrażania. Przykładem drugiej grupy zasobów jest *MC_myResourceGroup_myAKSCluster_eastus* . Aby uzyskać informacje na temat sposobu określania nazwy tej drugiej grupy zasobów, zobacz następną sekcję.
+1. Druga grupa zasobów, znana jako *Grupa zasobów węzła* , zawiera wszystkie zasoby infrastruktury skojarzone z klastrem. Te zasoby obejmują maszyny wirtualne węzła Kubernetes, wirtualne sieci i magazyn. Domyślnie grupa zasobów węzła ma nazwę, taką jak *MC_myResourceGroup_myAKSCluster_eastus* . AKS automatycznie usuwa zasób węzła przy każdym usunięciu klastra, dlatego powinien być używany tylko w przypadku zasobów, które współdzielą cykl życia klastra.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Czy mogę podać moją własną nazwę grupy zasobów węzła AKS?
 
-Tak. Domyślnie AKS będzie nazwać węzeł grupy zasobów *MC_resourcegroupname_clustername_location*, ale możesz również podać własną nazwę.
+Tak. Domyślnie AKS będzie nazwać węzeł grupy zasobów *MC_resourcegroupname_clustername_location* , ale możesz również podać własną nazwę.
 
 Aby określić własną nazwę grupy zasobów, zainstaluj rozszerzenie [AKS-Preview][aks-preview-cli] interfejsu wiersza polecenia platformy Azure w wersji *0.3.2* lub nowszej. Podczas tworzenia klastra AKS za pomocą polecenia [AZ AKS Create][az-aks-create] należy użyć parametru *--Node-Resource-Group* i określić nazwę grupy zasobów. W przypadku wdrażania klastra AKS za pomocą [szablonu Azure Resource Manager][aks-rm-template] można zdefiniować nazwę grupy zasobów za pomocą właściwości *nodeResourceGroup* .
 
@@ -95,6 +95,9 @@ AKS obsługuje następujące [Kontrolery przyjęcia][admission-controllers]:
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
+- *PodNodeSelector*
+- *PodTolerationRestriction*
+- *ExtendedResourceToleration*
 
 Obecnie nie można modyfikować listy kontrolerów przyjmowania w AKS.
 
@@ -109,9 +112,11 @@ namespaceSelector:
       operator: DoesNotExist
 ```
 
+AKS zapory serwer API ruch wychodzący, aby umożliwić dostęp do elementów webhook kontrolera z klastra.
+
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>Czy można dołączać elementy webhook kontrolera, wpływ na przestrzenie nazw polecenia-system i internal AKS?
 
-Aby chronić stabilność systemu i zapobiegać wpływowi niestandardowych kontrolerów przyjmowania na usługi wewnętrzne w systemie polecenia, przestrzeń nazw AKS ma **Enforcer**, które wykluczają wewnętrzne przestrzenie nazw polecenia-system i AKS. Ta usługa zapewnia, że niestandardowe kontrolery przyjmowania nie wpływają na usługi działające w systemie polecenia.
+Aby chronić stabilność systemu i zapobiegać wpływowi niestandardowych kontrolerów przyjmowania na usługi wewnętrzne w systemie polecenia, przestrzeń nazw AKS ma **Enforcer** , które wykluczają wewnętrzne przestrzenie nazw polecenia-system i AKS. Ta usługa zapewnia, że niestandardowe kontrolery przyjmowania nie wpływają na usługi działające w systemie polecenia.
 
 Jeśli masz krytyczny przypadek użycia, który ma zostać wdrożony w systemie polecenia (niezalecane), którego wymagasz, aby był objęty przez niestandardowy element webhook przyjęcia, możesz dodać etykietę lub adnotację w taki sposób, aby Enforcer ignorował ją.
 

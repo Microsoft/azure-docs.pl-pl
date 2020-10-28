@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: adc0c253648ed7ae869a20b92c42e7f6478501b7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eecc93558625d3ae891ca589424aec218036adae
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151583"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744710"
 ---
 # <a name="create-luis-resources"></a>Tworzenie zasobów LUIS
 
@@ -29,7 +29,7 @@ LUIS umożliwia korzystanie z trzech typów zasobów platformy Azure i jednego z
 
 |Zasób|Przeznaczenie|Usługa poznawcze `kind`|Usługa poznawcze `type`|
 |--|--|--|--|
-|Tworzenie zasobu|Umożliwia tworzenie, uczenie i publikowanie aplikacji oraz zarządzanie nimi. [Utwórz zasób tworzenia Luis](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) , jeśli zamierzasz tworzyć aplikacje Luis programtically lub z portalu Luis. Najpierw należy [przeprowadzić migrację konta usługi Luis](luis-migration-authoring.md#what-is-migration) , aby można było połączyć zasoby Authroring platformy Azure z Twoją aplikacją. Możesz kontrolować uprawnienia do zasobu tworzenia, przypisując osoby do [roli współautor](#contributions-from-other-authors). <br><br> Istnieje jedna warstwa avialable dla zasobu tworzenia LUIS:<br> * **Bezpłatny zasób tworzenia F0** , który daje półroczne transakcje tworzenia i 1000 bezpłatnych żądań punktów końcowych przewidywania testowania. |`LUIS.Authoring`|`Cognitive Services`|
+|Tworzenie zasobu|Umożliwia tworzenie, uczenie i publikowanie aplikacji oraz zarządzanie nimi. [Utwórz zasób tworzenia Luis](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) , jeśli zamierzasz tworzyć aplikacje Luis programtically lub z portalu Luis. Najpierw należy [przeprowadzić migrację konta usługi Luis](luis-migration-authoring.md#what-is-migration) , aby można było połączyć zasoby tworzenia platformy Azure z Twoją aplikacją. Możesz kontrolować uprawnienia do zasobu tworzenia, przypisując osoby do [roli współautor](#contributions-from-other-authors). <br><br> Dostępna jest jedna warstwa dla zasobu LUIS Authoring:<br> * **Bezpłatny zasób tworzenia F0** , który daje półroczne transakcje tworzenia i 1000 bezpłatnych żądań punktów końcowych przewidywania testowania. |`LUIS.Authoring`|`Cognitive Services`|
 |Zasób predykcyjny| Po opublikowaniu aplikacji LUIS Użyj zasobu predykcyjny/Key do wysyłania zapytań do żądań punktów końcowych przewidywania. Utwórz zasób przewidywania LUIS, zanim aplikacja kliencka zażąda prognoz wykraczających poza żądania 1 000 dostarczone przez tworzenie lub zasób początkowy. <br><br> Istnieją dwie warstwy avialble dla zasobu przewidywania:<br> * **Bezpłatny zasób predykcyjny F0** , który daje miesięcznie 10 000 bezpłatnych żądań punktu końcowego przewidywania<br> * **Standardowy zasób predykcyjny S0** , który jest warstwą płatną. [Dowiedz się więcej na temat szczegółów cennika](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
 |Zasób Starter/Wersja próbna|Umożliwia tworzenie, uczenie i publikowanie aplikacji oraz zarządzanie nimi. Jest to tworzone przez domyślną w przypadku wybrania opcji zasobów początkowych podczas pierwszej rejestracji w usłudze TP LUIS. Klucz początkowy będzie jednak ostatecznie przestarzały, a wszyscy użytkownicy LUIS będą musieli [migrować swoje konta](luis-migration-authoring.md#what-is-migration) i połączyć ich aplikacje Luis z zasobem tworzenia. Ten zasób nie daje uprawnień do kontroli dostępu opartej na rolach na platformie Azure, takiej jak zasób tworzenia. <br><br> Tak samo jak zasób do tworzenia, zasób początkowy umożliwia korzystanie z bezpłatnych transakcji tworzenia i 1000 bezpłatnych żądań dla punktów końcowych przewidywania testów.|-|To nie jest zasób platformy Azure|
 |[Klucz zasobu usługi poznawczej — wiele usług](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Żądania punktu końcowego przewidywania zapytań udostępniane z LUIS i innymi obsługiwanymi Cognitive Services.|`CognitiveServices`|`Cognitive Services`|
@@ -117,7 +117,7 @@ Właściciel i wszyscy Współautorzy mają dostęp do tworzenia aplikacji.
 |Wersja importowana||
 |Tworzenie aplikacji jako publicznej|Gdy aplikacja jest publiczna, każda osoba mająca klucz tworzenia lub punktu końcowego może wysyłać zapytania do aplikacji.|
 |Modyfikuj model|
-|Opublikuj|
+|Publikowanie|
 |Zapoznaj się z punktem końcowym wyrażenia długości na potrzeby [aktywnego uczenia](luis-how-to-review-endpoint-utterances.md)|
 |Szkolenie|
 
@@ -137,7 +137,7 @@ Można kontrolować, kto widzi klucz środowiska uruchomieniowego LUIS, wywołuj
 
 Środowisko uruchomieniowe aplikacji prywatnej jest dostępne tylko dla następujących:
 
-|Klucz i użytkownik|Objaśnienie|
+|Klucz i użytkownik|Wyjaśnienie|
 |--|--|
 |Klucz autorstwa właściciela| Do 1000 trafień punktów końcowych|
 |Współautorzy/klucze autorstwa| Do 1000 trafień punktów końcowych|
@@ -190,20 +190,20 @@ Zasób `kind` :
 
     Spowoduje to otwarcie przeglądarki w celu umożliwienia wybrania odpowiedniego konta i zapewnienia uwierzytelniania.
 
-1. Utwórz **zasób autorstwa Luis**, którego `LUIS.Authoring` nazwa jest określona `my-luis-authoring-resource` w _istniejącej_ grupie zasobów o nazwie `my-resource-group` dla `westus` regionu.
+1. Utwórz **zasób autorstwa Luis** , którego `LUIS.Authoring` nazwa jest określona `my-luis-authoring-resource` w _istniejącej_ grupie zasobów o nazwie `my-resource-group` dla `westus` regionu.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Utwórz **zasób punktu końcowego przewidywania Luis**o `LUIS` nazwie `my-luis-prediction-resource` w _istniejącej_ grupie zasobów o nazwie `my-resource-group` dla `westus` regionu. Jeśli potrzebujesz wyższej przepływności niż warstwa Bezpłatna, Zmień wartość `F0` na `S0` . Dowiedz się więcej o [warstwach cenowych i przepływności](luis-limits.md#key-limits).
+1. Utwórz **zasób punktu końcowego przewidywania Luis** o `LUIS` nazwie `my-luis-prediction-resource` w _istniejącej_ grupie zasobów o nazwie `my-resource-group` dla `westus` regionu. Jeśli potrzebujesz wyższej przepływności niż warstwa Bezpłatna, Zmień wartość `F0` na `S0` . Dowiedz się więcej o [warstwach cenowych i przepływności](luis-limits.md#key-limits).
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
     > [!Note]
-    > Te klucze nie są używane przez portal LUIS, dopóki **nie** zostaną przypisane do portalu Luis w **zasobach platformy Azure zarządzanie >**.
+    > Te klucze nie są używane przez portal LUIS, dopóki **nie** zostaną przypisane do portalu Luis w **zasobach platformy Azure zarządzanie >** .
 
 <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
 
@@ -212,8 +212,8 @@ Zasób `kind` :
 Można przypisać zasób tworzenia dla jednej aplikacji lub dla wszystkich aplikacji w LUIS. Poniższa procedura przypisuje wszystkie aplikacje do pojedynczego zasobu tworzenia.
 
 1. Zaloguj się do [portalu Luis](https://www.luis.ai).
-1. Na górnym pasku nawigacyjnym po prawej stronie wybierz konto użytkownika, a następnie wybierz pozycję **Ustawienia**.
-1. Na stronie **Ustawienia użytkownika** wybierz pozycję **Dodaj zasób tworzenia** , a następnie wybierz istniejący zasób tworzenia. Wybierz pozycję **Zapisz**.
+1. Na górnym pasku nawigacyjnym po prawej stronie wybierz konto użytkownika, a następnie wybierz pozycję **Ustawienia** .
+1. Na stronie **Ustawienia użytkownika** wybierz pozycję **Dodaj zasób tworzenia** , a następnie wybierz istniejący zasób tworzenia. Wybierz pozycję **Zapisz** .
 
 ## <a name="assign-a-resource-to-an-app"></a>Przypisywanie zasobu do aplikacji
 
@@ -292,7 +292,7 @@ Zobacz [magazynowanie i usuwanie danych,](luis-concept-data-storage.md#accounts)
 ## <a name="viewing-azure-resource-metrics"></a>Wyświetlanie metryk zasobów platformy Azure
 
 ### <a name="viewing-azure-resource-summary-usage"></a>Wyświetlanie użycia podsumowania zasobów platformy Azure
-Możesz wyświetlić informacje o użyciu LUIS na platformie Azure. Na stronie **Przegląd** są wyświetlane najnowsze informacje podsumowujące, w tym wywołania i błędy. Jeśli wprowadzisz żądanie punktu końcowego LUIS, natychmiast Obejrzyj **stronę przeglądu**, aby umożliwić wyświetlenie użycia do 5 minut.
+Możesz wyświetlić informacje o użyciu LUIS na platformie Azure. Na stronie **Przegląd** są wyświetlane najnowsze informacje podsumowujące, w tym wywołania i błędy. Jeśli wprowadzisz żądanie punktu końcowego LUIS, natychmiast Obejrzyj **stronę przeglądu** , aby umożliwić wyświetlenie użycia do 5 minut.
 
 ![Wyświetlanie podsumowania użycia](./media/luis-usage-tiers/overview.png)
 

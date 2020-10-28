@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: fae86e13be624d7a5304aa04b82432e1163b1244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: f94a68833347d662f427fa0944dd83d33458bd14
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84629551"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746006"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Samouczek: skalowanie automatyczne zestawu skalowania maszyn wirtualnych przy użyciu szablonu platformy Azure
 Podczas tworzenia zestawu skalowania musisz zdefiniować liczbę wystąpień maszyn wirtualnych, które chcesz uruchamiać. W odpowiedzi na zmieniające się zapotrzebowanie aplikacji możesz automatycznie zwiększać lub zmniejszać liczbę wystąpień maszyn wirtualnych. Skalowanie automatyczne pozwala spełniać potrzeby klientów lub reagować na zmiany wydajności aplikacji w całym cyklu jej życia. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -33,7 +33,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 
 ## <a name="define-an-autoscale-profile"></a>Definiowanie profilu skalowania automatycznego
-Profil skalowania automatycznego w szablonie platformy Azure definiuje się za pomocą dostawcy zasobów *Microsoft.insights/autoscalesettings*. *Profil* określa pojemność zestawu skalowania oraz wszystkie skojarzone reguły. W poniższym przykładzie zdefiniowano profil o nazwie *Autoscale by percentage based on CPU usage* (Skalowanie automatyczne według wartości procentowej na podstawie użycia procesora CPU) i ustawiono domyślną, minimalną pojemność — *2* — oraz maksymalną pojemność — *10* wystąpień maszyn wirtualnych:
+Profil skalowania automatycznego w szablonie platformy Azure definiuje się za pomocą dostawcy zasobów *Microsoft.insights/autoscalesettings* . *Profil* określa pojemność zestawu skalowania oraz wszystkie skojarzone reguły. W poniższym przykładzie zdefiniowano profil o nazwie *Autoscale by percentage based on CPU usage* (Skalowanie automatyczne według wartości procentowej na podstawie użycia procesora CPU) i ustawiono domyślną, minimalną pojemność — *2* — oraz maksymalną pojemność — *10* wystąpień maszyn wirtualnych:
 
 ```json
 {
@@ -64,18 +64,18 @@ W poniższym przykładzie zdefiniowano regułę, która zwiększa liczbę wystą
 
 W tej regule są używane następujące parametry:
 
-| Parametr         | Objaśnienie                                                                                                         | Wartość           |
+| Parametr         | Wyjaśnienie                                                                                                         | Wartość           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU  |
 | *timeGrain*       | Częstotliwość zbierania metryk do analizy.                                                                   | 1 minuta        |
 | *timeAggregation* | Określa sposób agregacji metryk zebranych do celów analizy.                                                | Średnia         |
-| *timeWindow*      | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 5 min       |
+| *timeWindow*      | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 5 minut       |
 | *zakład*        | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż    |
 | *próg*       | Wartość, która powoduje wyzwolenie akcji przez regułę skalowania automatycznego.                                                      | 70%             |
 | *wskazywa*       | Określa, czy podczas stosowania reguły ma nastąpić skalowanie w pionie czy w poziomie.                                              | Zwiększ        |
 | *Wprowadź*            | Wskazuje, że liczba wystąpień maszyn wirtualnych powinna zostać zmieniona o określoną wartość.                                    | Liczba zmian    |
 | *wartość*           | Określa liczbę wystąpień maszyn wirtualnych podlegających skalowaniu w pionie lub w poziomie podczas stosowania reguły.                                             | 3               |
-| *cooldown*        | Przedział czasu przed ponownym zastosowaniem reguły, który gwarantuje, że akcje skalowania automatycznego zaczną obowiązywać. | 5 min       |
+| *cooldown*        | Przedział czasu przed ponownym zastosowaniem reguły, który gwarantuje, że akcje skalowania automatycznego zaczną obowiązywać. | 5 minut       |
 
 Do sekcji profilu dostawcy zasobów *Microsoft.insights/autoscalesettings* wspomnianego w poprzedniej sekcji zostanie dodana następująca reguła:
 
@@ -143,7 +143,7 @@ Najpierw utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azu
 az group create --name myResourceGroup --location eastus
 ```
 
-Teraz utwórz zestaw skalowania maszyn wirtualnych za pomocą polecenia [az group deployment create](/cli/azure/group/deployment). Po wyświetleniu monitu podaj poświadczenia dla poszczególnych wystąpień maszyn wirtualnych: swoją nazwę użytkownika, taką jak *azureuser*, i hasło:
+Teraz utwórz zestaw skalowania maszyn wirtualnych za pomocą polecenia [az group deployment create](/cli/azure/group/deployment). Po wyświetleniu monitu podaj poświadczenia dla poszczególnych wystąpień maszyn wirtualnych: swoją nazwę użytkownika, taką jak *azureuser* , i hasło:
 
 ```azurecli-interactive
 az group deployment create \
@@ -180,7 +180,7 @@ Połącz się przez protokół SSH z pierwszym wystąpieniem maszyny wirtualnej.
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Po zalogowaniu zainstaluj narzędzie **stress**. Uruchom *10 procesów roboczych narzędzia * **stress**, które generują obciążenie procesora CPU. Procesy robocze będą działać przez *420* sekund, co wystarczy do zaimplementowania odpowiedniej akcji przez reguły skalowania automatycznego.
+Po zalogowaniu zainstaluj narzędzie **stress** . Uruchom *10 procesów roboczych narzędzia* **stress** , które generują obciążenie procesora CPU. Procesy robocze będą działać przez *420* sekund, co wystarczy do zaimplementowania odpowiedniej akcji przez reguły skalowania automatycznego.
 
 ```console
 sudo apt-get update
@@ -188,15 +188,15 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Gdy narzędzie **stress** wyświetli dane wyjściowe podobne do *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, naciśnij klawisz *Enter*, aby powrócić do wiersza polecenia.
+Gdy narzędzie **stress** wyświetli dane wyjściowe podobne do *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , naciśnij klawisz *Enter* , aby powrócić do wiersza polecenia.
 
-Aby potwierdzić obecność wygenerowanego obciążenia procesora CPU przez narzędzie **stress**, sprawdź aktywne obciążenie systemu za pomocą narzędzia **top**:
+Aby potwierdzić obecność wygenerowanego obciążenia procesora CPU przez narzędzie **stress** , sprawdź aktywne obciążenie systemu za pomocą narzędzia **top** :
 
 ```console
 top
 ```
 
-Zakończ działanie narzędzia **top**, a następnie zamknij połączenie z wystąpieniem maszyny wirtualnej. Narzędzie **stress** będzie kontynuować działanie na wystąpieniu maszyny wirtualnej.
+Zakończ działanie narzędzia **top** , a następnie zamknij połączenie z wystąpieniem maszyny wirtualnej. Narzędzie **stress** będzie kontynuować działanie na wystąpieniu maszyny wirtualnej.
 
 ```console
 Ctrl-c
@@ -209,14 +209,14 @@ Połącz się z drugim wystąpieniem maszyny wirtualnej przy użyciu numeru port
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
-Zainstaluj i uruchom narzędzie **stress**, a następnie uruchom dziesięć procesów roboczych na drugim wystąpieniu maszyny wirtualnej.
+Zainstaluj i uruchom narzędzie **stress** , a następnie uruchom dziesięć procesów roboczych na drugim wystąpieniu maszyny wirtualnej.
 
 ```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-I ponownie, gdy narzędzie **stress** wyświetli dane wyjściowe podobne do *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, naciśnij klawisz *Enter*, aby powrócić do wiersza polecenia.
+I ponownie, gdy narzędzie **stress** wyświetli dane wyjściowe podobne do *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , naciśnij klawisz *Enter* , aby powrócić do wiersza polecenia.
 
 Zamknij połączenie z drugim wystąpieniem maszyny wirtualnej. Narzędzie **stress** będzie kontynuować działanie na wystąpieniu maszyny wirtualnej.
 
@@ -225,7 +225,7 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Monitorowanie aktywnych reguł skalowania automatycznego
-Do monitorowania liczby wystąpień maszyn wirtualnych w zestawie skalowania służy narzędzie **watch**. Po upływie pięciu minut reguły skalowania automatycznego rozpoczynają proces skalowania w poziomie w odpowiedzi na obciążenie procesora CPU wygenerowane przez narzędzie **stress** na poszczególnych wystąpieniach maszyn wirtualnych:
+Do monitorowania liczby wystąpień maszyn wirtualnych w zestawie skalowania służy narzędzie **watch** . Po upływie pięciu minut reguły skalowania automatycznego rozpoczynają proces skalowania w poziomie w odpowiedzi na obciążenie procesora CPU wygenerowane przez narzędzie **stress** na poszczególnych wystąpieniach maszyn wirtualnych:
 
 ```azurecli-interactive
 watch az vmss list-instances \

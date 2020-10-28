@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/24/2020
-ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: cc17cd23ae197db25fed440eb249f2cf069d4859
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332029"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744594"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight
 
@@ -28,7 +28,7 @@ Aby zapoznać się z pełnym porównaniem opcji tworzenia klastra przy użyciu D
 Data Lake Storage Gen2 jest dostępna jako opcja magazynu dla niemal wszystkich typów klastrów usługi Azure HDInsight zarówno jako domyślnego, jak i dodatkowego konta magazynu. HBase jednak może mieć tylko jedno konto z Data Lake Storage Gen2.
 
 > [!Note]  
-> Po wybraniu Data Lake Storage Gen2 jako **podstawowego typu magazynu**nie można wybrać Data Lake Storage Gen1 jako dodatkowego magazynu.
+> Po wybraniu Data Lake Storage Gen2 jako **podstawowego typu magazynu** nie można wybrać Data Lake Storage Gen1 jako dodatkowego magazynu.
 
 ## <a name="create-hdinsight-clusters-using-data-lake-storage-gen2"></a>Tworzenie klastrów usługi HDInsight przy użyciu Data Lake Storage Gen2
 
@@ -66,19 +66,19 @@ Aby ustawić uprawnienia dla użytkowników do wykonywania zapytań dotyczących
 
 Istnieje kilka sposobów uzyskiwania dostępu do plików w Data Lake Storage Gen2 z klastra usługi HDInsight.
 
-* **Przy użyciu w pełni kwalifikowanej nazwy**. W przypadku tej metody należy podać pełną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
+* **Przy użyciu w pełni kwalifikowanej nazwy** . W przypadku tej metody należy podać pełną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
 
     ```
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **Przy użyciu skróconego formatu ścieżki**. To podejście zastępuje ścieżkę do katalogu głównego klastra przy użyciu:
+* **Przy użyciu skróconego formatu ścieżki** . To podejście zastępuje ścieżkę do katalogu głównego klastra przy użyciu:
 
     ```
     abfs:///<file.path>/
     ```
 
-* **Przy użyciu ścieżki względnej**. W przypadku tej metody należy podać tylko względną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
+* **Przy użyciu ścieżki względnej** . W przypadku tej metody należy podać tylko względną ścieżkę do pliku, do którego chcesz uzyskać dostęp.
 
     ```
     /<file.path>/

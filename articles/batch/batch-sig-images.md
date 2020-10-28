@@ -3,13 +3,13 @@ title: Używanie galerii obrazów udostępnionych do tworzenia niestandardowej p
 description: Pule obrazów niestandardowych są wydajnym sposobem konfigurowania węzłów obliczeniowych do uruchamiania obciążeń wsadowych.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605196"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745530"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Używanie galerii obrazów udostępnionych do tworzenia niestandardowej puli obrazów
 
@@ -40,7 +40,7 @@ Używanie udostępnionego obrazu skonfigurowanego dla danego scenariusza może z
 
 - **Konto usługi Azure Batch.** Aby utworzyć konto usługi Batch, zobacz Przewodnik Szybki Start w usłudze Batch przy użyciu [Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
 
-- **Obraz udostępnionej galerii obrazów**. Aby utworzyć obraz udostępniony, musisz mieć lub utworzyć zasób obrazu zarządzanego. Obraz należy utworzyć na podstawie migawek dysku systemu operacyjnego maszyny wirtualnej i opcjonalnie dołączonych dysków danych.
+- **Obraz udostępnionej galerii obrazów** . Aby utworzyć obraz udostępniony, musisz mieć lub utworzyć zasób obrazu zarządzanego. Obraz należy utworzyć na podstawie migawek dysku systemu operacyjnego maszyny wirtualnej i opcjonalnie dołączonych dysków danych.
 
 > [!NOTE]
 > Jeśli udostępniony obraz nie znajduje się w tej samej subskrypcji co konto usługi Batch, należy [zarejestrować dostawcę zasobów Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) dla tej subskrypcji. Dwie subskrypcje muszą znajdować się w tej samej dzierżawie usługi Azure AD.
@@ -208,9 +208,9 @@ Wykonaj następujące kroki, aby utworzyć pulę z udostępnionego obrazu w Azur
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 1. Przejdź do pozycji **konta wsadowe** i wybierz swoje konto.
 1. Wybierz pozycję **Pule** , a następnie **Dodaj** , aby utworzyć nową pulę.
-1. W sekcji **Typ obrazu** wybierz pozycję **Galeria obrazów udostępnionych**.
+1. W sekcji **Typ obrazu** wybierz pozycję **Galeria obrazów udostępnionych** .
 1. Wypełnij pozostałe sekcje informacjami o zarządzanym obrazie.
-1. Wybierz przycisk **OK**.
+1. Wybierz przycisk **OK** .
 
 ![Utwórz pulę przy użyciu udostępnionego obrazu z portalem.](media/batch-sig-images/create-custom-pool.png)
 

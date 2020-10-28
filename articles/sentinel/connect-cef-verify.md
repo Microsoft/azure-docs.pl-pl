@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 643b28b2e88f233d2924270511d3c87fa4d9b767
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631634"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744215"
 ---
 # <a name="step-3-validate-connectivity"></a>Krok 3. Weryfikowanie łączności
 
@@ -29,18 +29,27 @@ Po wdrożeniu usługi przesyłania dalej dzienników (w kroku 1) i skonfigurowan
 
 - Musisz mieć podwyższony poziom uprawnień (sudo) na komputerze usługi przesyłania dalej dzienników.
 
-- Na komputerze usługi przesyłania dalej dzienników musi być zainstalowany język Python.<br>
+- Na komputerze usługi przesyłania dalej dzienników musi być zainstalowany język **python 2,7** .<br>
 Użyj `python –version` polecenia, aby sprawdzić.
+
+- W pewnym momencie tego procesu może być potrzebny identyfikator obszaru roboczego i klucz podstawowy obszaru roboczego. Można je znaleźć w obszarze roboczym Zasoby, w obszarze **Zarządzanie agentami** .
 
 ## <a name="how-to-validate-connectivity"></a>Sprawdzanie poprawności łączności
 
-1. W menu nawigacyjnym usługi Azure wskaźnikowym Otwórz pozycję **dzienniki**. Uruchom zapytanie przy użyciu schematu **CommonSecurityLog** , aby zobaczyć, czy otrzymujesz dzienniki z rozwiązania zabezpieczeń.<br>
-Należy pamiętać, że może upłynąć około 20 minut, dopóki dzienniki nie pojawią się w **log Analytics**. 
+1. W menu nawigacyjnym usługi Azure wskaźnikowym Otwórz pozycję **dzienniki** . Uruchom zapytanie przy użyciu schematu **CommonSecurityLog** , aby zobaczyć, czy otrzymujesz dzienniki z rozwiązania zabezpieczeń.<br>
+Należy pamiętać, że może upłynąć około 20 minut, dopóki dzienniki nie pojawią się w **log Analytics** . 
 
 1. Jeśli nie widzisz żadnych wyników zapytania, sprawdź, czy zdarzenia są generowane z rozwiązania zabezpieczeń, lub spróbuj wygenerować niektóre i sprawdź, czy są przekazywane do wyszukanego komputera usługi przesyłania dalej dziennika systemowego. 
 
-1. Uruchom następujący skrypt w usłudze przesyłania dalej dzienników, aby sprawdzić łączność między rozwiązaniem zabezpieczeń, usługą przesyłania dalej dzienników i wskaźnikiem kontroli platformy Azure. Ten skrypt sprawdza, czy demon nasłuchuje na prawidłowych portach, że przekazywanie jest prawidłowo skonfigurowane i że nic nie blokuje komunikacji między demonem a agentem Log Analytics. Wysyła również komunikat "TestCommonEventFormat", który umożliwia sprawdzenie kompleksowej łączności. <br>
- `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
+1. Uruchom następujący skrypt w usłudze przesyłania dalej dzienników (stosując identyfikator obszaru roboczego zamiast symbolu zastępczego), aby sprawdzić łączność między rozwiązaniem zabezpieczeń, usługą przesyłania dalej dzienników i wskaźnikiem kontroli platformy Azure. Ten skrypt sprawdza, czy demon nasłuchuje na prawidłowych portach, że przekazywanie jest prawidłowo skonfigurowane i że nic nie blokuje komunikacji między demonem a agentem Log Analytics. Wysyła również komunikat "TestCommonEventFormat", który umożliwia sprawdzenie kompleksowej łączności. <br>
+
+    ```bash
+    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
+    ```
+
+   - Może zostać wyświetlony komunikat informujący o konieczności uruchomienia polecenia w celu rozwiązania problemu z **mapowaniem pola *komputer*** . Aby uzyskać szczegółowe informacje, zobacz [wyjaśnienie w skrypcie walidacji](#mapping-command) .
+
+    - Może zostać wyświetlony komunikat informujący o konieczności uruchomienia polecenia w celu rozwiązania problemu z **analizą dzienników zapory Cisco ASA** . Aby uzyskać szczegółowe informacje, zobacz [wyjaśnienie w skrypcie walidacji](#parsing-command) .
 
 ## <a name="validation-script-explained"></a>Wyjaśniono skrypt walidacji
 
@@ -72,21 +81,31 @@ Skrypt walidacji wykonuje następujące sprawdzenia:
     </filter>
     ```
 
-1. Sprawdza, czy analiza Cisco ASA dla zdarzeń zapory jest skonfigurowana zgodnie z oczekiwaniami:
+1. Sprawdza, czy analiza zdarzeń zapory Cisco ASA jest skonfigurowana zgodnie z oczekiwaniami przy użyciu następującego polecenia: 
 
     ```bash
-    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
-        /opt/microsoft/omsagent/plugin/security_lib.rb && 
-        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-1. Sprawdza, czy pole komputera w źródle dziennika *systemu* jest prawidłowo mapowane w agencie log Analytics:
+    - <a name="parsing-command"></a>Jeśli wystąpi problem z analizą, w skrypcie zostanie wyświetlony komunikat o błędzie informujący o konieczności **ręcznego uruchomienia następującego polecenia** (zastosowanie identyfikatora obszaru roboczego zamiast symbolu zastępczego). Polecenie zapewni poprawne analizowanie i ponowne uruchomienie agenta.
+    
+        ```bash
+        # Cisco ASA parsing fix
+        sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. Sprawdza, czy pole komputer w źródle dziennika *systemu* jest prawidłowo mapowane w agencie log Analytics przy użyciu następującego polecenia: 
 
     ```bash
-    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
+
+    - <a name="mapping-command"></a>Jeśli wystąpi problem z mapowaniem, skrypt wygeneruje komunikat o błędzie informujący o konieczności **ręcznego uruchomienia następującego polecenia** (zastosowanie identyfikatora obszaru roboczego zamiast symbolu zastępczego). Polecenie zapewni poprawne mapowanie i ponownie uruchamia agenta.
+
+        ```bash
+        # Computer field mapping fix
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 1. Sprawdza, czy na komputerze znajdują się jakieś ulepszenia zabezpieczeń, które mogą blokować ruch sieciowy (na przykład zaporę hosta).
 
@@ -155,21 +174,31 @@ Skrypt walidacji wykonuje następujące sprawdzenia:
     </filter>
     ```
 
-1. Sprawdza, czy analiza Cisco ASA dla zdarzeń zapory jest skonfigurowana zgodnie z oczekiwaniami:
+1. Sprawdza, czy analiza zdarzeń zapory Cisco ASA jest skonfigurowana zgodnie z oczekiwaniami przy użyciu następującego polecenia: 
 
     ```bash
-    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
-        /opt/microsoft/omsagent/plugin/security_lib.rb && 
-        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-1. Sprawdza, czy pole komputera w źródle dziennika *systemu* jest prawidłowo mapowane w agencie log Analytics:
+    - <a name="parsing-command"></a>Jeśli wystąpi problem z analizą, w skrypcie zostanie wyświetlony komunikat o błędzie informujący o konieczności **ręcznego uruchomienia następującego polecenia** (zastosowanie identyfikatora obszaru roboczego zamiast symbolu zastępczego). Polecenie zapewni poprawne analizowanie i ponowne uruchomienie agenta.
+    
+        ```bash
+        # Cisco ASA parsing fix
+        sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. Sprawdza, czy pole komputer w źródle dziennika *systemu* jest prawidłowo mapowane w agencie log Analytics przy użyciu następującego polecenia: 
 
     ```bash
-    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
+
+    - <a name="mapping-command"></a>Jeśli wystąpi problem z mapowaniem, skrypt wygeneruje komunikat o błędzie informujący o konieczności **ręcznego uruchomienia następującego polecenia** (zastosowanie identyfikatora obszaru roboczego zamiast symbolu zastępczego). Polecenie zapewni poprawne mapowanie i ponownie uruchamia agenta.
+
+        ```bash
+        # Computer field mapping fix
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 1. Sprawdza, czy na komputerze znajdują się jakieś ulepszenia zabezpieczeń, które mogą blokować ruch sieciowy (na przykład zaporę hosta).
 

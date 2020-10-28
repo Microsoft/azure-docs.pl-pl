@@ -2,15 +2,15 @@
 title: Konfigurowanie aplikacji ASP.NET
 description: Dowiedz się, jak skonfigurować aplikację ASP.NET w Azure App Service. W tym artykule przedstawiono najczęściej wykonywane zadania konfiguracji.
 ms.devlang: dotnet
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ed6835583cc4881b19eee14ed392b193324535e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961707"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744160"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Konfigurowanie aplikacji ASP.NET dla Azure App Service
 
@@ -71,7 +71,7 @@ ConfigurationManager.ConnectionStrings["MyConnection"];
 }
 ```
 
-W przypadku skonfigurowania ustawienia aplikacji o tej samej nazwie w App Service i w *web.config*wartość App Service ma pierwszeństwo przed wartością *web.config* . Wartość *web.config* lokalnego umożliwia debugowanie aplikacji lokalnie, ale wartość App Service umożliwia uruchamianie aplikacji w produkcie z ustawieniami produkcyjnymi. Parametry połączenia działają w ten sam sposób. W ten sposób można zachować wpisy tajne aplikacji poza repozytorium kodu i uzyskać dostęp do odpowiednich wartości bez konieczności zmiany kodu.
+W przypadku skonfigurowania ustawienia aplikacji o tej samej nazwie w App Service i w *web.config* wartość App Service ma pierwszeństwo przed wartością *web.config* . Wartość *web.config* lokalnego umożliwia debugowanie aplikacji lokalnie, ale wartość App Service umożliwia uruchamianie aplikacji w produkcie z ustawieniami produkcyjnymi. Parametry połączenia działają w ten sam sposób. W ten sposób można zachować wpisy tajne aplikacji poza repozytorium kodu i uzyskać dostęp do odpowiednich wartości bez konieczności zmiany kodu.
 
 ## <a name="deploy-multi-project-solutions"></a>Wdróż rozwiązania obejmujące wiele projektów
 
@@ -91,7 +91,7 @@ Gdy aplikacja ASP.NET generuje wyjątek w debugerze programu Visual Studio, prze
 </system.web>
 ```
 
-Wdróż ponownie aplikację ze zaktualizowanym *Web.config*. Powinna zostać wyświetlona taka sama Szczegółowa Strona wyjątku.
+Wdróż ponownie aplikację ze zaktualizowanym *Web.config* . Powinna zostać wyświetlona taka sama Szczegółowa Strona wyjątku.
 
 ## <a name="access-diagnostic-logs"></a>Uzyskiwanie dostępu do dzienników diagnostycznych
 

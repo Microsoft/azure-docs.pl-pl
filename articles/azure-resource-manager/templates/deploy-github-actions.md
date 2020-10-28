@@ -3,13 +3,13 @@ title: Wdrażanie szablonów Menedżer zasobów przy użyciu akcji GitHub
 description: Opisuje sposób wdrażania szablonów Azure Resource Manager przy użyciu akcji usługi GitHub.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: github-actions-azure
+ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282842"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746106"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Wdrażanie szablonów Azure Resource Manager przy użyciu akcji GitHub
 
@@ -75,7 +75,7 @@ Musisz utworzyć wpisy tajne dla poświadczeń platformy Azure, grupy zasobów i
 
 1. W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium.
 
-1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło**.
+1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło** .
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
@@ -91,17 +91,17 @@ Dodaj szablon Menedżer zasobów do repozytorium GitHub. Ten szablon służy do 
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Plik można umieścić w dowolnym miejscu w repozytorium. Przykład przepływu pracy w następnej sekcji zakłada, że plik szablonu ma nazwę **azuredeploy.jsna**i jest przechowywany w katalogu głównym repozytorium.
+Plik można umieścić w dowolnym miejscu w repozytorium. Przykład przepływu pracy w następnej sekcji zakłada, że plik szablonu ma nazwę **azuredeploy.jsna** i jest przechowywany w katalogu głównym repozytorium.
 
 ## <a name="create-workflow"></a>Tworzenie przepływu pracy
 
-Plik przepływu pracy musi być przechowywany w folderze **. GitHub/** Workflows w katalogu głównym repozytorium. Rozszerzenie pliku przepływu pracy może mieć wartość **. yml** lub **. YAML**.
+Plik przepływu pracy musi być przechowywany w folderze **. GitHub/** Workflows w katalogu głównym repozytorium. Rozszerzenie pliku przepływu pracy może mieć wartość **. yml** lub **. YAML** .
 
 1. W repozytorium GitHub wybierz pozycję **Akcje** z górnego menu.
-1. Wybierz pozycję **Nowy przepływ pracy**.
-1. Wybierz opcję **Skonfiguruj przepływ pracy samodzielnie**.
-1. Zmień nazwę pliku przepływu pracy, jeśli wolisz inną nazwę niż **Main. yml**. Na przykład: **deployStorageAccount. yml**.
-1. Zastąp zawartość pliku YML następującym:
+1. Wybierz pozycję **Nowy przepływ pracy** .
+1. Wybierz opcję **Skonfiguruj przepływ pracy samodzielnie** .
+1. Zmień nazwę pliku przepływu pracy, jeśli wolisz inną nazwę niż **Main. yml** . Na przykład: **deployStorageAccount. yml** .
+1. Zastąp zawartość tego pliku yml następującym kodem:
 
     ```yml
     on: [push]
@@ -136,12 +136,12 @@ Plik przepływu pracy musi być przechowywany w folderze **. GitHub/** Workflows
 
     Pierwsza sekcja pliku przepływu pracy zawiera:
 
-    - **name**: Nazwa przepływu pracy.
-    - **włączone**: Nazwa zdarzeń usługi GitHub, które wyzwalają przepływ pracy. Przepływ pracy jest wyzwalany w przypadku wystąpienia zdarzenia push w gałęzi głównej, który modyfikuje co najmniej jeden z dwóch określonych plików. Te dwa pliki to plik przepływu pracy i plik szablonu.
+    - **name** : Nazwa przepływu pracy.
+    - **włączone** : Nazwa zdarzeń usługi GitHub, które wyzwalają przepływ pracy. Przepływ pracy jest wyzwalany w przypadku wystąpienia zdarzenia push w gałęzi głównej, który modyfikuje co najmniej jeden z dwóch określonych plików. Te dwa pliki to plik przepływu pracy i plik szablonu.
 
-1. Wybierz pozycję **Rozpocznij zatwierdzenie**.
-1. Wybierz pozycję **Zatwierdź bezpośrednio w gałęzi głównej**.
-1. Wybierz pozycję **Zatwierdź nowy plik** (lub **Zatwierdź zmiany**).
+1. Wybierz pozycję **Rozpocznij zatwierdzenie** .
+1. Wybierz pozycję **Zatwierdź bezpośrednio w gałęzi głównej** .
+1. Wybierz pozycję **Zatwierdź nowy plik** (lub **Zatwierdź zmiany** ).
 
 Ponieważ przepływ pracy jest skonfigurowany do wyzwalania przez plik przepływu pracy lub aktualizowany plik szablonu, przepływ pracy zaczyna się bezpośrednio po zatwierdzeniu zmian.
 

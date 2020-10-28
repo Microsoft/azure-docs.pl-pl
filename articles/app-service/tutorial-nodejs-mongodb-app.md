@@ -5,14 +5,14 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.custom: mvc, cli-validate, seodec18, devx-track-js
+ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 4fc79f8508f46f5003b99289d725b303feef78aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312043"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743655"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Samouczek: Tworzenie aplikacji Node.js i MongoDB na platformie Azure
 
@@ -108,7 +108,7 @@ Przykładowa aplikacja MEAN.js przechowuje dane użytkowników w bazie danych. J
 
 ![Pomyślne połączenie MEAN.js z MongoDB](./media/tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
-Wybierz pozycję **Administrator -> Zarządzaj artykułami**, aby dodać artykuły.
+Wybierz pozycję **Administrator -> Zarządzaj artykułami** , aby dodać artykuły.
 
 Aby w dowolnym momencie zatrzymać środowisko Node.js, naciśnij w terminalu klawisze `Ctrl+C`. 
 
@@ -186,7 +186,7 @@ Skopiuj wartość `primaryMasterKey`. Ta informacja będzie potrzebna w następn
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Konfigurowanie parametrów połączenia w aplikacji Node.js
 
-W lokalnym repozytorium MEAN.js utwórz w folderze _config/env/_ plik o nazwie _local-production.js_. plik _. gitignore_ jest już skonfigurowany do przechowywania tego pliku z repozytorium. 
+W lokalnym repozytorium MEAN.js utwórz w folderze _config/env/_ plik o nazwie _local-production.js_ . plik _. gitignore_ jest już skonfigurowany do przechowywania tego pliku z repozytorium. 
 
 Skopiuj do niego poniższy kod. Pamiętaj, aby zastąpić dwa *\<cosmosdb-name>* symbole zastępcze nazwą bazy danych Cosmos DB i zastąpić *\<primary-master-key>* symbol zastępczy kluczem skopiowanym w poprzednim kroku.
 
@@ -210,7 +210,7 @@ W oknie lokalnego terminala uruchom poniższe polecenie, aby zminifikować i do�
 gulp prod
 ```
 
-W oknie lokalnego terminala uruchom następujące polecenie, aby użyć parametrów połączenia skonfigurowanych w pliku _config/env/local-production.js_. Zignoruj błąd certyfikatu i ostrzeżenie config.domain.
+W oknie lokalnego terminala uruchom następujące polecenie, aby użyć parametrów połączenia skonfigurowanych w pliku _config/env/local-production.js_ . Zignoruj błąd certyfikatu i ostrzeżenie config.domain.
 
 ```bash
 # Bash
@@ -287,7 +287,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 W Node.js kodzie można [uzyskać dostęp do tego ustawienia aplikacji](configure-language-nodejs.md#access-environment-variables) w programie `process.env.MONGODB_URI` , podobnie jak w przypadku dostępu do dowolnej zmiennej środowiskowej. 
 
-W lokalnym repozytorium MEAN.js otwórz plik _config/env/production.js_ (nie _config/env/local-production.js_), w którym znajduje się konfiguracja specyficzna dla środowiska produkcyjnego. Domyślna aplikacja MEAN.js jest już skonfigurowana do używania utworzonej zmiennej środowiskowej `MONGODB_URI`.
+W lokalnym repozytorium MEAN.js otwórz plik _config/env/production.js_ (nie _config/env/local-production.js_ ), w którym znajduje się konfiguracja specyficzna dla środowiska produkcyjnego. Domyślna aplikacja MEAN.js jest już skonfigurowana do używania utworzonej zmiennej środowiskowej `MONGODB_URI`.
 
 ```javascript
 db: {
@@ -317,7 +317,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 </pre>
 
 Możesz zauważyć, że w procesie wdrażania środowisko [Gulp](https://gulpjs.com/) jest uruchamiane po wykonaniu polecenia `npm install`. Usługa App Service nie uruchamia zadań Gulp ani Grunt podczas wdrażania, dlatego w katalogu głównym tego przykładowego repozytorium znajdują się 2 dodatkowe pliki włączające tę funkcję: 
@@ -341,7 +341,7 @@ Jeśli się to powiedzie i aplikacja automatycznie zaloguje się na konto utworz
 
 ![Aplikacja MEAN.js uruchomiona w usłudze Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Wybierz pozycję **Administrator -> Zarządzaj artykułami**, aby dodać artykuły. 
+Wybierz pozycję **Administrator -> Zarządzaj artykułami** , aby dodać artykuły. 
 
 **Gratulacje!** Używasz opartej na danych aplikacji Node.js w usłudze Azure App Service.
 
@@ -351,7 +351,7 @@ W tym kroku zmienisz model danych `article` i opublikujesz zmiany na platformie 
 
 ### <a name="update-the-data-model"></a>Aktualizowanie modelu danych
 
-W lokalnym repozytorium MEAN.js otwórz plik _modules/articles/server/models/article.server.model.js_.
+W lokalnym repozytorium MEAN.js otwórz plik _modules/articles/server/models/article.server.model.js_ .
 
 W schemacie `ArticleSchema` dodaj typ `String` o nazwie `comment`. Gdy skończysz, kod schematu powinien wyglądać następująco:
 
@@ -376,7 +376,7 @@ Zaktualizuj pozostałą część kodu `articles`, aby używany był typ `comment
 
 Należy zmodyfikować 5 plików: plik kontrolera serwera i 4 pliki widoków klienta. 
 
-Otwórz plik _modules/articles/server/controllers/articles.server.controller.js_.
+Otwórz plik _modules/articles/server/controllers/articles.server.controller.js_ .
 
 W funkcji `update` dodaj przypisanie dla zmiennej `article.comment`. W poniższym kodzie przedstawiono ukończoną funkcję `update`:
 
@@ -392,7 +392,7 @@ exports.update = function (req, res) {
 };
 ```
 
-Otwórz plik _modules/articles/client/views/view-article.client.view.html_.
+Otwórz plik _modules/articles/client/views/view-article.client.view.html_ .
 
 Tuż nad tagiem zamykającym `</section>` dodaj poniższy wiersz, aby wyświetlić typ `comment` i resztę danych artykułu:
 
@@ -400,7 +400,7 @@ Tuż nad tagiem zamykającym `</section>` dodaj poniższy wiersz, aby wyświetli
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-Otwórz plik _modules/articles/client/views/list-articles.client.view.html_.
+Otwórz plik _modules/articles/client/views/list-articles.client.view.html_ .
 
 Tuż nad tagiem zamykającym `</a>` dodaj poniższy wiersz, aby wyświetlić typ `comment` i resztę danych artykułu:
 
@@ -408,7 +408,7 @@ Tuż nad tagiem zamykającym `</a>` dodaj poniższy wiersz, aby wyświetlić typ
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-Otwórz plik _modules/articles/client/views/admin/list-articles.client.view.html_.
+Otwórz plik _modules/articles/client/views/admin/list-articles.client.view.html_ .
 
 Wewnątrz elementu `<div class="list-group">` i tuż nad tagiem zamykającym `</a>` dodaj poniższy wiersz, aby wyświetlić typ `comment` i resztę danych artykułu:
 
@@ -416,7 +416,7 @@ Wewnątrz elementu `<div class="list-group">` i tuż nad tagiem zamykającym `</
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-Otwórz plik _modules/articles/client/views/admin/form-article.client.view.html_.
+Otwórz plik _modules/articles/client/views/admin/form-article.client.view.html_ .
 
 Znajdź element `<div class="form-group">` zawierający przycisk przesyłania, który wygląda następująco:
 
@@ -454,7 +454,7 @@ node server.js
 
 Przejdź do adresu `http://localhost:8443` w przeglądarce i upewnij się, że użytkownik jest zalogowany.
 
-Wybierz pozycję **Administrator > Zarządzaj artykułami** i dodaj artykuł, wybierając przycisk **+**.
+Wybierz pozycję **Administrator > Zarządzaj artykułami** i dodaj artykuł, wybierając przycisk **+** .
 
 Zostanie wyświetlone nowe pole tekstowe `Comment`.
 
@@ -505,7 +505,7 @@ Przesyłanie strumieniowe dzienników można zatrzymać w dowolnym momencie, nac
 
 Przejdź do witryny [Azure Portal](https://portal.azure.com), aby wyświetlić utworzoną aplikację.
 
-W menu po lewej stronie kliknij pozycję **App Services**, a następnie kliknij nazwę swojej aplikacji na platformie Azure.
+W menu po lewej stronie kliknij pozycję **App Services** , a następnie kliknij nazwę swojej aplikacji na platformie Azure.
 
 ![Nawigacja w portalu do aplikacji platformy Azure](./media/tutorial-nodejs-mongodb-app/access-portal.png)
 

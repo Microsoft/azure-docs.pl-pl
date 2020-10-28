@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: e57317dce64b58e5c92684152d840955a30df660
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: d7718ebbbf4f9dec3519ce46e5d0d1cdbb5a7460
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441207"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745964"
 ---
 # <a name="using-azure-ultra-disks"></a>Korzystanie z usługi Azure Ultra disks
 
@@ -29,7 +29,7 @@ Usługa Azure Ultra disks oferuje wysoką przepływność, dużą liczbę IOPS i
 
 ### <a name="vms-using-availability-zones"></a>Maszyny wirtualne korzystające ze stref dostępności
 
-Aby korzystać z Ultra disks, należy określić, w której strefie dostępności znajduje się. Nie każdy region obsługuje wszystkie rozmiary maszyn wirtualnych za pomocą Ultra Disks. Aby określić, czy rozmiar regionu, strefy i maszyny wirtualnej obsługuje Ultra disks, Uruchom jedno z następujących poleceń, pamiętaj, aby najpierw zastąpić wartości **regionu**, **vmSize**i **subskrypcji** :
+Aby korzystać z Ultra disks, należy określić, w której strefie dostępności znajduje się. Nie każdy region obsługuje wszystkie rozmiary maszyn wirtualnych za pomocą Ultra Disks. Aby określić, czy rozmiar regionu, strefy i maszyny wirtualnej obsługuje Ultra disks, Uruchom jedno z następujących poleceń, pamiętaj, aby najpierw zastąpić wartości **regionu** , **vmSize** i **subskrypcji** :
 
 #### <a name="cli"></a>Interfejs wiersza polecenia
 
@@ -122,7 +122,7 @@ Jeśli chcesz utworzyć maszynę wirtualną z wieloma dyskami, zapoznaj się z p
 
 Jeśli zamierzasz użyć własnego szablonu, upewnij się, że **apiVersion** dla `Microsoft.Compute/virtualMachines` i `Microsoft.Compute/Disks` jest ustawiony jako `2018-06-01` (lub nowszy).
 
-Ustaw jednostkę SKU dysku na **UltraSSD_LRS**, a następnie ustaw wartość dyskową, liczbę operacji we/wy na sekundę, strefę dostępności i przepływność w MB/s, aby utworzyć dysk o najwyższej wydajności.
+Ustaw jednostkę SKU dysku na **UltraSSD_LRS** , a następnie ustaw wartość dyskową, liczbę operacji we/wy na sekundę, strefę dostępności i przepływność w MB/s, aby utworzyć dysk o najwyższej wydajności.
 
 Po aprowizacji maszyny wirtualnej można podzielić na partycje i sformatować dyski danych i skonfigurować je do obciążeń.
 
@@ -135,24 +135,24 @@ W tej sekcji omówiono wdrażanie maszyny wirtualnej wyposażonej w dysk jako dy
 
 - Zaloguj się do [Azure Portal](https://portal.azure.com/) i przejdź do wdrożenia maszyny wirtualnej.
 - Pamiętaj o wybraniu [obsługiwanego rozmiaru i regionu maszyny wirtualnej](#ga-scope-and-limitations).
-- Wybierz pozycję **strefa dostępności** w obszarze **Opcje dostępności**.
+- Wybierz pozycję **strefa dostępności** w obszarze **Opcje dostępności** .
 - Wypełnij pozostałe wpisy wybranym wyborem.
-- Wybierz pozycję **Dyski**.
+- Wybierz pozycję **Dyski** .
 
 ![Zrzut ekranu przedstawiający przepływ tworzenia maszyny wirtualnej, blok podstawowy.](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
 
-- W bloku dyski wybierz pozycję **tak** dla opcji **Włącz zgodność z dyskiem**.
+- W bloku dyski wybierz pozycję **tak** dla opcji **Włącz zgodność z dyskiem** .
 - Wybierz pozycję **Utwórz i Dołącz nowy dysk** , aby teraz dołączyć dysk Ultra.
 
 ![Zrzut ekranu przedstawiający przepływ tworzenia maszyn wirtualnych, blok dysku, Ultra jest włączony, a następnie Tworzenie i dołączanie nowego dysku jest wyróżniony.](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
 
-- W bloku **Utwórz nowy dysk** wprowadź nazwę, a następnie wybierz pozycję **Zmień rozmiar**.
+- W bloku **Utwórz nowy dysk** wprowadź nazwę, a następnie wybierz pozycję **Zmień rozmiar** .
 
     :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-create-new-disk-flow.png" alt-text="Zrzut ekranu przedstawiający tworzenie nowego bloku dysku, Zmień rozmiar wyróżniony.":::
 
 
-- Zmień **Typ magazynu** na **Ultra Disk**.
-- Zmień wartości **niestandardowego rozmiaru dysku (GIB)**, operacji we **/wy**na dysku i **przepływności dysku** do wybranych przez siebie opcji.
+- Zmień **Typ magazynu** na **Ultra Disk** .
+- Zmień wartości **niestandardowego rozmiaru dysku (GIB)** , operacji we **/wy** na dysku i **przepływności dysku** do wybranych przez siebie opcji.
 - Wybierz **przycisk OK** w obu blokach.
 
     :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Zrzut ekranu przedstawiający tworzenie nowego bloku dysku, Zmień rozmiar wyróżniony.":::
@@ -165,14 +165,14 @@ Najpierw Ustal rozmiar maszyny wirtualnej do wdrożenia. Zapoznaj się z sekcją
 
 Aby dołączyć dysk Ultra, należy utworzyć maszynę wirtualną, która może korzystać z usługi Ultra Disks.
 
-Zastąp lub ustaw **$VMName**, **$rgName**, **$diskname**, **$Location**, **$Password**, **$User** zmienne z własnymi wartościami. Ustaw **$Zone**  na wartość strefy dostępności uzyskaną od [początku tego artykułu](#determine-vm-size-and-region-availability). Następnie uruchom następujące polecenie interfejsu wiersza polecenia, aby utworzyć maszynę wirtualną o niezwykle włączonej:
+Zastąp lub ustaw **$VMName** , **$rgName** , **$diskname** , **$Location** , **$Password** , **$User** zmienne z własnymi wartościami. Ustaw **$Zone**  na wartość strefy dostępności uzyskaną od [początku tego artykułu](#determine-vm-size-and-region-availability). Następnie uruchom następujące polecenie interfejsu wiersza polecenia, aby utworzyć maszynę wirtualną o niezwykle włączonej:
 
 ```azurecli-interactive
 az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Najpierw Ustal rozmiar maszyny wirtualnej do wdrożenia. Zapoznaj się z sekcją " [ga Scope and ograniczenia](#ga-scope-and-limitations) ", aby uzyskać listę obsługiwanych rozmiarów maszyn wirtualnych.
 
@@ -232,28 +232,28 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 Alternatywnie, jeśli istniejąca maszyna wirtualna znajduje się w strefie regionu/dostępności, która może korzystać z usługi Ultra disks, można użyć funkcji Ultra disks bez konieczności tworzenia nowej maszyny wirtualnej. Przez włączenie funkcji Ultra disks na istniejącej maszynie wirtualnej, a następnie dołączenie ich jako dysków danych. Aby włączyć zgodność z dyskiem Ultra, należy zatrzymać maszynę wirtualną. Po zatrzymaniu maszyny wirtualnej możesz włączyć zgodność, a następnie ponownie uruchomić maszynę wirtualną. Po włączeniu zgodności możesz dołączyć Ultra Disk:
 
 - Przejdź do maszyny wirtualnej i zatrzymaj ją, poczekaj na jej cofnięcie.
-- Po cofnięciu przydziału maszyny wirtualnej wybierz pozycję **dyski**.
-- Kliknij pozycję **Edytuj**.
+- Po cofnięciu przydziału maszyny wirtualnej wybierz pozycję **dyski** .
+- Wybierz pozycję **Edytuj** .
 
 ![Zrzut ekranu przedstawiający istniejący blok dysku maszyny wirtualnej, Edycja jest wyróżniona.](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
 
-- Wybierz pozycję **tak** dla opcji **Włącz zgodność z dyskiem**.
+- Wybierz pozycję **tak** dla opcji **Włącz zgodność z dyskiem** .
 
 ![Zrzut ekranu przedstawiający opcję Włącz zgodność z dyskiem.](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
 
-- Wybierz pozycję **Zapisz**.
-- Wybierz pozycję **Dodaj dysk danych** , a **następnie na liście** rozwijanej wybierz pozycję **Utwórz dysk**.
+- Wybierz pozycję **Zapisz** .
+- Wybierz pozycję **Dodaj dysk danych** , a **następnie na liście** rozwijanej wybierz pozycję **Utwórz dysk** .
 
 ![Zrzut ekranu przedstawiający blok dysku, Dodawanie nowego dysku.](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
 
-- Wprowadź nazwę nowego dysku, a następnie wybierz pozycję **Zmień rozmiar**.
-- Zmień **Typ konta** na **Ultra Disk**.
-- Zmień wartości **niestandardowego rozmiaru dysku (GIB)**, operacji we **/wy**na dysku i **przepływności dysku** do wybranych przez siebie opcji.
+- Wprowadź nazwę nowego dysku, a następnie wybierz pozycję **Zmień rozmiar** .
+- Zmień **Typ konta** na **Ultra Disk** .
+- Zmień wartości **niestandardowego rozmiaru dysku (GIB)** , operacji we **/wy** na dysku i **przepływności dysku** do wybranych przez siebie opcji.
 
     :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Zrzut ekranu przedstawiający tworzenie nowego bloku dysku, Zmień rozmiar wyróżniony.":::
 
-- Wybierz przycisk **OK** , a następnie wybierz pozycję **Utwórz**.
-- Po powrocie do bloku dysku wybierz pozycję **Zapisz**.
+- Wybierz przycisk **OK** , a następnie wybierz pozycję **Utwórz** .
+- Po powrocie do bloku dysku wybierz pozycję **Zapisz** .
 - Uruchom ponownie maszynę wirtualną.
 
 ![Zrzut ekranu przedstawiający blok dysków na maszynie wirtualnej.](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
@@ -310,7 +310,7 @@ subscriptionId="<yourSubscriptionID>"
 az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Alternatywnie, jeśli istniejąca maszyna wirtualna znajduje się w strefie regionu/dostępności, która może korzystać z usługi Ultra disks, można użyć funkcji Ultra disks bez konieczności tworzenia nowej maszyny wirtualnej.
 
@@ -372,13 +372,13 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 Funkcja Ultra disks oferuje unikatową funkcję, która pozwala na dostosowanie ich wydajności. Możesz wprowadzić te korekty z Azure Portal na dyskach.
 
-- Przejdź do maszyny wirtualnej i wybierz pozycję **dyski**.
+- Przejdź do maszyny wirtualnej i wybierz pozycję **dyski** .
 - Wybierz dysk Ultra, dla którego chcesz zmodyfikować wydajność.
 
 ![Zrzut ekranu przedstawiający blok dysków na maszynie wirtualnej jest wyróżniony.](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
 
 - Wybierz pozycję **Konfiguracja** , a następnie wprowadź modyfikacje.
-- Wybierz pozycję **Zapisz**.
+- Wybierz pozycję **Zapisz** .
 
 ![Zostanie wyróżniony zrzut ekranu przedstawiający blok konfiguracji na dysku typu Ultra, rozmiar dysku, liczba operacji we/wy na sekundę i przepływność.](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
 
@@ -395,7 +395,7 @@ az disk update `
 --set diskMbpsReadWrite=800
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ## <a name="adjust-the-performance-of-an-ultra-disk-using-powershell"></a>Dostosowywanie wydajności Ultra Disk przy użyciu programu PowerShell
 

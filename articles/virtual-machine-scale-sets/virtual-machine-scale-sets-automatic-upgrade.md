@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: b5f3305fc5d2595c8b7b08d78ff20edea01c195e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 334e0c745257354d9548a6f9c8cee4d43fa8da6d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229841"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744741"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatyczne uaktualnienia obrazów systemu operacyjnego dla zestawu skalowania maszyn wirtualnych platformy Azure
 
@@ -68,7 +68,7 @@ Następujące jednostki SKU platformy są obecnie obsługiwane (i więcej jest d
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Wymagania dotyczące konfigurowania automatycznego uaktualniania obrazu systemu operacyjnego
 
-- Właściwość *Version* obrazu musi być ustawiona na wartość *Najnowsza*.
+- Właściwość *Version* obrazu musi być ustawiona na wartość *Najnowsza* .
 - Użyj sond kondycji aplikacji lub [rozszerzenia kondycji aplikacji](virtual-machine-scale-sets-health-extension.md) dla zestawów skalowania, które nie są Service Fabric.
 - Użyj interfejsu API obliczeń w wersji 2018-10-01 lub nowszej.
 - Upewnij się, że zasoby zewnętrzne określone w modelu zestawu skalowania są dostępne i zaktualizowane. Przykłady obejmują identyfikator URI sygnatury dostępu współdzielonego dla ładowania ładunku we właściwościach rozszerzenia maszyny wirtualnej, ładunek na koncie magazynu, odwołanie do wpisów tajnych w modelu i inne.
@@ -121,14 +121,14 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Za pomocą polecenia cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) Skonfiguruj automatyczne uaktualnianie obrazu systemu operacyjnego dla zestawu skalowania. Poniższy przykład służy do konfigurowania automatycznych uaktualnień zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
+Za pomocą polecenia cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) Skonfiguruj automatyczne uaktualnianie obrazu systemu operacyjnego dla zestawu skalowania. Poniższy przykład służy do konfigurowania automatycznych uaktualnień zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów* :
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
-Użyj [AZ VMSS Update](/cli/azure/vmss#az-vmss-update) , aby skonfigurować automatyczne uaktualnienia obrazu systemu operacyjnego dla zestawu skalowania. Użyj interfejsu wiersza polecenia platformy Azure 2.0.47 lub nowszego. Poniższy przykład służy do konfigurowania automatycznych uaktualnień zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
+Użyj [AZ VMSS Update](/cli/azure/vmss#az-vmss-update) , aby skonfigurować automatyczne uaktualnienia obrazu systemu operacyjnego dla zestawu skalowania. Użyj interfejsu wiersza polecenia platformy Azure 2.0.47 lub nowszego. Poniższy przykład służy do konfigurowania automatycznych uaktualnień zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów* :
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -184,7 +184,7 @@ Istnieje wiele sposobów wdrażania rozszerzenia kondycji aplikacji w zestawach 
 Historię najnowszych uaktualnień systemu operacyjnego wykonywanych w zestawie skalowania można sprawdzić za pomocą Azure PowerShell, interfejsu wiersza polecenia platformy Azure 2,0 lub interfejsów API REST. Można uzyskać historię dla ostatnich pięciu prób uaktualnienia systemu operacyjnego w ciągu ostatnich dwóch miesięcy.
 
 ### <a name="rest-api"></a>Interfejs API REST
-W poniższym przykładzie przedstawiono użycie [interfejsu API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) w celu sprawdzenia stanu zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
+W poniższym przykładzie przedstawiono użycie [interfejsu API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) w celu sprawdzenia stanu zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów* :
 
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
@@ -228,14 +228,14 @@ Wywołanie GET zwraca właściwości podobne do następujących przykładowych d
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Użyj polecenia cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) , aby sprawdzić historię uaktualnienia systemu operacyjnego dla zestawu skalowania. Poniższy przykład zawiera szczegółowe informacje dotyczące sposobu przeglądania stanu uaktualnienia systemu operacyjnego dla zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
+Użyj polecenia cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) , aby sprawdzić historię uaktualnienia systemu operacyjnego dla zestawu skalowania. Poniższy przykład zawiera szczegółowe informacje dotyczące sposobu przeglądania stanu uaktualnienia systemu operacyjnego dla zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów* :
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
-Aby sprawdzić historię uaktualnienia systemu operacyjnego dla zestawu skalowania, użyj [AZ VMSS Get-OS-Upgrade-History](/cli/azure/vmss#az-vmss-get-os-upgrade-history) . Użyj interfejsu wiersza polecenia platformy Azure 2.0.47 lub nowszego. Poniższy przykład zawiera szczegółowe informacje dotyczące sposobu przeglądania stanu uaktualnienia systemu operacyjnego dla zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów*:
+Aby sprawdzić historię uaktualnienia systemu operacyjnego dla zestawu skalowania, użyj [AZ VMSS Get-OS-Upgrade-History](/cli/azure/vmss#az-vmss-get-os-upgrade-history) . Użyj interfejsu wiersza polecenia platformy Azure 2.0.47 lub nowszego. Poniższy przykład zawiera szczegółowe informacje dotyczące sposobu przeglądania stanu uaktualnienia systemu operacyjnego dla zestawu skalowania o nazwie *myScaleSet* w grupie zasobów o nazwie Moja *zasobów* :
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet

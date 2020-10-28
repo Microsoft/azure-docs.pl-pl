@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 45c316c1d1dd56f6d920423a725b2488df1a5032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 383895f2cb5983abd68bfca67d2c8361ee094ea1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527425"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744846"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatyczne naprawy wystąpień dla zestawów skalowania maszyn wirtualnych platformy Azure
 
@@ -62,13 +62,13 @@ Operacje naprawy wystąpienia automatycznego są wykonywane w partiach. W danym 
 
 ### <a name="grace-period"></a>Okres prolongaty
 
-Gdy wystąpienie przechodzi przez operację zmiany stanu z powodu akcji PUT, PATCH lub POST wykonanej na zestawie skalowania (na przykład reobraz, ponownym wdrożeniu, aktualizacji itp.), wówczas każda akcja naprawy na tym wystąpieniu jest wykonywana dopiero po upływie okresu prolongaty. Okres prolongaty to ilość czasu, przez jaką wystąpienie może powrócić do stanu prawidłowego. Okres prolongaty rozpoczyna się po zakończeniu zmiany stanu. Pozwala to uniknąć wszelkich przedwczesnych lub przypadkowych operacji naprawy. Okres prolongaty jest uznawany za wszystkie nowo utworzone wystąpienia w zestawie skalowania (łącznie z tym utworzonym w wyniku operacji naprawy). Okres prolongaty jest określany w minutach w formacie ISO 8601 i można go ustawić przy użyciu właściwości *automaticRepairsPolicy. gracePeriod*. Okres prolongaty może wynosić od 30 minut do 90 minut i ma wartość domyślną 30 minut.
+Gdy wystąpienie przechodzi przez operację zmiany stanu z powodu akcji PUT, PATCH lub POST wykonanej na zestawie skalowania (na przykład reobraz, ponownym wdrożeniu, aktualizacji itp.), wówczas każda akcja naprawy na tym wystąpieniu jest wykonywana dopiero po upływie okresu prolongaty. Okres prolongaty to ilość czasu, przez jaką wystąpienie może powrócić do stanu prawidłowego. Okres prolongaty rozpoczyna się po zakończeniu zmiany stanu. Pozwala to uniknąć wszelkich przedwczesnych lub przypadkowych operacji naprawy. Okres prolongaty jest uznawany za wszystkie nowo utworzone wystąpienia w zestawie skalowania (łącznie z tym utworzonym w wyniku operacji naprawy). Okres prolongaty jest określany w minutach w formacie ISO 8601 i można go ustawić przy użyciu właściwości *automaticRepairsPolicy. gracePeriod* . Okres prolongaty może wynosić od 30 minut do 90 minut i ma wartość domyślną 30 minut.
 
 ### <a name="suspension-of-repairs"></a>Zawieszenie naprawy 
 
-Zestawy skalowania maszyn wirtualnych zapewniają możliwość tymczasowego zawieszenia automatycznych napraw wystąpień w razie potrzeby. W widoku wystąpienia zestawu skalowania maszyn wirtualnych *stan ServiceState* dla automatycznych napraw w obszarze właściwości *orchestrationServices* . Gdy zestaw skalowania jest ustawiony na automatyczne naprawy, parametr *ServiceState* ma ustawioną wartość *Running*. Gdy automatyczne naprawy są zawieszane dla zestawu skalowania, parametr *ServiceState* jest ustawiony na wartość *zawieszone*. Jeśli *automaticRepairsPolicy* jest zdefiniowany w zestawie skalowania, ale funkcja automatycznego naprawiania nie jest włączona, wówczas parametr *ServiceState* ma wartość *Nieuruchomiony*.
+Zestawy skalowania maszyn wirtualnych zapewniają możliwość tymczasowego zawieszenia automatycznych napraw wystąpień w razie potrzeby. W widoku wystąpienia zestawu skalowania maszyn wirtualnych *stan ServiceState* dla automatycznych napraw w obszarze właściwości *orchestrationServices* . Gdy zestaw skalowania jest ustawiony na automatyczne naprawy, parametr *ServiceState* ma ustawioną wartość *Running* . Gdy automatyczne naprawy są zawieszane dla zestawu skalowania, parametr *ServiceState* jest ustawiony na wartość *zawieszone* . Jeśli *automaticRepairsPolicy* jest zdefiniowany w zestawie skalowania, ale funkcja automatycznego naprawiania nie jest włączona, wówczas parametr *ServiceState* ma wartość *Nieuruchomiony* .
 
-Jeśli nowo utworzone wystąpienia służące do zamiany złej kondycji w zestawie skalowania nadal pozostaną w złej kondycji nawet po wielokrotnym wykonaniu operacji naprawczych, to jako środek bezpieczeństwa platforma aktualizuje *stan ServiceState* na potrzeby *zawieszonych*automatycznych napraw. Możesz ponownie wznowić automatyczne naprawy, ustawiając wartość *ServiceState* dla automatycznych napraw do *uruchomienia*. Szczegółowe instrukcje znajdują się w sekcji dotyczącej [przeglądania i aktualizowania stanu usługi automatycznych napraw](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) dla danego zestawu skalowania. 
+Jeśli nowo utworzone wystąpienia służące do zamiany złej kondycji w zestawie skalowania nadal pozostaną w złej kondycji nawet po wielokrotnym wykonaniu operacji naprawczych, to jako środek bezpieczeństwa platforma aktualizuje *stan ServiceState* na potrzeby *zawieszonych* automatycznych napraw. Możesz ponownie wznowić automatyczne naprawy, ustawiając wartość *ServiceState* dla automatycznych napraw do *uruchomienia* . Szczegółowe instrukcje znajdują się w sekcji dotyczącej [przeglądania i aktualizowania stanu usługi automatycznych napraw](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) dla danego zestawu skalowania. 
 
 Proces automatycznego naprawiania wystąpienia przebiega w następujący sposób:
 
@@ -92,11 +92,11 @@ Aby włączyć automatyczne naprawy zasad podczas tworzenia nowego zestawu skalo
 
 Ten [szablon szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automatic-repairs-slb-health-probe) umożliwia również wdrożenie zestawu skalowania maszyn wirtualnych z sondą kondycji modułu równoważenia obciążenia i włączenie automatycznego naprawiania wystąpień z okresem prolongaty wynoszącym 30 minut.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
  
 Poniższe kroki umożliwiają włączenie zasad automatycznego naprawiania podczas tworzenia nowego zestawu skalowania.
  
-1. Przejdź do **zestawu skalowania maszyn wirtualnych**.
+1. Przejdź do **zestawu skalowania maszyn wirtualnych** .
 1. Wybierz pozycję **+ Dodaj** , aby utworzyć nowy zestaw skalowania.
 1. Przejdź do karty **kondycja** . 
 1. Znajdź sekcję **kondycja** .
@@ -141,7 +141,7 @@ New-AzVmssConfig `
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Poniższy przykład włącza zasady naprawy automatycznej podczas tworzenia nowego zestawu skalowania za pomocą polecenia *[AZ VMSS Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. Najpierw utwórz grupę zasobów, a następnie utwórz nowy zestaw skalowania z okresem prolongaty automatycznej naprawy ustawiony na 30 minut.
+Poniższy przykład włącza zasady naprawy automatycznej podczas tworzenia nowego zestawu skalowania za pomocą polecenia *[AZ VMSS Create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)* . Najpierw utwórz grupę zasobów, a następnie utwórz nowy zestaw skalowania z okresem prolongaty automatycznej naprawy ustawiony na 30 minut.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -156,7 +156,7 @@ az vmss create \
   --automatic-repairs-grace-period 30
 ```
 
-Powyższy przykład używa istniejącego modułu równoważenia obciążenia i sondy kondycji do monitorowania stanu kondycji aplikacji wystąpień. Jeśli zamiast tego wolisz używać rozszerzenia kondycji aplikacji do monitorowania, możesz utworzyć zestaw skalowania, skonfigurować rozszerzenie kondycji aplikacji, a następnie włączyć zasady naprawy automatycznego wystąpienia przy użyciu polecenia *AZ VMSS Update*, jak wyjaśniono w następnej sekcji.
+Powyższy przykład używa istniejącego modułu równoważenia obciążenia i sondy kondycji do monitorowania stanu kondycji aplikacji wystąpień. Jeśli zamiast tego wolisz używać rozszerzenia kondycji aplikacji do monitorowania, możesz utworzyć zestaw skalowania, skonfigurować rozszerzenie kondycji aplikacji, a następnie włączyć zasady naprawy automatycznego wystąpienia przy użyciu polecenia *AZ VMSS Update* , jak wyjaśniono w następnej sekcji.
 
 ## <a name="enabling-automatic-repairs-policy-when-updating-an-existing-scale-set"></a>Włączanie zasad automatycznego naprawiania podczas aktualizowania istniejącego zestawu skalowania
 
@@ -164,17 +164,17 @@ Przed włączeniem zasad automatycznego naprawiania w istniejącym zestawie skal
 
 Po zaktualizowaniu modelu istniejącego zestawu skalowania upewnij się, że najnowszy model jest stosowany do wszystkich wystąpień skali. Zapoznaj się z instrukcjami dotyczącymi [sposobu przenoszenia maszyn wirtualnych na bieżąco z najnowszym modelem zestawu skalowania](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Witryna Azure Portal
 
 Możesz zmodyfikować zasady automatycznego naprawiania istniejącego zestawu skalowania za pomocą Azure Portal. 
  
 1. Przejdź do istniejącego zestawu skalowania maszyn wirtualnych.
-1. W obszarze **Ustawienia** w menu po lewej stronie wybierz pozycję **kondycja i naprawa**.
+1. W obszarze **Ustawienia** w menu po lewej stronie wybierz pozycję **kondycja i naprawa** .
 1. Włącz opcję **Monitoruj kondycję aplikacji** .
 1. Znajdź sekcję **zasady naprawy automatycznej** .
 1. Włącz **opcję** **naprawy automatyczne** .
 1. W **okresie prolongaty (min)** Określ okres prolongaty w minutach, dozwolone wartości to od 30 do 90 minut. 
-1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**. 
+1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz** . 
 
 ### <a name="rest-api"></a>Interfejs API REST
 
@@ -209,7 +209,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>Interfejs wiersza polecenia platformy Azure 2.0
 
-Poniżej przedstawiono przykład aktualizowania zasad automatycznego naprawiania wystąpienia w istniejącym zestawie skalowania przy użyciu polecenia *[AZ VMSS Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
+Poniżej przedstawiono przykład aktualizowania zasad automatycznego naprawiania wystąpienia w istniejącym zestawie skalowania przy użyciu polecenia *[AZ VMSS Update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)* .
 
 ```azurecli-interactive
 az vmss update \  
@@ -223,7 +223,7 @@ az vmss update \
 
 ### <a name="rest-api"></a>Interfejs API REST 
 
-Użyj [widoku Pobierz wystąpienie](/rest/api/compute/virtualmachinescalesets/getinstanceview) z interfejsem API w wersji 2019-12-01 lub nowszej dla zestawu skalowania maszyn wirtualnych, aby wyświetlić *stan* *serviceorchestrationServices*na potrzeby napraw automatycznych w obszarze właściwości. 
+Użyj [widoku Pobierz wystąpienie](/rest/api/compute/virtualmachinescalesets/getinstanceview) z interfejsem API w wersji 2019-12-01 lub nowszej dla zestawu skalowania maszyn wirtualnych, aby wyświetlić *stan* *serviceorchestrationServices* na potrzeby napraw automatycznych w obszarze właściwości. 
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -309,7 +309,7 @@ Wystąpienie może być w okresie prolongaty. Jest to czas oczekiwania po zmiani
 
 **Wyświetlanie stanu kondycji aplikacji dla wystąpień zestawu skalowania**
 
-Aby wyświetlić stan kondycji aplikacji, można użyć [interfejsu API widoku wystąpienia](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) dla wystąpień w zestawie skalowania maszyn wirtualnych. Za pomocą Azure PowerShell można użyć polecenia cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) z flagą *-InstanceView* . Stan kondycji aplikacji jest podany pod właściwością *vmHealth*.
+Aby wyświetlić stan kondycji aplikacji, można użyć [interfejsu API widoku wystąpienia](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) dla wystąpień w zestawie skalowania maszyn wirtualnych. Za pomocą Azure PowerShell można użyć polecenia cmdlet [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) z flagą *-InstanceView* . Stan kondycji aplikacji jest podany pod właściwością *vmHealth* .
 
 W Azure Portal można zobaczyć również stan kondycji. Przejdź do istniejącego zestawu skalowania, wybierz pozycję **wystąpienia** z menu po lewej stronie, a następnie w kolumnie **stan kondycji** Sprawdź stan kondycji każdego wystąpienia zestawu skalowania. 
 

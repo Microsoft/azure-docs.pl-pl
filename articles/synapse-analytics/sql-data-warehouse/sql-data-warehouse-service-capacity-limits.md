@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204986"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742470"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limity pojemności usługi Azure Synapse Analytics (dawniej SQL DW)
 
@@ -39,13 +39,13 @@ Maksymalne wartości dozwolone dla różnych składników usługi Azure Synapse.
 | Kategoria | Opis | Maksimum |
 |:--- |:--- |:--- |
 | baza danych |Maksymalny rozmiar | Gen1:240 TB skompresowane na dysku. Ta przestrzeń jest niezależna od bazy danych tempdb lub miejsca w dzienniku, dlatego to miejsce jest przeznaczone do trwałych tabel.  Szacuje się, że kompresja magazynu kolumn jest w pięciokrotną.  Ta kompresja pozwala na zwiększenie rozmiaru bazy danych do około 1 PB, gdy wszystkie tabele są klastrowane z magazynu kolumn (domyślny typ tabeli). <br/><br/> Gen2: nieograniczony magazyn dla tabel magazynu kolumn.  Część magazynu wierszy bazy danych jest nadal ograniczona do 240 TB skompresowanej na dysku. |
-| tabela |Maksymalny rozmiar |Nieograniczony rozmiar dla tabel magazynu kolumn. <br>60 TB dla tabel magazynu wierszy skompresowanych na dysku. |
-| tabela |Tabele na bazę danych | 100 000 |
-| tabela |Kolumny na tabelę |1024 kolumn |
-| tabela |Bajtów na kolumnę |Zależne od [typu danych](sql-data-warehouse-tables-data-types.md)kolumny. Limit wynosi 8000 dla typów danych char, 4000 dla nvarchar lub 2 GB w przypadku MAKSYMALNYch typów danych. |
-| tabela |Bajty na wiersz, zdefiniowany rozmiar |8060 bajtów<br/><br/>Liczba bajtów na wiersz jest obliczana w taki sam sposób, jak w przypadku SQL Server z kompresją strony. Podobnie jak SQL Server, magazyn przepełnienia wierszy jest obsługiwany, co umożliwia wypchnięcie **kolumn o zmiennej długości** poza wierszem. Gdy wiersze o zmiennej długości są wypychane poza wierszem, tylko 24-bajtowy katalog główny jest przechowywany w rekordzie głównym. Aby uzyskać więcej informacji, zobacz [dane przepełnienia wierszy przekraczające 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
-| tabela |Partycje na tabelę |15 000<br/><br/>W celu zapewnienia wysokiej wydajności zalecamy zminimalizowanie liczby potrzebnych partycji przy zachowaniu wymagań firmy. Wraz ze wzrostem liczby partycji, obciążenie dla operacji języka definicji danych (DDL) i języka manipulowania danymi (DML) zwiększa się i powoduje wolniejszą wydajność. |
-| tabela |Liczba znaków na wartość graniczną partycji. |4000 |
+| Tabela |Maksymalny rozmiar |Nieograniczony rozmiar dla tabel magazynu kolumn. <br>60 TB dla tabel magazynu wierszy skompresowanych na dysku. |
+| Tabela |Tabele na bazę danych | 100 000 |
+| Tabela |Kolumny na tabelę |1024 kolumn |
+| Tabela |Bajtów na kolumnę |Zależne od [typu danych](sql-data-warehouse-tables-data-types.md)kolumny. Limit wynosi 8000 dla typów danych char, 4000 dla nvarchar lub 2 GB w przypadku MAKSYMALNYch typów danych. |
+| Tabela |Bajty na wiersz, zdefiniowany rozmiar |8060 bajtów<br/><br/>Liczba bajtów na wiersz jest obliczana w taki sam sposób, jak w przypadku SQL Server z kompresją strony. Podobnie jak SQL Server, magazyn przepełnienia wierszy jest obsługiwany, co umożliwia wypchnięcie **kolumn o zmiennej długości** poza wierszem. Gdy wiersze o zmiennej długości są wypychane poza wierszem, tylko 24-bajtowy katalog główny jest przechowywany w rekordzie głównym. Aby uzyskać więcej informacji, zobacz [dane przepełnienia wierszy przekraczające 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Tabela |Partycje na tabelę |15 000<br/><br/>W celu zapewnienia wysokiej wydajności zalecamy zminimalizowanie liczby potrzebnych partycji przy zachowaniu wymagań firmy. Wraz ze wzrostem liczby partycji, obciążenie dla operacji języka definicji danych (DDL) i języka manipulowania danymi (DML) zwiększa się i powoduje wolniejszą wydajność. |
+| Tabela |Liczba znaków na wartość graniczną partycji. |4000 |
 | Indeks |Indeksy nieklastrowane na tabelę. |50<br/><br/>Dotyczy tylko tabel magazynu wierszy. |
 | Indeks |Indeksy klastrowane na tabelę. |1<br><br/>Dotyczy zarówno magazynu wierszy, jak i tabel magazynu kolumn. |
 | Indeks |Rozmiar klucza indeksu. |900 bajtów.<br/><br/>Dotyczy tylko indeksów magazynu wierszy.<br/><br/>Można utworzyć indeksy kolumn varchar o maksymalnym rozmiarze większym niż 900 bajtów, jeśli podczas tworzenia indeksu istniejące dane w kolumnach nie przekraczają 900 bajtów. Jednak późniejsze operacje wstawiania lub aktualizowania w kolumnach, które powodują, że całkowity rozmiar przekracza 900 bajtów będzie kończyć się niepowodzeniem. |
@@ -61,8 +61,8 @@ Maksymalne wartości dozwolone dla różnych składników usługi Azure Synapse.
 
 | Kategoria | Opis | Maksimum |
 |:--- |:--- |:--- |
-| Obciążenia wielopodstawowe |MB na wiersz |1<br/><br/>Liczba wierszy ładowania bazy jest mniejsza niż 1 MB. Ładowanie typów danych obiektów LOB do tabel z klastrowanym indeksem magazynu kolumn (WIK) nie jest obsługiwane.<br/><br/> |
-||||
+| Obciążenia wielopodstawowe |MB na wiersz |1<br/><br/>Liczba wierszy ładowania bazy jest mniejsza niż 1 MB. Ładowanie typów danych obiektów LOB do tabel z klastrowanym indeksem magazynu kolumn (WIK) nie jest obsługiwane.<br/> |
+|Obciążenia wielopodstawowe|Łączna liczba plików|1 000 000<br/><br/>Obciążenia wielopodstawowe nie mogą przekroczyć więcej niż 1M plików. Może wystąpić następujący błąd: **operacja nie powiodła się, ponieważ liczba podziałów przekracza górną granicę 1000000** .|
 
 ## <a name="queries"></a>Zapytania
 

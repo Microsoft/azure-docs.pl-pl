@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee37e994c9e72c3d3c98455360dc68746f49d278
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332716"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743119"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -151,7 +151,7 @@ Azure Backup dodano funkcję przywracania między regionami w celu wzmocnienia d
 | Typ zarządzania kopiami zapasowymi | Obsługiwane                                                    | Obsługiwane regiony |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Maszyna wirtualna platformy Azure               | Tak.   Obsługiwane dla szyfrowanych maszyn wirtualnych i maszyn wirtualnych z dyskami o pojemności mniejszej niż 4 TB | Wszystkie regiony publiczne i suwerenne chmury platformy Azure.  |
-| SQL/SAP HANA | Tak                                                          | Zachodnie stany USA 2 (WUS2), zachodnio-środkowe stany USA (WCUS), Kanada Środkowa (CNC), Kanada Wschodnia (CNE), Wschodnie stany USA (EUS), zachodnie stany USA (WUS), Japonia Wschodnia (JPE), Japonia Wschodnia (JPE) |
+| SQL/SAP HANA | Tak                                                          | Wszystkie regiony publiczne poza Francją |
 | Agent MARS/lokalnie  | Nie                                                           | Nie dotyczy               |
 | AFS (udziały plików platformy Azure)                 | Nie                                                           | Nie dotyczy               |
 

@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: a54dfa0f2b072d30cac605937a1b623ef9d4051d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631498"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742841"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Krok 1. wdrażanie usługi przesyłania dalej dzienników
 
 
 W tym kroku wyznaczysz i skonfigurujesz maszynę z systemem Linux, która będzie przekazywać dzienniki z rozwiązania zabezpieczeń do obszaru roboczego wskaźnikowego platformy Azure. Ta maszyna może być maszyną fizyczną lub wirtualną w środowisku lokalnym, maszyną wirtualną platformy Azure lub MASZYNą wirtualną w innej chmurze. Przy użyciu dostarczonego linku uruchomisz skrypt na wyznaczeniym komputerze, który wykonuje następujące zadania:
+
 - Instaluje agenta Log Analytics dla systemu Linux (znanego również jako agent pakietu OMS) i konfiguruje go do następujących celów:
     - nasłuchiwanie komunikatów CEF z wbudowanego demona dziennika systemu Linux na porcie TCP 25226
     - bezpieczne wysyłanie komunikatów za pośrednictwem protokołu TLS do obszaru roboczego wskaźnikowego platformy Azure, w którym są analizowane i wzbogacane
@@ -36,18 +37,25 @@ W tym kroku wyznaczysz i skonfigurujesz maszynę z systemem Linux, która będzi
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Użytkownik musi mieć podwyższony poziom uprawnień (sudo) na wyznaczeniu maszyny z systemem Linux.
-- Na komputerze z systemem Linux musi być zainstalowany język Python.<br>Użyj `python -version` polecenia, aby sprawdzić.
+
+- Na komputerze z systemem Linux musi być zainstalowany język **python 2,7** .<br>Użyj `python -version` polecenia, aby sprawdzić.
+
 - Komputer z systemem Linux nie może być połączony z żadnym obszarem roboczym platformy Azure przed zainstalowaniem agenta Log Analytics.
+
+- W pewnym momencie tego procesu może być potrzebny identyfikator obszaru roboczego i klucz podstawowy obszaru roboczego. Można je znaleźć w obszarze roboczym Zasoby, w obszarze **Zarządzanie agentami** .
 
 ## <a name="run-the-deployment-script"></a>Uruchamianie skryptu wdrażania
  
-1. W menu nawigacji wskaźnikowej platformy Azure kliknij pozycję **Łączniki danych**. Z listy łączników kliknij kafelek **Common Event format (CEF)** , a następnie przycisk **Otwórz stronę łącznika** w prawym dolnym rogu. 
+1. W menu nawigacji wskaźnikowej platformy Azure kliknij pozycję **Łączniki danych** . Z listy łączników kliknij kafelek **Common Event format (CEF)** , a następnie przycisk **Otwórz stronę łącznika** w prawym dolnym rogu. 
 
-1. W obszarze **1,2 Zainstaluj moduł CEF na komputerze z systemem Linux**, skopiuj link podany w obszarze **Uruchom następujący skrypt, aby zainstalować i zastosować moduł zbierający CEF**, lub poniższy tekst:
+1. W obszarze **1,2 Zainstaluj moduł CEF na komputerze z systemem Linux** , skopiuj link podany w obszarze **Uruchom następujący skrypt, aby zainstalować i zastosować moduł zbierający CEF** , lub poniższy tekst (stosując identyfikator obszaru roboczego i klucz podstawowy zamiast symboli zastępczych):
 
-     `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```bash
+    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```
 
 1. Gdy skrypt jest uruchomiony, upewnij się, że nie są wyświetlane żadne komunikaty o błędach lub ostrzeżeniach.
+    - Może zostać wyświetlony komunikat informujący o konieczności uruchomienia polecenia w celu rozwiązania problemu z mapowaniem pola *komputer* . Aby uzyskać szczegółowe informacje, zobacz [wyjaśnienie w skrypcie wdrażania](#mapping-command) .
 
 > [!NOTE]
 > **Używanie tego samego komputera do przesyłania zarówno zwykłego dziennika systemowego *, jak i* komunikatów CEF**
@@ -122,12 +130,15 @@ Wybierz demona dziennika systemu, aby wyświetlić odpowiedni opis.
 
 1. **Weryfikowanie mapowania pola *komputera* zgodnie z oczekiwaniami:**
 
-    - Zapewnia, że pole *komputera* w źródle dziennika systemu jest prawidłowo mapowane w agencie log Analytics przez uruchomienie tego polecenia i ponowne uruchomienie agenta.
+    - Zapewnia, że pole komputera w źródle dziennika *systemu* jest prawidłowo mapowane w agencie log Analytics przy użyciu następującego polecenia: 
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
+        ```
+    - <a name="mapping-command"></a>Jeśli wystąpi problem z mapowaniem, skrypt wygeneruje komunikat o błędzie informujący o konieczności **ręcznego uruchomienia następującego polecenia** (zastosowanie identyfikatora obszaru roboczego zamiast symbolu zastępczego). Polecenie zapewni poprawne mapowanie i ponownie uruchamia agenta.
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
 # <a name="syslog-ng-daemon"></a>[Demon dziennika systemu](#tab/syslogng)
@@ -187,15 +198,16 @@ Wybierz demona dziennika systemu, aby wyświetlić odpowiedni opis.
 
 1. **Weryfikowanie mapowania pola *komputera* zgodnie z oczekiwaniami:**
 
-    - Zapewnia, że pole *komputera* w źródle dziennika systemu jest prawidłowo mapowane w agencie log Analytics przez uruchomienie tego polecenia i ponowne uruchomienie agenta.
+    - Zapewnia, że pole komputera w źródle dziennika *systemu* jest prawidłowo mapowane w agencie log Analytics przy użyciu następującego polecenia: 
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
         ```
-
-
+    - <a name="mapping-command"></a>Jeśli wystąpi problem z mapowaniem, skrypt wygeneruje komunikat o błędzie informujący o konieczności **ręcznego uruchomienia następującego polecenia** (zastosowanie identyfikatora obszaru roboczego zamiast symbolu zastępczego). Polecenie zapewni poprawne mapowanie i ponownie uruchamia agenta.
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób wdrażania agenta Log Analytics w celu połączenia urządzeń CEF z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:

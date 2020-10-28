@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: 0e8ea218aa9c557fb109aee0dba318cfd5f605c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 352c8848b98bfb463c03ceea89ebe3f4b6ad6d5b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836245"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742430"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption z usługą Azure AD dla maszyn wirtualnych z systemem Windows (poprzednia wersja)
 
@@ -31,7 +31,7 @@ Można włączyć wiele scenariuszy szyfrowania dysku, a kroki mogą się różn
 ## <a name="enable-encryption-on-new-iaas-vms-created-from-the-marketplace"></a>Włącz szyfrowanie na nowych maszynach wirtualnych IaaS utworzonych na podstawie portalu Marketplace
 Szyfrowanie dysków można włączyć na nowej maszynie wirtualnej z systemem IaaS z witryny Marketplace na platformie Azure przy użyciu szablonu Menedżer zasobów. Szablon tworzy nową zaszyfrowaną maszynę wirtualną z systemem Windows przy użyciu obrazu z galerii systemu Windows Server 2012.
 
-1. Na stronie [szablon Menedżer zasobów](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)kliknij pozycję **Wdróż na platformie Azure**.
+1. Na stronie [szablon Menedżer zasobów](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)kliknij pozycję **Wdróż na platformie Azure** .
 
 2. Wybierz subskrypcję, grupę zasobów, lokalizację grupy zasobów, parametry, warunki prawne i umowę. Kliknij przycisk **Kup** , aby WDROŻYĆ nową maszynę wirtualną IaaS, w której włączono szyfrowanie.
 
@@ -48,7 +48,7 @@ Szyfrowanie dysków można włączyć na nowej maszynie wirtualnej z systemem Ia
          Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
          ```
 
-     -  Wybierz maszynę wirtualną, a następnie kliknij pozycję **dyski** w obszarze **Ustawienia** , aby sprawdzić stan szyfrowania w portalu. Na wykresie w obszarze **szyfrowanie**zobaczysz, czy jest włączony. 
+     -  Wybierz maszynę wirtualną, a następnie kliknij pozycję **dyski** w obszarze **Ustawienia** , aby sprawdzić stan szyfrowania w portalu. Na wykresie w obszarze **szyfrowanie** zobaczysz, czy jest włączony. 
            ![Azure Portal — włączono szyfrowanie dysków](../media/disk-encryption/disk-encryption-fig2.png)
 
 W poniższej tabeli wymieniono parametry szablonu Menedżer zasobów dla nowych maszyn wirtualnych w scenariuszu portalu Marketplace przy użyciu identyfikatora klienta usługi Azure AD:
@@ -156,7 +156,7 @@ Użyj polecenia [AZ VM Encryption Enable](/cli/azure/vm/encryption#az-vm-encrypt
 Szyfrowanie dysków można włączyć na istniejących lub uruchomionych maszynach wirtualnych z systemem IaaS na platformie Azure przy użyciu [szablonu Menedżer zasobów, aby zaszyfrować działającą maszynę wirtualną](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)z systemem Windows.
 
 
-1. W szablonie szybkiego startu platformy Azure kliknij pozycję **Wdróż na platformie Azure**.
+1. W szablonie szybkiego startu platformy Azure kliknij pozycję **Wdróż na platformie Azure** .
 
 2. Wybierz subskrypcję, grupę zasobów, lokalizację grupy zasobów, parametry, warunki prawne i umowę. Kliknij przycisk **Kup** , aby włączyć szyfrowanie na istniejącej lub URUCHOMIONEJ maszynie wirtualnej IaaS.
 
@@ -168,7 +168,7 @@ W poniższej tabeli wymieniono Menedżer zasobów parametry szablonu dla istniej
 | AADClientSecret | Klucz tajny klienta aplikacji usługi Azure AD, który ma uprawnienia do zapisywania wpisów tajnych w magazynie kluczy. |
 | Nazwakluczamagazynu | Nazwa magazynu kluczy, do którego należy przekazać klucz funkcji BitLocker. Można to zrobić za pomocą polecenia cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` lub interfejsu CLI platformy Azure `az keyvault list --resource-group "MySecureGroup"`|
 |  keyEncryptionKeyURL | Adres URL klucza szyfrowania klucza używany do szyfrowania wygenerowanego klucza funkcji BitLocker. Ten parametr jest opcjonalny w przypadku wybrania opcji **nokek** na liście rozwijanej UseExistingKek. Jeśli wybierzesz pozycję **KEK** na liście rozwijanej UseExistingKek, musisz wprowadzić wartość _keyEncryptionKeyURL_ . |
-| liczba woluminów | Typ woluminu, na którym jest wykonywana operacja szyfrowania. Prawidłowe wartości to _system operacyjny_, _dane_i _wszystkie_. |
+| liczba woluminów | Typ woluminu, na którym jest wykonywana operacja szyfrowania. Prawidłowe wartości to _system operacyjny_ , _dane_ i _wszystkie_ . |
 | sequenceVersion | Wersja sekwencji operacji funkcji BitLocker. Zwiększ ten numer wersji za każdym razem, gdy na tej samej maszynie wirtualnej jest wykonywana operacja szyfrowania dysku. |
 | vmName | Nazwa maszyny wirtualnej, na której ma zostać wykonana operacja szyfrowania. |
 

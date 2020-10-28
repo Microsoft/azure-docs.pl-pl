@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 10/23/2020
 ms.custom: generated
-ms.openlocfilehash: 955e80f31cf08dd703f089d26a03b7f97242eab0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 905bdf95222a03514b5c5e76e18330cf27da0d3d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631108"
+ms.locfileid: "92745134"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -158,6 +158,7 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft.Intune](#microsoftintune) |
 | **Inne** |
 | [Microsoft. BingMaps](#microsoftbingmaps) |
+| [Microsoft. DigitalTwins](#microsoftdigitaltwins) |
 
 
 ## <a name="general"></a>Ogólne
@@ -9663,6 +9664,45 @@ Usługa platformy Azure: [mapy Bing](https://docs.microsoft.com/BingMaps/)
 > | Microsoft. BingMaps/mapApis/listSecrets/akcja | Wystaw wpisy tajne dla Microsoft. BingMaps/mapApis |
 > | Microsoft. BingMaps/mapApis/listUsageMetrics/akcja | Utwórz listę metryk dla Microsoft. BingMaps/mapApis |
 > | Microsoft. BingMaps/Operations/Read | Wyświetlanie listy operacji dla Microsoft. BingMaps |
+
+### <a name="microsoftdigitaltwins"></a>Microsoft. DigitalTwins
+
+Usługa platformy Azure: [Azure Digital bliźniaczych reprezentacji](../digital-twins/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Akcja | Opis |
+> | --- | --- |
+> | Microsoft. DigitalTwins/Register/Action | Zarejestruj subskrypcję dostawcy zasobów Digital bliźniaczych reprezentacji i Włącz tworzenie wystąpień cyfrowych bliźniaczych reprezentacji. |
+> | Microsoft. DigitalTwins/Unregister/Action | Wyrejestrowywanie subskrypcji dla dostawcy zasobów Digital bliźniaczych reprezentacji |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/odczyt | Odczytaj dowolny zasób Microsoft. DigitalTwins/digitalTwinsInstances |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Write | Utwórz lub zaktualizuj dowolny zasób Microsoft. DigitalTwins/digitalTwinsInstances |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Delete | Usuwanie zasobu Microsoft. DigitalTwins/digitalTwinsInstances |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/diagnosticSettings/Read | Pobiera ustawienia diagnostyczne dla zasobu |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/diagnosticSettings/Write | Ustawia ustawienia diagnostyczne dla zasobu |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Endpoints/Delete | Usuwanie dowolnego punktu końcowego zasobu cyfrowego bliźniaczych reprezentacji |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Endpoints/Read | Odczytaj dowolny punkt końcowy zasobu Digital bliźniaczych reprezentacji |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Endpoints/Write | Utwórz lub zaktualizuj dowolny punkt końcowy zasobu Digital bliźniaczych reprezentacji |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/logDefinitions/Read | Pobiera ustawienia dziennika dla Azure Monitor zasobu |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/metricDefinitions/Read | Pobiera ustawienia metryki dla Azure Monitor zasobu |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/operationsResults/Read | Odczytaj wyniki operacji |
+> | Microsoft. DigitalTwins/Locations/checkNameAvailability/Action | Sprawdź dostępność nazwy zasobu w dostawcy zasobów Digital bliźniaczych reprezentacji |
+> | Microsoft. DigitalTwins/Locations/operationsResults/Read | Odczytaj wyniki operacji |
+> | Microsoft. DigitalTwins/Operations/Read | Odczytaj wszystkie operacje |
+> | **Akcja dataaction** | **Opis** |
+> | Microsoft. DigitalTwins/kwerenda/akcja | Wykonywanie zapytania dotyczącego cyfrowego wykresu bliźniaczych reprezentacji |
+> | Microsoft. DigitalTwins/DigitalTwins/odczyt | Odczytaj dowolne cyfrowe sznurki |
+> | Microsoft. DigitalTwins/DigitalTwins/Write | Utwórz lub zaktualizuj dowolne cyfrowe sznurki |
+> | Microsoft. DigitalTwins/DigitalTwins/Delete | Usuń wszystkie wielocyfrowe sznurki |
+> | Microsoft. DigitalTwins/DigitalTwins/Commands/Action | Wywoływanie dowolnego polecenia na dwucyfrowej Bliźniaczyej |
+> | Microsoft. DigitalTwins/DigitalTwins/Relationships/Read | Odczytaj wszystkie cyfrowe relacje jednoosiowe |
+> | Microsoft. DigitalTwins/DigitalTwins/Relationships/Write | Utwórz lub zaktualizuj dowolną relację cyfrowego przędzy |
+> | Microsoft. DigitalTwins/DigitalTwins/Relationships/Delete | Usuń wszelką relację Digital bliźniaczy |
+> | Microsoft. DigitalTwins/eventroutes/odczyt | Odczytaj wszystkie trasy zdarzeń |
+> | Microsoft. DigitalTwins/eventroutes/Delete | Usuń wszystkie trasy zdarzeń |
+> | Microsoft. DigitalTwins/eventroutes/Write | Utwórz lub zaktualizuj dowolną trasę zdarzeń |
+> | Microsoft. DigitalTwins/modele/odczyt | Odczytaj dowolny model |
+> | Microsoft. DigitalTwins/modele/zapis | Utwórz lub zaktualizuj dowolny model |
+> | Microsoft. DigitalTwins/modele/usuwanie | Usuń dowolny model |
 
 ## <a name="next-steps"></a>Następne kroki
 

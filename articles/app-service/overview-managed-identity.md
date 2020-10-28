@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: d6b9ebd8401151d57f103e639e70dd213bde6e33
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 82cb8da1a83e5b1e5430ebecf40f5152c824f6aa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152079"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742499"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -27,23 +27,23 @@ W tym temacie pokazano, jak utworzyć zarządzaną tożsamość dla App Service 
 
 Utworzenie aplikacji z tożsamością przypisaną przez system wymaga, aby w aplikacji była ustawiona dodatkowa właściwość.
 
-### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
 Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzyć aplikację w zwykły sposób, a następnie włączyć tę funkcję.
 
 1. Utwórz aplikację w portalu, jak zwykle. Przejdź do niej w portalu.
 
-2. W przypadku korzystania z aplikacji funkcji przejdź do **opcji funkcje platformy**. W przypadku innych typów aplikacji przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
+2. W przypadku korzystania z aplikacji funkcji przejdź do **opcji funkcje platformy** . W przypadku innych typów aplikacji przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
 
-3. Wybierz pozycję **tożsamość**.
+3. Wybierz pozycję **tożsamość** .
 
-4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone**. Kliknij pozycję **Zapisz**.
+4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone** . Kliknij pozycję **Zapisz** .
 
     ![Tożsamość zarządzana w App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
-> Aby znaleźć tożsamość zarządzaną aplikacji sieci Web lub aplikacji w gnieździe w Azure Portal, w obszarze **aplikacje dla przedsiębiorstw**, zapoznaj się z sekcją **Ustawienia użytkownika** . Zwykle nazwa gniazda jest podobna do `<app name>/slots/<slot name>` .
+> Aby znaleźć tożsamość zarządzaną aplikacji sieci Web lub aplikacji w gnieździe w Azure Portal, w obszarze **aplikacje dla przedsiębiorstw** , zapoznaj się z sekcją **Ustawienia użytkownika** . Zwykle nazwa gniazda jest podobna do `<app name>/slots/<slot name>` .
 
 
 ### <a name="using-the-azure-cli"></a>Przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -190,7 +190,7 @@ Jeśli musisz odwołać się do tych właściwości w późniejszym etapie szabl
 
 Utworzenie aplikacji z tożsamością przypisaną przez użytkownika wymaga utworzenia tożsamości, a następnie dodania jej identyfikatora zasobu do konfiguracji aplikacji.
 
-### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
 
 Najpierw należy utworzyć zasób tożsamości przypisany przez użytkownika.
 
@@ -198,13 +198,13 @@ Najpierw należy utworzyć zasób tożsamości przypisany przez użytkownika.
 
 2. Utwórz aplikację w portalu, jak zwykle. Przejdź do niej w portalu.
 
-3. W przypadku korzystania z aplikacji funkcji przejdź do **opcji funkcje platformy**. W przypadku innych typów aplikacji przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
+3. W przypadku korzystania z aplikacji funkcji przejdź do **opcji funkcje platformy** . W przypadku innych typów aplikacji przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
 
-4. Wybierz pozycję **tożsamość**.
+4. Wybierz pozycję **tożsamość** .
 
-5. Na karcie **przypisane przez użytkownika** kliknij przycisk **Dodaj**.
+5. Na karcie **przypisane przez użytkownika** kliknij przycisk **Dodaj** .
 
-6. Wyszukaj utworzoną wcześniej tożsamość i wybierz ją. Kliknij pozycję **Dodaj**.
+6. Wyszukaj utworzoną wcześniej tożsamość i wybierz ją. Kliknij pozycję **Dodaj** .
 
     ![Tożsamość zarządzana w App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
@@ -395,7 +395,7 @@ public async Task<HttpResponseMessage> GetToken(string resource)  {
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, cb) {
     let options = {
         uri: `${process.env["IDENTITY_ENDPOINT"]}/?resource=${resource}&api-version=2019-08-01`,
@@ -427,7 +427,7 @@ def get_bearer_token(resource_uri):
     return access_token
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
