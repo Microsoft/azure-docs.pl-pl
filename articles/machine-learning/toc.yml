@@ -526,6 +526,8 @@
     - name: Potoki platformy Azure dla ciągłej integracji i ciągłego wdrażania
       displayName: 'continuous, integration, delivery'
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+    - name: Akcje GitHub Actions dla ciągłej integracji/ciągłego wdrażania
+      href: how-to-github-actions-machine-learning.md
     - name: Zarządzanie przydziałami zasobów
       displayName: limits
       href: how-to-manage-quotas.md

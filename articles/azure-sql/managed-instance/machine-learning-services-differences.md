@@ -1,6 +1,6 @@
 ---
 title: Kluczowe różnice dotyczące Machine Learning Services (wersja zapoznawcza)
-description: W tym temacie opisano kluczowe różnice między Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL i SQL Server Machine Learning Services.
+description: W tym artykule opisano kluczowe różnice między Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL i SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: machine-learning
@@ -11,17 +11,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 05/27/2020
-ms.openlocfilehash: 9ff2de18042c466bdd8fa6c71194fff4286c820d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: adf454ac697f8cabf4256ebfc5baa5d0d1c76264
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325100"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782471"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Kluczowe różnice między usługami Machine Learning Services w usłudze Azure SQL Managed Instance i programie SQL Server
 
-Funkcja [Machine Learning Services w wystąpieniu zarządzanym Azure SQL (wersja zapoznawcza)](machine-learning-services-overview.md) jest niemal identyczna z [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Poniżej przedstawiono niektóre kluczowe różnice.
+Funkcja [Machine Learning Services w wystąpieniu zarządzanym Azure SQL (wersja zapoznawcza)](machine-learning-services-overview.md) jest niemal identyczna z [SQL Server Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning). Poniżej przedstawiono niektóre kluczowe różnice.
 
 > [!IMPORTANT]
 > Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL jest obecnie w publicznej wersji zapoznawczej. Aby się zarejestrować, zobacz artykuł [Rejestrowanie się w celu uzyskania podglądu](machine-learning-services-overview.md#signup).
@@ -33,13 +33,13 @@ Jeśli korzystasz z wersji zapoznawczej, usługa ma następujące ograniczenia:
 - Połączenia sprzężenia zwrotnego nie działają (zobacz [połączenie sprzężenia zwrotnego z SQL Server ze skryptu Python lub R](/sql/machine-learning/connect/loopback-connection)).
 - Zewnętrzne pule zasobów nie są obsługiwane.
 - Obsługiwane są tylko języki Python i R. Nie można dodać języków zewnętrznych, takich jak Java.
-- Scenariusze wykorzystujące [interfejs przekazywania komunikatów](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) (MPI) nie są obsługiwane.
+- Scenariusze wykorzystujące [interfejs przekazywania komunikatów](/message-passing-interface/microsoft-mpi) (MPI) nie są obsługiwane.
 
-W przypadku aktualizacji celu poziomu usługi (SLO, Service Level Objective) zaktualizuj cel poziomu usługi i utwórz bilet pomocy technicznej w celu ponownego włączenia limitów dedykowanych zasobów dla języka R/Python.
+W przypadku aktualizacji celu poziomu usługi należy zaktualizować cel SLO i zgłosić bilet pomocy technicznej w celu ponownego włączenia dedykowanych limitów zasobów dla języka R/Python.
 
 ## <a name="language-support"></a>Obsługa języków
 
-Machine Learning Services w wystąpieniu zarządzanym SQL i SQL Server obsługują zarówno [strukturę rozszerzalności](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework)Python, jak i języka R. Kluczowe różnice są następujące:
+Machine Learning Services w wystąpieniu zarządzanym SQL i SQL Server obsługują zarówno [strukturę rozszerzalności](/sql/advanced-analytics/concepts/extensibility-framework)Python, jak i języka R. Kluczowe różnice są następujące:
 
 - Początkowe wersje środowiska Python i języka R różnią się między Machine Learning Services w wystąpieniu zarządzanym SQL i SQL Server:
 
@@ -54,32 +54,32 @@ Machine Learning Services w wystąpieniu zarządzanym SQL i SQL Server obsługuj
 
 Zarządzanie pakietami Python i R działa inaczej niż w przypadku wystąpienia zarządzanego SQL i SQL Server. Te różnice są następujące:
 
-- Pakiety nie mogą wykonywać wychodzących wywołań sieciowych. To ograniczenie jest podobne do [domyślnych reguł zapory dla Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) w SQL Server, ale nie można go zmienić w wystąpieniu zarządzanym SQL.
 - Pakiety, które są zależne od zewnętrznych środowisk uruchomieniowych (na przykład Java) lub potrzebują dostępu do interfejsów API systemu operacyjnego w celu instalacji lub użycia, nie są obsługiwane.
+- Pakiety mogą wykonywać wychodzące wywołania sieciowe (zmienić z wcześniejszego poziomu w wersji zapoznawczej). Aby włączyć wychodzące wywołania sieciowe, można ustawić odpowiednie reguły zabezpieczeń dla ruchu wychodzącego na poziomie [grupy zabezpieczeń sieci](/azure/virtual-network/network-security-groups-overview) .
 
 Aby uzyskać więcej informacji na temat zarządzania pakietami Python i R, zobacz:
 
-- [Uzyskiwanie informacje o pakiecie Python](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
-- [Uzyskiwanie informacji o pakiecie R](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
+- [Uzyskiwanie informacje o pakiecie Python](/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
+- [Uzyskiwanie informacji o pakiecie R](/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
 
 ## <a name="resource-governance"></a>Nadzór nad zasobami
 
-Nie jest możliwe ograniczanie zasobów R przy użyciu [regulatora zasobów](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) i pul zasobów zewnętrznych.
+Nie jest możliwe ograniczanie zasobów R przy użyciu [regulatora zasobów](/sql/relational-databases/resource-governor/resource-governor) i pul zasobów zewnętrznych.
 
-W publicznej wersji zapoznawczej zasoby języka R są ustawione na maksymalnie 20% zasobów usługi SQL Managed Instance i zależą od wybranej warstwy usługi. Aby uzyskać więcej informacji, zobacz [Azure SQL Database modele zakupu](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+W publicznej wersji zapoznawczej zasoby języka R są ustawione na maksymalnie 20% zasobów usługi SQL Managed Instance i zależą od wybranej warstwy usługi. Aby uzyskać więcej informacji, zobacz [Azure SQL Database modele zakupu](../database/purchasing-models.md).
 
 ### <a name="insufficient-memory-error"></a>Błąd niewystarczającej pamięci
 
 Ten komunikat o błędzie jest wyświetlany, jeśli ilość pamięci dostępna dla języka R jest niewystarczająca. Typowe komunikaty o błędach to:
 
-- Nie można nawiązać komunikacji ze środowiskiem uruchomieniowym dla skryptu "R" dla identyfikatora żądania: * * * * * * *. Sprawdź wymagania środowiska uruchomieniowego „R”
-- Wystąpił błąd skryptu „R” w czasie wykonywania procedury „sp_execute_external_script” (HRESULT = 0x80004004). ...wystąpił zewnętrzny błąd skryptu: „..nie można przydzielić pamięci (0 MB) w funkcji C „R_AllocStringBuffer””
-- Wystąpił błąd zewnętrzny skryptu: błąd: nie można przydzielić wektora rozmiaru.
+- `Unable to communicate with the runtime for 'R' script for request id: *******. Please check the requirements of 'R' runtime`
+- `'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"`
+- `An external script error occurred: Error: cannot allocate vector of size.`
 
 Użycie pamięci zależy od ilości używanej w skryptach języka R i liczby wykonywanych zapytań równoległych. W przypadku wyświetlenia powyższych komunikatów o błędach możesz skalować bazę danych do wyższej warstwy usług, aby rozwiązać ten problem.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się z omówieniem [Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL](machine-learning-services-overview.md).
-- Aby dowiedzieć się, jak używać języka Python w Machine Learning Services, zobacz [Uruchamianie skryptów Python](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
-- Aby dowiedzieć się, jak używać języka R w Machine Learning Services, zobacz [Uruchamianie skryptów języka r](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
+- Aby dowiedzieć się, jak używać języka Python w Machine Learning Services, zobacz [Uruchamianie skryptów Python](/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- Aby dowiedzieć się, jak używać języka R w Machine Learning Services, zobacz [Uruchamianie skryptów języka r](/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).

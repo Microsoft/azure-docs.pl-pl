@@ -161,6 +161,8 @@
       href: ../../service-bus-messaging/security-baseline.md
     - name: Punkt odniesienia usługi Service Fabric
       href: ../../service-fabric/security-baseline.md
+    - name: Punkt odniesienia usługi Site Recovery
+      href: ../../site-recovery/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Stream Analytics
       href: ../../stream-analytics/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Synapse Analytics

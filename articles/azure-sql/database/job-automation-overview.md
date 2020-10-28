@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ecd7e847a91847db8f57c640a374dc329fce7ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450349"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782947"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatyzowanie zadań zarządzania za pomocą zadań bazy danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -173,13 +173,13 @@ Niektóre funkcje agenta SQL dostępne w programie SQL Server nie są obsługiwa
 - Serwery proxy nie są obsługiwane.
 - Dziennik zdarzeń nie jest obsługiwany.
 
-Aby uzyskać informacje na temat agenta programu SQL Server, zobacz [SQL Server Agent (Agent programu SQL Server)](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+Aby uzyskać informacje na temat agenta programu SQL Server, zobacz [SQL Server Agent (Agent programu SQL Server)](/sql/ssms/agent/sql-server-agent).
 
 ## <a name="elastic-database-jobs-preview"></a>Zadania Elastic Database (wersja zapoznawcza)
 
 **Zadania Elastic Database** umożliwiają równoległe uruchamianie wielu skryptów T-SQL względem wielu baz danych na podstawie harmonogramu lub na żądanie.
 
-**Uruchamianie zadań w ramach dowolnej kombinacji baz danych**: co najmniej jedna pojedyncza baza danych, wszystkie bazy danych na serwerze, wszystkie bazy danych w elastycznej puli lub mapa fragmentów ze zwiększoną elastycznością umożliwiającą dołączanie lub wykluczanie dowolnej określonej bazy danych. **Zadania można wykonywać na wielu serwerach, w wielu pulach, a nawet w obrębie baz danych w ramach różnych subskrypcji.** Serwery i pule są dynamicznie wyliczane w czasie wykonywania, więc zadania są uruchamiane względem wszystkich baz danych, które istnieją w docelowej grupie w czasie wykonywania.
+**Uruchamianie zadań w ramach dowolnej kombinacji baz danych** : co najmniej jedna pojedyncza baza danych, wszystkie bazy danych na serwerze, wszystkie bazy danych w elastycznej puli lub mapa fragmentów ze zwiększoną elastycznością umożliwiającą dołączanie lub wykluczanie dowolnej określonej bazy danych. **Zadania można wykonywać na wielu serwerach, w wielu pulach, a nawet w obrębie baz danych w ramach różnych subskrypcji.** Serwery i pule są dynamicznie wyliczane w czasie wykonywania, więc zadania są uruchamiane względem wszystkich baz danych, które istnieją w docelowej grupie w czasie wykonywania.
 
 Na poniższej ilustracji przedstawiono agenta zadań wykonującego zadania w ramach różnych typów grup docelowych:
 
@@ -210,11 +210,11 @@ W przypadku bieżącej wersji zapoznawczej istniejąca baza danych w Azure SQL D
 
 *Baza danych zadań* nie musi być nowością, ale powinna być celem czystego, pustego, S0 lub wyższej usługi. Zalecany cel usługi *bazy danych zadań* ma wartość S1 lub wyższą, ale optymalny wybór zależy od potrzeb związanych z wydajnością zadań: liczby kroków zadań, liczby elementów docelowych zadania i częstotliwości uruchamiania zadań. Na przykład baza danych S0 może być wystarczająca dla agenta zadań, który uruchamia kilka zadań o godzinie docelowej mniejszej niż dziesięć baz danych, ale uruchamianie zadania co minutę może być niedostatecznie szybkie w przypadku bazy danych S0, a wyższa warstwa usług może być lepsza.
 
-Jeśli operacje dotyczące bazy danych zadań są wolniejsze niż oczekiwane, [Monitoruj](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) wydajność bazy danych i wykorzystanie zasobów w bazie danych zadań w okresach spowolnienia przy użyciu Azure Portal lub [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. Jeśli użycie zasobu, takiego jak procesor CPU, we/wy danych lub zapis w dzienniku, zbliża się do 100% i jest skorelowane z okresami spowolnienia, należy rozważyć przyrostowe skalowanie bazy danych do wyższych celów usługi (w [modelu DTU](service-tiers-dtu.md) lub w [modelu rdzeń wirtualny](service-tiers-vcore.md)), dopóki wydajność bazy danych zadań zostanie dostatecznie zwiększona.
+Jeśli operacje dotyczące bazy danych zadań są wolniejsze niż oczekiwane, [Monitoruj](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) wydajność bazy danych i wykorzystanie zasobów w bazie danych zadań w okresach spowolnienia przy użyciu Azure Portal lub [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. Jeśli użycie zasobu, takiego jak procesor CPU, we/wy danych lub zapis w dzienniku, zbliża się do 100% i jest skorelowane z okresami spowolnienia, należy rozważyć przyrostowe skalowanie bazy danych do wyższych celów usługi (w [modelu DTU](service-tiers-dtu.md) lub w [modelu rdzeń wirtualny](service-tiers-vcore.md)), dopóki wydajność bazy danych zadań zostanie dostatecznie zwiększona.
 
 ##### <a name="job-database-permissions"></a>Uprawnienia dotyczące bazy danych zadań
 
-Podczas tworzenia agenta zadań ma miejsce tworzenie schematu, tabel i roli o nazwie *jobs_reader* w *bazie danych zadań*. Ta rola jest tworzona z następującymi uprawnieniami i została zaprojektowana w celu umożliwienia administratorom bardziej precyzyjnej kontroli dostępu na potrzeby monitorowania zadań:
+Podczas tworzenia agenta zadań ma miejsce tworzenie schematu, tabel i roli o nazwie *jobs_reader* w *bazie danych zadań* . Ta rola jest tworzona z następującymi uprawnieniami i została zaprojektowana w celu umożliwienia administratorom bardziej precyzyjnej kontroli dostępu na potrzeby monitorowania zadań:
 
 |Nazwa roli |Uprawnienia do schematu „jobs” |Uprawnienia do schematu „jobs_internal” |
 |---------|---------|---------|
@@ -233,7 +233,7 @@ Podczas tworzenia agenta zadań ma miejsce tworzenie schematu, tabel i roli o na
 - **Mapa fragmentów** — bazy danych mapy fragmentów.
 
 > [!TIP]
-> W momencie wykonywania zadania za pomocą *dynamicznego wyliczania* ma miejsce ponowne obliczenie zestawu baz danych w grupach docelowych, które zawierają serwery lub pule. Pozwala to zapewnić, że **zadania są uruchamiane we wszystkich bazach danych, które istnieją na serwerze lub w puli w czasie wykonywania zadania**. Ponowne obliczanie listy baz danych w czasie wykonywania jest szczególnie przydatne w scenariuszach, w których często zmienia się członkostwo w puli lub na serwerze.
+> W momencie wykonywania zadania za pomocą *dynamicznego wyliczania* ma miejsce ponowne obliczenie zestawu baz danych w grupach docelowych, które zawierają serwery lub pule. Pozwala to zapewnić, że **zadania są uruchamiane we wszystkich bazach danych, które istnieją na serwerze lub w puli w czasie wykonywania zadania** . Ponowne obliczanie listy baz danych w czasie wykonywania jest szczególnie przydatne w scenariuszach, w których często zmienia się członkostwo w puli lub na serwerze.
 
 Pule i pojedyncze bazy danych można określić jako uwzględnione lub wykluczone z grupy. Umożliwia to tworzenie grupy docelowej z dowolną kombinacją baz danych. Na przykład możesz dodać serwer do grupy docelowej, ale wykluczyć określone bazy danych znajdujące się w elastycznej puli (lub wykluczyć całą pulę).
 
@@ -246,7 +246,7 @@ W poniższych przykładach pokazano, jak różne definicje grup docelowych są d
 **Przykład 1** przedstawia grupę docelową, która zawiera listę poszczególnych baz danych. Gdy krok zadania jest wykonywany przy użyciu tej grupy docelowej, akcja kroku zadania zostanie wykonana w każdej z tych baz danych.<br>
 **Przykład 2** pokazuje grupę docelową, która zawiera serwer jako element docelowy. Gdy krok zadania jest wykonywany przy użyciu tej grupy docelowej, serwer jest dynamicznie wyliczany w celu określenia listy baz danych, które obecnie znajdują się na serwerze. Akcja kroku zadania zostanie wykonana w każdej z tych baz danych.<br>
 **Przykład 3** zawiera grupę docelową podobną do *przykładu 2* z wykluczeniem pojedynczej bazy danych. Akcja kroku zadania *nie* zostanie wykonana w wykluczonej bazie danych.<br>
-**Przykład 4** przedstawia grupę docelową, która zawiera elastyczną pulę jako obiekt docelowy. Podobnie jak w *przykładzie 2*, pula będzie dynamicznie wyliczana w momencie uruchomienia zadania w celu określenia listy baz danych w puli.
+**Przykład 4** przedstawia grupę docelową, która zawiera elastyczną pulę jako obiekt docelowy. Podobnie jak w *przykładzie 2* , pula będzie dynamicznie wyliczana w momencie uruchomienia zadania w celu określenia listy baz danych w puli.
 <br><br>
 
 ![Dodatkowe przykłady grupy docelowej](./media/job-automation-overview/targetgroup-examples2.png)
@@ -260,7 +260,7 @@ W poniższych przykładach pokazano, jak różne definicje grup docelowych są d
 
 #### <a name="job"></a>Zadanie
 
-*Zadanie* to jednostka pracy, która jest wykonywana na podstawie harmonogramu lub jako zadanie jednorazowe. Zadanie składa się z co najmniej jednego *kroku zadania*.
+*Zadanie* to jednostka pracy, która jest wykonywana na podstawie harmonogramu lub jako zadanie jednorazowe. Zadanie składa się z co najmniej jednego *kroku zadania* .
 
 ##### <a name="job-step"></a>Krok zadania
 
@@ -272,7 +272,7 @@ Wyniki wykonywania kroków zadania w każdej docelowej bazie danych są szczegó
 
 #### <a name="job-history"></a>Historia zadania
 
-Historia wykonywania zadań jest przechowywana w *bazie danych zadań*. Zadanie oczyszczania systemu czyści historię wykonywania, która jest starsza niż 45 dni. Aby usunąć historię, która ma mniej niż 45 dni, wywołaj procedurę składowaną **sp_purge_history** w *bazie danych zadań*.
+Historia wykonywania zadań jest przechowywana w *bazie danych zadań* . Zadanie oczyszczania systemu czyści historię wykonywania, która jest starsza niż 45 dni. Aby usunąć historię, która ma mniej niż 45 dni, wywołaj procedurę składowaną **sp_purge_history** w *bazie danych zadań* .
 
 ### <a name="agent-performance-capacity-and-limitations"></a>Wydajność agenta, pojemność i ograniczenia
 
@@ -288,7 +288,7 @@ Aby zapewnić, że zasoby nie będą przeciążone podczas uruchamiania zadań w
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [What is SQL Server Agent (Co to jest agent programu SQL Server)](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [What is SQL Server Agent (Co to jest agent programu SQL Server)](/sql/ssms/agent/sql-server-agent)
 - [How to create and manage elastic jobs (Jak tworzyć zadania elastyczne i zarządzać nimi)](elastic-jobs-overview.md)
 - [Tworzenie zadań elastycznych i zarządzanie nimi przy użyciu programu PowerShell](elastic-jobs-powershell-create.md)
 - [Tworzenie zadań elastycznych i zarządzanie nimi za pomocą języka Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

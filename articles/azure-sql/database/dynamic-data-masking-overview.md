@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398616"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781451"
 ---
 # <a name="dynamic-data-masking"></a>Dynamiczne maskowanie danych 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -34,7 +34,7 @@ Aby skonfigurować zasady dynamicznego maskowania danych w Azure Portal, wybierz
 
 ### <a name="dynamic-data-masking-permissions"></a>Uprawnienia Dynamiczne maskowanie danych
 
-Dynamiczne maskowanie danych można skonfigurować za pomocą ról Administrator Azure SQL Database, administrator serwera lub [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) .
+Dynamiczne maskowanie danych można skonfigurować za pomocą ról Administrator Azure SQL Database, administrator serwera lub [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) .
 
 ### <a name="dynamic-data-masking-policy"></a>Zasady dynamicznego maskowania danych
 
@@ -44,7 +44,7 @@ Dynamiczne maskowanie danych można skonfigurować za pomocą ról Administrator
 
 | Funkcja maskowania | Maskowanie logiki |
 | --- | --- |
-| **Wartooć** |**Pełne maskowanie według typów danych określonych pól**<br/><br/>• Użyj XXXX lub mniejszej wartości XS, jeśli rozmiar pola jest krótszy niż 4 znaki dla typów danych ciągu (nchar, ntext, nvarchar).<br/>• Użyj wartości zerowej dla liczbowych typów danych (bigint, bit, decimal, int, Money, numeric, smallint, smallmoney, tinyint, float, Real).<br/>• Użyj 01-01-1900 dla typów danych Data/godzina (Date, datetime2, DateTime, DateTimeOffset, smalldatetime, Time).<br/>• Dla wariantu SQL, używana jest wartość domyślna bieżącego typu.<br/>• Dla pliku XML \<masked/> jest używany dokument.<br/>• Użyj pustej wartości dla specjalnych typów danych (tabela znaczników czasu, hierarchyid, GUID, Binary, Image, typy przestrzenne varbinary). |
+| **Domyślne** |**Pełne maskowanie według typów danych określonych pól**<br/><br/>• Użyj XXXX lub mniejszej wartości XS, jeśli rozmiar pola jest krótszy niż 4 znaki dla typów danych ciągu (nchar, ntext, nvarchar).<br/>• Użyj wartości zerowej dla liczbowych typów danych (bigint, bit, decimal, int, Money, numeric, smallint, smallmoney, tinyint, float, Real).<br/>• Użyj 01-01-1900 dla typów danych Data/godzina (Date, datetime2, DateTime, DateTimeOffset, smalldatetime, Time).<br/>• Dla wariantu SQL, używana jest wartość domyślna bieżącego typu.<br/>• Dla pliku XML \<masked/> jest używany dokument.<br/>• Użyj pustej wartości dla specjalnych typów danych (tabela znaczników czasu, hierarchyid, GUID, Binary, Image, typy przestrzenne varbinary). |
 | **Karta kredytowa** |**Metoda maskowania, która ujawnia cztery ostatnie cyfry wydzielonych pól** i dodaje stały ciąg jako prefiks w postaci karty kredytowej.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **Poczta e-mail** |**Metoda maskowania, która uwidacznia pierwszą literę i zastępuje domenę xxx.com** przy użyciu stałego prefiksu ciągu w postaci adresu e-mail.<br/><br/>aXX@XXXX.com |
 | **Liczba losowa** |**Metoda maskowania, która generuje liczbę losową** zgodnie z wybranymi granicami i rzeczywistymi typami danych. Jeśli wyznaczono granice są równe, funkcja maskowania jest liczbą stałą.<br/><br/>![Zrzut ekranu, który pokazuje metodę maskowania w celu wygenerowania liczby losowej.](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
@@ -60,15 +60,15 @@ Aparat zaleceń DDM, który flaguje niektóre pola z bazy danych jako potencjaln
 
 ### <a name="data-masking-policies"></a>Zasady maskowania danych
 
-- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
-- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+- [Get-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
 
 ### <a name="data-masking-rules"></a>Reguły maskowania danych
 
-- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
-- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
-- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
-- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
+- [Get-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-rest-api"></a>Konfigurowanie dynamicznego maskowania danych dla bazy danych przy użyciu interfejsu API REST
 
@@ -76,10 +76,10 @@ Za pomocą interfejsu API REST można programowo zarządzać zasadami i regułam
 
 ### <a name="data-masking-policies"></a>Zasady maskowania danych
 
-- [Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): tworzy lub aktualizuje zasady maskowania danych bazy danych.
-- [Get](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): Pobiera zasady maskowania danych bazy danych. 
+- [Utwórz lub zaktualizuj](/rest/api/sql/datamaskingpolicies/createorupdate): tworzy lub aktualizuje zasady maskowania danych bazy danych.
+- [Get](/rest/api/sql/datamaskingpolicies/get): Pobiera zasady maskowania danych bazy danych. 
 
 ### <a name="data-masking-rules"></a>Reguły maskowania danych
 
-- [Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): tworzy lub aktualizuje regułę maskowania danych bazy danych.
-- [Lista według bazy danych](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): Pobiera listę reguł maskowania danych bazy danych.
+- [Utwórz lub zaktualizuj](/rest/api/sql/datamaskingrules/createorupdate): tworzy lub aktualizuje regułę maskowania danych bazy danych.
+- [Lista według bazy danych](/rest/api/sql/datamaskingrules/listbydatabase): Pobiera listę reguł maskowania danych bazy danych.

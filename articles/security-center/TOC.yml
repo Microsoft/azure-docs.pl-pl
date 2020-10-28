@@ -14,9 +14,17 @@
           href: security-center-services.md
         - name: Pokrycie funkcji w przypadku zasobów usługi Azure PaaS
           href: features-paas.md
-    - name: Co nowego w usłudze Security Center?
-      displayName: release notes
-      href: release-notes.md
+    - name: Co nowego?
+      items:
+        - name: Informacje o wersji
+          displayName: changelog
+          href: release-notes.md
+        - name: Ważne nadchodzące zmiany
+          displayName: 'release notes, changelog'
+          href: upcoming-changes.md
+        - name: Zarchiwizowane informacje o wersji (starsze niż sześć miesięcy)
+          displayName: changelog
+          href: release-notes-archive.md
     - name: Podstawy usługi Security Center
       items:
         - name: Strona przeglądu usługi Security Center
@@ -217,8 +225,13 @@
         - name: Dostosowywanie zasad ochrony informacji
           href: security-center-info-protection-policy.md
     - name: Korzystanie z usługi Azure Defender dla rejestrów kontenerów
-      displayName: 'ACR, registry, images'
-      href: defender-for-container-registries-usage.md
+      items:
+        - name: Skanowanie obrazów w rejestrze pod kątem luk w zabezpieczeniach
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md
+        - name: Wyłączanie określonych luk w zabezpieczeniach znalezionych w obrazach
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md#disable-specific-findings-preview
     - name: Eksportowanie alertów i zaleceń
       items:
         - name: 'Eksportowanie do rozwiązania SIEM, SOAR lub ITSM'
@@ -272,8 +285,6 @@
           href: faq-vms.md
         - name: Istniejący użytkownicy usługi Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Archiwum Co nowego w usłudze Security Center?
-      href: release-notes-archive.md
     - name: Blog harmonogramu działania dla platformy Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Rekomendacje i ocena ochrony punktu końcowego

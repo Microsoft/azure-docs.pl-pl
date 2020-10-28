@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997242"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782505"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Anulowanie operacji zarządzania wystąpieniami zarządzanymi przez usługę Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,14 +38,14 @@ Poniższa tabela zawiera podsumowanie operacji zarządzania, bez względu na to,
 
 Kategoria  |Operacja  |Można anulować  |Szacowany czas trwania anulowania  |
 |---------|---------|---------|---------|
-|Wdrożenie |Tworzenie wystąpienia |Tak |90% operacji zakończonych w ciągu 5 minut. |
+|wdrażania |Tworzenie wystąpienia |Tak |90% operacji zakończonych w ciągu 5 minut. |
 |Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia) |Nie |  |
 |Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut. |
 |Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia) |Tak |90% operacji zakończonych w ciągu 5 minut. |
 |Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut. |
 |Aktualizacja |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót) |Tak |90% operacji zakończonych w ciągu 5 minut. |
-|Usuwanie |Usunięcie wystąpienia |Nie |  |
-|Usuwanie |Usuwanie klastra wirtualnego (jako operacja zainicjowana przez użytkownika) |Nie |  |
+|Usuń |Usunięcie wystąpienia |Nie |  |
+|Usuń |Usuwanie klastra wirtualnego (jako operacja zainicjowana przez użytkownika) |Nie |  |
 
 ## <a name="cancel-management-operation"></a>Anuluj operację zarządzania
 
@@ -73,9 +73,9 @@ Jeśli żądanie anulowania zakończy się pomyślnie, operacja zarządzania zos
 
 Jeśli żądanie anulowania zakończy się niepowodzeniem lub przycisk Anuluj nie jest aktywny, oznacza to, że operacja zarządzania została wprowadzona jako niebędąca w stanie niemożliwego do anulowania i wkrótce zakończy się.  Operacja zarządzania będzie kontynuować wykonywanie, dopóki nie zostanie ukończona.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Jeśli nie masz jeszcze zainstalowanego Azure PowerShell, zobacz [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Jeśli nie masz jeszcze zainstalowanego Azure PowerShell, zobacz [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 Aby anulować operację zarządzania, należy określić nazwę operacji zarządzania. W związku z tym należy najpierw użyć polecenia Get, aby pobrać listę operacji, a następnie anulować konkretną operację.
 
@@ -93,7 +93,7 @@ foreach ($mo in $managementOperations ) {
 }
 ```
 
-Aby zapoznać się ze szczegółowymi poleceniami, zobacz [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation) i [stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation).
+Aby zapoznać się ze szczegółowymi poleceniami, zobacz [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation) i [stop-AzSqlInstanceOperation](/powershell/module/az.sql/stop-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -110,13 +110,13 @@ az sql mi op cancel -g yourResourceGroupName --mi yourInstanceName -n $operation
 done
 ```
 
-Aby zapoznać się ze szczegółowymi poleceniami, zobacz [AZ SQL mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Aby zapoznać się ze szczegółowymi poleceniami, zobacz [AZ SQL mi op](/cli/azure/sql/mi/op).
 
 ---
 
 ## <a name="canceled-deployment-request"></a>Anulowane żądanie wdrożenia
 
-W przypadku użycia interfejsu API w wersji 2020-02-02, gdy tylko żądanie utworzenia wystąpienia zostanie zaakceptowane, wystąpienie rozpoczyna się jako zasób, niezależnie od postępu procesu wdrażania (stan wystąpienia zarządzanego jest **aprowizacji**). Jeśli anulujesz żądanie wdrożenia wystąpienia (nowe wystąpienie), wystąpienie zarządzane przejdzie ze stanu **aprowizacji** do **FailedToCreate**.
+W przypadku użycia interfejsu API w wersji 2020-02-02, gdy tylko żądanie utworzenia wystąpienia zostanie zaakceptowane, wystąpienie rozpoczyna się jako zasób, niezależnie od postępu procesu wdrażania (stan wystąpienia zarządzanego jest **aprowizacji** ). Jeśli anulujesz żądanie wdrożenia wystąpienia (nowe wystąpienie), wystąpienie zarządzane przejdzie ze stanu **aprowizacji** do **FailedToCreate** .
 
 Wystąpienia, które nie zostały utworzone, są nadal obecne jako zasób i: 
 

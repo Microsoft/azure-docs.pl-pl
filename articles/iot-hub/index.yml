@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 91e3ff9dc19fdc33699fc6237cb5b6e51dbb9b52
-  ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+  ms.openlocfilehash: 5459129d5d49324839bfe36e2031d5be8d1e0521
+  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/17/2020
-  ms.locfileid: "92148887"
+  ms.lasthandoff: 10/26/2020
+  ms.locfileid: "92545382"
 landingContent:
 - title: Getting Started
   linkLists:
@@ -40,10 +40,10 @@ landingContent:
     links:
     - text: Praca z funkcją bliźniaczej reprezentacji urządzenia w środowisku Node.js
       url: iot-hub-node-node-twin-getstarted.md
-    - text: Opis metryk IoT
-      url: iot-hub-metrics.md
-    - text: Rejestrowanie diagnostyczne
-      url: iot-hub-monitor-resource-health.md
+    - text: Monitorowanie usługi IoT Hub
+      url: monitor-iot-hub.md
+    - text: Dokumentacja dotycząca monitorowania danych w usłudze IoT Hub
+      url: monitor-iot-hub-reference.md
     - text: Monitorowanie, diagnozowanie i rozwiązywanie problemów z odłączaniem od IoT
       url: iot-hub-troubleshoot-connectivity.md
 - title: Skalowanie rozwiązania

@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: ca458bebf75f8e77774236166704794b817b7c3f
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 940ea0ac471604b22c64dc008eebd8b580121cf7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167138"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782743"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autoryzuj dostęp do bazy danych do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -39,27 +39,27 @@ W tym artykule omówiono następujące informacje:
 [**Uwierzytelnianie**](security-overview.md#authentication) to proces potwierdzania tożsamości użytkownika. Użytkownik nawiązuje połączenie z bazą danych przy użyciu konta użytkownika.
 Gdy użytkownik próbuje nawiązać połączenie z bazą danych, udostępnia informacje o koncie użytkownika i uwierzytelnianiu. Użytkownik jest uwierzytelniany przy użyciu jednej z następujących dwóch metod uwierzytelniania:
 
-- [Uwierzytelnianie SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
+- [Uwierzytelnianie SQL](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
   Przy użyciu tej metody uwierzytelniania użytkownik przesyła nazwę konta użytkownika i skojarzone hasło w celu nawiązania połączenia. To hasło jest przechowywane w bazie danych Master dla kont użytkowników połączonych z logowaniem lub przechowywanych w bazie danych zawierającej konta użytkowników, które *nie* są połączone z logowaniem.
 - [Uwierzytelnianie usługi Azure Active Directory](authentication-aad-overview.md)
 
   Przy użyciu tej metody uwierzytelniania użytkownik przesyła nazwę konta użytkownika i żąda, aby usługa korzystała z informacji poświadczenie przechowywanych w Azure Active Directory (Azure AD).
 
-**Logowania i użytkownicy**: konto użytkownika w bazie danych może być skojarzone z nazwą logowania przechowywaną w bazie danych Master lub może być nazwą użytkownika przechowywaną w pojedynczej bazie danych.
+**Logowania i użytkownicy** : konto użytkownika w bazie danych może być skojarzone z nazwą logowania przechowywaną w bazie danych Master lub może być nazwą użytkownika przechowywaną w pojedynczej bazie danych.
 
 - **Identyfikator logowania** to pojedyncze konto w bazie danych Master, do którego można połączyć konto użytkownika w co najmniej jednej bazie danych. W przypadku nazwy logowania informacje o poświadczeniach dla konta użytkownika przechowywane są z nazwą logowania.
 - **Konto użytkownika** to pojedyncze konto w dowolnej bazie danych, które może być, ale nie musi być powiązane z logowaniem. W przypadku konta użytkownika, które nie jest powiązane z nazwą logowania, informacje o poświadczeniach są przechowywane z kontem użytkownika.
 
-[**Autoryzacja**](security-overview.md#authorization) dostępu do danych i wykonywanie różnych akcji są zarządzane przy użyciu ról bazy danych i jawnych uprawnień. Autoryzacja odnosi się do uprawnień przypisanych do użytkownika i określa, co użytkownik może zrobić. Autoryzacja jest kontrolowana za pomocą [członkostw roli](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) bazy danych konta użytkownika i [uprawnień na poziomie obiektów](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Zalecanym najlepszym rozwiązaniem jest przyznanie użytkownikom minimalnych niezbędnych uprawnień.
+[**Autoryzacja**](security-overview.md#authorization) dostępu do danych i wykonywanie różnych akcji są zarządzane przy użyciu ról bazy danych i jawnych uprawnień. Autoryzacja odnosi się do uprawnień przypisanych do użytkownika i określa, co użytkownik może zrobić. Autoryzacja jest kontrolowana za pomocą [członkostw roli](/sql/relational-databases/security/authentication-access/database-level-roles) bazy danych konta użytkownika i [uprawnień na poziomie obiektów](/sql/relational-databases/security/permissions-database-engine). Zalecanym najlepszym rozwiązaniem jest przyznanie użytkownikom minimalnych niezbędnych uprawnień.
 
 ## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Istniejące dane logowania i konta użytkowników po utworzeniu nowej bazy danych
 
-Podczas pierwszego wdrażania usługi Azure SQL należy określić nazwę logowania administratora i skojarzone hasło dla tej nazwy logowania. To konto administracyjne nosi nazwę **administrator serwera**. Następująca konfiguracja nazw logowania i użytkowników w bazach danych Master i User odbywa się podczas wdrażania:
+Podczas pierwszego wdrażania usługi Azure SQL należy określić nazwę logowania administratora i skojarzone hasło dla tej nazwy logowania. To konto administracyjne nosi nazwę **administrator serwera** . Następująca konfiguracja nazw logowania i użytkowników w bazach danych Master i User odbywa się podczas wdrażania:
 
-- Logowanie SQL z uprawnieniami administracyjnymi jest tworzone przy użyciu podanej nazwy logowania. [Identyfikator logowania](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) to pojedyncze konto użytkownika służące do logowania się do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse.
-- Ta nazwa logowania ma przyznane pełne uprawnienia administracyjne do wszystkich baz danych jako [podmiot zabezpieczeń na poziomie serwera](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). Nazwa logowania ma wszystkie dostępne uprawnienia i nie może być ograniczona. W wystąpieniu zarządzanym SQL ta nazwa logowania jest dodawana do [stałej roli serwera sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (Ta rola nie istnieje w Azure SQL Database).
-- [user account](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) `dbo` Dla tej nazwy logowania w każdej bazie danych użytkownika zostanie utworzone konto użytkownika o nazwie. Użytkownik [dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) ma wszystkie uprawnienia baz danych w bazie danych i jest mapowany na `db_owner` stałą rolę bazy danych. Dodatkowe role stałych baz danych zostały omówione w dalszej części tego artykułu.
+- Logowanie SQL z uprawnieniami administracyjnymi jest tworzone przy użyciu podanej nazwy logowania. [Identyfikator logowania](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) to pojedyncze konto użytkownika służące do logowania się do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse.
+- Ta nazwa logowania ma przyznane pełne uprawnienia administracyjne do wszystkich baz danych jako [podmiot zabezpieczeń na poziomie serwera](/sql/relational-databases/security/authentication-access/principals-database-engine). Nazwa logowania ma wszystkie dostępne uprawnienia i nie może być ograniczona. W wystąpieniu zarządzanym SQL ta nazwa logowania jest dodawana do [stałej roli serwera sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) (Ta rola nie istnieje w Azure SQL Database).
+- [user account](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) `dbo` Dla tej nazwy logowania w każdej bazie danych użytkownika zostanie utworzone konto użytkownika o nazwie. Użytkownik [dbo](/sql/relational-databases/security/authentication-access/principals-database-engine) ma wszystkie uprawnienia baz danych w bazie danych i jest mapowany na `db_owner` stałą rolę bazy danych. Dodatkowe role stałych baz danych zostały omówione w dalszej części tego artykułu.
 
 Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal i przejdź do karty **Właściwości** serwera lub wystąpienia zarządzanego.
 
@@ -68,7 +68,7 @@ Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal
 ![Zrzut ekranu, który podświetla opcję menu właściwości.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
-> Nazwy logowania administratora nie można zmienić po jej utworzeniu. Aby zresetować hasło administratora serwera, przejdź do [Azure Portal](https://portal.azure.com), kliknij pozycję **serwery SQL**, wybierz serwer z listy, a następnie kliknij przycisk **Resetuj hasło**. Aby zresetować hasło dla wystąpienia zarządzanego SQL, przejdź do Azure Portal, kliknij wystąpienie, a następnie kliknij przycisk **Resetuj hasło**. Możesz również użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+> Nazwy logowania administratora nie można zmienić po jej utworzeniu. Aby zresetować hasło administratora serwera, przejdź do [Azure Portal](https://portal.azure.com), kliknij pozycję **serwery SQL** , wybierz serwer z listy, a następnie kliknij przycisk **Resetuj hasło** . Aby zresetować hasło dla wystąpienia zarządzanego SQL, przejdź do Azure Portal, kliknij wystąpienie, a następnie kliknij przycisk **Resetuj hasło** . Możesz również użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Tworzenie dodatkowych logowań i użytkowników z uprawnieniami administracyjnymi
 
@@ -84,19 +84,19 @@ W tym momencie serwer lub wystąpienie zarządzane jest konfigurowane tylko na p
 - **W wystąpieniu zarządzanym SQL utwórz identyfikatory logowania SQL z pełnymi uprawnieniami administracyjnymi**
 
   - Utwórz dodatkową nazwę logowania SQL w bazie danych Master.
-  - Dodaj nazwę logowania do [stałej roli serwera sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) przy użyciu instrukcji [ALTER Server role](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) . Ta nazwa logowania będzie miała pełne uprawnienia administracyjne.
+  - Dodaj nazwę logowania do [stałej roli serwera sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) przy użyciu instrukcji [ALTER Server role](/sql/t-sql/statements/alter-server-role-transact-sql) . Ta nazwa logowania będzie miała pełne uprawnienia administracyjne.
   - Alternatywnie możesz utworzyć [Identyfikator logowania usługi Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) przy użyciu składni [tworzenia nazwy logowania](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) .
 
 - **W SQL Database Utwórz nazwy logowania SQL z ograniczonymi uprawnieniami administracyjnymi**
 
   - Utwórz dodatkową nazwę logowania SQL w bazie danych Master.
   - Utwórz konto użytkownika w bazie danych Master skojarzonej z nowym logowaniem.
-  - Dodaj konto użytkownika do elementu `dbmanager` , `loginmanager` roli lub obu w `master` bazie danych przy użyciu instrukcji [ALTER role](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) (dla usługi Azure Synapse, użyj instrukcji [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) ).
+  - Dodaj konto użytkownika do elementu `dbmanager` , `loginmanager` roli lub obu w `master` bazie danych przy użyciu instrukcji [ALTER role](/sql/t-sql/statements/alter-role-transact-sql) (dla usługi Azure Synapse, użyj instrukcji [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) ).
 
   > [!NOTE]
   > `dbmanager``loginmanager`role i **nie** odnoszą się do wdrożeń wystąpienia zarządzanego SQL.
 
-  Członkowie tych [specjalnych ról głównych baz danych](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) dla Azure SQL Database mają uprawnienia do tworzenia baz danych i zarządzania nimi oraz do tworzenia nazw logowania i zarządzania nimi. W bazach danych utworzonych przez użytkownika, który jest członkiem `dbmanager` roli, członek jest mapowany na `db_owner` stałą rolę bazy danych i może logować się do tej bazy danych i zarządzać nią przy użyciu `dbo` konta użytkownika. Te role nie mają jawnych uprawnień poza główną bazą danych.
+  Członkowie tych [specjalnych ról głównych baz danych](/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) dla Azure SQL Database mają uprawnienia do tworzenia baz danych i zarządzania nimi oraz do tworzenia nazw logowania i zarządzania nimi. W bazach danych utworzonych przez użytkownika, który jest członkiem `dbmanager` roli, członek jest mapowany na `db_owner` stałą rolę bazy danych i może logować się do tej bazy danych i zarządzać nią przy użyciu `dbo` konta użytkownika. Te role nie mają jawnych uprawnień poza główną bazą danych.
 
   > [!IMPORTANT]
   > Nie można utworzyć dodatkowego identyfikatora logowania SQL z pełnymi uprawnieniami administracyjnymi w programie SQL Database.
@@ -122,10 +122,10 @@ Można utworzyć konta dla użytkowników niebędących administratorami przy u�
 
 Przykłady pokazujące sposób tworzenia logowań i użytkowników znajdują się w temacie:
 
-- [Utwórz nazwę logowania dla Azure SQL Database](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Utwórz nazwę logowania dla wystąpienia zarządzanego Azure SQL](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
-- [Utwórz nazwę logowania dla usługi Azure Synapse](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
-- [Tworzenie użytkownika](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql#examples)
+- [Utwórz nazwę logowania dla Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
+- [Utwórz nazwę logowania dla wystąpienia zarządzanego Azure SQL](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
+- [Utwórz nazwę logowania dla usługi Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Tworzenie użytkownika](/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Tworzenie użytkowników zawartych w usłudze Azure AD](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 
 > [!TIP]
@@ -137,19 +137,19 @@ Po utworzeniu konta użytkownika w bazie danych, na podstawie nazwy logowania lu
 
 - **Stałe role bazy danych**
 
-  Dodaj konto użytkownika do [stałej roli bazy danych](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles). Dostępne są 9 stałych ról bazy danych, z których każda ma zdefiniowany zestaw uprawnień. Najbardziej popularne role bazy danych to: **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**i **db_denydatareader**. Rola **db_owner** jest najczęściej używana do udzielenia pełnych uprawnień jedynie niewielkiej liczbie użytkowników. Inne ustalone role bazy danych ułatwiają szybkie tworzenie prostej bazy danych, ale nie zaleca się ich używania w większości przypadków tworzenia produkcyjnych baz danych. Na przykład rola stałej bazy danych **db_datareader** przyznaje dostęp do odczytu każdej tabeli w bazie danych, która jest większa niż jest absolutnie konieczna.
+  Dodaj konto użytkownika do [stałej roli bazy danych](/sql/relational-databases/security/authentication-access/database-level-roles). Dostępne są 9 stałych ról bazy danych, z których każda ma zdefiniowany zestaw uprawnień. Najbardziej popularne role bazy danych to: **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** i **db_denydatareader** . Rola **db_owner** jest najczęściej używana do udzielenia pełnych uprawnień jedynie niewielkiej liczbie użytkowników. Inne ustalone role bazy danych ułatwiają szybkie tworzenie prostej bazy danych, ale nie zaleca się ich używania w większości przypadków tworzenia produkcyjnych baz danych. Na przykład rola stałej bazy danych **db_datareader** przyznaje dostęp do odczytu każdej tabeli w bazie danych, która jest większa niż jest absolutnie konieczna.
 
   - Aby dodać użytkownika do stałej roli bazy danych:
 
-    - W Azure SQL Database Użyj instrukcji [ALTER role](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) . Aby zapoznać się z przykładami, zobacz [ALTER role przykłady](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql#examples)
-    - Azure Synapse, użyj instrukcji [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) . Przykłady zawierają [przykłady sp_addrolemember](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql).
+    - W Azure SQL Database Użyj instrukcji [ALTER role](/sql/t-sql/statements/alter-role-transact-sql) . Aby zapoznać się z przykładami, zobacz [ALTER role przykłady](/sql/t-sql/statements/alter-role-transact-sql#examples)
+    - Azure Synapse, użyj instrukcji [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) . Przykłady zawierają [przykłady sp_addrolemember](/sql/t-sql/statements/alter-role-transact-sql).
 
 - **Niestandardowa rola bazy danych**
 
-  Utwórz niestandardową rolę bazy danych przy użyciu instrukcji [Create role](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql) . Rola niestandardowa umożliwia tworzenie własnych zdefiniowanych przez użytkownika ról baz danych i staranne przyznawanie każdej roli najniższych uprawnień niezbędnych dla potrzeb firmy. Następnie można dodać użytkowników do roli niestandardowej. Gdy użytkownik jest członkiem wielu ról, łączą one uprawnienia ich wszystkich.
+  Utwórz niestandardową rolę bazy danych przy użyciu instrukcji [Create role](/sql/t-sql/statements/create-role-transact-sql) . Rola niestandardowa umożliwia tworzenie własnych zdefiniowanych przez użytkownika ról baz danych i staranne przyznawanie każdej roli najniższych uprawnień niezbędnych dla potrzeb firmy. Następnie można dodać użytkowników do roli niestandardowej. Gdy użytkownik jest członkiem wielu ról, łączą one uprawnienia ich wszystkich.
 - **Udziel uprawnień bezpośrednio**
 
-  Przyznaj bezpośrednio [uprawnienia](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) kontu użytkownika. Istnieje ponad 100 uprawnień, których można indywidualnie udzielić lub odmówić w usłudze SQL Database. Wiele z tych uprawnień jest zagnieżdżonych. Na przykład uprawnienie `UPDATE` na schemacie obejmuje `UPDATE` uprawnienie dla każdej tabeli na tym schemacie. Podobnie jak w przypadku większości systemów, odmowa przyznania uprawnienia kasuje przyznanie. Ze względu na zagnieżdżoną naturę uprawnień oraz ich liczbę zaprojektowanie systemu zabezpieczającego bazę danych w prawidłowy sposób może wymagać starannej analizy. Rozpocznij od listy uprawnień [Uprawnienia (aparat bazy danych)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) i przejrzyj [obszerny wykaz](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) uprawnień.
+  Przyznaj bezpośrednio [uprawnienia](/sql/relational-databases/security/permissions-database-engine) kontu użytkownika. Istnieje ponad 100 uprawnień, których można indywidualnie udzielić lub odmówić w usłudze SQL Database. Wiele z tych uprawnień jest zagnieżdżonych. Na przykład uprawnienie `UPDATE` na schemacie obejmuje `UPDATE` uprawnienie dla każdej tabeli na tym schemacie. Podobnie jak w przypadku większości systemów, odmowa przyznania uprawnienia kasuje przyznanie. Ze względu na zagnieżdżoną naturę uprawnień oraz ich liczbę zaprojektowanie systemu zabezpieczającego bazę danych w prawidłowy sposób może wymagać starannej analizy. Rozpocznij od listy uprawnień [Uprawnienia (aparat bazy danych)](/sql/relational-databases/security/permissions-database-engine) i przejrzyj [obszerny wykaz](/sql/relational-databases/security/media/database-engine-permissions.png) uprawnień.
 
 ## <a name="using-groups"></a>Korzystanie z grup
 
@@ -164,10 +164,10 @@ Wydajne zarządzanie dostępem korzysta z uprawnień przypisanych do Active Dire
 
 Należy zapoznać się z następującymi funkcjami, których można użyć do ograniczania lub podnoszenia uprawnień:
 
-- [Personifikacji](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/customizing-permissions-with-impersonation-in-sql-server) i [podpisywania modułów](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server) można używać do bezpiecznego tymczasowego podnoszenia poziomu uprawnień.
-- [Zabezpieczeń na poziomie wiersza](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) można używać do ograniczania zbioru wierszy, do których użytkownik może uzyskać dostęp.
+- [Personifikacji](/dotnet/framework/data/adonet/sql/customizing-permissions-with-impersonation-in-sql-server) i [podpisywania modułów](/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server) można używać do bezpiecznego tymczasowego podnoszenia poziomu uprawnień.
+- [Zabezpieczeń na poziomie wiersza](/sql/relational-databases/security/row-level-security) można używać do ograniczania zbioru wierszy, do których użytkownik może uzyskać dostęp.
 - [Maskowania danych](dynamic-data-masking-overview.md) można używać do ograniczania ujawniania danych wrażliwych.
-- [Procedury składowane](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) umożliwiają ograniczenie czynności wykonywanych w bazie danych.
+- [Procedury składowane](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) umożliwiają ograniczenie czynności wykonywanych w bazie danych.
 
 ## <a name="next-steps"></a>Następne kroki
 

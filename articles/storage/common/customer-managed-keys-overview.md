@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 993c0bdf1e8e29a7cff9bd1cad60bf78386b16a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578227"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782233"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Klucze zarządzane przez klienta dla szyfrowania usługi Azure Storage
 
@@ -65,7 +65,7 @@ Aby dowiedzieć się, jak skonfigurować szyfrowanie usługi Azure Storage za po
 > [!IMPORTANT]
 > Klucze zarządzane przez klienta wykorzystują zarządzane tożsamości dla zasobów platformy Azure, funkcję usługi Azure AD. Tożsamości zarządzane nie obsługują obecnie scenariuszy między katalogami. Po skonfigurowaniu kluczy zarządzanych przez klienta w Azure Portal, zarządzana tożsamość zostanie automatycznie przypisana do konta magazynu w obszarze okładek. Jeśli później przeniesiesz subskrypcję, grupę zasobów lub konto magazynu z jednego katalogu usługi Azure AD do innego, zarządzana tożsamość skojarzona z kontem magazynu nie zostanie przetransferowana do nowej dzierżawy, więc klucze zarządzane przez klienta mogą przestać działać. Aby uzyskać więcej informacji, zobacz **transfer subskrypcji między katalogami usługi Azure AD** w [często zadawanych pytaniach i znanych problemach z tożsamościami zarządzanymi dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
-Szyfrowanie za pomocą usługi Azure Storage obsługuje klucze RSA i RSA-HSM o rozmiarach 2048, 3072 i 4096. Aby uzyskać więcej informacji na temat kluczy, zobacz **Key Vault klucze** w temacie [informacje Azure Key Vault klucze, wpisy tajne i certyfikaty](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Szyfrowanie za pomocą usługi Azure Storage obsługuje klucze RSA i RSA-HSM o rozmiarach 2048, 3072 i 4096. Aby uzyskać więcej informacji na temat kluczy, zobacz [Informacje o kluczach](../../key-vault/keys/about-keys.md).
 
 Przy użyciu magazynu kluczy lub zarządzanego modułu HSM są związane z nimi koszty. Aby uzyskać więcej informacji, zobacz [Cennik usługi Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
@@ -109,7 +109,7 @@ Aby ponownie wywołać te operacje, Przywróć dostęp do klucza zarządzanego p
 
 Wszystkie operacje na danych, które nie są wymienione w tej sekcji, mogą zostać przeprowadzone po odwołaniu kluczy zarządzanych przez klienta lub wyłączeniu lub usunięciu klucza.
 
-Aby odwołać dostęp do kluczy zarządzanych przez klienta, należy użyć [programu PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) lub [interfejsu wiersza polecenia platformy Azure](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
+Aby odwołać dostęp do kluczy zarządzanych przez klienta, należy użyć [programu PowerShell](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys) lub [interfejsu wiersza polecenia platformy Azure](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys).
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Klucze zarządzane przez klienta dla usługi Azure Managed disks
 

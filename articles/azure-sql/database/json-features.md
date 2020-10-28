@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 04/19/2020
-ms.openlocfilehash: 53428a542bb8d8d546e68f63aaf80ee40f2b0874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4258c60335a13a6c0f27588aac1c6cdb185fcf6a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450244"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782805"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database-and-azure-sql-managed-instance"></a>Wprowadzenie do funkcji JSON w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -196,6 +196,4 @@ Kolekcja zamówień sformatowana jako tablica JSON i podana jako parametr proced
 
 Aby dowiedzieć się, jak zintegrować kod JSON z aplikacją, zapoznaj się z następującymi zasobami:
 
-Aby dowiedzieć się więcej na temat różnych scenariuszy integracji kodu JSON z aplikacją, zobacz pokazy w tym [filmie wideo kanału 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) lub Znajdź scenariusz pasujący do przypadku użycia w [wpisach w blogu JSON](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/json-in-sql-server-use-cases).
-
-
+Aby dowiedzieć się więcej na temat różnych scenariuszy integracji kodu JSON z aplikacją, zobacz pokazy w tym [filmie wideo kanału 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) lub Znajdź scenariusz pasujący do przypadku użycia w [wpisach w blogu JSON](/archive/blogs/sqlserverstorageengine/json-in-sql-server-use-cases).

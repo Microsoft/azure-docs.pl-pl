@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996841"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782454"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitorowanie operacji zarządzania wystąpieniami zarządzanymi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -43,7 +43,7 @@ Istnieje kilka sposobów monitorowania operacji zarządzania wystąpieniami zarz
 
 Poniższa tabela zawiera porównanie opcji monitorowania operacji zarządzania: 
 
-| Opcja | Przechowywanie | Obsługuje anulowanie | Utwórz | Aktualizacja | Usuwanie | Anuluj | Kroki |
+| Opcja | Przechowywanie | Obsługuje anulowanie | Utwórz | Aktualizacja | Usuń | Anuluj | Kroki |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Wdrożenia grupy zasobów | Nieskończoność<sup>1</sup> | Nr<sup>2</sup> | Widoczne | Widoczne | Niewidoczne | Widoczne | Niewidoczne |
 | Dziennik aktywności | 90 dni | Nie | Widoczne | Widoczne | Widoczne | Widoczne |  Niewidoczne |
@@ -62,9 +62,9 @@ Są to interfejsy API:
 
 | Polecenie | Opis |
 | --- | --- |
-|[Operacje wystąpienia zarządzanego — Pobierz](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Pobiera operację zarządzania na wystąpieniu zarządzanym.|
-|[Operacje wystąpienia zarządzanego — anulowanie](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Anuluje operację asynchroniczną na zarządzanym wystąpieniu.|
-|[Operacje wystąpienia zarządzanego — lista według wystąpienia zarządzanego](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Pobiera listę operacji wykonanych na zarządzanym wystąpieniu.|
+|[Operacje wystąpienia zarządzanego — Pobierz](/rest/api/sql/managedinstanceoperations/get)|Pobiera operację zarządzania na wystąpieniu zarządzanym.|
+|[Operacje wystąpienia zarządzanego — anulowanie](/rest/api/sql/managedinstanceoperations/cancel)|Anuluje operację asynchroniczną na zarządzanym wystąpieniu.|
+|[Operacje wystąpienia zarządzanego — lista według wystąpienia zarządzanego](/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Pobiera listę operacji wykonanych na zarządzanym wystąpieniu.|
 
 > [!NOTE]
 > Użyj interfejsu API w wersji 2020-02-02, aby wyświetlić operację tworzenia wystąpienia zarządzanego na liście operacji. Jest to domyślna wersja używana w Azure Portal i najnowszych pakietach interfejsu wiersza polecenia platformy Azure.
@@ -86,7 +86,7 @@ Wybierz **bieżącą operację** , aby otworzyć **stronę trwające operacje i*
 > [!NOTE]
 > [Można anulować](management-operations-cancel.md)operacje tworzenia za pośrednictwem Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub innych narzędzi przy użyciu interfejsu API REST w wersji 2020-02-02. Wersje interfejsu API REST starsze niż 2020-02-02 użyte do przesłania operacji tworzenia spowodują rozpoczęcie wdrożenia wystąpienia, ale wdrożenie nie będzie wyświetlane w interfejsie API operacji i nie można go anulować.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Polecenie cmdlet Get-AzSqlInstanceOperation pobiera informacje o operacjach w wystąpieniu zarządzanym. Można wyświetlić wszystkie operacje na zarządzanym wystąpieniu lub wyświetlić określoną operację, podając nazwę operacji.
 
@@ -98,7 +98,7 @@ $managementOperations = Get-AzSqlInstanceOperation `
     -ManagedInstanceName $managedInstance  -ResourceGroupName $resourceGroup
 ```
 
-Aby zapoznać się ze szczegółowymi poleceniami, zobacz [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation).
+Aby zapoznać się ze szczegółowymi poleceniami, zobacz [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -108,7 +108,7 @@ Lista AZ SQL mi op pobiera listę operacji wykonanych na zarządzanym wystąpien
 az sql mi op list -g yourResourceGroupName --mi yourInstanceName 
 ```
 
-Aby zapoznać się ze szczegółowymi poleceniami, zobacz [AZ SQL mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Aby zapoznać się ze szczegółowymi poleceniami, zobacz [AZ SQL mi op](/cli/azure/sql/mi/op).
 
 ---
 

@@ -9,6 +9,8 @@
       href: whats-new-docs.md
     - name: Usługi Cognitive Services i uczenie maszynowe
       href: cognitive-services-and-machine-learning.md
+    - name: Opcje programowania usług Cognitive Services
+      href: cognitive-services-development-options.md
     - name: Niestandardowe poddomeny usług Cognitive Services
       href: cognitive-services-custom-subdomains.md
     - name: Obsługa języków

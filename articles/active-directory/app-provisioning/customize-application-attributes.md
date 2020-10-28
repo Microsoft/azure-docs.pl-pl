@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069878"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781485"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -90,7 +90,7 @@ Wybrana liczba aplikacji, takich jak usługi ServiceNow, Box i G Suite, umożliw
 
 ![Przykład pokazuje usługi ServiceNow z zainicjowaną grupą i obiektami użytkownika](./media/customize-application-attributes/24.png)
 
-Inicjowanie obsługi grup można opcjonalnie włączyć lub wyłączyć, wybierając mapowanie grupy w obszarze **mapowania**, a ustawienie opcji ma być **włączone** na ekranie **Mapowanie atrybutu** .
+Inicjowanie obsługi grup można opcjonalnie włączyć lub wyłączyć, wybierając mapowanie grupy w obszarze **mapowania** , a ustawienie opcji ma być **włączone** na ekranie **Mapowanie atrybutu** .
 
 Atrybuty, które są obsługiwane jako część obiektów grupy można dostosować w taki sam sposób jak obiekty użytkownika, opisane wcześniej. 
 
@@ -107,9 +107,12 @@ Aplikacje i systemy obsługujące Dostosowywanie listy atrybutów obejmują:
 
 - SalesForce
 - ServiceNow
-- Workday
+- Dzień roboczy do Active Directory/Workday do Azure Active Directory
+- SuccessFactors do Azure Active Directory Active Directory/SuccessFactors
 - Azure Active Directory (obsługiwane są[domyślne atrybuty usługi Azure AD interfejs API programu Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) i niestandardowe rozszerzenia katalogu)
 - Aplikacje obsługujące [standard scim 2,0](https://tools.ietf.org/html/rfc7643), w których atrybuty zdefiniowane w [podstawowym schemacie](https://tools.ietf.org/html/rfc7643) muszą być dodane
+- W przypadku Azure Active Directory zapisywania zwrotnego w dniu Workday lub SuccessFactors jest obsługiwane aktualizowanie odpowiednich metadanych dla obsługiwanych atrybutów (XPATH i wykryto), ale nie jest to obsługiwane w przypadku dodawania nowych atrybutów Workday lub SuccessFactors poza tymi zawartymi w schemacie domyślnym
+
 
 > [!NOTE]
 > Edytowanie listy obsługiwanych atrybutów jest zalecane tylko dla administratorów, którzy dostosowali schemat aplikacji i systemów, i posiadają pierwszą wiedzę o sposobie definiowania ich atrybutów niestandardowych. Czasami wymaga to znajomości interfejsów API i narzędzi programistycznych udostępnianych przez aplikację lub system.
@@ -133,16 +136,16 @@ Podczas edytowania listy obsługiwanych atrybutów są dostępne następujące w
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Inicjowanie obsługi niestandardowego atrybutu rozszerzenia w aplikacji zgodnej z standard scim
 Standard scim RFC definiuje podstawowy schemat użytkownika i grupy, a także umożliwia obsługę rozszerzeń schematu w celu spełnienia wymagań aplikacji. Aby dodać atrybut niestandardowy do aplikacji Standard scim:
-   1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com), wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz aplikację, a następnie wybierz pozycję **Inicjowanie obsługi**.
-   2. W obszarze **mapowania**wybierz obiekt (użytkownika lub grupę), dla którego chcesz dodać atrybut niestandardowy.
-   3. W dolnej części strony wybierz pozycję **Pokaż opcje zaawansowane**.
-   4. Wybierz pozycję **Edytuj listę atrybutów dla elementu nazwa_aplikacji**.
-   5. W dolnej części listy atrybutów wprowadź informacje o atrybucie niestandardowym w udostępnionych polach. Następnie wybierz pozycję **Dodaj atrybut**.
+   1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com), wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz aplikację, a następnie wybierz pozycję **Inicjowanie obsługi** .
+   2. W obszarze **mapowania** wybierz obiekt (użytkownika lub grupę), dla którego chcesz dodać atrybut niestandardowy.
+   3. W dolnej części strony wybierz pozycję **Pokaż opcje zaawansowane** .
+   4. Wybierz pozycję **Edytuj listę atrybutów dla elementu nazwa_aplikacji** .
+   5. W dolnej części listy atrybutów wprowadź informacje o atrybucie niestandardowym w udostępnionych polach. Następnie wybierz pozycję **Dodaj atrybut** .
 
 W przypadku aplikacji Standard scim nazwa atrybutu musi być zgodna ze wzorcem przedstawionym w poniższym przykładzie. "CustomExtensionName" i "CustomAttribute" można dostosować zgodnie z wymaganiami aplikacji, na przykład:  
  * urn: IETF: params: Standard scim: schematy: Extension: CustomExtensionName: 2.0: User: CustomAttribute 
  * urn: IETF: params: Standard scim: schematy: rozszerzenie: 2.0: CustomExtensionName: CustomAttribute  
- * urn: IETF: params: Standard scim: schematy: rozszerzenie: CustomExtensionName: 2.0: User. CustomAttributeName: value
+ * urn: IETF: params: Standard scim: schematy: Extension: CustomExtensionName: 2.0: User: CustomAttributeName: value
 
 Te instrukcje dotyczą tylko aplikacji z obsługą Standard scim. Aplikacje, takie jak usługi ServiceNow i Salesforce, nie są zintegrowane z usługą Azure AD przy użyciu Standard scim i dlatego nie wymagają tej konkretnej przestrzeni nazw podczas dodawania atrybutu niestandardowego.
 
@@ -174,7 +177,7 @@ Atrybuty niestandardowe nie mogą być atrybutami referencyjnymi ani atrybutami 
        "displayName": "John Smith"
      }
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "CustomAttribute": "701984",
    },
    "meta": {

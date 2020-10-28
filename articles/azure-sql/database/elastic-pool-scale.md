@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 947d842860452425f8b30fbdaf9558c2a94a89a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330710"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781213"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skalowanie zasobów puli elastycznej w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ W tym artykule opisano, jak skalować zasoby obliczeniowe i magazynowe dostępne
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Zmień zasoby obliczeniowe (rdzeni wirtualnych lub DTU)
 
-Po początkowym wybraniu liczby rdzeni wirtualnych lub jednostek eDTU można dynamicznie skalować pulę elastyczną w górę lub w dół na podstawie rzeczywistego środowiska przy użyciu [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)lub [interfejsu API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+Po początkowym wybraniu liczby rdzeni wirtualnych lub jednostek eDTU można dynamicznie skalować pulę elastyczną w górę lub w dół na podstawie rzeczywistego środowiska przy użyciu [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)lub [interfejsu API REST](/rest/api/sql/elasticpools/update).
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Wpływ zmiany warstwy usług lub skalowanie w poziomie
 
@@ -57,7 +57,7 @@ Szacowane opóźnienie zmiany warstwy usług, skalowanie wielkości obliczeniowe
 >
 > - W przypadku zmiany warstwy usług lub ponownego skalowania obliczeń dla puli elastycznej w celu obliczenia oszacowania należy użyć podsumowania miejsca używanego dla wszystkich baz danych w puli.
 > - W przypadku przeniesienia bazy danych do/z puli elastycznej tylko miejsce używane przez bazę danych wpływa na opóźnienie, a nie miejsce używane przez pulę elastyczną.
-> - W przypadku pul elastycznych w warstwie Standardowa i Ogólnego przeznaczenia opóźnienie przeniesienia bazy danych do puli elastycznej lub między pulami elastycznymi będzie proporcjonalne do rozmiaru bazy danych, jeśli Pula elastyczna korzysta z magazynu Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)). Aby określić, czy pula korzysta z magazynu PFS, wykonaj następujące zapytanie w kontekście każdej bazy danych w puli. Jeśli wartość w kolumnie AccountType to `PremiumFileStorage` lub `PremiumFileStorage-ZRS` , Pula korzysta z magazynu PFS.
+> - W przypadku pul elastycznych w warstwie Standardowa i Ogólnego przeznaczenia opóźnienie przeniesienia bazy danych do puli elastycznej lub między pulami elastycznymi będzie proporcjonalne do rozmiaru bazy danych, jeśli Pula elastyczna korzysta z magazynu Premium File Share ([PFS](../../storage/files/storage-files-introduction.md)). Aby określić, czy pula korzysta z magazynu PFS, wykonaj następujące zapytanie w kontekście każdej bazy danych w puli. Jeśli wartość w kolumnie AccountType to `PremiumFileStorage` lub `PremiumFileStorage-ZRS` , Pula korzysta z magazynu PFS.
 
 ```sql
 SELECT s.file_id,
@@ -69,7 +69,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
 
 > [!TIP]
-> Aby monitorować operacje w toku, zobacz: [Zarządzanie operacjami przy użyciu interfejsu API REST usługi SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Zarządzanie operacjami przy użyciu wiersza polecenia](/cli/azure/sql/db/op), [monitorowanie operacji przy użyciu języka T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) i tych dwóch poleceń programu PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) i [stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Aby monitorować operacje w toku, zobacz: [Zarządzanie operacjami przy użyciu interfejsu API REST usługi SQL](/rest/api/sql/operations/list), [Zarządzanie operacjami przy użyciu wiersza polecenia](/cli/azure/sql/db/op), [monitorowanie operacji przy użyciu języka T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) i tych dwóch poleceń programu PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) i [stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Dodatkowe zagadnienia dotyczące zmiany warstwy usług lub skalowanie zmian rozmiaru
 
@@ -100,7 +100,7 @@ Opłaty są naliczane za każdą godzinę, gdy baza danych istnieje przy użyciu
 ### <a name="dtu-based-purchasing-model"></a>Model zakupu oparty na jednostkach DTU
 
 - Cena jednostek eDTU dla puli elastycznej obejmuje pewną ilość miejsca w magazynie bez dodatkowych kosztów. Dodatkowy magazyn poza uwzględnioną ilością można zainicjować w celu uzyskania dodatkowego kosztu do maksymalnego limitu rozmiaru w przyrostach wynoszących 250 GB do 1 TB, a następnie w przyrostach wynoszących 256 GB poza 1 TB. W przypadku uwzględnionych kwot magazynu i maksymalnych limitów rozmiaru zobacz [Pula elastyczna: rozmiary magazynu i rozmiary obliczeń](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- Dodatkowy magazyn dla puli elastycznej można zainicjować przez zwiększenie jego maksymalnego rozmiaru przy użyciu [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)lub [interfejsu API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+- Dodatkowy magazyn dla puli elastycznej można zainicjować przez zwiększenie jego maksymalnego rozmiaru przy użyciu [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)lub [interfejsu API REST](/rest/api/sql/elasticpools/update).
 - Cena dodatkowego magazynu dla puli elastycznej to dodatkowa kwota magazynu pomnożona przez dodatkową cenę jednostkową magazynu warstwy usług. Aby uzyskać szczegółowe informacje na temat ceny dodatkowego magazynu, zobacz [Cennik usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]

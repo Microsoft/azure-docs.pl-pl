@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 5544a6985ca357688b2585fa29c6dc63546c3e8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de504cc4209aea19925c4c3e2385c7feabceedeb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014960"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781621"
 ---
 # <a name="azure-queue-storage-reference"></a>Dokumentacja usługi Azure Queue Storage
 
@@ -25,8 +25,8 @@ W poniższej tabeli wymieniono odwołania i przykładowe dokumenty dotyczące in
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Przestrzeń nazw Azure. Storage. Queues](/dotnet/api/azure.storage.queues) | [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla platformy .NET](/azure/storage/queues/storage-quickstart-queues-dotnet) |
-| 11. x | [Przestrzeń nazw Microsoft. Azure. Storage. Queue](/dotnet/api/microsoft.azure.storage.queue) | [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [Szybki Start: korzystanie z usługi Azure Storage SDK v11 for .NET do zarządzania kolejką](/azure/storage/queues/storage-quickstart-queues-dotnet-legacy) |
+| 12. x | [Przestrzeń nazw Azure. Storage. Queues](/dotnet/api/azure.storage.queues) | [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla platformy .NET](./storage-quickstart-queues-dotnet.md) |
+| 11. x | [Przestrzeń nazw Microsoft. Azure. Storage. Queue](/dotnet/api/microsoft.azure.storage.queue) | [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [Szybki Start: korzystanie z usługi Azure Storage SDK v11 for .NET do zarządzania kolejką](./storage-quickstart-queues-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>Zarządzanie magazynem
 
@@ -50,8 +50,8 @@ W poniższej tabeli wymieniono odwołania i przykładowe dokumenty dotyczące in
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Biblioteka klienta usługi Azure Storage Queue dla języka Java](/java/api/overview/azure/storage-queue-readme) | [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla języka Java](/azure/storage/queues/storage-quickstart-queues-java) |
-| 8.x | [com. Microsoft. Azure. Storage. Queue](/java/api/com.microsoft.azure.storage.queue) | [Pakiet (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V8 języka Java](/azure/storage/blobs/storage-quickstart-blobs-java-legacy) |
+| 12. x | [Biblioteka klienta usługi Azure Storage Queue dla języka Java](/java/api/overview/azure/storage-queue-readme) | [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla języka Java](./storage-quickstart-queues-java.md) |
+| 8.x | [com. Microsoft. Azure. Storage. Queue](/java/api/com.microsoft.azure.storage.queue) | [Pakiet (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V8 języka Java](../blobs/storage-quickstart-blobs-java-legacy.md) |
 
 ### <a name="storage-management"></a>Zarządzanie magazynem
 
@@ -67,8 +67,8 @@ W poniższej tabeli przedstawiono odwołania i przykładową dokumentację inter
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Biblioteki klienta usługi Azure Storage V12 dla języka Python](/azure/developer/python/sdk/storage/overview) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla języka Python](/azure/storage/queues/storage-quickstart-queues-python) |
-| 2.x | [Biblioteki klienckie usługi Azure Storage w wersji 2 dla języka Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Jak korzystać z usługi Azure queue storage w wersji 2.1 z poziomu języka Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
+| 12. x | [Biblioteki klienta usługi Azure Storage V12 dla języka Python](/azure/developer/python/sdk/storage/overview) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla języka Python](./storage-quickstart-queues-python.md) |
+| 2.x | [Biblioteki klienckie usługi Azure Storage w wersji 2 dla języka Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Jak korzystać z usługi Azure queue storage w wersji 2.1 z poziomu języka Python](./storage-python-how-to-use-queue-storage.md) |
 
 ## <a name="javascript-client-libraries"></a>Biblioteki klienckie języka JavaScript
 
@@ -76,8 +76,8 @@ W poniższej tabeli wymieniono odwołania i przykładowe dokumenty dotyczące in
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Biblioteka kliencka kolejki usługi Azure Storage dla języka JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Szybki Start: Biblioteka kliencka usługi Azure queue storage V12 dla języka JavaScript](/azure/storage/queues/storage-quickstart-queues-nodejs) |
-| 10. x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Tworzenie i usuwanie kolejek z Node.jsza pomocą usługi Azure Queue Service ](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
+| 12. x | [Biblioteka kliencka kolejki usługi Azure Storage dla języka JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Szybki Start: Biblioteka kliencka usługi Azure queue storage V12 dla języka JavaScript](./storage-quickstart-queues-nodejs.md) |
+| 10. x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Tworzenie i usuwanie kolejek z Node.jsza pomocą usługi Azure Queue Service ](./storage-nodejs-how-to-use-queues.md) |
 
 ## <a name="rest-apis"></a>Interfejsy API REST
 
@@ -101,15 +101,15 @@ Poniższa lista zawiera linki do bibliotek dla innych języków programowania i 
 - [iOS](https://azure.github.io/azure-storage-ios/)
 - [Android](https://azure.github.io/azure-storage-android)
 
-## <a name="powershell"></a>Program PowerShell
+## <a name="powershell"></a>PowerShell
 
 Poniższa tabela zawiera linki do najnowszej wersji zawartości referencyjnej.
 
 | Wersja | Platforma |
 | ------- | -------- |
-|  4.x  | [Program PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
-|  wersji  | [Program PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
-|  2.x  | [Program PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
+|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  wersji  | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
+|  2.x  | [PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ea3456dbd1d0942cba48c97d70982ae088d73f9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254042"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782981"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Przegląd opracowywania aplikacji — SQL Database & wystąpienie zarządzane SQL
 
@@ -27,7 +27,7 @@ W tym artykule omówiono podstawowe zagadnienia, które należy znać deweloper 
 
 Możesz użyć różnych [języków programowania i platform](connect-query-content-reference-guide.md) do nawiązywania połączeń i Azure SQL Database zapytań. Możesz znaleźć [przykładowe aplikacje](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) , których można użyć do nawiązania połączenia z bazą danych.
 
-Możesz korzystać z narzędzi typu "open source", takich jak [Cheetah](https://github.com/wunderlist/cheetah), [SQL-CLI](https://www.npmjs.com/package/sql-cli), [vs Code](https://code.visualstudio.com/). Ponadto usługa Azure SQL Database współpracuje z narzędziami firmy Microsoft, takimi jak [Visual Studio](https://www.visualstudio.com/downloads/) i [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Możesz również użyć interfejsów API Azure Portal, PowerShell i REST, aby zwiększyć produktywność.
+Możesz korzystać z narzędzi typu "open source", takich jak [Cheetah](https://github.com/wunderlist/cheetah), [SQL-CLI](https://www.npmjs.com/package/sql-cli), [vs Code](https://code.visualstudio.com/). Ponadto usługa Azure SQL Database współpracuje z narzędziami firmy Microsoft, takimi jak [Visual Studio](https://www.visualstudio.com/downloads/) i [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms). Możesz również użyć interfejsów API Azure Portal, PowerShell i REST, aby zwiększyć produktywność.
 
 ## <a name="authentication"></a>Authentication
 
@@ -39,7 +39,7 @@ Dowiedz się więcej na temat [zarządzania dostępem do bazy danych i logowanie
 
 W logice połączenia klienta zastąp domyślny limit czasu wartością 30 sekund. Domyślna wartość 15 sekund jest zbyt mała w przypadku połączeń zależnych od Internetu.
 
-Jeśli korzystasz z [puli połączeń](https://msdn.microsoft.com/library/8xx3tyca.aspx), pamiętaj o zamknięciu połączenia, gdy tylko Twój program nie korzysta z niego aktywnie i nie przygotowuje się do jego ponownego użycia.
+Jeśli korzystasz z [puli połączeń](/dotnet/framework/data/adonet/sql-server-connection-pooling), pamiętaj o zamknięciu połączenia, gdy tylko Twój program nie korzysta z niego aktywnie i nie przygotowuje się do jego ponownego użycia.
 
 Unikaj długotrwałych transakcji, ponieważ Jakakolwiek awaria infrastruktury lub połączenia może spowodować wycofanie transakcji. Jeśli to możliwe, Podziel transakcję w wielu mniejszych transakcjach i użyj operacji [wsadowych w celu zwiększenia wydajności](../performance-improve-use-batching.md).
 

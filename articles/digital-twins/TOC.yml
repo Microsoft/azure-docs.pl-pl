@@ -107,7 +107,7 @@
           href: how-to-integrate-maps.md
         - name: Integracja z usługą Azure Time Series Insights
           href: how-to-integrate-time-series-insights.md
-    - name: Rozwiązywanie problemów
+    - name: Monitorowanie i rozwiązywanie problemów
       items:
         - name: Wyświetlanie metryk w usłudze Azure Monitor
           href: troubleshoot-metrics.md
@@ -115,6 +115,8 @@
           href: troubleshoot-diagnostics.md
         - name: Włączanie alertów
           href: troubleshoot-alerts.md
+        - name: Informacje o kondycji zasobów
+          href: troubleshoot-resource-health.md
         - name: Znane problemy
           href: troubleshoot-known-issues.md
         - name: Rozwiązywanie problemów
@@ -144,7 +146,7 @@
             - name: Zestaw Java SDK — dokumentacja
               href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
             - name: Zestaw SDK dla języka Java — źródło
-              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31'
             - name: Zestaw SDK dla języka JavaScript
               href: 'https://www.npmjs.com/package/@azure/arm-digitaltwins'
             - name: Zestaw SDK dla języka JavaScript — źródło
@@ -152,9 +154,11 @@
             - name: Zestaw SDK dla języka Python
               href: 'https://pypi.org/project/azure-mgmt-digitaltwins/'
             - name: Zestaw SDK dla języka Python — źródło
-              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins'
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins'
             - name: Zestaw SDK dla języka Go
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
+            - name: Go — źródło
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
         - name: Płaszczyzna danych
           items:
             - name: Swagger

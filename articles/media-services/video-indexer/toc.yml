@@ -13,7 +13,7 @@
       href: invite-users.md
 - name: Samouczki
   items:
-    - name: Nawiązywanie połączenia z usługą Azure
+    - name: Tworzenie nowego konta połączonego z platformą Azure
       href: connect-to-azure.md
     - name: Korzystanie z interfejsu API usługi Video Indexer
       href: video-indexer-use-apis.md

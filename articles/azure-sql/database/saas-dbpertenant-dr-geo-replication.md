@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ffe5a1d0c9bbdbc416ecce7c36b3710339c4f059
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330125"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781026"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Odzyskiwanie po awarii dla wielodostępnej aplikacji SaaS przy użyciu replikacji geograficznej bazy danych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ W tym samouczku przedstawiono przepływy pracy trybu failover i powrotu po awari
 
 Przed rozpoczęciem pracy z tym samouczkiem upewnij się, że zostały spełnione następujące wymagania wstępne:
 * Wdrożono Wingtip bilety bazy danych SaaS dla dzierżawy. Aby wdrożyć program w ciągu mniej niż pięciu minut, zobacz [wdrażanie i eksplorowanie bazy danych Wingtip biletów SaaS na aplikację dzierżawców](saas-dbpertenant-get-started-deploy.md)  
-* Zainstalowany jest program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Zainstalowany jest program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-geo-replication-recovery-pattern"></a>Wprowadzenie do wzorca odzyskiwania replikacji geograficznej
 
@@ -66,11 +66,11 @@ Wszystkie części muszą być traktowane ostrożnie, szczególnie w przypadku d
 
 W tym samouczku te wyzwania są rozwiązywane przy użyciu funkcji Azure SQL Database i platformy Azure:
 
-* [Azure Resource Manager szablonów](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), aby zastrzec wszystkie potrzebne pojemności tak szybko, jak to możliwe. Szablony Azure Resource Manager są używane do aprowizacji lustrzanego obrazu serwerów produkcyjnych i pul elastycznych w regionie odzyskiwania.
+* [Azure Resource Manager szablonów](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), aby zastrzec wszystkie potrzebne pojemności tak szybko, jak to możliwe. Szablony Azure Resource Manager są używane do aprowizacji lustrzanego obrazu serwerów produkcyjnych i pul elastycznych w regionie odzyskiwania.
 * [Replikacja geograficzna](active-geo-replication-overview.md), która umożliwia tworzenie asynchronicznie zreplikowanych serwerów pomocniczych tylko do odczytu dla wszystkich baz danych. Podczas awarii przechodzą do trybu failover w replikach w regionie odzyskiwania.  Po rozwiązaniu awarii nastąpi powrót po awarii do baz danych w oryginalnym regionie bez utraty danych.
-* [Asynchroniczne](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) operacje trybu failover wysyłane w kolejności priorytetu dzierżawy w celu zminimalizowania czasu pracy w trybie failover dla dużej liczby baz danych.
+* [Asynchroniczne](../../azure-resource-manager/management/async-operations.md) operacje trybu failover wysyłane w kolejności priorytetu dzierżawy w celu zminimalizowania czasu pracy w trybie failover dla dużej liczby baz danych.
 * [Funkcje odzyskiwania fragmentu Management](elastic-database-recovery-manager.md)do zmiany wpisów bazy danych w katalogu podczas odzyskiwania i wycofywania. Te funkcje umożliwiają aplikacji łączenie się z bazami danych dzierżaw, niezależnie od lokalizacji bez ponownego konfigurowania aplikacji.
-* [Aliasy DNS programu SQL Server](../../sql-database/dns-alias-overview.md), aby zapewnić bezproblemową obsługę nowych dzierżawców niezależnie od regionu, w którym działa aplikacja. Aliasy DNS są również używane do zezwalania procesowi synchronizacji katalogu na łączenie się z usługą Active Catalog, niezależnie od jego lokalizacji.
+* [Aliasy DNS programu SQL Server](./dns-alias-overview.md), aby zapewnić bezproblemową obsługę nowych dzierżawców niezależnie od regionu, w którym działa aplikacja. Aliasy DNS są również używane do zezwalania procesowi synchronizacji katalogu na łączenie się z usługą Active Catalog, niezależnie od jego lokalizacji.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Pobierz skrypty odzyskiwania po awarii 
 
@@ -85,7 +85,7 @@ W tym samouczku należy najpierw użyć replikacji geograficznej w celu utworzen
 Później w oddzielnym kroku repatriacji katalog i bazy danych dzierżawy są przełączane w tryb failover w regionie odzyskiwania do oryginalnego regionu. Aplikacja i bazy danych pozostają dostępne w trakcie wycofywania. Po zakończeniu aplikacja jest w pełni funkcjonalna w oryginalnym regionie.
 
 > [!Note]
-> Aplikacja zostanie odzyskana w _sparowanym regionie_ regionu, w którym aplikacja jest wdrażana. Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+> Aplikacja zostanie odzyskana w _sparowanym regionie_ regionu, w którym aplikacja jest wdrażana. Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](../../best-practices-availability-paired-regions.md).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Przejrzyj stan kondycji aplikacji
 
@@ -106,12 +106,12 @@ Przed rozpoczęciem procesu odzyskiwania zapoznaj się z normalnym dobrym stanem
 W tym zadaniu zostanie rozpoczęty proces, który synchronizuje konfigurację serwerów, pul elastycznych i baz danych w katalogu dzierżawców. Ten proces zachowuje aktualność informacji w wykazie.  Proces działa z usługą Active Catalog, niezależnie od tego, czy znajduje się w oryginalnym regionie, czy w regionie odzyskiwania. Informacje o konfiguracji są używane w ramach procesu odzyskiwania, aby upewnić się, że środowisko odzyskiwania jest zgodne z oryginalnym środowiskiem, a później podczas wycofywania, aby upewnić się, że oryginalny region jest spójny ze wszystkimi zmianami wprowadzonymi w środowisku odzyskiwania. Wykaz jest również używany do śledzenia stanu odzyskiwania zasobów dzierżawy
 
 > [!IMPORTANT]
-> Dla uproszczenia proces synchronizacji i inne długotrwałe procesy odzyskiwania i wycofywania są implementowane w tych samouczkach jako lokalne zadania programu PowerShell lub sesje, które są uruchamiane w ramach logowania użytkownika klienta. Tokeny uwierzytelniania wydawane podczas logowania wygaśnie po kilku godzinach, a zadania zakończą się niepowodzeniem. W scenariuszu produkcyjnym długotrwałe procesy powinny być implementowane jako niezawodne usługi platformy Azure, które są uruchamiane w ramach jednostki usługi. Zobacz [używanie Azure PowerShell, aby utworzyć jednostkę usługi przy użyciu certyfikatu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Dla uproszczenia proces synchronizacji i inne długotrwałe procesy odzyskiwania i wycofywania są implementowane w tych samouczkach jako lokalne zadania programu PowerShell lub sesje, które są uruchamiane w ramach logowania użytkownika klienta. Tokeny uwierzytelniania wydawane podczas logowania wygaśnie po kilku godzinach, a zadania zakończą się niepowodzeniem. W scenariuszu produkcyjnym długotrwałe procesy powinny być implementowane jako niezawodne usługi platformy Azure, które są uruchamiane w ramach jednostki usługi. Zobacz [używanie Azure PowerShell, aby utworzyć jednostkę usługi przy użyciu certyfikatu](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-1. W _ISE programu PowerShell_Otwórz plik. ..\Learning Modules\UserConfig.PSM1. Zastąp `<resourcegroup>` `<user>` wartości i w wierszach 10 i 11 wartością używaną podczas wdrażania aplikacji.  Zapisz plik!
+1. W _ISE programu PowerShell_ Otwórz plik. ..\Learning Modules\UserConfig.PSM1. Zastąp `<resourcegroup>` `<user>` wartości i w wierszach 10 i 11 wartością używaną podczas wdrażania aplikacji.  Zapisz plik!
 
-2. W *ISE programu PowerShell*Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awaryjny i ustaw:
-    * **$DemoScenario = 1**, uruchom zadanie w tle, które synchronizuje serwer dzierżawy i informacje o konfiguracji puli do wykazu
+2. W *ISE programu PowerShell* Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awaryjny i ustaw:
+    * **$DemoScenario = 1** , uruchom zadanie w tle, które synchronizuje serwer dzierżawy i informacje o konfiguracji puli do wykazu
 
 3. Naciśnij klawisz **F5** , aby uruchomić skrypt synchronizacji. Zostanie otwarta nowa sesja programu PowerShell w celu zsynchronizowania konfiguracji zasobów dzierżawy.
 ![Zrzut ekranu pokazujący nową sesję programu PowerShell otwartą w celu zsynchronizowania konfiguracji zasobów dzierżawy.](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
@@ -128,10 +128,10 @@ W tym zadaniu zostanie rozpoczęty proces służący do wdrażania zduplikowaneg
 > [!Note]
 > W tym samouczku Dodano ochronę replikacji geograficznej do przykładowej aplikacji biletów Wingtip. W scenariuszu produkcyjnym dla aplikacji korzystającej z replikacji geograficznej każda dzierżawa zostanie zainicjowana z bazą danych z replikacją geograficzną od samego początku. Zobacz [Projektowanie usług o wysokiej dostępności przy użyciu Azure SQL Database](designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
-1. W *ISE programu PowerShell*Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awaryjny i ustaw następujące wartości:
-    * **$DemoScenario = 2**, Tworzenie dublowanego środowiska odzyskiwania obrazu i replikowanie wykazu oraz baz danych dzierżaw
+1. W *ISE programu PowerShell* Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awaryjny i ustaw następujące wartości:
+    * **$DemoScenario = 2** , Tworzenie dublowanego środowiska odzyskiwania obrazu i replikowanie wykazu oraz baz danych dzierżaw
 
-2. Naciśnij klawisz **F5**, aby uruchomić skrypt. Zostanie otwarta nowa sesja programu PowerShell w celu utworzenia replik.
+2. Naciśnij klawisz **F5** , aby uruchomić skrypt. Zostanie otwarta nowa sesja programu PowerShell w celu utworzenia replik.
 ![Proces synchronizacji](./media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>Przegląd normalnego stanu aplikacji
@@ -181,12 +181,12 @@ Skrypt odzyskiwania wykonuje następujące zadania:
 
 Teraz Załóżmy, że wystąpi awaria w regionie, w którym aplikacja jest wdrażana, i uruchomienie skryptu odzyskiwania:
 
-1. W *ISE programu PowerShell*Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awaryjny i ustaw następujące wartości:
-    * **$DemoScenario = 3**, Odzyskaj aplikację do regionu odzyskiwania, przełączając w tryb failover do replik
+1. W *ISE programu PowerShell* Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awaryjny i ustaw następujące wartości:
+    * **$DemoScenario = 3** , Odzyskaj aplikację do regionu odzyskiwania, przełączając w tryb failover do replik
 
-2. Naciśnij klawisz **F5**, aby uruchomić skrypt.  
+2. Naciśnij klawisz **F5** , aby uruchomić skrypt.  
     * Skrypt zostanie otwarty w nowym oknie programu PowerShell, a następnie rozpocznie się seria zadań programu PowerShell uruchamianych równolegle. Te zadania przechodzą w tryb failover baz danych dzierżawy do regionu odzyskiwania.
-    * Region odzyskiwania to _sparowany region_ skojarzony z regionem świadczenia usługi Azure, w którym została wdrożona aplikacja. Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * Region odzyskiwania to _sparowany region_ skojarzony z regionem świadczenia usługi Azure, w którym została wdrożona aplikacja. Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](../../best-practices-availability-paired-regions.md). 
 
 3. Monitoruj stan procesu odzyskiwania w oknie programu PowerShell.
     ![proces trybu failover](./media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -212,8 +212,8 @@ Gdy punkt końcowy aplikacji jest wyłączony w Traffic Manager, aplikacja jest 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Inicjowanie obsługi administracyjnej nowej dzierżawy w regionie odzyskiwania
 Nawet przed przełączeniem wszystkich istniejących baz danych dzierżaw do trybu failover można udostępnić nowe dzierżawy w regionie odzyskiwania.  
 
-1. W *ISE programu PowerShell*Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awarii i Ustaw następującą właściwość:
-    * **$DemoScenario = 4**, Inicjowanie obsługi administracyjnej nowej dzierżawy w regionie odzyskiwania
+1. W *ISE programu PowerShell* Otwórz skrypt ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awarii i Ustaw następującą właściwość:
+    * **$DemoScenario = 4** , Inicjowanie obsługi administracyjnej nowej dzierżawy w regionie odzyskiwania
 
 2. Naciśnij klawisz **F5** , aby uruchomić skrypt i udostępnić nową dzierżawę. 
 
@@ -239,11 +239,11 @@ Po zakończeniu procesu odzyskiwania aplikacja i wszystkie dzierżawy są w peł
    * Wersje odzyskiwania katalogu i serwerów tenants1 z sufiksem _odzyskiwania_ .  Przywrócone wykazy i bazy danych dzierżawy na tych serwerach mają nazwy używane w oryginalnym regionie.
 
    * Program SQL Server _tenants2-DPT- &lt; User &gt; -Recovery_ .  Ten serwer jest używany do aprowizacji nowych dzierżawców podczas przestoju.
-   * App Service o nazwie _Events-Wingtip-DPT- &lt; recoveryregion &gt; - &lt; User&gt_;, czyli wystąpienie odzyskiwania aplikacji Events. 
+   * App Service o nazwie _Events-Wingtip-DPT- &lt; recoveryregion &gt; - &lt; User&gt_ ;, czyli wystąpienie odzyskiwania aplikacji Events. 
 
      ![Zasoby odzyskiwania platformy Azure](./media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
-4. Otwórz program SQL Server _tenants2-DPT- &lt; User &gt; -Recovery_ .  Zwróć uwagę, że zawiera _hawthornhall_ bazy danych i pulę elastyczną, _Pool1_.  Baza danych _hawthornhall_ jest konfigurowana jako Elastyczna baza danych w elastycznej puli _Pool1_ .
+4. Otwórz program SQL Server _tenants2-DPT- &lt; User &gt; -Recovery_ .  Zwróć uwagę, że zawiera _hawthornhall_ bazy danych i pulę elastyczną, _Pool1_ .  Baza danych _hawthornhall_ jest konfigurowana jako Elastyczna baza danych w elastycznej puli _Pool1_ .
 
 5. Przejdź z powrotem do grupy zasobów i kliknij bazę danych korytarze contoso wspólnie na serwerze _tenants1-DPT- &lt; User &gt; -Recovery_ . Kliknij pozycję Geo-Replication po lewej stronie.
     
@@ -253,7 +253,7 @@ Po zakończeniu procesu odzyskiwania aplikacja i wszystkie dzierżawy są w peł
 W tym zadaniu należy zaktualizować jedną z baz danych dzierżawy. 
 
 1. W przeglądarce Znajdź listę zdarzeń dla korytarza wspólnie Contoso i zanotuj nazwę ostatniego zdarzenia.
-2. W *ISE programu PowerShell*w skrypcie. ..\Learning Modules\Business (ciągłość i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awarii) Ustaw następującą wartość:
+2. W *ISE programu PowerShell* w skrypcie. ..\Learning Modules\Business (ciągłość i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awarii) Ustaw następującą wartość:
     * **$DemoScenario = 5** Usuwanie zdarzenia z dzierżawy w regionie odzyskiwania
 3. Naciśnij klawisz **F5** , aby wykonać skrypt
 4. Odśwież stronę ze zdarzeniami korytarzy w http://events.wingtip-dpt.&lt firmie Contoso (; User &gt; . trafficmanager.NET/contosoconcerthall — podstawianie &lt; użytkownika &gt; z wartością użytkownika wdrożenia) i Zauważ, że ostatnie zdarzenie zostało usunięte.
@@ -278,14 +278,14 @@ Praca w trybie failover efektywnie przenosi bazę danych do regionu oryginalnego
 ### <a name="run-the-repatriation-script"></a>Uruchom skrypt repatriacji
 Teraz wyobraź sobie, że awaria zostanie rozwiązany i uruchomisz skrypt repatriacji.
 
-1. W programie *POWERSHELL ISE*w skrypcie. ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awarii.
+1. W programie *POWERSHELL ISE* w skrypcie. ..\Learning Modules\Business i Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 awarii.
 
 2. Sprawdź, czy proces synchronizacji katalogu jest nadal uruchomiony w jego wystąpieniu programu PowerShell.  W razie potrzeby uruchom ją ponownie przez ustawienie:
-    * **$DemoScenario = 1**, uruchom synchronizację informacji o konfiguracji serwera dzierżawy, puli i bazy danych do wykazu
-    * Naciśnij klawisz **F5**, aby uruchomić skrypt.
+    * **$DemoScenario = 1** , uruchom synchronizację informacji o konfiguracji serwera dzierżawy, puli i bazy danych do wykazu
+    * Naciśnij klawisz **F5** , aby uruchomić skrypt.
 
 3.  Następnie, aby rozpocząć proces wycofywania, ustaw:
-    * **$DemoScenario = 6**, wycofywanie aplikacji do jej oryginalnego regionu
+    * **$DemoScenario = 6** , wycofywanie aplikacji do jej oryginalnego regionu
     * Naciśnij klawisz **F5** , aby uruchomić skrypt odzyskiwania w nowym oknie programu PowerShell.  Repatriacja zajmie kilka minut i będzie można monitorować ją w oknie programu PowerShell.
     ![Proces repatriacji](./media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
@@ -314,6 +314,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Więcej informacji na temat technologii Azure SQL Database zapewnia możliwość zapewnienia ciągłości działania w dokumentacji usługi [Przegląd ciągłości biznesowej](business-continuity-high-availability-disaster-recover-hadr-overview.md) .
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Dodatkowe samouczki, które kompilują się po aplikacji Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

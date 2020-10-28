@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: f0f5069ca063f95cb845921c0d716b6c013c9e83
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c809a1ae525fb7fab6dceebb3241e229e8a0284e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479752"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781842"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planowanie i zarządzanie kosztami usługi Azure Blob Storage
 
@@ -56,19 +56,19 @@ Ta sekcja zawiera więcej szczegółów.
 
 Możesz zaoszczędzić oszczędności związane z magazynowaniem danych obiektów BLOB w usłudze Azure Storage. Zarezerwowana pojemność usługi Azure Storage oferuje rabat na wydajność blokowych obiektów blob oraz Azure Data Lake Storage Gen2 danych na kontach magazynu w warstwie Standardowa po zatwierdzeniu do rezerwacji przez jeden rok lub trzy lata. Rezerwacja zapewnia stałą ilość miejsca w magazynie w przypadku rezerwacji. Zarezerwowana pojemność usługi Azure Storage może znacząco obniżyć koszty pojemności dla blokowych obiektów blob i danych Azure Data Lake Storage Gen2. 
 
-Aby dowiedzieć się więcej, zobacz [Optymalizacja kosztów magazynu obiektów BLOB przy użyciu zarezerwowanej pojemności](/azure/storage/blobs/storage-blob-reserved-capacity).
+Aby dowiedzieć się więcej, zobacz [Optymalizacja kosztów magazynu obiektów BLOB przy użyciu zarezerwowanej pojemności](../blobs/storage-blob-reserved-capacity.md).
 
 #### <a name="organize-data-into-access-tiers"></a>Organizowanie danych w warstwy dostępu
 
 Możesz obniżyć koszty, umieszczając dane obiektów BLOB w najbardziej ekonomicznych warstwach dostępu. Wybieraj spośród trzech warstw, które zaprojektowano w celu optymalizacji kosztów związanych z użyciem danych. Na przykład warstwa *gorąca* ma wyższy koszt magazynowania, ale obniża koszty dostępu. W związku z tym, jeśli planujesz uzyskać dostęp do danych często, warstwa gorąca może być najbardziej wydajnym wyborem. Jeśli planujesz uzyskiwać dostęp do danych rzadziej, warstwa *zimna* lub *archiwum* może być najbardziej sensowna, ponieważ zwiększa koszt uzyskiwania dostępu do danych przy jednoczesnym zmniejszeniu kosztów przechowywania danych.    
 
-Aby dowiedzieć się więcej, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
+Aby dowiedzieć się więcej, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
 
 #### <a name="automatically-move-data-between-access-tiers"></a>Automatycznie przenoś dane między warstwami dostępu
 
 Zasady zarządzania cyklem życia umożliwiają okresowe przenoszenie danych między warstwami w celu zaoszczędzenia najbardziej pieniędzy. Te zasady mogą przenosić dane do programu przy użyciu określonych reguł. Można na przykład utworzyć regułę, która przenosi obiekty blob do warstwy archiwum, jeśli ten obiekt BLOB nie został zmodyfikowany w ciągu 90 dni. Tworząc zasady dostosowujące warstwę dostępu do danych, możesz zaprojektować najtańsze opcje magazynu dla Twoich potrzeb.
 
-Aby dowiedzieć się więcej, zobacz [Zarządzanie cyklem życia usługi Azure Blob Storage](/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+Aby dowiedzieć się więcej, zobacz [Zarządzanie cyklem życia usługi Azure Blob Storage](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
 ## <a name="create-budgets"></a>Tworzenie budżetów
 
@@ -87,11 +87,11 @@ Aby wyświetlić koszty usługi Azure Storage w analizie kosztów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Otwórz okno **Cost Management + rozliczanie** , wybierz pozycję **Zarządzanie kosztami** z menu, a następnie wybierz pozycję **Analiza kosztów**. Następnie można zmienić zakres dla określonej subskrypcji z listy rozwijanej **zakres** .
+2. Otwórz okno **Cost Management + rozliczanie** , wybierz pozycję **Zarządzanie kosztami** z menu, a następnie wybierz pozycję **Analiza kosztów** . Następnie można zmienić zakres dla określonej subskrypcji z listy rozwijanej **zakres** .
 
    ![Zrzut ekranu przedstawiający zakres](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. Aby wyświetlić tylko koszty usługi Azure Storage, wybierz pozycję **Dodaj filtr** , a następnie wybierz pozycję **nazwa usługi**. Następnie wybierz pozycję **Magazyn** z listy. 
+4. Aby wyświetlić tylko koszty usługi Azure Storage, wybierz pozycję **Dodaj filtr** , a następnie wybierz pozycję **nazwa usługi** . Następnie wybierz pozycję **Magazyn** z listy. 
 
    Oto przykład przedstawiający koszty tylko usługi Azure Storage:
 

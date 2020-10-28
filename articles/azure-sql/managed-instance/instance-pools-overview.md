@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab77c8cf563c315768ad1c16089d8d939c085322
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325168"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782658"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Co to jest pula wystąpień zarządzanych Azure SQL (wersja zapoznawcza)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Ponadto pule wystąpień obsługują natywną integrację sieci wirtualnej, dzi�
 
 Pule wystąpień zapewniają następujące korzyści:
 
-1. Możliwość hostowania wystąpień 2-rdzeń wirtualny. * \* Tylko dla wystąpień w pulach wystąpień*.
+1. Możliwość hostowania wystąpień 2-rdzeń wirtualny. *\* Tylko dla wystąpień w pulach wystąpień* .
 2. Czas wdrożenia przewidywalny i szybki (do 5 minut).
 3. Minimalna alokacja adresów IP.
 
@@ -59,9 +59,9 @@ Poniższa lista zawiera główne przypadki użycia, w których należy uwzględn
 
 ## <a name="architecture"></a>Architektura
 
-Pule wystąpień mają podobną architekturę do regularnego (*pojedynczego*) wystąpienia zarządzanego. Aby obsługiwać [wdrożenia w ramach sieci wirtualnych platformy Azure](../../virtual-network/virtual-network-for-azure-services.md)   i zapewnić izolację i bezpieczeństwo klientów, pule wystąpień również polegają na [klastrach wirtualnych](connectivity-architecture-overview.md#high-level-connectivity-architecture). Klastry wirtualne reprezentują dedykowany zestaw izolowanych maszyn wirtualnych wdrożonych w podsieci sieci wirtualnej klienta.
+Pule wystąpień mają podobną architekturę do regularnego ( *pojedynczego* ) wystąpienia zarządzanego. Aby obsługiwać [wdrożenia w ramach sieci wirtualnych platformy Azure](../../virtual-network/virtual-network-for-azure-services.md) i zapewnić izolację i bezpieczeństwo klientów, pule wystąpień również polegają na [klastrach wirtualnych](connectivity-architecture-overview.md#high-level-connectivity-architecture). Klastry wirtualne reprezentują dedykowany zestaw izolowanych maszyn wirtualnych wdrożonych w podsieci sieci wirtualnej klienta.
 
-Główna różnica między dwoma modelami wdrażania polega na tym, że pule wystąpień zezwalają na wiele wdrożeń procesów SQL Server w tym samym węźle maszyny wirtualnej, które są zasobami zarządzanymi przy użyciu [obiektów zadań systemu Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), natomiast pojedyncze wystąpienia są zawsze same w węźle maszyny wirtualnej.
+Główna różnica między dwoma modelami wdrażania polega na tym, że pule wystąpień zezwalają na wiele wdrożeń procesów SQL Server w tym samym węźle maszyny wirtualnej, które są zasobami zarządzanymi przy użyciu [obiektów zadań systemu Windows](/windows/desktop/ProcThread/job-objects), natomiast pojedyncze wystąpienia są zawsze same w węźle maszyny wirtualnej.
 
 Na poniższym diagramie przedstawiono pulę wystąpień i dwa poszczególne wystąpienia wdrożone w tej samej podsieci i przedstawiono główne szczegóły architektury dla obu modeli wdrażania:
 
@@ -76,7 +76,7 @@ Istnieje kilka ograniczeń zasobów dotyczących pul wystąpień i wystąpień w
 - Pule wystąpień są dostępne tylko na sprzęcie 5 rdzeń.
 - Wystąpienia zarządzane w puli mają dedykowany procesor CPU i pamięć RAM, więc zagregowana liczba rdzeni wirtualnych we wszystkich wystąpieniach musi być mniejsza lub równa liczbie rdzeni wirtualnych przydzielonych do puli.
 - Wszystkie [limity na poziomie wystąpienia](resource-limits.md#service-tier-characteristics) mają zastosowanie do wystąpień utworzonych w ramach puli.
-- Oprócz limitów na poziomie wystąpienia istnieją również dwa limity nakładane *na poziomie puli wystąpień*:
+- Oprócz limitów na poziomie wystąpienia istnieją również dwa limity nakładane *na poziomie puli wystąpień* :
   - Łączny rozmiar magazynu na pulę (8 TB).
   - Łączna liczba baz danych na pulę (100).
 - Nie można ustawić administratora usługi AAD dla wystąpień wdrożonych wewnątrz puli wystąpień, dlatego nie można użyć uwierzytelniania usługi AAD.
@@ -137,8 +137,8 @@ Cena rdzeń wirtualny puli jest naliczana niezależnie od liczby wystąpień wdr
 
 W przypadku cen obliczeniowych (mierzonych w rdzeni wirtualnych) dostępne są dwie opcje cenowe:
 
-  1. *Uwzględniona licencja*: cena SQL Server licencji jest uwzględniona. Dotyczy to klientów, którzy nie zdecydują się na stosowanie istniejących licencji SQL Server z programem Software Assurance.
-  2. *Korzyść użycia hybrydowego platformy Azure*: obniżona cena obejmująca Korzyść użycia hybrydowego platformy Azure do SQL Server. Klienci mogą zrezygnować z tej ceny przy użyciu istniejących licencji SQL Server z programem Software Assurance. Aby uzyskać uprawnienia i inne szczegóły, zobacz [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Uwzględniona licencja* : cena SQL Server licencji jest uwzględniona. Dotyczy to klientów, którzy nie zdecydują się na stosowanie istniejących licencji SQL Server z programem Software Assurance.
+  2. *Korzyść użycia hybrydowego platformy Azure* : obniżona cena obejmująca Korzyść użycia hybrydowego platformy Azure do SQL Server. Klienci mogą zrezygnować z tej ceny przy użyciu istniejących licencji SQL Server z programem Software Assurance. Aby uzyskać uprawnienia i inne szczegóły, zobacz [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Dla poszczególnych wystąpień w puli nie można ustawić różnych opcji cenowych. Wszystkie wystąpienia w puli nadrzędnej muszą mieć licencję uwzględnioną w cenie lub Korzyść użycia hybrydowego platformy Azure cenę. Model licencji dla puli można zmienić po utworzeniu puli.
 

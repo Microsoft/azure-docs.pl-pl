@@ -110,7 +110,7 @@
         - name: Szablon usługi Azure Resource Manager
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: Konfigurowanie limitu czasu bezczynności protokołu TCP dla usługi równoważenia obciążenia
+    - name: Konfigurowanie limitu czasu bezczynności i resetowania protokołu TCP
       href: load-balancer-tcp-idle-timeout.md
     - name: Konfigurowanie trybu dystrybucji dla usługi Load Balancer
       href: load-balancer-distribution-mode.md

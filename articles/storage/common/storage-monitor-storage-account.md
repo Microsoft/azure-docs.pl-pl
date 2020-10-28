@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 14edb8db945a9b69ba77d56cd19a4524876ede03
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bfecae4775655f732df8fd6cffea613cd39fb828
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676802"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782012"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorowanie konta magazynu w witrynie Azure Portal
 
@@ -27,7 +27,7 @@ Zalecamy zapoznanie się [Azure monitor z magazynem](../../azure-monitor/insight
 >
 > Azure Files obecnie obsługuje metryki analityka magazynu, ale nie obsługuje jeszcze rejestrowania.
 >
-> Konta magazynu blokowych obiektów BLOB wydajności w warstwie Premium nie obsługują metryk analitycznych magazynu, ale obsługują rejestrowanie. Rejestrowanie można włączyć programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Aby wyświetlić metryki z kontami magazynu obiektów BLOB wydajności Premium, należy rozważyć użycie [metryk usługi Azure Storage w Azure monitor](storage-metrics-in-azure-monitor.md).
+> Konta magazynu blokowych obiektów BLOB wydajności w warstwie Premium nie obsługują metryk analitycznych magazynu, ale obsługują rejestrowanie. Rejestrowanie można włączyć programowo za pośrednictwem interfejsu API REST lub biblioteki klienta. Aby wyświetlić metryki z kontami magazynu obiektów BLOB wydajności Premium, należy rozważyć użycie [metryk usługi Azure Storage w Azure monitor](../blobs/monitor-blob-storage.md).
 >
 > Aby uzyskać szczegółowy przewodnik dotyczący używania analityka magazynu i innych narzędzi do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów z Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >

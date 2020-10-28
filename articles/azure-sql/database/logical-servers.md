@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: abb8f42e7fe4ffe6e933f466202247c73ece129a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441718"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782896"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Co to jest logiczny serwer SQL w Azure SQL Database i Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ Serwer w SQL Database i Azure Synapse:
 - Jest zasobem nadrzędnym dla baz danych, pul elastycznych i magazynów danych
 - Zapewnia przestrzeń nazw dla baz danych, pul elastycznych i bazy danych magazynu danych
 - Jest kontenerem logicznym ze silną semantyką okresu istnienia — usunięcie serwera i usunięcie jego baz danych, pul elastycznych i pul SQK
-- Uczestnictwo w [kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](/azure/role-based-access-control/overview) — bazy danych, pule elastyczne i baza danych magazynu danych na serwerze dziedziczą prawa dostępu z serwera
+- Uczestnictwo w [kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure](../../role-based-access-control/overview.md) — bazy danych, pule elastyczne i baza danych magazynu danych na serwerze dziedziczą prawa dostępu z serwera
 - To wysoce uporządkowany element tożsamości baz danych, pul elastycznych i bazy danych magazynu danych na potrzeby zarządzania zasobami platformy Azure (patrz schemat adresu URL dla baz danych i pul)
 - Rozmieszcza zasoby w regionie
 - Udostępnia punkt końcowy połączenia dla dostępu do baz danych (`<serverName>`.database.windows.net)
@@ -83,7 +83,7 @@ Aby zarządzać istniejącą bazą danych, przejdź do strony **bazy danych SQL*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne.
 
 Do tworzenia serwerów, baz danych i zapór oraz zarządzania nimi za pomocą Azure PowerShell Użyj następujących poleceń cmdlet programu PowerShell. Jeśli musisz zainstalować lub uaktualnić program PowerShell, zobacz [install Azure PowerShell module](/powershell/azure/install-az-ps). Aby utworzyć pule elastyczne i zarządzać nimi, zobacz [Pule elastyczne](elastic-pool-overview.md).
 
@@ -96,7 +96,7 @@ Do tworzenia serwerów, baz danych i zapór oraz zarządzania nimi za pomocą Az
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Tworzy grupę zasobów|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Tworzy serwer|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Zwraca informacje o serwerach|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Modyfikuje właściwości serwera|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Modyfikuje właściwości serwera|
 |[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Usuwa serwer|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Tworzy regułę zapory na poziomie serwera |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Pobiera reguły zapory dla serwera|
@@ -110,7 +110,7 @@ Do tworzenia serwerów, baz danych i zapór oraz zarządzania nimi za pomocą Az
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-cli"></a>Zarządzanie serwerami, bazami danych i zaporami przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby utworzyć serwery, bazy danych i zapory za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure)i zarządzać nimi, użyj następujących poleceń [SQL Database interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/db) . Używaj usługi [Cloud Shell](/azure/cloud-shell/overview), aby uruchamiać interfejs wiersza polecenia w przeglądarce, albo [zainstaluj](/cli/azure/install-azure-cli) go w systemie macOS, Linux lub Windows. Aby utworzyć pule elastyczne i zarządzać nimi, zobacz [Pule elastyczne](elastic-pool-overview.md).
+Aby utworzyć serwery, bazy danych i zapory za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure)i zarządzać nimi, użyj następujących poleceń [SQL Database interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/db) . Używaj usługi [Cloud Shell](../../cloud-shell/overview.md), aby uruchamiać interfejs wiersza polecenia w przeglądarce, albo [zainstaluj](/cli/azure/install-azure-cli) go w systemie macOS, Linux lub Windows. Aby utworzyć pule elastyczne i zarządzać nimi, zobacz [Pule elastyczne](elastic-pool-overview.md).
 
 | Polecenie cmdlet | Opis |
 | --- | --- |
@@ -150,7 +150,7 @@ Aby utworzyć serwery, bazy danych i zapory w języku Transact-SQL i zarządzać
 |[Utwórz bazę danych (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Tworzy nową bazę danych w Azure SQL Database. Aby utworzyć nową bazę danych, musisz mieć połączenie z bazą danych Master.|
 |[Tworzenie bazy danych (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Tworzy nową bazę danych magazynu danych w usłudze Azure Synapse. Aby utworzyć nową bazę danych, musisz mieć połączenie z bazą danych Master.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modyfikuje bazę danych lub pulę elastyczną. |
-|[ALTER DATABASE (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modyfikuje bazę danych magazynu danych w usłudze Azure Synapse.|
+|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modyfikuje bazę danych magazynu danych w usłudze Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Usuwa bazę danych.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Zwraca wersję (warstwę usługi), cel usługi (warstwę cenową) i nazwę puli elastycznej (jeśli istnieje) dla bazy danych. Jeśli użytkownik jest zalogowany do bazy danych Master dla serwera, zwraca informacje o wszystkich bazach danych. W przypadku usługi Azure Synapse musisz mieć połączenie z bazą danych Master.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Zwraca użycie procesora CPU, operacji we/wy i pamięci dla bazy danych w Azure SQL Database. Jeden wiersz istnieje przez co 15 sekund, nawet jeśli w bazie danych nie ma żadnych działań.|
@@ -173,22 +173,22 @@ Do tworzenia serwerów, baz danych i zapór oraz zarządzania nimi należy używ
 
 | Polecenie | Opis |
 | --- | --- |
-|[Serwery — Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Tworzy lub aktualizuje nowy serwer.|
-|[Serwery — usuwanie](https://docs.microsoft.com/rest/api/sql/servers/delete)|Usuwa serwer.|
-|[Serwery — Pobierz](https://docs.microsoft.com/rest/api/sql/servers/get)|Pobiera serwer.|
-|[Serwery — lista](https://docs.microsoft.com/rest/api/sql/servers/list)|Zwraca listę serwerów.|
-|[Serwery — lista według grupy zasobów](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Zwraca listę serwerów w grupie zasobów.|
-|[Serwery — aktualizacja](https://docs.microsoft.com/rest/api/sql/servers/update)|Aktualizuje istniejący serwer.|
-|[Bazy danych — Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Tworzy nową bazę danych lub aktualizuje istniejącą bazę danych.|
-|[Bazy danych — usuwanie](https://docs.microsoft.com/rest/api/sql/databases/delete)|Usuwa bazę danych.|
-|[Bazy danych — Pobierz](https://docs.microsoft.com/rest/api/sql/databases/get)|Pobiera bazę danych.|
-|[Bazy danych — lista według elastycznej puli](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Zwraca listę baz danych w puli elastycznej.|
-|[Bazy danych — lista według serwera](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Zwraca listę baz danych na serwerze.|
-|[Bazy danych — aktualizacja](https://docs.microsoft.com/rest/api/sql/databases/update)|Aktualizuje istniejącą bazę danych.|
-|[Reguły zapory — Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Tworzy lub aktualizuje regułę zapory.|
-|[Reguły zapory — usuwanie](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Usuwa regułę zapory.|
-|[Reguły zapory — Pobierz](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Pobiera regułę zapory.|
-|[Reguły zapory — lista według serwera](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Zwraca listę reguł zapory.|
+|[Serwery — Utwórz lub zaktualizuj](/rest/api/sql/servers/createorupdate)|Tworzy lub aktualizuje nowy serwer.|
+|[Serwery — usuwanie](/rest/api/sql/servers/delete)|Usuwa serwer.|
+|[Serwery — Pobierz](/rest/api/sql/servers/get)|Pobiera serwer.|
+|[Serwery — lista](/rest/api/sql/servers/list)|Zwraca listę serwerów.|
+|[Serwery — lista według grupy zasobów](/rest/api/sql/servers/listbyresourcegroup)|Zwraca listę serwerów w grupie zasobów.|
+|[Serwery — aktualizacja](/rest/api/sql/servers/update)|Aktualizuje istniejący serwer.|
+|[Bazy danych — Utwórz lub zaktualizuj](/rest/api/sql/databases/createorupdate)|Tworzy nową bazę danych lub aktualizuje istniejącą bazę danych.|
+|[Bazy danych — usuwanie](/rest/api/sql/databases/delete)|Usuwa bazę danych.|
+|[Bazy danych — Pobierz](/rest/api/sql/databases/get)|Pobiera bazę danych.|
+|[Bazy danych — lista według elastycznej puli](/rest/api/sql/databases/listbyelasticpool)|Zwraca listę baz danych w puli elastycznej.|
+|[Bazy danych — lista według serwera](/rest/api/sql/databases/listbyserver)|Zwraca listę baz danych na serwerze.|
+|[Bazy danych — aktualizacja](/rest/api/sql/databases/update)|Aktualizuje istniejącą bazę danych.|
+|[Reguły zapory — Utwórz lub zaktualizuj](/rest/api/sql/firewallrules/createorupdate)|Tworzy lub aktualizuje regułę zapory.|
+|[Reguły zapory — usuwanie](/rest/api/sql/firewallrules/delete)|Usuwa regułę zapory.|
+|[Reguły zapory — Pobierz](/rest/api/sql/firewallrules/get)|Pobiera regułę zapory.|
+|[Reguły zapory — lista według serwera](/rest/api/sql/firewallrules/listbyserver)|Zwraca listę reguł zapory.|
 
 ## <a name="next-steps"></a>Następne kroki
 

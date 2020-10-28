@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90995988"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782386"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Skonfiguruj szyfrowanie za pomocą kluczy zarządzanych przez klienta, przechowywanych w Azure Key Vault
 
@@ -33,19 +33,19 @@ Za pomocą nowego lub istniejącego magazynu kluczy można przechowywać klucze 
 
 W przypadku korzystania z kluczy zarządzanych przez klienta z szyfrowaniem usługi Azure Storage wymagane jest włączenie zarówno nietrwałego usuwania, jak i przeczyszczania dla magazynu kluczy. Usuwanie nietrwałe jest domyślnie włączone podczas tworzenia nowego magazynu kluczy i nie można go wyłączyć. Ochronę przed przeczyszczeniem można włączyć podczas tworzenia magazynu kluczy lub po jego utworzeniu.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Aby dowiedzieć się, jak utworzyć magazyn kluczy za pomocą Azure Portal, zobacz [Szybki Start: Tworzenie magazynu kluczy przy użyciu Azure Portal](../../key-vault/general/quick-create-portal.md). Podczas tworzenia magazynu kluczy wybierz opcję **Włącz ochronę przeczyszczania**, jak pokazano na poniższej ilustracji.
+Aby dowiedzieć się, jak utworzyć magazyn kluczy za pomocą Azure Portal, zobacz [Szybki Start: Tworzenie magazynu kluczy przy użyciu Azure Portal](../../key-vault/general/quick-create-portal.md). Podczas tworzenia magazynu kluczy wybierz opcję **Włącz ochronę przeczyszczania** , jak pokazano na poniższej ilustracji.
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Zrzut ekranu przedstawiający sposób włączania ochrony przed czyszczeniem podczas tworzenia magazynu kluczy":::
 
 Aby włączyć ochronę przed przeczyszczaniem w istniejącym magazynie kluczy, wykonaj następujące kroki:
 
 1. Przejdź do magazynu kluczy w Azure Portal.
-1. W obszarze **Ustawienia**wybierz pozycję **Właściwości**.
-1. W sekcji **przeczyszczanie ochrony** wybierz opcję **Włącz ochronę przeczyszczania**.
+1. W obszarze **Ustawienia** wybierz pozycję **Właściwości** .
+1. W sekcji **przeczyszczanie ochrony** wybierz opcję **Włącz ochronę przeczyszczania** .
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby utworzyć nowy magazyn kluczy przy użyciu programu PowerShell, zainstaluj [program PowerShell w](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) wersji 2.0.0 lub nowszej. Następnie Wywołaj polecenie [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) , aby utworzyć nowy magazyn kluczy. W przypadku wersji 2.0.0 i nowszych modułu AZ. Key magazynu usuwanie nietrwałe jest domyślnie włączone podczas tworzenia nowego magazynu kluczy.
 
@@ -58,7 +58,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-Aby dowiedzieć się, jak włączyć ochronę przed przeczyszczaniem w istniejącym magazynie kluczy przy użyciu programu PowerShell, zobacz [jak używać nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Aby dowiedzieć się, jak włączyć ochronę przed przeczyszczaniem w istniejącym magazynie kluczy przy użyciu programu PowerShell, zobacz [jak używać nietrwałego usuwania przy użyciu programu PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 Następnie przypisz tożsamość zarządzaną przypisaną przez system do konta magazynu. Ta tożsamość zarządzana zostanie użyta do nadania uprawnień kontu magazynu dostępu do magazynu kluczy. Aby uzyskać więcej informacji na temat tożsamości zarządzanych przypisanych do systemu, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -93,7 +93,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Aby dowiedzieć się, jak włączyć ochronę przed przeczyszczaniem w istniejącym magazynie kluczy za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/soft-delete-cli.md).
+Aby dowiedzieć się, jak włączyć ochronę przed przeczyszczaniem w istniejącym magazynie kluczy za pomocą interfejsu wiersza polecenia platformy Azure, zobacz [jak używać nietrwałego usuwania przy użyciu interfejsu wiersza polecenia](../../key-vault/general/key-vault-recovery.md).
 
 Następnie przypisz tożsamość zarządzaną przypisaną przez system do konta magazynu. Ta tożsamość zarządzana zostanie użyta do nadania uprawnień kontu magazynu dostępu do magazynu kluczy. Aby uzyskać więcej informacji na temat tożsamości zarządzanych przypisanych do systemu, zobacz [co to są tożsamości zarządzane dla zasobów platformy Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -129,13 +129,13 @@ az keyvault set-policy \
 
 Następnie Dodaj klucz w magazynie kluczy.
 
-Szyfrowanie za pomocą usługi Azure Storage obsługuje klucze RSA i RSA-HSM o rozmiarach 2048, 3072 i 4096. Aby uzyskać więcej informacji na temat kluczy, zobacz **Key Vault klucze** w temacie [informacje Azure Key Vault klucze, wpisy tajne i certyfikaty](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Szyfrowanie za pomocą usługi Azure Storage obsługuje klucze RSA i RSA-HSM o rozmiarach 2048, 3072 i 4096. Aby uzyskać więcej informacji na temat kluczy, zobacz [Informacje o kluczach](../../key-vault/keys/about-keys.md).
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby dowiedzieć się, jak dodać klucz z Azure Portal, zobacz [Szybki Start: Ustawianie i pobieranie klucza z Azure Key Vault przy użyciu Azure Portal](../../key-vault/keys/quick-create-portal.md).
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby dodać klucz przy użyciu programu PowerShell, wywołaj polecenie [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
 
@@ -170,17 +170,17 @@ Podczas konfigurowania szyfrowania przy użyciu kluczy zarządzanych przez klien
 
 Usługa Azure Storage może automatycznie zaktualizować klucz zarządzany przez klienta używany do szyfrowania, aby użyć najnowszej wersji klucza. Gdy klucz zarządzany przez klienta zostanie obrócony w Azure Key Vault, usługa Azure Storage automatycznie zacznie używać najnowszej wersji klucza do szyfrowania.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby skonfigurować klucze zarządzane przez klienta z automatyczną aktualizacją wersji klucza w Azure Portal, wykonaj następujące kroki:
 
 1. Przejdź do konta magazynu.
-1. W bloku **Ustawienia** dla konta magazynu kliknij pozycję **szyfrowanie**. Wybierz opcję **klucze zarządzane przez klienta** , jak pokazano na poniższej ilustracji.
+1. W bloku **Ustawienia** dla konta magazynu kliknij pozycję **szyfrowanie** . Wybierz opcję **klucze zarządzane przez klienta** , jak pokazano na poniższej ilustracji.
 
     ![Zrzut ekranu portalu przedstawiający opcję szyfrowania](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
 1. Wybierz opcję **Wybierz z Key Vault** .
-1. Wybierz pozycję **Wybierz magazyn kluczy i klucz**.
+1. Wybierz pozycję **Wybierz magazyn kluczy i klucz** .
 1. Wybierz magazyn kluczy zawierający klucz, którego chcesz użyć.
 1. Wybierz klucz z magazynu kluczy.
 
@@ -192,7 +192,7 @@ Po określeniu klucza Azure Portal wskazuje, że automatyczna aktualizacja wersj
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Zrzut ekranu przedstawiający sposób włączania ochrony przed czyszczeniem podczas tworzenia magazynu kluczy":::
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby skonfigurować klucze zarządzane przez klienta z automatyczną aktualizacją wersji klucza przy użyciu programu PowerShell, zainstaluj moduł [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) w wersji 2.0.0 lub nowszej.
 
@@ -236,7 +236,7 @@ az storage account update
 
 Jeśli wolisz ręcznie zaktualizować wersję klucza, jawnie określ wersję w momencie konfigurowania szyfrowania przy użyciu kluczy zarządzanych przez klienta. W takim przypadku usługa Azure Storage nie będzie automatycznie aktualizować wersji klucza, gdy nowa wersja zostanie utworzona w magazynie kluczy. Aby użyć nowej wersji klucza, należy ręcznie zaktualizować wersję używaną do szyfrowania usługi Azure Storage.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby skonfigurować klucze zarządzane przez klienta z ręczną aktualizacją wersji klucza w Azure Portal, określ identyfikator URI klucza, łącznie z wersją. Aby określić klucz jako identyfikator URI, wykonaj następujące kroki:
 
@@ -253,7 +253,7 @@ Aby skonfigurować klucze zarządzane przez klienta z ręczną aktualizacją wer
 1. Określ subskrypcję zawierającą magazyn kluczy.
 1. Zapisz zmiany.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby skonfigurować klucze zarządzane przez klienta z ręczną aktualizacją wersji klucza, należy jawnie podać wersję klucza podczas konfigurowania szyfrowania dla konta magazynu. Wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , aby zaktualizować ustawienia szyfrowania konta magazynu, jak pokazano w poniższym przykładzie, i Dołącz opcję **-KeyvaultEncryption** , aby włączyć klucze zarządzane przez klienta dla konta magazynu.
 
@@ -304,7 +304,7 @@ W przypadku ręcznej aktualizacji wersji klucza należy zaktualizować ustawieni
 
 Klucz używany do szyfrowania usługi Azure Storage można zmienić w dowolnym momencie.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby zmienić klucz za pomocą Azure Portal, wykonaj następujące kroki:
 
@@ -312,7 +312,7 @@ Aby zmienić klucz za pomocą Azure Portal, wykonaj następujące kroki:
 1. Wybierz magazyn kluczy i wybierz nowy klucz.
 1. Zapisz zmiany.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby zmienić klucz w programie PowerShell, wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) , jak pokazano w [Konfiguruj szyfrowanie z kluczami zarządzanymi przez klienta](#configure-encryption-with-customer-managed-keys) i podaj nową nazwę klucza i wersję. Jeśli nowy klucz znajduje się w innym magazynie kluczy, należy również zaktualizować identyfikator URI magazynu kluczy.
 
@@ -326,11 +326,11 @@ Aby zmienić klucz za pomocą interfejsu wiersza polecenia platformy Azure, wywo
 
 Odwołanie klucza zarządzanego przez klienta powoduje usunięcie skojarzenia między kontem magazynu i magazynem kluczy.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby odwołać klucze zarządzane przez klienta przy użyciu Azure Portal, wyłącz klucz zgodnie z opisem w temacie [wyłączanie kluczy zarządzanych przez klienta](#disable-customer-managed-keys).
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Klucze zarządzane przez klienta można odwołać przez usunięcie zasad dostępu magazynu kluczy. Aby odwołać klucz zarządzany przez klienta za pomocą programu PowerShell, wywołaj polecenie [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) , jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
 
@@ -355,14 +355,14 @@ az keyvault delete-policy \
 
 Po wyłączeniu kluczy zarządzanych przez klienta konto magazynu będzie ponownie szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
 Aby wyłączyć klucze zarządzane przez klienta w Azure Portal, wykonaj następujące kroki:
 
 1. Przejdź do konta magazynu i Wyświetl ustawienia **szyfrowania** .
 1. Usuń zaznaczenie pola wyboru obok ustawienia **Użyj własnego klucza** .
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby wyłączyć klucze zarządzane przez klienta przy użyciu programu PowerShell, wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) z `-StorageEncryption` opcją, jak pokazano w poniższym przykładzie. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami i użyć zmiennych zdefiniowanych w poprzednich przykładach.
 

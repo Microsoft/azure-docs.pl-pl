@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: a4a666423c6f5a76d69f572f6d8b86a022bf3e30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8f0bb6e0e58d672faa0929d6266e5e2c5a4f1f1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443143"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781060"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database Elastic Query — omówienie (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Funkcja zapytania elastycznego (w wersji zapoznawczej) umożliwia uruchomienie z
 
 ## <a name="why-use-elastic-queries"></a>Dlaczego warto używać zapytań elastycznych
 
-### <a name="azure-sql-database"></a>Azure SQL Database
+### <a name="azure-sql-database"></a>Usługa Azure SQL Database
 
 Wykonaj zapytania między bazami danych w Azure SQL Database całkowicie w języku T-SQL. Pozwala to na wykonywanie zapytań tylko do odczytu zdalnych baz danych i udostępnia opcję dla bieżących SQL Server klientów do migrowania aplikacji przy użyciu nazw składających się z trzech i czterech części lub połączonego serwera w celu SQL Database.
 
@@ -39,7 +39,7 @@ Zapytania elastyczne mogą teraz wypchnąć parametry SQL do zdalnych baz danych
 
 ### <a name="stored-procedure-execution"></a>Wykonywanie procedury składowanej
 
-Wykonywanie zdalnych wywołań procedur składowanych lub funkcji zdalnych przy użyciu programu [SP \_ Execute \_ Remote](https://msdn.microsoft.com/library/mt703714).
+Wykonywanie zdalnych wywołań procedur składowanych lub funkcji zdalnych przy użyciu programu [SP \_ Execute \_ Remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database).
 
 ### <a name="flexibility"></a>Wiele możliwości wyboru
 
@@ -73,13 +73,13 @@ Elastyczne zapytanie może służyć do tworzenia danych znajdujących się w ba
 > Musisz mieć uprawnienie Zmień każde zewnętrzne źródło danych. To uprawnienie jest dołączone do uprawnienia ALTER DATABASE. Aby odwołać się do bazowego źródła danych, należy zmienić wszystkie uprawnienia zewnętrznych źródeł danych.
 >
 
-**Dane referencyjne**: topologia służy do zarządzania danymi referencyjnymi. Na poniższej ilustracji dwie tabele (T1 i T2) z danymi referencyjnymi są przechowywane w dedykowanej bazie danych. Przy użyciu zapytania elastycznego można teraz uzyskiwać dostęp do tabel T1 i T2 zdalnie z innych baz danych, jak pokazano na rysunku. Użyj topologii 1, jeśli tabele odwołań są małymi lub zdalnymi zapytania w tabeli referencyjnej mają predykaty selektywne.
+**Dane referencyjne** : topologia służy do zarządzania danymi referencyjnymi. Na poniższej ilustracji dwie tabele (T1 i T2) z danymi referencyjnymi są przechowywane w dedykowanej bazie danych. Przy użyciu zapytania elastycznego można teraz uzyskiwać dostęp do tabel T1 i T2 zdalnie z innych baz danych, jak pokazano na rysunku. Użyj topologii 1, jeśli tabele odwołań są małymi lub zdalnymi zapytania w tabeli referencyjnej mają predykaty selektywne.
 
 **Rysunek 2** Partycjonowanie pionowe — używanie elastycznego zapytania do wykonywania zapytań dotyczących danych referencyjnych
 
 ![Partycjonowanie pionowe — używanie elastycznego zapytania do wykonywania zapytań dotyczących danych referencyjnych][3]
 
-**Zapytania między bazami danych**: zapytania elastyczne umożliwiają używanie przypadków użycia wymagających wykonywania zapytań w kilku bazach danych w SQL Database. Rysunek 3 przedstawia cztery różne bazy danych: CRM, spis, HR i produkty. Zapytania wykonywane w jednej z baz danych muszą również mieć dostęp do jednej lub wszystkich innych baz danych. Przy użyciu zapytania elastycznego można skonfigurować bazę danych w tym przypadku, uruchamiając kilka prostych instrukcji języka DDL dla każdej z czterech baz danych. Po tej konfiguracji jednorazowej dostęp do tabeli zdalnej jest prosty w odniesieniu do tabeli lokalnej z zapytań T-SQL lub z narzędzi analizy biznesowej. Ta metoda jest zalecana, jeśli zapytania zdalne nie zwracają dużych wyników.
+**Zapytania między bazami danych** : zapytania elastyczne umożliwiają używanie przypadków użycia wymagających wykonywania zapytań w kilku bazach danych w SQL Database. Rysunek 3 przedstawia cztery różne bazy danych: CRM, spis, HR i produkty. Zapytania wykonywane w jednej z baz danych muszą również mieć dostęp do jednej lub wszystkich innych baz danych. Przy użyciu zapytania elastycznego można skonfigurować bazę danych w tym przypadku, uruchamiając kilka prostych instrukcji języka DDL dla każdej z czterech baz danych. Po tej konfiguracji jednorazowej dostęp do tabeli zdalnej jest prosty w odniesieniu do tabeli lokalnej z zapytań T-SQL lub z narzędzi analizy biznesowej. Ta metoda jest zalecana, jeśli zapytania zdalne nie zwracają dużych wyników.
 
 **Rysunek 3** Partycjonowanie pionowe — używanie elastycznego zapytania do wykonywania zapytań w różnych bazach danych
 
@@ -87,10 +87,10 @@ Elastyczne zapytanie może służyć do tworzenia danych znajdujących się w ba
 
 Poniższe kroki umożliwiają skonfigurowanie zapytań Elastic Database dla scenariuszy partycjonowania pionowego, które wymagają dostępu do tabeli znajdującej się w zdalnych bazach danych w SQL Database z tym samym schematem:
 
-* [Tworzenie klucza głównego](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-* [Utwórz poświadczenia dla poświadczeń w zakresie bazy danych](https://msdn.microsoft.com/library/mt270260.aspx)
-* [Utwórz/upuść zewnętrzne źródło danych](https://msdn.microsoft.com/library/dn935022.aspx) o typie **RDBMS**
-* [Utwórz/upuść tabelę zewnętrzną](https://msdn.microsoft.com/library/dn935021.aspx) MyTable
+* [Tworzenie klucza głównego](/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
+* [Utwórz poświadczenia dla poświadczeń w zakresie bazy danych](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+* [Utwórz/upuść zewnętrzne źródło danych](/sql/t-sql/statements/create-external-data-source-transact-sql) o typie **RDBMS**
+* [Utwórz/upuść tabelę zewnętrzną](/sql/t-sql/statements/create-external-table-transact-sql) MyTable
 
 Po uruchomieniu instrukcji języka DDL można uzyskać dostęp do zdalnej tabeli "MyTable", tak jakby była to tabela lokalna. Azure SQL Database automatycznie otwiera połączenie ze zdalną bazą danych, przetwarza żądanie w zdalnej bazie danych i zwraca wyniki.
 
@@ -108,11 +108,11 @@ Używanie Elastic Query do wykonywania zadań raportowania w podzielonej na frag
 
 Poniższe kroki umożliwiają skonfigurowanie zapytań Elastic Database dla scenariuszy partycjonowania poziomego, które wymagają dostępu do zestawu tabel znajdującego się na (zazwyczaj) kilka zdalnych baz danych w SQL Database:
 
-* [Tworzenie klucza głównego](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
-* [Utwórz poświadczenia dla poświadczeń w zakresie bazy danych](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+* [Tworzenie klucza głównego](/sql/t-sql/statements/create-master-key-transact-sql) mymasterkey
+* [Utwórz poświadczenia dla poświadczeń w zakresie bazy danych](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
 * Utwórz [mapę fragmentu](elastic-scale-shard-map-management.md) reprezentującą warstwę danych przy użyciu biblioteki klienta Elastic Database.
-* [Utwórz/upuść zewnętrzne źródło danych](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) o typie **SHARD_MAP_MANAGER**
-* [Utwórz/upuść tabelę zewnętrzną](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) MyTable
+* [Utwórz/upuść zewnętrzne źródło danych](/sql/t-sql/statements/create-external-data-source-transact-sql) o typie **SHARD_MAP_MANAGER**
+* [Utwórz/upuść tabelę zewnętrzną](/sql/t-sql/statements/create-external-table-transact-sql) MyTable
 
 Po wykonaniu tych kroków można uzyskać dostęp do tabeli partycjonowanej w poziomie "MyTable", tak jakby była to tabela lokalna. Azure SQL Database automatycznie otwiera wiele połączeń równoległych do zdalnych baz danych, w których tabele są przechowywane fizycznie, przetwarza żądania w zdalnych bazach danych i zwraca wyniki.
 Więcej informacji na temat kroków wymaganych dla scenariusza partycjonowania poziomego można znaleźć w temacie [elastyczne zapytanie na potrzeby partycjonowania poziomego](elastic-query-horizontal-partitioning.md).
@@ -120,7 +120,7 @@ Więcej informacji na temat kroków wymaganych dla scenariusza partycjonowania p
 Aby rozpocząć kodowanie, zobacz [wprowadzenie do elastycznego zapytania na potrzeby partycjonowania poziomego (fragmentowania)](elastic-query-getting-started.md).
 
 > [!IMPORTANT]
-> Pomyślne wykonanie zapytania elastycznego w dużym zestawie baz danych opiera się na dostępności poszczególnych baz danych podczas wykonywania zapytania. Jeśli jedna z baz danych jest niedostępna, całe zapytanie zakończy się niepowodzeniem. Jeśli planujesz wysyłać zapytania do setek lub tysięcy baz danych jednocześnie, upewnij się, że aplikacja kliencka ma wbudowaną logikę ponowień, lub Rozważ użycie [zadań Elastic Database](https://docs.microsoft.com/azure/sql-database/sql-database-job-automation-overview#elastic-database-jobs-preview) (wersja zapoznawcza) i zbadanie mniejszych podzestawów baz danych, skonsolidowanie wyników każdego zapytania w jednym miejscu docelowym.
+> Pomyślne wykonanie zapytania elastycznego w dużym zestawie baz danych opiera się na dostępności poszczególnych baz danych podczas wykonywania zapytania. Jeśli jedna z baz danych jest niedostępna, całe zapytanie zakończy się niepowodzeniem. Jeśli planujesz wysyłać zapytania do setek lub tysięcy baz danych jednocześnie, upewnij się, że aplikacja kliencka ma wbudowaną logikę ponowień, lub Rozważ użycie [zadań Elastic Database](./job-automation-overview.md#elastic-database-jobs-preview) (wersja zapoznawcza) i zbadanie mniejszych podzestawów baz danych, skonsolidowanie wyników każdego zapytania w jednym miejscu docelowym.
 
 ## <a name="t-sql-querying"></a>Zapytania T-SQL
 
@@ -133,7 +133,7 @@ Za pomocą regularnych SQL Server parametrów połączenia można połączyć sw
 > [!IMPORTANT]
 > Uwierzytelnianie przy użyciu Azure Active Directory z elastycznymi zapytaniami nie jest obecnie obsługiwane.
 
-## <a name="cost"></a>Koszty
+## <a name="cost"></a>Koszt
 
 Koszt zapytania elastycznego jest uwzględniany w koszcie Azure SQL Database. Należy zwrócić uwagę na to, że topologie, w których zdalne bazy danych znajdują się w innym centrum danych niż obsługiwane są elastyczne punkty końcowe zapytania, ale dane wychodzące ze zdalnych baz danych są często obciążane [stawkami platformy Azure](https://azure.microsoft.com/pricing/details/data-transfers/).
 
@@ -158,7 +158,7 @@ Zapoznaj się ze swoją opinią, korzystając z elastycznych zapytań z poniższ
 * Aby poznać składnię i przykładowe zapytania dotyczące danych partycjonowanych pionowo, zobacz [wykonywanie zapytań dotyczących partycjonowanych danych w pionie.](elastic-query-vertical-partitioning.md)
 * Aby zapoznać się z samouczkiem dotyczącym partycjonowania poziomego (fragmentowania), zobacz [wprowadzenie do elastycznego zapytania na potrzeby partycjonowania poziomego (fragmentowania)](elastic-query-getting-started.md).
 * Aby poznać składnię i przykładowe zapytania dla danych z podziałem na partycje, zobacz [wykonywanie zapytań o dane partycjonowane w poziomie.](elastic-query-horizontal-partitioning.md)
-* Zapoznaj się z artykułem [SP \_ Execute \_ Remote](https://msdn.microsoft.com/library/mt703714) dla procedury składowanej, która wykonuje instrukcję języka Transact-SQL w ramach jednego zdalnego Azure SQL Database lub zestawu baz danych służących jako fragmentów w poziomym schemacie partycjonowania.
+* Zapoznaj się z artykułem [SP \_ Execute \_ Remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) dla procedury składowanej, która wykonuje instrukcję języka Transact-SQL w ramach jednego zdalnego Azure SQL Database lub zestawu baz danych służących jako fragmentów w poziomym schemacie partycjonowania.
 
 <!--Image references-->
 [1]: ./media/elastic-query-overview/overview.png

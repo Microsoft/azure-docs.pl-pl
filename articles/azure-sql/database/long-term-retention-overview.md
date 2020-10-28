@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450223"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782624"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Długoterminowe przechowywanie — Azure SQL Database i wystąpienie zarządzane Azure SQL
 
@@ -26,7 +26,7 @@ Wiele aplikacji ma przepisy prawne, zgodność lub inne cele biznesowe, które w
 Przechowywanie w czasie długim można włączyć dla Azure SQL Database i jest w ograniczonej publicznej wersji zapoznawczej wystąpienia zarządzanego Azure SQL. Ten artykuł zawiera omówienie pojęć dotyczących przechowywania długoterminowego. Aby skonfigurować długoterminowe przechowywanie, zobacz [konfigurowanie Azure SQL Database ltr](long-term-backup-retention-configure.md) i [Konfigurowanie programu Azure SQL Managed instance ltr](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
-> Zadań programu SQL Agent można użyć do zaplanowania [kopii zapasowych bazy danych tylko do kopiowania](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) jako alternatywy dla listy odwołującej więcej niż 35 dni.
+> Zadań programu SQL Agent można użyć do zaplanowania [kopii zapasowych bazy danych tylko do kopiowania](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) jako alternatywy dla listy odwołującej więcej niż 35 dni.
 
 
 ## <a name="how-long-term-retention-works"></a>Jak działa długoterminowe przechowywanie
@@ -36,7 +36,7 @@ Długoterminowe przechowywanie kopii zapasowych (LTR) wykorzystuje pełne kopie 
 Aby włączyć funkcję LTR, można zdefiniować zasady przy użyciu kombinacji czterech parametrów: cotygodniowe przechowywanie kopii zapasowych (W), miesięczne przechowywanie kopii zapasowych (M), roczne przechowywanie kopii zapasowych (Y) i tydzień roku (WeekOfYear). Jeśli określisz W, jedna kopia zapasowa co tydzień zostanie skopiowana do magazynu długoterminowego. W przypadku określenia typu M pierwsza kopia zapasowa każdego miesiąca zostanie skopiowana do magazynu długoterminowego. Jeśli określisz wartość Y, jedna kopia zapasowa w tygodniu określona przez WeekOfYear zostanie skopiowana do magazynu długoterminowego. Jeśli określona WeekOfYear jest w przeszłości podczas konfigurowania zasad, pierwsza kopia zapasowa LTR zostanie utworzona w następnym roku. Każda kopia zapasowa będzie przechowywana w magazynie długoterminowym zgodnie z parametrami zasad skonfigurowanymi podczas tworzenia kopii zapasowej LTR.
 
 > [!NOTE]
-> Wszelkie zmiany zasad odliczenia odnoszą się tylko do przyszłych kopii zapasowych. Na przykład jeśli cotygodniowe przechowywanie kopii zapasowych (W), miesięczne przechowywanie kopii zapasowych (M) lub coroczne przechowywanie kopii zapasowych (Y) jest modyfikowane, nowe ustawienie przechowywania będzie stosowane tylko do nowych kopii zapasowych. Przechowywanie istniejących kopii zapasowych nie będzie modyfikowane. Jeśli zachodzi potrzeba usunięcia starych kopii zapasowych w celu wygaśnięcia okresu przechowywania, należy [ręcznie usunąć kopie zapasowe](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> Wszelkie zmiany zasad odliczenia odnoszą się tylko do przyszłych kopii zapasowych. Na przykład jeśli cotygodniowe przechowywanie kopii zapasowych (W), miesięczne przechowywanie kopii zapasowych (M) lub coroczne przechowywanie kopii zapasowych (Y) jest modyfikowane, nowe ustawienie przechowywania będzie stosowane tylko do nowych kopii zapasowych. Przechowywanie istniejących kopii zapasowych nie będzie modyfikowane. Jeśli zachodzi potrzeba usunięcia starych kopii zapasowych w celu wygaśnięcia okresu przechowywania, należy [ręcznie usunąć kopie zapasowe](./long-term-backup-retention-configure.md#delete-ltr-backups).
 > 
 
 Przykłady zasad LTR:
@@ -84,7 +84,7 @@ Korzystanie z długoterminowego przechowywania kopii zapasowych za pomocą wyst�
 - **Ograniczona publiczna wersja zapoznawcza** — ta wersja zapoznawcza jest dostępna tylko dla subskrypcji EA i CSP i podlega ograniczonej dostępności.  
 - [**Tylko program PowerShell**](../managed-instance/long-term-backup-retention-configure.md) — obecnie nie ma Azure Portal. Należy włączyć funkcję LTR przy użyciu programu PowerShell. 
 
-Aby zażądać rejestracji, Utwórz [bilet pomocy technicznej systemu Azure](https://azure.microsoft.com/support/create-ticket/). W polu Typ problemu wybierz pozycję problem techniczny, w obszarze usługa wybierz wystąpienie zarządzane SQL, a dla opcji typ problemu wybierz pozycję **kopia zapasowa, przywracanie i ciągłość działania w ramach długoterminowego przechowywania kopii zapasowych**. W żądaniu Określ, czy chcesz zarejestrować się w ograniczonej publicznej wersji zapoznawczej programu LTR dla wystąpienia zarządzanego SQL.
+Aby zażądać rejestracji, Utwórz [bilet pomocy technicznej systemu Azure](https://azure.microsoft.com/support/create-ticket/). W polu Typ problemu wybierz pozycję problem techniczny, w obszarze usługa wybierz wystąpienie zarządzane SQL, a dla opcji typ problemu wybierz pozycję **kopia zapasowa, przywracanie i ciągłość działania w ramach długoterminowego przechowywania kopii zapasowych** . W żądaniu Określ, czy chcesz zarejestrować się w ograniczonej publicznej wersji zapoznawczej programu LTR dla wystąpienia zarządzanego SQL.
 
 ## <a name="configure-long-term-backup-retention"></a>Konfigurowanie długoterminowego przechowywania kopii zapasowych
 
@@ -99,4 +99,3 @@ Aby przywrócić bazę danych z magazynu LTR, można wybrać określoną kopię 
 ## <a name="next-steps"></a>Następne kroki
 
 Ponieważ kopie zapasowe bazy danych chronią dane przed przypadkowym uszkodzeniem lub usunięciem, są one istotną częścią strategii ciągłości działania i odzyskiwania po awarii. Aby dowiedzieć się więcej na temat innych SQL Database rozwiązań zapewniających ciągłość działania firmy, zobacz temat [ciągłość](business-continuity-high-availability-disaster-recover-hadr-overview.md)działania — Omówienie.
- 

@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 787ee50dc04337d82940973d47af454264629afe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a078ba6147d4d874a890f406563111b6fdb82ed6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619801"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780907"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-azure-sql-database-saas-app"></a>Konfigurowanie i używanie dzienników Azure Monitor z wielodostępnym Azure SQL Database aplikacji SaaS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-W tym samouczku przedstawiono Konfigurowanie [dzienników Azure monitor](/azure/log-analytics/log-analytics-overview) i używanie ich do monitorowania pul elastycznych i baz danych. Ten samouczek jest oparty na [samouczku dotyczącego monitorowania i zarządzania wydajnością](saas-dbpertenant-performance-monitoring.md). Pokazano, jak używać dzienników Azure Monitor, aby rozszerzyć monitorowanie i alerty podane w Azure Portal. Dzienniki Azure Monitor obsługują monitorowanie tysięcy pul elastycznych i setek tysięcy baz danych. Dzienniki Azure Monitor to pojedyncze rozwiązanie monitorujące, które może zintegrować monitorowanie różnych aplikacji i usług platformy Azure w ramach wielu subskrypcji platformy Azure.
+W tym samouczku przedstawiono Konfigurowanie [dzienników Azure monitor](../../azure-monitor/log-query/log-query-overview.md) i używanie ich do monitorowania pul elastycznych i baz danych. Ten samouczek jest oparty na [samouczku dotyczącego monitorowania i zarządzania wydajnością](saas-dbpertenant-performance-monitoring.md). Pokazano, jak używać dzienników Azure Monitor, aby rozszerzyć monitorowanie i alerty podane w Azure Portal. Dzienniki Azure Monitor obsługują monitorowanie tysięcy pul elastycznych i setek tysięcy baz danych. Dzienniki Azure Monitor to pojedyncze rozwiązanie monitorujące, które może zintegrować monitorowanie różnych aplikacji i usług platformy Azure w ramach wielu subskrypcji platformy Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -33,8 +33,8 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
 
-* Wdrożono aplikację Wingtip bilety SaaS bazy danych dla dzierżawców. Aby wdrożyć program w mniej niż pięć minut, zobacz [wdrażanie i eksplorowanie aplikacji Wingtip bilety SaaS Database-per-dzierżawców](../../sql-database/saas-dbpertenant-get-started-deploy.md).
-* Zainstalowany jest program Azure PowerShell. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Wdrożono aplikację Wingtip bilety SaaS bazy danych dla dzierżawców. Aby wdrożyć program w mniej niż pięć minut, zobacz [wdrażanie i eksplorowanie aplikacji Wingtip bilety SaaS Database-per-dzierżawców](./saas-dbpertenant-get-started-deploy.md).
+* Zainstalowany jest program Azure PowerShell. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](/powershell/azure/get-started-azureps).
 
 Zapoznaj się z [samouczkiem dotyczącym monitorowania i zarządzania wydajnością](saas-dbpertenant-performance-monitoring.md) w omówieniu scenariuszy i wzorców SaaS oraz ich wpływu na wymagania dotyczące monitorowania.
 
@@ -48,16 +48,16 @@ Obszary robocze OMS są teraz nazywane obszarami roboczymi usługi Log Analytics
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Tworzenie danych diagnostycznych wydajności przez symulowanie obciążenia dla dzierżawców 
 
-1. W programie PowerShell ISE Otwórz *.. \\ WingtipTicketsSaaS-MultiTenantDb — główne \\ moduły uczenia \\ wydajności i zarządzania \\Demo-PerformanceMonitoringAndManagement.ps1*. Pozostaw ten skrypt otwarty, ponieważ w tym samouczku możesz chcieć uruchomić kilka scenariuszy generowania obciążenia.
+1. W programie PowerShell ISE Otwórz *.. \\ WingtipTicketsSaaS-MultiTenantDb — główne \\ moduły uczenia \\ wydajności i zarządzania \\Demo-PerformanceMonitoringAndManagement.ps1* . Pozostaw ten skrypt otwarty, ponieważ w tym samouczku możesz chcieć uruchomić kilka scenariuszy generowania obciążenia.
 1. Jeśli jeszcze tego nie zrobiono, Zainicjuj obsługę partii dzierżawców, aby zapewnić bardziej interesujący kontekst monitorowania. Ten proces trwa kilka minut.
 
-   a. Ustaw **$DemoScenario = 1**, _Zainicjuj obsługę partii dzierżawców_.
+   a. Ustaw **$DemoScenario = 1** , _Zainicjuj obsługę partii dzierżawców_ .
 
    b. Aby uruchomić skrypt i wdrożyć dodatkowe 17 dzierżawców, naciśnij klawisz F5.
 
 1. Teraz uruchom generator obciążenia, aby uruchomić symulowane obciążenie wszystkich dzierżawców.
 
-    a. Ustaw **$DemoScenario = 2**, _Generuj normalne obciążenie o natężeniu (około 30 jednostek DTU)_.
+    a. Ustaw **$DemoScenario = 2** , _Generuj normalne obciążenie o natężeniu (około 30 jednostek DTU)_ .
 
     b. Aby uruchomić skrypt, naciśnij klawisz F5.
 
@@ -69,7 +69,7 @@ Wingtip bilety SaaS wielodostępne skrypty bazy danych i kod źródłowy aplikac
 
 Azure Monitor jest oddzielną usługą, która musi być skonfigurowana. Azure Monitor dzienników zbiera dane dziennika, telemetrię i metryki w obszarze roboczym Log Analytics. Podobnie jak w przypadku innych zasobów na platformie Azure, należy utworzyć obszar roboczy Log Analytics. Nie trzeba tworzyć obszaru roboczego w tej samej grupie zasobów co monitorowane aplikacje. Zdarza się to często najczęściej. W przypadku aplikacji biletów Wingtip Użyj pojedynczej grupy zasobów, aby upewnić się, że obszar roboczy został usunięty z aplikacją.
 
-1. W programie PowerShell ISE Otwórz *.. \\ WingtipTicketsSaaS-MultiTenantDb — główne \\ moduły uczenia dotyczące \\ monitorowania wydajności i zarządzania \\ \\Demo-LogAnalytics.ps1log Analytics *.
+1. W programie PowerShell ISE Otwórz *.. \\ WingtipTicketsSaaS-MultiTenantDb — główne \\ moduły uczenia dotyczące \\ monitorowania wydajności i zarządzania \\ \\Demo-LogAnalytics.ps1log Analytics* .
 1. Aby uruchomić skrypt, naciśnij klawisz F5.
 
 Teraz możesz otworzyć dzienniki Azure Monitor w Azure Portal. Zebranie danych telemetrycznych w obszarze roboczym Log Analytics i udostępnienie jej jako widocznej może potrwać kilka minut. Im dłużej opuścisz system zbierania danych diagnostycznych, tym bardziej interesujące jest środowisko. 
@@ -83,7 +83,7 @@ W tym ćwiczeniu Otwórz Log Analytics obszar roboczy w Azure Portal, aby wyszuk
 
    ![Otwórz obszar roboczy Log Analytics](./media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Wybierz obszar roboczy o nazwie _wtploganalytics &lt; - &gt; User_.
+1. Wybierz obszar roboczy o nazwie _wtploganalytics &lt; - &gt; User_ .
 
 1. Wybierz pozycję **Przegląd** , aby otworzyć rozwiązanie log analytics w Azure Portal.
 
@@ -102,7 +102,7 @@ W tym ćwiczeniu Otwórz Log Analytics obszar roboczy w Azure Portal, aby wyszuk
 
     ![Pulpit nawigacyjny usługi log Analytics](./media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-1. Zmień ustawienie filtru, aby zmodyfikować zakres czasu. Na potrzeby tego samouczka wybierz pozycję **Ostatnia 1 godzina**.
+1. Zmień ustawienie filtru, aby zmodyfikować zakres czasu. Na potrzeby tego samouczka wybierz pozycję **Ostatnia 1 godzina** .
 
     ![Filtr czasu](./media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
@@ -135,7 +135,7 @@ W obszarze roboczym Log Analytics można bardziej szczegółowo eksplorować dan
 
 Monitorowanie i alerty w dziennikach Azure Monitor są oparte na zapytaniach dotyczących danych w obszarze roboczym, w przeciwieństwie do alertów zdefiniowanych dla każdego zasobu w Azure Portal. Korzystając z alertów dotyczących zapytań, można zdefiniować pojedynczy alert, który będzie wyglądał na wszystkie bazy danych, zamiast definiować go dla każdej bazy danych. Zapytania są ograniczone tylko przez dane dostępne w obszarze roboczym.
 
-Aby uzyskać więcej informacji na temat używania dzienników Azure Monitor do wykonywania zapytań i ustawiania alertów, zobacz temat [Work with alert rules in Azure monitor Logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Aby uzyskać więcej informacji na temat używania dzienników Azure Monitor do wykonywania zapytań i ustawiania alertów, zobacz temat [Work with alert rules in Azure monitor Logs](../../azure-monitor/platform/alerts-metric.md).
 
 Azure Monitor dzienników dla SQL Database opłat na podstawie ilości danych w obszarze roboczym. W tym samouczku utworzono bezpłatny obszar roboczy, który jest ograniczony do 500 MB dziennie. Po osiągnięciu tego limitu dane nie są już dodawane do obszaru roboczego.
 
@@ -150,7 +150,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Wypróbuj [Samouczek dotyczący analizy dzierżawy](saas-dbpertenant-log-analytics.md).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Dodatkowe samouczki, które kompilują na wstępną Wingtip bilety SaaS wdrożenie aplikacji na dzierżawcę](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Dzienniki Azure Monitor](../../azure-monitor/insights/azure-sql.md)
+* [Dzienniki usługi Azure Monitor](../../azure-monitor/insights/azure-sql.md)

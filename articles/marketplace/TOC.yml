@@ -139,14 +139,16 @@
                   href: azure-vm-create-certification-faq.md
     - name: Usługi konsultingowe
       items:
-        - name: Planowanie oferty usług doradczych
-          href: consulting-services.md
-        - name: Tworzenie i publikowanie oferty usług doradczych
-          items:
-            - name: Wymagania wstępne
-              href: partner-center-portal/consulting-service-prerequisites.md
-            - name: Tworzenie oferty usługi konsultingowej
-              href: partner-center-portal/create-consulting-service-offer.md
+        - name: Planowanie oferty usługi konsultingowej
+          href: plan-consulting-service-offer.md
+        - name: Tworzenie oferty usługi konsultingowej
+          href: create-consulting-service-offer.md
+        - name: Konfigurowanie właściwości usługi konsultingowej
+          href: create-consulting-service-offer-properties.md
+        - name: Konfigurowanie oferty usługi konsultingowej
+          href: create-consulting-service-offer-listing.md
+        - name: Konfigurowanie cennika i dostępności
+          href: create-consulting-service-pricing-availability.md
     - name: Oferty Dynamics 365
       items:
         - name: Planowanie oferty usługi Dynamics 365

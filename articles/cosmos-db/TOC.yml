@@ -59,13 +59,13 @@
         - name: Kontrola dostępu oparta na rolach
           displayName: rbac
           href: role-based-access-control.md
+        - name: Obsługa usługi Azure Policy
+          href: policy.md
         - name: Kontrole zabezpieczeń usługi Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
-        - name: Obsługa usługi Azure Policy
-          href: policy.md
     - name: Analiza przy użyciu usługi Azure Synapse Link
       items:
         - name: Usługa Azure Synapse Link dla usługi Cosmos DB
@@ -202,11 +202,14 @@
           href: templates-samples-sql.md
     - name: Pojęcia
       items:
-        - name: Modelowanie danych dokumentów
-          displayName: document
-          href: modeling-data.md
-        - name: Partycjonowanie
+        - name: Modelowanie i partycjonowanie
           items:
+            - name: Modelowanie danych dokumentów
+              displayName: document
+              href: modeling-data.md
+            - name: Modelowanie i partycjonowanie — rzeczywisty przykład
+              displayName: 'model, partition, example'
+              href: how-to-model-partition-example.md
             - name: Syntetyczny klucz partycji
               href: synthetic-partition-keys.md
         - name: Zapytanie SQL
@@ -631,13 +634,13 @@
           items:
             - name: Aprowizowana przepływność
               items:
-                - name: Aprowizowanie standardowe (ręczne) przepływności w kontenerze
+                - name: Aprowidowanie przepływności standardowej (ręcznej) — kontener
                   displayName: 'request units, RUs, RU, collection level'
                   href: how-to-provision-container-throughput.md
-                - name: Aprowizowanie standardowe (ręczne) przepływności w bazie danych
+                - name: Aprowidowanie przepływności standardowej (ręcznej) — baza danych
                   displayName: 'request units, RUs, RU, shared throughput, database level'
                   href: how-to-provision-database-throughput.md
-                - name: Aprowizowanie przepływności autoskalowania w bazie danych lub kontenerze
+                - name: Aprowidowanie przepływności skalowanej automatycznie — baza danych lub kontener
                   displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
                   href: how-to-provision-autoscale-throughput.md
                 - name: Szacowanie liczby jednostek żądania na sekundę za pomocą narzędzia do planowania wydajności rozwiązania Cosmos
@@ -657,9 +660,6 @@
               href: large-partition-keys.md
             - name: Wykonywanie zapytania względem kontenera
               href: how-to-query-container.md
-            - name: Partycjonowanie i modelowanie danych — rzeczywisty przykład
-              displayName: 'model, partition, example'
-              href: how-to-model-partition-example.md
             - name: Migrowanie do kontenerów podzielonych na partycje
               href: migrate-containers-partitioned-to-nonpartitioned.md
             - name: Konfigurowanie czasu wygaśnięcia
@@ -1179,8 +1179,6 @@
       items:
         - name: Nagłówki odpowiedzi
           href: gremlin-headers.md
-        - name: Limity
-          href: gremlin-limits.md
         - name: Dostawca zasobów REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Szablon usługi Resource Manager

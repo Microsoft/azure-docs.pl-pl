@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 73b48f8bcb4ec6facfebfc62d03ee5cd8237f504
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7bb4cca6f58cb4ad0722c1407d2ef3062c3747e2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490802"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781961"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Wprowadzenie do podstawowych usług Azure Storage
 
@@ -41,12 +41,12 @@ Dostęp do każdej usługi uzyskuje się za pośrednictwem konta magazynu. Aby r
 
 Poniższa tabela zawiera porównanie plików, obiektów blob, dysków, kolejek i tabel oraz przykładowe scenariusze dla każdego z nich.
 
-| Cecha | Opis | Kiedy stosować |
+| Cechy | Opis | Kiedy stosować |
 |--------------|-------------|-------------|
 | **Azure Files** |Oferuje w pełni zarządzane udziały plików w chmurze, do których można uzyskać dostęp z dowolnego miejsca za pośrednictwem protokołu SMB (Industry Standard Server Message Block).<br><br>Udziały plików platformy Azure można instalować z lokalnych wdrożeń systemu Windows, Linux i macOS. | Chcesz "podnieść i przenieść" aplikację do chmury, która korzysta już z natywnych interfejsów API systemu plików do udostępniania danych między nimi a innymi aplikacjami uruchomionymi na platformie Azure.<br/><br/>Chcesz zastąpić lub uzupełnić lokalne serwery plików lub urządzenia NAS.<br><br> Chcesz przechowywać narzędzia do tworzenia i debugowania, które muszą być dostępne z wielu maszyn wirtualnych. |
 | **Obiekty blob platformy Azure** | Umożliwia przechowywanie danych bez struktury i uzyskiwanie do nich dostępu w dużej skali w blokowych obiektach Blob.<br/><br/>Program obsługuje również [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) w przypadku rozwiązań do analizy danych Big Data w przedsiębiorstwie. | Chcesz, aby aplikacja obsługiwała scenariusze przesyłania strumieniowego i dostępu losowego.<br/><br/>Chcesz mieć możliwość dostępu do danych aplikacji z dowolnego miejsca.<br/><br/>Chcesz utworzyć przedsiębiorstwo Data Lake na platformie Azure i przeprowadzić analizę danych Big Data. |
 | **Azure Disks** | Umożliwia trwałe przechowywanie danych i uzyskiwanie do nich dostępu z dołączonego wirtualnego dysku twardego. | Chcesz "podnieść i przenieść" aplikacje, które używają natywnych interfejsów API systemu plików do odczytu i zapisu danych na dyskach trwałych.<br/><br/>Chcesz przechowywać dane, które nie są wymagane, aby można było uzyskać do nich dostęp spoza maszyny wirtualnej, do której dysk jest podłączony. |
-| **Kolejki platformy Azure** | Umożliwia asynchroniczne kolejkowanie komunikatów między składnikami aplikacji. | Chcesz oddzielić składniki aplikacji i używać komunikatów asynchronicznych do komunikacji między nimi.<br><br>Wskazówki dotyczące korzystania z usługi queue storage i kolejek Service Bus można znaleźć w temacie [kolejki magazynu i kolejki Service Bus — w porównaniu z kontrastami](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Kolejki platformy Azure** | Umożliwia asynchroniczne kolejkowanie komunikatów między składnikami aplikacji. | Chcesz oddzielić składniki aplikacji i używać komunikatów asynchronicznych do komunikacji między nimi.<br><br>Wskazówki dotyczące korzystania z usługi queue storage i kolejek Service Bus można znaleźć w temacie [kolejki magazynu i kolejki Service Bus — w porównaniu z kontrastami](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
 | **Tabele platformy Azure** | Umożliwiają przechowywanie strukturalnych danych NoSQL w chmurze, zapewniając Magazyn kluczy/atrybutów z projektem bez schematu. | Chcesz przechowywać elastyczne zestawy danych, takie jak dane użytkowników dla aplikacji sieci Web, książki adresowe, informacje o urządzeniach lub inne typy metadanych, których potrzebuje Twoja usługa. <br/><br/>Aby uzyskać wskazówki dotyczące korzystania z usługi Table Storage i interfejs API tabel Azure Cosmos DB, zobacz [Tworzenie aplikacji za pomocą Azure Cosmos DB interfejs API tabel i usługi Azure Table Storage](../../cosmos-db/table-support.md). |
 
 ## <a name="blob-storage"></a>Blob Storage
@@ -91,9 +91,9 @@ Przykładowo załóżmy, że chcesz, aby klienci mogli przekazywać obrazy, i ch
 
 Aby uzyskać więcej informacji na temat usługi Azure Queues, zobacz [Wprowadzenie do usługi Azure Queues](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Magazyn tabel
+## <a name="table-storage"></a>Table Storage
 
-Usługa Azure Table Storage jest teraz częścią usługi Azure Cosmos DB. Aby zapoznać się z dokumentacją usługi Azure Table Storage, przejdź do artykułu [Omówienie usługi Azure Table Storage](../tables/table-storage-overview.md). Oprócz istniejącej usługi Azure Table Storage dostępna jest nowa oferta interfejsu API tabel usługi Azure Cosmos DB, który zapewnia tabele zoptymalizowane pod kątem przepływności, globalną dystrybucję i automatyczne indeksy pomocnicze. Aby dowiedzieć się więcej i wypróbować nowe środowisko Premium, zobacz [Azure Cosmos DB interfejs API tabel](https://aka.ms/premiumtables).
+Usługa Azure Table Storage jest teraz częścią usługi Azure Cosmos DB. Aby zapoznać się z dokumentacją usługi Azure Table Storage, przejdź do artykułu [Omówienie usługi Azure Table Storage](../tables/table-storage-overview.md). Oprócz istniejącej usługi Azure Table Storage dostępna jest nowa oferta interfejsu API tabel usługi Azure Cosmos DB, który zapewnia tabele zoptymalizowane pod kątem przepływności, globalną dystrybucję i automatyczne indeksy pomocnicze. Aby dowiedzieć się więcej i wypróbować nowe środowisko Premium, zobacz [Azure Cosmos DB interfejs API tabel](../../cosmos-db/table-introduction.md).
 
 Aby uzyskać więcej informacji na temat usługi Table Storage, zobacz [Omówienie usługi Azure Table Storage](../tables/table-storage-overview.md).
 
@@ -115,7 +115,7 @@ Każde żądanie do usługi Azure Storage musi być autoryzowane. Usługa Azure 
 - **Autoryzacja usługi Azure AD za pośrednictwem protokołu SMB dla Azure Files.** Azure Files obsługuje autoryzację opartą na tożsamościach za pośrednictwem protokołu SMB (Server Message Block) za pośrednictwem Azure Active Directory Domain Services (Azure AD DS) lub lokalnego Active Directory Domain Services (wersja zapoznawcza). Przyłączone do domeny maszyny wirtualne z systemem Windows mogą uzyskiwać dostęp do udziałów plików platformy Azure przy użyciu poświadczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [omówienie Azure Files obsługi uwierzytelniania opartego na tożsamościach na potrzeby dostępu do protokołu SMB](../files/storage-files-active-directory-overview.md) i [planowania wdrożenia Azure Files](../files/storage-files-planning.md#identity).
 - **Autoryzacja za pomocą klucza współużytkowanego.** Usługi Azure Storage Blob, plików, kolejek i tabel obsługują autoryzację za pomocą klucza współużytkowanego. Klient korzystający z autoryzacji klucza wspólnego przekazuje nagłówek z każdym żądaniem podpisanym przy użyciu klucza dostępu konta magazynu. Aby uzyskać więcej informacji, zobacz [Autoryzuj przy użyciu klucza współużytkowanego](/rest/api/storageservices/authorize-with-shared-key).
 - **Autoryzacja przy użyciu sygnatur dostępu współdzielonego (SAS).** Sygnatura dostępu współdzielonego (SAS) jest ciągiem zawierającym token zabezpieczający, który może być dołączany do identyfikatora URI zasobu magazynu. Token zabezpieczający hermetyzuje ograniczenia, takie jak uprawnienia i interwał dostępu. Aby uzyskać więcej informacji, zobacz [Używanie sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md).
-- **Anonimowy dostęp do kontenerów i obiektów BLOB.** Kontener i jego obiekty blob mogą być publicznie dostępne. Po określeniu, że kontener lub obiekt BLOB jest publiczny, każda osoba może ją odczytać anonimowo; nie jest wymagane żadne uwierzytelnianie. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](../blobs/storage-manage-access-to-resources.md).
+- **Anonimowy dostęp do kontenerów i obiektów BLOB.** Kontener i jego obiekty blob mogą być publicznie dostępne. Po określeniu, że kontener lub obiekt BLOB jest publiczny, każda osoba może ją odczytać anonimowo; nie jest wymagane żadne uwierzytelnianie. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](../blobs/anonymous-read-access-configure.md).
 
 ## <a name="encryption"></a>Szyfrowanie
 
@@ -131,7 +131,7 @@ Biblioteki klienta usługi Azure Storage zapewniają metody szyfrowania danych z
 
 ## <a name="redundancy"></a>Nadmiarowość
 
-Aby mieć pewność, że dane są trwałe, usługa Azure Storage przechowuje wiele kopii danych. Podczas konfigurowania konta magazynu należy wybrać opcję nadmiarowości. Aby uzyskać więcej informacji, zobacz [Nadmiarowość usługi Azure Storage](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+Aby mieć pewność, że dane są trwałe, usługa Azure Storage przechowuje wiele kopii danych. Podczas konfigurowania konta magazynu należy wybrać opcję nadmiarowości. Aby uzyskać więcej informacji, zobacz [Nadmiarowość usługi Azure Storage](./storage-redundancy.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Transferowanie danych do i z usługi Azure Storage
 
@@ -160,7 +160,7 @@ Możesz uzyskać dostęp do zasobów na koncie magazynu za pomocą dowolnego ję
 
 - [Interfejs API REST dostawcy zasobów usługi Storage](/rest/api/storagerp/)
 - [Biblioteka klienta dostawcy zasobów usługi Storage dla platformy .NET](/dotnet/api/overview/azure/storage/management)
-- [Interfejs API REST zarządzania usługą Storage (klasyczny)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
+- [Interfejs API REST zarządzania usługą Storage (klasyczny)](/previous-versions/azure/reference/ee460790(v=azure.100))
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Dokumentacja bibliotek i interfejsów API ruchu danych usługi Azure Storage
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e03601bc929354a69e7f9027db5ac9b7697c3c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9b69cef5741ab609b72f6c2c34e3aa50b45648
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054079"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782080"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Konfigurowanie narzędzia Azure Import/Export w wersji 1
 Narzędzie Microsoft Azure Import/Export to narzędzie do przygotowywania i naprawiania dysku, które może być używane z usługą Microsoft Azure Import/Export. Za pomocą tego narzędzia można korzystać z następujących funkcji:  
@@ -249,8 +249,8 @@ Examples:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przygotowywanie dysków twardych do zadania importu](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Wyświetlanie podglądu użycia dysku dla zadania eksportu](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [Sprawdzanie stanu zadania za pomocą plików dziennika kopiowania](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Naprawianie zadania importu](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Naprawianie zadania eksportu](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Przygotowywanie dysków twardych do zadania importu](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+* [Wyświetlanie podglądu użycia dysku dla zadania eksportu](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)   
+* [Sprawdzanie stanu zadania za pomocą plików dziennika kopiowania](./storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Naprawianie zadania importu](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Naprawianie zadania eksportu](./storage-import-export-tool-repairing-an-export-job-v1.md)

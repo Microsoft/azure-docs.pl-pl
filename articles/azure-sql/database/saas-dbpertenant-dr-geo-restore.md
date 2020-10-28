@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 620a5dad7966347667e0a0a50eb30d562ab700b2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: daccbd9dfb3ed628d8a3e604cbb9af4045f1ebe6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330108"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780890"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Używanie przywracania geograficznego do odzyskiwania wielodostępnej aplikacji SaaS z kopii zapasowych bazy danych
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,7 +43,7 @@ W tym samouczku przedstawiono przepływy pracy przywracania i wycofywania. Omawi
 
 Przed rozpoczęciem tego samouczka należy spełnić następujące wymagania wstępne:
 * Wdróż bazę danych SaaS biletów Wingtip na aplikację dzierżawców. Aby wdrożyć program w ciągu mniej niż pięciu minut, zobacz [wdrażanie i eksplorowanie bazy danych Wingtip biletów SaaS dla aplikacji dzierżawców](saas-dbpertenant-get-started-deploy.md). 
-* Zainstaluj program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [wprowadzenie do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Zainstaluj program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [wprowadzenie do Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Wprowadzenie do wzorca przywracania geograficznego
 
@@ -58,17 +58,17 @@ Odzyskiwanie po awarii (DR) jest ważnym zagadnieniem dotyczącym wielu aplikacj
  * Wycofywanie baz danych do ich oryginalnego regionu z minimalnym wpływem na dzierżawy po rozwiązaniu awarii.  
 
 > [!NOTE]
-> Aplikacja zostanie odzyskana w sparowanym regionie regionu, w którym aplikacja jest wdrażana. Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
+> Aplikacja zostanie odzyskana w sparowanym regionie regionu, w którym aplikacja jest wdrażana. Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](../../best-practices-availability-paired-regions.md).   
 
 Ten samouczek używa funkcji Azure SQL Database i platformy Azure w celu rozwiązania tych wyzwań:
 
-* [Azure Resource Manager szablonów](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), aby zastrzec wszystkie potrzebne pojemności tak szybko, jak to możliwe. Szablony Azure Resource Manager są używane do aprowizacji lustrzanego obrazu oryginalnych serwerów i pul elastycznych w regionie odzyskiwania. Zostanie również utworzony oddzielny serwer i Pula do aprowizacji nowych dzierżawców.
+* [Azure Resource Manager szablonów](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), aby zastrzec wszystkie potrzebne pojemności tak szybko, jak to możliwe. Szablony Azure Resource Manager są używane do aprowizacji lustrzanego obrazu oryginalnych serwerów i pul elastycznych w regionie odzyskiwania. Zostanie również utworzony oddzielny serwer i Pula do aprowizacji nowych dzierżawców.
 * [Elastic Database Biblioteka edcl (Client Library](elastic-database-client-library.md) ), aby utworzyć i zachować katalog bazy danych dzierżawcy. Wykaz rozszerzony obejmuje okresowe odświeżanie informacji o konfiguracji puli i bazy danych.
 * [Funkcje odzyskiwania fragmentu Management](elastic-database-recovery-manager.md) Biblioteka edcl, aby zachować wpisy lokalizacji bazy danych w katalogu podczas odzyskiwania i wycofywania.  
 * [Przywracanie geograficzne](../../key-vault/general/disaster-recovery-guidance.md), aby odzyskać wykaz i bazy danych dzierżawy z automatycznie obsługiwanych geograficznie nadmiarowych kopii zapasowych. 
-* [Asynchroniczne operacje przywracania](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)wysyłane w kolejności z priorytetem dzierżawy są umieszczane w kolejce dla każdej puli przez system i przetwarzane w partiach, więc pula nie jest przeciążona. Te operacje można anulować przed lub w razie potrzeby, jeśli jest to konieczne.   
+* [Asynchroniczne operacje przywracania](../../azure-resource-manager/management/async-operations.md)wysyłane w kolejności z priorytetem dzierżawy są umieszczane w kolejce dla każdej puli przez system i przetwarzane w partiach, więc pula nie jest przeciążona. Te operacje można anulować przed lub w razie potrzeby, jeśli jest to konieczne.   
 * [Replikacja geograficzna](active-geo-replication-overview.md), która pozwala na wycofywanie baz danych do oryginalnego regionu po awarii. Korzystanie z replikacji geograficznej nie powoduje utraty danych i minimalnego wpływu na dzierżawę.
-* [Aliasy DNS programu SQL Server](../../sql-database/dns-alias-overview.md), aby umożliwić procesowi synchronizacji katalogu łączenie się z usługą Active Catalog niezależnie od jej lokalizacji.  
+* [Aliasy DNS programu SQL Server](./dns-alias-overview.md), aby umożliwić procesowi synchronizacji katalogu łączenie się z usługą Active Catalog niezależnie od jej lokalizacji.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Pobierz skrypty odzyskiwania po awarii
 
@@ -104,7 +104,7 @@ Przed rozpoczęciem procesu odzyskiwania zapoznaj się z normalnym dobrym stanem
 W tym zadaniu zostanie rozpoczęty proces synchronizacji konfiguracji serwerów, pul elastycznych i baz danych w katalogu dzierżawcy. Te informacje są używane później do konfigurowania dublowanego środowiska obrazu w regionie odzyskiwania.
 
 > [!IMPORTANT]
-> Dla uproszczenia proces synchronizacji i inne długotrwałe procesy odzyskiwania i wycofywania są implementowane w tych przykładach jako lokalne zadania programu PowerShell lub sesje, które są uruchamiane w ramach logowania użytkownika klienta. Tokeny uwierzytelniania wydawane podczas logowania wygasają po kilku godzinach, a zadania zakończą się niepowodzeniem. W scenariuszu produkcyjnym długotrwałe procesy powinny być implementowane jako niezawodne usługi platformy Azure, które są uruchamiane w ramach jednostki usługi. Zobacz [używanie Azure PowerShell, aby utworzyć jednostkę usługi przy użyciu certyfikatu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
+> Dla uproszczenia proces synchronizacji i inne długotrwałe procesy odzyskiwania i wycofywania są implementowane w tych przykładach jako lokalne zadania programu PowerShell lub sesje, które są uruchamiane w ramach logowania użytkownika klienta. Tokeny uwierzytelniania wydawane podczas logowania wygasają po kilku godzinach, a zadania zakończą się niepowodzeniem. W scenariuszu produkcyjnym długotrwałe procesy powinny być implementowane jako niezawodne usługi platformy Azure, które są uruchamiane w ramach jednostki usługi. Zobacz [używanie Azure PowerShell, aby utworzyć jednostkę usługi przy użyciu certyfikatu](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). 
 
 1. W ISE programu PowerShell Otwórz plik. ..\Learning Modules\UserConfig.psm1. Zastąp `<resourcegroup>` `<user>` wartości i w wierszach 10 i 11 wartością używaną podczas wdrażania aplikacji. Zapisz plik.
 
@@ -180,7 +180,7 @@ Załóżmy, że wystąpi awaria w regionie, w którym aplikacja jest wdrożona, 
 
     * Skrypt zostanie otwarty w nowym oknie programu PowerShell, a następnie zostanie uruchomiony zestaw zadań programu PowerShell, które są uruchamiane równolegle. Te zadania umożliwiają przywracanie serwerów, pul i baz danych do regionu odzyskiwania.
 
-    * Region odzyskiwania to sparowany region skojarzony z regionem świadczenia usługi Azure, w którym została wdrożona aplikacja. Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * Region odzyskiwania to sparowany region skojarzony z regionem świadczenia usługi Azure, w którym została wdrożona aplikacja. Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](../../best-practices-availability-paired-regions.md). 
 
 3. Monitoruj stan procesu odzyskiwania w oknie programu PowerShell.
 
@@ -374,8 +374,8 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 > * Użyj aliasu DNS, aby umożliwić aplikacji łączenie się z wykazem dzierżawy w całej konfiguracji.
 > * Po rozwiązaniu awarii Użyj replikacji geograficznej do wycofywania odzyskanych baz danych do ich oryginalnego regionu.
 
-Wypróbuj [odzyskiwanie po awarii dla wielodostępnej aplikacji SaaS za pomocą samouczka replikacji geograficznej bazy danych](../../sql-database/saas-dbpertenant-dr-geo-replication.md) , aby dowiedzieć się, jak za pomocą replikacji geograficznej znacznie skrócić czas wymagany do odzyskania wielodostępnej aplikacji wielodostępnej w dużej skali.
+Wypróbuj [odzyskiwanie po awarii dla wielodostępnej aplikacji SaaS za pomocą samouczka replikacji geograficznej bazy danych](./saas-dbpertenant-dr-geo-replication.md) , aby dowiedzieć się, jak za pomocą replikacji geograficznej znacznie skrócić czas wymagany do odzyskania wielodostępnej aplikacji wielodostępnej w dużej skali.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 [Dodatkowe samouczki, które kompilują się po aplikacji Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
