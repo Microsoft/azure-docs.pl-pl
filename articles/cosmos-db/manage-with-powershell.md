@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: c56f3b561dbced9f00bb2616f5709a51fa02fbcb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3b5cc1dd61b4f01e40c1cc812e93a448855ad92d
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481010"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926516"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Zarządzanie zasobami interfejsu API Azure Cosmos DB Core (SQL) przy użyciu programu PowerShell
 
@@ -78,7 +78,7 @@ New-AzCosmosDBAccount `
 * `$resourceGroupName` Grupa zasobów platformy Azure, w której ma zostać wdrożone konto Cosmos. Musi już istnieć.
 * `$locations` Regiony konta bazy danych, region z `FailoverPriority 0` jest regionem zapisu.
 * `$accountName` Nazwa konta usługi Azure Cosmos. Musi być unikatowa, mała, zawierać tylko znaki alfanumeryczne i znak "-" oraz długość od 3 do 31 znaków.
-* `$apiKind` Typ konta Cosmos do utworzenia. Aby uzyskać więcej informacji, zobacz [interfejsy API w Cosmos DB](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis).
+* `$apiKind` Typ konta Cosmos do utworzenia. Aby uzyskać więcej informacji, zobacz [interfejsy API w Cosmos DB](introduction.md#simplified-application-development).
 * `$consistencyPolicy`, `$maxStalenessInterval` i `$maxStalenessPrefix` domyślny poziom spójności oraz ustawienia konta usługi Azure Cosmos. Aby uzyskać więcej informacji, zobacz [poziomy spójności w Azure Cosmos DB](consistency-levels.md).
 
 Konta usługi Azure Cosmos można skonfigurować za pomocą zapory IP, punktów końcowych usługi Virtual Network i prywatnych punktów końcowych. Aby uzyskać informacje dotyczące sposobu konfigurowania zapory protokołu IP dla Azure Cosmos DB, zobacz [Konfigurowanie zapory IP](how-to-configure-firewall.md). Aby uzyskać informacje na temat włączania punktów końcowych usługi dla Azure Cosmos DB, zobacz [Konfigurowanie dostępu z sieci wirtualnych](how-to-configure-vnet-service-endpoint.md). Aby uzyskać informacje na temat włączania prywatnych punktów końcowych dla Azure Cosmos DB, zobacz [Konfigurowanie dostępu z prywatnych punktów końcowych](how-to-configure-private-endpoints.md).

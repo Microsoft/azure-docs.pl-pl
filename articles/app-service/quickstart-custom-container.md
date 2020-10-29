@@ -7,12 +7,12 @@ ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 1411491906e763a52ee1b6a66df1dea183b91973
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b3d9e2e275b4c0d000759878557e5e14f7dfc04f
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425862"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925751"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Uruchamianie niestandardowego kontenera na platformie Azure
 
@@ -34,28 +34,28 @@ W celu ukończenia tego samouczka:
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Przełącz platformę Docker na potrzeby uruchamiania kontenerów systemu Windows</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Zainstaluj program Visual Studio 2019</a> przy użyciu obciążeń **ASP.NET oraz tworzenia aplikacji sieci Web** i **platformy Azure** . Jeśli zainstalowano już program Visual Studio 2019:
 
-    - Zainstaluj najnowsze aktualizacje programu Visual Studio, wybierając pozycję **Pomoc**  >  **Sprawdź dostępność aktualizacji**.
-    - Dodaj obciążenia w programie Visual Studio, wybierając kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje**.
+    - Zainstaluj najnowsze aktualizacje programu Visual Studio, wybierając pozycję **Pomoc**  >  **Sprawdź dostępność aktualizacji** .
+    - Dodaj obciążenia w programie Visual Studio, wybierając kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje** .
 
 ## <a name="create-an-aspnet-web-app"></a>Tworzenie aplikacji internetowej platformy ASP.NET
 
 Utwórz aplikację internetową ASP.NET, wykonując następujące czynności:
 
-1. Otwórz program Visual Studio, a następnie wybierz pozycję **Utwórz nowy projekt**.
+1. Otwórz program Visual Studio, a następnie wybierz pozycję **Utwórz nowy projekt** .
 
-1. W obszarze **Utwórz nowy projekt**Znajdź i wybierz pozycję **aplikacja sieci Web ASP.NET (.NET Framework)** dla języka C#, a następnie wybierz pozycję **dalej**.
+1. W obszarze **Utwórz nowy projekt** Znajdź i wybierz pozycję **aplikacja sieci Web ASP.NET (.NET Framework)** dla języka C#, a następnie wybierz pozycję **dalej** .
 
-1. W obszarze **Konfigurowanie nowego projektu**Nadaj nazwę aplikacji _myfirstazurewebapp_, a następnie wybierz pozycję **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu** Nadaj nazwę aplikacji _myfirstazurewebapp_ , a następnie wybierz pozycję **Utwórz** .
 
    ![Konfigurowanie projektu aplikacji sieci Web](./media/quickstart-custom-container/configure-web-app-project-container.png)
 
 1. Na platformie Azure można wdrożyć dowolny typ aplikacji internetowej platformy ASP.NET. Na potrzeby tego przewodnika Szybki Start wybierz szablon **MVC** .
 
-1. Wybierz opcję **Obsługa platformy Docker**i upewnij się, że uwierzytelnianie jest ustawione na wartość **bez uwierzytelniania**. Wybierz pozycję **Utwórz**.
+1. Wybierz opcję **Obsługa platformy Docker** i upewnij się, że uwierzytelnianie jest ustawione na wartość **bez uwierzytelniania** . Wybierz pozycję **Utwórz** .
 
    ![Tworzenie aplikacji sieci Web ASP.NET](./media/quickstart-custom-container/select-mvc-template-for-container.png)
 
-1. Jeśli plik _Dockerfile_ nie zostanie automatycznie otwarty, otwórz go w **Eksploratorze rozwiązań**.
+1. Jeśli plik _Dockerfile_ nie zostanie automatycznie otwarty, otwórz go w **Eksploratorze rozwiązań** .
 
 1. Potrzebujesz [obsługiwanego obrazu nadrzędnego](configure-custom-container.md#supported-parent-images). Zmień obraz nadrzędny, zastępując wiersz `FROM` następującym kodem i zapisując plik:
 
@@ -69,19 +69,19 @@ Utwórz aplikację internetową ASP.NET, wykonując następujące czynności:
 
 ## <a name="publish-to-docker-hub"></a>Publikowanie w usłudze Docker Hub
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **myfirstazurewebapp** i wybierz polecenie **Publikuj**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **myfirstazurewebapp** i wybierz polecenie **Publikuj** .
 
-1. Wybierz **App Service** a następnie wybierz pozycję **Publikuj**.
+1. Wybierz **App Service** a następnie wybierz pozycję **Publikuj** .
 
-1. W obszarze Wybieranie **elementu docelowego publikowania**wybierz pozycję **Container Registry** i usługa **Docker Hub**, a następnie kliknij pozycję **Publikuj**.
+1. W obszarze Wybieranie **elementu docelowego publikowania** wybierz pozycję **Container Registry** i usługa **Docker Hub** , a następnie kliknij pozycję **Publikuj** .
 
    ![Publikowanie ze strony przeglądu projektu](./media/quickstart-custom-container/publish-to-docker-vs2019.png)
 
-1. Podaj poświadczenia konta centrum platformy Docker i wybierz pozycję **Zapisz**.
+1. Podaj poświadczenia konta centrum platformy Docker i wybierz pozycję **Zapisz** .
 
    Zaczekaj na zakończenie wdrażania. Na stronie **Publikuj** jest teraz wyświetlana nazwa repozytorium do użycia później.
 
-   ![Publikowanie ze strony przeglądu projektu](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
+   ![Zrzut ekranu, który Podświetla nazwę repozytorium.](./media/quickstart-custom-container/published-docker-repository-vs2019.png)
 
 1. Skopiuj tę nazwę repozytorium do późniejszego użycia.
 
@@ -89,17 +89,17 @@ Utwórz aplikację internetową ASP.NET, wykonując następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal]( https://portal.azure.com).
 
-1. W lewym górnym rogu okna witryny Azure Portal wybierz pozycję **Utwórz zasób**.
+1. W lewym górnym rogu okna witryny Azure Portal wybierz pozycję **Utwórz zasób** .
 
-1. W polu wyszukiwania powyżej listy zasobów portalu Azure Marketplace Wyszukaj pozycję **Web App for Containers**i wybierz pozycję **Utwórz**.
+1. W polu wyszukiwania powyżej listy zasobów portalu Azure Marketplace Wyszukaj pozycję **Web App for Containers** i wybierz pozycję **Utwórz** .
 
-1. W obszarze **Tworzenie aplikacji sieci Web**wybierz subskrypcję i **grupę zasobów**. W razie konieczności można utworzyć nową grupę zasobów.
+1. W obszarze **Tworzenie aplikacji sieci Web** wybierz subskrypcję i **grupę zasobów** . W razie konieczności można utworzyć nową grupę zasobów.
 
-1. Podaj nazwę aplikacji, taką jak *win-Container-Demonstracja* , i wybierz **system Windows** dla **systemu operacyjnego**. Wybierz pozycję **Next (dalej): Docker** , aby kontynuować.
+1. Podaj nazwę aplikacji, taką jak *win-Container-Demonstracja* , i wybierz **system Windows** dla **systemu operacyjnego** . Wybierz pozycję **Next (dalej): Docker** , aby kontynuować.
 
    ![Tworzenie Web App for Containers](media/quickstart-custom-container/create-web-app-continer.png)
 
-1. W polu **Źródło obrazu**wybierz pozycję **centrum Docker** i pozycję **obraz i tag**, a następnie wprowadź nazwę repozytorium skopiowaną w obszarze publikowanie w [usłudze Docker Hub](#publish-to-docker-hub).
+1. W polu **Źródło obrazu** wybierz pozycję **centrum Docker** i pozycję **obraz i tag** , a następnie wprowadź nazwę repozytorium skopiowaną w obszarze publikowanie w [usłudze Docker Hub](#publish-to-docker-hub).
 
    ![Skonfiguruj Web App for Containers](media/quickstart-custom-container/configure-web-app-continer.png)
 
@@ -113,9 +113,9 @@ Po zakończeniu operacji platformy Azure zostanie wyświetlone okno powiadomieni
 
 ![Wdrożenie powiodło się](media/quickstart-custom-container/portal-create-finished.png)
 
-1. Kliknij opcję **Przejdź do zasobu**.
+1. Kliknij opcję **Przejdź do zasobu** .
 
-1. W obszarze przegląd tego zasobu Użyj linku obok pozycji **adres URL**.
+1. W obszarze przegląd tego zasobu Użyj linku obok pozycji **adres URL** .
 
 Zostanie otwarta nowa strona przeglądarki na następującej stronie:
 
@@ -146,7 +146,7 @@ Przesyłane strumieniowo dzienniki wyglądają następująco:
 
 ## <a name="update-locally-and-redeploy"></a>Lokalne aktualizowanie i ponowne wdrażanie
 
-1. W programie Visual Studio w **Eksplorator rozwiązań**Otwórz **Widok**  >  **główny**  >  **index. cshtml**.
+1. W programie Visual Studio w **Eksplorator rozwiązań** Otwórz **Widok**  >  **główny**  >  **index. cshtml** .
 
 1. Znajdź tag HTML `<div class="jumbotron">` u góry i zastąp cały element następującym kodem:
 
@@ -157,11 +157,11 @@ Przesyłane strumieniowo dzienniki wyglądają następująco:
    </div>
    ```
 
-1. Aby ponownie wdrożyć na platformie Azure, kliknij prawym przyciskiem myszy projekt **myfirstazurewebapp** w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj**.
+1. Aby ponownie wdrożyć na platformie Azure, kliknij prawym przyciskiem myszy projekt **myfirstazurewebapp** w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj** .
 
 1. Na stronie publikowania wybierz pozycję **Publikuj** i poczekaj na ukończenie procesu publikowania.
 
-1. Aby nakazać usłudze App Service ściągnięcie obrazu z usługi Docker Hub, uruchom ponownie aplikację. Wróć do strony aplikacji w portalu, a następnie kliknij przycisk **Uruchom ponownie**  >  **tak**.
+1. Aby nakazać usłudze App Service ściągnięcie obrazu z usługi Docker Hub, uruchom ponownie aplikację. Wróć do strony aplikacji w portalu, a następnie kliknij przycisk **Uruchom ponownie**  >  **tak** .
 
    ![Ponowne uruchamianie aplikacji internetowej na platformie Azure](./media/quickstart-custom-container/portal-restart-app.png)
 
@@ -187,7 +187,7 @@ App Service w systemie Linux udostępnia wstępnie zdefiniowane stosy aplikacji 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Konto platformy Azure](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-* [Platforma Docker](https://www.docker.com/community-edition)
+* [Docker](https://www.docker.com/community-edition)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure App Service rozszerzenie vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). To rozszerzenie służy do tworzenia i wdrażania Web Apps systemu Linux na platformie Azure jako usługi (PaaS) oraz zarządzania nimi.
 * [Rozszerzenie platformy Docker dla vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). To rozszerzenie służy do uproszczenia zarządzania lokalnymi obrazami i poleceniami platformy Docker oraz do wdrażania wbudowanych obrazów aplikacji na platformie Azure.
@@ -199,7 +199,7 @@ Aby ukończyć ten przewodnik Szybki Start, potrzebny będzie odpowiedni obraz a
 > [!IMPORTANT]
 > Należy pamiętać o ustawieniu opcji **użytkownik administrator** , aby **włączyć** ją podczas tworzenia rejestru kontenerów. Można również ustawić ją z sekcji **klucze dostępu** na stronie rejestru w Azure Portal. To ustawienie jest wymagane do App Service dostępu.
 
-## <a name="sign-in"></a>Zaloguj
+## <a name="sign-in"></a>Logowanie
 
 Następnie uruchom VS Code i zaloguj się do konta platformy Azure przy użyciu rozszerzenia App Service. W tym celu wybierz logo platformy Azure na pasku działania, przejdź do Eksploratora **usługi App Service** , a następnie wybierz pozycję **Zaloguj się do platformy Azure** i postępuj zgodnie z instrukcjami.
 
@@ -217,7 +217,7 @@ Następnie sprawdź, czy zainstalowano i uruchomiono platformę Docker. Następu
 docker --version
 ```
 
-Na koniec upewnij się, że Azure Container Registry jest połączona. Aby to zrobić, wybierz logo platformy Docker na pasku działania, a następnie przejdź do **rejestrów**.
+Na koniec upewnij się, że Azure Container Registry jest połączona. Aby to zrobić, wybierz logo platformy Docker na pasku działania, a następnie przejdź do **rejestrów** .
 
 ![Zrzut ekranu przedstawia wartość rejestrów z rozszerzoną platformą Azure i plikiem z rozszerzeniem kropka i o filename.](./media/quickstart-docker/registries.png)
 
@@ -225,7 +225,7 @@ Na koniec upewnij się, że Azure Container Registry jest połączona. Aby to zr
 
 Teraz, gdy wszystko jest skonfigurowane, możesz wdrożyć obraz do [Azure App Service](https://azure.microsoft.com/services/app-service/) bezpośrednio z Eksploratora rozszerzeń platformy Docker.
 
-Znajdź obraz w węźle **rejestry** w Eksploratorze **platformy Docker** i rozwiń go, aby wyświetlić jego Tagi. Kliknij prawym przyciskiem myszy tag, a następnie wybierz polecenie **Wdróż obraz do Azure App Service**.
+Znajdź obraz w węźle **rejestry** w Eksploratorze **platformy Docker** i rozwiń go, aby wyświetlić jego Tagi. Kliknij prawym przyciskiem myszy tag, a następnie wybierz polecenie **Wdróż obraz do Azure App Service** .
 
 W tym miejscu postępuj zgodnie z monitami, aby wybrać subskrypcję, globalnie unikatową nazwę aplikacji, grupę zasobów i plan App Service. Wybierz pozycję **B1 podstawowa** dla warstwy cenowej i regionu.
 

@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
-ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc8e7314c941035207ecf809a9d85ef46bd58379
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306637"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913759"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>Korzystanie z prywatnego linku w wirtualnej sieci WAN
 
 [Łącze prywatne platformy Azure](../private-link/private-link-overview.md) to technologia, która umożliwia łączenie ofert typu "platforma jako usługa" na platformie Azure przy użyciu połączenia z prywatnym adresem IP przez ujawnienie [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md). Za pomocą wirtualnej sieci WAN platformy Azure można wdrożyć prywatny punkt końcowy w jednej z sieci wirtualnych podłączonych do dowolnego koncentratora wirtualnego. Zapewnia to łączność z innymi sieciami wirtualnymi lub gałęziami połączonymi z tą samą wirtualną siecią WAN.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W krokach w tym artykule przyjęto założenie, że wirtualna sieć WAN została już wdrożona z co najmniej jednym koncentratorem, a także przynajmniej dwie sieci wirtualne połączone z wirtualną siecią WAN.
 
@@ -72,7 +72,7 @@ $ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 10.1.3.75
 ```
 
-Jak widać, korzystamy z specjalnego zapytania SQL, które daje nam źródłowy adres IP, który serwer SQL widzi od klienta. W takim przypadku serwer widzi klienta z prywatnym adresem IP ( `10.1.3.75` ), co oznacza, że ruch nie przechodzi przez publiczny Internet, ale przechodzi do prywatnego punktu końcowego.
+Jak widać, korzystamy z specjalnego zapytania SQL, które daje nam źródłowy adres IP, który serwer SQL widzi od klienta. W takim przypadku serwer widzi klienta z prywatnym adresem IP ( `10.1.3.75` ), co oznacza, że ruch przechodzi z sieci wirtualnej bezpośrednio do prywatnego punktu końcowego.
 
 Należy pamiętać, że należy ustawić zmienne `username` i dopasować je do `password` poświadczeń zdefiniowanych w Azure SQL Database, aby przykłady w tym przewodniku działały.
 

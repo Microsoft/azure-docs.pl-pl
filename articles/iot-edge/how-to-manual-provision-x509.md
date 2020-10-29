@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: b1aa12bd73772b5d6332a36d749ec4d7d10d4026
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: abb3aa9ca7c9697fef1cf456964154249f0d69f3
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048189"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913980"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-x509-certificate-authentication"></a>Konfigurowanie urządzenia Azure IoT Edge przy użyciu uwierzytelniania certyfikatu X. 509
 
@@ -26,11 +26,11 @@ Kroki opisane w tym artykule przeprowadzą proces o nazwie Ręczne inicjowanie o
 
 W przypadku ręcznego inicjowania obsługi administracyjnej dostępne są dwie opcje uwierzytelniania urządzeń IoT Edgeych:
 
-* **Klucz symetryczny**: podczas tworzenia nowej tożsamości urządzenia w IoT Hub Usługa tworzy dwa klucze. Należy umieścić jeden z kluczy na urządzeniu i przedstawiał klucz do IoT Hub podczas uwierzytelniania.
+* **Klucz symetryczny** : podczas tworzenia nowej tożsamości urządzenia w IoT Hub Usługa tworzy dwa klucze. Należy umieścić jeden z kluczy na urządzeniu i przedstawiał klucz do IoT Hub podczas uwierzytelniania.
 
   Ta metoda uwierzytelniania jest szybsza, aby rozpocząć pracę, ale nie jako bezpieczna.
 
-* **Z podpisem własnym x. 509**: tworzysz dwa certyfikaty tożsamości x. 509 i umieść je na urządzeniu. Podczas tworzenia nowej tożsamości urządzenia w IoT Hub można podawać odciski palców z obu certyfikatów. Gdy urządzenie zostanie uwierzytelnione do IoT Hub, przedstawia jego certyfikaty i IoT Hub może sprawdzić, czy pasują do odcisków palców.
+* **Z podpisem własnym x. 509** : tworzysz dwa certyfikaty tożsamości x. 509 i umieść je na urządzeniu. Podczas tworzenia nowej tożsamości urządzenia w IoT Hub można podawać odciski palców z obu certyfikatów. Gdy urządzenie zostanie uwierzytelnione do IoT Hub, przedstawia jego certyfikaty i IoT Hub może sprawdzić, czy pasują do odcisków palców.
 
   Ta metoda uwierzytelniania jest bezpieczniejsza i zalecana w scenariuszach produkcyjnych.
 
@@ -44,9 +44,24 @@ Ręczne inicjowanie obsługi z certyfikatami X. 509 wymaga IoT Edge w wersji 1.0
 
 ## <a name="create-certificates-and-thumbprints"></a>Tworzenie certyfikatów i odcisków palców
 
+Certyfikat tożsamości urządzenia to certyfikat liścia, który nawiązuje połączenie za pomocą łańcucha certyfikatów zaufania z certyfikatem głównego urzędu certyfikacji X. 509. Certyfikat tożsamości urządzenia musi mieć ustawioną nazwę pospolitą (CN) odpowiadającą IDENTYFIKATORowi urządzenia, które ma mieć urządzenie w centrum IoT.
 
+Certyfikaty tożsamości urządzeń są używane tylko do aprowizacji urządzenia IoT Edge i uwierzytelniania urządzenia za pomocą usługi Azure IoT Hub. Nie podpisywania certyfikatów, w przeciwieństwie do certyfikatów urzędu certyfikacji, które urządzenie IoT Edge prezentuje na moduły lub urządzenia liściowe w celu weryfikacji. Aby uzyskać więcej informacji, zobacz [Azure IoT Edge szczegóły użycia certyfikatu](iot-edge-certs.md).
 
-<!-- TODO -->
+Po utworzeniu certyfikatu tożsamości urządzenia powinny znajdować się dwa pliki: plik cer lub PEM zawierający publiczną część certyfikatu oraz plik. cer lub PEM z kluczem prywatnym certyfikatu.
+
+Aby ręcznie zainicjować obsługę administracyjną w programie X. 509, potrzebne są następujące pliki:
+
+* Dwa zestawy certyfikatów tożsamości urządzeń i certyfikaty kluczy prywatnych. Jeden zestaw plików certyfikatu/klucza jest dostarczany do środowiska uruchomieniowego IoT Edge.
+* Odciski palców z obu certyfikatów tożsamości urządzeń. Wartości odcisków palca to 40 — znaki szesnastkowe dla skrótów SHA-1 i znaków 64-szesnastkowych dla skrótów SHA-256. Oba odciski palców są dostarczane do IoT Hub w momencie rejestracji urządzeń.
+
+Jeśli nie masz dostępnych certyfikatów, możesz [utworzyć certyfikaty demonstracyjne w celu przetestowania funkcji urządzenia IoT Edge](how-to-create-test-certificates.md). Postępuj zgodnie z instrukcjami w tym artykule, aby skonfigurować skrypty tworzenia certyfikatów, utworzyć certyfikat głównego urzędu certyfikacji, a następnie utworzyć dwa IoT Edge Certyfikaty tożsamości urządzeń.
+
+Jednym ze sposobów pobrania odcisku palca z certyfikatu jest następujące polecenie OpenSSL:
+
+```cmd
+openssl x509 -in <certificate filename>.pem -text -fingerprint
+```
 
 ## <a name="register-a-new-device"></a>Rejestrowanie nowego urządzenia
 
@@ -54,7 +69,7 @@ Każde urządzenie, które nawiązuje połączenie z IoT Hub ma identyfikator ur
 
 W przypadku uwierzytelniania za pomocą certyfikatu X. 509 te informacje są podawane w formie *odcisków palców* z certyfikatów tożsamości urządzeń. Te odciski palców są nadawane IoT Hub w momencie rejestracji urządzenia, aby usługa mogła rozpoznać urządzenie po nawiązaniu połączenia.
 
-Aby zarejestrować nowe urządzenie IoT Edge w usłudze IoT Hub i przekazać odciski palców certyfikatów, można użyć kilku narzędzi. 
+Aby zarejestrować nowe urządzenie IoT Edge w usłudze IoT Hub i przekazać odciski palców certyfikatów, można użyć kilku narzędzi.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -68,7 +83,7 @@ W IoT Hub w Azure Portal IoT Edge urządzenia są tworzone i zarządzane oddziel
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do centrum IoT Hub.
 
-1. W lewym okienku wybierz pozycję **IoT Edge** z menu, a następnie wybierz pozycję **Dodaj urządzenie IoT Edge**.
+1. W lewym okienku wybierz pozycję **IoT Edge** z menu, a następnie wybierz pozycję **Dodaj urządzenie IoT Edge** .
 
    ![Dodaj urządzenie IoT Edge z Azure Portal](./media/how-to-manual-provision-symmetric-key/portal-add-iot-edge-device.png)
 
@@ -78,7 +93,7 @@ W IoT Hub w Azure Portal IoT Edge urządzenia są tworzone i zarządzane oddziel
    * Wybierz pozycję **X. 509 z podpisem własnym** jako typ uwierzytelniania.
    * Podaj odciski palców certyfikatu tożsamości podstawowej i pomocniczej. Wartości odcisków palca to 40 — znaki szesnastkowe dla skrótów SHA-1 i znaków 64-szesnastkowych dla skrótów SHA-256.
 
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz** .
 
 ### <a name="view-iot-edge-devices-in-the-azure-portal"></a>Wyświetlanie IoT Edge urządzeń w Azure Portal
 
@@ -121,7 +136,7 @@ Użyj polecenia [AZ IoT Hub Device-Identity list](/cli/azure/ext/azure-iot/iot/h
 
 Dodaj flagę `--edge-enabled` lub `--ee` Aby wyświetlić listę tylko IoT Edge urządzeń w centrum IoT Hub.
 
-Każde urządzenie zarejestrowane jako urządzenie IoT Edge będzie miało **możliwość właściwości. iotEdge** ustawione na **wartość true**.
+Każde urządzenie zarejestrowane jako urządzenie IoT Edge będzie miało **możliwość właściwości. iotEdge** ustawione na **wartość true** .
 
 --- 
 
@@ -160,10 +175,10 @@ Na urządzeniu z systemem Linux podaj te informacje, edytując plik config. YAML
 
 1. Zaktualizuj następujące pola:
 
-   * **iothub_hostname**: Nazwa hosta Centrum IoT, z którym zostanie nawiązane połączenie. Na przykład `{IoT hub name}.azure-devices.net`.
-   * **device_ID**: identyfikator podany podczas rejestrowania urządzenia.
-   * **identity_cert**: identyfikator URI do certyfikatu tożsamości na urządzeniu. Na przykład `file:///path/identity_certificate.pem`.
-   * **identity_pk**: identyfikator URI pliku klucza prywatnego dla podanego certyfikatu tożsamości. Na przykład `file:///path/identity_key.pem`.
+   * **iothub_hostname** : Nazwa hosta Centrum IoT, z którym zostanie nawiązane połączenie. Na przykład `{IoT hub name}.azure-devices.net`.
+   * **device_ID** : identyfikator podany podczas rejestrowania urządzenia.
+   * **identity_cert** : identyfikator URI do certyfikatu tożsamości na urządzeniu. Na przykład `file:///path/identity_certificate.pem`.
+   * **identity_pk** : identyfikator URI pliku klucza prywatnego dla podanego certyfikatu tożsamości. Na przykład `file:///path/identity_key.pem`.
 
 1. Zapisz i zamknij plik.
 
@@ -202,10 +217,10 @@ Na urządzeniu z systemem Linux podaj te informacje, edytując plik config. YAML
 
 3. Po wyświetleniu monitu podaj następujące informacje:
 
-   * **IotHubHostName**: Nazwa hosta Centrum IoT, z którym zostanie nawiązane połączenie. Na przykład `{IoT hub name}.azure-devices.net`.
-   * **DeviceID**: identyfikator podany podczas rejestrowania urządzenia.
-   * **X509IdentityCertificate**: ścieżka bezwzględna do certyfikatu tożsamości na urządzeniu. Na przykład `C:\path\identity_certificate.pem`.
-   * **X509IdentityPrivateKey**: ścieżka bezwzględna do pliku klucza prywatnego dla podanego certyfikatu tożsamości. Na przykład `C:\path\identity_key.pem`.
+   * **IotHubHostName** : Nazwa hosta Centrum IoT, z którym zostanie nawiązane połączenie. Na przykład `{IoT hub name}.azure-devices.net`.
+   * **DeviceID** : identyfikator podany podczas rejestrowania urządzenia.
+   * **X509IdentityCertificate** : ścieżka bezwzględna do certyfikatu tożsamości na urządzeniu. Na przykład `C:\path\identity_certificate.pem`.
+   * **X509IdentityPrivateKey** : ścieżka bezwzględna do pliku klucza prywatnego dla podanego certyfikatu tożsamości. Na przykład `C:\path\identity_key.pem`.
 
 W przypadku ręcznego aprowizacji urządzenia można użyć dodatkowych parametrów, aby zmodyfikować proces, w tym:
 

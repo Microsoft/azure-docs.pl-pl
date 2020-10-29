@@ -7,21 +7,21 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee6d88b5247209d5628c7f85f1985507d53811d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757048"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913725"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Prywatne linki na platformie Azure — często zadawane pytania
 
-## <a name="private-link"></a>Link prywatny
+## <a name="private-link"></a>Private Link
 
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>Co to jest prywatny punkt końcowy platformy Azure i usługa łącza prywatnego platformy Azure?
 
-- **[Prywatny punkt końcowy platformy Azure](private-endpoint-overview.md)**: prywatny punkt końcowy platformy Azure to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Możesz użyć prywatnych punktów końcowych, aby nawiązać połączenie z usługą Azure PaaS, która obsługuje link prywatny lub do własnej usługi linku prywatnego.
-- **[Usługa linków prywatnych platformy Azure](private-link-service-overview.md)**: usługa link prywatny platformy Azure to usługa utworzona przez dostawcę usług. Obecnie usługa linku prywatnego może być dołączona do konfiguracji adresu IP frontonu usługa Load Balancer w warstwie Standardowa. 
+- **[Prywatny punkt końcowy platformy Azure](private-endpoint-overview.md)** : prywatny punkt końcowy platformy Azure to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Możesz użyć prywatnych punktów końcowych, aby nawiązać połączenie z usługą Azure PaaS, która obsługuje link prywatny lub do własnej usługi linku prywatnego.
+- **[Usługa linków prywatnych platformy Azure](private-link-service-overview.md)** : usługa link prywatny platformy Azure to usługa utworzona przez dostawcę usług. Obecnie usługa linku prywatnego może być dołączona do konfiguracji adresu IP frontonu usługa Load Balancer w warstwie Standardowa. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Jak jest wysyłany ruch w przypadku korzystania z prywatnego linku?
 Ruch jest wysyłany prywatnie przy użyciu sieci szkieletowej firmy Microsoft. Nie przechodzi ona przez Internet. Łącze prywatne platformy Azure nie przechowuje danych klienta.
@@ -48,6 +48,9 @@ Tak. Prywatne punkty końcowe mogą łączyć się z usługami linków prywatnyc
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>Czy prywatny punkt końcowy nawiązuje połączenie z zasobami usługi Azure PaaS w różnych regionach platformy Azure?
 Tak. Prywatne punkty końcowe mogą łączyć się z zasobami usługi Azure PaaS w różnych regionach platformy Azure.
+
+### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>Czy mogę zmodyfikować prywatny interfejs sieciowy punktu końcowego (NIC)?
+Po utworzeniu prywatnego punktu końcowego jest przypisana karta sieciowa tylko do odczytu. Nie można jej modyfikować i pozostanie w cyklu życia prywatnego punktu końcowego.
 
 ## <a name="private-link-service"></a>Usługa łącza prywatnego
  

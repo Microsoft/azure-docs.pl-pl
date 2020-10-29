@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: a12fe837bfd9606d07c7be71851880d2cebb9d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bd45284bfea09935ea48445d816f3b91272f68fc
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055485"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925853"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Rozpoczynanie monitorowania aplikacji internetowej ASP.NET Core
 
@@ -42,7 +42,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowolnej aplikacji połączonej z Internetem, niezależnie od tego, czy jest to aplikacja lokalna czy aplikacja w chmurze. Aby rozpocząć wyświetlanie tych danych, wykonaj poniższe czynności.
 
-1. Wybierz pozycję **Utwórz zasób**  >  **Narzędzia deweloperskie**  >  **Application Insights**.
+1. Wybierz pozycję **Utwórz zasób**  >  **Narzędzia deweloperskie**  >  **Application Insights** .
 
    > [!NOTE]
    >Jeśli tworzysz zasób Application Insights, możesz dowiedzieć się więcej, odwiedzając dokument [tworzenie Application Insights](../app/create-new-resource.md) .
@@ -55,25 +55,25 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
    | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów, w której mają być hostowane dane usługi App Insights. istnieje możliwość utworzenia nowej lub użycia istniejącej grupy zasobów. |
    | **Lokalizacja** | East US | Wybierz lokalizację w pobliżu Ciebie lub w pobliżu miejsca hostowania aplikacji |
 
-2. Kliknij pozycję **Utwórz**.
+2. Kliknij pozycję **Utwórz** .
 
 
 
 ## <a name="configure-app-insights-sdk"></a>Konfigurowanie zestawu SDK usługi App Insights
 
-1. Otwórz **projekt** aplikacji internetowej ASP.NET Core w programie Visual Studio, kliknij prawym przyciskiem myszy nazwę aplikacji w **Eksploratorze rozwiązań**, a następnie wybierz pozycję **Dodaj** > **Telemetria usługi Application Insights**.
+1. Otwórz **projekt** aplikacji internetowej ASP.NET Core w programie Visual Studio, kliknij prawym przyciskiem myszy nazwę aplikacji w **Eksploratorze rozwiązań** , a następnie wybierz pozycję **Dodaj** > **Telemetria usługi Application Insights** .
 
     ![Dodawanie telemetrii usługi Application Insights](./media/dotnetcore-quick-start/2vsaddappinsights.png)
 
 2. Kliknij przycisk **wprowadzenie**
 
-3. Wybierz swoje konto i subskrypcję, > wybierz **istniejący zasób** utworzony w Azure Portal > kliknij pozycję **zarejestruj**.
+3. Wybierz swoje konto i subskrypcję, > wybierz **istniejący zasób** utworzony w Azure Portal > kliknij pozycję **zarejestruj** .
 
 4. Wybierz pozycję **projekt**  >  **Zarządzanie**  >  **pakietami NuGet źródło pakietów: NuGet.org**  >  **zaktualizować** pakiety SDK Application Insights do najnowszej wersji stabilnej.
 
 5. Wybierz pozycję **Debuguj**  >  **Uruchom bez debugowania** (Ctrl + F5), aby uruchomić aplikację
 
-    ![Menu Przegląd usługi Application Insights](./media/dotnetcore-quick-start/3debug.png)
+    ![Zrzut ekranu, na którym jest wyświetlana opcja menu Rozpocznij bez debugowania.](./media/dotnetcore-quick-start/3debug.png)
 
 > [!NOTE]
 > Dane zaczną pojawiać się w portalu po 3–5 minutach. W przypadku aplikacji testowej o małym natężeniu ruchu należy pamiętać, że większość metryk jest przechwytywana tylko wtedy, gdy istnieją aktywne żądania lub operacje.
@@ -84,11 +84,11 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
 
    ![Menu Przegląd usługi Application Insights](./media/dotnetcore-quick-start/4overview.png)
 
-2. Kliknij pozycję **Mapa aplikacji**, aby uzyskać wizualny układ relacji zależności między składnikami aplikacji. Każdy składnik przedstawia kluczowe wskaźniki wydajności, takie jak obciążenie, wydajność, błędy i alerty.
+2. Kliknij pozycję **Mapa aplikacji** , aby uzyskać wizualny układ relacji zależności między składnikami aplikacji. Każdy składnik przedstawia kluczowe wskaźniki wydajności, takie jak obciążenie, wydajność, błędy i alerty.
 
    ![Mapa aplikacji](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Kliknij ikonę **Analiza aplikacji** ![ Widok ikona mapy aplikacji ](./media/dotnetcore-quick-start/006.png) **w obszarze Analiza**. Spowoduje to otwarcie strony **Analiza usługi Application Insights**, która udostępnia zaawansowany język zapytań na potrzeby analizy wszystkich danych zbieranych przez usługę Application Insights. W tym przypadku jest generowane zapytanie, które renderuje liczbę żądań w formie wykresu. Możesz pisać własne zapytania do analizy innych danych.
+3. Kliknij ikonę **Analiza aplikacji** ![ Widok ikona mapy aplikacji ](./media/dotnetcore-quick-start/006.png) **w obszarze Analiza** . Spowoduje to otwarcie strony **Analiza usługi Application Insights** , która udostępnia zaawansowany język zapytań na potrzeby analizy wszystkich danych zbieranych przez usługę Application Insights. W tym przypadku jest generowane zapytanie, które renderuje liczbę żądań w formie wykresu. Możesz pisać własne zapytania do analizy innych danych.
 
    ![Wykres analizy żądań użytkowników w danym okresie](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -96,7 +96,7 @@ Usługa Application Insights umożliwia zbieranie danych telemetrycznych z dowol
 
    ![Wykresy osi czasu przeglądu kondycji](./media/dotnetcore-quick-start/7kpidashboards.png)
 
-5. Po lewej stronie kliknij pozycję **metryki**. Użyj Eksploratora metryk do zbadania kondycji i wykorzystania zasobu. Możesz kliknąć pozycję **Dodaj nowy wykres**, aby utworzyć dodatkowe widoki niestandardowe, lub wybrać pozycję **Edytuj**, aby zmodyfikować istniejące typy wykresów, wysokość, paletę kolorów, grupowanie i metryki. Na przykład można utworzyć wykres, który wyświetla średni czas ładowania strony w przeglądarce, wybierając pozycję "czas ładowania strony w przeglądarce" z listy rozwijanej metryki i "Średnia" z agregacji. Aby dowiedzieć się więcej o usłudze Azure Eksplorator metryk odwiedź stronę Rozpoczynanie [pracy z usługą azure Eksplorator metryk](../platform/metrics-getting-started.md).
+5. Po lewej stronie kliknij pozycję **metryki** . Użyj Eksploratora metryk do zbadania kondycji i wykorzystania zasobu. Możesz kliknąć pozycję **Dodaj nowy wykres** , aby utworzyć dodatkowe widoki niestandardowe, lub wybrać pozycję **Edytuj** , aby zmodyfikować istniejące typy wykresów, wysokość, paletę kolorów, grupowanie i metryki. Na przykład można utworzyć wykres, który wyświetla średni czas ładowania strony w przeglądarce, wybierając pozycję "czas ładowania strony w przeglądarce" z listy rozwijanej metryki i "Średnia" z agregacji. Aby dowiedzieć się więcej o usłudze Azure Eksplorator metryk odwiedź stronę Rozpoczynanie [pracy z usługą azure Eksplorator metryk](../platform/metrics-getting-started.md).
 
      ![Karta metryk: Średni wykres czasu ładowania strony przeglądarki](./media/dotnetcore-quick-start/8metrics.png)
 
@@ -106,8 +106,8 @@ Po zakończeniu testowania można usunąć grupę zasobów i wszystkie powiązan
 > [!NOTE]
 > Jeśli użyto istniejącej grupy zasobów, poniższe instrukcje nie będą działać i konieczne będzie tylko usunięcie poszczególnych zasobów Application Insights. Należy pamiętać, że usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów należących do tej grupy.
 
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij pozycję **myResourceGroup**.
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym pozycję Grupa **zasobów** , a następnie kliknij pozycję **Usuń**.
+1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów** , a następnie kliknij pozycję **myResourceGroup** .
+2. Na stronie grupy zasobów kliknij pozycję **Usuń** , wpisz w polu tekstowym pozycję Grupa **zasobów** , a następnie kliknij pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

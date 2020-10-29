@@ -3,16 +3,16 @@ title: Węzły i pule w Azure Batch
 description: Zapoznaj się z węzłami obliczeniowymi i pulami oraz sposobem ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371447"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913810"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Węzły i pule w Azure Batch
 
-W przepływie pracy Azure Batch *węzeł obliczeniowy* (lub *węzeł*) jest maszyną wirtualną, która przetwarza część obciążenia aplikacji. *Pula* jest kolekcją tych węzłów, na których aplikacja ma działać. W tym artykule opisano więcej informacji o węzłach i pulach wraz z zagadnieniami dotyczącymi tworzenia i używania ich w przepływie pracy Azure Batch.
+W przepływie pracy Azure Batch *węzeł obliczeniowy* (lub *węzeł* ) jest maszyną wirtualną, która przetwarza część obciążenia aplikacji. *Pula* jest kolekcją tych węzłów, na których aplikacja ma działać. W tym artykule opisano więcej informacji o węzłach i pulach wraz z zagadnieniami dotyczącymi tworzenia i używania ich w przepływie pracy Azure Batch.
 
 ## <a name="nodes"></a>Węzły
 
@@ -68,11 +68,11 @@ Istnieją dwa typy konfiguracji puli dostępne w usłudze Batch.
 
 **Konfiguracja maszyny wirtualnej** określa, że Pula składa się z maszyn wirtualnych platformy Azure. Te maszyny wirtualne można tworzyć na podstawie obrazów systemu Windows albo Linux.
 
-Podczas tworzenia puli na podstawie konfiguracji usługi Virtual Machines należy określić nie tylko rozmiar węzłów i obrazów użytych do ich utworzenia, ale także **odwołanie do obrazu maszyny wirtualnej** i **jednostkę SKU węzła agenta** usługi Batch do zainstalowania w węzłach. Więcej informacji na temat określania powyższych właściwości puli znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Aprowizowanie węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch). Możesz opcjonalnie dołączyć co najmniej jeden pusty dysk danych do puli maszyn wirtualnych utworzonej z obrazów witryny Marketplace lub uwzględnić dyski danych w niestandardowych obrazach używanych do tworzenia maszyn wirtualnych. W przypadku dołączania dysków z danymi należy zainstalować i sformatować dyski z poziomu maszyny wirtualnej w celu ich użycia.
+[Agent węzła usługi Batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) jest programem uruchamianym w każdym węźle w puli i udostępnia interfejs poleceń i kontroli między węzłem a usługą Batch. Istnieją różne implementacje agenta węzła, nazywane jednostkami SKU dla różnych systemów operacyjnych. Podczas tworzenia puli na podstawie konfiguracji usługi Virtual Machines należy określić nie tylko rozmiar węzłów i obrazów użytych do ich utworzenia, ale także **odwołanie do obrazu maszyny wirtualnej** i **jednostkę SKU węzła agenta** usługi Batch do zainstalowania w węzłach. Więcej informacji na temat określania powyższych właściwości puli znajduje się w artykule [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) (Aprowizowanie węzłów obliczeniowych systemu Linux w pulach usługi Azure Batch). Możesz opcjonalnie dołączyć co najmniej jeden pusty dysk danych do puli maszyn wirtualnych utworzonej z obrazów witryny Marketplace lub uwzględnić dyski danych w niestandardowych obrazach używanych do tworzenia maszyn wirtualnych. W przypadku dołączania dysków z danymi należy zainstalować i sformatować dyski z poziomu maszyny wirtualnej w celu ich użycia.
 
 ### <a name="cloud-services-configuration"></a>Konfiguracja Cloud Services
 
-**Konfiguracja Cloud Services** określa, że Pula składa się z węzłów Cloud Services platformy Azure. Cloud Services udostępnia *tylko*węzły obliczeniowe systemu Windows.
+**Konfiguracja Cloud Services** określa, że Pula składa się z węzłów Cloud Services platformy Azure. Cloud Services udostępnia *tylko* węzły obliczeniowe systemu Windows.
 
 Listę systemów operacyjnych dostępnych dla pul konfiguracji usług Cloud Services można znaleźć w temacie [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md) (Macierz zgodności zestawów SDK i wersji systemów operacyjnych gościa platformy Azure). Podczas tworzenia puli zawierającej węzły Cloud Services należy określić rozmiar węzła i jego *rodzinę systemów operacyjnych* (który określa, które wersje platformy .NET są instalowane z systemem operacyjnym). Cloud Services jest wdrażana na platformie Azure szybciej niż w przypadku maszyn wirtualnych z systemem Windows. Jeśli potrzebujesz pul systemu Windows, może się okazać, że usługi Cloud Services oferują korzystną wydajność związaną z czasem wdrażania.
 
@@ -80,7 +80,7 @@ Podobnie jak w przypadku ról procesów roboczych w ramach usług Cloud Services
 
 ### <a name="node-agent-skus"></a>Jednostki SKU agenta węzła
 
-W przypadku tworzenia puli musisz wybrać odpowiednią wartość elementu **nodeAgentSkuId**w zależności od systemu operacyjnego podstawowego obrazu dysku VHD. Można uzyskać mapowanie dostępnych identyfikatorów jednostek SKU agenta węzła na odwołania do obrazów systemu operacyjnego, wywołując [listę obsługiwanych jednostek SKU agenta węzła](/rest/api/batchservice/list-supported-node-agent-skus) .
+W przypadku tworzenia puli musisz wybrać odpowiednią wartość elementu **nodeAgentSkuId** w zależności od systemu operacyjnego podstawowego obrazu dysku VHD. Można uzyskać mapowanie dostępnych identyfikatorów jednostek SKU agenta węzła na odwołania do obrazów systemu operacyjnego, wywołując [listę obsługiwanych jednostek SKU agenta węzła](/rest/api/batchservice/list-supported-node-agent-skus) .
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Niestandardowe obrazy dla pul usługi Virtual Machines
 
@@ -105,7 +105,7 @@ Węzły o niskim priorytecie mogą zostać przeniesiona, gdy platforma Azure ma 
 
 W tej samej puli mogą istnieć węzły obliczeniowe o niskim priorytecie i węzły dedykowane. Każdy typ węzła ma własne ustawienie docelowe, dla którego można określić żądaną liczbę węzłów.
 
-Liczbę węzłów obliczeniowych określa się jako *docelową*, ponieważ w niektórych sytuacjach wybrana liczba węzłów w puli nie zostanie osiągnięta. Na przykład pula może nie osiągnąć wartości docelowej, jeśli wcześniej zostanie osiągnięty [podstawowy przydział](batch-quota-limit.md) dla konta usługi Batch. Lub Pula może nie osiągnąć celu, jeśli zastosowano formułę automatycznego skalowania do puli, która ogranicza maksymalną liczbę węzłów.
+Liczbę węzłów obliczeniowych określa się jako *docelową* , ponieważ w niektórych sytuacjach wybrana liczba węzłów w puli nie zostanie osiągnięta. Na przykład pula może nie osiągnąć wartości docelowej, jeśli wcześniej zostanie osiągnięty [podstawowy przydział](batch-quota-limit.md) dla konta usługi Batch. Lub Pula może nie osiągnąć celu, jeśli zastosowano formułę automatycznego skalowania do puli, która ogranicza maksymalną liczbę węzłów.
 
 Aby uzyskać informacje o cenach dla węzłów o niskim priorytecie i dedykowanych, zobacz [Cennik usługi Batch](https://azure.microsoft.com/pricing/details/batch/).
 
@@ -127,7 +127,7 @@ Formuła skalowania może opierać się na następujących metrykach:
 
 - **Metryki czasu** — na podstawie danych statystycznych zbieranych co pięć minut przez określoną liczbę godzin.
 - **Metryki zasobów** — na podstawie użycia procesora, wykorzystania przepustowości, użycia pamięci i liczby węzłów.
-- **Metryki zadań podrzędnych** — na podstawie stanu zadania podrzędnego, takiego jak *Aktywne* (w kolejce), *Uruchomione* lub *Ukończone*.
+- **Metryki zadań podrzędnych** — na podstawie stanu zadania podrzędnego, takiego jak *Aktywne* (w kolejce), *Uruchomione* lub *Ukończone* .
 
 Ponieważ automatyczne skalowanie zmniejsza liczbę węzłów obliczeniowych w puli, należy rozważyć sposób obsługi zadań podrzędnych wykonywanych w czasie operacji zmniejszania tej liczby. Aby to umożliwić, w usłudze Batch jest dostępna [*opcja cofnięcia przydziału węzła*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) , którą można uwzględnić w formułach. Możesz na przykład zdecydować, że przed usunięciem węzła z puli uruchomione zadania podrzędne będą zatrzymywane natychmiast i ponownie umieszczane w kolejce do wykonania w innym węźle albo ich wykonywanie zostanie najpierw ukończone. Należy pamiętać, że ustawienie opcji cofnięcia alokacji węzła `taskcompletion` lub `retaineddata` uniemożliwi operacje zmiany rozmiaru puli, dopóki nie zostaną zakończone wszystkie zadania lub wygasły wszystkie okresy przechowywania zadań.
 
@@ -142,7 +142,7 @@ Opcja konfiguracji [maksymalnej liczby zadań podrzędnych na węzeł](batch-par
 
 Domyślna konfiguracja polega na tym, że w danym momencie w węźle jest uruchamiane jedno zadanie podrzędne, ale istnieją scenariusze, w których korzystne jest, aby w danym momencie w węźle było wykonywanych więcej zadań podrzędnych. Zobacz [przykładowy scenariusz](batch-parallel-node-tasks.md#example-scenario) w artykule dotyczącym [równoczesnych zadań podrzędnych węzła](batch-parallel-node-tasks.md), aby dowiedzieć się, jak można korzystać z wielu zadań podrzędnych w jednym węźle.
 
-Można również określić *Typ wypełnienia*, który określa, czy wsadowe rozprasza zadania równomiernie we wszystkich węzłach w puli, czy pakiety z każdym węzłem z maksymalną liczbą zadań przed przypisaniem zadań do innego węzła.
+Można również określić *Typ wypełnienia* , który określa, czy wsadowe rozprasza zadania równomiernie we wszystkich węzłach w puli, czy pakiety z każdym węzłem z maksymalną liczbą zadań przed przypisaniem zadań do innego węzła.
 
 ## <a name="communication-status"></a>Stan komunikacji
 

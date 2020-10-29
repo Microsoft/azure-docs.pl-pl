@@ -3,15 +3,15 @@ title: Uwierzytelnianie aplikacji w celu uzyskania dostępu do zasobów usługi 
 description: Ten artykuł zawiera informacje o uwierzytelnianiu aplikacji przy użyciu Azure Active Directory dostępu do zasobów Event Hubs platformy Azure
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 6eac2ef362705ecb68212166f8b691ac969a40ff
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 25ec5f11ca7b5e801e18155f1a3da6474c8e66e2
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359938"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913317"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnianie aplikacji za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs
-Microsoft Azure zapewnia zintegrowane zarządzanie kontrolą dostępu dla zasobów i aplikacji na podstawie Azure Active Directory (Azure AD). Główną zaletą korzystania z usługi Azure AD z usługą Azure Event Hubs jest to, że nie musisz już przechowywać poświadczeń w kodzie. Zamiast tego można zażądać tokenu dostępu OAuth 2,0 z platformy tożsamości firmy Microsoft. Nazwa zasobu do żądania tokenu to `https://eventhubs.azure.net/` (dla klientów Kafka, zasób do żądania tokenu `https://<namespace>.servicebus.windows.net` ). Usługa Azure AD uwierzytelnia podmiot zabezpieczeń (użytkownika, grupę lub nazwę główną usługi), na którym działa aplikacja. W przypadku pomyślnego uwierzytelnienia usługa Azure AD zwraca token dostępu do aplikacji, a następnie może użyć tokenu dostępu do autoryzowania żądania do zasobów usługi Azure Event Hubs.
+Microsoft Azure zapewnia zintegrowane zarządzanie kontrolą dostępu dla zasobów i aplikacji na podstawie Azure Active Directory (Azure AD). Główną zaletą korzystania z usługi Azure AD z usługą Azure Event Hubs jest to, że nie musisz już przechowywać poświadczeń w kodzie. Zamiast tego można zażądać tokenu dostępu OAuth 2,0 z platformy tożsamości firmy Microsoft. Nazwa zasobu do żądania tokenu jest taka `https://eventhubs.azure.net/` sama dla wszystkich chmur/dzierżawców (dla klientów Kafka, zasób do żądania tokenu `https://<namespace>.servicebus.windows.net` ). Usługa Azure AD uwierzytelnia podmiot zabezpieczeń (użytkownika, grupę lub nazwę główną usługi), na którym działa aplikacja. W przypadku pomyślnego uwierzytelnienia usługa Azure AD zwraca token dostępu do aplikacji, a następnie może użyć tokenu dostępu do autoryzowania żądania do zasobów usługi Azure Event Hubs.
 
 Gdy rola jest przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure przyznaje dostęp do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp można ograniczyć do poziomu subskrypcji, grupy zasobów, przestrzeni nazw Event Hubs lub dowolnego zasobu w ramach tego elementu. Zabezpieczenia usługi Azure AD mogą przypisywać role do użytkownika, grupy, nazwy głównej usługi aplikacji lub [zarządzanej tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
@@ -48,7 +48,7 @@ Na poniższych ilustracjach przedstawiono procedurę rejestrowania aplikacji sie
 > [!Note]
 > Jeśli aplikacja jest zarejestrowana jako aplikacja natywna, można określić dowolny prawidłowy identyfikator URI dla identyfikatora URI przekierowania. W przypadku aplikacji natywnych ta wartość nie musi być rzeczywistym adresem URL. W przypadku aplikacji sieci Web identyfikator URI przekierowania musi być prawidłowym identyfikatorem URI, ponieważ określa adres URL, na który są udostępniane tokeny.
 
-Po zarejestrowaniu aplikacji zobaczysz **Identyfikator aplikacji (klienta)** w obszarze **Ustawienia**:
+Po zarejestrowaniu aplikacji zobaczysz **Identyfikator aplikacji (klienta)** w obszarze **Ustawienia** :
 
 ![Identyfikator aplikacji zarejestrowanej aplikacji](./media/authenticate-application/application-id.png)
 
@@ -60,7 +60,7 @@ Aplikacja wymaga klucza tajnego klienta, aby potwierdzić swoją tożsamość po
 
 1. Przejdź do rejestracji aplikacji w Azure Portal.
 1. Wybierz ustawienie **certyfikaty & wpisy tajne** .
-1. W obszarze wpisy **tajne klienta**wybierz pozycję **Nowy wpis tajny klienta** , aby utworzyć nowy wpis tajny.
+1. W obszarze wpisy **tajne klienta** wybierz pozycję **Nowy wpis tajny klienta** , aby utworzyć nowy wpis tajny.
 1. Podaj opis wpisu tajnego i wybierz żądany interwał ważności.
 1. Natychmiast skopiuj wartość nowego wpisu tajnego do bezpiecznej lokalizacji. Wartość Fill jest wyświetlana tylko raz.
 
@@ -75,7 +75,7 @@ Po zarejestrowaniu aplikacji należy przypisać nazwę główną usługi aplikac
 
     ![Wybierz centrum zdarzeń](./media/authenticate-application/select-event-hub.png)
 1. Wybierz pozycję **Access Control (IAM)** , aby wyświetlić ustawienia kontroli dostępu dla centrum zdarzeń. 
-1. Wybierz kartę **przypisania ról** , aby wyświetlić listę przypisań ról. Na pasku narzędzi wybierz przycisk **Dodaj** , a następnie wybierz pozycję **Dodaj przypisanie roli**. 
+1. Wybierz kartę **przypisania ról** , aby wyświetlić listę przypisań ról. Na pasku narzędzi wybierz przycisk **Dodaj** , a następnie wybierz pozycję **Dodaj przypisanie roli** . 
 
     ![Przycisk Dodaj na pasku narzędzi](./media/authenticate-application/role-assignments-add-button.png)
 1. Na stronie **Dodawanie przypisania roli** wykonaj następujące czynności:

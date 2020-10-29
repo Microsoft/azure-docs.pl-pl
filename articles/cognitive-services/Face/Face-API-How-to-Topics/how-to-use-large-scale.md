@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b35b66615bd5c577dd73faca77d3ea20468442f8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332393"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913521"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Przykład: korzystanie z funkcji dużej skali
 
@@ -65,7 +65,7 @@ Dodaj wszystkie powierzchnie i osoby z tej osoby do nowego LargePersonGroup. Aby
 | Interfejsy API listy FaceList | Interfejsy API listy LargeFaceList |
 |:---:|:---:|
 | Utwórz | Utwórz |
-| Usuwanie | Usuwanie |
+| Usuń | Usuń |
 | Get | Get |
 | Lista | Lista |
 | Aktualizacja | Aktualizacja |
@@ -232,7 +232,7 @@ Przykładowy przepływ pracy:
 
 Jeśli akceptowalne jest stosunkowo długie opóźnienie, nie trzeba wyzwolić operacji uczenia bezpośrednio po dodaniu nowych danych. W zamian operację szkolenia można oddzielić od logiki głównej i wyzwalać ją regularnie. Ta strategia jest odpowiednia dla scenariuszy dynamicznych z akceptowalnym opóźnieniem. Można go zastosować do scenariuszy statycznych, aby bardziej ograniczyć częstotliwość pociągów.
 
-Załóżmy, że istnieje `TrainLargePersonGroup` funkcja podobna do `TrainLargeFaceList` . Typowa implementacja szkolenia samodzielnego na LargePersonGroup przez wywołanie [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) klasy w `System.Timers` jest:
+Załóżmy, że istnieje `TrainLargePersonGroup` funkcja podobna do `TrainLargeFaceList` . Typowa implementacja szkolenia samodzielnego na LargePersonGroup przez wywołanie [`Timer`](/dotnet/api/system.timers.timer) klasy w `System.Timers` jest:
 
 ```csharp
 private static void Main()

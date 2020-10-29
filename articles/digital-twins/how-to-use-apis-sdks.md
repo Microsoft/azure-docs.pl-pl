@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 52ecc1f7de2afb83d3f37ddae6b1b618a8a8e34d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1ad9d72d69e23e4029de163ded1a71ae4dfb82fb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636021"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913776"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -63,10 +63,12 @@ Aby używać interfejsów API płaszczyzny danych:
    - Źródło zestawu SDK można znaleźć w usłudze GitHub: [Biblioteka klienta usługi Azure IoT Digital bliźniaczych reprezentacji dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
    - można wyświetlić [dokumentację referencyjną zestawu SDK](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
 * Możesz użyć zestawu SDK **języka JavaScript** . Aby użyć zestawu SDK języka JavaScript...
-   - Możesz wyświetlić i zainstalować pakiet z npm: [Azure Digital bliźniaczych reprezentacji Client Library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins).
+   - Możesz wyświetlić i zainstalować pakiet z npm: [Azure Digital bliźniaczych reprezentacji Client Library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
    - można wyświetlić [dokumentację referencyjną zestawu SDK](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
+   - Źródło zestawu SDK można znaleźć w usłudze GitHub: [podstawowa Biblioteka kliencka usługi Azure Azure Digital bliźniaczych reprezentacji dla języka JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * Możesz użyć zestawu SDK języka **Python** . Aby użyć zestawu SDK języka Python...
    - Możesz wyświetlić i zainstalować pakiet: [podstawowa Biblioteka kliencka usługi Azure Azure Digital bliźniaczych reprezentacji dla języka Python](https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/).
+   - Źródło zestawu SDK można znaleźć w usłudze GitHub: [podstawowa Biblioteka kliencka usługi Azure Azure Digital bliźniaczych reprezentacji dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * Zestaw SDK dla innego języka można wygenerować przy użyciu funkcji AutoRest. Postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Create Custom SDK for Azure Digital bliźniaczych reprezentacji with AutoRest*](how-to-create-custom-sdks.md).
 
 Możesz również wykonywać interfejsy API płaszczyzny danych, współpracując z usługą Azure Digital bliźniaczych reprezentacji za pomocą [interfejsu wiersza polecenia](how-to-use-cli.md).

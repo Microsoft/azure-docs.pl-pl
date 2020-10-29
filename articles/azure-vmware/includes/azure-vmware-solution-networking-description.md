@@ -1,14 +1,14 @@
 ---
-title: Sieć i łączność rozwiązań VMWare platformy Azure
-description: Opis sieci i łączności rozwiązań VMWare platformy Azure.
+title: Sieć i łączność rozwiązań VMware platformy Azure
+description: Opis sieci i łączności rozwiązań VMware platformy Azure.
 ms.topic: include
 ms.date: 09/28/2020
-ms.openlocfilehash: 1d43a8a49fc56a6a5b534a89fd1dfc2f5ae2d478
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b5fab8430f4e462f1e4a0e8cb6ddb69ec38c02
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574464"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924982"
 ---
 <!-- Used in introduction.md and concepts-networking.md -->
 
@@ -16,7 +16,4 @@ Rozwiązanie VMware dla platformy Azure oferuje środowisko chmury prywatnej dos
 
 Podczas wdrażania chmury prywatnej można utworzyć sieci prywatne do zarządzania, aprowizacji i vMotion. Za pomocą tych sieci prywatnych można uzyskiwać dostęp do Menedżera vCenter i NSX-T oraz maszyn wirtualnych vMotion lub wdrożenia.  ExpressRoute Global Reach służy do łączenia chmur prywatnych z środowiskami lokalnymi. Połączenie wymaga sieci wirtualnej z obwodem usługi ExpressRoute w ramach subskrypcji.
 
-
-
->[!NOTE]
->Dostęp do Internetu i usług platformy Azure są obsługiwane i udostępniane do korzystania z maszyn wirtualnych w sieciach produkcyjnych podczas wdrażania chmury prywatnej.  Domyślnie dostęp do Internetu jest wyłączony dla nowych chmur prywatnych i w dowolnym momencie może być włączony lub wyłączony.
+Zasoby, takie jak serwery sieci Web i maszyny wirtualne, są dostępne dla Internetu za pomocą funkcji publicznego adresu IP sieci wirtualnej platformy Azure.  Domyślnie dostęp do Internetu jest wyłączony dla nowych chmur prywatnych. Aby uzyskać więcej informacji, zobacz [jak korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMware](../public-ip-usage.md).

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 6b953c0183943e895c8836f79c1b8e81a22fb31d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 95856db9288e5860dfab47dce506d1e7d6de1ffc
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792280"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913334"
 ---
 # <a name="quickstart-create-a-nat-gateway---arm-template"></a>Szybki Start: Tworzenie bramy translatora adresów sieciowych — szablon ARM
 
@@ -54,26 +54,18 @@ Maszyna wirtualna Ubuntu jest wdrażana w podsieci skojarzonej z zasobem bramy t
 Dziewięć zasobów platformy Azure są zdefiniowane w szablonie:
 
 * **[Microsoft. Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)** : tworzy sieciową grupę zabezpieczeń.
-
 * **[Microsoft. Network/networkSecurityGroups/securityRules](/azure/templates/microsoft.network/networksecuritygroups/securityrules)** : tworzy regułę zabezpieczeń.
-
 * **[Microsoft. Network/adresów publicipaddress](/azure/templates/microsoft.network/publicipaddresses)** : tworzy publiczny adres IP.
-
 * **[Microsoft. Network/publicIPPrefixes](/azure/templates/microsoft.network/publicipprefixes)** : tworzy prefiks publicznego adresu IP.
-
 * **[Microsoft. COMPUTE/virtualMachines](/azure/templates/Microsoft.Compute/virtualMachines)** : tworzy maszynę wirtualną.
-
 * **[Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)** : tworzy sieć wirtualną.
-
 * **[Microsoft. Network/natGateways](/azure/templates/microsoft.network/natgateways)** : tworzy zasób bramy NAT.
-
 * **[Microsoft. Network/virtualNetworks/podsieci](/azure/templates/microsoft.network/virtualnetworks/subnets)** : tworzy podsieć sieci wirtualnej.
-
 * **[Microsoft. Network/NetworkInterfaces](/azure/templates/microsoft.network/networkinterfaces)** : tworzy interfejs sieciowy.
 
 ## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
-### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+**Interfejs wiersza polecenia platformy Azure**
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
@@ -89,7 +81,7 @@ az group deployment create \
 --template-uri  $templateUri
 ```
 
-### <a name="azure-powershell"></a>Azure PowerShell
+**Azure PowerShell**
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. westcentralus)"
@@ -101,13 +93,13 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+**Witryna Azure Portal**
 
 [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W okienku po lewej stronie wybierz pozycję **grupy zasobów** .
 
@@ -119,7 +111,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+**Interfejs wiersza polecenia platformy Azure**
 
 Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [AZ Group Delete](/cli/azure/group#az-group-delete) .
 
@@ -128,7 +120,7 @@ Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, 
     --name myResourceGroupNAT
 ```
 
-### <a name="azure-powershell"></a>Azure PowerShell
+**Azure PowerShell**
 
 Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) .
 
@@ -136,7 +128,7 @@ Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, 
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+**Witryna Azure Portal**
 
 Gdy grupa zasobów, Brama translatora adresów sieciowych i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupNAT** , która zawiera bramę translatora adresów sieciowych, a następnie wybierz pozycję **Usuń** .
 

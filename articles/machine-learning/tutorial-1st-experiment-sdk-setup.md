@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5e9fd3b3d2d5bceb766651c2758f956b9ef105e0
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494955"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913300"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Samouczek: wprowadzenie do Azure Machine Learning w notesach Jupyter
 
@@ -36,12 +36,12 @@ Obszar roboczy Azure Machine Learning to podstawowe zasoby w chmurze, za pomocą
 
 Pomiń, aby [sklonować folder notesu](#clone) , jeśli masz już obszar roboczy Azure Machine Learning.  
 
-Aby zarządzać zasobami platformy Azure, można utworzyć obszar roboczy za pośrednictwem Azure Portal konsoli internetowej.
+Istnieje wiele [sposobów tworzenia obszaru roboczego](how-to-manage-workspace.md).  W tym samouczku utworzysz obszar roboczy za pośrednictwem Azure Portalej konsoli internetowej do zarządzania zasobami platformy Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT]
-> Zanotuj swój *obszar roboczy* i *subskrypcję*. Te informacje będą potrzebne do utworzenia eksperymentu w odpowiednim miejscu.
+> Zanotuj swój *obszar roboczy* i *subskrypcję* . Te informacje będą potrzebne do utworzenia eksperymentu w odpowiednim miejscu.
 
 ## <a name="run-a-notebook-in-your-workspace"></a><a name="azure"></a>Uruchamianie notesu w obszarze roboczym
 
@@ -59,7 +59,7 @@ Wykonaj następujące czynności konfiguracyjne i wykonaj kroki opisane w Azure 
 
 1. Wybierz swoją subskrypcję i utworzony obszar roboczy.
 
-1. Po lewej stronie wybierz pozycję **notesy**.
+1. Po lewej stronie wybierz pozycję **notesy** .
 
 1. W górnej części Wybierz kartę **przykłady** .
 
@@ -67,7 +67,7 @@ Wykonaj następujące czynności konfiguracyjne i wykonaj kroki opisane w Azure 
 
 1. Otwórz w folderze numer wersji. Ta liczba reprezentuje bieżącą wersję zestawu Python SDK.
 
-1. Wybierz przycisk **...** po prawej stronie folderu **samouczki** , a następnie wybierz pozycję **Klonuj**.
+1. Wybierz przycisk **...** po prawej stronie folderu **samouczki** , a następnie wybierz pozycję **Klonuj** .
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Zrzut ekranu pokazujący folder klonowania samouczków.":::
 
@@ -99,11 +99,11 @@ Wykonaj następujące czynności konfiguracyjne i wykonaj kroki opisane w Azure 
 
     1. Wybierz rozmiar maszyny wirtualnej z dostępnych opcji. Dla samouczków jest dobrym rozwiązaniem jest domyślna maszyna wirtualna.
 
-    1. Następnie wybierz przycisk **Utwórz**. Skonfigurowanie maszyny wirtualnej może potrwać około pięciu minut.
+    1. Następnie wybierz przycisk **Utwórz** . Skonfigurowanie maszyny wirtualnej może potrwać około pięciu minut.
 
 1. Gdy maszyna wirtualna jest dostępna, zostanie wyświetlona na górnym pasku narzędzi. Teraz można uruchomić Notes przy użyciu polecenia **Uruchom wszystko** na pasku narzędzi lub **SHIFT + ENTER** w komórkach kodu notesu.
 
-Jeśli masz niestandardowe widżety lub wolisz używać Jupyter lub JupyterLab, wybierz listę rozwijaną **Jupyter** po prawej stronie. Następnie wybierz pozycję **Jupyter** lub **JupyterLab**. Zostanie otwarte nowe okno przeglądarki.
+Jeśli masz niestandardowe widżety lub wolisz używać Jupyter lub JupyterLab, wybierz listę rozwijaną **Jupyter** po prawej stronie. Następnie wybierz pozycję **Jupyter** lub **JupyterLab** . Zostanie otwarte nowe okno przeglądarki.
 
 ## <a name="next-steps"></a>Następne kroki
 

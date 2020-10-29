@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: b4d5b3682114d44ceaadc73252f355e4cdc9cc66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 166234711ce00f0ed1f45c35ef661aa5b35f8a3c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548556"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926329"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Monitorowanie danych IoT Hub platformy Azure
 
@@ -235,7 +235,7 @@ Ta sekcja zawiera listę wszystkich typów kategorii dzienników zasobów i sche
 
 - [Połączenia](#connections)
 - [Dane telemetryczne urządzenia](#device-telemetry)
-- [Polecenia z chmury do urządzenia](#cloud-to-device-commands)
+- [Polecenia chmura-urządzenie](#cloud-to-device-commands)
 - [Operacje tożsamości urządzeń](#device-identity-operations)
 - [Operacje przekazywania plików](#file-upload-operations)
 - [Trasy](#routes)
@@ -298,7 +298,7 @@ Kategoria telemetrii urządzenia śledzi błędy występujące w centrum IoT i s
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Polecenia z chmury do urządzenia
+### <a name="cloud-to-device-commands"></a>Polecenia chmura-urządzenie
 
 Kategoria poleceń z chmury do urządzenia śledzi błędy występujące w centrum IoT Hub i powiązane z potokiem komunikatów z chmury do urządzenia. Ta kategoria zawiera błędy występujące w programie:
 

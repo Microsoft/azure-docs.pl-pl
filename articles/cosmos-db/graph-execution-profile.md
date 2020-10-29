@@ -2,19 +2,18 @@
 title: Użyj profilu wykonywania, aby oszacować zapytania w Azure Cosmos DB interfejsie API Gremlin
 description: Dowiedz się, jak rozwiązywać problemy i ulepszać zapytania Gremlin przy użyciu kroku profilu wykonania.
 services: cosmos-db
-author: jasonwhowell
-manager: kfile
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
-ms.author: jasonh
-ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.author: chrande
+ms.openlocfilehash: ff49889977bc4e5d9097d81ea7b05387900bedd4
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490598"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926380"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Jak użyć kroku profilu wykonywania do oceny zapytań aparatu Gremlin
 
@@ -139,12 +138,12 @@ Poniżej znajduje się przykładowe adnotacje danych wyjściowych, które zostan
 ## <a name="execution-profile-response-objects"></a>Obiekty odpowiedzi profilu wykonywania
 
 Odpowiedź funkcji executionProfile () zwróci hierarchię obiektów JSON o następującej strukturze:
-  - **Obiekt operacji Gremlin**: reprezentuje całą operację Gremlin, która została wykonana. Zawiera następujące właściwości.
+  - **Obiekt operacji Gremlin** : reprezentuje całą operację Gremlin, która została wykonana. Zawiera następujące właściwości.
     - `gremlin`: Jawna instrukcja Gremlin, która została wykonana.
     - `totalTime`: Czas (w milisekundach) wykonywania kroku. 
     - `metrics`: Tablica zawierająca każdy Cosmos DB operatory środowiska uruchomieniowego, które zostały wykonane w celu spełnienia zapytania. Ta lista jest posortowana w kolejności wykonywania.
     
-  - **Operatory środowiska uruchomieniowego Cosmos DB**: reprezentuje każdy składnik całej operacji Gremlin. Ta lista jest posortowana w kolejności wykonywania. Każdy obiekt zawiera następujące właściwości:
+  - **Operatory środowiska uruchomieniowego Cosmos DB** : reprezentuje każdy składnik całej operacji Gremlin. Ta lista jest posortowana w kolejności wykonywania. Każdy obiekt zawiera następujące właściwości:
     - `name`: Nazwa operatora. Jest to typ kroku, który został oceniony i wykonany. Więcej informacji można znaleźć w poniższej tabeli.
     - `time`: Ilość czasu (w milisekundach), jaką zajęł dany operator.
     - `annotations`: Zawiera dodatkowe informacje specyficzne dla operatora, który został wykonany.
@@ -177,7 +176,7 @@ Poniżej przedstawiono przykłady typowych optymalizacji, które można wycofać
 
 ### <a name="blind-fan-out-query-patterns"></a>Nieniewidome wzorce zapytań
 
-Załóżmy, że następująca odpowiedź profilu wykonania z **partycjonowanego wykresu**:
+Załóżmy, że następująca odpowiedź profilu wykonania z **partycjonowanego wykresu** :
 
 ```json
 [
@@ -220,7 +219,7 @@ Załóżmy, że następująca odpowiedź profilu wykonania z **partycjonowanego 
 
 Następujące wnioski można wykonać z tego:
 - Zapytanie jest wyszukiwaniem pojedynczego identyfikatora, ponieważ instrukcja Gremlin jest zgodna ze wzorcem `g.V('id')` .
-- Oceniania z `time` metryki, opóźnienie tego zapytania jest wysokie, ponieważ jest ono [większe niż 10 ms dla operacji odczytu punktu](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide).
+- Oceniania z `time` metryki, opóźnienie tego zapytania jest wysokie, ponieważ jest ono [większe niż 10 ms dla operacji odczytu punktu](./introduction.md#guaranteed-speed-at-any-scale).
 - Jeśli przejdziemy do `storeOps` obiektu, zobaczymy `fanoutFactor` , że jest to `5` , co oznacza, że do tej operacji uzyskuje się dostęp do [5 partycji](./partitioning-overview.md) .
 
 W ramach tej analizy możemy określić, że pierwsze zapytanie uzyskuje dostęp do większej liczby partycji niż jest to konieczne. Można to rozwiązać przez określenie klucza partycjonowania w zapytaniu jako predykatu. Pozwoli to zmniejszyć opóźnienia i obsłużyć mniej kosztów na zapytanie. Dowiedz się więcej o [partycjonowaniu grafów](graph-partitioning.md). Bardziej optymalne może być zapytanie `g.V('tt0093640').has('partitionKey', 't1001')` .

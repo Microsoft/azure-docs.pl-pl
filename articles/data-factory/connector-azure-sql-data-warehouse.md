@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 7dd23f481409eb3498893c1c7f9c0fd8311b9af2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a06bbeb4946f03b9cb6e5b1400521a0abffdd7f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901599"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913552"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Synapse Analytics (dawniej SQL Data Warehouse) za pomocą Azure Data Factory
 
@@ -42,7 +42,7 @@ W przypadku działania kopiowania ten łącznik usługi Azure Synapse Analytics 
 
 - Kopiowanie danych przy użyciu uwierzytelniania SQL i usługi Azure Active Directory (Azure AD) uwierzytelnianie tokenu aplikacji przy użyciu nazwy głównej usług lub zarządzanych tożsamości dla zasobów platformy Azure.
 - Jako źródło Pobierz dane przy użyciu zapytania SQL lub procedury składowanej. Możesz również wybrać opcję kopiowania równoległego ze źródła analizy usługi Azure Synapse, aby uzyskać szczegółowe informacje, zobacz sekcję [copy Parallel from Synapse Analytics](#parallel-copy-from-synapse-analytics) .
-- Jako ujścia Załaduj dane przy użyciu instrukcji [Base](#use-polybase-to-load-data-into-azure-synapse-analytics) lub [copy](#use-copy-statement) (wersja zapoznawcza) lub Wstaw zbiorczo. Zalecamy użycie instrukcji Base lub COPY (wersja zapoznawcza) w celu uzyskania lepszej wydajności kopiowania. Łącznik obsługuje również automatyczne tworzenie tabeli docelowej, jeśli nie istnieje na podstawie schematu źródłowego.
+- Jako ujścia Załaduj dane przy użyciu instrukcji [Base](#use-polybase-to-load-data-into-azure-synapse-analytics) lub [copy](#use-copy-statement) lub INSERT BULK. Zalecamy użycie instrukcji Base lub COPY w celu uzyskania lepszej wydajności kopiowania. Łącznik obsługuje również automatyczne tworzenie tabeli docelowej, jeśli nie istnieje na podstawie schematu źródłowego.
 
 > [!IMPORTANT]
 > W przypadku kopiowania danych przy użyciu Integration Runtime Azure Data Factory należy skonfigurować [regułę zapory na poziomie serwera](../azure-sql/database/firewall-configure.md) , tak aby usługi platformy Azure mogły uzyskiwać dostęp do [serwera logicznego SQL](../azure-sql/database/logical-servers.md).
@@ -51,7 +51,7 @@ W przypadku działania kopiowania ten łącznik usługi Azure Synapse Analytics 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
 > [!TIP]
-> Aby uzyskać najlepszą wydajność, należy użyć bazy danych na platformie Azure Synapse Analytics. [Aby załadować dane do usługi Azure Synapse Analytics, należy wykonać](#use-polybase-to-load-data-into-azure-synapse-analytics) szczegóły. Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do usługi Azure Synapse Analytics na 15 minut z Azure Data Factory](load-azure-sql-data-warehouse.md).
+> Aby uzyskać najlepszą wydajność, należy użyć instrukcji Base lub COPY do ładowania danych do usługi Azure Synapse Analytics. [Użyj podstawy do ładowania danych do usługi Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) i [używania instrukcji Copy do ładowania danych do sekcji Azure Synapse Analytics](#use-copy-statement) . Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do usługi Azure Synapse Analytics na 15 minut z Azure Data Factory](load-azure-sql-data-warehouse.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -478,7 +478,7 @@ Korzystanie z [bazy danych Base](/sql/relational-databases/polybase/polybase-gui
 - Jeśli źródłowy magazyn danych i format nie są pierwotnie obsługiwane przez bazę kodu, Użyj zamiast niej funkcji **[Base](#staged-copy-by-using-polybase)** . Funkcja kopiowania etapowego zapewnia lepszą przepływność. Dane są automatycznie konwertowane w formacie zgodnym z podstawą, są przechowywane w usłudze Azure Blob Storage, a następnie są odbierane w celu załadowania danych do usługi Azure Synapse Analytics.
 
 > [!TIP]
-> Dowiedz się więcej na temat [najlepszych rozwiązań dotyczących korzystania z bazy Base](#best-practices-for-using-polybase). W przypadku korzystania z bazy danych z Azure Integration Runtime, skuteczne jednostki integracji (DIUs) są zawsze 2. Dostrajanie DIU nie ma wpływu na wydajność, ponieważ ładowanie danych z magazynu jest obsługiwane przez aparat Synapse.
+> Dowiedz się więcej na temat [najlepszych rozwiązań dotyczących korzystania z bazy Base](#best-practices-for-using-polybase). W przypadku korzystania z bazy danych z Azure Integration Runtime, skuteczne [jednostki integracji (DIU)](copy-activity-performance-features.md#data-integration-units) dla bezpośredniego lub przemieszczanego magazynu do Synapse są zawsze 2. Dostrajanie DIU nie ma wpływu na wydajność, ponieważ ładowanie danych z magazynu jest obsługiwane przez aparat Synapse.
 
 Następujące ustawienia podstawowe są obsługiwane w ramach `polyBaseSettings` działania kopiowania:
 
@@ -507,7 +507,8 @@ Jeśli wymagania nie są spełnione, Azure Data Factory sprawdza ustawienia i au
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Uwierzytelnianie klucza konta, uwierzytelnianie tożsamości zarządzanej |
 
     >[!IMPORTANT]
-    >Jeśli usługa Azure Storage jest skonfigurowana za pomocą punktu końcowego usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej — Zobacz, aby korzystać z [punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Zapoznaj się z wymaganymi konfiguracjami w Data Factory z poziomu [uwierzytelniania tożsamości zarządzanego przez obiekt blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i sekcji [uwierzytelniania tożsamości zarządzanego](connector-azure-data-lake-storage.md#managed-identity) przez usługę Azure Data Lake Storage Gen2.
+    >- W przypadku korzystania z uwierzytelniania tożsamości zarządzanej dla połączonej usługi magazynu należy odpowiednio poznać potrzebne konfiguracje [obiektów blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
+    >- Jeśli usługa Azure Storage jest skonfigurowana za pomocą punktu końcowego usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej z włączoną opcją "Zezwalaj na zaufaną usługę firmy Microsoft" na koncie magazynu, zapoznaj się z tematem [wpływ korzystania z punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 2. **Format danych źródłowych** jest **Parquet** , **Orc** lub **rozdzielany tekstem** z następującymi konfiguracjami:
 
@@ -567,7 +568,8 @@ Jeśli dane źródłowe nie są natywnie zgodne z bazą danych Base, włącz je 
 Aby użyć tej funkcji, Utwórz [połączoną usługę Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) [Azure Data Lake Storage Gen2 lub połączoną usługę](connector-azure-data-lake-storage.md#linked-service-properties) z **kluczem konta lub uwierzytelnianiem tożsamości zarządzanej** , które odwołuje się do konta usługi Azure Storage jako magazynu tymczasowego.
 
 >[!IMPORTANT]
->Jeśli przejściowy Magazyn Azure jest skonfigurowany z punktem końcowym usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej — Zobacz, aby korzystać z [punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Zapoznaj się z wymaganymi konfiguracjami w Data Factory z poziomu [uwierzytelniania tożsamości zarządzanego przez usługę Azure Blob](connector-azure-blob-storage.md#managed-identity) i [uwierzytelniania tożsamości zarządzanego przez Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity).
+>- W przypadku korzystania z uwierzytelniania tożsamości zarządzanej dla połączonej usługi przejściowej należy odpowiednio poznać konfiguracje potrzebne dla [obiektów blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
+>- Jeśli przejściowy Magazyn Azure jest skonfigurowany z punktem końcowym usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej z włączoną opcją "Zezwalaj na zaufaną usługę firmy Microsoft" na koncie magazynu, zapoznaj się z tematem [wpływ używania punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ```json
 "activities":[
@@ -673,7 +675,7 @@ Wartość NULL jest specjalną formą wartości domyślnej. Jeśli kolumna dopus
 >Obecnie Data Factory obsługują tylko kopiowanie ze źródeł zgodnych z instrukcją COPY wymienione poniżej.
 
 >[!TIP]
->W przypadku używania instrukcji COPY z Azure Integration Runtime, efektywna jednostka integracji danych (DIUs) to zawsze 2. Dostrajanie DIU nie ma wpływu na wydajność, ponieważ ładowanie danych z magazynu jest obsługiwane przez aparat Synapse.
+>W przypadku używania instrukcji COPY z Azure Integration Runtime, efektywna [Jednostka integracji danych (DIU)](copy-activity-performance-features.md#data-integration-units) to zawsze 2. Dostrajanie DIU nie ma wpływu na wydajność, ponieważ ładowanie danych z magazynu jest obsługiwane przez aparat Synapse.
 
 Użycie instrukcji COPY obsługuje następującą konfigurację:
 
@@ -687,7 +689,8 @@ Użycie instrukcji COPY obsługuje następującą konfigurację:
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Tekst rozdzielany](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Uwierzytelnianie klucza konta, uwierzytelnianie jednostki usługi, uwierzytelnianie tożsamości zarządzanej |
 
     >[!IMPORTANT]
-    >Jeśli usługa Azure Storage jest skonfigurowana za pomocą punktu końcowego usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej — Zobacz, aby korzystać z [punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Zapoznaj się z wymaganymi konfiguracjami w Data Factory z poziomu [uwierzytelniania tożsamości zarządzanego przez obiekt blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i sekcji [uwierzytelniania tożsamości zarządzanego](connector-azure-data-lake-storage.md#managed-identity) przez usługę Azure Data Lake Storage Gen2.
+    >- W przypadku korzystania z uwierzytelniania tożsamości zarządzanej dla połączonej usługi magazynu należy odpowiednio poznać potrzebne konfiguracje [obiektów blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
+    >- Jeśli usługa Azure Storage jest skonfigurowana za pomocą punktu końcowego usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej z włączoną opcją "Zezwalaj na zaufaną usługę firmy Microsoft" na koncie magazynu, zapoznaj się z tematem [wpływ korzystania z punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 2. Ustawienia formatu są następujące:
 
@@ -769,7 +772,10 @@ Ustawienia specyficzne dla usługi Azure Synapse Analytics są dostępne na karc
 
 **Dane wejściowe** Wybierz, czy chcesz wskazać źródło w tabeli (równoważnej ```Select * from <table-name>``` ), czy wprowadzić niestandardowe zapytanie SQL.
 
-**Włączanie przemieszczania** Zdecydowanie zaleca się użycie tej opcji w obciążeniach produkcyjnych przy użyciu źródeł Synapse DW. Gdy wykonujesz działanie przepływu danych ze źródłami Synapase z potoku, funkcja ADF wyświetli monit o podanie konta magazynu lokalizacji tymczasowej i będzie używany do ładowania danych przemieszczanych. Jest to najszybszy mechanizm ładowania danych z Synapse DW.
+**Włączanie przemieszczania** Zdecydowanie zaleca się użycie tej opcji w obciążeniach produkcyjnych przy użyciu źródeł analitycznych usługi Azure Synapse. Po wykonaniu [działania przepływu danych](control-flow-execute-data-flow-activity.md) z źródłami analiz usługi Azure Synapse z potoku, funkcja ADF wyświetli monit o podanie konta magazynu lokalizacji tymczasowej i będzie używać go do ładowania przemieszczania danych. Jest to najszybszy mechanizm ładowania danych z usługi Azure Synapse Analytics.
+
+- W przypadku korzystania z uwierzytelniania tożsamości zarządzanej dla połączonej usługi magazynu należy odpowiednio poznać potrzebne konfiguracje [obiektów blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
+- Jeśli usługa Azure Storage jest skonfigurowana za pomocą punktu końcowego usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej z włączoną opcją "Zezwalaj na zaufaną usługę firmy Microsoft" na koncie magazynu, zapoznaj się z tematem [wpływ korzystania z punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 **Zapytanie** : w przypadku wybrania zapytania w polu wejściowym wprowadź zapytanie SQL dla źródła. To ustawienie przesłania każdą tabelę, która została wybrana w zestawie danych. Klauzule **order by** nie są obsługiwane w tym miejscu, ale można ustawić pełną instrukcję SELECT FROM. Można również użyć funkcji tabeli zdefiniowanej przez użytkownika. **SELECT * FROM udfGetData ()** to format UDF w języku SQL, który zwraca tabelę. To zapytanie spowoduje utworzenie tabeli źródłowej, której można użyć w przepływie danych. Używanie zapytań jest również doskonałym sposobem zredukowania liczby wierszy do testowania lub wyszukiwania.
 
@@ -798,7 +804,10 @@ Ustawienia specyficzne dla usługi Azure Synapse Analytics są dostępne na karc
 - Utwórz ponownie: tabela zostanie porzucona i utworzona ponownie. Wymagane w przypadku dynamicznego tworzenia nowej tabeli.
 - Obcinanie: wszystkie wiersze z tabeli docelowej zostaną usunięte.
 
-**Włącz przemieszczanie:** Określa, czy podczas zapisywania do usługi Azure Synapse Analytics ma być używana [baza Base](/sql/relational-databases/polybase/polybase-guide) .
+**Włącz przemieszczanie:** Określa, czy podczas zapisywania do usługi Azure Synapse Analytics ma być używana [baza Base](/sql/relational-databases/polybase/polybase-guide) . Magazyn przemieszczania jest skonfigurowany w [działaniu wykonywania przepływu danych](control-flow-execute-data-flow-activity.md). 
+
+- W przypadku korzystania z uwierzytelniania tożsamości zarządzanej dla połączonej usługi magazynu należy odpowiednio poznać potrzebne konfiguracje [obiektów blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
+- Jeśli usługa Azure Storage jest skonfigurowana za pomocą punktu końcowego usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej z włączoną opcją "Zezwalaj na zaufaną usługę firmy Microsoft" na koncie magazynu, zapoznaj się z tematem [wpływ korzystania z punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 **Rozmiar wsadu** : określa, ile wierszy jest zapisywanych w każdym przedziale. Większe rozmiary partii zwiększają optymalizację kompresji i pamięci, ale grozi wyjątkami dotyczącymi pamięci podczas buforowania danych.
 

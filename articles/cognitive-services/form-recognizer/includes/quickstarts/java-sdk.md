@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 0dc4528147a144ed9887ae1becfbbe2aa4b9fcf3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fa15b48cff73b567187aa078bec02aa82e41e665
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897764"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924996"
 ---
 > [!IMPORTANT]
 > Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia.
 
-[Dokumentacja](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  źródłowy biblioteki [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Dokumentacja](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src)  |  źródłowy biblioteki [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -134,7 +134,7 @@ Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy kl
 - Kopiowanie modelu niestandardowego z jednego do drugiego zasobu aparatu rozpoznawania formularza.
 
 > [!NOTE]
-> Modele mogą być również przeszkolone przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do etykietowania aparatów rozpoznawania formularzy](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> Modele mogą być również przeszkolone przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do etykietowania aparatów rozpoznawania formularzy](../../quickstarts/label-tool.md).
 
 ## <a name="code-examples"></a>Przykłady kodu
 

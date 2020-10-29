@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0663d1910e2b67b8302e41a96509bdd84cd1a3a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dff6668050e45d9179cd985aa10670b56afe5377
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102782"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913232"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -20,7 +20,7 @@ W tym artykule omówiono zbiór najlepszych rozwiązań związanych z wydajnym i
 
 ### <a name="pool-configuration-and-naming"></a>Konfiguracja puli i nazewnictwo
 
-- **Tryb alokacji puli** Podczas tworzenia konta usługi Batch można wybrać jeden z dwóch trybów alokacji puli: **Usługa Batch** lub **subskrypcja użytkownika**. W większości przypadków należy użyć domyślnego trybu usługi Batch, w którym pule są przyliczane w tle w ramach subskrypcji zarządzanych przez usługę Batch. W alternatywnym trybie subskrypcji użytkownika maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Konta subskrypcji użytkowników są głównie używane do włączania ważnych, ale małych podzestawów scenariuszy. Więcej informacji na temat trybu subskrypcji użytkownika można znaleźć w [dodatkowej konfiguracji trybu subskrypcji użytkownika](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+- **Tryb alokacji puli** Podczas tworzenia konta usługi Batch można wybrać jeden z dwóch trybów alokacji puli: **Usługa Batch** lub **subskrypcja użytkownika** . W większości przypadków należy użyć domyślnego trybu usługi Batch, w którym pule są przyliczane w tle w ramach subskrypcji zarządzanych przez usługę Batch. W alternatywnym trybie subskrypcji użytkownika maszyny wirtualne i inne zasoby usługi Batch są tworzone bezpośrednio w Twojej subskrypcji po utworzeniu puli. Konta subskrypcji użytkowników są głównie używane do włączania ważnych, ale małych podzestawów scenariuszy. Więcej informacji na temat trybu subskrypcji użytkownika można znaleźć w [dodatkowej konfiguracji trybu subskrypcji użytkownika](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
 - **Podczas określania zadania do mapowania puli należy wziąć pod uwagę czas wykonywania zadania i zadania.**
     Jeśli zadania składają się głównie z zadań wykonywanych przed chwilą, a oczekiwana całkowita liczba zadań jest mała, w związku z czym ogólna oczekiwany czas wykonywania zadania nie jest długa, nie należy przydzielać nowej puli dla każdego zadania. Czas wykonywania tego zadania będzie zmniejszać czas ich alokacji.
@@ -41,7 +41,7 @@ W tym artykule omówiono zbiór najlepszych rozwiązań związanych z wydajnym i
 Okres istnienia puli może się różnić w zależności od metody alokacji i opcji stosowanych do konfiguracji puli. Pule mogą mieć dowolny okres istnienia i różną liczbę węzłów obliczeniowych w puli w dowolnym momencie. Odpowiedzialność za zarządzanie węzłami obliczeniowymi w puli w sposób jawny lub za pomocą funkcji udostępnianych przez usługę (automatyczne skalowanie lub autopule).
 
 - **Przechowuj pule jako świeże.**
-    Należy zmienić rozmiar pul na zero co kilka miesięcy, aby upewnić się, że są używane najnowsze aktualizacje agenta węzła i poprawki błędów. W puli nie będą odbierane aktualizacje agentów węzła, chyba że zostanie on ponownie utworzony lub zmieniono rozmiar do 0 węzłów obliczeniowych. Przed ponownym utworzeniem lub zmianą puli zaleca się pobranie wszelkich dzienników agentów węzłów na potrzeby debugowania, zgodnie z opisem w sekcji [węzły](#nodes) .
+    Należy zmienić rozmiar pul na zero co kilka miesięcy, aby upewnić się, że są używane [najnowsze aktualizacje agenta węzła i poprawki błędów](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). W puli nie będą odbierane aktualizacje agentów węzła, chyba że zostanie on ponownie utworzony lub zmieniono rozmiar do 0 węzłów obliczeniowych. Przed ponownym utworzeniem lub zmianą puli zaleca się pobranie wszelkich dzienników agentów węzłów na potrzeby debugowania, zgodnie z opisem w sekcji [węzły](#nodes) .
 
 - **Ponowne tworzenie puli** Na podobnej uwadze nie zaleca się usuwania i ponownego tworzenia pul. Zamiast tego Utwórz nową pulę, zaktualizuj istniejące zadania, aby wskazywały nową pulę. Po przeniesieniu wszystkich zadań do nowej puli Usuń starą pulę.
 
@@ -67,7 +67,7 @@ Pule można tworzyć przy użyciu obrazów innych firm opublikowanych w portalu 
 
 ### <a name="azure-region-dependency"></a>Zależność regionu platformy Azure
 
-Zaleca się, aby nie zależeć od jednego regionu świadczenia usługi Azure, jeśli jest to obciążenie czasochłonne lub produkcyjne. Rzadko występują problemy, które mogą mieć wpływ na cały region. Na przykład jeśli przetwarzanie musi rozpocząć się o określonym czasie, rozważ skalowanie w górę puli w regionie podstawowym *przed upływem czasu rozpoczęcia*. W przypadku niepowodzenia skalowania puli można wrócić do skalowania w górę puli w regionie (lub regionach) kopii zapasowej. Pule na wielu kontach w różnych regionach zapewniają gotową, łatwą do udostępnienia kopię zapasową, jeśli coś się nie udaje z inną pulą. Aby uzyskać więcej informacji, zobacz [projektowanie aplikacji pod kątem wysokiej dostępności](high-availability-disaster-recovery.md).
+Zaleca się, aby nie zależeć od jednego regionu świadczenia usługi Azure, jeśli jest to obciążenie czasochłonne lub produkcyjne. Rzadko występują problemy, które mogą mieć wpływ na cały region. Na przykład jeśli przetwarzanie musi rozpocząć się o określonym czasie, rozważ skalowanie w górę puli w regionie podstawowym *przed upływem czasu rozpoczęcia* . W przypadku niepowodzenia skalowania puli można wrócić do skalowania w górę puli w regionie (lub regionach) kopii zapasowej. Pule na wielu kontach w różnych regionach zapewniają gotową, łatwą do udostępnienia kopię zapasową, jeśli coś się nie udaje z inną pulą. Aby uzyskać więcej informacji, zobacz [projektowanie aplikacji pod kątem wysokiej dostępności](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Stanowiska
 

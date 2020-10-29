@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18270a2f435428824714067749fc18ce2addc535
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91459816"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913045"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Rozwiązywanie problemów z Azure Stream Analytics przy użyciu dzienników zasobów
 
@@ -38,13 +38,13 @@ Stream Analytics oferuje dwa typy dzienników:
 
 Dzienniki aktywności są domyślnie włączone i zapewniają szczegółowe informacje o operacjach wykonywanych przez zadanie Stream Analytics. Informacje znajdujące się w dziennikach aktywności mogą pomóc w znalezieniu głównej przyczyny problemów wpływających na zadanie. Wykonaj następujące kroki, aby użyć dzienników aktywności w Stream Analytics:
 
-1. Zaloguj się do Azure Portal i wybierz pozycję **Dziennik aktywności** w obszarze **Przegląd**.
+1. Zaloguj się do Azure Portal i wybierz pozycję **Dziennik aktywności** w obszarze **Przegląd** .
 
    ![Stream Analytics dziennik aktywności](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
 
 2. Można wyświetlić listę operacji, które zostały wykonane. Każda operacja, która spowodowała niepowodzenie zadania, zawiera czerwony dymek informacyjny.
 
-3. Kliknij operację, aby wyświetlić jej widok podsumowania. Informacje są często ograniczone. Aby dowiedzieć się więcej na temat operacji, kliknij pozycję **JSON**.
+3. Kliknij operację, aby wyświetlić jej widok podsumowania. Informacje są często ograniczone. Aby dowiedzieć się więcej na temat operacji, kliknij pozycję **JSON** .
 
    ![Podsumowanie operacji dziennika aktywności Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
@@ -62,29 +62,29 @@ Zdecydowanie zaleca się włączenie dzienników zasobów i wysłanie ich do dzi
 
 1.  Utwórz obszar roboczy Log Analytics, jeśli jeszcze go nie masz. Zaleca się, aby obszar roboczy Log Analytics w tym samym regionie co Stream Analytics zadanie.
 
-2.  Zaloguj się do Azure Portal i przejdź do zadania Stream Analytics. W obszarze **monitorowanie**wybierz pozycję **dzienniki diagnostyczne**. Następnie wybierz pozycję **Włącz diagnostykę**.
+2.  Zaloguj się do Azure Portal i przejdź do zadania Stream Analytics. W obszarze **monitorowanie** wybierz pozycję **dzienniki diagnostyczne** . Następnie wybierz pozycję **Włącz diagnostykę** .
 
     ![Nawigacja w bloku do dzienników zasobów](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Podaj **nazwę** w polu **Nazwa ustawień diagnostycznych** i zaznacz pola wyboru do **wykonania** i **tworzenia** w obszarze **Dziennik**, a następnie pozycję **AllMetrics** w obszarze **Metryka**. Następnie wybierz pozycję **Wyślij do log Analytics** a następnie wybierz obszar roboczy. Kliknij przycisk **Zapisz**.
+2.  Podaj **nazwę** w polu **Nazwa ustawień diagnostycznych** i zaznacz pola wyboru do **wykonania** i **tworzenia** w obszarze **Dziennik** , a następnie pozycję **AllMetrics** w obszarze **Metryka** . Następnie wybierz pozycję **Wyślij do log Analytics** a następnie wybierz obszar roboczy. Kliknij pozycję **Zapisz** .
 
     ![Ustawienia dzienników zasobów](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
 3. Po rozpoczęciu zadania Stream Analytics dzienniki zasobów są kierowane do obszaru roboczego Log Analytics. Aby wyświetlić dzienniki zasobów dla zadania, wybierz pozycję **dzienniki** w sekcji **monitorowanie** .
 
-   ![Dzienniki zasobów w obszarze monitorowanie](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![Zrzut ekranu przedstawia menu ogólne z wybranymi dziennikami.](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Stream Analytics udostępnia wstępnie zdefiniowane zapytania, które umożliwiają łatwe wyszukiwanie dzienników, które Cię interesują. Możesz wybrać wszystkie wstępnie zdefiniowane zapytania w okienku po lewej stronie, a następnie wybrać polecenie **Uruchom**. Wyniki zapytania będą widoczne w dolnym okienku. 
+4. Stream Analytics udostępnia wstępnie zdefiniowane zapytania, które umożliwiają łatwe wyszukiwanie dzienników, które Cię interesują. Możesz wybrać wszystkie wstępnie zdefiniowane zapytania w okienku po lewej stronie, a następnie wybrać polecenie **Uruchom** . Wyniki zapytania będą widoczne w dolnym okienku. 
 
-   ![Dzienniki zasobów w obszarze monitorowanie](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
+   ![Zrzut ekranu przedstawia dzienniki zadania Stream Analyticsowego.](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## <a name="resource-log-categories"></a>Kategorie dzienników zasobów
 
 Azure Stream Analytics przechwytuje dwie kategorie dzienników zasobów:
 
-* **Tworzenie**: przechwytuje zdarzenia dziennika, które są związane z operacjami tworzenia zadań, takimi jak tworzenie zadań, Dodawanie i usuwanie danych wejściowych i wyjściowych, Dodawanie i aktualizowanie zapytania oraz uruchamianie lub zatrzymywanie zadania.
+* **Tworzenie** : przechwytuje zdarzenia dziennika, które są związane z operacjami tworzenia zadań, takimi jak tworzenie zadań, Dodawanie i usuwanie danych wejściowych i wyjściowych, Dodawanie i aktualizowanie zapytania oraz uruchamianie lub zatrzymywanie zadania.
 
-* **Wykonywanie**: przechwytuje zdarzenia, które wystąpiły podczas wykonywania zadania.
+* **Wykonywanie** : przechwytuje zdarzenia, które wystąpiły podczas wykonywania zadania.
     * Błędy łączności
     * Błędy przetwarzania danych, w tym:
         * Zdarzenia, które nie są zgodne z definicją zapytania (niezgodne typy pól i wartości, brakujące pola itd.)
@@ -98,11 +98,11 @@ Wszystkie dzienniki są przechowywane w formacie JSON. Każdy wpis ma następuj�
 Nazwa | Opis
 ------- | -------
 time | Sygnatura czasowa (w formacie UTC) dziennika.
-resourceId | Identyfikator zasobu, w którym miała miejsce operacja, w Wielkiej litery. Zawiera identyfikator subskrypcji, grupę zasobów i nazwę zadania. Na przykład **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/my-Resource-Group/Providers/Microsoft. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
-category | Kategoria dziennika, **wykonanie** lub **Tworzenie**.
-operationName | Nazwa rejestrowanej operacji. Na przykład **wysyłanie zdarzeń: niepowodzenie zapisu danych wyjściowych SQL do mysqloutput**.
-status | Stan operacji. Na przykład **nie powiodło się** lub **zakończyło**się niepowodzeniem.
-poziom | Poziom dziennika. Na przykład **błąd**, **Ostrzeżenie**lub **informacyjny**.
+resourceId | Identyfikator zasobu, w którym miała miejsce operacja, w Wielkiej litery. Zawiera identyfikator subskrypcji, grupę zasobów i nazwę zadania. Na przykład **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/my-Resource-Group/Providers/Microsoft. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB** .
+category | Kategoria dziennika, **wykonanie** lub **Tworzenie** .
+operationName | Nazwa rejestrowanej operacji. Na przykład **wysyłanie zdarzeń: niepowodzenie zapisu danych wyjściowych SQL do mysqloutput** .
+status | Stan operacji. Na przykład **nie powiodło się** lub **zakończyło** się niepowodzeniem.
+poziom | Poziom dziennika. Na przykład **błąd** , **Ostrzeżenie** lub **informacyjny** .
 properties | Szczegóły wpisu dziennika, Zserializowany jako ciąg JSON. Aby uzyskać więcej informacji, zobacz następujące sekcje w tym artykule.
 
 ### <a name="execution-log-properties-schema"></a>Schemat właściwości dziennika wykonywania
@@ -117,16 +117,16 @@ Nazwa | Opis
 ------- | -------
 Element źródłowy | Nazwa danych wejściowych lub wyjściowych zadania, w których wystąpił błąd.
 Wiadomość | Komunikat skojarzony z błędem.
-Type | Typ błędu. Na przykład **DataConversionError**, **CsvParserError**lub **ServiceBusPropertyColumnMissingError**.
+Typ | Typ błędu. Na przykład **DataConversionError** , **CsvParserError** lub **ServiceBusPropertyColumnMissingError** .
 Dane | Zawiera dane, które są przydatne do dokładnego lokalizowania źródła błędu. Podlega obcięciu, w zależności od rozmiaru.
 
 W zależności od wartości **OperationName** , błędy danych mają następujący schemat:
 
 * Podczas operacji odczytu zdarzeń wystąpią **serializowane zdarzenia** . Występują one, gdy dane w danych wejściowych nie spełniają schematu zapytania z jednego z następujących powodów:
 
-   * *Niezgodność typów podczas serializacji zdarzenia (de)*: Określa pole, które powoduje błąd.
+   * *Niezgodność typów podczas serializacji zdarzenia (de)* : Określa pole, które powoduje błąd.
 
-   * *Nie można odczytać zdarzenia, nieprawidłowa Serializacja*: wyświetla informacje o lokalizacji w danych wejściowych, w której wystąpił błąd. Zawiera nazwę obiektu BLOB dla danych wejściowych obiektów blob, przesunięcia i próbkowania.
+   * *Nie można odczytać zdarzenia, nieprawidłowa Serializacja* : wyświetla informacje o lokalizacji w danych wejściowych, w której wystąpił błąd. Zawiera nazwę obiektu BLOB dla danych wejściowych obiektów blob, przesunięcia i próbkowania.
 
 * **Zdarzenia wysyłania** występują podczas operacji zapisu. Identyfikują one zdarzenie przesyłania strumieniowego, które spowodowało błąd.
 
@@ -138,7 +138,7 @@ Nazwa | Opis
 -------- | --------
 Błąd | obowiązkowe Informacje o błędzie. Zazwyczaj są to informacje o wyjątkach, jeśli są dostępne.
 Wiadomość| Komunikat dziennika.
-Type | Typ komunikatu. Mapuje na wewnętrzną kategoryzację błędów. Na przykład **JobValidationError** lub **BlobOutputAdapterInitializationFailure**.
+Typ | Typ komunikatu. Mapuje na wewnętrzną kategoryzację błędów. Na przykład **JobValidationError** lub **BlobOutputAdapterInitializationFailure** .
 Identyfikator korelacji | Identyfikator GUID, który jednoznacznie identyfikuje wykonywanie zadania. Wszystkie wpisy dziennika wykonania od momentu uruchomienia zadania do momentu zatrzymania zadania mają tę samą wartość **identyfikatora korelacji** .
 
 ## <a name="next-steps"></a>Następne kroki

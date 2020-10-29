@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3278a1522fe3967dd1de5551e90732e63b7666f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a70b10f7d22c9cc04427bdfbb44243fad457ba0
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88931560"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913487"
 ---
 # <a name="specify-a-face-detection-model"></a>Określanie modelu wykrywania twarzy
 
@@ -110,9 +110,9 @@ Najlepszym sposobem porównania wydajności `detection_01` `detection_02` modeli
 
 W tym artykule przedstawiono sposób określania modelu wykrywania, który ma być używany z różnymi interfejsami API rozpoznawania. Następnie postępuj zgodnie z przewodnikiem Szybki Start, aby rozpocząć korzystanie z wykrywania czołowego.
 
-* [Zestaw SDK platformy .NET](../Quickstarts/csharp-sdk.md)
-* [Zestaw SDK dla języka Python](../Quickstarts/python-sdk.md)
-* [Zestaw SDK dla wejść](../Quickstarts/go-sdk.md)
+* [Zestaw SDK platformy .NET](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
+* [Zestaw SDK dla języka Python](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [Zestaw SDK dla wejść](../quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go)
 
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

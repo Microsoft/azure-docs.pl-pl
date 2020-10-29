@@ -1,6 +1,6 @@
 ---
 title: Łączenie danych Fortinet z platformą Azure — wskaźnikiem Microsoft Docs
-description: Połącz urządzenie Fortinet z platformą Azure wskaźnikiem wydajności, aby wyświetlić pulpity nawigacyjne, utworzyć niestandardowe alerty i poprawić badanie. 
+description: Połącz urządzenie Fortinet z platformą Azure wskaźnikiem wydajności, aby wyświetlić pulpity nawigacyjne, utworzyć niestandardowe alerty i poprawić badanie.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 8aa8599cbaab6af00d7b4122b94c9e24870881f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60be22f439547d006f54e489833b63171e617e3e
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511334"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913997"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Łączenie Fortinet z platformą Azure — wskaźnik
 
@@ -38,19 +38,19 @@ Skonfiguruj konfigurację Fortinet do przesyłania dalej komunikatów dziennika 
 
     ```console
     config log syslogd setting
+    set status enable
     set format cef
     set port 514
     set server <ip_address_of_Receiver>
-    set status enable
     end
     ```
 
     - Zastąp **adres IP** serwera adresem IP agenta.
     - Ustaw wartość w polu **port dziennika** systemowego na **514** lub port ustawiony w agencie.
-    - Aby włączyć format CEF w wersjach wczesnego FortiOS, może być konieczne uruchomienie opcji **wyłączania CSV**zestawu poleceń.
+    - Aby włączyć format CEF w wersjach wczesnego FortiOS, może być konieczne uruchomienie opcji **wyłączania CSV** zestawu poleceń.
  
    > [!NOTE] 
-   > Aby uzyskać więcej informacji, przejdź do [biblioteki dokumentów Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Wybierz swoją wersję, a następnie użyj dokumentacji **podręcznika** i **komunikatu dziennika**.
+   > Aby uzyskać więcej informacji, przejdź do [biblioteki dokumentów Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Wybierz swoją wersję, a następnie użyj dokumentacji **podręcznika** i **komunikatu dziennika** .
 
 1. Aby użyć odpowiedniego schematu w Azure Monitor Log Analytics dla imprez Fortinet, wyszukaj ciąg `CommonSecurityLog` .
 

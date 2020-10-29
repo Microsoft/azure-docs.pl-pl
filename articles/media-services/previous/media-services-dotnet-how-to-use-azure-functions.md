@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5bca9b0d5907d9900741d0fe2c319f141f810b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262124"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913640"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Opracowywanie Azure Functions z Media Services
 
@@ -49,37 +49,37 @@ Podczas opracowywania funkcji Media Services warto dodać zmienne środowiskowe,
 
 Funkcja zdefiniowana w tym artykule zakłada, że w ustawieniach aplikacji znajdują się następujące zmienne środowiskowe:
 
-**AMSAADTenantDomain**: punkt końcowy dzierżawy usługi Azure AD. Aby uzyskać więcej informacji na temat nawiązywania połączenia z interfejsem API usługi AMS, zobacz [ten](media-services-use-aad-auth-to-access-ams-api.md) artykuł.
+**AMSAADTenantDomain** : punkt końcowy dzierżawy usługi Azure AD. Aby uzyskać więcej informacji na temat nawiązywania połączenia z interfejsem API usługi AMS, zobacz [ten](media-services-use-aad-auth-to-access-ams-api.md) artykuł.
 
-**AMSRESTAPIEndpoint**: identyfikator URI reprezentujący punkt końcowy interfejsu API REST. 
+**AMSRESTAPIEndpoint** : identyfikator URI reprezentujący punkt końcowy interfejsu API REST. 
 
-**AMSClientId**: identyfikator klienta aplikacji usługi Azure AD.
+**AMSClientId** : identyfikator klienta aplikacji usługi Azure AD.
 
-**AMSClientSecret**: wpis tajny klienta aplikacji usługi Azure AD.
+**AMSClientSecret** : wpis tajny klienta aplikacji usługi Azure AD.
 
-**StorageConnection**: połączenie magazynu konta skojarzonego z kontem Media Services. Ta wartość jest używana w **function.js** plik i plik **Run. CSX** (opisane poniżej).
+**StorageConnection** : połączenie magazynu konta skojarzonego z kontem Media Services. Ta wartość jest używana w **function.js** plik i plik **Run. CSX** (opisane poniżej).
 
 ## <a name="create-a-function"></a>Tworzenie funkcji
 
 Po wdrożeniu aplikacji funkcji można ją znaleźć między **App Services** Azure Functions.
 
-1. Wybierz aplikację funkcji, a następnie kliknij pozycję **Nowa funkcja**.
+1. Wybierz aplikację funkcji, a następnie kliknij pozycję **Nowa funkcja** .
 2. Wybierz scenariusz języka **C#** i **przetwarzania danych** .
-3. Wybierz szablon **BlobTrigger** . Ta funkcja jest wyzwalana za każdym razem, gdy obiekt BLOB zostanie przekazany do kontenera **wejściowego** . Nazwa **wejściowa** jest określona w **ścieżce**w następnym kroku.
+3. Wybierz szablon **BlobTrigger** . Ta funkcja jest wyzwalana za każdym razem, gdy obiekt BLOB zostanie przekazany do kontenera **wejściowego** . Nazwa **wejściowa** jest określona w **ścieżce** w następnym kroku.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Wybieranie szablonu z wybraną pozycją BlobTrigger.](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
-4. Po wybraniu opcji **BlobTrigger**na stronie pojawią się więcej kontrolek.
+4. Po wybraniu opcji **BlobTrigger** na stronie pojawią się więcej kontrolek.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Nazwa funkcji.](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Kliknij przycisk **Utwórz**. 
+4. Kliknij pozycję **Utwórz** . 
 
 ## <a name="files"></a>Files
 
 Funkcja platformy Azure jest skojarzona z plikami kodu i innymi plikami opisanymi w tej sekcji. Gdy używasz Azure Portal do tworzenia funkcji, **function.json** i **Run. CSX** są tworzone dla Ciebie. Musisz dodać lub przekazać **project.js** pliku. Pozostała część tej sekcji zawiera krótkie wyjaśnienie poszczególnych plików i pokazuje ich definicje.
 
-![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![Zrzut ekranu przedstawia pliki JSON w projekcie.](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
@@ -138,7 +138,7 @@ W przykładzie zdefiniowanym w tej sekcji przedstawiono
 
 W scenariuszu w czasie rzeczywistym najprawdopodobniej chcesz śledzić postęp zadania, a następnie publikować zakodowany element zawartości. Aby uzyskać więcej informacji, zobacz [Używanie elementów webhook platformy Azure do monitorowania powiadomień dotyczących zadań Media Services](media-services-dotnet-check-job-progress-with-webhooks.md). Aby uzyskać więcej przykładów, zobacz [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Zastąp zawartość istniejącego pliku Run. CSX następującym kodem: po zakończeniu definiowania funkcji kliknij pozycję **Zapisz i uruchom**.
+Zastąp zawartość istniejącego pliku Run. CSX następującym kodem: po zakończeniu definiowania funkcji kliknij pozycję **Zapisz i uruchom** .
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -336,8 +336,8 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 Aby przetestować funkcję, należy przekazać plik MP4 do kontenera **wejściowego** konta magazynu określonego w parametrach połączenia.  
 
 1. Wybierz konto magazynu określone w zmiennej środowiskowej **StorageConnection** .
-2. Kliknij pozycję **obiekty blob**.
-3. Kliknij pozycję **+ Kontener**. Nazwij **dane wejściowe**kontenera.
+2. Kliknij pozycję **obiekty blob** .
+3. Kliknij pozycję **+ Kontener** . Nazwij **dane wejściowe** kontenera.
 4. Naciśnij przycisk **Przekaż** i przejdź do pliku MP4, który chcesz przekazać.
 
 >[!NOTE]

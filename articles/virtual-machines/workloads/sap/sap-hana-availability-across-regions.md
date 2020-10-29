@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68a393865038722f2fd7fa5e42334f8d5e760951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3de5a449e90452307f3c9b02c725050df6fdd873
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70078848"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925683"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Dostępność SAP HANA w różnych regionach świadczenia usługi Azure
 
@@ -74,7 +74,7 @@ Możliwa architektura z replikacją wiele obiektów docelowych będzie wygląda�
 
 Jeśli organizacja ma wymagania dotyczące gotowości wysokiej dostępności w drugim regionie platformy Azure (DR), wówczas architektura będzie wyglądać następująco:
 
-![Diagram trzech maszyn wirtualnych w dwóch regionach Milti-Target](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+![Diagram przedstawiający organizację, która ma wymagania dotyczące gotowości wysokiej dostępności w drugim regionie platformy Azure.](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
 
 
 W przypadku korzystania z logreplay jako trybu operacji ta konfiguracja zapewnia cel punktu odzyskiwania = 0, z niską RTO w regionie podstawowym. Ta konfiguracja zapewnia także znośnego cel punktu odzyskiwania w przypadku, gdy przejdziesz do drugiego regionu. Czasy RTO w drugim regionie zależą od tego, czy dane są wstępnie załadowane. Wielu klientów korzysta z maszyny wirtualnej w regionie pomocniczym do uruchamiania systemu testowego. W tym przypadku użycia nie można wstępnie załadować danych.

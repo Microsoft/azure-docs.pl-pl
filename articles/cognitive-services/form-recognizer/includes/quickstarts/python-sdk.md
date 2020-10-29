@@ -9,17 +9,17 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 5ff9c95e51f63de77ca20dee965718687daae5f4
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: b09dfe8e585dbcb6b8b1289fc551cec12d86c6db
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897784"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924983"
 ---
 > [!IMPORTANT]
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. Zapoznaj się z dokumentacją referencyjną poniżej. 
 
-[Dokumentacja](https://docs.microsoft.com/python/api/azure-ai-formrecognizer)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer)  |  źródłowy biblioteki [Pakiet (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
+[Dokumentacja](/python/api/azure-ai-formrecognizer)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer)  |  źródłowy biblioteki [Pakiet (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -75,7 +75,7 @@ Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy kl
 * Kopiowanie modelu niestandardowego z jednego do drugiego zasobu aparatu rozpoznawania formularza.
 
 > [!NOTE]
-> Modele mogą być również przeszkolone przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do etykietowania aparatów rozpoznawania formularzy](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> Modele mogą być również przeszkolone przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do etykietowania aparatów rozpoznawania formularzy](../../quickstarts/label-tool.md).
 
 ## <a name="code-examples"></a>Przykłady kodu
 
@@ -103,7 +103,7 @@ Musisz dodać odwołania do adresów URL dla danych szkoleniowych i testowych.
 * Skorzystaj z obrazów przykładowych z i paragonów zawartych w poniższych przykładach (dostępnych również w witrynie [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) ) lub wykonaj powyższe kroki, aby uzyskać adres URL sygnatury dostępu współdzielonego pojedynczego dokumentu w usłudze BLOB Storage. 
 
 > [!NOTE]
-> Fragmenty kodu w tym przewodniku korzystają z formularzy zdalnych, do których uzyskuje dostęp za pomocą adresów URL. Jeśli zamiast tego chcesz przetworzyć lokalne dokumenty formularzy, zapoznaj się z odpowiednimi metodami w [dokumentacji referencyjnej](https://docs.microsoft.com/python/api/azure-ai-formrecognizer) i [przykładami](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
+> Fragmenty kodu w tym przewodniku korzystają z formularzy zdalnych, do których uzyskuje dostęp za pomocą adresów URL. Jeśli zamiast tego chcesz przetworzyć lokalne dokumenty formularzy, zapoznaj się z odpowiednimi metodami w [dokumentacji referencyjnej](/python/api/azure-ai-formrecognizer) i [przykładami](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 ## <a name="recognize-form-content"></a>Rozpoznaj zawartość formularza
 

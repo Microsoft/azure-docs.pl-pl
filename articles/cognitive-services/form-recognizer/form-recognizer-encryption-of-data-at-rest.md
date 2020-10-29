@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: c959231826125349ecd6a62afe529248f7ac2eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a8b331c1295ed19afa64e95318bfa14414e6d9f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326800"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913062"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Szyfruj aparat rozpoznawania danych w czasie spoczynku
 
@@ -30,4 +30,4 @@ Aparat rozpoznawania formularzy platformy Azure automatycznie szyfruje dane podc
 ## <a name="next-steps"></a>Następne kroki
 
 * [Formularz żądania klucza Customer-Managed rozpoznawania formularzy](https://aka.ms/cogsvc-cmk)
-* [Dowiedz się więcej o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Dowiedz się więcej o Azure Key Vault](../../key-vault/general/overview.md)

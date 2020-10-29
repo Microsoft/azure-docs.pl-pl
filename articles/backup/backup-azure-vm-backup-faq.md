@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172830"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925581"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -76,6 +76,10 @@ Tak. Zadanie tworzenia kopii zapasowej można anulować w stanie trwającej **mi
 Jeśli zablokujesz grupę zasobów utworzoną przez usługę Azure Backup, kopie zapasowe rozpoczną się niepowodzeniem, ponieważ obowiązuje limit 18 punktów przywracania.
 
 Usuń blokadę i wyczyść kolekcję punktów przywracania z tej grupy zasobów, aby umożliwić pomyślne tworzenie kopii zapasowych w przyszłości. [Wykonaj następujące kroki](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) , aby usunąć kolekcję punktów przywracania.
+
+### <a name="i-have-a-lock-at-the-resource-group-level-that-contains-all-the-resources-related-to-my-virtual-machine-will-my-backup-work"></a>Mam blokadę na poziomie grupy zasobów, która zawiera wszystkie zasoby związane z moją maszyną wirtualną. Czy moja kopia zapasowa będzie działała?
+
+Azure Backup tworzy osobną grupę zasobów w formacie `AzureBackupRG_<geo>_<number>` do przechowywania obiektów ResourcePointCollections. Ponieważ ta grupa zasobów jest własnością usługi, blokowanie jej spowoduje niepowodzenie wykonywania kopii zapasowych. Blokady mogą być stosowane tylko do grup zasobów utworzonych przez klienta.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Czy Azure Backup obsługuje standardowe dyski zarządzane przez dysk SSD?
 
@@ -145,7 +149,7 @@ Tak. Nawet jeśli usuniesz maszynę wirtualną, możesz przejść do odpowiednie
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Jak mogę przywrócić maszynę wirtualną do tych samych zestawów dostępności?
 
-W przypadku maszyn wirtualnych platformy Azure z dyskami zarządzanymi przywracanie do zestawów dostępności jest włączone przez udostępnienie opcji w szablonie podczas przywracania jako dyski zarządzane. Ten szablon zawiera parametr wejściowy o nazwie **zestawy dostępności**.
+W przypadku maszyn wirtualnych platformy Azure z dyskami zarządzanymi przywracanie do zestawów dostępności jest włączone przez udostępnienie opcji w szablonie podczas przywracania jako dyski zarządzane. Ten szablon zawiera parametr wejściowy o nazwie **zestawy dostępności** .
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Jak szybsze przywracanie wydajności?
 
@@ -181,7 +185,7 @@ Utworzono kopię zapasową maszyny wirtualnej przy użyciu ustawień harmonogram
 
    1. Znajdź lokalizację maszyny wirtualnej.
    2. Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1` . Na przykład *AzureBackupRG_westus2_1*
-   3. W Azure Portal zaznacz opcję **Pokaż ukryte typy**.
+   3. W Azure Portal zaznacz opcję **Pokaż ukryte typy** .
    4. Znajdź zasób z typem **Microsoft. COMPUTE/restorePointCollections** , który ma wzorzec nazewnictwa `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
    6. Po zakończeniu operacji usuwania można przenieść maszynę wirtualną.
@@ -199,7 +203,7 @@ Po przeniesieniu maszyny wirtualnej do nowej grupy zasobów można ponownie wł�
 
 Punkty przywracania starych maszyn wirtualnych będą dostępne do przywracania w razie potrzeby. Jeśli te dane kopii zapasowej nie są potrzebne, możesz zatrzymać ochronę starej maszyny wirtualnej, usuwając dane.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Czy istnieje ograniczenie liczby maszyn wirtualnych, które można skojarzyć z tymi samymi zasadami tworzenia kopii zapasowych?
+### <a name="is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy"></a>Czy istnieje ograniczenie liczby maszyn wirtualnych, które można skojarzyć z tymi samymi zasadami tworzenia kopii zapasowych?
 
 Tak, istnieje limit 100 maszyn wirtualnych, które mogą być skojarzone z tymi samymi zasadami tworzenia kopii zapasowych z poziomu portalu. Zalecamy, aby dla ponad 100 maszyn wirtualnych utworzyć wiele zasad tworzenia kopii zapasowych z tym samym harmonogramem lub innym harmonogramem.
 

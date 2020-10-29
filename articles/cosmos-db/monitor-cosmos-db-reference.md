@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/28/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 43a059354c70c792592ba46aa3d5b63677bda4eb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c17d660c75fdfd6f1eb429db3a8b55f3e3db1b2d
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488354"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925955"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Dokumentacja dotycząca danych monitorowania usługi Azure Cosmos DB
 
@@ -27,7 +27,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów w Azure Cosmo
 | --- | --- | --- |
 | **time** | **TimeGenerated** | Data i godzina (UTC), gdy wystąpiła operacja. |
 | **Identyfikator** | **Zasób** | Konto Azure Cosmos DB, dla którego są włączone dzienniki.|
-| **kategorii** | **Kategoria** | W przypadku Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** są dostępne typy dzienników. |
+| **kategorii** | **Kategoria** | W przypadku Azure Cosmos DB, **DataPlaneRequests** , **MongoRequests** , **QueryRuntimeStatistics** , **PartitionKeyStatistics** , **PartitionKeyRUConsumption** , **ControlPlaneRequests** są dostępne typy dzienników. |
 | **operationName** | **OperationName** | Nazwa operacji. Nazwa operacji może być,,,,,,,,,,,  `Create` `Update` `Read` `ReadFeed` `Delete` `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` lub `Upsert` .   |
 | **aœciwoœci** | nie dotyczy | Zawartość tego pola jest opisana w następujących wierszach. |
 | **activityId** | **activityId_g** | Unikatowy identyfikator GUID dla zarejestrowanej operacji. |
@@ -38,16 +38,18 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów w Azure Cosmo
 | **clientIpAddress** | **clientIpAddress_s** | Adres IP klienta. |
 | **requestCharge** | **requestCharge_s** | Liczba jednostek RU/s, które są używane przez operację |
 | **collectionRid** | **collectionId_s** | Unikatowy identyfikator kolekcji.|
-| **czas trwania** | **duration_d** | Czas trwania operacji (w milisekundach). |
+| **trwania** | **duration_d** | Czas trwania operacji (w milisekundach). |
 | **requestLength** | **requestLength_s** | Długość żądania w bajtach. |
 | **responseLength** | **responseLength_s** | Długość odpowiedzi (w bajtach).|
+| **resourceTokenPermissionId** | **resourceTokenPermissionId_s** | Ta właściwość wskazuje identyfikator uprawnienia tokenu zasobu, który został określony. Aby dowiedzieć się więcej o uprawnieniach, zobacz artykuł [bezpieczny dostęp do danych](./secure-access-to-data.md#permissions) . |
+| **resourceTokenPermissionMode** | **resourceTokenPermissionMode_s** | Ta właściwość wskazuje tryb uprawnień, który został ustawiony podczas tworzenia tokenu zasobu. Tryb uprawnień może mieć wartości, takie jak "All" lub "read". Aby dowiedzieć się więcej o uprawnieniach, zobacz artykuł [bezpieczny dostęp do danych](./secure-access-to-data.md#permissions) . |
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Ta wartość nie jest pusta, gdy [tokeny zasobów](./secure-access-to-data.md#resource-tokens) są używane do uwierzytelniania. Wartość wskazuje identyfikator zasobu użytkownika. |
 | **responseLength** | **responseLength_s** | Długość odpowiedzi (w bajtach).|
 
 Aby zapoznać się z listą wszystkich kategorii dzienników Azure Monitor i linków do skojarzonych schematów, zobacz [Azure monitor dzienniki kategorii i schematów](../azure-monitor/platform/resource-logs-schema.md). 
 
 ## <a name="metrics"></a>Metryki
-W poniższych tabelach przedstawiono metryki platformy zebrane dla usługi Azure CosmOS DB. Wszystkie metryki są przechowywane w przestrzeni nazw **Cosmos DB metrykach standardowych**.
+W poniższych tabelach przedstawiono metryki platformy zebrane dla usługi Azure CosmOS DB. Wszystkie metryki są przechowywane w przestrzeni nazw **Cosmos DB metrykach standardowych** .
 
 Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym Azure Cosmos DB), zobacz temat [Azure monitor Supported Metrics](../azure-monitor/platform/metrics-supported.md). 
 
@@ -55,16 +57,16 @@ Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym A
             
 |Metryka (nazwa wyświetlana metryki)|Jednostka (typ agregacji) |Opis|Wymiary| Stopień szczegółowości czasu| Mapowanie starszej metryki | Użycie |
 |---|---|---|---| ---| ---| ---|
-| TotalRequests (całkowita liczba żądań) | Liczba (liczba) | Liczba wykonanych żądań| DatabaseName, CollectionName, region, StatusCode| Wszystkie | TotalRequests, http 2xx, http 3xx, http 400, HTTP 401, wewnętrzny błąd serwera, Usługa niedostępna, żądania ograniczone, średnia liczba żądań na sekundę | Służy do monitorowania żądań według kodu stanu, kontenera z dokładnością do minuty. Aby uzyskać średnią liczbę żądań na sekundę, użyj agregacji Count na minutę i Podziel ją na 60. |
-| MetadataRequests (żądania metadanych) |Liczba (liczba) | Liczba żądań metadanych. Azure Cosmos DB utrzymuje kontener metadanych systemu dla każdego konta, który umożliwia Wyliczenie kolekcji, baz danych itp., a ich konfiguracje, bez opłat. | DatabaseName, CollectionName, region, StatusCode| Wszystkie| |Służy do monitorowania ograniczania przepustowości ze względu na żądania metadanych.|
-| MongoRequests (żądania Mongo) | Liczba (liczba) | Liczba wykonanych żądań Mongo | DatabaseName, CollectionName, region, CommandName, ErrorCode| Wszystkie |Częstotliwość żądań zapytań Mongo, szybkość żądania aktualizacji Mongo, częstotliwość żądań usunięcia Mongo, Mongo wstawiania liczby żądań, Mongo| Służy do monitorowania błędów żądania Mongo, użycia na typ polecenia. |
+| TotalRequests (całkowita liczba żądań) | Liczba (liczba) | Liczba wykonanych żądań| DatabaseName, CollectionName, region, StatusCode| Wszyscy | TotalRequests, http 2xx, http 3xx, http 400, HTTP 401, wewnętrzny błąd serwera, Usługa niedostępna, żądania ograniczone, średnia liczba żądań na sekundę | Służy do monitorowania żądań według kodu stanu, kontenera z dokładnością do minuty. Aby uzyskać średnią liczbę żądań na sekundę, użyj agregacji Count na minutę i Podziel ją na 60. |
+| MetadataRequests (żądania metadanych) |Liczba (liczba) | Liczba żądań metadanych. Azure Cosmos DB utrzymuje kontener metadanych systemu dla każdego konta, który umożliwia Wyliczenie kolekcji, baz danych itp., a ich konfiguracje, bez opłat. | DatabaseName, CollectionName, region, StatusCode| Wszyscy| |Służy do monitorowania ograniczania przepustowości ze względu na żądania metadanych.|
+| MongoRequests (żądania Mongo) | Liczba (liczba) | Liczba wykonanych żądań Mongo | DatabaseName, CollectionName, region, CommandName, ErrorCode| Wszyscy |Częstotliwość żądań zapytań Mongo, szybkość żądania aktualizacji Mongo, częstotliwość żądań usunięcia Mongo, Mongo wstawiania liczby żądań, Mongo| Służy do monitorowania błędów żądania Mongo, użycia na typ polecenia. |
 
 #### <a name="request-unit-metrics"></a>Metryki jednostki żądania
 
 |Metryka (nazwa wyświetlana metryki)|Jednostka (typ agregacji)|Opis|Wymiary| Stopień szczegółowości czasu| Mapowanie starszej metryki | Użycie |
 |---|---|---|---| ---| ---| ---|
-| MongoRequestCharge (Mongo żądania) | Liczba (łącznie) |Wykorzystane jednostki żądania Mongo| DatabaseName, CollectionName, region, CommandName, ErrorCode| Wszystkie |Mongo naliczanie żądań zapytań, opłata za żądanie aktualizacji Mongo, opłata za żądanie usunięcia żądania, Mongo, opłata za żądanie| Służy do monitorowania Mongo zasobów jednostek RU w ciągu minuty.|
-| TotalRequestUnits (łączna liczba jednostek żądań)| Liczba (łącznie) | Wykorzystane jednostki żądania| DatabaseName, CollectionName, region, StatusCode |Wszystkie| TotalRequestUnits| Służy do monitorowania całkowitego użycia RU z dokładnością do minuty. Aby obliczyć średnią liczbę zużytych jednostek RU na sekundę, użyj łącznej agregacji na minutę i Podziel ją na 60.|
+| MongoRequestCharge (Mongo żądania) | Liczba (łącznie) |Wykorzystane jednostki żądania Mongo| DatabaseName, CollectionName, region, CommandName, ErrorCode| Wszyscy |Mongo naliczanie żądań zapytań, opłata za żądanie aktualizacji Mongo, opłata za żądanie usunięcia żądania, Mongo, opłata za żądanie| Służy do monitorowania Mongo zasobów jednostek RU w ciągu minuty.|
+| TotalRequestUnits (łączna liczba jednostek żądań)| Liczba (łącznie) | Wykorzystane jednostki żądania| DatabaseName, CollectionName, region, StatusCode |Wszyscy| TotalRequestUnits| Służy do monitorowania całkowitego użycia RU z dokładnością do minuty. Aby obliczyć średnią liczbę zużytych jednostek RU na sekundę, użyj łącznej agregacji na minutę i Podziel ją na 60.|
 | ProvisionedThroughput (zainicjowana przepływność)| Liczba (maksimum) |Elastyczna przepływność na poziomie szczegółowości kontenera| DatabaseName, ContainerName| 5 mln| | Służy do monitorowania zainicjowanej przepływności na kontener.|
 
 #### <a name="storage-metrics"></a>Metryki magazynu
@@ -81,8 +83,8 @@ Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym A
 
 |Metryka (nazwa wyświetlana metryki)|Jednostka (typ agregacji)|Opis|Wymiary| Stopień szczegółowości czasu| Użycie |
 |---|---|---|---| ---| ---|
-| ReplicationLatency (opóźnienie replikacji)| Milisekundy (minimum, maksimum, średnia) | Opóźnienie replikacji poziomie P99 w regionach źródłowym i docelowym dla konta z obsługą geograficzną| SourceRegion, TargetRegion| Wszystkie | Służy do monitorowania opóźnienia replikacji poziomie P99 między dowolnymi dwoma regionami dla konta z replikacją geograficzną. |
-| Opóźnienie po stronie serwera| Milisekundy (średnia) | Czas przetwarzania żądania przez serwer. | CollectionName, Connectionmode, DatabaseName, OperationType, PublicAPIType, region | Wszystkie | Służy do monitorowania opóźnienia żądania na serwerze Azure Cosmos DB. |
+| ReplicationLatency (opóźnienie replikacji)| Milisekundy (minimum, maksimum, średnia) | Opóźnienie replikacji poziomie P99 w regionach źródłowym i docelowym dla konta z obsługą geograficzną| SourceRegion, TargetRegion| Wszyscy | Służy do monitorowania opóźnienia replikacji poziomie P99 między dowolnymi dwoma regionami dla konta z replikacją geograficzną. |
+| Opóźnienie po stronie serwera| Milisekundy (średnia) | Czas przetwarzania żądania przez serwer. | CollectionName, Connectionmode, DatabaseName, OperationType, PublicAPIType, region | Wszyscy | Służy do monitorowania opóźnienia żądania na serwerze Azure Cosmos DB. |
 
 
 
@@ -97,9 +99,9 @@ Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym A
 
 |Metryka (nazwa wyświetlana metryki)|Jednostka (typ agregacji)|Opis|Wymiary| Stopień szczegółowości czasu| Użycie |
 |---|---|---|---| ---| ---|
-| CassandraRequests (żądania Cassandra) | Liczba (liczba) | Liczba wykonanych żądań interfejs API Cassandra| DatabaseName, CollectionName, ErrorCode, region, OperationType, ResourceType| Wszystkie| Służy do monitorowania żądań Cassandra z dokładnością do minuty. Aby uzyskać średnią liczbę żądań na sekundę, użyj agregacji Count na minutę i Podziel ją na 60.|
-| CassandraRequestCharges (Cassandra żądania) | Count (sum, min, Max, AVG) | Jednostki żądań używane przez interfejs API Cassandra | DatabaseName, CollectionName, region, OperationType, ResourceType| Wszystkie| Służy do monitorowania jednostek ru używanych na minutę przez konto interfejs API Cassandra.|
-| CassandraConnectionClosures (zamknięcia połączeń Cassandra) |Liczba (liczba) |Liczba zamkniętych połączeń Cassandra| ClosureReason, region| Wszystkie | Służy do monitorowania łączności między klientami i interfejs API Cassandra Azure Cosmos DB.|
+| CassandraRequests (żądania Cassandra) | Liczba (liczba) | Liczba wykonanych żądań interfejs API Cassandra| DatabaseName, CollectionName, ErrorCode, region, OperationType, ResourceType| Wszyscy| Służy do monitorowania żądań Cassandra z dokładnością do minuty. Aby uzyskać średnią liczbę żądań na sekundę, użyj agregacji Count na minutę i Podziel ją na 60.|
+| CassandraRequestCharges (Cassandra żądania) | Count (sum, min, Max, AVG) | Jednostki żądań używane przez interfejs API Cassandra | DatabaseName, CollectionName, region, OperationType, ResourceType| Wszyscy| Służy do monitorowania jednostek ru używanych na minutę przez konto interfejs API Cassandra.|
+| CassandraConnectionClosures (zamknięcia połączeń Cassandra) |Liczba (liczba) |Liczba zamkniętych połączeń Cassandra| ClosureReason, region| Wszyscy | Służy do monitorowania łączności między klientami i interfejs API Cassandra Azure Cosmos DB.|
 
 ## <a name="see-also"></a>Zobacz też
 

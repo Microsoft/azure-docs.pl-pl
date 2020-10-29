@@ -2,13 +2,13 @@
 title: Zasoby bez limitu liczby 800
 description: Wyświetla listę typów zasobów platformy Azure, które mogą mieć więcej niż 800 wystąpień w grupie zasobów.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: e7a15607b144f1d7916f310948f15dc28d76a205
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: cec7ea87bbe81d3bfcca37f3133ac650e66f849f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330761"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913504"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Zasoby nieograniczone do 800 wystąpień na grupę zasobów
 
@@ -81,6 +81,7 @@ W przypadku niektórych typów zasobów należy skontaktować się z pomocą tec
 
 ## <a name="microsoftdevtestlab"></a>Microsoft. wspólny
 
+* laboratoria/virtualMachines — domyślnie ograniczone do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
 * Uruchamianie
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
@@ -173,6 +174,10 @@ W przypadku niektórych typów zasobów należy skontaktować się z pomocą tec
 
 * workspaceCollections — domyślnie ograniczone do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
 
+## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
+
+* pojemności — domyślnie ograniczone do 800 wystąpień. Ten limit można zwiększyć, kontaktując się z pomocą techniczną.
+
 ## <a name="microsoftrelay"></a>Microsoft. Relay
 
 * przestrzeni
@@ -185,18 +190,21 @@ W przypadku niektórych typów zasobów należy skontaktować się z pomocą tec
 
 * przestrzeni
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft. ServiceFabricMesh
+## <a name="microsoftsingularity"></a>Microsoft. Singularity
 
-* aplikacje
-* containerGroups
-* bram
-* sieci
-* wpisy tajne
-* volumes
+* Konta
+* konta/accountQuotaPolicies
+* konta/groupPolicies
+* konta/zadania
+* konta/storageContainers
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 * storageAccounts
+
+## <a name="microsoftsql"></a>Microsoft.Sql
+
+* Serwery/bazy danych
 
 ## <a name="microsoftweb"></a>Microsoft. Web
 

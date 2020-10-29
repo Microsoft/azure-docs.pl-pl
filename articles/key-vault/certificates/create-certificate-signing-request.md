@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: ad3dd64bb55ccd657b74bacff3e4441ce63f0cf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cea061c1fd36bed9fa1e43c874fbca347707f78d
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569377"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925871"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Tworzenie i scalanie CSR w Key Vault
 
@@ -34,7 +34,7 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
 
 
 
-1.  Najpierw **Utwórz zasady dotyczące certyfikatów**. Key Vault nie zarejestruje ani nie odnowi certyfikatu z wystawcy w imieniu użytkownika, ponieważ urząd certyfikacji wybrany w tym scenariuszu nie jest obsługiwany, w związku z czym wystawca jest ustawiony na nieznany.
+1.  Najpierw **Utwórz zasady dotyczące certyfikatów** . Key Vault nie zarejestruje ani nie odnowi certyfikatu z wystawcy w imieniu użytkownika, ponieważ urząd certyfikacji wybrany w tym scenariuszu nie jest obsługiwany, w związku z czym wystawca jest ustawiony na nieznany.
 
     ```azurepowershell
     $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
@@ -62,19 +62,19 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
 ### <a name="azure-portal"></a>Azure Portal
 
 1.  Aby wygenerować CSR dla wybranego urzędu certyfikacji, przejdź do magazynu kluczy, do którego chcesz dodać certyfikat.
-2.  Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
+2.  Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty** .
 3.  Wybierz kartę **generowanie/Importowanie** .
 4.  Na ekranie **Tworzenie certyfikatu** wybierz następujące wartości:
     - **Metoda tworzenia certyfikatu:** Utworzenie.
     - **Nazwa certyfikatu:** ContosoManualCSRCertificate.
     - **Typ urzędu certyfikacji:** Certyfikat wystawiony przez niezintegrowany urząd certyfikacji
     - **Temat:**`"CN=www.contosoHRApp.com"`
-    - Wybierz inne wartości zgodnie z potrzebami. Kliknij przycisk **Utwórz**.
+    - Wybierz inne wartości zgodnie z potrzebami. Kliknij pozycję **Utwórz** .
 
     ![Właściwości certyfikatu](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.  Zobaczysz, że certyfikat został teraz dodany na liście certyfikatów. Wybierz ten nowy certyfikat, który został właśnie utworzony. Bieżący stan certyfikatu to "wyłączone", ponieważ nie został jeszcze wystawiony przez urząd certyfikacji.
-7. Kliknij kartę **operacja certyfikatu** i wybierz pozycję **Pobierz CSR**.
- ![Właściwości certyfikatu](../media/certificates/create-csr-merge-csr/download-csr.png)
+7. Kliknij kartę **operacja certyfikatu** i wybierz pozycję **Pobierz CSR** .
+ ![Zrzut ekranu, który podświetla przycisk Pobierz CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 8.  Przyjmij plik CSR do urzędu certyfikacji, aby żądanie zostało podpisane.
 9.  Gdy żądanie zostanie podpisane przez urząd certyfikacji, Przywróć plik certyfikatu, aby **scalić podpisane żądanie** na tym samym ekranie operacji certyfikatu.

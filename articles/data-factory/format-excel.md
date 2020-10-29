@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: ecca75f294cf70ba8f7d82fcce7bdd3e9611b21a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 74cfabff22074ee405d7b417e306da62ef69ae19
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636344"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927128"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format programu Excel w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,8 +38,8 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 | firstRowAsHeader | Określa, czy pierwszy wiersz danego arkusza/zakresu ma być traktowany jak wiersz nagłówka z nazwami kolumn.<br>Dozwolone wartości to **true** i **false** (wartość domyślna). | Nie       |
 | nullValue        | Określa reprezentację ciągu wartości null. <br>Wartość domyślna to **pusty ciąg** . | Nie       |
 | kompresja | Grupa właściwości do konfigurowania kompresji plików. Skonfiguruj tę sekcję, jeśli chcesz przeprowadzić kompresję/dekompresowanie podczas wykonywania działania. | Nie |
-| typ<br/>( *w `compression` obszarze* ) | Koder-dekoder kompresji używany do odczytu/zapisu plików JSON. <br>Dozwolone wartości to **bzip2** , **gzip** , **Wklęśnięcie** , **ZipDeflate** , **TarGzip** , **przyciąganie** lub **lz4** . Wartość domyślna nie jest skompresowana.<br>Działanie kopiowania w **tej chwili nie** obsługuje "przyciągania" & "lz4", a przepływ danych mapowania nie obsługuje "ZipDeflate".<br>**Uwaga** w przypadku używania działania kopiowania do dekompresowania plików **ZipDeflate** i zapisywania w magazynie danych ujścia opartych na plikach pliki są wyodrębniane do folderu: `<path specified in dataset>/<folder named as source zip file>/` . | Nie.  |
-| poziom<br/>( *w `compression` obszarze* ) | Współczynnik kompresji. <br>Dozwolone wartości to **optymalne** lub **najszybszy** .<br>- **Najszybsze:** Operacja kompresji powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli plik nie jest optymalnie kompresowany.<br>- **Optymalnie** : operacja kompresji powinna być optymalnie skompresowana, nawet jeśli operacja trwa dłużej. Aby uzyskać więcej informacji, zobacz temat [poziom kompresji](/dotnet/api/system.io.compression.compressionlevel) . | Nie       |
+| typ<br/>( *w `compression` obszarze* ) | Koder-dekoder kompresji używany do odczytu/zapisu plików JSON. <br>Dozwolone wartości to **bzip2** , **gzip** , **Wklęśnięcie** , **ZipDeflate** , **TarGzip** , **tar** , **przyciągania** lub **lz4** . Wartość domyślna nie jest skompresowana.<br>Działanie **kopiowania obecnie nie** obsługuje "przyciągania" & "lz4", a przepływ danych mapowania nie obsługuje "ZipDeflate", "TarGzip" i "tar".<br>**Uwaga** w przypadku używania działania kopiowania do dekompresowania plików **ZipDeflate** i zapisywania w magazynie danych ujścia opartych na plikach pliki są wyodrębniane do folderu: `<path specified in dataset>/<folder named as source zip file>/` . | Nie.  |
+| poziom<br/>( *w `compression` obszarze* ) | Współczynnik kompresji. <br>Dozwolone wartości to **optymalne** lub **najszybszy** .<br>- **Najszybsze:** Operacja kompresji powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli plik nie jest optymalnie kompresowany.<br>- **Optymalnie** : operacja kompresji powinna być optymalnie skompresowana, nawet jeśli operacja trwa dłużej. Aby uzyskać więcej informacji, zobacz temat [poziom kompresji](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nie       |
 
 Poniżej znajduje się przykład zestawu danych programu Excel na platformie Azure Blob Storage:
 

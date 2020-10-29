@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: e89a7d9bc71d48be1b7d7ea40246b2394c95e84b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543784"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926193"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Wybieranie odpowiedniej opcji serwera MySQL na platformie Azure
 
@@ -55,7 +55,7 @@ Główne różnice między tymi opcjami są wymienione w poniższej tabeli:
 | Wysoka dostępność | Wbudowana HA w ramach pojedynczej strefy dostępności| Wbudowana HA w ramach i między strefami dostępności | Niestandardowe zarządzane przy użyciu klastrowania, replikacji itp.|
 | Nadmiarowość stref | Nieobsługiwane | Obsługiwane | Obsługiwane|
 | Scenariusze hybrydowe | Obsługiwane w przypadku [replikacja typu Data-in](./concepts-data-in-replication.md)| Niedostępne w wersji zapoznawczej | Zarządzane przez użytkowników końcowych |
-| Repliki do odczytu | Obsługiwane| Obsługiwane | Zarządzane przez użytkowników końcowych |
+| Repliki do odczytu | Obsługiwane (do 5 replik)| Obsługiwane (do 10 replik)| Zarządzane przez użytkowników końcowych |
 | Backup | Okresowe przechowywanie z 7-35 dni | Okresowe przechowywanie z 1-35 dni | Zarządzane przez użytkowników końcowych |
 | Operacje monitorowania bazy danych | Obsługiwane | Obsługiwane | Zarządzane przez użytkowników końcowych |
 | Odzyskiwanie po awarii | Obsługiwane z geograficznie nadmiarowym magazynem kopii zapasowych i replikami odczytu między regionami | Nieobsługiwane w wersji zapoznawczej| Niestandardowe zarządzane przy użyciu technologii replikacji |

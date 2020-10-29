@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
-ms.openlocfilehash: af03dde724b4f1ec75c9505bb2f9311ad09f5fd0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/28/2020
+ms.openlocfilehash: 5969c449afe203ec9a014d2da78b56eeeb837590
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635919"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913368"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Blob Storage za pomocą Azure Data Factory
 
@@ -48,10 +48,7 @@ Dla działania kopiowania ten łącznik magazynu obiektów BLOB obsługuje:
 - Kopiowanie obiektów BLOB jako programu lub analizowanie lub Generowanie obiektów blob z [obsługiwanymi formatami plików i koderami-dekoder kompresji](supported-file-formats-and-compression-codecs.md).
 - [Zachowywanie metadanych plików podczas kopiowania](#preserving-metadata-during-copy).
 
->[!IMPORTANT]
->Jeśli włączysz opcję **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w ustawieniach zapory usługi Azure Storage i chcesz używać środowiska Azure Integration Runtime do nawiązywania połączenia z usługą BLOB Storage, musisz użyć [uwierzytelniania tożsamości zarządzanej](#managed-identity).
-
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -67,7 +64,8 @@ Ten łącznik magazynu obiektów BLOB obsługuje następujące typy uwierzytelni
 - [Zarządzane tożsamości na potrzeby uwierzytelniania zasobów platformy Azure](#managed-identity)
 
 >[!NOTE]
->Gdy korzystasz z bazy danych Base, aby załadować dane do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), Jeśli źródłowy lub przejściowy magazyn obiektów BLOB jest skonfigurowany za pomocą punktu końcowego usługi Azure Virtual Network, musisz użyć uwierzytelniania tożsamości zarządzanej zgodnie z wymaganiami sieci podstawowej. Należy również użyć własnego środowiska Integration Runtime w wersji 3,18 lub nowszej. Więcej informacji na temat wymagań wstępnych dotyczących konfiguracji można znaleźć w sekcji [uwierzytelnianie tożsamości zarządzanej](#managed-identity) .
+>- Jeśli chcesz używać publicznego środowiska Azure Integration Runtime do nawiązywania połączenia z usługą BLOB Storage, korzystając z opcji **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w zaporze usługi Azure Storage, musisz użyć [uwierzytelniania tożsamości zarządzanej](#managed-identity).
+>- Jeśli używasz instrukcji Base lub COPY do ładowania danych do usługi Azure Synapse Analytics, Jeśli źródłowy lub przejściowy magazyn obiektów BLOB jest skonfigurowany za pomocą punktu końcowego usługi Azure Virtual Network, musisz użyć uwierzytelniania tożsamości zarządzanej zgodnie z wymaganiami Synapse. Więcej informacji na temat wymagań wstępnych dotyczących konfiguracji można znaleźć w sekcji [uwierzytelnianie tożsamości zarządzanej](#managed-identity) .
 
 >[!NOTE]
 >Działania usługi Azure HDInsight i Azure Machine Learning obsługują tylko uwierzytelnianie wykorzystujące klucze konta usługi Azure Blob Storage.
@@ -286,7 +284,7 @@ Aby uzyskać ogólne informacje o uwierzytelnianiu usługi Azure Storage, zobacz
     - **Jako ujścia** w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **współautor danych obiektu blob magazynu** .
 
 >[!IMPORTANT]
->Jeśli korzystasz z bazy danych Base, aby załadować dane z magazynu obiektów BLOB (jako źródło lub jako tymczasowe) do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), podczas korzystania z uwierzytelniania tożsamości zarządzanej dla magazynu obiektów blob, upewnij się, że w [tych wskazówkach](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)zostały opisane kroki 1 i 2. Te kroki spowodują zarejestrowanie serwera w usłudze Azure AD i przypisanie roli współautor danych obiektów blob magazynu do serwera. Data Factory obsługuje resztę. Jeśli usługa BLOB Storage została skonfigurowana za pomocą punktu końcowego usługi Azure Virtual Network, aby można było załadować z niej dane, należy użyć uwierzytelniania tożsamości zarządzanej, zgodnie z wymaganiami firmy Base.
+>Jeśli używasz instrukcji Base lub COPY do ładowania danych z magazynu obiektów BLOB (jako źródło lub jako tymczasowe) do usługi Azure Synapse Analytics, jeśli używasz uwierzytelniania tożsamości zarządzanej dla magazynu obiektów blob, upewnij się, że w [tych wskazówkach](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)opisano kroki od 1 do 3. Te kroki spowodują zarejestrowanie serwera w usłudze Azure AD i przypisanie roli współautor danych obiektów blob magazynu do serwera. Data Factory obsługuje resztę. W przypadku skonfigurowania usługi BLOB Storage za pomocą punktu końcowego usługi Azure Virtual Network należy również **zezwolić zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w obszarze zapory konta usługi Azure Storage i menu ustawienia **sieci wirtualnych** zgodnie z wymaganiami Synapse.
 
 Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 

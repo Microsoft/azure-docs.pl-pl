@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 78231fa5cc6e5061ab3e2b26faf97da76da83b32
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f06c5f2b2938505380ea668a7c4113015c852b1d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427911"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913963"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows
 
@@ -81,7 +81,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 > Wynika to z faktu, że `/secrets` ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy `/certificates` ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> Właściwość "authenticationSettings" jest **wymagana** tylko w przypadku maszyn wirtualnych z **tożsamościami przypisanymi przez użytkownika**.
+> Właściwość "authenticationSettings" jest **wymagana** tylko w przypadku maszyn wirtualnych z **tożsamościami przypisanymi przez użytkownika** .
 > Określa tożsamość do użycia podczas uwierzytelniania do Key Vault.
 
 
@@ -98,7 +98,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 | linkOnRenewal | fałsz | boolean |
 | certificateStoreLocation  | LocalMachine lub CurrentUser (z uwzględnieniem wielkości liter) | ciąg |
 | requiredInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Tablica ciągów
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate","https://myvault.vault.azure.net/secrets/mycertificate2"] | Tablica ciągów
 | msiEndpoint | http://169.254.169.254/metadata/identity | ciąg |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | ciąg |
 
@@ -132,7 +132,7 @@ Konfiguracja JSON rozszerzenia maszyny wirtualnej musi być zagnieżdżona w ram
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
-          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"]>
         }      
       }
       }
@@ -154,7 +154,7 @@ Azure PowerShell można użyć do wdrożenia rozszerzenia maszyny wirtualnej Key
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
         $extName =  "KeyVaultForWindows"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForWindows"
@@ -174,7 +174,7 @@ Azure PowerShell można użyć do wdrożenia rozszerzenia maszyny wirtualnej Key
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
         $extName = "KeyVaultForWindows"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForWindows"
@@ -200,7 +200,7 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
          --publisher Microsoft.Azure.KeyVault `
          -resource-group "<resourcegroup>" `
          --vm-name "<vmName>" `
-         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
+         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
 * Aby wdrożyć rozszerzenie na zestawie skalowania maszyn wirtualnych:
@@ -211,7 +211,7 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
          --publisher Microsoft.Azure.KeyVault `
          -resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
-         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
+         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
 Należy pamiętać o następujących ograniczeniach/wymaganiach:
@@ -221,31 +221,30 @@ Należy pamiętać o następujących ograniczeniach/wymaganiach:
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-### <a name="troubleshoot"></a>Rozwiązywanie problemów
-
-Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu Azure PowerShell. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie przy użyciu Azure PowerShell.
-
 ### <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 * Czy istnieje limit liczby observedCertificates można skonfigurować?
   Nie, Key Vault rozszerzenie maszyny wirtualnej nie ma limitu liczby observedCertificates.
 
-## <a name="azure-powershell"></a>Azure PowerShell
+### <a name="troubleshoot"></a>Rozwiązywanie problemów
+
+Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu Azure PowerShell. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie przy użyciu Azure PowerShell.
+
+**Azure PowerShell**
 ```powershell
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
-## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+**Interfejs wiersza polecenia platformy Azure**
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
 
-Dane wyjściowe wykonania rozszerzenia są rejestrowane w następującym pliku:
+#### <a name="logs-and-configuration"></a>Dzienniki i konfiguracja
 
 ```
 %windrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<version>\akvvm_service_<date>.log
 ```
-
 
 ### <a name="support"></a>Pomoc techniczna
 

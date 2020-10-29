@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 28fb3cb02d978c0a64884771727f33d01d8a4ceb
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c2a49e10f4407c59a8e4e2bfbb78d889560c7136
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897735"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924987"
 ---
 > [!IMPORTANT]
 > * Kod w tym artykule używa metod synchronicznych i niezabezpieczonych magazynów poświadczeń z przyczyn uproszczenia. Zapoznaj się z dokumentacją referencyjną poniżej. 
 
-[Dokumentacja](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
+[Dokumentacja](../../index.yml)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -94,7 +94,7 @@ Za pomocą aparatu rozpoznawania formularzy można utworzyć dwa różne typy kl
 * Kopiowanie modelu niestandardowego z jednego do drugiego zasobu aparatu rozpoznawania formularza.
 
 > [!NOTE]
-> Modele mogą być również przeszkolone przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do etykietowania aparatów rozpoznawania formularzy](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> Modele mogą być również przeszkolone przy użyciu graficznego interfejsu użytkownika, takiego jak [Narzędzie do etykietowania aparatów rozpoznawania formularzy](../../quickstarts/label-tool.md).
 
 
 ## <a name="code-examples"></a>Przykłady kodu
@@ -440,7 +440,7 @@ W tym przewodniku szybki start użyto biblioteki klienckiej JavaScript aparatu r
 > [!div class="nextstepaction"]
 > [Tworzenie zestawu danych szkoleniowych](../../build-training-data-set.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest rozpoznawanie formularzy?](../../overview.md)
 * Przykładowy kod z tego przewodnika można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).

@@ -1,14 +1,14 @@
 ---
 title: Opis języka zapytań
 description: Opisuje tabele grafu zasobów i dostępne typy danych Kusto, operatory i funkcje możliwe do użycia w usłudze Azure Resource Graph.
-ms.date: 09/30/2020
+ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: ef588bd3fd8afcf1f1139f97d5df2d48a14b4dd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c3ad55a0f1af623211852c02aabd37560c00bc6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578533"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926091"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informacje o języku zapytań grafu zasobów platformy Azure
 
@@ -33,9 +33,10 @@ Wykres zasobów zawiera kilka tabel służących do przechowywania danych o typa
 |AdvisorResources |Obejmuje zasoby _związane_ z programem `Microsoft.Advisor` . |
 |AlertsManagementResources |Obejmuje zasoby _związane_ z programem `Microsoft.AlertsManagement` . |
 |GuestConfigurationResources |Obejmuje zasoby _związane_ z programem `Microsoft.GuestConfiguration` . |
-|HealthResources |Obejmuje zasoby _związane_ z programem `Microsoft.ResourceHealth` . |
 |MaintenanceResources |Obejmuje zasoby _związane_ z programem `Microsoft.Maintenance` . |
+|PolicyResources |Obejmuje zasoby _związane_ z programem `Microsoft.PolicyInsights` . ( **Wersja zapoznawcza** )|
 |SecurityResources |Obejmuje zasoby _związane_ z programem `Microsoft.Security` . |
+|ServiceHealthResources |Obejmuje zasoby _związane_ z programem `Microsoft.ResourceHealth` . |
 
 Pełną listę zawierającą typy zasobów można znaleźć w temacie [Reference: obsługiwane tabele i typy zasobów](../reference/supported-tables-resources.md).
 
@@ -44,7 +45,7 @@ Pełną listę zawierającą typy zasobów można znaleźć w temacie [Reference
 
 Użyj Eksploratora grafów zasobów w portalu, aby dowiedzieć się, jakie typy zasobów są dostępne w każdej tabeli. Alternatywnie należy użyć zapytania, `<tableName> | distinct type` na przykład w celu uzyskania listy typów zasobów, których dana tabela grafu zasobów obsługuje istniejące w danym środowisku.
 
-Poniższe zapytanie pokazuje prostą `join` . Wyniki zapytania powodują mieszanie kolumn wraz ze wszystkimi zduplikowanymi nazwami kolumn z sprzężonej tabeli, _ResourceContainers_ w tym przykładzie, są dołączane z **1**. Ponieważ tabela _ResourceContainers_ zawiera typy dla subskrypcji i grup zasobów, do przyłączenia do zasobu z tabeli _zasobów_ można użyć dowolnego typu.
+Poniższe zapytanie pokazuje prostą `join` . Wyniki zapytania powodują mieszanie kolumn wraz ze wszystkimi zduplikowanymi nazwami kolumn z sprzężonej tabeli, _ResourceContainers_ w tym przykładzie, są dołączane z **1** . Ponieważ tabela _ResourceContainers_ zawiera typy dla subskrypcji i grup zasobów, do przyłączenia do zasobu z tabeli _zasobów_ można użyć dowolnego typu.
 
 ```kusto
 Resources
@@ -52,7 +53,7 @@ Resources
 | limit 1
 ```
 
-Poniższe zapytanie pokazuje bardziej złożone użycie programu `join` . Zapytanie ogranicza przyłączoną tabelę do zasobów subskrypcji i z `project` w celu uwzględnienia tylko oryginalnego identyfikatora _subskrypcji_ pola i _nazwy pola Nazwa_ z _nazwą_. Zmiana nazwy pola pozwala uniknąć `join` dodawania go jako _Name1_ , ponieważ pole już istnieje w obszarze _zasoby_. Oryginalna tabela jest filtrowana z `where` i poniżej `project` zawiera kolumny z obu tabel. Wynikiem zapytania jest pojedynczy magazyn kluczy zawierający typ, nazwę magazynu kluczy oraz nazwę subskrypcji, w której znajduje się.
+Poniższe zapytanie pokazuje bardziej złożone użycie programu `join` . Zapytanie ogranicza przyłączoną tabelę do zasobów subskrypcji i z `project` w celu uwzględnienia tylko oryginalnego identyfikatora _subskrypcji_ pola i _nazwy pola Nazwa_ z _nazwą_ . Zmiana nazwy pola pozwala uniknąć `join` dodawania go jako _Name1_ , ponieważ pole już istnieje w obszarze _zasoby_ . Oryginalna tabela jest filtrowana z `where` i poniżej `project` zawiera kolumny z obu tabel. Wynikiem zapytania jest pojedynczy magazyn kluczy zawierający typ, nazwę magazynu kluczy oraz nazwę subskrypcji, w której znajduje się.
 
 ```kusto
 Resources
@@ -67,7 +68,7 @@ Resources
 
 ## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Właściwości rozszerzone (wersja zapoznawcza)
 
-Jako funkcja w _wersji zapoznawczej_ niektóre typy zasobów na wykresie zasobów mają dodatkowe właściwości związane z typem, które są dostępne do wykonywania zapytań poza właściwościami dostarczonymi przez Azure Resource Manager. Ten zestaw wartości, znany jako _właściwości rozszerzone_, istnieje w obsługiwanym typie zasobów w `properties.extended` . Aby zobaczyć, które typy zasobów mają _Rozszerzone właściwości_, użyj następującego zapytania:
+Jako funkcja w _wersji zapoznawczej_ niektóre typy zasobów na wykresie zasobów mają dodatkowe właściwości związane z typem, które są dostępne do wykonywania zapytań poza właściwościami dostarczonymi przez Azure Resource Manager. Ten zestaw wartości, znany jako _właściwości rozszerzone_ , istnieje w obsługiwanym typie zasobów w `properties.extended` . Aby zobaczyć, które typy zasobów mają _Rozszerzone właściwości_ , użyj następującego zapytania:
 
 ```kusto
 Resources
@@ -135,7 +136,7 @@ Poniżej znajduje się lista operatorów tabelarycznych KQL obsługiwanych przez
 |[Podsumuj](/azure/kusto/query/summarizeoperator) |[Liczba zasobów platformy Azure](../samples/starter.md#count-resources) |Uproszczona tylko pierwsza strona |
 |[take (pobierz)](/azure/kusto/query/takeoperator) |[Lista wszystkich publicznych adresów IP](../samples/starter.md#list-publicip) |Synonim `limit` . Nie działa z [pominięciem](./work-with-data.md#skipping-records). |
 |[Do góry](/azure/kusto/query/topoperator) |[Pokaż pięć pierwszych maszyn wirtualnych według nazwy i ich typu systemu operacyjnego](../samples/starter.md#show-sorted) | |
-|[Unii](/azure/kusto/query/unionoperator) |[Łączenie wyników z dwóch zapytań w jeden wynik](../samples/advanced.md#unionresults) |Dozwolona pojedyncza tabela: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _ColumnName_ \] _Table_. Limit 3 `union` etapów w pojedynczej kwerendzie. Rozpoznawanie rozmyte `union` tabel nogi nie jest dozwolone. Może być używany w jednej tabeli lub między tabelami _zasobów_ i _ResourceContainers_ . |
+|[Unii](/azure/kusto/query/unionoperator) |[Łączenie wyników z dwóch zapytań w jeden wynik](../samples/advanced.md#unionresults) |Dozwolona pojedyncza tabela: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _ColumnName_ \] _Table_ . Limit 3 `union` etapów w pojedynczej kwerendzie. Rozpoznawanie rozmyte `union` tabel nogi nie jest dozwolone. Może być używany w jednej tabeli lub między tabelami _zasobów_ i _ResourceContainers_ . |
 |[miejscu](/azure/kusto/query/whereoperator) |[Pokaż zasoby zawierające magazyn](../samples/starter.md#show-storage) | |
 
 ## <a name="query-scope"></a>Zakres zapytania
@@ -143,7 +144,7 @@ Poniżej znajduje się lista operatorów tabelarycznych KQL obsługiwanych przez
 Zakres subskrypcji, z których zasoby są zwracane przez zapytanie, zależy od metody uzyskiwania dostępu do grafu zasobów. Interfejs wiersza polecenia platformy Azure i Azure PowerShell wypełnić listę subskrypcji do uwzględnienia w żądaniu na podstawie kontekstu autoryzowanego użytkownika. Listę subskrypcji można określić ręcznie dla każdej z użyciem odpowiednio **subskrypcji** i parametrów **subskrypcji** .
 W interfejsie API REST i wszystkich innych zestawów SDK Lista subskrypcji do uwzględnienia zasobów musi być jawnie zdefiniowana w ramach żądania.
 
-Wersja **zapoznawcza**interfejsu API REST `2020-04-01-preview` dodaje właściwość do zakresu zapytania do [grupy zarządzania](../../management-groups/overview.md). Ten interfejs API w wersji zapoznawczej powoduje również, że właściwość subskrypcji jest opcjonalna. Jeśli grupa zarządzania lub Lista subskrypcji nie jest zdefiniowana, zakres zapytania obejmuje wszystkie zasoby, w tym zasoby [Lighthouse platformy Azure](../../../lighthouse/concepts/azure-delegated-resource-management.md) , do których uwierzytelniony użytkownik może uzyskać dostęp. Nowa `managementGroupId` Właściwość przyjmuje identyfikator grupy zarządzania, który różni się od nazwy grupy zarządzania. Gdy `managementGroupId` jest określony, uwzględniane są zasoby z pierwszych 5000 subskrypcji w lub poniżej określonej hierarchii grupy zarządzania. `managementGroupId` nie mogą być używane w tym samym czasie co `subscriptions` .
+Wersja **zapoznawcza** interfejsu API REST `2020-04-01-preview` dodaje właściwość do zakresu zapytania do [grupy zarządzania](../../management-groups/overview.md). Ten interfejs API w wersji zapoznawczej powoduje również, że właściwość subskrypcji jest opcjonalna. Jeśli grupa zarządzania lub Lista subskrypcji nie jest zdefiniowana, zakres zapytania obejmuje wszystkie zasoby, w tym zasoby [Lighthouse platformy Azure](../../../lighthouse/concepts/azure-delegated-resource-management.md) , do których uwierzytelniony użytkownik może uzyskać dostęp. Nowa `managementGroupId` Właściwość przyjmuje identyfikator grupy zarządzania, który różni się od nazwy grupy zarządzania. Gdy `managementGroupId` jest określony, uwzględniane są zasoby z pierwszych 5000 subskrypcji w lub poniżej określonej hierarchii grupy zarządzania. `managementGroupId` nie mogą być używane w tym samym czasie co `subscriptions` .
 
 Przykład: wykonywanie zapytania dotyczącego wszystkich zasobów w hierarchii grupy zarządzania o nazwie "moja grupa zarządzania" o IDENTYFIKATORze "myMG".
 
@@ -168,7 +169,7 @@ Niektóre nazwy właściwości, takie jak te, które zawierają `.` lub `$` , mu
 
 - `.` — Zawiń nazwę właściwości w taki sposób, aby: `['propertyname.withaperiod']`
   
-  Przykładowe zapytanie, które zawija Właściwość _OData. Type_:
+  Przykładowe zapytanie, które zawija Właściwość _OData. Type_ :
 
   ```kusto
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
@@ -178,7 +179,7 @@ Niektóre nazwy właściwości, takie jak te, które zawierają `.` lub `$` , mu
 
   - **bash** - `\`
 
-    Przykładowe zapytanie, które wyprowadza _ \$ Typ_ właściwości w bash:
+    Przykładowe zapytanie, które wyprowadza _\$ Typ_ właściwości w bash:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
@@ -188,7 +189,7 @@ Niektóre nazwy właściwości, takie jak te, które zawierają `.` lub `$` , mu
 
   - **Narzędzia** - ``` ` ```
 
-    Przykładowe zapytanie, które określa _ \$ Typ_ właściwości w programie PowerShell:
+    Przykładowe zapytanie, które określa _\$ Typ_ właściwości w programie PowerShell:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type

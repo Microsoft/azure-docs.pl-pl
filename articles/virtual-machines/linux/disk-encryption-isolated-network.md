@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1157a18954c30e1f1d93aa33dbea6104491b5353
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d7e019e7759e22e945bddee477a4cb77f17350b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396455"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913827"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption w sieci izolowanej
 
@@ -25,12 +25,12 @@ Azure Disk Encryption zależy od wielu składników, które zazwyczaj są instal
 
 Poniżej przedstawiono pakiety niezbędne do każdej dystrybucji. Aby zapoznać się z pełną listą obsługiwanych typów dystrybucje i woluminów, zobacz [obsługiwane maszyny wirtualne i systemy operacyjne](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
-- **Ubuntu 14,04, 16,04, 18,04**: lsscsi, psmisc, at, cryptsetup-bin, Python-część, Python-sześć, procps
-- **CentOS 7,2-7,7**: lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-reszyfrowania, pyparted, procps-ng, util-linux
-- **CentOS 6,8**: lsscsi, psmisc, lvm2, UUID, at, cryptsetup-reszyfrowania, pyparted, Python — sześć
-- **RedHat 7,2-7,7**: lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-reszyfrowania, procps-ng, util-linux
-- **RedHat 6,8**: lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup-reszyfruj
-- **openSUSE 42,3, SLES 12-SP4, 12-SP3**: lsscsi, cryptsetup
+- **Ubuntu 14,04, 16,04, 18,04** : lsscsi, psmisc, at, cryptsetup-bin, Python-część, Python-sześć, procps, grub-PC-bin
+- **CentOS 7,2-7,7** : lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-reszyfrowania, pyparted, procps-ng, util-linux
+- **CentOS 6,8** : lsscsi, psmisc, lvm2, UUID, at, cryptsetup-reszyfrowania, pyparted, Python — sześć
+- **RedHat 7,2-7,7** : lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-reszyfrowania, procps-ng, util-linux
+- **RedHat 6,8** : lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup-reszyfruj
+- **openSUSE 42,3, SLES 12-SP4, 12-SP3** : lsscsi, cryptsetup
 
 W systemie Red Hat, gdy wymagany jest serwer proxy, należy się upewnić, że usługi Subscription-Manager i yum są poprawnie skonfigurowane. Aby uzyskać więcej informacji, zobacz [temat Rozwiązywanie problemów z usługą Subscription-Manager i yum](https://access.redhat.com/solutions/189533).  
 

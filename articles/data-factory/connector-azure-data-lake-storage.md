@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/09/2020
-ms.openlocfilehash: 187d430e1475a85118be3811520824d6f8ca3aa7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/28/2020
+ms.openlocfilehash: aedaedd29082c9ad51c03aa919181649a6dcf281
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636514"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913351"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure Data Lake Storage Gen2 przy użyciu Azure Data Factory
 
@@ -46,11 +46,7 @@ W przypadku działania kopiowania przy użyciu tego łącznika można:
 - [Zachowywanie metadanych plików podczas kopiowania](#preserve-metadata-during-copy).
 - [Zachowaj listy ACL](#preserve-acls) podczas kopiowania z Azure Data Lake Storage Gen1/Gen2.
 
->[!IMPORTANT]
->Jeśli włączysz opcję **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w ustawieniach zapory usługi Azure Storage i chcesz używać środowiska Azure Integration Runtime do nawiązywania połączenia z Data Lake Storage Gen2, musisz użyć [uwierzytelniania tożsamości zarządzanej](#managed-identity) dla ADLS Gen2.
-
-
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 >[!TIP]
 >Aby zapoznać się z przewodnikiem dotyczącym korzystania z łącznika Data Lake Storage Gen2, zobacz [ładowanie danych do Azure Data Lake Storage Gen2](load-azure-data-lake-storage-gen2.md).
@@ -68,7 +64,8 @@ Poniższe sekcje zawierają informacje o właściwościach, które są używane 
 - [Zarządzane tożsamości na potrzeby uwierzytelniania zasobów platformy Azure](#managed-identity)
 
 >[!NOTE]
->W przypadku ładowania danych do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), jeśli Data Lake Storage Gen2 źródłowe jest skonfigurowany z Virtual Network punktem końcowym, należy użyć uwierzytelniania tożsamości zarządzanej zgodnie z wymaganiami sieci podstawowej. Zapoznaj się z sekcją [uwierzytelnianie tożsamości zarządzanej](#managed-identity) , podając więcej wymagań wstępnych dotyczących konfiguracji.
+>- Jeśli chcesz używać publicznego środowiska Azure Integration Runtime do nawiązywania połączenia z Data Lake Storage Gen2, korzystając z opcji **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w zaporze usługi Azure Storage, musisz użyć [uwierzytelniania tożsamości zarządzanej](#managed-identity).
+>- W przypadku używania instrukcji Base lub COPY do ładowania danych do usługi Azure Synapse Analytics, jeśli źródłowa lub przejściowa Data Lake Storage Gen2 jest skonfigurowana za pomocą punktu końcowego usługi Azure Virtual Network, należy użyć uwierzytelniania tożsamości zarządzanej zgodnie z wymaganiami Synapse. Zapoznaj się z sekcją [uwierzytelnianie tożsamości zarządzanej](#managed-identity) , podając więcej wymagań wstępnych dotyczących konfiguracji.
 
 ### <a name="account-key-authentication"></a>Uwierzytelnianie klucza konta
 
@@ -210,7 +207,7 @@ Aby używać tożsamości zarządzanych do uwierzytelniania zasobów platformy A
 >Jeśli używasz interfejsu użytkownika Data Factory do tworzenia, a tożsamość zarządzana nie jest ustawiona z rolą "czytelnik danych BLOB/współautor" w usłudze IAM, podczas testowania połączenia lub przeglądania/nawigowania w folderach wybierz opcję "Test connection do ścieżki pliku" lub "Przeglądaj z określonej ścieżki" i określ ścieżkę z uprawnieniem **Odczyt i wykonywanie** , aby kontynuować.
 
 >[!IMPORTANT]
->W przypadku korzystania z bazy danych w celu ładowania Data Lake Storage Gen2 do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) w przypadku korzystania z uwierzytelniania tożsamości zarządzanej dla Data Lake Storage Gen2 należy również wykonać kroki 1 i 2 w [niniejszych wskazówkach](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) do 1) zarejestrować usługę z Azure Active Directory (Azure AD) i 2) przypisać rolę współautor danych obiektów blob magazynu do serwera; pozostałe są obsługiwane przez Data Factory. Jeśli Data Lake Storage Gen2 jest skonfigurowany za pomocą punktu końcowego Virtual Network platformy Azure, aby można było załadować z niego dane, należy użyć uwierzytelniania tożsamości zarządzanej zgodnie z wymaganiami firmy Base.
+>Jeśli używasz instrukcji Base lub COPY do ładowania danych z Data Lake Storage Gen2 do usługi Azure Synapse Analytics, w przypadku korzystania z uwierzytelniania tożsamości zarządzanej dla Data Lake Storage Gen2 upewnij się, że w [tym przewodniku](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)opisano kroki od 1 do 3. Te kroki spowodują zarejestrowanie serwera w usłudze Azure AD i przypisanie roli współautor danych obiektów blob magazynu do serwera. Data Factory obsługuje resztę. W przypadku skonfigurowania usługi BLOB Storage za pomocą punktu końcowego usługi Azure Virtual Network należy również **zezwolić zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w obszarze zapory konta usługi Azure Storage i menu ustawienia **sieci wirtualnych** zgodnie z wymaganiami Synapse.
 
 Te właściwości są obsługiwane dla połączonej usługi:
 

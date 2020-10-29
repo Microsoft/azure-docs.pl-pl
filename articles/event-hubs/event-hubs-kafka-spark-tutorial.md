@@ -3,12 +3,12 @@ title: Łączenie z aplikacją platformy Apache Spark w usłudze Azure Event Hub
 description: W tym artykule opisano, jak korzystać z platformy Apache Spark z usługą Azure Event Hubs dla platformy Kafka.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 8535b7dc81da8c46685e12c3861793b919296cb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84184ed3dffee97863b93c592d1cd577df313605
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061584"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913742"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Łączenie aplikacji Apache Spark z platformą Azure Event Hubs
 Ten samouczek przeprowadzi Cię przez połączenie aplikacji Spark w celu Event Hubs na potrzeby przesyłania strumieniowego w czasie rzeczywistym. Ta Integracja umożliwia przesyłanie strumieniowe bez konieczności zmiany klientów protokołu lub uruchamiania własnych klastrów Kafka lub dozorcy. Ten samouczek wymaga Apache Spark v 2.4 + i Apache Kafka v 2.0 +.
@@ -16,7 +16,7 @@ Ten samouczek przeprowadzi Cię przez połączenie aplikacji Spark w celu Event 
 > [!NOTE]
 > Ten przykład jest dostępny w witrynie [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark/)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Event Hubs
 > * Klonowanie projektu przykładowego
@@ -62,7 +62,7 @@ val df = spark.readStream
     .option("kafka.request.timeout.ms", "60000")
     .option("kafka.session.timeout.ms", "30000")
     .option("kafka.group.id", GROUP_ID)
-    .option("failOnDataLoss", "false")
+    .option("failOnDataLoss", "true")
     .load()
 
 //Use dataframe like normal (in this example, write to console)

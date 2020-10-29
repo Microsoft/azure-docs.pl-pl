@@ -4,12 +4,12 @@ description: Dowiedz się, jak przetwarzać obciążenia równoległe obliczenio
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 9cbf7dcb5b0f6f43b4fc5d69127e817dceea650e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 704b73ab43f40a5542e80ffebc4ab34edfc446dc
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108069"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913793"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Inicjowanie obsługi węzłów obliczeniowych systemu Linux w pulach wsadowym
 
@@ -37,7 +37,7 @@ Konfigurując odwołanie do obrazu maszyny wirtualnej, należy określić właś
 | --- | --- |
 | Publisher |Canonical |
 | Oferta |UbuntuServer |
-| SKU |18,04 – LTS |
+| Jednostka SKU |18,04 – LTS |
 | Wersja |latest |
 
 > [!TIP]
@@ -46,7 +46,8 @@ Konfigurując odwołanie do obrazu maszyny wirtualnej, należy określić właś
 >
 
 ### <a name="node-agent-sku"></a>Jednostka SKU agenta węzła
-Agent węzła usługi Batch jest programem uruchamianym w każdym węźle w puli i udostępnia interfejs poleceń i kontroli między węzłem a usługą Batch. Istnieją różne implementacje agenta węzła, nazywane jednostkami SKU dla różnych systemów operacyjnych. Zasadniczo podczas tworzenia konfiguracji maszyny wirtualnej należy najpierw określić odwołanie do obrazu maszyny wirtualnej, a następnie określić agenta węzła, który ma zostać zainstalowany na obrazie. Zazwyczaj każda jednostka SKU agenta węzła jest zgodna z wieloma obrazami maszyn wirtualnych. Poniżej przedstawiono kilka przykładów jednostek SKU agenta węzła:
+
+[Agent węzła usługi Batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) jest programem uruchamianym w każdym węźle w puli i udostępnia interfejs poleceń i kontroli między węzłem a usługą Batch. Istnieją różne implementacje agenta węzła, nazywane jednostkami SKU dla różnych systemów operacyjnych. Zasadniczo podczas tworzenia konfiguracji maszyny wirtualnej należy najpierw określić odwołanie do obrazu maszyny wirtualnej, a następnie określić agenta węzła, który ma zostać zainstalowany na obrazie. Zazwyczaj każda jednostka SKU agenta węzła jest zgodna z wieloma obrazami maszyn wirtualnych. Poniżej przedstawiono kilka przykładów jednostek SKU agenta węzła:
 
 * Batch. Node. Ubuntu 18,04
 * Batch. Node. CentOS 7
@@ -276,7 +277,7 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 Zamiast hasła można określić klucz publiczny SSH podczas tworzenia użytkownika w węźle. W zestawie SDK języka Python Użyj parametru **ssh_public_key** w [ComputeNodeUser][py_computenodeuser]. W programie .NET Użyj [ComputeNodeUser][net_computenodeuser]. Właściwość [SshPublicKey][net_ssh_key] .
 
 ## <a name="pricing"></a>Cennik
-Azure Batch jest oparta na platformie Azure Cloud Services i technologii Azure Virtual Machines. Sama usługa Batch jest oferowana bezpłatnie, co oznacza, że opłaty są naliczone wyłącznie za zasoby obliczeniowe (i powiązane z nimi koszty, które wiążą się z tym, że korzystasz z rozwiązań wsadowych). Po wybraniu **konfiguracji Cloud Services**zostanie naliczona opłata oparta na [Cloud Services strukturze cenowej][cloud_services_pricing] . Po wybraniu opcji **Konfiguracja maszyny wirtualnej**opłata jest naliczana na podstawie [Virtual Machinesj struktury cenowej][vm_pricing] .
+Azure Batch jest oparta na platformie Azure Cloud Services i technologii Azure Virtual Machines. Sama usługa Batch jest oferowana bezpłatnie, co oznacza, że opłaty są naliczone wyłącznie za zasoby obliczeniowe (i powiązane z nimi koszty, które wiążą się z tym, że korzystasz z rozwiązań wsadowych). Po wybraniu **konfiguracji Cloud Services** zostanie naliczona opłata oparta na [Cloud Services strukturze cenowej][cloud_services_pricing] . Po wybraniu opcji **Konfiguracja maszyny wirtualnej** opłata jest naliczana na podstawie [Virtual Machinesj struktury cenowej][vm_pricing] .
 
 W przypadku wdrażania aplikacji w węzłach usługi Batch przy użyciu [pakietów aplikacji](batch-application-packages.md)opłaty są naliczone również za zasoby magazynu platformy Azure zużywane przez pakiety aplikacji.
 

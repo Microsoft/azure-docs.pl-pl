@@ -4,12 +4,12 @@ description: Instrukcje dotyczące przenoszenia magazynu Recovery Services w ram
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171603"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926686"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Przenoszenie magazynu Recovery Services w ramach subskrypcji i grup zasobów platformy Azure
 
@@ -17,11 +17,7 @@ W tym artykule wyjaśniono, jak przenieść magazyn Recovery Services skonfiguro
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
-Przenoszenie zasobów dla magazynu Recovery Services jest obsługiwane w Australii Wschodniej, Australia Południowo-Wschodnia, Kanada środkowa, Kanada Wschodnia, Południowe Azja Wschodnia, Azja Wschodnia, środkowe stany USA, Północno-środkowe stany USA, Wschodnie stany USA, Wschodnie stany USA 2, Południowo-środkowe stany USA, zachodnie stany USA, Indie Zachodnie, Japonia Zachodnia, zachodnio-zachodnie stany USA, Japonia Zachodnia, Korea środkowa, Korea Południowa , Europa Północna, Europa Zachodnia, Północna Republika Południowej Afryki, Zachodnia Republika Południowej Afryki, Południowe Zjednoczone Królestwo i Zachodnie Zjednoczone Królestwo.
-
-## <a name="unsupported-regions"></a>Nieobsługiwane regiony
-
-Francja środkowa, Francja Południowa, Niemcy Południowe, Niemcy środkowe, US Gov Iowa, Chiny Północne, Chiny North2, Chiny Wschodnie Chiny 2
+Obsługiwane są wszystkie regiony publiczne i suwerenne regiony, z wyjątkiem Francji środkowej, Francja Południowa, Niemcy Wschodnie, Niemcy środkowe, Chiny Północne, Chiny North2, Chiny Wschodnie i Chiny 2.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Wymagania wstępne dotyczące przeniesienia magazynu Recovery Services
 
@@ -46,7 +42,7 @@ Francja środkowa, Francja Południowa, Niemcy Południowe, Niemcy środkowe, US
 
 > [!NOTE]
 > Przeniesienie Recovery Services magazynów dla Azure Backup w regionach platformy Azure nie jest obsługiwane.<br><br>
-> W przypadku skonfigurowania maszyn wirtualnych (Azure IaaS, Hyper-V, VMware) lub fizycznych na potrzeby odzyskiwania po awarii przy użyciu **Azure Site Recovery**Operacja przenoszenia zostanie zablokowana. Jeśli chcesz przenieść magazyny dla Azure Site Recovery, zapoznaj się z [tym artykułem](../site-recovery/move-vaults-across-regions.md) , aby dowiedzieć się więcej o przenoszeniu magazynów ręcznie.
+> W przypadku skonfigurowania maszyn wirtualnych (Azure IaaS, Hyper-V, VMware) lub fizycznych na potrzeby odzyskiwania po awarii przy użyciu **Azure Site Recovery** Operacja przenoszenia zostanie zablokowana. Jeśli chcesz przenieść magazyny dla Azure Site Recovery, zapoznaj się z [tym artykułem](../site-recovery/move-vaults-across-regions.md) , aby dowiedzieć się więcej o przenoszeniu magazynów ręcznie.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Przenoszenie magazynu Recovery Services do innej grupy zasobów przy użyciu Azure Portal
 
@@ -61,7 +57,7 @@ Aby przenieść magazyn Recovery Services i powiązane z nim zasoby do innej gru
 
    ![Karta informacji o Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. W menu przegląd magazynu wybierz pozycję **Zmień** obok **grupy zasobów**, aby otworzyć okienko **przenoszenie zasobów** .
+3. W menu przegląd magazynu wybierz pozycję **Zmień** obok **grupy zasobów** , aby otworzyć okienko **przenoszenie zasobów** .
 
    ![Zmień grupę zasobów](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
@@ -90,7 +86,7 @@ Magazyn Recovery Services i powiązane z nim zasoby można przenieść do innej 
 
     ![Karta informacji o Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. W menu przegląd magazynu wybierz pozycję **Zmień** obok pozycji **subskrypcja**, aby otworzyć okienko **przenoszenie zasobów** .
+3. W menu przegląd magazynu wybierz pozycję **Zmień** obok pozycji **subskrypcja** , aby otworzyć okienko **przenoszenie zasobów** .
 
    ![Zmień subskrypcję](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
@@ -103,7 +99,7 @@ Magazyn Recovery Services i powiązane z nim zasoby można przenieść do innej 
 
    ![Dodaj subskrypcję](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Zaznacz opcję **rozumiem, że narzędzia i skrypty skojarzone z przeniesionymi zasobami nie będą działały do momentu zaktualizowania ich do korzystania z nowych identyfikatorów zasobów** , aby potwierdzić, a następnie wybierz przycisk **OK**.
+7. Zaznacz opcję **rozumiem, że narzędzia i skrypty skojarzone z przeniesionymi zasobami nie będą działały do momentu zaktualizowania ich do korzystania z nowych identyfikatorów zasobów** , aby potwierdzić, a następnie wybierz przycisk **OK** .
 
 > [!NOTE]
 > Kopia zapasowa między subskrypcjami (magazyn RS i chronione maszyny wirtualne znajdują się w różnych subskrypcjach) nie jest obsługiwanym scenariuszem. Ponadto opcja nadmiarowości magazynu z lokalnego nadmiarowego magazynu (LRS) na globalnie nadmiarowy magazyn (GRS) i na odwrót nie może zostać zmodyfikowana podczas operacji przenoszenia magazynu.
@@ -161,9 +157,9 @@ Aby chronić obciążenia w nowym magazynie, bieżąca Ochrona i dane muszą zos
 
 1. Wyłącz usuwanie nietrwałe we właściwościach magazynu. Wykonaj następujące [kroki](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) , aby wyłączyć usuwanie nietrwałe.
 
-2. Zatrzymaj ochronę i usuń kopie zapasowe z bieżącego magazynu. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **elementy kopii zapasowej**. Elementy wymienione w tym miejscu, które należy przenieść do nowego magazynu, muszą zostać usunięte wraz z danymi kopii zapasowych. Zobacz jak [usunąć chronione elementy w chmurze](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) i [usunąć chronione elementy lokalnie](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+2. Zatrzymaj ochronę i usuń kopie zapasowe z bieżącego magazynu. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **elementy kopii zapasowej** . Elementy wymienione w tym miejscu, które należy przenieść do nowego magazynu, muszą zostać usunięte wraz z danymi kopii zapasowych. Zobacz jak [usunąć chronione elementy w chmurze](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) i [usunąć chronione elementy lokalnie](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
-3. Jeśli planujesz przenoszenie programu AFS (udziały plików platformy Azure), serwerów SQL lub serwerów SAP HANA, należy również je wyrejestrować. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **infrastruktura zapasowa**. Zobacz jak [wyrejestrować serwer SQL](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [wyrejestrować konto magazynu skojarzone z udziałami plików platformy Azure](manage-afs-backup.md#unregister-a-storage-account)i [wyrejestrować wystąpienie SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+3. Jeśli planujesz przenoszenie programu AFS (udziały plików platformy Azure), serwerów SQL lub serwerów SAP HANA, należy również je wyrejestrować. W menu pulpitu nawigacyjnego magazynu wybierz pozycję **infrastruktura zapasowa** . Zobacz jak [wyrejestrować serwer SQL](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [wyrejestrować konto magazynu skojarzone z udziałami plików platformy Azure](manage-afs-backup.md#unregister-a-storage-account)i [wyrejestrować wystąpienie SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
 
 4. Po usunięciu ze starego magazynu, kontynuuj konfigurowanie kopii zapasowych dla obciążenia w nowym magazynie.
 

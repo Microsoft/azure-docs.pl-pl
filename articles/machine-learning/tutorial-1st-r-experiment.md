@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019379"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913283"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Samouczek: używanie języka R do tworzenia modelu uczenia maszynowego (wersja zapoznawcza)
 
@@ -45,12 +45,12 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpła
 
 Obszar roboczy Azure Machine Learning to podstawowe zasoby w chmurze, za pomocą których można eksperymentować, uczeniować i wdrażać modele uczenia maszynowego. Łączy ona Twoją subskrypcję i grupę zasobów platformy Azure z łatwym w użyciu obiektem w usłudze. 
 
-Aby zarządzać zasobami platformy Azure, można utworzyć obszar roboczy za pośrednictwem Azure Portal konsoli internetowej. 
+Istnieje wiele [sposobów tworzenia obszaru roboczego](how-to-manage-workspace.md). W tym samouczku utworzysz obszar roboczy za pośrednictwem Azure Portalej konsoli internetowej do zarządzania zasobami platformy Azure. 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
-> Zanotuj swój **obszar roboczy** i **subskrypcję**. Będą one potrzebne do utworzenia eksperymentu w odpowiednim miejscu. 
+> Zanotuj swój **obszar roboczy** i **subskrypcję** . Będą one potrzebne do utworzenia eksperymentu w odpowiednim miejscu. 
 
 
 ## <a name="open-rstudio"></a><a name="open"></a>Otwórz RStudio
@@ -74,7 +74,7 @@ Sklonuj https://github.com/Azure/azureml-sdk-for-r repozytorium GitHub, aby uzys
 
 1. Uruchom `git clone https://github.com/Azure/azureml-sdk-for-r` w terminalu, aby sklonować repozytorium.
 
-1. W RStudio przejdź do folderu *vignettes* w sklonowanym folderze *Azure-SDK-for-r* .  W obszarze *vignettes*wybierz *kolejno pozycje uczenie i wdrażanie-pierwszy-model. RMD* plik, aby znaleźć Vignette używany w tym samouczku. Dodatkowe pliki używane dla Vignette znajdują się w podfolderze *pociąg-and-Deploy-First-model* . Po otwarciu Vignette Ustaw katalog roboczy na lokalizację pliku za pośrednictwem **sesji > ustaw > katalog roboczy na lokalizację pliku źródłowego**. 
+1. W RStudio przejdź do folderu *vignettes* w sklonowanym folderze *Azure-SDK-for-r* .  W obszarze *vignettes* wybierz *kolejno pozycje uczenie i wdrażanie-pierwszy-model. RMD* plik, aby znaleźć Vignette używany w tym samouczku. Dodatkowe pliki używane dla Vignette znajdują się w podfolderze *pociąg-and-Deploy-First-model* . Po otwarciu Vignette Ustaw katalog roboczy na lokalizację pliku za pośrednictwem **sesji > ustaw > katalog roboczy na lokalizację pliku źródłowego** . 
 
 > [!Important]
 > Pozostała część tego artykułu zawiera tę samą zawartość, która jest wyświetlana w  *modelu uczenie i wdrażanie-pierwszy-model. Plik RMD* . Jeśli masz doświadczenie z RMarkdown, możesz użyć kodu z tego pliku.  Można też skopiować/wkleić fragmenty kodu z tego miejsca lub z tego artykułu do skryptu języka R lub wiersza polecenia. 
@@ -188,7 +188,7 @@ Na potrzeby tego samouczka Dopasuj model regresji logistycznej do przekazanych d
 
 * Skrypt szkoleniowy przyjmuje argument `-d` , aby znaleźć katalog zawierający dane szkoleniowe. Po zdefiniowaniu i przesłaniu zadania później należy wskazać magazyn danych dla tego argumentu. Platforma Azure ML zainstaluje folder magazynu w klastrze zdalnym dla zadania szkoleniowego.
 * Skrypt szkoleniowy rejestruje ostateczną dokładność jako metrykę do rekordu uruchomienia w usłudze Azure ML przy użyciu `log_metric_to_run()` . Zestaw SDK usługi Azure ML udostępnia zestaw interfejsów API rejestrowania do rejestrowania różnych metryk podczas przebiegów szkoleniowych. Te metryki są rejestrowane i utrwalane w rekordzie przebiegu eksperymentu. Dostęp do metryk można uzyskać w dowolnym momencie lub wyświetlić na stronie Szczegóły uruchamiania w programie [Studio](https://ml.azure.com). Zobacz [informacje](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) dotyczące pełnego zestawu metod rejestrowania `log_*()` .
-* Skrypt szkoleniowy zapisuje model w katalogu **o nazwie**Outputs. `./outputs`Folder otrzymuje specjalne traktowanie w usłudze Azure ml. Podczas szkolenia pliki zapisywane do `./outputs` są automatycznie przekazywane do rekordu uruchomienia przez usługę Azure ml i utrwalane jako artefakty. Zapisując przeszkolony model do `./outputs` , będziesz mieć dostęp do pliku modelu nawet po jego zakończeniu i nie masz już dostępu do zdalnego środowiska szkoleniowego.
+* Skrypt szkoleniowy zapisuje model w katalogu **o nazwie** Outputs. `./outputs`Folder otrzymuje specjalne traktowanie w usłudze Azure ml. Podczas szkolenia pliki zapisywane do `./outputs` są automatycznie przekazywane do rekordu uruchomienia przez usługę Azure ml i utrwalane jako artefakty. Zapisując przeszkolony model do `./outputs` , będziesz mieć dostęp do pliku modelu nawet po jego zakończeniu i nie masz już dostępu do zdalnego środowiska szkoleniowego.
 
 ### <a name="create-an-estimator"></a>Tworzenie narzędzia do szacowania
 
@@ -212,7 +212,7 @@ est <- estimator(source_directory = "train-and-deploy-first-model",
 
 ### <a name="submit-the-job-on-the-remote-cluster"></a>Prześlij zadanie w klastrze zdalnym
 
-Na koniec Prześlij zadanie do uruchomienia w klastrze. `submit_experiment()` zwraca obiekt Run, który następnie jest używany do interfejsu z przebiegiem. Łącznie pierwszy przebieg trwa **około 10 minut**. Jednak w przypadku późniejszego uruchomienia ten sam obraz platformy Docker jest ponownie używany, tak długo, jak zależności skryptu nie są zmieniane.  W takim przypadku obraz jest buforowany i czas uruchamiania kontenera jest znacznie szybszy.
+Na koniec Prześlij zadanie do uruchomienia w klastrze. `submit_experiment()` zwraca obiekt Run, który następnie jest używany do interfejsu z przebiegiem. Łącznie pierwszy przebieg trwa **około 10 minut** . Jednak w przypadku późniejszego uruchomienia ten sam obraz platformy Docker jest ponownie używany, tak długo, jak zależności skryptu nie są zmieniane.  W takim przypadku obraz jest buforowany i czas uruchamiania kontenera jest znacznie szybszy.
 
 ```R
 run <- submit_experiment(exp, est)
@@ -329,7 +329,7 @@ W tym samouczku zostanie wdrożona usługa do ACI. Ten kod Inicjuje obsługę je
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
 ```
 
-Teraz można wdrożyć model jako usługę sieci Web. Wdrożenie **może potrwać kilka minut**. 
+Teraz można wdrożyć model jako usługę sieci Web. Wdrożenie **może potrwać kilka minut** . 
 
 ```R
 aci_service <- deploy_model(ws, 
@@ -392,7 +392,7 @@ delete_compute(compute)
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-Możesz też zachować grupę zasobów i usunąć jeden obszar roboczy. Wyświetl właściwości obszaru roboczego i wybierz pozycję **Usuń**.
+Możesz też zachować grupę zasobów i usunąć jeden obszar roboczy. Wyświetl właściwości obszaru roboczego i wybierz pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

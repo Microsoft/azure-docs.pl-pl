@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 6dfee84c44643823a4ec76c32e750febc6646be5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9405eb01dbe2d7ea9d4a9e64bf7dd79ca356e9f5
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908064"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926992"
 ---
 # <a name="evaluate-model-module"></a>Oceń moduł modelu
 
@@ -34,13 +34,21 @@ Ten moduł służy do mierzenia dokładności nauczonego modelu. Dostarczasz zes
 
 
 ## <a name="how-to-use-evaluate-model"></a>Jak używać modelu szacowania
-1. Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu wynikowego](./score-model.md) lub danych wyjściowych zestawu danych wynikowych [przypisywania danych do klastrów](./assign-data-to-clusters.md) do lewego portu wejściowego **oceny modelu**. 
+1. Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu wynikowego](./score-model.md) lub danych wyjściowych zestawu danych wynikowych [przypisywania danych do klastrów](./assign-data-to-clusters.md) do lewego portu wejściowego **oceny modelu** . 
     > [!NOTE] 
     > Jeśli używasz modułów takich jak "Wybieranie kolumn w zestawie danych", aby wybrać część wejściowego zestawu danych, upewnij się, że rzeczywista kolumna etykiety (używana w szkoleniu), kolumna "oceny prawdopodobieństwa" i "oceny etykiet" istnieją do obliczenia metryk, takich jak AUC, dokładność dla binarnej klasyfikacji/wykrywania anomalii.
     > Rzeczywista kolumna etykiet, kolumna "oceny etykiet" istnieje, aby obliczyć metryki dla klasyfikacji/regresji dla wieloklasowego.
     > Kolumna "przypisania", kolumny "DistancesToClusterCenter No. X ' (X jest indeksem centroida, od 0,..., liczba centroids-1) istnieje, aby obliczyć metryki dla klastrowania.
 
-2. Obowiązkowe Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu oceny](./score-model.md) lub danych wyjściowych zestawu danych wynikowych przypisywania danych do klastrów dla drugiego modelu **na odpowiedni port wejściowy** **oceny modelu**. Możesz łatwo porównać wyniki z dwóch różnych modeli na tych samych danych. Dwa algorytmy wejściowe powinny być tym samym typem algorytmu. Lub można porównać wyniki z dwóch różnych przebiegów nad tymi samymi danymi z różnymi parametrami.
+    > [!IMPORTANT]
+    > + Aby oszacować wyniki, wyjściowy zestaw danych powinien zawierać określone nazwy kolumn oceny, które spełniają wymagania modułu oceny modelu.
+    > + `Labels`Kolumna zostanie uznana za rzeczywiste etykiety.
+    > + Dla zadania regresji zestaw danych do oceny musi mieć jedną kolumnę o nazwie `Regression Scored Labels` , która reprezentuje etykiety z wynikami.
+    > + W przypadku zadania klasyfikacji binarnej zestaw danych do oceny musi mieć dwie kolumny o nazwie, `Binary Class Scored Labels` `Binary Class Scored Probabilities` która reprezentuje odpowiednio etykiety i prawdopodobieństwa.
+    > + W przypadku zadania o wielu klasyfikacjach zestaw danych do oceny musi mieć jedną kolumnę o nazwie `Multi Class Scored Labels` , która reprezentuje etykiety z wynikami.
+    > Jeśli dane wyjściowe modułu nadrzędnego nie mają tych kolumn, należy zmodyfikować zgodnie z powyższymi wymaganiami.
+
+2. Obowiązkowe Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu oceny](./score-model.md) lub danych wyjściowych zestawu danych wynikowych przypisywania danych do klastrów dla drugiego modelu **na odpowiedni port wejściowy** **oceny modelu** . Możesz łatwo porównać wyniki z dwóch różnych modeli na tych samych danych. Dwa algorytmy wejściowe powinny być tym samym typem algorytmu. Lub można porównać wyniki z dwóch różnych przebiegów nad tymi samymi danymi z różnymi parametrami.
 
     > [!NOTE]
     > Typ algorytmu odnosi się do "klasyfikacji dwuklasowej", "klasyfikacji wieloklasowej", "regresji", "klastrowanie" w ramach "Machine Learning algorytmów". 
@@ -49,14 +57,14 @@ Ten moduł służy do mierzenia dokładności nauczonego modelu. Dostarczasz zes
 
 ## <a name="results"></a>Wyniki
 
-Po uruchomieniu **Oceń model**wybierz moduł, aby otworzyć panel nawigacyjny " **Oceń model** " po prawej stronie.  Następnie wybierz kartę dane **wyjściowe + dzienniki** i na tej karcie sekcja **wyprowadzania danych** zawiera kilka ikon. Ikona **wizualizacji** ma ikonę wykresu słupkowego i jest pierwszym sposobem wyświetlania wyników.
+Po uruchomieniu **Oceń model** wybierz moduł, aby otworzyć panel nawigacyjny " **Oceń model** " po prawej stronie.  Następnie wybierz kartę dane **wyjściowe + dzienniki** i na tej karcie sekcja **wyprowadzania danych** zawiera kilka ikon. Ikona **wizualizacji** ma ikonę wykresu słupkowego i jest pierwszym sposobem wyświetlania wyników.
 
 W przypadku klasyfikacji binarnej, po kliknięciu ikony **wizualizacji** , można wizualizować macierz kodu binarnego.
 W przypadku wielokrotnej klasyfikacji można znaleźć plik wykresów macierzy o nieporozumieniu na karcie dane **wyjściowe i dzienniki** , tak jak poniżej:
 > [!div class="mx-imgBorder"]
 > ![Podgląd przekazanego obrazu](media/module/multi-class-confusion-matrix.png)
 
-W przypadku łączenia zestawów danych z obydwoma danymi wejściowymi **modelu szacowania**wyniki będą zawierać metryki dla zestawu danych lub obu modeli.
+W przypadku łączenia zestawów danych z obydwoma danymi wejściowymi **modelu szacowania** wyniki będą zawierać metryki dla zestawu danych lub obu modeli.
 Model lub dane dołączone do lewego portu są przedstawiane jako pierwsze w raporcie, a następnie metryki dla zestawu danych lub modelu dołączonego do właściwego portu.  
 
 Na przykład poniższa ilustracja przedstawia porównanie wyników z dwóch modeli klastrowania utworzonych na podstawie tych samych danych, ale z innymi parametrami.  
@@ -67,7 +75,7 @@ Ponieważ jest to Model klastrowania, wyniki oceny różnią się od tego, czy p
 
 ## <a name="metrics"></a>Metryki
 
-W tej sekcji opisano metryki zwracane dla określonych typów modeli obsługiwanych do użycia z **modelem oszacowania**:
+W tej sekcji opisano metryki zwracane dla określonych typów modeli obsługiwanych do użycia z **modelem oszacowania** :
 
 + [modele klasyfikacji](#metrics-for-classification-models)
 + [modele regresji](#metrics-for-regression-models)
@@ -105,7 +113,7 @@ Metryki zwracane dla modeli regresji zaprojektowano w celu oszacowania ilości b
   
 
   
-- **Współczynnik wyznaczania**, często określany jako R<sup>2</sup>, reprezentuje siłę predykcyjną modelu jako wartość z przedziału od 0 do 1. Zero oznacza, że model jest losowo (wyjaśnia nic); 1 oznacza, że jest idealnym dopasowaniem. Należy zachować ostrożność w interpretacji wartości R<sup>2</sup> , ponieważ niskie wartości mogą być całkowicie normalne i mogą być podejrzane wysokie wartości.
+- **Współczynnik wyznaczania** , często określany jako R <sup>2</sup>, reprezentuje siłę predykcyjną modelu jako wartość z przedziału od 0 do 1. Zero oznacza, że model jest losowo (wyjaśnia nic); 1 oznacza, że jest idealnym dopasowaniem. Należy zachować ostrożność w interpretacji wartości R<sup>2</sup> , ponieważ niskie wartości mogą być całkowicie normalne i mogą być podejrzane wysokie wartości.
 
 ###  <a name="metrics-for-clustering-models"></a>Metryki dla modeli klastrowania
 
@@ -117,15 +125,15 @@ Ponieważ modele klastrów znacznie różnią się od modeli klasyfikacji i regr
   
 Następujące metryki są zgłaszane do oceny modeli klastrowania.
     
--   Wyniki w kolumnie, **Średnia odległość do innego centrum**, reprezentują jak blisko, średnio, każdy punkt w klastrze to centroids wszystkich innych klastrów.   
+-   Wyniki w kolumnie, **Średnia odległość do innego centrum** , reprezentują jak blisko, średnio, każdy punkt w klastrze to centroids wszystkich innych klastrów.   
 
--   Wyniki w kolumnie, **Średnia odległość do centrum klastra**, reprezentują bliskość wszystkich punktów w klastrze do centroida tego klastra.  
+-   Wyniki w kolumnie, **Średnia odległość do centrum klastra** , reprezentują bliskość wszystkich punktów w klastrze do centroida tego klastra.  
   
 -   Kolumna **liczba punktów** pokazuje, ile punktów danych zostało przypisanych do każdego klastra, oraz łączną całkowitą liczbę punktów danych w dowolnym klastrze.  
   
      Jeśli liczba punktów danych przypisanych do klastrów jest mniejsza niż całkowita liczba dostępnych punktów danych, oznacza to, że nie można przypisać punktów danych do klastra.  
   
--   Wyniki w kolumnie, **maksymalnie odległość do centrum klastra**, reprezentują maksymalną odległość między każdym punktem a centroida klastra tego punktu.  
+-   Wyniki w kolumnie, **maksymalnie odległość do centrum klastra** , reprezentują maksymalną odległość między każdym punktem a centroida klastra tego punktu.  
   
      Jeśli ta liczba jest wysoka, może to oznaczać, że klaster jest szeroko rozpraszany. Należy zapoznać się z tą statystyką wraz z **średnim dystansem do centrum klastra** , aby określić rozmieszczenie klastra.   
 

@@ -5,23 +5,23 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/02/2020
-ms.openlocfilehash: ad3287651716580aaf6ab8c5e819fd92a70e695d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 10/29/2020
+ms.openlocfilehash: 4075e27c3711cbc4c584005126b53f7c99942049
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144108"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926729"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Wycofanie wersji interfejsu API OperationalInsights
-Firma Microsoft zapewnia powiadomienie co najmniej 12 miesięcy przed wycofaniem interfejsu API w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Firma Microsoft udostępniła nową wersję (2020-08-01) dla interfejsów API dostawcy zasobów **OperationalInsights** i wycofa wszystkie starsze wersje interfejsu API w dniu 31 października 2023.
+Firma Microsoft zapewnia powiadomienie co najmniej 12 miesięcy przed wycofaniem interfejsu API w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Firma Microsoft udostępniła nową wersję (2020-08-01) dla interfejsów API dostawcy zasobów **OperationalInsights** i wycofa wszystkie starsze wersje interfejsu API w dniu 29 lutego 2014 r.
 
 Zachęcamy do korzystania z wersji 2020-08-01 teraz w celu uzyskania korzyści płynących z nowych funkcji, takich jak [dedykowany klaster](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters), [klucze zarządzane przez klienta](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys), [prywatne łącze](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security) i [eksport danych](https://docs.microsoft.com/azure/azure-monitor/platform/logs-data-export). Ponadto nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego interfejsu API.
 
-Po 31 października 2023 Azure Monitor nie będą już obsługiwać wcześniejszych wersji interfejsów API niż 2020-08-01. Jeśli wolisz nie aktualizować, żądania wysyłane z wcześniejszych wersji będą nadal obsługiwane przez usługę Azure Monitor do 31 października 2023.
+Po 29 lutego 2014 Azure Monitor nie będzie już obsługiwać wcześniejszych wersji interfejsów API niż 2020-08-01. Jeśli wolisz nie aktualizować, żądania wysyłane z wcześniejszych wersji będą nadal obsługiwane przez usługę Azure Monitor do 29 lutego 2014 r.
 
 ## <a name="migration-steps"></a>Kroki migracji
-W zależności od używanej metody konfiguracji należy zaktualizować nową wersję w **szablonach**żądania **rest** i Menedżer zasobów. Aby zaktualizować wersję interfejsu API, postępuj zgodnie z poniższymi przykładami:
+W zależności od używanej metody konfiguracji należy zaktualizować nową wersję w **szablonach** żądania **rest** i Menedżer zasobów. Aby zaktualizować wersję interfejsu API, postępuj zgodnie z poniższymi przykładami:
 
 1. Żądania interfejsu API REST używają wersji interfejsu API w adresie URL żądania. Zastąp tę wersję najnowszą wersją (2020-08-01), jak pokazano w poniższym przykładzie.
 

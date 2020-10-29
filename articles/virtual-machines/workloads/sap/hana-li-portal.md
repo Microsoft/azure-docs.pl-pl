@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d81a8b3a1596e8a447f7a2434e52df8c89b416b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 887adb3e8b0a5f0410fc9a7732e2220049b7ba6c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085269"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927196"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Sterowania oprogramowaniem Azure HANA — duże wystąpienia za pośrednictwem witryny Azure Portal
 W tym dokumencie opisano sposób, w jaki są prezentowane [duże wystąpienia usługi Hana](./hana-overview-architecture.md) w [Azure Portal](https://portal.azure.com) i jakie działania mogą być wykonywane za pomocą Azure Portal z jednostkami dużej liczby wystąpień usługi Hana wdrożonych dla Ciebie. Widoczność dużych wystąpień usługi HANA w Azure Portal jest udostępniana przez dostawcę zasobów platformy Azure dla dużych wystąpień HANA, które są obecnie dostępne w publicznej wersji zapoznawczej
@@ -54,13 +54,13 @@ Po wdrożeniu pierwszego wystąpienia usługi HANA zostanie utworzona nowa [Grup
 
 Aby znaleźć nową grupę zasobów platformy Azure, należy wyświetlić listę zasobów w ramach subskrypcji, przechodząc do okienka nawigacji po lewej stronie Azure Portal
 
-![Okienko nawigacji w Azure Portal](./media/hana-li-portal/portal-resource-group.png)
+![Zrzut ekranu, który podświetla opcję grupy zasobów.](./media/hana-li-portal/portal-resource-group.png)
 
 Na liście grup zasobów pojawia się na liście. może być konieczne odfiltrowanie subskrypcji użytej do wdrożenia dużych wystąpień platformy HANA
 
 ![Filtrowanie grup zasobów w Azure Portal](./media/hana-li-portal/portal-filtering-subscription.png)
 
-Po przefiltrowaniu do odpowiedniej subskrypcji nadal może istnieć długa lista grup zasobów. Poszukaj jednego z użyciem po usunięciu wartości **-TXXX** , gdzie "XXX" to trzy cyfry, takie jak **T050**. 
+Po przefiltrowaniu do odpowiedniej subskrypcji nadal może istnieć długa lista grup zasobów. Poszukaj jednego z użyciem po usunięciu wartości **-TXXX** , gdzie "XXX" to trzy cyfry, takie jak **T050** . 
 
 Po znalezieniu grupy zasobów należy wyświetlić jej szczegóły. Otrzymana lista może wyglądać następująco:
 
@@ -94,7 +94,7 @@ Inne bardzo ważne informacje znajdują się w prawym dolnym rogu omówienia z n
 Dodatkowe pole w prawej kolumnie nagłówka informuje o stanie mocy jednostki dużego wystąpienia HANA.
 
 > [!NOTE]
-> Stan zasilania opisuje, czy jednostka sprzętowa jest włączona, czy wyłączona. Nie zawiera on informacji o tym, że system operacyjny jest uruchomiony. Po ponownym uruchomieniu jednostki dużego wystąpienia platformy HANA wystąpi niewielki czas, w którym stan jednostki zostanie zmieniony **, aby rozpocząć** pracę w stanie **uruchomienia**. Stan **rozpoczęty** oznacza, że system operacyjny jest uruchamiany lub że system operacyjny został całkowicie uruchomiony. W związku z tym po ponownym uruchomieniu jednostki nie można spodziewać się natychmiastowego zalogowania się do jednostki, gdy stan zostanie **uruchomiony**.
+> Stan zasilania opisuje, czy jednostka sprzętowa jest włączona, czy wyłączona. Nie zawiera on informacji o tym, że system operacyjny jest uruchomiony. Po ponownym uruchomieniu jednostki dużego wystąpienia platformy HANA wystąpi niewielki czas, w którym stan jednostki zostanie zmieniony **, aby rozpocząć** pracę w stanie **uruchomienia** . Stan **rozpoczęty** oznacza, że system operacyjny jest uruchamiany lub że system operacyjny został całkowicie uruchomiony. W związku z tym po ponownym uruchomieniu jednostki nie można spodziewać się natychmiastowego zalogowania się do jednostki, gdy stan zostanie **uruchomiony** .
 > 
 
 W przypadku naciśnięcia przycisku "Zobacz więcej" są wyświetlane dodatkowe informacje. W ramach jednej z dodatkowych informacji jest wyświetlana poprawka sygnatury dużego wystąpienia HANA, a jednostka została wdrożona w. Zapoznaj się z artykułem [co to jest SAP HANA na platformie Azure (duże wystąpienia)](./hana-overview-architecture.md) , aby poznać różne wersje sygnatur dużych wystąpień usługi Hana
@@ -106,7 +106,7 @@ Poza zadaniem omówienia jednostek dużego wystąpienia HANA można sprawdzić d
 
 Jednym z głównych działań zarejestrowanych jest ponowne uruchomienie jednostki. Wymienione dane obejmują stan działania, sygnaturę czasową wyzwalane przez działanie, Identyfikator subskrypcji, z którego wywołano działanie, oraz użytkownika platformy Azure, który wyzwolił działanie. 
 
-Inne działanie, które jest rejestrowane, to zmiany w jednostce w metadanych platformy Azure. Oprócz zainicjowanego ponownego uruchomienia można zobaczyć działanie **HANAInstances zapisu**. Ten typ działania nie wprowadza żadnych zmian w jednostce dużej instancji HANA, ale dokumentuje zmiany metadanych jednostki na platformie Azure. W wymienionym przypadku dodaliśmy i usunięto tag (zobacz następną sekcję).
+Inne działanie, które jest rejestrowane, to zmiany w jednostce w metadanych platformy Azure. Oprócz zainicjowanego ponownego uruchomienia można zobaczyć działanie **HANAInstances zapisu** . Ten typ działania nie wprowadza żadnych zmian w jednostce dużej instancji HANA, ale dokumentuje zmiany metadanych jednostki na platformie Azure. W wymienionym przypadku dodaliśmy i usunięto tag (zobacz następną sekcję).
 
 ## <a name="add-and-delete-an-azure-tag-to-a-hana-large-instance-unit"></a>Dodawanie i usuwanie znacznika platformy Azure do jednostki dużego wystąpienia HANA
 Kolejną możliwością jest dodanie [znacznika](../../../azure-resource-manager/management/tag-resources.md) do jednostki dużego wystąpienia Hana. Sposób przypisywania tagów nie różni się od przypisywania tagów do maszyn wirtualnych. Podobnie jak w przypadku maszyn wirtualnych, Tagi istnieją w metadanych platformy Azure, a w przypadku dużych wystąpień HANA mają takie same ograniczenia jak Tagi maszyn wirtualnych.
@@ -131,7 +131,7 @@ Po zainicjowaniu ponownego uruchomienia systemu operacyjnego Linux istniały ró
 Po naciśnięciu przycisku Uruchom ponownie zostanie wyświetlony monit z pytaniem, czy na pewno chcesz ponownie uruchomić jednostkę. Po potwierdzeniu naciśnięcia przycisku "tak" jednostka zostanie ponownie uruchomiona.
 
 > [!NOTE]
-> W procesie ponownego uruchamiania wystąpi niewielki czas, w którym stan jednostki zostanie zmieniony **, aby rozpocząć przejście do stanu** **uruchomienia**. Stan **rozpoczęty** oznacza, że system operacyjny jest uruchamiany lub że system operacyjny został całkowicie uruchomiony. W związku z tym po ponownym uruchomieniu jednostki nie można spodziewać się natychmiastowego zalogowania się do jednostki, gdy stan zostanie **uruchomiony**.
+> W procesie ponownego uruchamiania wystąpi niewielki czas, w którym stan jednostki zostanie zmieniony **, aby rozpocząć przejście do stanu** **uruchomienia** . Stan **rozpoczęty** oznacza, że system operacyjny jest uruchamiany lub że system operacyjny został całkowicie uruchomiony. W związku z tym po ponownym uruchomieniu jednostki nie można spodziewać się natychmiastowego zalogowania się do jednostki, gdy stan zostanie **uruchomiony** .
 
 > [!IMPORTANT]
 > Zależnie od ilości pamięci w jednostce duże wystąpienie wystąpienia HANA, ponowne uruchomienie i ponowne uruchomienie sprzętu i systemu operacyjnego może trwać do godziny.
@@ -146,7 +146,7 @@ Aby można było uzyskać usługę SAP HANA — duże wystąpienia na liście na
 
 ![Wybierz wszystkie usługi w Azure Portal](./media/hana-li-portal/portal-create-service-request.png)
 
-Na liście usług można znaleźć usługę **SAP HANA dużym wystąpieniu**. Po wybraniu tej usługi możesz wybrać określone typy problemów, jak pokazano poniżej:
+Na liście usług można znaleźć usługę **SAP HANA dużym wystąpieniu** . Po wybraniu tej usługi możesz wybrać określone typy problemów, jak pokazano poniżej:
 
 
 ![Wybierz klasę problemu w Azure Portal](./media/hana-li-portal/portal-select-problem-class.png)

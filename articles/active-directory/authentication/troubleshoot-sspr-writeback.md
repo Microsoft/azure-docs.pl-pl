@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b8d744c964b07c1ed6a4d7e8b89bca2258c1bc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9664518a7e8ec505a2823cdd5f17d6fa8a7db8b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963962"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925802"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Rozwiązywanie problemów z funkcją stornowania samoobsługowego resetowania haseł w Azure Active Directory
 
@@ -51,10 +51,10 @@ Aby uzyskać więcej informacji, zobacz [wymagania wstępne dotyczące łączno�
 
 Aby rozwiązać problemy z łącznością lub inne problemy przejściowe w usłudze, wykonaj następujące kroki, aby ponownie uruchomić usługę synchronizacji Azure AD Connect:
 
-1. Jako administrator na serwerze, na którym działa Azure AD Connect, wybierz pozycję **Uruchom**.
-1. W polu wyszukiwania wprowadź ciąg *Services. msc* , a następnie wybierz pozycję **wprowadź**.
+1. Jako administrator na serwerze, na którym działa Azure AD Connect, wybierz pozycję **Uruchom** .
+1. W polu wyszukiwania wprowadź ciąg *Services. msc* , a następnie wybierz pozycję **wprowadź** .
 1. Wyszukaj wpis *synchronizacji Microsoft Azure AD* .
-1. Kliknij prawym przyciskiem myszy wpis usługi, wybierz pozycję **Uruchom ponownie**i poczekaj na zakończenie operacji.
+1. Kliknij prawym przyciskiem myszy wpis usługi, wybierz pozycję **Uruchom ponownie** i poczekaj na zakończenie operacji.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/service-restart.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika" border="false":::
 
@@ -66,15 +66,15 @@ Jeśli ponowne uruchomienie usługi synchronizacji Azure AD Connect nie rozwią�
 
 Aby kontynuować rozwiązywanie problemów, wykonaj następujące kroki, aby wyłączyć i ponownie włączyć funkcję zapisywania zwrotnego haseł:
 
-1. Jako administrator na serwerze, na którym działa Azure AD Connect, Otwórz **Kreatora konfiguracji Azure AD Connect**.
-1. W obszarze **nawiązywanie połączenia z usługą Azure AD**wprowadź swoje poświadczenia administratora globalnego usługi Azure AD.
-1. W obszarze **Połącz z AD DS**wprowadź poświadczenia administratora lokalnego Active Directory Domain Services.
-1. W **unikatowy sposób identyfikujący użytkowników**, wybierz przycisk **dalej** .
-1. W obszarze **funkcje opcjonalne**wyczyść pole wyboru **zapisywanie zwrotne haseł** .
+1. Jako administrator na serwerze, na którym działa Azure AD Connect, Otwórz **Kreatora konfiguracji Azure AD Connect** .
+1. W obszarze **nawiązywanie połączenia z usługą Azure AD** wprowadź swoje poświadczenia administratora globalnego usługi Azure AD.
+1. W obszarze **Połącz z AD DS** wprowadź poświadczenia administratora lokalnego Active Directory Domain Services.
+1. W **unikatowy sposób identyfikujący użytkowników** , wybierz przycisk **dalej** .
+1. W obszarze **funkcje opcjonalne** wyczyść pole wyboru **zapisywanie zwrotne haseł** .
 1. Wybierz pozycję **dalej** przez pozostałe strony okna dialogowego bez zmiany wszystkiego, dopóki nie przejdziesz do strony **gotowy do konfiguracji** .
-1. Sprawdź, czy **Strona gotowy do konfiguracji** zawiera opcję *zapisywania zwrotnego haseł* jako *wyłączoną*. Wybierz przycisk zielonej **konfiguracji** , aby zatwierdzić wprowadzone zmiany.
-1. Na **koniec**wyczyść opcję **Synchronizuj teraz** , a następnie wybierz pozycję **Zakończ** , aby zamknąć kreatora.
-1. Otwórz ponownie **Kreatora konfiguracji Azure AD Connect**.
+1. Sprawdź, czy **Strona gotowy do konfiguracji** zawiera opcję *zapisywania zwrotnego haseł* jako *wyłączoną* . Wybierz przycisk zielonej **konfiguracji** , aby zatwierdzić wprowadzone zmiany.
+1. Na **koniec** wyczyść opcję **Synchronizuj teraz** , a następnie wybierz pozycję **Zakończ** , aby zamknąć kreatora.
+1. Otwórz ponownie **Kreatora konfiguracji Azure AD Connect** .
 1. Powtórz kroki 2-8, tym razem wybierając opcję *zapisywania zwrotnego haseł* na stronie **funkcje opcjonalne** , aby ponownie włączyć usługę.
 
 Te kroki powodują ponowne nawiązanie połączenia z usługą Azure AD i rozwiązanie problemów z łącznością.
@@ -101,8 +101,8 @@ Jeśli instalacja najnowszej wersji serwera Azure AD Connect nie rozwiąże prob
 
 Azure AD Connect wymaga uprawnień do AD DS **resetowania hasła** , aby można było wykonać funkcję zapisywania zwrotnego haseł. Aby sprawdzić, czy Azure AD Connect ma wymagane uprawnienie dla danego lokalnego konta użytkownika AD DS, użyj funkcji **uprawnienia efektywne systemu Windows** :
 
-1. Zaloguj się na serwerze Azure AD Connect i uruchom **Synchronization Service Manager** , wybierając pozycję **Uruchom**  >  **usługę synchronizacji**.
-1. Na karcie **Łączniki** wybierz pozycję lokalna **Active Directory Domain Services** łącznika, a następnie wybierz pozycję **Właściwości**.
+1. Zaloguj się na serwerze Azure AD Connect i uruchom **Synchronization Service Manager** , wybierając pozycję **Uruchom**  >  **usługę synchronizacji** .
+1. Na karcie **Łączniki** wybierz pozycję lokalna **Active Directory Domain Services** łącznika, a następnie wybierz pozycję **Właściwości** .
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika" border="false":::
   
@@ -117,14 +117,14 @@ Azure AD Connect wymaga uprawnień do AD DS **resetowania hasła** , aby można 
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika" border="false":::
   
-1. Znajdź AD DS konto użytkownika, które chcesz zweryfikować. Kliknij prawym przyciskiem myszy nazwę konta i wybierz pozycję **Właściwości**.  
-1. W oknie podręcznym przejdź do karty **zabezpieczenia** i wybierz pozycję **Zaawansowane**.  
+1. Znajdź AD DS konto użytkownika, które chcesz zweryfikować. Kliknij prawym przyciskiem myszy nazwę konta i wybierz pozycję **Właściwości** .  
+1. W oknie podręcznym przejdź do karty **zabezpieczenia** i wybierz pozycję **Zaawansowane** .  
 1. W oknie podręcznym **Zaawansowane ustawienia zabezpieczeń dla administratora** przejdź do karty **dostęp czynny** .
-1. Wybierz **pozycję Wybierz użytkownika**, wybierz konto AD DS używane przez Azure AD Connect, a następnie wybierz pozycję **Wyświetl dostęp czynny**.
+1. Wybierz **pozycję Wybierz użytkownika** , wybierz konto AD DS używane przez Azure AD Connect, a następnie wybierz pozycję **Wyświetl dostęp czynny** .
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika" border="false":::
   
-1. Przewiń w dół i Wyszukaj **hasło resetowania hasła**. Jeśli wpis ma znacznik wyboru, konto AD DS ma uprawnienia do resetowania hasła wybranego Active Directorygo konta użytkownika.  
+1. Przewiń w dół i Wyszukaj **hasło resetowania hasła** . Jeśli wpis ma znacznik wyboru, konto AD DS ma uprawnienia do resetowania hasła wybranego Active Directorygo konta użytkownika.  
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika" border="false":::
 
@@ -132,10 +132,10 @@ Azure AD Connect wymaga uprawnień do AD DS **resetowania hasła** , aby można 
 
 W przypadku zapisywania zwrotnego haseł mogą wystąpić następujące bardziej szczegółowe problemy. Jeśli masz jeden z tych błędów, Przejrzyj proponowane rozwiązanie i sprawdź, czy zapisywanie zwrotne haseł działa poprawnie.
 
-| Error | Rozwiązanie |
+| Błąd | Rozwiązanie |
 | --- | --- |
 | Usługa resetowania haseł nie jest uruchamiana lokalnie. Błąd 6800 jest wyświetlany w dzienniku zdarzeń aplikacji maszyny Azure AD Connect. <br> <br> Po dołączeniu, federacyjnym, uwierzytelnianiu lub uwierzytelnianiem w skrócie hasła użytkownicy nie mogą resetować haseł. | Po włączeniu funkcji zapisywania zwrotnego haseł aparat synchronizacji wywołuje bibliotekę zapisywania zwrotnego w celu przeprowadzenia konfiguracji (dołączania), komunikując się z usługą w chmurze. Wszelkie błędy napotkane podczas dołączania lub podczas uruchamiania punktu końcowego Windows Communication Foundation (WCF) na potrzeby zapisywania zwrotnego haseł w dzienniku zdarzeń na komputerze Azure AD Connect. <br> <br> Podczas ponownego uruchamiania usługi Azure AD Sync (ADSync), jeśli został skonfigurowany zapis, zostanie uruchomiony punkt końcowy WCF. Jeśli jednak uruchomienie punktu końcowego nie powiedzie się, rejestrujemy zdarzenie 6800 i zezwala na uruchomienie usługi synchronizacji. Obecność tego zdarzenia oznacza, że punkt końcowy zapisywania zwrotnego haseł nie został uruchomiony. Szczegóły dziennika zdarzeń dla tego zdarzenia 6800, a także wpisy dziennika zdarzeń generowane przez składnik PasswordResetService, wskazują dlaczego nie można uruchomić punktu końcowego. Przejrzyj te błędy w dzienniku zdarzeń i spróbuj ponownie uruchomić Azure AD Connect, jeśli zapisywanie zwrotne haseł nadal nie działa. Jeśli problem będzie się powtarzał, spróbuj wyłączyć i ponownie włączyć funkcję zapisywania zwrotnego haseł.
-| Gdy użytkownik podejmie próbę zresetowania hasła lub odblokowania konta z włączoną funkcją zapisywania zwrotnego haseł, operacja kończy się niepowodzeniem. <br> <br> Ponadto zostanie wyświetlone zdarzenie w dzienniku zdarzeń Azure AD Connect zawierający: "aparat synchronizacji zwrócił błąd HR = 800700CE, Message = nazwa pliku lub rozszerzenie jest zbyt długie" po wystąpieniu operacji odblokowywania. | Znajdź konto Active Directory dla Azure AD Connect i zresetuj hasło, tak aby nie zawierało więcej niż 256 znaków. Następnie otwórz **usługę synchronizacji** z menu **Start** . Przejdź do **łączników** i Znajdź **Active Directory łącznik**. Zaznacz go, a następnie wybierz pozycję **Właściwości**. Przejdź do strony **poświadczenia** i wprowadź nowe hasło. Wybierz **przycisk OK** , aby zamknąć stronę. |
+| Gdy użytkownik podejmie próbę zresetowania hasła lub odblokowania konta z włączoną funkcją zapisywania zwrotnego haseł, operacja kończy się niepowodzeniem. <br> <br> Ponadto zostanie wyświetlone zdarzenie w dzienniku zdarzeń Azure AD Connect zawierający: "aparat synchronizacji zwrócił błąd HR = 800700CE, Message = nazwa pliku lub rozszerzenie jest zbyt długie" po wystąpieniu operacji odblokowywania. | Znajdź konto Active Directory dla Azure AD Connect i zresetuj hasło, tak aby nie zawierało więcej niż 256 znaków. Następnie otwórz **usługę synchronizacji** z menu **Start** . Przejdź do **łączników** i Znajdź **Active Directory łącznik** . Zaznacz go, a następnie wybierz pozycję **Właściwości** . Przejdź do strony **poświadczenia** i wprowadź nowe hasło. Wybierz **przycisk OK** , aby zamknąć stronę. |
 | W ostatnim kroku procesu instalacji Azure AD Connect zostanie wyświetlony komunikat o błędzie informujący o tym, że nie można skonfigurować funkcji zapisywania zwrotnego haseł. <br> <br> Dziennik zdarzeń aplikacji Azure AD Connect zawiera błąd 32009 z tekstem "błąd podczas pobierania tokenu uwierzytelniania". | Ten błąd występuje w następujących dwóch przypadkach: <br><ul><li>Podano nieprawidłowe hasło do konta administratora globalnego podanego na początku procesu instalacji Azure AD Connect.</li><li>Podjęto próbę użycia użytkownika federacyjnego dla konta administratora globalnego określonego na początku procesu instalacji Azure AD Connect.</li></ul> Aby rozwiązać ten problem, upewnij się, że nie używasz konta federacyjnego dla administratora globalnego określonego na początku procesu instalacji, i że określone hasło jest poprawne. |
 | Dziennik zdarzeń Azure AD Connect Machine zawiera błąd 32002, który jest generowany przez uruchomienie PasswordResetService. <br> <br> Błąd: "błąd podczas nawiązywania połączenia z ServiceBus. Dostawca tokenu nie może dostarczyć tokenu zabezpieczającego ". | W środowisku lokalnym nie można nawiązać połączenia z punktem końcowym Azure Service Bus w chmurze. Ten błąd jest zwykle spowodowany przez regułę zapory blokującą połączenie wychodzące z określonym portem lub adresem sieci Web. Aby uzyskać więcej informacji, zobacz [wymagania wstępne dotyczące łączności](../hybrid/how-to-connect-install-prerequisites.md) . Po zaktualizowaniu tych reguł należy ponownie uruchomić serwer Azure AD Connect i zapisywanie zwrotne haseł powinno zacząć działać ponownie. |
 | Po pewnym czasie, federacyjnym, uwierzytelnianiem przekazującym lub użytkownikami z synchronizacją skrótu hasła nie można resetować haseł. | W niektórych rzadkich przypadkach usługa zapisywania zwrotnego haseł może zakończyć się niepowodzeniem po ponownym uruchomieniu Azure AD Connect. W takich przypadkach należy najpierw sprawdzić, czy funkcja zapisywania zwrotnego haseł jest włączona lokalnie. Możesz sprawdzić za pomocą Kreatora Azure AD Connect lub programu PowerShell. Jeśli funkcja jest wyświetlona, spróbuj ponownie włączyć lub wyłączyć tę funkcję. Jeśli ten krok rozwiązywania problemów nie działa, spróbuj przeprowadzić pełne odinstalowanie i ponowne zainstalowanie Azure AD Connect. |
@@ -178,6 +178,7 @@ Najlepszym rozwiązaniem w przypadku rozwiązywania problemów z funkcją zapisy
 | 31016| WriteBackServiceStopped| To zdarzenie wskazuje, że usługa zapisywania zwrotnego haseł została zatrzymana. Wszystkie żądania zarządzania hasłami z chmury nie będą się powieść.|
 | 31017| AuthTokenSuccess| To zdarzenie wskazuje, że został pomyślnie pobrany Token autoryzacji dla administratora globalnego określonego podczas instalacji Azure AD Connect, aby rozpocząć proces odłączania lub dołączania.|
 | 31018| KeyPairCreationSuccess| To zdarzenie wskazuje, że klucz szyfrowania hasła został pomyślnie utworzony. Ten klucz służy do szyfrowania haseł z chmury do wysłania do środowiska lokalnego.|
+| 31034| ServiceBusListenerError| To zdarzenie wskazuje, że wystąpił błąd podczas nawiązywania połączenia z odbiornikiem Service Bus dzierżawy. Jeśli komunikat o błędzie zawiera wartość "certyfikat zdalny jest nieprawidłowy", upewnij się, że serwer Azure AD Connect ma wszystkie wymagane główne urzędy certyfikacji zgodnie z opisem w temacie [zmiany certyfikatu protokołu TLS platformy Azure](../../security/fundamentals/tls-certificate-changes.md). |
 | 32000| UnknownError| To zdarzenie wskazuje, że podczas operacji zarządzania hasłami wystąpił nieznany błąd. Aby uzyskać więcej informacji, zobacz tekst wyjątku w zdarzeniu. Jeśli masz problemy, spróbuj wyłączyć i ponownie włączyć funkcję zapisywania zwrotnego haseł. Jeśli to nie pomoże, Dołącz kopię dziennika zdarzeń wraz z IDENTYFIKATORem śledzenia określonym podczas otwierania żądania obsługi.|
 | 32001| Wystąpił błąd| To zdarzenie wskazuje, że wystąpił błąd podczas nawiązywania połączenia z usługą resetowania hasła w chmurze. Ten błąd występuje zazwyczaj, gdy Usługa lokalna nie może nawiązać połączenia z usługą sieci Web resetowania hasła.|
 | 32002| ServiceBusError| To zdarzenie wskazuje, że wystąpił błąd podczas nawiązywania połączenia z wystąpieniem Service Bus dzierżawy. Taka sytuacja może wystąpić, jeśli blokujesz połączenia wychodzące w środowisku lokalnym. Sprawdź zaporę, aby zezwolić na połączenia za pośrednictwem protokołu TCP 443 i do programu https://ssprdedicatedsbprodncu.servicebus.windows.net , a następnie spróbuj ponownie. Jeśli nadal występują problemy, spróbuj wyłączyć i ponownie włączyć funkcję zapisywania zwrotnego haseł.|
@@ -212,22 +213,22 @@ Jeśli nie możesz znaleźć odpowiedzi na problem, nasze zespoły pomocy techni
 
 Aby prawidłowo pomóc, prosimy o podanie możliwie największej szczegółowości podczas otwierania sprawy. Te szczegóły obejmują następujące elementy:
 
-* **Ogólny opis błędu**: jaki jest błąd? Jak zauważono zachowanie? Jak odtworzyć błąd? Podaj tyle szczegółów, ile to możliwe.
-* **Strona**: jaka strona została zadana, gdy zauważysz błąd? Dołącz adres URL, jeśli możesz i zrzut ekranu strony.
-* **Kod pomocy technicznej**: jaki był kod pomocy technicznej wygenerowany podczas napotkania błędu przez użytkownika?
+* **Ogólny opis błędu** : jaki jest błąd? Jak zauważono zachowanie? Jak odtworzyć błąd? Podaj tyle szczegółów, ile to możliwe.
+* **Strona** : jaka strona została zadana, gdy zauważysz błąd? Dołącz adres URL, jeśli możesz i zrzut ekranu strony.
+* **Kod pomocy technicznej** : jaki był kod pomocy technicznej wygenerowany podczas napotkania błędu przez użytkownika?
    * Aby znaleźć ten kod, Odtwórz błąd, a następnie wybierz link **kod pomocy technicznej** u dołu ekranu i Wyślij do niego identyfikator GUID.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Uruchom ponownie usługę Azure AD Sync przy użyciu graficznego interfejsu użytkownika":::
 
   * Jeśli jesteś na stronie bez kodu pomocy technicznej u dołu, wybierz klawisz F12 i wyszukaj identyfikatory SID i CID i Wyślij te dwa wyniki do inżyniera pomocy technicznej.
-* **Data, godzina i strefa czasowa**: Uwzględnij dokładną datę i godzinę *w strefie czasowej* wystąpienia błędu.
-* **Identyfikator użytkownika**: użytkownik, który wystąpił błąd? Przykładem jest *user \@ contoso.com*.
+* **Data, godzina i strefa czasowa** : Uwzględnij dokładną datę i godzinę *w strefie czasowej* wystąpienia błędu.
+* **Identyfikator użytkownika** : użytkownik, który wystąpił błąd? Przykładem jest *user \@ contoso.com* .
    * Czy ten użytkownik jest federacyjny?
    * Czy to jest użytkownik uwierzytelniania Pass-through?
    * Czy to jest użytkownik z synchronizacją skrótu hasła?
    * Czy jest to użytkownik tylko w chmurze?
-* **Licencjonowanie**: czy użytkownik ma przypisaną licencję usługi Azure AD?
-* **Dziennik zdarzeń aplikacji**: Jeśli używasz funkcji zapisywania zwrotnego haseł, a błąd znajduje się w infrastrukturze lokalnej, Dołącz spakowaną kopię dziennika zdarzeń aplikacji z serwera Azure AD Connect.
+* **Licencjonowanie** : czy użytkownik ma przypisaną licencję usługi Azure AD?
+* **Dziennik zdarzeń aplikacji** : Jeśli używasz funkcji zapisywania zwrotnego haseł, a błąd znajduje się w infrastrukturze lokalnej, Dołącz spakowaną kopię dziennika zdarzeń aplikacji z serwera Azure AD Connect.
 
 ## <a name="next-steps"></a>Następne kroki
 

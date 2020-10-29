@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 5e2f5e067f0a1d5c13179b3d6175b3aebf6a43fd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a8f9c46487422deb4513768dff04f559af952f7b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548555"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926261"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitorowanie IoT Hub platformy Azure
 
@@ -54,11 +54,14 @@ Metryki platformy i dziennik aktywności są zbierane i przechowywane automatycz
 
 Dzienniki zasobów nie są zbierane i przechowywane do momentu utworzenia ustawienia diagnostycznego i skierowania ich do co najmniej jednej lokalizacji.
 
-Metryki i dzienniki można kierować do obszaru roboczego Log Analytics, gdzie można je analizować przy użyciu dzienników Azure Monitor; do usługi Azure Storage w celu archiwizacji i analizy w trybie offline; lub do Event Hubs punktu końcowego, gdzie mogą być odczytywane przez aplikacje zewnętrzne, na przykład narzędzia SIEM innych firm.
+Metryki i dzienniki można kierować do kilku lokalizacji, w tym:
+- Dzienniki Azure Monitor są przechowywane za pośrednictwem skojarzonego Log Analytics obszaru roboczego. Można je analizować przy użyciu Log Analytics.
+- Usługa Azure Storage do archiwizacji i analizy w trybie offline 
+- Punkt końcowy Event Hubs, gdzie mogą być odczytywane przez aplikacje zewnętrzne, na przykład narzędzia SIEM innych firm.
 
 W Azure Portal można wybrać **Ustawienia diagnostyczne** w obszarze **monitorowanie** w okienku po lewej stronie Centrum IoT, a następnie dodać ustawienia **diagnostyczne** , aby utworzyć ustawienia diagnostyczne w zakresie dzienników i metryk platformy emitowanych przez Centrum IoT.
 
-Poniższy zrzut ekranu przedstawia ustawienia diagnostyczne dla operacji połączenia routingu w dziennikach zasobów i wszystkie metryki platformy do obszaru roboczego Log Analytics.
+Poniższy zrzut ekranu przedstawia ustawienie diagnostyczne dla routingu typ dziennika zasobów *operacje połączenia* i wszystkie metryki platformy do obszaru roboczego log Analytics.
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Domyślne wykresy metryk na stronie omówienia usługi IoT Hub.":::
 
@@ -86,7 +89,7 @@ Niektóre metryki IoT Hub, takie jak [metryki routingu](monitor-iot-hub-referenc
 
 ## <a name="analyzing-logs"></a>Analizowanie dzienników
 
-Dane w dziennikach Azure Monitor są przechowywane w tabelach, w których każda tabela ma swój własny zestaw unikatowych właściwości. Aby dowiedzieć się więcej na temat dzienników Azure Monitor, zobacz [Omówienie dzienników Azure monitor](/azure/azure-monitor/platform/data-platform-logs) w dokumentacji Azure monitor. 
+Dane w dziennikach Azure Monitor są przechowywane w tabelach, w których każda tabela ma swój własny zestaw unikatowych właściwości. Dane w tych tabelach są skojarzone z obszarem roboczym Log Analytics i można je zbadać w Log Analytics. Aby dowiedzieć się więcej na temat dzienników Azure Monitor, zobacz [Omówienie dzienników Azure monitor](/azure/azure-monitor/platform/data-platform-logs) w dokumentacji Azure monitor. 
 
 Aby przekierować dane do dzienników Azure Monitor, należy utworzyć ustawienie diagnostyczne, aby wysyłać dzienniki zasobów lub metryki platformy do Log Analytics obszaru roboczego. Aby dowiedzieć się więcej, zobacz [zbieranie i Routing](#collection-and-routing).
 

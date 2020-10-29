@@ -5,49 +5,38 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 047e2855949b800a88ca87bcc50e0df06f420aa8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 10/23/2020
+ms.openlocfilehash: 723a1fbe05919f2e797c7b29715cd3995bf42cad
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475502"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926296"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów korzystania z wielu regionów w usłudze Azure Cosmos DB
 
-W dowolnym momencie możesz dodawać i usuwać regiony do konta usługi Azure Cosmos. Przepływność skonfigurowana dla różnych baz danych i kontenerów usługi Azure Cosmos jest zarezerwowana w każdym regionie skojarzonym z Twoim kontem. Jeśli przepustowość zainicjowana na godzinę jest sumą jednostek RU/s skonfigurowanych dla wszystkich baz danych i kontenerów dla konta usługi Azure Cosmos, `T` a liczba regionów platformy Azure skojarzonych z kontem bazy danych to `N` , łączna przepływność przyznanych dla konta Cosmos dla danej godziny jest równa:
-
-1. `T x N RU/s` Jeśli Twoje konto usługi Azure Cosmos jest skonfigurowane z jednym regionem zapisu. 
-
-1. `T x (N+1) RU/s` Jeśli Twoje konto usługi Azure Cosmos jest skonfigurowane ze wszystkimi regionami, które mogą przetwarzać operacje zapisu. 
+W dowolnym momencie możesz dodawać i usuwać regiony do konta usługi Azure Cosmos. Przepływność skonfigurowana dla różnych baz danych i kontenerów usługi Azure Cosmos jest zarezerwowana w każdym regionie skojarzonym z Twoim kontem. Jeśli przepustowość zainicjowana na godzinę jest sumą jednostek RU/s skonfigurowanych dla wszystkich baz danych i kontenerów dla konta usługi Azure Cosmos, `T` a liczba regionów platformy Azure skojarzonych z kontem bazy danych to `N` , Łączna przepustowość dla konta Cosmos dla danej godziny jest równa `T x N RU/s` .
 
 Aprowizowana przepływność z pojedynczym regionem zapisu kosztuje 0,008 USD/godz. na każde 100 RU/s, natomiast aprowizowana przepływność z wieloma regionami zapisu kosztuje 0,016 USD/godz. na każde 100 RU/s. Aby dowiedzieć się więcej, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/)Azure Cosmos DB.
 
 ## <a name="costs-for-multiple-write-regions"></a>Koszt wielu regionów zapisu
 
-W systemie zapisów w wielu regionach sieć dostępna jednostek ru dla operacji zapisu zwiększa się, `N` gdzie `N` jest liczbą regionów zapisu. W przeciwieństwie do zapisu w pojedynczym regionie, każdy region jest teraz zapisywalny i powinien obsługiwać rozwiązywanie konfliktów. Zwiększona ilość obciążeń dla autorów. W punkcie planowania kosztów w celu przeprowadzenia `M` operacji zapisu na całym świecie należy udostępnić `RUs` element M na poziomie kontenera lub bazy danych. Następnie można dodać dowolną liczbę regionów i użyć ich do zapisu w celu przeprowadzenia operacji `M` zapisu ru na całym świecie. 
+W systemie zapisów w wielu regionach sieć dostępna jednostek ru dla operacji zapisu zwiększa się, `N` gdzie `N` jest liczbą regionów zapisu. W przeciwieństwie do zapisu w pojedynczym regionie, każdy region jest teraz zapisywalny i obsługuje Rozwiązywanie konfliktów. W punkcie planowania kosztów w celu przeprowadzenia `M` operacji zapisu na całym świecie należy udostępnić `RUs` element M na poziomie kontenera lub bazy danych. Następnie można dodać dowolną liczbę regionów i użyć ich do zapisu w celu przeprowadzenia operacji `M` zapisu ru na całym świecie.
 
 ### <a name="example"></a>Przykład
 
-Rozważmy, że masz kontener w regionie zachodnie stany USA o przepływności 10 000 jednostek RU/s i przechowujesz 1 TB danych w tym miesiącu. Załóżmy, że dodasz trzy regiony — Wschodnie stany USA, Europa Północna i Azja Wschodnia, z których każdy ma ten sam magazyn i przepływność, i chcesz mieć możliwość zapisu w kontenerach we wszystkich czterech regionach z aplikacji rozproszonej globalnie. Łączny rachunek miesięczny (przy założeniu 31 dni) w miesiącu jest następujący:
+Rozważmy, że masz kontener w regionie zachodnie stany USA skonfigurowany do zapisu w jednym regionie, Zainicjowano obsługę przepływności 10 jednostek RU/s i przechowujesz 1 TB danych w tym miesiącu. Załóżmy, że dodasz region, Wschodnie stany USA, z tym samym magazynem i przepływność, co pozwoli na zapisanie w kontenerach w obu regionach z poziomu aplikacji. Łączny rachunek miesięczny (przy założeniu 31 dni) w miesiącu jest następujący:
 
 |**Element**|**Użycie (co miesiąc)**|**Częstotliwość**|**Koszt miesięczny**|
 |----|----|----|----|
-|Opłaty za przepływność dla kontenera w regionie zachodnie stany USA (wiele regionów zapisu) |10 000 jednostek RU/s * 24 * 31 |$0,016 za 100 RU/s na godzinę |$1 190,40 |
-|Rachunek przepływności dla 3 dodatkowych regionów — Wschodnie stany USA, Europa Północna i Azja Wschodnia (wiele regionów zapisu) |(3 + 1) * 10 000 jednostek RU/s * 24 * 31 |$0,016 za 100 RU/s na godzinę |$4 761,60 |
+|Rachunek przepływności dla kontenera w regionie zachodnie stany USA (pojedyncze regiony zapisu) |10 000 jednostek RU/s * 24 godziny * 31 dni |$0,008 za 100 RU/s na godzinę |$584,06 |
+|Rachunek przepływności dla kontenera w 2 regionach — zachodnie stany USA & Wschodnie stany USA (wiele regionów zapisu) |2 * 10 tys. jednostek RU/s * 24 godziny * 31 dni|$0,016 za 100 RU/s na godzinę |$2 336,26 |
 |Magazyn dla kontenera w regionie zachodnie stany USA |1 TB (lub 1 024 GB) |$0,25/GB |$256 |
-|Rachunek za magazyn dla 3 dodatkowych regionów — Wschodnie stany USA, Europa Północna i Azja Wschodnia |3 * 1 TB (lub 3 072 GB) |$0,25/GB |$768 |
-|**Łącznie**|||**$6 976** |
+|Rachunek magazynu dla 2 regionów — zachodnie stany USA & Wschodnie stany USA |2 * 1 TB (lub 3 072 GB) |$0,25/GB |$768 |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Zwiększenie wykorzystania przepływności na podstawie poszczególnych regionów
 
-Jeśli masz niewydajne użycie, na przykład co najmniej jeden obszar lub nadmiernie wykorzystywanych regionów, możesz wykonać następujące kroki, aby zwiększyć wykorzystanie przepływności:  
-
-1. Upewnij się, że w regionie zapisu została najpierw zoptymalizowana przepływność (jednostek ru), a następnie ustaw maksymalne użycie jednostek RU w regionach odczytu przy użyciu źródła zmian z regionu do odczytu itp. 
-
-2. Wiele regionów zapisu odczytuje i zapisuje dane można skalować we wszystkich regionach skojarzonych z kontem usługi Azure Cosmos. 
-
-3. Monitoruj działanie w regionach i możesz dodawać i usuwać regiony na żądanie, aby skalować przepływność odczytu i zapisu.
+Jeśli masz niewydajne użycie, na przykład co najmniej jeden region odczytu, można wykonać kroki, aby zwiększyć maksymalne użycie jednostek RU w regionach odczytu, używając źródła danych zmiany z regionu odczytu lub przenieść go do innego pomocniczego, jeśli jest nadmiernie wykorzystane. Należy upewnić się, że w regionie zapisu zostanie najpierw zoptymalizowana przepływność (jednostek ru). Zapisuje koszt więcej niż odczyty, chyba że bardzo duże zapytania, które utrzymują nawet użycie, mogą być trudne. Ogólnie, Monitoruj zużytą przepływność w regionach i dodawaj lub usuwaj regiony na żądanie, aby skalować przepływność odczytu i zapisu, a także Zadbaj o to, aby poznać wpływ na opóźnienia dla wszystkich aplikacji wdrożonych w tym samym regionie.
 
 ## <a name="next-steps"></a>Następne kroki
 

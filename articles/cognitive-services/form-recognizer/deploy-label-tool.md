@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717901"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913113"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Wdrażanie przykładowego narzędzia do oznaczania etykietami
 
@@ -42,8 +42,8 @@ Przed rozpoczęciem należy zauważyć, że istnieją dwa sposoby wdrożenia prz
 Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal: 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/signin/index/).
-2. Wybierz pozycję **Utwórz zasób**. 
-3. Następnie wybierz pozycję **aplikacja sieci Web**. 
+2. Wybierz pozycję **Utwórz zasób** . 
+3. Następnie wybierz pozycję **aplikacja sieci Web** . 
 
    > [!div class="mx-imgBorder"]
    > ![Wybierz aplikację sieci Web](./media/quickstarts/formre-create-web-app.png)
@@ -95,14 +95,14 @@ Wykonaj następujące kroki, aby utworzyć nowy zasób przy użyciu Azure Portal
    > [!div class="mx-imgBorder"]
    > ![Skonfiguruj platformę Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. To wszystko. Następnie wybierz kolejno pozycje **Przegląd + Utwórz**, a następnie pozycję **Utwórz** , aby wdrożyć aplikację sieci Web. Po zakończeniu możesz uzyskać dostęp do aplikacji sieci Web przy użyciu adresu URL podanego w **omówieniu** dla zasobu.
+7. To wszystko. Następnie wybierz kolejno pozycje **Przegląd + Utwórz** , a następnie pozycję **Utwórz** , aby wdrożyć aplikację sieci Web. Po zakończeniu możesz uzyskać dostęp do aplikacji sieci Web przy użyciu adresu URL podanego w **omówieniu** dla zasobu.
 
 > [!NOTE]
 > Podczas tworzenia aplikacji sieci Web można również skonfigurować autoryzację/uwierzytelnianie. Nie jest to konieczne, aby rozpocząć pracę. 
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Alternatywą dla korzystania z Azure Portal można utworzyć zasób przy użyciu interfejsu wiersza polecenia platformy Azure. Przed kontynuowaniem należy zainstalować [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Możesz pominąć ten krok, jeśli już pracujesz z interfejsem wiersza polecenia platformy Azure. 
+Alternatywą dla korzystania z Azure Portal można utworzyć zasób przy użyciu interfejsu wiersza polecenia platformy Azure. Przed kontynuowaniem należy zainstalować [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Możesz pominąć ten krok, jeśli już pracujesz z interfejsem wiersza polecenia platformy Azure. 
 
 Istnieje kilka rzeczy, które należy znać dla tego polecenia:
 
@@ -149,7 +149,7 @@ az container create \
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Nawiązywanie połączenia z usługą Azure AD w celu autoryzacji
 
-Zalecamy podłączenie aplikacji sieci Web do Azure Active Directory. Dzięki temu tylko użytkownicy z prawidłowymi poświadczeniami mogą się zalogować i korzystać z aplikacji sieci Web. Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie aplikacji App Service](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) , aby połączyć się z Azure Active Directory.
+Zalecamy podłączenie aplikacji sieci Web do Azure Active Directory. Dzięki temu tylko użytkownicy z prawidłowymi poświadczeniami mogą się zalogować i korzystać z aplikacji sieci Web. Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie aplikacji App Service](../../app-service/configure-authentication-provider-aad.md) , aby połączyć się z Azure Active Directory.
 
 ## <a name="open-source-on-github"></a>Open Source w serwisie GitHub
 
