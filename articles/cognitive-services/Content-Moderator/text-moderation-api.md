@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85800095"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912909"
 ---
 # <a name="learn-text-moderation-concepts"></a>Poznaj pojęcia związane z moderowaniem tekstu
 
@@ -34,7 +34,7 @@ Odpowiedź usługi zawiera następujące informacje:
 
 ## <a name="profanity"></a>Wulgaryzmy
 
-Jeśli interfejs API wykryje wszelkie nieodpowiednie warunki w żadnym z [obsługiwanych języków](Text-Moderation-API-Languages.md), te warunki są zawarte w odpowiedzi. Odpowiedź zawiera również lokalizację ( `Index` ) w oryginalnym tekście. `ListId`W poniższym przykładowym kodzie JSON odwołują się do warunków znalezionych w [niestandardowych listach terminów](try-terms-list-api.md) , jeśli są dostępne.
+Jeśli interfejs API wykryje wszelkie nieodpowiednie warunki w żadnym z [obsługiwanych języków](./language-support.md), te warunki są zawarte w odpowiedzi. Odpowiedź zawiera również lokalizację ( `Index` ) w oryginalnym tekście. `ListId`W poniższym przykładowym kodzie JSON odwołują się do warunków znalezionych w [niestandardowych listach terminów](try-terms-list-api.md) , jeśli są dostępne.
 
 ```json
 "Terms": [
@@ -47,13 +47,13 @@ Jeśli interfejs API wykryje wszelkie nieodpowiednie warunki w żadnym z [obsłu
 ```
 
 > [!NOTE]
-> W polu parametr **języka** Przypisz `eng` lub pozostaw to pole puste, aby wyświetlić odpowiedź **klasyfikacji** z obsługą maszyn (funkcja w wersji zapoznawczej). **Ta funkcja obsługuje tylko język angielski**.
+> W polu parametr **języka** Przypisz `eng` lub pozostaw to pole puste, aby wyświetlić odpowiedź **klasyfikacji** z obsługą maszyn (funkcja w wersji zapoznawczej). **Ta funkcja obsługuje tylko język angielski** .
 >
 > W przypadku wykrywania **warunków wulgarnych** Użyj [kodu ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dla obsługiwanych języków wymienionych w tym artykule lub pozostaw to pole puste.
 
 ## <a name="classification"></a>Klasyfikacja
 
-**Funkcja klasyfikacji tekstu** wspierana przez Content moderator jest obsługiwana **tylko w języku angielskim**i pomaga wykrywać potencjalnie niepożądaną zawartość. Oflagowana zawartość może zostać oceniona jako nieodpowiednia w zależności od kontekstu. Przekazuje prawdopodobieństwo każdej kategorii i może zalecić przegląd ludzkich. Funkcja używa przeszkolonego modelu do identyfikowania możliwego użycia, derogacyjnego lub dyskryminacyjnego języka. Dotyczy to żargonu, skróconych wyrazów, obraźliwych i celowo błędnie napisanych wyrazów do przeglądu. 
+**Funkcja klasyfikacji tekstu** wspierana przez Content moderator jest obsługiwana **tylko w języku angielskim** i pomaga wykrywać potencjalnie niepożądaną zawartość. Oflagowana zawartość może zostać oceniona jako nieodpowiednia w zależności od kontekstu. Przekazuje prawdopodobieństwo każdej kategorii i może zalecić przegląd ludzkich. Funkcja używa przeszkolonego modelu do identyfikowania możliwego użycia, derogacyjnego lub dyskryminacyjnego języka. Dotyczy to żargonu, skróconych wyrazów, obraźliwych i celowo błędnie napisanych wyrazów do przeglądu. 
 
 Poniższy wyodrębnienie w ekstrakcie JSON pokazuje przykładowe dane wyjściowe:
 
@@ -72,7 +72,7 @@ Poniższy wyodrębnienie w ekstrakcie JSON pokazuje przykładowe dane wyjściowe
 }
 ```
 
-### <a name="explanation"></a>Objaśnienie
+### <a name="explanation"></a>Wyjaśnienie
 
 - `Category1` odnosi się do potencjalnej obecności języka, który może być uważany za jawny lub dorosły w pewnych sytuacjach.
 - `Category2` odnosi się do potencjalnej obecności języka, który może być uważany za seksowo lub dojrzały w niektórych sytuacjach.
@@ -142,7 +142,7 @@ W przypadku poproszenia o korektę automatyczną odpowiedź zawiera poprawioną 
 Mimo że globalna lista warunków jest bardzo wysoka w większości przypadków, warto zapoznać się z warunkami, które są specyficzne dla potrzeb Twojej firmy. Na przykład możesz chcieć odfiltrować wszystkie konkurencyjne nazwy marek od wpisów przez użytkowników.
 
 > [!NOTE]
-> Istnieje maksymalny limit wynoszący **5 list terminów**, a poszczególne listy **nie mogą przekraczać 10 000 terminów**.
+> Istnieje maksymalny limit wynoszący **5 list terminów** , a poszczególne listy **nie mogą przekraczać 10 000 terminów** .
 >
 
 Poniższy przykład pokazuje identyfikator pasującej listy:

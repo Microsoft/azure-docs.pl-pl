@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 0f87bc13a75355306f7d2d15b22ff9cdfaa53794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77282502a0032a5b1811e32d9aa47d9b4ede569
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858226"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912824"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST rozpoznawania twarzy i środowiska Node.js
 
@@ -27,14 +27,14 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" Utwórz zasób czołowy "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" Utwórz zasób czołowy "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z interfejs API rozpoznawania twarzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 - Edytor kodu, taki jak program [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="set-up-the-node-environment"></a>Konfigurowanie środowiska Node
 
-Przejdź do folderu, w którym chcesz utworzyć projekt, i utwórz nowy plik *facedetection.js*. Następnie zainstaluj moduł `axios` w tym projekcie. Umożliwi to skryptom wysyłanie żądań HTTP.
+Przejdź do folderu, w którym chcesz utworzyć projekt, i utwórz nowy plik *facedetection.js* . Następnie zainstaluj moduł `axios` w tym projekcie. Umożliwi to skryptom wysyłanie żądań HTTP.
 
 ```shell
 npm install axios --save
@@ -42,7 +42,7 @@ npm install axios --save
 
 ## <a name="write-the-nodejs-script"></a>Pisanie skryptu środowiska Node.js
 
-Wklej następujący kod w pliku *facedetection.js*. Te pola służą do określania sposobu nawiązywania połączenia z usługą rozpoznawania twarzy i lokalizacji, z której można pobrać dane wejściowe. [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) i Dodaj do nich swój klucz subskrypcji i punkt końcowy. Możesz zmienić pole `imageUrl`, aby wskazywało na Twój obraz wejściowy.
+Wklej następujący kod w pliku *facedetection.js* . Te pola służą do określania sposobu nawiązywania połączenia z usługą rozpoznawania twarzy i lokalizacji, z której można pobrać dane wejściowe. [Utwórz zmienne środowiskowe](../../cognitive-services-apis-create-account.md?tabs=multiservice%252cwindows#configure-an-environment-variable-for-authentication) i Dodaj do nich swój klucz subskrypcji i punkt końcowy. Możesz zmienić pole `imageUrl`, aby wskazywało na Twój obraz wejściowy.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

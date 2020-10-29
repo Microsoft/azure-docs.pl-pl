@@ -1,23 +1,25 @@
 ---
-title: Jak korzystać z funkcji publicznego adresu IP w wirtualnej sieci WAN
+title: Jak korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMware
 description: W tym artykule wyjaśniono, jak używać funkcji publicznego adresu IP w wirtualnej sieci WAN platformy Azure.
 ms.topic: how-to
-ms.date: 10/30/2020
-ms.openlocfilehash: 61ed6487bc000a35fd25cabde2b562b6eb08da46
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/28/2020
+ms.openlocfilehash: f51f00a9adc1fd122e723909ecaa6193c152d496
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048308"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912671"
 ---
-# <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Jak korzystać z funkcji publicznego adresu IP w wirtualnej sieci WAN platformy Azure
+# <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Jak korzystać z funkcji publicznego adresu IP w rozwiązaniu Azure VMware
 
-Publiczny adres IP jest nową funkcją łączności rozwiązań VMware platformy Azure, a klienci mogą włączyć publiczny dostęp do Internetu na dwa sposoby. 
+Publiczny adres IP to nowa funkcja łączności z rozwiązaniem VMware platformy Azure. Udostępnia ona zasoby, takie jak serwery sieci Web, maszyny wirtualne i hosty dostępne za pośrednictwem sieci publicznej. 
+
+Publiczny dostęp do Internetu można włączyć na dwa sposoby. 
 
 - Aplikacje mogą być hostowane i opublikowane w Application Gateway module równoważenia obciążenia dla ruchu HTTP/HTTPS.
 - Opublikowany za pomocą funkcji publicznych adresów IP w wirtualnej sieci WAN platformy Azure.
 
-W ramach wdrożenia chmury prywatnej platformy Azure, po włączeniu funkcji publicznego adresu IP, wymagane składniki z automatyzacją są tworzone i włączane automatycznie:
+W ramach wdrożenia chmury prywatnej na platformie Azure, po włączeniu funkcji publicznego adresu IP, wymagane składniki z automatyzacją i są włączone:
 
 -  Virtual WAN
 
@@ -25,7 +27,7 @@ W ramach wdrożenia chmury prywatnej platformy Azure, po włączeniu funkcji pub
 
 -  Usługi zapory platformy Azure z publicznym adresem IP
 
-W tym artykule szczegółowo opisano, jak używać funkcji publicznego adresu IP w wirtualnej sieci WAN do tworzenia zasobów, takich jak serwery sieci Web, maszyny wirtualne i hosty, dostępne za pośrednictwem sieci publicznej.
+W tym artykule szczegółowo przedstawiono sposób korzystania z funkcji publicznego adresu IP w wirtualnej sieci WAN.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -48,21 +50,21 @@ W tym scenariuszu należy opublikować serwer sieci webiis w Internecie. Aby opu
 
 ## <a name="deploy-virtual-wan"></a>Wdrożyć usługę Virtual WAN
 
-1. Zaloguj się do Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure VMware rozwiązanie**.
+1. Zaloguj się do Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure VMware rozwiązanie** .
 
 1. Wybierz chmurę prywatną rozwiązania VMware platformy Azure.
 
    :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
-1. W obszarze **Zarządzaj**wybierz pozycję **łączność**.
+1. W obszarze **Zarządzaj** wybierz pozycję **łączność** .
 
    :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
-1. Wybierz kartę **publiczny adres IP** , a następnie wybierz pozycję **Konfiguruj**.
+1. Wybierz kartę **publiczny adres IP** , a następnie wybierz pozycję **Konfiguruj** .
 
    :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-1. Zaakceptuj wartości domyślne lub zmień je, a następnie wybierz pozycję **Utwórz**.
+1. Zaakceptuj wartości domyślne lub zmień je, a następnie wybierz pozycję **Utwórz** .
 
    - Grupa zasobów wirtualnej sieci rozległej
 
@@ -81,9 +83,9 @@ Wdrożenie wszystkich składników trwa około godzinę. To wdrożenie musi wyst
 
 Możemy sprawdzić i dodać więcej publicznych adresów IP, wykonując poniższe kroki.
 
-1. W Azure Portal Wyszukaj i wybierz opcję **Zapora**.
+1. W Azure Portal Wyszukaj i wybierz opcję **Zapora** .
 
-1. Wybierz wdrożoną zaporę, a następnie wybierz pozycję **odwiedź Menedżera zapory platformy Azure, aby skonfigurować tę zaporę i zarządzać nią**.
+1. Wybierz wdrożoną zaporę, a następnie wybierz pozycję **odwiedź Menedżera zapory platformy Azure, aby skonfigurować tę zaporę i zarządzać nią** .
 
    :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
@@ -91,11 +93,11 @@ Możemy sprawdzić i dodać więcej publicznych adresów IP, wykonując poniższ
 
    :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="Diagram architektury publicznego adresu IP" lightbox="media/public-ip-usage/select-virtual-hub.png":::
 
-1. Na stronie koncentrator wirtualny wybierz pozycję **Konfiguracja publicznego adresu IP**i Dodaj więcej publicznych adresów IP, a następnie wybierz pozycję **Dodaj**. 
+1. Na stronie koncentrator wirtualny wybierz pozycję **Konfiguracja publicznego adresu IP** i Dodaj więcej publicznych adresów IP, a następnie wybierz pozycję **Dodaj** . 
 
    :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
 
-1. Podaj liczbę wymaganych adresów IP i wybierz pozycję **Dodaj**.
+1. Podaj liczbę wymaganych adresów IP i wybierz pozycję **Dodaj** .
 
    :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="Diagram architektury publicznego adresu IP" border="true":::
 
@@ -104,21 +106,21 @@ Możemy sprawdzić i dodać więcej publicznych adresów IP, wykonując poniższ
 
 Po wdrożeniu wszystkich składników można je wyświetlić w dodanej grupie zasobów. Następnym krokiem jest dodanie zasad zapory.
 
-1. W Azure Portal Wyszukaj i wybierz opcję **Zapora**.
+1. W Azure Portal Wyszukaj i wybierz opcję **Zapora** .
 
-1. Wybierz wdrożoną zaporę, a następnie wybierz pozycję **odwiedź Menedżera zapory platformy Azure, aby skonfigurować tę zaporę i zarządzać nią**.
+1. Wybierz wdrożoną zaporę, a następnie wybierz pozycję **odwiedź Menedżera zapory platformy Azure, aby skonfigurować tę zaporę i zarządzać nią** .
 
    :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
-1. Wybierz pozycję **zasady zapory platformy Azure** , a następnie wybierz pozycję **Utwórz zasady zapory platformy Azure**.
+1. Wybierz pozycję **zasady zapory platformy Azure** , a następnie wybierz pozycję **Utwórz zasady zapory platformy Azure** .
 
    :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
-1. Na karcie **podstawy** podaj wymagane szczegóły i wybierz pozycję **Dalej: ustawienia DNS**. 
+1. Na karcie **podstawy** podaj wymagane szczegóły i wybierz pozycję **Dalej: ustawienia DNS** . 
 
-1. Na karcie **DNS** wybierz pozycję **Disable (Wyłącz**), a następnie wybierz pozycję Next ( **Dalej): Rules**.
+1. Na karcie **DNS** wybierz pozycję **Disable (Wyłącz** ), a następnie wybierz pozycję Next ( **Dalej): Rules** .
 
-1. Wybierz pozycję **Dodaj kolekcję reguł**, podaj poniżej szczegóły i wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Dalej: analiza zagrożeń**.
+1. Wybierz pozycję **Dodaj kolekcję reguł** , podaj poniżej szczegóły i wybierz pozycję **Dodaj** , a następnie wybierz pozycję **Dalej: analiza zagrożeń** .
 
    -  Nazwa
    -  Typ kolekcji reguł — DNAT
@@ -126,29 +128,29 @@ Po wdrożeniu wszystkich składników można je wyświetlić w dodanej grupie za
    -  Akcja zbierania reguł — Zezwalaj
    -  Nazwa reguły
    -  Typ źródła — **adres IP**
-   -  Zewnętrz **\***
-   -  Protokół — **TCP**
+   -  Źródło-* *\** _
+   -  Protokół — _ *TCP**
    -  Port docelowy — **80**
    -  Typ docelowy — **adres IP**
    -  Miejsce docelowe — **publiczny adres IP**
    -  Przetłumaczony adres — **prywatny adres IP serwera sieci Web rozwiązania Azure VMware**
    -  Przetłumaczony port — **port serwera sieci Web rozwiązania VMware platformy Azure**
 
-1. Pozostaw wartość domyślną, a następnie wybierz pozycję **Next (dalej): Hubs**.
+1. Pozostaw wartość domyślną, a następnie wybierz pozycję **Next (dalej): Hubs** .
 
-1. Wybierz pozycję **Skojarz koncentrator wirtualny**.
+1. Wybierz pozycję **Skojarz koncentrator wirtualny** .
 
    :::image type="content" source="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png":::
 
-1. Wybierz centrum z listy i wybierz pozycję **Dodaj**.
+1. Wybierz centrum z listy i wybierz pozycję **Dodaj** .
 
    :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
-1. Wybierz pozycję **Dalej: Tagi**. 
+1. Wybierz pozycję **Dalej: Tagi** . 
 
 1. Obowiązkowe Utwórz pary nazwa/wartość, aby sklasyfikować zasoby. 
 
-1. Wybierz pozycję **Dalej: przegląd + Utwórz** , a następnie wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Dalej: przegląd + Utwórz** , a następnie wybierz pozycję **Utwórz** .
 
 ## <a name="limitations"></a>Ograniczenia
 

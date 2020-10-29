@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: ad365c2d4c171105d8dec89d818ef481361d1ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81272597"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912875"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Umiarkowany tekst z konsoli interfejsu API
 
@@ -33,7 +33,7 @@ Przejdź do [dokumentacji interfejsu API moderowania tekstu](https://westus.dev.
 
 ## <a name="open-the-api-console"></a>Otwórz konsolę interfejsu API
 
-W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który najlepiej opisuje lokalizację. 
+W obszarze **Otwórz konsolę testowania interfejsu API** wybierz region, który najlepiej opisuje lokalizację. 
 
   ![Wybór obszaru strony ekranu tekstu](images/test-drive-region.png)
 
@@ -43,20 +43,20 @@ W obszarze **Otwórz konsolę testowania interfejsu API**wybierz region, który 
 
 ### <a name="parameters"></a>Parametry
 
-Wybierz parametry zapytania, które mają być używane na ekranie tekstowym. W tym przykładzie Użyj wartości domyślnej dla **języka**. Możesz również pozostawić to pole puste, ponieważ operacja automatycznie wykryje prawdopodobnie język w ramach jego wykonywania.
+Wybierz parametry zapytania, które mają być używane na ekranie tekstowym. W tym przykładzie Użyj wartości domyślnej dla **języka** . Możesz również pozostawić to pole puste, ponieważ operacja automatycznie wykryje prawdopodobnie język w ramach jego wykonywania.
 
 > [!NOTE]
-> W polu parametr **języka** Przypisz `eng` lub pozostaw to pole puste, aby wyświetlić odpowiedź **klasyfikacji** z obsługą maszyn (funkcja w wersji zapoznawczej). **Ta funkcja obsługuje tylko język angielski**.
+> W polu parametr **języka** Przypisz `eng` lub pozostaw to pole puste, aby wyświetlić odpowiedź **klasyfikacji** z obsługą maszyn (funkcja w wersji zapoznawczej). **Ta funkcja obsługuje tylko język angielski** .
 >
 > W przypadku wykrywania **warunków wulgarnych** Użyj [kodu ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dla obsługiwanych języków wymienionych w tym artykule lub pozostaw to pole puste.
 
-W przypadku funkcji **Autokorekta**, dane **osobowe**i **klasyfikowanie (wersja zapoznawcza)** wybierz pozycję **prawda**. Pozostaw puste pole **ListId** .
+W przypadku funkcji **Autokorekta** , dane **osobowe** i **klasyfikowanie (wersja zapoznawcza)** wybierz pozycję **prawda** . Pozostaw puste pole **ListId** .
 
   ![Parametry zapytania konsoli ekranowej](images/text-api-console-inputs.PNG)
 
 ### <a name="content-type"></a>Typ zawartości
 
-W **polu Typ zawartości**wybierz typ zawartości, która ma być wykorzystana. Na potrzeby tego przykładu Użyj domyślnego typu zawartości **tekst/zwykły** . W polu **OCP-APIM-Subscription-Key** wprowadź swój klucz subskrypcji.
+W **polu Typ zawartości** wybierz typ zawartości, która ma być wykorzystana. Na potrzeby tego przykładu Użyj domyślnego typu zawartości **tekst/zwykły** . W polu **OCP-APIM-Subscription-Key** wprowadź swój klucz subskrypcji.
 
 ### <a name="sample-text-to-scan"></a>Przykładowy tekst do skanowania
 
@@ -137,4 +137,4 @@ Szczegółowe wyjaśnienie wszystkich sekcji odpowiedzi JSON można znaleźć w 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Użyj interfejsu API REST w kodzie lub postępuj zgodnie z [przewodnikiem Szybki Start dla zestawu .NET SDK](dotnet-sdk-quickstart.md) , aby przeprowadzić integrację z aplikacją.
+Użyj interfejsu API REST w kodzie lub postępuj zgodnie z [przewodnikiem Szybki Start dla zestawu .NET SDK](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) , aby przeprowadzić integrację z aplikacją.

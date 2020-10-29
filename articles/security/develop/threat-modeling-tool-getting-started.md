@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 6ddb2ecef3a70ed6a56b404e64cef5b78b7abd13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980472"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913028"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Wprowadzenie do Threat Modeling Tool
 
@@ -80,14 +80,14 @@ Przechodzą przez proces opracowywania pierwszego modelu zagrożeń.
 > - Wysyłają one polecenia do serwera sieci Web — koło
 > - Serwer sieci Web korzysta z bazy danych (dwie równoległe linie)
 
-Co Ricardo tylko Cristina to DPD, krótki dla **[diagramu przepływu danych](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Threat Modeling Tool pozwala użytkownikom na określenie granic zaufania wskazanych czerwono kropkowanymi liniami, aby pokazać, gdzie różne jednostki są w formancie. Na przykład Administratorzy IT wymagają systemu Active Directory na potrzeby uwierzytelniania, dlatego Active Directory jest poza kontrolą.
+Co Ricardo tylko Cristina to DPD, krótki dla **[diagramu przepływu danych](https://en.wikipedia.org/wiki/Data_flow_diagram)** . Threat Modeling Tool pozwala użytkownikom na określenie granic zaufania wskazanych czerwono kropkowanymi liniami, aby pokazać, gdzie różne jednostki są w formancie. Na przykład Administratorzy IT wymagają systemu Active Directory na potrzeby uwierzytelniania, dlatego Active Directory jest poza kontrolą.
 
 > Cristina: Wygląda na to, że od razu do mnie. Jakie są zagrożenia?
 > Ricardo: Pozwól mi wyświetlić użytkownika.
 
 ## <a name="analyzing-threats"></a>Analizowanie zagrożeń
 
-Po kliknięciu widoku analizy z menu ikony (plik z powiększaniem), zostaje on przełączony do listy wygenerowanych zagrożeń znalezionych przez Threat Modeling Tool na podstawie szablonu domyślnego, który używa podejścia SDL o nazwie **[krok (fałszowanie, manipulowanie, ujawnienie informacji, odmowa usługi i podniesienie uprawnień)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Pomysłem jest to, że oprogramowanie znajduje się w przewidywalnym zbiorze zagrożeń, które można znaleźć za pomocą tych 6 kategorii.
+Po kliknięciu widoku analizy z menu ikony (plik z powiększaniem), zostaje on przełączony do listy wygenerowanych zagrożeń znalezionych przez Threat Modeling Tool na podstawie szablonu domyślnego, który używa podejścia SDL o nazwie **[krok (fałszowanie, manipulowanie, ujawnienie informacji, odmowa usługi i podniesienie uprawnień)](https://en.wikipedia.org/wiki/STRIDE_(security))** . Pomysłem jest to, że oprogramowanie znajduje się w przewidywalnym zbiorze zagrożeń, które można znaleźć za pomocą tych 6 kategorii.
 
 Takie podejście przypomina ochronę domu przez upewnienie się, że każde drzwi i okna mają mechanizm blokowania przed dodaniem systemu alarmów lub kartach po złodziej będzie.
 
@@ -101,7 +101,7 @@ Po pierwsze interakcja między dwoma wzornikami zostaje ulepszona
 
 Po drugie, dodatkowe informacje o zagrożeniu pojawiają się w okno Właściwości zagrożeń
 
-![Informacje o interakcji](./media/threat-modeling-tool-getting-started/interactioninfo.png)
+![Zrzut ekranu przedstawia okno Właściwości zagrożeń, które zawierają tytuł, kategorię, opis, interakcje i priorytet.](./media/threat-modeling-tool-getting-started/interactioninfo.png)
 
 Wygenerowane zagrożenie pomaga zrozumieć potencjalne wady projektu. Kategoryzacja kroków daje im pomysł na potencjalną replikę ataków, podczas gdy dodatkowy opis informuje o tym dokładnie, co jest niewłaściwe, oraz potencjalne sposoby jego rozwiązania. Może używać edytowalnych pól, aby pisać uwagi w szczegółach uzasadnienia lub zmienić priorytety klasyfikacji w zależności od paska błędów swojej organizacji.
 
@@ -118,7 +118,7 @@ Zagrożenia nie mają zastosowania do projektu ze względu na istniejące środk
 
 Gdy Ricardo przechodzi przez listę z Cristina i dodaje ważne uwagi, środki zaradcze/uzasadnienia, zmiany priorytetu i stanu, wybiera raporty — > Utwórz pełny raport — > Zapisz raport, który drukuje raport o całkiem, aby przeszedł do współpracowników, aby upewnić się, że zaimplementowano odpowiednią pracę w zabezpieczeniach.
 
-![Informacje o interakcji](./media/threat-modeling-tool-feature-overview/report.png)
+![Zrzut ekranu przedstawia reprezentatywny raport modelowania zagrożeń.](./media/threat-modeling-tool-feature-overview/report.png)
 
 Jeśli Ricardo chce udostępnić plik, można to łatwo zrobić, zapisując konto w usłudze OneDrive swojej organizacji. Gdy robi to, może skopiować link do dokumentu i udostępnić go współpracownikom. 
 

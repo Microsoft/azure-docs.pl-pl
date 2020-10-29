@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1f5a68bcf0069663d8ef1101407bea7ee26e9e8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1648bd9a073bca696299e9ed703536db745e7edb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919294"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912841"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Samouczek: Moderowanie wideo i transkrypcji
 
@@ -35,7 +35,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Utwórz konto w witrynie internetowej [Narzędzia do przeglądu Content moderator](https://contentmoderator.cognitive.microsoft.com/) i tworzenie tagów niestandardowych. Zobacz [Używanie tagów](Review-Tool-User-Guide/tags.md) , jeśli potrzebujesz pomocy w tym kroku.
+- Utwórz konto w witrynie internetowej [Narzędzia do przeglądu Content moderator](https://contentmoderator.cognitive.microsoft.com/) i tworzenie tagów niestandardowych. Zobacz [Używanie tagów](./review-tool-user-guide/configure.md#tags) , jeśli potrzebujesz pomocy w tym kroku.
 
     ![zrzut ekranu tagów niestandardowych moderowania wideo](images/video-tutorial-custom-tags.png)
 - Do uruchomienia przykładowej aplikacji jest potrzebne konto platformy Azure, zasób Azure Media Services, zasób usługi Azure Content Moderator i poświadczenia Azure Active Directory. Aby uzyskać instrukcje dotyczące sposobu uzyskania tych zasobów, zobacz Przewodnik po [interfejsie API moderowania wideo](video-moderation-api.md) .
@@ -83,7 +83,7 @@ Metoda `Main()` obsługuje następujące argumenty wiersza polecenia:
 Jeśli nie argumentów wiersza polecenia, metoda `Main()` wywołuje `GetUserInputs()`. Ta metoda prosi użytkownika o wprowadzenie ścieżki do pojedynczego pliku wideo oraz określenie, czy ma zostać wygenerowana transkrypcja tekstu.
 
 > [!NOTE]
-> Aplikacja konsolowa używa [interfejsu API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) , aby generować transkrypcje z przesłanej ścieżki audio wideo. Wyniki są podane w formacie WebVTT. Aby uzyskać więcej informacji na temat tego formatu, zobacz temat [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Format ścieżek tekstowych wideo w sieci Web).
+> Aplikacja konsolowa używa [interfejsu API Azure Media Indexer](../../media-services/previous/legacy-components.md) , aby generować transkrypcje z przesłanej ścieżki audio wideo. Wyniki są podane w formacie WebVTT. Aby uzyskać więcej informacji na temat tego formatu, zobacz temat [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Format ścieżek tekstowych wideo w sieci Web).
 
 ### <a name="initialize-and-processvideo-methods"></a>Inicjowanie metod ProcessVideo
 
@@ -224,7 +224,7 @@ Wynikiem zadania moderowania wideo (zobacz [przewodnik Szybki start dotyczący m
 Transkrypcja dźwięku z wideo jest generowana również wtedy, gdy została ustawiona flaga `GenerateVTT`.
 
 > [!NOTE]
-> Aplikacja konsolowa używa [interfejsu API Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) , aby generować transkrypcje z przesłanej ścieżki audio wideo. Wyniki są podane w formacie WebVTT. Aby uzyskać więcej informacji na temat tego formatu, zobacz temat [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Format ścieżek tekstowych wideo w sieci Web).
+> Aplikacja konsolowa używa [interfejsu API Azure Media Indexer](../../media-services/previous/legacy-components.md) , aby generować transkrypcje z przesłanej ścieżki audio wideo. Wyniki są podane w formacie WebVTT. Aby uzyskać więcej informacji na temat tego formatu, zobacz temat [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API) (Format ścieżek tekstowych wideo w sieci Web).
 
 ## <a name="create-a-human-review"></a>Tworzenie przeglądu przez ludzi
 
@@ -249,7 +249,7 @@ Na poniższym ekranie przedstawiono wyniki poprzednich kroków.
 
 ## <a name="process-the-transcript"></a>Przetwarzanie transkrypcji
 
-Do tej pory kod przedstawiony w tym samouczku dotyczył głównie zawartości wizualnej. Przegląd zawartości mowy to oddzielny i opcjonalny proces, w którym, jak wspomniano wcześniej, jest używana transkrypcja wygenerowana z dźwięku. Teraz warto przyjrzeć się, jak transkrypcje tekstu są tworzone i używane w procesie przeglądu. Zadanie generowania transkrypcji jest wykonywane w ramach usługi [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content).
+Do tej pory kod przedstawiony w tym samouczku dotyczył głównie zawartości wizualnej. Przegląd zawartości mowy to oddzielny i opcjonalny proces, w którym, jak wspomniano wcześniej, jest używana transkrypcja wygenerowana z dźwięku. Teraz warto przyjrzeć się, jak transkrypcje tekstu są tworzone i używane w procesie przeglądu. Zadanie generowania transkrypcji jest wykonywane w ramach usługi [Azure Media Indexer](../../media-services/previous/media-services-index-content.md).
 
 Aplikacja wykonuje następujące zadania:
 
