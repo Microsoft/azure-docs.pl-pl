@@ -3,17 +3,17 @@ title: Konfigurowanie integracji platformy AWS z usługą Azure Cost Management
 description: W tym artykule przedstawiono sposób ustawiania i konfigurowania integracji raportów o kosztach i użyciu platformy AWS z usługą Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/23/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 8bf3df25d4702b4a0cc6361f20ad08e618e7d62b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e900d63ba7e521cbf7e63d8580d22b08726d1ef6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266112"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517348"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Ustawianie i konfigurowanie integracji raportów o kosztach i użyciu platformy AWS
 
@@ -37,19 +37,17 @@ Aby utworzyć raport o kosztach i użyciu, przejdź do strony **Cost & Usage Rep
 4. W polu **Report name** (Nazwa raportu) wprowadź nazwę raportu.
 5. W obszarze **Additional report details** (Dodatkowe szczegóły raportu) wybierz pozycję **Include resource IDs** (Uwzględnij identyfikatory zasobów).
 6. W obszarze **Data refresh settings** (Ustawienia odświeżania danych) wybierz, czy chcesz, aby raport o kosztach i użyciu platformy AWS odświeżał się, gdy platforma AWS zastosuje wobec Twojego konta zwroty, środki lub opłaty za pomoc techniczną po sfinalizowaniu rachunku. Po odświeżeniu raportu nowy raport zostaje przekazany do usługi Amazon S3. Zalecamy pozostawienie tego ustawienia.
-7. Wybierz opcję **Dalej**.
+7. Wybierz opcję **Dalej** .
 8. Dla elementu **S3 bucket** (Zasobnik S3) wybierz polecenie **Configure** (Skonfiguruj).
-9. W oknie dialogowym Configure S3 Bucket (Konfigurowanie zasobnika S3) wykonaj jedną z następujących czynności:
-    1. Wybierz istniejący zasobnik z listy rozwijanej i wybierz pozycję **Next** (Dalej).
-    2. Wprowadź nazwę zasobnika i region, w którym chcesz utworzyć nowy zasobnik, a następnie wybierz pozycję **Next** (Dalej).
-10.    Zaznacz pozycję **I have confirmed that this policy is correct** (Potwierdzam, że te zasady są poprawne), a następnie kliknij pozycję **Save** (Zapisz).
-11.    (Opcjonalnie) W polu Report path prefix (Prefiks ścieżki raportu) wprowadź prefiks ścieżki raportu, który ma poprzedzać nazwę raportu.
+9. W oknie dialogowym Configure S3 Bucket (Konfigurowanie zasobnika S3) wprowadź nazwę zasobnika i region, w którym chcesz utworzyć nowy zasobnik, a następnie wybierz pozycję **Next** (Dalej).
+10. Zaznacz pozycję **I have confirmed that this policy is correct** (Potwierdzam, że te zasady są poprawne), a następnie kliknij pozycję **Save** (Zapisz).
+11. (Opcjonalnie) W polu Report path prefix (Prefiks ścieżki raportu) wprowadź prefiks ścieżki raportu, który ma poprzedzać nazwę raportu.
 Jeśli nie określisz prefiksu, domyślnym prefiksem jest nazwa określona dla raportu. Zakres dat ma format `/report-name/date-range/`.
 12. W obszarze **Time unit** (Jednostka czasu) wybierz opcję **Hourly** (Co godzinę).
-13.    W przypadku pozycji **Report versioning** (Wersja raportu) wybierz, czy każda wersja raportu ma zastępować poprzednią wersję czy mają się pojawiać dodatkowe nowe raporty.
+13. W przypadku pozycji **Report versioning** (Wersja raportu) wybierz, czy każda wersja raportu ma zastępować poprzednią wersję czy mają się pojawiać dodatkowe nowe raporty.
 14. W obszarze **Enable data integration for** (Włącz integrację danych dla) nie trzeba nic zaznaczać.
-15. W obszarze **Compression** (Kompresja) wybierz pozycję **GZIP**.
-16. Wybierz opcję **Dalej**.
+15. W obszarze **Compression** (Kompresja) wybierz pozycję **GZIP** .
+16. Wybierz opcję **Dalej** .
 17. Po przejrzeniu ustawień raportu wybierz pozycję **Review and Complete** (Przejrzyj i zakończ).
 
     Zanotuj nazwę raportu. Zostanie ona użyta w dalszych krokach.
@@ -68,7 +66,7 @@ Użyj kreatora tworzenia nowej roli:
 2. Z listy usług wybierz pozycję **IAM** (Zarządzanie dostępem i tożsamościami).
 3. Wybierz pozycję **Roles** (Role), a następnie wybierz pozycję **Create Role** (Utwórz rolę).
 4. Na następnej stronie wybierz pozycję **Another AWS account** (Inne konto AWS).
-5. W polu **Account ID** (Identyfikator konta ) wprowadź **432263259397**.
+5. W polu **Account ID** (Identyfikator konta ) wprowadź **432263259397** .
 6. W obszarze **Options** (Opcje) wybierz pozycję **Require external ID** (Wymagaj zewnętrznego identyfikatora) (to najlepsze rozwiązanie, gdy ta rola zostanie przyjęta przez inny podmiot).
 7. W polu **External ID** (Identyfikator zewnętrzny) wprowadź identyfikator zewnętrzny, który jest udostępnionym kodem dostępu między rolą AWS a usługą Azure Cost Management. Ten sam identyfikator zewnętrzny jest również używany na stronie **Nowy łącznik** w usłudze Cost Management. Firma Microsoft zaleca stosowanie zasad silnych kodów dostępu podczas wprowadzania identyfikatora zewnętrznego.
     > [!NOTE]
@@ -79,16 +77,16 @@ Użyj kreatora tworzenia nowej roli:
 
 Skonfiguruj uprawnienia dotyczące raportu o kosztach i użyciu:
 
-1. Wprowadź **raport o kosztach i użyciu**.
-2. Wybierz kolejno pozycje **Access level (Poziom dostępu)**  > **Read (Odczyt)**  > **DescribeReportDefinitions**. Ten krok umożliwia usłudze Cost Management odczytywanie, jakie raporty CUR są zdefiniowane, i ustalanie, czy są one zgodne z wymaganiami wstępnymi definicji raportu.
+1. Wprowadź **raport o kosztach i użyciu** .
+2. Wybierz kolejno pozycje **Access level (Poziom dostępu)**  > **Read (Odczyt)**  > **DescribeReportDefinitions** . Ten krok umożliwia usłudze Cost Management odczytywanie, jakie raporty CUR są zdefiniowane, i ustalanie, czy są one zgodne z wymaganiami wstępnymi definicji raportu.
 3. Wybierz pozycję **Add additional permissions** (Dodaj dodatkowe uprawnienia).
 
 Skonfiguruj uprawnienie dotyczące zasobnika S3 i obiektów:
 
 1. Wybierz pozycję **Choose a service** (Wybierz usługę).
-2. Wprowadź zasobnik **S3**.
-3. Wybierz kolejno pozycje **Access level (Poziom dostępu)**  > **List (Lista)**  > **ListBucket**. To działanie umożliwia pobranie listy obiektów w zasobniku S3.
-4. Wybierz kolejno pozycje **Access level (Poziom dostępu)**  > **Read (Odczyt)**  > **GetObject**. To działanie umożliwia pobranie plików rozliczeń.
+2. Wprowadź zasobnik **S3** .
+3. Wybierz kolejno pozycje **Access level (Poziom dostępu)**  > **List (Lista)**  > **ListBucket** . To działanie umożliwia pobranie listy obiektów w zasobniku S3.
+4. Wybierz kolejno pozycje **Access level (Poziom dostępu)**  > **Read (Odczyt)**  > **GetObject** . To działanie umożliwia pobranie plików rozliczeń.
 5. Wybierz pozycję **Resources** (Zasoby).
 6. Wybierz **zasobnik — Add ARN** (Dodaj rolę ARN).
 7. W polu **Bucket name** (Nazwa zasobnika) wprowadź zasobnik używany do przechowywania plików CUR.
@@ -106,8 +104,8 @@ Skonfiguruj uprawnienia dla usługi Cost Explorer:
 
 Dodaj uprawnienie dla organizacji AWS:
 
-1. Wprowadź **organizacje**.
-2. Wybierz kolejno pozycje **Access level (Poziom dostępu)**  > **List (Lista)**  > **ListAccounts**. To działanie umożliwia pobranie nazw kont.
+1. Wprowadź **organizacje** .
+2. Wybierz kolejno pozycje **Access level (Poziom dostępu)**  > **List (Lista)**  > **ListAccounts** . To działanie umożliwia pobranie nazw kont.
 3. W polu **Review policy** (Przejrzyj zasady) wprowadź nazwę nowych zasad. Sprawdź, czy wprowadzono poprawne informacje, a następnie wybierz pozycję **Create Policy** (Utwórz zasady).
 4. Wróć do poprzedniej karty i odśwież stronę przeglądarki. Na pasku wyszukiwania wyszukaj nowe zasady.
 5. Wybierz opcję **Dalej: Review** (Dalej: przegląd).
@@ -152,18 +150,18 @@ Kod JSON zasad powinien przypominać poniższy przykład. Zastąp element _bucke
 Skorzystaj z poniższych informacji, aby utworzyć łącznik platformy AWS i rozpocząć monitorowanie kosztów dotyczących platformy AWS:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Przejdź do obszaru **Zarządzanie kosztami i rozliczenia** > **Zarządzanie kosztami**.
-3. W obszarze **Ustawienia** wybierz pozycję **Łączniki dla platformy AWS**.  
+2. Przejdź do obszaru **Zarządzanie kosztami i rozliczenia** > **Zarządzanie kosztami** .
+3. W obszarze **Ustawienia** wybierz pozycję **Łączniki dla platformy AWS** .  
 4. Wybierz pozycję **+ Dodaj** w górnej części strony, aby utworzyć łącznik.  
     :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Przykład pokazujący ustawienie Łączniki dla platformy AWS" :::
 1. Na stronie **Utwórz łącznik**  w polu **Nazwa wyświetlana** wprowadź nazwę łącznika.  
-    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Przykładowa strona do tworzenia łącznika platformy AWS" :::
+    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Przykład pokazujący ustawienie Łączniki dla platformy AWS" :::
 1. Ewentualnie możesz wybrać domyślną grupę zarządzania. Zostaną tam zapisane wszystkie wykryte połączone konta. Można to skonfigurować później.
-1. W sekcji **Rozliczenia** ustaw opcję **Automatyczne odnawianie** w pozycji **Włączone**, jeśli chcesz zapewnić ciągłość operacji. W przypadku wybrania opcji automatycznej należy wybrać subskrypcję rozliczeniową.
+1. W sekcji **Rozliczenia** ustaw opcję **Automatyczne odnawianie** w pozycji **Włączone** , jeśli chcesz zapewnić ciągłość operacji. W przypadku wybrania opcji automatycznej należy wybrać subskrypcję rozliczeniową.
 1. W polu **Rola ARN** wprowadź wartość użytą podczas konfigurowania roli na platformie AWS.
 1. W polu **Identyfikator zewnętrzny** wprowadź wartość użytą podczas konfigurowania roli na platformie AWS.
 1. W polu **Nazwa raportu** wprowadź nazwę utworzoną na platformie AWS.
-1. Wybierz przycisk **Dalej**, a następnie wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Dalej** , a następnie wybierz pozycję **Utwórz** .
 
 Pojawienie się nowych zakresów platformy AWS, skonsolidowanych kont platformy AWS, połączonych kont platformy AWS i ich danych dotyczących kosztów może potrwać kilka godzin.
 
@@ -174,8 +172,8 @@ Przypisanie uprawnień łącznika do użytkowników po wystąpieniu wykrycia nie
 ## <a name="take-additional-steps"></a>Dodatkowe kroki
 
 - Jeśli jeszcze tego nie zrobiono, [skonfiguruj grupy zarządzania](../../governance/management-groups/overview.md#initial-setup-of-management-groups).
-- Sprawdź, czy nowe zakresy są dodawane do selektora zakresu. Wybierz pozycję **Odśwież**, aby wyświetlić najnowsze dane.
-- Na stronie **Łączniki chmury** wybierz swój łącznik i wybierz pozycję **Przejdź do konta rozliczeniowego**, aby przypisać połączone konto do grup zarządzania.
+- Sprawdź, czy nowe zakresy są dodawane do selektora zakresu. Wybierz pozycję **Odśwież** , aby wyświetlić najnowsze dane.
+- Na stronie **Łączniki chmury** wybierz swój łącznik i wybierz pozycję **Przejdź do konta rozliczeniowego** , aby przypisać połączone konto do grup zarządzania.
 
 > [!NOTE]
 > Grupy zarządzania nie są obecnie obsługiwane w przypadku klientów umowy MCA. Klienci umowy MCA mogą utworzyć łącznik, aby wyświetlać swoje dane platformy AWS. Jednak klienci umowy MCA nie mogą wyświetlać kosztów platformy Azure i AWS razem w ramach grupy zarządzania.
@@ -184,12 +182,12 @@ Przypisanie uprawnień łącznika do użytkowników po wystąpieniu wykrycia nie
 
 Po wybraniu łącznika na stronie **Łączniki dla platformy AWS** można wykonać następujące czynności:
 
-- Wybrać pozycję **Przejdź do konta rozliczeniowego**, aby wyświetlić informacje dotyczące skonsolidowanego konta platformy AWS.
-- Wybrać pozycję **Kontrola dostępu**, aby zarządzać przypisaniem roli dla łącznika.
-- Wybrać pozycję **Edytuj**, aby zaktualizować łącznik. Nie można zmienić numeru konta platformy AWS, ponieważ pojawia się on w nazwie ARN roli. Jednak można utworzyć nowy łącznik.
-- Wybrać pozycję **Sprawdź**, aby ponownie uruchomić test weryfikacyjny w celu upewnienia się, że usługa Cost Management może zbierać dane przy użyciu ustawień łącznika.
+- Wybrać pozycję **Przejdź do konta rozliczeniowego** , aby wyświetlić informacje dotyczące skonsolidowanego konta platformy AWS.
+- Wybrać pozycję **Kontrola dostępu** , aby zarządzać przypisaniem roli dla łącznika.
+- Wybrać pozycję **Edytuj** , aby zaktualizować łącznik. Nie można zmienić numeru konta platformy AWS, ponieważ pojawia się on w nazwie ARN roli. Jednak można utworzyć nowy łącznik.
+- Wybrać pozycję **Sprawdź** , aby ponownie uruchomić test weryfikacyjny w celu upewnienia się, że usługa Cost Management może zbierać dane przy użyciu ustawień łącznika.
 
-:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="Szczegóły przykładowego łącznika platformy AWS" :::
+:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="Przykład pokazujący ustawienie Łączniki dla platformy AWS" :::
 
 ## <a name="set-up-azure-management-groups"></a>Konfigurowanie grup zarządzania platformy Azure
 
@@ -201,12 +199,12 @@ Jeśli chcesz rozdzielić koszty, możesz utworzyć grupę zarządzania, która 
 
 Skonsolidowane konto platformy AWS łączy rozliczenia i płatność dla wielu kont platformy AWS. Działa również jako połączone konto platformy AWS. Użyj linku na stronie łącznika platformy AWS, aby wyświetlić szczegóły skonsolidowanego konta platformy AWS. 
 
-:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="Przykładowe szczegóły skonsolidowanego konta platformy AWS" :::
+:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="Przykład pokazujący ustawienie Łączniki dla platformy AWS" :::
 
 Na tej stronie można:
 
-- Wybrać pozycję **Aktualizuj**, aby zaktualizować zbiorczo skojarzenia połączonych kont platformy AWS z grupą zarządzania.
-- Wybrać pozycję **Kontrola dostępu**, aby ustawić przypisanie roli dla zakresu.
+- Wybrać pozycję **Aktualizuj** , aby zaktualizować zbiorczo skojarzenia połączonych kont platformy AWS z grupą zarządzania.
+- Wybrać pozycję **Kontrola dostępu** , aby ustawić przypisanie roli dla zakresu.
 
 ### <a name="permissions-for-an-aws-consolidated-account"></a>Uprawnienia dla skonsolidowanego konta platformy AWS
 
@@ -220,10 +218,10 @@ Połączone konto platformy AWS to miejsce, w którym tworzy się zasoby platfor
 
 Na tej stronie można:
 
-- Wybrać pozycję **Aktualizuj**, aby zaktualizować skojarzenie połączonego konta platformy AWS z grupą zarządzania.
-- Wybrać pozycję **Kontrola dostępu**, aby ustawić przypisanie roli dla zakresu.
+- Wybrać pozycję **Aktualizuj** , aby zaktualizować skojarzenie połączonego konta platformy AWS z grupą zarządzania.
+- Wybrać pozycję **Kontrola dostępu** , aby ustawić przypisanie roli dla zakresu.
 
-:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="Przykład strony połączonego konta platformy AWS" :::
+:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="Przykład pokazujący ustawienie Łączniki dla platformy AWS" :::
 
 ### <a name="permissions-for-an-aws-linked-account"></a>Uprawnienia dla połączonego konta platformy AWS
 
