@@ -6,18 +6,22 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/22/2020
 ms.author: banders
-ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132367"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460686"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
 W tym artykule przedstawiono ogólną procedurę przenoszenia subskrypcji platformy Azure między partnerami będącymi dostawcami rozwiązań w chmurze (CSP) a ich klientami. Informacje zawarte w tym miejscu są przeznaczone dla subskrybenta platformy Azure, aby pomóc mu we współpracy z partnerem. Informacje, które są używane przez partnerów firmy Microsoft do procesu przenoszenia, zostały udokumentowane w artykule [Dowiedz się, jak przenieść subskrypcje platformy Azure klienta do innego partnera](/partner-center/switch-azure-subscriptions-to-a-different-partner).
+
+Przed rozpoczęciem żądania przeniesienia musisz pobrać lub wyeksportować wszelkie informacje dotyczące kosztów i rozliczeń, które chcesz zachować. Informacje dotyczące rozliczeń i wykorzystania nie są przenoszone razem z subskrypcją. Aby uzyskać więcej informacji na temat eksportowania danych dotyczących zarządzania kosztami, zobacz [Eksportowanie danych i zarządzanie nimi](../costs/tutorial-export-acm-data.md). Aby uzyskać więcej informacji na temat pobierania danych dotyczących faktur i użycia, zobacz [Pobieranie lub wyświetlanie faktury rozliczeniowej i danych dziennego użycia na platformie Azure](download-azure-invoice-daily-usage-date.md).
+
+Jeśli masz jakiekolwiek rezerwacje, po przeniesieniu subskrypcji przestaną one być stosowane. Przed przeniesieniem subskrypcji pamiętaj, aby [anulować wszelkie rezerwacje i uzyskać zwrot pieniędzy](../reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Przenoszenie subskrypcji EA do partnera CSP
 
