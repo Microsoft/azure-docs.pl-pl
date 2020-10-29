@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dcabd01cfbda8cd892c82b391bf649b2b464d6fb
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978207"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927774"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA dostępność w ramach jednego regionu świadczenia usługi Azure
 W tym artykule opisano kilka scenariuszy dostępności w ramach jednego regionu świadczenia usługi Azure. Platforma Azure ma wiele regionów, rozmieszczonych na całym świecie. Aby zapoznać się z listą regionów świadczenia usługi Azure, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/). Do wdrażania SAP HANA na maszynach wirtualnych w ramach jednego regionu świadczenia usługi Azure firma Microsoft oferuje wdrożenie pojedynczej maszyny wirtualnej z wystąpieniem platformy HANA. Aby zwiększyć dostępność, można wdrożyć dwie maszyny wirtualne z dwoma wystąpieniami HANA w ramach [zestawu dostępności platformy Azure](../../windows/tutorial-availability-sets.md) korzystającego z replikacji systemu Hana w celu zapewnienia dostępności. 
@@ -78,7 +78,7 @@ Jedną z najbardziej podstawoweych konfiguracji jest użycie kopii zapasowych. W
 
 Architektura wygląda następująco:
 
-![Diagram dwóch maszyn wirtualnych z replikacją magazynu](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![Diagram przedstawiający architekturę dwóch maszyn wirtualnych z replikacją magazynu.](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 Ten Instalator nie jest dobrze dostosowany do osiągnięcia doskonałego celu punktu odzyskiwania (RPO) i celu czasu odzyskiwania (RTO). W szczególności RTO się z powodu konieczności pełnego przywrócenia kompletnej bazy danych przy użyciu skopiowanych kopii zapasowych. Ta konfiguracja jest jednak przydatna do odzyskiwania z niezamierzonych usunięć danych w głównych wystąpieniach. Za pomocą tej konfiguracji można w dowolnym momencie przywrócić do określonego punktu w czasie, wyodrębnić dane i zaimportować usunięte dane do wystąpienia głównego. W związku z tym warto używać metody kopiowania kopii zapasowych w połączeniu z innymi funkcjami wysokiej dostępności. 
 

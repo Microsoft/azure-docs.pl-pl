@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 506336ad80c1f30b937bc71724ca39cee24bb2fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dc6706d4ec9090c59d4dd668d2ae1dd3ce7d188a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968926"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928046"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 
-Maszyny wirtualne z serii B są idealnym rozwiązaniem w przypadku obciążeń, które nie wymagają pełnej wydajności procesora CPU, takich jak serwery sieci Web, Weryfikacja koncepcji, małe bazy danych i środowiska kompilacji programistycznej. Te obciążenia zwykle mają wymagania dotyczące wydajności. Seria B umożliwia zakupienie rozmiaru maszyny wirtualnej z wydajnością bazową, a wystąpienie maszyny wirtualnej kompiluje kredyty, gdy jest ona mniejsza niż jego linia bazowa. Gdy maszyna wirtualna ma Zakumulowany kredyt, maszyna wirtualna może przekroczyć poziom odniesienia do 100% vCPU, gdy aplikacja wymaga wyższego poziomu wydajności procesora CPU.
+Maszyny wirtualne z serii B są idealnym rozwiązaniem w przypadku obciążeń, które nie wymagają pełnej wydajności procesora CPU, takich jak serwery sieci Web, Weryfikacja koncepcji, małe bazy danych i środowiska kompilacji programistycznej. Te obciążenia zwykle mają wymagania dotyczące wydajności. Seria B umożliwia zakupienie rozmiaru maszyny wirtualnej z wydajnością bazową, która może kompilować kredyty, gdy jest ona mniejsza niż jego linia bazowa. Gdy maszyna wirtualna ma kredyty skumulowane, maszyna wirtualna może przekroczyć poziom do 100% vCPU, gdy aplikacja wymaga wyższych wydajności procesora CPU.
 
 Seria B obejmuje następujące rozmiary maszyn wirtualnych:
 
@@ -93,25 +93,24 @@ Dla D16s_v3, która ma 16 procesorów wirtualnych vCPU i 64 GiB pamięci, stawka
 
 ## <a name="q--a"></a>Pytania i odpowiedzi
 
-### <a name="q-what-happens-if-the-credits-run-out"></a>P: co się stanie po wyczerpaniu kredytów?
-Odp **.: gdy**środki są wyczerpane, maszyna wirtualna wraca do wydajności linii bazowej.
+### <a name="q-what-happens-when-my-credits-run-out"></a>P: co się stanie po wyczerpaniu środków?
+Odp **.: gdy** środki są wyczerpane, maszyna wirtualna wraca do wydajności linii bazowej.
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: jak uzyskać wydajność bazową 135% z maszyny wirtualnej?
 
-Odp **.: 135**% jest współużytkowany przez 8 vCPU, które tworzą rozmiar maszyny wirtualnej. Jeśli na przykład aplikacja korzysta z 4 rdzeni w ramach przetwarzania wsadowego, a każda z tych 4 vCPU jest uruchomiona o 30%, wykorzystanie całkowitej wydajności procesora maszyn wirtualnych będzie równe 120%.  Oznacza to, że maszyna wirtualna będzie kompilować czas kredytowy na podstawie przyrostu 15% od wydajności linii bazowej.  Oznacza to również, że gdy masz dostępne środki na korzystanie z tej samej maszyny wirtualnej, można użyć 100% wszystkich 8 vCPU, co zapewnia, że maszyna wirtualna ma maksymalną wydajność procesora CPU równą 800%.
-
+Odp **.: 135** % jest współużytkowany przez 8 vCPU, które tworzą rozmiar maszyny wirtualnej. Jeśli na przykład aplikacja korzysta z 4 rdzeni w ramach przetwarzania wsadowego, a każda z tych 4 vCPU jest uruchomiona o 30%, wykorzystanie całkowitej wydajności procesora maszyn wirtualnych będzie równe 120%.  Oznacza to, że maszyna wirtualna będzie kompilować czas kredytowy na podstawie przyrostu 15% od wydajności linii bazowej.  Oznacza to również, że gdy masz dostępne środki na korzystanie z tej samej maszyny wirtualnej, można użyć 100% wszystkich 8 vCPU, co zapewnia, że maszyna wirtualna ma maksymalną wydajność procesora CPU równą 800%.
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: Jak mogę monitorować saldo środków i zużycie?
 
-Odp **.:** wprowadzimy 2 nowe metryki w najbliższych tygodniach, a Metryka **kredytowa** umożliwi wyświetlenie liczby środków, które są używane w ramach Twojej maszyny wirtualnej, a Metryka **CONSUMEDCREDIT** pokazuje, ile kredytów CPU zużywał przez maszynę wirtualną od banku.    Te metryki będą widoczne w okienku metryki w portalu lub programowo za pośrednictwem interfejsów API Azure Monitor.
+Odp.: Metryka **kredytowa** umożliwia wyświetlenie liczby **środków, które** zostały zgłoszone przez maszynę wirtualną, a Metryka **CONSUMEDCREDIT** pokazuje, ile kredytów CPU zużywał przez maszynę wirtualną od banku.    Te metryki będą widoczne w okienku metryki w portalu lub programowo za pośrednictwem interfejsów API Azure Monitor.
 
 Aby uzyskać więcej informacji na temat uzyskiwania dostępu do danych metryk dla platformy Azure, zobacz [Omówienie metryk w Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>P: w jaki sposób są sumowane i zużywane środki?
 
-Odp **.: opłaty za gromadzenie**i zużycie maszyn wirtualnych są ustawiane w taki sposób, że maszyna wirtualna działająca na tym samym poziomie wydajności nie będzie mogła ani korzystać z obciążeń sieciowych.  Na maszynie wirtualnej zostanie osiągnięty wzrost środków w wysokości netto, gdy jest ona niższa od bazowego poziomu wydajności i będzie miała spadek netto środków, gdy maszyna wirtualna korzysta z procesora CPU więcej niż jego podstawowy poziom wydajności.
+Odp **.: opłaty za gromadzenie** i zużycie maszyn wirtualnych są ustawiane w taki sposób, że maszyna wirtualna działająca na tym samym poziomie wydajności nie będzie mogła ani korzystać z obciążeń sieciowych.  Na maszynie wirtualnej zostanie osiągnięty wzrost środków w wysokości netto, gdy jest ona niższa od bazowego poziomu wydajności i będzie miała spadek netto środków, gdy maszyna wirtualna korzysta z procesora CPU więcej niż jego podstawowy poziom wydajności.
 
-**Przykład**: WDRAŻAm maszynę wirtualną przy użyciu B1ms rozmiaru dla aplikacji bazy danych o małym czasie i obecności. Ten rozmiar umożliwia mojej aplikacji używanie do 20% vCPU jako mojego planu bazowego, czyli 0,2 kredytów na minutę, których można użyć lub banku.
+**Przykład** : WDRAŻAm maszynę wirtualną przy użyciu B1ms rozmiaru dla aplikacji bazy danych o małym czasie i obecności. Ten rozmiar umożliwia mojej aplikacji używanie do 20% vCPU jako mojego planu bazowego, czyli 0,2 kredytów na minutę, których można użyć lub banku.
 
 Moja aplikacja jest zajęta na początku i na końcu dnia roboczego pracowników, między 7:00-9:00 AM i 4:00-6:13:00. W pozostałych 20 godzinach dnia moja aplikacja jest zwykle w stanie bezczynności, przy użyciu 10% vCPU. W przypadku godzin poza szczytem otrzymuję 0,2 kredytów na minutę, ale zużywamy tylko 0. l kredytów na minutę, więc moja maszyna wirtualna będzie bankiem 0,1 x 60 = 6 kredytów na godzinę.  W przypadku 20 godzin, które są poza szczytem, będę mieć Bank 120 kredytów.  
 
@@ -121,7 +120,7 @@ Jeśli przyniesiem do 120 kredytów, które zostały uzyskane poza szczytem, i o
 
 ### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>P: jak można obliczyć kwoty i użycie kredytów?
 
-Odp **.: można**użyć następującej formuły:
+Odp **.: można** użyć następującej formuły:
 
 (Podstawowa wydajność procesora CPU w przypadku użycia procesora CPU)/100 = kredyty lub użycie na minutę
 
@@ -129,11 +128,11 @@ na przykład w powyższym wystąpieniu linia bazowa jest 20%, a jeśli używasz 
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>P: czy Seria B obsługuje Premium Storage dysków z danymi?
 
-Odp **.: tak**, wszystkie rozmiary serii B obsługują Premium Storage dysków z danymi.
+Odp **.: tak** , wszystkie rozmiary serii B obsługują Premium Storage dysków z danymi.
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>P: Dlaczego pozostałe środki mają ustawioną wartość 0 po ponownym wdrożeniu lub zatrzymaniu/rozpoczęciu?
 
-Odp **.: Jeśli** maszyna wirtualna ma wartość "REDPLOYED", a maszyna wirtualna zostanie przeniesiona do innego węzła, Zakumulowany kredyt zostanie utracony. Jeśli maszyna wirtualna jest zatrzymana/uruchomiona, ale pozostaje w tym samym węźle, maszyna wirtualna zachowuje skumulowany kredyt. Za każdym razem, gdy maszyna wirtualna zacznie być odświeżana w węźle, otrzymuje początkowe środki na Standard_B8ms 240 minut.
+Odp **.: Jeśli** maszyna wirtualna ma wartość "REDPLOYED", a maszyna wirtualna zostanie przeniesiona do innego węzła, Zakumulowany kredyt zostanie utracony. Jeśli maszyna wirtualna jest zatrzymana/uruchomiona, ale pozostaje w tym samym węźle, maszyna wirtualna zachowuje skumulowany kredyt. Za każdym razem, gdy maszyna wirtualna zacznie być odświeżana w węźle, otrzymuje początkowe środki na Standard_B8ms jest 240.
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: co się stanie w przypadku wdrożenia nieobsługiwanego obrazu systemu operacyjnego w systemie B1ls?
 

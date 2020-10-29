@@ -4,12 +4,12 @@ description: Dowiedz się więcej o Azure Database for PostgreSQL kopii zapasowe
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3c326ff197f18333812438719908daced2b268bb
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: edbfdb6ea741cdb344a121acdbee3b8bd4bc743c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173582"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927893"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Azure Database for PostgreSQL kopii zapasowej z długoterminowym przechowywaniem (wersja zapoznawcza)
 
@@ -32,7 +32,7 @@ To rozwiązanie może być używane niezależnie lub oprócz natywnego rozwiąza
 |Pomoc techniczna  |Szczegóły  |
 |---------|---------|
 |Obsługiwane wdrożenia   |  Azure Database for PostgreSQL autonomiczny pojedynczy serwer     |
-|Obsługiwane regiony platformy Azure |  Wschodnie stany USA, Wschodnie stany USA 2, Południowo-środkowe stany USA, zachodnie stany USA |
+|Obsługiwane regiony platformy Azure |  Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA, zachodnie stany USA 2, zachodnie stany USA, Brazylia Południowa, Kanada środkowa, Europa Północna, Europa Zachodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Niemcy Środkowo-Zachodnie, Szwajcaria Północna, Szwajcaria Zachodnia, Azja Wschodnia, Południowe Azja Wschodnia, Japonia Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa  |
 |Obsługiwane wersje usługi Azure PostgreSQL    |   9,5, 9,6, 10, 11      |
 
 ## <a name="feature-considerations-and-limitations"></a>Zagadnienia i ograniczenia dotyczące funkcji
@@ -55,7 +55,7 @@ To rozwiązanie może być używane niezależnie lub oprócz natywnego rozwiąza
   
 5. Po zainicjowaniu konfigurowania ochrony dla wybranych baz danych usługa tworzenia kopii zapasowych konfiguruje koordynatora przy użyciu harmonogramów tworzenia kopii zapasowych i innych szczegółów zasad.
 
-6. W zaplanowanym czasie koordynator komunikuje się z wtyczką i zaczyna przesyłać strumieniowo dane kopii zapasowej z serwera Postgres przy użyciu **pg_dump**.
+6. W zaplanowanym czasie koordynator komunikuje się z wtyczką i zaczyna przesyłać strumieniowo dane kopii zapasowej z serwera Postgres przy użyciu **pg_dump** .
 
 7. Wtyczka wysyła dane bezpośrednio do magazynu kopii zapasowych, eliminując konieczność przechowywania lokalizacji tymczasowej. Dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft i przechowywane przez usługę Azure Backup na kontach magazynu.
 
@@ -71,25 +71,25 @@ Poniższe instrukcje to przewodnik krok po kroku dotyczący konfigurowania kopii
 
 1. Istnieją dwa sposoby rozpoczęcia procesu:
 
-    1. Przejdź do [centrum kopii zapasowych](backup-center-overview.md)  ->  **— Omówienie**  ->  **kopii zapasowej**.
+    1. Przejdź do [centrum kopii zapasowych](backup-center-overview.md)  ->  **— Omówienie**  ->  **kopii zapasowej** .
 
         ![Przejdź do centrum kopii zapasowych](./media/backup-azure-database-postgresql/backup-center.png)
 
-        W obszarze **Inicjowanie: Skonfiguruj kopię zapasową**wybierz **Typ źródła danych** jako **Azure Database for PostgreSQL**.
+        W obszarze **Inicjowanie: Skonfiguruj kopię zapasową** wybierz **Typ źródła danych** jako **Azure Database for PostgreSQL** .
 
         ![W obszarze inicjowanie: Konfigurowanie kopii zapasowej wybierz pozycję typ źródła danych](./media/backup-azure-database-postgresql/initiate-configure-backup.png)
 
-    1. Alternatywnie możesz bezpośrednio przejść do kopii zapasowych [magazynów kopii zapasowych](backup-vault-overview.md)  ->  **Backup**.
+    1. Alternatywnie możesz bezpośrednio przejść do kopii zapasowych [magazynów kopii zapasowych](backup-vault-overview.md)  ->  **Backup** .
 
         ![Przejdź do magazynów kopii zapasowych](./media/backup-azure-database-postgresql/backup-vaults.png)
 
         ![Wybieranie kopii zapasowej w magazynie kopii zapasowych](./media/backup-azure-database-postgresql/backup-backup-vault.png)
 
-1. W obszarze **Konfigurowanie kopii zapasowej**wybierz **Magazyn kopii zapasowych** , do którego chcesz utworzyć kopię zapasową baz danych Postgres. Te informacje są wstępnie wypełniane, jeśli jesteś już w kontekście magazynu.
+1. W obszarze **Konfigurowanie kopii zapasowej** wybierz **Magazyn kopii zapasowych** , do którego chcesz utworzyć kopię zapasową baz danych Postgres. Te informacje są wstępnie wypełniane, jeśli jesteś już w kontekście magazynu.
 
     ![Wybieranie magazynu kopii zapasowych w obszarze Konfigurowanie kopii zapasowej](./media/backup-azure-database-postgresql/configure-backup.png)
 
-1. Wybierz lub Utwórz **zasady tworzenia kopii zapasowych**.
+1. Wybierz lub Utwórz **zasady tworzenia kopii zapasowych** .
 
     ![Wybieranie zasad kopii zapasowych](./media/backup-azure-database-postgresql/backup-policy.png)
 
@@ -121,7 +121,7 @@ Poniższe instrukcje to przewodnik krok po kroku dotyczący konfigurowania kopii
 
 ## <a name="create-backup-policy"></a>Tworzenie zasad kopii zapasowych
 
-1. Przejdź do **Backup Center**pozycji  ->  **zasady tworzenia kopii zapasowych**centrum kopii zapasowych  ->  **Dodaj**. Alternatywnie możesz przejść do pozycji **Backup vault**  ->  **zasady kopii zapasowej**magazynu kopii zapasowych  ->  **Dodaj**.
+1. Przejdź do **Backup Center** pozycji  ->  **zasady tworzenia kopii zapasowych** centrum kopii zapasowych  ->  **Dodaj** . Alternatywnie możesz przejść do pozycji **Backup vault**  ->  **zasady kopii zapasowej** magazynu kopii zapasowych  ->  **Dodaj** .
 
     ![Dodawanie zasad kopii zapasowych](./media/backup-azure-database-postgresql/add-backup-policy.png)
 
@@ -142,8 +142,8 @@ Poniższe instrukcje to przewodnik krok po kroku dotyczący konfigurowania kopii
 
 1. **Domyślna reguła przechowywania** jest stosowana w przypadku braku innej reguły przechowywania i ma wartość domyślną trzy miesiące.
 
-    - Czas trwania przechowywania wynosi od siedmiu dni do 10 lat w **magazynie danych kopii zapasowej**.
-    - Czas trwania przechowywania wynosi od sześciu miesięcy do 10 lat w **magazynie danych archiwum**.
+    - Czas trwania przechowywania wynosi od siedmiu dni do 10 lat w **magazynie danych kopii zapasowej** .
+    - Czas trwania przechowywania wynosi od sześciu miesięcy do 10 lat w **magazynie danych archiwum** .
 
     ![Edytowanie czasu trwania przechowywania](./media/backup-azure-database-postgresql/edit-retention.png)
 
@@ -157,15 +157,15 @@ Bazę danych można przywrócić na dowolnym serwerze usługi Azure PostgreSQL w
 Postępuj zgodnie z tym przewodnikiem krok po kroku, aby wyzwolić przywracanie:
 
 1. Istnieją dwa sposoby uruchomienia procesu przywracania:
-    1. Przejdź do omówienia [centrum kopii zapasowych](backup-center-overview.md)  ->  **—**  ->  **przywracanie**.
+    1. Przejdź do omówienia [centrum kopii zapasowych](backup-center-overview.md)  ->  **—**  ->  **przywracanie** .
 
     ![Wybieranie opcji Przywróć w centrum kopii zapasowych](./media/backup-azure-database-postgresql/backup-center-restore.png)
 
-    W obszarze **Inicjowanie: Przywracanie**wybierz **Typ źródła danych** jako **Azure Database for PostgreSQL**. Wybierz **wystąpienie kopii zapasowej**.
+    W obszarze **Inicjowanie: Przywracanie** wybierz **Typ źródła danych** jako **Azure Database for PostgreSQL** . Wybierz **wystąpienie kopii zapasowej** .
 
     ![Wybierz typ źródła danych w elemencie initiate: Restore](./media/backup-azure-database-postgresql/initiate-restore.png)
 
-    1. Alternatywnie możesz bezpośrednio przejść do wystąpień kopii zapasowej **magazynu kopii zapasowych**  ->  **Backup Instances**. Wybierz **wystąpienie kopii zapasowej** odpowiadające bazie danych, którą chcesz przywrócić.
+    1. Alternatywnie możesz bezpośrednio przejść do wystąpień kopii zapasowej **magazynu kopii zapasowych**  ->  **Backup Instances** . Wybierz **wystąpienie kopii zapasowej** odpowiadające bazie danych, którą chcesz przywrócić.
 
     ![Wystąpienia kopii zapasowej do przywrócenia](./media/backup-azure-database-postgresql/backup-instances-restore.png)
 
@@ -179,25 +179,25 @@ Postępuj zgodnie z tym przewodnikiem krok po kroku, aby wyzwolić przywracanie:
 
     ![Lista punktów odzyskiwania](./media/backup-azure-database-postgresql/list-recovery-points.png)
 
-1. **Parametry przywracania**danych wejściowych. W tym momencie można wybrać jedną z dwóch rodzajów przywracania: **przywracanie jako baza danych** i **przywracanie jako pliki**.
+1. **Parametry przywracania** danych wejściowych. W tym momencie można wybrać jedną z dwóch rodzajów przywracania: **przywracanie jako baza danych** i **przywracanie jako pliki** .
 
-1. **Przywróć jako bazę danych**: Przywróć dane kopii zapasowej, aby utworzyć nową bazę danych na docelowym serwerze PostgreSQL.
+1. **Przywróć jako bazę danych** : Przywróć dane kopii zapasowej, aby utworzyć nową bazę danych na docelowym serwerze PostgreSQL.
 
     - Serwer docelowy może być taki sam jak serwer źródłowy. Jednak zastąpienie oryginalnej bazy danych nie jest obsługiwane.
     - Możesz wybrać z serwera wszystkie subskrypcje, ale w tym samym regionie, w którym znajduje się magazyn.
-    - Wybierz pozycję **Przegląd + przywracanie**. Spowoduje to wyzwolenie walidacji w celu sprawdzenia, czy usługa ma odpowiednie uprawnienia do przywracania na serwerze docelowym.
+    - Wybierz pozycję **Przegląd + przywracanie** . Spowoduje to wyzwolenie walidacji w celu sprawdzenia, czy usługa ma odpowiednie uprawnienia do przywracania na serwerze docelowym.
 
     ![Przywróć jako bazę danych](./media/backup-azure-database-postgresql/restore-as-database.png)
 
-1. **Przywróć jako pliki**: Zrzuć pliki kopii zapasowej na docelowym koncie magazynu (BLOB).
+1. **Przywróć jako pliki** : Zrzuć pliki kopii zapasowej na docelowym koncie magazynu (BLOB).
 
     - Możesz wybrać spośród kont magazynu dla wszystkich subskrypcji, ale w tym samym regionie, w którym znajduje się magazyn.
     - Wybierz kontener docelowy z listy kontenerów przefiltrowany dla wybranego konta magazynu.
-    - Wybierz pozycję **Przegląd + przywracanie**. Spowoduje to wyzwolenie walidacji w celu sprawdzenia, czy usługa ma odpowiednie uprawnienia do przywracania na serwerze docelowym.
+    - Wybierz pozycję **Przegląd + przywracanie** . Spowoduje to wyzwolenie walidacji w celu sprawdzenia, czy usługa ma odpowiednie uprawnienia do przywracania na serwerze docelowym.
 
     ![Przywróć jako pliki](./media/backup-azure-database-postgresql/restore-as-files.png)
 
-1. Przejrzyj informacje i wybierz pozycję **Przywróć**. Spowoduje to wyzwolenie odpowiedniego zadania przywracania, które może być śledzone w obszarze **zadania tworzenia kopii zapasowej**.
+1. Przejrzyj informacje i wybierz pozycję **Przywróć** . Spowoduje to wyzwolenie odpowiedniego zadania przywracania, które może być śledzone w obszarze **zadania tworzenia kopii zapasowej** .
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Wstępnie wymagane uprawnienia do konfigurowania kopii zapasowych i przywracania
 
@@ -207,11 +207,11 @@ Azure Backup obowiązują rygorystyczne wytyczne dotyczące zabezpieczeń. Mimo 
 
 ## <a name="manage-the-backed-up-azure-postgresql-databases"></a>Zarządzanie kopiami zapasowymi baz danych usługi Azure PostgreSQL
 
-Są to operacje zarządzania, które można wykonywać w **wystąpieniach kopii zapasowych**:
+Są to operacje zarządzania, które można wykonywać w **wystąpieniach kopii zapasowych** :
 
 ### <a name="on-demand-backup"></a>Kopia zapasowa na żądanie
 
-Aby wyzwolić kopię zapasową poza harmonogramem określonym w zasadach, przejdź do pozycji tworzenie kopii zapasowych **wystąpień**kopii  ->  **zapasowej teraz**.
+Aby wyzwolić kopię zapasową poza harmonogramem określonym w zasadach, przejdź do pozycji tworzenie kopii zapasowych **wystąpień** kopii  ->  **zapasowej teraz** .
 Wybierz z listy reguły przechowywania zdefiniowane w ramach skojarzonych zasad tworzenia kopii zapasowych.
 
 ![Wykonaj kopię zapasową teraz](./media/backup-azure-database-postgresql/backup-now.png)
@@ -228,7 +228,7 @@ Można zatrzymać ochronę dla elementu kopii zapasowej. Spowoduje to również 
 
 Można zmienić skojarzone zasady z wystąpieniem kopii zapasowej.
 
-1. Wybierz zasady **zmiany wystąpienia kopii zapasowej**  ->  **Change Policy**.
+1. Wybierz zasady **zmiany wystąpienia kopii zapasowej**  ->  **Change Policy** .
 
     ![Zmień zasady](./media/backup-azure-database-postgresql/change-policy.png)
 
@@ -254,7 +254,7 @@ Kroki:
 
     ![Okienko Access Control](./media/backup-azure-database-postgresql/access-control-pane.png)
 
-1. Wybierz pozycję **Dodaj przypisanie roli**.
+1. Wybierz pozycję **Dodaj przypisanie roli** .
 
     ![Dodaj przypisanie roli](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
@@ -280,7 +280,7 @@ Kroki:
 
 Dodaj administratora Active Directory do serwera OSS:
 
-Ten krok jest wymagany do nawiązania połączenia z bazą danych za pomocą użytkownika, który może uwierzytelniać się przy użyciu Azure Active Directory zamiast hasła. Użytkownik administracyjny usługi Azure AD w Azure Database for PostgreSQL będzie miał rolę **azure_ad_admin**. Tylko rola **azure_ad_admin** może tworzyć użytkowników nowej bazy danych, którzy mogą uwierzytelniać się w usłudze Azure AD.
+Ten krok jest wymagany do nawiązania połączenia z bazą danych za pomocą użytkownika, który może uwierzytelniać się przy użyciu Azure Active Directory zamiast hasła. Użytkownik administracyjny usługi Azure AD w Azure Database for PostgreSQL będzie miał rolę **azure_ad_admin** . Tylko rola **azure_ad_admin** może tworzyć użytkowników nowej bazy danych, którzy mogą uwierzytelniać się w usłudze Azure AD.
 
 1. Przejdź do karty administrator Active Directory w lewym okienku nawigacji w widoku serwera i Dodaj siebie (lub kogoś innego) jako administrator Active Directory.
 
@@ -294,7 +294,7 @@ Zapoznaj się z [tym dokumentem](https://download.microsoft.com/download/7/4/d/7
 
 ### <a name="usererrormissingnetworksecuritypermissions"></a>UserErrorMissingNetworkSecurityPermissions
 
-Aby uzyskać wgląd w sieć, Włącz flagę " **Zezwalaj na dostęp do usług platformy Azure** " w widoku serwera. W widoku serwer w okienku **zabezpieczenia połączeń** Ustaw flagę **Zezwalaj na dostęp do usług platformy Azure** na **wartość tak**.
+Aby uzyskać wgląd w sieć, Włącz flagę " **Zezwalaj na dostęp do usług platformy Azure** " w widoku serwera. W widoku serwer w okienku **zabezpieczenia połączeń** Ustaw flagę **Zezwalaj na dostęp do usług platformy Azure** na **wartość tak** .
 
 ![Zezwalanie na dostęp usługom platformy Azure](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 
@@ -303,7 +303,7 @@ Aby uzyskać wgląd w sieć, Włącz flagę " **Zezwalaj na dostęp do usług pl
 #### <a name="permission-to-restore-to-a-storage-account-container-when-restoring-as-files"></a>Uprawnienie do przywracania do kontenera konta magazynu podczas przywracania jako pliki
 
 1. Nadaj plikowi MSI magazynu kopii zapasowych uprawnienia dostępu do kontenerów kont magazynu przy użyciu Azure Portal.
-    1. Przejdź do **konta magazynu**  ->  **Access Control**  ->  **Dodaj przypisanie roli**.
+    1. Przejdź do **konta magazynu**  ->  **Access Control**  ->  **Dodaj przypisanie roli** .
     1. Przypisz rolę **współautor danych obiektów blob magazynu** do pliku MSI magazynu kopii zapasowych.
 
     ![Przypisywanie roli współautor danych obiektów blob magazynu](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
@@ -315,7 +315,7 @@ Aby uzyskać wgląd w sieć, Włącz flagę " **Zezwalaj na dostęp do usług pl
     ```
 
     1. Zastąp parametr osoby przydzielonej **identyfikatorem aplikacji** MSI magazynu i parametr zakresu, aby odwołać się do określonego kontenera.
-    1. Aby uzyskać **Identyfikator aplikacji** dla pliku MSI magazynu, wybierz pozycję **wszystkie aplikacje** w obszarze **Typ aplikacji**:
+    1. Aby uzyskać **Identyfikator aplikacji** dla pliku MSI magazynu, wybierz pozycję **wszystkie aplikacje** w obszarze **Typ aplikacji** :
 
         ![Wybierz wszystkie aplikacje](./media/backup-azure-database-postgresql/select-all-applications.png)
 

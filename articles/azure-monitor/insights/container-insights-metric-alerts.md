@@ -2,13 +2,13 @@
 title: Alerty metryk z Azure Monitor dla kontenerów
 description: W tym artykule opisano zalecane alerty metryk dostępne w programie Azure Monitor for Containers w publicznej wersji zapoznawczej.
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/28/2020
+ms.openlocfilehash: cda5639fdf72f5731af851860f37afa888e7d965
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308640"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927825"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Zalecane alerty metryk (wersja zapoznawcza) z Azure Monitor dla kontenerów
 
@@ -24,12 +24,12 @@ Przed rozpoczęciem Potwierdź następujące kwestie:
 
 * Metryki niestandardowe są dostępne tylko w ramach podzestawów regionów świadczenia usługi Azure. Lista obsługiwanych regionów jest udokumentowana w [obsługiwanych regionach](../platform/metrics-custom-overview.md#supported-regions).
 
-* Aby zapewnić obsługę alertów dotyczących metryk i wprowadzenia dodatkowych metryk, wymagana minimalna wersja agenta to **Microsoft/OMS: ciprod05262020** for AKS i **Microsoft/OMS: Ciprod09252020** for Azure ARC z włączonym klastrem Kubernetes.
+* Aby zapewnić obsługę alertów dotyczących metryk i wprowadzenia dodatkowych metryk, wymagana minimalna wersja agenta to **MCR.Microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** dla AKS i **MCR.Microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** dla klastra Kubernetes z włączoną funkcją Azure Arc.
 
     Aby sprawdzić, czy w klastrze działa nowsza wersja agenta, możesz wykonać następujące działania:
 
     * Uruchom polecenie: `kubectl describe <omsagent-pod-name> --namespace=kube-system` . W wyświetlonym stanie Zwróć uwagę na wartość w obszarze **obraz** dla omsagent w sekcji *kontenery* w danych wyjściowych. 
-    * Na karcie **węzły** wybierz węzeł klastra i w okienku **Właściwości** po prawej stronie Sprawdź wartość w obszarze **tag obrazu agenta**.
+    * Na karcie **węzły** wybierz węzeł klastra i w okienku **Właściwości** po prawej stronie Sprawdź wartość w obszarze **tag obrazu agenta** .
 
     Wartość pokazana dla AKS powinna być w wersji **ciprod05262020** lub nowszej. Wartość pokazana dla klastra Kubernetes z obsługą usługi Azure Arc powinna być w wersji **ciprod09252020** lub nowszej. Jeśli klaster ma starszą wersję, zapoznaj się z tematem [jak uaktualnić agenta Azure monitor for Containers](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) , aby poznać procedurę pobierania najnowszej wersji.
 
@@ -74,7 +74,7 @@ Następujące metryki oparte na alertach mają unikatowe cechy zachowania w por�
 
 * Metryka *oomKilledContainerCount* jest wysyłana tylko wtedy, gdy istnieją OOM kontenerów.
 
-* metryki *cpuExceededPercentage*, *memoryRssExceededPercentage*i *memoryWorkingSetExceededPercentage* są wysyłane, gdy wartości z zestawu roboczego procesora CPU, pamięci RSS i pamięci przekraczają skonfigurowany próg (domyślny próg to 95%). Te progi mają wyłączny próg warunku alertu określony dla odpowiedniej reguły alertu. Znaczenie, jeśli chcesz zbierać te metryki i analizować je za pomocą [Eksploratora metryk](../platform/metrics-getting-started.md), zalecamy skonfigurowanie progu do wartości mniejszej niż wartość progowa alertu. Konfiguracja dotycząca ustawień kolekcji dla ich progów wykorzystania zasobów kontenera może zostać przesłonięta w pliku ConfigMaps w sekcji `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Aby uzyskać szczegółowe informacje dotyczące konfigurowania pliku konfiguracji ConfigMap, zobacz sekcję [Konfigurowanie metryk alertów ConfigMaps](#configure-alertable-metrics-in-configmaps) .
+* metryki *cpuExceededPercentage* , *memoryRssExceededPercentage* i *memoryWorkingSetExceededPercentage* są wysyłane, gdy wartości z zestawu roboczego procesora CPU, pamięci RSS i pamięci przekraczają skonfigurowany próg (domyślny próg to 95%). Te progi mają wyłączny próg warunku alertu określony dla odpowiedniej reguły alertu. Znaczenie, jeśli chcesz zbierać te metryki i analizować je za pomocą [Eksploratora metryk](../platform/metrics-getting-started.md), zalecamy skonfigurowanie progu do wartości mniejszej niż wartość progowa alertu. Konfiguracja dotycząca ustawień kolekcji dla ich progów wykorzystania zasobów kontenera może zostać przesłonięta w pliku ConfigMaps w sekcji `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Aby uzyskać szczegółowe informacje dotyczące konfigurowania pliku konfiguracji ConfigMap, zobacz sekcję [Konfigurowanie metryk alertów ConfigMaps](#configure-alertable-metrics-in-configmaps) .
 
 * Metryka *pvUsageExceededPercentage* jest wysyłana, gdy wartość procentowa użycia woluminu trwałego przekracza skonfigurowany próg (wartość domyślna to 60%). Ten próg ma wyłączny próg warunku alertu określony dla odpowiedniej reguły alertu. Znaczenie, jeśli chcesz zbierać te metryki i analizować je za pomocą [Eksploratora metryk](../platform/metrics-getting-started.md), zalecamy skonfigurowanie progu do wartości mniejszej niż wartość progowa alertu. Konfigurację powiązaną z ustawieniami kolekcji dla trwałych progów wykorzystania woluminu można przesłonić w pliku ConfigMaps w sekcji `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Aby uzyskać szczegółowe informacje dotyczące konfigurowania pliku konfiguracji ConfigMap, zobacz sekcję [Konfigurowanie metryk alertów ConfigMaps](#configure-alertable-metrics-in-configmaps) . Kolekcja trwałych metryk woluminów z oświadczeniami w przestrzeni nazw *polecenia-system* jest domyślnie wykluczona. Aby włączyć zbieranie danych w tej przestrzeni nazw, użyj sekcji `[metric_collection_settings.collect_kube_system_pv_metrics]` w pliku ConfigMap. Aby uzyskać szczegółowe informacje, zobacz [Ustawienia zbierania metryki](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) .
 
@@ -114,11 +114,11 @@ Ta sekcja zawiera szczegółowe instrukcje dotyczące włączania alertu metryki
 
 2. Dostęp do funkcji alertu metryki usługi Azure Monitor dla kontenerów (wersja zapoznawcza) jest dostępny bezpośrednio w klastrze AKS, wybierając pozycję **szczegółowe** dane w okienku po lewej stronie Azure Portal.
 
-3. Na pasku poleceń wybierz pozycję **zalecane alerty**.
+3. Na pasku poleceń wybierz pozycję **zalecane alerty** .
 
     ![Opcja zalecane alerty w Azure Monitor dla kontenerów](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
-4. Okienko właściwości **zalecane alerty** zostanie automatycznie wyświetlone po prawej stronie. Domyślnie wszystkie reguły alertów na liście są wyłączone. Po wybraniu opcji **Włącz**reguła alertu zostanie utworzona, a nazwa reguły zostanie zaktualizowana w celu uwzględnienia linku do zasobu alertu.
+4. Okienko właściwości **zalecane alerty** zostanie automatycznie wyświetlone po prawej stronie. Domyślnie wszystkie reguły alertów na liście są wyłączone. Po wybraniu opcji **Włącz** reguła alertu zostanie utworzona, a nazwa reguły zostanie zaktualizowana w celu uwzględnienia linku do zasobu alertu.
 
     ![Okienko właściwości zalecane alerty](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
@@ -126,7 +126,7 @@ Ta sekcja zawiera szczegółowe instrukcje dotyczące włączania alertu metryki
 
     ![Włącz regułę alertu](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
-5. Reguły alertów nie są skojarzone z [grupą akcji](../platform/action-groups.md) w celu powiadomienia użytkowników o wyzwoleniu alertu. Wybierz pozycję **nie przypisano żadnej grupy akcji** i na stronie **grupy akcji** Określ istniejącą lub Utwórz grupę akcji, wybierając pozycję **Dodaj** lub **Utwórz**.
+5. Reguły alertów nie są skojarzone z [grupą akcji](../platform/action-groups.md) w celu powiadomienia użytkowników o wyzwoleniu alertu. Wybierz pozycję **nie przypisano żadnej grupy akcji** i na stronie **grupy akcji** Określ istniejącą lub Utwórz grupę akcji, wybierając pozycję **Dodaj** lub **Utwórz** .
 
     ![Wybierz grupę akcji](./media/container-insights-metric-alerts/select-action-group.png)
 
@@ -148,15 +148,15 @@ Podstawowe kroki są następujące:
 
 2. Aby wdrożyć dostosowany szablon za pośrednictwem portalu, wybierz pozycję **Utwórz zasób** na podstawie [Azure Portal](https://portal.azure.com).
 
-3. Wyszukaj **szablon**, a następnie wybierz pozycję **Template Deployment**.
+3. Wyszukaj **szablon** , a następnie wybierz pozycję **Template Deployment** .
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz pozycję **Utwórz** .
 
-5. Zobaczysz kilka opcji tworzenia szablonu, wybierz opcję **Kompiluj własny szablon w edytorze**.
+5. Zobaczysz kilka opcji tworzenia szablonu, wybierz opcję **Kompiluj własny szablon w edytorze** .
 
-6. Na **stronie Edytuj szablon**wybierz pozycję **Załaduj plik** , a następnie wybierz plik szablonu.
+6. Na **stronie Edytuj szablon** wybierz pozycję **Załaduj plik** , a następnie wybierz plik szablonu.
 
-7. Na stronie **Edytuj szablon** wybierz pozycję **Zapisz**.
+7. Na stronie **Edytuj szablon** wybierz pozycję **Zapisz** .
 
 8. Na stronie **wdrożenie niestandardowe** określ poniższe opcje, a następnie po zakończeniu wybierz pozycję **Kup** , aby wdrożyć szablon i utworzyć regułę alertu.
 
@@ -200,14 +200,14 @@ Podstawowe kroki są następujące:
 
 Można wyświetlać reguły alertów Azure Monitor dla kontenerów i zarządzać nimi, aby edytować jego próg lub skonfigurować [grupę akcji](../platform/action-groups.md) dla klastra AKS. Chociaż można wykonać te działania z Azure Portal i interfejsu wiersza polecenia platformy Azure, można to zrobić również bezpośrednio z klastra AKS w Azure Monitor for Containers.
 
-1. Na pasku poleceń wybierz pozycję **zalecane alerty**.
+1. Na pasku poleceń wybierz pozycję **zalecane alerty** .
 
-2. Aby zmodyfikować próg, w okienku **zalecane alerty** wybierz opcję włączony alert. W obszarze **Edytuj regułę**wybierz **kryteria alertów** , które chcesz edytować.
+2. Aby zmodyfikować próg, w okienku **zalecane alerty** wybierz opcję włączony alert. W obszarze **Edytuj regułę** wybierz **kryteria alertów** , które chcesz edytować.
 
-    * Aby zmodyfikować próg reguły alertu, wybierz **warunek**.
+    * Aby zmodyfikować próg reguły alertu, wybierz **warunek** .
     * Aby określić istniejącą lub utworzyć grupę akcji, wybierz opcję **Dodaj** lub **Utwórz** w obszarze **Grupa akcji**
 
-Aby wyświetlić alerty utworzone dla zasad włączonych, w okienku **zalecane alerty** wybierz pozycję **Wyświetl w obszarze alerty**. Nastąpi przekierowanie do menu alertu dla klastra AKS, w którym można zobaczyć wszystkie alerty, które są aktualnie utworzone dla danego klastra.
+Aby wyświetlić alerty utworzone dla zasad włączonych, w okienku **zalecane alerty** wybierz pozycję **Wyświetl w obszarze alerty** . Nastąpi przekierowanie do menu alertu dla klastra AKS, w którym można zobaczyć wszystkie alerty, które są aktualnie utworzone dla danego klastra.
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Konfigurowanie metryk z alertami w ConfigMaps
 

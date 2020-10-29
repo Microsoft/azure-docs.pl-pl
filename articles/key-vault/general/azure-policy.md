@@ -7,12 +7,12 @@ ms.date: 10/15/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6c1ccbfc221970980d5d0b15e82f9f8483c48bce
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6ac4d0e0744bfc82a686671234e013b2dd717146
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043769"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927757"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrowanie usługi Azure Key Vault z usługą Azure Policy
 
@@ -29,9 +29,9 @@ Przykładowe scenariusze użycia:
 
 ## <a name="types-of-policy-effects-and-guidance"></a>Typy efektów i wskazówek dotyczących zasad
 
-**Inspekcja**: Jeśli efekt zasad jest ustawiony na inspekcje, zasady nie spowodują żadnych istotnych zmian w środowisku. Spowoduje to wyświetlenie alertu tylko dla składników, takich jak certyfikaty, które nie są zgodne z definicjami zasad w określonym zakresie, poprzez oznaczenie tych składników jako niezgodnych na pulpicie nawigacyjnym zgodności zasad. Inspekcja jest domyślna, jeśli nie wybrano żadnego efektu zasad.
+**Inspekcja** : Jeśli efekt zasad jest ustawiony na inspekcje, zasady nie spowodują żadnych istotnych zmian w środowisku. Spowoduje to wyświetlenie alertu tylko dla składników, takich jak certyfikaty, które nie są zgodne z definicjami zasad w określonym zakresie, poprzez oznaczenie tych składników jako niezgodnych na pulpicie nawigacyjnym zgodności zasad. Inspekcja jest domyślna, jeśli nie wybrano żadnego efektu zasad.
 
-**Odmów**: Jeśli efekt zasad jest ustawiony na Odmów, zasady będą blokować tworzenie nowych składników, takich jak certyfikaty, a także zablokować nowe wersje istniejących składników, które nie są zgodne z definicją zasad. Nie dotyczy istniejących niezgodnych zasobów w magazynie kluczy. Funkcje "Audit" będą nadal działać.
+**Odmów** : Jeśli efekt zasad jest ustawiony na Odmów, zasady będą blokować tworzenie nowych składników, takich jak certyfikaty, a także zablokować nowe wersje istniejących składników, które nie są zgodne z definicją zasad. Nie dotyczy istniejących niezgodnych zasobów w magazynie kluczy. Funkcje "Audit" będą nadal działać.
 
 ## <a name="available-built-in-policy-definitions"></a>Dostępne "wbudowane" definicje zasad
 
@@ -91,9 +91,9 @@ Jeśli certyfikat, który nie jest odpowiednio monitorowany, nie zostanie obróc
 
 Jeśli chcesz mieć pewność, że Twoje klucze nie były aktywne dłużej niż określona liczba dni, możesz użyć tych zasad, aby prześledzić czas aktywności klucza.
 
-**Jeśli klucz ma ustawioną datę aktywacji**, ta zasada będzie obliczać liczbę dni, które upłynęły od **daty aktywacji** klucza do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, klucz zostanie oznaczony jako niezgodny z zasadami.
+**Jeśli klucz ma ustawioną datę aktywacji** , ta zasada będzie obliczać liczbę dni, które upłynęły od **daty aktywacji** klucza do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, klucz zostanie oznaczony jako niezgodny z zasadami.
 
-**Jeśli klucz nie ma ustawionej daty aktywacji**, ta zasada będzie obliczać liczbę dni, które upłynęły od **daty utworzenia** klucza do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, klucz zostanie oznaczony jako niezgodny z zasadami.
+**Jeśli klucz nie ma ustawionej daty aktywacji** , ta zasada będzie obliczać liczbę dni, które upłynęły od **daty utworzenia** klucza do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, klucz zostanie oznaczony jako niezgodny z zasadami.
 
 ### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec-preview"></a>Klucze powinny być określonym typem kryptograficznym RSA lub EC (wersja zapoznawcza)
 
@@ -139,9 +139,9 @@ Zarządzaj wymaganiami dotyczącymi zgodności organizacji, określając maksyma
 
 Jeśli chcesz mieć pewność, że Twoje wpisy tajne nie były aktywne dłużej niż określona liczba dni, możesz użyć tych zasad, aby przeprowadzić inspekcję okresu aktywności klucza tajnego.
 
-**Jeśli klucz tajny ma ustawioną datę aktywacji**, ta zasada będzie obliczać liczbę dni, które upłynęły od **daty aktywacji** wpisu tajnego do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, wpis tajny zostanie oznaczony jako niezgodny z zasadami.
+**Jeśli klucz tajny ma ustawioną datę aktywacji** , ta zasada będzie obliczać liczbę dni, które upłynęły od **daty aktywacji** wpisu tajnego do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, wpis tajny zostanie oznaczony jako niezgodny z zasadami.
 
-**Jeśli klucz tajny nie ma ustawionej daty aktywacji**, ta zasada będzie obliczać liczbę dni, które upłynęły od **daty utworzenia** klucza tajnego do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, wpis tajny zostanie oznaczony jako niezgodny z zasadami.
+**Jeśli klucz tajny nie ma ustawionej daty aktywacji** , ta zasada będzie obliczać liczbę dni, które upłynęły od **daty utworzenia** klucza tajnego do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, wpis tajny zostanie oznaczony jako niezgodny z zasadami.
 
 ### <a name="secrets-should-have-content-type-set-preview"></a>Wpisy tajne powinny mieć ustawiony typ zawartości (wersja zapoznawcza)
 
@@ -175,51 +175,51 @@ Zarządzasz magazynem kluczy używanym przez wiele zespołów, które zawierają
 ### <a name="select-a-policy-definition"></a>Wybierz definicję zasad
 
 1. Zaloguj się w witrynie Azure Portal. 
-1. Wyszukaj ciąg "Policy" na pasku wyszukiwania i wybierz pozycję **zasady**.
+1. Wyszukaj ciąg "Policy" na pasku wyszukiwania i wybierz pozycję **zasady** .
 
-    ![Przegląd sposobu działania Azure Key Vault](../media/policy-img1.png)
+    ![Zrzut ekranu pokazujący pasek wyszukiwania.](../media/policy-img1.png)
 
-1. W oknie zasady wybierz pozycję **definicje**.
+1. W oknie zasady wybierz pozycję **definicje** .
 
-    ![Przegląd sposobu działania Azure Key Vault](../media/policy-img2.png)
+    ![Zrzut ekranu, który podświetla opcję definicje.](../media/policy-img2.png)
 
-1. W filtr kategorii Usuń zaznaczenie opcji **Zaznacz wszystko** i wybierz **Key Vault**. 
+1. W filtr kategorii Usuń zaznaczenie opcji **Zaznacz wszystko** i wybierz **Key Vault** . 
 
-    ![Przegląd sposobu działania Azure Key Vault](../media/policy-img3.png)
+    ![Zrzut ekranu pokazujący filtr kategorii i wybraną kategorię Key Vault.](../media/policy-img3.png)
 
 1. Teraz powinno być możliwe wyświetlenie wszystkich zasad dostępnych dla publicznej wersji zapoznawczej w celu Azure Key Vault. Upewnij się, że znasz i rozumiesz powyższe wskazówki dotyczące zasad i wybierz zasady, które chcesz przypisać do zakresu.  
 
-    ![Przegląd sposobu działania Azure Key Vault](../media/policy-img4.png)
+    ![Zrzut ekranu pokazujący zasady, które są dostępne dla publicznej wersji zapoznawczej.](../media/policy-img4.png)
 
 ### <a name="assign-a-policy-to-a-scope"></a>Przypisywanie zasad do zakresu 
 
 1. Wybierz zasady, które chcesz zastosować. w tym przykładzie są wyświetlane zasady **Zarządzaj okresem ważności certyfikatu** . Kliknij przycisk Przypisz w lewym górnym rogu.
 
-    ![Przegląd sposobu działania Azure Key Vault](../media/policy-img5.png)
+    ![Zrzut ekranu przedstawiający zasady zarządzania okresem ważności certyfikatu.](../media/policy-img5.png)
   
 1. Wybierz subskrypcję, w której chcesz zastosować zasady. Możesz ograniczyć zakres tylko do jednej grupy zasobów w ramach subskrypcji. Jeśli chcesz zastosować zasady do całej subskrypcji i wykluczyć niektóre grupy zasobów, możesz również skonfigurować listę wykluczeń. Ustaw opcję selektora wymuszania zasad na **włączone** , jeśli chcesz, aby efekt zasad (inspekcja lub odmowa) został wyrzucony lub **wyłączony** w celu wyłączenia efektu (inspekcja lub odmowa). 
 
-    ![Przegląd sposobu działania Azure Key Vault](../media/policy-img6.png)
+    ![Zrzut ekranu pokazujący, gdzie można wybrać ograniczenie zakresu tylko do jednej grupy zasobów w ramach subskrypcji.](../media/policy-img6.png)
 
 1. Kliknij kartę parametry w górnej części ekranu, aby określić maksymalny okres ważności w miesiącach. Wybierz pozycję **Inspekcja** lub **Odmów** dla efektu zasad zgodnie ze wskazówkami podanych w powyższych sekcjach. Następnie wybierz przycisk Recenzja + tworzenie. 
 
-    ![Przegląd sposobu działania Azure Key Vault](../media/policy-img7.png)
+    ![Zrzut ekranu pokazujący kartę parametry, w której można określić maksymalny okres ważności w miesiącach.](../media/policy-img7.png)
 
 ### <a name="view-compliance-results"></a>Wyświetl wyniki zgodności
 
 1. Wróć do bloku zasad i wybierz kartę zgodność. Kliknij przypisanie zasad, dla którego chcesz wyświetlić wyniki sprawdzania zgodności.
 
-    ![Przegląd sposobu działania Azure Key Vault](../media/policy-img8.png)
+    ![Zrzut ekranu przedstawiający kartę zgodność, w której można wybrać przypisanie zasad, dla którego chcesz wyświetlić wyniki sprawdzania zgodności.](../media/policy-img8.png)
 
 1. Na tej stronie można filtrować wyniki według zgodnych lub niezgodnych magazynów. W tym miejscu można wyświetlić listę niezgodnych magazynów kluczy w zakresie przypisania zasad. Magazyn jest uznawany za niezgodny, jeśli którykolwiek ze składników (certyfikatów) w magazynie nie jest zgodny. Możesz wybrać pojedynczy magazyn, aby wyświetlić poszczególne niezgodne składniki (certyfikaty). 
 
 
-    ![Przegląd sposobu działania Azure Key Vault](../media/policy-img9.png)
+    ![Zrzut ekranu przedstawiający listę niezgodnych magazynów kluczy w zakresie przypisania zasad.](../media/policy-img9.png)
 
 1. Wyświetlanie nazw składników w magazynie, które nie są zgodne
 
 
-    ![Przegląd sposobu działania Azure Key Vault](../media/policy-img10.png)
+    ![Zrzut ekranu pokazujący, gdzie można wyświetlić nazwy składników w magazynie, które nie są zgodne.](../media/policy-img10.png)
 
 1. Jeśli chcesz sprawdzić, czy użytkownicy nie mają możliwości tworzenia zasobów w ramach magazynu kluczy, możesz kliknąć kartę **zdarzenia składników (wersja zapoznawcza)** , aby wyświetlić podsumowanie niedozwolonych operacji certyfikatu z obiektem żądającym i sygnaturami czasowymi żądań. 
 

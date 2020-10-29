@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7ab9b5166aab07e0629cdd280f8cdccbd0702c99
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518011"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927723"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -123,8 +123,8 @@ Nie. Sieć wirtualna jest ograniczona do jednego regionu. Sieć wirtualna obejmu
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Czy mogę połączyć sieć wirtualną z inną siecią wirtualną na platformie Azure?
 Tak. Można połączyć jedną sieć wirtualną z inną siecią wirtualną przy użyciu:
-- **Komunikacja równorzędna sieci wirtualnych**: Aby uzyskać szczegółowe informacje, zobacz [Omówienie komunikacji równorzędnej VNET](virtual-network-peering-overview.md)
-- **VPN Gateway platformy Azure**: Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie połączenia między sieciami wirtualnymi](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- **Komunikacja równorzędna sieci wirtualnych** : Aby uzyskać szczegółowe informacje, zobacz [Omówienie komunikacji równorzędnej VNET](virtual-network-peering-overview.md)
+- **VPN Gateway platformy Azure** : Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie połączenia między sieciami wirtualnymi](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="name-resolution-dns"></a>Rozpoznawanie nazw (DNS)
 
@@ -159,10 +159,10 @@ Tak. Wszystkie interfejsy sieciowe dołączone do maszyny wirtualnej wdrożonej 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Jakie są różne typy adresów IP, które można przypisać do maszyn wirtualnych?
 * **Prywatny:** Przypisane do każdej karty sieciowej w ramach każdej maszyny wirtualnej. Adres jest przypisany przy użyciu metody statycznej lub dynamicznej. Prywatne adresy IP są przypisywane z zakresu określonego w ustawieniach podsieci sieci wirtualnej. Do zasobów wdrożonych za pomocą klasycznego modelu wdrażania są przypisywane prywatne adresy IP, nawet jeśli nie są połączone z siecią wirtualną. Zachowanie metody alokacji jest inne w zależności od tego, czy zasób został wdrożony przy użyciu Menedżer zasobów lub klasycznego modelu wdrażania: 
 
-  - **Menedżer zasobów**: prywatny adres IP przypisany za pomocą metody dynamicznej lub statycznej pozostaje przypisany do maszyny wirtualnej (Menedżer zasobów) do momentu usunięcia zasobu. Różnica polega na tym, że wybierasz adres, który ma zostać przypisany przy użyciu statycznej, a platforma Azure wybiera przy użyciu opcji dynamiczny. 
-  - **Klasyczny**: prywatny adres IP przypisany za pomocą metody dynamicznej może ulec zmianie, gdy maszyna wirtualna (klasyczna) zostanie uruchomiona ponownie po przejściu w stan zatrzymania (cofnięto przydział). Jeśli chcesz mieć pewność, że prywatny adres IP zasobu wdrożonego za pomocą klasycznego modelu wdrażania nigdy nie ulegnie zmianie, przypisz prywatny adres IP za pomocą metody statycznej.
+  - **Menedżer zasobów** : prywatny adres IP przypisany za pomocą metody dynamicznej lub statycznej pozostaje przypisany do maszyny wirtualnej (Menedżer zasobów) do momentu usunięcia zasobu. Różnica polega na tym, że wybierasz adres, który ma zostać przypisany przy użyciu statycznej, a platforma Azure wybiera przy użyciu opcji dynamiczny. 
+  - **Klasyczny** : prywatny adres IP przypisany za pomocą metody dynamicznej może ulec zmianie, gdy maszyna wirtualna (klasyczna) zostanie uruchomiona ponownie po przejściu w stan zatrzymania (cofnięto przydział). Jeśli chcesz mieć pewność, że prywatny adres IP zasobu wdrożonego za pomocą klasycznego modelu wdrażania nigdy nie ulegnie zmianie, przypisz prywatny adres IP za pomocą metody statycznej.
 
-* **Publiczny:** Opcjonalnie przypisane do kart sieciowych dołączonych do maszyn wirtualnych wdrożonych za pomocą modelu wdrażania Azure Resource Manager. Adres można przypisać za pomocą metody alokacji statycznej lub dynamicznej. Wszystkie maszyny wirtualne i wystąpienia ról Cloud Services wdrożone za pośrednictwem klasycznego modelu wdrażania istnieją w ramach usługi w chmurze, która ma przypisany *dynamiczny*, publiczny wirtualny adres IP (VIP). Publiczny *statyczny* adres IP o nazwie [adres zastrzeżony adres IP](virtual-networks-reserved-public-ip.md)można opcjonalnie przypisać do adresu VIP. Publiczne adresy IP można przypisywać do poszczególnych maszyn wirtualnych lub Cloud Services wystąpień ról wdrożonych za pomocą klasycznego modelu wdrażania. Te adresy są nazywane [publicznym adresem IP na poziomie wystąpienia (ILPIP](virtual-networks-instance-level-public-ip.md) ) i mogą być przypisywane dynamicznie.
+* **Publiczny:** Opcjonalnie przypisane do kart sieciowych dołączonych do maszyn wirtualnych wdrożonych za pomocą modelu wdrażania Azure Resource Manager. Adres można przypisać za pomocą metody alokacji statycznej lub dynamicznej. Wszystkie maszyny wirtualne i wystąpienia ról Cloud Services wdrożone za pośrednictwem klasycznego modelu wdrażania istnieją w ramach usługi w chmurze, która ma przypisany *dynamiczny* , publiczny wirtualny adres IP (VIP). Publiczny *statyczny* adres IP o nazwie [adres zastrzeżony adres IP](virtual-networks-reserved-public-ip.md)można opcjonalnie przypisać do adresu VIP. Publiczne adresy IP można przypisywać do poszczególnych maszyn wirtualnych lub Cloud Services wystąpień ról wdrożonych za pomocą klasycznego modelu wdrażania. Te adresy są nazywane [publicznym adresem IP na poziomie wystąpienia (ILPIP](virtual-networks-instance-level-public-ip.md) ) i mogą być przypisywane dynamicznie.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Czy można zarezerwować prywatny adres IP dla maszyny wirtualnej, która zostanie utworzona w późniejszym czasie?
 Nie. Nie można zarezerwować prywatnego adresu IP. Jeśli prywatny adres IP jest dostępny, jest on przypisywany do maszyny wirtualnej lub wystąpienia roli przez serwer DHCP. Maszyna wirtualna może być taka sama jak ta, do której ma przypisany prywatny adres IP. Można jednak zmienić prywatny adres IP już utworzonej maszyny wirtualnej na dowolny dostępny prywatny adres IP.
@@ -228,6 +228,9 @@ Tak. [Urządzenie wirtualne sieci zapory](https://azure.microsoft.com/marketplac
 ### <a name="is-there-information-available-about-securing-vnets"></a>Czy istnieją informacje o zabezpieczaniu sieci wirtualnych?
 Tak. Aby uzyskać szczegółowe informacje, zobacz [Omówienie zabezpieczeń sieci platformy Azure](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+### <a name="do-virtual-networks-store-customer-data"></a>Czy sieci wirtualne przechowują dane klienta?
+Nie. Sieci wirtualne nie przechowują żadnych danych klienta. 
+
 ## <a name="apis-schemas-and-tools"></a>Interfejsy API, schematy i narzędzia
 
 ### <a name="can-i-manage-vnets-from-code"></a>Czy mogę zarządzać sieci wirtualnych z kodu?
@@ -268,7 +271,7 @@ Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub siec
 Tak. Istnieje możliwość ustanowienia komunikacji równorzędnej sieci wirtualnej (lokalnego lub globalnego), jeśli subskrypcje należą do różnych dzierżaw Azure Active Directory. Można to zrobić za pomocą portalu, programu PowerShell lub interfejsu wiersza polecenia.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Połączenie komunikacji równorzędnej sieci wirtualnej jest w stanie *inicjowania* , dlaczego nie mogę nawiązać połączenia?
-Jeśli połączenie komunikacji równorzędnej jest w stanie *zainicjowanym* , oznacza to, że utworzono tylko jeden link. Aby można było nawiązać połączenie, należy utworzyć dwukierunkowy link. Na przykład aby połączyć równorzędną sieć wirtualną z siecią VNet B, należy utworzyć łącze z VNetA do Vnetc i z Vnetc do VNetA. Utworzenie obu linków spowoduje zmianę stanu na *połączony*.
+Jeśli połączenie komunikacji równorzędnej jest w stanie *zainicjowanym* , oznacza to, że utworzono tylko jeden link. Aby można było nawiązać połączenie, należy utworzyć dwukierunkowy link. Na przykład aby połączyć równorzędną sieć wirtualną z siecią VNet B, należy utworzyć łącze z VNetA do Vnetc i z Vnetc do VNetA. Utworzenie obu linków spowoduje zmianę stanu na *połączony* .
 
 ### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Połączenie komunikacji równorzędnej sieci wirtualnej jest w stanie *rozłączenia* , dlaczego nie można utworzyć połączenia komunikacji równorzędnej?
 Jeśli połączenie komunikacji równorzędnej sieci wirtualnej jest w stanie *odłączonym* , oznacza to, że jedno z utworzonych linków zostało usunięte. Aby można było ponownie ustanowić połączenie komunikacji równorzędnej, należy usunąć link i ponownie go utworzyć.
@@ -331,7 +334,7 @@ Pierwszym krokiem jest operacja po stronie sieci, a drugi krok to operacja po st
 >[!NOTE]
 > Obie operacje opisane powyżej muszą zostać wykonane, aby można było ograniczyć dostęp usługi platformy Azure do dozwolonej sieci wirtualnej i podsieci. Włączenie punktów końcowych usługi dla usługi platformy Azure po stronie sieci nie zapewnia ograniczonego dostępu. Ponadto należy również skonfigurować listy ACL sieci wirtualnej na stronie usługi platformy Azure.
 
-Niektóre usługi (takie jak SQL i CosmosDB) umożliwiają wyjątki od powyższej sekwencji przez flagę **IgnoreMissingVnetServiceEndpoint** . Gdy flaga ma **wartość true**, po stronie usługi platformy Azure można ustawić listy ACL sieci wirtualnej przed skonfigurowaniem punktów końcowych usługi po stronie sieci. Usługi platformy Azure zapewniają tę flagę, aby pomóc klientom w przypadkach, w których określone zapory IP zostały skonfigurowane w usługach platformy Azure i włączające punkty końcowe usługi po stronie sieci mogą prowadzić do porzucenia połączeń, ponieważ źródłowy adres IP zmieni się z publicznego adresu IPv4 na adres prywatny. Skonfigurowanie list ACL sieci wirtualnej na stronie usługi platformy Azure przed ustawieniem punktów końcowych usługi po stronie sieci może pomóc w uniknięciu usuwania łączności.
+Niektóre usługi (takie jak SQL i CosmosDB) umożliwiają wyjątki od powyższej sekwencji przez flagę **IgnoreMissingVnetServiceEndpoint** . Gdy flaga ma **wartość true** , po stronie usługi platformy Azure można ustawić listy ACL sieci wirtualnej przed skonfigurowaniem punktów końcowych usługi po stronie sieci. Usługi platformy Azure zapewniają tę flagę, aby pomóc klientom w przypadkach, w których określone zapory IP zostały skonfigurowane w usługach platformy Azure i włączające punkty końcowe usługi po stronie sieci mogą prowadzić do porzucenia połączeń, ponieważ źródłowy adres IP zmieni się z publicznego adresu IPv4 na adres prywatny. Skonfigurowanie list ACL sieci wirtualnej na stronie usługi platformy Azure przed ustawieniem punktów końcowych usługi po stronie sieci może pomóc w uniknięciu usuwania łączności.
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>Czy wszystkie usługi platformy Azure znajdują się w sieci wirtualnej platformy Azure dostarczonej przez klienta? Jak działa punkt końcowy usługi sieci wirtualnej z usługami platformy Azure?
 

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 622ead2ab58075fe6edbe2c013f14391624fd2b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590459"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927842"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Rozwiązywanie problemów z usługą dedykowanego modułu HSM platformy Azure
 
@@ -71,7 +71,7 @@ Gdy określona sygnatura lub region jest zapełniony, oznacza to, że prawie wsz
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Jak mogę zobaczyć sprzętowych modułów zabezpieczeń po zainicjowaniu obsługi administracyjnej?
 Ze względu na dedykowany moduł HSM, który jest usługą listy dozwolonych, jest traktowany jako "typ ukryty" w Azure Portal. Aby wyświetlić zasoby HSM, należy zaznaczyć pole wyboru "Pokaż ukryte typy", jak pokazano poniżej. Zasób karty sieciowej zawsze jest zgodny z modułem HSM i jest dobrym miejscem, aby znaleźć adres IP modułu HSM przed użyciem protokołu SSH do nawiązania połączenia.
 
-![Delegowanie podsieci](./media/troubleshoot/hsm-provisioned.png)
+![Zrzut ekranu, który podświetla zaznaczenie opcji Pokaż ukryte typy](./media/troubleshoot/hsm-provisioned.png)
 
 ## <a name="networking-resources"></a>Zasoby sieciowe
 
@@ -85,7 +85,7 @@ Dedykowany moduł HSM używa bramy ExpressRoute jako "tunel" do komunikacji mię
 
 Przykładowe szablony udostępniane dla dedykowanego modułu HSM zakładają, że adres IP modułu HSM zostanie automatycznie pobrany z danego zakresu podsieci. Można określić jawny adres IP dla modułu HSM za pośrednictwem atrybutu "NetworkInterfaces" w szablonie ARM. 
 
-![Delegowanie podsieci](./media/troubleshoot/private-ip-address.png)
+![Zrzut ekranu przedstawiający przykładowy szablon dedykowanego modułu HSM.](./media/troubleshoot/private-ip-address.png)
 
 ## <a name="hsm-initialization"></a>Inicjowanie modułu HSM
 

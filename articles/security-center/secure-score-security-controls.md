@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425375"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928097"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Wskaźnik bezpieczeństwa w usłudze Azure Security Center
 
@@ -29,7 +29,7 @@ Azure Security Center ma dwa główne cele:
 - Aby ułatwić zapoznanie się z bieżącą sytuacją bezpieczeństwa
 - Aby ułatwić wydajne i efektywne ulepszanie zabezpieczeń
 
-Centralna funkcja w Security Center, która umożliwia osiąganie tych celów, jest **bezpieczną oceną**.
+Centralna funkcja w Security Center, która umożliwia osiąganie tych celów, jest **bezpieczną oceną** .
 
 Security Center stale ocenia zasoby, subskrypcje i organizację pod kątem problemów z zabezpieczeniami. Następnie agreguje wszystkie wyniki w postaci pojedynczego wyniku, dzięki czemu można szybko powiedzieć, że aktualna sytuacja zabezpieczeń: wyższy wynik, tym niższy poziom ryzyka.
 
@@ -39,7 +39,7 @@ Na Azure Portal stronach jest pokazywany wynik z wartością procentową, ale po
 
 Aby zwiększyć bezpieczeństwo, zapoznaj się z tematem zalecenia dotyczące Security Centerych akcji niezbędnych do podniesienia wyniku. Każde zalecenie zawiera instrukcje, które ułatwiają skorygowanie konkretnego problemu.
 
-Zalecenia są pogrupowane w **zabezpieczeniach**. Każda kontrolka jest logiczną grupą powiązanych zaleceń dotyczących zabezpieczeń i odzwierciedla zagrożone powierzchnie ataków. Wynik jest ulepszany tylko wtedy, gdy koryguje *wszystkie* zalecenia dotyczące pojedynczego zasobu w formancie. Aby dowiedzieć się, jak dobrze organizacja zabezpiecza poszczególne osoby atakujące, zapoznaj się z wynikami każdej kontroli zabezpieczeń.
+Zalecenia są pogrupowane w **zabezpieczeniach** . Każda kontrolka jest logiczną grupą powiązanych zaleceń dotyczących zabezpieczeń i odzwierciedla zagrożone powierzchnie ataków. Wynik jest ulepszany tylko wtedy, gdy koryguje *wszystkie* zalecenia dotyczące pojedynczego zasobu w formancie. Aby dowiedzieć się, jak dobrze organizacja zabezpiecza poszczególne osoby atakujące, zapoznaj się z wynikami każdej kontroli zabezpieczeń.
 
 Aby uzyskać więcej informacji, zobacz [jak poniżej jest obliczany bezpieczny wynik](secure-score-security-controls.md#how-your-secure-score-is-calculated) . 
 
@@ -88,7 +88,7 @@ Usługa Azure Resource Graph zapewnia błyskawiczny dostęp do informacji o zaso
 
 Aby uzyskać dostęp do bezpiecznego wyniku dla wielu subskrypcji z ARGUMENTem:
 
-1. W Azure Portal Otwórz **Eksploratora Azure Resource Graph**.
+1. W Azure Portal Otwórz **Eksploratora Azure Resource Graph** .
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Ogólny bezpieczny wynik, jak pokazano w portalu" :::
 
@@ -112,7 +112,7 @@ Aby uzyskać dostęp do bezpiecznego wyniku dla wielu subskrypcji z ARGUMENTem:
         | project SecureControl , unhealthy, currentscore, maxscore
         ```
 
-1. Wybierz pozycję **Uruchom zapytanie**.
+1. Wybierz pozycję **Uruchom zapytanie** .
 
 ## <a name="how-your-secure-score-is-calculated"></a>Jak jest obliczany bezpieczny wynik 
 
@@ -162,6 +162,14 @@ Innym sposobem ulepszania oceny i upewnienia się, że użytkownicy nie tworzą 
 
 W poniższej tabeli wymieniono kontrolki zabezpieczeń w Azure Security Center. Dla każdej kontrolki można zobaczyć maksymalną liczbę punktów, które można dodać do swojego bezpiecznego wyniku, jeśli korygujesz *wszystkie* zalecenia wymienione w formancie dla *wszystkich* zasobów. 
 
+Zestaw zaleceń dotyczących zabezpieczeń zapewnianych w Security Center jest dostosowany do dostępnych zasobów w środowisku każdej organizacji. Zalecenia mogą być bardziej dostosowane przez [wyłączenie zasad](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) i [Wykluczanie określonych zasobów z rekomendacji](exempt-resource.md). 
+ 
+Zaleca się, aby każda organizacja uważnie zapisała swoje przypisane Azure Policy inicjatywy. 
+
+> [!TIP]
+> Aby uzyskać szczegółowe informacje na temat przeglądania i edytowania inicjatyw, zobacz [Praca z zasadami zabezpieczeń](tutorial-security-policy.md). 
+
+Mimo że Security Center domyślna inicjatywa w zakresie zabezpieczeń jest oparta na najlepszych rozwiązaniach i standardach branżowych, istnieją scenariusze, w których wbudowane zalecenia wymienione poniżej mogą nie być całkowicie zgodne z Twoją organizacją. W związku z tym czasami konieczne jest dostosowanie inicjatywy domyślnej — bez naruszania zabezpieczeń — w celu zapewnienia ich zgodności z zasadami obowiązującymi w organizacji. standardy branżowe, standardy prawne i wzorce, które są zobowiązane do osiągnięcia.<br><br>
 <div class="foo">
 
 <style type="text/css"> . TG {Border-zwijania: Zwiń; odstępy między obramowaniem: 0;}. TG TD {border-color: Black; obramowanie: Solid; border-width: 1px; Font-Family: Arial, sans-serif; font-size: 14px; overflow: Hidden; dopełnienie: 10px 5px; słowo-Break: Normal;}. TG; border-width: 1px; Font-Family: Arial, sans-serif; font-size: 18px; Font-grubości: Normal; overflow: Hidden; uzupełnienie: 10px 5px; słowo-Break: Normal;}. TG. TG-cly1 {text-align: Left; pionowa-align: Middle}. TG. WT-lboi {border-color: inherit; text-align: Left; pionowa-align: Middle} </style>

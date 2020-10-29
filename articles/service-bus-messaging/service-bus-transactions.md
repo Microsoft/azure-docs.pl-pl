@@ -2,14 +2,14 @@
 title: Przegląd przetwarzania transakcji w Azure Service Bus
 description: Ten artykuł zawiera omówienie przetwarzania transakcji i funkcji wysyłania za pośrednictwem programu w Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f51e570775fbce8a316d98b5198fa906173dc755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9162b8578fe4f48cc3740b38d9d84ffaa2f260de
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88999958"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927791"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Przegląd Service Bus przetwarzania transakcji
 
@@ -17,7 +17,7 @@ W tym artykule omówiono możliwości transakcji Microsoft Azure Service Bus. Wi
 
 ## <a name="transactions-in-service-bus"></a>Transakcje w Service Bus
 
-Grupy *transakcji* grupuje dwie lub więcej operacji jednocześnie do *zakresu wykonywania*. O charakterze taka transakcja musi zapewnić, że wszystkie operacje należące do danej grupy operacji kończą się powodzeniem lub niepowodzeniem. W tej kwestii transakcje działają jako jedna jednostka, która jest często określana jako *niepodzielność*.
+Grupy *transakcji* grupuje dwie lub więcej operacji jednocześnie do *zakresu wykonywania* . O charakterze taka transakcja musi zapewnić, że wszystkie operacje należące do danej grupy operacji kończą się powodzeniem lub niepowodzeniem. W tej kwestii transakcje działają jako jedna jednostka, która jest często określana jako *niepodzielność* .
 
 Service Bus to transakcyjny Broker komunikatów i zapewnia integralność transakcyjną wszystkich operacji wewnętrznych względem magazynów komunikatów. Wszystkie transfery komunikatów wewnątrz Service Bus, takie jak przenoszenie komunikatów do [kolejki utraconych](service-bus-dead-letter-queues.md) wiadomości lub [Automatyczne przekazywanie](service-bus-auto-forwarding.md) komunikatów między jednostkami, są transakcyjne. W związku z tym, jeśli Service Bus akceptuje komunikat, został już zapisany i oznaczony numerem sekwencyjnym. Z tego miejsca wszystkie transfery komunikatów w ramach Service Bus są koordynowanymi operacjami między jednostkami i nie będą prowadzić do utraty (Źródło zakończy się pomyślnie, nie powiedzie się) lub do duplikacji (Źródło zakończy się niepowodzeniem i obiekt docelowy) komunikatu.
 
@@ -27,8 +27,8 @@ Usługa Service Bus obsługuje grupowanie operacji względem jednej jednostki ob
 
 Operacje, które mogą być wykonywane w ramach zakresu transakcji są następujące:
 
-* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**:,,,,,,,, `Complete` `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` , `RenewLockAsync` 
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)** : `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** :,,,,,,,, `Complete` `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` , `RenewLockAsync` 
 
 Operacje odbioru nie są uwzględniane, ponieważ zakłada się, że aplikacja uzyskuje komunikaty przy użyciu trybu [ReceiveMode. PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) w ramach niektórych pętli Receive lub wywołania zwrotnego [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) , a następnie otwiera zakres transakcji w celu przetworzenia komunikatu.
 
@@ -36,13 +36,13 @@ Dyspozycja wiadomości (kompletna, Porzuć, utracony, odłóż) następuje w zak
 
 ## <a name="transfers-and-send-via"></a>Transfery i "wysyłanie przez"
 
-Aby włączyć transakcyjną przekazują danych z kolejki do procesora, a następnie do innej kolejki, Service Bus obsługuje *transfery*. W operacji transferu nadawca najpierw wysyła komunikat do *kolejki transferu*, a kolejka transferu natychmiast przenosi komunikat do zamierzonej kolejki docelowej przy użyciu tej samej, niezawodnej implementacji transferu, na której opiera się funkcja autoprzesyłania dalej. Komunikat nigdy nie jest przesyłany do dziennika kolejki transferu w taki sposób, aby stał się widoczny dla odbiorców kolejki transferu.
+Aby włączyć transakcyjną przekazują danych z kolejki lub tematu do procesora, a następnie do innej kolejki lub tematu, Service Bus obsługuje *transfery* . W operacji transferu nadawca najpierw wysyła komunikat do *kolejki lub tematu transferu* , a kolejka transferu lub temat natychmiast przenosi komunikat do zamierzonej kolejki docelowej lub tematu za pomocą tej samej niezawodnej implementacji transferu, na której bazuje funkcja autoprzesyłania dalej. Komunikat nigdy nie jest przesyłany do kolejki transferu lub dziennika tematu w taki sposób, aby stał się widoczny dla danej kolejki transferu lub użytkowników tematu.
 
-Moc tej możliwości transakcyjnej stanie się widoczna, gdy kolejka transferu jest źródłem komunikatów wejściowych nadawcy. Innymi słowy, Service Bus może przetransferować komunikat do kolejki docelowej "za pośrednictwem kolejki transferu podczas wykonywania kompletnej operacji (lub przełożyć lub martwej litery) na wiadomości wejściowej, a wszystko to w jednej operacji niepodzielnej. 
+Moc tej możliwości transakcyjnej stanie się widoczna, gdy kolejka transferu lub sama sama sekcja jest źródłem komunikatów wejściowych nadawcy. Innymi słowy, Service Bus może przetransferować komunikat do kolejki docelowej lub tematu "za pośrednictwem kolejki transferu lub tematu, podczas gdy wykonywana jest pełna (lub odłożyć lub utracona) operacja w komunikacie wejściowym — wszystko w jednej operacji niepodzielnej. 
 
 ### <a name="see-it-in-code"></a>Zobacz go w kodzie
 
-Aby skonfigurować takie transfery, należy utworzyć nadawcę wiadomości, który jest przeznaczony dla kolejki docelowej za pośrednictwem kolejki transferu. Istnieje również odbiornik, który pobiera wiadomości z tej samej kolejki. Na przykład:
+Aby skonfigurować takie transfery, należy utworzyć nadawcę wiadomości, który jest przeznaczony dla kolejki docelowej za pośrednictwem kolejki transferu. Istnieje również odbiornik, który pobiera wiadomości z tej samej kolejki. Przykład:
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);

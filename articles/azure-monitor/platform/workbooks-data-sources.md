@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143729"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927910"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor skoroszyty ze źródłami danych
 
@@ -77,7 +77,7 @@ Skoroszyty obsługują uzyskiwanie informacji o kondycji zasobów platformy Azur
 
 Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej **typ zapytania** , aby wybrać opcję kondycja platformy Azure, a następnie wybierz zasoby docelowe. Użyj listy rozwijanej filtr kondycji, aby wybrać interesujący podzbiór problemów dotyczących zasobów dla potrzeb analitycznych.
 
-![Zrzut ekranu zapytania o alerty](./media/workbooks-overview/resource-health.png)
+![Zrzut ekranu zapytania alertów, który zawiera listy filtrów kondycji.](./media/workbooks-overview/resource-health.png)
 
 ## <a name="json"></a>JSON
 
@@ -100,7 +100,7 @@ Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej _Ź
 
 Skoroszyty obsługują pobieranie danych z dowolnego źródła zewnętrznego. Jeśli dane znajdują się poza platformą Azure, możesz je przenieść do skoroszytów przy użyciu tego typu źródła danych.
 
-Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej _Źródło danych_ w celu wybrania _niestandardowego punktu końcowego_. Podaj odpowiednie parametry, takie jak `Http method` , `url` , `headers` , `url parameters` i/lub `body` . Upewnij się, że źródło danych obsługuje mechanizm [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) w przeciwnym razie żądanie zakończy się niepowodzeniem.
+Aby formant zapytania używał tego źródła danych, Użyj listy rozwijanej _Źródło danych_ w celu wybrania _niestandardowego punktu końcowego_ . Podaj odpowiednie parametry, takie jak `Http method` , `url` , `headers` , `url parameters` i/lub `body` . Upewnij się, że źródło danych obsługuje mechanizm [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) w przeciwnym razie żądanie zakończy się niepowodzeniem.
 
 Aby uniknąć automatycznego wykonywania wywołań niezaufanych hostów podczas korzystania z szablonów, użytkownik musi oznaczyć używane hosty jako zaufane. Można to zrobić przez kliknięcie przycisku _Dodaj jako zaufany_ lub dodanie go jako zaufanego hosta w ustawieniach skoroszytu. Te ustawienia zostaną zapisane w przeglądarkach, które obsługują IndexDb z internetowymi procesami roboczymi. więcej informacji [znajdziesz tutaj](https://caniuse.com/#feat=indexeddb).
 

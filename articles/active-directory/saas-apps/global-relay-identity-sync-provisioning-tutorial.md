@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900284"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927995"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie globalnej synchronizacji tożsamości przekaźnika dla automatycznej aprowizacji użytkowników
 
@@ -33,6 +33,10 @@ W tym samouczku opisano kroki, które należy wykonać zarówno w przypadku sync
 > * Usuń użytkowników z synchronizacji tożsamości w usłudze Global Identity, gdy nie wymagają już dostępu
 > * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD a synchronizacją globalnego przekazywania tożsamości
 > * Inicjowanie obsługi administracyjnej grup i członkostw w grupach w usłudze globalna synchronizacja tożsamości przekaźnika
+
+
+> [!NOTE]
+> Łącznik obsługi administracyjnej synchronizacji tożsamości przekaźnika globalnego używa metody autoryzacji Standard scim, która nie jest już obsługiwana z powodu problemów z bezpieczeństwem. Wysiłki odbywają się w drodze do przełączenia do bezpieczniejszej metody autoryzacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -149,7 +153,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Tematy pomocy|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
    |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: proxyAddresses|String|
    |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute1|String|
    |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute2|String|

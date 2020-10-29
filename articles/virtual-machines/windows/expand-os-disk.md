@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3908e5f4b7b246fe1c74e5ac4d20053242ece9f6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336007"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927689"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Sposób rozszerzania dysku systemu operacyjnego maszyny wirtualnej
 
@@ -32,22 +32,23 @@ Podczas tworzenia nowej maszyny wirtualnej w grupie zasobów przez wdrożenie ob
 > [!IMPORTANT]
 > Zmiany rozmiarów systemu operacyjnego lub dysku danych maszyny wirtualnej platformy Azure wymagają cofnięcia przydziału maszyny wirtualnej.
 >
-> Po rozwinięciu dysków należy [rozszerzyć wolumin w systemie operacyjnym](#expand-the-volume-within-the-os) , aby korzystać z większego dysku.
+> Zmniejszanie istniejącego dysku nie jest obsługiwane i może spowodować utratę danych.
 > 
+> Po rozwinięciu dysków należy [rozszerzyć wolumin w systemie operacyjnym](#expand-the-volume-within-the-os) , aby korzystać z większego dysku.
 
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Zmień rozmiar dysku zarządzanego w Azure Portal
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do maszyny wirtualnej, w której chcesz rozszerzyć dysk. Wybierz pozycję **Zatrzymaj** , aby cofnąć przydział maszyny wirtualnej.
-2. Po zatrzymaniu maszyny wirtualnej w menu po lewej stronie w obszarze **Ustawienia**wybierz pozycję **dyski**.
+2. Po zatrzymaniu maszyny wirtualnej w menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **dyski** .
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Zrzut ekranu przedstawiający opcję dyski wybraną w sekcji Ustawienia w menu.":::
 
  
-3. W obszarze **Nazwa dysku**wybierz dysk, którego rozmiar chcesz zmienić.
+3. W obszarze **Nazwa dysku** wybierz dysk, którego rozmiar chcesz zmienić.
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Zrzut ekranu przedstawiający opcję dyski wybraną w sekcji Ustawienia w menu.":::
 
-4. W menu po lewej stronie w obszarze **Ustawienia**wybierz pozycję **Konfiguracja**.
+4. W menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **Konfiguracja** .
 
     :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Zrzut ekranu przedstawiający opcję dyski wybraną w sekcji Ustawienia w menu.":::
 
@@ -59,7 +60,7 @@ Podczas tworzenia nowej maszyny wirtualnej w grupie zasobów przez wdrożenie ob
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Zrzut ekranu przedstawiający opcję dyski wybraną w sekcji Ustawienia w menu.":::
 
-6. Wybierz pozycję **Zapisz**.
+6. Wybierz pozycję **Zapisz** .
 
     :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Zrzut ekranu przedstawiający opcję dyski wybraną w sekcji Ustawienia w menu.":::
 
@@ -230,11 +231,11 @@ Analogicznie można odwoływać się do innych dysków z danymi dołączonych do
 
 ## <a name="expand-the-volume-within-the-os"></a>Rozwiń wolumin w systemie operacyjnym
 
-Po rozwinięciu dysku dla maszyny wirtualnej należy przejść do systemu operacyjnego i rozwinąć wolumin, aby obejmował nowe miejsce. Istnieje kilka metod rozszerzania partycji. Ta sekcja obejmuje łączenie maszyny wirtualnej przy użyciu połączenia RDP w celu rozszerzenia partycji za pomocą **narzędzia DiskPart**.
+Po rozwinięciu dysku dla maszyny wirtualnej należy przejść do systemu operacyjnego i rozwinąć wolumin, aby obejmował nowe miejsce. Istnieje kilka metod rozszerzania partycji. Ta sekcja obejmuje łączenie maszyny wirtualnej przy użyciu połączenia RDP w celu rozszerzenia partycji za pomocą **narzędzia DiskPart** .
 
 1. Otwórz połączenie RDP z maszyną wirtualną.
 
-2. Otwórz wiersz polecenia i wpisz **diskpart**.
+2. Otwórz wiersz polecenia i wpisz **diskpart** .
 
 3. W wierszu polecenia **narzędzia DiskPart** wpisz polecenie `list volume` . Zanotuj wolumin, który chcesz zwiększyć.
 
