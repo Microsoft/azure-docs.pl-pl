@@ -500,7 +500,7 @@
           items:
             - name: Korzystanie z technologii MapReduce z usługą Apache Hadoop
               items:
-                - name: MapReduce — omówienie
+                - name: Korzystanie z technologii MapReduce
                   href: ./hadoop/hdinsight-use-mapreduce.md
                 - name: Korzystanie z protokołu SSH
                   href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md

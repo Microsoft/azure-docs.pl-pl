@@ -56,8 +56,8 @@
       href: network-overview.md
     - name: Najlepsze rozwiązania
       href: network-best-practices.md
-    - name: DDoS Protection
-      href: ddos-best-practices.md
+    - name: Najlepsze praktyki dotyczące usługi DDoS Protection
+      href: 'https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices'
     - name: Punkt odniesienia usługi DDoS Protection
       href: ddos-protection-security-baseline.md
     - name: Zawieszone rekordy DNS i przejmowanie poddomen

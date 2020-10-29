@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4979405c7675b5eff9f6940cd34e0c974ebad217
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538276"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909645"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -52,7 +52,7 @@ W przypadku MQTT niektóre zestawy SDK są zależne od IoT Hub, aby wystawić ro
 
 ### <a name="cause-2"></a>Przyczyna 2
 
-IoT Hub nie może uwierzytelnić nagłówka, reguły lub klucza uwierzytelniania.
+IoT Hub nie może uwierzytelnić nagłówka, reguły lub klucza uwierzytelniania. Może to być spowodowane wszelkimi przyczynami przedstawionymi w objawach.
 
 ## <a name="solution"></a>Rozwiązanie
 
@@ -66,10 +66,13 @@ Jeśli ilość błędów jest istotna, przełącz się do zestawu C SDK, który 
 
 Ogólnie rzecz biorąc przedstawiony komunikat o błędzie powinien wyjaśnić, jak naprawić błąd. Jeśli z jakiegoś powodu nie masz dostępu do szczegółów komunikatu o błędzie, upewnij się, że:
 
-- Użycie sygnatury dostępu współdzielonego lub innego tokenu zabezpieczającego nie wygasło. 
-- Poświadczenie autoryzacji jest poprawnie sformułowane dla używanego protokołu. Aby dowiedzieć się więcej, zobacz [IoT Hub kontroli dostępu](iot-hub-devguide-security.md).
+- Użycie sygnatury dostępu współdzielonego lub innego tokenu zabezpieczającego nie wygasło.
+- W przypadku uwierzytelniania za pomocą certyfikatu X. 509 certyfikat urządzenia lub certyfikat urzędu certyfikacji skojarzony z urządzeniem nie wygasł. Aby dowiedzieć się, jak zarejestrować certyfikaty urzędu certyfikacji X. 509 za pomocą IoT Hub, zobacz [Konfigurowanie zabezpieczeń x. 509 w usłudze Azure IoT Hub](iot-hub-security-x509-get-started.md).
+- W przypadku uwierzytelniania odcisku palca certyfikatu X. 509 certyfikat odcisku palca certyfikatu urządzenia jest zarejestrowany w IoT Hub.
+- Poświadczenie autoryzacji jest poprawnie sformułowane dla używanego protokołu. Aby dowiedzieć się więcej, zobacz [Kontrola dostępu do IoT Hub](iot-hub-devguide-security.md).
 - Używana reguła autoryzacji ma uprawnienie do żądania operacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby ułatwić uwierzytelnianie IoT Hub, zalecamy korzystanie z [zestawów SDK usługi Azure IoT](iot-hub-devguide-sdks.md).
+- Aby ułatwić uwierzytelnianie IoT Hub, zalecamy korzystanie z [zestawów SDK usługi Azure IoT](iot-hub-devguide-sdks.md).
+- Aby uzyskać szczegółowe informacje o uwierzytelnianiu z IoT Hub, zobacz [Kontrola dostępu do IoT Hub](iot-hub-devguide-security.md).

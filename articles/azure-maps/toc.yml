@@ -132,6 +132,8 @@
           href: how-to-request-transit-data.md
         - name: Żądanie danych transportu publicznego w czasie rzeczywistym
           href: how-to-request-real-time-data.md
+        - name: Żądanie danych pogodowych w czasie rzeczywistym i prognozowanych
+          href: how-to-request-weather-data.md
     - name: Tworzenie aplikacji przy użyciu internetowego zestawu SDK
       items:
         - name: Kontrolka mapy
@@ -281,55 +283,55 @@
     - name: REST
       items:
         - name: Usługa danych
-          href: 'https://docs.microsoft.com/rest/api/maps/data'
+          href: /rest/api/maps/data
         - name: Usługa geolokalizacji
-          href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
+          href: /rest/api/maps/geolocation
         - name: Usługa mobilności
-          href: 'https://docs.microsoft.com/rest/api/maps/mobility'
+          href: /rest/api/maps/mobility
         - name: Render Service
-          href: 'https://docs.microsoft.com/rest/api/maps/render'
+          href: /rest/api/maps/render
         - name: 'Render Service, wersja 2'
-          href: 'https://docs.microsoft.com/rest/api/maps/renderv2'
+          href: /rest/api/maps/renderv2
         - name: Route Service
-          href: 'https://docs.microsoft.com/rest/api/maps/route'
+          href: /rest/api/maps/route
         - name: Search Service
-          href: 'https://docs.microsoft.com/rest/api/maps/search'
+          href: /rest/api/maps/search
         - name: Usługa danych przestrzennych
-          href: 'https://docs.microsoft.com/rest/api/maps/spatial'
+          href: /rest/api/maps/spatial
         - name: Timezone Service
-          href: 'https://docs.microsoft.com/rest/api/maps/timezone'
+          href: /rest/api/maps/timezone
         - name: Traffic Service
-          href: 'https://docs.microsoft.com/rest/api/maps/traffic'
+          href: /rest/api/maps/traffic
         - name: Usługa pogody
-          href: 'https://docs.microsoft.com/rest/api/maps/weather'
+          href: /rest/api/maps/weather
         - name: Usługa Maps Creator
           items:
             - name: Usługa aliasu
-              href: 'https://docs.microsoft.com/rest/api/maps/alias'
+              href: /rest/api/maps/alias
             - name: Usługa konwersji
-              href: 'https://docs.microsoft.com/rest/api/maps/conversion'
+              href: /rest/api/maps/conversion
             - name: Usługa zestawów danych
-              href: 'https://docs.microsoft.com/rest/api/maps/dataset'
+              href: /rest/api/maps/dataset
             - name: Usługa stanu funkcji
-              href: 'https://docs.microsoft.com/rest/api/maps/featurestate'
+              href: /rest/api/maps/featurestate
             - name: Usługa zestawów fragmentów
-              href: 'https://docs.microsoft.com/rest/api/maps/tileset'
+              href: /rest/api/maps/tileset
             - name: Usługa WFS
-              href: 'https://docs.microsoft.com/rest/api/maps/wfs'
+              href: /rest/api/maps/wfs
         - name: Zarządzanie kontami usługi Maps
-          href: 'https://docs.microsoft.com/rest/api/maps-management'
+          href: /rest/api/maps-management
     - name: JavaScript
       items:
         - name: Kontrolka mapy
-          href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+          href: /javascript/api/azure-maps-javascript/
         - name: Narzędzia do rysowania
-          href: 'https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/'
+          href: /javascript/api/azure-maps-drawing-tools/
         - name: Moduł usługi
-          href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
+          href: /javascript/api/azure-maps-rest/
         - name: Moduł operacji we/wy danych przestrzennych
-          href: 'https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/'
+          href: /javascript/api/azure-maps-spatial-io/
         - name: Moduł wnętrz
-          href: 'https://aka.ms/am-indoor-module-websdk/'
+          href: /javascript/api/azure-maps-indoor/
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.maps/accounts
     - name: Interfejs wiersza polecenia platformy Azure
@@ -337,31 +339,31 @@
 - name: Zasoby
   items:
     - name: Opcje wsparcia technicznego i pomocy
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../iot-fundamentals/iot-support-help.md
     - name: Usługi Azure IoT
       items:
         - name: Usługa IoT Hub
-          href: /azure/iot-hub
+          href: ../iot-hub/index.yml
         - name: Usługa IoT Hub Device Provisioning
-          href: /azure/iot-dps
+          href: ../iot-dps/index.yml
         - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /microsoft-iot-central/
         - name: IoT Edge
-          href: /azure/iot-edge
+          href: ../iot-edge/index.yml
         - name: Akceleratory rozwiązań IoT
-          href: /azure/iot-accelerators
+          href: ../iot-accelerators/index.yml
         - name: IoT Plug and Play
-          href: /azure/iot-pnp
+          href: ../iot-pnp/index.yml
         - name: Azure Maps
-          href: /azure/azure-maps
+          href: ./index.yml
         - name: Time Series Insights
-          href: /azure/time-series-insights
+          href: ../time-series-insights/index.yml
     - name: Zestawy SDK usługi Azure IoT
       items:
         - name: Zestawy SDK usługi IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
         - name: Zestawy SDK urządzeń IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Warunki użytkowania usługi Azure Maps
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Ceny usługi Azure Maps

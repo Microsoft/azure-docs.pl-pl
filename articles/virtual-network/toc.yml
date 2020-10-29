@@ -112,7 +112,7 @@
         - name: Zasady sieciowe platformy Kubernetes
           href: kubernetes-network-policies.md
         - name: Ochrona przed atakami DDOS
-          href: ddos-protection-overview.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview'
         - name: Virtual Network TAP
           href: virtual-network-tap-overview.md
         - name: Kontrole zabezpieczeń usługi Azure Policy
@@ -299,9 +299,9 @@
                 - name: Interfejs wiersza polecenia platformy Azure
                   href: virtual-network-service-endpoint-policies-cli.md
         - name: Zarządzanie ochroną przed atakami DDoS
-          href: manage-ddos-protection.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection'
         - name: Dołączanie partnerów do usługi DDoS Protection w warstwie Standardowa
-          href: ddos-protection-partner-onboarding.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-partner-onboarding'
         - name: Zarządzanie sieciowymi grupami zabezpieczeń
           href: manage-network-security-group.md
         - name: Scenariusze zabezpieczeń

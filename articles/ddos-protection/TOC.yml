@@ -1,0 +1,68 @@
+- name: Dokumentacja usługi Azure DDoS Protection w warstwie Standardowa
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest usługa Azure DDoS Protection w warstwie Standardowa?
+      href: ddos-protection-overview.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Tworzenie planu ochrony za pomocą usługi DDoS — portal
+      href: manage-ddos-protection.md
+    - name: Tworzenie planu ochrony za pomocą usługi DDoS — PowerShell
+      href: manage-ddos-protection-powershell.md
+    - name: Tworzenie planu ochrony za pomocą usługi DDoS — interfejs wiersza polecenia
+      href: manage-ddos-protection-cli.md
+- name: Samouczki
+  items:
+    - name: Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS
+      href: telemetry-monitoring-alerting.md
+    - name: Konfigurowanie raportów ograniczenia skutków ataków DDoS i dzienników przepływów
+      href: reports-and-flow-logs.md
+- name: Pojęcia
+  items:
+    - name: Rodzaje ataków
+      href: types-of-attacks.md
+    - name: Podstawowe najlepsze rozwiązania
+      href: fundamental-best-practices.md
+    - name: Funkcje usługi Azure DDoS Protection w warstwie Standardowa
+      href: ddos-protection-standard-features.md
+    - name: Składniki strategii reagowania na ataki DDoS
+      href: ddos-response-strategy.md
+    - name: Architektury referencyjne
+      href: ddos-protection-reference-architectures.md
+    - name: Punkt odniesienia zabezpieczeń
+      href: ../security/fundamentals/ddos-protection-security-baseline.md?toc=%2fazure%2fddos-protection%2ftoc.json
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Testowanie przez symulacje
+      href: test-through-simulations.md
+    - name: Zarządzanie uprawnieniami i ograniczeniami
+      href: manage-permissions.md
+    - name: Angażowanie zespołu DDoS Rapid Response (DRR)
+      href: ddos-rapid-response.md
+    - name: Dołączanie partnerów
+      href: ddos-protection-partner-onboarding.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: 'https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0'
+    - name: .NET
+      href: 'https://docs.microsoft.com/dotnet/api/'
+    - name: Java
+      href: 'https://docs.microsoft.com/java/api/'
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans'
+    - name: Azure Resource Manager
+      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/overview'
+- name: Zasoby
+  items:
+    - name: Cennik
+      href: 'https://azure.microsoft.com/en-us/pricing/details/ddos-protection/'
+    - name: Dostępność regionalna
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=ddos-protection'

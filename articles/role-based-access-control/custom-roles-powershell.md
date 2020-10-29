@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd518828668ed20a4fa7be0cd6c9798a013055a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790215"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909577"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure PowerShell
 
@@ -63,7 +63,7 @@ API Management Service Contributor                   False
 Poniższy przykład zawiera listę tylko ról niestandardowych, które są dostępne do przypisania w ramach wybranej subskrypcji.
 
 ```azurepowershell
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name, IsCustom
 ```
 
 ```Example
@@ -163,7 +163,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 Jeśli tworzysz rolę niestandardową przy użyciu programu PowerShell, możesz użyć jednej z [wbudowanych ról](built-in-roles.md) jako punktu początkowego lub można zacząć od podstaw. Pierwszy przykład w tej sekcji rozpoczyna się od wbudowanej roli, a następnie dostosowuje ją z większą liczbą uprawnień. Edytuj atrybuty, aby dodać `Actions` , `NotActions` lub, `AssignableScopes` a następnie Zapisz zmiany jako nową rolę.
 
-Poniższy przykład jest uruchamiany z wbudowaną rolą [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) , aby utworzyć rolę niestandardową o nazwie *operator maszyny wirtualnej*. Nowa rola przyznaje dostęp do wszystkich operacji odczytu z dostawców zasobów *Microsoft. COMPUTE*, *Microsoft. Storage*i *Microsoft. Network* oraz udziela dostępu do uruchamiania, ponownego uruchamiania i monitorowania maszyn wirtualnych. Roli niestandardowej można używać w dwóch subskrypcjach.
+Poniższy przykład jest uruchamiany z wbudowaną rolą [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) , aby utworzyć rolę niestandardową o nazwie *operator maszyny wirtualnej* . Nowa rola przyznaje dostęp do wszystkich operacji odczytu z dostawców zasobów *Microsoft. COMPUTE* , *Microsoft. Storage* i *Microsoft. Network* oraz udziela dostępu do uruchamiania, ponownego uruchamiania i monitorowania maszyn wirtualnych. Roli niestandardowej można używać w dwóch subskrypcjach.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Contributor"

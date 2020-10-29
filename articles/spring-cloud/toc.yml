@@ -65,7 +65,7 @@
       href: disaster-recovery.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Przygotowywanie aplikacji Java Spring do wdrożenia
+    - name: Przygotowywanie aplikacji do wdrożenia
       href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: Uruchamianie aplikacji Java z kodu źródłowego
       href: spring-cloud-howto-launch-from-source.md
