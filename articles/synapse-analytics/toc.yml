@@ -115,8 +115,6 @@
                   href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Harmonogram obsługi
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Tworzenie kopii zapasowej i przywracanie
-          href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Monitorowanie
       items:
         - name: Monitorowanie puli
@@ -259,6 +257,8 @@
               href: sql/best-practices-sql-on-demand.md
             - name: Najlepsze rozwiązania — pule SQL
               href: sql/best-practices-sql-pool.md
+        - name: Tworzenie kopii zapasowej i przywracanie
+          href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Wprowadzanie i przygotowywanie danych
           items:
             - name: Omówienie
@@ -431,8 +431,6 @@
               href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Monitorowanie obciążenia — portal
               href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Przywracanie magazynu danych
-              href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Zarządzanie obciążeniami
               items:
                 - name: Analizowanie obciążenia

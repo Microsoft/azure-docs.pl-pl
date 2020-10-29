@@ -79,7 +79,33 @@
         - name: TypeScript
           href: /samples/browse/?products=azure-functions&languages=typescript
     - name: Interfejs wiersza polecenia platformy Azure
-      href: functions-cli-samples.md
+      items:
+        - name: Przykładowy indeks interfejsu wiersza polecenia
+          href: functions-cli-samples.md
+        - name: Tworzenie aplikacji funkcji
+          items:
+            - name: Bezserwerowa aplikacja funkcji
+              href: ./scripts/functions-cli-create-serverless.md
+            - name: Bezserwerowa aplikacja w języku Python
+              href: ./scripts/functions-cli-create-serverless-python.md
+            - name: Skalowana aplikacja w planie warstwy Premium
+              href: ./scripts/functions-cli-create-premium-plan.md
+            - name: Aplikacja w planie warstwy Dedykowana (App Service)
+              href: ./scripts/functions-cli-create-app-service-plan.md
+        - name: Integrowanie usług
+          items:
+            - name: Podłączanie usługi Azure Storage
+              href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
+            - name: Podłączanie usługi Azure Cosmos DB
+              href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
+            - name: Udział plików instalacji języka Python
+              href: ./scripts/functions-cli-mount-files-storage-linux.md
+        - name: Ciągłe wdrażanie
+          items:
+            - name: Wdrożenie usługi GitHub
+              href: ./scripts/functions-cli-create-function-app-github-continuous.md
+            - name: Wdrożenie usługi DevOps
+              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Pojęcia
   items:
     - name: Porównywanie wersji środowiska uruchomieniowego

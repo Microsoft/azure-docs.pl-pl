@@ -1,5 +1,9 @@
 - name: Omówienie
   href: overview.md
+- name: Przewodniki Szybki start dla systemu Red Hat
+  items: null
+- name: Przewodnik Szybki start — oprogramowanie WildFly w systemie CentOS
+  href: wildfly-on-centos.md
 - name: Obrazy systemu Red Hat Enterprise Linux
   items:
     - name: Obrazy systemu Red Hat Enterprise Linux — omówienie
