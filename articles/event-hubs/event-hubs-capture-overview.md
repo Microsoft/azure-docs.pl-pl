@@ -3,12 +3,12 @@ title: Przechwytywanie zdarzeń przesyłania strumieniowego — Azure Event Hubs
 description: Ten artykuł zawiera omówienie funkcji przechwytywania, która umożliwia przechwytywanie zdarzeń przesyłanych strumieniowo za pomocą usługi Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1b79db7a7f8d0fe03b21e005ef696d5fe55ac0a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32741fdd98ec79c38568ff5a6c4fa476f27d794b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613411"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912620"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Przechwyć zdarzenia za pomocą usługi Azure Event Hubs na platformie Azure Blob Storage lub Azure Data Lake Storage
 Usługa Azure Event Hubs umożliwia automatyczne przechwytywanie danych przesyłanych strumieniowo w Event Hubs w usłudze [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) lub w ramach wybranego konta [Azure Data Lake Storage generacji 1 lub generacji 2](https://azure.microsoft.com/services/data-lake-store/) , z dodatkową elastycznością określania interwału czasu lub rozmiaru. Konfigurowanie przechwytywania jest szybkie, nie ma kosztów administracyjnych do uruchomienia i jest automatycznie skalowane przy użyciu [jednostek przepływności](event-hubs-scalability.md#throughput-units)Event Hubs. Przechwytywanie Event Hubs jest najprostszym sposobem ładowania danych przesyłanych strumieniowo na platformę Azure i umożliwia skoncentrowanie się na przetwarzaniu danych, a nie na przechwytywaniu danych.
@@ -53,11 +53,13 @@ Po skonfigurowaniu Event Hubs przechwytywania zostanie automatycznie uruchomione
 
 ## <a name="setting-up-event-hubs-capture"></a>Konfigurowanie przechwytywania Event Hubs
 
-Funkcję przechwytywania można skonfigurować w czasie tworzenia centrum zdarzeń przy użyciu [Azure Portal](https://portal.azure.com)lub szablonów Azure Resource Manager. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Funkcję przechwytywania można skonfigurować w czasie tworzenia centrum zdarzeń przy użyciu [Azure Portal](https://portal.azure.com)lub szablonów Azure Resource Manager. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Włączanie funkcji przechwytywania usługi Event Hubs przy użyciu witryny Azure Portal](event-hubs-capture-enable-through-portal.md)
 - [Tworzenie przestrzeni nazw usługi Event Hubs z centrum zdarzeń i włączanie funkcji przechwytywania przy użyciu szablonu usługi Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
+> [!NOTE]
+> Jeśli włączysz funkcję przechwytywania dla istniejącego centrum zdarzeń, funkcja przechwytuje zdarzenia, które docierają do centrum zdarzeń **po** włączeniu tej funkcji. Nie przechwytują zdarzeń, które istniały w centrum zdarzeń przed włączeniem funkcji. 
 
 ## <a name="exploring-the-captured-files-and-working-with-avro"></a>Eksplorowanie przechwyconych plików i praca z Avro
 

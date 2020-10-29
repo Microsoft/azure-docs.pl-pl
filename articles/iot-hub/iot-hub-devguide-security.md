@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: dbe277c7451b02887ec5657b1a183fcd001d134e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 93b692574588396f776c4d62bd24072382ae8471
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148292"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912144"
 ---
 # <a name="control-access-to-iot-hub"></a>Kontrola dostępu do centrum IoT Hub
 
@@ -43,7 +43,7 @@ Musisz mieć odpowiednie uprawnienia, aby uzyskać dostęp do dowolnych punktów
 
 [Uprawnienia](#iot-hub-permissions) można udzielić w następujący sposób:
 
-* **Zasady dostępu współdzielonego na poziomie Centrum IoT**. Zasady dostępu współdzielonego mogą przydzielić dowolną kombinację [uprawnień](#iot-hub-permissions). Zasady można definiować w [Azure Portal](https://portal.azure.com)programowo przy użyciu [interfejsów api REST zasobów IoT Hub](/rest/api/iothub/iothubresource)lub przy użyciu polecenia [AZ IoT Hub Policy](/cli/azure/iot/hub/policy?view=azure-cli-latest) . Nowo utworzone Centrum IoT Hub ma następujące zasady domyślne:
+* **Zasady dostępu współdzielonego na poziomie Centrum IoT** . Zasady dostępu współdzielonego mogą przydzielić dowolną kombinację [uprawnień](#iot-hub-permissions). Zasady można definiować w [Azure Portal](https://portal.azure.com)programowo przy użyciu [interfejsów api REST zasobów IoT Hub](/rest/api/iothub/iothubresource)lub przy użyciu polecenia [AZ IoT Hub Policy](/cli/azure/iot/hub/policy) . Nowo utworzone Centrum IoT Hub ma następujące zasady domyślne:
   
   | Zasady dostępu współdzielonego | Uprawnienia |
   | -------------------- | ----------- |
@@ -53,7 +53,7 @@ Musisz mieć odpowiednie uprawnienia, aby uzyskać dostęp do dowolnych punktów
   | registryRead | Uprawnienia **RegistryRead** |
   | registryReadWrite | Uprawnienia **RegistryRead** i **RegistryWrite** |
 
-* **Poświadczenia zabezpieczeń dla poszczególnych urządzeń**. Każdy IoT Hub zawiera [Rejestr tożsamości](iot-hub-devguide-identity-registry.md) dla każdego urządzenia w tym rejestrze tożsamości, można skonfigurować poświadczenia zabezpieczeń, które przyznają uprawnienia **DeviceConnect** do odpowiednich punktów końcowych urządzeń.
+* **Poświadczenia zabezpieczeń dla poszczególnych urządzeń** . Każdy IoT Hub zawiera [Rejestr tożsamości](iot-hub-devguide-identity-registry.md) dla każdego urządzenia w tym rejestrze tożsamości, można skonfigurować poświadczenia zabezpieczeń, które przyznają uprawnienia **DeviceConnect** do odpowiednich punktów końcowych urządzeń.
 
 Na przykład w typowym rozwiązaniu IoT:
 
@@ -99,7 +99,7 @@ Protokół HTTPS implementuje uwierzytelnianie, dołączając prawidłowy token 
 
 Nazwa użytkownika (identyfikator urządzenia jest rozróżniana wielkość liter): `iothubname.azure-devices.net/DeviceId`
 
-Hasło (można wygenerować token sygnatury dostępu współdzielonego z poleceniem polecenia [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token)lub [Azure iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
+Hasło (można wygenerować token sygnatury dostępu współdzielonego z poleceniem polecenia [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token)lub [Azure iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -116,7 +116,7 @@ W przypadku korzystania z SASL PLAIN z AMQP, klient łączący się z usługą I
 
 ## <a name="scope-iot-hub-level-credentials"></a>Zakres poświadczeń na poziomie Centrum IoT Hub
 
-Aby ograniczyć zasady zabezpieczeń na poziomie Centrum IoT, można utworzyć tokeny z identyfikatorem URI zasobu z ograniczeniami. Na przykład punkt końcowy do wysyłania komunikatów z urządzenia do chmury z urządzenia to **/Devices/{deviceId}/messages/Events**. Można również użyć zasad dostępu współdzielonego na poziomie Centrum IoT z uprawnieniami **DeviceConnect** do podpisywania tokenu, którego resourceURI to **/Devices/{deviceId}**. To podejście tworzy token, który jest używany tylko do wysyłania wiadomości w imieniu urządzenia **deviceId**.
+Aby ograniczyć zasady zabezpieczeń na poziomie Centrum IoT, można utworzyć tokeny z identyfikatorem URI zasobu z ograniczeniami. Na przykład punkt końcowy do wysyłania komunikatów z urządzenia do chmury z urządzenia to **/Devices/{deviceId}/messages/Events** . Można również użyć zasad dostępu współdzielonego na poziomie Centrum IoT z uprawnieniami **DeviceConnect** do podpisywania tokenu, którego resourceURI to **/Devices/{deviceId}** . To podejście tworzy token, który jest używany tylko do wysyłania wiadomości w imieniu urządzenia **deviceId** .
 
 Ten mechanizm jest podobny do [zasad wydawcy Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab)i umożliwia implementowanie niestandardowych metod uwierzytelniania.
 
@@ -144,13 +144,13 @@ Poniżej przedstawiono oczekiwane wartości:
 
 | Wartość | Opis |
 | --- | --- |
-| podpisane |Ciąg sygnatury HMAC-SHA256 formularza: `{URL-encoded-resourceURI} + "\n" + expiry` . **Ważne**: klucz jest zdekodowany z formatu base64 i używany jako klucz do wykonywania obliczeń HMAC-SHA256. |
+| podpisane |Ciąg sygnatury HMAC-SHA256 formularza: `{URL-encoded-resourceURI} + "\n" + expiry` . **Ważne** : klucz jest zdekodowany z formatu base64 i używany jako klucz do wykonywania obliczeń HMAC-SHA256. |
 | ResourceURI |Prefiks identyfikatora URI (segment) punktów końcowych, do których można uzyskać dostęp za pomocą tego tokenu, rozpoczynając od nazwy hosta Centrum IoT (bez protokołu). Na przykład `myHub.azure-devices.net/devices/device1` |
 | wygaśnięcia |Ciągi UTF8 przez liczbę sekund od czasu epoki 00:00:00 UTC 1 stycznia 1970. |
 | {Zakodowany w adresie URL — resourceURI} |Małe adresy URL — kodowanie identyfikatora URI zasobu niższej wielkości liter |
 | PolicyName |Nazwa zasad dostępu współdzielonego, do których odwołuje się ten token. Nieobecny, jeśli token odwołuje się do poświadczeń urządzenia-rejestru. |
 
-**Uwaga dotycząca prefiksu**: Prefiks URI jest obliczany przez segment i nie przez znak. Na przykład `/a/b` jest prefiks dla, `/a/b/c` ale nie dla `/a/bc` .
+**Uwaga dotycząca prefiksu** : Prefiks URI jest obliczany przez segment i nie przez znak. Na przykład `/a/b` jest prefiks dla, `/a/b/c` ale nie dla `/a/bc` .
 
 Poniższy fragment kodu Node.js przedstawia funkcję o nazwie **generateSasToken** , która oblicza token na podstawie danych wejściowych `resourceUri, signingKey, policyName, expiresInMins` . W następnych sekcjach szczegółowo opisano, jak zainicjować różne dane wejściowe dla różnych przypadków użycia tokenu.
 
@@ -273,7 +273,7 @@ Należy pamiętać, że wszystkie funkcje dostępne na urządzeniach są udostę
 
 Punkty końcowe dostępne na urządzeniu są (niezależnie od protokołu):
 
-| Punkt końcowy | Funkcjonalność |
+| Punkt końcowy | Funkcja |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Wysyłanie komunikatów z urządzenia do chmury. |
 | `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Odbieraj komunikaty z chmury do urządzenia. |
@@ -303,7 +303,7 @@ Wynik, który daje dostęp do wszystkich funkcji dla device1, będzie:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Istnieje możliwość wygenerowania tokenu sygnatury dostępu współdzielonego za pomocą polecenia rozszerzenia interfejsu użytkownika [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token)lub [narzędzi Azure iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+> Istnieje możliwość wygenerowania tokenu sygnatury dostępu współdzielonego za pomocą polecenia rozszerzenia interfejsu użytkownika [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token)lub [narzędzi Azure iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 ### <a name="use-a-shared-access-policy"></a>Korzystanie z zasad dostępu współdzielonego
 
@@ -345,7 +345,7 @@ Składniki usługi mogą generować tylko tokeny zabezpieczające przy użyciu z
 
 Poniżej przedstawiono funkcje usługi uwidocznione w punktach końcowych:
 
-| Punkt końcowy | Funkcjonalność |
+| Punkt końcowy | Funkcja |
 | --- | --- |
 | `{iot hub host name}/devices` |Tworzenie, aktualizowanie, pobieranie i usuwanie tożsamości urządzeń. |
 | `{iot hub host name}/messages/events` |Odbieraj komunikaty z urządzenia do chmury. |
@@ -377,13 +377,13 @@ Można użyć dowolnego certyfikatu X. 509 w celu uwierzytelnienia urządzenia z
 
 Obsługiwane są następujące certyfikaty:
 
-* **Istniejący certyfikat X. 509**. Z urządzeniem może już być skojarzony certyfikat X. 509. Urządzenie może używać tego certyfikatu do uwierzytelniania za pomocą IoT Hub. Działa z odciskiem palca lub uwierzytelnianiem urzędu certyfikacji. 
+* **Istniejący certyfikat X. 509** . Z urządzeniem może już być skojarzony certyfikat X. 509. Urządzenie może używać tego certyfikatu do uwierzytelniania za pomocą IoT Hub. Działa z odciskiem palca lub uwierzytelnianiem urzędu certyfikacji. 
 
-* **Certyfikat X. 509 podpisany przez urząd certyfikacji**. Aby zidentyfikować urządzenie i uwierzytelnić je za pomocą IoT Hub, można użyć certyfikatu X. 509 wygenerowanego i podpisanego przez urząd certyfikacji (CA). Działa z odciskiem palca lub uwierzytelnianiem urzędu certyfikacji.
+* **Certyfikat X. 509 podpisany przez urząd certyfikacji** . Aby zidentyfikować urządzenie i uwierzytelnić je za pomocą IoT Hub, można użyć certyfikatu X. 509 wygenerowanego i podpisanego przez urząd certyfikacji (CA). Działa z odciskiem palca lub uwierzytelnianiem urzędu certyfikacji.
 
-* **Certyfikat X-509 z podpisem własnym i z**podpisem własnym. Producent urządzenia lub wdrożenie wewnętrzne może generować te certyfikaty i przechowywać odpowiedni klucz prywatny (i certyfikat) na urządzeniu. Do tego celu można użyć narzędzi, takich jak [OpenSSL](https://www.openssl.org/) i [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) Utility. Działa tylko z uwierzytelnianiem przy użyciu odcisku palca. 
+* **Certyfikat X-509 z podpisem własnym i z** podpisem własnym. Producent urządzenia lub wdrożenie wewnętrzne może generować te certyfikaty i przechowywać odpowiedni klucz prywatny (i certyfikat) na urządzeniu. Do tego celu można użyć narzędzi, takich jak [OpenSSL](https://www.openssl.org/) i [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) Utility. Działa tylko z uwierzytelnianiem przy użyciu odcisku palca.
 
-Na urządzeniu może być używany certyfikat X. 509 lub token zabezpieczający, ale nie oba te elementy.
+Na urządzeniu może być używany certyfikat X. 509 lub token zabezpieczający, ale nie oba te elementy. W przypadku uwierzytelniania za pomocą certyfikatu X. 509 upewnij się, że masz strategię do obsługi przerzucania certyfikatów, gdy istniejący certyfikat wygaśnie.
 
 Następujące funkcje nie są obsługiwane w przypadku urządzeń korzystających z uwierzytelniania urzędu certyfikacji X. 509:
 
@@ -396,7 +396,7 @@ Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu urzędu c
 
 [Zestaw SDK usługi Azure IoT dla języka C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (wersja 1.0.8 +) obsługuje rejestrowanie urządzenia korzystającego z certyfikatu X. 509 w celu uwierzytelnienia. Inne interfejsy API, takie jak Import/Export urządzeń, obsługują również certyfikaty X. 509.
 
-Aby skonfigurować certyfikaty X. 509 dla urządzeń, można również użyć polecenia rozszerzenia interfejsu wiersza poleceń [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) .
+Aby skonfigurować certyfikaty X. 509 dla urządzeń, można również użyć polecenia rozszerzenia interfejsu wiersza poleceń [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) .
 
 ### <a name="c-support"></a>Obsługa języka C \#
 

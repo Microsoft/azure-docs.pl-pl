@@ -13,6 +13,7 @@
     - name: Tworzenie publicznego modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Tworzenie publicznego modułu równoważenia obciążenia — szablon usługi Resource Manager
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
     - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — portal
       href: quickstart-load-balancer-standard-internal-portal.md
@@ -21,6 +22,7 @@
     - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — interfejs wiersza polecenia platformy Azure
       href: quickstart-load-balancer-standard-internal-cli.md
     - name: Tworzenie wewnętrznego modułu równoważenia obciążenia — szablon usługi ARM
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Samouczki
@@ -53,6 +55,8 @@
       items:
         - name: Sondy kondycji
           href: load-balancer-custom-probe-overview.md
+        - name: Szczegółowe informacje usługi Azure Monitor dla usługi Load Balancer
+          href: load-balancer-insights.md
         - name: Metryki i diagnostyka usługi Load Balancer w warstwie Standardowa
           href: load-balancer-standard-diagnostics.md
         - name: Dzienniki usługi Azure Monitor dla usługi Load Balancer w warstwie Podstawowa

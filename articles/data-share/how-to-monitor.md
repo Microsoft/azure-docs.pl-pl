@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 2a986afa1916d179834c516a26f76a2789f82452
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87511891"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910478"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorowanie usługi Azure Data Share  
 
@@ -36,13 +36,13 @@ Istnieją trzy stany, w których może znajdować się zaproszenie:
 
 ## <a name="monitor-share-subscriptions"></a>Monitoruj subskrypcje udziałów
 
-Wyświetl stan subskrypcji udziałów, przechodząc do obszaru wysłane udziały — > udostępnić subskrypcje. Umożliwi to podanie szczegółowych informacji o aktywnych subskrypcjach utworzonych przez odbiorców danych po zaakceptowaniu zaproszenia. Możesz zatrzymać przyszłe aktualizacje dla konsumenta danych, wybierając pozycję Udostępnij subskrypcję i wybierając pozycję *odwołaj*. 
+Wyświetl stan subskrypcji udziałów, przechodząc do obszaru wysłane udziały — > udostępnić subskrypcje. Umożliwi to podanie szczegółowych informacji o aktywnych subskrypcjach utworzonych przez odbiorców danych po zaakceptowaniu zaproszenia. Możesz zatrzymać przyszłe aktualizacje dla konsumenta danych, wybierając pozycję Udostępnij subskrypcję i wybierając pozycję *odwołaj* . 
 
 ## <a name="snapshot-history"></a>Historia migawek 
 
 Na karcie **historia** udziału można zobaczyć, kiedy dane są kopiowane z dostawcy danych do magazynu danych odbiorcy danych. Możesz monitorować częstotliwość, czas trwania i stan każdej migawki. 
 
-![Historia migawek](./media/sent-shares.png "Historia migawek") 
+![Zrzut ekranu przedstawia wysłane udziały w Azure Portal.](./media/sent-shares.png "Historia migawek") 
 
 Aby wyświetlić więcej szczegółów na temat poszczególnych migawek, kliknij datę rozpoczęcia przebiegu. Następnie kliknij stan każdego zestawu danych, aby wyświetlić ilość transferowanych danych, liczbę skopiowanych plików/rekordów, czas trwania migawki, liczbę użytych rdzeni wirtualnych i komunikat o błędzie, jeśli istnieje. 
 
@@ -50,9 +50,9 @@ Zostanie wyświetlona historia migawek do 30 dni. Jeśli musisz zapisać i zobac
 
 ## <a name="diagnostic-setting"></a>Ustawienie diagnostyczne
 
-Można skonfigurować ustawienie diagnostyczne, aby zapisywać dane lub zdarzenia dziennika. Przejdź do opcji monitorowanie — > ustawienia diagnostyczne i wybierz pozycję **Dodaj ustawienie diagnostyczne**. Wybierz dane lub zdarzenia dziennika, które Cię interesują, i miejsce, w którym mają być przechowywane lub wysyłane. 
+Można skonfigurować ustawienie diagnostyczne, aby zapisywać dane lub zdarzenia dziennika. Przejdź do opcji monitorowanie — > ustawienia diagnostyczne i wybierz pozycję **Dodaj ustawienie diagnostyczne** . Wybierz dane lub zdarzenia dziennika, które Cię interesują, i miejsce, w którym mają być przechowywane lub wysyłane. 
 
-![Historia migawek](./media/diagnostic-settings.png "Ustawienia diagnostyczne") 
+![Zrzut ekranu przedstawia stronę ustawień diagnostycznych w Azure Portal.](./media/diagnostic-settings.png "Ustawienia diagnostyczne") 
 
 ## <a name="next-steps"></a>Następne kroki 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 231b6ffa3730721d4e44ecb15c2fc58591b80178
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 22922972049ec78cc26f4d060fa1981d1f23a3ce
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314815"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912450"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Rozwiązywanie problemów z usługą Azure Load Balancer
 
@@ -35,10 +35,10 @@ Gdy klienci zewnętrzni do maszyn wirtualnych zaplecza przechodzą przez moduł 
 
 **Sprawdzanie poprawności i rozwiązywanie problemów**
 
-Standardowe ILB są **domyślnie zabezpieczone**. Podstawowy ILB zezwala na łączenie się z Internetem za pośrednictwem *ukrytego* publicznego adresu IP. Nie jest to zalecanych dla obciążeń produkcyjnych, ponieważ adres IP nie jest ani statyczny, ani zablokowany przez sieciowych grup zabezpieczeń. Jeśli ostatnio przeniesiono z podstawowej ILB do standardowej ILB, należy utworzyć publiczny adres IP jawnie za pośrednictwem konfiguracji [tylko wychodzącego](egress-only.md) , która blokuje adres IP za pośrednictwem sieciowych grup zabezpieczeń. 
+Standardowe ILB są **domyślnie zabezpieczone** . Podstawowy ILB zezwala na łączenie się z Internetem za pośrednictwem *ukrytego* publicznego adresu IP. Nie jest to zalecanych dla obciążeń produkcyjnych, ponieważ adres IP nie jest ani statyczny, ani zablokowany przez sieciowych grup zabezpieczeń. Jeśli ostatnio przeniesiono z podstawowej ILB do standardowej ILB, należy utworzyć publiczny adres IP jawnie za pośrednictwem konfiguracji [tylko wychodzącego](egress-only.md) , która blokuje adres IP za pośrednictwem sieciowych grup zabezpieczeń. Można również użyć [bramy translatora adresów sieciowych](../virtual-network/nat-overview.md) w podsieci.
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Objaw: maszyny wirtualne znajdujące się za Load Balancer nie reagują na sondy kondycji
-W przypadku serwerów zaplecza, które mają być uwzględnione w zestawie modułu równoważenia obciążenia, muszą one przekazywać sprawdzanie sondy. Aby uzyskać więcej informacji o sondach kondycji, zobacz [Opis sond Load Balancer](load-balancer-custom-probe-overview.md). 
+W przypadku serwerów zaplecza, które mają być uwzględnione w zestawie modułu równoważenia obciążenia, muszą one przekazywać sprawdzanie sondy. Aby uzyskać więcej informacji o sondach kondycji, zobacz [Opis sond Load Balancer](load-balancer-custom-probe-overview.md). 
 
 Maszyny wirtualne puli zaplecza Load Balancer mogą nie odpowiadać na sondy z jednego z następujących powodów: 
 - Maszyna wirtualna puli zaplecza Load Balancer jest w złej kondycji 
@@ -58,12 +58,12 @@ Jeśli maszyna wirtualna jest w dobrej kondycji, ale nie odpowiada na sondę, mo
 **Sprawdzanie poprawności i rozwiązywanie problemów**
 
 1. Zaloguj się do maszyny wirtualnej zaplecza. 
-2. Otwórz wiersz polecenia i uruchom następujące polecenie, aby sprawdzić, czy aplikacja nasłuchuje na porcie sondy:   
+2. Otwórz wiersz polecenia i uruchom następujące polecenie, aby sprawdzić, czy aplikacja nasłuchuje na porcie sondy:   
             netstat-an
-3. Jeśli stan portu nie jest wyświetlany na liście jako **nasłuchiwanie**, skonfiguruj właściwy port. 
-4. Alternatywnie możesz wybrać inny port, który jest wyświetlany jako **nasłuchiwanie**i odpowiednio zaktualizować konfigurację modułu równoważenia obciążenia.              
+3. Jeśli stan portu nie jest wyświetlany na liście jako **nasłuchiwanie** , skonfiguruj właściwy port. 
+4. Alternatywnie możesz wybrać inny port, który jest wyświetlany jako **nasłuchiwanie** i odpowiednio zaktualizować konfigurację modułu równoważenia obciążenia.              
 
-### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Przyczyna 3: Zapora lub sieciowa Grupa zabezpieczeń blokująca port na maszynach wirtualnych puli zaplecza modułu równoważenia obciążenia  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Przyczyna 3: Zapora lub sieciowa Grupa zabezpieczeń blokująca port na maszynach wirtualnych puli zaplecza modułu równoważenia obciążenia  
 Jeśli Zapora na maszynie wirtualnej blokuje port sondy lub co najmniej jedna sieciowa Grupa zabezpieczeń skonfigurowana w podsieci lub na maszynie wirtualnej, nie zezwala na sondowanie do połączenia z portem, maszyna wirtualna nie może odpowiedzieć na sondę kondycji.          
 
 **Sprawdzanie poprawności i rozwiązywanie problemów**
@@ -71,7 +71,7 @@ Jeśli Zapora na maszynie wirtualnej blokuje port sondy lub co najmniej jedna si
 * Jeśli Zapora jest włączona, sprawdź, czy jest ona skonfigurowana do zezwalania na port sondy. W przeciwnym razie Skonfiguruj zaporę tak, aby zezwalała na ruch na porcie sondowania, i ponownie przetestuj. 
 * Z listy grup zabezpieczeń sieci Sprawdź, czy ruch przychodzący lub wychodzący na porcie sondy ma zakłócenia. 
 * Sprawdź również, czy reguła **Odmów wszystkich** grup zabezpieczeń sieci na karcie sieciowej maszyny wirtualnej lub podsieci o wyższym priorytecie niż reguła domyślna zezwalająca na sondy lb & ruchem (sieciowe grupy zabezpieczeń muszą zezwalać na Load Balancer IP 168.63.129.16). 
-* Jeśli dowolna z tych reguł blokuje ruch sondy, Usuń i ponownie skonfiguruj reguły, aby zezwolić na ruch sondy.  
+* Jeśli dowolna z tych reguł blokuje ruch sondy, Usuń i ponownie skonfiguruj reguły, aby zezwolić na ruch sondy.  
 * Sprawdź, czy maszyna wirtualna rozpoczęła teraz reagowanie na sondy kondycji. 
 
 ### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Przyczyna 4: inne błędy konfiguracji w Load Balancer
@@ -93,7 +93,7 @@ Jeśli wszystkie poprzednie przyczyny są sprawdzane poprawnie i są prawidłowo
 
 Jeśli maszyna wirtualna puli zaplecza jest wyświetlana jako dobra kondycja i reaguje na sondy kondycji, ale nadal nie uczestniczy w równoważeniu obciążenia lub nie odpowiada na ruch danych, może to być spowodowane jedną z następujących przyczyn: 
 * Maszyna wirtualna puli zaplecza Load Balancer nie nasłuchuje na porcie danych 
-* Sieciowa Grupa zabezpieczeń blokuje port na maszynie wirtualnej puli zaplecza Load Balancer  
+* Sieciowa Grupa zabezpieczeń blokuje port na maszynie wirtualnej puli zaplecza Load Balancer  
 * Uzyskiwanie dostępu do Load Balancer z tej samej maszyny wirtualnej i karty sieciowej 
 * Uzyskiwanie dostępu do Internetu Load Balancer frontonu z poziomu maszyny wirtualnej puli zaplecza Load Balancer 
 
@@ -103,11 +103,12 @@ Jeśli maszyna wirtualna nie odpowiada na ruch danych, może to być spowodowane
 **Sprawdzanie poprawności i rozwiązywanie problemów**
 
 1. Zaloguj się do maszyny wirtualnej zaplecza. 
-2. Otwórz wiersz polecenia i uruchom następujące polecenie, aby sprawdzić, czy aplikacja nasłuchuje na porcie danych:   netstat-a 
+2. Otwórz wiersz polecenia i uruchom następujące polecenie, aby sprawdzić, czy aplikacja nasłuchuje na porcie danych:  
+            netstat-an 
 3. Jeśli port nie jest wyświetlany w stanie "nasłuchiwanie", skonfiguruj odpowiedni port odbiornika 
 4. Jeśli port jest oznaczony jako nasłuch, Sprawdź aplikację docelową na tym porcie, aby uzyskać ewentualne problemy.
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Przyczyna 2: sieciowa Grupa zabezpieczeń blokuje port na maszynie wirtualnej puli zaplecza Load Balancer  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Przyczyna 2: sieciowa Grupa zabezpieczeń blokuje port na maszynie wirtualnej puli zaplecza Load Balancer  
 
 Jeśli co najmniej jedna sieciowa Grupa zabezpieczeń skonfigurowana w podsieci lub na maszynie wirtualnej blokuje źródłowy adres IP lub port, maszyna wirtualna nie będzie mogła odpowiedzieć.
 
@@ -117,7 +118,7 @@ W przypadku publicznego modułu równoważenia obciążenia adres IP klientów i
 1. Z listy grup zabezpieczeń sieci Sprawdź, czy:
     - ruch przychodzący lub wychodzący na porcie danych ma zakłócenia. 
     - reguła **odmowa wszystkich** sieci sieciowej grupy zabezpieczeń na karcie sieciowej maszyny wirtualnej lub podsieci o wyższym priorytecie, która zezwala na Load Balancer sondy i ruch (sieciowe grupy zabezpieczeń muszą zezwalać na Load Balancer IP 168.63.129.16, który jest port sondy)
-1. Jeśli którakolwiek z reguł blokuje ruch, Usuń i skonfiguruj ponownie te reguły, aby zezwolić na ruch danych.  
+1. Jeśli którakolwiek z reguł blokuje ruch, Usuń i skonfiguruj ponownie te reguły, aby zezwolić na ruch danych.  
 1. Sprawdź, czy maszyna wirtualna została teraz uruchomiona, aby odpowiedzieć na sondy kondycji.
 
 ### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Przyczyna 3: uzyskiwanie dostępu do Load Balancer z tej samej maszyny wirtualnej i interfejsu sieciowego 

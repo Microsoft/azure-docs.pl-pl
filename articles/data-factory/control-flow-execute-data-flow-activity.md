@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/30/2020
-ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 753d72b31e4f813d0e7abbbd223e050fd3390411
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485041"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910767"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Aktywność przepływu danych w Azure Data Factory
 
@@ -60,8 +60,8 @@ przepływu danych | Odwołanie do przepływu danych, który jest wykonywany | Da
 integrationRuntime | Środowisko obliczeniowe, w którym działa przepływ danych. Jeśli nie zostanie określony, zostanie użyta funkcja rozwiązywania problemów z rozwiązaniem Azure Integration Runtime. | IntegrationRuntimeReference | Nie
 COMPUTE. coreCount | Liczba rdzeni używanych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | 8, 16, 32, 48, 80, 144, 272 | Nie
 COMPUTE. computetype | Typ obliczeń użytych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | "Ogólne", "ComputeOptimized", "MemoryOptimized" | Nie
-przemieszczanie. linkedService | Jeśli używasz źródła lub ujścia usługi Azure Synapse Analytics, konto magazynu używane na potrzeby przemieszczania podstawowego | LinkedServiceReference | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane w usłudze Azure Synapse Analytics
-przemieszczanie. folderPath | Jeśli używasz źródła lub ujścia usługi Azure Synapse Analytics, ścieżka folderu na koncie usługi BLOB Storage używanym do przemieszczania podstawowego | Ciąg | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane w usłudze Azure Synapse Analytics
+przemieszczanie. linkedService | Jeśli używasz źródła lub ujścia usługi Azure Synapse Analytics, określ konto magazynu używane na potrzeby wstępnego przemieszczania.<br/><br/>Jeśli usługa Azure Storage jest skonfigurowana za pomocą punktu końcowego usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej z włączoną opcją "Zezwalaj na zaufaną usługę firmy Microsoft" na koncie magazynu, zapoznaj się z tematem [wpływ korzystania z punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Należy również zapoznać się z wymaganymi konfiguracjami [obiektów blob platformy Azure](connector-azure-blob-storage.md#managed-identity) i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .<br/> | LinkedServiceReference | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane w usłudze Azure Synapse Analytics
+przemieszczanie. folderPath | Jeśli używasz źródła lub ujścia usługi Azure Synapse Analytics, ścieżka folderu na koncie usługi BLOB Storage używanym do przemieszczania podstawowego | String | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane w usłudze Azure Synapse Analytics
 
 ![Wykonaj przepływ danych](media/data-flow/activity-data-flow.png "Wykonaj przepływ danych")
 
@@ -116,7 +116,7 @@ Potok debugowania działa w odniesieniu do aktywnego klastra debugowania, a nie 
 
 ## <a name="monitoring-the-data-flow-activity"></a>Monitorowanie działania przepływu danych
 
-Działanie przepływu danych ma specjalne środowisko monitorowania, w którym można wyświetlać partycjonowanie, czas etapów i informacje o pomieszczeniu danych. Otwórz okienko monitorowanie za pomocą ikony okularów w obszarze **Akcje**. Aby uzyskać więcej informacji, zobacz [monitorowanie przepływów danych](concepts-data-flow-monitoring.md).
+Działanie przepływu danych ma specjalne środowisko monitorowania, w którym można wyświetlać partycjonowanie, czas etapów i informacje o pomieszczeniu danych. Otwórz okienko monitorowanie za pomocą ikony okularów w obszarze **Akcje** . Aby uzyskać więcej informacji, zobacz [monitorowanie przepływów danych](concepts-data-flow-monitoring.md).
 
 ### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Korzystanie z wyników działania przepływu danych w kolejnym działaniu
 

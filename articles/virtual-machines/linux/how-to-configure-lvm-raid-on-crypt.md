@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: b65c37ab06092be63cbb2ad9fb5e23cdb8324e80
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476165"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911821"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Konfigurowanie LVM i RAID na zaszyfrowanych urządzeniach
 
@@ -42,7 +42,7 @@ Woluminy fizyczne (PVs) są tworzone w warstwie zaszyfrowanej. Woluminy fizyczne
 
 W podobny sposób urządzenie RAID jest tworzone na podstawie warstwy zaszyfrowanej na dyskach. System plików jest tworzony na urządzeniu RAID i dodawany do/etc/fstab jako zwykłe urządzenie.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Kwestie do rozważenia
 
 Zalecamy użycie LVM-on-Crypt. RAID to opcja, gdy nie można użyć LVM z powodu określonych ograniczeń aplikacji lub środowiska.
 
@@ -287,7 +287,7 @@ Zamiast używać nazwy urządzenia, należy użyć ścieżek/dev/mapper dla każ
 
 ### <a name="configure-lvm-on-top-of-the-encrypted-layers"></a>Skonfiguruj LVM na podstawie zaszyfrowanych warstw
 #### <a name="create-the-physical-volumes"></a>Tworzenie woluminów fizycznych
-Zostanie wyświetlone ostrzeżenie z pytaniem, czy można wyczyścić sygnaturę systemu plików. Kontynuuj, wprowadzając wartość **y**lub Użyj **ECHA "y"** , jak pokazano poniżej:
+Zostanie wyświetlone ostrzeżenie z pytaniem, czy można wyczyścić sygnaturę systemu plików. Kontynuuj, wprowadzając wartość **y** lub Użyj **ECHA "y"** , jak pokazano poniżej:
 
 ```bash
 echo "y" | pvcreate /dev/mapper/c49ff535-1df9-45ad-9dad-f0846509f052
@@ -298,7 +298,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![Weryfikowanie, czy wolumin fizyczny został utworzony](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->Nazwy/dev/mapper/Device należy wymienić na rzeczywiste wartości na podstawie danych wyjściowych **lsblk**.
+>Nazwy/dev/mapper/Device należy wymienić na rzeczywiste wartości na podstawie danych wyjściowych **lsblk** .
 
 #### <a name="verify-the-information-for-physical-volumes"></a>Weryfikowanie informacji o woluminach fizycznych
 ```bash
@@ -368,9 +368,9 @@ mount -a
 lsblk -fs
 df -h
 ```
-![Informacje dotyczące zainstalowanych systemów plików](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![Zrzut ekranu przedstawia okno konsoli z systemami plików zainstalowanymi jako data0 i dane1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
-W tej odmianie **lsblk**wymieniamy urządzenia pokazujące zależności w kolejności odwrotnej. Ta opcja pomaga identyfikować urządzenia pogrupowane według woluminu logicznego zamiast oryginalnych nazw urządzeń/dev/SD [Disk].
+W tej odmianie **lsblk** wymieniamy urządzenia pokazujące zależności w kolejności odwrotnej. Ta opcja pomaga identyfikować urządzenia pogrupowane według woluminu logicznego zamiast oryginalnych nazw urządzeń/dev/SD [Disk].
 
 Ważne jest, aby upewnić się, że opcja **nofail** została dodana do opcji punktu instalacji woluminów LVM utworzonych na podstawie urządzenia zaszyfrowanego za pomocą Azure Disk Encryption. Zapobiega to zawieszeniu systemu operacyjnego podczas procesu rozruchu (lub w trybie konserwacji).
 
@@ -406,7 +406,7 @@ mdadm --create /dev/md10 \
 ![Informacje dotyczące skonfigurowanej macierzy RAID za pośrednictwem polecenia mdadm](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
 >[!NOTE] 
->Nazwy/dev/mapper/Device należy zastąpić wartościami rzeczywistymi na podstawie danych wyjściowych **lsblk**.
+>Nazwy/dev/mapper/Device należy zastąpić wartościami rzeczywistymi na podstawie danych wyjściowych **lsblk** .
 
 ### <a name="checkmonitor-raid-creation"></a>Sprawdź/Monitoruj tworzenie macierzy RAID
 ```bash
@@ -437,7 +437,7 @@ Sprawdź, czy nowy system plików jest zainstalowany:
 lsblk -fs
 df -h
 ```
-![Informacje dotyczące zainstalowanych systemów plików](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![Zrzut ekranu przedstawia okno konsoli z systemem plików zainstalowanym jako raiddata.](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 Ważne jest, aby upewnić się, że opcja **nofail** została dodana do opcji punktu instalacji woluminów RAID utworzonych na podstawie urządzenia zaszyfrowanego za pomocą Azure Disk Encryption. Zapobiega to zawieszeniu systemu operacyjnego podczas procesu rozruchu (lub w trybie konserwacji).
 

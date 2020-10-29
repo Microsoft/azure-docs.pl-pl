@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6f6b2ed9357acf4dceeb960b1abdf6813987f657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74861df30ba2854c9299e1f779d0cee59abbc5a8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324896"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911209"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrowanie danych własnych do innej subskrypcji programu Marketo
 
@@ -28,7 +28,7 @@ Ta sama Strategia migracji dotyczy również obiektów LargePersonGroup i LargeF
 
 Potrzebne są następujące elementy:
 
-- Dwa klucze subskrypcji — jeden z istniejącymi danymi i jeden do migracji. Aby subskrybować usługę kroju i uzyskać klucz, postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+- Dwa klucze subskrypcji — jeden z istniejącymi danymi i jeden do migracji. Aby subskrybować usługę kroju i uzyskać klucz, postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](../../cognitive-services-apis-create-account.md).
 - Ciąg identyfikatora subskrypcji tarczy, który odpowiada subskrypcji docelowej. Aby go znaleźć, wybierz pozycję **Przegląd** w Azure Portal. 
 - Dowolna wersja programu [Visual Studio 2015 lub 2017](https://www.visualstudio.com/downloads/).
 
@@ -36,13 +36,13 @@ Potrzebne są następujące elementy:
 
 W tym przewodniku zastosowano prostą aplikację konsolową do uruchomienia migracji danych programu. Aby uzyskać pełną implementację, zobacz [przykład Snapshot](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) Retail w witrynie GitHub.
 
-1. W programie Visual Studio Utwórz nową aplikację konsolową .NET Framework projektu. Nadaj mu nazwę **FaceApiSnapshotSample**.
-1. Pobierz wymagane pakiety NuGet. Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań i wybierz polecenie **Zarządzaj pakietami NuGet**. Wybierz kartę **Przeglądaj** , a następnie wybierz pozycję **Uwzględnij wersję wstępną**. Znajdź i zainstaluj następujący pakiet:
+1. W programie Visual Studio Utwórz nową aplikację konsolową .NET Framework projektu. Nadaj mu nazwę **FaceApiSnapshotSample** .
+1. Pobierz wymagane pakiety NuGet. Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań i wybierz polecenie **Zarządzaj pakietami NuGet** . Wybierz kartę **Przeglądaj** , a następnie wybierz pozycję **Uwzględnij wersję wstępną** . Znajdź i zainstaluj następujący pakiet:
     - [Microsoft. Azure. CognitiveServices. Vision. 2.3.0 — wersja zapoznawcza](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
 ## <a name="create-face-clients"></a>Tworzenie klientów z czołową
 
-W metodzie **Main** w programie *program.cs*Utwórz dwa wystąpienia [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) dla subskrypcji źródłowej i docelowej. W tym przykładzie w regionie Azja Wschodnia jako źródło i zachodnie stany USA jako element docelowy jest stosowana subskrypcja czołowa. W tym przykładzie pokazano, jak migrować dane z jednego regionu świadczenia usługi Azure do innego. 
+W metodzie **Main** w programie *program.cs* Utwórz dwa wystąpienia [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) dla subskrypcji źródłowej i docelowej. W tym przykładzie w regionie Azja Wschodnia jako źródło i zachodnie stany USA jako element docelowy jest stosowana subskrypcja czołowa. W tym przykładzie pokazano, jak migrować dane z jednego regionu świadczenia usługi Azure do innego. 
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -63,7 +63,7 @@ Wypełnij wartości klucza subskrypcji i adresy URL punktów końcowych dla subs
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Przygotowywanie osoby do migracji
 
-Potrzebujesz identyfikatora osoby w Twojej subskrypcji źródłowej, aby przeprowadzić migrację do subskrypcji docelowej. Użyj metody [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) , aby pobrać listę obiektów osoby. Następnie Pobierz Właściwość [Persons. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Proces ten wygląda różnie w zależności od tego, jakie obiekty są dostępne. W tym przewodniku identyfikator źródła osoby źródłowej jest przechowywany w `personGroupId` .
+Potrzebujesz identyfikatora osoby w Twojej subskrypcji źródłowej, aby przeprowadzić migrację do subskrypcji docelowej. Użyj metody [PersonGroupOperationsExtensions. ListAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) , aby pobrać listę obiektów osoby. Następnie Pobierz Właściwość [Persons. PersonGroupId](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Proces ten wygląda różnie w zależności od tego, jakie obiekty są dostępne. W tym przewodniku identyfikator źródła osoby źródłowej jest przechowywany w `personGroupId` .
 
 > [!NOTE]
 > [Przykładowy kod](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) tworzy i pociąga za niego nową osobę do migracji. W większości przypadków powinna istnieć już osoba, która ma być używana.
@@ -72,7 +72,7 @@ Potrzebujesz identyfikatora osoby w Twojej subskrypcji źródłowej, aby przepro
 
 Migawka jest tymczasowym magazynem zdalnym dla określonych typów danych czołowych. Działa jako rodzaj schowka do kopiowania danych z jednej subskrypcji do innej. Najpierw należy wykonać migawkę danych w subskrypcji źródłowej. Następnie należy zastosować ją do nowego obiektu danych w subskrypcji docelowej.
 
-Użyj wystąpienia FaceClient subskrypcji źródłowej, aby wykonać migawkę tej osoby. Użyj [TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) z identyfikatorem osoby i identyfikatorem subskrypcji docelowej. Jeśli masz wiele subskrypcji docelowych, Dodaj je jako wpisy tablicowe w trzecim parametrze.
+Użyj wystąpienia FaceClient subskrypcji źródłowej, aby wykonać migawkę tej osoby. Użyj [TakeAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) z identyfikatorem osoby i identyfikatorem subskrypcji docelowej. Jeśli masz wiele subskrypcji docelowych, Dodaj je jako wpisy tablicowe w trzecim parametrze.
 
 ```csharp
 var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
@@ -82,7 +82,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> Proces tworzenia i stosowania migawek nie zakłóca żadnych zwykłych wywołań elementu Source ani Target grup osób wynosi lub FaceLists. Nie należy wykonywać jednoczesnych wywołań, które zmieniają obiekt źródłowy, takich jak [wywołania zarządzania FaceList](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) lub wywołania [szkolenia z zespołu osób](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) , na przykład. Operacja migawki może zostać uruchomiona przed lub po tych operacjach lub może napotkać błędy.
+> Proces tworzenia i stosowania migawek nie zakłóca żadnych zwykłych wywołań elementu Source ani Target grup osób wynosi lub FaceLists. Nie należy wykonywać jednoczesnych wywołań, które zmieniają obiekt źródłowy, takich jak [wywołania zarządzania FaceList](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) lub wywołania [szkolenia z zespołu osób](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) , na przykład. Operacja migawki może zostać uruchomiona przed lub po tych operacjach lub może napotkać błędy.
 
 ## <a name="retrieve-the-snapshot-id"></a>Pobierz identyfikator migawki
 
@@ -233,7 +233,7 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 
 Następnie zapoznaj się z dokumentacją dotyczącą interfejsów API, zobacz przykładową aplikację korzystającą z funkcji Snapshot lub wykonaj instrukcje, aby zacząć korzystać z innych operacji interfejsu API wymienionych tutaj:
 
-- [Dokumentacja referencyjna migawek (zestaw SDK dla platformy .NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
+- [Dokumentacja referencyjna migawek (zestaw SDK dla platformy .NET)](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Przykładowa migawka czołowa](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Dodawanie twarzy](how-to-add-faces.md)
 - [Wykrywanie twarzy na obrazie](HowtoDetectFacesinImage.md)

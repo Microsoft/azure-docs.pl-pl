@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c063fec3eac962d22ead12e0ca11f4b9fc155b5d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903191"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910155"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Rozwiązywanie problemów dotyczących danych wyjściowych Azure Stream Analytics
 
@@ -67,7 +67,7 @@ Podczas normalnego działania zadania dane wyjściowe mogą mieć dłuższy i d�
 * Czy źródło nadrzędnego jest ograniczone
 * Czy logika przetwarzania w zapytaniu jest intensywnie COMPUTE
 
-Aby wyświetlić szczegóły danych wyjściowych, wybierz zadanie przesyłania strumieniowego w Azure Portal, a następnie wybierz pozycję **Diagram zadań**. Dla każdego elementu wejściowego istnieje Metryka zdarzenia zaległości na partycję. Jeśli Metryka ciągle rośnie, jest wskaźnikiem, że zasoby systemowe są ograniczone. Zwiększenie jest potencjalnie możliwe z powodu ograniczania przepływów danych wyjściowych lub wysokiego użycia procesora CPU. Aby uzyskać więcej informacji, zobacz [debugowanie oparte na danych przy użyciu diagramu zadań](stream-analytics-job-diagram-with-metrics.md).
+Aby wyświetlić szczegóły danych wyjściowych, wybierz zadanie przesyłania strumieniowego w Azure Portal, a następnie wybierz pozycję **Diagram zadań** . Dla każdego elementu wejściowego istnieje Metryka zdarzenia zaległości na partycję. Jeśli Metryka ciągle rośnie, jest wskaźnikiem, że zasoby systemowe są ograniczone. Zwiększenie jest potencjalnie możliwe z powodu ograniczania przepływów danych wyjściowych lub wysokiego użycia procesora CPU. Aby uzyskać więcej informacji, zobacz [debugowanie oparte na danych przy użyciu diagramu zadań](stream-analytics-job-diagram-with-metrics.md).
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Ostrzeżenie o naruszeniu klucza z danymi wyjściowymi Azure SQL Database
 
@@ -81,13 +81,35 @@ Podczas konfigurowania IGNORE_DUP_KEY dla kilku typów indeksów należy zwróci
 
 * Nie można ustawić IGNORE_DUP_KEY dla klucza podstawowego lub ograniczenia UNIQUE, które używa instrukcji ALTER INDEX. Należy porzucić indeks i utworzyć go ponownie.  
 * IGNORE_DUP_KEY można ustawić przy użyciu instrukcji ALTER INDEX dla unikatowego indeksu. To wystąpienie jest inne niż w przypadku ograniczenia PRIMARY KEY/UNIQUE i jest tworzone przy użyciu tworzenia indeksu lub definicji indeksu.  
-* Opcja IGNORE_DUP_KEY nie dotyczy indeksów magazynu kolumn, ponieważ nie można wymusić jej unikatowości.  
+* Opcja IGNORE_DUP_KEY nie dotyczy indeksów magazynu kolumn, ponieważ nie można wymusić jej unikatowości.
+
+## <a name="sql-output-retry-logic"></a>Logika ponowień danych wyjściowych SQL
+
+Gdy zadanie Stream Analytics z danymi wyjściowymi SQL otrzyma pierwszą partię zdarzeń, wystąpią następujące czynności:
+
+1. Zadanie próbuje nawiązać połączenie z serwerem SQL.
+2. Zadanie Pobiera schemat tabeli docelowej.
+3. Zadanie sprawdza poprawność nazw kolumn i typów względem schematu tabeli docelowej.
+4. Zadanie przygotowuje tabelę danych znajdującą się w pamięci z rekordów wyjściowych w partii.
+5. Zadanie zapisuje tabelę danych do SQL przy użyciu [interfejsu API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1)docelowa elementu BulkCopy.
+
+Podczas wykonywania tych kroków w danych wyjściowych SQL mogą wystąpić następujące typy błędów:
+
+* [Błędy](/azure/azure-sql/database/troubleshoot-common-errors-issues#transient-fault-error-messages-40197-40613-and-others) przejściowe, które są ponawiane przy użyciu strategii wycofywaniaego ponawiania prób. Minimalny interwał ponawiania prób zależy od danego kodu błędu, ale interwały są zwykle mniejsze niż 60 sekund. Górny limit może być co najwyżej pięć minut. 
+
+   [Błędy logowania](/azure/azure-sql/database/troubleshoot-common-errors-issues#unable-to-log-in-to-the-server-errors-18456-40531) i [problemy z zaporą](/azure/azure-sql/database/troubleshoot-common-errors-issues#cannot-connect-to-server-due-to-firewall-issues) są ponawiane co najmniej 5 minut od poprzedniej próby i są ponawiane do momentu pomyślnego zakończenia.
+
+* Błędy danych, takie jak błędy rzutowania i naruszenia ograniczeń schematu, są obsługiwane z użyciem zasad błędów danych wyjściowych. Te błędy są obsługiwane przez ponawianie próby dzielenia danych binarnych do momentu, aż pojedynczy rekord powodujący błąd jest obsługiwany przez pominięcie lub ponowienie próby. Podstawowe naruszenie ograniczenia klucza podstawowego jest [zawsze obsługiwane](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output).
+
+* Błędy nieprzejściowe mogą wystąpić, gdy występują problemy z usługą SQL lub wady kodu wewnętrznego. Na przykład gdy błędy takie jak (kod 1132) Pula elastycznają swój limit magazynowania, ponawianie próby nie rozwiąże błędu. W tych scenariuszach zadanie Stream Analyticsu zwiększa [spadek wydajności](job-states.md).
+* `BulkCopy` w kroku 5 mogą wystąpić limity czasu `BulkCopy` . `BulkCopy` może napotkać czas oczekiwania operacji. Domyślny minimalny skonfigurowany limit czasu wynosi pięć minut i jest dwukrotnie powtarzany.
+Po upływie limitu czasu przekraczającego 15 minut, wartość maksymalnej wskazówki dotyczącej rozmiaru wsadu `BulkCopy` zostanie zredukowana do połowy do momentu pozostałego 100 zdarzeń na partię.
 
 ## <a name="column-names-are-lowercase-in-azure-stream-analytics-10"></a>Nazwy kolumn są małymi literami w Azure Stream Analytics (1,0)
 
 W przypadku używania oryginalnego poziomu zgodności (1,0) Azure Stream Analytics zmienia nazwy kolumn na małe litery. Takie zachowanie zostało rozwiązane na późniejszych poziomach zgodności. Aby zachować sprawność, przejdź do poziomu zgodności 1,1 lub nowszego. Aby uzyskać więcej informacji, zobacz [poziom zgodności zadań Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
-## <a name="get-help"></a>Uzyskaj pomoc
+## <a name="get-help"></a>Uzyskiwanie pomocy
 
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 

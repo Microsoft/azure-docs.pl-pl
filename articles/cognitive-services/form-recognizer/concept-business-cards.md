@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82182c24f87a82df5ee040b7853588f74dda449f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334552"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909951"
 ---
 # <a name="business-card-concepts"></a>Pojęcia dotyczące wizytówek
 
@@ -385,13 +385,13 @@ Dane wyodrębnione za pomocą interfejsu API kart służbowych mogą służyć d
 * Śledź potencjalne wyniki sprzedaży.  
 * Pobieraj zbiorczo informacje kontaktowe z istniejących obrazów kart służbowych. 
 
-Interfejs API kart służbowych zapewnia również [funkcję przetwarzania karty biznesowej AIBuilder](https://docs.microsoft.com/ai-builder/prebuilt-business-card).
+Interfejs API kart służbowych zapewnia również [funkcję przetwarzania karty biznesowej AIBuilder](/ai-builder/prebuilt-business-card).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Postępuj zgodnie z [przewodnikiem Szybki Start dotyczący kart służbowych](./quickstarts/python-business-cards.md) w języku Python, aby rozpocząć rozpoznawanie kart służbowych.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Co to jest rozpoznawanie formularzy?](./overview.md)
 * [Dokumentacja interfejsu API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)

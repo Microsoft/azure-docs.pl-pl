@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 14a532e7809db3359d90a03c169c27a19cf89a9a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164231"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911634"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -21,7 +21,7 @@ Ten artykuł ma na celu pomoc w rozwiązywaniu problemów i rozwiązywaniu probl
 
 1. [Microsoft Q&stronie pytania dotyczącej usługi Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie obsługi, w Azure Portal na karcie **Pomoc** wybierz przycisk **Pomoc i obsługa techniczna** , a następnie wybierz pozycję **nowe żądanie obsługi**.
+3. pomoc techniczna firmy Microsoft. Aby utworzyć nowe żądanie obsługi, w Azure Portal na karcie **Pomoc** wybierz przycisk **Pomoc i obsługa techniczna** , a następnie wybierz pozycję **nowe żądanie obsługi** .
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Mam problem z Azure File Sync na serwerze (synchronizacja, Obsługa warstw w chmurze itp.). Czy należy usunąć i ponownie utworzyć mój punkt końcowy serwera?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -102,17 +102,20 @@ Jeśli serwer nie znajduje się na liście **zarejestrowanych serwerów** dla us
 3. Uruchom ServerRegistration.exe i Ukończ pracę kreatora, aby zarejestrować serwer w usłudze synchronizacji magazynu.
 
 ## <a name="sync-group-management"></a>Zarządzanie grupami synchronizacji
+
+### <a name="cloud-endpoint-creation-errors"></a>Błędy tworzenia punktów końcowych w chmurze
+
 <a id="cloud-endpoint-using-share"></a>**Tworzenie punktu końcowego w chmurze kończy się niepowodzeniem z powodu błędu: "określony udział plików platformy Azure jest już używany przez inny CloudEndpoint"**  
 Ten błąd występuje, jeśli udział plików platformy Azure jest już używany przez inny punkt końcowy w chmurze. 
 
 Jeśli zobaczysz ten komunikat i udział plików platformy Azure aktualnie nie jest używany przez punkt końcowy w chmurze, wykonaj następujące kroki, aby wyczyścić Azure File Sync metadane w udziale plików platformy Azure:
 
 > [!Warning]  
-> Usuwanie metadanych w udziale plików platformy Azure, który jest obecnie używany przez punkt końcowy w chmurze, powoduje niepowodzenie operacji Azure File Sync. 
+> Usuwanie metadanych w udziale plików platformy Azure, który jest obecnie używany przez punkt końcowy w chmurze, powoduje niepowodzenie operacji Azure File Sync. 
 
-1. W Azure Portal przejdź do udziału plików platformy Azure.  
-2. Kliknij prawym przyciskiem myszy udział plików platformy Azure, a następnie wybierz polecenie **Edytuj metadane**.
-3. Kliknij prawym przyciskiem myszy pozycję **SyncService**, a następnie wybierz pozycję **Usuń**.
+1. W Azure Portal przejdź do udziału plików platformy Azure.  
+2. Kliknij prawym przyciskiem myszy udział plików platformy Azure, a następnie wybierz polecenie **Edytuj metadane** .
+3. Kliknij prawym przyciskiem myszy pozycję **SyncService** , a następnie wybierz pozycję **Usuń** .
 
 <a id="cloud-endpoint-authfailed"></a>**Tworzenie punktu końcowego w chmurze kończy się niepowodzeniem z powodu tego błędu: "AuthorizationFailed"**  
 Ten błąd występuje, jeśli konto użytkownika nie ma wystarczających uprawnień do utworzenia punktu końcowego w chmurze. 
@@ -128,13 +131,15 @@ Następujące wbudowane role mają wymagane uprawnienia do autoryzacji firmy Mic
 * Administrator dostępu użytkowników
 
 Aby określić, czy Twoje konto użytkownika ma wymagane uprawnienia:  
-1. W Azure Portal wybierz pozycję **grupy zasobów**.
-2. Wybierz grupę zasobów, w której znajduje się konto magazynu, a następnie wybierz pozycję **Kontrola dostępu (IAM)**.
+1. W Azure Portal wybierz pozycję **grupy zasobów** .
+2. Wybierz grupę zasobów, w której znajduje się konto magazynu, a następnie wybierz pozycję **Kontrola dostępu (IAM)** .
 3. Wybierz kartę **przypisania ról** .
 4. Wybierz **rolę** (na przykład właściciela lub współautora) dla konta użytkownika.
-5. Na liście **dostawca zasobów** wybierz pozycję **autoryzacja firmy Microsoft**. 
+5. Na liście **dostawca zasobów** wybierz pozycję **autoryzacja firmy Microsoft** . 
     * **Przypisanie roli** powinno mieć uprawnienia do **odczytu** i **zapisu** .
     * **Definicja roli** powinna mieć uprawnienia do **odczytu** i **zapisu** .
+
+### <a name="server-endpoint-creation-and-deletion-errors"></a>Błędy tworzenia i usuwania punktu końcowego serwera
 
 <a id="-2134375898"></a>**Tworzenie punktu końcowego serwera nie powiodło się; z powodu tego błędu: "MgmtServerJobFailed" (kod błędu:-2134375898 lub 0x80c80226)**  
 Ten błąd występuje, gdy ścieżka punktu końcowego serwera znajduje się na woluminie systemowym i obsługa warstw w chmurze jest włączona. Obsługa warstw w chmurze nie jest dostępna na woluminie systemowym. Aby utworzyć punkt końcowy serwera na woluminie systemowym, wyłącz obsługę warstw w chmurze podczas tworzenia punktu końcowego serwera.
@@ -165,6 +170,8 @@ Ten błąd występuje, gdy ścieżka punktu końcowego serwera zawiera oddzielon
 
 <a id="-2134347757"></a>**Usuwanie punktu końcowego serwera nie powiodło się, z powodu tego błędu: "MgmtServerJobExpired" (kod błędu:-2134347757 lub 0x80c87013)**  
 Ten błąd występuje wtedy, gdy serwer jest w trybie offline lub nie ma łączności sieciowej. Jeśli serwer nie jest już dostępny, wyrejestruj serwer w portalu, co spowoduje usunięcie punktów końcowych serwera. Aby usunąć punkty końcowe serwera, wykonaj kroki opisane w [Wyrejestruj serwer z Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+### <a name="server-endpoint-health"></a>Kondycja punktu końcowego serwera
 
 <a id="server-endpoint-provisioningfailed"></a>**Nie można otworzyć strony właściwości punktu końcowego serwera lub zaktualizować zasad obsługi warstw w chmurze**  
 Ten problem może wystąpić, jeśli operacja zarządzania w punkcie końcowym serwera nie powiodła się. Jeśli strona właściwości punktu końcowego serwera nie zostanie otwarta w Azure Portal, aktualizowanie punktu końcowego serwera za pomocą poleceń programu PowerShell z serwera może rozwiązać ten problem. 
@@ -338,7 +345,9 @@ Aby wyświetlić te błędy, uruchom skrypt programu **FileSyncErrorsReport.ps1*
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Nie można zsynchronizować pliku, ponieważ osiągnięto maksymalną liczbę plików konfliktów. Azure File Sync obsługuje pliki konfliktów 100 na plik. Aby dowiedzieć się więcej na temat konfliktów plików, zobacz Azure File Sync [często zadawane pytania](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | Aby rozwiązać ten problem, zmniejsz liczbę plików konfliktów. Plik zostanie zsynchronizowany, gdy liczba plików konfliktów jest mniejsza niż 100. |
 
 #### <a name="handling-unsupported-characters"></a>Obsługa nieobsługiwanych znaków
-Jeśli skrypt **FileSyncErrorsReport.ps1** PowerShell pokazuje błędy synchronizacji poszczególnych elementów z powodu nieobsługiwanych znaków (kod błędu 0x8007007B lub 0x80c80255), należy usunąć lub zmienić nazwy znaków z odpowiednich nazw plików. Program PowerShell prawdopodobnie drukuje te znaki jako znaki zapytania lub puste prostokąty, ponieważ większość z tych znaków nie ma standardowego kodowania wizualnego. [Narzędzie do oceny](storage-sync-files-planning.md#evaluation-cmdlet) może służyć do identyfikowania znaków, które nie są obsługiwane. Jeśli zestaw danych zawiera kilka plików z nieprawidłowymi znakami, Użyj skryptu [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) , aby zmienić nazwy plików, które zawierają nieobsługiwane znaki.
+Jeśli skrypt **FileSyncErrorsReport.ps1** PowerShell pokazuje błędy synchronizacji poszczególnych elementów z powodu nieobsługiwanych znaków (kod błędu 0x8007007B lub 0x80c80255), należy usunąć lub zmienić nazwy znaków z odpowiednich nazw plików. Program PowerShell prawdopodobnie drukuje te znaki jako znaki zapytania lub puste prostokąty, ponieważ większość z tych znaków nie ma standardowego kodowania wizualnego. 
+> [!Note]  
+> [Narzędzie do oceny](storage-sync-files-planning.md#evaluation-cmdlet) może służyć do identyfikowania znaków, które nie są obsługiwane. Jeśli zestaw danych zawiera kilka plików z nieprawidłowymi znakami, Użyj skryptu [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) , aby zmienić nazwy plików, które zawierają nieobsługiwane znaki.
 
 Poniższa tabela zawiera wszystkie znaki Unicode, Azure File Sync nie są jeszcze obsługiwane.
 
@@ -520,7 +529,7 @@ Ten błąd występuje po przekroczeniu limitu magazynowania udziałów plików p
 
 5. Wybierz pozycję **pliki** , aby wyświetlić listę udziałów plików.
 6. Kliknij trzy kropki na końcu wiersza dla udziału plików platformy Azure, do którego odwołuje się punkt końcowy w chmurze.
-7. Sprawdź, czy pozycja **Użycie** znajduje się poniżej pozycji **Limit przydziału**. Uwaga o ile nie określono alternatywnego przydziału, przydział będzie pasował do [maksymalnego rozmiaru udziału plików platformy Azure](storage-files-scale-targets.md).
+7. Sprawdź, czy pozycja **Użycie** znajduje się poniżej pozycji **Limit przydziału** . Uwaga o ile nie określono alternatywnego przydziału, przydział będzie pasował do [maksymalnego rozmiaru udziału plików platformy Azure](storage-files-scale-targets.md).
 
     ![Zrzut ekranu przedstawiający właściwości udziału plików platformy Azure.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
@@ -898,7 +907,7 @@ Ten błąd występuje, gdy operacja pozyskiwania danych przekracza limit czasu. 
 4. Wybierz połączone konto magazynu. Jeśli łącze nie powiedzie się, konto magazynu, do którego istnieje odwołanie, zostało usunięte.
     ![Zrzut ekranu przedstawiający okienko szczegółów punktu końcowego w chmurze z linkiem do konta magazynu.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
 $region = "<Az_Region>"
@@ -979,7 +988,7 @@ if ($storageAccount -eq $null) {
 2. Wybierz pozycję **pliki** , aby wyświetlić listę udziałów plików.
 3. Sprawdź, czy udział plików, do którego odwołuje się punkt końcowy w chmurze, pojawia się na liście udziałów plików (należy to zanotować w kroku 1 powyżej).
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 $fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.AzureFileShareName -and
@@ -995,18 +1004,18 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**Upewnij się, że Azure File Sync ma dostęp do konta magazynu.**  
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Kliknij pozycję **Kontrola dostępu (IAM)** po lewej stronie spisu treści.
-1. Kliknij kartę **przypisania roli** , aby wyświetlić listę użytkowników i aplikacji (*nazwy główne usługi*), które mają dostęp do konta magazynu.
+1. Kliknij kartę **przypisania roli** , aby wyświetlić listę użytkowników i aplikacji ( *nazwy główne usługi* ), które mają dostęp do konta magazynu.
 1. Sprawdź, czy na liście zostanie wyświetlona usługa **Microsoft. StorageSync** lub **hybrydowy File Sync Service** (stara nazwa aplikacji) z rolą **czytelnik i dostęp do danych** . 
 
     ![Zrzut ekranu jednostki usługi hybrydowej usługi File Sync na karcie Kontrola dostępu konta magazynu](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     Jeśli na liście nie ma **programu Microsoft. StorageSync** lub **hybrydowej usługi File Sync** , wykonaj następujące czynności:
 
-    - Kliknij pozycję **Dodaj**.
-    - W polu **rola** wybierz pozycję **czytnik i dostęp do danych**.
-    - W polu **Wybierz** wpisz **Microsoft. StorageSync**, wybierz rolę, a następnie kliknij przycisk **Zapisz**.
+    - Kliknij pozycję **Dodaj** .
+    - W polu **rola** wybierz pozycję **czytnik i dostęp do danych** .
+    - W polu **Wybierz** wpisz **Microsoft. StorageSync** , wybierz rolę, a następnie kliknij przycisk **Zapisz** .
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
 $role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Microsoft.StorageSync" }
 
@@ -1045,17 +1054,17 @@ Istnieją dwie ścieżki dla błędów w warstwach chmury:
 Istnieją dwie główne klasy błędów, które mogą być wykonywane za pośrednictwem każdej ścieżki błędu:
 
 - Awarie magazynu w chmurze
-    - *Przejściowe problemy z dostępnością usługi magazynu*. Aby uzyskać więcej informacji, zobacz [Umowa dotycząca poziomu usług (SLA) dla usługi Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
-    - *Niedostępny udział plików platformy Azure*. Ten błąd zazwyczaj występuje po usunięciu udziału plików platformy Azure, gdy nadal jest to punkt końcowy w chmurze w grupie synchronizacji.
-    - *Niedostępne konto magazynu*. Ten błąd zazwyczaj występuje po usunięciu konta magazynu, gdy nadal ma udział plików platformy Azure, który jest punktem końcowym w chmurze grupy synchronizacji. 
+    - *Przejściowe problemy z dostępnością usługi magazynu* . Aby uzyskać więcej informacji, zobacz [Umowa dotycząca poziomu usług (SLA) dla usługi Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+    - *Niedostępny udział plików platformy Azure* . Ten błąd zazwyczaj występuje po usunięciu udziału plików platformy Azure, gdy nadal jest to punkt końcowy w chmurze w grupie synchronizacji.
+    - *Niedostępne konto magazynu* . Ten błąd zazwyczaj występuje po usunięciu konta magazynu, gdy nadal ma udział plików platformy Azure, który jest punktem końcowym w chmurze grupy synchronizacji. 
 - Błędy serwera 
-  - *Filtr systemu plików Azure File Sync (StorageSync.sys) nie został załadowany*. Aby można było odpowiedzieć na żądania obsługi warstw/odwołań, należy załadować filtr systemu plików Azure File Sync. Nie można załadować filtru z kilku powodów, ale najbardziej typowym powodem jest to, że administrator został zwolniony ręcznie. Filtr systemu plików Azure File Sync musi być załadowany przez cały czas, aby Azure File Sync działał prawidłowo.
-  - *Brak lub uszkodzenie punktu ponownej analizy w innym przypadku*. Punkt ponownej analizy to specjalna struktura danych w pliku, który składa się z dwóch części:
+  - *Filtr systemu plików Azure File Sync (StorageSync.sys) nie został załadowany* . Aby można było odpowiedzieć na żądania obsługi warstw/odwołań, należy załadować filtr systemu plików Azure File Sync. Nie można załadować filtru z kilku powodów, ale najbardziej typowym powodem jest to, że administrator został zwolniony ręcznie. Filtr systemu plików Azure File Sync musi być załadowany przez cały czas, aby Azure File Sync działał prawidłowo.
+  - *Brak lub uszkodzenie punktu ponownej analizy w innym przypadku* . Punkt ponownej analizy to specjalna struktura danych w pliku, który składa się z dwóch części:
     1. Tag ponownej analizy, który wskazuje systemowi operacyjnemu, że filtr systemu plików Azure File Sync (StorageSync.sys) może potrzebować wykonać pewne akcje na operacji we/wy do pliku. 
     2. Ponowne analizowanie danych wskazujących na system plików filtr identyfikatora URI pliku w skojarzonym punkcie końcowym w chmurze (udział plików platformy Azure). 
         
        Najbardziej typowym sposobem uszkodzenia punktu ponownej analizy jest to, że administrator próbuje zmodyfikować tag lub jego dane. 
-  - *Problemy z łącznością sieciową*. Aby można było warstwy lub odwołać plik, serwer musi mieć łączność z Internetem.
+  - *Problemy z łącznością sieciową* . Aby można było warstwy lub odwołać plik, serwer musi mieć łączność z Internetem.
 
 Poniższe sekcje zawierają informacje dotyczące rozwiązywania problemów z obsługą warstw w chmurze i określania, czy problem dotyczy magazynu w chmurze, czy problem z serwerem.
 
@@ -1271,10 +1280,10 @@ Aby uruchomić AFSDiag, wykonaj następujące czynności:
 
 3. Na poziomie śledzenia Azure File Sync trybu jądra wprowadź **1** (jeśli nie określono inaczej), aby utworzyć więcej śladów pełnych, a następnie naciśnij klawisz ENTER.
 4. Dla poziomu śledzenia Azure File Sync trybu użytkownika wprowadź wartość **1** (chyba że określono inaczej, aby utworzyć więcej śladów pełnych), a następnie naciśnij klawisz ENTER.
-5. Odtwórz problem. Po zakończeniu wprowadź **D**.
+5. Odtwórz problem. Po zakończeniu wprowadź **D** .
 6. Plik. zip zawierający pliki dzienników i plików śledzenia jest zapisywany w katalogu wyjściowym, który został określony.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 - [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)
 - [Azure Files często zadawane pytania](storage-files-faq.md)
 - [Rozwiązywanie problemów z usługą Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)

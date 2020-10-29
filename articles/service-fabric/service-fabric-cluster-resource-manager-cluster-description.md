@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71629ebf1397c00face500f0bfd9c8e92deacc5e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173015"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911770"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Opisywanie klastra Service Fabric przy użyciu Menedżer zasobów klastra
 
@@ -47,9 +47,7 @@ W środowisku platformy Azure Service Fabric używa informacji o domenie błęd�
 
 Na poniższej ilustracji przedstawiono kolor wszystkich jednostek, które współtworzyją w domenach błędów i wyświetlają wszystkie różne domeny błędów. W tym przykładzie mamy centra danych ("DC"), stojaki ("R") i bloki ("B"). Jeśli każdy blok zawiera więcej niż jedną maszynę wirtualną, może istnieć inna warstwa w hierarchii domeny błędów.
 
-<center>
 ![Węzły zorganizowane za pośrednictwem domen błędów][Image1]
-</center>
 
 W czasie wykonywania Service Fabric klastra Menedżer zasobów traktuje domeny błędów w klastrze i plany planów. Repliki stanowe lub bezstanowe wystąpienia usługi są dystrybuowane w taki sposób, aby znajdowały się w osobnych domenach błędów. Dystrybucja usługi między domenami błędów gwarantuje, że dostępność usługi nie zostanie naruszona, gdy domena błędów ulegnie awarii na dowolnym poziomie hierarchii.
 
@@ -62,13 +60,11 @@ Najlepiej, jeśli ta sama liczba węzłów jest na każdym poziomie głębokośc
 
 Jak wyglądają niezrównoważone domeny? Na poniższym diagramie przedstawiono dwa różne układy klastra. W pierwszym przykładzie węzły są dystrybuowane równomiernie w domenach błędów. W drugim przykładzie jedna domena błędów ma wiele więcej węzłów niż pozostałe domeny błędów.
 
-<center>
 ![Dwa różne układy klastra][Image2]
-</center>
 
 Na platformie Azure wybór domeny błędów zawiera węzeł, który jest zarządzany przez Ciebie. Ale w zależności od liczby wdrożonych węzłów można nadal zakończyć z domenami błędów, które mają więcej węzłów niż w innych.
 
-Załóżmy na przykład, że w klastrze znajdują się pięć domen błędów, ale Zainicjowano obsługę siedmiu węzłów dla typu węzła (**NodeType**). W takim przypadku pierwsze dwie domeny błędów kończą się wieloma węzłami. W przypadku kontynuowania wdrażania większej liczby wystąpień **NodeType** z tylko kilkoma wystąpieniami ten problem będzie gorszy. Z tego powodu zalecamy, aby liczba węzłów w każdym typie węzła była wielokrotnością liczby domen błędów.
+Załóżmy na przykład, że w klastrze znajdują się pięć domen błędów, ale Zainicjowano obsługę siedmiu węzłów dla typu węzła ( **NodeType** ). W takim przypadku pierwsze dwie domeny błędów kończą się wieloma węzłami. W przypadku kontynuowania wdrażania większej liczby wystąpień **NodeType** z tylko kilkoma wystąpieniami ten problem będzie gorszy. Z tego powodu zalecamy, aby liczba węzłów w każdym typie węzła była wielokrotnością liczby domen błędów.
 
 ## <a name="upgrade-domains"></a>Uaktualnij domeny
 
@@ -78,9 +74,7 @@ Domeny uaktualnień są bardzo podobne do domen błędów, ale z niewielkimi ró
 
 Na poniższym diagramie przedstawiono trzy domeny uaktualnienia rozłożone na trzy domeny błędów. Przedstawiono w nim również jedno możliwe rozmieszczenie dla trzech różnych replik usługi stanowej, w przypadku których każdy z nich jest zakończony w różnych domenach błędów i uaktualnień. To umieszczanie umożliwia utratę domeny błędów w trakcie uaktualniania usługi i nadal ma jedną kopię kodu i danych.  
 
-<center>
 ![Umieszczanie w domenach błędów i uaktualnień][Image3]
-</center>
 
 Istnieją pewne wady i zalety posiadania dużej liczby domen uaktualnienia. Więcej domen uaktualnienia oznacza, że każdy krok uaktualnienia jest bardziej szczegółowy i ma wpływ na mniejszą liczbę węzłów lub usług. Mniejsza liczba usług musi być jednocześnie przenoszona do systemu. Pozwala to zwiększyć niezawodność, ponieważ w ramach uaktualnienia występuje problem z mniejszą częścią usługi. Więcej domen uaktualnienia oznacza również, że potrzebujesz mniej dostępnego buforu w innych węzłach, aby obsługiwać wpływ uaktualnienia.
 
@@ -98,9 +92,7 @@ Nie istnieje rzeczywisty limit łącznej liczby domen błędów lub uaktualnień
 * Jedna domena uaktualnienia na węzeł (wystąpienie fizyczne lub wirtualne systemu operacyjnego)
 * Model "rozłożony" lub "macierz", w którym domeny błędów i domeny uaktualnień tworzą macierz z maszynami, na których zazwyczaj działa przekątne
 
-<center>
 ![Układy domen błędów i uaktualnień][Image4]
-</center>
 
 Nie ma najlepszej odpowiedzi dla wybranego układu. Każdy z nich ma wady i zalety. Na przykład model 1FD: 1UD jest prosty do skonfigurowania. Model jednej domeny uaktualnienia na model węzła jest najbardziej podobny do tego, do czego służą. Podczas uaktualniania każdy węzeł jest aktualizowany niezależnie. Jest to podobne do tego, jak małe zestawy maszyn zostały uaktualnione ręcznie w przeszłości.
 
@@ -127,7 +119,7 @@ Załóżmy na przykład, że mamy klaster z sześcioma węzłami, który został
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-Teraz Załóżmy, że tworzymy usługę z **wartość targetreplicasetsize** (lub w przypadku usługi bezstanowej **InstanceCount**) równą pięciu. Repliki są naładowywane na N1-N5. W rzeczywistości N6 nigdy nie jest używana bez względu na to, ile usług takie jak to zostało utworzone. Ale dlaczego? Przyjrzyjmy się różnicy między bieżącym układem i co się stanie, jeśli wybrano N6.
+Teraz Załóżmy, że tworzymy usługę z **wartość targetreplicasetsize** (lub w przypadku usługi bezstanowej **InstanceCount** ) równą pięciu. Repliki są naładowywane na N1-N5. W rzeczywistości N6 nigdy nie jest używana bez względu na to, ile usług takie jak to zostało utworzone. Ale dlaczego? Przyjrzyjmy się różnicy między bieżącym układem i co się stanie, jeśli wybrano N6.
 
 Oto układ i łączna liczba replik na awarię i domenę uaktualnienia:
 
@@ -187,7 +179,7 @@ Menedżer zasobów klastra obsługuje inną wersję ograniczenia dla domen błę
 > [!NOTE]
 > W przypadku usługi stanowej definiujemy *utratę kworum* w sytuacji, gdy większość replik partycji nie działa w tym samym czasie. Na przykład jeśli **wartość targetreplicasetsize** wynosi pięć, zestaw wszystkich trzech replik reprezentuje kworum. Podobnie, jeśli **wartość targetreplicasetsize** jest sześć, cztery repliki są niezbędne do kworum. W obu przypadkach nie ma więcej niż dwóch replik w tym samym czasie, jeśli partycja chce kontynuować normalne działanie.
 >
-> W przypadku usługi bezstanowej nie jest to równoznaczne z *utratą kworum*. Usługi bezstanowe kontynuują normalne działanie nawet wtedy, gdy większość wystąpień jest w tym samym czasie. Dlatego będziemy skupić się na usługach stanowych w pozostałej części tego artykułu.
+> W przypadku usługi bezstanowej nie jest to równoznaczne z *utratą kworum* . Usługi bezstanowe kontynuują normalne działanie nawet wtedy, gdy większość wystąpień jest w tym samym czasie. Dlatego będziemy skupić się na usługach stanowych w pozostałej części tego artykułu.
 >
 
 Wróćmy do poprzedniego przykładu. W przypadku wersji ograniczenia "bezpieczny dla kworum" wszystkie trzy układy będą prawidłowe. Nawet jeśli FD0 nie powiodło się w drugim układzie lub UD1 nie powiodło się w trzecim układzie, partycja nadal będzie mieć kworum. (Większość replik nadal będzie działać). W przypadku tej wersji ograniczenia N6 można prawie zawsze używać.
@@ -357,21 +349,17 @@ Service Fabric oczekuje, że w niektórych przypadkach może być konieczne uruc
 * Obciążenie musi być uruchamiane na określonym sprzęcie dla powodów związanych z wydajnością, skalą lub izolacją zabezpieczeń.
 * Obciążenie powinno być odizolowane od innych obciążeń związanych z zasadami lub użyciem zasobów.
 
-Aby zapewnić obsługę tych rodzajów konfiguracji, Service Fabric zawiera Tagi, które można zastosować do węzłów. Te Tagi są nazywane *właściwościami węzła*. *Ograniczenia umieszczania* to instrukcje dołączone do poszczególnych usług wybranych dla jednej lub wielu właściwości węzła. Ograniczenia umieszczania definiują, gdzie mają być uruchamiane usługi. Zestaw ograniczeń jest rozszerzalny. Wszystkie pary klucz/wartość mogą funkcjonować.
+Aby zapewnić obsługę tych rodzajów konfiguracji, Service Fabric zawiera Tagi, które można zastosować do węzłów. Te Tagi są nazywane *właściwościami węzła* . *Ograniczenia umieszczania* to instrukcje dołączone do poszczególnych usług wybranych dla jednej lub wielu właściwości węzła. Ograniczenia umieszczania definiują, gdzie mają być uruchamiane usługi. Zestaw ograniczeń jest rozszerzalny. Wszystkie pary klucz/wartość mogą funkcjonować.
 
-<center>
 ![Różne obciążenia dla układu klastra][Image5]
-</center>
 
 ### <a name="built-in-node-properties"></a>Właściwości wbudowanego węzła
 
-Service Fabric definiuje niektóre domyślne właściwości węzła, które mogą być używane automatycznie, aby nie trzeba było ich definiować. Domyślne właściwości zdefiniowane w każdym węźle to **NodeType** i **nodename**.
+Service Fabric definiuje niektóre domyślne właściwości węzła, które mogą być używane automatycznie, aby nie trzeba było ich definiować. Domyślne właściwości zdefiniowane w każdym węźle to **NodeType** i **nodename** .
 
 Na przykład można napisać ograniczenie położenia jako `"(NodeType == NodeType03)"` . **NodeType** jest często używaną właściwością. Jest to przydatne, ponieważ odpowiada 1:1 z typem maszyny. Każdy typ maszyny odpowiada typowi obciążenia w tradycyjnej aplikacji n-warstwowej.
 
-<center>
 ![Ograniczenia umieszczania i właściwości węzła][Image6]
-</center>
 
 ## <a name="placement-constraints-and-node-property-syntax"></a>Ograniczenia umieszczania i składnia właściwości węzła
 
@@ -477,7 +465,7 @@ Najpierw należy upewnić się, że maszyny nie są przeciążone. Oznacza to, �
 
 Po drugie, istnieje możliwość równoważenia i optymalizacji, co jest niezwykle ważne do wydajnego uruchamiania usług. Oferty usługi ekonomicznej lub dotyczącej wydajności nie mogą zezwalać na gorącą część węzłów, podczas gdy inne są zimne. Hot nodes prowadzi do rywalizacji o zasoby i niskiej wydajności. Zimne węzły przedstawiają zasoby niezajęte i zwiększają koszty.
 
-Service Fabric reprezentuje zasoby jako *metryki*. Metryki to zasoby logiczne lub fizyczne, które mają zostać opisane Service Fabric. Przykłady metryk to "WorkQueueDepth" lub "MemoryInMb". Aby uzyskać informacje o zasobach fizycznych, które Service Fabric mogą zarządzać na węzłach, zobacz temat [Zarządzanie zasobami](service-fabric-resource-governance.md). Aby uzyskać informacje dotyczące metryk domyślnych używanych przez klaster Menedżer zasobów i sposobu konfigurowania metryk niestandardowych, zobacz [ten artykuł](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric reprezentuje zasoby jako *metryki* . Metryki to zasoby logiczne lub fizyczne, które mają zostać opisane Service Fabric. Przykłady metryk to "WorkQueueDepth" lub "MemoryInMb". Aby uzyskać informacje o zasobach fizycznych, które Service Fabric mogą zarządzać na węzłach, zobacz temat [Zarządzanie zasobami](service-fabric-resource-governance.md). Aby uzyskać informacje dotyczące metryk domyślnych używanych przez klaster Menedżer zasobów i sposobu konfigurowania metryk niestandardowych, zobacz [ten artykuł](service-fabric-cluster-resource-manager-metrics.md).
 
 Metryki różnią się od ograniczeń umieszczania i właściwości węzła. Właściwości węzła to statyczne deskryptory węzłów. Metryki opisują zasoby, które znajdują się w węzłach i których usługi używają, gdy są uruchamiane w węźle. Właściwość węzła może być **HasSSD** i może być ustawiona na wartość true lub false. Ilość miejsca dostępnego na tym dysku SSD i ilość zużywanej przez usługi byłyby metryką taką jak "DriveSpaceInMb".
 
@@ -485,15 +473,13 @@ Podobnie jak w przypadku ograniczeń umieszczania i właściwości węzła, Serv
 
 ## <a name="capacity"></a>Pojemność
 
-Jeśli wyłączysz opcję wszystkie *równoważenie*zasobów, Service Fabric klaster Menedżer zasobów nadal upewnij się, że żaden węzeł nie przejdzie na jego pojemność. Zarządzanie przedziałami pojemności jest możliwe, chyba że klaster jest zbyt pełny lub obciążenie jest większe niż w żadnym węźle. Pojemność jest innym *ograniczeniem* , którego Menedżer zasobów klaster używa do zrozumienia, jak część zasobu ma węzeł. Pozostała pojemność jest również śledzona dla klastra jako całości.
+Jeśli wyłączysz opcję wszystkie *równoważenie* zasobów, Service Fabric klaster Menedżer zasobów nadal upewnij się, że żaden węzeł nie przejdzie na jego pojemność. Zarządzanie przedziałami pojemności jest możliwe, chyba że klaster jest zbyt pełny lub obciążenie jest większe niż w żadnym węźle. Pojemność jest innym *ograniczeniem* , którego Menedżer zasobów klaster używa do zrozumienia, jak część zasobu ma węzeł. Pozostała pojemność jest również śledzona dla klastra jako całości.
 
 Zarówno pojemność, jak i zużycie na poziomie usługi są wyrażane jako metryki. Na przykład Metryka może być "ClientConnections", a węzeł może mieć pojemność "ClientConnections" 32 768. Inne węzły mogą mieć inne limity. Usługa uruchomiona w tym węźle może wypowiedzieć, że aktualnie zużywa 32 256 metryki "ClientConnections".
 
 W czasie wykonywania klaster Menedżer zasobów śledzi pozostałą pojemność w klastrze i w węzłach. W celu śledzenia pojemności klaster Menedżer zasobów odejmuje użycie poszczególnych usług od pojemności węzła, w której działa usługa. Korzystając z tych informacji, Menedżer zasobów klastra może ustalić, gdzie należy umieścić lub przenieść repliki, aby węzły nie przechodzą na pojemność.
 
-<center>
 ![Węzły klastra i pojemność][Image7]
-</center>
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
@@ -580,7 +566,7 @@ Można również określić nieskończoność nadwyżkową. W takim przypadku Me
 
 Metryka nie może mieć jednocześnie określonego buforu węzła i pojemności.
 
-Poniżej przedstawiono przykład sposobu określania pojemności buforu węzłów lub napełniania rezerwacji w *ClusterManifest.xml*:
+Poniżej przedstawiono przykład sposobu określania pojemności buforu węzłów lub napełniania rezerwacji w *ClusterManifest.xml* :
 
 ```xml
 <Section Name="NodeBufferPercentage">

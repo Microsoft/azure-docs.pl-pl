@@ -9,19 +9,19 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 90e6c41ad9f6b3d13f29e76d053287395eb88aed
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889905"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912331"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Samouczek: Tworzenie aplikacji do przetwarzania formularzy przy użyciu programu AI Builder
 
-[Konstruktor AI](https://docs.microsoft.com/ai-builder/overview) jest możliwością platformy umożliwiającej automatyzację procesów i prognozowanie wyników w celu poprawy wydajności działania firmy. Za pomocą przetwarzania formularzy programu AI można tworzyć modele AI, które identyfikują i wyodrębniają pary klucz-wartość oraz dane tabeli z dokumentów formularzy.
+[Konstruktor AI](/ai-builder/overview) jest możliwością platformy umożliwiającej automatyzację procesów i prognozowanie wyników w celu poprawy wydajności działania firmy. Za pomocą przetwarzania formularzy programu AI można tworzyć modele AI, które identyfikują i wyodrębniają pary klucz-wartość oraz dane tabeli z dokumentów formularzy.
 
 > [!NOTE]
-> Ten projekt jest również dostępny jako [moduł Microsoft Learn](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/).
+> Ten projekt jest również dostępny jako [moduł Microsoft Learn](/learn/modules/get-started-with-form-processing/).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -129,11 +129,11 @@ Jeśli masz zadowolony z modelu, wybierz pozycję **Publikuj**  , aby opublikowa
 > [!div class="mx-imgBorder"]
 > ![Strona publikowania modelu](./media/tutorial-ai-builder/model-page.png)
 
-Po opublikowaniu modelu przetwarzania formularza można go używać w [aplikacji kanwy aplikacji](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) lub w programie do [automatyzacji](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
+Po opublikowaniu modelu przetwarzania formularza można go używać w [aplikacji kanwy aplikacji](/ai-builder/form-processor-component-in-powerapps) lub w programie do [automatyzacji](/ai-builder/form-processing-model-in-flow).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Postępuj zgodnie z dokumentacją programu AI Builder, aby korzystać z modelu przetwarzania formularzy.
 
-* [Korzystanie z składnika form-procesor w aplikacjach zaawansowanych](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps)
-* [Korzystanie z modelu przetwarzania formularzy w programie do automatyzacji](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)
+* [Korzystanie z składnika form-procesor w aplikacjach zaawansowanych](/ai-builder/form-processor-component-in-powerapps)
+* [Korzystanie z modelu przetwarzania formularzy w programie do automatyzacji](/ai-builder/form-processing-model-in-flow)

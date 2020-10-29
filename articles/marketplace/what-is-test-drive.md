@@ -7,66 +7,65 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f78aa110ed42e17db873b9593de62602aa4193f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121871"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911141"
 ---
 # <a name="what-is-a-test-drive"></a>Co to jest wersja testowa?
 
-Wersja testowa to świetny sposób na pokazanie oferty potencjalnym klientom, dając im możliwość *wypróbowania przed zakupieniem*, co spowodowało zwiększoną konwersję i generowanie wysoce wykwalifikowanych klientów. Wersja testowa umożliwia korzystanie z produktu w rzeczywistym scenariuszu implementacji, a także generowanie wysoce kwalifikowanych potencjalnych klientów.
+Wersja testowa to doskonały sposób na pokazanie oferty dla potencjalnych klientów, dając im możliwość wypróbowania przed zakupieniem, generując wysoce kwalifikowanych potencjalnych klientów i powodującą zwiększenie konwersji. Wersja testowa umożliwia korzystanie z produktu w rzeczywistym scenariuszu implementacji. Klienci, którzy wypróbuje Twój produkt, pokazują jasny cel zakupu podobnego rozwiązania. Skorzystaj z tej funkcji, postępując zgodnie z bardziej zaawansowanymi potencjalnymi klientami.
 
-Dyski testowe to wystąpienia zarządzane, które wdrażają swoje rozwiązanie lub aplikacje na żądanie dla klientów, którzy go żądają. Po przypisaniu wystąpienia dysku testowego jest on dostępny do użycia przez określony czas, a następnie usuwany w celu utworzenia pokoju dla innego klienta.
-
-Jako wydawca możesz zarządzać ustawieniami dysków testowych w centrum partnerskim i konfigurować je. Szczegóły konfiguracji technicznej różnią się w zależności od typu oferty, z którą pracujesz. Aby uzyskać szczegółowe wskazówki, zobacz link w [następnym kroku](#next-step) na końcu tego tematu.
-
-Potencjalni klienci odnajdują twój dysk testowy na komercyjnym rynku. Udostępniają one swoje informacje kontaktowe i akceptują Warunki oferty oraz zasady zachowania poufności informacji, a następnie uzyskują dostęp do wstępnie skonfigurowanego środowiska w celu wypróbowania go przez ustalony czas. Klienci otrzymują praktyczne, samodzielne wersje próbne kluczowych funkcji i korzyści produktu, a ty otrzymujesz cenny potencjalny klient.
+Klienci korzystają również z dysku testowego. Przez umożliwienie im wcześniejszego wypróbowania produktu, możesz zmniejszyć liczbę operacji zakupu. Ponadto dysk testowy jest wstępnie zainicjowany, tj. klienci nie muszą pobierać, konfigurować ani konfigurować produktu.
 
 ## <a name="how-does-it-work"></a>Jak to działa?
 
-Jako wydawca możesz zarządzać ustawieniami dysków testowych w centrum partnerskim i konfigurować je. Po zakończeniu instalacji będzie to wystąpienie zarządzane, które zostanie wdrożone na żądanie dla klienta wysyłającego żądanie. Po przypisaniu wystąpienia dysku testowego jest on dostępny do użycia przez określony czas, a następnie usuwany w celu utworzenia pokoju dla innego klienta.
+Dyski testowe to wystąpienia zarządzane, które uruchamiają rozwiązanie lub aplikację na żądanie dla klientów, którzy go żądają. Po przypisaniu wystąpienia dysku testowego jest ono dostępne do użycia przez tego klienta przez określony okres. Po zakończeniu okresu zostanie on usunięty w celu utworzenia pokoju dla innego klienta.
+
+Jako wydawca możesz zarządzać ustawieniami dysków testowych w centrum partnerskim i konfigurować je. Szczegóły konfiguracji technicznej różnią się w zależności od typu oferty. Aby uzyskać szczegółowe wskazówki, zobacz [konfigurację techniczną na dysku testowym](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+
+Potencjalni klienci odkrywają swój dysk testowy jako CTA w ramach oferty w witrynie [AppSource](https://appsource.microsoft.com/en-US/). Udostępniają one swoje informacje kontaktowe i akceptują Warunki oferty oraz zasady zachowania poufności informacji, a następnie uzyskują dostęp do wstępnie skonfigurowanego środowiska w celu wypróbowania go przez ustalony okres. Klienci otrzymują praktyczne, samodzielne wersje próbne kluczowych funkcji i korzyści produktu, a ty otrzymujesz cenny potencjalny klient.
 
 ## <a name="types-of-test-drives"></a>Typy dysków testowych
 
 Istnieją różne dyski testowe dostępne na rynku komercyjnym dla wybranych ofert w zależności od typu produktu, scenariusza i portalu Marketplace:
 
 - Azure Resource Manager
+    - Aplikacje platformy Azure
+    - SaaS
+    - Virtual Machines
 - Hostowany dysk testowy
-    - Dynamics 365 for Business Central
+    - Dynamics 365 for Business Central (obecnie nieobsługiwane)
     - Dynamics 365 for Customer Engagement
     - Dynamics 365 for Operations
-- Aplikacja logiki
+- Aplikacja logiki (tylko w trybie obsługi)
 - Power BI
 
-Aby uzyskać szczegółowe informacje na temat konfigurowania jednego z tych dysków testowych, zapoznaj się z linkiem w [następnym kroku](#next-step) na końcu tego tematu.
+Aby uzyskać szczegółowe informacje na temat konfigurowania jednego z tych dysków testowych, zobacz temat [konfiguracja techniczna systemu testowego](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager dysk testowy
 
 Ten szablon wdrożenia zawiera wszystkie zasoby platformy Azure, które składają się na Twoje rozwiązanie. Produkty, które pasują do tego scenariusza, korzystają tylko z zasobów platformy Azure. Dla następujących typów ofert jest dostępny Azure Resource Manager dysk testowy: 
 
 - Aplikacje platformy Azure
-- Dynamics 365 for Business Central
-- Dynamics 365 dla zaangażowania klienta & PowerApps
-- Dynamics 365 for Operations
 - SaaS
 - Maszyny wirtualne
 
 >[!NOTE]
 >Jest to jedyna opcja dysku testowego dla ofert dla maszyn wirtualnych i aplikacji platformy Azure.
 
-### <a name="hosted-test-drive"></a>Hostowany dysk testowy
+### <a name="hosted-test-drive-recommended"></a>Hostowany dysk testowy (zalecane)
 
-Hostowany dysk testowy eliminuje złożoność instalacji przez umożliwienie hostowi firmy Microsoft i konserwację usługi, która przeprowadza testowanie, wdrażanie i Inicjowanie obsługi administracyjnej użytkowników. Jeśli masz ofertę na Microsoft AppSource, skompiluj dysk testowy, aby nawiązać połączenie z wystąpieniem programu Dynamics AX/CRM lub innym zasobem poza platformą Azure. Użyj tego typu dla ofert AppSource, aby połączyć się z następującymi ofertami usługi Dynamics 365:
+Hostowany dysk testowy eliminuje złożoność Instalatora przez umożliwienie hostowi firmy Microsoft i konserwację usługi, która wykonuje wstępne Inicjowanie obsługi administracyjnej użytkowników i zwalnianie. Jeśli masz ofertę na Microsoft AppSource, skompiluj dysk testowy, aby połączyć się z wystąpieniem programu Dynamics AX/CRM. Można użyć następujących typów ofert AppSource:
 
-- Użyj programu [Dynamics 365 for Business Central](partner-center-portal/create-new-operations-offer.md) dla firmowego systemu planowania zasobów przedsiębiorstwa, na przykład finansów, operacji, łańcucha dostaw i programu CRM.
 - Użyj usługi [Dynamics 365 do zaangażowania klientów](partner-center-portal/create-new-customer-engagement-offer.md) w system zaangażowania klientów, taki jak sprzedaż, usługa, usługa projektu i usługa pola.
 - Użyj usługi [Dynamics 365 dla operacji](partner-center-portal/create-new-operations-offer.md) dla systemu planowania zasobów przedsiębiorstwa (Finanse i operacyjne), takich jak finanse, operacje i produkcja, łańcuch dostaw.
 
 ### <a name="logic-app-test-drive"></a>Dysk testowy aplikacji logiki
 
-Ten typ dysku testowego nie jest hostowany przez firmę Microsoft. Służy do nawiązywania połączenia z ofertą Dynamics 365 lub innym zasobem niestandardowym.
+Ten typ dysku testowego nie jest hostowany przez firmę Microsoft i używa szablonów Azure Resource Manager (ARM) dla typów ofert Dynamics AX/CRM. Musisz uruchomić szablon ARM, aby utworzyć wymagane zasoby w ramach subskrypcji platformy Azure. Wersja testowa aplikacji logiki jest obecnie dostępna tylko w trybie obsługi i nie jest zalecana przez firmę Microsoft w celu uzyskania szczegółowych informacji na temat konfigurowania dysku testowego aplikacji logiki, zobacz temat [konfiguracja techniczna testowa](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
 
 ### <a name="power-bi-test-drive"></a>Power BI dysk testowy
 
@@ -92,7 +91,7 @@ Jeśli zamkniesz pracę z potencjalnym klientem testowym, pamiętaj o zarejestro
 
 Dodatkowe zasoby dotyczące stacji testowych:
 
-- [Najlepsze rozwiązania techniczne](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Najlepsze rozwiązania dotyczące wersji testowej](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Przegląd](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 
 ## <a name="next-step"></a>Następny krok

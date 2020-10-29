@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447371"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911396"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych
 
@@ -51,7 +51,7 @@ Typowy scenariusz przejęcia domeny podrzędnej:
 
     1. Aktor zagrożeń inicjuje zasób platformy Azure o tej samej nazwie FQDN wcześniej kontrolowanego zasobu. W tym przykładzie `app-contogreat-dev-001.azurewebsites.net` .
 
-    1. Ruch wysyłany do domeny podrzędnej `myapp.contoso.com` jest teraz kierowany do zasobu złośliwego aktora, gdzie kontroluje zawartość.
+    1. Ruch wysyłany do domeny podrzędnej `greatapp.contoso.com` jest teraz kierowany do zasobu złośliwego aktora, gdzie kontroluje zawartość.
 
 
 
@@ -86,7 +86,7 @@ Jeśli rekordy CNAME znajdują się w innych usługach DNS i wskaż zasoby platf
 Narzędzie obsługuje zasoby platformy Azure wymienione w poniższej tabeli. Narzędzie wyodrębnia lub przyjmuje jako dane wejściowe wszystkie rekordy CNAME dzierżawcy.
 
 
-| Usługa                   | Type                                        | FQDNproperty                               | Przykład                         |
+| Usługa                   | Typ                                        | FQDNproperty                               | Przykład                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Azure Front Door          | Microsoft. Network/usługi frontdoor                | Właściwości. cName                           | `abc.azurefd.net`               |
 | Azure Blob Storage        | Microsoft. Storage/storageaccounts           | Properties. obiektu. blob           | `abc. blob.core.windows.net`    |
@@ -119,7 +119,7 @@ Jeśli jesteś administratorem globalnym dzierżawy organizacji, Podnieś poziom
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 
-Dowiedz się więcej na temat skryptu programu PowerShell, **Get-DanglingDnsRecords.ps1**i Pobierz go z witryny GitHub: https://aka.ms/DanglingDNSDomains .
+Dowiedz się więcej na temat skryptu programu PowerShell, **Get-DanglingDnsRecords.ps1** i Pobierz go z witryny GitHub: https://aka.ms/DanglingDNSDomains .
 
 ## <a name="remediate-dangling-dns-entries"></a>Koryguj wpisy DNS zawieszonego 
 

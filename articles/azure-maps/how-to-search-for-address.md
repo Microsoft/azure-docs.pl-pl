@@ -3,21 +3,22 @@ title: Wyszukiwanie lokalizacji przy użyciu usług wyszukiwania Azure Maps
 description: Dowiedz się więcej na temat usługi wyszukiwania Azure Maps. Zobacz, jak używać tego zestawu interfejsów API do geokodowania, odwracania geokodowania, wyszukiwania rozmytego i odwrotnego wyszukiwania krzyżowego.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/21/2020
+ms.date: 10/05/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9628ecada2e427f6220ae2a5154cebb8e4958bd0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 00ddb53276c052d538d658f2c40384e86cf72aee
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895702"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910988"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Wyszukiwanie lokalizacji przy użyciu usług wyszukiwania Azure Maps
 
 [Azure Maps Search Service](/rest/api/maps/search) to zestaw interfejsów API RESTful zaprojektowanych w celu ułatwienia deweloperom wyszukiwania adresów, miejsc i aukcji w biznesie według nazw, kategorii i innych informacji geograficznych. Oprócz obsługi tradycyjnych geokodowania, usługi mogą również odwracać adresy geokodowe i wiele różnych ulic na podstawie Latitudes i długości geograficznej. Wartości szerokości i długości geograficznej zwrócone przez wyszukiwanie mogą służyć jako parametry w innych usługach Azure Maps, takich jak usługi [routingu](/rest/api/maps/route) i [pogody](/rest/api/maps/weather) .
+
 
 Ten artykuł obejmuje następujące zagadnienia:
 
@@ -44,9 +45,7 @@ W tym przykładzie użyjemy interfejsu API usługi Azure Maps [Get Address Searc
 
 2. Aby utworzyć żądanie, wybierz pozycję **nowe** ponownie. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzednim kroku, a następnie wybierz pozycję **Zapisz** .
 
-3. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W ramach tego żądania szukamy określonego adresu: `400 Braod St, Seattle, WA 98109` .
-
-    W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym. Żądanie powinno wyglądać następująco:
+3. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W ramach tego żądania szukamy określonego adresu: `400 Braod St, Seattle, WA 98109` . W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
@@ -60,7 +59,7 @@ W tym przykładzie użyjemy interfejsu API usługi Azure Maps [Get Address Searc
 
 6. Następnie spróbuj ustawić klucz jako `query` `400 Broa` .
 
-7. Kliknij przycisk **Wyślij** .  Teraz można zobaczyć, że odpowiedź obejmuje odpowiedzi z wielu krajów. Aby uzyskać efekt geobias do odpowiedniego obszaru dla użytkowników, należy zawsze dodać tyle szczegółów lokalizacji jak to możliwe dla żądania.
+7. Kliknij przycisk **Wyślij** . Teraz można zobaczyć, że odpowiedź obejmuje odpowiedzi z wielu krajów. Aby uzyskać efekt geobias do odpowiedniego obszaru dla użytkowników, należy zawsze dodać tyle szczegółów lokalizacji jak to możliwe dla żądania.
 
 ## <a name="using-fuzzy-search-api"></a>Korzystanie z interfejsu API wyszukiwania rozmytego
 
@@ -78,7 +77,7 @@ W tym przykładzie użyjemy wyszukiwania rozmytego, aby przeszukać cały świat
 
 1. Otwórz aplikację Poster, kliknij pozycję **New (nowy** ), a następnie wybierz pozycję **żądanie** . Wprowadź **nazwę żądania** dla żądania. Wybierz kolekcję utworzoną w poprzedniej sekcji lub utworzoną nową, a następnie wybierz pozycję **Zapisz** .
 
-2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym. Żądanie powinno wyglądać następująco:
+2. Wybierz metodę **Get** http na karcie Konstruktor i wprowadź następujący adres URL. W przypadku tego żądania i innych żądań wymienionych w tym artykule Zastąp `{Azure-Maps-Primary-Subscription-key}` klucz subskrypcji podstawowym.
 
     ```http
    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza

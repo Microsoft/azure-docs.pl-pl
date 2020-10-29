@@ -118,10 +118,6 @@
           href: concepts-data-in-replication.md
         - name: Repliki do odczytu
           href: concepts-read-replicas.md
-    - name: Przenoszenie między regionami
-      items:
-        - name: Azure Portal
-          href: howto-move-regions-portal.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Zarządzanie serwerem
@@ -240,6 +236,10 @@
           href: howto-restart-server-cli.md
         - name: Azure PowerShell
           href: howto-restart-server-powershell.md
+    - name: Przenoszenie między regionami
+      items:
+        - name: Azure Portal
+          href: howto-move-regions-portal.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

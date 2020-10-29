@@ -11,12 +11,12 @@ ms.date: 9/17/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: rozpoznawanie twarzy, oprogramowanie do rozpoznawania twarzy, analiza twarzy, dopasowanie twarzy, aplikacja do rozpoznawania twarzy, wyszukiwanie twarzy według obrazu, wyszukiwanie twarzy
-ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262488"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911447"
 ---
 # <a name="what-is-the-azure-face-service"></a>Co to jest usługa Azure Front?
 
@@ -34,7 +34,7 @@ Usługa twarzy oferuje kilka różnych funkcji analizy twarzy, które są opisan
 Usługa twarzy wykrywa ludzkie twarze na obrazie i zwraca współrzędne ich lokalizacji. Opcjonalnie wykrywanie twarzy może wyodrębnić serię atrybutów związanych z twarzą, takich jak ułożenia głowy, płeć, wiek, rozpoznawania emocji, twarzy i szklanki.
 
 > [!NOTE]
-> Funkcja wykrywania kroju jest również dostępna za pomocą [usługi przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Jeśli jednak chcesz wykonać dalsze operacje przy użyciu danych dotyczących kroju, Użyj tej usługi zamiast tego.
+> Funkcja wykrywania kroju jest również dostępna za pomocą [usługi przetwarzanie obrazów](../computer-vision/overview.md). Jeśli jednak chcesz wykonać dalsze operacje przy użyciu danych dotyczących kroju, Użyj tej usługi zamiast tego.
 
 ![Obraz kobieta i Man, z prostokątami rysowanymi wokół ich powierzchni i wieku oraz wyświetlanych płci](./Images/Face.detection.jpg)
 
@@ -48,7 +48,7 @@ Sprawdź, czy interfejs API wykonuje uwierzytelnianie w odniesieniu do dwóch wy
 
 Interfejs API Znajdź podobny dopasowuje dopasowanie między powierzchnią docelową a zestawem kandydatów, co umożliwia znalezienie mniejszego zestawu twarzy, który wygląda podobnie do powierzchni docelowej. Jest to przydatne do przeszukiwania kroju na podstawie obrazu. 
 
-Obsługiwane są dwa tryby pracy, **matchPerson** i **matchFace**. Tryb **matchPerson** zwraca podobne twarze po filtrowaniu dla tej samej osoby za pomocą narzędzia [verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). Tryb **matchFace** ignoruje ten sam filtr osoby. Zwraca listę podobnych powierzchni kandydujących, które mogą lub nie należą do tej samej osoby.
+Obsługiwane są dwa tryby pracy, **matchPerson** i **matchFace** . Tryb **matchPerson** zwraca podobne twarze po filtrowaniu dla tej samej osoby za pomocą narzędzia [verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). Tryb **matchFace** ignoruje ten sam filtr osoby. Zwraca listę podobnych powierzchni kandydujących, które mogą lub nie należą do tej samej osoby.
 
 W poniższym przykładzie pokazano tarczę docelową:
 
@@ -76,7 +76,7 @@ Po utworzeniu i przeprowadzeniu uczenia bazy danych można przeprowadzić identy
 
 Aby uzyskać więcej informacji na temat identyfikacji osób, zobacz Przewodnik dotyczący pojęć dotyczących [rozpoznawania twarzy](concepts/face-recognition.md) lub dokumentację dotyczącą [identyfikacji interfejsów API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) .
 
-## <a name="containers"></a>Kontenery
+## <a name="containers"></a>Containers
 
 [Użyj kontenera twarzy](face-how-to-install-containers.md) , aby wykrywać, rozpoznawać i identyfikować twarze, instalując ustandaryzowany kontener platformy Docker bliżej Twoich danych.
 

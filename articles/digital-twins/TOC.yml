@@ -23,8 +23,6 @@
   items:
     - name: Modele niestandardowe
       href: concepts-models.md
-    - name: Konwertowanie modeli zgodnych ze standardami branżowymi
-      href: concepts-convert-models.md
     - name: Bliźniacze reprezentacje cyfrowe i graf bliźniaczych reprezentacji
       href: concepts-twins-graph.md
     - name: Język zapytań
@@ -63,6 +61,8 @@
       items:
         - name: Zarządzanie modelami niestandardowymi
           href: how-to-manage-model.md
+        - name: Konwertowanie modeli zgodnych ze standardami branżowymi
+          href: how-to-convert-models.md
         - name: Analizowanie i weryfikowanie modeli
           href: how-to-parse-models.md
         - name: Dodawanie tagów
@@ -176,11 +176,15 @@
             - name: Zestaw SDK dla języka Java — źródło
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
             - name: JavaScript SDK — npm
-              href: 'https://www.npmjs.com/package/@azure/digital-twins/'
+              href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
             - name: JavaScript SDK — dokumentacja
               href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+            - name: Zestaw SDK dla języka JavaScript — źródło
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
             - name: Python SDK — PyPi
               href: 'https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/'
+            - name: Zestaw SDK dla języka Python — źródło
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
     - name: Interfejs wiersza polecenia usługi Digital Twins
       items:
         - name: Dokumentacja interfejsu wiersza polecenia usługi Digital Twins

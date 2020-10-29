@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8812fd1e6c1efb2aa44c77573bc4b8f1c099834d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689847"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912025"
 ---
 # <a name="configure-the-review-tool"></a>Konfigurowanie narzędzia do przeglądu
 
@@ -35,7 +35,7 @@ W tej sekcji opisano sposób tworzenia podzespołów i szybkiego przypisywania p
 
 ### <a name="create-a-subteam"></a>Tworzenie podzespołu
 
-Przejdź do sekcji **podzespołów** , a następnie kliknij pozycję **Dodaj podzespół**. W oknie dialogowym wprowadź nazwę swojego zespołu, a następnie kliknij przycisk **Zapisz**.
+Przejdź do sekcji **podzespołów** , a następnie kliknij pozycję **Dodaj podzespół** . W oknie dialogowym wprowadź nazwę swojego zespołu, a następnie kliknij przycisk **Zapisz** .
 
 ![Nazwa podzespołu](images/1-Teams-2.PNG)
 
@@ -54,19 +54,19 @@ Kliknij przycisk **Dodaj członka** , aby przypisać członków z domyślnego ze
 ### <a name="assign-reviews-to-subteams"></a>Przypisywanie przeglądów do podzespołów
 
 Po utworzeniu podzespołów i przypisanych elementów członkowskich można zacząć przypisywać [przeglądy](../review-api.md#reviews) zawartości do tych podzespołów. Odbywa się to na karcie **Przegląd** w witrynie.
-Aby przypisać zawartość do podzespołu, kliknij wielokropek w prawym górnym rogu, wybierz pozycję **Przenieś do**i wybierz podzespół.
+Aby przypisać zawartość do podzespołu, kliknij wielokropek w prawym górnym rogu, wybierz pozycję **Przenieś do** i wybierz podzespół.
 
 ![Przypisz przegląd obrazu do podzespołu](images/3-review-image-subteam-1.png)
 
 ### <a name="switch-between-subteams"></a>Przełączanie między podzespołów
 
-Jeśli jesteś członkiem więcej niż jednego podzespołu, możesz przełączać się między nimi, aby zmienić, które przeglądy zawartości są wyświetlane. Na karcie **Recenzja** wybierz menu rozwijane **domyślne** z etykietą i wybierz pozycję **wybierz podzespół**. Możesz przeglądać przeglądy zawartości dla różnych zespołów, ale tylko te, których jesteś członkiem.
+Jeśli jesteś członkiem więcej niż jednego podzespołu, możesz przełączać się między nimi, aby zmienić, które przeglądy zawartości są wyświetlane. Na karcie **Recenzja** wybierz menu rozwijane **domyślne** z etykietą i wybierz pozycję **wybierz podzespół** . Możesz przeglądać przeglądy zawartości dla różnych zespołów, ale tylko te, których jesteś członkiem.
 
 ![Przełączanie między podzespołów](images/3-review-image-subteam-2.png)
 
 ## <a name="tags"></a>Tagi
 
-Na karcie **Tagi** można zdefiniować niestandardowe znaczniki moderowania oprócz dwóch domyślnych tagów moderowania &mdash; **isdorosły** (**a**) i **isracy** (**r**). Gdy tworzysz tag niestandardowy, będzie on dostępny w przeglądach obok znaczników domyślnych. Możesz zmienić, które Tagi będą widoczne w przeglądach, przełączając ich ustawienia widoczności.
+Na karcie **Tagi** można zdefiniować niestandardowe znaczniki moderowania oprócz dwóch domyślnych tagów moderowania &mdash; **isdorosły** ( **a** ) i **isracy** ( **r** ). Gdy tworzysz tag niestandardowy, będzie on dostępny w przeglądach obok znaczników domyślnych. Możesz zmienić, które Tagi będą widoczne w przeglądach, przełączając ich ustawienia widoczności.
 
 ![Widok tagów, w tym pola wyboru "jest widoczne"](images/tags-4-disable.png)
 
@@ -74,9 +74,9 @@ Na karcie **Tagi** można zdefiniować niestandardowe znaczniki moderowania opr�
 
 Aby utworzyć nowy tag, należy wprowadzić krótki kod, nazwę i opis w odpowiednich polach.
 
-- **Krótki kod**: wprowadź dwuliterowy kod dla tagu. Przykład: **CB**
-- **Nazwa**: wprowadź krótką i opisową nazwę tagu małymi literami bez spacji. Przykład: **isbullying**.
-- **Opis**: (opcjonalnie) wprowadź opis rodzaju zawartości, do której odwołuje się tag. Przykład: **sceny lub wystąpienia elementu cybernetycznymi bullying**.
+- **Krótki kod** : wprowadź dwuliterowy kod dla tagu. Przykład: **CB**
+- **Nazwa** : wprowadź krótką i opisową nazwę tagu małymi literami bez spacji. Przykład: **isbullying** .
+- **Opis** : (opcjonalnie) wprowadź opis rodzaju zawartości, do której odwołuje się tag. Przykład: **sceny lub wystąpienia elementu cybernetycznymi bullying** .
 
 Kliknij przycisk **Dodaj** , aby dodać tag, a następnie kliknij przycisk **Zapisz** po zakończeniu tworzenia tagów.
 
@@ -90,7 +90,7 @@ Tagi niestandardowe można usunąć, wybierając ikonę kosza obok pozycji na li
 
 Karta **Łączniki** umożliwia zarządzanie łącznikami, które są wtyczkami specyficznymi dla usług, które mogą przetwarzać zawartość na różne sposoby w ramach [przepływów pracy](../review-api.md#workflows)zawartości.
 
-Domyślnym łącznikiem podczas tworzenia przepływu pracy jest łącznik Content Moderator, który może oznaczać zawartość jako dorosłą lub **erotycznej**, znaleźć **niepełnoletni** itd. Można jednak użyć innych łączników, wymienionych tutaj, jeśli masz poświadczenia dla odpowiednich usług (aby użyć łącznika czołowego, na przykład musisz uzyskać klucz subskrypcji [frontu](https://docs.microsoft.com/azure/cognitive-services/face/overview) ).
+Domyślnym łącznikiem podczas tworzenia przepływu pracy jest łącznik Content Moderator, który może oznaczać zawartość jako dorosłą lub **erotycznej** , znaleźć **niepełnoletni** itd. Można jednak użyć innych łączników, wymienionych tutaj, jeśli masz poświadczenia dla odpowiednich usług (aby użyć łącznika czołowego, na przykład musisz uzyskać klucz subskrypcji [frontu](../../face/overview.md) ).
 
 [Narzędzie do przeglądu](./human-in-the-loop.md) obejmuje następujące łączniki:
 
@@ -105,7 +105,7 @@ Aby dodać łącznik (i udostępnić go do użycia w [przepływach pracy](../rev
 
 ![Ustawienia Content Moderator łączników](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>Przepływy
+## <a name="workflows"></a>Przepływy pracy
 
 Karta **przepływy pracy** umożliwia zarządzanie [przepływami pracy](../review-api.md#workflows). Przepływy pracy są filtrami opartymi na chmurze dla zawartości i pracują z łącznikami, aby sortować zawartość na różne sposoby i podejmować odpowiednie działania. Tutaj możesz definiować, edytować i testować przepływy pracy. Zobacz [Definiowanie i używanie przepływów pracy,](Workflows.md) Aby uzyskać wskazówki dotyczące sposobu wykonania tej czynności.
 
@@ -125,7 +125,7 @@ Jeśli utworzono [zasób Content moderator](https://ms.portal.azure.com/#create/
 
 ![Klucze Content Moderator w Azure Portal](images/credentials-azure-portal-keys.PNG)
 
-Na karcie **poświadczenia** [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com)przejdź do okienka **Ustawienia przepływu pracy** , wybierz pozycję **Edytuj**i Wklej klucz do pola **OCP-APIM-Subscription-Key** . Teraz przepływy pracy, które wywołują interfejsy API moderowania, będą używać poświadczeń platformy Azure.
+Na karcie **poświadczenia** [Narzędzia do przeglądu](https://contentmoderator.cognitive.microsoft.com)przejdź do okienka **Ustawienia przepływu pracy** , wybierz pozycję **Edytuj** i Wklej klucz do pola **OCP-APIM-Subscription-Key** . Teraz przepływy pracy, które wywołują interfejsy API moderowania, będą używać poświadczeń platformy Azure.
 
 > [!NOTE]
 > Pozostałe dwa pola w okienku **Ustawienia przepływu pracy** dotyczą niestandardowych terminów i list obrazów. Aby dowiedzieć się więcej, zobacz przewodniki dotyczące [niestandardowych terminów](../try-terms-list-api.md) lub [obrazów niestandardowych](../try-image-list-api.md) .
