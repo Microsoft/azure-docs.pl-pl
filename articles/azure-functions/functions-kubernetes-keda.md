@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: eab0a54d30f2cd2829779dbfc6081445f5be0a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 525635ef40437fe308c52e2d5aba2c97ed8f20e7
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83648847"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927536"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions w Kubernetes z KEDA
 
@@ -18,7 +18,7 @@ ms.locfileid: "83648847"
 
 ## <a name="how-kubernetes-based-functions-work"></a>Jak działają funkcje oparte na Kubernetes
 
-Usługa Azure Functions składa się z dwóch głównych składników: środowiska uruchomieniowego i kontrolera skali.  Środowisko uruchomieniowe funkcji działa i wykonuje swój kod.  Środowisko uruchomieniowe zawiera logikę na temat wyzwalania, rejestrowania i zarządzania wykonaniami funkcji.  Środowisko uruchomieniowe Azure Functions można uruchamiać w *dowolnym miejscu*.  Drugi składnik jest kontrolerem skalowania.  Kontroler skalowania monitoruje częstotliwość zdarzeń, które są ukierunkowane na funkcję, i aktywnie skaluje liczbę wystąpień, w których uruchomiono aplikację.  Aby dowiedzieć się więcej, zobacz [Azure Functions skalowanie i hosting](functions-scale.md).
+Usługa Azure Functions składa się z dwóch głównych składników: środowiska uruchomieniowego i kontrolera skali.  Środowisko uruchomieniowe funkcji działa i wykonuje swój kod.  Środowisko uruchomieniowe zawiera logikę na temat wyzwalania, rejestrowania i zarządzania wykonaniami funkcji.  Środowisko uruchomieniowe Azure Functions można uruchamiać w *dowolnym miejscu* .  Drugi składnik jest kontrolerem skalowania.  Kontroler skalowania monitoruje częstotliwość zdarzeń, które są ukierunkowane na funkcję, i aktywnie skaluje liczbę wystąpień, w których uruchomiono aplikację.  Aby dowiedzieć się więcej, zobacz [Azure Functions skalowanie i hosting](functions-scale.md).
 
 Funkcje oparte na Kubernetes udostępniają środowisko uruchomieniowe funkcji w [kontenerze platformy Docker](functions-create-function-linux-custom-image.md) ze skalowaniem opartym na zdarzeniach za pośrednictwem KEDA.  KEDA może skalować do 0 wystąpień (gdy nie są wykonywane żadne zdarzenia) i do *n* wystąpień. Robi to poprzez udostępnienie niestandardowych metryk dla skalowania automatycznego (Kubernetes).  Używanie kontenerów funkcji z KEDA umożliwia replikowanie funkcji bezserwerowych w dowolnym klastrze Kubernetes.  Te funkcje można również wdrożyć przy użyciu funkcji [węzłów wirtualnych usługi Azure Kubernetes Services (AKS)](../aks/virtual-nodes-cli.md) dla infrastruktury bezserwerowej.
 
@@ -33,6 +33,9 @@ Istnieją różne sposoby instalowania KEDA w dowolnym klastrze Kubernetes, w ty
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Wdrażanie aplikacji funkcji do Kubernetes
 
 Każdą aplikację funkcji można wdrożyć w klastrze Kubernetes z systemem KEDA.  Ponieważ funkcje działają w kontenerze platformy Docker, projekt wymaga `Dockerfile` .  Jeśli jeszcze nie istnieje, możesz dodać pliku dockerfile, uruchamiając następujące polecenie w katalogu głównym projektu funkcji:
+
+> [!NOTE]
+> Podstawowe narzędzia automatycznie tworzą pliku dockerfile dla Azure Functions pisanych w językach .NET, Node, Python lub PowerShell. W przypadku aplikacji funkcji pisanych w języku Java pliku dockerfile należy utworzyć ręcznie. Użyj [listy obrazów](https://github.com/Azure/azure-functions-docker) Azure Functions, aby znaleźć prawidłowy obraz do podstawowej funkcji platformy Azure.
 
 ```cli
 func init --docker-only
@@ -49,7 +52,10 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > Zamień `<name-of-function-deployment>` na nazwę aplikacji funkcji.
 
-Spowoduje to utworzenie `Deployment` zasobu Kubernetes, `ScaledObject` zasobu i, zawierającego `Secrets` zmienne środowiskowe zaimportowane z `local.settings.json` pliku.
+Polecenie Wdróż wykonuje serię akcji:
+1. Utworzony wcześniej pliku dockerfile jest używany do kompilowania lokalnego obrazu dla aplikacji funkcji.
+2. Obraz lokalny jest otagowany i wypychany do rejestru kontenerów, w którym użytkownik jest zalogowany.
+3. Manifest jest tworzony i stosowany do klastra, który definiuje `Deployment` zasób Kubernetes, `ScaledObject` zasób i `Secrets` , który zawiera zmienne środowiskowe zaimportowane z `local.settings.json` pliku.
 
 ### <a name="deploying-a-function-app-from-a-private-registry"></a>Wdrażanie aplikacji funkcji z rejestru prywatnego
 

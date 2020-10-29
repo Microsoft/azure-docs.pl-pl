@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 83725a3839d36fc753bb43803e67acaca7571a6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 052418924e73252a780689aea33e84d5bfdbc3f6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851836"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927655"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Pojęcia i definicje poleceń niestandardowych
 
@@ -49,23 +49,23 @@ To pole wyboru wskazuje, czy zakres tego parametru jest współużytkowany przez
 ### <a name="required"></a>Wymagane
 To pole wyboru wskazuje, czy wartość tego parametru jest wymagana do realizacji lub uzupełniania poleceń. Musisz skonfigurować odpowiedzi, aby monitować użytkownika o podanie wartości, jeśli parametr jest oznaczony jako wymagany.
 
-### <a name="type"></a>Type
+### <a name="type"></a>Typ
 Polecenia niestandardowe obsługują następujące typy parametrów:
 
 * DateTime
 * Lokalizacja geograficzna
 * Liczba
-* Ciąg
+* String
 
 Wszystkie te typy parametrów obsługują konfigurację wartości domyślnych, którą można skonfigurować przy użyciu Azure Portal.
 
 ### <a name="configuration"></a>Konfiguracja
 Konfiguracja jest właściwością parametru zdefiniowaną tylko dla ciągu typu. Obsługiwane są następujące wartości:
 
-* **Brak**.
-* **Zaakceptuj pełne dane wejściowe**: po włączeniu parametr akceptuje wszelkie wypowiedź wejściowe. Ta opcja jest przydatna, gdy użytkownik potrzebuje parametru z pełnym wypowiedź. Przykładem są adresy pocztowe.
-* **Zaakceptuj wstępnie zdefiniowane wartości wejściowe z wykazu zewnętrznego**: Ta wartość jest używana do konfigurowania parametru, który może przyjmować różne wartości. Przykładem jest katalog sprzedaży. W takim przypadku katalog jest hostowany w zewnętrznym punkcie końcowym sieci Web i można go skonfigurować niezależnie.
-* **Zaakceptuj wstępnie zdefiniowane wartości wejściowe z wykazu wewnętrznego**: Ta wartość jest używana do konfigurowania parametru, który może przyjmować kilka wartości. W takim przypadku należy skonfigurować wartości w programie Speech Studio.
+* **Brak** .
+* **Zaakceptuj pełne dane wejściowe** : po włączeniu parametr akceptuje wszelkie wypowiedź wejściowe. Ta opcja jest przydatna, gdy użytkownik potrzebuje parametru z pełnym wypowiedź. Przykładem są adresy pocztowe.
+* **Zaakceptuj wstępnie zdefiniowane wartości wejściowe z wykazu zewnętrznego** : Ta wartość jest używana do konfigurowania parametru, który może przyjmować różne wartości. Przykładem jest katalog sprzedaży. W takim przypadku katalog jest hostowany w zewnętrznym punkcie końcowym sieci Web i można go skonfigurować niezależnie.
+* **Zaakceptuj wstępnie zdefiniowane wartości wejściowe z wykazu wewnętrznego** : Ta wartość jest używana do konfigurowania parametru, który może przyjmować kilka wartości. W takim przypadku należy skonfigurować wartości w programie Speech Studio.
 
 
 ### <a name="validation"></a>Walidacja
@@ -75,47 +75,50 @@ Walidacje to konstrukcje mające zastosowanie do niektórych typów parametrów,
 * Liczba
 
 ## <a name="rules-configuration"></a>Konfiguracja reguł
-Reguła w poleceniach niestandardowych jest definiowana przez zestaw *warunków* , które po spełnieniu, wykonywania zestawu *akcji*. Reguły umożliwiają również Konfigurowanie *stanu po wykonaniu* i *oczekiwań* przy następnym włączeniu.
+Reguła w poleceniach niestandardowych jest definiowana przez zestaw *warunków* , które po spełnieniu, wykonywania zestawu *akcji* . Reguły umożliwiają również Konfigurowanie *stanu po wykonaniu* i *oczekiwań* przy następnym włączeniu.
 
-### <a name="types"></a>Types
+### <a name="types"></a>Typy
 Polecenia niestandardowe obsługują następujące kategorie reguł:
 
-* **Reguły uzupełniania**: te reguły muszą zostać wykonane przy realizacji polecenia. Wszystkie reguły skonfigurowane w tej sekcji, dla których warunki są spełnione, zostaną wykonane. 
-* **Reguły interakcji**: te reguły mogą służyć do konfigurowania dodatkowych niestandardowych walidacji, potwierdzeń i korekty jednoetapowej lub do wykonywania jakichkolwiek innych niestandardowych logiki okna dialogowego. Reguły interakcji są oceniane przy każdym włączeniu przetwarzania i mogą być używane do wyzwalania reguł uzupełniania.
+* **Reguły uzupełniania** : te reguły muszą zostać wykonane przy realizacji polecenia. Wszystkie reguły skonfigurowane w tej sekcji, dla których warunki są spełnione, zostaną wykonane. 
+* **Reguły interakcji** : te reguły mogą służyć do konfigurowania dodatkowych niestandardowych walidacji, potwierdzeń i korekty jednoetapowej lub do wykonywania jakichkolwiek innych niestandardowych logiki okna dialogowego. Reguły interakcji są oceniane przy każdym włączeniu przetwarzania i mogą być używane do wyzwalania reguł uzupełniania.
 
 Różne akcje skonfigurowane w ramach reguły są wykonywane w kolejności, w jakiej są wyświetlane w portalu tworzenia.
 
 ### <a name="conditions"></a>Warunki
 Warunki są wymagania, które muszą zostać spełnione, aby reguła mogła zostać wykonana. Warunkiem reguł mogą być następujące typy:
 
-* **Wartość parametru Equals**: wartość skonfigurowanego parametru jest równa określonej wartości.
-* **Brak wartości parametru**: skonfigurowane parametry nie powinny mieć żadnej wartości.
-* **Wymagane parametry**: skonfigurowany parametr ma wartość.
-* **Wszystkie wymagane parametry**: wszystkie parametry, które zostały oznaczone jako wymagane, mają wartość.
-* **Zaktualizowane parametry**: co najmniej jedna wartość parametru została zaktualizowana w wyniku przetwarzania bieżących danych wejściowych (wypowiedź lub Activity).
-* **Potwierdzenie zakończyło się pomyślnie**: dane wejściowe wypowiedź lub działanie były pomyślne potwierdzeniem (tak).
-* **Odrzucono potwierdzenie**: dane wejściowe wypowiedź lub działanie nie było pomyślnym potwierdzeniem (No).
-* Należy **zaktualizować poprzednie polecenie**: ten warunek jest używany w wystąpieniach, jeśli chcesz przechwytywać zaprzeczenie potwierdzenia wraz z aktualizacją. W tle ten warunek jest skonfigurowany do momentu wykrycia negatywnego potwierdzenia przez aparat okna dialogowego, w którym zamiar jest taka sama jak w poprzednim, a użytkownik odpowiedział z aktualizacją.
+* **Wartość parametru Equals** : wartość skonfigurowanego parametru jest równa określonej wartości.
+* **Brak wartości parametru** : skonfigurowane parametry nie powinny mieć żadnej wartości.
+* **Wymagane parametry** : skonfigurowany parametr ma wartość.
+* **Wszystkie wymagane parametry** : wszystkie parametry, które zostały oznaczone jako wymagane, mają wartość.
+* **Zaktualizowane parametry** : co najmniej jedna wartość parametru została zaktualizowana w wyniku przetwarzania bieżących danych wejściowych (wypowiedź lub Activity).
+* **Potwierdzenie zakończyło się pomyślnie** : dane wejściowe wypowiedź lub działanie były pomyślne potwierdzeniem (tak).
+* **Odrzucono potwierdzenie** : dane wejściowe wypowiedź lub działanie nie było pomyślnym potwierdzeniem (No).
+* Należy **zaktualizować poprzednie polecenie** : ten warunek jest używany w wystąpieniach, jeśli chcesz przechwytywać zaprzeczenie potwierdzenia wraz z aktualizacją. W tle ten warunek jest skonfigurowany do momentu wykrycia negatywnego potwierdzenia przez aparat okna dialogowego, w którym zamiar jest taka sama jak w poprzednim, a użytkownik odpowiedział z aktualizacją.
 
 ### <a name="actions"></a>Akcje
-* **Wyślij odpowiedź na mowę**: Wyślij odpowiedź na mowę z powrotem do klienta.
-* **Zaktualizuj wartość parametru**: zaktualizuj wartość parametru polecenia do określonej wartości.
-* **Wyczyść wartość parametru**: Wyczyść wartość parametru polecenia.
-* **Wywołaj punkt końcowy sieci Web**: nawiązać połączenie z punktem końcowym sieci Web.
-* **Wyślij działanie do klienta**: Wyślij do klienta niestandardowe działanie.
+* **Wyślij odpowiedź na mowę** : Wyślij odpowiedź na mowę z powrotem do klienta.
+* **Zaktualizuj wartość parametru** : zaktualizuj wartość parametru polecenia do określonej wartości.
+* **Wyczyść wartość parametru** : Wyczyść wartość parametru polecenia.
+* **Wywołaj punkt końcowy sieci Web** : nawiązać połączenie z punktem końcowym sieci Web.
+* **Wyślij działanie do klienta** : Wyślij do klienta niestandardowe działanie.
 
 ### <a name="expectations"></a>Oczekiwania
 Oczekiwania są używane do konfigurowania wskazówek dotyczących przetwarzania następnego danych wejściowych użytkownika. Obsługiwane są następujące typy:
 
-* **Oczekiwano potwierdzenia od użytkownika**: to oczekiwanie określa, że aplikacja oczekuje potwierdzenia (tak/nie) dla następnego danych wejściowych użytkownika.
-* **Oczekiwano danych wejściowych z użytkownika**: to oczekiwanie określa co najmniej jeden parametr polecenia, którego aplikacja oczekuje od danych wejściowych użytkownika.
+* **Oczekiwano potwierdzenia od użytkownika** : to oczekiwanie określa, że aplikacja oczekuje potwierdzenia (tak/nie) dla następnego danych wejściowych użytkownika.
+* **Oczekiwano danych wejściowych z użytkownika** : to oczekiwanie określa co najmniej jeden parametr polecenia, którego aplikacja oczekuje od danych wejściowych użytkownika.
 
 ### <a name="post-execution-state"></a>Stan po wykonaniu
 Stan po wykonaniu to stan okna dialogowego po przetworzeniu bieżącego danych wejściowych (wypowiedź lub Activity). Są to następujące typy:
 
-* **Polecenie zostało wykonane**: Ukończ polecenie i nie zostaną przetworzone żadne dodatkowe reguły polecenia.
-* **Wykonaj reguły uzupełniania**: wykonaj wszystkie prawidłowe reguły uzupełniania.
-* **Zaczekaj na dane wejściowe użytkownika**: Poczekaj na następne dane wejściowe użytkownika.
+* **Zachowaj bieżący stan** : Zachowaj tylko bieżący stan.
+* **Ukończ polecenie** : Ukończ polecenie i nie zostaną przetworzone żadne dodatkowe reguły polecenia.
+* **Wykonaj reguły uzupełniania** : wykonaj wszystkie prawidłowe reguły uzupełniania.
+* **Zaczekaj na dane wejściowe użytkownika** : Poczekaj na następne dane wejściowe użytkownika.
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

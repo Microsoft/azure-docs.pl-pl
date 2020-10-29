@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0a68c2b9c857205dda7f5da846085f9f3823da20
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371736"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927638"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Zabezpieczanie dostępu do danych w usłudze Azure Cosmos DB
 
@@ -119,6 +119,12 @@ Zasób uprawnienia jest skojarzony z użytkownikiem i przypisany do niego w kont
 > [!NOTE]
 > Aby można było uruchomić procedury składowane, użytkownik musi mieć uprawnienie wszystkie do kontenera, w którym zostanie uruchomiona procedura składowana.
 
+W przypadku włączenia [dzienników diagnostycznych na żądanie płaszczyzny danych](cosmosdb-monitor-resource-logs.md)rejestrowane są następujące dwie właściwości odpowiadające uprawnieniu:
+
+* **resourceTokenPermissionId** — ta właściwość wskazuje identyfikator uprawnienia tokenu zasobu, który został określony. 
+
+* **resourceTokenPermissionMode** — ta właściwość wskazuje tryb uprawnień, który został ustawiony podczas tworzenia tokenu zasobu. Tryb uprawnień może mieć wartości, takie jak "All" lub "read".
+
 ### <a name="code-sample-to-create-permission"></a>Przykład kodu do utworzenia uprawnienia
 
 Poniższy przykładowy kod przedstawia sposób tworzenia zasobu uprawnienia, odczytywania tokenu zasobu zasobu uprawnienia i kojarzenia uprawnień z utworzonym powyżej [użytkownikiem](#users) .
@@ -150,12 +156,12 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 Aby dodać do konta użytkownika dostęp do czytnika konta Azure Cosmos DB, należy wykonać następujące czynności w Azure Portal.
 
 1. Otwórz Azure Portal i wybierz swoje konto Azure Cosmos DB.
-2. Kliknij kartę **Kontrola dostępu (IAM)** , a następnie kliknij pozycję  **+ Dodaj przypisanie roli**.
-3. W okienku **Dodaj przypisanie roli** w polu **rola** wybierz pozycję **Cosmos DB rolę czytelnika konta**.
-4. W **polu Przypisz dostęp do**wybierz pozycję **użytkownik, Grupa lub aplikacja usługi Azure AD**.
+2. Kliknij kartę **Kontrola dostępu (IAM)** , a następnie kliknij pozycję  **+ Dodaj przypisanie roli** .
+3. W okienku **Dodaj przypisanie roli** w polu **rola** wybierz pozycję **Cosmos DB rolę czytelnika konta** .
+4. W **polu Przypisz dostęp do** wybierz pozycję **użytkownik, Grupa lub aplikacja usługi Azure AD** .
 5. Wybierz użytkownika, grupę lub aplikację w katalogu, do którego chcesz udzielić dostępu.  Katalog można wyszukać według nazwy wyświetlanej, adresu e-mail lub identyfikatorów obiektów.
     Wybrany użytkownik, Grupa lub aplikacja pojawi się na liście wybranych członków.
-6. Kliknij pozycję **Zapisz**.
+6. Kliknij pozycję **Zapisz** .
 
 Jednostka może teraz odczytywać Azure Cosmos DB zasoby.
 

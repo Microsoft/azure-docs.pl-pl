@@ -6,16 +6,16 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 161e3e7fbc5b343ee73142f0e968367c3cbfaa6b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212600"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927417"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Wzorce wyrażeń powiązań Azure Functions
 
-Jedną z najbardziej zaawansowanych funkcji [wyzwalaczy i powiązań](./functions-triggers-bindings.md) jest *wyrażenie wiążące*. W *function.jsna* pliku i w parametrach i kodzie funkcji można używać wyrażeń, które rozwiązują wartości z różnych źródeł.
+Jedną z najbardziej zaawansowanych funkcji [wyzwalaczy i powiązań](./functions-triggers-bindings.md) jest *wyrażenie wiążące* . W *function.jsna* pliku i w parametrach i kodzie funkcji można używać wyrażeń, które rozwiązują wartości z różnych źródeł.
 
 Większość wyrażeń identyfikuje się przez umieszczenie ich w nawiasach klamrowych. Na przykład, w funkcji wyzwalacza kolejki, jest `{queueTrigger}` rozpoznawana jako tekst komunikatu w kolejce. Jeśli `path` Właściwość dla powiązania danych wyjściowych obiektu BLOB ma wartość, `container/{queueTrigger}` a funkcja jest wyzwalana przez komunikat w kolejce `HelloWorld` , tworzony jest obiekt BLOB o nazwie `HelloWorld` .
 
@@ -41,7 +41,7 @@ Gdy funkcja działa lokalnie, wartości ustawień aplikacji pochodzą z *local.s
 > [!NOTE]
 > `connection`Właściwość wyzwalaczy i powiązań jest szczególnym przypadkiem i automatycznie rozpoznaje wartości jako ustawienia aplikacji bez znaków procentu. 
 
-Poniższy przykład to wyzwalacz usługi Azure Queue Storage, który używa ustawienia aplikacji `%input-queue-name%` do zdefiniowania kolejki do wyzwalania.
+Poniższy przykład to wyzwalacz usługi Azure Queue Storage, który używa ustawienia aplikacji `%input_queue_name%` do zdefiniowania kolejki do wyzwalania.
 
 ```json
 {
@@ -50,7 +50,7 @@ Poniższy przykład to wyzwalacz usługi Azure Queue Storage, który używa usta
       "name": "order",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "%input-queue-name%",
+      "queueName": "%input_queue_name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
   ]
@@ -62,7 +62,7 @@ Możesz użyć tego samego podejścia w bibliotekach klas:
 ```csharp
 [FunctionName("QueueTrigger")]
 public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    [QueueTrigger("%input_queue_name%")]string myQueueItem, 
     ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
@@ -292,7 +292,7 @@ public class BlobName
 
 ## <a name="create-guids"></a>Tworzenie identyfikatorów GUID
 
-`{rand-guid}`Wyrażenie powiązania tworzy identyfikator GUID. Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie takiej jak *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
+`{rand-guid}`Wyrażenie powiązania tworzy identyfikator GUID. Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie takiej jak *50710cb5-84b9-4d87-9d83-a03d6976a682.txt* .
 
 ```json
 {
@@ -305,7 +305,7 @@ public class BlobName
 
 ## <a name="current-time"></a>Bieżący czas
 
-Wyrażenie powiązania jest `DateTime` rozpoznawane jako `DateTime.UtcNow` . Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie takiej jak *2018-02-16T17-59-55Z.txt*.
+Wyrażenie powiązania jest `DateTime` rozpoznawane jako `DateTime.UtcNow` . Następująca ścieżka obiektu BLOB w `function.json` pliku tworzy obiekt BLOB o nazwie takiej jak *2018-02-16T17-59-55Z.txt* .
 
 ```json
 {

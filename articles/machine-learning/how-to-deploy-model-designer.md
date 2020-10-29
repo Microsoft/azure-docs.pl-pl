@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: e2f3e0b596847000af62aa6e23da5b137ee9de33
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998999"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927587"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Wdrażanie modeli szkolonych w projektancie przy użyciu programu Studio
 
@@ -56,7 +56,7 @@ Po zakończeniu potoku szkoleniowego Zarejestruj przeszkolony model w obszarze r
 
     ![Zrzut ekranu przedstawiający prawy panel modułu uczenie modelu](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
-1. Wprowadź nazwę dla modelu, a następnie wybierz pozycję **Zapisz**.
+1. Wprowadź nazwę dla modelu, a następnie wybierz pozycję **Zapisz** .
 
 Po zarejestrowaniu modelu można go znaleźć na stronie zasobów **modeli** w Studio.
     
@@ -104,8 +104,8 @@ Po pobraniu niezbędnych plików można przystąpić do wdrażania modelu.
 
     - Wprowadź nazwę dla punktu końcowego.
     - Wybierz wdrożenie modelu w [usłudze Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) lub [wystąpieniu kontenera platformy Azure](how-to-deploy-azure-container-instance.md).
-    - Przekaż `score.py` **plik skryptu do wpisu**.
-    - Przekaż `conda_env.yml` **plik dla zależności Conda**. 
+    - Przekaż `score.py` **plik skryptu do wpisu** .
+    - Przekaż `conda_env.yml` **plik dla zależności Conda** . 
 
     >[!TIP]
     > W ustawieniu **zaawansowanym** można ustawić pojemność procesora/pamięci oraz inne parametry wdrożenia. Te ustawienia są ważne w przypadku niektórych modeli, takich jak modele PyTorch, które zużywają znaczną ilość Memery (około 4 GB).
@@ -299,6 +299,7 @@ score_params = dict(
 ## <a name="next-steps"></a>Następne kroki
 
 * [Uczenie modelu w projektancie](tutorial-designer-automobile-price-train-score.md)
+* [Wdrażanie modeli przy użyciu zestawu SDK Azure Machine Learning](how-to-deploy-and-where.md)
 * [Rozwiązywanie problemów z niepowodzeniem wdrożenia](how-to-troubleshoot-deployment.md)
 * [Wdrażanie w usłudze Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Tworzenie aplikacji klienckich w celu korzystania z usług sieci Web](how-to-consume-web-service.md)

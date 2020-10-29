@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ed7cec34b4bca1882d069997d4f89677cda32447
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd262b942d6ce4e423f524c7381574afd501f466
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88080953"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927553"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Rozpoczynanie monitorowania aplikacji internetowej ASP.NET
 
@@ -36,13 +36,13 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 2. Wybierz pozycję **Konfiguruj usługę Application Insights** z menu Projekt. Program Visual Studio doda zestaw SDK usługi Application Insights do aplikacji.
 
     > [!IMPORTANT]
-    > Proces dodawania usługi Application Insights różni się w zależności od typu szablonu platformy ASP.NET. Jeśli używasz szablonu **Pusty** lub **Aplikacja mobilna platformy Azure**, wybierz pozycję **Projekt** > **Dodaj Telemetrię usługi Application Insights**. W przypadku wszystkich pozostałych szablonów platformy ASP.NET zapoznaj się z instrukcjami w powyższym kroku. 
+    > Proces dodawania usługi Application Insights różni się w zależności od typu szablonu platformy ASP.NET. Jeśli używasz szablonu **Pusty** lub **Aplikacja mobilna platformy Azure** , wybierz pozycję **Projekt** > **Dodaj Telemetrię usługi Application Insights** . W przypadku wszystkich pozostałych szablonów platformy ASP.NET zapoznaj się z instrukcjami w powyższym kroku. 
 
-3. Kliknij przycisk **Rozpocznij pracę** (w starszych wersjach programu Visual Studio zamiast tego przycisku znajduje się przycisk **Rozpocznij bezpłatnie**).
+3. Kliknij przycisk **Rozpocznij pracę** (w starszych wersjach programu Visual Studio zamiast tego przycisku znajduje się przycisk **Rozpocznij bezpłatnie** ).
 
     ![Dodawanie usługi Application Insights do programu Visual Studio](./media/quick-monitor-portal/add-application-insights-b.png)
 
-4. Wybierz swoją subskrypcję i kliknij przycisk **Zarejestruj**.
+4. Wybierz swoją subskrypcję i kliknij przycisk **Zarejestruj** .
 
 5. Wybierz pozycję **projekt**  >  **Zarządzanie**  >  **pakietami NuGet źródło pakietów: NuGet.org**  >  **zaktualizować** pakiety SDK Application Insights do najnowszej wersji stabilnej.
 
@@ -52,7 +52,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Usługa Application Insights zbiera dane telemetryczne aplikacji niezależnie od tego, gdzie jest ona uruchomiona. Aby rozpocząć wyświetlanie tych danych, wykonaj poniższe czynności.
 
-1. Otwórz Application Insights, klikając pozycję **Wyświetl**  ->  **inne**  ->  **Application Insights wyszukiwania**w systemie Windows.  Pojawią się dane telemetryczne z bieżącej sesji.<BR><br>![Dane telemetryczne w programie Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. Otwórz Application Insights, klikając pozycję **Wyświetl**  ->  **inne**  ->  **Application Insights wyszukiwania** w systemie Windows.  Pojawią się dane telemetryczne z bieżącej sesji.<BR><br>![Dane telemetryczne w programie Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. Kliknij pierwsze żądanie na liście (w tym przykładzie GET Home/Index), aby wyświetlić jego szczegóły. Zwróć uwagę, że są widoczne kod stanu i czas odpowiedzi, a także inne cenne informacje dotyczące żądania.<br><br>![Szczegóły odpowiedzi w programie Visual Studio](media/quick-monitor-portal/request-details.png)
 
@@ -60,15 +60,15 @@ Usługa Application Insights zbiera dane telemetryczne aplikacji niezależnie od
 
 Możesz teraz otworzyć usługę Application Insights w witrynie Azure Portal i wyświetlić różne szczegółowe informacje o uruchomionej aplikacji.
 
-1. Rozwiń folder **usługi połączone** (ikona chmury i wtyczki) w Eksplorator rozwiązań następnie kliknij prawym przyciskiem myszy folder **Application Insights** i kliknij polecenie **Otwórz Portal Application Insights**.  Pojawią się wybrane informacje o aplikacji i różne opcje.
+1. Rozwiń folder **usługi połączone** (ikona chmury i wtyczki) w Eksplorator rozwiązań następnie kliknij prawym przyciskiem myszy folder **Application Insights** i kliknij polecenie **Otwórz Portal Application Insights** .  Pojawią się wybrane informacje o aplikacji i różne opcje.
 
-    ![Mapa aplikacji](media/quick-monitor-portal/04-overview.png)
+    ![Zrzut ekranu pokazujący informacje o aplikacji w portalu Application Insights.](media/quick-monitor-portal/04-overview.png)
 
-2. Kliknij pozycję **Mapa aplikacji**, aby uzyskać wizualny układ relacji zależności między składnikami aplikacji.  Każdy składnik przedstawia kluczowe wskaźniki wydajności, takie jak obciążenie, wydajność, błędy i alerty.
+2. Kliknij pozycję **Mapa aplikacji** , aby uzyskać wizualny układ relacji zależności między składnikami aplikacji.  Każdy składnik przedstawia kluczowe wskaźniki wydajności, takie jak obciążenie, wydajność, błędy i alerty.
 
     ![Mapa aplikacji](media/quick-monitor-portal/05-appmap.png)
 
-3. Kliknij ikonę **Analiza aplikacji** ![ Widok mapy aplikacji ](media/quick-monitor-portal/app-viewinlogs-icon.png) **w dziennikach (analiza)** na jednym ze składników aplikacji. Spowoduje to otwarcie **dzienników (analiza)**, który oferuje bogaty język zapytań umożliwiający analizowanie wszystkich danych zebranych przez Application Insights. W tym przypadku jest generowane zapytanie, które renderuje liczbę żądań w formie wykresu. Możesz pisać własne zapytania do analizy innych danych.
+3. Kliknij ikonę **Analiza aplikacji** ![ zrzut ekranu ikony Analiza aplikacji.](media/quick-monitor-portal/app-viewinlogs-icon.png) **Wyświetl w dziennikach (analiza)** na jednym ze składników aplikacji. Spowoduje to otwarcie **dzienników (analiza)** , który oferuje bogaty język zapytań umożliwiający analizowanie wszystkich danych zebranych przez Application Insights. W tym przypadku jest generowane zapytanie, które renderuje liczbę żądań w formie wykresu. Możesz pisać własne zapytania do analizy innych danych.
 
     ![Analiza](media/quick-monitor-portal/6viewanalytics.png)
 
@@ -103,8 +103,8 @@ Aby dowiedzieć się więcej, odwiedź repozytorium GitHub [naszego zestawu SDK 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Po zakończeniu testowania można usunąć grupę zasobów i wszystkie powiązane zasoby. W tym celu wykonaj poniższe kroki.
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij pozycję **myResourceGroup**.
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym pozycję Grupa **zasobów** , a następnie kliknij pozycję **Usuń**.
+1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów** , a następnie kliknij pozycję **myResourceGroup** .
+2. Na stronie grupy zasobów kliknij pozycję **Usuń** , wpisz w polu tekstowym pozycję Grupa **zasobów** , a następnie kliknij pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 W tym przewodniku szybki start włączono aplikację do monitorowania za pomocą usługi Azure Application Insights.  Przejdź do kolejnych samouczków, aby dowiedzieć się, jak użyć tej usługi do monitorowania statystyk i wykrywania problemów w aplikacji.

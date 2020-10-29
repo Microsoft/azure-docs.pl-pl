@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 19abb3f12dc1a0fd2a3dff548ecdc9e7fff47659
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978785"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927672"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfiguracje infrastruktury SAP HANA i operacje na platformie Azure
 Ten dokument zawiera wskazówki dotyczące konfigurowania infrastruktury platformy Azure i systemów SAP HANA operacyjnych wdrożonych na natywnych maszynach wirtualnych platformy Azure. Dokument zawiera również informacje o konfiguracji SAP HANA skalowania w poziomie dla jednostki SKU maszyny wirtualnej M128s. Ten dokument nie jest przeznaczony do zastępowania standardowej dokumentacji SAP, która obejmuje następującą zawartość:
@@ -135,11 +135,11 @@ W przypadku/Hana/Shared zalecamy również użycie [Azure NetApp Files](https://
 
 Typowy projekt podstawowy dla jednego węzła w konfiguracji skalowania w poziomie ma wyglądać następująco:
 
-![Podstawowe skalowanie w poziomie jednego węzła](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
+![Diagram przedstawiający typowy projekt podstawowy dla jednego węzła w konfiguracji skalowania w poziomie.](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 Podstawowa konfiguracja węzła maszyny wirtualnej dla SAP HANA skalowanie w poziomie wygląda następująco:
 
-- W przypadku **/Hana/Shared**należy używać natywnej usługi NFS dostępnej za pomocą Azure NetApp Files. 
+- W przypadku **/Hana/Shared** należy używać natywnej usługi NFS dostępnej za pomocą Azure NetApp Files. 
 - Wszystkie inne woluminy dysków nie są współdzielone między różnymi węzłami i nie są oparte na systemie plików NFS. Konfiguracje instalacji i kroki dotyczące skalowalnych w poziomie instalacji platformy HANA z nieudostępnionymi **/Hana/Data** i **/Hana/log** są udostępniane dalej w dalszej części tego dokumentu. W przypadku certyfikowanego magazynu platformy HANA, którego można użyć, zapoznaj się z artykułem [SAP HANA konfiguracji magazynu maszyn wirtualnych Azure](./hana-vm-operations-storage.md).
 
 

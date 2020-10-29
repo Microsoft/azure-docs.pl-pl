@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b457c3b0ec0f68dd6a8213fbebe7a2596bed4c2e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b7b46f2d280577f40f927a0d8eb6fcf2ed33e04a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519677"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927434"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji na platformie Azure, która odpowiada na żądania HTTP
 
@@ -88,11 +88,11 @@ W pustym folderze uruchom następujące polecenie, aby wygenerować projekt usł
 > + Użyj `-DjavaVersion=11` , jeśli chcesz, aby działały w języku Java 11. Aby dowiedzieć się więcej, zobacz [wersje Java](functions-reference-java.md#java-versions). 
 > + `JAVA_HOME`Aby można było ukończyć ten artykuł, zmienna środowiskowa musi być ustawiona na lokalizację instalacji poprawnej wersji JDK.
 
-# <a name="bash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8
 ```
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
 mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" 
 ```
@@ -114,7 +114,7 @@ Po wyświetleniu monitu podaj następujące wartości:
 
 Wpisz `Y` lub naciśnij klawisz ENTER, aby potwierdzić.
 
-Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_, w tym przykładzie `fabrikam-functions` . 
+Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_ , w tym przykładzie `fabrikam-functions` . 
 
 ::: zone-end  
 Przejdź do folderu projektu:
@@ -140,7 +140,7 @@ W razie potrzeby możesz pominąć, aby [uruchomić funkcję lokalnie](#run-the-
 ::: zone pivot="programming-language-csharp"
 #### <a name="httpexamplecs"></a>HttpExample.cs
 
-*HttpExample.cs* zawiera `Run` metodę, która odbiera dane żądania w `req` zmiennej, jest identyfikatorem [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) , który jest uzupełniony o **HttpTriggerAttribute**, który definiuje zachowanie wyzwalacza. 
+*HttpExample.cs* zawiera `Run` metodę, która odbiera dane żądania w `req` zmiennej, jest identyfikatorem [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) , który jest uzupełniony o **HttpTriggerAttribute** , który definiuje zachowanie wyzwalacza. 
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
@@ -170,42 +170,42 @@ Archetype generuje również test jednostkowy dla funkcji. W przypadku zmiany fu
 ::: zone pivot="programming-language-python"
 #### <a name="__init__py"></a>\_\_init \_ \_ . PR
 
-* \_ \_ init \_ \_ . PR* zawiera `main()` funkcję języka Python, która jest wyzwalana zgodnie z konfiguracją w *function.jsna*.
+*\_ \_ init \_ \_ . PR* zawiera `main()` funkcję języka Python, która jest wyzwalana zgodnie z konfiguracją w *function.jsna* .
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` , zgodnie z definicją w *function.json*. `req` jest wystąpieniem [klasy Azure. Functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Obiekt zwracany, zdefiniowany jako `$return` w *function.json*, jest wystąpieniem [klasy Azure. Functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Aby dowiedzieć się więcej, zobacz [Azure Functions wyzwalacze i powiązania HTTP](./functions-bindings-http-webhook.md?tabs=python).
+Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` , zgodnie z definicją w *function.json* . `req` jest wystąpieniem [klasy Azure. Functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Obiekt zwracany, zdefiniowany jako `$return` w *function.json* , jest wystąpieniem [klasy Azure. Functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Aby dowiedzieć się więcej, zobacz [Azure Functions wyzwalacze i powiązania HTTP](./functions-bindings-http-webhook.md?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 #### <a name="indexjs"></a>index.js
 
 
-*index.js* eksportuje funkcję, która jest wyzwalana zgodnie z konfiguracją w *function.jsna*.
+*index.js* eksportuje funkcję, która jest wyzwalana zgodnie z konfiguracją w *function.jsna* .
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` , zgodnie z definicją w *function.json*. Obiekt zwracany, zdefiniowany jako `$return` w *function.json*, jest odpowiedzią. Aby dowiedzieć się więcej, zobacz [Azure Functions wyzwalacze i powiązania HTTP](./functions-bindings-http-webhook.md?tabs=javascript).
+Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` , zgodnie z definicją w *function.json* . Obiekt zwracany, zdefiniowany jako `$return` w *function.json* , jest odpowiedzią. Aby dowiedzieć się więcej, zobacz [Azure Functions wyzwalacze i powiązania HTTP](./functions-bindings-http-webhook.md?tabs=javascript).
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
 #### <a name="indexts"></a>indeks. TS
 
-*index. TS* eksportuje funkcję, która jest wyzwalana zgodnie z konfiguracją w *function.jsna*.
+*index. TS* eksportuje funkcję, która jest wyzwalana zgodnie z konfiguracją w *function.jsna* .
 
 :::code language="typescript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-TypeScript/index.ts":::
 
-Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` typu **HttpRequest** zgodnie z definicją w *function.json*. Obiekt zwracany, zdefiniowany jako `$return` w *function.json*, jest odpowiedzią. 
+Dla wyzwalacza HTTP funkcja otrzymuje dane żądania w zmiennej `req` typu **HttpRequest** zgodnie z definicją w *function.json* . Obiekt zwracany, zdefiniowany jako `$return` w *function.json* , jest odpowiedzią. 
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
 #### <a name="runps1"></a>run.ps1
 
-*run.ps1* definiuje skrypt funkcji, który jest wyzwalany zgodnie z konfiguracją w *function.jsna*.
+*run.ps1* definiuje skrypt funkcji, który jest wyzwalany zgodnie z konfiguracją w *function.jsna* .
 
 :::code language="powershell" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/run.ps1":::
 
-Dla wyzwalacza HTTP funkcja otrzymuje dane żądania przekazywane do `$Request` param zdefiniowanego w *function.json*. Obiekt zwracany, zdefiniowany jako `Response` w *function.json*, jest przesyłany do `Push-OutputBinding` polecenia cmdlet jako odpowiedź. 
+Dla wyzwalacza HTTP funkcja otrzymuje dane żądania przekazywane do `$Request` param zdefiniowanego w *function.json* . Obiekt zwracany, zdefiniowany jako `Response` w *function.json* , jest przesyłany do `Push-OutputBinding` polecenia cmdlet jako odpowiedź. 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
@@ -370,10 +370,10 @@ mvn azure-functions:deploy
 
 Spowoduje to utworzenie następujących zasobów na platformie Azure:
 
-+ Grupa zasobów. Nazwana jako _Java-Functions-Group_.
++ Grupa zasobów. Nazwana jako _Java-Functions-Group_ .
 + Konto magazynu. Wymagane przez funkcje. Nazwa jest generowana losowo na podstawie wymagań dotyczących nazw kont magazynu.
-+ Plan hostingu. Hosting bezserwerowy dla aplikacji funkcji w regionie _zachodnim_ . Nazwa to _Java-Functions-App-Service-plan_.
-+ Aplikacja funkcji. Aplikacja funkcji jest jednostką wdrażania i wykonywania dla funkcji. Nazwa jest generowana losowo na podstawie _artifactId_, z uwzględnieniem losowo wygenerowanego numeru. 
++ Plan hostingu. Hosting bezserwerowy dla aplikacji funkcji w regionie _zachodnim_ . Nazwa to _Java-Functions-App-Service-plan_ .
++ Aplikacja funkcji. Aplikacja funkcji jest jednostką wdrażania i wykonywania dla funkcji. Nazwa jest generowana losowo na podstawie _artifactId_ , z uwzględnieniem losowo wygenerowanego numeru. 
 
 Wdrożenie pakuje pliki projektu i wdraża je w nowej aplikacji funkcji przy użyciu polecenia [zip Deployment](functions-deployment-technologies.md#zip-deploy). Kod jest uruchamiany z pakietu wdrożeniowego na platformie Azure.
 ::: zone-end
@@ -391,7 +391,7 @@ Skopiuj pełny **adres URL Wywołaj** pokazany w danych wyjściowych polecenia P
 
 # <a name="curl"></a>[odsłon](#tab/curl)
 
-Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL**, dodając parametr `&name=Functions` . Danymi wyjściowymi polecenia powinien być tekst "Hello Functions".
+Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL** , dodając parametr `&name=Functions` . Danymi wyjściowymi polecenia powinien być tekst "Hello Functions".
 
 ![Dane wyjściowe funkcji uruchamianej na platformie Azure przy użyciu programu zwinięcie](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-curl.png)
 
