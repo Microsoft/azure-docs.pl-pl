@@ -3,33 +3,29 @@ title: Omówienie rozwiązania Cloudyn na platformie Azure
 description: Cloudyn to rozwiązanie do zarządzania kosztami wielu chmur, które ułatwia korzystanie z platformy Azure i innych zasobów w chmurze.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3acc13ca535808f14cb01d50e38f6bd4d12902fc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 74d171a4c694f6d720ec3882f97d18e43aecc63f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684443"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543291"
 ---
 # <a name="what-is-the-cloudyn-service"></a>Co to jest rozwiązanie Cloudyn?
 
-Rozwiązanie Cloudyn (będące własnością podmiotu zależnego od firmy Microsoft) umożliwia śledzenie użycia chmury i wydatków na zasoby platformy Azure i innych dostawców rozwiązań w chmurze, w tym AWS i Google. Łatwe do zrozumienia raporty pulpitu nawigacyjnego ułatwiają alokację kosztów oraz obsługę przewidywanych kosztów i obciążeń zwrotnych. Rozwiązanie Cloudyn ułatwia optymalizację wydatków związanych z chmurą przez identyfikowanie niedostatecznie używanych zasobów, którymi można później zarządzać oraz je dostosowywać.
+Rozwiązanie Cloudyn (będące własnością podmiotu zależnego od firmy Microsoft) umożliwia śledzenie użycia chmury i wydatków na zasoby platformy Azure. Łatwe do zrozumienia raporty pulpitu nawigacyjnego ułatwiają alokację kosztów oraz obsługę przewidywanych kosztów i obciążeń zwrotnych. Rozwiązanie Cloudyn ułatwia optymalizację wydatków związanych z chmurą przez identyfikowanie niedostatecznie używanych zasobów, którymi można później zarządzać oraz je dostosowywać.
 
 Aby obejrzeć klip wideo z wprowadzeniem, zobacz [Introduction to Azure Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo/) (Wprowadzenie do rozwiązania Azure Cloudyn).
  
 Usługa Azure Cost Management oferuje podobne funkcje jak rozwiązanie Cloudyn. Usługa Azure Cost Management to natywne rozwiązanie do zarządzania kosztami na platformie Azure. Ułatwia ona analizowanie kosztów, tworzenie budżetów i zarządzanie nimi, eksportowanie danych, a także zapoznawanie się z rekomendacjami dotyczącymi optymalizacji i ich wdrażanie w celu zaoszczędzenia pieniędzy. Aby uzyskać więcej informacji, zobacz temat [dotyczący usługi Azure Cost Management](../cost-management-billing-overview.md).
  
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
-
-Obejrzyj [wideo z porównaniem usług Azure Cost Management i Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM), aby zobaczyć zalecenia dotyczące przypadków, w których należy skorzystać z usługi Azure Cost Management lub Cloudyn w zależności od potrzeb firmy.
- 
->[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ## <a name="monitor-usage-and-spending"></a>Monitorowanie użycia i wydatków
 
@@ -56,6 +52,4 @@ Jeśli zaaprowizowano wystąpienia zarezerwowane usługi AWS, możesz zwiększy�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Kolejnym krokiem po zapoznaniu się z rozwiązaniem Cloudyn jest zarejestrowanie środowiska chmury i rozpoczęcie eksplorowania danych.
-
-- [Rejestrowanie w programie partnerskim programu CSP i wyświetlanie danych kosztów](quick-register-csp.md)
+- [Przeglądanie użycia i kosztów](tutorial-review-usage.md)
