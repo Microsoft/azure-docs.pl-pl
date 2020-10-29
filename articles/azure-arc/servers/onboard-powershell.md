@@ -1,14 +1,14 @@
 ---
 title: Łączenie maszyn hybrydowych z platformą Azure przy użyciu programu PowerShell
 description: W tym artykule dowiesz się, jak zainstalować agenta i połączyć maszynę z platformą Azure przy użyciu serwerów z obsługą usługi Azure ARC przy użyciu programu PowerShell.
-ms.date: 10/27/2020
+ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb114ec3e279a7ea696d834af8eb7240cb892dc1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0755846ef02377edade98b69e478908a111ab247
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891945"
+ms.locfileid: "92901539"
 ---
 # <a name="connect-hybrid-machines-to-azure-using-powershell"></a>Łączenie maszyn hybrydowych z platformą Azure przy użyciu programu PowerShell
 
@@ -22,7 +22,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Komputer z Azure PowerShell. Aby uzyskać instrukcje, zobacz [Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/).
+- Maszyna z Azure PowerShell. Aby uzyskać instrukcje, zobacz [Instalowanie i konfigurowanie Azure PowerShell](/powershell/azure/).
 
 Przed użyciem Azure PowerShell do zarządzania rozszerzeniami maszyn wirtualnych na serwerze hybrydowym zarządzanym przez serwery z obsługą łuku należy zainstalować `Az.ConnectedMachine` moduł. Uruchom następujące polecenie na serwerze z włączonym Łukem:
 
@@ -44,21 +44,21 @@ Po zakończeniu instalacji zostanie zwrócony następujący komunikat:
 
     * Aby zainstalować agenta podłączonego maszyny na komputerze docelowym, który może bezpośrednio komunikować się z platformą Azure, uruchom polecenie:
 
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
-    ```
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
+        ```
     
     * Aby zainstalować agenta podłączonego maszyny na komputerze docelowym, który komunikuje się za pomocą serwera proxy, uruchom polecenie:
-    
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
-    ```
+        
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
+        ```
 
 Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, zapoznaj się z dziennikami, aby uzyskać szczegółowe informacje o błędzie. W systemie Windows pod adresem *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log* i w systemie Linux w witrynie */var/opt/azcmagent/log/himds.log* .
 
 ## <a name="install-and-connect-using-powershell-remoting"></a>Instalowanie i nawiązywanie połączenia przy użyciu komunikacji zdalnej programu PowerShell
 
-Wykonaj następujące kroki, aby skonfigurować docelowy serwer lub komputer z systemem Windows przy użyciu serwerów z obsługą usługi Azure Arc. Komunikacja zdalna programu PowerShell musi być włączona na komputerze zdalnym. Użyj `Enable-PSRemoting` polecenia cmdlet, aby włączyć obsługę zdalną programu PowerShell.
+Wykonaj następujące kroki, aby skonfigurować co najmniej jeden serwer z systemem Windows przy użyciu serwerów z obsługą usługi Azure Arc. Komunikacja zdalna programu PowerShell musi być włączona na komputerze zdalnym. Użyj `Enable-PSRemoting` polecenia cmdlet, aby włączyć obsługę zdalną programu PowerShell.
 
 1. Otwórz konsolę programu PowerShell jako administrator.
 
@@ -66,25 +66,32 @@ Wykonaj następujące kroki, aby skonfigurować docelowy serwer lub komputer z s
 
 3. Aby zainstalować agenta połączonej maszyny, użyj `Connect-AzConnectedMachine` z `-Name` `-ResourceGroupName` parametrami, i `-Location` . Użyj `-SubscriptionId` parametru, aby zastąpić domyślną subskrypcję w wyniku kontekstu platformy Azure utworzonego po zalogowaniu się.
 
-Aby zainstalować agenta podłączonego maszyny na komputerze docelowym, który może bezpośrednio komunikować się z platformą Azure, uruchom następujące polecenie:
+    * Aby zainstalować agenta podłączonego maszyny na komputerze docelowym, który może bezpośrednio komunikować się z platformą Azure, uruchom następujące polecenie:
+    
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
+    
+    * Aby zainstalować agenta połączonego maszyny na wielu maszynach zdalnych w tym samym czasie, należy dodać listę nazw maszyn zdalnych rozdzielonych przecinkami.
 
-```azurepowershell
-$session = Connect-PSSession -ComputerName myMachineName
-Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
-```
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
 
-Poniższy przykład jest wynikiem polecenia:
-
-```azurepowershell
-time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
-time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
-time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
-time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
-
-Name           Location OSName   Status     ProvisioningState
-----           -------- ------   ------     -----------------
-myMachineName  eastus   windows  Connected  Succeeded
-```
+    Poniższy przykład jest wynikiem polecenia docelowego dla jednej maszyny:
+    
+    ```azurepowershell
+    time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
+    time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
+    time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
+    time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
+    
+    Name           Location OSName   Status     ProvisioningState
+    ----           -------- ------   ------     -----------------
+    myMachineName  eastus   windows  Connected  Succeeded
+    ```
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Weryfikowanie połączenia z usługą Azure Arc
 

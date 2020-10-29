@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022279"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900815"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
@@ -29,13 +29,13 @@ Można także zapoznać się z najlepszymi rozwiązaniami dotyczącymi [zabezpie
 
 **Wskazówki dotyczące najlepszych** rozwiązań — do uruchamiania jako inny użytkownik lub Grupa i ograniczania dostępu do podstawowych procesów i usług węzła, definiowania ustawień kontekstu zabezpieczeń. Przypisz wymaganą minimalną liczbę uprawnień.
 
-Aby aplikacje działały prawidłowo, należy uruchomić jako zdefiniowany użytkownika lub grupę, a nie jako *element główny*. `securityContext`Dla elementu pod lub kontenera można zdefiniować ustawienia, takie jak *RunAsUser* lub *fsGroup* , aby założyć odpowiednie uprawnienia. Należy przypisać tylko wymagane uprawnienia użytkownika lub grupy, a nie użyć kontekstu zabezpieczeń jako środka do założenia dodatkowych uprawnień. Ustawienia *runAsUser*, eskalacji uprawnień i inne funkcje systemu Linux są dostępne tylko w węzłach i w systemach Linux.
+Aby aplikacje działały prawidłowo, należy uruchomić jako zdefiniowany użytkownika lub grupę, a nie jako *element główny* . `securityContext`Dla elementu pod lub kontenera można zdefiniować ustawienia, takie jak *RunAsUser* lub *fsGroup* , aby założyć odpowiednie uprawnienia. Należy przypisać tylko wymagane uprawnienia użytkownika lub grupy, a nie użyć kontekstu zabezpieczeń jako środka do założenia dodatkowych uprawnień. Ustawienia *runAsUser* , eskalacji uprawnień i inne funkcje systemu Linux są dostępne tylko w węzłach i w systemach Linux.
 
 Jeśli użytkownik nie jest użytkownikiem głównym, kontenery nie mogą być powiązane z portami uprzywilejowanymi w obszarze 1024. W tym scenariuszu usługi Kubernetes Services mogą służyć do uzyskania informacji o tym, że aplikacja działa na określonym porcie.
 
 Kontekst zabezpieczeń pod może również definiować dodatkowe możliwości lub uprawnienia do uzyskiwania dostępu do procesów i usług. Można ustawić następujące typowe definicje kontekstu zabezpieczeń:
 
-* **allowPrivilegeEscalation** określa, czy pod warunkiem, że może przyjmować uprawnienia *root* . Zaprojektuj swoje aplikacje, aby to ustawienie było zawsze ustawione na *wartość false*.
+* **allowPrivilegeEscalation** określa, czy pod warunkiem, że może przyjmować uprawnienia *root* . Zaprojektuj swoje aplikacje, aby to ustawienie było zawsze ustawione na *wartość false* .
 * **Możliwości systemu Linux** pozwalają na dostęp do węzła podstawowego węzłów. Weź pod uwagę możliwość przypisywania tych funkcji. Przypisz wymaganą minimalną liczbę uprawnień. Aby uzyskać więcej informacji, zobacz [możliwości systemu Linux][linux-capabilities].
 * **Etykiety SELinux** to moduł zabezpieczeń jądra systemu Linux, który umożliwia definiowanie zasad dostępu dla usług, procesów i dostępu do systemu plików. Należy ponownie przypisać najmniejszą liczbę wymaganych uprawnień. Aby uzyskać więcej informacji, zobacz [Opcje SELinux w Kubernetes][selinux-labels]
 
@@ -55,7 +55,7 @@ spec:
     fsGroup: 2000
   containers:
     - name: security-context-demo
-      image: nginx:1.15.5
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         runAsUser: 1000
         allowPrivilegeEscalation: false

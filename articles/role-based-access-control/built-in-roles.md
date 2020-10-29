@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/23/2020
+ms.date: 10/27/2020
 ms.custom: generated
-ms.openlocfilehash: ed5d7c3007cf8471da453db93be0ab716805908c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 60e9ec88fd07d8b04254c5d3917aab09d671f517
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742962"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900873"
 ---
 # <a name="azure-built-in-roles"></a>Role wbudowane platformy Azure
 
@@ -9225,12 +9225,12 @@ Pełna rola dostępu do danych cyfrowych bliźniaczych reprezentacji — [Dowied
 > | **NotActions** |  |
 > | *brak* |  |
 > | **Akcje dataactions** |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/Commands/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/Relationships/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/Query/* |  |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | Odczytywanie, usuwanie, tworzenie lub aktualizowanie dowolnej trasy zdarzeń |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* | Odczytaj, Utwórz, zaktualizuj lub Usuń dowolne cyfrowe sznurki |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/Commands/* | Wywoływanie dowolnego polecenia na dwucyfrowej Bliźniaczyej |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/Relationships/* | Odczytaj, Utwórz, zaktualizuj lub Usuń dowolne cyfrowe relacje dwuosiowe |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* | Odczytaj, Utwórz, zaktualizuj lub Usuń dowolny model |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/Query/* | Wykonywanie zapytania dotyczącego cyfrowego wykresu bliźniaczych reprezentacji |
 > | **NotDataActions** |  |
 > | *brak* |  |
 

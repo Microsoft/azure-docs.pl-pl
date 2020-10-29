@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1970709dea67111bfd8b90f9fc315a3b044b2ab9
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279838"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900254"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiowanie danych z tabeli SAP przy użyciu Azure Data Factory
 
@@ -51,9 +51,10 @@ W każdym przypadku ten łącznik tabeli SAP obsługuje:
 - Pobieranie danych za pomocą domyślnego lub niestandardowego RFC.
 
 Wersja 7,01 lub nowsza odnosi się do wersji SAP NetWeaver zamiast wersji SAP ECC. Na przykład system SAP ECC 6,0 EHP 7 ogólnie ma wersję NetWeaver >= 7,4. Jeśli nie masz pewności o Twoim środowisku, poniżej przedstawiono kroki umożliwiające potwierdzenie wersji z systemu SAP:
-1.  Połącz się z systemem SAP przy użyciu graficznego interfejsu użytkownika SAP. 
-2.  Przejdź do **System**pozycji  ->  **stan**systemu. 
-3.  Sprawdź wersję SAP_BASIS, upewnij się, że jest równa lub większa niż 701.  
+
+1. Połącz się z systemem SAP przy użyciu graficznego interfejsu użytkownika SAP. 
+2. Przejdź do **System** pozycji  ->  **stan** systemu. 
+3. Sprawdź wersję SAP_BASIS, upewnij się, że jest równa lub większa niż 701.  
       ![Sprawdź SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -71,7 +72,7 @@ Aby użyć tego łącznika tabeli SAP, należy wykonać następujące:
   - Autoryzacja przy użyciu miejsc docelowych zdalnego wywołania funkcji (RFC).
   - Uprawnienia do wykonywania działania obiektu autoryzacji S_SDSAUTH.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

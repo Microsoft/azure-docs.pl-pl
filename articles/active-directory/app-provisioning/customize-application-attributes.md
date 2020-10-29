@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aaafd3833c63458f8403dfeb3620d76f631315b5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781485"
+ms.locfileid: "92899195"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -142,10 +142,7 @@ Standard scim RFC definiuje podstawowy schemat użytkownika i grupy, a także um
    4. Wybierz pozycję **Edytuj listę atrybutów dla elementu nazwa_aplikacji** .
    5. W dolnej części listy atrybutów wprowadź informacje o atrybucie niestandardowym w udostępnionych polach. Następnie wybierz pozycję **Dodaj atrybut** .
 
-W przypadku aplikacji Standard scim nazwa atrybutu musi być zgodna ze wzorcem przedstawionym w poniższym przykładzie. "CustomExtensionName" i "CustomAttribute" można dostosować zgodnie z wymaganiami aplikacji, na przykład:  
- * urn: IETF: params: Standard scim: schematy: Extension: CustomExtensionName: 2.0: User: CustomAttribute 
- * urn: IETF: params: Standard scim: schematy: rozszerzenie: 2.0: CustomExtensionName: CustomAttribute  
- * urn: IETF: params: Standard scim: schematy: Extension: CustomExtensionName: 2.0: User: CustomAttributeName: value
+W przypadku aplikacji Standard scim nazwa atrybutu musi być zgodna ze wzorcem przedstawionym w poniższym przykładzie. Parametry "CustomExtensionName" i "CustomAttribute" można dostosować zgodnie z wymaganiami aplikacji, na przykład: urn: IETF: params: Standard scim: schematy: Extension: CustomExtensionName: 2.0: User: CustomAttribute 
 
 Te instrukcje dotyczą tylko aplikacji z obsługą Standard scim. Aplikacje, takie jak usługi ServiceNow i Salesforce, nie są zintegrowane z usługą Azure AD przy użyciu Standard scim i dlatego nie wymagają tej konkretnej przestrzeni nazw podczas dodawania atrybutu niestandardowego.
 

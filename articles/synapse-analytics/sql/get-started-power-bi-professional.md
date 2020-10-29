@@ -1,5 +1,5 @@
 ---
-title: Nawiązywanie połączenia z programem Power BI Professional
+title: Nawiązywanie połączenia z usługą Synapse SQL przy użyciu programu Power BI Professional
 description: W tym samouczku wykonamy instrukcje dotyczące sposobu łączenia Power BI pulpitu z programem SQL na żądanie (wersja zapoznawcza).
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 48b6639ad8228347737669fffca06eb660a25874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288702"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899119"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu programu Power BI Professional
 
@@ -75,7 +75,7 @@ Aby można było uruchamiać zapytania, musimy utworzyć poświadczenia. To poś
 > [!NOTE]
 > Musisz utworzyć poświadczenia dla dostępu do konta magazynu. Chociaż usługa SQL na żądanie może uzyskać dostęp do magazynu z różnych regionów, posiadanie magazynu i obszaru roboczego usługi Azure Synapse w tym samym regionie zapewni lepszą wydajność.
 
-**Fragment kodu dotyczący tworzenia poświadczeń dla kontenerów danych spisu**i uruchamiania:
+**Fragment kodu dotyczący tworzenia poświadczeń dla kontenerów danych spisu** i uruchamiania:
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
@@ -98,7 +98,7 @@ Otwórz aplikację klasyczną Power BI i wybierz opcję **Pobierz dane** .
 
 ### <a name="step-1---select-data-source"></a>Krok 1. Wybieranie źródła danych
 
-Wybierz pozycję **Azure** w menu, a następnie **Azure SQL Database**.
+Wybierz pozycję **Azure** w menu, a następnie **Azure SQL Database** .
 ![Wybierz pozycję źródło danych.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Krok 2. Wybieranie bazy danych

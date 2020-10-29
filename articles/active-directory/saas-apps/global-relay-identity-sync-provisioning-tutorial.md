@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: c1e2d64bb30b6451e232c85a5892771157d32928
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514405"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900284"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie globalnej synchronizacji tożsamości przekaźnika dla automatycznej aprowizacji użytkowników
 
-W tym samouczku opisano kroki, które należy wykonać zarówno w przypadku synchronizacji tożsamości usługi Global Identity, jak i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje i cofa obsługę administracyjną użytkowników i grup w przypadku [synchronizacji tożsamości usługi globalne](https://portalalpha1.globalrelay.com/) w usłudze Azure AD. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../manage-apps/user-provisioning.md). 
+W tym samouczku opisano kroki, które należy wykonać zarówno w przypadku synchronizacji tożsamości usługi Global Identity, jak i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje i cofa obsługę administracyjną użytkowników i grup w przypadku synchronizacji tożsamości usługi globalne w usłudze Azure AD. Aby zapoznać się z ważnymi szczegółowymi informacjami na temat przeznaczenia i sposobu działania tej usługi oraz z często zadawanymi pytaniami, zobacz [Automatyzowanie aprowizacji i cofania aprowizacji użytkowników w aplikacjach SaaS przy użyciu usługi Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
-## <a name="capabilities-supported"></a>Obsługiwane możliwości
+## <a name="capabilities-supported"></a>Obsługiwane funkcje
 > [!div class="checklist"]
 > * Tworzenie użytkowników w usłudze globalna synchronizacja tożsamości przekaźnika
 > * Usuń użytkowników z synchronizacji tożsamości w usłudze Global Identity, gdy nie wymagają już dostępu
@@ -67,33 +67,33 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Aby skonfigurować automatyczną obsługę administracyjną dla synchronicznej synchronizacji tożsamości przekaźnika w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje** .
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **globalna synchronizacja tożsamości przekaźnika**.
+2. Na liście Aplikacje wybierz pozycję **globalna synchronizacja tożsamości przekaźnika** .
 
     ![Link do synchronicznej synchronizacji tożsamości przekaźnika na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Aprowizacja**.
+3. Wybierz kartę **Aprowizacja** .
 
     ![Karta Aprowizacja](common/provisioning.png)
 
-4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
+4. Ustaw **Tryb aprowizacji** na **Automatyczny** .
 
     ![Automatyczne Inicjowanie obsługi kart](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy**synchronizacji tożsamości przekaźnika globalnego. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z synchronizacją tożsamości usługi Global Relay Jeśli połączenie nie powiedzie się, upewnij się, że konto synchronizacji tożsamości usługi Relay ma uprawnienia administratora, a następnie skontaktuj się z przedstawicielem globalnego, aby rozwiązać ten problem.
+5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** synchronizacji tożsamości przekaźnika globalnego. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może połączyć się z synchronizacją tożsamości usługi Global Relay Jeśli połączenie nie powiedzie się, upewnij się, że konto synchronizacji tożsamości usługi Relay ma uprawnienia administratora, a następnie skontaktuj się z przedstawicielem globalnego, aby rozwiązać ten problem.
 
     ![Przycisk autoryzacji](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
 
-6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
+6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu** .
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Wybierz pozycję **Zapisz**.
+7. Wybierz pozycję **Zapisz** .
 
-8. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy z synchronizacją globalną tożsamość przekaźnika**.
+8. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy z synchronizacją globalną tożsamość przekaźnika** .
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do synchronicznej synchronizacji tożsamości przekaźnika w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w globalnej synchronizacji tożsamości przekaźnika dla operacji aktualizacji. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), musisz się upewnić, że interfejs API synchronizacji tożsamości przekaźnika globalnego obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
@@ -103,7 +103,6 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |aktywne|Wartość logiczna|
    |displayName|Ciąg|
    |title|Ciąg|
-   |emails[type eq "work"].value|Ciąg|
    |preferredLanguage|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
@@ -150,7 +149,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
    |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Tematy pomocy|
    |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: proxyAddresses|String|
    |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute1|String|
    |urn: IETF: params: Standard scim: schematy: Extension: GlobalRelay: 2.0: User: extensionAttribute2|String|
@@ -170,7 +169,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 
 
-10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory grupy do synchronizowania tożsamości przekaźnika globalnego**.
+10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory grupy do synchronizowania tożsamości przekaźnika globalnego** .
 
 11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do synchronicznej synchronizacji tożsamości przekaźnika w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w globalnej synchronizacji tożsamości przekaźnika dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
@@ -189,11 +188,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
+15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz** .
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia**. Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
+Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia** . Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
 Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, aby monitorować wdrożenie:
@@ -202,7 +201,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

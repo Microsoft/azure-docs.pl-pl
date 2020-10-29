@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/23/2020
+ms.date: 10/27/2020
 ms.custom: generated
-ms.openlocfilehash: 905bdf95222a03514b5c5e76e18330cf27da0d3d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d9881fe91885a9a97b51da176be98a9ed6d007ba
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745134"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900775"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -121,7 +121,7 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft. wspólny](#microsoftdevtestlab) |
 | [Microsoft. LabServices](#microsoftlabservices) |
 | [Microsoft. VisualStudio](#microsoftvisualstudio) |
-| **Migrate** |
+| **Migrate (Migracja)** |
 | [Microsoft. Migrowanie](#microsoftmigrate) |
 | [Microsoft. OffAzure](#microsoftoffazure) |
 | **Monitorowanie** |
@@ -1890,7 +1890,7 @@ Usługa platformy Azure: [certyfikaty App Service](../app-service/configure-ssl-
 > | Microsoft. CertificateRegistration/certificateOrders/retrieveCertificateActions/akcja | Pobieranie listy akcji certyfikatów |
 > | Microsoft. CertificateRegistration/certificateOrders/retrieveEmailHistory/akcja | Pobierz historię poczty e-mail certyfikatu |
 > | Microsoft. CertificateRegistration/certificateOrders/resendEmail/akcja | Wyślij ponownie wiadomość e-mail z certyfikatem |
-> | Microsoft. CertificateRegistration/certificateOrders/verifyDomainOwnership/akcja | Weryfikuj własność domeny |
+> | Microsoft. CertificateRegistration/certificateOrders/verifyDomainOwnership/akcja | Weryfikowanie własności domeny |
 > | Microsoft. CertificateRegistration/certificateOrders/resendRequestEmails/akcja | Wyślij ponownie wiadomości e-mail z żądaniem na inny adres e-mail |
 > | Microsoft. CertificateRegistration/certificateOrders/resendRequestEmails/akcja | Pobierz pieczęć witryny dla wystawionego Certyfikat usługi App Service |
 > | Microsoft. CertificateRegistration/certificateOrders/Certificates/Write | Dodaj nowy certyfikat lub zaktualizuj istniejący |
@@ -2645,6 +2645,7 @@ Usługa platformy Azure: [Container Instances](../container-instances/index.yml)
 > | Microsoft. ContainerInstance/containerGroups/Stop/akcja | Kończy określoną grupę kontenerów. Zasoby obliczeniowe zostaną cofnięte i rozliczenia zostaną zatrzymane. |
 > | Microsoft. ContainerInstance/containerGroups/Start/akcja | Uruchamia określoną grupę kontenerów. |
 > | Microsoft. ContainerInstance/containerGroups/Containers/exec/akcja | Exec do określonego kontenera. |
+> | Microsoft. ContainerInstance/containerGroups/Containers/Attach/Action | Dołącz do strumienia wyjściowego kontenera. |
 > | Microsoft. ContainerInstance/containerGroups/Containers/buildlogs/Read | Pobierz dzienniki kompilacji dla określonego kontenera. |
 > | Microsoft. ContainerInstance/containerGroups/Containers/Logs/odczyt | Pobierz dzienniki dla określonego kontenera. |
 > | Microsoft. ContainerInstance/containerGroups/detektory/odczyt | Wyświetl listę detektorów grup kontenerów |
@@ -3451,12 +3452,13 @@ Usługa platformy Azure: [Azure Database for MySQL](../mysql/index.yml)
 > | Microsoft. DBforMySQL/Locations/serverKeyOperationResults/Read | Pobiera operacje w toku dotyczące kluczy serwera szyfrowania danych |
 > | Microsoft. DBforMySQL/Operations/Read | Zwróć listę operacji programu MySQL. |
 > | Microsoft. DBforMySQL/performanceTiers/odczyt | Zwraca listę dostępnych warstw wydajności. |
-> | Microsoft. DBforMySQL/serwery/queryTexts/akcja | Zwróć teksty dla listy zapytań |
-> | Microsoft. DBforMySQL/serwery/queryTexts/akcja | Zwróć tekst zapytania |
-> | Microsoft. DBforMySQL/serwery/privateEndpointConnectionsApproval/akcja | Określa, czy użytkownik może zatwierdzić połączenie prywatnego punktu końcowego |
 > | Microsoft. DBforMySQL/serwery/uaktualnianie/akcja |  |
 > | Microsoft. DBforMySQL/serwery/Start/akcja | Uruchamia określony serwer. |
 > | Microsoft. DBforMySQL/Servers/Stop/akcja | Powoduje zatrzymanie określonego serwera. |
+> | Microsoft. DBforMySQL/serwery/privateEndpointConnectionsApproval/akcja | Określa, czy użytkownik może zatwierdzić połączenie prywatnego punktu końcowego |
+> | Microsoft. DBforMySQL/serwery/resetQueryPerformanceInsightData/akcja | Resetowanie danych Szczegółowe informacje o wydajności zapytań |
+> | Microsoft. DBforMySQL/serwery/queryTexts/akcja | Zwróć teksty dla listy zapytań |
+> | Microsoft. DBforMySQL/serwery/queryTexts/akcja | Zwróć tekst zapytania |
 > | Microsoft. DBforMySQL/serwery/odczyt | Zwróć listę serwerów lub pobiera właściwości dla określonego serwera. |
 > | Microsoft. DBforMySQL/serwery/zapis | Tworzy serwer z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego serwera. |
 > | Microsoft. DBforMySQL/serwery/usuwanie | Usuwa istniejący serwer. |
@@ -3545,6 +3547,7 @@ Usługa platformy Azure: [Azure Database for PostgreSQL](../postgresql/index.yml
 > | Microsoft. DBforPostgreSQL/Operations/Read | Zwróć listę operacji PostgreSQL. |
 > | Microsoft. DBforPostgreSQL/performanceTiers/odczyt | Zwraca listę dostępnych warstw wydajności. |
 > | Microsoft. DBforPostgreSQL/serwery/queryTexts/akcja | Zwróć tekst zapytania |
+> | Microsoft. DBforPostgreSQL/serwery/resetQueryPerformanceInsightData/akcja | Resetowanie danych Szczegółowe informacje o wydajności zapytań |
 > | Microsoft. DBforPostgreSQL/serwery/privateEndpointConnectionsApproval/akcja | Określa, czy użytkownik może zatwierdzić połączenie prywatnego punktu końcowego |
 > | Microsoft. DBforPostgreSQL/serwery/odczyt | Zwróć listę serwerów lub pobiera właściwości dla określonego serwera. |
 > | Microsoft. DBforPostgreSQL/serwery/zapis | Tworzy serwer z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego serwera. |
@@ -3868,6 +3871,8 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/Locations/deletedServerOperationResults/Read | Pobiera operacje w toku na usuniętym serwerze |
 > | Microsoft. SQL/Locations/deletedServers/Read | Zwróć listę usuniętych serwerów lub pobiera właściwości dla określonego usuniętego serwera. |
 > | Microsoft. SQL/Locations/deletedServers/Recover/Action | Odzyskiwanie usuniętego serwera |
+> | Microsoft. SQL/Locations/devOpsAuditingSettingsAzureAsyncOperation/Read | Pobierz wynik operacji ustawiania zasad inspekcji serwera DevOps |
+> | Microsoft. SQL/Locations/devOpsAuditingSettingsOperationResults/Read | Pobierz wynik operacji ustawiania zasad inspekcji serwera DevOps |
 > | Microsoft. SQL/Locations/elasticPoolAzureAsyncOperation/Read | Pobiera asynchroniczną operację platformy Azure dla operacji asynchronicznej puli elastycznej |
 > | Microsoft. SQL/Locations/elasticPoolOperationResults/Read | Pobiera wynik operacji puli elastycznej. |
 > | Microsoft. SQL/Locations/encryptionProtectorAzureAsyncOperation/Read | Pobiera operacje w toku dotyczące funkcji ochrony szyfrowania danych transparentu |
@@ -3935,6 +3940,7 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/Locations/virtualNetworkRulesAzureAsyncOperation/Read | Zwraca szczegóły określonych reguł sieci wirtualnej Azure asynchronicznej operacji  |
 > | Microsoft. SQL/Locations/virtualNetworkRulesOperationResults/Read | Zwraca szczegóły określonej operacji dotyczącej reguł sieci wirtualnej  |
 > | Microsoft. SQL/managedInstances/tdeCertificates/akcja | Utwórz/zaktualizuj certyfikat TDE |
+> | Microsoft. SQL/managedInstances/joinServerTrustGroup/akcja | Określ, czy użytkownik może dołączyć do grupy zaufania serwera |
 > | Microsoft. SQL/managedInstances/eksport/akcja | Eksportuj systemową bazę danych i klucz klucza |
 > | Microsoft. SQL/managedInstances/odczyt | Zwróć listę wystąpień zarządzanych lub pobiera właściwości dla określonego wystąpienia zarządzanego. |
 > | Microsoft. SQL/managedInstances/Write | Tworzy wystąpienie zarządzane o określonych parametrach lub aktualizuje właściwości lub Tagi dla określonego wystąpienia zarządzanego. |
@@ -4176,6 +4182,8 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/serwery/bazy danych/workloadGroups/workloadClassifiers/odczyt | Wyświetla listę klasyfikatorów obciążeń dla wybranej bazy danych. |
 > | Microsoft. SQL/serwery/bazy danych/workloadGroups/workloadClassifiers/zapis | Ustawia właściwości dla określonego klasyfikatora obciążeń. |
 > | Microsoft. SQL/serwery/bazy danych/workloadGroups/workloadClassifiers/Delete | Odrzuca określony klasyfikator obciążeń. |
+> | Microsoft. SQL/serwery/devOpsAuditingSettings/odczyt | Pobierz szczegóły zasad inspekcji serwera DevOps skonfigurowanych na danym serwerze |
+> | Microsoft. SQL/serwery/devOpsAuditingSettings/Write | Zmień zasady inspekcji serwera DevOps dla danego serwera |
 > | Microsoft. SQL/serwery/disasterRecoveryConfiguration/odczyt | Pobiera kolekcję konfiguracji odzyskiwania po awarii, która obejmuje ten serwer |
 > | Microsoft. SQL/serwery/disasterRecoveryConfiguration/Write | Zmień konfigurację odzyskiwania po awarii serwera |
 > | Microsoft. SQL/serwery/disasterRecoveryConfiguration/Delete | Usuwa istniejące konfiguracje odzyskiwania po awarii dla danego serwera |
@@ -4259,6 +4267,7 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/serwery/vulnerabilityAssessments/Write | Zmiana oceny luk w zabezpieczeniach dla danego serwera |
 > | Microsoft. SQL/serwery/vulnerabilityAssessments/Delete | Usuń ocenę luk w zabezpieczeniach dla danego serwera |
 > | Microsoft. SQL/serwery/vulnerabilityAssessments/odczyt | Pobierz zasady oceny luk w zabezpieczeniach na danym serwerze |
+> | Microsoft. SQL/virtualClusters/updateManagedInstanceDnsServers/akcja | Synchronizuje konfigurację serwera DNS w klastrze wirtualnym Azure SQL z konfiguracją Virtual Network platformy Azure, w której znajduje się klaster wirtualny. |
 > | Microsoft. SQL/virtualClusters/odczyt | Zwróć listę klastrów wirtualnych lub pobiera właściwości dla określonego klastra wirtualnego. |
 > | Microsoft. SQL/virtualClusters/Write | Aktualizuje Tagi klastra wirtualnego. |
 > | Microsoft. SQL/virtualClusters/Delete | Usuwa istniejący klaster wirtualny. |
@@ -5890,6 +5899,7 @@ Usługa platformy Azure: [Azure Stack Edge](../databox-online/azure-stack-edge-o
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/akcja | Pobierz aktualizacje w urządzeniu |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/installUpdates/akcja | Zainstaluj aktualizacje na urządzeniu |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/akcja | Przekaż certyfikat do rejestracji urządzenia |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/generateCertificate/akcja | ArmApiDesc_action_generateCertificate_dataBoxEdgeDevices |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/Alerts/Read | Wyświetla lub pobiera alerty |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/Alerts/Read | Wyświetla lub pobiera alerty |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/Read | Wyświetla lub pobiera harmonogramy przepustowości |
@@ -6720,6 +6730,7 @@ Usługa platformy Azure: [wskaźnik na platformie Azure](../sentinel/index.yml)
 > | Microsoft. SecurityInsights/incydenty/usuwanie | Usuwa zdarzenie |
 > | Microsoft. SecurityInsights/incydenty/Komentarze/odczyt | Pobiera Komentarze zdarzenia |
 > | Microsoft. SecurityInsights/incydenty/Komentarze/zapis | Tworzy komentarz dotyczący zdarzenia |
+> | Microsoft. SecurityInsights/incydenty/Komentarze/usuwanie | Usuwa komentarz dotyczący zdarzenia |
 > | Microsoft. SecurityInsights/incydenty/relacje/odczyt | Pobiera relację między incydentem a powiązanymi zasobami |
 > | Microsoft. SecurityInsights/incydenty/relacje/zapis | Aktualizuje relację między incydentem a powiązanymi zasobami |
 > | Microsoft. SecurityInsights/incydenty/relacje/usuwanie | Usuwa relację między incydentem a powiązanymi zasobami |
@@ -6953,7 +6964,7 @@ Usługa platformy Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/
 > | Microsoft. VisualStudio/Project/Delete | Usuń projekt |
 > | Microsoft. VisualStudio/Project/Read | Odczytaj projekt |
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrate (Migracja)
 
 ### <a name="microsoftmigrate"></a>Microsoft. Migrowanie
 
@@ -8321,6 +8332,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/WorkloadMonitoringPerf/Read | Odczytaj dane z tabeli WorkloadMonitoringPerf |
 > | Microsoft. OperationalInsights/Workspaces/Query/WUDOAggregatedStatus/Read | Odczytaj dane z tabeli WUDOAggregatedStatus |
 > | Microsoft. OperationalInsights/Workspaces/Query/WUDOStatus/Read | Odczytaj dane z tabeli WUDOStatus |
+> | Microsoft. OperationalInsights/Workspaces/Query/WVDAgentHealthStatus/Read | Odczytaj dane z tabeli WVDAgentHealthStatus |
 > | Microsoft. OperationalInsights/Workspaces/Query/WVDCheckpoints/Read | Odczytaj dane z tabeli WVDCheckpoints |
 > | Microsoft. OperationalInsights/Workspaces/Query/WVDConnections/Read | Odczytaj dane z tabeli WVDConnections |
 > | Microsoft. OperationalInsights/Workspaces/Query/WVDErrors/Read | Odczytaj dane z tabeli WVDErrors |
@@ -8750,6 +8762,8 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Pojemność/reservationorders/rezerwacje/odczyt | Odczytuj wszystkie rezerwacje |
 > | Microsoft. Pojemność/reservationorders/rezerwacje/zapis | Utwórz dowolną rezerwację |
 > | Microsoft. Pojemność/reservationorders/rezerwacje/usuwanie | Usuń dowolne zastrzeżenie |
+> | Microsoft. Pojemność/reservationorders/rezerwacje/archiwum/akcja | Archiwizuj rezerwację, która znajduje się w stanie terminalu, takim jak wygasły, Podziel itp. |
+> | Microsoft. Pojemność/reservationorders/rezerwacje/dearchiwizacja/akcja | Anulowano archiwizowanie rezerwacji, która została wcześniej zarchiwizowana |
 > | Microsoft. Pojemność/reservationorders/rezerwacje/poprawki/odczyt | Odczytuj wszystkie rezerwacje |
 > | Microsoft. Pojemność/reservationorders/splitoperationresults/odczyt | Sondowanie operacji podziału |
 > | Microsoft. Pojemność/dzierżawcy/rejestr/akcja | Rejestracja dowolnej dzierżawy |
@@ -9311,69 +9325,69 @@ Usługa platformy Azure: [Site Recovery](../site-recovery/index.yml)
 > | Akcja | Opis |
 > | --- | --- |
 > | Microsoft. RecoveryServices/Register/Action | Rejestruje subskrypcję dla danego dostawcy zasobów |
-> | Microsoft. recoveryservices/Locations/backupPreValidateProtection/Action |  |
-> | Microsoft. recoveryservices/Locations/backupStatus/Action | Sprawdź stan kopii zapasowej Recovery Services magazynów |
-> | Microsoft. recoveryservices/Locations/backupValidateFeatures/Action | Weryfikuj funkcje |
+> | Microsoft. RecoveryServices/Locations/backupPreValidateProtection/Action |  |
+> | Microsoft. RecoveryServices/Locations/backupStatus/Action | Sprawdź stan kopii zapasowej Recovery Services magazynów |
+> | Microsoft. RecoveryServices/Locations/backupValidateFeatures/Action | Weryfikuj funkcje |
 > | Microsoft. RecoveryServices/Locations/allocateStamp/Action | AllocateStamp jest operacją wewnętrzną używaną przez usługę |
 > | Microsoft. RecoveryServices/Locations/checkNameAvailability/Action | Sprawdź dostępność nazwy zasobu jest interfejsem API, aby sprawdzić, czy nazwa zasobu jest dostępna |
 > | Microsoft. RecoveryServices/Locations/allocatedStamp/Read | Operacja getallocatedstamp jest operacją wewnętrzną używaną przez usługę |
-> | Microsoft. recoveryservices/Locations/backupProtectedItem/Write | Utwórz chroniony element kopii zapasowej |
-> | Microsoft. recoveryservices/Locations/backupProtectedItems/Read | Zwraca listę wszystkich elementów chronionych. |
+> | Microsoft. RecoveryServices/Locations/backupProtectedItem/Write | Utwórz chroniony element kopii zapasowej |
+> | Microsoft. RecoveryServices/Locations/backupProtectedItems/Read | Zwraca listę wszystkich elementów chronionych. |
 > | Microsoft. RecoveryServices/Locations/operationStatus/Read | Pobiera stan operacji dla danej operacji |
 > | Microsoft. RecoveryServices/Operations/Read | Operacja zwraca listę operacji dla dostawcy zasobów |
-> | Microsoft. recoveryservices/magazyny/backupJobsExport/akcja | Eksportuj zadania |
-> | Microsoft. recoveryservices/magazyny/backupSecurityPIN/akcja | Zwraca informacje zabezpieczającego numeru PIN dla magazynu Recovery Services. |
-> | Microsoft. recoveryservices/magazyny/backupValidateOperation/akcja | Sprawdź poprawność operacji dla chronionego elementu |
+> | Microsoft. RecoveryServices/magazyny/backupJobsExport/akcja | Eksportuj zadania |
+> | Microsoft. RecoveryServices/magazyny/backupSecurityPIN/akcja | Zwraca informacje zabezpieczającego numeru PIN dla magazynu Recovery Services. |
+> | Microsoft. RecoveryServices/magazyny/backupValidateOperation/akcja | Sprawdź poprawność operacji dla chronionego elementu |
 > | Microsoft. RecoveryServices/magazyny/zapis | Operacja Utwórz magazyn tworzy zasób platformy Azure typu "magazyn" |
 > | Microsoft. RecoveryServices/magazyny/odczyt | Operacja Pobierz magazyn pobiera obiekt reprezentujący zasób platformy Azure typu "magazyn" |
 > | Microsoft. RecoveryServices/magazyny/usuwanie | Operacja Usuń magazyn usuwa określony zasób platformy Azure typu "magazyn" |
-> | Microsoft. recoveryservices/magazyny/backupconfig/odczyt | Zwraca konfigurację magazynu Recovery Services. |
-> | Microsoft. recoveryservices/magazyny/backupconfig/zapis | Aktualizuje konfigurację magazynu Recovery Services. |
-> | Microsoft. recoveryservices/magazyny/backupEncryptionConfigs/odczyt | Pobiera konfigurację szyfrowania zasobów kopii zapasowej. |
-> | Microsoft. recoveryservices/magazyny/backupEncryptionConfigs/zapis | Aktualizuje konfigurację szyfrowania zasobów kopii zapasowej |
-> | Microsoft. recoveryservices/magazyny/backupEngines/odczyt | Zwraca wszystkie serwery zarządzania kopiami zapasowymi zarejestrowane w magazynie. |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/refreshContainers/akcja | Odświeża listę kontenerów |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/backupProtectionIntent/usuwanie | Usuń zamiar ochrony kopii zapasowej |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/backupProtectionIntent/odczyt | Pobierz cel ochrony kopii zapasowej |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/backupProtectionIntent/zapis | Tworzenie opcji ochrony kopii zapasowej |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/operationResults/odczyt | Zwraca stan operacji |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/operationsStatus/odczyt | Zwraca stan operacji |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectableContainers/odczyt | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/usuwanie | Usuwa zarejestrowany kontener |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/zapytania/akcja | Wykonaj zapytanie dotyczące obciążeń w kontenerze |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/odczyt | Zwraca wszystkie zarejestrowane kontenery |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/zapis | Tworzy zarejestrowany kontener |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/Items/Read | Pobierz wszystkie elementy w kontenerze |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/operationResults/Read | Pobiera wynik operacji wykonanej na kontenerze ochrony. |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/operationsStatus/Read | Pobiera stan operacji wykonanej na kontenerze ochrony. |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/kopia zapasowa/akcja | Wykonuje kopię zapasową dla chronionego elementu. |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/Delete | Usuwa chroniony element |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/Read | Zwraca szczegóły obiektu chronionego elementu |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/Write | Utwórz chroniony element kopii zapasowej |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/operationResults/odczyt | Pobiera wynik operacji wykonanej na elementach chronionych. |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/operationsStatus/odczyt | Zwraca stan operacji wykonanej na elementach chronionych. |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/Action | Zapewnij natychmiastowe odzyskiwanie elementu dla chronionego elementu |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/odczyt | Pobierz punkty odzyskiwania dla elementów chronionych. |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/przywracanie/akcja | Przywracanie punktów odzyskiwania dla elementów chronionych. |
-> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/Action | Odwołaj natychmiastowe odzyskiwanie elementu dla chronionego elementu |
-> | Microsoft. recoveryservices/magazyny/backupJobs/anulowanie/akcja | Anuluj zadanie |
-> | Microsoft. recoveryservices/magazyny/backupJobs/odczyt | Zwraca wszystkie obiekty zadań |
-> | Microsoft. recoveryservices/magazyny/backupJobs/operationResults/odczyt | Zwraca wynik operacji zadania. |
-> | Microsoft. recoveryservices/magazyny/backupJobs/operationsStatus/odczyt | Zwraca stan operacji zadania. |
-> | Microsoft. recoveryservices/magazyny/backupOperationResults/odczyt | Zwraca wynik operacji tworzenia kopii zapasowej dla magazynu Recovery Services. |
-> | Microsoft. recoveryservices/magazyny/backupOperations/odczyt | Zwraca stan operacji kopii zapasowej dla magazynu Recovery Services. |
-> | Microsoft. recoveryservices/magazyny/backupPolicies/usuwanie | Usuwanie zasad ochrony |
-> | Microsoft. recoveryservices/magazyny/backupPolicies/odczyt | Zwraca wszystkie zasady ochrony |
-> | Microsoft. recoveryservices/magazyny/backupPolicies/zapis | Tworzy zasady ochrony |
-> | Microsoft. recoveryservices/magazyny/backupPolicies/operationResults/odczyt | Pobierz wyniki operacji zasad. |
-> | Microsoft. recoveryservices/magazyny/backupPolicies/operacje/odczyt | Pobierz stan operacji zasad. |
-> | Microsoft. recoveryservices/magazyny/backupProtectableItems/odczyt | Zwraca listę wszystkich elementów podlegających ochronie. |
-> | Microsoft. recoveryservices/magazyny/backupProtectedItems/odczyt | Zwraca listę wszystkich elementów chronionych. |
-> | Microsoft. recoveryservices/magazyny/backupProtectionContainers/odczyt | Zwraca wszystkie kontenery należące do subskrypcji |
-> | Microsoft. recoveryservices/magazyny/backupProtectionIntents/odczyt | Wyświetl listę wszystkich intencji ochrony kopii zapasowej |
-> | Microsoft. recoveryservices/magazyny/backupstorageconfig/odczyt | Zwraca konfigurację magazynu dla magazynu Recovery Services. |
-> | Microsoft. recoveryservices/magazyny/backupstorageconfig/zapis | Aktualizuje konfigurację magazynu dla magazynu Recovery Services. |
-> | Microsoft. recoveryservices/magazyny/backupUsageSummaries/odczyt | Zwraca podsumowania elementów chronionych i serwerów chronionych dla Recovery Services. |
+> | Microsoft. RecoveryServices/magazyny/backupconfig/odczyt | Zwraca konfigurację magazynu Recovery Services. |
+> | Microsoft. RecoveryServices/magazyny/backupconfig/zapis | Aktualizuje konfigurację magazynu Recovery Services. |
+> | Microsoft. RecoveryServices/magazyny/backupEncryptionConfigs/odczyt | Pobiera konfigurację szyfrowania zasobów kopii zapasowej. |
+> | Microsoft. RecoveryServices/magazyny/backupEncryptionConfigs/zapis | Aktualizuje konfigurację szyfrowania zasobów kopii zapasowej |
+> | Microsoft. RecoveryServices/magazyny/backupEngines/odczyt | Zwraca wszystkie serwery zarządzania kopiami zapasowymi zarejestrowane w magazynie. |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/refreshContainers/akcja | Odświeża listę kontenerów |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/backupProtectionIntent/usuwanie | Usuń zamiar ochrony kopii zapasowej |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/backupProtectionIntent/odczyt | Pobierz cel ochrony kopii zapasowej |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/backupProtectionIntent/zapis | Tworzenie opcji ochrony kopii zapasowej |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/operationResults/odczyt | Zwraca stan operacji |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/operationsStatus/odczyt | Zwraca stan operacji |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectableContainers/odczyt | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/usuwanie | Usuwa zarejestrowany kontener |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/zapytania/akcja | Wykonaj zapytanie dotyczące obciążeń w kontenerze |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/odczyt | Zwraca wszystkie zarejestrowane kontenery |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/zapis | Tworzy zarejestrowany kontener |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/Items/Read | Pobierz wszystkie elementy w kontenerze |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/operationResults/Read | Pobiera wynik operacji wykonanej na kontenerze ochrony. |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/operationsStatus/Read | Pobiera stan operacji wykonanej na kontenerze ochrony. |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/kopia zapasowa/akcja | Wykonuje kopię zapasową dla chronionego elementu. |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/Delete | Usuwa chroniony element |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/Read | Zwraca szczegóły obiektu chronionego elementu |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/Write | Utwórz chroniony element kopii zapasowej |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/operationResults/odczyt | Pobiera wynik operacji wykonanej na elementach chronionych. |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/operationsStatus/odczyt | Zwraca stan operacji wykonanej na elementach chronionych. |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/Action | Zapewnij natychmiastowe odzyskiwanie elementu dla chronionego elementu |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/odczyt | Pobierz punkty odzyskiwania dla elementów chronionych. |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/przywracanie/akcja | Przywracanie punktów odzyskiwania dla elementów chronionych. |
+> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/Action | Odwołaj natychmiastowe odzyskiwanie elementu dla chronionego elementu |
+> | Microsoft. RecoveryServices/magazyny/backupJobs/anulowanie/akcja | Anuluj zadanie |
+> | Microsoft. RecoveryServices/magazyny/backupJobs/odczyt | Zwraca wszystkie obiekty zadań |
+> | Microsoft. RecoveryServices/magazyny/backupJobs/operationResults/odczyt | Zwraca wynik operacji zadania. |
+> | Microsoft. RecoveryServices/magazyny/backupJobs/operationsStatus/odczyt | Zwraca stan operacji zadania. |
+> | Microsoft. RecoveryServices/magazyny/backupOperationResults/odczyt | Zwraca wynik operacji tworzenia kopii zapasowej dla magazynu Recovery Services. |
+> | Microsoft. RecoveryServices/magazyny/backupOperations/odczyt | Zwraca stan operacji kopii zapasowej dla magazynu Recovery Services. |
+> | Microsoft. RecoveryServices/magazyny/backupPolicies/usuwanie | Usuwanie zasad ochrony |
+> | Microsoft. RecoveryServices/magazyny/backupPolicies/odczyt | Zwraca wszystkie zasady ochrony |
+> | Microsoft. RecoveryServices/magazyny/backupPolicies/zapis | Tworzy zasady ochrony |
+> | Microsoft. RecoveryServices/magazyny/backupPolicies/operationResults/odczyt | Pobierz wyniki operacji zasad. |
+> | Microsoft. RecoveryServices/magazyny/backupPolicies/operacje/odczyt | Pobierz stan operacji zasad. |
+> | Microsoft. RecoveryServices/magazyny/backupProtectableItems/odczyt | Zwraca listę wszystkich elementów podlegających ochronie. |
+> | Microsoft. RecoveryServices/magazyny/backupProtectedItems/odczyt | Zwraca listę wszystkich elementów chronionych. |
+> | Microsoft. RecoveryServices/magazyny/backupProtectionContainers/odczyt | Zwraca wszystkie kontenery należące do subskrypcji |
+> | Microsoft. RecoveryServices/magazyny/backupProtectionIntents/odczyt | Wyświetl listę wszystkich intencji ochrony kopii zapasowej |
+> | Microsoft. RecoveryServices/magazyny/backupstorageconfig/odczyt | Zwraca konfigurację magazynu dla magazynu Recovery Services. |
+> | Microsoft. RecoveryServices/magazyny/backupstorageconfig/zapis | Aktualizuje konfigurację magazynu dla magazynu Recovery Services. |
+> | Microsoft. RecoveryServices/magazyny/backupUsageSummaries/odczyt | Zwraca podsumowania elementów chronionych i serwerów chronionych dla Recovery Services. |
 > | Microsoft. RecoveryServices/magazyny/certyfikaty/zapis | Operacja Aktualizuj certyfikat zasobu aktualizuje certyfikat poświadczeń zasobu/magazynu. |
 > | Microsoft. RecoveryServices/magazyny/extendedInformation/odczyt | Operacja Pobierz rozszerzone informacje pobiera rozszerzone informacje o obiekcie reprezentujące zasób platformy Azure typu? |
 > | Microsoft. RecoveryServices/magazyny/extendedInformation/zapis | Operacja Pobierz rozszerzone informacje pobiera rozszerzone informacje o obiekcie reprezentujące zasób platformy Azure typu? |
@@ -9382,14 +9396,14 @@ Usługa platformy Azure: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft. RecoveryServices/magazyny/monitoringAlerts/zapis | Rozwiązuje alert. |
 > | Microsoft. RecoveryServices/magazyny/monitoringConfigurations/odczyt | Pobiera konfigurację powiadomień magazynu usługi Recovery Services. |
 > | Microsoft. RecoveryServices/magazyny/monitoringConfigurations/zapis | Konfiguruje powiadomienia e-mail dla magazynu usługi Recovery Services. |
-> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/usuwanie | Poczekaj kilka minut, a następnie spróbuj ponownie wykonać operację. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej firmy Microsoft. |
-> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/odczyt | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/weryfikacja/akcja | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/zapis | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/operationsStatus/odczyt | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. recoveryservices/magazyny/privateEndpointConnections/usuwanie | Usuń prywatne żądania punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
-> | Microsoft. recoveryservices/magazyny/privateEndpointConnections/zapis | Zatwierdzanie lub odrzucanie prywatnych żądań punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
-> | Microsoft. recoveryservices/magazyny/privateEndpointConnections/operationsStatus/odczyt | Zwraca stan operacji dla połączenia prywatnego punktu końcowego. |
+> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/usuwanie | Poczekaj kilka minut, a następnie spróbuj ponownie wykonać operację. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej firmy Microsoft. |
+> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/odczyt | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/weryfikacja/akcja | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/zapis | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/operationsStatus/odczyt | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. RecoveryServices/magazyny/privateEndpointConnections/usuwanie | Usuń prywatne żądania punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
+> | Microsoft. RecoveryServices/magazyny/privateEndpointConnections/zapis | Zatwierdzanie lub odrzucanie prywatnych żądań punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
+> | Microsoft. RecoveryServices/magazyny/privateEndpointConnections/operationsStatus/odczyt | Zwraca stan operacji dla połączenia prywatnego punktu końcowego. |
 > | Microsoft. RecoveryServices/magazyny/registeredIdentities/zapis | Operacji rejestrowania kontenera usługi można użyć do zarejestrowania kontenera z usługą odzyskiwania. |
 > | Microsoft. RecoveryServices/magazyny/registeredIdentities/odczyt | Operacja Pobierz kontenery umożliwia pobieranie kontenerów zarejestrowanych dla zasobu. |
 > | Microsoft. RecoveryServices/magazyny/registeredIdentities/usuwanie | Operacja Wyrejestruj kontener może służyć do wyrejestrowywania kontenera. |
@@ -9505,7 +9519,7 @@ Usługa platformy Azure: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft. RecoveryServices/magazyny/replicationVaultSettings/odczyt | Odczytaj wszystkie  |
 > | Microsoft. RecoveryServices/magazyny/replicationVaultSettings/zapis | Utwórz lub zaktualizuj dowolne  |
 > | Microsoft. RecoveryServices/magazyny/replicationvCenters/odczyt | Odczytaj dowolne vCenter |
-> | Microsoft. recoveryservices/magazyny/użycia/odczyt | Zwraca szczegóły użycia magazynu Recovery Servicesowego. |
+> | Microsoft. RecoveryServices/magazyny/użycia/odczyt | Zwraca szczegóły użycia magazynu Recovery Servicesowego. |
 > | Microsoft. RecoveryServices/magazyny/użycia/odczyt | Odczytaj wszystkie użycia magazynu |
 > | Microsoft. RecoveryServices/magazyny/vaultTokens/odczyt | Operacja token magazynu umożliwia pobieranie tokenu magazynu dla operacji zaplecza na poziomie magazynu. |
 
@@ -9623,14 +9637,14 @@ Usługa platformy Azure: rdzeń
 > | --- | --- |
 > | Microsoft. Subscription/Anuluj/akcja | Anuluje subskrypcję |
 > | Microsoft. Subscription/zmiana nazwy/akcji | Zmienia nazwę subskrypcji |
-> | Microsoft. Subscription/Włącz/akcja | Włącza subskrypcję |
+> | Microsoft. Subscription/Włącz/akcja | Ponownie aktywuje subskrypcję |
 > | Microsoft. subskrypcja/subskrypcja/akcja | Tworzenie subskrypcji platformy Azure |
 > | Microsoft. Subscription/rejestr/akcja | Rejestruje subskrypcję za pomocą dostawcy zasobów Microsoft. Subscription |
 > | Microsoft. Subscription/updateTenant/akcja | Aktualizowanie dzierżawy subskrypcji |
 > | Microsoft. Subscription/aliasy/zapis | Utwórz alias subskrypcji |
 > | Microsoft. Subscription/aliasy/odczyt | Pobierz alias subskrypcji |
 > | Microsoft. Subscription/aliasy/usuwanie | Usuwanie aliasu subskrypcji |
-> | Microsoft. subskrypcja/subskrypcje/zapis | Utworzono subskrypcję |
+> | Microsoft. subskrypcja/subskrypcje/zapis | Tworzenie subskrypcji platformy Azure |
 
 ## <a name="intune"></a>Intune
 

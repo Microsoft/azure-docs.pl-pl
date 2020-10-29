@@ -4,20 +4,20 @@ description: Informacje o podstawowym klastrze i składnikach obciążenia Kuber
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17203123ceb0c196bd8f9011e2962f5022e54698
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86251862"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901302"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Podstawowe pojęcia Kubernetes dla usługi Azure Kubernetes Service (AKS)
 
 Gdy Programowanie aplikacji przenosi się do podejścia opartego na kontenerach, trzeba zorganizować i zarządzać zasobami. Kubernetes to wiodąca platforma zapewniająca niezawodne planowanie obciążeń aplikacji odpornych na błędy. Usługa Azure Kubernetes Service (AKS) to zarządzana oferta Kubernetes, która ułatwia wdrażanie aplikacji opartych na kontenerach i zarządzanie nimi.
 
-W tym artykule wprowadzono podstawowe składniki infrastruktury Kubernetes, takie jak *płaszczyzna kontroli*, *węzły*i *Pule węzłów*. Wprowadzono również zasoby obciążenia *, takie jak* *zbiory* , *wdrożenia*i zestawy, wraz z sposobem grupowania zasobów w *przestrzeni nazw*.
+W tym artykule wprowadzono podstawowe składniki infrastruktury Kubernetes, takie jak *płaszczyzna kontroli* , *węzły* i *Pule węzłów* . Wprowadzono również zasoby obciążenia *, takie jak* *zbiory* , *wdrożenia* i zestawy, wraz z sposobem grupowania zasobów w *przestrzeni nazw* .
 
-## <a name="what-is-kubernetes"></a>Co to jest Kubernetes?
+## <a name="what-is-kubernetes"></a>Co to jest platforma Kubernetes?
 
 Kubernetes to gwałtownie rozwijający się platforma, która zarządza aplikacjami opartymi na kontenerach i skojarzonymi z nimi składnikami sieci i magazynu. Fokus dotyczy obciążeń aplikacji, a nie podstawowych składników infrastruktury. Kubernetes zapewnia deklaracyjne podejście do wdrożeń, które są obsługiwane przez niezawodny zestaw interfejsów API dla operacji zarządzania.
 
@@ -57,7 +57,7 @@ W przypadku skojarzonych najlepszych rozwiązań należy zapoznać się [z najle
 
 ## <a name="nodes-and-node-pools"></a>Węzły i pule węzłów
 
-Aby uruchamiać aplikacje i usługi pomocnicze, potrzebny jest *węzeł*Kubernetes. Klaster AKS ma co najmniej jeden węzeł, który jest maszyną wirtualną platformy Azure, na której działa składniki węzła Kubernetes i środowisko uruchomieniowe kontenera:
+Aby uruchamiać aplikacje i usługi pomocnicze, potrzebny jest *węzeł* Kubernetes. Klaster AKS ma co najmniej jeden węzeł, który jest maszyną wirtualną platformy Azure, na której działa składniki węzła Kubernetes i środowisko uruchomieniowe kontenera:
 
 - `kubelet`Jest to Agent Kubernetes, który przetwarza żądania aranżacji z płaszczyzny kontroli i planowania uruchamiania żądanych kontenerów.
 - Sieć wirtualna jest obsługiwana przez *polecenia-proxy* w każdym węźle. Serwer proxy kieruje ruchem sieciowym i zarządza adresami IP dla usług i zasobników.
@@ -94,7 +94,7 @@ Aby zachować wydajność i funkcjonalność węzła, zasoby są zastrzeżone dl
 
 - **Pamięć używana** przez AKS zawiera sumę dwóch wartości.
 
-1. Demon kubelet został zainstalowany we wszystkich węzłach agenta Kubernetes w celu zarządzania tworzeniem i kończeniem kontenera. Domyślnie w systemie AKS ten demon ma następującą regułę wykluczania: *Memory. available<750Mi*, co oznacza, że w każdym momencie węzeł musi mieć co najmniej 750.  Gdy host jest poniżej tego progu dostępnej pamięci, kubelet zakończy jeden z uruchomionych zasobników, aby zwolnić pamięć na komputerze hosta i chronić ją. Ta akcja jest wyzwalana, gdy ilość dostępnej pamięci nie przekracza progu 750Mi.
+1. Demon kubelet został zainstalowany we wszystkich węzłach agenta Kubernetes w celu zarządzania tworzeniem i kończeniem kontenera. Domyślnie w systemie AKS ten demon ma następującą regułę wykluczania: *Memory. available<750Mi* , co oznacza, że w każdym momencie węzeł musi mieć co najmniej 750.  Gdy host jest poniżej tego progu dostępnej pamięci, kubelet zakończy jeden z uruchomionych zasobników, aby zwolnić pamięć na komputerze hosta i chronić ją. Ta akcja jest wyzwalana, gdy ilość dostępnej pamięci nie przekracza progu 750Mi.
 
 2. Druga wartość to regresywnycha szybkość rezerwacji pamięci dla demona kubelet do prawidłowego działania (polecenia-zarezerwowane).
     - 25% pierwszego 4 GB pamięci
@@ -115,7 +115,7 @@ Aby zapoznać się z najlepszymi rozwiązaniami, zobacz [najlepsze rozwiązania 
 
 ### <a name="node-pools"></a>Pule węzłów
 
-Węzły tej samej konfiguracji są pogrupowane w *Pule węzłów*. Klaster Kubernetes zawiera co najmniej jedną pulę węzłów. Początkowa liczba węzłów i rozmiar są definiowane podczas tworzenia klastra AKS, który tworzy *domyślną pulę węzłów*. Ta domyślna pula węzłów w AKS zawiera podstawowe maszyny wirtualne, na których są uruchomione węzły agentów.
+Węzły tej samej konfiguracji są pogrupowane w *Pule węzłów* . Klaster Kubernetes zawiera co najmniej jedną pulę węzłów. Początkowa liczba węzłów i rozmiar są definiowane podczas tworzenia klastra AKS, który tworzy *domyślną pulę węzłów* . Ta domyślna pula węzłów w AKS zawiera podstawowe maszyny wirtualne, na których są uruchomione węzły agentów.
 
 > [!NOTE]
 > Aby zapewnić niezawodne działanie klastra, należy uruchomić co najmniej 2 (dwa) węzły w domyślnej puli węzłów.
@@ -128,7 +128,7 @@ Aby uzyskać więcej informacji na temat używania wielu pul węzłów w AKS, zo
 
 W klastrze AKS zawierającym wiele pul węzłów może być konieczne poinformowanie usługi Kubernetes Scheduler, której puli węzłów użyć dla danego zasobu. Na przykład kontrolery transferu danych przychodzących nie powinny działać w węzłach systemu Windows Server. Selektory węzłów umożliwiają definiowanie różnych parametrów, takich jak węzeł systemu operacyjnego, w celu kontrolowania, gdzie należy zaplanować.
 
-Poniższy przykład podstawowy zaplanuje wystąpienie NGINX w węźle systemu Linux przy użyciu selektora węzła *"beta.Kubernetes.IO/OS": Linux*:
+Poniższy przykład podstawowy zaplanuje wystąpienie NGINX w węźle systemu Linux przy użyciu selektora węzła *"beta.Kubernetes.IO/OS": Linux* :
 
 ```yaml
 kind: Pod
@@ -138,7 +138,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx:1.15.12
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
     "beta.kubernetes.io/os": linux
 ```
@@ -153,7 +153,7 @@ Podczas tworzenia elementu pod można zdefiniować *żądania zasobów* , aby za
 
 Aby uzyskać więcej informacji, zobacz [Kubernetes][kubernetes-pods] i [Kubernetes pod cykl życia][kubernetes-pod-lifecycle].
 
-A pod jest zasobem logicznym, ale kontenery są, w których są uruchamiane obciążenia aplikacji. Zasobniki to zazwyczaj tymczasowe, jednorazowe zasoby, a indywidualnie zaplanowane zasobniki nie mogą mieć niektórych funkcji wysokiej dostępności i nadmiarowości Kubernetes. Zamiast tego są wdrażane i zarządzane przez *Kontrolery*Kubernetes, takie jak kontroler wdrażania.
+A pod jest zasobem logicznym, ale kontenery są, w których są uruchamiane obciążenia aplikacji. Zasobniki to zazwyczaj tymczasowe, jednorazowe zasoby, a indywidualnie zaplanowane zasobniki nie mogą mieć niektórych funkcji wysokiej dostępności i nadmiarowości Kubernetes. Zamiast tego są wdrażane i zarządzane przez *Kontrolery* Kubernetes, takie jak kontroler wdrażania.
 
 ## <a name="deployments-and-yaml-manifests"></a>Wdrożenia i manifesty YAML
 
@@ -184,7 +184,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.15.2
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.2-alpine
         ports:
         - containerPort: 80
         resources:
@@ -238,9 +238,9 @@ Aby uzyskać więcej informacji, zobacz [Kubernetes DaemonSets][kubernetes-daemo
 > [!NOTE]
 > W przypadku używania [dodatku węzłów wirtualnych](virtual-nodes-cli.md#enable-virtual-nodes-addon)DaemonSets nie utworzy zasobnika w węźle wirtualnym.
 
-## <a name="namespaces"></a>Namespaces
+## <a name="namespaces"></a>Przestrzenie nazw
 
-Zasoby Kubernetes, takie jak grupy miar i wdrożenia, są logicznie pogrupowane w *przestrzeni nazw*. Dzięki tym grupom można logicznie podzielić klaster AKS i ograniczyć dostęp do tworzenia, wyświetlania i zarządzania zasobami. Można na przykład utworzyć przestrzenie nazw w celu oddzielenia grup firmy. Użytkownicy mogą korzystać tylko z zasobami w ramach przypisanych przestrzeni nazw.
+Zasoby Kubernetes, takie jak grupy miar i wdrożenia, są logicznie pogrupowane w *przestrzeni nazw* . Dzięki tym grupom można logicznie podzielić klaster AKS i ograniczyć dostęp do tworzenia, wyświetlania i zarządzania zasobami. Można na przykład utworzyć przestrzenie nazw w celu oddzielenia grup firmy. Użytkownicy mogą korzystać tylko z zasobami w ramach przypisanych przestrzeni nazw.
 
 ![Kubernetes przestrzenie nazw, aby logicznie podzielić zasoby i aplikacje](media/concepts-clusters-workloads/namespaces.png)
 

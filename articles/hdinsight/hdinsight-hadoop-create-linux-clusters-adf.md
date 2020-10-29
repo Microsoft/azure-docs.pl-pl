@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: dede52b751b25a1990cf110fea083f9aebc4ddbb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ea4f8c33a906bff96ea93f9a7aea3e6f625556cb
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542067"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900896"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Samouczek: tworzenie klastrów Apache Hadoop na żądanie w usłudze HDInsight przy użyciu Azure Data Factory
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-W ramach tego samouczka nauczysz się tworzyć klaster [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) na żądanie w usłudze Azure HDInsight przy użyciu Azure Data Factory. Następnie można używać potoków danych w Azure Data Factory, aby uruchamiać zadania Hive i usuwać klaster. Po zakończeniu tego samouczka dowiesz się, jak `operationalize` zadanie tworzenia klastrów, uruchamiania zadań i usuwania klastra odbywa się zgodnie z harmonogramem.
+W ramach tego samouczka nauczysz się tworzyć klaster [Apache Hadoop](../hdinsight/hdinsight-overview.md#cluster-types-in-hdinsight) na żądanie w usłudze Azure HDInsight przy użyciu Azure Data Factory. Następnie można używać potoków danych w Azure Data Factory, aby uruchamiać zadania Hive i usuwać klaster. Po zakończeniu tego samouczka dowiesz się, jak `operationalize` zadanie tworzenia klastrów, uruchamiania zadań i usuwania klastra odbywa się zgodnie z harmonogramem.
 
 Ten samouczek obejmuje następujące zadania:
 
@@ -203,7 +203,7 @@ W tym artykule opisano konfigurowanie działania programu Hive w celu utworzenia
 
     ![Tworzenie Azure Data Factory przy użyciu Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-adf/azure-portal-create-data-factory.png "Tworzenie Azure Data Factory przy użyciu Azure Portal")
 
-4. Wybierz przycisk **Utwórz** . Tworzenie fabryki danych może potrwać od 2 do 4 minut.
+4. Wybierz pozycję **Utwórz** . Tworzenie fabryki danych może potrwać od 2 do 4 minut.
 
 5. Po utworzeniu fabryki danych otrzymasz powiadomienie o **pomyślnym wdrożeniu** za pomocą przycisku **Przejdź do zasobu** .  Wybierz pozycję **Przejdź do zasobu** , aby otworzyć widok domyślny Data Factory.
 

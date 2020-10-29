@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: c4b8cbf9473fd605fc4367e88a6892a15bd25b1b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9f063b147fbddaeaa7888af755dba8f325d4fe0f
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150796"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899102"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Komunikacja z Centrum IoT Hub przy użyciu protokołu MQTT
 
@@ -44,7 +44,7 @@ Port MQTT (8883) jest blokowany w wielu firmowych środowiskach sieciowych i edu
 
 ## <a name="using-the-device-sdks"></a>Korzystanie z zestawów SDK urządzeń
 
-[Zestawy SDK urządzeń](https://github.com/Azure/azure-iot-sdks) obsługujące protokół MQTT są dostępne dla języków Java, Node.js, C, C# i Python. Zestawy SDK urządzeń używają standardowego ciągu połączenia IoT Hub, aby nawiązać połączenie z usługą IoT Hub. Aby można było korzystać z protokołu MQTT, parametr protokołu klienta musi być ustawiony na **MQTT**. W parametrze protokołu klienta można także określić MQTT przez gniazda sieci Web. Domyślnie zestawy SDK urządzenia łączą się z IoT Hubą z flagą **CleanSession** ustawioną na **0** i używają **usługi QoS 1** na potrzeby wymiany komunikatów z usługą IoT Hub. Chociaż istnieje możliwość skonfigurowania **usługi QoS 0** w celu przyspieszenia wymiany komunikatów, należy pamiętać, że dostarczanie nie jest gwarantowane ani potwierdzone. Z tego powodu jakość usług ( **QoS) 0** jest często określana jako "Fire i zapomnij".
+[Zestawy SDK urządzeń](https://github.com/Azure/azure-iot-sdks) obsługujące protokół MQTT są dostępne dla języków Java, Node.js, C, C# i Python. Zestawy SDK urządzeń używają standardowego ciągu połączenia IoT Hub, aby nawiązać połączenie z usługą IoT Hub. Aby można było korzystać z protokołu MQTT, parametr protokołu klienta musi być ustawiony na **MQTT** . W parametrze protokołu klienta można także określić MQTT przez gniazda sieci Web. Domyślnie zestawy SDK urządzenia łączą się z IoT Hubą z flagą **CleanSession** ustawioną na **0** i używają **usługi QoS 1** na potrzeby wymiany komunikatów z usługą IoT Hub. Chociaż istnieje możliwość skonfigurowania **usługi QoS 0** w celu przyspieszenia wymiany komunikatów, należy pamiętać, że dostarczanie nie jest gwarantowane ani potwierdzone. Z tego powodu jakość usług ( **QoS) 0** jest często określana jako "Fire i zapomnij".
 
 Gdy urządzenie jest połączone z usługą IoT Hub, zestawy SDK urządzeń udostępniają metody, które umożliwiają urządzeniu wymianę komunikatów z Centrum IoT Hub.
 
@@ -139,11 +139,11 @@ Ten folder zawiera dwa przykłady poleceń używanych z narzędziem narzędzi mo
 
 Jeśli urządzenie nie może użyć zestawów SDK urządzeń, nadal może nawiązać połączenie z punktami końcowymi urządzeń publicznych przy użyciu protokołu MQTT na porcie 8883. W pakiecie **Connect** urządzenie powinno używać następujących wartości:
 
-* Dla pola **ClientId** Użyj elementu **deviceId**.
+* Dla pola **ClientId** Użyj elementu **deviceId** .
 
 * W polu **username (nazwa użytkownika** ) Użyj elementu `{iothubhostname}/{device_id}/?api-version=2018-06-30` , gdzie `{iothubhostname}` to pełny rekord CNAME Centrum IoT Hub.
 
-    Jeśli na przykład nazwa Twojego centrum IoT jest **contoso.Azure-Devices.NET** i jeśli nazwa urządzenia to **MyDevice01**, pełne pole **nazwy użytkownika** powinno zawierać:
+    Jeśli na przykład nazwa Twojego centrum IoT jest **contoso.Azure-Devices.NET** i jeśli nazwa urządzenia to **MyDevice01** , pełne pole **nazwy użytkownika** powinno zawierać:
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
@@ -162,7 +162,7 @@ Jeśli urządzenie nie może użyć zestawów SDK urządzeń, nadal może nawią
 
 1. Rozwiń kartę **urządzenia usługi Azure IoT Hub** w lewym dolnym rogu Visual Studio Code.
   
-2. Kliknij prawym przyciskiem myszy urządzenie, a następnie wybierz polecenie **Generuj token SAS dla urządzenia**.
+2. Kliknij prawym przyciskiem myszy urządzenie, a następnie wybierz polecenie **Generuj token SAS dla urządzenia** .
   
 3. Ustaw **czas wygaśnięcia** i naciśnij klawisz ENTER.
   
@@ -283,7 +283,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>Wysyłanie komunikatów z urządzenia do chmury
 
-Po pomyślnym nawiązaniu połączenia urządzenie może wysyłać komunikaty do IoT Hub przy użyciu `devices/{device_id}/messages/events/` lub `devices/{device_id}/messages/events/{property_bag}` jako **nazwy tematu**. `{property_bag}`Element umożliwia urządzeniu wysyłanie komunikatów z dodatkowymi właściwościami w formacie zakodowanym w adresie URL. Na przykład:
+Po pomyślnym nawiązaniu połączenia urządzenie może wysyłać komunikaty do IoT Hub przy użyciu `devices/{device_id}/messages/events/` lub `devices/{device_id}/messages/events/{property_bag}` jako **nazwy tematu** . `{property_bag}`Element umożliwia urządzeniu wysyłanie komunikatów z dodatkowymi właściwościami w formacie zakodowanym w adresie URL. Na przykład:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -294,9 +294,9 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 Poniżej znajduje się lista zachowań IoT Hub specyficznych dla implementacji:
 
-* IoT Hub nie obsługuje komunikatów QoS 2. Jeśli aplikacja urządzenia opublikuje komunikat z opcją **QoS 2**, IoT Hub zamyka połączenie sieciowe.
+* IoT Hub nie obsługuje komunikatów QoS 2. Jeśli aplikacja urządzenia opublikuje komunikat z opcją **QoS 2** , IoT Hub zamyka połączenie sieciowe.
 
-* IoT Hub nie utrwala zachowywanych komunikatów. Jeśli urządzenie wysyła komunikat z flagą **Zachowaj** ustawioną na 1, IoT Hub dodaje do wiadomości Właściwość aplikacji **x-opt-utrzymują** . W takim przypadku zamiast utrwalania komunikatu o zatrzymaniu IoT Hub przekazuje go do aplikacji zaplecza.
+* IoT Hub nie utrwala zachowywanych komunikatów. Jeśli urządzenie wysyła komunikat z flagą **Zachowaj** ustawioną na 1, IoT Hub dodaje do wiadomości Właściwość **MQTT-utrzymują** aplikację. W takim przypadku zamiast utrwalania komunikatu o zatrzymaniu IoT Hub przekazuje go do aplikacji zaplecza.
 
 * IoT Hub obsługuje tylko jedno aktywne połączenie MQTT dla każdego urządzenia. Każde nowe połączenie MQTT w imieniu tego samego identyfikatora urządzenia powoduje, że IoT Hub porzucić istniejące połączenie.
 
@@ -304,11 +304,11 @@ Aby uzyskać więcej informacji, zobacz [przewodnik dewelopera obsługi komunika
 
 ## <a name="receiving-cloud-to-device-messages"></a>Otrzymywanie komunikatów z chmury do urządzenia
 
-Aby odbierać komunikaty z IoT Hub, urządzenie powinno subskrybować korzystanie z programu `devices/{device_id}/messages/devicebound/#` jako **filtru tematu**. Wielopoziomowy symbol wielowymiarowy `#` w filtrze tematu służy tylko do zezwalania urządzeniu na odbieranie dodatkowych właściwości w nazwie tematu. IoT Hub nie zezwala na użycie `#` `?` symboli wieloznacznych lub do filtrowania tematów podrzędnych. Ponieważ IoT Hub nie jest brokerem wysyłania komunikatów ogólnego przeznaczenia, obsługuje tylko udokumentowane nazwy tematów i filtry tematów.
+Aby odbierać komunikaty z IoT Hub, urządzenie powinno subskrybować korzystanie z programu `devices/{device_id}/messages/devicebound/#` jako **filtru tematu** . Wielopoziomowy symbol wielowymiarowy `#` w filtrze tematu służy tylko do zezwalania urządzeniu na odbieranie dodatkowych właściwości w nazwie tematu. IoT Hub nie zezwala na użycie `#` `?` symboli wieloznacznych lub do filtrowania tematów podrzędnych. Ponieważ IoT Hub nie jest brokerem wysyłania komunikatów ogólnego przeznaczenia, obsługuje tylko udokumentowane nazwy tematów i filtry tematów.
 
-Urządzenie nie odbiera żadnych komunikatów z IoT Hub do momentu pomyślnego zasubskrybowania jego punktu końcowego określonego dla urządzenia reprezentowanego przez `devices/{device_id}/messages/devicebound/#` Filtr tematu. Po nawiązaniu subskrypcji urządzenie odbiera wysłane do niego komunikaty z chmury do urządzenia po upływie czasu subskrypcji. Jeśli urządzenie połączy się z flagą **CleanSession** o wartości **0**, subskrypcja jest utrwalana w różnych sesjach. W takim przypadku następnym razem, gdy urządzenie połączy się z **CleanSession 0** odbierze wszelkie zaległe komunikaty wysyłane do niego, gdy zostanie odłączony. Jeśli urządzenie używa flagi **CleanSession** ustawionej na **1** , nie odbiera żadnych komunikatów z IoT Hub, dopóki nie zasubskrybuje on swojego punktu końcowego urządzenia.
+Urządzenie nie odbiera żadnych komunikatów z IoT Hub do momentu pomyślnego zasubskrybowania jego punktu końcowego określonego dla urządzenia reprezentowanego przez `devices/{device_id}/messages/devicebound/#` Filtr tematu. Po nawiązaniu subskrypcji urządzenie odbiera wysłane do niego komunikaty z chmury do urządzenia po upływie czasu subskrypcji. Jeśli urządzenie połączy się z flagą **CleanSession** o wartości **0** , subskrypcja jest utrwalana w różnych sesjach. W takim przypadku następnym razem, gdy urządzenie połączy się z **CleanSession 0** odbierze wszelkie zaległe komunikaty wysyłane do niego, gdy zostanie odłączony. Jeśli urządzenie używa flagi **CleanSession** ustawionej na **1** , nie odbiera żadnych komunikatów z IoT Hub, dopóki nie zasubskrybuje on swojego punktu końcowego urządzenia.
 
-IoT Hub dostarcza wiadomości z **nazwą tematu** `devices/{device_id}/messages/devicebound/` lub w `devices/{device_id}/messages/devicebound/{property_bag}` przypadku, gdy są właściwości komunikatów. `{property_bag}` zawiera pary kluczy/wartości kodowane w adresie URL właściwości komunikatów. W zbiorze właściwości są uwzględniane tylko właściwości aplikacji i właściwości systemu użytkownika (takie jak **MessageID** lub **Identyfikator korelacji**). Nazwy właściwości systemu mają prefiks **$** , właściwości aplikacji używają oryginalnej nazwy właściwości bez prefiksu. Aby uzyskać dodatkowe informacje na temat formatu zbioru właściwości, zobacz [wysyłanie komunikatów z urządzenia do chmury](#sending-device-to-cloud-messages).
+IoT Hub dostarcza wiadomości z **nazwą tematu** `devices/{device_id}/messages/devicebound/` lub w `devices/{device_id}/messages/devicebound/{property_bag}` przypadku, gdy są właściwości komunikatów. `{property_bag}` zawiera pary kluczy/wartości kodowane w adresie URL właściwości komunikatów. W zbiorze właściwości są uwzględniane tylko właściwości aplikacji i właściwości systemu użytkownika (takie jak **MessageID** lub **Identyfikator korelacji** ). Nazwy właściwości systemu mają prefiks **$** , właściwości aplikacji używają oryginalnej nazwy właściwości bez prefiksu. Aby uzyskać dodatkowe informacje na temat formatu zbioru właściwości, zobacz [wysyłanie komunikatów z urządzenia do chmury](#sending-device-to-cloud-messages).
 
 W komunikatach z chmury do urządzenia wartości w zbiorze właściwości są reprezentowane jak w poniższej tabeli:
 
@@ -318,17 +318,17 @@ W komunikatach z chmury do urządzenia wartości w zbiorze właściwości są re
 | pusty ciąg | `key=` | Klucz, po którym następuje znak równości bez wartości |
 | wartość inna niż null, niepusta | `key=value` | Klucz, po którym następuje znak równości i wartość |
 
-Poniższy przykład przedstawia zbiór właściwości, który zawiera trzy właściwości aplikacji: **Prop1** z wartością `null` ; **prop2**, pusty ciąg (""); i **prop3** z wartością "ciągu".
+Poniższy przykład przedstawia zbiór właściwości, który zawiera trzy właściwości aplikacji: **Prop1** z wartością `null` ; **prop2** , pusty ciąg (""); i **prop3** z wartością "ciągu".
 
 ```mqtt
 /?prop1&prop2=&prop3=a%20string
 ```
 
-Gdy aplikacja urządzenia subskrybuje temat z zasadą **QoS 2**, IoT Hub przyznaje maksymalny poziom jakości usług (QoS) 1 w pakiecie **SUBACK** . Następnie IoT Hub dostarcza komunikaty do urządzenia przy użyciu usługi QoS 1.
+Gdy aplikacja urządzenia subskrybuje temat z zasadą **QoS 2** , IoT Hub przyznaje maksymalny poziom jakości usług (QoS) 1 w pakiecie **SUBACK** . Następnie IoT Hub dostarcza komunikaty do urządzenia przy użyciu usługi QoS 1.
 
 ## <a name="retrieving-a-device-twins-properties"></a>Pobieranie właściwości sznurka urządzenia
 
-Najpierw urządzenie subskrybuje `$iothub/twin/res/#` , aby odebrać odpowiedzi operacji. Następnie wysyła pusty komunikat do tematu `$iothub/twin/GET/?$rid={request id}` z wypełnioną wartością dla **identyfikatora żądania**. Następnie usługa wysyła komunikat odpowiedzi zawierający dane dotyczące sznurka urządzenia w temacie `$iothub/twin/res/{status}/?$rid={request id}` przy użyciu tego samego **identyfikatora żądania** co żądanie.
+Najpierw urządzenie subskrybuje `$iothub/twin/res/#` , aby odebrać odpowiedzi operacji. Następnie wysyła pusty komunikat do tematu `$iothub/twin/GET/?$rid={request id}` z wypełnioną wartością dla **identyfikatora żądania** . Następnie usługa wysyła komunikat odpowiedzi zawierający dane dotyczące sznurka urządzenia w temacie `$iothub/twin/res/{status}/?$rid={request id}` przy użyciu tego samego **identyfikatora żądania** co żądanie.
 
 Identyfikator żądania może być dowolną prawidłową wartością dla wartości właściwości wiadomości, zgodnie z opisem w [przewodniku dewelopera obsługi komunikatów IoT Hub](iot-hub-devguide-messaging.md), a stan jest sprawdzony jako liczba całkowita.
 

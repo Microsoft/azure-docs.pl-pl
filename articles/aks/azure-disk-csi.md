@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 68a892768e5cfa5be7fe6f9ad99fc4cded68b02d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 260631e36d113b6ccd190f66ce61caa7ba1b187b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071816"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900894"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Korzystanie ze sterowników interfejsu magazynu kontenera platformy Azure (CSI) w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 Sterownik Azure Disk Container Storage Interface (CSI) jest sterownikiem zgodnym ze [specyfikacją CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)używanym przez usługę Azure Kubernetes Service (AKS) do zarządzania cyklem życia dysków platformy Azure.
@@ -339,7 +339,7 @@ spec:
     spec:
       containers:
         - name: deployment-azuredisk
-          image: nginx
+          image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
           volumeDevices:
             - name: azuredisk
               devicePath: /dev/sdx
@@ -360,11 +360,10 @@ deployment/deployment-azuredisk created
 Na koniec sprawdźmy, czy urządzenie blokowe znajduje się w obrębie:
 
 ```console
-# kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp bash
-root@deployment-sharedisk-7454978bc6-xh7jp:/# dd if=/dev/zero of=/dev/sdx bs=1024k count=100
+# kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp sh
+/ # dd if=/dev/zero of=/dev/sdx bs=1024k count=100
 100+0 records in
-100+0 records out
-104857600 bytes (105 MB, 100 MiB) copied, 0.0502999 s, 2.1 GB/s
+100+0 records out/s
 ```
 
 ## <a name="windows-containers"></a>Kontenery systemu Windows

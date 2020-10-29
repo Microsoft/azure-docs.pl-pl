@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a0851e9d032d4d1bf9751d63061141839e95d510
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491295"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900275"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -39,6 +39,9 @@ Bezpieczeństwo i ochrona prywatności należą do najważniejszych priorytetów
 
 Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2, Europa Zachodnia, Europa Północna, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia i Australia Wschodnia.
 
+### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>Czy dane klienta są przechowywane poza określonym regionem?
+
+Chmura Wiosnowa platformy Azure to usługa regionalna. Wszystkie dane klienta w chmurze Azure wiosennej są przechowywane w wielu regionach w tym samym georegionie określonego regionu w celu zapewnienia nadmiarowości. Aby dowiedzieć się więcej o lokalizacji geograficznej i regionie, zobacz [dane miejsca zamieszkania na platformie Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Jakie są znane ograniczenia chmury wiosennej platformy Azure?
 
@@ -72,7 +75,7 @@ Chmura sprężynowa platformy Azure obsługuje środowisko Java 8 i 11. Zobacz [
 
 Znajdź metryki na karcie Przegląd aplikacji i karcie [Azure monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics) .
 
-Chmura sprężynowa platformy Azure obsługuje eksportowanie dzienników aplikacji i metryk w chmurze z usługą Azure Storage, centrum EventHub i [log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). Nazwa tabeli w Log Analytics to *AppPlatformLogsforSpring*. Aby dowiedzieć się, jak włączyć tę funkcję, zobacz [usługi diagnostyczne](diagnostic-services.md).
+Chmura sprężynowa platformy Azure obsługuje eksportowanie dzienników aplikacji i metryk w chmurze z usługą Azure Storage, centrum EventHub i [log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). Nazwa tabeli w Log Analytics to *AppPlatformLogsforSpring* . Aby dowiedzieć się, jak włączyć tę funkcję, zobacz [usługi diagnostyczne](diagnostic-services.md).
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Czy chmura Wiosenna platformy Azure obsługuje śledzenie rozproszone?
 

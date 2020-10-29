@@ -4,12 +4,12 @@ description: Poznaj różne sposoby wdrażania kodu do Azure Functions.
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88641963"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900167"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologie wdrażania w Azure Functions
 
@@ -33,8 +33,8 @@ Podczas gdy określone funkcje wdrożenia korzystają z najlepszej technologii n
 
 Azure Functions obsługuje Międzyplatformowe programowanie lokalne i hosting w systemach Windows i Linux. Obecnie dostępne są trzy plany hostingu:
 
-+ [Zużycie](functions-scale.md#consumption-plan)
-+ [Premium](functions-scale.md#premium-plan)
++ [Wyrażon](functions-scale.md#consumption-plan)
++ [Tytułu](functions-scale.md#premium-plan)
 + [Dedykowane (App Service)](functions-scale.md#app-service-plan)
 
 Każdy plan ma inne zachowania. Nie wszystkie technologie wdrażania są dostępne dla każdej wersji Azure Functions. Na poniższym wykresie przedstawiono, które technologie wdrażania są obsługiwane dla każdej kombinacji systemu operacyjnego i planu hostingu:
@@ -128,7 +128,7 @@ Można wdrożyć obraz kontenera systemu Linux zawierający aplikację funkcji.
 
 >__Jak z niej korzystać:__ Utwórz aplikację funkcji systemu Linux w planie Premium lub dedykowanym i określ, z którego obrazu kontenera chcesz korzystać. Możesz to zrobić na dwa sposoby:
 >
->* Utwórz aplikację funkcji systemu Linux na planie Azure App Service w Azure Portal. W obszarze **Publikowanie**wybierz opcję **obraz platformy Docker**, a następnie skonfiguruj kontener. Wprowadź lokalizację, w której jest hostowany obraz.
+>* Utwórz aplikację funkcji systemu Linux na planie Azure App Service w Azure Portal. W obszarze **Publikowanie** wybierz opcję **obraz platformy Docker** , a następnie skonfiguruj kontener. Wprowadź lokalizację, w której jest hostowany obraz.
 >* Tworzenie aplikacji funkcji systemu Linux w planie App Service przy użyciu interfejsu wiersza polecenia platformy Azure. Aby dowiedzieć się, jak to zrobić, zobacz [Tworzenie funkcji w systemie Linux przy użyciu obrazu niestandardowego](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Aby wdrożyć w istniejącej aplikacji przy użyciu niestandardowego kontenera, w [Azure Functions Core Tools](functions-run-local.md)Użyj [`func deploy`](functions-run-local.md#publish) polecenia.
@@ -212,7 +212,7 @@ Jeśli potrzebujesz większej kontroli nad tym przejściem, musisz używać miej
 
 ## <a name="deployment-slots"></a>Miejsca wdrożenia
 
-Po wdrożeniu aplikacji funkcji na platformie Azure można wdrożyć ją w osobnym miejscu wdrożenia, a nie bezpośrednio w środowisku produkcyjnym. Więcej informacji na temat miejsc wdrożenia znajduje się w dokumentacji dotyczącej [miejsc wdrażania Azure Functions](../app-service/deploy-staging-slots.md) .
+Po wdrożeniu aplikacji funkcji na platformie Azure można wdrożyć ją w osobnym miejscu wdrożenia, a nie bezpośrednio w środowisku produkcyjnym. Więcej informacji na temat miejsc wdrożenia znajduje się w dokumentacji dotyczącej [miejsc wdrażania Azure Functions](functions-deployment-slots.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

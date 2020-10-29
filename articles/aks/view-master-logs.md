@@ -4,12 +4,12 @@ description: Informacje na temat włączania i wyświetlania dzienników dla wę
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 1089cb4ea52efaa545478ced053a921728a894ef
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 82570606aee294aafe7da5ffaf581b11b6775073
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368455"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899935"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Włączanie i wyświetlanie dzienników węzła master platformy Kubernetes w usłudze Azure Kubernetes Service
 
@@ -25,21 +25,21 @@ Aby ułatwić zbieranie i przeglądanie danych z wielu źródeł, dzienniki Azur
 
 Dzienniki Azure Monitor są włączone i zarządzane w Azure Portal. Aby włączyć zbieranie dzienników dla składników głównych Kubernetes w klastrze AKS, Otwórz Azure Portal w przeglądarce internetowej i wykonaj następujące czynności:
 
-1. Wybierz grupę zasobów dla klastra AKS, na przykład grupa *zasobów*. Nie wybieraj grupy zasobów zawierającej poszczególne zasoby klastra AKS, takie jak *MC_myResourceGroup_myAKSCluster_eastus*.
-1. Po lewej stronie wybierz pozycję **Ustawienia diagnostyczne**.
-1. Wybierz klaster AKS, taki jak *myAKSCluster*, a następnie wybierz opcję **dodania ustawienia diagnostycznego**.
-1. Wprowadź nazwę, na przykład *myAKSClusterLogs*, a następnie wybierz opcję **wysyłania do log Analytics**.
+1. Wybierz grupę zasobów dla klastra AKS, na przykład grupa *zasobów* . Nie wybieraj grupy zasobów zawierającej poszczególne zasoby klastra AKS, takie jak *MC_myResourceGroup_myAKSCluster_eastus* .
+1. Po lewej stronie wybierz pozycję **Ustawienia diagnostyczne** .
+1. Wybierz klaster AKS, taki jak *myAKSCluster* , a następnie wybierz opcję **dodania ustawienia diagnostycznego** .
+1. Wprowadź nazwę, na przykład *myAKSClusterLogs* , a następnie wybierz opcję **wysyłania do log Analytics** .
 1. Wybierz istniejący obszar roboczy lub Utwórz nowy. W przypadku tworzenia obszaru roboczego Podaj nazwę obszaru roboczego, grupę zasobów i lokalizację.
-1. Na liście dostępnych dzienników wybierz dzienniki, które chcesz włączyć. W tym przykładzie należy włączyć dzienniki *polecenia-Audit* i *polecenia-Audit-admin* . Typowe dzienniki obejmują *polecenia-apiserver*, *polecenia-Controller-Manager*i *polecenia-Scheduler*. Można zwrócić i zmienić zebrane dzienniki po włączeniu Log Analytics obszarów roboczych.
+1. Na liście dostępnych dzienników wybierz dzienniki, które chcesz włączyć. W tym przykładzie należy włączyć dzienniki *polecenia-Audit* i *polecenia-Audit-admin* . Typowe dzienniki obejmują *polecenia-apiserver* , *polecenia-Controller-Manager* i *polecenia-Scheduler* . Można zwrócić i zmienić zebrane dzienniki po włączeniu Log Analytics obszarów roboczych.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz** , aby włączyć zbieranie wybranych dzienników.
 
 ## <a name="log-categories"></a>Kategorie dzienników
 
 Oprócz wpisów utworzonych przez Kubernetes, dzienniki inspekcji projektu również mają wpisy z AKS.
 
-Dzienniki inspekcji są zapisywane w trzech kategoriach: *polecenia-Audit*, *polecenia-Audit-admin*i *Guard*.
+Dzienniki inspekcji są zapisywane w trzech kategoriach: *polecenia-Audit* , *polecenia-Audit-admin* i *Guard* .
 
-- Kategoria *polecenia-Audit* zawiera wszystkie dane dziennika inspekcji dla każdego zdarzenia inspekcji, w tym *Get*, *list*, *Create*, *Update*, *delete*, *patch*i *post*.
+- Kategoria *polecenia-Audit* zawiera wszystkie dane dziennika inspekcji dla każdego zdarzenia inspekcji, w tym *Get* , *list* , *Create* , *Update* , *delete* , *patch* i *post* .
 - Kategoria *polecenia-Audit-admin* jest podzbiorem kategorii dziennika *inspekcji polecenia* . *polecenia-Audit — administrator* znacznie zmniejsza liczbę dzienników, wykluczając zdarzenia *pobierania* *i inspekcji* z dziennika.
 - Kategoria *Guard* jest zarządzana przez usługi Azure AD i inspekcje RBAC platformy Azure. W przypadku zarządzanej usługi Azure AD: token w programie, informacje o użytkowniku. W przypadku usługi Azure RBAC: przeglądy dostępu w i na zewnątrz.
 
@@ -55,7 +55,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -84,7 +84,7 @@ Włączenie i wyświetlenie dzienników diagnostycznych może potrwać do 10 min
 
 W Azure Portal przejdź do klastra AKS, a następnie wybierz pozycję **dzienniki** po lewej stronie. Zamknij okno *przykładowe zapytania* , jeśli pojawia się.
 
-Po lewej stronie wybierz pozycję **dzienniki**. Aby wyświetlić dzienniki *inspekcji polecenia* , w polu tekstowym wprowadź następujące zapytanie:
+Po lewej stronie wybierz pozycję **dzienniki** . Aby wyświetlić dzienniki *inspekcji polecenia* , w polu tekstowym wprowadź następujące zapytanie:
 
 ```
 AzureDiagnostics
@@ -109,7 +109,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-W tym przykładzie zapytanie pokazuje wszystkie zadania tworzenia w *polecenia-Audit-admin*. Prawdopodobnie zwrócono wiele wyników, aby przekroczyć zakres zapytania, aby wyświetlić dzienniki dotyczące NGINX powyżej utworzonego w poprzednim kroku, Dodaj dodatkową instrukcję *WHERE* , aby wyszukać *Nginx* , jak pokazano w poniższym przykładowym zapytaniu.
+W tym przykładzie zapytanie pokazuje wszystkie zadania tworzenia w *polecenia-Audit-admin* . Prawdopodobnie zwrócono wiele wyników, aby przekroczyć zakres zapytania, aby wyświetlić dzienniki dotyczące NGINX powyżej utworzonego w poprzednim kroku, Dodaj dodatkową instrukcję *WHERE* , aby wyszukać *Nginx* , jak pokazano w poniższym przykładowym zapytaniu.
 
 ```
 AzureDiagnostics

@@ -6,29 +6,29 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 09/12/2020
+ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c4338152579170bf809577262992f0db9a1a95ff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09429e26c5b7192141262e1a31c0ef90427bdd32
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90524950"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899029"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Co to jest usługa Azure Synapse Analytics (obszary robocze w wersji zapoznawczej)?
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Analiza przedsiębiorstwa musi zapewniać ogromną skalę w przypadku dowolnego rodzaju danych, zarówno nieprzetworzony, rafinowany, jak i wysoce nadzorowany. Te przedsiębiorstwa wymagane do łączenia się z technologiami danych Big Data i magazynowania danych, takimi jak Spark i SQL, są rozbudowanymi potokami danych, które działają w przypadku danych w magazynach relacyjnych i jeziorach danych. Takie rozwiązania są trudne do kompilowania, zabezpieczania i konserwowania. Złożoność Opóźnianie dostarczania potrzeb Enteprises szczegółowych informacji.
+Analiza przedsiębiorstwa musi być wydajna na bardzo dużą skalę w przypadku dowolnego rodzaju danych, zarówno nieprzetworzony, rafinowany, jak i wysoce nadzorowany. Zwykle jest to konieczne, aby przedsiębiorstwa współpracowały z dużą ilością danych i technologiami magazynowania danych w złożonych potokach danych, które działają między danymi w magazynach relacyjnych i jeziorach danych. Takie rodzaje rozwiązań są trudne do skompilowania, utrzymania i zabezpieczenia. Opóźnienia w zakresie złożoności zapewniające potrzebę wglądu w Enteprises.
 
-**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas uzyskiwania wglądu w dane między magazynami danych i systemami analizy danych Big Data. Na swoim rdzeńu usługa Azure Synapse udostępnia zalety technologii **SQL** , które są używane w magazynach danych w przedsiębiorstwie, technologii **Spark** używanych w przypadku danych Big Data oraz **potoków** do integracji danych i ETL/ELT. Synapse ma oparty na sieci Web program **Studio** , który oferuje jedno miejsce do zarządzania, monitorowania, kodowania i zabezpieczenia. Synapse funkcje głębokiej integracji z innymi usługami platformy Azure, takimi jak **PowerBI**, **CosmosDB**i **Azure**.
+**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas w celu wglądu w dane między magazynami danych i systemami danych Big Data. Usługa Azure Synapse umożliwia łączenie najlepszych technologii **SQL** używanych w magazynie danych w przedsiębiorstwie, technologii **Spark** używanych w przypadku danych Big Data oraz **potoków** do integracji danych i ETL/ELT. Program **Synapse Studio** zapewnia ujednolicone środowisko zarządzania, monitorowania, kodowania i zabezpieczeń. Synapse ma ścisłą integrację z innymi usługami platformy Azure, takimi jak **PowerBI** , **CosmosDB** i **Azure** .
 
 ## <a name="key-features--benefits"></a>Najważniejsze funkcje & korzyści
 
 ### <a name="industry-leading-sql"></a>Wiodące w branży SQL
 
-* **Synapse SQL** to rozproszony system zapytań, który umożliwia przedsiębiorstwom wdrażanie scenariuszy magazynowania danych i wirtualizacji danych przy użyciu standardowych środowisk T-SQL, które są znane dla inżynierów danych. Rozszerza również możliwości programu SQL na potrzeby obsługi przesyłania strumieniowego i scenariuszy uczenia maszynowego.
+* **Synapse SQL** to rozproszony system zapytań, który umożliwia przedsiębiorstwom wdrażanie scenariuszy magazynowania danych i wirtualizacji danych przy użyciu standardowych i znanych środowisk T-SQL. Rozszerza również możliwości programu SQL na potrzeby obsługi przesyłania strumieniowego i scenariuszy uczenia maszynowego.
 
 * Program Synapse SQL oferuje **bezserwerowe** i **dedykowane** modele zasobów, oferując opcje zużycia i rozliczeń w celu dopasowania do Twoich potrzeb. Aby zapewnić przewidywalną wydajność i koszt, Utwórz dedykowane pule SQL, aby zarezerwować moc obliczeniową dla danych przechowywanych w tabelach SQL. W przypadku obciążeń nieplanowanych lub na rozerwanie należy użyć punktu końcowego SQL Always dostępnego serwera.
 * Korzystanie z wbudowanych funkcji **przesyłania strumieniowego** w celu wywożenia danych ze źródeł danych w chmurze w tabelach SQL
@@ -56,7 +56,7 @@ Usługa Azure Synapse usuwa tradycyjne bariery technologiczne między programami
 Usługa Azure Synapse jest wbudowana przy użyciu tego samego aparatu integracji danych i środowisk, co Azure Data Factory, co pozwala na tworzenie rozbudowanych potoków ETL na skalę bez opuszczania Synapse Analytics.
 
 * Pozyskiwanie danych ze źródeł danych 90 +
-* ETL bezpłatny kod z działaniami przepływu danych
+* Code-Free ETL z działaniami przepływu danych
 * Organizowanie notesów, zadań platformy Spark, procedur składowanych, skryptów SQL i innych
 
 ### <a name="unified-management-monitoring-and-security"></a>Ujednolicone zarządzanie, monitorowanie i zabezpieczenia

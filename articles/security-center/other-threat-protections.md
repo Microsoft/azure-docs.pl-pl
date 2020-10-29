@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: dd4a7537e01c9e97997be64bb478e86a64f4325b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792263"
+ms.locfileid: "92900396"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Dodatkowa ochrona przed zagrożeniami w Azure Security Center
 Również wbudowane funkcje [ochrony usługi Azure Defender](azure-defender.md)Azure Security Center oferują również następujące możliwości ochrony przed zagrożeniami.
@@ -32,7 +32,6 @@ Security Center analiza warstwy sieciowej opiera się na przykładowych [danych 
 Niektóre konfiguracje sieci mogą ograniczać Security Center generowania alertów dotyczących podejrzanych działań w sieci. Aby Security Center wygenerować alerty sieciowe, upewnij się, że:
 - Maszyna wirtualna ma publiczny adres IP (lub znajduje się w usłudze równoważenia obciążenia z publicznym adresem IP).
 - Ruch wychodzący z sieci maszyny wirtualnej nie jest blokowany przez rozwiązanie identyfikatorów zewnętrznych.
-- Twoja maszyna wirtualna ma przypisany ten sam adres IP przez całą godzinę, w której wystąpiła podejrzana komunikacja. Dotyczy to również maszyn wirtualnych utworzonych w ramach usługi zarządzanej (na przykład AKS, datakosteks).
 
 Aby uzyskać listę alertów warstwy sieci platformy Azure, zobacz [tabelę referencyjną alertów](alerts-reference.md#alerts-azurenetlayer).
 

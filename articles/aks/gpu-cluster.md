@@ -6,27 +6,27 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52fd4867532832e0304a27317b21950bf131de79
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89443062"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900789"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Korzystanie z procesorów GPU na potrzeby obciążeń intensywnie korzystających z obliczeń w usłudze Azure Kubernetes Service (AKS)
 
-Jednostki procesora graficznego (GPU) są często używane do obciążeń intensywnie korzystających z mocy obliczeniowej, takich jak obciążenia grafiki i wizualizacji. AKS obsługuje tworzenie pul węzłów z obsługą procesora GPU w celu uruchamiania tych obciążeń intensywnie korzystających z obliczeń w Kubernetes. Aby uzyskać więcej informacji na temat dostępnych maszyn wirtualnych z obsługą procesora GPU, zobacz [rozmiary maszyn wirtualnych zoptymalizowane według procesora GPU na platformie Azure][gpu-skus]. W przypadku węzłów AKS zaleca się minimalny rozmiar *Standard_NC6*.
+Jednostki procesora graficznego (GPU) są często używane do obciążeń intensywnie korzystających z mocy obliczeniowej, takich jak obciążenia grafiki i wizualizacji. AKS obsługuje tworzenie pul węzłów z obsługą procesora GPU w celu uruchamiania tych obciążeń intensywnie korzystających z obliczeń w Kubernetes. Aby uzyskać więcej informacji na temat dostępnych maszyn wirtualnych z obsługą procesora GPU, zobacz [rozmiary maszyn wirtualnych zoptymalizowane według procesora GPU na platformie Azure][gpu-skus]. W przypadku węzłów AKS zaleca się minimalny rozmiar *Standard_NC6* .
 
 > [!NOTE]
 > Maszyny wirtualne z obsługą procesora GPU zawierają wyspecjalizowany sprzęt, który podlega wyższej cenie i dostępności regionów. Aby uzyskać więcej informacji, zobacz [Cennik][azure-pricing] narzędzia i [dostępność regionów][azure-availability].
 
 Obecnie użycie pul węzłów z obsługą procesora GPU jest dostępne tylko dla pul węzłów systemu Linux.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule założono, że masz istniejący klaster AKS z węzłami obsługującymi procesory GPU. Klaster AKS musi mieć uruchomioną Kubernetes 1,10 lub nowszą. Jeśli potrzebujesz klastra AKS, który spełnia te wymagania, zapoznaj się z pierwszą sekcją tego artykułu, aby [utworzyć klaster AKS](#create-an-aks-cluster).
 
-Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.64 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Konieczne jest również zainstalowanie i skonfigurowanie interfejsu wiersza polecenia platformy Azure w wersji 2.0.64 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 ## <a name="create-an-aks-cluster"></a>Tworzenie klastra AKS
 
@@ -58,7 +58,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Aby można było korzystać z procesorów GPU w węzłach, należy wdrożyć elementu daemonset dla wtyczki urządzenia NVIDIA. Ten elementu daemonset uruchamia w każdym węźle, aby udostępnić wymagane sterowniki dla procesorów GPU.
 
-Najpierw utwórz przestrzeń nazw za pomocą polecenia [polecenia kubectl Create Namespace][kubectl-create] , takiego jak *zasoby procesora GPU*:
+Najpierw utwórz przestrzeń nazw za pomocą polecenia [polecenia kubectl Create Namespace][kubectl-create] , takiego jak *zasoby procesora GPU* :
 
 ```console
 kubectl create namespace gpu-resources
@@ -97,7 +97,7 @@ spec:
         operator: Exists
         effect: NoSchedule
       containers:
-      - image: nvidia/k8s-device-plugin:1.11
+      - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:1.11
         name: nvidia-device-plugin-ctr
         securityContext:
           allowPrivilegeEscalation: false
@@ -134,7 +134,7 @@ Zarejestruj `GPUDedicatedVHDPreview` funkcję:
 az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
 ```
 
-Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+Wyświetlenie stanu jako **zarejestrowanego** może potrwać kilka minut. Stan rejestracji można sprawdzić za pomocą polecenia [AZ Feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
@@ -198,7 +198,7 @@ aks-nodepool1-28993262-0   Ready    agent   13m   v1.12.7
 
 Teraz użyj polecenia [polecenia kubectl opis węzła][kubectl-describe] , aby upewnić się, że procesory GPU są harmonogramie. W sekcji *pojemność* procesor GPU powinien zostać wystawiony jako `nvidia.com/gpu:  1` .
 
-Następujący wąski przykład pokazuje, że procesor GPU jest dostępny w węźle o nazwie *AKS-nodepool1-18821093-0*:
+Następujący wąski przykład pokazuje, że procesor GPU jest dostępny w węźle o nazwie *AKS-nodepool1-18821093-0* :
 
 ```console
 $ kubectl describe node aks-nodepool1-28993262-0
@@ -289,7 +289,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>Wyświetlanie stanu i danych wyjściowych obciążenia z obsługą procesora GPU
 
-Monitoruj postęp zadania za pomocą polecenia [polecenia kubectl Pobierz zadania][kubectl-get] z `--watch` argumentem. Pierwsze pobranie obrazu i przetworzenie zestawu danych może potrwać kilka minut. Gdy kolumna *ukończenia* zawiera *1/1*, zadanie zostało pomyślnie zakończone. Wyjdź `kubetctl --watch` z polecenia *Ctrl-C*:
+Monitoruj postęp zadania za pomocą polecenia [polecenia kubectl Pobierz zadania][kubectl-get] z `--watch` argumentem. Pierwsze pobranie obrazu i przetworzenie zestawu danych może potrwać kilka minut. Gdy kolumna *ukończenia* zawiera *1/1* , zadanie zostało pomyślnie zakończone. Wyjdź `kubetctl --watch` z polecenia *Ctrl-C* :
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch

@@ -3,12 +3,12 @@ title: Azure Service Bus często zadawanych pytań (FAQ) | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: ec79b6988fdbc78dc4f45e504f84179e617589cc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 38745d1cc2b1961da10a0c9e9f2c90c3b7dc48a7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518759"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899521"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus — często zadawane pytania
 
@@ -26,7 +26,7 @@ W tym artykule omówiono kilka często zadawanych pytań dotyczących Microsoft 
 [Kolejka Service Bus](service-bus-queues-topics-subscriptions.md) jest jednostką, w której są przechowywane komunikaty. Kolejki są przydatne w przypadku wielu aplikacji lub wielu części aplikacji rozproszonej, która musi komunikować się ze sobą. Kolejka jest podobna do centrum dystrybucji, w którym odbierane są wiele produktów (wiadomości), a następnie wysyłane z tej lokalizacji.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Co to są tematy Azure Service Bus i subskrypcje?
-Temat może być wizualny jako kolejka i w przypadku korzystania z wielu subskrypcji stanie się bardziej zaawansowanym modelem obsługi komunikatów. zasadniczo narzędzie do komunikacji typu "jeden do wielu". Ten model publikowania/subskrybowania (lub *pub/sub*) umożliwia aplikacji, która wysyła komunikat do tematu z wieloma subskrypcjami, aby ten komunikat został odebrany przez wiele aplikacji.
+Temat może być wizualny jako kolejka i w przypadku korzystania z wielu subskrypcji stanie się bardziej zaawansowanym modelem obsługi komunikatów. zasadniczo narzędzie do komunikacji typu "jeden do wielu". Ten model publikowania/subskrybowania (lub *pub/sub* ) umożliwia aplikacji, która wysyła komunikat do tematu z wieloma subskrypcjami, aby ten komunikat został odebrany przez wiele aplikacji.
 
 ### <a name="what-is-a-partitioned-entity"></a>Co to jest jednostka partycjonowana?
 Konwencjonalne kolejki lub tematy są obsługiwane przez jednego brokera komunikatów i przechowywane w jednym magazynie obsługi komunikatów. Obsługiwane tylko w warstwach Podstawowa i Standardowa obsługa komunikatów, [kolejki partycjonowane lub tematu](service-bus-partitioning.md) są obsługiwane przez wielu brokerów komunikatów i są przechowywane w wielu magazynach komunikatów. Ta funkcja oznacza, że ogólna przepływność partycjonowanej kolejki lub tematu nie jest już ograniczona przez wydajność jednego brokera komunikatów lub magazynu komunikatów. Ponadto tymczasowa awaria magazynu obsługi komunikatów nie powoduje niedostępności partycjonowanej kolejki lub tematu.
@@ -41,17 +41,28 @@ Azure Service Bus przechowuje dane klientów. Te dane są automatycznie przechow
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Jakie porty muszę otworzyć na zaporze? 
 Za pomocą następujących protokołów można Azure Service Bus wysyłać i odbierać komunikaty:
 
-- Zaawansowane usługi kolejkowania Protocol (AMQP)
-- Service Bus Messaging Protocol (SBMP)
-- HTTP
+- Advanced Message Queuing Protocol 1,0 (AMQP)
+- Protokół HTTP (Hypertext Transfer Protocol) 1,1 z protokołem TLS (HTTPS)
 
-Zapoznaj się z poniższą tabelą dla portów wychodzących, które należy otworzyć, aby używać tych protokołów do komunikowania się z usługą Azure Event Hubs. 
+Zapoznaj się z poniższą tabelą dla wychodzących portów TCP, które należy otworzyć, aby użyć tych protokołów do komunikowania się z Azure Service Bus:
 
-| Protokół | Porty | Szczegóły | 
+| Protokół | Port | Szczegóły | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 i 5672 | Zobacz [Przewodnik po protokole AMQP](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 do 9354 | Zobacz [tryb łączności](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) |
-| HTTP, HTTPS | 80, 443 | 
+| AMQP | 5671 | AMQP z protokołem TLS. Zobacz [Przewodnik po protokole AMQP](service-bus-amqp-protocol-guide.md) | 
+| HTTPS | 443 | Ten port jest używany dla interfejsu API protokołu HTTP/REST i dla gniazd AMQP-over-WebSockets |
+
+Port HTTPS jest zwykle wymagany do komunikacji wychodzącej również wtedy, gdy AMQP jest używany przez port 5671, ponieważ kilka operacji zarządzania wykonywanych przez zestawy SDK klienta i pozyskiwania tokenów z Azure Active Directory (gdy są używane) działają za pośrednictwem protokołu HTTPS. 
+
+Oficjalne zestawy Azure SDK zwykle używają protokołu AMQP do wysyłania i otrzymywania komunikatów z Service Bus. Opcja protokołu AMQP-over-WebSockets jest uruchamiana przez port TCP 443, podobnie jak w przypadku interfejsu API protokołu HTTP, ale w przeciwnym razie jest taka sama jak w przypadku zwykłego AMQP. Ta opcja ma większe opóźnienie połączeń początkowych z powodu dwukierunkowego rozliczania i nieco większego obciążenia jako kompromisu w przypadku udostępniania portu HTTPS. W przypadku wybrania tego trybu port TCP 443 jest wystarczający do komunikacji. Poniższe opcje umożliwiają wybranie trybu AMQP lub AMQP obiektów WebSockets:
+
+| Język | Opcja   |
+| -------- | ----- |
+| .NET     | [ServiceBusConnection. TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype?view=azure-dotnet) właściwość z właściwością [TransportType. AMQP](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) lub [TransportType. AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) |
+| Java     | [com. Microsoft. Azure. ServiceBus. ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings?view=azure-java-stable) z [modelem com. Microsoft. Azure. ServiceBus. pierwotne. TransportType. AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) lub [com.Microsoft.Azure.ServiceBus.Primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) |
+| Węzeł  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions?view=azure-node-latest) ma `webSocket` argument konstruktora. |
+| Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) z [transportem. AMQP](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) lub [TransportType. AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+
+Starszy pakiet WindowsAzure. ServiceBus dla .NET Framework ma opcję użycia starszej wersji "Service Bus Messaging Protocol" (SBMP), zwanej również "obsługą komunikatów". Ten protokół używa portów TCP 9350-9354. Domyślnym trybem tego pakietu jest automatyczne wykrywanie, czy te porty są dostępne do komunikacji i przełączają się do obiektów WebSockets z protokołem TLS przez port 443, jeśli tak nie jest. Można zastąpić to ustawienie i wymusić ten tryb, ustawiając wartość `Https` opcji [connectivitymode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) dla [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) Ustawienia, które ma zastosowanie globalnie do aplikacji.
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Jakie adresy IP muszę dodać do listy dozwolonych?
 Aby znaleźć odpowiednie adresy IP do dodania do listy dozwolonych połączeń, wykonaj następujące kroki:
