@@ -3,12 +3,12 @@ title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789373"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909713"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -119,6 +119,9 @@ Następnie Włącz dzienniki diagnostyczne dla [zdarzeń połączeń sieci wirtu
     "Category": "EventHubVNetConnectionEvent"
 }
 ```
+
+> [!IMPORTANT]
+> Dzienniki sieci wirtualnej są generowane tylko wtedy, gdy przestrzeń nazw zezwala na dostęp z **określonych adresów IP** (reguł filtrów IP). Jeśli nie chcesz ograniczać dostępu do przestrzeni nazw przy użyciu tych funkcji i nadal chcesz uzyskać dzienniki sieci wirtualnych do śledzenia adresów IP klientów łączących się z przestrzenią nazw Event Hubs, możesz użyć następującego obejścia: Włącz filtrowanie adresów IP i Dodaj zakres adresów IPv4 (1.0.0.0/1-255.0.0.0/1). Event Hubs nie obsługuje zakresów adresów IPv6. 
 
 ## <a name="apache-kafka-integration"></a>Integracja Apache Kafka
 

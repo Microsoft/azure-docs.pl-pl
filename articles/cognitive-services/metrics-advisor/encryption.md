@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 9a7a914acd1358243c1e8a29f59dadf4fac46957
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5d41500a9c53e38cd36f0feba602e0e1baa5da2c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046931"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909747"
 ---
 # <a name="metrics-advisor-service-encryption-of-data-at-rest"></a>Usługa klasyfikatora metryk szyfrowania danych magazynowanych
 
@@ -32,4 +32,4 @@ Usługa klasyfikator metryk automatycznie szyfruje dane po utrwaleniu ich w chmu
 ## <a name="next-steps"></a>Następne kroki
 
 * [Formularz żądania klucza Customer-Managed usługi Advisor metryk](https://aka.ms/cogsvc-cmk)
-* [Dowiedz się więcej o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Dowiedz się więcej o Azure Key Vault](../../key-vault/general/overview.md)
