@@ -48,7 +48,7 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Stream Analytics
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Synapse Analytics
+            - name: Pula SQL usługi Synapse Analytics
               href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Łańcuch bloków
           items:
@@ -158,6 +158,10 @@
               href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Content Delivery Network
               href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: DNS
+              href: ../../dns/dns-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: ExpressRoute
+              href: ../../expressroute/quickstart-create-expressroute-vnet-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Zapora — strefy dostępności
               href: ../../firewall/deploy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Zapora — grupy adresów IP
@@ -166,20 +170,26 @@
               href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Firewall Manager
               href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Moduł równoważenia obciążenia
+            - name: Load Balancer — publiczny
               href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Brama translatora adresów sieciowych
+              href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Prywatny punkt końcowy
               href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Usługa Private Link
               href: ../../private-link/create-private-link-service-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Traffic Manager
+              href: ../../traffic-manager/quickstart-create-traffic-manager-profile-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Zapora aplikacji internetowej
               href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Zabezpieczenia
           items:
             - name: Zaświadczanie
               href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Usługa Key Vault
+            - name: Key Vault — wpis tajny
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Security Center
+              href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Magazyn
           items:
             - name: Data Share
@@ -188,6 +198,8 @@
               href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Sieć Web
           items:
+            - name: API Management
+              href: ../../api-management/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: App Service
               href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Notification Hubs
@@ -343,36 +355,42 @@
             - name: Dane wyjściowe
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: Odnajdywanie właściwości szablonów
-      items:
-        - name: Eksportowanie szablonu
-          href: export-template-portal.md
-        - name: Odnajdywanie zasobów
-          href: view-resources.md
-    - name: Walidacja szablonów
-      items:
-        - name: Wdrożenie warunkowe
-          href: template-deploy-what-if.md
-        - name: Zestaw narzędzi do testowania
-          href: test-toolkit.md
-        - name: Przypadki testowe
-          href: test-cases.md
     - name: Wdrażanie szablonów
       items:
-        - name: Wdrażanie — portal
-          displayName: deployment
-          href: deploy-portal.md
-        - name: Wdrażanie — interfejs wiersza polecenia
-          displayName: deployment
-          href: deploy-cli.md
-        - name: Wdrażanie — PowerShell
-          displayName: deployment
-          href: deploy-powershell.md
-        - name: Wdrażanie — interfejs API REST
-          displayName: deployment
-          href: deploy-rest.md
-        - name: Wdrażanie z repozytorium GitHub
-          href: deploy-to-azure-button.md
+        - name: Operacje wdrażania
+          items:
+            - name: Wdrażanie — portal
+              displayName: deployment
+              href: deploy-portal.md
+            - name: Wdrażanie — interfejs wiersza polecenia
+              displayName: deployment
+              href: deploy-cli.md
+            - name: Wdrażanie — PowerShell
+              displayName: deployment
+              href: deploy-powershell.md
+            - name: Wdrażanie — interfejs API REST
+              displayName: deployment
+              href: deploy-rest.md
+            - name: Wdrażanie — GitHub
+              href: deploy-to-azure-button.md
+            - name: Wdrażanie — Cloud Shell
+              href: deploy-cloud-shell.md
+        - name: Zakresy
+          items:
+            - name: Grupa zasobów
+              href: deploy-to-resource-group.md
+            - name: Subskrypcja
+              href: deploy-to-subscription.md
+            - name: Grupa zarządzania
+              href: deploy-to-management-group.md
+            - name: Dzierżawa
+              href: deploy-to-tenant.md
+            - name: Zasoby rozszerzenia
+              href: scope-extension-resources.md
+            - name: Funkcje w różnych zakresach
+              href: scope-functions.md
+        - name: Wdrożenie warunkowe
+          href: template-deploy-what-if.md
         - name: Ponowne wdrażanie w przypadku błędu
           displayName: rollback
           href: rollback-on-error.md
@@ -380,16 +398,6 @@
           href: secure-template-with-sas-token.md
         - name: Wyświetlanie historii wdrażania
           href: deployment-history.md
-    - name: Wdrożenia w zakresie
-      items:
-        - name: Subskrypcja
-          href: deploy-to-subscription.md
-        - name: Grupa zarządzania
-          href: deploy-to-management-group.md
-        - name: Dzierżawa
-          href: deploy-to-tenant.md
-        - name: Wdrożenia między zakresami
-          href: cross-scope-deployment.md
     - name: Podawanie parametrów
       items:
         - name: Tworzenie pliku parametrów
@@ -397,12 +405,24 @@
         - name: Przekazywanie poufnych wartości
           displayname: key vault
           href: key-vault-parameter.md
+    - name: Testowanie szablonów
+      items:
+        - name: Zestaw narzędzi do testowania
+          href: test-toolkit.md
+        - name: Przypadki testowe
+          href: test-cases.md
     - name: CI/CD
       items:
         - name: Szablony usługi ARM z potokami
           href: add-template-to-azure-pipelines.md
         - name: Wdrażanie — GitHub Actions
           href: deploy-github-actions.md
+    - name: Odnajdywanie właściwości szablonów
+      items:
+        - name: Eksportowanie szablonu
+          href: export-template-portal.md
+        - name: Odnajdywanie zasobów
+          href: view-resources.md
     - name: Używanie narzędzi do tworzenia
       items:
         - name: Visual Studio
