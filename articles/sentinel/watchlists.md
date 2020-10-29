@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: 25252b73f25a96f85d5e2cf1d68b76f9eaa3ca75
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1267f040b13184f50c9d98fe0fb13fb24db0f4f7
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979805"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026840"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Korzystanie z platformy Azure — wskaźnik watchlists
 
@@ -27,28 +27,31 @@ Typowe scenariusze używania watchlists obejmują:
 
 - **Importowanie danych firmowych** jako watchlists. Na przykład zaimportuj listy użytkowników z uprzywilejowanym dostępem do systemu lub zakończonego pracownikami, a następnie użyj listy do obejrzenia do utworzenia list dozwolonych i zablokowanych, które będą używane do wykrywania lub zapobiegania logowaniem użytkowników w sieci.
 
-- **Zmniejszenie zmęczenia alertu**. Utwórz listę dozwolonych, aby pomijać alerty od grupy użytkowników, takie jak użytkownicy z autoryzowanych adresów IP wykonujących zadania, które normalnie wyzwalają alert, i Zapobiegaj uruchamianiu niegroźnych zdarzeń.
+- **Zmniejszenie zmęczenia alertu** . Utwórz listę dozwolonych, aby pomijać alerty od grupy użytkowników, takie jak użytkownicy z autoryzowanych adresów IP wykonujących zadania, które normalnie wyzwalają alert, i Zapobiegaj uruchamianiu niegroźnych zdarzeń.
 
-- **Wzbogacanie danych zdarzeń**. Użyj watchlists, aby wzbogacić dane zdarzenia przy użyciu kombinacji nazw i wartości pochodzących z zewnętrznych źródeł danych.
+- **Wzbogacanie danych zdarzeń** . Użyj watchlists, aby wzbogacić dane zdarzenia przy użyciu kombinacji nazw i wartości pochodzących z zewnętrznych źródeł danych.
 
 ## <a name="create-a-new-watchlist"></a>Utwórz nowy listy do obejrzenia
 
-1. W Azure Portal przejdź do **usługi Azure**  >  **Configuration**  >  **listy do obejrzenia** Configuration, a następnie wybierz pozycję **Dodaj nowe**.
+1. W Azure Portal przejdź do **usługi Azure**  >  **Configuration**  >  **listy do obejrzenia** Configuration, a następnie wybierz pozycję **Dodaj nowe** .
 
     > [!div class="mx-imgBorder"]
     > ![Nowy listy do obejrzenia](./media/watchlists/sentinel-watchlist-new.png)
 
-1. Na stronie **Ogólne** Podaj nazwę, opis i alias dla listy do obejrzenia, a następnie wybierz przycisk **dalej**.
+1. Na stronie **Ogólne** Podaj nazwę, opis i alias dla listy do obejrzenia, a następnie wybierz przycisk **dalej** .
 
     > [!div class="mx-imgBorder"]
     > ![Strona ogólna listy do obejrzenia](./media/watchlists/sentinel-watchlist-general.png)
 
-1. Na stronie **Źródło** wybierz typ zestawu danych, Przekaż plik, a następnie wybierz przycisk **dalej**.
+1. Na stronie **Źródło** wybierz typ zestawu danych, Przekaż plik, a następnie wybierz przycisk **dalej** .
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="Strona źródłowa listy do obejrzenia" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
 
+    > [!NOTE]
+    >
+    > Operacje przekazywania plików są obecnie ograniczone do plików o rozmiarze do 3,8 MB.
 
-1. Przejrzyj informacje, sprawdź, czy są poprawne, a następnie wybierz pozycję **Utwórz**.
+1. Przejrzyj informacje, sprawdź, czy są poprawne, a następnie wybierz pozycję **Utwórz** .
 
     > [!div class="mx-imgBorder"]
     > ![Strona przeglądu listy do obejrzenia](./media/watchlists/sentinel-watchlist-review.png)
@@ -57,13 +60,11 @@ Typowe scenariusze używania watchlists obejmują:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-complete.png" alt-text="Strona źródłowa listy do obejrzenia" lightbox="./media/watchlists/sentinel-watchlist-complete.png":::
 
-
 ## <a name="use-watchlists-in-queries"></a>Używanie watchlists w zapytaniach
 
-1. W Azure Portal przejdź do **usługi Azure**  >  **Configuration**  >  **listy do obejrzenia**Configuration, wybierz listy do obejrzenia, którego chcesz użyć, a następnie wybierz pozycję **Widok w log Analytics**.
+1. W Azure Portal przejdź do **usługi Azure**  >  **Configuration**  >  **listy do obejrzenia** Configuration, wybierz listy do obejrzenia, którego chcesz użyć, a następnie wybierz pozycję **Widok w log Analytics** .
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="Strona źródłowa listy do obejrzenia" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
-
 
 1. Elementy w listy do obejrzenia są automatycznie wyodrębniane dla zapytania i pojawią się na karcie **wyniki** . W poniższym przykładzie pokazano wyniki wyodrębniania pól **servername** i **IPAddress** .
 
@@ -74,14 +75,13 @@ Typowe scenariusze używania watchlists obejmują:
     
 ## <a name="use-watchlists-in-analytics-rules"></a>Używanie watchlists w regułach analizy
 
-Aby użyć watchlists w regułach analizy, w Azure Portal przejdź do **usługi Azure wskaźnik**  >  **konfiguracji**  >  **analiz**i Utwórz regułę przy użyciu `_GetWatchlist('<watchlist>')` funkcji w zapytaniu.
+Aby użyć watchlists w regułach analizy, w Azure Portal przejdź do **usługi Azure wskaźnik**  >  **konfiguracji**  >  **analiz** i Utwórz regułę przy użyciu `_GetWatchlist('<watchlist>')` funkcji w zapytaniu.
 
 :::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="Strona źródłowa listy do obejrzenia" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
 
-
 ## <a name="view-list-of-watchlists-aliases"></a>Wyświetlanie listy aliasów watchlists
 
-Aby uzyskać listę aliasów listy do obejrzenia, w Azure Portal przejdź do ogólnych dzienników **usługi Azure wskaźnikowego**  >  **General**  >  **Logs**i uruchom następujące zapytanie: `_GetWatchlistAlias` . Listę aliasów można zobaczyć na karcie **wyniki** .
+Aby uzyskać listę aliasów listy do obejrzenia, w Azure Portal przejdź do ogólnych dzienników **usługi Azure wskaźnikowego**  >  **General**  >  **Logs** i uruchom następujące zapytanie: `_GetWatchlistAlias` . Listę aliasów można zobaczyć na karcie **wyniki** .
 
 > [!div class="mx-imgBorder"]
 > ![watchlists listy](./media/watchlists/sentinel-watchlist-alias.png)

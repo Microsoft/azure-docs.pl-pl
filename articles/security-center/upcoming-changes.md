@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2020
 ms.author: memildin
-ms.openlocfilehash: ba0c68589f7ea4b32970e3ad81fea5175b998dc7
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 549a95b0b2ffc2b2d2bf5670a961e0454683e33a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629157"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026721"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Ważne zmiany w Azure Security Center
 
@@ -42,27 +42,19 @@ Jeśli szukasz najnowszych informacji o wersji, znajdziesz je w temacie [co nowe
 
 Usługa Azure Security test to zestaw wytycznych dotyczących zabezpieczeń i zgodności opartych na platformie Azure, które są stosowane do najlepszych rozwiązań w zakresie bezpieczeństwa i zapewniających zgodność. [Dowiedz się więcej o teście porównawczym zabezpieczeń platformy Azure](../security/benchmarks/introduction.md).
 
-Do Security Center zostaną dodane następujące 29 nowych zaleceń w celu zwiększenia zakresu testów porównawczych.
+Poniżej 18 nowych zaleceń zostanie dodanych do Security Center, aby zwiększyć pokrycie testów porównawczych.
 
 Zalecenia dotyczące wersji zapoznawczej nie powodują złej kondycji zasobu i nie są uwzględniane w obliczeniach bezpiecznego wyniku. Skoryguj je wszędzie tam, gdzie to możliwe, aby po zakończeniu okresu korzystania z wersji zapoznawczej doczyniły się do oceny. Dowiedz się więcej o tym, jak odpowiedzieć na te zalecenia w temacie [Koryguj zalecenia w Azure Security Center](security-center-remediate-recommendations.md).
 
 - Azure Backup powinna być włączona dla maszyn wirtualnych
-- Wartość przechowywania inspekcji dla serwerów SQL powinna wynosić co najmniej 90 dni
-- Dzienniki diagnostyczne powinny być włączone w App Service 
 - Dla serwerów baz danych MySQL powinna być włączona funkcja Wymuszaj połączenie SSL
 - Należy włączyć połączenie SSL dla serwerów bazy danych PostgreSQL
-- FTPS powinna być wymagana w aplikacji interfejsu API
-- FTPS powinna być wymagana w aplikacji funkcji
-- FTPS powinna być wymagana w aplikacji sieci Web
 - Tworzenie kopii zapasowej nadmiarowej geograficznie należy włączyć dla Azure Database for MariaDB
 - Tworzenie kopii zapasowej nadmiarowej geograficznie należy włączyć dla Azure Database for MySQL
 - Tworzenie kopii zapasowej nadmiarowej geograficznie należy włączyć dla Azure Database for PostgreSQL
 - Środowisko Java należy zaktualizować do najnowszej wersji dla aplikacji interfejsu API
 - Środowisko Java należy zaktualizować do najnowszej wersji aplikacji funkcji
 - Środowisko Java należy zaktualizować do najnowszej wersji aplikacji sieci Web
-- Tożsamość zarządzana powinna być używana w aplikacji interfejsu API
-- Tożsamość zarządzana powinna być używana w aplikacji funkcji
-- Tożsamość zarządzana powinna być używana w aplikacji sieci Web
 - Aplikacja PHP powinna zostać zaktualizowana do najnowszej wersji dla aplikacji interfejsu API
 - Aplikacja PHP powinna zostać zaktualizowana do najnowszej wersji aplikacji sieci Web
 - Prywatny punkt końcowy powinien być włączony dla serwerów MariaDB
@@ -71,9 +63,6 @@ Zalecenia dotyczące wersji zapoznawczej nie powodują złej kondycji zasobu i n
 - Środowisko Python należy zaktualizować do najnowszej wersji dla aplikacji interfejsu API
 - Środowisko Python należy zaktualizować do najnowszej wersji aplikacji funkcji
 - Środowisko Python należy zaktualizować do najnowszej wersji aplikacji sieci Web
-- Protokół TLS należy zaktualizować do najnowszej wersji dla aplikacji interfejsu API
-- Protokół TLS należy zaktualizować do najnowszej wersji aplikacji funkcji
-- Protokół TLS należy zaktualizować do najnowszej wersji aplikacji sieci Web
 - Aplikacje sieci Web powinny zażądać certyfikatu SSL dla wszystkich żądań przychodzących
 
 Powiązane linki:

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1ad9d72d69e23e4029de163ded1a71ae4dfb82fb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 89fb0e8435bd1804193db5b0f8c0596733a7e674
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913776"
+ms.locfileid: "93026143"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -306,7 +306,7 @@ W tym miejscu można wyświetlić metryki dla wystąpienia i utworzyć widoki ni
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z tematem jak używać interfejsów API do konfigurowania wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji:
-* [*Instrukcje: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md)
+* [*Instrukcje: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-cli.md)
 
 Lub zapoznaj się z instrukcjami, aby utworzyć aplikację kliencką, taką jak ta, która jest używana w tym przewodniku:
 * [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)

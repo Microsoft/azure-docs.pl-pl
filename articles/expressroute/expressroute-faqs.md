@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631278"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027112"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -35,6 +35,10 @@ Do jednej z obsługiwanych lokalizacji dostawcy programu Exchange można wybrać
 ### <a name="how-much-does-expressroute-cost"></a>Ile kosztuje ExpressRoute?
 
 Sprawdź [szczegóły cennika](https://azure.microsoft.com/pricing/details/expressroute/) , aby uzyskać informacje o cenach.
+
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-this-bandwidth-allocated-for-ingress-and-egress-traffic-separately"></a>Czy jeśli płacisz za obwód usługi ExpressRoute danej przepustowości, czy ta przepustowość jest przypisana osobno dla ruchu przychodzącego i wychodzącego?
+
+Tak, przepustowość obwodu ExpressRoute jest dwukierunkowa. Na przykład jeśli zakupiono obwód ExpressRoute z 200 MB/s, nastąpi zaplanowanie 200 MB/s dla ruchu przychodzącego i 200 MB/s dla ruchu wychodzącego.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Czy jeśli płacisz za obwód usługi ExpressRoute danej przepustowości, czy połączenie sieci VPN, które mam zakupić od usługodawcy sieciowego, musi mieć taką samą szybkość?
 

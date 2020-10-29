@@ -1,7 +1,7 @@
 ---
-title: Tworzenie sygnatury dostępu współdzielonego usługi dla kontenera lub obiektu BLOB przy użyciu platformy .NET
+title: Tworzenie sygnatury dostępu współdzielonego usługi dla kontenera lub obiektu BLOB
 titleSuffix: Azure Storage
-description: Dowiedz się, jak utworzyć sygnaturę dostępu współdzielonego (SAS) usługi dla kontenera lub obiektu BLOB przy użyciu biblioteki klienckiej platformy .NET.
+description: Dowiedz się, jak utworzyć sygnaturę dostępu współdzielonego (SAS) usługi dla kontenera lub obiektu BLOB przy użyciu biblioteki klienckiej platformy .NET lub zestawu SDK V12 języka JavaScript
 services: storage
 author: tamram
 ms.service: storage
@@ -11,14 +11,14 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9674c7f892c31bd65ec651baf2d032de0256ac6c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c38581a23f6714c0676b3b3c9c8481205b14a374
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218208"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027205"
 ---
-# <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Tworzenie sygnatury dostępu współdzielonego usługi dla kontenera lub obiektu BLOB przy użyciu platformy .NET
+# <a name="create-a-service-sas-for-a-container-or-blob"></a>Tworzenie sygnatury dostępu współdzielonego usługi dla kontenera lub obiektu BLOB
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
@@ -80,6 +80,31 @@ private static string GetContainerSasUri(CloudBlobContainer container,
 
     // Return the URI string for the container, including the SAS token.
     return container.Uri + sasContainerToken;
+}
+```
+
+# <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
+
+Sygnatura dostępu współdzielonego usługi jest podpisana przy użyciu klucza dostęp do konta. Użyj klasy [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) , aby utworzyć poświadczenia używane do podpisywania sygnatury dostępu współdzielonego. Następnie wywołaj funkcję [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) , podając wymagane opcje, aby uzyskać ciąg tokenu SAS.
+
+```javascript
+function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyName) {
+    const sasOptions = {
+        containerName: containerClient.containerName,
+        permissions: ContainerSASPermissions.parse("c")
+    };
+
+    if (storedPolicyName == null) {
+        sasOptions.startsOn = new Date();
+        sasOptions.expiresOn = new Date(new Date().valueOf() + 3600 * 1000);
+    } else {
+        sasOptions.identifier = storedPolicyName;
+    }
+
+    const sasToken = generateBlobSASQueryParameters(sasOptions, sharedKeyCredential).toString();
+    console.log(`SAS token for blob container is: ${sasToken}`);
+
+    return `${containerClient.url}?${sasToken}`;
 }
 ```
 
@@ -149,9 +174,39 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 }
 ```
 
+# <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
+
+Aby utworzyć sygnaturę dostępu współdzielonego usługi dla obiektu BLOB, wywołaj metodę [polecenia cloudblob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
+
+Aby utworzyć sygnaturę dostępu współdzielonego usługi dla obiektu BLOB, wywołaj funkcję [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) , która udostępnia wymagane opcje.
+
+```javascript
+function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPolicyName) {
+    const sasOptions = {
+        containerName: containerClient.containerName,
+        blobName: blobName
+    };
+
+    if (storedPolicyName == null) {
+        sasOptions.startsOn = new Date();
+        sasOptions.expiresOn = new Date(new Date().valueOf() + 3600 * 1000);
+        sasOptions.permissions = BlobSASPermissions.parse("r");
+    } else {
+        sasOptions.identifier = storedPolicyName;
+    }
+
+    const sasToken = generateBlobSASQueryParameters(sasOptions, sharedKeyCredential).toString();
+    console.log(`SAS token for blob is: ${sasToken}`);
+
+    return `${containerClient.getBlockBlobClient(blobName).url}?${sasToken}`;
+}
+```
+
 ---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
+
+[!INCLUDE [storage-blob-javascript-resources-include](../../../includes/storage-blob-javascript-resources-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

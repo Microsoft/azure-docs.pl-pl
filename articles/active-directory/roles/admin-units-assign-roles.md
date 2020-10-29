@@ -1,6 +1,6 @@
 ---
 title: Przypisywanie i wyświetlanie listy ról z zakresem jednostki administracyjnej — Azure Active Directory | Microsoft Docs
-description: Ograniczanie zakresu przypisań ról w Azure Active Directory przy użyciu jednostek administracyjnych
+description: Użyj jednostek administracyjnych, aby ograniczyć zakres przypisań ról w Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,25 +14,25 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a4810b3a84cac55a49744025b6ac71c3f1c0a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfae813f01d3e7a08e18cde76e5c26ca253a371f
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377951"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026602"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Przypisywanie ról objętych zakresem do jednostki administracyjnej
 
-W Azure Active Directory (Azure AD) można przypisać użytkowników do roli usługi Azure AD z zakresem ograniczonym do co najmniej jednej jednostki administracyjnej (np.) w celu uzyskania bardziej szczegółowej kontroli administracyjnej.
+W Azure Active Directory (Azure AD), aby uzyskać bardziej szczegółową kontrolę administracyjną, można przypisać użytkowników do roli usługi Azure AD z zakresem ograniczonym do co najmniej jednej jednostki administracyjnej.
 
-Aby dowiedzieć się, jak przygotować się do korzystania z programu PowerShell i Microsoft Graph do zarządzania jednostką administracyjną, zobacz [wprowadzenie](admin-units-manage.md#get-started).
+Aby przygotować się do korzystania z programu PowerShell i Microsoft Graph do zarządzania jednostką administracyjną, zobacz [wprowadzenie](admin-units-manage.md#get-started).
 
-## <a name="roles-available"></a>Dostępne role
+## <a name="available-roles"></a>Dostępne role
 
 Rola  |  Opis
 ----- |  -----------
 Administrator uwierzytelniania  |  Ma dostęp do wyświetlania, ustawiania i resetowania informacji o metodach uwierzytelniania dla dowolnego użytkownika niebędącego administratorem w przypisanej jednostce administracyjnej.
-Administrator grup  |  Może zarządzać wszystkimi aspektami ustawień grup i grup, takimi jak zasady nazewnictwa i wygasania tylko w przypisanej jednostce administracyjnej.
+Administrator grup  |  Może zarządzać wszystkimi aspektami ustawień grup i grup, takimi jak zasady nazewnictwa i wygasania, tylko w przypisanej jednostce administracyjnej.
 Administrator pomocy technicznej  |  Można resetować hasła dla administratorów systemów innych niż administratorzy i pomocy technicznej tylko w przypisanej jednostce administracyjnej.
 Administrator licencji  |  Można przypisywać, usuwać i aktualizować przypisania licencji tylko w ramach jednostki administracyjnej.
 Administrator haseł  |  Można resetować hasła dla administratorów nie będących administratorami i haseł tylko w ramach przypisanej jednostki administracyjnej.
@@ -48,21 +48,28 @@ Następujące podmioty zabezpieczeń można przypisać do roli z zakresem jednos
 
 ## <a name="assign-a-scoped-role"></a>Przypisywanie roli w zakresie
 
-### <a name="azure-portal"></a>Azure Portal
+Rolę objętą zakresem można przypisać przy użyciu Azure Portal, programu PowerShell lub Microsoft Graph.
 
-Przejdź do pozycji **jednostki administracyjne usługi Azure AD >** w portalu. Wybierz jednostkę administracyjną, w której chcesz przypisać rolę do użytkownika. W okienku po lewej stronie wybierz pozycję Role i Administratorzy, aby wyświetlić listę wszystkich dostępnych ról.
+### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-![Wybierz jednostkę administracyjną, aby zmienić zakres roli](./media/admin-units-assign-roles/select-role-to-scope.png)
+1. W Azure Portal przejdź do **usługi Azure AD** .
 
-Wybierz rolę, która ma zostać przypisana, a następnie wybierz pozycję **Dodaj przypisania**. Zostanie otwarty panel po prawej stronie, w którym można wybrać co najmniej jednego użytkownika, który ma zostać przypisany do roli.
+1. Wybierz pozycję **jednostki administracyjne** , a następnie wybierz jednostkę administracyjną, do której chcesz przypisać zakres roli użytkownika. 
 
-![Wybierz rolę do zakresu, a następnie wybierz pozycję Dodaj przypisania](./media/admin-units-assign-roles/select-add-assignment.png)
+1. W okienku po lewej stronie wybierz pozycję **role i Administratorzy** , aby wyświetlić listę wszystkich dostępnych ról.
+
+   ![Zrzut ekranu okienka "rola i Administratorzy" służący do wybierania jednostki administracyjnej, której zakres roli chcesz przypisać.](./media/admin-units-assign-roles/select-role-to-scope.png)
+
+1. Wybierz rolę, która ma zostać przypisana, a następnie wybierz pozycję **Dodaj przypisania** . 
+
+1. W okienku **Dodaj przypisania** wybierz co najmniej jednego użytkownika, który ma zostać przypisany do roli.
+
+   ![Wybierz rolę do zakresu, a następnie wybierz pozycję Dodaj przypisania](./media/admin-units-assign-roles/select-add-assignment.png)
 
 > [!Note]
->
-> Aby przypisać rolę w jednostce administracyjnej przy użyciu programu PIM, wykonaj kroki opisane [tutaj](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
+> Aby przypisać rolę w jednostce administracyjnej przy użyciu Azure AD Privileged Identity Management (PIM), zobacz [Przypisywanie ról usługi Azure AD w usłudze PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
-### <a name="powershell"></a>PowerShell
+### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
@@ -75,7 +82,7 @@ Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleOb
 
 Wyróżnioną sekcję można zmienić zgodnie z wymaganiami określonego środowiska.
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>Użyj Microsoft Graph
 
 ```http
 Http request
@@ -90,13 +97,21 @@ Request body
 }
 ```
 
-## <a name="list-the-scoped-admins-on-an-au"></a>Wyświetl listę administratorów o określonym zakresie w usłudze AU
+## <a name="view-a-list-of-the-scoped-admins-in-an-administrative-unit"></a>Wyświetlanie listy administratorów o określonym zakresie w jednostce administracyjnej
 
-### <a name="azure-portal"></a>Azure Portal
+Listę administratorów o określonym zakresie można wyświetlić za pomocą Azure Portal, programu PowerShell lub Microsoft Graph.
 
-Wszystkie przypisania ról wykonane z zakresem jednostki administracyjnej można wyświetlić w [sekcji jednostki administracyjne w usłudze Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). Przejdź do pozycji **jednostki administracyjne usługi Azure AD >** w portalu. Wybierz jednostkę administracyjną dla przypisań ról, które chcesz wyświetlić. Wybierz **role i Administratorzy** i Otwórz rolę, aby wyświetlić przypisania w jednostce administracyjnej.
+### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-### <a name="powershell"></a>PowerShell
+Wszystkie przypisania ról utworzone przy użyciu zakresu jednostki administracyjnej można wyświetlić w [sekcji jednostki administracyjne w usłudze Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
+
+1. W Azure Portal przejdź do **usługi Azure AD** .
+
+1. W lewym okienku wybierz pozycję **jednostki administracyjne** , a następnie wybierz jednostkę administracyjną dla listy przypisań ról, które chcesz wyświetlić. 
+
+1. Wybierz **role i Administratorzy** , a następnie otwórz rolę, aby wyświetlić przypisania w jednostce administracyjnej.
+
+### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
 ```powershell
 $administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
@@ -105,7 +120,7 @@ Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 
 Wyróżnioną sekcję można zmienić zgodnie z wymaganiami określonego środowiska.
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>Użyj Microsoft Graph
 
 ```http
 Http request
@@ -116,5 +131,5 @@ Request body
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie przypisaniami ról przy użyciu grup chmur](groups-concept.md)
-- [Rozwiązywanie problemów z rolami przypisanymi do grup w chmurze](groups-faq-troubleshooting.md)
+- [Zarządzanie przypisaniami ról za pomocą grup w chmurze](groups-concept.md)
+- [Rozwiązywanie problemów z rolami przypisanymi do grup chmury](groups-faq-troubleshooting.md)

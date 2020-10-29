@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
-ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711d753203aeaeba50cea692053a37fcab2e9c7b
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74790284"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027707"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testowanie aplikacji logiki przy użyciu danych makiety przez skonfigurowanie wyników statycznych
 
@@ -37,11 +37,11 @@ Jeśli na przykład ustawisz statyczne wyniki dla akcji wysyłania poczty w prog
 
 1. Na akcji, w której chcesz skonfigurować wyniki statyczne, wykonaj następujące kroki: 
 
-   1. W prawym górnym rogu akcji wybierz przycisk wielokropka (*...*), a następnie wybierz pozycję **wynik statyczny**, na przykład:
+   1. W prawym górnym rogu akcji wybierz przycisk wielokropka ( *...* ), a następnie wybierz pozycję **wynik statyczny** , na przykład:
 
       ![Wybierz "wynik statyczny" > "Włącz statyczny wynik"](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
-   1. Wybierz pozycję **Włącz statyczny wynik**. Dla właściwości wymaganych (*) Określ wartości wyjściowe makiety, które mają zostać zwrócone dla odpowiedzi akcji.
+   1. Wybierz pozycję **Włącz statyczny wynik** . Dla właściwości wymaganych (*) Określ wartości wyjściowe makiety, które mają zostać zwrócone dla odpowiedzi akcji.
 
       Na przykład poniżej przedstawiono właściwości wymagane dla akcji HTTP:
 
@@ -49,7 +49,7 @@ Jeśli na przykład ustawisz statyczne wyniki dla akcji wysyłania poczty w prog
       |----------|-------------|
       | **Stan** | Stan akcji do zwrócenia |
       | **Kod stanu** | Konkretny kod stanu do zwrócenia |
-      | **Nagłówka** | Zawartość nagłówka do zwrócenia |
+      | **Nagłówki** | Zawartość nagłówka do zwrócenia |
       |||
 
       ![Wybierz pozycję "Włącz wynik statyczny"](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
@@ -60,7 +60,7 @@ Jeśli na przykład ustawisz statyczne wyniki dla akcji wysyłania poczty w prog
 
       ![Wybierz Właściwości opcjonalne](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
 
-1. Gdy wszystko będzie gotowe do zapisu, wybierz pozycję **gotowe**.
+1. Gdy wszystko będzie gotowe do zapisu, wybierz pozycję **gotowe** .
 
    W prawym górnym rogu akcji na pasku tytułu zostanie wyświetlona ikona zlewka testowego ( ![ ikona dla wyników statycznych ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ), która wskazuje, że włączono wyniki statyczne.
 
@@ -76,7 +76,7 @@ Jeśli Twoja aplikacja logiki ma poprzednie uruchomienie z wynikami, których mo
 
 1. Jeśli jeszcze tego nie zrobiono, w [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w projektancie Logic Apps.
 
-1. W menu głównym aplikacji logiki wybierz pozycję **Przegląd**.
+1. W menu głównym aplikacji logiki wybierz pozycję **Przegląd** .
 
 1. W sekcji **historia uruchomień** wybierz żądany przebieg aplikacji logiki.
 
@@ -102,7 +102,7 @@ Jeśli Twoja aplikacja logiki ma poprzednie uruchomienie z wynikami, których mo
 
    ![Tryb JSON](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. Po zakończeniu wybierz pozycję **Gotowe**. Aby powrócić do projektanta, wybierz opcję **Przełącz tryb** edytora ( ![ Wybierz tryb edytora przełącznika ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) ).
+1. Po zakończeniu wybierz pozycję **Gotowe** . Aby powrócić do projektanta, wybierz opcję **Przełącz tryb** edytora ( ![ Wybierz tryb edytora przełącznika ](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png) ).
 
 <a name="find-runs-mock-data"></a>
 
@@ -110,15 +110,15 @@ Jeśli Twoja aplikacja logiki ma poprzednie uruchomienie z wynikami, których mo
 
 Historia przebiegów aplikacji logiki identyfikuje uruchomienia, w których akcje używają wyników statycznych. Aby znaleźć te przebiegi, wykonaj następujące kroki:
 
-1. W menu głównym aplikacji logiki wybierz pozycję **Przegląd**. 
+1. W menu głównym aplikacji logiki wybierz pozycję **Przegląd** . 
 
-1. W okienku po prawej stronie w obszarze **historia uruchamiania**Znajdź kolumnę **statyczne wyniki** . 
+1. W okienku po prawej stronie w obszarze **historia uruchamiania** Znajdź kolumnę **statyczne wyniki** . 
 
-   Każdy przebieg obejmujący akcje z wynikami ma **statyczną kolumnę wyników** ustawioną na wartość **włączone**, na przykład:
+   Każdy przebieg obejmujący akcje z wynikami ma **statyczną kolumnę wyników** ustawioną na wartość **włączone** , na przykład:
 
    ![Historia uruchamiania — kolumna wyników statycznych](./media/test-logic-apps-mock-data-static-results/run-history.png)
 
-1. Aby wyświetlić akcje, które używają wyników statycznych, wybierz przebieg, w którym w kolumnie **wyniki statyczne** jest ustawiona wartość **włączone**.
+1. Aby wyświetlić akcje, które używają wyników statycznych, wybierz przebieg, w którym w kolumnie **wyniki statyczne** jest ustawiona wartość **włączone** .
 
    Akcje, które używają wyników statycznych, pokazują ikonę testową ( ![ ikona dla wyników statycznych ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ), na przykład:
 
@@ -130,11 +130,11 @@ Wyłączenie wyników statycznych nie powoduje odebrania wartości z ostatniej i
 
 1. Znajdź akcję, w której chcesz wyłączyć statyczne dane wyjściowe. W prawym górnym rogu akcji wybierz ikonę testera testowego ( ![ ikona dla wyników statycznych ](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png) ).
 
-   ![Wyłącz wyniki statyczne](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
+   ![Zrzut ekranu przedstawia akcję H T T P, w której można wybrać ikonę zlewki testowej.](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
-1. Wybierz pozycję **Wyłącz wynik statyczny**  >  **Done**.
+1. Wybierz pozycję **Wyłącz wynik statyczny**  >  **Done** .
 
-   ![Wyłącz wyniki statyczne](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
+   ![Zrzut ekranu przedstawia opcję Wyłącz wynik statyczny, którą można wybrać.](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
 ## <a name="reference"></a>Tematy pomocy
 

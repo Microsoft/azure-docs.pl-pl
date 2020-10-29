@@ -3,12 +3,12 @@ title: Wyświetlanie dzienników uruchamiania zadań — zadania
 description: Jak wyświetlać dzienniki uruchamiania generowane przez zadania ACR i zarządzać nimi.
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871936"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027180"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Wyświetlanie dzienników uruchamiania zadań i zarządzanie nimi
 
@@ -65,14 +65,14 @@ Jeśli zadanie jest wyzwalane automatycznie, na przykład przez aktualizację ko
 Aby wyświetlić dzienniki uruchamiania w portalu:
 
 1. Przejdź do rejestru kontenerów.
-1. W obszarze **usługi**wybierz pozycję **zadania**  >  **uruchomienia**.
+1. W obszarze **usługi** wybierz pozycję **zadania**  >  **uruchomienia** .
 1. Wybierz **Identyfikator uruchomienia** , aby wyświetlić stan uruchomienia i dzienniki uruchomienia. Dziennik zawiera te same informacje, co w przypadku dziennika strumieniowego, jeśli został wygenerowany.
 
 ![Wyświetl Portal logowania uruchamiania zadań](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
 Aby wyświetlić dziennik przy użyciu interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ ACR Task Logs](/cli/azure/acr/task#az-acr-task-logs) i określ identyfikator uruchomienia, nazwę zadania lub określony obraz tworzony przez zadanie kompilacji. Jeśli nazwa zadania zostanie określona, polecenie wyświetli dziennik dla ostatniego utworzonego uruchomienia.
 
-Poniższy przykład wyprowadza dziennik dla przebiegu o IDENTYFIKATORze *CF4*:
+Poniższy przykład wyprowadza dziennik dla przebiegu o IDENTYFIKATORze *CF4* :
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
@@ -94,18 +94,10 @@ az acr task logs --registry mycontainerregistry1220 \
 
 Pliki dzienników lokalnych można także zapisać do usługi Azure Storage. Na przykład użyj [interfejsu wiersza polecenia platformy Azure](../storage/blobs/storage-quickstart-blobs-cli.md), [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md)lub innych metod przekazywania plików na konto magazynu.
 
-
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [zadaniach Azure Container Registry](container-registry-tasks-overview.md)
 
-<!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
-[sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707986"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026959"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
 
@@ -20,7 +20,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące komercyjn
 
 ## <a name="general"></a>Ogólne
 
-### <a name="what-is-the-microsoft-commercial-marketplace"></a>Co to jest komercyjne oprogramowanie Microsoft Marketplace?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>Co to jest komercyjna platforma handlowa firmy Microsoft?
 
 Komercyjna witryna Marketplace łączy agencje biznesowe i rządowe z rozwiązaniami utworzonymi przez naszych partnerów. Nasi Partnerzy tworzą i zarządzają ofertami w centrum partnerskim, a klienci mogą odkrywać i kupować rozwiązania za pomocą środowisk w środowisku produkcyjnym, takich jak Microsoft AppSource, Azure Marketplace, odsprzedawców w programie dostawcy rozwiązań w chmurze i naszych zespołów sprzedaży za pomocą programu współsprzedaży.
 
@@ -58,10 +58,10 @@ Aby zarejestrować się jako komercyjny wydawca w portalu Marketplace, przejdź 
 
 Sposoby korzystania z komercyjnej oferty portalu Marketplace zależą od tego, jak tworzysz oferty.
 
-- W przypadku rozwiązań, które są dostępne automatycznie, bez względu na to, czy są one płatne, możesz korzystać z własnej licencji (BYOL), czy bezpłatnie, klienci są zachęcani do *uzyskania teraz*.
-- Oferty obsługujące dysk testowy (Demonstracja) żądają od klienta *przetestowania dysku*. 
-- Oferty oprogramowanie jako usługa (SaaS), które udostępniają *okres próbny*poza komercyjnym rynkiem Marketplace.
-- Proste listy umożliwiają klientowi zażądanie *kontaktu z*nami.
+- W przypadku rozwiązań, które są dostępne automatycznie, bez względu na to, czy są one płatne, możesz korzystać z własnej licencji (BYOL), czy bezpłatnie, klienci są zachęcani do *uzyskania teraz* .
+- Oferty obsługujące dysk testowy (Demonstracja) żądają od klienta *przetestowania dysku* . 
+- Oferty oprogramowanie jako usługa (SaaS), które udostępniają *okres próbny* poza komercyjnym rynkiem Marketplace.
+- Proste listy umożliwiają klientowi zażądanie *kontaktu z* nami.
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Jak mogę utworzyć oferty dla komercyjnej witryny Marketplace?
 
@@ -99,10 +99,10 @@ Tak, Portal Azure Government Marketplace jest dostępny w Azure Government regio
 
 Istnieją cztery odpowiednie role zarządzające dostępem do Centrum partnerskiego.
 
-- *Menedżer*: zapewnia uprawnienia do zarządzania użytkownikami Centrum partnerskiego w katalogu oraz tworzenie i aktualizowanie ofert.
-- *Deweloper*: umożliwia użytkownikowi tworzenie i aktualizowanie ofert.
-- *Współautor finansowy*: zapewnia uprawnienia do wyświetlania raportów wypłat.
-- *Właściciel*: można skonfigurować konto wypłaty i profil podatkowy. Użytkownik, który zaakceptował umowę wydawcy, jest domyślnie właścicielem.
+- *Menedżer* : zapewnia uprawnienia do zarządzania użytkownikami Centrum partnerskiego w katalogu oraz tworzenie i aktualizowanie ofert.
+- *Deweloper* : umożliwia użytkownikowi tworzenie i aktualizowanie ofert.
+- *Współautor finansowy* : zapewnia uprawnienia do wyświetlania raportów wypłat.
+- *Właściciel* : można skonfigurować konto wypłaty i profil podatkowy. Użytkownik, który zaakceptował umowę wydawcy, jest domyślnie właścicielem.
 
 Uprawnienia *administratora globalnego* usługi Azure Active Directory (Azure AD) są niezbędne do tworzenia nowych kont użytkowników lub zapraszania kont Gości w katalogu źródłowym. Centrum partnerskie stosuje usługę Azure AD do modelu tożsamości, a wystąpienie usługi Azure AD organizacji jest często zarządzane i kontrolowane przez zespoły IT lub Security.
 
@@ -303,7 +303,7 @@ Aby uzyskać więcej informacji, zobacz [Konfigurowanie konta wypłaty i formula
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Czy są zwracane i zwroty obsługiwane przez komercyjne witryny Marketplace?
 
-Aby otrzymywać zwroty, klienci mogą anulować subskrypcje w określonym przedziale czasu. Miesięczne subskrypcje to 24 godziny, a w przypadku subskrypcji rocznych jest to 14 dni. Oferty, które są rozliczane zgodnie z zużyciem po użyciu rozwiązania, nie kwalifikują się do zwrotów.
+Zwroty są dostępne dla klientów w określonych warunkach i za pewne opłaty. W ciągu 24 godzin od zakupu lub odnowienia należy odebrać żądania dotyczące zwrotów opłat cyklicznych naliczanych miesięcznie. Podobnie, w ciągu 14 dni od zakupu lub odnowienia należy otrzymać wnioski o zwroty opłat cyklicznych naliczanych corocznie. Ten typ zwrotów nie ma zastosowania do opłat wynikających z użycia (z ofert związanych z maszynami wirtualnymi lub opłat naliczanych).
 
 ## <a name="resources"></a>Zasoby
 
@@ -311,7 +311,7 @@ Aby otrzymywać zwroty, klienci mogą anulować subskrypcje w określonym przedz
 
 Oto kilka zasobów, które ułatwią rozpoczęcie pracy:
 
-- [Co to jest komercyjne oprogramowanie Microsoft Marketplace?](overview.md)
+- [Co to jest komercyjna platforma handlowa firmy Microsoft?](overview.md)
 - [Centrum partnerskie portalu Marketplace firmy Microsoft](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Jak mogę współpracować z firmą Microsoft i innymi partnerami?

@@ -4,12 +4,12 @@ description: Tworzenie rejestru kontenerów platformy Azure, konfigurowanie repl
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: c473e3cd891214c2c5789bd43b0d293cb25d660a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 804f07762bef596f4631fbc5f694ecc6b308bfad
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739489"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027231"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Samouczek: przygotowywanie rejestru kontenerów platformy Azure z replikacją geograficzną
 
@@ -42,7 +42,7 @@ W tym samouczku potrzebny jest rejestr kontenerów platformy Azure w warstwie us
 > [!TIP]
 > Jeśli wcześniej utworzono rejestr i musisz przeprowadzić uaktualnienie, zobacz [Zmiana warstw](container-registry-skus.md#changing-tiers). 
 
-Zaloguj się do [Azure portal](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 Wybierz pozycję **Utwórz**  >  **kontenery** zasobów  >  **Azure Container Registry** .
 
@@ -123,19 +123,19 @@ Jeśli nie masz zainstalowanego narzędzia `git`, możesz [pobrać archiwum ZIP]
 
 ## <a name="update-dockerfile"></a>Aktualizacja pliku Dockerfile
 
-Plik Dockerfile dołączony do przykładu przedstawia sposób tworzenia kontenera. Rozpoczyna się od oficjalnego obrazu [aspnetcore][dockerhub-aspnetcore], następnie pliki aplikacji są kopiowane do kontenera, instalowane są zależności, dane wyjściowe są kompilowane za pomocą oficjalnego obrazu [aspnetcore-build][dockerhub-aspnetcore-build] i w końcu jest kompilowany zoptymalizowany obraz aspnetcore.
+Plik Dockerfile dołączony do przykładu przedstawia sposób tworzenia kontenera. Zaczyna się od oficjalnego obrazu środowiska uruchomieniowego ASP.NET Core, kopiuje pliki aplikacji do kontenera, instaluje zależności, kompiluje dane wyjściowe przy użyciu oficjalnego zestaw .NET Core SDK obrazu, a wreszcie kompiluje zoptymalizowany obraz aspnetcore.
 
 Plik [Dockerfile][dockerfile] znajduje się w lokalizacji `./AcrHelloworld/Dockerfile` w sklonowanym źródle.
 
 ```Dockerfile
-FROM microsoft/aspnetcore:2.0 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
 ENV DOCKER_REGISTRY <acrName>.azurecr.io
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /src
 COPY *.sln ./
 COPY AcrHelloworld/AcrHelloworld.csproj AcrHelloworld/
@@ -187,8 +187,8 @@ Podczas tworzenia obrazu platformy Docker jest wyświetlanych kilka wierszy dany
 
 ```bash
 Sending build context to Docker daemon  523.8kB
-Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
-2.0: Pulling from microsoft/aspnetcore
+Step 1/18 : FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+2.2: Pulling from mcr.microsoft.com/dotnet/core/aspnet
 3e17c6eae66c: Pulling fs layer
 
 [...]
@@ -245,6 +245,4 @@ Przejdź do następnego samouczka, aby wdrożyć kontener do wielu wystąpień f
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
 [aspnet-core]: https://dot.net
-[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
-[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
 [dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

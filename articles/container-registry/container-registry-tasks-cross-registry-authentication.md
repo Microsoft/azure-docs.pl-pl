@@ -3,12 +3,12 @@ title: Uwierzytelnianie między rejestrami z zadania ACR
 description: Skonfiguruj zadanie Azure Container Registry (zadanie ACR), aby uzyskać dostęp do innego prywatnego rejestru kontenerów platformy Azure przy użyciu tożsamości zarządzanej dla zasobów platformy Azure
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a460102eafa5c1eda2f37330887d985387d5df5
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86057363"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026262"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Uwierzytelnianie między rejestrami w ACR zadania przy użyciu tożsamości zarządzanej przez platformę Azure 
 
@@ -30,8 +30,8 @@ W rzeczywistym scenariuszu Organizacja może zachować zestaw obrazów podstawow
 
 W tym artykule potrzebne są dwa rejestry kontenerów platformy Azure:
 
-* Pierwszy rejestr służy do tworzenia i wykonywania zadań ACR. W tym artykule rejestr nazywa się *rejestrem*. 
-* Drugi rejestr hostuje obraz podstawowy używany do zadania tworzenia obrazu. W tym artykule drugi rejestr nosi nazwę *mybaseregistry*. 
+* Pierwszy rejestr służy do tworzenia i wykonywania zadań ACR. W tym artykule rejestr nazywa się *rejestrem* . 
+* Drugi rejestr hostuje obraz podstawowy używany do zadania tworzenia obrazu. W tym artykule drugi rejestr nosi nazwę *mybaseregistry* . 
 
 Zastąp ciąg własnymi nazwami rejestru w dalszych krokach.
 
@@ -39,16 +39,12 @@ Jeśli nie masz jeszcze wymaganych rejestrów kontenerów platformy Azure, zobac
 
 ## <a name="prepare-base-registry"></a>Przygotuj rejestr podstawowy
 
-Najpierw Utwórz katalog roboczy, a następnie utwórz plik o nazwie pliku dockerfile z następującą zawartością. Ten prosty przykład kompiluje Node.js obraz podstawowy z publicznego obrazu w usłudze Docker Hub.
-    
-```bash
-echo FROM node:9-alpine > Dockerfile
-```
+W celach demonstracyjnych jako jednorazowej operacji Uruchom polecenie [AZ ACR import] [AZ-ACR-import], aby zaimportować publiczny obraz Node.js z usługi Docker Hub do rejestru podstawowego. W tym przypadku inny zespół lub proces w organizacji może zachować obrazy w rejestrze podstawowym.
 
-W bieżącym katalogu Uruchom polecenie [AZ ACR Build][az-acr-build] , aby skompilować i wypchnąć obraz podstawowy do rejestru podstawowego. W tym przypadku inny zespół lub proces w organizacji może zachować rejestr podstawowy.
-    
 ```azurecli
-az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file Dockerfile .
+az acr import --name mybaseregistry \
+  --source docker.io/library/node:9-alpine \
+  --image baseimages/node:9-alpine 
 ```
 
 ## <a name="define-task-steps-in-yaml-file"></a>Zdefiniuj kroki zadania w pliku YAML
@@ -88,7 +84,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Przyznaj uprawnienia do ściągania tożsamości do rejestru podstawowego
 
-W tej sekcji nadaj zarządzanej tożsamości uprawnienia do ściągania z rejestru podstawowego, *mybaseregistry*.
+W tej sekcji nadaj zarządzanej tożsamości uprawnienia do ściągania z rejestru podstawowego, *mybaseregistry* .
 
 Użyj polecenia [AZ ACR show][az-acr-show] , aby uzyskać identyfikator zasobu podstawowego rejestru i zapisać go w zmiennej:
 
@@ -127,7 +123,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Przyznaj uprawnienia do ściągania tożsamości do rejestru podstawowego
 
-W tej sekcji nadaj zarządzanej tożsamości uprawnienia do ściągania z rejestru podstawowego, *mybaseregistry*.
+W tej sekcji nadaj zarządzanej tożsamości uprawnienia do ściągania z rejestru podstawowego, *mybaseregistry* .
 
 Użyj polecenia [AZ ACR show][az-acr-show] , aby uzyskać identyfikator zasobu podstawowego rejestru i zapisać go w zmiennej:
 
@@ -223,7 +219,7 @@ The push refers to repository [myregistry.azurecr.io/hello-world]
 Run ID: cf10 was successful after 32s
 ```
 
-Uruchom polecenie [AZ ACR Repository show-Tags][az-acr-repository-show-tags] , aby sprawdzić, czy obraz został skompilowany i został pomyślnie wypychany do *rejestru*:
+Uruchom polecenie [AZ ACR Repository show-Tags][az-acr-repository-show-tags] , aby sprawdzić, czy obraz został skompilowany i został pomyślnie wypychany do *rejestru* :
 
 ```azurecli
 az acr repository show-tags --name myregistry --repository hello-world --output tsv

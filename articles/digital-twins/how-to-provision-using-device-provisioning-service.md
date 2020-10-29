@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0c82114f697227b96e3548fff24314d4774455b9
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494743"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026449"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Autozarządzanie urządzeniami w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu usługi Device Provisioning Service (DPS)
 
@@ -20,7 +20,7 @@ W tym artykule dowiesz się, jak zintegrować usługę Azure Digital bliźniaczy
 
 Rozwiązanie opisane w tym artykule umożliwi automatyzację procesu **_inicjowania obsługi_** i **_wycofywania_** IoT Hub urządzeń w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu usługi Device Provisioning. 
 
-Aby uzyskać więcej _informacji na temat aprowizacji i_ _wycofywania_ etapów oraz lepiej zrozumieć zestaw ogólnych etapów zarządzania urządzeniami, które są wspólne dla wszystkich projektów IoT w przedsiębiorstwie, zobacz [sekcję *cykl życia urządzenia* ](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) w dokumentacji dotyczącej zarządzania urządzeniami w IoT Hub.
+Aby uzyskać więcej _informacji na temat aprowizacji i_ _wycofywania_ etapów oraz lepiej zrozumieć zestaw ogólnych etapów zarządzania urządzeniami, które są wspólne dla wszystkich projektów IoT w przedsiębiorstwie, zobacz [sekcję *cykl życia urządzenia*](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) w dokumentacji dotyczącej zarządzania urządzeniami w IoT Hub.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,12 +29,12 @@ Przed rozpoczęciem konfigurowania aprowizacji należy mieć **wystąpienie usł
 Jeśli jeszcze tego nie zrobiono, możesz go utworzyć, postępując zgodnie z samouczkiem Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md). Ten samouczek przeprowadzi Cię przez proces konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji z modelami i bliźniaczych reprezentacji, połączonymi [IoT Hub](../iot-hub/about-iot-hub.md)platformy Azure i kilkoma [funkcjami platformy Azure](../azure-functions/functions-overview.md) w celu propagowania przepływu danych.
 
 Poniższe wartości będą potrzebne w dalszej części tego artykułu od momentu skonfigurowania wystąpienia. Jeśli musisz ponownie zebrać te wartości, Skorzystaj z poniższych linków, aby uzyskać instrukcje.
-* **_Nazwa hosta_** wystąpienia usługi Azure Digital bliźniaczych reprezentacji ([Znajdź w portalu](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* **_Parametry połączenia_** parametrów połączenia z usługą Azure Event Hubs ([Znajdź w portalu](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
+* **_Nazwa hosta_** wystąpienia usługi Azure Digital bliźniaczych reprezentacji ( [Znajdź w portalu](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+* **_Parametry połączenia_** parametrów połączenia z usługą Azure Event Hubs ( [Znajdź w portalu](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
 Ten przykład używa również **symulatora urządzeń** , który obejmuje obsługę administracyjną przy użyciu usługi Device Provisioning. Symulator urządzeń znajduje się tutaj: [usługa Azure Digital bliźniaczych reprezentacji i przykład integracji z IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Pobierz przykładowy projekt na swoją maszynę, przechodząc do linku przykładowego i wybierając przycisk *Pobierz zip* poniżej tytułu. Rozpakuj pobrany folder.
 
-Symulator urządzeń jest oparty na **Node.js**, w wersji 10.0. x lub nowszej. [*Przygotowanie środowiska programistycznego*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) opisuje sposób instalowania Node.js na potrzeby tego samouczka w systemie Windows lub Linux.
+Symulator urządzeń jest oparty na **Node.js** , w wersji 10.0. x lub nowszej. [*Przygotowanie środowiska programistycznego*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) opisuje sposób instalowania Node.js na potrzeby tego samouczka w systemie Windows lub Linux.
 
 ## <a name="solution-architecture"></a>Architektura rozwiązania
 
@@ -77,7 +77,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### <a name="create-an-azure-function"></a>Tworzenie funkcji platformy Azure
 
-Następnie utworzysz funkcję wyzwalaną przez żądanie HTTP w aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) lub własnych.
+Następnie utworzysz funkcję wyzwalaną przez żądanie HTTP w aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ( [*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) lub własnych.
 
 Ta funkcja będzie używana przez usługę Device Provisioning w [niestandardowych zasadach alokacji](../iot-dps/how-to-use-custom-allocation-policies.md) w celu aprowizacji nowego urządzenia. Aby uzyskać więcej informacji na temat korzystania z żądań HTTP z usługą Azure Functions, zobacz [*wyzwalacz żądań HTTP platformy Azure dla Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
@@ -233,7 +233,7 @@ Zapisz plik, a następnie ponownie Opublikuj swoją aplikację funkcji. Instrukc
 
 ### <a name="configure-your-function"></a>Skonfiguruj funkcję
 
-Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześniejszych wersji, zawierającej odwołanie do utworzonego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. W przypadku korzystania z kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) ustawienie zostanie już skonfigurowane.
+Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześniejszych wersji, zawierającej odwołanie do utworzonego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. W przypadku korzystania z kompleksowego samouczka ( [*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) ustawienie zostanie już skonfigurowane.
 
 Dodaj ustawienie za pomocą tego polecenia platformy Azure:
 
@@ -243,18 +243,11 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 Upewnij się, że uprawnienia i zarządzane przypisanie roli tożsamości są poprawnie skonfigurowane dla aplikacji funkcji, zgodnie z opisem w sekcji [*przypisywanie uprawnień do aplikacji funkcji*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) w kompleksowym samouczku.
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### <a name="create-device-provisioning-enrollment"></a>Utwórz rejestrację aprowizacji urządzeń
 
-Następnie musisz utworzyć rejestrację w usłudze Device Provisioning przy użyciu **funkcji alokacji niestandardowej**. Postępuj zgodnie z instrukcjami, aby to zrobić w sekcjach [*Tworzenie rejestracji*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) i [*wyprowadzanie unikatowych kluczy urządzeń*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) w artykule usługi Device Provisioning Services — informacje o niestandardowych zasadach alokacji.
+Następnie musisz utworzyć rejestrację w usłudze Device Provisioning przy użyciu **funkcji alokacji niestandardowej** . Postępuj zgodnie z instrukcjami, aby to zrobić w sekcjach [*Tworzenie rejestracji*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) i [*wyprowadzanie unikatowych kluczy urządzeń*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) w artykule usługi Device Provisioning Services — informacje o niestandardowych zasadach alokacji.
 
-Podczas przechodzenia przez ten przepływ nastąpi połączenie rejestracji z właśnie utworzoną funkcją, wybierając funkcję w trakcie tego kroku, aby **wybrać sposób przypisywania urządzeń do centrów**. Po utworzeniu rejestracji nazwa rejestracji i podstawowy lub pomocniczy klucz SAS będą później używane do konfigurowania symulatora urządzeń w tym artykule.
+Podczas przechodzenia przez ten przepływ nastąpi połączenie rejestracji z właśnie utworzoną funkcją, wybierając funkcję w trakcie tego kroku, aby **wybrać sposób przypisywania urządzeń do centrów** . Po utworzeniu rejestracji nazwa rejestracji i podstawowy lub pomocniczy klucz SAS będą później używane do konfigurowania symulatora urządzeń w tym artykule.
 
 ### <a name="set-up-the-device-simulator"></a>Konfigurowanie symulatora urządzeń
 
@@ -266,7 +259,7 @@ Otwórz okno polecenia i przejdź do pobranego folderu, a następnie do katalogu
 npm install
 ```
 
-Następnie skopiuj plik *ENV. Template* do nowego pliku o nazwie *ENV*i wprowadź następujące ustawienia:
+Następnie skopiuj plik *ENV. Template* do nowego pliku o nazwie *ENV* i wprowadź następujące ustawienia:
 
 ```cmd
 PROVISIONING_HOST = "global.azure-devices-provisioning.net"
@@ -318,18 +311,18 @@ W poniższych sekcjach opisano procedurę konfigurowania tego przepływu urządz
 Teraz musisz utworzyć [centrum zdarzeń](../event-hubs/event-hubs-about.md)platformy Azure, które będzie używane do odbierania IoT Hub zdarzeń cyklu życia. 
 
 Wykonaj kroki opisane w sekcji [*Tworzenie centrum zdarzeń*](../event-hubs/event-hubs-create.md) — Szybki Start, używając następujących informacji:
-* Jeśli używasz kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)), możesz ponownie użyć grupy zasobów utworzonej na potrzeby kompleksowego samouczka.
-* Nazwij centrum zdarzeń *lifecycleevents*lub inny wybór i Zapamiętaj utworzoną przestrzeń nazw. Zostaną one użyte podczas konfigurowania funkcji cyklu życia i IoT Hub trasy w następnych sekcjach.
+* Jeśli używasz kompleksowego samouczka ( [*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)), możesz ponownie użyć grupy zasobów utworzonej na potrzeby kompleksowego samouczka.
+* Nazwij centrum zdarzeń *lifecycleevents* lub inny wybór i Zapamiętaj utworzoną przestrzeń nazw. Zostaną one użyte podczas konfigurowania funkcji cyklu życia i IoT Hub trasy w następnych sekcjach.
 
 ### <a name="create-an-azure-function"></a>Tworzenie funkcji platformy Azure
 
-Następnie utworzysz funkcję wyzwalającą Event Hubs wewnątrz aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) lub własnych. 
+Następnie utworzysz funkcję wyzwalającą Event Hubs wewnątrz aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ( [*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) lub własnych. 
 
-Nazwij wyzwalacz centrum zdarzeń *lifecycleevents*i Połącz wyzwalacz centrum zdarzeń z centrum zdarzeń utworzonym w poprzednim kroku. Jeśli użyto innej nazwy centrum zdarzeń, Zmień ją na zgodną z nazwą wyzwalacza poniżej.
+Nazwij wyzwalacz centrum zdarzeń *lifecycleevents* i Połącz wyzwalacz centrum zdarzeń z centrum zdarzeń utworzonym w poprzednim kroku. Jeśli użyto innej nazwy centrum zdarzeń, Zmień ją na zgodną z nazwą wyzwalacza poniżej.
 
 Ta funkcja będzie używać zdarzenia cyklu życia urządzenia IoT Hub, aby wycofać istniejące urządzenie. Aby uzyskać więcej informacji o zdarzeniach cyklu życia, zobacz [*IoT Hub zdarzenia telemetrii*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Aby uzyskać więcej informacji na temat używania Event Hubs z usługą Azure Functions, zobacz [*wyzwalacz usługi azure Event Hubs dla Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-W opublikowanej aplikacji funkcji Dodaj nową klasę funkcji typu *wyzwalacz centrum zdarzeń*i wklej kod poniżej.
+W opublikowanej aplikacji funkcji Dodaj nową klasę funkcji typu *wyzwalacz centrum zdarzeń* i wklej kod poniżej.
 
 ```C#
 using System;
@@ -445,7 +438,7 @@ Zapisz projekt, a następnie ponownie Opublikuj aplikację funkcji. Instrukcje d
 
 ### <a name="configure-your-function"></a>Skonfiguruj funkcję
 
-Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześniejszych wersji, zawierającej odwołanie do utworzonego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i centrum zdarzeń. Jeśli używasz kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)), pierwsze ustawienie zostanie już skonfigurowane.
+Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześniejszych wersji, zawierającej odwołanie do utworzonego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i centrum zdarzeń. Jeśli używasz kompleksowego samouczka ( [*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)), pierwsze ustawienie zostanie już skonfigurowane.
 
 Dodaj ustawienie za pomocą tego polecenia platformy Azure. Polecenie można uruchomić w [Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)interfejs wiersza polecenia platformy Azure.
 

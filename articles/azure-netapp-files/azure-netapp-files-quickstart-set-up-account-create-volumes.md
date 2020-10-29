@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 99af424d44624adeedf30a87d915fbd377012378
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: d2ea7233ee923881ee430aba8d8c23a37c29da7c
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927604"
+ms.locfileid: "93027724"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume-using-an-arm-template"></a>Szybki Start: Konfigurowanie Azure NetApp Files i Tworzenie woluminu NFS przy użyciu szablonu ARM
 
@@ -304,7 +304,7 @@ Poniższy fragment kodu przedstawia sposób tworzenia puli pojemności w szablon
     * Wybierz wersję systemu plików NFS ( **NFSv3** lub **nfsv 4.1** ) dla woluminu.
       Zapoznaj się z [zagadnieniami](azure-netapp-files-create-volumes.md#considerations) i [najlepszym rozwiązaniem](azure-netapp-files-create-volumes.md#best-practice) dotyczącym wersji systemu plików NFS.
 
-  ![Określanie protokołu NFS dla przewodnika Szybki Start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+    ![Określanie protokołu NFS dla przewodnika Szybki Start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Kliknij pozycję **Przejrzyj i utwórz** .
 

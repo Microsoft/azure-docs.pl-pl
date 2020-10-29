@@ -3,12 +3,12 @@ title: Omówienie zadań usługi ACR
 description: Wprowadzenie do ACR zadań, zestaw funkcji w Azure Container Registry, który zapewnia bezpieczną, zautomatyzowaną kompilację, zarządzanie i stosowanie poprawek w chmurze.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488647"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027670"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatyzowanie kompilacji i konserwacji obrazów kontenerów za pomocą zadań ACR
 
@@ -70,7 +70,7 @@ Dowiedz się, jak wyzwolić kompilacje w ramach zatwierdzenia kodu źródłowego
 
 ## <a name="automate-os-and-framework-patching"></a>Automatyzowanie stosowania poprawek systemu operacyjnego i platformy
 
-Możliwości ACR zadania, aby naprawdę ulepszyć przepływ pracy kompilacji kontenera, pochodzą z możliwości wykrywania aktualizacji *obrazu podstawowego*. Funkcja większości obrazów kontenerów jest obrazem nadrzędnym, na którym jest oparty jeden lub więcej obrazów aplikacji. Obrazy podstawowe zwykle zawierają system operacyjny, a czasami struktury aplikacji. 
+Możliwości ACR zadania, aby naprawdę ulepszyć przepływ pracy kompilacji kontenera, pochodzą z możliwości wykrywania aktualizacji *obrazu podstawowego* . Funkcja większości obrazów kontenerów jest obrazem nadrzędnym, na którym jest oparty jeden lub więcej obrazów aplikacji. Obrazy podstawowe zwykle zawierają system operacyjny, a czasami struktury aplikacji. 
 
 Można skonfigurować zadanie ACR, aby śledzić zależność od obrazu podstawowego podczas kompilowania obrazu aplikacji. Po wypchnięciu zaktualizowanego obrazu podstawowego do rejestru lub zaktualizowaniu obrazu podstawowego w repozytorium publicznym, takim jak w usłudze Docker Hub, ACR zadania mogą automatycznie kompilować wszystkie obrazy aplikacji na ich podstawie.
 Dzięki temu automatycznemu wykrywaniu i odbudowywaniu ACR zadania oszczędzają czas i nakłady pracy, które są zwykle wymagane do ręcznego śledzenia i aktualizowania każdego obrazu aplikacji, do którego odwołuje się zaktualizowany obraz podstawowy.
@@ -138,10 +138,6 @@ Gdy wszystko jest gotowe do automatyzowania kompilacji i konserwacji obrazów ko
 Opcjonalnie zainstaluj [rozszerzenie Docker dla Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) i rozszerzenie [konta platformy Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) , aby współpracowało z rejestrami kontenerów platformy Azure. Ściągaj i wypychanie obrazów do usługi Azure Container Registry lub uruchamiaj zadania ACR, w Visual Studio Code.
 
 <!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

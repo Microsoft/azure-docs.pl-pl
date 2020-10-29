@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370916"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027605"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapowanie przepływów danych w Azure Data Factory
 
@@ -27,7 +27,7 @@ Mapowanie przepływów danych zapewnia całkowicie wizualizację, bez konieczno�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Przepływy danych są tworzone z poziomu okienka zasoby fabryki, takich jak potoki i zestawy danych. Aby utworzyć przepływ danych, wybierz znak plus obok pozycji **zasoby fabryki**, a następnie wybierz pozycję **przepływ danych**. 
+Przepływy danych są tworzone z poziomu okienka zasoby fabryki, takich jak potoki i zestawy danych. Aby utworzyć przepływ danych, wybierz znak plus obok pozycji **zasoby fabryki** , a następnie wybierz pozycję **przepływ danych** . 
 
 ![Nowy przepływ danych](media/data-flow/new-data-flow.png "Nowy przepływ danych")
 
@@ -37,13 +37,13 @@ Ta akcja spowoduje przejście do kanwy przepływu danych, w której można utwor
 
 Mapowanie przepływu danych ma unikatową kanwę tworzenia, która umożliwia łatwe tworzenie logiki transformacji. Kanwa przepływu danych jest podzielony na trzy części: górny pasek, wykres i panel konfiguracja. 
 
-![Kanwa](media/data-flow/canvas1.png "Kanwa")
+![Zrzut ekranu przedstawia kanwę przepływu danych z paskiem górnego, wykresu i panelu konfiguracji z etykietą.](media/data-flow/canvas1.png "Kanwa")
 
 ### <a name="graph"></a>Graph
 
-Wykres przedstawia strumień transformacji. Pokazuje on dane źródłowe w miarę ich przepływu w jednym lub większej liczbie zlewów. Aby dodać nowe źródło, wybierz pozycję **Dodaj źródło**. Aby dodać nową transformację, wybierz znak plus w prawym dolnym rogu istniejącej transformacji. Dowiedz się więcej na temat [zarządzania wykresem przepływu danych](concepts-data-flow-manage-graph.md).
+Wykres przedstawia strumień transformacji. Pokazuje on dane źródłowe w miarę ich przepływu w jednym lub większej liczbie zlewów. Aby dodać nowe źródło, wybierz pozycję **Dodaj źródło** . Aby dodać nową transformację, wybierz znak plus w prawym dolnym rogu istniejącej transformacji. Dowiedz się więcej na temat [zarządzania wykresem przepływu danych](concepts-data-flow-manage-graph.md).
 
-![Kanwa](media/data-flow/canvas2.png "Kanwa")
+![Zrzut ekranu przedstawia część wykresu kanwy z polem tekstowym wyszukiwania.](media/data-flow/canvas2.png "Kanwa")
 
 ### <a name="configuration-panel"></a>Panel konfiguracji
 
@@ -110,7 +110,7 @@ Mapowanie przepływów danych jest dostępne w następujących regionach:
 | Brazil South  | ✓ |  |
 | Kanada Środkowa | ✓ |  |
 | Indie Środkowe | ✓ |   ✓ |
-| Central US    | ✓ |   ✓ |
+| Środkowe stany USA    | ✓ |   ✓ |
 | Chiny Wschodnie |      | ✓ |
 | Chiny Wschodnie 2  |   |    |
 | Chiny nieregionalne | | |

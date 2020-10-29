@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: cd1342ae5912a9a91f1bd8d1bdacecdb5a2bbdb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eaf36cc2690b3c0f8922c05432b3197b4ff30d9a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416524"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026058"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Tworzenie przepływu danych usługi Azure Data Factory
 
@@ -22,15 +22,15 @@ Mapowanie przepływów danych w podajniku APD zapewnia sposób przekształcania 
 
 Rozpocznij od utworzenia nowego Data Factory w wersji 2 z Azure Portal. Po utworzeniu nowej fabryki kliknij kafelek "Tworzenie & Monitor", aby uruchomić Data Factory interfejs użytkownika.
 
-![Opcje przepływu danych](media/data-flow/v2portal.png "Tworzenie przepływu danych")
+![Zrzut ekranu przedstawia okienko Nowa fabryka danych z opcją v2 wybraną dla wersji.](media/data-flow/v2portal.png "Tworzenie przepływu danych")
 
 Gdy korzystasz z interfejsu użytkownika Data Factory, możesz użyć przykładowych przepływów danych. Przykłady są dostępne w galerii szablonów ADF. W obszarze ADF Utwórz "potok z szablonu" i wybierz kategorię przepływu danych z galerii szablonów.
 
-![Opcje przepływu danych](media/data-flow/template.png "Tworzenie przepływu danych")
+![Zrzut ekranu przedstawia kartę przepływ danych z danymi transformacji przy użyciu wybranego przepływu danych.](media/data-flow/template.png "Tworzenie przepływu danych")
 
 Zostanie wyświetlony monit o wprowadzenie informacji o koncie usługi Azure Blob Storage.
 
-![Opcje przepływu danych](media/data-flow/template2.png "przepływ danych — Tworzenie 2")
+![Zrzut ekranu przedstawia okienko Przekształcanie danych przy użyciu przepływu danych, w którym można wprowadzać dane wejściowe użytkownika.](media/data-flow/template2.png "przepływ danych — Tworzenie 2")
 
 [Dane używane dla tych przykładów można znaleźć tutaj](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Pobierz przykładowe dane i Zapisz pliki na kontach usługi Azure Blob Storage, aby można było wykonać przykłady.
 
@@ -38,7 +38,7 @@ Zostanie wyświetlony monit o wprowadzenie informacji o koncie usługi Azure Blo
 
 Użyj przycisku Utwórz zasób i zaloguj się w interfejsie użytkownika ADF, aby utworzyć przepływy danych.
 
-![Opcje przepływu danych](media/data-flow/newresource.png "Nowy zasób")
+![Zrzut ekranu przedstawia przepływ danych wybrany z menu zasobów fabrycznych.](media/data-flow/newresource.png "Nowy zasób")
 
 ## <a name="next-steps"></a>Następne kroki
 

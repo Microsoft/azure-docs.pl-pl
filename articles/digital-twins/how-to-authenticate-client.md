@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 84cb7e7e98e81e242ec1cac554fe073370e45645
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 7f5ca063bcc784498dddf87f34f0f7974b95ecaf
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495788"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027317"
 ---
 # <a name="write-client-app-authentication-code"></a>Napisz kod uwierzytelniania aplikacji klienckiej
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób uzyskiwania poświadczeń przy użyciu `Azure.Ide
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Najpierw wykonaj kroki instalacji opisane w temacie [*How to: Set a instance and Authentication*](how-to-set-up-instance-portal.md). Zapewni to, że masz wystąpienie usługi Azure Digital bliźniaczych reprezentacji, użytkownik ma uprawnienia dostępu i ustawił uprawnienia dla aplikacji klienckich. Po skonfigurowaniu tej konfiguracji możesz przystąpić do pisania kodu aplikacji klienta.
+Najpierw wykonaj kroki instalacji opisane w temacie [*How to: Set a instance and Authentication*](how-to-set-up-instance-portal.md). Zapewni to, że masz wystąpienie usługi Azure Digital bliźniaczych reprezentacji i że użytkownik ma uprawnienia dostępu. Po zakończeniu instalacji można przystąpić do pisania kodu aplikacji klienta.
 
 Aby można było wykonać operację, potrzebny będzie projekt aplikacji klienckiej, w którym napisano kod. Jeśli nie masz jeszcze skonfigurowanego projektu aplikacji klienckiej, Utwórz podstawowy projekt w wybranym języku, który ma być używany z tym samouczkiem.
 
@@ -37,7 +37,7 @@ Aby można było wykonać operację, potrzebny będzie projekt aplikacji klienck
 * [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 Trzy popularne metody uzyskiwania poświadczeń w programie `Azure.Identity` to:
-* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) zapewnia domyślny `TokenCredential` przepływ uwierzytelniania dla aplikacji, które zostaną wdrożone na platformie Azure, i jest **zalecanym wyborem dla lokalnego tworzenia**. Można go również włączyć, aby wypróbować inne dwie metody zalecane w tym artykule. Zawija `ManagedIdentityCredential` i ma dostęp do `InteractiveBrowserCredential` zmiennej konfiguracyjnej.
+* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) zapewnia domyślny `TokenCredential` przepływ uwierzytelniania dla aplikacji, które zostaną wdrożone na platformie Azure, i jest **zalecanym wyborem dla lokalnego tworzenia** . Można go również włączyć, aby wypróbować inne dwie metody zalecane w tym artykule. Zawija `ManagedIdentityCredential` i ma dostęp do `InteractiveBrowserCredential` zmiennej konfiguracyjnej.
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) działa doskonale w przypadkach, gdy potrzebne są [tożsamości zarządzane (msi)](../active-directory/managed-identities-azure-resources/overview.md), i jest dobrym kandydatem do pracy z Azure Functions i wdrażaniem w usługach platformy Azure.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) jest przeznaczony dla aplikacji interaktywnych i może służyć do tworzenia uwierzytelnionego klienta SDK
 
@@ -60,7 +60,7 @@ Następnie Dodaj kod, aby uzyskać poświadczenia przy użyciu jednej z metod w 
 
 ### <a name="defaultazurecredential-method"></a>DefaultAzureCredential, Metoda
 
-[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) zapewnia domyślny `TokenCredential` przepływ uwierzytelniania dla aplikacji, które zostaną wdrożone na platformie Azure, i jest **zalecanym wyborem dla lokalnego tworzenia**.
+[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) zapewnia domyślny `TokenCredential` przepływ uwierzytelniania dla aplikacji, które zostaną wdrożone na platformie Azure, i jest **zalecanym wyborem dla lokalnego tworzenia** .
 
 Aby użyć domyślnych poświadczeń platformy Azure, musisz mieć adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji ([instrukcje do znalezienia](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
@@ -110,8 +110,8 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 Metoda [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) jest przeznaczona dla aplikacji interaktywnych i umożliwia wyświetlenie przeglądarki sieci Web w celu uwierzytelnienia. Można jej użyć zamiast `DefaultAzureCredential` w przypadku, gdy wymagane jest uwierzytelnianie interaktywne.
 
 Aby można było używać poświadczeń interaktywnej przeglądarki, wymagana jest **Rejestracja aplikacji** z uprawnieniami do interfejsów API Digital bliźniaczych reprezentacji platformy Azure. Aby uzyskać instrukcje dotyczące konfigurowania rejestracji aplikacji, zobacz [*How to: Create a App Registration*](how-to-create-app-registration.md). Po skonfigurowaniu rejestracji aplikacji będziesz potrzebować...
-* *Identyfikator aplikacji (klienta)* rejestracji aplikacji ([instrukcje dotyczące znajdowania](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* Identyfikator katalogu rejestracji aplikacji ( *dzierżawy)* ([instrukcje do znalezienia](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* *Identyfikator aplikacji (klienta)* rejestracji aplikacji ( [instrukcje dotyczące znajdowania](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* Identyfikator katalogu rejestracji aplikacji ( *dzierżawy)* ( [instrukcje do znalezienia](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji ([instrukcje dotyczące znajdowania](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 
 Oto przykładowy kod umożliwiający utworzenie uwierzytelnionego klienta SDK przy użyciu programu `InteractiveBrowserCredential` .

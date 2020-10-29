@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: ce0858f61ca1fe3b81c3d0c8a3c97954827def80
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950622"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027571"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Włącz Security Center we wszystkich subskrypcjach w grupie zarządzania
 
@@ -25,7 +25,7 @@ Za pomocą Azure Policy można włączyć Azure Security Center wszystkich subsk
 
 Aby dołączyć grupę zarządzania i wszystkie jej subskrypcje:
 
-1. Jako użytkownik z uprawnieniami **administratora zabezpieczeń** Otwórz Azure Policy i Wyszukaj definicję **Włącz Azure Security Center w subskrypcji**.
+1. Jako użytkownik z uprawnieniami **administratora zabezpieczeń** Otwórz Azure Policy i Wyszukaj definicję **Włącz Azure Security Center w subskrypcji** .
 
     :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="Definicja Azure Policy włączania Azure Security Center w subskrypcji":::
 
@@ -43,7 +43,7 @@ Aby dołączyć grupę zarządzania i wszystkie jej subskrypcje:
     Następnie zadanie korygujące umożliwi Security Center bezpłatnie na niezgodnych subskrypcjach.
 
 > [!IMPORTANT]
-> Definicja zasad spowoduje włączenie tylko Security Center **istniejących** subskrypcji. Aby zarejestrować nowo utworzone subskrypcje, zarejestrować nowo utworzone subskrypcje, Otwórz kartę zgodność, wybierz odpowiednie niezgodne subskrypcje i Utwórz zadanie korygowania. Powtórz ten krok, jeśli masz co najmniej jedną nową subskrypcję, którą chcesz monitorować za pomocą Security Center.
+> Definicja zasad spowoduje włączenie tylko Security Center **istniejących** subskrypcji. Aby zarejestrować nowo utworzone subskrypcje, Otwórz kartę zgodność, wybierz odpowiednie niezgodne subskrypcje i Utwórz zadanie korygowania. Powtórz ten krok, jeśli masz co najmniej jedną nową subskrypcję, którą chcesz monitorować za pomocą Security Center.
 
 ## <a name="optional-modifications"></a>Opcjonalne modyfikacje
 

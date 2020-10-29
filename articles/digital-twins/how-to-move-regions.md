@@ -8,16 +8,16 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e586e9acc9510dc1aaae511fa51e5a0c3255bd8f
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047390"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026500"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Przenoszenie wystąpienia usługi Azure Digital bliźniaczych reprezentacji do innego regionu platformy Azure
 
-Jeśli musisz przenieść wystąpienie usługi Azure Digital bliźniaczych reprezentacji z jednego regionu do innego, bieżący proces polega na ponownym **utworzeniu zasobów w nowym regionie**, a następnie usunięciu oryginalnych zasobów. Po zakończeniu tego procesu będziesz pracować z nowym wystąpieniem usługi Azure Digital bliźniaczych reprezentacji, który jest identyczny z pierwszym, z wyjątkiem zaktualizowanej lokalizacji.
+Jeśli musisz przenieść wystąpienie usługi Azure Digital bliźniaczych reprezentacji z jednego regionu do innego, bieżący proces polega na ponownym **utworzeniu zasobów w nowym regionie** , a następnie usunięciu oryginalnych zasobów. Po zakończeniu tego procesu będziesz pracować z nowym wystąpieniem usługi Azure Digital bliźniaczych reprezentacji, który jest identyczny z pierwszym, z wyjątkiem zaktualizowanej lokalizacji.
 
 Ten artykuł zawiera wskazówki dotyczące sposobu wykonania pełnego przenoszenia i kopiowania nad wszystko, co należy zrobić, aby nowe wystąpienie było zgodne z oryginalną wersją.
 
@@ -40,7 +40,7 @@ Oto kilka pytań, które warto wziąć pod uwagę:
 * Jaki jest ogólny kształt **grafu** w moim wystąpieniu? Ile relacji istnieje?
 * Jakie **punkty końcowe** są dostępne w moim wystąpieniu?
 * Jakie **trasy** są dostępne w moim wystąpieniu? Czy mają one filtry?
-* Gdzie moje wystąpienie **nawiązuje połączenie z innymi usługami platformy Azure**? Niektóre typowe punkty integracji obejmują...
+* Gdzie moje wystąpienie **nawiązuje połączenie z innymi usługami platformy Azure** ? Niektóre typowe punkty integracji obejmują...
     - Event Grid, centrum zdarzeń lub Service Bus
     - Azure Functions
     - Logic Apps
@@ -76,11 +76,13 @@ Jeśli przykład nie jest w stanie obsłużyć rozmiaru grafu, możesz wyeksport
 
 Aby kontynuować pracę z Eksploratorem ADT, najpierw Pobierz przykładowy kod aplikacji i skonfiguruj go do uruchamiania na komputerze. 
 
-Przejdź do przykładu: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na maszynę jako _**ADT_Explorer.zip**_. Rozpakuj plik.
+Przejdź do przykładu: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na maszynę jako _**Azure_Digital_Twins__ADT__explorer.zip**_ . Rozpakuj plik.
 
-Następnie skonfiguruj uprawnienia dla Eksploratora ADT do uruchamiania na komputerze. Aby to zrobić, wykonaj kroki opisane w sekcji [*Ustawianie uprawnień programu ADT Explorer*](quickstart-adt-explorer.md#set-adt-explorer-permissions) w przewodniku szybki start usługi Azure Digital bliźniaczych reprezentacji.
-
-Na koniec Uruchom i skonfiguruj Eksploratora ADT, aby nawiązać połączenie z oryginalnym wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Wykonaj kroki opisane w sekcji [*Uruchamianie i Konfigurowanie EKSPLORATORA ADT*](quickstart-adt-explorer.md#run-and-configure-adt-explorer) przewodnika Szybki Start.
+Następnie skonfiguruj i Skonfiguruj uprawnienia dla Eksploratora ADT. Aby to zrobić, postępuj zgodnie z instrukcjami w sekcji [*Konfigurowanie programu Azure Digital bliźniaczych reprezentacji i ADT Explorer w programie*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) Azure Digital bliźniaczych reprezentacji — Szybki Start. Ta sekcja przeprowadzi Cię przez następujące kroki:
+1. Skonfiguruj wystąpienie usługi Azure Digital bliźniaczych reprezentacji (możesz pominąć tę część, ponieważ istnieje już wystąpienie)
+2. Konfigurowanie **rejestracji aplikacji usługi Azure AD** w celu zapewnienia dostępu do Twojego wystąpienia
+3. Skonfiguruj uprawnienia dla Eksploratora ADT do uruchamiania na maszynie
+4. Uruchom Eksploratora ADT i skonfiguruj go tak, aby łączył się z wystąpieniem. Będziesz używać **nazwy hosta** oryginalnego wystąpienia usługi Azure Digital bliźniaczych reprezentacji, które jest przenoszone, oraz **identyfikatora klienta** i **identyfikatora dzierżawy** z rejestracji aplikacji.
 
 Teraz aplikacja Przykładowa ADT Explorer jest uruchamiana w przeglądarce na komputerze. Próbka powinna być połączona z oryginalnym wystąpieniem usługi Azure Digital bliźniaczych reprezentacji.
 
@@ -102,10 +104,10 @@ Następnie kliknij ikonę *Eksportuj wykres* w polu *Widok wykresu* .
 
 :::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/export-graph.png":::
 
-Spowoduje to włączenie linku *pobierania* w *widoku wykresu*. Wybierz go, aby pobrać reprezentację wyniku zapytania w formacie JSON, w tym modele, bliźniaczych reprezentacji i relacje. Powinno to spowodować pobranie pliku *JSON* na komputer.
+Spowoduje to włączenie linku *pobierania* w *widoku wykresu* . Wybierz go, aby pobrać reprezentację wyniku zapytania w formacie JSON, w tym modele, bliźniaczych reprezentacji i relacje. Powinno to spowodować pobranie pliku *JSON* na komputer.
 
 >[!NOTE]
->Jeśli pobrany plik ma inne rozszerzenie pliku, spróbuj edytować rozszerzenie bezpośrednio i zmienić je na *Format JSON*.
+>Jeśli pobrany plik ma inne rozszerzenie pliku, spróbuj edytować rozszerzenie bezpośrednio i zmienić je na *Format JSON* .
 
 ## <a name="move"></a>Move
 
@@ -113,12 +115,9 @@ Następnie zakończy się "Przenieś" wystąpienia, tworząc nowe wystąpienie w
 
 ### <a name="create-a-new-instance"></a>Utwórz nowe wystąpienie
 
-Najpierw **Utwórz nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie docelowym**. Aby to zrobić, wykonaj kroki opisane w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md), pamiętając o następujących wskaźnikach:
+Najpierw **Utwórz nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie docelowym** . Aby to zrobić, wykonaj kroki opisane w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md), pamiętając o następujących wskaźnikach:
 * Tę samą nazwę można zachować, **Jeśli** znajduje się ona w innej grupie zasobów. Jeśli musisz użyć tej samej grupy zasobów, która zawiera oryginalne wystąpienie, nowe wystąpienie będzie potrzebować własnej odrębnej nazwy.
 * Wprowadź nowy region docelowy po wyświetleniu monitu o lokalizację.
-* Rejestracja aplikacji **nie jest konieczna** . Nowe wystąpienie może korzystać z tej samej rejestracji aplikacji, która już istnieje.
-    - W przypadku korzystania z artykułu konfiguracji [skryptu](how-to-set-up-instance-scripted.md) można ponownie wprowadzić szczegóły istniejącej rejestracji aplikacji zamiast wprowadzać nową nazwę po wyświetleniu monitu.
-    - Jeśli używasz [portalu](how-to-set-up-instance-portal.md) ręcznego lub artykułów instalacji [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md) , możesz zatrzymać po *utworzeniu wystąpienia usługi Azure Digital bliźniaczych reprezentacji* i skonfigurować kroki *uprawnień dostępu użytkownika* . Nie trzeba kontynuować *konfigurowania uprawnień dostępu dla aplikacji klienckich*.
 
 Po zakończeniu tej czynności potrzebna będzie **Nazwa hosta** nowego wystąpienia, aby kontynuować konfigurowanie z danymi. Jeśli nie zanotujesz tego podczas instalacji, możesz wykonać [te instrukcje](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) , aby pobrać je teraz z Azure Portal.
 
@@ -138,23 +137,23 @@ Obecnie Eksplorator ADT jest połączony z oryginalnym wystąpieniem usługi Azu
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Ponieważ ponownie korzystasz z rejestracji aplikacji, musisz tylko zastąpić *adres URL ADT*. Zmień tę wartość, aby odczytał *https://{New instance hostname}*.
+Można ponownie użyć tej samej rejestracji aplikacji, więc wystarczy zamienić *adres URL ADT* , aby odzwierciedlał nowe wystąpienie. Zmień tę wartość, aby odczytał *https://{New instance hostname}* .
 
-*Połącz*trafień. Może zostać wyświetlony monit o zalogowanie się ponownie przy użyciu poświadczeń platformy Azure i/lub udzielenie tej aplikacji zgody na Twoje wystąpienie.
+*Połącz* trafień. Może zostać wyświetlony monit o zalogowanie się ponownie przy użyciu poświadczeń platformy Azure i/lub udzielenie tej aplikacji zgody na Twoje wystąpienie.
 
 ##### <a name="upload-models-twins-and-graph"></a>Przekazywanie modeli, bliźniaczych reprezentacji i grafów
 
 Następnie Przekaż pobrane wcześniej składniki rozwiązania do nowego wystąpienia.
 
-Aby przekazać **modele, bliźniaczych reprezentacji i Graf**, kliknij ikonę *importowania wykresu* w polu *Widok wykresu* . Ta opcja przekaże wszystkie trzy z tych składników jednocześnie (nawet modele, które nie są aktualnie używane na grafie).
+Aby przekazać **modele, bliźniaczych reprezentacji i Graf** , kliknij ikonę *importowania wykresu* w polu *Widok wykresu* . Ta opcja przekaże wszystkie trzy z tych składników jednocześnie (nawet modele, które nie są aktualnie używane na grafie).
 
 :::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/import-graph.png":::
 
-W polu Selektor plików przejdź do pobranego wykresu. Wybierz plik Graph *. JSON* i *Otwórz*go.
+W polu Selektor plików przejdź do pobranego wykresu. Wybierz plik Graph *. JSON* i *Otwórz* go.
 
 Po kilku sekundach Eksplorator ADT otworzy widok *importu* z podglądem wykresu, który zostanie załadowany.
 
-Aby potwierdzić przekazywanie wykresu, naciśnij ikonę *Zapisz* w prawym górnym rogu *widoku wykresu*:
+Aby potwierdzić przekazywanie wykresu, naciśnij ikonę *Zapisz* w prawym górnym rogu *widoku wykresu* :
 
 :::row:::
     :::column:::
@@ -176,7 +175,7 @@ Program ADT Explorer przekaże teraz modele i Graf (w tym bliźniaczych reprezen
     :::column-end:::
 :::row-end:::
 
-Aby sprawdzić, czy wszystko zostało przekazane pomyślnie, kliknij przycisk *Uruchom zapytanie* w oknie *Eksplorator grafu* , aby uruchomić domyślne zapytanie, które wyświetla wszystkie bliźniaczych reprezentacji i relacje na grafie. Spowoduje to również odświeżenie listy modeli w *widoku model*.
+Aby sprawdzić, czy wszystko zostało przekazane pomyślnie, kliknij przycisk *Uruchom zapytanie* w oknie *Eksplorator grafu* , aby uruchomić domyślne zapytanie, które wyświetla wszystkie bliźniaczych reprezentacji i relacje na grafie. Spowoduje to również odświeżenie listy modeli w *widoku model* .
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/run-query.png":::
 
@@ -191,8 +190,8 @@ To potwierdza, że modele, bliźniaczych reprezentacji i Graf zostały ponownie 
 Jeśli masz **punkty końcowe i/lub trasy** w oryginalnym wystąpieniu, musisz odtworzyć je ponownie w nowym wystąpieniu. Jeśli nie masz żadnych punktów końcowych lub tras w oryginalnym wystąpieniu lub nie chcesz przenosić ich do nowego wystąpienia, możesz przejść do [następnej sekcji](#re-link-connected-resources).
 
 W przeciwnym razie postępuj zgodnie z instrukcjami w temacie [*How to: Zarządzanie punktami końcowymi i trasami*](how-to-manage-routes-portal.md) przy użyciu nowego wystąpienia, pamiętając o następujących wskaźnikach: 
-* Nie ma **potrzeby** ponownego tworzenia Event Grid, centrum zdarzeń lub zasobu Service Bus używanego dla punktu końcowego (sekcje*wymagań wstępnych* w instrukcjach punktu końcowego). Wystarczy ponownie utworzyć punkt końcowy w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
-* Można ponownie użyć punktów końcowych i **nazw**tras, ponieważ należą one do zakresu innego wystąpienia.
+* Nie ma **potrzeby** ponownego tworzenia Event Grid, centrum zdarzeń lub zasobu Service Bus używanego dla punktu końcowego (sekcje *wymagań wstępnych* w instrukcjach punktu końcowego). Wystarczy ponownie utworzyć punkt końcowy w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
+* Można ponownie użyć punktów końcowych i **nazw** tras, ponieważ należą one do zakresu innego wystąpienia.
 * Pamiętaj, aby dodać wszystkie wymagane **filtry** do tworzonych tras.
 
 #### <a name="re-link-connected-resources"></a>Połącz ponownie połączone zasoby
@@ -201,7 +200,7 @@ Jeśli masz inne aplikacje lub zasoby platformy Azure, które są połączone z 
 
 Jeśli nie masz żadnych innych zasobów podłączonych do oryginalnego wystąpienia lub nie chcesz przenosić ich do nowego wystąpienia, możesz przejść do [następnej sekcji](#verify).
 
-W przeciwnym razie, aby dojdzie do dalszego, weź pod uwagę połączone zasoby. Nie trzeba usuwać i ponownie tworzyć połączonych zasobów; Zamiast tego wystarczy edytować punkty, w których łączą się z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji za pomocą jego **nazwy hosta**, a następnie zaktualizować ten element, aby używał nazwy hosta nowego wystąpienia zamiast oryginalnego.
+W przeciwnym razie, aby dojdzie do dalszego, weź pod uwagę połączone zasoby. Nie trzeba usuwać i ponownie tworzyć połączonych zasobów; Zamiast tego wystarczy edytować punkty, w których łączą się z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji za pomocą jego **nazwy hosta** , a następnie zaktualizować ten element, aby używał nazwy hosta nowego wystąpienia zamiast oryginalnego.
 
 Dokładne zasoby, które należy edytować, zależą od danego scenariusza, ale poniżej przedstawiono kilka typowych punktów integracji:
 * Azure Functions. Jeśli masz funkcję platformy Azure, której kod zawiera nazwę hosta oryginalnego wystąpienia, należy zaktualizować tę wartość do nazwy hosta nowej instancji i ponownie opublikować funkcję.
@@ -226,7 +225,7 @@ Możesz również spróbować uruchomić dowolne aplikacje niestandardowe lub pr
 
 ## <a name="clean-up-source-resources"></a>Czyszczenie zasobów źródłowych
 
-Teraz, gdy nowe wystąpienie jest skonfigurowane w regionie docelowym z kopią danych i połączeń oryginalnego wystąpienia, można **usunąć oryginalne wystąpienie**.
+Teraz, gdy nowe wystąpienie jest skonfigurowane w regionie docelowym z kopią danych i połączeń oryginalnego wystąpienia, można **usunąć oryginalne wystąpienie** .
 
 Można to zrobić w [Azure Portal](https://portal.azure.com)przy użyciu [interfejsu wiersza polecenia](how-to-use-cli.md)lub [interfejsów API płaszczyzny kontroli](how-to-use-apis-sdks.md#overview-control-plane-apis).
 

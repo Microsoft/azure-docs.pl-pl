@@ -1,15 +1,15 @@
 ---
 title: Eksportowanie zasobów usługi Azure Policy
 description: Dowiedz się, jak eksportować Azure Policy zasobów do usługi GitHub, takich jak definicje zasad i przypisania zasad.
-ms.date: 09/30/2020
+ms.date: 10/29/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 691e0a026c5f4f1a0a68c744ee81b1da8da9e70b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c16ceed755cab3228b8f9e401f486a0629f3a60d
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777092"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025718"
 ---
 # <a name="export-azure-policy-resources"></a>Eksportowanie zasobów usługi Azure Policy
 
@@ -19,20 +19,20 @@ Ten artykuł zawiera informacje na temat eksportowania istniejących zasobów Az
 
 Aby wyeksportować definicję zasad z Azure Portal, wykonaj następujące kroki:
 
-1. Uruchom usługę Azure Policy w witrynie Azure Portal, klikając opcję **Wszystkie usługi** i następnie wyszukując i wybierając opcję **Zasada**.
+1. Uruchom usługę Azure Policy w witrynie Azure Portal, klikając opcję **Wszystkie usługi** i następnie wyszukując i wybierając opcję **Zasada** .
 
 1. Wybierz pozycję **definicje** po lewej stronie Azure Policy.
 
-1. Użyj przycisku **Eksportuj definicje** lub wybierz wielokropek w wierszu definicji zasad, a następnie wybierz pozycję **Eksportuj definicję**.
+1. Użyj przycisku **Eksportuj definicje** lub wybierz wielokropek w wierszu definicji zasad, a następnie wybierz pozycję **Eksportuj definicję** .
 
 1. Wybierz przycisk **Zaloguj się przy użyciu usługi GitHub** . Jeśli nie masz jeszcze uwierzytelnienia w usłudze GitHub w celu autoryzowania Azure Policy eksportowania zasobu, sprawdź, czy w nowym otwartym oknie są dostępne wymagania dotyczące [akcji GitHub](https://github.com/features/actions) , a następnie wybierz pozycję **Autoryzuj AzureGitHubActions** , aby kontynuować proces eksportowania. Po zakończeniu nowe okno zostanie automatycznie zamknięte.
 
 1. Na karcie **podstawy** ustaw poniższe opcje, a następnie wybierz kartę **zasady** lub przycisk **Dalej: zasady** w dolnej części strony.
 
-   - **Filtr repozytorium**: Ustaw _Moje repozytoria_ , aby wyświetlić tylko własne repozytoria lub _wszystkie_ repozytoria, aby zobaczyć, że masz dostęp do akcji usługi GitHub.
-   - **Repozytorium**: Ustaw repozytorium, do którego chcesz wyeksportować zasoby Azure Policy.
-   - **Gałąź**: Ustaw gałąź w repozytorium. Użycie gałęzi innej niż domyślna to dobry sposób na zweryfikowanie aktualizacji przed ich scaleniem w kodzie źródłowym.
-   - **Katalog**: _folder poziomu głównego_ , do którego mają zostać wyeksportowane zasoby Azure Policy. Podfoldery w tym katalogu są tworzone na podstawie tego, jakie zasoby są eksportowane.
+   - **Filtr repozytorium** : Ustaw _Moje repozytoria_ , aby wyświetlić tylko własne repozytoria lub _wszystkie_ repozytoria, aby zobaczyć, że masz dostęp do akcji usługi GitHub.
+   - **Repozytorium** : Ustaw repozytorium, do którego chcesz wyeksportować zasoby Azure Policy.
+   - **Gałąź** : Ustaw gałąź w repozytorium. Użycie gałęzi innej niż domyślna to dobry sposób na zweryfikowanie aktualizacji przed ich scaleniem w kodzie źródłowym.
+   - **Katalog** : _folder poziomu głównego_ , do którego mają zostać wyeksportowane zasoby Azure Policy. Podfoldery w tym katalogu są tworzone na podstawie tego, jakie zasoby są eksportowane.
 
 1. Na karcie **zasady** Ustaw zakres wyszukiwania, wybierając wielokropek i wybierz kombinację grup zarządzania, subskrypcji lub grup zasobów.
    
@@ -47,7 +47,7 @@ Aby wyeksportować definicję zasad z Azure Portal, wykonaj następujące kroki:
 
 1. Sprawdź repozytorium GitHub, gałąź i _folder poziomu głównego_ , aby zobaczyć, że wybrane zasoby zostały teraz wyeksportowane do kontroli źródła.
 
-Zasoby Azure Policy są eksportowane do następującej struktury w wybranym repozytorium GitHub i _folderze poziomu głównego_:
+Zasoby Azure Policy są eksportowane do następującej struktury w wybranym repozytorium GitHub i _folderze poziomu głównego_ :
 
 ```text
 |
@@ -67,7 +67,7 @@ Definicje Azure Policy, inicjatywy i przypisania można wyeksportować jako dane
 - Initiative- [AZ Policy Set-definicja show](/cli/azure/policy/set-definition#az-policy-set-definition-show)
 - Przypisanie — [AZ Policy przypisanie show](/cli/azure/policy/assignment#az-policy-assignment-show)
 
-Oto przykład pobierania pliku JSON dla definicji zasad o **nazwie** _VirtualMachineStorage_:
+Oto przykład pobierania pliku JSON dla definicji zasad o **nazwie** _VirtualMachineStorage_ :
 
 ```azurecli-interactive
 az policy definition show --name 'VirtualMachineStorage'
@@ -81,10 +81,10 @@ Definicje Azure Policy, inicjatywy i przypisania można wyeksportować w formaci
 - Inicjatywa [Get-AzPolicySetDefinition](/powershell/module/az.resources/get-azpolicysetdefinition)
 - Przypisanie- [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)
 
-Oto przykład pobierania pliku JSON dla definicji zasad o **nazwie** _VirtualMachineStorage_:
+Oto przykład pobierania pliku JSON dla definicji zasad o **nazwie** _VirtualMachineStorage_ :
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage' | ConvertTo-Json -Depth 10
 ```
 
 ## <a name="next-steps"></a>Następne kroki

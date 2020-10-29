@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325797"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025905"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Wyzwalacz czasomierza dla Azure Functions
 
@@ -126,7 +126,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Poniższy przykład ilustruje sposób konfigurowania *function.jsna* i *run.ps1* pliku dla wyzwalacza czasomierza w programie [PowerShell](./functions-reference-powershell.md).
 
@@ -163,7 +163,7 @@ Wystąpienie [obiektu Timer](#usage) jest przesyłane jako pierwszy argument do 
 
 # <a name="python"></a>[Python](#tab/python)
 
-W poniższym przykładzie jest stosowane powiązanie wyzwalacza czasomierza, którego konfiguracja została opisana w *function.js* pliku. Rzeczywista [funkcja języka Python](functions-reference-python.md) , która używa powiązania, jest opisana w pliku * __init__. PR* . Obiekt przesłany do funkcji jest [obiektem typu Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). Logika funkcji zapisuje w dziennikach wskazujący, czy bieżące wywołanie jest spowodowane pominiętym wystąpieniem harmonogramu.
+W poniższym przykładzie jest stosowane powiązanie wyzwalacza czasomierza, którego konfiguracja została opisana w *function.js* pliku. Rzeczywista [funkcja języka Python](functions-reference-python.md) , która używa powiązania, jest opisana w pliku *__init__ . PR* . Obiekt przesłany do funkcji jest [obiektem typu Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). Logika funkcji zapisuje w dziennikach wskazujący, czy bieżące wywołanie jest spowodowane pominiętym wystąpieniem harmonogramu.
 
 Oto dane powiązania w *function.js* pliku:
 
@@ -242,7 +242,7 @@ public void keepAlive(
 
 Atrybuty nie są obsługiwane przez język JavaScript.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Atrybuty nie są obsługiwane przez program PowerShell.
 
@@ -276,18 +276,18 @@ Po wywołaniu funkcji wyzwalacza czasomierza obiekt Timer jest przenoszona do fu
 
 ```json
 {
-    "Schedule":{
+    "schedule":{
     },
-    "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00+00:00",
-        "LastUpdated":"2016-10-04T10:16:00+00:00",
-        "Next":"2016-10-04T10:20:00+00:00"
+    "scheduleStatus": {
+        "last":"2016-10-04T10:15:00+00:00",
+        "lastUpdated":"2016-10-04T10:16:00+00:00",
+        "next":"2016-10-04T10:20:00+00:00"
     },
-    "IsPastDue":false
+    "isPastDue":false
 }
 ```
 
-`IsPastDue`Właściwość jest, `true` gdy bieżące wywołanie funkcji jest późniejsze niż zaplanowana. Na przykład ponowne uruchomienie aplikacji funkcji może spowodować utratę wywołania.
+`isPastDue`Właściwość jest, `true` gdy bieżące wywołanie funkcji jest późniejsze niż zaplanowana. Na przykład ponowne uruchomienie aplikacji funkcji może spowodować utratę wywołania.
 
 ## <a name="ncrontab-expressions"></a>Wyrażenia NCRONTAB
 
@@ -297,7 +297,7 @@ Azure Functions rozpoznaje wyrażenia NCRONTAB przy użyciu biblioteki [NCronTab
 
 Każde pole może mieć jeden z następujących typów wartości:
 
-|Type  |Przykład  |Po wyzwoleniu  |
+|Typ  |Przykład  |Po wyzwoleniu  |
 |---------|---------|---------|
 |Określona wartość |<nobr>"0 5 * * * *"</nobr>|at hh: 05:00, gdzie HH jest co godzinę (raz na godzinę)|
 |Wszystkie wartości ( `*` )|<nobr>"0 * 5 * * *"</nobr>|o godzinie 5: mm: 00 codziennie, gdzie mm jest co minutę godziny (60 razy dziennie)|

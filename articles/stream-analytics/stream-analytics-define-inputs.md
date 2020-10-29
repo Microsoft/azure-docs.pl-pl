@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 445cd7c55de58b6e5266f76a06d2cbabc75c18b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: fb5aca1739fbb4a77cbcb7eed6b9dce1b3ccc182
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907173"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027588"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Przesyłaj strumieniowo dane jako dane wejściowe do Stream Analytics
 
@@ -55,7 +55,7 @@ W poniższej tabeli opisano każdą właściwość na stronie **nowe dane wejśc
 | **Nazwa centrum zdarzeń** | Nazwa centrum zdarzeń do użycia jako dane wejściowe. |
 | **Nazwa zasad centrum zdarzeń** | Zasady dostępu współdzielonego zapewniające dostęp do centrum zdarzeń. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego dostarczania ustawień centrum zdarzeń.|
 | **Grupa odbiorców centrum zdarzeń** (zalecane) | Zdecydowanie zaleca się użycie odrębnej grupy odbiorców dla każdego zadania Stream Analytics. Ten ciąg identyfikuje grupę odbiorców, która ma być używana do pozyskiwania danych z centrum zdarzeń. Jeśli grupa odbiorców nie zostanie określona, zadanie Stream Analytics używa $Default grupy odbiorców.  |
-| **Klucz partycji** | Jeśli dane wejściowe są podzielone na partycje przez właściwość, można dodać nazwę tej właściwości. Klucze partycji są opcjonalne i są używane do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. |
+| **Klucz partycji** | Jest to pole opcjonalne, które jest dostępne tylko wtedy, gdy zadanie jest skonfigurowane do używania [poziomu zgodności](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 lub wyższego. Jeśli dane wejściowe są podzielone na partycje przez właściwość, można w tym miejscu dodać nazwę tej właściwości. Służy do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. Jeśli to zadanie używa poziomu zgodności 1,2 lub nowszego, to pole ma wartość domyślną "PartitionId". |
 | **Format serializacji zdarzeń** | Format serializacji (JSON, CSV, Avro lub [inny (protobuf, XML, własny,...)](custom-deserializer.md)) przychodzącego strumienia danych.  Upewnij się, że format JSON jest wyrównany ze specyfikacją i nie zawiera wiodących wartości 0 dla liczb dziesiętnych. |
 | **Kodowanie** | UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
 | **Typ kompresji zdarzenia** | Typ kompresji używany do odczytywania przychodzącego strumienia danych, na przykład None (wartość domyślna), GZip lub Wklęśnięcie. |
@@ -105,7 +105,7 @@ W poniższej tabeli opisano każdą właściwość na stronie **nowe dane wejśc
 | **Nazwa zasad dostępu współdzielonego** | Zasady dostępu współdzielonego zapewniające dostęp do IoT Hub. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. |
 | **Klucz zasad dostępu współdzielonego** | Współużytkowany klucz dostępu używany do autoryzacji dostępu do IoT Hub.  Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego dostarczania ustawień Centrum IoT. |
 | **Grupa konsumentów** | Zdecydowanie zaleca się użycie innej grupy odbiorców dla każdego zadania Stream Analytics. Grupa konsumentów służy do pozyskiwania danych z IoT Hub. Stream Analytics używa grupy konsumentów $Default, chyba że określisz inaczej.  |
-| **Klucz partycji** | Jeśli dane wejściowe są podzielone na partycje przez właściwość, można dodać nazwę tej właściwości. Klucze partycji są opcjonalne i są używane do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. |
+| **Klucz partycji** | Jest to pole opcjonalne, które jest dostępne tylko wtedy, gdy zadanie jest skonfigurowane do używania [poziomu zgodności](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 lub wyższego. Jeśli dane wejściowe są podzielone na partycje przez właściwość, można w tym miejscu dodać nazwę tej właściwości. Służy do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. Jeśli to zadanie używa poziomu zgodności 1,2 lub nowszego, to pole ma wartość domyślną "PartitionId". |
 | **Format serializacji zdarzeń** | Format serializacji (JSON, CSV, Avro lub [inny (protobuf, XML, własny,...)](custom-deserializer.md)) przychodzącego strumienia danych.  Upewnij się, że format JSON jest wyrównany ze specyfikacją i nie zawiera wiodących wartości 0 dla liczb dziesiętnych. |
 | **Kodowanie** | UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
 | **Typ kompresji zdarzenia** | Typ kompresji używany do odczytywania przychodzącego strumienia danych, na przykład None (wartość domyślna), GZip lub Wklęśnięcie. |
@@ -159,7 +159,8 @@ W poniższej tabeli opisano każdą właściwość na stronie **nowe dane wejśc
 | **Wzorzec ścieżki** (opcjonalnie) | Ścieżka pliku używana do lokalizowania obiektów BLOB w określonym kontenerze. Jeśli chcesz odczytywać obiekty blob z katalogu głównego kontenera, nie ustawiaj wzorca ścieżki. W ścieżce można określić jedno lub więcej wystąpień następujących trzech zmiennych: `{date}` , `{time}` , lub `{partition}`<br/><br/>Przykład 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Przykład 2: `cluster1/logs/{date}`<br/><br/>`*`Znak nie jest dozwoloną wartością dla prefiksu ścieżki. Dozwolone są tylko poprawne <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">znaki obiektów blob platformy Azure</a> . Nie dołączaj nazw kontenerów ani nazw plików. |
 | **Format daty** (opcjonalnie) | Jeśli używasz zmiennej daty w ścieżce, format daty, w którym są zorganizowane pliki. Przykład: `YYYY/MM/DD` <br/><br/> Gdy dane wejściowe obiektu BLOB mają `{date}` lub `{time}` w swojej ścieżce, foldery są przeszukiwane w kolejności rosnącej.|
 | **Format czasu** (opcjonalnie) |  Jeśli używasz zmiennej czasowej w ścieżce, format czasu, w którym są zorganizowane pliki. Obecnie jedyną obsługiwaną wartością jest `HH` dla godzin. |
-| **Klucz partycji** | Jeśli dane wejściowe są podzielone na partycje przez właściwość, można dodać nazwę tej właściwości. Klucze partycji są opcjonalne i są używane do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. |
+| **Klucz partycji** | Jest to pole opcjonalne, które jest dostępne tylko wtedy, gdy zadanie jest skonfigurowane do używania [poziomu zgodności](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 lub wyższego. Jeśli dane wejściowe są podzielone na partycje przez właściwość, można w tym miejscu dodać nazwę tej właściwości. Służy do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. Jeśli to zadanie używa poziomu zgodności 1,2 lub nowszego, to pole ma wartość domyślną "PartitionId". |
+| **Liczba partycji wejściowych** | To pole jest obecne tylko w przypadku, gdy w wzorcu ścieżki występuje {Partition}. Wartość tej właściwości jest liczbą całkowitą >= 1. W przypadku, gdy {Partition} pojawia się w właściwości, zostanie użyta liczba z zakresu od 0 do wartości tego pola-1. |
 | **Format serializacji zdarzeń** | Format serializacji (JSON, CSV, Avro lub [inny (protobuf, XML, własny,...)](custom-deserializer.md)) przychodzącego strumienia danych.  Upewnij się, że format JSON jest wyrównany ze specyfikacją i nie zawiera wiodących wartości 0 dla liczb dziesiętnych. |
 | **Kodowanie** | W przypadku woluminów CSV i JSON UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
 | **Kompresja** | Typ kompresji używany do odczytywania przychodzącego strumienia danych, na przykład None (wartość domyślna), GZip lub Wklęśnięcie. |

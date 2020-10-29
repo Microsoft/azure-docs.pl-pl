@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539133"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027163"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metryki oparte na dzienniku i metryki wstępnie zagregowane w usłudze Application Insights
 
@@ -40,6 +40,28 @@ Nowsze zestawy SDK ([Application Insights 2,7](https://www.nuget.org/packages/Mi
 W przypadku zestawów SDK, które nie implementują wstępnej agregacji (to jest starsze wersje zestawów SDK Application Insights lub dla Instrumentacji przeglądarki), Application Insights zaplecza nadal wypełnia nowe metryki, agregowanie zdarzeń odebranych przez punkt końcowy zbierania zdarzeń Application Insights. Oznacza to, że chociaż nie korzystasz ze zmniejszonej ilości danych przesyłanych za pośrednictwem sieci, nadal możesz użyć wstępnie zagregowanych metryk i zapewnić lepszą wydajność i obsługę alertów w czasie rzeczywistym, korzystając z zestawów SDK, które nie agregują wstępnie metryk podczas zbierania.
 
 Warto zauważyć, że punkt końcowy kolekcji wstępnie agreguje zdarzenia przed pobraniem próbek, co oznacza, że [pobieranie próbek](./sampling.md) nie będzie miało wpływu na dokładność metryk przedzagregowanych, niezależnie od używanej wersji zestawu SDK z aplikacją.  
+
+### <a name="sdk-supported-pre-aggregated-metrics-table"></a>Wstępnie zagregowana tabela metryk obsługiwana przez zestaw SDK
+
+| Bieżące zestawy SDK produkcji | Metryki standardowe (wstępne agregacja zestawu SDK) | Metryki niestandardowe (bez agregacji wstępnej zestawu SDK) | Metryki niestandardowe (z funkcją agregacji wstępnej zestawu SDK)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core i .NET Framework | Obsługiwane (V 2.13.1 +)| Obsługiwane przez [TrackMetric](api-custom-events-metrics.md#trackmetric)| Obsługiwane (V 2.7.2 +) za pomocą metody [GetMetric](get-metric.md) |
+| Java                         | Nieobsługiwane       | Obsługiwane przez [TrackMetric](api-custom-events-metrics.md#trackmetric)| Nieobsługiwane                           |
+| Node.js                      | Nieobsługiwane       | Obsługiwane przez  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Nieobsługiwane                           |
+| Język Python                       | Nieobsługiwane       | Obsługiwane                                 | Obsługiwane przez [OpenCensus. destatystyka](opencensus-python.md#metrics) |  
+
+
+### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tabela metryk w nieobsługiwanej postaci bezkodowej
+
+| Bieżące zestawy SDK produkcji | Metryki standardowe (wstępne agregacja zestawu SDK) | Metryki niestandardowe (bez agregacji wstępnej zestawu SDK) | Metryki niestandardowe (z funkcją agregacji wstępnej zestawu SDK)|
+|-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP.NET                 | Obsługiwane <sup> 1<sup>    | Nieobsługiwane                             | Nieobsługiwane                           |
+| ASP.NET Core            | Obsługiwane <sup> 2<sup>    | Nieobsługiwane                             | Nieobsługiwane                           |
+| Java                    | Nieobsługiwane            | Nieobsługiwane                             | [Obsługiwane](java-in-process-agent.md#metrics) |
+| Node.js                 | Nieobsługiwane            | Nieobsługiwane                             | Nieobsługiwane                           |
+
+1. ASP.NET dołączania bezkodowego nie jest włączone, App Service tylko emituje metryki w trybie monitorowania "Full". Dołączenie bez kodu ASP.NET App Service, VM/VMSS i on-premises emituje standardowe metryki bez wymiarów. Zestaw SDK jest wymagany dla wszystkich wymiarów.
+2. ASP.NET Core dołączenie bezkodowe App Service emituje metryki standardowe bez wymiarów. Zestaw SDK jest wymagany dla wszystkich wymiarów.
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Używanie wstępnej agregacji z niestandardowymi metrykami Application Insights
 

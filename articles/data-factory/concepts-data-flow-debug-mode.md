@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085097"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027010"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapowanie trybu debugowania przepływu danych
 
@@ -77,15 +77,15 @@ Gdy Przekształć testy jednostkowe, istnieją lub przekształcenia wyszukiwania
 
 Gdy zobaczysz Podgląd danych, możesz wygenerować szybką transformację, aby rzutowanie, usunąć lub zmodyfikować kolumnę. Kliknij nagłówek kolumny, a następnie wybierz jedną z opcji na pasku narzędzi Podgląd danych.
 
-![Szybkie akcje](media/data-flow/quick-actions1.png "Szybkie akcje")
+![Zrzut ekranu przedstawia pasek narzędzi Podgląd danych z opcjami: Rzutowanie, Modify, Statistics i Remove.](media/data-flow/quick-actions1.png "Szybkie akcje")
 
 Po wybraniu modyfikacji Podgląd danych zostanie natychmiast odświeżony. Kliknij przycisk **Potwierdź** w prawym górnym rogu, aby wygenerować nowe przekształcenie.
 
-![Szybkie akcje](media/data-flow/quick-actions2.png "Szybkie akcje")
+![Zrzut ekranu przedstawia przycisk Potwierdź.](media/data-flow/quick-actions2.png "Szybkie akcje")
 
 **Rzutowanie** i **Modify** wygenerują transformację kolumn pochodnych, a **usunięcie** spowoduje wygenerowanie transformacji SELECT.
 
-![Szybkie akcje](media/data-flow/quick-actions3.png "Szybkie akcje")
+![Zrzut ekranu przedstawia ustawienia kolumny pochodnej.](media/data-flow/quick-actions3.png "Szybkie akcje")
 
 > [!NOTE]
 > W przypadku edycji przepływu danych należy ponownie pobrać Podgląd danych przed dodaniem szybkiej transformacji.

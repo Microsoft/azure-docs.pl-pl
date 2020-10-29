@@ -1,6 +1,6 @@
 ---
 title: Jednostki administracyjne w Azure Active Directory | Microsoft Docs
-description: Korzystanie z jednostek administracyjnych na potrzeby bardziej szczegółowego delegowania uprawnień w Azure Active Directory
+description: Użyj jednostek administracyjnych, aby bardziej szczegółowo delegowania uprawnień w Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,93 +14,95 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc7f28f9369d54c65f633bd24da5443415a80625
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fb24d0cd2714969b5a888b1036f524c4c062d76
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379299"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027622"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Jednostki administracyjne w Azure Active Directory
 
 W tym artykule opisano jednostki administracyjne w Azure Active Directory (Azure AD). Jednostka administracyjna to zasób usługi Azure AD, który może być kontenerem dla innych zasobów usługi Azure AD. Jednostka administracyjna może zawierać tylko użytkowników i grupy.
 
-Jednostki administracyjne umożliwiają Przyznawanie uprawnień administratora, które są ograniczone do działu, regionu lub innego segmentu zdefiniowanej organizacji. Jednostki administracyjne mogą służyć do delegowania uprawnień do administratorów regionalnych lub do ustawiania zasad na poziomie szczegółowym. Administrator konta użytkownika może na przykład zaktualizować informacje o profilu, zresetować hasła i przypisać licencje dla użytkowników tylko w ich jednostce administracyjnej.
+Korzystając z jednostek administracyjnych, można przyznać uprawnienia administratora, które są ograniczone do działu, regionu lub innego segmentu zdefiniowanej organizacji. Jednostki administracyjne mogą służyć do delegowania uprawnień do administratorów regionalnych lub do ustawiania zasad na poziomie szczegółowym. Administrator konta użytkownika może na przykład zaktualizować informacje o profilu, zresetować hasła i przypisać licencje dla użytkowników tylko w ich jednostce administracyjnej.
 
-Na przykład delegowanie do specjalistów pomocy technicznej regionalnej rola [administratora punktu](permissions-reference.md#helpdesk-administrator) pomocy jest ograniczona do zarządzania tylko użytkownikami w regionie, w którym są one obsługiwane.
+Na przykład można delegować do specjalistów pomocy [technicznej w regionie, który](permissions-reference.md#helpdesk-administrator) jest ograniczony do zarządzania użytkownikami tylko w obszarze, który obsługuje.
 
 ## <a name="deployment-scenario"></a>Scenariusz wdrożenia
 
-Ograniczanie zakresu administracyjnego przy użyciu jednostek administracyjnych może być przydatne w organizacjach, które składają się z niezależnych oddziałów dowolnego rodzaju. Rozważmy przykład dużej uczelni, która składa się z wielu szkół autonomicznych (szkoły, szkoły inżynieryjnej i tak dalej), że każdy z nich ma zespół administratorów IT kontrolujący dostęp, zarządzanie użytkownikami i Ustawianie zasad dla swojej szkoły. Administrator centralny może:
+Może być przydatne, aby ograniczyć zakres administracyjny przy użyciu jednostek administracyjnych w organizacjach, które składają się z niezależnych oddziałów dowolnego rodzaju. Rozważmy przykład dużego University, który składa się z wielu szkół autonomicznych (Szkoła biznesowa, szkoły inżynieryjnej itp.). Każda szkoła ma zespół administratorów IT, którzy kontrolują dostęp, zarządzać użytkownikami i ustawiać zasady dla swojej szkoły. 
 
-- Utwórz rolę z uprawnieniami administracyjnymi tylko dla użytkowników usługi Azure AD w jednostce administracyjnej szkoły biznesowej
-- Tworzenie jednostki administracyjnej dla szkoły biznesowej
-- Wypełnij jednostkę administracyjną wyłącznie uczniami i personelem szkoły szkolnej
-- Dodawanie zespołu służbowego IT do roli z ich zakresem
+Administrator centralny może:
+
+- Utwórz rolę z uprawnieniami administracyjnymi tylko dla użytkowników usługi Azure AD w jednostce administracyjnej szkoły biznesowej.
+- Utwórz jednostkę administracyjną dla szkoły biznesowej.
+- Wypełnij jednostkę administracyjną wyłącznie uczniami i personelem szkoły szkolnej.
+- Dodaj zespół ds. biznesu IT do roli wraz z jego zakresem.
 
 ## <a name="license-requirements"></a>Wymagania licencyjne
 
-Korzystanie z jednostek administracyjnych wymaga Azure Active Directory — wersja Premium licencji dla każdego administratora jednostki administracyjnej i Azure Active Directory — wersja Bezpłatna licencji dla członków jednostki administracyjnej. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure AD — wersja Premium](../fundamentals/active-directory-get-started-premium.md).
+Aby korzystać z jednostek administracyjnych, należy Azure Active Directory — wersja Premium licencję dla każdego administratora jednostki administracyjnej i Azure Active Directory — wersja Bezpłatna licencje dla członków jednostki administracyjnej. Aby uzyskać więcej informacji, zobacz [wprowadzenie do Azure AD — wersja Premium](../fundamentals/active-directory-get-started-premium.md).
 
 ## <a name="manage-administrative-units"></a>Zarządzanie jednostkami administracyjnymi
 
-Jednostkami administracyjnymi można zarządzać za pomocą Azure Portal, poleceń cmdlet programu PowerShell i skryptów lub Microsoft Graph. Aby uzyskać szczegółowe informacje, możesz zapoznać się z naszą dokumentacją:
+Jednostkami administracyjnymi można zarządzać za pomocą Azure Portal, poleceń cmdlet programu PowerShell i skryptów lub Microsoft Graph. Aby uzyskać więcej informacji, zobacz:
 
-- [Twórz, usuwaj, wypełniaj i dodawaj role do jednostek administracyjnych](admin-units-manage.md): wykonaj procedury opisane w procedurach
-- [Praca z jednostkami](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true)administracyjnymi: jak pracować z jednostkami administracyjnymi przy użyciu programu PowerShell
-- [Obsługa grafu jednostki administracyjnej](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): szczegółowa dokumentacja dotycząca Microsoft Graph dla jednostek administracyjnych.
+- [Tworzenie, usuwanie, zapełnianie i Dodawanie ról do jednostek administracyjnych](admin-units-manage.md): zawiera kompletne procedury postępowania.
+- [Współpraca z jednostkami administracyjnymi](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): obejmuje sposób pracy z jednostkami administracyjnymi przy użyciu programu PowerShell.
+- [Obsługa grafu jednostki administracyjnej](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): zawiera szczegółową dokumentację dotyczącą Microsoft Graph dla jednostek administracyjnych.
 
-### <a name="planning-your-administrative-units"></a>Planowanie jednostek administracyjnych
+### <a name="plan-your-administrative-units"></a>Planowanie jednostek administracyjnych
 
-Jednostki administracyjne mogą służyć do logicznego grupowania zasobów usługi Azure AD. Na przykład w przypadku organizacji, której dział IT jest rozproszeni globalnie, warto utworzyć jednostki administracyjne, które definiują te granice geograficzne. W innym scenariuszu, w którym organizacja wielonarodowy ma różne "podorganizacje", które są częściowo autonomiczne w operacjach, każda podorganizacja może być reprezentowana przez jednostkę administracyjną.
+Jednostki administracyjne umożliwiają logiczne grupowanie zasobów usługi Azure AD. Na przykład w przypadku organizacji, której dział IT jest rozproszeni globalnie, warto utworzyć jednostki administracyjne, które definiują te granice geograficzne. W innym scenariuszu, w którym organizacja wielonarodowy ma różne *organizacje podrzędne* , które są częściowo autonomiczne w swoich operacjach, jednostka administracyjna może reprezentować każdą podorganizację.
 
-Kryteria, w których są tworzone jednostki administracyjne, będą prowadzone zgodnie z unikatowymi wymaganiami organizacji. Jednostki administracyjne są typowym sposobem definiowania struktury w ramach usług Microsoft 365. Zalecamy przygotowanie jednostek administracyjnych do ich używania w ramach usług Microsoft 365. Możesz uzyskać maksymalną wartość z jednostek administracyjnych, gdy można kojarzyć typowe zasoby w Microsoft 365 w ramach jednostki administracyjnej.
+Kryteria, w których są tworzone jednostki administracyjne, podlegają unikatowym wymaganiom organizacji. Jednostki administracyjne są typowym sposobem definiowania struktury w ramach usług Microsoft 365. Zalecamy przygotowanie jednostek administracyjnych do ich używania w ramach usług Microsoft 365. Możesz uzyskać maksymalną wartość z jednostek administracyjnych, gdy można kojarzyć typowe zasoby w Microsoft 365 w ramach jednostki administracyjnej.
 
 Aby utworzyć jednostki administracyjne w organizacji, możesz przejść przez następujące etapy:
 
-1. Początkowe wdrożenie: organizacja rozpocznie tworzenie jednostek administracyjnych na podstawie początkowych kryteriów, a liczba jednostek administracyjnych zwiększy się, gdy kryteria zostaną ulepszone.
-1. Oczyszczanie: po określeniu kryterium jednostki administracyjne, które nie są już wymagane, zostaną usunięte.
-1. Stabilizacja: Struktura organizacyjna jest dobrze zdefiniowana, a liczba jednostek administracyjnych nie zmienia się znacząco w krótkim czasie trwania.
+1. **Początkowe** wdrożenie: organizacja rozpocznie tworzenie jednostek administracyjnych na podstawie kryteriów początkowych, a liczba jednostek administracyjnych zwiększy się, gdy kryteria zostaną ulepszone.
+1. **Oczyszczanie** : po pomyślnym zdefiniowaniu kryteriów jednostki administracyjne, które nie są już wymagane, zostaną usunięte.
+1. **Stabilizacja** : Struktura organizacyjna jest dobrze zdefiniowana i liczba jednostek administracyjnych nie zmienia się znacząco w krótkim czasie.
 
 ## <a name="currently-supported-scenarios"></a>Obecnie obsługiwane scenariusze
 
-Administratorzy globalni lub administrator ról uprzywilejowanych mogą używać portalu usługi Azure AD do tworzenia jednostek administracyjnych, dodawać użytkowników jako członków jednostek administracyjnych, a następnie przypisywać personelowi IT do ról administratora z zakresem jednostek administracyjnych. Administratorzy z zakresem administracyjnym mogą następnie użyć Centrum administracyjnego Microsoft 365, aby uzyskać podstawowe zarządzanie użytkownikami w ich jednostkach administracyjnych.
+Jako Administrator globalny lub administrator ról uprzywilejowanych możesz użyć portalu usługi Azure AD, aby utworzyć jednostki administracyjne, dodać użytkowników jako członków jednostek administracyjnych, a następnie przypisać personelowi IT do ról administratora z zakresem jednostki administracyjnej. Administratorzy z zakresem administracyjnym mogą następnie użyć Centrum administracyjnego Microsoft 365, aby uzyskać podstawowe zarządzanie użytkownikami w swoich jednostkach administracyjnych.
 
-Ponadto grupy mogą być dodawane jako członkowie jednostki administracyjnej, a administrator grupy z zakresem jednostki administratora może zarządzać nimi przy użyciu programu PowerShell, Microsoft Graph i portalu usługi Azure AD.
+Ponadto można dodać grupy jako członków jednostki administracyjnej. Administrator grupy z zakresem jednostki administracyjnej może zarządzać nimi przy użyciu programu PowerShell, Microsoft Graph i portalu usługi Azure AD.
 
-W poniższej tabeli opisano bieżące wsparcie dla scenariuszy jednostek administracyjnych.
+W poniższych tabelach opisano bieżącą obsługę scenariuszy jednostek administracyjnych:
 
 ### <a name="administrative-unit-management"></a>Zarządzanie jednostkami administracyjnymi
 
-Uprawnienia |   Program MS Graph/program PowerShell   | Portal usługi Azure AD | Centrum administracyjne platformy Microsoft 365
------------ | ----------------------- | --------------- | -----------------
-Tworzenie i usuwanie jednostek administracyjnych   |    Obsługiwane    |   Obsługiwane   |    Nieobsługiwane
-Dodawanie i usuwanie członków jednostki administracyjnej osobno    |   Obsługiwane    |   Obsługiwane   |    Nieobsługiwane
-Zbiorcze dodawanie i usuwanie członków jednostek administracyjnych przy użyciu pliku CSV   |    Nieobsługiwane     |  Obsługiwane   |    Brak planu do obsługi
-Przypisywanie administratorów z zakresem administracyjnym  |     Obsługiwane    |   Obsługiwane    |   Nieobsługiwane
-Dynamiczne dodawanie i usuwanie członków funkcji AU na podstawie atrybutów | Nieobsługiwane | Nieobsługiwane | Nieobsługiwane
+| Uprawnienia |   Graph/PowerShell   | Portal usługi Azure AD | Centrum administracyjne platformy Microsoft 365 | 
+| -- | -- | -- | -- |
+| Tworzenie i usuwanie jednostek administracyjnych   |    Obsługiwane    |   Obsługiwane   |    Nieobsługiwane | 
+| Dodawanie i usuwanie członków jednostki administracyjnej osobno    |   Obsługiwane    |   Obsługiwane   |    Nieobsługiwane | 
+| Zbiorcze dodawanie i usuwanie członków jednostek administracyjnych przy użyciu plików CSV   |    Nieobsługiwane     |  Obsługiwane   |    Brak planu do obsługi | 
+| Przypisywanie administratorów z zakresem administracyjnym  |     Obsługiwane    |   Obsługiwane    |   Nieobsługiwane | 
+| Dynamiczne dodawanie i usuwanie członków jednostki administracyjnej na podstawie atrybutów | Nieobsługiwane | Nieobsługiwane | Nieobsługiwane 
 
 ### <a name="user-management"></a>Zarządzanie użytkownikami
 
-Uprawnienia |   Program MS Graph/program PowerShell   | Portal usługi Azure AD | Centrum administracyjne platformy Microsoft 365
------------ | ----------------------- | --------------- | -----------------
-Zarządzanie właściwościami użytkownika, hasłami i licencjami w zakresie jednostki administracyjnej   |    Obsługiwane     |  Obsługiwane   |   Obsługiwane
-Blokowanie w zakresie jednostki administracyjnej i odblokowywanie logowania użytkowników    |   Obsługiwane   |    Obsługiwane   |    Obsługiwane
-Zarządzanie poświadczeniami usługi MFA użytkownika w zakresie jednostki administracyjnej   |    Obsługiwane   |   Obsługiwane   |   Nieobsługiwane
+| Uprawnienia |   Graph/PowerShell   | Portal usługi Azure AD | Centrum administracyjne platformy Microsoft 365 |
+| -- | -- | -- | -- |
+| Zarządzanie właściwościami użytkownika, hasłami i licencjami w zakresie jednostki administracyjnej   |    Obsługiwane     |  Obsługiwane   |   Obsługiwane |
+| Blokowanie w zakresie jednostki administracyjnej i odblokowywanie logowania użytkowników    |   Obsługiwane   |    Obsługiwane   |    Obsługiwane |
+| Administracyjne uwierzytelnianie wieloskładnikowe użytkownika w zakresie jednostki administracyjnej   |    Obsługiwane   |   Obsługiwane   |   Nieobsługiwane |
 
 ### <a name="group-management"></a>Zarządzanie grupami
 
-Uprawnienia |   Program MS Graph/program PowerShell   | Portal usługi Azure AD | Centrum administracyjne platformy Microsoft 365
------------ | ----------------------- | --------------- | -----------------
-Zarządzanie właściwościami grupy i członkami w zakresie jednostki administracyjnej     |  Obsługiwane   |    Obsługiwane    |  Nieobsługiwane
-Zarządzanie licencjonowaniem grupowym w zakresie jednostki administracyjnej   |    Obsługiwane  |    Obsługiwane   |   Nieobsługiwane
+| Uprawnienia |   Graph/PowerShell   | Portal usługi Azure AD | Centrum administracyjne platformy Microsoft 365 |
+| -- | -- | -- | -- |
+| Zarządzanie właściwościami grupy i członkami w zakresie jednostki administracyjnej     |  Obsługiwane   |    Obsługiwane    |  Nieobsługiwane |
+| Zarządzanie licencjonowaniem grupowym w zakresie jednostki administracyjnej   |    Obsługiwane  |    Obsługiwane   |   Nieobsługiwane |
 
 
-Jednostki administracyjne stosują zakres tylko do uprawnień zarządzania. Nie uniemożliwiają członkom ani administratorom korzystania z ich [domyślnych uprawnień użytkownika](../fundamentals/users-default-permissions.md) do przeglądania innych użytkowników, grup lub zasobów poza jednostką administracyjną. W centrum administracyjnym Microsoft 365 użytkownicy spoza jednostek administracyjnych administratora zakresu są odfiltrowani, ale można przeglądać innych użytkowników w portalu usługi Azure AD, programie PowerShell i innych usługach firmy Microsoft.
+Jednostki administracyjne stosują zakres tylko do uprawnień zarządzania. Nie uniemożliwiają członkom ani administratorom korzystania z ich [domyślnych uprawnień użytkownika](../fundamentals/users-default-permissions.md) do przeglądania innych użytkowników, grup lub zasobów poza jednostką administracyjną. W centrum administracyjnym Microsoft 365 użytkownicy spoza jednostek administracyjnych administratora z zakresem są odfiltrowany. Można jednak przeglądać innych użytkowników w portalu usługi Azure AD, programie PowerShell i innych usługach firmy Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie nimi](admin-units-manage.md)
-- [Zarządzanie użytkownikami w programie Australia](admin-units-add-manage-users.md)
-- [Zarządzanie grupami w programie Australia](admin-units-add-manage-groups.md)
-- [Przypisywanie ról objętych zakresem do funkcji AU](admin-units-assign-roles.md)
+- [Zarządzanie jednostkami administracyjnymi](admin-units-manage.md)
+- [Zarządzanie użytkownikami w jednostkach administracyjnych](admin-units-add-manage-users.md)
+- [Zarządzaj grupami w jednostkach administracyjnych](admin-units-add-manage-groups.md)
+- [Przypisywanie ról objętych zakresem do jednostki administracyjnej](admin-units-assign-roles.md)
