@@ -11,7 +11,8 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Konfigurowanie usługi Azure NetApp Files i tworzenie woluminu NFS
+    - name: Konfigurowanie usługi Azure NetApp Files i tworzenie woluminu systemu plików NFS — szablon usługi ARM
+      displayName: Resource Manager
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Pojęcia
   items:

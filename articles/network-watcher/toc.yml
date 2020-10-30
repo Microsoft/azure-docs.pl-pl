@@ -13,7 +13,8 @@
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: Diagnozowanie problemu z filtrowaniem ruchu na maszynie wirtualnej — interfejs wiersza polecenia platformy Azure
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
-    - name: Konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń przy użyciu szablonu usługi ARM
+    - name: Konfigurowanie dzienników przepływów sieciowych grup zabezpieczeń za pomocą szablonu usługi ARM
+      displayName: Resource Manager
       href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Samouczki
   items:

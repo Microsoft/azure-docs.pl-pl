@@ -679,6 +679,8 @@
           href: data-lake-storage-best-practices.md
         - name: Przyspieszanie zapytań
           href: data-lake-storage-query-acceleration.md
+        - name: Warstwa Premium dla usługi Data Lake Storage
+          href: premium-tier-for-data-lake-storage.md
         - name: Architektura
           items:
             - name: Sterownik systemu plików obiektów blob platformy Azure dla platformy Hadoop

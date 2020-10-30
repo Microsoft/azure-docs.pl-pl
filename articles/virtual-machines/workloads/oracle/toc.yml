@@ -6,6 +6,8 @@
       href: oracle-vm-solutions.md
     - name: Jakie rozwiązania umożliwiają uruchamianie serwera Oracle WebLogic Server w usłudze Azure Virtual Machines?
       href: oracle-weblogic.md
+    - name: Jakie są rozwiązania do uruchamiania serwera Oracle WebLogic Server w usłudze Azure Kubernetes Service?
+      href: weblogic-aks.md
     - name: Rozwiązania z infrastrukturą OCI
       href: oracle-oci-overview.md
 - name: Przewodniki Szybki start
