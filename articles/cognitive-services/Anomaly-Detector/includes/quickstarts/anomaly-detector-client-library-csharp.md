@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
-ms.openlocfilehash: 22732ae10fb328839c47194e0a33faf18514ff45
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 14b361ae2163636864b37d2a063ad10886a9e3c8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018485"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93029495"
 ---
 Rozpocznij pracę z biblioteką klienta wykrywania anomalii dla platformy .NET. Wykonaj następujące kroki, aby zainstalować pakiet startowy przy użyciu algorytmów udostępnianych przez usługę. Usługa wykrywania anomalii umożliwia znalezienie nieprawidłowych danych szeregów czasowych przez automatyczne użycie modeli najlepiej dopasowanej, niezależnie od wielkości branży, scenariusza lub ilości danych.
 
@@ -39,7 +39,7 @@ Użyj biblioteki klienta wykrywania anomalii dla platformy .NET, aby:
 
 ### <a name="create-a-new-net-core-application"></a>Tworzenie nowej aplikacji platformy .NET Core
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `anomaly-detector-quickstart` . To polecenie tworzy prosty projekt "Hello world" z pojedynczym plikiem źródłowym C#: *program.cs*.
+W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową o nazwie `anomaly-detector-quickstart` . To polecenie tworzy prosty projekt "Hello world" z pojedynczym plikiem źródłowym C#: *program.cs* .
 
 ```dotnetcli
 dotnet new console -n anomaly-detector-quickstart
@@ -66,7 +66,7 @@ Build succeeded.
 W katalogu aplikacji zainstaluj bibliotekę klienta wykrywania anomalii dla platformy .NET przy użyciu następującego polecenia:
 
 ```dotnetcli
-dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
+dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector
 ```
 
 W katalogu projektu Otwórz plik *program.cs* i Dodaj następujące polecenie `directives` :
@@ -104,8 +104,8 @@ W nowej metodzie Utwórz wystąpienie klienta z punktem końcowym i kluczem. Utw
 ## <a name="load-time-series-data-from-a-file"></a>Załaduj dane szeregów czasowych z pliku
 
 Pobierz przykładowe dane dla tego przewodnika Szybki Start z witryny [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
-1. W przeglądarce kliknij prawym przyciskiem myszy pozycję **RAW**.
-2. Kliknij pozycję **Zapisz łącze jako**.
+1. W przeglądarce kliknij prawym przyciskiem myszy pozycję **RAW** .
+2. Kliknij pozycję **Zapisz łącze jako** .
 3. Zapisz plik w katalogu aplikacji jako plik CSV.
 
 Te dane szeregów czasowych są formatowane jako plik CSV i wysyłane do interfejsu API wykrywania anomalii.
