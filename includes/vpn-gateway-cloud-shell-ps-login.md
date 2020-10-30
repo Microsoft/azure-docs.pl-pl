@@ -1,36 +1,38 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/10/2020
+ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 50ce8530aca40eed07741f35be1a57bbd7cc1868
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24d146da7946176c92902698d0f52ae01baf79ee
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77133606"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93061641"
 ---
-Otwórz konsolę programu PowerShell z podniesionymi uprawnieniami.
+Jeśli używasz programu PowerShell lokalnie, Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień i Połącz się z kontem platformy Azure. Polecenie cmdlet *Connect-AzAccount* poprosi o poświadczenia. Po uwierzytelnieniu program pobiera Twoje ustawienia konta, aby były dostępne do Azure PowerShell.
 
-Jeśli używasz Azure PowerShell lokalnie, Połącz się z kontem platformy Azure. Polecenie cmdlet *Connect-AzAccount* poprosi o poświadczenia. Po uwierzytelnieniu program pobiera Twoje ustawienia konta, aby były dostępne do Azure PowerShell. Jeśli używasz Azure Cloud Shell, nie musisz uruchamiać polecenia *Connect-AzAccount*. Azure Cloud Shell automatycznie nawiązuje połączenie z kontem platformy Azure.
+Jeśli używasz Azure Cloud Shell zamiast lokalnego uruchamiania programu PowerShell, Zauważ, że nie musisz uruchamiać polecenia *Connect-AzAccount* . Azure Cloud Shell nawiązuje połączenie z kontem platformy Azure automatycznie po wybraniu **tej** opcji.
 
-```azurepowershell
-Connect-AzAccount
-```
+1. Jeśli używasz programu PowerShell lokalnie, zaloguj się.
 
-Jeśli masz więcej niż jedną subskrypcję, uzyskaj listę subskrypcji platformy Azure.
+   ```azurepowershell
+   Connect-AzAccount
+   ```
 
-```azurepowershell-interactive
-Get-AzSubscription
-```
+1. Jeśli masz więcej niż jedną subskrypcję, uzyskaj listę subskrypcji platformy Azure.
 
-Wskaż subskrypcję, której chcesz użyć.
+   ```azurepowershell-interactive
+   Get-AzSubscription
+   ```
 
-```azurepowershell-interactive
-Select-AzSubscription -SubscriptionName "Name of subscription"
-```
+1. Wskaż subskrypcję, której chcesz użyć.
+
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionName "Name of subscription"
+   ```

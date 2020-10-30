@@ -1,24 +1,25 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0068bd151c3d7d243b05c326ec73a201f4131296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 393b29245141b2970e7c1a227d6e8b1b131c445c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183123"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93061642"
 ---
 Jeśli chcesz utworzyć połączenie punkt-lokacja z komputerem klienckim innym niż użyty do wygenerowania certyfikatów klienta, należy zainstalować certyfikat klienta. Podczas instalowania certyfikatu klienta potrzebne jest hasło, które zostało utworzone w trakcie eksportowania certyfikatu klienta.
 
-1. Znajdź plik *pfx* i skopiuj go na komputer kliencki. Na komputerze klienckim kliknij dwukrotnie plik *pfx*, aby go zainstalować. W polu **Lokalizacja magazynu** pozostaw wartość **Bieżący użytkownik**, a następnie kliknij pozycję **Dalej**.
-2. Na stronie importowania **Plik** nie wprowadzaj żadnych zmian. Kliknij przycisk **Dalej**.
-3. Na stronie **Ochrona klucza prywatnego** wprowadź hasło certyfikatu lub sprawdź, czy podmiot zabezpieczeń jest prawidłowy, a następnie kliknij przycisk **dalej**.
-4. Na stronie **Magazyn certyfikatów** pozostaw lokalizację domyślną, a następnie kliknij pozycję **Dalej**.
-5. Kliknij przycisk **Finish** (Zakończ). Na stronie **Ostrzeżenie o zabezpieczeniach** dla instalacji certyfikatu kliknij pozycję **Tak**. Możesz bez obaw kliknąć pozycję „Tak”, ponieważ wygenerowano certyfikat. Certyfikat został pomyślnie zaimportowany.
+1. Znajdź plik *pfx* i skopiuj go na komputer kliencki. Na komputerze klienckim kliknij dwukrotnie plik *pfx* , aby go zainstalować. Pozostaw **lokalizację magazynu** jako **bieżącego użytkownika** , a następnie wybierz pozycję **dalej** .
+1. Na stronie importowania **Plik** nie wprowadzaj żadnych zmian. Wybierz opcję **Dalej** .
+1. Na stronie **Ochrona klucza prywatnego** wprowadź hasło certyfikatu lub sprawdź, czy podmiot zabezpieczeń jest prawidłowy, a następnie wybierz przycisk **dalej** .
+1. Na stronie **Magazyn certyfikatów** Pozostaw domyślną lokalizację, a następnie wybierz przycisk **dalej** .
+1. Wybierz pozycję **Zakończ** . Na **Ostrzeżenie o zabezpieczeniach** instalacji certyfikatu wybierz pozycję **tak** . Możesz wygodnie wybrać opcję "tak" dla tego ostrzeżenia zabezpieczeń, ponieważ wygenerowałeś certyfikat.
+1. Certyfikat został pomyślnie zaimportowany.

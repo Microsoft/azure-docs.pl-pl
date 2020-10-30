@@ -1,26 +1,28 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/19/2020
+ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8e3df77df53b887c4367e46b05d8a7ea4eed2f6
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80059920"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93061639"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Tworzenie certyfikatu głównego z podpisem własnym
 
 Użyj polecenia cmdlet New-SelfSignedCertificate, aby utworzyć certyfikat główny z podpisem własnym. Aby uzyskać dodatkowe informacje o parametrach, zobacz polecenie [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 1. Na komputerze z systemem Windows 10 lub Windows Server 2016 Otwórz konsolę programu Windows PowerShell z podwyższonym poziomem uprawnień. Te przykłady nie działają w Azure Cloud Shell "try". Te przykłady należy uruchomić lokalnie.
-2. Użyj poniższego przykładu, aby utworzyć certyfikat główny z podpisem własnym. Poniższy przykład tworzy certyfikat główny z podpisem własnym o nazwie "P2SRootCert", który jest automatycznie instalowany w "Certificates-Current User\Personal\Certificates". Certyfikat można wyświetlić, otwierając *certmgr. msc*lub *Zarządzaj certyfikatami użytkowników*.
+1. Użyj poniższego przykładu, aby utworzyć certyfikat główny z podpisem własnym. Poniższy przykład tworzy certyfikat główny z podpisem własnym o nazwie "P2SRootCert", który jest automatycznie instalowany w "Certificates-Current User\Personal\Certificates". Certyfikat można wyświetlić, otwierając *certmgr. msc* lub *Zarządzaj certyfikatami użytkowników* .
+
+   Zaloguj się przy użyciu `Connect-AzAccount` polecenia cmdlet. Następnie uruchom poniższy przykład z wszelkimi koniecznymi modyfikacjami.
 
    ```powershell
    $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -28,7 +30,8 @@ Użyj polecenia cmdlet New-SelfSignedCertificate, aby utworzyć certyfikat głó
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
- 3. Pozostaw otwartą konsolę programu PowerShell, jeśli chcesz utworzyć certyfikat klienta bezpośrednio po utworzeniu certyfikatu głównego.
+
+1. Pozostaw otwartą konsolę programu PowerShell i przejdź do następnych kroków w celu wygenerowania certyfikatów klienta.
 
 ## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Generowanie certyfikatu klienta
 
@@ -61,7 +64,8 @@ Jeśli tworzysz dodatkowe certyfikaty klienta lub nie korzystasz z tej samej ses
    ```powershell
    Get-ChildItem -Path "Cert:\CurrentUser\My"
    ```
-2. Znajdź nazwę podmiotu z listy zwracanej, a następnie skopiuj odcisk palca znajdujący się obok niego do pliku tekstowego. W poniższym przykładzie istnieją dwa certyfikaty. Nazwa POSPOLITa to nazwa certyfikatu głównego z podpisem własnym, z którego ma zostać wygenerowany certyfikat podrzędny. W tym przypadku "P2SRootCert".
+
+1. Znajdź nazwę podmiotu z listy zwracanej, a następnie skopiuj odcisk palca znajdujący się obok niego do pliku tekstowego. W poniższym przykładzie istnieją dwa certyfikaty. Nazwa POSPOLITa to nazwa certyfikatu głównego z podpisem własnym, z którego ma zostać wygenerowany certyfikat podrzędny. W tym przypadku "P2SRootCert".
 
    ```
    Thumbprint                                Subject
@@ -69,7 +73,8 @@ Jeśli tworzysz dodatkowe certyfikaty klienta lub nie korzystasz z tej samej ses
    AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
    ```
-3. Zadeklaruj zmienną dla certyfikatu głównego przy użyciu odcisku palca z poprzedniego kroku. Zamień odcisk PALCa na odcisk palca certyfikatu głównego, z którego chcesz wygenerować certyfikat podrzędny.
+
+1. Zadeklaruj zmienną dla certyfikatu głównego przy użyciu odcisku palca z poprzedniego kroku. Zamień odcisk PALCa na odcisk palca certyfikatu głównego, z którego chcesz wygenerować certyfikat podrzędny.
 
    ```powershell
    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
@@ -80,7 +85,8 @@ Jeśli tworzysz dodatkowe certyfikaty klienta lub nie korzystasz z tej samej ses
    ```powershell
    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
    ```
-4. Zmodyfikuj i uruchom przykład, aby wygenerować certyfikat klienta. W przypadku uruchomienia poniższego przykładu bez modyfikowania, wynik jest certyfikat klienta o nazwie "P2SChildCert". Jeśli chcesz nazwać certyfikat podrzędny coś innego, zmodyfikuj wartość nazwy POSPOLITej. Nie zmieniaj rozszerzenia textextension podczas uruchamiania tego przykładu. Wygenerowany certyfikat klienta jest automatycznie instalowany w "Certificates-Current User\Personal\Certificates" na komputerze.
+
+1. Zmodyfikuj i uruchom przykład, aby wygenerować certyfikat klienta. W przypadku uruchomienia poniższego przykładu bez modyfikowania, wynik jest certyfikat klienta o nazwie "P2SChildCert". Jeśli chcesz nazwać certyfikat podrzędny coś innego, zmodyfikuj wartość nazwy POSPOLITej. Nie zmieniaj rozszerzenia textextension podczas uruchamiania tego przykładu. Wygenerowany certyfikat klienta jest automatycznie instalowany w "Certificates-Current User\Personal\Certificates" na komputerze.
 
    ```powershell
    New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
