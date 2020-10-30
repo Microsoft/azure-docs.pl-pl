@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1ac27f8fe0c6c608bfc261e9ac2d96651c94b341
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018886"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040092"
 ---
 # <a name="animated-character-detection-preview"></a>Wykrywanie znaków animowanych (wersja zapoznawcza)
 
@@ -40,7 +40,7 @@ W zależności od typu konta Video Indexer dostępne są różne zestawy funkcji
 
 ### <a name="trial-vs-paid"></a>Wersja próbna a płatna
 
-|Funkcjonalność|Wersja próbna|Święcona|
+|Funkcja|Wersja próbna|Święcona|
 |---|---|---|
 |Konto Custom Vision|Zarządzane w tle przez Video Indexer. |Twoje konto Custom Vision jest połączone z Video Indexer.|
 |Liczba modeli animacji|Jeden|Do 100 modeli na konto (ograniczenie Custom Vision).|
@@ -75,11 +75,11 @@ Wykonaj następujące kroki, aby nawiązać połączenie z Custom Vision kontem 
     > [!NOTE]
     > Aby zapewnić wszystkie klucze, musisz mieć dwa oddzielne zasoby w Custom Vision, jeden do szkolenia i jeden do prognozowania.
 1. Przeglądaj i zaloguj się do [Video Indexer](https://vi.microsoft.com/).
-1. Kliknij znak zapytania w prawym górnym rogu strony i wybierz pozycję **odwołanie do interfejsu API**.
+1. Kliknij znak zapytania w prawym górnym rogu strony i wybierz pozycję **odwołanie do interfejsu API** .
 1. Upewnij się, że masz subskrypcję API Management, klikając pozycję Karta **produkty** . Jeśli masz podłączony interfejs API, możesz przejść do następnego kroku, w przeciwnym razie subskrybować. 
-1. W portalu dla deweloperów kliknij **kompletne odwołanie do interfejsu API** i przejdź do **operacji**.  
-1. Wybierz pozycję **połącz Custom Vision konto (wersja ZApoznawcza)** , a następnie kliknij przycisk **Wypróbuj**.
-1. Wypełnij pola wymagane oraz token dostępu i kliknij przycisk **Wyślij**. 
+1. W portalu dla deweloperów kliknij **kompletne odwołanie do interfejsu API** i przejdź do **operacji** .  
+1. Wybierz pozycję **połącz Custom Vision konto (wersja ZApoznawcza)** , a następnie kliknij przycisk **Wypróbuj** .
+1. Wypełnij pola wymagane oraz token dostępu i kliknij przycisk **Wyślij** . 
 
     Aby uzyskać więcej informacji na temat uzyskiwania Video Indexer tokenu dostępu, przejdź do [portalu dla deweloperów](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)i zapoznaj się z [odpowiednią dokumentacją](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
 1. Gdy wywołanie zwróci odpowiedź 200 OK, Twoje konto jest połączone.
@@ -96,9 +96,9 @@ Wykonaj następujące kroki, aby nawiązać połączenie z Custom Vision kontem 
 1. Przejdź do witryny internetowej [Video Indexer](https://vi.microsoft.com/) i zaloguj się.
 1. Kliknij przycisk dostosowywania modelu zawartości w prawym górnym rogu strony.
 
-    ![Dostosowywanie modelu zawartości](./media/animated-characters-recognition/content-model-customization.png)
+    ![Zrzut ekranu przedstawiający stronę "Video Indexer" z przyciskiem "Dostosowywanie modelu zawartości" wybraną w prawym górnym rogu.](./media/animated-characters-recognition/content-model-customization.png)
 1. Przejdź do karty **animowane znaki** w sekcji Dostosowywanie modelu.
-1. Kliknij pozycję **Dodaj model**.
+1. Kliknij pozycję **Dodaj model** .
 1. Nazwij model i kliknij przycisk ENTER, aby zapisać nazwę.
 
 > [!NOTE]
@@ -108,8 +108,8 @@ Wykonaj następujące kroki, aby nawiązać połączenie z Custom Vision kontem 
 
 1. Kliknij przycisk **Przekaż** w górnym menu.
 1. Wybierz wideo do przekazania (z pliku lub adresu URL).
-1. Kliknij pozycję **Opcje zaawansowane**.
-1. W obszarze **osoby/animowane znaki** wybierz pozycję **modele animacji**.
+1. Kliknij pozycję **Opcje zaawansowane** .
+1. W obszarze **osoby/animowane znaki** wybierz pozycję **modele animacji** .
 1. Jeśli masz jeden model, zostanie wybrany automatycznie i jeśli masz wiele modeli, możesz wybrać odpowiednią opcję z menu rozwijanego.
 1. Kliknij pozycję Przekaż.
 1. Po indeksowaniu wideo zobaczysz wykryte znaki w sekcji **animowane znaki** w okienku **Insights (szczegółowe informacje** ).
@@ -129,7 +129,7 @@ Wykonaj następujące kroki, aby nawiązać połączenie z Custom Vision kontem 
 
         Otwórz stronę Dostosowywanie i kliknij kartę **animowane znaki** , a następnie kliknij przycisk **uczenie** , aby nauczyć model.
          
-        Jeśli masz płatne konto, możesz kliknąć link **Zarządzaj modelami w programie Customer Vision** (jak pokazano poniżej). Następnie zostanie przekierowany do strony modelu w **Custom Vision**.
+        Jeśli masz płatne konto, możesz kliknąć link **Zarządzaj modelami w programie Customer Vision** (jak pokazano poniżej). Następnie zostanie przekierowany do strony modelu w **Custom Vision** .
  
         ![Dostosowywanie modelu zawartości](./media/animated-characters-recognition/content-model-customization-tab.png)
 

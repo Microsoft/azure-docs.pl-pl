@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84752473"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040254"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limity rozmiaru żądań zapory aplikacji sieci Web i listy wykluczeń
 
@@ -38,11 +38,11 @@ Można określić dokładny nagłówek żądania, treść, plik cookie lub dopas
 
 Poniżej przedstawiono operatory kryteriów dopasowania obsługiwane:
 
-- **Equals**: Ten operator jest używany do dokładnego dopasowania. Przykładowo, aby wybrać nagłówek o nazwie **bearerToken**, użyj operatora Equals z selektorem ustawionym jako **bearerToken**.
-- **Rozpoczyna się od**: Ten operator dopasowuje wszystkie pola, które zaczynają się od określonej wartości selektora.
-- **Kończy się na**: Ten operator dopasowuje wszystkie pola żądań, które kończą się określoną wartością selektora.
-- **Zawiera**: Ten operator dopasowuje wszystkie pola żądania, które zawierają określoną wartość selektora.
-- **Równa się any**: Ten operator dopasowuje wszystkie pola żądania. * będzie wartością selektora.
+- **Equals** : Ten operator jest używany do dokładnego dopasowania. Przykładowo, aby wybrać nagłówek o nazwie **bearerToken** , użyj operatora Equals z selektorem ustawionym jako **bearerToken** .
+- **Rozpoczyna się od** : Ten operator dopasowuje wszystkie pola, które zaczynają się od określonej wartości selektora.
+- **Kończy się na** : Ten operator dopasowuje wszystkie pola żądań, które kończą się określoną wartością selektora.
+- **Zawiera** : Ten operator dopasowuje wszystkie pola żądania, które zawierają określoną wartość selektora.
+- **Równa się any** : Ten operator dopasowuje wszystkie pola żądania. * będzie wartością selektora.
 
 We wszystkich przypadkach dopasowanie nie uwzględnia wielkości liter i wyrażenie regularne nie jest dozwolone jako selektory.
 
@@ -81,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Dlatego jeśli adres URL `http://www.contoso.com/?user%281%29=fdafdasfda` jest przesyłany do WAF, nie będzie on obliczany w ciągu **fdafdasfda**, ale nadal będzie obliczał nazwę parametru **użytkownika% SRM %29**. 
+Dlatego jeśli adres URL `http://www.contoso.com/?user%281%29=fdafdasfda` jest przesyłany do WAF, nie będzie on obliczany w ciągu **fdafdasfda** , ale nadal będzie obliczał nazwę parametru **użytkownika% SRM %29** . 
 
 ## <a name="waf-request-size-limits"></a>Limity rozmiaru żądania WAF
 
@@ -89,7 +89,7 @@ Dlatego jeśli adres URL `http://www.contoso.com/?user%281%29=fdafdasfda` jest p
 
 Zapora aplikacji sieci Web umożliwia skonfigurowanie limitów rozmiaru żądań w dolnej i górnej granicy. Dostępne są następujące dwa konfiguracje limitów rozmiaru:
 
-- Pole Maksymalny rozmiar treści żądania jest określone w kilobajtach i kontroluje ogólny limit rozmiaru żądania, wykluczając wszystkie operacje przekazywania plików. To pole może mieć wartość z zakresu od 1 do KB do 128 KB. Wartość domyślna dla rozmiaru treści żądania to 128 KB.
+- Pole Maksymalny rozmiar treści żądania jest określone w kilobajtach i kontroluje ogólny limit rozmiaru żądania, wykluczając wszystkie operacje przekazywania plików. To pole ma minimalną wartość 1 KB i wartość maksymalną 128 KB. Wartość domyślna dla rozmiaru treści żądania to 128 KB.
 - Pole limit przekazywania plików jest określone w MB i kontroluje maksymalny dozwolony rozmiar przekazywania plików. To pole może mieć minimalną wartość 1 MB i następujące wartości maksymalne:
 
    - 100 MB w przypadku bram WAF o średniej wersji 1

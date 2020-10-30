@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b7ea61a1f09a9340661f333e452f70c5ad8cf877
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 496c5de8f9ead0773dfef7e65051344645ffa9de
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266650"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041977"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego przy użyciu witryny Azure Portal
 
@@ -38,9 +38,9 @@ Informacje o sposobie skalowania punktu końcowego przesyłania strumieniowego z
 Aby rozpocząć zarządzanie punktami końcowymi przesyłania strumieniowego dla Twojego konta, wykonaj następujące czynności.
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. W bloku **Ustawienia** wybierz pozycję **punkty końcowe przesyłania strumieniowego**.
+2. W bloku **Ustawienia** wybierz pozycję **punkty końcowe przesyłania strumieniowego** .
    
-    ![Punkt końcowy przesyłania strumieniowego](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+    ![Zrzut ekranu przedstawiający stronę "Media Services" z opcją "punkty końcowe przesyłania strumieniowego" wybraną w bloku "Ustawienia".](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
 > Opłaty są naliczane tylko wtedy, gdy punkt końcowy przesyłania strumieniowego jest w stanie uruchomienia.
@@ -59,7 +59,7 @@ Aby dodać/usunąć punkt końcowy przesyłania strumieniowego przy użyciu Azur
 2. Aby usunąć punkt końcowy przesyłania strumieniowego, naciśnij przycisk **Usuń** .      
 3. Kliknij przycisk **Uruchom** , aby uruchomić punkt końcowy przesyłania strumieniowego.
    
-    ![Punkt końcowy przesyłania strumieniowego](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    ![Zrzut ekranu pokazujący wybraną akcję "punkt końcowy" i wyświetlenie okienka "Szczegóły punktu końcowego przesyłania strumieniowego".](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
 ## <a name="configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Konfigurowanie punktu końcowego przesyłania strumieniowego
@@ -77,11 +77,11 @@ Aby uzyskać szczegółowe informacje o tych właściwościach, zobacz [Streamin
 Punkt końcowy przesyłania strumieniowego można skonfigurować, wykonując następujące czynności:
 
 1. Wybierz punkt końcowy przesyłania strumieniowego, który chcesz skonfigurować.
-2. Kliknij polecenie **Ustawienia**.
+2. Kliknij polecenie **Ustawienia** .
 
 Poniżej znajduje się krótki opis poniższych pól.
 
-![Punkt końcowy przesyłania strumieniowego](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![Zrzut ekranu, na którym jest wyświetlana akcja "Ustawienia" wybrana dla punktu końcowego przesyłania strumieniowego.](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
 1. Maksymalna liczba zasad pamięci podręcznej: służy do konfigurowania okresu istnienia pamięci podręcznej dla zasobów udostępnianych za poorednictwem tego punktu końcowego Jeśli wartość nie jest ustawiona, używany jest domyślny. Wartości domyślne można także definiować bezpośrednio w usłudze Azure Storage. Jeśli Azure CDN jest włączona dla punktu końcowego przesyłania strumieniowego, nie należy ustawiać wartości zasad pamięci podręcznej na wartość mniejszą niż 600 sekund.  
 2. Dozwolone adresy IP: służy do określania adresów IP, które mogą nawiązywać połączenia z opublikowanym punktem końcowym przesyłania strumieniowego. Jeśli nie określono adresów IP, każdy adres IP będzie mógł nawiązać połączenie. Adresy IP można określić jako pojedynczy adres IP (na przykład "10.0.0.1"), zakres adresów IP przy użyciu adresu IP i maski podsieci CIDR (na przykład "10.0.0.1/22") lub zakres adresów IP przy użyciu adresu IP i maski podsieci dziesiętnej (na przykład "10.0.0.1 (255.255.255.0)").
@@ -99,10 +99,10 @@ Jeśli zechcesz później wyłączyć/włączyć usługę CDN, punkt końcowy pr
 
 Integracja z usługą CDN jest włączona we wszystkich centrach danych platformy Azure z wyjątkiem Chin i federalnych regionów rządowych.
 
-Gdy ta funkcja jest włączona, **Access Control**, * * niestandardowa nazwa hosta i konfiguracja **uwierzytelniania podpisów Akamai** zostaną wyłączone.
+Gdy ta funkcja jest włączona, **Access Control** , * * niestandardowa nazwa hosta i konfiguracja **uwierzytelniania podpisów Akamai** zostaną wyłączone.
  
 > [!IMPORTANT]
-> Integracja Azure Media Services z Azure CDN jest zaimplementowana w **Azure CDN z Verizon** dla standardowych punktów końcowych przesyłania strumieniowego. Punkty końcowe przesyłania strumieniowego w warstwie Premium można skonfigurować przy użyciu wszystkich **Azure CDN warstw cenowych i dostawców**. Aby uzyskać więcej informacji na temat funkcji Azure CDN, zobacz [Omówienie usługi CDN](../../cdn/cdn-overview.md).
+> Integracja Azure Media Services z Azure CDN jest zaimplementowana w **Azure CDN z Verizon** dla standardowych punktów końcowych przesyłania strumieniowego. Punkty końcowe przesyłania strumieniowego w warstwie Premium można skonfigurować przy użyciu wszystkich **Azure CDN warstw cenowych i dostawców** . Aby uzyskać więcej informacji na temat funkcji Azure CDN, zobacz [Omówienie usługi CDN](../../cdn/cdn-overview.md).
  
 ### <a name="additional-considerations"></a>Dodatkowe zagadnienia
 

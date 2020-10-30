@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: eaf12fe1d757c3a5a76307d87151bf71aa720b2b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460873"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042396"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Linux 
 
@@ -55,6 +55,15 @@ Aby uzyskać więcej informacji, zapoznaj się z naszą [dokumentacją usługi G
  >[!NOTE]
  >Uruchom narzędzie zbierające dzienniki w przypadku wystąpienia problemu. Zarejestrowanie dzienników na początku znacznie ułatwi zespołowi pomocy technicznej Rozwiązywanie problemów.
 
+## <a name="purge-and-re-install-the-linux-agent"></a>Przeczyszczanie i Re-Install agenta systemu Linux
+
+Zaobserwowano, że czysta ponowna instalacja agenta naprawi większość problemów. W rzeczywistości może to być pierwsza sugestia z działu pomocy technicznej, aby uzyskać agenta do stanu uncurropted z naszego zespołu pomocy technicznej. Uruchomienie narzędzia do rozwiązywania problemów, zbieranie dzienników i próba czystej ponownej instalacji ułatwi szybkie rozwiązywanie problemów.
+
+1. Pobierz skrypt przeczyszczania:
+- `$ wget https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/tools/purge_omsagent.sh`
+2. Uruchom skrypt przeczyszczania (z uprawnieniami sudo):
+- `$ sudo sh purge_omsagent.sh`
+
 ## <a name="important-log-locations-and-log-collector-tool"></a>Ważne lokalizacje dzienników i narzędzie do modułu zbierającego dzienniki
 
  Plik | Ścieżka
@@ -83,9 +92,9 @@ Aby uzyskać więcej informacji, zapoznaj się z naszą [dokumentacją usługi G
 | NOT_DEFINED | Ponieważ niepotrzebne zależności nie są zainstalowane, wtyczka poddawana inspekcji auoms nie zostanie zainstalowana | Instalacja elementu auoms nie powiodła się, zainstaluj pakiet inspekcji. |
 | 2 | Podano nieprawidłową opcję dla pakietu powłoki. Uruchom `sudo sh ./omsagent-*.universal*.sh --help` do użycia |
 | 3 | Nie dostarczono żadnej opcji do pakietu powłoki. Uruchom `sudo sh ./omsagent-*.universal*.sh --help` w celu użycia. |
-| 4 | Nieprawidłowy typ pakietu lub nieprawidłowe ustawienia serwera proxy; pakiety omsagent-*RPM*. sh można zainstalować tylko w systemach z procesorem RPM, a pakiety omsagent-*deb*. sh można zainstalować tylko w systemach opartych na debian. Zalecamy używanie Instalatora uniwersalnego z [najnowszej wersji](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Zapoznaj się również z tematem Sprawdzanie ustawień serwera proxy. |
+| 4 | Nieprawidłowy typ pakietu lub nieprawidłowe ustawienia serwera proxy; pakiety omsagent- *RPM* . sh można zainstalować tylko w systemach z procesorem RPM, a pakiety omsagent- *deb* . sh można zainstalować tylko w systemach opartych na debian. Zalecamy używanie Instalatora uniwersalnego z [najnowszej wersji](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Zapoznaj się również z tematem Sprawdzanie ustawień serwera proxy. |
 | 5 | Pakiet powłoki należy wykonać jako element główny lub wystąpił błąd 403 podczas dołączania. Uruchom polecenie za pomocą polecenia `sudo` . |
-| 6 | Nieprawidłowa Architektura pakietu lub wystąpił błąd 200 podczas dołączania; pakiety omsagent-*x64.sh można zainstalować tylko w systemach 64-bitowych, a pakiety omsagent-* x86.sh można zainstalować tylko w systemach 32-bitowych. Pobierz prawidłowy pakiet dla swojej architektury z [najnowszej wersji](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
+| 6 | Nieprawidłowa Architektura pakietu lub wystąpił błąd 200 podczas dołączania; pakiety omsagent- *x64.sh można zainstalować tylko w systemach 64-bitowych, a pakiety omsagent-* x86.sh można zainstalować tylko w systemach 32-bitowych. Pobierz prawidłowy pakiet dla swojej architektury z [najnowszej wersji](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Instalacja pakietu OMS nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |
 | 19 | Instalacja pakietu OMI nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |
 | 20 | Instalacja pakietu SCX nie powiodła się. Poszukaj danych wyjściowych polecenia dla błędu głównego. |
@@ -454,7 +463,7 @@ Aby rozwiązać ten problem, wykonaj następujące czynności.
 1. Usuń rozszerzenie z Azure Portal.
 2. Zainstaluj agenta zgodnie z [instrukcjami](../learn/quick-collect-linux-computer.md).
 3. Uruchom ponownie agenta, uruchamiając następujące polecenie: `sudo /opt/microsoft/omsagent/bin/service_control restart` .
-* Poczekaj kilka minut, a stan aprowizacji zostanie zmieniony na **zainicjowanie pomyślnie**.
+* Poczekaj kilka minut, a stan aprowizacji zostanie zmieniony na **zainicjowanie pomyślnie** .
 
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Problem: uaktualnienie agenta Log Analytics na żądanie

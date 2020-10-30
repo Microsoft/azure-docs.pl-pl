@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84691343"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041902"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Sceny, ujęcia i klatki kluczowe
 
@@ -46,9 +46,9 @@ Aby wyodrębnić ramki kluczowe o wysokiej rozdzielczości dla filmu wideo, nale
 
 #### <a name="with-the-video-indexer-website"></a>Z witryną Video Indexer
 
-Aby wyodrębnić ramki kluczowe przy użyciu witryny sieci Web Video Indexer, Przekaż i Indeksuj wideo. Po zakończeniu zadania indeksowania kliknij przycisk **Pobierz** i wybierz pozycję **artefakty (zip)**. Spowoduje to pobranie folderu artefaktów do komputera. 
+Aby wyodrębnić ramki kluczowe przy użyciu witryny sieci Web Video Indexer, Przekaż i Indeksuj wideo. Po zakończeniu zadania indeksowania kliknij przycisk **Pobierz** i wybierz pozycję **artefakty (zip)** . Spowoduje to pobranie folderu artefaktów do komputera. 
 
-![Ramki kluczowe](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+![Zrzut ekranu pokazujący listę rozwijaną "Pobierz" z wybranymi "artefaktami".](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
 Rozpakuj i Otwórz folder. W folderze *_KeyframeThumbnail* i znajdziesz wszystkie ramki kluczowe, które zostały wyodrębnione z filmu wideo. 
 

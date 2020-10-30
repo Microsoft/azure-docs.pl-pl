@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18260867f0258ebe3cc885c5a1b1754f143bfccc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fd95de8033fc5a986ac30677a4272336b1e17244
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541608"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041525"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Skonfiguruj połączenie sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure: Azure Portal
 
@@ -73,11 +73,11 @@ W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Tworzenie
 
 Certyfikaty są używane przez platformę Azure do uwierzytelniania klientów łączących się z siecią wirtualną za pośrednictwem połączenia sieci VPN typu punkt-lokacja. Po uzyskaniu certyfikatu głównego należy [przekazać](#uploadfile) informacje o kluczu publicznym do platformy Azure. Certyfikat główny jest następnie uznawany przez platformę Azure za zaufany dla połączeń typu punkt-lokacja z siecią wirtualną. Ponadto certyfikaty klienta są generowane na podstawie zaufanego certyfikatu głównego, a następnie instalowane na każdym komputerze klienckim. Certyfikat klienta jest używany do uwierzytelniania klienta, gdy inicjuje on połączenie z siecią wirtualną. 
 
-### <a name="1-obtain-the-cer-file-for-the-root-certificate"></a><a name="getcer"></a>1. Uzyskaj plik CER dla certyfikatu głównego
+### <a name="1-root-certificate"></a><a name="getcer"></a>1. certyfikat główny
 
 [!INCLUDE [root-certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="2-generate-a-client-certificate"></a><a name="generateclientcert"></a>2. Generowanie certyfikatu klienta
+### <a name="2-client-certificate"></a><a name="generateclientcert"></a>2. certyfikat klienta
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
@@ -142,21 +142,7 @@ Pliki konfiguracji klienta sieci VPN zawierają ustawienia do konfigurowania urz
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Aby połączyć się z klienta sieci VPN w systemie Windows
 
->[!NOTE]
->Musisz mieć uprawnienia administratora na komputerze klienckim z systemem Windows, z którym nawiązujesz połączenie.
->
->
-
-1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Wybierz pozycję **Połącz** . Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Wybierz pozycję **Kontynuuj** , aby użyć podwyższonych uprawnień.
-
-2. Na stronie stanu **Połączenie** wybierz przycisk **Połącz** , aby rozpocząć połączenie. Jeśli widzisz ekran **Wybierz certyfikat** , sprawdź, czy wyświetlany certyfikat klienta to ten, który ma zostać użyty do nawiązania połączenia. Jeśli tak nie jest, użyj strzałki listy rozwijanej, aby wybrać poprawny certyfikat, a następnie wybierz przycisk **OK** .
-
-   ![Łączenie klienta sieci VPN z platformą Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png "nawiązywania połączenia")
-3. Połączenie zostało ustanowione.
-
-   ![Ustanowiono połączenie](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png "nawiązano połączenie")
-
-#### <a name="troubleshoot-windows-p2s-connections"></a>Rozwiązywanie problemów z połączeniami punkt-lokacja w systemie Windows
+[!INCLUDE [Connect from a Windows client](../../includes/vpn-gateway-p2s-connect-windows-client.md)]
 
 [!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea32126e19c4520a6d5a40f38f60ec44e9a119cd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7578ca12c46ec6de626eeb1340ce680eda6bbb92
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260873"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041311"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Szybki Start: Tworzenie nowej puli Apache Spark przy użyciu Azure Portal
 
@@ -39,13 +39,13 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 ## <a name="navigate-to-the-synapse-workspace"></a>Przejdź do obszaru roboczego Synapse 
 1. Przejdź do obszaru roboczego Synapse, w którym zostanie utworzona Pula Apache Spark, wpisując nazwę usługi (lub nazwę zasobu bezpośrednio) na pasku wyszukiwania.
 ![Azure Portal pasku wyszukiwania z obszarami roboczymi Synapse, które zostały wpisane.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics**.
+1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics** .
 ![Lista przefiltrowanych obszarów roboczych Synapse, które zawierają nazwę contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 
 ## <a name="create-new-apache-spark-pool"></a>Utwórz nową pulę Apache Spark
 
-1. W obszarze roboczym Synapse, w którym chcesz utworzyć pulę Apache Spark wybierz pozycję **Nowa pula Apache Spark**.
+1. W obszarze roboczym Synapse, w którym chcesz utworzyć pulę Apache Spark wybierz pozycję **Nowa pula Apache Spark** .
     ![Omówienie obszaru roboczego Synapse z czerwonym prostokątem wokół polecenia w celu utworzenia nowej puli Apache Spark](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
 2. Wprowadź następujące szczegóły na karcie **podstawowe** :
 
@@ -62,18 +62,18 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
     > Należy zauważyć, że istnieją określone ograniczenia dotyczące nazw, których mogą używać pule Apache Spark. Nazwy muszą zawierać tylko litery lub cyfry, muszą zawierać co najmniej 15 znaków, muszą zaczynać się literą, nie zawierać słów zarezerwowanych i być unikatowe w obszarze roboczym.
 
 3. Wybierz pozycję **Dalej: Ustawienia dodatkowe** i przejrzyj ustawienia domyślne. Nie należy modyfikować żadnych ustawień domyślnych.
-    ![Utwórz przepływ Apache Spark puli — karta Ustawienia dodatkowe.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
+    ![Zrzut ekranu przedstawiający stronę "Tworzenie puli Apache Spark" z wybraną kartą "Ustawienia dodatkowe".](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
-4. Wybierz pozycję **Dalej: Tagi**. Nie dodawaj żadnych tagów.
+4. Wybierz pozycję **Dalej: Tagi** . Nie dodawaj żadnych tagów.
     ![Utwórz przepływ Apache Spark puli — karta Ustawienia dodatkowe.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
-5. Wybierz pozycję **Przeglądanie + tworzenie**.
+5. Wybierz pozycję **Przejrzyj i utwórz** .
 
-6. Upewnij się, że szczegóły są poprawne w zależności od tego, co zostało wcześniej wprowadzone, i wybierz pozycję **Utwórz**.
+6. Upewnij się, że szczegóły są poprawne w zależności od tego, co zostało wcześniej wprowadzone, i wybierz pozycję **Utwórz** .
     ![Tworzenie przepływu Apache Spark puli — przegląd ustawień.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. W tym momencie przepływ aprowizacji zasobów zostanie uruchomiony, co oznacza, że zostanie on ukończony.
-    ![Tworzenie przepływu Apache Spark puli — Inicjowanie obsługi zasobów.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
+    ![Zrzut ekranu pokazujący stronę "przegląd" z wyświetlonym komunikatem "wdrożenie zostało zakończone".](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
 
 8. Po zakończeniu aprowizacji przechodzenie z powrotem do obszaru roboczego będzie zawierać nowy wpis dla nowo utworzonej puli Apache Spark.
     ![Tworzenie przepływu Apache Spark puli — Inicjowanie obsługi zasobów.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-07.png)
@@ -89,8 +89,8 @@ Wykonaj poniższe kroki, aby usunąć pulę Apache Spark z obszaru roboczego.
 Jeśli chcesz usunąć pulę Apache Spark, wykonaj następujące czynności:
 
 1. Przejdź do bloku pule Apache Spark w obszarze roboczym.
-2. Wybierz pulę Apache Spark do usunięcia (w tym przypadku **contosospark**).
-3. Naciśnij klawisz **delete**.
+2. Wybierz pulę Apache Spark do usunięcia (w tym przypadku **contosospark** ).
+3. Naciśnij klawisz **delete** .
  ![Lista pul Apache Spark, dla których wybrano ostatnio utworzoną pulę.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Potwierdź usunięcie i naciśnij przycisk **Usuń** .
  ![Okno dialogowe potwierdzenia usuwania wybranej puli Apache Spark.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)

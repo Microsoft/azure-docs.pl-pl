@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b8fdabc3f4f33627936eead9dda57e67c7b0da8
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827909"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040503"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Często zadawane pytania dotyczące ochrony tożsamości w programie Azure Active Directory
 
 ## <a name="dismiss-user-risk-known-issues"></a>Odrzuć znane problemy dotyczące ryzyka związanego z użytkownikiem
 
-**Odrzucanie ryzyka użytkownika** w ramach klasycznej ochrony tożsamości ustawia aktora w historii ryzyka użytkownika w usłudze **Azure AD**.
+**Odrzucanie ryzyka użytkownika** w ramach klasycznej ochrony tożsamości ustawia aktora w historii ryzyka użytkownika w usłudze **Azure AD** .
 
 **Odrzucanie ryzyka użytkownika** w ramach ochrony tożsamości ustawia aktora w historii ryzyka użytkownika w usłudze Identity Protection **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
@@ -34,17 +34,23 @@ W zapytaniach w polu Nazwa **użytkownika** jest rozróżniana wielkość liter,
 
 Przełączenie **Pokaż daty jako** Ukrycie kolumny **Ostatnia aktualizacja ryzyka** . Aby odczytać kolumnę, kliknij **kolumny** w górnej części bloku ryzykownych użytkowników.
 
-**Odrzuć wszystkie zdarzenia** z klasycznej ochrony tożsamości ustawia stan wykrycia ryzyka **zamknięte (rozwiązane)**.
+**Odrzuć wszystkie zdarzenia** z klasycznej ochrony tożsamości ustawia stan wykrycia ryzyka **zamknięte (rozwiązane)** .
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Ryzykowne logowania zgłaszają problemy
 
-**Rozwiązywanie problemów** związanych z wykrywaniem ryzyka ustawia stan na **użytkowników, którzy przechodzą przez zasady oparte na ryzyku**.
+**Rozwiązywanie problemów** związanych z wykrywaniem ryzyka ustawia stan na **użytkowników, którzy przechodzą przez zasady oparte na ryzyku** .
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 ### <a name="why-is-a-user-is-at-risk"></a>Dlaczego użytkownik jest narażony na ryzyko?
 
 Jeśli jesteś klientem Azure AD Identity Protection, przejdź do widoku [ryzykowne użytkownicy](howto-identity-protection-investigate-risk.md#risky-users) i kliknij użytkownika o podwyższonym ryzyku. W szufladzie na dole karta "Historia ryzyka" będzie zawierać wszystkie zdarzenia, które doprowadziły do zmiany ryzyka użytkownika. Aby wyświetlić wszystkie ryzykowne logowania dla użytkownika, kliknij pozycję ryzykowne logowania użytkownika. Aby wyświetlić wszystkie wykrycia ryzyka dla tego użytkownika, kliknij pozycję wykrycia ryzyka użytkownika.
+
+## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Dlaczego moje logowanie zostało zablokowane, ale Ochrona tożsamości nie wygenerowała wykrywania ryzyka?
+Logowania można blokować z kilku powodów. Należy pamiętać, że program Identity Protection generuje wyłącznie wykrywanie ryzyka, gdy w żądaniu uwierzytelniania są używane poprawne poświadczenia. Jeśli użytkownik używa nieprawidłowych poświadczeń, nie zostanie oflagowany przez ochronę tożsamości, ponieważ nie ma ryzyka naruszenia bezpieczeństwa poświadczeń, chyba że nieprawidłowy aktor używa poprawnych poświadczeń. Niektóre powody, dla których użytkownik może zostać zablokowany do podpisywania, który nie będzie generował usługi Identity Protection, obejmuje następujące kwestie:
+* Adres **IP można zablokować** ze względu na złośliwe działanie z adresu IP. Komunikat zablokowany przez adres IP nie różni się od tego, czy poświadczenia były poprawne. Jeśli adres IP jest zablokowany i nie są używane poprawne poświadczenia, nie spowoduje to wygenerowania wykrywania ochrony tożsamości
+* **[Inteligentna blokada](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** może blokować logowanie się po wielu nieudanych próbach
+* Można wymusić **zasady dostępu warunkowego** , które używają warunków innych niż poziom ryzyka, aby zablokować żądanie uwierzytelniania.
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Jak mogę uzyskać raport wykrywania określonego typu?
 
@@ -76,12 +82,12 @@ Wszystkie wykrycia ryzyka są udokumentowane w artykule [co to jest ryzykowne](c
 
 **Potwierdź naruszenie zabezpieczeń** (w przypadku logowania) — informuje Azure AD Identity Protection, że logowanie nie zostało wykonane przez właściciela tożsamości i wskazuje na naruszenie zabezpieczeń.
 
-- Po otrzymaniu opinii o stanie zalogować się i zagrożeniu użytkownika w celu **potwierdzenia bezpieczeństwa** i **wysokiego**poziomu ryzyka.
+- Po otrzymaniu opinii o stanie zalogować się i zagrożeniu użytkownika w celu **potwierdzenia bezpieczeństwa** i **wysokiego** poziomu ryzyka.
 
 - Ponadto firma Microsoft udostępnia informacje o naszych systemach uczenia maszynowego na potrzeby przyszłych ulepszeń oceny ryzyka.
 
     > [!NOTE]
-    > Jeśli użytkownik jest już korygowany, nie klikaj przycisku **Potwierdź złamane zabezpieczenia** , ponieważ przeniesie stan zagrożenia logowania i użytkownika w celu **potwierdzenia** , że poziom zagrożenia został naruszony i podwyższonego poziomu ryzyka na **wysoki**.
+    > Jeśli użytkownik jest już korygowany, nie klikaj przycisku **Potwierdź złamane zabezpieczenia** , ponieważ przeniesie stan zagrożenia logowania i użytkownika w celu **potwierdzenia** , że poziom zagrożenia został naruszony i podwyższonego poziomu ryzyka na **wysoki** .
 
 **Potwierdź bezpieczne** (w przypadku logowania) — informuje Azure AD Identity Protection, że logowanie zostało wykonane przez właściciela tożsamości i nie wskazuje na naruszenie zabezpieczeń.
 

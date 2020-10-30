@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 649f02097a18a141d186434a91539563c64e72ba
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735058"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042120"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
 
@@ -131,7 +131,7 @@ az aks get-versions --location eastus --output table
 
 ## <a name="aks-kubernetes-release-calendar"></a>Kalendarz wydania AKS Kubernetes
 
-Aby uzyskać historię wcześniejszych wersji, zobacz [tutaj](https://en.wikipedia.org/wiki/Kubernetes#History).
+Aby uzyskać historię wcześniejszych wersji, zobacz [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
 |  Wersja K8s | Wersja nadrzędna  | AKS wersja zapoznawcza  | AKS GA  | Koniec okresu istnienia |
 |--------------|-------------------|--------------|---------|-------------|
@@ -139,8 +139,10 @@ Aby uzyskać historię wcześniejszych wersji, zobacz [tutaj](https://en.wikiped
 | 1,17  | Gru-09-19  | Sty 2019   | Lip 2020  | 1,20 GA | 
 | 1,18  | Mar-23-20  | Maj 2020 r.   | 2020 sie  | 1,21 GA | 
 | 1,19  | Sie-04-20  | Wrz 2020   | Lis 2020  | 1,22 GA | 
-| 1,20  | Gru-08-20  | Sty 2021   | Mar 2021  | 1,23 GA | 
-\* Ze względu na sezon świąteczny AKS wydłużą okres istnienia 1,16 od listopada 2020 do 2021 stycznia. Przeczytaj więcej [tutaj](https://github.com/Azure/AKS/releases/tag/2020-10-12)
+| 1,20  | Gru-08-20  | Sty 2021   | Mar 2021  | 1,23 GA |
+
+\* Ze względu na sezon świąteczny AKS wydłużą okres istnienia 1,16 od listopada 2020 do 2021 stycznia. [Przeczytaj więcej](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+
 
 ## <a name="faq"></a>Często zadawane pytania
 
@@ -150,7 +152,7 @@ W przypadku Kubernetes 1,19 [Pomoc techniczna typu "open source" została rozsze
 
 **Co się stanie, gdy użytkownik uaktualnia klaster Kubernetes z nieobsługiwaną wersją pomocniczą?**
 
-Jeśli korzystasz z wersji *n-3* lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji n-3 do n-2 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Na przykład:
+Jeśli korzystasz z wersji *n-3* lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji n-3 do n-2 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Przykład:
 
 - Jeśli najstarsza obsługiwana wersja AKS to *1.15. a* i jesteś w wersji *1.14. b* lub starszej, jesteś poza pomocą techniczną.
 - Gdy uaktualnienie z wersji *1.14. b* do *1.15. a* lub nowsze, nastąpi powrót do naszych zasad pomocy technicznej.

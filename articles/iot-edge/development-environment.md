@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 17531c6e38447fba7fe8761a963be39ecfc8f489
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4064acd6d2857ebc00a38ea7f6ff5d5e30bbd699
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044160"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041376"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Przygotuj środowisko deweloperskie i testowe dla IoT Edge
 
@@ -60,7 +60,7 @@ Szablony modułów dla niektórych języków i usług mają wymagania wstępne, 
 | C# | [Zestaw SDK platformy .NET Core 2,1](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [Ustaw zmienną środowiskową JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Narzędzia Yeoman](https://www.npmjs.com/package/yo) <li> [Generator modułów Node.js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
+| Język Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Rozszerzenie programu Visual Studio 2017/2019
 
@@ -83,7 +83,7 @@ Tylko środowisko uruchomieniowe IoT Edge jest obsługiwane w przypadku wdroże�
 | Narzędzie | Znana także jako | Obsługiwane platformy | Optymalne zastosowanie |
 | ---- | ------------- | ------------------- | --------- |
 | Narzędzie deweloperskie EdgeHub IoT  | iotedgehubdev | Windows, Linux, macOS | Symulowanie urządzenia do modułów debugowania. |
-| IoT Edgenie kontenera dev | Microsoft/iotedgedev | Windows, Linux, macOS | Programowanie bez instalowania zależności. |
+| IoT Edgenie kontenera dev | iotedgedev | Windows, Linux, macOS | Programowanie bez instalowania zależności. |
 | IoT Edge środowiska uruchomieniowego w kontenerze | iotedgec | Windows, Linux, macOS, ARM | Testowanie na urządzeniu, które może nie obsługiwać środowiska uruchomieniowego. |
 | Kontener urządzenia IoT Edge | toolboc/Azure-IoT-Device-Container | Windows, Linux, macOS, ARM | Testowanie scenariusza z wieloma IoT Edge urządzeniami w odpowiedniej skali. |
 
@@ -99,7 +99,7 @@ Aby uzyskać więcej informacji i zainstalować, zobacz [narzędzie deweloperski
 
 Azure IoT Edge dev Container to kontener platformy Docker, który ma wszystkie zależności, które są potrzebne do IoT Edge projektowania. Ten kontener ułatwia rozpoczęcie pracy z dowolnym językiem, który ma być opracowywany w programie, w tym C#, Python, Node.js i Java. Wystarczy zainstalować aparat kontenerów, na przykład Docker lub Moby, aby ściągnąć kontener na komputer deweloperski.
 
-Aby uzyskać więcej informacji, zobacz [Azure IoT Edge dev Container](https://hub.docker.com/r/microsoft/iotedgedev/).
+Aby uzyskać więcej informacji, zobacz [Azure IoT Edge dev Container](https://github.com/Azure/iotedgedev/wiki/quickstart-with-iot-edge-dev-container).
 
 ### <a name="iot-edge-runtime-in-a-container"></a>IoT Edge środowiska uruchomieniowego w kontenerze
 

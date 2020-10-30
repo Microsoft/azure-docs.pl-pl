@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 370e9e0df2a4fc2ee4aca43c01bfe0a98077d189
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6367a3c3e6a946068498c92456ba42cd3c7c4bdd
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018852"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042640"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Serie Ddv4 i Ddsv4
 
@@ -33,10 +33,10 @@ Nowe rozmiary maszyn wirtualnych Ddv4 obejmują szybki i większy lokalny magazy
 [Buforowanie Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
 [Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
-[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 <br> 
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i tymczasowej: IOPS/MB/s | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | <sup>**</sup> Maksymalna przepływność magazynu w pamięci podręcznej i tymczasowej: IOPS/MB/s | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|
 | Standard_D2d_v4 | 2 | 8 | 75 | 4 | 19000/120 | 2|1000 |
 | Standard_D4d_v4 | 4 | 16 | 150 | 8 | 38500/242 | 2|2000 |
@@ -45,6 +45,8 @@ Nowe rozmiary maszyn wirtualnych Ddv4 obejmują szybki i większy lokalny magazy
 | Standard_D32d_v4 | 32 | 128 | 1200 | 32 | 308000/1936 | 8|16000 |
 | Standard_D48d_v4 | 48 | 192 | 1800 | 32 | 462000/2904 | 8|24000 |
 | Standard_D64d_v4 | 64 | 256 | 2400 | 32 | 615000/3872 | 8|30000 |
+
+<sup>**</sup> Te wartości IOPs można zagwarantować przy użyciu [maszyn wirtualnych Gen2](generation-2.md)
 
 ## <a name="ddsv4-series"></a>Seria Ddsv4
 
@@ -63,7 +65,7 @@ Nowe rozmiary maszyn wirtualnych Ddsv4 obejmują szybki i większy lokalny magaz
 [Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 <br> 
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | <sup>**</sup> Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_D2ds_v4 | 2 | 8 | 75 | 4 | 19000/120 (50) | 3200/48 | 2|1000 |
 | Standard_D4ds_v4 | 4 | 16 | 150 | 8 | 38500/242 (100) | 6400/96 | 2|2000 |
@@ -72,6 +74,8 @@ Nowe rozmiary maszyn wirtualnych Ddsv4 obejmują szybki i większy lokalny magaz
 | Standard_D32ds_v4 | 32 | 128 | 1200 | 32 | 308000/1936 (800) | 51200/768 | 8|16000 |
 | Standard_D48ds_v4 | 48 | 192 | 1800 | 32 | 462000/2904 (1200) | 76800/1152 | 8|24000 |
 | Standard_D64ds_v4 | 64 | 256 | 2400 | 32 | 615000/3872 (1600) | 80000/1200 | 8|30000 |
+
+<sup>**</sup> Te wartości IOPs można zagwarantować przy użyciu [maszyn wirtualnych Gen2](generation-2.md)
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

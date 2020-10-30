@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bffe69dd5b7d3cdfcba1df3420d494dcffc33f9a
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282196"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042670"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -66,15 +66,15 @@ Możliwość stosowania zmian listy ACL rekursywnie z katalogu nadrzędnego do e
 
 <a id="known-issues-tools"></a>
 
-## <a name="azcopy"></a>Narzędzie AzCopy
+## <a name="azcopy"></a>AzCopy
 
-Użyj tylko najnowszej wersji AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).Wcześniejsze wersje AzCopy, takie jak AzCopy v 8.1, nie są obsługiwane.
+Użyj tylko najnowszej wersji AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Wcześniejsze wersje AzCopy, takie jak AzCopy v 8.1, nie są obsługiwane.
 
 <a id="storage-explorer"></a>
 
 ## <a name="azure-storage-explorer"></a>Eksplorator usługi Azure Storage
 
-Używaj tylko wersji  `1.6.0`   lub nowszej.
+Używaj tylko wersji `1.6.0` lub nowszej.
 
 <a id="explorer-in-portal"></a>
 
@@ -84,7 +84,7 @@ Listy ACL nie są jeszcze obsługiwane.
 
 <a id="third-party-apps"></a>
 
-## <a name="thirdpartyapplications"></a>Aplikacje innych firm
+## <a name="third-party-applications"></a>Aplikacje innych firm
 
 Aplikacje innych firm, które używają interfejsów API REST do pracy, będą nadal działały w przypadku używania ich z Data Lake Storage Gen2 aplikacjami, które wywołują interfejsy API obiektów blob, prawdopodobnie będą działały.
 
@@ -92,38 +92,15 @@ Aplikacje innych firm, które używają interfejsów API REST do pracy, będą n
 
 Jeśli [anonimowy dostęp do odczytu](storage-manage-access-to-resources.md) został przyznany do kontenera, listy ACL nie mają wpływu na ten kontener ani pliki w tym kontenerze.
 
-### <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
+## <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
 
 Ustawienie dni przechowywania nie jest jeszcze obsługiwane, ale można je usunąć ręcznie przy użyciu dowolnego obsługiwanego narzędzia, takiego jak Eksplorator usługi Azure Storage, REST lub zestaw SDK.
 
-## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>Problemy specyficzne dla kont magazynu BlockBlobStorage wydajności Premium
+## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Zasady zarządzania cyklem życia z warstwą Premium dla Azure Data Lake Storage
 
-### <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
+Nie można przenieść danych przechowywanych w warstwie Premium między warstwami gorąca, chłodna i archiwalna. Można jednak skopiować dane z warstwy Premium do warstwy dostępu gorąca na innym koncie.
 
-Nie można jeszcze włączyć dzienników diagnostycznych przy użyciu Azure Portal. Można je włączyć przy użyciu programu PowerShell. Na przykład:
-
-```powershell
-#To login
-Connect-AzAccount
-
-#Set default block blob storage account.
-Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
-
-#Enable logging
-Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
-```
-
-### <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
-
-- Zasady zarządzania cyklem życia są obsługiwane tylko w przypadku kont ogólnego przeznaczenia w wersji 2. Nie są one jeszcze obsługiwane na kontach magazynu BlockBlobStorage w warstwie Premium.
-- Nie można przenieść danych z warstwy Premium do niższej warstwy.
-
-
-### <a name="hdinsight-support"></a>Obsługa usługi HDInsight
-
-Podczas tworzenia klastra usługi HDInsight n nie można jeszcze wybrać konta BlockBlobStorage, na którym jest włączona funkcja hierarchicznej przestrzeni nazw. Można jednak dołączyć konto do klastra po jego utworzeniu.
-
-### <a name="dremio-support"></a>Obsługa Dremio
+## <a name="dremio-support-with-premium-performance-blockblobstorage-storage-accounts"></a>Obsługa Dremio z kontami magazynu BlockBlobStorage w warstwie Premium
 
 Dremio jeszcze nie nawiązuje połączenia z kontem BlockBlobStorage, na którym jest włączona funkcja hierarchicznej przestrzeni nazw. 
 

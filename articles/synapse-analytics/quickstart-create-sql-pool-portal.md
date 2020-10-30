@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c89bd01cb2e6947df5ed192d66e0dbae08cf66d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6c9d49d8d4d1951542268d35e22822ab62449278
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260635"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041226"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-the-azure-portal"></a>Szybki Start: Tworzenie puli SQL Synapse (wersja zapoznawcza) przy użyciu Azure Portal
 
@@ -37,7 +37,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 1. Przejdź do obszaru roboczego Synapse, w którym zostanie utworzona Pula SQL, wpisując nazwę usługi (lub nazwę zasobu bezpośrednio) na pasku wyszukiwania.
 ![Azure Portal pasek wyszukiwania z obszarami roboczymi Synapse wpisanych w. ](media/quickstart-create-sql-pool/create-sql-pool-00a.png) . 
-1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics**.
+1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics** .
 ![Lista przefiltrowanych obszarów roboczych Synapse, które zawierają nazwę contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 ## <a name="create-new-sql-pool"></a>Utwórz nową pulę SQL
@@ -56,16 +56,16 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
     > [!IMPORTANT]
     > Należy zauważyć, że istnieją określone ograniczenia dotyczące nazw, które mogą być używane przez pule SQL. Nazwy nie mogą zawierać znaków specjalnych, muszą składać się z co najwyżej 15 znaków, nie zawierać słów zarezerwowanych i być unikatowe w obszarze roboczym.
 
-3. Wybierz pozycję **Dalej: Ustawienia dodatkowe**.
+3. Wybierz pozycję **Dalej: Ustawienia dodatkowe** .
 4. Wybierz opcję **Brak** , aby zainicjować obsługę administracyjną puli SQL bez danych. Pozostaw wybrane domyślne sortowanie.
 ![Utwórz przepływ puli SQL — karta Ustawienia dodatkowe.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
-5. Wybierz pozycję **Przeglądanie + tworzenie**.
-6. Upewnij się, że szczegóły są poprawne na podstawie wprowadzonych wcześniej informacji. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Przejrzyj i utwórz** .
+6. Upewnij się, że szczegóły są poprawne na podstawie wprowadzonych wcześniej informacji. Wybierz pozycję **Utwórz** .
 ![Utwórz przepływ w puli SQL — Przejrzyj kartę Ustawienia.](media/quickstart-create-sql-pool/create-sql-pool-portal-04.png)
 
 7. W tym momencie przepływ aprowizacji zasobów zostanie uruchomiony.
- ![Przepływ tworzenia puli SQL — Inicjowanie obsługi zasobów.](media/quickstart-create-sql-pool/create-sql-pool-portal-06.png)
+ ![Zrzut ekranu przedstawiający stronę "wdrożenie zostało zakończone".](media/quickstart-create-sql-pool/create-sql-pool-portal-06.png)
 
 8. Po zakończeniu aprowizacji przechodzenie z powrotem do obszaru roboczego będzie zawierać nowy wpis dla nowo utworzonej puli SQL.
  ![Przepływ tworzenia puli SQL — Inicjowanie obsługi zasobów.](media/quickstart-create-sql-pool/create-sql-pool-portal-07.png)
@@ -82,7 +82,7 @@ Wykonaj poniższe kroki, aby usunąć pulę SQL z obszaru roboczego.
 Jeśli chcesz usunąć pulę SQL, wykonaj następujące czynności:
 
 1. Przejdź do bloku pule SQL w bloku obszaru roboczego
-1. Wybierz pulę SQL do usunięcia (w tym przypadku **contosowdw**)
+1. Wybierz pulę SQL do usunięcia (w tym przypadku **contosowdw** )
 1. Po wybraniu naciśnij klawisz **delete** .
 1. Potwierdzenie usunięcia i naciśnięcie przycisku **Usuń** ![ — Omówienie puli SQL — wyróżnianie potwierdzenia usunięcia.](media/quickstart-create-sql-pool/create-sql-pool-portal-11.png)
 1. Po pomyślnym zakończeniu procesu Pula SQL nie będzie już wyświetlana w obszarze zasoby obszaru roboczego.

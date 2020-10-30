@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/16/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 956773872babbd30dea1e17a9a3d7ede7a022850
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 9f6df1fb2c83cea5ddf3ad7f21c9a7d28342d373
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131738"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041736"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny dostawcy tożsamości SAML w zasadach niestandardowych Azure Active Directory B2C
 
@@ -86,6 +86,16 @@ Poniższy przykład przedstawia sekcję deskryptora klucza metadanych SAML używ
 
 Atrybut **name** elementu Protocol musi być ustawiony na `SAML2` .
 
+## <a name="input-claims"></a>Oświadczenia wejściowe
+
+Element **InputClaims** jest używany do wysyłania **NameID** w ramach **podmiotu** żądania SAML AuthN. Aby to osiągnąć, Dodaj wystąpienie danych wejściowych z zestawem **PartnerClaimType** , `subject` tak jak pokazano poniżej.
+
+```xml
+<InputClaims>
+    <InputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="subject" />
+</InputClaims>
+```
+
 ## <a name="output-claims"></a>Oświadczenia wyjściowe
 
 Element **OutputClaims** zawiera listę oświadczeń zwracanych przez dostawcę tożsamości SAML w `AttributeStatement` sekcji. Może być konieczne zamapowanie nazwy żądania zdefiniowanego w zasadach na nazwę zdefiniowaną w dostawcy tożsamości. Można również uwzględnić oświadczenia, które nie są zwracane przez dostawcę tożsamości, o ile ustawisz `DefaultValue` atrybut.
@@ -126,7 +136,7 @@ W poniższym przykładzie przedstawiono oświadczenia zwrócone przez dostawcę 
 Profil techniczny zwraca również oświadczenia, które nie są zwracane przez dostawcę tożsamości:
 
 - **IdentityProvider** , który zawiera nazwę dostawcy tożsamości.
-- **AuthenticationSource** z wartością domyślną **socialIdpAuthentication**.
+- **AuthenticationSource** z wartością domyślną **socialIdpAuthentication** .
 
 ```xml
 <OutputClaims>
@@ -149,15 +159,15 @@ Element **OutputClaimsTransformations** może zawierać kolekcję elementów **O
 | PartnerEntity | Tak | Adres URL metadanych dostawcy tożsamości SAML. Skopiuj metadane dostawcy tożsamości i Dodaj je wewnątrz elementu CDATA `<![CDATA[Your IDP metadata]]>` |
 | WantsSignedRequests | Nie | Wskazuje, czy profil techniczny wymaga podpisania wszystkich wychodzących żądań uwierzytelniania. Możliwe wartości: `true` lub `false` . Wartość domyślna to `true`. Gdy wartość jest ustawiona na `true` , należy określić klucz kryptograficzny **SamlMessageSigning** i wszystkie żądania uwierzytelniania wychodzącego są podpisane. Jeśli wartość jest ustawiona na `false` , parametry **SigAlg** i **Signature** (ciąg zapytania lub parametr post) są pomijane w żądaniu. Te metadane również kontrolują atrybut **AuthnRequestsSigned** metadanych, który jest wyprowadzany w metadanych profilu technicznego Azure AD B2C, który jest udostępniony dostawcy tożsamości. Azure AD B2C nie podpisać żądania, jeśli wartość **WantsSignedRequests** w metadanych profilu technicznego jest ustawiona na `false` , a **WantAuthnRequestsSigned** metadanych dostawcy tożsamości jest ustawiona na `false` lub nie została określona. |
 | XmlSignatureAlgorithm | Nie | Metoda, która Azure AD B2C używa do podpisywania żądania SAML. To metadane określa wartość parametru  **SigAlg** (ciąg zapytania lub parametr post) w żądaniu SAML. Możliwe wartości: `Sha256` , `Sha384` , `Sha512` lub `Sha1` (domyślnie). Upewnij się, że algorytm podpisu został skonfigurowany na obu stronach z tą samą wartością. Używaj tylko algorytmu obsługiwanego przez certyfikat. |
-| WantsSignedAssertions | Nie | Wskazuje, czy profil techniczny wymaga podpisania wszystkich zatwierdzeń przychodzących. Możliwe wartości: `true` lub `false` . Wartość domyślna to `true`. Jeśli wartość jest ustawiona na `true` , cała sekcja potwierdzenia `saml:Assertion` wysłana przez dostawcę tożsamości do Azure AD B2C musi być podpisana. Jeśli wartość jest ustawiona na `false` , dostawca tożsamości nie powinien podpisać potwierdzeń, ale nawet jeśli tak, Azure AD B2C nie sprawdza podpisu. Te metadane również sterują flagą metadanych **WantsAssertionsSigned**, która jest wyprowadzana w metadanych profilu technicznego Azure AD B2C, który jest udostępniony dostawcy tożsamości. Jeśli wyłączysz weryfikację potwierdzeń, możesz również wyłączyć weryfikację podpisu odpowiedzi (Aby uzyskać więcej informacji, zobacz **ResponsesSigned**). |
-| ResponsesSigned | Nie | Możliwe wartości: `true` lub `false` . Wartość domyślna to `true`. Jeśli wartość jest ustawiona na `false` , dostawca tożsamości nie powinien podpisać odpowiedzi SAML, ale nawet jeśli tak, Azure AD B2C nie sprawdza podpisu. Jeśli wartość jest ustawiona na `true` , odpowiedź SAML wysłana przez dostawcę tożsamości do Azure AD B2C jest podpisana i należy sprawdzić poprawność. Jeśli wyłączysz weryfikację odpowiedzi SAML, możesz również wyłączyć weryfikację podpisu potwierdzenia (Aby uzyskać więcej informacji, zobacz **WantsSignedAssertions**). |
-| WantsEncryptedAssertions | Nie | Wskazuje, czy profil techniczny wymaga szyfrowania wszystkich potwierdzeń przychodzących. Możliwe wartości: `true` lub `false` . Wartość domyślna to `false`. Jeśli wartość jest ustawiona na `true` , potwierdzenia wysyłane przez dostawcę tożsamości do Azure AD B2C muszą być podpisane i należy określić klucz kryptograficzny **SamlAssertionDecryption** . Jeśli wartość jest ustawiona na `true` , metadane Azure AD B2C profilu technicznego obejmują sekcję **szyfrowanie** . Dostawca tożsamości odczytuje metadane i szyfruje potwierdzenie odpowiedzi SAML przy użyciu klucza publicznego dostarczonego w metadanych profilu technicznego Azure AD B2C. W przypadku włączenia szyfrowania potwierdzeń może być również konieczne wyłączenie walidacji podpisu odpowiedzi (Aby uzyskać więcej informacji, zobacz **ResponsesSigned**). |
-| NameIdPolicyFormat | Nie | Określa ograniczenia dotyczące identyfikatora nazwy, który będzie używany do reprezentowania żądanego tematu. W przypadku pominięcia można użyć dowolnego typu identyfikatora obsługiwanego przez dostawcę tożsamości dla żądanego tematu. Przykład: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** można używać z **NameIdPolicyAllowCreate**. Zapoznaj się z dokumentacją dostawcy tożsamości, aby uzyskać wskazówki dotyczące tego, które zasady identyfikatorów nazw są obsługiwane. |
-| NameIdPolicyAllowCreate | Nie | W przypadku korzystania z **NameIdPolicyFormat**można także określić `AllowCreate` Właściwość **NameIDPolicy**. Wartość tych metadanych jest `true` lub `false` w celu wskazania, czy dostawca tożsamości może utworzyć nowe konto w ramach przepływu logowania. Zapoznaj się z dokumentacją dostawcy tożsamości w celu uzyskania wskazówek na temat tego, jak to zrobić. |
+| WantsSignedAssertions | Nie | Wskazuje, czy profil techniczny wymaga podpisania wszystkich zatwierdzeń przychodzących. Możliwe wartości: `true` lub `false` . Wartość domyślna to `true`. Jeśli wartość jest ustawiona na `true` , cała sekcja potwierdzenia `saml:Assertion` wysłana przez dostawcę tożsamości do Azure AD B2C musi być podpisana. Jeśli wartość jest ustawiona na `false` , dostawca tożsamości nie powinien podpisać potwierdzeń, ale nawet jeśli tak, Azure AD B2C nie sprawdza podpisu. Te metadane również sterują flagą metadanych **WantsAssertionsSigned** , która jest wyprowadzana w metadanych profilu technicznego Azure AD B2C, który jest udostępniony dostawcy tożsamości. Jeśli wyłączysz weryfikację potwierdzeń, możesz również wyłączyć weryfikację podpisu odpowiedzi (Aby uzyskać więcej informacji, zobacz **ResponsesSigned** ). |
+| ResponsesSigned | Nie | Możliwe wartości: `true` lub `false` . Wartość domyślna to `true`. Jeśli wartość jest ustawiona na `false` , dostawca tożsamości nie powinien podpisać odpowiedzi SAML, ale nawet jeśli tak, Azure AD B2C nie sprawdza podpisu. Jeśli wartość jest ustawiona na `true` , odpowiedź SAML wysłana przez dostawcę tożsamości do Azure AD B2C jest podpisana i należy sprawdzić poprawność. Jeśli wyłączysz weryfikację odpowiedzi SAML, możesz również wyłączyć weryfikację podpisu potwierdzenia (Aby uzyskać więcej informacji, zobacz **WantsSignedAssertions** ). |
+| WantsEncryptedAssertions | Nie | Wskazuje, czy profil techniczny wymaga szyfrowania wszystkich potwierdzeń przychodzących. Możliwe wartości: `true` lub `false` . Wartość domyślna to `false`. Jeśli wartość jest ustawiona na `true` , potwierdzenia wysyłane przez dostawcę tożsamości do Azure AD B2C muszą być podpisane i należy określić klucz kryptograficzny **SamlAssertionDecryption** . Jeśli wartość jest ustawiona na `true` , metadane Azure AD B2C profilu technicznego obejmują sekcję **szyfrowanie** . Dostawca tożsamości odczytuje metadane i szyfruje potwierdzenie odpowiedzi SAML przy użyciu klucza publicznego dostarczonego w metadanych profilu technicznego Azure AD B2C. W przypadku włączenia szyfrowania potwierdzeń może być również konieczne wyłączenie walidacji podpisu odpowiedzi (Aby uzyskać więcej informacji, zobacz **ResponsesSigned** ). |
+| NameIdPolicyFormat | Nie | Określa ograniczenia dotyczące identyfikatora nazwy, który będzie używany do reprezentowania żądanego tematu. W przypadku pominięcia można użyć dowolnego typu identyfikatora obsługiwanego przez dostawcę tożsamości dla żądanego tematu. Przykład: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** można używać z **NameIdPolicyAllowCreate** . Zapoznaj się z dokumentacją dostawcy tożsamości, aby uzyskać wskazówki dotyczące tego, które zasady identyfikatorów nazw są obsługiwane. |
+| NameIdPolicyAllowCreate | Nie | W przypadku korzystania z **NameIdPolicyFormat** można także określić `AllowCreate` Właściwość **NameIDPolicy** . Wartość tych metadanych jest `true` lub `false` w celu wskazania, czy dostawca tożsamości może utworzyć nowe konto w ramach przepływu logowania. Zapoznaj się z dokumentacją dostawcy tożsamości w celu uzyskania wskazówek na temat tego, jak to zrobić. |
 | AuthenticationRequestExtensions | Nie | Opcjonalne elementy rozszerzeń komunikatów protokołu, które są uzgadniane między usługą Azure AD BC a dostawcą tożsamości. Rozszerzenie jest prezentowane w formacie XML. Należy dodać dane XML wewnątrz elementu CDATA `<![CDATA[Your IDP metadata]]>` . Sprawdź dokumentację dostawcy tożsamości, aby sprawdzić, czy element rozszerzeń jest obsługiwany. |
 | IncludeAuthnContextClassReferences | Nie | Określa co najmniej jeden identyfikator URI identyfikujący klasy kontekstu uwierzytelniania. Na przykład, aby zezwolić użytkownikowi na logowanie się tylko przy użyciu nazwy użytkownika i hasła, ustaw wartość na `urn:oasis:names:tc:SAML:2.0:ac:classes:Password` . Aby zezwolić na logowanie za pomocą nazwy użytkownika i hasła w chronionej sesji (SSL/TLS), określ `PasswordProtectedTransport` . Zapoznaj się z dokumentacją dostawcy tożsamości w celu uzyskania wskazówek dotyczących obsługiwanych identyfikatorów URI **AuthnContextClassRef** . Określ wiele identyfikatorów URI jako listę rozdzielaną przecinkami. |
 | IncludeKeyInfo | Nie | Wskazuje, czy żądanie uwierzytelnienia SAML zawiera klucz publiczny certyfikatu, gdy powiązanie jest ustawione na `HTTP-POST` . Możliwe wartości: `true` lub `false` . |
-| IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false`   (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
+| IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne
 

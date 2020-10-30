@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3a7a9711f04a4b54459d57a05ae65b4eedf1d6b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 517b006b013bddbe4e7e7a3d44be74dfa36cc154
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986651"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042604"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Tworzenie i instalowanie plików konfiguracji klienta sieci VPN dla konfiguracji połączeń punkt-lokacja z natywnym uwierzytelnianiem certyfikatów platformy Azure
 
@@ -34,16 +34,16 @@ Przed rozpoczęciem upewnij się, że na urządzeniu użytkownika jest zainstalo
 
 Można generować pliki konfiguracji klienta przy użyciu programu PowerShell lub za pomocą Azure Portal. Każda metoda zwraca ten sam plik zip. Rozpakuj plik, aby wyświetlić następujące foldery:
 
-  * **WindowsAmd64** i **WindowsX86**, które zawierają odpowiednio pakiety Instalatora systemu Windows 32-bit i 64-bitowego. Pakiet Instalatora **WindowsAmd64** jest przeznaczony dla wszystkich obsługiwanych 64-bitowych klientów z systemem Windows, a nie tylko AMD.
-  * **Ogólne, który**zawiera ogólne informacje służące do tworzenia własnej konfiguracji klienta sieci VPN. Folder ogólny jest dostępny, jeśli na bramie skonfigurowano protokół IKEv2 lub SSTP + IKEv2. Jeśli skonfigurowano tylko protokół SSTP, folder ogólny nie jest obecny.
+  * **WindowsAmd64** i **WindowsX86** , które zawierają odpowiednio pakiety Instalatora systemu Windows 32-bit i 64-bitowego. Pakiet Instalatora **WindowsAmd64** jest przeznaczony dla wszystkich obsługiwanych 64-bitowych klientów z systemem Windows, a nie tylko AMD.
+  * **Ogólne, który** zawiera ogólne informacje służące do tworzenia własnej konfiguracji klienta sieci VPN. Folder ogólny jest dostępny, jeśli na bramie skonfigurowano protokół IKEv2 lub SSTP + IKEv2. Jeśli skonfigurowano tylko protokół SSTP, folder ogólny nie jest obecny.
 
 ### <a name="generate-files-using-the-azure-portal"></a><a name="zipportal"></a>Generuj pliki przy użyciu Azure Portal
 
 1. W Azure Portal przejdź do bramy sieci wirtualnej dla sieci wirtualnej, z którą chcesz nawiązać połączenie.
-2. Na stronie Brama sieci wirtualnej kliknij pozycję **Konfiguracja punktu do lokacji**.
+2. Na stronie Brama sieci wirtualnej kliknij pozycję **Konfiguracja punktu do lokacji** .
 
    ![Pobierz Portal klienta](./media/point-to-site-vpn-client-configuration-azure-cert/client-configuration-portal.png)
-3. W górnej części strony Konfiguracja punktu do lokacji kliknij pozycję **Pobierz klienta sieci VPN**. Generowanie pakietu konfiguracji klienta może potrwać kilka minut.
+3. W górnej części strony Konfiguracja punktu do lokacji kliknij pozycję **Pobierz klienta sieci VPN** . Generowanie pakietu konfiguracji klienta może potrwać kilka minut.
 4. Twoja przeglądarka wskazuje, że plik zip konfiguracji klienta jest dostępny. Nazwa taka sama nazywa się bramą. Rozpakuj plik, aby wyświetlić foldery.
 
 ### <a name="generate-files-using-powershell"></a><a name="zipps"></a>Generowanie plików przy użyciu programu PowerShell
@@ -60,26 +60,14 @@ Można generować pliki konfiguracji klienta przy użyciu programu PowerShell lu
 
 ## <a name="windows"></a><a name="installwin"></a>Windows
 
-Tego samego pakietu konfiguracyjnego klienta sieci VPN można użyć na każdym komputerze klienckim z systemem Windows, o ile wersja jest zgodna z architekturą klienta. Listę obsługiwanych systemów operacyjnych klienta znajduje się w sekcji "punkt-lokacja [" VPN Gateway często zadawane pytania](vpn-gateway-vpn-faq.md#P2S).
-
->[!NOTE]
->Użytkownik musi mieć uprawnienia administratora na komputerze klienckim z systemem Windows, z którego chcesz się połączyć.
->
->
-
-Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN systemu Windows na potrzeby uwierzytelniania certyfikatu:
-
-1. Wybierz pliki konfiguracji klienta sieci VPN, które odpowiadają architekturze komputera z systemem Windows. W przypadku 64-bitowej architektury procesora wybierz pakiet instalatora „VpnClientSetupAmd64”. W przypadku 32-bitowej architektury procesora wybierz pakiet instalatora „VpnClientSetupX86”. 
-2. Kliknij dwukrotnie pakiet, aby go zainstalować. Jeśli zobaczysz okno podręczne SmartScreen, kliknij pozycję **więcej informacji**, a następnie **Uruchom mimo wszystko**.
-3. Na komputerze klienckim przejdź do obszaru **Ustawienia sieci** i kliknij pozycję **Sieć VPN**. Połączenie z siecią VPN zawiera nazwę sieci wirtualnej, z którą jest nawiązywane połączenie. 
-4. Zanim spróbujesz nawiązać połączenie, sprawdź, czy zainstalowano certyfikat klienta na komputerze klienckim. Certyfikat klienta jest wymagany w celu uwierzytelniania podczas korzystania z natywnego typu certyfikatu uwierzytelniania platformy Azure. Więcej informacji o generowaniu certyfikatów znajduje się w temacie [Generate Certificates](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Informacje o sposobie instalowania certyfikatu klienta znajdują się w temacie [Install a Client Certificate (Instalowanie certyfikatu klienta](point-to-site-how-to-vpn-client-install-azure-cert.md)).
+[!INCLUDE [Windows instructions](../../includes/vpn-gateway-p2s-client-configuration-windows.md)]
 
 ## <a name="mac-os-x"></a><a name="installmac"></a>Mac (OS X)
 
  Należy ręcznie skonfigurować natywnego klienta sieci VPN z protokołem IKEv2 na każdym komputerze Mac, który jest połączony z platformą Azure. Platforma Azure nie zapewnia pliku mobileconfig dla uwierzytelniania natywnego certyfikatu platformy Azure. **Ogólne** zawiera wszystkie informacje potrzebne do konfiguracji. Jeśli nie widzisz folderu Generic w elementach pobranych, prawdopodobnie nie wybrano protokołu IKEv2 jako typu tunelu. Należy pamiętać, że podstawowa jednostka SKU bramy sieci VPN nie obsługuje protokołu IKEv2. Po wybraniu protokołu IKEv2 należy ponownie wygenerować plik zip, aby pobrać folder Generic.<br>Folder Generic zawiera następujące pliki:
 
-* **VpnSettings.xml**, który zawiera ważne ustawienia, takie jak adres serwera i typ tunelu. 
-* **VpnServerRoot. cer**, który zawiera certyfikat główny wymagany do zweryfikowania VPN Gateway platformy Azure podczas instalacji połączenia P2S.
+* **VpnSettings.xml** , który zawiera ważne ustawienia, takie jak adres serwera i typ tunelu. 
+* **VpnServerRoot. cer** , który zawiera certyfikat główny wymagany do zweryfikowania VPN Gateway platformy Azure podczas instalacji połączenia P2S.
 
 Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN na komputerze Mac na potrzeby uwierzytelniania certyfikatów. Musisz wykonać te czynności na każdym komputerze Mac, który będzie łączyć się z platformą Azure:
 
@@ -100,18 +88,18 @@ Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN na k
 4. W folderze **ogólnym** , w pliku **VpnSettings.xml** skopiuj wartość tagu **VpnServer** . Wklej tę wartość do pól **adres serwera** i **Identyfikator zdalny** profilu.
 
    ![Informacje o serwerze](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-5. Kliknij pozycję **Ustawienia uwierzytelniania** i wybierz pozycję **certyfikat**.W przypadku usługi **Catalina**kliknij **Brak** , a następnie pozycję **certyfikat**
+5. Kliknij pozycję **Ustawienia uwierzytelniania** i wybierz pozycję **certyfikat** . W przypadku usługi **Catalina** kliknij **Brak** , a następnie pozycję **certyfikat**
 
    ![ustawienia uwierzytelniania](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
 
-   * W przypadku Catalina wybierz **Brak** , a następnie **certyfikat**. **Wybierz** prawidłowy certyfikat:
+   * W przypadku Catalina wybierz **Brak** , a następnie **certyfikat** . **Wybierz** prawidłowy certyfikat:
    
    ![Zrzut ekranu przedstawia okno sieć z opcją brak wybraną dla ustawień uwierzytelniania i wybranego certyfikatu.](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
 
 6. Kliknij przycisk **Wybierz...** Aby wybrać certyfikat klienta, który ma być używany do uwierzytelniania. Jest to certyfikat zainstalowany w kroku 2.
 
    ![Zrzut ekranu przedstawia okno sieci z ustawieniami uwierzytelniania, w którym można wybrać certyfikat.](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
-7. **Wybierz tożsamość** wyświetla listę certyfikatów do wyboru. Wybierz odpowiedni certyfikat, a następnie kliknij przycisk **Kontynuuj**.
+7. **Wybierz tożsamość** wyświetla listę certyfikatów do wyboru. Wybierz odpowiedni certyfikat, a następnie kliknij przycisk **Kontynuuj** .
 
    ![Zrzut ekranu przedstawia okno dialogowe Wybieranie tożsamości, w którym można wybrać odpowiedni certyfikat.](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. W polu **Identyfikator lokalny** Określ nazwę certyfikatu (z kroku 6). W tym przykładzie jest to "ikev2Client.com". Następnie kliknij przycisk **Zastosuj** , aby zapisać zmiany.
@@ -140,7 +128,7 @@ Następujące instrukcje zostały utworzone w witrynie Ubuntu 18.0.4. Ubuntu 16.
    ```
    sudo apt install network-manager-strongswan
    ```
-2. Wybierz pozycję **Ustawienia**, a następnie pozycję **Sieć**.
+2. Wybierz pozycję **Ustawienia** , a następnie pozycję **Sieć** .
 
    ![Edytuj połączenia](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
 3. Kliknij **+** przycisk, aby utworzyć nowe połączenie.
@@ -153,7 +141,7 @@ Następujące instrukcje zostały utworzone w witrynie Ubuntu 18.0.4. Ubuntu 16.
 
    ![Nazwa kopii](./media/point-to-site-vpn-client-configuration-azure-cert/vpnserver.png)
 6. Wklej tę nazwę w polu **adres** nowego połączenia sieci VPN w sekcji **Gateway** . Następnie wybierz ikonę folderu na końcu pola **certyfikat** , przejdź do folderu **ogólnego** , a następnie wybierz plik **VpnServerRoot** .
-7. W sekcji **Klient** połączenia w obszarze **uwierzytelnianie**wybierz pozycję **certyfikat/klucz prywatny**. W polu **certyfikat** i **klucz prywatny**wybierz certyfikat i klucz prywatny, który został utworzony wcześniej. W obszarze **Opcje**wybierz pozycję **Żądaj wewnętrznego adresu IP**. Następnie kliknij przycisk **Add** (Dodaj).
+7. W sekcji **Klient** połączenia w obszarze **uwierzytelnianie** wybierz pozycję **certyfikat/klucz prywatny** . W polu **certyfikat** i **klucz prywatny** wybierz certyfikat i klucz prywatny, który został utworzony wcześniej. W obszarze **Opcje** wybierz pozycję **Żądaj wewnętrznego adresu IP** . Następnie kliknij przycisk **Add** (Dodaj).
 
    ![Żądaj wewnętrznego adresu IP](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
 8. **Włącz połączenie.**
@@ -193,7 +181,7 @@ Jeśli certyfikaty nie zostały jeszcze wygenerowane, wykonaj następujące czyn
          leftsourceip=%config
          auto=add
    ```
-6. Dodaj następujący do */etc/IPSec.Secrets*.
+6. Dodaj następujący do */etc/IPSec.Secrets* .
 
    ```
    : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory

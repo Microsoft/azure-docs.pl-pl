@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b18eb0f8d57c06e82d243c10bf038a861bcf88d1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568726"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042697"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Rozwiązywanie problemów dotyczących konfiguracji ograniczonego delegowania protokołu Kerberos dla serwera proxy aplikacji
 
@@ -51,7 +51,7 @@ Najlepszym miejscem do położenia łączników jest możliwie najbliżej ich ce
 
 Co zawiera problem z KCD? Istnieje kilka typowych wskazań, na które KCD Logowanie jednokrotne kończy się niepowodzeniem. Pierwsze objawy problemu pojawia się w przeglądarce.
 
-![Przykład: nieprawidłowy błąd konfiguracji KCD](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Zrzut ekranu pokazujący przykład nieprawidłowego błędu konfiguracji K C D z błędem "nieprawidłowe delegowanie ograniczone uwierzytelnianie Kerberos..." usuwa.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
 ![Przykład: Autoryzacja nie powiodła się z powodu brakujących uprawnień](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
@@ -81,13 +81,13 @@ Jak wspomniano wcześniej, komunikaty o błędach przeglądarki zawierają pewne
 
 ![Przykład: nieprawidłowy błąd konfiguracji KCD](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-Odpowiednie wpisy widoczne w dzienniku zdarzeń są wyświetlane jako zdarzenia 13019 lub 12027. Znajdź dzienniki zdarzeń łącznika w obszarze **Dzienniki aplikacji i usług** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **admin**.
+Odpowiednie wpisy widoczne w dzienniku zdarzeń są wyświetlane jako zdarzenia 13019 lub 12027. Znajdź dzienniki zdarzeń łącznika w obszarze **Dzienniki aplikacji i usług** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **admin** .
 
 ![Zdarzenie 13019 z dziennika zdarzeń serwera proxy aplikacji](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 
 ![Zdarzenie 12027 z dziennika zdarzeń serwera proxy aplikacji](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic5.png)
 
-1. Użyj rekordu **A** w wewnętrznym systemie DNS dla adresu aplikacji, a nie **CNAME**.
+1. Użyj rekordu **A** w wewnętrznym systemie DNS dla adresu aplikacji, a nie **CNAME** .
 1. Upewnij się, że host łącznika ma przyznane prawo do delegowania do nazwy SPN wskazanego konta docelowego. Upewnij się, że wybrano **opcja Użyj dowolnego protokołu uwierzytelniania** . Aby uzyskać więcej informacji, zobacz [artykuł Konfiguracja logowania jednokrotnego](application-proxy-configure-single-sign-on-with-kcd.md).
 1. Sprawdź, czy istnieje tylko jedno wystąpienie nazwy SPN w usłudze Azure AD. Problem `setspn -x` z wiersza polecenia na dowolnym hoście elementu członkowskiego domeny.
 1. Sprawdź, czy zasady domeny są wymuszane, które ograniczają [Maksymalny rozmiar wystawionych tokenów Kerberos](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/). Te zasady uniemożliwiają łącznikowi uzyskanie tokenu, jeśli okaże się zbyt długi.
@@ -102,20 +102,20 @@ Odbiorca biletu Kerberos dostarczony przez łącznik. Na tym etapie oczekujesz, 
 
 1. Używając wewnętrznego adresu URL aplikacji zdefiniowanego w portalu, sprawdź, czy aplikacja jest dostępna bezpośrednio z przeglądarki na hoście łącznika. Następnie możesz zalogować się pomyślnie. Szczegóły można znaleźć na stronie **Rozwiązywanie problemów** dotyczących łącznika.
 1. Nadal na hoście łącznika upewnij się, że uwierzytelnianie między przeglądarką a aplikacją korzysta z protokołu Kerberos. Wykonaj jedno z następujących działań:
-1. Uruchom program DevTools (**F12**) w programie Internet Explorer lub Użyj [programu Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) z hosta łącznika. Przejdź do aplikacji przy użyciu wewnętrznego adresu URL. Sprawdź proponowane nagłówki autoryzacji WWW zwrócone w odpowiedzi aplikacji, aby upewnić się, że jest obecna wartość Negotiate lub Kerberos.
+1. Uruchom program DevTools ( **F12** ) w programie Internet Explorer lub Użyj [programu Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) z hosta łącznika. Przejdź do aplikacji przy użyciu wewnętrznego adresu URL. Sprawdź proponowane nagłówki autoryzacji WWW zwrócone w odpowiedzi aplikacji, aby upewnić się, że jest obecna wartość Negotiate lub Kerberos.
 
-   - Następny obiekt BLOB protokołu Kerberos, który jest zwracany w odpowiedzi z przeglądarki do aplikacji rozpoczyna się od **YII**. Te litery informują o tym, że protokół Kerberos jest uruchomiony. Z drugiej strony program Microsoft NT LAN Manager (NTLM) zawsze zaczyna się od **TlRMTVNTUAAB**, który odczytuje dostawcę obsługi zabezpieczeń NTLM (NTLMSSP) podczas dekodowania z poziomu algorytmu Base64. Jeśli na początku obiektu BLOB widzisz **TlRMTVNTUAAB** , protokół Kerberos nie jest dostępny. Jeśli nie widzisz **TlRMTVNTUAAB**, prawdopodobnie jest dostępny protokół Kerberos.
+   - Następny obiekt BLOB protokołu Kerberos, który jest zwracany w odpowiedzi z przeglądarki do aplikacji rozpoczyna się od **YII** . Te litery informują o tym, że protokół Kerberos jest uruchomiony. Z drugiej strony program Microsoft NT LAN Manager (NTLM) zawsze zaczyna się od **TlRMTVNTUAAB** , który odczytuje dostawcę obsługi zabezpieczeń NTLM (NTLMSSP) podczas dekodowania z poziomu algorytmu Base64. Jeśli na początku obiektu BLOB widzisz **TlRMTVNTUAAB** , protokół Kerberos nie jest dostępny. Jeśli nie widzisz **TlRMTVNTUAAB** , prawdopodobnie jest dostępny protokół Kerberos.
 
       > [!NOTE]
       > Jeśli używasz programu Fiddler, ta metoda wymaga tymczasowego wyłączenia ochrony rozszerzonej w konfiguracji aplikacji w usługach IIS.
 
       ![Okno inspekcji sieci przeglądarki](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
 
-   - Obiekt BLOB na tym rysunku nie zaczyna się od **TIRMTVNTUAAB**. W tym przykładzie jest dostępny protokół Kerberos, a obiekt BLOB protokołu Kerberos nie zaczyna się od **YII**.
+   - Obiekt BLOB na tym rysunku nie zaczyna się od **TIRMTVNTUAAB** . W tym przykładzie jest dostępny protokół Kerberos, a obiekt BLOB protokołu Kerberos nie zaczyna się od **YII** .
 
 1. Tymczasowo Usuń NTLM z listy dostawców w witrynie usług IIS. Uzyskaj dostęp do aplikacji bezpośrednio z programu Internet Explorer na hoście łącznika. Uwierzytelnianie NTLM nie znajduje się już na liście dostawców. Możesz uzyskać dostęp do aplikacji, używając tylko protokołu Kerberos. W przypadku niepowodzenia dostępu może wystąpić problem z konfiguracją aplikacji. Uwierzytelnianie Kerberos nie działa.
 
-   - Jeśli protokół Kerberos jest niedostępny, sprawdź ustawienia uwierzytelniania aplikacji w usługach IIS. Upewnij się, że w górnej części znajduje się wartość **Negocjuj** z uwierzytelnianiem NTLM tuż poniżej. Jeśli widzisz **nie Negocjuj**, **Kerberos lub Negotiate**lub **protokołu PKU2U**, Kontynuuj tylko wtedy, gdy protokół Kerberos jest funkcjonalny.
+   - Jeśli protokół Kerberos jest niedostępny, sprawdź ustawienia uwierzytelniania aplikacji w usługach IIS. Upewnij się, że w górnej części znajduje się wartość **Negocjuj** z uwierzytelnianiem NTLM tuż poniżej. Jeśli widzisz **nie Negocjuj** , **Kerberos lub Negotiate** lub **protokołu PKU2U** , Kontynuuj tylko wtedy, gdy protokół Kerberos jest funkcjonalny.
 
      ![Dostawcy uwierzytelniania systemu Windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
 
@@ -138,11 +138,11 @@ Odbiorca biletu Kerberos dostarczony przez łącznik. Na tym etapie oczekujesz, 
 
       ![Konfiguracja nazw SPN w Azure Portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
 
-   - Przejdź do usług IIS i wybierz opcję **Edytor konfiguracji** dla aplikacji. Przejdź do **System. WebServer/Security/Authentication/WindowsAuthentication**. Upewnij się, że wartość **UseAppPoolCredentials** ma wartość **true**.
+   - Przejdź do usług IIS i wybierz opcję **Edytor konfiguracji** dla aplikacji. Przejdź do **System. WebServer/Security/Authentication/WindowsAuthentication** . Upewnij się, że wartość **UseAppPoolCredentials** ma wartość **true** .
 
       ![Opcja poświadczeń puli aplikacji konfiguracji programu IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 
-      Zmień tę wartość na **true**. Usuń wszystkie buforowane bilety protokołu Kerberos z serwera zaplecza, uruchamiając następujące polecenie:
+      Zmień tę wartość na **true** . Usuń wszystkie buforowane bilety protokołu Kerberos z serwera zaplecza, uruchamiając następujące polecenie:
 
       ```powershell
       Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
@@ -152,7 +152,7 @@ Aby uzyskać więcej informacji, zobacz [przeczyszczanie pamięci podręcznej bi
 
 Pozostawienie trybu jądra włączone powoduje zwiększenie wydajności operacji protokołu Kerberos. Powoduje również, że bilet dla wymaganej usługi można odszyfrować przy użyciu konta komputera. To konto jest również nazywane systemem lokalnym. Ustaw tę wartość na **true** , aby przerwać KCD, gdy aplikacja jest hostowana na więcej niż jednym serwerze w farmie.
 
-- Jako dodatkowe sprawdzenie Wyłącz również ochronę **rozszerzoną** . W niektórych scenariuszach **rozszerzona** ochrona została złamana KCD, gdy została włączona w określonych konfiguracjach. W takich przypadkach aplikacja została opublikowana jako podfolder domyślnej witryny sieci Web. Ta aplikacja jest skonfigurowana tylko do uwierzytelniania anonimowego. Wszystkie okna dialogowe są wyszarzone, co sugeruje, że obiekty podrzędne nie dziedziczą żadnych aktywnych ustawień. Zalecamy przetestowanie, ale nie zapomni **, aby przywrócić tę wartość, jeśli**jest to możliwe.
+- Jako dodatkowe sprawdzenie Wyłącz również ochronę **rozszerzoną** . W niektórych scenariuszach **rozszerzona** ochrona została złamana KCD, gdy została włączona w określonych konfiguracjach. W takich przypadkach aplikacja została opublikowana jako podfolder domyślnej witryny sieci Web. Ta aplikacja jest skonfigurowana tylko do uwierzytelniania anonimowego. Wszystkie okna dialogowe są wyszarzone, co sugeruje, że obiekty podrzędne nie dziedziczą żadnych aktywnych ustawień. Zalecamy przetestowanie, ale nie zapomni **, aby przywrócić tę wartość, jeśli** jest to możliwe.
 
   To dodatkowe sprawdzenie umożliwia śledzenie użycia opublikowanej aplikacji. Możesz uruchomić dodatkowe łączniki, które są również skonfigurowane do delegowania. Aby uzyskać więcej informacji, zapoznaj się z bardziej szczegółowym opisem technicznym, [Rozwiązywanie problemów z usługą Azure serwer proxy aplikacji usługi Azure AD](https://aka.ms/proxytshootpaper).
 

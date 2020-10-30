@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d0b66d2b4d89b512b34cb33a5607b471b7d1e84
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212162"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040933"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus powiązanie danych wyjściowych dla Azure Functions
 
 Użyj Azure Service Bus powiązania danych wyjściowych do wysyłania komunikatów kolejki lub tematu.
 
-Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](functions-bindings-service-bus-output.md).
+Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Przykład
 
@@ -175,7 +175,7 @@ Definicja powiązania Service Bus jest definiowana w *function.jsw* przypadku, g
 }
 ```
 
-W * _ \_ init_ \_ . PR*można napisać komunikat do kolejki, przekazując wartość do `set` metody.
+W *_\_ init_ \_ . PR* można napisać komunikat do kolejki, przekazując wartość do `set` metody.
 
 ```python
 import azure.functions as func

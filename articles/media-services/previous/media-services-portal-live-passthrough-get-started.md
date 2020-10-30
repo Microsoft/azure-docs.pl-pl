@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 15b876104dfa1a35077a34aa178d650e2d68855e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 707c12cac6bbceee925c4710eff29482f687d47f
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266735"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040728"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Wykonywanie transmisji strumieniowej na żywo za pomocą koderów lokalnych przy użyciu Azure Portal
 
@@ -55,7 +55,7 @@ Zdecydowanie zaleca się następujące artykuły:
 W poniższych krokach opisano zadania związane z tworzeniem typowych aplikacji do transmisji strumieniowej na żywo używających kanałów skonfigurowanych do dostarczania zawartości w formie przekazywania. W tym samouczku przedstawiono sposób tworzenia kanału do przekazywania zawartości i transmitowania wydarzeń na żywo oraz zarządzania nimi.
 
 > [!NOTE]
-> Upewnij się, że punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, ma stan **Uruchomiony**. 
+> Upewnij się, że punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, ma stan **Uruchomiony** . 
     
 1. Podłącz kamerę wideo do komputera. <br/>Aby zapoznać się z pomysłami dotyczącymi konfiguracji, zapoznaj się z [konfiguracją prostego i przenośnego sprzętu wideo]( https://link.medium.com/KNTtiN6IeT).
 1. Uruchom i skonfiguruj lokalny koder na żywo, który wyprowadza strumień protokołu RTMP o różnej szybkości transmisji bitów lub pofragmentowany strumień MP4. Aby uzyskać więcej informacji, zobacz temat [Obsługa protokołu RTMP i kodery na żywo w usłudze Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Zapoznaj się również z tym blogiem: [produkcja przesyłania strumieniowego na żywo z obs](https://link.medium.com/ttuwHpaJeT).
@@ -90,7 +90,7 @@ Jeśli chcesz wyświetlić powiadomienia i błędy wygenerowane w portalu Azure,
 ## <a name="create-and-start-pass-through-channels-and-events"></a>Tworzenie i uruchamianie kanałów i wydarzeń w formie przekazywania
 Kanał jest skojarzony z wydarzeniami/programami, które umożliwiają kontrolowanie publikowania i przechowywania segmentów strumienia na żywo. Kanały zarządzają wydarzeniami. 
 
-Można określić liczbę godzin, aby zachować zarejestrowaną zawartość na potrzeby programu przez ustawienie długości **Okna archiwum**. Ta wartość musi mieścić się w zakresie od 5 minut do maksymalnie 25 godzin. Długość okna archiwum określa również dostępny dla klientów zakres cofania odtwarzania pliku od bieżącego momentu transmisji na żywo. Wydarzenia mogą być uruchamiane w określonym czasie, ale zawartość, która wykracza poza długość okna jest stale odrzucana. Wartość tej właściwości określa również, jak długie mogą być manifesty na kliencie.
+Można określić liczbę godzin, aby zachować zarejestrowaną zawartość na potrzeby programu przez ustawienie długości **Okna archiwum** . Ta wartość musi mieścić się w zakresie od 5 minut do maksymalnie 25 godzin. Długość okna archiwum określa również dostępny dla klientów zakres cofania odtwarzania pliku od bieżącego momentu transmisji na żywo. Wydarzenia mogą być uruchamiane w określonym czasie, ale zawartość, która wykracza poza długość okna jest stale odrzucana. Wartość tej właściwości określa również, jak długie mogą być manifesty na kliencie.
 
 Każde wydarzenie jest skojarzone z elementem zawartości. Aby opublikować wydarzenie, należy utworzyć lokalizator OnDemand dla skojarzonego elementu zawartości. Lokalizator umożliwia utworzenie adresu URL przesyłania strumieniowego, który można udostępnić klientom.
 
@@ -112,28 +112,28 @@ W tej sekcji przedstawiono, jak użyć opcji **Szybkie tworzenie** do utworzenia
 Więcej szczegółowych informacji dotyczących kanałów przekazujących można znaleźć w temacie [Transmisja strumieniowa na żywo za pomocą koderów lokalnych tworzących strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
-2. W oknie **Ustawienia** kliknij przycisk **Transmisja strumieniowa na żywo**. 
+2. W oknie **Ustawienia** kliknij przycisk **Transmisja strumieniowa na żywo** . 
    
     ![Wprowadzenie](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
-    Zostanie wyświetlone okno **Transmisja strumieniowa na żywo**.
-3. Kliknij przycisk **Szybkie tworzenie**, aby utworzyć kanał w formie przekazywania za pomocą protokołu pozyskiwania RTMP.
+    Zostanie wyświetlone okno **Transmisja strumieniowa na żywo** .
+3. Kliknij przycisk **Szybkie tworzenie** , aby utworzyć kanał w formie przekazywania za pomocą protokołu pozyskiwania RTMP.
    
-    Zostanie wyświetlone okno **UTWÓRZ NOWY KANAŁ**.
-4. Nadaj nazwę nowemu kanałowi, a następnie kliknij przycisk **Utwórz**. 
+    Zostanie wyświetlone okno **UTWÓRZ NOWY KANAŁ** .
+4. Nadaj nazwę nowemu kanałowi, a następnie kliknij przycisk **Utwórz** . 
    
     Spowoduje to utworzenie kanału przekazującego za pomocą protokołu pozyskiwania RTMP.
 
 ## <a name="create-events"></a>Tworzenie wydarzeń
 1. Wybierz kanał, do którego chcesz dodać wydarzenie.
-2. Naciśnij przycisk **Wydarzenie na żywo**.
+2. Naciśnij przycisk **Wydarzenie na żywo** .
 
-![Wydarzenie](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+![Zdarzenie](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 ## <a name="get-ingest-urls"></a>Pobieranie adresów URL pozyskiwania
 Po utworzeniu kanału można pobrać adresy URL pozyskiwania, które należy udostępnić koderowi na żywo. Koder używa tych adresów URL do wprowadzenia strumienia na żywo.
 
-![Utworzone](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+![Zrzut ekranu przedstawiający stronę "przesyłanie strumieniowe na żywo" z wybranym kanałem i wyświetlanym okienkiem kanału.](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 ## <a name="watch-the-event"></a>Oglądanie wydarzenia
 Aby oglądać wydarzenie, kliknij przycisk **Oglądaj** w witrynie Azure Portal lub skopiuj adres URL przesyłania strumieniowego i użyj wybranego odtwarzacza. 
@@ -151,7 +151,7 @@ Więcej szczegółowych informacji dotyczących kanałów przekazujących można
 ## <a name="view-archived-content"></a>Wyświetlanie zarchiwizowanej zawartości
 Nawet po zatrzymaniu i usunięciu wydarzenia użytkownicy będą mogli przesyłać strumieniowo zarchiwizowaną zawartość wideo na żądanie tak długo, jak zasoby nie zostaną usunięte. Nie można usunąć elementu zawartości, jeśli jest on używany przez wydarzenie. Najpierw należy usunąć wydarzenie. 
 
-Aby zarządzać elementami zawartości, wybierz **ustawienie** i kliknij przycisk **elementy zawartości**.
+Aby zarządzać elementami zawartości, wybierz **ustawienie** i kliknij przycisk **elementy zawartości** .
 
 ![Elementy zawartości](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 

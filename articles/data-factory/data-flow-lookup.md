@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84187615"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040189"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformacja wyszukiwania w przepływie danych mapowania
 
@@ -27,7 +27,7 @@ Transformacja wyszukiwania jest podobna do lewego sprzężenia zewnętrznego. Ws
 
 ## <a name="configuration"></a>Konfiguracja
 
-![Transformacja wyszukiwania](media/data-flow/lookup1.png "Wyszukiwanie")
+![Zrzut ekranu przedstawia kartę Ustawienia wyszukiwania z etykietami opisanymi w poniższym tekście.](media/data-flow/lookup1.png "Wyszukiwanie")
 
 **Strumień podstawowy:** Strumień danych przychodzących. Ten strumień jest równoważny z lewą stroną sprzężenia.
 
@@ -65,7 +65,7 @@ Podczas testowania transformacji wyszukiwania z podglądem danych w trybie debug
 
 ![Sprzężenie emisji](media/data-flow/broadcast.png "Sprzężenie emisji")
 
-W sprzężeniach, wyszukiwaniu i przekształceniu istnieje, jeśli jeden lub oba strumienie danych mieszczą się w pamięci węzła procesu roboczego, można zoptymalizować wydajność, włączając **emisję**. Domyślnie aparat Spark automatycznie zdecyduje, czy ma być emitowana jedna strona. Aby ręcznie wybrać opcję emisji, wybierz pozycję **naprawione**.
+W sprzężeniach, wyszukiwaniu i przekształceniu istnieje, jeśli jeden lub oba strumienie danych mieszczą się w pamięci węzła procesu roboczego, można zoptymalizować wydajność, włączając **emisję** . Domyślnie aparat Spark automatycznie zdecyduje, czy ma być emitowana jedna strona. Aby ręcznie wybrać opcję emisji, wybierz pozycję **naprawione** .
 
 Nie zaleca się wyłączania emisji za pośrednictwem opcji **off** , chyba że sprzężenia są uruchamiane w przypadku błędów limitu czasu.
 
@@ -85,7 +85,7 @@ Nie zaleca się wyłączania emisji za pośrednictwem opcji **off** , chyba że 
 ```
 ### <a name="example"></a>Przykład
 
-![Transformacja wyszukiwania](media/data-flow/lookup-dsl-example.png "Wyszukiwanie")
+![Zrzut ekranu przedstawia kartę Ustawienia wyszukiwania dla poniższego kodu.](media/data-flow/lookup-dsl-example.png "Wyszukiwanie")
 
 Skrypt przepływu danych dla powyższej konfiguracji wyszukiwania znajduje się w poniższym fragmencie kodu.
 

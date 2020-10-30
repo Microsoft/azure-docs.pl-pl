@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
-ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0b708ac3a1b16804430584dfcb01b3d2a4fae2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121915"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042371"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Korzystanie z usługi Azure Blob Storage do zarządzania komercyjnymi klientami portalu Marketplace
 
@@ -51,9 +51,9 @@ ms.locfileid: "86121915"
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Klucz usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    ![Zrzut ekranu przedstawiający stronę "klucze dostępu" z wyróżnionym polem tekstowym "parametry połączenia".](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
-6. Na stronie konto magazynu wybierz pozycję **obiekty blob**.
+6. Na stronie konto magazynu wybierz pozycję **obiekty blob** .
 
    ![Klucz usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
@@ -63,9 +63,9 @@ ms.locfileid: "86121915"
 
     Zapisz tę wartość, ponieważ jest to wartość *nazwy kontenera* , którą należy podać w portalu wydawców, aby otrzymywać potencjalnych klientów na potrzeby oferty portalu Marketplace.
 
-9. Ustaw poziom publicznego dostępu do kontenera jako **prywatny (bez dostępu anonimowego)**.
+9. Ustaw poziom publicznego dostępu do kontenera jako **prywatny (bez dostępu anonimowego)** .
 
-10. Wybierz przycisk **OK**, aby utworzyć kontener.
+10. Wybierz przycisk **OK** , aby utworzyć kontener.
 
     ![Nowy kontener](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
@@ -74,7 +74,7 @@ ms.locfileid: "86121915"
 Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania potencjalnym liderem oferty w portalu wydawców, wykonaj następujące czynności:
 
 1. Przejdź do strony **Konfiguracja oferty** dla swojej oferty.
-2. W sekcji **potencjalni klienci** wybierz pozycję **Połącz**.
+2. W sekcji **potencjalni klienci** wybierz pozycję **Połącz** .
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Potencjalni klienci":::
 
@@ -87,7 +87,7 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
     * Przykład nazwy kontenera: `marketplaceleadcontainer`
     * Przykład parametrów połączenia konta magazynu: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![ szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
-5. Wybierz pozycję **Zapisz**.
+5. Wybierz pozycję **Zapisz** .
 
     > [!NOTE]
     > Musisz zakończyć konfigurowanie reszty oferty i opublikować ją przed odebraniem potencjalnych klientów do oferty.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 958bfa605e0195b5f4fde2c0ff53a8ce567f50a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bea4c049c3d7ea17e173f069a3e99cbcca1fe48
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257147"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041988"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Używanie uwierzytelniania usługi Azure AD do uzyskiwania dostępu do interfejsu API usługi Media Services za pomocą architektury REST
 
@@ -38,7 +38,7 @@ W przypadku korzystania z uwierzytelniania usługi Azure AD za pomocą Azure Med
     > [!NOTE]
     > Nazwa **główna usługi** jest zalecanym najlepszym rozwiązaniem dla większości aplikacji łączących się z Azure Media Services. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Pobierz informacje o uwierzytelnianiu z Azure Portal
@@ -56,7 +56,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 - Zapoznaj się z artykułem [Omówienie uzyskiwania dostępu do interfejsu API Azure Media Services przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md) .
 - Zainstaluj klienta REST programu [post](https://www.getpostman.com/) na potrzeby wykonywania interfejsów API REST przedstawionych w tym artykule. 
 
-    W tym samouczku korzystamy z programu **Poster** , ale wszystkie narzędzia REST byłyby odpowiednie. Inne alternatywy to: **Visual Studio Code** z wtyczką REST lub **Telerik programu Fiddler**. 
+    W tym samouczku korzystamy z programu **Poster** , ale wszystkie narzędzia REST byłyby odpowiednie. Inne alternatywy to: **Visual Studio Code** z wtyczką REST lub **Telerik programu Fiddler** . 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Pobierz informacje o uwierzytelnianiu z Azure Portal
 
@@ -71,16 +71,16 @@ Aby uzyskać dostęp do interfejsu API Media Services, należy zebrać następuj
 |Identyfikator klienta (Identyfikator aplikacji)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Identyfikator aplikacji usługi Azure AD (klienta). Do uzyskania tokenu dostępu wymagany jest identyfikator klienta. |
 |Klucz tajny klienta|+ mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Klucze aplikacji usługi Azure AD (klucz tajny klienta). Wpis tajny klienta jest wymagany do pobrania tokenu dostępu.|
 
-### <a name="get-aad-auth-info-from-the-azure-portal"></a>Pobierz informacje uwierzytelniania usługi AAD z Azure Portal
+### <a name="get-azure-active-directory-auth-info-from-the-azure-portal"></a>Pobierz Azure Active Directory informacje uwierzytelniania z Azure Portal
 
 Aby uzyskać informacje, wykonaj następujące kroki:
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 2. Przejdź do wystąpienia AMS.
-3. Wybierz pozycję **dostęp do interfejsu API**.
-4. Kliknij pozycję **Połącz z interfejsem API Azure Media Services przy użyciu nazwy głównej usługi**.
+3. Wybierz pozycję **dostęp do interfejsu API** .
+4. Kliknij pozycję **Połącz z interfejsem API Azure Media Services przy użyciu nazwy głównej usługi** .
 
-    ![Dostęp za pomocą interfejsu API](./media/connect-with-rest/connect-with-rest01.png)
+    ![Zrzut ekranu pokazujący, że wybrano "A dostęp" z menu "Media Services" i "Połącz z Azure Media Services A P I z główną usługą" wybraną z okienka po prawej stronie.](./media/connect-with-rest/connect-with-rest01.png)
 
 5. Wybierz istniejącą **aplikację usługi Azure AD** lub Utwórz nową (pokazaną poniżej).
 
@@ -89,12 +89,12 @@ Aby uzyskać informacje, wykonaj następujące kroki:
 
     Jeśli musisz utworzyć nową aplikację usługi AD, wykonaj następujące kroki:
     
-   1. Naciśnij pozycję **Utwórz nowy**.
+   1. Naciśnij pozycję **Utwórz nowy** .
    2. Wprowadź nazwę.
    3. Naciśnij ponownie przycisk **Utwórz nowy** .
-   4. Naciśnij pozycję **Zapisz**.
+   4. Naciśnij pozycję **Zapisz** .
 
-      ![Dostęp za pomocą interfejsu API](./media/connect-with-rest/new-app.png)
+      ![Zrzut ekranu pokazujący okno dialogowe "Tworzenie nowego" z wyróżnionym polem tekstowym "Utwórz aplikację" i wybranym przyciskiem "Zapisz".](./media/connect-with-rest/new-app.png)
 
       Nowa aplikacja zostanie wyświetlona na stronie.
 
@@ -103,15 +103,15 @@ Aby uzyskać informacje, wykonaj następujące kroki:
    1. Wybierz aplikację.
    2. Pobierz **Identyfikator klienta** z okna po prawej stronie. 
 
-      ![Dostęp za pomocą interfejsu API](./media/connect-with-rest/existing-client-id.png)
+      ![Zrzut ekranu pokazujący, że wybrano pozycję "aplikacja Azure A D" i "Zarządzaj aplikacją" oraz "klient I D" wyróżniony w okienku po prawej stronie.](./media/connect-with-rest/existing-client-id.png)
 
 7. Pobieranie **klucza** aplikacji (klucz tajny klienta). 
 
-   1. Kliknij przycisk **Zarządzaj aplikacją** (Zwróć uwagę, że informacje o identyfikatorze klienta są w obszarze **Identyfikator aplikacji**). 
-   2. Naciśnij **klawisze**.
+   1. Kliknij przycisk **Zarządzaj aplikacją** (Zwróć uwagę, że informacje o identyfikatorze klienta są w obszarze **Identyfikator aplikacji** ). 
+   2. Naciśnij **klawisze** .
     
-       ![Dostęp za pomocą interfejsu API](./media/connect-with-rest/manage-app.png)
-   3. Wygeneruj klucz aplikacji (klucz tajny klienta), wypełniając **Opis** i **wygaśnie** , a następnie naciskając klawisz **Save (Zapisz**).
+       ![Zrzut ekranu pokazujący wybrany przycisk "Zarządzaj aplikacją", "aplikacja I D" w środkowym okienku wyróżnione i "klucze" wybrane w okienku po prawej stronie.](./media/connect-with-rest/manage-app.png)
+   3. Wygeneruj klucz aplikacji (klucz tajny klienta), wypełniając **Opis** i **wygaśnie** , a następnie naciskając klawisz **Save (Zapisz** ).
     
        Po naciśnięciu przycisku **Zapisz** zostanie wyświetlona wartość klucza. Skopiuj wartość klucza przed opuszczeniem bloku.
 
@@ -124,18 +124,18 @@ Możesz dodać wartości parametrów połączenia usługi AD do pliku web.config
 
 ## <a name="get-the-access-token-using-postman"></a>Uzyskiwanie tokenu dostępu przy użyciu programu Poster
 
-W tej sekcji pokazano, jak za pomocą programu **Poster** wykonać interfejs API REST, który zwraca token okaziciela JWT (token dostępu). Aby wywołać dowolny Media Services interfejs API REST, należy dodać nagłówek "Authorization" do wywołań i dodać wartość "Bearer *your_access_token*" do każdego wywołania (jak pokazano w następnej sekcji tego samouczka). 
+W tej sekcji pokazano, jak za pomocą programu **Poster** wykonać interfejs API REST, który zwraca token okaziciela JWT (token dostępu). Aby wywołać dowolny Media Services interfejs API REST, należy dodać nagłówek "Authorization" do wywołań i dodać wartość "Bearer *your_access_token* " do każdego wywołania (jak pokazano w następnej sekcji tego samouczka). 
 
-1. Otwórz **notkę**.
-2. Wybierz pozycję **POST**.
-3. Wprowadź adres URL, który zawiera nazwę dzierżawy, w następującym formacie: Nazwa dzierżawy powinna kończyć się znakiem **. onmicrosoft.com** , a adres URL powinien kończyć się **OAuth2/tokenem**: 
+1. Otwórz **notkę** .
+2. Wybierz pozycję **POST** .
+3. Wprowadź adres URL, który zawiera nazwę dzierżawy, w następującym formacie: Nazwa dzierżawy powinna kończyć się znakiem **. onmicrosoft.com** , a adres URL powinien kończyć się **OAuth2/tokenem** : 
 
     `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
 4. Wybierz kartę **nagłówki** .
 5. Wprowadź informacje o **nagłówkach** za pomocą siatki danych "klucz/wartość". 
 
-    ![siatka danych](./media/connect-with-rest/headers-data-grid.png)
+    ![Zrzut ekranu pokazujący kartę "nagłówki" i wybraną akcję "Edytuj zbiorczo".](./media/connect-with-rest/headers-data-grid.png)
 
     Alternatywnie możesz kliknąć link **Edytuj zbiorczo** po prawej stronie okna programu Poster i wkleić poniższy kod.
 
@@ -158,21 +158,21 @@ W tej sekcji pokazano, jak za pomocą programu **Poster** wykonać interfejs API
     resource:https://rest.media.azure.net
     ```
 
-8. Kliknij pozycję **Wyślij**.
+8. Kliknij pozycję **Wyślij** .
 
-    ![Pobierz token](./media/connect-with-rest/connect-with-rest04.png)
+    ![Zrzut ekranu pokazujący pole tekstowe "post", "nagłówki" i "treść" oraz wyróżnione "access_token" i wykryto przycisk "Wyślij".](./media/connect-with-rest/connect-with-rest04.png)
 
 Zwrócona odpowiedź zawiera **token dostępu** , który ma być używany do uzyskiwania dostępu do dowolnych interfejsów API AMS.
 
 ## <a name="test-the-assets-api-using-the-access-token"></a>Testowanie interfejsu API **zasobów** przy użyciu tokenu dostępu
 
-W tej sekcji pokazano, jak uzyskać dostęp do interfejsu API **zasobów** przy użyciu programu **Poster**.
+W tej sekcji pokazano, jak uzyskać dostęp do interfejsu API **zasobów** przy użyciu programu **Poster** .
 
-1. Otwórz **notkę**.
-2. Wybierz pozycję **GET**.
+1. Otwórz **notkę** .
+2. Wybierz pozycję **GET** .
 3. Wklej punkt końcowy interfejsu API REST (na przykład https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Wybierz kartę **autoryzacja** . 
-5. Wybierz **token elementu nośnego**.
+5. Wybierz **token elementu nośnego** .
 6. Wklej token, który został utworzony w poprzedniej sekcji.
 
     ![Pobierz token](./media/connect-with-rest/connect-with-rest05.png)
@@ -182,7 +182,7 @@ W tej sekcji pokazano, jak uzyskać dostęp do interfejsu API **zasobów** przy 
 
    ![Nagłówek uwierzytelniania](./media/connect-with-rest/auth-header.png)
 
-7. Wybierz pozycję **nagłówki**.
+7. Wybierz pozycję **nagłówki** .
 5. Kliknij link **Edytuj zbiorczo** w prawym okienku okna.
 6. Wklej następujące nagłówki:
 
@@ -194,7 +194,7 @@ W tej sekcji pokazano, jak uzyskać dostęp do interfejsu API **zasobów** przy 
     MaxDataServiceVersion:3.0
     ```
 
-7. Kliknij pozycję **Wyślij**.
+7. Kliknij pozycję **Wyślij** .
 
 Zwrócona odpowiedź zawiera zasoby, które znajdują się na Twoim koncie.
 

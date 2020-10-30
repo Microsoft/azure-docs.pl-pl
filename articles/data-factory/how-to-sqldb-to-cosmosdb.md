@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
-ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d93cb49c77a4c8164a8b4e9bca349a805f39678
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82691897"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041624"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrowanie znormalizowanego schematu bazy danych z usługi Azure SQL Database do nieznormalizowanego kontenera usługi Azure CosmosDB
 
@@ -50,7 +50,7 @@ W wyniku tego kontener CosmosDB osadzi wewnętrzne zapytanie w pojedynczy dokume
 
 2. Dodawanie działania przepływu danych
 
-3. W działaniu przepływu danych wybierz pozycję **Nowy mapowanie przepływu danych**.
+3. W działaniu przepływu danych wybierz pozycję **Nowy mapowanie przepływu danych** .
 
 4. Ten Graf przepływu danych zostanie skonstruowany poniżej
 
@@ -96,11 +96,11 @@ W wyniku tego kontener CosmosDB osadzi wewnętrzne zapytanie w pojedynczy dokume
 
 19. W obszarze Ustawienia ujścia do akcji "Utwórz ponownie" należy wykonać akcję z kluczami partycji do ```\SalesOrderID``` i kolekcji. Upewnij się, że karta mapowanie wygląda następująco:
 
-![Ustawienia ujścia](media/data-flow/cosmosb7.png)
+![Zrzut ekranu przedstawia kartę mapowanie.](media/data-flow/cosmosb7.png)
 
 20. Kliknij pozycję Podgląd danych, aby upewnić się, że są widoczne następujące 32 wierszy, aby wstawiać nowe dokumenty do nowego kontenera:
 
-![Ustawienia ujścia](media/data-flow/cosmosb8.png)
+![Zrzut ekranu przedstawia kartę Podgląd danych.](media/data-flow/cosmosb8.png)
 
 Jeśli wszystko wygląda dobrze, możesz teraz utworzyć nowy potok, dodać to działanie przepływu danych do tego potoku i wykonać operację. Można wykonać polecenie z debugowania lub uruchamiania wyzwalanego. Po kilku minutach należy mieć nowy, nieznormalizowany kontener zamówień o nazwie "Orders" w bazie danych CosmosDB.
 

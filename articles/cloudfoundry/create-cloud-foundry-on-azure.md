@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73161783"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040797"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Tworzenie klastra rozwiązania Pivotal Cloud Foundry na platformie Azure
 
@@ -36,13 +36,13 @@ Istnieje kilka sposobów generowania klucza publicznego SSH przy użyciu systemu
 ssh-keygen -t rsa -b 2048
 ```
 
-Aby uzyskać więcej informacji, zobacz [Use SSH keys with Windows on Azure (Korzystanie z kluczy SSH w systemie Windows na platformie Azure)](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+Aby uzyskać więcej informacji, zobacz [Use SSH keys with Windows on Azure (Korzystanie z kluczy SSH w systemie Windows na platformie Azure)](../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
 > [!NOTE]
 >
-> Aby utworzyć jednostkę usługi, potrzebne są uprawnienia właściciela konta. Możesz też napisać skrypt w celu zautomatyzowania tworzenia jednostki usługi. Możesz na przykład użyć polecenia interfejsu wiersza polecenia platformy Azure [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
+> Aby utworzyć jednostkę usługi, potrzebne są uprawnienia właściciela konta. Możesz też napisać skrypt w celu zautomatyzowania tworzenia jednostki usługi. Możesz na przykład użyć polecenia interfejsu wiersza polecenia platformy Azure [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest).
 
 1. Zaloguj się do swojego konta platformy Azure.
 
@@ -84,7 +84,7 @@ Aby uzyskać więcej informacji, zobacz [Use SSH keys with Windows on Azure (Kor
 
     `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
-7. Utwórz plik JSON w następującym formacie. Użyj wcześniej skopiowanych wartości **subscriptionID**, **tenantID**, **clientID** i **clientSecret**. Zapisz plik.
+7. Utwórz plik JSON w następującym formacie. Użyj wcześniej skopiowanych wartości **subscriptionID** , **tenantID** , **clientID** i **clientSecret** . Zapisz plik.
 
     ```json
     {
@@ -99,7 +99,7 @@ Aby uzyskać więcej informacji, zobacz [Use SSH keys with Windows on Azure (Kor
 
 1. Zarejestruj się lub zaloguj się na swoim koncie usługi [Pivotal Network](https://network.pivotal.io).
 2. Wybierz nazwę profilu w prawym górnym rogu strony. Wybierz pozycję **Edit Profile** (Edytuj profil).
-3. Przewiń do dołu strony i skopiuj wartość **LEGACY API TOKEN**. Jest to wartość **tokenu usługi Pivotal Network** do późniejszego użycia.
+3. Przewiń do dołu strony i skopiuj wartość **LEGACY API TOKEN** . Jest to wartość **tokenu usługi Pivotal Network** do późniejszego użycia.
 
 ## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Aprowizowanie klastra rozwiązania Cloud Foundry na platformie Azure
 
@@ -128,4 +128,3 @@ Wprowadź parametry, a następnie utwórz klaster rozwiązania PCF.
 5. W usłudze PCF Ops Manager zostaną wyświetlone wdrożone wystąpienia platformy Azure. Teraz w tym miejscu możesz wdrażać aplikacje i nimi zarządzać.
                
     ![Wdrożone wystąpienie platformy Azure w usłudze Pivotal](media/deploy/ops-mgr.png )
- 

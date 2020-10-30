@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 793a8f291be4fcca6fad19d486849253dddc089f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18f9f62ba28595289d37975200352c26788e69cc
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84754504"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040036"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Wdrażanie pierwszej aplikacji w rozwiązaniu Cloud Foundry na platformie Microsoft Azure
 
@@ -95,7 +95,7 @@ Większość aplikacji można wdrożyć do Cloud Foundry przy użyciu `push` pol
 cf push
 ```
 
-Podczas *wypychania* aplikacji Cloud Foundry wykrywa typ aplikacji (w tym przypadku aplikację Java) i identyfikuje jej zależności (w tym przypadku struktury sprężynowe). Następnie wszystkie elementy wymagane do uruchomienia kodu w autonomicznym obrazie kontenera, znane jako *droplet*. Na koniec Cloud Foundry planuje aplikację na jednej z dostępnych maszyn w środowisku i tworzy adres URL, w którym można się z nim skontaktować, który jest dostępny w danych wyjściowych polecenia.
+Podczas *wypychania* aplikacji Cloud Foundry wykrywa typ aplikacji (w tym przypadku aplikację Java) i identyfikuje jej zależności (w tym przypadku struktury sprężynowe). Następnie wszystkie elementy wymagane do uruchomienia kodu w autonomicznym obrazie kontenera, znane jako *droplet* . Na koniec Cloud Foundry planuje aplikację na jednej z dostępnych maszyn w środowisku i tworzy adres URL, w którym można się z nim skontaktować, który jest dostępny w danych wyjściowych polecenia.
 
 ![Dane wyjściowe polecenia CF push][cf-push-output]
 
@@ -114,7 +114,7 @@ Możesz użyć interfejsu wiersza polecenia Cloud Foundry, aby wyświetlić dzie
 cf logs hello-spring-cloud
 ```
 
-Domyślnie polecenie Logs używa *ogona*, który wyświetla nowe dzienniki podczas pisania. Aby wyświetlić nowe dzienniki, Odśwież aplikację Hello-wiosny w chmurze w przeglądarce.
+Domyślnie polecenie Logs używa *ogona* , który wyświetla nowe dzienniki podczas pisania. Aby wyświetlić nowe dzienniki, Odśwież aplikację Hello-wiosny w chmurze w przeglądarce.
 
 Aby wyświetlić dzienniki, które zostały już zapisane, Dodaj `recent` przełącznik:
 
@@ -146,7 +146,7 @@ Uruchomienie `cf app` polecenia w aplikacji pokazuje, że Cloud Foundry tworzy i
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
 [pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/pivotalcf/customizing/pcf_azure.html
 [cf-cli]: https://github.com/cloudfoundry/cli
-[cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
+[cloudshell-docs]: ../cloud-shell/overview.md
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
 [spring-framework]: https://spring.io

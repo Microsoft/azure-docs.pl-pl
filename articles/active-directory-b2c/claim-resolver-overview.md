@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259640"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040458"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informacje o rozpoznawaniu roszczeń w Azure Active Directory B2C zasadach niestandardowych
 
 Mechanizmy rozpoznawania nazw w Azure Active Directory B2C (Azure AD B2C) [zasady niestandardowe](custom-policy-overview.md) zawierają informacje kontekstu dotyczące żądania autoryzacji, takie jak nazwa zasad, identyfikator korelacji żądania, język interfejsu użytkownika i inne.
 
-Aby użyć mechanizmu rozwiązywania konfliktów w ramach oświadczenia wejściowego lub wychodzącego, należy zdefiniować element **ClaimType**typu String w elemencie [ClaimsSchema](claimsschema.md) , a następnie ustawić wartość **DefaultValue** na resolver oświadczenia w elemencie oświadczenia wejściowego lub wychodzącego. Azure AD B2C odczytuje wartość mechanizmu rozwiązywania konfliktów i używa wartości w profilu technicznym.
+Aby użyć mechanizmu rozwiązywania konfliktów w ramach oświadczenia wejściowego lub wychodzącego, należy zdefiniować element **ClaimType** typu String w elemencie [ClaimsSchema](claimsschema.md) , a następnie ustawić wartość **DefaultValue** na resolver oświadczenia w elemencie oświadczenia wejściowego lub wychodzącego. Azure AD B2C odczytuje wartość mechanizmu rozwiązywania konfliktów i używa wartości w profilu technicznym.
 
 W poniższym przykładzie typ wystąpienia o nazwie `correlationId` jest zdefiniowany za pomocą typu **danych** `string` .
 
@@ -51,7 +51,7 @@ W poniższych sekcjach znajduje się lista dostępnych elementów rozwiązywania
 | {Culture: LanguageName} | Dwuliterowy kod ISO dla języka. | en |
 | {Culture: LCID}   | Identyfikator LCID kodu języka. | 1045 |
 | {Culture: RegionName} | Dwuliterowy kod ISO dla regionu. | USA |
-| {Culture: RFC5646} | Kod języka RFC5646. | pl-PL |
+| {Culture: RFC5646} | Kod języka RFC5646. | en-US |
 
 ### <a name="policy"></a>Zasady
 
@@ -127,6 +127,7 @@ Wszelkie nazwy parametrów dołączone jako część żądania OIDC lub OAuth2 m
 | {SAML: ForceAuthn} | `ForceAuthN`Wartość atrybutu z `AuthnRequest` elementu żądania języka SAML. | Prawda |
 | {SAML: ProviderName} | `ProviderName`Wartość atrybutu z `AuthnRequest` elementu żądania języka SAML.| Contoso.com |
 | {SAML: RelayState} | `RelayState`Parametr ciągu zapytania.| 
+| {SAML: subject} | `Subject`Z elementu NameID żądania SAML AuthN.| 
 
 ## <a name="using-claim-resolvers"></a>Korzystanie z resolverów roszczeń
 

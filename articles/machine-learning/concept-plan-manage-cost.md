@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e6e59ad237cdc1f23181375894512e69eba86ff
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704732"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042179"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planowanie i zarządzanie kosztami Azure Machine Learning
 
@@ -41,7 +41,7 @@ Aby uzyskać informacje na temat przypisywania dostępu do danych usługi Azure 
 
 ## <a name="estimate-costs"></a>Szacowanie kosztów
 
-Skorzystaj z [kalkulatora cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) , aby oszacować koszty przed utworzeniem zasobów na koncie Azure Machine Learning. Po lewej stronie wybierz pozycję **AI + Machine Learning**, a następnie wybierz pozycję **Azure Machine Learning** , aby rozpocząć.  
+Skorzystaj z [kalkulatora cen platformy Azure](https://azure.microsoft.com/pricing/calculator/) , aby oszacować koszty przed utworzeniem zasobów na koncie Azure Machine Learning. Po lewej stronie wybierz pozycję **AI + Machine Learning** , a następnie wybierz pozycję **Azure Machine Learning** , aby rozpocząć.  
 
 Poniższy zrzut ekranu przedstawia oszacowanie kosztów za pomocą kalkulatora:
 
@@ -61,7 +61,9 @@ Gdy korzystasz z zasobów z Azure Machine Learning, naliczane są koszty. Koszty
 
 Możesz wyświetlić koszty w wykresach i tabelach dla różnych przedziałów czasu. Możesz również wyświetlić koszty związane z budżetami i prognozowanymi kosztami. Przełączenie na dłuższe widoki w czasie pomaga identyfikować trendy wydatków i zobaczyć, gdzie mogły wystąpić nadwyżki. Jeśli utworzono budżety, zobacz miejsce ich przekroczenia.  
 
-Nie zobaczysz oddzielnego obszaru usługi dla Machine Learning.  Zamiast tego zobaczysz różne zasoby, które zostały dodane do obszarów roboczych Machine Learning.
+Nie zobaczysz oddzielnego obszaru usługi dla Machine Learning.  Zamiast tego zobaczysz różne zasoby, które zostały dodane do obszarów roboczych Machine Learning. 
+
+Należy pamiętać, że w przypadku, gdy obszar roboczy Machine Learning nie ma bezpośredniego kosztu, są naliczane opłaty za zarządzane zasoby obliczeniowe. W związku z tym, jeśli dodano Tagi do obszarów roboczych, ponieważ nie ma on bezpośredniego kosztu, w okienku analiza kosztów zostanie odzwierciedlone to dla obszaru roboczego. Aby uzyskać dokładne zarządzanie kosztami za pośrednictwem tagów, należy oznaczyć skojarzone zasoby obliczeniowe.  
 
 ## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Użyj klastra obliczeniowego Azure Machine Learning (AmlCompute)
 
@@ -124,7 +126,7 @@ Azure Machine Learning COMPUTE obsługuje zarezerwowane wystąpienia. W przypadk
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na następujące tematy:
+Dowiedz się więcej:
 * [Zarządzanie i zwiększanie przydziałów zasobów](how-to-manage-quotas.md)
 * [Zarządzanie kosztami przy użyciu analizy kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 * Utwórz Azure Machine Learning COMPUTE przy użyciu [zestawu SDK](how-to-create-attach-compute-cluster.md) lub w programie [Studio](how-to-create-attach-compute-studio.md#amlcompute).

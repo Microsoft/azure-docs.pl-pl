@@ -3,12 +3,12 @@ title: Azure Event Grid — Przewodnik rozwiązywania problemów
 description: Ten artykuł zawiera listę kodów błędów, komunikatów o błędach, opisów i zalecanych akcji.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dd464339e7654f8886224ff07cf368b4724ff82
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119042"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041395"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Rozwiązywanie problemów z błędami Azure Event Grid
 Ten przewodnik rozwiązywania problemów zawiera listę Azure Event Grid kodów błędów, komunikatów o błędach, ich opisach oraz zalecanych czynnościach, które należy wykonać po otrzymaniu tych błędów. 
@@ -16,8 +16,8 @@ Ten przewodnik rozwiązywania problemów zawiera listę Azure Event Grid kodów 
 ## <a name="error-code-400"></a>Kod błędu: 400
 | Kod błędu | Komunikat o błędzie | Opis | Zalecenie |
 | ---------- | ------------- | ----------- | -------------- | 
-| HttpStatusCode. nieprawidłowego żądania<br/>400 | Nazwa tematu musi mieć długość od 3 do 50 znaków. | Nazwa tematu niestandardowego powinna mieć długość od 3 do 50 znaków. W nazwie tematu są dozwolone tylko litery alfanumeryczne, cyfry i znaki "-". Ponadto nazwa nie powinna zaczynać się od następujących słów zarezerwowanych: <ul><li>Microsoft</li><li>EventGrid</li><li>System</li></ul> | Wybierz inną nazwę tematu, która jest zgodna z wymaganiami dotyczącymi nazwy tematu. |
-| HttpStatusCode. nieprawidłowego żądania<br/>400 | Nazwa domeny musi mieć długość od 3 do 50 znaków. | Nazwa domeny powinna mieć długość od 3 do 50 znaków. W nazwie tematu są dozwolone tylko litery alfanumeryczne, cyfry i znaki "-". Ponadto nazwa nie powinna zaczynać się od następujących słów zarezerwowanych:<ul><li>Microsoft</li><li>EventGrid</li><li>System</li> | Wybierz inną nazwę domeny, która jest zgodna z wymaganiami dotyczącymi nazwy domeny. |
+| HttpStatusCode. nieprawidłowego żądania<br/>400 | Nazwa tematu musi mieć długość od 3 do 50 znaków. | Nazwa tematu niestandardowego powinna mieć długość od 3 do 50 znaków. W nazwie tematu są dozwolone tylko litery alfanumeryczne, cyfry i znaki "-". Ponadto nazwa nie powinna zaczynać się od następujących słów zarezerwowanych: <ul><li>Programu</li><li>EventGrid</li><li>Systemami</li></ul> | Wybierz inną nazwę tematu, która jest zgodna z wymaganiami dotyczącymi nazwy tematu. |
+| HttpStatusCode. nieprawidłowego żądania<br/>400 | Nazwa domeny musi mieć długość od 3 do 50 znaków. | Nazwa domeny powinna mieć długość od 3 do 50 znaków. Nazwa domeny może zawierać tylko litery alfanumeryczne, cyfry i znaki "-". Ponadto nazwa nie powinna zaczynać się od następujących słów zarezerwowanych:<ul><li>Programu</li><li>EventGrid</li><li>Systemami</li> | Wybierz inną nazwę domeny, która jest zgodna z wymaganiami dotyczącymi nazwy domeny. |
 | HttpStatusCode. nieprawidłowego żądania<br/>400 | Nieprawidłowy czas wygaśnięcia. | Czas wygaśnięcia subskrypcji zdarzenia określa, kiedy subskrypcja zdarzeń zostanie wycofana. Ta wartość powinna być prawidłową wartością daty/godziny w przyszłości.| Upewnij się, że czas wygaśnięcia subskrypcji zdarzenia w prawidłowym formacie daty i godziny jest ustawiony na wartość w przyszłości. |
 
 ## <a name="error-code-409"></a>Kod błędu: 409

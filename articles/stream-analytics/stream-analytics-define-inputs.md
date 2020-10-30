@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: fb5aca1739fbb4a77cbcb7eed6b9dce1b3ccc182
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 467b8506eb0cafc61731a69804c70b8080ab21c2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027588"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042454"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Przesyłaj strumieniowo dane jako dane wejściowe do Stream Analytics
 
@@ -21,6 +21,7 @@ Stream Analytics ma integrację pierwszej klasy z strumieniami danych platformy 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 Te zasoby wejściowe mogą znajdować się w tej samej subskrypcji platformy Azure co Stream Analytics zadania lub innej subskrypcji.
 
@@ -125,18 +126,18 @@ W przypadku korzystania z danych przesyłanych strumieniowo z IoT Hub masz dost�
 | **IoTHub. EnqueuedTime** | Czas odebrania komunikatu przez IoT Hub. |
 
 
-## <a name="stream-data-from-blob-storage"></a>Przesyłanie strumieniowe danych z usługi BLOB Storage
-W przypadku scenariuszy zawierających duże ilości danych bez struktury do przechowywania w chmurze usługa Azure Blob Storage oferuje ekonomiczne i skalowalne rozwiązanie. Dane w magazynie obiektów BLOB są zwykle uznawane za dane w spoczynku; Jednak dane obiektów BLOB mogą być przetwarzane jako strumień danych przez Stream Analytics. 
+## <a name="stream-data-from-blob-storage-or-data-lake-storage-gen2"></a>Przesyłanie strumieniowe danych z usługi BLOB Storage lub Data Lake Storage Gen2
+W przypadku scenariuszy z dużymi ilościami danych bez struktury do przechowywania w chmurze usługa Azure Blob Storage lub Azure Data Lake Storage Gen2 (ADLS Gen2) oferuje ekonomiczne i skalowalne rozwiązanie. Dane w magazynie obiektów blob lub ADLS Gen2 są zwykle uznawane za dane w spoczynku; te dane mogą jednak być przetwarzane jako strumień danych przez Stream Analytics. 
 
-Przetwarzanie dziennika jest często używanym scenariuszem do używania danych wejściowych usługi BLOB Storage z Stream Analytics. W tym scenariuszu pliki danych telemetrycznych zostały przechwycone z systemu i muszą zostać przeanalizowane i przetworzone w celu wyodrębnienia istotnych danych.
+Przetwarzanie dzienników jest często używanym scenariuszem do używania takich danych wejściowych z Stream Analytics. W tym scenariuszu pliki danych telemetrycznych zostały przechwycone z systemu i muszą zostać przeanalizowane i przetworzone w celu wyodrębnienia istotnych danych.
 
-Domyślna sygnatura czasowa zdarzeń magazynu obiektów BLOB w Stream Analytics to sygnatura czasowa ostatniej modyfikacji obiektu BLOB, czyli `BlobLastModifiedUtcTime` . Jeśli obiekt BLOB zostanie przekazany do konta magazynu o godzinie 13:00, a zadanie Azure Stream Analytics zostanie uruchomione przy użyciu opcji *teraz* o godzinie 13:01, obiekt BLOB nie zostanie pobrany jako zmodyfikowany czas poza okresem wykonywania zadania.
+Domyślna sygnatura czasowa magazynu obiektów blob lub zdarzenia ADLS Gen2 w Stream Analytics to sygnatura czasowa ostatniej modyfikacji, czyli `BlobLastModifiedUtcTime` . Jeśli obiekt BLOB zostanie przekazany do konta magazynu o godzinie 13:00, a zadanie Azure Stream Analytics zostanie uruchomione przy użyciu opcji *teraz* o godzinie 13:01, nie zostanie ono pobrane w miarę upływu czasu uruchomienia zadania.
 
 Jeśli obiekt BLOB zostanie przekazany do kontenera konta magazynu o godzinie 13:00, a zadanie Azure Stream Analytics zostanie rozpoczęte przy użyciu *czasu niestandardowego* o godzinie 13:00 lub starszej, obiekt BLOB zostanie pobrany jako jego zmodyfikowany czas w okresie wykonywania zadania.
 
 Jeśli zadanie Azure Stream Analytics zostało uruchomione przy użyciu *teraz* o godzinie 13:00, a obiekt BLOB zostanie przekazany do kontenera konta magazynu o godzinie 13:01, Azure Stream Analytics pobierze obiekt BLOB. Sygnatura czasowa przypisana do każdego obiektu BLOB jest oparta wyłącznie na `BlobLastModifiedTime` . Folder, w którym znajduje się obiekt BLOB, nie ma związku z przypisaną sygnaturą czasową. Na przykład jeśli istnieje obiekt BLOB *2019/10-01/00/b1.txt* z `BlobLastModifiedTime` 2019-11-11, sygnatura czasowa przypisana do tego obiektu BLOB to 2019-11-11.
 
-Aby przetworzyć dane jako strumień przy użyciu sygnatury czasowej w ładunku zdarzenia, należy użyć słowa kluczowego [timestamp by](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) . Zadanie Stream Analytics pobiera dane z danych wejściowych z usługi Azure Blob Storage co sekundę, jeśli plik BLOB jest dostępny. Jeśli plik BLOB jest niedostępny, istnieje wykładnicza wycofywania z maksymalnym opóźnieniem wynoszącym 90 sekund.
+Aby przetworzyć dane jako strumień przy użyciu sygnatury czasowej w ładunku zdarzenia, należy użyć słowa kluczowego [timestamp by](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) . Zadanie Stream Analytics pobiera dane z usługi Azure Blob Storage lub ADLS Gen2 dane wejściowe co sekundę, jeśli plik BLOB jest dostępny. Jeśli plik BLOB jest niedostępny, istnieje wykładnicza wycofywania z maksymalnym opóźnieniem wynoszącym 90 sekund.
 
 Dane wejściowe w formacie CSV wymagają wiersza nagłówka, aby zdefiniować pola dla zestawu danych, a wszystkie pola wiersza nagłówka muszą być unikatowe.
 
@@ -152,10 +153,10 @@ W poniższej tabeli opisano każdą właściwość na stronie **nowe dane wejśc
 | Właściwość | Opis |
 | --- | --- |
 | **Alias wejściowy** | Przyjazna nazwa używana w zapytaniu zadania do odwoływania się do tych danych wejściowych. |
-| **Subskrypcja** | Wybierz subskrypcję, w ramach której istnieje zasób IoT Hub. | 
+| **Subskrypcja** | Wybierz subskrypcję, w której znajduje się zasób magazynu. | 
 | **Konto magazynu** | Nazwa konta magazynu, w którym znajdują się pliki obiektów BLOB. |
-| **Klucz konta magazynu** | Klucz tajny skojarzony z kontem magazynu. Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego dostarczania ustawień magazynu obiektów BLOB. |
-| **Kontener** | Kontener dla danych wejściowych obiektu BLOB. Kontenery zapewniają logiczne grupowanie obiektów BLOB przechowywanych w Blob service Microsoft Azure. Podczas przekazywania obiektu BLOB do usługi Azure Blob Storage należy określić kontener dla tego obiektu BLOB. Możesz wybrać opcję **Użyj istniejącego** kontenera lub  **utworzyć nowy** , aby utworzyć nowy kontener.|
+| **Klucz konta magazynu** | Klucz tajny skojarzony z kontem magazynu. Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego podania ustawień. |
+| **Kontener** | Kontenery zapewniają logiczne grupowanie dla obiektów BLOB. Możesz wybrać opcję **Użyj istniejącego** kontenera lub  **utworzyć nowy** , aby utworzyć nowy kontener.|
 | **Wzorzec ścieżki** (opcjonalnie) | Ścieżka pliku używana do lokalizowania obiektów BLOB w określonym kontenerze. Jeśli chcesz odczytywać obiekty blob z katalogu głównego kontenera, nie ustawiaj wzorca ścieżki. W ścieżce można określić jedno lub więcej wystąpień następujących trzech zmiennych: `{date}` , `{time}` , lub `{partition}`<br/><br/>Przykład 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Przykład 2: `cluster1/logs/{date}`<br/><br/>`*`Znak nie jest dozwoloną wartością dla prefiksu ścieżki. Dozwolone są tylko poprawne <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">znaki obiektów blob platformy Azure</a> . Nie dołączaj nazw kontenerów ani nazw plików. |
 | **Format daty** (opcjonalnie) | Jeśli używasz zmiennej daty w ścieżce, format daty, w którym są zorganizowane pliki. Przykład: `YYYY/MM/DD` <br/><br/> Gdy dane wejściowe obiektu BLOB mają `{date}` lub `{time}` w swojej ścieżce, foldery są przeszukiwane w kolejności rosnącej.|
 | **Format czasu** (opcjonalnie) |  Jeśli używasz zmiennej czasowej w ścieżce, format czasu, w którym są zorganizowane pliki. Obecnie jedyną obsługiwaną wartością jest `HH` dla godzin. |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 5fdec829ceeefce2426a5fd08b4245e66bd0a08c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1a106874277f64a006584f9deb98fb9729263b1b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016675"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040711"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redagowanie twarzy przy użyciu przewodnika Azure Media Analytics
 
@@ -30,7 +30,7 @@ ms.locfileid: "92016675"
 
 **Azure Media redactor** to procesor Media [Azure Media Analytics](./legacy-components.md) (MP), który oferuje skalowalne możliwości redakcyjne w chmurze. Redakcja twarzy umożliwia modyfikowanie wideo w celu rozmycia powierzchni wybranych osób. Możesz chcieć użyć usługi redakcyjnej ze stroną w scenariuszach bezpieczeństwa publicznego i mediów informacyjnych. Kilka minut filmu, które zawiera wiele twarzy, może zająć więcej czasu, ale w przypadku tej usługi proces redakcyjny twarzy będzie wymagał zaledwie kilku prostych kroków. Aby uzyskać więcej informacji, zobacz [ten](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
-Aby uzyskać szczegółowe informacje na temat  **Azure Media redactor**, zobacz temat [Omówienie redakcji czołowej](media-services-face-redaction.md) .
+Aby uzyskać szczegółowe informacje na temat  **Azure Media redactor** , zobacz temat [Omówienie redakcji czołowej](media-services-face-redaction.md) .
 
 W tym temacie przedstawiono instrukcje krok po kroku dotyczące uruchamiania pełnego przepływu pracy redakcyjnego za pomocą Eksploratora Azure Media Services (AMSE) i Azure Media Redactor wizualizatora (narzędzia typu "open source").
 
@@ -47,7 +47,7 @@ Najprostszym sposobem na rozpoczęcie pracy z programem redactor jest użycie na
 
     Aby uzyskać informacje o kluczu i nazwie konta, przejdź do witryny [Azure Portal](https://portal.azure.com/) i wybierz swoje konto AMS. Następnie wybierz pozycję Ustawienia > klucze. W oknie Zarządzanie kluczami widoczna jest nazwa konta oraz wyświetlane są klucze podstawowe i pomocnicze. Skopiuj wartości nazwy konta i klucza podstawowego.
 
-![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
+![Zrzut ekranu przedstawia Microsoft Azure Media Services, w którym można wprowadzić nazwę i klucz konta.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 
 ### <a name="first-pass--analyze-mode"></a>Tryb pierwszego przebiegu — analiza
 
@@ -55,32 +55,32 @@ Najprostszym sposobem na rozpoczęcie pracy z programem redactor jest użycie na
 1. Kliknij prawym przyciskiem myszy i przetwórz plik multimedialny przy użyciu Media Analytics – > Azure Media Redactor — > Przeanalizuj tryb. 
 
 
-![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
+![Zrzut ekranu przedstawia menu zawierające elementy zawartości procesu z Azure Media Redactor.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
 
-![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
+![Zrzut ekranu przedstawia Azure Media Redactor z pierwszym przebiegiem: Przeanalizuj wybrany tryb.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
 
 Dane wyjściowe będą zawierać plik JSON adnotacji z danymi lokalizacji kroju, a także kombinację jpg każdej wykrytej funkcji. 
 
-![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
+![Zrzut ekranu przedstawia dane wyjściowe analizy.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
 ### <a name="second-pass--redact-mode"></a>Drugi przebieg — tryb redagowania
 
 1. Przekaż oryginalny zasób wideo do danych wyjściowych z pierwszego przebiegu i Ustaw jako zasób podstawowy. 
 
-    ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
+    ![Zrzut ekranu przedstawia przyciski przekazywania i ustawiania jako podstawowe.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
 2. Obowiązkowe Przekaż plik "Dance_idlist.txt" zawierający listę identyfikatorów, które chcesz wypróbować. 
 
-    ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
+    ![Zrzut ekranu przedstawia opcję przekazania pliku tekstowego.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
 3. Obowiązkowe Wprowadź wszelkie edycje annotations.jsw pliku, takie jak zwiększenie granic pola ograniczenia. 
 4. Kliknij prawym przyciskiem myszy element zawartości wyjściowej z pierwszego przebiegu, wybierz redactor, a następnie uruchom polecenie z trybem **redagowania** . 
 
-    ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
+    ![Zrzut ekranu przedstawia Azure Media Redactor z drugim przebiegiem: zaznaczono tryb redagowania.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
 5. Pobieranie lub udostępnianie końcowego elementu wyjściowego redagowane. 
 
-    ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
+    ![Zrzut ekranu przedstawia przycisk Pobierz.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
 ## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Narzędzie Azure Media Redactor wizualizatora Open Source
 
@@ -94,12 +94,12 @@ Jeśli jesteś deweloperem próbującym analizować dane adnotacji JSON, zapozna
 
 1.  Pobierz i skompiluj całe rozwiązanie. 
 
-    ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
+    ![Zrzut ekranu przedstawia rozwiązanie kompilacji wybrane z menu.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
 2.  Pobierz narzędzia FFmpeg z tego [miejsca](https://ffmpeg.org/download.html). Ten projekt został pierwotnie opracowany przy użyciu wersji be1d324 (2016-10-04) z konsolidacją statyczną. 
 3.  Skopiuj ffmpeg.exe i ffprobe.exe do tego samego folderu wyjściowego co AzureMediaRedactor.exe. 
 
-    ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
+    ![Zrzut ekranu przedstawia zawartość folderu, w tym narzędzia FFmpeg i ffprobe.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
 4. Uruchom AzureMediaRedactor.exe. 
 
@@ -109,11 +109,11 @@ Jeśli jesteś deweloperem próbującym analizować dane adnotacji JSON, zapozna
 2. Pobierz zarówno oryginalny plik wideo, jak i dane wyjściowe zadania redakcyjnego analizy. 
 3. Uruchom aplikację wizualizatora i wybierz powyższe pliki. 
 
-    ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
+    ![Zrzut ekranu przedstawia Azure Media Redactor przekazywania plików.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 
 4. Wyświetl podgląd pliku. Wybierz, które powierzchnie chcesz rozmycie za pośrednictwem paska bocznego po prawej stronie. 
     
-    ![Redakcja twarzy](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
+    ![Zrzut ekranu przedstawia Azure Media Redactor, w którym można wyświetlać podgląd i wybierać twarzy do rozmycia.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
 5.  Dolne pole tekstowe zostanie zaktualizowane o identyfikatorach. Utwórz plik o nazwie "idlist.txt" z tymi identyfikatorami jako listę rozdzielaną znakami nowego wiersza. 
 

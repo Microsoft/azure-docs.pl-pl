@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 71fc3f457338796289c2f6ac54f3bc713a91cc29
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 54e7a781ba9ed3cd4b53e1028c4a3bb79c256aed
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461366"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040879"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Zbieranie źródeł danych wydajności systemów Windows i Linux za pomocą agenta Log Analytics
 Liczniki wydajności w systemach Windows i Linux zapewniają wgląd w wydajność składników sprzętowych, systemów operacyjnych i aplikacji.  Azure Monitor może zbierać liczniki wydajności z agentów Log Analytics w częstych odstępach czasu dla analizy niemal w czasie rzeczywistym (NRT), a także do agregowania danych wydajności na potrzeby analizy i raportowania w dłuższym okresie.
@@ -24,7 +24,7 @@ Liczniki wydajności w systemach Windows i Linux zapewniają wgląd w wydajnoś�
 ## <a name="configuring-performance-counters"></a>Konfigurowanie liczników wydajności
 Skonfiguruj liczniki wydajności z [menu dane w obszarze Ustawienia zaawansowane](agent-data-sources.md#configuring-data-sources) dla obszaru roboczego log Analytics.
 
-Podczas pierwszej konfiguracji liczników wydajności systemu Windows lub Linux dla nowego obszaru roboczego można szybko utworzyć kilka typowych liczników.  Na liście obok każdego z nich znajduje się pole wyboru.  Upewnij się, że wszystkie liczniki, które chcesz utworzyć, są zaznaczone, a następnie kliknij przycisk **Dodaj wybrane liczniki wydajności**.
+Podczas pierwszej konfiguracji liczników wydajności systemu Windows lub Linux dla nowego obszaru roboczego można szybko utworzyć kilka typowych liczników.  Na liście obok każdego z nich znajduje się pole wyboru.  Upewnij się, że wszystkie liczniki, które chcesz utworzyć, są zaznaczone, a następnie kliknij przycisk **Dodaj wybrane liczniki wydajności** .
 
 W przypadku liczników wydajności systemu Windows można wybrać określone wystąpienie dla każdego licznika wydajności. W przypadku liczników wydajności systemu Linux wystąpienie każdego wybranego licznika ma zastosowanie do wszystkich liczników podrzędnych licznika nadrzędnego. W poniższej tabeli przedstawiono typowe wystąpienia, które są dostępne dla liczników wydajności systemu Linux i Windows.
 
@@ -38,14 +38,14 @@ W przypadku liczników wydajności systemu Windows można wybrać określone wys
 
 ![Konfigurowanie liczników wydajności systemu Windows](media/data-sources-performance-counters/configure-windows.png)
 
-Postępuj zgodnie z tą procedurą, aby dodać nowy licznik wydajności systemu Windows do zbierania danych.
+Postępuj zgodnie z tą procedurą, aby dodać nowy licznik wydajności systemu Windows do zbierania danych. Należy pamiętać, że liczniki wydajności systemu Windows w wersji 2 nie są obsługiwane.
 
-1. Wpisz nazwę licznika w polu tekstowym w *obiekcie format (wystąpienie) \Counter*.  Po rozpoczęciu wpisywania zostanie wyświetlona zgodna lista typowych liczników.  Możesz wybrać licznik z listy lub wpisać własny.  Możesz również zwrócić wszystkie wystąpienia dla określonego licznika, określając *object\counter*.  
+1. Wpisz nazwę licznika w polu tekstowym w *obiekcie format (wystąpienie) \Counter* .  Po rozpoczęciu wpisywania zostanie wyświetlona zgodna lista typowych liczników.  Możesz wybrać licznik z listy lub wpisać własny.  Możesz również zwrócić wszystkie wystąpienia dla określonego licznika, określając *object\counter* .  
 
     Podczas zbierania SQL Server liczników wydajności z nazwanych wystąpień wszystkie liczniki nazwanego wystąpienia zaczynają się od *MSSQL $* i po nim nazwa wystąpienia.  Na przykład, aby zebrać licznik Współczynnik trafień pamięci podręcznej dzienników dla wszystkich baz danych z obiektu wydajności bazy danych dla nazwanego wystąpienia SQL INST2, określ `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio` .
 
 2. Kliknij **+** lub naciśnij klawisz **Enter** , aby dodać licznik do listy.
-3. Po dodaniu licznika zostanie użyta wartość domyślna wynosząca 10 sekund dla **interwału próbkowania**.  Można zmienić tę wartość na wyższą niż 1800 sekund (30 minut), jeśli chcesz zmniejszyć wymagania dotyczące magazynu zebranych danych wydajności.
+3. Po dodaniu licznika zostanie użyta wartość domyślna wynosząca 10 sekund dla **interwału próbkowania** .  Można zmienić tę wartość na wyższą niż 1800 sekund (30 minut), jeśli chcesz zmniejszyć wymagania dotyczące magazynu zebranych danych wydajności.
 4. Po zakończeniu dodawania liczników kliknij przycisk **Zapisz** znajdujący się u góry ekranu, aby zapisać konfigurację.
 
 ### <a name="linux-performance-counters"></a>Liczniki wydajności systemu Linux
@@ -55,13 +55,13 @@ Postępuj zgodnie z tą procedurą, aby dodać nowy licznik wydajności systemu 
 Postępuj zgodnie z tą procedurą, aby dodać nowy licznik wydajności systemu Linux do zebrania.
 
 1. Domyślnie wszystkie zmiany konfiguracji są automatycznie wypychane do wszystkich agentów.  W przypadku agentów systemu Linux plik konfiguracji jest wysyłany do programu zbierającego dane.  Jeśli chcesz zmodyfikować ten plik ręcznie na każdym agencie systemu Linux, usuń zaznaczenie pola wyboru *Zastosuj poniższą konfigurację do maszyn z systemem Linux* i postępuj zgodnie z poniższymi wskazówkami.
-2. Wpisz nazwę licznika w polu tekstowym w *obiekcie format (wystąpienie) \Counter*.  Po rozpoczęciu wpisywania zostanie wyświetlona zgodna lista typowych liczników.  Możesz wybrać licznik z listy lub wpisać własny.  
+2. Wpisz nazwę licznika w polu tekstowym w *obiekcie format (wystąpienie) \Counter* .  Po rozpoczęciu wpisywania zostanie wyświetlona zgodna lista typowych liczników.  Możesz wybrać licznik z listy lub wpisać własny.  
 3. Kliknij **+** lub naciśnij klawisz **Enter** , aby dodać licznik do listy innych liczników dla obiektu.
-4. Wszystkie liczniki dla obiektu używają tego samego **interwału próbkowania**.  Wartość domyślna to 10 sekund.  Tę zmianę można zmienić na maksymalnie 1800 sekund (30 minut), jeśli chcesz zmniejszyć wymagania dotyczące magazynu zebranych danych wydajności.
+4. Wszystkie liczniki dla obiektu używają tego samego **interwału próbkowania** .  Wartość domyślna to 10 sekund.  Tę zmianę można zmienić na maksymalnie 1800 sekund (30 minut), jeśli chcesz zmniejszyć wymagania dotyczące magazynu zebranych danych wydajności.
 5. Po zakończeniu dodawania liczników kliknij przycisk **Zapisz** znajdujący się u góry ekranu, aby zapisać konfigurację.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Konfigurowanie liczników wydajności systemu Linux w pliku konfiguracyjnym
-Zamiast konfigurować liczniki wydajności systemu Linux przy użyciu Azure Portal istnieje możliwość edytowania plików konfiguracji w agencie systemu Linux.  Metryki wydajności do zebrania są kontrolowane przez konfigurację w **/etc/opt/Microsoft/omsagent/ \<workspace id\> /conf/omsagent.conf**.
+Zamiast konfigurować liczniki wydajności systemu Linux przy użyciu Azure Portal istnieje możliwość edytowania plików konfiguracji w agencie systemu Linux.  Metryki wydajności do zebrania są kontrolowane przez konfigurację w **/etc/opt/Microsoft/omsagent/ \<workspace id\> /conf/omsagent.conf** .
 
 Każdy obiekt lub kategoria metryk wydajności do zebrania należy zdefiniować w pliku konfiguracji jako pojedynczy `<source>` element. Składnia jest zgodna z wzorcem poniżej.
 
@@ -101,17 +101,17 @@ W poniższej tabeli wymieniono obiekty i liczniki, które można określić w pl
 | Dysk logiczny | Zapisy dysku/s |
 | Dysk logiczny | Wolne megabajty |
 | Dysk logiczny | Bajty dysku logicznego/s |
-| Pamięć | Dostępna pamięć (%) |
-| Pamięć | Dostępny obszar wymiany (%) |
-| Pamięć | Używana pamięć (%) |
-| Pamięć | Używany obszar wymiany (%) |
-| Pamięć | Dostępna pamięć (MB) |
-| Pamięć | Dostępny obszar wymiany (MB) |
-| Pamięć | Odczyty stron/s |
-| Pamięć | Zapisy stron/s |
-| Pamięć | Stron/s |
-| Pamięć | Używany obszar wymiany (MB) |
-| Pamięć | Używana pamięć (MB) |
+| Memory (Pamięć) | Dostępna pamięć (%) |
+| Memory (Pamięć) | Dostępny obszar wymiany (%) |
+| Memory (Pamięć) | Używana pamięć (%) |
+| Memory (Pamięć) | Używany obszar wymiany (%) |
+| Memory (Pamięć) | Dostępna pamięć (MB) |
+| Memory (Pamięć) | Dostępny obszar wymiany (MB) |
+| Memory (Pamięć) | Odczyty stron/s |
+| Memory (Pamięć) | Zapisy stron/s |
+| Memory (Pamięć) | Stron/s |
+| Memory (Pamięć) | Używany obszar wymiany (MB) |
+| Memory (Pamięć) | Używana pamięć (MB) |
 | Sieć | Całkowita liczba przesłanych bajtów |
 | Sieć | Całkowita liczba odebranych bajtów |
 | Sieć | Łączna liczba bajtów |

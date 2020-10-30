@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bc7b0ce521522e677e0dc53809c8c33e0743f0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327922"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042614"
 ---
 # <a name="what-is-risk"></a>Co to jest ryzyko?
 
@@ -24,11 +24,14 @@ Wykrycia ryzyka w Azure AD Identity Protection zawierają wszystkie zidentyfikow
 
 Ochrona tożsamości zapewnia organizacjom dostęp do zaawansowanych zasobów i szybkie reagowanie na podejrzane działania. 
 
+>**Uwaga:** Ochrona tożsamości generuje wykrycie ryzyka tylko wtedy, gdy są używane poprawne poświadczenia. Jeśli poświadczenia są używane podczas logowania, nie reprezentuje ryzyka naruszenia bezpieczeństwa poświadczeń.
+
 ![Omówienie zabezpieczeń przedstawiające ryzykownych użytkowników i logowania](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
+
 
 ## <a name="risk-types-and-detection"></a>Typy ryzyka i wykrywanie
 
-Istnieją dwa typy **użytkowników** ryzyka i **logowania** oraz dwa typy wykrywania lub obliczeń w czasie **rzeczywistym** i **w trybie offline**.
+Istnieją dwa typy **użytkowników** ryzyka i **logowania** oraz dwa typy wykrywania lub obliczeń w czasie **rzeczywistym** i **w trybie offline** .
 
 Wykrywanie w czasie rzeczywistym może nie być wyświetlane w raporcie przez pięć do dziesięciu minut. Wykrywanie w trybie offline może nie być wyświetlane w raporcie od dwóch do dwudziestu czterech godzin.
 

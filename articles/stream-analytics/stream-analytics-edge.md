@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: how-to
-ms.date: 03/16/2020
+ms.date: 10/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 136d0627e701104e9958d51b2e37256de5659f25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a084b2d0582f53d4372ba3332194629ad29a4ec
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87271420"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041873"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics na urządzeniach IoT Edge
  
@@ -24,10 +24,10 @@ Azure Stream Analytics na urządzeniach IoT Edge działa w ramach struktury [Azu
 ## <a name="scenarios"></a>Scenariusze
 ![Diagram wysokiego poziomu IoT Edge](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
-* **Polecenie i kontrola o małym opóźnieniu**: na przykład systemy bezpieczeństwa produkcji muszą reagować na dane operacyjne z bardzo małym opóźnieniem. Dzięki usłudze ASA na IoT Edge można analizować dane czujników niemal w czasie rzeczywistym i wydawać polecenia w przypadku wykrycia anomalii w celu zatrzymania alertów komputera lub wyzwalacza.
-*   **Ograniczona łączność z chmurą**: systemy o znaczeniu krytycznym, takie jak zdalny sprzęt górniczy, połączone statki lub przechodzenie na przybrzeżne, muszą analizować i reagować na dane nawet wtedy, gdy łączność z chmurą jest nieprzerwana. W systemie ASA logika przesyłania strumieniowego działa niezależnie od łączności sieciowej i można wybrać operacje wysyłane do chmury w celu dalszej obróbki lub magazynu.
-* **Ograniczona przepustowość**: ilość danych wytworzonych przez aparaty Jet lub połączone samochody mogą być tak duże, że dane muszą być przefiltrowane lub wstępnie przetworzone przed wysłaniem ich do chmury. Przy użyciu ASA można filtrować lub agregowanie danych, które muszą być wysyłane do chmury.
-* **Zgodność**: zgodność z przepisami może wymagać, aby pewne dane były lokalnie anonimowe lub zagregowane przed wysłaniem ich do chmury.
+* **Polecenie i kontrola o małym opóźnieniu** : na przykład systemy bezpieczeństwa produkcji muszą reagować na dane operacyjne z bardzo małym opóźnieniem. Dzięki usłudze ASA na IoT Edge można analizować dane czujników niemal w czasie rzeczywistym i wydawać polecenia w przypadku wykrycia anomalii w celu zatrzymania alertów komputera lub wyzwalacza.
+*   **Ograniczona łączność z chmurą** : systemy o znaczeniu krytycznym, takie jak zdalny sprzęt górniczy, połączone statki lub przechodzenie na przybrzeżne, muszą analizować i reagować na dane nawet wtedy, gdy łączność z chmurą jest nieprzerwana. W systemie ASA logika przesyłania strumieniowego działa niezależnie od łączności sieciowej i można wybrać operacje wysyłane do chmury w celu dalszej obróbki lub magazynu.
+* **Ograniczona przepustowość** : ilość danych wytworzonych przez aparaty Jet lub połączone samochody mogą być tak duże, że dane muszą być przefiltrowane lub wstępnie przetworzone przed wysłaniem ich do chmury. Przy użyciu ASA można filtrować lub agregowanie danych, które muszą być wysyłane do chmury.
+* **Zgodność** : zgodność z przepisami może wymagać, aby pewne dane były lokalnie anonimowe lub zagregowane przed wysłaniem ich do chmury.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Zadania brzegowe w Azure Stream Analytics
 ### <a name="what-is-an-edge-job"></a>Co to jest zadanie "Edge"?
@@ -47,7 +47,7 @@ Kroki wysokiego poziomu opisano w poniższej tabeli. Więcej szczegółów znajd
 | Krok | Uwagi |
 | --- | --- |
 | **Tworzenie kontenera magazynu** | Kontenery magazynu są używane do zapisywania definicji zadania, gdzie są dostępne dla urządzeń IoT. <br>  Można ponownie użyć dowolnego istniejącego kontenera magazynu. |
-| **Tworzenie zadania ASA Edge** | Utwórz nowe zadanie, wybierz pozycję **Edge** jako **środowisko hostingu**. <br> Te zadania są tworzone/zarządzane z chmury i uruchamiane na własnych urządzeniach IoT Edge. |
+| **Tworzenie zadania ASA Edge** | Utwórz nowe zadanie, wybierz pozycję **Edge** jako **środowisko hostingu** . <br> Te zadania są tworzone/zarządzane z chmury i uruchamiane na własnych urządzeniach IoT Edge. |
 | **Skonfiguruj środowisko IoT Edge na urządzeniach** | Instrukcje dla [systemu Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) lub [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).|
 | **Wdrażanie ASA na urządzeniach IoT Edge** | Definicja zadania ASA zostanie wyeksportowana do kontenera magazynu utworzonego wcześniej. |
 
@@ -60,8 +60,8 @@ W [tym samouczku krok po kroku](https://docs.microsoft.com/azure/iot-edge/tutori
 Kontener magazynu jest wymagany w celu wyeksportowania skompilowanego zapytania ASA i konfiguracji zadania. Służy do konfigurowania obrazu platformy Docker z określonym zapytaniem. 
 1. Postępuj zgodnie z [tymi instrukcjami](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) , aby utworzyć konto magazynu na podstawie Azure Portal. Możesz zachować wszystkie opcje domyślne, aby użyć tego konta z ASA.
 2. Na nowo utworzonym koncie magazynu Utwórz kontener magazynu obiektów blob:
-    1. Kliknij obiekt **BLOB**, a następnie pozycję **+ Container**. 
-    2. Wprowadź nazwę i Zachowaj kontener jako **prywatny**.
+    1. Kliknij obiekt **BLOB** , a następnie pozycję **+ Container** . 
+    2. Wprowadź nazwę i Zachowaj kontener jako **prywatny** .
 
 #### <a name="create-an-asa-edge-job"></a>Tworzenie zadania ASA Edge
 > [!Note]
@@ -73,16 +73,16 @@ Kontener magazynu jest wymagany w celu wyeksportowania skompilowanego zapytania 
 
    ![Utwórz zadanie Stream Analytics na krawędzi](media/stream-analytics-edge/create-asa-edge-job.png)
 3. Definicja zadania
-    1. **Zdefiniuj strumienie wejściowe**. Zdefiniuj jeden lub kilka strumieni danych wejściowych dla danego zadania.
+    1. **Zdefiniuj strumienie wejściowe** . Zdefiniuj jeden lub kilka strumieni danych wejściowych dla danego zadania.
     2. Zdefiniuj dane referencyjne (opcjonalnie).
-    3. **Zdefiniuj strumienie wyjściowe**. Zdefiniuj jeden lub kilka strumieni wyjściowych dla zadania. 
-    4. **Zdefiniuj zapytanie**. Zdefiniuj zapytanie ASA w chmurze przy użyciu edytora wbudowanego. Kompilator automatycznie sprawdza składnię z włączoną funkcją ASA Edge. Możesz również przetestować zapytanie, przekazując przykładowe dane. 
+    3. **Zdefiniuj strumienie wyjściowe** . Zdefiniuj jeden lub kilka strumieni wyjściowych dla zadania. 
+    4. **Zdefiniuj zapytanie** . Zdefiniuj zapytanie ASA w chmurze przy użyciu edytora wbudowanego. Kompilator automatycznie sprawdza składnię z włączoną funkcją ASA Edge. Możesz również przetestować zapytanie, przekazując przykładowe dane. 
 
 4. Ustaw informacje o kontenerze magazynu w menu **ustawienia IoT Edge** .
 
 5. Ustaw ustawienia opcjonalne
-    1. **Porządkowanie zdarzeń**. Zasady niezwiązane z kolejnością można skonfigurować w portalu. Dokumentacja jest dostępna [tutaj](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
-    2. **Ustawienia regionalne**. Ustaw format internalization.
+    1. **Porządkowanie zdarzeń** . Zasady niezwiązane z kolejnością można skonfigurować w portalu. Dokumentacja jest dostępna [tutaj](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+    2. **Ustawienia regionalne** . Ustaw format internalization.
 
 
 
@@ -103,14 +103,14 @@ Te kroki są opisane w dokumentacji IoT Edge dla [systemu Windows](https://docs.
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>Wdrożenie ASA na urządzeniach, na których IoT Edge
 ##### <a name="add-asa-to-your-deployment"></a>Dodawanie ASA do wdrożenia
 - W Azure Portal Otwórz IoT Hub, przejdź do **IoT Edge** i kliknij urządzenie docelowe dla tego wdrożenia.
-- Wybierz pozycję **Ustaw moduły**, a następnie wybierz pozycję **+ Dodaj** i wybierz pozycję **Azure Stream Analytics module**.
+- Wybierz pozycję **Ustaw moduły** , a następnie wybierz pozycję **+ Dodaj** i wybierz pozycję **Azure Stream Analytics module** .
 - Wybierz utworzoną subskrypcję i zadanie ASA Edge. Kliknij pozycję Zapisz.
 ![Dodawanie modułu ASA do wdrożenia](media/stream-analytics-edge/add-stream-analytics-module.png)
 
 
 > [!Note]
 > W tym kroku usługa ASA tworzy folder o nazwie "EdgeJobs" w kontenerze magazynu (jeśli jeszcze nie istnieje). Dla każdego wdrożenia tworzony jest nowy podfolder w folderze "EdgeJobs".
-> Po wdrożeniu zadania do IoT Edge urządzenia ASA tworzy sygnaturę dostępu współdzielonego (SAS) dla pliku definicji zadania. Klucz sygnatury dostępu współdzielonego jest bezpiecznie przesyłany do urządzeń IoT Edge przy użyciu sznurka urządzenia. Wygaśnięcie tego klucza wynosi trzy lata od dnia jego utworzenia. Po zaktualizowaniu zadania IoT Edge, sygnatura dostępu współdzielonego ulegnie zmianie, ale wersja obrazu nie ulegnie zmianie. Po **zaktualizowaniu**programu postępuj zgodnie z przepływem pracy wdrożenia, a na urządzeniu zostanie zarejestrowane powiadomienie o aktualizacji.
+> Po wdrożeniu zadania do IoT Edge urządzenia ASA tworzy sygnaturę dostępu współdzielonego (SAS) dla pliku definicji zadania. Klucz sygnatury dostępu współdzielonego jest bezpiecznie przesyłany do urządzeń IoT Edge przy użyciu sznurka urządzenia. Wygaśnięcie tego klucza wynosi trzy lata od dnia jego utworzenia. Po zaktualizowaniu zadania IoT Edge, sygnatura dostępu współdzielonego ulegnie zmianie, ale wersja obrazu nie ulegnie zmianie. Po **zaktualizowaniu** programu postępuj zgodnie z przepływem pracy wdrożenia, a na urządzeniu zostanie zarejestrowane powiadomienie o aktualizacji.
 
 
 Aby uzyskać więcej informacji na temat wdrożeń IoT Edge, zobacz na [tej stronie](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -132,13 +132,13 @@ Nazwy wejść i wyjść utworzonych w zadaniu ASA mogą służyć jako punkty ko
 }
 
 ```
-Ten przykład przedstawia trasy dla scenariusza opisanego na poniższej ilustracji. Zawiera ono zadanie brzegowe o nazwie "**ASA**" z danymi wejściowymi o nazwie "**temperatura**" i wyjście o nazwie "**alert**".
+Ten przykład przedstawia trasy dla scenariusza opisanego na poniższej ilustracji. Zawiera ono zadanie brzegowe o nazwie " **ASA** " z danymi wejściowymi o nazwie " **temperatura** " i wyjście o nazwie " **alert** ".
 ![Przykładowy diagram routingu komunikatów](media/stream-analytics-edge/edge-message-routing-example.png)
 
 Ten przykład definiuje następujące trasy:
-- Każdy komunikat z **tempSensor** jest wysyłany do modułu o nazwie **ASA** do wejścia o nazwie **temperatura**,
+- Każdy komunikat z **tempSensor** jest wysyłany do modułu o nazwie **ASA** do wejścia o nazwie **temperatura** ,
 - Wszystkie dane wyjściowe modułu **ASA** są wysyłane do IoT Hub połączonej z tym urządzeniem ($upstream),
-- Wszystkie dane wyjściowe modułu **ASA** są wysyłane do punktu końcowego **kontroli** **tempSensor**.
+- Wszystkie dane wyjściowe modułu **ASA** są wysyłane do punktu końcowego **kontroli** **tempSensor** .
 
 
 ## <a name="technical-information"></a>Informacje techniczne
@@ -184,7 +184,7 @@ Aby utworzyć zadanie z danymi referencyjnymi na krawędzi:
 
 1. Utwórz nowe dane wejściowe dla zadania.
 
-2. Wybierz **dane referencyjne** jako **Typ źródła**.
+2. Wybierz **dane referencyjne** jako **Typ źródła** .
 
 3. Przygotuj plik danych referencyjnych na urządzeniu. W przypadku kontenera systemu Windows Umieść plik dane referencyjne na dysku lokalnym i Udostępnij dysk lokalny z kontenerem Docker. W przypadku kontenera systemu Linux Utwórz wolumin platformy Docker i uzupełnij plik danych do woluminu.
 
@@ -206,23 +206,23 @@ Istnieją dwa sposoby aktualizowania danych referencyjnych:
 
 Informacje o tej wersji zostały ostatnio zaktualizowane w dniu 2019-06-27:
 
-- Obraz: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
-   - obraz podstawowy: Microsoft/dotnet: 2.1.6-Runtime-Alpine 3.7
+- Obraz: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64`
+   - obraz podstawowy: mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine
    - platformach
       - Architektura: amd64
       - system operacyjny: Linux
-  
-- Obraz: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
-   - obraz podstawowy: Microsoft/dotnet: 2.1.6-Runtime-Bionic-arm32v7
+ 
+- Obraz: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm32v7`
+   - obraz podstawowy: mcr.microsoft.com/dotnet/core/runtime:2.1.13-bionic-arm32v7
    - platformach
       - Architektura: ARM
       - system operacyjny: Linux
-  
-- Obraz: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
-   - obraz podstawowy: Microsoft/dotnet: 2.1.6-Runtime-nanoserver-1809
+ 
+- Obraz: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm64`
+   - obraz podstawowy: mcr.microsoft.com/dotnet/core/runtime:3.0-bionic-arm64v8
    - platformach
-      - Architektura: amd64
-      - system operacyjny: Windows
+      - Architektura: arm64
+      - system operacyjny: Linux
       
       
 ## <a name="get-help"></a>Uzyskaj pomoc

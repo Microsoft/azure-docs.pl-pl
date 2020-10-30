@@ -3,12 +3,12 @@ title: Metryki obsługiwane przez Azure Event Grid
 description: Ten artykuł zawiera Azure Monitor metryki obsługiwane przez usługę Azure Event Grid.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: 06c43b1990efc977cae33ced3f66f02e2de0b9c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87c91077c8eeca2134da53774979c212a82e3b7d
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225176"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042144"
 ---
 # <a name="metrics-supported-by-azure-event-grid"></a>Metryki obsługiwane przez Azure Event Grid
 Ten artykuł zawiera listę metryk Event Grid, które są podzielone według przestrzeni nazw. 
@@ -26,6 +26,8 @@ Ten artykuł zawiera listę metryk Event Grid, które są podzielone według prz
 |PublishFailCount|Tak|Publikowanie zdarzeń zakończonych niepowodzeniem|Liczba|Łącznie|Całkowita liczba zdarzeń, których publikowanie nie powiodło się w tym temacie|Temat, Błądtype, błąd|
 |PublishSuccessCount|Tak|Zdarzenia opublikowane|Liczba|Łącznie|Łączna liczba zdarzeń opublikowanych w tym temacie|Temat|
 |PublishSuccessLatencyInMs|Tak|Czas oczekiwania na pomyślne publikowanie|)|Łącznie|Opóźnienie sukcesu publikacji w milisekundach|Brak wymiarów|
+| AdvancedFilterEvaluationCount | Tak | Zaawansowane oceny filtrów | Liczba | Łącznie | Łączna liczba filtrów zaawansowanych ocenionych przez subskrypcje zdarzeń | EventSubscriptionName |
+
 
 
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft. EventGrid/eventSubscriptions
@@ -64,6 +66,8 @@ Ten artykuł zawiera listę metryk Event Grid, które są podzielone według prz
 |PublishSuccessCount|Tak|Zdarzenia opublikowane|Liczba|Łącznie|Łączna liczba zdarzeń opublikowanych w tym temacie|Brak wymiarów|
 |PublishSuccessLatencyInMs|Tak|Czas oczekiwania na pomyślne publikowanie|)|Łącznie|Opóźnienie sukcesu publikacji w milisekundach|Brak wymiarów|
 |UnmatchedEventCount|Tak|Niedopasowane zdarzenia|Liczba|Łącznie|Łączna liczba zdarzeń, które nie pasują do żadnej subskrypcji zdarzeń dla tego tematu|Brak wymiarów|
+| AdvancedFilterEvaluationCount | Tak | Zaawansowane oceny filtrów | Liczba | Łącznie | Łączna liczba filtrów zaawansowanych ocenionych przez subskrypcje zdarzeń | EventSubscriptionName |
+
 
 
 ## <a name="microsofteventgridtopics"></a>Microsoft. EventGrid/tematy
@@ -80,6 +84,7 @@ Ten artykuł zawiera listę metryk Event Grid, które są podzielone według prz
 |PublishSuccessCount|Tak|Zdarzenia opublikowane|Liczba|Łącznie|Łączna liczba zdarzeń opublikowanych w tym temacie|Brak wymiarów|
 |PublishSuccessLatencyInMs|Tak|Czas oczekiwania na pomyślne publikowanie|)|Łącznie|Opóźnienie sukcesu publikacji w milisekundach|Brak wymiarów|
 |UnmatchedEventCount|Tak|Niedopasowane zdarzenia|Liczba|Łącznie|Łączna liczba zdarzeń, które nie pasują do żadnej subskrypcji zdarzeń dla tego tematu|Brak wymiarów|
+| AdvancedFilterEvaluationCount | Tak | Zaawansowane oceny filtrów | Liczba | Łącznie | Łączna liczba filtrów zaawansowanych ocenionych przez subskrypcje zdarzeń | Temat, EventSubscriptionName, DomainEventSubscriptionName |
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z następującym artykułem: [dzienniki diagnostyczne](diagnostic-logs.md)

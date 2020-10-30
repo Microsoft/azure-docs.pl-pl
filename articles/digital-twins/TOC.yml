@@ -45,12 +45,12 @@
           href: how-to-use-cli.md
         - name: Konfigurowanie wystąpienia i uwierzytelniania
           items:
-            - name: Wersja używająca skryptu
-              href: how-to-set-up-instance-scripted.md
-            - name: Wersja interfejsu wiersza polecenia
-              href: how-to-set-up-instance-cli.md
             - name: Wersja dla portalu
               href: how-to-set-up-instance-portal.md
+            - name: Wersja interfejsu wiersza polecenia
+              href: how-to-set-up-instance-cli.md
+            - name: Wersja używająca skryptu
+              href: how-to-set-up-instance-scripted.md
         - name: Pisanie kodu uwierzytelniania aplikacji
           href: how-to-authenticate-client.md
         - name: Tworzenie rejestracji aplikacji

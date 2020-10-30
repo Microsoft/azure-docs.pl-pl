@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363695"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041129"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planowanie wdrożenia automatycznego aprowizowania użytkowników
 
@@ -34,13 +34,13 @@ Inicjowanie obsługi użytkowników tworzy podstawę do ciągłego zarządzania 
 
 Najważniejsze zalety włączenia automatycznego aprowizacji użytkowników są następujące:
 
-* **Zwiększona produktywność**. Tożsamościami użytkowników można zarządzać w aplikacjach SaaS za pomocą jednego interfejsu zarządzania aprowizacji użytkownika. Ten interfejs ma jeden zestaw zasad aprowizacji.
+* **Zwiększona produktywność** . Tożsamościami użytkowników można zarządzać w aplikacjach SaaS za pomocą jednego interfejsu zarządzania aprowizacji użytkownika. Ten interfejs ma jeden zestaw zasad aprowizacji.
 
-* **Zarządzanie ryzykiem**. Aby zwiększyć bezpieczeństwo, można zautomatyzować zmiany w zależności od stanu pracownika lub członkostwa w grupach, które definiują role i/lub dostęp.
+* **Zarządzanie ryzykiem** . Aby zwiększyć bezpieczeństwo, można zautomatyzować zmiany w zależności od stanu pracownika lub członkostwa w grupach, które definiują role i/lub dostęp.
 
-* **Adresowanie zgodności i zarządzania**. Usługa Azure AD obsługuje natywne dzienniki inspekcji dla każdego żądania aprowizacji użytkownika. Żądania są wykonywane zarówno w systemie źródłowym, jak i docelowym. Dzięki temu można śledzić, kto ma dostęp do aplikacji z jednego ekranu.
+* **Adresowanie zgodności i zarządzania** . Usługa Azure AD obsługuje natywne dzienniki inspekcji dla każdego żądania aprowizacji użytkownika. Żądania są wykonywane zarówno w systemie źródłowym, jak i docelowym. Dzięki temu można śledzić, kto ma dostęp do aplikacji z jednego ekranu.
 
-* **Obniżyć koszty**. Automatyczne Inicjowanie obsługi użytkowników zmniejsza koszty, unikając nieefektywności i błędu ludzkiego związanego z obsługą ręczną. Zmniejsza to potrzebę niestandardowo rozwiniętych rozwiązań użytkowników, skryptów i dzienników inspekcji.
+* **Obniżyć koszty** . Automatyczne Inicjowanie obsługi użytkowników zmniejsza koszty, unikając nieefektywności i błędu ludzkiego związanego z obsługą ręczną. Zmniejsza to potrzebę niestandardowo rozwiniętych rozwiązań użytkowników, skryptów i dzienników inspekcji.
 
 ### <a name="licensing"></a>Licencjonowanie
 
@@ -99,7 +99,7 @@ W tym przykładzie użytkownicy i grupy są tworzone w bazie danych kadr połąc
 
 W tym przykładzie tworzenie użytkowników odbywa się w usłudze Azure AD, a usługa Azure AD Provisioning zarządza automatyczną obsługą użytkowników do aplikacji docelowych (SaaS).
 
-![Obraz 2](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Diagram pokazujący proces tworzenia użytkownika/grupy z lokalnej aplikacji H R za pośrednictwem usługi Azure A Provisioning w celu uzyskania aplikacji s a.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **Opis przepływu pracy:**
 

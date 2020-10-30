@@ -74,6 +74,8 @@
       href: concepts/sdk-options.md
     - name: Model cen
       href: concepts/pricing.md
+    - name: Ochrona prywatności
+      href: concepts/privacy.md
     - name: Authentication
       href: concepts/authentication.md
     - name: Obsługa zdarzeń
