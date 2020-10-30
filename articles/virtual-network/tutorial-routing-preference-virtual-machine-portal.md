@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: af3d9e9fcf0dad6a5e51a3db87b63567d701970e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2f3635c8280bdd95e8ad1259fe4ae35f8b531a4
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687994"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042826"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Konfigurowanie preferencji routingu dla maszyny wirtualnej przy użyciu Azure Portal
 
@@ -41,9 +41,9 @@ Zaloguj się w witrynie [Azure Portal](https://preview.portal.azure.com/).
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób**.
-2. Wybierz pozycję **obliczenia**, a następnie wybierz pozycję **maszyna wirtualna systemu Windows Server 2016**lub inny wybrany system operacyjny.
-3. Wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz przycisk **OK**:
+1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób** .
+2. Wybierz pozycję **obliczenia** , a następnie wybierz pozycję **maszyna wirtualna systemu Windows Server 2016** lub inny wybrany system operacyjny.
+3. Wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz przycisk **OK** :
 
     |Ustawienie|Wartość|
     |---|---|
@@ -51,36 +51,37 @@ Zaloguj się w witrynie [Azure Portal](https://preview.portal.azure.com/).
     |Nazwa użytkownika| Wprowadź wybraną nazwę użytkownika.|
     |Hasło| Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subskrypcja| Wybierz subskrypcję.|
-    |Grupa zasobów| Wybierz pozycję **Użyj istniejącej** i wybierz grupę **myResourceGroup**.|
+    |Grupa zasobów| Wybierz pozycję **Użyj istniejącej** i wybierz grupę **myResourceGroup** .|
     |Lokalizacja| Wybierz **Wschodnie stany USA**|
 
-4. Wybierz rozmiar maszyny wirtualnej, a następnie wybierz pozycję **Wybierz**.
-5. W obszarze Karta **Sieć** kliknij pozycję **Utwórz nowy** dla **publicznego adresu IP**.
-6. Wprowadź *myPublicIpAddress*, wybierz pozycję SKU jako **standardowa**, a następnie wybierz pozycję Preferencje routingu **Internet** , a następnie kliknij przycisk **OK**, jak pokazano na poniższej ilustracji:
+4. Wybierz rozmiar maszyny wirtualnej, a następnie wybierz pozycję **Wybierz** .
+5. W obszarze Karta **Sieć** kliknij pozycję **Utwórz nowy** dla **publicznego adresu IP** .
+6. Wprowadź *myPublicIpAddress* , wybierz pozycję SKU jako **standardowa** , a następnie wybierz pozycję Preferencje routingu **Internet** , a następnie kliknij przycisk **OK** , jak pokazano na poniższej ilustracji:
 
    ![Wybierz statyczny](./media/tutorial-routing-preference-virtual-machine-portal/routing-preference-internet-new.png)
 
-6. Wybierz port lub brak portów w obszarze **Wybierz publiczne porty przychodzące**. Wybrano Portal 3389, aby włączyć dostęp zdalny do maszyny wirtualnej z systemem Windows Server z Internetu. Nie zaleca się otwierania portu 3389 z Internetu w przypadku obciążeń produkcyjnych.
+6. Wybierz port lub brak portów w obszarze **Wybierz publiczne porty przychodzące** . Wybrano Portal 3389, aby włączyć dostęp zdalny do maszyny wirtualnej z systemem Windows Server z Internetu. Nie zaleca się otwierania portu 3389 z Internetu w przypadku obciążeń produkcyjnych.
 
    ![Wybierz port](./media/tutorial-routing-preference-virtual-machine-portal/pip-ports-new.png)
 
-7. Zaakceptuj pozostałe ustawienia domyślne i wybierz **przycisk OK**.
-8. Na stronie **Podsumowanie** wybierz pozycję **Utwórz**. Wdrożenie maszyny wirtualnej trwa kilka minut.
+7. Zaakceptuj pozostałe ustawienia domyślne i wybierz **przycisk OK** .
+8. Na stronie **Podsumowanie** wybierz pozycję **Utwórz** . Wdrożenie maszyny wirtualnej trwa kilka minut.
 9. Po wdrożeniu maszyny wirtualnej wprowadź *myPublicIpAddress* w polu wyszukiwania w górnej części portalu. Gdy **myPublicIpAddress** pojawia się w wynikach wyszukiwania, wybierz ją.
 10. Można wyświetlić przypisany publiczny adres IP i adres przypisany do maszyny wirtualnej **myVM** , jak pokazano na poniższej ilustracji:
 
-    ![Wyświetl publiczny adres IP](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    ![Zrzut ekranu przedstawia kartę sieciową (P) dla interfejsu sieciowego mynic.](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
-11. Wybierz pozycję **Sieć**, a następnie kliknij pozycję Karta sieciowa **mynic** , a następnie wybierz publiczny adres IP, aby upewnić się, że preferencja routingu jest przypisana jako **Internet**.
-    ![Wyświetl publiczny adres IP](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+11. Wybierz pozycję **Sieć** , a następnie kliknij pozycję Karta sieciowa **mynic** , a następnie wybierz publiczny adres IP, aby upewnić się, że preferencja routingu jest przypisana jako **Internet** .
+
+    ![Zrzut ekranu przedstawia adres i preferencję routingu dla publicznego adresu P.](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i wszystkie znajdujące się w niej zasoby nie będą już potrzebne, usuń je:
 
 1. Wprowadź ciąg *myResourceGroup* w polu **Szukaj** w górnej części portalu. Gdy pozycja **myResourceGroup** pojawi się w wynikach wyszukiwania, wybierz ją.
-2. Wybierz pozycję **Usuń grupę zasobów**.
-3. Wprowadź dla elementu *Webresourcename* **Typ Nazwa grupy zasobów:** a następnie wybierz pozycję **Usuń**.
+2. Wybierz pozycję **Usuń grupę zasobów** .
+3. Wprowadź dla elementu *Webresourcename* **Typ Nazwa grupy zasobów:** a następnie wybierz pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [publicznym adresie IP z preferencją routingu](routing-preference-overview.md).

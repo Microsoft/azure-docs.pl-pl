@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: e8ecb0dde2208b367362f26f654ec8eb83c7a777
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5d02085fe4850dacf6e876b42cf301df2ea76713
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016199"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043339"
 ---
 # <a name="edv4-and-edsv4-series"></a>Serie Edv4 i Edsv4
 
@@ -29,10 +29,10 @@ Rozmiary serii Edv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Platin
 [Buforowanie Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
 [Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
-[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 <br>
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i tymczasowej: IOPS/MB/s | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | <sup>**</sup> Maksymalna przepływność magazynu w pamięci podręcznej i tymczasowej: IOPS/MB/s | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2d_v4  | 2 | 16 | 75 | 4 | 19000/120 | 2|1000 |
 | Standard_E4d_v4  | 4 | 32 | 150 | 8 | 38500/242 | 2|2000 |
@@ -44,6 +44,8 @@ Rozmiary serii Edv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Platin
 | Standard_E64d_v4 | 64 | 504 | 2400 | 32 | 615000/3872 | 8|30000 |
 
 
+<sup>**</sup> Te wartości IOPs można zagwarantować przy użyciu [maszyn wirtualnych Gen2](generation-2.md)
+
 ## <a name="edsv4-series"></a>Seria Edsv4
 
 Rozmiary serii Edsv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (Kaskada Lake). Rozmiary maszyn wirtualnych Edsv4 do 504 GiB pamięci RAM oprócz szybkiego i dużego lokalnego magazynu SSD (do 2 400 GiB). Te maszyny wirtualne są idealnym rozwiązaniem dla aplikacji i aplikacji przedsiębiorstwa intensywnie korzystających z pamięci, które korzystają z małych opóźnień i magazynu lokalnego o dużej szybkości.
@@ -53,10 +55,10 @@ Rozmiary serii Edsv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Plati
 [Buforowanie Premium Storage](premium-storage-performance.md): obsługiwane<br>
 [Migracja na żywo](maintenance-and-updates.md): obsługiwane<br>
 [Aktualizacje z zachowaniem pamięci](maintenance-and-updates.md): obsługiwane<br>
-[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1<br>
+[Obsługa generacji maszyny wirtualnej](generation-2.md): generacja 1 i 2<br>
 <br>
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | <sup>**</sup> Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120 (50) | 3200/48 | 2|1000 |
 | Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242 (100) | 6400/96 | 2|2000 |

@@ -3,12 +3,12 @@ title: Dokumentacja ustawień aplikacji dla usługi Azure Functions
 description: Dokumentacja referencyjna dla ustawień aplikacji Azure Functions lub zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165774"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043230"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Dokumentacja ustawień aplikacji dla usługi Azure Functions
 
@@ -131,7 +131,7 @@ Określa repozytorium lub dostawcę, który ma być używany na potrzeby magazyn
 
 |Klucz|Wartość przykładowa|
 |---|------------|
-|AzureWebJobsSecretStorageType|Files|
+|AzureWebJobsSecretStorageType|Pliki|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -226,6 +226,14 @@ Do użycia tylko w planach Premium &. Parametry połączenia dla konta magazynu,
 |Klucz|Wartość przykładowa|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [klucz]|
+
+## <a name="website_contentovervnet"></a>CONTENTOVERVNET witryny sieci Web \_
+
+Tylko w przypadku planów Premium. Wartość `1` umożliwia skalowanie aplikacji funkcji, gdy konto magazynu jest ograniczone do sieci wirtualnej. To ustawienie należy włączyć w przypadku ograniczania konta magazynu do sieci wirtualnej. Aby dowiedzieć się więcej, zobacz [ograniczanie konta magazynu do sieci wirtualnej](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+
+|Klucz|Wartość przykładowa|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
 
 ## <a name="website_contentshare"></a>CONTENTSHARE witryny sieci Web \_
 

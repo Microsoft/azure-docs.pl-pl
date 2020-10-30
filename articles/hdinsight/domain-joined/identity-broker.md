@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 99ea17dad4f99cdab3fb44b8031e60e6cf69879c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6617c778c0b79a55058eafb40fd9b49b627819ea
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543155"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043268"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Broker identyfikatorów usługi Azure HDInsight (wersja zapoznawcza)
 
@@ -83,7 +83,7 @@ Jeśli dodasz nową rolę o nazwie `idbrokernode` z następującymi atrybutami d
         {
             "autoscale": null,
             "name": "idbrokernode",
-            "targetInstanceCount": 1,
+            "targetInstanceCount": 2,
             "hardwareProfile": {
                 "vmSize": "Standard_A2_V2"
             },
@@ -100,6 +100,9 @@ Jeśli dodasz nową rolę o nazwie `idbrokernode` z następującymi atrybutami d
 .
 .
 ```
+
+Aby wyświetlić pełny przykład szablonu ARM, zobacz szablon opublikowany w [tym miejscu](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
 
 ## <a name="tool-integration"></a>Integracja narzędzi
 
@@ -132,6 +135,8 @@ Po uzyskaniu tokenu OAuth Użyj go w nagłówku autoryzacji żądania HTTP do br
 ```bash
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
+
+W przypadku korzystania z Z usługi Beeline i usługi Livy można także wykonać poniższe kody próbek, [Aby skonfigurować](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) klienta do korzystania z protokołu OAuth i łączenia się z klastrem.
 
 ## <a name="next-steps"></a>Następne kroki
 

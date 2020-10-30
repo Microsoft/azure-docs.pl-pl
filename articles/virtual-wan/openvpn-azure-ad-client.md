@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: e64de987bd82f6b93350cdd706fc1a243d2855b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecebaf9384bcb0dbbb6fe36df4dd474738422149
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977832"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043424"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurowanie klienta sieci VPN na potrzeby połączeń typu punkt-lokacja i protokołu OpenVPN: Uwierzytelnianie w usłudze Azure AD
 
@@ -32,7 +32,7 @@ Użyj tego [linku](https://go.microsoft.com/fwlink/?linkid=2117554) , aby pobra�
 
 1. Przejdź do menu Start, a następnie wybierz pozycję Ustawienia > prywatność > aplikacje w tle.
 2. W obszarze aplikacje w tle upewnij się, że **aplikacje są uruchamiane w tle** .
-3. W obszarze Wybierz aplikacje, które mogą być uruchamiane w tle, Włącz ustawienia dla usługi Azure VPN Client na wartość **włączone**.
+3. W obszarze Wybierz aplikacje, które mogą być uruchamiane w tle, Włącz ustawienia dla usługi Azure VPN Client na wartość **włączone** .
 
   ![zezwolenie](./media/openvpn-azure-ad-client/backgroundpermission.png)
 
@@ -54,111 +54,111 @@ Podczas pracy z profilem opartym na certyfikatach upewnij się, że odpowiednie 
 
 Gdy dysponujesz profilem roboczym i chcesz go rozesłać do innych użytkowników, możesz go wyeksportować, wykonując następujące czynności:
 
-1. Zaznacz profil klienta sieci VPN, który chcesz wyeksportować, wybierz pozycję **...**, a następnie wybierz pozycję **Eksportuj**.
+1. Zaznacz profil klienta sieci VPN, który chcesz wyeksportować, wybierz pozycję **...** , a następnie wybierz pozycję **Eksportuj** .
 
-    ![eksportowanie](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![Zrzut ekranu przedstawia eksportowanie wybrane z menu.](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Wybierz lokalizację, w której chcesz zapisać ten profil, pozostaw nazwę pliku, a następnie wybierz pozycję **Zapisz** , aby zapisać plik XML.
 
-    ![eksportowanie](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![Zrzut ekranu przedstawia okno dialogowe Zapisywanie jako, w którym można wprowadzić nazwę pliku.](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="to-import-a-client-profile"></a><a name="import"></a>Aby zaimportować profil klienta
 
-1. Na stronie wybierz pozycję **Importuj**.
+1. Na stronie wybierz pozycję **Importuj** .
 
-    ![import](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![Zrzut ekranu przedstawia Importowanie wybrane z menu plus.](./media/openvpn-azure-ad-client/import/import1.jpg)
 
-2. Przejdź do pliku XML profilu i wybierz go. Po wybraniu pliku wybierz pozycję **Otwórz**.
+2. Przejdź do pliku XML profilu i wybierz go. Po wybraniu pliku wybierz pozycję **Otwórz** .
 
-    ![import](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![Zrzut ekranu przedstawia otwarte okno dialogowe, w którym można wybrać plik.](./media/openvpn-azure-ad-client/import/import2.jpg)
 
-3. Określ nazwę profilu i wybierz pozycję **Zapisz**.
+3. Określ nazwę profilu i wybierz pozycję **Zapisz** .
 
-    ![import](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![Zrzut ekranu przedstawia dodaną nazwę połączenia i przycisk Zapisz zaznaczone.](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. Wybierz pozycję **Połącz** , aby nawiązać połączenie z siecią VPN.
 
-    ![import](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![Zrzut ekranu przedstawia przycisk Połącz dla właśnie utworzonego połączenia.](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. Po nawiązaniu połączenia ikona zmieni kolor na zielony i powiedzie **się.**
 
-    ![import](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![Zrzut ekranu przedstawia połączenie w stanie połączonym z opcją rozłączenia.](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Aby usunąć profil klienta
 
-1. Wybierz wielokropek obok profilu klienta, który chcesz usunąć. Następnie wybierz pozycję **Usuń**.
+1. Wybierz wielokropek obok profilu klienta, który chcesz usunąć. Następnie wybierz pozycję **Usuń** .
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![Zrzut ekranu przedstawia polecenie Usuń wybrane z menu.](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Wybierz pozycję **Usuń** , aby usunąć.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![Zrzut ekranu przedstawia okno dialogowe potwierdzenia z opcją usunięcia lub anulowania.](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Tworzenie połączenia
 
-1. Na stronie wybierz pozycję **+** , a następnie pozycję **+ Dodaj**.
+1. Na stronie wybierz pozycję **+** , a następnie pozycję **+ Dodaj** .
 
-    ![połączenie](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![Zrzut ekranu przedstawia polecenie Dodaj wybrane z menu plus.](./media/openvpn-azure-ad-client/create/create1.jpg)
 
-2. Wprowadź informacje o połączeniu. Jeśli nie masz pewności co do wartości, skontaktuj się z administratorem. Po wypełnieniu wartości wybierz pozycję **Zapisz**.
+2. Wprowadź informacje o połączeniu. Jeśli nie masz pewności co do wartości, skontaktuj się z administratorem. Po wypełnieniu wartości wybierz pozycję **Zapisz** .
 
-    ![połączenie](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![Zrzut ekranu przedstawia okienko, w którym można wprowadzić wymagane wartości.](./media/openvpn-azure-ad-client/create/create2.jpg)
 
 3. Wybierz pozycję **Połącz** , aby nawiązać połączenie z siecią VPN.
 
-    ![połączenie](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![Zrzut ekranu przedstawia przycisk Połącz dla danego połączenia.](./media/openvpn-azure-ad-client/create/create3.jpg)
 
-4. Wybierz odpowiednie poświadczenia, a następnie wybierz pozycję **Kontynuuj**.
+4. Wybierz odpowiednie poświadczenia, a następnie wybierz pozycję **Kontynuuj** .
 
-    ![połączenie](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![Zrzut ekranu przedstawia okno dialogowe logowania.](./media/openvpn-azure-ad-client/create/create4.jpg)
 
 5. Po pomyślnym nawiązaniu połączenia ikona zmieni kolor na zielony i powiedzie **się.**
 
-    ![połączenie](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![Zrzut ekranu przedstawia połączenie w stanie połączonym.](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="to-connect-automatically"></a><a name="autoconnect"></a>Aby nawiązać połączenie automatycznie
 
 Te kroki ułatwiają skonfigurowanie połączenia do automatycznego łączenia z usługą Always-On.
 
-1. Na stronie głównej klienta sieci VPN wybierz pozycję **Ustawienia sieci VPN**.
+1. Na stronie głównej klienta sieci VPN wybierz pozycję **Ustawienia sieci VPN** .
 
-    ![auto](./media/openvpn-azure-ad-client/auto/auto1.jpg)
+    ![Zrzut ekranu przedstawia połączenia P N, w których można wybrać ustawienia V P N.](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
 2. W oknie dialogowym przełączanie aplikacji wybierz pozycję **tak** .
 
-    ![auto](./media/openvpn-azure-ad-client/auto/auto2.jpg)
+    ![Zrzut ekranu przedstawia komunikat weryfikacyjny dotyczący przełączania aplikacji.](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
 3. Upewnij się, że połączenie, które chcesz ustawić, nie jest już połączone, a następnie zaznacz profil i zaznacz pole wyboru **Połącz automatycznie** .
 
-    ![auto](./media/openvpn-azure-ad-client/auto/auto3.jpg)
+    ![Zrzut ekranu przedstawia okno dialogowe Ustawienia, w którym można wybrać opcję Połącz automatycznie.](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
 4. Wybierz pozycję **Połącz** , aby zainicjować połączenie sieci VPN.
 
-    ![auto](./media/openvpn-azure-ad-client/auto/auto4.jpg)
+    ![Zrzut ekranu przedstawia przycisk Połącz.](./media/openvpn-azure-ad-client/auto/auto4.jpg)
 
 ## <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnozuj problemy z połączeniem
 
-1. Aby zdiagnozować problemy z połączeniem, można użyć narzędzia do **diagnozowania** . Wybierz **...** obok połączenia sieci VPN, które chcesz zdiagnozować, aby wyświetlić menu. Następnie wybierz pozycję **Diagnozuj**.
+1. Aby zdiagnozować problemy z połączeniem, można użyć narzędzia do **diagnozowania** . Wybierz **...** obok połączenia sieci VPN, które chcesz zdiagnozować, aby wyświetlić menu. Następnie wybierz pozycję **Diagnozuj** .
 
-    ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
+    ![Zrzut ekranu przedstawia wybraną diagnostykę z menu.](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
-2. Na stronie **Właściwości połączenia** wybierz pozycję **Uruchom diagnostykę**.
+2. Na stronie **Właściwości połączenia** wybierz pozycję **Uruchom diagnostykę** .
 
-    ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
+    ![Zrzut ekranu przedstawia przycisk Uruchom diagnostykę dla połączenia.](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
 3. Zaloguj się przy użyciu swoich poświadczeń.
 
-    ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
+    ![Zrzut ekranu przedstawia okno dialogowe logowania dla tej akcji.](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
 
 4. Wyświetl wyniki diagnostyki.
 
-    ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+    ![Zrzut ekranu przedstawia wyniki diagnostyki.](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Jak mogę dodać sufiksy DNS do klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes> ** Tagi
+Można zmodyfikować pobrany plik XML profilu i dodać **\<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes>** Tagi
 
 ```
 <azvpnprofile>
@@ -176,7 +176,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnssuffixes> \<dnssu
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Jak mogę dodać do klienta sieci VPN niestandardowe serwery DNS?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** Tagi
+Można zmodyfikować pobrany plik XML profilu i dodać **\<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers>** Tagi
 
 ```
 <azvpnprofile>
@@ -197,7 +197,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers> \<dnsser
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Jak mogę dodać trasy niestandardowe do klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** Tagi
+Można zmodyfikować pobrany plik XML profilu i dodać **\<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes>** Tagi
 
 ```
 <azvpnprofile>
@@ -214,7 +214,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<includeroutes> \<rou
 ```
 ### <a name="how-do-i-direct-all-traffic-to-the-vpn-tunnel-force-tunnel"></a>Jak mogę skierować cały ruch do tunelu VPN (Wymuś tunel)?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** Tagi
+Można zmodyfikować pobrany plik XML profilu i dodać **\<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes>** Tagi
 
 ```
 <azvpnprofile>
@@ -235,7 +235,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<includeroutes> \<rou
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Jak mogę blokowe (wykluczanie) tras z klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes> ** Tagi
+Można zmodyfikować pobrany plik XML profilu i dodać **\<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes>** Tagi
 
 ```
 <azvpnprofile>

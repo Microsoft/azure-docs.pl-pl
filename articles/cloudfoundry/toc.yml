@@ -8,15 +8,15 @@
 - name: Samouczki
   items:
     - name: Tworzenie usługi CF na platformie Azure
-      href: /azure/cloudfoundry/create-cloud-foundry-on-azure
+      href: ./create-cloud-foundry-on-azure.md
     - name: Wdrażanie aplikacji usługi CF na platformie Azure
-      href: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
+      href: ./cloudfoundry-deploy-your-first-app.md
     - name: Usługa CloudFoundry na platformie Azure
-      href: /azure/cloudfoundry/cloudfoundry-get-started
+      href: ./cloudfoundry-get-started.md
     - name: Wdrażanie dodatku OMS Nozzle usługi CF
-      href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+      href: ./cloudfoundry-oms-nozzle.md
     - name: Integracja usługi Cloud Foundry z platformą Azure
-      href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
+      href: ./how-cloud-foundry-integrates-with-azure.md
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 1027b4f37160281bcf298e57e890b73b472526a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eaf311a8e8c3fb3c3699b8624def4923bead420
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308762"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043061"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Samouczek: przeprowadzanie migracji z programu SQL Server do usługi Azure SQL Database w trybie offline przy użyciu usługi DMS
 
@@ -65,7 +65,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 - Upewnij się, że reguły grupy zabezpieczeń sieci wirtualnej nie blokują następujących portów komunikacji przychodzącej do Azure Database Migration Service: 443, 53, 9354, 445, 12000. Aby uzyskać więcej szczegółów na temat filtrowania ruchu sieciowej grupy zabezpieczeń w sieci wirtualnej platformy Azure, zobacz artykuł [Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - [Zapora sytemu Windows skonfigurowana pod kątem dostępu do aparatu bazy danych](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Otwórz Zaporę systemu Windows, aby umożliwić Azure Database Migration Service dostęp do SQL Server źródłowej, która domyślnie jest portem TCP 1433.
+- Otwórz Zaporę systemu Windows, aby umożliwić Azure Database Migration Service dostęp do SQL Server źródłowej, która domyślnie jest portem TCP 1433. Jeśli wystąpienie domyślne nasłuchuje na innym porcie, Dodaj je do zapory.
 - Jeśli używasz wielu nazwanych wystąpień SQL Server przy użyciu portów dynamicznych, możesz włączyć usługę SQL Browser i zezwolić na dostęp do portu UDP 1434 za pośrednictwem zapór, aby Azure Database Migration Service mógł nawiązać połączenie z nazwanym wystąpieniem na serwerze źródłowym.
 - W przypadku korzystania z urządzenia zapory przed źródłowymi bazami danych może zajść potrzeba dodania reguł zapory, aby umożliwić Azure Database Migration Service dostęp do źródłowych baz danych na potrzeby migracji.
 - Utwórz [regułę zapory](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) adresów IP na poziomie serwera dla Azure SQL Database, aby umożliwić Azure Database Migration Service dostęp do docelowych baz danych. Podaj zakres podsieci sieci wirtualnej używanej na potrzeby Azure Database Migration Service.
@@ -77,7 +77,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 Aby można było migrować dane z wystąpienia SQL Server do pojedynczej bazy danych lub bazy danych w puli w Azure SQL Database, należy ocenić bazę danych SQL Server dla wszelkich problemów z blokowaniem, które mogą uniemożliwić migrację. Korzystając z programu Data Migration Assistant w wersji 3.3 lub nowszej, wykonaj czynności opisane w artykule [Performing a SQL Server migration assessment (Ocena migracji programu SQL Server)](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem), aby ukończyć ocenę lokalnej bazy danych. W skrócie należy wykonać następujące czynności:
 
 1. W programie Data Migration Assistant wybierz ikonę New + (Nowy), a następnie wybierz typ projektu **Assessment** (Ocena).
-2. Wpisz nazwę projektu, w polu tekstowym **Source server type** (Typ serwera źródłowego) wybierz pozycję **SQL Server**, w polu tekstowym **Target server type** (Typ serwera docelowego) wybierz pozycję **Azure SQL Database**, a następnie wybierz pozycję **Create ** (Utwórz), aby utworzyć projekt.
+2. Wpisz nazwę projektu, w polu tekstowym **Source server type** (Typ serwera źródłowego) wybierz pozycję **SQL Server** , w polu tekstowym **Target server type** (Typ serwera docelowego) wybierz pozycję **Azure SQL Database** , a następnie wybierz pozycję **Create** (Utwórz), aby utworzyć projekt.
 
     Oceniając źródłową bazę danych programu SQL Server podczas migracji do bazy danych usługi Azure SQL Database (pojedynczej lub w puli), możesz wybrać co najmniej jeden z następujących typów raportów oceny:
 
@@ -88,7 +88,7 @@ Aby można było migrować dane z wystąpienia SQL Server do pojedynczej bazy da
 
 3. W programie Data Migration Assistant na ekranie **Options** (Opcje) wybierz polecenie **Next** (Dalej).
 4. Na ekranie **Select sources** (Wybierz źródła) w oknie dialogowym **Connect to a server** (Nawiązywanie połączenia z serwerem) podaj parametry połączenia z programem SQL Server, a następnie wybierz polecenie **Connect** (Połącz).
-5. W oknie dialogowym **Add sources** (Dodawanie źródeł) wybierz opcję **AdventureWorks2012**, wybierz polecenie **Add** (Dodaj), a następnie wybierz pozycję **Start Assessment** (Rozpocznij ocenę).
+5. W oknie dialogowym **Add sources** (Dodawanie źródeł) wybierz opcję **AdventureWorks2012** , wybierz polecenie **Add** (Dodaj), a następnie wybierz pozycję **Start Assessment** (Rozpocznij ocenę).
 
     > [!NOTE]
     > Jeśli używasz usług SSIS, program DMA nie obsługuje obecnie oceny źródłowej bazy danych SSISDB. Jednak projekty/pakiety SSIS zostaną ocenione/zweryfikowane, ponieważ są ponownie wdrażane do docelowej bazy danych SSISDB hostowanej przez usługę Azure SQL Database. Aby uzyskać więcej informacji na temat migracji pakietów SSIS, zobacz artykuł [Migrowanie pakietów usług SQL Server Integration Services na platformę Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
@@ -109,7 +109,7 @@ Aby można było migrować dane z wystąpienia SQL Server do pojedynczej bazy da
 Jeśli ocena wypadła dobrze i wiesz, że wybrana baza danych nadaje się do migracji do bazy danych usługi Azure SQL Database (pojedynczej lub w puli), użyj programu DMA, aby przeprowadzić migrację schematu do usługi Azure SQL Database.
 
 > [!NOTE]
-> Przed utworzeniem projektu migracji w Data Migration Assistant upewnij się, że została już zainicjowana baza danych na platformie Azure, zgodnie z wymaganiami wstępnymi. Do celów tego samouczka nazwa bazy danych usługi Azure SQL Database to **AdventureWorksAzure**, ale możesz podać dowolną inną nazwę.
+> Przed utworzeniem projektu migracji w Data Migration Assistant upewnij się, że została już zainicjowana baza danych na platformie Azure, zgodnie z wymaganiami wstępnymi. Do celów tego samouczka nazwa bazy danych usługi Azure SQL Database to **AdventureWorksAzure** , ale możesz podać dowolną inną nazwę.
 
 > [!IMPORTANT]
 > Jeśli korzystasz z usług SSIS, program DMA nie obsługuje obecnie migracji źródłowej bazy danych SSISDB, ale możesz ponownie wdrożyć swoje projekty/pakiety SSIS do docelowej bazy danych SSISDB hostowanej przez usługę Azure SQL Database. Aby uzyskać więcej informacji na temat migracji pakietów SSIS, zobacz artykuł [Migrowanie pakietów usług SQL Server Integration Services na platformę Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
@@ -117,7 +117,7 @@ Jeśli ocena wypadła dobrze i wiesz, że wybrana baza danych nadaje się do mig
 Aby przeprowadzić migrację schematu **AdventureWorks2012** do pojedynczej bazy danych lub bazy danych w puli Azure SQL Database, wykonaj następujące czynności:
 
 1. W programie Data Migration Assistant wybierz ikonę New + (Nowy), a następnie w obszarze **Project type** (Typ projektu) wybierz pozycję **Migration** (Migracja).
-2. Wpisz nazwę projektu, w polu tekstowym **Source server type** (Typ serwera źródłowego) wybierz pozycję **SQL Server**, a następnie w polu tekstowym **Target server type** (Typ serwera docelowego) wybierz pozycję **Azure SQL Database**.
+2. Wpisz nazwę projektu, w polu tekstowym **Source server type** (Typ serwera źródłowego) wybierz pozycję **SQL Server** , a następnie w polu tekstowym **Target server type** (Typ serwera docelowego) wybierz pozycję **Azure SQL Database** .
 3. W obszarze **Migration Scope** (Zakres migracji), wybierz pozycję **Schema only** (Tylko schemat).
 
     Po wykonaniu poprzednich kroków interfejs programu Data Migration Assistant powinien wyglądać tak, jak pokazano na poniższej ilustracji:
@@ -125,15 +125,15 @@ Aby przeprowadzić migrację schematu **AdventureWorks2012** do pojedynczej bazy
     ![Tworzenie projektu programu Data Migration Assistant](media/tutorial-sql-server-to-azure-sql/dma-create-project.png)
 
 4. Wybierz polecenie **Create** (Utwórz), aby utworzyć projekt.
-5. W programie Data Migration Assistant określ szczegóły połączenia ze źródłowym wystąpieniem programu SQL Server, wybierz polecenie **Connect** (Połącz), a następnie wybierz bazę danych **AdventureWorks2012**.
+5. W programie Data Migration Assistant określ szczegóły połączenia ze źródłowym wystąpieniem programu SQL Server, wybierz polecenie **Connect** (Połącz), a następnie wybierz bazę danych **AdventureWorks2012** .
 
     ![Szczegóły połączenia źródłowego programu Data Migration Assistant](media/tutorial-sql-server-to-azure-sql/dma-source-connect.png)
 
-6. Wybierz pozycję **dalej**, w obszarze **Połącz z serwerem docelowym**Określ szczegóły połączenia docelowego dla Azure SQL Database, wybierz pozycję **Połącz**, a następnie wybierz bazę danych **AdventureWorksAzure** , która została wstępnie zainicjowana w Azure SQL Database.
+6. Wybierz pozycję **dalej** , w obszarze **Połącz z serwerem docelowym** Określ szczegóły połączenia docelowego dla Azure SQL Database, wybierz pozycję **Połącz** , a następnie wybierz bazę danych **AdventureWorksAzure** , która została wstępnie zainicjowana w Azure SQL Database.
 
     ![Szczegóły połączenia docelowego programu Data Migration Assistant](media/tutorial-sql-server-to-azure-sql/dma-target-connect.png)
 
-7. Wybierz polecenie **Next** (Dalej), aby przejść do ekranu **Select objects** (Wybieranie obiektów), na którym można określić obiekty schematu w bazie danych **AdventureWorks2012**, które muszą zostać wdrożone w usłudze Azure SQL Database.
+7. Wybierz polecenie **Next** (Dalej), aby przejść do ekranu **Select objects** (Wybieranie obiektów), na którym można określić obiekty schematu w bazie danych **AdventureWorks2012** , które muszą zostać wdrożone w usłudze Azure SQL Database.
 
     Domyślnie zaznaczone są wszystkie obiekty.
 
@@ -149,25 +149,25 @@ Aby przeprowadzić migrację schematu **AdventureWorks2012** do pojedynczej bazy
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Rejestrowanie dostawcy zasobów Microsoft.DataMigration
 
-1. Zaloguj się do Portalu Azure. Wyszukaj i wybierz pozycję **subskrypcje**.
+1. Zaloguj się w witrynie Azure Portal. Wyszukaj i wybierz pozycję **subskrypcje** .
 
    ![Wyświetlanie subskrypcji w portalu](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
 
-2. Wybierz subskrypcję, w której chcesz utworzyć wystąpienie Azure Database Migration Service, a następnie wybierz pozycję **dostawcy zasobów**.
+2. Wybierz subskrypcję, w której chcesz utworzyć wystąpienie Azure Database Migration Service, a następnie wybierz pozycję **dostawcy zasobów** .
 
     ![Wyświetlanie dostawców zasobów](media/tutorial-sql-server-to-azure-sql/portal-select-resource-provider.png)
 
-3. Wyszukaj pozycję migracja, a następnie wybierz pozycję **zarejestruj** dla elementu **Microsoft. datamigration**.
+3. Wyszukaj pozycję migracja, a następnie wybierz pozycję **zarejestruj** dla elementu **Microsoft. datamigration** .
 
     ![Rejestrowanie dostawcy zasobów](media/tutorial-sql-server-to-azure-sql/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Tworzenie wystąpienia
 
-1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób**. Wyszukaj i wybierz **Azure Database Migration Service**.
+1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób** . Wyszukaj i wybierz **Azure Database Migration Service** .
 
     ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql/portal-marketplace.png)
 
-2. Na ekranie **Azure Database Migration Service** wybierz polecenie **Utwórz**.
+2. Na ekranie **Azure Database Migration Service** wybierz polecenie **Utwórz** .
 
     ![Tworzenie wystąpienia usługi Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-create1.png)
   
@@ -187,27 +187,27 @@ Aby przeprowadzić migrację schematu **AdventureWorks2012** do pojedynczej bazy
 
     ![Konfigurowanie ustawień wystąpienia usługi Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-settings2.png)
 
-7. Wybierz pozycję **Utwórz**, aby utworzyć usługę.
+7. Wybierz pozycję **Utwórz** , aby utworzyć usługę.
 
 ## <a name="create-a-migration-project"></a>Tworzenie projektu migracji
 
 Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a następnie utwórz nowy projekt migracji.
 
-1. W menu Azure Portal wybierz pozycję **wszystkie usługi**. Wyszukaj i wybierz pozycję **usługi Azure Database Migration Services**.
+1. W menu Azure Portal wybierz pozycję **wszystkie usługi** . Wyszukaj i wybierz pozycję **usługi Azure Database Migration Services** .
 
      ![Znajdź wszystkie wystąpienia Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-search.png)
 
 2. Na ekranie **usługi Azure Database Migration Services** wybierz utworzone wystąpienie Azure Database Migration Service.
 
-3. Wybierz pozycję **Nowy projekt migracji**.
+3. Wybierz pozycję **Nowy projekt migracji** .
 
      ![Znajdź wystąpienie Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
-4. Na ekranie **Nowy projekt migracji** wpisz nazwę projektu, w polu tekstowym **Typ serwera źródłowego** wybierz pozycję **SQL Server**, w polu tekstowym **Typ serwera docelowego** wybierz pozycję **Azure SQL Database**, a następnie w polu **Wybierz typ działania** wybierz pozycję **Migracja danych w trybie offline**.
+4. Na ekranie **Nowy projekt migracji** wpisz nazwę projektu, w polu tekstowym **Typ serwera źródłowego** wybierz pozycję **SQL Server** , w polu tekstowym **Typ serwera docelowego** wybierz pozycję **Azure SQL Database** , a następnie w polu **Wybierz typ działania** wybierz pozycję **Migracja danych w trybie offline** .
 
     ![Tworzenie projektu usługi Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
 
-5. Wybierz polecenie **Utwórz i uruchom działanie**, aby utworzyć projekt i uruchomić działanie migracji.
+5. Wybierz polecenie **Utwórz i uruchom działanie** , aby utworzyć projekt i uruchomić działanie migracji.
 
 ## <a name="specify-source-details"></a>Określanie szczegółów źródła
 
@@ -215,7 +215,7 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
     Upewnij się, że używasz w pełni kwalifikowanej nazwy domeny źródłowego wystąpienia programu SQL Server. Możesz również użyć adresu IP, jeśli rozpoznawanie nazw DNS nie jest możliwe.
 
-2. Jeśli nie zainstalowano zaufanego certyfikatu na serwerze źródłowym, zaznacz pole wyboru **Certyfikat serwera zaufania**.
+2. Jeśli nie zainstalowano zaufanego certyfikatu na serwerze źródłowym, zaznacz pole wyboru **Certyfikat serwera zaufania** .
 
     Jeśli zaufany certyfikat nie został zainstalowany, program SQL Server wygeneruje certyfikat z podpisem własnym po uruchomieniu wystąpienia. Ten certyfikat jest używany do szyfrowania poświadczeń połączeń klienta.
 
@@ -229,51 +229,51 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 
 ## <a name="specify-target-details"></a>Określanie szczegółów elementu docelowego
 
-1. Wybierz pozycję **Zapisz**, a następnie na ekranie **szczegóły celu migracji** określ szczegóły połączenia dla Azure SQL Database docelowej, który jest wstępnie zainicjowany Azure SQL Database, do którego wdrożono schemat **AdventureWorks2012** przy użyciu Data Migration Assistant.
+1. Wybierz pozycję **Zapisz** , a następnie na ekranie **szczegóły celu migracji** określ szczegóły połączenia dla Azure SQL Database docelowej, który jest wstępnie zainicjowany Azure SQL Database, do którego wdrożono schemat **AdventureWorks2012** przy użyciu Data Migration Assistant.
 
     ![Wybieranie obiektu docelowego](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
 
-2. Wybierz polecenie **Zapisz**, a następnie na ekranie **Mapuj do docelowych baz danych**, określ mapowanie źródłowej i docelowej bazy danych na potrzeby migracji.
+2. Wybierz polecenie **Zapisz** , a następnie na ekranie **Mapuj do docelowych baz danych** , określ mapowanie źródłowej i docelowej bazy danych na potrzeby migracji.
 
     Jeśli docelowa baza danych zawiera tę samą nazwę bazy danych co źródłowa baza danych, Azure Database Migration Service domyślnie wybiera docelową bazę danych.
 
     ![Mapowanie do docelowych baz danych](media/tutorial-sql-server-to-azure-sql/dms-map-targets-activity2.png)
 
-3. Wybierz polecenie **Zapisz**, a następnie na ekranie **Wybierz tabele** rozwiń listę tabel i zapoznaj się z listą odpowiednich pól.
+3. Wybierz polecenie **Zapisz** , a następnie na ekranie **Wybierz tabele** rozwiń listę tabel i zapoznaj się z listą odpowiednich pól.
 
     Azure Database Migration Service wybiera wszystkie puste tabele źródłowe, które istnieją w docelowym wystąpieniu Azure SQL Database. Jeśli chcesz ponownie przeprowadzić migrację tabel, które już zawierają dane, musisz jawnie wybrać te tabele w tym bloku.
 
     ![Wybór tabel](media/tutorial-sql-server-to-azure-sql/dms-configure-setting-activity2.png)
 
-4. Wybierz polecenie **Zapisz**, a następnie na ekranie **Podsumowanie migracji** w polu tekstowym **Nazwa działania** określ nazwę działania migracji.
+4. Wybierz polecenie **Zapisz** , a następnie na ekranie **Podsumowanie migracji** w polu tekstowym **Nazwa działania** określ nazwę działania migracji.
 
-5. Rozwiń sekcję **Opcja weryfikacji**, aby wyświetlić ekran **Wybierz opcję weryfikacji**, a następnie określ, czy przeprowadzić weryfikację baz danych po migracji pod kątem **porównania schematów**, **spójności danych** oraz **poprawności zapytań**.
+5. Rozwiń sekcję **Opcja weryfikacji** , aby wyświetlić ekran **Wybierz opcję weryfikacji** , a następnie określ, czy przeprowadzić weryfikację baz danych po migracji pod kątem **porównania schematów** , **spójności danych** oraz **poprawności zapytań** .
 
     ![Wybieranie opcji weryfikacji](media/tutorial-sql-server-to-azure-sql/dms-configuration2.png)
 
-6. Wybierz polecenie **Zapisz**, a następnie zapoznaj się z podsumowaniem, aby upewnić się, że dane źródła i elementu docelowego są zgodne z tymi, które wcześniej określono.
+6. Wybierz polecenie **Zapisz** , a następnie zapoznaj się z podsumowaniem, aby upewnić się, że dane źródła i elementu docelowego są zgodne z tymi, które wcześniej określono.
 
     ![Podsumowanie migracji](media/tutorial-sql-server-to-azure-sql/dms-run-migration2.png)
 
 ## <a name="run-the-migration"></a>Uruchamianie migracji
 
-- Wybierz polecenie **Uruchom migrację**.
+- Wybierz polecenie **Uruchom migrację** .
 
-    Zostanie wyświetlone okno działania migracji, a **Stan** działania będzie określony jako **Oczekujący**.
+    Zostanie wyświetlone okno działania migracji, a **Stan** działania będzie określony jako **Oczekujący** .
 
     ![Stan działania](media/tutorial-sql-server-to-azure-sql/dms-activity-status1.png)
 
 ## <a name="monitor-the-migration"></a>Monitorowanie migracji
 
-1. Na ekranie działania migracji wybieraj polecenie **Odśwież**, aby zaktualizować ekran, aż do momentu, gdy **Stan** migracji zmieni się na **Ukończono**.
+1. Na ekranie działania migracji wybieraj polecenie **Odśwież** , aby zaktualizować ekran, aż do momentu, gdy **Stan** migracji zmieni się na **Ukończono** .
 
     ![Stan działania — ukończono](media/tutorial-sql-server-to-azure-sql/dms-completed-activity1.png)
 
-2. Po zakończeniu migracji wybierz polecenie **Pobierz raport**, aby pobrać raport zawierający szczegółowe informacje o procesie migracji.
+2. Po zakończeniu migracji wybierz polecenie **Pobierz raport** , aby pobrać raport zawierający szczegółowe informacje o procesie migracji.
 
 3. Sprawdź docelowe bazy danych na Azure SQL Database docelowym.
 
-### <a name="additional-resources"></a>Zasoby dodatkowe
+### <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Migracja SQL przy użyciu praktycznej usługi migracji danych platformy Azure](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587) .
 - Aby uzyskać informacje o znanych problemach i ograniczeniach związanych z wykonywaniem migracji w trybie online do usługi Azure SQL Database, zobacz artykuł [Znane problemy i obejścia problemów związanych z migracjami online usługi Azure SQL Database](known-issues-azure-sql-online.md).

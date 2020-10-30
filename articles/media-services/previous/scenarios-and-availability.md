@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 58ecca6251e4c428ae5f834379e8b45059b0efc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014413"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042764"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenariusze i dostępność funkcji usługi Media Services w centrach danych
 
@@ -41,9 +41,9 @@ Do rozpoczęcia korzystania z usługi Azure Media Services potrzebne są:
 
 * Konto platformy Azure. Jeśli nie masz konta, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com).
 * Konto usługi Azure Media Services. Aby uzyskać więcej informacji, zobacz temat [Tworzenie konta](media-services-portal-create-account.md).
-* Punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**.
+* Punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony** .
 
-    Po utworzeniu konta AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania, punkt końcowy przesyłania strumieniowego musi mieć stan **Uruchomiony**.
+    Po utworzeniu konta AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania, punkt końcowy przesyłania strumieniowego musi mieć stan **Uruchomiony** .
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Najczęściej używane obiekty podczas projektowania w modelu AMS OData
 
@@ -121,9 +121,9 @@ W trakcie transmisji strumieniowej na żywo można wybrać jedną z następując
 
 ### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych (przekazujących)
 
-Na poniższym diagramie przedstawiono główne elementy platformy AMS, które są zaangażowane w przepływ pracy **przekazywania**.
+Na poniższym diagramie przedstawiono główne elementy platformy AMS, które są zaangażowane w przepływ pracy **przekazywania** .
 
-![Przepływ pracy na żywo](./media/scenarios-and-availability/media-services-live-streaming-current.png)
+![Diagram przedstawiający główne części platformy M S, które są związane z przepływem pracy "pass-through".](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
 Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -149,11 +149,11 @@ Usługa Media Services obsługuje integrację z usługą Azure CDN. Aby uzyskać
 
 Klienci usługi AMS mogą skalować punkty końcowe przesyłania strumieniowego, przetwarzanie multimediów i przechowywanie na swoich kontach usługi AMS.
 
-* Klienci usługi Media Services mogą wybrać **Standardowy** punkt końcowy przesyłania strumieniowego lub punkt końcowy przesyłania strumieniowego **Premium**. **Standardowy** punkt końcowy przesyłania strumieniowego jest odpowiedni w przypadku większości obciążeń przesyłania strumieniowego. Oferuje on te same funkcje, co punkty końcowe przesyłania strumieniowego **Premium**, oraz automatycznie skaluje przepustowość wychodzącą. 
+* Klienci usługi Media Services mogą wybrać **Standardowy** punkt końcowy przesyłania strumieniowego lub punkt końcowy przesyłania strumieniowego **Premium** . **Standardowy** punkt końcowy przesyłania strumieniowego jest odpowiedni w przypadku większości obciążeń przesyłania strumieniowego. Oferuje on te same funkcje, co punkty końcowe przesyłania strumieniowego **Premium** , oraz automatycznie skaluje przepustowość wychodzącą. 
 
-    Punkty końcowe przesyłania strumieniowego **Premium** są odpowiednie w przypadku zaawansowanych obciążeń, ponieważ zapewniają dedykowaną i skalowalną pojemność przepustowości. Klienci, którzy mają punkt końcowy przesyłania strumieniowego **Premium**, domyślnie uzyskują jedną jednostkę przesyłania strumieniowego (SU, streaming unit). Punkt końcowy przesyłania strumieniowego można skalować poprzez dodawanie jednostek SU. Każdy jednostka SU zwiększa pojemność przepustowości aplikacji. Aby uzyskać więcej informacji na temat skalowania punktów końcowych przesyłania strumieniowego **Premium**, zobacz temat [Skalowanie punktów końcowych przesyłania strumieniowego](media-services-portal-scale-streaming-endpoints.md).
+    Punkty końcowe przesyłania strumieniowego **Premium** są odpowiednie w przypadku zaawansowanych obciążeń, ponieważ zapewniają dedykowaną i skalowalną pojemność przepustowości. Klienci, którzy mają punkt końcowy przesyłania strumieniowego **Premium** , domyślnie uzyskują jedną jednostkę przesyłania strumieniowego (SU, streaming unit). Punkt końcowy przesyłania strumieniowego można skalować poprzez dodawanie jednostek SU. Każdy jednostka SU zwiększa pojemność przepustowości aplikacji. Aby uzyskać więcej informacji na temat skalowania punktów końcowych przesyłania strumieniowego **Premium** , zobacz temat [Skalowanie punktów końcowych przesyłania strumieniowego](media-services-portal-scale-streaming-endpoints.md).
 
-* Konto usługi Media Services jest skojarzone z typem jednostki zarezerwowanej określającym szybkość, z jaką są przetwarzane zadania przetwarzania multimediów. Można wybrać następujące typy jednostek zarezerwowanych: **S1**, **S2**lub **S3**. Na przykład to samo zadanie kodowania jest wykonywane szybciej przy użyciu typu jednostki zarezerwowanej **S2** niż w przypadku użycia typu **S1**.
+* Konto usługi Media Services jest skojarzone z typem jednostki zarezerwowanej określającym szybkość, z jaką są przetwarzane zadania przetwarzania multimediów. Można wybrać następujące typy jednostek zarezerwowanych: **S1** , **S2** lub **S3** . Na przykład to samo zadanie kodowania jest wykonywane szybciej przy użyciu typu jednostki zarezerwowanej **S2** niż w przypadku użycia typu **S1** .
 
     Oprócz określania typu jednostki zarezerwowanej możesz określić, aby udostępnić konto za pomocą **jednostek zarezerwowanych** (jednostek ru). Liczba zainicjowanych jednostek zarezerwowanych określa liczbę zadań multimedialnych, które mogą być przetwarzane jednocześnie w ramach danego konta.
 
@@ -175,14 +175,14 @@ Użyj [produktów platformy Azure według regionów,](https://azure.microsoft.co
 
 ### <a name="streaming-endpoints"></a>Punkty końcowe przesyłania strumieniowego 
 
-Klienci usługi Media Services mogą wybrać **Standardowy** punkt końcowy przesyłania strumieniowego lub punkt końcowy przesyłania strumieniowego **Premium**. Aby uzyskać więcej informacji, zobacz sekcję opisującą [skalowanie](#scaling).
+Klienci usługi Media Services mogą wybrać **Standardowy** punkt końcowy przesyłania strumieniowego lub punkt końcowy przesyłania strumieniowego **Premium** . Aby uzyskać więcej informacji, zobacz sekcję opisującą [skalowanie](#scaling).
 
 #### <a name="availability"></a>Dostępność
 
 |Nazwa|Stan|Centra danych
 |---|---|---|
-|Standardowa|Ogólna dostępność|Wszystkie|
-|Premium|Ogólna dostępność|Wszystkie|
+|Standardowa|Ogólna dostępność|Wszyscy|
+|Premium|Ogólna dostępność|Wszyscy|
 
 ### <a name="live-encoding"></a>Kodowanie na żywo
 
@@ -192,13 +192,13 @@ Dostępne we wszystkich centrach danych z wyjątkiem następujących regionów: 
 
 ### <a name="encoding-media-processors"></a>Kodowanie procesorów multimediów
 
-Usługa AMS oferuje dwa kodery na żądanie: **Media Encoder Standard** i **Media Encoder Premium Workflow**. Aby uzyskać więcej informacji, zobacz temat [Przegląd i porównanie koderów multimediów na żądanie na platformie Azure ](media-services-encode-asset.md). 
+Usługa AMS oferuje dwa kodery na żądanie: **Media Encoder Standard** i **Media Encoder Premium Workflow** . Aby uzyskać więcej informacji, zobacz temat [Przegląd i porównanie koderów multimediów na żądanie na platformie Azure ](media-services-encode-asset.md). 
 
 #### <a name="availability"></a>Dostępność
 
 |Nazwa procesora multimediów|Stan|Centra danych
 |---|---|---|
-|Usługa Media Encoder Standard|Ogólna dostępność|Wszystkie|
+|Usługa Media Encoder Standard|Ogólna dostępność|Wszyscy|
 |Przepływ pracy usługi Media Encoder w warstwie Premium|Ogólna dostępność|Wszystkie z wyjątkiem Chin|
 
 ### <a name="analytics-media-processors"></a>Procesory multimediów usługi analizy
@@ -212,12 +212,12 @@ Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają 
 
 |Nazwa procesora multimediów|Stan|Centra danych
 |---|---|---|
-|Azure Media Face Detector|Wersja zapoznawcza|Wszystkie|
-|Azure Media Indexer|Ogólna dostępność|Wszystkie|
-|Azure Media Motion Detector|Wersja zapoznawcza|Wszystkie|
-|Azure Media OCR|Wersja zapoznawcza|Wszystkie|
-|Azure Media Redactor|Ogólna dostępność|Wszystkie|
-|Azure Media Video Thumbnails|Wersja zapoznawcza|Wszystkie|
+|Azure Media Face Detector|Wersja zapoznawcza|Wszyscy|
+|Azure Media Indexer|Ogólna dostępność|Wszyscy|
+|Azure Media Motion Detector|Wersja zapoznawcza|Wszyscy|
+|Azure Media OCR|Wersja zapoznawcza|Wszyscy|
+|Azure Media Redactor|Ogólna dostępność|Wszyscy|
+|Azure Media Video Thumbnails|Wersja zapoznawcza|Wszyscy|
 
 ### <a name="protection"></a>Protection
 
@@ -227,10 +227,10 @@ Usługi Microsoft Azure Media Services umożliwiają zabezpieczenie multimediów
 
 |Szyfrowanie|Stan|Centra danych|
 |---|---|---| 
-|Storage|Ogólna dostępność|Wszystkie|
-|Klucze AES-128|Ogólna dostępność|Wszystkie|
-|FairPlay|Ogólna dostępność|Wszystkie|
-|PlayReady|Ogólna dostępność|Wszystkie|
+|Magazyn|Ogólna dostępność|Wszyscy|
+|Klucze AES-128|Ogólna dostępność|Wszyscy|
+|FairPlay|Ogólna dostępność|Wszyscy|
+|PlayReady|Ogólna dostępność|Wszyscy|
 |Widevine|Ogólna dostępność|Wszystkie regiony z wyjątkiem Niemiec, Rządu Federalnego i Chin.
 
 ### <a name="reserved-units-rus"></a>Jednostki zarezerwowane (RU)
@@ -253,7 +253,7 @@ Aby uzyskać więcej informacji, zobacz sekcję opisującą [skalowanie](#scalin
 
 |Nazwa typu jednostki zarezerwowanej|Stan|Centra danych
 |---|---|---|
-|S1|Ogólna dostępność|Wszystkie|
+|S1|Ogólna dostępność|Wszyscy|
 |S2|Ogólna dostępność|Wszystkie regiony z wyjątkiem Brazylii Południowej i Indii Zachodnich|
 |S3|Ogólna dostępność|Wszystkie regiony z wyjątkiem Indii Zachodnich|
 

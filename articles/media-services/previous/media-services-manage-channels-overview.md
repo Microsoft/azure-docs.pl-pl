@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: eb508831d7a10537f27bb5b4e55f3a0627ce1f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2e899a9d98d43f826bfa63e62458adf1601f071
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265971"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042987"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Omówienie przesyłania strumieniowego na żywo przy użyciu Media Services
 
@@ -53,11 +53,11 @@ Za pomocą Media Services można korzystać z funkcji [dynamicznego tworzenia pa
 
 ## <a name="streaming-endpoints-channels-programs"></a>Punkty końcowe przesyłania strumieniowego, kanały, programy
 
-W usłudze Azure Media Services **kanały**, **programy**, i **punkty końcowe przesyłania strumieniowego** obsługują wszystkie funkcje transmisji strumieniowej na żywo, w tym pozyskiwanie, formatowanie, cyfrowy rejestrator wideo (DVR), zabezpieczenia, skalowalność i nadmiarowość.
+W usłudze Azure Media Services **kanały** , **programy** , i **punkty końcowe przesyłania strumieniowego** obsługują wszystkie funkcje transmisji strumieniowej na żywo, w tym pozyskiwanie, formatowanie, cyfrowy rejestrator wideo (DVR), zabezpieczenia, skalowalność i nadmiarowość.
 
 **Kanał** reprezentuje potok przetwarzania zawartości transmisji strumieniowej na żywo. Kanał może odbierać przychodzące strumienie na żywo w następujący sposób:
 
-* Lokalny koder na żywo wysyła plik **RTMP** o różnych szybkościach transmisji bitów lub plik **Smooth Streaming** (pofragmentowany plik MP4) do kanału, który jest skonfigurowany do obsługi dostarczania zawartości w formie **przekazywania**. Dostarczanie w formie **przekazywania** występuje wtedy, gdy pozyskiwane strumienie są przekazywane przez **kanał** bez dalszego przetwarzania. Można użyć następujących koderów na żywo, które wychodzące z wieloszybkościowej transmisji bitów Smooth Streaming: MediaExcel, ATEME, Wyobraź Communications, Envivio, Cisco i element. Następujące kodery na żywo wyprowadzają RTMP: Telestream Wirecast, Haivision, Teradek transkodery.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
+* Lokalny koder na żywo wysyła plik **RTMP** o różnych szybkościach transmisji bitów lub plik **Smooth Streaming** (pofragmentowany plik MP4) do kanału, który jest skonfigurowany do obsługi dostarczania zawartości w formie **przekazywania** . Dostarczanie w formie **przekazywania** występuje wtedy, gdy pozyskiwane strumienie są przekazywane przez **kanał** bez dalszego przetwarzania. Można użyć następujących koderów na żywo, które wychodzące z wieloszybkościowej transmisji bitów Smooth Streaming: MediaExcel, ATEME, Wyobraź Communications, Envivio, Cisco i element. Następujące kodery na żywo wyprowadzają RTMP: Telestream Wirecast, Haivision, Teradek transkodery.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
 
   > [!NOTE]
   > Metoda przekazywania to najbardziej ekonomiczne rozwiązanie transmisji strumieniowej na żywo w przypadku organizowania wielu wydarzeń w długim okresie oraz poczynionych inwestycji w kodery lokalne. Zobacz szczegółowe informacje o [cenach](https://azure.microsoft.com/pricing/details/media-services/).
@@ -74,7 +74,7 @@ Począwszy od wersji 2,10 Media Services, podczas tworzenia kanału można okre�
 
 Poniższa tabela zawiera Przewodnik porównujący dwa typy kanałów obsługiwane w Media Services
 
-| Cecha | Kanał Pass-through | Kanał standardowy |
+| Cechy | Kanał Pass-through | Kanał standardowy |
 | --- | --- | --- |
 | Dane wejściowe o pojedynczej szybkości transmisji bitów są zakodowane w wielu szybkościach transmisji bitów w chmurze |Nie |Tak |
 | Rozdzielczość maksymalna, liczba warstw |1080p, 8 warstw, 60 klatek na sekundę |720, 6 warstw, 30 fps |
@@ -90,9 +90,9 @@ Poniższa tabela zawiera Przewodnik porównujący dwa typy kanałów obsługiwan
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych (przekazujących)
 
-Na poniższym diagramie przedstawiono główne elementy platformy AMS, które są zaangażowane w przepływ pracy **przekazywania**.
+Na poniższym diagramie przedstawiono główne elementy platformy AMS, które są zaangażowane w przepływ pracy **przekazywania** .
 
-![Przepływ pracy na żywo](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+![Diagram przedstawiający główne części platformy M S dla przepływu pracy "pass-through".](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -142,11 +142,11 @@ Użytkownik jest odpowiedzialny za zatrzymywanie kanałów po zakończeniu pracy
 ### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Stany kanału i sposób ich mapowania do trybu rozliczania
 Bieżący stan kanału. Możliwe wartości to:
 
-* **Zatrzymano**. Jest to początkowy stan kanału po jego utworzeniu (o ile Autostart nie został wybrany w portalu). W tym stanie nie ma rozliczeń. W tym stanie właściwości kanału mogą być aktualizowane, ale przesyłanie strumieniowe jest niedozwolone.
-* **Rozpoczęcie**. Kanał jest uruchamiany. W tym stanie nie ma rozliczeń. W tym stanie nie są dozwolone żadne aktualizacje ani przesyłanie strumieniowe. Jeśli wystąpi błąd, kanał powróci do stanu zatrzymany.
-* **Uruchomione**. Kanał może przetwarzać strumienie na żywo. Jest teraz użycie rozliczeń. Należy zatrzymać kanał, aby zapobiec dalszemu rozliczeniu.
-* **Zatrzymywanie**. Kanał jest zatrzymywany. W tym stanie przejściowym nie ma rozliczeń. W tym stanie nie są dozwolone żadne aktualizacje ani przesyłanie strumieniowe.
-* **Usuwanie**. Kanał jest usuwany. W tym stanie przejściowym nie ma rozliczeń. W tym stanie nie są dozwolone żadne aktualizacje ani przesyłanie strumieniowe.
+* **Zatrzymano** . Jest to początkowy stan kanału po jego utworzeniu (o ile Autostart nie został wybrany w portalu). W tym stanie nie ma rozliczeń. W tym stanie właściwości kanału mogą być aktualizowane, ale przesyłanie strumieniowe jest niedozwolone.
+* **Rozpoczęcie** . Kanał jest uruchamiany. W tym stanie nie ma rozliczeń. W tym stanie nie są dozwolone żadne aktualizacje ani przesyłanie strumieniowe. Jeśli wystąpi błąd, kanał powróci do stanu zatrzymany.
+* **Uruchomione** . Kanał może przetwarzać strumienie na żywo. Jest teraz użycie rozliczeń. Należy zatrzymać kanał, aby zapobiec dalszemu rozliczeniu.
+* **Zatrzymywanie** . Kanał jest zatrzymywany. W tym stanie przejściowym nie ma rozliczeń. W tym stanie nie są dozwolone żadne aktualizacje ani przesyłanie strumieniowe.
+* **Usuwanie** . Kanał jest usuwany. W tym stanie przejściowym nie ma rozliczeń. W tym stanie nie są dozwolone żadne aktualizacje ani przesyłanie strumieniowe.
 
 W poniższej tabeli przedstawiono sposób, w jaki Stany kanałów mapują się do trybu rozliczania.
 

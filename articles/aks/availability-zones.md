@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745812"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043018"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Tworzenie klastra usługi Azure Kubernetes Service (AKS) korzystającego ze stref dostępności
 
@@ -52,7 +52,7 @@ Podczas tworzenia klastra AKS przy użyciu stref dostępności są stosowane nas
 
 Woluminy korzystające z usługi Azure Managed disks nie są obecnie strefowo nadmiarowe. Nie można dołączać woluminów między strefami i muszą one znajdować się w tej samej strefie co węzeł obsługujący element docelowy pod.
 
-Jeśli konieczne jest uruchamianie obciążeń stanowych, należy użyć przydziałów i tolerowania puli węzłów w ramach specyfikacji ze specyfikacją grupowanie w tej samej strefie co dyski. Alternatywnie możesz korzystać z magazynu opartego na sieci, takiego jak Azure Files, które można dołączyć do zasobników, gdy są one planowane między strefami.
+Kubernetes ma świadomość stref dostępności platformy Azure od wersji 1,12. Można wdrożyć obiekt PersistentVolumeClaim odwołujący się do dysku zarządzanego platformy Azure w klastrze AKS z obsługą wielostrefową, a [Kubernetes zaplanował zaplanowanie](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) każdego oświadczenia tego obwodu PVC w prawidłowej strefie dostępności.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Przegląd stref dostępności dla klastrów AKS
 
@@ -120,7 +120,20 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 Podczas dodawania kolejnych węzłów do puli agentów platforma Azure automatycznie dystrybuuje bazowe maszyny wirtualne w określonych strefach dostępności.
 
-Należy pamiętać, że w nowszych wersjach programu Kubernetes (1.17.0 i nowsze), AKS używa nowszej etykiety `topology.kubernetes.io/zone` oprócz przestarzałej `failure-domain.beta.kubernetes.io/zone` .
+Należy pamiętać, że w nowszych wersjach programu Kubernetes (1.17.0 i nowsze), AKS używa nowszej etykiety `topology.kubernetes.io/zone` oprócz przestarzałej `failure-domain.beta.kubernetes.io/zone` . Aby uzyskać ten sam wynik, jak powyżej, można uruchomić następujący skrypt:
+
+```console
+kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
+```
+
+Zapewnia to bardziej zwięzłe dane wyjściowe:
+
+```console
+NAME                                REGION   ZONE
+aks-nodepool1-34917322-vmss000000   eastus   eastus-1
+aks-nodepool1-34917322-vmss000001   eastus   eastus-2
+aks-nodepool1-34917322-vmss000002   eastus   eastus-3
+```
 
 ## <a name="verify-pod-distribution-across-zones"></a>Weryfikacja pod kątem dystrybucji między strefami
 

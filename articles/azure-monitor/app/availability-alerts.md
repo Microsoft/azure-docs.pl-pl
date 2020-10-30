@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 300c4bcdb948665b2cdf4ce0eb429499208660b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970744"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043375"
 ---
 # <a name="availability-alerts"></a>Alerty dostępności
 
@@ -28,11 +28,11 @@ Alerty są teraz automatycznie włączane domyślnie, ale w celu pełnego skonfi
 
 1. Po zapisaniu testu dostępności na karcie Szczegóły kliknij wielokropek przez właśnie wykonany test. Kliknij pozycję "Edytuj Alert".
 
-   ![Edytuj po zapisaniu](./media/availability-alerts/edit-alert.png)
+   ![Zrzut ekranu pokazuje, że wybrano polecenie Edytuj alert z menu.](./media/availability-alerts/edit-alert.png)
 
 2. Ustaw żądany poziom ważności, opis reguły i najważniejsze — grupy akcji z preferencjami powiadomień, których chcesz użyć dla tej reguły alertu.
 
-   ![Edytuj po zapisaniu](./media/availability-alerts/set-action-group.png)
+   ![Zrzut ekranu przedstawia stronę Zarządzanie regułami, na której można edytować regułę.](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
 > Alerty dostępności utworzone za pośrednictwem tego środowiska są oparte na stanie. Oznacza to, że w przypadku spełnienia kryteriów alertów zostanie wygenerowany pojedynczy alert, gdy lokacja zostanie wykryta jako niedostępna. Jeśli witryna nadal jest w dalszym ciągu następnym razem, gdy zostaną ocenione kryteria alertu, nie spowoduje to wygenerowania nowego alertu. Jeśli więc witryna była wyłączona przez godzinę i skonfigurowano alert dotyczący wiadomości e-mail, otrzymasz wiadomość e-mail tylko wtedy, gdy lokacja zostanie wyłączona, a następnie wiadomość e-mail w przypadku utworzenia kopii zapasowej lokacji. Nie otrzymasz alertów ciągłych z przypomnieniem o tym, że witryna była nadal niedostępna.

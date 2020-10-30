@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 166234711ce00f0ed1f45c35ef661aa5b35f8a3c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 8cace120dc823f42f2b2e01e4234ea8d5ace7a69
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926329"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042938"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Monitorowanie danych IoT Hub platformy Azure
 
@@ -60,9 +60,9 @@ W przypadku większości metryk wszystkie typy agregacji są prawidłowe; Jednak
 |Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Komunikaty C2D wygasły (wersja zapoznawcza)|C2DMessagesExpired|Liczba|Łącznie|Liczba wygasłych komunikatów z chmury do urządzenia|Brak|
-|Zakończono dostarczanie komunikatów C2D|C2D. Commands. ruch wychodzący.<br>Ukończono. powodzenie|Liczba|Łącznie|Liczba dostaw komunikatów z chmury do urządzenia ukończonych pomyślnie przez urządzenie|Brak|
-|Porzucone komunikaty C2D|C2D. Commands. ruch wychodzący.<br>Porzuć. sukces|Liczba|Łącznie|Liczba komunikatów z chmury do urządzenia porzuconych przez urządzenie|Brak|
-|Odrzucone komunikaty C2D|C2D. Commands. ruch wychodzący.<br>Odrzuć. powodzenie|Liczba|Łącznie|Liczba komunikatów z chmury do urządzenia odrzuconych przez urządzenie|Brak|
+|Zakończono dostarczanie komunikatów C2D|C2D. Commands. wyjście. Complete. Success|Liczba|Łącznie|Liczba dostaw komunikatów z chmury do urządzenia ukończonych pomyślnie przez urządzenie|Brak|
+|Porzucone komunikaty C2D|C2D. Commands. wyjście. Abandon. Success|Liczba|Łącznie|Liczba komunikatów z chmury do urządzenia porzuconych przez urządzenie|Brak|
+|Odrzucone komunikaty C2D|C2D. Commands. wyjście. Odrzuć. sukces|Liczba|Łącznie|Liczba komunikatów z chmury do urządzenia odrzuconych przez urządzenie|Brak|
 
 W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest prawidłowa. Agregacje minimalna, maksymalna i średnia zawsze zwracają wartość 1. Aby uzyskać więcej informacji, zobacz [obsługiwane agregacje](#supported-aggregations).
 
@@ -113,7 +113,7 @@ W przypadku *całkowitej liczby użytych komunikatów* obsługiwane są tylko ag
 |Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Łączna liczba urządzeń (przestarzałe)|Devices. totalDevices|Liczba|Łącznie|Liczba urządzeń zarejestrowanych w usłudze IoT Hub|Brak|
-|Podłączone urządzenia (przestarzałe) |Devices. connectedDevices.<br>allProtocol|Liczba|Łącznie|Liczba urządzeń podłączonych do centrum IoT Hub|Brak|
+|Podłączone urządzenia (przestarzałe) |Devices. connectedDevices. allProtocol|Liczba|Łącznie|Liczba urządzeń podłączonych do centrum IoT Hub|Brak|
 |Łączna liczba urządzeń (wersja zapoznawcza)|totalDeviceCount|Liczba|Średnia|Liczba urządzeń zarejestrowanych w usłudze IoT Hub|Brak|
 |Podłączone urządzenia (wersja zapoznawcza)|connectedDeviceCount|Liczba|Średnia|Liczba urządzeń podłączonych do centrum IoT Hub|Brak|
 
@@ -127,9 +127,9 @@ W przypadku *łącznej liczby urządzeń (wersja zapoznawcza)* i *podłączonych
 
 |Nazwa wyświetlana metryki|Metryka|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Liczba błędów ograniczania|D2C. telemetrię. dane wejściowe.<br>sendThrottle|Liczba|Łącznie|Liczba błędów ograniczania z powodu ograniczeń przepływności urządzenia|Brak|
-|Próby wysłania komunikatów telemetrycznych|D2C. telemetrię. dane wejściowe.<br>allProtocol|Liczba|Łącznie|Liczba komunikatów telemetrycznych z urządzenia do chmury, które próbowano wysłać do centrum IoT Hub|Brak|
-|Wysłane komunikaty telemetryczne|D2C. telemetrię. dane wejściowe.<br>powodzenie|Liczba|Łącznie|Liczba pomyślnie wysłanych komunikatów telemetrycznych z urządzenia do chmury do centrum IoT Hub|Brak|
+|Liczba błędów ograniczania|D2C. telemetrię. sendThrottle|Liczba|Łącznie|Liczba błędów ograniczania z powodu ograniczeń przepływności urządzenia|Brak|
+|Próby wysłania komunikatów telemetrycznych|D2C. telemetrię. allProtocol|Liczba|Łącznie|Liczba komunikatów telemetrycznych z urządzenia do chmury, które próbowano wysłać do centrum IoT Hub|Brak|
+|Wysłane komunikaty telemetryczne|D2C. telemetrię. dane wejściowe. sukces|Liczba|Łącznie|Liczba pomyślnie wysłanych komunikatów telemetrycznych z urządzenia do chmury do centrum IoT Hub|Brak|
 
 W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest prawidłowa. Agregacje minimalna, maksymalna i średnia zawsze zwracają wartość 1. Aby uzyskać więcej informacji, zobacz [obsługiwane agregacje](#supported-aggregations).
 
@@ -161,13 +161,13 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 |---|---|---|---|---|---|
 |Ukończone zadania|zadania. ukończone|Liczba|Łącznie|Liczba wszystkich ukończonych zadań.|Brak|
 |Wywołania zakończone niepowodzeniem do listy zadań|Jobs. listJobs. Failure|Liczba|Łącznie|Liczba wszystkich wywołań zakończonych niepowodzeniem w celu wyświetlenia listy zadań.|Brak|
-|Nie można utworzyć zadań wywołania metody|Jobs. createDirectMethodJob.<br>spraw|Liczba|Łącznie|Liczba wszystkich nieudanych operacji tworzenia zadań wywołania metody bezpośredniej.|Brak|
-|Nie można utworzyć dwuosiowych zadań aktualizacji|Jobs. createTwinUpdateJob.<br>spraw|Liczba|Łącznie|Liczba wszystkich nieudanych operacji tworzenia zadań aktualizacji z przędzą.|Brak|
+|Nie można utworzyć zadań wywołania metody|Jobs. createDirectMethodJob. Failure|Liczba|Łącznie|Liczba wszystkich nieudanych operacji tworzenia zadań wywołania metody bezpośredniej.|Brak|
+|Nie można utworzyć dwuosiowych zadań aktualizacji|Jobs. createTwinUpdateJob. Failure|Liczba|Łącznie|Liczba wszystkich nieudanych operacji tworzenia zadań aktualizacji z przędzą.|Brak|
 |Nieudane anulowania zadań|Jobs. cancelJob. Failure|Liczba|Łącznie|Liczba wszystkich wywołań zakończonych niepowodzeniem w celu anulowania zadania.|Brak|
 |Nieudane kwerendy zadań|Jobs. queryJobs. Failure|Liczba|Łącznie|Liczba wszystkich wywołań zakończonych niepowodzeniem w celu wykonywania zapytań dotyczących zadań.|Brak|
 |Zadania zakończone niepowodzeniem|zadania. Niepowodzenie|Liczba|Łącznie|Liczba wszystkich zadań zakończonych niepowodzeniem.|Brak|
 |Pomyślne wywołania do zadań na liście|Jobs. listJobs. Success|Liczba|Łącznie|Liczba wszystkich udanych wywołań do listy zadań.|Brak|
-|Pomyślne utworzenie zadań wywołania metody|Jobs. createDirectMethodJob.<br>powodzenie|Liczba|Łącznie|Liczba wszystkich pomyślnych operacji tworzenia zadań wywołania metody bezpośredniej.|Brak|
+|Pomyślne utworzenie zadań wywołania metody|Jobs. createDirectMethodJob. Success|Liczba|Łącznie|Liczba wszystkich pomyślnych operacji tworzenia zadań wywołania metody bezpośredniej.|Brak|
 |Pomyślne utworzenie dwuosiowych zadań aktualizacji|Jobs. createTwinUpdateJob.<br>powodzenie|Liczba|Łącznie|Liczba wszystkich udanych tworzenia zadań aktualizacji z przędzą.|Brak|
 |Pomyślne anulowania zadań|Jobs. cancelJob. Success|Liczba|Łącznie|Liczba wszystkich udanych wywołań do anulowania zadania.|Brak|
 |Pomyślne zapytania dotyczące zadań|Jobs. queryJobs. Success|Liczba|Łącznie|Liczba wszystkich udanych wywołań do zadań zapytań.|Brak|
@@ -181,23 +181,23 @@ W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest p
 | Próby dostarczania routingu (wersja zapoznawcza) |RoutingDeliveries | Liczba | Łącznie |Jest to metryka dostarczania routingu. Wymiary służą do identyfikowania stanu dostawy dla określonego punktu końcowego lub dla określonego źródła routingu.| Wynik:<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>Nazwapunktukoncowego<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)* . |
 | Rozmiar danych dostarczania routingu (w bajtach) (wersja zapoznawcza)|RoutingDataSizeInBytesDelivered| Bajty | Łącznie |Całkowita liczba bajtów kierowanych przez IoT Hub do niestandardowego punktu końcowego i wbudowanego punktu końcowego. Wymiary umożliwiają identyfikowanie rozmiaru danych kierowanych do określonego punktu końcowego lub dla określonego źródła routingu.| RoutingSource,<br>Punkt końcowy<br>Nazwapunktukoncowego<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)* .|
 | Opóźnienie routingu (wersja zapoznawcza) |RoutingDeliveryLatency| ) | Średnia |Jest to metryka opóźnienia dostarczania routingu. Wymiary umożliwiają zidentyfikowanie opóźnienia dla określonego punktu końcowego lub dla określonego źródła routingu.| RoutingSource,<br>EndpointType,<br>Nazwapunktukoncowego<br>*Aby uzyskać więcej informacji, zobacz [Dimension Metrics](#metric-dimensions)* .|
-|Routing: obiekty blob dostarczane do magazynu|D2C. endpoints. ruch wychodzący.<br>Storage. Blobs|Liczba|Łącznie|Ile razy usługa Routing IoT Hub dostarczać obiekty blob do punktów końcowych magazynu.|Brak|
-|Routing: dane dostarczane do magazynu|D2C. endpoints. ruch wychodzący.<br>Storage. Bytes|Bajty|Łącznie|Ilość danych (w bajtach) IoT Hub Routing dostarczany do punktów końcowych magazynu.|Brak|
-|Routing: opóźnienie komunikatu dla centrum zdarzeń|D2C. endpoints. opóźnienie.<br>eventHubs|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących do niestandardowych punktów końcowych typu centrum zdarzeń. Nie obejmuje to tras komunikatów do wbudowanego punktu końcowego (zdarzenia).|Brak|
-|Routing: opóźnienie komunikatu dla kolejki Service Bus|D2C. endpoints. opóźnienie.<br>serviceBusQueues|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących do punktu końcowego kolejki Service Bus.|Brak|
-|Routing: opóźnienie komunikatu dla Service Bus tematu|D2C. endpoints. opóźnienie.<br>serviceBusTopics|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących do punktu końcowego tematu Service Bus.|Brak|
-|Routing: opóźnienie komunikatów dla komunikatów/zdarzeń|D2C. endpoints. opóźnienie.<br>Wbudowane. Events|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących do wbudowanego punktu końcowego (komunikaty/zdarzenia) i trasy rezerwowej.|Brak|
-|Routing: opóźnienie komunikatu dla magazynu|D2C. endpoints. opóźnienie.<br>magazyn|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących w punkcie końcowym magazynu.|Brak|
-|Routing: komunikaty dostarczane do centrum zdarzeń|D2C. endpoints. ruch wychodzący.<br>eventHubs|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów do niestandardowych punktów końcowych typu centrum zdarzeń w usłudze IoT Hub Routing. Nie obejmuje to tras komunikatów do wbudowanego punktu końcowego (zdarzenia).|Brak|
-|Routing: komunikaty dostarczone do kolejki Service Bus|D2C. endpoints. ruch wychodzący.<br>serviceBusQueues|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów do Service Bus punktów końcowych kolejki w usłudze IoT Hub Routing.|Brak|
-|Routing: komunikaty dostarczane do Service Bus tematu|D2C. endpoints. ruch wychodzący.<br>serviceBusTopics|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów przez IoT Hub Routing do Service Bus punktów końcowych tematu.|Brak|
-|Routing: komunikaty dostarczane do powrotu|D2C. telemetrię. ruch wychodzący.<br>istnie|Liczba|Łącznie|Liczba IoT Hub komunikatów dostarczonych przez funkcję routingu do punktu końcowego skojarzonego z trasą rezerwową.|Brak|
-|Routing: komunikaty dostarczane do komunikatów/zdarzeń|D2C. endpoints. ruch wychodzący.<br>Wbudowane. Events|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów do wbudowanego punktu końcowego (komunikaty/zdarzenia) i trasy rezerwowej IoT Hub.|Brak|
-|Routing: komunikaty dostarczane do magazynu|D2C. endpoints. ruch wychodzący.<br>magazyn|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów do punktów końcowych usługi Routing IoT Hub.|Brak|
-|Routing: dostarczono komunikaty telemetryczne|D2C. telemetrię. ruch wychodzący.<br>powodzenie|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów do wszystkich punktów końcowych używających routingu IoT Hub. Jeśli komunikat jest kierowany do wielu punktów końcowych, ta wartość zwiększa się o jeden dla każdego pomyślnego dostarczenia. Jeśli wiadomość jest przekazywana do tego samego punktu końcowego wiele razy, ta wartość zwiększa się o jeden dla każdego pomyślnego dostarczenia.|Brak|
-|Routing: porzucone komunikaty telemetryczne |D2C. telemetrię. ruch wychodzący.<br>porzucony|Liczba|Łącznie|Liczba porzuconych komunikatów przez IoT Hub Routing ze względu na martwe punkty końcowe. Ta wartość nie zlicza komunikatów dostarczonych do trasy rezerwowej, ponieważ opuszczone wiadomości nie są tam dostarczane.|Brak|
-|Routing: komunikaty telemetryczne są niezgodne|D2C. telemetrię. ruch wychodzący.<br>nieprawidłowe|Liczba|Łącznie|Liczba przypadków, gdy Routing IoT Hub nie mógł dostarczyć komunikatów z powodu niezgodności z punktem końcowym. Komunikat jest niezgodny z punktem końcowym, gdy program IoT Hub próbuje dostarczyć komunikat do punktu końcowego i kończy się niepowodzeniem z powodu błędu nieprzejściowego. Nieprawidłowe wiadomości nie są ponawiane. Ta wartość nie obejmuje ponownych prób.|Brak|
-|Routing: oddzielone komunikaty telemetryczne |D2C. telemetrię. ruch wychodzący.<br>oddzielone|Liczba|Łącznie|Liczba oddzielonych komunikatów przez IoT Hub Routing, ponieważ nie są one zgodne z żadną kwerendą routingu, gdy wartość trasy rezerwowej jest wyłączona.|Brak|
+|Routing: obiekty blob dostarczane do magazynu|D2C. endpoints. dane wyjściowe. Storage. blob|Liczba|Łącznie|Ile razy usługa Routing IoT Hub dostarczać obiekty blob do punktów końcowych magazynu.|Brak|
+|Routing: dane dostarczane do magazynu|D2C. endpoints. ruch wychodzący. Storage. Bytes|Bajty|Łącznie|Ilość danych (w bajtach) IoT Hub Routing dostarczany do punktów końcowych magazynu.|Brak|
+|Routing: opóźnienie komunikatu dla centrum zdarzeń|D2C. endpoints. opóźnienie. eventHubs|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących do niestandardowych punktów końcowych typu centrum zdarzeń. Nie obejmuje to tras komunikatów do wbudowanego punktu końcowego (zdarzenia).|Brak|
+|Routing: opóźnienie komunikatu dla kolejki Service Bus|D2C. endpoints. opóźnienie. serviceBusQueues|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących do punktu końcowego kolejki Service Bus.|Brak|
+|Routing: opóźnienie komunikatu dla Service Bus tematu|D2C. endpoints. opóźnienie. serviceBusTopics|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących do punktu końcowego tematu Service Bus.|Brak|
+|Routing: opóźnienie komunikatów dla komunikatów/zdarzeń|D2C. endpoints. opóźnienie. wbudowane. Events|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących do wbudowanego punktu końcowego (komunikaty/zdarzenia) i trasy rezerwowej.|Brak|
+|Routing: opóźnienie komunikatu dla magazynu|D2C. endpoints. opóźnienie. Storage|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów przychodzących w punkcie końcowym magazynu.|Brak|
+|Routing: komunikaty dostarczane do centrum zdarzeń|D2C. endpoints. wychodzące. eventHubs|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów do niestandardowych punktów końcowych typu centrum zdarzeń w usłudze IoT Hub Routing. Nie obejmuje to tras komunikatów do wbudowanego punktu końcowego (zdarzenia).|Brak|
+|Routing: komunikaty dostarczone do kolejki Service Bus|D2C. endpoints. wychodzące. serviceBusQueues|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów do Service Bus punktów końcowych kolejki w usłudze IoT Hub Routing.|Brak|
+|Routing: komunikaty dostarczane do Service Bus tematu|D2C. endpoints. wychodzące. serviceBusTopics|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów przez IoT Hub Routing do Service Bus punktów końcowych tematu.|Brak|
+|Routing: komunikaty dostarczane do powrotu|D2C. telemetrię. ruch wychodzący. Fallback|Liczba|Łącznie|Liczba IoT Hub komunikatów dostarczonych przez funkcję routingu do punktu końcowego skojarzonego z trasą rezerwową.|Brak|
+|Routing: komunikaty dostarczane do komunikatów/zdarzeń|D2C. endpoints. wychodzące. wbudowane. Events|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów do wbudowanego punktu końcowego (komunikaty/zdarzenia) i trasy rezerwowej IoT Hub.|Brak|
+|Routing: komunikaty dostarczane do magazynu|D2C. endpoints. ruch wychodzący. Storage|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów do punktów końcowych usługi Routing IoT Hub.|Brak|
+|Routing: dostarczono komunikaty telemetryczne|D2C. telemetrię. ruch wychodzący. sukces|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów do wszystkich punktów końcowych używających routingu IoT Hub. Jeśli komunikat jest kierowany do wielu punktów końcowych, ta wartość zwiększa się o jeden dla każdego pomyślnego dostarczenia. Jeśli wiadomość jest przekazywana do tego samego punktu końcowego wiele razy, ta wartość zwiększa się o jeden dla każdego pomyślnego dostarczenia.|Brak|
+|Routing: porzucone komunikaty telemetryczne |D2C. dane telemetryczne. wychodzące. upuszczone|Liczba|Łącznie|Liczba porzuconych komunikatów przez IoT Hub Routing ze względu na martwe punkty końcowe. Ta wartość nie zlicza komunikatów dostarczonych do trasy rezerwowej, ponieważ opuszczone wiadomości nie są tam dostarczane.|Brak|
+|Routing: komunikaty telemetryczne są niezgodne|D2C. Telemetria. ruch wychodzący. nieprawidłowe|Liczba|Łącznie|Liczba przypadków, gdy Routing IoT Hub nie mógł dostarczyć komunikatów z powodu niezgodności z punktem końcowym. Komunikat jest niezgodny z punktem końcowym, gdy program IoT Hub próbuje dostarczyć komunikat do punktu końcowego i kończy się niepowodzeniem z powodu błędu nieprzejściowego. Nieprawidłowe wiadomości nie są ponawiane. Ta wartość nie obejmuje ponownych prób.|Brak|
+|Routing: oddzielone komunikaty telemetryczne |D2C. dane telemetryczne. wychodzące. oddzielone|Liczba|Łącznie|Liczba oddzielonych komunikatów przez IoT Hub Routing, ponieważ nie są one zgodne z żadną kwerendą routingu, gdy wartość trasy rezerwowej jest wyłączona.|Brak|
 
 W przypadku metryk z wartością **jednostki** **Count** tylko suma (sum) jest prawidłowa. Agregacje minimalna, maksymalna i średnia zawsze zwracają wartość 1. Aby uzyskać więcej informacji, zobacz [obsługiwane agregacje](#supported-aggregations).
 

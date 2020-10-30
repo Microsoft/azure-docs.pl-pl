@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: bc0369e99552859393da206e791477040681ccc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49863bec4cbd367b6b309ef5a79e7287cb53ee5b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281069"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042979"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Przekazywanie plików na konto usługi Media Services przy użyciu stylu REST
 
@@ -72,7 +72,7 @@ Aby uzyskać instrukcje dotyczące sposobu konfigurowania programu Poster dla te
 
     Aby uzyskać wartości dla pierwszych pięciu zmiennych, zobacz [dostęp do interfejsu API Azure Media Services przy użyciu uwierzytelniania w usłudze Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    ![Przekazywanie pliku](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![Zrzut ekranu pokazujący ikonę "koło zębate" wybraną w prawym górnym rogu i pięć pierwszych zmiennych wybranych z karty "środowiska zarządzania".](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Określ wartość dla zmiennej środowiskowej **MediaFileName** .
 
     Określ nazwę pliku nośnika, który ma zostać przekazany. W tym przykładzie będziemy przekazywać BigBuckBunny.mp4. 
@@ -90,17 +90,17 @@ Aby uzyskać instrukcje dotyczące sposobu konfigurowania programu Poster dla te
         ]
     }
     ```
-4. Po lewej stronie okna programu **Poster** kliknij pozycję **1. Pobierz token uwierzytelniania usługi AAD**  ->  **Pobierz token usługi Azure AD dla jednostki usług**.
+4. Po lewej stronie okna programu **Poster** kliknij pozycję **1. Pobierz token uwierzytelniania usługi AAD**  ->  **Pobierz token usługi Azure AD dla jednostki usług** .
 
     Część adresu URL jest wypełniona zmienną środowiskową **AzureADSTSEndpoint** (wcześniej w samouczku, ustawiasz wartości zmiennych środowiskowych, które obsługują kolekcję).
 
-    ![Przekazywanie pliku](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![Zrzut ekranu pokazujący wartość "1". Uzyskaj token uwierzytelniania D — Pobierz token usługi Azure A D dla jednostki usług "wybrane z okna" Poster "i wybierz przycisk" Wyślij ".](./media/media-services-rest-upload-files/postment-get-token.png)
 
-5. Kliknij pozycję **Wyślij**.
+5. Kliknij pozycję **Wyślij** .
 
     Można zobaczyć odpowiedź zawierającą "access_token". Skrypt "test" pobiera tę wartość i ustawia zmienną środowiskową **AccessToken** (zgodnie z powyższym opisem). Jeśli sprawdzisz zmienne środowiskowe, zobaczysz, że ta zmienna zawiera teraz wartość tokenu dostępu (token okaziciela), która jest używana w pozostałej części operacji. 
 
-    Jeśli token zostanie wystawiony ponownie, należy wykonać krok "Pobierz token usługi Azure AD w celu uzyskania głównej nazwy". 
+    Jeśli token zostanie wystawiony ponownie, należy wykonać krok "Pobierz token usługi Azure AD w celu uzyskania głównej nazwy". 
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Tworzenie zasad dostępu z uprawnieniami do zapisu
 
@@ -113,10 +113,10 @@ Przed przekazaniem plików do usługi BLOB Storage Ustaw uprawnienia dostępu do
 
 ### <a name="create-an-access-policy"></a>Tworzenie zasad dostępu
 
-1. Wybierz pozycję **AccessPolicy**  ->  **Utwórz AccessPolicy do przekazania**.
-2. Kliknij pozycję **Wyślij**.
+1. Wybierz pozycję **AccessPolicy**  ->  **Utwórz AccessPolicy do przekazania** .
+2. Kliknij pozycję **Wyślij** .
 
-    ![Przekazywanie pliku](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![Zrzut ekranu pokazujący opcję "AccessPolicy-Create AccessPolicy for upload" wybraną z menu po lewej stronie i wybranego przycisku "Wyślij".](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     Skrypt "test" Pobiera identyfikator AccessPolicy i ustawia odpowiednią zmienną środowiskową.
 
@@ -126,7 +126,7 @@ Przed przekazaniem plików do usługi BLOB Storage Ustaw uprawnienia dostępu do
 
 Element [zawartości](/rest/api/media/operations/asset) to kontener dla wielu typów lub zestawów obiektów w Media Services, w tym wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów. W interfejsie API REST Tworzenie elementu zawartości wymaga wysłania żądania POST do Media Services i umieszczenia wszelkich informacji o właściwościach zasobu w treści żądania.
 
-Jedna z właściwości, które można dodać podczas tworzenia elementu zawartości, to **Opcje**. Można określić jedną z następujących opcji szyfrowania: **Brak** (domyślnie nie jest używane szyfrowanie), **StorageEncrypted** (dla zawartości, która została wstępnie zaszyfrowana przy użyciu szyfrowania magazynu po stronie klienta), **CommonEncryptionProtected**lub **EnvelopeEncryptionProtected**. W przypadku zaszyfrowanego zasobu należy skonfigurować zasady dostarczania. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania elementów zawartości](media-services-rest-configure-asset-delivery-policy.md).
+Jedna z właściwości, które można dodać podczas tworzenia elementu zawartości, to **Opcje** . Można określić jedną z następujących opcji szyfrowania: **Brak** (domyślnie nie jest używane szyfrowanie), **StorageEncrypted** (dla zawartości, która została wstępnie zaszyfrowana przy użyciu szyfrowania magazynu po stronie klienta), **CommonEncryptionProtected** lub **EnvelopeEncryptionProtected** . W przypadku zaszyfrowanego zasobu należy skonfigurować zasady dostarczania. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania elementów zawartości](media-services-rest-configure-asset-delivery-policy.md).
 
 Jeśli zasób jest szyfrowany, należy utworzyć **ContentKey** i połączyć go z zasobem, zgodnie z opisem w następującym artykule: [jak utworzyć ContentKey](media-services-rest-create-contentkey.md). Po przekazaniu plików do zasobu należy zaktualizować właściwości szyfrowania w jednostce **AssetFile** o wartości, które zostały uzyskane podczas szyfrowania **zasobów** . Zrób to za pomocą żądania **scalania** http. 
 
@@ -134,10 +134,10 @@ W tym przykładzie tworzymy niezaszyfrowany element zawartości.
 
 ### <a name="create-an-asset"></a>Tworzenie zasobu
 
-1. Wybierz pozycję **zasoby**  ->  **Utwórz element zawartości**.
-2. Kliknij pozycję **Wyślij**.
+1. Wybierz pozycję **zasoby**  ->  **Utwórz element zawartości** .
+2. Kliknij pozycję **Wyślij** .
 
-    ![Przekazywanie pliku](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![Zrzut ekranu pokazujący "zasoby — tworzenie zasobu" wybrany z menu "kolekcje" i wybrany przycisk "Wyślij".](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     Skrypt "test" Pobiera identyfikator zasobu i ustawia odpowiednią zmienną środowiskową.
 
@@ -165,18 +165,18 @@ Zagadnienia do rozważenia:
 
 ### <a name="create-a-sas-locator"></a>Tworzenie lokalizatora SAS
 
-1. Wybierz pozycję **lokalizator**  ->  **Utwórz lokalizator sygnatury dostępu współdzielonego**.
-2. Kliknij pozycję **Wyślij**.
+1. Wybierz pozycję **lokalizator**  ->  **Utwórz lokalizator sygnatury dostępu współdzielonego** .
+2. Kliknij pozycję **Wyślij** .
 
     Skrypt "test" tworzy "adres URL przekazywania" na podstawie określonej nazwy pliku nośnika oraz informacji o lokalizatorze SAS i ustawia odpowiednią zmienną środowiskową.
 
-    ![Przekazywanie pliku](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![Zrzut ekranu, na którym jest zaznaczona wartość "lokalizator-Create-A S Locator" z menu "kolekcje" i wybrano przycisk "Wyślij".](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Przekazywanie pliku do usługi BLOB Storage przy użyciu adresu URL przekazywania
 
 ### <a name="overview"></a>Omówienie
 
-Teraz, gdy masz adres URL przekazywania, musisz napisać kod przy użyciu interfejsów API usługi Azure Blob bezpośrednio, aby przekazać plik do kontenera SAS. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Teraz, gdy masz adres URL przekazywania, musisz napisać kod przy użyciu interfejsów API usługi Azure Blob bezpośrednio, aby przekazać plik do kontenera SAS. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Korzystanie z interfejsu API REST usługi Azure Storage](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Umieść obiekt BLOB](/rest/api/storageservices/put-blob)
@@ -191,20 +191,20 @@ Załóżmy na przykład, że wyślemy mały plik MP4 przy użyciu programu. Rozm
 Utwórz i skonfiguruj nowe żądanie:
 1. Naciśnij klawisz **+** , aby utworzyć nową kartę żądania.
 2. Wybierz pozycję **Umieść** operację i wklej **{{UploadURL}}** w adresie URL.
-2. Pozostaw kartę **autoryzacja** jako is (nie ustawiaj jej na **token okaziciela**).
-3. Na karcie **nagłówki** Określ: **klucz**: "x-MS-BLOB-Type" i **Value**: "BlockBlob".
-2. Na karcie **treść** kliknij pozycję dane **binarne**.
+2. Pozostaw kartę **autoryzacja** jako is (nie ustawiaj jej na **token okaziciela** ).
+3. Na karcie **nagłówki** Określ: **klucz** : "x-MS-BLOB-Type" i **Value** : "BlockBlob".
+2. Na karcie **treść** kliknij pozycję dane **binarne** .
 4. Wybierz plik o nazwie określonej w zmiennej środowiskowej **MediaFileName** .
-5. Kliknij pozycję **Wyślij**.
+5. Kliknij pozycję **Wyślij** .
 
-    ![Przekazywanie pliku](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![Zrzut ekranu przedstawiający wybraną kartę (UploadU R L).](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  <a name="create-a-metadata-in-the-asset"></a>Tworzenie metadanych w elemencie zawartości
 
 Po przekazaniu pliku należy utworzyć metadane w elemencie zawartości dla pliku nośnika, który został przekazany do magazynu obiektów BLOB skojarzonego z Twoim zasobem.
 
-1. Wybierz pozycję **AssetFiles**  ->  **CreateFileInfos**.
-2. Kliknij pozycję **Wyślij**.
+1. Wybierz pozycję **AssetFiles**  ->  **CreateFileInfos** .
+2. Kliknij pozycję **Wyślij** .
 
     ![Przekazywanie pliku](./media/media-services-rest-upload-files/postman-create-file-info.png)
 

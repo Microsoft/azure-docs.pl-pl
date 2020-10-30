@@ -6,13 +6,13 @@ ms.author: krishmam
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: b58a2b4cb5cd083f837eb598d4e5f330783181c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: f49ba8a907a65180061ef3973ae30b4438a945a2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279998"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043011"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Informacje o danych wejściowych dla Azure Stream Analytics
 
@@ -22,7 +22,7 @@ Stream Analytics ma integrację pierwszej klasy z czterema rodzajami zasobów ja
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 
-- [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 Te zasoby wejściowe mogą być aktywne w ramach tej samej subskrypcji platformy Azure co zadanie Stream Analytics lub z innej subskrypcji.
 
@@ -37,7 +37,7 @@ Strumień danych to nieograniczona sekwencja zdarzeń w czasie. Zadania usługi 
 Aby uzyskać więcej informacji na temat danych wejściowych przesyłania strumieniowego, zobacz [przesyłanie strumieniowe danych jako dane wejściowe do Stream Analytics](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Dane wejściowe odwołania
-Stream Analytics obsługuje również dane wejściowe znane jako *informacje referencyjne*. Dane referencyjne są całkowicie statyczne lub zmieniają się powoli. Jest zazwyczaj używany do przeprowadzenia korelacji i wyszukiwania. Na przykład można przyłączyć dane danych wejściowych strumienia danych do danych w danych referencyjnych, podobnie jak w przypadku wykonywania sprzężenia SQL w celu wyszukania wartości statycznych. Magazyn obiektów blob platformy Azure, Azure Data Lake Storage Gen2 i Azure SQL Database są obecnie obsługiwane jako źródła danych wejściowych. Źródłowe źródła danych referencyjne mają limit równy 300 MB, w zależności od złożoności zapytania i przydzieloną liczbę jednostek przesyłania strumieniowego (zobacz sekcję [ograniczenie rozmiaru](stream-analytics-use-reference-data.md#size-limitation) w dokumentacji danych referencyjnych, aby uzyskać więcej informacji).
+Stream Analytics obsługuje również dane wejściowe znane jako *informacje referencyjne* . Dane referencyjne są całkowicie statyczne lub zmieniają się powoli. Jest zazwyczaj używany do przeprowadzenia korelacji i wyszukiwania. Na przykład można przyłączyć dane danych wejściowych strumienia danych do danych w danych referencyjnych, podobnie jak w przypadku wykonywania sprzężenia SQL w celu wyszukania wartości statycznych. Magazyn obiektów blob platformy Azure, Azure Data Lake Storage Gen2 i Azure SQL Database są obecnie obsługiwane jako źródła danych wejściowych. Źródłowe źródła danych referencyjne mają limit równy 300 MB, w zależności od złożoności zapytania i przydzieloną liczbę jednostek przesyłania strumieniowego (zobacz sekcję [ograniczenie rozmiaru](stream-analytics-use-reference-data.md#size-limitation) w dokumentacji danych referencyjnych, aby uzyskać więcej informacji).
 
 Aby uzyskać więcej informacji na temat danych wejściowych referencyjnych, zobacz [Korzystanie z danych referencyjnych dla odnośników w Stream Analytics](stream-analytics-use-reference-data.md)
 

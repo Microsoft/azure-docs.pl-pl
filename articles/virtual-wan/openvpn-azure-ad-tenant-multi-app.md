@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 57fd36366eef284e2975633fbb34549f4316cde6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fcc79991918aecfc26933f2ef5b6e80ea7fa88c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988260"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043426"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Utwórz dzierżawę usługi Azure Active Directory (AD) dla połączeń protokołu P2S OpenVPN
 
@@ -53,17 +53,17 @@ Konfiguracja P2S definiuje parametry służące do łączenia z klientami zdalny
 
 2. Wybierz centrum, do którego chcesz skojarzyć konfigurację serwera sieci VPN, a następnie kliknij przycisk wielokropka (...).
 
-    ![nowa lokacja](media/openvpn-azure-ad-tenant-multi-app/p2s4.jpg)
+    ![Zrzut ekranu przedstawia polecenie Edytuj centrum wirtualne wybrane z menu.](media/openvpn-azure-ad-tenant-multi-app/p2s4.jpg)
 
-3. Kliknij pozycję **Edytuj koncentrator wirtualny**.
+3. Kliknij pozycję **Edytuj koncentrator wirtualny** .
 
 4. Zaznacz pole wyboru **Uwzględnij bramę punkt-lokacja** i wybierz żądaną **jednostkę skalowania bramy** .
 
-    ![nowa lokacja](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
+    ![Zrzut ekranu przedstawia okno dialogowe Edytowanie centrum wirtualnego, w którym można wybrać jednostkę skalowania bramy.](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
 
 5. Wprowadź **pulę adresów** , z której będą przypisywane adresy IP klientów sieci VPN.
 
-6. Kliknij pozycję **Potwierdź**.
+6. Kliknij pozycję **Potwierdź** .
 
 7. Ukończenie operacji może potrwać do 30 minut.
 
@@ -71,9 +71,9 @@ Konfiguracja P2S definiuje parametry służące do łączenia z klientami zdalny
 
 Użyj profilu sieci VPN, aby skonfigurować klientów.
 
-1. Na stronie wirtualnej sieci WAN kliknij pozycję **konfiguracje sieci VPN użytkownika**.
+1. Na stronie wirtualnej sieci WAN kliknij pozycję **konfiguracje sieci VPN użytkownika** .
 
-2. W górnej części strony kliknij pozycję **Pobierz konfigurację sieci VPN użytkownika**.
+2. W górnej części strony kliknij pozycję **Pobierz konfigurację sieci VPN użytkownika** .
 
 3. Po zakończeniu tworzenia pliku możesz kliknąć link, aby go pobrać.
 
@@ -99,53 +99,53 @@ Użyj tego [linku](https://go.microsoft.com/fwlink/?linkid=2117554) , aby pobra�
 
 #### <a name="to-import-a-client-profile"></a><a name="import"></a>Aby zaimportować profil klienta
 
-1. Na stronie wybierz pozycję **Importuj**.
+1. Na stronie wybierz pozycję **Importuj** .
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
+    ![Zrzut ekranu przedstawia Importowanie wybrane z menu plus.](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
 
-2. Przejdź do pliku XML profilu i wybierz go. Po wybraniu pliku wybierz pozycję **Otwórz**.
+2. Przejdź do pliku XML profilu i wybierz go. Po wybraniu pliku wybierz pozycję **Otwórz** .
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
+    ![Zrzut ekranu przedstawia otwarte okno dialogowe, w którym można wybrać plik.](./media/openvpn-azure-ad-tenant-multi-app/import/import2.jpg)
 
-3. Określ nazwę profilu i wybierz pozycję **Zapisz**.
+3. Określ nazwę profilu i wybierz pozycję **Zapisz** .
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
+    ![Zrzut ekranu przedstawia dodaną nazwę połączenia i przycisk Zapisz zaznaczone.](./media/openvpn-azure-ad-tenant-multi-app/import/import3.jpg)
 
 4. Wybierz pozycję **Połącz** , aby nawiązać połączenie z siecią VPN.
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
+    ![Zrzut ekranu przedstawia przycisk Połącz dla właśnie utworzonego połączenia.](./media/openvpn-azure-ad-tenant-multi-app/import/import4.jpg)
 
 5. Po nawiązaniu połączenia ikona zmieni kolor na zielony i powiedzie **się.**
 
-    ![import](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
+    ![Zrzut ekranu przedstawia połączenie w stanie połączonym z opcją rozłączenia.](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Aby usunąć profil klienta
 
-1. Wybierz wielokropek (...) obok profilu klienta, który chcesz usunąć. Następnie wybierz pozycję **Usuń**.
+1. Wybierz wielokropek (...) obok profilu klienta, który chcesz usunąć. Następnie wybierz pozycję **Usuń** .
 
-    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![Zrzut ekranu przedstawia polecenie Usuń wybrane z menu.](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
 2. Wybierz pozycję **Usuń** , aby usunąć.
 
-    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![Zrzut ekranu przedstawia okno dialogowe potwierdzenia z opcją usunięcia lub anulowania.](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>Aby zdiagnozować problemy z połączeniem
 
-1. Aby zdiagnozować problemy z połączeniem, można użyć narzędzia do **diagnozowania** . Wybierz wielokropek (...) obok połączenia sieci VPN, które chcesz zdiagnozować, aby wyświetlić menu. Następnie wybierz pozycję **Diagnozuj**.
+1. Aby zdiagnozować problemy z połączeniem, można użyć narzędzia do **diagnozowania** . Wybierz wielokropek (...) obok połączenia sieci VPN, które chcesz zdiagnozować, aby wyświetlić menu. Następnie wybierz pozycję **Diagnozuj** .
 
-    ![Sprawdź](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
+    ![Zrzut ekranu przedstawia wybraną diagnostykę z menu.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
-2. Na stronie **Właściwości połączenia** wybierz pozycję **Uruchom diagnostykę**.
+2. Na stronie **Właściwości połączenia** wybierz pozycję **Uruchom diagnostykę** .
 
-    ![Sprawdź](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+    ![Zrzut ekranu przedstawia przycisk Uruchom diagnostykę dla połączenia.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 
 3. Zaloguj się przy użyciu swoich poświadczeń.
 
-    ![Sprawdź](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+    ![Zrzut ekranu przedstawia okno dialogowe logowania dla tej akcji.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
 
 4. Wyświetl wyniki diagnostyki.
 
-    ![Sprawdź](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
+    ![Zrzut ekranu przedstawia wyniki diagnostyki.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
 
 ## <a name="10-view-your-virtual-wan"></a><a name="viewwan"></a>10. Wyświetl wirtualną sieć WAN
 

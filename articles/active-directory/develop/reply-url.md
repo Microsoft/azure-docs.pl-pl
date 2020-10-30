@@ -5,18 +5,18 @@ description: Opis ograniczeń i ograniczeń w formacie URI przekierowania (adres
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 08/07/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: marsma, lenalepa, manrath
+ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030314"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042898"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Ograniczenia i ograniczenia URI przekierowania (adres URL odpowiedzi)
 
@@ -24,7 +24,7 @@ Identyfikator URI przekierowania lub adres URL odpowiedzi to lokalizacja, do kt�
 
  Identyfikatory URI przekierowania dotyczą następujących ograniczeń:
 
-* Identyfikator URI przekierowania musi rozpoczynać się od schematu `https` .
+* Identyfikator URI przekierowania musi rozpoczynać się od schematu `https` . Istnieją pewne wyjątki dotyczące identyfikatorów URI przekierowania [hosta lokalnego](#localhost-exceptions) .
 
 * W identyfikatorze URI przekierowania jest rozróżniana wielkość liter. Jego wielkość liter musi być zgodna z wielkością liter w ścieżce URL działającej aplikacji. Na przykład jeśli aplikacja zawiera jako część swojej ścieżki, nie należy `.../abc/response-oidc` określać jej `.../ABC/response-oidc` w identyfikatorze URI przekierowania. Ponieważ przeglądarka sieci Web traktuje ścieżki w miarę uwzględniania wielkości liter, pliki cookie skojarzone z programem `.../abc/response-oidc` mogą zostać wykluczone w przypadku przekierowania do niezgodnego z wielkością liter `.../ABC/response-oidc` adresów URL.
 
@@ -64,11 +64,10 @@ Z punktu widzenia projektowania oznacza to kilka rzeczy:
 
 * Nie należy rejestrować wielu identyfikatorów URI przekierowania, gdy tylko port jest różny. Serwer logowania wybiera arbitralnie i użyje zachowania skojarzonego z tym identyfikatorem URI przekierowania (na przykład niezależnie od tego, czy jest to `web` -, `native` -, czy `spa` -Type redirect).
 * Jeśli zachodzi potrzeba zarejestrowania wielu identyfikatorów URI przekierowania na hoście lokalnym w celu przetestowania różnych przepływów podczas opracowywania, Odróżnij je za pomocą składnika *ścieżki* identyfikatora URI. Na przykład `http://127.0.0.1/MyWebApp` nie są zgodne `http://127.0.0.1/MyNativeApp` .
-* Zgodnie ze wskazówkami RFC nie należy używać `localhost` go w identyfikatorze URI przekierowania. Zamiast tego należy użyć rzeczywistego adresu IP sprzężenia zwrotnego `127.0.0.1` . Zapobiega to zerwaniu aplikacji przez błędnie skonfigurowane zapory lub nazwy interfejsów sieciowych.
+* Adres sprzężenia zwrotnego IPv6 ( `[::1]` ) nie jest obecnie obsługiwany.
+* Aby zapobiec utracie aplikacji przez błędnie skonfigurowane zapory lub zmienić nazwy interfejsów sieciowych, użyj adresu sprzężenia zwrotnego literału IP `127.0.0.1` w identyfikatorze URI przekierowania zamiast `localhost` .
 
-    Aby użyć `http` schematu z adresem sprzężenia zwrotnego (127.0.0.1) zamiast localhost, należy edytować [manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
-
-    Adres sprzężenia zwrotnego IPv6 ( `[::1]` ) nie jest obecnie obsługiwany.
+    Aby użyć `http` schematu z adresem sprzężenia zwrotnego literału IP `127.0.0.1` , należy obecnie zmodyfikować atrybut [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) w [manifeście aplikacji](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Ograniczenia dotyczące symboli wieloznacznych w identyfikatorach URI przekierowania
 
@@ -78,9 +77,9 @@ Symbole wieloznaczne nie są obecnie obsługiwane w rejestracjach aplikacji skon
 
 Aby dodać identyfikatory URI przekierowania z symbolami wieloznacznymi do rejestracji aplikacji, które logują się do konta służbowego, należy użyć edytora manifestu aplikacji w [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) w Azure Portal. Chociaż istnieje możliwość ustawienia identyfikatora URI przekierowania z symbolem wieloznacznym przy użyciu edytora manifestu, *zdecydowanie* zalecamy przestrzeganie [sekcji 3.1.2 RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) i użycie tylko bezwzględnych identyfikatorów URI.
 
-Jeśli scenariusz wymaga więcej identyfikatorów URI przekierowania niż maksymalny dozwolony limit, należy wziąć pod uwagę [poniższe podejście](#use-a-state-parameter) zamiast dodawać symbol wieloznaczny URI przekierowania.
+Jeśli scenariusz wymaga więcej identyfikatorów URI przekierowania niż maksymalny dozwolony limit, rozważ użycie następującego [parametru stanu](#use-a-state-parameter) zamiast dodawania wieloznacznego identyfikatora URI przekierowania.
 
-### <a name="use-a-state-parameter"></a>Użyj parametru stanu
+#### <a name="use-a-state-parameter"></a>Użyj parametru stanu
 
 Jeśli masz kilka poddomen i twój scenariusz wymaga, aby po pomyślnym uwierzytelnieniu przekierować użytkowników na tę samą stronę, z której uruchomiono, przy użyciu parametru stanu może być przydatne.
 

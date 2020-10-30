@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1683977d5c8be965cb329611c5a7fd6602a1cd97
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259955"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043361"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Używanie Azure Functions do zarządzania zasobami obliczeniowymi w puli SQL usługi Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Po wdrożeniu szablonu należy znaleźć trzy nowe zasoby: bezpłatny plan Azure
 
 ## <a name="change-the-compute-level"></a>Zmień poziom obliczeń
 
-1. Przejdź do usługi aplikacji funkcji. Jeśli szablon został wdrożony przy użyciu wartości domyślnych, usługa ta powinna mieć nazwę *DWOperations*. Po otwarciu aplikacji funkcji powinno być widocznych pięć funkcji wdrożonych w usłudze aplikacji funkcji.
+1. Przejdź do usługi aplikacji funkcji. Jeśli szablon został wdrożony przy użyciu wartości domyślnych, usługa ta powinna mieć nazwę *DWOperations* . Po otwarciu aplikacji funkcji powinno być widocznych pięć funkcji wdrożonych w usłudze aplikacji funkcji.
 
    ![Funkcje wdrażane przy użyciu szablonu](./media/manage-compute-with-azure-functions/five-functions.png)
 
@@ -52,7 +52,7 @@ Po wdrożeniu szablonu należy znaleźć trzy nowe zasoby: bezpłatny plan Azure
 
    ![Wybieranie pozycji Integruj dla funkcji](./media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Obecnie powinna być wyświetlana wartość *%ScaleDownTime%* lub *%ScaleUpTime%*. Te wartości wskazują, że harmonogram jest oparty na wartościach określonych w [ustawieniach aplikacji](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Na razie można zignorować tę wartość i zmienić harmonogram na preferowany czas na podstawie następnych kroków.
+3. Obecnie powinna być wyświetlana wartość *%ScaleDownTime%* lub *%ScaleUpTime%* . Te wartości wskazują, że harmonogram jest oparty na wartościach określonych w [ustawieniach aplikacji](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Na razie można zignorować tę wartość i zmienić harmonogram na preferowany czas na podstawie następnych kroków.
 
 4. W obszarze harmonogram Dodaj godzinę wyrażenia, które chcesz odzwierciedlić, jak często chcesz skalować usługę Azure Synapse Analytics.
 
@@ -68,9 +68,9 @@ Po wdrożeniu szablonu należy znaleźć trzy nowe zasoby: bezpłatny plan Azure
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Zmień godzinę operacji skalowania
 
-1. Przejdź do usługi aplikacji funkcji. Jeśli szablon został wdrożony przy użyciu wartości domyślnych, usługa ta powinna mieć nazwę *DWOperations*. Po otwarciu aplikacji funkcji powinno być widocznych pięć funkcji wdrożonych w usłudze aplikacji funkcji.
+1. Przejdź do usługi aplikacji funkcji. Jeśli szablon został wdrożony przy użyciu wartości domyślnych, usługa ta powinna mieć nazwę *DWOperations* . Po otwarciu aplikacji funkcji powinno być widocznych pięć funkcji wdrożonych w usłudze aplikacji funkcji.
 
-2. Wybierz pozycję *DWScaleDownTrigger* lub *DWScaleUpTrigger* w zależności od tego, czy chcesz zmienić wartość obliczeniową skalowania w górę, czy wartość obliczeniową skalowania w dół. Po wybraniu funkcji w okienku powinien zostać wyświetlony plik *index.js*.
+2. Wybierz pozycję *DWScaleDownTrigger* lub *DWScaleUpTrigger* w zależności od tego, czy chcesz zmienić wartość obliczeniową skalowania w górę, czy wartość obliczeniową skalowania w dół. Po wybraniu funkcji w okienku powinien zostać wyświetlony plik *index.js* .
 
    ![Zmienianie poziomu obliczeniowego wyzwalacza funkcji](././media/manage-compute-with-azure-functions/index-js.png)
 
@@ -78,7 +78,7 @@ Po wdrożeniu szablonu należy znaleźć trzy nowe zasoby: bezpłatny plan Azure
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Używanie wstrzymywania lub wznawiania zamiast skalowania
 
-Obecnie funkcje włączone domyślnie to *DWScaleDownTrigger* i *DWScaleUpTrigger*. Jeśli zamiast tego chcesz korzystać z funkcji wstrzymywania i wznawiania, możesz włączyć funkcje *DWPauseTrigger* lub *DWResumeTrigger*.
+Obecnie funkcje włączone domyślnie to *DWScaleDownTrigger* i *DWScaleUpTrigger* . Jeśli zamiast tego chcesz korzystać z funkcji wstrzymywania i wznawiania, możesz włączyć funkcje *DWPauseTrigger* lub *DWResumeTrigger* .
 
 1. Przejdź do okienka Funkcje.
 
@@ -97,9 +97,9 @@ Obecnie szablon zawiera tylko dwie funkcje skalowania. Korzystając z tych funkc
 
 1. Utwórz nową pustą funkcję. Wybierz *+* przycisk obok pozycji funkcje, aby wyświetlić okienko szablonu funkcji.
 
-   ![Tworzenie nowej funkcji](./media/manage-compute-with-azure-functions/create-new-function.png)
+   ![Zrzut ekranu pokazujący menu "aplikacje funkcji" z ikoną "plus" obok wybranej pozycji "Functions" (funkcje).](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. W obszarze Język wybierz pozycję *JavaScript*, a następnie wybierz pozycję *TimerTrigger*.
+2. W obszarze Język wybierz pozycję *JavaScript* , a następnie wybierz pozycję *TimerTrigger* .
 
    ![Tworzenie nowej funkcji](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 

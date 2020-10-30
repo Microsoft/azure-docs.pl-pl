@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164826"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043110"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
 
@@ -107,13 +107,13 @@ W języku JavaScript [powiązania](functions-triggers-bindings.md) są konfiguro
 
 ### <a name="inputs"></a>Dane wejściowe
 Dane wejściowe są podzielone na dwie kategorie w Azure Functions: jeden to dane wejściowe wyzwalacza, a drugi to dodatkowe dane wejściowe. Wyzwalacz i inne powiązania wejściowe (powiązania `direction === "in"` ) mogą być odczytywane przez funkcję na trzy sposoby:
- - **_[Zalecane]_ Jako parametry przesłane do funkcji.** Są one przenoszone do funkcji w takiej samej kolejności, w jakiej są zdefiniowane w *function.jsna*. `name`Właściwość zdefiniowana w *function.jsna* nie musi być zgodna z nazwą parametru, chociaż powinna być.
+ - **_[Zalecane]_ Jako parametry przesłane do funkcji.** Są one przenoszone do funkcji w takiej samej kolejności, w jakiej są zdefiniowane w *function.jsna* . `name`Właściwość zdefiniowana w *function.jsna* nie musi być zgodna z nazwą parametru, chociaż powinna być.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Jako elementy członkowskie [`context.bindings`](#contextbindings-property) obiektu.** Każdy element członkowski jest nazwany przez `name` Właściwość zdefiniowaną w *function.jsna*.
+ - **Jako elementy członkowskie [`context.bindings`](#contextbindings-property) obiektu.** Każdy element członkowski jest nazwany przez `name` Właściwość zdefiniowaną w *function.jsna* .
  
    ```javascript
    module.exports = async function(context) { 
@@ -138,7 +138,7 @@ Dane wyjściowe (powiązania `direction === "out"` ) mogą być zapisywane przez
 
 Dane można przypisywać do powiązań wyjściowych w jeden z następujących sposobów (nie łącz tych metod):
 
-- **_[Zalecane dla wielu wyjść]_ Zwracanie obiektu.** Jeśli używana jest funkcja zwracająca Asynchroniczność/Promise, można zwrócić obiekt z przypisanymi danymi wyjściowymi. W poniższym przykładzie powiązania wyjściowe mają nazwę "httpResponse" i "queueOutput" w *function.json*.
+- **_[Zalecane dla wielu wyjść]_ Zwracanie obiektu.** Jeśli używana jest funkcja zwracająca Asynchroniczność/Promise, można zwrócić obiekt z przypisanymi danymi wyjściowymi. W poniższym przykładzie powiązania wyjściowe mają nazwę "httpResponse" i "queueOutput" w *function.json* .
 
   ```javascript
   module.exports = async function(context) {
@@ -154,7 +154,7 @@ Dane można przypisywać do powiązań wyjściowych w jeden z następujących sp
 
   Jeśli używasz funkcji synchronicznej, możesz zwrócić ten obiekt przy użyciu [`context.done`](#contextdone-method) (Zobacz przykład).
 - **_[Zalecane dla pojedynczego wyjścia]_ Zwracanie wartości bezpośrednio i przy użyciu nazwy powiązania $return.** Działa to tylko w przypadku funkcji zwracających dane asynchroniczne/Promise. Zobacz przykład [eksportowania funkcji asynchronicznej](#exporting-an-async-function). 
-- **Przypisywanie wartości do `context.bindings` ** Możesz przypisywać wartości bezpośrednio do kontekstu Context. bindings.
+- **Przypisywanie wartości do `context.bindings`** Możesz przypisywać wartości bezpośrednio do kontekstu Context. bindings.
 
   ```javascript
   module.exports = async function(context) {
@@ -203,9 +203,9 @@ Kontekst przekazaną do funkcji uwidacznia `executionContext` Właściwość, kt
 
 | Nazwa właściwości  | Typ  | Opis |
 |---------|---------|---------|
-| `invocationId` | Ciąg | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
-| `functionName` | Ciąg | Zawiera nazwę działającej funkcji |
-| `functionDirectory` | Ciąg | Udostępnia katalog aplikacji usługi Functions. |
+| `invocationId` | String | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
+| `functionName` | String | Zawiera nazwę działającej funkcji |
+| `functionDirectory` | String | Udostępnia katalog aplikacji usługi Functions. |
 
 Poniższy przykład pokazuje, jak zwrócić `invocationId` .
 
@@ -317,7 +317,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
 > [!NOTE]  
-> Nie używać `console.log` do zapisywania wyników śledzenia. Ponieważ dane wyjściowe `console.log` są przechwytywane na poziomie aplikacji funkcji, nie są powiązane z konkretnym wywołaniem funkcji i nie są wyświetlane w dziennikach określonej funkcji. Ponadto wersja 1. x środowiska uruchomieniowego funkcji nie obsługuje zapisywania w `console.log` konsoli programu.
+> Nie używaj `console.log` do zapisywania wyników śledzenia. Ponieważ dane wyjściowe `console.log` są przechwytywane na poziomie aplikacji funkcji, nie są powiązane z konkretnym wywołaniem funkcji i nie są wyświetlane w dziennikach określonej funkcji. Ponadto wersja 1. x środowiska uruchomieniowego funkcji nie obsługuje zapisywania w `console.log` konsoli programu.
 
 ### <a name="trace-levels"></a>Poziomy śledzenia
 
@@ -325,10 +325,10 @@ Oprócz poziomu domyślnego dostępne są następujące metody rejestrowania, kt
 
 | Metoda                 | Opis                                |
 | ---------------------- | ------------------------------------------ |
-| **błąd (_komunikat_)**   | Zapisuje zdarzenie poziomu błędu w dziennikach.   |
-| **warn (_komunikat_)**    | Zapisuje zdarzenie poziomu ostrzeżeń w dziennikach. |
-| **informacje (_komunikat_)**    | Zapisuje dane w dzienniku lub niższym poziomie informacji.    |
-| **verbose (_komunikat_)** | Zapisuje dane w celu pełnego rejestrowania na poziomie.           |
+| **błąd ( _komunikat_ )**   | Zapisuje zdarzenie poziomu błędu w dziennikach.   |
+| **warn ( _komunikat_ )**    | Zapisuje zdarzenie poziomu ostrzeżeń w dziennikach. |
+| **informacje ( _komunikat_ )**    | Zapisuje dane w dzienniku lub niższym poziomie informacji.    |
+| **verbose ( _komunikat_ )** | Zapisuje dane w celu pełnego rejestrowania na poziomie.           |
 
 Poniższy przykład zapisuje ten sam dziennik na poziomie śledzenia ostrzeżeń, a nie na poziomie informacji:
 
@@ -358,7 +358,7 @@ Aby ustawić wartość progową dla wszystkich śladów, które są zapisywane w
 }  
 ```
 
-Wartości **consoleLevel** odpowiadają nazwom `context.log` metod. Aby wyłączyć wszystkie rejestrowanie śledzenia w konsoli programu, należy ustawić **consoleLevel** na _wyłączone_. Aby uzyskać więcej informacji, zobacz [host.jsinformacje o wersji 1. x](functions-host-json-v1.md).
+Wartości **consoleLevel** odpowiadają nazwom `context.log` metod. Aby wyłączyć wszystkie rejestrowanie śledzenia w konsoli programu, należy ustawić **consoleLevel** na _wyłączone_ . Aby uzyskać więcej informacji, zobacz [host.jsinformacje o wersji 1. x](functions-host-json-v1.md).
 
 ---
 
@@ -545,12 +545,12 @@ Istnieją dwa sposoby instalowania pakietów na aplikacja funkcji:
 ### <a name="using-kudu"></a>Korzystanie z kudu
 1. Przejdź do adresu `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Kliknij pozycję **Debuguj konsolę**  >  **cmd**.
+2. Kliknij pozycję **Debuguj konsolę**  >  **cmd** .
 
 3. Przejdź do `D:\home\site\wwwroot` , a następnie przeciągnij package.jsw pliku do folderu **wwwroot** w górnej połowie strony.  
     Możesz również przekazywać pliki do aplikacji funkcji w inny sposób. Aby uzyskać więcej informacji, zobacz [jak zaktualizować pliki aplikacji funkcji](functions-reference.md#fileupdate). 
 
-4. Po przekazaniu package.jsw pliku Uruchom `npm install` polecenie w **konsoli wykonywania zdalnego kudu**.  
+4. Po przekazaniu package.jsw pliku Uruchom `npm install` polecenie w **konsoli wykonywania zdalnego kudu** .  
     Ta akcja spowoduje pobranie pakietów wskazanych w package.jsw pliku i ponowne uruchomienie aplikacji funkcji.
 
 ## <a name="environment-variables"></a>Zmienne środowiskowe

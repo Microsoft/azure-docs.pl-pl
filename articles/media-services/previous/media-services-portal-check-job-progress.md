@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 879b9f965a5ee76131a65bf3151be5c6114cd20c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ba8ccf3534cbb4a93983f81095b4ef2c20d6498
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260887"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042792"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitoruj postęp zadania kodowania za pomocą Azure Portal
 
@@ -32,9 +32,9 @@ ms.locfileid: "89260887"
 
 Podczas uruchamiania zadań często potrzebny jest sposób śledzenia postępów zadań. 
 
-Aby monitorować postęp zadania kodowania, kliknij pozycję **Ustawienia** (w górnej części strony), a następnie wybierz pozycję **Zadania**.
+Aby monitorować postęp zadania kodowania, kliknij pozycję **Ustawienia** (w górnej części strony), a następnie wybierz pozycję **Zadania** .
 
-![Stanowiska](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Zrzut ekranu, na którym są wyświetlane "zadania" wybrane z menu "Ustawienia".](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 Możesz kliknąć zadanie, aby wyświetlić więcej szczegółów.
 

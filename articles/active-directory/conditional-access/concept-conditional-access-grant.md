@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87274684"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042797"
 ---
 # <a name="conditional-access-grant"></a>Dostęp warunkowy: Udziel
 
@@ -70,7 +70,7 @@ W przypadku korzystania z [przepływu OAuth przy użyciu kodu urządzenia](../de
 
 Organizacje mogą wymagać od zatwierdzonej aplikacji klienckiej próby dostępu do wybranych aplikacji w chmurze. Te zatwierdzone aplikacje klienckie obsługują [Zasady ochrony aplikacji usługi Intune](/intune/app-protection-policy) niezależnie od dowolnego rozwiązania do zarządzania urządzeniami przenośnymi (MDM).
 
-Aby można było korzystać z tej kontroli dotacji, dostęp warunkowy wymaga zarejestrowania urządzenia w Azure Active Directory, które wymaga użycia aplikacji brokera. Aplikacją brokera jest aplikacja Microsoft Authenticator w przypadku systemu iOS lub aplikacja Portal firmy Microsoft w przypadku urządzeń z systemem Android. Jeśli aplikacja brokera nie jest zainstalowana na urządzeniu podczas próby uwierzytelnienia użytkownika, użytkownik zostanie przekierowany do sklepu z aplikacjami w celu zainstalowania aplikacji brokera.
+Aby można było korzystać z tej kontroli dotacji, dostęp warunkowy wymaga zarejestrowania urządzenia w Azure Active Directory, które wymaga użycia aplikacji brokera. Aplikacja brokera może być Microsoft Authenticator dla systemu iOS lub Microsoft Authenticator lub Portal firmy Microsoft dla urządzeń z systemem Android. Jeśli aplikacja brokera nie jest zainstalowana na urządzeniu podczas próby uwierzytelnienia użytkownika, użytkownik zostanie przekierowany do odpowiedniego sklepu App/Play w celu zainstalowania wymaganej aplikacji brokera.
 
 To ustawienie dotyczy następujących aplikacji dla systemów iOS i Android:
 

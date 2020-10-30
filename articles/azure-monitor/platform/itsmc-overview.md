@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1da7221b511cb07e5000f09e4015fc8bd4a0a928
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745704"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043321"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami ITSM przy użyciu łącznika zarządzania usługami IT
 
@@ -57,7 +57,7 @@ Aby można było utworzyć połączenie, należy dodać rozwiązanie łącznik I
 3. W sekcji **obszar roboczy pakietu OMS** wybierz obszar roboczy usługi Azure log Analytics, w którym chcesz zainstalować rozwiązanie.
    >[!NOTE]
    > * W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako Log Analytics obszary robocze.
-   > * Łącznik ITSM można zainstalować tylko w obszarze roboczym Log Analytics w następujących regionach: Wschodnie stany USA, zachodnie stany USA, Południowo-środkowe stany USA, Europa Zachodnia, Fairfax, Indie Środkowe, Japonia Zachodnia, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Kanada środkowa
+   > * Łącznik ITSM można zainstalować tylko w obszarze roboczym Log Analytics w następujących regionach: Wschodnie stany USA, zachodnie stany USA, Południowo-środkowe stany USA i zachodnie kraje US, US Gov Arizona, US Gov Wirginia, Kanada środkowa, Europa Zachodnia, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Japonia środkowa, Indie Środkowe, Australia Południowo-Wschodnia.
 
 4. W sekcji **Ustawienia obszaru roboczego pakietu OMS** wybierz pozycję zasoby, w której chcesz utworzyć zasób rozwiązania.
 
@@ -204,7 +204,7 @@ ServiceDeskWorkItemType_s = "zdarzenie"
 - Created By
 - Rozwiązane przez
 - Zamknięte przez
-- Źródło
+- Element źródłowy
 - Przypisano do
 - Kategoria
 - Tytuł
@@ -225,7 +225,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Identyfikator działu obsługi
 - Created By
 - Zamknięte przez
-- Źródło
+- Element źródłowy
 - Przypisano do
 - Tytuł
 - Typ
