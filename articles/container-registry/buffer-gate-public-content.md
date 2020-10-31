@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: c7beddda0d344f6b7606f3e2d3624bee39009c66
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043516"
+ms.locfileid: "93130854"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Zarządzanie zawartością publiczną za pomocą Azure Container Registry
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera omówienie praktyk i przepływów pracy służących do kor
 
 Środowisko może być zależne od zawartości publicznej, takiej jak obrazy kontenerów publicznych, [wykresy Helme](https://helm.sh/), zasady [Open Policy Agent](https://www.openpolicyagent.org/) (nieprzez) lub inne artefakty. Na przykład można uruchomić [Nginx](https://hub.docker.com/_/nginx) do routingu usług lub `docker build FROM alpine` przez ściąganie obrazów bezpośrednio z usługi Docker Hub lub innego rejestru publicznego. 
 
-Bez odpowiednich kontroli, posiadanie zależności od zawartości rejestru publicznego może stanowić zagrożenie dla przepływów pracy tworzenia obrazów i wdrażania. W celu ograniczenia ryzyka należy zachować lokalne kopie publicznej zawartości, jeśli jest to możliwe. Aby uzyskać szczegółowe informacje, zobacz Blog dotyczący [otwartej inicjatywy](https://opencontainers.org/posts/blog). 
+Bez odpowiednich kontroli, posiadanie zależności od zawartości rejestru publicznego może stanowić zagrożenie dla przepływów pracy tworzenia obrazów i wdrażania. W celu ograniczenia ryzyka należy zachować lokalne kopie publicznej zawartości, jeśli jest to możliwe. Aby uzyskać szczegółowe informacje, zobacz Blog dotyczący [otwartej inicjatywy](https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/). 
 
 ## <a name="authenticate-with-docker-hub"></a>Uwierzytelnianie za pomocą narzędzia Docker Hub
 
@@ -33,8 +33,6 @@ Pierwszy krok, jeśli obecnie pobierasz Obrazy publiczne z usługi Docker Hub w 
 > Podczas szacowania liczby żądań ściągnięcia należy wziąć pod uwagę, że w przypadku korzystania z usług dostawcy w chmurze lub pracy za firmową translacją adresów sieciowych do usługi Docker Hub w agregacji jako podzbiór adresów IP zostanie wyświetlonych wiele użytkowników.  Dodanie funkcji uwierzytelniania płatnego konta usługi Docker do żądań wysyłanych do centrum platformy Docker spowoduje uniknięcie potencjalnych przerw w świadczeniu usług z powodu ograniczenia szybkości ograniczania.
 >
 > Aby uzyskać szczegółowe informacje, zobacz [Cennik platformy Docker i subskrypcje](https://www.docker.com/pricing) oraz [warunki użytkowania usługi Docker](https://www.docker.com/legal/docker-terms-service).
-
-
 
 Przykłady uwierzytelniania i scenariusze można znaleźć w temacie [Limit szybkości pobierania](https://docs.docker.com/docker-hub/download-rate-limit/).
 
@@ -72,7 +70,7 @@ Aby rozpocząć zarządzanie kopiami obrazów publicznych, możesz utworzyć rej
 
 Jako zalecany krok jednorazowy należy [zaimportować](container-registry-import-images.md) obrazy podstawowe i inną zawartość publiczną do usługi Azure Container Registry. Polecenie [AZ ACR import](/cli/azure/acr#az_acr_import) w interfejsie wiersza polecenia platformy Azure obsługuje importowanie obrazów z publicznych rejestrów, takich jak Docker Hub i Microsoft Container Registry i innych prywatnych rejestrów kontenerów. 
 
-`az acr import` nie wymaga lokalnej instalacji platformy Docker. Można uruchomić ją z lokalną instalacją interfejsu wiersza polecenia platformy Azure lub bezpośrednio w Azure Cloud Shell obsłużyć każdy typ systemu operacyjnego obrazów, obrazy z wieloarchitekturą lub artefakty OCI, takie jak wykresy Helm.
+`az acr import` nie wymaga lokalnej instalacji platformy Docker. Można uruchomić ją z lokalną instalacją interfejsu wiersza polecenia platformy Azure lub bezpośrednio w Azure Cloud Shell. Obsługuje obrazy dowolnego typu systemu operacyjnego, obrazów z wieloarchitekturą lub artefaktów OCI, takich jak wykresy Helm.
 
 Przykład:
 
@@ -82,7 +80,7 @@ az acr import \
   --source docker.io/library/hello-world:latest \
   --image hello-world:latest \
   --username <Docker Hub username> \
-  --password <Docker Hub password>
+  --password <Docker Hub token>
 ```
 
 W zależności od potrzeb organizacji można importować do dedykowanego rejestru lub repozytorium w rejestrze udostępnionym.
@@ -93,7 +91,7 @@ Deweloperzy obrazów aplikacji powinni upewnić się, że ich kod odwołuje się
 
 Rozszerzanie podczas importowania obrazu, skonfiguruj [zadanie Azure Container Registry](container-registry-tasks-overview.md) , aby zautomatyzować kompilacje obrazu aplikacji po zaktualizowaniu obrazów podstawowych. Zadanie zautomatyzowanej kompilacji może śledzić [aktualizacje obrazu podstawowego](container-registry-tasks-base-images.md) i [aktualizacje kodu źródłowego](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
 
-Aby zapoznać się z szczegółowym przykładem, zobacz [jak używać i konserwowania zawartości publicznej za pomocą zadań Azure Container Registry](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md). 
+Aby zapoznać się z szczegółowym przykładem, zobacz [jak używać i konserwowania zawartości publicznej za pomocą zadań Azure Container Registry](tasks-consume-public-content.md). 
 
 > [!NOTE]
 > Jedno wstępnie skonfigurowane zadanie może automatycznie odbudować każdy obraz aplikacji, który odwołuje się do zależnego obrazu podstawowego. 
@@ -101,4 +99,5 @@ Aby zapoznać się z szczegółowym przykładem, zobacz [jak używać i konserwo
 ## <a name="next-steps"></a>Następne kroki
  
 * Dowiedz się więcej o [zadaniach ACR](container-registry-tasks-overview.md) do kompilowania, uruchamiania, wypychania i poprawiania obrazów kontenerów na platformie Azure.
+* Zapoznaj się z tematem [jak używać i konserwować zawartość publiczną z Azure Container Registry zadaniami](tasks-consume-public-content.md) dla zautomatyzowanego przepływu pracy kontroli, aby aktualizować obrazy podstawowe do środowiska. 
 * Zapoznaj się z [samouczkami dotyczącymi zadań ACR](container-registry-tutorial-quick-task.md) , aby uzyskać więcej przykładów automatyzowania kompilacji i aktualizacji obrazów.

@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 10/19/2020
-ms.openlocfilehash: 343a6c92c9d77b5ef589477802015c6346a95ea9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 819b0401b8516538c6fdd12b47e57f79ec45ae09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520997"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131092"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
 Możesz użyć programu współsprzedaży, aby bezpośrednio współpracować ze sprzedawcami firmy Microsoft w ramach wspólnych możliwości sprzedaży i odblokować znaczące dodatkowe korzyści komercyjne i towarowe sprzedawane za pomocą komercyjnej witryny Marketplace.
 
-Program współsprzedażowy jest dostępny dla **oprogramowania utworzonego za pomocą swojej własności intelektualnej (IP) jako powtarzalny, spakowane oferty** i **usługi z technologią firmy Microsoft Embedded**. Większość typów ofert w programie do współsprzedaży jest również dostępna w komercyjnym portalu Marketplace. Oferty, które spełniają dodatkowe wymagania, są **gotowe do przedsprzedażu** lub **do zachęcani**.
+Program współsprzedażowy jest dostępny dla **oprogramowania utworzonego za pomocą swojej własności intelektualnej (IP) jako powtarzalny, spakowane oferty** i **usługi z technologią firmy Microsoft Embedded** . Większość typów ofert w programie do współsprzedaży jest również dostępna w komercyjnym portalu Marketplace. Oferty, które spełniają dodatkowe wymagania, są **gotowe do przedsprzedażu** lub **do zachęcani** .
 
 - Oferty z ofertami do **przedlewej** są udostępniane sprzedającym w dziedzinie firmy Microsoft. Podczas pracy ze sprzedawcami firmy Microsoft, program współsprzedaży pomaga uzyskać rozległą społeczność klientów zarządzanych przez firmę Microsoft w celu współpracy nad szansami sprzedaży, które przyspieszają rozwój Twojej firmy.
 
@@ -40,15 +40,15 @@ Oferty, które uzyskują dostęp **do usługi Azure IP zachęcani** , mają doda
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Współsprzedażowe kroki i wymagania dotyczące publikowania
 
-W poniższej tabeli przedstawiono kroki i wymagania, które należy wykonać w celu udostępnienia oferty z witryny Marketplace gotowej do sprzedaży lub zachęcani. Nie wszystkie typy ofert komercyjnych portalu Marketplace można skonfigurować do wspólnego sprzedaży w centrum partnerskim. Aby uzyskać najnowsze informacje, możesz zapoznać się z [opcją współsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) . 
+W poniższej tabeli przedstawiono kroki i wymagania, które należy wykonać w celu udostępnienia oferty z witryny Marketplace gotowej do sprzedaży lub zachęcani. Nie wszystkie typy ofert komercyjnych portalu Marketplace można skonfigurować do wspólnego sprzedaży w centrum partnerskim. Aby uzyskać najnowsze informacje, możesz zapoznać się z [opcją współsprzedaż w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md) . 
 
 |Krok    |Typ oferty    |Wymagania    |Stan współpracy ze sprzedażą    |
 |----    |-------------    |------------    |---------------   |
-|<ol start=1><li> Utwórz konto w centrum partnerskim i Opublikuj swoją ofertę w komercyjnym portalu Marketplace.</li>|Wszystkie|<li>Oferta jest zgodna z komercyjnymi wymaganiami dotyczącymi publikowania w portalu Marketplace.</li><li>Masz pełny profil biznesowy w centrum partnerskim.</li>|Nie gotowy|
-|<ol start=2><li>Prześlij wymagane materiały do przedsprzedażu.</li>|Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Przekaż wymagane materiały w centrum partnerskim](#how-to-submit-co-sell-materials-in-partner-center)|Gotowe do rozłożenia|
-||Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.|Gotowe do rozłożenia|
+|<ol start=1><li> Utwórz konto w centrum partnerskim i Opublikuj swoją ofertę w komercyjnym portalu Marketplace.</li>|Wszystko|<li>Oferta jest zgodna z komercyjnymi wymaganiami dotyczącymi publikowania w portalu Marketplace.</li><li>Masz pełny profil biznesowy w centrum partnerskim.</li>|Nie gotowy|
+|<ol start=2><li>Prześlij wymagane materiały do przedsprzedażu.</li>|Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md)|[Przekaż wymagane materiały w centrum partnerskim](#how-to-submit-co-sell-materials-in-partner-center)|Gotowe do rozłożenia|
+||Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md)|<li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.|Gotowe do rozłożenia|
 ||Usługi konsultingowe|<li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.</li><li>Aktywna kompetencja Gold.</li>|Gotowe do rozłożenia|
-|<ol start=3><li>Kwalifikuj na zachęty dla współsprzedażowych adresów IP</li>|Aplikacje platformy Azure, kontenery platformy Azure, moduły IoT Edge, SaaS, maszyny wirtualne|Po osiągnięciu gotowości do współpracy należy wykonać dwa dodatkowe wymagania: <ul> Wymaganie 1: osiągnięcie:<ul><li>*Na poziomie organizacji:* spełnia lub przekracza $100 000 USD przychodu zużywanego przez platformę Azure w ciągu ostatnich 12 miesięcy.</li><li>*Na poziomie oferty:* skumulowany przychód w portalu Marketplace $100 000 USD.</li></ul><br>Wymaganie 2: więcej niż 50% infrastruktury oferty musi działać na platformie Azure:<ul><li>Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): Przekaż diagram architektury z dokumentami towarzyszącymi w centrum partnerskim do przeglądu.</li><li>Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): Przekaż diagram architektury do OCP GTM.|Usługa Azure IP zachęcani — sprzedawanie|
+|<ol start=3><li>Kwalifikuj na zachęty dla współsprzedażowych adresów IP</li>|Aplikacje platformy Azure, kontenery platformy Azure, moduły IoT Edge, SaaS, maszyny wirtualne|Po osiągnięciu gotowości do współpracy należy wykonać dwa dodatkowe wymagania: <ul> Wymaganie 1: osiągnięcie:<ul><li>*Na poziomie organizacji:* spełnia lub przekracza $100 000 USD przychodu zużywanego przez platformę Azure w ciągu ostatnich 12 miesięcy.</li><li>*Na poziomie oferty:* skumulowany przychód w portalu Marketplace $100 000 USD.</li></ul><br>Wymaganie 2: więcej niż 50% infrastruktury oferty musi działać na platformie Azure:<ul><li>Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md): Przekaż diagram architektury z dokumentami towarzyszącymi w centrum partnerskim do przeglądu.</li><li>Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md): Przekaż diagram architektury do OCP GTM.|Usługa Azure IP zachęcani — sprzedawanie|
 ||Dynamics|<li>Masz aktywną rejestrację w warstwie Premium programu ISV Connect.</li>|Business Applications współsprzedaż zachęcani|
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Jak przesłać materiały towarzyszące w centrum partnerskim
@@ -56,24 +56,24 @@ W poniższej tabeli przedstawiono kroki i wymagania, które należy wykonać w c
 Rozpocznij swoją podróż wspólną bezpośrednio w centrum partnerskim, wykonując poniższe kroki. Aby uzyskać więcej informacji, zobacz [sprzedawanie opcji w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md).
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-1. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**, a następnie wybierz ofertę, którą chcesz utworzyć.
+1. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** , a następnie wybierz ofertę, którą chcesz utworzyć.
 
     > [!NOTE]
     > Możesz dołączyć do programu do współsprzedaży z nową ofertą, która nie została jeszcze opublikowana, lub z już opublikowaną ofertą.
 
-1. W menu po lewej stronie wybierz pozycję **współsprzedaż z firmą Microsoft**.
+1. W menu po lewej stronie wybierz pozycję **współsprzedaż z firmą Microsoft** .
 
     :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.":::
 
-1. Podaj podstawowe szczegóły dotyczące aukcji, aby pomóc sprzedającym firmy Microsoft w szybkim posortowaniu i znalezieniu oferty w sekcji **wystawiania** . (*Wymagane: wszystkie pola).*
+1. Podaj podstawowe szczegóły dotyczące aukcji, aby pomóc sprzedającym firmy Microsoft w szybkim posortowaniu i znalezieniu oferty w sekcji **wystawiania** . ( *Wymagane: wszystkie pola).*
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.":::  
 
-1. Podaj szczegółowe informacje o ofercie i przekaż zabezpieczenia w sekcji **dokumenty** . Sprzedawcy firmy Microsoft będą korzystać z tych informacji w celu zaproponowania i sprzedaży oferty. (*Wymagane: klient z jednym modułem stronicowania i talią klienta).*
+1. Podaj szczegółowe informacje o ofercie i przekaż zabezpieczenia w sekcji **dokumenty** . Sprzedawcy firmy Microsoft będą korzystać z tych informacji w celu zaproponowania i sprzedaży oferty. ( *Wymagane: klient z jednym modułem stronicowania i talią klienta).*
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft.":::
  
-1. Przekaż informacje kontaktowe sprzedaży w sekcji **kontakty** . Sprzedawcy firmy Microsoft mogą skontaktować się z tymi kontaktami, aby zażądać dodatkowych informacji o ofercie. (*Wymagane: kontakt dla każdej lokalizacji geograficznej, w której oferta jest*udostępniona).
+1. Przekaż informacje kontaktowe sprzedaży w sekcji **kontakty** . Sprzedawcy firmy Microsoft mogą skontaktować się z tymi kontaktami, aby zażądać dodatkowych informacji o ofercie. ( *Wymagane: kontakt dla każdej lokalizacji geograficznej, w której oferta jest* udostępniona).
 
     :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Ten obraz przedstawia lokalizację karty współsprzedaż z firmą Microsoft." w obszarze rozwijanym "żądane usługi CED Services":
 <ul><ul>

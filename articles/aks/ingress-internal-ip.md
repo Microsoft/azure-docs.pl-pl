@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować międzyNGINXowy ko
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 2055946728231452b5359bbe4c98892cba72cfec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ef83c25f4af85fcf8dbb1ee78bd3f797e5a3581
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855812"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131143"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Tworzenie kontrolera transferu danych przychodzących w wewnętrznej sieci wirtualnej w usłudze Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Możesz również wykonać następujące czynności:
 - [Tworzenie kontrolera transferu danych przychodzących korzystającego z własnych certyfikatów TLS][aks-ingress-own-tls]
 - Utwórz kontroler transferu danych przychodzących, który używa szyfrowania, aby automatycznie generować certyfikaty TLS [z dynamicznym publicznym adresem IP][aks-ingress-tls] lub [statycznym publicznym adresem IP][aks-ingress-static-tls]
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule jest instalowany [Helm 3][helm] w celu zainstalowania kontrolera transferu Nginx. Upewnij się, że korzystasz z najnowszej wersji programu Helm i masz dostęp do repozytorium danych przychodzących *-Nginx* Helm. Aby uzyskać więcej informacji na temat konfigurowania i używania Helm, zobacz [Install Applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
 
@@ -50,10 +50,10 @@ Teraz Wdróż wykres *Nginx-* transferal z Helm. Aby użyć pliku manifestu utwo
 Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. Nie należy go uruchamiać w węzłach z systemem Windows Server. Za pomocą parametru `--set nodeSelector` podaje się selektor węzła, który nakazuje harmonogramowi usługi Kubernetes uruchomienie kontrolera wejściowego NGINX w węźle opartym na systemie Linux.
 
 > [!TIP]
-> Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o nazwie transfery *-Basic*. W razie potrzeby określ przestrzeń nazw dla własnego środowiska. Jeśli klaster AKS nie jest włączony RBAC, Dodaj `--set rbac.create=false` do poleceń Helm.
+> Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o nazwie transfery *-Basic* . W razie potrzeby określ przestrzeń nazw dla własnego środowiska. Jeśli klaster AKS nie jest włączony RBAC, Dodaj `--set rbac.create=false` do poleceń Helm.
 
 > [!TIP]
-> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for*. W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta protokół TLS nie będzie działał.
+> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for* . W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta protokół TLS nie będzie działał.
 
 ```console
 # Create a namespace for your ingress resources
@@ -111,7 +111,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -149,7 +149,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -292,7 +292,7 @@ Alternatywnie, bardziej szczegółowe podejście polega na usunięciu utworzonyc
 helm list --namespace ingress-basic
 ```
 
-Poszukaj wykresów o nazwie *Nginx-Ingress* i *AKS-HelloWorld*, jak pokazano w następujących przykładowych danych wyjściowych:
+Poszukaj wykresów o nazwie *Nginx-Ingress* i *AKS-HelloWorld* , jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```
 $ helm list --namespace ingress-basic

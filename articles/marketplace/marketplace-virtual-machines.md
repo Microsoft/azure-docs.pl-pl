@@ -8,18 +8,18 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329036"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129596"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Planowanie oferty maszyny wirtualnej
 
 W tym artykule opisano różne opcje i wymagania dotyczące publikowania oferty maszyny wirtualnej w portalu komercyjnym. Oferty maszyn wirtualnych to oferty transakcyjne wdrożone i rozliczane za pomocą witryny Azure Marketplace.
 
-Przed rozpoczęciem [Utwórz komercyjne konto w witrynie Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
+Przed rozpoczęciem [Utwórz komercyjne konto w witrynie Marketplace w centrum partnerskim](./partner-center-portal/create-account.md) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
 ### <a name="technical-fundamentals"></a>Podstawy techniczne
 
@@ -70,7 +70,7 @@ Możesz wysyłać zaproszenia do adresów e-mail konta Microsoft (MSA) lub Azure
 
 Oferty maszyn wirtualnych wymagają co najmniej jednego planu. Plan definiuje zakres i limity rozwiązania oraz powiązane ceny. Możesz utworzyć wiele planów dla oferty, aby dać klientom różne opcje techniczne i licencjonowania, a także bezpłatne wersje próbne. Zobacz [plany i cenniki dla ofert komercyjnych Marketplace](plans-pricing.md) , aby uzyskać ogólne wytyczne dotyczące planów, w tym modeli cenowych, bezpłatnych wersji próbnych i planów prywatnych. 
 
-Maszyny wirtualne są w pełni obsługiwane w handlu z opcją płatność zgodnie z rzeczywistym użyciem lub BYOL. Firma Microsoft hostuje transakcję handlową i rozlicza klienta w Twoim imieniu. Korzyści wynikające z korzystania z preferowanej relacji płatności między klientem i firmą Microsoft, w tym dowolnymi umowami Enterprise Agreement. Aby uzyskać więcej informacji, zobacz [komercyjne funkcje Transact Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
+Maszyny wirtualne są w pełni obsługiwane w handlu z opcją płatność zgodnie z rzeczywistym użyciem lub BYOL. Firma Microsoft hostuje transakcję handlową i rozlicza klienta w Twoim imieniu. Korzyści wynikające z korzystania z preferowanej relacji płatności między klientem i firmą Microsoft, w tym dowolnymi umowami Enterprise Agreement. Aby uzyskać więcej informacji, zobacz [komercyjne funkcje Transact Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
 > Zobowiązania pieniężne związane z Umowa Enterprise mogą być używane w odniesieniu do użycia platformy Azure przez maszynę wirtualną, ale nie do opłat za licencje na oprogramowanie.
@@ -84,7 +84,7 @@ Dostępne są następujące opcje licencjonowania dla ofert maszyn wirtualnych:
 | Opcja licencjonowania | Proces transakcji |
 | --- | --- |
 | Bezpłatna wersja próbna | Oferuj swoim klientom jedną lub sześć miesięcy bezpłatnej wersji próbnej. |
-| Wersja testowa | Ta opcja umożliwia klientom ocenę maszyn wirtualnych bez dodatkowych kosztów. Nie musi to być istniejący klient platformy Azure w celu zaangażować się z wersją próbną. Aby uzyskać szczegółowe informacje, zobacz [co to jest dysk testowy?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
+| Wersja testowa | Ta opcja umożliwia klientom ocenę maszyn wirtualnych bez dodatkowych kosztów. Nie musi to być istniejący klient platformy Azure w celu zaangażować się z wersją próbną. Aby uzyskać szczegółowe informacje, zobacz [co to jest dysk testowy?](./what-is-test-drive.md) |
 | BYOL | Opcja Przenieś własną licencję pozwala klientom na przenoszenie istniejących licencji na oprogramowanie na platformę Azure.\* |
 | Na podstawie użycia | Opcja ta pozwala klientom na płatność zgodnie z rzeczywistym użyciem. |
 | Interaktywny pokaz  | Zapoznaj się z przewodnikiem po rozwiązaniu problemu przy użyciu interaktywnej prezentacji. Korzyścią jest możliwość oferowania wersji próbnej bez konieczności zapewnienia skomplikowanej konfiguracji złożonego rozwiązania. |
@@ -129,7 +129,7 @@ Jeśli zdecydujesz się na korzystanie z kontraktu standardowego, możesz dodać
 Podczas tworzenia oferty w centrum partnerskim zostanie wyświetlona karta **odsprzedawana za pomocą dostawcy CSP** . Ta opcja umożliwia partnerom należącym do programu Microsoft Cloud dostawcy rozwiązań (CSP) odsprzedaż maszyny wirtualnej w ramach powiązanej oferty. Wszystkie plany przyłączenia do własnej licencji (BYOL) są automatycznie dodanych do programu. Możesz również zdecydować się na wybór planów BYOL. Aby uzyskać więcej informacji, zobacz [program Cloud Solution Provider](cloud-solution-providers.md) . 
 
 > [!NOTE]
-> Niedostępność kanału partnera dostawcy rozwiązań w chmurze (CSP) jest teraz dostępna. Aby uzyskać więcej informacji na temat marketingu oferty za poorednictwem kanałów partnerów CSP firmy Microsoft, zobacz [**dostawcy rozwiązań w chmurze**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+> Niedostępność kanału partnera dostawcy rozwiązań w chmurze (CSP) jest teraz dostępna. Aby uzyskać więcej informacji na temat marketingu oferty za poorednictwem kanałów partnerów CSP firmy Microsoft, zobacz [**dostawcy rozwiązań w chmurze**](./cloud-solution-providers.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

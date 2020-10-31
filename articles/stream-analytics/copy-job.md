@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: e0214cb9515a5974f1de9a27760dc037f7593f30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892312"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129460"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Kopiowanie lub tworzenie kopii zapasowych zadań Azure Stream Analytics
 
-Możesz kopiować i tworzyć kopie zapasowe wdrożonych zadań Azure Stream Analytics przy użyciu Visual Studio Code lub programu Visual Studio. Kopiowanie zadania do innego regionu nie powoduje skopiowania ostatniego czasu wyjściowego. W związku z tym nie można użyć opcji [**Ostatnia zatrzymana**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) podczas uruchamiania skopiowanego zadania.
+Możesz kopiować i tworzyć kopie zapasowe wdrożonych zadań Azure Stream Analytics przy użyciu Visual Studio Code lub programu Visual Studio. Kopiowanie zadania do innego regionu nie powoduje skopiowania ostatniego czasu wyjściowego. W związku z tym nie można użyć opcji [**Ostatnia zatrzymana**](./start-job.md#start-options) podczas uruchamiania skopiowanego zadania.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 * Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 * Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
@@ -45,7 +45,7 @@ Możesz kopiować i tworzyć kopie zapasowe wdrożonych zadań Azure Stream Anal
 
 ## <a name="visual-studio"></a>Visual Studio
 
-1. Wykonaj [zadanie Eksportuj wdrożone Azure Stream Analytics do instrukcji projektu](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project).
+1. Wykonaj [zadanie Eksportuj wdrożone Azure Stream Analytics do instrukcji projektu](./stream-analytics-vs-tools.md#export-jobs-to-a-project).
 
 2. Otwórz \* plik. asaql w edytorze zapytań, wybierz pozycję **Prześlij do platformy Azure** w Edytorze skryptów i postępuj zgodnie z instrukcjami, aby opublikować zadanie w innym regionie lub kopii zapasowej przy użyciu nowej nazwy.
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823005"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129783"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI dane wyjściowe z Azure Stream Analytics
 
@@ -51,12 +51,12 @@ Power BI używa zasad przechowywania w pierwszej kolejności (FIFO). Dane będą
 
 Azure Stream Analytics automatycznie aktualizuje model danych w czasie wykonywania, jeśli zmieni się schemat danych wyjściowych. Zmiany nazwy kolumny, zmiany typu kolumny i Dodawanie lub usuwanie kolumn są śledzone.
 
-W tej tabeli opisano konwersje typów danych z [Stream Analytics typów danych](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) do Power BI [Entity Data Model (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), jeśli Power BI zestaw danych i tabela nie istnieją.
+W tej tabeli opisano konwersje typów danych z [Stream Analytics typów danych](/stream-analytics-query/data-types-azure-stream-analytics) do Power BI [Entity Data Model (EDM)](/dotnet/framework/data/adonet/entity-data-model), jeśli Power BI zestaw danych i tabela nie istnieją.
 
 Z Stream Analytics | Aby Power BI
 -----|-----
 bigint | Int64
-nvarchar (max) | Ciąg
+nvarchar (max) | String
 datetime | Datetime (data/godzina)
 float | Double
 Rejestruj tablicę | Typ ciągu, stała wartość "IRecord" lub "IArray"
@@ -67,16 +67,16 @@ Stream Analytics wnioskuje schemat modelu danych na podstawie pierwszego zestawu
 
 Należy unikać `SELECT *` zapytania, aby zapobiec dynamicznej aktualizacji schematu w wierszach. Oprócz potencjalnego wpływu na wydajność może to spowodować niepewność czasu trwania dla wyników. Wybierz dokładne pola, które mają być wyświetlane na pulpicie nawigacyjnym Power BI. Ponadto wartości danych powinny być zgodne z wybranym typem danych.
 
-Poprzedni/bieżący | Int64 | Ciąg | Datetime (data/godzina) | Double
+Poprzedni/bieżący | Int64 | String | Datetime (data/godzina) | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String (ciąg) | String (ciąg) | Double
 Double | Double | String (ciąg) | String (ciąg) | Double
 String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) 
-Datetime (data/godzina) | String (ciąg) | String (ciąg) |  Datetime (data/godzina) | Ciąg
+Datetime (data/godzina) | String (ciąg) | String (ciąg) |  Datetime (data/godzina) | String
 
 ## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
 
-W przypadku wyjściowego rozmiaru partii zobacz [Power BI limity interfejsu API REST](https://msdn.microsoft.com/library/dn950053.aspx).
+W przypadku wyjściowego rozmiaru partii zobacz [Power BI limity interfejsu API REST](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Następne kroki
 

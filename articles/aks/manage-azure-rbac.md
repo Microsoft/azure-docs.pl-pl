@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0df92eadc4db132d567e708abe6e28e82642d6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329095"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129562"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
 
@@ -21,7 +21,7 @@ Ta funkcja zwalnia z konieczności oddzielnego zarządzania tożsamościami i po
 
 W tym dokumencie opisano nowe podejście, które pozwala na ujednolicone zarządzanie i kontrolę dostępu między zasobami platformy Azure, AKS i zasobami Kubernetes.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Możliwość zarządzania RBAC dla zasobów Kubernetes z platformy Azure umożliwia zarządzanie RBAC dla zasobów klastra przy użyciu platformy Azure lub natywnych mechanizmów Kubernetes. Po włączeniu nazwy główne usługi Azure AD będą weryfikowane wyłącznie przez funkcję RBAC platformy Azure, podczas gdy regularni Użytkownicy i konta usług Kubernetes są weryfikowane wyłącznie przez Kubernetes RBAC. Aby uzyskać więcej informacji na temat uwierzytelniania, autoryzacji i RBAC w witrynie AKS, zobacz [tutaj](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
@@ -75,6 +75,7 @@ az extension update --name aks-preview
 - W trakcie okresu zapoznawczego można dodawać tylko uprawnienia na *poziomie przestrzeni nazw* za pośrednictwem interfejsu wiersza polecenia platformy Azure.
 - Jeśli masz CRDs i tworzysz niestandardowe definicje ról, jedynym sposobem na pokrycie CRDs dzisiaj jest zapewnienie `Microsoft.ContainerService/managedClusters/*/read` . AKS pracuje nad zapewnieniem bardziej szczegółowych uprawnień dla CRDs. Dla pozostałych obiektów można użyć określonych grup interfejsów API, na przykład: `Microsoft.ContainerService/apps/deployments/read` .
 - Nowe przypisania ról mogą trwać do 5 min i aktualizować je na serwerze autoryzacji.
+- Wymaga, aby dzierżawa usługi Azure AD była taka sama jak dzierżawa dla subskrypcji zawierającej klaster AKS. 
 
 ## <a name="create-a-new-cluster-using-azure-rbac-and-managed-azure-ad-integration"></a>Tworzenie nowego klastra przy użyciu funkcji RBAC platformy Azure i zarządzanej integracji usługi Azure AD
 

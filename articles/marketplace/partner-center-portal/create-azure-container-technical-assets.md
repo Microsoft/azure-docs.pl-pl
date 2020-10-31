@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/09/2020
-ms.openlocfilehash: 46102305e99c94fc71ad0934a2c0063fdcbeec4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40de52773d9f205e3133543f689c9d381776d8ee
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317794"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130429"
 ---
 # <a name="create-an-azure-container-offer"></a>Tworzenie oferty kontenera platformy Azure
 
 W tym artykule przedstawiono zasoby techniczne i zalecenia ułatwiające tworzenie oferty kontenera w witrynie Azure Marketplace.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby zapoznać się z przewodnikami Szybki Start, samouczkami i przykładami, zobacz [dokumentację Azure Container Instances](../../container-instances/index.yml).
 
@@ -38,8 +38,8 @@ Poza domeną rozwiązania Zespół inżynieryjny powinien znać następujące te
 
 Wybierz co najmniej jedno z następujących środowisk skryptów, aby ułatwić zarządzanie obrazem kontenera:
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-3.7.0&viewFallbackFrom=azps-3.6.1)
-- [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+- [Azure PowerShell](/powershell/azure/?view=azps-3.7.0&viewFallbackFrom=azps-3.6.1)
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest).
 
 Zalecamy dodanie tych narzędzi do środowiska deweloperskiego:
 

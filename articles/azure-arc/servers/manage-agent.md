@@ -1,18 +1,18 @@
 ---
 title: Zarządzanie agentem serwerów z obsługą usługi Azure Arc
 description: W tym artykule opisano różne zadania zarządzania, które zwykle są wykonywane w cyklu życia serwerów z obsługą usługi Azure Arc połączonej z agentem.
-ms.date: 10/21/2020
+ms.date: 10/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371430"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130973"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
 
-Po początkowym wdrożeniu serwera z włączoną obsługą usługi Azure Arc w systemie Windows lub Linux może być konieczne ponowne skonfigurowanie agenta, uaktualnienie go lub usunięcie z komputera, jeśli osiągnął etap wycofania w jego cyklu życia. Można łatwo zarządzać tymi rutynowymi zadaniami konserwacji ręcznie lub przy użyciu automatyzacji, co zmniejsza zarówno błąd operacyjny, jak i wydatki.
+Po początkowym wdrożeniu serwera z włączoną obsługą usługi Azure Arc w systemie Windows lub Linux może być konieczne ponowne skonfigurowanie agenta, uaktualnienie go lub usunięcie z komputera. Można łatwo zarządzać tymi rutynowymi zadaniami konserwacji ręcznie lub przy użyciu automatyzacji, co zmniejsza zarówno błąd operacyjny, jak i wydatki.
 
 ## <a name="before-uninstalling-agent"></a>Przed odinstalowaniem agenta
 
@@ -38,7 +38,11 @@ W przypadku serwerów lub maszyn, których nie chcesz już zarządzać przy uży
 
 ## <a name="upgrading-agent"></a>Uaktualnianie agenta
 
-Agenta połączonego z platformą Azure dla systemów Windows i Linux można uaktualnić do najnowszej wersji ręcznie lub automatycznie, w zależności od wymagań. W poniższej tabeli opisano metody, które są obsługiwane w celu przeprowadzenia uaktualnienia agenta.
+Agent maszyny połączonej z platformą Azure jest regularnie aktualizowany w celu rozwiązywania poprawek usterek, ulepszeń stabilności i nowych funkcji. [Azure Advisor](../../advisor/advisor-overview.md) identyfikuje zasoby, które nie korzystają z najnowszej wersji programu Machine Agent i zaleca się uaktualnienie do najnowszej wersji. Po wybraniu serwera z włączonym Łukem zostanie wyświetlony transparent na stronie **Przegląd** lub podczas uzyskiwania dostępu do usługi Advisor za pomocą Azure Portal.
+
+Agenta połączonego z platformą Azure dla systemów Windows i Linux można uaktualnić do najnowszej wersji ręcznie lub automatycznie, w zależności od wymagań.
+
+W poniższej tabeli opisano metody, które są obsługiwane w celu przeprowadzenia uaktualnienia agenta.
 
 | System operacyjny | Metoda uaktualniania |
 |------------------|----------------|
@@ -163,7 +167,7 @@ Narzędzie Azcmagent (Azcmagent.exe) służy do konfigurowania agenta maszyny po
 Można **nawiązywać połączenie** i rozłączać ręcznie, podczas logowania interaktywnego, lub zautomatyzować przy użyciu tej samej jednostki usługi, która została użyta do **dołączenia** wielu agentów lub [tokenu dostępu](../../active-directory/develop/access-tokens.md)platformy tożsamości firmy Microsoft. Jeśli nie korzystasz z jednostki usługi w celu zarejestrowania maszyny przy użyciu serwerów z obsługą usługi Azure ARC, zapoznaj się z poniższym [artykułem](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) , aby utworzyć nazwę główną usługi.
 
 >[!NOTE]
->Aby uruchamiać **azcmagent**, musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
+>Aby uruchamiać **azcmagent** , musisz mieć uprawnienia dostępu *głównego* na maszynach z systemem Linux.
 
 ### <a name="connect"></a>Connect
 
@@ -215,8 +219,8 @@ Obie następujące metody usuwają agenta, ale nie usuwają folderu *C:\Program 
 1. Aby odinstalować agenta systemu Windows z komputera, wykonaj następujące czynności:
 
     a. Zaloguj się na komputerze przy użyciu konta z uprawnieniami administratora.  
-    b. W **Panelu sterowania**wybierz **aplet Programy i funkcje**.  
-    c. W obszarze **programy i funkcje**wybierz pozycję **Agent połączonej maszyny Azure**, wybierz pozycję **Odinstaluj**, a następnie wybierz pozycję **tak**.  
+    b. W **Panelu sterowania** wybierz **aplet Programy i funkcje** .  
+    c. W obszarze **programy i funkcje** wybierz pozycję **Agent połączonej maszyny Azure** , wybierz pozycję **Odinstaluj** , a następnie wybierz pozycję **tak** .  
 
     >[!NOTE]
     > Możesz również uruchomić Kreatora instalacji agenta, klikając dwukrotnie pakiet Instalatora **AzureConnectedMachineAgent.msi** .
@@ -277,7 +281,7 @@ Jeśli planujesz zatrzymanie zarządzania komputerem za pomocą usług pomocnicz
 
 1. Otwórz serwery z obsługą usługi Azure ARC, przechodząc do [Azure Portal](https://aka.ms/hybridmachineportal).
 
-2. Wybierz maszynę z listy, wybierz wielokropek (**...**), a następnie wybierz pozycję **Usuń**.
+2. Wybierz maszynę z listy, wybierz wielokropek ( **...** ), a następnie wybierz pozycję **Usuń** .
 
 ## <a name="update-or-remove-proxy-settings"></a>Aktualizowanie lub usuwanie ustawień serwera proxy
 

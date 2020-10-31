@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5cff53ee9e742e93a6183eb5d506bf8f1a08deb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115105"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130191"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów uwierzytelniania i autoryzacji usługi Azure AD
 
@@ -156,7 +156,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS50136 | RedirectMsaSessionToApp — wykryto pojedynczą sesję MSA. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken — sesja jest nieprawidłowa z powodu braku zewnętrznego tokenu odświeżania. |
 | AADSTS50140 | KmsiInterrupt — ten błąd wystąpił z powodu przerwania "nie wylogowuj mnie" podczas logowania użytkownika. [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md) z identyfikatorem korelacji, identyfikatorem żądania i kodem błędu, aby uzyskać więcej informacji. |
-| AADSTS50143 | Niezgodność sesji — sesja jest nieprawidłowa, ponieważ dzierżawca użytkownika nie jest zgodny z wskazówką domeny z powodu innego zasobu. Aby uzyskać więcej informacji,  [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md) o identyfikatorze korelacji, identyfikatorze żądania i kodzie błędu. |
+| AADSTS50143 | Niezgodność sesji — sesja jest nieprawidłowa, ponieważ dzierżawa użytkownika nie odpowiada wskazówce dotyczącej domeny z powodu innego zasobu. [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md) z identyfikatorem korelacji, identyfikatorem żądania i kodem błędu, aby uzyskać więcej informacji. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword hasło użytkownika Active Directory wygasło. Wygeneruj nowe hasło dla użytkownika lub użyj narzędzia resetowania samoobsługowego do zresetowania hasła. |
 | AADSTS50146 | MissingCustomSigningKey — ta aplikacja jest wymagana do skonfigurowania klucza podpisywania specyficznego dla aplikacji. Albo nie została skonfigurowana przy jego użyciu, albo klucz wygasł lub nie jest jeszcze ważny. |
 | AADSTS50147 | MissingCodeChallenge — rozmiar parametru wezwania kodu jest nieprawidłowy. |
@@ -200,7 +200,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS70007 | UnsupportedResponseMode — aplikacja zwróciła nieobsługiwaną wartość dla `response_mode` żądania tokenu.  |
 | AADSTS70008 | ExpiredOrRevokedGrant — token odświeżania wygasł z powodu braku aktywności. Token został wystawiony w dniu XXX i był nieaktywny przez określony czas. |
 | AADSTS70011 | InvalidScope — zakres żądany przez aplikację jest nieprawidłowy. |
-| AADSTS70012 | MsaServerError — Wystąpił błąd serwera podczas uwierzytelniania użytkownika MSA (konsumenta). Spróbuj ponownie. Jeśli to się nie powiedzie, [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError — Wystąpił błąd serwera podczas uwierzytelniania użytkownika MSA (konsumenta). Spróbuj ponownie. Jeśli próba ponownie nie powiedzie się, [otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | Błąd przepływu urządzenia AuthorizationPending-OAuth 2,0. Autoryzacja jest w stanie oczekiwania. Urządzenie ponowi próbę sondowania żądania. |
 | AADSTS70018 | BadVerificationCode — nieprawidłowy kod weryfikacyjny ze względu na to, że użytkownik pisze nieprawidłowy kod użytkownika dla przepływu kodu urządzenia. Autoryzacja nie jest zatwierdzona. |
 | AADSTS70019 | CodeExpired — upłynął kod weryfikacyjny. Użytkownik musi się ponownie zalogować. |
@@ -320,6 +320,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS1000000 | UserNotBoundError — interfejs API bind wymaga, aby użytkownik usługi Azure AD mógł także uwierzytelniać się przy użyciu zewnętrznego dostawcy tożsamości, który jeszcze nie wystąpił. |
 | AADSTS1000002 | BindCompleteInterruptError — powiązanie zostało wykonane pomyślnie, ale użytkownik musi zostać poinformowany. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled — aplikacja jest wyłączona. |
+| AADSTS7000114| Aplikacja "appIdentifier" nie może tworzyć aplikacji w imieniu.|
 | AADSTS7500529 | Wartość "SAMLId-GUID" nie jest prawidłowym IDENTYFIKATORem SAML — usługa Azure AD używa tego atrybutu do wypełniania atrybutu InResponseTo zwróconej odpowiedzi. Identyfikator nie może zaczynać się od liczby, więc typową strategią jest dołączenie ciągu takiego jak "ID" do ciągu reprezentującego identyfikator GUID. Na przykład id6c1c178c166d486687be4aaf5e482730 jest prawidłowym IDENTYFIKATORem. |
 
 ## <a name="next-steps"></a>Następne kroki

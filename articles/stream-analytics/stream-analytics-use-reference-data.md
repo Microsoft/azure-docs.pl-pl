@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84196438"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129732"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Używanie danych referencyjnych do wyszukiwania w Stream Analytics
 
-Dane referencyjne (nazywane również tabelami odnośników) to zbiór danych, który jest statyczny lub wolno zmieniany w charakterze, używany do przeszukiwania lub rozszerzania strumieni danych. Na przykład w scenariuszu IoT można przechowywać metadane dotyczące czujników (które często nie zmieniają się) w danych referencyjnych i przyłączać je do strumieni danych IoT w czasie rzeczywistym. Azure Stream Analytics ładuje dane referencyjne w pamięci, aby osiągnąć Przetwarzanie strumienia o małym opóźnieniu. Aby korzystać z danych referencyjnych w zadaniu Azure Stream Analytics, zazwyczaj użyjesz [sprzężenia danych referencyjnych](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) w zapytaniu. 
+Dane referencyjne (nazywane również tabelami odnośników) to zbiór danych, który jest statyczny lub wolno zmieniany w charakterze, używany do przeszukiwania lub rozszerzania strumieni danych. Na przykład w scenariuszu IoT można przechowywać metadane dotyczące czujników (które często nie zmieniają się) w danych referencyjnych i przyłączać je do strumieni danych IoT w czasie rzeczywistym. Azure Stream Analytics ładuje dane referencyjne w pamięci, aby osiągnąć Przetwarzanie strumienia o małym opóźnieniu. Aby korzystać z danych referencyjnych w zadaniu Azure Stream Analytics, zazwyczaj użyjesz [sprzężenia danych referencyjnych](/stream-analytics-query/reference-data-join-azure-stream-analytics) w zapytaniu. 
 
 ## <a name="example"></a>Przykład  
 Możesz mieć strumień zdarzeń generowanych w czasie rzeczywistym, gdy samochody przechodzą w kabinę płatną. W przypadku połączeń płatnych można przechwycić płytę licencyjną w czasie rzeczywistym i dołączyć do statycznego zestawu danych, który zawiera szczegółowe informacje o rejestracji, aby identyfikować płytki licencyjne, które wygasły.  
@@ -37,7 +37,7 @@ Dane referencyjne są modelowane jako sekwencja obiektów BLOB (zdefiniowanych w
 
 ### <a name="configure-blob-reference-data"></a>Skonfiguruj dane referencyjne obiektów BLOB
 
-Aby skonfigurować dane referencyjne, musisz najpierw utworzyć dane wejściowe typu **dane referencyjne**. W poniższej tabeli objaśniono każdą właściwość, która będzie potrzebna podczas tworzenia danych referencyjnych, z opisem:
+Aby skonfigurować dane referencyjne, musisz najpierw utworzyć dane wejściowe typu **dane referencyjne** . W poniższej tabeli objaśniono każdą właściwość, która będzie potrzebna podczas tworzenia danych referencyjnych, z opisem:
 
 |**Nazwa właściwości**  |**Opis**  |
 |---------|---------|
@@ -96,7 +96,7 @@ Przy użyciu opcji zapytania Delta Stream Analytics początkowo uruchamia zapyta
 
 Aby skonfigurować dane referencyjne SQL Database, musisz najpierw utworzyć dane **referencyjne** . W poniższej tabeli objaśniono każdą właściwość, która będzie potrzebna podczas tworzenia danych referencyjnych, z opisem. Aby uzyskać więcej informacji, zobacz [Korzystanie z danych referencyjnych z SQL Database dla zadania Azure Stream Analytics](sql-reference-data.md).
 
-[Wystąpienia zarządzanego usługi Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) można użyć jako danych wejściowych referencyjnych. Należy [skonfigurować publiczny punkt końcowy w wystąpieniu zarządzanym SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) , a następnie ręcznie skonfigurować poniższe ustawienia w Azure Stream Analytics. Maszyna wirtualna platformy Azure z systemem SQL Server z dołączoną bazą danych jest również obsługiwana przez ręczne skonfigurowanie ustawień poniżej.
+[Wystąpienia zarządzanego usługi Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) można użyć jako danych wejściowych referencyjnych. Należy [skonfigurować publiczny punkt końcowy w wystąpieniu zarządzanym SQL](../azure-sql/managed-instance/public-endpoint-configure.md) , a następnie ręcznie skonfigurować poniższe ustawienia w Azure Stream Analytics. Maszyna wirtualna platformy Azure z systemem SQL Server z dołączoną bazą danych jest również obsługiwana przez ręczne skonfigurowanie ustawień poniżej.
 
 |**Nazwa właściwości**|**Opis**  |
 |---------|---------|
@@ -146,6 +146,6 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.get.started]: ./stream-analytics-real-time-fraud-detection.md
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

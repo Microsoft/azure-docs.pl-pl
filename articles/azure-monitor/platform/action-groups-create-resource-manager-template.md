@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c02812d4c97b94667fcddcb275243e7a9b36b29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01fb93a4b74a35501d0684b822ea83fc7b20770a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321908"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130582"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Tworzenie grupy akcji przy użyciu szablonu Menedżer zasobów
 W tym artykule pokazano, jak skonfigurować grupy akcji przy użyciu [szablonu Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) . Za pomocą szablonów można automatycznie konfigurować grupy akcji, które mogą być ponownie używane w niektórych typach alertów. Te grupy akcji zapewniają, że wszystkie odpowiednie strony są powiadamiane po wyzwoleniu alertu.
@@ -23,11 +23,11 @@ Podstawowe kroki są następujące:
 
 2. Wdróż szablon przy użyciu [dowolnej metody wdrażania](../../azure-resource-manager/templates/deploy-powershell.md).
 
-Najpierw opisano sposób tworzenia szablonu Menedżer zasobów dla grupy akcji, w której definicje akcji są trwale kodowane w szablonie. Po drugie opisano sposób tworzenia szablonu, który pobiera informacje o konfiguracji elementu webhook jako parametry wejściowe podczas wdrażania szablonu.
-
 ## <a name="resource-manager-templates-for-an-action-group"></a>Menedżer zasobów szablonów dla grupy akcji
 
 Aby utworzyć grupę akcji przy użyciu szablonu Menedżer zasobów, należy utworzyć zasób typu `Microsoft.Insights/actionGroups` . Następnie Wypełnij wszystkie powiązane właściwości. Poniżej przedstawiono dwa przykładowe szablony, które tworzą grupę akcji.
+
+Pierwszy szablon zawiera opis sposobu tworzenia szablonu Menedżer zasobów dla grupy akcji, w której definicje akcji są zakodowane w szablonie. Drugi szablon zawiera opis sposobu tworzenia szablonu, który pobiera informacje o konfiguracji elementu webhook jako parametry wejściowe podczas wdrażania szablonu.
 
 ```json
 {

@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: Azure App Service, Web App, Linux, Windows, Docker, kontener
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: f3c687d5c8b4e4c6d0b7f4ff912137066fe10bbb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b5682275a9e5f3993de715ab5f23a708d5df47ae
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743715"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130123"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrowanie oprogramowania niestandardowego do Azure App Service przy użyciu niestandardowego kontenera
 
@@ -110,7 +110,7 @@ W Kreatorze publikacji wybierz pozycję **Container Registry**  >  **Utwórz now
 
 W oknie dialogowym **Utwórz nowy rejestr Azure Container Registry** wybierz pozycję **Dodaj konto** i zaloguj się do swojej subskrypcji platformy Azure. Po zalogowaniu wybierz z listy rozwijanej konto zawierające odpowiednią subskrypcję.
 
-![Logowanie się do platformy Azure](./media/tutorial-custom-container/add-an-account.png)
+![Logowanie do platformy Azure](./media/tutorial-custom-container/add-an-account.png)
 
 ### <a name="configure-the-registry"></a>Konfigurowanie rejestru
 
@@ -318,6 +318,10 @@ ENTRYPOINT ["init.sh"]
 * Ostatni wiersz, `ENTRYPOINT ["init.sh"]` , wywołuje, `init.sh` Aby uruchomić usługę SSH i serwer Python.
 
 ## <a name="build-and-test-the-image-locally"></a>Tworzenie i testowanie obrazu lokalnie
+
+> [!NOTE]
+> Centrum platformy Docker ma [przydziały liczby anonimowych ściągań na adres IP oraz liczbę uwierzytelnionych ściągań dla bezpłatnego użytkownika (zobacz **transfer danych** )](https://www.docker.com/pricing). Jeśli zauważysz, że ściągania z usługi Docker Hub są ograniczone, spróbuj ponownie, `docker login` Jeśli nie zostało to jeszcze zrobione.
+> 
 
 1. Uruchom następujące polecenie, aby skompilować obraz:
 

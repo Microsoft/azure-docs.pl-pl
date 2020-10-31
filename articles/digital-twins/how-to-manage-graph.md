@@ -7,21 +7,25 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 28551cb201ab964a21461d6b3f97ce439e446011
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495774"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130293"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
-Bliźniaczych reprezentacji na platformie Azure Digital to [Wykres dwuosiowy](concepts-twins-graph.md) reprezentujący całe środowisko. Wykres dwuosiowy jest wykonany z pojedynczej bliźniaczych reprezentacji cyfrowej połączonej za pośrednictwem **relacji**. 
+Bliźniaczych reprezentacji na platformie Azure Digital to [Wykres dwuosiowy](concepts-twins-graph.md) reprezentujący całe środowisko. Wykres dwuosiowy jest wykonany z pojedynczej bliźniaczych reprezentacji cyfrowej połączonej za pośrednictwem **relacji** . 
 
 Gdy korzystasz z działającego [wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance-portal.md) i ustawisz kod [uwierzytelniania](how-to-authenticate-client.md) w aplikacji klienckiej, możesz użyć [**interfejsów API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) , aby tworzyć, modyfikować i usuwać bliźniaczych reprezentacji cyfrowe oraz ich relacje w wystąpieniu bliźniaczych reprezentacji cyfrowych platformy Azure. Można również użyć [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
 Ten artykuł koncentruje się na zarządzaniu relacjami i wykresem jako całościowym; Aby korzystać z pojedynczych bliźniaczych reprezentacji cyfrowych, zobacz [*How to: Manage Digital bliźniaczych reprezentacji*](how-to-manage-twin.md).
 
+## <a name="prerequisites"></a>Wymagania wstępne
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+    
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Utwórz relacje
@@ -33,11 +37,11 @@ Relacje są tworzone przy użyciu `CreateRelationship()` wywołania.
 Aby utworzyć relację, należy określić:
 * Identyfikator przędzy źródłowej ( `srcId` w poniższym przykładzie kodu): Identyfikator przędzy, z której pochodzi relacja.
 * Identyfikator przędzy docelowej ( `targetId` w poniższym przykładzie kodu): Identyfikator dwuosiowy, do którego nadeszła relacja.
-* Nazwa relacji ( `relName` w poniższym przykładzie kodu): ogólny typ relacji, co _zawiera_.
-* Identyfikator relacji ( `relId` w poniższym przykładzie kodu): Nazwa określona dla tej relacji, taka jak _Relationship1_.
+* Nazwa relacji ( `relName` w poniższym przykładzie kodu): ogólny typ relacji, co _zawiera_ .
+* Identyfikator relacji ( `relId` w poniższym przykładzie kodu): Nazwa określona dla tej relacji, taka jak _Relationship1_ .
 
 Identyfikator relacji musi być unikatowy w obrębie danej przędzy źródłowej. Nie musi być globalnie unikatowa.
-Na przykład dla sznurka *foo*każdy określony identyfikator relacji musi być unikatowy. Jednak inny *pasek* dwuosiowy może mieć relację wychodzącą zgodną z tym samym identyfikatorem relacji *foo* .
+Na przykład dla sznurka *foo* każdy określony identyfikator relacji musi być unikatowy. Jednak inny *pasek* dwuosiowy może mieć relację wychodzącą zgodną z tym samym identyfikatorem relacji *foo* .
 
 Poniższy przykład kodu ilustruje sposób tworzenia relacji w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
 
@@ -81,9 +85,9 @@ Relacje mogą być klasyfikowane jako:
 
 Nie ma ograniczeń dotyczących liczby relacji, które mogą mieć między dwoma bliźniaczych reprezentacji — można mieć dowolną liczbę relacji między bliźniaczych reprezentacji. 
 
-Oznacza to, że można wyrazić kilka różnych typów relacji między dwoma bliźniaczych reprezentacji jednocześnie. Na przykład *przędza a* może mieć zarówno *przechowywaną* relację, jak i *wytworzoną* relację z *przędzą B*.
+Oznacza to, że można wyrazić kilka różnych typów relacji między dwoma bliźniaczych reprezentacji jednocześnie. Na przykład *przędza a* może mieć zarówno *przechowywaną* relację, jak i *wytworzoną* relację z *przędzą B* .
 
-W razie potrzeby można nawet utworzyć wiele wystąpień tego samego typu relacji między tymi samymi dwoma bliźniaczych reprezentacji. W tym przykładzie *sznurek A* może mieć dwie różne *przechowywane* relacje z *przędzą B*, o ile relacje mają różne identyfikatory relacji.
+W razie potrzeby można nawet utworzyć wiele wystąpień tego samego typu relacji między tymi samymi dwoma bliźniaczych reprezentacji. W tym przykładzie *sznurek A* może mieć dwie różne *przechowywane* relacje z *przędzą B* , o ile relacje mają różne identyfikatory relacji.
 
 ## <a name="list-relationships"></a>Wyświetl relacje
 
@@ -132,7 +136,7 @@ Możesz użyć pobranych relacji, aby przejść do innych bliźniaczych reprezen
 
 ### <a name="find-incoming-relationships-to-a-digital-twin"></a>Znajdź przychodzące relacje z dwuosiową cyfrą
 
-Usługa Azure Digital bliźniaczych reprezentacji ma także interfejs API, który umożliwia znalezienie wszystkich*przychodzących** relacji do danej przędzy. Jest to często przydatne w przypadku nawigacji odwrotnej lub podczas usuwania sznurka.
+Usługa Azure Digital bliźniaczych reprezentacji ma także interfejs API, który umożliwia znalezienie wszystkich *przychodzących* * relacji do danej przędzy. Jest to często przydatne w przypadku nawigacji odwrotnej lub podczas usuwania sznurka.
 
 Poprzedni przykład kodu koncentruje się na znajdowaniu relacji wychodzących od sznurka. Poniższy przykład ma strukturę podobną, ale zamiast tego znajduje *przychodzące* relacje z przędzą.
 

@@ -6,21 +6,18 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: 9704ff7dec02a0de044863ec2da6280d65b30ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043521"
+ms.locfileid: "93131160"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Warstwa Premium dla Azure Data Lake Storage
 
-Azure Data Lake Storage Gen2 teraz obsługuje [warstwę wydajności Premium](storage-blob-performance-tiers.md#premium-performance). Warstwa wydajności Premium jest idealnym rozwiązaniem w przypadku aplikacji do analizy danych Big Data i obciążeń, które wymagają niskich opóźnień i mają dużą liczbę transakcji. 
-
-> [!NOTE]
-> Warstwa Premium dla Azure Data Lake Storage jest w publicznej wersji zapoznawczej. Zobacz [dostępność regionalna](#regional-availability).
+Azure Data Lake Storage Gen2 teraz obsługuje [warstwę wydajności Premium](storage-blob-performance-tiers.md#premium-performance). Warstwa wydajności Premium jest idealnym rozwiązaniem w przypadku aplikacji do analizy danych Big Data i obciążeń, które wymagają niskich opóźnień i mają dużą liczbę transakcji.
 
 ## <a name="workloads-that-can-benefit-from-the-premium-performance-tier"></a>Obciążenia, które mogą korzystać z warstwy wydajności Premium
 
@@ -78,7 +75,7 @@ Na poniższej ilustracji przedstawiono to ustawienie na stronie **Tworzenie kont
 
 Warstwa Premium dla Azure Data Lake Storage jest dostępna w następujących regionach.
 
-|Region|Nadmiarowość|
+|Region (Region)|Nadmiarowość|
 |--|--|
 |East US|LRS, ZRS|
 |Wschodnie stany USA 2|LRS, ZRS|
@@ -106,8 +103,3 @@ Warstwa Premium dla Azure Data Lake Storage jest dostępna w następujących reg
 |Australia Wschodnia|LRS, ZRS|
 |Australia Południowo-Wschodnia|LRS|
 |Brazil South|LRS|
-
-
-## <a name="next-steps"></a>Następne kroki
-
-Zapoznaj się z artykułem w warstwie Premium, aby uzyskać Azure Data Lake Storage [ogłoszenie blogu](https://www.microsoft.com).

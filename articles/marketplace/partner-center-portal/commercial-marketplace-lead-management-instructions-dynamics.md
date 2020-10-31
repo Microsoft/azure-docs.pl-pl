@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: 31dba5489db3778d738fc2856cf6aacfd6987711
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54754f4c7753661b247f3f90942fb3074c34a38b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030756"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130616"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Konfigurowanie zarządzania liderem dla usługi Dynamics 365 Customer Engagement
 
-W tym artykule opisano sposób konfigurowania zaangażowania klienta Dynamics 365 (wcześniej o nazwie Dynamics CRM Online). Przeczytaj więcej na temat zmiany w temacie [Konfigurowanie uwierzytelniania opartego na serwerze z zaangażowaniem klientów i SharePoint Online](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) , aby przetwarzać potencjalni klienci z komercyjnej oferty portalu Marketplace.
+W tym artykule opisano sposób konfigurowania zaangażowania klienta Dynamics 365 (wcześniej o nazwie Dynamics CRM Online). Przeczytaj więcej na temat zmiany w temacie [Konfigurowanie uwierzytelniania opartego na serwerze z zaangażowaniem klientów i SharePoint Online](/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) , aby przetwarzać potencjalni klienci z komercyjnej oferty portalu Marketplace.
 
 >[!NOTE]
 >Te instrukcje są specyficzne dla środowiska chmury hostowanej przez firmę Microsoft dla programu Dynamics 365 Customer Engagement. Bezpośrednie łączenie z lokalnym środowiskiem Dynamics nie jest obecnie obsługiwane. Dostępne są inne opcje umożliwiające otrzymywanie potencjalnych klientów, takie jak konfigurowanie [punktu końcowego HTTPS](./commercial-marketplace-lead-management-instructions-https.md) lub [tabeli platformy Azure](./commercial-marketplace-lead-management-instructions-azure-table.md).
@@ -36,11 +36,11 @@ Następujące uprawnienia użytkownika są niezbędne do wykonania kroków opisa
 
 1. Otwórz program Dynamics 365 Customer Engagement, przechodząc do adresu URL dla wystąpienia usługi Dynamics, takiego jak `https://tenant.crm.dynamics.com` .
 
-1. Wybierz ikonę koła zębatego na górnym pasku, a następnie wybierz pozycję **Ustawienia zaawansowane**.
+1. Wybierz ikonę koła zębatego na górnym pasku, a następnie wybierz pozycję **Ustawienia zaawansowane** .
  
     ![Element menu ustawień zaawansowanych systemu Dynamics 365](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-advanced-settings.png)
 
-1. Na stronie **Ustawienia** Otwórz menu **Ustawienia** na górnym pasku i wybierz pozycję **rozwiązania**.
+1. Na stronie **Ustawienia** Otwórz menu **Ustawienia** na górnym pasku i wybierz pozycję **rozwiązania** .
 
     >[!NOTE]
     >Jeśli nie widzisz opcji na poniższym ekranie, nie masz uprawnień, które należy wykonać. Skontaktuj się z administratorem w wystąpieniu programu Dynamics 365 Customer Engagement.
@@ -62,23 +62,23 @@ Wykonaj następujące kroki, aby utworzyć konto usługi i przypisać uprawnieni
 >[!NOTE]
 >Przejdź do odpowiednich instrukcji w zależności od wybranej opcji uwierzytelniania. Zobacz [Azure Active Directory](#azure-active-directory) lub [Office 365](#office-365).
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Zalecamy korzystanie z tej opcji, ponieważ nie trzeba aktualizować nazwy użytkownika ani hasła, aby nadal otrzymywać potencjalnych klientów. Aby użyć opcji Azure Active Directory, należy podać identyfikator aplikacji, klucz aplikacji i identyfikator katalogu w aplikacji Active Directory.
 
 Aby skonfigurować Azure Active Directory dla usługi Dynamics 365 Customer Engagement:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory** .
 
-1. Wybierz pozycję **Właściwości**i skopiuj wartość **Identyfikator katalogu** na stronie **Właściwości katalogu** . Zapisz tę wartość, ponieważ musisz podać ją w portalu wydawców, aby otrzymywać potencjalnych klientów na potrzeby oferty portalu Marketplace.
+1. Wybierz pozycję **Właściwości** i skopiuj wartość **Identyfikator katalogu** na stronie **Właściwości katalogu** . Zapisz tę wartość, ponieważ musisz podać ją w portalu wydawców, aby otrzymywać potencjalnych klientów na potrzeby oferty portalu Marketplace.
 
     ![Element menu właściwości Azure Active Directory](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-properties.png)
 
 1. Wybierz pozycję **rejestracje aplikacji** w lewym okienku Azure Active Directory, a następnie wybierz pozycję **Nowa rejestracja** na tej stronie.
 1. Wprowadź opisową nazwę aplikacji.
-1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym**.
+1. W obszarze **obsługiwane typy kont** wybierz pozycję **konta w dowolnym katalogu organizacyjnym** .
 1. W obszarze **URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** i wprowadź identyfikator URI, na przykład `https://contosoapp1/auth` . 
-1. Wybierz pozycję **Zarejestruj**.
+1. Wybierz pozycję **Zarejestruj** .
 
     ![Rejestrowanie strony aplikacji](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
 
@@ -86,22 +86,22 @@ Aby skonfigurować Azure Active Directory dla usługi Dynamics 365 Customer Enga
 
     ![Pole identyfikatora aplikacji (klienta)](./media/commercial-marketplace-lead-management-instructions-dynamics/application-id.png)
 
-1. Wybierz pozycję **certyfikaty & wpisy tajne** w lewym okienku aplikacji, a następnie wybierz przycisk **nowy klucz tajny klienta** . Wprowadź Opisowy wpis tajny klienta i wybierz opcję **nigdy nie** w obszarze **wygaśnięcie**. Wybierz pozycję **Dodaj** , aby utworzyć klucz tajny klienta.
+1. Wybierz pozycję **certyfikaty & wpisy tajne** w lewym okienku aplikacji, a następnie wybierz przycisk **nowy klucz tajny klienta** . Wprowadź Opisowy wpis tajny klienta i wybierz opcję **nigdy nie** w obszarze **wygaśnięcie** . Wybierz pozycję **Dodaj** , aby utworzyć klucz tajny klienta.
 
     ![Element menu & certyfikatów](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-certificates-secrets.png)
 
 1. Po pomyślnym utworzeniu wpisu tajnego klienta skopiuj wartość **klucz tajny klienta** . Nie będzie można pobrać wartości po opuszczeniu strony. Zapisz tę wartość, ponieważ musisz podać ją w portalu wydawców, aby otrzymywać potencjalnych klientów na potrzeby oferty portalu Marketplace. 
-1. Wybierz pozycję **uprawnienia interfejsu API** w lewym okienku aplikacji, a następnie wybierz pozycję **+ Dodaj uprawnienie**.
-1. Wybierz pozycję **Microsoft API**, a następnie wybierz pozycję **Dynamics CRM** jako interfejs API.
+1. Wybierz pozycję **uprawnienia interfejsu API** w lewym okienku aplikacji, a następnie wybierz pozycję **+ Dodaj uprawnienie** .
+1. Wybierz pozycję **Microsoft API** , a następnie wybierz pozycję **Dynamics CRM** jako interfejs API.
 1. W obszarze **jakiego typu uprawnienia aplikacja jest wymagana?** upewnij się, że wybrano **uprawnienia delegowane** . 
-1. W obszarze **uprawnienia**zaznacz pole wyboru **user_impersonation** **dostępu Common Data Service jako użytkownicy organizacji**. Następnie wybierz pozycję **Dodaj uprawnienia**.
+1. W obszarze **uprawnienia** zaznacz pole wyboru **user_impersonation** **dostępu Common Data Service jako użytkownicy organizacji** . Następnie wybierz pozycję **Dodaj uprawnienia** .
 
     ![Przycisk Dodaj uprawnienia](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
 1. Po wykonaniu kroków od 1 do 14 w Azure Portal przejdź do wystąpienia klienta Dynamics 365, przechodząc do adresu URL, na przykład `https://tenant.crm.dynamics.com` .
-1. Wybierz ikonę koła zębatego na górnym pasku, a następnie wybierz pozycję **Ustawienia zaawansowane**.
-1. Na stronie **Ustawienia** Otwórz menu **Ustawienia** na górnym pasku i wybierz pozycję **zabezpieczenia**.
-1. Na stronie **zabezpieczenia** wybierz pozycję **Użytkownicy**. Na stronie **Użytkownicy** wybierz listę lista **włączonych użytkowników** , a następnie wybierz pozycję **Użytkownicy aplikacji**.
+1. Wybierz ikonę koła zębatego na górnym pasku, a następnie wybierz pozycję **Ustawienia zaawansowane** .
+1. Na stronie **Ustawienia** Otwórz menu **Ustawienia** na górnym pasku i wybierz pozycję **zabezpieczenia** .
+1. Na stronie **zabezpieczenia** wybierz pozycję **Użytkownicy** . Na stronie **Użytkownicy** wybierz listę lista **włączonych użytkowników** , a następnie wybierz pozycję **Użytkownicy aplikacji** .
 1. Wybierz pozycję **Nowy** , aby utworzyć nowego użytkownika. 
 
     ![Tworzenie konta nowego użytkownika](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
@@ -120,7 +120,7 @@ Aby skonfigurować pakiet Office 365 dla programu Dynamics 365 Customer Engageme
 
 1. Zaloguj się do [centrum administracyjnego usługi Microsoft 365](https://admin.microsoft.com).
 
-1. Wybierz pozycję **Dodaj użytkownika**.
+1. Wybierz pozycję **Dodaj użytkownika** .
 
     ![Microsoft 365 centrum administracyjnego Dodaj opcję użytkownika](./media/commercial-marketplace-lead-management-instructions-dynamics/ms-365-add-user.png)
 
@@ -140,20 +140,20 @@ Zapisz te wartości, ponieważ musisz podać wartości **nazwy użytkownika** i 
 Ostatnim krokiem jest umożliwienie użytkownikowi utworzonego w celu zapisania potencjalnych klientów.
 
 1. Otwórz program Dynamics 365 Customer Engagement, przechodząc do adresu URL dla wystąpienia usługi Dynamics, takiego jak `https://tenant.crm.dynamics.com` .
-1. Wybierz ikonę koła zębatego na górnym pasku, a następnie wybierz pozycję **Ustawienia zaawansowane**.
-1. Na stronie **Ustawienia** Otwórz menu **Ustawienia** na górnym pasku i wybierz pozycję **zabezpieczenia**.
-1. Na stronie **zabezpieczenia** wybierz pozycję **Użytkownicy** , a następnie wybierz użytkownika, który został utworzony w sekcji "Konfigurowanie uprawnień użytkownika" tego dokumentu. Następnie wybierz pozycję **Zarządzaj rolami**. 
+1. Wybierz ikonę koła zębatego na górnym pasku, a następnie wybierz pozycję **Ustawienia zaawansowane** .
+1. Na stronie **Ustawienia** Otwórz menu **Ustawienia** na górnym pasku i wybierz pozycję **zabezpieczenia** .
+1. Na stronie **zabezpieczenia** wybierz pozycję **Użytkownicy** , a następnie wybierz użytkownika, który został utworzony w sekcji "Konfigurowanie uprawnień użytkownika" tego dokumentu. Następnie wybierz pozycję **Zarządzaj rolami** . 
 
     ![Karta Zarządzanie rolami](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-roles.png)
 
-1. Wyszukaj nazwę roli **Microsoft Marketplace składnik zapisywania klienta**i wybierz ją, aby przypisać użytkownika do roli.
+1. Wyszukaj nazwę roli **Microsoft Marketplace składnik zapisywania klienta** i wybierz ją, aby przypisać użytkownika do roli.
 
     ![Okienko Zarządzanie rolami użytkowników](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-user-roles.png)
 
     >[!NOTE]
     >Ta rola jest tworzona przez zaimportowane rozwiązanie i ma uprawnienia do pisania potencjalnych klientów i śledzenia wersji rozwiązania w celu zapewnienia zgodności.
 
-1. Wróć do strony **zabezpieczenia** i wybierz pozycję **role zabezpieczeń**. Wyszukaj rolę **Microsoft Marketplace autorem potencjalnego klienta**i wybierz ją.
+1. Wróć do strony **zabezpieczenia** i wybierz pozycję **role zabezpieczeń** . Wyszukaj rolę **Microsoft Marketplace autorem potencjalnego klienta** i wybierz ją.
 
     ![Okienko role zabezpieczeń](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
@@ -165,14 +165,14 @@ Ostatnim krokiem jest umożliwienie użytkownikowi utworzonego w celu zapisania 
 
     ![Karta dostosowania modułu zapisywania klienta Microsoft Marketplace](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 
-1. Wybierz pozycję **Zapisz i zamknij**.
+1. Wybierz pozycję **Zapisz i zamknij** .
 
 ## <a name="configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement"></a>Skonfiguruj ofertę do wysyłania potencjalnych klientów do programu Dynamics 365 Customer Engagement 
 
 Aby skonfigurować informacje dotyczące zarządzania potencjalnymi klientami dla oferty w portalu wydawców:
 
 1. Przejdź do strony **konfiguracji oferty** oferty.
-1. W sekcji **potencjalni klienci** wybierz pozycję **Połącz**.
+1. W sekcji **potencjalni klienci** wybierz pozycję **Połącz** .
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-dynamics/customer-leads.png" alt-text="Potencjalni klienci":::
 
@@ -182,17 +182,17 @@ Aby skonfigurować informacje dotyczące zarządzania potencjalnymi klientami dl
 
 1. Wprowadź **adres URL** wystąpienia usługi Dynamics 365, na przykład `https://contoso.crm4.dynamics.com` .
 
-1. Wybierz metodę **uwierzytelniania**, Azure Active Directory lub Office 365. 
-1. W przypadku wybrania **Azure Active Directory**wprowadź **Identyfikator aplikacji (** na przykład `23456052-aaaa-bbbb-8662-1234df56788f` ), **Identyfikator katalogu** (na przykład `12345678-8af1-4asf-1234-12234d01db47` ) i **klucz tajny klienta** (na przykład `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=` ).
+1. Wybierz metodę **uwierzytelniania** , Azure Active Directory lub Office 365. 
+1. W przypadku wybrania **Azure Active Directory** wprowadź **Identyfikator aplikacji (** na przykład `23456052-aaaa-bbbb-8662-1234df56788f` ), **Identyfikator katalogu** (na przykład `12345678-8af1-4asf-1234-12234d01db47` ) i **klucz tajny klienta** (na przykład `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=` ).
 
     ![Uwierzytelnianie z wybranym Azure Active Directory](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
 
-1. W przypadku wybrania **pakietu Office 365**wprowadź **nazwę użytkownika** (na przykład `contoso@contoso.onmicrosoft.com` ) i **hasło** (na przykład `P@ssw0rd` ).
+1. W przypadku wybrania **pakietu Office 365** wprowadź **nazwę użytkownika** (na przykład `contoso@contoso.onmicrosoft.com` ) i **hasło** (na przykład `P@ssw0rd` ).
 
     ![Pole nazwy użytkownika pakietu Office 365](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 
-1. W polu **kontaktowy adres e-mail**wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Możesz wprowadzić wiele adresów e-mail, rozdzielając je średnikami.
-1. Wybierz przycisk **OK**.
+1. W polu **kontaktowy adres e-mail** wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Możesz wprowadzić wiele adresów e-mail, rozdzielając je średnikami.
+1. Wybierz pozycję **OK** .
 
 Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz przycisk **Weryfikuj** . Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 

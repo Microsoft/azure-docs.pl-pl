@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperfq2
-ms.openlocfilehash: f7c08172f3a60487ae6e15260a0cd5fc5e4a712c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740746"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129545"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Korzyść z tytułu zobowiązania do użycia platformy Azure
 
@@ -57,4 +57,4 @@ Jeśli nie masz pewności, czy organizacja ma uprawniającą umowę, zaloguj si�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej o tym, jak Twoja organizacja może korzystać z portalu Azure Marketplace, wypełnij nasz moduł Microsoft Learn: [Uprość zakupy i zarządzanie chmurą za pomocą witryny Azure Marketplace](https://aka.ms/cm.marketplaceprocurement).
+- Aby dowiedzieć się więcej o tym, jak Twoja organizacja może korzystać z portalu Azure Marketplace, wypełnij nasz moduł Microsoft Learn: [Uprość zakupy i zarządzanie chmurą za pomocą witryny Azure Marketplace](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/).

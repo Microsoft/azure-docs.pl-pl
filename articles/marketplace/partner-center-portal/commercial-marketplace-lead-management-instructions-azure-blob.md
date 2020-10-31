@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
-ms.openlocfilehash: cd0b708ac3a1b16804430584dfcb01b3d2a4fae2
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dea9c0eec275c6a0596636c8625e52b8978bb9a6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042371"
+ms.locfileid: "93130548"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Korzystanie z usługi Azure Blob Storage do zarządzania komercyjnymi klientami portalu Marketplace
 
@@ -33,7 +33,7 @@ ms.locfileid: "93042371"
 3. W Azure Portal Utwórz konto magazynu, wykonując poniższą procedurę.  
     1. Wybierz pozycję **+ Utwórz zasób** na pasku menu po lewej stronie.  **Nowe** okienko (blok) zostanie wyświetlone po prawej stronie.
     2. Wybierz pozycję **Magazyn** w **nowym** okienku.  Lista **proponowanych** zostanie wyświetlona po prawej stronie.
-    3. Wybierz **konto magazynu** , aby rozpocząć tworzenie konta.  Postępuj zgodnie z instrukcjami w artykule [Tworzenie konta magazynu](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    3. Wybierz **konto magazynu** , aby rozpocząć tworzenie konta.  Postępuj zgodnie z instrukcjami w artykule [Tworzenie konta magazynu](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
     ![Procedura tworzenia konta usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "93042371"
 
 5. W okienku konto magazynu wybierz pozycję **klucze dostępu** i skopiuj wartość *Parametry połączenia* dla klucza. Zapisz tę wartość, ponieważ jest to wartość *parametrów połączenia konta magazynu* , która będzie potrzebna w portalu wydawców w celu otrzymywania potencjalnych klientów na potrzeby oferty z witryny Marketplace.
 
-     Przykładem połączenia Sting jest:
+     Przykładem parametrów połączenia jest:
 
      ```sql
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
@@ -55,11 +55,11 @@ ms.locfileid: "93042371"
 
 6. Na stronie konto magazynu wybierz pozycję **obiekty blob** .
 
-   ![Klucz usługi Azure Storage](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
+   ![Zrzut ekranu strony konta usługi Azure Storage z wybranymi obiektami BLOB](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. Na stronie obiekty blob wybierz przycisk **+ kontener** .
 
-8. Wpisz **nazwę** nowego kontenera. Nazwa kontenera musi być zapisana małymi literami, zaczynać się literą lub cyfrą i może zawierać tylko litery, cyfry i znak kreski (-). Aby uzyskać dodatkowe informacje o regułach nazewnictwa kontenerów i obiektów blob, zobacz [Nazewnictwo i odwołania do kontenerów, obiektów blob i metadanych](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+8. Wpisz **nazwę** nowego kontenera. Nazwa kontenera musi być zapisana małymi literami, zaczynać się literą lub cyfrą i może zawierać tylko litery, cyfry i znak kreski (-). Aby uzyskać dodatkowe informacje o regułach nazewnictwa kontenerów i obiektów blob, zobacz [Nazewnictwo i odwołania do kontenerów, obiektów blob i metadanych](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
     Zapisz tę wartość, ponieważ jest to wartość *nazwy kontenera* , którą należy podać w portalu wydawców, aby otrzymywać potencjalnych klientów na potrzeby oferty portalu Marketplace.
 
@@ -91,5 +91,3 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 
     > [!NOTE]
     > Musisz zakończyć konfigurowanie reszty oferty i opublikować ją przed odebraniem potencjalnych klientów do oferty.
-
-

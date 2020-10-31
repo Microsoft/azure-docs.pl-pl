@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: f8dccca1d1264492a4e7c8dab568e13eec9d2557
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100715"
+ms.locfileid: "93130939"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatyzowanie przepływów pracy dla bazy danych SQL przy użyciu Azure Logic Apps
 
@@ -96,9 +96,14 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
    ||||
 
    > [!TIP]
-   > Te informacje można znaleźć w parametrach połączenia bazy danych. Na przykład w Azure Portal Znajdź i Otwórz bazę danych. W menu Baza danych wybierz opcję **Parametry połączenia** lub **Właściwości** , w których można znaleźć ten ciąg:
+   > Aby zapewnić informacje dotyczące bazy danych i tabeli, możesz korzystać z następujących opcji:
+   > 
+   > * Znajdź te informacje w parametrach połączenia bazy danych. Na przykład w Azure Portal Znajdź i Otwórz bazę danych. W menu Baza danych wybierz opcję **Parametry połączenia** lub **Właściwości** , gdzie można znaleźć ten ciąg:
    >
-   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >
+   > * Domyślnie tabele w systemowych bazach danych są odfiltrowane, dzięki czemu mogą nie być automatycznie wyświetlane po wybraniu systemowej bazy danych. Alternatywnie można ręcznie wprowadzić nazwę tabeli po wybraniu opcji **wprowadź wartość niestandardową** z listy baza danych.
+   >
 
    Ten przykład pokazuje, jak te wartości mogą wyglądać następująco:
 

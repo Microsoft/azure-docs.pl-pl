@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230623"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131058"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Znajdowanie raportów dotyczących aktywności w witrynie Azure Portal
 
@@ -52,10 +52,10 @@ Możesz użyć filtrowania zaawansowanego w raporcie inspekcji, aby uzyskać dos
 
 Kategorie obejmują:
 
-- Wszystkie
+- Wszystko
 - AdministrativeUnit
 - ApplicationManagement
-- Uwierzytelnianie
+- Authentication
 - Autoryzacja
 - Kontakt
 - Urządzenie
@@ -73,7 +73,7 @@ Możesz również filtrować określoną usługę za pomocą filtru listy rozwij
 
 Usługi obejmują:
 
-- Wszystkie
+- Wszystko
 - Przeglądy dostępu
 - Aprowizacja kont 
 - Logowanie jednokrotne aplikacji
@@ -149,7 +149,7 @@ Można uzyskać dostęp do raportów dotyczących wykrywania wykrytych zagroże�
 
 Pobrano dzienniki aktywności (inspekcji lub logowania), ale nie widać wszystkich rekordów dla wybranego czasu. Dlaczego? 
 
- ![Raportowanie](./media/troubleshoot-missing-data-download/01.png)
+ ![Zrzut ekranu przedstawia przycisk Pobierz w raporcie działania.](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Przyczyna
 
@@ -165,7 +165,7 @@ Można wykorzystać [interfejsy API raportowania usługi Azure AD](concept-repor
 
 W witrynie Azure Portal wykonano pewne akcje, które powinny zostać odzwierciedlone w dziennikach inspekcji w bloku `Activity logs > Audit Logs`, ale nie można ich znaleźć.
 
- ![Raportowanie](./media/troubleshoot-missing-audit-data/01.png)
+ ![Zrzut ekranu przedstawia raport aktywności.](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>Przyczyna
 
@@ -186,7 +186,7 @@ Poczekaj od 15 minut do dwóch godzin, a następnie sprawdź, czy akcje pojawią
 
 Po ostatnim zalogowaniu się do witryny Azure Portal oczekiwano wyświetlenia dzienników logowania dla akcji w bloku `Activity logs > Sign-ins`, ale nie można ich znaleźć.
 
- ![Raportowanie](./media/troubleshoot-missing-audit-data/02.png)
+ ![Zrzut ekranu przedstawia logowania do Azure Active Directory.](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Przyczyna
 
@@ -207,7 +207,7 @@ Poczekaj od 15 minut do dwóch godzin, a następnie sprawdź, czy akcje pojawią
 
 Nie mogę wyświetlić danych logowania i inspekcji obejmujących więcej niż 30 dni w witrynie Azure Portal. Dlaczego? 
 
- ![Raportowanie](./media/troubleshoot-missing-audit-data/03.png)
+ ![Zrzut ekranu przedstawia menu Data.](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Przyczyna
 

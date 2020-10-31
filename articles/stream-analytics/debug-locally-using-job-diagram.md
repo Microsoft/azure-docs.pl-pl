@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c32ba468979e4566d8e349d481eddca7d407b659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218259"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130990"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Debuguj Azure Stream Analytics zapytań lokalnie przy użyciu diagramu zadań w programie Visual Studio
 
@@ -32,7 +32,7 @@ Skorzystaj z tego [przewodnika Szybki Start](stream-analytics-quick-create-vs.md
 > [!NOTE]
 > Jeśli eksportujesz zadanie do projektu lokalnego i chcesz przeprowadzić test w odniesieniu do strumienia danych wejściowych na żywo, musisz ponownie określić poświadczenia dla wszystkich danych wejściowych.  
 
-Wybierz źródło danych wejściowych i wyjściowych z edytora skryptów i wybierz polecenie **Uruchom lokalnie**. Diagram zadań pojawia się po prawej stronie.
+Wybierz źródło danych wejściowych i wyjściowych z edytora skryptów i wybierz polecenie **Uruchom lokalnie** . Diagram zadań pojawia się po prawej stronie.
 
 ### <a name="view-the-intermediate-result-set"></a>Wyświetl pośredni zestaw wyników  
 
@@ -119,7 +119,7 @@ Inne metryki na poziomie zadania są wyświetlane w konsoli podręcznej. Naciśn
 
 * Power BI i Azure Data Lake Storage Gen1 ujścia danych wyjściowych nie są obsługiwane ze względu na ograniczenia modelu uwierzytelniania.
 
-* Tylko opcje danych wejściowych w chmurze mają obsługę [zasad czasu](stream-analytics-out-of-order-and-late-events.md) , podczas gdy lokalne Opcje wejściowe nie są obsługiwane.
+* Tylko opcje danych wejściowych w chmurze mają obsługę [zasad czasu](./stream-analytics-time-handling.md) , podczas gdy lokalne Opcje wejściowe nie są obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
 

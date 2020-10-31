@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9ae770a21e93a0c8ab3827e91f15e163d7a875b4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428217"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130208"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -34,25 +34,25 @@ Projektowanie, kompilowanie i testowanie ofert aplikacji platformy Azure wymaga 
 
 Zapoznaj się z poniższymi zasobami podczas przygotowywania oferty aplikacji platformy Azure dla komercyjnej witryny Marketplace.
 
-* [Informacje o szablonach Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Informacje o szablonach Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 
 * Przewodniki Szybki start:
 
-    * [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/documentation/templates/)
+    * [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/)
     * [Przewodnik po najlepszych rozwiązaniach dotyczących szablonów platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
-    * [Publikowanie definicji aplikacji](../../managed-applications/publish-service-catalog-app.md)
-    * [Wdrażanie aplikacji katalogu usług](../../managed-applications/deploy-service-catalog-quickstart.md)
+    * [Publikowanie definicji aplikacji](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Wdrażanie aplikacji katalogu usług](../../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
 
 * Samouczki:
 
-    * [Tworzenie plików definicji](../../managed-applications/publish-service-catalog-app.md)
-    * [Publikowanie aplikacji na platformie handlowej](../../managed-applications/publish-marketplace-app.md)
+    * [Tworzenie plików definicji](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Publikowanie aplikacji na platformie handlowej]()
 
 * Badan
 
-    * [Interfejs wiersza polecenia platformy Azure](../../managed-applications/cli-samples.md)
-    * [Azure PowerShell](../../managed-applications/powershell-samples.md)
-    * [Rozwiązania aplikacji zarządzanych](../../managed-applications/sample-projects.md)
+    * [Interfejs wiersza polecenia platformy Azure](../../azure-resource-manager/managed-applications/cli-samples.md)
+    * [Azure PowerShell](../../azure-resource-manager/managed-applications/powershell-samples.md)
+    * [Rozwiązania aplikacji zarządzanych](../../azure-resource-manager/managed-applications/sample-projects.md)
 
 [Tworzenie szablonów rozwiązań wideo i aplikacji zarządzanych dla portalu Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) zapewnia kompleksowe wprowadzenie do typu oferty aplikacji platformy Azure:
 
@@ -67,8 +67,8 @@ Zapoznaj się z poniższymi zasobami podczas przygotowywania oferty aplikacji pl
 
 Wybierz co najmniej jedno z następujących środowisk skryptów, aby ułatwić zarządzanie aplikacją platformy Azure:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)
+* [Azure PowerShell](/powershell/azure/)
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure)
 
 Zalecamy dodanie następujących narzędzi do środowiska deweloperskiego:
 
@@ -84,17 +84,17 @@ Dostępne narzędzia można sprawdzić na stronie [Narzędzia deweloperskie plat
 
 Istnieją dwa rodzaje planów aplikacji platformy Azure: szablony rozwiązań i zarządzane aplikacje.
 
-* **Szablon rozwiązania** jest jednym z głównych sposobów publikowania rozwiązania w portalu Marketplace. Użyj tego typu planu, jeśli rozwiązanie wymaga dodatkowego wdrożenia i automatyzacji konfiguracji poza pojedynczą maszyną wirtualną. Szablon rozwiązania umożliwia Automatyzowanie udostępniania więcej niż jednego zasobu, w tym maszyn wirtualnych, sieci i zasobów magazynu, aby zapewnić złożone rozwiązania IaaS.  Aby uzyskać więcej informacji na temat tworzenia szablonów rozwiązań, zobacz [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+* **Szablon rozwiązania** jest jednym z głównych sposobów publikowania rozwiązania w portalu Marketplace. Użyj tego typu planu, jeśli rozwiązanie wymaga dodatkowego wdrożenia i automatyzacji konfiguracji poza pojedynczą maszyną wirtualną. Szablon rozwiązania umożliwia Automatyzowanie udostępniania więcej niż jednego zasobu, w tym maszyn wirtualnych, sieci i zasobów magazynu, aby zapewnić złożone rozwiązania IaaS.  Aby uzyskać więcej informacji na temat tworzenia szablonów rozwiązań, zobacz [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
-* **Aplikacja zarządzana** jest podobna do szablonów rozwiązań z jedną różnicą kluczową. Najważniejsza różnica między nimi polega na tym, że w aplikacji zarządzanej zasoby są wdrażane w grupie zasobów zarządzanej przez wydawcę aplikacji. Grupa zasobów znajduje się w subskrypcji klienta, ale tożsamość w dzierżawie wydawcy ma dostęp do tej grupy zasobów. Wydawca określa koszt bieżącej obsługi rozwiązania. Korzystaj z zarządzanych aplikacji, aby łatwo tworzyć i dostarczać klientom w pełni zarządzane aplikacje gotowe.  Aby uzyskać więcej informacji o zaletach i typach zarządzanych aplikacji, zobacz [Omówienie usługi Azure Managed Applications](../../managed-applications/overview.md).
+* **Aplikacja zarządzana** jest podobna do szablonów rozwiązań z jedną różnicą kluczową. Najważniejsza różnica między nimi polega na tym, że w aplikacji zarządzanej zasoby są wdrażane w grupie zasobów zarządzanej przez wydawcę aplikacji. Grupa zasobów znajduje się w subskrypcji klienta, ale tożsamość w dzierżawie wydawcy ma dostęp do tej grupy zasobów. Wydawca określa koszt bieżącej obsługi rozwiązania. Korzystaj z zarządzanych aplikacji, aby łatwo tworzyć i dostarczać klientom w pełni zarządzane aplikacje gotowe.  Aby uzyskać więcej informacji o zaletach i typach zarządzanych aplikacji, zobacz [Omówienie usługi Azure Managed Applications](../../azure-resource-manager/managed-applications/overview.md).
 
 ## <a name="technical-requirements"></a>Wymagania techniczne
 
 Wszystkie aplikacje platformy Azure obejmują co najmniej dwa pliki w folderze głównym `.zip` archiwum:
 
-* Plik szablonu Menedżer zasobów o nazwie [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md).  Ten szablon definiuje zasoby, które mają zostać wdrożone w ramach subskrypcji platformy Azure klienta. Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
+* Plik szablonu Menedżer zasobów o nazwie [mainTemplate.json](../../azure-resource-manager/management/overview.md).  Ten szablon definiuje zasoby, które mają zostać wdrożone w ramach subskrypcji platformy Azure klienta. Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
 
-* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition.jsna](../../managed-applications/create-uidefinition-overview.md).  W interfejsie użytkownika należy określić elementy, które umożliwiają klientom podanie wartości parametrów.
+* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition.jsna](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).  W interfejsie użytkownika należy określić elementy, które umożliwiają klientom podanie wartości parametrów.
 
 Wszystkie nowe oferty aplikacji platformy Azure muszą obejmować [Identyfikator GUID autorstwa klienta na platformie Azure](../azure-partner-customer-usage-attribution.md). 
 
@@ -107,22 +107,22 @@ Aby dowiedzieć się więcej o wymaganiach dotyczących publikowania dla każdeg
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
 
-1. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+1. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
 
-1. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **aplikacji platformy Azure**.
+1. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **aplikacji platformy Azure** .
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-azure-app.png)
 
-1. Na stronie **Nowa oferta** wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
+1. Na stronie **Nowa oferta** wprowadź **Identyfikator oferty** . To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
      * Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
-     * Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-     * Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
+     * Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** , adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+     * Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz** .
 
-1. Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
+1. Wprowadź **alias oferty** . Jest to nazwa używana dla oferty w centrum partnerskim.
 
      * Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
-     * Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz**.
+     * Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz** .
 
 1. Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
@@ -136,7 +136,7 @@ Test jest doskonałym sposobem na pokazanie oferty potencjalnym klientom, dając
 
 Aby włączyć dysk testowy przez stały okres czasu, zaznacz pole wyboru **Włącz dysk testowy** . Aby usunąć dysk testowy z oferty, wyczyść to pole wyboru. Skonfigurowanie środowiska testowego w sekcji [konfiguracja techniczna na dysku testowym](#test-drive-technical-configuration) w dalszej części tego tematu.
 
-Aby uzyskać dodatkowe informacje, zobacz [testowanie oferty w komercyjnej witrynie Marketplace](test-drive.md). Możesz również przeczytać o [najlepszych rozwiązaniach dotyczących dysków testowych](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) i pobrać [plik PDF z omówieniem dysków testowych](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
+Aby uzyskać dodatkowe informacje, zobacz [testowanie oferty w komercyjnej witrynie Marketplace](../what-is-test-drive.md). Możesz również przeczytać o [najlepszych rozwiązaniach dotyczących dysków testowych](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) i pobrać [plik PDF z omówieniem dysków testowych](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 
 >[!Note]
 >Ze względu na to, że wszystkie aplikacje platformy Azure są implementowane przy użyciu szablonu Azure Resource Manager, jedynym typem dysku testowego dostępnym dla aplikacji platformy Azure jest [dysk testowy oparty na Azure Resource Manager](../azure-resource-manager-test-drive.md).
@@ -158,7 +158,7 @@ Na stronie **Właściwości** można zdefiniować kategorie używane do grupowan
 Wybierz kategorie i podkategorie, aby umieścić ofertę w odpowiednich obszarach wyszukiwania w portalu Marketplace. Pamiętaj, aby opisać, w jaki sposób oferta obsługuje te kategorie w opisie oferty. Wybierz pozycję:
 
 - Co najmniej jeden i maksymalnie dwie kategorie, w tym podstawowa i pomocnicza Kategoria (opcjonalnie).
-- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy**.
+- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy** .
 
 Zapoznaj się z pełną listą kategorii i podkategorii w artykule [Oferta z najlepszymi rozwiązaniami](../gtm-offer-listing-best-practices.md).
 
@@ -232,11 +232,11 @@ Wprowadź adres URL zasad zachowania poufności informacji organizacji. Użytkow
 
 ### <a name="useful-links"></a>Przydatne łącza
 
-Dodaj linki do opcjonalnych dodatkowych dokumentów online dotyczących rozwiązania, wybierając pozycję **+ Dodaj link**.
+Dodaj linki do opcjonalnych dodatkowych dokumentów online dotyczących rozwiązania, wybierając pozycję **+ Dodaj link** .
 
 ### <a name="contact-information"></a>Informacje kontaktowe
 
-Podaj nazwę, adres e-mail i numer telefonu dla kontaktu **z pomocą techniczną**, **kontaktu inżynieryjnego**i **programu CSP**. Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP. Niektóre kontakty mogą wymagać dodatkowych informacji.
+Podaj nazwę, adres e-mail i numer telefonu dla kontaktu **z pomocą techniczną** , **kontaktu inżynieryjnego** i **programu CSP** . Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP. Niektóre kontakty mogą wymagać dodatkowych informacji.
 
 ### <a name="marketplace-media"></a>Multimedia dla portalu Marketplace
 
@@ -304,8 +304,8 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 Konfiguracja techniczna definiuje szczegóły (identyfikator dzierżawy i identyfikator aplikacji) używane do identyfikacji usługi, która będzie emitować zdarzenia pomiaru dla aplikacji zarządzanej przy użyciu [interfejsów API usługi pomiaru Marketplace](./marketplace-metering-service-apis.md).  Wprowadź tożsamość, która będzie używana przez usługę podczas emitowania zdarzeń pomiarowych.
 
-* **Identyfikator dzierżawy usługi Azure AD** (wymagane): wewnątrz Azure Portal należy [utworzyć aplikację Azure Active Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) , aby umożliwić nam zweryfikowanie połączenia między naszymi dwiema usługami za pomocą komunikacji uwierzytelnionej. Aby znaleźć [Identyfikator dzierżawy](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)), przejdź do Azure Active Directory i wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
-* **Identyfikator aplikacji usługi Azure AD** (wymagane): wymagany jest również [Identyfikator aplikacji](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)i klucz uwierzytelniania. Aby uzyskać te wartości, przejdź do Azure Active Directory i wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Aby znaleźć klucz uwierzytelniania, przejdź do pozycji **Ustawienia** i wybierz pozycję **klucze**. Należy podać opis i czas trwania, a następnie podać wartość liczbową.
+* **Identyfikator dzierżawy usługi Azure AD** (wymagane): wewnątrz Azure Portal należy [utworzyć aplikację Azure Active Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) , aby umożliwić nam zweryfikowanie połączenia między naszymi dwiema usługami za pomocą komunikacji uwierzytelnionej. Aby znaleźć [Identyfikator dzierżawy](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)), przejdź do Azure Active Directory i wybierz pozycję **Właściwości** , a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
+* **Identyfikator aplikacji usługi Azure AD** (wymagane): wymagany jest również [Identyfikator aplikacji](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)i klucz uwierzytelniania. Aby uzyskać te wartości, przejdź do Azure Active Directory i wybierz pozycję **rejestracje aplikacji** , a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Aby znaleźć klucz uwierzytelniania, przejdź do pozycji **Ustawienia** i wybierz pozycję **klucze** . Należy podać opis i czas trwania, a następnie podać wartość liczbową.
 
 >[!Note]
 >Identyfikator aplikacji platformy Azure zostanie skojarzony z IDENTYFIKATORem wydawcy i może być ponownie używany w ramach tego konta wydawcy.
@@ -328,7 +328,7 @@ Po utworzeniu zobaczysz nazwy planu, identyfikatory, typ planu, dostępność (P
 
 ### <a name="create-new-plan"></a>Utwórz nowy plan
 
-**_Identyfikator planu_*_ — Utwórz unikatowy identyfikator planu dla każdego planu w tej ofercie. Ten identyfikator będzie widoczny dla klientów w adresie URL produktu.  Używaj tylko małych liter, znaków alfanumerycznych, łączników lub podkreśleń. Dla tego identyfikatora planu można używać maksymalnie 50 znaków. Tego identyfikatora nie można zmienić po wybraniu pozycji Utwórz.
+**_Identyfikator planu_* _ — Utwórz unikatowy identyfikator planu dla każdego planu w tej ofercie. Ten identyfikator będzie widoczny dla klientów w adresie URL produktu.  Używaj tylko małych liter, znaków alfanumerycznych, łączników lub podkreśleń. Dla tego identyfikatora planu można używać maksymalnie 50 znaków. Tego identyfikatora nie można zmienić po wybraniu pozycji Utwórz.
 
 _*_Nazwa planu_*_ — klienci będą widzieli tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę oferty dla każdego planu w tej ofercie. Nazwa planu służy do rozróżniania planów oprogramowania, które mogą być częścią tej samej oferty (na przykład nazwa oferty: system Windows Server; plany: Windows Server 2016, Windows Server 2019).
 
@@ -337,11 +337,11 @@ _*_Nazwa planu_*_ — klienci będą widzieli tę nazwę podczas wybierania plan
 Na tej karcie można ustawić konfigurację wysokiego poziomu dla typu planu, bez względu na to, czy będzie ona używać pakietów z innego planu, a także jakie chmure ma być dostępny w programie. Odpowiedzi na tej karcie wpłyną na to, które pola są wyświetlane na innych kartach dla tego samego planu.
 
 #### <a name="plan-type"></a>Typ planu
-Wybierz typ planu dla oferty. *Szablon rozwiązania*A * plan jest zarządzany całkowicie przez klienta. Plan **aplikacji zarządzanej** umożliwia wydawcom zarządzanie aplikacją w imieniu klienta. Aby uzyskać szczegółowe informacje, zobacz [typy planów aplikacji platformy Azure](#types-of-azure-application-plans).
+Wybierz typ planu dla oferty. *Szablon rozwiązania* A * plan jest zarządzany całkowicie przez klienta. Plan **aplikacji zarządzanej** umożliwia wydawcom zarządzanie aplikacją w imieniu klienta. Aby uzyskać szczegółowe informacje, zobacz [typy planów aplikacji platformy Azure](#types-of-azure-application-plans).
 
 #### <a name="re-use-technical-configuration"></a>Ponowne używanie konfiguracji technicznej
 
-Jeśli masz więcej niż jeden plan tego samego typu, a pakiety są identyczne między nimi, możesz wybrać **ten plan ponownie używa pakietów z innego planu**.  Po wybraniu tej opcji będziesz mieć możliwość wybrania jednego z innych planów tego samego typu dla tej oferty, aby ponownie użyć pakietów z programu.
+Jeśli masz więcej niż jeden plan tego samego typu, a pakiety są identyczne między nimi, możesz wybrać **ten plan ponownie używa pakietów z innego planu** .  Po wybraniu tej opcji będziesz mieć możliwość wybrania jednego z innych planów tego samego typu dla tej oferty, aby ponownie użyć pakietów z programu.
 
 >[!Note]
 >Po ponownym użyciu pakietów z innego planu cała karta konfiguracja techniczna zostanie usunięta z tego planu. Szczegóły konfiguracji technicznej z innego planu, w tym wszelkie aktualizacje wprowadzone w przyszłości, zostaną użyte również dla tego planu.<br><br>Tego ustawienia nie można zmienić po opublikowaniu tego planu.
@@ -361,7 +361,7 @@ Przed opublikowaniem w celu [Azure Government](../../azure-government/documentat
 
 #### <a name="azure-government-certifications"></a>Certyfikaty Azure Government
 
-Ta opcja jest widoczna tylko w przypadku wybrania **Azure Government**.
+Ta opcja jest widoczna tylko w przypadku wybrania **Azure Government** .
 
 Usługi Azure Government Services obsługują dane, które podlegają określonym przepisom i wymogom rządowym. Na przykład FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD P4 i CJIS. Aby zapewnić świadomość certyfikatów dla tych programów, możesz udostępnić do 100 linków, które je opisują. Mogą to być albo linki do swojej aukcji bezpośrednio w programie, jak i linki do opisów zgodności z ich własnymi witrynami sieci Web. Te linki są widoczne tylko dla Azure Government klientów.
 
@@ -465,8 +465,8 @@ Na tej karcie można edytować wersję roboczą konfiguracji technicznej.
 
 Wszystkie pakiety planu aplikacji platformy Azure muszą zawierać te dwa pliki w folderze głównym `.zip` archiwum:
 
-* Plik szablonu Menedżer zasobów o nazwie [mainTemplate.json](../../azure-resource-manager/resource-group-overview.md). Ten szablon automatyzuje wdrażanie zasobów w subskrypcji platformy Azure dla klientów.  Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
-* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition.jsna](../../azure-resource-manager/managed-application-createuidefinition-overview.md).
+* Plik szablonu Menedżer zasobów o nazwie [mainTemplate.json](../../azure-resource-manager/management/overview.md). Ten szablon automatyzuje wdrażanie zasobów w subskrypcji platformy Azure dla klientów.  Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
+* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition.jsna](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).
 
 Maksymalne obsługiwane rozmiary plików:
 
@@ -486,7 +486,7 @@ Podkarta **poprzednio opublikowanych pakietów** umożliwia wyświetlenie wszyst
 
 #### <a name="enable-just-in-time-jit-access"></a>Włącz dostęp just-in-Time (JIT)
 
-Wybierz tę opcję, aby włączyć dostęp just-in-Time (JIT) dla tego planu.  Dostęp JIT umożliwia żądanie dostępu z podwyższonym poziomem uprawnień do zasobów aplikacji zarządzanej w celu rozwiązywania problemów lub konserwacji. Zawsze masz dostęp tylko do odczytu do zasobów, ale przez określony okres możesz mieć większy dostęp.  Aby uzyskać więcej informacji, zobacz [Włączanie i żądanie dostępu just in Time do Azure Managed Applications](../../managed-applications/request-just-in-time-access.md).  Aby wymagać, aby klienci aplikacji zarządzanej mogli udzielić stałego dostępu do konta, pozostaw tę opcję niezaznaczone.
+Wybierz tę opcję, aby włączyć dostęp just-in-Time (JIT) dla tego planu.  Dostęp JIT umożliwia żądanie dostępu z podwyższonym poziomem uprawnień do zasobów aplikacji zarządzanej w celu rozwiązywania problemów lub konserwacji. Zawsze masz dostęp tylko do odczytu do zasobów, ale przez określony okres możesz mieć większy dostęp.  Aby uzyskać więcej informacji, zobacz [Włączanie i żądanie dostępu just in Time do Azure Managed Applications](../../azure-resource-manager/managed-applications/request-just-in-time-access.md).  Aby wymagać, aby klienci aplikacji zarządzanej mogli udzielić stałego dostępu do konta, pozostaw tę opcję niezaznaczone.
 
 >[!Note]
 >Pamiętaj, aby zaktualizować `createUiDefinition.json` plik w celu obsługi tej funkcji.  
@@ -495,10 +495,10 @@ Wybierz tę opcję, aby włączyć dostęp just-in-Time (JIT) dla tego planu.  D
 
 Wybierz, czy podczas wdrażania tego planu ma zostać skonfigurowany **pełny** , czy **przyrostowy tryb wdrażania** : 
 
-* W **trybie kompletnym**ponowne wdrożenie aplikacji przez klienta spowoduje usunięcie zasobów w zarządzanej grupie zasobów, jeśli zasoby nie są zdefiniowane w `mainTemplate.json` . 
-* W **trybie przyrostowym**ponowne wdrożenie aplikacji pozostawia istniejące zasoby bez zmian.
+* W **trybie kompletnym** ponowne wdrożenie aplikacji przez klienta spowoduje usunięcie zasobów w zarządzanej grupie zasobów, jeśli zasoby nie są zdefiniowane w `mainTemplate.json` . 
+* W **trybie przyrostowym** ponowne wdrożenie aplikacji pozostawia istniejące zasoby bez zmian.
 
-Aby dowiedzieć się więcej na temat trybów wdrażania, zobacz [Azure Resource Manager trybami wdrożenia](../../azure-resource-manager/deployment-modes.md).
+Aby dowiedzieć się więcej na temat trybów wdrażania, zobacz [Azure Resource Manager trybami wdrożenia](../../azure-resource-manager/templates/deployment-modes.md).
 
 #### <a name="notification-endpoint-url"></a>Adres URL punktu końcowego powiadomienia
 
@@ -543,23 +543,23 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="test-drive"></a>Wersja testowa
 
-Skonfiguruj demonstrację (Test Drive), która umożliwia klientom wypróbowanie oferty przed jej zakupem. Aby utworzyć środowisko demonstracyjne, które umożliwia klientom wypróbowanie oferty przez ustalony okres, zobacz temat [testowanie oferty w komercyjnej witrynie Marketplace](test-drive.md).
+Skonfiguruj demonstrację (Test Drive), która umożliwia klientom wypróbowanie oferty przed jej zakupem. Aby utworzyć środowisko demonstracyjne, które umożliwia klientom wypróbowanie oferty przez ustalony okres, zobacz temat [testowanie oferty w komercyjnej witrynie Marketplace](../what-is-test-drive.md).
 
 Aby włączyć stację testową, zaznacz pole wyboru **Włącz dysk testowy** na karcie [Konfiguracja oferty](#test-drive) . Aby usunąć dysk testowy z oferty, wyczyść to pole wyboru.
 
 ### <a name="test-drive-technical-configuration"></a>Wersja testowa konfiguracji technicznej
 
-- **Identyfikator aplikacji usługi Azure AD** (wymagane): wprowadź [Identyfikator aplikacji](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
+- **Identyfikator aplikacji usługi Azure AD** (wymagane): wprowadź [Identyfikator aplikacji](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji** , a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
 
 #### <a name="deployment-subscription-details"></a>Szczegóły subskrypcji wdrożenia
 
 Aby zezwolić na wdrożenie dysku testowego w Twoim imieniu, Utwórz i podaj oddzielną, unikatową subskrypcję platformy Azure (niewymaganą dla Power BI dysków testowych).
 
-* **Identyfikator subskrypcji platformy Azure** (wymagany dla Azure Resource Manager i aplikacji logiki) — wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure na potrzeby raportowania użycia zasobów i rozliczeń. Zalecamy [utworzenie oddzielnej subskrypcji platformy Azure](../../billing/billing-create-subscription.md) , która ma być używana na potrzeby dysków testowych, jeśli jeszcze jej nie masz. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [Azure Portal](https://portal.azure.com/) i przechodząc do karty **subskrypcje** w menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (na przykład "a83645ac-1234-5ab6-6789-1h234g764ghty").
-* **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu URL nazwy domeny w:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+* **Identyfikator subskrypcji platformy Azure** (wymagany dla Azure Resource Manager i aplikacji logiki) — wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure na potrzeby raportowania użycia zasobów i rozliczeń. Zalecamy [utworzenie oddzielnej subskrypcji platformy Azure](../../cost-management-billing/manage/create-subscription.md) , która ma być używana na potrzeby dysków testowych, jeśli jeszcze jej nie masz. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [Azure Portal](https://portal.azure.com/) i przechodząc do karty **subskrypcje** w menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (na przykład "a83645ac-1234-5ab6-6789-1h234g764ghty").
+* **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **Właściwości** , a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu URL nazwy domeny w:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 * **Nazwa dzierżawy usługi Azure AD** (wymagana dla dynamicznego 365) — wprowadź nazwę Azure Active Directory (AD). Aby znaleźć tę nazwę, zaloguj się do [Azure Portal](https://portal.azure.com/), w prawym górnym rogu nazwa dzierżawy zostanie wyświetlona w polu Nazwa konta.
-* **Identyfikator aplikacji usługi Azure AD** (wymagany) — wprowadź [Identyfikator aplikacji](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
-* **Azure Active Directory klucz tajny klienta aplikacji** (wymagane) — wprowadź [klucz tajny klienta](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)aplikacji usługi Azure AD. Aby znaleźć tę wartość, zaloguj się do [Azure Portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację testową. Następnie wybierz pozycję **Certyfikaty i wpisy tajne**, wybierz pozycję **Nowy wpis tajny klienta**, wprowadź opis, wybierz pozycję **nigdy nie** w obszarze **wygaśnięcie**, a następnie wybierz pozycję **Dodaj**. Pamiętaj o skopiowaniu wartości przed opuszczeniem tej strony.
+* **Identyfikator aplikacji usługi Azure AD** (wymagany) — wprowadź [Identyfikator aplikacji](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji** , a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
+* **Azure Active Directory klucz tajny klienta aplikacji** (wymagane) — wprowadź [klucz tajny klienta](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)aplikacji usługi Azure AD. Aby znaleźć tę wartość, zaloguj się do [Azure Portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji** , a następnie wybierz aplikację testową. Następnie wybierz pozycję **Certyfikaty i wpisy tajne** , wybierz pozycję **Nowy wpis tajny klienta** , wprowadź opis, wybierz pozycję **nigdy nie** w obszarze **wygaśnięcie** , a następnie wybierz pozycję **Dodaj** . Pamiętaj o skopiowaniu wartości przed opuszczeniem tej strony.
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
@@ -579,7 +579,7 @@ Opisz środowisko testowe.
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="publish"></a>Opublikuj
+## <a name="publish"></a>Publikowanie
 
 Po zakończeniu wszystkich wymaganych sekcji oferty wybierz pozycję **Przejrzyj i Opublikuj** w prawym górnym rogu portalu.
 

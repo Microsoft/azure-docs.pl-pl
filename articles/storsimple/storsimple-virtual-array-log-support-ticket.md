@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 0ed8533b093c5af0d8aefdcd5175bed63f37a76c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57cd9b55f529bde3f6bcb0a25a95c70333f6d8dd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507674"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130956"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Korzystanie z usługi StorSimple Menedżer urządzeń do rejestrowania Support request dla macierzy wirtualnej StorSimple
 
@@ -33,27 +33,27 @@ W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/pla
 
 #### <a name="to-log-a-new-request"></a>Aby zarejestrować nowe żądanie
 
-1. Przejdź do usługi Menedżer urządzeń StorSimple. W ustawieniach bloku podsumowanie usługi przejdź do sekcji **Obsługa i rozwiązywanie problemów** , a następnie kliknij pozycję **nowe żądanie obsługi**.
+1. Przejdź do usługi Menedżer urządzeń StorSimple. W ustawieniach bloku podsumowanie usługi przejdź do sekcji **Obsługa i rozwiązywanie problemów** , a następnie kliknij pozycję **nowe żądanie obsługi** .
    
-    ![Nowy wniosek o pomoc techniczną](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
+    ![Zrzut ekranu przedstawia okienko podstawowe dla nowego żądania obsługi.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
 2. W bloku **podstawy** wykonaj następujące czynności:
 
-    1. Z listy rozwijanej **typ problemu** wybierz pozycję **techniczne**. 
+    1. Z listy rozwijanej **typ problemu** wybierz pozycję **techniczne** . 
     
-    2. Automatycznie wybierana jest bieżąca **subskrypcja**, typ **usługi** i **zasób** (Usługa StorSimple Menedżer urządzeń). 
+    2. Automatycznie wybierana jest bieżąca **subskrypcja** , typ **usługi** i **zasób** (Usługa StorSimple Menedżer urządzeń). 
 
     3. Określ co najmniej jedno urządzenie zarejestrowane w usłudze, które ma problemy.
 
     4. Wybierz odpowiedni **Plan pomocy technicznej** , jeśli masz wiele planów skojarzonych z Twoją subskrypcją. Potrzebujesz płatnego planu pomocy technicznej, aby umożliwić pomoc techniczną.
 
-3. W **kroku 2**wybierz **ważność** i określ, czy problem jest związany z tablicą lub usługą StorSimple Menedżer urządzeń. Ponadto wybierz **kategorię** tego problemu i podaj więcej **szczegółowych informacji** o problemie.
+3. W **kroku 2** wybierz **ważność** i określ, czy problem jest związany z tablicą lub usługą StorSimple Menedżer urządzeń. Ponadto wybierz **kategorię** tego problemu i podaj więcej **szczegółowych informacji** o problemie.
    
-    ![Nowy wniosek o pomoc techniczną](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
+    ![Zrzut ekranu przedstawia okienko problemu, w którym można wprowadzić typ problemu, kategorię oraz szczegóły żądania pomocy technicznej.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
-4. W **kroku 3**podaj informacje kontaktowe. Pomoc techniczna firmy Microsoft będzie używać tych informacji w celu uzyskania dalszych informacji, diagnozowania i rozwiązywania problemów.
+4. W **kroku 3** podaj informacje kontaktowe. Pomoc techniczna firmy Microsoft będzie używać tych informacji w celu uzyskania dalszych informacji, diagnozowania i rozwiązywania problemów.
    
-    ![Nowy wniosek o pomoc techniczną](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
+    ![Zrzut ekranu przedstawia okienko informacje kontaktowe.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
 ## <a name="manage-a-support-request"></a>Zarządzanie żądaniem obsługi
 
@@ -61,7 +61,7 @@ Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z
 
 #### <a name="to-manage-your-support-requests"></a>Aby zarządzać żądaniami pomocy technicznej
 
-Aby przejść do strony pomoc i obsługa techniczna, przejdź do okna **przeglądaj > pomoc i obsługa techniczna**.
+Aby przejść do strony pomoc i obsługa techniczna, przejdź do okna **przeglądaj > pomoc i obsługa techniczna** .
 
 ![Zarządzanie żądaniami obsługi](./media/storsimple-virtual-array-log-support-ticket/manage-support-tickets.png)
 

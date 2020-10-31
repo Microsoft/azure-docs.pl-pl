@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: cbaca0b9d608d7703beec559e5434f52308629ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c30a9997fcc7ac10b1072d4f164c3e7bfa16f0b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91709108"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130514"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Tworzenie oferty kontenera platformy Azure w witrynie Azure Marketplace
 
@@ -22,9 +22,9 @@ W tym artykule opisano sposób tworzenia i publikowania oferty kontenera dla por
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
 
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
 
-3. Na stronie Przegląd wybierz pozycję **+ nowy oferta**  >  **platformy Azure**.
+3. Na stronie Przegląd wybierz pozycję **+ nowy oferta**  >  **platformy Azure** .
 
    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-azure-container.png)
 
@@ -33,16 +33,16 @@ W tym artykule opisano sposób tworzenia i publikowania oferty kontenera dla por
 
 ### <a name="offer-id-and-alias"></a>Identyfikator oferty i alias
 
-Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
+Wprowadź **Identyfikator oferty** . To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
-- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** , adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz** .
 
-Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
+Wprowadź **alias oferty** . Jest to nazwa używana dla oferty w centrum partnerskim.
 
 - Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
-- Tego nie można zmienić po wybraniu opcji **Utwórz**.
+- Tego nie można zmienić po wybraniu opcji **Utwórz** .
 
 Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
@@ -50,12 +50,12 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Na przykład:
+Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Przykład:
 
-- Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer)
+- Jeśli oferta jest ofertą typu wersja robocza, Usuń wersję roboczą
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Jeśli oferta jest dostępna w wersji zapoznawczej — [Przejdź na żywo](publishing-status.md#publisher-approval)
-- Jeśli nie ukończono wylogowania wydawcy — [Anulowanie publikowania](update-existing-offer.md#cancel-publishing)
+- Jeśli oferta jest dostępna w wersji zapoznawczej — [Przejdź na żywo](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Jeśli nie ukończono wylogowania wydawcy — [Anuluj publikowanie.](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Konfiguracja oferty
 
@@ -65,7 +65,7 @@ Wykonaj następujące kroki, aby skonfigurować ofertę.
 
 Po opublikowaniu oferty na komercyjnym rynku w centrum partnerskim można połączyć ją z systemem zarządzania relacjami z klientami (CRM). Pozwala to na otrzymywanie informacji kontaktowych klienta, gdy tylko ktoś wyrazi zainteresowanie lub skorzysta z produktu.
 
-1. **Wybierz miejsce docelowe potencjalnego klienta, na którym chcesz wysłać klientów**. Centrum partnerskie obsługuje następujące systemy CRM:
+1. **Wybierz miejsce docelowe potencjalnego klienta, na którym chcesz wysłać klientów** . Centrum partnerskie obsługuje następujące systemy CRM:
 
    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) dla zaangażowania klienta
    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
@@ -96,7 +96,7 @@ Ta strona umożliwia definiowanie kategorii używanych do grupowania oferty w wi
 Wybierz kategorie i podkategorie, aby umieścić ofertę w odpowiednich obszarach wyszukiwania w portalu Marketplace. Pamiętaj, aby opisać, w jaki sposób oferta obsługuje te kategorie w opisie oferty. Wybierz pozycję:
 
 - Co najmniej jeden i maksymalnie dwie kategorie, w tym podstawowa i pomocnicza Kategoria (opcjonalnie).
-- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy**.
+- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy** .
 
 Zapoznaj się z pełną listą kategorii i podkategorii w artykule [Oferta z najlepszymi rozwiązaniami](../gtm-offer-listing-best-practices.md). Kontenery są zawsze wyświetlane w obszarze **kontenery** , a następnie Kategoria **obrazy kontenerów** .
 
@@ -172,7 +172,7 @@ Podaj uzupełniające dokumenty online dotyczące Twojej oferty. Możesz dodać 
 
 ### <a name="contact-information"></a>Informacje kontaktowe
 
-Musisz podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego**. Te informacje nie są widoczne dla klientów, ale są dostępne dla firmy Microsoft. Mogą być również udostępniane partnerom dostawcy rozwiązań w chmurze (CSP).
+Musisz podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego** . Te informacje nie są widoczne dla klientów, ale są dostępne dla firmy Microsoft. Mogą być również udostępniane partnerom dostawcy rozwiązań w chmurze (CSP).
 
 - Kontakt z pomocą techniczną (wymagany): w przypadku ogólnych pytań dotyczących pomocy technicznej.
 - Kontakt inżynieryjny (wymagany): w przypadku pytań technicznych i problemów z certyfikacją.
@@ -180,7 +180,7 @@ Musisz podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą tec
 
 W sekcji **skontaktuj się z pomocą techniczną** Podaj **witrynę sieci Web pomocy technicznej** , w której partnerzy mogą znaleźć pomoc techniczną dotyczącą oferty w zależności od tego, czy oferta jest dostępna na platformie Azure, Azure Government czy w obu tych przypadkach.
 
-W sekcji **kontakt programu z programem CSP** Podaj link (**materiały marketingowe programu CSP**), w którym partnerzy usług kryptograficznych mogą znaleźć materiały marketingowe oferty.
+W sekcji **kontakt programu z programem CSP** Podaj link ( **materiały marketingowe programu CSP** ), w którym partnerzy usług kryptograficznych mogą znaleźć materiały marketingowe oferty.
 
 #### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące wyświetlania w portalu Marketplace
 
@@ -242,7 +242,7 @@ Spowoduje to wyświetlenie wyników wyszukiwania w Azure Portal:
 Na karcie Podgląd możesz wybrać ograniczonych **odbiorców w wersji zapoznawczej** , aby sprawdzić poprawność oferty przed opublikowaniem jej na żywo.
 
 > [!IMPORTANT]
-> Po wyświetleniu oferty w **wersji zapoznawczej**musisz wybrać pozycję **Przejdź na żywo** , aby opublikować ofertę publicznie.
+> Po wyświetleniu oferty w **wersji zapoznawczej** musisz wybrać pozycję **Przejdź na żywo** , aby opublikować ofertę publicznie.
 
 Określ odbiorców w wersji zapoznawczej przy użyciu identyfikatorów GUID identyfikatora subskrypcji platformy Azure, a także opcjonalny opis dla każdej z nich. Żadne z tych pól nie może być widoczne dla klientów.
 
@@ -274,14 +274,14 @@ Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego 
 
 ### <a name="create-new-plan"></a>Utwórz nowy plan
 
-Wybierz pozycję **Utwórz nowy plan**. Zostanie wyświetlone okno dialogowe **nowy plan** .
+Wybierz pozycję **Utwórz nowy plan** . Zostanie wyświetlone okno dialogowe **nowy plan** .
 
 W polu **identyfikator planu** Utwórz unikatowy identyfikator planu dla każdego planu w tej ofercie. Ten identyfikator będzie widoczny dla klientów w adresie sieci Web produktu. Używaj tylko małych liter i cyfr, kresek lub podkreśleń i maksymalnie 50 znaków.
 
 > [!NOTE]
-> Nie można zmienić identyfikatora planu po wybraniu opcji **Utwórz**.
+> Nie można zmienić identyfikatora planu po wybraniu opcji **Utwórz** .
 
-W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę dla każdego planu w tej ofercie. Można na przykład użyć nazwy oferty **systemu Windows Server** z planami **Windows Server 2016** i **Windows Server 2019**.
+W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę dla każdego planu w tej ofercie. Można na przykład użyć nazwy oferty **systemu Windows Server** z planami **Windows Server 2016** i **Windows Server 2019** .
 
 ### <a name="plan-setup"></a>Konfigurowanie planu
 
@@ -289,7 +289,7 @@ Na tej karcie można wybrać chmurę, w której plan jest dostępny. Odpowiedzi 
 
 #### <a name="azure-regions"></a>Regiony świadczenia usługi Azure
 
-Wszystkie plany dla ofert kontenera platformy Azure są automatycznie udostępniane na **platformie Azure Global**.  Twój plan może być używany przez klientów we wszystkich globalnych regionach platformy Azure, które korzystają z komercyjnej witryny Marketplace. Aby uzyskać szczegółowe informacje, zobacz [dostępność geograficzna i obsługa waluty](../marketplace-geo-availability-currencies.md).
+Wszystkie plany dla ofert kontenera platformy Azure są automatycznie udostępniane na **platformie Azure Global** .  Twój plan może być używany przez klientów we wszystkich globalnych regionach platformy Azure, które korzystają z komercyjnej witryny Marketplace. Aby uzyskać szczegółowe informacje, zobacz [dostępność geograficzna i obsługa waluty](../marketplace-geo-availability-currencies.md).
 
 Wybierz opcję [Azure Government](../../azure-government/documentation-government-welcome.md) , aby rozwiązanie było wyświetlane w tym miejscu. Jest to chmura społecznościowa dla instytucji rządowych, której dostęp jest kontrolowany przez klientów z federalnych, stanowych i lokalnych lub plemienneych instytucji rządowych, a także partnerów uprawnionych do ich używania. Wydawca jest odpowiedzialny za wszelkie kontrole zgodności, miary zabezpieczeń i najlepsze rozwiązania dla tej społeczności w chmurze. Azure Government używa fizycznie wyizolowanych centrów danych i sieci (znajdujących się tylko w Stanach Zjednoczonych). Przed [opublikowaniem](../../azure-government/documentation-government-manage-marketplace-partners.md) w celu Azure Government Przetestuj i Potwierdź swoje rozwiązanie w tym obszarze, ponieważ wyniki mogą się różnić. Aby utworzyć i przetestować rozwiązanie, zażądaj konta próbnego od [Microsoft Azure Government wersji próbnej](https://azure.microsoft.com/global-infrastructure/government/request/).
 
@@ -298,7 +298,7 @@ Wybierz opcję [Azure Government](../../azure-government/documentation-governmen
 
 #### <a name="azure-government-certifications"></a>Certyfikaty Azure Government
 
-Tę opcję można zobaczyć tylko w przypadku wybrania **Azure Government** w obszarze **regiony platformy Azure**.
+Tę opcję można zobaczyć tylko w przypadku wybrania **Azure Government** w obszarze **regiony platformy Azure** .
 
 Usługi Azure Government Services obsługują dane, które podlegają określonym przepisom i wymogom rządowym. Na przykład FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD P4 i CJIS.
 
@@ -365,11 +365,11 @@ Podaj poniższe informacje na karcie **szczegóły repozytorium obrazów** .
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustruje pole wyboru Użyj standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft.":::
 
-**Hasło dla Azure Container Registry** — Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
+**Hasło dla Azure Container Registry** — Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustruje pole wyboru Użyj standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft.":::
 
-**Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Dołącz nazwę repozytorium podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  strony**repozytoria** Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](../../container-registry/container-registry-repositories.md).
+**Nazwa repozytorium w Azure Container Registry** . Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Dołącz nazwę repozytorium podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  strony **repozytoria** Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](../../container-registry/container-registry-repositories.md).
 
 > [!NOTE]
 > Po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na koncie.
@@ -391,7 +391,7 @@ Wszystkie Tagi manifestu (z wyjątkiem najnowszego tagu) muszą zaczynać się o
 
 Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać ją do przeglądu i publikacji.
 
-W prawym górnym rogu portalu wybierz pozycję **Przejrzyj i** **Opublikuj**.
+W prawym górnym rogu portalu wybierz pozycję **Przejrzyj i** **Opublikuj** .
 
 Na stronie Przegląd możesz:
 
@@ -401,11 +401,11 @@ Na stronie Przegląd możesz:
   - **Ukończono** — zawiera wszystkie wymagane dane bez błędów. Aby można było przesłać ofertę, wszystkie sekcje oferty muszą zostać ukończone.
 - Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że oferta została prawidłowo przetestowana. Ponadto Podaj wszelkie dodatkowe uwagi pomocne przy zrozumieniu oferty.
 
-Aby przesłać ofertę do publikacji, wybierz pozycję **Publikuj**.
+Aby przesłać ofertę do publikacji, wybierz pozycję **Publikuj** .
 
 Wyślemy Ci wiadomość e-mail z prośbą o poinformowanie o udostępnieniu wersji zapoznawczej oferty do przejrzenia i zatwierdzenia.
 
-Aby opublikować publiczną ofertę, przejdź do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo**.
+Aby opublikować publiczną ofertę, przejdź do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** .
 
 ## <a name="next-step"></a>Następny krok
 

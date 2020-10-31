@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 35b1b07bd4d9eef555be26e1c24356b7c352bf38
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100698"
+ms.locfileid: "93130344"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
@@ -93,7 +93,7 @@ Do śledzenia zmian w plikach w systemach Windows i Linux Change Tracking i spis
 
 ## <a name="tracking-file-content-changes"></a>Śledzenie zmian zawartości plików
 
-Change Tracking i spis umożliwia wyświetlenie zawartości pliku systemu Windows lub Linux. Dla każdej zmiany pliku Change Tracking i spis przechowuje zawartość pliku na [koncie usługi Azure Storage](/azure/storage/common/storage-account-create). Podczas śledzenia pliku można wyświetlić jego zawartość przed zmianą lub po niej. Zawartość pliku może być wyświetlana jako wbudowana lub obok siebie.
+Change Tracking i spis umożliwia wyświetlenie zawartości pliku systemu Windows lub Linux. Dla każdej zmiany pliku Change Tracking i spis przechowuje zawartość pliku na [koncie usługi Azure Storage](../../storage/common/storage-account-create.md). Podczas śledzenia pliku można wyświetlić jego zawartość przed zmianą lub po niej. Zawartość pliku może być wyświetlana jako wbudowana lub obok siebie.
 
 ![Wyświetlanie zmian w pliku](./media/overview/view-file-changes.png)
 
@@ -158,7 +158,7 @@ W poniższej tabeli przedstawiono limity śledzonych elementów na maszynę dla 
 |Usługi|250|
 |Demonów|250|
 
-Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie, w zależności od środowiska. Za pomocą funkcji użycie i szacowane koszty w obszarze roboczym Log Analytics można wyświetlić dane pozyskane przez Change Tracking i spis na wykresie użycia. Użyj tego widoku danych, aby oszacować użycie danych i określić, jak ma to wpływ na rachunek. Zobacz temat [Omówienie kosztów użytkowania i szacowania](/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie, w zależności od środowiska. Za pomocą funkcji użycie i szacowane koszty w obszarze roboczym Log Analytics można wyświetlić dane pozyskane przez Change Tracking i spis na wykresie użycia. Użyj tego widoku danych, aby oszacować użycie danych i określić, jak ma to wpływ na rachunek. Zobacz temat [Omówienie kosztów użytkowania i szacowania](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dane usługi firmy Microsoft
 

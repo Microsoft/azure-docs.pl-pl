@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 34af52b32d9e31ad003c5e95e288f88b157a944a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d253bda69839c76aed0170f9a79a03b7d4bf1a79
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710621"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130110"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
@@ -23,8 +23,8 @@ Aby opublikować ofertę usługi zarządzanej, należy dysponować [poziomem kom
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
-3. Na stronie Przegląd wybierz pozycję **+ Nowa oferowana**  >  **usługa zarządzana**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferowana**  >  **usługa zarządzana** .
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-managed-service.png)
 
@@ -33,16 +33,16 @@ Aby opublikować ofertę usługi zarządzanej, należy dysponować [poziomem kom
 
 ## <a name="new-offer"></a>Nowa oferta
 
-Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
+Wprowadź **Identyfikator oferty** . To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 * Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
-* Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-* Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
+* Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** , adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+* Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz** .
 
-Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
+Wprowadź **alias oferty** . Jest to nazwa używana dla oferty w centrum partnerskim.
 
 * Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
-* Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz**.
+* Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz** .
 
 Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
@@ -52,7 +52,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Dla [zasad certyfikacji usług zarządzanych](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)wymagane jest **miejsce docelowe lidera** . Spowoduje to utworzenie rekordu w systemie CRM przy każdym wdrożeniu oferty przez klienta.
+Dla [zasad certyfikacji usług zarządzanych](/legal/marketplace/certification-policies#700-managed-services)wymagane jest **miejsce docelowe lidera** . Spowoduje to utworzenie rekordu w systemie CRM przy każdym wdrożeniu oferty przez klienta.
 
 Aby uzyskać więcej informacji, zobacz temat [Zarządzanie potencjalnymi klientami — Omówienie](./commercial-marketplace-get-customer-leads.md).
 
@@ -116,15 +116,15 @@ Wprowadź adres URL zasad zachowania poufności informacji organizacji (hostowan
 
 ### <a name="useful-links"></a>Przydatne łącza
 
-Podaj opcjonalne uzupełniające dokumenty online dotyczące Twojego rozwiązania. Dodaj dodatkowe przydatne linki, klikając pozycję **+ Dodaj link**.
+Podaj opcjonalne uzupełniające dokumenty online dotyczące Twojego rozwiązania. Dodaj dodatkowe przydatne linki, klikając pozycję **+ Dodaj link** .
 
 ### <a name="contact-information"></a>Informacje kontaktowe
 
-W tej sekcji należy podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego**. Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP.
+W tej sekcji należy podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego** . Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP.
 
 ### <a name="support-urls"></a>Adresy URL pomocy technicznej
 
-Jeśli masz pomoc techniczną dla klientów **globalnych platformy Azure** i/lub **Azure Government klientów**, podaj te adresy URL tutaj.
+Jeśli masz pomoc techniczną dla klientów **globalnych platformy Azure** i/lub **Azure Government klientów** , podaj te adresy URL tutaj.
 
 ### <a name="marketplace-images"></a>Obrazy z witryny Marketplace
 
@@ -153,7 +153,7 @@ Te logo są używane w różnych miejscach na liście:
 
 Dodaj maksymalnie pięć zrzutów ekranu, które pokazują, jak działa Twoja oferta. Wszystkie zrzuty ekranu muszą mieć 1280 x 720 pikseli.
 
-#### <a name="videos"></a>Wideo
+#### <a name="videos"></a>Filmy wideo
 
 Opcjonalnie możesz dodać maksymalnie pięć filmów wideo, które demonstrują Twoją ofertę. Te filmy wideo powinny być hostowane w usłudze YouTube i/lub Vimeo. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres URL i obraz miniatury filmu wideo (1280 x 720 pikseli).
 
@@ -179,9 +179,9 @@ Każda oferta musi mieć jeden lub więcej planów (dawniej nazywanych jednostka
 
 Możesz utworzyć do 100 planów dla każdej oferty: maksymalnie 45 z nich mogą być prywatne. Dowiedz się więcej o planach prywatnych w [ofertach prywatnych w komercyjnym portalu Microsoft Marketplace](../private-offers.md).
 
-Na stronie **Przegląd planu** wybierz pozycję **+ Utwórz nowy plan**. Następnie wprowadź **identyfikator planu** i **nazwę planu**. Obie te wartości mogą zawierać tylko małe znaki alfanumeryczne, łączniki i podkreślenia, maksymalnie 50 znaków. Te wartości mogą być widoczne dla klientów i nie można ich zmienić po opublikowaniu oferty.
+Na stronie **Przegląd planu** wybierz pozycję **+ Utwórz nowy plan** . Następnie wprowadź **identyfikator planu** i **nazwę planu** . Obie te wartości mogą zawierać tylko małe znaki alfanumeryczne, łączniki i podkreślenia, maksymalnie 50 znaków. Te wartości mogą być widoczne dla klientów i nie można ich zmienić po opublikowaniu oferty.
 
-Wybierz pozycję **Utwórz** po wprowadzeniu tych wartości, aby kontynuować pracę z planem. Istnieją trzy sekcje do zakończenia: **Planowanie list**, **cen i dostępności**oraz **konfiguracji technicznej**.
+Wybierz pozycję **Utwórz** po wprowadzeniu tych wartości, aby kontynuować pracę z planem. Istnieją trzy sekcje do zakończenia: **Planowanie list** , **cen i dostępności** oraz **konfiguracji technicznej** .
 
 ### <a name="plan-listing"></a>Zaplanuj listę
 
@@ -191,14 +191,14 @@ Następnie wprowadź **Opis** , który zawiera bardziej szczegółowe wyjaśnien
 
 ### <a name="pricing-and-availability"></a>Cennik i dostępność
 
-Obecnie istnieje tylko jeden model cenowy, który może być używany na potrzeby oferty usługi zarządzanej: **Bring Your Own License (BYOL)**. Oznacza to, że klienci będą rozliczani bezpośrednio za koszty związane z tą ofertą, a firma Microsoft nie nalicza opłat za Ciebie.
+Obecnie istnieje tylko jeden model cenowy, który może być używany na potrzeby oferty usługi zarządzanej: **Bring Your Own License (BYOL)** . Oznacza to, że klienci będą rozliczani bezpośrednio za koszty związane z tą ofertą, a firma Microsoft nie nalicza opłat za Ciebie.
 
 Sekcja **widoczność planu** pozwala wskazać, czy ten plan powinien być [prywatny](../../marketplace/private-offers.md). Jeśli opuścisz **to pole jest** niezaznaczone, Twój plan nie zostanie ograniczony do określonych klientów (lub do określonej liczby klientów).
 
 > [!NOTE]
 > Plany prywatne nie są obsługiwane w przypadku subskrypcji ustanowionych przez odsprzedawcę programu w programie Cloud Solution Provider (CSP).
 
-Aby ten plan był dostępny tylko dla określonych klientów, wybierz opcję **tak**. W takim przypadku należy zidentyfikować klientów, podając ich identyfikatory subskrypcji. Można je wprowadzić jeden po jednym (dla maksymalnie 10 subskrypcji) lub przekazując plik CSV (maksymalnie 10 000 subskrypcji we wszystkich planach). Pamiętaj o dołączeniu własnych subskrypcji tutaj, aby móc testować i sprawdzać poprawność oferty.
+Aby ten plan był dostępny tylko dla określonych klientów, wybierz opcję **tak** . W takim przypadku należy zidentyfikować klientów, podając ich identyfikatory subskrypcji. Można je wprowadzić jeden po jednym (dla maksymalnie 10 subskrypcji) lub przekazując plik CSV (maksymalnie 10 000 subskrypcji we wszystkich planach). Pamiętaj o dołączeniu własnych subskrypcji tutaj, aby móc testować i sprawdzać poprawność oferty.
 
 > [!IMPORTANT]
 > Po opublikowaniu planu jako publicznego nie można go zmienić na prywatny. Aby kontrolować, którzy klienci mogą akceptować ofertę i delegować zasoby, należy użyć planu prywatnego. W przypadku planu publicznego nie można ograniczyć dostępności do określonych klientów, a nawet do określonej liczby klientów (mimo że można już zrezygnować z sprzedaży planu w przypadku wybrania tej opcji). [Dostęp do delegowania można usunąć](../../lighthouse/how-to/remove-delegation.md) , gdy klient zaakceptuje ofertę tylko wtedy, gdy została uwzględniona **autoryzacja** z **definicją roli** ustawioną na [przypisanie rejestracji usług zarządzanych](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) , po opublikowaniu oferty. Możesz również skontaktować się z klientem i poproś o [usunięcie dostępu](../../lighthouse/how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
@@ -216,9 +216,9 @@ Pamiętaj, aby zapoznać się z [dzierżawcami, rolami i użytkownikami w scenar
 
 Najpierw Podaj **wersję** manifestu. Użyj formatu *n. n. n* (na przykład 1.2.5).
 
-Następnie wprowadź swój **Identyfikator dzierżawy**. Jest to identyfikator GUID skojarzony z IDENTYFIKATORem dzierżawy usługi Azure Active Directory (Azure AD) organizacji; oznacza to, że dzierżawy zarządzającej, z której będziesz uzyskiwać dostęp do zasobów klientów. Jeśli go nie masz, możesz go znaleźć, umieszczając kursor nad nazwą swojego konta w prawym górnym rogu Azure Portal lub wybierając pozycję **Przełącz katalog**.
+Następnie wprowadź swój **Identyfikator dzierżawy** . Jest to identyfikator GUID skojarzony z IDENTYFIKATORem dzierżawy usługi Azure Active Directory (Azure AD) organizacji; oznacza to, że dzierżawy zarządzającej, z której będziesz uzyskiwać dostęp do zasobów klientów. Jeśli go nie masz, możesz go znaleźć, umieszczając kursor nad nazwą swojego konta w prawym górnym rogu Azure Portal lub wybierając pozycję **Przełącz katalog** .
 
-Jeśli opublikujesz nową wersję oferty i chcesz utworzyć zaktualizowany manifest, wybierz pozycję **+ nowy manifest**. Pamiętaj, aby zwiększyć numer wersji z poprzedniej wersji manifestu.
+Jeśli opublikujesz nową wersję oferty i chcesz utworzyć zaktualizowany manifest, wybierz pozycję **+ nowy manifest** . Pamiętaj, aby zwiększyć numer wersji z poprzedniej wersji manifestu.
 
 #### <a name="authorization"></a>Autoryzacja
 
@@ -229,23 +229,23 @@ Dla każdego planu można utworzyć maksymalnie dwadzieścia autoryzacji.
 > [!TIP]
 > W większości przypadków chcesz przypisać role do grupy użytkowników usługi Azure AD lub nazwy głównej usług, a nie do serii poszczególnych kont użytkowników. Pozwala to na dodawanie lub usuwanie dostępu dla poszczególnych użytkowników bez konieczności aktualizacji i ponownego publikowania planu, gdy zmienią się wymagania dotyczące dostępu. Podczas przypisywania ról do grup usługi Azure AD upewnij się, [że **typem grupy** jest **zabezpieczenia** , a nie **pakiet Office 365**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Aby uzyskać dodatkowe zalecenia, zobacz [dzierżawy, role i użytkowników w scenariuszach usługi Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md).
 
-Dla każdej **autoryzacji**należy podać następujące dane. Następnie można wybrać opcję **+ Dodaj autoryzację** dowolną liczbę razy, aby dodać więcej użytkowników i definicje ról.
+Dla każdej **autoryzacji** należy podać następujące dane. Następnie można wybrać opcję **+ Dodaj autoryzację** dowolną liczbę razy, aby dodać więcej użytkowników i definicje ról.
 
-- **Identyfikator obiektu usługi Azure AD**: identyfikator usługi Azure AD użytkownika, grupy użytkowników lub aplikacji, do której zostaną przyznane określone uprawnienia (zgodnie z definicją roli) do zasobów klientów.
-- **Nazwa wyświetlana obiektu usługi Azure AD**: przyjazna nazwa, która pomaga klientowi zrozumieć cel tej autoryzacji. Klient zobaczy tę nazwę podczas delegowania zasobów.
-- **Definicja roli**: Wybierz jedną z dostępnych ról wbudowanych usługi Azure AD z listy. Ta rola określi uprawnienia, które użytkownik w polu **Identyfikator obiektu usługi Azure AD** będzie mieć w zasobach klientów. Opisy tych ról można znaleźć w temacie [role wbudowane](../../role-based-access-control/built-in-roles.md) i [Obsługa ról w usłudze Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
+- **Identyfikator obiektu usługi Azure AD** : identyfikator usługi Azure AD użytkownika, grupy użytkowników lub aplikacji, do której zostaną przyznane określone uprawnienia (zgodnie z definicją roli) do zasobów klientów.
+- **Nazwa wyświetlana obiektu usługi Azure AD** : przyjazna nazwa, która pomaga klientowi zrozumieć cel tej autoryzacji. Klient zobaczy tę nazwę podczas delegowania zasobów.
+- **Definicja roli** : Wybierz jedną z dostępnych ról wbudowanych usługi Azure AD z listy. Ta rola określi uprawnienia, które użytkownik w polu **Identyfikator obiektu usługi Azure AD** będzie mieć w zasobach klientów. Opisy tych ról można znaleźć w temacie [role wbudowane](../../role-based-access-control/built-in-roles.md) i [Obsługa ról w usłudze Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
   > [!NOTE]
   > Nowe wbudowane role są dodawane do platformy Azure, ale staną się dostępne w tym miejscu, chociaż może wystąpić pewne opóźnienie przed ich wyświetleniem.
-- **Role**możliwe do przypisania: Ta opcja będzie wyświetlana tylko wtedy, gdy w **definicji roli** dla tej autoryzacji wybrano administratora dostępu użytkownika. Jeśli tak, należy dodać co najmniej jedną przypisaną rolę w tym miejscu. Użytkownik w polu **Identyfikator obiektu usługi Azure AD** będzie mógł przypisywać te role do [tożsamości zarządzanych](../../active-directory/managed-identities-azure-resources/overview.md), które są wymagane w celu [wdrożenia zasad, które można skorygować](../../lighthouse/how-to/deploy-policy-remediation.md). Należy pamiętać, że żadne inne uprawnienia zwykle skojarzone z rolą administratora dostępu użytkowników będą stosowane dla tego użytkownika.
+- **Role** możliwe do przypisania: Ta opcja będzie wyświetlana tylko wtedy, gdy w **definicji roli** dla tej autoryzacji wybrano administratora dostępu użytkownika. Jeśli tak, należy dodać co najmniej jedną przypisaną rolę w tym miejscu. Użytkownik w polu **Identyfikator obiektu usługi Azure AD** będzie mógł przypisywać te role do [tożsamości zarządzanych](../../active-directory/managed-identities-azure-resources/overview.md), które są wymagane w celu [wdrożenia zasad, które można skorygować](../../lighthouse/how-to/deploy-policy-remediation.md). Należy pamiętać, że żadne inne uprawnienia zwykle skojarzone z rolą administratora dostępu użytkowników będą stosowane dla tego użytkownika.
 
 > [!TIP]
 > Aby mieć pewność, że w razie potrzeby będzie można [usunąć dostęp do delegowania](../../lighthouse/how-to/remove-delegation.md) , Uwzględnij **autoryzację** z **definicją roli** ustawioną na [przydział rejestracji usług zarządzanych](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Jeśli ta rola nie jest przypisana, delegowane zasoby mogą zostać usunięte tylko przez użytkownika w dzierżawie klienta.
 
-Po zakończeniu wszystkich sekcji planu możesz wybrać pozycję **+ Utwórz nowy plan** dowolną liczbę razy, aby utworzyć dodatkowe plany. Po zakończeniu wybierz pozycję **Zapisz**.
+Po zakończeniu wszystkich sekcji planu możesz wybrać pozycję **+ Utwórz nowy plan** dowolną liczbę razy, aby utworzyć dodatkowe plany. Po zakończeniu wybierz pozycję **Zapisz** .
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="publish"></a>Opublikuj
+## <a name="publish"></a>Publikowanie
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 
@@ -258,7 +258,7 @@ Jeśli po raz pierwszy publikujesz tę ofertę, możesz:
   - **Niekompletne** — sekcja zawiera błędy, które muszą zostać naprawione lub aby można było dostarczyć więcej informacji. Wróć do sekcji i zaktualizuj ją.
   - **Ukończono** — sekcja została ukończona, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
 - W sekcji **uwagi dotyczące certyfikacji** Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja została prawidłowo przetestowana, a także dodatkowe uwagi przydatne do poznania aplikacji.
-- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail, gdy zostanie udostępniona wersja zapoznawcza oferty, którą możesz przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać ofertę opublikowania oferty na publiczną (lub w przypadku prywatnej oferty dla odbiorców prywatnych).
+- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij** . Wyślemy Ci wiadomość e-mail, gdy zostanie udostępniona wersja zapoznawcza oferty, którą możesz przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać ofertę opublikowania oferty na publiczną (lub w przypadku prywatnej oferty dla odbiorców prywatnych).
 
 ### <a name="customer-experience-and-offer-management"></a>Obsługa klienta i zarządzanie ofertami
 

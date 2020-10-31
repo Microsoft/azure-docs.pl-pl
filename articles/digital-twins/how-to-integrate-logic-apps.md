@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 9ea85449d3980f46e88eddc7e06e4a5384b8cea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 3fbd9016bcbfa83574d894af7ca728b863f54344
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027554"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129324"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integracja z usługą Logic Apps przy użyciu łącznika niestandardowego
 
@@ -33,34 +33,11 @@ Zaloguj się do [Azure Portal](https://portal.azure.com) za pomocą tego konta.
 
 Należy również wykonać następujące czynności w ramach konfiguracji wymagań wstępnych. Pozostała część tej sekcji przeprowadzi Cię przez następujące kroki:
 - Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
-- Pobierz klucz tajny klienta rejestracji aplikacji
 - Dodaj dwuosiową cyfrę
 
 ### <a name="set-up-azure-digital-twins-instance"></a>Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 
-Aby połączyć Logic Apps wystąpienie usługi Azure Digital bliźniaczych reprezentacji w tym artykule, musisz mieć już skonfigurowane **wystąpienie usługi Azure Digital bliźniaczych reprezentacji** . 
-
-Najpierw **Skonfiguruj wystąpienie usługi Azure Digital bliźniaczych reprezentacji** i wymagane uwierzytelnianie, aby móc z nich korzystać. Aby to zrobić, postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md).
-* Po skonfigurowaniu wystąpienia usługi Azure Digital bliźniaczych reprezentacji należy określić **_nazwę hosta_** wystąpienia ( [Znajdź w Azure Portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
-
-Aby uwierzytelnić łącznik, należy również skonfigurować **rejestrację aplikacji** . Postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Create a App Registration*](how-to-create-app-registration.md) to set up. 
-* Po zarejestrowaniu aplikacji będziesz potrzebować identyfikatora **_aplikacji (klienta)_** rejestracji i **_identyfikatora (dzierżawy)_** ( [Znajdź w Azure Portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
-
-### <a name="get-app-registration-client-secret"></a>Pobierz klucz tajny klienta rejestracji aplikacji
-
-Należy również utworzyć **_klucz tajny klienta_** dla rejestracji aplikacji usługi Azure AD. W tym celu przejdź do strony [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Portal (możesz użyć tego linku lub poszukać go na pasku wyszukiwania portalu). Wybierz swoją rejestrację utworzoną w poprzedniej sekcji z listy, aby otworzyć jej szczegóły. 
-
-Trafij *Certyfikaty i wpisy tajne* z menu Rejestracja i wybierz pozycję *+ nowy klucz tajny klienta* .
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Widok portalu rejestracji aplikacji usługi Azure AD. W menu zasób znajduje się wyróżniona wartość &quot;certyfikaty i wpisy tajne&quot;, a na stronie znajduje się wartość &quot;nowy wpis tajny klienta&quot;.":::
-
-Wprowadź wszelkie wartości, które mają być stosowane w opisie i wygaśnie, i kliknij przycisk *Dodaj* .
-
-:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Widok portalu rejestracji aplikacji usługi Azure AD. W menu zasób znajduje się wyróżniona wartość &quot;certyfikaty i wpisy tajne&quot;, a na stronie znajduje się wartość &quot;nowy wpis tajny klienta&quot;.":::
-
-Teraz sprawdź, czy klucz tajny klienta jest widoczny na stronie _certyfikaty & wpisy tajne_ z polami _Expires_ i _Value_ . Zanotuj jego _wartość_ , aby użyć jej później (można także skopiować ją do schowka za pomocą ikony kopiowania)
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Widok portalu rejestracji aplikacji usługi Azure AD. W menu zasób znajduje się wyróżniona wartość &quot;certyfikaty i wpisy tajne&quot;, a na stronie znajduje się wartość &quot;nowy wpis tajny klienta&quot;.":::
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ### <a name="add-a-digital-twin"></a>Dodaj dwuosiową cyfrę
 
@@ -70,9 +47,29 @@ Możesz dodać bliźniaczych reprezentacji za pomocą [interfejsów API DigitalT
 
 Będziesz potrzebować **_identyfikatora sznurka_** w utworzonym wystąpieniu.
 
+## <a name="set-up-app-registration"></a>Skonfiguruj rejestrację aplikacji
+
+[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
+
+### <a name="get-app-registration-client-secret"></a>Pobierz klucz tajny klienta rejestracji aplikacji
+
+Należy również utworzyć **_klucz tajny klienta_** dla rejestracji aplikacji usługi Azure AD. W tym celu przejdź do strony [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Portal (możesz użyć tego linku lub poszukać go na pasku wyszukiwania portalu). Wybierz swoją rejestrację utworzoną w poprzedniej sekcji z listy, aby otworzyć jej szczegóły. 
+
+Trafij *Certyfikaty i wpisy tajne* z menu Rejestracja i wybierz pozycję *+ nowy klucz tajny klienta* .
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Widok portalu rejestracji aplikacji usługi Azure AD. W menu zasób znajduje się wyróżniona wartość &quot;certyfikaty i wpisy tajne&quot;, a na stronie znajduje się wartość &quot;nowy wpis tajny klienta&quot;.":::
+
+Wprowadź wszelkie wartości, które mają być stosowane w *opisie* i *wygaśnie* , i kliknij przycisk *Dodaj* .
+
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Widok portalu rejestracji aplikacji usługi Azure AD. W menu zasób znajduje się wyróżniona wartość &quot;certyfikaty i wpisy tajne&quot;, a na stronie znajduje się wartość &quot;nowy wpis tajny klienta&quot;.":::
+
+Teraz sprawdź, czy klucz tajny klienta jest widoczny na stronie _certyfikaty & wpisy tajne_ z polami _Expires_ i _Value_ . Zanotuj jego _wartość_ , aby użyć jej później (można także skopiować ją do schowka za pomocą ikony kopiowania)
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Widok portalu rejestracji aplikacji usługi Azure AD. W menu zasób znajduje się wyróżniona wartość &quot;certyfikaty i wpisy tajne&quot;, a na stronie znajduje się wartość &quot;nowy wpis tajny klienta&quot;.":::
+
 ## <a name="create-custom-logic-apps-connector"></a>Tworzenie łącznika Logic Apps niestandardowego
 
-W tym kroku utworzysz [niestandardowy łącznik Logic Apps](../logic-apps/custom-connector-overview.md) dla interfejsów API Digital bliźniaczych reprezentacji platformy Azure. Po wykonaniu tej czynności będzie można podłączyć usługę Azure Digital bliźniaczych reprezentacji podczas tworzenia aplikacji logiki w następnej sekcji.
+Teraz możesz przystąpić do tworzenia [niestandardowego łącznika Logic Apps](../logic-apps/custom-connector-overview.md) dla interfejsów API Digital bliźniaczych reprezentacji platformy Azure. Po wykonaniu tej czynności będzie można podłączyć usługę Azure Digital bliźniaczych reprezentacji podczas tworzenia aplikacji logiki w następnej sekcji.
 
 Przejdź do strony [Logic Apps łącznika niestandardowego](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) w Azure Portal (możesz użyć tego linku lub wyszukać go na pasku wyszukiwania portalu). Trafij *i Dodaj* .
 

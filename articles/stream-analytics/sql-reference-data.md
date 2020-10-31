@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1ae5908fe3ab95dcd62da976988bd7ce107217e5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 1826b66b0548b7567af59de64549c7eb700025c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027410"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130905"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Korzystanie z danych referencyjnych z SQL Database dla zadania Azure Stream Analytics
 
@@ -173,11 +173,11 @@ W przypadku korzystania z zapytania różnicowego tabele danych czasowych [w Azu
    Należy pamiętać, że środowisko uruchomieniowe Stream Analytics może okresowo uruchamiać zapytanie migawek oprócz zapytania Delta do przechowywania punktów kontrolnych.
 
 ## <a name="test-your-query"></a>Testowanie zapytania
-   Ważne jest, aby sprawdzić, czy zapytanie zwraca oczekiwany zestaw danych, który będzie używany przez zadanie Stream Analytics jako dane referencyjne. Aby przetestować zapytanie, przejdź do pozycji dane wejściowe w obszarze Topologia zadania w portalu. Następnie możesz wybrać przykładowe dane dla danych wejściowych odwołania SQL Database. Po udostępnieniu próbki można pobrać plik i sprawdzić, czy zwracane dane są zgodnie z oczekiwaniami. Jeśli chcesz zoptymalizować iteracje do tworzenia i testowania, zaleca się korzystanie z [Stream Analytics narzędzi dla programu Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Możesz również użyć dowolnego innego narzędzia preferencji, aby najpierw upewnić się, że zapytanie zwróci odpowiednie wyniki z Azure SQL Database, a następnie użyje go w zadaniu Stream Analytics. 
+   Ważne jest, aby sprawdzić, czy zapytanie zwraca oczekiwany zestaw danych, który będzie używany przez zadanie Stream Analytics jako dane referencyjne. Aby przetestować zapytanie, przejdź do pozycji dane wejściowe w obszarze Topologia zadania w portalu. Następnie możesz wybrać przykładowe dane dla danych wejściowych odwołania SQL Database. Po udostępnieniu próbki można pobrać plik i sprawdzić, czy zwracane dane są zgodnie z oczekiwaniami. Jeśli chcesz zoptymalizować iteracje do tworzenia i testowania, zaleca się korzystanie z [Stream Analytics narzędzi dla programu Visual Studio](./stream-analytics-tools-for-visual-studio-install.md). Możesz również użyć dowolnego innego narzędzia preferencji, aby najpierw upewnić się, że zapytanie zwróci odpowiednie wyniki z Azure SQL Database, a następnie użyje go w zadaniu Stream Analytics. 
 
 ### <a name="test-your-query-with-visual-studio-code"></a>Przetestuj zapytanie przy użyciu Visual Studio Code
 
-   Zainstaluj [Azure Stream Analytics narzędzia](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) i [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) na Visual Studio Code i skonfiguruj projekt ASA. Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie zadania Azure Stream Analytics w Visual Studio Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code) i [samouczku rozszerzenia SQL Server (MSSQL)](https://aka.ms/mssql-getting-started).
+   Zainstaluj [Azure Stream Analytics narzędzia](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) i [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) na Visual Studio Code i skonfiguruj projekt ASA. Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie zadania Azure Stream Analytics w Visual Studio Code](./quick-create-visual-studio-code.md) i [samouczku rozszerzenia SQL Server (MSSQL)](/sql/tools/visual-studio-code/sql-server-develop-use-vscode).
 
 1. Skonfiguruj dane wejściowe danych referencyjnych języka SQL.
    

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: bad81e8929cd0c5c66c87fd9f6cc11dc746b3e5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bba7da0343f234d8cc057ac4ecfa2a4f2e5b7242
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317795"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129885"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Service Bus dane wyjściowe kolejek z Azure Stream Analytics
 
@@ -34,7 +34,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 | Format serializacji zdarzeń |Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV i Avro. |
 | Encoding |W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
 | Ogranicznik |Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników do serializacji danych w formacie CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek. |
-| Format |Dotyczy tylko typu JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią**kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON. **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON. |
+| Format |Dotyczy tylko typu JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią** kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON. **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON. |
 | Kolumny właściwości | Opcjonalny. Kolumny oddzielone przecinkami, które muszą być dołączone jako właściwości użytkownika wiadomości wychodzącej zamiast ładunku. Więcej informacji na temat tej funkcji znajduje się w sekcji [właściwości metadanych niestandardowych dla danych wyjściowych](#custom-metadata-properties-for-output). |
 | Kolumny właściwości systemu | Opcjonalny. Pary klucz-wartość właściwości systemu i odpowiednich nazw kolumn, które muszą być dołączone do wiadomości wychodzącej zamiast ładunku.  |
 
@@ -70,9 +70,9 @@ Na poniższej ilustracji przedstawiono oczekiwane właściwości komunikatów wy
 
 ## <a name="system-properties"></a>Właściwości systemu
 
-Kolumny zapytania można dołączać jako [Właściwości systemu](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) do kolejki lub komunikatów tematu usługi wychodzącej magistrali usług.
+Kolumny zapytania można dołączać jako [Właściwości systemu](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) do kolejki lub komunikatów tematu usługi wychodzącej magistrali usług.
 
-Te kolumny nie znajdują się w ładunku, natomiast odpowiednia [Właściwość systemu](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage jest wypełniana wartościami kolumn zapytania.
+Te kolumny nie znajdują się w ładunku, natomiast odpowiednia [Właściwość systemu](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage jest wypełniana wartościami kolumn zapytania.
 Te właściwości systemu są obsługiwane — `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc` .
 
 Wartości ciągu tych kolumn są analizowane jako odpowiadające im typy wartości właściwości systemu, a wszystkie błędy analizy są traktowane jako błędy danych.

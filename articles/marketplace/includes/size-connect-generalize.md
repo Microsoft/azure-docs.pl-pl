@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 24adbfe38a3d43a83307fb8726849f7c73def3f3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ecbafe0d3f39b1bd6f7c494695ea17e067f0c79e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284799"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129282"
 ---
 ## <a name="generalize-the-image"></a>Uogólnianie obrazu
 
@@ -20,7 +20,7 @@ Wszystkie obrazy w portalu Azure Marketplace muszą być wielokrotnego użytku w
 
 ### <a name="for-windows"></a>W przypadku systemu Windows
 
-Dyski systemu operacyjnego Windows są uogólnione za pomocą narzędzia [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) . Jeśli później zaktualizujesz lub ponownie skonfigurujesz system operacyjny, należy ponownie uruchomić program Sysprep.
+Dyski systemu operacyjnego Windows są uogólnione za pomocą narzędzia [Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) . Jeśli później zaktualizujesz lub ponownie skonfigurujesz system operacyjny, należy ponownie uruchomić program Sysprep.
 
 > [!WARNING]
 > Po uruchomieniu programu Sysprep należy wyłączyć maszynę wirtualną, dopóki nie zostanie wdrożona, ponieważ aktualizacje mogą być uruchamiane automatycznie. To zamknięcie spowoduje uniknięcie kolejnych aktualizacji w celu wprowadzenia zmian specyficznych dla wystąpienia do systemu operacyjnego lub zainstalowanych usług. Aby uzyskać więcej informacji na temat uruchamiania programu Sysprep, zobacz [procedura uogólniania dysku VHD](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
@@ -41,13 +41,13 @@ Poniższy proces uogólni maszynę wirtualną z systemem Linux i ponownie wdraż
 ### <a name="take-a-snapshot-of-the-vm-disk"></a>Utwórz migawkę dysku maszyny wirtualnej
 
 1. Zaloguj się w witrynie [Azure Portal](https://ms.portal.azure.com/).
-2. Zaczynając od lewego górnego rogu, wybierz pozycję **Utwórz zasób**, a następnie wyszukaj i wybierz pozycję **migawka**.
-3. W bloku migawka wybierz pozycję  **Utwórz**.
+2. Zaczynając od lewego górnego rogu, wybierz pozycję **Utwórz zasób** , a następnie wyszukaj i wybierz pozycję **migawka** .
+3. W bloku migawka wybierz pozycję  **Utwórz** .
 4. Wprowadź **nazwę** migawki.
 5. Wybierz istniejącą grupę zasobów lub wprowadź nazwę nowej.
-6. W polu **dysk źródłowy**wybierz dysk zarządzany do utworzenia migawki.
+6. W polu **dysk źródłowy** wybierz dysk zarządzany do utworzenia migawki.
 7. Wybierz **Typ konta** , który ma być używany do przechowywania migawki. Użyj **HDD w warstwie Standardowa** , chyba że będzie to konieczne w przypadku dysku SSD o wysokiej wydajności.
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz pozycję **Utwórz** .
 
 #### <a name="extract-the-vhd"></a>Wyodrębnij wirtualny dysk twardy
 

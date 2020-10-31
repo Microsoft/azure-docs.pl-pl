@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 4310bd94edd5ebe14eab40b6d19e2bacbdd1b03c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906214"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129834"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Azure SQL Database dane wyjściowe z Azure Stream Analytics
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) jako dane wyjściowe można użyć jako danych wyjściowych, które są relacyjne, lub dla aplikacji, które są zależne od zawartości hostowanej w relacyjnej bazie danych. Azure Stream Analytics zadania zapisu do istniejącej tabeli w SQL Database. Schemat tabeli musi dokładnie pasować do pól i ich typów w danych wyjściowych zadania. Możesz również określić [usługę Azure Synapse Analytics](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) jako dane wyjściowe za pośrednictwem opcji dane wyjściowe SQL Database. Aby dowiedzieć się więcej na temat sposobów zwiększania przepływności zapisu, zobacz artykuł [Stream Analytics z Azure SQL Database jako dane wyjściowe](stream-analytics-sql-output-perf.md) .
 
-Możesz również użyć [wystąpienia zarządzanego usługi Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) jako danych wyjściowych. Należy [skonfigurować publiczny punkt końcowy w wystąpieniu zarządzanym SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) , a następnie ręcznie skonfigurować poniższe ustawienia w Azure Stream Analytics. Maszyna wirtualna platformy Azure z systemem SQL Server z dołączoną bazą danych jest również obsługiwana przez ręczne skonfigurowanie ustawień poniżej.
+Możesz również użyć [wystąpienia zarządzanego usługi Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) jako danych wyjściowych. Należy [skonfigurować publiczny punkt końcowy w wystąpieniu zarządzanym SQL](../azure-sql/managed-instance/public-endpoint-configure.md) , a następnie ręcznie skonfigurować poniższe ustawienia w Azure Stream Analytics. Maszyna wirtualna platformy Azure z systemem SQL Server z dołączoną bazą danych jest również obsługiwana przez ręczne skonfigurowanie ustawień poniżej.
 
 ## <a name="output-configuration"></a>Konfiguracja wyjściowa
 
@@ -37,9 +37,9 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 
 Istnieją dwie karty, które umożliwiają wyjście z Azure Stream Analytics usługi Azure Synapse Analytics (dawniej SQL Data Warehouse): SQL Database i Azure Synapse. Zalecamy wybranie karty usługi Azure Synapse Analytics zamiast karty SQL Database, jeśli spełniony jest dowolny z następujących warunków:
 
-* **Przepływność**: jeśli oczekiwana przepływność teraz lub w przyszłości jest większa niż 10 MB/s, użyj opcji danych wyjściowych usługi Azure Synapse, aby uzyskać lepszą wydajność.
+* **Przepływność** : jeśli oczekiwana przepływność teraz lub w przyszłości jest większa niż 10 MB/s, użyj opcji danych wyjściowych usługi Azure Synapse, aby uzyskać lepszą wydajność.
 
-* **Partycje wejściowe**: Jeśli masz osiem lub więcej partycji wejściowych, użyj opcji danych wyjściowych usługi Azure Synapse w celu lepszego skalowania w poziomie.
+* **Partycje wejściowe** : Jeśli masz osiem lub więcej partycji wejściowych, użyj opcji danych wyjściowych usługi Azure Synapse w celu lepszego skalowania w poziomie.
 
 ## <a name="partitioning"></a>Partycjonowanie
 
@@ -47,7 +47,7 @@ Partycjonowanie musi być włączone i opiera się na klauzuli PARTITION BY w za
 
 ## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
 
-Maksymalny rozmiar wiadomości można skonfigurować przy użyciu **maksymalnej liczby partii**. Domyślna wartość maksymalna to 10 000, a domyślna wartość minimalna to 100 wierszy na pojedynczy wkład zbiorczy. Aby uzyskać więcej informacji, zobacz [limity usługi Azure SQL](../sql-database/sql-database-resource-limits.md). Każda partia jest początkowo wstawiana zbiorczo z maksymalną liczbą partii. Partia jest dzielona w połowie (do momentu minimalnej liczby partii) na podstawie błędów z możliwością powtarzania z bazy danych SQL.
+Maksymalny rozmiar wiadomości można skonfigurować przy użyciu **maksymalnej liczby partii** . Domyślna wartość maksymalna to 10 000, a domyślna wartość minimalna to 100 wierszy na pojedynczy wkład zbiorczy. Aby uzyskać więcej informacji, zobacz [limity usługi Azure SQL](../azure-sql/database/resource-limits-logical-server.md). Każda partia jest początkowo wstawiana zbiorczo z maksymalną liczbą partii. Partia jest dzielona w połowie (do momentu minimalnej liczby partii) na podstawie błędów z możliwością powtarzania z bazy danych SQL.
 
 ## <a name="next-steps"></a>Następne kroki
 

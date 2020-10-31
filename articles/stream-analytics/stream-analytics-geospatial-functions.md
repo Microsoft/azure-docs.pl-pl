@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44e445f6d1dce8193109d6b5ad1742210458e74c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75426221"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130412"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Wprowadzenie do Stream Analytics funkcji geoprzestrzennych
 
@@ -26,7 +26,7 @@ Przykładowe scenariusze, które mogą korzystać z funkcji geoprzestrzennych, t
 * Ogrodzenie geograficzne
 * Śledzenie telefonów w witrynach komórkowych
 
-Język zapytań Stream Analytics ma siedem wbudowanych funkcji geoprzestrzennych: **CreateLineString**, **CreatePoint**dołączenia, tworzenie **wielokąta**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS**i **ST_WITHIN**.
+Język zapytań Stream Analytics ma siedem wbudowanych funkcji geoprzestrzennych: **CreateLineString** , **CreatePoint** dołączenia, tworzenie **wielokąta** , **ST_DISTANCE** , **ST_OVERLAPS** , **ST_INTERSECTS** i **ST_WITHIN** .
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -42,9 +42,9 @@ FROM input
 
 ### <a name="input-example"></a>Przykład danych wejściowych  
   
-|rodziny|Długość geograficzna|  
+|latitude|Długość geograficzna|  
 |--------------|---------------|  
-|3,0|-10,2|  
+|3.0|-10,2|  
 |-87,33|20,2321|  
   
 ### <a name="output-example"></a>Przykład danych wyjściowych  
@@ -53,7 +53,7 @@ FROM input
 
  {"Type": "LineString", "współrzędne": [[20,2321,-87,33], [10,0, 10,0], [10,5, 10,5]]}
 
-Aby dowiedzieć się więcej, odwiedź odwołanie [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) .
+Aby dowiedzieć się więcej, odwiedź odwołanie [CreateLineString](/stream-analytics-query/createlinestring) .
 
 ## <a name="createpoint"></a>CreatePoint
 
@@ -69,9 +69,9 @@ FROM input
 
 ### <a name="input-example"></a>Przykład danych wejściowych  
   
-|rodziny|Długość geograficzna|  
+|latitude|Długość geograficzna|  
 |--------------|---------------|  
-|3,0|-10,2|  
+|3.0|-10,2|  
 |-87,33|20,2321|  
   
 ### <a name="output-example"></a>Przykład danych wyjściowych
@@ -80,7 +80,7 @@ FROM input
   
  {"Type": "Point", "współrzędne": [20,2321,-87,33]}  
 
-Aby dowiedzieć się więcej, odwiedź odwołanie do [punktu](https://docs.microsoft.com/stream-analytics-query/createpoint) .
+Aby dowiedzieć się więcej, odwiedź odwołanie do [punktu](/stream-analytics-query/createpoint) .
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -96,9 +96,9 @@ FROM input
 
 ### <a name="input-example"></a>Przykład danych wejściowych  
   
-|rodziny|Długość geograficzna|  
+|latitude|Długość geograficzna|  
 |--------------|---------------|  
-|3,0|-10,2|  
+|3.0|-10,2|  
 |-87,33|20,2321|  
   
 ### <a name="output-example"></a>Przykład danych wyjściowych  
@@ -107,7 +107,7 @@ FROM input
  
  {"Type": "Wielokąt", "współrzędne": [[[20,2321,-87,33], [10,0, 10,0], [10,5, 10,5], [20,2321,-87,33]]]}
 
-Aby dowiedzieć się więcej, odwiedź odwołanie do [wielokąta](https://docs.microsoft.com/stream-analytics-query/createpolygon) .
+Aby dowiedzieć się więcej, odwiedź odwołanie do [wielokąta](/stream-analytics-query/createpolygon) .
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
@@ -121,7 +121,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) .
+Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_DISTANCE](/stream-analytics-query/st-distance) .
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
 `ST_OVERLAPS`Funkcja porównuje dwa wielokąty. Jeśli wielokąty nakładają się, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli wielokąty nie nakładają się. 
@@ -142,7 +142,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) .
+Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_OVERLAPS](/stream-analytics-query/st-overlaps) .
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
 `ST_INTERSECTS`Funkcja porównuje dwie LineString. Jeśli LineString Intersect, funkcja zwraca 1. Funkcja zwraca wartość 0, jeśli LineString nie przecina.
@@ -168,7 +168,7 @@ FROM input
   
  0  
 
-Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) .
+Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_INTERSECTS](/stream-analytics-query/st-intersects) .
 
 ## <a name="st_within"></a>ST_WITHIN
 `ST_WITHIN`Funkcja określa, czy punkt lub Wielokąt znajduje się w obrębie wielokąta. Jeśli Wielokąt zawiera punkt lub Wielokąt, funkcja zwróci wartość 1. Funkcja zwróci wartość 0, jeśli punkt lub Wielokąt nie znajdują się w obrębie zadeklarowanego wielokąta.
@@ -194,12 +194,12 @@ FROM input
   
  1  
 
-Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) .
+Aby dowiedzieć się więcej, odwiedź stronę referencyjną [ST_WITHIN](/stream-analytics-query/st-within) .
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](/rest/api/streamanalytics/)

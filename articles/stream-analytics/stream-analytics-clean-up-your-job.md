@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a771ac1a831bc7994f28ba15139b66be346af02
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 124d2cf4380153bd3ea68de9233f6a1b5eb6ba78
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097769"
+ms.locfileid: "93130701"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Zatrzymywanie lub usuwanie zadania Azure Stream Analytics
 
@@ -53,12 +53,12 @@ Po zatrzymaniu zadania zasoby są cofane i zatrzymują przetwarzanie zdarzeń. O
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Aby zatrzymać zadanie przy użyciu programu PowerShell, użyj polecenia cmdlet [stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) . Aby usunąć zadanie przy użyciu programu PowerShell, użyj polecenia cmdlet [Remove-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) .
+Aby zatrzymać zadanie przy użyciu programu PowerShell, użyj polecenia cmdlet [stop-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) . Aby usunąć zadanie przy użyciu programu PowerShell, użyj polecenia cmdlet [Remove-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) .
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>Zatrzymywanie lub usuwanie zadania przy użyciu zestawu Azure SDK dla platformy .NET
 
-Aby zatrzymać zadanie przy użyciu zestawu Azure SDK dla platformy .NET, należy użyć metody [StreamingJobsOperationsExtensions. BeginStop](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop?view=azure-dotnet) . Aby usunąć zadanie przy użyciu zestawu Azure SDK dla platformy .NET, metody [StreamingJobsOperationsExtensions. BeginDelete](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete?view=azure-dotnet) .
+Aby zatrzymać zadanie przy użyciu zestawu Azure SDK dla platformy .NET, należy użyć metody [StreamingJobsOperationsExtensions. BeginStop](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop?view=azure-dotnet) . Aby usunąć zadanie przy użyciu zestawu Azure SDK dla platformy .NET, metody [StreamingJobsOperationsExtensions. BeginDelete](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete?view=azure-dotnet) .
 
 ## <a name="stop-or-delete-a-job-using-rest-api"></a>Zatrzymywanie lub usuwanie zadania przy użyciu interfejsu API REST
 
-Aby zatrzymać zadanie przy użyciu interfejsu API REST, zapoznaj się z [zatrzymywaniem](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#stop) metody. Aby usunąć zadanie przy użyciu interfejsu API REST, zobacz metodę [delete](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#delete) .
+Aby zatrzymać zadanie przy użyciu interfejsu API REST, zapoznaj się z [zatrzymywaniem](/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#stop) metody. Aby usunąć zadanie przy użyciu interfejsu API REST, zobacz metodę [delete](/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#delete) .

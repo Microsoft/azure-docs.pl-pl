@@ -7,18 +7,22 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 399ae682028479f801b82b6273f7d1429cfa1b97
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e50c2bb73f56017a047e6c657c866b61e5eaa465
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494843"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130396"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
 Można zarządzać [modelami](concepts-models.md) , dla których wystąpienie usługi Azure Digital bliźniaczych reprezentacji wie o korzystaniu z [**interfejsów API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)lub [interfejsu wiersza polecenia platformy Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). 
 
 Operacje zarządzania obejmują przekazywanie, sprawdzanie poprawności, pobieranie i usuwanie modeli. 
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## <a name="create-models"></a>Tworzenie modeli
 
@@ -61,7 +65,7 @@ Pierwszym krokiem w kierunku rozwiązania jest utworzenie modeli do reprezentowa
 > [!NOTE]
 > Jest to Przykładowa treść pliku JSON, w którym model jest zdefiniowany i zapisany do przekazania w ramach projektu klienta. Wywołanie interfejsu API REST, z drugiej strony, pobiera tablicę definicji modelu, takich jak powyższa część (która jest mapowana na zestaw `IEnumerable<string>` SDK platformy .NET). Aby używać tego modelu bezpośrednio w interfejsie API REST, umieść go w nawiasach.
 
-Ten model definiuje nazwę i unikatowy identyfikator pokoju pacjenta oraz właściwości przedstawiające liczbę odwiedzających i stan odmycia (te liczniki zostaną zaktualizowane z czujników ruchu i inteligentnych rozdzielaczy SOAP) i zostaną użyte razem w celu obliczenia *handwash wartości procentowej* . Model definiuje również relację *hasDevices*, która będzie używana do łączenia wszelkich [cyfrowych bliźniaczych reprezentacji](concepts-twins-graph.md) opartych na tym modelu *pokoju* na rzeczywistych urządzeniach.
+Ten model definiuje nazwę i unikatowy identyfikator pokoju pacjenta oraz właściwości przedstawiające liczbę odwiedzających i stan odmycia (te liczniki zostaną zaktualizowane z czujników ruchu i inteligentnych rozdzielaczy SOAP) i zostaną użyte razem w celu obliczenia *handwash wartości procentowej* . Model definiuje również relację *hasDevices* , która będzie używana do łączenia wszelkich [cyfrowych bliźniaczych reprezentacji](concepts-twins-graph.md) opartych na tym modelu *pokoju* na rzeczywistych urządzeniach.
 
 Korzystając z tej metody, można wykonać Definiowanie modeli dla danych szpitalnych, stref lub samego szpitala.
 
@@ -200,7 +204,7 @@ Po utworzeniu nowego sznurka, ponieważ nowa wersja modelu i stara wersja modelu
 
 Oznacza to również, że przekazywanie nowej wersji modelu nie wpływa automatycznie na istniejące bliźniaczych reprezentacji. Istniejący bliźniaczych reprezentacji będzie po prostu mieć wystąpienia starej wersji modelu.
 
-Aby zaktualizować istniejące bliźniaczych reprezentacji do nowej wersji modelu, należy zastosować ich poprawki, zgodnie z opisem w sekcji [*aktualizowanie modelu cyfrowej sieci bliźniaczyej*](how-to-manage-twin.md#update-a-digital-twins-model) , how to *: Manage Digital bliźniaczych reprezentacji*. W ramach tej samej poprawki należy zaktualizować zarówno **Identyfikator modelu** (do nowej wersji), jak i **wszystkie pola, które muszą zostać zmienione na sznurze, aby były zgodne z nowym modelem**.
+Aby zaktualizować istniejące bliźniaczych reprezentacji do nowej wersji modelu, należy zastosować ich poprawki, zgodnie z opisem w sekcji [*aktualizowanie modelu cyfrowej sieci bliźniaczyej*](how-to-manage-twin.md#update-a-digital-twins-model) , how to *: Manage Digital bliźniaczych reprezentacji* . W ramach tej samej poprawki należy zaktualizować zarówno **Identyfikator modelu** (do nowej wersji), jak i **wszystkie pola, które muszą zostać zmienione na sznurze, aby były zgodne z nowym modelem** .
 
 ### <a name="remove-models"></a>Usuń modele
 

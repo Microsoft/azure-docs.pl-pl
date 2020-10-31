@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 3b74f3ecdc048b6468906fb46a848d27cd1f23b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7008c305525c7564e57fd225e961b462bf6939f2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275413"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130837"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Pomoc techniczna dla portalu komercyjnego firmy Microsoft
 
@@ -32,7 +32,7 @@ Otwórz bilet z [obsługą wydawcy portalu Microsoft Marketplace](https://aka.ms
 
 | Kanał pomocy technicznej | Opis |  
 |:--- |:--- |  
-| Fora MSDN: Marketplace w witrynie [Microsoft Q&stronie pytania](https://docs.microsoft.com/answers/products/azure) | Forum Microsoft Developer Network. |  
+| Fora MSDN: Marketplace w witrynie [Microsoft Q&stronie pytania](/answers/products/azure) | Forum Microsoft Developer Network. |  
 | Stack Overflow: platforma Azure znajduje się w witrynie [StackOverflow.com/questions/Tagged/Azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow środowisko, aby uzyskać rozwiązania i zadawać pytania dotyczące wszystkiego związanego z portalem Azure Marketplace.<ul> <li>Stack Overflow: Witryna Azure Marketplace znajdująca się w witrynie [StackOverflow.com/questions/Tagged/Azure-Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager znajdujący się w [StackOverflow.com/questions/Tagged/Azure-Resource-Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtual Machines na platformie Azure, które znajdują się w [StackOverflow.com/questions/Tagged/Azure-Virtual-Machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: kontenery na platformie Azure zlokalizowane pod adresem [StackOverflow.com/search?q=Azure+Container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## <a name="marketing-resources"></a>Zasoby marketingowe  

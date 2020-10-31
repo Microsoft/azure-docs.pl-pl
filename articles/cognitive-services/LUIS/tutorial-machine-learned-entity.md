@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f85ba0c64db23e156f384fadcc5ca7bf84a58d4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334734"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130774"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Samouczek: wyodrębnianie danych strukturalnych z wypowiedź użytkownika przy użyciu jednostek uczenia maszynowego w Language Understanding (LUIS)
 
@@ -72,18 +72,18 @@ Aby wyodrębnić szczegółowe informacje o Pizza kolejności, Utwórz jednostk�
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Zacznij wybierać tuż przed lewym tekstem `pickup` (#1), a następnie przejdź bezpośrednio poza prawym przyciskiem myszy `anchovies` (#2 — to kończy proces etykietowania). Zostanie wyświetlone menu podręczne. W oknie podręcznym wprowadź nazwę jednostki jako `Order` (#3). Następnie wybierz `Order Create new entity` z listy (#4).
+    Kliknij i przeciągnij kursor nad tekstem dla pierwszego przykładowego zamiaru. w wyświetlonym menu Wprowadź nazwę jednostki jako `Order` . Następnie wybierz `Order Create new entity` z listy.
 
     ![Etykieta początku i końca tekstu dla kompletnego zamówienia](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
     > [!NOTE]
     > Jednostka nie zawsze będzie całą wypowiedź. W tym konkretnym przypadku `pickup` wskazuje, w jaki sposób zamówienie ma zostać odebrane. Z perspektywy koncepcyjnej `pickup` powinna być częścią oznaczonej jednostki dla zamówienia.
 
-1. W polu **Wybierz typ jednostki** wybierz pozycję **Dodaj strukturę** , a następnie wybierz przycisk **dalej**. Struktura jest niezbędna do dodawania podjednostek, takich jak rozmiar i ilość.
+1. W polu **Wybierz typ jednostki** wybierz pozycję **Dodaj strukturę** , a następnie wybierz przycisk **dalej** . Struktura jest niezbędna do dodawania podjednostek, takich jak rozmiar i ilość.
 
     ![Zrzut ekranu przedstawia okno Wybierz typ jednostki z zaznaczoną opcją Dodaj strukturę.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
-1. W polu **Dodaj podjednostki (opcjonalnie)** wybierz **+** `Order` wiersz, a następnie Dodaj `Size` i `Quantity` jako podjednostki, a następnie wybierz pozycję **Utwórz**.
+1. W polu **Dodaj podjednostki (opcjonalnie)** wybierz **+** `Order` wiersz, a następnie Dodaj `Size` i `Quantity` jako podjednostki, a następnie wybierz pozycję **Utwórz** .
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawia okno Dodawanie podjednostek (opcjonalnie) z wyróżnionymi podjednostkami.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
@@ -96,7 +96,7 @@ Poprzednie kroki tworzą jednostkę i podjednostkę. Aby ulepszyć wyodrębniani
 
 1. Z menu po lewej stronie wybierz pozycję **jednostki** , a następnie wybierz pozycję **Zamówienie** jednostki.
 
-1. Na karcie **schemat i funkcje** wybierz podjednostkę **rozmiaru** , a następnie wybierz pozycję **+ Dodaj funkcję**.
+1. Na karcie **schemat i funkcje** wybierz podjednostkę **rozmiaru** , a następnie wybierz pozycję **+ Dodaj funkcję** .
 
 1. Wybierz pozycję **Utwórz nową listę fraz** z menu rozwijanego.
 
@@ -108,7 +108,7 @@ Poprzednie kroki tworzą jednostkę i podjednostkę. Aby ulepszyć wyodrębniani
 
 Dodawanie listy znanych rozmiarów rozpoznawanych przez aplikację kliencką ułatwi również wyodrębnianie.
 
-1. Wybierz pozycję **jednostki** w menu po lewej stronie, a następnie wybierz pozycję **+ Utwórz**.
+1. Wybierz pozycję **jednostki** w menu po lewej stronie, a następnie wybierz pozycję **+ Utwórz** .
 
 1. Ustaw nazwę jednostki jako `SizeListentity` i ustaw typ jako **listę** , tak aby można ją było łatwo identyfikować w porównaniu z definicją `SizePhraselist` utworzoną w poprzedniej sekcji.
 
@@ -116,9 +116,9 @@ Dodawanie listy znanych rozmiarów rozpoznawanych przez aplikację kliencką uł
 
     |Znormalizowana wartość|Synonimy|
     |--|--|
-    |Mała|SM, SML, mały, najmniejszy|
+    |Mały|SM, SML, mały, najmniejszy|
     |Średniaa|MD, MDM, regularne, średnie, środkowe|
-    |Duża|LG, LRG, Big|
+    |Duży|LG, LRG, Big|
     |XLarge|XL, największe, bardzo duże|
 
 
@@ -131,7 +131,7 @@ Dodawanie listy znanych rozmiarów rozpoznawanych przez aplikację kliencką uł
 
 1. Wybierz pozycję **Zamówienie** z listy jednostek.
 
-1. Na karcie **schemat i funkcje** wybierz jednostkę **rozmiaru** , a następnie wybierz pozycję **+ Dodaj funkcję**.
+1. Na karcie **schemat i funkcje** wybierz jednostkę **rozmiaru** , a następnie wybierz pozycję **+ Dodaj funkcję** .
 
 1. Z listy rozwijanej wybierz pozycję **@ SizeListentity** .
 
@@ -141,9 +141,9 @@ Dodawanie listy znanych rozmiarów rozpoznawanych przez aplikację kliencką uł
 
 Dodanie wbudowanej jednostki numeru również pomoże w wyodrębnieniu.
 
-1. Wybierz pozycję **jednostki** z menu po lewej stronie, a następnie wybierz pozycję **Dodaj prekompilowaną jednostkę**.
+1. Wybierz pozycję **jednostki** z menu po lewej stronie, a następnie wybierz pozycję **Dodaj prekompilowaną jednostkę** .
 
-1. Z listy wybierz pozycję **Liczba** , a następnie wybierz pozycję **gotowe**.
+1. Z listy wybierz pozycję **Liczba** , a następnie wybierz pozycję **gotowe** .
 
 1. Wybierz pozycję **jednostki** z menu po lewej stronie, aby powrócić do listy jednostek.
 
@@ -151,7 +151,7 @@ Dodanie wbudowanej jednostki numeru również pomoże w wyodrębnieniu.
 
 1. Wybierz pozycję **Zamówienie** z listy jednostek.
 
-1. Na karcie **schemat i funkcje** wybierz jednostkę **ilości** , a następnie wybierz pozycję **+ Dodaj funkcję**.
+1. Na karcie **schemat i funkcje** wybierz jednostkę **ilości** , a następnie wybierz pozycję **+ Dodaj funkcję** .
 
 1. Z listy rozwijanej wybierz pozycję **@ Number** .
 
@@ -173,7 +173,7 @@ Tworzona jest utworzona przez maszynę jednostka, a podjednostki mają funkcje. 
 
 1. Wybierz pozycję **intencje** na lewym pasku nawigacyjnym, a następnie wybierz opcję **OrderPizza** .
 
-1. Aby otworzyć **paletę Entity**, zaznacz **@** symbol na pasku narzędzi kontekstowych.
+1. Aby otworzyć **paletę Entity** , zaznacz **@** symbol na pasku narzędzi kontekstowych.
 
 1. Zaznacz każdy wiersz jednostki w palecie, a następnie użyj kursora palety, aby wybrać jednostkę w każdym przykładowym wypowiedź. Po zakończeniu Lista jednostek powinna wyglądać podobnie do poniższej ilustracji.
 
@@ -182,7 +182,7 @@ Tworzona jest utworzona przez maszynę jednostka, a podjednostki mają funkcje. 
 
 ## <a name="train-the-app"></a>Uczenie aplikacji
 
-Aby nauczyć aplikację, wybierz pozycję **pouczenie**. Szkolenie stosuje zmiany, takie jak nowe jednostki i etykiety wyrażenia długości, do aktywnego modelu.
+Aby nauczyć aplikację, wybierz pozycję **pouczenie** . Szkolenie stosuje zmiany, takie jak nowe jednostki i etykiety wyrażenia długości, do aktywnego modelu.
 
 ## <a name="add-a-new-example-utterance"></a>Dodawanie nowego przykładu wypowiedź
 
@@ -236,12 +236,12 @@ Aby uzyskać przewidywania usługi LUIS w czatbocie lub innej aplikacji kliencki
 
     ![Zrzut ekranu przedstawiający przycisk LUIS publikowanie do punktu końcowego w prawym górnym menu](./media/howto-publish/publish-button.png)
 
-1. Wybierz miejsce **produkcyjne** , a następnie wybierz pozycję **Zmień ustawienia**, wybierz pozycję **Analiza tonacji**, a następnie wybierz pozycję **gotowe**.
+1. Wybierz miejsce **produkcyjne** , a następnie wybierz pozycję **Zmień ustawienia** , wybierz pozycję **Analiza tonacji** , a następnie wybierz pozycję **gotowe** .
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający LUIS publikowanie w punkcie końcowym](./media/tutorial-machine-learned-entity/publish-with-sentiment-analysis.png)
 
-1. Wybierz link **dostęp do adresów URL punktu końcowego** w obszarze powiadomień, aby przejść do strony **zasobów platformy Azure** . Adresy URL punktów końcowych są wyświetlane jako **przykładowe zapytanie**.
+1. Wybierz link **dostęp do adresów URL punktu końcowego** w obszarze powiadomień, aby przejść do strony **zasobów platformy Azure** . Adresy URL punktów końcowych są wyświetlane jako **przykładowe zapytanie** .
 
 ## <a name="get-intent-and-entity-prediction-from-http-endpoint"></a>Pobierz zamierzenia i prognozowanie jednostek z punktu końcowego HTTP
 
@@ -251,7 +251,7 @@ Aby uzyskać przewidywania usługi LUIS w czatbocie lub innej aplikacji kliencki
 
     `2 small cheese pizzas for pickup`
 
-    Ostatnim parametrem QueryString jest `query` , wypowiedź **Query**.
+    Ostatnim parametrem QueryString jest `query` , wypowiedź **Query** .
 
     ```json
     {

@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 2808f0d3b99257d52b2d400424f256f980005863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bb5dccfc99a693ec89ed08ac31b77eb16442f73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88607195"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129970"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Oferty prywatne w portalu komercyjnym firmy Microsoft
 
@@ -30,18 +30,18 @@ Oferty prywatne umożliwiają wydawcom skorzystanie z zalet skalowalności i glo
 
 Oferty prywatne są teraz dostępne dla maszyny wirtualnej, aplikacji platformy Azure (wdrożonej jako szablony rozwiązań lub aplikacji zarządzanych) i oferowanych przez aplikacje SaaS.
 
-<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). Customers can be granted or revoked access to private offers in minutes.
+<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](). Customers can be granted or revoked access to private offers in minutes.
 --->
 
 ## <a name="creating-private-offers-using-plans"></a>Tworzenie ofert prywatnych przy użyciu planów
 
-W przypadku *nowych lub istniejących ofert z planami*wydawcy mogą łatwo tworzyć nowe, prywatne zmiany przez utworzenie nowych planów (znanych wcześniej jako jednostki SKU) i oznaczenie ich jako prywatnych. Każda oferta może obejmować maksymalnie 45 planów prywatnych.
+W przypadku *nowych lub istniejących ofert z planami* wydawcy mogą łatwo tworzyć nowe, prywatne zmiany przez utworzenie nowych planów (znanych wcześniej jako jednostki SKU) i oznaczenie ich jako prywatnych. Każda oferta może obejmować maksymalnie 45 planów prywatnych.
 
-<!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
+<!--- [Private SKUs]() --->
 
 Plany prywatne są składnikiem oferty i są widoczne tylko dla klientów, którzy są jednostek. Plany prywatne mogą ponownie wykorzystać podstawowe obrazy i/lub zaproponować metadane dla planu publicznego. Ta opcja umożliwia wydawcom tworzenie wielu prywatnych odmian oferty publicznej bez konieczności publikowania wielu wersji tego samego obrazu podstawowego i metadanych oferty. W przypadku maszyn wirtualnych i aplikacji platformy Azure tylko w przypadku, gdy plan prywatny udostępnia obraz podstawowy z planem publicznym, wszelkie zmiany obrazu podstawowego oferty będą propagowane dla wszystkich planów publicznych i prywatnych przy użyciu tego obrazu podstawowego.
 
-W przypadku *nowych ofert, które zawierają tylko plany prywatne*, wydawcy mogą utworzyć oferty jako każdą inną ofertę, a następnie oznaczyć plany jako prywatne. Oferty, które mają tylko plany prywatne, nie będą wykrywalne lub dostępne za pośrednictwem komercyjnej witryny Marketplace firmy Microsoft ani [Azure Portal](https://azure.microsoft.com/features/azure-portal/) przez klientów, którzy nie zostali powiązani z ofertą.
+W przypadku *nowych ofert, które zawierają tylko plany prywatne* , wydawcy mogą utworzyć oferty jako każdą inną ofertę, a następnie oznaczyć plany jako prywatne. Oferty, które mają tylko plany prywatne, nie będą wykrywalne lub dostępne za pośrednictwem komercyjnej witryny Marketplace firmy Microsoft ani [Azure Portal](https://azure.microsoft.com/features/azure-portal/) przez klientów, którzy nie zostali powiązani z ofertą.
 
 >[!NOTE]
 >Oferta, która zawiera tylko plany prywatne, nie będzie widoczna w publicznym portalu Azure Marketplace lub AppSource.
@@ -69,5 +69,5 @@ Oferty prywatne będą również wyświetlane w wynikach wyszukiwania. Po prostu
 <!---
 ## Next steps
 
-To start using private offers, follow the steps in the [Private SKUs and Plans](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) guide.
+To start using private offers, follow the steps in the [Private SKUs and Plans]() guide.
 --->

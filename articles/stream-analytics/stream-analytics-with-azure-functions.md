@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 70ea5ec9ee91fdba8023b9c6af1ce65b691a17fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 127fcdf68990b15098c24488e6ed879fbaa79116
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006894"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129681"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Samouczek: uruchamianie Azure Functions z Azure Stream Analytics zadań 
 
@@ -44,7 +44,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
 1. Tworzenie pamięci podręcznej w ramach usługi Azure Cache for Redis za pomocą procedury opisanej w artykule [Tworzenie pamięci podręcznej](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
-2. Po utworzeniu pamięci podręcznej w obszarze **Ustawienia** wybierz pozycję **Klucze dostępu**. Zanotuj wartość **Podstawowe parametry połączenia**.
+2. Po utworzeniu pamięci podręcznej w obszarze **Ustawienia** wybierz pozycję **Klucze dostępu** . Zanotuj wartość **Podstawowe parametry połączenia** .
 
    ![Zrzut ekranu parametrów połączenia pamięci podręcznej Azure Cache for Redis](./media/stream-analytics-with-azure-functions/image2.png)
 
@@ -52,7 +52,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
 1. Zobacz sekcję [Tworzenie aplikacji funkcji](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) w dokumentacji usługi Functions. W tej sekcji omówiono sposób tworzenia aplikacji funkcji i [funkcji wyzwalanej przez protokół HTTP w Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function)przy użyciu języka CSharp.  
 
-2. Przejdź do funkcji **run.csx**. Zaktualizuj ją za pomocą następującego kodu. Zastąp element **" \<your Azure Cache for Redis connection string goes here\> "** za pomocą usługi Azure cache for Redis podstawowe parametry połączenia, które zostały pobrane w poprzedniej sekcji. 
+2. Przejdź do funkcji **run.csx** . Zaktualizuj ją za pomocą następującego kodu. Zastąp element **" \<your Azure Cache for Redis connection string goes here\> "** za pomocą usługi Azure cache for Redis podstawowe parametry połączenia, które zostały pobrane w poprzedniej sekcji. 
 
     ```csharp
     using System;
@@ -112,7 +112,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
         }
    ```
 
-3. W edytorze tekstów utwórz plik JSON o nazwie **project.json**. Wklej poniższy kod i Zapisz go na komputerze lokalnym. Ten plik zawiera zależności pakietów NuGet, które są wymagane przez funkcję języka C#.  
+3. W edytorze tekstów utwórz plik JSON o nazwie **project.json** . Wklej poniższy kod i Zapisz go na komputerze lokalnym. Ten plik zawiera zależności pakietów NuGet, które są wymagane przez funkcję języka C#.  
    
     ```json
     {
@@ -128,19 +128,19 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
    ```
  
-4. Wróć do witryny Azure Portal. Na karcie **Funkcje platformy** przejdź do Twojej funkcji. W obszarze **Narzędzia programistyczne** wybierz pozycję **Edytor usługi App Service**. 
+4. Wróć do witryny Azure Portal. Na karcie **Funkcje platformy** przejdź do Twojej funkcji. W obszarze **Narzędzia programistyczne** wybierz pozycję **Edytor usługi App Service** . 
  
-   ![Zrzut ekranu edytora usługi App Service](./media/stream-analytics-with-azure-functions/image3.png)
+   ![Zrzut ekranu przedstawia kartę funkcje platformy z wybraną Edytor usługi App Service.](./media/stream-analytics-with-azure-functions/image3.png)
 
-5. W edytorze usługi App Service kliknij prawym przyciskiem myszy katalog główny i przekaż plik **project.json**. Po pomyślnym przekazaniu pliku odśwież stronę. Teraz powinien zostać wyświetlony wygenerowany automatycznie plik o nazwie **project.lock.json**. Wygenerowany automatycznie plik zawiera odwołania do plików dll określonych w pliku project.json.  
+5. W edytorze usługi App Service kliknij prawym przyciskiem myszy katalog główny i przekaż plik **project.json** . Po pomyślnym przekazaniu pliku odśwież stronę. Teraz powinien zostać wyświetlony wygenerowany automatycznie plik o nazwie **project.lock.json** . Wygenerowany automatycznie plik zawiera odwołania do plików dll określonych w pliku project.json.  
 
-   ![Zrzut ekranu edytora usługi App Service](./media/stream-analytics-with-azure-functions/image4.png)
+   ![Zrzut ekranu przedstawia pliki przekazywania wybrane z menu.](./media/stream-analytics-with-azure-functions/image4.png)
 
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Aktualizacja zadania usługi Stream Analytics za pomocą funkcji jako wyjścia
 
 1. Otwórz zadanie usługi Stream Analytics w witrynie Azure Portal.  
 
-2. Przejdź do funkcji, a następnie wybierz pozycję **Przegląd**danych  >  **wyjściowych**  >  **Dodaj**. Aby dodać nowe wyjście, wybierz pozycję **Azure Function** jako opcję ujścia. Adapter wyjściowy usługi Functions ma następujące właściwości:  
+2. Przejdź do funkcji, a następnie wybierz pozycję **Przegląd** danych  >  **wyjściowych**  >  **Dodaj** . Aby dodać nowe wyjście, wybierz pozycję **Azure Function** jako opcję ujścia. Adapter wyjściowy usługi Functions ma następujące właściwości:  
 
    |**Nazwa właściwości**|**Opis**|
    |---|---|
@@ -152,9 +152,9 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
    |Maksymalna liczba partii|Umożliwia określenie maksymalnej liczby zdarzeń w każdej z partii wysyłanych do funkcji. Wartość domyślna to 100. Ta właściwość jest opcjonalna.|
    |Klucz|Pozwala na użycie funkcji z innej subskrypcji. Podaj wartość klucza, aby uzyskać dostęp do funkcji. Ta właściwość jest opcjonalna.|
 
-3. Podaj nazwę aliasu danych wyjściowych. W tym samouczku nazywa się **saop1**, ale można użyć dowolnej wybranej nazwy. Podaj inne szczegóły.
+3. Podaj nazwę aliasu danych wyjściowych. W tym samouczku nazywa się **saop1** , ale można użyć dowolnej wybranej nazwy. Podaj inne szczegóły.
 
-4. Otwórz zadanie usługi Stream Analytics i zaktualizuj zapytanie w następujący sposób. Jeśli nie nazwijesz **saop1**ujścia danych wyjściowych, pamiętaj, aby zmienić je w zapytaniu.  
+4. Otwórz zadanie usługi Stream Analytics i zaktualizuj zapytanie w następujący sposób. Jeśli nie nazwijesz **saop1** ujścia danych wyjściowych, pamiętaj, aby zmienić je w zapytaniu.  
 
    ```sql
     SELECT
@@ -177,7 +177,7 @@ Postępuj zgodnie z samouczkiem [Wykrywanie oszustw w czasie rzeczywistym](strea
 
 ## <a name="check-azure-cache-for-redis-for-results"></a>Sprawdzanie pamięci podręcznej Azure Cache for Redis pod kątem wyników
 
-1. Przejdź do witryny Azure Portal i znajdź pamięć podręczną Azure Cache for Redis. Wybierz pozycję **Konsola**.  
+1. Przejdź do witryny Azure Portal i znajdź pamięć podręczną Azure Cache for Redis. Wybierz pozycję **Konsola** .  
 
 2. Użyj [poleceń pamięci podręcznej Azure Cache for Redis](https://redis.io/commands), aby sprawdzić, czy dane znajdują się w usłudze Azure Cache for Redis. (Polecenie przyjmuje format {Key}). Na przykład:
 
@@ -198,7 +198,7 @@ Jeśli wystąpi błąd podczas wysyłania zdarzeń do Azure Functions, Stream An
 
 Przy próbie resetowania wartości Maksymalny rozmiar partii/Maksymalna liczba partii na wartość pustą (domyślną) w witrynie Azure Portal wartość zostanie zmieniona z powrotem na wartość podaną wcześniej przy zapisywaniu. W takim przypadku ręcznie podaj wartości domyślne dla tych pól.
 
-Korzystanie z [routingu http](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) na Azure Functions nie jest obecnie obsługiwane przez Stream Analytics.
+Korzystanie z [routingu http](/sandbox/functions-recipes/routes?tabs=csharp) na Azure Functions nie jest obecnie obsługiwane przez Stream Analytics.
 
 Obsługa połączenia z Azure Functions hostowanego w sieci wirtualnej nie jest włączona.
 
@@ -206,8 +206,8 @@ Obsługa połączenia z Azure Functions hostowanego w sieci wirtualnej nie jest 
 
 Gdy grupa zasobów, zadanie przesyłania strumieniowego i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Usunięcie zadania pozwala uniknąć opłat za jednostki przesyłania strumieniowego zużywane przez zadanie. Jeśli planujesz użyć zadania w przyszłości, możesz je zatrzymać i uruchomić ponownie później, gdy będzie potrzebne. Jeśli nie zamierzasz w przyszłości korzystać z tego zadania, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki start:
 
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu.  
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
+1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów** , a następnie kliknij nazwę utworzonego zasobu.  
+2. Na stronie grupy zasobów kliknij pozycję **Usuń** , wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

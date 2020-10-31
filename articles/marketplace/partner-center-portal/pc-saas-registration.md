@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: dddcdd52709c634f0dcf67cb982804f5556e88b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548339"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130021"
 ---
 # <a name="register-a-saas-application"></a>Rejestrowanie aplikacji SaaS
 
@@ -20,7 +20,7 @@ W tym artykule wyjaśniono, jak zarejestrować aplikację SaaS przy użyciu [Azu
 
 W witrynie Azure Marketplace nie są narzucane żadne ograniczenia dotyczące metody uwierzytelniania używanej przez usługę SaaS dla użytkowników końcowych. Poniższy przepływ jest wymagany tylko do uwierzytelniania usługi SaaS w portalu Azure Marketplace.
 
-Aby uzyskać więcej informacji na temat usługi Azure AD (Active Directory), zobacz [co to jest uwierzytelnianie](../../active-directory/develop/authentication-scenarios.md)?
+Aby uzyskać więcej informacji na temat usługi Azure AD (Active Directory), zobacz [co to jest uwierzytelnianie](../../active-directory/develop/authentication-vs-authorization.md)?
 
 ## <a name="register-an-azure-ad-secured-app"></a>Rejestrowanie aplikacji zabezpieczonej przy użyciu usługi Azure AD
 
@@ -28,22 +28,22 @@ Każda aplikacja, która ma korzystać z funkcji usługi Azure AD, musi najpierw
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Jeśli Twoje konto daje dostęp do więcej niż jednego, kliknij swoje konto w prawym górnym rogu, a następnie ustaw sesję portalu na żądaną dzierżawę usługi Azure AD.
-3. W okienku nawigacji po lewej stronie kliknij usługę **Azure Active Directory** kliknij pozycję **rejestracje aplikacji**, a następnie kliknij pozycję **rejestracja nowej aplikacji**.
+3. W okienku nawigacji po lewej stronie kliknij usługę **Azure Active Directory** kliknij pozycję **rejestracje aplikacji** , a następnie kliknij pozycję **rejestracja nowej aplikacji** .
 
     ![SaaS rejestracji aplikacji usługi AD](./media/saas-offer-app-registration-v1.png)
 
 4. Na stronie Tworzenie wprowadź \' Informacje o rejestracji aplikacji:
-    -   **Nazwa**: wprowadź zrozumiałą nazwę aplikacji
-    -   **Typ aplikacji**:  
+    -   **Nazwa** : wprowadź zrozumiałą nazwę aplikacji
+    -   **Typ aplikacji** :  
         
-        Wybierz pozycję **aplikacja sieci Web/interfejs API** dla [aplikacji klienckich](../../active-directory/develop/active-directory-dev-glossary.md#client-application)) i [aplikacje typu zasób/interfejs API](../../active-directory/develop/active-directory-dev-glossary.md#resource-server), które są zainstalowane na serwerze zabezpieczonym. To ustawienie jest używane w przypadku [klientów w sieci Web](../../active-directory/develop/active-directory-dev-glossary.md#web-client)poufnych z uwierzytelnianiem OAuth i publicznych [klientów opartych na agentach](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client).
+        Wybierz pozycję **aplikacja sieci Web/interfejs API** dla [aplikacji klienckich](../../active-directory/develop/developer-glossary.md#client-application)) i [aplikacje typu zasób/interfejs API](../../active-directory/develop/developer-glossary.md#resource-server), które są zainstalowane na serwerze zabezpieczonym. To ustawienie jest używane w przypadku [klientów w sieci Web](../../active-directory/develop/developer-glossary.md#web-client)poufnych z uwierzytelnianiem OAuth i publicznych [klientów opartych na agentach](../../active-directory/develop/developer-glossary.md#user-agent-based-client).
         Ta sama aplikacja może ujawniać zarówno klienta, jak i interfejs API lub zasób.
 
         Aby zapoznać się z konkretnymi przykładami aplikacji sieci Web, zapoznaj się z przewodnikiem Szybki Start, które są dostępne w sekcji [wprowadzenie](../../active-directory/develop/quickstart-create-new-tenant.md) w [przewodniku deweloperów usługi Azure AD](../../active-directory/develop/index.yml).
 
-5. Po zakończeniu kliknij pozycję **zarejestruj**.  Usługa Azure AD przypisuje do nowej aplikacji unikatowy *Identyfikator aplikacji* . Zalecamy zarejestrowanie jednej aplikacji, która uzyskuje dostęp do interfejsu API, i jako pojedynczej dzierżawy.
+5. Po zakończeniu kliknij pozycję **zarejestruj** .  Usługa Azure AD przypisuje do nowej aplikacji unikatowy *Identyfikator aplikacji* . Zalecamy zarejestrowanie jednej aplikacji, która uzyskuje dostęp do interfejsu API, i jako pojedynczej dzierżawy.
 
-6. Aby utworzyć klucz tajny klienta, przejdź do **strony certyfikaty &** wpisy tajne i kliknij pozycję **+ nowy klucz tajny klienta**.  Pamiętaj, aby skopiować wartość klucza tajnego w celu użycia jej w kodzie.
+6. Aby utworzyć klucz tajny klienta, przejdź do **strony certyfikaty &** wpisy tajne i kliknij pozycję **+ nowy klucz tajny klienta** .  Pamiętaj, aby skopiować wartość klucza tajnego w celu użycia jej w kodzie.
 
 **Identyfikator aplikacji usługi Azure AD** jest SKOJARZONY z identyfikatorem wydawcy, dlatego upewnij się, że ten sam *Identyfikator aplikacji* jest używany we wszystkich ofertach.
 

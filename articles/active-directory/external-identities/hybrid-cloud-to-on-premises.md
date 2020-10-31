@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 10/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896470"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131024"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD
 
@@ -64,7 +64,7 @@ Na poniższym diagramie przedstawiono ogólne omówienie sposobu, w jaki usługa
 
 ### <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
 
-Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Na przykład:
+Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Przykład:
 
 - Można skonfigurować zasady uwierzytelniania wieloskładnikowego (MFA) dla użytkownika-gościa, aby funkcja MFA była używana podczas uwierzytelniania serwera proxy aplikacji. Aby uzyskać więcej informacji, zobacz [dostęp warunkowy dla użytkowników współpracy B2B](conditional-access.md).
 - Wszystkie sponsorzy, przeglądy dostępu, weryfikacje kont itp., które są wykonywane na użytkownikach w chmurze, mają zastosowanie do użytkowników lokalnych. Na przykład jeśli użytkownik chmury zostanie usunięty w ramach zasad zarządzania cyklem życia, użytkownik lokalny zostanie również usunięty przez program MIM Sync lub za pomocą synchronizacji Azure AD Connect. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa za pomocą przeglądów dostępu w usłudze Azure AD](../governance/manage-guest-access-with-access-reviews.md).
@@ -77,7 +77,7 @@ Informacje o sposobach korzystania z programu MIM 2016 z dodatkiem Service Pack 
 
 Dostępny jest przykładowy skrypt programu PowerShell, którego można użyć jako punktu wyjścia do tworzenia obiektów użytkownika-Gości w lokalnym Active Directory.
 
-Skrypt i plik Readme można pobrać z [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=51495). Wybierz **skrypt i plik Readme, aby pobrać użytkowników B2B usługi Azure AD on-prem.zip** pliku.
+Możesz pobrać skrypt i plik Readme z [łączników dla Microsoft Identity Manager 2016 i Forefront Identity Manager 2010 R2](https://www.microsoft.com/download/details.aspx?id=51495). W pakiecie pobierania wybierz **skrypt i plik Readme, aby ściągnąć użytkowników B2B usługi Azure AD, on-prem.zip** plik.
 
 Przed użyciem skryptu upewnij się, że zawarto przegląd wymagań wstępnych i ważnych zagadnień w skojarzonym pliku Readme. Należy również zrozumieć, że skrypt jest udostępniany tylko jako przykład. Twój zespół programistyczny lub partner musi dostosować i przejrzeć skrypt przed jego uruchomieniem.
 

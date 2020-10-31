@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: b760ad03318b3c31b39b6470251847150dc5a70a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db396bbd2f26638c39f2573fb6014cd2602279d0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869426"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129749"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics dane wyjściowe do Azure SQL Database
 
@@ -27,15 +27,15 @@ Poniżej przedstawiono konfiguracje w ramach każdej usługi, która może pomó
 - **Dziedzicz partycjonowanie** — ta opcja konfiguracji danych wyjściowych SQL umożliwia dziedziczenie schematu partycjonowania poprzedniego kroku zapytania lub danych wejściowych. Dzięki temu można zapisywać dane w tabeli opartej na dyskach i mieć w [pełni równoległą](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topologię dla danego zadania, co pozwala na wyświetlanie większej przepływności. Takie partycjonowanie jest już automatycznie wykonywane dla wielu innych danych [wyjściowych](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). Blokowanie tabeli (TABLOCK) jest również wyłączone dla operacji wstawiania zbiorczego z tą opcją.
 
 > [!NOTE] 
-> Jeśli istnieje więcej niż 8 partycji wejściowych, dziedziczenie schematu partycjonowania danych wejściowych może nie być odpowiednią opcją. Ten górny limit został zaobserwowany w tabeli z kolumną o pojedynczej tożsamości i indeksem klastrowanym. W takim przypadku Rozważ użycie [do](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 w zapytaniu, aby jawnie określić liczbę składników zapisywania danych wyjściowych. W oparciu o schemat i wybór indeksów Twoje uwagi mogą się różnić.
+> Jeśli istnieje więcej niż 8 partycji wejściowych, dziedziczenie schematu partycjonowania danych wejściowych może nie być odpowiednią opcją. Ten górny limit został zaobserwowany w tabeli z kolumną o pojedynczej tożsamości i indeksem klastrowanym. W takim przypadku Rozważ użycie [do](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 w zapytaniu, aby jawnie określić liczbę składników zapisywania danych wyjściowych. W oparciu o schemat i wybór indeksów Twoje uwagi mogą się różnić.
 
-- **Rozmiar wsadu** — konfiguracja wyjściowa SQL pozwala określić maksymalny rozmiar wsadu w Azure Stream Analytics danych wyjściowych SQL na podstawie charakteru docelowej tabeli lub obciążenia. Rozmiar wsadu to maksymalna liczba rekordów, które zostały wysłane z każdą zbiorczą transakcję wstawiania. W klastrowanych indeksach magazynu kolumn rozmiary usługi Batch dotyczące [100 000](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) umożliwiają większą przetwarzanie równoległe, minimalną rejestrację i optymalizację blokowania. W tabelach opartych na dyskach 10 (domyślnie) lub niższy może być optymalny dla danego rozwiązania, ponieważ wyższe rozmiary partii mogą wyzwalać eskalację blokady podczas operacji wstawiania zbiorczego.
+- **Rozmiar wsadu** — konfiguracja wyjściowa SQL pozwala określić maksymalny rozmiar wsadu w Azure Stream Analytics danych wyjściowych SQL na podstawie charakteru docelowej tabeli lub obciążenia. Rozmiar wsadu to maksymalna liczba rekordów, które zostały wysłane z każdą zbiorczą transakcję wstawiania. W klastrowanych indeksach magazynu kolumn rozmiary usługi Batch dotyczące [100 000](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) umożliwiają większą przetwarzanie równoległe, minimalną rejestrację i optymalizację blokowania. W tabelach opartych na dyskach 10 (domyślnie) lub niższy może być optymalny dla danego rozwiązania, ponieważ wyższe rozmiary partii mogą wyzwalać eskalację blokady podczas operacji wstawiania zbiorczego.
 
 - **Dostrajanie komunikatów wejściowych** — w przypadku optymalizacji przy użyciu dziedziczenia i rozmiaru partii zwiększenie liczby zdarzeń wejściowych na komunikat na partycję ułatwia dalsze wypychanie przepływności zapisu. Dostrajanie komunikatów wejściowych umożliwia rozmiar wsadu w ramach Azure Stream Analytics do określonego rozmiaru partii, a tym samym zwiększenie przepływności. Można to osiągnąć za pomocą [kompresji](stream-analytics-define-inputs.md) lub zwiększając rozmiary komunikatów wejściowych w centrum EventHub lub BLOB.
 
 ## <a name="sql-azure"></a>Usługi SQL Azure
 
-- **Partycjonowane tabele i indeksy** — za pomocą [partycjonowanej](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) tabeli SQL i indeksów partycjonowanych w tabeli z tą samą kolumną, co klucz partycji (na przykład PartitionID), może znacznie zmniejszyć rywalizację między partycjami podczas operacji zapisu. W przypadku partycjonowanej tabeli należy utworzyć [funkcję partycji](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) i [schemat partycji](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) w podstawowej grupie plików. Spowoduje to również zwiększenie dostępności istniejących danych podczas ładowania nowych danych. Limit operacji we/wy dziennika można uzyskać na podstawie liczby partycji, które można zwiększyć, uaktualniając jednostkę SKU.
+- **Partycjonowane tabele i indeksy** — za pomocą [partycjonowanej](/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) tabeli SQL i indeksów partycjonowanych w tabeli z tą samą kolumną, co klucz partycji (na przykład PartitionID), może znacznie zmniejszyć rywalizację między partycjami podczas operacji zapisu. W przypadku partycjonowanej tabeli należy utworzyć [funkcję partycji](/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) i [schemat partycji](/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) w podstawowej grupie plików. Spowoduje to również zwiększenie dostępności istniejących danych podczas ładowania nowych danych. Limit operacji we/wy dziennika można uzyskać na podstawie liczby partycji, które można zwiększyć, uaktualniając jednostkę SKU.
 
 - **Unikaj unikatowych naruszeń klucza** — Jeśli w dzienniku aktywności Azure Stream Analytics występuje [wiele komunikatów ostrzegawczych naruszenia klucza](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) , upewnij się, że na zadaniu nie ma wpływu unikatowe naruszenia ograniczenia, które prawdopodobnie wystąpią w przypadku przypadków odzyskiwania. Można to uniknąć przez ustawienie opcji [Ignoruj \_ DUP \_ klucza](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) w indeksach.
 

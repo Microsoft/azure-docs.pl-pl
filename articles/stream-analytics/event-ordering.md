@@ -7,22 +7,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80567a211f08d6322c80b6645f8b70ec7df64b59
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87901695"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130667"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Konfigurowanie zasad określania kolejności zdarzeń dla Azure Stream Analytics
 
-W tym artykule opisano sposób konfigurowania i używania późnego przybycia i zasad dotyczących zdarzeń poza kolejnością w programie Azure Stream Analytics. Te zasady są stosowane tylko wtedy, gdy używasz klauzuli [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) w zapytaniu i są one stosowane tylko w przypadku źródeł danych wejściowych w chmurze.
+W tym artykule opisano sposób konfigurowania i używania późnego przybycia i zasad dotyczących zdarzeń poza kolejnością w programie Azure Stream Analytics. Te zasady są stosowane tylko wtedy, gdy używasz klauzuli [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics) w zapytaniu i są one stosowane tylko w przypadku źródeł danych wejściowych w chmurze.
 
 ## <a name="event-time-and-arrival-time"></a>Godzina i czas przybycia zdarzenia
 
-Zadanie Stream Analytics może przetwarzać zdarzenia na podstawie *czasu zdarzenia* lub *czasu przybycia*. **Czas zdarzenia/aplikacji** to sygnatura czasowa występująca w ładunku zdarzenia (po wygenerowaniu zdarzenia). **Czas przybycia** to sygnatura czasowa odebrania zdarzenia w źródle danych wejściowych (Event Hubs/IoT Hub/BLOB Storage). 
+Zadanie Stream Analytics może przetwarzać zdarzenia na podstawie *czasu zdarzenia* lub *czasu przybycia* . **Czas zdarzenia/aplikacji** to sygnatura czasowa występująca w ładunku zdarzenia (po wygenerowaniu zdarzenia). **Czas przybycia** to sygnatura czasowa odebrania zdarzenia w źródle danych wejściowych (Event Hubs/IoT Hub/BLOB Storage). 
 
-Domyślnie Stream Analytics przetwarza zdarzenia według *czasu przybycia*, ale można wybrać przetwarzanie zdarzeń według *czasu zdarzenia* , używając klauzuli [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) w zapytaniu. Opóźnione przyjęcie i zasady poza kolejnością mają zastosowanie tylko w przypadku przetwarzania zdarzeń według czasu zdarzenia. Podczas konfigurowania tych ustawień należy wziąć pod uwagę wymagania dotyczące opóźnienia i poprawności dla danego scenariusza. 
+Domyślnie Stream Analytics przetwarza zdarzenia według *czasu przybycia* , ale można wybrać przetwarzanie zdarzeń według *czasu zdarzenia* , używając klauzuli [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics) w zapytaniu. Opóźnione przyjęcie i zasady poza kolejnością mają zastosowanie tylko w przypadku przetwarzania zdarzeń według czasu zdarzenia. Podczas konfigurowania tych ustawień należy wziąć pod uwagę wymagania dotyczące opóźnienia i poprawności dla danego scenariusza. 
 
 ## <a name="what-is-late-arrival-policy"></a>Co to są zasady spóźnionego przybycia?
 
@@ -40,7 +40,7 @@ Zapoznaj się z przykładem tych zasad w działaniu.
 <br> **Zasady późnego przybycia:** 15 sekund
 <br> **Zasady poza kolejnością:** 8 sekund
 
-| Nr zdarzenia | Czas zdarzenia | Czas przybycia | System.Timestamp | Objaśnienie |
+| Nr zdarzenia | Czas zdarzenia | Czas przybycia | System.Timestamp | Wyjaśnienie |
 | --- | --- | --- | --- | --- |
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | Zdarzenie dotarło do najpóźnego i zewnętrznego poziomu tolerancji. W związku z tym czas zdarzenia jest dostosowywany do maksymalnej tolerancji późnego przybycia.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | Zdarzenie zostało odebrane z opóźnieniem, ale w ramach poziomu tolerancji. Czas zdarzenia nie zostanie dostosowany.  |
@@ -79,8 +79,8 @@ Ten komunikat informujący o tym, że co najmniej jedna partycja w danych wejśc
 ## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>Dlaczego widzę opóźnienie 5 sekund nawet wtedy, gdy zasady późnego przybycia mają wartość 0?
 Dzieje się tak, gdy istnieje partycja wejściowa, która nigdy nie otrzymała żadnych danych wejściowych. Aby sprawdzić to zachowanie, można zweryfikować metryki danych wejściowych według partycji. 
 
-Gdy partycja nie ma żadnych danych przekraczających skonfigurowany próg późnego przybycia, usługa Stream Analytics zaawansowana sygnatura czasowa aplikacji, zgodnie z opisem w sekcji Uwagi dotyczące porządkowania zdarzeń. Wymaga to szacowanego czasu odbioru. Jeśli partycja nigdy nie zawierała żadnych danych, program Stream Analytics szacuje czas przybycia jako *czas lokalny — 5 sekund*. Ze względu na to, że te partycje, które nigdy nie miały żadnych danych, nie mogą pokazać opóźnienia w ciągu 5 sekund.  
+Gdy partycja nie ma żadnych danych przekraczających skonfigurowany próg późnego przybycia, usługa Stream Analytics zaawansowana sygnatura czasowa aplikacji, zgodnie z opisem w sekcji Uwagi dotyczące porządkowania zdarzeń. Wymaga to szacowanego czasu odbioru. Jeśli partycja nigdy nie zawierała żadnych danych, program Stream Analytics szacuje czas przybycia jako *czas lokalny — 5 sekund* . Ze względu na to, że te partycje, które nigdy nie miały żadnych danych, nie mogą pokazać opóźnienia w ciągu 5 sekund.  
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zagadnienia dotyczące obsługi czasu](stream-analytics-time-handling.md)
-* [Metryki dostępne w Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)
+* [Metryki dostępne w Stream Analytics](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)

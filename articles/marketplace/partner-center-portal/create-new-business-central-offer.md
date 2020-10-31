@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71cbc09f21e21c325665809953f209615d835124
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91774582"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130157"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Tworzenie oferty Dynamics 365 Business Central
 
@@ -23,8 +23,8 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
-3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Dynamics 365 Business Central**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Dynamics 365 Business Central** .
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-dynamics-365-business-central.png)
 
@@ -33,17 +33,17 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 
 ## <a name="new-offer"></a>Nowa oferta
 
-Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
+Wprowadź **Identyfikator oferty** . To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
 - Identyfikator oferty połączonej z IDENTYFIKATORem wydawcy musi być krótszy niż 40 znaków.
 - Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje. Na przykład jeśli identyfikator wydawcy to testpublisherid, a w tym miejscu wprowadzisz polecenie **test-Offer-1** , adres internetowy oferty będzie mieć wartość `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
+- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz** .
 
-Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
+Wprowadź **alias oferty** . Jest to nazwa używana dla oferty w centrum partnerskim.
 
 - Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
-- Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz**.
+- Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz** .
 
 Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
@@ -91,7 +91,7 @@ Ta strona umożliwia definiowanie kategorii i branż używanych do grupowania of
 Wybierz kategorie i podkategorie, aby umieścić ofertę w odpowiednich obszarach wyszukiwania w portalu Marketplace. Pamiętaj, aby opisać, w jaki sposób oferta obsługuje te kategorie w opisie oferty. Wybierz pozycję:
 
 - Co najmniej jeden i maksymalnie dwie kategorie, w tym podstawowa i pomocnicza Kategoria (opcjonalnie).
-- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy**.
+- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy** .
 
 Zapoznaj się z pełną listą kategorii i podkategorii w artykule [Oferta z najlepszymi rozwiązaniami](../gtm-offer-listing-best-practices.md).
 
@@ -171,9 +171,9 @@ Wprowadź adres URL zasad zachowania poufności informacji organizacji. Użytkow
 
 ### <a name="contact-information"></a>Informacje kontaktowe
 
-W tej sekcji należy podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego**. Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP.
+W tej sekcji należy podać nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego** . Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP.
 
-W sekcji **skontaktuj się z pomocą techniczną** należy również podać **adres URL pomocy technicznej** , w której partnerzy CSP mogą znaleźć obsługę oferty. Adres URL pomocy technicznej nie może być taki sam jak **link do pomocy**.
+W sekcji **skontaktuj się z pomocą techniczną** należy również podać **adres URL pomocy technicznej** , w której partnerzy CSP mogą znaleźć obsługę oferty. Adres URL pomocy technicznej nie może być taki sam jak **link do pomocy** .
 
 ### <a name="supporting-documents"></a>Dokumenty pomocnicze
 
@@ -199,7 +199,7 @@ Te logo są używane w różnych miejscach na liście:
 
 Dodaj zrzuty ekranu pokazujące, jak działa Twoja oferta. Wymagane są co najmniej trzy zrzuty ekranu i można dodać maksymalnie pięć. Wszystkie zrzuty ekranu muszą mieć 1280 x 720 pikseli.
 
-#### <a name="videos"></a>Wideo
+#### <a name="videos"></a>Filmy wideo
 
 Opcjonalnie możesz dodać maksymalnie pięć filmów wideo, które demonstrują Twoją ofertę. Te filmy wideo powinny być hostowane w usłudze YouTube i/lub Vimeo. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres URL i obraz miniatury filmu wideo (1280 x 720 pikseli).
 
@@ -215,7 +215,7 @@ Na tej stronie przedstawiono opcje, w których można uzyskać dostęp do oferty
 
 ### <a name="markets"></a>Wprowadza
 
-Ta sekcja umożliwia określenie rynków, w których oferta powinna być dostępna. Aby to zrobić, wybierz pozycję **Edytuj rynki**, co spowoduje wyświetlenie okna podręcznego **wyboru na rynku** .
+Ta sekcja umożliwia określenie rynków, w których oferta powinna być dostępna. Aby to zrobić, wybierz pozycję **Edytuj rynki** , co spowoduje wyświetlenie okna podręcznego **wyboru na rynku** .
 
 Wybierz co najmniej jeden rynek w celu opublikowania oferty. Wybierz **pozycję Zaznacz wszystko** , aby udostępnić ofertę na każdym możliwym rynku, lub wybierz konkretne rynki, które chcesz dodać.
 
@@ -228,7 +228,7 @@ Należy pamiętać, że nawet w przypadku wybrania wszystkich rynków, prawa lok
 
 ### <a name="preview-audience"></a>Podgląd odbiorców
 
-Przed opublikowaniem oferty na żywo w szerszej ofercie z witryny Marketplace musisz najpierw udostępnić ją w ograniczonej **grupie odbiorców w wersji zapoznawczej**. Wprowadź w tym miejscu **klucz ukrycia** (dowolny ciąg, używając tylko małych liter i/lub cyfr). Członkowie Twojej grupy zapoznawczej mogą używać tego klucza Ukryj jako tokenu, aby wyświetlić podgląd oferty w portalu Marketplace.
+Przed opublikowaniem oferty na żywo w szerszej ofercie z witryny Marketplace musisz najpierw udostępnić ją w ograniczonej **grupie odbiorców w wersji zapoznawczej** . Wprowadź w tym miejscu **klucz ukrycia** (dowolny ciąg, używając tylko małych liter i/lub cyfr). Członkowie Twojej grupy zapoznawczej mogą używać tego klucza Ukryj jako tokenu, aby wyświetlić podgląd oferty w portalu Marketplace.
 
 Gdy wszystko będzie gotowe do udostępnienia oferty i usunięcia ograniczenia wersji zapoznawczej, należy usunąć **klucz Ukryj** i opublikować ponownie.
 
@@ -242,8 +242,8 @@ Ta strona definiuje szczegóły techniczne używane do nawiązania połączenia 
 
 Wybierz opcję, która ma zastosowanie do oferty:
 
-* **Dodaj** — aplikacja dodatku rozszerza środowisko i istniejące funkcje programu Dynamics 365 Business Central. Aby uzyskać szczegółowe informacje, zobacz [aplikacje dodatków](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
-* **Connect** — aplikacja Connect może być używana w scenariuszu, w którym musi zostać ustanowione połączenie punkt-punkt między programem Dynamics 365 Business Central i rozwiązaniem lub usługą innej firmy. Aby uzyskać szczegółowe informacje, zobacz [łączenie aplikacji](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
+* **Dodaj** — aplikacja dodatku rozszerza środowisko i istniejące funkcje programu Dynamics 365 Business Central. Aby uzyskać szczegółowe informacje, zobacz [aplikacje dodatków](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
+* **Connect** — aplikacja Connect może być używana w scenariuszu, w którym musi zostać ustanowione połączenie punkt-punkt między programem Dynamics 365 Business Central i rozwiązaniem lub usługą innej firmy. Aby uzyskać szczegółowe informacje, zobacz [łączenie aplikacji](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
 ### <a name="file-upload"></a>Przekazywanie plików
 
@@ -280,11 +280,11 @@ Ta strona umożliwia podanie dodatkowych informacji o ofercie, które ułatwią 
 
 ### <a name="target-release"></a>Wersja docelowa
 
-Wskaż, która wersja programu Microsoft Dynamics Business Central to rozwiązanie docelowe: **Current**, **Next General**lub **Next pomocniczy**. Te informacje umożliwiają nam odpowiednie testowanie Twojego rozwiązania.
+Wskaż, która wersja programu Microsoft Dynamics Business Central to rozwiązanie docelowe: **Current** , **Next General** lub **Next pomocniczy** . Te informacje umożliwiają nam odpowiednie testowanie Twojego rozwiązania.
 
 ### <a name="supported-editions"></a>Obsługiwane wersje
 
-Jeśli oferta wymaga wersji Premium systemu Microsoft Dynamics 365 Business Central, wybierz opcję tylko **Premium** . W przeciwnym razie wybierz zarówno **podstawowe** , jak i **Premium**.
+Jeśli oferta wymaga wersji Premium systemu Microsoft Dynamics 365 Business Central, wybierz opcję tylko **Premium** . W przeciwnym razie wybierz zarówno **podstawowe** , jak i **Premium** .
 
 ### <a name="key-usage-scenario"></a>Scenariusz użycia klucza
 
@@ -298,7 +298,7 @@ Jeśli Twoja oferta jest aplikacją dodatku, musisz przekazać plik **automatyza
 
 Jeśli konto testowe jest konieczne, aby nasz zespół certyfikacji mógł prawidłowo przejrzeć Twoją ofertę, Przekaż plik PDF, doc lub docx do informacji o **kontach testowych** .
 
-## <a name="publish"></a>Opublikuj
+## <a name="publish"></a>Publikowanie
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 
@@ -311,7 +311,7 @@ Jeśli po raz pierwszy publikujesz tę ofertę, możesz:
     - *Niekompletne* — oznacza, że sekcja zawiera błędy, które muszą zostać naprawione lub wymaga podania więcej informacji. Wróć do sekcji i zaktualizuj ją.
     - *Gotowe* — oznacza, że sekcja została ukończona, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
 - W sekcji **uwagi dotyczące certyfikacji** Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja została prawidłowo przetestowana, a także dodatkowe uwagi przydatne do poznania aplikacji.
-- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail, gdy zostanie udostępniona wersja zapoznawcza oferty, którą możesz przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać ofertę do publicznej publikacji oferty.
+- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij** . Wyślemy Ci wiadomość e-mail, gdy zostanie udostępniona wersja zapoznawcza oferty, którą możesz przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać ofertę do publicznej publikacji oferty.
 
 ## <a name="next-steps"></a>Następne kroki
 

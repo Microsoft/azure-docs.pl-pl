@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: bcb14c786ab652b1c51a3d3bf487e39fd0ebfdb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96bdfc513023cafb2d94a68c06f1065cf20c3ba8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710689"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130174"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Tworzenie oferty Dynamics 365 for Customer Engagement & PowerApps
 
@@ -23,8 +23,8 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
-3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Dynamics 365 do zaangażowania klienta & powerapps**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Dynamics 365 do zaangażowania klienta & powerapps** .
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-dynamics-365-customer-engagement-powerapps.png)
 
@@ -33,17 +33,17 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 
 ## <a name="new-offer"></a>Nowa oferta
 
-Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
+Wprowadź **Identyfikator oferty** . To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
 - Identyfikator oferty połączonej z IDENTYFIKATORem wydawcy musi być krótszy niż 40 znaków.
-- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje. Na przykład jeśli identyfikator wydawcy to testpublisherid, a ty wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje. Na przykład jeśli identyfikator wydawcy to testpublisherid, a ty wprowadzisz polecenie **test-Offer-1** , adres sieci Web oferty będzie wynosić `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
+- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz** .
 
-Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
+Wprowadź **alias oferty** . Jest to nazwa używana dla oferty w centrum partnerskim.
 
 - Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
-- Tego nie można zmienić po wybraniu opcji **Utwórz**.
+- Tego nie można zmienić po wybraniu opcji **Utwórz** .
 
 Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
@@ -95,7 +95,7 @@ Ta strona umożliwia definiowanie kategorii i branż używanych do grupowania of
 Wybierz kategorie i podkategorie, aby umieścić ofertę w odpowiednich obszarach wyszukiwania w portalu Marketplace. Pamiętaj, aby opisać, w jaki sposób oferta obsługuje te kategorie w opisie oferty. Wybierz pozycję:
 
 - Co najmniej jeden i maksymalnie dwie kategorie, w tym podstawowa i pomocnicza Kategoria (opcjonalnie).
-- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy**.
+- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy** .
 
 Zapoznaj się z pełną listą kategorii i podkategorii w artykule [Oferta z najlepszymi rozwiązaniami](../gtm-offer-listing-best-practices.md).
 
@@ -179,7 +179,7 @@ Wprowadź adres do zasad zachowania poufności informacji organizacji. Użytkown
 
 ### <a name="contacts"></a>Kontakty
 
-Podaj nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego**. Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP.
+Podaj nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego** . Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP.
 
 W sekcji **skontaktuj się z pomocą techniczną** należy również podać **adres URL pomocy technicznej** , w której partnerzy CSP mogą znaleźć obsługę oferty.
 
@@ -213,7 +213,7 @@ Te logo są używane w różnych miejscach na liście:
 
 Dodaj zrzuty ekranu pokazujące, jak działa Twoja oferta. Wymagany jest co najmniej jeden zrzut ekranu i można dodać maksymalnie pięć. Wszystkie zrzuty ekranu muszą mieć 1280 x 720 pikseli.
 
-#### <a name="videos"></a>Wideo
+#### <a name="videos"></a>Filmy wideo
 
 Opcjonalnie możesz dodać do czterech filmów wideo, które demonstrują Twoją ofertę. Te filmy wideo powinny być hostowane w usłudze YouTube i/lub Vimeo. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres URL i obraz miniatury filmu wideo (1280 x 720 pikseli)
 
@@ -229,7 +229,7 @@ Ta strona umożliwia określenie miejsca i sposobu udostępniania oferty.
 
 ### <a name="markets"></a>Wprowadza
 
-Określ rynki, w których oferta powinna być dostępna. Aby to zrobić, wybierz pozycję **Edytuj rynki**, co spowoduje wyświetlenie okna podręcznego **wyboru na rynku** .
+Określ rynki, w których oferta powinna być dostępna. Aby to zrobić, wybierz pozycję **Edytuj rynki** , co spowoduje wyświetlenie okna podręcznego **wyboru na rynku** .
 
 Domyślnie nie wybrano żadnych rynków, ale musisz wybrać co najmniej jeden rynek, aby opublikować swoją ofertę. Wybierz  **pozycję Zaznacz wszystko** , aby udostępnić ofertę na każdym możliwym rynku, lub wybierz konkretne rynki, które chcesz dodać.
 
@@ -240,7 +240,7 @@ Wybrane tutaj ustawienia dotyczą tylko nowych nabyć; Jeśli ktoś ma już apli
 
 ### <a name="preview-audience"></a>Podgląd odbiorców
 
-Przed opublikowaniem oferty na żywo w szerszej ofercie z witryny Marketplace musisz najpierw udostępnić ją w ograniczonej **grupie odbiorców w wersji zapoznawczej**. Wprowadź w tym miejscu **klucz ukrycia** (dowolny ciąg, używając tylko małych liter i/lub cyfr). Członkowie Twojej grupy zapoznawczej mogą używać tego klucza Ukryj jako tokenu, aby wyświetlić podgląd oferty w portalu Marketplace.
+Przed opublikowaniem oferty na żywo w szerszej ofercie z witryny Marketplace musisz najpierw udostępnić ją w ograniczonej **grupie odbiorców w wersji zapoznawczej** . Wprowadź w tym miejscu **klucz ukrycia** (dowolny ciąg, używając tylko małych liter i/lub cyfr). Członkowie Twojej grupy zapoznawczej mogą używać tego klucza Ukryj jako tokenu, aby wyświetlić podgląd oferty w portalu Marketplace.
 
 Gdy wszystko będzie gotowe do udostępnienia oferty i usunięcia ograniczenia wersji zapoznawczej, należy usunąć **klucz Ukryj** i opublikować ponownie.
 
@@ -269,9 +269,9 @@ W polu **adres URL pola lokalizacja pakietu** wprowadź adres URL konta usługi 
 > [!IMPORTANT]
 > Aby uniknąć bloku publikowania, upewnij się, że data wygaśnięcia w adresie URL magazynu obiektów BLOB nie wygasła. Możesz skorygować datę, uzyskując dostęp do zasad. Zalecane jest, aby **czas wygaśnięcia** był co najmniej jeden miesiąc w przyszłości.
 
-Zaznacz pole o nazwie **zawiera więcej niż jeden pakiet CRM w pliku pakietu**, jeśli ma zastosowanie. Jeśli tak, pamiętaj o uwzględnieniu wszystkich pakietów w pliku zip.
+Zaznacz pole o nazwie **zawiera więcej niż jeden pakiet CRM w pliku pakietu** , jeśli ma zastosowanie. Jeśli tak, pamiętaj o uwzględnieniu wszystkich pakietów w pliku zip.
 
-Aby uzyskać szczegółowe informacje na temat sposobu kompilowania pakietu i aktualizowania jego struktury, zobacz [krok 3. Tworzenie pakietu AppSource dla aplikacji](https://docs.microsoft.com/powerapps/developer/common-data-service/create-package-app-appsource).
+Aby uzyskać szczegółowe informacje na temat sposobu kompilowania pakietu i aktualizowania jego struktury, zobacz [krok 3. Tworzenie pakietu AppSource dla aplikacji](/powerapps/developer/common-data-service/create-package-app-appsource).
 
 ### <a name="crm-package-availability"></a>Dostępność pakietu CRM
 
@@ -299,7 +299,7 @@ Przekaż plik PDF, który zawiera listę scenariuszy użycia klucza oferty. Wszy
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="publish"></a>Opublikuj
+## <a name="publish"></a>Publikowanie
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 
@@ -312,7 +312,7 @@ Jeśli po raz pierwszy publikujesz tę ofertę, możesz:
     - **Niekompletne** — sekcja zawiera błędy, które muszą zostać naprawione lub aby można było dostarczyć więcej informacji. Wróć do sekcji i zaktualizuj ją.
     - **Ukończono** — sekcja została ukończona, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
 - W sekcji **uwagi dotyczące certyfikacji** Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja została prawidłowo przetestowana, a także dodatkowe uwagi przydatne do poznania aplikacji.
-- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail z prośbą o udostępnienie wersji zapoznawczej oferty, którą można przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać publiczną ofertę publikacji.
+- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij** . Wyślemy Ci wiadomość e-mail z prośbą o udostępnienie wersji zapoznawczej oferty, którą można przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać publiczną ofertę publikacji.
 
 ## <a name="next-step"></a>Następny krok
 

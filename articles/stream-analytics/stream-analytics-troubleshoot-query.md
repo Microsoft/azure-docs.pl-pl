@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337810"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130259"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Rozwiązywanie problemów z zapytaniami Azure Stream Analytics
 
@@ -25,26 +25,26 @@ W tym artykule opisano typowe problemy związane z tworzeniem zapytań Azure Str
 
 1.  Sprawdzanie błędów przez testowanie lokalne:
 
-    - Na Azure Portal na karcie **zapytanie** wybierz pozycję **test**. Aby [przetestować zapytanie,](stream-analytics-test-query.md)Użyj pobranych przykładowych danych. Przejrzyj błędy i spróbuj je poprawić.   
+    - Na Azure Portal na karcie **zapytanie** wybierz pozycję **test** . Aby [przetestować zapytanie,](stream-analytics-test-query.md)Użyj pobranych przykładowych danych. Przejrzyj błędy i spróbuj je poprawić.   
     - Możesz również [testować zapytanie lokalnie](stream-analytics-live-data-local-testing.md) przy użyciu narzędzi Azure Stream Analytics Tools for Visual Studio lub [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
 2.  [Debuguj zapytania krok po kroku lokalnie przy użyciu diagramu zadań](debug-locally-using-job-diagram-vs-code.md) w Azure Stream Analytics narzędzia dla Visual Studio Code. Diagram zadania pokazuje, w jaki sposób dane są przepływami ze źródeł danych wejściowych (centrum zdarzeń, IoT Hub itd.) przez wiele kroków zapytania, a wreszcie do ujścia danych wyjściowych. Każdy krok zapytania jest mapowany do tymczasowego zestawu wyników zdefiniowanego w skrypcie przy użyciu instrukcji WITH. Możesz wyświetlić dane, a także metryki w każdym pośrednim zestawie wyników, aby znaleźć źródło problemu.
 
     ![Wynik podglądu diagramu zadań](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
-3.  Jeśli używasz [**sygnatur czasowych przez**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), sprawdź, czy zdarzenia mają sygnatury czasowe większe niż [godzina rozpoczęcia zadania](stream-analytics-out-of-order-and-late-events.md).
+3.  Jeśli używasz [**sygnatur czasowych przez**](/stream-analytics-query/timestamp-by-azure-stream-analytics), sprawdź, czy zdarzenia mają sygnatury czasowe większe niż [godzina rozpoczęcia zadania](./stream-analytics-time-handling.md).
 
 4.  Eliminowanie typowych pułapek, takich jak:
-    - Klauzula [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) w zapytaniu odfiltrowana wszystkie zdarzenia, uniemożliwiając wygenerowanie danych wyjściowych.
-    - Funkcja [**Cast**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) kończy się niepowodzeniem, co powoduje niepowodzenie zadania. Aby uniknąć błędów rzutowania typu, należy zamiast tego użyć [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) .
+    - Klauzula [**WHERE**](/stream-analytics-query/where-azure-stream-analytics) w zapytaniu odfiltrowana wszystkie zdarzenia, uniemożliwiając wygenerowanie danych wyjściowych.
+    - Funkcja [**Cast**](/stream-analytics-query/cast-azure-stream-analytics) kończy się niepowodzeniem, co powoduje niepowodzenie zadania. Aby uniknąć błędów rzutowania typu, należy zamiast tego użyć [**TRY_CAST**](/stream-analytics-query/try-cast-azure-stream-analytics) .
     - Gdy korzystasz z funkcji okna, poczekaj, aż cały czas trwania okna zobaczy dane wyjściowe zapytania.
     - Sygnatura czasowa dla zdarzeń poprzedza czas rozpoczęcia zadania i zdarzenia są porzucane.
-    - Warunki [**sprzężenia**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) są niezgodne. Jeśli nie ma żadnych dopasowań, nie będzie danych wyjściowych.
+    - Warunki [**sprzężenia**](/stream-analytics-query/join-azure-stream-analytics) są niezgodne. Jeśli nie ma żadnych dopasowań, nie będzie danych wyjściowych.
 
-5.  Upewnij się, że zasady określania kolejności zdarzeń zostały skonfigurowane zgodnie z oczekiwaniami. Przejdź do pozycji **Ustawienia** i wybierz pozycję [**porządkowanie zdarzeń**](stream-analytics-out-of-order-and-late-events.md). Zasady *nie* są stosowane, gdy do testowania zapytania jest używany przycisk **Testuj** . Ten wynik jest jedną różnicą między testowaniem w przeglądarce a uruchomieniem zadania w środowisku produkcyjnym. 
+5.  Upewnij się, że zasady określania kolejności zdarzeń zostały skonfigurowane zgodnie z oczekiwaniami. Przejdź do pozycji **Ustawienia** i wybierz pozycję [**porządkowanie zdarzeń**](./stream-analytics-time-handling.md). Zasady *nie* są stosowane, gdy do testowania zapytania jest używany przycisk **Testuj** . Ten wynik jest jedną różnicą między testowaniem w przeglądarce a uruchomieniem zadania w środowisku produkcyjnym. 
 
 6. Debuguj przy użyciu dzienników aktywności i zasobów:
-    - Używaj [dzienników aktywności](../azure-resource-manager/resource-group-audit.md)i Filtruj, aby identyfikować i debugować błędy.
+    - Używaj [dzienników aktywności](../azure-resource-manager/management/view-activity-logs.md)i Filtruj, aby identyfikować i debugować błędy.
     - Użyj [dzienników zasobów zadań](stream-analytics-job-diagnostic-logs.md) , aby identyfikować i debugować błędy.
 
 ## <a name="resource-utilization-is-high"></a>Użycie zasobów jest wysokie
@@ -103,12 +103,12 @@ Tym razem dane w danych wyjściowych są formatowane i wypełniane zgodnie z ocz
 
 ## <a name="get-help"></a>Uzyskaj pomoc
 
-Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](/rest/api/streamanalytics/)

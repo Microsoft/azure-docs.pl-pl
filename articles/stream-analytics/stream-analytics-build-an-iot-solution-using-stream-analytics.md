@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044587"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130803"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Tworzenie rozwiązania IoT przy użyciu Stream Analytics
 
@@ -43,7 +43,7 @@ To rozwiązanie współpracuje z dwoma strumieniami danych. Czujniki zainstalowa
 ### <a name="entry-data-stream"></a>Strumień danych wejściowych
 Strumień danych wprowadzania zawiera informacje o samochodach, które wprowadzają opłaty za połączenia. Zdarzenia danych wyjściowych są przesyłane strumieniowo do kolejki centrum zdarzeń z aplikacji sieci Web dołączonej do przykładowej aplikacji.
 
-| TollID | EntryTime | LicensePlate | State | Marka | Model | Nr pojazdu | VehicleWeight | Płatny | Tag |
+| TollID | EntryTime | LicensePlate | Stan | Marka | Model | Nr pojazdu | VehicleWeight | Płatny | Tag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -59,7 +59,7 @@ Poniżej znajduje się krótki opis kolumn:
 | TollID |Identyfikator kabiny płatnej, który jednoznacznie identyfikuje połączenie płatne |
 | EntryTime |Data i godzina wprowadzenia pojazdu do telefonu w formacie UTC |
 | LicensePlate |Numer płyty licencji dla pojazdu |
-| State |Stan w Stany Zjednoczone |
+| Stan |Stan w Stany Zjednoczone |
 | Marka |Producent urządzenia przenośnego |
 | Model |Numer modelu samochodów |
 | Nr pojazdu |1 w przypadku pojazdów pasażerskich lub 2 dla pojazdów komercyjnych |
@@ -134,7 +134,7 @@ Istnieje kilka zasobów, które można łatwo wdrożyć w grupie zasobów razem 
 
 9. Wybierz pozycję **Kup** , aby wdrożyć przykładowy szablon.
 
-10. Po kilku chwilach zostanie wyświetlone powiadomienie informujące o **pomyślnym wdrożeniu**.
+10. Po kilku chwilach zostanie wyświetlone powiadomienie informujące o **pomyślnym wdrożeniu** .
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Przeglądanie Azure Stream Analytics zasobów TollApp
 
@@ -163,7 +163,7 @@ Istnieje kilka zasobów, które można łatwo wdrożyć w grupie zasobów razem 
 
    Aby paraphrase zamiar zapytania, Załóżmy, że należy policzyć liczbę pojazdów, które wchodzą w połączenie płatne. Ze względu na to, że połączenie autostradowe ma ciągły strumień pojazdów, są to zdarzenia wejścia analogiczne do strumienia, który nigdy się nie zatrzyma. Aby ustalić ilość strumienia, należy zdefiniować "okres czasu" do pomiaru. Przyjrzyjmy się dalszemu zagadnieniu, do "jak wiele pojazdów wchodzi w połączenie płatne co trzy minuty?". Jest to często określane jako liczba wirowania.
 
-   Jak widać, Azure Stream Analytics używa języka zapytań, takiego jak SQL, i dodaje kilka rozszerzeń, aby określić aspekty dotyczące czasu zapytania.  Aby uzyskać więcej informacji, przeczytaj informacje o [zarządzaniu czasem](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) i konstrukcjach [okien](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) używanych w zapytaniu.
+   Jak widać, Azure Stream Analytics używa języka zapytań, takiego jak SQL, i dodaje kilka rozszerzeń, aby określić aspekty dotyczące czasu zapytania.  Aby uzyskać więcej informacji, przeczytaj informacje o [zarządzaniu czasem](/stream-analytics-query/time-management-azure-stream-analytics) i konstrukcjach [okien](/stream-analytics-query/windowing-azure-stream-analytics) używanych w zapytaniu.
 
 3. Przeanalizuj dane wejściowe zadania przykładowego TollApp. Tylko dane wejściowe EntryStream są używane w bieżącym zapytaniu.
    - **EntryStream** input to połączenie centrum zdarzeń, które kolejkuje dane, które są przedstawiane za każdym razem, gdy samochód przejdzie do Tollbooth na autostradie. Aplikacja sieci Web, która jest częścią przykładu, tworzy zdarzenia, a dane są umieszczane w kolejce w tym centrum zdarzeń. Należy zauważyć, że dane wejściowe są wysyłane w klauzuli FROM zapytania przesyłania strumieniowego.
@@ -176,20 +176,20 @@ Istnieje kilka zasobów, które można łatwo wdrożyć w grupie zasobów razem 
 ## <a name="start-the-tollapp-streaming-job"></a>Uruchamianie zadania przesyłania strumieniowego TollApp
 Wykonaj następujące kroki, aby uruchomić zadanie przesyłania strumieniowego:
 
-1. Na stronie **Przegląd** zadania wybierz pozycję **Rozpocznij**.
+1. Na stronie **Przegląd** zadania wybierz pozycję **Rozpocznij** .
 
-2. W okienku **Uruchamianie zadania** wybierz pozycję **teraz**.
+2. W okienku **Uruchamianie zadania** wybierz pozycję **teraz** .
 
 3. Po kilku chwilach, gdy zadanie jest uruchomione, na stronie **Przegląd** zadania przesyłania strumieniowego Wyświetl wykres **monitorowania** . Wykres powinien zawierać kilka tysięcy zdarzeń wejściowych i dziesiątki zdarzeń wyjściowych.
 
 ## <a name="review-the-cosmosdb-output-data"></a>Przeglądanie danych wyjściowych CosmosDB
 1. Znajdź grupę zasobów zawierającą zasoby TollApp.
 
-2. Wybierz konto Azure Cosmos DB z wzorcem nazwy **tollapp \<random\> -Cosmos**.
+2. Wybierz konto Azure Cosmos DB z wzorcem nazwy **tollapp \<random\> -Cosmos** .
 
 3. Wybierz **Eksplorator danych** nagłówek, aby otworzyć stronę Eksplorator danych.
 
-4. Rozwiń dokumenty **tollAppDatabase**  >  **tollAppCollection**  >  **Documents**.
+4. Rozwiń dokumenty **tollAppDatabase**  >  **tollAppCollection**  >  **Documents** .
 
 5. Na liście identyfikatorów kilka dokumentów jest pokazywanych po udostępnieniu danych wyjściowych.
 
@@ -214,7 +214,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 ### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>Aby zaktualizować składnię zapytania zadania przesyłania strumieniowego TollApp:
 
-1. Na stronie **Przegląd** zadania wybierz pozycję **Zatrzymaj**.
+1. Na stronie **Przegląd** zadania wybierz pozycję **Zatrzymaj** .
 
 2. Poczekaj chwilę na powiadomienie, że zadanie zostało zatrzymane.
 
@@ -224,9 +224,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 5. Wybierz pozycję **Zapisz** , aby zapisać zapytanie. Potwierdź **,** aby zapisać zmiany.
 
-6. Na stronie **Przegląd** zadania wybierz pozycję **Rozpocznij**.
+6. Na stronie **Przegląd** zadania wybierz pozycję **Rozpocznij** .
 
-7. W okienku **Uruchamianie zadania** wybierz pozycję **teraz**.
+7. W okienku **Uruchamianie zadania** wybierz pozycję **teraz** .
 
 ### <a name="review-the-total-time-in-the-output"></a>Przejrzyj łączny czas w danych wyjściowych
 Powtórz kroki opisane w poprzedniej sekcji, aby przejrzeć dane wyjściowe CosmosDB z zadania przesyłania strumieniowego. Zapoznaj się z najnowszymi dokumentami JSON.
@@ -299,11 +299,11 @@ Aby skalować zadanie przesyłania strumieniowego do większej liczby jednostek 
 
 1. **Zatrzymaj** bieżące zadanie.
 
-2. Zaktualizuj składnię zapytania na stronie ** kwerendy< > ** i Zapisz zmiany.
+2. Zaktualizuj składnię zapytania na stronie **kwerendy< >** i Zapisz zmiany.
 
-3. W obszarze Konfigurowanie nagłówka w zadaniu przesyłania strumieniowego wybierz pozycję **Skala**.
+3. W obszarze Konfigurowanie nagłówka w zadaniu przesyłania strumieniowego wybierz pozycję **Skala** .
 
-4. Przesuń suwak **jednostki przesyłania strumieniowego** z 1 do 6. Jednostki przesyłania strumieniowego definiują ilość mocy obliczeniowej, którą może odbierać zadanie. Wybierz pozycję **Zapisz**.
+4. Przesuń suwak **jednostki przesyłania strumieniowego** z 1 do 6. Jednostki przesyłania strumieniowego definiują ilość mocy obliczeniowej, którą może odbierać zadanie. Wybierz pozycję **Zapisz** .
 
 5. **Rozpocznij** zadanie przesyłania strumieniowego, aby zademonstrować dodatkową skalę. Azure Stream Analytics dystrybuuje prace w większej ilości zasobów obliczeniowych i osiągają lepszą przepływność, co pozwala na partycjonowanie pracy w obrębie zasobów przy użyciu kolumny wyznaczonej w klauzuli PARTITION BY.
 
@@ -319,7 +319,7 @@ Możesz również uzyskać dostęp do **dzienników aktywności** z obszaru **Us
 
 2. Znajdź grupę zasobów zawierającą osiem zasobów związanych z szablonem TollApp.
 
-3. Wybierz pozycję **Usuń grupę zasobów**. Wpisz nazwę grupy zasobów, aby potwierdzić usunięcie.
+3. Wybierz pozycję **Usuń grupę zasobów** . Wpisz nazwę grupy zasobów, aby potwierdzić usunięcie.
 
 ## <a name="conclusion"></a>Podsumowanie
 To rozwiązanie wprowadza do usługi Azure Stream Analytics. Przedstawiono w nim sposób konfigurowania danych wejściowych i wyjściowych dla zadania Stream Analytics. Za pomocą scenariusza danych o cle, rozwiązanie objaśniono typowe typy problemów, które powstają w przypadku danych w ruchu i jak można je rozwiązać przy użyciu prostych zapytań przypominających SQL w Azure Stream Analytics. Rozwiązanie opisane w opisie rozszerzeń SQL do pracy z danymi czasowymi. Pokazano, jak sprzęgać strumienie danych, jak wzbogacać strumień danych ze statycznymi danymi referencyjnymi oraz jak skalować zapytanie w celu uzyskania większej przepływności.

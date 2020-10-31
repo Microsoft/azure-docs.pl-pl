@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
-ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 925bc79d54def3f2aec4657196b8cea53704396f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030801"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130650"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Korzystanie z usługi Azure Table Storage do zarządzania komercyjnymi klientami portalu Marketplace
 
@@ -26,7 +26,7 @@ Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiw
 
     1. Wybierz pozycję **+ Utwórz zasób** na pasku menu po lewej stronie. **Nowe** okienko pojawia się po prawej stronie.
     1. Wybierz pozycję **Magazyn** w **nowym** okienku. Lista **Proponowana** pojawia się po prawej stronie.
-    1. Wybierz pozycję **konto magazynu** , aby rozpocząć tworzenie konta. Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta magazynu](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    1. Wybierz pozycję **konto magazynu** , aby rozpocząć tworzenie konta. Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta magazynu](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
         :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Procedura tworzenia konta usługi Azure Storage.":::
 
@@ -51,7 +51,7 @@ Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiw
     :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Procedura tworzenia konta usługi Azure Storage.":::
 
 
-1. W okienku konto magazynu wybierz pozycję **tabele**, a następnie wybierz pozycję **+ tabela** , aby utworzyć tabelę. Wprowadź nazwę tabeli i wybierz **przycisk OK**. Zapisz tę wartość, ponieważ będzie ona potrzebna, jeśli chcesz skonfigurować przepływ do odbierania powiadomień e-mail po odebraniu potencjalnych klientów.
+1. W okienku konto magazynu wybierz pozycję **tabele** , a następnie wybierz pozycję **+ tabela** , aby utworzyć tabelę. Wprowadź nazwę tabeli i wybierz **przycisk OK** . Zapisz tę wartość, ponieważ będzie ona potrzebna, jeśli chcesz skonfigurować przepływ do odbierania powiadomień e-mail po odebraniu potencjalnych klientów.
 
     ![Tabele platformy Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
@@ -59,32 +59,32 @@ Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiw
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>Obowiązkowe Korzystanie z programu PowerShell w celu uzyskania powiadomień o potencjalnych klientach
 
-Możesz użyć [automatyzacji](https://docs.microsoft.com/flow/) , aby zautomatyzować powiadomienia za każdym razem, gdy potencjalny klient zostanie dodany do tabeli usługi Azure Storage. Jeśli nie masz konta, możesz [zarejestrować się w celu uzyskania bezpłatnego konta](https://flow.microsoft.com/).
+Możesz użyć [automatyzacji](/flow/) , aby zautomatyzować powiadomienia za każdym razem, gdy potencjalny klient zostanie dodany do tabeli usługi Azure Storage. Jeśli nie masz konta, możesz [zarejestrować się w celu uzyskania bezpłatnego konta](https://flow.microsoft.com/).
 
 ### <a name="lead-notification-example"></a>Przykład powiadomienia lidera
 
 W przykładzie tworzony jest przepływ, który automatycznie wysyła powiadomienie e-mail po dodaniu nowego potencjalnego klienta do usługi Azure Table Storage. W tym przykładzie skonfigurowano cykl do wysyłania informacji o potencjalnym kliencie co godzinę w przypadku zaktualizowania magazynu tabel.
 
 1. Zaloguj się do swojego konta automatyzacji.
-1. Na pasku po lewej stronie wybierz pozycję **Moje przepływy**.
-1. Na górnym pasku wybierz pozycję **+ Nowy**.
-1. Z listy rozwijanej wybierz pozycję **+ zaplanowane — od pustej**.
+1. Na pasku po lewej stronie wybierz pozycję **Moje przepływy** .
+1. Na górnym pasku wybierz pozycję **+ Nowy** .
+1. Z listy rozwijanej wybierz pozycję **+ zaplanowane — od pustej** .
 
    ![Moje przepływy + zaplanowano — z pustej](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-1. W oknie **kompilacja zaplanowanego przepływu** dla opcji **Powtarzaj w każdym**przypadku wybierz wartość **1** dla interwału i **godziny** dla częstotliwości. Ponadto Nadaj nazwę przepływowi, jeśli chcesz. Wybierz przycisk **Utwórz**.
+1. W oknie **kompilacja zaplanowanego przepływu** dla opcji **Powtarzaj w każdym** przypadku wybierz wartość **1** dla interwału i **godziny** dla częstotliwości. Ponadto Nadaj nazwę przepływowi, jeśli chcesz. Wybierz pozycję **Utwórz** .
 
    >[!NOTE]
    >Mimo że w tym przykładzie używany jest interwał jednogodzinny, można wybrać interwał i częstotliwość, które najlepiej odpowiadają potrzebom biznesowym.
 
    ![Kompilowanie zaplanowanego przepływu](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
-1. Wybierz pozycję **+ Nowy krok**.
-1. W oknie **Wybierz akcję** Wyszukaj ciąg **uzyskaj czas**ostatniej operacji. Następnie w obszarze **Akcje**wybierz pozycję **Pobierz czas ostatniej operacji**.
+1. Wybierz pozycję **+ Nowy krok** .
+1. W oknie **Wybierz akcję** Wyszukaj ciąg **uzyskaj czas** ostatniej operacji. Następnie w obszarze **Akcje** wybierz pozycję **Pobierz czas ostatniej operacji** .
 
    ![Wybierz akcję](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
-1. W oknie **Pobierz czas** ostatniej Ustaw **Interwał** na **1**. Z listy rozwijanej **jednostka czasu** wybierz pozycję Hour ( **godzina**).
+1. W oknie **Pobierz czas** ostatniej Ustaw **Interwał** na **1** . Z listy rozwijanej **jednostka czasu** wybierz pozycję Hour ( **godzina** ).
 
     >[!IMPORTANT]
     >Upewnij się, że interwał i jednostka czasu wysłana w kroku 8 są zgodne z interwałem i częstotliwością skonfigurowaną na potrzeby cyklu w kroku 5.
@@ -96,33 +96,33 @@ W przykładzie tworzony jest przepływ, który automatycznie wysyła powiadomien
 
    W następnym zestawie kroków zostanie nawiązane połączenie z tabelą i skonfigurowanie logiki przetwarzania w celu obsługi nowych potencjalnych klientów.
 
-1. Wybierz pozycję **+ Nowy krok**. Następnie wyszukaj pozycję **Pobierz jednostki** w oknie **Wybieranie akcji** .
-1. W obszarze **Akcje**wybierz pozycję **Pobierz jednostki (Azure Table Storage)**.
-1. W oknie **Table Storage platformy Azure** podaj informacje dla następujących pól i wybierz pozycję **Utwórz**:
+1. Wybierz pozycję **+ Nowy krok** . Następnie wyszukaj pozycję **Pobierz jednostki** w oknie **Wybieranie akcji** .
+1. W obszarze **Akcje** wybierz pozycję **Pobierz jednostki (Azure Table Storage)** .
+1. W oknie **Table Storage platformy Azure** podaj informacje dla następujących pól i wybierz pozycję **Utwórz** :
 
-    * **Nazwa połączenia**: Podaj zrozumiałą nazwę połączenia, które nawiązujesz między tym przepływem a tabelą.
-    * **Nazwa konta magazynu**: Podaj nazwę konta magazynu dla tabeli. Tę nazwę można znaleźć na stronie **klucze dostępu** konta magazynu.
-    * **Współużytkowany klucz magazynu**: Podaj wartość klucza dla konta magazynu dla tabeli. Tę wartość można znaleźć na stronie **klucze dostępu** konta magazynu.
+    * **Nazwa połączenia** : Podaj zrozumiałą nazwę połączenia, które nawiązujesz między tym przepływem a tabelą.
+    * **Nazwa konta magazynu** : Podaj nazwę konta magazynu dla tabeli. Tę nazwę można znaleźć na stronie **klucze dostępu** konta magazynu.
+    * **Współużytkowany klucz magazynu** : Podaj wartość klucza dla konta magazynu dla tabeli. Tę wartość można znaleźć na stronie **klucze dostępu** konta magazynu.
 
       ![Okno Table Storage platformy Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-   Po wybraniu opcji **Utwórz**zostanie wyświetlone okno **pobieranie jednostek** . W tym miejscu wybierz pozycję **Pokaż opcje zaawansowane**i podaj informacje dla następujących pól:
+   Po wybraniu opcji **Utwórz** zostanie wyświetlone okno **pobieranie jednostek** . W tym miejscu wybierz pozycję **Pokaż opcje zaawansowane** i podaj informacje dla następujących pól:
 
-   * **Tabela**: wybierz nazwę tabeli (z [tabeli Utwórz tabelę](#create-a-table-in-your-storage-account)). Na poniższej ilustracji przedstawiono monit po `marketplaceleads` wybraniu tabeli dla tego przykładu.
+   * **Tabela** : wybierz nazwę tabeli (z [tabeli Utwórz tabelę](#create-a-table-in-your-storage-account)). Na poniższej ilustracji przedstawiono monit po `marketplaceleads` wybraniu tabeli dla tego przykładu.
 
      ![Pobierz okno jednostek](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-   * **Zapytanie filtru**: zaznacz to pole i wklej tę funkcję do pola: `Timestamp gt datetime'@{body('Get_past_time')}'`
+   * **Zapytanie filtru** : zaznacz to pole i wklej tę funkcję do pola: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
      ![Pobierz jednostki, Filtrowanie pól zapytania](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 1. Po zakończeniu konfigurowania połączenia z tabelą platformy Azure wybierz pozycję **nowy krok** , aby dodać warunek skanowania tabeli platformy Azure pod kątem nowych potencjalnych klientów.
 
-1. W oknie **Wybierz akcję** wybierz pozycję **Akcje**. Następnie wybierz pozycję **Kontrola warunku**.
+1. W oknie **Wybierz akcję** wybierz pozycję **Akcje** . Następnie wybierz pozycję **Kontrola warunku** .
 
     ![Wybierz okno akcji](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
 
-1. W oknie **warunek** wybierz pozycję **Wybierz wartość**. Następnie wybierz pozycję **wyrażenie** w oknie podręcznym.
+1. W oknie **warunek** wybierz pozycję **Wybierz wartość** . Następnie wybierz pozycję **wyrażenie** w oknie podręcznym.
 
 1. Wklej `length(body('Get_entities')?['value'])` do pola **FX** . Wybierz **przycisk OK** , aby dodać tę funkcję.
 
@@ -134,14 +134,14 @@ W przykładzie tworzony jest przepływ, który automatycznie wysyła powiadomien
 
    W następnych kilku krokach skonfigurujesz akcję do wykonania w oparciu o wynik warunku:
 
-   * Jeśli warunek jest rozpoznawany jako **nie**, nic nie rób.
-   * Jeśli warunek ma **wartość tak**, wyzwól akcję, która nawiązuje połączenie z kontem służbowym w celu wysłania wiadomości e-mail. 
+   * Jeśli warunek jest rozpoznawany jako **nie** , nic nie rób.
+   * Jeśli warunek ma **wartość tak** , wyzwól akcję, która nawiązuje połączenie z kontem służbowym w celu wysłania wiadomości e-mail. 
 
-1. Wybierz pozycję **Dodaj akcję** w obszarze **Jeśli tak**.
+1. Wybierz pozycję **Dodaj akcję** w obszarze **Jeśli tak** .
 
     ![Okno warunku, jeśli tak, Dodaj akcję](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes.png)
 
-1. Wybierz pozycję **Wyślij wiadomość e-mail (Office 365 Outlook)**.
+1. Wybierz pozycję **Wyślij wiadomość e-mail (Office 365 Outlook)** .
 
     ![Okno warunku, jeśli tak, Wyślij wiadomość e-mail](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-send-email.png)
 
@@ -150,16 +150,16 @@ W przykładzie tworzony jest przepływ, który automatycznie wysyła powiadomien
 
 1. W oknie Office 365 Outlook podaj informacje dla następujących pól:
 
-    1. **Do**: wprowadź adres e-mail dla wszystkich użytkowników, którzy otrzymają to powiadomienie.
-    1. **Temat**: Podaj temat wiadomości e-mail. Przykładem są **nowi potencjalni klienci!**
-    1. **Treść**: Dodaj tekst, który ma zostać uwzględniony w każdej wiadomości e-mail (opcjonalnie), a następnie wklej w `body('Get_entities')?['value']` .
+    1. **Do** : wprowadź adres e-mail dla wszystkich użytkowników, którzy otrzymają to powiadomienie.
+    1. **Temat** : Podaj temat wiadomości e-mail. Przykładem są **nowi potencjalni klienci!**
+    1. **Treść** : Dodaj tekst, który ma zostać uwzględniony w każdej wiadomości e-mail (opcjonalnie), a następnie wklej w `body('Get_entities')?['value']` .
 
     >[!NOTE]
     >Do treści tej wiadomości e-mail można wstawić dodatkowe statyczne lub dynamiczne punkty danych.
 
     ![Okno warunku, jeśli tak, okno Office 365 Outlook](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
 
-1. Aby zapisać zmiany, wybierz opcję **Zapisz**. Automatyzuje automatyczne testowanie przepływu pod kątem błędów. Jeśli nie ma żadnych błędów, przepływ zostanie uruchomiony po jego zapisaniu.
+1. Aby zapisać zmiany, wybierz opcję **Zapisz** . Automatyzuje automatyczne testowanie przepływu pod kątem błędów. Jeśli nie ma żadnych błędów, przepływ zostanie uruchomiony po jego zapisaniu.
 
 Na poniższej ilustracji przedstawiono przykład sposobu, w jaki powinien wyglądać końcowy przepływ.
 
@@ -183,19 +183,19 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 
 1. Przejdź do strony **konfiguracji oferty** oferty.
 
-1. W sekcji **potencjalni klienci** wybierz pozycję **Połącz**.
+1. W sekcji **potencjalni klienci** wybierz pozycję **Połącz** .
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Procedura tworzenia konta usługi Azure Storage.":::
 
-1. W oknie podręcznym **szczegóły połączenia** wybierz pozycję **tabela Azure** dla **miejsca docelowego potencjalnego klienta**. 
+1. W oknie podręcznym **szczegóły połączenia** wybierz pozycję **tabela Azure** dla **miejsca docelowego potencjalnego klienta** . 
      ![Zarządzanie potencjalnymi klientami, szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
 
 1. Wklej parametry połączenia z konta usługi Azure Storage utworzonego w ramach wcześniejszych kroków w polu **Parametry połączenia konta magazynu** .
      ![Zarządzanie potencjalnymi klientami, konto magazynu szczegółów połączenia](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
 
-1. **Kontaktowy adres e-mail**: Podaj wiadomości e-mail dla osób w firmie, które powinny otrzymywać powiadomienia pocztą email po odebraniu nowego potencjalnego klienta. Można podać wiele wiadomości e-mail, rozdzielając je średnikami.
+1. **Kontaktowy adres e-mail** : Podaj wiadomości e-mail dla osób w firmie, które powinny otrzymywać powiadomienia pocztą email po odebraniu nowego potencjalnego klienta. Można podać wiele wiadomości e-mail, rozdzielając je średnikami.
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK** .
 
 Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz przycisk **Weryfikuj** . Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 

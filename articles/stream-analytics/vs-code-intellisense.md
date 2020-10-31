@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 756604b71efd1715ae3b4ca3d5eebf0fdfa41e34
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903729"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129800"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>Funkcja IntelliSense w Azure Stream Analytics narzędziach dla Visual Studio Code
 
-Technologia IntelliSense jest dostępna dla [Stream Analytics języku zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstream-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json) w [Azure Stream Analytics Narzędzia dla vs Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense to pomoc dla uzupełniania kodu, która obejmuje wiele funkcji: członków listy, informacji o parametrach, szybkich informacji i kompletnego wyrazu. Funkcje IntelliSense są czasami wywoływane przez inne nazwy, takie jak "uzupełnianie kodu", "Content Assist" i "podpowiedzi do kodu".
+Technologia IntelliSense jest dostępna dla [Stream Analytics języku zapytań](/stream-analytics-query/stream-analytics-query-language-reference?bc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fbread%252ftoc.json&toc=https%253a%252f%252fdocs.microsoft.com%252fazure%252fstream-analytics%252ftoc.json) w [Azure Stream Analytics Narzędzia dla vs Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense to pomoc dla uzupełniania kodu, która obejmuje wiele funkcji: członków listy, informacji o parametrach, szybkich informacji i kompletnego wyrazu. Funkcje IntelliSense są czasami wywoływane przez inne nazwy, takie jak "uzupełnianie kodu", "Content Assist" i "podpowiedzi do kodu".
 
 ![Demonstracja IntelliSense](./media/vs-code-intellisense/intellisense.gif)
 
@@ -34,7 +34,7 @@ Funkcję IntelliSense można wyzwolić w dowolnym oknie edytora, wpisując znak 
 
 Narzędzia Stream Analytics dla VS Code IntelliSense oferują różne typy uzupełniania, w tym sugestie serwera języka, fragmenty kodu i proste uzupełnianie tekstu oparte na programie Word.
 
-|Ukończenie     |  Type       |
+|Ukończenie     |  Typ       |
 | ----- | ------- |
 | Słowa kluczowe | `keyword`
 | Funkcje | `build-in function`, `user defined function`  |

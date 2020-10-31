@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: eed10f13b9495ab2cccfd9c57ae14ccc5d8e4a63
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 40f8a63481adc2e5641337c41dee1cf55d1f39ae
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043548"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130310"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrowanie maszyn wirtualnych VMware na platformę Azure (bez agenta) — PowerShell
 
@@ -114,10 +114,10 @@ $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.
 
 [Azure Migrate: Migracja serwera](migrate-services-overview.md#azure-migrate-server-migration-tool) wykorzystuje wiele zasobów platformy Azure do migrowania maszyn wirtualnych. Migracja serwera udostępnia następujące zasoby w tej samej grupie zasobów co projekt.
 
-- **Service Bus**: Migracja serwera używa usługi Service Bus do wysyłania komunikatów aranżacji replikacji do urządzenia.
-- **Konto magazynu bramy**: Migracja serwera używa konta magazynu bramy do przechowywania informacji o stanie replikowanych maszyn wirtualnych.
-- **Konto magazynu dzienników**: urządzenie Azure Migrate przekazuje dzienniki replikacji dla maszyn wirtualnych do konta magazynu dzienników. Azure Migrate stosuje informacje o replikacji do dysków zarządzanych przez replikę.
-- **Magazyn kluczy**: urządzenie Azure Migrate używa magazynu kluczy do zarządzania parametrami połączenia dla magistrali usług i kluczy dostępu dla kont magazynu używanych w replikacji.
+- **Service Bus** : Migracja serwera używa usługi Service Bus do wysyłania komunikatów aranżacji replikacji do urządzenia.
+- **Konto magazynu bramy** : Migracja serwera używa konta magazynu bramy do przechowywania informacji o stanie replikowanych maszyn wirtualnych.
+- **Konto magazynu dzienników** : urządzenie Azure Migrate przekazuje dzienniki replikacji dla maszyn wirtualnych do konta magazynu dzienników. Azure Migrate stosuje informacje o replikacji do dysków zarządzanych przez replikę.
+- **Magazyn kluczy** : urządzenie Azure Migrate używa magazynu kluczy do zarządzania parametrami połączenia dla magistrali usług i kluczy dostępu dla kont magazynu używanych w replikacji.
 
 Przed replikacją pierwszej maszyny wirtualnej w projekcie Azure Migrate uruchom następujący skrypt, aby zainicjować obsługę infrastruktury replikacji. Ten skrypt inicjuje i konfiguruje wyżej wymienione zasoby, aby można było rozpocząć Migrowanie maszyn wirtualnych VMware.
 
@@ -146,7 +146,7 @@ Właściwości replikacji można określić w następujący sposób.
 - **Docelowa sieć wirtualna i podsieć** — określ identyfikator Virtual Network platformy Azure i nazwę podsieci, do której należy przeprowadzić migrację maszyny wirtualnej przy użyciu `TargetNetworkId` parametrów i `TargetSubnetName` . 
 - **Nazwa docelowej maszyny wirtualnej** — Określ nazwę maszyny wirtualnej platformy Azure, która ma zostać utworzona przy użyciu `TargetVMName` parametru.
 - **Docelowy rozmiar maszyny wirtualnej** — Określ rozmiar maszyny wirtualnej platformy Azure, który ma być używany dla replikacji maszyny wirtualnej za pomocą `TargetVMSize` parametru. Na przykład aby przeprowadzić migrację maszyny wirtualnej do D2_v2 maszyny wirtualnej na platformie Azure, określ wartość `TargetVMSize` "Standard_D2_v2".  
-- **Licencja** — aby użyć korzyść użycia hybrydowego platformy Azure dla maszyn z systemem Windows Server, które są objęte aktywnym programem Software Assurance lub subskrypcjami systemu Windows Server, określ wartość `LicenseType` PARAMETRU jako "— ahub". W przeciwnym razie Określ wartość `LicenseType` parametru jako "Nolicensetype".
+- **Licencja** — aby użyć korzyść użycia hybrydowego platformy Azure dla maszyn z systemem Windows Server, które są objęte aktywnym programem Software Assurance lub subskrypcjami systemu Windows Server, określ wartość `LicenseType` parametru jako "WindowsServer". W przeciwnym razie Określ wartość `LicenseType` parametru jako "Nolicensetype".
 - **Dysk systemu operacyjnego** — Określ unikatowy identyfikator dysku z programu inicjującego i Instalatora systemu operacyjnego. Identyfikator dysku, który ma być używany, to właściwość unikatowego identyfikatora (UUID) dla dysku pobranego za pomocą `Get-AzMigrateServer` polecenia cmdlet.
 - **Typ dysku** — Określ wartość `DiskType` parametru w następujący sposób.
     - Aby użyć dysków zarządzanych w warstwie Premium, określ wartość "Premium_LRS" jako `DiskType` parametr. 
@@ -156,6 +156,7 @@ Właściwości replikacji można określić w następujący sposób.
     - Strefa dostępności służąca do przypinania zmigrowanej maszyny do określonej strefy dostępności w regionie. Użyj tej opcji, aby dystrybuować serwery tworzące wielowęzłową warstwę aplikacji między Strefy dostępności. Ta opcja jest dostępna tylko wtedy, gdy region docelowy wybrany do migracji obsługuje Strefy dostępności. Aby używać stref dostępności, określ wartość strefy dostępności dla `TargetAvailabilityZone` parametru.
     - Zestaw dostępności umożliwiający umieszczenie zmigrowanej maszyny w zestawie dostępności. Docelowa Grupa zasobów, która została wybrana, musi mieć co najmniej jeden zestaw dostępności, aby można było użyć tej opcji. Aby użyć zestawu dostępności, określ identyfikator zestawu dostępności dla `TargetAvailabilitySet` parametru. 
 
+### <a name="replicate-vms-with-all-disks"></a>Replikowanie maszyn wirtualnych ze wszystkimi dyskami
 W tym samouczku będziemy replikować wszystkie dyski wykrytej maszyny wirtualnej i określić nową nazwę dla maszyny wirtualnej na platformie Azure. Określamy pierwszy dysk odnalezionego serwera jako dysk systemu operacyjnego i migruje wszystkie dyski jako HDD w warstwie Standardowa. Dysk systemu operacyjnego to dysk, na którym jest zainstalowany program ładujący i instalator systemu operacyjnego.
 
 ```azurepowershell
@@ -178,6 +179,7 @@ while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStart
 Write-Output $MigrateJob.State
 ```
 
+### <a name="replicate-vms-with-select-disks"></a>Replikowanie maszyn wirtualnych z wybieraniem dysków
 Można również wybiórczo przeprowadzić replikację dysków wykrytej maszyny wirtualnej za pomocą `New-AzMigrateDiskMapping` polecenia cmdlet i dostarczając tę wartość jako dane wejściowe do `DiskToInclude` parametru w `New-AzMigrateServerReplication` poleceniu cmdlet. Można również użyć `New-AzMigrateDiskMapping` polecenia cmdlet, aby określić różne typy dysków docelowych dla każdego dysku do replikacji. 
 
 Określ wartości dla następujących parametrów `New-AzMigrateDiskMapping` polecenia cmdlet.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ce256db907589ace7e77157397257732564fb6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006401"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130327"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
 
@@ -24,7 +24,7 @@ Wydawca lub firma Microsoft odpowiada za zarządzanie transakcjami licencji na o
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>Skontaktuj się z nami, bezpłatnej wersji próbnej i opcji BYOL
 
-Wydawcy mogą wybrać opcje _kontakt z_ nami i _bezpłatna wersja próbna_, które umożliwiają promocję i pozyskiwanie użytkowników. W przypadku niektórych typów ofert wydawcy mogą wybrać opcję "Przenieś własną licencję" (BYOL), aby umożliwić klientom kupowanie subskrypcji oferty przy użyciu licencji zakupionej bezpośrednio od Ciebie. Dzięki tym opcjom firma Microsoft nie uczestniczy bezpośrednio w transakcjach licencji na oprogramowanie wydawcy i nie ma żadnej powiązanej opłaty za transakcje. 
+Wydawcy mogą wybrać opcje _kontakt z_ nami i _bezpłatna wersja próbna_ , które umożliwiają promocję i pozyskiwanie użytkowników. W przypadku niektórych typów ofert wydawcy mogą wybrać opcję "Przenieś własną licencję" (BYOL), aby umożliwić klientom kupowanie subskrypcji oferty przy użyciu licencji zakupionej bezpośrednio od Ciebie. Dzięki tym opcjom firma Microsoft nie uczestniczy bezpośrednio w transakcjach licencji na oprogramowanie wydawcy i nie ma żadnej powiązanej opłaty za transakcje. 
 
 Wydawca jest odpowiedzialny za obsługę wszystkich aspektów transakcji licencjonowania oprogramowania. Obejmuje to, ale nie jest ograniczone do kolejności, realizacji, pomiaru, rozliczeń, fakturowania, płatności i kolekcji. Po wybraniu opcji kontakt ze mną wydawcy zadbają o 100% opłat za Licencjonowanie oprogramowania wydawcy zebranych od klienta.
 
@@ -46,9 +46,9 @@ Opcja publikowania Transact jest obecnie obsługiwana dla następujących typów
 
 ### <a name="billing-infrastructure-costs"></a>Koszty infrastruktury rozliczeń
 
-W przypadku **maszyn wirtualnych** i **aplikacji platformy**Azure opłaty za użycie infrastruktury platformy Azure są naliczane zgodnie z subskrypcją platformy Azure klienta. Opłaty za użycie infrastruktury są wyceniane i prezentowane niezależnie od opłat za Licencjonowanie dostawcy oprogramowania na fakturze klienta.
+W przypadku **maszyn wirtualnych** i **aplikacji platformy** Azure opłaty za użycie infrastruktury platformy Azure są naliczane zgodnie z subskrypcją platformy Azure klienta. Opłaty za użycie infrastruktury są wyceniane i prezentowane niezależnie od opłat za Licencjonowanie dostawcy oprogramowania na fakturze klienta.
 
-W przypadku **aplikacji SaaS**Wydawca musi uwzględnić opłaty za użycie infrastruktury platformy Azure i opłaty za licencję na oprogramowanie jako pojedynczy koszt.  Jest ona reprezentowana jako stała opłata dla klienta. Użycie infrastruktury platformy Azure jest zarządzane i rozliczane bezpośrednio przez wydawcę. Klient nie widzi rzeczywistych opłat za użycie infrastruktury. Wydawcy zwykle wybierają opłaty za użycie infrastruktury platformy Azure do cen licencji na oprogramowanie. Opłaty za licencje na oprogramowanie nie są naliczane lub oparte na zużyciu użytkownika.
+W przypadku **aplikacji SaaS** Wydawca musi uwzględnić opłaty za użycie infrastruktury platformy Azure i opłaty za licencję na oprogramowanie jako pojedynczy koszt.  Jest ona reprezentowana jako stała opłata dla klienta. Użycie infrastruktury platformy Azure jest zarządzane i rozliczane bezpośrednio przez wydawcę. Klient nie widzi rzeczywistych opłat za użycie infrastruktury. Wydawcy zwykle wybierają opłaty za użycie infrastruktury platformy Azure do cen licencji na oprogramowanie. Opłaty za licencje na oprogramowanie nie są naliczane lub oparte na zużyciu użytkownika.
 
 ## <a name="pricing-models"></a>Modele cenowe
 
@@ -107,7 +107,7 @@ W tym scenariuszu firma Microsoft rozlicza $1,14 za godzinę w celu użycia opub
 |Firma Microsoft utrzymuje 100% kosztów użycia platformy Azure | $0,14 za godzinę |
 ||
 
-**Korzystanie z własnej licencji (BYOL)**
+**Bring Your Own License (BYOL)**
 
 BYOL ma następującą strukturę kosztów:
 
@@ -197,7 +197,7 @@ Opcja publikowania Transact jest dostępna tylko dla następujących typów ofer
 
 - **Aplikacja platformy Azure: szablon rozwiązania lub aplikacja zarządzana** — należy udostępnić co najmniej jedną maszynę wirtualną i pobrać sumę cen maszyn wirtualnych. W przypadku aplikacji zarządzanych w ramach jednego planu można wybrać jako model cenowy miesięczną subskrypcję ryczałtową, a zamiast cennika maszyny wirtualnej. W niektórych przypadkach opłaty za użycie infrastruktury platformy Azure są przesyłane do klienta oddzielnie od opłat za licencje na oprogramowanie, ale w tej samej zestawie rozliczeń. Jednak w przypadku skonfigurowania oferty zarządzanej aplikacji dla dostawców niezależnego dostawcy oprogramowania zasoby platformy Azure są rozliczane dla wydawcy, a klient otrzymuje stałą opłatę obejmującą koszt infrastruktury, licencje na oprogramowanie i usługi zarządzania.
 
-- **Aplikacja SaaS** — musi być rozwiązaniem z wieloma dzierżawcami, używać [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) do uwierzytelniania i integrują się z [interfejsami API realizacji SaaS](partner-center-portal/pc-saas-fulfillment-api-v2.md). Użycie infrastruktury platformy Azure jest zarządzane i rozliczane bezpośrednio dla Ciebie (partner), więc musisz uwzględnić opłaty za użycie infrastruktury platformy Azure i opłaty za licencję na oprogramowanie jako pojedynczy koszt. Aby uzyskać szczegółowe wskazówki, zobacz [Tworzenie nowej oferty SaaS w komercyjnej witrynie Marketplace](partner-center-portal/create-new-saas-offer.md).
+- **Aplikacja SaaS** — musi być rozwiązaniem z wieloma dzierżawcami, używać [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) do uwierzytelniania i integrują się z [interfejsami API realizacji SaaS](partner-center-portal/pc-saas-fulfillment-api-v2.md). Użycie infrastruktury platformy Azure jest zarządzane i rozliczane bezpośrednio dla Ciebie (partner), więc musisz uwzględnić opłaty za użycie infrastruktury platformy Azure i opłaty za licencję na oprogramowanie jako pojedynczy koszt. Aby uzyskać szczegółowe wskazówki, zobacz [Tworzenie nowej oferty SaaS w komercyjnej witrynie Marketplace](./create-new-saas-offer.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

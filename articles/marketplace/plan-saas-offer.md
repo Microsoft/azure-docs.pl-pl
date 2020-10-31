@@ -8,18 +8,18 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 8dfc1eb35572a6b706deb47335357417bd837825
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3f3b2c5927b31bde4575a08888e8844f2a1027
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819938"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130004"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planowanie oferty SaaS dla komercyjnej witryny Marketplace
 
 W tym artykule opisano różne opcje i wymagania dotyczące publikowania oferty oprogramowania jako usługi (SaaS) w portalu komercyjnym firmy Microsoft. Oferty SaaS umożliwiają klientom dostarczanie i Licencjonowanie rozwiązań oprogramowania w ramach subskrypcji online, a nie lokalnej instalacji na poszczególnych komputerach. Ten artykuł pomoże Ci w przygotowaniu oferty publikowania na rynku komercyjnym z centrum partnerskim.
 
-## <a name="listing-options"></a>Opcje wyświetlania
+## <a name="listing-options"></a>Opcje ofert
 
 Podczas przygotowywania do opublikowania nowej oferty SaaS należy zdecydować, która opcja _listy_ ma zostać wybrana. Pozwoli to określić, jakie dodatkowe informacje należy podać podczas tworzenia oferty w centrum partnerskim. Na stronie  **Konfiguracja oferty** zdefiniujesz opcję wyświetlania, zgodnie z opisem w temacie [Tworzenie oferty SaaS w komercyjnej witrynie Marketplace](create-new-saas-offer.md).
 
@@ -47,7 +47,7 @@ Wymagania techniczne różnią się w zależności od opcji aukcji wybranej dla 
 
 Opcja wyświetlania _kontaktów ze mną_ nie ma wymagań technicznych. Istnieje możliwość połączenia systemu CRM w celu zarządzania klientami klienta, który opisano w sekcji [klienci klienta](#customer-leads) w dalszej części tego artykułu.
 
-Opcja _Pobierz teraz (bezpłatna)_, _bezpłatna wersja próbna_i _sprzedawanie przy użyciu_ opcji tworzenia oferty firmy Microsoft mają następujące wymagania techniczne:
+Opcja _Pobierz teraz (bezpłatna)_ , _bezpłatna wersja próbna_ i _sprzedawanie przy użyciu_ opcji tworzenia oferty firmy Microsoft mają następujące wymagania techniczne:
 
 - Aplikacja SaaS musi być rozwiązaniem wielodostępnym.
 - Aby uwierzytelniać użytkowników, możesz włączyć zarówno konto Microsoft (MSA), jak i [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) .
@@ -59,14 +59,14 @@ Te dodatkowe wymagania techniczne mają zastosowanie tylko do oferty zakupu _prz
 
 - Usługa Azure AD z logowaniem jednokrotnym (SSO) i uwierzytelnianiem jest wymagana dla użytkownika kupowania, który uzyskuje dostęp do strony docelowej. Aby uzyskać szczegółowe wskazówki, zobacz [oferty usługi Azure AD i transacting SaaS w portalu komercyjnym](azure-ad-saas.md).
 - Aby przeprowadzić integrację z platformą Azure Marketplace i Microsoft AppSource, musisz użyć [interfejsów API realizacji SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md) . Należy uwidocznić usługę, która może współistnieć z subskrypcją SaaS, aby utworzyć, zaktualizować i usunąć konto użytkownika i plan usług. Krytyczne zmiany interfejsu API muszą być obsługiwane w ciągu 24 godzin. Niekrytyczne zmiany interfejsu API będą okresowo publikowane. Diagramy i szczegółowe wyjaśnienia opisujące użycie zebranych pól są dostępne w dokumentacji dotyczącej [interfejsów API](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
-- Musisz utworzyć co najmniej jeden plan dla swojej oferty. Cena Twojego planu jest naliczana na podstawie modelu cen wybranych przed opublikowaniem: _stawka ryczałtowa_ lub _dla poszczególnych użytkowników_. Więcej szczegółowych informacji na temat [planów](#plans) znajduje się w dalszej części tego artykułu.
+- Musisz utworzyć co najmniej jeden plan dla swojej oferty. Cena Twojego planu jest naliczana na podstawie modelu cen wybranych przed opublikowaniem: _stawka ryczałtowa_ lub _dla poszczególnych użytkowników_ . Więcej szczegółowych informacji na temat [planów](#plans) znajduje się w dalszej części tego artykułu.
 - Klient może w dowolnej chwili zrezygnować z oferty.
 
 ### <a name="technical-information"></a>Informacje techniczne
 
 W przypadku tworzenia oferty transakcyjnej należy zebrać poniższe informacje na stronie **konfiguracja techniczna** . W przypadku wybrania opcji przetwarzania transakcji niezależnie od tworzenia oferty transakcyjnej, Pomiń tę sekcję i przejdź do pozycji [testowanie dysków](#test-drives).
 
-- **Adres URL strony docelowej**: adres URL witryny SaaS (na przykład: `https://contoso.com/signup` ), do której użytkownicy będą kierowani po uzyskaniu oferty od komercyjnej witryny Marketplace, wyzwalając proces konfiguracji od nowo utworzonej subskrypcji SaaS. Ten adres URL otrzyma token, który może służyć do wywoływania interfejsów API realizacji w celu uzyskania szczegółowych informacji o aprowizacji na stronie rejestracji interaktywnej.
+- **Adres URL strony docelowej** : adres URL witryny SaaS (na przykład: `https://contoso.com/signup` ), do której użytkownicy będą kierowani po uzyskaniu oferty od komercyjnej witryny Marketplace, wyzwalając proces konfiguracji od nowo utworzonej subskrypcji SaaS. Ten adres URL otrzyma token, który może służyć do wywoływania interfejsów API realizacji w celu uzyskania szczegółowych informacji o aprowizacji na stronie rejestracji interaktywnej.
 
   Ten adres URL zostanie wywołany za pomocą parametru tokenu zakupu w portalu Marketplace, który jednoznacznie identyfikuje określonego klienta SaaS zakupu. Ten token należy wymienić dla odpowiednich szczegółów subskrypcji SaaS za pomocą [interfejsu API rozpoznawania](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Te szczegóły i wszystkie inne, które mają być zbierane, powinny być używane jako część strony sieci Web interaktywnej klienta wbudowanej w środowisko użytkownika w celu ukończenia rejestracji klienta i aktywowania zakupu. Na tej stronie użytkownik powinien zarejestrować się, korzystając z usługi Azure Active Directory (Azure AD).
 
@@ -74,16 +74,16 @@ W przypadku tworzenia oferty transakcyjnej należy zebrać poniższe informacje 
 
     Skonfigurowana Strona docelowa powinna mieć wartość 24/7. Jest to jedyny sposób, w jaki otrzymasz powiadomienie o nowych zakupach ofert SaaS oferowanych w komercyjnym portalu Marketplace lub żądaniach konfiguracji dla aktywnej subskrypcji oferty.
 
-- **Element webhook połączenia**: dla wszystkich zdarzeń asynchronicznych wymaganych przez firmę Microsoft (na przykład po anulowaniu subskrypcji SaaS) wymagane jest podanie adresu URL elementu webhook połączenia. Wywołamy ten adres URL, aby powiadomić Cię o zdarzeniu.
+- **Element webhook połączenia** : dla wszystkich zdarzeń asynchronicznych wymaganych przez firmę Microsoft (na przykład po anulowaniu subskrypcji SaaS) wymagane jest podanie adresu URL elementu webhook połączenia. Wywołamy ten adres URL, aby powiadomić Cię o zdarzeniu.
 
   Ten element webhook powinien działać w trybie 24/7, ponieważ jest to jedyny sposób powiadomienia o aktualizacjach subskrypcji SaaS klientów zakupionych za pośrednictwem komercyjnej witryny Marketplace.
 
   > [!NOTE]
-  > W ramach Azure Portal wymagamy utworzenia aplikacji Azure Active Directory z jedną dzierżawą [(Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) w celu umożliwienia użycia jednego identyfikatora aplikacji Azure do uwierzytelniania połączenia między naszymi dwiema usługami. Aby znaleźć [Identyfikator dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), przejdź do Azure Active Directory i wybierz pozycję **Właściwości**, a następnie wyszukaj numer identyfikatora katalogu, który jest wymieniony. Na przykład `50c464d3-4930-494c-963c-1e951d15360e`.
+  > W ramach Azure Portal wymagamy utworzenia aplikacji Azure Active Directory z jedną dzierżawą [(Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) w celu umożliwienia użycia jednego identyfikatora aplikacji Azure do uwierzytelniania połączenia między naszymi dwiema usługami. Aby znaleźć [Identyfikator dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), przejdź do Azure Active Directory i wybierz pozycję **Właściwości** , a następnie wyszukaj numer identyfikatora katalogu, który jest wymieniony. Na przykład `50c464d3-4930-494c-963c-1e951d15360e`.
 
-- **Azure Active Directory identyfikator dzierżawy**: (znany również jako identyfikator katalogu). W Azure Portal wymagamy [zarejestrowania aplikacji Azure Active Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) , aby można ją było dodać do listy kontroli dostępu (ACL) interfejsu API, aby upewnić się, że masz autoryzację do wywołania go. Aby znaleźć identyfikator dzierżawy dla aplikacji Azure Active Directory (AD), przejdź do bloku [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Active Directory. W kolumnie **Nazwa wyświetlana** wybierz aplikację. Następnie poszukaj podanego numeru **identyfikatora dzierżawy** (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Azure Active Directory identyfikator dzierżawy** : (znany również jako identyfikator katalogu). W Azure Portal wymagamy [zarejestrowania aplikacji Azure Active Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) , aby można ją było dodać do listy kontroli dostępu (ACL) interfejsu API, aby upewnić się, że masz autoryzację do wywołania go. Aby znaleźć identyfikator dzierżawy dla aplikacji Azure Active Directory (AD), przejdź do bloku [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Active Directory. W kolumnie **Nazwa wyświetlana** wybierz aplikację. Następnie poszukaj podanego numeru **identyfikatora dzierżawy** (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Identyfikator aplikacji Azure Active Directory**: potrzebny jest również [Identyfikator aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Aby uzyskać wartość, przejdź do bloku [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Active Directory. W kolumnie **Nazwa wyświetlana** wybierz aplikację. Następnie wyszukaj numer IDENTYFIKACYJNy aplikacji (klienta) na liście (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Identyfikator aplikacji Azure Active Directory** : potrzebny jest również [Identyfikator aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Aby uzyskać wartość, przejdź do bloku [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Active Directory. W kolumnie **Nazwa wyświetlana** wybierz aplikację. Następnie wyszukaj numer IDENTYFIKACYJNy aplikacji (klienta) na liście (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
 
   Identyfikator aplikacji usługi Azure AD jest skojarzony z IDENTYFIKATORem wydawcy na koncie Centrum partnerskiego. Musisz użyć tego samego identyfikatora aplikacji dla wszystkich ofert na tym koncie.
 
@@ -151,22 +151,22 @@ W poniższym przykładzie przedstawiono listę ofert w Azure Portal.
 
 Aby ułatwić szybkie tworzenie oferty, przygotuj niektóre z tych elementów przed czasem. Poniższe elementy są wymagane, o ile nie zaznaczono inaczej.
 
-- **Nazwa**: Ta nazwa zostanie wyświetlona jako tytuł oferty w komercyjnej witrynie Marketplace. Nazwa może być znakiem towarowym. Nie może zawierać znaków emoji (chyba że są to symbole towarowe i praw autorskich) i muszą być ograniczone do 50 znaków.
-- **Podsumowanie wyników wyszukiwania**: opisz przeznaczenie lub funkcję oferty jako pojedyncze zdanie bez podziałów wierszy na 100 znaków lub mniej. To podsumowanie jest używane w komercyjnych wynikach wyszukiwania na liście w portalu Marketplace.
-- **Opis**: ten opis zostanie wyświetlony na liście komercyjnych informacji o ofercie Marketplace. Rozważ uwzględnienie propozycji wartości, najważniejszych korzyści, planowanej bazy użytkowników, wszelkich kategorii lub związków branżowych, możliwości zakupu w aplikacji, wszelkie wymagane ujawnienie oraz link, aby dowiedzieć się więcej.
+- **Nazwa** : Ta nazwa zostanie wyświetlona jako tytuł oferty w komercyjnej witrynie Marketplace. Nazwa może być znakiem towarowym. Nie może zawierać znaków emoji (chyba że są to symbole towarowe i praw autorskich) i muszą być ograniczone do 50 znaków.
+- **Podsumowanie wyników wyszukiwania** : opisz przeznaczenie lub funkcję oferty jako pojedyncze zdanie bez podziałów wierszy na 100 znaków lub mniej. To podsumowanie jest używane w komercyjnych wynikach wyszukiwania na liście w portalu Marketplace.
+- **Opis** : ten opis zostanie wyświetlony na liście komercyjnych informacji o ofercie Marketplace. Rozważ uwzględnienie propozycji wartości, najważniejszych korzyści, planowanej bazy użytkowników, wszelkich kategorii lub związków branżowych, możliwości zakupu w aplikacji, wszelkie wymagane ujawnienie oraz link, aby dowiedzieć się więcej.
     
-    To pole tekstowe zawiera kontrolki edytora tekstu sformatowanego, których można użyć, aby dowiedzieć się więcej. Możesz również użyć tagów HTML do sformatowania opisu. W tym polu można wprowadzić do 3 000 znaków tekstu, w tym znaczników HTML. Aby uzyskać dodatkowe wskazówki, zobacz [Napisz doskonały opis aplikacji](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+    To pole tekstowe zawiera kontrolki edytora tekstu sformatowanego, których można użyć, aby dowiedzieć się więcej. Możesz również użyć tagów HTML do sformatowania opisu. W tym polu można wprowadzić do 3 000 znaków tekstu, w tym znaczników HTML. Aby uzyskać dodatkowe wskazówki, zobacz [Napisz doskonały opis aplikacji](/windows/uwp/publish/write-a-great-app-description).
 
-- **Instrukcje wprowadzenie**: Jeśli wybierzesz opcję sprzedaży oferty za poorednictwem firmy Microsoft (oferta z transakcją), to pole jest wymagane. Są to instrukcje ułatwiające klientom nawiązywanie połączenia z ofertą SaaS. Możesz dodać do 3 000 znaków tekstu i linki do bardziej szczegółowej dokumentacji online.
-- **Wyszukaj słowa kluczowe** (opcjonalnie): Podaj do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty w sklepach online. Nie musisz zawierać **nazwy** oferty i **opisu**: ten tekst jest automatycznie uwzględniany w wyszukiwaniu.
-- **Link zasad ochrony prywatności**: adres URL firmowych zasad zachowania poufności informacji. Należy podać prawidłowe zasady ochrony prywatności i są one odpowiedzialne za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności.
-- **Informacje kontaktowe**: należy wyznaczyć następujące kontakty z Twojej organizacji:
-  - **Kontakt z pomocą techniczną**: Podaj nazwę, numer telefonu i adres E-mail partnerów firmy Microsoft do użycia, gdy klienci otworzą bilety. Należy również uwzględnić adres URL witryny sieci Web pomocy technicznej.
-  - **Kontakt inżynieryjny**: Podaj nazwę, numer telefonu i adres E-mail firmy Microsoft do użycia bezpośrednio w przypadku wystąpienia problemów z ofertą. Te informacje kontaktowe nie są wymienione na rynku komercyjnym.
+- **Instrukcje wprowadzenie** : Jeśli wybierzesz opcję sprzedaży oferty za poorednictwem firmy Microsoft (oferta z transakcją), to pole jest wymagane. Są to instrukcje ułatwiające klientom nawiązywanie połączenia z ofertą SaaS. Możesz dodać do 3 000 znaków tekstu i linki do bardziej szczegółowej dokumentacji online.
+- **Wyszukaj słowa kluczowe** (opcjonalnie): Podaj do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty w sklepach online. Nie musisz zawierać **nazwy** oferty i **opisu** : ten tekst jest automatycznie uwzględniany w wyszukiwaniu.
+- **Link zasad ochrony prywatności** : adres URL firmowych zasad zachowania poufności informacji. Należy podać prawidłowe zasady ochrony prywatności i są one odpowiedzialne za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności.
+- **Informacje kontaktowe** : należy wyznaczyć następujące kontakty z Twojej organizacji:
+  - **Kontakt z pomocą techniczną** : Podaj nazwę, numer telefonu i adres E-mail partnerów firmy Microsoft do użycia, gdy klienci otworzą bilety. Należy również uwzględnić adres URL witryny sieci Web pomocy technicznej.
+  - **Kontakt inżynieryjny** : Podaj nazwę, numer telefonu i adres E-mail firmy Microsoft do użycia bezpośrednio w przypadku wystąpienia problemów z ofertą. Te informacje kontaktowe nie są wymienione na rynku komercyjnym.
   - **Kontakt programu z programem CSP** (opcjonalnie): Podaj nazwę, numer telefonu i adres e-mail, Jeśli zrezygnujesz z programu CSP, aby ci partnerzy mogli skontaktować się z Tobą w odpowiedzi na pytania. Możesz również dodać adres URL do materiałów marketingowych.
 - **Przydatne linki** (opcjonalnie): możesz udostępnić linki do różnych zasobów użytkownikom oferty. Na przykład fora, często zadawane pytania i informacje o wersji.
-- **Dokumenty pomocnicze**: można dostarczyć do trzech dokumentów dostępnych dla klientów, takich jak oficjalne dokumenty, broszury, listy kontrolne lub prezentacje programu PowerPoint.
-- **Multimedia — logo**: podaj plik PNG dla logo o **dużym** rozmiarze. Centrum partnerskie będzie używać tego do tworzenia **małych** i **średnich** logo. Opcjonalnie można zastąpić je innymi obrazami później.
+- **Dokumenty pomocnicze** : można dostarczyć do trzech dokumentów dostępnych dla klientów, takich jak oficjalne dokumenty, broszury, listy kontrolne lub prezentacje programu PowerPoint.
+- **Multimedia — logo** : podaj plik PNG dla logo o **dużym** rozmiarze. Centrum partnerskie będzie używać tego do tworzenia **małych** i **średnich** logo. Opcjonalnie można zastąpić je innymi obrazami później.
 
    - Duże (od 216 x 216 do 350 x 350 px, wymagane)
    - Średnia (90 x 90 pikseli, opcjonalnie)
@@ -178,7 +178,7 @@ Aby ułatwić szybkie tworzenie oferty, przygotuj niektóre z tych elementów pr
   - Średnie logo pojawia się podczas tworzenia nowego zasobu w Microsoft Azure.
   - Duże logo pojawia się na stronie aukcji oferty w witrynie Azure Marketplace i Microsoft AppSource.
 
-- **Zrzuty ekranu**: należy dodać co najmniej jeden i maksymalnie pięć zrzutów ekranu z następującymi wymaganiami, które pokazują, jak działa Twoja oferta:
+- **Zrzuty ekranu** : należy dodać co najmniej jeden i maksymalnie pięć zrzutów ekranu z następującymi wymaganiami, które pokazują, jak działa Twoja oferta:
   - 1280 x 720 pikseli
   - plik PNG
   - Musi zawierać podpis
@@ -188,7 +188,7 @@ Aby ułatwić szybkie tworzenie oferty, przygotuj niektóre z tych elementów pr
   - Miniatura: plik 1280 x 720. png
 
 > [!Note]
-> Oferta musi być zgodna z ogólnymi [komercyjnymi zasadami certyfikacji portalu Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general) oraz [oprogramowaniem jako zasady usługi](https://docs.microsoft.com/legal/marketplace/certification-policies#1000-software-as-a-service-saas) do opublikowania na komercyjnym rynku.
+> Oferta musi być zgodna z ogólnymi [komercyjnymi zasadami certyfikacji portalu Marketplace](/legal/marketplace/certification-policies#100-general) oraz [oprogramowaniem jako zasady usługi](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) do opublikowania na komercyjnym rynku.
 
 ## <a name="preview-audience"></a>Podgląd odbiorców
 Odbiorca w wersji zapoznawczej może uzyskać dostęp do oferty przed opublikowaniem jej w sklepach online w celu przetestowania kompleksowej funkcjonalności przed opublikowaniem jej na żywo. Na stronie **Podgląd odbiorców** można zdefiniować ograniczonych odbiorców w wersji zapoznawczej. To ustawienie jest niedostępne, jeśli zdecydujesz się na niezależne przetwarzanie transakcji zamiast sprzedawania oferty przez firmę Microsoft. Jeśli tak, możesz pominąć tę sekcję i przejść do [dodatkowych możliwości sprzedaży](#additional-sales-opportunities).
@@ -206,7 +206,7 @@ Zobacz [plany i cenniki dla ofert komercyjnych Marketplace](plans-pricing.md) , 
 
 ### <a name="saas-pricing-models"></a>Modele cenowe SaaS
 
-Oferty SaaS mogą korzystać z jednego z dwóch modeli cenowych w każdym planie: _stawka ryczałtowa_ lub _na użytkownika_. Wszystkie plany w tej samej ofercie muszą być skojarzone z tym samym modelem cen. Na przykład oferta nie może mieć jednego planu, który ma stałą stawkę i inny plan, który jest na użytkownika.
+Oferty SaaS mogą korzystać z jednego z dwóch modeli cenowych w każdym planie: _stawka ryczałtowa_ lub _na użytkownika_ . Wszystkie plany w tej samej ofercie muszą być skojarzone z tym samym modelem cen. Na przykład oferta nie może mieć jednego planu, który ma stałą stawkę i inny plan, który jest na użytkownika.
 
 Stała **stawka** — umożliwia dostęp do oferty przy użyciu jednej ceny miesięcznej lub rocznej stawki ryczałtowej. Jest to czasami określane jako Cennik oparty na witrynie. Korzystając z tego modelu cen, można opcjonalnie zdefiniować plany taryfowe używające interfejsu API usługi pomiarowej Marketplace do naliczania opłat klientom za użycie, które nie są objęte stałą stawką. Aby uzyskać więcej informacji na temat rozliczeń naliczanych, zobacz [naliczanie opłat za SaaS przy użyciu komercyjnej usługi pomiarowej Marketplace](./partner-center-portal/saas-metered-billing.md). Należy również użyć tej opcji, jeśli zachowanie użycia usługi SaaS jest w serii.
 
@@ -231,15 +231,15 @@ Jest to przykładowy podział kosztów i wypłaty w celu przedstawienia modelu a
 | Firma Microsoft płaci 80% kosztu licencji<br>`*` W przypadku kwalifikujących się aplikacji SaaS firma Microsoft płaci 90% kosztu licencji| $80,00 miesięcznie<br>``*`` $90,00 miesięcznie |
 |||
 
-** `*` Zmniejszona opłata za usługę Marketplace** — w przypadku niektórych ofert SaaS opublikowanych w komercyjnej witrynie Marketplace firma Microsoft obniży opłatę za usługę portalu Marketplace z 20% (zgodnie z opisem w umowie Microsoft Publisher) do 10%. Oferty, które chcesz zakwalifikować, muszą zostać wystawione przez firmę Microsoft jako usługa Azure IP zachęcani. Przed końcem każdego miesiąca kalendarzowego należy spełnić co najmniej pięć dni roboczych, aby otrzymać obniżoną opłatę za usługę Marketplace dla danego miesiąca. Zmniejszona opłata za usługę Marketplace ma również zastosowanie do zachęcani maszyn wirtualnych platformy Azure, aplikacji zarządzanych i innych ofert IaaS z obsługą transakcji, które są udostępniane za pośrednictwem komercyjnej witryny Marketplace.
+**`*` Zmniejszona opłata za usługę Marketplace** — w przypadku niektórych ofert SaaS opublikowanych w komercyjnej witrynie Marketplace firma Microsoft obniży opłatę za usługę portalu Marketplace z 20% (zgodnie z opisem w umowie Microsoft Publisher) do 10%. Oferty, które chcesz zakwalifikować, muszą zostać wystawione przez firmę Microsoft jako usługa Azure IP zachęcani. Przed końcem każdego miesiąca kalendarzowego należy spełnić co najmniej pięć dni roboczych, aby otrzymać obniżoną opłatę za usługę Marketplace dla danego miesiąca. Zmniejszona opłata za usługę Marketplace ma również zastosowanie do zachęcani maszyn wirtualnych platformy Azure, aplikacji zarządzanych i innych ofert IaaS z obsługą transakcji, które są udostępniane za pośrednictwem komercyjnej witryny Marketplace.
 
 ## <a name="additional-sales-opportunities"></a>Dodatkowe możliwości sprzedaży
 
 Możesz zrezygnować z obsługi kanałów marketingowych i sprzedaży obsługiwanych przez firmę Microsoft. Podczas tworzenia oferty w centrum partnerskim na końcu procesu zobaczysz dwie karty:
 
-- Odsprzedaż **za pomocą dostawców CSP**: Użyj tej opcji, aby zezwolić partnerom dostawcy rozwiązań Microsoft Cloud (CSP) na odsprzedaż Twojego rozwiązania w ramach powiązanej oferty. Aby uzyskać więcej informacji, zobacz [program Cloud Solution Provider](cloud-solution-providers.md) .
+- Odsprzedaż **za pomocą dostawców CSP** : Użyj tej opcji, aby zezwolić partnerom dostawcy rozwiązań Microsoft Cloud (CSP) na odsprzedaż Twojego rozwiązania w ramach powiązanej oferty. Aby uzyskać więcej informacji, zobacz [program Cloud Solution Provider](cloud-solution-providers.md) .
 
-- **Sprzedawanie z firmą Microsoft**: Ta opcja umożliwia zespołom ds. sprzedaży firmy Microsoft rozpatrywanie odpowiednich rozwiązań dla adresów IP podczas oceny potrzeb klientów. Aby uzyskać szczegółowe informacje na temat przygotowywania oferty do oceny, zobacz temat [sprzedawanie w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md) .
+- **Sprzedawanie z firmą Microsoft** : Ta opcja umożliwia zespołom ds. sprzedaży firmy Microsoft rozpatrywanie odpowiednich rozwiązań dla adresów IP podczas oceny potrzeb klientów. Aby uzyskać szczegółowe informacje na temat przygotowywania oferty do oceny, zobacz temat [sprzedawanie w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

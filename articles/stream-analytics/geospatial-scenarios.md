@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90d8c70ac0a34470e8121d2234fd6b898cfed1ab
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045267"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130599"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Scenariusze wieloogrodzeniowe i agregacji geoprzestrzennej z Azure Stream Analytics
 
@@ -125,4 +125,4 @@ Poniższy obraz ilustruje dane wyjściowe zapytania do Power BI pulpitu nawigacy
 ## <a name="next-steps"></a>Następne kroki
 
 * [Wprowadzenie do Stream Analytics funkcji geoprzestrzennych](stream-analytics-geospatial-functions.md)
-* [Funkcje geoprzestrzenne (Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/geospatial-functions)
+* [Funkcje geoprzestrzenne (Azure Stream Analytics)](/stream-analytics-query/geospatial-functions)

@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 4c8d2143d2b6e18de2669a6b45961e601cc394bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4ddffa5f9e9ff4b313f05c9cedb3cb207695225
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707561"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129707"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Wprowadzenie do funkcji okna Stream Analytics
 
 W scenariuszach przesyłania strumieniowego w czasie wykonywanie operacji na danych zawartych w oknach czasowych jest typowym wzorcem. Stream Analytics ma natywną obsługę funkcji okna, dzięki czemu deweloperzy mogą tworzyć złożone zadania przetwarzania strumieniowego z minimalnym nakładem pracy.
 
-Dostępne są pięć rodzajów danych czasowych do wyboru: [**wirowania**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**przeskoku**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**przesuwane**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), [**sesji**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)i [**migawki**](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) systemu Windows.  Używasz funkcji okna w klauzuli [**Group by**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) składni zapytania w zadaniach Stream Analytics. Można również agregować zdarzenia w wielu oknach przy użyciu funkcji [ **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+Dostępne są pięć rodzajów danych czasowych do wyboru: [**wirowania**](/stream-analytics-query/tumbling-window-azure-stream-analytics), [**przeskoku**](/stream-analytics-query/hopping-window-azure-stream-analytics), [**przesuwane**](/stream-analytics-query/sliding-window-azure-stream-analytics), [**sesji**](/stream-analytics-query/session-window-azure-stream-analytics)i [**migawki**](/stream-analytics-query/snapshot-window-azure-stream-analytics) systemu Windows.  Używasz funkcji okna w klauzuli [**Group by**](/stream-analytics-query/group-by-azure-stream-analytics) składni zapytania w zadaniach Stream Analytics. Można również agregować zdarzenia w wielu oknach przy użyciu funkcji [ **Windows ()**](/stream-analytics-query/windows-azure-stream-analytics).
 
-Wszystkie operacje [okna](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) są wyprowadzane na **końcu** okna. Należy pamiętać, że po uruchomieniu zadania usługi Stream Analytics można określić *godzinę rozpoczęcia danych wyjściowych zadania* , a system automatycznie pobierze poprzednie zdarzenia w strumieniach przychodzących w celu wygenerowania pierwszego okna w określonym czasie. na przykład po rozpoczęciu pracy z opcją *Now* rozpocznie się natychmiastowe wyemitowanie danych. Dane wyjściowe okna będą pojedynczym zdarzeniem na podstawie użytej funkcji agregującej. Zdarzenie wyjściowe będzie miało sygnaturę czasową końca okna, a wszystkie funkcje okna są definiowane ze stałą długością. 
+Wszystkie operacje [okna](/stream-analytics-query/windowing-azure-stream-analytics) są wyprowadzane na **końcu** okna. Należy pamiętać, że po uruchomieniu zadania usługi Stream Analytics można określić *godzinę rozpoczęcia danych wyjściowych zadania* , a system automatycznie pobierze poprzednie zdarzenia w strumieniach przychodzących w celu wygenerowania pierwszego okna w określonym czasie. na przykład po rozpoczęciu pracy z opcją *Now* rozpocznie się natychmiastowe wyemitowanie danych. Dane wyjściowe okna będą pojedynczym zdarzeniem na podstawie użytej funkcji agregującej. Zdarzenie wyjściowe będzie miało sygnaturę czasową końca okna, a wszystkie funkcje okna są definiowane ze stałą długością. 
 
 ![Pojęcia dotyczące funkcji okna Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -53,7 +53,7 @@ Po podaniu klucza partycji zdarzenia są pogrupowane w oknie klucz i sesja są s
 
 ## <a name="snapshot-window"></a>Okno migawki
 
-Tworzenie migawek zdarzeń grup systemu Windows, które mają taką samą sygnaturę czasową. W przeciwieństwie do innych typów okien, które wymagają określonej funkcji okna (takiej jak [SessionWindow ()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), można zastosować okno migawki przez dodanie elementu System. timestamp () do klauzuli Group by.
+Tworzenie migawek zdarzeń grup systemu Windows, które mają taką samą sygnaturę czasową. W przeciwieństwie do innych typów okien, które wymagają określonej funkcji okna (takiej jak [SessionWindow ()](/stream-analytics-query/session-window-azure-stream-analytics), można zastosować okno migawki przez dodanie elementu System. timestamp () do klauzuli Group by.
 
 ![Okno migawki Stream Analytics](media/stream-analytics-window-functions/snapshot.png)
 
@@ -61,6 +61,5 @@ Tworzenie migawek zdarzeń grup systemu Windows, które mają taką samą sygnat
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](/rest/api/streamanalytics/)

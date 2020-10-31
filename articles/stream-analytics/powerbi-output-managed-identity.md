@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 85925369da8fec83a613226fe248b396fd88105a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f81b6dabbd9053a69ff60d1a3c71d03fff38f627
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613418"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129766"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Za pomocą tożsamości zarządzanej można uwierzytelniać zadanie Azure Stream Analytics w Power BI
 
@@ -23,19 +23,19 @@ W tym artykule opisano sposób włączania zarządzanej tożsamości dla Power B
 
 Do korzystania z tej funkcji wymagane są następujące elementy:
 
-- Konto Power BI z [licencją Pro](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro).
+- Konto Power BI z [licencją Pro](/power-bi/service-admin-purchasing-power-bi-pro).
 
 - Uaktualniony obszar roboczy w ramach konta Power BI. Aby uzyskać więcej informacji, zobacz [anons Power BI](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/) tej funkcji.
 
 ## <a name="create-a-stream-analytics-job-using-the-azure-portal"></a>Tworzenie zadania Stream Analytics przy użyciu Azure Portal
 
-1. Utwórz nowe zadanie Stream Analytics lub Otwórz istniejące zadanie w Azure Portal. Na pasku menu znajdującym się po lewej stronie ekranu wybierz pozycję **zarządzana tożsamość** znajdującą się w obszarze **Konfiguruj**. Upewnij się, że wybrano opcję Użyj tożsamości zarządzanej przypisanej do systemu, a następnie wybierz przycisk **Zapisz** u dołu ekranu.
+1. Utwórz nowe zadanie Stream Analytics lub Otwórz istniejące zadanie w Azure Portal. Na pasku menu znajdującym się po lewej stronie ekranu wybierz pozycję **zarządzana tożsamość** znajdującą się w obszarze **Konfiguruj** . Upewnij się, że wybrano opcję Użyj tożsamości zarządzanej przypisanej do systemu, a następnie wybierz przycisk **Zapisz** u dołu ekranu.
 
    ![Konfigurowanie tożsamości zarządzanej Stream Analytics](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. Przed skonfigurowaniem danych wyjściowych Udziel Stream Analytics dostęp do obszaru roboczego Power BI, postępując zgodnie z instrukcjami podanymi w sekcji [zapewnianie zadań Stream Analytics dostęp do obszaru roboczego Power BI](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) w tym artykule.
 
-3. Przejdź do sekcji dane **wyjściowe** zadania analitycznego strumienia, wybierz pozycję **+ Dodaj**, a następnie wybierz pozycję **Power BI**. Następnie wybierz przycisk **Autoryzuj** i zaloguj się przy użyciu konta Power BI.
+3. Przejdź do sekcji dane **wyjściowe** zadania analitycznego strumienia, wybierz pozycję **+ Dodaj** , a następnie wybierz pozycję **Power BI** . Następnie wybierz przycisk **Autoryzuj** i zaloguj się przy użyciu konta Power BI.
 
    ![Autoryzuj przy użyciu konta Power BI](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
@@ -45,7 +45,7 @@ Do korzystania z tej funkcji wymagane są następujące elementy:
 
 ## <a name="azure-resource-manager-deployment"></a>Wdrożenie usługi Azure Resource Manager
 
-Azure Resource Manager pozwala w pełni zautomatyzować wdrożenie zadania Stream Analytics. Szablony Menedżer zasobów można wdrożyć przy użyciu Azure PowerShell lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). W poniższych przykładach użyto interfejsu wiersza polecenia platformy Azure.
+Azure Resource Manager pozwala w pełni zautomatyzować wdrożenie zadania Stream Analytics. Szablony Menedżer zasobów można wdrożyć przy użyciu Azure PowerShell lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest). W poniższych przykładach użyto interfejsu wiersza polecenia platformy Azure.
 
 
 1. Zasób **Microsoft. StreamAnalytics/streamingjobs** można utworzyć przy użyciu tożsamości zarządzanej, dołączając następującą właściwość w sekcji resource szablonu Menedżer zasobów:
@@ -160,9 +160,9 @@ Teraz, gdy zadanie Stream Analytics zostało utworzone, można uzyskać dostęp 
 ### <a name="use-the-power-bi-ui"></a>Korzystanie z Power BI interfejsu użytkownika
 
    > [!Note]
-   > Aby dodać zadanie Stream Analytics do obszaru roboczego Power BI za pomocą interfejsu użytkownika, należy również włączyć dostęp jednostki usługi w **ustawieniach dewelopera** w portalu administratora Power BI. Aby uzyskać więcej informacji, zobacz Wprowadzenie do jednostki [usługi](https://docs.microsoft.com/power-bi/developer/embed-service-principal) .
+   > Aby dodać zadanie Stream Analytics do obszaru roboczego Power BI za pomocą interfejsu użytkownika, należy również włączyć dostęp jednostki usługi w **ustawieniach dewelopera** w portalu administratora Power BI. Aby uzyskać więcej informacji, zobacz Wprowadzenie do jednostki [usługi](/power-bi/developer/embed-service-principal) .
 
-1. Przejdź do ustawień dostępu obszaru roboczego. Zobacz ten artykuł, aby uzyskać więcej szczegółów: [nadaj dostęp do obszaru roboczego](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
+1. Przejdź do ustawień dostępu obszaru roboczego. Zobacz ten artykuł, aby uzyskać więcej szczegółów: [nadaj dostęp do obszaru roboczego](/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 
 2. Wpisz nazwę zadania Stream Analytics w polu tekstowym i wybierz opcję **współautor** jako poziom dostępu.
 
@@ -195,7 +195,7 @@ Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -Pr
 
 ### <a name="use-the-power-bi-rest-api"></a>Korzystanie z interfejsu API REST Power BI
 
-Zadanie Stream Analytics można również dodać jako współautor do obszaru roboczego za pomocą interfejsu API REST "Dodaj użytkownika grupy" bezpośrednio. Pełną dokumentację tego interfejsu API można znaleźć tutaj: [grupy — Dodaj użytkownika grupy](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).
+Zadanie Stream Analytics można również dodać jako współautor do obszaru roboczego za pomocą interfejsu API REST "Dodaj użytkownika grupy" bezpośrednio. Pełną dokumentację tego interfejsu API można znaleźć tutaj: [grupy — Dodaj użytkownika grupy](/rest/api/power-bi/groups/addgroupuser).
 
 **Przykładowe żądanie**
 ```http

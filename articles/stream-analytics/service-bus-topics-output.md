@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a9063a202ba542279efd8017d282fe0aa78d42
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261062"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129868"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Service Bus tematy danych wyjściowych z Azure Stream Analytics
 
-Kolejki Service Bus zapewniają metodę komunikacji jeden-do-jednego od nadawcy do odbiorcy. [Tematy Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) zapewniają formę komunikacji typu "jeden do wielu".
+Kolejki Service Bus zapewniają metodę komunikacji jeden-do-jednego od nadawcy do odbiorcy. [Tematy Service Bus](/previous-versions/azure/hh367516(v=azure.100)) zapewniają formę komunikacji typu "jeden do wielu".
 
 W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworzenia danych wyjściowych tematu Service Bus.
 
@@ -65,7 +65,7 @@ Na poniższej ilustracji przedstawiono oczekiwane właściwości komunikatów wy
 
 ## <a name="system-properties"></a>Właściwości systemu
 
-Kolumny zapytania można dołączać jako [Właściwości systemu](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) do kolejki lub komunikatów tematu usługi wychodzącej magistrali usług. Te kolumny nie znajdują się w ładunku, natomiast odpowiednia [Właściwość systemu](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage jest wypełniana wartościami kolumn zapytania.
+Kolumny zapytania można dołączać jako [Właściwości systemu](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) do kolejki lub komunikatów tematu usługi wychodzącej magistrali usług. Te kolumny nie znajdują się w ładunku, natomiast odpowiednia [Właściwość systemu](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage jest wypełniana wartościami kolumn zapytania.
 Te właściwości systemu są obsługiwane — `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc` .
 
 Wartości ciągu tych kolumn są analizowane jako odpowiadające im typy wartości właściwości systemu, a wszystkie błędy analizy są traktowane jako błędy danych.
