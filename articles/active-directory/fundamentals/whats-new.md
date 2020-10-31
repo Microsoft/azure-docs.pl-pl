@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37dc60fd14eb26ab4c8f5a867b97369a066b743b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f08efc8a10c50dcfcc6da884396dea88695dbb2a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362760"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096023"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -38,6 +38,19 @@ Usługa Azure AD otrzymuje ulepszenia na bieżąco. Aby zachować aktualność w
 Ta strona jest aktualizowana co miesiąc, dlatego należy ją regularnie odwiedzać. Jeśli szukasz elementów starszych niż sześć miesięcy, możesz je znaleźć w archiwum, aby poznać nowości [w Azure Active Directory](whats-new-archive.md).
 
 ---
+## <a name="october-2020"></a>Październik 2020 r.
+
+### <a name="azure-ad-on-premises-hybrid-agents-impacted-by-azure-tls-certificate-changes"></a>Lokalne agenci Hybrydowi usługi Azure AD, na które wpływają zmiany certyfikatu protokołu TLS platformy Azure
+
+**Typ:** Planowanie zmiany  
+**Kategoria usługi:** NIE DOTYCZY  
+**Możliwość produktu:** Platformach
+
+Firma Microsoft aktualizuje usługi platformy Azure, aby używać certyfikatów TLS z innego zestawu głównych urzędów certyfikacji (CA). Ta aktualizacja jest spowodowana przez bieżące certyfikaty urzędu certyfikacji, które nie są zgodne z jednym z wymagań linii bazowej urzędu certyfikacji/przeglądarki. Ta zmiana wpłynie na agentów hybrydowych usługi Azure AD zainstalowanych lokalnie, które mają zaostrzone środowiska ze stałą listą certyfikatów głównych i będą musiały zostać zaktualizowane, aby ufać nowym WYSTAWCOM certyfikatów.
+
+Ta zmiana spowoduje zakłócenie działania usługi, jeśli nie zostanie ona natychmiast podjęta. Tacy agenci obejmują [Łączniki serwera proxy aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AppProxy) dla dostępu zdalnego do lokalnych, [przekazujących agentów uwierzytelniania](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) , którzy umożliwiają użytkownikom logowanie się do aplikacji przy użyciu tych samych haseł, a także agentów usługi [Cloud Provisioning w wersji zapoznawczej](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) do usługi Azure AD Sync. 
+
+Jeśli masz środowisko z regułami zapory ustawioną tak, aby zezwalać na połączenia wychodzące tylko do pobierania listy odwołania certyfikatów (CRL), musisz zezwolić na następujące listy CRL i adresy URL protokołu OCSP. Aby uzyskać szczegółowe informacje dotyczące zmiany i listy CRL oraz adresów URL protokołu OCSP, aby umożliwić dostęp do programu, zobacz  [zmiany certyfikatu protokołu TLS platformy Azure](../../security/fundamentals/tls-certificate-changes.md).
 
 ## <a name="september-2020"></a>Wrzesień 2020
 
@@ -1223,9 +1236,9 @@ Aby uzyskać więcej informacji, zobacz [Zarządzanie jednostkami administracyjn
 
 **Możliwość produktu:** Access Control
 
-**Administrator drukarki**: Użytkownicy z tą rolą mogą rejestrować drukarki i zarządzać wszystkimi aspektami wszystkich konfiguracji drukarek w rozwiązaniu uniwersalnego drukowania firmy Microsoft, w tym ustawieniami uniwersalnego łącznika wydruku. Mogą oni wyrazić zgodę na wszystkie delegowane żądania uprawnień do drukowania. Administratorzy drukarek mają również dostęp do raportów drukowania. 
+**Administrator drukarki** : Użytkownicy z tą rolą mogą rejestrować drukarki i zarządzać wszystkimi aspektami wszystkich konfiguracji drukarek w rozwiązaniu uniwersalnego drukowania firmy Microsoft, w tym ustawieniami uniwersalnego łącznika wydruku. Mogą oni wyrazić zgodę na wszystkie delegowane żądania uprawnień do drukowania. Administratorzy drukarek mają również dostęp do raportów drukowania. 
 
-**Technika drukowania**: Użytkownicy z tą rolą mogą rejestrować drukarki i zarządzać stanem drukarki w uniwersalnym rozwiązaniu firmy Microsoft. Mogą również odczytywać wszystkie informacje o łączniku. Najważniejsze zadania nie można ustawić uprawnień użytkowników na drukarkach i udostępniających drukarki. [Dowiedz się więcej.](../roles/permissions-reference.md#printer-administrator)
+**Technika drukowania** : Użytkownicy z tą rolą mogą rejestrować drukarki i zarządzać stanem drukarki w uniwersalnym rozwiązaniu firmy Microsoft. Mogą również odczytywać wszystkie informacje o łączniku. Najważniejsze zadania nie można ustawić uprawnień użytkowników na drukarkach i udostępniających drukarki. [Dowiedz się więcej.](../roles/permissions-reference.md#printer-administrator)
 
 ---
 

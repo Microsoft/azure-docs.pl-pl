@@ -9,14 +9,15 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: e86c48695c732b27f5032c1e3780cc24c8d3dc39
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3d21aadd8174bf933e55320c8596c57274140582
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482268"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096397"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Jak globalnie dystrybuować odczyty przy użyciu interfejsu API Azure Cosmos DB dla MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 W tym artykule pokazano, jak globalnie dystrybuować operacje odczytu z ustawieniami [preferencji odczytu MongoDB](https://docs.mongodb.com/manual/core/read-preference/) przy użyciu interfejsu API Azure Cosmos DB dla MongoDB.
 
@@ -145,7 +146,7 @@ Oprócz trybu preferencji odczyt protokół MongoDB umożliwia używanie tagów 
       }
 ```
 
-W związku z tym MongoClient może użyć `region` znacznika wraz z nazwą regionu, aby skierować operacje odczytu do określonych regionów. W przypadku kont Cosmos nazwy regionów można znaleźć w Azure Portal po lewej stronie obszarze **ustawienia — >dane repliki globalnie**. To ustawienie jest przydatne w celu uzyskania **izolacji odczytu** w przypadku, gdy aplikacja kliencka ma kierować operacje odczytu tylko do określonego regionu. To ustawienie jest idealne dla scenariuszy typu non-produkcja/Analytics, które są uruchamiane w tle i nie są krytycznymi usługami produkcyjnymi.
+W związku z tym MongoClient może użyć `region` znacznika wraz z nazwą regionu, aby skierować operacje odczytu do określonych regionów. W przypadku kont Cosmos nazwy regionów można znaleźć w Azure Portal po lewej stronie obszarze **ustawienia — >dane repliki globalnie** . To ustawienie jest przydatne w celu uzyskania **izolacji odczytu** w przypadku, gdy aplikacja kliencka ma kierować operacje odczytu tylko do określonego regionu. To ustawienie jest idealne dla scenariuszy typu non-produkcja/Analytics, które są uruchamiane w tle i nie są krytycznymi usługami produkcyjnymi.
 
 Poniższy fragment kodu z przykładowej aplikacji pokazuje, jak skonfigurować preferencję odczytu przy użyciu tagów w NodeJS:
 
@@ -166,8 +167,8 @@ W tym artykule wyjaśniono, jak globalnie dystrybuować operacje odczytu przy u�
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń wszystkie zasoby utworzone w tym artykule w Azure Portal, wykonując następujące czynności:
 
-1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu. 
-2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
+1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów** , a następnie kliknij nazwę utworzonego zasobu. 
+2. Na stronie grupy zasobów kliknij pozycję **Usuń** , wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

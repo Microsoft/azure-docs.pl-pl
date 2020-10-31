@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 3aec6cf2fa515d71b93d84cf8c4fc901fc847162
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 53a3317f38cc22ffa3745f5f0e58cc01a54b825c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487436"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096754"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrowanie danych relacyjnych "jeden do kilku" do Azure Cosmos DB konta interfejsu API SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Aby przeprowadzić migrację z relacyjnej bazy danych do Azure Cosmos DB SQL API, może być konieczne wprowadzenie zmian w modelu danych na potrzeby optymalizacji.
 
@@ -54,7 +55,7 @@ Najlepiej użyć działania kopiowania pojedynczego Azure Data Factory (ADF) do 
 
 To bieżące ograniczenie można obejść w jeden z następujących sposobów:
 
-* **Użyj Azure Data Factory z dwoma działaniami kopiowania**: 
+* **Użyj Azure Data Factory z dwoma działaniami kopiowania** : 
   1. Pobierz dane w formacie JSON z bazy danych SQL do pliku tekstowego w lokalizacji magazynu obiektów blob, a następnie 
   2. Załaduj dane z pliku tekstowego JSON do kontenera w Azure Cosmos DB.
 

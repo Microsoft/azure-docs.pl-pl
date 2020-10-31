@@ -7,14 +7,15 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0f286b5586a0d74afed0bb185179454bb1efff95
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282466"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097553"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrowanie z CouchBase Azure Cosmos DB do interfejsu API SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB to skalowalna, globalnie dystrybuowana, w pełni zarządzana baza danych. Zapewnia ona gwarantowany dostęp do danych o małym opóźnieniu. Aby dowiedzieć się więcej na temat Azure Cosmos DB, zobacz artykuł z [omówieniem](introduction.md) . Ten artykuł zawiera instrukcje dotyczące migracji aplikacji Java, które są połączone z Couchbase do konta interfejsu API SQL w Azure Cosmos DB.
 
@@ -37,7 +38,7 @@ Poniżej przedstawiono kluczowe funkcje, które działają inaczej w Azure Cosmo
 
 * W Azure Cosmos DB nie jest wymagane, aby hierarchia najwyższego poziomu była oznaczona jako kolekcja, ponieważ nazwa kolekcji już istnieje. Ta funkcja sprawia, że struktura JSON znacznie prostsze. Poniżej przedstawiono przykład pokazujący różnice w modelu danych między Couchbase i Azure Cosmos DB:
 
-   **Couchbase**: Document ID = "99FF4444"
+   **Couchbase** : Document ID = "99FF4444"
 
     ```json
     {
@@ -67,7 +68,7 @@ Poniżej przedstawiono kluczowe funkcje, które działają inaczej w Azure Cosmo
     }
    ```
 
-   **Azure Cosmos DB**: odwołaj się do "ID" w dokumencie, jak pokazano poniżej
+   **Azure Cosmos DB** : odwołaj się do "ID" w dokumencie, jak pokazano poniżej
 
     ```json
     {
@@ -311,7 +312,7 @@ Jest to prosty typ obciążenia, w którym można wykonywać wyszukiwania zamias
 
 1. Rozważ użycie "/ID" jako klucza podstawowego, co zapewni, że można wykonać operację wyszukiwania bezpośrednio w konkretnej partycji. Utwórz kolekcję i określ wartość "/ID" jako klucz partycji.
 
-1. Całkowicie Wyłącz indeksowanie. Ponieważ wykonujesz operacje wyszukiwania, nie ma żadnego punktu, aby przeciążać indeksowanie. Aby wyłączyć indeksowanie, zaloguj się do Azure Portal, przejdź do Azure Cosmos DB konta. Otwórz **Eksplorator danych**, wybierz swoją **bazę danych** i **kontener**. Otwórz kartę **ustawienia & skalowanie** i wybierz  **zasady indeksowania**. Obecnie zasady indeksowania wyglądają następująco:
+1. Całkowicie Wyłącz indeksowanie. Ponieważ wykonujesz operacje wyszukiwania, nie ma żadnego punktu, aby przeciążać indeksowanie. Aby wyłączyć indeksowanie, zaloguj się do Azure Portal, przejdź do Azure Cosmos DB konta. Otwórz **Eksplorator danych** , wybierz swoją **bazę danych** i **kontener** . Otwórz kartę **ustawienia & skalowanie** i wybierz  **zasady indeksowania** . Obecnie zasady indeksowania wyglądają następująco:
     
    ```json
    {

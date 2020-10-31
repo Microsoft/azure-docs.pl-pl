@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: jasonh
-ms.openlocfilehash: 27a9c7eb48c4a0148401c0d146a50a5197593806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa33e2ccc5c6cca94ab4e2294a4865745145c1ce
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409633"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096329"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Rozwiązywanie typowych problemów z interfejsem API Azure Cosmos DB MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 W tym artykule opisano typowe błędy i rozwiązania dla baz danych przy użyciu interfejsu API Azure Cosmos DB dla MongoDB.
 
@@ -29,7 +30,7 @@ W tym artykule opisano typowe błędy i rozwiązania dla baz danych przy użyciu
 | TooManyRequests     | 16500 | Łączna liczba użytych jednostek żądania jest większa niż aprowizowana prędkość jednostek żądania dla tej kolekcji i zostało zastosowane ograniczanie. | Rozważ skalowanie przepływności przypisanej do kontenera lub zestawu kontenerów w witrynie Azure Portal albo spróbuj wykonać operację ponownie. |
 | ExceededMemoryLimit | 16501 | W ramach usługi wielodostępnej Operacja przekroczyła przydział pamięci klienta. | Zmniejsz zakres operacji przy użyciu bardziej restrykcyjnych kryteriów zapytania lub skontaktuj się z pomocą techniczną z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Przykład: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | Ścieżka indeksu odpowiadająca określonemu elementowi order-by jest wykluczona / Zapytanie order-by nie ma odpowiedniego indeksu złożonego do jego obsłużenia. | 2 | Zapytanie żąda sortowania w nieindeksowanym polu. | Utwórz zgodny indeks (lub indeks złożony) dla podjętych kwerend sortowania. |
-| Problemy dotyczące wersji protokołu Wire bazy danych MongoDB | - | Starsze wersje sterowników MongoDB nie mogą wykryć nazwy konta usługi Azure Cosmos w parametrach połączenia. | Dołącz *nazwa_aplikacji = @**AccountName** @ * na końcu interfejsu API Cosmos DB dla parametrów połączenia MongoDB, gdzie ***AccountName*** jest nazwą konta Cosmos DB. |
+| Problemy dotyczące wersji protokołu Wire bazy danych MongoDB | - | Starsze wersje sterowników MongoDB nie mogą wykryć nazwy konta usługi Azure Cosmos w parametrach połączenia. | Dołącz *nazwa_aplikacji = @ **AccountName** @* na końcu interfejsu API Cosmos DB dla parametrów połączenia MongoDB, gdzie ***AccountName*** jest nazwą konta Cosmos DB. |
 
 ## <a name="next-steps"></a>Następne kroki
 

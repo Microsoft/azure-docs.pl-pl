@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475468"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097468"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optymalizacja zaaprowizowanej przepływności w usłudze Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Oferując model przepływności aprowizacji, Azure Cosmos DB oferuje przewidywalną wydajność w dowolnej skali. Zarezerwowanie lub zainicjowanie przepływności przed czasem eliminuje "efekt sąsiada" w wydajności. Należy określić dokładną potrzebną przepływność i Azure Cosmos DB gwarantuje, że przepływność została skonfigurowana zgodnie z umową SLA.
 
@@ -30,7 +31,7 @@ Przepływność można aprowizować dla baz danych lub kontenerów, a każda str
 
 Poniżej przedstawiono kilka wytycznych dotyczących podejmowania decyzji dotyczących strategii dotyczącej przepływności.
 
-**Rozważ zainicjowanie przepływności dla bazy danych Azure Cosmos Database (zawierającej zestaw kontenerów), jeśli**:
+**Rozważ zainicjowanie przepływności dla bazy danych Azure Cosmos Database (zawierającej zestaw kontenerów), jeśli** :
 
 1. Masz kilka dziesiątych kontenerów usługi Azure Cosmos i chcesz podzielić przepływność na niektóre lub wszystkie z nich. 
 

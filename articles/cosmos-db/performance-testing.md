@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6ddc428a1b2228c7e6e15093c12deb25ddd65c27
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b89c48b5040c198cb1b4a6ce383baed51dfac19e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281028"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097417"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Testowanie wydajności i skalowania przy użyciu Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Testowanie wydajności i skalowania to kluczowy krok podczas opracowywania aplikacji. W przypadku wielu aplikacji warstwa bazy danych ma znaczny wpływ na ogólną wydajność i skalowalność. W związku z tym jest to krytyczny składnik testowania wydajności. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) jest tworzona specjalnie dla elastycznego skalowania i przewidywalnej wydajności. Te funkcje sprawiają, że jest to doskonałe rozwiązanie dla aplikacji, które wymagają warstwy bazy danych o wysokiej wydajności. 
 

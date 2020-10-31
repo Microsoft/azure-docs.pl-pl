@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0d47bd90f7704cd3c55f9e5d64fe6b58946d4568
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 66aefea441d78303ccd611d9df10eea985d61e7c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475094"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097400"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Pobieranie metryk wykonywania zapytań SQL i analizowanie wydajności zapytań przy użyciu zestawu .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule przedstawiono, jak profilować wydajność zapytań SQL na Azure Cosmos DB. To profilowanie można wykonać przy użyciu `QueryMetrics` pobranego z zestawu .NET SDK i szczegółowo tutaj. [QueryMetrics](/dotnet/api/microsoft.azure.documents.querymetrics) jest obiektem o jednoznacznie określonym typie z informacjami o wykonaniu zapytania wewnętrznej bazy danych. Te metryki są szczegółowo opisane w artykule [dostrajanie wydajności zapytań](./sql-api-query-metrics.md) .
 
@@ -234,7 +235,7 @@ To zapytanie jest teraz możliwe do doręczania z indeksu.
 
 Aby dowiedzieć się więcej na temat dostrajania wydajności zapytań, zobacz artykuł [dostrajanie wydajności zapytań](./sql-api-query-metrics.md) .
 
-## <a name="references"></a><a id="References"></a>Dokumentacja
+## <a name="references"></a><a id="References"></a>Odwołania
 
 - [Azure Cosmos DB SQL specification (Specyfikacja języka SQL w usłudze Azure Cosmos DB)](./sql-query-getting-started.md)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)

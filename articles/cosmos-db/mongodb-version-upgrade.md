@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
-ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb12fc909b5165cbc759bbb7c531864cde16bb88
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409667"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096312"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Uaktualnij wersję protokołu MongoDB Wire interfejsu API Azure Cosmos DB dla konta MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 W tym artykule opisano sposób uaktualniania wersji protokołu sieci Web interfejsu API Azure Cosmos DB dla konta MongoDB. Po uaktualnieniu wersji protokołu przewodowego można użyć najnowszych funkcji w interfejsie API Azure Cosmos DB dla MongoDB. Proces uaktualniania nie przerywa dostępności Twojego konta i nie używa jednostki RU/s ani nie zmniejsza wydajności bazy danych w dowolnym momencie. Ten proces nie wpłynie na istniejące dane ani indeksy.
 
@@ -37,7 +38,7 @@ Poniżej przedstawiono nowe funkcje dostępne w wersji 3,6:
 
 ### <a name="changes-from-version-32"></a>Zmiany z wersji 3,2
 
-- **Błędy RequestRateIsLarge zostały usunięte**. Żądania z aplikacji klienckiej nie będą już zwracały błędów 16500. Żądania zostaną wznowione do momentu zakończenia lub spełnienia limitu czasu.
+- **Błędy RequestRateIsLarge zostały usunięte** . Żądania z aplikacji klienckiej nie będą już zwracały błędów 16500. Żądania zostaną wznowione do momentu zakończenia lub spełnienia limitu czasu.
 - Limit czasu na żądanie jest ustawiony na 60 sekund.
 - Kolekcje MongoDB utworzone w nowej wersji protokołu sieci będą mieć `_id` Domyślnie indeksowaną właściwość.
 
@@ -49,7 +50,7 @@ W przypadku uaktualnienia do wersji 3,6 sufiks punktu końcowego konta bazy dany
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-Należy zastąpić istniejący punkt końcowy w aplikacjach i sterownikach, które łączą się z tym kontem bazy danych. **Tylko połączenia z nowym punktem końcowym będą miały dostęp do funkcji w programie MongoDB w wersji 3,6**. Poprzedni punkt końcowy powinien mieć sufiks `.documents.azure.com` .
+Należy zastąpić istniejący punkt końcowy w aplikacjach i sterownikach, które łączą się z tym kontem bazy danych. **Tylko połączenia z nowym punktem końcowym będą miały dostęp do funkcji w programie MongoDB w wersji 3,6** . Poprzedni punkt końcowy powinien mieć sufiks `.documents.azure.com` .
 
 >[!Note]
 > Ten punkt końcowy może mieć niewielkie różnice, jeśli Twoje konto zostało utworzone w ramach suwerennej, rządowej lub ograniczonej chmury platformy Azure.
@@ -80,7 +81,7 @@ Należy zastąpić istniejący punkt końcowy w aplikacjach i sterownikach, któ
 
     :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Azure Portal z omówieniem konta MongoDB" border="false":::
 
-7. **Aby rozpocząć korzystanie z uaktualnionej wersji konta bazy danych**, Wróć do `Overview` bloku i skopiuj nowe parametry połączenia do użycia w aplikacji. Aplikacje rozpoczną korzystanie z uaktualnionej wersji zaraz po nawiązaniu połączenia z nowym punktem końcowym. Istniejące połączenia nie będą przerywane i mogą być aktualizowane w Twojej wygodie. Aby zapewnić spójne środowisko, wszystkie aplikacje muszą używać nowego punktu końcowego.
+7. **Aby rozpocząć korzystanie z uaktualnionej wersji konta bazy danych** , Wróć do `Overview` bloku i skopiuj nowe parametry połączenia do użycia w aplikacji. Aplikacje rozpoczną korzystanie z uaktualnionej wersji zaraz po nawiązaniu połączenia z nowym punktem końcowym. Istniejące połączenia nie będą przerywane i mogą być aktualizowane w Twojej wygodie. Aby zapewnić spójne środowisko, wszystkie aplikacje muszą używać nowego punktu końcowego.
 
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Azure Portal z omówieniem konta MongoDB" border="false":::
 

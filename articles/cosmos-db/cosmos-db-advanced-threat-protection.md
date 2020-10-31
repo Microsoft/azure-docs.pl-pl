@@ -8,14 +8,15 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 57d319d54d15b72747da029d365137f5b5bb384c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d8398dbded8753bac193f973026fb63d5f1fc6b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489255"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097723"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Zaawansowana ochrona przed zagrożeniami dla Azure Cosmos DB (wersja zapoznawcza)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Zaawansowana ochrona przed zagrożeniami dla Azure Cosmos DB stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby dostępu do kont Azure Cosmos DB lub korzystania z nich. Ta warstwa ochrony pozwala na rozwiązywanie zagrożeń, nawet bez biegłych zabezpieczeń, i integrowanie ich z centralnymi systemami monitorowania zabezpieczeń.
 
@@ -32,9 +33,9 @@ W przypadku pełnego badania alertów zabezpieczeń zaleca się włączenie [rej
 
 Zaawansowana ochrona przed zagrożeniami dla Azure Cosmos DB wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania. Obecnie można wyzwolić następujące alerty:
 
-- **Dostęp z nietypowych lokalizacji**: ten alert jest wyzwalany w przypadku zmiany wzorca dostępu do konta usługi Azure Cosmos, w którym ktoś nawiązał połączenie z punktem końcowym Azure Cosmos DB z nietypowej lokalizacji geograficznej. W niektórych przypadkach alert wykrywa legalną akcję, co oznacza, że jest to nowa aplikacja lub operacja konserwacji dewelopera. W innych przypadkach alert wykrywa złośliwe działanie od byłego pracownika, ataku zewnętrznego itp.
+- **Dostęp z nietypowych lokalizacji** : ten alert jest wyzwalany w przypadku zmiany wzorca dostępu do konta usługi Azure Cosmos, w którym ktoś nawiązał połączenie z punktem końcowym Azure Cosmos DB z nietypowej lokalizacji geograficznej. W niektórych przypadkach alert wykrywa legalną akcję, co oznacza, że jest to nowa aplikacja lub operacja konserwacji dewelopera. W innych przypadkach alert wykrywa złośliwe działanie od byłego pracownika, ataku zewnętrznego itp.
 
-- **Nietypowa wyodrębnianie danych**: ten alert jest wyzwalany, gdy klient wyodrębnia nietypową ilość danych z konta Azure Cosmos DB. Może to być objaw niektórych eksfiltracji danych, które są wykonywane w celu przetransferowania wszystkich danych przechowywanych na koncie do zewnętrznego magazynu danych.
+- **Nietypowa wyodrębnianie danych** : ten alert jest wyzwalany, gdy klient wyodrębnia nietypową ilość danych z konta Azure Cosmos DB. Może to być objaw niektórych eksfiltracji danych, które są wykonywane w celu przetransferowania wszystkich danych przechowywanych na koncie do zewnętrznego magazynu danych.
 
 
 
@@ -46,14 +47,14 @@ Można skonfigurować zaawansowaną ochronę przed zagrożeniami na kilka sposob
 
 1. Uruchom Azure Portal pod adresem  [https://portal.azure.com](https://portal.azure.com/) .
 
-2. Z poziomu konta Azure Cosmos DB z menu **Ustawienia** wybierz pozycję **Zabezpieczenia zaawansowane**.
+2. Z poziomu konta Azure Cosmos DB z menu **Ustawienia** wybierz pozycję **Zabezpieczenia zaawansowane** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png" alt-text="Konfigurowanie ATP":::
 
 3. W bloku **zaawansowanej konfiguracji zabezpieczeń** :
 
-    * Kliknij opcję **zaawansowanej ochrony przed zagrożeniami** , aby ustawić ją **na wartość włączone**.
-    * Kliknij przycisk **Zapisz**, aby zapisać nowe lub zaktualizowane zasady usługi Advanced Threat Protection.   
+    * Kliknij opcję **zaawansowanej ochrony przed zagrożeniami** , aby ustawić ją **na wartość włączone** .
+    * Kliknij przycisk **Zapisz** , aby zapisać nowe lub zaktualizowane zasady usługi Advanced Threat Protection.   
 
 ### <a name="rest-api"></a>[Interfejs API REST](#tab/rest-api)
 
@@ -62,7 +63,7 @@ Użyj poleceń interfejsu API REST, aby utworzyć, zaktualizować lub pobrać us
 * [Zaawansowana ochrona przed zagrożeniami — tworzenie](/rest/api/securitycenter/advancedthreatprotection/create)
 * [Zaawansowana ochrona przed zagrożeniami — Pobierz](/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Użyj następujących poleceń cmdlet programu PowerShell:
 
@@ -83,17 +84,17 @@ Użyj Azure Policy, aby włączyć zaawansowaną ochronę przed zagrożeniami dl
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Konfigurowanie ATP"::: 
 
-1. Kliknij pozycję **Wdróż zaawansowaną ochronę przed zagrożeniami dla programu CosmosDB** , a następnie kliknij pozycję **Przypisz**.
+1. Kliknij pozycję **Wdróż zaawansowaną ochronę przed zagrożeniami dla programu CosmosDB** , a następnie kliknij pozycję **Przypisz** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Konfigurowanie ATP":::
 
 
-1. W polu **zakres** kliknij trzy kropki, wybierz subskrypcję platformy Azure lub grupę zasobów, a następnie kliknij pozycję **Wybierz**.
+1. W polu **zakres** kliknij trzy kropki, wybierz subskrypcję platformy Azure lub grupę zasobów, a następnie kliknij pozycję **Wybierz** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Konfigurowanie ATP":::
 
 
-1. Wprowadź inne parametry, a następnie kliknij przycisk **Przypisz**.
+1. Wprowadź inne parametry, a następnie kliknij przycisk **Przypisz** .
 
 
 

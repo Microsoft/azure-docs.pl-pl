@@ -9,14 +9,16 @@ ms.topic: reference
 ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 1695fb04872e505842318d21e856a9a01b1b1f3a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 64054a2bb5c1f7e17eef87c3babb28137b6c912a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477372"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097128"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Dane wiosenne Azure Cosmos DB v3 for Core (SQL) API: informacje o wersji i zasoby
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
 > * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
@@ -57,7 +59,7 @@ W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.micro
 
 ## <a name="start-here"></a>Zacznij tutaj
 
-# <a name="explore"></a>[Przeglądać](#tab/explore)
+# <a name="explore"></a>[Eksplorowanie](#tab/explore)
 
 <img src="media/sql-api-sdk-java-spring-v3/up-arrow.png" alt="explore the tabs above" width="80"/>
 
@@ -100,9 +102,9 @@ cosmos.queryMetricsEnabled=true
 
 ## <a name="resources"></a>Zasoby
 
-* **Współtworzenie zestawu SDK**: [dane wiosenne Azure Cosmos DB repozytorium w serwisie GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
+* **Współtworzenie zestawu SDK** : [dane wiosenne Azure Cosmos DB repozytorium w serwisie GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
 
-* **Samouczek**: [Azure Cosmos DB samouczek dotyczący sprężyny danych w witrynie GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
+* **Samouczek** : [Azure Cosmos DB samouczek dotyczący sprężyny danych w witrynie GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
 

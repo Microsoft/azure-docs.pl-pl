@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f44a8d82ea2588abad6855fd8eaf7aed34256d87
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc285599176057c57621dc6bfefbe9188d3badd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370767"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096890"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Tworzenie pulpitu nawigacyjnego w czasie rzeczywistym przy użyciu Azure Cosmos DB i Power BI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule opisano kroki wymagane do utworzenia pulpitu nawigacyjnego pogody na żywo w Power BI przy użyciu Azure Cosmos DB i Azure Analysis Services. Na pulpicie nawigacyjnym Power BI zostaną wyświetlone wykresy pokazujące informacje w czasie rzeczywistym dotyczące temperatury i opadów deszczu w regionie.
 
@@ -66,15 +67,15 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
    |Właściwość  |Typ danych  |Filtr  |
    |---------|---------|---------|
    |_ts     |   Numeryczne      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) i [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
-   |Data (na przykład:-2019-08-19)     |   Ciąg      | [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD")        |
-   |Data (na przykład:-2019-08-11 12:00:00)   |  Ciąg       |  [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD GG: mm: SS") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD GG: mm: SS")       |
+   |Data (na przykład:-2019-08-19)     |   String      | [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD")        |
+   |Data (na przykład:-2019-08-11 12:00:00)   |  String       |  [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD GG: mm: SS") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD GG: mm: SS")       |
 
 
 1. **Zdefiniuj zasady odświeżania** — Zdefiniuj zasady odświeżania, przechodząc do karty **odświeżanie przyrostowe** w menu **kontekstowym** dla tabeli. Ustaw zasady odświeżania do odświeżania **codziennie** i przechowuj dane z ostatniego miesiąca.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
 
-   Zignoruj ostrzeżenie informujące o *tym, że zapytanie M nie może zostać potwierdzone jako składane*. Łącznik Azure Cosmos DB składa kwerendy filtru.
+   Zignoruj ostrzeżenie informujące o *tym, że zapytanie M nie może zostać potwierdzone jako składane* . Łącznik Azure Cosmos DB składa kwerendy filtru.
 
 1. **Załaduj dane i Wygeneruj raporty** — przy użyciu załadowanych wcześniej danych Utwórz wykresy w celu raportowania temperatury i opadów.
 
@@ -105,7 +106,7 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
 
-   Połącz się z Azure Cosmos DB, podając **Identyfikator URI konta**, **nazwę bazy danych**i **nazwę kontenera**. Teraz można zobaczyć dane z kontenera usługi Azure Cosmos do Power BI.
+   Połącz się z Azure Cosmos DB, podając **Identyfikator URI konta** , **nazwę bazy danych** i **nazwę kontenera** . Teraz można zobaczyć dane z kontenera usługi Azure Cosmos do Power BI.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
 
@@ -140,7 +141,7 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-partitions.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB" = Table.SelectRows(#"Sorted Rows", each [Document.month] = "2019-07")`
    * **Uzyskane** -  `#"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each [Document.month] <> "2019-07")`
 
-1. **Wdróż model na platformie Azure Analysis Server** kliknij prawym przyciskiem myszy projekt Azure Analysis Services i wybierz polecenie **Wdróż**. Dodaj nazwę serwera w okienku **Właściwości serwera wdrażania** .
+1. **Wdróż model na platformie Azure Analysis Server** kliknij prawym przyciskiem myszy projekt Azure Analysis Services i wybierz polecenie **Wdróż** . Dodaj nazwę serwera w okienku **Właściwości serwera wdrażania** .
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
 

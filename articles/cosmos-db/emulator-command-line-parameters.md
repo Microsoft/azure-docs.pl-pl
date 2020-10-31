@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6d1cb684f4c2e3f563d5690c804d64c97ff70c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445174"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096737"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Dokumentacja wiersza polecenia i programu PowerShell dla emulatora Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Emulator usługi Azure Cosmos udostępnia środowisko lokalne, które emuluje usługę Azure Cosmos DB na potrzeby tworzenia lokalnego. Po [zainstalowaniu emulatora](local-emulator.md)można kontrolować emulator przy użyciu wiersza polecenia i poleceń programu PowerShell. W tym artykule opisano, jak używać wiersza polecenia i poleceń programu PowerShell do uruchamiania i zatrzymywania emulatora, konfigurowania opcji i wykonywania innych operacji. Musisz uruchomić polecenia z lokalizacji instalacji.
 
@@ -135,7 +136,7 @@ Jeśli podjęto próbę utworzenia kontenera po przekroczeniu liczby bieżącej 
 
 Aby zmienić liczbę kontenerów dostępnych w emulatorze usługi Azure Cosmos, uruchom następujące kroki:
 
-1. Usuń wszystkie lokalne dane emulatora usługi Azure Cosmos, klikając prawym przyciskiem myszy ikonę **emulatora Azure Cosmos DB** na pasku zadań, a następnie klikając polecenie **Resetuj dane...**.
+1. Usuń wszystkie lokalne dane emulatora usługi Azure Cosmos, klikając prawym przyciskiem myszy ikonę **emulatora Azure Cosmos DB** na pasku zadań, a następnie klikając polecenie **Resetuj dane...** .
 
 1. Usuń wszystkie dane emulatora z tego folderu `%LOCALAPPDATA%\CosmosDBEmulator` .
 
@@ -143,7 +144,7 @@ Aby zmienić liczbę kontenerów dostępnych w emulatorze usługi Azure Cosmos, 
 
 1. Zainstaluj najnowszą wersję [emulatora usługi Azure Cosmos](https://aka.ms/cosmosdb-emulator).
 
-1. Uruchom emulator z flagą PartitionCount, ustawiając wartość <= 250. Przykład: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
+1. Uruchom emulator z flagą PartitionCount, ustawiając wartość <= 250. Na przykład: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
  
 ## <a name="next-steps"></a>Następne kroki
 

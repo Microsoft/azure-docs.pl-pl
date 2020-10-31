@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 0167dc0b1cbf8cf3b95995645ef24548a05c4343
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5264fb44f8088ae8f942abf95bc8c0ef6d917413
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538650"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096142"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Przetwarzanie baz danych bezserwerowe przy użyciu Azure Cosmos DB i Azure Functions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Operacje obliczeniowe bez użycia serwera to wszystko, co umożliwia skoncentrowanie się na poszczególnych fragmentach logiki, które są powtarzalne i bezstanowe. Te elementy nie wymagają zarządzania infrastrukturą i zużywają zasoby tylko przez sekundy lub milisekundy, w których są uruchamiane dla. Na początku przenoszenia obliczeniowego bez serwera są funkcje, które są dostępne w ekosystemie platformy Azure przez [Azure Functions](https://azure.microsoft.com/services/functions). Aby dowiedzieć się więcej o innych środowiskach wykonywania bezserwerowego na platformie Azure, zobacz [bezserwerowy na stronie platformy Azure](https://azure.microsoft.com/solutions/serverless/) . 
 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: 39f116139d68f2382085dbbab5e862d0c621ad2e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 68f7c9331423fa4ef350bd7915ad85e3152c6885
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282453"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096550"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Użyj poleceń rozszerzenia MongoDB, aby zarządzać danymi przechowywanymi w interfejsie API Azure Cosmos DB dla MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Następujący dokument zawiera polecenia akcji niestandardowych, które są specyficzne dla interfejsu API Azure Cosmos DB dla MongoDB. Te polecenia mogą służyć do tworzenia i uzyskiwania zasobów bazy danych, które są specyficzne dla [modelu wydajności Azure Cosmos DB](account-databases-containers-items.md).
 
@@ -26,7 +27,7 @@ Interfejs API Azure Cosmos DB dla MongoDB jest zgodny z serwerem MongoDB w wersj
 
 Następujące polecenia rozszerzeń zapewniają możliwość tworzenia i modyfikowania zasobów specyficznych dla Azure Cosmos DB za pośrednictwem żądań bazy danych:
 
-* [Tworzenie bazy danych](#create-database)
+* [Utwórz bazę danych](#create-database)
 * [Aktualizowanie bazy danych](#update-database)
 * [Pobieranie bazy danych](#get-database)
 * [Utwórz kolekcję](#create-collection)
@@ -215,7 +216,7 @@ W poniższej tabeli opisano parametry w poleceniu:
 |---------|---------|---------|---------|
 | `customAction` | `string` | Wymagane | Nazwa polecenia niestandardowego. Musi być "CreateCollection".|
 | `collection` | `string` | Wymagane | Nazwa kolekcji. Nie są dozwolone żadne znaki specjalne ani spacje.|
-| `offerThroughput` | `int` | Optional | Zainicjowana przepływność do ustawienia w bazie danych. Jeśli ten parametr nie zostanie podany, wartość domyślna to 400 RU/s. * Aby określić przepływność poza 10 000 RU/s, `shardKey` parametr jest wymagany.|
+| `offerThroughput` | `int` | Opcjonalne | Zainicjowana przepływność do ustawienia w bazie danych. Jeśli ten parametr nie zostanie podany, wartość domyślna to 400 RU/s. * Aby określić przepływność poza 10 000 RU/s, `shardKey` parametr jest wymagany.|
 | `shardKey` | `string` | Wymagane dla kolekcji o dużej przepływności | Ścieżka do klucza fragmentu dla kolekcji podzielonej na fragmenty. Ten parametr jest wymagany, jeśli w programie ustawiono więcej niż 10 000 RU/s `offerThroughput` .  Jeśli jest określony, wszystkie dokumenty, które zostały wstawione, będą wymagały tego klucza i wartości. |
 | `autoScaleSettings` | `Object` | Wymagane dla [trybu skalowania automatycznego](provision-throughput-autoscale.md) | Ten obiekt zawiera ustawienia skojarzone z trybem pojemności skalowania automatycznego. Można skonfigurować `maxThroughput` wartość, która opisuje największą liczbę jednostek żądania, które zostaną zwiększone do dynamicznie. |
 
@@ -234,7 +235,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-Spowoduje to powstanie nowej, unsharded kolekcji z 400RU/s i indeksu w `_id` polu tworzonym automatycznie. Ten typ konfiguracji będzie również stosowany podczas tworzenia nowych kolekcji za pośrednictwem `insert()` funkcji. Na przykład: 
+Spowoduje to powstanie nowej, unsharded kolekcji z 400RU/s i indeksu w `_id` polu tworzonym automatycznie. Ten typ konfiguracji będzie również stosowany podczas tworzenia nowych kolekcji za pośrednictwem `insert()` funkcji. Przykład: 
 
 ```javascript
 use test
@@ -423,7 +424,7 @@ Jeśli nie zostanie określony, niestandardowa odpowiedź zawiera dokument z nas
 | `code`    |   `int`      |   Zwracane tylko wtedy, gdy polecenie nie powiodło się (tj. ok = = 0). Zawiera kod błędu MongoDB. Jest to opcjonalny parametr odpowiedzi.      |
 |  `errMsg`   |  `string`      |    Zwracane tylko wtedy, gdy polecenie nie powiodło się (tj. ok = = 0). Zawiera przyjazny dla użytkownika komunikat o błędzie. Jest to opcjonalny parametr odpowiedzi.      |
 
-Na przykład:
+Przykład:
 
 ```javascript
 { "ok" : 1 }

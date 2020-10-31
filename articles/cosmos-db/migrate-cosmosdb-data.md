@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 02fd0a4c7d931f439ab85af8d90de323105e21f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480925"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096703"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrowanie setek terabajtów danych do usługi Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Usługa Azure Cosmos DB może przechowywać terabajty danych. Można przeprowadzić migrację danych na dużą skalę, aby przenieść obciążenie produkcyjne do usługi Azure Cosmos DB. W tym artykule opisano wyzwania związane z przenoszeniem danych na dużą skalę do usługi Azure Cosmos DB oraz przedstawiono narzędzie, które pomaga sprostać tym wyzwaniom i migruje dane do usługi Azure Cosmos DB. W tej analizie przypadku klient użył interfejsu SQL API usługi Cosmos DB.  
 
@@ -28,11 +29,11 @@ Azure Cosmos DB strategie migracji różnią się obecnie w zależności od wybr
 
 Istniejące narzędzia do migrowania danych do Azure Cosmos DB mają pewne ograniczenia, które są szczególnie widoczne w dużych skalach:
 
- * **Ograniczone możliwości skalowania w poziomie**: w celu przeprowadzenia migracji terabajtów danych do Azure Cosmos DB tak szybko, jak to możliwe, i efektywnego wykorzystania całej przewidzianej przepływności, klienci migracji powinni mieć możliwość skalowania w poziomie nieokreślonym.  
+ * **Ograniczone możliwości skalowania w poziomie** : w celu przeprowadzenia migracji terabajtów danych do Azure Cosmos DB tak szybko, jak to możliwe, i efektywnego wykorzystania całej przewidzianej przepływności, klienci migracji powinni mieć możliwość skalowania w poziomie nieokreślonym.  
 
-* **Brak śledzenia postępu i sprawdzenia wskazującego**: ważne jest, aby śledzić postęp migracji i sprawdzać, czy są migrowane duże zestawy danych. W przeciwnym razie wszelkie błędy występujące podczas migracji przestaną być migrowane i konieczne będzie rozpoczęcie procesu od podstaw. Ponowne uruchomienie całego procesu migracji nie będzie możliwe, gdy 99% już zostało zakończone.  
+* **Brak śledzenia postępu i sprawdzenia wskazującego** : ważne jest, aby śledzić postęp migracji i sprawdzać, czy są migrowane duże zestawy danych. W przeciwnym razie wszelkie błędy występujące podczas migracji przestaną być migrowane i konieczne będzie rozpoczęcie procesu od podstaw. Ponowne uruchomienie całego procesu migracji nie będzie możliwe, gdy 99% już zostało zakończone.  
 
-* **Brak kolejki utraconych wiadomości**: w przypadku dużych zestawów danych w niektórych przypadkach mogą wystąpić problemy z częściami danych źródłowych. Ponadto mogą występować przejściowe problemy z klientem lub siecią. Każdy z tych przypadków nie powinien spowodować awarii całej migracji. Mimo że większość narzędzi migracji ma niezawodne funkcje ponawiania prób, które chronią przed sporadycznymi problemami, nie zawsze są wystarczające. Na przykład jeśli mniej niż 0,01% dokumentów danych źródłowych ma rozmiar większy niż 2 MB, spowoduje to niepowodzenie zapisu dokumentu w Azure Cosmos DB. W idealnym przypadku jest to przydatne w przypadku, gdy narzędzie migracji będzie utrwalać te dokumenty "Niepowodzenie" w innej kolejce utraconych wiadomości, która może być przetworzona po migracji. 
+* **Brak kolejki utraconych wiadomości** : w przypadku dużych zestawów danych w niektórych przypadkach mogą wystąpić problemy z częściami danych źródłowych. Ponadto mogą występować przejściowe problemy z klientem lub siecią. Każdy z tych przypadków nie powinien spowodować awarii całej migracji. Mimo że większość narzędzi migracji ma niezawodne funkcje ponawiania prób, które chronią przed sporadycznymi problemami, nie zawsze są wystarczające. Na przykład jeśli mniej niż 0,01% dokumentów danych źródłowych ma rozmiar większy niż 2 MB, spowoduje to niepowodzenie zapisu dokumentu w Azure Cosmos DB. W idealnym przypadku jest to przydatne w przypadku, gdy narzędzie migracji będzie utrwalać te dokumenty "Niepowodzenie" w innej kolejce utraconych wiadomości, która może być przetworzona po migracji. 
 
 Wiele z tych ograniczeń jest naprawionych w przypadku narzędzi takich jak Azure Data Factory, Azure Data Migration Services. 
 

@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: c16d7ccba24680604bc7f083f7242edd53abe102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181af5cf26d19a9f51e8d456e777badf7efa224d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282905"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097825"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — kompilowanie interfejsu użytkownika za pomocą aplikacji Angular
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Ten wieloczęściowy samouczek pokazuje, jak utworzyć nową aplikację napisaną w środowisku Node.js za pomocą programu Express i platformy Angular, a następnie podłączyć ją do [konta usługi Cosmos skonfigurowanego przy użyciu interfejsu API usługi Cosmos DB dla bazy danych MongoDB](mongodb-introduction.md).
 
@@ -58,7 +59,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 3. W programie Visual Studio Code w okienku **Eksplorator** przejdź do nowego folderu **src\app** i otwórz nowy plik **heroes.component.ts** wygenerowany w folderze aplikacji. Ten plik składnika TypeScript został utworzony przez poprzednie polecenie.
 
     > [!TIP]
-    > Jeśli folder aplikacji nie jest wyświetlany w programie Visual Studio Code, naciśnij klawisze CMD + SHIFT + P na komputerze Mac lub Ctrl + Shift + P w systemie Windows, aby otworzyć paletę poleceń, a następnie wpisz polecenie *Reload Window*, aby pobrać zmianę z systemu.
+    > Jeśli folder aplikacji nie jest wyświetlany w programie Visual Studio Code, naciśnij klawisze CMD + SHIFT + P na komputerze Mac lub Ctrl + Shift + P w systemie Windows, aby otworzyć paletę poleceń, a następnie wpisz polecenie *Reload Window* , aby pobrać zmianę z systemu.
 
 4. W tym samym folderze otwórz plik **app.module.ts** i zwróć uwagę, że do deklaracji w wierszu 5 dodano element `HeroesComponent` oraz zaimportowano go również w wierszu 10.
 
@@ -103,7 +104,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
     </div>
     ```
 
-7. Teraz, gdy mamy już kod HTML, musimy dodać go do pliku **heroes.component.ts**, aby umożliwić interakcję z szablonem. Poniższy kod dodaje szablon do pliku składnika. Został dodany konstruktor, który pobiera niektóre elementy hero i inicjuje składnik usługi hero, aby pobrać wszystkie dane. Ten kod dodaje również wszystkie metody niezbędne do obsługi zdarzeń w interfejsie użytkownika. Możesz skopiować następujący kod w miejsce istniejącego kodu w pliku **heroes.component.ts**. W obszarach Hero i HeroService można spodziewać się błędów, ponieważ odpowiednie składniki nie zostały jeszcze zaimportowane. Te błędy zostaną naprawione w następnej sekcji. 
+7. Teraz, gdy mamy już kod HTML, musimy dodać go do pliku **heroes.component.ts** , aby umożliwić interakcję z szablonem. Poniższy kod dodaje szablon do pliku składnika. Został dodany konstruktor, który pobiera niektóre elementy hero i inicjuje składnik usługi hero, aby pobrać wszystkie dane. Ten kod dodaje również wszystkie metody niezbędne do obsługi zdarzeń w interfejsie użytkownika. Możesz skopiować następujący kod w miejsce istniejącego kodu w pliku **heroes.component.ts** . W obszarach Hero i HeroService można spodziewać się błędów, ponieważ odpowiednie składniki nie zostały jeszcze zaimportowane. Te błędy zostaną naprawione w następnej sekcji. 
 
     ```ts
     import { Component, OnInit } from '@angular/core';
@@ -190,9 +191,9 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
 ## <a name="use-css-to-set-the-look-and-feel"></a>Wykorzystanie arkuszy CSS, aby ustawić wygląd i działanie
 
-1. W okienku Eksplorator otwórz plik **src/styles.scss**.
+1. W okienku Eksplorator otwórz plik **src/styles.scss** .
 
-2. Skopiuj następujący kod do pliku **styles.scss**, zastępując istniejącą zawartość pliku.
+2. Skopiuj następujący kod do pliku **styles.scss** , zastępując istniejącą zawartość pliku.
 
     ```css
     /* You can add global styles to this file, and also import other style files */
@@ -351,9 +352,9 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
 ## <a name="display-the-component"></a>Wyświetlanie składnika
 
-Teraz, gdy mamy składnik, jak możemy doprowadzić do wyświetlenia go na ekranie? Zmodyfikujmy domyślne składniki w pliku **app.component.ts**.
+Teraz, gdy mamy składnik, jak możemy doprowadzić do wyświetlenia go na ekranie? Zmodyfikujmy domyślne składniki w pliku **app.component.ts** .
 
-1. W okienku Eksplorator otwórz plik **/app/app.component.ts**, zmień tytuł na Heroes, a następnie umieść nazwę składnika utworzonego w pliku **heroes.components.ts** (app-heroes) tak, aby odwoływał się do tego nowego składnika. Zawartość pliku powinna teraz wyglądać tak: 
+1. W okienku Eksplorator otwórz plik **/app/app.component.ts** , zmień tytuł na Heroes, a następnie umieść nazwę składnika utworzonego w pliku **heroes.components.ts** (app-heroes) tak, aby odwoływał się do tego nowego składnika. Zawartość pliku powinna teraz wyglądać tak: 
 
     ```ts
     import { Component } from '@angular/core';
@@ -374,13 +375,13 @@ Teraz, gdy mamy składnik, jak możemy doprowadzić do wyświetlenia go na ekran
 
     ```
 
-2. Istnieją inne składniki w pliku **heroes.components.ts**, do których się odwołujemy, takie jak składnik Hero, więc musimy je też utworzyć. W interfejsie wiersza polecenia platformy Angular użyj następującego polecenia, aby utworzyć model składnika hero i plik o nazwie **hero.ts**, gdzie g = wygeneruj, cl = klasa i hero = nazwa klasy.
+2. Istnieją inne składniki w pliku **heroes.components.ts** , do których się odwołujemy, takie jak składnik Hero, więc musimy je też utworzyć. W interfejsie wiersza polecenia platformy Angular użyj następującego polecenia, aby utworzyć model składnika hero i plik o nazwie **hero.ts** , gdzie g = wygeneruj, cl = klasa i hero = nazwa klasy.
 
     ```bash
     ng g cl hero
     ```
 
-3. W okienku Eksplorator otwórz plik **src\app\hero.ts**. W pliku **hero.ts** zastąp zawartość pliku następującym kodem, który dodaje klasę Hero zawierającą identyfikator, nazwę i powiedzenie.
+3. W okienku Eksplorator otwórz plik **src\app\hero.ts** . W pliku **hero.ts** zastąp zawartość pliku następującym kodem, który dodaje klasę Hero zawierającą identyfikator, nazwę i powiedzenie.
 
     ```ts
       export class Hero {
@@ -396,7 +397,7 @@ Teraz, gdy mamy składnik, jak możemy doprowadzić do wyświetlenia go na ekran
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Instalowanie składnika hero":::
 
-6. Kliknij ikonę żarówki, a następnie kliknij pozycję **Importuj element Hero z folderu „/app/hero”** lub **Importuj element Hero z folderu „./hero”**. (Komunikat zmienia się w zależności od konfiguracji).
+6. Kliknij ikonę żarówki, a następnie kliknij pozycję **Importuj element Hero z folderu „/app/hero”** lub **Importuj element Hero z folderu „./hero”** . (Komunikat zmienia się w zależności od konfiguracji).
 
     W wierszu 2 pojawi się nowy wiersz kodu. Jeśli wiersz 2 odwołuje się do folderu /app/hero, zmodyfikuj go tak, aby odwoływał się do pliku hero z folderu lokalnego (./hero). Wiersz 2 powinien wyglądać następująco:
 
@@ -408,13 +409,13 @@ Teraz, gdy mamy składnik, jak możemy doprowadzić do wyświetlenia go na ekran
 
 ## <a name="create-the-service"></a>Tworzenie usługi
 
-1. W interfejsie wiersza polecenia platformy Angular wprowadź następujące polecenie, aby utworzyć usługę hero w pliku **app.module.ts**, gdzie g = wygeneruj, s = usługa, hero = nazwa usługi, -m = umieść w app.module.
+1. W interfejsie wiersza polecenia platformy Angular wprowadź następujące polecenie, aby utworzyć usługę hero w pliku **app.module.ts** , gdzie g = wygeneruj, s = usługa, hero = nazwa usługi, -m = umieść w app.module.
 
     ```bash
     ng g s hero -m app.module
     ```
 
-2. W programie Visual Studio Code wróć do pliku **heroes.components.ts**. Zwróć uwagę, że w wierszu `constructor(private heroService: HeroService) {}` (wiersz 13) element `HeroService` jest podkreślony czerwoną linią. Kliknij pozycję `HeroService`, a z lewej strony bloku kodu pojawi się żarówka. Kliknij żarówkę, a następnie kliknij pozycję **Importuj element HeroService z folderu „./hero.service ”** lub **Importuj element HeroService z folderu „/app/hero.service”**.
+2. W programie Visual Studio Code wróć do pliku **heroes.components.ts** . Zwróć uwagę, że w wierszu `constructor(private heroService: HeroService) {}` (wiersz 13) element `HeroService` jest podkreślony czerwoną linią. Kliknij pozycję `HeroService`, a z lewej strony bloku kodu pojawi się żarówka. Kliknij żarówkę, a następnie kliknij pozycję **Importuj element HeroService z folderu „./hero.service ”** lub **Importuj element HeroService z folderu „/app/hero.service”** .
 
     Kliknięcie żarówki powoduje wstawienie nowego wiersza kodu w wierszu 2. Jeśli wiersz 2 odwołuje się do folderu /app/hero.service, zmodyfikuj go tak, aby odwoływał się do pliku hero z folderu lokalnego (./hero.service). Wiersz 2 powinien wyglądać następująco:
     
@@ -482,7 +483,7 @@ Teraz, gdy mamy składnik, jak możemy doprowadzić do wyświetlenia go na ekran
     ng b
     ``` 
 
-    Jeśli wystąpią jakiekolwiek problemy, w oknie terminala zostaną wyświetlone informacje o plikach, które należy naprawić. Po zakończeniu kompilacji nowe pliki trafią do folderu **dist**. Jeśli chcesz, możesz przejrzeć nowe pliki w folderze **dist**.
+    Jeśli wystąpią jakiekolwiek problemy, w oknie terminala zostaną wyświetlone informacje o plikach, które należy naprawić. Po zakończeniu kompilacji nowe pliki trafią do folderu **dist** . Jeśli chcesz, możesz przejrzeć nowe pliki w folderze **dist** .
 
     Teraz uruchommy aplikację.
 

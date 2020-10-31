@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 3c404f0028705754a68be113a331132eec02f7cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 010b65a170d05fb0d2cc55e7519fd27df8b751e1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304036"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095445"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Samouczek: tworzenie aplikacji jednostronicowej przy użyciu interfejsu API wyszukiwania w sieci Web Bing
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Ta aplikacja jednostronicowa pokazuje, jak pobierać, analizować i wyświetlać wyniki wyszukiwania z interfejsu API wyszukiwania w sieci Web Bing. W samouczku użyto standardowego kodu HTML i CSS i skoncentrowano się na kodzie JavaScript. Pliki w formatach HTML, CSS i JS są dostępne w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) razem z instrukcjami przewodnika Szybki start.
 
@@ -38,7 +43,7 @@ Do używania tej aplikacji wymagane jest konto w usłudze [Azure Cognitive Servi
 Składniki wymagane do uruchomienia aplikacji:
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
 
 * Środowisko Node.js 8 lub nowsze
 
@@ -131,9 +136,9 @@ function bingSearchOptions(form) {
 
 Opcja `SafeSearch` może być ustawiona na `strict`, `moderate` lub `off`, gdzie `moderate` będzie ustawieniem domyślnym dla interfejsu API wyszukiwania w sieci Web Bing. Ten formularz używa pola wyboru, które ma dwa stany: `strict` lub `moderate` .
 
-Jeśli zaznaczono którekolwiek pole wyboru **Podwyższ poziom**, parametr `answerCount` zostanie dodany do zapytania. Parametr `answerCount` jest wymagany w przypadku korzystania z parametru `promote`. W tym fragmencie kodu wartość została ustawiona na `9`, aby zwracać wszystkie dostępne typy wyników.
+Jeśli zaznaczono którekolwiek pole wyboru **Podwyższ poziom** , parametr `answerCount` zostanie dodany do zapytania. Parametr `answerCount` jest wymagany w przypadku korzystania z parametru `promote`. W tym fragmencie kodu wartość została ustawiona na `9`, aby zwracać wszystkie dostępne typy wyników.
 > [!NOTE]
-> Podwyższenie poziomu typu wyniku nie *gwarantuje*, że zostanie on uwzględniony w wynikach wyszukiwania. Przeciwnie, podwyższenie poziomu podwyższa klasyfikację wyników tego typu względem ich klasyfikacji typowej. Aby ograniczyć wyszukiwanie do wyników określonego typu, użyj parametru zapytania `responseFilter` lub wywołaj bardziej konkretny punkt końcowy, taki jak interfejs API wyszukiwania obrazów Bing lub interfejs API wyszukiwania wiadomości Bing.
+> Podwyższenie poziomu typu wyniku nie *gwarantuje* , że zostanie on uwzględniony w wynikach wyszukiwania. Przeciwnie, podwyższenie poziomu podwyższa klasyfikację wyników tego typu względem ich klasyfikacji typowej. Aby ograniczyć wyszukiwanie do wyników określonego typu, użyj parametru zapytania `responseFilter` lub wywołaj bardziej konkretny punkt końcowy, taki jak interfejs API wyszukiwania obrazów Bing lub interfejs API wyszukiwania wiadomości Bing.
 
 Parametry zapytania `textDecoration` i `textFormat` zostały zapisane na stałe w skrypcie i powodują, że termin wyszukiwania będzie pogrubiony w wynikach wyszukiwania. Te parametry nie są wymagane.
 

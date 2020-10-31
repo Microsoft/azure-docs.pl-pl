@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: a7e5443869efd7f37153b47e4d9c3eaa39f9c41d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c6da4eef15f8f0946e17e910fa39aee1f34fccf0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475281"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096380"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Wizualizowanie danych usługi Azure Cosmos DB przy użyciu łącznika usługi Power BI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 [Power BI](https://powerbi.microsoft.com/) to usługa online, w której można tworzyć i udostępniać pulpity nawigacyjne i raporty. Power BI Desktop to narzędzie do tworzenia raportów, które umożliwia pobieranie danych z różnych źródeł danych. Usługa Azure Cosmos DB jest jednym ze źródeł danych, którego możesz użyć w aplikacji Power BI Desktop. Możesz połączyć aplikację Power BI Desktop z kontem usługi Azure Cosmos DB przy użyciu łącznika usługi Azure Cosmos DB dla usługi Power BI.  Po zaimportowaniu danych usługi Azure Cosmos DB do usługi Power BI możesz przekształcić je, utworzyć raporty i opublikować te raporty w usłudze Power BI.   
 
@@ -74,21 +75,21 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
 
 1. Uruchom Power BI Desktop.
 
-2. Możesz **pobrać dane**, zobaczyć **ostatnie źródła**lub **otworzyć inne raporty** bezpośrednio z ekranu powitalnego. Wybierz "X" w prawym górnym rogu, aby zamknąć ekran. Zostanie wyświetlony widok **raport** Power BI Desktop.
+2. Możesz **pobrać dane** , zobaczyć **ostatnie źródła** lub **otworzyć inne raporty** bezpośrednio z ekranu powitalnego. Wybierz "X" w prawym górnym rogu, aby zamknąć ekran. Zostanie wyświetlony widok **raport** Power BI Desktop.
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
-3. Wybierz Wstążkę **Narzędzia główne** , a następnie kliknij pozycję **Pobierz dane**.  Powinno zostać wyświetlone okno **pobieranie danych** .
+3. Wybierz Wstążkę **Narzędzia główne** , a następnie kliknij pozycję **Pobierz dane** .  Powinno zostać wyświetlone okno **pobieranie danych** .
 
-4. Kliknij pozycję **Azure**, wybierz pozycję **Azure Cosmos dB (beta)**, a następnie kliknij pozycję **Połącz**. 
+4. Kliknij pozycję **Azure** , wybierz pozycję **Azure Cosmos dB (beta)** , a następnie kliknij pozycję **Połącz** . 
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
-5. Na stronie **łącznik w wersji zapoznawczej** kliknij pozycję **Kontynuuj**. Zostanie wyświetlone okno **Azure Cosmos DB** .
+5. Na stronie **łącznik w wersji zapoznawczej** kliknij pozycję **Kontynuuj** . Zostanie wyświetlone okno **Azure Cosmos DB** .
 
-6. Określ adres URL punktu końcowego konta Azure Cosmos DB, z którego chcesz pobrać dane, jak pokazano poniżej, a następnie kliknij przycisk **OK**. Aby użyć własnego konta, możesz pobrać adres URL z pola URI w bloku **klucze** Azure Portal. Opcjonalnie możesz podać nazwę bazy danych, nazwę kolekcji lub użyć nawigatora do wybrania bazy danych i kolekcji, w której pochodzą dane.
+6. Określ adres URL punktu końcowego konta Azure Cosmos DB, z którego chcesz pobrać dane, jak pokazano poniżej, a następnie kliknij przycisk **OK** . Aby użyć własnego konta, możesz pobrać adres URL z pola URI w bloku **klucze** Azure Portal. Opcjonalnie możesz podać nazwę bazy danych, nazwę kolekcji lub użyć nawigatora do wybrania bazy danych i kolekcji, w której pochodzą dane.
    
-7. Jeśli łączysz się z tym punktem końcowym po raz pierwszy, zostanie wyświetlony monit o podanie klucza konta. W przypadku własnego konta Pobierz klucz z pola **klucz podstawowy** w bloku **klucze tylko do odczytu** w Azure Portal. Wprowadź odpowiedni klucz, a następnie kliknij przycisk **Połącz**.
+7. Jeśli łączysz się z tym punktem końcowym po raz pierwszy, zostanie wyświetlony monit o podanie klucza konta. W przypadku własnego konta Pobierz klucz z pola **klucz podstawowy** w bloku **klucze tylko do odczytu** w Azure Portal. Wprowadź odpowiedni klucz, a następnie kliknij przycisk **Połącz** .
    
    Podczas kompilowania raportów zalecamy użycie klucza tylko do odczytu. Zapobiega to niepotrzebnemu narażeniu klucza podstawowego na potencjalne zagrożenia bezpieczeństwa. Klucz tylko do odczytu jest dostępny w bloku **klucze** Azure Portal. 
     
@@ -98,7 +99,7 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
 
 10. Teraz wybierz kolekcję zawierającą dane do pobrania, wybierz pozycję **volcano1** (nazwa kolekcji może być inna).
     
-    W okienku podglądu zostanie wyświetlona lista elementów **rekordów** .  Dokument jest reprezentowany jako typ **rekordu** w Power BI. Podobnie zagnieżdżony blok JSON wewnątrz dokumentu jest również **rekordem**.
+    W okienku podglądu zostanie wyświetlona lista elementów **rekordów** .  Dokument jest reprezentowany jako typ **rekordu** w Power BI. Podobnie zagnieżdżony blok JSON wewnątrz dokumentu jest również **rekordem** .
     
     :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
@@ -109,7 +110,7 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
-1. Kliknij Ekspander w prawej części nagłówka kolumny **dokumentu** .  Zostanie wyświetlone menu kontekstowe z listą pól.  Wybierz pola, które są potrzebne do raportu, na przykład Volcano, nazwa, kraj, region, lokalizacja, podniesienie, typ, stan i Ostatnia znana wartość. Usuń zaznaczenie pola **Użyj oryginalnej nazwy kolumny jako prefiksu** , a następnie kliknij przycisk **OK**.
+1. Kliknij Ekspander w prawej części nagłówka kolumny **dokumentu** .  Zostanie wyświetlone menu kontekstowe z listą pól.  Wybierz pola, które są potrzebne do raportu, na przykład Volcano, nazwa, kraj, region, lokalizacja, podniesienie, typ, stan i Ostatnia znana wartość. Usuń zaznaczenie pola **Użyj oryginalnej nazwy kolumny jako prefiksu** , a następnie kliknij przycisk **OK** .
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
@@ -119,7 +120,7 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
 
 1. W naszym przykładzie właściwość Location jest blokiem GEOJSON w dokumencie.  Jak widać, lokalizacja jest reprezentowana jako typ **rekordu** w Power BI Desktop.  
 
-1. Kliknij Ekspander znajdujący się po prawej stronie nagłówka kolumny Document. Location.  Menu kontekstowe z polami Type i współrzędne pojawia się.  Wybierzmy pole współrzędne, upewnij się, że **nazwa oryginalnej kolumny** nie jest zaznaczona, a następnie kliknij przycisk **OK**.
+1. Kliknij Ekspander znajdujący się po prawej stronie nagłówka kolumny Document. Location.  Menu kontekstowe z polami Type i współrzędne pojawia się.  Wybierzmy pole współrzędne, upewnij się, że **nazwa oryginalnej kolumny** nie jest zaznaczona, a następnie kliknij przycisk **OK** .
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
@@ -129,11 +130,11 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Widok raportu Power BI Desktop — łącznik Power BI":::
 
-1. Aby spłaszczyć tablicę współrzędnych, Utwórz **kolumnę niestandardową** o nazwie latlong.  Wybierz Wstążkę **Dodaj kolumnę** i kliknij **kolumnę niestandardową**.  Zostanie wyświetlone okno **kolumna niestandardowa** .
+1. Aby spłaszczyć tablicę współrzędnych, Utwórz **kolumnę niestandardową** o nazwie latlong.  Wybierz Wstążkę **Dodaj kolumnę** i kliknij **kolumnę niestandardową** .  Zostanie wyświetlone okno **kolumna niestandardowa** .
 
 1. Podaj nazwę nowej kolumny, np. LatLong.
 
-1. Następnie określ formułę niestandardową dla nowej kolumny.  W naszym przykładzie będziemy łączyć wartości szerokości i długości geograficznej oddzielone przecinkami, jak pokazano poniżej, przy użyciu następującej formuły: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Kliknij pozycję **OK**.
+1. Następnie określ formułę niestandardową dla nowej kolumny.  W naszym przykładzie będziemy łączyć wartości szerokości i długości geograficznej oddzielone przecinkami, jak pokazano poniżej, przy użyciu następującej formuły: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Kliknij pozycję **OK** .
    
    Aby uzyskać więcej informacji na temat wyrażeń analizy danych (DAX), w tym funkcji języka DAX, zobacz [podstawy języka DAX w Power BI Desktop](/power-bi/desktop-quickstart-learn-dax-basics).
    
@@ -182,7 +183,7 @@ Poniżej przedstawiono podstawowe kroki tworzenia prostego raportu interakcyjneg
 Aby udostępnić raport, musisz mieć konto w usłudze PowerBI.com.
 
 1. W Power BI Desktop kliknij na Wstążce **Narzędzia główne** .
-1. Kliknij przycisk **Opublikuj**.  Zostanie wyświetlony monit o podanie nazwy użytkownika i hasła do konta PowerBI.com.
+1. Kliknij przycisk **Opublikuj** .  Zostanie wyświetlony monit o podanie nazwy użytkownika i hasła do konta PowerBI.com.
 1. Gdy poświadczenie zostanie uwierzytelnione, raport zostanie opublikowany w wybranym miejscu docelowym.
 1. Kliknij pozycję **Otwórz plik "PowerBITutorial. pbix" w Power BI** , aby zobaczyć i udostępnić raport w witrynie PowerBI.com.
    

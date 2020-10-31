@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: fb8d1cd2e3b481969059883919b9dc888955307e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f7b7b8c7b1106bd3c0a6732867946c42df8438c1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478120"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097281"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji internetowej Node.js przy użyciu zestawu JavaScript SDK do zarządzania kontem interfejsu API SQL w programie Azure Cosmos DB 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -64,7 +65,7 @@ Teraz nauczysz się, jak utworzyć podstawowy projekt aplikacji Hello World w ś
 
 1. Przejdź do katalogu, w którym chcesz przechowywać nową aplikację.
 
-1. Użyj generatora platformy Express, aby wygenerować nową aplikację o nazwie **todo**.
+1. Użyj generatora platformy Express, aby wygenerować nową aplikację o nazwie **todo** .
 
    ```bash
    express todo
@@ -93,7 +94,7 @@ Teraz nauczysz się, jak utworzyć podstawowy projekt aplikacji Hello World w ś
 
 Plik **package.json** jest jednym z plików utworzonych w folderze głównym projektu. Ten plik zawiera listę dodatkowych modułów, które są wymagane dla aplikacji Node.js. Podczas wdrażania tej aplikacji na platformie Azure ten plik służy do określania, które moduły mają być zainstalowane na platformie Azure w celu obsługi tej aplikacji. Zainstaluj jeszcze 2 pakiety na potrzeby tego samouczka.
 
-1. Zainstaluj moduł ** \@ Azure/Cosmos** za pośrednictwem usługi npm. 
+1. Zainstaluj moduł **\@ Azure/Cosmos** za pośrednictwem usługi npm. 
 
    ```bash
    npm install @azure/cosmos
@@ -103,9 +104,9 @@ Plik **package.json** jest jednym z plików utworzonych w folderze głównym pro
 Teraz, po wykonaniu wstępnej instalacji i konfiguracji, napiszesz kod, który jest wymagany przez aplikację z listą zadań do wykonania do komunikowania się z usługą Azure Cosmos DB.
 
 ### <a name="create-the-model"></a>Tworzenie modelu
-1. W folderze głównym katalogu projektu Utwórz nowy katalog o nazwie **models**.  
+1. W folderze głównym katalogu projektu Utwórz nowy katalog o nazwie **models** .  
 
-2. W katalogu **models** utwórz nowy plik o nazwie **taskDao.js**. Ten plik zawiera kod wymagany do utworzenia bazy danych i kontenera. Definiuje także metody odczytu, aktualizacji, tworzenia i znajdowania zadań w usłudze Azure Cosmos DB. 
+2. W katalogu **models** utwórz nowy plik o nazwie **taskDao.js** . Ten plik zawiera kod wymagany do utworzenia bazy danych i kontenera. Definiuje także metody odczytu, aktualizacji, tworzenia i znajdowania zadań w usłudze Azure Cosmos DB. 
 
 3. Skopiuj następujący kod do pliku **taskDao.js** :
 
@@ -184,13 +185,13 @@ Teraz, po wykonaniu wstępnej instalacji i konfiguracji, napiszesz kod, który j
 
     module.exports = TaskDao
    ```
-4. Zapisz i zamknij plik **taskDao.js**.  
+4. Zapisz i zamknij plik **taskDao.js** .  
 
 ### <a name="create-the-controller"></a>Tworzenie kontrolera
 
-1. W katalogu **routes** projektu utwórz nowy plik o nazwie **tasklist.js**.  
+1. W katalogu **routes** projektu utwórz nowy plik o nazwie **tasklist.js** .  
 
-2. Dodaj następujący kod do pliku **tasklist.js**. Ten kod służy do ładowania modułów CosmosClient i async, które są używane przez plik **tasklist.js**. Ten kod definiuje również klasę **TaskList**, która jest przekazywana jako wystąpienie zdefiniowanego wcześniej obiektu **TaskDao**:
+2. Dodaj następujący kod do pliku **tasklist.js** . Ten kod służy do ładowania modułów CosmosClient i async, które są używane przez plik **tasklist.js** . Ten kod definiuje również klasę **TaskList** , która jest przekazywana jako wystąpienie zdefiniowanego wcześniej obiektu **TaskDao** :
    
    ```javascript
     const TaskDao = require("../models/TaskDao");
@@ -245,13 +246,13 @@ Teraz, po wykonaniu wstępnej instalacji i konfiguracji, napiszesz kod, który j
     module.exports = TaskList;
    ```
 
-3. Zapisz i zamknij plik **tasklist.js**.
+3. Zapisz i zamknij plik **tasklist.js** .
 
 ### <a name="add-configjs"></a>Dodawanie pliku config.js
 
-1. W katalogu głównym projektu utwórz nowy plik o nazwie **config.js**. 
+1. W katalogu głównym projektu utwórz nowy plik o nazwie **config.js** . 
 
-2. Dodaj następujący kod do pliku **config.js**. Ten kod służy do definiowania ustawień konfiguracji i wartości potrzebnych dla aplikacji.
+2. Dodaj następujący kod do pliku **config.js** . Ten kod służy do definiowania ustawień konfiguracji i wartości potrzebnych dla aplikacji.
    
    ```javascript
    const config = {};
@@ -274,13 +275,13 @@ Teraz, po wykonaniu wstępnej instalacji i konfiguracji, napiszesz kod, który j
 
 3. W pliku **config.js** zaktualizuj wartości kluczy HOST i AUTH_KEY przy użyciu wartości znajdujących się na stronie Klucze Twojego konta usługi Azure Cosmos DB w witrynie [Azure Portal](https://portal.azure.com). 
 
-4. Zapisz i zamknij plik **config.js**.
+4. Zapisz i zamknij plik **config.js** .
 
 ### <a name="modify-appjs"></a>Modyfikowanie pliku app.js
 
-1. W katalogu projektu otwórz plik **app.js**. Ten plik został utworzony wcześniej podczas tworzenia aplikacji internetowej platformy Express.  
+1. W katalogu projektu otwórz plik **app.js** . Ten plik został utworzony wcześniej podczas tworzenia aplikacji internetowej platformy Express.  
 
-2. Dodaj następujący kod do pliku **app.js**. Ten kod definiuje plik konfiguracji, który ma być używany, i ładuje wartości do niektórych zmiennych, które będą używane w następnych sekcjach. 
+2. Dodaj następujący kod do pliku **app.js** . Ten kod definiuje plik konfiguracji, który ma być używany, i ładuje wartości do niektórych zmiennych, które będą używane w następnych sekcjach. 
    
    ```javascript
     const CosmosClient = require('@azure/cosmos').CosmosClient
@@ -355,13 +356,13 @@ Teraz, po wykonaniu wstępnej instalacji i konfiguracji, napiszesz kod, który j
     module.exports = app
    ```
 
-3. Na koniec zapisz i zamknij plik **app.js**.
+3. Na koniec zapisz i zamknij plik **app.js** .
 
 ## <a name="build-a-user-interface"></a><a name="_Toc395783181"></a>Tworzenie interfejsu użytkownika
 
-Teraz skompilujemy interfejs użytkownika, aby użytkownik mógł korzystać z aplikacji. Utworzona w poprzednich sekcjach aplikacja Express używa aparatu widoku **Jade**.
+Teraz skompilujemy interfejs użytkownika, aby użytkownik mógł korzystać z aplikacji. Utworzona w poprzednich sekcjach aplikacja Express używa aparatu widoku **Jade** .
 
-1. Plik **layout.jade** w katalogu **views** jest używany jako szablon globalny dla innych plików **jade**. W tym kroku zmodyfikujesz go w celu używania platformy Twitter Bootstrap, która jest zestawem narzędzi służącym do projektowania witryn internetowych.  
+1. Plik **layout.jade** w katalogu **views** jest używany jako szablon globalny dla innych plików **jade** . W tym kroku zmodyfikujesz go w celu używania platformy Twitter Bootstrap, która jest zestawem narzędzi służącym do projektowania witryn internetowych.  
 
 2. Otwórz plik **layout.jade** znajdujący się w folderze **views** i zastąp jego zawartość następującym kodem:
 
@@ -381,7 +382,7 @@ Teraz skompilujemy interfejs użytkownika, aby użytkownik mógł korzystać z a
        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
    ```
 
-    Ten kod nakazuje aparatowi **Jade** wyrenderowanie kodu HTML dla naszej aplikacji, a następnie tworzy **blok** o nazwie **zawartość** , w którym można podać układ stron zawartości. Zapisz i zamknij plik **layout.jade**.
+    Ten kod nakazuje aparatowi **Jade** wyrenderowanie kodu HTML dla naszej aplikacji, a następnie tworzy **blok** o nazwie **zawartość** , w którym można podać układ stron zawartości. Zapisz i zamknij plik **layout.jade** .
 
 3. Teraz otwórz plik **index.jade** — widok, który będzie używany przez naszą aplikację — i zastąp zawartość pliku następującym kodem:
 
@@ -427,7 +428,7 @@ Teraz skompilujemy interfejs użytkownika, aby użytkownik mógł korzystać z a
           button.btn(type="submit") Add item
    ```
 
-Ten kod rozszerza układ i udostępnia zawartość dla symbolu zastępczego **content**, który wcześniej widzieliśmy w pliku **layout.jade**. W tym układzie utworzyliśmy dwa formularze HTML.
+Ten kod rozszerza układ i udostępnia zawartość dla symbolu zastępczego **content** , który wcześniej widzieliśmy w pliku **layout.jade** . W tym układzie utworzyliśmy dwa formularze HTML.
 
 Pierwszy formularz zawiera tabelę danych i przycisk umożliwiający aktualizowanie elementów przez publikowanie do metody **/completeTask** kontrolera.
     
@@ -444,7 +445,7 @@ Teraz, gdy masz utworzoną aplikację, możesz uruchomić ją lokalnie, wykonuj�
     > [!TIP]
     > W przypadku wystąpienia błędu dotyczącego wcięcia w pliku layout.jade bądź index.jade upewnij się, że dwa pierwsze wiersze w obu plikach są wyrównane do lewej, bez spacji. Jeśli przed dwoma pierwszymi wierszami występują spacje, usuń je, zapisz oba pliki, a następnie odśwież okno przeglądarki. 
 
-2. Użyj pól element, nazwa elementu i Kategoria, aby wprowadzić nowe zadanie, a następnie wybierz pozycję **Dodaj element**. Spowoduje to utworzenie w usłudze Azure Cosmos DB dokumentu z tymi właściwościami. 
+2. Użyj pól element, nazwa elementu i Kategoria, aby wprowadzić nowe zadanie, a następnie wybierz pozycję **Dodaj element** . Spowoduje to utworzenie w usłudze Azure Cosmos DB dokumentu z tymi właściwościami. 
 
 3. Ta strona powinna zostać zaktualizowana w celu wyświetlenia nowo utworzonego elementu na liście ToDo.
    
@@ -476,7 +477,7 @@ Gdy aplikacja działa prawidłowo w środowisku lokalnym, możesz wdrożyć ją 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Możesz usunąć grupę zasobów, konto usługi Azure Cosmos DB oraz wszystkie powiązane zasoby, gdy nie będą już potrzebne. Aby to zrobić, wybierz grupę zasobów używaną w przypadku konta usługi Azure Cosmos DB, wybierz pozycję **Usuń**, a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
+Możesz usunąć grupę zasobów, konto usługi Azure Cosmos DB oraz wszystkie powiązane zasoby, gdy nie będą już potrzebne. Aby to zrobić, wybierz grupę zasobów używaną w przypadku konta usługi Azure Cosmos DB, wybierz pozycję **Usuń** , a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
 
 ## <a name="next-steps"></a><a name="_Toc395637775"></a>Następne kroki
 

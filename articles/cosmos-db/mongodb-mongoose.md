@@ -9,14 +9,15 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 84d96344f20c56c9fab9eb5b3affcca3a437c096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eab24c317513382afdd452843bc09e845ca90452
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324556"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096499"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Łączenie Node.js aplikacji Mongoose do Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 W tym samouczku pokazano, jak używać [platformy Mongoose](https://mongoosejs.com/) w przypadku przechowywania danych w Cosmos DB. Dla tego przewodnika korzystamy z interfejsu API Azure Cosmos DB dla MongoDB. Mongoose to platforma modelowania obiektów usługi MongoDB w środowisku Node.js. Udostępnia ona także proste, bazujące na schematach rozwiązanie do modelowania danych aplikacji.
 
@@ -38,11 +39,11 @@ Utwórzmy konto Cosmos. Jeśli masz już konto, którego chcesz użyć, możesz 
 
 ### <a name="create-a-database"></a>Tworzenie bazy danych 
 W tej aplikacji omówiono dwa sposoby tworzenia kolekcji w Azure Cosmos DB: 
-- **Przechowywanie każdego modelu obiektów w oddzielnej kolekcji**: zalecamy [utworzenie bazy danych z dedykowaną przepływność](set-throughput.md#set-throughput-on-a-database). Korzystanie z tego modelu wydajności zapewnia lepszą wydajność.
+- **Przechowywanie każdego modelu obiektów w oddzielnej kolekcji** : zalecamy [utworzenie bazy danych z dedykowaną przepływność](set-throughput.md#set-throughput-on-a-database). Korzystanie z tego modelu wydajności zapewnia lepszą wydajność.
 
     :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text=" SamouczekNode.js — zrzut ekranu przedstawiający Azure Portal, pokazujący sposób tworzenia bazy danych w Eksplorator danych dla konta Azure Cosmos DB, do użycia z modułem węzła Mongoose":::
 
-- **Przechowywanie wszystkich modeli obiektów w pojedynczej kolekcji Cosmos DB**: Jeśli wolisz przechowywać wszystkie modele w pojedynczej kolekcji, możesz po prostu utworzyć nową bazę danych bez wybierania opcji udostępniania przepływności. Użycie tego modelu wydajności spowoduje utworzenie każdej kolekcji z własną przepustowością dla każdego modelu obiektów.
+- **Przechowywanie wszystkich modeli obiektów w pojedynczej kolekcji Cosmos DB** : Jeśli wolisz przechowywać wszystkie modele w pojedynczej kolekcji, możesz po prostu utworzyć nową bazę danych bez wybierania opcji udostępniania przepływności. Użycie tego modelu wydajności spowoduje utworzenie każdej kolekcji z własną przepustowością dla każdego modelu obiektów.
 
 Po utworzeniu bazy danych użyjesz nazwy w `COSMOSDB_DBNAME` zmiennej środowiskowej poniżej.
 

@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f124eb24dcdc9e6437c803d1066d6ca86d5c32ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9c7b08b92fad07cddbdb2783f2d68cdb9be034a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440811"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097077"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
 Usługa Azure Digital bliźniaczych reprezentacji korzysta z **tras zdarzeń** do wysyłania danych do klientów spoza usługi. 
 
-W trakcie okresu zapoznawczego istnieją dwa główne przypadki wysyłania danych usługi Azure Digital bliźniaczych reprezentacji:
+Istnieją dwa główne przypadki wysyłania danych usługi Azure Digital bliźniaczych reprezentacji:
 * Wysyłanie danych z jednej sznurka na cyfrowym wykresie bliźniaczych reprezentacji Azure do innego. Na przykład, gdy zmieniana jest właściwość jednocyfrowego przędzy, możesz chcieć odpowiednio powiadomić i zaktualizować inne cyfrowe sznurki.
-* Wysyłanie danych do usług danych podrzędnych w celu dodatkowego przechowywania lub przetwarzania (nazywanego również ruchem wychodzącym *danych*). Na przykład
+* Wysyłanie danych do usług danych podrzędnych w celu dodatkowego przechowywania lub przetwarzania (nazywanego również ruchem wychodzącym *danych* ). Na przykład
   - Szpital może chcieć wysłać dane zdarzenia usługi Azure Digital bliźniaczych reprezentacji do [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), aby zarejestrować dane szeregów czasowych zdarzeń związanych z handwashing dla analizy zbiorczej.
   - Firma, która już korzysta z [Azure Maps](../azure-maps/about-azure-maps.md) może chcieć używać usługi Azure Digital bliźniaczych reprezentacji do ulepszania swoich rozwiązań. Mogą szybko włączyć mapę platformy Azure po skonfigurowaniu usługi Azure Digital bliźniaczych reprezentacji, przełączyć jednostki mapy platformy Azure do usługi Azure Digital bliźniaczych reprezentacji jako [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) na grafie bliźniaczym lub uruchamiać zaawansowane zapytania wykorzystujące swoje Azure Maps i dane cyfrowego bliźniaczych reprezentacji platformy Azure.
 
@@ -38,7 +38,7 @@ Typowymi elementami podrzędnymi dla tras zdarzeń są zasoby, takie jak TSI, Az
 
 ### <a name="event-routes-for-internal-digital-twin-events"></a>Trasy zdarzeń dla wewnętrznych cyfrowych dróg wieloosiowych
 
-W bieżącej wersji zapoznawczej trasy zdarzeń są również używane do obsługi zdarzeń w grafie bliźniaczym i wysyłania danych z cyfrowych sznurów do wieloosiowych sznurów elektronicznych. W tym celu należy połączyć trasy zdarzeń za pomocą Event Grid do zasobów obliczeniowych, takich jak [Azure Functions](../azure-functions/functions-overview.md). Te funkcje definiują sposób, w jaki bliźniaczych reprezentacji powinna odbierać i odpowiadać na zdarzenia. 
+Trasy zdarzeń są również używane do obsługi zdarzeń w grafie bliźniaczym i wysyłania danych z cyfrowych sznurów do cyfrowych sznurów. W tym celu należy połączyć trasy zdarzeń za pomocą Event Grid do zasobów obliczeniowych, takich jak [Azure Functions](../azure-functions/functions-overview.md). Te funkcje definiują sposób, w jaki bliźniaczych reprezentacji powinna odbierać i odpowiadać na zdarzenia. 
 
 Gdy zasób obliczeniowy chce zmodyfikować wykres bliźniaczy na podstawie zdarzenia otrzymanego za pośrednictwem trasy zdarzenia, pomocne jest, aby wiedzieć, które sznury mają być modyfikowane przed czasem. 
 
@@ -50,7 +50,7 @@ Aby zapoznać się z procesem konfigurowania funkcji platformy Azure w celu prze
 
 ## <a name="create-an-endpoint"></a>Tworzenie punktu końcowego
 
-Aby zdefiniować trasę zdarzeń, deweloperzy najpierw muszą definiować punkty końcowe. **Punkt końcowy** jest miejscem docelowym poza usługą Azure Digital bliźniaczych reprezentacji, która obsługuje połączenie trasy. Obsługiwane miejsca docelowe w bieżącej wersji zapoznawczej to:
+Aby zdefiniować trasę zdarzeń, deweloperzy najpierw muszą definiować punkty końcowe. **Punkt końcowy** jest miejscem docelowym poza usługą Azure Digital bliźniaczych reprezentacji, która obsługuje połączenie trasy. Obsługiwane miejsca docelowe obejmują:
 * Event Grid tematy niestandardowe
 * Centrum zdarzeń
 * Service Bus
@@ -73,7 +73,7 @@ Interfejsy API punktu końcowego dostępne w płaszczyźnie sterującej są nast
  
 Aby utworzyć trasę zdarzeń, można użyć [**interfejsów API**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**poleceń interfejsu wiersza polecenia**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)platformy Azure Digital bliźniaczych reprezentacji lub [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Oto przykład tworzenia trasy zdarzeń w aplikacji klienckiej przy użyciu `CreateEventRoute` wywołania [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview) : 
+Oto przykład tworzenia trasy zdarzeń w aplikacji klienckiej przy użyciu `CreateEventRoute` wywołania [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) : 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
@@ -94,7 +94,7 @@ Trasy można także tworzyć za pomocą [interfejsu wiersza polecenia usługi Az
 
 ## <a name="dead-letter-events"></a>Zdarzenia utraconych wiadomości
 
-Gdy punkt końcowy nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony**. Po spełnieniu **jednego z następujących** warunków usługa Azure Digital bliźniaczych reprezentacji będzie martwa zdarzenie. 
+Gdy punkt końcowy nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony** . Po spełnieniu **jednego z następujących** warunków usługa Azure Digital bliźniaczych reprezentacji będzie martwa zdarzenie. 
 
 * Zdarzenie nie jest dostarczane w okresie czasu wygaśnięcia
 * Liczba prób dostarczenia zdarzenia przekroczyła limit.

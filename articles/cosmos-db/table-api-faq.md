@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b2aab6579f9cc78e44454407f1f4ddeed605086b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485005"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096108"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API tabel w programie Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Interfejs API tabel Azure Cosmos DB jest dostępny w [Azure Portal](https://portal.azure.com) najpierw należy zarejestrować się w celu uzyskania subskrypcji platformy Azure. Po zarejestrowaniu możesz dodać konto Azure Cosmos DB interfejs API tabel do subskrypcji platformy Azure, a następnie dodać tabele do swojego konta. Obsługiwane języki i skojarzone szybkie uruchomienia można znaleźć w temacie [wprowadzenie do Azure Cosmos DB interfejs API tabel](table-introduction.md).
 
@@ -195,7 +196,7 @@ Tak, Azure Cosmos DB interfejs API tabel zapewnia automatyczne indeksowanie wszy
 
 Tak, zasady indeksowania można zmienić, podając definicję indeksu. Należy prawidłowo zakodować i wyjść z ustawień.
 
-W przypadku zestawów SDK non-.NET zasady indeksowania można ustawić tylko w portalu w **Eksplorator danych**, przejdź do konkretnej tabeli, którą chcesz zmienić, a następnie przejdź do pozycji **skalowanie & ustawienia**->zasad indeksowania, wprowadź żądaną zmianę, a następnie **Zapisz**.
+W przypadku zestawów SDK non-.NET zasady indeksowania można ustawić tylko w portalu w **Eksplorator danych** , przejdź do konkretnej tabeli, którą chcesz zmienić, a następnie przejdź do pozycji **skalowanie & ustawienia** ->zasad indeksowania, wprowadź żądaną zmianę, a następnie **Zapisz** .
 
 Z zestawu SDK platformy .NET można przesłać plik app.config:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adb221c12af436135b1e740fdef7c5c0a0a7f0cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254748"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096040"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Jak zintegrować usługę Azure API Management z usługą Azure Application Insights
 
@@ -32,39 +32,39 @@ Aby skorzystać z tego przewodnika, musisz mieć wystąpienie usługi Azure API 
 
 Aby móc korzystać z usługi Azure Application Insights, musisz najpierw utworzyć wystąpienie usługi.
 
-1. Otwórz **Azure Portal** i przejdź do **Application Insights**.  
-    ![Tworzenie usługi App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
-2. Kliknij pozycję **+ Dodaj**.  
+1. Otwórz **Azure Portal** i przejdź do **Application Insights** .  
+    ![Zrzut ekranu pokazujący sposób nawigowania do Application Insights.](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
+2. Kliknij pozycję **+ Dodaj** .  
     ![Tworzenie usługi App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
-3. Wypełnij formularz. Wybierz pozycję **Ogólne** jako **Typ aplikacji**.
-4. Kliknij przycisk **Utwórz**.
+3. Wypełnij formularz. Wybierz pozycję **Ogólne** jako **Typ aplikacji** .
+4. Kliknij pozycję **Utwórz** .
 
 ## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Utwórz połączenie między usługą Azure Application Insights i wystąpieniem usługi Azure API Management
 
-1. Przejdź do **wystąpienia usługi Azure API Management** w **Azure Portal**.
+1. Przejdź do **wystąpienia usługi Azure API Management** w **Azure Portal** .
 2. Wybierz pozycję **Application Insights** z menu po lewej stronie.
-3. Kliknij pozycję **+ Dodaj**.  
-    ![Rejestrator usługi App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
+3. Kliknij pozycję **+ Dodaj** .  
+    ![Zrzut ekranu pokazujący, gdzie dodać nowe połączenie.](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. Wybierz wcześniej utworzone wystąpienie **Application Insights** i podaj Krótki opis.
-5. Kliknij przycisk **Utwórz**.
+5. Kliknij pozycję **Utwórz** .
 6. Właśnie utworzono Rejestrator Application Insights platformy Azure z kluczem Instrumentacji. Powinien teraz pojawić się na liście.  
-    ![Rejestrator usługi App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
+    ![Zrzut ekranu pokazujący lokalizację, w której ma zostać wyświetlony nowo utworzony Rejestrator Application Insights platformy Azure z kluczem Instrumentacji.](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
 > Za sceną jest tworzona jednostka [rejestratora](/rest/api/apimanagement/2019-12-01/logger/createorupdate) w wystąpieniu API Management, zawierająca klucz Instrumentacji wystąpienia Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Włączanie rejestrowania Application Insights dla interfejsu API
 
-1. Przejdź do **wystąpienia usługi Azure API Management** w **Azure Portal**.
+1. Przejdź do **wystąpienia usługi Azure API Management** w **Azure Portal** .
 2. Wybierz pozycję **Interfejsy API** z menu po lewej stronie.
-3. Kliknij swój interfejs API, w tym przypadku **interfejsu API konferencji demonstracyjnej**.
+3. Kliknij swój interfejs API, w tym przypadku **interfejsu API konferencji demonstracyjnej** .
 4. Przejdź do karty **Ustawienia** na górnym pasku.
 5. Przewiń w dół do sekcji **dzienniki diagnostyczne** .  
     ![Rejestrator usługi App Insights](media/api-management-howto-app-insights/apim-app-insights-api-1.png)  
 6. Zaznacz pole **Włącz** .
 7. Wybierz dołączony rejestrator w polu rozwijanym **miejsce docelowe** .
 8. Wprowadź **100** jako **próbkowanie (%)** i zaznacz pole wyboru **zawsze Rejestruj błędy** .
-9. Kliknij przycisk **Zapisz**.
+9. Kliknij pozycję **Zapisz** .
 
 > [!WARNING]
 > Zastąpienie wartości domyślnej **0** w **pierwszych bajtach pola Body** może znacząco zmniejszyć wydajność interfejsów API.
@@ -97,8 +97,8 @@ Aby móc korzystać z usługi Azure Application Insights, musisz najpierw utworz
 
 Usługa Azure Application Insights otrzymuje następujące:
 
-+ *Żądaj* elementu telemetrii dla każdego żądania przychodzącego (*żądanie frontonu*, *odpowiedź frontonu*),
-+ Element telemetrii *zależności* dla każdego żądania przekazanego do usługi zaplecza (*żądanie wewnętrznej bazy*danych, *odpowiedź zaplecza*),
++ *Żądaj* elementu telemetrii dla każdego żądania przychodzącego ( *żądanie frontonu* , *odpowiedź frontonu* ),
++ Element telemetrii *zależności* dla każdego żądania przekazanego do usługi zaplecza ( *żądanie wewnętrznej bazy* danych, *odpowiedź zaplecza* ),
 + Element telemetrii *wyjątku* dla każdego żądania zakończonego niepowodzeniem.
 
 Żądanie zakończone niepowodzeniem to żądanie, które:

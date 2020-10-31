@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 6e77746d21d63cf1460b9e460e470a3bd12ce656
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8599ebf1932d7c30622855cbf38af867d30b52b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480041"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098063"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Użyj Power BI i bezserwerowej puli SQL Synapse, aby analizować dane Azure Cosmos DB za pomocą linku Synapse (wersja zapoznawcza) 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
-W tym artykule dowiesz się, jak utworzyć bezserwerową pulę SQL Synapse (która wcześniej była określana jako baza danych **SQL na żądanie**) i widoki dla Azure Cosmos DB. Należy wykonać zapytanie dotyczące kontenerów usługi Azure Cosmos, a następnie skompilować model przy użyciu Power BI w tych widokach w celu odzwierciedlenia tej kwerendy.
+W tym artykule dowiesz się, jak utworzyć bezserwerową pulę SQL Synapse (która wcześniej była określana jako baza danych **SQL na żądanie** ) i widoki dla Azure Cosmos DB. Należy wykonać zapytanie dotyczące kontenerów usługi Azure Cosmos, a następnie skompilować model przy użyciu Power BI w tych widokach w celu odzwierciedlenia tej kwerendy.
 
 W tym scenariuszu będziesz używać fikcyjnych danych dotyczących sprzedaży produktu Surface w sklepie detalicznym partnera. Możesz analizować przychody dla sklepu w oparciu o bliskość do dużych gospodarstw domowych i wpływ anonsowania na określony tydzień. W tym artykule opisano tworzenie dwóch widoków o nazwach **RetailSales** i **StoreDemographics** oraz zapytania między nimi. Dane przykładowego produktu można pobrać z tego repozytorium [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) .
 
@@ -31,21 +32,21 @@ Przed rozpoczęciem upewnij się, że zostały utworzone następujące zasoby:
 
 * Załaduj dane produktów do kontenerów usługi Azure Cosmos, zgodnie z opisem w tym notesie pozyskiwania [danych wsadowych](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb) .
 
-* [Utwórz obszar roboczy Synapse](../synapse-analytics/quickstart-create-workspace.md) o nazwie **SynapseLinkBI**.
+* [Utwórz obszar roboczy Synapse](../synapse-analytics/quickstart-create-workspace.md) o nazwie **SynapseLinkBI** .
 
 * [Połącz bazę danych usługi Azure Cosmos z obszarem roboczym Synapse](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json).
 
 ## <a name="create-a-database-and-views"></a>Tworzenie bazy danych i widoków
 
-W obszarze roboczym Synapse przejdź do karty **programowanie** , wybierz **+** ikonę, a następnie wybierz pozycję **skrypt SQL**.
+W obszarze roboczym Synapse przejdź do karty **programowanie** , wybierz **+** ikonę, a następnie wybierz pozycję **skrypt SQL** .
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Dodawanie skryptu SQL do obszaru roboczego analizy Synapse":::
 
-Każdy obszar roboczy jest dostarczany z bezserwerowym punktem końcowym SQL. Po utworzeniu skryptu SQL z paska narzędzi na górze Połącz się z serwerem **SQL na żądanie**.
+Każdy obszar roboczy jest dostarczany z bezserwerowym punktem końcowym SQL. Po utworzeniu skryptu SQL z paska narzędzi na górze Połącz się z serwerem **SQL na żądanie** .
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Dodawanie skryptu SQL do obszaru roboczego analizy Synapse":::
 
-Utwórz nową bazę danych o nazwie **RetailCosmosDB**i Widok SQL dla kontenerów z włączonym linkiem Synapse. Następujące polecenie pokazuje, jak utworzyć bazę danych:
+Utwórz nową bazę danych o nazwie **RetailCosmosDB** i Widok SQL dla kontenerów z włączonym linkiem Synapse. Następujące polecenie pokazuje, jak utworzyć bazę danych:
 
 ```sql
 -- Create database
@@ -109,15 +110,15 @@ Wybierz pozycję **Uruchom** , która daje w wyniku następującą tabelę:
 
 Następnie otwórz Power BI Desktop i Połącz się z punktem końcowym SQL bezserwerowym, wykonując następujące czynności:
 
-1. Otwórz aplikację Power BI Desktop. Wybierz pozycję **Pobierz dane** i wybierz pozycję **więcej**.
+1. Otwórz aplikację Power BI Desktop. Wybierz pozycję **Pobierz dane** i wybierz pozycję **więcej** .
 
 1. Wybierz pozycję **Azure Synapse Analytics (SQL DW)** z listy opcje połączenia.
 
-1. Wprowadź nazwę punktu końcowego SQL, w którym znajduje się baza danych. Wprowadź `SynapseLinkBI-ondemand.sql.azuresynapse.net` wartość w polu **serwer** . W tym przykładzie  **SynapseLinkBI** jest nazwą obszaru roboczego. Zastąp ją, jeśli masz inną nazwę w obszarze roboczym. Wybierz opcję **bezpośrednie zapytanie** dla trybu łączności danych, a następnie kliknij przycisk **OK**.
+1. Wprowadź nazwę punktu końcowego SQL, w którym znajduje się baza danych. Wprowadź `SynapseLinkBI-ondemand.sql.azuresynapse.net` wartość w polu **serwer** . W tym przykładzie  **SynapseLinkBI** jest nazwą obszaru roboczego. Zastąp ją, jeśli masz inną nazwę w obszarze roboczym. Wybierz opcję **bezpośrednie zapytanie** dla trybu łączności danych, a następnie kliknij przycisk **OK** .
 
 1. Wybierz preferowaną metodę uwierzytelniania, taką jak Azure AD.
 
-1. Wybierz **RetailCosmosDB** bazę danych i widoki **RetailSales**, **StoreDemographics** .
+1. Wybierz **RetailCosmosDB** bazę danych i widoki **RetailSales** , **StoreDemographics** .
 
 1. Wybierz pozycję **Załaduj** , aby załadować dwa widoki do trybu zapytania bezpośredniego.
 
@@ -129,7 +130,7 @@ Następnie otwórz Power BI Desktop i Połącz się z punktem końcowym SQL bezs
 
 Teraz przejdź do okna **raport** i Utwórz raport, aby porównać względną ważność rozmiaru gospodarstwa domowego z średnim przychodem na sklep w oparciu o rozproszenie reprezentację przychodu i indeksu LargeHH:
 
-1. Wybierz **Wykres punktowy**.
+1. Wybierz **Wykres punktowy** .
 
 1. Przeciągnij i upuść **LargeHH** z widoku **StoreDemographics** do osi X.
 

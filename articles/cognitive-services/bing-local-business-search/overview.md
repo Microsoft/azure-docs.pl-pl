@@ -10,18 +10,23 @@ ms.subservice: bing-local-business
 ms.topic: overview
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 685ee0c616234563981e55f14213e424daae32f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b715d4b801159b451957c30ee9ef7b406f3a2f4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85611275"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095377"
 ---
 # <a name="what-is-bing-local-business-search"></a>Co to jest lokalne wyszukiwanie w biznesie Bing?
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 Lokalny interfejs API wyszukiwania biznesowego Bing to usługa RESTful, która umożliwia aplikacjom Znajdowanie informacji o lokalnych firmach na podstawie zapytań wyszukiwania. Na przykład, `q=<business-name> in Redmond, Washington` lub `q=Italian restaurants near me` . 
 
 ## <a name="features"></a>Funkcje
-| Cecha | Opis |  
+| Cechy | Opis |  
 | -- | -- | 
 | [Znajdowanie lokalnych firm i lokalizacji](quickstarts/local-quickstart.md) | Interfejs API wyszukiwania lokalnego firmy Bing umożliwia zlokalizowanie wyników zapytania. Wyniki obejmują adres URL witryny internetowej firmy oraz wyświetla tekst, numer telefonu i lokalizację geograficzną, w tym: współrzędne GPS, miasto, ulica adresu |  
 | [Filtrowanie wyników lokalnych ze granicami geograficznymi](specify-geographic-search.md) | Dodaj współrzędne jako parametry wyszukiwania, aby ograniczyć wyniki do określonego obszaru geograficznego, określonego przez okrągły obszar lub kwadratowe pole ograniczające. | 

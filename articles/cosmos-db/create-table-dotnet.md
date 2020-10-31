@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 65a3e9a1e60ad28fbc0357c5b04007ce4da37895
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 513af71384fd1fa5d38ee3ec367a42892a662444
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487606"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096941"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji interfejs API tabel przy użyciu zestawu .NET SDK i Azure Cosmos DB 
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -29,7 +30,7 @@ Ten przewodnik szybkiego startu pokazuje, jak używać programu .NET i [interfej
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2019, możesz pobrać i korzystać **bezpłatnie** z programu [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
+Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2019, możesz pobrać i korzystać **bezpłatnie** z programu [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure** .
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -72,7 +73,7 @@ Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połącz
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Otwieranie przykładowej aplikacji w programie Visual Studio
 
-1. W programie Visual Studio wybierz z menu **Plik** pozycję **Otwórz**, a następnie wybierz pozycję **Projekt/Rozwiązanie**. 
+1. W programie Visual Studio wybierz z menu **Plik** pozycję **Otwórz** , a następnie wybierz pozycję **Projekt/Rozwiązanie** . 
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-open-solution.png" alt-text="Otwieranie rozwiązania"::: 
 
@@ -102,7 +103,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy d
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Umożliwia to aplikacji komunikację z hostowaną bazą danych. 
 
-1. W witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Parametry połączenia**. Użyj przycisku kopiowania po prawej stronie okna, aby skopiować **PODSTAWOWE PARAMETRY POŁĄCZENIA**.
+1. W witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Parametry połączenia** . Użyj przycisku kopiowania po prawej stronie okna, aby skopiować **PODSTAWOWE PARAMETRY POŁĄCZENIA** .
 
    :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Otwieranie rozwiązania"
    }
@@ -114,7 +115,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 ## <a name="build-and-deploy-the-app"></a>Kompilowanie i wdrażanie aplikacji
 
-1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt **CosmosTableSamples** w **Eksplorator rozwiązań** a następnie kliknij pozycję **Zarządzaj pakietami NuGet**. 
+1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt **CosmosTableSamples** w **Eksplorator rozwiązań** a następnie kliknij pozycję **Zarządzaj pakietami NuGet** . 
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-manage-nuget.png" alt-text="Otwieranie rozwiązania":::
 
@@ -124,7 +125,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 3. Kliknij przycisk **Instaluj** , aby zainstalować bibliotekę **Microsoft. Azure. Cosmos. Table** . Spowoduje to zainstalowanie pakietu interfejsu API tabeli usługi Azure Cosmos DB oraz wszystkich zależności.
 
-4. Po uruchomieniu całej aplikacji przykładowe dane są wstawiane do jednostki tabeli i usuwane na końcu, aby nie były widoczne żadne dane wstawione w przypadku uruchomienia całego przykładu. Można jednak wstawić kilka punktów przerwania, aby wyświetlić dane. Otwórz plik BasicSamples.cs i kliknij prawym przyciskiem myszy wiersz 52, wybierz **punkt przerwania**, a następnie wybierz polecenie **Wstaw punkt przerwania**. Wstaw kolejny punkt przerwania w wierszu 55.
+4. Po uruchomieniu całej aplikacji przykładowe dane są wstawiane do jednostki tabeli i usuwane na końcu, aby nie były widoczne żadne dane wstawione w przypadku uruchomienia całego przykładu. Można jednak wstawić kilka punktów przerwania, aby wyświetlić dane. Otwórz plik BasicSamples.cs i kliknij prawym przyciskiem myszy wiersz 52, wybierz **punkt przerwania** , a następnie wybierz polecenie **Wstaw punkt przerwania** . Wstaw kolejny punkt przerwania w wierszu 55.
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-breakpoint.png" alt-text="Otwieranie rozwiązania"::: 
 
@@ -132,7 +133,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
     
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="Otwieranie rozwiązania":::
 
-   Po dotarciu do pierwszego punktu przerwania wróć do Eksploratora danych w witrynie Azure Portal. Kliknij przycisk **Odśwież**, rozwiń tabelę demo* i kliknij pozycję **Jednostki**. Karta **Jednostki** po prawej stronie zawiera nową jednostkę dodaną dla Waltera Harpa. Zauważ, że numer telefonu nowej jednostki to 425-555-0101.
+   Po dotarciu do pierwszego punktu przerwania wróć do Eksploratora danych w witrynie Azure Portal. Kliknij przycisk **Odśwież** , rozwiń tabelę demo* i kliknij pozycję **Jednostki** . Karta **Jednostki** po prawej stronie zawiera nową jednostkę dodaną dla Waltera Harpa. Zauważ, że numer telefonu nowej jednostki to 425-555-0101.
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="Otwieranie rozwiązania":::
     

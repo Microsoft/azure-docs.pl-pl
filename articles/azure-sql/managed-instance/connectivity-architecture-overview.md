@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5ebe0bcf1e491166c5fc61597904056307f9679c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461723"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098012"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architektura łączności dla usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. 
 - **Delegowanie podsieci:** Podsieć wystąpienia zarządzanego SQL musi być delegowana do `Microsoft.Sql/managedInstances` dostawcy zasobów.
 - **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń):** SIECIOWEJ grupy zabezpieczeń musi być skojarzona z podsiecią wystąpienia zarządzanego SQL. Można użyć sieciowej grupy zabezpieczeń, aby kontrolować dostęp do punktu końcowego danych wystąpienia zarządzanego SQL przez filtrowanie ruchu na porcie 1433 i port 11000-11999, gdy wystąpienie zarządzane SQL jest skonfigurowane do przekierowania połączeń. Usługa będzie automatycznie udostępniać i utrzymywać bieżące [reguły](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) wymagane do umożliwienia nieprzerwanego przepływu ruchu zarządzania.
 - **Tabela zdefiniowana przez użytkownika trasa (UDR):** Tabela UDR musi być skojarzona z podsiecią wystąpienia zarządzanego SQL. Można dodać wpisy do tabeli tras, aby skierować ruch, który ma lokalne prywatne zakresy adresów IP jako lokalizację docelową, za pomocą bramy sieci wirtualnej lub wirtualnego urządzenia sieciowego (urządzenia WUS). Usługa będzie automatycznie aprowizować i utrzymywać bieżące wymagane [wpisy](#user-defined-routes-with-service-aided-subnet-configuration), aby umożliwić nieprzerwany przepływ ruchu związanego z zarządzaniem.
-- **Wystarczające adresy IP:** Podsieć wystąpienia zarządzanego SQL musi mieć co najmniej 16 adresów IP. Zalecana minimalna liczba adresów IP to 32. Aby uzyskać więcej informacji, zobacz [Określanie rozmiaru podsieci dla wystąpienia zarządzanego SQL](vnet-subnet-determine-size.md). Wystąpienia zarządzane można wdrożyć w [istniejącej sieci](vnet-existing-add-subnet.md) po jej skonfigurowaniu w taki sposób, aby spełniały [wymagania dotyczące sieci dla wystąpienia zarządzanego SQL](#network-requirements). W innym przypadku utwórz [nową sieć i podsieć](virtual-network-subnet-create-arm-template.md).
+- **Wystarczające adresy IP:** Podsieć wystąpienia zarządzanego SQL musi mieć co najmniej 32 adresów IP. Aby uzyskać więcej informacji, zobacz [Określanie rozmiaru podsieci dla wystąpienia zarządzanego SQL](vnet-subnet-determine-size.md). Wystąpienia zarządzane można wdrożyć w [istniejącej sieci](vnet-existing-add-subnet.md) po jej skonfigurowaniu w taki sposób, aby spełniały [wymagania dotyczące sieci dla wystąpienia zarządzanego SQL](#network-requirements). W innym przypadku utwórz [nową sieć i podsieć](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
 > Podczas tworzenia wystąpienia zarządzanego w podsieci są stosowane zasady konwersji sieci, które uniemożliwiają niezgodne zmiany konfiguracji sieci. Po usunięciu ostatniego wystąpienia z podsieci zostaną również usunięte zasady dotyczące opcji sieci.
@@ -301,20 +301,22 @@ Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. 
 
 \* Podsieć MI odnosi się do zakresu adresów IP podsieci w postaci x. x. x. x/y. Te informacje można znaleźć w Azure Portal, we właściwościach podsieci.
 
+\** Jeśli adres docelowy dotyczy jednej z usług platformy Azure, platforma Azure kieruje ruch bezpośrednio do usługi za pośrednictwem sieci szkieletowej platformy Azure, a nie kierowanie ruchu do Internetu. Ruch między usługami Azure nie przechodzi przez Internet niezależnie od tego, w którym regionie platformy Azure istnieje sieć wirtualna lub w którym regionie platformy Azure zostało wdrożone wystąpienie usługi platformy Azure. Aby uzyskać więcej szczegółów, zobacz [stronę dokumentacji usługi UDR](../../virtual-network/virtual-networks-udr-overview.md).
+
 Ponadto można dodać pozycje do tabeli tras, aby skierować ruch, który ma lokalne prywatne zakresy adresów IP jako miejsce docelowe za pomocą bramy sieci wirtualnej lub urządzenia sieci wirtualnej (urządzenie WUS).
 
 Jeśli sieć wirtualna zawiera niestandardowy system DNS, niestandardowy serwer DNS musi być w stanie rozpoznać publiczne rekordy DNS. Korzystanie z dodatkowych funkcji, takich jak uwierzytelnianie w usłudze Azure AD, może wymagać rozpoznawania dodatkowych nazw FQDN. Aby uzyskać więcej informacji, zobacz [Konfigurowanie niestandardowego serwera DNS](custom-dns-configure.md).
 
 ### <a name="networking-constraints"></a>Ograniczenia sieci
 
-Protokoły **tls 1,2 są wymuszane dla połączeń wychodzących**: w styczniu 2020 firma Microsoft wymusi TLS 1,2 dla ruchu wewnątrz usługi we wszystkich usługach platformy Azure. W przypadku wystąpienia zarządzanego usługi Azure SQL nastąpiło wymuszenie protokołu TLS 1,2 dla połączeń wychodzących używanych na potrzeby replikacji i połączeń połączonych z serwerem do SQL Server. Jeśli używasz wersji SQL Server starszej niż 2016 z wystąpieniem zarządzanym SQL, upewnij się, że zastosowano [określone aktualizacje protokołu TLS 1,2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) .
+Protokoły **tls 1,2 są wymuszane dla połączeń wychodzących** : w styczniu 2020 firma Microsoft wymusi TLS 1,2 dla ruchu wewnątrz usługi we wszystkich usługach platformy Azure. W przypadku wystąpienia zarządzanego usługi Azure SQL nastąpiło wymuszenie protokołu TLS 1,2 dla połączeń wychodzących używanych na potrzeby replikacji i połączeń połączonych z serwerem do SQL Server. Jeśli używasz wersji SQL Server starszej niż 2016 z wystąpieniem zarządzanym SQL, upewnij się, że zastosowano [określone aktualizacje protokołu TLS 1,2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) .
 
 Następujące funkcje sieci wirtualnej nie są obecnie obsługiwane w przypadku wystąpienia zarządzanego SQL:
 
-- **Komunikacja równorzędna firmy Microsoft**: włączenie komunikacji [równorzędnej firmy Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) w obwodach usługi ExpressRoute bezpośrednio lub przechodniej z siecią wirtualną, w której znajduje się wystąpienie zarządzane SQL, wpływa na przepływ ruchu między składnikami wystąpienia zarządzanego SQL w sieci wirtualnej i usług, od których jest zależna, co powoduje problemy z dostępnością. Wdrożenia wystąpienia zarządzanego SQL w sieci wirtualnej z usługą komunikacji równorzędnej firmy Microsoft są już niepowodzeniem.
-- **Globalna komunikacja równorzędna sieci wirtualnych**: połączenie [komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-peering-overview.md) w regionach platformy Azure nie działa dla wystąpień zarządzanych SQL umieszczonych w podsieciach utworzonych przed 9/22/2020.
-- **AzurePlatformDNS**: użycie [znacznika usługi](../../virtual-network/service-tags-overview.md) AzurePlatformDNS do blokowania rozpoznawania nazw DNS platformy spowoduje, że wystąpienie zarządzane SQL nie jest dostępne. Chociaż zarządzane przez klienta wystąpienie systemu DNS obsługuje rozpoznawanie nazw DNS w ramach aparatu, istnieje zależność od systemu DNS platformy dla operacji na platformie.
-- **Brama translatora adresów sieciowych**: użycie [usługi Azure Virtual Network NAT](../../virtual-network/nat-overview.md) do kontrolowania łączności wychodzącej z określonym publicznym adresem IP spowoduje, że wystąpienie zarządzane SQL nie jest dostępne. Usługa wystąpienia zarządzanego SQL jest obecnie ograniczona do korzystania z podstawowego modułu równoważenia obciążenia, który nie zapewnia współistnienia przepływów ruchu przychodzącego i wychodzącego z Virtual Network translatora adresów sieciowych.
+- **Komunikacja równorzędna firmy Microsoft** : włączenie komunikacji [równorzędnej firmy Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) w obwodach usługi ExpressRoute bezpośrednio lub przechodniej z siecią wirtualną, w której znajduje się wystąpienie zarządzane SQL, wpływa na przepływ ruchu między składnikami wystąpienia zarządzanego SQL w sieci wirtualnej i usług, od których jest zależna, co powoduje problemy z dostępnością. Wdrożenia wystąpienia zarządzanego SQL w sieci wirtualnej z usługą komunikacji równorzędnej firmy Microsoft są już niepowodzeniem.
+- **Globalna komunikacja równorzędna sieci wirtualnych** : połączenie [komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-peering-overview.md) w regionach platformy Azure nie działa dla wystąpień zarządzanych SQL umieszczonych w podsieciach utworzonych przed 9/22/2020.
+- **AzurePlatformDNS** : użycie [znacznika usługi](../../virtual-network/service-tags-overview.md) AzurePlatformDNS do blokowania rozpoznawania nazw DNS platformy spowoduje, że wystąpienie zarządzane SQL nie jest dostępne. Chociaż zarządzane przez klienta wystąpienie systemu DNS obsługuje rozpoznawanie nazw DNS w ramach aparatu, istnieje zależność od systemu DNS platformy dla operacji na platformie.
+- **Brama translatora adresów sieciowych** : użycie [usługi Azure Virtual Network NAT](../../virtual-network/nat-overview.md) do kontrolowania łączności wychodzącej z określonym publicznym adresem IP spowoduje, że wystąpienie zarządzane SQL nie jest dostępne. Usługa wystąpienia zarządzanego SQL jest obecnie ograniczona do korzystania z podstawowego modułu równoważenia obciążenia, który nie zapewnia współistnienia przepływów ruchu przychodzącego i wychodzącego z Virtual Network translatora adresów sieciowych.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>Przestarzałe Wymagania sieci bez konfiguracji podsieci z obsługą usług
 

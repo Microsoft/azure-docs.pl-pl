@@ -8,14 +8,15 @@ ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b1c2377ba26b4ca64f5028fb1a51ca4e64f6a67c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319363"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097893"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnozowanie i rozwiązywanie problemów z dostępnością zestawów SDK usługi Azure Cosmos w środowiskach wieloregionowych
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule opisano zachowanie najnowszej wersji zestawów SDK usługi Azure Cosmos w przypadku wystąpienia problemu z łącznością z określonym regionem lub przejścia w tryb failover w regionie.
 
@@ -34,7 +35,7 @@ Po ustawieniu preferencji regionalnych klient będzie łączył się z regionem,
 | Pojedynczy region zapisu | Preferowany region | Region podstawowy  |
 | Wiele regionów zapisu | Preferowany region | Preferowany region  |
 
-Jeśli **nie ustawisz preferowanego regionu**, klient zestawu SDK domyślnie będzie regionem podstawowym:
+Jeśli **nie ustawisz preferowanego regionu** , klient zestawu SDK domyślnie będzie regionem podstawowym:
 
 |Typ konta |Odczyty |Zapisy |
 |------------------------|--|--|
@@ -46,7 +47,7 @@ Jeśli **nie ustawisz preferowanego regionu**, klient zestawu SDK domyślnie bę
 
 W normalnych warunkach klient zestawu SDK będzie łączył się z preferowanym regionem (Jeśli ustawiona jest preferencja regionalna) lub do regionu podstawowego (jeśli nie ustawiono preferencji), a operacje będą ograniczone do tego regionu, chyba że wystąpi którykolwiek z poniższych scenariuszy.
 
-W takich przypadkach klient korzystający z zestawu SDK usługi Azure Cosmos udostępnia dzienniki i zawiera informacje o ponownych próbach w ramach **informacji diagnostycznych dotyczących operacji**:
+W takich przypadkach klient korzystający z zestawu SDK usługi Azure Cosmos udostępnia dzienniki i zawiera informacje o ponownych próbach w ramach **informacji diagnostycznych dotyczących operacji** :
 
 * Właściwość *RequestDiagnosticsString* na odpowiedziach w zestawie SDK platformy .net v2.
 * Właściwość *diagnostyki* odpowiedzi i wyjątków w programie .NET v3 SDK.

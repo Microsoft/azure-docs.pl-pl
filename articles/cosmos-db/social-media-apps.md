@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 329c4b40f11b36de80581d4a1396813bc8de5c73
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478154"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097332"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Przechodzenie do społeczności Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Żyjące w wysoce niepołączonym świecie polega na tym, że w pewnym momencie Life staje się częścią **sieci społecznościowej**. Sieci społecznościowe umożliwiają kontaktowanie się ze znajomymi, współpracownikami i rodziną, a czasami udostępnianie pasją użytkownikom z typowymi zainteresowaniami.
+Żyjące w wysoce niepołączonym świecie polega na tym, że w pewnym momencie Life staje się częścią **sieci społecznościowej** . Sieci społecznościowe umożliwiają kontaktowanie się ze znajomymi, współpracownikami i rodziną, a czasami udostępnianie pasją użytkownikom z typowymi zainteresowaniami.
 
 Jak inżynierowie lub deweloperzy, prawdopodobnie zastanawiasz się, jak te sieci przechowują i współdziałają z danymi. Możesz również mieć jeszcze zadanie tworzenia lub projektowania nowej sieci społecznościowej dla określonego rynku. To jest ważne pytanie: jak są przechowywane wszystkie te dane?
 
@@ -238,9 +239,9 @@ Kolejną dostępną opcją jest użycie [usługi Azure Cognitive Services](https
 
 ## <a name="a-planet-scale-social-experience"></a>Środowisko społecznościowe w skali globalnej
 
-Istnieje ostatni, ale nie najmniejsza, istotny artykuł, który należy rozwiązać: **skalowalność**. Podczas projektowania architektury każdy składnik powinien być skalowany samodzielnie. Ostatecznie trzeba będzie przetworzyć więcej danych lub zwiększyć pokrycie geograficzne. Thankfully, osiągnięcie obu zadań to **środowisko gotowe** z Cosmos DB.
+Istnieje ostatni, ale nie najmniejsza, istotny artykuł, który należy rozwiązać: **skalowalność** . Podczas projektowania architektury każdy składnik powinien być skalowany samodzielnie. Ostatecznie trzeba będzie przetworzyć więcej danych lub zwiększyć pokrycie geograficzne. Thankfully, osiągnięcie obu zadań to **środowisko gotowe** z Cosmos DB.
 
-Cosmos DB obsługuje dynamiczne partycjonowanie. Automatycznie tworzy partycje na podstawie danego **klucza partycji**, który jest zdefiniowany jako atrybut w dokumentach. Definiowanie poprawnego klucza partycji musi odbywać się w czasie projektowania. Aby uzyskać więcej informacji, zobacz [partycjonowanie w Azure Cosmos DB](partitioning-overview.md).
+Cosmos DB obsługuje dynamiczne partycjonowanie. Automatycznie tworzy partycje na podstawie danego **klucza partycji** , który jest zdefiniowany jako atrybut w dokumentach. Definiowanie poprawnego klucza partycji musi odbywać się w czasie projektowania. Aby uzyskać więcej informacji, zobacz [partycjonowanie w Azure Cosmos DB](partitioning-overview.md).
 
 W przypadku korzystania z społecznościowych należy wyrównać strategię partycjonowania w sposób wykonywania zapytań i pisania. (Na przykład odczyty w obrębie tej samej partycji są pożądane i należy unikać operacji "gorąca") poprzez rozłożenie zapisu na wielu partycjach. Niektóre opcje są następujące: partycje oparte na kluczu czasowym (dzień/miesiąc/tydzień) według kategorii zawartości według regionu geograficznego lub przez użytkownika. Wszystko to jest zależne od tego, w jaki sposób będziesz wykonywać zapytania dotyczące danych i wyświetlać dane w środowisku społecznościowym.
 
@@ -252,7 +253,7 @@ Od momentu ostatecznie zwiększy się ruch, a użycie zasobów (mierzone w [jedn
 
 Co się stanie, jeśli problemy są lepsze? Załóżmy, że użytkownicy z innego regionu, kraju lub kontynentu zauważają platformę i zaczynają z niej korzystać. To świetny niespodziewany!
 
-To nie wszystko! Wkrótce zapoznaj się z platformą, która nie jest optymalna. Są one daleko od regionu operacyjnego, który jest jaszczurów opóźnienia. Oczywiście nie chcesz, aby zostały zamknięte. Jeśli było to prosty sposób **rozszerzania Twojego dostępu globalnego**? Istnieje!
+To nie wszystko! Wkrótce zapoznaj się z platformą, która nie jest optymalna. Są one daleko od regionu operacyjnego, który jest jaszczurów opóźnienia. Oczywiście nie chcesz, aby zostały zamknięte. Jeśli było to prosty sposób **rozszerzania Twojego dostępu globalnego** ? Istnieje!
 
 Cosmos DB umożliwia [globalną replikację danych](../cosmos-db/tutorial-global-distribution-sql-api.md) i przezroczystość za pomocą kilku kliknięć i automatyczne wybór spośród dostępnych regionów z [kodu klienta](../cosmos-db/tutorial-global-distribution-sql-api.md). Ten proces oznacza również, że można mieć [wiele regionów trybu failover](high-availability.md).
 

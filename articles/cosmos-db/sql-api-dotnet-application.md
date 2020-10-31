@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e1dd1e94bd9747bb0961c09ce2f281c433b4b4fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e4e2ba15dad7459ba3f7926a965292be37249054
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488218"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097366"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Samouczek: opracowywanie aplikacji sieci Web ASP.NET Core MVC z Azure Cosmos DB przy użyciu zestawu SDK platformy .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -67,15 +68,15 @@ W następnej sekcji utworzysz nową aplikację ASP.NET Core MVC.
 
 ## <a name="step-2-create-a-new-aspnet-core-mvc-application"></a><a name="create-a-new-mvc-application"></a>Krok 2. Tworzenie nowej aplikacji ASP.NET Core MVC
 
-1. Otwórz program Visual Studio i wybierz pozycję **Utwórz nowy projekt**.
+1. Otwórz program Visual Studio i wybierz pozycję **Utwórz nowy projekt** .
 
-1. W obszarze **Utwórz nowy projekt**Znajdź i wybierz **ASP.NET Core aplikacji sieci Web** dla języka C#. Wybierz przycisk **Dalej**, aby kontynuować.
+1. W obszarze **Utwórz nowy projekt** Znajdź i wybierz **ASP.NET Core aplikacji sieci Web** dla języka C#. Wybierz przycisk **Dalej** , aby kontynuować.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
-1. W obszarze **Konfigurowanie nowego projektu**Nazwij projekt do *zrobienia* i wybierz pozycję **Utwórz**.
+1. W obszarze **Konfigurowanie nowego projektu** Nazwij projekt do *zrobienia* i wybierz pozycję **Utwórz** .
 
-1. W obszarze **Utwórz nową aplikację sieci web ASP.NET Core**wybierz pozycję **aplikacja sieci Web (Model-View-Controller)**. Wybierz pozycję **Utwórz** , aby kontynuować.
+1. W obszarze **Utwórz nową aplikację sieci web ASP.NET Core** wybierz pozycję **aplikacja sieci Web (Model-View-Controller)** . Wybierz pozycję **Utwórz** , aby kontynuować.
 
    Program Visual Studio tworzy pustą aplikację MVC.
 
@@ -85,15 +86,15 @@ W następnej sekcji utworzysz nową aplikację ASP.NET Core MVC.
 
 Teraz, gdy mamy najwięcej ASP.NET Core kodu platformy MVC dla tego rozwiązania, dodamy pakiety NuGet wymagane do nawiązania połączenia z Azure Cosmos DB.
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz pozycję **Zarządzaj pakietami NuGet**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz pozycję **Zarządzaj pakietami NuGet** .
 
-1. W **Menedżerze pakietów NuGet**Wyszukaj i wybierz pozycję **Microsoft. Azure. Cosmos**. Wybierz pozycję **Zainstaluj**.
+1. W **Menedżerze pakietów NuGet** Wyszukaj i wybierz pozycję **Microsoft. Azure. Cosmos** . Wybierz pozycję **Zainstaluj** .
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
    Program Visual Studio pobiera i instaluje pakiet Azure Cosmos DB wraz z jego zależnościami.
 
-   Do zainstalowania pakietu NuGet można także użyć **konsoli Menedżera pakietów** . W tym celu wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**. W wierszu polecenia wpisz następujące polecenie:
+   Do zainstalowania pakietu NuGet można także użyć **konsoli Menedżera pakietów** . W tym celu wybierz kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** . W wierszu polecenia wpisz następujące polecenie:
 
    ```ps
    Install-Package Microsoft.Azure.Cosmos
@@ -105,9 +106,9 @@ Teraz Dodajmy modele, widoki i kontrolery do tej aplikacji MVC.
 
 ### <a name="add-a-model"></a><a name="add-a-model"></a> Dodawanie modelu
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **modele** , a następnie wybierz polecenie **Dodaj**  >  **klasę**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy folder **modele** , a następnie wybierz polecenie **Dodaj**  >  **klasę** .
 
-1. W obszarze **Dodaj nowy element**nadaj nowej klasie nazwę *Item.cs* i wybierz pozycję **Dodaj**.
+1. W obszarze **Dodaj nowy element** nadaj nowej klasie nazwę *Item.cs* i wybierz pozycję **Dodaj** .
 
 1. Zastąp zawartość klasy *Item.cs* następującym kodem:
 
@@ -127,17 +128,17 @@ Następnie Dodajmy następujące widoki.
 
 #### <a name="create-item-view"></a><a name="AddNewIndexView"></a>Widok tworzenia elementu
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **widoki** i wybierz polecenie **Dodaj**  >  **Nowy folder**. Nadaj nazwę *elementowi*folderu.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy folder **widoki** i wybierz polecenie **Dodaj**  >  **Nowy folder** . Nadaj nazwę *elementowi* folderu.
 
-1. Kliknij prawym przyciskiem myszy folder pusty **element** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
+1. Kliknij prawym przyciskiem myszy folder pusty **element** , a następnie wybierz polecenie **Dodaj**  >  **Widok** .
 
-1. W obszarze **Dodaj widok MVC**wprowadź następujące zmiany:
+1. W obszarze **Dodaj widok MVC** wprowadź następujące zmiany:
 
-   * W polu **Nazwa widoku**wpisz polecenie *Utwórz*.
-   * W obszarze **szablon**wybierz pozycję **Utwórz**.
-   * W obszarze **Klasa modelu**wybierz pozycję **element (do zrobienia. Modele)**.
-   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
-   * Wybierz pozycję **Dodaj**.
+   * W polu **Nazwa widoku** wpisz polecenie *Utwórz* .
+   * W obszarze **szablon** wybierz pozycję **Utwórz** .
+   * W obszarze **Klasa modelu** wybierz pozycję **element (do zrobienia. Modele)** .
+   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml* .
+   * Wybierz pozycję **Dodaj** .
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
@@ -147,15 +148,15 @@ Następnie Dodajmy następujące widoki.
 
 #### <a name="delete-item-view"></a><a name="AddEditIndexView"></a>Usuń widok elementu
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok** .
 
-1. W obszarze **Dodaj widok MVC**wprowadź następujące zmiany:
+1. W obszarze **Dodaj widok MVC** wprowadź następujące zmiany:
 
-   * W polu **Nazwa widoku** wpisz *delete*.
-   * W polu **szablon** wybierz pozycję **Usuń**.
-   * W polu **Klasa modelu** wybierz pozycję **Item (todo.Models)**.
-   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
-   * Wybierz pozycję **Dodaj**.
+   * W polu **Nazwa widoku** wpisz *delete* .
+   * W polu **szablon** wybierz pozycję **Usuń** .
+   * W polu **Klasa modelu** wybierz pozycję **Item (todo.Models)** .
+   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml* .
+   * Wybierz pozycję **Dodaj** .
 
 1. Następnie wybierz pozycję **Dodaj** i Pozwól programowi Visual Studio utworzyć nowy widok szablonu. Zastąp kod w wygenerowanym pliku następującym zawartością:
 
@@ -163,14 +164,14 @@ Następnie Dodajmy następujące widoki.
 
 #### <a name="add-a-view-to-get-an-item-details"></a><a name="AddItemIndexView"></a>Dodaj widok, aby uzyskać szczegółowe informacje o elemencie
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok** .
 
-1. W obszarze **Dodaj widok MVC**podaj następujące wartości:
+1. W obszarze **Dodaj widok MVC** podaj następujące wartości:
 
-   * W polu **Nazwa widoku**wprowadź *szczegóły*.
-   * W obszarze **szablon**wybierz pozycję **szczegóły**.
-   * W obszarze **Klasa modelu**wybierz pozycję **element (do zrobienia. Modele)**.
-   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
+   * W polu **Nazwa widoku** wprowadź *szczegóły* .
+   * W obszarze **szablon** wybierz pozycję **szczegóły** .
+   * W obszarze **Klasa modelu** wybierz pozycję **element (do zrobienia. Modele)** .
+   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml* .
 
 1. Następnie wybierz pozycję **Dodaj** i Pozwól programowi Visual Studio utworzyć nowy widok szablonu. Zastąp kod w wygenerowanym pliku następującym zawartością:
 
@@ -178,15 +179,15 @@ Następnie Dodajmy następujące widoki.
 
 #### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Dodawanie widoku edycji elementu
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok** .
 
-1. W obszarze **Dodaj widok MVC**wprowadź następujące zmiany:
+1. W obszarze **Dodaj widok MVC** wprowadź następujące zmiany:
 
    * W polu **Nazwa widoku** wpisz *Edit* (Edycja).
-   * W polu **Szablon** wybierz pozycję **Edycja**.
-   * W polu **Klasa modelu** wybierz pozycję **Item (todo.Models)**.
-   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
-   * Wybierz pozycję **Dodaj**.
+   * W polu **Szablon** wybierz pozycję **Edycja** .
+   * W polu **Klasa modelu** wybierz pozycję **Item (todo.Models)** .
+   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml* .
+   * Wybierz pozycję **Dodaj** .
 
 1. Następnie wybierz pozycję **Dodaj** i Pozwól programowi Visual Studio utworzyć nowy widok szablonu. Zastąp kod w wygenerowanym pliku następującym zawartością:
 
@@ -196,15 +197,15 @@ Następnie Dodajmy następujące widoki.
 
 A wreszcie Dodaj widok, aby uzyskać wszystkie elementy, wykonując następujące czynności:
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok** .
 
-1. W obszarze **Dodaj widok MVC**wprowadź następujące zmiany:
+1. W obszarze **Dodaj widok MVC** wprowadź następujące zmiany:
 
    * W polu **Nazwa widoku** wpisz *Index* (Indeks).
-   * W polu **Szablon** wybierz pozycję **Lista**.
-   * W polu **Klasa modelu** wybierz pozycję **Item (todo.Models)**.
-   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
-   * Wybierz pozycję **Dodaj**.
+   * W polu **Szablon** wybierz pozycję **Lista** .
+   * W polu **Klasa modelu** wybierz pozycję **Item (todo.Models)** .
+   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml* .
+   * Wybierz pozycję **Dodaj** .
 
 1. Następnie wybierz pozycję **Dodaj** i Pozwól programowi Visual Studio utworzyć nowy widok szablonu. Zastąp kod w wygenerowanym pliku następującym zawartością:
 
@@ -216,21 +217,21 @@ Po wykonaniu tych kroków zamknij wszystkie dokumenty *cshtml* w programie Visua
 
 Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połączenia i użycie Azure Cosmos DB. W tym samouczku będziemy hermetyzować tę logikę do klasy o nazwie `CosmosDbService` i interfejsu o nazwie `ICosmosDbService` . Ta usługa wykonuje operacje CRUD. Wykonuje również operacje odczytu źródła danych, takie jak wyświetlanie niekompletnych elementów, tworzenie, edytowanie i usuwanie elementów.
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj**  >  **Nowy folder**. Nazwij *usługi*folderów.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj**  >  **Nowy folder** . Nazwij *usługi* folderów.
 
-1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj**  >  **klasę**. Nadaj nowej klasie nazwę *CosmosDbService* i wybierz pozycję **Dodaj**.
+1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj**  >  **klasę** . Nadaj nowej klasie nazwę *CosmosDbService* i wybierz pozycję **Dodaj** .
 
 1. Zastąp zawartość *CosmosDbService.cs* następującym kodem:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
-1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj**  >  **klasę**. Nadaj nowej klasie nazwę *ICosmosDbService* i wybierz pozycję **Dodaj**.
+1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj**  >  **klasę** . Nadaj nowej klasie nazwę *ICosmosDbService* i wybierz pozycję **Dodaj** .
 
 1. Dodaj następujący kod do klasy *ICosmosDbService* :
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
-1. Otwórz plik *Startup.cs* w rozwiązaniu i Dodaj poniższą metodę **InitializeCosmosClientInstanceAsync**, która odczytuje konfigurację i inicjuje klienta.
+1. Otwórz plik *Startup.cs* w rozwiązaniu i Dodaj poniższą metodę **InitializeCosmosClientInstanceAsync** , która odczytuje konfigurację i inicjuje klienta.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync" :::
 
@@ -258,13 +259,13 @@ Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połą
 
 ### <a name="add-a-controller"></a><a name="add-a-controller"></a>Dodawanie kontrolera
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **controllers** , a następnie wybierz pozycję **Dodaj**  >  **kontroler**.
+1. W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy folder **controllers** , a następnie wybierz pozycję **Dodaj**  >  **kontroler** .
 
-1. W obszarze **Dodawanie szkieletu**wybierz pozycję **kontroler MVC — puste** i wybierz pozycję **Dodaj**.
+1. W obszarze **Dodawanie szkieletu** wybierz pozycję **kontroler MVC — puste** i wybierz pozycję **Dodaj** .
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
-1. Nazwij nowy kontroler *ItemController*.
+1. Nazwij nowy kontroler *ItemController* .
 
 1. Zastąp zawartość *ItemController.cs* następującym kodem:
 
@@ -286,11 +287,11 @@ Aby przetestować aplikację na komputerze lokalnym, wykonaj następujące czynn
 
 1. Wybierz opcję **Utwórz nowe** łącze i Dodaj wartości do pól **Nazwa** i **Opis** . Pozostaw zaznaczone pole wyboru **ukończone** . W przypadku wybrania tej opcji aplikacja dodaje nowy element w stanie ukończone. Element nie jest już wyświetlany na liście początkowej.
 
-1. Wybierz przycisk **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
+1. Wybierz pozycję **Utwórz** . Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
 
     :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
   
-1. Wybierz pozycję **Edytuj** obok **elementu** na liście. Aplikacja otwiera widok **edycji** , w którym można zaktualizować każdą właściwość obiektu, łącznie z flagą **ukończoną** . Jeśli wybierzesz pozycję **ukończono** i wybierzesz pozycję **Zapisz**, aplikacja wyświetli **element** jako wykonany na liście.
+1. Wybierz pozycję **Edytuj** obok **elementu** na liście. Aplikacja otwiera widok **edycji** , w którym można zaktualizować każdą właściwość obiektu, łącznie z flagą **ukończoną** . Jeśli wybierzesz pozycję **ukończono** i wybierzesz pozycję **Zapisz** , aplikacja wyświetli **element** jako wykonany na liście.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
@@ -302,27 +303,27 @@ Aby przetestować aplikację na komputerze lokalnym, wykonaj następujące czynn
 
 Teraz, gdy kompletna aplikacja działa poprawnie z usługą Azure Cosmos DB, wdrożymy tę aplikację internetową w usłudze Azure App Service.  
 
-1. Aby opublikować tę aplikację, kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj**.
+1. Aby opublikować tę aplikację, kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj** .
 
-1. W obszarze **Wybierz element docelowy publikowania**wybierz pozycję **App Service**.
+1. W obszarze **Wybierz element docelowy publikowania** wybierz pozycję **App Service** .
 
-1. Aby użyć istniejącego profilu App Service, wybierz **pozycję Wybierz istniejące**, a następnie wybierz pozycję **Publikuj**.
+1. Aby użyć istniejącego profilu App Service, wybierz **pozycję Wybierz istniejące** , a następnie wybierz pozycję **Publikuj** .
 
-1. W obszarze **App Service**wybierz **subskrypcję**. Za pomocą filtru **Widok** przeprowadź sortowanie według grupy zasobów lub typu zasobu.
+1. W obszarze **App Service** wybierz **subskrypcję** . Za pomocą filtru **Widok** przeprowadź sortowanie według grupy zasobów lub typu zasobu.
 
-1. Znajdź swój profil, a następnie wybierz przycisk **OK**. Następnie wyszukaj wymaganą usługę Azure App Service i wybierz przycisk **OK**.
+1. Znajdź swój profil, a następnie wybierz przycisk **OK** . Następnie wyszukaj wymaganą usługę Azure App Service i wybierz przycisk **OK** .
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 
 Innym rozwiązaniem jest utworzenie nowego profilu:
 
-1. Tak jak w poprzedniej procedurze, kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj**.
+1. Tak jak w poprzedniej procedurze, kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Publikuj** .
   
-1. W obszarze **Wybierz element docelowy publikowania**wybierz pozycję **App Service**.
+1. W obszarze **Wybierz element docelowy publikowania** wybierz pozycję **App Service** .
 
-1. W obszarze **Wybieranie elementu docelowego publikowania**wybierz pozycję **Utwórz nowy** i wybierz pozycję **Publikuj**.
+1. W obszarze **Wybieranie elementu docelowego publikowania** wybierz pozycję **Utwórz nowy** i wybierz pozycję **Publikuj** .
 
-1. W **App Service**wprowadź nazwę aplikacji sieci Web i odpowiednią subskrypcję, grupę zasobów i plan hostingu, a następnie wybierz pozycję **Utwórz**.
+1. W **App Service** wprowadź nazwę aplikacji sieci Web i odpowiednią subskrypcję, grupę zasobów i plan hostingu, a następnie wybierz pozycję **Utwórz** .
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
 

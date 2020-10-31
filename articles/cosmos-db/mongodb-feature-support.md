@@ -7,14 +7,15 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: a545059c520f3cbdeee6c73a044af48795d49ac8
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 60e806be85a36c2e8a64d731c8794d806a4fcae4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282444"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096533"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB (wersja 3.2): obsługiwane funkcje i składnia
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Możesz komunikować się z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB, używając dowolnych [sterowników](https://docs.mongodb.org/ecosystem/drivers) klienta bazy danych MongoDB typu „open source”. Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB umożliwia korzystanie z istniejących sterowników klienta dzięki przestrzeganiu [protokołu przewodowego](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
 
@@ -25,7 +26,7 @@ Używając interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB, możn
 
 ## <a name="protocol-support"></a>Obsługa protokołu
 
-Wszystkie nowe konta interfejsu API Azure Cosmos DB MongoDB są zgodne z serwerem MongoDB w wersji **3,6**. W tym artykule opisano bazę danych MongoDB w wersji 3.2. Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB. 
+Wszystkie nowe konta interfejsu API Azure Cosmos DB MongoDB są zgodne z serwerem MongoDB w wersji **3,6** . W tym artykule opisano bazę danych MongoDB w wersji 3.2. Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB. 
 
 Interfejs API Azure Cosmos DB dla MongoDB oferuje również bezproblemowe środowisko uaktualnienia dla kwalifikujących się kont. Więcej informacji znajduje się w [podręczniku uaktualniania wersji MongoDB](mongodb-version-upgrade.md).
 

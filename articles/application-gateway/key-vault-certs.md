@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: e7c4842494c144f5cd64d46f53f7a99266064680
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3569ae130813eb0aaf14ec3d8d4e5cfac3e98c6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993646"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095651"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Zakończenie protokołu TLS z certyfikatami Key Vault
 
@@ -49,6 +49,9 @@ Integracja Application Gateway z Key Vault wymaga procesu konfiguracji z trzema 
 
    Następnie można zaimportować istniejący certyfikat lub utworzyć nowy w magazynie kluczy. Certyfikat będzie używany przez aplikacje uruchamiane za pomocą bramy aplikacji. W tym kroku można także użyć klucza tajnego magazynu kluczy, który jest przechowywany jako plik PFX o postaci mniejszej niż 64. Zalecamy używanie typu certyfikatu z powodu możliwości autoodnawiania, która jest dostępna z obiektami typu certyfikat w magazynie kluczy. Po utworzeniu certyfikatu lub wpisu tajnego należy zdefiniować zasady dostępu w magazynie kluczy, aby *umożliwić udzielenie tożsamości* dostępu do klucza tajnego.
    
+   > [!IMPORTANT]
+   > Application Gateway obecnie wymaga Key Vault, aby zezwolić na dostęp ze wszystkich sieci w celu wykorzystania integracji. Nie obsługuje integracji Key Vault, gdy Key Vault jest ustawiona tak, aby zezwalała na prywatne punkty końcowe i wybierać dostęp do sieci. Obsługa prywatnych i wybranych sieci to w programie działa Pełna integracja Key Vault z Application Gateway. 
+
    > [!NOTE]
    > W przypadku wdrożenia bramy aplikacji za pomocą szablonu ARM przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell lub za pomocą aplikacji platformy Azure wdrożonej z Azure Portal certyfikat SSL jest przechowywany w magazynie kluczy jako plik PFX szyfrowany algorytmem Base64. Przed rozpoczęciem wdrażania należy wykonać kroki opisane w temacie [używanie Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). 
    >

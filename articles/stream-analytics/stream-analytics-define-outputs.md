@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/2/2020
-ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95607b78ff80566b76b8e6aa20462957249015b4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708439"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097655"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Dane wyjściowe z Azure Stream Analytics
 
 Zadanie Azure Stream Analytics składa się z danych wejściowych, zapytań i danych wyjściowych. Istnieje kilka typów danych wyjściowych, do których można wysłać przekształcone dane. W tym artykule wymieniono obsługiwane Stream Analytics dane wyjściowe. Podczas projektowania zapytania o Stream Analytics należy odwołać się do nazwy danych wyjściowych za pomocą [klauzuli into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Można użyć jednego danych wyjściowych na zadanie lub wielu wyjść na zadanie przesyłania strumieniowego (jeśli są potrzebne) przez dodanie wielu klauzul INTO do zapytania.
 
-Aby tworzyć, edytować i testować Stream Analytics dane wyjściowe zadań, możesz użyć [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [interfejsu API platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), interfejsu API [rest](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output)i [programu Visual Studio](stream-analytics-quick-create-vs.md).
+Aby tworzyć, edytować i testować Stream Analytics dane wyjściowe zadań, możesz użyć [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [interfejsu API platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), interfejsu API [rest](https://docs.microsoft.com/rest/api/streamanalytics/)i [programu Visual Studio](stream-analytics-quick-create-vs.md).
 
 Niektóre typy danych wyjściowych obsługują [partycjonowanie](#partitioning), a [wyjściowe rozmiary partii](#output-batch-size) różnią się w celu zoptymalizowania przepływności. W poniższej tabeli przedstawiono funkcje, które są obsługiwane dla każdego typu danych wyjściowych:
 
@@ -59,7 +59,7 @@ W przypadku używania wdrożenia szablonu Azure Resource Manager lub interfejsu 
 
    Liczba minimalnych wierszy na partię. Dla Parquet każda partia tworzy nowy plik. Bieżąca wartość domyślna to 2 000 wierszy, a maksymalna dozwolona liczba wierszy to 10 000.
 
-Te właściwości okna wsadowego są obsługiwane tylko przez interfejs API w wersji **2017-04-01-Preview**. Poniżej znajduje się przykład ładunku JSON dla wywołania interfejsu API REST:
+Te właściwości okna wsadowego są obsługiwane tylko przez interfejs API w wersji **2017-04-01-Preview** . Poniżej znajduje się przykład ładunku JSON dla wywołania interfejsu API REST:
 
 ```json
 "type": "stream",

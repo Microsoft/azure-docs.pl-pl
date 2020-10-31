@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49cdb423e8fd2e70175d4ac71f6dcd07b459f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056520"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097740"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Poziom zgodności dla zadań Azure Stream Analytics
 
@@ -33,13 +33,13 @@ Gdy tworzysz nowe zadanie Stream Analytics, najlepszym rozwiązaniem jest utworz
 
 ## <a name="set-the-compatibility-level"></a>Ustawianie poziomu zgodności
 
-Możesz ustawić poziom zgodności dla zadania Stream Analytics w Azure Portal lub przy użyciu [wywołania interfejsu API Rest tworzenia zadań](/rest/api/streamanalytics/stream-analytics-job).
+Możesz ustawić poziom zgodności dla zadania Stream Analytics w Azure Portal lub przy użyciu [wywołania interfejsu API Rest tworzenia zadań](/azure/stream-analytics/stream-analytics-quick-create-portal).
 
 Aby zaktualizować poziom zgodności zadania w Azure Portal:
 
 1. Użyj [Azure Portal](https://portal.azure.com) , aby zlokalizować Stream Analytics zadanie.
 2. **Zatrzymaj** zadanie przed aktualizacją poziomu zgodności. Nie można zaktualizować poziomu zgodności, jeśli zadanie jest w stanie uruchomienia.
-3. W obszarze **Konfiguruj** nagłówek wybierz pozycję **poziom zgodności**.
+3. W obszarze **Konfiguruj** nagłówek wybierz pozycję **poziom zgodności** .
 4. Wybierz żądaną wartość poziomu zgodności.
 5. Wybierz pozycję **Zapisz** w dolnej części strony.
 
@@ -53,7 +53,7 @@ Następujące istotne zmiany są wprowadzane w obszarze poziom zgodności 1,2:
 
 ###  <a name="amqp-messaging-protocol"></a>AMQP Messaging Protocol
 
-**poziom 1,2**: Azure Stream Analytics używa protokołu obsługi komunikatów [protokołu Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) do zapisu w Service Bus kolejkach i tematach. AMQP umożliwia tworzenie aplikacji hybrydowych dla wielu platform przy użyciu protokołu Open Standard.
+**poziom 1,2** : Azure Stream Analytics używa protokołu obsługi komunikatów [protokołu Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) do zapisu w Service Bus kolejkach i tematach. AMQP umożliwia tworzenie aplikacji hybrydowych dla wielu platform przy użyciu protokołu Open Standard.
 
 ### <a name="geospatial-functions"></a>Funkcje geoprzestrzenne
 
@@ -75,11 +75,11 @@ Aby uzyskać więcej informacji, zobacz [Aktualizacje funkcji geoprzestrzennych 
 
 ### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Natywna integracja zbiorczej usługi API z danymi wyjściowymi CosmosDB
 
-**Poprzednie poziomy:** Zachowanie upsert zostało *wstawione lub scalone*.
+**Poprzednie poziomy:** Zachowanie upsert zostało *wstawione lub scalone* .
 
 **poziom 1,2:** Natywna integracja zbiorczej interfejsu API z danymi wyjściowymi CosmosDB maksymalizuje przepływność i wydajnie obsługuje żądania ograniczania. Aby uzyskać więcej informacji, zobacz [stronę Azure Stream Analytics dane wyjściowe do Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 
-Zachowanie upsert jest *wstawiane lub zastępowane*.
+Zachowanie upsert jest *wstawiane lub zastępowane* .
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset podczas zapisywania w danych wyjściowych SQL
 
@@ -121,7 +121,7 @@ Następujące istotne zmiany są wprowadzane w obszarze poziom zgodności 1,1:
 
 ### <a name="service-bus-xml-format"></a>Service Bus format XML
 
-**poziom 1,0:** Azure Stream Analytics użyciu DataContractSerializer, więc zawartość komunikatów zawiera tagi XML. Na przykład:
+**poziom 1,0:** Azure Stream Analytics użyciu DataContractSerializer, więc zawartość komunikatów zawiera tagi XML. Przykład:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: b82fdd40c9ae538d1d7aa87ab5b71ea6a6c0542d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d5958ea947f6b786e9fbc6c44ab914ea895d6e08
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487504"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096805"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Praca z danymi za pomocą eksploratora usługi Azure Cosmos 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB Explorer to autonomiczny interfejs oparty na sieci Web, który umożliwia wyświetlanie danych przechowywanych w Azure Cosmos DB i zarządzanie nimi. Eksplorator Azure Cosmos DB jest odpowiednikiem istniejącej karty **Eksplorator danych** dostępnej w Azure Portal podczas tworzenia konta Azure Cosmos DB. Kluczowe zalety Eksploratora Azure Cosmos DB za pośrednictwem istniejącego Eksploratora danych są następujące:
 
@@ -27,19 +28,19 @@ Azure Cosmos DB Explorer to autonomiczny interfejs oparty na sieci Web, który u
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/). 
 
-2. W obszarze **wszystkie zasoby**Znajdź i przejdź do konta Azure Cosmos DB, wybierz pozycję klucze i skopiuj **podstawowe parametry połączenia**.  
+2. W obszarze **wszystkie zasoby** Znajdź i przejdź do konta Azure Cosmos DB, wybierz pozycję klucze i skopiuj **podstawowe parametry połączenia** .  
 
-3. Przejdź do lokalizacji https://cosmos.azure.com/ , wklej parametry połączenia i wybierz pozycję **Połącz**. Korzystając z parametrów połączenia, można uzyskać dostęp do Eksploratora Azure Cosmos DB bez żadnych limitów czasu.  
+3. Przejdź do lokalizacji https://cosmos.azure.com/ , wklej parametry połączenia i wybierz pozycję **Połącz** . Korzystając z parametrów połączenia, można uzyskać dostęp do Eksploratora Azure Cosmos DB bez żadnych limitów czasu.  
 
    Jeśli chcesz udostępnić innym użytkownikom tymczasowy dostęp do konta Azure Cosmos DB, możesz to zrobić za pomocą adresów URL odczytu i zapisu i odczytu. 
 
-4. Otwórz blok **Eksplorator danych** , wybierz pozycję **Otwórz pełny ekran**. W wyskakującym oknie dialogowym można wyświetlić dwa adresy URL dostępu — **Odczyt i zapis** i **Odczyt**. Te adresy URL umożliwiają tymczasowe udostępnianie konta Azure Cosmos DB innym użytkownikom. Dostęp do konta wygasa przez 24 godziny, po którym można ponownie nawiązać połączenie przy użyciu nowego adresu URL dostępu lub parametrów połączenia. 
+4. Otwórz blok **Eksplorator danych** , wybierz pozycję **Otwórz pełny ekran** . W wyskakującym oknie dialogowym można wyświetlić dwa adresy URL dostępu — **Odczyt i zapis** i **Odczyt** . Te adresy URL umożliwiają tymczasowe udostępnianie konta Azure Cosmos DB innym użytkownikom. Dostęp do konta wygasa przez 24 godziny, po którym można ponownie nawiązać połączenie przy użyciu nowego adresu URL dostępu lub parametrów połączenia. 
 
    Do **odczytu i zapisu** — gdy udostępniasz adres URL Read-Write innym użytkownikom, mogą oni wyświetlać i modyfikować bazy danych, kolekcje, zapytania i inne zasoby skojarzone z danym kontem.
 
    **Odczyt** — w przypadku udostępniania adresu URL tylko do odczytu innym użytkownikom mogą wyświetlać bazy danych, kolekcje, zapytania i inne zasoby skojarzone z tym konkretnym kontem. Na przykład jeśli chcesz udostępnić wyniki zapytania członkom zespołu, którzy nie mają dostępu do Azure Portal lub konta Azure Cosmos DB, możesz podać te adresy URL.
 
-   Wybierz typ dostępu, za pomocą którego chcesz otworzyć konto, a następnie kliknij przycisk **Otwórz**. Po otwarciu Eksploratora środowisko działa tak samo, jak w przypadku korzystania z karty Eksplorator danych w Azure Portal.
+   Wybierz typ dostępu, za pomocą którego chcesz otworzyć konto, a następnie kliknij przycisk **Otwórz** . Po otwarciu Eksploratora środowisko działa tak samo, jak w przypadku korzystania z karty Eksplorator danych w Azure Portal.
 
    :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Otwórz Eksploratora Azure Cosmos DB":::
 

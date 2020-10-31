@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3bf039eb099a5735c3528c1ba5b9c440d7787c43
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440840"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097060"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Informacje na temat bliźniaczych reprezentacji cyfrowych i ich bliźniaczych wykresów
 
-W rozwiązaniu Digital bliźniaczych reprezentacji na platformie Azure jednostki w Twoim środowisku są reprezentowane przez usługę Azure **Digital bliźniaczych reprezentacji**. Cyfrowa dwuosiowa to wystąpienie jednego z [modeli](concepts-models.md)zdefiniowanych przez użytkownika. Może być połączony z innym cyfrowym bliźniaczych reprezentacji poprzez **relacje** , aby utworzyć **Wykres dwuosiowy**: ten wykres dwuosiowy jest reprezentacją całego środowiska.
+W rozwiązaniu Digital bliźniaczych reprezentacji na platformie Azure jednostki w Twoim środowisku są reprezentowane przez usługę Azure **Digital bliźniaczych reprezentacji** . Cyfrowa dwuosiowa to wystąpienie jednego z [modeli](concepts-models.md)zdefiniowanych przez użytkownika. Może być połączony z innym cyfrowym bliźniaczych reprezentacji poprzez **relacje** , aby utworzyć **Wykres dwuosiowy** : ten wykres dwuosiowy jest reprezentacją całego środowiska.
 
 > [!TIP]
 > "Usługa Azure Digital bliźniaczych reprezentacji" odnosi się do tej usługi platformy Azure jako całości. "Pojedyncze sznury cyfrowe" lub "same sznury" odnoszą się do pojedynczych węzłów bliźniaczych wewnątrz Twojego wystąpienia usługi.
@@ -25,13 +25,13 @@ W rozwiązaniu Digital bliźniaczych reprezentacji na platformie Azure jednostki
 
 Aby można było utworzyć dwuosiową cyfrę w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, musisz mieć *model* przekazany do usługi. Model opisuje zestaw właściwości, wiadomości telemetrycznych i relacje, które mogą mieć poszczególne sznurki, między innymi. Aby uzyskać informacje o typach informacji, które są zdefiniowane w modelu, zobacz [*pojęcia: modele niestandardowe*](concepts-models.md).
 
-Po utworzeniu i przekazaniu modelu aplikacja kliencka może utworzyć wystąpienie typu; to jest dwuosiowa cyfra. Na przykład po utworzeniu modelu *podłogi*można utworzyć jedną lub kilka bliźniaczych reprezentacji cyfrowych, które używają tego typu (takich jak sznury typu *podłogi*o nazwie *GroundFloor*, inne o nazwie *Floor2*itp.). 
+Po utworzeniu i przekazaniu modelu aplikacja kliencka może utworzyć wystąpienie typu; to jest dwuosiowa cyfra. Na przykład po utworzeniu modelu *podłogi* można utworzyć jedną lub kilka bliźniaczych reprezentacji cyfrowych, które używają tego typu (takich jak sznury typu *podłogi* o nazwie *GroundFloor* , inne o nazwie *Floor2* itp.). 
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>Relacje: wykres Digital bliźniaczych reprezentacji
 
 Bliźniaczych reprezentacji są połączone z wykresem bliźniaczym przez ich relacje. Relacje, które mogą mieć sznurek, są zdefiniowane jako część jego modelu.  
 
-Na przykład model *podłogi* może definiować relację *zawierania* , która jest przeznaczona dla bliźniaczych reprezentacji typu *pokoju*. W przypadku tej definicji usługa Azure Digital bliźniaczych reprezentacji umożliwia tworzenie relacji między *dowolnym* *podłogą piętra* a dowolnym przędzą za *Pokój* (w tym bliźniaczych reprezentacji, *Room* które są podtypem). 
+Na przykład model *podłogi* może definiować relację *zawierania* , która jest przeznaczona dla bliźniaczych reprezentacji typu *pokoju* . W przypadku tej definicji usługa Azure Digital bliźniaczych reprezentacji umożliwia tworzenie relacji między *dowolnym* *podłogą piętra* a dowolnym przędzą za *Pokój* (w tym bliźniaczych reprezentacji, *Room* które są podtypem). 
 
 Wynikiem tego procesu jest zestaw węzłów (Digital bliźniaczych reprezentacji) połączony za pośrednictwem krawędzi (ich relacji) w grafie.
 
@@ -43,17 +43,20 @@ W tej sekcji pokazano, jak wygląda sposób tworzenia cyfrowych bliźniaczych re
 
 ### <a name="create-digital-twins"></a>Utwórz cyfrowy bliźniaczych reprezentacji
 
-Poniżej znajduje się fragment kodu klienta, który używa [interfejsów API DigitalTwins](/rest/api/digital-twins/dataplane/twins) do tworzenia wycinków typu *pokoju*.
+Poniżej znajduje się fragment kodu klienta, który używa [interfejsów API DigitalTwins](/rest/api/digital-twins/dataplane/twins) do tworzenia wycinków typu *pokoju* .
 
-W bieżącej wersji zapoznawczej usługi Azure Digital bliźniaczych reprezentacji wszystkie właściwości sznurka muszą zostać zainicjowane przed utworzeniem sznurka. Jest to realizowane przez utworzenie dokumentu JSON, który zawiera wymagane wartości inicjalizacji.
+Możesz inicjować właściwości sznurka podczas jego tworzenia lub ustawiać je później. Aby utworzyć sznurek z zainicjowanymi właściwościami, Utwórz dokument JSON, który zawiera wymagane wartości inicjalizacji.
 
 [!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
-Można również użyć klasy pomocnika `BasicDigitalTwin` do przechowywania pól właściwości w obiekcie "bliźniaczy" więcej bezpośrednio, jako alternatywy dla użycia słownika. Aby uzyskać więcej informacji na temat klasy pomocnika i przykłady ich użycia, zobacz sekcję [*Tworzenie cyfrowej sieci*](how-to-manage-twin.md#create-a-digital-twin) z informacjami o tym, *jak: Manage Digital bliźniaczych reprezentacji*.
+Można również użyć klasy pomocnika `BasicDigitalTwin` do przechowywania pól właściwości w obiekcie "bliźniaczy" więcej bezpośrednio, jako alternatywy dla użycia słownika. Aby uzyskać więcej informacji na temat klasy pomocnika i przykłady ich użycia, zobacz sekcję [*Tworzenie cyfrowej sieci*](how-to-manage-twin.md#create-a-digital-twin) z informacjami o tym, *jak: Manage Digital bliźniaczych reprezentacji* .
+
+>[!NOTE]
+>Gdy właściwości dwuosiowe są traktowane jako opcjonalne i nie trzeba ich inicjować, wszelkie [składniki](concepts-models.md#elements-of-a-model) **na przędze** muszą być ustawione podczas tworzenia sznurka. Mogą być pustymi obiektami, ale same składniki muszą istnieć.
 
 ### <a name="create-relationships"></a>Utwórz relacje
 
-Poniżej przedstawiono przykładowy kod klienta korzystający z [interfejsów API DigitalTwins](/rest/api/digital-twins/dataplane/twins) do tworzenia relacji między cyframi cyfrowymi typu *podłogi*o nazwie *GroundFloor* i sznurem cyfrowym typu *Room*o nazwie *Cafe*.
+Poniżej przedstawiono przykładowy kod klienta korzystający z [interfejsów API DigitalTwins](/rest/api/digital-twins/dataplane/twins) do tworzenia relacji między cyframi cyfrowymi typu *podłogi* o nazwie *GroundFloor* i sznurem cyfrowym typu *Room* o nazwie *Cafe* .
 
 ```csharp
 // Create Twins, using functions similar to the previous sample
@@ -85,7 +88,7 @@ Gdy jest reprezentowany jako obiekt JSON, dwuosiowy symbol cyfrowy będzie wyśw
 | --- | --- |
 | `$dtId` | Ciąg dostarczony przez użytkownika reprezentujący identyfikator dwuosiowego |
 | `$etag` | Standardowe pole HTTP przypisane przez serwer sieci Web |
-| `$conformance` | Wyliczenie zawierające stan zgodności tej dwucyfrowej sznurka *(niezgodne,* *niezgodne*, *nieznany*) |
+| `$conformance` | Wyliczenie zawierające stan zgodności tej dwucyfrowej sznurka *(niezgodne,* *niezgodne* , *nieznany* ) |
 | `{propertyName}` | Wartość właściwości w formacie JSON ( `string` , typ numeru lub obiekt) |
 | `$relationships` | Adres URL ścieżki do kolekcji Relationships. To pole jest nieobecne, jeśli cyfrowa dwuosiowa nie ma żadnych wychodzących krawędzi relacji. |
 | `$metadata.$model` | Obowiązkowe Identyfikator interfejsu modelu, który charakteryzuje ten dwucyfrowego przędzy |

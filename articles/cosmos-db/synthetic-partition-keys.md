@@ -6,16 +6,17 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: a50de7154bd768f5cc4c25062ec3ce05c0f37328
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6868859247fc430ee96581ae85fb7077af04999
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279862"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098029"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Tworzenie syntetycznego klucza partycji
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Najlepszym rozwiązaniem jest posiadanie klucza partycji z wieloma różnymi wartościami, takimi jak setki lub tysiące. Celem jest równomierne dystrybuowanie danych i obciążeń między elementami skojarzonymi z tymi wartościami klucza partycji. Jeśli taka właściwość nie istnieje w danych, można utworzyć *klucz partycji syntetycznej*. W tym dokumencie opisano kilka podstawowych technik generowania klucza partycji syntetycznej dla Twojego kontenera Cosmos.
+Najlepszym rozwiązaniem jest posiadanie klucza partycji z wieloma różnymi wartościami, takimi jak setki lub tysiące. Celem jest równomierne dystrybuowanie danych i obciążeń między elementami skojarzonymi z tymi wartościami klucza partycji. Jeśli taka właściwość nie istnieje w danych, można utworzyć *klucz partycji syntetycznej* . W tym dokumencie opisano kilka podstawowych technik generowania klucza partycji syntetycznej dla Twojego kontenera Cosmos.
 
 ## <a name="concatenate-multiple-properties-of-an-item"></a>Łączenie wielu właściwości elementu
 

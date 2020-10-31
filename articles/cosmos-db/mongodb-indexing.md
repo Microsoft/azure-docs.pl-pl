@@ -9,14 +9,15 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487385"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096482"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Zarządzanie indeksowaniem w interfejsie API Azure Cosmos DB dla MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Interfejs API Azure Cosmos DB dla MongoDB wykorzystuje podstawowe możliwości zarządzania indeksami Azure Cosmos DB. W tym artykule opisano sposób dodawania indeksów przy użyciu interfejsu API Azure Cosmos DB dla MongoDB. Można także zapoznać się z [omówieniem indeksowania w Azure Cosmos DB](index-overview.md) , które są odpowiednie dla wszystkich interfejsów API.
 
@@ -121,7 +122,7 @@ Następujące polecenie tworzy indeks symboli wieloznacznych na wszystkich wła�
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-W **przeciwieństwie do MongoDB, indeksy symboli wieloznacznych mogą obsługiwać wiele pól w predykatach zapytań**. W przypadku użycia jednego indeksu wieloznacznego zamiast tworzenia oddzielnego indeksu dla każdej właściwości nie będzie różnica w wydajności zapytań.
+W **przeciwieństwie do MongoDB, indeksy symboli wieloznacznych mogą obsługiwać wiele pól w predykatach zapytań** . W przypadku użycia jednego indeksu wieloznacznego zamiast tworzenia oddzielnego indeksu dla każdej właściwości nie będzie różnica w wydajności zapytań.
 
 Można utworzyć następujące typy indeksów przy użyciu składni symboli wieloznacznych:
 
@@ -147,7 +148,7 @@ Indeksy wieloznaczne nie obsługują żadnego z następujących typów indeksu l
 - TTL
 - Unikatowe
 
-W **przeciwieństwie do MongoDB w**interfejsie API Azure Cosmos DB dla MongoDB **nie** można używać symboli wieloznacznych dla:
+W **przeciwieństwie do MongoDB w** interfejsie API Azure Cosmos DB dla MongoDB **nie** można używać symboli wieloznacznych dla:
 
 - Tworzenie indeksu wieloznacznego, który zawiera wiele konkretnych pól
 

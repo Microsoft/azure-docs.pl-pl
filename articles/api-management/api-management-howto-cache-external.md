@@ -11,12 +11,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: cfb7dd7a3831d90235b25af9598cfbc137ffcb3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6288a10e111e42629abf5e09b84a6a7791dcfe95
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904959"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095938"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Używanie zewnętrznej pamięci podręcznej zgodnej z Redis na platformie Azure API Management
 
@@ -60,41 +60,41 @@ W przypadku pamięci podręcznej bramy samoobsługowe korzystają wyłącznie z 
 
 Wykonaj poniższe kroki, aby dodać zewnętrzną pamięć podręczną Azure Cache for Redis w usłudze Azure API Management.
 
-![Dodawanie własnej pamięci podręcznej do usługi APIM](media/api-management-howto-cache-external/add-external-cache.png)
+![Zrzut ekranu pokazujący, jak dodać zewnętrzną pamięć podręczną platformy Azure dla Redis na platformie Azure API Management.](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
 > Ustawienie **Użyj z** ustawienia określa region platformy Azure lub autonomiczną lokalizację bramy, która będzie używać skonfigurowanej pamięci podręcznej. Pamięci podręczne skonfigurowane jako **domyślne** zostaną przesłonięte przez pamięć podręczną z określonym regionem lub wartością lokalizacji.
 >
-> Jeśli na przykład usługa API Management jest hostowana w regionach Wschodnie stany USA, Azja Południowo-Wschodnia i Europa Zachodnia, i skonfigurowano dwie pamięci podręczne, jedną jako **domyślną** i jedną dla regionu **Azja Południowo-Wschodnia**, to usługa API Management w regionie **Azja Południowo-Wschodnia** będzie używać własnej pamięci podręcznej, a dwa pozostałe regiony będą używać **domyślnej** pamięci podręcznej.
+> Jeśli na przykład usługa API Management jest hostowana w regionach Wschodnie stany USA, Azja Południowo-Wschodnia i Europa Zachodnia, i skonfigurowano dwie pamięci podręczne, jedną jako **domyślną** i jedną dla regionu **Azja Południowo-Wschodnia** , to usługa API Management w regionie **Azja Południowo-Wschodnia** będzie używać własnej pamięci podręcznej, a dwa pozostałe regiony będą używać **domyślnej** pamięci podręcznej.
 
 ### <a name="add-an-azure-cache-for-redis-from-the-same-subscription"></a>Dodawanie pamięci podręcznej Azure Cache for Redis z tej samej subskrypcji
 
 1. Przejdź do wystąpienia usługi API Management w witrynie Azure Portal.
 2. Wybierz kartę **Zewnętrzna pamięć podręczna** z menu po lewej stronie.
-3. Kliknij przycisk **+ Dodaj**.
-4. Wybierz swoją pamięć podręczną w polu rozwijanym **Wystąpienie pamięci podręcznej**.
+3. Kliknij przycisk **+ Dodaj** .
+4. Wybierz swoją pamięć podręczną w polu rozwijanym **Wystąpienie pamięci podręcznej** .
 5. Wybierz opcję **domyślny** lub określ żądany region w polu **Użyj z** listy rozwijanej.
-6. Kliknij przycisk **Zapisz**.
+6. Kliknij pozycję **Zapisz** .
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Dodawanie pamięci podręcznej Azure Cache for Redis hostowanej poza bieżącą subskrypcją platformy Azure lub poza samą platformą Azure
 
 1. Przejdź do wystąpienia usługi API Management w witrynie Azure Portal.
 2. Wybierz kartę **Zewnętrzna pamięć podręczna** z menu po lewej stronie.
-3. Kliknij przycisk **+ Dodaj**.
-4. Wybierz pozycję **Niestandardowe** w polu rozwijanym **Wystąpienie pamięci podręcznej**.
+3. Kliknij przycisk **+ Dodaj** .
+4. Wybierz pozycję **Niestandardowe** w polu rozwijanym **Wystąpienie pamięci podręcznej** .
 5. Wybierz opcję **domyślny** lub określ żądany region w polu **Użyj z** listy rozwijanej.
 6. W polu **Parametry połączenia** podaj parametry połączenia swojej pamięci podręcznej Azure Cache for Redis.
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz** .
 
 ### <a name="add-a-redis-cache-to-a-self-hosted-gateway"></a>Dodawanie pamięci podręcznej Redis do bramy samoobsługowej
 
 1. Przejdź do wystąpienia usługi API Management w witrynie Azure Portal.
 2. Wybierz kartę **Zewnętrzna pamięć podręczna** z menu po lewej stronie.
-3. Kliknij przycisk **+ Dodaj**.
-4. Wybierz pozycję **Niestandardowe** w polu rozwijanym **Wystąpienie pamięci podręcznej**.
+3. Kliknij przycisk **+ Dodaj** .
+4. Wybierz pozycję **Niestandardowe** w polu rozwijanym **Wystąpienie pamięci podręcznej** .
 5. Określ żądaną lokalizację własnej bramy lub **wartość domyślną** w polu **Użyj z** listy rozwijanej.
 6. W polu **Parametry połączenia** podaj parametry połączenia swojej pamięci podręcznej Redis.
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz** .
 
 ## <a name="use-the-external-cache"></a>Używanie zewnętrznej pamięci podręcznej
 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 882ba7f0b8f896c51e340fe921e53b27dd07ff8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 263c38e330bad00833bd31bc8a43208c3784bcf4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262467"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097485"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrowanie danych z programu Oracle do Azure Cosmos DB konta interfejs API Cassandra przy użyciu Blitzz
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Interfejs API Cassandra w programie Azure Cosmos DB to doskonały wybór dla obciążeń przedsiębiorstwa działających w ramach programu Oracle z różnych powodów, takich jak:
 
@@ -100,7 +101,7 @@ W tej sekcji opisano kroki wymagane do skonfigurowania Blitzz i migracji danych 
 
    Po zakończeniu migracji należy zmniejszyć przepływność. Na podstawie ilości danych przechowywanych i jednostek ru wymaganych dla każdej operacji można oszacować przepływność wymaganą po migracji danych. Aby dowiedzieć się więcej na temat oszacowania wymaganego jednostek ru, zobacz temat [zapewnianie przepływności na kontenerach i bazach danych](set-throughput.md) oraz [szacowanie ru/s przy użyciu artykułów planisty wydajności Azure Cosmos DB](estimate-ru-with-capacity-planner.md) .
 
-1. Pobierz **punkt kontaktu, port, nazwę użytkownika**i **hasło podstawowe** konta Azure Cosmos z okienka **Parametry połączenia** . Te wartości będą używane w pliku konfiguracji.
+1. Pobierz **punkt kontaktu, port, nazwę użytkownika** i **hasło podstawowe** konta Azure Cosmos z okienka **Parametry połączenia** . Te wartości będą używane w pliku konfiguracji.
 
 1. W terminalu interfejsu wiersza polecenia Skonfiguruj docelową konfigurację bazy danych. Otwórz plik konfiguracji za pomocą **`vi conf/conn/cosmosdb.yml`** polecenia i Dodaj rozdzieloną przecinkami listę identyfikatorów URI hosta, numeru portu, nazwy użytkownika, hasła i innych wymaganych parametrów. Poniżej znajduje się przykład zawartości w pliku konfiguracji:
 

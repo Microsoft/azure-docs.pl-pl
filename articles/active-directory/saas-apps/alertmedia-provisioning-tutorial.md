@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2ae06a8ed59f7987f58aba8b8017833315e6529f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 98cca99ab0e088bbae047fa64ec52429e531dfed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92429000"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096091"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie AlertMedia na potrzeby automatycznego aprowizacji użytkowników
 
@@ -51,8 +51,8 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 ## <a name="step-2-configure-alertmedia-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie AlertMedia w celu obsługi aprowizacji za pomocą usługi Azure AD
 
-1. Zaloguj się do konta AlertMedia. Przejdź do **firmowej > interfejsu API**.
-2. Kliknij przycisk **Dodaj nowy**.
+1. Zaloguj się do konta AlertMedia. Przejdź do **firmowej > interfejsu API** .
+2. Kliknij przycisk **Dodaj nowy** .
 3. Wybierz, aby nawiązać **integrację z interfejsem API** w celu ułatwienia rozpoznawania, gdzie są używane klucze.
 4. Wybierz administratora, z którym chcesz skojarzyć integrację.
 5. Kliknij przycisk **Generuj klucze** i **Zapisz** .
@@ -67,7 +67,7 @@ Dodaj AlertMedia z galerii aplikacji usługi Azure AD, aby rozpocząć zarządza
 
 Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podstawie przypisania do aplikacji lub na podstawie atrybutów użytkownika/grupy. Jeśli zdecydujesz się na określenie zakresu aprowizacji w aplikacji na podstawie przypisania, możesz skorzystać z następujących [instrukcji](../manage-apps/assign-user-or-group-access-portal.md) w celu przypisania użytkowników i grup do aplikacji. Jeśli zdecydujesz się na określenie zakresu aprowizacji wyłącznie na podstawie atrybutów użytkownika lub grupy, możesz użyć filtra zakresu zgodnie z opisem zamieszczonym [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Podczas przypisywania użytkowników i grup do AlertMedia należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps), aby dodać więcej ról. 
+* Podczas przypisywania użytkowników i grup do AlertMedia należy wybrać rolę inną niż **domyślny dostęp** . Użytkownicy z rolą Dostęp domyślny są wykluczeni z aprowizacji, a w dziennikach aprowizacji zostaną oznaczeni jako niemający skutecznego uprawnienia. Jeśli jedyną rolą dostępną w aplikacji jest Dostęp domyślny, możesz [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps), aby dodać więcej ról. 
 
 * Zacznij od mniejszej skali. Przeprowadź test z użyciem mniejszego zestawu użytkowników i grup, zanim wdrożysz to rozwiązanie dla wszystkich. W przypadku ustawienia zakresu aprowizacji na przypisanych użytkowników i grupy możesz w tym celu przypisać do aplikacji jednego czy dwóch użytkowników bądź jedną lub dwie grupy. W przypadku ustawienia zakresu na wszystkich użytkowników i wszystkie grupy, możesz określić [filtrowanie zakresu na podstawie atrybutów](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -78,38 +78,38 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 ### <a name="to-configure-automatic-user-provisioning-for-alertmedia-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla AlertMedia w usłudze Azure AD:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie **Wszystkie aplikacje**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **Aplikacje dla przedsiębiorstw** , a następnie **Wszystkie aplikacje** .
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście Aplikacje wybierz pozycję **AlertMedia**.
+2. Na liście Aplikacje wybierz pozycję **AlertMedia** .
 
     ![Link AlertMedia na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **Aprowizacja**.
+3. Wybierz kartę **Aprowizacja** .
 
     ![Karta Aprowizacja](common/provisioning.png)
 
-4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
+4. Ustaw **Tryb aprowizacji** na **Automatyczny** .
 
     ![Automatyczne Inicjowanie obsługi kart](common/provisioning-automatic.png)
 
 5. W sekcji **poświadczenia administratora** wprowadź **adres URL dzierżawy** AlertMedia jako jedną z poniższych opcji.
-      * (brak domeny niestandardowej) https://dashboard.alertmedia.com/api/scim/v3
+      * (brak domeny niestandardowej) https://docs.gitlab.com/ee/api/scim.html
 
-      * (domena niestandardowa) https://subdomain.alertmedia.com/api/scim/v3
+      * (domena niestandardowa) https://developer.github.com/v3/scim/
 
       Wprowadź **token tajny** jako pobrany wcześniej w kroku 2. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą AlertMedia. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi AlertMedia ma uprawnienia administratora, a następnie spróbuj ponownie.
 
       ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu**.
+6. W polu **Adres e-mail do powiadomień** wpisz adres e-mail osoby lub grupy, która ma otrzymywać powiadomienia o błędach autoryzacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail w przypadku wystąpienia błędu** .
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Wybierz pozycję **Zapisz**.
+7. Wybierz pozycję **Zapisz** .
 
-8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do AlertMedia**.
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do AlertMedia** .
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do AlertMedia w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie AlertMedia for Updates. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), należy się upewnić, że interfejs API AlertMedia obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
@@ -117,33 +117,33 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |---|---|
    |userName|Ciąg|
    |aktywne|Wartość logiczna|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: first_name|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: last_name|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: email|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: email2|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Email3|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: title|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone_post_dial|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone2|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone2_post_dial|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone3|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone3_post_dial|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: home_phone|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: home_phone_post_dial|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: office_phone|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: office_phone_post_dial|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Address|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Address2|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: miasto|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: State|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Country|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: kod pocztowy|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: uwagi|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: customer_user_id|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: user_type|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: first_name|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: last_name|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: email|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: email2|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Email3|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: title|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone_post_dial|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone2|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone2_post_dial|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone3|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: mobile_phone3_post_dial|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: home_phone|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: home_phone_post_dial|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: office_phone|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: office_phone_post_dial|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Address|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Address2|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: miasto|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: State|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: Country|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: kod pocztowy|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: uwagi|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: customer_user_id|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: alertmedia: 2.0: CustomAttribute: User: user_type|String|
 
-10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do AlertMedia**.
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do AlertMedia** .
 
 11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD, do AlertMedia w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w AlertMedia dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
@@ -162,11 +162,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zakres aprowizacji](common/provisioning-scope.png)
 
-15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz**.
+15. Gdy wszystko będzie gotowe do rozpoczęcia aprowizacji, kliknij pozycję **Zapisz** .
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia**. Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
+Ta operacja spowoduje rozpoczęcie cyklu synchronizacji początkowej wszystkich użytkowników i grup zdefiniowanych w obszarze **Zakres** w sekcji **Ustawienia** . Cykl początkowy trwa dłużej niż kolejne, które mają miejsce co około 40 minut w czasie działania usługi aprowizacji Azure AD. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
 Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, aby monitorować wdrożenie:

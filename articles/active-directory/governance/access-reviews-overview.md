@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594343"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096006"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Co to są przeglądy dostępu w usłudze Azure AD?
 
@@ -81,7 +81,7 @@ Katalog wymaga co najmniej tylu licencji na Azure AD — wersja Premium P2 jako 
 
 Licencje na Azure AD — wersja Premium P2 **nie** są wymagane dla użytkowników z rolami administratora globalnego lub administratora użytkowników, którzy konfigurują przeglądy dostępu, konfigurują ustawienia lub stosują decyzje z przeglądu.
 
-W przypadku każdej płatnej Azure AD — wersja Premiumej licencji P2 przypisanej do jednej z użytkowników Twojej organizacji możesz użyć usługi Azure AD Business-to-Business (B2B), aby zaprosić do pięciu użytkowników-Gości w ramach doliczenia użytkowników zewnętrznych. Ci użytkownicy-Goście mogą również korzystać z funkcji Azure AD — wersja Premium P2. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące licencjonowania współpracy B2B usługi Azure AD](../external-identities/licensing-guidance.md).
+Dostęp użytkownika gościa usługi Azure AD jest oparty na modelu rozliczania miesięcznych użytkowników (MAU), który zastępuje model rozliczeń 1:5. Aby uzyskać więcej informacji, zobacz [Cennik zewnętrzny usługi Azure AD](../external-identities/external-identities-pricing.md).
 
 Aby uzyskać więcej informacji na temat licencji, zobacz [przypisywanie lub usuwanie licencji przy użyciu portalu Azure Active Directory](../fundamentals/license-users-groups.md).
 

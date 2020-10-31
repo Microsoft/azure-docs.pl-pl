@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 8c2194476dc6e640f9c4b93d564728478de41ef7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b0e2cc3f23a8c39e51523e6f6fd974ebf46f7322
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475536"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097451"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optymalizacja kosztów tworzenia i testowania w usłudze Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 W tym artykule opisano różne opcje umożliwiające korzystanie z Azure Cosmos DB na potrzeby tworzenia i testowania bez ponoszenia kosztów, a także technik optymalizacji kosztów na kontach deweloperskich i testowych.
 

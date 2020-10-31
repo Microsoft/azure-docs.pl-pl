@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: aecc64c5fa923bc29d34efd3969c2c12f30153c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 351a9742e9d839a8e217fdea35cad922acc3339f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095676"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Obsługa opinii na temat przeglądu ofert aplikacji platformy Azure
 
@@ -39,11 +39,11 @@ Aby przejrzeć problemy udokumentowane w żądaniu ściągnięcia, należy wykon
     [![Strona główna żądania ściągnięcia](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Kliknij ten obraz, aby rozwinąć.*
 
-1. Obowiązkowe Po prawej stronie okna, w sekcji **zasady**, wybierz komunikat problemu (w tym przykładzie: **Sprawdzanie poprawności zasad nie powiodło**się), aby zbadać szczegóły tego problemu, w tym skojarzone pliki dziennika. Błędy są zwykle wyświetlane w dolnej części plików dziennika.
+1. Obowiązkowe Po prawej stronie okna, w sekcji **zasady** , wybierz komunikat problemu (w tym przykładzie: **Sprawdzanie poprawności zasad nie powiodło** się), aby zbadać szczegóły tego problemu, w tym skojarzone pliki dziennika. Błędy są zwykle wyświetlane w dolnej części plików dziennika.
 
 1. W menu po lewej stronie strony głównej wybierz pozycję **pliki** , aby wyświetlić listę plików wchodzących w skład zasobów technicznych dla tej oferty. Recenzenci firmy Microsoft powinni dodać komentarze opisujące wykryte problemy krytyczne. W poniższym przykładzie wykryto dwa problemy.
 
-    [![Strona główna żądania ściągnięcia](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![Zrzut ekranu przedstawiający pliki i dwa wykryte problemy.](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Kliknij ten obraz, aby rozwinąć.*
 
 1. Zaznacz każdy węzeł komentarza w drzewie po lewej stronie, aby przejść do komentarza w kontekście otaczającego kodu. Popraw kod źródłowy w projekcie zespołu, aby rozwiązać problem opisany przez komentarz.

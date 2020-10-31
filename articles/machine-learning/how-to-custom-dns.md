@@ -11,16 +11,16 @@ author: jhirono
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1d215c9564d89e5bd410e68839807f5c2c752356
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b16c8873a1778b907b288486c204d74ee31683cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828513"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097961"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Jak używać obszaru roboczego z niestandardowym serwerem DNS
 
-W przypadku korzystania z Azure Machine Learning z siecią wirtualną istnieje [kilka sposobów obsługi rozpoznawania nazw DNS](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). Domyślnie platforma Azure automatycznie obsługuje rozpoznawanie nazw dla obszaru roboczego i prywatnego punktu końcowego. Jednak w __przypadku korzystania z własnego niestandardowego serwera DNS__należy ręcznie utworzyć wpisy DNS dla obszaru roboczego.
+W przypadku korzystania z Azure Machine Learning z siecią wirtualną istnieje [kilka sposobów obsługi rozpoznawania nazw DNS](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). Domyślnie platforma Azure automatycznie obsługuje rozpoznawanie nazw dla obszaru roboczego i prywatnego punktu końcowego. Jednak w __przypadku korzystania z własnego niestandardowego serwera DNS__ należy ręcznie utworzyć wpisy DNS dla obszaru roboczego.
 
 > [!IMPORTANT]
 > W tym artykule opisano, jak znaleźć w pełni kwalifikowaną nazwę domeny (FQDN) i adresy IP dla tych wpisów, które nie zawierają informacji na temat konfigurowania rekordów DNS dla tych elementów. Zapoznaj się z dokumentacją oprogramowania DNS, aby uzyskać informacje na temat dodawania rekordów.
@@ -46,7 +46,7 @@ Poniższa lista zawiera w pełni kwalifikowane nazwy domen (FQDN) używane przez
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* W przypadku tworzenia wystąpienia obliczeniowego należy również dodać wpis dla `<instance-name>.<region>.instances.azureml.ms` .
+* W przypadku tworzenia wystąpienia obliczeniowego należy również dodać wpis `<instance-name>.<region>.instances.azureml.ms` z prywatnym adresem IP prywatnego punktu końcowego obszaru roboczego. Uwaga do wystąpienia obliczeniowego można uzyskać dostęp tylko z poziomu sieci wirtualnej.
 
 Aby znaleźć wewnętrzne adresy IP dla nazw FQDN w sieci wirtualnej, należy użyć jednej z następujących metod:
 
@@ -66,10 +66,10 @@ $workspaceDns=Get-AzPrivateEndpoint -Name <endpoint> -resourcegroupname <resourc
 $workspaceDns.CustomDnsConfigs | format-table
 ```
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
-1. W [Azure Portal](https://portal.azure.com)wybierz __obszar roboczy__Azure Machine Learning.
-1. W sekcji __Ustawienia__ wybierz pozycję __połączenia prywatne punktów końcowych__.
+1. W [Azure Portal](https://portal.azure.com)wybierz __obszar roboczy__ Azure Machine Learning.
+1. W sekcji __Ustawienia__ wybierz pozycję __połączenia prywatne punktów końcowych__ .
 1. Wybierz link w wyświetlanej kolumnie __prywatny punkt końcowy__ .
 1. Lista w pełni kwalifikowanych nazw domen (FQDN) i adresów IP dla prywatnego punktu końcowego obszaru roboczego znajduje się u dołu strony.
 
@@ -92,7 +92,7 @@ Informacje zwracane przez wszystkie metody są takie same; Lista nazw FQDN i pry
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * Jeśli masz wystąpienie obliczeniowe, użyj `<instance-name>.<region>.instances.azureml.ms` , gdzie `<instance-name>` jest nazwą wystąpienia obliczeniowego.
+> * Jeśli masz wystąpienie obliczeniowe, użyj `<instance-name>.<region>.instances.azureml.ms` , gdzie `<instance-name>` jest nazwą wystąpienia obliczeniowego. Użyj prywatnego adresu IP prywatnego punktu końcowego obszaru roboczego. Uwaga do wystąpienia obliczeniowego można uzyskać dostęp tylko z poziomu sieci wirtualnej.
 >
 > Dla wszystkich tych adresów IP Użyj tego samego adresu jako `*.api.azureml.ms` wpisów zwróconych z poprzednich kroków.
 

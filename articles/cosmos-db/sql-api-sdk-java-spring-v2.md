@@ -9,14 +9,16 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 15d3b5eb0dfd5eb35b81da1c0c1ef629aa0def63
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d5c85095e767c0e92c22410054ac4f8fc5267660
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477423"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097145"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Dane wiosenne Azure Cosmos DB v2 for Core (SQL) API: informacje o wersji i zasoby
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
 > * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
@@ -62,7 +64,7 @@ W aplikacjach w [chmurze ze sprężyną na platformie Azure](https://azure.micro
 
 ## <a name="resources"></a>Zasoby
 
-| Zasób | Link |
+| Zasób | Łącze |
 |---|---|
 | **Zestaw SDK do pobrania** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/spring-data-cosmosdb) |
 |**Dokumentacja interfejsu API** | [Informacje o sprężyny Azure Cosmos DB dokumentacji]() |

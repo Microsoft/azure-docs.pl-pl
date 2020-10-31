@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: ed11488f397704be782a092d6cdc6463449cc71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18817a426bacc1ddf144c1d64b611c55245cc21e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039079"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097791"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementowanie ciągłej integracji/ciągłego wdrażania Stream Analytics na IoT Edge przy użyciu interfejsów API
 
@@ -59,7 +59,7 @@ Aby utworzyć zadanie Stream Analytics, wywołaj metodę PUT przy użyciu interf
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
-Przykład polecenia korzystającego z **zwinięcie**:
+Przykład polecenia korzystającego z **zwinięcie** :
 
 ```curl
 curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
@@ -136,7 +136,7 @@ Przykład treści żądania w formacie JSON:
 } 
 ```
  
-Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](/rest/api/streamanalytics/stream-analytics-job).  
+Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API](/rest/api/streamanalytics/).  
  
 ## <a name="publish-edge-package"></a>Publikowanie pakietu Edge 
  
@@ -148,7 +148,7 @@ Aby opublikować zadanie Stream Analytics na IoT Edge, wywołaj metodę POST prz
 
 Ta operacja asynchroniczna zwraca stan 202 do momentu pomyślnego opublikowania zadania. Nagłówek odpowiedzi lokalizacji zawiera identyfikator URI używany do uzyskiwania stanu procesu. Gdy proces jest uruchomiony, wywołanie identyfikatora URI w nagłówku lokalizacji zwraca stan 202. Po zakończeniu procesu identyfikator URI w nagłówku lokalizacji zwraca stan 200. 
 
-Przykład wywołania publikowania pakietu brzegowego przy użyciu narzędzia **zwinięcie**: 
+Przykład wywołania publikowania pakietu brzegowego przy użyciu narzędzia **zwinięcie** : 
 
 ```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
@@ -163,7 +163,7 @@ https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{
 ```
 Przed uruchomieniem następującego polecenia poczekaj na dwie minuty, aby wykonać wywołanie interfejsu API z adresem URL znalezionym w NAGŁÓWKu odpowiedzi. Spróbuj ponownie wykonać polecenie, jeśli nie otrzymasz odpowiedzi 200.
  
-Przykład tworzenia wywołania interfejsu API z zwróconym adresem URL z **zwinięciem**:
+Przykład tworzenia wywołania interfejsu API z zwróconym adresem URL z **zwinięciem** :
 
 ```bash
 curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 
