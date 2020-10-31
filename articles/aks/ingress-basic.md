@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować podstawowy kontrol
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: b7a741a8193271fe8a297f7b2d13f6317b35f87c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9b51ee2767a9595f5732f558cfa25f5064944e49
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461485"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131194"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Tworzenie kontrolera transferu danych przychodzących w usłudze Azure Kubernetes Service (AKS)
 
@@ -33,15 +33,15 @@ Ten artykuł wymaga również uruchomienia interfejsu wiersza polecenia platform
 
 ## <a name="create-an-ingress-controller"></a>Tworzenie kontrolera transferu danych przychodzących
 
-Aby utworzyć kontroler transferu danych przychodzących, należy użyć Helm do zainstalowania *Nginx — ruch przychodzący*. W celu zwiększenia nadmiarowości za pomocą parametru `--set controller.replicaCount` wdrażane są dwie repliki kontrolerów wejściowych NGINX. Aby w pełni korzystać z uruchamiania replik kontrolera transferu danych przychodzących, upewnij się, że w klastrze AKS znajduje się więcej niż jeden węzeł.
+Aby utworzyć kontroler transferu danych przychodzących, należy użyć Helm do zainstalowania *Nginx — ruch przychodzący* . W celu zwiększenia nadmiarowości za pomocą parametru `--set controller.replicaCount` wdrażane są dwie repliki kontrolerów wejściowych NGINX. Aby w pełni korzystać z uruchamiania replik kontrolera transferu danych przychodzących, upewnij się, że w klastrze AKS znajduje się więcej niż jeden węzeł.
 
 Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. Nie należy go uruchamiać w węzłach z systemem Windows Server. Za pomocą parametru `--set nodeSelector` podaje się selektor węzła, który nakazuje harmonogramowi usługi Kubernetes uruchomienie kontrolera wejściowego NGINX w węźle opartym na systemie Linux.
 
 > [!TIP]
-> Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o nazwie transfery *-Basic*. W razie potrzeby określ przestrzeń nazw dla własnego środowiska.
+> Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o nazwie transfery *-Basic* . W razie potrzeby określ przestrzeń nazw dla własnego środowiska.
 
 > [!TIP]
-> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for*. W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta przekazywanie protokołu SSL nie będzie działało.
+> Jeśli chcesz włączyć [zachowywanie źródłowych adresów IP klienta][client-source-ip] dla żądań do kontenerów w klastrze, Dodaj `--set controller.service.externalTrafficPolicy=Local` do polecenia instalacji Helm. Adres IP źródła klienta jest przechowywany w nagłówku żądania w obszarze *X-forwardd-for* . W przypadku korzystania z kontrolera transferu danych przychodzących z włączonym zachowywaniem źródłowych adresów IP klienta przekazywanie protokołu SSL nie będzie działało.
 
 ```console
 # Create a namespace for your ingress resources
@@ -93,7 +93,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld-one
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -131,7 +131,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld-two
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -223,11 +223,11 @@ ingress.extensions/hello-world-ingress-static created
 
 ## <a name="test-the-ingress-controller"></a>Testowanie kontrolera transferu danych przychodzących
 
-Aby przetestować trasy dla kontrolera transferu danych przychodzących, przejdź do dwóch aplikacji. Otwórz przeglądarkę sieci Web na adres IP kontrolera NGINX Ingres, taki jak *EXTERNAL_IP*. Pierwsza aplikacja demonstracyjna zostanie wyświetlona w przeglądarce sieci Web, jak pokazano w poniższym przykładzie:
+Aby przetestować trasy dla kontrolera transferu danych przychodzących, przejdź do dwóch aplikacji. Otwórz przeglądarkę sieci Web na adres IP kontrolera NGINX Ingres, taki jak *EXTERNAL_IP* . Pierwsza aplikacja demonstracyjna zostanie wyświetlona w przeglądarce sieci Web, jak pokazano w poniższym przykładzie:
 
 ![Pierwsza aplikacja uruchomiona za kontrolerem transferu danych przychodzących](media/ingress-basic/app-one.png)
 
-Teraz dodaj ścieżkę */Hello-World-Two* do adresu IP, na przykład *EXTERNAL_IP/Hello-World-Two*. Zostanie wyświetlona druga aplikacja demonstracyjna z tytułem niestandardowym:
+Teraz dodaj ścieżkę */Hello-World-Two* do adresu IP, na przykład *EXTERNAL_IP/Hello-World-Two* . Zostanie wyświetlona druga aplikacja demonstracyjna z tytułem niestandardowym:
 
 ![Druga aplikacja uruchomiona za kontrolerem transferu danych przychodzących](media/ingress-basic/app-two.png)
 
@@ -245,7 +245,7 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>Usuń zasoby pojedynczo
 
-Alternatywnie, bardziej szczegółowe podejście polega na usunięciu utworzonych poszczególnych zasobów. Utwórz listę wersji Helm za pomocą `helm list` polecenia. Poszukaj wykresów o nazwie *Nginx-Ingress* i *AKS-HelloWorld*, jak pokazano w następujących przykładowych danych wyjściowych:
+Alternatywnie, bardziej szczegółowe podejście polega na usunięciu utworzonych poszczególnych zasobów. Utwórz listę wersji Helm za pomocą `helm list` polecenia. Poszukaj wykresów o nazwie *Nginx-Ingress* i *AKS-HelloWorld* , jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```
 $ helm list --namespace ingress-basic

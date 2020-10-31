@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c70d976a05cbeed058243829d0658693341636e9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88607410"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131211"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Zintegruj swoją aukcję komercyjną Marketplace z usługą Azure Active Directory
 
@@ -37,7 +37,7 @@ Różne [Opcje i typy ofert](determine-your-listing-type.md) dostępne w komercy
 | Aplikacje platformy Azure (szablon rozwiązania)  | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY |
 | Aplikacje zarządzane  | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | Nie |
 | SaaS  | Nie | Tak | Tak | Tak |
-| Containers  | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | Nie |
+| Kontenery  | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | Nie |
 | Usługi konsultingowe  | Nie | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY |
 
 Aby uzyskać więcej informacji o wymaganiach technicznych SaaS, zobacz [oferty usługi Azure AD i transacting SaaS w portalu komercyjnym](./azure-ad-saas.md).
@@ -80,7 +80,7 @@ Jeśli dopiero zaczynasz korzystać z federacyjnego logowania jednokrotnego usł
 
 Użyj usługi Azure AD, aby obsłużyć jedną z następujących akcji:
 
-- Dodawanie użytkowników-Gości do katalogu za pomocą [usługi Azure AD B2B](../active-directory/b2b/what-is-b2b.md).
+- Dodawanie użytkowników-Gości do katalogu za pomocą [usługi Azure AD B2B](../active-directory/external-identities/what-is-b2b.md).
 - Ręcznie skonfiguruj wersje próbne dla klientów za pomocą opcji publikowania do **kontaktów** .
 - Tworzenie dysku testowego dla klienta.
 - Utwórz przykładową aplikację demonstracyjną obejmującą wiele dzierżawców, która korzysta z logowania jednokrotnego.

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: a7a77cc18ddc1ab8664d49aa3c2ac049a683ed3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c28b4edab1e1033bf9ac7df6b1249b549bb4fe1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710638"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131517"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Tworzenie oferty Dynamics 365 for Operations
 
@@ -26,8 +26,8 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
-3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Dynamics 365 dla operacji**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Dynamics 365 dla operacji** .
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-dynamics-365-operations.png)
 
@@ -36,14 +36,14 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 
 ## <a name="new-offer"></a>Nowa oferta
 
-Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
+Wprowadź **Identyfikator oferty** . To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
 - Identyfikator oferty połączonej z IDENTYFIKATORem wydawcy musi być krótszy niż 40 znaków.
 - Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje. Na przykład jeśli identyfikator wydawcy to testpublisherid, a w tym miejscu wprowadzisz polecenie **test-Offer-1** , adres internetowy oferty będzie mieć wartość `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
+- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz** .
 
-Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
+Wprowadź **alias oferty** . Jest to nazwa używana dla oferty w centrum partnerskim.
 
 - Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
 
@@ -93,7 +93,7 @@ Ta strona umożliwia definiowanie kategorii i branż używanych do grupowania of
 Wybierz kategorie i podkategorie, aby umieścić ofertę w odpowiednich obszarach wyszukiwania w portalu Marketplace. Pamiętaj, aby opisać, w jaki sposób oferta obsługuje te kategorie w opisie oferty. Wybierz pozycję:
 
 - Co najmniej jeden i maksymalnie dwie kategorie, w tym podstawowa i pomocnicza Kategoria (opcjonalnie).
-- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy**.
+- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy** .
 
 Zapoznaj się z pełną listą kategorii i podkategorii w artykule [Oferta z najlepszymi rozwiązaniami](../gtm-offer-listing-best-practices.md).
 
@@ -175,7 +175,7 @@ Wprowadź adres URL zasad zachowania poufności informacji organizacji. Użytkow
 
 ### <a name="contacts"></a>Kontakty
 
-W tej sekcji Podaj nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego**. Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP.
+W tej sekcji Podaj nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego** . Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP.
 
 W sekcji **skontaktuj się z pomocą techniczną** Podaj **adres URL pomocy technicznej** , pod którą partnerzy CSP mogą znaleźć obsługę oferty.
 
@@ -209,7 +209,7 @@ Te logo są używane w różnych miejscach na liście:
 
 Dodaj zrzuty ekranu pokazujące, jak działa Twoja oferta. Wymagany jest co najmniej jeden zrzut ekranu i można dodać maksymalnie pięć. Wszystkie zrzuty ekranu muszą mieć 1280 x 720 pikseli.
 
-#### <a name="videos"></a>Wideo
+#### <a name="videos"></a>Filmy wideo
 
 Opcjonalnie możesz dodać do czterech filmów wideo, które demonstrują Twoją ofertę. Te filmy wideo powinny być hostowane w usłudze YouTube i/lub Vimeo. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres URL i obraz miniatury filmu wideo (1280 x 720 pikseli)
 
@@ -227,7 +227,7 @@ Na tej stronie przedstawiono opcje dotyczące miejsca i sposobu udostępniania o
 
 Ta sekcja umożliwia określenie rynków, w których oferta powinna być dostępna. Aby to zrobić, wybierz pozycję **Edytuj rynki,** co spowoduje wyświetlenie okna podręcznego **wyboru na rynku** .
 
-Domyślnie nie są zaznaczone żadne rynki. Wybierz co najmniej jeden rynek do opublikowania oferty. Kliknij przycisk  **Zaznacz wszystko** , aby udostępnić ofertę na każdym możliwym rynku, lub wybierz konkretne rynki, które chcesz dodać. Po zakończeniu wybierz pozycję **Zapisz**.
+Domyślnie nie są zaznaczone żadne rynki. Wybierz co najmniej jeden rynek do opublikowania oferty. Kliknij przycisk  **Zaznacz wszystko** , aby udostępnić ofertę na każdym możliwym rynku, lub wybierz konkretne rynki, które chcesz dodać. Po zakończeniu wybierz pozycję **Zapisz** .
 
 Wybrane tutaj ustawienia dotyczą tylko nowych nabyć; Jeśli ktoś ma już aplikację na określonym rynku, a później usuniesz ten rynek, osoby, które już posiadają ofertę na tym rynku, będą mogły nadal z nich korzystać, ale żaden nowy klient nie będzie mógł uzyskać swojej oferty.
 
@@ -238,7 +238,7 @@ Pamiętaj, że nawet w przypadku wybrania wszystkich rynków, lokalne prawa i og
 
 ### <a name="preview-audience"></a>Podgląd odbiorców
 
-Przed opublikowaniem oferty na żywo w szerszej ofercie z witryny Marketplace musisz najpierw udostępnić ją w ograniczonej **grupie odbiorców w wersji zapoznawczej**. Wprowadź w tym miejscu **klucz ukrycia** (dowolny ciąg, używając tylko małych liter i/lub cyfr). Członkowie Twojej grupy zapoznawczej mogą używać tego klucza Ukryj jako tokenu, aby wyświetlić podgląd oferty w portalu Marketplace.
+Przed opublikowaniem oferty na żywo w szerszej ofercie z witryny Marketplace musisz najpierw udostępnić ją w ograniczonej **grupie odbiorców w wersji zapoznawczej** . Wprowadź w tym miejscu **klucz ukrycia** (dowolny ciąg, używając tylko małych liter i/lub cyfr). Członkowie Twojej grupy zapoznawczej mogą używać tego klucza Ukryj jako tokenu, aby wyświetlić podgląd oferty w portalu Marketplace.
 
 Gdy wszystko będzie gotowe do udostępnienia oferty i usunięcia ograniczenia wersji zapoznawczej, należy usunąć **klucz Ukryj** i opublikować ponownie.
 
@@ -254,8 +254,8 @@ Podaj identyfikator rozwiązania (GUID) dla rozwiązania.
 
 Aby znaleźć identyfikator rozwiązania:
 
-1. W obszarze usługi Microsoft Dynamics — cykl życia (LCS) wybierz pozycję **zarządzanie rozwiązaniami**.
-2. Wybierz rozwiązanie, a następnie wyszukaj **Identyfikator rozwiązania** w temacie **Omówienie pakietu**. Jeśli identyfikator jest pusty, wybierz pozycję **Edytuj** i ponownie Opublikuj pakiet, a następnie spróbuj ponownie.
+1. W obszarze usługi Microsoft Dynamics — cykl życia (LCS) wybierz pozycję **zarządzanie rozwiązaniami** .
+2. Wybierz rozwiązanie, a następnie wyszukaj **Identyfikator rozwiązania** w temacie **Omówienie pakietu** . Jeśli identyfikator jest pusty, wybierz pozycję **Edytuj** i ponownie Opublikuj pakiet, a następnie spróbuj ponownie.
 
 ### <a name="release-version"></a>Wersja wydania
 
@@ -277,21 +277,21 @@ Ta strona umożliwia podanie dodatkowych informacji o ofercie, które ułatwią 
 
 ### <a name="validation-assets"></a>Zasoby weryfikacji
 
-Przekaż [Raport analizy dostosowania (samochód)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) w tej sekcji. Ten raport jest generowany przez analizowanie modeli dostosowywania i rozszerzeń na podstawie wstępnie zdefiniowanego zestawu reguł najlepszych rozwiązań.
+Przekaż [Raport analizy dostosowania (samochód)](/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) w tej sekcji. Ten raport jest generowany przez analizowanie modeli dostosowywania i rozszerzeń na podstawie wstępnie zdefiniowanego zestawu reguł najlepszych rozwiązań.
 
 Ten plik musi być w formacie xls lub xlsx. Jeśli masz więcej niż jeden raport, możesz przekazać plik. zip zawierający wszystkie raporty.
 
 ### <a name="does-solution-include-localizations"></a>Czy rozwiązanie obejmuje lokalizacje?
 
-Wybierz opcję **tak** , jeśli rozwiązanie umożliwia korzystanie z lokalnych standardów i zasad (na przykład w przypadku uwzględnienia różnych reguł listy płac wymaganych przez różne kraje/regiony). W przeciwnym razie wybierz opcję **Nie**.
+Wybierz opcję **tak** , jeśli rozwiązanie umożliwia korzystanie z lokalnych standardów i zasad (na przykład w przypadku uwzględnienia różnych reguł listy płac wymaganych przez różne kraje/regiony). W przeciwnym razie wybierz opcję **Nie** .
 
 ### <a name="does-solution-enable-translations"></a>Czy rozwiązanie włącza tłumaczenia?
 
-Odpowiedź **tak** , jeśli tekst w rozwiązaniu można przetłumaczyć na inne języki. W przeciwnym razie wybierz opcję **Nie**.
+Odpowiedź **tak** , jeśli tekst w rozwiązaniu można przetłumaczyć na inne języki. W przeciwnym razie wybierz opcję **Nie** .
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-## <a name="publish"></a>Opublikuj
+## <a name="publish"></a>Publikowanie
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 
@@ -303,8 +303,8 @@ Jeśli po raz pierwszy publikujesz tę ofertę, możesz:
     - **Nie uruchomiono** — sekcja nie została dotknięcia i powinna zostać ukończona.
     - **Niekompletne** — sekcja zawiera błędy, które muszą zostać naprawione lub wymaga podania więcej informacji. Wróć do sekcji i zaktualizuj ją.
     - **Ukończono** — sekcja jest kompletna, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
-- W sekcji **uwagi dotyczące certyfikacji** Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja została prawidłowo przetestowana, a także dodatkowe uwagi przydatne do poznania aplikacji. Aby uzyskać więcej informacji o testowaniu instrukcji i zakończeniu pierwszego publikowania, zobacz [AppSource Dynamics 365 Finanse i operacje operacji](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
-- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail z prośbą o udostępnienie wersji zapoznawczej oferty, którą można przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać ofertę do publicznej publikacji oferty.
+- W sekcji **uwagi dotyczące certyfikacji** Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja została prawidłowo przetestowana, a także dodatkowe uwagi przydatne do poznania aplikacji. Aby uzyskać więcej informacji o testowaniu instrukcji i zakończeniu pierwszego publikowania, zobacz [AppSource Dynamics 365 Finanse i operacje operacji](../dynamics-365-finance-operations-functional-validation.md).
+- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij** . Wyślemy Ci wiadomość e-mail z prośbą o udostępnienie wersji zapoznawczej oferty, którą można przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać ofertę do publicznej publikacji oferty.
 
 ## <a name="next-step"></a>Następny krok
 

@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: active-directory
 author: MarkusVi
 ms.service: active-directory
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
-ms.openlocfilehash: ab6e3426096f6fbaf7dfa44984a26c939f3b91fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0bc51fcd3a56af2f836377da736af3a1976463e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75971822"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135899"
 ---
 Włączenie tożsamości zarządzanej przypisanej do systemu jest jednym kliknięciem. Można je włączyć podczas tworzenia maszyny wirtualnej lub we właściwościach istniejącej maszyny wirtualnej.
 
-![Tworzenie nowego konta magazynu](./media/active-directory-msi-tut-enable/identity.png)
+![Zrzut ekranu przedstawia kartę przypisany system dla maszyny wirtualnej, na której można włączyć stan przypisany do systemu.](./media/active-directory-msi-tut-enable/identity.png)
 
 
 **Aby włączyć tożsamość zarządzaną przypisaną przez system na nowej maszynie wirtualnej:** 

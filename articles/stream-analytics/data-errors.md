@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 416e6cb29ab2816d53cb837f72233a9fe098f659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072003"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131381"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Błędy danych Azure Stream Analytics
 
@@ -168,7 +168,7 @@ Zobacz [Rozwiązywanie problemów Azure Stream Analytics przy użyciu dziennikó
 * Przyczyna: różnica między czasem aplikacji a czasem przybycia jest większa niż opóźnione okno tolerancji przybycia.
 * Podane powiadomienie portalu: nie
 * Poziom dziennika zasobów: informacje
-* Wpływ: opóźnione zdarzenia wejściowe są obsługiwane zgodnie z ustawieniem "Obsługuj inne zdarzenia" w sekcji porządkowanie zdarzeń w konfiguracji zadania. Aby uzyskać więcej informacji, zobacz [zasady czasu obsługi](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Wpływ: opóźnione zdarzenia wejściowe są obsługiwane zgodnie z ustawieniem "Obsługuj inne zdarzenia" w sekcji porządkowanie zdarzeń w konfiguracji zadania. Aby uzyskać więcej informacji, zobacz [zasady czasu obsługi](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Szczegóły dziennika
    * Czas aplikacji i czas przybycia. 
    * Rzeczywisty ładunek do kilku kilobajtów.
@@ -184,7 +184,7 @@ Zobacz [Rozwiązywanie problemów Azure Stream Analytics przy użyciu dziennikó
 * Przyczyna: różnica między czasem aplikacji a czasem przybycia jest większa niż 5 minut.
 * Podane powiadomienie portalu: nie
 * Poziom dziennika zasobów: informacje
-* Wpływ: wczesne zdarzenia wejściowe są obsługiwane zgodnie z ustawieniem "Obsługuj inne zdarzenia" w sekcji porządkowanie zdarzeń w konfiguracji zadania. Aby uzyskać więcej informacji, zobacz [zasady czasu obsługi](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Wpływ: wczesne zdarzenia wejściowe są obsługiwane zgodnie z ustawieniem "Obsługuj inne zdarzenia" w sekcji porządkowanie zdarzeń w konfiguracji zadania. Aby uzyskać więcej informacji, zobacz [zasady czasu obsługi](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Szczegóły dziennika
    * Czas aplikacji i czas przybycia. 
    * Rzeczywisty ładunek do kilku kilobajtów.
@@ -200,7 +200,7 @@ Zobacz [Rozwiązywanie problemów Azure Stream Analytics przy użyciu dziennikó
 * Przyczyna: zdarzenie jest uznawane za nieuporządkowane zgodnie ze zdefiniowanym oknem tolerancji poza kolejnością.
 * Podane powiadomienie portalu: nie
 * Poziom dziennika zasobów: informacje
-* Wpływ: zdarzenia poza kolejnością są obsługiwane zgodnie z ustawieniem "Obsługuj inne zdarzenia" w sekcji porządkowanie zdarzeń w konfiguracji zadania. Aby uzyskać więcej informacji, zobacz [zasady czasu obsługi](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Wpływ: zdarzenia poza kolejnością są obsługiwane zgodnie z ustawieniem "Obsługuj inne zdarzenia" w sekcji porządkowanie zdarzeń w konfiguracji zadania. Aby uzyskać więcej informacji, zobacz [zasady czasu obsługi](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Szczegóły dziennika
    * Rzeczywisty ładunek do kilku kilobajtów.
 
@@ -221,7 +221,7 @@ Istnieje kilka błędów danych, które mogą być wykrywane tylko po wywołaniu
 * Przyczyna: kolumna wymagana dla danych wyjściowych nie istnieje. Przykładowo istnieje kolumna zdefiniowana jako Azure Table PartitionKey does't.
 * Podane powiadomienie portalu: tak
 * Poziom dziennika zasobów: Ostrzeżenie
-* Wpływ: wszystkie błędy konwersji danych wyjściowych, w tym brakująca wymagana kolumna, są obsługiwane zgodnie z ustawieniem [zasad danych wyjściowych](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Wpływ: wszystkie błędy konwersji danych wyjściowych, w tym brakująca wymagana kolumna, są obsługiwane zgodnie z ustawieniem [zasad danych wyjściowych](./stream-analytics-output-error-policy.md) .
 * Szczegóły dziennika
    * Nazwa kolumny oraz identyfikator rekordu lub część rekordu.
 
@@ -236,7 +236,7 @@ Istnieje kilka błędów danych, które mogą być wykrywane tylko po wywołaniu
 * Przyczyna: wartość kolumny nie jest zgodna z danymi wyjściowymi. Na przykład nazwa kolumny nie jest prawidłową kolumną tabeli platformy Azure.
 * Podane powiadomienie portalu: tak
 * Poziom dziennika zasobów: Ostrzeżenie
-* Wpływ: wszystkie błędy konwersji danych wyjściowych, w tym Nieprawidłowa nazwa kolumny, są obsługiwane zgodnie z ustawieniem [zasad danych wyjściowych](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Wpływ: wszystkie błędy konwersji danych wyjściowych, w tym Nieprawidłowa nazwa kolumny, są obsługiwane zgodnie z ustawieniem [zasad danych wyjściowych](./stream-analytics-output-error-policy.md) .
 * Szczegóły dziennika
    * Nazwa kolumny i identyfikator rekordu lub część rekordu.
 
@@ -251,7 +251,7 @@ Istnieje kilka błędów danych, które mogą być wykrywane tylko po wywołaniu
 * Przyczyna: nie można przekonwertować kolumny na prawidłowy typ w danych wyjściowych. Na przykład wartość kolumny jest niezgodna z ograniczeniami lub typem zdefiniowanym w tabeli SQL.
 * Podane powiadomienie portalu: tak
 * Poziom dziennika zasobów: Ostrzeżenie
-* Wpływ: wszystkie błędy konwersji danych wyjściowych, w tym błąd konwersji typu, są obsługiwane zgodnie z ustawieniem [zasad danych wyjściowych](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Wpływ: wszystkie błędy konwersji danych wyjściowych, w tym błąd konwersji typu, są obsługiwane zgodnie z ustawieniem [zasad danych wyjściowych](./stream-analytics-output-error-policy.md) .
 * Szczegóły dziennika
    * Nazwa kolumny.
    * Identyfikator rekordu lub część rekordu.
@@ -267,7 +267,7 @@ Istnieje kilka błędów danych, które mogą być wykrywane tylko po wywołaniu
 * Przyczyna: wartość komunikatu jest większa niż obsługiwany rozmiar wyjściowy. Na przykład rekord jest większy niż 1 MB dla danych wyjściowych centrum zdarzeń.
 * Podane powiadomienie portalu: tak
 * Poziom dziennika zasobów: Ostrzeżenie
-* Wpływ: wszystkie błędy konwersji danych wyjściowych, w tym limit rozmiaru dla rekordu, są obsługiwane zgodnie z ustawieniem [zasad danych wyjściowych](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Wpływ: wszystkie błędy konwersji danych wyjściowych, w tym limit rozmiaru dla rekordu, są obsługiwane zgodnie z ustawieniem [zasad danych wyjściowych](./stream-analytics-output-error-policy.md) .
 * Szczegóły dziennika
    * Identyfikator rekordu lub część rekordu.
 
@@ -282,7 +282,7 @@ Istnieje kilka błędów danych, które mogą być wykrywane tylko po wywołaniu
 * Przyczyna: rekord zawiera już kolumnę o tej samej nazwie co kolumna systemowa. Na przykład dane wyjściowe CosmosDB z kolumną o nazwie ID, gdy kolumna ID ma inną kolumnę.
 * Podane powiadomienie portalu: tak
 * Poziom dziennika zasobów: Ostrzeżenie
-* Wpływ: wszystkie błędy konwersji danych wyjściowych, w tym zduplikowany klucz, są obsługiwane zgodnie z ustawieniem [zasad danych wyjściowych](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Wpływ: wszystkie błędy konwersji danych wyjściowych, w tym zduplikowany klucz, są obsługiwane zgodnie z ustawieniem [zasad danych wyjściowych](./stream-analytics-output-error-policy.md) .
 * Szczegóły dziennika
    * Nazwa kolumny.
    * Identyfikator rekordu lub część rekordu.

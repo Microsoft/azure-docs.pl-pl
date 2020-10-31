@@ -4,12 +4,12 @@ ms.topic: include
 ms.date: 11/09/2018
 author: linda33wj
 ms.author: jingwang
-ms.openlocfilehash: c0fcdf1cf69c55f63288138bc7377a78295cb2be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34848b638ff0c7f7b9d1a2f3e5894339f8310ccc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86544388"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135636"
 ---
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
@@ -17,13 +17,13 @@ Potok automatycznie tworzy folder wyjściowy w kontenerze obiektów blob adftuto
 
 1. Na Azure Portal na stronie kontenera **adftutorial** wybierz pozycję **Odśwież** , aby wyświetlić folder danych wyjściowych. 
     
-    ![Odśwież](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+    ![Zrzut ekranu przedstawia stronę kontenera, na której można odświeżyć stronę.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 
 2. Wybierz pozycję **dane wyjściowe** na liście folderów. 
 
 3. Upewnij się, że plik **emp.txt** jest kopiowany do folderu wyjściowego. 
 
-    ![Odśwież](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+    ![Zrzut ekranu przedstawia zawartość folderu wyjściowego.](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

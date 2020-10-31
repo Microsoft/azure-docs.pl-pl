@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 19e441334395f600c3adaa867660345164537f96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a9e4c8f3dd9e4cf291388bc102ae9a73d8de6dd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799455"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131568"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Zaloguj się do swoich kont przy użyciu aplikacji Microsoft Authenticator
 
@@ -51,15 +51,15 @@ Logowanie przy użyciu telefonu jest dostępne tylko na urządzeniach z systemam
 
 Otwórz aplikację Microsoft Authenticator, przejdź do swojego konta służbowego i Włącz logowanie za pomocą telefonu.
 
-- **Po naciśnięciu kafelka konta**zostanie wyświetlony widok pełny ekran konta. Jeśli zobaczysz, że logowanie za pomocą **telefonu jest włączone** , oznacza to, że użytkownik jest w pełni skonfigurowany, aby zalogować się bez hasła. Jeśli zobaczysz opcję **Włącz logowanie przy użyciu telefonu**, naciśnij ją, aby włączyć logowanie za telefonem.
-- **Jeśli aplikacja jest już używana do weryfikacji dwuskładnikowej**, możesz nacisnąć kafelek konto, aby wyświetlić pełny ekran konta. Następnie naciśnij pozycję **Włącz logowanie** przy użyciu telefonu, aby włączyć logowanie przy użyciu telefonu.
+- **Po naciśnięciu kafelka konta** zostanie wyświetlony widok pełny ekran konta. Jeśli zobaczysz, że logowanie za pomocą **telefonu jest włączone** , oznacza to, że użytkownik jest w pełni skonfigurowany, aby zalogować się bez hasła. Jeśli zobaczysz opcję **Włącz logowanie przy użyciu telefonu** , naciśnij ją, aby włączyć logowanie za telefonem.
+- **Jeśli aplikacja jest już używana do weryfikacji dwuskładnikowej** , możesz nacisnąć kafelek konto, aby wyświetlić pełny ekran konta. Następnie naciśnij pozycję **Włącz logowanie** przy użyciu telefonu, aby włączyć logowanie przy użyciu telefonu.
 - **Jeśli nie możesz znaleźć konta służbowego** na ekranie **konta** aplikacji, oznacza to, że nie został jeszcze dodany do aplikacji. Dodaj swoje konto służbowe, wykonując czynności opisane w [pomocy Dodawanie konta służbowego lub szkolnego](user-help-auth-app-add-work-school-account.md).
 
 Po włączeniu logowania za pomocą telefonu możesz zalogować się tylko przy użyciu aplikacji Microsoft Authenticator. Oto kroki tej procedury:
 
 1. Zaloguj się do konta służbowego.
 
-    Po wpisaniu nazwy użytkownika zostanie wyświetlony ekran **Zatwierdzanie logowania z** dwoma cyframi i prośba o zalogowanie się za pomocą aplikacji Microsoft Authenticator. Jeśli nie chcesz używać tej metody logowania, możesz **zamiast tego użyć hasła**, a następnie zalogować się przy użyciu hasła.
+    Po wpisaniu nazwy użytkownika zostanie wyświetlony ekran **Zatwierdzanie logowania z** dwoma cyframi i prośba o zalogowanie się za pomocą aplikacji Microsoft Authenticator. Jeśli nie chcesz używać tej metody logowania, możesz **zamiast tego użyć hasła** , a następnie zalogować się przy użyciu hasła.
 
     ![Zatwierdź pole logowania na komputerze](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
 
@@ -67,7 +67,7 @@ Po włączeniu logowania za pomocą telefonu możesz zalogować się tylko przy 
 
     ![Zatwierdź pole logowania na urządzeniu](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in-numbers.png)
 
-3. Wybierz pozycję **Zatwierdź**, jeśli rozpoznajesz próbę logowania. W przeciwnym razie wybierz pozycję **Odmów**.
+3. Wybierz pozycję **Zatwierdź** , jeśli rozpoznajesz próbę logowania. W przeciwnym razie wybierz pozycję **Odmów** .
 
 4. Aby ukończyć uwierzytelnianie, użyj numeru PIN lub klucza biometrycznego telefonu.
 
@@ -82,8 +82,8 @@ Możesz włączyć logowanie za pomocą telefonu do osobistego konto Microsoft, 
 
 Otwórz aplikację Microsoft Authenticator, przejdź do swojego konta służbowego i Włącz logowanie za pomocą telefonu.
 
-- **Po naciśnięciu kafelka konta**zostanie wyświetlony widok pełny ekran konta. Jeśli zobaczysz, że logowanie za pomocą **telefonu jest włączone** , oznacza to, że użytkownik jest w pełni skonfigurowany, aby zalogować się bez hasła. Jeśli zobaczysz opcję **Włącz logowanie przy użyciu telefonu**, naciśnij ją, aby włączyć logowanie za telefonem.
-- **Jeśli aplikacja jest już używana do weryfikacji dwuskładnikowej**, możesz nacisnąć kafelek konto, aby wyświetlić pełny ekran konta. Następnie naciśnij pozycję **Włącz logowanie** przy użyciu telefonu, aby włączyć logowanie przy użyciu telefonu.
+- **Po naciśnięciu kafelka konta** zostanie wyświetlony widok pełny ekran konta. Jeśli zobaczysz, że logowanie za pomocą **telefonu jest włączone** , oznacza to, że użytkownik jest w pełni skonfigurowany, aby zalogować się bez hasła. Jeśli zobaczysz opcję **Włącz logowanie przy użyciu telefonu** , naciśnij ją, aby włączyć logowanie za telefonem.
+- **Jeśli aplikacja jest już używana do weryfikacji dwuskładnikowej** , możesz nacisnąć kafelek konto, aby wyświetlić pełny ekran konta. Następnie naciśnij pozycję **Włącz logowanie** przy użyciu telefonu, aby włączyć logowanie przy użyciu telefonu.
 - **Jeśli nie możesz znaleźć konta** na ekranie **konta** aplikacji, oznacza to, że nie został jeszcze dodany do aplikacji. Dodaj konto Microsoft osobiste, wykonując czynności opisane w artykule [Dodawanie osobistych kont Microsoft](user-help-auth-app-add-personal-ms-account.md) .
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Zaloguj się do swojego konta przy użyciu logowania za pomocą telefonu
@@ -111,7 +111,7 @@ Aby uzyskać instrukcje niezbędne do zalogowania się do konta służbowego lub
 | Czy logowanie do telefonu zastąpi weryfikację dwuetapową? Czy należy ją wyłączyć? | Logowanie za pomocą telefonu to dwuetapowa weryfikacja, w której dwa kroki są wykonywane na urządzeniu przenośnym. Należy zachować weryfikację dwóch etapów, aby zapewnić dodatkowe zabezpieczenia dla Twojego konta. |
 | Czy po włączeniu weryfikacji dwuetapowej dla mojego konta należy zatwierdzić dwie powiadomienia? | Nie. Zalogowanie się do konto Microsoft przy użyciu telefonu jest również traktowane jako weryfikacja dwuetapowa, więc nie jest wymagane żadne drugie zatwierdzenie. |
 | Co zrobić, Jeśli utracisz mój telefon lub nie masz go? Jak mogę uzyskać dostęp do mojego konta? | Zawsze możesz wybrać łącze Użyj zamiast tego hasła na stronie logowania, aby przełączyć się z powrotem do korzystania z hasła. Jeśli jednak korzystasz z weryfikacji dwuetapowej, nadal musisz użyć drugiej metody do zweryfikowania swojej tożsamości.<br><br>**Ważne**<br>Zdecydowanie zachęcamy do upewnienia się, że masz więcej niż jedną, aktualną metodę weryfikacji skojarzoną z Twoim kontem.<br><br>Możesz zarządzać metodami weryfikacji dla kont osobistych na stronie [ustawień zabezpieczeń](https://account.live.com/proofs/manage) . W przypadku kont służbowych możesz przejść na stronę [dodatkowej weryfikacji zabezpieczeń](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) w organizacji lub stronę **Zachowaj bezpieczeństwo konta** , jeśli administrator włączył informacje zabezpieczające. Więcej informacji o zabezpieczeniach znajduje się w temacie Informacje o zabezpieczeniach [(wersja zapoznawcza) — Omówienie](./security-info-setup-signin.md).<br><br>Jeśli nie możesz zarządzać metodami weryfikacji, musisz skontaktować się z administratorem. |
-| Jak mogę zatrzymać korzystanie z tej funkcji i wrócić do korzystania z mojego hasła? | W przypadku kont osobistych wybierz link **zamiast tego użyj hasła** podczas logowania. Ostatni wybór jest zapamiętany i oferowany domyślnie przy następnym logowaniu. Jeśli kiedykolwiek zechcesz wrócić do korzystania z logowania za pomocą telefonu, wybierz łącze **Użyj zamiast niego aplikacji** podczas logowania.<br><br>W przypadku kont służbowych należy wyrejestrować urządzenie ze strony **Ustawienia** aplikacji Microsoft Authenticator lub wyłączyć urządzenie z obszaru **& aktywności urządzeń** w Twoim profilu. Aby uzyskać więcej informacji na temat wyłączania urządzenia z profilu, zobacz [Aktualizowanie informacji o profilu i koncie z portalu My Apps](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
+| Jak mogę zatrzymać korzystanie z tej funkcji i wrócić do korzystania z mojego hasła? | W przypadku kont osobistych wybierz link **zamiast tego użyj hasła** podczas logowania. Ostatni wybór jest zapamiętany i oferowany domyślnie przy następnym logowaniu. Jeśli kiedykolwiek zechcesz wrócić do korzystania z logowania za pomocą telefonu, wybierz łącze **Użyj zamiast niego aplikacji** podczas logowania.<br><br>W przypadku kont służbowych należy wyrejestrować urządzenie ze strony **Ustawienia** aplikacji Microsoft Authenticator lub wyłączyć urządzenie z obszaru **& aktywności urządzeń** w Twoim profilu. Aby uzyskać więcej informacji na temat wyłączania urządzenia z profilu, zobacz [Aktualizowanie informacji o profilu i koncie z portalu My Apps](./my-account-portal-devices-page.md#disable-a-device). |
 | Dlaczego nie mogę używać więcej niż jednego konta służbowego do logowania za pomocą telefonu? | Telefon musi być zarejestrowany w ramach jednego konta służbowego. Jeśli chcesz włączyć logowanie za pomocą telefonu dla innego konta służbowego, musisz wyrejestrować konto z tego urządzenia za pośrednictwem strony **ustawień** . |
 | Czy mogę zalogować się do komputera przy użyciu telefonu? | W przypadku komputera zalecamy zalogowanie się przy użyciu funkcji Windows Hello w systemie Windows 10. Funkcja Windows Hello umożliwia zalogowanie się przy użyciu wyglądu, odcisku palca lub numeru PIN. |
 

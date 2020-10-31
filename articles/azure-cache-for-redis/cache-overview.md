@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 47c4fbada4bb4e7019cb2fa619d97bbb38843dd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3bea474ae61ba4a0213d880934d9536d6ad71796
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085109"
+ms.locfileid: "93131636"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 Pamięć podręczna systemu Azure dla usługi Redis zapewnia magazyn danych w pamięci oparty na oprogramowaniu [Redis](https://redis.io/) . Redis poprawia wydajność i skalowalność aplikacji, która jest wielokrotnie wykorzystywana w magazynach danych zaplecza. Jest w stanie przetwarzać duże ilości żądań aplikacji przez zachowywanie często używanych danych w pamięci serwera, które mogą być zapisywane i odczytywane szybko. Redis zapewnia krytyczne rozwiązanie do przechowywania danych o małym opóźnieniu i wysokiej przepływności dla nowoczesnych aplikacji.
@@ -48,7 +48,7 @@ Usługa Azure Cache for Redis jest dostępna w następujących warstwach:
 | Standardowa | Pamięć podręczna Redis usługi OSS uruchomiona na dwóch maszynach wirtualnych w zreplikowanej konfiguracji. |
 | Premium | Wysokiej wydajności pamięci podręczne OSS Redis. Ta warstwa oferuje wyższą przepływność, mniejsze opóźnienia, lepszą dostępność i więcej funkcji. Pamięć podręczna w warstwie Premium jest wdrażana na bardziej zaawansowanych maszynach wirtualnych w porównaniu do tych w przypadku pamięci podręcznych Basic i Standard. |
 | Enterprise | Pamięci podręczne o wysokiej wydajności obsługiwane przez oprogramowanie Redis Labs Redis Enterprise. Ta warstwa obsługuje moduły Redis, w tym RediSearch, RedisBloom i RedisTimeSeries. Dodatkowo oferuje jeszcze wyższą dostępność niż warstwa Premium. |
-| Enterprise | Ekonomiczne duże pamięci podręczne obsługiwane przez oprogramowanie Redis Labs Redis Enterprise. Ta warstwa rozszerza magazyn danych Redis do pamięci nieulotnej, który jest tańszy niż DRAM na maszynie wirtualnej. Zmniejsza całkowity koszt za GB pamięci. |
+| Lampa błyskowa przedsiębiorstwa | Ekonomiczne duże pamięci podręczne obsługiwane przez oprogramowanie Redis Labs Redis Enterprise. Ta warstwa rozszerza magazyn danych Redis do pamięci nieulotnej, który jest tańszy niż DRAM na maszynie wirtualnej. Zmniejsza całkowity koszt za GB pamięci. |
 
 ### <a name="feature-comparison"></a>Porównanie funkcji
 [Cennik usługi Azure cache for Redis](https://azure.microsoft.com/pricing/details/cache/) zawiera szczegółowe porównanie poszczególnych warstw. W poniższej tabeli opisano niektóre funkcje obsługiwane przez warstwy:

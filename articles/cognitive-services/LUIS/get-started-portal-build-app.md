@@ -5,36 +5,37 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 38fffd7793e1f5bd59ac6dde4499b2eb25009b52
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303866"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131476"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Szybki Start: Tworzenie nowej aplikacji w portalu LUIS
 
-W tym przewodniku szybki start utworzysz nową aplikację w portalu LUIS. Najpierw Utwórz podstawowe elementy aplikacji, **intencje**i **jednostki**. Następnie przetestuj aplikację, dostarczając przykładowej wypowiedź użytkownika w panelu testów interakcyjnych w celu uzyskania przewidywanych zamierzeń.
+W tym przewodniku szybki start utworzysz nową aplikację w portalu LUIS. Najpierw Utwórz podstawowe elementy aplikacji, **intencje** i **jednostki** . Następnie przetestuj aplikację, dostarczając przykładowej wypowiedź użytkownika w panelu testów interakcyjnych w celu uzyskania przewidywanych zamierzeń.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-an-app"></a>Tworzenie aplikacji
 
-1. Wybierz pozycję **+ Nowa aplikacja dla konwersacji** z poziomu paska narzędzi kontekstu, a następnie ponownie wybierz pozycję **+ Nowa aplikacja do konwersacji** .
+Aby utworzyć aplikację, kliknij pozycję  **+ Nowa aplikacja** . 
 
-    > [!div class="mx-imgBorder"]
-    > [![Zrzut ekranu przedstawiający tworzenie nowej aplikacji w portalu LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+W wyświetlonym oknie wprowadź następujące informacje:
 
-1. W oknie podręcznym Skonfiguruj aplikację przy użyciu następujących ustawień, a następnie wybierz pozycję **gotowe**.
+|Nazwa  |Opis  |
+|---------|---------|
+|Nazwa     | Nazwa aplikacji. Na przykład "Automatyzacja domu". Wymagane.        |
+|Kultura     | Język, który aplikacja rozpoznaje i mówi. Wymagane.   |
+|Opis | Opis aplikacji. Opcjonalny.
+|Zasób predykcyjny | Zasób predykcyjny, który będzie odbierać zapytania. Opcjonalny. |
 
-   |Nazwa ustawienia| Wartość | Przeznaczenie|
-   |--|--|--|
-   |Nazwa|`myEnglishApp`|Unikatowa nazwa aplikacji LUIS<br>wymagane|
-   |Kultura|**Angielski**|Język wyrażenia długości od użytkowników, **en-us**<br>wymagane|
-   |Opis (opcjonalnie)|`App made with LUIS Portal`|Opis aplikacji<br>optional|
-   |Zasób predykcyjny (opcjonalnie) |-  |Nie wybieraj. LUIS udostępnia klucz początkowy do użycia bezpłatnie na potrzeby tworzenia i 1 000 żądań punktu końcowego przewidywania. |
+Wybierz pozycję **Gotowe** .
 
-   ![Zrzut ekranu przedstawiający wprowadzanie nowych ustawień aplikacji](./media/get-started-portal-build-app/create-new-app-settings.png)
+>[!NOTE]
+>Kultury nie można zmienić po utworzeniu aplikacji.
+
 
 ## <a name="create-intents"></a>Tworzenie intencji
 
@@ -52,22 +53,17 @@ Dwie różne _intencje_ dotyczące aplikacji są wyrównane do następujących i
 
 Aby utworzyć intencje, wykonaj następujące czynności:
 
-1. Po utworzeniu aplikacji znajduje się na stronie **intencje** w sekcji **kompilacja** . Wybierz przycisk **Utwórz**.
+1. Po utworzeniu aplikacji upewnij się, że jesteś na stronie **intencje** w sekcji **kompilacja** . Wybierz pozycję **Utwórz** .
 
    [![Zrzut ekranu przedstawiający Wybieranie opcji "Utwórz", aby utworzyć nowy cel](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Wprowadź nazwę celu, `FindForm` a następnie wybierz pozycję **gotowe**.
+1. Wprowadź nazwę celu, `FindForm` a następnie wybierz pozycję **gotowe** .
 
 ## <a name="add-an-example-utterance"></a>Dodawanie przykładu wypowiedź
 
-Po utworzeniu zamiarów należy dodać przykład wyrażenia długości. Przykład wyrażenia długości jest tekstem, który użytkownik wprowadza w programie Chat bot lub innej aplikacji klienckiej. Umożliwiają one mapowanie zamiaru tekstu użytkownika na LUIS zamiar.
+Po utworzeniu zamiarów należy dodać przykład wyrażenia długości. Przykład wyrażenia długości jest tekstem, który użytkownik wprowadza w programie Chat bot lub innej aplikacji klienckiej. Umożliwiają one mapowanie zamiaru tekstu użytkownika na LUIS zamiar. Na potrzeby tego przykładowej aplikacji `FindForm` Przykładowa wyrażenia długości będzie zawierać numer formularza. Aplikacja kliencka wymaga, aby numer formularza spełniał żądanie użytkownika, więc należy go uwzględnić w wypowiedź.
 
-Na potrzeby tego przykładowej aplikacji `FindForm` Przykładowa wyrażenia długości będzie zawierać numer formularza. Aplikacja kliencka wymaga, aby numer formularza spełniał żądanie użytkownika, więc należy go uwzględnić w wypowiedź.
-
-> [!div class="mx-imgBorder"]
-> [![Zrzut ekranu przedstawiający przykład wyrażenia długości dla zamiaru FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
-
-Dodaj do zamiaru 15-przykładową wyrażenia długości `FindForm` .
+Na stronie **intencje** w programie `FindForm` Dodaj następujący przykład wyrażenia długości w obszarze **przykład wypowiedź** , 
 
 |#|Przykładowe wypowiedzi|
 |--|--|
@@ -106,7 +102,7 @@ Aby zwrócić numer formularza w odpowiedzi przewidywania czasu wykonywania, nal
 
 1. Wprowadź nazwę `FormNumber` , wybierz typ jednostki **wyrażenia regularnego** .
 
-1. Wprowadź wyrażenie regularne `hrf-[0-9]{6}` w polu **wyrażenie** regularne. Ten wpis jest zgodny ze znakami literału, `hrf-` i zezwala na dokładnie sześć cyfr, a następnie wybierz pozycję **Utwórz**.
+1. Wprowadź wyrażenie regularne `hrf-[0-9]{6}` w polu **wyrażenie** regularne. Ten wpis jest zgodny ze znakami literału, `hrf-` i zezwala na dokładnie sześć cyfr, a następnie wybierz pozycję **Utwórz** .
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający tworzenie jednostki wyrażenia regularnego](./media/get-started-portal-build-app/create-regular-expression-entity.png)

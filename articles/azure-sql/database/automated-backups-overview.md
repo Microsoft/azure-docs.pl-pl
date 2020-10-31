@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/05/2020
-ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/30/2020
+ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675304"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131364"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -50,7 +50,7 @@ W przypadku SQL Database nadmiarowość magazynu kopii zapasowej można skonfigu
 > Magazyn strefowo nadmiarowy jest obecnie dostępny tylko w [określonych regionach](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Konfigurowalna nadmiarowość magazynu kopii zapasowych dla Azure SQL Database jest obecnie ogólnie dostępna w regionie tylko Azja Południowo-Wschodnia. Ta funkcja nie jest jeszcze dostępna dla warstwy skalowania. 
+> Konfigurowalne nadmiarowości magazynu kopii zapasowych dla Azure SQL Database są obecnie dostępne w publicznej wersji zapoznawczej w Brazylii Południowej Ta funkcja nie jest jeszcze dostępna dla warstwy skalowania. 
 
 ### <a name="backup-usage"></a>Użycie kopii zapasowej
 
@@ -70,7 +70,7 @@ Aby wykonać przywracanie, zobacz [przywracanie bazy danych z kopii zapasowych](
 
 Operacje konfiguracji i przywracania kopii zapasowej można wypróbować przy użyciu następujących przykładów:
 
-| Operacja | Witryna Azure Portal | Azure PowerShell |
+| Operacja | Azure Portal | Azure PowerShell |
 |---|---|---|
 | **Zmień przechowywanie kopii zapasowych** | [SQL Database](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Wystąpienie zarządzane SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL Database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Wystąpienie zarządzane SQL](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **Zmiana długoterminowego przechowywania kopii zapasowych** | [SQL Database](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Wystąpienie zarządzane SQL — nie dotyczy  | [SQL Database](long-term-backup-retention-configure.md)<br/>[Wystąpienie zarządzane SQL](../managed-instance/long-term-backup-retention-configure.md)  |
@@ -371,7 +371,7 @@ Aby uzyskać więcej informacji, zobacz [interfejs API REST przechowywania kopii
 ## <a name="configure-backup-storage-redundancy"></a>Konfigurowanie nadmiarowości magazynu kopii zapasowych
 
 > [!NOTE]
-> Konfigurowalną nadmiarowość magazynu dla kopii zapasowych wystąpienia zarządzanego SQL można określić tylko podczas procesu tworzenia wystąpienia zarządzanego. Po zainicjowaniu obsługi administracyjnej zasobu nie można zmienić opcji nadmiarowości magazynu kopii zapasowej. W przypadku SQL Database publiczna wersja zapoznawcza tej funkcji jest obecnie dostępna tylko w regionie "Azja Południowo-Wschodnia". 
+> Konfigurowalną nadmiarowość magazynu dla kopii zapasowych wystąpienia zarządzanego SQL można określić tylko podczas procesu tworzenia wystąpienia zarządzanego. Po zainicjowaniu obsługi administracyjnej zasobu nie można zmienić opcji nadmiarowości magazynu kopii zapasowej. W przypadku SQL Database publiczna wersja zapoznawcza tej funkcji jest obecnie dostępna w Brazylii Południowej i jest ogólnie dostępna w regionie na platformie Azure Południowo-Wschodnia. 
 
 Nadmiarowość magazynu kopii zapasowych wystąpienia zarządzanego można ustawić tylko podczas tworzenia wystąpienia. SQL Database można ustawić podczas tworzenia bazy danych lub można ją zaktualizować dla istniejącej bazy danych. Wartość domyślna to magazyn Geograficznie nadmiarowy (RA-GRS). W przypadku różnic cen między lokalnie nadmiarowy (LRS), strefowo nadmiarowy (ZRS) i geograficznie nadmiarowy (RA-GRS) magazyn kopii zapasowych odwiedź [stronę z cennikiem wystąpienia zarządzanego](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 

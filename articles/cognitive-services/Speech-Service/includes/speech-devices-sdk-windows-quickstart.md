@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 6ce0006c493228d99131ca564a34600800f0ab5e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0fae0172467bb4499c2710c49553d9134a32fa9b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169096"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135821"
 ---
 W tym przewodniku szybki start dowiesz się, jak za pomocą zestawu SDK usługi Speech dla systemu Windows utworzyć produkt z obsługą mowy lub użyć go jako urządzenia [transkrypcji konwersacji](../conversation-transcription-service.md) . W przypadku transkrypcji konwersacji jest obsługiwana tylko [usługa Azure urządzenia Kinect DK](https://azure.microsoft.com/services/kinect-dk/) . W przypadku innych funkcji rozpoznawania mowy obsługiwane są tablice mikrofonu liniowego, które zapewniają geometrię macierzy mikrofonu.
 
@@ -42,19 +42,19 @@ Jeśli planujesz korzystać z intencji, musisz mieć subskrypcję [usługi Langu
 
 1. Uruchom środowisko Eclipse.
 
-1. W obszarze **roboczym** **zaćmienie**w środowisku IDE wprowadź nazwę nowego katalogu obszaru roboczego. Następnie wybierz pozycję **Launch** (Uruchom).
+1. W obszarze **roboczym** **zaćmienie** w środowisku IDE wprowadź nazwę nowego katalogu obszaru roboczego. Następnie wybierz pozycję **Launch** (Uruchom).
 
    ![Zrzut ekranu, na którym jest wyświetlany moduł uruchamiający przezaćmienie, w którym wprowadzana jest nazwa katalogu obszaru roboczego.](../media/speech-devices-sdk/eclipse-launcher.png)
 
 1. Za chwilę zostanie wyświetlone główne okno środowiska IDE programu Eclipse. Zamknij ekran powitalny, jeśli się pojawi.
 
-1. Na pasku menu przezaćmienie Utwórz nowy projekt, wybierając kolejno pozycje **plik**  >  **Nowy**  >  **projekt Java**. W przypadku niedostępności wybierz **projekt** , a następnie **projekt Java**.
+1. Na pasku menu przezaćmienie Utwórz nowy projekt, wybierając kolejno pozycje **plik**  >  **Nowy**  >  **projekt Java** . W przypadku niedostępności wybierz **projekt** , a następnie **projekt Java** .
 
-1. Zostanie uruchomiony Kreator **nowego projektu Java** . **Przeglądaj** w poszukiwaniu lokalizacji przykładowego projektu. Wybierz pozycję **Zakończ**.
+1. Zostanie uruchomiony Kreator **nowego projektu Java** . **Przeglądaj** w poszukiwaniu lokalizacji przykładowego projektu. Wybierz pozycję **Zakończ** .
 
    ![Zrzut ekranu przedstawiający Kreatora nowego projektu Java.](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
-1. W **Eksploratorze pakietów**kliknij projekt prawym przyciskiem myszy. Wybierz pozycję **Konfiguruj**  >  **Konwertuj do projektu Maven** z menu kontekstowego. Wybierz pozycję **Zakończ**.
+1. W **Eksploratorze pakietów** kliknij projekt prawym przyciskiem myszy. Wybierz pozycję **Konfiguruj**  >  **Konwertuj do projektu Maven** z menu kontekstowego. Wybierz pozycję **Zakończ** .
 
    ![Zrzut ekranu narzędzia Package Explorer](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -74,7 +74,7 @@ Jeśli planujesz korzystać z intencji, musisz mieć subskrypcję [usługi Langu
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.13.0</version>
+             <version>1.14.0</version>
         </dependency>
     </dependencies>
    ```
@@ -112,7 +112,7 @@ Jeśli planujesz korzystać z intencji, musisz mieć subskrypcję [usługi Langu
 
     Aby użyć nowego słowa kluczowego, zaktualizuj Poniższy wiersz w `FunctionsList.java` i skopiuj słowo kluczowe do aplikacji. Na przykład, aby użyć słowa kluczowego "Machine" z pakietu słów kluczowych `machine.zip` :
 
-   * Skopiuj `kws.table` plik z pakietu zip do folderu **docelowego/klas**projektu.
+   * Skopiuj `kws.table` plik z pakietu zip do folderu **docelowego/klas** projektu.
    * Zaktualizuj `FunctionsList.java` przy użyciu nazwy słowa kluczowego:
 
      ```java
@@ -121,7 +121,7 @@ Jeśli planujesz korzystać z intencji, musisz mieć subskrypcję [usługi Langu
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Uruchamianie przykładowej aplikacji z poziomu programu zaćmienie
 
-1. Na pasku menu przezaćmienia **Uruchom**polecenie  >  **Uruchom jako**  >  **aplikację Java**. Następnie wybierz pozycję **FunctionsList** i **przycisk OK**.
+1. Na pasku menu przezaćmienia **Uruchom** polecenie  >  **Uruchom jako**  >  **aplikację Java** . Następnie wybierz pozycję **FunctionsList** i **przycisk OK** .
 
    ![Zrzut ekranu przedstawiający wybraną aplikację Java](../media/speech-devices-sdk/eclipse-run-sample.png)
 
@@ -129,19 +129,19 @@ Jeśli planujesz korzystać z intencji, musisz mieć subskrypcję [usługi Langu
 
    ![Zrzut ekranu przedstawiający przykładową aplikację i opcje zestawu SDK urządzeń rozpoznawania mowy.](../media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Wypróbuj nową wersję demonstracyjną **transkrypcji konwersacji** . Rozpocznij jego przepisywania z **Session**  >  **rozpoczęciem**sesji. Domyślnie wszyscy są gośćmi. Jeśli jednak masz podpisy głosu uczestników, można je umieścić w pliku `participants.properties` w **obiekcie docelowym/klasie**folderu projektu. Aby wygenerować podpis głosowy, spójrz na [transkrypcja konwersacje (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Wypróbuj nową wersję demonstracyjną **transkrypcji konwersacji** . Rozpocznij jego przepisywania z **Session**  >  **rozpoczęciem** sesji. Domyślnie wszyscy są gośćmi. Jeśli jednak masz podpisy głosu uczestników, można je umieścić w pliku `participants.properties` w **obiekcie docelowym/klasie** folderu projektu. Aby wygenerować podpis głosowy, spójrz na [transkrypcja konwersacje (SDK)](../how-to-use-conversation-transcription-service.md).
 
    ![Zrzut ekranu przedstawiający aplikację transkrypcji konwersacji.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
 ## <a name="create-and-run-a-standalone-application"></a>Tworzenie i uruchamianie aplikacji autonomicznej
 
-1. W **Eksploratorze pakietów**kliknij projekt prawym przyciskiem myszy. Wybierz pozycję **Eksportuj**.
+1. W **Eksploratorze pakietów** kliknij projekt prawym przyciskiem myszy. Wybierz pozycję **Eksportuj** .
 
-1. Zostanie wyświetlone okno **eksport** . Rozwiń węzeł **Java** i wybierz pozycję **możliwy do uruchomienia plik JAR** , a następnie wybierz pozycję **Next (dalej**).
+1. Zostanie wyświetlone okno **eksport** . Rozwiń węzeł **Java** i wybierz pozycję **możliwy do uruchomienia plik JAR** , a następnie wybierz pozycję **Next (dalej** ).
 
    ![Zrzut ekranu pokazujący okno eksportu, w którym wybierasz plik JAR możliwy do uruchomienia.](../media/speech-devices-sdk/eclipse-export-windows.png)
 
-1. Zostanie wyświetlone okno **Eksportuj plik możliwy do uruchomienia jar** . Wybierz **lokalizację docelową eksportu** aplikacji, a następnie wybierz pozycję **Zakończ**.
+1. Zostanie wyświetlone okno **Eksportuj plik możliwy do uruchomienia jar** . Wybierz **lokalizację docelową eksportu** aplikacji, a następnie wybierz pozycję **Zakończ** .
 
    ![Zrzut ekranu przedstawiający okno eksportowania pliku JAR możliwy do uruchomienia, w którym można wybrać miejsce docelowe eksportowania.](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 

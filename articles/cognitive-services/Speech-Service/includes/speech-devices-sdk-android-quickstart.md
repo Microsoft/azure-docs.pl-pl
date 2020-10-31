@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: dc027d034c50b49044f4a350fe4d239c18060fc7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5e83650bc9861f982c4905e26fbb674abbd4de97
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226156"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136225"
 ---
 W tym przewodniku szybki start dowiesz się, jak utworzyć produkt z obsługą mowy przy użyciu zestawu Speech Devices SDK dla systemu Android lub użyć go jako urządzenia [transkrypcji konwersacji](../conversation-transcription-service.md) .
 
@@ -35,7 +35,7 @@ Przed rozpoczęciem korzystania z zestawu SDK usługi Speech Devices należy:
 
 - Jeśli planujesz używać usługi mowy do identyfikowania intencji (lub działań) z wyrażenia długości użytkownika, będziesz potrzebować subskrypcji [usługi Language Understanding Service (Luis)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Aby dowiedzieć się więcej na temat LUIS i rozpoznawania intencji, zobacz [rozpoznawanie mowy w języku Luis, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
-  Można [utworzyć prosty model Luis](https://docs.microsoft.com/azure/cognitive-services/luis/) lub użyć przykładowego modelu LUIS, LUIS-example.json. Przykładowy model LUIS jest dostępny w [witrynie pobierania zestawu SDK urządzeń mowy](https://aka.ms/sdsdk-luis). Aby przekazać plik JSON modelu do [portalu Luis](https://www.luis.ai/home), wybierz pozycję **Importuj nową aplikację**, a następnie wybierz plik JSON.
+  Można [utworzyć prosty model Luis](https://docs.microsoft.com/azure/cognitive-services/luis/) lub użyć przykładowego modelu LUIS, LUIS-example.json. Przykładowy model LUIS jest dostępny w [witrynie pobierania zestawu SDK urządzeń mowy](https://aka.ms/sdsdk-luis). Aby przekazać plik JSON modelu do [portalu Luis](https://www.luis.ai/home), wybierz pozycję **Importuj nową aplikację** , a następnie wybierz plik JSON.
 
 - Zainstaluj [Android Studio](https://developer.android.com/studio/) i [Vysor](https://vysor.io/download/) na komputerze.
 
@@ -45,9 +45,9 @@ Przed rozpoczęciem korzystania z zestawu SDK usługi Speech Devices należy:
 
    ![Vysor](../media/speech-devices-sdk/qsg-3.png)
 
-1. Urządzenie powinno być wyświetlane w obszarze **Wybierz urządzenie**. Wybierz przycisk **Widok** obok urządzenia.
+1. Urządzenie powinno być wyświetlane w obszarze **Wybierz urządzenie** . Wybierz przycisk **Widok** obok urządzenia.
 
-1. Połącz się z siecią bezprzewodową, wybierając ikonę folderu, a następnie wybierz pozycję **Ustawienia**  >  **Sieć WLAN**.
+1. Połącz się z siecią bezprzewodową, wybierając ikonę folderu, a następnie wybierz pozycję **Ustawienia**  >  **Sieć WLAN** .
 
    ![Vysor WLAN](../media/speech-devices-sdk/qsg-4.png)
 
@@ -58,11 +58,11 @@ Przed rozpoczęciem korzystania z zestawu SDK usługi Speech Devices należy:
    >
    > ![Folder plików Vysor](../media/speech-devices-sdk/qsg-10.png)
    >
-   > Wybierz pozycję **Ustawienia**. Wyszukaj ciąg "adres MAC", a następnie wybierz pozycję **adres MAC**  >  **zaawansowanej sieci WLAN**. Zapisz adres MAC, który pojawia się w dolnej części okna dialogowego.
+   > Wybierz pozycję **Ustawienia** . Wyszukaj ciąg "adres MAC", a następnie wybierz pozycję **adres MAC**  >  **zaawansowanej sieci WLAN** . Zapisz adres MAC, który pojawia się w dolnej części okna dialogowego.
    >
    > ![Vysor adres MAC](../media/speech-devices-sdk/qsg-11.png)
    >
-   > Niektóre firmy mogą mieć limit czasu, przez jaki urządzenie może być połączone z systemem Wi-Fi. Może być konieczne przeciągnięcie rejestracji zestawu deweloperów w systemie Wi-Fi po określonej liczbie dni.
+   > Niektóre firmy mogą mieć limit czasu, w którym można podłączyć urządzenie do systemu Wi-Fi. Może zajść potrzeba przekroczenia rejestracji zestawu deweloperów w systemie Wi-Fi po upływie określonej liczby dni.
 
 ## <a name="run-the-sample-application"></a>Uruchamianie przykładowej aplikacji
 
@@ -78,7 +78,7 @@ Aby sprawdzić poprawność instalacji zestawu deweloperskiego, skompiluj i zain
 
 1. Skonfiguruj Gradle, aby odwoływać się do zestawu Speech SDK. Następujące pliki można znaleźć w obszarze **skrypty Gradle** w Android Studio.
 
-    Zaktualizuj element **Build. Gradle (Project: example)**, blok allprojects powinien odpowiadać poniżej, dodając linie Maven.
+    Zaktualizuj element **Build. Gradle (Project: example)** , blok allprojects powinien odpowiadać poniżej, dodając linie Maven.
 
     ```xml
     allprojects {
@@ -96,7 +96,7 @@ Aby sprawdzić poprawność instalacji zestawu deweloperskiego, skompiluj i zain
     Zaktualizuj program **Build. Gradle (module: App)** , dodając ten wiersz do sekcji zależności. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.14.0'
     ```
     
 1. Dodaj swój klucz subskrypcji mowy do kodu źródłowego. Jeśli chcesz wypróbować funkcję rozpoznawania intencji, Dodaj również klucz subskrypcji [usługi Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) i identyfikator aplikacji.
@@ -152,7 +152,7 @@ Aby sprawdzić poprawność instalacji zestawu deweloperskiego, skompiluj i zain
    |          |         | W przypadku zestawu liniowego dev, który używa wszystkich Mics: `Linear4` |
    |          |         | W przypadku zestawu liniowego dev, który używa dwóch Mics: `Linear2` |
 
-1. Aby skompilować aplikację, w menu **Uruchom** wybierz polecenie **Uruchom aplikację**. Zostanie wyświetlone okno dialogowe **Wybieranie celu wdrożenia** .
+1. Aby skompilować aplikację, w menu **Uruchom** wybierz polecenie **Uruchom aplikację** . Zostanie wyświetlone okno dialogowe **Wybieranie celu wdrożenia** .
 
 1. Wybierz urządzenie, a następnie wybierz przycisk **OK** , aby wdrożyć aplikację na urządzeniu.
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9685081c0beacd745a83067b9d9876384933377
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651160"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131245"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 — Walidacja funkcjonalna i działania operacji
 
@@ -22,7 +22,7 @@ Aby ukończyć pierwsze publikowanie w [centrum partnerskim](https://partner.mic
 - Prezentuj zrzuty ekranu przedstawiające środowisko [usług cyklu życia](https://lcs.dynamics.com/) rozwiązania (LCS).
 
 > [!NOTE]
-> Kolejne publikowanie ponownych certyfikacji nie wymaga demonstracji. Aby dowiedzieć się więcej, zobacz [dokument zasad AppSource](https://docs.microsoft.com/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
+> Kolejne publikowanie ponownych certyfikacji nie wymaga demonstracji. Aby dowiedzieć się więcej, zobacz [dokument zasad AppSource](/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
 
 ## <a name="how-to-validate"></a>Sprawdzanie poprawności
 
@@ -50,11 +50,11 @@ Aby zaplanować ostateczne wywołanie przeglądu, należy skontaktować się [ap
 
 2. Wykonaj następujące zrzuty ekranu środowiska [LCS](https://lcs.dynamics.com/) , które pasują do oferty lub rozwiązania, które chcesz opublikować. Muszą być wystarczająco jasne, aby zespół certyfikacji mógł odczytać tekst. Zapisz zrzuty ekranu jako pliki JPG. Możesz podać [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com) uprawnienia do środowiska LCS, aby umożliwić nam zweryfikowanie Instalatora zamiast zapewniania zrzutów ekranu.
 
-    1. Przejdź do **LCS**  >  biblioteki projektów LCS**Business Process Modelarz**  >  **Project library**. Wykonaj zrzuty ekranu wszystkich kroków procesu. Uwzględnij **diagramy** i **zrecenzowane** kolumny, jak pokazano poniżej:
+    1. Przejdź do **LCS**  >  biblioteki projektów LCS **Business Process Modelarz**  >  **Project library** . Wykonaj zrzuty ekranu wszystkich kroków procesu. Uwzględnij **diagramy** i **zrecenzowane** kolumny, jak pokazano poniżej:
 
        :::image type="content" source="media/dynamics-365-finance-operations/project-library.png" alt-text="Pokazuje okno biblioteki projektu.":::
 
-      2. Przejdź do **LCS**  >  **Solution Management**  >  **pakietu rozwiązania testowego**zarządzania rozwiązaniami LCS. Wykonaj zrzuty ekranu zawierające Omówienie pakietu i treść pokazaną w poniższych przykładach:
+      2. Przejdź do **LCS**  >  **Solution Management**  >  **pakietu rozwiązania testowego** zarządzania rozwiązaniami LCS. Wykonaj zrzuty ekranu zawierające Omówienie pakietu i treść pokazaną w poniższych przykładach:
 
     | Pole | Obraz <img src="" width="400px">|
     | --- | --- |
@@ -65,7 +65,7 @@ Aby zaplanować ostateczne wywołanie przeglądu, należy skontaktować się [ap
     | <ul><li>Power BI model raportu</li><li>Artefakt BPM</li></ul><br>Artefakty nie są wymagane w sekcji **Power BI** . | [![Ekran zawartości pakietu — trzy](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
     | <ul><li>Pakiet danych procesu</li><li>Umowa licencyjna rozwiązania i zasady ochrony prywatności</li></ul><br>Sekcje **Konfiguracja GER** i **model raportu Power BI** są opcjonalne do uwzględnienia w ofertach finansów i operacji. | [![Ekran zawartości pakietu cztery](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
 
-    Więcej informacji na temat każdej sekcji portalu LCS można znaleźć w [podręczniku użytkownika LCS](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
+    Więcej informacji na temat każdej sekcji portalu LCS można znaleźć w [podręczniku użytkownika LCS](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
 
 3. Przekaż do Centrum partnerskiego.
 
@@ -76,4 +76,4 @@ Aby zaplanować ostateczne wywołanie przeglądu, należy skontaktować się [ap
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o tworzeniu oferty, zobacz: [Tworzenie oferty usługi Dynamics 365 dla operacji](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
+Aby dowiedzieć się więcej o tworzeniu oferty, zobacz: [Tworzenie oferty usługi Dynamics 365 dla operacji](./partner-center-portal/create-new-operations-offer.md).

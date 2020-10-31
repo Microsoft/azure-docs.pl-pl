@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 9bfca7def313fc701798ff96d0ed4b18ca13ef60
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 01574407801c0a6b0a5e0ddc438af4d3965dc090
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313872"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131551"
 ---
 # <a name="service-fabric-releases"></a>Wersje Service Fabric
 
@@ -23,6 +23,28 @@ ms.locfileid: "92313872"
 Ten artykuł zawiera więcej informacji o najnowszych wersjach i aktualizacjach środowiska uruchomieniowego Service Fabric i zestawów SDK.
 
 ## <a name="whats-new-in-service-fabric"></a>Co nowego w Service Fabric
+
+### <a name="service-fabric-72"></a>Service Fabric 7,2 
+Przyjemnością się ogłaszamy, że Service Fabric wersja 7,2 środowiska uruchomieniowego została rozpoczęta w różnych regionach świadczenia usługi Azure wraz z narzędziami i aktualizacjami zestawu SDK. Aktualizacje zestawu .NET SDK, zestawu Java SDK i środowiska uruchomieniowego Service Fabric są dostępne za pomocą Instalatora platformy sieci Web, pakietów NuGet i repozytoriów Maven.
+## <a name="what-is-new-in-service-fabric-7"></a>Co nowego w programie-Service Fabric 7.?
+Ta wersja jest ładowana przy użyciu najważniejszych funkcji i ulepszeń. Poniżej przedstawiono niektóre z kluczowych funkcji:
+## <a name="key-announcements-in-72"></a>Anonse kluczy w 7,2
+- **Wersja zapoznawcza** : [**klastry zarządzane Service Fabric**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) są teraz dostępne w publicznej wersji zapoznawczej. Service Fabric zarządzane klastry mają na celu uproszczenie wdrażania klastrów i zarządzania nimi przez hermetyzację zasobów bazowych, które składają się na klaster Service Fabric, do pojedynczego zasobu ARM. Aby uzyskać więcej informacji, zobacz [Omówienie klastra zarządzanego Service Fabric](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster).
+- **Wersja zapoznawcza** : [**Obsługa bezstanowych usług z liczbą wystąpień większą niż liczba węzłów**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) jest teraz w publicznej wersji zapoznawczej. Zasady umieszczania umożliwiają tworzenie wielu wystąpień bezstanowych partycji w węźle.
+- [**FabricObserver (fo) 3,0**](https://aka.ms/sf/fabricobserver) jest teraz dostępna.
+    - Teraz można uruchamiać FabricObserver w klastrach z systemem Linux i Windows.
+    - Teraz można tworzyć wtyczki obserwatorów niestandardowych. Szczegóły i kod można znaleźć w [pliku Readme dodatków](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Plugins.md) i [przykładowym projekcie wtyczki](https://github.com/microsoft/service-fabric-observer/tree/master/SampleObserverPlugin) .
+    - Teraz można zmienić dowolne ustawienia obserwatora za pośrednictwem uaktualnienia parametrów aplikacji. Oznacza to, że nie trzeba już ponownie wdrażać programu FO, aby zmodyfikować ustawienia określonego obserwatora. Zapoznaj się z [przykładem](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Using.md#parameterUpdates).
+- [**Obsługa obrazów kontenerów Ubuntu 18,04 jednopunktowy**](https://hub.docker.com/_/microsoft-service-fabric-onebox).
+- **Wersja zapoznawcza** : [ **odwołanie do magazynu kluczy dla aplikacji Service Fabric obsługuje **tylko wpisy tajne w wersji** . Wpisy tajne bez wersji nie są obsługiwane.**](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)
+- Zestaw SDK SF wymaga najnowszej wersji programu VS 2019 Update 16.7.6 lub 16,8 w wersji zapoznawczej 4, aby można było utworzyć nowe projekty bezstanowe/stanowe/aktory programu .NET Framework. Jeśli nie masz najnowszej aktualizacji programu VS, po utworzeniu projektu usługi Użyj Menedżera pakietów, aby zainstalować Microsoft. servicefabric. Services (wersja 4.2. x) dla projektów stanowych/bezstanowych i Microsoft. servicefabric. aktorzy (wersja 4.2. x) dla projektów aktorów z nuget.org.
+- **RunToCompletion** : Service Fabric obsługuje koncepcję przebiegu do ukończenia dla plików wykonywalnych gościa. W przypadku tej aktualizacji po zakończeniu działania repliki zostaną wydane zasoby klastra przydzieloną do tej repliki.
+- [**Ulepszono obsługę zarządzania zasobami**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance): Zezwalanie na żądania i limity dla zasobów procesora i pamięci.
+
+### <a name="service-fabric-72-releases"></a>Wersje 7,2 Service Fabric
+| Data wydania | Release | Więcej informacji |
+|---|---|---|
+| 21 października 2020 | [Azure Service Fabric 7,2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-release/ba-p/1805653)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72-releasenotes.md)|
 
 ### <a name="service-fabric-71"></a>Service Fabric 7,1
 Ze względu na bieżące kryzysy COVID-19 i biorąc pod uwagę wyzwania dla naszych klientów, firma Microsoft udostępnia 7,1, ale nie uaktualnia automatycznie klastrów ustawionych w taki sposób, aby otrzymywać automatyczne uaktualnienia. Wstrzymywanie automatycznych uaktualnień do momentu zagwarantowania, że klienci będą mogli zastosować uaktualnienia, gdy jest to najbardziej odpowiednie, aby uniknąć nieoczekiwanych przerw w działaniu.
@@ -51,13 +73,13 @@ Przyjemnością ogłaszamy kolejne wydanie Service Fabric. Ta wersja jest ładow
 ### <a name="improve-application-life-cycle-experience"></a>Ulepsz środowisko cyklu życia aplikacji
 
 - **[Wersja zapoznawcza:](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)** w trakcie konserwacji zaplanowanej usługi, takiej jak uaktualnienia usług lub dezaktywacja węzła, chcesz zezwolić usługom na bezpieczne opróżnianie połączeń. Ta funkcja dodaje czas trwania opóźnienia zamknięcia w konfiguracji usługi. Podczas planowanych operacji SF usunie adres usługi z odnajdywania, a następnie poczeka ten czas przed zamknięciem usługi.
-- **[Automatyczne wykrywanie i równoważenie klastra](./cluster-resource-manager-subclustering.md)**: klastrowanie występuje, gdy usługi z różnymi ograniczeniami umieszczania mają wspólną [metrykę obciążenia](./service-fabric-cluster-resource-manager-metrics.md). Jeśli obciążenie różnych zestawów węzłów znacznie się różni, klaster Service Fabric Menedżer zasobów uważa, że klaster jest niezrównoważony, nawet jeśli ma najlepsze możliwe saldo z powodu ograniczeń umieszczania. W związku z tym próbuje on ponownie zrównoważyć klaster, potencjalnie powodując niepotrzebne ruchy usługi (ponieważ "niezrównoważone" nie może być znacząco ulepszone). Począwszy od tej wersji, klaster Menedżer zasobów podejmie teraz próbę automatycznego wykrycia tych rodzajów konfiguracji i zrozumienia sytuacji, w których można nawiązać transrównowaga za pomocą przenoszenia, a kiedy zamiast tego należy pozostawać same w sobie, ponieważ nie można wykonać znacznej poprawy.  
+- **[Automatyczne wykrywanie i równoważenie klastra](./cluster-resource-manager-subclustering.md)** : klastrowanie występuje, gdy usługi z różnymi ograniczeniami umieszczania mają wspólną [metrykę obciążenia](./service-fabric-cluster-resource-manager-metrics.md). Jeśli obciążenie różnych zestawów węzłów znacznie się różni, klaster Service Fabric Menedżer zasobów uważa, że klaster jest niezrównoważony, nawet jeśli ma najlepsze możliwe saldo z powodu ograniczeń umieszczania. W związku z tym próbuje on ponownie zrównoważyć klaster, potencjalnie powodując niepotrzebne ruchy usługi (ponieważ "niezrównoważone" nie może być znacząco ulepszone). Począwszy od tej wersji, klaster Menedżer zasobów podejmie teraz próbę automatycznego wykrycia tych rodzajów konfiguracji i zrozumienia sytuacji, w których można nawiązać transrównowaga za pomocą przenoszenia, a kiedy zamiast tego należy pozostawać same w sobie, ponieważ nie można wykonać znacznej poprawy.  
 - [**Inny koszt przenoszenia dla replik pomocniczych**](./service-fabric-cluster-resource-manager-movement-cost.md): wprowadzono nową VeryHigh kosztu przeniesienia, która zapewnia dodatkową elastyczność w niektórych scenariuszach, aby określić, czy do replik pomocniczych należy używać oddzielnego kosztu przenoszenia.
 - Włączony mechanizm [**sondowania na żywo**](./probes-codepackage.md) dla aplikacji kontenerowych. Sonda na żywo pomaga w ogłaszaniu na żywo aplikacji kontenera i gdy nie odpowiadają one w odpowiednim czasie, spowoduje to ponowne uruchomienie.
 - [**Uruchom do ukończenia/raz dla usług**](./run-to-completion.md)**
 
 ### <a name="image-store-improvements"></a>Udoskonalenia Magazyn obrazów
- - Service Fabric 7,1 używa **niestandardowego transportu do bezpiecznego transferu plików między węzłami**. Zależność od udziału plików SMB jest usuwana z wersji 7,1. Zabezpieczone udziały plików SMB nadal są istniejące w węzłach, które zawierają replikę usługi Magazyn obrazów, aby klient mógł zrezygnować z domyślnych oraz uaktualnić i obniżyć wersję do starej wersji.
+ - Service Fabric 7,1 używa **niestandardowego transportu do bezpiecznego transferu plików między węzłami** . Zależność od udziału plików SMB jest usuwana z wersji 7,1. Zabezpieczone udziały plików SMB nadal są istniejące w węzłach, które zawierają replikę usługi Magazyn obrazów, aby klient mógł zrezygnować z domyślnych oraz uaktualnić i obniżyć wersję do starej wersji.
        
  ### <a name="reliable-collections-improvements"></a>Udoskonalenia niezawodnych kolekcji
 
@@ -86,15 +108,15 @@ Będziemy również aktualizować nasze planowane daty wydania, aby wskazać, ż
 Jest to Najnowsza wersja Service Fabric i została załadowana przy użyciu najważniejszych funkcji i ulepszeń.
 
 ### <a name="key-announcements"></a>Anonse kluczy
- - [**Obsługa KeyVaultReference dla wpisów tajnych aplikacji (wersja zapoznawcza)**](./service-fabric-keyvault-references.md): Service Fabric aplikacje, które obsługują [tożsamości zarządzane](./concepts-managed-identity.md) , mogą teraz bezpośrednio odwoływać się do Key Vault tajnego adresu URL jako zmiennej środowiskowej, parametru aplikacji lub poświadczenia repozytorium kontenerów. Service Fabric automatycznie rozwiąże wpis tajny przy użyciu tożsamości zarządzanej aplikacji. 
+ - [**Obsługa KeyVaultReference dla wpisów tajnych aplikacji (wersja zapoznawcza)**](./service-fabric-keyvault-references.md): Service Fabric aplikacje, które obsługują [tożsamości zarządzane](./concepts-managed-identity.md) , mogą teraz bezpośrednio odwoływać się do Key Vault tajnego adresu URL jako zmiennej środowiskowej, parametru aplikacji lub poświadczenia repozytorium kontenerów. Service Fabric automatycznie rozwiąże wpis tajny przy użyciu tożsamości zarządzanej aplikacji. 
      
-- **Ulepszone zabezpieczenia uaktualnienia dla usług bezstanowych**: w celu zagwarantowania dostępności podczas uaktualniania aplikacji wprowadzono nowe konfiguracje umożliwiające zdefiniowanie [minimalnej liczby wystąpień usług bezstanowych](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) , które mają być uznawane za dostępne. Wcześniej ta wartość była równa 1 dla wszystkich usług i nie mogła zostać zmieniona. Korzystając z tej nowej kontroli bezpieczeństwa dla poszczególnych usług, można zagwarantować, że usługi zachowują minimalną liczbę wystąpień podczas uaktualniania aplikacji, uaktualniania klastra i innych czynności konserwacyjnych, które opierają się na sprawdzaniu kondycji Service Fabric i bezpieczeństwa.
+- **Ulepszone zabezpieczenia uaktualnienia dla usług bezstanowych** : w celu zagwarantowania dostępności podczas uaktualniania aplikacji wprowadzono nowe konfiguracje umożliwiające zdefiniowanie [minimalnej liczby wystąpień usług bezstanowych](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) , które mają być uznawane za dostępne. Wcześniej ta wartość była równa 1 dla wszystkich usług i nie mogła zostać zmieniona. Korzystając z tej nowej kontroli bezpieczeństwa dla poszczególnych usług, można zagwarantować, że usługi zachowują minimalną liczbę wystąpień podczas uaktualniania aplikacji, uaktualniania klastra i innych czynności konserwacyjnych, które opierają się na sprawdzaniu kondycji Service Fabric i bezpieczeństwa.
   
-- [**Limity zasobów dla usług użytkowników**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): użytkownicy mogą konfigurować limity zasobów dla usług użytkowników w węźle, aby zapobiec scenariuszom, takim jak wyczerpanie zasobów Service Fabric usług systemu. 
+- [**Limity zasobów dla usług użytkowników**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): użytkownicy mogą konfigurować limity zasobów dla usług użytkowników w węźle, aby zapobiec scenariuszom, takim jak wyczerpanie zasobów Service Fabric usług systemu. 
   
 - [**Bardzo wysoki koszt przeniesienia usługi**](./service-fabric-cluster-resource-manager-movement-cost.md) dla typu repliki. Repliki o bardzo wysokim koszcie są przenoszone tylko w przypadku naruszenia ograniczenia w klastrze, którego nie można naprawić w żaden inny sposób. Zapoznaj się z dokumentem połączonym, aby uzyskać dodatkowe informacje na temat sytuacji, w których użycie "bardzo wysokie" kosztu przeniesienia jest rozsądne i dodatkowe zagadnienia.
   
--  **Dodatkowe kontrole bezpieczeństwa klastra**: w tej wersji wprowadziliśmy sprawdzanie bezpieczeństwa kworum węzła inicjatora. Pozwala to na dostosowanie liczby węzłów inicjatora, które muszą być dostępne podczas scenariuszy związanych z cyklem życia klastra i zarządzaniem nimi. Operacje przyjmujące klaster poniżej skonfigurowanej wartości są blokowane. Dzisiaj wartość domyślna to zawsze kworum węzłów inicjatora, na przykład jeśli masz 7 węzłów inicjatora, operacja, która mogłaby potrwać poniżej 5 węzłów inicjatora, będzie domyślnie blokowana. W przypadku tej zmiany można wprowadzić minimalną bezpieczną wartość 6, która pozwoli na przekroczenie tylko jednego węzła inicjatora.
+-  **Dodatkowe kontrole bezpieczeństwa klastra** : w tej wersji wprowadziliśmy sprawdzanie bezpieczeństwa kworum węzła inicjatora. Pozwala to na dostosowanie liczby węzłów inicjatora, które muszą być dostępne podczas scenariuszy związanych z cyklem życia klastra i zarządzaniem nimi. Operacje przyjmujące klaster poniżej skonfigurowanej wartości są blokowane. Dzisiaj wartość domyślna to zawsze kworum węzłów inicjatora, na przykład jeśli masz 7 węzłów inicjatora, operacja, która mogłaby potrwać poniżej 5 węzłów inicjatora, będzie domyślnie blokowana. W przypadku tej zmiany można wprowadzić minimalną bezpieczną wartość 6, która pozwoli na przekroczenie tylko jednego węzła inicjatora.
    
 - Dodano obsługę [**zarządzania kopiami zapasowymi i przywracaniem w programie Service Fabric Explorer**](./service-fabric-backuprestoreservice-quickstart-azurecluster.md). Powoduje to, że następujące działania mogą być możliwe bezpośrednio z poziomu SFX: odnajdywanie usługi tworzenia kopii zapasowych i przywracania, tworzenie zasad tworzenia kopii zapasowych, Włączanie automatycznych kopii zapasowych, wykonywanie kopii zapasowych ad hoc, wyzwalanie operacji przywracania i przeglądanie istniejących kopii zapasowych.
 
@@ -130,7 +152,7 @@ Oto nowości Nowość w Service Fabric 6,5:
 
 - Dodano [zdarzenia cyklu życia repliki](service-fabric-diagnostics-event-generation-operational.md#replica-events) dla usług stanowych.
 
-- [Lepsza widoczność stanu węzła inicjatora](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), w tym ostrzeżeń na poziomie klastra, jeśli węzeł inicjatora jest w złej kondycji (*w dół*, *usunięty* lub *nieznany*).
+- [Lepsza widoczność stanu węzła inicjatora](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), w tym ostrzeżeń na poziomie klastra, jeśli węzeł inicjatora jest w złej kondycji ( *w dół* , *usunięty* lub *nieznany* ).
 
 - [Service Fabric narzędzie do odzyskiwania po awarii aplikacji](https://github.com/Microsoft/Service-Fabric-AppDRTool) umożliwia Service Fabric usługi stanowe, aby szybko wykonać odzyskiwanie w przypadku wystąpienia awarii w klastrze podstawowym. Dane z klastra podstawowego są stale synchronizowane z pomocniczą aplikacją do rezerwowania przy użyciu okresowych kopii zapasowych i przywracania.
 
