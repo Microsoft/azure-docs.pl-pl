@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: jasonh
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ad00fcc0c7b871210b29400821808b6729d953f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd992478365faf23f46ad839c3887485cb6b09b7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409412"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076490"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Szybki Start: Tworzenie bazy danych grafu przy użyciu zestawu Java SDK i interfejsu API Azure Cosmos DB Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Konsola Gremlin](create-graph-gremlin-console.md)
@@ -100,7 +101,7 @@ Ta Aplikacja konsolowa języka Java korzysta z bazy danych [interfejsu API Greml
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i skopiować je do aplikacji. Te ustawienia umożliwiają aplikacji komunikację z hostowaną bazą danych.
 
-1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **klucze**. 
+1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **klucze** . 
 
     Skopiuj pierwszą część wartości identyfikatora URI.
 
@@ -167,7 +168,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i s
 
 Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do grafu, a także dodać kolejne punkty danych.
 
-1. Na koncie Azure Cosmos DB w Azure Portal wybierz pozycję **Eksplorator danych**, rozwiń węzeł **przykład-Graph**, wybierz pozycję **Graph**, a następnie wybierz pozycję **Zastosuj filtr**. 
+1. Na koncie Azure Cosmos DB w Azure Portal wybierz pozycję **Eksplorator danych** , rozwiń węzeł **przykład-Graph** , wybierz pozycję **Graph** , a następnie wybierz pozycję **Zastosuj filtr** . 
 
    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 
@@ -179,11 +180,11 @@ Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do
 
    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 
-4. W polu etykiety wprowadź *osobę*.
+4. W polu etykiety wprowadź *osobę* .
 
 5. Wybierz pozycję **Dodaj właściwość** , aby dodać każdą z następujących właściwości. Zauważ, że możesz utworzyć unikatowe właściwości dla każdej osoby w grafie. Tylko klucz id jest wymagany.
 
-    key|value|Uwagi
+    key|wartość|Uwagi
     ----|----|----
     identyfikator|ashley|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
     płeć|kobieta| 
@@ -192,23 +193,23 @@ Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do
     > [!NOTE]
     > W tym przewodniku Szybki start tworzona jest kolekcja niepartycjonowana. Niemniej jednak, jeśli utworzysz kolekcję partycjonowaną poprzez określenie klucza partycji podczas tworzenia kolekcji, musisz uwzględnić klucz partycji jako klucz w każdym nowym wierzchołku. 
 
-6. Wybierz przycisk **OK**. Może być konieczne rozszerzenie ekranu w celu wyświetlenia przycisku **OK** u dołu ekranu.
+6. Wybierz pozycję **OK** . Może być konieczne rozszerzenie ekranu w celu wyświetlenia przycisku **OK** u dołu ekranu.
 
 7. Ponownie wybierz **nowy wierzchołek** i Dodaj dodatkowego nowego użytkownika. 
 
-8. Wprowadź etykietę *osoba*.
+8. Wprowadź etykietę *osoba* .
 
 9. Wybierz pozycję **Dodaj właściwość** , aby dodać każdą z następujących właściwości:
 
-    key|value|Uwagi
+    key|wartość|Uwagi
     ----|----|----
     identyfikator|rakesh|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
     płeć|mężczyzna| 
     szkoła|MIT| 
 
-10. Wybierz przycisk **OK**. 
+10. Wybierz pozycję **OK** . 
 
-11. Wybierz przycisk **Zastosuj filtr** z domyślnym `g.V()` filtrem, aby wyświetlić wszystkie wartości na grafie. Wszyscy użytkownicy będą teraz wyświetlani na liście **Wyniki**. 
+11. Wybierz przycisk **Zastosuj filtr** z domyślnym `g.V()` filtrem, aby wyświetlić wszystkie wartości na grafie. Wszyscy użytkownicy będą teraz wyświetlani na liście **Wyniki** . 
 
     W miarę dodawania większej ilości danych można używać filtrów do ograniczania wyników. Domyślnie Eksplorator danych korzysta z zapytania `g.V()` w celu pobrania wszystkich wierzchołków grafu. Można je zmienić na inne [zapytanie o graf](tutorial-query-graph.md), takie jak`g.V().count()`, aby zwrócić liczbę wszystkich wierzchołków grafu w formacie JSON. W przypadku zmiany filtru Zmień filtr z powrotem na `g.V()` i wybierz pozycję **Zastosuj filtr** , aby ponownie wyświetlić wszystkie wyniki.
 
@@ -216,7 +217,7 @@ Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do
 
     :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 
-13. W polu **Target** wpisz *Rakesh*, a w polu **etykieta krawędzi** wpisz *wie*, a następnie zaznacz pole wyboru.
+13. W polu **Target** wpisz *Rakesh* , a w polu **etykieta krawędzi** wpisz *wie* , a następnie zaznacz pole wyboru.
 
     :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 

@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacjami .NET Core'
+title: 'Szybki Start: korzystanie z usługi Azure cache for Redis w programie .NET Core'
 description: Z tego przewodnika Szybki start dowiesz się, jak uzyskiwać dostęp do usługi Azure Cache for Redis w aplikacjach platformy .NET Core
 author: yegu-ms
 ms.author: yegu
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 12466f64daa699925e4e184536b2d50c5fb89847
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 945d4a3d2bba84bf8f5973fd8dec092c66794c11
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547728"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077085"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacją platformy .NET Core
+# <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>Szybki Start: korzystanie z usługi Azure cache for Redis w programie .NET Core
 
 W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do aplikacji platformy .NET Core w celu uzyskania dostępu do bezpiecznej, dedykowanej pamięci podręcznej dostępnej z dowolnej aplikacji na platformie Azure. Należy używać klienta [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) z kodem C# w aplikacji konsolowej platformy .NET Core.
 

@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 7d860ad28ff54a9f300f5c90314b9a7c9f6943dd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d7a12e436fd3bc1700dc4a1d76dc2b80d861144
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490683"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078462"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-table-api"></a>Znajdź opłatę za jednostkę żądania dla operacji wykonywanych w Azure Cosmos DB interfejs API tabel
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Azure Cosmos DB obsługuje wiele interfejsów API, takich jak SQL, MongoDB, Cassandra, Gremlin i Table. Każdy interfejs API ma swój własny zestaw operacji bazy danych. Te operacje obejmują między innymi odczyty punktów prostych i zapisów w złożonych zapytaniach. Każda operacja bazy danych zużywa zasoby systemowe na podstawie złożoności operacji.
 

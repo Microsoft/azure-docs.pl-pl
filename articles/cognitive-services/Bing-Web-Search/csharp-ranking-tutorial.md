@@ -12,14 +12,19 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8bfd7b6e5c9a2a7e3d9ed750e544036f3874271f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9131dbff9b732ecfc7f6edb62b42959abcc17da8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933226"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078683"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Tworzenie klienta wyszukiwania aplikacji konsoli w języku C #
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 W tym samouczku przedstawiono sposób tworzenia prostej aplikacji konsolowej platformy .NET Core, która umożliwia użytkownikom wykonywanie zapytań dotyczących interfejs API wyszukiwania w sieci Web Bing i wyświetlanie rankingowych wyników.
 
@@ -33,37 +38,37 @@ W tym samouczku pokazano, jak:
 Aby wykonać czynności opisane w samouczku, musisz:
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Utwórz zasób wyszukiwanie Bing "  target="_blank"> utwórz zasób Wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
 * [Środowisko IDE programu Visual Studio](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-new-console-app-project"></a>Utwórz nowy projekt aplikacji konsoli
 
 W programie Visual Studio utwórz projekt za pomocą kombinacji `Ctrl`+`Shift`+`N`.
 
-W oknie dialogowym **Nowy projekt** kliknij pozycję **Visual C# > Windows Classic Desktop > aplikacji konsolowej (.NET Framework)**.
+W oknie dialogowym **Nowy projekt** kliknij pozycję **Visual C# > Windows Classic Desktop > aplikacji konsolowej (.NET Framework)** .
 
-Nadaj aplikacji nazwę **MyConsoleSearchApp**, a następnie kliknij przycisk **OK**.
+Nadaj aplikacji nazwę **MyConsoleSearchApp** , a następnie kliknij przycisk **OK** .
 
 ## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Dodawanie pakietu NuGet JSON.net do projektu
 
 JSON.net umożliwia działanie z odpowiedziami JSON zwracanymi przez interfejs API. Dodaj swój pakiet NuGet do projektu:
 
-- W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet..**..
-- Na karcie  **Przeglądaj** Wyszukaj pozycję `Newtonsoft.Json` . Wybierz najnowszą wersję, a następnie kliknij przycisk **Instaluj**.
+- W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Zarządzaj pakietami NuGet..** ..
+- Na karcie  **Przeglądaj** Wyszukaj pozycję `Newtonsoft.Json` . Wybierz najnowszą wersję, a następnie kliknij przycisk **Instaluj** .
 - Kliknij przycisk **OK** w oknie **Przegląd zmian** .
-- Zamknij kartę programu Visual Studio zatytułowaną **NuGet: MyConsoleSearchApp**.
+- Zamknij kartę programu Visual Studio zatytułowaną **NuGet: MyConsoleSearchApp** .
 
 ## <a name="add-a-reference-to-systemweb"></a>Dodawanie odwołania do elementu System. Web
 
 Ten samouczek opiera się na `System.Web` zestawie. Dodaj odwołanie do tego zestawu do projektu:
 
-- W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy pozycję **odwołania** i wybierz polecenie **Dodaj odwołanie...**
-- Wybierz pozycję **zestawy > Framework**, a następnie przewiń w dół i sprawdź **System. Web**
+- W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy pozycję **odwołania** i wybierz polecenie **Dodaj odwołanie...**
+- Wybierz pozycję **zestawy > Framework** , a następnie przewiń w dół i sprawdź **System. Web**
 - Wybierz **przycisk OK**
 
 ## <a name="add-some-necessary-using-statements"></a>Dodaj niektóre niezbędne instrukcje using
 
-Kod w tym samouczku wymaga trzech dodatkowych instrukcji using. Dodaj te instrukcje poniżej istniejących `using` instrukcji w górnej części **program.cs**:
+Kod w tym samouczku wymaga trzech dodatkowych instrukcji using. Dodaj te instrukcje poniżej istniejących `using` instrukcji w górnej części **program.cs** :
 
 ```csharp
 using System.Web;
@@ -72,7 +77,7 @@ using System.Net.Http;
 
 ## <a name="ask-the-user-for-a-query"></a>Podawanie użytkownikowi zapytania
 
-W **Eksplorator rozwiązań**Otwórz **program.cs**. Aktualizowanie `Main()` metody:
+W **Eksplorator rozwiązań** Otwórz **program.cs** . Aktualizowanie `Main()` metody:
 
 ```csharp
 static void Main()
@@ -231,7 +236,7 @@ Przed wyświetleniem sposobu wyświetlania wyników w kolejności uporządkowane
 
 KOD JSON odpowiedzi rankingu może zawierać co najmniej jedną grupę.
 
-W **program.cs**, Dodaj następującą metodę, aby wyświetlić wyniki w prawidłowym porządku uporządkowanym:
+W **program.cs** , Dodaj następującą metodę, aby wyświetlić wyniki w prawidłowym porządku uporządkowanym:
 
 ```csharp
 static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects)
@@ -278,7 +283,7 @@ Ta metoda:
 - Pętle względem `rankingResponse` grup, które zawiera odpowiedź
 - Wyświetla elementy w każdej grupie przez wywołanie `DisplaySpecificResults(...)`
 
-W **program.cs**Dodaj następujące dwie metody:
+W **program.cs** Dodaj następujące dwie metody:
 
 ```csharp
 static void DisplaySpecificResults(Newtonsoft.Json.Linq.JToken resultIndex, Newtonsoft.Json.Linq.JToken items, string title, params string[] fields)

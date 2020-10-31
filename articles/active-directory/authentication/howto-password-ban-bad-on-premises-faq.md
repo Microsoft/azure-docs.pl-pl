@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f24eb64a5418a9963fd58611314ccbc6b72ec4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 27075af51c8deb886a060c81927f30bb70b5f638
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968467"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077663"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Ochrona hasłem w usłudze Azure AD — często zadawane pytania
 
@@ -32,9 +32,9 @@ Bieżące wskazówki dotyczące tego tematu firmy Microsoft można znaleźć w n
 
 **P: czy lokalna Ochrona hasłem usługi Azure AD jest obsługiwana w chmurach niepublicznych?**
 
-Żadna lokalna Ochrona hasłem usługi Azure AD jest obsługiwana tylko w chmurze publicznej. Nie ogłoszono żadnych dat dla niepublicznej dostępności w chmurze.
+Lokalna Ochrona hasłem usługi Azure AD jest obsługiwana w chmurze publicznej i w chmurze Arlington. Nie ogłoszono daty dostępności w innych chmurach.
 
-Portal usługi Azure AD umożliwia modyfikację konfiguracji specyficznej dla lokalnego "ochrony hasłem dla systemu Windows Server Active Directory", nawet w chmurach niepublicznych; takie zmiany zostaną utrwalone, ale w przeciwnym razie nie zostaną zastosowane. Rejestracja lokalnych agentów proxy lub lasów nie jest obsługiwana, gdy są używane poświadczenia chmury niepublicznej, a wszystkie takie próby rejestracji będą zawsze kończyć się niepowodzeniem.
+Portal usługi Azure AD umożliwia modyfikację konfiguracji specyficznej dla lokalnego "ochrony hasłem dla systemu Windows Server Active Directory" nawet w przypadku nieobsługiwanych chmur. takie zmiany zostaną utrwalone, ale w przeciwnym razie nie zostaną zastosowane. Rejestracja lokalnych agentów proxy lub lasów nie jest obsługiwana w chmurach nieobsługiwanych, a wszystkie takie próby rejestracji będą zawsze kończyć się niepowodzeniem.
 
 **P: Jak mogę zastosować korzyści z ochrony hasłem w usłudze Azure AD do podzbioru użytkowników lokalnych?**
 

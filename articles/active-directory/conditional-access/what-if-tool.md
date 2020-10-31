@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bebd32d2773ca86638de221d305079bb262e3e5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631430"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077646"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Rozwiązywanie problemów przy użyciu narzędzia What If w dostępie warunkowym
 
-[Dostęp warunkowy](./overview.md) jest możliwością Azure Active Directory (Azure AD), która umożliwia kontrolowanie sposobu, w jaki autoryzowani użytkownicy uzyskują dostęp do aplikacji w chmurze. Jak wiesz, czego można oczekiwać od zasad dostępu warunkowego w danym środowisku? Aby odpowiedzieć na to pytanie, można użyć **narzędzia What If dostępu warunkowego**.
+[Dostęp warunkowy](./overview.md) jest możliwością Azure Active Directory (Azure AD), która umożliwia kontrolowanie sposobu, w jaki autoryzowani użytkownicy uzyskują dostęp do aplikacji w chmurze. Jak wiesz, czego można oczekiwać od zasad dostępu warunkowego w danym środowisku? Aby odpowiedzieć na to pytanie, można użyć **narzędzia What If dostępu warunkowego** .
 
 W tym artykule wyjaśniono, jak można użyć tego narzędzia do testowania zasad dostępu warunkowego.
 
@@ -32,7 +32,7 @@ Narzędzie **What If** umożliwia szybkie ustalenie zasad, które mają zastosow
 
 ## <a name="how-it-works"></a>Jak to działa
 
-W **narzędziu dostępu warunkowego What If**należy najpierw skonfigurować ustawienia scenariusza logowania, który ma zostać symulowany. Do tych ustawień należą:
+W **narzędziu dostępu warunkowego What If** należy najpierw skonfigurować ustawienia scenariusza logowania, który ma zostać symulowany. Do tych ustawień należą:
 
 - Użytkownik, który ma zostać przetestowany 
 - Aplikacje w chmurze, do których użytkownik podejmie próbę uzyskania dostępu
@@ -46,9 +46,9 @@ Po zakończeniu oceny narzędzie generuje raport dotyczący odpowiednich zasad. 
 
 Narzędzie **What If** można znaleźć na stronie **[zasady dostępu warunkowego](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** w Azure Portal.
 
-Aby uruchomić narzędzie, na pasku narzędzi na górze listy zasad kliknij pozycję **What If**.
+Aby uruchomić narzędzie, na pasku narzędzi na górze listy zasad kliknij pozycję **What If** .
 
-![What If](./media/what-if-tool/01.png)
+:::image type="content" source="./media/what-if-tool/01.png" alt-text="Zrzut ekranu strony zasady dostępu warunkowego w Azure Portal. Na pasku narzędzi zostanie wyróżniony element &quot;co jeśli&quot;." border="false":::
 
 Aby można było uruchomić ocenę, należy skonfigurować ustawienia.
 
@@ -56,7 +56,7 @@ Aby można było uruchomić ocenę, należy skonfigurować ustawienia.
 
 Ta sekcja zawiera informacje o ustawieniach przebiegu symulacji.
 
-![What If](./media/what-if-tool/02.png)
+:::image type="content" source="./media/what-if-tool/02.png" alt-text="Zrzut ekranu strony zasady dostępu warunkowego w Azure Portal. Na pasku narzędzi zostanie wyróżniony element &quot;co jeśli&quot;." border="false":::
 
 ### <a name="user"></a>Użytkownik
 
@@ -64,7 +64,7 @@ Można wybrać tylko jednego użytkownika. Jest to jedyne wymagane pole.
 
 ### <a name="cloud-apps"></a>Aplikacje w chmurze
 
-Wartość domyślna tego ustawienia to **wszystkie aplikacje w chmurze**. Ustawienie domyślne służy do oceny wszystkich dostępnych zasad w danym środowisku. Można zawęzić zakres do zasad mających wpływ na określone aplikacje w chmurze.
+Wartość domyślna tego ustawienia to **wszystkie aplikacje w chmurze** . Ustawienie domyślne służy do oceny wszystkich dostępnych zasad w danym środowisku. Można zawęzić zakres do zasad mających wpływ na określone aplikacje w chmurze.
 
 ### <a name="ip-address"></a>Adres IP
 
@@ -72,12 +72,12 @@ Adres IP jest pojedynczym adresem IPv4, aby naśladować [warunek lokalizacji](l
 
 ### <a name="device-platforms"></a>Platformy urządzeń
 
-To ustawienie naśladuje [warunek platformy urządzeń](concept-conditional-access-conditions.md#device-platforms) i reprezentuje odpowiednik **wszystkich platform (w tym nieobsługiwane)**. 
+To ustawienie naśladuje [warunek platformy urządzeń](concept-conditional-access-conditions.md#device-platforms) i reprezentuje odpowiednik **wszystkich platform (w tym nieobsługiwane)** . 
 
 ### <a name="client-apps"></a>Aplikacje klienckie
 
 To ustawienie naśladuje [warunek aplikacji klienckich](concept-conditional-access-conditions.md#client-apps).
-Domyślnie to ustawienie powoduje obliczenie wszystkich zasad mających zarówno **przeglądarkę** , **jak i aplikacje mobilne oraz klientów klasycznych** pojedynczo lub oba wybrane. Wykrywa także zasady, które wymuszają program **Exchange ActiveSync (EAS)**. To ustawienie można zawęzić, wybierając pozycję:
+Domyślnie to ustawienie powoduje obliczenie wszystkich zasad mających zarówno **przeglądarkę** , **jak i aplikacje mobilne oraz klientów klasycznych** pojedynczo lub oba wybrane. Wykrywa także zasady, które wymuszają program **Exchange ActiveSync (EAS)** . To ustawienie można zawęzić, wybierając pozycję:
 
 - **Przeglądarka** oceni wszystkie zasady, które mają co najmniej wybraną **przeglądarkę** . 
 - **Aplikacje mobilne i klienci stacjonarni** w celu ocenienia wszystkich zasad, dla których wybrano co najmniej **aplikacje mobilne i klienci stacjonarni** . 
@@ -88,9 +88,9 @@ To ustawienie naśladuje [warunek ryzyka związanego z logowaniem](concept-condi
 
 ## <a name="evaluation"></a>Ocena 
 
-Aby rozpocząć ocenę, kliknij **What If**. Wynik oceny zawiera raport, który składa się z: 
+Aby rozpocząć ocenę, kliknij **What If** . Wynik oceny zawiera raport, który składa się z: 
 
-![What If](./media/what-if-tool/03.png)
+:::image type="content" source="./media/what-if-tool/03.png" alt-text="Zrzut ekranu strony zasady dostępu warunkowego w Azure Portal. Na pasku narzędzi zostanie wyróżniony element &quot;co jeśli&quot;." border="false":::
 
 - Wskaźnik określający, czy w środowisku istnieją zasady klasyczne
 - Zasady dotyczące użytkownika

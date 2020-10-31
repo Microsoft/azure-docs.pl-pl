@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: b6041bf493cf3cb6dcff5f52bdb0950afbbc5108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3f6af81b43844448463c9430c1ab9dd52f5703f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87431480"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075878"
 ---
 # <a name="create-resource-lock-for-a-azure-cosmos-db-table-api-table-using-azure-cli"></a>Tworzenie blokady zasobów dla Azure Cosmos DB interfejs API tabel tabeli przy użyciu interfejsu wiersza polecenia platformy Azure
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

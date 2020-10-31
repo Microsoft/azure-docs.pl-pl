@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 425ee90306de3961c64766f42bd28f668fc9396e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494782"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077952"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
@@ -35,14 +35,19 @@ Aby utworzyć dwucyfrowe sznurki, należy podać:
 * Żądany identyfikator dwuosiowego
 * [Model](concepts-models.md) , który ma być używany
 
-Opcjonalnie można podać wartości początkowe dla wszystkich właściwości dwucyfrowej dwuosiowej. 
+Opcjonalnie można podać wartości początkowe dla wszystkich właściwości dwucyfrowej dwuosiowej. Właściwości są traktowane jako opcjonalne i można je ustawić w późniejszym czasie, ale **nie będą wyświetlane jako część sznura, dopóki nie zostaną ustawione.**
 
-Wartości właściwości model i Initial są podawane za pomocą `initData` parametru, który jest CIĄGIEM JSON zawierającym odpowiednie dane. Aby uzyskać więcej informacji na temat tworzenia struktury tego obiektu, przejdź do następnej sekcji.
+>[!NOTE]
+>Gdy nie trzeba inicjować właściwości bliźniaczych, wszystkie [składniki](concepts-models.md#elements-of-a-model) **na przędze** muszą być ustawione podczas tworzenia sznurka. Mogą być pustymi obiektami, ale same składniki muszą istnieć.
+
+Model i wszystkie początkowe wartości właściwości są udostępniane za pomocą `initData` parametru, który jest CIĄGIEM JSON zawierającym odpowiednie dane. Aby uzyskać więcej informacji na temat tworzenia struktury tego obiektu, przejdź do następnej sekcji.
 
 > [!TIP]
 > Po utworzeniu lub zaktualizowaniu sznurka może wystąpić opóźnienie do 10 sekund, po upływie którego zmiany zostaną odzwierciedlone w [zapytaniach](how-to-query-graph.md). `GetDigitalTwin`Interfejs API (opisany [w dalszej części tego artykułu](#get-data-for-a-digital-twin)) nie występuje w tym opóźnieniu, dlatego jeśli potrzebujesz natychmiastowej odpowiedzi, użyj wywołania interfejsu API zamiast zapytania, aby zobaczyć nowo utworzone bliźniaczych reprezentacji. 
 
 ### <a name="initialize-model-and-properties"></a>Zainicjuj model i właściwości
+
+Możesz inicjować właściwości sznurka w momencie utworzenia sznurka. 
 
 Interfejs API tworzenia przędzy akceptuje obiekt, który jest serializowany do prawidłowego opisu JSON właściwości przędzy. Zobacz [*pojęcia: Digital bliźniaczych reprezentacji i wykres bliźniaczy*](concepts-twins-graph.md) dla opisu formatu JSON dla sznurka. 
 
@@ -110,7 +115,7 @@ Podczas pobierania sznurka przy użyciu metody są zwracane tylko właściwości
 
 Aby pobrać wiele bliźniaczych reprezentacji przy użyciu jednego wywołania interfejsu API, zobacz przykłady interfejsu API zapytań w artykule [*How to: Query The bliźniaczy Graf*](how-to-query-graph.md).
 
-Rozważmy następujący model (zapisany w [języku Digital bliźniaczych reprezentacji Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)), który definiuje *księżyc*:
+Rozważmy następujący model (zapisany w [języku Digital bliźniaczych reprezentacji Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)), który definiuje *księżyc* :
 
 ```json
 {
@@ -133,7 +138,7 @@ Rozważmy następujący model (zapisany w [języku Digital bliźniaczych repreze
     ]
 }
 ```
-Wynik wywołania `object result = await client.GetDigitalTwinAsync("my-moon");` na sznurze typu *księżyca*może wyglądać następująco:
+Wynik wywołania `object result = await client.GetDigitalTwinAsync("my-moon");` na sznurze typu *księżyca* może wyglądać następująco:
 
 ```json
 {
@@ -276,8 +281,8 @@ Rozważmy na przykład następujący dokument poprawki JSON, który zastępuje p
 Ta operacja powiedzie się tylko wtedy, gdy cyfra cyfrowa modyfikowana przez poprawkę jest zgodna z nowym modelem. 
 
 Rozpatrzmy następujący przykład:
-1. Wyobraź sobie, że jest to dwucyfrowy dwuosiowy modelem *foo_old*. *foo_old* definiuje wymaganą *masę*właściwości.
-2. Nowy model *foo_new* definiuje masę właściwości i dodaje nową wymaganą *temperaturę*właściwości.
+1. Wyobraź sobie, że jest to dwucyfrowy dwuosiowy modelem *foo_old* . *foo_old* definiuje wymaganą *masę* właściwości.
+2. Nowy model *foo_new* definiuje masę właściwości i dodaje nową wymaganą *temperaturę* właściwości.
 3. Po zastosowaniu poprawki cyfrowe sznurki muszą mieć zarówno Właściwość masy, jak i temperatury. 
 
 W tej sytuacji poprawka musi zaktualizować zarówno model, jak i Właściwość temperatury przędzy, jak to:

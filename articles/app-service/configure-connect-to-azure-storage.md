@@ -6,24 +6,30 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7f177a7801e18bcdb2c2d6ef737f0c790cf6b1d1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057760"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075793"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Dostęp do usługi Azure Storage jako udziału sieciowego z poziomu kontenera w usłudze App Service
+# <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Dostęp do usługi Azure Storage (wersja zapoznawcza) jako udziału sieciowego z kontenera w App Service
 
 ::: zone pivot="container-windows"
 
 W tym przewodniku przedstawiono sposób dołączania plików usługi Azure Storage jako udziału sieciowego do kontenera systemu Windows w App Service. Obsługiwane są tylko udziały [Azure Files udziały](../storage/files/storage-how-to-use-files-cli.md) i [pliki w warstwie Premium](../storage/files/storage-how-to-create-premium-fileshare.md) . Korzyści obejmują bezpieczną zawartość, przenośność zawartości, dostęp do wielu aplikacji i wiele metod transferu.
+
+> [!NOTE]
+>Usługa Azure Storage w App Service jest **w wersji zapoznawczej** i **nie jest obsługiwana** w **scenariuszach produkcyjnych** .
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
 W tym przewodniku przedstawiono sposób dołączania usługi Azure Storage do App Service kontenera systemu Linux. Korzyści obejmują bezpieczną zawartość, przenośność zawartości, magazyn trwały, dostęp do wielu aplikacji i wiele metod transferu.
+
+> [!NOTE]
+>Usługa Azure Storage w App Service jest **w wersji zapoznawczej** dla App Service w systemie Linux i Web App for Containers. Nie jest to **obsługiwane** w **scenariuszach produkcyjnych** .
 
 ::: zone-end
 
@@ -53,7 +59,6 @@ W tym przewodniku przedstawiono sposób dołączania usługi Azure Storage do Ap
 
 ::: zone pivot="container-windows"
 
-- Usługa Azure Storage w App Service jest **w wersji zapoznawczej** i **nie jest obsługiwana** w **scenariuszach produkcyjnych**.
 - Usługa Azure Storage w App Service nie jest obecnie **obsługiwana** w przypadku używania własnych scenariuszy kodu (niekontenerowe aplikacje systemu Windows).
 - Usługa Azure Storage w App Service **nie obsługuje** korzystania z konfiguracji **zapory magazynu** z powodu ograniczeń infrastruktury.
 - Usługa Azure Storage z App Service umożliwia określenie **maksymalnie pięciu** punktów instalacji na aplikację.
@@ -63,7 +68,6 @@ W tym przewodniku przedstawiono sposób dołączania usługi Azure Storage do Ap
 
 ::: zone pivot="container-linux"
 
-- Usługa Azure Storage w App Service jest **w wersji zapoznawczej** dla App Service w systemie Linux i Web App for Containers. Nie jest to **obsługiwane** w **scenariuszach produkcyjnych**.
 - Usługa Azure Storage w App Service obsługuje instalowanie **kontenerów Azure Files** (odczyt/zapis) i **kontenery obiektów blob platformy Azure** (tylko do odczytu)
 - Usługa Azure Storage w App Service umożliwia określenie **maksymalnie pięciu** punktów instalacji na aplikację.
 - Usługa Azure Storage zainstalowana w aplikacji nie jest dostępna za pomocą App Service punktów końcowych FTP/FTPs. Użyj [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/).

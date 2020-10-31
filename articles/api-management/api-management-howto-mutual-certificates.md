@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 419de27ad87b113de62dacb0dc384702420afbd6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 980d3ca52016c65301ea72e4e669c4bafea4c053
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071119"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077204"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Jak zabezpieczać usługi zaplecza przy użyciu uwierzytelniania za pomocą certyfikatów klienta w usłudze Azure API Management
 
@@ -43,15 +43,15 @@ Postępuj zgodnie z poniższymi instrukcjami, aby przekazać nowy certyfikat kli
 
 1. Przejdź do wystąpienia usługi Azure API Management w Azure Portal.
 2. Z menu wybierz pozycję **Certyfikaty** .
-3. Kliknij przycisk **+ Dodaj**.
-    ![Dodawanie certyfikatów klienta](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+3. Kliknij przycisk **+ Dodaj** .
+    ![Zrzut ekranu, który podświetla przycisk + Dodaj.](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. Przeglądaj w poszukiwaniu certyfikatu, podaj jego identyfikator i hasło.
-5. Kliknij pozycję **Utwórz**.
+5. Kliknij pozycję **Utwórz** .
 
 > [!NOTE]
 > Certyfikat musi być w formacie **PFX** . Certyfikaty z podpisem własnym są dozwolone.
 
-Po przekazaniu certyfikatu zostanie on wyświetlony w obszarze **Certyfikaty**.  Jeśli masz wiele certyfikatów, zanotuj odcisk palca żądanego certyfikatu, aby [skonfigurować interfejs API do korzystania z certyfikatu klienta na potrzeby uwierzytelniania bramy][Configure an API to use a client certificate for gateway authentication].
+Po przekazaniu certyfikatu zostanie on wyświetlony w obszarze **Certyfikaty** .  Jeśli masz wiele certyfikatów, zanotuj odcisk palca żądanego certyfikatu, aby [skonfigurować interfejs API do korzystania z certyfikatu klienta na potrzeby uwierzytelniania bramy][Configure an API to use a client certificate for gateway authentication].
 
 > [!NOTE]
 > Aby wyłączyć weryfikację łańcucha certyfikatów przy użyciu programu, na przykład certyfikat z podpisem własnym, wykonaj kroki opisane w tym [elemencie](api-management-faq.md#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end)często zadawane pytania.
@@ -73,9 +73,9 @@ Jeśli certyfikat jest używany przez interfejs API, zostanie wyświetlony ekran
 
 2. Na karcie **projektowanie** kliknij ikonę ołówka sekcji **zaplecza** .
 3. Zmień **poświadczenia bramy** na **certyfikat klienta** i wybierz certyfikat z listy rozwijanej.
-    ![Włączanie certyfikatów klienta](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
+    ![Zrzut ekranu pokazujący, gdzie zmienić poświadczenia bramy i wybrać certyfikat.](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij pozycję **Zapisz** .
 
 > [!WARNING]
 > Ta zmiana obowiązuje natychmiast, a wywołania operacji tego interfejsu API będą używać certyfikatu do uwierzytelniania na serwerze zaplecza.

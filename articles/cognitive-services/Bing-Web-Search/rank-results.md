@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c328c681874ba171eab1341a16cf059e359feea
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66390135"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076282"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Jak używać klasyfikacji do wyświetlania wyników interfejs API wyszukiwania w sieci Web Bing  
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Każda odpowiedź wyszukiwania zawiera odpowiedź [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) , która określa, jak należy wyświetlić wyniki wyszukiwania. Grupy odpowiedzi rankingu są wynikiem według zawartości linii głównej i zawartości paska bocznego dla tradycyjnej strony wyników wyszukiwania. Jeśli wyniki nie są wyświetlane w tradycyjnym formacie linii głównej i paska bocznego, należy udostępnić zawartość linii głównej wyższą widoczność niż zawartość paska bocznego.  
 

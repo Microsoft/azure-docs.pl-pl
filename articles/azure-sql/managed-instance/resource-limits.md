@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 34f71dfeb0b4e5f94d953137fd45777bf14baa4e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 11c3de703a4b37318b7b99f60d74190fe8ec8610
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790767"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077374"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Omówienie limitów zasobów usługi Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ Wystąpienie zarządzane SQL ma dwie warstwy usług: [ogólnego przeznaczenia](.
 | Maksymalny rozmiar magazynu wystąpienia (zarezerwowany) | -2 TB dla 4 rdzeni wirtualnych (tylko 5 rdzeń)<br/>-8 TB dla innych rozmiarów | Obliczenia: 1 TB <br/> 5 rdzeń <br/>-1 TB dla 4, 8, 16 rdzeni wirtualnych<br/>-2 TB przez 24 rdzeni wirtualnych<br/>-4 TB dla 32, 40, 64, 80 rdzeni wirtualnych |
 | Maksymalny rozmiar bazy danych | Do aktualnie dostępnego rozmiaru wystąpienia (maksymalnie 2 TB – 8 TB w zależności od liczby rdzeni wirtualnych). | Do aktualnie dostępnego rozmiaru wystąpienia (maksymalnie 1 TB — 4 TB w zależności od liczby rdzeni wirtualnych). |
 | Maksymalny rozmiar bazy danych tempDB | Ograniczone do 24 GB/rdzeń wirtualny (96 – 1 920 GB) i aktualnie dostępnego rozmiaru magazynu wystąpień.<br/>Dodaj więcej rdzeni wirtualnych, aby uzyskać więcej przestrzeni TempDB.<br/> Rozmiar pliku dziennika jest ograniczony do 120 GB.| Do aktualnie dostępnego rozmiaru magazynu wystąpień. |
-| Maksymalna liczba baz danych na wystąpienie | 100, chyba że osiągnięto limit rozmiaru magazynu wystąpień. | 100, chyba że osiągnięto limit rozmiaru magazynu wystąpień. |
+| Maksymalna liczba baz danych na wystąpienie | bazy danych użytkowników 100, chyba że osiągnięto limit rozmiaru magazynu wystąpień. | bazy danych użytkowników 100, chyba że osiągnięto limit rozmiaru magazynu wystąpień. |
 | Maksymalna liczba plików bazy danych na wystąpienie | Do 280, o ile nie osiągnięto rozmiaru magazynu wystąpienia lub limitu [przestrzeni dyskowej usługi Azure Premium](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) . | 32 767 plików na bazę danych, o ile nie osiągnięto limitu rozmiaru magazynu wystąpień. |
 | Maksymalny rozmiar pliku danych | Ograniczone do aktualnie dostępnego rozmiaru magazynu wystąpień (maksymalnie 2 TB-8 TB) i [miejsca alokacji dysku Azure Premium Storage](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Ograniczone do aktualnie dostępnego rozmiaru magazynu wystąpień (do 1 TB – 4 TB). |
 | Maksymalny rozmiar pliku dziennika | Ograniczone do 2 TB i aktualnie dostępnego rozmiaru magazynu wystąpień. | Ograniczone do 2 TB i aktualnie dostępnego rozmiaru magazynu wystąpień. |

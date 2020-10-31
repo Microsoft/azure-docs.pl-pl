@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: 87f3ea2d1ce8d3d9f2f584db379618fc6c4a4a67
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 595ec1aaa4aedc3916d1b4d46986dcabae887aaf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491244"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076405"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>Szybki Start: Tworzenie aplikacji języka go z `gocql` klientem w celu zarządzania danymi interfejs API Cassandra Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -225,7 +226,7 @@ func mapToUser(m map[string]interface{}) model.User {
 
 Jak wspomniano wcześniej, aplikacja akceptuje łączność i poświadczenia w postaci zmiennych środowiskowych. 
 
-1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia**. 
+1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia** . 
 
     :::image type="content" source="./media/create-cassandra-go/copy-username-connection-string-azure-portal.png" alt-text="Wyświetl i skopiuj szczegóły ze strony parametrów połączenia w Azure Portal":::
 
@@ -252,7 +253,7 @@ go run main.go
 
 3. W oknie terminalu są wyświetlane powiadomienia dotyczące różnych operacji, w tym ustawień przestrzeni kluczy i tabeli, tworzenia użytkowników itp.
 
-4. W witrynie Azure Portal otwórz **Eksploratora danych**, aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi. 
+4. W witrynie Azure Portal otwórz **Eksploratora danych** , aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi. 
 
     :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Wyświetl i skopiuj szczegóły ze strony parametrów połączenia w Azure Portal":::
 

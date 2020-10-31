@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacjami .NET'
+title: 'Szybki Start: korzystanie z usługi Azure cache for Redis w .NET Framework'
 description: Z tego przewodnika Szybki start dowiesz się, jak uzyskiwać dostęp do pamięci podręcznej Azure Cache for Redis z poziomu aplikacji platformy .NET.
 author: yegu-ms
 ms.author: yegu
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: b3c18fcc0f4ff21eaaea2cbaf664e87d0ff33d60
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 762fdf0aab0077cfbf8beceeb432dc85695e4176
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537069"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077068"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacją .NET Framework
+# <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Szybki Start: korzystanie z usługi Azure cache for Redis w .NET Framework
 
 W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do aplikacji .NET Framework, aby uzyskać dostęp do bezpiecznej, dedykowanej pamięci podręcznej dostępnej z dowolnej aplikacji na platformie Azure. Użytkownik korzystający z programu [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) z kodem C# w aplikacji konsolowej platformy .NET.
 

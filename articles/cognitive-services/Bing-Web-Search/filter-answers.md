@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad021b4d219353a6037988c164bb34cac6761682
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696715"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078632"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrowanie odpowiedzi uwzględnionych w odpowiedzi wyszukiwania  
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Podczas wykonywania zapytania w sieci Web, Bing zwraca całą zawartość znalezioną dla wyszukiwania. Na przykład, jeśli zapytanie wyszukiwania ma wartość "dinghies +", odpowiedź może zawierać następujące odpowiedzi:
 
@@ -53,7 +58,7 @@ Aby odfiltrować odpowiedzi zwrócone przez usługę Bing, Użyj poniższych par
 
 Można filtrować typy odpowiedzi, które obejmują usługi Bing w odpowiedzi (na przykład obrazy, filmy wideo i wiadomości) przy użyciu parametru zapytania [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) , który jest rozdzielaną przecinkami listą odpowiedzi. Odpowiedź zostanie uwzględniona w odpowiedzi, jeśli Bing znajdzie odpowiednią zawartość. 
 
-Aby wykluczyć określone odpowiedzi z odpowiedzi, takie jak obrazy, poprzedź `-` znak do typu odpowiedzi. Na przykład:
+Aby wykluczyć określone odpowiedzi z odpowiedzi, takie jak obrazy, poprzedź `-` znak do typu odpowiedzi. Przykład:
 
 ```
 &responseFilter=-images,-videos
@@ -131,7 +136,7 @@ Wyniki mogą obejmować strony sieci Web, które wykraczają poza określony cza
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Ograniczanie liczby odpowiedzi w odpowiedzi
 
-Bing może zwracać wiele typów odpowiedzi w odpowiedzi JSON. Na przykład w przypadku wysyłania zapytań do usługi *dinghies*, Bing może zwrócić `webpages` , `images` , `videos` , i `relatedSearches` .
+Bing może zwracać wiele typów odpowiedzi w odpowiedzi JSON. Na przykład w przypadku wysyłania zapytań do usługi *dinghies* , Bing może zwrócić `webpages` , `images` , `videos` , i `relatedSearches` .
 
 ```json
 {

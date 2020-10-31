@@ -8,14 +8,15 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: jasonh
-ms.openlocfilehash: e8848ee0a1fe5755316b59432c465b3836a0bab1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b8ec8fa383215553c9987476c2f1dc6a05f823e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409361"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076473"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Szybki Start: Tworzenie bazy danych grafu w Azure Cosmos DB przy użyciu języka PHP i Azure Portal
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Konsola Gremlin](create-graph-gremlin-console.md)
@@ -34,7 +35,7 @@ Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firm
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Można też [bezpłatnie wypróbować usługę Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure — nie wymaga to opłat ani zobowiązań.
 
-Ponadto:
+Dodatkowo:
 * Język [PHP](https://php.net/) 5.6 lub nowszy
 * Program [Composer](https://getcomposer.org/download/)
 
@@ -102,7 +103,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy d
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i skopiować je do aplikacji. Te ustawienia umożliwiają aplikacji komunikację z hostowaną bazą danych.
 
-1. W witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Klucze**. 
+1. W witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Klucze** . 
 
     Skopiuj pierwszą część wartości identyfikatora URI.
 
@@ -191,7 +192,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i s
 
 Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do grafu, a także dodać kolejne punkty danych.
 
-1. Kliknij przycisk **Eksplorator danych**, rozwiń opcję **sample-graph**, kliknij pozycję **Graf**, a następnie **Zastosuj filtr**. 
+1. Kliknij przycisk **Eksplorator danych** , rozwiń opcję **sample-graph** , kliknij pozycję **Graf** , a następnie **Zastosuj filtr** . 
 
    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 
@@ -199,11 +200,11 @@ Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do
 
    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 
-3. Dodajmy kilku nowych użytkowników. Kliknij przycisk **Nowy wierzchołek**, aby dodać dane do grafu.
+3. Dodajmy kilku nowych użytkowników. Kliknij przycisk **Nowy wierzchołek** , aby dodać dane do grafu.
 
    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 
-4. Wprowadź etykietę *osoba*.
+4. Wprowadź etykietę *osoba* .
 
 5. Kliknij pozycję **Dodaj właściwość** , aby dodać każdą z następujących właściwości. Zauważ, że możesz utworzyć unikatowe właściwości dla każdej osoby w grafie. Wymagany jest tylko klucz **identyfikatora** .
 
@@ -216,13 +217,13 @@ Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do
     > [!NOTE]
     > W tym przewodniku Szybki start tworzona jest kolekcja niepartycjonowana. Niemniej jednak, jeśli utworzysz kolekcję partycjonowaną poprzez określenie klucza partycji podczas tworzenia kolekcji, musisz uwzględnić klucz partycji jako klucz w każdym nowym wierzchołku. 
 
-6. Kliknij przycisk **OK**. Może być konieczne rozszerzenie ekranu w celu wyświetlenia przycisku **OK** u dołu ekranu.
+6. Kliknij pozycję **OK** . Może być konieczne rozszerzenie ekranu w celu wyświetlenia przycisku **OK** u dołu ekranu.
 
 7. Kliknij przycisk **Nowy wierzchołek** ponownie i dodaj kolejnego nowego użytkownika. 
 
-8. Wprowadź etykietę *osoba*.
+8. Wprowadź etykietę *osoba* .
 
-9. Kliknij pozycję **Dodaj właściwość**, aby dodać poszczególne poniższe właściwości:
+9. Kliknij pozycję **Dodaj właściwość** , aby dodać poszczególne poniższe właściwości:
     
     Klucz | Wartość | Uwagi
     ----|----|----
@@ -230,17 +231,17 @@ Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do
     **skorygowan** | mężczyzna | 
     **szkoła** | MIT | 
 
-10. Kliknij przycisk **OK**. 
+10. Kliknij pozycję **OK** . 
 
-11. Kliknij przycisk **Zastosuj filtr** przy użyciu domyślnego filtru `g.V()`, aby wyświetlić wszystkie wartości na grafie. Wszyscy użytkownicy będą teraz wyświetlani na liście **Wyniki**. 
+11. Kliknij przycisk **Zastosuj filtr** przy użyciu domyślnego filtru `g.V()`, aby wyświetlić wszystkie wartości na grafie. Wszyscy użytkownicy będą teraz wyświetlani na liście **Wyniki** . 
 
-    W miarę dodawania większej ilości danych można używać filtrów do ograniczania wyników. Domyślnie Eksplorator danych korzysta z zapytania `g.V()` w celu pobrania wszystkich wierzchołków grafu. Można je zmienić na inne [zapytanie o graf](tutorial-query-graph.md), takie jak`g.V().count()`, aby zwrócić liczbę wszystkich wierzchołków grafu w formacie JSON. W przypadku zmiany filtru zmień filtr ponownie na `g.V()` i kliknij pozycję **Zastosuj filtr**, aby ponownie wyświetlić wszystkie wyniki.
+    W miarę dodawania większej ilości danych można używać filtrów do ograniczania wyników. Domyślnie Eksplorator danych korzysta z zapytania `g.V()` w celu pobrania wszystkich wierzchołków grafu. Można je zmienić na inne [zapytanie o graf](tutorial-query-graph.md), takie jak`g.V().count()`, aby zwrócić liczbę wszystkich wierzchołków grafu w formacie JSON. W przypadku zmiany filtru zmień filtr ponownie na `g.V()` i kliknij pozycję **Zastosuj filtr** , aby ponownie wyświetlić wszystkie wyniki.
 
-12. Teraz możesz połączyć użytkowników rakesh i ashley. Upewnij się, że użytkownik **ashley** został wybrany na liście **Wyniki**, a następnie kliknij przycisk edycji obok pozycji **Cele** u dołu po prawej. Może być konieczne rozszerzenie okna w celu wyświetlenia obszaru **Właściwości**.
+12. Teraz możesz połączyć użytkowników rakesh i ashley. Upewnij się, że użytkownik **ashley** został wybrany na liście **Wyniki** , a następnie kliknij przycisk edycji obok pozycji **Cele** u dołu po prawej. Może być konieczne rozszerzenie okna w celu wyświetlenia obszaru **Właściwości** .
 
     :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 
-13. W polu **Cel** wpisz *rakesh*, a w polu **Etykieta krawędzi** wpisz *zna*, a następnie kliknij pole wyboru.
+13. W polu **Cel** wpisz *rakesh* , a w polu **Etykieta krawędzi** wpisz *zna* , a następnie kliknij pole wyboru.
 
     :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 

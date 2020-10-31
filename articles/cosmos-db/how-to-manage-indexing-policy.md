@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 67d542ffe0279abe72bc74ab207cd5fddd1a4362
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 96ae4162c78f66b75d8c1ef2a8cec16995a5f016
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491040"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075708"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami indeksowania w usłudze Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W Azure Cosmos DB dane są indeksowane zgodnie z [zasadami indeksowania](index-policy.md) , które są zdefiniowane dla każdego kontenera. Domyślne zasady indeksowania dla nowo utworzonych kontenerów wymuszają indeksy zakresu dla wszelkich ciągów i liczb. Te zasady można zastąpić własnymi niestandardowymi zasadami indeksowania.
 
@@ -353,17 +354,17 @@ W Azure Cosmos DB zasady indeksowania można aktualizować przy użyciu dowolnej
 
 Kontenery usługi Azure Cosmos przechowują swoje zasady indeksowania jako dokument JSON, który Azure Portal umożliwia bezpośrednie edytowanie.
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. Utwórz nowe konto usługi Azure Cosmos lub wybierz istniejące.
 
 1. Otwórz okienko **Eksplorator danych** i wybierz kontener, w którym chcesz korzystać.
 
-1. Kliknij pozycję **skaluj & ustawienia**.
+1. Kliknij pozycję **skaluj & ustawienia** .
 
 1. Modyfikowanie dokumentu JSON zasad indeksowania (Zobacz przykłady [poniżej](#indexing-policy-examples))
 
-1. Gdy wszystko będzie gotowe, kliknij przycisk **Zapisz**.
+1. Gdy wszystko będzie gotowe, kliknij przycisk **Zapisz** .
 
 :::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Zarządzanie indeksowaniem przy użyciu witryny Azure Portal":::
 

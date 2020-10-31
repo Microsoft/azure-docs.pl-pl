@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3aee10c0682feeea7c74133f908452d1c5595f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968603"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077731"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planowanie i wdrażanie lokalnej Azure Active Directory ochrony hasłem
 
@@ -125,7 +125,7 @@ Poniższe wymagania dotyczą usługi proxy ochrony hasłem w usłudze Azure AD:
     * Środowisko .NET 4,7 powinno być już zainstalowane w w pełni zaktualizowanym systemie Windows Server. W razie potrzeby Pobierz i uruchom Instalatora, który znajduje [się w instalatorze offline .NET Framework 4,7 dla systemu Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Wszystkie komputery, na których jest hostowana usługa serwera proxy ochrony haseł usługi Azure AD, muszą być skonfigurowane tak, aby zezwalać kontrolerom domeny na logowanie do usługi proxy. Ta możliwość jest kontrolowana przez przypisanie przywileju "uzyskaj dostęp do tego komputera z sieci".
 * Wszystkie komputery, na których jest hostowana usługa serwera proxy ochrony haseł usługi Azure AD, muszą być skonfigurowane tak, aby zezwalały na ruch HTTP 1,2 wychodzący TLS
-* Konto *administratora globalnego* do zarejestrowania usługi i lasu proxy ochrony haseł usługi Azure AD za pomocą usługi Azure AD.
+* Konto *administratora globalnego* lub *administratora zabezpieczeń* w celu zarejestrowania usługi i lasu proxy ochrony haseł w usłudze Azure AD za pomocą usługi Azure AD.
 * Dostęp do sieci musi być włączony dla zestawu portów i adresów URL określonych w [procedurach konfiguracji środowiska serwera proxy aplikacji](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Wymagania wstępne dotyczące Microsoft Azure AD Connect Agent Aktualizator
@@ -142,8 +142,8 @@ Usługa Aktualizator Connect Agent jest zainstalowana obok usługi serwera proxy
 
 Istnieją dwa wymagane Instalatory dla lokalnego wdrożenia ochrony hasła usługi Azure AD:
 
-* Agent DC ochrony hasłem usługi Azure AD (*AzureADPasswordProtectionDCAgentSetup.msi*)
-* Serwer proxy ochrony hasłem usługi Azure AD (*AzureADPasswordProtectionProxySetup.exe*)
+* Agent DC ochrony hasłem usługi Azure AD ( *AzureADPasswordProtectionDCAgentSetup.msi* )
+* Serwer proxy ochrony hasłem usługi Azure AD ( *AzureADPasswordProtectionProxySetup.exe* )
 
 Pobierz oba Instalatory z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -155,9 +155,11 @@ W następnej sekcji instalujesz agentów DC ochrony hasłem usługi Azure AD na 
 
 Wybierz co najmniej jeden serwer, na którym ma być Hostowana usługa serwera proxy ochrony hasła usługi Azure AD. Następujące zagadnienia dotyczą serwerów:
 
-* Każda taka usługa może udostępniać tylko zasady haseł dla jednego lasu. Komputer hosta musi być przyłączony do domeny w tym lesie. Domeny główne i podrzędne są obsługiwane. Wymagana jest łączność sieciowa między co najmniej jednym KONTROLERem domeny w każdej domenie lasu i komputerem ochrony hasłem.
+* Każda taka usługa może udostępniać tylko zasady haseł dla jednego lasu. Komputer hosta musi być przyłączony do dowolnej domeny w tym lesie.
+* Jest ona obsługiwana w celu zainstalowania serwera proxy usługi w domenach głównych lub podrzędnych lub ich kombinacji.
+* Wymagana jest łączność sieciowa między co najmniej jednym KONTROLERem domeny w każdej domenie lasu i jednym serwerem proxy ochrony hasłem.
 * Na kontrolerze domeny można uruchomić usługę proxy ochrony hasłem usługi Azure AD, ale ten kontroler domeny wymaga połączenia z Internetem. To połączenie może stanowić problem z zabezpieczeniami. Zalecamy tę konfigurację tylko do celów testowych.
-* Zalecamy co najmniej dwa serwery proxy ochrony haseł usługi Azure AD, które zostały zanotowane w poprzedniej sekcji dotyczącej [zagadnień dotyczących wysokiej dostępności](#high-availability-considerations).
+* Zalecamy co najmniej dwa serwery proxy ochrony hasłem w usłudze Azure AD dla każdego lasu w celu zapewnienia nadmiarowości, jak wskazano w poprzedniej sekcji [zagadnień dotyczących wysokiej dostępności](#high-availability-considerations).
 * Nie jest obsługiwane uruchamianie usługi proxy ochrony hasłem Azure AD na kontrolerze domeny tylko do odczytu.
 
 Aby zainstalować usługę proxy ochrony hasłem w usłudze Azure AD, wykonaj następujące czynności:
@@ -191,11 +193,11 @@ Aby zainstalować usługę proxy ochrony hasłem w usłudze Azure AD, wykonaj na
     Get-Service AzureADPasswordProtectionProxy | fl
     ```
 
-    Wynik powinien zawierać **stan** *uruchomiony*.
+    Wynik powinien zawierać **stan** *uruchomiony* .
 
 1. Usługa serwera proxy jest uruchomiona na komputerze, ale nie ma poświadczeń do komunikowania się z usługą Azure AD. Zarejestruj serwer proxy ochrony hasłem usługi Azure AD za pomocą usługi Azure AD przy użyciu `Register-AzureADPasswordProtectionProxy` polecenia cmdlet.
 
-    To polecenie cmdlet wymaga poświadczeń administratora globalnego dla dzierżawy platformy Azure. Wymagane są również lokalne Active Directory uprawnienia administratora domeny w domenie głównej lasu. To polecenie cmdlet należy również uruchomić przy użyciu konta z uprawnieniami administratora lokalnego:
+    To polecenie cmdlet wymaga poświadczeń *administratora globalnego* lub *administratora zabezpieczeń* dla dzierżawy platformy Azure. To polecenie cmdlet należy również uruchomić przy użyciu konta z uprawnieniami administratora lokalnego.
 
     Po pomyślnym wykonaniu tego polecenia dla usługi serwera proxy ochrony hasłem w usłudze Azure AD zostaną pomyślnie wykonane dodatkowe wywołania, ale nie są one potrzebne.
 
@@ -233,7 +235,7 @@ Aby zainstalować usługę proxy ochrony hasłem w usłudze Azure AD, wykonaj na
         >
         > Możesz również sprawdzić, czy uwierzytelnianie wieloskładnikowe jest wymagane, jeśli usługa Azure Device Registration (która jest używana w ramach okładki przez usługę Azure AD Password Protection) została skonfigurowana w taki sposób, aby globalnie wymagała uwierzytelniania wieloskładnikowego. Aby obejść to wymaganie, można użyć innego konta, które obsługuje uwierzytelnianie wieloskładnikowe z jednym z poprzednich dwóch trybów uwierzytelniania lub można również tymczasowo osłabić wymaganie usługi MFA rejestracji urządzeń Azure.
         >
-        > Aby wprowadzić tę zmianę, Wyszukaj i wybierz **Azure Active Directory** w Azure Portal, a następnie wybierz pozycję **urządzenia > ustawienia urządzenia**. Ustaw **Wymagaj uwierzytelniania wieloskładnikowego, aby dołączyć urządzenia** do *nie*. Należy koniecznie zmienić konfigurację tego ustawienia z powrotem na *wartość tak* po zakończeniu rejestracji.
+        > Aby wprowadzić tę zmianę, Wyszukaj i wybierz **Azure Active Directory** w Azure Portal, a następnie wybierz pozycję **urządzenia > ustawienia urządzenia** . Ustaw **Wymagaj uwierzytelniania wieloskładnikowego, aby dołączyć urządzenia** do *nie* . Należy koniecznie zmienić konfigurację tego ustawienia z powrotem na *wartość tak* po zakończeniu rejestracji.
         >
         > Zalecamy, aby wymagania usługi MFA były pomijane wyłącznie w celach testowych.
 
@@ -246,7 +248,9 @@ Aby zainstalować usługę proxy ochrony hasłem w usłudze Azure AD, wykonaj na
     > [!NOTE]
     > Jeśli w środowisku zainstalowano wiele serwerów proxy ochrony haseł usługi Azure AD, nie ma znaczenia, który serwer proxy służy do zarejestrowania lasu.
 
-    Polecenie cmdlet wymaga poświadczeń administratora globalnego dla dzierżawy platformy Azure. To polecenie cmdlet należy również uruchomić przy użyciu konta z uprawnieniami administratora lokalnego. Wymaga również lokalnego Active Directory uprawnień administratora przedsiębiorstwa. Ten krok jest uruchamiany raz na las.
+    Polecenie cmdlet wymaga poświadczeń *administratora globalnego* lub *administratora zabezpieczeń* dla dzierżawy platformy Azure. Wymaga również lokalnego Active Directory uprawnień administratora przedsiębiorstwa. To polecenie cmdlet należy również uruchomić przy użyciu konta z uprawnieniami administratora lokalnego. Konto platformy Azure używane do rejestrowania lasu może być inne niż lokalne konto Active Directory.
+    
+    Ten krok jest uruchamiany raz na las.
 
     `Register-AzureADPasswordProtectionForest`Polecenie cmdlet obsługuje następujące trzy tryby uwierzytelniania. Pierwsze dwa tryby obsługują platformę Azure Multi-Factor Authentication, ale trzeci tryb nie jest.
 
@@ -282,7 +286,7 @@ Aby zainstalować usługę proxy ochrony hasłem w usłudze Azure AD, wykonaj na
         >
         > Możesz również sprawdzić, czy uwierzytelnianie wieloskładnikowe jest wymagane, jeśli usługa Azure Device Registration (która jest używana w ramach okładki przez usługę Azure AD Password Protection) została skonfigurowana w taki sposób, aby globalnie wymagała uwierzytelniania wieloskładnikowego. Aby obejść to wymaganie, można użyć innego konta, które obsługuje uwierzytelnianie wieloskładnikowe z jednym z poprzednich dwóch trybów uwierzytelniania lub można również tymczasowo osłabić wymaganie usługi MFA rejestracji urządzeń Azure.
         >
-        > Aby wprowadzić tę zmianę, Wyszukaj i wybierz **Azure Active Directory** w Azure Portal, a następnie wybierz pozycję **urządzenia > ustawienia urządzenia**. Ustaw **Wymagaj uwierzytelniania wieloskładnikowego, aby dołączyć urządzenia** do *nie*. Należy koniecznie zmienić konfigurację tego ustawienia z powrotem na *wartość tak* po zakończeniu rejestracji.
+        > Aby wprowadzić tę zmianę, Wyszukaj i wybierz **Azure Active Directory** w Azure Portal, a następnie wybierz pozycję **urządzenia > ustawienia urządzenia** . Ustaw **Wymagaj uwierzytelniania wieloskładnikowego, aby dołączyć urządzenia** do *nie* . Należy koniecznie zmienić konfigurację tego ustawienia z powrotem na *wartość tak* po zakończeniu rejestracji.
         >
         > Zalecamy, aby wymagania usługi MFA były pomijane wyłącznie w celach testowych.
 

@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 3064672dc9eafbabda896f56f4881302980585b0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 53171fedac23401b7d696a9e611c53da86b1bb60
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475383"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078071"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK 4](performance-tips-java-sdk-v4-sql.md)
@@ -35,11 +36,11 @@ Azure Cosmos DB to szybka i elastyczna dystrybuowana baza danych, która bezprob
 
 Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" należy wziąć pod uwagę następujące opcje:
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 * **Tryb połączenia: Użyj trybu bezpośredniego**
     
-  Sposób, w jaki klient nawiązuje połączenie z Azure Cosmos DB, ma ważne konsekwencje dotyczące wydajności, szczególnie w odniesieniu do opóźnienia po stronie klienta. *Connectionmode* jest ustawieniem konfiguracji klucza dostępnym do konfigurowania *ConnectionPolicy*klienta. W przypadku Azure Cosmos DB asynchronicznego zestawu Java SDK V2 dostępne są dwie ConnectionModes:  
+  Sposób, w jaki klient nawiązuje połączenie z Azure Cosmos DB, ma ważne konsekwencje dotyczące wydajności, szczególnie w odniesieniu do opóźnienia po stronie klienta. *Connectionmode* jest ustawieniem konfiguracji klucza dostępnym do konfigurowania *ConnectionPolicy* klienta. W przypadku Azure Cosmos DB asynchronicznego zestawu Java SDK V2 dostępne są dwie ConnectionModes:  
       
   * [Brama (domyślnie)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
   * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
@@ -84,13 +85,13 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
   W Azure Cosmos DB asynchronicznego zestawu Java SDK V2 tryb bezpośredni jest najlepszym wyborem, aby zwiększyć wydajność bazy danych przy użyciu większości obciążeń. 
 
-  * ***Przegląd trybu bezpośredniego**_
+  * ***Przegląd trybu bezpośredniego** _
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustracja zasad połączenia Azure Cosmos DB" border="false":::
   
-  Architektura po stronie klienta stosowana w trybie bezpośrednim umożliwia przewidywalne wykorzystanie sieci i dostęp do multipleksera Azure Cosmos DB replik. Na powyższym diagramie przedstawiono sposób, w jaki tryb Direct kieruje żądania klientów do replik w Cosmos DB zaplecza. Architektura trybu bezpośredniego przydziela do 10 _*kanałów** po stronie klienta na replikę bazy danych. Kanał jest połączeniem TCP poprzedzonym buforem żądania, który ma 30 żądań głębokiego. Kanały należące do repliki są przydzielane dynamicznie zgodnie z wymaganiami **punktu końcowego usługi**repliki. Gdy użytkownik wystawia żądanie w trybie bezpośrednim, **TransportClient** kieruje żądanie do odpowiedniego punktu końcowego usługi na podstawie klucza partycji. **Kolejka żądań** buforuje żądania przed punktem końcowym usługi.
+  Architektura po stronie klienta stosowana w trybie bezpośrednim umożliwia przewidywalne wykorzystanie sieci i dostęp do multipleksera Azure Cosmos DB replik. Na powyższym diagramie przedstawiono sposób, w jaki tryb Direct kieruje żądania klientów do replik w Cosmos DB zaplecza. Architektura trybu bezpośredniego przydziela do 10 _ *kanałów* * po stronie klienta na replikę bazy danych. Kanał jest połączeniem TCP poprzedzonym buforem żądania, który ma 30 żądań głębokiego. Kanały należące do repliki są przydzielane dynamicznie zgodnie z wymaganiami **punktu końcowego usługi** repliki. Gdy użytkownik wystawia żądanie w trybie bezpośrednim, **TransportClient** kieruje żądanie do odpowiedniego punktu końcowego usługi na podstawie klucza partycji. **Kolejka żądań** buforuje żądania przed punktem końcowym usługi.
 
-  * ***Opcje konfiguracji ConnectionPolicy dla trybu bezpośredniego**_
+  * ***Opcje konfiguracji ConnectionPolicy dla trybu bezpośredniego** _
 
     Pierwszym krokiem jest użycie poniższych zalecanych ustawień konfiguracji. Skontaktuj się z [zespołem Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com) , jeśli wystąpią problemy z tym konkretnym tematem.
 
@@ -113,7 +114,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
     | sendHangDetectionTime      | "PT10S"    |
     | shutdownTimeout            | "PT15S"    |
 
-* ***Wskazówki dotyczące programowania w trybie bezpośrednim**_
+* ***Wskazówki dotyczące programowania w trybie bezpośrednim** _
 
   Zapoznaj się z artykułem dotyczącym [rozwiązywania](troubleshoot-java-async-sdk.md) problemów z zestawem SDK Azure Cosmos DB Async SDK V2.
   
@@ -137,7 +138,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
     Należy pamiętać, że zapytania równoległe generują najlepsze korzyści, jeśli dane są równomiernie dystrybuowane we wszystkich partycjach w odniesieniu do zapytania. Jeśli partycjonowana kolekcja jest partycjonowana w taki sposób, że wszystkie lub większość danych zwróconych przez zapytanie jest skoncentrowana na kilku partycjach (jedna partycja w najgorszym przypadku), wydajność zapytania zostałaby przekazana przez te partycje.
 
-  _ ***Strojenie setMaxBufferedItemCount \: **_
+  _ * **Strojenie setMaxBufferedItemCount \:** _
     
     Zapytanie równoległe zostało zaprojektowane w celu wstępnego pobrania wyników, podczas gdy bieżąca partia wyników jest przetwarzana przez klienta. Wstępne pobieranie pomaga w ogólnym ulepszaniu opóźnienia zapytania. setMaxBufferedItemCount ogranicza liczbę wstępnie pobranych wyników. Ustawienie setMaxBufferedItemCount na oczekiwaną liczbę zwracanych wyników (lub wyższą liczbę) powoduje, że zapytanie otrzymuje maksymalną korzyść przed pobraniem.
 

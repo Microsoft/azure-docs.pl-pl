@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: 6b3d01445eb5624addb5edec3ccb9cd8e4a9b6d9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a11ea9cee69e5aa7b275012176084530f4a209e6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476029"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076299"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: łączenie aplikacji go z interfejsem API Azure Cosmos DB dla MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -236,7 +237,7 @@ Aby upewnić się, że aplikacja została skompilowana prawidłowo.
 
 ## <a name="setup-azure-cosmos-db"></a>Azure Cosmos DB Instalatora
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli musisz zainstalować lub uaktualnić program, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]. 
 
@@ -258,7 +259,7 @@ Utwórz [grupę zasobów](../azure-resource-manager/management/overview.md) za p
 
 Poniższy przykład obejmuje tworzenie grupy zasobów w regionie Europa Zachodnia. Wybierz unikatową nazwę grupy zasobów.
 
-Jeśli używasz Azure Cloud Shell, wybierz opcję **Wypróbuj**, postępuj zgodnie z monitami Onscreen, aby zalogować się, a następnie skopiuj polecenie do wiersza polecenia.
+Jeśli używasz Azure Cloud Shell, wybierz opcję **Wypróbuj** , postępuj zgodnie z monitami Onscreen, aby zalogować się, a następnie skopiuj polecenie do wiersza polecenia.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -420,7 +421,7 @@ Dane przechowywane w Azure Cosmos DB są dostępne do wyświetlania i wykonywani
 
 Aby wyświetlać dane użytkownika utworzone w poprzednim kroku, a także pracować z nimi i wykonywać na nich zapytania, zaloguj się do witryny [Azure Portal](https://portal.azure.com) w przeglądarce sieci Web.
 
-W górnym polu wyszukiwania wprowadź **Azure Cosmos DB**. Po otwarciu bloku konta usługi Cosmos wybierz swoje konto usługi Cosmos. Na lewym pasku nawigacyjnym wybierz pozycję **Eksplorator danych**. Rozwiń kolekcję w okienku Kolekcje. Następnie możesz wyświetlić dokumenty w kolekcji, wysłać zapytanie dotyczące danych, a nawet tworzyć i uruchamiać procedury składowane, wyzwalacze i funkcje definiowane przez użytkownika (UDF). 
+W górnym polu wyszukiwania wprowadź **Azure Cosmos DB** . Po otwarciu bloku konta usługi Cosmos wybierz swoje konto usługi Cosmos. Na lewym pasku nawigacyjnym wybierz pozycję **Eksplorator danych** . Rozwiń kolekcję w okienku Kolekcje. Następnie możesz wyświetlić dokumenty w kolekcji, wysłać zapytanie dotyczące danych, a nawet tworzyć i uruchamiać procedury składowane, wyzwalacze i funkcje definiowane przez użytkownika (UDF). 
 
 :::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="Eksplorator danych z nowo utworzonym dokumentem&quot;:::
 

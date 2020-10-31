@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f97a91d56324ab583c1f8ae9989631a908df447
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: d4c30029a71935cd3b8817be9010ff0fd11fa61a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042234"
+ms.locfileid: "93077697"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ustawianie list kontroli dostępu (ACL) rekursywnie dla Azure Data Lake Storage Gen2
 
@@ -137,14 +137,14 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
    pip install azure_storage_file_datalake-12.1.0b99-py2.py3-none-any.whl
    ```
 
-Dodaj te instrukcje importu na początku pliku kodu.
+3. Dodaj te instrukcje importu na początku pliku kodu.
 
-```python
-import os, uuid, sys
-from azure.storage.filedatalake import DataLakeServiceClient
-from azure.core._match_conditions import MatchConditions
-from azure.storage.filedatalake._models import ContentSettings
-```
+   ```python
+   import os, uuid, sys
+   from azure.storage.filedatalake import DataLakeServiceClient
+   from azure.core._match_conditions import MatchConditions
+   from azure.storage.filedatalake._models import ContentSettings
+   ```
 
 ---
 
@@ -966,6 +966,128 @@ def resume_set_acl_recursive(continuation_token):
 
 ---
 
+Jeśli chcesz, aby proces został zakończony nieprzerwanie przez błędy uprawnień, możesz określić, czy.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Aby upewnić się, że proces kończy się nieprzerwanie, przekaż obiekt **AccessControlChangedOptions** i ustaw właściwość **ContinueOnFailure** tego obiektu na ``true`` .
+
+Ten przykład ustawia cyklicznie wpisy listy ACL. Jeśli ten kod napotyka błąd uprawnień, rejestruje ten błąd i kontynuuje wykonywanie. Ten przykład drukuje wyniki (w tym liczbę błędów) w konsoli programu. 
+
+```powershell
+$ContinueOnFailure = $true
+
+$TotalDirectoriesSuccess = 0
+$TotalFilesSuccess = 0
+$totalFailure = 0
+$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
+
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+
+echo "[Result Summary]"
+echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
+echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount)"
+echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
+echo "FailedEntries:"$($result.FailedEntries | ft) 
+```
+
+### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby upewnić się, że proces kończy się nieprzerwanie, ustaw `--continue-on-failure` parametr na `true` . 
+
+```azurecli
+az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --continue-on-failure true --continuation xxxxxxx -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login  
+```
+
+### <a name="net"></a>[.NET](#tab/dotnet)
+
+Aby upewnić się, że proces kończy się nieprzerwanie, przekaż obiekt **AccessControlChangedOptions** i ustaw właściwość **ContinueOnFailure** tego obiektu na ``true`` .
+
+Ten przykład ustawia cyklicznie wpisy listy ACL. Jeśli ten kod napotyka błąd uprawnień, rejestruje ten błąd i kontynuuje wykonywanie. Ten przykład drukuje liczbę błędów w konsoli programu. 
+
+```cs
+public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
+    DataLakeDirectoryClient directoryClient, 
+    List<PathAccessControlItem> accessControlList)
+{
+    var accessControlChangeResult = 
+        await directoryClient.SetAccessControlRecursiveAsync(
+            accessControlList, null, new AccessControlChangeOptions() 
+            { ContinueOnFailure = true });
+
+    var counters = accessControlChangeResult.Value.Counters;
+
+    Console.WriteLine("Number of directories changed: " +
+        counters.ChangedDirectoriesCount.ToString());
+
+    Console.WriteLine("Number of files changed: " +
+        counters.ChangedFilesCount.ToString());
+
+    Console.WriteLine("Number of failures: " +
+        counters.FailedChangesCount.ToString());
+}
+```
+
+### <a name="java"></a>[Java](#tab/java)
+
+Aby upewnić się, że proces kończy się nieprzerwanie, wywołaj metodę **setContinueOnFailure** obiektu [PathSetAccessControlRecursiveOptions](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) i przekaż wartość **true** .
+
+Ten przykład ustawia cyklicznie wpisy listy ACL. Jeśli ten kod napotyka błąd uprawnień, rejestruje ten błąd i kontynuuje wykonywanie. Ten przykład drukuje liczbę błędów w konsoli programu. 
+
+```java
+static public void ContinueOnFailure(DataLakeFileSystemClient fileSystemClient,
+DataLakeDirectoryClient directoryClient,
+List<PathAccessControlEntry> accessControlList){
+    
+    PathSetAccessControlRecursiveOptions options = 
+        new PathSetAccessControlRecursiveOptions(accessControlList);
+        
+    options.setContinueOnFailure(true);
+    
+    Response<AccessControlChangeResult> accessControlChangeResult =  
+        directoryClient.setAccessControlRecursiveWithResponse(options, null, null);
+
+    AccessControlChangeCounters counters = accessControlChangeResult.getValue().getCounters();
+
+    System.out.println("Number of directories changes: " + 
+        counters.getChangedDirectoriesCount());
+
+    System.out.println("Number of files changed: " + 
+        counters.getChangedDirectoriesCount());
+
+    System.out.println("Number of failures: " + 
+        counters.getChangedDirectoriesCount());
+}
+```
+
+### <a name="python"></a>[Python](#tab/python)
+
+Aby upewnić się, że proces kończy się nieprzerwanie, nie przekazuj tokenu kontynuacji do metody **DataLakeDirectoryClient.set_access_control_recursive** .
+
+Ten przykład ustawia cyklicznie wpisy listy ACL. Jeśli ten kod napotyka błąd uprawnień, rejestruje ten błąd i kontynuuje wykonywanie. Ten przykład drukuje liczbę błędów w konsoli programu. 
+
+```python
+def continue_on_failure():
+    
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-container")
+
+        directory_client = file_system_client.get_directory_client("my-parent-directory")
+              
+        acl = 'user::rwx,group::rwx,other::rwx,user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r--'
+
+        acl_change_result = directory_client.set_access_control_recursive(acl=acl)
+
+        print("Summary: {} directories and {} files were updated successfully, {} failures were counted."
+          .format(acl_change_result.counters.directories_successful, acl_change_result.counters.files_successful,
+                  acl_change_result.counters.failure_count))
+        
+    except Exception as e:
+     print(e)
+```
+
+---
+
 ## <a name="resources"></a>Zasoby
 
 Ta sekcja zawiera linki do bibliotek i przykładów kodu.
@@ -986,7 +1108,7 @@ Ta sekcja zawiera linki do bibliotek i przykładów kodu.
 
 - NET: [Readme](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520net%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A20%253A42Z%26se%3D2021-08-26T23%253A20%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DKrnHvasHoSoVeUyr2g%252FSc2aDVW3De4A%252Fvx0lFWZs494%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503767961&sdata=gd%2B2LphTtDFVb7pZko9rkGO9OG%2FVvmeXprHB9IOEYXE%3D&reserved=0)  |  [przykład](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0) Readme
 
-- Python: [Readme](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520python%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A21%253A47Z%26se%3D2021-08-26T23%253A21%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DRq6Bl5lXrtYk79thy8wX7UTbjyd2f%252B6xzVBFFVYbdYg%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503777915&sdata=3e46Lp2miOHj755Gh0odH3M0%2BdTF3loGCCBENrulVTM%3D&reserved=0)  |  [przykład](https://recursiveaclpr.blob.core.windows.net/privatedrop/datalake_samples_access_control_async.py?sv=2019-02-02&st=2020-08-24T07%3A48%3A10Z&se=2021-08-25T07%3A48%3A00Z&sr=b&sp=r&sig=%2F1c540%2BpXYyNcuTmWPWHg2m9SyClXLIMw7ChLZGsyD0%3D) Readme
+- Python: [Readme](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FREADME%2520for%2520python%3Fsv%3D2019-02-02%26st%3D2020-08-25T23%253A21%253A47Z%26se%3D2021-08-26T23%253A21%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DRq6Bl5lXrtYk79thy8wX7UTbjyd2f%252B6xzVBFFVYbdYg%253D&data=02%7C01%7Cnormesta%40microsoft.com%7Cda902e4fe6c24e6a07d908d8494fd4bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339954503777915&sdata=3e46Lp2miOHj755Gh0odH3M0%2BdTF3loGCCBENrulVTM%3D&reserved=0)  |  [przykład](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py) Readme
 
 ## <a name="best-practice-guidelines"></a>Wskazówki dotyczące najlepszych rozwiązań
 

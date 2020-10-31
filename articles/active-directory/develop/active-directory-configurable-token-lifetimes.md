@@ -9,29 +9,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 10/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4dab75a4e95a7561bc86176816cb402c10de781e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503780"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077425"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
-Możesz określić okres istnienia tokenu wystawionego przez platformę tożsamości firmy Microsoft. Okresy istnienia tokenów można ustawić dla wszystkich aplikacji w organizacji, dla aplikacji wielodostępnych (dla wielu organizacji) lub dla określonej jednostki usługi w organizacji. Obecnie nie obsługujemy konfigurowania okresów istnienia tokenu dla [podmiotów usługi zarządzania tożsamościami zarządzanymi](../managed-identities-azure-resources/overview.md).
-
 > [!IMPORTANT]
-> Po 30 stycznia 2021 dzierżawcy nie będą już w stanie konfigurować okresów istnienia tokenów odświeżania i sesji, a Azure Active Directory nie będą przestrzegać istniejących konfiguracji odświeżania i tokenu sesji w zasadach po tej dacie. Nadal możesz skonfigurować okresy istnienia tokenu dostępu po wycofaniu.
-> Zaimplementowano [funkcje zarządzania sesjami uwierzytelniania](../conditional-access/howto-conditional-access-session-lifetime.md)   w dostępie warunkowym usługi Azure AD. Ta nowa funkcja służy do konfigurowania okresów istnienia tokenu odświeżania przez ustawienie częstotliwości logowania. Dostęp warunkowy jest funkcją Azure AD — wersja Premium P1 i możesz sprawdzić, czy Premium jest odpowiednia dla organzation na stronie z [cennikiem Premium](https://azure.microsoft.com/en-us/pricing/details/active-directory/). 
-> 
-> W przypadku dzierżawców, którzy nie używają zarządzania sesjami uwierzytelniania w dostępie warunkowym po dacie wycofania, mogą oczekiwać, że usługa Azure AD będzie przestrzegać konfiguracji domyślnej podanej w następnej sekcji.
+> Po 30 stycznia 2021 dzierżawcy nie będą już mogły konfigurować okresów istnienia tokenów odświeżania i sesji, a Azure Active Directory nie będą w stanie zatrzymywać przestrzegania konfiguracji odświeżania i tokenu sesji w zasadach po tej dacie.
+>
+> Jeśli musisz nadal zdefiniować okres, po upływie którego użytkownik zostanie poproszony o ponowne zalogowanie, skonfiguruj częstotliwość logowania w polu dostęp warunkowy. Aby dowiedzieć się więcej na temat dostępu warunkowego, odwiedź [stronę cennika usługi Azure AD](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+>
+> W przypadku dzierżawców, którzy nie chcą korzystać z dostępu warunkowego po dacie wycofania, mogą oczekiwać, że usługa Azure AD będzie przestrzegać konfiguracji domyślnej podanej w następnej sekcji.
 
 ## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Konfigurowalne właściwości okresu istnienia tokenu po wycofaniu
-Na konfigurację odświeżania i tokenu sesji mają wpływ następujące właściwości i ich odpowiednio ustawione wartości. Po wycofaniu konfiguracji odświeżania i tokenu sesji usługa Azure AD będzie przestrzegać tylko wartości domyślnej opisanej poniżej, niezależnie od tego, czy zasady mają skonfigurowane wartości niestandardowe skonfigurowanych wartości niestandardowych.  
+Na konfigurację odświeżania i tokenu sesji mają wpływ następujące właściwości i ich odpowiednio ustawione wartości. Po wycofaniu konfiguracji odświeżania i tokenu sesji usługa Azure AD będzie przestrzegać tylko wartości domyślnej opisanej poniżej, niezależnie od tego, czy zasady mają skonfigurowane wartości niestandardowe skonfigurowanych wartości niestandardowych. Nadal możesz skonfigurować okresy istnienia tokenu dostępu po wycofaniu. 
 
 |Właściwość   |Ciąg właściwości zasad    |Mową |Domyślne |
 |----------|-----------|------------|------------|
@@ -41,13 +40,34 @@ Na konfigurację odświeżania i tokenu sesji mają wpływ następujące właśc
 |Maksymalny wiek tokenu sesji Single-Factor  |MaxAgeSessionSingleFactor |Tokeny sesji (trwałe i nietrwałe)  |Do odwołania |
 |Maksymalny wiek tokenu sesji wieloskładnikowe  |MaxAgeSessionMultiFactor  |Tokeny sesji (trwałe i nietrwałe)  |180 dni |
 
-Można użyć polecenia cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) , aby zidentyfikować zasady okresu istnienia tokenu, których wartości właściwości różnią się od ustawień domyślnych usługi Azure AD.
+## <a name="identify-configuration-in-scope-of-retirement"></a>Identyfikowanie konfiguracji w zakresie wycofania
 
-Aby lepiej zrozumieć, jak zasady są używane w dzierżawie, możesz użyć polecenia cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) , aby zidentyfikować aplikacje i jednostki usługi, które są połączone z zasadami. 
+Aby rozpocząć, wykonaj następujące czynności:
 
-Jeśli dzierżawa zawiera zasady, które definiują wartości niestandardowe właściwości konfiguracji odświeżania i tokenu sesji, firma Microsoft zaleca aktualizację tych zasad w zakresie do wartości, które odzwierciedlają ustawienia domyślne opisane powyżej. Jeśli nie zostaną wprowadzone żadne zmiany, usługa Azure AD będzie automatycznie przestrzegać wartości domyślnych.  
+1. Pobierz najnowszą [wersję publicznej wersji zapoznawczej modułu programu Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Uruchom `Connect` polecenie, aby zalogować się do konta administratora usługi Azure AD. Uruchom to polecenie przy każdym uruchomieniu nowej sesji.
+
+    ```powershell
+    Connect-AzureAD -Confirm
+    ```
+
+1. Aby wyświetlić wszystkie zasady, które zostały utworzone w organizacji, uruchom polecenie cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) .  Wszystkie wyniki ze zdefiniowanymi wartościami właściwości, które różnią się od wartości domyślnych wymienionych powyżej, znajdują się w zakresie wycofania.
+
+    ```powershell
+    Get-AzureADPolicy -All
+    ```
+
+1. Aby sprawdzić, które aplikacje i jednostki usługi są połączone z konkretnymi określonymi zasadami, należy uruchomić następujące polecenie cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) , zastępując **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** identyfikatorem zasad. Następnie możesz zdecydować, czy skonfigurować częstotliwość logowania dostępu warunkowego, czy pozostawać z ustawieniami domyślnymi usługi Azure AD.
+
+    ```powershell
+    Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
+    ```
+
+Jeśli dzierżawa zawiera zasady, które definiują wartości niestandardowe właściwości konfiguracji odświeżania i tokenu sesji, firma Microsoft zaleca aktualizację tych zasad do wartości, które odzwierciedlają ustawienia domyślne opisane powyżej. Jeśli nie zostaną wprowadzone żadne zmiany, usługa Azure AD będzie automatycznie przestrzegać wartości domyślnych.  
 
 ## <a name="overview"></a>Omówienie
+
+Możesz określić okres istnienia tokenu wystawionego przez platformę tożsamości firmy Microsoft. Okresy istnienia tokenów można ustawić dla wszystkich aplikacji w organizacji, dla aplikacji wielodostępnych (dla wielu organizacji) lub dla określonej jednostki usługi w organizacji. Obecnie nie obsługujemy konfigurowania okresów istnienia tokenu dla [podmiotów usługi zarządzania tożsamościami zarządzanymi](../managed-identities-azure-resources/overview.md).
 
 W usłudze Azure AD obiekt zasad reprezentuje zestaw reguł, które są wymuszane dla poszczególnych aplikacji lub we wszystkich aplikacjach w organizacji. Każdy typ zasad ma unikatową strukturę z zestawem właściwości, które są stosowane do obiektów, do których są przypisane.
 
@@ -77,7 +97,7 @@ Wartość NotOnOrAfter można zmienić przy użyciu `AccessTokenLifetime` parame
 
 ### <a name="refresh-tokens"></a>Odśwież tokeny
 
-Gdy klient uzyskuje token dostępu w celu uzyskania dostępu do chronionego zasobu, klient otrzymuje również token odświeżenia. Token odświeżania służy do uzyskiwania nowych par tokenów dostępu/odświeżania w przypadku wygaśnięcia bieżącego tokenu dostępu. Token odświeżania jest powiązany z kombinacją użytkownika i klienta. Token odświeżania można [odwołać w dowolnym momencie](access-tokens.md#token-revocation), a ważność tokenu jest sprawdzana za każdym razem, gdy token jest używany.  Tokeny odświeżania nie są odwoływane, gdy są używane do pobierania nowych tokenów dostępu — najlepszym rozwiązaniem jest jednak, aby bezpiecznie usunąć stary token podczas uzyskiwania nowego. 
+Gdy klient uzyskuje token dostępu w celu uzyskania dostępu do chronionego zasobu, klient otrzymuje również token odświeżenia. Token odświeżania służy do uzyskiwania nowych par tokenów dostępu/odświeżania w przypadku wygaśnięcia bieżącego tokenu dostępu. Token odświeżania jest powiązany z kombinacją użytkownika i klienta. Token odświeżania można [odwołać w dowolnym momencie](access-tokens.md#token-revocation), a ważność tokenu jest sprawdzana za każdym razem, gdy token jest używany.  Tokeny odświeżania nie są odwoływane, gdy są używane do pobierania nowych tokenów dostępu — najlepszym rozwiązaniem jest jednak, aby bezpiecznie usunąć stary token podczas uzyskiwania nowego.
 
 Ważne jest, aby wprowadzić rozróżnienie między poufnymi klientami i klientami publicznymi, co ma wpływ na to, jak długo można używać tokenów odświeżania. Aby uzyskać więcej informacji na temat różnych typów klientów, zobacz [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 

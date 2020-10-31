@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 6b1e2d6e9d5d06410596a40f16869d7c1a0f094e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7d880183ac5f920bbed1a85d7660db6a8f21462
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490700"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078479"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Znajdź koszt jednostkowy żądania dla operacji wykonywanych w interfejsie API Azure Cosmos DB dla MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB obsługuje wiele interfejsów API, takich jak SQL, MongoDB, Cassandra, Gremlin i Table. Każdy interfejs API ma swój własny zestaw operacji bazy danych. Te operacje obejmują między innymi odczyty punktów prostych i zapisów w złożonych zapytaniach. Każda operacja bazy danych zużywa zasoby systemowe na podstawie złożoności operacji.
 
@@ -27,15 +28,15 @@ Opłata za RU jest udostępniana przez niestandardowe [polecenie bazy danych](ht
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) i podawanie danych z danymi lub Wybierz istniejące konto, które zawiera już dane.
 
 1. Przejdź do okienka **Eksplorator danych** , a następnie wybierz kontener, w którym chcesz rozpocząć pracę.
 
-1. Wybierz pozycję **Nowe zapytanie**.
+1. Wybierz pozycję **Nowe zapytanie** .
 
-1. Wprowadź prawidłowe zapytanie, a następnie wybierz pozycję **wykonaj zapytanie**.
+1. Wprowadź prawidłowe zapytanie, a następnie wybierz pozycję **wykonaj zapytanie** .
 
 1. Wybierz pozycję **Statystyka zapytania** , aby wyświetlić rzeczywistą opłatę za żądanie dla wykonywanego żądania.
 
