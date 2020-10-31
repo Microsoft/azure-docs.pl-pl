@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a559b29502adb1c507b1543463d84eb3bd15d5a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653217"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083290"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Instrukcje: Planowanie wdrożenia usługi Azure AD Join
 
@@ -90,8 +90,8 @@ Do dołączania urządzeń do usługi Azure AD nie można używać kart intelige
 
 Jeśli tworzysz użytkowników w:
 
-- **Active Directory lokalnych**, należy zsynchronizować je z usługą Azure AD przy użyciu [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
-- **Azure AD**, nie jest wymagana żadna dodatkowa konfiguracja.
+- **Active Directory lokalnych** , należy zsynchronizować je z usługą Azure AD przy użyciu [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
+- **Azure AD** , nie jest wymagana żadna dodatkowa konfiguracja.
 
 Lokalne nazwy UPN, które różnią się od nazw UPN usługi Azure AD, nie są obsługiwane na urządzeniach przyłączonych do usługi Azure AD. Jeśli użytkownicy korzystają z lokalnej nazwy UPN, należy zaplanować przełączenie do korzystania z podstawowej nazwy UPN w usłudze Azure AD.
 
@@ -187,7 +187,7 @@ Podłączanie pulpitu zdalnego do urządzeń przyłączonych do usługi Azure AD
 Począwszy od systemu Windows 10 2004 Update, użytkownicy mogą również używać pulpitu zdalnego z zarejestrowanego urządzenia z systemem Windows 10 w usłudze Azure AD do urządzenia dołączonego do usługi Azure Active Directory. 
 
 ## <a name="understand-your-provisioning-options"></a>Zapoznaj się z opcjami aprowizacji
-**Uwaga**: urządzeń przyłączonych do usługi Azure AD nie można wdrażać przy użyciu narzędzia do przygotowywania systemu (Sysprep) ani podobnych narzędzi do tworzenia obrazu
+**Uwaga** : urządzeń przyłączonych do usługi Azure AD nie można wdrażać przy użyciu narzędzia do przygotowywania systemu (Sysprep) ani podobnych narzędzi do tworzenia obrazu
 
 Usługę Azure AD Join można zainicjować przy użyciu następujących metod:
 
@@ -219,7 +219,7 @@ Wybierz podejście do wdrożenia lub podejścia, przeglądając powyższą tabel
 
 ## <a name="configure-your-device-settings"></a>Konfigurowanie ustawień urządzenia
 
-Azure Portal pozwala kontrolować wdrażanie urządzeń przyłączonych do usługi Azure AD w organizacji. Aby skonfigurować ustawienia pokrewne, na **stronie Azure Active Directory**wybierz opcję `Devices > Device settings` .
+Azure Portal pozwala kontrolować wdrażanie urządzeń przyłączonych do usługi Azure AD w organizacji. Aby skonfigurować ustawienia pokrewne, na **stronie Azure Active Directory** wybierz opcję `Devices > Device settings` .
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Użytkownicy mogą dołączać urządzenia do usługi Azure AD
 
@@ -243,13 +243,13 @@ Wybierz pozycję **"tak"** , jeśli chcesz, aby użytkownicy korzystali z uwierz
 
 Aby można było skonfigurować ustawienia mobilności, można najpierw dodać dostawcę MDM.
 
-**Aby dodać dostawcę zarządzania urządzeniami przenośnymi**:
+**Aby dodać dostawcę zarządzania urządzeniami przenośnymi** :
 
-1. Na **stronie Azure Active Directory**w sekcji **Zarządzanie** kliknij pozycję `Mobility (MDM and MAM)` . 
-1. Kliknij pozycję **Dodaj aplikację**.
+1. Na **stronie Azure Active Directory** w sekcji **Zarządzanie** kliknij pozycję `Mobility (MDM and MAM)` . 
+1. Kliknij pozycję **Dodaj aplikację** .
 1. Wybierz z listy dostawcę MDM.
 
-   ![Dodawanie aplikacji](./media/azureadjoin-plan/04.png)
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Zrzut ekranu przedstawiający Azure Active Directory dodanie strony aplikacji. Poniżej wymieniono kilku dostawców M D M." border="false":::
 
 Wybierz dostawcę MDM, aby skonfigurować powiązane ustawienia. 
 
@@ -261,8 +261,8 @@ Wybierz **niektóre** lub **wszystkie** w zależności od zakresu wdrożenia.
 
 Na podstawie Twojego zakresu występuje jedna z następujących sytuacji: 
 
-- **Użytkownik jest w zakresie zarządzania urządzeniami przenośnymi**: Jeśli masz subskrypcję Azure AD — wersja Premium, rejestracja w usłudze MDM jest zautomatyzowana wraz z funkcją Azure AD Join. Wszyscy użytkownicy z zakresem muszą mieć odpowiednią licencję na zarządzanie urządzeniami przenośnymi. Jeśli w tym scenariuszu Rejestracja w usłudze MDM nie powiedzie się, usługa Azure AD Join również zostanie wycofana.
-- **Użytkownik nie znajduje się w zakresie zarządzania urządzeniami przenośnymi**: Jeśli użytkownicy nie znajdują się w zakresie MDM, usługa Azure AD Join zakończy działanie bez rejestracji MDM. Powoduje to niezarządzane urządzenie.
+- **Użytkownik jest w zakresie zarządzania urządzeniami przenośnymi** : Jeśli masz subskrypcję Azure AD — wersja Premium, rejestracja w usłudze MDM jest zautomatyzowana wraz z funkcją Azure AD Join. Wszyscy użytkownicy z zakresem muszą mieć odpowiednią licencję na zarządzanie urządzeniami przenośnymi. Jeśli w tym scenariuszu Rejestracja w usłudze MDM nie powiedzie się, usługa Azure AD Join również zostanie wycofana.
+- **Użytkownik nie znajduje się w zakresie zarządzania urządzeniami przenośnymi** : Jeśli użytkownicy nie znajdują się w zakresie MDM, usługa Azure AD Join zakończy działanie bez rejestracji MDM. Powoduje to niezarządzane urządzenie.
 
 ### <a name="mdm-urls"></a>Adresy URL funkcji zarządzania urządzeniami przenośnymi
 
@@ -272,7 +272,7 @@ Istnieją trzy adresy URL powiązane z konfiguracją rozwiązania MDM:
 - Adres URL odnajdywania zarządzania urządzeniami przenośnymi 
 - Adres URL zgodności zarządzania urządzeniami przenośnymi
 
-![Dodawanie aplikacji](./media/azureadjoin-plan/06.png)
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Zrzut ekranu przedstawiający Azure Active Directory dodanie strony aplikacji. Poniżej wymieniono kilku dostawców M D M." border="false":::
 
 Każdy adres URL ma wstępnie zdefiniowaną wartość domyślną. Jeśli te pola są puste, skontaktuj się z dostawcą MDM, aby uzyskać więcej informacji.
 
@@ -284,7 +284,7 @@ MAM nie ma zastosowania do usługi Azure AD Join.
 
 Jeśli chcesz włączyć roaming stanu do usługi Azure AD, aby użytkownicy mogli synchronizować swoje ustawienia na różnych urządzeniach, zobacz [włączanie Enterprise State roaming w Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Zalecenie**: Włącz to ustawienie nawet dla urządzeń przyłączonych do hybrydowej usługi Azure AD.
+**Zalecenie** : Włącz to ustawienie nawet dla urządzeń przyłączonych do hybrydowej usługi Azure AD.
 
 ## <a name="configure-conditional-access"></a>Konfigurowanie dostępu warunkowego
 

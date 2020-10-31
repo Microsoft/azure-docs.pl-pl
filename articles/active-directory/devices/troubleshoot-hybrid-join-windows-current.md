@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e235bf90568a1382a5ecee3ff4d2283aaa32f10b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433657"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083220"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Rozwiązywanie problemów dotyczących urządzeń dołączonych hybrydowo do usługi Azure Active Directory
 
@@ -95,16 +95,16 @@ Przejrzyj poniższe pola i upewnij się, że mają one oczekiwane wartości:
 
 #### <a name="domainjoined--yes"></a>DomainJoined: tak
 
-To pole wskazuje, czy urządzenie jest przyłączone do lokalnego Active Directory, czy nie. Jeśli wartość **nie**jest równa, urządzenie nie może wykonać sprzężenia hybrydowego usługi Azure AD.
+To pole wskazuje, czy urządzenie jest przyłączone do lokalnego Active Directory, czy nie. Jeśli wartość **nie** jest równa, urządzenie nie może wykonać sprzężenia hybrydowego usługi Azure AD.
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined: nie
 
-To pole wskazuje, czy urządzenie jest zarejestrowane w usłudze Azure AD jako urządzenie osobiste (oznaczone jako *dołączone do miejsca pracy*). Ta wartość powinna być **nie** dla komputera przyłączonego do domeny, który jest również przyłączony do hybrydowej usługi Azure AD. Jeśli wartość to **tak**, konto służbowe zostało dodane przed ukończeniem hybrydowego sprzężenia usługi Azure AD. W takim przypadku konto jest ignorowane w przypadku korzystania z systemu Windows 10 w wersji 1607 lub nowszej.
+To pole wskazuje, czy urządzenie jest zarejestrowane w usłudze Azure AD jako urządzenie osobiste (oznaczone jako *dołączone do miejsca pracy* ). Ta wartość powinna być **nie** dla komputera przyłączonego do domeny, który jest również przyłączony do hybrydowej usługi Azure AD. Jeśli wartość to **tak** , konto służbowe zostało dodane przed ukończeniem hybrydowego sprzężenia usługi Azure AD. W takim przypadku konto jest ignorowane w przypadku korzystania z systemu Windows 10 w wersji 1607 lub nowszej.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined: tak
 
 To pole wskazuje, czy urządzenie jest przyłączone. Ta wartość będzie równa **tak** , jeśli urządzenie jest przyłączone do usługi Azure AD lub do hybrydowego urządzenia dołączonego do usługi Azure AD.
-Jeśli wartość **nie**jest, przyłączenie do usługi Azure AD nie zostało jeszcze ukończone.
+Jeśli wartość **nie** jest, przyłączenie do usługi Azure AD nie zostało jeszcze ukończone.
 
 Przejdź do następnych kroków w celu dalszego rozwiązywania problemów.
 
@@ -135,9 +135,9 @@ Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla b
 1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Poszukaj zdarzeń o następujących eventIDs 304, 305, 307.
 
-![Zdarzenie dziennika błędów](./media/troubleshoot-hybrid-join-windows-current/1.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Jest zaznaczone zdarzenie z opcją I D 304, a jego informacje są wyświetlane z wyróżnionym kodem błędu i etapem." border="false":::
 
-![Zdarzenie dziennika błędów](./media/troubleshoot-hybrid-join-windows-current/2.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Jest zaznaczone zdarzenie z opcją I D 304, a jego informacje są wyświetlane z wyróżnionym kodem błędu i etapem." border="false":::
 
 ### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>Krok 4. Sprawdź możliwe przyczyny i rozwiązania z poniższych list
 
@@ -210,7 +210,7 @@ Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla b
 1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Wyszukaj zdarzenia z następującym eventIDs 201
 
-![Zdarzenie dziennika błędów](./media/troubleshoot-hybrid-join-windows-current/5.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Jest zaznaczone zdarzenie z opcją I D 304, a jego informacje są wyświetlane z wyróżnionym kodem błędu i etapem." border="false":::
 
 ###### <a name="network-errors"></a>Błędy sieci
 
@@ -255,7 +255,7 @@ Użyj dzienników Podgląd zdarzeń, aby znaleźć kod błędu, kod błędu, kod
 1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Wyszukaj zdarzenia z następującym eventID 305
 
-![Zdarzenie dziennika błędów](./media/troubleshoot-hybrid-join-windows-current/3.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Jest zaznaczone zdarzenie z opcją I D 304, a jego informacje są wyświetlane z wyróżnionym kodem błędu i etapem." border="false":::
 
 ##### <a name="configuration-errors"></a>Błędy konfiguracji
 
@@ -330,7 +330,7 @@ Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla b
 1. Otwórz dzienniki zdarzeń **rejestracji urządzeń użytkowników** w Podglądzie zdarzeń. Znajduje się w obszarze **Dziennik aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **rejestracja urządzeń użytkowników** w systemie Microsoft Windows
 2. Wyszukaj zdarzenia z następującym eventIDs 204
 
-![Zdarzenie dziennika błędów](./media/troubleshoot-hybrid-join-windows-current/4.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Zrzut ekranu przedstawiający Podgląd zdarzeń. Jest zaznaczone zdarzenie z opcją I D 304, a jego informacje są wyświetlane z wyróżnionym kodem błędu i etapem." border="false":::
 
 ##### <a name="http-errors-returned-from-drs-server"></a>Błędy HTTP zwrócone z serwera DRS
 
@@ -389,12 +389,12 @@ Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla b
 
 Pobierz Auth.zip pliku z [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Rozpakuj pliki i Zmień nazwy uwzględnionych plików **start-auth.txt** i **stop-auth.txt** do **Start-auth. cmd** i **stop-auth. cmd**.
-1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **Start-auth. cmd**.
+1. Rozpakuj pliki i Zmień nazwy uwzględnionych plików **start-auth.txt** i **stop-auth.txt** do **Start-auth. cmd** i **stop-auth. cmd** .
+1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **Start-auth. cmd** .
 1. Użyj konta przełącznika, aby przełączyć się do innej sesji z użytkownikiem problemu.
 1. Odtwórz problem.
 1. Użyj opcji Przełącz konto, aby przełączyć się z powrotem do sesji administracyjnej z uruchomionym śledzeniem.
-1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **stop-auth. cmd**.
+1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **stop-auth. cmd** .
 1. Zip i Wyślij folder **Authlogs** z folderu, z którego zostały wykonane skrypty.
 
 ## <a name="troubleshoot-post-join-issues"></a>Rozwiązywanie problemów z przyłączaniem
@@ -404,7 +404,7 @@ Pobierz Auth.zip pliku z [https://github.com/CSS-Windows/WindowsDiag/tree/master
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: tak i AzureADPrt: tak
 
 Te pola wskazują, czy użytkownik pomyślnie uwierzytelnił się w usłudze Azure AD podczas logowania się do urządzenia.
-Jeśli wartości **nie**są, może to być spowodowane:
+Jeśli wartości **nie** są, może to być spowodowane:
 
 - Zły klucz magazynu w module TPM skojarzonym z urządzeniem po rejestracji (Sprawdź KeySignTest, gdy działa podwyższony poziom).
 - Alternatywny identyfikator logowania

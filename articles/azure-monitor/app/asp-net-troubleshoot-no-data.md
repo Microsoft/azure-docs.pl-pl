@@ -4,12 +4,12 @@ description: Nie widzisz danych w usłudze Azure Application Insights? Spróbuj 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 2bf9b50c9b378d8624c311af5935b8cd0a28a31a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c053796dd887722d1d767229621c0a1ae004b5c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757983"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083171"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Rozwiązywanie problemów z brakiem danych — Application Insights dla platformy .NET/.NET Core
 
@@ -44,7 +44,7 @@ ms.locfileid: "91757983"
 
 * Narzędzia nie obsługują wszystkich typów projektów programu .NET. Obsługiwane są projekty sieci Web i WCF. W przypadku innych typów projektów, takich jak aplikacje pulpitu lub usług, nadal można [ręcznie dodać zestaw Application Insights SDK do projektu](./windows-desktop.md).
 * Upewnij się, że masz [Visual Studio 2013 aktualizację Update 3 lub nowszą](/visualstudio/releasenotes/vs2013-update3-rtm-vs). Jest ona wstępnie zainstalowana z narzędziami do analizy dla deweloperów, które udostępniają zestaw Application Insights SDK.
-* Wybierz pozycję **Narzędzia**, **rozszerzenia i aktualizacje** , a następnie sprawdź, czy **Developer Analytics Tools** jest zainstalowana i włączona. Jeśli tak, kliknij pozycję **aktualizacje** , aby sprawdzić, czy jest dostępna aktualizacja.
+* Wybierz pozycję **Narzędzia** , **rozszerzenia i aktualizacje** , a następnie sprawdź, czy **Developer Analytics Tools** jest zainstalowana i włączona. Jeśli tak, kliknij pozycję **aktualizacje** , aby sprawdzić, czy jest dostępna aktualizacja.
 * Otwórz okno dialogowe Nowy projekt i wybierz pozycję aplikacja sieci Web ASP.NET. Jeśli w tym miejscu zostanie wyświetlona opcja Application Insights, narzędzia zostaną zainstalowane. Jeśli nie, spróbuj odinstalować, a następnie ponownie zainstalować Developer Analytics Tools.
 
 ## <a name="adding-application-insights-failed"></a><a name="q02"></a>Dodawanie Application Insights nie powiodło się
@@ -65,7 +65,7 @@ Wiązane
 ## <a name="i-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>Otrzymuję błąd "klucz instrumentacji nie może być pusty"
 Wygląda na to, że wystąpił problem podczas instalowania Application Insights lub karty rejestrowania.
 
-W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Application Insights > skonfigurować Application Insights**. Zostanie wyświetlone okno dialogowe umożliwiające zalogowanie się do platformy Azure i utworzenie zasobu Application Insights lub ponowne użycie istniejącego.
+W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Application Insights > skonfigurować Application Insights** . Zostanie wyświetlone okno dialogowe umożliwiające zalogowanie się do platformy Azure i utworzenie zasobu Application Insights lub ponowne użycie istniejącego.
 
 ## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> "Brak pakietów NuGet" na serwerze kompilacji
 *Wszystko jest kompilowane po debugowaniu na moim komputerze deweloperskim, ale otrzymuję błąd NuGet na serwerze kompilacji.*
@@ -84,8 +84,8 @@ Prawdopodobna przyczyna:
 Wiązane
 
 * Upewnij się, że wersja programu Visual Studio to 2013 Update 3 lub nowszego.
-* Wybierz pozycję **Narzędzia**, **rozszerzenia i aktualizacje** , a następnie sprawdź, czy **Narzędzia Developer Analytics** są zainstalowane i włączone. Jeśli tak, kliknij pozycję **aktualizacje** , aby sprawdzić, czy jest dostępna aktualizacja.
-* Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań. Jeśli zobaczysz polecenie **Application Insights > skonfigurować Application Insights**, użyj go, aby połączyć projekt z zasobem w usłudze Application Insights.
+* Wybierz pozycję **Narzędzia** , **rozszerzenia i aktualizacje** , a następnie sprawdź, czy **Narzędzia Developer Analytics** są zainstalowane i włączone. Jeśli tak, kliknij pozycję **aktualizacje** , aby sprawdzić, czy jest dostępna aktualizacja.
+* Kliknij prawym przyciskiem myszy projekt w Eksplorator rozwiązań. Jeśli zobaczysz polecenie **Application Insights > skonfigurować Application Insights** , użyj go, aby połączyć projekt z zasobem w usłudze Application Insights.
 
 W przeciwnym razie typ projektu nie jest obsługiwany bezpośrednio przez narzędzia deweloperskie. Aby wyświetlić dane telemetryczne, zaloguj się do [Azure Portal](https://portal.azure.com), wybierz pozycję Application Insights na lewym pasku nawigacyjnym, a następnie wybierz aplikację.
 
@@ -128,7 +128,7 @@ Wiązane
   ![Zrzut ekranu pokazujący uruchomioną aplikację w trybie debugowania w programie Visual Studio.](./media/asp-net-troubleshoot-no-data/output-window.png)
 * W portalu Application Insights Otwórz pozycję [Wyszukiwanie diagnostyczne](./diagnostic-search.md). Dane zazwyczaj pojawiają się w tym miejscu jako pierwsze.
 * Kliknij przycisk Odśwież. Blok jest odświeżany okresowo, ale można go również wykonać ręcznie. Interwał odświeżania jest dłuższy dla większych zakresów czasu.
-* Sprawdź, czy klucze Instrumentacji są zgodne. W głównym bloku aplikacji w portalu Application Insights, na liście rozwijanej **podstawowe** , zapoznaj się z **kluczem Instrumentacji**. Następnie w projekcie w programie Visual Studio Otwórz ApplicationInsights.config i Znajdź `<instrumentationkey>` . Sprawdź, czy dwa klucze są równe. Jeśli nie:  
+* Sprawdź, czy klucze Instrumentacji są zgodne. W głównym bloku aplikacji w portalu Application Insights, na liście rozwijanej **podstawowe** , zapoznaj się z **kluczem Instrumentacji** . Następnie w projekcie w programie Visual Studio Otwórz ApplicationInsights.config i Znajdź `<instrumentationkey>` . Sprawdź, czy dwa klucze są równe. Jeśli nie:  
   * W portalu kliknij Application Insights i wyszukaj zasób aplikacji z właściwym kluczem; oraz
   * W programie Visual Studio Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję Application Insights, skonfiguruj. Zresetuj aplikację, aby wysłać dane telemetryczne do odpowiedniego zasobu.
   * Jeśli nie możesz znaleźć pasujących kluczy, sprawdź, czy używasz tych samych poświadczeń logowania w programie Visual Studio jak w portalu.
@@ -239,14 +239,14 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 ```
 
 Parametry te można modyfikować stosownie do wymagań:
-- **MaxCollectSec**. Ustaw ten parametr, aby zapobiec uruchamianiu narzędzia PerfView w nieskończoność i wpływając na wydajność serwera.
-- **OnlyProviders**. Ustaw ten parametr, aby zbierać tylko dzienniki z zestawu SDK. Możesz dostosować tę listę na podstawie określonych badań. 
-- **NoGui**. Ustaw ten parametr, aby zbierać dzienniki bez graficznego interfejsu użytkownika.
+- **MaxCollectSec** . Ustaw ten parametr, aby zapobiec uruchamianiu narzędzia PerfView w nieskończoność i wpływając na wydajność serwera.
+- **OnlyProviders** . Ustaw ten parametr, aby zbierać tylko dzienniki z zestawu SDK. Możesz dostosować tę listę na podstawie określonych badań. 
+- **NoGui** . Ustaw ten parametr, aby zbierać dzienniki bez graficznego interfejsu użytkownika.
 
 
 Aby uzyskać więcej informacji,
 - [Rejestrowanie śladów wydajności za pomocą narzędzia PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
-- [Application Insights źródła zdarzeń](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/ETW)
+- [Application Insights źródła zdarzeń](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ETW)
 
 ## <a name="collect-logs-with-dotnet-trace"></a>Zbieranie dzienników przy użyciu funkcji monitorowania dotnet
 

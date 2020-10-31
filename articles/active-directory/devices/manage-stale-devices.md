@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7651f84e14d6ea7dcb4e12d57e2bf494d5aeff1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825958"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083188"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrukcje: Zarządzanie nieodświeżonymi urządzeniami w usłudze Azure AD
 
@@ -37,7 +37,7 @@ Istnienie nieaktywnych urządzeń w usłudze Azure AD może być niezgodne z og�
 
 ## <a name="detect-stale-devices"></a>Wykrywanie nieaktywnych urządzeń
 
-Ponieważ nieaktywne urządzenie jest zdefiniowane jako zarejestrowane urządzenie, które nie było używane do uzyskiwania dostępu do aplikacji w chmurze w określonym przedziale czasu, wykrywanie nieaktywnych urządzeń wymaga właściwości powiązanej ze znacznikiem czasu. W usłudze Azure AD ta właściwość nazywa się **ApproximateLastLogonTimestamp** lub **znacznik czasu aktywności**. Jeśli różnica między bieżącą datą a wartością **znacznika czasu aktywności** przekroczy przedział czasu zdefiniowany dla aktywnych urządzeń, urządzenie jest uznawane za nieaktywne. Ten **znacznik czasu aktywności** znajduje się obecnie w publicznej wersji zapoznawczej.
+Ponieważ nieaktywne urządzenie jest zdefiniowane jako zarejestrowane urządzenie, które nie było używane do uzyskiwania dostępu do aplikacji w chmurze w określonym przedziale czasu, wykrywanie nieaktywnych urządzeń wymaga właściwości powiązanej ze znacznikiem czasu. W usłudze Azure AD ta właściwość nazywa się **ApproximateLastLogonTimestamp** lub **znacznik czasu aktywności** . Jeśli różnica między bieżącą datą a wartością **znacznika czasu aktywności** przekroczy przedział czasu zdefiniowany dla aktywnych urządzeń, urządzenie jest uznawane za nieaktywne. Ten **znacznik czasu aktywności** znajduje się obecnie w publicznej wersji zapoznawczej.
 
 ## <a name="how-is-the-value-of-the-activity-timestamp-managed"></a>Jak jest zarządzana wartość znacznika czasu aktywności?  
 
@@ -55,11 +55,11 @@ Istnieją dwie możliwości uzyskania wartości znacznika czasu aktywności:
 
 - Kolumna **Aktywność** na [stronie urządzeń](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) w witrynie Azure Portal
 
-    ![Znacznik czasu aktywności](./media/manage-stale-devices/01.png)
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Zrzut ekranu strony w Azure Portal wyświetlania nazwy, właściciela i innych informacji na urządzeniach. W jednej kolumnie jest wyświetlana sygnatura czasowa działania." border="false":::
 
 - Polecenie cmdlet [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
-    ![Znacznik czasu aktywności](./media/manage-stale-devices/02.png)
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Zrzut ekranu strony w Azure Portal wyświetlania nazwy, właściciela i innych informacji na urządzeniach. W jednej kolumnie jest wyświetlana sygnatura czasowa działania." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>Planowanie oczyszczania nieaktywnych urządzeń
 

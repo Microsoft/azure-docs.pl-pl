@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f2197732a332e860af421f46d1049c2388043c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 52efd103bf510e7cca8a1e4a1d682948b498d64c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221234"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084854"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Szybki Start: wysyłanie żądania wyszukiwania do wyszukiwanie jednostek Bing interfejsu API REST przy użyciu języka C #
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania jednostek Bing i wyświetlenie odpowiedzi JSON. Ta prosta aplikacja w języku C# wysyła zapytanie wyszukiwania wiadomości do interfejsu API i wyświetla odpowiedź. Kod źródłowy tej aplikacji jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
@@ -38,9 +43,9 @@ Mimo że aplikacja jest zapisywana w języku C#, interfejs API jest usługą sie
 
 1. Utwórz nowe rozwiązanie konsolowe dla języka C# w programie Visual Studio. 
 1. Dodaj [Newtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json/) do pakietu NuGet.
-    1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**.
-    2. Wybierz pozycję **Zarządzaj pakietami NuGet**.
-    3. Wyszukaj i wybierz pozycję *Newtonsoft.Json*, a następnie zainstaluj pakiet.
+    1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** .
+    2. Wybierz pozycję **Zarządzaj pakietami NuGet** .
+    3. Wyszukaj i wybierz pozycję *Newtonsoft.Json* , a następnie zainstaluj pakiet.
 1. Następnie Dodaj następujące przestrzenie nazw do głównego pliku kodu:
     
     ```csharp

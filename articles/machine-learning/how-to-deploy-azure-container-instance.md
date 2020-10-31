@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: e64914118409332f6a1c08b6d5e1669685529d76
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: ff071373706759576f80426d61a27851bfc4e1b6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999159"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082168"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Wdrażanie modelu w usłudze Azure Container Instances
 
@@ -60,7 +60,7 @@ Aby uzyskać więcej informacji, zobacz [jak zabezpieczyć inferencing z sieciam
 
 ## <a name="deploy-to-aci"></a>Wdrażanie w usłudze ACI
 
-Aby wdrożyć model do Azure Container Instances, należy utworzyć __konfigurację wdrożenia__ opisującą wymaganą wartość zasobów obliczeniowych. Na przykład liczba rdzeni i pamięć. Potrzebna jest również __Konfiguracja wnioskowania__opisująca środowisko wymagane do hostowania modelu i usługi sieci Web. Aby uzyskać więcej informacji na temat tworzenia konfiguracji wnioskowania, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
+Aby wdrożyć model do Azure Container Instances, należy utworzyć __konfigurację wdrożenia__ opisującą wymaganą wartość zasobów obliczeniowych. Na przykład liczba rdzeni i pamięć. Potrzebna jest również __Konfiguracja wnioskowania__ opisująca środowisko wymagane do hostowania modelu i usługi sieci Web. Aby uzyskać więcej informacji na temat tworzenia konfiguracji wnioskowania, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > * ACI jest odpowiednia tylko w przypadku małych modeli, których rozmiar przekracza 1 GB. 
@@ -104,6 +104,8 @@ Zobacz [Wdrażanie modeli przy użyciu vs Code](tutorial-train-deploy-image-clas
 > [!IMPORTANT]
 > Nie musisz tworzyć kontenera ACI w celu przetestowania z góry. Kontenery ACI są tworzone zgodnie z wymaganiami.
 
+> [!IMPORTANT]
+> Dodaliśmy identyfikator obszaru roboczego do wszystkich podstawowych zasobów ACI, które są tworzone, wszystkie nazwy ACI z tego samego obszaru roboczego będą miały ten sam sufiks. Nazwa usługi Azure Machine Learning nadal będzie taka sama dla klienta "service_name" i wszystkie Azure Machine Learning interfejsy API zestawu SDK, które są dostępne dla użytkownika, nie wymagają żadnej zmiany. Firma Microsoft nie udziela żadnych gwarancji dotyczących nazw źródłowych zasobów tworzonych.
 
 ## <a name="next-steps"></a>Następne kroki
 

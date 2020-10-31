@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: e020555b0c706b5577bd20ac9bd537604d43ba3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c7766ac81df02755fad741c6fa733ba3163baff
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303719"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083655"
 ---
 # <a name="length-azure-cosmos-db"></a>Długość (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Zwraca liczbę znaków określonego wyrażenia ciągu.  
   
 ## <a name="syntax"></a>Składnia

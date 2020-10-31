@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d0ee7dc8890c228617eaeee8b1cdc72d2230458e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489238"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082967"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W usłudze Azure Cosmos DB każdy kontener ma zasady indeksowania, które określają sposób indeksowania elementów tego kontenera. Domyślne zasady indeksowania dla nowo utworzonych kontenerów indeksują każdą właściwość i każdy element oraz wymuszają indeksy zakresu dla wszelkich ciągów i liczb. Dzięki temu można uzyskać wysoką wydajność zapytań bez konieczności wcześniejszego myślenia o indeksowaniu i zarządzania indeksami.
 
-W niektórych sytuacjach może być potrzebne zastąpienie tego automatycznego zachowania zachowaniem lepiej dostosowanym do wymagań. Można dostosować zasady indeksowania kontenera, ustawiając jego *tryb indeksowania*i dołączając lub wykluczając *ścieżki właściwości*.
+W niektórych sytuacjach może być potrzebne zastąpienie tego automatycznego zachowania zachowaniem lepiej dostosowanym do wymagań. Można dostosować zasady indeksowania kontenera, ustawiając jego *tryb indeksowania* i dołączając lub wykluczając *ścieżki właściwości* .
 
 > [!NOTE]
 > Metoda aktualizacji zasad indeksowania opisana w tym artykule ma zastosowanie tylko do interfejsu API SQL (Core) Azure Cosmos DB. Dowiedz się więcej na temat indeksowania w [interfejsie API Azure Cosmos DB MongoDB](mongodb-indexing.md)
@@ -26,8 +27,8 @@ W niektórych sytuacjach może być potrzebne zastąpienie tego automatycznego z
 
 Azure Cosmos DB obsługuje dwa tryby indeksowania:
 
-- **Spójne**: indeks jest aktualizowany synchronicznie podczas tworzenia, aktualizowania lub usuwania elementów. Oznacza to, że spójność zapytań odczytu będzie [spójna z konfiguracją dla konta](consistency-levels.md).
-- **Brak**: indeksowanie jest wyłączone w kontenerze. Jest to często używane, gdy kontener jest używany jako czysty magazyn klucz-wartość bez konieczności stosowania indeksów pomocniczych. Może również służyć do poprawy wydajności operacji zbiorczych. Po zakończeniu operacji zbiorczych tryb indeksu może być ustawiony na spójny, a następnie monitorowany przy użyciu [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) do momentu ukończenia.
+- **Spójne** : indeks jest aktualizowany synchronicznie podczas tworzenia, aktualizowania lub usuwania elementów. Oznacza to, że spójność zapytań odczytu będzie [spójna z konfiguracją dla konta](consistency-levels.md).
+- **Brak** : indeksowanie jest wyłączone w kontenerze. Jest to często używane, gdy kontener jest używany jako czysty magazyn klucz-wartość bez konieczności stosowania indeksów pomocniczych. Może również służyć do poprawy wydajności operacji zbiorczych. Po zakończeniu operacji zbiorczych tryb indeksu może być ustawiony na spójny, a następnie monitorowany przy użyciu [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) do momentu ukończenia.
 
 > [!NOTE]
 > Azure Cosmos DB obsługuje również tryb indeksowania z opóźnieniem. Indeksowanie z opóźnieniem aktualizuje indeks na znacznie niższym poziomie priorytetu, gdy aparat nie wykonuje żadnej innej pracy. Może to doprowadzić do **niespójnych lub niekompletnych** wyników zapytań. Jeśli planujesz wysyłać zapytania względem kontenera Cosmos, nie wybieraj indeksowania z opóźnieniem. W czerwcu 2020 Wprowadziliśmy zmianę, która nie zezwala już na ustawienie nowych kontenerów na tryb indeksowania z opóźnieniem. Jeśli konto Azure Cosmos DB zawiera już co najmniej jeden kontener z indeksem z opóźnieniem, to konto zostanie automatycznie zwolnione ze zmiany. Możesz również zażądać wykluczenia, kontaktując się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (chyba że używasz konta usługi Azure Cosmos w trybie bez [serwera](serverless.md) , który nie obsługuje indeksowania z opóźnieniem).
@@ -77,7 +78,7 @@ Każda zasada indeksowania musi zawierać ścieżkę katalogu głównego `/*` ja
 
 - Właściwość systemowa `_etag` jest domyślnie wykluczona z indeksowania, chyba że element ETag zostanie dodany do ścieżki dołączonej do indeksowania.
 
-- Jeśli tryb indeksowania jest ustawiony na **spójne**, właściwości systemu `id` i `_ts` są indeksowane automatycznie.
+- Jeśli tryb indeksowania jest ustawiony na **spójne** , właściwości systemu `id` i `_ts` są indeksowane automatycznie.
 
 W przypadku dołączania i wykluczania ścieżek mogą wystąpić następujące atrybuty:
 
@@ -103,9 +104,9 @@ Jeśli zawarte ścieżki i wykluczone ścieżki mają konflikt, pierwszeństwo m
 
 Oto przykład:
 
-**Ścieżka uwzględniona**: `/food/ingredients/nutrition/*`
+**Ścieżka uwzględniona** : `/food/ingredients/nutrition/*`
 
-**Wykluczona ścieżka**: `/food/ingredients/*`
+**Wykluczona ścieżka** : `/food/ingredients/*`
 
 W takim przypadku dołączona ścieżka ma pierwszeństwo przed wykluczoną ścieżką, ponieważ jest bardziej precyzyjna. W oparciu o te ścieżki wszelkie dane ze `food/ingredients` ścieżki lub zagnieżdżone w ramach zostałyby wykluczone z indeksu. Wyjątek mógłby zawierać dane w dołączonej ścieżce: `/food/ingredients/nutrition/*` , które byłyby indeksowane.
 

@@ -11,14 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f697449fffe6c93d8e5082b210678d3f51c0c736
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67542742"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084414"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>Dostosuj i Sugeruj zapytania wyszukiwania obrazów
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Skorzystaj z tego artykułu, aby dowiedzieć się, jak dostosować zapytania i zasugerować wyszukiwane terminy do wysłania do interfejs API wyszukiwania obrazów Bing.
 
@@ -28,9 +33,9 @@ Jeśli Twoja aplikacja zawiera pole wyszukiwania, w którym są wprowadzane term
 
 ## <a name="pivot-the-query"></a>Przestawianie zapytania
 
-Jeśli Bing może segmentować oryginalne zapytanie wyszukiwania, obiekt zwracanych [obrazów](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera `pivotSuggestions` . Sugestie przestawne mogą być wyświetlane jako opcjonalne terminy wyszukiwania dla użytkownika. Na przykład jeśli oryginalna kwerenda była *powierzchnią firmy Microsoft*, Bing może segmentować zapytanie do *firmy Microsoft* i *powierzchni* i udostępniać sugerowane przestawki dla każdego z nich. Te sugestie mogą być wyświetlane jako opcjonalne warunki kwerendy dla użytkownika.
+Jeśli Bing może segmentować oryginalne zapytanie wyszukiwania, obiekt zwracanych [obrazów](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera `pivotSuggestions` . Sugestie przestawne mogą być wyświetlane jako opcjonalne terminy wyszukiwania dla użytkownika. Na przykład jeśli oryginalna kwerenda była *powierzchnią firmy Microsoft* , Bing może segmentować zapytanie do *firmy Microsoft* i *powierzchni* i udostępniać sugerowane przestawki dla każdego z nich. Te sugestie mogą być wyświetlane jako opcjonalne warunki kwerendy dla użytkownika.
 
-Poniższy przykład przedstawia sugestie dotyczące obszaru Pivot dla urządzenia *Microsoft Surface*:  
+Poniższy przykład przedstawia sugestie dotyczące obszaru Pivot dla urządzenia *Microsoft Surface* :  
 
 ```json
 {
@@ -101,13 +106,13 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Rozwiń zapytanie
 
-Jeśli usługa Bing może rozwinąć zapytanie w celu zawężenia kryteriów oryginalnego wyszukiwania, obiekt [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera pole `queryExpansions`. Na przykład, jeśli kwerenda była *powierzchnią firmy Microsoft*, rozszerzone zapytania mogą być następujące:
-- Microsoft Surface **Pro 3**.
-- Microsoft Surface **RT**.
-- **Telefon**naziemny firmy Microsoft.
-- Microsoft Surface **Hub**.
+Jeśli usługa Bing może rozwinąć zapytanie w celu zawężenia kryteriów oryginalnego wyszukiwania, obiekt [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) zawiera pole `queryExpansions`. Na przykład, jeśli kwerenda była *powierzchnią firmy Microsoft* , rozszerzone zapytania mogą być następujące:
+- Microsoft Surface **Pro 3** .
+- Microsoft Surface **RT** .
+- **Telefon** naziemny firmy Microsoft.
+- Microsoft Surface **Hub** .
 
-W poniższym przykładzie pokazano rozwinięte zapytania dla frazy *Microsoft Surface*.
+W poniższym przykładzie pokazano rozwinięte zapytania dla frazy *Microsoft Surface* .
 
 ```json
 {

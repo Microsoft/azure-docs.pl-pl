@@ -11,14 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b414711f5589a141d59fbe2f14d0a8ae992f5acf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67542765"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084446"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Pobierz obrazy z sieci Web za pomocą interfejs API wyszukiwania obrazów Bing
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 W przypadku korzystania z interfejsu API REST wyszukiwanie obrazów Bing można uzyskać obrazy z sieci Web, które są powiązane z terminem wyszukiwania, wysyłając następujące żądanie GET:
 
@@ -31,7 +36,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Użyj parametru [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) zapytania dla terminu wyszukiwania zakodowanego w adresie URL. Na przykład, jeśli wprowadzisz *dinghies*, ustaw `q` na `sailing+dinghies` lub `sailing%20dinghies` .
+Użyj parametru [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) zapytania dla terminu wyszukiwania zakodowanego w adresie URL. Na przykład, jeśli wprowadzisz *dinghies* , ustaw `q` na `sailing+dinghies` lub `sailing%20dinghies` .
 
 > [!IMPORTANT]
 > * Wszystkie żądania muszą zostać wykonane z serwera, a nie z klienta programu.

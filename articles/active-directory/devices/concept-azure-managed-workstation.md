@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6837bbdb63caf0fb1ecb3f6e520d5f3623483b44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093314"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083239"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Informacje na temat bezpiecznych stacji roboczych zarządzanych przez platformę Azure
 
@@ -94,12 +94,15 @@ Kluczową podstawą dla zabezpieczonej stacji roboczej jest rozwiązanie łańcu
 
 W przypadku tego rozwiązania certyfikat główny zaufania zostanie wdrożony przy użyciu technologii [Microsoft autopilotaż](/windows/deployment/windows-autopilot/windows-autopilot) ze sprzętem spełniającym nowoczesne wymagania techniczne. Aby zabezpieczyć stację roboczą, program autopilotaż umożliwia korzystanie z urządzeń z systemem Windows 10 zoptymalizowanych od producenta OEM. Te urządzenia są w znanym dobrym stanie od producenta. Zamiast odtwarzania obrazu potencjalnie niezabezpieczonego urządzenia, autopilotaż może przekształcić urządzenie z systemem Windows w stan "gotowe do pracy". Stosuje on ustawienia i zasady, instaluje aplikacje, a nawet zmienia wersję systemu Windows 10. Na przykład funkcja autopilotażu może zmienić instalację systemu Windows w systemie Windows 10 Pro do systemu Windows 10 Enterprise, aby mogła korzystać z zaawansowanych funkcji.
 
-![Bezpieczeństwo poziomów stacji roboczej](./media/concept-azure-managed-workstation/supplychain.png)
+:::image type="complex" source="./media/concept-azure-managed-workstation/supplychain.png" alt-text="Diagram przedstawiający cykl życia zabezpieczonej stacji roboczej." border="false":::
+W górnej części diagramu dostawca urządzenia jest obrazem. Strzałki wskazują od tego dostawcy do klienta, który zakupił stację roboczą, i do wózka, który ma etykietę spełnianie i dostarczanie. Od wózka, Strzałka wskazuje obraz z etykietą Wdróż, który umożliwia zdjęcie osoby korzystającej z stacji roboczej. Strzałka zatytułowana "środowisko własne" rozciąga się od tej osoby na ekran zatytułowany "gotowe dla firm". Pod tym ekranem są wyświetlane ikony z etykietą zarządzane chronione. Strzałka oznaczona jako stała użycie stanu, zarządzanie i utrzymywanie bieżących punktów z ekranu do ikony końca życia i ikona resetowania poprawek Break. Końcowa strzałka odwraca z powrotem od ikony Break-Fix do ekranu gotowy do pracy.
+:::image-end:::
 
 ## <a name="device-roles-and-profiles"></a>Role i profile urządzeń
 
 Te wskazówki odnoszą się do kilku profilów zabezpieczeń i ról, które mogą pomóc w tworzeniu bardziej bezpiecznych rozwiązań dla użytkowników, deweloperów i pracowników działu IT. Te profile równoważą użyteczność i ryzyko dla typowych użytkowników, którzy mogą korzystać z zwiększonej lub zabezpieczonej stacji roboczej. Konfiguracje ustawień podane w tym miejscu są oparte na przyjętych standardach branżowych. Wskazówki te pokazują, jak zabezpieczyć system Windows 10 i zmniejszyć ryzyko związane z naruszeniem bezpieczeństwa urządzeń lub użytkowników. Aby skorzystać z nowoczesnej technologii sprzętowej i głównego urządzenia z zaufaniem, będziemy używać [zaświadczanie o kondycji urządzenia](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643), które jest włączone od profilu **wysokiego poziomu zabezpieczeń** . Ta funkcja jest dostępna w celu zapewnienia, że osoby atakujące nie mogą być trwałe podczas wczesnego rozruchu urządzenia. Robi to za pomocą zasad i technologii, które ułatwiają zarządzanie funkcjami zabezpieczeń i zagrożeniami.
-![Bezpieczeństwo poziomów stacji roboczej](./media/concept-azure-managed-workstation/seccon-levels.png)
+
+:::image type="content" source="./media/concept-azure-managed-workstation/seccon-levels.png" alt-text="Diagram przedstawiający cykl życia zabezpieczonej stacji roboczej." border="false":::
 
 * **Zabezpieczenia podstawowe** — zarządzana, standardowa stacja robocza zapewnia dobry punkt wyjścia dla większości i małych firm. Te urządzenia są zarejestrowane w usłudze Azure AD i zarządzane za pomocą usługi Intune. Ten profil pozwala użytkownikom na uruchamianie dowolnych aplikacji i przeglądanie dowolnej witryny sieci Web. Rozwiązanie chroniące przed złośliwym oprogramowaniem, takie jak [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) , powinno być włączone.
 

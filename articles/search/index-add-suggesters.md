@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e439f7d2b0232a2e1c36517f24723e4e16f7e6bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1ee42b5b5884b0ce3491282d256d4bea87f44e1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537603"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083545"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
-Na platformie Azure Wyszukiwanie poznawcze wartość "wyszukiwanie w trakcie pisania" jest włączana za pomocą konstrukcji **sugerującej** dodanej do [indeksu wyszukiwania](search-what-is-an-index.md). Program sugerujący obsługuje dwa środowiska: *Autouzupełnianie*, które uzupełnia częściowe dane wejściowe dla zapytania obejmującego całą kadencję, oraz *sugestie* , które zapraszają klikanie do określonego dopasowania. Funkcja autouzupełniania tworzy zapytanie. Sugestie tworzą pasujący dokument.
+Na platformie Azure Wyszukiwanie poznawcze wartość "wyszukiwanie w trakcie pisania" jest włączana za pomocą konstrukcji **sugerującej** dodanej do [indeksu wyszukiwania](search-what-is-an-index.md). Program sugerujący obsługuje dwa środowiska: *Autouzupełnianie* , które uzupełnia częściowe dane wejściowe dla zapytania obejmującego całą kadencję, oraz *sugestie* , które zapraszają klikanie do określonego dopasowania. Funkcja autouzupełniania tworzy zapytanie. Sugestie tworzą pasujący dokument.
 
 Poniższy zrzut ekranu przedstawiający [Tworzenie pierwszej aplikacji w języku C#](tutorial-csharp-type-ahead-and-suggestions.md) ilustruje oba te elementy. Funkcja Autouzupełnianie przewiduje potencjalną kadencję, kończąc "TW" z "in". Sugestie to wyniki wyszukiwania mini, gdzie pole takie jak nazwa hotelu reprezentuje pasujący dokument wyszukiwania hotelowego z indeksu. W przypadku sugestii można wyświetlić dowolne pole, które zawiera opisowe informacje.
 
@@ -52,7 +52,7 @@ Wykorzystaj automatycznie korzyści z większej puli pól do narysowania ze wzgl
 
 Sugestie z drugiej strony dają lepsze wyniki, gdy wybór pola jest selektywny. Należy pamiętać, że sugestia jest serwerem proxy dla dokumentu wyszukiwania, dzięki czemu można chcieć, aby pola, które najlepiej reprezentują pojedynczy wynik. Nazwy, tytuły lub inne unikatowe pola, które odróżniają wiele pasujących wyników działają najlepiej. Jeśli pola zawierają powtarzające się wartości, sugestie składają się z identycznych wyników i użytkownik nie wie, który z nich należy kliknąć.
 
-Aby zaspokoić zarówno środowiska typu "wyszukiwanie jako dane", Dodaj wszystkie pola, które są potrzebne do autouzupełniania, a następnie użyj **$SELECT**, **$Top**, **$Filter**i **searchFields** , aby kontrolować wyniki dla sugestii.
+Aby zaspokoić zarówno środowiska typu "wyszukiwanie jako dane", Dodaj wszystkie pola, które są potrzebne do autouzupełniania, a następnie użyj **$SELECT** , **$Top** , **$Filter** i **searchFields** , aby kontrolować wyniki dla sugestii.
 
 ### <a name="choose-analyzers"></a>Wybieranie analizatorów
 
@@ -167,7 +167,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 + [Tworzenie pierwszej aplikacji w języku C# (Lekcja 3 — Dodawanie wyszukiwania w trakcie pisania)](tutorial-csharp-type-ahead-and-suggestions.md) pokazuje, że zasugerowana jest konstrukcja, sugerowane zapytania, Autouzupełnianie i nawigacja aspektowa. Ten przykładowy kod jest uruchamiany w usłudze Azure Wyszukiwanie poznawcze piaskownicy i używa wstępnie załadowanego indeksu hoteli, więc wystarczy nacisnąć klawisz F5, aby uruchomić aplikację. Żadna subskrypcja ani logowanie nie są wymagane.
 
-+ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) jest starszym przykładem zawierającym kod C# i Java. Przedstawiono w nim także zasugerowaną konstrukcję, sugerowane zapytania, Autouzupełnianie i nawigację aspektową. Ten przykładowy kod używa hostowanych danych [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) . 
++ [DotNetHowToAutocomplete](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) jest starszym przykładem zawierającym kod C# i Java. Przedstawiono w nim także zasugerowaną konstrukcję, sugerowane zapytania, Autouzupełnianie i nawigację aspektową. Ten przykładowy kod używa hostowanych danych [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) . 
 
 ## <a name="next-steps"></a>Następne kroki
 

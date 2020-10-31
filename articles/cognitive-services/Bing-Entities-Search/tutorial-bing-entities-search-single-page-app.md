@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 58bbda6d3b02042c6e512e03e108cd69fbd7ed51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fa09ee40ca646be6ee104c7b2d4428c92934337
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277329"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084633"
 ---
 # <a name="tutorial-single-page-web-app"></a>Samouczek: jednostronicowa aplikacja internetowa
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Interfejs API wyszukiwania jednostek Bing umożliwia wyszukiwanie w Internecie informacji o *jednostkach* i *miejscach.* W danym zapytaniu można zażądać dowolnego z tych dwóch rodzajów wyników lub obu. Poniżej znajdują się definicje miejsc i jednostek.
 
@@ -63,8 +68,8 @@ Aby wykonać kroki opisane w samouczku, musisz dysponować kluczami subskrypcji 
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
 * Gdy masz subskrypcję platformy Azure:
-  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Utwórz zasób Wyszukiwanie Bing "  target="_blank"> Utwórz zasób wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
-  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Przetwarzanie obrazów Utwórz zasób usługi "  target="_blank"> mapy Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Utwórz zasób Wyszukiwanie Bing "  target="_blank"> Utwórz zasób wyszukiwanie Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Przetwarzanie obrazów Utwórz zasób usługi "  target="_blank"> mapy Bing <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu** .
 
 ## <a name="app-components"></a>Składniki aplikacji
 
@@ -257,7 +262,7 @@ function bingMapsCallback(response) {
 }
 ```
 
-Oprócz szerokości i długości geograficznej zapytanie wyszukiwania jednostek Bing wymaga wartości *promienia*, która oznacza dokładność informacji o lokalizacji. Promień jest obliczany przy użyciu wartości *pola ograniczenia* podanej w odpowiedzi usługi Mapy Bing. Pole ograniczenia jest prostokątem, który otacza całą lokalizację. Jeśli na przykład użytkownik wprowadzi ciąg `NYC`, wynik zawiera przybliżone współrzędne centrum Nowego Jorku oraz pole ograniczenia obejmujące miasto. 
+Oprócz szerokości i długości geograficznej zapytanie wyszukiwania jednostek Bing wymaga wartości *promienia* , która oznacza dokładność informacji o lokalizacji. Promień jest obliczany przy użyciu wartości *pola ograniczenia* podanej w odpowiedzi usługi Mapy Bing. Pole ograniczenia jest prostokątem, który otacza całą lokalizację. Jeśli na przykład użytkownik wprowadzi ciąg `NYC`, wynik zawiera przybliżone współrzędne centrum Nowego Jorku oraz pole ograniczenia obejmujące miasto. 
 
 Najpierw obliczamy odległości od głównych współrzędnych do każdego z czterech rogów pola ograniczenia przy użyciu funkcji `haversineDistance()` (nie została pokazana). Używamy największej z tych czterech odległości jako promienia. Minimalna wartość promienia to jeden kilometr. Ta wartość jest równie używana jako domyślna, jeśli odpowiedź nie zawiera wartości pola ograniczenia.
 

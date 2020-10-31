@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c40916d975b8acabaa7083cf57259291f09b40a9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74870738"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082610"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Wyrażenia skalarne w Azure Cosmos DB zapytania SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 [Klauzula SELECT](sql-query-select.md) obsługuje wyrażenia skalarne. Wyrażenie skalarne jest kombinacją symboli i operatorów, które mogą być oceniane w celu uzyskania pojedynczej wartości. Przykłady wyrażeń skalarnych obejmują: stałe, odwołania do właściwości, odwołania do elementów tablicy, odwołania aliasów lub wywołania funkcji. Wyrażenia skalarne mogą być łączone w wyrażenia złożone przy użyciu operatorów.
 

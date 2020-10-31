@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a22c4daaf9df889f2256bc78f2175c966d4841f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2447116a3b057f59f73f4b7f56d1e127bbfad857
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303447"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082406"
 ---
 # <a name="square-azure-cosmos-db"></a>KWADRAT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Zwraca kwadrat określonej wartości liczbowej.  
   
 ## <a name="syntax"></a>Składnia
