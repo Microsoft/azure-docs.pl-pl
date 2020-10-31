@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d840fe5b6fde72149893a15ab9096d3880c1c8ea
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d4ae18b335453f3e1d3512951675afe10c804c8d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425684"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094425"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -25,6 +25,8 @@ Wystąpienia obliczeniowe ułatwiają rozpoczęcie pracy z programowaniem Azure 
 Użyj wystąpienia obliczeniowego jako w pełni skonfigurowanego i zarządzanego środowiska programistycznego w chmurze na potrzeby uczenia maszynowego. Mogą one również służyć jako obiekt docelowy obliczeń na potrzeby szkoleń i inferencing na potrzeby tworzenia i testowania.  
 
 Aby uzyskać szkolenia modelu klasy produkcyjnej, użyj [Azure Machine Learning klastra obliczeniowego](how-to-create-attach-compute-cluster.md) z możliwościami skalowania wielowęzłowego. W celu wdrożenia modelu klasy produkcyjnej należy użyć [klastra usługi Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
+
+Aby funkcja Jupyter wystąpienia obliczeniowego działała, należy się upewnić, że komunikacja gniazda internetowego nie jest wyłączona. Upewnij się, że sieć zezwala na połączenia protokołu WebSocket z *. instances.azureml.net i *. instances.azureml.ms.
 
 ## <a name="why-use-a-compute-instance"></a>Dlaczego warto używać wystąpienia obliczeniowego?
 
@@ -59,7 +61,7 @@ Następujące narzędzia i środowiska są już zainstalowane w wystąpieniu obl
 |Biblioteka Intel MPI||
 |Interfejs wiersza polecenia platformy Azure ||
 |Przykłady Azure Machine Learning ||
-|Platforma Docker||
+|Docker||
 |Nginx||
 |NCCL 2,0 ||
 |Protobuf|| 
@@ -100,7 +102,7 @@ Możesz użyć `/tmp` katalogu w wystąpieniu obliczeniowym dla danych tymczasow
 
 ## <a name="managing-a-compute-instance"></a>Zarządzanie wystąpieniem obliczeniowym
 
-W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **obliczenia**, a następnie na górze wybierz pozycję **wystąpienie obliczeniowe** .
+W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **obliczenia** , a następnie na górze wybierz pozycję **wystąpienie obliczeniowe** .
 
 ![Zarządzanie wystąpieniem obliczeniowym](./media/concept-compute-instance/manage-compute-instance.png)
 

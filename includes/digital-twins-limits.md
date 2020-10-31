@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 60a5f62d4ea23db1052b2e40d10775dfaa33c632
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989467"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091780"
 ---
 ### <a name="functional-limits"></a>Limity funkcjonalne
 
-W poniższej tabeli wymieniono funkcjonalne limity usługi Azure Digital bliźniaczych reprezentacji w bieżącej wersji zapoznawczej.
+Poniższa tabela zawiera listę limitów funkcjonalnych usługi Azure Digital bliźniaczych reprezentacji.
 
 | Warstwowy | Możliwość | Limit domyślny | Wraz? |
 | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ W poniższej tabeli wymieniono funkcjonalne limity usługi Azure Digital bliźni
 | Digital Twins | Liczba przychodzących relacji do pojedynczej sznurka | 5000 | Nie |
 | Digital Twins | Liczba wychodzących relacji z pojedynczej sznurka | 5000 | Nie |
 | Digital Twins | Maksymalny rozmiar pojedynczego sznurka | 32 KB | Nie |
-| Interfejs API Digital bliźniaczych reprezentacji | Maksymalny rozmiar ładunku żądania | 32 KB | Nie | 
+| Digital Twins | Maksymalny rozmiar ładunku żądania | 32 KB | Nie | 
 | Routing | Liczba punktów końcowych dla pojedynczego wystąpienia usługi Azure Digital bliźniaczych reprezentacji | 6 | Nie |
 | Routing | Liczba tras dla pojedynczego wystąpienia usługi Azure Digital bliźniaczych reprezentacji | 6 | Tak |
 | Modele | Liczba modeli w pojedynczym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji | 10 000 | Tak |
@@ -37,12 +37,14 @@ W poniższej tabeli wymieniono funkcjonalne limity usługi Azure Digital bliźni
 
 ### <a name="rate-limits"></a>Limity szybkości
 
-Ta tabela odzwierciedla limity szybkości różnych interfejsów API.
+W poniższej tabeli przedstawiono limity szybkości różnych interfejsów API.
 
 | Interfejs API | Możliwość | Limit domyślny | Wraz? |
 | --- | --- | --- | --- |
 | Interfejs API modeli | Liczba żądań na sekundę | 100 | Tak |
-| Interfejs API Digital bliźniaczych reprezentacji | Liczba żądań na sekundę | 1000 | Tak |
+| Interfejs API Digital bliźniaczych reprezentacji | Liczba żądań na sekundę | 2000 | Tak |
+| Interfejs API Digital bliźniaczych reprezentacji | Liczba operacji tworzenia/usuwania na sekundę dla **wszystkich bliźniaczych reprezentacji i relacji** | 50 | Tak |
+| Interfejs API Digital bliźniaczych reprezentacji | Liczba operacji tworzenia/aktualizowania/usuwania na sekundę na **jednej dwuosiowej** lub jej relacji | 10 | Nie |
 | Interfejs API zapytań | Liczba żądań na sekundę | 500 | Tak |
 | Interfejs API zapytań | Liczba [jednostek zapytania](../articles/digital-twins/concepts-query-units.md) na sekundę | 4000 | Tak |
 | Interfejs API tras zdarzeń | Liczba żądań na sekundę | 100 | Tak |
@@ -51,4 +53,4 @@ Ta tabela odzwierciedla limity szybkości różnych interfejsów API.
 
 Limity dotyczące typów danych i pól w DTDL dokumentach dla modeli usługi Azure Digital bliźniaczych reprezentacji można znaleźć w dokumentacji dotyczącej specyfikacji w serwisie GitHub: [*Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Szczegóły opóźnienia zapytania i inne wskazówki dotyczące pisania zapytań w trakcie korzystania z wersji zapoznawczej można znaleźć w temacie [*How to: Query The bliźniaczy Graf*](../articles/digital-twins/how-to-query-graph.md).
+Szczegóły opóźnienia zapytania i inne ograniczenia zapytania można znaleźć w temacie [*How to: Query The bliźniaczy Graf*](../articles/digital-twins/how-to-query-graph.md).

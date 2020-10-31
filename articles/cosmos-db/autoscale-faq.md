@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277970"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092691"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące przepływności dotyczącej automatycznego skalowania w Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 W przypadku przepływności z obsługą automatycznego skalowania Azure Cosmos DB automatycznie będzie zarządzać i skalować RU/s bazy danych lub kontenera na podstawie użycia. Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące skalowania automatycznego.
 
@@ -108,9 +109,9 @@ W przypadku wysłania żądania zwiększenia maksymalnej wartości RU/s `Tmax` ,
 #### <a name="lowering-the-max-rus"></a>Obniżenie maksymalnej wartości RU/s
 W przypadku obniżenia maksymalnej wartości RU/s wartość minimalna, którą można ustawić na: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` , zaokrąglana do najbliższej 1000 ru/s. 
 
-Przykład #1: Załóżmy, że masz kontener automatycznego skalowania z maksimum RU/s z 20 000 RU/s (skaluje się między 2000 20 000 RU/s) i 50 GB magazynu. Najniższa, minimalna wartość można ustawić jako maksimum RU/s na wartość: MAX (4000, 20 000/10, **50 * 100**) = 5000 ru/s (skaluje się między 500-5000 ru/s).
+Przykład #1: Załóżmy, że masz kontener automatycznego skalowania z maksimum RU/s z 20 000 RU/s (skaluje się między 2000 20 000 RU/s) i 50 GB magazynu. Najniższa, minimalna wartość można ustawić jako maksimum RU/s na wartość: MAX (4000, 20 000/10, **50 * 100** ) = 5000 ru/s (skaluje się między 500-5000 ru/s).
 
-Przykład #2: Załóżmy, że masz kontener automatycznego skalowania z maksymalną liczbą jednostek RU/s z 100 000 RU/s i 100 GB miejsca w magazynie. Teraz można skalować maksymalną liczbę jednostek RU/s do 150 000 RU/s (skaluje się między 15 000 – 150 000 RU/s). Najniższa, minimalna wartość można teraz ustawić Max RU/s na: MAX (4000, **150 000/10**, 100 * 100) = 15 000 ru/s (skale się między 1500-15 000 ru/s). 
+Przykład #2: Załóżmy, że masz kontener automatycznego skalowania z maksymalną liczbą jednostek RU/s z 100 000 RU/s i 100 GB miejsca w magazynie. Teraz można skalować maksymalną liczbę jednostek RU/s do 150 000 RU/s (skaluje się między 15 000 – 150 000 RU/s). Najniższa, minimalna wartość można teraz ustawić Max RU/s na: MAX (4000, **150 000/10** , 100 * 100) = 15 000 ru/s (skale się między 1500-15 000 ru/s). 
 
 W przypadku udostępnionej bazy danych przepływności w przypadku obniżenia maksymalnej wartości RU/s wartość minimalna, którą można ustawić na: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))` , zaokrąglana do najbliższej 1000 ru/s.  
 

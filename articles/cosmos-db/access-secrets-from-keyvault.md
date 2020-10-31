@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9c4f9954977d6c5523bc70586d3b0cbb0328bcd8
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bd67f9641a644d3302e1f8bc1e53ad14a3801e47
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278029"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092844"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Zabezpieczanie kluczy usługi Azure Cosmos przy użyciu usługi Azure Key Vault 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 >[!IMPORTANT]
 > Zalecane rozwiązanie do uzyskiwania dostępu do kluczy Azure Cosmos DB polega na użyciu [tożsamości zarządzanej przypisanej do systemu](managed-identity-based-authentication.md). Jeśli usługa nie może korzystać z tożsamości zarządzanych, użyj [rozwiązania opartego na certyfikatach](certificate-based-authentication.md). Jeśli zarówno rozwiązanie tożsamości zarządzanej, jak i rozwiązanie oparte na certyfikatach nie spełniają Twoich potrzeb, użyj poniższego rozwiązania magazynu kluczy.
@@ -34,22 +35,22 @@ Następujące kroki są wymagane do przechowywania i odczytywania Azure Cosmos D
 ## <a name="create-a-key-vault"></a>Tworzenie magazynu kluczy
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/).  
-2. Wybierz pozycję **Utwórz zasób > zabezpieczenia > Key Vault**.  
+2. Wybierz pozycję **Utwórz zasób > zabezpieczenia > Key Vault** .  
 3. W sekcji **Tworzenie magazynu kluczy** podaj następujące informacje:  
    * **Nazwa:** Podaj unikatową nazwę Key Vault.  
    * **Subskrypcja:** Wybierz subskrypcję, która będzie używana.  
-   * W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.  
+   * W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.  
    * W menu rozwijanym Lokalizacja wybierz lokalizację.  
    * Pozostaw wartości domyślne innych opcji.  
-4. Po podaniu powyższych informacje wybierz przycisk **Utwórz**.  
+4. Po podaniu powyższych informacje wybierz przycisk **Utwórz** .  
 
 ## <a name="add-azure-cosmos-db-access-keys-to-the-key-vault"></a>Dodaj do Key Vault klucze dostępu Azure Cosmos DB.
 1. Przejdź do Key Vault utworzonego w poprzednim kroku, Otwórz kartę wpisy **tajne** .  
-2. Wybierz pozycję **+ Generuj/Importuj**, 
+2. Wybierz pozycję **+ Generuj/Importuj** , 
 
-   * Wybierz opcję **ręczny** dla **opcji przekazywania**.
+   * Wybierz opcję **ręczny** dla **opcji przekazywania** .
    * Podaj **nazwę** wpisu tajnego
-   * Podaj parametry połączenia konta Cosmos DB w polu **wartość** . Następnie wybierz pozycję **Utwórz**.
+   * Podaj parametry połączenia konta Cosmos DB w polu **wartość** . Następnie wybierz pozycję **Utwórz** .
 
    :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Utwórz klucz tajny":::
 
@@ -66,7 +67,7 @@ Następujące kroki są wymagane do przechowywania i odczytywania Azure Cosmos D
    `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault’s secret identifier>")`
 
 3. **Zapisz** plik, **Skompiluj** rozwiązanie.  
-4. Następnie wdróż aplikację na platformie Azure. Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Publikuj**. Utwórz nowy profil usługi App Service (możesz nazwać aplikację WebAppKeyVault1) i wybierz pozycję **Publikuj**.   
+4. Następnie wdróż aplikację na platformie Azure. Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Publikuj** . Utwórz nowy profil usługi App Service (możesz nazwać aplikację WebAppKeyVault1) i wybierz pozycję **Publikuj** .   
 
 5. Po wdrożeniu aplikacji. W Azure Portal przejdź do wdrożonej aplikacji sieci Web i Włącz **tożsamość usługi zarządzanej** dla tej aplikacji.  
 
@@ -82,7 +83,7 @@ W tej sekcji rejestrujesz aplikację przy użyciu Azure Active Directory i nadaj
 
 1. Przejdź do Azure Portal, Otwórz **Key Vault** utworzony w poprzedniej sekcji.  
 
-2. Otwórz przystawkę **zasady dostępu**, wybierz pozycję **+ Dodaj nowy** Znajdź wdrożoną aplikację sieci Web, wybierz pozycję uprawnienia i wybierz pozycję **OK**.  
+2. Otwórz przystawkę **zasady dostępu** , wybierz pozycję **+ Dodaj nowy** Znajdź wdrożoną aplikację sieci Web, wybierz pozycję uprawnienia i wybierz pozycję **OK** .  
 
    :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Utwórz klucz tajny":::
 

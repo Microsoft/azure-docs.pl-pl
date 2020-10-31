@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d88d52f67274d14836520494580e9208ce4eecbe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 95396f28fd835091258bccbfdb0a0c0eafebea91
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283993"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093558"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB tryby łączności z zestawem SDK SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Sposób, w jaki klient nawiązuje połączenie z Azure Cosmos DB, ma ważne konsekwencje dotyczące wydajności, szczególnie w przypadku zaobserwowanego opóźnienia po stronie klienta. Azure Cosmos DB oferuje prosty, otwarty model programowania RESTful za pośrednictwem protokołu HTTPS o nazwie Gateway Mode. Ponadto oferuje wydajny protokół TCP, który jest również RESTful w swoim modelu komunikacji i używa protokołu TLS do uwierzytelniania początkowego i szyfrowania ruchu, nazywanego trybem bezpośrednim.
 
@@ -34,7 +35,7 @@ Istnieją dwa dostępne tryby łączności:
      
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Tryby łączności Azure Cosmos DB" border="false":::
 
-Te tryby łączności zasadniczo polegają na tym, że trasy, które są żądaniami płaszczyzny danych, odczytuje dokumenty i zapisuje je z komputera klienckiego do partycji w Azure Cosmos DB zaplecza. Tryb bezpośredni jest preferowaną opcją dla najlepszej wydajności — pozwala klientowi na otwieranie połączeń TCP bezpośrednio do partycji w Azure Cosmos DB zaplecza i wysyłanie żądań *bezpośrednich*ly bez pośrednika. Natomiast w trybie bramy żądania wysyłane przez klienta są kierowane do serwera "brama" w ramach frontonu Azure Cosmos DB, co z kolei powoduje, że żądania do odpowiednich partycji w Azure Cosmos DB zaplecza.
+Te tryby łączności zasadniczo polegają na tym, że trasy, które są żądaniami płaszczyzny danych, odczytuje dokumenty i zapisuje je z komputera klienckiego do partycji w Azure Cosmos DB zaplecza. Tryb bezpośredni jest preferowaną opcją dla najlepszej wydajności — pozwala klientowi na otwieranie połączeń TCP bezpośrednio do partycji w Azure Cosmos DB zaplecza i wysyłanie żądań *bezpośrednich* ly bez pośrednika. Natomiast w trybie bramy żądania wysyłane przez klienta są kierowane do serwera "brama" w ramach frontonu Azure Cosmos DB, co z kolei powoduje, że żądania do odpowiednich partycji w Azure Cosmos DB zaplecza.
 
 ## <a name="service-port-ranges"></a>Zakresy portów usługi
 

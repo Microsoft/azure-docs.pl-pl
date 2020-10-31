@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f6d5a9da238c520e2e0ec70ac312dd112aad2fe8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 335cc707cb1192d3dbf08f51e78d4e82441dd05a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789985"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094459"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>SQL Server Skonfiguruj zawsze dostępną grupę dostępności w różnych regionach platformy Azure
 
@@ -31,7 +31,7 @@ Ten artykuł ma zastosowanie do usługi Azure Virtual Machines w trybie Menedże
 
 Na poniższej ilustracji przedstawiono typowe wdrożenie grupy dostępności na maszynach wirtualnych platformy Azure:
 
-   ![Grupa dostępności](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
+   ![Diagram przedstawiający moduł równoważenia obciążenia platformy Azure i zestaw dostępności z opcją "klaster trybu failover systemu Windows Server" i "zawsze włączone grupy dostępności".](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
 
 W tym wdrożeniu wszystkie maszyny wirtualne znajdują się w jednym regionie platformy Azure. Repliki grupy dostępności mogą mieć zatwierdzenie synchroniczne z automatycznym trybem failover w przypadku wersji SQL-1 i SQL-2. Aby skompilować tę architekturę, zobacz [szablon lub samouczek grupy dostępności](availability-group-overview.md).
 
@@ -53,7 +53,7 @@ Gdy repliki grup dostępności znajdują się na maszynach wirtualnych platformy
 
 Na poniższym diagramie przedstawiono, jak sieci komunikują się między centrami danych.
 
-   ![Grupa dostępności](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
+   ![Diagram pokazujący dwie sieci wirtualne w różnych regionach platformy Azure komunikujących się przy użyciu bram V P N.](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >Ta architektura wiąże się z opłatami za dane wychodzące dla danych replikowanych między regionami platformy Azure. Zobacz [Cennik przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -98,7 +98,7 @@ Aby utworzyć replikę w zdalnym centrum danych, wykonaj następujące czynnośc
 
    Zasób adresu IP można utworzyć w Menedżer klastra trybu failover. Wybierz nazwę klastra, a następnie kliknij prawym przyciskiem myszy nazwę klastra w obszarze **zasoby podstawowe klastra** i wybierz polecenie **Właściwości** : 
 
-   ![Właściwości klastra](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
+   ![Zrzut ekranu przedstawiający "Menedżer klastra trybu failover" z nazwą klastra, "nazwą serwera" i wybranym "właściwościami".](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
    W oknie dialogowym **Właściwości** wybierz pozycję **Dodaj** w obszarze **adres IP** , a następnie Dodaj adres IP nazwy klastra z regionu sieci zdalnej. W oknie dialogowym **adres IP** wybierz **OK** , a następnie ponownie wybierz przycisk **OK** w oknie dialogowym **właściwości klastra** , aby zapisać nowy adres IP. 
 

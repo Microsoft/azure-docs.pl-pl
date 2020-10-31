@@ -4,12 +4,12 @@ description: Utwórz swoją pierwszą aplikację kontenera systemu Linux w usłu
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563713"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092946"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Linux
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ CMD ["python", "app.py"]
 Przeczytaj artykuł [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) (Informacje o pliku Dockerfile), aby uzyskać więcej informacji.
 
 ## <a name="create-a-basic-web-application"></a>Tworzenie podstawowej aplikacji internetowej
-Utwórz aplikację internetową platformy Flask, która nasłuchuje na porcie 80 i zwraca wartość „Hello World!”. W tym samym katalogu utwórz plik *requirements.txt*. Dodaj następujący kod i zapisz zmiany:
+Utwórz aplikację internetową platformy Flask, która nasłuchuje na porcie 80 i zwraca wartość „Hello World!”. W tym samym katalogu utwórz plik *requirements.txt* . Dodaj następujący kod i zapisz zmiany:
 ```
 Flask
 ```
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 ```
 
 ## <a name="build-the-image"></a>Tworzenie obrazu
-Uruchom polecenie `docker build`, aby utworzyć obraz uruchamiający aplikację internetową. Otwórz okno programu PowerShell i przejdź do katalogu *c:\temp\helloworldapp*. Uruchom następujące polecenie:
+Uruchom polecenie `docker build`, aby utworzyć obraz uruchamiający aplikację internetową. Otwórz okno programu PowerShell i przejdź do katalogu *c:\temp\helloworldapp* . Uruchom następujące polecenie:
 
 ```bash
 docker build -t helloworldapp .
@@ -156,7 +156,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="package-the-docker-image-with-yeoman"></a>Umieszczanie w pakiecie obrazu platformy Docker za pomocą narzędzia Yeoman
-Zestaw SDK usługi Service Fabric dla systemu Linux zawiera generator [Yeoman](https://yeoman.io/), który ułatwia tworzenie własnej aplikacji i dodawanie obrazu kontenera. Wykorzystamy narzędzie Yeoman w celu utworzenia aplikacji z pojedynczym kontenerem platformy Docker o nazwie *SimpleContainerApp*.
+Zestaw SDK usługi Service Fabric dla systemu Linux zawiera generator [Yeoman](https://yeoman.io/), który ułatwia tworzenie własnej aplikacji i dodawanie obrazu kontenera. Wykorzystamy narzędzie Yeoman w celu utworzenia aplikacji z pojedynczym kontenerem platformy Docker o nazwie *SimpleContainerApp* .
 
 Aby utworzyć aplikację kontenera usługi Service Fabric, otwórz okno terminalu i uruchom polecenie `yo azuresfcontainer`. 
 
@@ -209,9 +209,9 @@ W przypadku wersji 6,3 środowiska uruchomieniowego izolacja maszyny wirtualnej 
 
 ## <a name="configure-docker-healthcheck"></a>Konfigurowanie funkcji HEALTHCHECK platformy Docker 
 
-Począwszy od wersji 6.1, usługa Service Fabric automatycznie integruje zdarzenia [funkcji HEALTHCHECK platformy Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) z raportem o kondycji systemu. Oznacza to, że jeśli w kontenerze włączono funkcję **HEALTHCHECK**, usługa Service Fabric będzie raportować kondycję przy każdej zmianie stanu kondycji kontenera zgłoszonej przez platformę Docker. Raport kondycji **OK** pojawi się w narzędziu [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), gdy wartość *health_status* będzie równa *healthy*, a raport **OSTRZEŻENIE** pojawi się, gdy wartość *health_status* będzie równa *unhealthy*. 
+Począwszy od wersji 6.1, usługa Service Fabric automatycznie integruje zdarzenia [funkcji HEALTHCHECK platformy Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) z raportem o kondycji systemu. Oznacza to, że jeśli w kontenerze włączono funkcję **HEALTHCHECK** , usługa Service Fabric będzie raportować kondycję przy każdej zmianie stanu kondycji kontenera zgłoszonej przez platformę Docker. Raport kondycji **OK** pojawi się w narzędziu [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), gdy wartość *health_status* będzie równa *healthy* , a raport **OSTRZEŻENIE** pojawi się, gdy wartość *health_status* będzie równa *unhealthy* . 
 
-Począwszy od najnowszej wersji odświeżania programu v 6.4, można określić, że oceny Docker HEALTHCHECK powinny być zgłaszane jako błąd. Jeśli ta opcja jest włączona, zostanie wyświetlony **Raport kondycji prawidłowy,** gdy *health_status* jest w *dobrej* kondycji i pojawi się **komunikat o błędzie** , gdy *health_status* jest w złej *kondycji*.
+Począwszy od najnowszej wersji odświeżania programu v 6.4, można określić, że oceny Docker HEALTHCHECK powinny być zgłaszane jako błąd. Jeśli ta opcja jest włączona, zostanie wyświetlony **Raport kondycji prawidłowy,** gdy *health_status* jest w *dobrej* kondycji i pojawi się **komunikat o błędzie** , gdy *health_status* jest w złej *kondycji* .
 
 Instrukcja **HEALTHCHECK** wskazująca rzeczywisty test wykonywany w celu monitorowania kondycji kontenera musi występować w pliku Dockerfile używanym podczas generowania obrazu kontenera.
 
@@ -235,13 +235,13 @@ Możesz skonfigurować zachowanie funkcji **HEALTHCHECK** dla każdego kontenera
     </Policies>
 </ServiceManifestImport>
 ```
-Domyślnie *IncludeDockerHealthStatusInSystemHealthReport* ma wartość **true**, *wartość restartcontaineronunhealthydockerhealthstatus* ma wartość **false**, a *TreatContainerUnhealthyStatusAsError* jest ustawiona na **wartość false**. 
+Domyślnie *IncludeDockerHealthStatusInSystemHealthReport* ma wartość **true** , *wartość restartcontaineronunhealthydockerhealthstatus* ma wartość **false** , a *TreatContainerUnhealthyStatusAsError* jest ustawiona na **wartość false** . 
 
-Jeśli wartość *RestartContainerOnUnhealthyDockerHealthStatus* jest ustawiona na **true**, kontener wielokrotnie raportujący złą kondycję jest uruchamiany ponownie (potencjalnie w innych węzłach).
+Jeśli wartość *RestartContainerOnUnhealthyDockerHealthStatus* jest ustawiona na **true** , kontener wielokrotnie raportujący złą kondycję jest uruchamiany ponownie (potencjalnie w innych węzłach).
 
-Jeśli *TreatContainerUnhealthyStatusAsError* ma **wartość true**, raporty kondycji **błędów** pojawią się, gdy *health_status* kontenera jest w *złej kondycji*.
+Jeśli *TreatContainerUnhealthyStatusAsError* ma **wartość true** , raporty kondycji **błędów** pojawią się, gdy *health_status* kontenera jest w *złej kondycji* .
 
-Aby wyłączyć integrację funkcji **HEALTHCHECK** dla całego klastra usługi Service Fabric, należy ustawić wartość [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) na **false**.
+Aby wyłączyć integrację funkcji **HEALTHCHECK** dla całego klastra usługi Service Fabric, należy ustawić wartość [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) na **false** .
 
 ## <a name="deploy-the-application"></a>Wdrażanie aplikacji
 Po skompilowaniu aplikację można wdrożyć w klastrze lokalnym za pomocą interfejsu wiersza polecenia usługi Service Fabric.
@@ -413,7 +413,7 @@ Możesz skonfigurować klaster usługi Service Fabric w celu usuwania nieużywan
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }
@@ -442,7 +442,7 @@ Jeśli nie chcesz usuwać pewnych obrazów, określ je przy użyciu parametru `C
 
 ## <a name="set-container-retention-policy"></a>Ustawianie zasad przechowywania kontenerów
 
-Aby ułatwić diagnozowanie błędów uruchamiania kontenerów, usługa Service Fabric (w wersji 6.1 lub nowszej) obsługuje przechowywanie kontenerów, w przypadku których działanie zostało przerwane lub uruchamianie nie powiodło się. Te zasady można ustawić w pliku **ApplicationManifest.xml**, jak pokazano w poniższym fragmencie kodu:
+Aby ułatwić diagnozowanie błędów uruchamiania kontenerów, usługa Service Fabric (w wersji 6.1 lub nowszej) obsługuje przechowywanie kontenerów, w przypadku których działanie zostało przerwane lub uruchamianie nie powiodło się. Te zasady można ustawić w pliku **ApplicationManifest.xml** , jak pokazano w poniższym fragmencie kodu:
 
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
@@ -452,7 +452,7 @@ Ustawienie **ContainersRetentionCount** określa liczbę kontenerów do przechow
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>Uruchamianie demona platformy Docker z niestandardowymi argumentami
 
-W środowisku uruchomieniowym usługi Service Fabric w wersji 6.2 lub nowszej można uruchomić demona platformy Docker z niestandardowymi argumentami. Jeśli określono niestandardowe argumenty, usługa Service Fabric nie przekaże żadnego innego argumentu do aparatu platformy Docker z wyjątkiem argumentu `--pidfile`. Dlatego nie należy przekazywać elementu `--pidfile` jako argumentu. Ponadto argument powinien nadal mieć włączone nasłuchiwanie przez demona platformy Docker w domyślnym potoku nazw w systemie Windows (lub w gnieździe domeny systemu Unix w systemie Linux), aby umożliwić komunikację usługi Service Fabric z demonem. Niestandardowe argumenty są określone w manifeście klastra w sekcji **Hosting** w obszarze **ContainerServiceArguments**. Przykład przedstawiono w następującym fragmencie kodu: 
+W środowisku uruchomieniowym usługi Service Fabric w wersji 6.2 lub nowszej można uruchomić demona platformy Docker z niestandardowymi argumentami. Jeśli określono niestandardowe argumenty, usługa Service Fabric nie przekaże żadnego innego argumentu do aparatu platformy Docker z wyjątkiem argumentu `--pidfile`. Dlatego nie należy przekazywać elementu `--pidfile` jako argumentu. Ponadto argument powinien nadal mieć włączone nasłuchiwanie przez demona platformy Docker w domyślnym potoku nazw w systemie Windows (lub w gnieździe domeny systemu Unix w systemie Linux), aby umożliwić komunikację usługi Service Fabric z demonem. Niestandardowe argumenty są określone w manifeście klastra w sekcji **Hosting** w obszarze **ContainerServiceArguments** . Przykład przedstawiono w następującym fragmencie kodu: 
  
 
 ```json

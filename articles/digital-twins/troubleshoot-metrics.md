@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: b4bc291c21ca1ccabec3cfd9544deaa5d45fcf51
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7fde67ab9b9160bb89493748d09e83bd9cfcff34
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787197"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091705"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: metryki
 
@@ -64,7 +64,7 @@ Metryki mające na celu wykonywanie żądań interfejsu API:
 Metryki mające na celu rozliczanie:
 
 >[!NOTE]
-> W okresie zapoznawczym **opłaty nie są** naliczane. Mimo że te metryki nadal pojawiają się na liście możliwej do wyboru, nie mają zastosowania w wersji zapoznawczej i pozostaną na zero, dopóki usługa nie przejdzie poza wersję zapoznawczą.
+>Mimo że te metryki nadal pojawiają się na liście możliwej do wyboru, pozostaną bez zmian, dopóki nowe ceny usługi nie staną się dostępne. Aby dowiedzieć się więcej, zobacz [*Cennik usługi Azure Digital bliźniaczych reprezentacji*](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 | Metryka | Nazwa wyświetlana metryki | Jednostka | Typ agregacji| Opis | Wymiary |
 | --- | --- | --- | --- | --- | --- |

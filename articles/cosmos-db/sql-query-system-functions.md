@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18fdab8f4aa90e993f6802508c13a78565b9fa6e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: fc8473f1caf4a17aea926d2729e7db7918db40d7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279925"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094051"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Funkcje systemowe (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Cosmos DB udostępnia wiele wbudowanych funkcji SQL. Poniżej wymieniono kategorie funkcji wbudowanych.  
   

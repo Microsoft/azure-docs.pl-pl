@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 358fccec56f81ee41acc2898751b8848beaeb168
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: fc60ca462a2891cc022847e056e32239f2675f70
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905447"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094578"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Szybki Start: Tworzenie i Konfigurowanie Azure DDoS Protection Standard
 
@@ -63,7 +63,7 @@ W tym przewodniku szybki start utworzysz plan ochrony DDoS i połączysz go z si
     | Subskrypcja    | Wybierz subskrypcję.                                    |
     | Grupa zasobów  | Wybierz pozycję **Użyj istniejącej** , a następnie wybierz pozycję Moja **resourceName** . |
     | Lokalizacja        | Wprowadź _Wschodnie stany USA_                                                    |
-    | DDoS Protection Standard | Wybierz pozycję **Włącz** . Wybrany plan może być w tej samej lub innej subskrypcji niż sieć wirtualna, ale obie subskrypcje muszą być skojarzone z tą samą dzierżawą Azure Active Directory.|
+    | Usługa DDoS Protection w warstwie Standardowa | Wybierz pozycję **Włącz** . Wybrany plan może być w tej samej lub innej subskrypcji niż sieć wirtualna, ale obie subskrypcje muszą być skojarzone z tą samą dzierżawą Azure Active Directory.|
 
 Nie można przenieść sieci wirtualnej do innej grupy zasobów lub subskrypcji, gdy dla sieci wirtualnej jest włączony Standard DDoS. Jeśli musisz przenieść sieć wirtualną z włączonym standardem DDoS, wyłącz najpierw pozycję DDoS Standard, Przenieś sieć wirtualną, a następnie Włącz Standard DDoS. Po przeniesieniu wartości progowe dla wszystkich chronionych publicznych adresów IP w sieci wirtualnej zostaną zresetowane.
 
@@ -84,8 +84,6 @@ Najpierw zapoznaj się ze szczegółami planu ochrony DDoS:
 3. Wybierz z listy plan ochrony DDoS.
 
 Powinna zostać wyświetlona Sieć wirtualna _MyVnet_ . 
-
-Testowanie przez symulacje
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
@@ -114,4 +112,4 @@ W celu usunięcia planu ochrony DDoS należy najpierw usunąć skojarzenie wszys
 Aby dowiedzieć się, jak wyświetlać i konfigurować dane telemetryczne dla planu ochrony DDoS, przejdź do samouczków.
 
 > [!div class="nextstepaction"]
-> [Wyświetlanie i Konfigurowanie telemetrii ochrony DDoS](telemetry-monitoring-alerting.md)
+> [Wyświetlanie i konfigurowanie telemetrii ochrony przed atakami DDoS](telemetry-monitoring-alerting.md)

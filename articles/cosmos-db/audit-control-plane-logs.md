@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743900"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092810"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Jak przeprowadzić inspekcję Azure Cosmos DB operacji na płaszczyźnie kontroli
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Płaszczyzna kontroli w Azure Cosmos DB to usługa RESTful, która umożliwia wykonywanie różnorodnych operacji na koncie usługi Azure Cosmos. Udostępnia on publiczny model zasobów (na przykład: baza danych, konto) i różne operacje wykonywane przez użytkowników końcowych w celu wykonywania akcji w modelu zasobów. Operacje płaszczyzny kontroli obejmują zmiany w ramach konta lub kontenera usługi Azure Cosmos. Na przykład operacje takie jak tworzenie konta usługi Azure Cosmos, Dodawanie regionu, przepływność aktualizacji, tryb failover w regionie, dodawanie sieci wirtualnej itp. to niektóre operacje płaszczyzny kontroli. W tym artykule wyjaśniono, jak przeprowadzić inspekcję operacji płaszczyzny kontroli w Azure Cosmos DB. Operacje płaszczyzny kontroli można uruchomić na kontach usługi Azure Cosmos przy użyciu interfejsu wiersza polecenia platformy Azure, programu PowerShell lub Azure Portal, a w przypadku kontenerów Użyj interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
 
@@ -170,29 +171,29 @@ Właściwość *ResourceDetails* zawiera całą treść zasobu jako ładunek ż�
 Poniżej przedstawiono kilka przykładów pobierania dzienników diagnostycznych dla operacji płaszczyzny kontroli:
 
 ```kusto
-AzureDiagnostics 
-| where Category startswith "ControlPlane"
+AzureDiagnostics 
+| where Category startswith "ControlPlane"
 | where OperationName contains "Update"
-| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
 | where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
-| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 Zapytanie w celu pobrania activityId i obiektu wywołującego, który zainicjował operację usuwania kontenera:

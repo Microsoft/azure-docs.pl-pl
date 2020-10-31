@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e07e12e82d96b591db324673f4c24b9074128065
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330374"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092997"
 ---
 # <a name="execute-python-script-module"></a>Wykonaj moduł skryptu języka Python
 
@@ -37,7 +37,7 @@ Azure Machine Learning używa dystrybucji Anaconda języka Python, która obejmu
 
 Aby uzyskać pełną listę, zapoznaj się z sekcją [preinstalowane pakiety Python](#preinstalled-python-packages).
 
-Aby zainstalować pakiety, które nie znajdują się na wstępnie zainstalowanej liście (na przykład *scikit-misc*), Dodaj następujący kod do skryptu: 
+Aby zainstalować pakiety, które nie znajdują się na wstępnie zainstalowanej liście (na przykład *scikit-misc* ), Dodaj następujący kod do skryptu: 
 
 ```python
 import os
@@ -110,17 +110,17 @@ Moduł wykonywania skryptu języka Python zawiera przykładowy kod w języku Pyt
 
 1. Dodaj moduł **wykonywania skryptu języka Python** do potoku.
 
-2. Dodaj i Połącz **pozycję DataSet1** dowolnych zestawów danych z projektanta, który ma być używany na potrzeby danych wejściowych. Odwołuje się do tego zestawu danych w skrypcie języka Python jako **DataFrame1**.
+2. Dodaj i Połącz **pozycję DataSet1** dowolnych zestawów danych z projektanta, który ma być używany na potrzeby danych wejściowych. Odwołuje się do tego zestawu danych w skrypcie języka Python jako **DataFrame1** .
 
     Użycie zestawu danych jest opcjonalne. Użyj go, jeśli chcesz wygenerować dane przy użyciu języka Python, lub użyj kodu Python, aby zaimportować dane bezpośrednio do modułu.
 
-    Ten moduł obsługuje Dodawanie drugiego zestawu danych w **Dataset2**. Odwołuje się do drugiego zestawu danych w skrypcie języka Python jako **DataFrame2**.
+    Ten moduł obsługuje Dodawanie drugiego zestawu danych w **Dataset2** . Odwołuje się do drugiego zestawu danych w skrypcie języka Python jako **DataFrame2** .
 
     Zestawy danych przechowywane w Azure Machine Learning są automatycznie konwertowane na Pandas ramki, gdy są ładowane z tym modułem.
 
     ![Wykonaj mapę wejściową języka Python](media/module/python-module.png)
 
-4. Aby uwzględnić nowe pakiety lub kod w języku Python, Połącz spakowany plik zawierający te zasoby niestandardowe z portem **pakietu skryptu** . Lub jeśli skrypt ma rozmiar większy niż 16 KB, użyj portu **pakietu skryptu** , aby uniknąć błędów, takich jak *CommandLine, przekracza limit 16597 znaków*. 
+4. Aby uwzględnić nowe pakiety lub kod w języku Python, Połącz spakowany plik zawierający te zasoby niestandardowe z portem **pakietu skryptu** . Lub jeśli skrypt ma rozmiar większy niż 16 KB, użyj portu **pakietu skryptu** , aby uniknąć błędów, takich jak *CommandLine, przekracza limit 16597 znaków* . 
 
     
     1. Pakiet skryptu i innych zasobów niestandardowych należy powiązać z plikiem zip.
@@ -129,7 +129,10 @@ Moduł wykonywania skryptu języka Python zawiera przykładowy kod w języku Pyt
     1. Połącz moduł DataSet z portem **pakietu** **wykonywania skryptu języka R** .
     
     Podczas wykonywania potoku można użyć dowolnego pliku zawartego w przekazanym skompresowanym archiwum. Jeśli archiwum zawiera strukturę katalogów, struktura jest zachowywana.
-    
+ 
+    > [!WARNING]
+    > **Nie** używaj **aplikacji** jako nazwy folderu lub skryptu, ponieważ **aplikacja** jest słowem zastrzeżonym dla wbudowanych usług. Można jednak użyć innych przestrzeni nazw, takich jak `app123` .
+   
     Poniżej znajduje się przykład pakietu skryptu, który zawiera plik skryptu w języku Python i plik txt:
       
     > [!div class="mx-imgBorder"]
@@ -182,7 +185,7 @@ Moduł wykonywania skryptu języka Python zawiera przykładowy kod w języku Pyt
     Do projektanta można zwrócić dwa zestawy danych, które muszą być sekwencją typu `pandas.DataFrame` . Możesz tworzyć inne dane wyjściowe w kodzie języka Python i zapisywać je bezpośrednio w usłudze Azure Storage.
 
     > [!WARNING]
-    > **Nie** zaleca się łączenia się z bazą danych ani innymi magazynami zewnętrznymi w **module wykonywania skryptów języka Python**. Możesz użyć modułu [Importuj dane](./import-data.md) i [modułu eksport danych](./export-data.md)     
+    > **Nie** zaleca się łączenia się z bazą danych ani innymi magazynami zewnętrznymi w **module wykonywania skryptów języka Python** . Możesz użyć modułu [Importuj dane](./import-data.md) i [modułu eksport danych](./export-data.md)     
 
 6. Prześlij potok.
 
@@ -194,9 +197,9 @@ Wyniki wszelkich obliczeń przez osadzony kod języka Python muszą zostać poda
 
 Moduł zwraca dwa zestawy danych:  
   
-+ **Zestaw danych wyników 1**, zdefiniowany przez pierwszą zwróconą ramkę danych Pandas w skrypcie języka Python.
++ **Zestaw danych wyników 1** , zdefiniowany przez pierwszą zwróconą ramkę danych Pandas w skrypcie języka Python.
 
-+ **Zestaw danych wyników 2**, zdefiniowany przez sekundę zwróconą ramkę danych Pandas w skrypcie języka Python.
++ **Zestaw danych wyników 2** , zdefiniowany przez sekundę zwróconą ramkę danych Pandas w skrypcie języka Python.
 
 ## <a name="preinstalled-python-packages"></a>Wstępnie zainstalowane pakiety języka Python
 Wstępnie zainstalowane pakiety są następujące:

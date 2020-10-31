@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
-ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc9c7c2f06b9d39243b8593b20ddeb7ffa2f886c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80758029"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092368"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Indeksowanie pomocnicze w Azure Cosmos DB interfejs API Cassandra
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Interfejs API Cassandra w Azure Cosmos DB wykorzystuje podstawową infrastrukturę indeksowania, aby uwidocznić wytrzymałość indeksowania, która jest nieodłączna w danej platformie. Jednak, w przeciwieństwie do podstawowego interfejsu API SQL, interfejs API Cassandra w Azure Cosmos DB domyślnie nie indeksuje wszystkich atrybutów. Zamiast tego obsługuje indeksowanie pomocnicze w celu utworzenia indeksu dla określonych atrybutów, co zachowuje się tak samo jak Apache Cassandra.  
 

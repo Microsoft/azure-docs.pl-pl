@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495901"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091807"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Żądanie usługi nie powiodło się. Stan: 403 (dostęp zabroniony)
 
@@ -25,7 +25,7 @@ Ten błąd może wystąpić w przypadku wielu typów żądań obsługi, które w
 
 ### <a name="cause-1"></a>Przyczyna #1
 
-Najczęściej ten błąd oznacza, że uprawnienia kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure nie są poprawnie skonfigurowane. Wiele akcji wystąpienia usługi Azure Digital bliźniaczych reprezentacji wymaga posiadania roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* **w wystąpieniu, które próbujesz zarządzać**. 
+Najczęściej ten błąd oznacza, że uprawnienia kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure nie są poprawnie skonfigurowane. Wiele akcji wystąpienia usługi Azure Digital bliźniaczych reprezentacji wymaga posiadania roli *właściciela danych Digital bliźniaczych reprezentacji platformy Azure* **w wystąpieniu, które próbujesz zarządzać** . 
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
@@ -52,7 +52,7 @@ Należy zauważyć, że ta rola różni się od...
 
 #### <a name="fix-issues"></a>Rozwiązywanie problemów 
 
-Jeśli nie masz tego przypisania roli, ktoś mający rolę właściciela w **subskrypcji platformy Azure** powinien uruchomić następujące polecenie, aby udzielić użytkownikowi platformy Azure roli *właściciela danych Digital bliźniaczych reprezentacji* w **wystąpieniu usługi Azure Digital bliźniaczych reprezentacji**. 
+Jeśli nie masz tego przypisania roli, ktoś mający rolę właściciela w **subskrypcji platformy Azure** powinien uruchomić następujące polecenie, aby udzielić użytkownikowi platformy Azure roli *właściciela danych Digital bliźniaczych reprezentacji* w **wystąpieniu usługi Azure Digital bliźniaczych reprezentacji** . 
 
 Jeśli jesteś właścicielem subskrypcji, możesz uruchomić to polecenie samodzielnie. Jeśli nie, skontaktuj się z właścicielem, aby uruchomić to polecenie w Twoim imieniu.
 
@@ -60,7 +60,7 @@ Jeśli jesteś właścicielem subskrypcji, możesz uruchomić to polecenie samod
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-Aby uzyskać więcej informacji na temat tego wymagania roli i procesu przypisywania, zobacz [sekcję *Konfigurowanie uprawnień dostępu użytkownika* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) w temacie *How to: Konfigurowanie wystąpienia i uwierzytelniania (CLI lub portal)*.
+Aby uzyskać więcej informacji na temat tego wymagania roli i procesu przypisywania, zobacz [sekcję *Konfigurowanie uprawnień dostępu użytkownika*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) w temacie *How to: Konfigurowanie wystąpienia i uwierzytelniania (CLI lub portal)* .
 
 Jeśli masz już to przypisanie roli *i* używasz rejestracji aplikacji usługi Azure AD do uwierzytelniania aplikacji klienckiej, możesz przejść do następnego rozwiązania, jeśli to rozwiązanie nie rozwiązało problemu 403.
 

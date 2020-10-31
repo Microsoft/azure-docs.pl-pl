@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047679"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091739"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: rejestrowanie diagnostyczne
 
@@ -26,13 +26,13 @@ Poniżej przedstawiono sposób włączania ustawień diagnostycznych dla wystąp
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Można go znaleźć, wpisując jego nazwę na pasku wyszukiwania portalu. 
 
-2. Z menu wybierz pozycję **Ustawienia diagnostyczne** , a następnie **Dodaj ustawienie diagnostyczne**.
+2. Z menu wybierz pozycję **Ustawienia diagnostyczne** , a następnie **Dodaj ustawienie diagnostyczne** .
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych i przycisk do dodania":::
 
 3. Na następnej stronie wypełnij następujące wartości:
-     * **Nazwa ustawienia diagnostycznego**: nadaj nazwę ustawień diagnostycznych.
-     * **Szczegóły kategorii**: Wybierz operacje, które chcesz monitorować, i zaznacz pola wyboru, aby włączyć diagnostykę tych operacji. Dla operacji, które mogą być zgłaszane przez ustawienia diagnostyczne, są następujące:
+     * **Nazwa ustawienia diagnostycznego** : nadaj nazwę ustawień diagnostycznych.
+     * **Szczegóły kategorii** : Wybierz operacje, które chcesz monitorować, i zaznacz pola wyboru, aby włączyć diagnostykę tych operacji. Dla operacji, które mogą być zgłaszane przez ustawienia diagnostyczne, są następujące:
         - DigitalTwinsOperation
         - EventRoutesOperation
         - ModelsOperation
@@ -40,7 +40,7 @@ Poniżej przedstawiono sposób włączania ustawień diagnostycznych dla wystąp
         - AllMetrics
         
         Aby uzyskać więcej informacji na temat tych opcji, zobacz sekcję [*szczegóły kategorii*](#category-details) poniżej.
-     * **Szczegóły lokalizacji docelowej**: Wybierz miejsce, do którego chcesz wysłać dzienniki. Można wybrać dowolną kombinację trzech opcji:
+     * **Szczegóły lokalizacji docelowej** : Wybierz miejsce, do którego chcesz wysłać dzienniki. Można wybrać dowolną kombinację trzech opcji:
         - Wysyłanie do usługi Log Analytics
         - Zarchiwizuj na koncie magazynu
         - Przesyłaj strumieniowo do centrum zdarzeń
@@ -109,18 +109,18 @@ Oto opisy pól i właściwości dzienników interfejsu API.
 | Nazwa pola | Typ danych | Opis |
 |-----|------|-------------|
 | `Time` | DateTime | Data i godzina wystąpienia tego zdarzenia (UTC) |
-| `ResourceID` | Ciąg | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
-| `OperationName` | Ciąg  | Typ akcji wykonywanej w ramach zdarzenia |
-| `OperationVersion` | Ciąg | Wersja interfejsu API wykorzystana podczas zdarzenia |
-| `Category` | Ciąg | Typ emitowanego zasobu |
-| `ResultType` | Ciąg | Wynik zdarzenia |
-| `ResultSignature` | Ciąg | Kod stanu HTTP dla zdarzenia |
-| `ResultDescription` | Ciąg | Dodatkowe szczegóły dotyczące zdarzenia |
-| `DurationMs` | Ciąg | Czas trwania zdarzenia w milisekundach |
-| `CallerIpAddress` | Ciąg | Maskowany źródłowy adres IP dla zdarzenia |
+| `ResourceID` | String | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
+| `OperationName` | String  | Typ akcji wykonywanej w ramach zdarzenia |
+| `OperationVersion` | String | Wersja interfejsu API wykorzystana podczas zdarzenia |
+| `Category` | String | Typ emitowanego zasobu |
+| `ResultType` | String | Wynik zdarzenia |
+| `ResultSignature` | String | Kod stanu HTTP dla zdarzenia |
+| `ResultDescription` | String | Dodatkowe szczegóły dotyczące zdarzenia |
+| `DurationMs` | String | Czas trwania zdarzenia w milisekundach |
+| `CallerIpAddress` | String | Maskowany źródłowy adres IP dla zdarzenia |
 | `CorrelationId` | Guid (identyfikator GUID) | Klient dostarczył unikatowy identyfikator dla zdarzenia |
-| `Level` | Ciąg | Ważność rejestrowania zdarzenia |
-| `Location` | Ciąg | Region, w którym miało miejsce zdarzenie |
+| `Level` | String | Ważność rejestrowania zdarzenia |
+| `Location` | String | Region, w którym miało miejsce zdarzenie |
 | `RequestUri` | Adresu | Punkt końcowy użyty podczas zdarzenia |
 
 Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
@@ -132,7 +132,7 @@ Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
   "time": "2020-03-14T21:11:14.9918922Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/digitaltwins/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "DigitalTwinOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -142,7 +142,7 @@ Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
   "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-05-31-preview"
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31"
 }
 ```
 
@@ -153,7 +153,7 @@ Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
   "time": "2020-10-29T21:12:24.2337302Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/models/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "ModelsOperation",
   "resultType": "Success",
   "resultSignature": "201",
@@ -163,7 +163,7 @@ Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
   "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-10-31",
 }
 ```
 
@@ -174,7 +174,7 @@ Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
   "time": "2020-12-04T21:11:44.1690031Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/query/action",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "QueryOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -184,7 +184,7 @@ Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
   "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-10-31",
 }
 ```
 
@@ -195,13 +195,13 @@ Jest to schemat `ADTEventRoutesOperation` dzienników. Zawierają one informacje
 |Nazwa pola | Typ danych | Opis |
 |-----|------|-------------|
 | `Time` | DateTime | Data i godzina wystąpienia tego zdarzenia (UTC) |
-| `ResourceId` | Ciąg | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
-| `OperationName` | Ciąg  | Typ akcji wykonywanej w ramach zdarzenia |
-| `Category` | Ciąg | Typ emitowanego zasobu |
-| `ResultDescription` | Ciąg | Dodatkowe szczegóły dotyczące zdarzenia |
-| `Level` | Ciąg | Ważność rejestrowania zdarzenia |
-| `Location` | Ciąg | Region, w którym miało miejsce zdarzenie |
-| `EndpointName` | Ciąg | Nazwa punktu końcowego ruchu wychodzącego utworzonego w usłudze Azure Digital bliźniaczych reprezentacji |
+| `ResourceId` | String | Azure Resource Manager identyfikator zasobu dla zasobu, w którym miało miejsce zdarzenie |
+| `OperationName` | String  | Typ akcji wykonywanej w ramach zdarzenia |
+| `Category` | String | Typ emitowanego zasobu |
+| `ResultDescription` | String | Dodatkowe szczegóły dotyczące zdarzenia |
+| `Level` | String | Ważność rejestrowania zdarzenia |
+| `Location` | String | Region, w którym miało miejsce zdarzenie |
+| `EndpointName` | String | Nazwa punktu końcowego ruchu wychodzącego utworzonego w usłudze Azure Digital bliźniaczych reprezentacji |
 
 Poniżej przedstawiono przykładowe treści JSON dla tego typu dzienników.
 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb97f9ee822c808057139bd25b2e4f43c48a2e48
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ec4ec5b3ea522200562d05d1891f46e69c9e5ca8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490513"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092164"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurowanie zapory IP w Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Aby zabezpieczyć dane przechowywane na koncie, Azure Cosmos DB obsługuje model autoryzacji oparty na kluczu tajnym, który wykorzystuje silne kod uwierzytelniania wiadomości oparte na wykorzystaniu algorytmu (HMAC). Ponadto Azure Cosmos DB obsługuje kontrolę dostępu opartą na protokole IP na potrzeby obsługi zapory przychodzącej. Ten model jest podobny do reguł zapory tradycyjnego systemu bazy danych i zapewnia dodatkowy poziom zabezpieczeń dla Twojego konta. Za pomocą zapór można skonfigurować konto platformy Azure Cosmos, aby było dostępne tylko z zatwierdzonego zestawu maszyn i/lub usług w chmurze. Dostęp do danych przechowywanych w bazie danych usługi Azure Cosmos z tych zatwierdzonych zestawów maszyn i usług będzie nadal wymagał, aby obiekt wywołujący mógł przedstawić prawidłowy token autoryzacji.
 
@@ -34,7 +35,7 @@ Dane przechowywane na koncie usługi Azure Cosmos DB można zabezpieczyć za pom
 
 ## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Skonfiguruj zaporę IP przy użyciu Azure Portal
 
-Aby ustawić zasady kontroli dostępu IP w Azure Portal, przejdź do strony konto Azure Cosmos DB i wybierz opcję **Zapora i sieci wirtualne** w menu nawigacji. Zmień wartość **Zezwalaj na dostęp z** wartości na **wybrane sieci**, a następnie wybierz pozycję **Zapisz**.
+Aby ustawić zasady kontroli dostępu IP w Azure Portal, przejdź do strony konto Azure Cosmos DB i wybierz opcję **Zapora i sieci wirtualne** w menu nawigacji. Zmień wartość **Zezwalaj na dostęp z** wartości na **wybrane sieci** , a następnie wybierz pozycję **Zapisz** .
 
 :::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Zrzut ekranu przedstawiający sposób otwierania strony zapory w Azure Portal":::
 
@@ -47,7 +48,7 @@ Po włączeniu kontroli dostępu do adresów IP Azure Portal zapewnia możliwoś
 
 Po włączeniu programowo zasad kontroli dostępu IP należy dodać adres IP dla Azure Portal do właściwości **ipRangeFilter** , aby zachować dostęp. Adresy IP portalu to:
 
-|Region|Adres IP|
+|Region (Region)|Adres IP|
 |------|----------|
 |Niemcy|51.4.229.218|
 |Chiny|139.217.8.252|
@@ -75,7 +76,7 @@ Aby uprościć programowanie, Azure Portal ułatwia identyfikowanie i Dodawanie 
 
 Portal automatycznie wykrywa adres IP klienta. Może to być adres IP klienta komputera lub adres IP bramy sieci. Pamiętaj o usunięciu tego adresu IP przed przejęciem obciążeń do środowiska produkcyjnego.
 
-Aby dodać bieżący adres IP do listy adresów IP, wybierz pozycję **Dodaj mój bieżący adres IP**. Następnie wybierz pozycję **Zapisz**.
+Aby dodać bieżący adres IP do listy adresów IP, wybierz pozycję **Dodaj mój bieżący adres IP** . Następnie wybierz pozycję **Zapisz** .
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Zrzut ekranu przedstawiający sposób otwierania strony zapory w Azure Portal":::
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 07d9ae0d7cdf8e823bb59cb376d40cdf846bb2cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674746"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092759"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitoruj kondycję obszaru roboczego Log Analytics w Azure Monitor
 Aby zachować wydajność i dostępność obszaru roboczego Log Analytics w Azure Monitor, musisz mieć możliwość aktywnego wykrywania wszelkich powstających problemów. W tym artykule opisano sposób monitorowania kondycji obszaru roboczego Log Analytics przy użyciu danych z tabeli [operacje](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) . Ta tabela jest uwzględniona w każdym obszarze roboczym Log Analytics i zawiera błędy i ostrzeżenia, które występują w obszarze roboczym. Należy regularnie przeglądać te dane i tworzyć alerty w celu ich aktywnego powiadamiania o wszelkich ważnych zdarzeniach w obszarze roboczym.
@@ -60,15 +60,15 @@ Operacje pozyskiwania to problemy, które wystąpiły podczas przyjmowania danyc
 | Metadane. | Błąd | Wykryto błąd konfiguracji. | |
 | Zbieranie danych | Błąd   | Dane zostały usunięte, ponieważ żądanie zostało utworzone wcześniej niż określona liczba dni. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Zbieranie danych | Info    | Wykryto konfigurację maszyny kolekcji.| |
-| Zbieranie danych | Info    | Zbieranie danych zostało uruchomione z powodu nowego dnia. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Zbieranie danych | Ostrzeżenie | Zbieranie danych zostało zatrzymane z powodu osiągnięcia dziennego limitu.| [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Zbieranie danych | Info    | Zbieranie danych zostało uruchomione z powodu nowego dnia. | [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| Zbieranie danych | Ostrzeżenie | Zbieranie danych zostało zatrzymane z powodu osiągnięcia dziennego limitu.| [Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
 | Przetwarzanie danych | Błąd   | Nieprawidłowy format JSON. | [Wysyłanie danych dziennika do Azure Monitor za pomocą interfejsu API modułu zbierającego dane HTTP (publiczna wersja zapoznawcza)](data-collector-api.md#request-body) | 
 | Przetwarzanie danych | Ostrzeżenie | Wartość została przycięta do maksymalnego dozwolonego rozmiaru. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Przetwarzanie danych | Ostrzeżenie | Osiągnięto limit rozmiaru wartości pola. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
 | Szybkość pozyskiwania | Info | Limit szybkości pozyskiwania zbliżający się do 70%. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Szybkość pozyskiwania | Ostrzeżenie | Limit szybkości pozyskiwania zbliżający się do limitu. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Szybkość pozyskiwania | Błąd   | Osiągnięto limit szybkości. | [Limity usługi Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Magazyn | Błąd   | Nie można uzyskać dostępu do konta magazynu, ponieważ użyte poświadczenia są nieprawidłowe.  |
+| Storage | Błąd   | Nie można uzyskać dostępu do konta magazynu, ponieważ użyte poświadczenia są nieprawidłowe.  |
 
 
 
