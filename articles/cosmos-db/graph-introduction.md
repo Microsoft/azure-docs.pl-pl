@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 30e1a9e4b82971180f375a006f4825832e6179e9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 98ad02c134df919c593c87dd96a9a71d73371a1c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490615"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087421"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Wprowadzenie do interfejsu API Gremlin w Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 [Azure Cosmos DB](introduction.md)   to globalnie dystrybuowana, wielomodelowa usługa bazy danych firmy Microsoft dla aplikacji o znaczeniu strategicznym. Jest to wielomodelowa baza danych, która obsługuje modele danych w dokumentach, klucz-wartość, Graf i rodzina kolumn. "Azure Cosmos DB udostępnia usługę bazy danych grafu za pośrednictwem interfejsu API Gremlin w w pełni zarządzanej usłudze bazy danych, która jest przeznaczona dla dowolnej skali.  
 
@@ -110,19 +111,19 @@ Przykładowy graf pomoże dowiedzieć się, jak można wyrazić zapytania w jęz
 
 Ten wykres ma następujące typy *wierzchołków* (są one również nazywane "etykietą" w Gremlin):
 
-* **Ludzie**: wykres ma trzy osoby, Robin, Thomas i Ben
-* **Zainteresowania**: ich zainteresowania, w tym przykładzie, gra piłkarskia
-* **Urządzenia**: urządzenia używane przez osoby
-* **Systemy operacyjne**: systemy operacyjne, na których działają urządzenia
-* **Miejsce**: miejsca, z których uzyskuje się dostęp do urządzeń
+* **Ludzie** : wykres ma trzy osoby, Robin, Thomas i Ben
+* **Zainteresowania** : ich zainteresowania, w tym przykładzie, gra piłkarskia
+* **Urządzenia** : urządzenia używane przez osoby
+* **Systemy operacyjne** : systemy operacyjne, na których działają urządzenia
+* **Miejsce** : miejsca, z których uzyskuje się dostęp do urządzeń
 
 Reprezentujemy relacje między tymi jednostkami za pośrednictwem następujących typów *krawędzi* :
 
-* **Wie**: na przykład "" Thomas wie Robin "
-* **Zainteresowani**: aby reprezentować interesy osób w naszym grafie, na przykład "Ben zainteresuje Cię"
-* **RunsOS**: Laptop działa w systemie operacyjnym Windows
-* **Używa**: do reprezentowania urządzenia, którego używa osoba. Na przykład Robin używa telefonu firmy Motorola o numerze seryjnym 77
-* **Zlokalizowane**: do reprezentowania lokalizacji, z której uzyskuje się dostęp do urządzeń
+* **Wie** : na przykład "" Thomas wie Robin "
+* **Zainteresowani** : aby reprezentować interesy osób w naszym grafie, na przykład "Ben zainteresuje Cię"
+* **RunsOS** : Laptop działa w systemie operacyjnym Windows
+* **Używa** : do reprezentowania urządzenia, którego używa osoba. Na przykład Robin używa telefonu firmy Motorola o numerze seryjnym 77
+* **Zlokalizowane** : do reprezentowania lokalizacji, z której uzyskuje się dostęp do urządzeń
 
 Konsola Gremlin to interaktywny Terminal oferowany przez Apache TinkerPop i ten terminal jest używany do interakcji z danymi grafu. Aby dowiedzieć się więcej, zobacz dokument szybkiego startu dotyczący [sposobu korzystania z konsoli Gremlin](create-graph-gremlin-console.md). Można również wykonywać te operacje przy użyciu sterowników Gremlin na wybranej platformie (Java, Node.js, Python lub .NET). W poniższych przykładach pokazano, jak uruchamiać zapytania dotyczące danych z tego wykresu przy użyciu konsoli programu Gremlin.
 

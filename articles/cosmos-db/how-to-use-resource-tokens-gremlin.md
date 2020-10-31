@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df25ab4b0f5593ab21336d002ad2f9f10795bdcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570556"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085738"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Używanie tokenów zasobów Azure Cosmos DB z zestawem SDK Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 W tym artykule wyjaśniono, jak używać [tokenów zasobów Azure Cosmos DB](secure-access-to-data.md) , aby uzyskać dostęp do bazy danych grafu za pomocą zestawu SDK Gremlin.
 
@@ -100,7 +101,7 @@ Za pomocą jednego konta Gremlin można wydać nieograniczoną liczbę tokenów.
 
 ## <a name="permission"></a>Uprawnienie
 
-Typowym błędem napotykanym przez aplikacje podczas korzystania z tokenów zasobów jest "niewystarczające uprawnienia podane w nagłówku autoryzacji dla odpowiedniego żądania. Spróbuj ponownie, używając innego nagłówka autoryzacji. " Ten błąd jest zwracany, gdy przechodzenie Gremlin próbuje napisać krawędY lub wierzchołek, ale token zasobu przyznaje tylko uprawnienia do *odczytu* . Zbadaj przechodzenie, aby sprawdzić, czy zawiera on następujące kroki: *. addV ()*, *. addE ()*, *. Drop ()*, lub *. Property ()*.
+Typowym błędem napotykanym przez aplikacje podczas korzystania z tokenów zasobów jest "niewystarczające uprawnienia podane w nagłówku autoryzacji dla odpowiedniego żądania. Spróbuj ponownie, używając innego nagłówka autoryzacji. " Ten błąd jest zwracany, gdy przechodzenie Gremlin próbuje napisać krawędY lub wierzchołek, ale token zasobu przyznaje tylko uprawnienia do *odczytu* . Zbadaj przechodzenie, aby sprawdzić, czy zawiera on następujące kroki: *. addV ()* , *. addE ()* , *. Drop ()* , lub *. Property ()* .
 
 ## <a name="next-steps"></a>Następne kroki
 * [Kontrola dostępu oparta na rolach (Azure RBAC)](role-based-access-control.md) w Azure Cosmos DB

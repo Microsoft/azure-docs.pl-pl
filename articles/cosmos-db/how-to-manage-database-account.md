@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5a8351b8c74f9219cf14575cc326fa8049264ed7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4977a9ef8af75797f1e1989975688d7904f0c7b1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491125"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086452"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Zarządzanie kontem usługi Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W poniższym artykule opisano sposób zarządzania różnymi zadaniami w ramach konta usługi Azure Cosmos przy użyciu witryny Azure Portal, programu Azure PowerShell, interfejsu wiersza polecenia platformy Azure i szablonów usługi Azure Resource Manager.
 
@@ -47,7 +48,7 @@ Zobacz [Tworzenie konta Azure Cosmos DB z szablonami Azure Resource Manager](./m
 
 1. Aby usunąć regiony, usuń co najmniej jeden region z mapy, wybierając niebieskie sześciokąty ze znacznikami wyboru. Możesz też wybrać ikonę „kosza na śmieci” (🗑) z prawej strony regionu.
 
-1. Aby zapisać zmiany, wybierz pozycję **OK**.
+1. Aby zapisać zmiany, wybierz pozycję **OK** .
 
    :::image type="content" source="./media/how-to-manage-database-account/add-region.png" alt-text="Menu dodawania lub usuwania regionów":::
 
@@ -147,13 +148,13 @@ Opcja automatycznej pracy awaryjnej umożliwia Azure Cosmos DB przełączenia w 
 
 1. Na koncie usługi Azure Cosmos Otwórz okienko **Replikuj dane globalnie** .
 
-2. U góry okienka wybierz pozycję **Automatyczne przełączanie w tryb failover**.
+2. U góry okienka wybierz pozycję **Automatyczne przełączanie w tryb failover** .
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu dodawania lub usuwania regionów":::
 
-3. W okienku **Automatyczne przełączanie w tryb failover** upewnij się, że przełącznik **Włącz automatyczne przejście w tryb failover** jest ustawiony w pozycji **WŁ**. 
+3. W okienku **Automatyczne przełączanie w tryb failover** upewnij się, że przełącznik **Włącz automatyczne przejście w tryb failover** jest ustawiony w pozycji **WŁ** . 
 
-4. Wybierz pozycję **Zapisz**.
+4. Wybierz pozycję **Zapisz** .
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu dodawania lub usuwania regionów":::
 
@@ -176,15 +177,15 @@ Po skonfigurowaniu konta usługi Cosmos do automatycznego przełączania w tryb 
 
 1. Na koncie usługi Azure Cosmos Otwórz okienko **Replikuj dane globalnie** .
 
-2. U góry okienka wybierz pozycję **Automatyczne przełączanie w tryb failover**.
+2. U góry okienka wybierz pozycję **Automatyczne przełączanie w tryb failover** .
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu dodawania lub usuwania regionów":::
 
-3. W okienku **Automatyczne przełączanie w tryb failover** upewnij się, że przełącznik **Włącz automatyczne przejście w tryb failover** jest ustawiony w pozycji **WŁ**.
+3. W okienku **Automatyczne przełączanie w tryb failover** upewnij się, że przełącznik **Włącz automatyczne przejście w tryb failover** jest ustawiony w pozycji **WŁ** .
 
 4. Aby zmodyfikować priorytety trybu failover, przeciągnij regiony odczytu za pośrednictwem trzech kropek znajdujących się po lewej stronie wiersza, który jest wyświetlany po umieszczeniu na nich wskaźnika myszy.
 
-5. Wybierz pozycję **Zapisz**.
+5. Wybierz pozycję **Zapisz** .
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu dodawania lub usuwania regionów":::
 
@@ -210,13 +211,13 @@ Proces przeprowadzania ręcznej pracy awaryjnej polega na zmianie regionu zapisu
 
 1. Przejdź do konta usługi Azure Cosmos i otwórz menu **Replikacja danych globalnie** .
 
-2. W górnej części menu wybierz pozycję **Ręczne przejście do trybu failover**.
+2. W górnej części menu wybierz pozycję **Ręczne przejście do trybu failover** .
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu dodawania lub usuwania regionów":::
 
 3. W menu **Ręczne przejście do trybu failover** wybierz nowy region zapisu. Zaznacz pole wyboru, aby wskazać, że rozumiesz, iż ta opcja zmienia region zapisu.
 
-4. Aby wyzwolić tryb failover, wybierz pozycję **OK**.
+4. Aby wyzwolić tryb failover, wybierz pozycję **OK** .
 
    :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menu dodawania lub usuwania regionów":::
 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 340ec7c16c5ed3e477cc2c4505c8b018d2d39a06
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7cf0f91a655901373b02a51004cf77eb25c8cf8e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486008"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085891"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurowanie czasu wygaśnięcia w usłudze Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W usłudze Azure Cosmos DB możesz skonfigurować czas wygaśnięcia (Time to Live, TTL) na poziomie kontenera lub zastąpić go na poziomie elementu po ustawieniu TTL dla kontenera. TTL można skonfigurować dla kontenera przy użyciu witryny Azure Portal lub zestawu SDK właściwego dla używanego języka. Zastępowanie TTL na poziome elementu można skonfigurować za pomocą zestawów SDK.
 
@@ -24,18 +25,18 @@ W usłudze Azure Cosmos DB możesz skonfigurować czas wygaśnięcia (Time to Li
 
 Wykonaj następujące czynności, aby włączyć czas wygaśnięcia dla kontenera bez terminu wygaśnięcia. Włącz tę funkcję, aby umożliwić zastępowanie TTL na poziomie elementu. Możesz także ustawić TTL, wprowadzając niezerową liczbę sekund.
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Utwórz nowe konto usługi Azure Cosmos lub wybierz istniejące.
 
-3. Otwórz okienko **Eksplorator danych**.
+3. Otwórz okienko **Eksplorator danych** .
 
 4. Wybierz istniejący kontener, rozwiń go, a następnie zmodyfikuj następujące wartości:
 
-   * Otwórz okno **Skalowanie i ustawienia**.
-   * W obszarze **Ustawienia** znajdź pozycję **Czas wygaśnięcia**.
+   * Otwórz okno **Skalowanie i ustawienia** .
+   * W obszarze **Ustawienia** znajdź pozycję **Czas wygaśnięcia** .
    * Wybierz pozycję **Włączony (brak wartości domyślnej)** lub wybierz pozycję **Włączony** i ustaw wartość TTL.
-   * Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+   * Kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
    :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Konfigurowanie czasu wygaśnięcia w witrynie Azure Portal":::
 
@@ -208,20 +209,20 @@ Oprócz skonfigurowania domyślnego czasu wygaśnięcia dla kontenera możesz us
 
 Wykonaj następujące kroki, aby włączyć czas wygaśnięcia dla elementu:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Utwórz nowe konto usługi Azure Cosmos lub wybierz istniejące.
 
-3. Otwórz okienko **Eksplorator danych**.
+3. Otwórz okienko **Eksplorator danych** .
 
 4. Wybierz istniejący kontener, rozwiń go, a następnie zmodyfikuj następujące wartości:
 
-   * Otwórz okno **Skalowanie i ustawienia**.
-   * W obszarze **Ustawienia** znajdź pozycję **Czas wygaśnięcia**.
+   * Otwórz okno **Skalowanie i ustawienia** .
+   * W obszarze **Ustawienia** znajdź pozycję **Czas wygaśnięcia** .
    * Wybierz opcję **włączone (brak wartości domyślnej)** lub wybierz opcję **włączone** i ustaw wartość TTL. 
-   * Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+   * Kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
-5. Następnie przejdź do elementu, dla którego chcesz ustawić czas wygaśnięcia, Dodaj `ttl` Właściwość i wybierz pozycję **Aktualizuj**. 
+5. Następnie przejdź do elementu, dla którego chcesz ustawić czas wygaśnięcia, Dodaj `ttl` Właściwość i wybierz pozycję **Aktualizuj** . 
 
    ```json
    {

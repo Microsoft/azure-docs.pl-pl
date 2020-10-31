@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3c363552d1a196bed49e1ef3448a8216b7bcae2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276115"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086061"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Wykonywanie zapytania dotyczącego kontenera usługi Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule wyjaśniono, jak wykonywać zapytania dla kontenera (kolekcji, grafu lub tabeli) w usłudze Azure Cosmos DB. W szczególności obejmuje to, w jaki sposób zapytania dotyczące partycji i wielu partycji działają w Azure Cosmos DB.
 
@@ -57,9 +58,9 @@ Zestawy Azure Cosmos DB SDK w wersji 1.9.0 i nowszych obsługują opcje równole
 
 Możesz zarządzać równoległym wykonywaniem zapytań przez dostrojenie następujących parametrów:
 
-- **MaxConcurrency**: ustawia maksymalną liczbę jednoczesnych połączeń sieciowych z partycjami kontenera. Jeśli ustawisz tę właściwość na `-1` , zestaw SDK zarządza stopień równoległości. Jeśli  `MaxConcurrency` ustawiona na `0` , istnieje pojedyncze połączenie sieciowe z partycjami kontenera.
+- **MaxConcurrency** : ustawia maksymalną liczbę jednoczesnych połączeń sieciowych z partycjami kontenera. Jeśli ustawisz tę właściwość na `-1` , zestaw SDK zarządza stopień równoległości. Jeśli  `MaxConcurrency` ustawiona na `0` , istnieje pojedyncze połączenie sieciowe z partycjami kontenera.
 
-- **MaxBufferedItemCount**: wyznacza kompromis między wykorzystaniem pamięci po stronie klienta i opóźnieniem zapytań. Jeśli ta opcja zostanie pominięta lub ustawiona na wartość -1, zestaw SDK będzie zarządzać liczbą elementów buforowanych podczas równoległego wykonywania zapytań.
+- **MaxBufferedItemCount** : wyznacza kompromis między wykorzystaniem pamięci po stronie klienta i opóźnieniem zapytań. Jeśli ta opcja zostanie pominięta lub ustawiona na wartość -1, zestaw SDK będzie zarządzać liczbą elementów buforowanych podczas równoległego wykonywania zapytań.
 
 Ze względu na Azure Cosmos DB możliwości zrównoleglanie zapytań między partycjami, opóźnienie zapytań będzie ogólnie skalowane, a system dodaje [partycje fizyczne](partitioning-overview.md#physical-partitions). Jednak opłata za RU zostanie znacznie zwiększona w miarę wzrostu całkowitej liczby partycji fizycznych.
 

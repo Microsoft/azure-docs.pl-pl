@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: eb1cbed7b974b6f0015591df01674e40aac2d8c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390877"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086418"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Skonfiguruj współużytkowanie zasobów między źródłami (CORS)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Współużytkowanie zasobów między źródłami (CORS) to funkcja protokołu HTTP, która umożliwia aplikacji sieci Web działającej w ramach jednej domeny dostęp do zasobów w innej domenie. Przeglądarki sieci Web implementują ograniczenie zabezpieczeń nazywane zasadami tego samego źródła, które uniemożliwiają stronie sieci Web wywoływanie interfejsów API w innej domenie. Jednak mechanizm CORS zapewnia bezpieczny sposób, aby umożliwić domenie pochodzenia wywoływanie interfejsów API w innej domenie. Interfejs API Core (SQL) w Azure Cosmos DB obsługuje teraz funkcję współużytkowania zasobów między źródłami (CORS) przy użyciu nagłówka "allowedOrigins". Po włączeniu obsługi mechanizmu CORS dla konta usługi Azure Cosmos są oceniane tylko uwierzytelnione żądania, aby określić, czy są dozwolone zgodnie z określonymi regułami.
 
@@ -28,7 +29,7 @@ Wykonaj następujące kroki, aby włączyć współużytkowanie zasobów między
 
 1. Przejdź do konta usługi Azure Cosmos DB. Otwórz blok **CORS** .
 
-2. Określ rozdzieloną przecinkami listę źródeł, które mogą nawiązywać wywołania między źródłami do konta Azure Cosmos DB. Na przykład, `https://www.mydomain.com` , `https://mydomain.com` `https://api.mydomain.com` . Możesz również użyć symbolu wieloznacznego " \* ", aby zezwolić na wszystkie źródła i wybrać opcję **Prześlij**. 
+2. Określ rozdzieloną przecinkami listę źródeł, które mogą nawiązywać wywołania między źródłami do konta Azure Cosmos DB. Na przykład, `https://www.mydomain.com` , `https://mydomain.com` `https://api.mydomain.com` . Możesz również użyć symbolu wieloznacznego " \* ", aby zezwolić na wszystkie źródła i wybrać opcję **Prześlij** . 
 
    > [!NOTE]
    > Obecnie nie można używać symboli wieloznacznych jako części nazwy domeny. Na przykład `https://*.mydomain.net` format nie jest jeszcze obsługiwany. 

@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: korzystanie z usługi Azure cache for Redis z Node.js'
+title: 'Szybki Start: korzystanie z usługi Azure cache for Redis w Node.js'
 description: W tym przewodniku Szybki start dowiesz się, jak używać usługi Azure Cache for Redis w środowisku Node.js oraz node_redis.
 author: yegu-ms
 ms.service: cache
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: ce570475617236bb99f1bca7a07dc95e1f3285aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa22cffc1fc38e055c6c2bb504c311c012f31ac2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330999"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087149"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z Node.js
+# <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Szybki Start: korzystanie z usługi Azure cache for Redis w Node.js
 
 W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do aplikacji Node.js, aby uzyskać dostęp do bezpiecznej, dedykowanej pamięci podręcznej dostępnej z dowolnej aplikacji na platformie Azure.
 
@@ -51,11 +51,11 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
     {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
 ```
 
-Nie należy tworzyć nowych połączeń dla każdej operacji w kodzie. Zamiast tego należy w miarę możliwości używać połączeń ponownie. 
+Nie twórz nowego połączenia dla każdej operacji w kodzie. Zamiast tego należy w miarę możliwości używać połączeń ponownie. 
 
 ## <a name="create-a-new-nodejs-app"></a>Tworzenie nowej aplikacji na platformie Node.js
 
-Utwórz nowy plik skryptu o nazwie *redistest.js*. Użyj polecenia, `npm install redis bluebird` Aby zainstalować wymagane pakiety.
+Utwórz nowy plik skryptu o nazwie *redistest.js* . Użyj polecenia, `npm install redis bluebird` Aby zainstalować wymagane pakiety.
 
 Dodaj do pliku poniższy przykład kodu JavaScript. W tym kodzie pokazano sposób podłączania do wystąpienia usługi Azure Cache for Redis przy użyciu nazwy hosta w pamięci podręcznej i kluczowych zmiennych środowiskowych. W kodzie jest również przechowywana i pobierana wartość ciągu w pamięci podręcznej. Następuje wykonanie poleceń `PING` i `CLIENT LIST`. Aby uzyskać więcej przykładów użycia usługi Redis z klientem [node_redis](https://github.com/mranney/node_redis), zobacz [https://redis.js.org/](https://redis.js.org/).
 
@@ -119,13 +119,13 @@ W przeciwnym razie po zakończeniu pracy z przykładową aplikacją poradnika Sz
 > Usunięcie grupy zasobów jest nieodwracalne i grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. Jeśli zasoby do hostowania tego przykładu zostały utworzone wewnątrz istniejącej grupy zasobów zawierającej zasoby, które chcesz zachować, możesz usunąć każdy zasób oddzielnie z odpowiadającego mu bloku zamiast usuwać całą grupę zasobów.
 >
 
-Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Grupy zasobów**.
+Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Grupy zasobów** .
 
-W polu tekstowym **Filtruj według nazwy** wprowadź nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources*. W grupie zasobów na liście wynik wybierz pozycję **...** , a następnie **Usuń grupę zasobów**.
+W polu tekstowym **Filtruj według nazwy** wprowadź nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources* . W grupie zasobów na liście wynik wybierz pozycję **...** , a następnie **Usuń grupę zasobów** .
 
 ![Usuń grupę zasobów platformy Azure](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
-Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Aby potwierdzić, wprowadź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
+Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Aby potwierdzić, wprowadź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń** .
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 

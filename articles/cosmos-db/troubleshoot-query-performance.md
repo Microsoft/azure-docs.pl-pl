@@ -8,14 +8,15 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476709"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087183"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z zapytaniami podczas korzystania z usługi Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule przedstawiono ogólne zalecane podejście do rozwiązywania problemów z zapytaniami w Azure Cosmos DB. Chociaż nie należy traktować kroków opisanych w tym artykule, pełna ochrona przed potencjalnymi problemami związanymi z zapytaniami zawiera najpopularniejsze porady dotyczące wydajności. Ten artykuł powinien być używany jako punkt wyjścia do rozwiązywania problemów z powolnymi lub kosztownymi zapytaniami w podstawowym interfejsie API usługi Azure Cosmos DB (SQL). Można również używać [dzienników diagnostycznych](cosmosdb-monitor-resource-logs.md) do identyfikowania zapytań, które są powolne lub zużywają znaczną ilość przepływności. Jeśli używasz interfejsu API Azure Cosmos DB dla MongoDB, należy użyć [interfejsu api Azure Cosmos DB dla przewodnika rozwiązywania problemów z kwerendą MongoDB](mongodb-troubleshoot-query.md)
 
@@ -50,7 +51,7 @@ Podczas optymalizowania zapytania w Azure Cosmos DB, pierwszym krokiem jest zaws
 
 Po otrzymaniu metryk zapytania Porównaj **liczbę pobranych dokumentów** z **liczbą dokumentów wyjściowych** dla zapytania. To porównanie służy do identyfikowania odpowiednich sekcji do przejrzenia w tym artykule.
 
-**Liczba pobranych dokumentów** to liczba dokumentów, które aparat zapytań potrzebował do załadowania. **Liczba dokumentów wyjściowych** to liczba dokumentów, które były zbędne dla wyników zapytania. Jeśli **liczba pobranych dokumentów** jest znacznie większa niż **Liczba dokumentów wyjściowych**, istniała co najmniej jedna część zapytania, która nie mogła użyć indeksu i jest wymagana do skanowania.
+**Liczba pobranych dokumentów** to liczba dokumentów, które aparat zapytań potrzebował do załadowania. **Liczba dokumentów wyjściowych** to liczba dokumentów, które były zbędne dla wyników zapytania. Jeśli **liczba pobranych dokumentów** jest znacznie większa niż **Liczba dokumentów wyjściowych** , istniała co najmniej jedna część zapytania, która nie mogła użyć indeksu i jest wymagana do skanowania.
 
 Zapoznaj się z następującymi sekcjami, aby zrozumieć odpowiednie optymalizacje zapytań dla danego scenariusza.
 
@@ -92,7 +93,7 @@ Zapoznaj się z następującymi sekcjami, aby zrozumieć odpowiednie optymalizac
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Zapytania, w przypadku których liczba pobranych dokumentów przekracza liczbę dokumentów wyjściowych
 
- **Liczba pobranych dokumentów** to liczba dokumentów, które aparat zapytań potrzebował do załadowania. **Liczba dokumentów wyjściowych** to liczba dokumentów zwróconych przez zapytanie. Jeśli **liczba pobranych dokumentów** jest znacznie większa niż **Liczba dokumentów wyjściowych**, istniała co najmniej jedna część zapytania, która nie mogła użyć indeksu i jest wymagana do skanowania.
+ **Liczba pobranych dokumentów** to liczba dokumentów, które aparat zapytań potrzebował do załadowania. **Liczba dokumentów wyjściowych** to liczba dokumentów zwróconych przez zapytanie. Jeśli **liczba pobranych dokumentów** jest znacznie większa niż **Liczba dokumentów wyjściowych** , istniała co najmniej jedna część zapytania, która nie mogła użyć indeksu i jest wymagana do skanowania.
 
 Oto przykład zapytania skanowania, które nie było całkowicie obsługiwane przez indeks:
 
@@ -384,7 +385,7 @@ Załóżmy, że tylko jeden element w tablicy tagów pasuje do filtru i że istn
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Zapytania, w przypadku których liczba pobranych dokumentów jest równa liczbie dokumentów wyjściowych
 
-Jeśli **liczba pobranych dokumentów** jest w przybliżeniu równa **liczbie dokumentów wyjściowych**, aparat zapytań nie musiał skanować wielu zbędnych dokumentów. W przypadku wielu zapytań, takich jak te, które używają `TOP` słowa kluczowego, **liczba pobranych dokumentów** może przekroczyć **liczbę dokumentów wyjściowych** o 1. Nie musisz się z nim wiązać.
+Jeśli **liczba pobranych dokumentów** jest w przybliżeniu równa **liczbie dokumentów wyjściowych** , aparat zapytań nie musiał skanować wielu zbędnych dokumentów. W przypadku wielu zapytań, takich jak te, które używają `TOP` słowa kluczowego, **liczba pobranych dokumentów** może przekroczyć **liczbę dokumentów wyjściowych** o 1. Nie musisz się z nim wiązać.
 
 ### <a name="minimize-cross-partition-queries"></a>Minimalizuj zapytania między partycjami
 

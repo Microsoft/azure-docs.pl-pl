@@ -1,5 +1,5 @@
 ---
-title: Model zasobów Azure Cosmos DB
+title: Model zasobów usługi Azure Cosmos DB
 description: W tym artykule opisano Azure Cosmos DB model zasobów obejmujący konto, bazę danych, kontener i elementy usługi Azure Cosmos. Obejmuje on również hierarchię tych elementów na koncie usługi Azure Cosmos.
 author: markjbrown
 ms.author: mjbrown
@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1178a5e2850279820925c9bd02554ec7d5adf9e6
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 23adbd289ae2be484f1aef86b2224097c6ba489c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284090"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087931"
 ---
-# <a name="azure-cosmos-db-resource-model"></a>Model zasobów Azure Cosmos DB
+# <a name="azure-cosmos-db-resource-model"></a>Model zasobów usługi Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB to w pełni zarządzana platforma jako usługa (PaaS). Aby rozpocząć korzystanie z Azure Cosmos DB, należy najpierw utworzyć konto usługi Azure Cosmos w ramach subskrypcji i baz danych platformy Azure, kontenerów, elementów w tym obszarze. W tym artykule opisano model zasobów Azure Cosmos DB i różne jednostki w hierarchii modeli zasobów.
 
@@ -63,16 +64,16 @@ Kontener usługi Azure Cosmos jest jednostką skalowalności dla zainicjowanej p
 
 Podczas tworzenia kontenera można skonfigurować przepływność w jednym z następujących trybów:
 
-* **Dedykowany Tryb przepływności**: przepustowość zainicjowana w kontenerze jest zarezerwowana wyłącznie dla tego kontenera i jest obsługiwana przez umowy SLA. Aby dowiedzieć się więcej, zobacz [jak zainicjować przepływność na kontenerze](how-to-provision-container-throughput.md).
+* **Dedykowany Tryb przepływności** : przepustowość zainicjowana w kontenerze jest zarezerwowana wyłącznie dla tego kontenera i jest obsługiwana przez umowy SLA. Aby dowiedzieć się więcej, zobacz [jak zainicjować przepływność na kontenerze](how-to-provision-container-throughput.md).
 
-* **Udostępniony Tryb przepływności**: te kontenery udostępniają przepływność administracyjną z innymi kontenerami w tej samej bazie danych (z wyjątkiem kontenerów, które zostały skonfigurowane z dedykowaną elastyczną przepustowością). Innymi słowy, zainicjowana przepływność w bazie danych jest współużytkowana przez wszystkie kontenery "udostępnione przepływność". Aby dowiedzieć się więcej, zobacz [jak zainicjować przepływność w bazie danych](how-to-provision-database-throughput.md).
+* **Udostępniony Tryb przepływności** : te kontenery udostępniają przepływność administracyjną z innymi kontenerami w tej samej bazie danych (z wyjątkiem kontenerów, które zostały skonfigurowane z dedykowaną elastyczną przepustowością). Innymi słowy, zainicjowana przepływność w bazie danych jest współużytkowana przez wszystkie kontenery "udostępnione przepływność". Aby dowiedzieć się więcej, zobacz [jak zainicjować przepływność w bazie danych](how-to-provision-database-throughput.md).
 
 > [!NOTE]
 > Można skonfigurować udostępnioną i dedykowaną przepływność tylko podczas tworzenia bazy danych i kontenera. Aby przełączyć się z trybu dedykowanej przepływności do trybu udostępnionej przepływności (i na odwrót) po utworzeniu kontenera, należy utworzyć nowy kontener i zmigrować dane do nowego kontenera. Dane można migrować za pomocą funkcji Azure Cosmos DB ze źródłem zmian.
 
 Kontener usługi Azure Cosmos może być elastycznie skalowany, niezależnie od tego, czy tworzysz kontenery za pomocą dedykowanych, czy udostępnionych trybów przepływności.
 
-Kontener jest kontenerem Schema-niezależny od elementów. Elementy w kontenerze mogą zawierać dowolne schematy. Na przykład element, który reprezentuje osobę i element reprezentujący samochód, można umieścić w tym *samym kontenerze*. Domyślnie wszystkie elementy dodawane do kontenera są automatycznie indeksowane bez konieczności jawnego indeksowania lub zarządzania schematem. Można dostosować zachowanie indeksowania przez skonfigurowanie [zasad indeksowania](index-overview.md) w kontenerze. 
+Kontener jest kontenerem Schema-niezależny od elementów. Elementy w kontenerze mogą zawierać dowolne schematy. Na przykład element, który reprezentuje osobę i element reprezentujący samochód, można umieścić w tym *samym kontenerze* . Domyślnie wszystkie elementy dodawane do kontenera są automatycznie indeksowane bez konieczności jawnego indeksowania lub zarządzania schematem. Można dostosować zachowanie indeksowania przez skonfigurowanie [zasad indeksowania](index-overview.md) w kontenerze. 
 
 Można ustawić [czas wygaśnięcia (TTL)](time-to-live.md) dla wybranych elementów w kontenerze lub dla całego kontenera, aby bezpiecznie przeczyścić te elementy z systemu. Azure Cosmos DB automatycznie usuwa elementy po ich wygaśnięciu. Gwarantuje również, że zapytanie wykonywane na kontenerze nie zwraca elementów wygasłych w ramach ustalonego powiązania. Aby dowiedzieć się więcej, zobacz [Konfigurowanie czasu wygaśnięcia w kontenerze](how-to-time-to-live.md).
 
@@ -156,7 +157,7 @@ Elementy usługi Azure Cosmos obsługują następujące operacje. Aby wykonać o
 Dowiedz się, jak zarządzać kontem usługi Azure Cosmos i innymi pojęciami:
 
 * [Jak zarządzać kontem usługi Azure Cosmos](how-to-manage-database-account.md)
-* [Globalne rozproszenie](distribute-data-globally.md)
+* [Dystrybucja globalna](distribute-data-globally.md)
 * [Poziomy spójności](consistency-levels.md)
 * [Punkt końcowy usługi sieci wirtualnej dla konta usługi Azure Cosmos](how-to-configure-vnet-service-endpoint.md)
 * [IP-Zapora dla konta usługi Azure Cosmos](how-to-configure-firewall.md)

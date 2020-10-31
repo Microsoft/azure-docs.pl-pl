@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 861e3994ad9aa0d7c6fd4dee68631f78418c8a64
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f76fdb1559c90073d15ecad7acea58b6c7ed8b2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482574"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087513"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Dostęp do Azure Cosmos DB danych interfejs API Cassandra Azure Databricks
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 W tym artykule szczegółowo opisano, jak workwith Azure Cosmos DB interfejs API Cassandra z platformy Spark w [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
 

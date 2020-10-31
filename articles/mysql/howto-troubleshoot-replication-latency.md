@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791583"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087030"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Rozwiązywanie problemów z opóźnieniami replikacji w usłudze Azure Database for MySQL
 
@@ -236,6 +236,9 @@ W Azure Database for MySQL Domyślnie replikacja jest zoptymalizowana pod kątem
 Parametr binlog_group_commit_sync_delay kontroluje, ile mikrosekund zatwierdzania dzienników binarnych czeka przed synchronizacją binarnego pliku dziennika. Zaletą tego parametru jest to, że zamiast natychmiastowego zastosowania każdej zatwierdzonej transakcji serwer źródłowy wysyła aktualizacje dzienników binarnych zbiorczo. To opóźnienie zmniejsza liczbę operacji we/wy na replice i pomaga zwiększyć wydajność. 
 
 Przydatne może być ustawienie parametru binlog_group_commit_sync_delay na 1000 lub tak. Następnie Monitoruj opóźnienie replikacji. Należy ostrożnie ustawiać ten parametr i używać go tylko w przypadku obciążeń o dużej współbieżności. 
+
+> [!IMPORTANT] 
+> W przypadku serwera repliki zaleca się, aby parametr binlog_group_commit_sync_delay był równy 0. Jest to zalecane, ponieważ w przeciwieństwie do serwera źródłowego serwer repliki nie będzie miał dużej współbieżności i zwiększenie wartości binlog_group_commit_sync_delay na serwerze repliki może przypadkowo spowodować opóźnienia replikacji.
 
 W przypadku obciążeń o niskiej współbieżności, które obejmują wiele pojedynczych transakcji, ustawienie binlog_group_commit_sync_delay może zwiększyć opóźnienia. Opóźnienie może wzrosnąć, ponieważ wątek we/wy czeka na aktualizacje zbiorcze dzienników binarnych, nawet jeśli zatwierdzono tylko kilka transakcji. 
 

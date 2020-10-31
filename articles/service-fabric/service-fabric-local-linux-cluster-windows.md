@@ -3,12 +3,12 @@ title: Konfigurowanie klastra usługi Azure Service Fabric Linux w systemie Wind
 description: W tym artykule opisano sposób konfigurowania klastrów Service Fabric Linux działających na maszynach deweloperskich systemu Windows. Takie podejście jest przydatne do tworzenia aplikacji międzyplatformowych.
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: e25c6adf5e5f5101025aa883ef2ff9750c113a76
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7b25a84e76773baea9f17430df1b7ba13aa661aa
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164112"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087081"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Konfigurowanie klastra Service Fabric z systemem Linux na komputerze dewelopera systemu Windows
 
@@ -57,7 +57,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić na nim klaster
     ```
 
     >[!TIP]
-    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. W przypadku poszczególnych poprawek odwiedź stronę usługi [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) .
+    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. W przypadku poszczególnych poprawek Zobacz stronę [Service Fabric jednopunktowy](https://hub.docker.com/_/microsoft-service-fabric-onebox) w usłudze Docker Hub.
 
 
 

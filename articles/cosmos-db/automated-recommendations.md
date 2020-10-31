@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8fa2fdf23a0d71b854e043b66c0aed7e944c5f39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87450837"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087829"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Zautomatyzowane zalecenia dotyczące Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Wszystkie usługi w chmurze, w tym Azure Cosmos DB pobierać częste aktualizacje o nowe funkcje, możliwości i ulepszenia. Ważne jest, aby aplikacja mogła zachować najnowsze aktualizacje dotyczące wydajności i zabezpieczeń. Azure Portal oferuje dostosowane zalecenia, które umożliwiają zmaksymalizowanie wydajności aplikacji. Aparat Doradczy Azure Cosmos DB stale analizuje historię użycia zasobów Azure Cosmos DB i zapewnia zalecenia na podstawie wzorców obciążenia. Zalecenia te odnoszą się do obszarów, takich jak partycjonowanie, indeksowanie, Sieć, zabezpieczenia itp. Te niestandardowe zalecenia ułatwiają zwiększenie wydajności aplikacji.
 
@@ -26,7 +27,7 @@ Zalecenia dotyczące Azure Cosmos DB można wyświetlić w następujący sposób
 
    :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="Wyświetl zalecenia z okienka Azure Cosmos DB":::
 
-- Zalecenia można także znaleźć w [Azure Advisor](../advisor/advisor-overview.md) pogrupowane według różnych zasobników, takich jak koszt, zabezpieczenia, niezawodność, wydajność i doskonałości operacyjną. Można wybrać określone subskrypcje i filtrować według typu zasobu, który jest **Azure Cosmos DB kontami**.  Po wybraniu określonego zalecenia zostaną wyświetlone akcje, które można wykonać w celu skorzystania z obciążeń.
+- Zalecenia można także znaleźć w [Azure Advisor](../advisor/advisor-overview.md) pogrupowane według różnych zasobników, takich jak koszt, zabezpieczenia, niezawodność, wydajność i doskonałości operacyjną. Można wybrać określone subskrypcje i filtrować według typu zasobu, który jest **Azure Cosmos DB kontami** .  Po wybraniu określonego zalecenia zostaną wyświetlone akcje, które można wykonać w celu skorzystania z obciążeń.
 
    :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Wyświetl zalecenia z okienka Azure Cosmos DB":::
 

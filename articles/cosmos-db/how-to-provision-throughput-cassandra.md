@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 6b8b145c919a1f4e2ea9129a032da69bd30e6b71
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 63b633ed67c03a006a154bc69a1aafb4cb4aa6d0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284119"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086282"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-cassandra-api-resources"></a>Zapewnianie elastycznej przepływności bazy danych, kontenera lub automatycznego skalowania dla zasobów interfejs API Cassandra Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 W tym artykule wyjaśniono, jak zainicjować przepływność w interfejs API Cassandra Azure Cosmos DB. Można udostępniać standardowe (ręczne) lub automatyczne skalowanie przepływności dla kontenera lub bazy danych i udostępnić je między kontenerami w bazie danych. Przepływność można zainicjować przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub Azure Cosmos DB zestawów SDK.
 
@@ -27,13 +28,13 @@ Jeśli używasz innego interfejsu API, zobacz [SQL API](how-to-provision-contain
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account)lub Wybierz istniejące konto usługi Azure Cosmos.
 
-1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa tabela**. Następnie podaj następujące szczegóły:
+1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa tabela** . Następnie podaj następujące szczegóły:
 
    * Wskaż, czy tworzysz nową przestrzeń kluczy lub korzystając z istniejącej. Wybierz opcję **zainicjuj przepływność bazy danych** , jeśli chcesz udostępnić przepływność na poziomie przestrzeni kluczy.
    * Wprowadź identyfikator tabeli w poleceniu CQL.
    * Wprowadź wartość klucza podstawowego (na przykład `/userrID` ).
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Wybierz pozycję **OK** .
 
     :::image type="content" source="./media/how-to-provision-throughput-cassandra/provision-table-throughput-portal-cassandra-api.png" alt-text="Zrzut ekranu przedstawiający Eksplorator danych, podczas tworzenia nowej kolekcji z przepływność na poziomie bazy danych":::
 

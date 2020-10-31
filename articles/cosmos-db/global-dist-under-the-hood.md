@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: c86207af51ebd1a9442afe6fa609598ec917bf15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f19e009341ac0e9556cef36f8da6ef19cde0447f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570449"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087523"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Globalna dystrybucja danych z Azure Cosmos DBą pod okapem
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB to fundamentowa usługa na platformie Azure, więc jest wdrażana we wszystkich regionach świadczenia usługi Azure na całym świecie, w tym w publicznych, suwerennych departamentach obrony i instytucji rządowych. W centrum danych firma Microsoft wdraża Azure Cosmos DB na dużych sygnaturach maszyn i zarządza nimi przy użyciu dedykowanego magazynu lokalnego. W centrum danych Azure Cosmos DB jest wdrażana w wielu klastrach, a każdy z nich może uruchamiać wiele generacji sprzętu. Maszyny w klastrze są zwykle rozproszone w domenach błędów 10-20 w celu zapewnienia wysokiej dostępności w regionie. Na poniższej ilustracji przedstawiono topologię globalnego systemu dystrybucji Cosmos DB:
 
@@ -22,9 +23,9 @@ Azure Cosmos DB to fundamentowa usługa na platformie Azure, więc jest wdrażan
 
 **Globalna dystrybucja w Azure Cosmos DB to gotowe:** W dowolnym momencie za pomocą kilku kliknięć lub programowo przy użyciu jednego wywołania interfejsu API można dodawać lub usuwać regiony geograficzne skojarzone z bazą danych Cosmos. Baza danych Cosmos, z kolei, składa się z zestawu kontenerów Cosmos. W Cosmos DB kontenery pełnią rolę logicznej dystrybucji i skalowalności. Kolekcje, tabele i tworzone przez siebie wykresy są (wewnętrznie) tylko Cosmos kontenery. Kontenery są całkowicie schemat-niezależny od i zapewniają zakres zapytania. Dane w kontenerze Cosmos są automatycznie indeksowane podczas pozyskiwania. Automatyczne indeksowanie umożliwia użytkownikom wykonywanie zapytań dotyczących danych bez problemów z zarządzaniem schematem lub indeksem, szczególnie w przypadku konfiguracji rozproszonej globalnie.  
 
-- W danym regionie dane znajdujące się w kontenerze są dystrybuowane przy użyciu klucza partycji, który jest dostarczany i jest w sposób niewidoczny dla użytkownika zarządzany przez bazowe partycje fizyczne (*Dystrybucja lokalna*).  
+- W danym regionie dane znajdujące się w kontenerze są dystrybuowane przy użyciu klucza partycji, który jest dostarczany i jest w sposób niewidoczny dla użytkownika zarządzany przez bazowe partycje fizyczne ( *Dystrybucja lokalna* ).  
 
-- Każda partycja fizyczna jest również replikowana w regionach geograficznych (*dystrybucja globalna*). 
+- Każda partycja fizyczna jest również replikowana w regionach geograficznych ( *dystrybucja globalna* ). 
 
 Gdy aplikacja używająca Cosmos DB elastycznie skaluje przepływność na kontenerze Cosmos lub zużywa więcej przestrzeni dyskowej, Cosmos DB nieprzezroczystie obsługuje operacje zarządzania partycjami (dzielenie, klonowanie, usuwanie) we wszystkich regionach. Niezależna od skali, dystrybucji lub niepowodzeń Cosmos DB kontynuuje dostarczanie pojedynczego obrazu systemu danych w kontenerach, które są globalnie dystrybuowane w dowolnej liczbie regionów.  
 
@@ -32,13 +33,13 @@ Jak pokazano na poniższej ilustracji, dane w kontenerze są dystrybuowane w dw�
 
 :::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Topologia systemu" border="false":::
 
-Partycja fizyczna jest implementowana przez grupę replik nazywaną *zestawem replik*. Każdy komputer obsługuje setki replik odpowiadających różnym partycjom fizycznym w ramach ustalonego zestawu procesów, jak pokazano na powyższym obrazie. Repliki odpowiadające partycjom fizycznym są dynamicznie umieszczane i ładowane na maszynach w klastrze i w centrach danych w danym regionie.  
+Partycja fizyczna jest implementowana przez grupę replik nazywaną *zestawem replik* . Każdy komputer obsługuje setki replik odpowiadających różnym partycjom fizycznym w ramach ustalonego zestawu procesów, jak pokazano na powyższym obrazie. Repliki odpowiadające partycjom fizycznym są dynamicznie umieszczane i ładowane na maszynach w klastrze i w centrach danych w danym regionie.  
 
 Replika w unikatowy sposób należy do dzierżawy Azure Cosmos DB. Każda replika jest hostem wystąpienia [aparatu bazy danych](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)Cosmos DB, który zarządza zasobami, a także skojarzonymi indeksami. Aparat bazy danych Cosmos działa w systemie typów opartych na protokole Atom-Record-Sequence (ARS). Aparat jest niezależny od do koncepcji schematu, przez odmycie granicy między strukturą i wartościami wystąpień rekordów. Cosmos DB realizuje pełny agnosticism schematu przez automatyczne indeksowanie wszystkich operacji pozyskiwania w skuteczny sposób, co pozwala użytkownikom na wykonywanie zapytań dotyczących danych dystrybuowanych globalnie, bez konieczności rozwiązywania problemów z zarządzaniem schematami i indeksami.
 
 Aparat bazy danych Cosmos składa się z składników, takich jak implementacja kilku elementów podstawowych koordynacji, środowisko uruchomieniowe języka, procesor zapytań oraz Podsystemy magazynowania i indeksowania odpowiedzialne za magazyn transakcyjny i indeksowanie danych. Aby zapewnić trwałość i wysoką dostępność, aparat bazy danych utrzymuje dane i indeks na dysków SSD i replikuje je między wystąpieniami aparatu bazy danych odpowiednio w ramach zestawów replik. Większe dzierżawy odnoszą się do większej skali przepływności i magazynu oraz mają większe lub więcej replik. Każdy składnik systemu jest w pełni asynchroniczny — brak bloków wątków, a każdy wątek wykonuje krótkotrwałe działania bez ponoszenia zbędnych przełączników wątków. Ograniczanie szybkości i naciśnienie jest podłączane do całego stosu od kontroli przyjęcia do wszystkich ścieżek we/wy. Aparat bazy danych Cosmos został zaprojektowany w celu wykorzystania precyzyjnej współbieżności i zapewnienia wysokiej przepływności podczas pracy w Frugal ilości zasobów systemowych.
 
-Globalna dystrybucja Cosmos DB opiera się na dwóch abstrakcyjnych kluczach — *zestawach replik* i *zestawach partycji*. Zestaw replik jest modularnym blokiem na potrzeby koordynacji, a zestaw partycji jest dynamiczną nakładką jednej lub więcej rozproszonych geograficznie partycji fizycznych. Aby zrozumieć, jak działa dystrybucja globalna, musimy zrozumieć te dwa abstrakcyjne klucze. 
+Globalna dystrybucja Cosmos DB opiera się na dwóch abstrakcyjnych kluczach — *zestawach replik* i *zestawach partycji* . Zestaw replik jest modularnym blokiem na potrzeby koordynacji, a zestaw partycji jest dynamiczną nakładką jednej lub więcej rozproszonych geograficznie partycji fizycznych. Aby zrozumieć, jak działa dystrybucja globalna, musimy zrozumieć te dwa abstrakcyjne klucze. 
 
 ## <a name="replica-sets"></a>Repliki — zestawy
 
@@ -68,7 +69,7 @@ Stosujemy zakodowane zegary wektorowe (zawierające Identyfikator regionu i zega
 
 W przypadku baz danych Cosmos skonfigurowanych z wieloma regionami zapisu System oferuje kilka elastycznych zasad automatycznego rozwiązywania konfliktów dla deweloperów do wyboru, w tym: 
 
-- **Ostatni zapis-WINS (LWW)**, który domyślnie używa zdefiniowanej przez system właściwości sygnatury czasowej (która jest oparta na protokole zegara czasu synchronizacji). Cosmos DB pozwala także określić inną niestandardową Właściwość liczbową, która ma być używana do rozwiązywania konfliktów.  
+- **Ostatni zapis-WINS (LWW)** , który domyślnie używa zdefiniowanej przez system właściwości sygnatury czasowej (która jest oparta na protokole zegara czasu synchronizacji). Cosmos DB pozwala także określić inną niestandardową Właściwość liczbową, która ma być używana do rozwiązywania konfliktów.  
 - **Zdefiniowane przez aplikację zasady rozwiązywania konfliktów** (wyrażone za pośrednictwem procedur scalania), które są przeznaczone do uzgadniania przez aplikacje semantyki konfliktów. Te procedury są wywoływane po wykryciu konfliktów zapisu i zapisu pod auspicjami transakcji bazy danych po stronie serwera. System zapewnia dokładnie gwarancję wykonania procedury scalania w ramach protokołu zobowiązania. Istnieje [kilka przykładów rozwiązywania konfliktów](how-to-manage-conflicts.md) , które mogą być odtwarzane za pomocą programu.  
 
 ## <a name="consistency-models"></a>Modele spójności

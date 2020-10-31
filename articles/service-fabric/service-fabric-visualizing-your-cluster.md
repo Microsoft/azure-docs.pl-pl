@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357220"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085177"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer
 
@@ -69,7 +69,7 @@ Klaster zawiera dwa poddrzewa: jeden dla aplikacji i drugi dla węzłów.
 
 Widok aplikacji umożliwia nawigowanie po hierarchii logicznej Service Fabric: aplikacje, usługi, partycje i repliki.
 
-W poniższym przykładzie aplikacja **MojaApl** programu składa się z dwóch usług, **MyStatefulService** i sieci **Web**. Ponieważ **MyStatefulService** jest stanowa, zawiera partycję z jedną podstawową i dwiema replikami pomocniczymi. Z kolei WebSvcService jest bezstanowy i zawiera jedno wystąpienie.
+W poniższym przykładzie aplikacja **MojaApl** programu składa się z dwóch usług, **MyStatefulService** i sieci **Web** . Ponieważ **MyStatefulService** jest stanowa, zawiera partycję z jedną podstawową i dwiema replikami pomocniczymi. Z kolei WebSvcService jest bezstanowy i zawiera jedno wystąpienie.
 
 ![Widok aplikacji Service Fabric Explorer][sfx-application-tree]
 
@@ -83,7 +83,7 @@ Widok węzła przedstawia fizyczny układ klastra. Dla danego węzła można spr
 ## <a name="actions"></a>Akcje
 Service Fabric Explorer umożliwia szybkie wywoływanie akcji na węzłach, aplikacjach i usługach w ramach klastra.
 
-Na przykład aby usunąć wystąpienie aplikacji, wybierz aplikację z drzewa po lewej stronie, a następnie wybierz **Akcje**  >  **Usuń aplikację**.
+Na przykład aby usunąć wystąpienie aplikacji, wybierz aplikację z drzewa po lewej stronie, a następnie wybierz **Akcje**  >  **Usuń aplikację** .
 
 ![Usuwanie aplikacji w Service Fabric Explorer][sfx-delete-application]
 
@@ -117,7 +117,7 @@ EventStore to funkcja oferowana przez platformę, która zapewnia Service Fabric
 ## <a name="image-store-viewer"></a>Przeglądarka Magazyn obrazów
 Podgląd magazynu obrazów jest funkcją oferowaną w przypadku korzystania z natywnych Magazyn obrazów umożliwiających wyświetlanie bieżącej zawartości magazynu obrazów oraz pobieranie informacji o plikach i folderach oraz usuwanie plików/folderów.
 
-![Service Fabric Explorer mapowanie klastra][sfx-imagestore]
+![Zrzut ekranu pokazujący Podgląd Magazyn obrazów.][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Wykonywanie kopii zapasowych i przywracanie
 Service Fabric Explorer oferuje możliwość tworzenia interfejsów przy użyciu [kopii zapasowych i przywracania](./service-fabric-reliable-services-backup-restore.md). Aby można było wyświetlić funkcje tworzenia kopii zapasowych i przywracania w programie SFX, należy włączyć tryb zaawansowany.

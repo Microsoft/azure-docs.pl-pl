@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d28138b251cf159b7cbc5cc6942bb287e57a95d7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278621"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088101"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitorowanie usługi magazynu kluczy za pomocą Azure Monitor dla Key Vault
 Azure Monitor dla Key Vault oferuje kompleksowe monitorowanie Twoich magazynów kluczy, udostępniając ujednolicony widok żądań, wydajności, niepowodzeń i opóźnień Key Vault.
@@ -34,7 +34,7 @@ Aby wyświetlić wykorzystanie i operacje Twoich magazynów kluczy we wszystkich
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/)
 
-2. Wybierz pozycję **monitor** z okienka po lewej stronie w Azure Portal i w sekcji szczegółowe informacje wybierz pozycję **magazyny kluczy**.
+2. Wybierz pozycję **monitor** z okienka po lewej stronie w Azure Portal i w sekcji szczegółowe informacje wybierz pozycję **magazyny kluczy** .
 
 ![Zrzut ekranu przedstawiający środowisko omówienia z wieloma wykresami](./media/key-vaults-insights-overview/overview.png)
 
@@ -90,7 +90,7 @@ Skoroszyt błędy powoduje podział wyników wszystkich żądań magazynu kluczy
 
 Skoroszyt operacji pozwala użytkownikom na głębokie szczegółowe w szczegółowe informacje o wszystkich transakcjach, które można filtrować według stanu wyniku przy użyciu kafelków najwyższego poziomu.
 
-![Zrzut ekranu przedstawiający widok operacji](./media/key-vaults-insights-overview/info.png)
+![Zrzut ekranu pokazujący skoroszyt operacji zawierający pełne szczegóły wszystkich transakcji.](./media/key-vaults-insights-overview/info.png)
 
 Użytkownicy mogą również przedefiniować zakres widoków w oparciu o określone typy transakcji w górnej tabeli, co dynamicznie aktualizuje niższą tabelę, gdzie użytkownicy mogą wyświetlać pełne szczegóły operacji w okienku kontekstowym okienka wyskakującego.
 
@@ -126,7 +126,7 @@ Dostosowania są zapisywane w niestandardowym skoroszycie, aby zapobiec zastąpi
 Można skonfigurować wiele subskrypcji i omówienia magazynu kluczy lub skoroszyty błędów, aby określić zakres do określonych subskrypcji lub magazynów kluczy w każdym uruchomieniu, wykonując następujące czynności:
 
 1. Wybierz pozycję **monitor** z portalu, a następnie wybierz pozycję **magazyny kluczy** w okienku po lewej stronie.
-2. W skoroszycie **Przegląd** , na pasku poleceń wybierz pozycję **Edytuj**.
+2. W skoroszycie **Przegląd** , na pasku poleceń wybierz pozycję **Edytuj** .
 3. Z listy rozwijanej **subskrypcje** wybierz co najmniej jedną subskrypcję, która ma być yo używana jako domyślna. Pamiętaj, że skoroszyt obsługuje wybieranie maksymalnie 10 subskrypcji.
 4. Wybierz z listy rozwijanej **magazyny kluczy** jeden lub więcej kont, które mają być używane domyślnie jako domyślne. Pamiętaj, że skoroszyt obsługuje wybieranie maksymalnie 200 kont magazynu.
 5. Wybierz pozycję **Zapisz jako** na pasku poleceń, aby zapisać kopię skoroszytu z własnymi dostosowaniami, a następnie kliknij pozycję **Zakończono edycję** , aby powrócić do trybu odczytu.

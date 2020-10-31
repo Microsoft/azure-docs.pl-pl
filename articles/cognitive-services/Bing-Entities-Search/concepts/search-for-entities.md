@@ -10,20 +10,25 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532bf806789476c1ec901c1e4ac8522451819625
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872072"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085126"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Wyszukiwanie jednostek za pomocą interfejsu API jednostek Bing
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 ## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Sugerowanie terminów wyszukiwania za pomocą interfejsu API automatycznego sugerowania Bing
 
 Jeśli udostępniasz pole wyszukiwania, w którym użytkownik wprowadza wyszukiwany termin, użyj [interfejsu API automatycznego sugerowania Bing](../../bing-autosuggest/get-suggested-search-terms.md) w celu ulepszenia jego działania. Interfejs API zwraca sugerowane ciągi zapytań na podstawie częściowych wyszukiwanych terminów w miarę wpisywania ich przez użytkownika.
 
-Gdy użytkownik wprowadzi wyszukiwany termin, zakoduj go w formacie URL przed ustawieniem parametru zapytania [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Jeśli na przykład użytkownik wprowadzi termin *Marcus Appel*, należy ustawić parametr `q` na *Marcus+Appel* lub *Marcus%20Appel*.
+Gdy użytkownik wprowadzi wyszukiwany termin, zakoduj go w formacie URL przed ustawieniem parametru zapytania [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Jeśli na przykład użytkownik wprowadzi termin *Marcus Appel* , należy ustawić parametr `q` na *Marcus+Appel* lub *Marcus%20Appel* .
 
 Jeśli wyszukiwany termin zawiera błąd pisowni, odpowiedź wyszukiwania zawiera obiekt [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext). Obiekt ten zawiera pierwotną pisownię oraz poprawioną pisownię użytą przez usługę Bing podczas wyszukiwania.
 
@@ -189,7 +194,7 @@ Miejsca to między innymi restauracje, hotele, czy lokalne firmy. Pole [entityPr
 > [!NOTE]
 > Odpowiedzi dotyczące jednostek są obsługiwane na wielu rynkach, ale odpowiedzi dotyczące miejsc są obsługiwane tylko w przypadku lokalizacji firmowych w USA. 
 
-Zapytania dotyczące jednostek uwzględniające lokalizację, na przykład *restaurants near me* (restauracje w pobliżu), wymagają lokalizacji użytkownika do znalezienia dokładnych wyników. W zapytaniach należy zawsze używać nagłówków X-Search-Location i X-MSEdge-ClientIP w celu określenia lokalizacji użytkownika. Jeśli usługa Bing uzna, że użycie lokalizacji użytkownika będzie korzystne podczas wykonywania zapytania, ustawi w polu `askUserForLocation` obiektu [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) wartość **true**. 
+Zapytania dotyczące jednostek uwzględniające lokalizację, na przykład *restaurants near me* (restauracje w pobliżu), wymagają lokalizacji użytkownika do znalezienia dokładnych wyników. W zapytaniach należy zawsze używać nagłówków X-Search-Location i X-MSEdge-ClientIP w celu określenia lokalizacji użytkownika. Jeśli usługa Bing uzna, że użycie lokalizacji użytkownika będzie korzystne podczas wykonywania zapytania, ustawi w polu `askUserForLocation` obiektu [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) wartość **true** . 
 
 ```json
 {

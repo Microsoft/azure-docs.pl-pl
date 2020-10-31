@@ -6,17 +6,17 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 5a665b2f2aeb41ee55ee41287d2800ebdbf4ec08
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 47c4fbada4bb4e7019cb2fa619d97bbb38843dd8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537449"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085109"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
-Pamięć podręczna systemu Azure dla usługi Redis zapewnia magazyn danych w pamięci na podstawie [Redis](https://redis.io/)oprogramowania open source. Redis poprawia wydajność i skalowalność aplikacji, która jest wielokrotnie wykorzystywana w magazynach danych zaplecza. Jest w stanie przetwarzać duże ilości żądań aplikacji przez zachowywanie często używanych danych w pamięci serwera, które mogą być zapisywane i odczytywane szybko. Redis zapewnia krytyczne rozwiązanie do przechowywania danych o małym opóźnieniu i wysokiej przepływności dla nowoczesnych aplikacji.
+Pamięć podręczna systemu Azure dla usługi Redis zapewnia magazyn danych w pamięci oparty na oprogramowaniu [Redis](https://redis.io/) . Redis poprawia wydajność i skalowalność aplikacji, która jest wielokrotnie wykorzystywana w magazynach danych zaplecza. Jest w stanie przetwarzać duże ilości żądań aplikacji przez zachowywanie często używanych danych w pamięci serwera, które mogą być zapisywane i odczytywane szybko. Redis zapewnia krytyczne rozwiązanie do przechowywania danych o małym opóźnieniu i wysokiej przepływności dla nowoczesnych aplikacji.
 
-Usługa Azure cache for Redis oferuje Redis jako usługę zarządzaną. Zapewnia bezpieczne i dedykowane wystąpienia serwera Redis i pełną zgodność interfejsu API Redis. Usługa jest obsługiwana przez firmę Microsoft, hostowana na platformie Azure i dostępna dla każdej aplikacji w ramach platformy Azure lub poza nią.
+Usługa Azure cache for Redis oferuje zarówno Redis typu open source, jak i komercyjne produkty z Redis Labs jako usługę zarządzaną. Zapewnia bezpieczne i dedykowane wystąpienia serwera Redis i pełną zgodność interfejsu API Redis. Usługa jest obsługiwana przez firmę Microsoft, hostowana na platformie Azure i dostępna dla każdej aplikacji w ramach platformy Azure lub poza nią.
 
 Pamięć podręczna platformy Azure dla usługi Redis może być używana jako rozproszone dane lub pamięć podręczna zawartości, magazyn sesji, Broker komunikatów i wiele więcej. Można ją wdrożyć jako autonomiczną lub równolegle z inną usługą Azure Database, taką jak Azure SQL lub Cosmos DB.
 
@@ -33,7 +33,7 @@ Pamięć podręczna systemu Azure dla usługi Redis umożliwia zwiększenie wyda
 
 ## <a name="redis-versions"></a>Wersje Redis
 
-Usługa Azure cache for Redis obsługuje Redis w wersji 4. x i, jako wersja zapoznawcza, 6,0. Podjęto decyzję o pominięciu Redis 5,0 w celu przeprowadzenia najnowszej wersji. Wcześniej usługa Azure cache for Redis obsługiwała tylko jedną wersję Redis. Zostanie udostępniona nowsza wersja uaktualnienia i co najmniej jednej starszej stabilnej wersji. Możesz [wybrać, która wersja](cache-how-to-version.md) najlepiej sprawdza się w przypadku aplikacji.
+Usługa Azure cache for Redis obsługuje System OSS Redis w wersji 4. x i, jako wersja zapoznawcza, 6,0. Podjęto decyzję o pominięciu Redis 5,0 w celu przeprowadzenia najnowszej wersji. Wcześniej usługa Azure cache for Redis obsługiwała tylko jedną wersję Redis. Zostanie udostępniona nowsza wersja uaktualnienia i co najmniej jednej starszej stabilnej wersji. Możesz [wybrać, która wersja](cache-how-to-version.md) najlepiej sprawdza się w przypadku aplikacji.
 
 > [!NOTE]
 > Redis 6,0 jest obecnie w wersji zapoznawczej. [skontaktuj się z nami](mailto:azurecache@microsoft.com) , jeśli interesują Cię zainteresowania. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -44,48 +44,59 @@ Usługa Azure Cache for Redis jest dostępna w następujących warstwach:
 
 | Warstwa | Opis |
 |---|---|
-| Podstawowa | Pamięć podręczna z jednym węzłem. Ta warstwa obsługuje wiele rozmiarów pamięci (250 MB – 53 GB) i idealnie nadaje się do tworzenia i testowania i niekrytycznych obciążeń. Warstwa Podstawowa nie ma umowy dotyczącej poziomu usług (SLA). |
-| Standardowa | Replikowana pamięć podręczna z dwoma węzłami, podstawowym/repliką konfiguracji zarządzaną przez platformę Azure z umową [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)o wysokiej dostępności. |
-| Premium | Warstwa Premium jest warstwą gotową dla przedsiębiorstw. Pamięci podręczne w warstwie Premium obsługują więcej funkcji i mają większą przepływność przy niższych opóźnieniach. Pamięci podręczne w warstwie Premium są wdrażane na mocniejszym sprzęcie, zapewniając większą wydajność w porównaniu do warstw Podstawowa i Standardowa. Ta zaleta oznacza, że przepływność dla pamięci podręcznej o takim samym rozmiarze będzie wyższa w porównaniu do warstwy Standardowa. |
+| Podstawowa | Pamięć podręczna Redis usługi OSS działa na jednej maszynie wirtualnej. Ta warstwa nie ma umowy dotyczącej poziomu usług (SLA) i doskonale nadaje się do tworzenia i testowania oraz obciążeń niekrytycznych. |
+| Standardowa | Pamięć podręczna Redis usługi OSS uruchomiona na dwóch maszynach wirtualnych w zreplikowanej konfiguracji. |
+| Premium | Wysokiej wydajności pamięci podręczne OSS Redis. Ta warstwa oferuje wyższą przepływność, mniejsze opóźnienia, lepszą dostępność i więcej funkcji. Pamięć podręczna w warstwie Premium jest wdrażana na bardziej zaawansowanych maszynach wirtualnych w porównaniu do tych w przypadku pamięci podręcznych Basic i Standard. |
+| Enterprise | Pamięci podręczne o wysokiej wydajności obsługiwane przez oprogramowanie Redis Labs Redis Enterprise. Ta warstwa obsługuje moduły Redis, w tym RediSearch, RedisBloom i RedisTimeSeries. Dodatkowo oferuje jeszcze wyższą dostępność niż warstwa Premium. |
+| Enterprise | Ekonomiczne duże pamięci podręczne obsługiwane przez oprogramowanie Redis Labs Redis Enterprise. Ta warstwa rozszerza magazyn danych Redis do pamięci nieulotnej, który jest tańszy niż DRAM na maszynie wirtualnej. Zmniejsza całkowity koszt za GB pamięci. |
 
 ### <a name="feature-comparison"></a>Porównanie funkcji
 [Cennik usługi Azure cache for Redis](https://azure.microsoft.com/pricing/details/cache/) zawiera szczegółowe porównanie poszczególnych warstw. W poniższej tabeli opisano niektóre funkcje obsługiwane przez warstwy:
 
-| Opis funkcji | Premium | Standardowa | Podstawowa |
-| ------------------- | :-----: | :------: | :---: |
-| [Umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
-| [Trwałość danych Redis](cache-how-to-premium-persistence.md) |✔|-|-|
-| [Klaster Redis](cache-how-to-premium-clustering.md) |✔|-|-|
-| [Zabezpieczanie za pomocą reguł zapory](cache-configure.md#firewall) |✔|✔|✔|
-| Szyfrowanie podczas transferu |✔|✔|✔|
-| [Większe bezpieczeństwo i izolacja z użyciem sieci wirtualnej](cache-how-to-premium-vnet.md) |✔|-|-|
-| [Import/Export](cache-how-to-import-export-data.md) |✔|-|-|
-| [Zaplanowane aktualizacje](cache-administration.md#schedule-updates) |✔|✔|✔|
-| [Replikacja geograficzna](cache-how-to-geo-replication.md) |✔|-|-|
-| [Ponowne uruchamianie](cache-administration.md#reboot) |✔|✔|✔|
+| Opis funkcji | Podstawowa | Standardowa (Standard) | Premium | Enterprise | Lampa błyskowa przedsiębiorstwa |
+| ------------------- | :-----: | :------: | :---: | :---: | :---: |
+| [Umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|✔|✔|✔|
+| Szyfrowanie danych |✔|✔|✔|✔|✔|
+| [Izolacja sieciowa](cache-how-to-premium-vnet.md) |✔|✔|✔|✔|✔|
+| [Skalowanie](cache-how-to-scale.md) |✔|✔|✔|✔|✔|
+| [Nadmiarowość stref](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
+| [Replikacja geograficzna](cache-how-to-geo-replication.md) |-|-|✔|-|-|
+| [Trwałość danych](cache-how-to-premium-persistence.md) |-|-|✔|-|-|
+| [Klaster OSS](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
+| [Moduły](https://redis.io/modules) |-|-|-|✔|-|
+| [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
+| [Zaplanowane aktualizacje](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|
 
 ### <a name="choosing-the-right-tier"></a>Wybór odpowiedniej warstwy
-Podczas wybierania pamięci podręcznej platformy Azure dla warstwy Redis należy wziąć pod uwagę następujące kwestie.
+Podczas wybierania pamięci podręcznej platformy Azure dla warstwy Redis należy wziąć pod uwagę następujące kwestie:
 
-* **Pamięć** : warstwy Podstawowa i standardowa oferują 250 MB – 53 GB. Warstwa Premium oferuje do 1,2 TB (jako klaster) lub 120 GB (nieklastrowane). Aby uzyskać więcej informacji, zobacz [Azure cache for Redis — Cennik](https://azure.microsoft.com/pricing/details/cache/).
-* **Wydajność sieci** : Jeśli korzystasz z obciążenia, które wymaga dużej przepływności, warstwa Premium oferuje większą przepustowość w porównaniu do wersji Standard lub Basic. Ponadto w każdej warstwie pamięć podręczna o większym rozmiarze ma większą przepustowość ze względu na źródłową maszynę wirtualną, która obsługuje pamięć podręczną. Aby uzyskać więcej informacji, zobacz [pamięć podręczna platformy Azure w celu uzyskania wydajności Redis](cache-planning-faq.md#azure-cache-for-redis-performance).
+* **Pamięć** : warstwy Podstawowa i standardowa oferują 250 MB – 53 GB; warstwa Premium 6 GB — 1,2 TB; warstwy korporacyjne 12 GB-14 TB.  Aby utworzyć pamięć podręczną warstwy Premium o rozmiarze większym niż 120 GB, można użyć usługi Redis OSS. Aby uzyskać więcej informacji, zobacz [Azure cache for Redis — Cennik](https://azure.microsoft.com/pricing/details/cache/). Aby uzyskać więcej informacji, zobacz [jak skonfigurować klastrowanie dla pamięci podręcznej Premium platformy Azure dla Redis](cache-how-to-premium-clustering.md).
+* **Wydajność sieci** : Jeśli korzystasz z obciążenia, które wymaga dużej przepływności, warstwa Premium lub Enterprise oferuje większą przepustowość w porównaniu do warstwy Podstawowa lub standardowa. Ponadto w każdej warstwie pamięć podręczna o większym rozmiarze ma większą przepustowość ze względu na źródłową maszynę wirtualną, która obsługuje pamięć podręczną. Aby uzyskać więcej informacji, zobacz [pamięć podręczna platformy Azure w celu uzyskania wydajności Redis](cache-planning-faq.md#azure-cache-for-redis-performance).
 * **Przepływność** : warstwa Premium oferuje maksymalną dostępną przepływność. Jeśli serwer pamięci podręcznej lub klient osiągnie limity przepustowości, mogą pojawić się limity czasu po stronie klienta. Aby uzyskać więcej informacji, zobacz poniższą tabelę.
-* **Wysoka dostępność** : usługa Azure cache for Redis zapewnia wiele opcji [wysokiej dostępności](cache-high-availability.md) . Gwarantuje to, że pamięć podręczna Standard/Premium jest dostępna zgodnie z naszą umową [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). Umowa SLA obejmuje tylko łączność z punktami końcowymi pamięci podręcznej. Umowa SLA nie obejmuje ochrony przed utratą danych. Zalecamy używanie funkcji trwałości danych Redis w warstwie Premium w celu zwiększenia odporności na utratę danych.
-* **Trwałość danych Redis** : warstwa Premium umożliwia utrwalanie danych w pamięci podręcznej na koncie usługi Azure Storage. W pamięci podręcznej podstawowa/standardowa wszystkie dane są przechowywane tylko w pamięci. Problemy związane z infrastrukturą mogą skutkować potencjalną utratą danych. Zalecamy używanie funkcji trwałości danych Redis w warstwie Premium w celu zwiększenia odporności na utratę danych. Usługa Azure cache for Redis oferuje opcje RDB i kopia zapasowa AOF (wersja zapoznawcza) w przypadku trwałości Redis. Aby uzyskać więcej informacji, zobacz [jak skonfigurować trwałość dla pamięci podręcznej Premium platformy Azure dla Redis](cache-how-to-premium-persistence.md).
-* **Klaster Redis** : Aby utworzyć pamięć podręczną o rozmiarze większym niż 120 GB lub fragmentu dane w wielu węzłach Redis, można użyć klastra Redis, który jest dostępny w warstwie Premium. Każdy węzeł składa się z pary pamięci podręcznej podstawowej/repliki w celu zapewnienia wysokiej dostępności. Aby uzyskać więcej informacji, zobacz [jak skonfigurować klastrowanie dla pamięci podręcznej Premium platformy Azure dla Redis](cache-how-to-premium-clustering.md).
-* **Ulepszone zabezpieczenia i izolacja sieci** : wdrożenie usługi Azure Virtual Network (VNET) zapewnia ulepszone zabezpieczenia i izolację pamięci podręcznej platformy Azure dla usługi Redis, a także podsieci, zasady kontroli dostępu i inne funkcje w celu dodatkowego ograniczenia dostępu. Aby uzyskać więcej informacji, zobacz [jak skonfigurować obsługę usługi Virtual Network w przypadku pamięci podręcznej Premium platformy Azure dla Redis](cache-how-to-premium-vnet.md).
-* **Konfigurowanie Redis** : w warstwach Standardowa i Premium można skonfigurować Redis dla powiadomień dotyczących miejsca na dysku.
+* **Wysoka dostępność** : usługa Azure cache for Redis zapewnia wiele opcji [wysokiej dostępności](cache-high-availability.md) . Gwarantuje to, że pamięć podręczna w warstwie Standardowa, Premium lub Enterprise jest dostępna zgodnie z naszą umową [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). Umowa SLA obejmuje tylko łączność z punktami końcowymi pamięci podręcznej. Umowa SLA nie obejmuje ochrony przed utratą danych. Zalecamy używanie funkcji trwałości danych Redis w warstwie Premium w celu zwiększenia odporności na utratę danych.
+* **Trwałość danych** : warstwa Premium umożliwia utrwalanie danych w pamięci podręcznej na koncie usługi Azure Storage. W innych warstwach dane są przechowywane tylko w pamięci. Problemy związane z infrastrukturą mogą skutkować potencjalną utratą danych. Zalecamy używanie funkcji trwałości danych Redis w warstwie Premium w celu zwiększenia odporności na utratę danych. Usługa Azure cache for Redis oferuje opcje RDB i kopia zapasowa AOF (wersja zapoznawcza) w przypadku trwałości Redis. Aby uzyskać więcej informacji, zobacz [jak skonfigurować trwałość dla pamięci podręcznej Premium platformy Azure dla Redis](cache-how-to-premium-persistence.md).
+* **Izolacja sieci** : wdrożenia prywatnego linku i Virtual Network (VNET) platformy Azure zapewniają zwiększoną ochronę i izolację ruchu dla pamięci podręcznej platformy Azure dla Redis. Sieć wirtualna umożliwia bardziej ograniczenie dostępu za poorednictwem zasad kontroli dostępu do sieci. Aby uzyskać więcej informacji, zobacz [usługa Azure cache for Redis z prywatnym łączem platformy Azure](cache-private-link.md) i [jak skonfigurować obsługę Virtual Network dla pamięci podręcznej systemu Azure w warstwie Premium dla Redis](cache-how-to-premium-vnet.md).
 * **Maksymalna liczba połączeń klientów** : warstwa Premium oferuje maksymalną liczbę klientów, którzy mogą łączyć się z usługą Redis, z większą liczbą połączeń dla pamięci podręcznych o większej wielkości. Klastrowanie nie zwiększa liczby połączeń dostępnych dla klastrowanej pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Azure cache for Redis — Cennik](https://azure.microsoft.com/pricing/details/cache/).
-* **Dedykowany rdzeń dla serwera Redis** : w warstwie Premium wszystkie rozmiary pamięci podręcznej mają dedykowany rdzeń dla Redis. W warstwach Podstawowa/standardowa rozmiar C1 i powyżej ma dedykowany rdzeń dla serwera Redis.
+* **Dedykowany rdzeń dla serwera Redis** : wszystkie pamięci podręczne z wyjątkiem C0 Run DEDYKOWANYCH maszyn wirtualnych.
 * **Przetwarzanie jednowątkowe** : Redis, według projektu, używa tylko jednego wątku do przetwarzania poleceń. Usługa Azure cache for Redis wykorzystuje również dodatkowe rdzenie dla przetwarzania we/wy. Więcej rdzeni zwiększa wydajność przepływności, nawet jeśli nie może generować skalowania liniowego. Ponadto większe rozmiary maszyn wirtualnych zazwyczaj mają wyższe limity przepustowości niż mniejsze. Dzięki temu można uniknąć nasycenia sieci, co spowoduje przekroczenie limitu czasu w aplikacji.
-* **Ulepszenia wydajności** : pamięć podręczna w warstwie Premium są wdrażane na sprzęcie z szybszymi procesorami, co zapewnia lepszą wydajność w porównaniu z warstwą podstawowa lub standardowa. Pamięć podręczna warstwy Premium ma wyższą przepływność i mniejsze opóźnienia. Aby uzyskać więcej informacji, zobacz [pamięć podręczna Azure dla Redis wydajności](cache-planning-faq.md#azure-cache-for-redis-performance)
+* **Ulepszenia wydajności** : pamięć podręczna w warstwach Premium i Enterprise jest wdrażana na sprzęcie z szybszymi procesorami, co zapewnia lepszą wydajność w porównaniu z warstwą podstawowa lub standardowa. Pamięć podręczna warstwy Premium ma wyższą przepływność i mniejsze opóźnienia. Aby uzyskać więcej informacji, zobacz [pamięć podręczna platformy Azure w celu uzyskania wydajności Redis](cache-planning-faq.md#azure-cache-for-redis-performance).
 
-Pamięć podręczną można skalować do wyższej warstwy po jej utworzeniu. Skalowanie w dół do niższej warstwy nie jest obsługiwane. Aby uzyskać instrukcje skalowania krok po kroku, zobacz [Jak skalować usługę Azure Cache for Redis](cache-how-to-scale.md) i [Jak zautomatyzować operację skalowania](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+Pamięć podręczną można skalować z warstwy Podstawowa do Premium po jej utworzeniu. Skalowanie w dół do niższej warstwy nie jest obsługiwane. Aby uzyskać instrukcje skalowania krok po kroku, zobacz [Jak skalować usługę Azure Cache for Redis](cache-how-to-scale.md) i [Jak zautomatyzować operację skalowania](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+
+### <a name="enterprise-tier-requirements"></a>Wymagania dotyczące warstwy przedsiębiorstwa
+
+Warstwy przedsiębiorstwa bazują na Redis Enterprise, komercyjnej wersji Redis z Redis Labs. Klienci uzyskają licencję na oprogramowanie i płacisz za nią za pomocą oferty portalu Azure Marketplace. Pamięć podręczna systemu Azure dla usługi Redis ułatwia pozyskiwanie licencji, dzięki czemu nie będzie konieczne osobne wykonanie tej operacji. Do zakupu w witrynie Azure Marketplace wymagane są następujące wymagania wstępne:
+* Twoja subskrypcja platformy Azure ma prawidłowy instrument płatniczy. Kredyty na korzystanie z platformy Azure lub bezpłatne subskrypcje MSDN nie są obsługiwane.
+* Jesteś właścicielem lub współautorem subskrypcji.
+* Twoja organizacja umożliwia [zakupy w witrynie Azure Marketplace](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases).
+* Jeśli korzystasz z prywatnego rynku, musi on zawierać ofertę Redis Labs Enterprise.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Szybki start z aplikacją internetową platformy ASP.NET](cache-web-app-howto.md) Tworzenie prostej aplikacji internetowej platformy ASP.NET, która korzysta z usługi Azure Cache for Redis.
-* [Szybki start z platformą .NET](cache-dotnet-how-to-use-azure-redis-cache.md) Tworzenie aplikacji platformy .NET, która korzysta z usługi Azure Cache for Redis.
-* [Szybki start z platformą .NET Core](cache-dotnet-core-quickstart.md) Tworzenie aplikacji platformy .NET Core, która korzysta z usługi Azure Cache for Redis.
-* [Szybki start z platformą Node.js](cache-nodejs-get-started.md) Tworzenie prostej aplikacji platformy Node.js, która korzysta z usługi Azure Cache for Redis.
-* [Szybki start z językiem Java](cache-java-get-started.md) Tworzenie prostej aplikacji Java, która korzysta z usługi Azure Cache for Redis.
-* [Szybki start z językiem Python](cache-python-get-started.md) Tworzenie aplikacji Python, która korzysta z usługi Azure Cache for Redis.
+* [Tworzenie pamięci podręcznej platformy Azure dla wystąpienia Redis](quickstart-create-redis.md)
+* [Tworzenie pamięci podręcznej warstwy przedsiębiorstwa](quickstart-create-redis-enterprise.md)
+* [Korzystanie z usługi Azure cache for Redis w aplikacji sieci Web ASP.NET](cache-web-app-howto.md)
+* [Korzystanie z usługi Azure cache for Redis w programie .NET Core](cache-dotnet-core-quickstart.md)
+* [Użyj usługi Azure cache for Redis w .NET Framework](cache-dotnet-how-to-use-azure-redis-cache.md)
+* [Użyj usługi Azure cache for Redis w Node.js](cache-nodejs-get-started.md)
+* [Korzystanie z usługi Azure cache for Redis w języku Java](cache-java-get-started.md)
+* [Korzystanie z usługi Azure cache for Redis w języku Python](cache-python-get-started.md)

@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: f3a5106fcc7f1b55db22ee13ced34328cc38096d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 21bb594f4e374d41cfc4184f3a72aea1717c85d8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486212"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086146"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Skonfiguruj klucze zarządzane przez klienta na potrzeby konta usługi Azure Cosmos przy użyciu usługi Azure Key Vault
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Dane przechowywane na koncie usługi Azure Cosmos są automatycznie i bezproblemowo szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft (**klucze zarządzane przez usługę**). Opcjonalnie można dodać drugą warstwę szyfrowania z kluczami, którymi zarządzasz (**klucze zarządzane przez klienta**).
+Dane przechowywane na koncie usługi Azure Cosmos są automatycznie i bezproblemowo szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft ( **klucze zarządzane przez usługę** ). Opcjonalnie można dodać drugą warstwę szyfrowania z kluczami, którymi zarządzasz ( **klucze zarządzane przez klienta** ).
 
 :::image type="content" source="./media/how-to-setup-cmk/cmk-intro.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 
@@ -30,13 +31,13 @@ Klucze zarządzane przez klienta muszą być przechowywane w [Azure Key Vault](.
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 
-1. Wyszukaj dostawcę zasobów usługi **Microsoft.DocumentDB** . Sprawdź, czy dostawca zasobów został już oznaczony jako zarejestrowany. W przeciwnym razie wybierz dostawcę zasobów i wybierz pozycję **zarejestruj**:
+1. Wyszukaj dostawcę zasobów usługi **Microsoft.DocumentDB** . Sprawdź, czy dostawca zasobów został już oznaczony jako zarejestrowany. W przeciwnym razie wybierz dostawcę zasobów i wybierz pozycję **zarejestruj** :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Skonfiguruj wystąpienie Azure Key Vault
 
-Użycie kluczy zarządzanych przez klienta z Azure Cosmos DB wymaga ustawienia dwóch właściwości w wystąpieniu Azure Key Vault, które ma być używane do hostowania kluczy szyfrowania: **trwałe usuwanie** i **przeczyszczanie**.
+Użycie kluczy zarządzanych przez klienta z Azure Cosmos DB wymaga ustawienia dwóch właściwości w wystąpieniu Azure Key Vault, które ma być używane do hostowania kluczy szyfrowania: **trwałe usuwanie** i **przeczyszczanie** .
 
 Jeśli tworzysz nowe wystąpienie Azure Key Vault, Włącz te właściwości podczas tworzenia:
 
@@ -51,13 +52,13 @@ Jeśli tworzysz nowe wystąpienie Azure Key Vault, Włącz te właściwości pod
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 
-1. Wybierz pozycję **+ Dodaj zasady dostępu**.
+1. Wybierz pozycję **+ Dodaj zasady dostępu** .
 
-1. W menu rozwijanym **uprawnienia klucza** wybierz pozycję **Pobierz**, **Odpakuj klucz**i **Zawijaj uprawnienia klucza** :
+1. W menu rozwijanym **uprawnienia klucza** wybierz pozycję **Pobierz** , **Odpakuj klucz** i **Zawijaj uprawnienia klucza** :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 
-1. W obszarze **Wybierz podmiot zabezpieczeń**wybierz pozycję **nie wybrano**. Następnie wyszukaj **Azure Cosmos DB** podmiot zabezpieczeń i wybierz go (aby ułatwić znalezienie, możesz również wyszukiwać według identyfikatora podmiotu zabezpieczeń `a232010e-820c-4083-83bb-3ace5fc29d0b` ) w dowolnym regionie świadczenia usługi Azure, Azure Government z wyjątkiem regionów, w których jest to identyfikator podmiotu zabezpieczeń `57506a73-e302-42a9-b869-6f12d9ec29e9` . Na koniec wybierz **pozycję Wybierz** u dołu. Jeśli podmiot zabezpieczeń **Azure Cosmos DB** nie znajduje się na liście, może być konieczne ponowne zarejestrowanie **Microsoft.Doc** dostawcy zasobów umentDB zgodnie z opisem w sekcji [Rejestrowanie dostawcy zasobów](#register-resource-provider) w tym artykule.
+1. W obszarze **Wybierz podmiot zabezpieczeń** wybierz pozycję **nie wybrano** . Następnie wyszukaj **Azure Cosmos DB** podmiot zabezpieczeń i wybierz go (aby ułatwić znalezienie, możesz również wyszukiwać według identyfikatora podmiotu zabezpieczeń `a232010e-820c-4083-83bb-3ace5fc29d0b` ) w dowolnym regionie świadczenia usługi Azure, Azure Government z wyjątkiem regionów, w których jest to identyfikator podmiotu zabezpieczeń `57506a73-e302-42a9-b869-6f12d9ec29e9` . Na koniec wybierz **pozycję Wybierz** u dołu. Jeśli podmiot zabezpieczeń **Azure Cosmos DB** nie znajduje się na liście, może być konieczne ponowne zarejestrowanie **Microsoft.Doc** dostawcy zasobów umentDB zgodnie z opisem w sekcji [Rejestrowanie dostawcy zasobów](#register-resource-provider) w tym artykule.
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 
@@ -71,19 +72,19 @@ Jeśli tworzysz nowe wystąpienie Azure Key Vault, Włącz te właściwości pod
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 
-1. Wybierz pozycję **Generuj/Importuj**, podaj nazwę nowego klucza, a następnie wybierz rozmiar klucza RSA. Aby zapewnić najlepsze zabezpieczenia, zalecamy co najmniej 3072. Następnie wybierz pozycję **Utwórz**:
+1. Wybierz pozycję **Generuj/Importuj** , podaj nazwę nowego klucza, a następnie wybierz rozmiar klucza RSA. Aby zapewnić najlepsze zabezpieczenia, zalecamy co najmniej 3072. Następnie wybierz pozycję **Utwórz** :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 
 1. Po utworzeniu klucza wybierz nowo utworzony klucz, a następnie jego bieżącą wersję.
 
-1. Skopiuj **Identyfikator klucza**klucza, z wyjątkiem części po ostatnim ukośniku:
+1. Skopiuj **Identyfikator klucza** klucza, z wyjątkiem części po ostatnim ukośniku:
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 
 ## <a name="create-a-new-azure-cosmos-account"></a>Utwórz nowe konto usługi Azure Cosmos
 
-### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Po utworzeniu nowego konta Azure Cosmos DB z Azure Portal wybierz opcję **klucz zarządzany przez klienta** w kroku **szyfrowanie** . W polu **Identyfikator URI klucza** wklej identyfikator URI/klucz Azure Key Vault klucza skopiowanego z poprzedniego kroku:
 
@@ -93,7 +94,7 @@ Po utworzeniu nowego konta Azure Cosmos DB z Azure Portal wybierz opcję **klucz
 
 Podczas tworzenia nowego konta Azure Cosmos DB przy użyciu programu PowerShell:
 
-- Przekaż identyfikator URI klucza Azure Key Vault skopiowanego wcześniej we właściwości **keyVaultKeyUri** w **właściwościobject**.
+- Przekaż identyfikator URI klucza Azure Key Vault skopiowanego wcześniej we właściwości **keyVaultKeyUri** w **właściwościobject** .
 
 - Użyj **2019-12-12** lub nowszej jako wersji interfejsu API.
 
@@ -232,7 +233,7 @@ Rotacja klucza zarządzanego przez klienta używanego przez konto usługi Azure 
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 
-    Następnie zastąp **Identyfikator URI klucza** nowym kluczem, którego chcesz użyć, a następnie wybierz pozycję **Zapisz**:
+    Następnie zastąp **Identyfikator URI klucza** nowym kluczem, którego chcesz użyć, a następnie wybierz pozycję **Zapisz** :
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 

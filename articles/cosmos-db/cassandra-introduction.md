@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 05/21/2019
-ms.openlocfilehash: 6e31150a15996d9c6e77c772e6d703a39adfa91f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: dc2bf5126ba85eeaec2e66bae8b15c7821805e32
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278921"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087676"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Wprowadzenie do interfejsu API Cassandra usługi Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Interfejs API Cassandra usługi Azure Cosmos DB może być używany jako magazyn danych dla aplikacji napisanych dla na potrzeby usługi [Apache Cassandra](https://cassandra.apache.org). Oznacza to, że używając istniejących [sterowników Apache](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) zgodnych z językiem CQL w wersji 4, aplikacja napisana dla platformy Cassandra może teraz komunikować się z interfejsem API Cassandra usługi Azure Cosmos DB. W wielu przypadkach można przełączać się za pomocą platformy Apache Cassandra w celu użycia interfejs API Cassandra Azure Cosmos DB, zmieniając tylko parametry połączenia. 
 
@@ -23,23 +24,23 @@ Interfejs API Cassandra umożliwia korzystanie z danych przechowywanych w Azure 
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Jakie są zalety korzystania z interfejsu API Apache Cassandra dla usługi Azure Cosmos DB?
 
-**Brak zarządzania operacjami**: jako usługa w pełni zarządzana w chmurze interfejs API Cassandra usługi Azure Cosmos DB usuwa nadmiarowość związaną z zarządzaniem wieloma ustawieniami systemu operacyjnego, maszynami JVM i plikami yaml, ich monitorowaniem oraz interakcjami. Usługa Azure Cosmos DB umożliwia monitorowanie przepływności, opóźnienia, magazynu, dostępności oraz alertów z możliwością konfigurowania.
+**Brak zarządzania operacjami** : jako usługa w pełni zarządzana w chmurze interfejs API Cassandra usługi Azure Cosmos DB usuwa nadmiarowość związaną z zarządzaniem wieloma ustawieniami systemu operacyjnego, maszynami JVM i plikami yaml, ich monitorowaniem oraz interakcjami. Usługa Azure Cosmos DB umożliwia monitorowanie przepływności, opóźnienia, magazynu, dostępności oraz alertów z możliwością konfigurowania.
 
-**Standard typu open source**: Mimo że w pełni zarządzana usługa interfejs API Cassandra nadal obsługuje dużą powierzchnię natywnego protokołu platformy [Apache Cassandra](cassandra-support.md), co pozwala na tworzenie aplikacji na szeroko używanym i w chmurze niezależny od Open Source.
+**Standard typu open source** : Mimo że w pełni zarządzana usługa interfejs API Cassandra nadal obsługuje dużą powierzchnię natywnego protokołu platformy [Apache Cassandra](cassandra-support.md), co pozwala na tworzenie aplikacji na szeroko używanym i w chmurze niezależny od Open Source.
 
-**Zarządzanie wydajnością**: usługa Azure Cosmos DB oferuje operacje odczytu i zapisu o gwarantowanych małych opóźnieniach na poziomie 99. percentyla zapisane w umowie SLA. Użytkownicy nie muszą już martwić się o nakłady operacyjne, aby zapewnić wysoką wydajność i małe opóźnienia odczytów i zapisów. Oznacza to, że użytkownicy nie muszą radzić sobie z ręcznym planowaniem kompaktowania, zarządzaniem reliktami, konfigurowaniem filtrów Blooma oraz replik. Usługa Azure Cosmos DB powoduje usunięcie narzutu związanego z zarządzaniem tymi zagadnieniami i pozwala skupić się na logice aplikacji.
+**Zarządzanie wydajnością** : usługa Azure Cosmos DB oferuje operacje odczytu i zapisu o gwarantowanych małych opóźnieniach na poziomie 99. percentyla zapisane w umowie SLA. Użytkownicy nie muszą już martwić się o nakłady operacyjne, aby zapewnić wysoką wydajność i małe opóźnienia odczytów i zapisów. Oznacza to, że użytkownicy nie muszą radzić sobie z ręcznym planowaniem kompaktowania, zarządzaniem reliktami, konfigurowaniem filtrów Blooma oraz replik. Usługa Azure Cosmos DB powoduje usunięcie narzutu związanego z zarządzaniem tymi zagadnieniami i pozwala skupić się na logice aplikacji.
 
-**Możliwość używania istniejącego kodu i narzędzi**: usługa Azure Cosmos DB udostępnia zgodność na poziomie protokołu przewodowego z istniejącymi zestawami SDK i narzędziami platformy Cassandra. Dzięki tej zgodności można używać istniejącej bazy kodu z interfejsem API Cassandra usługi Azure Cosmos DB z prostymi zmianami.
+**Możliwość używania istniejącego kodu i narzędzi** : usługa Azure Cosmos DB udostępnia zgodność na poziomie protokołu przewodowego z istniejącymi zestawami SDK i narzędziami platformy Cassandra. Dzięki tej zgodności można używać istniejącej bazy kodu z interfejsem API Cassandra usługi Azure Cosmos DB z prostymi zmianami.
 
-**Elastyczność przepływności i przestrzeni dyskowej**: Azure Cosmos DB zapewnia przepływność we wszystkich regionach i może skalować zainicjowaną przepływność przy użyciu operacji Azure Portal, PowerShell lub interfejsu wiersza polecenia. W miarę potrzeb można [elastycznie skalować](manage-scale-cassandra.md) magazyn i przepływność dla tabel.
+**Elastyczność przepływności i przestrzeni dyskowej** : Azure Cosmos DB zapewnia przepływność we wszystkich regionach i może skalować zainicjowaną przepływność przy użyciu operacji Azure Portal, PowerShell lub interfejsu wiersza polecenia. W miarę potrzeb można [elastycznie skalować](manage-scale-cassandra.md) magazyn i przepływność dla tabel.
 
-**Dystrybucja globalna i dostępność**: usługa Azure Cosmos DB zapewnia możliwość globalnej dystrybucji danych we wszystkich regionach platformy Azure z lokalnym przekazywaniem danych przy jednoczesnym zapewnieniu dostępu do danych z małymi opóźnieniami i wysokiej dostępności. Usługa Azure Cosmos DB zapewnia dostępność przez 99,99% czasu w obrębie regionu oraz dostępność odczytu i zapisu przez 99,999% czasu w wielu regionach bez nadmiarowych operacji. Dowiedz się więcej z artykułu [Globalna dystrybucja danych](distribute-data-globally.md). 
+**Dystrybucja globalna i dostępność** : usługa Azure Cosmos DB zapewnia możliwość globalnej dystrybucji danych we wszystkich regionach platformy Azure z lokalnym przekazywaniem danych przy jednoczesnym zapewnieniu dostępu do danych z małymi opóźnieniami i wysokiej dostępności. Usługa Azure Cosmos DB zapewnia dostępność przez 99,99% czasu w obrębie regionu oraz dostępność odczytu i zapisu przez 99,999% czasu w wielu regionach bez nadmiarowych operacji. Dowiedz się więcej z artykułu [Globalna dystrybucja danych](distribute-data-globally.md). 
 
-**Wybór spójności**: usługa Azure Cosmos DB oferuje możliwość wyboru spośród pięciu dobrze zdefiniowanych poziomów spójności w celu osiągnięcia optymalnego kompromisu między spójnością a wydajnością. Te poziomy spójności to: silne, powiązana nieaktualność, sesja, spójny prefiks i ostateczne. Te dokładnie zdefiniowane, praktyczne i intuicyjne poziomy spójności umożliwiają deweloperom dokonywanie precyzyjnych kompromisów między spójnością, dostępnością i opóźnieniem. Dowiedz się więcej w artykule o [poziomach spójności](consistency-levels.md). 
+**Wybór spójności** : usługa Azure Cosmos DB oferuje możliwość wyboru spośród pięciu dobrze zdefiniowanych poziomów spójności w celu osiągnięcia optymalnego kompromisu między spójnością a wydajnością. Te poziomy spójności to: silne, powiązana nieaktualność, sesja, spójny prefiks i ostateczne. Te dokładnie zdefiniowane, praktyczne i intuicyjne poziomy spójności umożliwiają deweloperom dokonywanie precyzyjnych kompromisów między spójnością, dostępnością i opóźnieniem. Dowiedz się więcej w artykule o [poziomach spójności](consistency-levels.md). 
 
-**Klasa korporacyjna**: usługa Azure Cosmos DB udostępnia [certyfikaty zgodności](https://www.microsoft.com/trustcenter), aby zapewnić użytkownikom możliwość bezpiecznego korzystania z platformy. Usługa Azure Cosmos DB oferuje również szyfrowanie danych magazynowanych i w ruchu, zaporę adresów IP oraz dzienniki inspekcji na potrzeby działań płaszczyzny sterowania.
+**Klasa korporacyjna** : usługa Azure Cosmos DB udostępnia [certyfikaty zgodności](https://www.microsoft.com/trustcenter), aby zapewnić użytkownikom możliwość bezpiecznego korzystania z platformy. Usługa Azure Cosmos DB oferuje również szyfrowanie danych magazynowanych i w ruchu, zaporę adresów IP oraz dzienniki inspekcji na potrzeby działań płaszczyzny sterowania.
 
-Źródło **zdarzeń**: interfejs API Cassandra zapewnia dostęp do dziennika zmian trwałych, [źródła zmian](cassandra-change-feed.md), które może ułatwić źródło zdarzeń bezpośrednio z bazy danych. W programie Apache Cassandra jedynym odpowiednikiem jest funkcja przechwytywania zmian danych, która jest tylko mechanizmem do flagi określonych tabel do archiwizacji, a także do odrzucania zapisów w tych tabelach po osiągnięciu konfigurowalnego rozmiaru na dysku na potrzeby dziennika przechwytywania zmian (te funkcje są nadmiarowe w Cosmos DB, ponieważ odpowiednie aspekty są automatycznie regulowane).
+Źródło **zdarzeń** : interfejs API Cassandra zapewnia dostęp do dziennika zmian trwałych, [źródła zmian](cassandra-change-feed.md), które może ułatwić źródło zdarzeń bezpośrednio z bazy danych. W programie Apache Cassandra jedynym odpowiednikiem jest funkcja przechwytywania zmian danych, która jest tylko mechanizmem do flagi określonych tabel do archiwizacji, a także do odrzucania zapisów w tych tabelach po osiągnięciu konfigurowalnego rozmiaru na dysku na potrzeby dziennika przechwytywania zmian (te funkcje są nadmiarowe w Cosmos DB, ponieważ odpowiednie aspekty są automatycznie regulowane).
 
 ## <a name="next-steps"></a>Następne kroki
 

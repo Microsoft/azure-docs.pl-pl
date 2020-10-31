@@ -4,12 +4,12 @@ description: Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: adec05a4d8e34374fe260343c73b1ecd14ba04f1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d08046c8f29901dd9650a1edc886efa2ff226e00
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168175"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086781"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurowanie środowiska projektowego w systemie Mac OS X
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Możesz zaktualizować te ustawienia bezpośrednio w pliku daemon.json w ścieżce instalacji platformy Docker. Ustawienia konfiguracji demona można modyfikować bezpośrednio w programie Docker. Wybierz **ikonę platformy Docker**, a następnie wybierz pozycje **Preferencje** > **Demon** > **Zaawansowane**.
+    Możesz zaktualizować te ustawienia bezpośrednio w pliku daemon.json w ścieżce instalacji platformy Docker. Ustawienia konfiguracji demona można modyfikować bezpośrednio w programie Docker. Wybierz **ikonę platformy Docker** , a następnie wybierz pozycje **Preferencje** > **Demon** > **Zaawansowane** .
     
     >[!NOTE]
     >
@@ -49,7 +49,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
     >
 
     >[!TIP]
-    >Zalecamy zwiększenie zasobów przydzielonych do platformy Docker podczas testowania dużych aplikacji. W tym celu można wybrać **ikonę platformy Docker**, a następnie wybrać pozycję **Zaawansowane**, aby dostosować liczbę rdzeni i ilość pamięci.
+    >Zalecamy zwiększenie zasobów przydzielonych do platformy Docker podczas testowania dużych aplikacji. W tym celu można wybrać **ikonę platformy Docker** , a następnie wybrać pozycję **Zaawansowane** , aby dostosować liczbę rdzeni i ilość pamięci.
 
 2. Uruchom klaster.<br/>
     <b>Ubuntu 18,04 LTS:</b>
@@ -63,7 +63,7 @@ Aby skonfigurować lokalny kontener platformy Docker i uruchomić w nim klaster 
     ```
 
     >[!TIP]
-    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. W przypadku poszczególnych poprawek odwiedź stronę usługi [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) .
+    > Domyślnie zostanie ściągnięty obraz z najnowszą wersją usługi Service Fabric. W przypadku poszczególnych poprawek odwiedź stronę [Service Fabric jednopunktowy](https://hub.docker.com/_/microsoft-service-fabric-onebox) w usłudze Docker Hub.
 
 
 
@@ -201,7 +201,7 @@ Zainstaluj [zestaw SDK platformy .NET Core 3,1 dla komputerów Mac](https://www.
 
 Usługa Azure Service Fabric udostępnia wtyczkę środowiska Eclipse Neon (lub nowszą) dla środowiska IDE Java. Wtyczka upraszcza proces tworzenia, kompilowania i wdrażania usług Java. Aby zainstalować wtyczkę usługi Service Fabric dla środowiska Eclipse lub zaktualizować ją do najnowszej wersji, wykonaj [te czynności](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse). Możesz też wykonać inne procedury przedstawione w [dokumentacji usługi Service Fabric dla środowiska Eclipse](service-fabric-get-started-eclipse.md): kompilowanie aplikacji, dodawanie usługi do aplikacji, odinstalowywanie aplikacji itp.
 
-Ostatnim krokiem jest utworzenie wystąpienia kontenera ze ścieżką współużytkowaną z hostem. Wtyczka wymaga tego typu wystąpienia na potrzeby pracy z kontenerem platformy Docker na komputerze Mac. Na przykład:
+Ostatnim krokiem jest utworzenie wystąpienia kontenera ze ścieżką współużytkowaną z hostem. Wtyczka wymaga tego typu wystąpienia na potrzeby pracy z kontenerem platformy Docker na komputerze Mac. Przykład:
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest
