@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 967e07e55599be0a614e0b6097ae4745f6c7081f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005870"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100086"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Klauzula FROM w Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Klauzula FROM ( `FROM <from_specification>` ) jest opcjonalna, chyba że źródło zostanie odfiltrowane lub zaprojektować w dalszej części zapytania. Zapytanie, takie jak `SELECT * FROM Families` Wyliczenie w całym `Families` kontenerze. Zamiast używać nazwy kontenera, można także użyć głównego identyfikatora dla kontenera.
 

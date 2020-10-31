@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 8c970c820417a5cff7030a8499cf0c3520465231
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fde3145e7bd7f4e53ae7a0c44f02e066c28ec785
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491142"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101582"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Tworzenie kontenera w Azure Cosmos DB interfejs API tabel
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 W tym artykule opisano różne sposoby tworzenia kontenera w Azure Cosmos DB interfejs API tabel. Przedstawiono w nim sposób tworzenia kontenera przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure, programu PowerShell lub obsługiwanych zestawów SDK. W tym artykule pokazano, jak utworzyć kontener, określić klucz partycji i aprowizować przepływność.
 
@@ -26,15 +27,15 @@ W tym artykule opisano różne sposoby tworzenia kontenera w Azure Cosmos DB int
 
 ## <a name="create-using-azure-portal"></a><a id="portal-table"></a>Tworzenie za pomocą witryny Azure Portal
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-table-dotnet.md#create-a-database-account)lub Wybierz istniejące konto.
 
-1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa tabela**. Następnie podaj następujące szczegóły:
+1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa tabela** . Następnie podaj następujące szczegóły:
 
    * Wprowadź identyfikator tabeli.
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Wybierz pozycję **OK** .
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Zrzut ekranu interfejsu API tabel, okno dialogowe Dodawanie tabeli":::
 

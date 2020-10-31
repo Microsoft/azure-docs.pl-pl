@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e14f13d0e9fba407a983fb182d25c77593e4d3c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710596"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098403"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Wyszukiwanie wiadomości za pomocą interfejsu API wyszukiwania wiadomości Bing
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Interfejs API wyszukiwania obrazów Bing umożliwia łatwą integrację możliwości poznawczego wyszukiwania wiadomości w usłudze Bing z aplikacjami.
 
@@ -27,7 +32,7 @@ O ile interfejs API wyszukiwania wiadomości Bing umożliwia przede wszystkim wy
 
 Jeśli udostępniasz pole wyszukiwania, w którym użytkownik wprowadza wyszukiwany termin, użyj [interfejsu API automatycznego sugerowania Bing](../../bing-autosuggest/get-suggested-search-terms.md) w celu ulepszenia jego działania. Interfejs API zwraca sugerowane ciągi zapytań na podstawie częściowych wyszukiwanych terminów w miarę wpisywania ich przez użytkownika.
 
-Gdy użytkownik wprowadzi wyszukiwany termin, zakoduj go w formacie URL przed ustawieniem parametru zapytania [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Na przykład jeśli użytkownik wprowadzi frazę *sailing dinghies*, ustaw parametr `q` na wartość `sailing+dinghies` lub `sailing%20dinghies`.
+Gdy użytkownik wprowadzi wyszukiwany termin, zakoduj go w formacie URL przed ustawieniem parametru zapytania [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Na przykład jeśli użytkownik wprowadzi frazę *sailing dinghies* , ustaw parametr `q` na wartość `sailing+dinghies` lub `sailing%20dinghies`.
 
 ## <a name="get-general-news"></a>Uzyskiwanie wiadomości ogólnych
 
@@ -155,7 +160,7 @@ Host: api.cognitive.microsoft.com
 
 Nie używaj parametru zapytania [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category).
 
-Odpowiedź na żądanie pobrania wiadomości z nagłówków jest taka sama jak w przypadku żądania pobrania najważniejszych wiadomości z dnia dzisiejszego. Jeśli artykuł jest artykułem z nagłówka, jego pole `headline` ma wartość **true**.
+Odpowiedź na żądanie pobrania wiadomości z nagłówków jest taka sama jak w przypadku żądania pobrania najważniejszych wiadomości z dnia dzisiejszego. Jeśli artykuł jest artykułem z nagłówka, jego pole `headline` ma wartość **true** .
 
 Domyślnie odpowiedź zawiera maksymalnie 12 artykułów z nagłówków. Aby zmienić liczbę artykułów z nagłówków do zwrócenia, określ parametr zapytania [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headlinecount). Odpowiedź zawiera również do czterech artykułów spoza nagłówków w każdej z kategorii wiadomości.
 

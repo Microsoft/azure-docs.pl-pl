@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: c44f7218734af4bc3144137356b85e8845208f6f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 546187b49e1186d665fe32b3f8d632a0281bffa4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409378"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099678"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Szybki Start: Tworzenie aplikacji Node.js przy użyciu konta interfejsu API usługi Azure Cosmos DB Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Konsola Gremlin](create-graph-gremlin-console.md)
@@ -70,7 +71,7 @@ Teraz sklonujemy aplikację interfejsu API języka Gremlin z repozytorium GitHub
 
 Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-string). 
 
-Wszystkie poniższe fragmenty kodu pochodzą z pliku *app.js*.
+Wszystkie poniższe fragmenty kodu pochodzą z pliku *app.js* .
 
 Ta Aplikacja konsolowa używa sterownika [Gremlin Node.js](https://www.npmjs.com/package/gremlin) Open Source.
 
@@ -95,7 +96,7 @@ Ta Aplikacja konsolowa używa sterownika [Gremlin Node.js](https://www.npmjs.com
 
     ```
 
-  Konfiguracje są wszystkie w *config.js*, które edytujemy w [poniższej sekcji](#update-your-connection-string).
+  Konfiguracje są wszystkie w *config.js* , które edytujemy w [poniższej sekcji](#update-your-connection-string).
 
 * W celu wykonywania różnych operacji języka Gremlin zdefiniowano serie funkcji. To jest jedna z nich:
 
@@ -151,13 +152,13 @@ Ta Aplikacja konsolowa używa sterownika [Gremlin Node.js](https://www.npmjs.com
 
 1. Otwórz plik *config.js* . 
 
-2. W *config.js*Wypełnij `config.endpoint` klucz wartością **Endpoint Gremlin** na stronie **Przegląd** konta Cosmos DB w Azure Portal. 
+2. W *config.js* Wypełnij `config.endpoint` klucz wartością **Endpoint Gremlin** na stronie **Przegląd** konta Cosmos DB w Azure Portal. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
     :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w Azure Portal, Strona przegląd":::
 
-3. W *config.js*Wypełnij wartość config. PrimaryKey wartością **klucza podstawowego** ze strony **klucze** konta Cosmos DB w Azure Portal. 
+3. W *config.js* Wypełnij wartość config. PrimaryKey wartością **klucza podstawowego** ze strony **klucze** konta Cosmos DB w Azure Portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
@@ -191,9 +192,9 @@ module.exports = config;
 
 Teraz możesz wrócić do Eksploratora danych w witrynie Azure Portal, aby wyświetlać nowe dane grafu, wykonywać o nie zapytania, modyfikować je i pracować z nimi.
 
-W Eksploratorze danych nowa baza danych jest wyświetlana w okienku **Grafy**. Rozwiń bazę danych i kontener, a następnie wybierz pozycję **Graf**.
+W Eksploratorze danych nowa baza danych jest wyświetlana w okienku **Grafy** . Rozwiń bazę danych i kontener, a następnie wybierz pozycję **Graf** .
 
-Dane generowane przez aplikację przykładową będą wyświetlane w kolejnym okienku na karcie **Graf**, gdy wybierzesz przycisk **Zastosuj filtr**.
+Dane generowane przez aplikację przykładową będą wyświetlane w kolejnym okienku na karcie **Graf** , gdy wybierzesz przycisk **Zastosuj filtr** .
 
 Spróbuj uzupełnić wartość `g.V()` ciągiem `.has('firstName', 'Thomas')`, aby przetestować filtr. Pamiętaj, że w wartości jest uwzględniana wielkość liter.
 

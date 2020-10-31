@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebc1f66e68d4cf37546e7d33a9b723385330395c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74873424"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100868"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB stałe zapytania SQL  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Stała, znana również jako literał lub wartość skalarna, jest symbolem, który reprezentuje konkretną wartość danych. Format stałej zależy od typu danych wartości, która reprezentuje.  
   
@@ -23,11 +24,11 @@ ms.locfileid: "74873424"
 |-|-|  
 |**Niezdefiniowane**|Pojedyncza wartość: **undefined**|  
 |**Null**|Pojedyncza wartość: **null**|  
-|**Boolean**|Wartości: **false**, **true**.|  
+|**Typu**|Wartości: **false** , **true** .|  
 |**Liczba**|Liczba zmiennoprzecinkowa podwójnej precyzji, IEEE 754 Standard.|  
 |**Ciąg**|Sekwencja zero lub więcej znaków Unicode. Ciągi muszą być ujęte w pojedyncze lub podwójne cudzysłowy.|  
-|**Macierzy**|Sekwencja zero lub więcej elementów. Każdy element może być wartością dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
-|**Stream**|Zestaw nieuporządkowany zero lub więcej par nazwa/wartość. Nazwa jest ciągiem Unicode, wartość może być dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
+|**Macierzy**|Sekwencja zero lub więcej elementów. Każdy element może być wartością dowolnego typu danych skalarnych, z wyjątkiem **undefined** .|  
+|**Stream**|Zestaw nieuporządkowany zero lub więcej par nazwa/wartość. Nazwa jest ciągiem Unicode, wartość może być dowolnego typu danych skalarnych, z wyjątkiem **undefined** .|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Składnia
   
@@ -67,7 +68,7 @@ ms.locfileid: "74873424"
   
 * `<null_constant>; null`  
   
-  Reprezentuje wartość **null** **typu null**.  
+  Reprezentuje wartość **null** **typu null** .  
   
 * `<boolean_constant>`  
   
@@ -113,7 +114,7 @@ ms.locfileid: "74873424"
 |\f|kanał informacyjny formularza|U + 000C|  
 |\n|kanał informacyjny wiersza|U + 000A|  
 |\r|powrót karetki|U + 000D|  
-|\t|tabulator|U + 0009|  
+|\t| tabulator|U + 0009|  
 |\uXXXX|Znak Unicode zdefiniowany przez 4 cyfry szesnastkowe.|U + XXXX|  
 
 ## <a name="next-steps"></a>Następne kroki

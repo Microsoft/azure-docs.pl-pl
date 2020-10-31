@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 4251a9ec0766f6e1956e4885b58dc874e01b0960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad2b9bcbfdd4353c16d890d1857727b685a5e59
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253075"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098862"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Jak pisać procedury składowane i wyzwalacze przy użyciu interfejsu API zapytań języka JavaScript w usłudze Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Usługa Azure Cosmos DB umożliwia wykonywanie zapytań zoptymalizowanych przy użyciu płynnego interfejsu języka JavaScript bez konieczności znajomości języka SQL, co może służyć do pisania procedur składowanych i wyzwalaczy. Aby dowiedzieć się więcej na temat obsługi interfejsu API zapytań języka JavaScript w usłudze Azure Cosmos DB, zobacz artykuł [Praca ze zintegrowanym interfejsem API zapytań języka JavaScript w usłudze Azure Cosmos DB](javascript-query-api.md).
 

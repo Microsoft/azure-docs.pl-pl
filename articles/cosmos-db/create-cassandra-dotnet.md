@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7389136d5f08c7efd0c0443387744ce4c5816f00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13706b900c64b1d0aa5ce03fc95442e8dfc41051
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91627401"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099831"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra przy użyciu zestawu .NET SDK i Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -36,7 +37,7 @@ Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firm
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Można też [bezpłatnie wypróbować usługę Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure — nie wymaga to opłat ani zobowiązań.
 
 Potrzebne są też następujące elementy: 
-* Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2019, możesz pobrać i korzystać **bezpłatnie** z programu [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
+* Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2019, możesz pobrać i korzystać **bezpłatnie** z programu [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure** .
 * Zainstaluj usługę [Git](https://www.git-scm.com/), aby sklonować przykład.
 
 <a id="create-account"></a>
@@ -97,7 +98,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz dowiedzieć się, jak kod tworzy za
 * Wstaw jednostki użytkowników przez użycie obiektu IMapper z nową sesją łączącą się z przestrzenią kluczy uprofile.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Wyślij zapytanie w celu pobrania informacji o wszystkich użytkownikach.
@@ -119,7 +120,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz dowiedzieć się, jak kod tworzy za
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Informacje o parametrach połączenia umożliwiają aplikacji komunikowanie się z hostowaną bazą danych.
 
-1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz pozycję **Parametry połączenia**.
+1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz pozycję **Parametry połączenia** .
 
 1. Użyj :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: przycisku po prawej stronie ekranu, aby skopiować wartość UserName.
 
@@ -149,7 +150,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     
 ## <a name="run-the-net-app"></a>Uruchamianie aplikacji .NET
 
-1. W programie Visual Studio wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
+1. W programie Visual Studio wybierz kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów** .
 
 2. W wierszu polecenia użyj poniższego polecenia, aby zainstalować pakiet NuGet sterownika platformy .NET. 
 
@@ -162,7 +163,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
     Naciśnij klawisze CTRL+C, aby zatrzymać wykonywanie programu i zamknąć okno konsoli. 
     
-4. W witrynie Azure Portal otwórz **Eksploratora danych**, aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi.
+4. W witrynie Azure Portal otwórz **Eksploratora danych** , aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi.
 
     :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Portal Azure, strona Parametry połączenia":::
 

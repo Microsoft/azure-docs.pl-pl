@@ -6,14 +6,15 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 06/25/2020
-ms.openlocfilehash: 183b161039b86ce824fd0bfde82cf291d54024fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc47f2f7a0f1586b197d14015fe2167293c806c6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801481"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099338"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Jak monitorować znormalizowane Elementy RU/s dla kontenera usługi Azure Cosmos lub konta
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Monitor dla Azure Cosmos DB zawiera widok metryk do monitorowania konta i tworzenia pulpitów nawigacyjnych. Metryki Azure Cosmos DB są zbierane domyślnie. Ta funkcja nie wymaga jawnie włączania ani konfigurowania niczego.
 
@@ -23,7 +24,7 @@ Azure Monitor dla Azure Cosmos DB zawiera widok metryk do monitorowania konta i 
 
 Gdy znormalizowane użycie RU/s osiągnie 100% dla danego zakresu kluczy partycji, a klient nadal wysyła żądania w tym przedziale czasowym z 1 sekund do tego zakresu kluczy partycji, otrzymuje błąd z ograniczoną szybkością. Klient powinien przestrzegać sugerowanego czasu oczekiwania i ponowić próbę żądania. Dzięki zestawowi SDK można łatwo obsługiwać tę sytuację przez ponowną próbę skonfigurowaną w odpowiednim czasie.  Nie jest konieczne, aby zobaczyć błąd ograniczania liczby jednostek RU tylko w przypadku, gdy znormalizowany RU osiągnął 100%. Wynika to z faktu, że znormalizowany RU jest pojedynczą wartością, która reprezentuje maksymalne użycie przez wszystkie zakresy kluczy partycji, jeden zakres kluczy partycji może być zajęty, ale inne zakresy kluczy partycji mogą obsłużyć żądania bez problemów. Na przykład pojedyncza operacja, taka jak procedura składowana, która zużywa wszystkie RU/s w zakresie kluczy partycji, będzie prowadzić do krótkiego wzrostu w znormalizowanym zużyciu RU/s. W takich przypadkach nie będzie żadnych natychmiastowego ograniczania liczby błędów, jeśli częstotliwość żądań jest niska lub żądania są wysyłane do innych partycji w różnych zakresach kluczy partycji. 
 
-Metryki Azure Monitor ułatwiają znajdowanie operacji według kodu stanu dla interfejsu API SQL za pomocą metryk **całkowitej liczby żądań** . Później można filtrować te żądania według kodu stanu 429 i dzielić je według **typu operacji**.  
+Metryki Azure Monitor ułatwiają znajdowanie operacji według kodu stanu dla interfejsu API SQL za pomocą metryk **całkowitej liczby żądań** . Później można filtrować te żądania według kodu stanu 429 i dzielić je według **typu operacji** .  
 
 Aby znaleźć żądania, które są ograniczone, zalecanym sposobem jest uzyskanie tych informacji za pomocą dzienników diagnostycznych.
 
@@ -37,11 +38,11 @@ Podsumowując, **znormalizowana Metryka zużycia ru** jest używana do sprawdzen
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Wybierz pozycję **monitor** na pasku nawigacyjnym po lewej stronie, a następnie wybierz pozycję **metryki**.
+2. Wybierz pozycję **monitor** na pasku nawigacyjnym po lewej stronie, a następnie wybierz pozycję **metryki** .
 
    :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Okienko metryki w Azure Monitor":::
 
-3. W okienku **metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję**i **grupę zasobów**. W polu **Typ zasobu**wybierz pozycję **konta Azure Cosmos DB**, wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj**.
+3. W okienku **metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję** i **grupę zasobów** . W polu **Typ zasobu** wybierz pozycję **konta Azure Cosmos DB** , wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj** .
 
    :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Okienko metryki w Azure Monitor":::
 
@@ -53,7 +54,7 @@ Podsumowując, **znormalizowana Metryka zużycia ru** jest używana do sprawdzen
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filtry dla znormalizowanego zużycia jednostek żądań
 
-Można również filtrować metryki i wykres wyświetlany przez określoną **CollectionName**, **DatabaseName**, **PartitionKeyRangeID**i **region**. Aby odfiltrować metryki, wybierz pozycję **Dodaj filtr** i wybierz wymaganą właściwość, taką jak **CollectionName** i odpowiednią wartość. Na wykresie są następnie wyświetlane znormalizowane jednostki zużycia RU używane dla kontenera w wybranym okresie.  
+Można również filtrować metryki i wykres wyświetlany przez określoną **CollectionName** , **DatabaseName** , **PartitionKeyRangeID** i **region** . Aby odfiltrować metryki, wybierz pozycję **Dodaj filtr** i wybierz wymaganą właściwość, taką jak **CollectionName** i odpowiednią wartość. Na wykresie są następnie wyświetlane znormalizowane jednostki zużycia RU używane dla kontenera w wybranym okresie.  
 
 Metryki można grupować przy użyciu opcji **Zastosuj dzielenie** .  
 

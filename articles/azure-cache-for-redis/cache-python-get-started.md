@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie aplikacji w języku Python — pamięć podręczna platformy Azure dla Redis'
+title: 'Szybki Start: korzystanie z usługi Azure cache for Redis w języku Python'
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć aplikację w języku Python korzystającą z usługi Azure cache for Redis.
 author: yegu-ms
 ms.author: yegu
@@ -11,14 +11,14 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.date: 11/05/2019
-ms.openlocfilehash: aed9be394076b4ef10b8354552d69771ae659eea
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79add54478e9cd52ffd3041d5f85bf588929b44f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87845328"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099440"
 ---
-# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Szybki Start: Tworzenie aplikacji w języku Python korzystającej z usługi Azure cache for Redis
+# <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Szybki Start: korzystanie z usługi Azure cache for Redis w języku Python
 
 W tym artykule opisano obsługę usługi Azure cache for Redis w aplikacji w języku Python w celu uzyskania dostępu do bezpiecznej, dedykowanej pamięci podręcznej dostępnej z dowolnej aplikacji na platformie Azure.
 
@@ -34,7 +34,7 @@ W tym artykule opisano obsługę usługi Azure cache for Redis w aplikacji w ję
 
 ## <a name="install-redis-py"></a>Instalowanie klienta redis-py
 
-[Redis-py](https://github.com/andymccurdy/redis-py) to interfejs języka Python dla usługi Azure Cache for Redis. Użyj narzędzia pakiety Python, *PIP*, aby zainstalować pakiet *Redis-PR* z wiersza polecenia. 
+[Redis-py](https://github.com/andymccurdy/redis-py) to interfejs języka Python dla usługi Azure Cache for Redis. Użyj narzędzia pakiety Python, *PIP* , aby zainstalować pakiet *Redis-PR* z wiersza polecenia. 
 
 W poniższym przykładzie użyto *PIP3* for Python 3 do zainstalowania *Redis-PR* w systemie Windows 10 z poziomu wiersza polecenia administratora.
 
@@ -42,7 +42,7 @@ W poniższym przykładzie użyto *PIP3* for Python 3 do zainstalowania *Redis-PR
 
 ## <a name="read-and-write-to-the-cache"></a>Odczytywanie i zapisywanie w pamięci podręcznej
 
-Uruchom Język Python z wiersza polecenia i przetestuj pamięć podręczną przy użyciu następującego kodu. Zamień `<Your Host Name>` i `<Your Access Key>` na wartości z wystąpienia usługi Azure cache for Redis. Nazwa hosta ma postać * \<DNS name> . Redis.cache.Windows.NET*.
+Uruchom Język Python z wiersza polecenia i przetestuj pamięć podręczną przy użyciu następującego kodu. Zamień `<Your Host Name>` i `<Your Access Key>` na wartości z wystąpienia usługi Azure cache for Redis. Nazwa hosta ma postać *\<DNS name> . Redis.cache.Windows.NET* .
 
 ```python
 >>> import redis
@@ -59,7 +59,7 @@ b'bar'
 
 ## <a name="create-a-python-sample-app"></a>Tworzenie przykładowej aplikacji w języku Python
 
-Utwórz nowy plik tekstowy, Dodaj następujący skrypt i Zapisz plik jako *PythonApplication1.py*. Zamień `<Your Host Name>` i `<Your Access Key>` na wartości z wystąpienia usługi Azure cache for Redis. Nazwa hosta ma postać * \<DNS name> . Redis.cache.Windows.NET*.
+Utwórz nowy plik tekstowy, Dodaj następujący skrypt i Zapisz plik jako *PythonApplication1.py* . Zamień `<Your Host Name>` i `<Your Access Key>` na wartości z wystąpienia usługi Azure cache for Redis. Nazwa hosta ma postać *\<DNS name> . Redis.cache.Windows.NET* .
 
 ```python
 import redis
@@ -98,10 +98,10 @@ Jeśli zakończysz pracę z grupą zasobów i zasobami platformy Azure utworzon�
 
 Aby usunąć grupę zasobów i jej Redis Cache dla wystąpienia platformy Azure:
 
-1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **grupy zasobów**.
+1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **grupy zasobów** .
 1. W polu tekstowym **Filtruj według nazwy** wprowadź nazwę grupy zasobów zawierającej wystąpienie pamięci podręcznej, a następnie wybierz ją z wyników wyszukiwania. 
-1. Na stronie grupy zasobów wybierz pozycję **Usuń grupę zasobów**.
-1. Wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
+1. Na stronie grupy zasobów wybierz pozycję **Usuń grupę zasobów** .
+1. Wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń** .
    
    ![Usuwanie grupy zasobów dla usługi Azure cache for Redis](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
 

@@ -9,14 +9,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 06e0d3618e96b44eca60f32a0977e7f03d6f5603
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 8a76a37de64733ba3e0126c7885d8690d2d83c1b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824622"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099727"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra za pomocą zestawu SDK języka Python i Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -96,7 +97,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz dowiedzieć się, jak kod tworzy za
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Parametry połączenia umożliwiają aplikacji komunikowanie się z hostowaną bazą danych.
 
-1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia**. 
+1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia** . 
 
 1. Użyj :::image type="icon" source="./media/create-cassandra-python/copy.png"::: przycisku po prawej stronie ekranu, aby skopiować górną wartość do punktu kontaktu. 
 
@@ -126,13 +127,13 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     
 ## <a name="use-the-x509-certificate"></a>Używanie certyfikatu X509
 
-1. Pobierz certyfikat główny Baltimore CyberTrust lokalnie z programu [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt) . Zmień nazwę pliku przy użyciu rozszerzenia pliku *CER*.
+1. Pobierz certyfikat główny Baltimore CyberTrust lokalnie z programu [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt) . Zmień nazwę pliku przy użyciu rozszerzenia pliku *CER* .
 
    Certyfikat ma numer seryjny `02:00:00:b9` i odcisk palca SHA1 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
 2. Otwórz *pyquickstart.py* i zmień wartość `path\to\cert` tak, aby wskazywała na nowy certyfikat.
 
-3. Zapisz *pyquickstart.py*.
+3. Zapisz *pyquickstart.py* .
 
 ## <a name="run-the-python-app"></a>Uruchamianie aplikacji w języku Python
 
@@ -159,7 +160,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
     :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Wyświetlanie i kopiowanie nazwy użytkownika, hasła i punktu kontaktowego w witrynie Azure Portal, blok parametrów połączenia":::
     
-4. W witrynie Azure Portal otwórz **Eksploratora danych**, aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi. 
+4. W witrynie Azure Portal otwórz **Eksploratora danych** , aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi. 
 
     :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Wyświetlanie i kopiowanie nazwy użytkownika, hasła i punktu kontaktowego w witrynie Azure Portal, blok parametrów połączenia":::
 

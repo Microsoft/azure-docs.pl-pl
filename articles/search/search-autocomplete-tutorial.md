@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951404"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098454"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich
 
-Wyszukiwanie zgodnie z oczekiwaniami to typowa technika ulepszania produktywności zapytań inicjowanych przez użytkownika. Na platformie Azure Wyszukiwanie poznawcze to środowisko jest obsługiwane przez *funkcję autouzupełniania*, która kończy termin lub frazę w oparciu o częściowe dane wejściowe (kończąc "mikro" "Microsoft"). Inny formularz zawiera *sugestie*: krótka lista pasujących dokumentów (zwracająca tytuły książek z identyfikatorem, aby można było utworzyć łącze do strony szczegółów). Zarówno Autouzupełnianie, jak i sugestie są predykatem według dopasowania w indeksie. Usługa nie będzie oferować zapytań, które zwracają wyniki zerowe.
+Wyszukiwanie zgodnie z oczekiwaniami to typowa technika ulepszania produktywności zapytań inicjowanych przez użytkownika. Na platformie Azure Wyszukiwanie poznawcze to środowisko jest obsługiwane przez *funkcję autouzupełniania* , która kończy termin lub frazę w oparciu o częściowe dane wejściowe (kończąc "mikro" "Microsoft"). Inny formularz zawiera *sugestie* : krótka lista pasujących dokumentów (zwracająca tytuły książek z identyfikatorem, aby można było utworzyć łącze do strony szczegółów). Zarówno Autouzupełnianie, jak i sugestie są predykatem według dopasowania w indeksie. Usługa nie będzie oferować zapytań, które zwracają wyniki zerowe.
 
 Aby zaimplementować te środowiska na platformie Azure Wyszukiwanie poznawcze, potrzebne są:
 
@@ -131,7 +131,7 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ### <a name="enable-highlighting"></a>Włącz podświetlanie
 
-Wyróżnianie stosuje styl czcionki do znaków w wyniku, który odpowiada dane wejściowe. Jeśli na przykład częściowe dane wejściowe to "mikro", wynik będzie wyglądał jako **Micro**Soft, **Micro**Scope i tak dalej. Wyróżnianie opiera się na parametrach HighlightPreTag i HighlightPostTag zdefiniowanych w tekście przy użyciu funkcji sugestii.
+Wyróżnianie stosuje styl czcionki do znaków w wyniku, który odpowiada dane wejściowe. Jeśli na przykład częściowe dane wejściowe to "mikro", wynik będzie wyglądał jako **Micro** Soft, **Micro** Scope i tak dalej. Wyróżnianie opiera się na parametrach HighlightPreTag i HighlightPostTag zdefiniowanych w tekście przy użyciu funkcji sugestii.
 
 ```javascript
 source: "/home/suggest?highlights=true&fuzzy=true&",
@@ -181,7 +181,7 @@ Funkcja Suggest przyjmuje dwa parametry, które określają, czy są zwracane wy
 
 ## <a name="autocomplete"></a>Autouzupełnianie
 
-Do tej pory kod środowiska użytkownika wyszukiwania został wyśrodkowany na sugestii. Następny blok kodu przedstawia Autouzupełnianie przy użyciu funkcji Autouzupełnianie interfejsu użytkownika XDSoft jQuery, przekazując żądanie do usługi Azure Wyszukiwanie poznawcze Autouzupełnianie. Podobnie jak w przypadku sugestii, w aplikacji języka C# kod, który obsługuje interakcję użytkownika, znajduje się w **indeksie. cshtml**.
+Do tej pory kod środowiska użytkownika wyszukiwania został wyśrodkowany na sugestii. Następny blok kodu przedstawia Autouzupełnianie przy użyciu funkcji Autouzupełnianie interfejsu użytkownika XDSoft jQuery, przekazując żądanie do usługi Azure Wyszukiwanie poznawcze Autouzupełnianie. Podobnie jak w przypadku sugestii, w aplikacji języka C# kod, który obsługuje interakcję użytkownika, znajduje się w **indeksie. cshtml** .
 
 ```javascript
 $(function () {
@@ -253,4 +253,4 @@ Skorzystaj z tych linków, aby uzyskać szczegółowe instrukcje lub kod pokazuj
 
 + [Samouczek: Tworzenie pierwszej aplikacji w języku C# (Lekcja 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [Przykładowy kod w języku C#: Azure-Search-dotnet-Samples/Create-First-App/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# i JavaScript za pomocą przykładowego kodu REST](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)
++ [C# i JavaScript za pomocą przykładowego kodu REST](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

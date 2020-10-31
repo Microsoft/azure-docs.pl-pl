@@ -12,14 +12,19 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: aad804179739a77010446a146d32cd51ac6e6757
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7f9a72084cc9dd138eed58e395e009e1161c9382
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85603370"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099899"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Szybki Start: Wyszukiwanie obrazów przy użyciu interfejsu API REST wyszukiwanie obrazów Bing i języka PHP
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Ten przewodnik Szybki start umożliwia utworzenie pierwszego wywołania do interfejsu API wyszukiwania obrazów Bing i odbieranie odpowiedzi w formacie JSON. W tym artykule prosta aplikacja wysyła zapytanie wyszukiwania i wyświetla nieprzetworzone wyniki.
 
@@ -39,7 +44,7 @@ Aby uzyskać więcej informacji, zobacz [Cognitive Services Cennik — wyszukiwa
 
 Aby uruchomić tę aplikację, wykonaj następujące kroki:
 
-1. Upewnij się, że w pliku `php.ini` włączono obsługę bezpiecznego protokołu HTTP. W przypadku systemu Windows ten plik znajduje się w lokalizacji *C:\Windows*.
+1. Upewnij się, że w pliku `php.ini` włączono obsługę bezpiecznego protokołu HTTP. W przypadku systemu Windows ten plik znajduje się w lokalizacji *C:\Windows* .
 2. Utwórz nowy projekt PHP w ulubionym środowisku IDE lub edytorze.
 3. Zdefiniuj punkt końcowy interfejsu API, klucz subskrypcji i termin wyszukiwania. Punkt końcowy może być globalnym punktem końcowym w poniższym kodzie lub [niestandardowym](../../../cognitive-services/cognitive-services-custom-subdomains.md) punktem końcowym domeny wyświetlanym w Azure Portal dla zasobu.
 

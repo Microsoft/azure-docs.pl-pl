@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 92d15337f511f534c23ff97d274b344714812a5e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277986"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100256"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Jak modelować i partycjonować dane w usłudze Azure Cosmos DB przy użyciu przykładu wziętego z życia
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule opisano kilka Azure Cosmos DB pojęć, takich jak [Modelowanie danych](modeling-data.md), [partycjonowanie](partitioning-overview.md)i [przepływność](request-units.md) , aby zademonstrować, jak można zrealizować rzeczywiste ćwiczenie projektowania danych.
 
@@ -22,10 +23,10 @@ Jeśli zwykle pracujesz z relacyjnymi bazami danych, prawdopodobnie skompilowano
 
 ## <a name="the-scenario"></a>Scenariusz
 
-W tym ćwiczeniu będziemy traktować domenę platformy do obsługi blogów, w której *Użytkownicy* mogą tworzyć *wpisy*. Użytkownicy *mogą również dodawać* *Komentarze* do tych wpisów.
+W tym ćwiczeniu będziemy traktować domenę platformy do obsługi blogów, w której *Użytkownicy* mogą tworzyć *wpisy* . Użytkownicy *mogą również dodawać* *Komentarze* do tych wpisów.
 
 > [!TIP]
-> Niektóre słowa są wyróżnione *kursywą*. te słowa identyfikują rodzaj "rzeczy", które będą musiały manipulować naszym modelem.
+> Niektóre słowa są wyróżnione *kursywą* . te słowa identyfikują rodzaj "rzeczy", które będą musiały manipulować naszym modelem.
 
 Dodawanie większej liczby wymagań do naszej specyfikacji:
 
@@ -145,7 +146,7 @@ Pobieranie użytkownika odbywa się przez odczytanie odpowiedniego elementu z `u
 
 ### <a name="c2-createedit-a-post"></a>C2 Utwórz/Edytuj wpis
 
-Podobnie jak w przypadku **[C1]**, chcemy zapisywać do `posts` kontenera.
+Podobnie jak w przypadku **[C1]** , chcemy zapisywać do `posts` kontenera.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Pisanie pojedynczego elementu w kontenerze Użytkownicy" border="false":::
 
@@ -204,7 +205,7 @@ Mimo że zapytanie główne wykonuje filtrowanie według klucza partycji kontene
 
 ### <a name="c4-like-a-post"></a>C4 Jak wpis
 
-Podobnie jak w przypadku **[C3]**, tworzymy odpowiadający element w `posts` kontenerze.
+Podobnie jak w przypadku **[C3]** , tworzymy odpowiadający element w `posts` kontenerze.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Pisanie pojedynczego elementu w kontenerze Użytkownicy" border="false":::
 
@@ -214,7 +215,7 @@ Podobnie jak w przypadku **[C3]**, tworzymy odpowiadający element w `posts` kon
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Wyświetlanie polubień wpisu
 
-Podobnie jak w przypadku **[4 kwartale]**, będziemy wysyłać zapytania dotyczące polubień dla tego wpisu, a następnie agregować ich nazwy użytkowników.
+Podobnie jak w przypadku **[4 kwartale]** , będziemy wysyłać zapytania dotyczące polubień dla tego wpisu, a następnie agregować ich nazwy użytkowników.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Pisanie pojedynczego elementu w kontenerze Użytkownicy" border="false":::
 
@@ -291,7 +292,7 @@ Modyfikujemy również komentarz i podobne elementy, aby dodać nazwę użytkown
 
 To, co chcemy osiągnąć, to przy każdym dodawaniu komentarza lub podobnej wartości `commentCount` `likeCount` . Gdy `posts` kontener jest partycjonowany przez `postId` , nowy element (komentarz lub podobny) i odpowiadający mu wpis znajduje się w tej samej partycji logicznej. W związku z tym można użyć [procedury składowanej](stored-procedures-triggers-udfs.md) do wykonania tej operacji.
 
-Teraz podczas tworzenia komentarza (**[C3]**) zamiast tylko dodawania nowego elementu w `posts` kontenerze wywoływana została następująca procedura składowana w tym kontenerze:
+Teraz podczas tworzenia komentarza ( **[C3]** ) zamiast tylko dodawania nowego elementu w `posts` kontenerze wywoływana została następująca procedura składowana w tym kontenerze:
 
 ```javascript
 function createComment(postId, comment) {
@@ -405,7 +406,7 @@ Dokładna sytuacja podczas wyświetlania listy polubień.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Sprawdzanie, czy wszystkie żądania są skalowalne
 
-Analizując nasze Ogólne ulepszenia wydajności, nadal istnieją dwa żądania, które nie zostały w pełni zoptymalizowane: **[Q3]** i **[Q6]**. Są to żądania dotyczące zapytań, które nie filtrują w kluczu partycji docelowych kontenerów.
+Analizując nasze Ogólne ulepszenia wydajności, nadal istnieją dwa żądania, które nie zostały w pełni zoptymalizowane: **[Q3]** i **[Q6]** . Są to żądania dotyczące zapytań, które nie filtrują w kluczu partycji docelowych kontenerów.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>Kwartał Wyświetlanie listy wpisów użytkownika w postaci krótkiej
 

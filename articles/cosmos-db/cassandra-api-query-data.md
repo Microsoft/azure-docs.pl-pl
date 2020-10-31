@@ -8,14 +8,15 @@ ms.reviewer: sngun
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: e1e6f977d47d98e7c9f5300dc8165ee44a531499
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 693984ceaef1a71ebfbe4122c18a45a563c9c101
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91564871"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100443"
 ---
 # <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Samouczek: wykonywanie zapytań względem danych z poziomu konta interfejsu API Cassandra w usłudze Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Jako deweloper być może masz aplikacje, które używają par klucz-wartość. Możesz przechowywać dane kluczy/wartości i tworzyć zapytania względem nich przy użyciu konta interfejsu API Cassandra w usłudze Azure Cosmos DB. W tym samouczku przedstawiono sposób wykonywania zapytań względem danych użytkownika z poziomu konta interfejsu API Cassandra w usłudze Azure Cosmos DB przy użyciu aplikacji języka Java. Aplikacja języka Java używa [sterownika Java](https://github.com/datastax/java-driver) i wykonuje zapytania względem danych użytkownika, takie jak identyfikator użytkownika, nazwa użytkownika i miasto użytkownika. 
 
@@ -106,7 +107,7 @@ Przeprowadź poniższe czynności, aby wykonać zapytania względem danych z poz
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Możesz usunąć grupę zasobów, konto usługi Azure Cosmos oraz wszystkie powiązane zasoby, gdy nie będą już potrzebne. Aby to zrobić, wybierz grupę zasobów maszyny wirtualnej, wybierz pozycję **Usuń**, a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
+Możesz usunąć grupę zasobów, konto usługi Azure Cosmos oraz wszystkie powiązane zasoby, gdy nie będą już potrzebne. Aby to zrobić, wybierz grupę zasobów maszyny wirtualnej, wybierz pozycję **Usuń** , a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
 
 ## <a name="next-steps"></a>Następne kroki
 

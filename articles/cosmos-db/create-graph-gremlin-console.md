@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: be93df10614e32fb14e5ca7497461f0f2d6fc93e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409395"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099718"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Szybki start: Tworzenie elementów, wykonywanie zapytań i przechodzenie przez grafową bazę danych usługi Azure Cosmos DB przy użyciu konsoli Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Konsola Gremlin](create-graph-gremlin-console.md)
@@ -52,22 +53,22 @@ Należy również zainstalować [konsolę Gremlin](https://tinkerpop.apache.org/
 ## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Nawiązywanie połączenia z usługą App Service/grafem
 
 1. Przed uruchomieniem konsoli Gremlin utwórz lub zmodyfikuj plik konfiguracji remote-secure.yaml w katalogu `apache-tinkerpop-gremlin-console-3.2.5/conf`.
-2. Wypełnij ustawienia konfiguracji *host*, *port*, *username*, *password*, *connectionPool* i *serializer* zgodnie z poniższą tabelą:
+2. Wypełnij ustawienia konfiguracji *host* , *port* , *username* , *password* , *connectionPool* i *serializer* zgodnie z poniższą tabelą:
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
-    hosty|[*nazwa konta*. **Gremlin**. Cosmos.Azure.com]|Zobacz poniższy zrzut ekranu. Jest to wartość **identyfikatora URI Gremlin** na stronie Przegląd Azure Portal w nawiasach kwadratowych z końcowym: 443/usunięty. Uwaga: Pamiętaj, aby użyć wartości Gremlin, a **nie** identyfikatora URI kończącego się na [*account-name*. Documents.Azure.com], co prawdopodobnie spowoduje, że "host nie odpowiedział w odpowiednim czasie" podczas próby wykonania zapytań Gremlin w późniejszym czasie. 
+    hosty|[ *nazwa konta* . **Gremlin** . Cosmos.Azure.com]|Zobacz poniższy zrzut ekranu. Jest to wartość **identyfikatora URI Gremlin** na stronie Przegląd Azure Portal w nawiasach kwadratowych z końcowym: 443/usunięty. Uwaga: Pamiętaj, aby użyć wartości Gremlin, a **nie** identyfikatora URI kończącego się na [ *account-name* . Documents.Azure.com], co prawdopodobnie spowoduje, że "host nie odpowiedział w odpowiednim czasie" podczas próby wykonania zapytań Gremlin w późniejszym czasie. 
     port|443|Ustaw wartość 443.
     nazwa użytkownika|*Twoja nazwa użytkownika*|Zasób w postaci `/dbs/<db>/colls/<coll>`, gdzie `<db>` jest nazwą bazy danych, a `<coll>` oznacza nazwę kolekcji.
     hasło|*Twój klucz podstawowy*| Zobacz drugi zrzut ekranu poniżej. To jest klucz podstawowy, który można pobrać ze strony Klucze w witrynie Azure Portal, z pola Klucz podstawowy. Aby skopiować wartość, użyj przycisku kopiowania po lewej stronie pola.
     connectionPool|{enableSsl: true}|Ustawienie puli połączeń dla protokołu TLS.
     serializer|{ className: org.apache.tinkerpop.gremlin.<br>Driver. SQL. GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Ustaw tę wartość i usuń wszystkie podziały wiersza `\n` podczas wklejania w wartości.
 
-   W przypadku wartości hosta skopiuj wartość **Identyfikator URI Gremlin** ze strony **Przegląd**:
+   W przypadku wartości hosta skopiuj wartość **Identyfikator URI Gremlin** ze strony **Przegląd** :
 
    :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Usługa Azure Cosmos DB w konsoli Apache Gremlin":::
 
-   W przypadku wartości hasła skopiuj wartość **Klucz podstawowy** ze strony **Klucze**:
+   W przypadku wartości hasła skopiuj wartość **Klucz podstawowy** ze strony **Klucze** :
 
    :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Usługa Azure Cosmos DB w konsoli Apache Gremlin":::
 
@@ -108,7 +109,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>Tworzenie wierzchołków i krawędzi
 
-Zacznijmy od dodania wierzchołków dla pięciu osób: *Thomas*, *Mary Kay*, *Robin*, *Ben* i *Jack*.
+Zacznijmy od dodania wierzchołków dla pięciu osób: *Thomas* , *Mary Kay* , *Robin* , *Ben* i *Jack* .
 
 Dane wejściowe (Thomas):
 
@@ -214,7 +215,7 @@ Dane wyjściowe:
 
 ## <a name="update-a-vertex"></a>Aktualizowanie wierzchołka
 
-Zaktualizujmy wierzchołek *Thomas*, podając nowy wiek: *45*.
+Zaktualizujmy wierzchołek *Thomas* , podając nowy wiek: *45* .
 
 Dane wejściowe:
 ```java

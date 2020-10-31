@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
-ms.openlocfilehash: 48aafceff80e4a570900e5a8e1190698e12946b1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1ac6fd5a3f1e581fc9a676fe7f8f27b9742e1581
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754478"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101225"
 ---
 # <a name="microsoftkeyvaultkeyvaultcertificateselector-ui-element"></a>Microsoft. KeyVaultCertificateSelector — element interfejsu użytkownika
 
@@ -38,7 +38,7 @@ Formant zostanie zaktualizowany w celu wyświetlenia wybranego magazynu kluczy i
   "type": "Microsoft.KeyVault.KeyVaultCertificateSelector",
   "visible": true,
   "toolTip": "Select certificate",
-  "label": "Key Vault certificates selection"
+  "label": "KeyVault certificates selection"
 }
 ```
 

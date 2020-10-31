@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d4815f4be3c8ef1a2c262d6715756776a537eac1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476981"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101055"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Czas wygaśnięcia (TTL) w usłudze Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W przypadku **czasu** wygaśnięcia lub czasu wygaśnięcia usługa Azure Cosmos DB zapewnia możliwość automatycznego usuwania elementów z kontenera po upływie określonego czasu. Domyślnie można ustawić czas na żywo na poziomie kontenera i zastąpić wartość dla każdego elementu. Po ustawieniu czasu wygaśnięcia w kontenerze lub na poziomie elementu Azure Cosmos DB automatycznie usunie te elementy po upływie czasu, od momentu ostatniej modyfikacji. Wartość czasu wygaśnięcia jest konfigurowana w sekundach. W przypadku skonfigurowania czasu wygaśnięcia system automatycznie usunie przeterminowane elementy na podstawie wartości czasu wygaśnięcia, bez konieczności operacji usuwania jawnie wydanej przez aplikację kliencką. Maksymalna wartość parametru TTL to 2147483647.
 

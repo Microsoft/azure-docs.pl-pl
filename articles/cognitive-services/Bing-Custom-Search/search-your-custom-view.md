@@ -10,21 +10,26 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38191c55afb87151b238069a75a6c86acd8904df
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76983116"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100545"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Wywoływanie wystąpienia wyszukiwanie niestandardowe Bing z portalu
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Po skonfigurowaniu niestandardowego środowiska wyszukiwania można je przetestować z poziomu [portalu](https://customsearch.ai)wyszukiwanie niestandardowe Bing. 
 
 ![zrzut ekranu portalu wyszukiwania niestandardowego Bing](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Utwórz zapytanie wyszukiwania 
 
-Po zalogowaniu się do [portalu](https://customsearch.ai)wyszukiwanie niestandardowe Bing wybierz wystąpienie wyszukiwania i kliknij kartę **produkcja** . W obszarze **punkty końcowe**wybierz punkt końcowy interfejsu API (na przykład internetowy interfejs API). Twoja subskrypcja określa, jakie punkty końcowe są wyświetlane.
+Po zalogowaniu się do [portalu](https://customsearch.ai)wyszukiwanie niestandardowe Bing wybierz wystąpienie wyszukiwania i kliknij kartę **produkcja** . W obszarze **punkty końcowe** wybierz punkt końcowy interfejsu API (na przykład internetowy interfejs API). Twoja subskrypcja określa, jakie punkty końcowe są wyświetlane.
 
 Aby utworzyć zapytanie wyszukiwania, wprowadź wartości parametrów dla punktu końcowego. Należy pamiętać, że parametry wyświetlane w portalu mogą ulec zmianie w zależności od wybranego punktu końcowego. Zobacz [odwołanie interfejs API wyszukiwania niestandardowego](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) , aby uzyskać więcej informacji. Aby zmienić subskrypcję używaną przez wystąpienie wyszukiwania, Dodaj odpowiedni klucz subskrypcji i zaktualizuj odpowiednie parametry rynku i/lub języka.
 

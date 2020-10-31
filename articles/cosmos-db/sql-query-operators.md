@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2f79e2ca751ce9c1016f32effeca532d6ffe7fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498841"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101242"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operatory w Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule szczegółowo opisano różne operatory obsługiwane przez Azure Cosmos DB.
 
@@ -21,11 +22,11 @@ W tym artykule szczegółowo opisano różne operatory obsługiwane przez Azure 
 
 W poniższej tabeli przedstawiono wynik porównań równości w interfejsie API SQL między dwoma dowolnymi typami JSON.
 
-| **Operator** | **Niezdefiniowane** | **Null** | **Boolean (wartość logiczna)** | **Liczba** | **Ciąg** | **Stream** | **Macierzy** |
+| **Operator** | **Niezdefiniowane** | **Null** | **Typu** | **Liczba** | **Ciąg** | **Stream** | **Macierzy** |
 |---|---|---|---|---|---|---|---|
 | **Niezdefiniowane** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
 | **Null** | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
-| **Boolean (wartość logiczna)** | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
+| **Typu** | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
 | **Liczba** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane |
 | **Ciąg** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane | Niezdefiniowane |
 | **Stream** | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | Niezdefiniowane | **Ok** | Niezdefiniowane |
@@ -77,7 +78,7 @@ Odwraca wartość dowolnego wyrażenia logicznego.
 | **False** |Prawda |
 | **Niezdefiniowane** |Niezdefiniowane |
 
-**Pierwszeństwo operatorów**
+**Kolejność wykonywania działań**
 
 Operatory logiczne `OR` `AND` i `NOT` mają poziom pierwszeństwa przedstawiony poniżej:
 

@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 486930776b4b4b6d852102be723ac1047ebd5e0a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078160"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098488"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Model cen dla Azure Logic Apps
 
@@ -85,13 +85,13 @@ W przypadku aplikacji logiki, które tworzysz i uruchamiasz w ramach usługi ISE
 
 Wyzwalacz jest zawsze pierwszym krokiem w przepływie pracy aplikacji logiki i jest specjalną akcją, która tworzy i uruchamia wystąpienie aplikacji logiki, gdy zostaną spełnione określone kryteria lub wystąpi określone zdarzenie. Wyzwalacze działają na różne sposoby, które mają wpływ na sposób mierzenia aplikacji logiki. Oto różne rodzaje wyzwalaczy, które istnieją w Azure Logic Apps:
 
-* **Wyzwalacz cykliczny**: można użyć tego wyzwalacza generycznego, który nie jest specyficzny dla żadnej usługi lub systemu, aby uruchomić przepływ pracy aplikacji logiki i utworzyć wystąpienie aplikacji logiki, które jest uruchamiane na podstawie interwału cyklu, który został skonfigurowany w wyzwalaczu. Na przykład można skonfigurować wyzwalacz cykliczny, który jest uruchamiany co trzy dni lub bardziej skomplikowany harmonogram.
+* **Wyzwalacz cykliczny** : można użyć tego wyzwalacza generycznego, który nie jest specyficzny dla żadnej usługi lub systemu, aby uruchomić przepływ pracy aplikacji logiki i utworzyć wystąpienie aplikacji logiki, które jest uruchamiane na podstawie interwału cyklu, który został skonfigurowany w wyzwalaczu. Na przykład można skonfigurować wyzwalacz cykliczny, który jest uruchamiany co trzy dni lub bardziej skomplikowany harmonogram.
 
-* **Wyzwalacz sondowania**: można użyć tego bardziej wyspecjalizowanego wyzwalacza cyklu, który jest zazwyczaj skojarzony z zarządzanym łącznikiem dla określonej usługi lub systemu, aby sprawdzić, czy istnieją zdarzenia lub komunikaty spełniające kryteria tworzenia i uruchamiania wystąpienia aplikacji logiki na podstawie interwału cyklu, który został skonfigurowany w wyzwalaczu. Nawet wtedy, gdy nie zostanie utworzone wystąpienie aplikacji logiki, na przykład gdy wyzwalacze są pomijane, usługa Logic Apps liczników każdego żądania sondowania jako wykonanie. Aby określić interwał sondowania, skonfiguruj wyzwalacz za pomocą projektanta aplikacji logiki.
+* **Wyzwalacz sondowania** : można użyć tego bardziej wyspecjalizowanego wyzwalacza cyklu, który jest zazwyczaj skojarzony z zarządzanym łącznikiem dla określonej usługi lub systemu, aby sprawdzić, czy istnieją zdarzenia lub komunikaty spełniające kryteria tworzenia i uruchamiania wystąpienia aplikacji logiki na podstawie interwału cyklu, który został skonfigurowany w wyzwalaczu. Nawet wtedy, gdy nie zostanie utworzone wystąpienie aplikacji logiki, na przykład gdy wyzwalacze są pomijane, usługa Logic Apps liczników każdego żądania sondowania jako wykonanie. Aby określić interwał sondowania, skonfiguruj wyzwalacz za pomocą projektanta aplikacji logiki.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Wyzwalacz elementu webhook**: zamiast używać wyzwalacza sondowania, można użyć wyzwalacza elementu webhook, aby poczekać na wysłanie przez klienta żądania do aplikacji logiki przy użyciu adresu URL określonego punktu końcowego. Każde żądanie wysyłane do punktu końcowego elementu webhook jest traktowane jako wykonanie akcji. Na przykład żądanie i wyzwalacz elementu webhook protokołu HTTP to ogólne wyzwalacze elementu webhook. Niektóre łączniki dla usług lub systemów mają także wyzwalacze elementu webhook.
+* **Wyzwalacz elementu webhook** : zamiast używać wyzwalacza sondowania, można użyć wyzwalacza elementu webhook, aby poczekać na wysłanie przez klienta żądania do aplikacji logiki przy użyciu adresu URL określonego punktu końcowego. Każde żądanie wysyłane do punktu końcowego elementu webhook jest traktowane jako wykonanie akcji. Na przykład żądanie i wyzwalacz elementu webhook protokołu HTTP to ogólne wyzwalacze elementu webhook. Niektóre łączniki dla usług lub systemów mają także wyzwalacze elementu webhook.
 
 <a name="actions"></a>
 
@@ -122,11 +122,11 @@ Jeśli masz [ *środowisko usługi integracji* (ISE)](../logic-apps/connect-virt
 
 Aby wybrać jedną z kont integracji bezpłatnej, podstawowej lub standardowej, zapoznaj się z następującymi opisami przypadków użycia:
 
-* **Bezpłatnie**: w przypadku, gdy chcesz wypróbować scenariusze poznawcze, a nie w scenariuszach produkcyjnych. Ta warstwa jest dostępna tylko dla regionów publicznych na platformie Azure, na przykład zachodnie stany USA czy Azja Południowo-Wschodnia, ale nie dla Chin lub [Azure Government](../azure-government/documentation-government-welcome.md) [platformy Azure](/azure/china/overview-operations) .
+* **Bezpłatnie** : w przypadku, gdy chcesz wypróbować scenariusze poznawcze, a nie w scenariuszach produkcyjnych. Ta warstwa jest dostępna tylko dla regionów publicznych na platformie Azure, na przykład zachodnie stany USA czy Azja Południowo-Wschodnia, ale nie dla Chin lub [Azure Government](../azure-government/documentation-government-welcome.md) [platformy Azure](/azure/china/overview-operations) .
 
-* **Podstawowa**: w przypadku, gdy ma być obsługiwana obsługa komunikatów lub działać jako mały partner biznesowy, który ma relację partnera handlowego z większą jednostką biznesową
+* **Podstawowa** : w przypadku, gdy ma być obsługiwana obsługa komunikatów lub działać jako mały partner biznesowy, który ma relację partnera handlowego z większą jednostką biznesową
 
-* **Standard**: w przypadku bardziej złożonych relacji B2B i większej liczby jednostek, które muszą być zarządzane
+* **Standard** : w przypadku bardziej złożonych relacji B2B i większej liczby jednostek, które muszą być zarządzane
 
 <a name="data-retention"></a>
 
@@ -137,6 +137,7 @@ Z wyjątkiem aplikacji logiki, które są uruchamiane w środowisku usługi inte
 Aby ułatwić monitorowanie użycia magazynu aplikacji logiki, możesz:
 
 * Wyświetl liczbę jednostek magazynowych w GB, które są używane przez aplikację logiki miesięcznie.
+
 * Wyświetl rozmiary danych wejściowych i wyjściowych określonej akcji w historii uruchamiania aplikacji logiki.
 
 <a name="storage-consumption"></a>
@@ -145,11 +146,14 @@ Aby ułatwić monitorowanie użycia magazynu aplikacji logiki, możesz:
 
 1. W Azure Portal Znajdź i Otwórz aplikację logiki.
 
-1. Z menu aplikacji logiki w obszarze **monitorowanie**wybierz pozycję **metryki**.
+1. Z menu aplikacji logiki w obszarze **monitorowanie** wybierz pozycję **metryki** .
 
-1. W okienku po prawej stronie w obszarze **tytuł wykresu**z listy **Metryka** wybierz pozycję **użycie rozliczenia dla wykonań zużycia magazynu**.
+1. W okienku po prawej stronie w obszarze **tytuł wykresu** z listy **Metryka** wybierz pozycję **użycie rozliczenia dla wykonań zużycia magazynu** .
 
    Ta Metryka zapewnia liczbę jednostek zużycia magazynu w GB miesięcznie, w których są naliczane opłaty.
+
+   > [!NOTE]
+   > Przebiegi, które zużywają mniej niż 500 MB w magazynie, mogą nie być wyświetlane w widoku monitorowanie, ale nadal są rozliczane.
 
 <a name="input-output-sizes"></a>
 
@@ -157,15 +161,18 @@ Aby ułatwić monitorowanie użycia magazynu aplikacji logiki, możesz:
 
 1. W Azure Portal Znajdź i Otwórz aplikację logiki.
 
-1. W menu aplikacji logiki wybierz pozycję **Przegląd**.
+1. W menu aplikacji logiki wybierz pozycję **Przegląd** .
 
-1. W okienku po prawej stronie w obszarze **historia uruchamiania**wybierz przebieg zawierający dane wejściowe i wyjściowe, które chcesz sprawdzić.
+1. W okienku po prawej stronie w obszarze **historia uruchamiania** wybierz przebieg zawierający dane wejściowe i wyjściowe, które chcesz sprawdzić.
 
-1. W obszarze **Uruchom aplikację logiki**wybierz pozycję **Uruchom szczegóły**.
+1. W obszarze **Uruchom aplikację logiki** wybierz pozycję **Uruchom szczegóły** .
 
 1. W okienku **szczegółów przebiegu aplikacji logiki** w tabeli Actions (akcje), która zawiera listę stanów i czas trwania akcji, należy wybrać akcję, która ma zostać wyświetlona.
 
-1. W okienku **Akcja aplikacji logiki** Znajdź rozmiary danych wejściowych tej akcji, a dane wyjściowe są wyświetlane odpowiednio w obszarze **link do danych wejściowych** i **wyjściowych**.
+1. W okienku **Akcja aplikacji logiki** Znajdź rozmiary danych wejściowych i wyjściowych tej akcji. W obszarze łącze **linków i danych** **wyjściowych** Znajdź linki do tych danych wejściowych i wyjściowych.
+
+   > [!NOTE]
+   > W przypadku pętli tylko akcje najwyższego poziomu pokazują rozmiary dla danych wejściowych i wyjściowych. W przypadku akcji wewnątrz zagnieżdżonych pętli dane wejściowe i wyjściowe pokazują rozmiar zerowy i nie łączą.
 
 ## <a name="next-steps"></a>Następne kroki
 

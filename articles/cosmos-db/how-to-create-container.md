@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: eb9e8caff81e86b7db732c970eee1e1a08be5241
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 302c5d6e8e523a11b8773f10bb6089e3bea09bdd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491108"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101565"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Tworzenie kontenera w Azure Cosmos DB interfejsu API SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule wyjaśniono różne sposoby tworzenia kontenera w Azure Cosmos DB interfejsie API SQL. Przedstawiono w nim sposób tworzenia kontenera przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure, programu PowerShell lub obsługiwanych zestawów SDK. W tym artykule pokazano, jak utworzyć kontener, określić klucz partycji i aprowizować przepływność.
 
@@ -26,17 +27,17 @@ W tym artykule wyjaśniono różne sposoby tworzenia kontenera w Azure Cosmos DB
 
 ## <a name="create-a-container-using-azure-portal"></a><a id="portal-sql"></a>Tworzenie kontenera przy użyciu witryny Azure Portal
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-sql-api-dotnet.md#create-account)lub Wybierz istniejące konto.
 
-1. Otwórz okienko **Eksplorator danych** i wybierz pozycję **nowy kontener**. Następnie podaj następujące szczegóły:
+1. Otwórz okienko **Eksplorator danych** i wybierz pozycję **nowy kontener** . Następnie podaj następujące szczegóły:
 
    * Wskaż, czy tworzysz nową bazę danych, czy używasz istniejącej.
    * Wprowadź identyfikator kontenera.
    * Wprowadź klucz partycji.
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Wybierz pozycję **OK** .
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Zrzut ekranu przedstawiający okienko Eksplorator danych z wyróżnionym nowym kontenerem":::
 

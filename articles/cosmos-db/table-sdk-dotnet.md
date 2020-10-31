@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bc984e330085430db10298380dfdc9767f1aa770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea5f3fca18e6a5781bf46112134ae4efc7159106
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261944"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101208"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Interfejs API platformy .NET tabeli Azure Cosmos DB: pobieranie i informacje o wersji
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
@@ -27,7 +28,7 @@ ms.locfileid: "91261944"
 
 |   |   |
 |---|---|
-|**Pobieranie zestawu SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
+|**Zestaw SDK do pobrania**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
 |**Szybki start**|[Azure Cosmos DB: kompilowanie aplikacji za pomocą platformy .NET i interfejs API tabel](create-table-dotnet.md)|
 |**Samouczek**|[Azure Cosmos DB: programowanie za pomocą interfejsu Table API na platformie .NET](tutorial-develop-table-dotnet.md)|
 |**Bieżąca obsługiwana platforma**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
@@ -58,7 +59,7 @@ ms.locfileid: "91261944"
 * Stałe zależności pakietów NuGet w witrynie Microsoft. Azure. Storage. Common i Microsoft.Azure.DocumentDB.
 * Poprawki podczas serializacji tabeli podczas konfigurowania JsonConvert. DefaultSettings.
 
-### <a name="111"></a><a name="1.1.1"></a>ppkt
+### <a name="111"></a><a name="1.1.1"></a>1.1.1
 
 * Dodano weryfikację dla nieprawidłowo sformułowanych elementów ETAG w trybie bezpośrednim.
 * Stała usterka zapytania LINQ w trybie bramy.
@@ -91,7 +92,7 @@ Pakiet [windowsazure. Storage-Premium](https://www.nuget.org/packages/WindowsAzu
 | [2.1.0](#2.1.0) |22 stycznia 2019 r.|01 kwietnia 2020 |
 | [2.0.0](#2.0.0) |26 września 2018|01, 2020 |
 | [1.1.3](#1.1.3) |17 lipca 2018 r.|01, 2019 |
-| [ppkt](#1.1.1) |26 marca 2018|01, 2019 |
+| [1.1.1](#1.1.1) |26 marca 2018|01, 2019 |
 | [1.1.0](#1.1.0) |21 lutego 2018|01, 2019 |
 | [1.0.0](#1.0.0) |15 listopada 2017 r.|15 listopada 2019 |
 | 0.9.0 — wersja zapoznawcza |11 listopada 2017 |11 listopada 2019 |
@@ -116,7 +117,7 @@ podczas próby użycia pakietu NuGet Microsoft. Azure. CosmosDB. Table dostępne
     
 * Przed zainstalowaniem Microsoft. Azure. CosmosDB. Table przy użyciu preferowanego narzędzia do zarządzania pakietami NuGet Zainstaluj pakiet NuGet Microsoft. Azure. Storage. Common.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

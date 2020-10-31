@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88757901"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098760"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB bezserwerowe (wersja zapoznawcza)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB bezserwerowy jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza jest dostępna bez Umowa dotycząca poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
@@ -32,9 +33,9 @@ W przypadku korzystania z Azure Cosmos DB każda operacja bazy danych ma koszt w
 
 Azure Cosmos DB najwygodniejsze dla serwera scenariusze, których oczekujesz:
 
-- **Lekki ruch**: ponieważ pojemność aprowizacji w takich sytuacjach nie jest wymagana i może być kosztowna
-- **Umiarkowana**możliwość naliczania: ponieważ kontenery bezserwerowe mogą dostarczyć do 5 000 jednostek żądań na sekundę
-- **Średnia wydajność**: ponieważ kontenery bezserwerowe mają [określone charakterystyki wydajności](#performance)
+- **Lekki ruch** : ponieważ pojemność aprowizacji w takich sytuacjach nie jest wymagana i może być kosztowna
+- **Umiarkowana** możliwość naliczania: ponieważ kontenery bezserwerowe mogą dostarczyć do 5 000 jednostek żądań na sekundę
+- **Średnia wydajność** : ponieważ kontenery bezserwerowe mają [określone charakterystyki wydajności](#performance)
 
 Z tego względu należy rozważyć Azure Cosmos DB bezserwerowym dla następujących typów obciążeń:
 
@@ -81,9 +82,9 @@ Ten sam wykres można znaleźć podczas korzystania z Azure Monitor, zgodnie z o
 
 Zasoby bezserwerowe mają szczególne cechy wydajności, które różnią się od obsługiwanych zasobów przepływności:
 
-- **Dostępność**: gdy oferta bezserwerowa stanie się ogólnie dostępna, dostępność kontenerów bezserwerowych zostanie objęta umowa dotycząca poziomu usług (SLA) 99,9%, gdy strefy dostępności (nadmiarowość strefy) nie są używane. W przypadku używania Strefy dostępności umowa SLA wynosi 99,99%.
-- **Opóźnienie**: po ogólnym udostępnieniu oferty bezserwerowej opóźnienie kontenerów bezserwerowych zostanie objęte przeznaczeniem poziomu usługi (SLO) wynoszącym 10 milisekund lub mniej w przypadku operacji odczytu i 30 milisekund. Operacja odczytu punktu polega na pobieraniu pojedynczego elementu przez jego identyfikator i wartość klucza partycji.
-- Możliwości **przenoszenia: gdy**oferta bezserwerowa będzie ogólnie dostępna, możliwości przenoszenia kontenerów bezserwerowych będą objęte celem poziomu usługi (SLO) wynoszącym 95%. Oznacza to, że maksymalne możliwości można osiągnąć przez co najmniej 95% czasu.
+- **Dostępność** : gdy oferta bezserwerowa stanie się ogólnie dostępna, dostępność kontenerów bezserwerowych zostanie objęta umowa dotycząca poziomu usług (SLA) 99,9%, gdy strefy dostępności (nadmiarowość strefy) nie są używane. W przypadku używania Strefy dostępności umowa SLA wynosi 99,99%.
+- **Opóźnienie** : po ogólnym udostępnieniu oferty bezserwerowej opóźnienie kontenerów bezserwerowych zostanie objęte przeznaczeniem poziomu usługi (SLO) wynoszącym 10 milisekund lub mniej w przypadku operacji odczytu i 30 milisekund. Operacja odczytu punktu polega na pobieraniu pojedynczego elementu przez jego identyfikator i wartość klucza partycji.
+- Możliwości **przenoszenia: gdy** oferta bezserwerowa będzie ogólnie dostępna, możliwości przenoszenia kontenerów bezserwerowych będą objęte celem poziomu usługi (SLO) wynoszącym 95%. Oznacza to, że maksymalne możliwości można osiągnąć przez co najmniej 95% czasu.
 
 > [!NOTE]
 > Jako wersja zapoznawcza platformy Azure usługa Azure Cosmos DB bezserwerowa jest wykluczona z umów dotyczących poziomu usług (SLA). Wymienione powyżej cechy wydajności są dostępne jako wersja zapoznawcza tego, co oferta będzie dostarczana, gdy jest ogólnie dostępna.

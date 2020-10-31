@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 742ff2e6cff4569b5b7eeb131cd4394277b6c3cd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547082"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100460"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Poziomy spójności w usłudze Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Rozproszone bazy danych korzystające z replikacji w celu zapewnienia wysokiej dostępności, małych opóźnień lub obu muszą mieć zasadnicze kompromisy między spójnością odczytu, dostępnością, opóźnieniem i przepływności, zgodnie z definicją [PACLC theorem](https://en.wikipedia.org/wiki/PACELC_theorem). Linearizability modelu silnej spójności jest standardem programowalności danych. Jednak dodaje ogromną cenę od wyższych opóźnień zapisu ze względu na dane, które mają być replikowane i zatwierdzane na dużą odległość. Silna spójność może również mieć wpływ na ograniczoną dostępność (podczas niepowodzeń), ponieważ dane nie mogą być replikowane i zatwierdzane w każdym regionie. Ciągła spójność oferuje wyższą dostępność i lepszą wydajność, ale trudniejsze do programowania aplikacji, ponieważ dane mogą nie być całkowicie spójne we wszystkich regionach.
 
@@ -21,7 +22,7 @@ Najbardziej komercyjnie dostępne bazy danych NoSQL, dostępne na rynku, już dz
 
 - *Silna*
 - *Powiązana nieaktualność*
-- *Sesja*
+- *Obrad*
 - *Spójny prefiks*
 - *Ewentualn*
 
@@ -139,7 +140,7 @@ Dokładne opóźnienie czasu RTT to funkcja szybkości i topologii sieci platfor
 |--|--|--|
 |**Silna**|Lokalna mniejszości|Większość globalna|
 |**Powiązana nieaktualność**|Lokalna mniejszości|Większość lokalna|
-|**Sesja**|Pojedyncza replika (przy użyciu tokenu sesji)|Większość lokalna|
+|**Obrad**|Pojedyncza replika (przy użyciu tokenu sesji)|Większość lokalna|
 |**Spójny prefiks**|Pojedyncza replika|Większość lokalna|
 |**Ewentualn**|Pojedyncza replika|Większość lokalna|
 

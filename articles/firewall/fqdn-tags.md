@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: e29e568786881f663414dcdf3eff72d4d72ab181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed34bf755023ab866e95c51aca6d1bfb1dd7bf71
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85610612"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099457"
 ---
 # <a name="fqdn-tags-overview"></a>Omówienie tagów FQDN
 
@@ -30,7 +30,7 @@ W poniższej tabeli przedstawiono bieżące Tagi FQDN, których można użyć. F
 
 |Tag FQDN  |Opis  |
 |---------|---------|
-|Windows Update     |Zezwalaj na dostęp wychodzący do Microsoft Update zgodnie z opisem w artykule [jak skonfigurować zaporę pod kątem aktualizacji oprogramowania](https://technet.microsoft.com/library/bb693717.aspx).|
+|Windows Update     |Zezwalaj na dostęp wychodzący do Microsoft Update zgodnie z opisem w artykule [jak skonfigurować zaporę pod kątem aktualizacji oprogramowania](https://docs.microsoft.com/mem/configmgr/sum/get-started/install-a-software-update-point).|
 |Diagnostyka systemu Windows|Zezwalaj na dostęp wychodzący do wszystkich [punktów końcowych diagnostyki systemu Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |Usługa Microsoft Active Protection (MAPS)|Zezwalaj na dostęp wychodzący do [map](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |App Service Environment (ASE)|Zezwala na dostęp wychodzący do ruchu platformy ASE. Ten tag nie obejmuje magazynów specyficznych dla klienta i punktów końcowych SQL utworzonych przez środowisko ASE. Powinny one być włączane za pośrednictwem [punktów końcowych usługi](../virtual-network/tutorial-restrict-network-access-to-resources.md) lub dodawane ręcznie.<br><br>Aby uzyskać więcej informacji na temat integrowania zapory platformy Azure z środowiskiem ASE, zobacz [blokowanie App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
@@ -40,7 +40,7 @@ W poniższej tabeli przedstawiono bieżące Tagi FQDN, których można użyć. F
 |Azure Kubernetes Service (AKS)|Zezwala na dostęp wychodzący do AKS. Aby uzyskać więcej informacji, zobacz [Używanie zapory platformy Azure do ochrony wdrożeń usługi Azure Kubernetes Service (AKS)](protect-azure-kubernetes-service.md).|
 
 > [!NOTE]
-> W przypadku wybrania znacznika FQDN w regule aplikacji pole Protokół: Port musi być ustawione na **https**.
+> W przypadku wybrania znacznika FQDN w regule aplikacji pole Protokół: Port musi być ustawione na **https** .
 
 ## <a name="next-steps"></a>Następne kroki
 

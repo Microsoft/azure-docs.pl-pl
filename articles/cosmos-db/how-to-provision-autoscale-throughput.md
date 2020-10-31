@@ -8,20 +8,21 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 452259015cf78234aa6a96194342de20db9a3724
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 615ce7da3ec480b766ceaeb307c50f7cb759fd4a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740876"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100120"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Udostępnianie przepływności automatycznego skalowania w bazie danych lub kontenerze w interfejsie API Azure Cosmos DB-SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule wyjaśniono, jak zainicjować przepływność automatycznego skalowania dla bazy danych lub kontenera (kolekcji, grafu lub tabeli) w Azure Cosmos DB API SQL. Możesz włączyć funkcję automatycznego skalowania na jednym kontenerze lub udostępnić przepływność automatycznego skalowania w bazie danych i udostępniać ją między wszystkimi kontenerami w bazie danych.
 
 Jeśli używasz innego interfejsu API, zobacz artykuł [API for MongoDB](how-to-provision-throughput-mongodb.md), [interfejs API CASSANDRA](how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) , aby zapewnić przepływność.
 
-## <a name="azure-portal"></a>Witryna Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="create-new-database-or-container-with-autoscale"></a>Tworzenie nowej bazy danych lub kontenera przy użyciu automatycznego skalowania
 
@@ -33,7 +34,7 @@ Jeśli używasz innego interfejsu API, zobacz artykuł [API for MongoDB](how-to-
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Tworzenie kontenera i Konfigurowanie przepływności aprowizacji automatycznego skalowania":::
 
-1. Wybierz przycisk **OK** .
+1. Wybierz pozycję **OK** .
 
 Aby zainicjować automatyczne skalowanie w udostępnionej bazie danych przepływności, wybierz opcję **zainicjuj przepływność bazy danych** podczas tworzenia nowej bazy danych. 
 

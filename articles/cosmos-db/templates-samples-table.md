@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: ef7749a2fa9c7a45cc4e2854e2eb4fcdc9792425
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 41f3a4fe5afad1f993d91af83c7da27ac28e3759
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477032"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101074"
 ---
 # <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Zarządzanie zasobami interfejs API tabel Azure Cosmos DB przy użyciu szablonów Azure Resource Manager
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 W tym artykule dowiesz się, jak używać szablonów Azure Resource Manager, aby ułatwić wdrażanie kont Azure Cosmos DB, baz danych i kontenerów oraz zarządzanie nimi.
 

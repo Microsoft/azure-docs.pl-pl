@@ -8,14 +8,15 @@ ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfab8ba88c7da84efb3f6aed6f95bb100507f8da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e80a67890dcf76d115464ea62c0729aedd444667
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981914"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099236"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Zbiorcze importowanie danych do Azure Cosmos DB konta interfejsu API SQL przy użyciu zestawu .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym samouczku przedstawiono sposób tworzenia aplikacji konsolowej .NET, która optymalizuje przepływność (RU/s) wymaganą do zaimportowania danych do Azure Cosmos DB. Ten artykuł zawiera informacje dotyczące odczytywania danych z przykładowego źródła danych i importowania ich do kontenera usługi Azure Cosmos.
 W tym samouczku jest używana [wersja 3.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) programu Azure Cosmos DB .NET SDK, która może być przeznaczona dla .NET Framework lub .NET Core.
@@ -44,7 +45,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 
 ## <a name="step-2-set-up-your-net-project"></a>Krok 2. Konfigurowanie projektu .NET
 
-Otwórz wiersz polecenia systemu Windows lub okno terminalu na komputerze lokalnym. Wszystkie polecenia zostaną uruchomione w następnych sekcjach z poziomu wiersza polecenia lub terminalu. Uruchom następujące polecenie dotnet New, aby utworzyć nową aplikację o nazwie *Bulk-import-demonstracyjny*. `--langVersion`Parametr ustawia właściwość *LangVersion* w utworzonym pliku projektu.
+Otwórz wiersz polecenia systemu Windows lub okno terminalu na komputerze lokalnym. Wszystkie polecenia zostaną uruchomione w następnych sekcjach z poziomu wiersza polecenia lub terminalu. Uruchom następujące polecenie dotnet New, aby utworzyć nową aplikację o nazwie *Bulk-import-demonstracyjny* . `--langVersion`Parametr ustawia właściwość *LangVersion* w utworzonym pliku projektu.
 
    ```bash
    dotnet new console –langVersion:8 -n bulk-import-demo

@@ -7,14 +7,16 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00394e60ad1cf86bfd75a86a0b6630505c7d7356
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490581"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100392"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB nagłówki odpowiedzi serwera Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 W tym artykule opisano nagłówki, które serwer Gremlin usługi Cosmos DB zwraca do obiektu wywołującego po wykonaniu żądania. Te nagłówki są przydatne podczas rozwiązywania problemów z wydajnością żądań, tworzenia aplikacji integrującej się natywnie z usługą Cosmos DB i upraszczania obsługi klientów.
 
 Należy pamiętać, że w zależności od tych nagłówków ograniczenie przenośności aplikacji do innych implementacji Gremlin. W programie zwracasz ściślejszą integrację z usługą Cosmos DB Gremlin. Te nagłówki nie są standardem TinkerPop.

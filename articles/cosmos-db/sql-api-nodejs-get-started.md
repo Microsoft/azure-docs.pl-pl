@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: b1e0f8c301d40ff10dbf977731d457a31b096328
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1115d7bb0d6857aa39f246743df54a6cf3fd3676
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478001"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098665"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Samouczek: Tworzenie aplikacji konsolowej Node.js przy użyciu zestawu SDK dla języka JavaScript na potrzeby zarządzania danymi interfejsu API SQL usługi Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -85,7 +86,7 @@ Gdy aplikacja już istnieje, musisz się upewnić, że może ona komunikować si
 
 1. Otwórz plik *config.js* w ulubionym edytorze tekstu.
 
-1. Skopiuj i wklej poniższy fragment kodu do pliku *config.js* i ustaw właściwości `endpoint` oraz `key` identyfikator URI punktu końcowego Azure Cosmos DB i klucz podstawowy. Baza danych programu, nazwy kontenerów są ustawiane na **zadania** i **elementy**. Klucz partycji, który będzie używany dla tej aplikacji, to **/Category**.
+1. Skopiuj i wklej poniższy fragment kodu do pliku *config.js* i ustaw właściwości `endpoint` oraz `key` identyfikator URI punktu końcowego Azure Cosmos DB i klucz podstawowy. Baza danych programu, nazwy kontenerów są ustawiane na **zadania** i **elementy** . Klucz partycji, który będzie używany dla tej aplikacji, to **/Category** .
 
    :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
@@ -93,7 +94,7 @@ Gdy aplikacja już istnieje, musisz się upewnić, że może ona komunikować si
 
    :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Zrzut ekranu przedstawiający pobieranie kluczy z witryny Azure Portal":::
 
-Zestaw SDK języka JavaScript używa *kontenera* warunków ogólnych i *elementu*. Kontener może być kolekcją, wykresem lub tabelą. Element może być dokumentem, krawędzią/wierzchołkiem lub wierszem i stanowi zawartość znajdująca się w kontenerze. W poprzednim fragmencie kodu `module.exports = config;` kod jest używany do eksportowania obiektu konfiguracji, aby można było odwołać się do niego w pliku *app.js* .
+Zestaw SDK języka JavaScript używa *kontenera* warunków ogólnych i *elementu* . Kontener może być kolekcją, wykresem lub tabelą. Element może być dokumentem, krawędzią/wierzchołkiem lub wierszem i stanowi zawartość znajdująca się w kontenerze. W poprzednim fragmencie kodu `module.exports = config;` kod jest używany do eksportowania obiektu konfiguracji, aby można było odwołać się do niego w pliku *app.js* .
 
 ## <a name="create-a-database-and-a-container"></a>Tworzenie bazy danych i kontenera
 
@@ -123,7 +124,7 @@ W pliku *app.js* skopiuj i wklej następujący kod, aby użyć wcześniej zapisa
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="CreateClientObjectDatabaseContainer":::
 
 > [!Note]
-> W przypadku nawiązywania połączenia z **emulatorem Cosmos DB**Wyłącz weryfikację protokołu TLS dla procesu węzła:
+> W przypadku nawiązywania połączenia z **emulatorem Cosmos DB** Wyłącz weryfikację protokołu TLS dla procesu węzła:
 >   ```javascript
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });
@@ -216,7 +217,7 @@ node app.js
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Możesz usunąć grupę zasobów, konto usługi Azure Cosmos DB oraz wszystkie powiązane zasoby, gdy nie będą już potrzebne. Aby to zrobić, wybierz grupę zasobów używaną w przypadku konta usługi Azure Cosmos DB, wybierz pozycję **Usuń**, a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
+Możesz usunąć grupę zasobów, konto usługi Azure Cosmos DB oraz wszystkie powiązane zasoby, gdy nie będą już potrzebne. Aby to zrobić, wybierz grupę zasobów używaną w przypadku konta usługi Azure Cosmos DB, wybierz pozycję **Usuń** , a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
 
 ## <a name="next-steps"></a>Następne kroki
 

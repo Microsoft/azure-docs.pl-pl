@@ -9,36 +9,37 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: cf27fc44d34fad10a215526f03878e34675b3a16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6afbcebeb23889f65e5c071c3edc22e59934bbd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802654"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098583"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB zestaw .NET Core SDK V2 dla interfejsu API SQL: informacje o wersji i zasoby
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [Zestaw SDK .NET w wersji 3](sql-api-sdk-dotnet-standard.md)
 > * [Zestaw .NET SDK w wersji 2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
-> * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
+> * [Zestaw SDK zestawienia zmian platformy .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
-> * [Wiosenne dane v2](sql-api-sdk-java-spring-v2.md)
-> * [Wiosenne dane v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data 2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data 3](sql-api-sdk-java-spring-v3.md)
 > * [Łącznik platformy Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
-> * CZĘŚĆ (/rest/api
+> * [REST](/rest/api
 > * [Dostawca zasobów REST](/azure/azure-resource-manager/management/azure-services-resource-providers)
 > * [SQL](sql-api-query-reference.md)
-> * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
+> * [Moduł wykonywania zbiorczego — .NET 2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Moduł wykonywania zbiorczego — Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
-|**Pobieranie zestawu SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
+|**Zestaw SDK do pobrania**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API platformy .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
 |**Samples**|[Przykłady kodu platformy .NET](sql-api-dotnet-samples.md)|
 |**Wprowadzenie**|[Wprowadzenie do Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
@@ -56,5 +57,5 @@ Następujące podrzędne wersje zestawów SDK platformy .NET są dostępne w wer
 
 ## <a name="see-also"></a>Zobacz też
 
-Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) .
+Aby dowiedzieć się więcej na temat usługi Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

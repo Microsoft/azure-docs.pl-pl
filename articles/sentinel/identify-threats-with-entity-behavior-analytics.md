@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 6597baa67bcd2e26f3b8aeaa98c1776b5fc47430
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0486c9d2eb6c651b507f4b0a44f4a6fc2b018f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997146"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100664"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identyfikowanie zaawansowanych zagrożeń przy użyciu funkcji analizy zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik
 
@@ -62,11 +62,43 @@ Każde działanie jest oceniane z uwzględnieniem "oceny priorytetu badania", kt
 
 Zapoznaj się z tematem jak działa Analiza zachowań w [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) .
 
+## <a name="entities-in-azure-sentinel"></a>Jednostki na platformie Azure — wskaźnik
 
+### <a name="entity-identifiers"></a>Identyfikatory jednostek
 
-## <a name="entity-pages"></a>Strony jednostki
+Gdy alerty są wysyłane do badania wskaźnikowego platformy Azure, obejmują elementy danych identyfikowane przez platformę Azure i klasyfikuje je jako jednostki, takie jak konta użytkowników, hosty, adresy IP i inne. W tej sytuacji ten identyfikator może być wyzwaniem, jeśli alert nie zawiera wystarczających informacji o jednostce.
 
-W przypadku wystąpienia dowolnej jednostki (obecnie ograniczonej do użytkowników i hostów) w wyszukiwaniu, alercie lub zbadaniu można wybrać jednostkę i przetworzyć ją na **stronie jednostki**, a arkusz danych zapełnił przydatne informacje o tej jednostce. Typy informacji, które można znaleźć na tej stronie, obejmują podstawowe fakty dotyczące jednostki, oś czasu istotnych zdarzeń związanych z tą jednostką i szczegółowe informacje o zachowaniu działania jednostki.
+Na przykład konta użytkowników mogą być identyfikowane w więcej niż jeden sposób: przy użyciu identyfikatora liczbowego (GUID) konta usługi Azure AD lub jego wartości głównej nazwy użytkownika (UPN) lub alternatywnie, przy użyciu kombinacji nazwy użytkownika i nazwy domeny NT. Różne źródła danych mogą identyfikować tego samego użytkownika na różne sposoby. W związku z tym, jeśli jest to możliwe, wskaźnik na platformie Azure będzie scalał te identyfikatory w pojedynczą jednostkę, dzięki czemu może być prawidłowo zidentyfikowany.
+
+Może to być spowodowane tym, że jeden z dostawców zasobów tworzy alert, w którym jednostka nie jest wystarczająco identyfikowana — na przykład nazwę użytkownika bez kontekstu nazwy domeny. W takim przypadku jednostka użytkownika nie może być scalona z innymi wystąpieniami tego samego konta użytkownika, które będą identyfikowane jako osobne jednostki, a te dwie jednostki byłyby osobne, a nie ujednolicone.
+
+Aby zminimalizować ryzyko wystąpienia tego problemu, należy sprawdzić, czy wszyscy dostawcy alertów prawidłowo identyfikują jednostki w wygenerowanej przez nich alertach. Ponadto synchronizowanie jednostek kont użytkowników z Azure Active Directory może utworzyć katalog ujednolicania, który będzie mógł scalać jednostki konta użytkownika.
+
+Następujące typy jednostek są obecnie identyfikowane na platformie Azure — wskaźnik:
+
+- Konto użytkownika (konto)
+- Host
+- Adres IP (IP)
+- Złośliwe oprogramowanie
+- Plik
+- Proces
+- Aplikacja w chmurze (CloudApplication)
+- Nazwa domeny (DNS)
+- Zasób platformy Azure
+- Plik (FileHash)
+- Klucz rejestru
+- Wartość rejestru
+- Grupa zabezpieczeń
+- Adres URL
+- Urządzenie IoT
+- Mailbox
+- Klaster poczty
+- Wiadomość e-mail
+- Przesyłanie poczty
+
+### <a name="entity-pages"></a>Strony jednostki
+
+W przypadku wystąpienia dowolnej jednostki (obecnie ograniczonej do użytkowników i hostów) w wyszukiwaniu, alercie lub zbadaniu można wybrać jednostkę i przetworzyć ją na **stronie jednostki** , a arkusz danych zapełnił przydatne informacje o tej jednostce. Typy informacji, które można znaleźć na tej stronie, obejmują podstawowe fakty dotyczące jednostki, oś czasu istotnych zdarzeń związanych z tą jednostką i szczegółowe informacje o zachowaniu działania jednostki.
  
 Strony jednostki składają się z trzech części:
 - Panel po lewej stronie zawiera informacje identyfikacyjne jednostki, zebrane ze źródeł danych, takich jak Azure Active Directory, Azure Monitor, Azure Security Center i Microsoft Defender.
@@ -81,11 +113,11 @@ Strony jednostki składają się z trzech części:
 
 Oś czasu jest główną częścią udziału strony jednostki na potrzeby analiz zachowań na platformie Azure. Przedstawia historię zdarzeń związanych z jednostkami, ułatwiając zrozumienie aktywności jednostki w określonym przedziale czasowym.
 
-Możesz wybrać **zakres czasu** spośród kilku opcji predefiniowanych (takich jak *ostatnie 24 godziny*) lub ustawić go na dowolny niestandardowy zakres czasu. Ponadto można ustawić filtry, które ograniczają informacje na osi czasu do określonych typów zdarzeń lub alertów.
+Możesz wybrać **zakres czasu** spośród kilku opcji predefiniowanych (takich jak *ostatnie 24 godziny* ) lub ustawić go na dowolny niestandardowy zakres czasu. Ponadto można ustawić filtry, które ograniczają informacje na osi czasu do określonych typów zdarzeń lub alertów.
 
 Na osi czasu są uwzględniane następujące typy elementów:
 
-- Alerty — wszystkie alerty, w których jednostka jest zdefiniowana jako **zamapowana jednostka**. Należy pamiętać, że jeśli organizacja utworzyła [niestandardowe alerty przy użyciu reguł analizy](./tutorial-detect-threats-custom.md), należy upewnić się, że mapowanie jednostek reguł zostało wykonane prawidłowo.
+- Alerty — wszystkie alerty, w których jednostka jest zdefiniowana jako **zamapowana jednostka** . Należy pamiętać, że jeśli organizacja utworzyła [niestandardowe alerty przy użyciu reguł analizy](./tutorial-detect-threats-custom.md), należy upewnić się, że mapowanie jednostek reguł zostało wykonane prawidłowo.
 
 - Zakładki — wszystkie zakładki, które zawierają konkretną jednostkę widoczną na stronie.
 
@@ -162,7 +194,7 @@ Do wizualizacji metadanych elementów równorzędnych użytkownika można użyć
 
 Analiza uprawnień pomaga określić potencjalny wpływ naruszenia zasobów organizacyjnych przez osobę atakującą. Ten wpływ jest również znany jako "wzmacniający promień zasobu". Analitycy zabezpieczeń mogą używać tych informacji do określania priorytetów kontroli i obsługi zdarzeń.
 
-Wskaźnik oceny platformy Azure określa bezpośrednie i przechodnie prawa dostępu przechowywane przez danego użytkownika do zasobów platformy Azure, oceniając subskrypcje platformy Azure, do których użytkownik może uzyskiwać dostęp bezpośrednio lub za pośrednictwem grup lub jednostek usługi. Te informacje, a także pełna lista przynależności do grupy zabezpieczeń użytkownika usługi Azure AD, są następnie przechowywane w tabeli **UserAccessAnalytics** . Zrzut ekranu poniżej przedstawia przykładowy wiersz w tabeli UserAccessAnalytics, dla którego użytkownik Alexuje Johnsonem. **Jednostka źródłowa** jest kontem użytkownika lub usługi, a **jednostką docelową** jest zasób, do którego jednostka źródłowa ma dostęp. Wartości **poziomu dostępu** i **typu dostępu** są zależne od modelu kontroli dostępu jednostki docelowej. Zobaczysz, że Alex ma dostęp współautora do *dzierżawy*usługi Azure Subscription contoso. Model kontroli dostępu subskrypcji to RBAC.   
+Wskaźnik oceny platformy Azure określa bezpośrednie i przechodnie prawa dostępu przechowywane przez danego użytkownika do zasobów platformy Azure, oceniając subskrypcje platformy Azure, do których użytkownik może uzyskiwać dostęp bezpośrednio lub za pośrednictwem grup lub jednostek usługi. Te informacje, a także pełna lista przynależności do grupy zabezpieczeń użytkownika usługi Azure AD, są następnie przechowywane w tabeli **UserAccessAnalytics** . Zrzut ekranu poniżej przedstawia przykładowy wiersz w tabeli UserAccessAnalytics, dla którego użytkownik Alexuje Johnsonem. **Jednostka źródłowa** jest kontem użytkownika lub usługi, a **jednostką docelową** jest zasób, do którego jednostka źródłowa ma dostęp. Wartości **poziomu dostępu** i **typu dostępu** są zależne od modelu kontroli dostępu jednostki docelowej. Zobaczysz, że Alex ma dostęp współautora do *dzierżawy* usługi Azure Subscription contoso. Model kontroli dostępu subskrypcji to RBAC.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Architektura analizy zachowań jednostek":::
 

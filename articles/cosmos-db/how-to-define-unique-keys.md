@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b814100097897aff6047b8b6d6cc0e8ebaa409ba
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279550"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101531"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definiowanie unikatowych kluczy dla kontenera usługi Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule przedstawiono różne sposoby definiowania [unikatowych kluczy](unique-keys.md) podczas tworzenia kontenera usługi Azure Cosmos. Obecnie jest możliwe wykonanie tej operacji przy użyciu Azure Portal lub jednego z zestawów SDK.
 
@@ -26,7 +27,7 @@ W tym artykule przedstawiono różne sposoby definiowania [unikatowych kluczy](u
 
 1. Otwórz okienko **Eksplorator danych** i wybierz kontener, w którym chcesz korzystać.
 
-1. Kliknij pozycję **nowy kontener**.
+1. Kliknij pozycję **nowy kontener** .
 
 1. W oknie dialogowym **Dodawanie kontenera** kliknij pozycję **+ Dodaj unikatowy klucz** , aby dodać unikatowy wpis klucza.
 

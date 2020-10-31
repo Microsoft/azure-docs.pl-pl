@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 549e1808a3b449f7d29b968cde76ef29391880b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489017"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100620"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Znane problemy w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -32,7 +32,7 @@ Można rozwiązać ten problem, uruchamiając `az login` polecenie w Cloud Shell
 
 Alternatywnie możesz otworzyć okienko Cloud Shell w Azure Portal i zakończyć pracę Cloud Shell z tego miejsca:
 
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Widok Azure Portal z wyróżnioną ikoną &quot;Cloud Shell&quot; i Cloud Shell pojawia się u dołu okna portalu":::
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Widok Azure Portal z wyróżnioną ikoną &quot;Cloud Shell&quot; i Cloud Shell pojawia się u dołu okna portalu" lightbox="media/includes/portal-cloud-shell.png":::
 
 Na koniec inne rozwiązanie polega na [zainstalowaniu interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) na komputerze, aby umożliwić lokalne uruchamianie poleceń interfejsu CLI platformy Azure. Ten problem nie występuje w lokalnym interfejsie wiersza polecenia.
 
@@ -66,9 +66,9 @@ W przypadku użytkowników zalogowanych przy użyciu osobistego [konto Microsoft
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problem z uwierzytelnianiem interakcyjnej przeglądarki
 
-Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.2.0** biblioteki ** [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) **mogą wystąpić problemy z metodą [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) .
+Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.2.0** biblioteki **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** mogą wystąpić problemy z metodą [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) .
 
-To nie jest Najnowsza wersja biblioteki. Najnowsza wersja to **1.2.2**.
+To nie jest Najnowsza wersja biblioteki. Najnowsza wersja to **1.2.2** .
 
 Ta metoda jest używana w następujących artykułach: 
 * [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)
@@ -79,11 +79,11 @@ Problem zawiera odpowiedź o błędzie "Azure. Identity. AuthenticationFailedExc
 
 ### <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
-Aby rozwiązać ten problem, zaktualizuj aplikacje do `Azure.Identity` wersji **1.2.2**. W tej wersji biblioteki przeglądarka powinna ładować i uwierzytelniać się zgodnie z oczekiwaniami.
+Aby rozwiązać ten problem, zaktualizuj aplikacje do `Azure.Identity` wersji **1.2.2** . W tej wersji biblioteki przeglądarka powinna ładować i uwierzytelniać się zgodnie z oczekiwaniami.
 
 ### <a name="possible-causes"></a>Możliwe przyczyny
 
-Jest to związane z otwartym problemem z najnowszą wersją `Azure.Identity` biblioteki (wersja **1.2.0**): [*nie można uwierzytelnić przy użyciu InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
+Jest to związane z otwartym problemem z najnowszą wersją `Azure.Identity` biblioteki (wersja **1.2.0** ): [*nie można uwierzytelnić przy użyciu InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
 Ten problem zostanie wyświetlony, jeśli używasz wersji **1.2.0** w aplikacji Digital bliźniaczych reprezentacji platformy Azure lub biblioteka zostanie dodana do projektu bez określenia wersji (tak, że jest również wartością domyślną w tej najnowszej wersji).
 

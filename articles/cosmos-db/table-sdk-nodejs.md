@@ -8,14 +8,16 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 4bcc0559e5b4d3fafe1f83a1850cdda2d9d1fdfd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 414b7107d02f78676970ecda6ca9373ac3b8db4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261791"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101174"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB interfejs API tabel do Node.js: informacje o wersji i zasoby
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -26,7 +28,7 @@ ms.locfileid: "91261791"
 
 |   |   |
 |---|---|
-|**Pobieranie zestawu SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
+|**Zestaw SDK do pobrania**|[NPM](https://www.npmjs.com/package/azure-storage)|
 |**Dokumentacja interfejsu API**|[ Dokumentacja interfejsu APINode.js](https://azure.github.io/azure-storage-node/)|
 |**Współtworzenie zestawu SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
@@ -40,7 +42,7 @@ ms.locfileid: "91261791"
 * Wersja ogólna dostępności
 
 ## <a name="release-and-retirement-dates"></a>Daty wydania i wycofania
-Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji.
+Firma Microsoft udostępni powiadomienie co najmniej **12 miesięcy** przed wycofaniem zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji.
 
 Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe. 
 
@@ -48,9 +50,9 @@ Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 listopada 2017 r. |--- |
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zobacz też
-Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) . 
+Aby dowiedzieć się więcej na temat usługi Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

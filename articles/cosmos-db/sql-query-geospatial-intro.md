@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: b874ad4ce566cfca3b0dbd28bdfe48bf30272121
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 10882a0f4daf5c0d9aa1d4aeb53b2f14f9d1dea0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482829"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100834"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dane lokalizacji geograficznej i GEOJSON w Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Ten artykuł zawiera wprowadzenie do funkcji geoprzestrzennych w Azure Cosmos DB. Obecnie przechowywanie i dostęp do danych geoprzestrzennych jest obsługiwane tylko przez Azure Cosmos DB kont interfejsu API SQL. Po zapoznaniu się z naszą dokumentacją dotyczącą indeksowania geograficznego można odpowiedzieć na następujące pytania:
 

@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: a265bc2ed131dc0bb69d89f767ab60225d30ee8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc9b91ce7e40d8f1efab060376a9641642a10472
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89612052"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101328"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Samouczek: analizowanie danych połączeń telefonicznych za pomocą Stream Analytics i wizualizacji wyników na pulpicie nawigacyjnym Power BI
 
@@ -44,7 +44,7 @@ Zanim usługa Stream Analytics będzie mogła przeanalizować strumień danych f
 Utwórz centrum zdarzeń usługi Event Hub i wyślij do niego dane połączeń, wykonując poniższe czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Wybierz pozycję **Utwórz zasób**  >  **Internet rzeczy**  >  **Event Hubs**.
+2. Wybierz pozycję **Utwórz zasób**  >  **Internet rzeczy**  >  **Event Hubs** .
 
    ![Tworzenie centrum Azure Event Hub w portalu](media/stream-analytics-manage-job/find-event-hub-resource.png)
 3. Wypełnij okienko **Tworzenie przestrzeni nazw** następującymi wartościami:
@@ -56,12 +56,12 @@ Utwórz centrum zdarzeń usługi Event Hub i wyślij do niego dane połączeń, 
    |Grupa zasobów     |   MyASADemoRG      |  Wybierz pozycję **Utwórz nową** i wprowadź nazwę nowej grupy zasobów dla swojego konta.       |
    |Lokalizacja     |   Zachodnie stany USA 2      |    Lokalizacja, w której można wdrożyć przestrzeń nazw centrum zdarzeń.     |
 
-4. Użyj opcji domyślnych w pozostałych ustawieniach i wybierz pozycję **Utwórz**.
+4. Użyj opcji domyślnych w pozostałych ustawieniach i wybierz pozycję **Utwórz** .
 
    ![Tworzenie przestrzeni nazw centrum zdarzeń w witrynie Azure Portal](media/stream-analytics-manage-job/create-event-hub-namespace.png)
 
-5. Po zakończeniu wdrażania przestrzeni nazw wybierz pozycję **Wszystkie zasoby** i znajdź zasób *myEventHubNS* na liście zasobów platformy Azure. Wybierz zasób *myEventHubsNS*, aby go otworzyć.
-6. Następnie wybierz pozycję **+ Centrum zdarzeń** i w polu **Nazwa** wprowadź nazwę *MyEventHub* lub inną, wybraną przez Ciebie. Użyj opcji domyślnych w pozostałych ustawieniach i wybierz pozycję **Utwórz**. Następnie poczekaj na pomyślne zakończenie wdrożenia.
+5. Po zakończeniu wdrażania przestrzeni nazw wybierz pozycję **Wszystkie zasoby** i znajdź zasób *myEventHubNS* na liście zasobów platformy Azure. Wybierz zasób *myEventHubsNS* , aby go otworzyć.
+6. Następnie wybierz pozycję **+ Centrum zdarzeń** i w polu **Nazwa** wprowadź nazwę *MyEventHub* lub inną, wybraną przez Ciebie. Użyj opcji domyślnych w pozostałych ustawieniach i wybierz pozycję **Utwórz** . Następnie poczekaj na pomyślne zakończenie wdrożenia.
 
    ![Konfiguracja centrum zdarzeń w witrynie Azure Portal](media/stream-analytics-manage-job/create-event-hub-portal.png)
 
@@ -69,13 +69,13 @@ Utwórz centrum zdarzeń usługi Event Hub i wyślij do niego dane połączeń, 
 
 Aby aplikacja mogła wysyłać dane do usługi Azure Event Hubs, centrum zdarzeń musi mieć zasady, które zezwalają na odpowiedni dostęp. Zasady dostępu generują parametry połączenia, które zawierają informacje o autoryzacji.
 
-1. Przejdź do centrum zdarzeń utworzonego w poprzednim kroku, MyEventHub *. Wybierz pozycję **Zasady dostępu współużytkowanego** w obszarze **Ustawienia**, a następnie wybierz pozycję **+ Dodaj**.
+1. Przejdź do centrum zdarzeń utworzonego w poprzednim kroku, MyEventHub *. Wybierz pozycję **Zasady dostępu współużytkowanego** w obszarze **Ustawienia** , a następnie wybierz pozycję **+ Dodaj** .
 
-2. Nadaj zasadom nazwę **MyPolicy** i upewnij się, że zaznaczono opcję **Zarządzaj**. Następnie wybierz przycisk **Utwórz**.
+2. Nadaj zasadom nazwę **MyPolicy** i upewnij się, że zaznaczono opcję **Zarządzaj** . Następnie wybierz przycisk **Utwórz** .
 
    ![Tworzenie zasad dostępu współdzielonego centrum zdarzeń](media/stream-analytics-manage-job/create-event-hub-access-policy.png)
 
-3. Po utworzeniu zasad wybierz je, aby je otworzyć, i znajdź pozycję **Parametry połączenia — klucz podstawowy**. Wybierz niebieski przycisk **kopiuj** obok parametrów połączenia.
+3. Po utworzeniu zasad wybierz je, aby je otworzyć, i znajdź pozycję **Parametry połączenia — klucz podstawowy** . Wybierz niebieski przycisk **kopiuj** obok parametrów połączenia.
 
    ![Zapisz parametry połączenia zasad dostępu współużytkowanego](media/stream-analytics-manage-job/save-connection-string.png)
 
@@ -85,7 +85,7 @@ Aby aplikacja mogła wysyłać dane do usługi Azure Event Hubs, centrum zdarze�
 
    `Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>`
 
-   Zauważ, że parametry połączenia zawierają wiele par klucz-wartość oddzielonych średnikami: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey** i **EntityPath**.
+   Zauważ, że parametry połączenia zawierają wiele par klucz-wartość oddzielonych średnikami: **Endpoint** , **SharedAccessKeyName** , **SharedAccessKey** i **EntityPath** .
 
 ## <a name="start-the-event-generator-application"></a>Uruchamianie aplikacji generatora zdarzeń
 
@@ -109,7 +109,7 @@ Przed uruchomieniem aplikacji TelcoGenerator należy ją skonfigurować do przes
    To polecenie przyjmuje następujące parametry:
    * Liczba rekordów danych połączeń na godzinę.
    * Procentowe prawdopodobieństwo oszustwa, czyli jak często aplikacja powinna symulować fałszywe połączenia. Wartość 0,2 oznacza, że około 20% rekordów połączeń będzie wyglądać na fałszywe.
-   * Czas trwania w godzinach, czyli liczba godzin, przez jaką aplikacja ma być uruchomiona. Możesz również zatrzymać aplikację w dowolnym momencie, kończąc proces (**Ctrl + C**) w wierszu polecenia.
+   * Czas trwania w godzinach, czyli liczba godzin, przez jaką aplikacja ma być uruchomiona. Możesz również zatrzymać aplikację w dowolnym momencie, kończąc proces ( **Ctrl + C** ) w wierszu polecenia.
 
    Po kilku sekundach aplikacja rozpocznie wyświetlanie rekordów połączeń telefonicznych na ekranie w miarę wysyłania ich do centrum zdarzeń. Dane połączenia telefonicznego zawierają następujące pola:
 
@@ -128,7 +128,7 @@ Teraz, gdy masz strumień zdarzeń połączeń, możesz utworzyć zadanie usług
 
 1. Aby utworzyć zadanie usługi Stream Analytics, przejdź do witryny [Azure Portal](https://portal.azure.com/).
 
-2. Wybierz pozycję **Utwórz zasób**  >  **Internet rzeczy**  >  **Stream Analytics zadanie**.
+2. Wybierz pozycję **Utwórz zasób**  >  **Internet rzeczy**  >  **Stream Analytics zadanie** .
 
 3. Wypełnij okienko **Zadanie usługi Stream Analytics** przy użyciu następujących wartości:
 
@@ -136,12 +136,12 @@ Teraz, gdy masz strumień zdarzeń połączeń, możesz utworzyć zadanie usług
    |---------|---------|---------|
    |Nazwa zadania     |  ASATutorial       |   Unikatowa nazwa identyfikująca przestrzeń nazw centrum zdarzeń.      |
    |Subskrypcja    |  \<Your subscription\>   |   Wybierz subskrypcję platformy Azure, w której chcesz utworzyć zadanie.       |
-   |Grupa zasobów   |   MyASADemoRG      |   Wybierz pozycję **Użyj istniejącej**, a następnie wprowadź nazwę nowej grupy zasobów dla swojego konta.      |
+   |Grupa zasobów   |   MyASADemoRG      |   Wybierz pozycję **Użyj istniejącej** , a następnie wprowadź nazwę nowej grupy zasobów dla swojego konta.      |
    |Lokalizacja   |    Zachodnie stany USA 2     |      Lokalizacja, w której można wdrożyć zadanie. Zaleca się umieszczenie zadania i centrum zdarzeń w tym samym regionie, aby uzyskać najlepszą wydajność i nie płacić za transfer danych między regionami.      |
    |Środowisko hostingu    | Chmura        |     Zadania usługi Stream Analytics można wdrożyć w chmurze lub na urządzeniu brzegowym. Chmura umożliwia wdrażanie w chmurze platformy Azure, a usługa Edge umożliwia wdrażanie na urządzeniu IoT Edge.    |
    |Jednostki przesyłania strumieniowego     |    1       |      Jednostki przesyłania strumieniowego reprezentują zasoby obliczeniowe, które są wymagane do wykonania zadania. Domyślnie to ustawienie ma wartość 1. Aby dowiedzieć się więcej na temat skalowania jednostek przesyłania strumieniowego, zobacz artykuł [Understanding and adjusting streaming units (Opis i dostosowywanie jednostek przesyłania strumieniowego)](stream-analytics-streaming-unit-consumption.md).      |
 
-4. Użyj opcji domyślnych w pozostałych ustawieniach, wybierz pozycję **Utwórz**i poczekaj na pomyślne wdrożenie.
+4. Użyj opcji domyślnych w pozostałych ustawieniach, wybierz pozycję **Utwórz** i poczekaj na pomyślne wdrożenie.
 
    ![Tworzenie zadania usługi Azure Stream Analytics](media/stream-analytics-manage-job/create-stream-analytics-job.png)
 
@@ -149,11 +149,11 @@ Teraz, gdy masz strumień zdarzeń połączeń, możesz utworzyć zadanie usług
 
 Następnym krokiem jest określenie źródła danych wejściowych dla zadania w celu odczytywania danych za pomocą centrum zdarzeń utworzonego w poprzedniej sekcji.
 
-1. W witrynie Azure Portal otwórz okienko **Wszystkie zasoby** i znajdź zadanie usługi Stream Analytics o nazwie *ASATutorial*.
+1. W witrynie Azure Portal otwórz okienko **Wszystkie zasoby** i znajdź zadanie usługi Stream Analytics o nazwie *ASATutorial* .
 
-2. W sekcji **Topologia zadania** okienka zadania usługi Stream Analytics wybierz opcję **Dane wejściowe**.
+2. W sekcji **Topologia zadania** okienka zadania usługi Stream Analytics wybierz opcję **Dane wejściowe** .
 
-3. Wybierz pozycje **+ Dodaj wejście strumienia** i **Centrum zdarzeń**. Wypełnij okienko przy użyciu następujących wartości:
+3. Wybierz pozycje **+ Dodaj wejście strumienia** i **Centrum zdarzeń** . Wypełnij okienko przy użyciu następujących wartości:
 
    |**Ustawienie**  |**Sugerowana wartość**  |**Opis**  |
    |---------|---------|---------|
@@ -163,7 +163,7 @@ Następnym krokiem jest określenie źródła danych wejściowych dla zadania w 
    |Nazwa centrum zdarzeń    |   MyEventHub      |  Wybierz centrum zdarzeń utworzone w poprzedniej sekcji. Wszystkie centra zdarzeń dostępne w Twojej bieżącej subskrypcji są wyświetlane na liście rozwijanej.       |
    |Nazwa zasad centrum zdarzeń   |  Moje zasady       |  Wybierz zasady dostępu współdzielonego centrum zdarzeń utworzone w poprzedniej sekcji. Wszystkie zasady centrów zdarzeń dostępne w Twojej bieżącej subskrypcji są wyświetlane na liście rozwijanej.       |
 
-4. Użyj opcji domyślnych w pozostałych ustawieniach i wybierz pozycję **Zapisz**.
+4. Użyj opcji domyślnych w pozostałych ustawieniach i wybierz pozycję **Zapisz** .
 
    ![Konfigurowanie danych wejściowych usługi Azure Stream Analytics](media/stream-analytics-manage-job/configure-stream-analytics-input.png)
 
@@ -171,11 +171,11 @@ Następnym krokiem jest określenie źródła danych wejściowych dla zadania w 
 
 Ostatnim krokiem jest określenie ujścia danych wyjściowych zadania, w którym może ono zapisać przekształcone dane. W tym samouczku dane wyjściowe są wizualizowane przy użyciu usługi Power BI.
 
-1. W witrynie Azure Portal otwórz okienko **Wszystkie zasoby** i zadanie usługi Stream Analytics o nazwie *ASATutorial*.
+1. W witrynie Azure Portal otwórz okienko **Wszystkie zasoby** i zadanie usługi Stream Analytics o nazwie *ASATutorial* .
 
-2. W sekcji **Topologia zadania** okienka zadania usługi Stream Analytics wybierz opcję **Dane wyjściowe**.
+2. W sekcji **Topologia zadania** okienka zadania usługi Stream Analytics wybierz opcję **Dane wyjściowe** .
 
-3. Wybierz pozycję **+ Dodaj**  >  **Power BI**. Następnie wypełnij formularz przy użyciu poniższych wartości i wybierz pozycję **Autoryzuj**:
+3. Wybierz pozycję **+ Dodaj**  >  **Power BI** . Następnie wypełnij formularz przy użyciu poniższych wartości i wybierz pozycję **Autoryzuj** :
 
    |**Ustawienie**  |**Sugerowana wartość**  |
    |---------|---------|
@@ -195,7 +195,7 @@ W tym przykładzie fałszywe połączenia są wykonywane od tego samego użytkow
 
 1. W Azure Portal Otwórz okienko **wszystkie zasoby** i przejdź do utworzonego wcześniej zadania **o nazwie asatutorial** Stream Analytics.
 
-2. W sekcji **Topologia zadania** okienka zadania usługi Stream Analytics wybierz opcję **Zapytanie**. Okno zapytania zawiera wejścia i wyjścia skonfigurowane dla zadania i umożliwia utworzenie zapytania w celu przekształcania strumienia wejściowego.
+2. W sekcji **Topologia zadania** okienka zadania usługi Stream Analytics wybierz opcję **Zapytanie** . Okno zapytania zawiera wejścia i wyjścia skonfigurowane dla zadania i umożliwia utworzenie zapytania w celu przekształcania strumienia wejściowego.
 
 3. Zastąp istniejące zapytanie w edytorze poniższym zapytaniem, które wykonuje samosprzężenie danych połączeń z 5-sekundowego interwału:
 
@@ -212,7 +212,7 @@ W tym przykładzie fałszywe połączenia są wykonywane od tego samego użytkow
 
    Aby sprawdzić fałszywe połączenia, możesz utworzyć samosprzężenie danych strumieniowych na podstawie wartości `CallRecTime`. Następnie można wyszukać rekordy wywołań, w których `CallingIMSI` wartość (numer źródłowy) jest taka sama, ale `SwitchNum` wartość (kraj/region pochodzenia) różni się. W przypadku używania operacji JOIN na danych przesyłanych strumieniowo sprzężenie musi udostępniać pewne ograniczenia określające maksymalną odległość czasową między dwoma pasującymi wierszami. Ponieważ dane przesyłane strumieniowo są nieskończone, granice czasowe dla relacji są określone w klauzuli **ON** sprzężenia, przy użyciu funkcji [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
 
-   To zapytanie jest takie samo jak normalne sprzężenie SQL, z wyjątkiem funkcji **DATEDIFF**. Funkcja **DATEDIFF** używana w tym zapytaniu jest specyficzna dla usługi Stream Analytics i musi znajdować się w klauzuli `ON...BETWEEN`.
+   To zapytanie jest takie samo jak normalne sprzężenie SQL, z wyjątkiem funkcji **DATEDIFF** . Funkcja **DATEDIFF** używana w tym zapytaniu jest specyficzna dla usługi Stream Analytics i musi znajdować się w klauzuli `ON...BETWEEN`.
 
 4. **Zapisz** zapytanie.
 
@@ -224,36 +224,36 @@ Zapytanie można przetestować z poziomu edytora zapytań przy użyciu przykład
 
 1. Upewnij się, że aplikacja TelcoGenerator jest uruchomiona i tworzy rekordy połączeń telefonicznych.
 
-2. W okienku **Zapytanie** wybierz kropki obok wejścia *CallStream*, a następnie wybierz pozycję **Przykładowe dane z danych wejściowych**.
+2. W okienku **Zapytanie** wybierz kropki obok wejścia *CallStream* , a następnie wybierz pozycję **Przykładowe dane z danych wejściowych** .
 
-3. Ustaw opcję **Minuty** na wartość 3 i wybierz przycisk **OK**. Ze strumienia wejściowego zostanie pobrana próbka danych odpowiadająca trzem minutom. Kiedy przykładowe dane będą gotowe, zostanie wyświetlone powiadomienie. Stan próbkowania można zobaczyć na pasku powiadomień.
+3. Ustaw opcję **Minuty** na wartość 3 i wybierz przycisk **OK** . Ze strumienia wejściowego zostanie pobrana próbka danych odpowiadająca trzem minutom. Kiedy przykładowe dane będą gotowe, zostanie wyświetlone powiadomienie. Stan próbkowania można zobaczyć na pasku powiadomień.
 
-   Przykładowe dane są przechowywane tymczasowo i są dostępne, kiedy okno zapytania jest otwarte. Jeśli zamkniesz okno zapytania, przykładowe dane zostaną usunięte i w celu przeprowadzenia testu konieczne będzie utworzenie nowego zestawu przykładowych danych. Alternatywnie możesz użyć pliku JSON zawierającego przykładowe dane z serwisu [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), a następnie przekazać ten plik JSON do użycia jako przykładowe dane dla wejścia *CallStream*.
+   Przykładowe dane są przechowywane tymczasowo i są dostępne, kiedy okno zapytania jest otwarte. Jeśli zamkniesz okno zapytania, przykładowe dane zostaną usunięte i w celu przeprowadzenia testu konieczne będzie utworzenie nowego zestawu przykładowych danych. Alternatywnie możesz użyć pliku JSON zawierającego przykładowe dane z serwisu [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), a następnie przekazać ten plik JSON do użycia jako przykładowe dane dla wejścia *CallStream* .
 
    ![Wizualizowanie sposobu próbkowania danych wejściowych dla usługi Stream Analytics](media/stream-analytics-manage-job/sample-input-data-asa.png)
 
-4. Wybierz pozycję **Testuj**, aby przetestować zapytanie. Powinny zostać wyświetlone następujące wyniki:
+4. Wybierz pozycję **Testuj** , aby przetestować zapytanie. Powinny zostać wyświetlone następujące wyniki:
 
    ![Dane wyjściowe z testu zapytania Stream Analytics](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## <a name="start-the-job-and-visualize-output"></a>Uruchamianie zadania i wizualizacja danych wyjściowych
 
-1. Aby uruchomić zadanie, przejdź do okienka **Przegląd** zadania, a następnie wybierz pozycję **Uruchom**.
+1. Aby uruchomić zadanie, przejdź do okienka **Przegląd** zadania, a następnie wybierz pozycję **Uruchom** .
 
-2. Wybierz wartość **Teraz** jako godzinę rozpoczęcia generowania danych wyjściowych zadania, a następnie wybierz pozycję **Uruchom**. Stan zadania możesz wyświetlić na pasku powiadomień.
+2. Wybierz wartość **Teraz** jako godzinę rozpoczęcia generowania danych wyjściowych zadania, a następnie wybierz pozycję **Uruchom** . Stan zadania możesz wyświetlić na pasku powiadomień.
 
-3. Po pomyślnym zakończeniu zadania przejdź do usługi [Power BI](https://powerbi.com/) i zaloguj się przy użyciu konta służbowego. Jeśli zapytanie zadania usługi Stream Analytics generuje wyniki, utworzony zestaw danych *ASAdataset* znajduje się na karcie **Zestawy danych**.
+3. Po pomyślnym zakończeniu zadania przejdź do usługi [Power BI](https://powerbi.com/) i zaloguj się przy użyciu konta służbowego. Jeśli zapytanie zadania usługi Stream Analytics generuje wyniki, utworzony zestaw danych *ASAdataset* znajduje się na karcie **Zestawy danych** .
 
-4. W obszarze roboczym usługi Power BI wybierz pozycję **+ Utwórz**, aby utworzyć nowy pulpit nawigacyjny o nazwie *Fraudulent Calls* (Fałszywe połączenia).
+4. W obszarze roboczym usługi Power BI wybierz pozycję **+ Utwórz** , aby utworzyć nowy pulpit nawigacyjny o nazwie *Fraudulent Calls* (Fałszywe połączenia).
 
-5. W górnej części okna wybierz pozycję **Dodaj kafelek**. Następnie wybierz pozycje **Niestandardowe dane przesyłane strumieniowo** i **Dalej**. Wybierz pozycję **ASAdataset** w obszarze **Twoje zestawy danych**. Wybierz **kartę** z listy rozwijanej **typ wizualizacji** i Dodaj **fałszywe wywołania** do **pól**. Wybierz pozycję **Dalej**, aby wprowadzić nazwę kafelka, a następnie wybierz pozycję **Zastosuj**, aby utworzyć kafelek.
+5. W górnej części okna wybierz pozycję **Dodaj kafelek** . Następnie wybierz pozycje **Niestandardowe dane przesyłane strumieniowo** i **Dalej** . Wybierz pozycję **ASAdataset** w obszarze **Twoje zestawy danych** . Wybierz **kartę** z listy rozwijanej **typ wizualizacji** i Dodaj **fałszywe wywołania** do **pól** . Wybierz pozycję **Dalej** , aby wprowadzić nazwę kafelka, a następnie wybierz pozycję **Zastosuj** , aby utworzyć kafelek.
 
    ![Tworzenie kafelków pulpitu nawigacyjnego usługi Power BI](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
 6. Wykonaj ponownie krok 5, wybierając następujące opcje:
    * Gdy pojawi się opcja Typ wizualizacji, wybierz wartość Wykres liniowy.
-   * Dodaj oś i wybierz pozycję **windowend**.
-   * Dodaj wartość i wybierz pozycję **fraudulentcalls**.
+   * Dodaj oś i wybierz pozycję **windowend** .
+   * Dodaj wartość i wybierz pozycję **fraudulentcalls** .
    * W ustawieniu **Okno czasowe do wyświetlenia** wybierz ostatnie 10 minut.
 
 7. Po dodaniu obydwu kafelków pulpit nawigacyjny powinien wyglądać jak na poniższym przykładzie. Zwróć uwagę, że jeśli aplikacja nadawcy centrum zdarzeń i aplikacja usługi Stream Analytics są uruchomione, pulpit nawigacyjny Power BI okresowo aktualizuje jako nowe dane.
@@ -264,14 +264,14 @@ Zapytanie można przetestować z poziomu edytora zapytań przy użyciu przykład
 
 W tej części samouczka użyjesz przykładowej aplikacji sieci Web [ASP.NET](https://asp.net/) utworzonej przez zespół Power BI, aby osadzić pulpit nawigacyjny. Aby uzyskać więcej informacji na temat osadzania pulpitów nawigacyjnych, zobacz artykuł [Osadzanie za pomocą usługi Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Aby skonfigurować aplikację, przejdź do repozytorium usługi [PowerBI — Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) w witrynie GitHub i postępuj zgodnie z instrukcjami w sekcji **Informacje o użytkowniku** . Użyj adresów URL przekierowania i strony głównej w podsekcji **Integruj-Web-App** . Ponieważ korzystamy z przykładu pulpitu nawigacyjnego, użyj kodu przykładowego **Integruj-Web-App** znajdującego się w [repozytorium GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/integrate-web-app).
+Aby skonfigurować aplikację, przejdź do repozytorium usługi [PowerBI — Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) w witrynie GitHub i postępuj zgodnie z instrukcjami w sekcji **Informacje o użytkowniku** . Użyj adresów URL przekierowania i strony głównej w podsekcji **Integruj-Web-App** . Ponieważ korzystamy z przykładu pulpitu nawigacyjnego, użyj kodu przykładowego **Integruj-Web-App** znajdującego się w [repozytorium GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/).
 Po uruchomieniu aplikacji w przeglądarce wykonaj następujące kroki, aby osadzić utworzony wcześniej pulpit nawigacyjny na stronie internetowej:
 
-1. Wybierz pozycję **Zaloguj się do Power BI**, co spowoduje przyznanie aplikacji dostępu do pulpitów nawigacyjnych na koncie Power BI.
+1. Wybierz pozycję **Zaloguj się do Power BI** , co spowoduje przyznanie aplikacji dostępu do pulpitów nawigacyjnych na koncie Power BI.
 
-2. Wybierz przycisk **Get Dashboards (Pobierz pulpity nawigacyjne)**, aby wyświetlić pulpity nawigacyjne Twojego konta w tabeli. Znajdź nazwę pulpitu nawigacyjnego utworzonego wcześniej, **powerbi-embedded-dashboard**, i skopiuj odpowiedni element **EmbedUrl**.
+2. Wybierz przycisk **Get Dashboards (Pobierz pulpity nawigacyjne)** , aby wyświetlić pulpity nawigacyjne Twojego konta w tabeli. Znajdź nazwę pulpitu nawigacyjnego utworzonego wcześniej, **powerbi-embedded-dashboard** , i skopiuj odpowiedni element **EmbedUrl** .
 
-3. Na koniec wklej wartość **EmbedUrl** w odpowiednim polu tekstowym i wybierz pozycję **Embed Dashboard (Osadź pulpit nawigacyjny)**. Możesz teraz wyświetlić ten sam pulpit nawigacyjny osadzony w aplikacji internetowej.
+3. Na koniec wklej wartość **EmbedUrl** w odpowiednim polu tekstowym i wybierz pozycję **Embed Dashboard (Osadź pulpit nawigacyjny)** . Możesz teraz wyświetlić ten sam pulpit nawigacyjny osadzony w aplikacji internetowej.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3d37786c7364b07228d1d8d6540e7b6d8a174eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd34a41fd9757d91845eb53626b00381c7ddda7a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84322690"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100290"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Zwraca wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu ma kończyć się drugim.  
   
@@ -30,7 +31,7 @@ ENDSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
    Jest wyrażeniem ciągu.  
   
 *str_expr2*  
-   Jest wyrażeniem ciągu, które ma zostać porównane z końcem *str_expr1*.
+   Jest wyrażeniem ciągu, które ma zostać porównane z końcem *str_expr1* .
 
 *bool_expr* Opcjonalna wartość dla ignorowania wielkości liter. Po ustawieniu na wartość true, ENDSWITH będzie wykonywać wyszukiwanie bez uwzględniania wielkości liter. Jeśli nie określono tego parametru, ta wartość jest równa false.
   

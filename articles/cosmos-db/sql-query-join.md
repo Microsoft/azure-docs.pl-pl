@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4c754455e2a686274eab8b1f77713b8983251a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74871146"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100800"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Sprzężenia w Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-W relacyjnej bazie danych sprzężenia między tabelami jest logicznym współrzutem do projektowania znormalizowanych schematów. W przeciwieństwie do interfejsu API SQL jest używany nieznormalizowany model danych elementów bez schematu, który jest logicznym odpowiednikiem *samosprzężenia*.
+W relacyjnej bazie danych sprzężenia między tabelami jest logicznym współrzutem do projektowania znormalizowanych schematów. W przeciwieństwie do interfejsu API SQL jest używany nieznormalizowany model danych elementów bez schematu, który jest logicznym odpowiednikiem *samosprzężenia* .
 
 Sprzężenia wewnętrzne powodują pełny iloczyn skrzyżowania zestawów uczestniczących w sprzężeniu. Wynik sprzężenia N-kierunkowego jest zestawem N-elementowych krotek, gdzie każda wartość w spójnej kolekcji jest skojarzona z zestawem aliasów uczestniczącym w sprzężeniu i można uzyskać do niego dostęp, odwołując się do tego aliasu w innych klauzulach.
 

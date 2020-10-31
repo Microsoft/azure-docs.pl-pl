@@ -9,14 +9,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: a0545ea61879b30349403e019ead69ba14f75cb9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 58f22a335f4c619a6348e9e127e60f5a79f658b2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486501"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099661"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: Tworzenie aplikacji w języku Python przy użyciu interfejsu API Azure Cosmos DB dla MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -99,7 +100,7 @@ Wszystkie poniższe fragmenty kodu pochodzą z pliku *App.py* i używają parame
 
 3. Następnie Ustaw zmienną środowiskową dla aplikacji do kolby `set FLASK_APP=app.py` dla `$env:FLASK_APP = app.py` edytorów programu PowerShell lub w `export FLASK_APP=app.py` przypadku korzystania z komputera Mac. 
 
-4. Uruchom aplikację za pomocą programu `flask run` i przejdź do *protokołu http: \/ /127.0.0.1:5000/*.
+4. Uruchom aplikację za pomocą programu `flask run` i przejdź do *protokołu http: \/ /127.0.0.1:5000/* .
 
 5. Dodawaj oraz usuwaj zadania i sprawdzaj, jak są dodawane i zmieniane w kolekcji.
 
@@ -113,15 +114,15 @@ Jeśli chcesz przetestować kod na koncie usługi Live Azure Cosmos DB, przejdź
 
 Aby przetestować kod na koncie usługi Live Azure Cosmos DB, Pobierz informacje o parametrach połączenia. Następnie skopiuj je do aplikacji.
 
-1. Na koncie Azure Cosmos DB w Azure Portal, w lewym okienku nawigacji wybierz pozycję **Parametry połączenia**, a następnie wybierz pozycję **klucze odczytu i zapisu**. W celu skopiowania nazwy użytkownika, parametrów połączenia i hasła będziesz używać przycisków kopiowania po prawej stronie ekranu. 
+1. Na koncie Azure Cosmos DB w Azure Portal, w lewym okienku nawigacji wybierz pozycję **Parametry połączenia** , a następnie wybierz pozycję **klucze odczytu i zapisu** . W celu skopiowania nazwy użytkownika, parametrów połączenia i hasła będziesz używać przycisków kopiowania po prawej stronie ekranu. 
 
 2. Otwórz plik *app.py* w katalogu głównym.
 
-3. Skopiuj wartość **username** z portalu (przy użyciu przycisku kopiowania) i przypisz ją do klucza **name** w pliku *app.py*.
+3. Skopiuj wartość **username** z portalu (przy użyciu przycisku kopiowania) i przypisz ją do klucza **name** w pliku *app.py* .
 
 4. Następnie skopiuj wartość **parametrów połączenia** z portalu i ustaw ją jako wartość **MongoClient** w pliku *App.py* .
 
-5. Na końcu skopiuj wartość **password** z portalu i przypisz ją do klucza **password** w pliku *app.py*.
+5. Na końcu skopiuj wartość **password** z portalu i przypisz ją do klucza **password** w pliku *app.py* .
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. Możesz ją uruchomić tak jak wcześniej.
 

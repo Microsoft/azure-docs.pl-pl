@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: e12bae14ede90a3b93a69d963981f097818e65ab
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7dc81581846f8abdae81fa3552d9fa4645f32a05
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480228"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101310"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Usługa Azure Cosmos DB zapewnia zintegrowane z językiem, transakcyjne wykonywanie kodu języka JavaScript. W przypadku korzystania z interfejsu API SQL w Azure Cosmos DB można napisać **procedury składowane**, **wyzwalacze**i **funkcje zdefiniowane przez użytkownika (UDF)** w języku JavaScript. Logikę można napisać w języku JavaScript i wykonać ją w aparacie bazy danych. Można tworzyć i wykonywać wyzwalacze, procedury składowane i UDF przy użyciu [Azure Portal](https://portal.azure.com/), [zintegrowanego interfejsu API języka JavaScript w Azure Cosmos DB](javascript-query-api.md) lub [Cosmos DB zestaw SDK klienta interfejsu API SQL](how-to-use-stored-procedures-triggers-udfs.md).
+Usługa Azure Cosmos DB zapewnia zintegrowane z językiem, transakcyjne wykonywanie kodu języka JavaScript. W przypadku korzystania z interfejsu API SQL w Azure Cosmos DB można napisać **procedury składowane** , **wyzwalacze** i **funkcje zdefiniowane przez użytkownika (UDF)** w języku JavaScript. Logikę można napisać w języku JavaScript i wykonać ją w aparacie bazy danych. Można tworzyć i wykonywać wyzwalacze, procedury składowane i UDF przy użyciu [Azure Portal](https://portal.azure.com/), [zintegrowanego interfejsu API języka JavaScript w Azure Cosmos DB](javascript-query-api.md) lub [Cosmos DB zestaw SDK klienta interfejsu API SQL](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a name="benefits-of-using-server-side-programming"></a>Zalety korzystania z programowania po stronie serwera
 
@@ -41,7 +42,7 @@ Pisanie procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytk
 
 ## <a name="transactions"></a>Transakcje
 
-Transakcja w typowej bazie danych może być zdefiniowana jako sekwencja operacji wykonywanych jako pojedyncza jednostka logiczna. Każda transakcja zapewnia **gwarancje własności kwasowej**. KWAS jest dobrze znanym akronimem, który **oznacza: tomicity**, **C**onsistency, **i**solation i **D**urability. 
+Transakcja w typowej bazie danych może być zdefiniowana jako sekwencja operacji wykonywanych jako pojedyncza jednostka logiczna. Każda transakcja zapewnia **gwarancje własności kwasowej** . KWAS jest dobrze znanym akronimem, który **oznacza: tomicity** , **C** onsistency, **i** solation i **D** urability. 
 
 * Niepodzielność gwarantuje, że wszystkie operacje wykonywane w ramach transakcji są traktowane jako jedna jednostka, a wszystkie z nich są zatwierdzone lub żadna z nich nie jest. 
 

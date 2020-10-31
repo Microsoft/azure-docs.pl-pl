@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ec831bada19aa8d3872440ba628ac06bc64f749
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481379"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099423"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Uwierzytelnianie w usłudze Azure Key Vault
 
@@ -20,7 +20,7 @@ Azure Key Vault pozwala przechowywać wpisy tajne i kontrolować ich dystrybucj�
 
 ## <a name="app-identity-and-security-principals"></a>Tożsamość aplikacji i podmioty zabezpieczeń
 
-Uwierzytelnianie za pomocą Key Vault działa w połączeniu z usługą [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), która jest odpowiedzialna za uwierzytelnianie tożsamości dowolnego danego **podmiotu zabezpieczeń**.
+Uwierzytelnianie za pomocą Key Vault działa w połączeniu z usługą [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), która jest odpowiedzialna za uwierzytelnianie tożsamości dowolnego danego **podmiotu zabezpieczeń** .
 
 Podmiot zabezpieczeń to obiekt, który reprezentuje użytkownika, grupę, usługę lub aplikację, która żąda dostępu do zasobów platformy Azure. Platforma Azure przypisuje unikatowy **Identyfikator obiektu** do każdego podmiotu zabezpieczeń.
 
@@ -48,7 +48,7 @@ Key Vault współpracuje z dwoma odrębnymi poziomami autoryzacji:
 
     Aby przypisać zasady dostępu, zobacz następujące artykuły:
 
-    - [Azure Portal](assign-access-policy-portal.md)
+    - [Witryna Azure Portal](assign-access-policy-portal.md)
     - [Interfejs wiersza polecenia platformy Azure](assign-access-policy-cli.md)
     - [Azure PowerShell](assign-access-policy-portal.md)
 
@@ -56,7 +56,7 @@ Key Vault współpracuje z dwoma odrębnymi poziomami autoryzacji:
  
     Aby przypisać role i zarządzać nimi, zobacz następujące artykuły:
 
-    - [Azure Portal](/azure/role-based-access-control/role-assignments-portal)
+    - [Witryna Azure Portal](/azure/role-based-access-control/role-assignments-portal)
     - [Interfejs wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
     - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 
@@ -111,11 +111,11 @@ Poniższa tabela zawiera linki do różnych artykułów, które pokazują, jak k
 |  --- | --- | --- |
 | [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
 | [.NET (zestaw SDK w wersji 4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
-| [.NET (zestaw SDK v3)](/azure/key-vault/secrets/quick-create-net-v3) | -- | -- |
+| [.NET (zestaw SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
 | [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
 | [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
 | | | |
-| [Azure Portal](/azure/key-vault/secrets/quick-create-portal) | [Azure Portal](/azure/key-vault/keys/quick-create-portal) | [Azure Portal](/azure/key-vault/certificates/quick-create-portal) |
+| [Witryna Azure Portal](/azure/key-vault/secrets/quick-create-portal) | [Witryna Azure Portal](/azure/key-vault/keys/quick-create-portal) | [Witryna Azure Portal](/azure/key-vault/certificates/quick-create-portal) |
 | [Interfejs wiersza polecenia platformy Azure](/azure/key-vault/secrets/quick-create-cli) | [Interfejs wiersza polecenia platformy Azure](/azure/key-vault/keys/quick-create-cli) | [Interfejs wiersza polecenia platformy Azure](/azure/key-vault/certificates/quick-create-cli) |
 | [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
 | [Szablon usługi ARM](/azure/key-vault/secrets/quick-create-net) | -- | -- |

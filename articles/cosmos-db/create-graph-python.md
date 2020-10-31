@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: jasonh
 ms.custom: devx-track-python
-ms.openlocfilehash: 624aa946df5e637c98a11ada3b455c50dec896f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cc73fcd076bde23bed19a71641cb50e36a40820b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409344"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099695"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Szybki Start: Tworzenie bazy danych grafu w Azure Cosmos DB przy użyciu języka Python i Azure Portal
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Konsola Gremlin](create-graph-gremlin-console.md)
@@ -72,9 +73,9 @@ Teraz przejdźmy do pracy z kodem. Sklonujemy aplikację interfejsu API języka 
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. Wszystkie fragmenty kodu pochodzą z pliku *Connect.py* znajdującego się w folderze *C:\git-samples\azure-Cosmos-DB-Graph-Python-Getting-Started \\ * . W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-information). 
+Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. Wszystkie fragmenty kodu pochodzą z pliku *Connect.py* znajdującego się w folderze *C:\git-samples\azure-Cosmos-DB-Graph-Python-Getting-Started \\* . W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-information). 
 
-* Gremlin `client` jest inicjowana w wierszu 104 w *Connect.py*:
+* Gremlin `client` jest inicjowana w wierszu 104 w *Connect.py* :
 
     ```python
     ...
@@ -94,7 +95,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy d
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i skopiować je do aplikacji. Te ustawienia umożliwiają aplikacji komunikację z hostowaną bazą danych.
 
-1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **klucze**. 
+1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **klucze** . 
 
     Skopiuj pierwszą część wartości identyfikatora URI.
 
@@ -170,7 +171,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i s
 
 Po wstawieniu wierzchołków i krawędzi możesz teraz wrócić do Eksplorator danych i zobaczyć wierzchołki dodane do grafu i dodać kolejne punkty danych.
 
-1. Na koncie Azure Cosmos DB w Azure Portal wybierz pozycję **Eksplorator danych**, rozwiń węzeł **przykład-Graph**, wybierz pozycję **Graph**, a następnie wybierz pozycję **Zastosuj filtr**. 
+1. Na koncie Azure Cosmos DB w Azure Portal wybierz pozycję **Eksplorator danych** , rozwiń węzeł **przykład-Graph** , wybierz pozycję **Graph** , a następnie wybierz pozycję **Zastosuj filtr** . 
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 
@@ -182,11 +183,11 @@ Po wstawieniu wierzchołków i krawędzi możesz teraz wrócić do Eksplorator d
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 
-4. Wprowadź etykietę *osoba*.
+4. Wprowadź etykietę *osoba* .
 
 5. Wybierz pozycję **Dodaj właściwość** , aby dodać każdą z następujących właściwości. Zauważ, że możesz utworzyć unikatowe właściwości dla każdej osoby w grafie. Tylko klucz id jest wymagany.
 
-    key|value|Uwagi
+    key|wartość|Uwagi
     ----|----|----
     produktu|/pk| 
     identyfikator|ashley|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
@@ -196,32 +197,32 @@ Po wstawieniu wierzchołków i krawędzi możesz teraz wrócić do Eksplorator d
     > [!NOTE]
     > W tym przewodniku Szybki start zostaje utworzona kolekcja niepartycjonowana. Niemniej jednak, jeśli utworzysz kolekcję partycjonowaną poprzez określenie klucza partycji podczas tworzenia kolekcji, musisz uwzględnić klucz partycji jako klucz w każdym nowym wierzchołku. 
 
-6. Wybierz przycisk **OK**. Może być konieczne rozszerzenie ekranu w celu wyświetlenia przycisku **OK** u dołu ekranu.
+6. Wybierz pozycję **OK** . Może być konieczne rozszerzenie ekranu w celu wyświetlenia przycisku **OK** u dołu ekranu.
 
 7. Ponownie wybierz **nowy wierzchołek** i Dodaj dodatkowego nowego użytkownika. 
 
-8. Wprowadź etykietę *osoba*.
+8. Wprowadź etykietę *osoba* .
 
 9. Wybierz pozycję **Dodaj właściwość** , aby dodać każdą z następujących właściwości:
 
-    key|value|Uwagi
+    key|wartość|Uwagi
     ----|----|----
     produktu|/pk| 
     identyfikator|rakesh|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
     płeć|mężczyzna| 
     szkoła|MIT| 
 
-10. Wybierz przycisk **OK**. 
+10. Wybierz pozycję **OK** . 
 
-11. Wybierz przycisk **Zastosuj filtr** z domyślnym `g.V()` filtrem, aby wyświetlić wszystkie wartości na grafie. Wszyscy użytkownicy będą teraz wyświetlani na liście **Wyniki**. 
+11. Wybierz przycisk **Zastosuj filtr** z domyślnym `g.V()` filtrem, aby wyświetlić wszystkie wartości na grafie. Wszyscy użytkownicy będą teraz wyświetlani na liście **Wyniki** . 
 
     W miarę dodawania większej ilości danych można używać filtrów do ograniczania wyników. Domyślnie Eksplorator danych korzysta z zapytania `g.V()` w celu pobrania wszystkich wierzchołków grafu. Można je zmienić na inne [zapytanie o graf](tutorial-query-graph.md), takie jak`g.V().count()`, aby zwrócić liczbę wszystkich wierzchołków grafu w formacie JSON. W przypadku zmiany filtru Zmień filtr z powrotem na `g.V()` i wybierz pozycję **Zastosuj filtr** , aby ponownie wyświetlić wszystkie wyniki.
 
-12. Teraz możemy połączyć użytkowników rakesh i ashley. Upewnij się, że na liście **wyników** wybrano pozycję **Ashley** , a następnie wybierz przycisk Edytuj obok pozycji **obiekty docelowe** w prawym dolnym rogu. Może być konieczne rozszerzenie okna w celu wyświetlenia obszaru **Właściwości**.
+12. Teraz możemy połączyć użytkowników rakesh i ashley. Upewnij się, że na liście **wyników** wybrano pozycję **Ashley** , a następnie wybierz przycisk Edytuj obok pozycji **obiekty docelowe** w prawym dolnym rogu. Może być konieczne rozszerzenie okna w celu wyświetlenia obszaru **Właściwości** .
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 
-13. W polu **Target** wpisz *Rakesh*, a w polu **etykieta krawędzi** wpisz *zna*, a następnie zaznacz pole wyboru.
+13. W polu **Target** wpisz *Rakesh* , a w polu **etykieta krawędzi** wpisz *zna* , a następnie zaznacz pole wyboru.
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze":::
 

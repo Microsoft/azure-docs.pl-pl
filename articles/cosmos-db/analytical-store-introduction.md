@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8add203fabf867e22dbfe98b2bc9c632e62018b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567149"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100528"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
 > Magazyn analityczny Azure Cosmos DB jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
@@ -149,11 +150,11 @@ Oto mapa wszystkich typów danych właściwości i ich reprezentacje sufiksów w
 | Double |  ". Float64" |    24,99|
 | Tablica | ". Array" |    ["a", "b"]|
 |Binarne | ". Binary" |0|
-|Boolean (wartość logiczna)    | ". bool"   |Prawda|
+|Boolean    | ". bool"   |Prawda|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
 |Zero   | ". null"   | wartość null|
-|Ciąg|    ". ciąg" | "ABC"|
+|String|    ". ciąg" | "ABC"|
 |Timestamp |    ". timestamp" |  Sygnatura czasowa (0, 0)|
 |DateTime   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
 |ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|

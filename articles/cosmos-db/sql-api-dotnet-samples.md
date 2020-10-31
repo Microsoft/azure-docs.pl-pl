@@ -8,14 +8,15 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: cbf2893896b7258115ed3f59224caef9cf843b1f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a9badc6548f1c5e5e4cadeaccb02381bd3c80d12
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481520"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098692"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: przykłady platformy .NET dla interfejsu SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Przykłady zestawu SDK dla platformy .NET V2](sql-api-dotnet-samples.md)
@@ -38,7 +39,7 @@ Przykłady kodu dla zestawu SDK dla platformy .NET w wersji 3,0 (wersja zapoznaw
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Program Visual Studio 2019 z zainstalowanym przepływem pracy projektowania platformy Azure
-- Możesz pobrać **bezpłatnie** [program Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)i korzystać z niego. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**. 
+- Możesz pobrać **bezpłatnie** [program Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)i korzystać z niego. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure** . 
 
 [Pakiet NuGetMicrosoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 

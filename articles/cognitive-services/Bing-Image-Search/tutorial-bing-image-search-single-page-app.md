@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: fe4c40e2c5e2b8992598125c376dc0da516e9736
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a62133737d48a8ebf454b5fab83ef52ef2daad09
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316702"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098437"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Samouczek: tworzenie aplikacji jednostronicowej przy użyciu interfejsu API wyszukiwania obrazów Bing
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Interfejs API wyszukiwania obrazów Bing umożliwia wyszukiwanie w Internecie odpowiednich obrazów o wysokiej jakości. Przy użyciu tego samouczka możesz utworzyć jednostronicową aplikację internetową, która wysyła zapytania wyszukiwania do interfejsu API i wyświetla wyniki na stronie internetowej. Ten samouczek jest podobny do [odpowiadającego mu samouczka](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) dotyczącego wyszukiwania w sieci Web Bing.
 

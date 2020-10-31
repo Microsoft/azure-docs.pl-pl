@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e167ccf1717c539dc676d85a19eb6eacc3ec0bda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89826eab7b1686ae695a2716a03b2f5d03da277f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021123"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099259"
 ---
 # <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Konfigurowanie globalnie rozproszonej bazy danych przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 W tym artykule przedstawiono, jak za pomocą witryny Azure Portal skonfigurować globalnie rozproszoną bazę danych i nawiązać z nią połączenie przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 
@@ -65,14 +66,14 @@ Przykładowe wyniki:
 
 ## <a name="connecting-to-a-preferred-region"></a>Nawiązywanie połączenia z preferowanym regionem 
 
-Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB umożliwia określenie preferencji odczytu kolekcji dla globalnie rozproszonej bazy danych. Na potrzeby odczytów z małymi opóźnieniami i wysokiej dostępności globalnej zaleca się ustawienie preferencji odczytu kolekcji na wartość *najbliższe*. Preferencja odczytu *najbliższe* jest skonfigurowana do odczytu z najbliższego regionu.
+Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB umożliwia określenie preferencji odczytu kolekcji dla globalnie rozproszonej bazy danych. Na potrzeby odczytów z małymi opóźnieniami i wysokiej dostępności globalnej zaleca się ustawienie preferencji odczytu kolekcji na wartość *najbliższe* . Preferencja odczytu *najbliższe* jest skonfigurowana do odczytu z najbliższego regionu.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
 ```
 
-Dla aplikacji z podstawowym regionem odczytu/zapisu i pomocniczym regionem na potrzeby scenariuszy odzyskiwania awaryjnego zalecamy ustawienie preferencji odczytu na wartość *preferowane pomocnicze*. Preferencja odczytu *preferowane pomocnicze* jest skonfigurowana do odczytu z regionu pomocniczego, gdy region podstawowy jest niedostępny.
+Dla aplikacji z podstawowym regionem odczytu/zapisu i pomocniczym regionem na potrzeby scenariuszy odzyskiwania awaryjnego zalecamy ustawienie preferencji odczytu na wartość *preferowane pomocnicze* . Preferencja odczytu *preferowane pomocnicze* jest skonfigurowana do odczytu z regionu pomocniczego, gdy region podstawowy jest niedostępny.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);

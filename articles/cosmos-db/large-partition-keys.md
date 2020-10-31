@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1de6aa5450a42bbc8fe35b220e810726f7dd2cda
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a93bf4fe92cc7b2240a7411b093a7bab5a1a275e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488439"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098828"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Tworzenie kontenerów z dużym kluczem partycji
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB stosuje schemat partycjonowania oparty na skrócie, aby osiągnąć skalowanie danych w poziomie. Wszystkie kontenery usługi Azure Cosmos utworzone przed 3 2019 maja mogą korzystać z funkcji skrótu, która oblicza wartość skrótu na podstawie pierwszych 100 bajtów klucza partycji. Jeśli istnieje wiele kluczy partycji, które mają te same pierwsze 100 bajtów, te partycje logiczne są traktowane jako te same partycje logiczne przez usługę. Może to prowadzić do problemów, takich jak nieprawidłowy limit przydziału rozmiaru partycji i unikatowe indeksy stosowane w ramach kluczy partycji. Wprowadzono duże klucze partycji w celu rozwiązania tego problemu. Azure Cosmos DB teraz obsługuje duże klucze partycji z wartościami do 2 KB.
 

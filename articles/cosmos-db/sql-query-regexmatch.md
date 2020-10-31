@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 620ffcb379f9fa1402e422c13bcadf8da4047409
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 16004ece7877358be54ba67c2f72eb3210f16fb0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284199"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098131"
 ---
 # <a name="regexmatch-azure-cosmos-db"></a>REGEXMATCH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Zapewnia możliwości wyrażeń regularnych. Wyrażenia regularne są zwięzłą i elastyczną notacją do znajdowania wzorców tekstu. Azure Cosmos DB używa [wyrażeń regularnych zgodnych ze standardem Perl (PCRE)](http://www.pcre.org/). 
 

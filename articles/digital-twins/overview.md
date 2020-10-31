@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f0c19130312db4e6ef500a0750f40359931d48d2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044670"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099117"
 ---
 # <a name="what-is-azure-digital-twins"></a>Co to jest usługa Azure Digital Twins?
 
@@ -52,7 +52,7 @@ Oto widok wizualizacji przykładowej:
 
 Usługa Azure Digital bliźniaczych reprezentacji zapewnia rozbudowany **system zdarzeń** , który umożliwia aktualność tego wykresu przy użyciu przetwarzania danych i logiki biznesowej. Zewnętrzne zasoby obliczeniowe, takie jak [Azure Functions](../azure-functions/functions-overview.md), mogą być połączone w elastyczny sposób i dostosowane metody.
 
-Możesz również wyodrębnić szczegółowe informacje ze środowiska wykonywania na żywo przy użyciu **interfejsu API**zaawansowanego zapytania usługi Azure Digital bliźniaczych reprezentacji. Interfejs API umożliwia wykonywanie zapytań z rozbudowanymi warunkami wyszukiwania, takimi jak wartości właściwości, relacje, właściwości relacji, informacje o modelu itd. Możesz również łączyć zapytania, gromadzić szeroką gamę informacji o środowisku i odpowiadać na niestandardowe pytania, które są dla Ciebie ważne.
+Możesz również wyodrębnić szczegółowe informacje ze środowiska wykonywania na żywo przy użyciu **interfejsu API** zaawansowanego zapytania usługi Azure Digital bliźniaczych reprezentacji. Interfejs API umożliwia wykonywanie zapytań z rozbudowanymi warunkami wyszukiwania, takimi jak wartości właściwości, relacje, właściwości relacji, informacje o modelu itd. Możesz również łączyć zapytania, gromadzić szeroką gamę informacji o środowisku i odpowiadać na niestandardowe pytania, które są dla Ciebie ważne.
 
 ### <a name="input-from-iot-and-business-systems"></a>Dane wejściowe z systemów IoT i Business
 
@@ -64,7 +64,7 @@ Możesz także dyskować usługę Azure Digital bliźniaczych reprezentacji z in
 
 ### <a name="output-to-tsi-storage-and-analytics"></a>Dane wyjściowe do TSI, magazynu i analizy
 
-Dane w modelu Digital bliźniaczych reprezentacji na platformie Azure mogą być kierowane do usług platformy Azure w sieci podrzędnej w celu uzyskania dodatkowej analizy lub magazynu. Jest to zapewniane za pomocą **tras zdarzeń**, które używają [centrum zdarzeń](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)lub [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) do kierowania żądanych przepływów danych.
+Dane w modelu Digital bliźniaczych reprezentacji na platformie Azure mogą być kierowane do usług platformy Azure w sieci podrzędnej w celu uzyskania dodatkowej analizy lub magazynu. Jest to zapewniane za pomocą **tras zdarzeń** , które używają [centrum zdarzeń](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)lub [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) do kierowania żądanych przepływów danych.
 
 Oto kilka rzeczy, które można wykonywać za pomocą tras zdarzeń:
 * Przechowywanie danych usługi Azure Digital bliźniaczych reprezentacji w [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
@@ -90,18 +90,14 @@ Na poniższym diagramie przedstawiono, gdzie usługa Azure Digital bliźniaczych
 
 :::image type="content" source="media/overview/solution-context.png" alt-text="Zrzut ekranu przedstawiający przykładową aplikację w Eksploratorze Digital bliźniaczych reprezentacji" border="false" lightbox="media/overview/solution-context.png":::
 
-## <a name="service-limits-in-public-preview"></a>Limity usługi w publicznej wersji zapoznawczej
+## <a name="service-limits"></a>Limity usługi
 
-> [!IMPORTANT]
-> Usługa Azure Digital bliźniaczych reprezentacji jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [*dodatkowe warunki użytkowania wersji*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
-
-Aby zapoznać się z listą limitów cyfrowych bliźniaczych reprezentacji na platformie Azure w ramach publicznej wersji zapoznawczej, zobacz temat [*Informacje o usłudze Public Preview limity*](reference-service-limits.md).
+Listę limitów cyfrowych bliźniaczych reprezentacji na platformie Azure można znaleźć w temacie [*Reference: Limits Service*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli pracujesz z poprzednią wersją zapoznawczą usługi Azure Digital bliźniaczych reprezentacji, Dowiedz się, co się zmieniło:
-* [*Przegląd: różnice od wcześniejszej wersji*](overview-differences.md)
+Jeśli pracujesz z pierwszą wersją zapoznawczą usługi Azure Digital bliźniaczych reprezentacji (październik 2018), Dowiedz się, co się zmieniło:
+* [*Przegląd: różnice od pierwszego wydania*](overview-differences.md)
 
 Możesz też przejść do pracy z usługą Azure Digital bliźniaczych reprezentacji i szczegółowe w pierwszym samouczku:
 

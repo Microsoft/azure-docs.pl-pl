@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: b87a2cd3e6edc6a47de77f475c40d30ce1606e01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316617"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099865"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Samouczek: tworzenie klienta sprawdzania pisowni w postaci strony internetowej
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Podczas pracy z tym samouczkiem utworzysz stronę internetową umożliwiającą użytkownikom wysyłanie zapytań do interfejsu API sprawdzania pisowni Bing. Kod źródłowy tej aplikacji jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -123,7 +128,7 @@ Funkcja pomocnicza getSubscriptionKeyLocalStorage najpierw podejmuje próbę uzy
     }
 ```
 
-Funkcja pomocnicza getSubscriptionKey przyjmuje jeden parametr, **invalidate**. Jeśli parametr **invalidate** ma wartość **true**, funkcja getSubscriptionKey usuwa plik cookie zawierający klucz interfejsu API sprawdzania pisowni Bing. Jeśli parametr **invalidate** ma wartość **false**, funkcja getSubscriptionKey zwraca wartość klucza interfejsu API sprawdzania pisowni Bing.
+Funkcja pomocnicza getSubscriptionKey przyjmuje jeden parametr, **invalidate** . Jeśli parametr **invalidate** ma wartość **true** , funkcja getSubscriptionKey usuwa plik cookie zawierający klucz interfejsu API sprawdzania pisowni Bing. Jeśli parametr **invalidate** ma wartość **false** , funkcja getSubscriptionKey zwraca wartość klucza interfejsu API sprawdzania pisowni Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -237,7 +242,7 @@ Dodaj też obsługę potencjalnych zdarzeń błędów z obiektu XMLHttpRequest.
     });
 ```
 
-Wyślij żądanie. Zamknij funkcję bingSpellCheck, tag **script** oraz tag **head**.
+Wyślij żądanie. Zamknij funkcję bingSpellCheck, tag **script** oraz tag **head** .
 
 ```html
     request.send();
@@ -271,7 +276,7 @@ Utwórz formularz HTML z polem tekstowym. Obsłuż `onsubmit` zdarzenie i wywoł
 </form>
 ```
 
-Dodaj tag HTML **div**, używany do wyświetlania wyników. Wcześniej zdefiniowany kod JavaScript odwołuje się do tego tagu **div**.
+Dodaj tag HTML **div** , używany do wyświetlania wyników. Wcześniej zdefiniowany kod JavaScript odwołuje się do tego tagu **div** .
 
 ```html
 <h2>Results</h2>
@@ -288,7 +293,7 @@ Zapisz plik.
 
 ## <a name="display-results"></a>Wyświetlanie wyników
 
-Otwórz utworzoną stronę internetową w przeglądarce. Gdy zostanie wyświetlony monit, wprowadź klucz subskrypcji interfejsu API sprawdzania pisowni Bing. Wprowadź zapytanie (na przykład „Hollo, wlrd!”) w polu tekstowym **Spell Check** (Sprawdzanie pisowni) i naciśnij **Enter**. Na stronie internetowej zostaną wyświetlone wyniki zapytania.
+Otwórz utworzoną stronę internetową w przeglądarce. Gdy zostanie wyświetlony monit, wprowadź klucz subskrypcji interfejsu API sprawdzania pisowni Bing. Wprowadź zapytanie (na przykład „Hollo, wlrd!”) w polu tekstowym **Spell Check** (Sprawdzanie pisowni) i naciśnij **Enter** . Na stronie internetowej zostaną wyświetlone wyniki zapytania.
 
 ```json
 {

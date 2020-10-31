@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 7b016468d858162123e2796e0d76b83b0a1bbf33
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3132f19bd80d6958d4d073f63eb6a01c103c2776
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480058"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101348"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Usługa Azure Synapse Link dla usługi Azure Cosmos DB: Przypadki użycia analizy prawie w czasie rzeczywistym
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 [Link Azure Synapse](synapse-link.md) dla Azure Cosmos DB to funkcja natywnego hybrydowego przetwarzania transakcyjnego i analitycznego (HTAP) w chmurze, która umożliwia uruchamianie analizy niemal w czasie rzeczywistym za pośrednictwem danych operacyjnych. Link Synapse tworzy ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics.
 

@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 481f1353e16fecd0e413152db89a4ae54824a0f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e184d85e3daee41f530334aa0034fc98f40a8766
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019287"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099227"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Samouczek: Wykonywanie zapytań w usłudze Azure Cosmos DB przy użyciu interfejsu API tabel
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [Interfejs API tabel](table-introduction.md) usługi Azure Cosmos DB obsługuje zapytania OData i [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) dla danych klucz-wartość (tabeli).  
 
@@ -27,7 +28,7 @@ W tym artykule opisano następujące zadania:
 
 Zapytania w tym artykule korzystają z następującej przykładowej tabeli `People`:
 
-| PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
+| PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0101 |
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
@@ -53,7 +54,7 @@ https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')
 
 **Wyniki**
 
-| PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
+| PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0104 |
 
@@ -80,7 +81,7 @@ Aby uzyskać więcej informacji na temat sposobu tworzenia wyrażenia filtru dla
 
 **Wyniki**
 
-| PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
+| PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Smith |Ben | Ben@contoso.com| 425-555-0102 |
 

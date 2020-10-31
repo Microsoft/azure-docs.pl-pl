@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5be1cfc097da4f1f10bb775c9b20043096b9fb8b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 14c18d0cae335f96cc2d95c79bcf39bf85ef6a2b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279643"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101548"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Utwórz wiele wyzwalaczy Azure Functions dla Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule opisano sposób konfigurowania wielu wyzwalaczy usługi Azure Functions dla usługi Cosmos DB tak, aby działały równolegle i niezależnie reagowały na zmiany.
 
@@ -28,11 +29,11 @@ Podczas tworzenia przepływów bezserwerowych opartych na zdarzeniach przy użyc
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Optymalizowanie kontenerów dla wielu wyzwalaczy
 
-Uwzględniając *wymagania* wyzwalacza Azure Functions dla Cosmos DB, potrzebujemy drugiego kontenera do przechowywania stanu, nazywanego również *kontenerem dzierżawy*. Czy oznacza to, że potrzebujesz oddzielnego kontenera dzierżaw dla każdej funkcji platformy Azure?
+Uwzględniając *wymagania* wyzwalacza Azure Functions dla Cosmos DB, potrzebujemy drugiego kontenera do przechowywania stanu, nazywanego również *kontenerem dzierżawy* . Czy oznacza to, że potrzebujesz oddzielnego kontenera dzierżaw dla każdej funkcji platformy Azure?
 
 Dostępne są dwie opcje:
 
-* Utwórz **jeden kontener dzierżawy na funkcję**: takie podejście może przełożyć na dodatkowe koszty, chyba że jest używana [udostępniona baza danych przepływności](./set-throughput.md#set-throughput-on-a-database). Należy pamiętać, że minimalna przepływność na poziomie kontenera to 400 [jednostek żądań](./request-units.md), a w przypadku kontenera dzierżawy jest on używany tylko do tworzenia punktów kontrolnych postępu i utrzymania stanu.
+* Utwórz **jeden kontener dzierżawy na funkcję** : takie podejście może przełożyć na dodatkowe koszty, chyba że jest używana [udostępniona baza danych przepływności](./set-throughput.md#set-throughput-on-a-database). Należy pamiętać, że minimalna przepływność na poziomie kontenera to 400 [jednostek żądań](./request-units.md), a w przypadku kontenera dzierżawy jest on używany tylko do tworzenia punktów kontrolnych postępu i utrzymania stanu.
 * Należy mieć **jeden kontener dzierżawy i udostępnić go** wszystkim funkcjom: druga opcja zapewnia lepsze wykorzystanie jednostek żądań inicjowanych w kontenerze, ponieważ umożliwia ona wielu Azure Functions udostępnianie i używanie tej samej zainicjowanej przepływności.
 
 Celem tego artykułu jest przeprowadzenie drugiej opcji.

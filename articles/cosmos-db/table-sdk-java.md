@@ -9,14 +9,16 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: 40722053d28a0479e3f9ebaadd0fd04478a4f1aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a94064be54c1d957d6e7acb030ffae6a39634f55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261893"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101191"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Azure Cosmos DB interfejs API tabel for Java: informacje o wersji i zasoby
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -27,7 +29,7 @@ ms.locfileid: "91261893"
 
 |   |   |
 |---|---|
-|**Pobieranie zestawu SDK**|[Opcje pobierania](https://github.com/azure/azure-storage-java#download)|
+|**Zestaw SDK do pobrania**|[Opcje pobierania](https://github.com/azure/azure-storage-java#download)|
 |**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Java](https://azure.github.io/azure-storage-java/)|
 |**Współtworzenie zestawu SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
@@ -41,7 +43,7 @@ ms.locfileid: "91261893"
 * Wersja ogólna dostępności
 
 ## <a name="release-and-retirement-dates"></a>Daty wydania i wycofania
-Firma Microsoft zapewni powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji.
+Firma Microsoft udostępni powiadomienie co najmniej **12 miesięcy** przed wycofaniem zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji.
 
 Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu SDK, dlatego zaleca się, aby zawsze uaktualnić do najnowszej wersji zestawu SDK tak szybko, jak to możliwe. 
 
@@ -49,9 +51,9 @@ Nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego zestawu
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 listopada 2017 r. |--- |
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zobacz też
-Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) . 
+Aby dowiedzieć się więcej na temat usługi Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

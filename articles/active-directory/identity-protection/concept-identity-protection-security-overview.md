@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95c589289d77597be2550673944c8fa21902e0fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86024081"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098471"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection — omówienie zabezpieczeń
 
@@ -27,7 +27,7 @@ ms.locfileid: "86024081"
 - Trendy po lewej stronie zapewniają oś czasu ryzyka w organizacji.
 - Kafelki, po prawej stronie, wyróżnianie kluczowych problemów występujących w organizacji i sugerowanie, jak szybko podejmować działania.
 
-![Omówienie zabezpieczeń](./media/concept-identity-protection-security-overview/01.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/01.png" alt-text="Zrzut ekranu przedstawiający Omówienie zabezpieczeń Azure Portal. Wykresy słupkowe pokazują liczbę zagrożeń w czasie. Kafelki podsumowują informacje o użytkownikach i logowaniach." border="false":::
   
 ## <a name="trends"></a>Trends
 
@@ -45,7 +45,7 @@ Ten wykres pokazuje liczbę ryzykownych logowań wykrytych w wybranym okresie. W
 
 Kafelek "Użytkownicy o wysokim ryzyku" pokazuje najnowszą liczbę użytkowników z wysokim prawdopodobieństwem naruszenia tożsamości. Powinien to być najwyższy priorytet badania. Kliknięcie kafelka "Użytkownicy o wysokim ryzyku" spowoduje przekierowanie do widoku filtrowanego raportu "ryzykownych użytkowników" pokazującego tylko użytkowników z poziomem ryzyka wysoki. Korzystając z tego raportu, można dowiedzieć się więcej i skorygować tych użytkowników przy użyciu resetowania hasła.
 
-![Omówienie zabezpieczeń](./media/concept-identity-protection-security-overview/02.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/02.png" alt-text="Zrzut ekranu przedstawiający Omówienie zabezpieczeń Azure Portal. Wykresy słupkowe pokazują liczbę zagrożeń w czasie. Kafelki podsumowują informacje o użytkownikach i logowaniach." border="false":::
 
 ### <a name="medium-risk-users"></a>Użytkownicy średniego ryzyka
 Kafelek "średnio narażony użytkownicy" pokazuje najnowszą liczbę użytkowników z średnim prawdopodobieństwem naruszenia tożsamości. Kliknięcie kafelka "Użytkownicy średniego ryzyka" spowoduje przekierowanie do widoku filtrowanego raportu "ryzykowne użytkownicy" pokazującego tylko użytkowników z poziomem ryzyka średniego. Korzystając z tego raportu, można dokładniej zbadać i skorygować tych użytkowników.

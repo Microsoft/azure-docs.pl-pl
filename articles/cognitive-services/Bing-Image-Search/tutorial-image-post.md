@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d455751dcabd67213566d605e83fda297e187d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76670c6a061ce3f257d9df8cfe61b1cc020194c6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316685"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100222"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Samouczek: wyodrębnianie szczegółów obrazu przy użyciu interfejs API wyszukiwania obrazów Bing i języka C#
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Interfejs API wyszukiwania obrazów Bing udostępnia wiele [punktów końcowych](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint). Punkt końcowy `/details` akceptuje żądania POST z obrazem i może zwracać różnorodne szczegółowe informacje o tym obrazie. Ta aplikacja języka C# wysyła obraz przy użyciu tego interfejsu API i wyświetla szczegółowe informacje zwrócone przez usługę Bing, które są obiektami JSON, takimi jak poniższe:
 
@@ -99,7 +104,7 @@ Odpowiedź JSON można następnie wydrukować w konsoli.
 
 ## <a name="use-an-image-insights-token-in-a-request"></a>Używanie w żądaniu tokenu szczegółowych informacji obrazu
 
-Aby użyć tokenu `ImageInsightsToken` zwróconego z wynikami żądania `POST`, możesz dodać go do żądania `GET`. Na przykład:
+Aby użyć tokenu `ImageInsightsToken` zwróconego z wynikami żądania `POST`, możesz dodać go do żądania `GET`. Przykład:
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2

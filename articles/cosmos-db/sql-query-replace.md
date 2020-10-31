@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 758ac13530752df481d27e7e253f025f5c8d6430
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb3afd2524949b1209ac42542a012b74559234d5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302206"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098114"
 ---
 # <a name="replace-azure-cosmos-db"></a>Zamień (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Zamienia wszystkie wystąpienia określonej wartości ciągu na inną wartość ciągu.  
   
 ## <a name="syntax"></a>Składnia
@@ -32,7 +34,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
    Jest wyrażeniem ciągu, który ma zostać znaleziony.  
   
 *str_expr3*  
-   Jest wyrażeniem ciągu, które służy do zastępowania wystąpień *str_expr2* w *str_expr1*.  
+   Jest wyrażeniem ciągu, które służy do zastępowania wystąpień *str_expr2* w *str_expr1* .  
   
 ## <a name="return-types"></a>Typy zwracane
   

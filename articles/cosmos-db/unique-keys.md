@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: dac2ed3888dcf1d38fc5e2c21611edf8008a07f6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3128f6783dc96fffb577a378cd1aaea4e58c7a4f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476369"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099202"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Ograniczenia unikatowego klucza w Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Klucze unikatowe umożliwiają dodanie warstwy integralności danych do kontenera usługi Azure Cosmos. Podczas tworzenia kontenera usługi Azure Cosmos można utworzyć unikatowe Zasady kluczy. Przy użyciu unikatowych kluczy upewnij się, że co najmniej jedna wartość w partycji logicznej jest unikatowa. Można również zagwarantować unikatowość dla każdego [klucza partycji](partitioning-overview.md).
 

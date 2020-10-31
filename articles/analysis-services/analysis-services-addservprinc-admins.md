@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8e751d210ab472d82e4abd613d37069a8c591f52
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013937"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100732"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Dodawanie jednostki usługi do roli administratora serwera 
 
@@ -33,14 +33,14 @@ Przed ukończeniem tego zadania musisz mieć nazwę główną usługi zarejestro
 Administratorów serwera można skonfigurować przy użyciu SQL Server Management Studio (SSMS). Aby wykonać to zadanie, musisz mieć uprawnienia [administratora serwera](analysis-services-server-admins.md) na platformie Azure jako serwer. 
 
 1. W programie SSMS Połącz się z platformą Azure jako serwerem.
-2. W obszarze **Właściwości serwera**  >  **zabezpieczenia**kliknij przycisk **Dodaj**.
-3. W obszarze **Wybierz użytkownika lub grupę**Wyszukaj zarejestrowaną aplikację według nazwy, wybierz pozycję, a następnie kliknij przycisk **Dodaj**.
+2. W obszarze **Właściwości serwera**  >  **zabezpieczenia** kliknij przycisk **Dodaj** .
+3. W obszarze **Wybierz użytkownika lub grupę** Wyszukaj zarejestrowaną aplikację według nazwy, wybierz pozycję, a następnie kliknij przycisk **Dodaj** .
 
     ![Wyszukaj konto jednostki usługi](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Sprawdź identyfikator konta nazwy głównej usługi, a następnie kliknij przycisk **OK**.
+4. Sprawdź identyfikator konta nazwy głównej usługi, a następnie kliknij przycisk **OK** .
     
-    ![Wyszukaj konto jednostki usługi](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Zrzut ekranu pokazujący identyfikator konta jednostki usługi i wyróżniony przycisk OK.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## <a name="using-a-resource-manager-template"></a>Używanie szablonu usługi Resource Manager
 

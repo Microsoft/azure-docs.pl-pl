@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb2553346881bc2e8de631988bd11642b85aa847
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327858"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099644"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrowanie aplikacji do korzystania z Azure Cosmos DB Java SDK v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]  
 > Aby uzyskać więcej informacji na temat tego zestawu SDK, Azure Cosmos DB Zobacz informacje o [wersji](sql-api-sdk-java-v4.md)zestawu Java SDK v4, [repozytorium Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB przewodniku [dotyczące wydajności](performance-tips-java-sdk-v4-sql.md)zestawu Java SDK 4 i Azure Cosmos DB [podręczniku rozwiązywania problemów](troubleshoot-java-sdk-v4-sql.md)z zestawem SDK w wersji 4.
@@ -33,10 +34,10 @@ W poniższej tabeli wymieniono różne Azure Cosmos DB zestawy SDK Java, nazwę 
 
 | Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Dokumentacja interfejsu API   | Uwagi do wersji  |
 |-------|------|-----------|-----------|--------------|-------------|---------------------------|
-| Async 2. x. x  | Czerwiec 2018 r.    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-async-java.md) |
-| Synchronizuj 2. x. x     | Września 2018    | Synchronizuj   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-java.md)  |
-| 3. x. x    | Lipiec 2019 r.    | Async (reaktor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
-| 4,0   | Czerwiec 2020 r.   | Async (reaktor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [Interfejs API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
+| Async 2. x. x  | Czerwiec 2018 r.    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [INTERFEJS API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-async-java.md) |
+| Synchronizuj 2. x. x     | Września 2018    | Synchronizuj   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [INTERFEJS API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-java.md)  |
+| 3. x. x    | Lipiec 2019 r.    | Async (reaktor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [INTERFEJS API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
+| 4,0   | Czerwiec 2020 r.   | Async (reaktor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [INTERFEJS API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
 
 ## <a name="sdk-level-implementation-changes"></a>Zmiany implementacji poziomu zestawu SDK
 
@@ -64,9 +65,9 @@ Poniżej przedstawiono zmiany poziomu interfejsu API w Azure Cosmos DB Java SDK 
 
   * **Java SDK 4,0** : wszystkie klasy należą do interfejsu API synchronizacji, chyba że nazwa klasy jest dołączana `Async` po `Cosmos` .
 
-  * **Java SDK 3. x. x**: wszystkie klasy należą do asynchronicznego interfejsu API, chyba że nazwa klasy jest dołączana `Async` po `Cosmos` .
+  * **Java SDK 3. x. x** : wszystkie klasy należą do asynchronicznego interfejsu API, chyba że nazwa klasy jest dołączana `Async` po `Cosmos` .
 
-  * **Asynchroniczny zestaw Java SDK 2. x. x**: nazwy klas są podobne do synchronizacji zestawu Java SDK 2. x. x, ale nazwa zaczyna się od *Async*.
+  * **Asynchroniczny zestaw Java SDK 2. x. x** : nazwy klas są podobne do synchronizacji zestawu Java SDK 2. x. x, ale nazwa zaczyna się od *Async* .
 
 ### <a name="hierarchical-api-structure"></a>Hierarchiczna struktura interfejsu API
 

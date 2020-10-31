@@ -9,14 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 902980d7c145d5150214b7d4f4433e5da344e30b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb057637ff546356cde6e0ef107fe784fed2e610
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570048"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099882"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Samouczek: Tworzenie konta interfejs API Cassandra w Azure Cosmos DB przy użyciu aplikacji Java do przechowywania danych klucza/wartości
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Jako deweloper być może masz aplikacje, które używają par klucz-wartość. Możesz przechowywać dane kluczy/wartości przy użyciu konta interfejsu API Cassandra w usłudze Azure Cosmos DB. W tym samouczku przedstawiono sposób użycia aplikacji języka Java do tworzenia konta interfejsu API Cassandra w usłudze Azure Cosmos DB, dodawania bazy danych (nazywanej także przestrzenią kluczy) oraz dodawania tabeli. Aplikacja języka Java używa [sterownika Java](https://github.com/datastax/java-driver) do tworzenia bazy danych użytkowników, która zawiera szczegółowe informacje, takie jak identyfikator użytkownika, nazwa użytkownika i miasto użytkownika.  
 
@@ -42,21 +43,21 @@ Ten samouczek obejmuje następujące zadania:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/). 
 
-2. Wybierz pozycję **Utwórz zasoby**  >  **bazy danych**  >  **Azure Cosmos DB**. 
+2. Wybierz pozycję **Utwórz zasoby**  >  **bazy danych**  >  **Azure Cosmos DB** . 
 
 3. W okienku **Nowe konto** podaj ustawienia nowego konta usługi Azure Cosmos. 
 
    |Ustawienie   |Sugerowana wartość  |Opis  |
    |---------|---------|---------|
    |ID (Identyfikator)   |   Wprowadź unikatową nazwę    | Wprowadź unikatową nazwę do identyfikacji tego konta usługi Azure Cosmos. <br/><br/>Ponieważ adres cassandra.cosmosdb.azure.com jest dołączany do podanego identyfikatora w celu utworzenia punktu kontaktowego, użyty identyfikator powinien być unikatowy, ale rozpoznawalny.         |
-   |Interfejs API    |  Cassandra   |  Interfejs API określa typ konta do utworzenia. <br/> Wybierz pozycję **Cassandra**, ponieważ w tym artykule utworzysz bazę danych z szeroką kolumną, którą można zbadać przy użyciu składni Cassandra Query Language (CQL).  |
+   |Interfejs API    |  Cassandra   |  Interfejs API określa typ konta do utworzenia. <br/> Wybierz pozycję **Cassandra** , ponieważ w tym artykule utworzysz bazę danych z szeroką kolumną, którą można zbadać przy użyciu składni Cassandra Query Language (CQL).  |
    |Subskrypcja    |  Twoja subskrypcja        |  Wybierz subskrypcję platformy Azure, która ma być używana dla tego konta usługi Azure Cosmos.        |
-   |Grupa zasobów   | Wprowadź nazwę    |  Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę nowej grupy zasobów dla swojego konta. Dla uproszczenia można użyć takiej samej nazwy jak identyfikator.    |
+   |Grupa zasobów   | Wprowadź nazwę    |  Wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę nowej grupy zasobów dla swojego konta. Dla uproszczenia można użyć takiej samej nazwy jak identyfikator.    |
    |Lokalizacja    |  Wybierz region najbliżej Twoich użytkowników    |  Wybierz lokalizację geograficzną, w której będzie hostowane Twoje konto usługi Azure Cosmos. Użyj lokalizacji znajdującej się najbliżej Twoich użytkowników, aby zapewnić im najszybszy dostęp do danych.    |
 
    :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="Tworzenie konta za pomocą portalu":::
 
-4. Wybierz przycisk **Utwórz**. <br/>Tworzenie konta potrwa kilka minut. Po utworzeniu zasobu możesz zobaczyć powiadomienie **Wdrażanie zakończyło się pomyślnie** z prawej strony portalu.
+4. Wybierz pozycję **Utwórz** . <br/>Tworzenie konta potrwa kilka minut. Po utworzeniu zasobu możesz zobaczyć powiadomienie **Wdrażanie zakończyło się pomyślnie** z prawej strony portalu.
 
 ## <a name="get-the-connection-details-of-your-account"></a>Pobieranie szczegółów połączenia konta  
 
@@ -66,7 +67,7 @@ Pobierz informacje o parametrach połączenia z witryny Azure Portal i skopiuj j
 
 2. Otwórz okienko **parametrów połączenia** .  
 
-3. Skopiuj wartości **PUNKT KONTAKTOWY**, **PORT**, **NAZWA UŻYTKOWNIKA** i **HASŁO PODSTAWOWE** do użycia w następnych krokach.
+3. Skopiuj wartości **PUNKT KONTAKTOWY** , **PORT** , **NAZWA UŻYTKOWNIKA** i **HASŁO PODSTAWOWE** do użycia w następnych krokach.
 
 ## <a name="create-the-project-and-the-dependencies"></a>Tworzenie projektu i zależności 
 
@@ -219,7 +220,7 @@ Ta sekcja zawiera opis sposobu dodawania bazy danych (przestrzeni kluczy) oraz t
 
    W oknie terminalu zostaną wyświetlone powiadomienia o utworzeniu przestrzeni kluczy i tabeli. 
    
-2. Teraz w witrynie Azure Portal otwórz **Eksplorator danych**, aby potwierdzić utworzenie przestrzeni kluczy i tabeli.
+2. Teraz w witrynie Azure Portal otwórz **Eksplorator danych** , aby potwierdzić utworzenie przestrzeni kluczy i tabeli.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,24 +1,24 @@
 ---
-title: Zarządzanie cyklem życia usługi Azure Storage
-description: Dowiedz się, jak utworzyć reguły zasad cyklu życia, aby przenieść dane przedawniania z warstwy gorąca do chłodna i archiwum.
+title: Optymalizowanie kosztów dzięki automatyzowaniu warstw dostępu Blob Storage platformy Azure
+description: Twórz zautomatyzowane reguły służące do przemieszczania danych między warstwami gorąca, chłodna i archiwalna.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/15/2020
+ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: ee04ad28d6b52e63becd2991d77b453cd411f683
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309797"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100073"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>Zarządzanie cyklem życia magazynu usługi Azure Blob Storage
+# <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optymalizowanie kosztów dzięki automatyzowaniu warstw dostępu Blob Storage platformy Azure
 
-Zestawy danych mają unikatowe cykle życia. Wczesne w cyklu życia, ludzie często uzyskują dostęp do niektórych danych. Jednak konieczność uzyskania dostępu spadnie drastycznie jako wiek danych. Niektóre dane pozostają w stanie bezczynności w chmurze i są rzadko dostępne po ich zapisaniu. Niektóre dane wygasają w dniach lub miesiącach po utworzeniu, podczas gdy inne zestawy danych są aktywnie odczytywane i modyfikowane przez cały okres istnienia. Zarządzanie cyklem życia usługi Azure Blob Storage oferuje zaawansowane zasady oparte na regułach dla kont GPv2 i BLOB Storage. Użyj zasad, aby przenieść dane do odpowiednich warstw dostępu lub wygasnąć po zakończeniu cyklu życia danych.
+Zestawy danych mają unikatowe cykle życia. Wczesne w cyklu życia, ludzie często uzyskują dostęp do niektórych danych. Jednak konieczność uzyskania dostępu spadnie drastycznie jako wiek danych. Niektóre dane pozostają w stanie bezczynności w chmurze i są rzadko dostępne po ich zapisaniu. Niektóre dane wygasają w dniach lub miesiącach po utworzeniu, podczas gdy inne zestawy danych są aktywnie odczytywane i modyfikowane przez cały okres istnienia. Zarządzanie cyklem życia Blob Storage platformy Azure oferuje zaawansowane zasady oparte na regułach dla kont GPv2 i BLOB Storage. Użyj zasad, aby przenieść dane do odpowiednich warstw dostępu lub wygasnąć po zakończeniu cyklu życia danych.
 
 Zasady zarządzania cyklem życia umożliwiają:
 
@@ -31,6 +31,7 @@ Zasady zarządzania cyklem życia umożliwiają:
 Rozważmy scenariusz, w którym dane są często dostępne podczas wczesnych etapów cyklu życia, ale tylko sporadycznie po dwóch tygodniach. Po upływie pierwszego miesiąca zestaw danych jest rzadko używany. W tym scenariuszu w przypadku wczesnych etapów jest najlepszym miejscem do magazynowania. Chłodny magazyn jest najbardziej odpowiedni dla okazjonalnego dostępu. Magazyn archiwalny to opcja najlepszej warstwy po okresie ważności danych w miesiącu. Przez dostosowanie warstw magazynowania w odniesieniu do wieku danych można zaprojektować najtańsze opcje magazynu dla Twoich potrzeb. W celu osiągnięcia tego przejścia reguły zasad zarządzania cyklem życia są dostępne do przenoszenia danych przedawnienia do warstwy z chłodnicy.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 >[!NOTE]
 >Jeśli potrzebujesz danych do odczytu, na przykład gdy są używane przez StorSimple, nie ustawiaj zasad do przenoszenia obiektów BLOB do warstwy archiwum.
 
@@ -69,11 +70,11 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
 
 1. W Azure Portal Wyszukaj i wybierz konto magazynu. 
 
-1. W obszarze **BLOB Service**wybierz pozycję **Zarządzanie cyklem życia** , aby wyświetlić lub zmienić reguły.
+1. W obszarze **BLOB Service** wybierz pozycję **Zarządzanie cyklem życia** , aby wyświetlić lub zmienić reguły.
 
 1. Wybierz kartę **Widok listy** .
 
-1. Wybierz pozycję **Dodaj regułę** i nadaj jej nazwę w formularzu **szczegóły** . Można również ustawić **Zakres reguły**, **Typ obiektu BLOB**i wartości **podtypu obiektu BLOB** . W poniższym przykładzie ustawiono zakres filtrowania obiektów BLOB. Powoduje to dodanie karty **zestawu filtrów** .
+1. Wybierz pozycję **Dodaj regułę** i nadaj jej nazwę w formularzu **szczegóły** . Można również ustawić **Zakres reguły** , **Typ obiektu BLOB** i wartości **podtypu obiektu BLOB** . W poniższym przykładzie ustawiono zakres filtrowania obiektów BLOB. Powoduje to dodanie karty **zestawu filtrów** .
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Zarządzanie cyklem życia Dodawanie strony szczegółów reguły w Azure Portal":::
 
@@ -103,7 +104,7 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
 
 1. W Azure Portal Wyszukaj i wybierz konto magazynu.
 
-1. W obszarze **BLOB Service**wybierz pozycję **Zarządzanie cyklem życia** , aby wyświetlić lub zmienić zasady.
+1. W obszarze **BLOB Service** wybierz pozycję **Zarządzanie cyklem życia** , aby wyświetlić lub zmienić zasady.
 
 1. Poniższy kod JSON jest przykładem zasad, które można wkleić do karty **Widok kodu** .
 
@@ -136,11 +137,11 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
    }
    ```
 
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz** .
 
 1. Aby uzyskać więcej informacji na temat tego przykładu JSON, zobacz sekcję [zasad](#policy) i [reguł](#rules) .
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Poniższy skrypt programu PowerShell może służyć do dodawania zasad do konta magazynu. `$rgname`Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName`Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu.
 
@@ -246,8 +247,8 @@ Każda reguła w ramach zasad ma kilka parametrów:
 
 | Nazwa parametru | Typ parametru | Uwagi | Wymagane |
 |----------------|----------------|-------|----------|
-| `name`         | Ciąg |Nazwa reguły może zawierać do 256 znaków alfanumerycznych. W nazwie reguły jest rozróżniana wielkość liter. Musi być unikatowa w ramach zasad. | Prawda |
-| `enabled`      | Wartość logiczna | Opcjonalna wartość logiczna zezwalająca na tymczasowe wyłączenie reguły. Wartość domyślna to true, jeśli nie została ustawiona. | Fałsz | 
+| `name`         | String |Nazwa reguły może zawierać do 256 znaków alfanumerycznych. W nazwie reguły jest rozróżniana wielkość liter. Musi być unikatowa w ramach zasad. | Prawda |
+| `enabled`      | Boolean | Opcjonalna wartość logiczna zezwalająca na tymczasowe wyłączenie reguły. Wartość domyślna to true, jeśli nie została ustawiona. | Fałsz | 
 | `type`         | Wartość wyliczenia | Bieżący prawidłowy typ to `Lifecycle` . | Prawda |
 | `definition`   | Obiekt, który definiuje regułę cyklu życia | Każda definicja składa się z zestawu filtrów i zestawu akcji. | Prawda |
 
@@ -321,7 +322,7 @@ Dostępne są następujące filtry:
 | blobIndexMatch | Tablica wartości słownika składająca się z klucza znacznika indeksu obiektów blob i warunków wartości do dopasowania. Każda reguła może definiować do 10 warunek tagu indeksu obiektów BLOB. Na przykład, jeśli chcesz dopasować wszystkie obiekty blob w `Project = Contoso` ramach `https://myaccount.blob.core.windows.net/` reguły, blobIndexMatch to `{"name": "Project","op": "==","value": "Contoso"}` . | Jeśli nie zdefiniujesz blobIndexMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
 
 > [!NOTE]
-> Indeks obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępny w regionach **Kanada środkowa**, **Kanada Wschodnia**, **Francja środkowa**i **Francja Południowa** . Aby dowiedzieć się więcej na temat tej funkcji wraz z znanymi problemami i ograniczeniami, zobacz artykuł [Zarządzanie danymi na platformie Azure Blob Storage przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
+> Indeks obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępny w regionach **Kanada środkowa** , **Kanada Wschodnia** , **Francja środkowa** i **Francja Południowa** . Aby dowiedzieć się więcej na temat tej funkcji wraz z znanymi problemami i ograniczeniami, zobacz artykuł [Zarządzanie danymi na platformie Azure Blob Storage przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Akcje reguły
 

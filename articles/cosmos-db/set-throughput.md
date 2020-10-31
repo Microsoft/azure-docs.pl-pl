@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367129"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098777"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Wprowadzenie do zainicjowanej przepływności w Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB pozwala ustawić przepływność aprowizacji dla baz danych i kontenerów. Istnieją dwa typy zainicjowanej przepływności, standardowe (ręczne) lub automatyczne skalowanie. Ten artykuł zawiera omówienie sposobu działania zainicjowanej przepływności. 
 
@@ -79,11 +80,11 @@ Jeśli Twoje obciążenia wymagają usunięcia i ponownego utworzenia wszystkich
 Można połączyć te dwa modele. Przepływność aprowizacji zarówno dla bazy danych, jak i kontenera jest dozwolona. Poniższy przykład pokazuje, jak zainicjować standardową (ręczną) przepływność administracyjną dla bazy danych Cosmos Azure i kontenera:
 
 * Można utworzyć bazę danych usługi Azure Cosmos o nazwie *z* w standardowym (ręcznym) przepływności *"K"* jednostek ru. 
-* Następnie utwórz pięć kontenerów o nazwie *a*, *B*, *C*, *D*i *E* w ramach bazy danych. Podczas tworzenia kontenera B upewnij się, że włączono **dedykowaną przepływność dla tej opcji kontenera** , a następnie jawnie Skonfiguruj *"P"* jednostek ru na potrzeby aprowizacji dla tego kontenera. Można skonfigurować udostępnioną i dedykowaną przepływność tylko podczas tworzenia bazy danych i kontenera. 
+* Następnie utwórz pięć kontenerów o nazwie *a* , *B* , *C* , *D* i *E* w ramach bazy danych. Podczas tworzenia kontenera B upewnij się, że włączono **dedykowaną przepływność dla tej opcji kontenera** , a następnie jawnie Skonfiguruj *"P"* jednostek ru na potrzeby aprowizacji dla tego kontenera. Można skonfigurować udostępnioną i dedykowaną przepływność tylko podczas tworzenia bazy danych i kontenera. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partycja fizyczna, która hostuje co najmniej jedną partycję logiczną kontenera":::
 
-* Przepływność jednostek ru *"K"* jest udostępniana w czterech kontenerach *a*, *C*, *D*i *E*. Dokładna ilość przepływności *dostępna dla,* *C*, *D*lub *E* jest różna. Dla każdego z przepływności poszczególnych kontenerów nie ma umowy SLA.
+* Przepływność jednostek ru *"K"* jest udostępniana w czterech kontenerach *a* , *C* , *D* i *E* . Dokładna ilość przepływności *dostępna dla,* *C* , *D* lub *E* jest różna. Dla każdego z przepływności poszczególnych kontenerów nie ma umowy SLA.
 * Kontener o nazwie *B* jest zagwarantowany do uzyskania jednostek ru przepływności *"P"* przez cały czas. Jest ona obsługiwana przez umowy SLA.
 
 > [!NOTE]
@@ -119,9 +120,9 @@ Zainicjowaną przepływność kontenera lub bazy danych można skalować za pomo
 * [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) w zestawie .NET SDK.
 * [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) w zestawie Java SDK.
 
-W przypadku **obniżenia ilości zainicjowanej przepływności**będzie można wykonać [minimalnie](#current-provisioned-throughput).
+W przypadku **obniżenia ilości zainicjowanej przepływności** będzie można wykonać [minimalnie](#current-provisioned-throughput).
 
-Jeśli **rośnie przepływność**, większość czasu operacja jest chwilowo. Istnieją jednak sytuacje, w których operacja może trwać dłużej, ze względu na zadania systemowe do udostępniania wymaganych zasobów. W takim przypadku próba modyfikacji zainicjowanej przepływności podczas wykonywania tej operacji spowoduje zwrócenie odpowiedzi HTTP 423 z komunikatem o błędzie z informacją o tym, że inna operacja skalowania jest w toku.
+Jeśli **rośnie przepływność** , większość czasu operacja jest chwilowo. Istnieją jednak sytuacje, w których operacja może trwać dłużej, ze względu na zadania systemowe do udostępniania wymaganych zasobów. W takim przypadku próba modyfikacji zainicjowanej przepływności podczas wykonywania tej operacji spowoduje zwrócenie odpowiedzi HTTP 423 z komunikatem o błędzie z informacją o tym, że inna operacja skalowania jest w toku.
 
 > [!NOTE]
 > Jeśli planujesz bardzo duże obciążenie pozyskiwania, które będzie wymagało dużego wzrostu przepływności, należy pamiętać, że operacja skalowania nie ma umowy SLA i, jak wspomniano w poprzednim akapicie, może zająć dużo czasu, gdy wzrost jest duży. Możesz chcieć zaplanować i rozpocząć skalowanie przed rozpoczęciem obciążenia i użyć poniższych metod w celu sprawdzenia postępu.

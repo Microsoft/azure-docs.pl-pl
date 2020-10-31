@@ -3,12 +3,12 @@ title: Tematy dotyczące partnerów rozwiązanie Auth0 z Azure Event Grid
 description: Wysyłaj zdarzenia z usługi rozwiązanie Auth0 do usług platformy Azure za pomocą Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 411d8f8eb53e4bc3fa8c8dda04bdcf12c74db768
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 340403111c094540ba7e66faf71ebf3cfe24fe7d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103351"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101293"
 ---
 # <a name="auth0-partner-topics"></a>Tematy dotyczące partnerów rozwiązanie Auth0
 ![Logo rozwiązanie Auth0](./media/auth0-overview/auth0-logo.png)
@@ -43,7 +43,7 @@ Utrzymywanie i inspekcja działań użytkownika ma kluczowe znaczenie dla utrzym
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd tematów dotyczących partnerów](partner-topics-overview.md)
+- [Przegląd tematów dotyczących partnerów](partner-events-overview.md)
 - [Jak korzystać z tematu partnera rozwiązanie Auth0](auth0-how-to.md)
 - [Dokumentacja rozwiązanie Auth0](https://auth0.com/docs/azure-tutorial)
 - [Zostań partnerem Event Grid](partner-onboarding-overview.md)

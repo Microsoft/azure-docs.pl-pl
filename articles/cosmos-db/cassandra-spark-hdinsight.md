@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 4848bdceef084d587c839f2af93d1ff5a43c850b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cee5181bf3dda3f0fb609d5aa344697e989ae6c3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260579"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098896"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Dostęp do Azure Cosmos DB interfejs API Cassandra z platformy Spark w ramach PRZĘDZy z usługą HDInsight
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 W tym artykule opisano, jak uzyskać dostęp do Azure Cosmos DB interfejs API Cassandra z platformy Spark na PRZĘDZę z użyciem HDInsight-Spark z powłoki Spark. Usługa HDInsight to Hortonworks usługi Hadoop firmy Microsoft na platformie Azure, która korzysta z magazynu obiektów dla systemu plików HDFS i zawiera kilka wersji, w tym [platformy Spark](../hdinsight/spark/apache-spark-overview.md).  Chociaż zawartość tego dokumentu odwołuje się do usługi HDInsight-Spark, ma zastosowanie do wszystkich dystrybucji usługi Hadoop.  
 

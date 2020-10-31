@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 19e0d741d959eba704f26e7e8f7b5d311aa77775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e5522c162e08f0257bd6f20b058bf8bb858cff3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904870"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099350"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Jak zabezpieczać interfejsy API przy użyciu uwierzytelniania za pomocą certyfikatów klienta w usłudze API Management
 
@@ -93,9 +93,8 @@ Poniższy przykład pokazuje, jak sprawdzić odcisk palca certyfikatu klienta wz
 
 > [!TIP]
 > Problem zakleszczenia certyfikatu klienta opisany w tym [artykule](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) może być manifestem na kilka sposobów, np. żądania zawieszania, żądania powodują powstanie `403 Forbidden` kodu stanu po upływie limitu czasu `context.Request.Certificate` `null` . Ten problem ma zwykle wpływ na `POST` `PUT` żądania z zawartością o długości około 60KB lub większą.
-> Aby zapobiec wystąpieniu tego problemu, Włącz ustawienie "Negocjuj certyfikat klienta" dla żądanych nazw hostów w bloku "domeny niestandardowe", jak pokazano poniżej. Ta funkcja nie jest dostępna w warstwie zużycia.
+> Aby zapobiec wystąpieniu tego problemu, Włącz ustawienie "Negocjuj certyfikat klienta" dla żądanych nazw hostów w bloku "domeny niestandardowe", jak pokazano na pierwszym obrazie tego dokumentu. Ta funkcja nie jest dostępna w warstwie zużycia.
 
-![Negocjuj certyfikat klienta](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
