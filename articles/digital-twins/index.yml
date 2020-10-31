@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Dokumentacja usługi Azure Digital Twins (wersja zapoznawcza)
+title: Dokumentacja usługi Azure Digital Twins
 summary: Dowiedz się, jak za pomocą usługi Azure Digital Twins utworzyć cyfrową reprezentację zasobów, środowisk i systemów firmy, aby tworzyć rozwiązania IoT nowej generacji modelujące świat rzeczywisty.
 metadata:
-  title: Dokumentacja usługi Azure Digital Twins (wersja zapoznawcza) — samouczki i dokumentacja interfejsu API | Microsoft Docs
+  title: Dokumentacja usługi Azure Digital Twins — samouczki i dokumentacja interfejsu API | Microsoft Docs
   description: Dowiedz się, jak używać usługi Azure Digital Twins do łączenia osób, miejsc i rzeczy oraz tworzenia rozwiązań IoT za pomocą analizy przestrzennej.
   ms.service: digital-twins
   ms.topic: landing-page
@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: b9d6067fe8c5c81024f6fa211d32e0ecc92f5a47
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: a05f168b18f32e2b4730e5ef50624d41fb48e147
+  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92358987"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93099100"
 landingContent:
 - title: Informacje o usłudze Azure Digital Twins
   linkLists:

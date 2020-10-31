@@ -18,3 +18,9 @@
         - name: Zasady
           tocHref: /azure/aks
           topicHref: /azure/governance/policy
+        - name: Zasady
+          tocHref: /azure/storage
+          topicHref: /azure/governance/policy
+        - name: Zasady
+          tocHref: /azure/web-application-firewall
+          topicHref: /azure/governance/policy

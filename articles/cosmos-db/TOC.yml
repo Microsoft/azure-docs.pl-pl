@@ -731,6 +731,10 @@
               items:
                 - name: Rozwiązywanie problemów z zestawem Java SDK w wersji 4
                   href: troubleshoot-java-sdk-v4-sql.md
+                - name: Rozwiązywanie problemów z przekraczaniem limitu czasu żądania
+                  href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+                - name: Rozwiązywanie problemów z niedostępnością usługi
+                  href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
                 - name: Rozwiązywanie problemów — Async Java SDK 2
                   href: troubleshoot-java-async-sdk.md
         - name: Źródło zmian
@@ -877,8 +881,6 @@
         - name: Szablon usługi Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
-        - name: Informacje o wersji emulatora
-          href: local-emulator-release-notes.md
         - name: Elementy wbudowane usługi Azure Policy
           displayName: 'samples, policies, definitions'
           href: ./policy-reference.md
@@ -1279,6 +1281,8 @@
               href: emulator-command-line-parameters.md
             - name: Rozwiązywanie problemów z emulatorem
               href: troubleshoot-local-emulator.md
+            - name: Informacje o wersji emulatora
+              href: local-emulator-release-notes.md
             - name: Rozszerzenie programu Visual Studio Code
               href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
         - name: Konfigurowanie potoku ciągłej integracji/ciągłego wdrażania usługi Azure DevOps

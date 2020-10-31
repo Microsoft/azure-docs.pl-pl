@@ -38,6 +38,8 @@
   items:
     - name: Zestaw SDK dla języka JavaScript
       href: reference.md
+    - name: Informacje o wersji
+      href: release-notes.md
 - name: Zasoby
   items:
     - name: Opcje pomocy technicznej
