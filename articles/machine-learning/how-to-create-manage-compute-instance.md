@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f0dfa137e42d60246ce8f5281f002d5ca567c2ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ac134e6a371ea85a20094e688adc57da8550a03d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427529"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078989"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie nim
 
@@ -42,7 +42,7 @@ Wystąpienia obliczeniowe mogą bezpiecznie uruchamiać zadania w [środowisku s
 
 ## <a name="create"></a>Utwórz
 
-**Szacowany czas**: około 5 minut.
+**Szacowany czas** : około 5 minut.
 
 Tworzenie wystąpienia obliczeniowego to jednorazowy proces dla Twojego obszaru roboczego. Można ponownie użyć tego obliczenia jako stacji roboczej deweloperskiej lub jako elementu docelowego obliczeń do szkolenia. Do obszaru roboczego można dołączyć wiele wystąpień obliczeniowych.
 
@@ -206,7 +206,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **obliczenia**, a następnie na górze wybierz pozycję **wystąpienie obliczeniowe** .
+W obszarze roboczym programu Azure Machine Learning Studio wybierz pozycję **obliczenia** , a następnie na górze wybierz pozycję **wystąpienie obliczeniowe** .
 
 ![Zarządzanie wystąpieniem obliczeniowym](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -256,7 +256,9 @@ Pakiety można instalować bezpośrednio w Jupyter Notebook lub RStudio:
 * Python: Dodawanie kodu instalacji i wykonywanie w komórce Jupyter Notebook.
 
 Można też zainstalować program z poziomu okna terminalu. Zainstaluj pakiety języka Python w środowisku **python 3,6-Azure** .  Zainstaluj pakiety języka R w środowisku **języka r** .
-Funkcje% PIP i% Conda Magic automatycznie instalują pakiety w aktualnie uruchomionym jądrze w sesji notesu Jupyter.
+
+> [!NOTE]
+> Aby zarządzać pakietami w ramach notesu, użyj funkcji **% PIP** lub **% Conda** Magic w celu automatycznego zainstalowania pakietów w **aktualnie uruchomionym jądrze** zamiast **! PIP** lub **! Conda** , które odwołują się do wszystkich pakietów (w tym pakietów poza aktualnie uruchomionym jądrem).
 
 ## <a name="add-new-kernels"></a>Dodaj nowe jądra
 

@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0adb346a693beaa905438cfdc1249c1646c28811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d16343864d9602d644b31d34a2b66e39211b6ece
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88608862"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079343"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Jak wybrać między zainicjowaną przepływność a bezserwerową
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB jest dostępny w dwóch różnych trybach pojemności: [zainicjowana przepływność](set-throughput.md) i [bezserwerowy](serverless.md). Można wykonać dokładnie te same operacje bazy danych w obu trybach, ale sposób rozliczania dla tych operacji jest radykalnie różny. W poniższym filmie wideo objaśniono podstawowe różnice między tymi trybami i jak dopasowują się do różnych typów obciążeń:
 
@@ -42,20 +43,20 @@ Azure Cosmos DB jest dostępny w dwóch różnych trybach pojemności: [zainicjo
 W niektórych sytuacjach może zostać wyczyszczone, czy dla danego obciążenia należy wybrać zainicjowaną przepływność lub bezserwerowy. Aby pomóc w tej decyzji, można oszacować:
 
 - **Wymagana pojemność** obciążenia, czyli maksymalna ilość jednostek ru, które mogą być używane w jednej sekundzie
-- Twoje całkowite **oczekiwane użycie**, czyli łączna liczba jednostek ru, które można wykorzystać w ciągu miesiąca (można oszacować za pomocą tabeli pokazanej w [tym miejscu](plan-manage-costs.md#estimating-serverless-costs))
+- Twoje całkowite **oczekiwane użycie** , czyli łączna liczba jednostek ru, które można wykorzystać w ciągu miesiąca (można oszacować za pomocą tabeli pokazanej w [tym miejscu](plan-manage-costs.md#estimating-serverless-costs))
 
 Jeśli obciążenie wymaga serii powyżej 5 000 RU na sekundę, należy wybrać zainicjowaną przepływność, ponieważ kontenery bezserwerowe nie mogą przekroczyć tego limitu. W przeciwnym razie można porównać koszt obu trybów na podstawie oczekiwanego użycia.
 
-**Przykład 1**: oczekiwano obciążenia na maksymalnie 10 000 ru/s i zużywamy łącznie 20 000 000 jednostek RU w ciągu miesiąca.
+**Przykład 1** : oczekiwano obciążenia na maksymalnie 10 000 ru/s i zużywamy łącznie 20 000 000 jednostek RU w ciągu miesiąca.
 
 - Tylko tymczasowy Tryb przepływności może zapewnić przepływność wynoszącą 10 000 RU/s
 
-**Przykład 2**: oczekiwano obciążenia na maksymalnie 500 ru/s i zużywamy łącznie 20 000 000 jednostek RU w ciągu miesiąca.
+**Przykład 2** : oczekiwano obciążenia na maksymalnie 500 ru/s i zużywamy łącznie 20 000 000 jednostek RU w ciągu miesiąca.
 
 - W trybie elastycznej przepływności należy udostępnić kontener z 500 RU/s dla miesięcznego kosztu: $0,008 * 5 * 730 = **$29,20**
 - W trybie bezserwerowym płacisz za zużytą jednostek ru: $0,25 * 20 = **$5,00**
 
-**Przykład 3**: oczekiwano obciążenia na maksymalnie 500 ru/s i zużywamy łącznie 250 000 000 jednostek RU w ciągu miesiąca.
+**Przykład 3** : oczekiwano obciążenia na maksymalnie 500 ru/s i zużywamy łącznie 250 000 000 jednostek RU w ciągu miesiąca.
 
 - W trybie elastycznej przepływności należy udostępnić kontener z 500 RU/s dla miesięcznego kosztu: $0,008 * 5 * 730 = **$29,20**
 - W trybie bezserwerowym płacisz za zużytą jednostek ru: $0,25 * 250 = **$62,50**

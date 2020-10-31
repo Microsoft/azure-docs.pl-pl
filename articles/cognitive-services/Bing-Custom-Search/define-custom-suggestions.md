@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072800"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080978"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Skonfiguruj niestandardowe środowisko automatycznego sugerowania
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Niestandardowe automatyczne sugerowanie zwraca listę sugerowanych ciągów zapytań wyszukiwania, które są istotne dla Twojego środowiska wyszukiwania. Sugerowane ciągi zapytań są oparte na częściowym ciągu zapytania, który użytkownik udostępnia w polu wyszukiwania. Lista będzie zawierać maksymalnie 10 sugestii. 
 
@@ -36,7 +41,7 @@ Aby włączyć sugestie Bing, przełącz suwak **automatycznych sugestii Bing** 
 
 ## <a name="add-your-own-suggestions"></a>Dodawanie własnych sugestii
 
-Aby dodać własne sugestie ciągu zapytania, Dodaj je do listy w obszarze **sugestie zdefiniowane przez użytkownika**. Po dodaniu sugestii na liście naciśnij klawisz ENTER lub kliknij **+** ikonę. Możesz określić sugestię w dowolnym języku. Można dodać maksymalnie 5 000 sugestii ciągu zapytania.
+Aby dodać własne sugestie ciągu zapytania, Dodaj je do listy w obszarze **sugestie zdefiniowane przez użytkownika** . Po dodaniu sugestii na liście naciśnij klawisz ENTER lub kliknij **+** ikonę. Możesz określić sugestię w dowolnym języku. Można dodać maksymalnie 5 000 sugestii ciągu zapytania.
 
 ## <a name="upload-suggestions"></a>Przekaż sugestie
 
@@ -48,7 +53,7 @@ Aby usunąć sugestię ciągu zapytania, kliknij ikonę Usuń obok sugestii, kt�
 
 ## <a name="block-suggestions"></a>Zablokuj sugestie
 
-Jeśli dołączysz sugestie usługi Bing, możesz dodać listę ciągów zapytań wyszukiwania, które nie mają być zwracane przez usługę Bing. Aby dodać zablokowane ciągi zapytań, kliknij przycisk **Pokaż zablokowane sugestie**. Dodaj ciąg zapytania do listy, a następnie naciśnij klawisz ENTER lub kliknij **+** ikonę. Można dodać maksymalnie 50 zablokowanych ciągów zapytań.
+Jeśli dołączysz sugestie usługi Bing, możesz dodać listę ciągów zapytań wyszukiwania, które nie mają być zwracane przez usługę Bing. Aby dodać zablokowane ciągi zapytań, kliknij przycisk **Pokaż zablokowane sugestie** . Dodaj ciąg zapytania do listy, a następnie naciśnij klawisz ENTER lub kliknij **+** ikonę. Można dodać maksymalnie 50 zablokowanych ciągów zapytań.
 
 
 
@@ -60,7 +65,7 @@ Jeśli dołączysz sugestie usługi Bing, możesz dodać listę ciągów zapyta�
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>Włączanie automatycznego sugerowania w hostowanym interfejsie użytkownika
 
-Aby włączyć sugestie ciągu zapytania dla hostowanego interfejsu użytkownika, kliknij pozycję **hostowany interfejs użytkownika**. Przewiń w dół do sekcji **dodatkowa konfiguracja** . W obszarze **Wyszukiwanie w sieci Web** **Wybierz pozycję włączone,** aby **włączyć automatyczne sugerowanie**. Aby włączyć automatyczne sugerowanie, należy wybrać układ, który zawiera pole wyszukiwania.
+Aby włączyć sugestie ciągu zapytania dla hostowanego interfejsu użytkownika, kliknij pozycję **hostowany interfejs użytkownika** . Przewiń w dół do sekcji **dodatkowa konfiguracja** . W obszarze **Wyszukiwanie w sieci Web** **Wybierz pozycję włączone,** aby **włączyć automatyczne sugerowanie** . Aby włączyć automatyczne sugerowanie, należy wybrać układ, który zawiera pole wyszukiwania.
 
 
 ## <a name="calling-the-autosuggest-api"></a>Wywoływanie interfejsu API automatycznego sugerowania

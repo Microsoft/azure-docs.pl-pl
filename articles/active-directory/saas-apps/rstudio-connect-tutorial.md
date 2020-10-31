@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z usługą RStudio Connect | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i RStudio Connect.
+title: 'Samouczek: integracja Azure Active Directory z usługą RStudio łączenie protokołu SAML — uwierzytelnianie | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i RStudio Connect SAML Authentication.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,99 +9,77 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/04/2019
+ms.date: 09/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 638b6899331aa1414a730045e6ce9d1e5d332569
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 23ad4347dc898f713066ea1ff061490d3eefb55b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514983"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080485"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Samouczek: integracja Azure Active Directory z programem RStudio Connect
+# <a name="tutorial-azure-active-directory-integration-with-rstudio-connect-saml-authentication"></a>Samouczek: integracja Azure Active Directory z uwierzytelnianiem SAML przy użyciu programu RStudio
 
-W tym samouczku dowiesz się, jak zintegrować usługę RStudio Connect z usługą Azure Active Directory (Azure AD).
-Integracja RStudio z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę RStudio Connect Authentication SAML z usługą Azure Active Directory (Azure AD).
+Integrowanie RStudio łączenie protokołu SAML z usługą Azure AD zapewnia następujące korzyści:
 
-* Możesz kontrolować usługę Azure AD, która ma dostęp do RStudio Connect.
-* Możesz zezwolić użytkownikom na automatyczne logowanie do usługi RStudio Connect (Logowanie jednokrotne) za pomocą swoich kont w usłudze Azure AD.
+* Możesz kontrolować w usłudze Azure AD, kto ma dostęp do RStudio łączenie SAML Authentication.
+* Możesz zezwolić użytkownikom na automatyczne logowanie do usługi RStudio łączenie SAML Authentication (Logowanie jednokrotne) przy użyciu kont w usłudze Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
-
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z programem RStudio Connect, potrzebne są następujące elementy:
+Aby skonfigurować integrację z usługą Azure AD za pomocą RStudio Connect SAML Authentication, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/)
-* RStudio. Istnieje 45- [dniowa bezpłatna wersja ewaluacyjna.](https://www.rstudio.com/products/connect/)
+* RStudio Połącz z uwierzytelnianiem SAML. Istnieje 45- [dniowa bezpłatna wersja ewaluacyjna.](https://www.rstudio.com/products/connect/)
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Program RStudio Connect obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
+* RStudio łączenie SAML Authentication obsługuje uwierzytelnianie SSO z użyciem protokołu **SP i dostawcy tożsamości**
 
-* RStudio Connect obsługuje Inicjowanie obsługi użytkowników **just in Time**
+* Uwierzytelnianie SAML RStudio Connect obsługuje Inicjowanie obsługi użytkowników **just in Time**
 
-## <a name="adding-rstudio-connect-from-the-gallery"></a>Dodawanie połączenia RStudio z galerii
+## <a name="adding-rstudio-connect-saml-authentication-from-the-gallery"></a>Dodawanie RStudio Połącz z uwierzytelnianiem SAML z galerii
 
-Aby skonfigurować integrację programu RStudio z usługą Azure AD, musisz dodać połączenie RStudio z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację usługi RStudio łączenie z uwierzytelnianiem SAML w usłudze Azure AD, należy dodać RStudio połączenie SAML z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać RStudio z galerii, wykonaj następujące czynności:**
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja** .
+1. W sekcji **Dodaj z galerii** wpisz **RStudio Connect SAML Authentication** w polu wyszukiwania.
+1. Wybierz pozycję **RStudio Połącz z uwierzytelnianiem SAML** z poziomu panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-rstudio-connect-saml-authentication"></a>Konfigurowanie i testowanie logowania jednokrotnego w usłudze Azure AD dla usługi RStudio łączenie SAML — uwierzytelnianie
 
-2. Przejdź do grupy **Aplikacje dla przedsiębiorstw** i wybierz opcję **Wszystkie aplikacje**.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą RStudio Connect SAML Authentication przy użyciu użytkownika testowego o nazwie **B. Simon** . Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie RStudio Connect SAML Authentication.
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą RStudio Connect SAML Authentication, wykonaj następujące czynności:
 
-3. Aby dodać nową aplikację, kliknij przycisk **Nowa aplikacja** w górnej części okna dialogowego.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    * **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
+    * **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+2. **[Skonfiguruj RStudio Połącz uwierzytelnianie SAML](#configure-rstudio-connect-saml-authentication-sso)** za pomocą logowania jednokrotnego, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
+    * **[Utwórz użytkownika testowego RStudio połączenia SAML](#create-rstudio-connect-saml-authentication-test-user)** — Aby uzyskać odpowiednik Britta Simon w RStudio, Połącz uwierzytelnianie SAML, które jest połączone z reprezentacją usługi Azure AD.
+3. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-4. W polu wyszukiwania wpisz **RStudio Connect**, wybierz pozycję **RStudio Połącz** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-    ![RStudio Połącz na liście wyników](common/search-new-app.png)
+1. W Azure Portal na stronie **RStudio łączenie aplikacji uwierzytelnianie SAML** , Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne** .
+1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML** .
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
+   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą RStudio Connect na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w programie RStudio Connect.
+1. Jeśli chcesz skonfigurować aplikację w trybie zainicjowanym przy użyciu programu **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące kroki, zastępując `<example.com>` je adresem i portem serwera uwierzytelniania SAML RStudio:
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu połączenia RStudio, należy wykonać następujące bloki konstrukcyjne:
-
-1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-rstudio-connect-single-sign-on)** jednokrotne w usłudze RStudio, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego RStudio Connect](#create-rstudio-connect-test-user)** — Aby uzyskać odpowiednik Britta Simon w RStudio Connect, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
-
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
-
-Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu RStudio Connect, wykonaj następujące czynności:
-
-1. W [Azure Portal](https://portal.azure.com/)na stronie **RStudio Połącz aplikację z** integracją wybierz pozycję **Logowanie jednokrotne**.
-
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
-
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
-
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
-
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
-
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
-
-4. Jeśli chcesz skonfigurować aplikację w trybie zainicjowanym przy użyciu programu **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące kroki, zastępując `<example.com>` je adresem i portem serwera RStudio Connect:
-
-    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
+    ![RStudio łączenie protokołu SAML domeny uwierzytelniania i adresów URL logowania jednokrotnego — informacje](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<example.com>/__login__/saml`
 
@@ -109,14 +87,14 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu RS
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
+    ![RStudio łączenie metadanych uwierzytelniania SAML](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<example.com>/`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Są one określane na podstawie adresu serwera RStudio Connect ( `https://example.com` w przykładach powyżej). Jeśli masz problemy, skontaktuj się z [zespołem pomocy technicznej RStudio Connect](mailto:support@rstudio.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Są one określane na podstawie adresu serwera uwierzytelniania SAML RStudio Connect ( `https://example.com` w przykładach powyżej). Jeśli masz problemy, skontaktuj się z [zespołem obsługi uwierzytelniania SAML RStudio Connect](mailto:support@rstudio.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-6. Aplikacja RStudio Connect oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname**. Aplikacja RStudio Connect oczekuje, że **NameIdentifier** mają być mapowane z **użytkownikiem. mail**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
+6. Aplikacja do uwierzytelniania SAML RStudio Connect oczekuje potwierdzenia SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenu SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname** . RStudio łączenie aplikacji uwierzytelniania SAML oczekuje, że **NameIdentifier** mają być mapowane przy użyciu elementu **User. mail** , dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
     ![image (obraz)](common/edit-attribute.png)
 
@@ -124,9 +102,33 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu RS
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-### <a name="configure-rstudio-connect-single-sign-on"></a>Konfigurowanie RStudio Połącz pojedyncze Sign-On
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Aby skonfigurować Logowanie jednokrotne w usłudze **RStudio Connect**, należy użyć **adresu URL metadanych federacji aplikacji** oraz **adresu serwera** użytego powyżej. Jest to wykonywane w pliku konfiguracji RStudio Connect w lokalizacji `/etc/rstudio-connect/rstudio-connect.gcfg` .
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
+
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** , wybierz pozycję **Użytkownicy** , a następnie wybierz pozycję **Wszyscy użytkownicy** .
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
+   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło** .
+   1. Kliknij pozycję **Utwórz** .
+
+### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
+
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi RStudio łączenie z uwierzytelnianiem SAML.
+
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje** .
+1. Na liście Aplikacje wybierz pozycję **RStudio Połącz z uwierzytelnianiem SAML** .
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy** .
+1. Wybierz pozycję **Dodaj użytkownika** , a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+
+## <a name="configure-rstudio-connect-saml-authentication-sso"></a>Konfigurowanie RStudio łączenie protokołu SAML uwierzytelnianie logowania jednokrotnego
+
+Aby skonfigurować Logowanie jednokrotne w usłudze **RStudio** , należy użyć **adresu URL metadanych federacji aplikacji** oraz **adresu serwera** użytego powyżej. Jest to wykonywane w pliku konfiguracji uwierzytelniania SAML RStudio Connect w lokalizacji `/etc/rstudio-connect.rstudio-connect.gcfg` .
 
 Jest to przykładowy plik konfiguracji:
 
@@ -134,7 +136,7 @@ Jest to przykładowy plik konfiguracji:
 [Server]
 SenderEmail =
 
-; Important! The user-facing URL of your RStudio Connect server.
+; Important! The user-facing URL of your RStudio Connect SAML Authentication server.
 Address = 
 
 [Http]
@@ -146,81 +148,38 @@ Provider = saml
 [SAML]
 Logging = true
 
-; Important! The URL where your IdP hosts the SAML metadata or the path to a local copy of it placed in the RStudio Connect server.
+; Important! The URL where your IdP hosts the SAML metadata or the path to a local copy of it placed in the RStudio Connect SAML Authentication server.
 IdPMetaData = 
 
 IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
 ```
 
-W polu wartość Zapisz **adres serwera** `Server.Address` i **adres URL metadanych federacji aplikacji** `SAML.IdPMetaData` . Ta Przykładowa konfiguracja korzysta z nieszyfrowanego połączenia HTTP, natomiast usługa Azure AD wymaga użycia szyfrowanego połączenia HTTPS. Możesz użyć [zwrotnego serwera proxy](https://docs.rstudio.com/connect/admin/proxy/) przed RStudio Connect lub skonfigurować połączenie RStudio do [bezpośredniego używania protokołu HTTPS](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS). 
+W polu wartość Zapisz **adres serwera** `Server.Address` i **adres URL metadanych federacji aplikacji** `SAML.IdPMetaData` . Ta Przykładowa konfiguracja korzysta z nieszyfrowanego połączenia HTTP, natomiast usługa Azure AD wymaga użycia szyfrowanego połączenia HTTPS. Możesz użyć [zwrotnego serwera proxy](https://docs.rstudio.com/connect/admin/proxy/) przed RSTUDIO połączenie SAML lub skonfigurować RStudio Połącz uwierzytelnianie SAML, aby [bezpośrednio korzystać z protokołu HTTPS](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS). 
 
-Jeśli masz problemy z konfiguracją, możesz przeczytać [Podręcznik administratora programu RStudio Connect](https://docs.rstudio.com/connect/admin/authentication/saml/) lub wysłać wiadomość e-mail do [zespołu pomocy technicznej RStudio](mailto:support@rstudio.com) w celu uzyskania pomocy.
+Jeśli masz problemy z konfiguracją, możesz przeczytać [Podręcznik administratora uwierzytelniania protokołu SAML RStudio Connect](https://docs.rstudio.com/connect/admin/authentication/saml/) lub wysłać wiadomość e-mail do [zespołu pomocy technicznej RStudio](mailto:support@rstudio.com) w celu uzyskania pomocy.
 
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
+### <a name="create-rstudio-connect-saml-authentication-test-user"></a>Utwórz użytkownika testowego uwierzytelniania SAML RStudio Connect
 
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w RStudio Connect SAML Authentication. Uwierzytelnianie SAML RStudio Connect obsługuje obsługę just-in-Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w programie RStudio Connect SAML Authentication, zostanie utworzony nowy podczas próby dostępu do RStudio połączenia SAML.
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+#### <a name="sp-initiated"></a>Zainicjowano SP:
 
-    ![Przycisk Nowy użytkownik](common/new-user.png)
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do RStudio łączenie protokołu SAML logowania przy użyciu adresu URL, gdzie można zainicjować przepływ logowania.  
 
-3. We właściwościach użytkownika wykonaj następujące kroki.
+* Przejdź do RStudio, aby połączyć się bezpośrednio z adresem URL logowania przy użyciu protokołu SAML i zainicjować w tym miejscu przepływ logowania.
 
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
+#### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
 
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension` . Na przykład BrittaSimon@contoso.com
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do usługi RSTUDIO Connect SAML Authentication, dla którego skonfigurowano Logowanie jednokrotne 
 
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+Możesz również użyć panelu dostępu programu Microsoft, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka RStudio Connect SAML Authentication w panelu dostępu, jeśli skonfigurowano w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do usługi RStudio Connect SAML Authentication, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-    d. Kliknij przycisk **Utwórz**.
+## <a name="next-steps"></a>Następne kroki
 
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
+Po skonfigurowaniu RStudio Połącz uwierzytelnianie SAML można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi RStudio Connect.
-
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **RStudio Połącz**.
-
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
-
-2. Na liście Aplikacje wybierz pozycję **RStudio Połącz**.
-
-    ![Link RStudio Connect na liście aplikacji](common/all-applications.png)
-
-3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
-
-4. Kliknij przycisk **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
-
-    ![Okienko Dodawanie przypisania](common/add-assign-user.png)
-
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-
-6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-
-7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
-
-### <a name="create-rstudio-connect-test-user"></a>Utwórz użytkownika testowego RStudio Connect
-
-W tej sekcji użytkownik o nazwie Britta Simon został utworzony w programie RStudio Connect. Program RStudio Connect obsługuje obsługę just-in-Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w programie RStudio Connect, zostanie utworzony nowy, gdy spróbujesz uzyskać dostęp do programu RStudio Connect.
-
-### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
-
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
-
-Po kliknięciu kafelka RStudio Connect w panelu dostępu należy automatycznie zalogować się do RStudio, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/my-apps-portal-end-user-access.md).
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
-
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
-
-- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](../conditional-access/overview.md)

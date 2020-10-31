@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0fb783a6ad65ce17bff14b72e8d94d284769779f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475162"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080723"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i zestawu .NET SDK w wersji 2
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Zestaw SDK .NET w wersji 3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -46,12 +47,12 @@ Zalecamy przetwarzanie hosta systemu Windows 64-bitowego w celu zwiększenia wyd
 
 - W przypadku projektów testowych opartych na VSTest można zmienić przetwarzanie hosta **, wybierając opcję Testuj**  >  **Ustawienia testu**  >  **domyślne architektura procesora jako x64** w menu **test** programu Visual Studio.
 
-- W przypadku lokalnie wdrożonych aplikacji sieci Web ASP.NET można zmienić przetwarzanie hosta, wybierając opcję **Użyj 64-bitowej wersji IIS Express dla witryn i projektów sieci Web** w obszarze **Narzędzia**  >  **Opcje**  >  **projekty i rozwiązania**  >  **projekty sieci Web**.
+- W przypadku lokalnie wdrożonych aplikacji sieci Web ASP.NET można zmienić przetwarzanie hosta, wybierając opcję **Użyj 64-bitowej wersji IIS Express dla witryn i projektów sieci Web** w obszarze **Narzędzia**  >  **Opcje**  >  **projekty i rozwiązania**  >  **projekty sieci Web** .
 
 - W przypadku aplikacji sieci Web ASP.NET wdrożonych na platformie Azure można zmienić przetwarzanie hosta, wybierając platformę **64-bitową** w **ustawieniach aplikacji** w Azure Portal.
 
 > [!NOTE] 
-> Domyślnie nowe projekty programu Visual Studio są ustawiane na **dowolny procesor**. Zalecamy ustawienie dla projektu wartości **x64** , aby nie przełączać się na **architekturę x86**. Projekt ustawiony na **dowolny procesor CPU** może z łatwością przechodzić do **architektury x86** , jeśli zostanie dodany zależność tylko dla architektury x86.<br/>
+> Domyślnie nowe projekty programu Visual Studio są ustawiane na **dowolny procesor** . Zalecamy ustawienie dla projektu wartości **x64** , aby nie przełączać się na **architekturę x86** . Projekt ustawiony na **dowolny procesor CPU** może z łatwością przechodzić do **architektury x86** , jeśli zostanie dodany zależność tylko dla architektury x86.<br/>
 > ServiceInterop.dll musi znajdować się w folderze, z którego jest wykonywana Biblioteka DLL SDK. Ta wartość powinna być istotna tylko w przypadku ręcznego kopiowania bibliotek DLL lub niestandardowych systemów kompilacji/wdrażania.
     
 **Włącz odzyskiwanie pamięci po stronie serwera (GC)**
@@ -135,7 +136,7 @@ Zestaw SDK programu SQL 1.9.0 i nowsze obsługują zapytania równoległe, któr
 - `MaxDegreeOfParallelism` Określa maksymalną liczbę partycji, które mogą być wykonywane równolegle. 
 - `MaxBufferedItemCount` Określa liczbę wstępnie pobranych wyników.
 
-**_Stopień strojenia równoległości_*_
+**_Stopień strojenia równoległości_* _
 
 Równoległe zapytanie działa przez wykonywanie zapytań na wielu partycjach równolegle. Ale dane z pojedynczej partycji są pobierane sekwencyjnie w odniesieniu do zapytania. Ustawienie `MaxDegreeOfParallelism` w [zestawie SDK V2](sql-api-sdk-dotnet.md) na liczbę partycji ma najlepszą szansę osiągnięcia najbardziej wydajnego zapytania, pod warunkiem, że wszystkie inne warunki systemu pozostają takie same. Jeśli nie znasz liczby partycji, możesz ustawić stopień równoległości na wysoki. System wybierze minimalną (liczbę partycji, dane wejściowe podane przez użytkownika) jako stopień równoległości.
 
@@ -147,7 +148,7 @@ Zapytanie równoległe zostało zaprojektowane w celu wstępnego pobrania wynik�
 
 Przed pobraniem działa w taki sam sposób, niezależnie od stopnia równoległości, i istnieje pojedynczy bufor dla danych ze wszystkich partycji.  
 
-_*Implementuj wycofywania w interwałach RetryAfter**
+_ *Implementuj wycofywania w interwałach RetryAfter**
 
 Podczas testowania wydajności należy zwiększyć obciążenie do momentu ograniczenia niewielkiej liczby żądań. Jeśli żądania są ograniczone, aplikacja kliencka powinna wykonać wycofywanie z ograniczeniami dla interwału ponawiania prób określonego serwera. Poszanowanie wycofywania gwarantuje, że spędzasz minimalny czas oczekiwania między ponownymi próbami. 
 

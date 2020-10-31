@@ -8,14 +8,16 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d5d66ca05390af5f6fef91ca959f1db3d547d3fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fff9bc55b324875601a2c4e68835a17c61c3769b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89014051"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079261"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Komunikat diagnozowanie i rozwiązywanie problemów Azure Cosmos DB "zbyt duży nagłówek żądania"
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 Komunikat "zbyt duży nagłówek żądania" jest generowany z kodem błędu HTTP 400. Ten błąd występuje, gdy rozmiar nagłówka żądania zwiększył się tak, że przekracza maksymalny dozwolony rozmiar. Zalecamy użycie najnowszej wersji zestawu SDK. Użyj co najmniej wersji 3. x lub 2. x, ponieważ te wersje dodają śledzenie rozmiaru nagłówka do komunikatu o wyjątku.
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów

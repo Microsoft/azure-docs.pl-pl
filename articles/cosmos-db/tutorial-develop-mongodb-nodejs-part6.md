@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: 3116038939a07084f13db22819726dcbb2622a10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8e2c707566b08219b495e76be7f6f6130d876ab
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292426"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081318"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — dodawanie funkcji CRUD do aplikacji
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Ten wieloczęściowy samouczek pokazuje, jak utworzyć nową aplikację napisaną w środowisku Node.js za pomocą programu Express i platformy Angular, a następnie podłączyć ją do [konta usługi Cosmos skonfigurowanego przy użyciu interfejsu API usługi Cosmos DB dla bazy danych MongoDB](mongodb-introduction.md). Część 6 samouczka jest oparta na [Części 5](tutorial-develop-mongodb-nodejs-part5.md) i obejmuje następujące zadania:
 
@@ -38,7 +39,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
 
 1. W Visual Studio Code Otwórz **routes.js** i **hero.service.js** obok siebie, naciskając przycisk **Podziel Edytor** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png"::: .
 
-    Zauważ, że wiersz 7 pliku routes.js wywołuje funkcję `getHeroes` w wierszu 5 pliku **hero.service.js**.  Musimy utworzyć to samo parowanie dla funkcji post, put i delete. 
+    Zauważ, że wiersz 7 pliku routes.js wywołuje funkcję `getHeroes` w wierszu 5 pliku **hero.service.js** .  Musimy utworzyć to samo parowanie dla funkcji post, put i delete. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png" alt-text="Pliki routes.js i hero.service.js w programie Visual Studio Code":::
     
@@ -76,7 +77,7 @@ Przed rozpoczęciem tej części samouczka upewnij się, że zostały wykonane c
     };
     ```
 
-4. W pliku **routes.js** dodaj router dla funkcji `post` po routerze `get`. Ten router publikuje jeden element hero w danym momencie. Taka struktura pliku routera jasno przedstawia wszystkie dostępne punkty końcowe interfejsu API i pozostawia faktyczną pracę do wykonania plikowi **hero.service.js**.
+4. W pliku **routes.js** dodaj router dla funkcji `post` po routerze `get`. Ten router publikuje jeden element hero w danym momencie. Taka struktura pliku routera jasno przedstawia wszystkie dostępne punkty końcowe interfejsu API i pozostawia faktyczną pracę do wykonania plikowi **hero.service.js** .
 
     ```javascript
     router.post('/hero', (req, res) => {

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a4e8ec75d6610e19f241d2047518c3a43132a6e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627376"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079023"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Rozwiązywanie problemów z Azure Active Directory hybrydowymi podłączonymi do urządzeń niższego poziomu 
 
@@ -55,7 +55,7 @@ Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów, które roz
 
 To polecenie wyświetla okno dialogowe, które zawiera szczegółowe informacje o stanie sprzężenia.
 
-![Workplace Join dla systemu Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/01.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Workplace Join dla systemu Windows. Tekst zawierający adres e-mail wskazuje, że określone urządzenie jest przyłączone do miejsca pracy." border="false":::
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Krok 2. oszacowanie stanu hybrydowego przyłączenia do usługi Azure AD 
 
@@ -65,7 +65,7 @@ Jeśli urządzenie nie zostało dołączone do hybrydowej usługi Azure AD, moż
 
 - Nieprawidłowo skonfigurowane AD FS lub problemy z usługą Azure AD lub sieci
 
-    ![Workplace Join dla systemu Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/02.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Workplace Join dla systemu Windows. Tekst zawierający adres e-mail wskazuje, że określone urządzenie jest przyłączone do miejsca pracy." border="false":::
     
    - Autoworkplace.exe nie może przeprowadzić dyskretnego uwierzytelniania przy użyciu usługi Azure AD lub AD FS. Może to być spowodowane brakiem lub nieprawidłowym skonfigurowaniem AD FS (dla domen federacyjnych) lub braku lub nieprawidłowym skonfigurowaniem pojedynczej Sign-Onowej usługi Azure AD (w przypadku domen zarządzanych) lub problemów z siecią. 
    - Może to być, że uwierzytelnianie wieloskładnikowe (MFA) jest włączone/skonfigurowane dla użytkownika, a WIAORMULTIAUTHN nie jest skonfigurowany na serwerze AD FS. 
@@ -76,7 +76,7 @@ Jeśli urządzenie nie zostało dołączone do hybrydowej usługi Azure AD, moż
    - Twoja organizacja korzysta z bezproblemowego logowania jednokrotnego usługi Azure AD `https://autologon.microsoftazuread-sso.com` lub `https://aadg.windows.net.nsatc.net` nie jest dostępna w ustawieniach sieci intranet dla tego urządzenia i nie **można włączyć aktualizacji paska stanu za pomocą skryptu** dla strefy intranetowej.
 - Użytkownik nie jest zalogowany jako użytkownik domeny
 
-   ![Workplace Join dla systemu Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
+   :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Workplace Join dla systemu Windows. Tekst zawierający adres e-mail wskazuje, że określone urządzenie jest przyłączone do miejsca pracy." border="false":::
 
    Istnieje kilka różnych powodów, dla których może to być spowodowane:
 
@@ -84,11 +84,11 @@ Jeśli urządzenie nie zostało dołączone do hybrydowej usługi Azure AD, moż
    - Klient nie może nawiązać połączenia z kontrolerem domeny.    
 - Osiągnięto limit przydziału
 
-    ![Workplace Join dla systemu Windows](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/04.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Workplace Join dla systemu Windows. Tekst zawierający adres e-mail wskazuje, że określone urządzenie jest przyłączone do miejsca pracy." border="false":::
 
 - Usługa nie odpowiada 
 
-    ![Workplace Join dla systemu Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/05.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Workplace Join dla systemu Windows. Tekst zawierający adres e-mail wskazuje, że określone urządzenie jest przyłączone do miejsca pracy." border="false":::
 
 Informacje o stanie można także znaleźć w dzienniku zdarzeń w obszarze: **aplikacje i usługi Log\Microsoft-Workplace Join**
   
@@ -97,7 +97,7 @@ Informacje o stanie można także znaleźć w dzienniku zdarzeń w obszarze: **a
 - Komputer nie jest podłączony do sieci wewnętrznej organizacji ani do sieci VPN z połączeniem z lokalnym kontrolerem domeny usługi AD.
 - Użytkownik jest zalogowany na komputerze przy użyciu konta komputera lokalnego. 
 - Problemy z konfiguracją usługi: 
-   - Serwer AD FS nie został skonfigurowany do obsługi **WIAORMULTIAUTHN**. 
+   - Serwer AD FS nie został skonfigurowany do obsługi **WIAORMULTIAUTHN** . 
    - Las komputera nie ma obiektu punktu połączenia z usługą, który wskazuje zweryfikowaną nazwę domeny w usłudze Azure AD 
    - Lub jeśli domena jest zarządzana, bezproblemowe logowanie jednokrotne nie zostało skonfigurowane ani nie działa.
    - Użytkownik osiągnął limit urządzeń. 

@@ -9,19 +9,20 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: 4e9df3343a89097b192c51d3b9f093805afe6b87
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1f3f5a35beeac6c683aeb6db16a417b897755666
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477355"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079771"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Jak korzystać z usługi Azure Table Storage lub interfejsu API tabel usługi Azure Cosmos DB przy użyciu języka Java
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-W tym artykule przedstawiono sposób tworzenia tabel, przechowywania danych i wykonywania operacji CRUD na danych. Wybierz Azure Cosmos DB Table service platformy Azure lub interfejs API tabel. Przykłady zostały napisane w języku Java i wymagają użycia [zestawu SDK usługi Azure Storage dla języka Java][Azure Storage SDK for Java]. Omówiono scenariusze **tworzenia**, **wyświetlania listy** i **usuwania** tabel, a także **wstawiania** jednostek w tabeli i **wykonywania na nich zapytań** oraz **modyfikowania** i **usuwania** jednostek w tabeli. Aby uzyskać więcej informacji na temat tabel, zobacz sekcję [Następne kroki](#next-steps).
+W tym artykule przedstawiono sposób tworzenia tabel, przechowywania danych i wykonywania operacji CRUD na danych. Wybierz Azure Cosmos DB Table service platformy Azure lub interfejs API tabel. Przykłady zostały napisane w języku Java i wymagają użycia [zestawu SDK usługi Azure Storage dla języka Java][Azure Storage SDK for Java]. Omówiono scenariusze **tworzenia** , **wyświetlania listy** i **usuwania** tabel, a także **wstawiania** jednostek w tabeli i **wykonywania na nich zapytań** oraz **modyfikowania** i **usuwania** jednostek w tabeli. Aby uzyskać więcej informacji na temat tabel, zobacz sekcję [Następne kroki](#next-steps).
 
 > [!NOTE]
 > Jest dostępny zestaw SDK dla deweloperów korzystających z usługi Azure Storage na urządzeniach z systemem Android. Aby uzyskać więcej informacji, zobacz [zestaw SDK usługi Azure Storage dla systemu Android][Azure Storage SDK for Android].
@@ -62,7 +63,7 @@ Możesz połączyć się z kontem usługi Azure Storage lub kontem Azure Cosmos 
 
 ### <a name="add-an-azure-storage-connection-string"></a>Dodawanie parametrów połączenia usługi Azure Storage
 
-W kliencie usługi Azure Storage punkty końcowe i poświadczenia wymagane do uzyskania dostępu do usług zarządzania danymi są przechowywane w parametrach połączenia magazynu. W aplikacji klienckiej należy podać parametry połączenia magazynu we wskazanym poniżej formacie, używając nazwy konta magazynu i podstawowego klucza dostępu do konta magazynu widocznego w witrynie [Azure Portal](https://portal.azure.com) jako wartości **AccountName** i **AccountKey**. 
+W kliencie usługi Azure Storage punkty końcowe i poświadczenia wymagane do uzyskania dostępu do usług zarządzania danymi są przechowywane w parametrach połączenia magazynu. W aplikacji klienckiej należy podać parametry połączenia magazynu we wskazanym poniżej formacie, używając nazwy konta magazynu i podstawowego klucza dostępu do konta magazynu widocznego w witrynie [Azure Portal](https://portal.azure.com) jako wartości **AccountName** i **AccountKey** . 
 
 W tym przykładzie pokazano, jak można zadeklarować pole statyczne w celu przechowywania parametrów połączenia:
 
@@ -76,7 +77,7 @@ public static final String storageConnectionString =
 
 ### <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Dodawanie parametrów połączenia interfejsu API tabel usługi Azure Cosmos DB
 
-Na koncie usługi Azure Cosmos DB punkt końcowy tabeli i Twoje poświadczenia są przechowywane w parametrach połączenia. W aplikacji klienckiej należy podać parametry połączenia usługi Azure Cosmos DB we wskazanym poniżej formacie, używając nazwy konta usługi Azure Cosmos DB i podstawowego klucza dostępu do tego konta widocznego w witrynie [Azure Portal](https://portal.azure.com) jako wartości **AccountName** i **AccountKey**. 
+Na koncie usługi Azure Cosmos DB punkt końcowy tabeli i Twoje poświadczenia są przechowywane w parametrach połączenia. W aplikacji klienckiej należy podać parametry połączenia usługi Azure Cosmos DB we wskazanym poniżej formacie, używając nazwy konta usługi Azure Cosmos DB i podstawowego klucza dostępu do tego konta widocznego w witrynie [Azure Portal](https://portal.azure.com) jako wartości **AccountName** i **AccountKey** . 
 
 W tym przykładzie pokazano, jak można zadeklarować pole statyczne w celu przechowywania parametrów połączenia usługi Azure Cosmos DB:
 
@@ -88,7 +89,7 @@ public static final String storageConnectionString =
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-W aplikacji działającej w ramach roli na platformie Azure można przechowywać te parametry w pliku konfiguracji usługi *ServiceConfiguration.cscfg* i uzyskiwać do nich dostęp za pomocą wywołania metody **RoleEnvironment.getConfigurationSettings**. Oto przykład pobierania parametrów połączenia z **ustawienia** o nazwie *StorageConnectionString* w pliku konfiguracji usługi:
+W aplikacji działającej w ramach roli na platformie Azure można przechowywać te parametry w pliku konfiguracji usługi *ServiceConfiguration.cscfg* i uzyskiwać do nich dostęp za pomocą wywołania metody **RoleEnvironment.getConfigurationSettings** . Oto przykład pobierania parametrów połączenia z **ustawienia** o nazwie *StorageConnectionString* w pliku konfiguracji usługi:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -136,7 +137,7 @@ catch (Exception e)
 
 ## <a name="list-the-tables"></a>Wyświetlanie listy tabel
 
-Aby uzyskać listę tabel, wywołaj metodę **CloudTableClient.listTables()**, aby pobrać iterowaną listę nazw tabel.
+Aby uzyskać listę tabel, wywołaj metodę **CloudTableClient.listTables()** , aby pobrać iterowaną listę nazw tabel.
 
 ```java
 try
@@ -434,7 +435,7 @@ catch (Exception e)
 
 ## <a name="modify-an-entity"></a>Modyfikowanie jednostki
 
-Aby zmodyfikować jednostkę, pobierz ją z usługi tabel, wprowadź zmiany w obiekcie jednostki, a następnie zapisz zmiany w usłudze tabel przy użyciu operacji zastępowania lub łączenia. Poniższy kod zmienia istniejący numer telefonu klienta. Zamiast wywołania metody **TableOperation.insert**, jak w przypadku wstawiania, jest w nim wywoływana metoda **TableOperation.replace**. Metoda **CloudTable.execute** wywołuje usługę tabel i zastępuje jednostkę, o ile jednostka nie została zmieniona przez inną aplikację po pobraniu jej przez tę aplikację. W takim przypadku zostanie zwrócony wyjątek i będzie konieczne ponowne pobranie, zmodyfikowanie i zapisanie jednostki. Taki wzorzec ponawiania z optymistyczną współbieżnością jest typowy w rozproszonych systemach przechowywania danych.
+Aby zmodyfikować jednostkę, pobierz ją z usługi tabel, wprowadź zmiany w obiekcie jednostki, a następnie zapisz zmiany w usłudze tabel przy użyciu operacji zastępowania lub łączenia. Poniższy kod zmienia istniejący numer telefonu klienta. Zamiast wywołania metody **TableOperation.insert** , jak w przypadku wstawiania, jest w nim wywoływana metoda **TableOperation.replace** . Metoda **CloudTable.execute** wywołuje usługę tabel i zastępuje jednostkę, o ile jednostka nie została zmieniona przez inną aplikację po pobraniu jej przez tę aplikację. W takim przypadku zostanie zwrócony wyjątek i będzie konieczne ponowne pobranie, zmodyfikowanie i zapisanie jednostki. Taki wzorzec ponawiania z optymistyczną współbieżnością jest typowy w rozproszonych systemach przechowywania danych.
 
 ```java
 try
@@ -518,7 +519,7 @@ catch (Exception e)
 
 ## <a name="insert-or-replace-an-entity"></a>Wstawianie lub zastępowanie jednostki
 
-Często zdarza się, że chcesz dodać jednostkę do tabeli, ale nie wiesz, czy taka jednostka już istnieje. Operacja wstawiania/zamieniania umożliwia wykonywanie pojedynczego żądania, które spowoduje wstawienie jednostki, jeśli nie istnieje, lub zastąpienie istniejącej, jeśli tak się robi. Poniższy kod, oparty na poprzednich przykładach, wstawia lub zastępuje jednostkę „Walter Harp”. Po utworzeniu nowej jednostki kod wywołuje metodę **TableOperation.insertOrReplace**. Ten kod następnie wywołuje **wykonywanie** w obiekcie **tabeli chmury** z tabelą oraz operacją Wstaw lub Zamień tabelę jako parametry. Aby zaktualizować tylko część jednostki, można użyć zamiast tego metody **TableOperation.insertOrMerge**. Wstawianie lub zamienianie nie jest obsługiwane w lokalnym emulatorze magazynu, więc ten kod jest uruchamiany tylko w przypadku korzystania z konta w usłudze Table Service. Więcej informacji na temat wstawiania lub zastępowania oraz wstawiania i scalania w tym [tabelach platformy Azure: wprowadzenie upsert i projekcji zapytań] [tabele platformy Azure: wprowadzenie upsert i projekcji zapytań].
+Często zdarza się, że chcesz dodać jednostkę do tabeli, ale nie wiesz, czy taka jednostka już istnieje. Operacja wstawiania/zamieniania umożliwia wykonywanie pojedynczego żądania, które spowoduje wstawienie jednostki, jeśli nie istnieje, lub zastąpienie istniejącej, jeśli tak się robi. Poniższy kod, oparty na poprzednich przykładach, wstawia lub zastępuje jednostkę „Walter Harp”. Po utworzeniu nowej jednostki kod wywołuje metodę **TableOperation.insertOrReplace** . Ten kod następnie wywołuje **wykonywanie** w obiekcie **tabeli chmury** z tabelą oraz operacją Wstaw lub Zamień tabelę jako parametry. Aby zaktualizować tylko część jednostki, można użyć zamiast tego metody **TableOperation.insertOrMerge** . Wstawianie lub zamienianie nie jest obsługiwane w lokalnym emulatorze magazynu, więc ten kod jest uruchamiany tylko w przypadku korzystania z konta w usłudze Table Service. Więcej informacji na temat wstawiania lub zastępowania oraz wstawiania i scalania w tym [tabelach platformy Azure: wprowadzenie upsert i projekcji zapytań] [tabele platformy Azure: wprowadzenie upsert i projekcji zapytań].
 
 ```java
 try

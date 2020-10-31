@@ -6,20 +6,21 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 353abe5ac55e49e01f6a99f72307b8525a72fc00
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281130"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080836"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partycjonowanie i skalowanie w poziomie w usłudze Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB używa partycjonowania do skalowania poszczególnych kontenerów w bazie danych w celu spełnienia wymagań dotyczących wydajności aplikacji. W przypadku partycjonowania elementy w kontenerze są podzielone na odrębne podzestawy o nazwie *partycje logiczne*. Partycje logiczne są tworzone na podstawie wartości *klucza partycji* , który jest skojarzony z każdym elementem w kontenerze. Wszystkie elementy w partycji logicznej mają tę samą wartość klucza partycji.
+Azure Cosmos DB używa partycjonowania do skalowania poszczególnych kontenerów w bazie danych w celu spełnienia wymagań dotyczących wydajności aplikacji. W przypadku partycjonowania elementy w kontenerze są podzielone na odrębne podzestawy o nazwie *partycje logiczne* . Partycje logiczne są tworzone na podstawie wartości *klucza partycji* , który jest skojarzony z każdym elementem w kontenerze. Wszystkie elementy w partycji logicznej mają tę samą wartość klucza partycji.
 
 Na przykład kontener zawiera elementy. Każdy element ma unikatową wartość `UserID` właściwości. Jeśli `UserID` program służy jako klucz partycji dla elementów w kontenerze, a istnieją 1 000 wartości unikatowych `UserID` , dla kontenera są tworzone partycje logiczne 1 000.
 
-Oprócz klucza partycji, który określa partycję logiczną elementu, każdy element w kontenerze ma *Identyfikator elementu* (unikatowy w obrębie partycji logicznej). Połączenie klucza partycji i *identyfikatora elementu* tworzy *indeks*elementu, który jednoznacznie identyfikuje element. [Wybór klucza partycji](#choose-partitionkey) to ważna decyzja, która będzie miała wpływ na wydajność aplikacji.
+Oprócz klucza partycji, który określa partycję logiczną elementu, każdy element w kontenerze ma *Identyfikator elementu* (unikatowy w obrębie partycji logicznej). Połączenie klucza partycji i *identyfikatora elementu* tworzy *indeks* elementu, który jednoznacznie identyfikuje element. [Wybór klucza partycji](#choose-partitionkey) to ważna decyzja, która będzie miała wpływ na wydajność aplikacji.
 
 W tym artykule opisano relację między partycjami logicznymi a fizycznymi. Omówiono w nim również najlepsze rozwiązania dotyczące partycjonowania i udostępniają szczegółowy widok, w jaki sposób skalowanie w poziomie działa w Azure Cosmos DB. Nie trzeba zrozumieć tych wewnętrznych szczegółów, aby wybrać klucz partycji, ale zostały one omówione, aby mieć świadomość, jak działa Azure Cosmos DB.
 
@@ -77,7 +78,7 @@ Na poniższej ilustracji przedstawiono, jak partycje logiczne są mapowane na pa
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Wybieranie klucza partycji
 
-Klucz partycji ma dwa składniki: **ścieżkę klucza partycji** i **wartość klucza partycji**. Rozważmy na przykład element {"userId": "Andrew", "worksFor": "Microsoft"} Jeśli wybierzesz "userId" jako klucz partycji, poniżej przedstawiono dwa składniki kluczy partycji:
+Klucz partycji ma dwa składniki: **ścieżkę klucza partycji** i **wartość klucza partycji** . Rozważmy na przykład element {"userId": "Andrew", "worksFor": "Microsoft"} Jeśli wybierzesz "userId" jako klucz partycji, poniżej przedstawiono dwa składniki kluczy partycji:
 
 * Ścieżka klucza partycji (na przykład: "/userId"). Ścieżka klucza partycji akceptuje znaki alfanumeryczne i podkreślenia (_). Można również użyć zagnieżdżonych obiektów przy użyciu notacji ścieżki standardowej (/).
 
@@ -113,20 +114,20 @@ Jeśli kontener może się zwiększać do więcej niż kilku partycji fizycznych
 
 ## <a name="using-item-id-as-the-partition-key"></a>Używanie identyfikatora elementu jako klucza partycji
 
-Jeśli kontener ma właściwość, która ma szeroką gamę możliwych wartości, prawdopodobnie jest wybór doskonałej partycji. Jednym z możliwych przykładowych właściwości jest *Identyfikator elementu*. W przypadku małych kontenerów z możliwością odczytu i dużych kontenerów o dowolnym rozmiarze *Identyfikator elementu* jest naturalnie doskonałym wyborem dla klucza partycji.
+Jeśli kontener ma właściwość, która ma szeroką gamę możliwych wartości, prawdopodobnie jest wybór doskonałej partycji. Jednym z możliwych przykładowych właściwości jest *Identyfikator elementu* . W przypadku małych kontenerów z możliwością odczytu i dużych kontenerów o dowolnym rozmiarze *Identyfikator elementu* jest naturalnie doskonałym wyborem dla klucza partycji.
 
-*Identyfikator elementu* właściwości systemu istnieje w każdym elemencie w kontenerze. Mogą istnieć inne właściwości reprezentujące identyfikator logiczny elementu. W wielu przypadkach są one również doskonałymi opcjami kluczy partycji z tego samego powodu, co *Identyfikator elementu*.
+*Identyfikator elementu* właściwości systemu istnieje w każdym elemencie w kontenerze. Mogą istnieć inne właściwości reprezentujące identyfikator logiczny elementu. W wielu przypadkach są one również doskonałymi opcjami kluczy partycji z tego samego powodu, co *Identyfikator elementu* .
 
 *Identyfikator elementu* to doskonały wybór klucza partycji z następujących powodów:
 
 * Istnieje szeroki zakres możliwych wartości (jeden unikatowy *Identyfikator elementu* dla każdego elementu).
 * Ponieważ istnieje unikatowy *Identyfikator elementu* dla każdego elementu, *Identyfikator elementu* wykonuje doskonałe zadanie w przypadku równomiernego zrównoważenia zużycia ru i magazynu danych.
-* Możesz łatwo wykonywać efektywne odczyty punktów, ponieważ zawsze znasz klucz partycji elementu, jeśli znasz jego *Identyfikator elementu*.
+* Możesz łatwo wykonywać efektywne odczyty punktów, ponieważ zawsze znasz klucz partycji elementu, jeśli znasz jego *Identyfikator elementu* .
 
 Niektóre kwestie, które należy wziąć pod uwagę podczas wybierania *identyfikatora elementu* jako klucza partycji, obejmują:
 
-* Jeśli *Identyfikator elementu* jest kluczem partycji, będzie on unikatowym identyfikatorem w całym kontenerze. Nie będzie możliwe posiadanie elementów mających zduplikowany *Identyfikator elementu*.
-* Jeśli masz kontener do odczytu, który ma wiele [partycji fizycznych](partitioning-overview.md#physical-partitions), zapytania będą bardziej wydajne, jeśli mają filtr równości z *identyfikatorem elementu*.
+* Jeśli *Identyfikator elementu* jest kluczem partycji, będzie on unikatowym identyfikatorem w całym kontenerze. Nie będzie możliwe posiadanie elementów mających zduplikowany *Identyfikator elementu* .
+* Jeśli masz kontener do odczytu, który ma wiele [partycji fizycznych](partitioning-overview.md#physical-partitions), zapytania będą bardziej wydajne, jeśli mają filtr równości z *identyfikatorem elementu* .
 * Nie można uruchomić procedur składowanych ani wyzwalaczy na wielu partycjach logicznych.
 
 ## <a name="next-steps"></a>Następne kroki

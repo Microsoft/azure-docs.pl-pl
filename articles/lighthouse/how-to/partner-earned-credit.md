@@ -1,14 +1,14 @@
 ---
 title: Połącz swój identyfikator partnera, aby śledzić wpływ na delegowane zasoby
 description: Dowiedz się, jak skojarzyć swój identyfikator partnera, aby otrzymywać środki na korzystanie z partnerów (PEC) w zasobach klientów zarządzanych za pomocą usługi Azure Lighthouse.
-ms.date: 10/13/2020
+ms.date: 10/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 95483cfabb7632182a7c23ae4963f2d38a2bd2c3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019917"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080281"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Połącz swój identyfikator partnera, aby śledzić wpływ na delegowane zasoby 
 
@@ -22,7 +22,7 @@ W przypadku dołączania [klientów przy użyciu szablonów usługi Azure Resour
 
 Podczas dołączania klientów za pomocą szablonów Azure Resource Manager (szablony ARM) Użyj poniższego procesu, aby połączyć identyfikator partnera (i włączyć środki dla partnerów, jeśli ma to zastosowanie). Aby wykonać te czynności, musisz znać [Identyfikator partnera MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id) . Pamiętaj, aby użyć wartości **Skojarzony identyfikator MPN** wyświetlanej w profilu partnera.
 
-Dla uproszczenia zalecamy utworzenie konta nazwy głównej usługi w dzierżawie, połączenie go ze **skojarzonym identyfikatorem MPN**, a następnie udzielenie mu dostępu do każdego klienta, który zostanie dołączony do [roli wbudowanej platformy Azure, która kwalifikuje się do komputera PEC](/partner-center/azure-roles-perms-pec).
+Dla uproszczenia zalecamy utworzenie konta nazwy głównej usługi w dzierżawie, połączenie go ze **skojarzonym identyfikatorem MPN** , a następnie udzielenie mu dostępu do każdego klienta, który zostanie dołączony do [roli wbudowanej platformy Azure, która kwalifikuje się do komputera PEC](/partner-center/azure-roles-perms-pec).
 
 1. [Utwórz konto nazwy głównej usługi](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) w dzierżawie zarządzającej. W tym przykładzie użyjemy *konta automatyzacji dostawcy* nazw dla tej nazwy głównej usługi.
 1. Korzystając z tego konta usługi, [Połącz się ze skojarzonym identyfikatorem MPN](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) w dzierżawie zarządzającej. Wystarczy to zrobić tylko raz.
@@ -42,7 +42,9 @@ Gdy konto zostanie [połączone ze skojarzonym identyfikatorem MPN](../../cost-m
 
 Możesz [wyświetlić szczegóły dotyczące Pec w Azure Portal](/partner-center/partner-earned-credit-explanation#azure-cost-management) i potwierdzić, które koszty otrzymały korzyść dla PEC. Należy pamiętać, że PEC ma zastosowanie tylko do klientów dostawcy usług kryptograficznych, którzy podpisały ten MCA, i podlegają planowi platformy Azure.
 
-Jeśli wykonano powyższe kroki i nie widzisz skojarzenia, Otwórz żądanie obsługi w Azure Portal.
+Jeśli wykonano powyższe kroki i nie widzisz oczekiwanego skojarzenia, Otwórz żądanie obsługi w Azure Portal.
+
+Możesz również użyć [zestawu SDK Centrum partnerskiego](/partner-center/develop/get-invoice-unbilled-consumption-lineitems) i przefiltrować, `rateOfPartnerEarnedCredit` Aby ZAUTOMATYZOWAĆ weryfikację PEC dla subskrypcji.
 
 ## <a name="next-steps"></a>Następne kroki
 

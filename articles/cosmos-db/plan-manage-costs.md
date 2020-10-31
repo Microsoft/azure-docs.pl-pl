@@ -7,14 +7,15 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 278603887fe7d47b4be52b04f9f0864be1a1b75b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3a1bb36910b09d24c3328c8fc8ae94e1e3321642
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482251"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080706"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planowanie i zarządzanie kosztami Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 W tym artykule opisano sposób planowania kosztów Azure Cosmos DB i zarządzania nimi:
 
@@ -56,7 +57,7 @@ Jeśli planujesz używać Azure Cosmos DB w trybie bezserwerowym, należy oszaco
 > [!IMPORTANT] 
 > Zwróć uwagę na uwagi z powyższej tabeli. Aby uzyskać dokładniejsze oszacowanie rzeczywistych kosztów operacji, możesz użyć [emulatora usługi Azure Cosmos](local-emulator.md) i [zmierzyć dokładny koszt operacji na ru](find-request-unit-charge.md). Chociaż emulator usługi Azure Cosmos nie obsługuje bezserwerowego, raport jest naliczany jako standardowy RU dla operacji bazy danych i może służyć do tego oszacowania.
 
-Po przeprowadzeniu obliczenia łącznej liczby jednostek żądań i GB miejsca w magazynie, które prawdopodobnie będą zużywane przez miesiąc, następująca formuła zwróci oszacowanie kosztów: **([liczba jednostek żądań]/1 000 000 * $0,25) + ([GB magazynu] * $0,25)**.
+Po przeprowadzeniu obliczenia łącznej liczby jednostek żądań i GB miejsca w magazynie, które prawdopodobnie będą zużywane przez miesiąc, następująca formuła zwróci oszacowanie kosztów: **([liczba jednostek żądań]/1 000 000 * $0,25) + ([GB magazynu] * $0,25)** .
 
 > [!NOTE]
 > Koszty pokazane w poprzednim przykładzie służą wyłącznie do celów demonstracyjnych. Aby uzyskać najnowsze informacje o cenach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) .
@@ -87,11 +88,11 @@ Korzystając z analizy kosztów, można wyświetlić Azure Cosmos DB koszty w wy
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Otwórz okno **Cost Management + rozliczanie** , wybierz pozycję **Zarządzanie kosztami** z menu, a następnie wybierz pozycję **Analiza kosztów**. Następnie można zmienić zakres dla określonej subskrypcji z listy rozwijanej **zakres** .
+1. Otwórz okno **Cost Management + rozliczanie** , wybierz pozycję **Zarządzanie kosztami** z menu, a następnie wybierz pozycję **Analiza kosztów** . Następnie można zmienić zakres dla określonej subskrypcji z listy rozwijanej **zakres** .
 
 1. Domyślnie koszt wszystkich usług jest pokazywany na pierwszym wykresie pierścieniowym. Wybierz obszar na wykresie z etykietą "Azure Cosmos DB".
 
-1. Aby zawęzić koszty pojedynczej usługi, takiej jak Azure Cosmos DB, wybierz pozycję **Dodaj filtr** , a następnie wybierz pozycję **nazwa usługi**. Następnie wybierz **Azure Cosmos DB** z listy. Oto przykład przedstawiający koszty tylko Azure Cosmos DB:
+1. Aby zawęzić koszty pojedynczej usługi, takiej jak Azure Cosmos DB, wybierz pozycję **Dodaj filtr** , a następnie wybierz pozycję **nazwa usługi** . Następnie wybierz **Azure Cosmos DB** z listy. Oto przykład przedstawiający koszty tylko Azure Cosmos DB:
  
    :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Oszacowanie kosztów w Azure Cosmos DB Kalkulator pojemności":::
 

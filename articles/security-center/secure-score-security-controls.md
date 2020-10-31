@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 55a4e50e3a85eccb9517cf682b67268e633abecc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928097"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081233"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Wskaźnik bezpieczeństwa w usłudze Azure Security Center
 
@@ -190,7 +190,7 @@ Mimo że Security Center domyślna inicjatywa w zakresie zabezpieczeń jest opar
     <td class="tg-lboi"; width=55%>- Porty zarządzania maszyn wirtualnych powinny być chronione za pomocą kontroli dostępu just in Time do sieci<br>- Maszyny wirtualne powinny być skojarzone z sieciową grupą zabezpieczeń<br>- Porty zarządzania powinny być zamknięte na maszynach wirtualnych</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Zastosuj aktualizacje systemu (wynik maksymalny 6)</p></strong>Aktualizacje systemu zapewniają organizacjom możliwość utrzymania sprawności działania, zmniejszania luk w zabezpieczeniach i zapewnienia bardziej stabilnego środowiska dla użytkowników końcowych. Niestosowanie aktualizacji pozostawia Niepoprawione luki w zabezpieczeniach i wyniki w środowiskach, które są podatne na ataki. Luki w zabezpieczeniach można wykorzystać i prowadzić do utraty danych, eksfiltracji danych, oprogramowania wymuszającego okup i nadużycia zasobów. Aby wdrożyć aktualizacje systemu, można użyć <a href="/azure/automation/automation-update-management">rozwiązania Update Management do zarządzania poprawkami i aktualizacjami</a> dla maszyn wirtualnych. Zarządzanie aktualizacjami to proces kontroli nad wdrażaniem i konserwacją wydań oprogramowania.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Zastosuj aktualizacje systemu (wynik maksymalny 6)</p></strong>Aktualizacje systemu zapewniają organizacjom możliwość utrzymania sprawności działania, zmniejszania luk w zabezpieczeniach i zapewnienia bardziej stabilnego środowiska dla użytkowników końcowych. Niestosowanie aktualizacji pozostawia Niepoprawione luki w zabezpieczeniach i wyniki w środowiskach, które są podatne na ataki. Luki w zabezpieczeniach można wykorzystać i prowadzić do utraty danych, eksfiltracji danych, oprogramowania wymuszającego okup i nadużycia zasobów. Aby wdrożyć aktualizacje systemu, można użyć <a href="/azure/automation/update-management/overview">rozwiązania Update Management do zarządzania poprawkami i aktualizacjami</a> dla maszyn wirtualnych. Zarządzanie aktualizacjami to proces kontroli nad wdrażaniem i konserwacją wydań oprogramowania.</td>
     <td class="tg-lboi"; width=55%>- Na maszynach należy rozwiązać problemy z kondycją agenta monitorowania<br>- Agent monitorowania powinien być zainstalowany w zestawach skalowania maszyn wirtualnych<br>- Agent monitorowania powinien być zainstalowany na swoich maszynach<br>- Należy zaktualizować wersję systemu operacyjnego dla ról usługi w chmurze<br>- Należy zainstalować aktualizacje systemu dla zestawów skalowania maszyn wirtualnych<br>- Aktualizacje systemu powinny być zainstalowane na maszynach<br>- Aby zastosować aktualizacje systemu, należy ponownie uruchomić maszyny.<br>- Usługi Kubernetes należy uaktualnić do niezagrożonej wersji Kubernetes<br>- Agent monitorowania powinien być zainstalowany na maszynach wirtualnych<br>- Agenta Log Analytics należy zainstalować na komputerach z systemem Windows Azure ARC (wersja zapoznawcza)<br>- Agent Log Analytics powinien być zainstalowany na komputerach z systemem Linux Azure ARC (wersja zapoznawcza)</td>
   </tr>
   <tr>

@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482234"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080655"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Używanie Azure Policy do implementowania ładu i kontroli dla zasobów Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 [Azure Policy](../governance/policy/overview.md) pomaga wymuszać standardy ładu organizacyjnego, oceniać zgodność zasobów i implementować automatyczne korygowanie. Typowe przypadki użycia obejmują zabezpieczenia, zarządzanie kosztami i spójność konfiguracji.
 
@@ -24,7 +25,7 @@ Azure Policy udostępnia wbudowane definicje zasad. Można utworzyć niestandard
 
 ## <a name="assign-a-built-in-policy-definition"></a>Przypisywanie wbudowanej definicji zasad
 
-Definicje zasad opisują warunki zgodności zasobów i wpływ, jaki należy wykonać w przypadku spełnienia warunku. _Przypisania_ zasad są tworzone na podstawie _definicji_zasad. Dla zasobów Azure Cosmos DB można używać wbudowanych lub niestandardowych definicji zasad. Przypisania zasad są ograniczone do grupy zarządzania platformy Azure, subskrypcji platformy Azure lub grupy zasobów i są stosowane do zasobów w ramach wybranego zakresu. Opcjonalnie możesz wykluczyć określone zasoby z zakresu.
+Definicje zasad opisują warunki zgodności zasobów i wpływ, jaki należy wykonać w przypadku spełnienia warunku. _Przypisania_ zasad są tworzone na podstawie _definicji_ zasad. Dla zasobów Azure Cosmos DB można używać wbudowanych lub niestandardowych definicji zasad. Przypisania zasad są ograniczone do grupy zarządzania platformy Azure, subskrypcji platformy Azure lub grupy zasobów i są stosowane do zasobów w ramach wybranego zakresu. Opcjonalnie możesz wykluczyć określone zasoby z zakresu.
 
 Przypisania zasad można tworzyć za pomocą szablonu [Azure Portal](../governance/policy/assign-policy-portal.md), [Azure PowerShell](../governance/policy/assign-policy-powershell.md), [interfejsu wiersza polecenia platformy Azure lub usługi](../governance/policy/assign-policy-azurecli.md) [ARM](../governance/policy/assign-policy-template.md).
 
@@ -39,7 +40,7 @@ W kroku, aby wybrać definicję zasad, wprowadź `Cosmos DB` w polu wyszukiwania
 
 ## <a name="create-a-custom-policy-definition"></a>Tworzenie niestandardowej definicji zasad
 
-W przypadku określonych scenariuszy, które nie są rozwiązywane przez zasady wbudowane, można utworzyć [niestandardową definicję zasad](../governance/policy/tutorials/create-custom-policy-definition.md). Później można utworzyć _przypisanie_ zasad z _definicji_zasad niestandardowych.
+W przypadku określonych scenariuszy, które nie są rozwiązywane przez zasady wbudowane, można utworzyć [niestandardową definicję zasad](../governance/policy/tutorials/create-custom-policy-definition.md). Później można utworzyć _przypisanie_ zasad z _definicji_ zasad niestandardowych.
 
 ### <a name="property-types-and-property-aliases-in-policy-rules"></a>Typy właściwości i aliasy właściwości w regułach zasad
 

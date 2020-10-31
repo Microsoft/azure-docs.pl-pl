@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e907a3ec2e2521524cdf23e1403ae38a19275aa6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c7c002b57f2220ac0a9fba43a8081b2a4ed800e7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071323"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081063"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Pojemność wystąpienia usługi Azure API Management
 
@@ -42,7 +42,7 @@ Aby wykonać kroki opisane w tym artykule, musisz dysponować:
 
 ## <a name="what-is-capacity"></a>Co to jest pojemność
 
-![Metryka pojemności](./media/api-management-capacity/capacity-ingredients.png)
+![Diagram objaśniający metrykę pojemności.](./media/api-management-capacity/capacity-ingredients.png)
 
 **Pojemność** jest wskaźnikiem obciążenia wystąpienia API Management. Odzwierciedla użycie zasobów (procesor CPU, pamięć) i długość kolejki sieciowej. Użycie procesora CPU i pamięci pokazuje wykorzystanie zasobów przez:
 
@@ -52,7 +52,7 @@ Aby wykonać kroki opisane w tym artykule, musisz dysponować:
 
 Całkowita **pojemność** to średnia z poszczególnych jednostek wystąpienia API Management.
 
-Mimo że **Metryka pojemności** została zaprojektowana w celu wypróbowania problemów z wystąpieniem API Management, istnieją przypadki, w których problemy nie zostaną odzwierciedlone w zmianach w **metryce wydajności**.
+Mimo że **Metryka pojemności** została zaprojektowana w celu wypróbowania problemów z wystąpieniem API Management, istnieją przypadki, w których problemy nie zostaną odzwierciedlone w zmianach w **metryce wydajności** .
 
 ## <a name="capacity-metric-behavior"></a>Zachowanie metryki pojemności
 
@@ -78,7 +78,7 @@ Im bardziej złożone operacje na żądaniach, tym większe zużycie **pojemnoś
 ![Metryka pojemności](./media/api-management-capacity/capacity-metric.png)  
 
 1. Przejdź do wystąpienia APIM w [Azure Portal](https://portal.azure.com/).
-2. Wybierz pozycję **Metryki**.
+2. Wybierz pozycję **Metryki** .
 3. W sekcji purpurowa wybierz pozycję Metryka **pojemności** z dostępnych metryk i Pozostaw domyślną wartość agregacji **średniej** .
 
     > [!TIP]
@@ -99,7 +99,7 @@ Im bardziej złożone operacje na żądaniach, tym większe zużycie **pojemnoś
 
 + Spojrzenie na długoterminową tendencję i średnią.
 + Ignorowanie nagłych skoków, które najprawdopodobniej nie są związane z jakimkolwiek wzrostem obciążenia (zobacz "zachowanie metryki wydajności" w celu wyjaśnienia).
-+ Uaktualnienie lub skalowanie wystąpienia, gdy wartość **pojemności**przekracza 60% lub 70% przez dłuższy czas (na przykład 30 minut). Różne wartości mogą wydajniej współpracować z usługą lub scenariuszem.
++ Uaktualnienie lub skalowanie wystąpienia, gdy wartość **pojemności** przekracza 60% lub 70% przez dłuższy czas (na przykład 30 minut). Różne wartości mogą wydajniej współpracować z usługą lub scenariuszem.
 
 >[!TIP]  
 > Jeśli możesz wcześniej oszacować ruch, przetestuj wystąpienie APIM w oczekiwanych obciążeniach. Możesz stopniowo zwiększyć obciążenie żądaniami dzierżawy i monitorować wartość metryki pojemności odpowiadającą szczytowej obciążeniu. Postępuj zgodnie z instrukcjami z poprzedniej sekcji, Azure Portal aby dowiedzieć się, ile pojemności jest używanych w danym momencie.

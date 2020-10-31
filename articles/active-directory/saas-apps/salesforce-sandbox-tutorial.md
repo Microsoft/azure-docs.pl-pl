@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: bc27b1fea97471e9ca1991467902e666c1451605
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 12a282b1f53dde570f5f6647a45df82808b20350
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675550"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080842"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z piaskownicą usługi Salesforce
 
@@ -149,35 +149,35 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Kliknij pozycję **Konfiguracja** pod **ikoną ustawień** w prawym górnym rogu strony.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Zrzut ekranu pokazujący ikonę "Ustawienia" w prawym górnym rogu i wybraną z listy rozwijanej.](./media/salesforce-sandbox-tutorial/configure1.png)
 
 3. Przewiń w dół do **ustawień** w okienku nawigacji po lewej stronie, kliknij pozycję **tożsamość** , aby rozwinąć sekcję powiązaną. Następnie kliknij pozycję **Ustawienia logowania jednokrotnego** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Zrzut ekranu pokazujący menu "Ustawienia" w lewym okienku z opcją "pojedyncze Sign-On ustawienia" wybrane z menu "tożsamość".](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 4. Na stronie **Ustawienia logowania jednokrotnego** kliknij przycisk **Edytuj** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawiający stronę "pojedyncze ustawienia Sign-On" z wybranym przyciskiem "Edytuj".](./media/salesforce-sandbox-tutorial/configure3.png)
 
 5. Wybierz pozycję **Włączona obsługa protokołu SAML** , a następnie kliknij pozycję **Zapisz** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Zrzut ekranu pokazujący stronę "ustawienia pojedynczej Sign-On" z zaznaczonym zaznaczeniem pola wyboru "S A M L Enabled" i wybranym przyciskiem "Zapisz".](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 6. Aby skonfigurować ustawienia logowania jednokrotnego SAML, kliknij pozycję **Nowe z pliku metadanych** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Zrzut ekranu przedstawiający stronę "ustawienia pojedynczej Sign-On" z wybranym przyciskiem "nowy z pliku metadanych".](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 7. Kliknij pozycję **Wybierz plik** , aby przekazać plik metadanych XML pobrany z witryny Azure Portal, i kliknij pozycję **Utwórz** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Zrzut ekranu przedstawiający stronę "ustawienia pojedynczej Sign-On" z wybranymi przyciskami "Wybierz plik" i "Utwórz".](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 8. Na stronie **Ustawienia logowania jednokrotnego SAML** pola zostaną wypełnione automatycznie. Kliknij pozycję Zapisz.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/salesforcexml.png)
+    ![Zrzut ekranu pokazujący stronę "ustawienia pojedynczej Sign-On" z wypełnionymi polami i wybranym przyciskiem "Zapisz".](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
 9. Na stronie **Ustawienia pojedynczej Sign-On** kliknij przycisk **Pobierz metadane** , aby pobrać plik metadanych dostawcy usług. Użyj tego pliku w sekcji **Podstawowa konfiguracja SAML** w Azure Portal, aby skonfigurować niezbędne adresy URL, jak wyjaśniono powyżej.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure4.png)
+    ![Zrzut ekranu przedstawiający stronę "ustawienia pojedynczej Sign-On" z wybranym przyciskiem "Pobierz metadane".](./media/salesforce-sandbox-tutorial/configure4.png)
 
 10. Jeśli chcesz skonfigurować aplikację w trybie zainicjowania programu **SP** , poniżej przedstawiono wymagania wstępne dotyczące programu:
 
@@ -202,31 +202,31 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 13. Kliknij pozycję **Konfiguracja** pod **ikoną ustawień** w prawym górnym rogu strony.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Zrzut ekranu pokazujący ikonę "Ustawienia" w prawym górnym rogu i wybraną z menu rozwijanego.](./media/salesforce-sandbox-tutorial/configure1.png)
 
 14. Przewiń w dół do **ustawień** w okienku nawigacji po lewej stronie, kliknij pozycję **tożsamość** , aby rozwinąć sekcję powiązaną. Następnie kliknij pozycję **Ustawienia logowania jednokrotnego** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Zrzut ekranu pokazujący menu "Ustawienia" w lewym okienku nawigacji z opcją "pojedyncze Sign-On ustawienia" wybrane z menu "tożsamość".](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 15. Na stronie **Ustawienia logowania jednokrotnego** kliknij przycisk **Edytuj** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawiający stronę "ustawienia pojedynczej Sign-On" z wybranym przyciskiem "Edytuj".](./media/salesforce-sandbox-tutorial/configure3.png)
 
 16. Wybierz pozycję **Włączona obsługa protokołu SAML** , a następnie kliknij pozycję **Zapisz** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Zrzut ekranu pokazujący stronę "ustawienia pojedynczej Sign-On" z zaznaczonym polem "S A M L Enabled" i wybranym przyciskiem "Zapisz".](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 17. Aby skonfigurować ustawienia logowania jednokrotnego SAML, kliknij pozycję **Nowe z pliku metadanych** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Zrzut ekranu przedstawiający stronę "ustawienia pojedynczej Sign-On" i wybrany przycisk "nowy z pliku metadanych".](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 18. Kliknij pozycję **Wybierz plik** , aby przekazać plik XML metadanych, a następnie kliknij przycisk **Utwórz** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Zrzut ekranu przedstawiający stronę "ustawienia pojedynczej Sign-On" z przyciskiem "Wybierz plik" i wybranym przyciskiem "Utwórz".](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 19. Na stronie **Ustawienia pojedynczej Sign-On SAML** pola wypełniają automatycznie, wpisz nazwę konfiguracji (na przykład: *SPSSOWAAD_Test* ), w polu tekstowym **Nazwa** , a następnie kliknij przycisk Zapisz.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
+    ![Zrzut ekranu pokazujący stronę "ustawienia pojedynczej Sign-On" z wypełnionymi polami, przykładową nazwą w polu tekstowym "nazwa" i wybranym przyciskiem "Zapisz".](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
 20. Aby włączyć domenę w piaskownicy usługi Salesforce, wykonaj następujące czynności:
 
@@ -235,11 +235,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 21. W okienku nawigacji po lewej stronie w obszarze piaskownicy usługi Salesforce kliknij pozycję **Ustawienia firmy** , aby rozwinąć sekcję powiązaną, a następnie kliknij pozycję **moja domena** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
+    ![Zrzut ekranu przedstawiający opcje "ustawienia firmowe" i "moja domena" wybrane w okienku nawigacji po lewej stronie.](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
 22. W sekcji **konfiguracja uwierzytelniania** kliknij pozycję **Edytuj** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+    ![Zrzut ekranu przedstawiający sekcję "konfiguracja uwierzytelniania" z wybranym przyciskiem "Edytuj".](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 23. W sekcji **konfiguracja uwierzytelniania** jako **Usługa uwierzytelniania** wybierz nazwę ustawienia Single Sign-On SAML, które zostało ustawione podczas konfigurowania logowania jednokrotnego w piaskownicy usługi Salesforce, a następnie kliknij przycisk **Zapisz** .
 

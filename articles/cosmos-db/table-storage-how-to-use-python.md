@@ -10,14 +10,15 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: 0dd56b285401bd99a173700be6d6eb7c1fc97faa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 341615bf8fe231eafa606411948ad014399b8261
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477253"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079550"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Rozpoczynanie pracy z usługą Azure Table Storage oraz interfejsem API tabel usługi Azure Cosmos DB przy użyciu języka Python
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -118,7 +119,7 @@ table_service.insert_entity('tasktable', task)
 
 ### <a name="partitionkey-and-rowkey"></a>Właściwości PartitionKey i RowKey
 
-Należy pamiętać, że dla każdej jednostki konieczne jest określenie właściwości **PartitionKey** i **RowKey**. Są to unikatowe identyfikatory jednostek, które wspólnie tworzą klucz podstawowy jednostki. Zapytania dotyczące tych wartości są wykonywane znacznie szybciej niż zapytania dotyczące innych właściwości jednostki, ponieważ tylko te właściwości są indeksowane.
+Należy pamiętać, że dla każdej jednostki konieczne jest określenie właściwości **PartitionKey** i **RowKey** . Są to unikatowe identyfikatory jednostek, które wspólnie tworzą klucz podstawowy jednostki. Zapytania dotyczące tych wartości są wykonywane znacznie szybciej niż zapytania dotyczące innych właściwości jednostki, ponieważ tylko te właściwości są indeksowane.
 
 W usłudze Table Storage właściwość **PartitionKey** jest używana do inteligentnego rozłożenia jednostki tabeli pomiędzy węzłami magazynu. Obiekty z taką samą wartością **PartitionKey** są przechowywane w tym samym węźle. Właściwość **RowKey** to unikatowy identyfikator jednostki w ramach partycji, do której należy.
 
@@ -192,7 +193,7 @@ print(task.priority)
 
 ## <a name="query-a-set-of-entities"></a>Wykonywanie zapytania względem zestawu jednostek
 
-Możesz wykonać zapytanie dotyczące zestawu jednostek, podając ciąg filtru przy użyciu parametru **filter**. W tym przykładzie znalezione zostaną wszystkie zadania w lokalizacji Seattle przy użyciu filtru wartości PartitionKey:
+Możesz wykonać zapytanie dotyczące zestawu jednostek, podając ciąg filtru przy użyciu parametru **filter** . W tym przykładzie znalezione zostaną wszystkie zadania w lokalizacji Seattle przy użyciu filtru wartości PartitionKey:
 
 ```python
 tasks = table_service.query_entities(
@@ -204,7 +205,7 @@ for task in tasks:
 
 ## <a name="query-a-subset-of-entity-properties"></a>Tworzenie zapytania do podzbioru właściwości jednostki
 
-Możesz również ograniczyć zestaw właściwości zwracanych dla każdej jednostki w zapytaniu. Ta technika, zwana *projekcją*, zmniejsza użycie przepustowości i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek lub zestawów wyników. Użyj parametru **select** i wprowadź nazwy właściwości, które chcesz zwrócić do klienta.
+Możesz również ograniczyć zestaw właściwości zwracanych dla każdej jednostki w zapytaniu. Ta technika, zwana *projekcją* , zmniejsza użycie przepustowości i może poprawiać wydajność zapytań, zwłaszcza w przypadku dużych jednostek lub zestawów wyników. Użyj parametru **select** i wprowadź nazwy właściwości, które chcesz zwrócić do klienta.
 
 Zapytanie w poniższym kodzie zwraca wyłącznie opisy jednostek w tabeli.
 

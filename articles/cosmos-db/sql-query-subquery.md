@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16be1b91d007ca2dbc88405cfc55ff519f51ee41
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74870568"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081540"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Przykłady podzapytań SQL dla Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Podzapytanie jest zagnieżdżona w innym zapytaniu. Podzapytanie jest również nazywane zapytaniem wewnętrznym lub zaznaczeniem wewnętrznym. Instrukcja zawierająca podzapytanie jest zazwyczaj nazywana zewnętrznym zapytaniem.
 
@@ -23,16 +24,16 @@ W tym artykule opisano podzapytania SQL i ich typowe przypadki użycia w program
 
 Istnieją dwa główne typy podzapytań:
 
-* **Skorelowane**: podzapytanie, które odwołuje się do wartości z zapytania zewnętrznego. Podzapytanie jest oceniane raz dla każdego wiersza, który przetwarza zapytanie zewnętrzne.
-* **Nieskorelowane**: podzapytanie, które jest niezależne od zapytania zewnętrznego. Może być uruchamiany samodzielnie bez polegania na zewnętrznym zapytaniu.
+* **Skorelowane** : podzapytanie, które odwołuje się do wartości z zapytania zewnętrznego. Podzapytanie jest oceniane raz dla każdego wiersza, który przetwarza zapytanie zewnętrzne.
+* **Nieskorelowane** : podzapytanie, które jest niezależne od zapytania zewnętrznego. Może być uruchamiany samodzielnie bez polegania na zewnętrznym zapytaniu.
 
 > [!NOTE]
 > Azure Cosmos DB obsługuje tylko skorelowane podzapytania.
 
 Podzapytania można zaklasyfikować w oparciu o liczbę wierszy i kolumn, które zwracają. Istnieją trzy typy:
-* **Tabela**: zwraca wiele wierszy i wiele kolumn.
-* Wiele **wartości**: zwraca wiele wierszy i pojedynczą kolumnę.
-* **Skalarny**: zwraca pojedynczy wiersz i pojedynczą kolumnę.
+* **Tabela** : zwraca wiele wierszy i wiele kolumn.
+* Wiele **wartości** : zwraca wiele wierszy i pojedynczą kolumnę.
+* **Skalarny** : zwraca pojedynczy wiersz i pojedynczą kolumnę.
 
 Zapytania SQL w Azure Cosmos DB zawsze zwracają pojedynczą kolumnę (prostą lub złożoną). W związku z tym w Azure Cosmos DB są stosowane tylko wielowartościowe i skalarne podzapytania. Można użyć wielowartościowego podzapytania tylko w klauzuli FROM jako wyrażenia relacyjnego. Można użyć podzapytania skalarnego jako wyrażenia skalarnego w klauzuli SELECT lub WHERE lub jako wyrażenie relacyjne w klauzuli FROM.
 
