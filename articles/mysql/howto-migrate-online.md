@@ -5,18 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 3/18/2020
-ms.openlocfilehash: 4c7fe3db3f85824dc2cfbe87fc22b63a59e931ab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 10/30/2020
+ms.openlocfilehash: 9a3eefc9e820735efec302eed0f879a748cb1200
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546368"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125788"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Migracja z minimalnym przestojem do Azure Database for MySQL
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Migracje MySQL można przeprowadzić w celu Azure Database for MySQL z minimalnym przestojem przy użyciu nowo wprowadzonej **funkcji ciągłej synchronizacji** dla [Azure Database Migration Service](https://aka.ms/get-dms) (DMS). Ta funkcja ogranicza czas przestoju nanoszony przez aplikację.
+
+Można także zapoznać się z [przewodnikiem dotyczącym migracji bazy danych](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) , aby uzyskać szczegółowe informacje i przypadki użycia dotyczące migrowania baz danych do Azure Database for MySQL. Ten przewodnik zawiera wskazówki, które pozwolą na pomyślne planowanie i wykonywanie migracji programu MySQL na platformę Azure.
 
 ## <a name="overview"></a>Omówienie
 Usługa Azure DMS wykonuje początkowe ładowanie danych lokalnych w celu Azure Database for MySQL, a następnie nieustannie synchronizuje wszelkie nowe transakcje z platformą Azure, gdy aplikacja pozostaje uruchomiona. Po przechwyceniu danych na docelowej stronie platformy Azure aplikacja zostanie zatrzymana przez krótki czas (w minimalnym przestoju). Poczekaj na ostatnią partię danych (od momentu zatrzymania aplikacji do momentu, gdy aplikacja nie będzie efektywnie dostępna do wykonania nowego ruchu), a następnie zaktualizuj parametry połączenia tak, aby wskazywały platformę Azure. Gdy skończysz, Twoja aplikacja będzie aktywna na platformie Azure!
@@ -24,5 +26,6 @@ Usługa Azure DMS wykonuje początkowe ładowanie danych lokalnych w celu Azure 
 :::image type="content" source="./media/howto-migrate-online/ContinuousSync.png" alt-text="Ciągła synchronizacja z Azure Database Migration Service":::
 
 ## <a name="next-steps"></a>Następne kroki
+- Aby uzyskać więcej informacji na temat migrowania baz danych do Azure Database for MySQL, zobacz [Przewodnik po migracji bazy danych](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
 - Obejrzyj wideo z [łatwością Migruj aplikacje MySQL/PostgreSQL do usługi zarządzanej platformy Azure](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201), która zawiera demonstrację prezentującą sposób migrowania aplikacji mysql do Azure Database for MySQL.
 - Zapoznaj się z samouczkiem [Migrowanie bazy danych MySQL do Azure Database for MySQL online przy użyciu usługi DMS](../dms/tutorial-mysql-azure-mysql-online.md).

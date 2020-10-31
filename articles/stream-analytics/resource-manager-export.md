@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: c421c730321213a9adbf0a0043874a21ba26bb05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2afebe61c4b2998692c823e66d8fc73584ec1dc2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906236"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125652"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Eksportowanie szablonu Azure Resource Manager zadania Azure Stream Analytics
 
@@ -24,7 +24,7 @@ Możesz ponownie wdrożyć zadanie Azure Stream Analytics, eksportując szablon 
 
 Przed wyeksportowaniem szablonu należy najpierw otworzyć istniejące zadanie Stream Analytics w Visual Studio Code. 
 
-Aby wyeksportować zadanie do projektu lokalnego, zlokalizuj zadanie, które chcesz wyeksportować w **eksploratorze Stream Analytics** w Azure Portal. Na stronie **zapytanie** wybierz pozycję **Otwórz w programie Visual Studio**. Następnie wybierz pozycję **Visual Studio Code**.
+Aby wyeksportować zadanie do projektu lokalnego, zlokalizuj zadanie, które chcesz wyeksportować w **eksploratorze Stream Analytics** w Azure Portal. Na stronie **zapytanie** wybierz pozycję **Otwórz w programie Visual Studio** . Następnie wybierz pozycję **Visual Studio Code** .
 
 ![Otwórz zadanie Stream Analytics w Visual Studio Code](./media/resource-manager-export/open-job-vs-code.png)
 
@@ -58,9 +58,9 @@ Następnie uzupełnij plik parametrów szablonu zarządzania zasobami platformy 
 
 Możesz przystąpić do wdrażania zadania Azure Stream Analytics przy użyciu szablonów Azure Resource Manager wygenerowanych w poprzedniej sekcji.
 
-W oknie programu PowerShell uruchom następujące polecenie. Pamiętaj, aby reaplce *ResourceGroupName*, *TemplateFile*i *TemplateParameterFile* z rzeczywistą nazwą grupy zasobów i pełną ścieżkę pliku do *JobTemplate.js* i *JobTemplate.parameters.jsna* plikach w **folderze Deploy** w obszarze roboczym zadania.
+W oknie programu PowerShell uruchom następujące polecenie. Pamiętaj, aby reaplce *ResourceGroupName* , *TemplateFile* i *TemplateParameterFile* z rzeczywistą nazwą grupy zasobów i pełną ścieżkę pliku do *JobTemplate.js* i *JobTemplate.parameters.jsna* plikach w **folderze Deploy** w obszarze roboczym zadania.
 
-Jeśli nie masz skonfigurowanego Azure PowerShell, wykonaj kroki opisane w temacie [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Jeśli nie masz skonfigurowanego Azure PowerShell, wykonaj kroki opisane w temacie [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName "<your resource group>" -TemplateFile "<path to JobTemplate.json>" -TemplateParameterFile "<path to JobTemplate.parameters.json>"

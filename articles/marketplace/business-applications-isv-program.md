@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 7/14/2020
-ms.openlocfilehash: 4c4455d62f32acb1cfebde8f5e4d97de5bda17c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 345b9447daa9fcb5f97ec5d8d00bcf5ea76d958c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463703"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126740"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Przewodnik dołączania do programu Microsoft Business Applications Independent Software Vendor (ISV) Connect Program
 
@@ -25,7 +25,7 @@ Aby zarejestrować się i korzystać ze wszystkich korzyści związanych z zapew
 
 ## <a name="set-up-your-microsoft-partner-center-account"></a>Skonfiguruj konto Centrum partnerskiego firmy Microsoft
 
-Aby skonfigurować konto i zarządzać nim dla programu ISV Connect, wykonaj kroki opisane w artykule: [Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Ten artykuł zawiera wszystkie kroki umożliwiające utworzenie nowego konta, a także informacje na temat dodawania nowych wydawców do komercyjnego programu w portalu Marketplace.
+Aby skonfigurować konto i zarządzać nim dla programu ISV Connect, wykonaj kroki opisane w artykule: [Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim](./partner-center-portal/create-account.md). Ten artykuł zawiera wszystkie kroki umożliwiające utworzenie nowego konta, a także informacje na temat dodawania nowych wydawców do komercyjnego programu w portalu Marketplace.
 
 > [!NOTE]
 > Ten krok wymaga roli *właściciela* lub *Menedżera* w centrum partnerskim.
@@ -38,10 +38,10 @@ Uczestnictwo w tym programie wymaga przejrzenia i zaakceptowania [uzupełnienia 
 > Ten krok wymaga od *właściciela* lub roli *Menedżera* w centrum partnerskim konta do podpisywania umów prawnych.
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard).
-1. Wybierz pozycję **Ustawienia** (ikona koła zębatego) i wybierz pozycję **Ustawienia dewelopera**.
-1. Wybierz pozycję **umowy**.
+1. Wybierz pozycję **Ustawienia** (ikona koła zębatego) i wybierz pozycję **Ustawienia dewelopera** .
+1. Wybierz pozycję **umowy** .
 1. Wybierz łącze wersja i Wyświetl umowę.
-1. Aby wyrazić zgodę i zaakceptować umowę, wybierz pozycję **Akceptuj umowę**.
+1. Aby wyrazić zgodę i zaakceptować umowę, wybierz pozycję **Akceptuj umowę** .
 
 ## <a name="set-up-your-billing-information"></a>Skonfiguruj informacje dotyczące rozliczeń
 
@@ -51,11 +51,11 @@ Skonfiguruj informacje dotyczące rozliczeń dla programu Business Applications 
 > Ten krok wymaga od *właściciela* lub roli *Menedżera* w centrum partnerskim konta do aktualizowania informacji dotyczących rozliczeń.
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard).
-1. Wybierz pozycję **Ustawienia** (ikona koła zębatego) i wybierz pozycję **Ustawienia dewelopera**.
-1. W obszarze **konto**wybierz pozycję **profil rozliczeń**.
+1. Wybierz pozycję **Ustawienia** (ikona koła zębatego) i wybierz pozycję **Ustawienia dewelopera** .
+1. W obszarze **konto** wybierz pozycję **profil rozliczeń** .
 1. Przejrzyj podstawowe informacje kontaktowe i rozliczeń, które są wypełniane przez firmę prawną i wprowadź niezbędne aktualizacje.
 1. W razie potrzeby podaj ustawienia identyfikator podatkowy/NIP.
-1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+1. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
 > [!NOTE]
 > W dowolnym momencie możesz zaktualizować profil rozliczeń. Nie można jednak później zmienić *nazwy firmy* i *kraju* adres rozliczeniowy.
@@ -66,11 +66,11 @@ Po wykonaniu powyższych czynności Twoje istniejące aplikacje usługi Dynamics
 
 Ostatnim krokiem rejestracji w programie Business Applications niezależnego dostawcy oprogramowania jest opublikowanie i certyfikowanie istniejących aplikacji. Aby opublikować i zatwierdzić swoją aplikację w usłudze AppSource, wykonaj odpowiednie łącze:
 
-- [Dla programu Dynamics 365 Customer Engagement](https://docs.microsoft.com/powerapps/developer/common-data-service/publish-app-appsource) 
-- [Dla systemu Dynamics 365 dla finansów i operacji](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+- [Dla programu Dynamics 365 Customer Engagement](/powerapps/developer/common-data-service/publish-app-appsource) 
+- [Dla systemu Dynamics 365 dla finansów i operacji](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
-> Musisz ponownie certyfikowanie aplikacji co 6 miesięcy, aby zachować je na żywo w usłudze AppSource. Aby uzyskać szczegółowe informacje, zobacz zasady dotyczące witryny Marketplace [komercyjne zasady certyfikacji](https://docs.microsoft.com/legal/marketplace/certification-policies).
+> Musisz ponownie certyfikowanie aplikacji co 6 miesięcy, aby zachować je na żywo w usłudze AppSource. Aby uzyskać szczegółowe informacje, zobacz zasady dotyczące witryny Marketplace [komercyjne zasady certyfikacji](/legal/marketplace/certification-policies).
 
 ## <a name="next-steps"></a>Następne kroki
 

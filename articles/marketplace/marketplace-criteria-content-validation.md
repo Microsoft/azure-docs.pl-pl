@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 51f226443e6f21b6c333cacf6c88f0d00208f5f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75bf1e3d81b466098884a354826019aa94a94174
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484276"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126111"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Wskazówki dotyczące wyświetlania w portalu Azure Marketplace
 
@@ -28,10 +28,10 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | 4 |  Opis oferty | <ul><li> Zawiera 2-3 akapitów.</li><li>Oferta rozwiązania jest łatwa do zrozumienia.</li><li>Jest bezpłatny w przypadku błędów pisowni i gramatyki.</li><li>Jest wszechstronny i przechwytuje docelowych odbiorców, typ użytkownika i dlaczego jest cenny (propozycja wartości).</li><li>Jest w postaci litery z krótkimi zdaniami, które są łatwe do zrozumienia.</li></ul> | <ul><li> Branża docelowa jest przedkreślona (jeśli dotyczy).</li><li>Formatowanie stylu z każdym akapitem zawierającym pojedyncze zdanie lub frazę podsumowujące zawartość, która następuje przy użyciu punktów punktorów, w razie potrzeby, aby wyróżnić najważniejsze zalety. Celem jest umożliwienie czytelnikowi wglądu w informacje o ofercie w łatwym do wyświetlania formacie i niekonieczności odczytywania długich akapitów.</li><li>Między każdym akapitem występuje odstępy. Odczytuje takie dane jak Broszura samochodowa. Oznacza to, że jest to kompleksowe rozwiązanie i zawiera opis oferty po prostu, bez żargon technicznych. | 
 | 5 | Kategorie i branże | <ul><li>Kategorie i podkategorie muszą być zgodne z możliwościami oferty </li><li>Nie wybieraj kategorii/podkategorii, które nie pasują do możliwości oferty. </li></ul> | <ul><li>Wybierz maksymalnie dwie kategorie, w tym podstawową i pomocniczą kategorię (opcjonalnie).</li><li>Wybierz maksymalnie dwie podkategorie dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli nie wybrano żadnej podkategorii, oferta nadal będzie wykrywalna w wybranej kategorii.</li></ul> |
 | 6 | Obrazy | <ul><li>Wymagania dotyczące obrazów są wymienione w centrum partnerskim.</li><li>Tekst zawarty na zrzucie ekranu jest czytelny, a obraz jest wyraźny. | Oferta rozwiązania jest łatwa do zrozumienia. |
-| 7 | Wideo | <ul><li>Film wideo nie jest wymagany, ale jeśli jest podany, musi odtworzyć się bez błędów.</li><li>Jeśli to możliwe, może nie odnosić się do firm konkurencyjnych, *chyba że* wykazuje rozwiązanie migracji. |<ul><li>W idealnym przypadku długość wynosi 3 minuty.</li><li>Oferta rozwiązania jest łatwa do zrozumienia przez zawartość wideo.</li><li>Oferuje demonstrację możliwości rozwiązania. |
+| 7 | Filmy wideo | <ul><li>Film wideo nie jest wymagany, ale jeśli jest podany, musi odtworzyć się bez błędów.</li><li>Jeśli to możliwe, może nie odnosić się do firm konkurencyjnych, *chyba że* wykazuje rozwiązanie migracji. |<ul><li>W idealnym przypadku długość wynosi 3 minuty.</li><li>Oferta rozwiązania jest łatwa do zrozumienia przez zawartość wideo.</li><li>Oferuje demonstrację możliwości rozwiązania. |
 | 8 | Stan listy (opcje wyświetlania) | <ul><li>Musi być oznaczony jako jeden z następujących typów: <ul><li>*Skontaktuj się z nami*</li><li>*Wersja próbna* / *Uzyskaj wersję próbną teraz* / *Rozpocznij okres próbny* / Wersja *testowa*</li><li>*Kup teraz* / *Pobierz teraz*</li></ul></ul> | Klient może łatwo zrozumieć, co to są następujące czynności: <ol><li>Wypróbuj wersję próbną.</li><li>Kup teraz.</li><li>Skontaktuj się z pośrednictwem poczty e-mail lub numeru telefonu, aby przygotować się do weryfikacji koncepcji, oceny lub krótkiej.</li></ol> | 
 | 9 | Cennik rozwiązania | Musi mieć kartę/Szczegóły cennika rozwiązania, a Cennik musi być w walucie lokalnej oferty rozwiązania partnerskiego. | Aby zapewnić opcje klienta, można uzyskać dostęp do wielu opcji rozliczeń przy użyciu cen warstwowych. |
-| 10 | Dowiedz się więcej | Linki u dołu (w obszarze Opis, a nie linki do portalu Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji na temat rozwiązania i są publicznie dostępne i wyświetlane poprawnie. |    Linki do określonych elementów (na przykład stron specyfikacji w witrynie partnerskiej), a nie tylko na stronie głównej partnera. | 
+| 10 | Więcej tutaj | Linki u dołu (w obszarze Opis, a nie linki do portalu Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji na temat rozwiązania i są publicznie dostępne i wyświetlane poprawnie. |    Linki do określonych elementów (na przykład stron specyfikacji w witrynie partnerskiej), a nie tylko na stronie głównej partnera. | 
 | 11 | Obsługa rozwiązań i pomoc | Połącz się z co najmniej jedną z następujących czynności: <ul><li>Numery telefonów</li><li>Obsługa poczty e-mail</li><li>Agenci rozmowy</li><li>Fora społeczności |<ul><li>Zostaną wyświetlone wszystkie metody obsługi.</li><li>Płatna pomoc techniczna jest oferowana bezpłatnie w okresie *próbnym* lub *testowym* . |
 | 12 | Informacje prawne | Zasady lub warunki są dostępne za pośrednictwem publicznego adresu URL. |  |
 |||
@@ -40,7 +40,7 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 
 | Nie. | Element list | Wymagania podstawowe | Optymalne wymagania | 
 |:--- |:--- |:--- |:--- |
-|  | Stan listy (opcja wyświetlania) | Link musi prowadzić do korzystania z *wersji próbnej* klienta. | Dostępne są również inne opcje wyświetlania listy (na przykład *Kup teraz*). | 
+|  | Stan listy (opcja wyświetlania) | Link musi prowadzić do korzystania z *wersji próbnej* klienta. | Dostępne są również inne opcje wyświetlania listy (na przykład *Kup teraz* ). | 
 |||
 
 ## <a name="saas-application-requirements"></a>Wymagania dotyczące aplikacji SaaS
@@ -48,7 +48,7 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | Nie. | Element list | Wymagania podstawowe | Optymalne wymagania | 
 |:--- |:--- |:--- |:--- |
 | 1 | Tytuł oferty |<ul><li>Musi zawierać tylko małe litery, znaki alfanumeryczne, łączniki i podkreślenia. Nie można zmodyfikować tytułu po jego opublikowaniu.</li><li>Opisuje ofertę rozwiązania.</li><li>Dopasowuje promocję rozwiązania w trybie online w witrynie sieci Web partnera. | Zawiera słowa wyszukiwania klucza. |
-| 2 | Informacje techniczne: Konfiguracja |<ul><li>W przypadku aplikacji oprogramowanie jako usługa (SaaS) wybierz, czy chcesz tylko wyświetlać listę aplikacji, czy zezwolić klientom na kupowanie aplikacji za pomocą platformy Azure.</li><li>Zaznacz tekst, który ma być dostępny na przycisku pozyskiwania oferty: *bezpłatna*, *bezpłatna wersja próbna*lub *skontaktuj się z*nami.</li><li>W oknie podręcznym wybierz tylko jeden odpowiedni produkt, jeśli aplikacja korzysta z technologii: Cortana Intelligence, Power BI szablony rozwiązań lub aplikacje zaawansowane. |  |
+| 2 | Informacje techniczne: Konfiguracja |<ul><li>W przypadku aplikacji oprogramowanie jako usługa (SaaS) wybierz, czy chcesz tylko wyświetlać listę aplikacji, czy zezwolić klientom na kupowanie aplikacji za pomocą platformy Azure.</li><li>Zaznacz tekst, który ma być dostępny na przycisku pozyskiwania oferty: *bezpłatna* , *bezpłatna wersja próbna* lub *skontaktuj się z* nami.</li><li>W oknie podręcznym wybierz tylko jeden odpowiedni produkt, jeśli aplikacja korzysta z technologii: Cortana Intelligence, Power BI szablony rozwiązań lub aplikacje zaawansowane. |  |
 | 3 | Wersja testowa | Wybierz opcję *Tak* lub *Nie* | Klient może łatwo zrozumieć, co to są następujące czynności: <ol><li>Wypróbuj wersję próbną.</li><li>Kup teraz.</li><li>Skontaktuj się z pośrednictwem poczty e-mail lub numeru telefonu, aby uzgodnić koncepcji, oceny lub skrócić.</li></ol> |
 | 4 | Szczegóły sklepu online: Podsumowanie oferty | Pojawia się na stronie wyszukiwania aplikacji i zawiera maksymalnie 100 znaków. | |
 | 5 | Szczegóły sklepu online: branże | Branże (maks. 2): Wybierz branże, dla których aplikacja jest Najlepsza i która ma zastosowanie. | |
@@ -78,20 +78,20 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | 2 | Opis oferty  |<ul><li>Upewnij się, że odpowiednie użycie [nazw produktów firmy Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Oferty oznaczone jako *Cena: Szacowana* musi mieć uwagi na górze lub u dołu, aby wyjaśnić zmienność (podróż do klienta, liczbę migrowanych serwerów itp.).</li><li>Każdy typ oferty ma wymagania dotyczące opisu w następujący sposób: <ul><li>Niektóre z nich muszą zawierać co najmniej cztery punktory i informacje o tematach, które mają być objęte pomocą.</li><li>Wszystkie warsztaty wymagają planu.</li><li>Wszystkie agendy muszą być podzielone na dzień lub przez tydzień, w zależności od czasu trwania warsztatu.</li><li>Oceny, ZK, warsztaty nieszkoleniowe i wdrożenia wymagają elementów dostarczanych.</li><li>Warsztaty szkoleniowe nie potrzebują elementów dostarczanych, ale potrzebują bardziej szczegółowego planu z tematami, które zostaną omówione.</li></ul></ul> | <ul><li>Każda oferta ma plan i elementy dostarczane.</li><li>Oferta obejmuje akapit z kontekstem dotyczącym firmy dostarczającej usługę w górnej części.</li><li>Oferta zawiera akapit o wartości samej usługi jako górną sekcję. |
 | 3 | Formatowanie promocji  | Wszystkie oferty muszą używać formatowania promocji, aby oferta była prawidłowo renderowana, gdy zostanie przekonwertowana na format HTML.  |  |
 | 4 | Kategorie i branże | Kategorie nie są istotne. |  | 
-| 5 | Stan listy (opcja wyświetlania) | Automatycznie wymienione jako *kontakt ze mną*. |  | 
+| 5 | Stan listy (opcja wyświetlania) | Automatycznie wymienione jako *kontakt ze mną* . |  | 
 | 6 | Obsługa rozwiązań i pomoc  | Obsługa i pomoc nie są wymagane.  | | 
 | 7 | Dostępne są zasady ochrony prywatności i warunki użytkowania  |  Zasady lub warunki nie są wymagane.  | | 
 | 8 | Typy usług | Upewnij się, że typ usługi jest zgodny z tytułem. | |
 | 9 | Kompetencje | Musi mieć kompetencje co najmniej jedną z następujących czynności:<ul><li>Projektowanie aplikacji</li><li>Integracja aplikacji</li><li>Zarządzanie cyklem życia aplikacji</li><li>Platforma w chmurze<li>Analiza danych</li><li>Centrum danych</li><li>Platforma danych</li><li>DevOps |
 | 10 | Produkty | Muszą być produktami platformy Azure. | |
 | 11 | Kraj/region | Upewnij się, że kraj/region są zgodne z wybraną walutą. | |
-| 12 | Dowiedz się więcej  | <ul><li>Linki u dołu (w obszarze Opis, a nie linki w witrynie Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji o rozwiązaniu i są dostępne publicznie i są poprawnie wyświetlane.</li><li>Linki muszą mieć "przyjazną nazwę" i nie są wyświetlane jako nazwa pliku do pobrania. | |
+| 12 | Więcej tutaj  | <ul><li>Linki u dołu (w obszarze Opis, a nie linki w witrynie Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji o rozwiązaniu i są dostępne publicznie i są poprawnie wyświetlane.</li><li>Linki muszą mieć "przyjazną nazwę" i nie są wyświetlane jako nazwa pliku do pobrania. | |
 ||||
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Poznaj różne typy ofert w witrynie Azure Marketplace:
-  * [Aplikacje SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)
-  * [Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
-  * [Usługi konsultingowe](https://docs.microsoft.com/azure/marketplace/consulting-services)
-* [Określanie opcji publikowania](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+  * [Aplikacje SaaS](./plan-saas-offer.md)
+  * [Containers](./marketplace-containers.md)
+  * [Usługi konsultingowe](./consulting-services.md)
+* [Określanie opcji publikowania](./determine-your-listing-type.md)

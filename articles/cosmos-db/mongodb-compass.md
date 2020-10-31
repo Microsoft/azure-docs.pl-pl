@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: 2016f00249da9abfa2f0904b14d6a34298973f99
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c005c4fc15f7c7955a7254f386597eee01800da5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096618"
+ms.locfileid: "93126604"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Użyj MongoDB kompas do nawiązywania połączenia z interfejsem API usługi Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

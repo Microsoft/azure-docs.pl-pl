@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8eb042b214ba1e4aea1eda1c65996d55ddde216e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a23f44e60bd68e51c26cc6a0bbf3e85e64914135
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741877"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125771"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy
 
@@ -280,6 +280,62 @@ Zmienna `token_response` jest słownikiem zawierającym token i skojarzone metad
 ```
 
 Służy `token_response["accessToken"]` do pobierania tokenu uwierzytelniania. Zapoznaj się z [dokumentacją interfejsu API REST](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) , aby zapoznać się z przykładami dotyczącymi używania tokenu w celu wykonywania wywołań interfejsu API.
+
+#### <a name="java"></a>Java
+
+W języku Java Pobierz token okaziciela przy użyciu standardowego wywołania REST:
+
+```java
+String tenantId = "your-tenant-id";
+String clientId = "your-client-id";
+String clientSecret = "your-client-secret";
+String resourceManagerUrl = "https://management.azure.com";
+
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+
+HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
+HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+if (response.statusCode == 200)
+{
+     body = gson.fromJson(body, AuthenticationBody.class);
+
+    // ... etc ... 
+}
+// ... etc ...
+
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl){
+    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
+    String clientIdParam = String.format("client_id=%s", clientId);
+    String resourceParam = String.format("resource=%s", resourceManagerUrl);
+    String clientSecretParam = String.format("client_secret=%s", clientSecret);
+
+    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
+
+    HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create(authUrl))
+            .POST(HttpRequest.BodyPublishers.ofString(bodyString))
+            .build();
+    return request;
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
+}
+```
+
+Poprzedni kod powinien obsługiwać wyjątki i kody stanu inne niż `200 OK` , ale pokazuje wzorzec: 
+
+- Użyj identyfikatora klienta i klucza tajnego, aby sprawdzić, czy program powinien mieć dostęp
+- Użyj identyfikatora dzierżawy, aby określić, gdzie `login.microsoftonline.com` należy szukać
+- Użyj Azure Resource Manager jako źródła tokenu autoryzacji
 
 ## <a name="web-service-authentication"></a>Uwierzytelnianie usługi sieci Web
 

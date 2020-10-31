@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 6ef4d63e30aeceec9cba3ae97f69afa1c299ec65
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 37cbd1b05249c694aaaa4ff5196a3b6328ccda7f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742737"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126264"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Szybki Start: Tworzenie zadania Azure Stream Analytics przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -77,7 +77,7 @@ Poniższe bloki kodu interfejsu wiersza polecenia platformy Azure to polecenia p
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
     ```
 
-    Po utworzeniu centrum IoT Hub pobierz parametry połączenia tego centrum IoT Hub za pomocą polecenia [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest). Skopiuj całe parametry połączenia i zapisz je, ponieważ będą używane podczas dodawania centrum IoT Hub w danych wejściowych zadania usługi Stream Analytics.
+    Po utworzeniu centrum IoT Hub pobierz parametry połączenia tego centrum IoT Hub za pomocą polecenia [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest). Skopiuj całe parametry połączenia i zapisz je, ponieważ będą używane podczas dodawania centrum IoT Hub w danych wejściowych zadania usługi Stream Analytics.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
@@ -124,7 +124,7 @@ Poniższy blok kodu interfejsu wiersza polecenia platformy Azure tworzy konto us
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container). Klucz konta magazynu jest używany do autoryzacji operacji tworzenia kontenera. Aby uzyskać więcej informacji na temat autoryzacji operacji na danych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz temat [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](/azure/storage/common/authorize-data-operations-cli).
+3. Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container). Klucz konta magazynu jest używany do autoryzacji operacji tworzenia kontenera. Aby uzyskać więcej informacji na temat autoryzacji operacji na danych za pomocą interfejsu wiersza polecenia platformy Azure, zobacz temat [Autoryzuj dostęp do danych obiektu BLOB lub kolejki za pomocą interfejsu wiersza polecenia platformy Azure](../storage/common/authorize-data-operations-cli.md).
 
    ```azurecli
    az storage container create \

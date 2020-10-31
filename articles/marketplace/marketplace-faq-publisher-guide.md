@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026959"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126723"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
 
@@ -46,7 +46,7 @@ Aby dowiedzieć się więcej, zobacz [Microsoft Commercial Marketplace Hub](http
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Czy istnieje opłata za korzystanie z usługi Microsoft Commercial Marketplace?
 
-Nie, nie ma kosztu na publikowanie ofert w naszym portalu komercyjnym. Utrzymujemy niewielki odsetek sprzedaży jako opłata za transakcje i inwestując ją w program nagrody Marketplace, innowacje platformowe i komercyjne operacje na rynku. Ta opłata za transakcje jest zmniejszana w przypadku ofert zachęcani [usługi Azure IP współsprzedażowych](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) i płatnych ofert SaaS na AppSource, które są skojarzone z jedną aplikacją Microsoft Teams lub co najmniej dwoma dodatkami Microsoft 365 (Excel, PowerPoint, Word, Outlook i SharePoint).
+Nie, nie ma kosztu na publikowanie ofert w naszym portalu komercyjnym. Utrzymujemy niewielki odsetek sprzedaży jako opłata za transakcje i inwestując ją w program nagrody Marketplace, innowacje platformowe i komercyjne operacje na rynku. Ta opłata za transakcje jest zmniejszana w przypadku ofert zachęcani [usługi Azure IP współsprzedażowych](./marketplace-co-sell.md) i płatnych ofert SaaS na AppSource, które są skojarzone z jedną aplikacją Microsoft Teams lub co najmniej dwoma dodatkami Microsoft 365 (Excel, PowerPoint, Word, Outlook i SharePoint).
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Jak mogę utworzyć konto wydawcy w komercyjnej witrynie Microsoft Marketplace?
 
@@ -106,7 +106,7 @@ Istnieją cztery odpowiednie role zarządzające dostępem do Centrum partnerski
 
 Uprawnienia *administratora globalnego* usługi Azure Active Directory (Azure AD) są niezbędne do tworzenia nowych kont użytkowników lub zapraszania kont Gości w katalogu źródłowym. Centrum partnerskie stosuje usługę Azure AD do modelu tożsamości, a wystąpienie usługi Azure AD organizacji jest często zarządzane i kontrolowane przez zespoły IT lub Security.
 
-Aby dowiedzieć się więcej, zobacz [Przypisywanie ról i uprawnień użytkowników](https://docs.microsoft.com/partner-center/permissions-overview).
+Aby dowiedzieć się więcej, zobacz [Przypisywanie ról i uprawnień użytkowników](/partner-center/permissions-overview).
 
 ### <a name="do-customers-need-a-subscription-for-microsoft-azure-cloud-services"></a>Czy klienci muszą mieć subskrypcję usługi Microsoft Azure Cloud Services?
 

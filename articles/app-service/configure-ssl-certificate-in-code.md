@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: e791e4ca3481bc0aea931abe946751415f1e1614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4e184f827875ebebd40ab976ef63e77ee702d49
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311822"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126043"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Użyj certyfikatu TLS/SSL w kodzie w Azure App Service
 
@@ -31,7 +31,7 @@ Aby wykonać następujące czynności:
 
 W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>z menu po lewej stronie wybierz pozycję **App Services**  >  **\<app-name>** .
 
-W lewym panelu nawigacyjnym aplikacji wybierz pozycję **Ustawienia protokołu TLS/SSL**, a następnie wybierz pozycję **certyfikaty kluczy prywatnych (pfx)** lub **Certyfikaty klucza publicznego (CER)**.
+W lewym panelu nawigacyjnym aplikacji wybierz pozycję **Ustawienia protokołu TLS/SSL** , a następnie wybierz pozycję **certyfikaty kluczy prywatnych (pfx)** lub **Certyfikaty klucza publicznego (CER)** .
 
 Znajdź certyfikat, którego chcesz użyć, i Skopiuj odcisk palca.
 
@@ -49,10 +49,7 @@ Aby udostępnić wszystkie certyfikaty, ustaw wartość na `*` .
 
 ## <a name="load-certificate-in-windows-apps"></a>Ładowanie certyfikatu w aplikacjach systemu Windows
 
-`WEBSITE_LOAD_CERTIFICATES`Ustawienie aplikacji sprawia, że określone certyfikaty są dostępne dla aplikacji hostowanej w systemie Windows w magazynie certyfikatów systemu Windows, a lokalizacja zależy od [warstwy cenowej](overview-hosting-plans.md):
-
-- Warstwa **izolowana** — [Machine\My lokalny](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
-- Wszystkie inne warstwy — w [bieżącym User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
+`WEBSITE_LOAD_CERTIFICATES`Ustawienie aplikacji sprawia, że określone certyfikaty są dostępne dla aplikacji hostowanej w systemie Windows w magazynie certyfikatów systemu Windows, w [bieżącym User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
 W kodzie C# można uzyskać dostęp do certyfikatu za pomocą odcisku palca certyfikatu. Poniższy kod ładuje certyfikat z odciskiem palca `E661583E8FABEF4C0BEF694CBC41C28FB81CD870` .
 
@@ -151,7 +148,7 @@ Nazwa pliku certyfikatu jest odciskiem palca certyfikatu.
 > App Service wstrzyknąć ścieżki certyfikatu do kontenerów systemu Windows jako następujących zmiennych środowiskowych `WEBSITE_PRIVATE_CERTS_PATH` ,, `WEBSITE_INTERMEDIATE_CERTS_PATH` `WEBSITE_PUBLIC_CERTS_PATH` i `WEBSITE_ROOT_CERTS_PATH` . Lepiej jest odwoływać się do ścieżki certyfikatu ze zmiennymi środowiskowymi zamiast zakodowana ścieżkę certyfikatu, w przypadku zmiany ścieżek certyfikatów w przyszłości.
 >
 
-Ponadto [kontenery systemu Windows Server Core](configure-custom-container.md#supported-parent-images) ładują certyfikaty do magazynu certyfikatów automatycznie, w **LocalMachine\My**. Aby załadować certyfikaty, należy postępować zgodnie z tym samym wzorcem co [certyfikat ładowania w aplikacjach systemu Windows](#load-certificate-in-windows-apps). W przypadku kontenerów opartych na systemie Windows nano należy użyć podanych powyżej ścieżek plików do [załadowania certyfikatu bezpośrednio z pliku](#load-certificate-from-file).
+Ponadto [kontenery systemu Windows Server Core](configure-custom-container.md#supported-parent-images) ładują certyfikaty do magazynu certyfikatów automatycznie, w **LocalMachine\My** . Aby załadować certyfikaty, należy postępować zgodnie z tym samym wzorcem co [certyfikat ładowania w aplikacjach systemu Windows](#load-certificate-in-windows-apps). W przypadku kontenerów opartych na systemie Windows nano należy użyć podanych powyżej ścieżek plików do [załadowania certyfikatu bezpośrednio z pliku](#load-certificate-from-file).
 
 Poniższy kod w języku C# przedstawia sposób ładowania certyfikatu publicznego w aplikacji systemu Linux.
 

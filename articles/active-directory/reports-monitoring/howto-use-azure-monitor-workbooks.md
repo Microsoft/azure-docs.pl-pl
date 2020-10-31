@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76dc7693b1773038d610f9ed42eddad2c81e3eaf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226985"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126638"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Jak używać Azure Monitor skoroszytów dla raportów Azure Active Directory
 
@@ -83,15 +83,15 @@ Aby uzyskać dostęp do skoroszytów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Przejdź do **Azure Active Directory**  >  **monitorowanie**  >  **skoroszytów**. 
+1. Przejdź do **Azure Active Directory**  >  **monitorowanie**  >  **skoroszytów** . 
 
-1. Wybierz raport lub szablon lub na pasku narzędzi wybierz pozycję **Otwórz**. 
+1. Wybierz raport lub szablon lub na pasku narzędzi wybierz pozycję **Otwórz** . 
 
 ![Znajdowanie skoroszytów Azure Monitor w usłudze Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## <a name="sign-in-analysis"></a>Analiza logowania
 
-Aby uzyskać dostęp do skoroszytu analizy logowania, w sekcji **użycie** wybierz pozycję **logowania**. 
+Aby uzyskać dostęp do skoroszytu analizy logowania, w sekcji **użycie** wybierz pozycję **logowania** . 
 
 Ten skoroszyt zawiera następujące trendy dotyczące logowania:
 
@@ -128,7 +128,7 @@ Dla każdego trendu otrzymujesz podział według następujących kategorii:
 ## <a name="sign-ins-using-legacy-authentication"></a>Logowania przy użyciu starszego uwierzytelniania 
 
 
-Aby uzyskać dostęp do skoroszytu w celu logowania przy użyciu [starszego uwierzytelniania](../conditional-access/block-legacy-authentication.md), w sekcji **użycie** wybierz pozycję **logowania przy użyciu starszego uwierzytelniania**. 
+Aby uzyskać dostęp do skoroszytu w celu logowania przy użyciu [starszego uwierzytelniania](../conditional-access/block-legacy-authentication.md), w sekcji **użycie** wybierz pozycję **logowania przy użyciu starszego uwierzytelniania** . 
 
 Ten skoroszyt zawiera następujące trendy dotyczące logowania:
 
@@ -159,7 +159,7 @@ Dla każdego trendu można uzyskać Podział według aplikacji i protokołu.
 ## <a name="sign-ins-by-conditional-access"></a>Logowania przez dostęp warunkowy 
 
 
-Aby uzyskać dostęp do skoroszytu w przypadku logowania za pomocą [zasad dostępu warunkowego](../conditional-access/overview.md), w sekcji **dostęp warunkowy** wybierz pozycję **logowania przez dostęp warunkowy**. 
+Aby uzyskać dostęp do skoroszytu w przypadku logowania za pomocą [zasad dostępu warunkowego](../conditional-access/overview.md), w sekcji **dostęp warunkowy** wybierz pozycję **logowania przez dostęp warunkowy** . 
 
 Ten skoroszyt zawiera trendy dotyczące wyłączonych logowań. Każdy trend można filtrować według następujących kategorii:
 
@@ -174,7 +174,7 @@ Ten skoroszyt zawiera trendy dotyczące wyłączonych logowań. Każdy trend mo�
 
 W przypadku wyłączonych logowań otrzymujesz podział według stanu dostępu warunkowego.
 
-![Stan dostępu warunkowego](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Zrzut ekranu przedstawia stan dostępu warunkowego i ostatnie logowania.](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 ## <a name="conditional-access-insights"></a>Szczegółowe informacje na temat dostępu warunkowego
@@ -194,12 +194,12 @@ Aby uzyskać dostęp do skoroszytu na potrzeby wglądu w szczegółowe dane, wyb
 
 - **Widok danych**
 
-![Stan dostępu warunkowego](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+![Zrzut ekranu przedstawia okienko dostęp warunkowy, w którym można wybrać zasady dostępu warunkowego.](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
 Podsumowanie wpływu pokazuje liczbę użytkowników lub logowań, dla których wybrane zasady miały określony wynik. Suma to liczba użytkowników lub logowania, dla których wybrane zasady zostały ocenione w wybranym zakresie czasu. Kliknij kafelek, aby odfiltrować dane w skoroszycie według tego typu wyniku. 
 
-![Stan dostępu warunkowego](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+![Zrzut ekranu przedstawia kafelki, które mają być używane do filtrowania wyników, takich jak całkowita, sukces i niepowodzenie.](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
 Ten skoroszyt pokazuje także wpływ wybranych zasad z podziałem na sześć warunków: 
 - **Stan urządzenia**
@@ -209,19 +209,15 @@ Ten skoroszyt pokazuje także wpływ wybranych zasad z podziałem na sześć war
 - **Lokalizacja**
 - **Aplikacje**
 
-![Stan dostępu warunkowego](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+![Zrzut ekranu przedstawia szczegóły z całkowitego filtru logowania.](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
 Możesz również zbadać poszczególne logowania, przefiltrowane według parametrów wybranych w skoroszycie. Wyszukaj poszczególnych użytkowników, posortowane według częstotliwości logowania i Wyświetl ich odpowiednie zdarzenia logowania. 
 
-![Stan dostępu warunkowego](./media/howto-use-azure-monitor-workbooks/filtered.png)
-
-
-
-
+![Zrzut ekranu przedstawia poszczególne logowania, które można przejrzeć.](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 ## <a name="sign-ins-by-grant-controls"></a>Operacje logowania przez przyznanie kontroli
 
-Aby uzyskać dostęp do skoroszytu w celu logowania przez [przyznanie kontroli](../conditional-access/controls.md), w sekcji **dostęp warunkowy** wybierz pozycję **logowania przez przyznanie kontrolek**. 
+Aby uzyskać dostęp do skoroszytu w celu logowania przez [przyznanie kontroli](../conditional-access/controls.md), w sekcji **dostęp warunkowy** wybierz pozycję **logowania przez przyznanie kontrolek** . 
 
 Ten skoroszyt zawiera następujące wyłączane trendy dotyczące logowania:
 
@@ -261,7 +257,7 @@ Użyj skoroszytu **analizy błędów logowania** , aby rozwiązać problemy z:
 - Starsza wersja uwierzytelniania 
 
 
-Aby uzyskać dostęp do logowania za pomocą danych dostępu warunkowego, w sekcji **Rozwiązywanie problemów** wybierz pozycję **logowania przy użyciu starszego uwierzytelniania**. 
+Aby uzyskać dostęp do logowania za pomocą danych dostępu warunkowego, w sekcji **Rozwiązywanie problemów** wybierz pozycję **logowania przy użyciu starszego uwierzytelniania** . 
 
 Ten skoroszyt zawiera następujące trendy dotyczące logowania:
 

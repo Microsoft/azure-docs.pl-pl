@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 3e5b747e55c8f246167bcf8bbde3542146e69706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea775ef472687485dbd2f30c4f60adc33c0eaa73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891953"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127352"
 ---
 # <a name="table-storage-output-from-azure-stream-analytics"></a>Dane wyjściowe magazynu tabel z Azure Stream Analytics
 
@@ -28,7 +28,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 | Nazwa tabeli |Nazwa tabeli. Tabela zostanie utworzona, jeśli nie istnieje. |
 | Klucz partycji |Nazwa kolumny wyjściowej zawierającej klucz partycji. Klucz partycji jest unikatowym identyfikatorem partycji w tabeli, która stanowi pierwszą część klucza podstawowego jednostki. Jest to wartość ciągu, która może mieć długość do 1 KB. |
 | Klucz wiersza |Nazwa kolumny wyjściowej zawierającej klucz wiersza. Klucz wiersza jest unikatowym identyfikatorem dla jednostki w ramach partycji. Stanowi on drugą część klucza podstawowego jednostki. Klucz wiersza jest wartością ciągu, która może mieć długość do 1 KB. |
-| Rozmiar partii |Liczba rekordów dla operacji wsadowych. Wartość domyślna (100) jest wystarczająca dla większości zadań. Aby uzyskać więcej informacji na temat modyfikowania tego ustawienia, zobacz [specyfikację operacji wsadowej tabeli](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) . |
+| Rozmiar partii |Liczba rekordów dla operacji wsadowych. Wartość domyślna (100) jest wystarczająca dla większości zadań. Aby uzyskać więcej informacji na temat modyfikowania tego ustawienia, zobacz [specyfikację operacji wsadowej tabeli](/java/api/com.microsoft.azure.storage.table.tablebatchoperation) . |
 
 ## <a name="partitioning"></a>Partycjonowanie
 

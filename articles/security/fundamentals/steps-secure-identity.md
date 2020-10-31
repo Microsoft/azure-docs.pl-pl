@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43974258008e3813a368ab31891251db15060aff
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364120"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127063"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Pięć kroków związanych z zabezpieczaniem infrastruktury tożsamości
 
@@ -145,7 +145,7 @@ Azure Active Directory ma wiele funkcji, które automatycznie przechwytuje ataki
 
 Ryzyko związane z użytkownikiem wskazuje, że prawdopodobieństwo naruszenia tożsamości użytkownika zostało naruszone i jest obliczane na podstawie [wykrycia ryzyka użytkownika](../../active-directory/identity-protection/overview.md) , które są skojarzone z tożsamością użytkownika. Zasady ryzyka dla użytkowników to zasady dostępu warunkowego, które szacują poziom ryzyka dla określonego użytkownika lub grupy. W oparciu o niski, średni i wysoki poziom ryzyka zasady można skonfigurować w taki sposób, aby blokować dostęp lub wymagały bezpiecznej zmiany hasła przy użyciu usługi uwierzytelniania wieloskładnikowego. Zalecenie firmy Microsoft to wymaganie bezpiecznej zmiany hasła dla użytkowników na wysokim ryzyku.
 
-![Użytkownicy oflagowani w związku z ryzykiem](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![Zrzut ekranu przedstawia użytkowników oflagowanych w celu ryzyka z wybranym użytkownikiem.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Implementowanie zasad dotyczących ryzyka związanego z logowaniem przy użyciu Azure AD Identity Protection
 
@@ -175,7 +175,7 @@ Azure AD Identity Protection oferuje dwa ważne raporty, które należy monitoro
 1. Ryzykowne raporty logowania to działania związane z logowaniem użytkownika, które należy zbadać, ale uprawniony właściciel może nie wykonać logowania.
 2. Ryzykowne raporty użytkowników to konta użytkowników, które mogły zostać naruszone, takie jak wykryto wycieki poświadczenia lub użytkownik zalogowany z różnych lokalizacji powodujących niepowodzenie podróży.
 
-![Użytkownicy oflagowani w związku z ryzykiem](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![Zrzut ekranu przedstawia okienko Ochrona tożsamości Azure A D z użytkownikami i ich poziomami ryzyka.](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Inspekcja aplikacji i przyzwoleń do nich
 

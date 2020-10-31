@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 849f25f6fdd3fef2e1ebca7dae397d96e6849f10
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 921c3b8afdb6b196e001cdb7c190529e6238c1f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748849"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127097"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Samouczek: Używanie odwołań Key Vault w aplikacji ze sprężyną Java
 
@@ -51,7 +51,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 1. Wybierz opcję **Utwórz zasób** w lewym górnym rogu Azure Portal:
 
-    ![Dane wyjściowe po zakończeniu tworzenia magazynu kluczy](./media/quickstarts/search-services.png)
+    ![Zrzut ekranu przedstawia opcję Utwórz zasób w Azure Portal.](./media/quickstarts/search-services.png)
 1. W polu wyszukiwania wprowadź **Key Vault** .
 1. Z listy wyników wybierz pozycję **magazyny kluczy** po lewej stronie.
 1. W obszarze **magazyny kluczy** wybierz pozycję **Dodaj** .
@@ -65,7 +65,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 W tym momencie Twoje konto platformy Azure jest jedynym autoryzowanym dostępem do tego nowego magazynu.
 
-![Dane wyjściowe po zakończeniu tworzenia magazynu kluczy](./media/quickstarts/vault-properties.png)
+![Zrzut ekranu przedstawia Twój Magazyn kluczy.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Dodawanie wpisu tajnego do usługi Key Vault
 
@@ -82,7 +82,7 @@ Aby dodać wpis tajny do magazynu, należy wykonać zaledwie kilka dodatkowych k
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Dodaj odwołanie Key Vault do konfiguracji aplikacji
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby** , a następnie wybierz wystąpienie magazynu konfiguracji aplikacji utworzone w ramach przewodnika Szybki Start.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie zasoby** , a następnie wybierz wystąpienie magazynu konfiguracji aplikacji utworzone w ramach przewodnika Szybki Start.
 
 1. Wybierz pozycję **Eksplorator konfiguracji** .
 

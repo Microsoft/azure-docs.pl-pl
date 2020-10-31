@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
-ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfa5d77077b8827bed1cbd8c7a46a5dbf361f139
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488613"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125720"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Utwórz stronę docelową oferty bezpłatnej usługi SaaS lub wersji próbnej na komercyjnej platformie Marketplace
 
@@ -43,23 +43,23 @@ Poniższe sekcje tego artykułu przeprowadzą Cię przez proces tworzenia strony
 
 ## <a name="create-an-azure-ad-app-registration"></a>Tworzenie rejestracji aplikacji usługi Azure AD
 
-Komercyjna witryna Marketplace jest w pełni zintegrowana z usługą Azure AD. Użytkownicy docierają do portalu Marketplace uwierzytelnionego za pomocą [konta usługi Azure AD lub konto Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Po uzyskaniu bezpłatnej lub bezpłatnej subskrypcji próbnej za pośrednictwem oferty z jedyną listą użytkownik przechodzi z komercyjnej witryny Marketplace do adresu URL strony docelowej w celu aktywowania i zarządzania subskrypcją aplikacji SaaS. Musisz pozwolić użytkownikom na logowanie się do aplikacji za pomocą logowania jednokrotnego usługi Azure AD. (Adres URL strony docelowej jest określony na stronie [konfiguracji technicznej](plan-saas-offer.md#technical-information) oferty.
+Komercyjna witryna Marketplace jest w pełni zintegrowana z usługą Azure AD. Użytkownicy docierają do portalu Marketplace uwierzytelnionego za pomocą [konta usługi Azure AD lub konto Microsoft (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Po uzyskaniu bezpłatnej lub bezpłatnej subskrypcji próbnej za pośrednictwem oferty z jedyną listą użytkownik przechodzi z komercyjnej witryny Marketplace do adresu URL strony docelowej w celu aktywowania i zarządzania subskrypcją aplikacji SaaS. Musisz pozwolić użytkownikom na logowanie się do aplikacji za pomocą logowania jednokrotnego usługi Azure AD. (Adres URL strony docelowej jest określony na stronie [konfiguracji technicznej](plan-saas-offer.md#technical-information) oferty.
 
 Pierwszym krokiem do korzystania z tożsamości jest upewnienie się, że strona docelowa jest zarejestrowana jako aplikacja usługi Azure AD. Zarejestrowanie aplikacji pozwala używać usługi Azure AD do uwierzytelniania użytkowników i żądania dostępu do zasobów użytkownika. Może być uważana za definicję aplikacji, która pozwala usłudze poznać, jak wystawiać tokeny dla aplikacji na podstawie ustawień aplikacji.
 
 ### <a name="register-a-new-application-using-the-azure-portal"></a>Rejestrowanie nowej aplikacji w witrynie Azure Portal
 
-Aby rozpocząć, postępuj zgodnie z instrukcjami dotyczącymi [rejestrowania nowej aplikacji](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Aby umożliwić użytkownikom z innych firm, odwiedzanie aplikacji, musisz wybrać **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępne) i osobiste konta Microsoft (na przykład Skype lub Xbox)** , gdy zostanie wyświetlony monit, kto może korzystać z aplikacji.
+Aby rozpocząć, postępuj zgodnie z instrukcjami dotyczącymi [rejestrowania nowej aplikacji](../active-directory/develop/quickstart-register-app.md). Aby umożliwić użytkownikom z innych firm, odwiedzanie aplikacji, musisz wybrać **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępne) i osobiste konta Microsoft (na przykład Skype lub Xbox)** , gdy zostanie wyświetlony monit, kto może korzystać z aplikacji.
 
-Jeśli zamierzasz wykonać zapytanie dotyczące interfejsu API Microsoft Graph, [Skonfiguruj nową aplikację w celu uzyskiwania dostępu do interfejsów API sieci Web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). Po wybraniu uprawnień interfejsu API dla tej aplikacji domyślna wartość **User. Read** jest wystarczająca do zebrania podstawowych informacji o użytkowniku, aby proces dołączania był bezproblemowy i automatyczny. Nie Żądaj żadnych uprawnień interfejsu API oznaczonych jako **wymagające zgody administratora**, ponieważ spowoduje to zablokowanie na stronie docelowej wszystkich użytkowników niebędących administratorami.
+Jeśli zamierzasz wykonać zapytanie dotyczące interfejsu API Microsoft Graph, [Skonfiguruj nową aplikację w celu uzyskiwania dostępu do interfejsów API sieci Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md). Po wybraniu uprawnień interfejsu API dla tej aplikacji domyślna wartość **User. Read** jest wystarczająca do zebrania podstawowych informacji o użytkowniku, aby proces dołączania był bezproblemowy i automatyczny. Nie Żądaj żadnych uprawnień interfejsu API oznaczonych jako **wymagające zgody administratora** , ponieważ spowoduje to zablokowanie na stronie docelowej wszystkich użytkowników niebędących administratorami.
 
-Jeśli użytkownik wymaga podniesionych uprawnień w ramach procesu dołączania lub inicjowania obsługi administracyjnej, należy rozważyć użycie funkcji [przyrostowej zgody](https://aka.ms/incremental-consent) usługi Azure AD, aby wszyscy użytkownicy, którzy otrzymali z portalu Marketplace, mogli początkowo interaktywnie korzystać ze strony docelowej.
+Jeśli użytkownik wymaga podniesionych uprawnień w ramach procesu dołączania lub inicjowania obsługi administracyjnej, należy rozważyć użycie funkcji [przyrostowej zgody](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) usługi Azure AD, aby wszyscy użytkownicy, którzy otrzymali z portalu Marketplace, mogli początkowo interaktywnie korzystać ze strony docelowej.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Użyj przykładu kodu jako punktu początkowego
 
 Firma Microsoft udostępniła kilka przykładowych aplikacji, które implementują prostą witrynę sieci Web z włączonym logowaniem usługi Azure AD. Po zarejestrowaniu aplikacji w usłudze Azure AD blok **szybkiego startu** oferuje listę typowych typów aplikacji i stosów programowania (rysunek 1). Wybierz ten, który odpowiada Twojemu środowisku, i postępuj zgodnie z instrukcjami dotyczącymi pobierania i konfigurowania.
 
-***Rysunek 1. blok szybki start w Azure Portal***
+**_Rysunek 1. blok szybki start w Azure Portal_* _
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Ilustruje blok szybkiego startu w Azure Portal.":::
 
@@ -67,7 +67,7 @@ Po pobraniu kodu i skonfigurowaniu środowiska programistycznego Zmień ustawien
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Odczytaj informacje z oświadczeń zakodowanych w tokenie identyfikatora
 
-W ramach przepływu [połączenia OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) usługa Azure AD dodaje [token identyfikatora](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) do żądania, gdy użytkownik jest wysyłany do strony docelowej. Ten token zawiera wiele podstawowych informacji, które mogą być przydatne w procesie aktywacji, w tym informacje widoczne w tej tabeli.
+W ramach przepływu [połączenia OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) usługa Azure AD dodaje [token identyfikatora](../active-directory/develop/id-tokens.md) do żądania, gdy użytkownik jest wysyłany do strony docelowej. Ten token zawiera wiele podstawowych informacji, które mogą być przydatne w procesie aktywacji, w tym informacje widoczne w tej tabeli.
 
 | Wartość | Opis |
 | ------------ | ------------- |
@@ -82,7 +82,7 @@ W ramach przepływu [połączenia OpenID Connect](https://docs.microsoft.com/azu
 
 ## <a name="use-the-microsoft-graph-api"></a>Korzystanie z interfejsu API programu Microsoft Graph
 
-Token identyfikatora zawiera podstawowe informacje umożliwiające zidentyfikowanie użytkownika, ale proces aktywacji może wymagać dodatkowych szczegółów, takich jak firma użytkownika — w celu ukończenia procesu dołączania. Użyj [interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) , aby zażądać tych informacji, aby uniknąć wymuszania wprowadzania tych szczegółów przez użytkownika. Uprawnienia **użytkownika standardowego. odczyt** domyślnie zawierają następujące informacje:
+Token identyfikatora zawiera podstawowe informacje umożliwiające zidentyfikowanie użytkownika, ale proces aktywacji może wymagać dodatkowych szczegółów, takich jak firma użytkownika — w celu ukończenia procesu dołączania. Użyj [interfejsu API Microsoft Graph](/graph/use-the-api) , aby zażądać tych informacji, aby uniknąć wymuszania wprowadzania tych szczegółów przez użytkownika. Standardowe _ *użytkownika. odczyt* * uprawnienia zawierają domyślnie następujące informacje:
 
 | Wartość | Opis |
 | ------------ | ------------- |
@@ -95,9 +95,9 @@ Token identyfikatora zawiera podstawowe informacje umożliwiające zidentyfikowa
 | surname | Nazwisko użytkownika. |
 |||
 
-Dodatkowe właściwości — takie jak nazwa firmy użytkownika lub lokalizacja użytkownika (kraj) — można wybrać do uwzględnienia w żądaniu. Aby uzyskać więcej informacji, zobacz [właściwości typu zasobu użytkownika](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties).
+Dodatkowe właściwości — takie jak nazwa firmy użytkownika lub lokalizacja użytkownika (kraj) — można wybrać do uwzględnienia w żądaniu. Aby uzyskać więcej informacji, zobacz [właściwości typu zasobu użytkownika](/graph/api/resources/user?view=graph-rest-1.0#properties).
 
-Większość aplikacji, które są zarejestrowane w usłudze Azure AD, przyznaje delegowane uprawnienia do odczytu informacji o użytkowniku z dzierżawy usługi Azure AD swojej firmy. Każdemu żądaniu do Microsoft Graph informacji musi towarzyszyć token dostępu jako uwierzytelnianie. Określone kroki w celu wygenerowania tokenu dostępu będą zależeć od stosu technologii, który jest używany, ale przykładowy kod będzie zawierać przykład. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu w imieniu użytkownika](https://docs.microsoft.com/graph/auth-v2-user).
+Większość aplikacji, które są zarejestrowane w usłudze Azure AD, przyznaje delegowane uprawnienia do odczytu informacji o użytkowniku z dzierżawy usługi Azure AD swojej firmy. Każdemu żądaniu do Microsoft Graph informacji musi towarzyszyć token dostępu jako uwierzytelnianie. Określone kroki w celu wygenerowania tokenu dostępu będą zależeć od stosu technologii, który jest używany, ale przykładowy kod będzie zawierać przykład. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu w imieniu użytkownika](/graph/auth-v2-user).
 
 > [!NOTE]
 > Konta z dzierżawy MSA (z IDENTYFIKATORem dzierżawy `9188040d-6c67-4c5b-b112-36a304b66dad` ) nie zwracają więcej informacji, niż została już zebrana z tokenem ID. Możesz pominąć to wywołanie w interfejs API programu Graph dla tych kont.

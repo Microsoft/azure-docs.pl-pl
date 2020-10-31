@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 46adbfee24ab463acdc4687c0465bbf50527a329
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f681c6c453c9c0955092c4f1574a54ea2c9973f5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790648"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126655"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Wzorce aplikacji i strategie programowania dla SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -191,11 +191,11 @@ Na poniższym diagramie przedstawiono scenariusz lokalny i rozwiązanie z obsłu
 
 Jak pokazano na diagramie, Azure Load Balancer dystrybuuje ruch między wieloma maszynami wirtualnymi, a także określa serwer sieci Web lub serwer aplikacji, z którymi ma zostać nawiązane połączenie. Posiadanie wielu wystąpień serwerów sieci Web i aplikacji za modułem równoważenia obciążenia zapewnia wysoką dostępność warstwy prezentacji i warstwy biznesowej. Aby uzyskać więcej informacji, zobacz [najlepsze rozwiązania dotyczące wzorców aplikacji wymagających programu SQL HADR Cluster](#best-practices-for-application-patterns-requiring-sql-hadr).
 
-![Wzorce aplikacji z Cloud Services](./media/application-patterns-development-strategies/IC728013.png)
+![Diagram przedstawia lokalne maszyny fizyczne lub wirtualne połączone z wystąpieniami roli sieci Web w sieci wirtualnej platformy Azure za pomocą modułu równoważenia obciążenia platformy Azure.](./media/application-patterns-development-strategies/IC728013.png)
 
 Innym podejściem do implementowania tego wzorca aplikacji jest użycie skonsolidowanej roli sieci Web, która zawiera zarówno składniki prezentacji, jak i warstwy biznesowej, jak pokazano na poniższym diagramie. Ten wzorzec aplikacji jest przydatny w przypadku aplikacji wymagających projektu stanowego. Ponieważ platforma Azure udostępnia bezstanowe węzły obliczeniowe w roli sieć Web i proces roboczy, zalecamy wdrożenie logiki do przechowywania stanu sesji przy użyciu jednej z następujących technologii: [buforowanie platformy Azure](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [azure Table Storage](../../../cosmos-db/tutorial-develop-table-dotnet.md) lub [Azure SQL Database](../../database/sql-database-paas-overview.md).
 
-![Wzorce aplikacji z Cloud Services](./media/application-patterns-development-strategies/IC728014.png)
+![Diagram przedstawia lokalne maszyny fizyczne lub wirtualne połączone z skonsolidowanymi wystąpieniami roli sieci Web/procesu roboczego w sieci wirtualnej platformy Azure.](./media/application-patterns-development-strategies/IC728014.png)
 
 ## <a name="pattern-with-azure-virtual-machines-azure-sql-database-and-azure-app-service-web-apps"></a>Wzorzec z usługą Azure Virtual Machines, Azure SQL Database i Azure App Service (Web Apps)
 Głównym celem tego wzorca aplikacji jest przedstawienie sposobu łączenia składników infrastruktury platformy Azure jako usługi (IaaS) z składnikami platformy platformy Azure jako usługi (PaaS) w rozwiązaniu. Ten wzorzec koncentruje się na Azure SQL Database dla magazynu danych relacyjnych. Nie obejmuje SQL Server na maszynie wirtualnej platformy Azure, która jest częścią infrastruktury platformy Azure jako oferty usługi.

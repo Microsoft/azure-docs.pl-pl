@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbedb20d9e5c75fd49c08950bbf5d459130206ce
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495152"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125873"
 ---
 # <a name="http-application-routing"></a>Routing aplikacji protokołu HTTP
 
@@ -26,8 +26,8 @@ Gdy dodatek jest włączony, tworzy strefę DNS w Twojej subskrypcji. Aby uzyska
 
 Dodatek wdraża dwa składniki: kontroler transferu danych przychodzących [Kubernetes][ingress] i [zewnętrzny kontroler DNS][external-dns] .
 
-- **Kontroler**ruchu przychodzącego: kontroler transferu danych przychodzących jest dostępny dla Internetu za pomocą usługi Kubernetes typu modułu równoważenia obciążenia. Kontroler transferu danych przychodzących służy do obserwowania i implementowania [zasobów Kubernetes][ingress-resource], które tworzą trasy do punktów końcowych aplikacji.
-- **Kontroler zewnętrzny DNS**: czujki dla zasobów przychodzących Kubernetes i tworzy rekordy A systemu DNS w strefie DNS specyficznej dla klastra.
+- **Kontroler** ruchu przychodzącego: kontroler transferu danych przychodzących jest dostępny dla Internetu za pomocą usługi Kubernetes typu modułu równoważenia obciążenia. Kontroler transferu danych przychodzących służy do obserwowania i implementowania [zasobów Kubernetes][ingress-resource], które tworzą trasy do punktów końcowych aplikacji.
+- **Kontroler zewnętrzny DNS** : czujki dla zasobów przychodzących Kubernetes i tworzy rekordy A systemu DNS w strefie DNS specyficznej dla klastra.
 
 ## <a name="deploy-http-routing-cli"></a>Wdrażanie routingu HTTP: interfejs wiersza polecenia
 
@@ -78,7 +78,7 @@ Jeśli korzystasz z usługi Azure Cloud Shell, narzędzie `kubectl` jest już za
 az aks install-cli
 ```
 
-Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials][]. Poniższy przykład pobiera poświadczenia dla klastra AKS o nazwie *MyAKSCluster* w liście *zasobów*:
+Aby skonfigurować narzędzie `kubectl` w celu nawiązania połączenia z klastrem Kubernetes, użyj polecenia [az aks get-credentials][]. Poniższy przykład pobiera poświadczenia dla klastra AKS o nazwie *MyAKSCluster* w liście *zasobów* :
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
@@ -112,7 +112,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -173,7 +173,7 @@ Rozwiązanie do routingu HTTP można usunąć za pomocą interfejsu wiersza pole
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-Gdy dodatek routingu aplikacji protokołu HTTP jest wyłączony, niektóre zasoby Kubernetes mogą pozostać w klastrze. Te zasoby obejmują *configMaps* i wpisy *tajne*i są tworzone w przestrzeni nazw *polecenia-system* . Aby zachować czysty klaster, możesz chcieć usunąć te zasoby.
+Gdy dodatek routingu aplikacji protokołu HTTP jest wyłączony, niektóre zasoby Kubernetes mogą pozostać w klastrze. Te zasoby obejmują *configMaps* i wpisy *tajne* i są tworzone w przestrzeni nazw *polecenia-system* . Aby zachować czysty klaster, możesz chcieć usunąć te zasoby.
 
 Poszukaj *dodatków-http-Application-Routing* zasobów przy użyciu następujących poleceń [polecenia kubectl Get][kubectl-get] :
 

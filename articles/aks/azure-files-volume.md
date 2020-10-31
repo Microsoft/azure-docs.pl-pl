@@ -5,12 +5,12 @@ description: Dowiedz się, jak ręcznie utworzyć wolumin z Azure Files na potrz
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 227b592a2384d82fde78258a97ede9d318aaaf40
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 89976211763f5d4729718c4e4c6503650f27f7cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900428"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126277"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Ręczne tworzenie i używanie woluminu z udziałem Azure Files w usłudze Azure Kubernetes Service (AKS)
 
@@ -110,7 +110,7 @@ Masz teraz działającą aplikację pod kątem udziału Azure Files zainstalowan
 Containers:
   mypod:
     Container ID:   docker://86d244cfc7c4822401e88f55fd75217d213aa9c3c6a3df169e76e8e25ed28166
-    Image:          nginx:1.15.5
+    Image:          mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     Image ID:       docker-pullable://nginx@sha256:9ad0746d8f2ea6df3a17ba89eca40b48c47066dfab55a75e08e2b70fc80d929e
     State:          Running
       Started:      Sat, 02 Mar 2019 00:05:47 +0000
@@ -161,7 +161,7 @@ spec:
 
 W przypadku korzystania z klastra w wersji 1.8.0-1.8.4 kontekstu zabezpieczeń można określić z wartością *runAsUser* ustawioną na *0* . Aby uzyskać więcej informacji na temat kontekstu zabezpieczeń pod, zobacz [Konfigurowanie kontekstu zabezpieczeń][kubernetes-security-context].
 
-Aby zaktualizować opcje instalacji, Utwórz plik *azurefile-Mount-Options-wa. YAML* z *PersistentVolume* . Na przykład:
+Aby zaktualizować opcje instalacji, Utwórz plik *azurefile-Mount-Options-wa. YAML* z *PersistentVolume* . Przykład:
 
 ```yaml
 apiVersion: v1
@@ -187,7 +187,7 @@ spec:
   - nobrl
 ```
 
-Utwórz plik *azurefile-Mount-Options-PVC. YAML* z *PersistentVolumeClaim* , który używa *PersistentVolume* . Na przykład:
+Utwórz plik *azurefile-Mount-Options-PVC. YAML* z *PersistentVolumeClaim* , który używa *PersistentVolume* . Przykład:
 
 ```yaml
 apiVersion: v1
@@ -219,7 +219,7 @@ NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 ```
 
-Zaktualizuj specyfikację kontenera, aby odwoływała się do *PersistentVolumeClaim* i zaktualizować pod. Na przykład:
+Zaktualizuj specyfikację kontenera, aby odwoływała się do *PersistentVolumeClaim* i zaktualizować pod. Przykład:
 
 ```yaml
 ...

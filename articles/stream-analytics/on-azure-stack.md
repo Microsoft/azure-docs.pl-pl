@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1fe035d99f8a5962406d5aae3f093d71d432b310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21cf432576829b575d70a94227f28df373a4d899
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88860984"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126162"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Uruchom Azure Stream Analytics na Azure Stack (wersja zapoznawcza)
 
@@ -34,11 +34,11 @@ Jeśli jesteś nowym do Azure Stack centrum lub IoT Edge, postępuj zgodnie z po
 
 ### <a name="prepare-the-azure-stack-hub-environment"></a>Przygotowanie środowiska Azure Stack Hub
 
-Utwórz subskrypcję centrum Azure Stack. Aby uzyskać więcej informacji, zobacz [Samouczek dotyczący tworzenia subskrypcji centrum Azure Stack.](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services/)
+Utwórz subskrypcję centrum Azure Stack. Aby uzyskać więcej informacji, zobacz [Samouczek dotyczący tworzenia subskrypcji centrum Azure Stack.](/azure-stack/user/azure-stack-subscribe-services/)
 
-Jeśli chcesz oszacować Azure Stack centrum na własnym serwerze, możesz użyć Azure Stack Development Kit (ASDK).  Aby uzyskać więcej informacji na temat ASDK, zobacz [Omówienie usługi ASDK](https://docs.microsoft.com/azure-stack/asdk/).
+Jeśli chcesz oszacować Azure Stack centrum na własnym serwerze, możesz użyć Azure Stack Development Kit (ASDK).  Aby uzyskać więcej informacji na temat ASDK, zobacz [Omówienie usługi ASDK](/azure-stack/asdk/).
 
-### <a name="install-the-iot-edge-runtime"></a>Zainstaluj środowisko uruchomieniowe IoT Edge
+### <a name="install-the-iot-edge-runtime"></a>Instalowanie środowiska uruchomieniowego usługi IoT Edge
 
 Aby można było uruchomić Azure Stream Analytics w centrum Azure Stack, urządzenie musi mieć IoT Edge środowisko uruchomieniowe i musi mieć łączność sieciową z koncentratorem Azure Stack lub być maszyną wirtualną działającą w centrum Azure Stack. Środowisko uruchomieniowe IoT Edge umożliwia Stream Analytics zadań brzegowych do integracji z usługą Azure Storage i usługą Azure Event Hubs działającą w centrum Azure Stack. Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics na urządzeniach IoT Edge](stream-analytics-edge.md) 
 
@@ -46,8 +46,8 @@ Oprócz dostępu sieciowego do zasobów centrum Azure Stack IoT Edge urządzenie
 
 W poniższych przewodnikach pokazano, jak skonfigurować środowisko uruchomieniowe IoT Edge na urządzeniu lub maszynie wirtualnej:
 
-* [Install the Azure IoT Edge runtime on Windows (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemie Windows)](../iot-edge/how-to-install-iot-edge-windows.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](../iot-edge/how-to-install-iot-edge-linux.md)
+* [Install the Azure IoT Edge runtime on Windows (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemie Windows)](../iot-edge/how-to-install-iot-edge.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)](../iot-edge/how-to-install-iot-edge.md)
 
 
 ## <a name="create-an-azure-stream-analytics-edge-job"></a>Tworzenie zadania Azure Stream Analytics Edge
@@ -59,7 +59,7 @@ Zadania programu ASA Edge są uruchamiane w kontenerach wdrożonych na Azure IoT
 ### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
 W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na urządzeniu usługi IoT Edge musi być ono przechowywane w sposób umożliwiający wywoływanie go z urządzenia. Możesz użyć istniejącego konta usługi Azure Storage lub utworzyć nowe.
-1. W Azure Portal przejdź do obszaru **Tworzenie zasobu > magazynu > konto magazynu — obiekt BLOB, plik, tabela, kolejka**.
+1. W Azure Portal przejdź do obszaru **Tworzenie zasobu > magazynu > konto magazynu — obiekt BLOB, plik, tabela, kolejka** .
 2. Podaj następujące wartości, aby utworzyć konto magazynu:
 
    | Pole | Wartość |
@@ -67,36 +67,36 @@ W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na 
    | Nazwa | Wprowadź unikatową nazwę konta magazynu. |
    | Lokalizacja | Wybierz bliską lokalizację.|
    | Subskrypcja | Wybierz tę samą subskrypcję co używana dla centrum IoT Hub.|
-   | Grupa zasobów | Zalecamy używanie tej samej grupy zasobów dla wszystkich zasobów testowych, które tworzysz podczas [IoT Edge przewodników szybki start](https://docs.microsoft.com/azure/iot-edge/quickstart) i samouczków. Na przykład **IoTEdgeResources**. |
+   | Grupa zasobów | Zalecamy używanie tej samej grupy zasobów dla wszystkich zasobów testowych, które tworzysz podczas [IoT Edge przewodników szybki start](../iot-edge/quickstart.md) i samouczków. Na przykład **IoTEdgeResources** . |
 
-3. Zachowaj wartości domyślne dla pozostałych pól i wybierz pozycję **Utwórz**.
+3. Zachowaj wartości domyślne dla pozostałych pól i wybierz pozycję **Utwórz** .
 
 
 ### <a name="create-a-new-job"></a>Tworzenie nowego zadania
 
-1. W Azure Portal przejdź do pozycji **Tworzenie zasobu > Internet rzeczy > Stream Analytics zadanie**.
+1. W Azure Portal przejdź do pozycji **Tworzenie zasobu > Internet rzeczy > Stream Analytics zadanie** .
 2. Podaj następujące wartości, aby utworzyć konto magazynu:
 
    | Pole | Wartość |
    | --- | --- |
    | Nazwa zadania | Podaj nazwę zadania. Na przykład **IoTEdgeJob** |
    | Subskrypcja | Wybierz tę samą subskrypcję co używana dla centrum IoT Hub.|
-   | Grupa zasobów | Zalecamy używanie tej samej grupy zasobów dla wszystkich zasobów testowych, które tworzysz podczas [IoT Edge przewodników szybki start](https://docs.microsoft.com/azure/iot-edge/quickstart) i samouczków. Na przykład **IoTEdgeResources**. |
+   | Grupa zasobów | Zalecamy używanie tej samej grupy zasobów dla wszystkich zasobów testowych, które tworzysz podczas [IoT Edge przewodników szybki start](../iot-edge/quickstart.md) i samouczków. Na przykład **IoTEdgeResources** . |
    | Lokalizacja | Wybierz bliską lokalizację. |
-   | Środowisko hostingu | Wybierz pozycję **Edge**. |
+   | Środowisko hostingu | Wybierz pozycję **Edge** . |
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz** .
 
 ### <a name="configure-your-job"></a>Konfigurowanie zadania
 
 Po utworzeniu zadania usługi Stream Analytics w witrynie Azure Portal można je skonfigurować za pomocą danych wejściowych, danych wyjściowych i zapytania w celu uruchamiania na danych, które przez nie przechodzą. Możesz ręcznie określić dane wejściowe z IoT Hub lub centrum zdarzeń w ramach subskrypcji centrum Azure Stack.
 
 1. Przejdź do zadania usługi Stream Analytics w witrynie Azure Portal.
-2. W obszarze **Konfiguracja**wybierz pozycję **Ustawienia konta magazynu** i wybierz konto magazynu utworzone w poprzednim kroku.
+2. W obszarze **Konfiguracja** wybierz pozycję **Ustawienia konta magazynu** i wybierz konto magazynu utworzone w poprzednim kroku.
    > [!div class="mx-imgBorder"]
    > [![Ustawienie ](media/on-azure-stack/storage-account-settings.png) konta magazynu zadań](media/on-azure-stack/storage-account-settings.png#lightbox)
-3. W obszarze **topologia zadania**wybierz pozycję **wejścia** , a następnie **Dodaj dane wejściowe strumienia.**
-4. Z listy rozwijanej wybierz pozycję **IoT Hub**, **centrum zdarzeń**lub **centrum brzegowe** . 
+3. W obszarze **topologia zadania** wybierz pozycję **wejścia** , a następnie **Dodaj dane wejściowe strumienia.**
+4. Z listy rozwijanej wybierz pozycję **IoT Hub** , **centrum zdarzeń** lub **centrum brzegowe** . 
 5. Jeśli dane wejściowe są centrum zdarzeń lub IoT Hub w subskrypcji centrum Azure Stack, podaj informacje ręcznie, jak pokazano poniżej.
 
    #### <a name="event-hub"></a>Centrum zdarzeń
@@ -104,7 +104,7 @@ Po utworzeniu zadania usługi Stream Analytics w witrynie Azure Portal można je
    | Pole | Wartość |
    | --- | --- |
    | Alias danych wejściowych | Przyjazna nazwa używana w zapytaniu zadania do odwoływania się do tych danych wejściowych. |
-   | Service Bus przestrzeń nazw | Przestrzeń nazw jest kontenerem dla zestawu jednostek obsługi komunikatów. Podczas tworzenia nowego centrum zdarzeń należy również utworzyć przestrzeń nazw. (Przykład: *SB:// <Event Hub Name> . eventhub.Shanghai.azurestack.Corp.Microsoft.com*) |
+   | Service Bus przestrzeń nazw | Przestrzeń nazw jest kontenerem dla zestawu jednostek obsługi komunikatów. Podczas tworzenia nowego centrum zdarzeń należy również utworzyć przestrzeń nazw. (Przykład: *SB:// <Event Hub Name> . eventhub.Shanghai.azurestack.Corp.Microsoft.com* ) |
    | Nazwa centrum zdarzeń | Nazwa centrum zdarzeń do użycia jako dane wejściowe. |
    | Nazwa zasad centrum zdarzeń | Zasady dostępu współdzielonego zapewniające dostęp do centrum zdarzeń. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego dostarczania ustawień centrum zdarzeń. |
    | Klucz zasad centrum zdarzeń | Współużytkowany klucz dostępu używany do autoryzacji dostępu do centrum zdarzeń. Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego dostarczania ustawień centrum zdarzeń. Można je znaleźć w ustawieniach centrum zdarzeń. |
@@ -119,7 +119,7 @@ Po utworzeniu zadania usługi Stream Analytics w witrynie Azure Portal można je
    | Pole | Wartość |
    | --- | --- |
    | Alias danych wejściowych | Przyjazna nazwa używana w zapytaniu zadania do odwoływania się do tych danych wejściowych. |
-   | Usługa IoT Hub | Nazwa IoT Hub do użycia jako dane wejściowe. (Przykład:* <IoT Hub Name> . Shanghai.azurestack.Corp.Microsoft.com*) |
+   | Usługa IoT Hub | Nazwa IoT Hub do użycia jako dane wejściowe. (Przykład: *<IoT Hub Name> . Shanghai.azurestack.Corp.Microsoft.com* ) |
    | Nazwa zasad dostępu współdzielonego | Zasady dostępu współdzielonego zapewniające dostęp do IoT Hub. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. |
    | Klucz zasad dostępu współdzielonego | Współużytkowany klucz dostępu używany do autoryzacji dostępu do IoT Hub. Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego dostarczania ustawień Centrum IoT. |
    | Grupa konsumentów (opcjonalnie) | Zdecydowanie zaleca się użycie innej grupy odbiorców dla każdego zadania Stream Analytics. Grupa konsumentów służy do pozyskiwania danych z IoT Hub. Stream Analytics używa grupy konsumentów $Default, chyba że określisz inaczej. |
@@ -138,7 +138,7 @@ Po utworzeniu zadania usługi Stream Analytics w witrynie Azure Portal można je
    | Pole | Wartość |
    | --- | --- |
    | Alias danych wyjściowych | Przyjazna nazwa używana w zapytaniach do kierowania danych wyjściowych zapytania do tego centrum zdarzeń. |
-   | Service Bus przestrzeń nazw | Kontener dla zestawu jednostek obsługi komunikatów. Po utworzeniu nowego centrum zdarzeń można również utworzyć przestrzeń nazw usługi Service Bus. (Przykład: *SB:// <Event Hub Name> . eventhub.Shanghai.azurestack.Corp.Microsoft.com*) |
+   | Service Bus przestrzeń nazw | Kontener dla zestawu jednostek obsługi komunikatów. Po utworzeniu nowego centrum zdarzeń można również utworzyć przestrzeń nazw usługi Service Bus. (Przykład: *SB:// <Event Hub Name> . eventhub.Shanghai.azurestack.Corp.Microsoft.com* ) |
    | Nazwa centrum zdarzeń | Nazwa danych wyjściowych centrum zdarzeń. |
    | Nazwa zasad centrum zdarzeń | Zasady dostępu współdzielonego, które można utworzyć na karcie Konfiguracja centrum zdarzeń. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. |
    | Klucz zasad centrum zdarzeń | Współużytkowany klucz dostępu używany do uwierzytelniania dostępu do przestrzeni nazw centrum zdarzeń. |
@@ -151,7 +151,7 @@ Po utworzeniu zadania usługi Stream Analytics w witrynie Azure Portal można je
    | Pole | Wartość |
    | --- | --- |
    | Alias danych wyjściowych | Przyjazna nazwa używana w zapytaniach do kierowania danych wyjściowych zapytania do tego magazynu obiektów BLOB. |
-   | Konto magazynu | Nazwa konta magazynu, do którego wysyłane są dane wyjściowe. (Przykład: * <Storage Account Name> . blob.Shanghai.azurestack.Corp.Microsoft.com*) |
+   | Konto magazynu | Nazwa konta magazynu, do którego wysyłane są dane wyjściowe. (Przykład: *<Storage Account Name> . blob.Shanghai.azurestack.Corp.Microsoft.com* ) |
    | Klucz konta magazynu | Klucz tajny skojarzony z kontem magazynu. Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego dostarczania ustawień magazynu obiektów BLOB. |
 
 > [!NOTE]
@@ -161,14 +161,14 @@ Po utworzeniu zadania usługi Stream Analytics w witrynie Azure Portal można je
 ## <a name="deploy-stream-analytics-on-a-vm-or-device-connected-to-azure-stack"></a>Wdróż Stream Analytics na maszynie wirtualnej lub urządzeniu podłączonym do Azure Stack
 
 1. W Azure Portal Otwórz IoT Hub. Przejdź do **IoT Edge** i kliknij urządzenie (maszynę wirtualną), które ma być przeznaczone dla tego wdrożenia.
-2. Wybierz pozycję **Ustaw moduły**. Następnie wybierz pozycję **+ Dodaj** i wybierz **moduł Azure Stream Analytics**. 
-3. Wybierz subskrypcję i utworzone zadanie Edge analizy pary. Kliknij przycisk **Zapisz** i wybierz pozycję **Dalej: trasy**.
+2. Wybierz pozycję **Ustaw moduły** . Następnie wybierz pozycję **+ Dodaj** i wybierz **moduł Azure Stream Analytics** . 
+3. Wybierz subskrypcję i utworzone zadanie Edge analizy pary. Kliknij przycisk **Zapisz** i wybierz pozycję **Dalej: trasy** .
 
    > [!div class="mx-imgBorder"]
    > [![Dodaj moduły ](media/on-azure-stack/edge-modules.png)](media/on-azure-stack/edge-modules.png#lightbox)
 
-4. Kliknij przycisk **Przegląd + utwórz >**.
-5. W kroku **Przegląd + tworzenie** wybierz pozycję **Utwórz**. 
+4. Kliknij przycisk **Przegląd + utwórz >** .
+5. W kroku **Przegląd + tworzenie** wybierz pozycję **Utwórz** . 
    > [!div class="mx-imgBorder"]
    > [![Manifest ](media/on-azure-stack/module-content.png)](media/on-azure-stack/module-content.png#lightbox)
 6. Upewnij się, że moduł został dodany do listy.
@@ -176,5 +176,5 @@ Po utworzeniu zadania usługi Stream Analytics w witrynie Azure Portal można je
    > [![Strona ](media/on-azure-stack/edge-deployment.png) wdrożenia](media/on-azure-stack/edge-deployment.png#lightbox)
 
 ## <a name="next-steps"></a>Następne kroki
-- [Azure Stream Analytics na urządzeniach IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge)
-- [Opracowywanie zadań Stream Analytics Edge](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+- [Azure Stream Analytics na urządzeniach IoT Edge](./stream-analytics-edge.md)
+- [Opracowywanie zadań Stream Analytics Edge](/stream-analytics-query/stream-analytics-query-language-reference)

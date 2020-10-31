@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 35aff26eac3dd456db55204b662cb9b8a6bb9f2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7c16e3b991bffd9c6bbcc4759a07b9e122ef5b72
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672983"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125346"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Tworzenie i używanie aktywnej replikacji geograficznej — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ Domyślnie nadmiarowość magazynu kopii zapasowej pomocniczej jest taka sama ja
 > Szybkość dziennika transakcji na podstawowym może być ograniczona ze względu na niezwiązany z mniejszym rozmiarem obliczeń na pomocniczym. Ten rodzaj ograniczania może wystąpić nawet wtedy, gdy pomocniczy ma ten sam lub większy rozmiar obliczeniowy niż podstawowy. Aby uzyskać szczegółowe informacje, w tym typy oczekiwania dla różnych rodzajów ograniczania szybkości rejestrowania, zobacz temat [szybkość dziennika transakcji ładu](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> Azure SQL Database konfigurowalnej nadmiarowości magazynu kopii zapasowych jest obecnie ogólnie dostępna w regionie tylko Azji Południowo-Wschodnia. Gdy źródłowa baza danych jest tworzona z użyciem lokalnie nadmiarowej lub nadmiarowej nadmiarowości magazynu kopii zapasowych, tworzenie pomocniczej bazy danych w innym regionie platformy Azure nie jest obsługiwane. 
+> Azure SQL Database konfigurowalnej nadmiarowości magazynu kopii zapasowych jest obecnie dostępna w publicznej wersji zapoznawczej w Brazylii Południowej, a ogólnie dostępna w regionie tylko Azja Wschodnia. Gdy źródłowa baza danych jest tworzona z użyciem lokalnie nadmiarowej lub nadmiarowej nadmiarowości magazynu kopii zapasowych, tworzenie pomocniczej bazy danych w innym regionie platformy Azure nie jest obsługiwane. 
 
 Aby uzyskać więcej informacji na temat rozmiarów obliczeń SQL Database, zobacz [co to są SQL Database warstwy usług](purchasing-models.md).
 
