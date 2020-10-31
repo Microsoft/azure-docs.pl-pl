@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: aed0c83bfa61f6afdbdcca3c10dbd5fac3f823d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b41677d1e4f3ba3889472a3fb9bd6c6a9db4c0a8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458182"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123374"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Korzystanie z przetwarzanie równoległe zapytań w Azure Stream Analytics
 W tym artykule pokazano, jak korzystać z przetwarzanie równoległe w Azure Stream Analytics. Dowiesz się, jak skalować Stream Analytics zadania przez skonfigurowanie partycji wejściowych i dostrajanie definicji zapytania analitycznego.
@@ -22,7 +22,7 @@ Jako warunek wstępny warto zapoznać się z pojęciem jednostki przesyłania st
 Definicja zadania Stream Analytics obejmuje co najmniej jedno dane wejściowe przesyłania strumieniowego, zapytanie i dane wyjściowe. Dane wejściowe to miejsce, z którego zadanie odczytuje strumień danych. Zapytanie służy do przekształcania strumienia danych wejściowych, a dane wyjściowe to miejsce, w którym zadanie wysyła wyniki zadania do.
 
 ## <a name="partitions-in-inputs-and-outputs"></a>Partycje w danych wejściowych i wyjściowych
-Partycjonowanie pozwala podzielić dane na podzestawy w oparciu o [klucz partycji](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions). Jeśli dane wejściowe (na przykład Event Hubs) są podzielone na partycje za pomocą klucza, zdecydowanie zaleca się określenie tego klucza partycji podczas dodawania danych wejściowych do zadania Stream Analytics. Skalowanie zadania Stream Analytics korzysta z partycji w danych wejściowych i wyjściowych. Zadanie Stream Analytics może zużywać i zapisywać różne partycje równolegle, co zwiększa przepływność. 
+Partycjonowanie pozwala podzielić dane na podzestawy w oparciu o [klucz partycji](../event-hubs/event-hubs-scalability.md#partitions). Jeśli dane wejściowe (na przykład Event Hubs) są podzielone na partycje za pomocą klucza, zdecydowanie zaleca się określenie tego klucza partycji podczas dodawania danych wejściowych do zadania Stream Analytics. Skalowanie zadania Stream Analytics korzysta z partycji w danych wejściowych i wyjściowych. Zadanie Stream Analytics może zużywać i zapisywać różne partycje równolegle, co zwiększa przepływność. 
 
 ### <a name="inputs"></a>Dane wejściowe
 Wszystkie Azure Stream Analytics dane wejściowe mogą korzystać z partycjonowania:
@@ -41,14 +41,14 @@ Podczas pracy z Stream Analytics można korzystać z partycjonowania w danych wy
 -   Event Hubs (należy jawnie ustawić klucz partycji)
 -   IoT Hub (należy jawnie ustawić klucz partycji)
 -   Service Bus
-- SQL i Azure Synapse Analytics z opcjonalnym partycjonowaniem: więcej informacji można znaleźć na [stronie dane wyjściowe do Azure SQL Database](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
+- SQL i Azure Synapse Analytics z opcjonalnym partycjonowaniem: więcej informacji można znaleźć na [stronie dane wyjściowe do Azure SQL Database](./stream-analytics-sql-output-perf.md).
 
 Power BI nie obsługuje partycjonowania. Jednak nadal można podzielić na partycje dane wejściowe zgodnie z opisem w [tej sekcji](#multi-step-query-with-different-partition-by-values) . 
 
 Aby uzyskać więcej informacji o partycjach, zobacz następujące artykuły:
 
 * [Event Hubs features overview (Omówienie funkcji usługi Event Hubs)](../event-hubs/event-hubs-features.md#partitions)
-* [Data partitioning](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning) (Partycjonowanie danych)
+* [Data partitioning](/azure/architecture/best-practices/data-partitioning) (Partycjonowanie danych)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Zaskakująco zadania równoległe
@@ -58,7 +58,7 @@ Zadanie *równoległe zaskakująco* to najbardziej skalowalny scenariusz w Azure
 
 2. Następnym krokiem jest to, aby zapytanie zostało podzielone na partycje. W przypadku zadań o poziomie zgodności 1,2 lub wyższym (zalecane) kolumna niestandardowa może być określona jako klucz partycji w ustawieniach wejściowych, a zadanie zostanie paralellized automatycznie. Zadania o poziomie zgodności 1,0 lub 1,1 wymagają użycia **partycji o** identyfikatorze PartitionID we wszystkich krokach zapytania. Dozwolone jest wykonanie wielu kroków, ale wszystkie muszą być partycjonowane według tego samego klucza. 
 
-3. Większość danych wyjściowych obsługiwanych w Stream Analytics może korzystać z partycjonowania. W przypadku użycia typu wyjściowego, który nie obsługuje partycjonowania zadania nie będzie *zaskakująco równolegle*. W przypadku danych wyjściowych centrum zdarzeń upewnij się, że **kolumna klucza partycji** jest ustawiona na ten sam klucz partycji, który jest używany w zapytaniu. Więcej informacji można znaleźć w [sekcji Output (dane wyjściowe](#outputs) ).
+3. Większość danych wyjściowych obsługiwanych w Stream Analytics może korzystać z partycjonowania. W przypadku użycia typu wyjściowego, który nie obsługuje partycjonowania zadania nie będzie *zaskakująco równolegle* . W przypadku danych wyjściowych centrum zdarzeń upewnij się, że **kolumna klucza partycji** jest ustawiona na ten sam klucz partycji, który jest używany w zapytaniu. Więcej informacji można znaleźć w [sekcji Output (dane wyjściowe](#outputs) ).
 
 4. Liczba partycji wejściowych musi być równa liczbie partycji wyjściowych. Dane wyjściowe magazynu obiektów BLOB mogą obsługiwać partycje i dziedziczyć schemat partycjonowania zapytania nadrzędnego. W przypadku określenia klucza partycji dla magazynu obiektów BLOB dane są partycjonowane na partycję wejściową, w związku z czym wynik jest nadal w pełni równoległy. Poniżej przedstawiono przykłady wartości partycji, które zezwalają na w pełni równoległe zadanie:
 
@@ -89,7 +89,7 @@ Zapytanie:
     WHERE TollBoothId > 100
 ```
 
-To zapytanie jest prostym filtrem. W związku z tym nie trzeba martwić się o Partycjonowanie danych wejściowych wysyłanych do centrum zdarzeń. Zwróć uwagę, że zadania o poziomie zgodności przed 1,2 muszą zawierać klauzulę **Partition by PartitionID** , dlatego spełnia wymagania #2 ze starszych wersji. W przypadku danych wyjściowych musimy skonfigurować dane wyjściowe centrum zdarzeń w zadaniu, aby klucz partycji miał ustawioną wartość **PartitionID**. Należy upewnić się, że liczba partycji wejściowych jest równa liczbie partycji wyjściowych.
+To zapytanie jest prostym filtrem. W związku z tym nie trzeba martwić się o Partycjonowanie danych wejściowych wysyłanych do centrum zdarzeń. Zwróć uwagę, że zadania o poziomie zgodności przed 1,2 muszą zawierać klauzulę **Partition by PartitionID** , dlatego spełnia wymagania #2 ze starszych wersji. W przypadku danych wyjściowych musimy skonfigurować dane wyjściowe centrum zdarzeń w zadaniu, aby klucz partycji miał ustawioną wartość **PartitionID** . Należy upewnić się, że liczba partycji wejściowych jest równa liczbie partycji wyjściowych.
 
 ### <a name="query-with-a-grouping-key"></a>Zapytanie z kluczem grupowania
 
@@ -233,7 +233,7 @@ Aby można było użyć więcej usług SUs dla zapytania, zarówno strumień dan
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 ```
 
-W przypadku partycjonowania zapytania zdarzenia wejściowe są przetwarzane i agregowane w oddzielnych grupach partycji. Zdarzenia wyjściowe są również generowane dla każdej grupy. Partycjonowanie może spowodować pewne nieoczekiwane wyniki, jeśli pole **Grupuj według** nie jest kluczem partycji w strumieniu danych wejściowych. Na przykład pole **TollBoothId** w powyższym zapytaniu nie jest kluczem partycji **Input1**. W efekcie dane z TollBooth #1 mogą być rozłożone w wielu partycjach.
+W przypadku partycjonowania zapytania zdarzenia wejściowe są przetwarzane i agregowane w oddzielnych grupach partycji. Zdarzenia wyjściowe są również generowane dla każdej grupy. Partycjonowanie może spowodować pewne nieoczekiwane wyniki, jeśli pole **Grupuj według** nie jest kluczem partycji w strumieniu danych wejściowych. Na przykład pole **TollBoothId** w powyższym zapytaniu nie jest kluczem partycji **Input1** . W efekcie dane z TollBooth #1 mogą być rozłożone w wielu partycjach.
 
 Każda partycja **Input1** zostanie przetworzona osobno Stream Analytics. W związku z tym zostanie utworzony wiele rekordów liczby samochodów dla tego samego Tollbooth w tym samym oknie wirowania. Jeśli nie można zmienić klucza partycji wejściowej, ten problem można rozwiązać, dodając krok niepartycjonowany do wartości zagregowanych w partycjach, jak w poniższym przykładzie:
 
@@ -279,7 +279,7 @@ Rozwiązanie [centrum zdarzeń](https://github.com/Azure-Samples/streaming-at-sc
 |    5 tys.   |   18 |  P4   |
 |    10 tys.  |   36 |  P6   |
 
-[Usługa Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  obsługuje pisanie równoległe, zwane dziedziczeniem partycjonowania, ale nie jest domyślnie włączona. Jednak włączenie dziedziczenia partycjonowania oraz w pełni równoległe zapytanie może być niewystarczające do osiągnięcia większej przepływności. Przepływność zapisu SQL zależy znacznie od konfiguracji bazy danych i schematu tabeli. Artykuł dotyczący [wydajności danych wyjściowych SQL](./stream-analytics-sql-output-perf.md) zawiera więcej szczegółów na temat parametrów, które mogą zmaksymalizować przepływność zapisu. Jak wskazano w [Azure Stream Analytics dane wyjściowe do Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artykułu, to rozwiązanie nie jest skalowane liniowo jako w pełni równoległe potoki powyżej 8 partycji i może wymagać ponownego partycjonowania danych wyjściowych SQL (zobacz [do](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Jednostki SKU w warstwie Premium są konieczne w celu utrzymania wysokich stawek we/wy wraz z obciążeniem kopii zapasowych dziennika co kilka minut.
+[Usługa Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  obsługuje pisanie równoległe, zwane dziedziczeniem partycjonowania, ale nie jest domyślnie włączona. Jednak włączenie dziedziczenia partycjonowania oraz w pełni równoległe zapytanie może być niewystarczające do osiągnięcia większej przepływności. Przepływność zapisu SQL zależy znacznie od konfiguracji bazy danych i schematu tabeli. Artykuł dotyczący [wydajności danych wyjściowych SQL](./stream-analytics-sql-output-perf.md) zawiera więcej szczegółów na temat parametrów, które mogą zmaksymalizować przepływność zapisu. Jak wskazano w [Azure Stream Analytics dane wyjściowe do Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artykułu, to rozwiązanie nie jest skalowane liniowo jako w pełni równoległe potoki powyżej 8 partycji i może wymagać ponownego partycjonowania danych wyjściowych SQL (zobacz [do](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Jednostki SKU w warstwie Premium są konieczne w celu utrzymania wysokich stawek we/wy wraz z obciążeniem kopii zapasowych dziennika co kilka minut.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Współczynnik pozyskiwania (zdarzenia na sekundę) | Jednostki przesyłania strumieniowego | Zasoby wyjściowe  |
@@ -311,17 +311,17 @@ Wszystkie [przesyłane strumieniowo przykłady platformy Azure](https://github.c
 
 ### <a name="identifying-bottlenecks"></a>Identyfikowanie wąskich gardeł
 
-Użyj okienka metryki w zadaniu Azure Stream Analytics, aby identyfikować wąskie gardła w potoku. Przejrzyj **zdarzenia wejściowe/wyjściowe** dla przepływności i ["opóźnienie znaku wodnego"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) lub **zaległe zdarzenia** , aby sprawdzić, czy zadanie jest zgodne z szybkością danych wejściowych. W przypadku metryk centrum zdarzeń należy poszukać **żądań z ograniczeniami** i odpowiednio dostosować jednostki progowe. W przypadku metryk Cosmos DB Sprawdź **maksymalną liczbę użytych jednostek ru/s na klucz partycji** w obszarze przepływność, aby upewnić się, że zakresy kluczy partycji są jednolicie używane. W przypadku usługi Azure SQL DB Monitoruj **operacje we/wy dziennika** i **procesora CPU**.
+Użyj okienka metryki w zadaniu Azure Stream Analytics, aby identyfikować wąskie gardła w potoku. Przejrzyj **zdarzenia wejściowe/wyjściowe** dla przepływności i ["opóźnienie znaku wodnego"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) lub **zaległe zdarzenia** , aby sprawdzić, czy zadanie jest zgodne z szybkością danych wejściowych. W przypadku metryk centrum zdarzeń należy poszukać **żądań z ograniczeniami** i odpowiednio dostosować jednostki progowe. W przypadku metryk Cosmos DB Sprawdź **maksymalną liczbę użytych jednostek ru/s na klucz partycji** w obszarze przepływność, aby upewnić się, że zakresy kluczy partycji są jednolicie używane. W przypadku usługi Azure SQL DB Monitoruj **operacje we/wy dziennika** i **procesora CPU** .
 
 ## <a name="get-help"></a>Uzyskaj pomoc
 
-Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -334,10 +334,9 @@ Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dot
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

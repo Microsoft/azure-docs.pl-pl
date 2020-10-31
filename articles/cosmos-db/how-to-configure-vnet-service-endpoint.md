@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d18cf248aa94e23abfa6e2b9467bb1167a32a6f1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2bbdbc7a0ed71634522bd68dbf0807264a409525
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490530"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101735"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Konfigurowanie dostępu do Azure Cosmos DB z sieci wirtualnych (VNet)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Konto usługi Azure Cosmos można skonfigurować tak, aby zezwalało na dostęp tylko z określonej podsieci sieci wirtualnej (VNet). Przez włączenie [punktu końcowego usługi](../virtual-network/virtual-network-service-endpoints-overview.md) w celu uzyskania dostępu do Azure Cosmos DB w podsieci w sieci wirtualnej, ruch z tej podsieci jest wysyłany do Azure Cosmos dB przy użyciu tożsamości podsieci i Virtual Network. Po włączeniu punktu końcowego usługi Azure Cosmos DB można ograniczyć dostęp do podsieci, dodając ją do konta usługi Azure Cosmos.
 
@@ -39,11 +40,11 @@ W poniższych sekcjach opisano sposób konfigurowania punktu końcowego usługi 
 
 1. W bloku **wszystkie zasoby** znajdź konto Azure Cosmos DB, które chcesz zabezpieczyć.
 
-1. Wybierz pozycję **zapory i sieci wirtualne** z menu Ustawienia, a następnie wybierz opcję zezwolenia na dostęp z **wybranych sieci**.
+1. Wybierz pozycję **zapory i sieci wirtualne** z menu Ustawienia, a następnie wybierz opcję zezwolenia na dostęp z **wybranych sieci** .
 
-1. Aby udzielić dostępu do podsieci istniejącej sieci wirtualnej, w obszarze **sieci wirtualne**wybierz pozycję **Dodaj istniejącą sieć wirtualną platformy Azure**.
+1. Aby udzielić dostępu do podsieci istniejącej sieci wirtualnej, w obszarze **sieci wirtualne** wybierz pozycję **Dodaj istniejącą sieć wirtualną platformy Azure** .
 
-1. Wybierz **subskrypcję** , z której chcesz dodać sieć wirtualną platformy Azure. Wybierz **sieci wirtualne** i **podsieci** platformy Azure, dla których chcesz zapewnić dostęp do konta Azure Cosmos DB. Następnie wybierz pozycję **Włącz** , aby włączyć wybrane sieci z punktami końcowymi usługi dla elementu "Microsoft. AzureCosmosDB". Po zakończeniu wybierz pozycję **Dodaj**.
+1. Wybierz **subskrypcję** , z której chcesz dodać sieć wirtualną platformy Azure. Wybierz **sieci wirtualne** i **podsieci** platformy Azure, dla których chcesz zapewnić dostęp do konta Azure Cosmos DB. Następnie wybierz pozycję **Włącz** , aby włączyć wybrane sieci z punktami końcowymi usługi dla elementu "Microsoft. AzureCosmosDB". Po zakończeniu wybierz pozycję **Dodaj** .
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Wybierz sieć wirtualną i podsieć":::
 
@@ -63,15 +64,15 @@ Poniżej przedstawiono wskazówki dotyczące rejestrowania subskrypcji przy uży
 
 1. W bloku **wszystkie zasoby** znajdź konto Azure Cosmos DB, które chcesz zabezpieczyć.  
 
-1. Wybierz pozycję **zapory i sieci wirtualne platformy Azure** z menu Ustawienia, a następnie wybierz opcję zezwolenia na dostęp z **wybranych sieci**.  
+1. Wybierz pozycję **zapory i sieci wirtualne platformy Azure** z menu Ustawienia, a następnie wybierz opcję zezwolenia na dostęp z **wybranych sieci** .  
 
-1. Aby udzielić dostępu do nowej sieci wirtualnej platformy Azure, w obszarze **sieci wirtualne**wybierz pozycję **Dodaj nową sieć wirtualną**.  
+1. Aby udzielić dostępu do nowej sieci wirtualnej platformy Azure, w obszarze **sieci wirtualne** wybierz pozycję **Dodaj nową sieć wirtualną** .  
 
-1. Podaj szczegóły wymagane do utworzenia nowej sieci wirtualnej, a następnie wybierz pozycję **Utwórz**. Podsieć zostanie utworzona z punktem końcowym usługi dla "Microsoft. AzureCosmosDB".
+1. Podaj szczegóły wymagane do utworzenia nowej sieci wirtualnej, a następnie wybierz pozycję **Utwórz** . Podsieć zostanie utworzona z punktem końcowym usługi dla "Microsoft. AzureCosmosDB".
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Wybierz sieć wirtualną i podsieć":::
 
-Jeśli konto Azure Cosmos DB jest używane przez inne usługi platformy Azure, takie jak Azure Wyszukiwanie poznawcze lub dostęp za pośrednictwem usług Stream Analytics lub Power BI, zezwolisz na dostęp poprzez wybranie opcji **Akceptuj połączenia z poziomu globalnych centrów danych platformy Azure**.
+Jeśli konto Azure Cosmos DB jest używane przez inne usługi platformy Azure, takie jak Azure Wyszukiwanie poznawcze lub dostęp za pośrednictwem usług Stream Analytics lub Power BI, zezwolisz na dostęp poprzez wybranie opcji **Akceptuj połączenia z poziomu globalnych centrów danych platformy Azure** .
 
 Aby mieć pewność, że masz dostęp do metryk Azure Cosmos DB z poziomu portalu, musisz włączyć opcję **Zezwalaj na dostęp z poziomu Azure Portal** . Aby dowiedzieć się więcej na temat tych opcji, zobacz artykuł [Konfigurowanie zapory IP](how-to-configure-firewall.md) . Po włączeniu dostępu wybierz pozycję **Zapisz** , aby zapisać ustawienia.
 
@@ -81,11 +82,11 @@ Aby mieć pewność, że masz dostęp do metryk Azure Cosmos DB z poziomu portal
 
 1. Wybierz pozycję **zapory i sieci wirtualne** z menu Ustawienia.  
 
-1. Aby usunąć regułę sieci wirtualnej lub podsieci, wybierz pozycję **...** obok sieci wirtualnej lub podsieci, a następnie wybierz pozycję **Usuń**.
+1. Aby usunąć regułę sieci wirtualnej lub podsieci, wybierz pozycję **...** obok sieci wirtualnej lub podsieci, a następnie wybierz pozycję **Usuń** .
 
    :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Wybierz sieć wirtualną i podsieć":::
 
-1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
+1. Aby zastosować zmiany, wybierz pozycję **Zapisz** .
 
 ## <a name="configure-a-service-endpoint-by-using-azure-powershell"></a><a id="configure-using-powershell"></a>Konfigurowanie punktu końcowego usługi przy użyciu Azure PowerShell
 

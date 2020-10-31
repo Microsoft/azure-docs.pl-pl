@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff66c2cb355e2070cdf30444c52d1accacac8964
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ece181d06c7d3dbd00ba2f1262a3887ad966d088
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490445"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101667"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Konwertowanie formatów tokenów sesji w zestawie .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule wyjaśniono, jak konwertować różne formaty tokenów sesji w celu zapewnienia zgodności między wersjami zestawu SDK.
 
@@ -26,7 +27,7 @@ W tym artykule wyjaśniono, jak konwertować różne formaty tokenów sesji w ce
 
 ## <a name="session-token-formats"></a>Formaty tokenów sesji
 
-Istnieją dwa formaty tokenów sesji: **proste** i **wektorowe**.  Te dwa formaty nie są zamienne, więc format powinien zostać przekonwertowany podczas przekazywania do aplikacji klienckiej z różnymi wersjami.
+Istnieją dwa formaty tokenów sesji: **proste** i **wektorowe** .  Te dwa formaty nie są zamienne, więc format powinien zostać przekonwertowany podczas przekazywania do aplikacji klienckiej z różnymi wersjami.
 - Format tokenu sesji **prostego** jest używany przez zestaw .NET SDK V1 (Microsoft.Azure.DocumentDB-Version 1. x)
 - Format tokenu sesji **wektorowej** jest używany przez zestaw .NET SDK V2 (Microsoft.Azure.DocumentDB — wersja 2. x)
 

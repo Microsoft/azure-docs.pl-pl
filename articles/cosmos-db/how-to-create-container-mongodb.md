@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 0fa7f122c5a9957db0800d2ccf4e5c1f8effd574
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a5669b15c041f663605a62ef8d02b206928d0c14
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491176"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101599"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>Tworzenie kontenera w interfejsie API Azure Cosmos DB dla MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 W tym artykule opisano różne sposoby tworzenia kontenera w interfejsie API Azure Cosmos DB MongoDB. Przedstawiono w nim sposób tworzenia kontenera przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure, programu PowerShell lub obsługiwanych zestawów SDK. W tym artykule pokazano, jak utworzyć kontener, określić klucz partycji i aprowizować przepływność.
 
@@ -26,17 +27,17 @@ W tym artykule opisano różne sposoby tworzenia kontenera w interfejsie API Azu
 
 ## <a name="create-using-azure-portal"></a><a id="portal-mongodb"></a>Tworzenie za pomocą witryny Azure Portal
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account)lub Wybierz istniejące konto.
 
-1. Otwórz okienko **Eksplorator danych** i wybierz pozycję **nowy kontener**. Następnie podaj następujące szczegóły:
+1. Otwórz okienko **Eksplorator danych** i wybierz pozycję **nowy kontener** . Następnie podaj następujące szczegóły:
 
    * Wskaż, czy tworzysz nową bazę danych, czy używasz istniejącej.
    * Wprowadź identyfikator kontenera.
    * Wprowadź klucz fragmentu.
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Wybierz pozycję **OK** .
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Zrzut ekranu przedstawiający interfejs Azure Cosmos DB API dla MongoDB, okno dialogowe Dodawanie kontenera":::
 

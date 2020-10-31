@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8074b2411a053c8b55457f9ace716481f6b107a5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79220304"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102228"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Wyszukiwanie wideo za pomocą interfejsu API wyszukiwania wideo Bing
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Interfejs API wyszukiwania wideo Bing umożliwia łatwą integrację możliwości poznawczego wyszukiwania wiadomości w usłudze Bing z aplikacjami. O ile interfejs API umożliwia przede wszystkim wyszukiwanie odpowiednich filmów wideo w Internecie i zwracanie ich, to udostępnia także kilka funkcji inteligentnego i ukierunkowanego pobierania wideo w Internecie.
 
@@ -146,7 +151,7 @@ Host: api.cognitive.microsoft.com
 
 Jeśli usługa Bing może rozwinąć zapytanie w celu zawężenia kryteriów oryginalnego wyszukiwania, obiekt [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) zawiera pole `queryExpansions`. Jeśli na przykład zapytanie to *Cleaning Gutters* (Czyszczenie rynien), potencjalnymi rozwiniętymi zapytaniami mogą być: Gutter Cleaning **Tools** (Czyszczenie rynien — narzędzia), Cleaning Gutters **From the Ground** (Czyszczenie rynien — z poziomu gruntu), Gutter Cleaning **Machine** (Czyszczenie rynien — maszyna) oraz **Easy** Gutter Cleaning (Proste czyszczenie rynien).
 
-W poniższym przykładzie pokazano rozwinięte zapytania dla frazy *Cleaning Gutters*.
+W poniższym przykładzie pokazano rozwinięte zapytania dla frazy *Cleaning Gutters* .
 
 ```json
 {
@@ -175,9 +180,9 @@ Pole `queryExpansions` zawiera listę obiektów [Query](https://docs.microsoft.c
 
 ## <a name="pivoting-the-query"></a>Stosowanie elementów bazowych zapytania
 
-Jeśli usługa Bing może podzielić oryginalne zapytanie wyszukiwania na segmenty, obiekt [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) zawiera pole `pivotSuggestions`. Jeśli na przykład oryginalnym zapytaniem była fraza *Cleaning Gutters* (Czyszczenie rynien), usługa Bing może podzielić zapytanie na segmenty *Cleaning* i *Gutters*.
+Jeśli usługa Bing może podzielić oryginalne zapytanie wyszukiwania na segmenty, obiekt [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) zawiera pole `pivotSuggestions`. Jeśli na przykład oryginalnym zapytaniem była fraza *Cleaning Gutters* (Czyszczenie rynien), usługa Bing może podzielić zapytanie na segmenty *Cleaning* i *Gutters* .
 
-W poniższym przykładzie przedstawiono propozycje elementów bazowych dla zapytania *Cleaning Gutters*.
+W poniższym przykładzie przedstawiono propozycje elementów bazowych dla zapytania *Cleaning Gutters* .
 
 ```json
 {

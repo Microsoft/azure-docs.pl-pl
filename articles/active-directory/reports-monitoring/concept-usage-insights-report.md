@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74008261"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122745"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Raport dotyczący użycia i szczegółowych informacji w portalu Azure Active Directory
 
@@ -42,10 +42,10 @@ Aby uzyskać dostęp do danych z raportu Użycie i szczegółowe informacje, pot
 ## <a name="access-the-usage-and-insights-report"></a>Dostęp do raportu dotyczącego użycia i szczegółowych informacji
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-2. Wybierz odpowiedni katalog, a następnie wybierz pozycję **Azure Active Directory** i wybierz pozycję **aplikacje dla przedsiębiorstw**.
+2. Wybierz odpowiedni katalog, a następnie wybierz pozycję **Azure Active Directory** i wybierz pozycję **aplikacje dla przedsiębiorstw** .
 3. W sekcji **działanie** wybierz pozycję **użycie & szczegółowych** informacji, aby otworzyć raport. 
 
-![Raport użycia i szczegółowych informacji](./media/concept-usage-insights-report/main-menu.png)
+![Zrzut ekranu przedstawia użycie & szczegółowych informacji w sekcji działanie.](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Korzystanie z raportu
@@ -58,7 +58,7 @@ Możesz również ustawić fokus dla określonej aplikacji. Wybierz pozycję **W
 
 Po wybraniu dnia na wykresie użycia aplikacji zostanie wykorzystana Szczegółowa lista działań związanych z logowaniem dla aplikacji.  
 
-![Raport użycia i szczegółowych informacji](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![Zrzut ekranu przedstawia użycie & szczegółowych informacji na temat działania aplikacji, w którym można wybrać zakres i wyświetlić działania związane z logowaniem dla różnych aplikacji.](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

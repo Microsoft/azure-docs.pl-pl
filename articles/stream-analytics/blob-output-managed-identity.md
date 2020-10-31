@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 99b23b65a0ce1693bcd04d5828fe062f2f43ea73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99b7891f332298024c82103322cc6b58d066f587
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044230"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123238"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Uwierzytelnianie zadania Azure Stream Analytics za pomocą tożsamości zarządzanej na platformie Azure Blob Storage dane wyjściowe
 
@@ -21,11 +21,11 @@ W tym artykule pokazano, jak włączyć zarządzaną tożsamość dla danych wyj
 
 ## <a name="create-the-stream-analytics-job-using-the-azure-portal"></a>Utwórz zadanie Stream Analytics przy użyciu Azure Portal
 
-1. Utwórz nowe zadanie Stream Analytics lub Otwórz istniejące zadanie w Azure Portal. Na pasku menu znajdującym się po lewej stronie ekranu wybierz pozycję **zarządzana tożsamość** znajdującą się w obszarze **Konfiguruj**. Upewnij się, że wybrano opcję Użyj tożsamości zarządzanej przypisanej do systemu, a następnie kliknij przycisk **Zapisz** u dołu ekranu.
+1. Utwórz nowe zadanie Stream Analytics lub Otwórz istniejące zadanie w Azure Portal. Na pasku menu znajdującym się po lewej stronie ekranu wybierz pozycję **zarządzana tożsamość** znajdującą się w obszarze **Konfiguruj** . Upewnij się, że wybrano opcję Użyj tożsamości zarządzanej przypisanej do systemu, a następnie kliknij przycisk **Zapisz** u dołu ekranu.
 
    ![Konfigurowanie tożsamości zarządzanej Stream Analytics](./media/common/stream-analytics-enable-managed-identity.png)
 
-2. W oknie właściwości danych wyjściowych ujścia danych wyjściowych usługi Azure Blob Storage wybierz listę rozwijaną tryb uwierzytelniania i wybierz pozycję **zarządzana tożsamość**. Aby uzyskać informacje dotyczące innych właściwości danych wyjściowych, zobacz informacje o [wyjściach z Azure Stream Analytics](./stream-analytics-define-outputs.md). Po zakończeniu kliknij pozycję **Zapisz**.
+2. W oknie właściwości danych wyjściowych ujścia danych wyjściowych usługi Azure Blob Storage wybierz listę rozwijaną tryb uwierzytelniania i wybierz pozycję **zarządzana tożsamość** . Aby uzyskać informacje dotyczące innych właściwości danych wyjściowych, zobacz informacje o [wyjściach z Azure Stream Analytics](./stream-analytics-define-outputs.md). Po zakończeniu kliknij pozycję **Zapisz** .
 
    ![Konfigurowanie danych wyjściowych usługi Azure Blob Storage](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
 
@@ -33,7 +33,7 @@ W tym artykule pokazano, jak włączyć zarządzaną tożsamość dla danych wyj
 
 ## <a name="azure-resource-manager-deployment"></a>Wdrożenie usługi Azure Resource Manager
 
-Za pomocą Azure Resource Manager można w pełni zautomatyzować wdrożenie zadania Stream Analytics. Szablony Menedżer zasobów można wdrożyć przy użyciu Azure PowerShell lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). W poniższych przykładach użyto interfejsu wiersza polecenia platformy Azure.
+Za pomocą Azure Resource Manager można w pełni zautomatyzować wdrożenie zadania Stream Analytics. Szablony Menedżer zasobów można wdrożyć przy użyciu Azure PowerShell lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest). W poniższych przykładach użyto interfejsu wiersza polecenia platformy Azure.
 
 
 1. Zasób **Microsoft. StreamAnalytics/streamingjobs** można utworzyć przy użyciu tożsamości zarządzanej, dołączając następującą właściwość w sekcji resource szablonu Menedżer zasobów:
@@ -168,14 +168,14 @@ Jeśli nie potrzebujesz zadania tworzenia kontenerów w Twoim imieniu, należy w
 
 2. Wybierz pozycję **Access Control (IAM)** po lewej stronie.
 
-3. W sekcji "Dodawanie przypisania roli" kliknij pozycję **Dodaj**.
+3. W sekcji "Dodawanie przypisania roli" kliknij pozycję **Dodaj** .
 
 4. W okienku przypisanie roli:
 
     1. Ustaw **rolę** na "Współautor danych obiektu blob magazynu"
     2. Upewnij się, że pole wyboru **Przypisz dostęp do** jest ustawione na wartość "użytkownik, Grupa lub nazwa główna usługi" usługi Azure AD.
     3. Wpisz nazwę zadania Stream Analytics w polu wyszukiwania.
-    4. Wybierz zadanie Stream Analytics i kliknij przycisk **Zapisz**.
+    4. Wybierz zadanie Stream Analytics i kliknij przycisk **Zapisz** .
 
    ![Przyznaj dostęp do kontenera](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-container-access-portal.png)
 
@@ -185,14 +185,14 @@ Jeśli nie potrzebujesz zadania tworzenia kontenerów w Twoim imieniu, należy w
 
 2. Wybierz pozycję **Access Control (IAM)** po lewej stronie.
 
-3. W sekcji "Dodawanie przypisania roli" kliknij pozycję **Dodaj**.
+3. W sekcji "Dodawanie przypisania roli" kliknij pozycję **Dodaj** .
 
 4. W okienku przypisanie roli:
 
     1. Ustaw **rolę** na "Współautor danych obiektu blob magazynu"
     2. Upewnij się, że pole wyboru **Przypisz dostęp do** jest ustawione na wartość "użytkownik, Grupa lub nazwa główna usługi" usługi Azure AD.
     3. Wpisz nazwę zadania Stream Analytics w polu wyszukiwania.
-    4. Wybierz zadanie Stream Analytics i kliknij przycisk **Zapisz**.
+    4. Wybierz zadanie Stream Analytics i kliknij przycisk **Zapisz** .
 
    ![Przyznaj dostęp do konta](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-account-access-portal.png)
 
@@ -216,11 +216,11 @@ Aby udzielić dostępu do całego konta, uruchom następujące polecenie przy u�
 
 ## <a name="enable-vnet-access"></a>Włącz dostęp do sieci wirtualnej
 
-Podczas konfigurowania **zapór i sieci wirtualnych**konta magazynu można opcjonalnie zezwolić na ruch sieciowy z innych zaufanych usług firmy Microsoft. Gdy Stream Analytics uwierzytelnia się przy użyciu tożsamości zarządzanej, zapewnia potwierdzenie, że żądanie pochodzi z zaufanej usługi. Poniżej znajdują się instrukcje włączania tego wyjątku dostępu do sieci wirtualnej.
+Podczas konfigurowania **zapór i sieci wirtualnych** konta magazynu można opcjonalnie zezwolić na ruch sieciowy z innych zaufanych usług firmy Microsoft. Gdy Stream Analytics uwierzytelnia się przy użyciu tożsamości zarządzanej, zapewnia potwierdzenie, że żądanie pochodzi z zaufanej usługi. Poniżej znajdują się instrukcje włączania tego wyjątku dostępu do sieci wirtualnej.
 
 1.  Przejdź do okienka "zapory i sieci wirtualne" w okienku Konfiguracja konta magazynu.
 2.  Upewnij się, że opcja "Zezwalaj na dostęp do tego konta magazynu zaufanych usług firmy Microsoft" jest włączona.
-3.  Jeśli ją włączono, kliknij przycisk **Zapisz**.
+3.  Jeśli ją włączono, kliknij przycisk **Zapisz** .
 
    ![Włącz dostęp do sieci wirtualnej](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
 

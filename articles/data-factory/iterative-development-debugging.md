@@ -1,7 +1,7 @@
 ---
 title: Iteracyjne programowanie i debugowanie w Azure Data Factory
 description: Dowiedz się, jak zaprojektować i debugować potoki Data Factory w interfejsie użytkownika ADF
-ms.date: 09/11/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -9,12 +9,12 @@ documentationcenter: ''
 ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
-ms.openlocfilehash: e4c66055184b2ef0113aa0e25c02ad8635feddb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031011"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102076"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Debugowanie i programowanie przyrostowe za pomocą usługi Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ Aby uzyskać 8-minutowy wprowadzenie i demonstrację tej funkcji, Obejrzyj nast�
 
 ## <a name="debugging-a-pipeline"></a>Debugowanie potoku
 
-Podczas tworzenia przy użyciu kanwy potoku można testować działania przy użyciu możliwości **debugowania** . Po uruchomieniu testów nie trzeba publikować zmian w fabryce danych przed wybraniem opcji **Debuguj**. Ta funkcja jest przydatna w scenariuszach, w których należy upewnić się, że zmiany działają zgodnie z oczekiwaniami przed aktualizacją przepływu pracy fabryki danych.
+Podczas tworzenia przy użyciu kanwy potoku można testować działania przy użyciu możliwości **debugowania** . Po uruchomieniu testów nie trzeba publikować zmian w fabryce danych przed wybraniem opcji **Debuguj** . Ta funkcja jest przydatna w scenariuszach, w których należy upewnić się, że zmiany działają zgodnie z oczekiwaniami przed aktualizacją przepływu pracy fabryki danych.
 
 ![Możliwość debugowania na kanwie potoku](media/iterative-development-debugging/iterative-development-1.png)
 
@@ -44,7 +44,7 @@ Po pomyślnym uruchomieniu testu Dodaj więcej działań do potoku i Kontynuuj d
 
 ### <a name="setting-breakpoints"></a>Ustawianie punktów przerwania
 
-Azure Data Factory umożliwia debugowanie potoku do momentu osiągnięcia określonego działania na kanwie potoku. Umieść punkt przerwania dla działania, do którego chcesz przeprowadzić test, a następnie wybierz polecenie **Debuguj**. Data Factory zapewnia, że test będzie wykonywany tylko do działania punktu przerwania na kanwie potoku. Ten *Debuguj do momentu* , gdy nie chcesz testować całego potoku, ale tylko podzbiór działań w potoku.
+Azure Data Factory umożliwia debugowanie potoku do momentu osiągnięcia określonego działania na kanwie potoku. Umieść punkt przerwania dla działania, do którego chcesz przeprowadzić test, a następnie wybierz polecenie **Debuguj** . Data Factory zapewnia, że test będzie wykonywany tylko do działania punktu przerwania na kanwie potoku. Ten *Debuguj do momentu* , gdy nie chcesz testować całego potoku, ale tylko podzbiór działań w potoku.
 
 ![Punkty przerwania na kanwie potoku](media/iterative-development-debugging/iterative-development-3.png)
 
@@ -79,11 +79,14 @@ Sesje debugowania aktywnych przepływów danych można monitorować za pośredni
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Debugowanie potoku za pomocą działania przepływu danych
 
-W przypadku uruchamiania debugowania z przepływem danych dostępne są dwie opcje obliczeń do użycia. Możesz użyć istniejącego klastra debugowania lub uruchomić nowy klaster just in Time dla przepływów danych.
+Podczas wykonywania potoku debugowania z przepływem danych dostępne są dwie opcje obliczeń do użycia. Możesz użyć istniejącego klastra debugowania lub uruchomić nowy klaster just in Time dla przepływów danych.
 
-Użycie istniejącej sesji debugowania znacznie skraca czas uruchamiania przepływu danych, ponieważ klaster jest już uruchomiony, ale nie jest zalecany w przypadku obciążeń złożonych lub równoległych, ponieważ może się to nie powieść, gdy wiele zadań zostanie uruchomionych jednocześnie. 
+Użycie istniejącej sesji debugowania znacznie skraca czas uruchamiania przepływu danych, ponieważ klaster jest już uruchomiony, ale nie jest zalecany w przypadku obciążeń złożonych ani równoległych, ponieważ może się to nie powieść, gdy wiele zadań jest uruchomionych jednocześnie.
 
-Użycie środowiska uruchomieniowego działania spowoduje utworzenie nowego klastra przy użyciu ustawień określonych w ramach środowiska Integration Runtime każdego działania przepływu danych. Dzięki temu każde zadanie ma być izolowane i powinno być używane na potrzeby złożonych obciążeń lub testowania wydajności.
+Użycie środowiska uruchomieniowego działania spowoduje utworzenie nowego klastra przy użyciu ustawień określonych w ramach środowiska Integration Runtime każdego działania przepływu danych. Dzięki temu każde zadanie ma być izolowane i powinno być używane na potrzeby złożonych obciążeń lub testowania wydajności. Możesz również kontrolować czas wygaśnięcia w Azure IR tak, aby zasoby klastra używane na potrzeby debugowania nadal były dostępne dla tego okresu, aby obsłużyć dodatkowe żądania zadań.
+
+> [!NOTE]
+> Jeśli masz potok ze przepływem danych wykonywanym równolegle, wybierz opcję "Użyj środowiska uruchomieniowego działania", aby Data Factory mógł użyć Integration Runtime wybranego w działaniu przepływu danych. Pozwoli to na wykonywanie przepływów danych w wielu klastrach i może obsłużyć wykonywanie równoległych przepływów danych.
 
 ![Uruchamianie potoku z przepływu danych](media/iterative-development-debugging/iterative-development-dataflow.png)
 

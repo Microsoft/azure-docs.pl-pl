@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a429314d4a992ea93f4c068203371cda769a4ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3d044be923e5d7a621b72a926db0b4ce9a09b72
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029166"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122728"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Skonfiguruj konto i zaloguj się przy użyciu zasad niestandardowych w Azure AD B2C
 
@@ -35,7 +35,7 @@ Przy rejestrowaniu i logowaniu użytkownik może zarejestrować się w aplikacji
 > [!NOTE]
 > Zdecydowanie sugerujemy, aby uwzględnić informacje o zgodzie w rejestrowaniu i logowaniu, podobnie jak w przypadku przykładowego tekstu poniżej. Ten przykładowy tekst jest przeznaczony wyłącznie do celów informacyjnych. Zapoznaj się z podręcznikiem dotyczącym monitorowania kodu w [witrynie sieci Web CTIA](https://www.ctia.org/programs) i zapoznaj się z własnymi ekspertami z prawami lub zgodnościami, aby uzyskać wskazówki dotyczące ostatecznej konfiguracji tekstu i funkcji w celu spełnienia własnych potrzeb dotyczących zgodności:
 >
-> *Podając swój numer telefonu, wyrażasz zgodę na otrzymanie jednorazowego kodu dostępu wysyłanego przez wiadomość tekstową, aby ułatwić zalogowanie się do programu * &lt; INSERT &gt; : Nazwa aplikacji*. Mogą obowiązywać standardowe stawki za komunikaty i dane.*
+> *Podając swój numer telefonu, wyrażasz zgodę na otrzymanie jednorazowego kodu dostępu wysyłanego przez wiadomość tekstową, aby ułatwić zalogowanie się do programu *&lt; INSERT &gt; : Nazwa aplikacji* . Mogą obowiązywać standardowe stawki za komunikaty i dane.*
 >
 > *&lt;Wstawianie: link do zasad zachowania poufności informacji&gt;*<br/>*&lt;Wstawianie: link do warunków użytkowania usługi&gt;*
 
@@ -56,27 +56,27 @@ Aby dodać własne informacje o zgodzie, Dostosuj Poniższy przykład i Uwzględ
 
 ### <a name="phone-sign-up-experience"></a>Środowisko rejestracji na telefonie
 
-Jeśli użytkownik nie ma jeszcze konta dla aplikacji, może go utworzyć, wybierając link **zarejestruj się teraz** . Zostanie wyświetlona strona rejestracji, w której użytkownik wybiera swój **kraj**, wprowadzi numer telefonu i wybierze pozycję **Wyślij kod**.
+Jeśli użytkownik nie ma jeszcze konta dla aplikacji, może go utworzyć, wybierając link **zarejestruj się teraz** . Zostanie wyświetlona strona rejestracji, w której użytkownik wybiera swój **kraj** , wprowadzi numer telefonu i wybierze pozycję **Wyślij kod** .
 
 ![Użytkownik uruchamia logowanie do telefonu](media/phone-authentication/phone-signup-start.png)
 
-Jednorazowy kod weryfikacyjny jest wysyłany do numeru telefonu użytkownika. Użytkownik wprowadzi **kod weryfikacyjny** na stronie rejestracji, a następnie wybierze pozycję **Weryfikuj kod**. (Jeśli użytkownik nie był w stanie pobrać kodu, może wybrać pozycję **Wyślij nowy kod**).
+Jednorazowy kod weryfikacyjny jest wysyłany do numeru telefonu użytkownika. Użytkownik wprowadzi **kod weryfikacyjny** na stronie rejestracji, a następnie wybierze pozycję **Weryfikuj kod** . (Jeśli użytkownik nie był w stanie pobrać kodu, może wybrać pozycję **Wyślij nowy kod** ).
 
 ![Użytkownik weryfikuje kod podczas rejestracji w telefonie](media/phone-authentication/phone-signup-verify-code.png)
 
- Użytkownik wprowadza wszelkie inne informacje wymagane na stronie **rejestracji, na**przykład **Nazwa wyświetlana**, imię i **nazwisko** (kraj i numer telefonu pozostają wypełnione). Jeśli użytkownik chce użyć innego numeru telefonu, może wybrać pozycję **Zmień numer** , aby ponownie uruchomić konto. Po zakończeniu użytkownik wybiera pozycję **Kontynuuj**.
+ Użytkownik wprowadza wszelkie inne informacje wymagane na stronie **rejestracji, na** przykład **Nazwa wyświetlana** , imię i **nazwisko** (kraj i numer telefonu pozostają wypełnione). Jeśli użytkownik chce użyć innego numeru telefonu, może wybrać pozycję **Zmień numer** , aby ponownie uruchomić konto. Po zakończeniu użytkownik wybiera pozycję **Kontynuuj** .
 
 ![Użytkownik udostępnia dodatkowe informacje](media/phone-authentication/phone-signup-additional-info.png)
 
-Następnie użytkownik zostanie poproszony o podanie wiadomości e-mail dotyczącej odzyskiwania. Użytkownik wprowadza swój adres e-mail, a następnie wybiera pozycję **Wyślij kod weryfikacyjny**. Kod jest wysyłany do skrzynki odbiorczej poczty e-mail użytkownika, którą można pobrać i wprowadzić w polu **kod weryfikacyjny** . Następnie użytkownik wybiera polecenie **Weryfikuj kod**. 
+Następnie użytkownik zostanie poproszony o podanie wiadomości e-mail dotyczącej odzyskiwania. Użytkownik wprowadza swój adres e-mail, a następnie wybiera pozycję **Wyślij kod weryfikacyjny** . Kod jest wysyłany do skrzynki odbiorczej poczty e-mail użytkownika, którą można pobrać i wprowadzić w polu **kod weryfikacyjny** . Następnie użytkownik wybiera polecenie **Weryfikuj kod** . 
 
-Po zweryfikowaniu kodu użytkownik wybiera pozycję **Utwórz** , aby utworzyć konto. Lub jeśli użytkownik chce użyć innego adresu e-mail, może wybrać pozycję **Zmień wiadomość e-mail**.
+Po zweryfikowaniu kodu użytkownik wybiera pozycję **Utwórz** , aby utworzyć konto. Lub jeśli użytkownik chce użyć innego adresu e-mail, może wybrać pozycję **Zmień wiadomość e-mail** .
 
 ![Użytkownik tworzy konto](media/phone-authentication/email-verification.png)
 
 ### <a name="phone-sign-in-experience"></a>Środowisko logowania przy użyciu telefonu
 
-Jeśli użytkownik ma konto z numerem telefonu w postaci identyfikatora, użytkownik wprowadza numer telefonu i wybiera pozycję **Kontynuuj**. Potwierdzają one kraj i numer telefonu, wybierając pozycję **Kontynuuj**, a jednorazowy kod weryfikacyjny jest wysyłany do telefonu. Użytkownik wprowadzi kod weryfikacyjny i wybierze opcję **Kontynuuj** , aby się zalogować.
+Jeśli użytkownik ma konto z numerem telefonu w postaci identyfikatora, użytkownik wprowadza numer telefonu i wybiera pozycję **Kontynuuj** . Potwierdzają one kraj i numer telefonu, wybierając pozycję **Kontynuuj** , a jednorazowy kod weryfikacyjny jest wysyłany do telefonu. Użytkownik wprowadzi kod weryfikacyjny i wybierze opcję **Kontynuuj** , aby się zalogować.
 
 ![Środowisko użytkownika logowania do telefonu](media/phone-authentication/phone-signin-screens.png)
 
@@ -106,15 +106,15 @@ W poniższych krokach przyjęto założenie, że zostały spełnione [wymagania 
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. W każdym pliku Zastąp ciąg `yourtenant` nazwą dzierżawy Azure AD B2C. Na przykład jeśli nazwa dzierżawy usługi B2C jest *contosob2c*, wszystkie wystąpienia `yourtenant.onmicrosoft.com` stają się dostępne `contosob2c.onmicrosoft.com` .
+1. W każdym pliku Zastąp ciąg `yourtenant` nazwą dzierżawy Azure AD B2C. Na przykład jeśli nazwa dzierżawy usługi B2C jest *contosob2c* , wszystkie wystąpienia `yourtenant.onmicrosoft.com` stają się dostępne `contosob2c.onmicrosoft.com` .
 
-1. Wykonaj kroki opisane w sekcji [Dodawanie identyfikatorów aplikacji do zasad niestandardowych](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) [w temacie Rozpoczynanie pracy z zasadami niestandardowymi w Azure Active Directory B2C](custom-policy-get-started.md). W takim przypadku należy zaktualizować `/phone-number-passwordless/` **`Phone_Email_Base.xml`** za pomocą **identyfikatorów aplikacji (klienta)** dwóch aplikacji zarejestrowanych podczas kończenia wymagań wstępnych, *IdentityExperienceFramework* i *ProxyIdentityExperienceFramework*.
+1. Wykonaj kroki opisane w sekcji [Dodawanie identyfikatorów aplikacji do zasad niestandardowych](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) [w temacie Rozpoczynanie pracy z zasadami niestandardowymi w Azure Active Directory B2C](custom-policy-get-started.md). W takim przypadku należy zaktualizować `/phone-number-passwordless/` **`Phone_Email_Base.xml`** za pomocą **identyfikatorów aplikacji (klienta)** dwóch aplikacji zarejestrowanych podczas kończenia wymagań wstępnych, *IdentityExperienceFramework* i *ProxyIdentityExperienceFramework* .
 
 ## <a name="upload-the-policy-files"></a>Przekazywanie plików zasad
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do dzierżawy Azure AD B2C.
-1. W obszarze **zasady**wybierz pozycję **platforma obsługi tożsamości**.
-1. Wybierz pozycję **Przekaż zasady niestandardowe**.
+1. W obszarze **zasady** wybierz pozycję **platforma obsługi tożsamości** .
+1. Wybierz pozycję **Przekaż zasady niestandardowe** .
 1. Przekaż pliki zasad w następującej kolejności:
     1. *Phone_Email_Base.xml*
     1. *SignUpOrSignInWithPhone.xml*
@@ -128,9 +128,9 @@ Podczas przekazywania każdego pliku, platforma Azure dodaje prefiks `B2C_1A_` .
 
 ## <a name="test-the-custom-policy"></a>Testowanie zasad niestandardowych
 
-1. W obszarze **zasady niestandardowe**wybierz pozycję **B2C_1A_SignUpOrSignInWithPhone**.
-1. W obszarze **Wybierz aplikację**wybierz aplikację *webapp1* , która została zarejestrowana przy wypełnianiu wymagań wstępnych.
-1. Dla **opcji wybierz adres URL odpowiedzi**wybierz opcję `https://jwt.ms` .
+1. W obszarze **zasady niestandardowe** wybierz pozycję **B2C_1A_SignUpOrSignInWithPhone** .
+1. W obszarze **Wybierz aplikację** wybierz aplikację *webapp1* , która została zarejestrowana przy wypełnianiu wymagań wstępnych.
+1. Dla **opcji wybierz adres URL odpowiedzi** wybierz opcję `https://jwt.ms` .
 1. Wybierz pozycję **Uruchom teraz** i zarejestruj się przy użyciu adresu e-mail lub numeru telefonu.
 1. Wybierz pozycję **Uruchom teraz** ponownie i zaloguj się przy użyciu tego samego konta, aby upewnić się, że konfiguracja jest poprawna.
 
@@ -144,7 +144,7 @@ Możesz znaleźć użytkownika według numeru telefonu (nazwy logowania), korzys
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
 ```
 
-Na przykład:
+Przykład:
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')

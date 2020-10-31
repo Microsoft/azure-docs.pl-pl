@@ -7,19 +7,19 @@ ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 67bcd6fbf04cb92deaae034d289990dfec309fe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c2eb4225cb014b3251d12470e4e9827150a5cf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280015"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123357"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analizowanie danych JSON i Avro w Azure Stream Analytics
 
 Azure Stream Analytics obsługiwać zdarzenia przetwarzania w formatach danych CSV, JSON i Avro. Dane JSON i Avro mogą być strukturalne i zawierać niektóre złożone typy, takie jak obiekty zagnieżdżone (rekordy) i tablice. 
 
 >[!NOTE]
->Pliki AVRO utworzone przez funkcję przechwytywania centrum zdarzeń używają określonego formatu, który wymaga użycia funkcji *deserializacji niestandardowej* . Aby uzyskać więcej informacji, zobacz [odczytywanie danych wejściowych w dowolnym formacie za pomocą deserializatorów niestandardowych platformy .NET](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
+>Pliki AVRO utworzone przez funkcję przechwytywania centrum zdarzeń używają określonego formatu, który wymaga użycia funkcji *deserializacji niestandardowej* . Aby uzyskać więcej informacji, zobacz [odczytywanie danych wejściowych w dowolnym formacie za pomocą deserializatorów niestandardowych platformy .NET](./custom-deserializer-examples.md).
 >
 >Deserializacja Stream Analytics AVRO nie obsługuje typu mapy. Stream Analytics nie może odczytać obiektów BLOB przechwytywania funkcji EventHub, ponieważ funkcja przechwytywania EventHub używa map.
 
@@ -89,7 +89,7 @@ Wynik:
 
 ### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Dostęp do zagnieżdżonych pól, gdy nazwa właściwości jest zmienną
 
-Użyj funkcji [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) , jeśli nazwa właściwości jest zmienną. Pozwala to na tworzenie zapytań dynamicznych bez nazw właściwości zakodowana.
+Użyj funkcji [GetRecordPropertyValue](/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) , jeśli nazwa właściwości jest zmienną. Pozwala to na tworzenie zapytań dynamicznych bez nazw właściwości zakodowana.
 
 Załóżmy na przykład, że przykładowy strumień danych musi **być połączony z danymi referencyjnymi** zawierającymi progi dla każdego czujnika urządzenia. Poniżej przedstawiono fragment kodu dotyczący takich danych referencyjnych.
 
@@ -121,7 +121,7 @@ WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
 ```
 
-**GetRecordPropertyValue** wybiera właściwość w *SensorReadings*, która jest zgodna z nazwą właściwości pochodzącą z danych referencyjnych. Następnie skojarzona wartość z *SensorReadings* jest wyodrębniana.
+**GetRecordPropertyValue** wybiera właściwość w *SensorReadings* , która jest zgodna z nazwą właściwości pochodzącą z danych referencyjnych. Następnie skojarzona wartość z *SensorReadings* jest wyodrębniana.
 
 Wynik:
 
@@ -131,7 +131,7 @@ Wynik:
 
 ### <a name="convert-record-fields-into-separate-events"></a>Konwertuj pola rekordów na oddzielne zdarzenia
 
-Aby przekonwertować pola rekordu na oddzielne zdarzenia, użyj operatora [apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) razem z funkcją [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics) .
+Aby przekonwertować pola rekordu na oddzielne zdarzenia, użyj operatora [apply](/stream-analytics-query/apply-azure-stream-analytics) razem z funkcją [GetRecordProperties](/stream-analytics-query/getrecordproperties-azure-stream-analytics) .
 
 W przypadku oryginalnych danych przykładowych można użyć następującego zapytania do wyodrębnienia właściwości do różnych zdarzeń.
 
@@ -154,7 +154,7 @@ Wynik:
 |12345|CustomSensor02|99|
 |12345|SensorMetadata|[obiekt obiektu]|
 
-W [przypadku korzystania z programu z usługą](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics)można kierować te zdarzenia do różnych miejsc docelowych:
+W [przypadku korzystania z programu z usługą](/stream-analytics-query/with-azure-stream-analytics)można kierować te zdarzenia do różnych miejsc docelowych:
 
 ```SQL
 WITH Stage0 AS
@@ -205,9 +205,9 @@ Następnie można utworzyć krok w zapytaniu Stream Analytics, jak pokazano poni
 
 ## <a name="array-data-types"></a>Array — typy danych
 
-Typy danych tablicy to uporządkowana Kolekcja wartości. Poniżej przedstawiono niektóre typowe operacje dotyczące wartości tablicy. W tych przykładach użyto funkcji [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics)i operator [apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) .
+Typy danych tablicy to uporządkowana Kolekcja wartości. Poniżej przedstawiono niektóre typowe operacje dotyczące wartości tablicy. W tych przykładach użyto funkcji [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics)i operator [apply](/stream-analytics-query/apply-azure-stream-analytics) .
 
-Oto przykład pojedynczego zdarzenia. Obie `CustomSensor03` i `SensorMetadata` są typu **Array**:
+Oto przykład pojedynczego zdarzenia. Obie `CustomSensor03` i `SensorMetadata` są typu **Array** :
 
 ```json
 {
@@ -265,7 +265,7 @@ Wynik:
 
 ### <a name="convert-array-elements-into-separate-events"></a>Konwertuj elementy tablicy na oddzielne zdarzenia
 
-Zaznacz wszystkie elementy tablicy jako pojedyncze zdarzenia. Operator [apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) wraz z wbudowaną funkcją [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) wyodrębnia wszystkie elementy tablicy jako pojedyncze zdarzenia:
+Zaznacz wszystkie elementy tablicy jako pojedyncze zdarzenia. Operator [apply](/stream-analytics-query/apply-azure-stream-analytics) wraz z wbudowaną funkcją [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics) wyodrębnia wszystkie elementy tablicy jako pojedyncze zdarzenia:
 
 ```SQL
 SELECT
@@ -301,7 +301,7 @@ Wynik:
 |12345|Producent|ABC|
 |12345|Wersja|1.2.45|
 
-Jeśli wyodrębnione pola muszą pojawić się w kolumnach, można przestawiać zestaw danych przy użyciu składni [with](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics) obok operacji [Join](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) . To dołączenie wymaga warunku [granicy czasu](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) , który uniemożliwia duplikowanie:
+Jeśli wyodrębnione pola muszą pojawić się w kolumnach, można przestawiać zestaw danych przy użyciu składni [with](/stream-analytics-query/with-azure-stream-analytics) obok operacji [Join](/stream-analytics-query/join-azure-stream-analytics) . To dołączenie wymaga warunku [granicy czasu](/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) , który uniemożliwia duplikowanie:
 
 ```SQL
 WITH DynamicCTE AS (
@@ -330,4 +330,4 @@ Wynik:
 |12345|47|122|1.2.45|ABC|
 
 ## <a name="see-also"></a>Zobacz też
-[Typy danych w Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)
+[Typy danych w Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics)

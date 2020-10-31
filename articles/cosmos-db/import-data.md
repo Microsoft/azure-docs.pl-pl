@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: dech
-ms.openlocfilehash: 8613d3b02d396f16008ee771cdff25fe8b2e2f10
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7084458d8d3fbae45819fc29daa502423c919bbf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490649"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101616"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Samouczek: Migrowanie danych do Azure Cosmos DB za pomocą narzędzia do migracji danych
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym samouczku znajdują się instrukcje dotyczące używania narzędzia do migracji danych usługi Azure Cosmos DB, które umożliwia importowanie danych z różnych źródeł do kontenerów i tabel usługi Azure Cosmos. Dane można importować z plików JSON, plików CSV, kodu SQL, bazy danych MongoDB, usługi Azure Table Storage, bazy danych Amazon DynamoDB, a nawet z kolekcji interfejsu API SQL usługi Azure Cosmos DB. Aby używać tych danych z usługą Azure Cosmos DB, należy przeprowadzić ich migrację do kolekcji i tabel. Narzędzie do migracji danych może być również używane podczas migracji z kolekcji z pojedynczą partycją do kolekcji z wieloma partycjami na potrzeby interfejsu SQL API.
 
@@ -37,7 +38,7 @@ Ten samouczek obejmuje następujące zadania:
 
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że zostały wykonane następujące kroki:
 
-* **Zainstalowanie programu ** [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) lub nowszego.
+* **Zainstalowanie programu** [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) lub nowszego.
 
 * **Zwiększenie przepływności:** czas trwania migracji danych zależy od przepływności skonfigurowanej dla pojedynczej kolekcji lub dla zestawu kolekcji. Pamiętaj o zwiększeniu przepływności w przypadku większych migracji danych. Po ukończeniu migracji zmniejsz przepływność, aby ograniczyć koszty. Aby uzyskać więcej informacji na temat zwiększania przepływności w Azure Portal, zobacz [poziomy wydajności](performance-levels.md) i [warstwy cenowe](https://azure.microsoft.com/pricing/details/cosmos-db/) w Azure Cosmos DB.
 
@@ -68,8 +69,8 @@ Narzędzie do importowania ma graficzny interfejs użytkownika (dtui.exe), ale m
 
 Kod źródłowy narzędzia do migracji jest dostępny w witrynie GitHub w [tym repozytorium](https://github.com/azure/azure-documentdb-datamigrationtool). Możesz pobrać i skompilować rozwiązanie lokalnie lub [pobrać wstępnie skompilowany plik binarny](https://aka.ms/csdmtool), a następnie uruchomić jeden z plików:
 
-* **Dtui.exe**: wersja interfejsu graficznego narzędzia
-* **Dt.exe**: wersja wiersza polecenia narzędzia
+* **Dtui.exe** : wersja interfejsu graficznego narzędzia
+* **Dt.exe** : wersja wiersza polecenia narzędzia
 
 ## <a name="select-data-source"></a>Wybieranie źródła danych
 
@@ -99,7 +100,7 @@ Parametry połączenia mają następujący format:
 `AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
 
 * `<CosmosDB Endpoint>`Jest to identyfikator URI punktu końcowego. Tę wartość można uzyskać z Azure Portal. Przejdź do swojego konta usługi Azure Cosmos. Otwórz okienko **Przegląd** i skopiuj wartość **identyfikatora URI** .
-* `<AccountKey>`Jest to "hasło" lub **klucz podstawowy**. Tę wartość można uzyskać z Azure Portal. Przejdź do swojego konta usługi Azure Cosmos. Otwórz okienko **Parametry połączenia** lub **klucze** i skopiuj wartość "hasło" lub **klucz podstawowy** .
+* `<AccountKey>`Jest to "hasło" lub **klucz podstawowy** . Tę wartość można uzyskać z Azure Portal. Przejdź do swojego konta usługi Azure Cosmos. Otwórz okienko **Parametry połączenia** lub **klucze** i skopiuj wartość "hasło" lub **klucz podstawowy** .
 * `<CosmosDB Database>`Nazwa bazy danych CosmosDB.
 
 Przykład: `AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
@@ -375,7 +376,7 @@ Parametry połączenia konta usługi Azure Cosmos DB można pobrać ze strony kl
 > [!NOTE]
 > Aby upewnić się, że wystąpienie usługi Azure Cosmos DB określone w polu parametrów połączenia jest dostępne, użyj polecenia weryfikacji.
 
-Aby importować do pojedynczej kolekcji, wprowadź nazwę kolekcji, z której chcesz zaimportować dane, i kliknij przycisk Dodaj. Aby importować do więcej niż jednej kolekcji, wprowadź pojedynczo nazwy poszczególnych kolekcji lub użyj poniższej składni, aby określić więcej niż jedną kolekcję: *prefiks_kolekcji*[indeks początkowy–indeks końcowy]. W przypadku określania więcej niż jednej kolekcji za pomocą wyżej wymienionej składni pamiętaj o następujących wytycznych:
+Aby importować do pojedynczej kolekcji, wprowadź nazwę kolekcji, z której chcesz zaimportować dane, i kliknij przycisk Dodaj. Aby importować do więcej niż jednej kolekcji, wprowadź pojedynczo nazwy poszczególnych kolekcji lub użyj poniższej składni, aby określić więcej niż jedną kolekcję: *prefiks_kolekcji* [indeks początkowy–indeks końcowy]. W przypadku określania więcej niż jednej kolekcji za pomocą wyżej wymienionej składni pamiętaj o następujących wytycznych:
 
 1. Obsługiwane są tylko wzorce nazw zakresów liczb całkowitych. Na przykład określenie kolekcji collection[0–3] powoduje utworzenie następujących kolekcji: collection0, collection1, collection2, collection3.
 2. Można użyć składni skróconej: collection[3] powoduje utworzenie tego samego zestawu kolekcji wspomnianego w kroku 1.
@@ -434,7 +435,7 @@ Parametry połączenia konta usługi Azure Cosmos DB możesz pobrać ze strony K
 > [!NOTE]
 > Aby upewnić się, że wystąpienie usługi Azure Cosmos DB określone w polu parametrów połączenia jest dostępne, użyj polecenia weryfikacji.
 
-Aby importować do pojedynczej kolekcji, wprowadź nazwę kolekcji, do której chcesz zaimportować dane, a następnie kliknij przycisk Dodaj. Aby importować do więcej niż jednej kolekcji, wprowadź nazwę każdej kolekcji oddzielnie. Możesz także określić więcej niż jedną kolekcję, używając następującej składni: *prefiks_kolekcji*[indeks początkowy–indeks końcowy]. W przypadku określania więcej niż jednej kolekcji za pośrednictwem wyżej wymienionej składni pamiętaj o następujących wytycznych:
+Aby importować do pojedynczej kolekcji, wprowadź nazwę kolekcji, do której chcesz zaimportować dane, a następnie kliknij przycisk Dodaj. Aby importować do więcej niż jednej kolekcji, wprowadź nazwę każdej kolekcji oddzielnie. Możesz także określić więcej niż jedną kolekcję, używając następującej składni: *prefiks_kolekcji* [indeks początkowy–indeks końcowy]. W przypadku określania więcej niż jednej kolekcji za pośrednictwem wyżej wymienionej składni pamiętaj o następujących wytycznych:
 
 1. Obsługiwane są tylko wzorce nazw zakresów liczb całkowitych. Na przykład określenie kolekcji collection[0–3] powoduje utworzenie następujących kolekcji: collection0, collection1, collection2, collection3.
 2. Można użyć składni skróconej: collection[3] powoduje utworzenie tego samego zestawu kolekcji wspomnianego w kroku 1.
@@ -528,7 +529,7 @@ Na ekranie konfiguracji zaawansowanej określ lokalizację pliku dziennika, w kt
 
     :::image type="content" source="./media/import-data/summarycommand.png" alt-text="Zrzut ekranu przedstawiający opcje źródła dla plików JSON — narzędzia do migracji bazy danych":::
 
-2. Po wybraniu żądanych opcji źródła i celu kliknij przycisk **Importuj**. Czas, który upłynął, liczba przetransferowanych plików i informacje o błędach (jeśli nie podano nazwy pliku w obszarze konfiguracji zaawansowanej) są aktualizowane w miarę postępu importu. Po ukończeniu możesz wyeksportować wyniki (na przykład na wypadek błędów importu).
+2. Po wybraniu żądanych opcji źródła i celu kliknij przycisk **Importuj** . Czas, który upłynął, liczba przetransferowanych plików i informacje o błędach (jeśli nie podano nazwy pliku w obszarze konfiguracji zaawansowanej) są aktualizowane w miarę postępu importu. Po ukończeniu możesz wyeksportować wyniki (na przykład na wypadek błędów importu).
 
     :::image type="content" source="./media/import-data/viewresults.png" alt-text="Zrzut ekranu przedstawiający opcje źródła dla plików JSON — narzędzia do migracji bazy danych":::
 

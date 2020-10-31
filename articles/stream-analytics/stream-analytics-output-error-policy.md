@@ -8,22 +8,22 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 22112272bb302769e5969cf6995d486438deb41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923e8d1ffc3e606c16226b4b2ccbdcfaf4d3e9f1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75431622"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123425"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Azure Stream Analytics wyjściowe zasady błędów
 W tym artykule opisano zasady obsługi błędów danych wyjściowych, które można skonfigurować w Azure Stream Analytics.
 
-Zasady obsługi błędów danych wyjściowych mają zastosowanie tylko do błędów konwersji danych, które występują, gdy zdarzenie wyjściowe generowane przez zadanie Stream Analytics jest niezgodne ze schematem docelowego ujścia. Te zasady można skonfigurować, wybierając pozycję **Ponów** lub **upuść**. W Azure Portal, w ramach zadania Stream Analytics, w obszarze **Konfiguruj**wybierz pozycję **zasady błędów** , aby dokonać wyboru.
+Zasady obsługi błędów danych wyjściowych mają zastosowanie tylko do błędów konwersji danych, które występują, gdy zdarzenie wyjściowe generowane przez zadanie Stream Analytics jest niezgodne ze schematem docelowego ujścia. Te zasady można skonfigurować, wybierając pozycję **Ponów** lub **upuść** . W Azure Portal, w ramach zadania Stream Analytics, w obszarze **Konfiguruj** wybierz pozycję **zasady błędów** , aby dokonać wyboru.
 
 ![Lokalizacja zasad błędów danych wyjściowych Azure Stream Analytics](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
 
 
-## <a name="retry"></a>Ponawianie próby
+## <a name="retry"></a>Ponów próbę
 Gdy wystąpi błąd, Azure Stream Analytics ponawianie próby zapisania zdarzenia przez czas, dopóki zapis nie powiedzie się. Nie ma limitu czasu dla ponownych prób. Ostatecznie wszystkie kolejne zdarzenia są blokowane przed przetwarzaniem przez zdarzenie, które jest ponawiane. Ta opcja jest domyślną zasadą obsługi błędów wyjścia.
 
 ## <a name="drop"></a>Listy rozwijanej
@@ -34,4 +34,4 @@ Wszystkie błędy przejściowe (na przykład błędy sieciowe) są ponawiane nie
 
 
 ## <a name="next-steps"></a>Następne kroki
-[Przewodnik rozwiązywania problemów Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
+[Przewodnik rozwiązywania problemów Azure Stream Analytics](./stream-analytics-troubleshoot-query.md)

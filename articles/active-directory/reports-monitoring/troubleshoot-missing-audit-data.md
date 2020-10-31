@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1ac0033b7ed2de90ece481cd02d64970ff5f9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f48c26a65314e2f23513fba155f07db3805a516
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85608113"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123068"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Rozwiązywanie problemów: Brak danych w dziennikach aktywności usługi Azure Active Directory 
 
@@ -32,7 +32,7 @@ ms.locfileid: "85608113"
 
 W witrynie Azure Portal wykonano pewne akcje, które powinny zostać odzwierciedlone w dziennikach inspekcji w bloku `Activity logs > Audit Logs`, ale nie można ich znaleźć.
 
- ![Raportowanie](./media/troubleshoot-missing-audit-data/01.png)
+ ![Zrzut ekranu przedstawia wpisy dziennika inspekcji.](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>Przyczyna
 
@@ -53,7 +53,7 @@ Poczekaj od 15 minut do dwóch godzin, a następnie sprawdź, czy akcje pojawią
 
 Po ostatnim zalogowaniu się do witryny Azure Portal oczekiwano wyświetlenia dzienników logowania dla akcji w bloku `Activity logs > Sign-ins`, ale nie można ich znaleźć.
 
- ![Raportowanie](./media/troubleshoot-missing-audit-data/02.png)
+ ![Zrzut ekranu przedstawia logowania w dzienniku aktywności.](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>Przyczyna
 
@@ -74,7 +74,7 @@ Poczekaj od 15 minut do dwóch godzin, a następnie sprawdź, czy akcje pojawią
 
 Nie mogę wyświetlić danych logowania i inspekcji obejmujących więcej niż 30 dni w witrynie Azure Portal. Dlaczego? 
 
- ![Raportowanie](./media/troubleshoot-missing-audit-data/03.png)
+ ![Zrzut ekranu przedstawia menu Data.](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>Przyczyna
 

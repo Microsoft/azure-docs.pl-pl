@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448883"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123289"
 ---
 # <a name="troubleshoot-input-connections"></a>Rozwiązywanie problemów z połączeniami wejściowymi
 
@@ -25,13 +25,13 @@ W tym artykule opisano typowe problemy związane z Azure Stream Analytics połą
 
 2.  Sprawdź dane wejściowe.
 
-    1. Użyj przycisku [**przykładowe dane**](stream-analytics-sample-data-input.md) dla każdego elementu wejściowego. Pobierz przykładowe dane wejściowe.
+    1. Użyj przycisku [**przykładowe dane**](./stream-analytics-test-query.md) dla każdego elementu wejściowego. Pobierz przykładowe dane wejściowe.
         
-    1. Sprawdź przykładowe dane, aby zrozumieć schemat i [typy danych](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Sprawdź przykładowe dane, aby zrozumieć schemat i [typy danych](/stream-analytics-query/data-types-azure-stream-analytics).
     
     1. Sprawdź [metryki centrum zdarzeń](../event-hubs/event-hubs-metrics-azure-monitor.md) , aby upewnić się, że zdarzenia są wysyłane. Metryki komunikatów powinny być większe od zera, jeśli Event Hubs otrzymuje komunikaty.
 
-3.  Upewnij się, że wybrano zakres czasu w podglądzie danych wejściowych. Wybierz **pozycję Wybierz zakres czasu**, a następnie wprowadź przykładowy czas trwania przed przetestowaniem zapytania.
+3.  Upewnij się, że wybrano zakres czasu w podglądzie danych wejściowych. Wybierz **pozycję Wybierz zakres czasu** , a następnie wprowadź przykładowy czas trwania przed przetestowaniem zapytania.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Źle sformułowane zdarzenia wejściowe powodują błędy deserializacji 
 
@@ -71,7 +71,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Aby dodać nową grupę odbiorców w wystąpieniu Event Hubs, wykonaj następujące kroki:
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się w witrynie Azure Portal.
 
 2. Znajdź centrum zdarzeń.
 
@@ -79,7 +79,7 @@ Aby dodać nową grupę odbiorców w wystąpieniu Event Hubs, wykonaj następuj�
 
 4. Wybierz pozycję centrum zdarzeń według nazwy.
 
-5. Na stronie **wystąpienie Event Hubs** w obszarze nagłówka **jednostki** wybierz pozycję **grupy odbiorców**. Zostanie wyświetlona Grupa odbiorców o nazwie **$default** .
+5. Na stronie **wystąpienie Event Hubs** w obszarze nagłówka **jednostki** wybierz pozycję **grupy odbiorców** . Zostanie wyświetlona Grupa odbiorców o nazwie **$default** .
 
 6. Wybierz pozycję **+ Grupa odbiorców** , aby dodać nową grupę odbiorców. 
 
@@ -163,16 +163,16 @@ SELECT foo FROM DataTwo
 
 ## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>Czytelnicy na partycję przekraczają limit IoT Hub
 
-Stream Analytics zadania używają wbudowanego [punktu końcowego zgodnego z centrum zdarzeń](../iot-hub/iot-hub-devguide-messages-read-builtin.md) IoT Hub, aby nawiązać połączenie i odczytać zdarzenia z IoT Hub. Jeśli odczyt na partycję przekracza limity IoT Hub, można użyć [rozwiązań dla centrum zdarzeń](#readers-per-partition-exceeds-event-hubs-limit) , aby rozwiązać ten problem. Grupę odbiorców można utworzyć dla wbudowanego punktu końcowego za pomocą sesji punktu końcowego portalu IoT Hub Portal lub [zestawu IoT Hub SDK](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
+Stream Analytics zadania używają wbudowanego [punktu końcowego zgodnego z centrum zdarzeń](../iot-hub/iot-hub-devguide-messages-read-builtin.md) IoT Hub, aby nawiązać połączenie i odczytać zdarzenia z IoT Hub. Jeśli odczyt na partycję przekracza limity IoT Hub, można użyć [rozwiązań dla centrum zdarzeń](#readers-per-partition-exceeds-event-hubs-limit) , aby rozwiązać ten problem. Grupę odbiorców można utworzyć dla wbudowanego punktu końcowego za pomocą sesji punktu końcowego portalu IoT Hub Portal lub [zestawu IoT Hub SDK](/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
 
 ## <a name="get-help"></a>Uzyskaj pomoc
 
-Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](/rest/api/streamanalytics/)

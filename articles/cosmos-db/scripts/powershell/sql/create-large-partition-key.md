@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2d549ec4733eca34f8f436741ed83048ff7e7b0c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 335701ce2e5b1fb45003e21f8f595ec1716703ee
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489068"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102058"
 ---
 # <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-db-account-using-powershell"></a>Tworzenie kontenera z dużym kluczem partycji na koncie Azure Cosmos DB przy użyciu programu PowerShell
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

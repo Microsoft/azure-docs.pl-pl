@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 55dabccf5a5ab9e81ff0644056002f3beb644fa9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f7e9de1f23ec46af08fe96b5db3170fac9a7eb2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491159"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101633"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-gremlin-api"></a>Tworzenie kontenera w Azure Cosmos DB interfejsie API Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 W tym artykule opisano różne sposoby tworzenia kontenera w Azure Cosmos DB interfejsie API Gremlin. Przedstawiono w nim sposób tworzenia kontenera przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure, programu PowerShell lub obsługiwanych zestawów SDK. W tym artykule pokazano, jak utworzyć kontener, określić klucz partycji i aprowizować przepływność.
 
@@ -26,18 +27,18 @@ W tym artykule opisano różne sposoby tworzenia kontenera w Azure Cosmos DB int
 
 ## <a name="create-using-azure-portal"></a><a id="portal-gremlin"></a>Tworzenie za pomocą witryny Azure Portal
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-graph-dotnet.md#create-a-database-account)lub Wybierz istniejące konto.
 
-1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowy graf**. Następnie podaj następujące szczegóły:
+1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowy graf** . Następnie podaj następujące szczegóły:
 
    * Wskaż, czy tworzysz nową bazę danych, czy używasz istniejącej.
    * Wprowadź identyfikator grafu.
-   * Wybierz pojemność magazynu **Bez ograniczeń**.
+   * Wybierz pojemność magazynu **Bez ograniczeń** .
    * Wprowadź klucz partycji dla wierzchołków.
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Wybierz pozycję **OK** .
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Zrzut ekranu interfejsu API Gremlin, okno dialogowe Dodawanie grafu":::
 

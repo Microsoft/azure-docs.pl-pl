@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23074dcd7ee888d6d9d8bf288cf0fda66dc0ceec
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319753"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122847"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące logowań w portalu Azure Active Directory
 
@@ -58,13 +58,13 @@ Raport logowania użytkownika zawiera odpowiedzi na następujące pytania:
 * Ilu użytkowników zalogowało się w ciągu tygodnia?
 * Jaki jest stan tych logowań?
 
-W menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory**lub wyszukaj i wybierz pozycję **Azure Active Directory** z dowolnej strony.
+W menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory** lub wyszukaj i wybierz pozycję **Azure Active Directory** z dowolnej strony.
 
-![Wybierz Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Usługa Azure Active Directory")
+![Wybierz Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-W obszarze **monitorowanie**wybierz pozycję **logowania** , aby otworzyć [raport logowania](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+W obszarze **monitorowanie** wybierz pozycję **logowania** , aby otworzyć [raport logowania](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
-![Aktywność logowania](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Aktywność związana z logowaniem")
+![Zrzut ekranu przedstawia logowania wybrane z menu monitorowanie.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Aktywność związana z logowaniem")
 
 Wyświetlanie rekordów logowania w portalu może potrwać do dwóch godzin.
 
@@ -80,19 +80,19 @@ Domyślny widok listy dziennika logowań pokazuje następujące dane:
 - Stan wykrywania ryzyka
 - Stan wymagania dotyczącego uwierzytelniania wieloskładnikowego (MFA)
 
-![Aktywność logowania](./media/concept-sign-ins/sign-in-activity.png "Aktywność związana z logowaniem")
+![Zrzut ekranu przedstawia logowanie do usługi Office 365 SharePoint Online.](./media/concept-sign-ins/sign-in-activity.png "Aktywność związana z logowaniem")
 
 Możesz dostosować widok listy, klikając pozycję **Kolumny** na pasku narzędzi.
 
-![Aktywność logowania](./media/concept-sign-ins/19.png "Aktywność związana z logowaniem")
+![Zrzut ekranu przedstawia opcję kolumny na stronie logowania.](./media/concept-sign-ins/19.png "Aktywność związana z logowaniem")
 
 Okno dialogowe **kolumny** umożliwia dostęp do atrybutów, które można wybrać. W raporcie logowania nie można mieć pól, które mają więcej niż jedną wartość dla danego żądania logowania jako kolumny. Dotyczy to na przykład wartości true dla szczegółów uwierzytelniania, danych dostępu warunkowego i lokalizacji sieciowej.   
 
-![Aktywność logowania](./media/concept-sign-ins/columns.png "Aktywność związana z logowaniem")
+![Zrzut ekranu przedstawia okno dialogowe kolumny, w którym można wybrać atrybuty.](./media/concept-sign-ins/columns.png "Aktywność związana z logowaniem")
 
 Wybierz element w widoku listy, aby uzyskać bardziej szczegółowe informacje.
 
-![Aktywność logowania](./media/concept-sign-ins/basic-sign-in.png "Aktywność związana z logowaniem")
+![Zrzut ekranu przedstawia szczegółowy widok informacji.](./media/concept-sign-ins/basic-sign-in.png "Aktywność związana z logowaniem")
 
 > [!NOTE]
 > Klienci mogą teraz rozwiązywać problemy z zasadami dostępu warunkowego przez wszystkie raporty logowania. Klikając kartę **dostęp warunkowy** dla rekordu logowania, klienci mogą sprawdzić stan dostępu warunkowego i szczegółowe w celu uzyskania szczegółowych informacji dotyczących zasad, które zastosowały się do logowania, oraz wyników dla każdej zasady.
@@ -104,7 +104,7 @@ Wybierz element w widoku listy, aby uzyskać bardziej szczegółowe informacje.
 
 Najpierw Zawężanie danych raportowanych do poziomu, który się do Ciebie sprawdza. Następnie należy odfiltrować dane logowania przy użyciu pola daty jako domyślnego filtru. Usługa Azure AD udostępnia szeroką gamę dodatkowych filtrów, które można ustawić:
 
-![Aktywność logowania](./media/concept-sign-ins/04.png "Aktywność związana z logowaniem")
+![Zrzut ekranu przedstawia opcję Dodaj filtry.](./media/concept-sign-ins/04.png "Aktywność związana z logowaniem")
 
 **Identyfikator żądania** — identyfikator żądanego obiektu.
 
@@ -177,11 +177,11 @@ Najpierw Zawężanie danych raportowanych do poziomu, który się do Ciebie spra
 
 **Dostęp warunkowy** — stan zastosowanych reguł dostępu warunkowego
 
-- **Nie zastosowano**: podczas logowania nie są stosowane żadne zasady dotyczące użytkownika i aplikacji.
+- **Nie zastosowano** : podczas logowania nie są stosowane żadne zasady dotyczące użytkownika i aplikacji.
 
-- **Sukces**: co najmniej jedna zasada dostępu warunkowego stosowana do użytkownika i aplikacji (ale nie jest to inne warunki) podczas logowania. 
+- **Sukces** : co najmniej jedna zasada dostępu warunkowego stosowana do użytkownika i aplikacji (ale nie jest to inne warunki) podczas logowania. 
 
-- **Niepowodzenie**: zalogowanie zostało spełnione warunek użytkownika i aplikacji co najmniej jednej zasady dostępu warunkowego, a kontrolki grantu nie są spełnione lub ustawione na zablokowanie dostępu.
+- **Niepowodzenie** : zalogowanie zostało spełnione warunek użytkownika i aplikacji co najmniej jednej zasady dostępu warunkowego, a kontrolki grantu nie są spełnione lub ustawione na zablokowanie dostępu.
 
 
 
@@ -214,7 +214,7 @@ Usługa Azure AD i Azure Portal udostępniają dodatkowe punkty wejścia do dany
 
 Na stronie Omówienie usługi **Identity Security Protection** Graf logowania użytkownika przedstawia tygodniowe agregacje logowania. Wartością domyślną okresu jest 30 dni.
 
-![Aktywność logowania](./media/concept-sign-ins/06.png "Aktywność związana z logowaniem")
+![Zrzut ekranu przedstawia Graf logowania w ciągu miesiąca.](./media/concept-sign-ins/06.png "Aktywność związana z logowaniem")
 
 Po kliknięciu dnia na wykresie logowań zostanie wyświetlony przegląd działań logowania dla tego dnia.
 
@@ -235,16 +235,16 @@ Klikając pozycję, można uzyskać więcej szczegółowych informacji na temat 
 - Klient
 - Lokalizacja
 - Adres IP
-- Date
+- Data
 - Wymagane uwierzytelnianie wieloskładnikowe
 - Stan logowania
 
 > [!NOTE]
 > Adresy IP są wystawiane w taki sposób, że nie istnieje ostateczne połączenie między adresem IP i lokalizacją, w której komputer z tym adresem jest fizycznie zlokalizowany. Mapowanie adresów IP jest skomplikowane przez fakt, że dostawcy urządzeń przenośnych i sieci VPN wystawiają adresy IP z pul centralnych, które często są bardzo daleko od miejsca użycia urządzenia klienckiego. Obecnie w raportach usługi Azure AD konwertowanie adresu IP na lokalizację fizyczną jest najlepszym nakładem pracy na podstawie śladów, danych rejestru, wyszukiwania wstecznego i innych informacji.
 
-Na stronie **Użytkownicy** znajduje się pełny przegląd wszystkich logowań użytkowników dostępny po kliknięciu pozycji **Logowania** w sekcji **Działanie**.
+Na stronie **Użytkownicy** znajduje się pełny przegląd wszystkich logowań użytkowników dostępny po kliknięciu pozycji **Logowania** w sekcji **Działanie** .
 
-![Aktywność logowania](./media/concept-sign-ins/08.png "Aktywność związana z logowaniem")
+![Zrzut ekranu przedstawia sekcję działania, w której można wybrać opcję logowania.](./media/concept-sign-ins/08.png "Aktywność związana z logowaniem")
 
 ## <a name="usage-of-managed-applications"></a>Użycie zarządzanych aplikacji
 
@@ -254,13 +254,13 @@ Dzięki widokowi skoncentrowanemu na aplikacji w ramach danych logowania można 
 * Co to są trzy najpopularniejsze aplikacje w organizacji?
 * Jak działa moja najnowsza aplikacja?
 
-Punkt wejścia do tych danych to trzy pierwsze aplikacje w organizacji. Dane są zawarte w raporcie z ostatnich 30 dni w sekcji **Przegląd** w obszarze **aplikacje dla przedsiębiorstw**.
+Punkt wejścia do tych danych to trzy pierwsze aplikacje w organizacji. Dane są zawarte w raporcie z ostatnich 30 dni w sekcji **Przegląd** w obszarze **aplikacje dla przedsiębiorstw** .
 
-![Aktywność logowania](./media/concept-sign-ins/10.png "Aktywność związana z logowaniem")
+![Zrzut ekranu pokazuje, gdzie można wybrać pozycję przegląd.](./media/concept-sign-ins/10.png "Aktywność związana z logowaniem")
 
 Wykresy użycia aplikacji dotyczą tygodniowego agregacji logowań dla najpopularniejszych trzech aplikacji w danym okresie. Domyślny okres to 30 dni.
 
-![Aktywność logowania](./media/concept-sign-ins/graph-chart.png "Aktywność związana z logowaniem")
+![Zrzut ekranu przedstawia użycie aplikacji przez jeden miesiąc.](./media/concept-sign-ins/graph-chart.png "Aktywność związana z logowaniem")
 
 Jeśli chcesz, możesz ustawić fokus na konkretnej aplikacji.
 

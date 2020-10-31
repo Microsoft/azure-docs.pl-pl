@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc28cdbca7d2566318a3158399c1d44fd8d2ccd9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710562"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101725"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania wiadomości Bing
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Interfejs API wyszukiwania wiadomości Bing obsługuje wiele krajów/regionów, wiele z więcej niż jednym językiem. Określenie kraju/regionu z zapytaniem służy głównie do uściślenia wyników wyszukiwania w oparciu o zainteresowania w tym kraju/regionie. Ponadto wyniki mogą zawierać linki do usługi Bing, a te linki mogą lokalizować środowisko użytkownika Bing w zależności od określonego kraju/regionu lub języka.
 
@@ -47,7 +52,7 @@ Aby uzyskać listę kodów krajów/regionów, które można określić w `cc` pa
 |Nowa Zelandia|Angielski|EN-NZ|
 |Republika Filipin|Angielski|EN-PH|
 |Singapur|Angielski|EN-SG|
-|Stany Zjednoczone|Angielski|pl-PL|
+|Stany Zjednoczone|Angielski|en-US|
 |Angielski|ogólne|pl-WW|
 |Angielski|ogólne|pl-XA|
 |Republika Południowej Afryki|Angielski|pl-za|
@@ -86,7 +91,7 @@ Aby uzyskać listę kodów krajów/regionów, które można określić w `cc` pa
 |Niemcy|Niemiecki|de-DE|
 |Australia|Angielski|en-AU|
 |Zjednoczone Królestwo|Angielski|en-GB|
-|Stany Zjednoczone|Angielski|pl-PL|
+|Stany Zjednoczone|Angielski|en-US|
 |Angielski|ogólne|pl-WW|
 |Chile|Hiszpański|ES — CL|
 |Meksyk|Hiszpański|es — MX|
@@ -108,7 +113,7 @@ Aby uzyskać listę kodów krajów/regionów, które można określić w `cc` pa
 |Niemcy|Niemiecki|de-DE|
 |Australia|Angielski|en-AU|
 |Zjednoczone Królestwo|Angielski|en-GB|
-|Stany Zjednoczone|Angielski|pl-PL|
+|Stany Zjednoczone|Angielski|en-US|
 |Kanada|Angielski|EN-CA|
 |Indie|Angielski|dodatek EN-IN|
 |Francja|Francuski|fr-FR|

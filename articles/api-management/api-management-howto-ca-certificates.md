@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: e42e976e57dd69ffcbd9065cfb3aaf3af9c4b972
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 124bc053aa2c6e59e205bb6f33a9a96190799499
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852076"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102041"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Jak dodać niestandardowy certyfikat urzędu certyfikacji na platformie Azure API Management
 
@@ -39,17 +39,17 @@ Postępuj zgodnie z poniższymi instrukcjami, aby przekazać nowy certyfikat urz
 
 2. Z menu wybierz opcję **certyfikaty urzędu certyfikacji** .
 
-3. Kliknij przycisk **+ Dodaj**.  
+3. Kliknij przycisk **+ Dodaj** .  
 
-    ![Dodawanie certyfikatów urzędu certyfikacji](media/api-management-howto-ca-certificates/01.png)  
+    ![Zrzut ekranu pokazujący przycisk + Dodaj służący do dodawania certyfikatu urzędu certyfikacji.](media/api-management-howto-ca-certificates/01.png)  
 
 4. Wyszukaj certyfikat i wybierz magazyn certyfikatów. Wymagany jest tylko klucz publiczny, dlatego hasło nie jest wymagane.
 
-    ![Dodawanie certyfikatów urzędu certyfikacji](media/api-management-howto-ca-certificates/02.png)  
+    ![Zrzut ekranu pokazujący sposób przeglądania certyfikatu.](media/api-management-howto-ca-certificates/02.png)  
 
-5. Kliknij przycisk **Zapisz**. Ta operacja może potrwać kilka minut.
+5. Kliknij pozycję **Zapisz** . Ta operacja może potrwać kilka minut.
 
-    ![Dodawanie certyfikatów urzędu certyfikacji](media/api-management-howto-ca-certificates/03.png)  
+    ![Zrzut ekranu pokazujący sposób zapisywania certyfikatu.](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > Certyfikat urzędu certyfikacji można przekazać za pomocą `New-AzApiManagementSystemCertificate` polecenia programu PowerShell.

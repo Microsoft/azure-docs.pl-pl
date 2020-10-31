@@ -11,14 +11,19 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9ba749d671e24e86e2cd0a299e98ba03e47cf354
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85602758"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101684"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Co to jest interfejs API wyszukiwania wiadomości Bing?
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Interfejs API wyszukiwania wiadomości Bing umożliwia łatwą integrację możliwości poznawczego wyszukiwania wiadomości w usłudze Bing z aplikacjami. Interfejs API udostępnia podobne środowisko jak witryna [Wiadomości Bing](https://www.bing.com/news), umożliwiając wysyłanie zapytań wyszukiwania i odbieranie odpowiadających artykułów z wiadomościami.
 
@@ -28,7 +33,7 @@ Należy pamiętać, że interfejs API wyszukiwania wiadomości Bing udostępnia 
 
 O ile interfejs API wyszukiwania wiadomości Bing umożliwia przede wszystkim wyszukiwanie artykułów z wiadomościami i zwraca je, to udostępnia także kilka funkcji inteligentnego i ukierunkowanego pobierania wiadomości w Internecie.
 
-|Cecha  |Opis  |
+|Cechy  |Opis  |
 |---------|---------|
 |[Sugerowanie i używanie terminów wyszukiwania](concepts/search-for-news.md#suggest-and-use-search-terms)     | Ulepsz środowisko wyszukiwania przy użyciu [interfejsu API automatycznego sugerowania Bing](../bing-autosuggest/get-suggested-search-terms.md), aby wyświetlać sugerowane terminy wyszukiwania w miarę ich wpisywania.         |
 |[Uzyskiwanie wiadomości ogólnych](concepts/search-for-news.md#get-general-news)     | Wyszukiwanie wiadomości przez wysłanie zapytania wyszukiwania do interfejsu API wyszukiwania wiadomości Bing i pobieranie w odpowiedzi listy odpowiadających artykułów z wiadomościami.           |

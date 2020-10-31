@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: e772701396f172eaab906f99463bd9019728b531
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa75a553ffc131f4827aa045849f1317d894ddc5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938035"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123154"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatyzowanie kompilacji, testów i wdrożeń zadania Azure Stream Analytics przy użyciu narzędzi CI/CD
 
@@ -21,11 +21,11 @@ Aby automatycznie kompilować, testować i wdrażać Visual Studio Code Azure St
 
 ## <a name="installation"></a>Instalacja
 
-Możesz [pobrać pakiet](https://www.npmjs.com/package/azure-streamanalytics-cicd) bezpośrednio lub zainstalować go [globalnie](https://docs.npmjs.com/downloading-and-installing-packages-globally) za pomocą `npm install -g azure-streamanalytics-cicd` polecenia. Zalecamy użycie polecenia, które może być również używane w ramach zadania skryptu interfejsu wiersza polecenia platformy Azure dla potoku kompilacji w **Azure Pipelines**.
+Możesz [pobrać pakiet](https://www.npmjs.com/package/azure-streamanalytics-cicd) bezpośrednio lub zainstalować go [globalnie](https://docs.npmjs.com/downloading-and-installing-packages-globally) za pomocą `npm install -g azure-streamanalytics-cicd` polecenia. Zalecamy użycie polecenia, które może być również używane w ramach zadania skryptu interfejsu wiersza polecenia platformy Azure dla potoku kompilacji w **Azure Pipelines** .
 
 ## <a name="build-the-project"></a>Kompilowanie projektu
 
-Pakiet **ASA-streamanalytics-cicd** npm udostępnia narzędzia do generowania szablonów Azure Resource Manager [projektów Stream Analytics Visual Studio Code](quick-create-vs-code.md) lub [projektów programu Visual Studio](stream-analytics-quick-create-vs.md). Możesz również użyć pakietu npm w systemach Windows, macOS i Linux bez instalowania Visual Studio Code lub programu Visual Studio.
+Pakiet **ASA-streamanalytics-cicd** npm udostępnia narzędzia do generowania szablonów Azure Resource Manager [projektów Stream Analytics Visual Studio Code](./quick-create-visual-studio-code.md) lub [projektów programu Visual Studio](stream-analytics-quick-create-vs.md). Możesz również użyć pakietu npm w systemach Windows, macOS i Linux bez instalowania Visual Studio Code lub programu Visual Studio.
 
 Po zainstalowaniu pakietu Użyj następującego polecenia, aby skompilować projekty Stream Analytics.
 
@@ -46,7 +46,7 @@ Polecenie *Build* sprawdza składnię słowa kluczowego i wyprowadza szablon Azu
 azure-streamanalytics-cicd build -project "/Users/username/projects/samplejob/asaproj.json"
 ```
 
-#### <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd build -project "/Users/username/projects/samplejob/samplejob.asaproj"
@@ -66,7 +66,7 @@ Po pomyślnym skompilowaniu projektu Stream Analytics w folderze wyjściowym gen
 
 Parametry domyślne w parameters.jsna pliku pochodzą z ustawień w projekcie Visual Studio Code lub Visual Studio. Jeśli chcesz wdrożyć program w innym środowisku, Zastąp odpowiednio parametry.
 
-Wartości domyślne dla wszystkich poświadczeń mają **wartość null**. Przed wdrożeniem na platformie Azure wymagane jest ustawienie wartości.
+Wartości domyślne dla wszystkich poświadczeń mają **wartość null** . Przed wdrożeniem na platformie Azure wymagane jest ustawienie wartości.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -96,7 +96,7 @@ azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <out
 azure-streamanalytics-cicd localrun -project "/Users/roger/projects/samplejob/asaproj.json"
 ```
 
-#### <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd localrun -project "/Users/roger/projects/samplejob/samplejob.asaproj"
@@ -122,7 +122,7 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 | Parametr | Opis |
 |---|---|
 | `-project` | Ścieżka **asaproj.js** pliku dla projektu Visual Studio Code lub **[nazwa projektu]. asaproj** dla projektu programu Visual Studio. |
-| `-testConfigPath` | Ścieżka pliku konfiguracji testu. Jeśli nie jest określony, plik zostanie przeszukany w **\Test** w bieżącym katalogu **asaproj.jsw** pliku, a domyślna nazwa pliku **testConfig.jswłączona**. Nowy plik zostanie utworzony, jeśli nie istnieje. |
+| `-testConfigPath` | Ścieżka pliku konfiguracji testu. Jeśli nie jest określony, plik zostanie przeszukany w **\Test** w bieżącym katalogu **asaproj.jsw** pliku, a domyślna nazwa pliku **testConfig.jswłączona** . Nowy plik zostanie utworzony, jeśli nie istnieje. |
 
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -130,16 +130,16 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob/asaproj.json"
 ```
 
-#### <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob/samplejob.asaproj"
 ```
 ---
 
-Jeśli plik konfiguracji testu jest pusty, następująca zawartość jest zapisywana w pliku. W przeciwnym razie przypadek testowy zostanie dodany do tablicy **)**. Niezbędne konfiguracje wejściowe są wypełniane automatycznie zgodnie z plikami konfiguracji wejściowej, jeśli istnieją. W przeciwnym razie wartości domyślne są konfigurowane. Przed uruchomieniem testu należy określić **ścieżkę** do wszystkich danych wejściowych i oczekiwanych danych wyjściowych. Konfigurację można zmienić ręcznie.
+Jeśli plik konfiguracji testu jest pusty, następująca zawartość jest zapisywana w pliku. W przeciwnym razie przypadek testowy zostanie dodany do tablicy **)** . Niezbędne konfiguracje wejściowe są wypełniane automatycznie zgodnie z plikami konfiguracji wejściowej, jeśli istnieją. W przeciwnym razie wartości domyślne są konfigurowane. Przed uruchomieniem testu należy określić **ścieżkę** do wszystkich danych wejściowych i oczekiwanych danych wyjściowych. Konfigurację można zmienić ręcznie.
 
-Jeśli sprawdzanie poprawności testu ma ignorować niektóre dane wyjściowe, należy ustawić **wymagane** pole, które ma oczekiwane dane wyjściowe na **wartość false**.
+Jeśli sprawdzanie poprawności testu ma ignorować niektóre dane wyjściowe, należy ustawić **wymagane** pole, które ma oczekiwane dane wyjściowe na **wartość false** .
 
 ```json
 {
@@ -179,11 +179,11 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 | Parametr | Opis |
 |---|---|
 | `-project` | Ścieżka **asaproj.js** pliku dla projektu Visual Studio Code lub **[nazwa projektu]. asaproj** dla projektu programu Visual Studio. |
-| `-testConfigPath` | Ścieżka do pliku konfiguracji testu. Jeśli nie jest określony, plik zostanie przeszukany w **\Test** w bieżącym katalogu **asaproj.jsw** pliku, a domyślna nazwa pliku **testConfig.jswłączona**.
+| `-testConfigPath` | Ścieżka do pliku konfiguracji testu. Jeśli nie jest określony, plik zostanie przeszukany w **\Test** w bieżącym katalogu **asaproj.jsw** pliku, a domyślna nazwa pliku **testConfig.jswłączona** .
 | `-outputPath` | Ścieżka do folderu wyjściowego z wynikami testu. Jeśli nie jest określony, pliki wyników wyjściowych zostaną umieszczone w bieżącym katalogu. |
 | `-customCodeZipFilePath` | Ścieżka pliku ZIP dla niestandardowego kodu, takiego jak UDF lub Deserializator, jeśli są używane. |
 
-Po zakończeniu wszystkich testów w folderze wyjściowym zostanie wygenerowane podsumowanie wyników testów w formacie JSON. Plik podsumowania ma nazwę **testResultSummary.jsna**.
+Po zakończeniu wszystkich testów w folderze wyjściowym zostanie wygenerowane podsumowanie wyników testów w formacie JSON. Plik podsumowania ma nazwę **testResultSummary.jsna** .
 
 ```json
 {
@@ -237,7 +237,7 @@ Po zakończeniu wszystkich testów w folderze wyjściowym zostanie wygenerowane 
 }
 ```
 
-## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
+## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
 
 Możesz użyć szablonu Azure Resource Manager i plików parametrów wygenerowanych z kompilacji, aby [wdrożyć zadanie na platformie Azure](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md?tabs=azure-powershell#deploy-template).
 

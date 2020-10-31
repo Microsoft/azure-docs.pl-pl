@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 54b58a07e3d6d4b330b6f97ef0f4a7bdd10293da
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 01030a563c15eee7786058c2eae30d23803dfe42
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490462"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101650"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-cassandra-api"></a>Tworzenie kontenera w Azure Cosmos DB interfejs API Cassandra
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 W tym artykule opisano różne sposoby tworzenia kontenera w Azure Cosmos DB interfejs API Cassandra. Przedstawiono w nim sposób tworzenia kontenera przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure, programu PowerShell lub obsługiwanych zestawów SDK. W tym artykule pokazano, jak utworzyć kontener, określić klucz partycji i aprowizować przepływność.
 
@@ -26,17 +27,17 @@ W tym artykule opisano różne sposoby tworzenia kontenera w Azure Cosmos DB int
 
 ## <a name="create-using-azure-portal"></a><a id="portal-cassandra"></a>Tworzenie za pomocą witryny Azure Portal
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-cassandra-dotnet.md#create-a-database-account)lub Wybierz istniejące konto.
 
-1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa tabela**. Następnie podaj następujące szczegóły:
+1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa tabela** . Następnie podaj następujące szczegóły:
 
    * Wskaż, czy tworzysz nową przestrzeń kluczy, czy używasz istniejącej.
    * Wprowadź nazwę tabeli.
    * Wprowadź właściwości i określ klucz podstawowy.
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Wybierz pozycję **OK** .
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Zrzut ekranu interfejsu API Cassandra, okno dialogowe Dodawanie tabeli":::
 
