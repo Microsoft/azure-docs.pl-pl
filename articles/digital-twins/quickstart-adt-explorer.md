@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 925a5000f9778689660765ef715dd8760d5340a2
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 9d3c9d03c4297af0b9155c2d528e27221b42bc9e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495977"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124843"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
-Za pomocą usługi Azure Digital bliźniaczych reprezentacji można tworzyć i korzystać z modeli na żywo w rzeczywistych środowiskach. W tym celu należy modelować poszczególne elementy jako **bliźniaczych reprezentacji cyfrowe**, a następnie połączyć je z **grafem** wiedzy, który może reagować na zdarzenia na żywo i uzyskać zapytanie o informacje.
+Za pomocą usługi Azure Digital bliźniaczych reprezentacji można tworzyć i korzystać z modeli na żywo w rzeczywistych środowiskach. W tym celu należy modelować poszczególne elementy jako **bliźniaczych reprezentacji cyfrowe** , a następnie połączyć je z **grafem** wiedzy, który może reagować na zdarzenia na żywo i uzyskać zapytanie o informacje.
 
 W tym przewodniku szybki start zobaczysz wstępnie utworzony Graf usługi Azure Digital bliźniaczych reprezentacji z pomocą przykładowej aplikacji o nazwie [**Eksplorator usługi Azure Digital bliźniaczych reprezentacji (ADT)**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Eksplorator ADT umożliwia przekazywanie cyfrowych reprezentacji środowiska, wyświetlanie obrazów wizualnych bliźniaczych reprezentacji i grafów, które są tworzone w celu reprezentowania środowiska w usłudze Azure Digital bliźniaczych reprezentacji i wykonywanie innych działań związanych z zarządzaniem za pośrednictwem przeglądarki i środowiska wizualnego.
 
@@ -37,34 +37,32 @@ Aby ukończyć ten przewodnik Szybki Start, musisz mieć subskrypcję platformy 
 
 Na maszynie będzie również potrzebne **Node.js** . Najnowszą wersję można uzyskać, korzystając z tego linku: [Node.js](https://nodejs.org/).
 
-Na koniec należy również pobrać przykład do użycia podczas szybkiego startu: przykładowa aplikacja **ADT Explorer** . Ten przykład zawiera aplikację używaną w przewodniku szybki start do ładowania i eksplorowania scenariusza bliźniaczych reprezentacji Digital na platformie Azure oraz przykładowych plików scenariusza. Aby uzyskać przykład, przejdź tutaj: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na swój komputer. Spowoduje to pobranie. Folder ZIP na maszynę jako _**Azure_Digital_Twins__ADT__explorer.zip**_. Rozpakuj folder i Wyodrębnij pliki.
+Na koniec należy również pobrać przykład do użycia podczas szybkiego startu: przykładowa aplikacja **ADT Explorer** . Ten przykład zawiera aplikację używaną w przewodniku szybki start do ładowania i eksplorowania scenariusza bliźniaczych reprezentacji Digital na platformie Azure oraz przykładowych plików scenariusza. Aby uzyskać przykład, przejdź tutaj: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na swój komputer. Spowoduje to pobranie. Folder ZIP na maszynę jako _**Azure_Digital_Twins__ADT__explorer.zip**_ . Rozpakuj folder i Wyodrębnij pliki.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Konfigurowanie usługi Azure Digital bliźniaczych reprezentacji i Eksploratora ADT
 
-Pierwszym krokiem w pracy z usługą Azure Digital bliźniaczych reprezentacji jest skonfigurowanie **wystąpienia usługi Azure Digital bliźniaczych reprezentacji**. Po utworzeniu wystąpienia usługi będzie można je wypełnić za pomocą przykładowych danych w dalszej części przewodnika Szybki Start.
+Pierwszym krokiem w pracy z usługą Azure Digital bliźniaczych reprezentacji jest skonfigurowanie **wystąpienia usługi Azure Digital bliźniaczych reprezentacji** . Po utworzeniu wystąpienia usługi będzie można je wypełnić za pomocą przykładowych danych w dalszej części przewodnika Szybki Start.
 
-Należy również skonfigurować uprawnienia dla Eksploratora ADT do uruchamiania na komputerze i uzyskać dostęp do swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Pozwoli to na korzystanie z przykładowej aplikacji do eksplorowania Twojego wystąpienia i jego danych.
+Należy również skonfigurować uprawnienia dla Eksploratora ADT do uruchamiania na komputerze i uzyskać dostęp do wystąpienia usługi Azure Digital bliźniaczych reprezentacji, w tym konfigurowania **aplikacji** Azure Active Directory (Azure AD) do użycia. Następnie możesz użyć przykładowej aplikacji do eksplorowania Twojego wystąpienia i jego danych.
 
 ### <a name="set-up-azure-digital-twins-instance-and-app-registration"></a>Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji i rejestracji aplikacji
 
-Najpierw **Skonfiguruj wystąpienie usługi Azure Digital bliźniaczych reprezentacji** i wymagane uwierzytelnianie, aby móc z nich korzystać. Aby to zrobić, postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md). W zależności od preferowanego środowiska, artykuł instalacyjny jest oferowany dla [przykładowego skryptu wdrażania](how-to-set-up-instance-scripted.md) [Azure Portal](how-to-set-up-instance-portal.md), [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md)lub Cloud Shell. Wszystkie wersje instrukcji zawierają również kroki umożliwiające sprawdzenie, czy każdy krok został pomyślnie wykonany i jest gotowy do przejścia do korzystania z nowego wystąpienia.
-* Po skonfigurowaniu wystąpienia usługi Azure Digital bliźniaczych reprezentacji należy określić **_nazwę hosta_** wystąpienia ([Znajdź w portalu](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-Aby uwierzytelnić aplikację ADT Explorer, należy również skonfigurować **rejestrację aplikacji**. Postępuj zgodnie z instrukcjami podanymi w temacie [*How to: Create a App Registration*](how-to-create-app-registration.md) to set up. 
-* Po zarejestrowaniu aplikacji będziesz potrzebować identyfikatora **_aplikacji (klienta)_** rejestracji i **_identyfikatora (dzierżawy)_** [w portalu](how-to-create-app-registration.md#collect-client-id-and-tenant-id).
+[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
 
 ### <a name="set-adt-explorer-permissions"></a>Ustawianie uprawnień programu ADT Explorer
 
 Następnie przygotuj utworzone wystąpienie usługi Azure Digital bliźniaczych reprezentacji do pracy z Eksploratorem ADT, który jest aplikacją sieci Web hostowaną lokalnie. Odwiedź stronę [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) w Azure Portal i wybierz nazwę **rejestracji aplikacji** utworzonej w poprzedniej sekcji z listy.
 
-Wybierz pozycję *uwierzytelnianie* z menu Rejestracja i naciśnij pozycję *+ Dodaj platformę*.
+Wybierz pozycję *uwierzytelnianie* z menu Rejestracja i naciśnij pozycję *+ Dodaj platformę* .
 
 :::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
-Na stronie *Konfigurowanie platform* poniżej wybierz pozycję *Sieć Web*.
+Na stronie *Konfigurowanie platform* poniżej wybierz pozycję *Sieć Web* .
 Wypełnij szczegóły konfiguracji w następujący sposób:
-* **Identyfikatory URI przekierowania**: Dodaj identyfikator URI przekierowania *http://localhost:3000* .
-* **Niejawne udzielenie**: zaznacz pole wyboru *tokeny dostępu*.
+* **Identyfikatory URI przekierowania** : Dodaj identyfikator URI przekierowania *http://localhost:3000* .
+* **Niejawne udzielenie** : zaznacz pole wyboru *tokeny dostępu* .
 
 Naciśnij pozycję *Konfiguruj* , aby zakończyć.
 
@@ -76,7 +74,7 @@ Naciśnij pozycję *Konfiguruj* , aby zakończyć.
     :::column-end:::
 :::row-end:::
 
-Teraz masz skonfigurowaną konfigurację sieci Web, która będzie używana w programie ADT Explorer. Należy uwzględnić kartę Uwierzytelnianie w Azure Portal. Po sprawdzeniu poniższych sekcji kliknij pozycję *Zapisz*.
+Teraz masz skonfigurowaną konfigurację sieci Web, która będzie używana w programie ADT Explorer. Należy uwzględnić kartę Uwierzytelnianie w Azure Portal. Po sprawdzeniu poniższych sekcji kliknij pozycję *Zapisz* .
 
 :::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone.":::
 
@@ -84,7 +82,7 @@ Teraz masz skonfigurowaną konfigurację sieci Web, która będzie używana w pr
 
 Następnie uruchom aplikację ADT Explorer i skonfiguruj ją dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-Przejdź do folderu pobrane i rozpakowane _**Azure_Digital_Twins__ADT__explorer**_ . Otwórz wiersz polecenia w lokalizacji folderu *Azure_Digital_Twins__ADT__explorer/Client/src*.
+Przejdź do folderu pobrane i rozpakowane _**Azure_Digital_Twins__ADT__explorer**_ . Otwórz wiersz polecenia w lokalizacji folderu *Azure_Digital_Twins__ADT__explorer/Client/src* .
 
 Uruchom `npm install` , aby pobrać wszystkie wymagane zależności.
 
@@ -107,7 +105,7 @@ Wprowadź ważne informacje zebrane wcześniej w sekcji [wymagania wstępne](#pr
 > Możesz odwiedzać/edytować te informacje w dowolnym momencie, wybierając tę samą ikonę, aby ponownie pobrać pole logowania. Dane zostaną zachowane.
 
 > [!TIP]
-> Jeśli `SignalRService.subscribe` podczas nawiązywania połączenia zostanie wyświetlony komunikat o błędzie, upewnij się, że adres URL usługi Azure Digital bliźniaczych reprezentacji zaczyna się od *https://*.
+> Jeśli `SignalRService.subscribe` podczas nawiązywania połączenia zostanie wyświetlony komunikat o błędzie, upewnij się, że adres URL usługi Azure Digital bliźniaczych reprezentacji zaczyna się od *https://* .
 
 Jeśli zobaczysz *wymagane uprawnienia* do okna podręcznego od firmy Microsoft, przyznaj zgodę na tę aplikację i zaakceptuj ją, aby kontynuować.
 
@@ -119,7 +117,7 @@ Następnie zaimportujemy przykładowy scenariusz i wykres do Eksploratora ADT. P
 
 Pierwszym krokiem w rozwiązaniu Digital bliźniaczych reprezentacji na platformie Azure jest definiowanie słownika dla danego środowiska. Jest to realizowane przez tworzenie [**modeli**](concepts-models.md)niestandardowych, które opisują typy obiektów istniejących w danym środowisku. 
 
-Każdy model jest zapisywana w języku JSON-LD podobnym do **DTDL (Digital bliźniaczy Definition Language)** i opisuje pojedynczy typ jednostki pod względem jego *Właściwości*, *telemetrii*, *relacji*i *składników*. Później te modele będą używane jako podstawy bliźniaczych reprezentacji cyfrowych, które reprezentują określone wystąpienia tych typów.
+Każdy model jest zapisywana w języku JSON-LD podobnym do **DTDL (Digital bliźniaczy Definition Language)** i opisuje pojedynczy typ jednostki pod względem jego *Właściwości* , *telemetrii* , *relacji* i *składników* . Później te modele będą używane jako podstawy bliźniaczych reprezentacji cyfrowych, które reprezentują określone wystąpienia tych typów.
 
 Zwykle podczas tworzenia modelu należy wykonać trzy czynności:
 1. Napisz definicję modelu (w ramach przewodnika Szybki Start, która została już wykonana jako część przykładowego rozwiązania)
@@ -137,7 +135,7 @@ W polu *Widok modelu* kliknij ikonę *Przekaż model* .
 :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
 1. W wyświetlonym oknie dialogowym Wybieranie pliku przejdź do folderu *Azure_Digital_Twins__ADT__explorer/Client/examples* w pobranym repozytorium.
-2. Wybierz pozycję *Room.js* i *Floor.jsna*, a następnie kliknij przycisk OK. (Możesz przekazać dodatkowe modele, jeśli chcesz, ale nie będą używane w tym przewodniku Szybki Start).
+2. Wybierz pozycję *Room.js* i *Floor.jsna* , a następnie kliknij przycisk OK. (Możesz przekazać dodatkowe modele, jeśli chcesz, ale nie będą używane w tym przewodniku Szybki Start).
 3. Postępuj zgodnie z wyskakującym oknem dialogowym z prośbą o zalogowanie się do konta platformy Azure.
 
 >[!NOTE]
@@ -174,11 +172,11 @@ W polu *Widok wykresu* kliknij ikonę *Importuj wykres* .
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-W polu Selektor plików przejdź do folderu*Azure_Digital_Twins__ADT__explorer/Client/examples* i wybierz _**buildingScenario.xlsx**_ plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Naciśnij przycisk OK.
+W polu Selektor plików przejdź do folderu *Azure_Digital_Twins__ADT__explorer/Client/examples* i wybierz _**buildingScenario.xlsx**_ plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Naciśnij przycisk OK.
 
 Po kilku sekundach Eksplorator ADT otworzy widok *importu* z podglądem wykresu, który zostanie załadowany.
 
-Aby potwierdzić przekazywanie wykresu, naciśnij ikonę *Zapisz* w prawym górnym rogu *widoku wykresu*:
+Aby potwierdzić przekazywanie wykresu, naciśnij ikonę *Zapisz* w prawym górnym rogu *widoku wykresu* :
 
 :::row:::
     :::column:::
@@ -188,7 +186,7 @@ Aby potwierdzić przekazywanie wykresu, naciśnij ikonę *Zapisz* w prawym górn
     :::column-end:::
 :::row-end:::
 
-Eksplorator ADT będzie teraz używał przekazanego pliku do utworzenia żądanego bliźniaczych reprezentacji i relacji między nimi. Zostanie wyświetlone okno dialogowe pokazujące, że zostało zakończone. Naciśnij przycisk *Zamknij*.
+Eksplorator ADT będzie teraz używał przekazanego pliku do utworzenia żądanego bliźniaczych reprezentacji i relacji między nimi. Zostanie wyświetlone okno dialogowe pokazujące, że zostało zakończone. Naciśnij przycisk *Zamknij* .
 
 :::row:::
     :::column:::
@@ -212,7 +210,7 @@ Teraz można zobaczyć przekazany Graf przykładowego scenariusza:
 
 :::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone.":::
 
-Okręgi ("węzły grafu") reprezentują bliźniaczych reprezentacjiy cyfrowe, a wiersze reprezentują relacje. Zobaczysz, że *Floor0* bliźniaczy zawiera *Room0*, a *Floor1a* zawiera *Room1*.
+Okręgi ("węzły grafu") reprezentują bliźniaczych reprezentacjiy cyfrowe, a wiersze reprezentują relacje. Zobaczysz, że *Floor0* bliźniaczy zawiera *Room0* , a *Floor1a* zawiera *Room1* .
 
 Jeśli używasz myszy, możesz kliknąć i przeciągnąć fragmenty wykresu, aby przenieść je wokół siebie.
 
@@ -220,7 +218,7 @@ Jeśli używasz myszy, możesz kliknąć i przeciągnąć fragmenty wykresu, aby
 
 Możesz wybrać sznurek, aby wyświetlić listę jego właściwości i ich wartości w oknie *Eksplorator właściwości* . 
 
-Oto właściwości *Room0*:
+Oto właściwości *Room0* :
 
 :::row:::
     :::column:::
@@ -230,9 +228,9 @@ Oto właściwości *Room0*:
     :::column-end:::
 :::row-end:::
 
-Należy pamiętać, że *Room0* ma temperaturę **70**.
+Należy pamiętać, że *Room0* ma temperaturę **70** .
 
-Oto właściwości *Room1*:
+Oto właściwości *Room1* :
 
 :::row:::
     :::column:::
@@ -242,15 +240,15 @@ Oto właściwości *Room1*:
     :::column-end:::
 :::row-end:::
 
-Należy pamiętać, że *Room1* ma temperaturę **80**.
+Należy pamiętać, że *Room1* ma temperaturę **80** .
 
 ### <a name="query-the-graph"></a>Tworzenie zapytań względem grafu
 
 Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możliwość łatwego i wydajnego [wykonywania zapytań](concepts-query-language.md) na pytania dotyczące środowiska. 
 
-Jednym ze sposobów wykonywania zapytań dotyczących bliźniaczych reprezentacji w grafie jest ich *Właściwości*. Zapytania oparte na właściwościach mogą pomóc w udzieleniu odpowiedzi na różne pytania, w tym Znajdowanie wartości odstających w środowisku, które mogą wymagać uwagi.
+Jednym ze sposobów wykonywania zapytań dotyczących bliźniaczych reprezentacji w grafie jest ich *Właściwości* . Zapytania oparte na właściwościach mogą pomóc w udzieleniu odpowiedzi na różne pytania, w tym Znajdowanie wartości odstających w środowisku, które mogą wymagać uwagi.
 
-W tej sekcji zostanie uruchomione zapytanie z odpowiedzią na następujące pytanie: _ **jakie są wszystkie bliźniaczych reprezentacji w moim środowisku z temperaturą powyżej 75?**_
+W tej sekcji zostanie uruchomione zapytanie z odpowiedzią na następujące pytanie: _**jakie są wszystkie bliźniaczych reprezentacji w moim środowisku z temperaturą powyżej 75?**_
 
 Aby wyświetlić odpowiedź, uruchom następujące zapytanie w polu *Eksplorator zapytań* :
 
@@ -258,20 +256,20 @@ Aby wyświetlić odpowiedź, uruchom następujące zapytanie w polu *Eksplorator
 SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 ```
 
-Wycofaj z wyświetlania właściwości przędzy wcześniej, że *Room0* ma temperaturę **70** , a *Room1* ma temperaturę **80**. W związku z tym w tym miejscu tylko _**Room1**_ są wyświetlane w wynikach.
+Wycofaj z wyświetlania właściwości przędzy wcześniej, że *Room0* ma temperaturę **70** , a *Room1* ma temperaturę **80** . W związku z tym w tym miejscu tylko _**Room1**_ są wyświetlane w wynikach.
     
 :::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
 
 >[!TIP]
-> Inne operatory porównania ( *<* , *>* ,, *=* lub *! =*) są również obsługiwane w powyższym zapytaniu. Aby wypróbować Twoje pytania, możesz spróbować podłączyć te, różne wartości lub różne właściwości sznurka do zapytania.
+> Inne operatory porównania ( *<* , *>* ,, *=* lub *! =* ) są również obsługiwane w powyższym zapytaniu. Aby wypróbować Twoje pytania, możesz spróbować podłączyć te, różne wartości lub różne właściwości sznurka do zapytania.
 
 ## <a name="edit-data-in-the-graph"></a>Edytowanie danych na grafie
 
-Za pomocą Eksploratora ADT można edytować właściwości bliźniaczych reprezentacji reprezentowanych w grafie. W tej sekcji będziemy ** _podnieść temperaturę_ Room0 do 76**.
+Za pomocą Eksploratora ADT można edytować właściwości bliźniaczych reprezentacji reprezentowanych w grafie. W tej sekcji będziemy **_podnieść temperaturę_ Room0 do 76** .
 
-W tym celu wybierz pozycję *Room0*, aby wyświetlić jej listę właściwości w polu *Eksplorator właściwości* .
+W tym celu wybierz pozycję *Room0* , aby wyświetlić jej listę właściwości w polu *Eksplorator właściwości* .
 
-Właściwości na tej liście są edytowalne. Wybierz wartość temperatury **70** , aby włączyć wprowadzanie nowej wartości. Wprowadź **76**i naciśnij ikonę *Zapisz* , aby zaktualizować temperaturę do **76**.
+Właściwości na tej liście są edytowalne. Wybierz wartość temperatury **70** , aby włączyć wprowadzanie nowej wartości. Wprowadź **76** i naciśnij ikonę *Zapisz* , aby zaktualizować temperaturę do **76** .
 
 :::row:::
     :::column:::
@@ -281,17 +279,17 @@ Właściwości na tej liście są edytowalne. Wybierz wartość temperatury **70
     :::column-end:::
 :::row-end:::
 
-Po pomyślnym zapisaniu zobaczysz okno *informacji o poprawek* zawierające kod poprawki, który został użyty w tle za pomocą [interfejsu API](how-to-use-apis-sdks.md) Digital bliźniaczych reprezentacji platformy Azure, aby przeprowadzić aktualizację. Naciśnij przycisk *Zamknij*.
+Po pomyślnym zapisaniu zobaczysz okno *informacji o poprawek* zawierające kod poprawki, który został użyty w tle za pomocą [interfejsu API](how-to-use-apis-sdks.md) Digital bliźniaczych reprezentacji platformy Azure, aby przeprowadzić aktualizację. Naciśnij przycisk *Zamknij* .
 
 ### <a name="query-to-see-the-result"></a>Zapytanie w celu wyświetlenia wyniku
 
-Aby sprawdzić, czy wykres pomyślnie zarejestrował aktualizację do temperatury *Room0*, uruchom ponownie zapytanie ze starszej wersji, aby **uzyskać wszystkie bliźniaczych reprezentacji w środowisku z temperaturą powyżej 75**:
+Aby sprawdzić, czy wykres pomyślnie zarejestrował aktualizację do temperatury *Room0* , uruchom ponownie zapytanie ze starszej wersji, aby **uzyskać wszystkie bliźniaczych reprezentacji w środowisku z temperaturą powyżej 75** :
 
 ```SQL
 SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 ```
 
-Teraz, gdy temperatura *Room0* została zmieniona z **70** na **76**, oba bliźniaczych reprezentacji powinny być widoczne w wyniku.
+Teraz, gdy temperatura *Room0* została zmieniona z **70** na **76** , oba bliźniaczych reprezentacji powinny być widoczne w wyniku.
 
 :::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
 
@@ -322,7 +320,7 @@ Następnie usuń Azure Active Directory rejestrację aplikacji utworzoną dla ap
 az ad app delete --id <your-application-ID>
 ```
 
-Na koniec Usuń folder przykładowego projektu pobrany do komputera lokalnego (_**Azure_Digital_Twins__ADT__explorer**_). Może być konieczne usunięcie zarówno wersji spakowanej, jak i rozpakowanej.
+Na koniec Usuń folder przykładowego projektu pobrany do komputera lokalnego ( _**Azure_Digital_Twins__ADT__explorer**_ ). Może być konieczne usunięcie zarówno wersji spakowanej, jak i rozpakowanej.
 
 ## <a name="next-steps"></a>Następne kroki 
 

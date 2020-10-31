@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: 18270a2f435428824714067749fc18ce2addc535
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913045"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124021"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Rozwiązywanie problemów z Azure Stream Analytics przy użyciu dzienników zasobów
 
@@ -48,7 +48,7 @@ Dzienniki aktywności są domyślnie włączone i zapewniają szczegółowe info
 
    ![Podsumowanie operacji dziennika aktywności Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Przewiń w dół do sekcji **Właściwości** w formacie JSON, która zawiera szczegółowe informacje o błędzie, który spowodował niepowodzenie operacji. W tym przykładzie błąd był spowodowany błędem środowiska uruchomieniowego z nieprawidłowych wartości szerokości geograficznej. Niezgodność danych przetwarzanych przez zadanie Stream Analytics powoduje błąd danych. Można dowiedzieć się więcej o różnych [błędach danych wejściowych i wyjściowych oraz o tym, dlaczego występują](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+4. Przewiń w dół do sekcji **Właściwości** w formacie JSON, która zawiera szczegółowe informacje o błędzie, który spowodował niepowodzenie operacji. W tym przykładzie błąd był spowodowany błędem środowiska uruchomieniowego z nieprawidłowych wartości szerokości geograficznej. Niezgodność danych przetwarzanych przez zadanie Stream Analytics powoduje błąd danych. Można dowiedzieć się więcej o różnych [błędach danych wejściowych i wyjściowych oraz o tym, dlaczego występują](./data-errors.md).
 
    ![Szczegóły błędu JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -111,12 +111,12 @@ Dzienniki wykonywania zawierają informacje o zdarzeniach, które wystąpiły po
 
 ### <a name="data-errors"></a>Błędy danych
 
-Każdy błąd, który występuje, gdy zadanie przetwarza dane, jest w tej kategorii dzienników. Te dzienniki najczęściej są tworzone podczas operacji odczytu, serializacji i zapisu danych. Te dzienniki nie obejmują błędów łączności. Błędy łączności są traktowane jako zdarzenia ogólne. Możesz dowiedzieć się więcej na temat przyczyny różnych [błędów danych wejściowych i wyjściowych](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+Każdy błąd, który występuje, gdy zadanie przetwarza dane, jest w tej kategorii dzienników. Te dzienniki najczęściej są tworzone podczas operacji odczytu, serializacji i zapisu danych. Te dzienniki nie obejmują błędów łączności. Błędy łączności są traktowane jako zdarzenia ogólne. Możesz dowiedzieć się więcej na temat przyczyny różnych [błędów danych wejściowych i wyjściowych](./data-errors.md).
 
 Nazwa | Opis
 ------- | -------
 Element źródłowy | Nazwa danych wejściowych lub wyjściowych zadania, w których wystąpił błąd.
-Wiadomość | Komunikat skojarzony z błędem.
+Komunikat | Komunikat skojarzony z błędem.
 Typ | Typ błędu. Na przykład **DataConversionError** , **CsvParserError** lub **ServiceBusPropertyColumnMissingError** .
 Dane | Zawiera dane, które są przydatne do dokładnego lokalizowania źródła błędu. Podlega obcięciu, w zależności od rozmiaru.
 
@@ -137,11 +137,11 @@ Zdarzenia ogólne obejmują wszystko inne.
 Nazwa | Opis
 -------- | --------
 Błąd | obowiązkowe Informacje o błędzie. Zazwyczaj są to informacje o wyjątkach, jeśli są dostępne.
-Wiadomość| Komunikat dziennika.
+Komunikat| Komunikat dziennika.
 Typ | Typ komunikatu. Mapuje na wewnętrzną kategoryzację błędów. Na przykład **JobValidationError** lub **BlobOutputAdapterInitializationFailure** .
 Identyfikator korelacji | Identyfikator GUID, który jednoznacznie identyfikuje wykonywanie zadania. Wszystkie wpisy dziennika wykonania od momentu uruchomienia zadania do momentu zatrzymania zadania mają tę samą wartość **identyfikatora korelacji** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Błędy danych Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
-* [Stream Analytics Dokumentacja języka zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Błędy danych Stream Analytics](./data-errors.md)
+* [Stream Analytics Dokumentacja języka zapytań](/stream-analytics-query/stream-analytics-query-language-reference)

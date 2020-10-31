@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1af2793bc32c1f3cdbdcd016562b761e05427073
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735615"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125142"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager dysk testowy
 
 Użyj tego typu, jeśli masz ofertę w witrynie Azure Marketplace lub AppSource, ale chcesz utworzyć dysk testowy z tylko zasobami platformy Azure. Szablon Azure Resource Manager (ARM) jest kodowanym kontenerem zasobów platformy Azure, które są projektowane w celu najlepszego reprezentowania rozwiązania. Program Test Drive przyjmuje podany szablon ARM i wdraża wszystkie wymagane przez niego zasoby w grupie zasobów. Jest to jedyna opcja dysku testowego dla oferty maszyny wirtualnej lub aplikacji platformy Azure.
 
-Jeśli nie znasz tego szablonu ARM, zapoznaj [się z tematem Azure Resource Manager?](../azure-resource-manager/resource-group-overview.md) i [zrozumieć strukturę i składnię szablonów ARM](../azure-resource-manager/resource-group-authoring-templates.md) , aby lepiej zrozumieć sposób kompilowania i testowania własnych szablonów.
+Jeśli nie znasz tego szablonu ARM, zapoznaj [się z tematem Azure Resource Manager?](../azure-resource-manager/management/overview.md) i [zrozumieć strukturę i składnię szablonów ARM](../azure-resource-manager/templates/template-syntax.md) , aby lepiej zrozumieć sposób kompilowania i testowania własnych szablonów.
 
 Aby uzyskać informacje na temat dysku testowego aplikacji **hostowanej** lub **logicznej** , zobacz [co to jest dysk testowy?](what-is-test-drive.md)
 
@@ -34,7 +34,7 @@ Szablon wdrożenia zawiera wszystkie zasoby platformy Azure, które składają s
 
   - **Zimne** — ten typ wystąpienia reprezentuje łączną liczbę wystąpień, które mogą być wdrożone w poszczególnych regionach. Zimne wystąpienia wymagają, aby cały dysk testowy Menedżer zasobów szablon do wdrożenia, gdy klient zażąda dysku testowego, więc *zimne* wystąpienia są znacznie wolniejsze, aby można było ładować je od *aktywnych* wystąpień. Wadą jest to, że musisz tylko uregulować czas trwania testu, ale *nie* zawsze działa w ramach subskrypcji platformy Azure, tak jak w przypadku wystąpienia *aktywnego* .
 
-- **Test Azure Resource Manager szablonu** — Przekaż plik zip zawierający szablon Azure Resource Manager. Dowiedz się więcej o tworzeniu szablonu Azure Resource Manager w artykule Szybki Start [Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+- **Test Azure Resource Manager szablonu** — Przekaż plik zip zawierający szablon Azure Resource Manager. Dowiedz się więcej o tworzeniu szablonu Azure Resource Manager w artykule Szybki Start [Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
     > Aby opublikować pomyślnie, należy sprawdzić poprawność formatowania szablonu ARM. Dwa sposoby to zrobić (1) za pomocą [Narzędzia API online](https://docs.microsoft.com/rest/api/resources/deployments/validate) lub (2) z [wdrożeniem testowym](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
@@ -75,10 +75,10 @@ Możesz użyć dowolnej prawidłowej nazwy dla parametrów; Test Drive rozpoznaj
 
 | Typ metadanych   | Typ parametru  | Opis     | Przykładowa wartość    |
 |---|---|---|---|
-| **baseUri**     | string          | Podstawowy identyfikator URI pakietu wdrożeniowego| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **uż**    | string          | Nowa losowa nazwa użytkownika.| admin68876      |
+| **baseUri**     | ciąg          | Podstawowy identyfikator URI pakietu wdrożeniowego| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **uż**    | ciąg          | Nowa losowa nazwa użytkownika.| admin68876      |
 | **hasło**    | ciąg zabezpieczony    | Nowe hasło losowe | LP! \^ 2KH ACS     |
-| **Identyfikator sesji**   | string          | Identyfikator sesji unikatowego dysku testowego (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **Identyfikator sesji**   | ciąg          | Identyfikator sesji unikatowego dysku testowego (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseUri
 
@@ -348,7 +348,7 @@ Teraz, po zakończeniu wszystkich pól testowych, należy **ponownie opublikowa�
 1. Otwórz subskrypcję platformy Azure w ramach Azure Portal.
 1. Sprawdź, czy twój dysk testowy jest poprawnie wdrażany.
 
-   ![Witryna Azure Portal](media/test-drive/azure-portal.png)
+   ![Azure Portal](media/test-drive/azure-portal.png)
 
 Nie usuwaj żadnych wystąpień testowych, dla których Zainicjowano obsługę klientów; Usługa dysku testowego automatycznie czyści te grupy zasobów po zakończeniu działania klienta.
 

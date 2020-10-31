@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0cc3a335e5fbe037742767a3b59243e366f094ee
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: c169f10ac0444f5bca67d76e8e8ebc0f0b145ee1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495917"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124259"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Łączenie Azure Functions aplikacji do przetwarzania danych
 
@@ -30,17 +30,21 @@ Poniżej przedstawiono przegląd kroków, które zawiera:
 4. Publikowanie aplikacji funkcji na platformie Azure
 5. Konfigurowanie dostępu [zabezpieczeń](concepts-security.md) do aplikacji funkcji platformy Azure
 
+## <a name="prerequisite-set-up-azure-digital-twins-instance"></a>Wymaganie wstępne: Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## <a name="create-an-azure-functions-app-in-visual-studio"></a>Tworzenie aplikacji Azure Functions w programie Visual Studio
 
-W programie Visual Studio 2019 wybierz pozycję _plik > nowy > projekt_ i wyszukaj szablon _Azure Functions_ , a następnie wybierz pozycję _dalej_.
+W programie Visual Studio 2019 wybierz pozycję _plik > nowy > projekt_ i wyszukaj szablon _Azure Functions_ , a następnie wybierz pozycję _dalej_ .
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
-Określ nazwę aplikacji funkcji i wybierz pozycję _Utwórz_.
+Określ nazwę aplikacji funkcji i wybierz pozycję _Utwórz_ .
 
 :::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
-Wybierz typ Event Grid aplikacji funkcji *wyzwalacz* i wybierz pozycję _Utwórz_.
+Wybierz typ Event Grid aplikacji funkcji *wyzwalacz* i wybierz pozycję _Utwórz_ .
 
 :::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
@@ -155,14 +159,14 @@ namespace adtIngestFunctionSample
 
 ## <a name="publish-the-function-app-to-azure"></a>Publikowanie aplikacji funkcji na platformie Azure
 
-Aby opublikować aplikację funkcji na platformie Azure, w Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt funkcji (a nie rozwiązanie), a następnie wybierz polecenie **Publikuj**.
+Aby opublikować aplikację funkcji na platformie Azure, w Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt funkcji (a nie rozwiązanie), a następnie wybierz polecenie **Publikuj** .
 
 > [!IMPORTANT] 
 > Publikowanie funkcji platformy Azure wiąże się z dodatkowymi opłatami za subskrypcję, niezależnie od bliźniaczych reprezentacji cyfrowych platformy Azure.
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
-Wybierz pozycję **Azure** jako element docelowy publikowania i wybierz pozycję **dalej**.
+Wybierz pozycję **Azure** jako element docelowy publikowania i wybierz pozycję **dalej** .
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
@@ -205,7 +209,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 Na koniec możesz wprowadzić adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji dostępnego dla funkcji przez ustawienie zmiennej środowiskowej. Aby uzyskać więcej informacji na temat ustawiania zmiennych środowiskowych, zobacz [*zmienne środowiskowe*](/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
-> Adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji jest tworzony przez dodanie *https://* do początku *nazwy hosta*cyfrowego wystąpienia bliźniaczych reprezentacji platformy Azure. Aby wyświetlić nazwę hosta wraz ze wszystkimi właściwościami wystąpienia, można uruchomić polecenie `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
+> Adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji jest tworzony przez dodanie *https://* do początku *nazwy hosta* cyfrowego wystąpienia bliźniaczych reprezentacji platformy Azure. Aby wyświetlić nazwę hosta wraz ze wszystkimi właściwościami wystąpienia, można uruchomić polecenie `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
 
 ```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
@@ -219,7 +223,7 @@ W [Azure Portal](https://portal.azure.com/)Wyszukaj _aplikację funkcji_ na pask
 :::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 W oknie aplikacja funkcji wybierz pozycję _tożsamość_ na pasku nawigacyjnym po lewej stronie, aby włączyć zarządzaną tożsamość.
-W obszarze _przypisana do systemu_ Przełącz _stan_ na wartość włączone i _Zapisz_ go. Zostanie wyświetlone okno podręczne umożliwiające _włączenie tożsamości zarządzanej przypisanej do systemu_.
+W obszarze _przypisana do systemu_ Przełącz _stan_ na wartość włączone i _Zapisz_ go. Zostanie wyświetlone okno podręczne umożliwiające _włączenie tożsamości zarządzanej przypisanej do systemu_ .
 Wybierz przycisk _tak_ . 
 
 :::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
@@ -234,16 +238,16 @@ Należy również zwrócić uwagę na **Identyfikator obiektu** wyświetlany na 
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Przypisywanie ról dostępu przy użyciu Azure Portal
 
-Wybierz przycisk _przypisania roli platformy Azure_ , który spowoduje otwarcie strony *przypisania roli platformy Azure* . Następnie wybierz pozycję _+ Dodaj przypisanie roli (wersja zapoznawcza)_.
+Wybierz przycisk _przypisania roli platformy Azure_ , który spowoduje otwarcie strony *przypisania roli platformy Azure* . Następnie wybierz pozycję _+ Dodaj przypisanie roli (wersja zapoznawcza)_ .
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 Na stronie _Dodaj przypisanie roli (wersja zapoznawcza)_ , która zostanie otwarta, wybierz pozycję:
 
-* _Zakres_: grupa zasobów
-* _Subskrypcja_: wybierz subskrypcję platformy Azure
-* _Grupa zasobów_: Wybierz grupę zasobów z listy rozwijanej
-* _Rola_: Wybierz _właściciela danych Digital bliźniaczych reprezentacji platformy Azure_ z listy rozwijanej
+* _Zakres_ : grupa zasobów
+* _Subskrypcja_ : wybierz subskrypcję platformy Azure
+* _Grupa zasobów_ : Wybierz grupę zasobów z listy rozwijanej
+* _Rola_ : Wybierz _właściciela danych Digital bliźniaczych reprezentacji platformy Azure_ z listy rozwijanej
 
 Następnie Zapisz szczegóły, naciskając przycisk _Zapisz_ .
 
@@ -255,7 +259,7 @@ Możesz wprowadzić adres URL wystąpienia usługi Azure Digital bliźniaczych r
 
 Musisz ADT_INSTANCE_URL, aby utworzyć ustawienie aplikacji.
 
-ADT_INSTANCE_URL można uzyskać, dołączając **_https://_** do nazwy hosta wystąpienia. W Azure Portal można znaleźć nazwę hosta wystąpienia Digital bliźniaczych reprezentacji, wyszukując wystąpienie na pasku wyszukiwania. Następnie wybierz pozycję _Przegląd_ na lewym pasku nawigacyjnym, aby wyświetlić _nazwę hosta_. Skopiuj tę wartość, aby utworzyć ustawienie aplikacji.
+ADT_INSTANCE_URL można uzyskać, dołączając **_https://_** do nazwy hosta wystąpienia. W Azure Portal można znaleźć nazwę hosta wystąpienia Digital bliźniaczych reprezentacji, wyszukując wystąpienie na pasku wyszukiwania. Następnie wybierz pozycję _Przegląd_ na lewym pasku nawigacyjnym, aby wyświetlić _nazwę hosta_ . Skopiuj tę wartość, aby utworzyć ustawienie aplikacji.
 
 :::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 

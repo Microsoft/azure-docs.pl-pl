@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: f0932104c55e705c76a8d2b086edf828caf60520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdddbce3e9eb0a5c933ace186607186265197dc4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044094"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123510"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informacje o monitorowaniu zadań Stream Analytics i sposobach monitorowania zapytań
 
@@ -39,17 +39,17 @@ Okno zostanie wyświetlone w sposób pokazany:
 | Bajty zdarzeń wejściowych      | Ilość danych odebranych przez zadanie Stream Analytics w bajtach. Można go użyć do sprawdzenia, czy zdarzenia są wysyłane do źródła danych wejściowych. |
 | Zdarzenia wejściowe           | Liczba rekordów deserializowanych ze zdarzeń wejściowych. Ta liczba nie obejmuje zdarzeń przychodzących, które powodują błędy deserializacji. Te same zdarzenia można pozyskać przez Stream Analytics wiele razy w scenariuszach takich jak odzyskiwanie wewnętrzne i samosprzężenia. W związku z tym zaleca się, aby nie oczekiwać zdarzeń wejściowych i metryk zdarzeń wyjściowych, które będą zgodne, jeśli zadanie ma proste zapytanie "pass through". |
 | Odebrane źródła danych wejściowych       | Liczba komunikatów odebranych przez zadanie. W przypadku usługi Event Hub komunikat to pojedynczy EventData. W przypadku obiektu BLOB komunikat jest pojedynczym obiektem BLOB. Należy pamiętać, że źródła danych wejściowych są zliczane przed deserializacji. Jeśli występują błędy deserializacji, źródła danych wejściowych mogą być większe niż zdarzenia wejściowe. W przeciwnym razie może być mniejsze niż lub równe zdarzenia wejściowe, ponieważ każdy komunikat może zawierać wiele zdarzeń. |
-| Opóźnione zdarzenia wejściowe      | Zdarzenia, które dotarły później niż skonfigurowane okno tolerancji opóźnionego przybycia. Dowiedz się więcej na temat [zagadnień dotyczących kolejności zdarzeń Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md) . |
+| Opóźnione zdarzenia wejściowe      | Zdarzenia, które dotarły później niż skonfigurowane okno tolerancji opóźnionego przybycia. Dowiedz się więcej na temat [zagadnień dotyczących kolejności zdarzeń Azure Stream Analytics](./stream-analytics-time-handling.md) . |
 | Zdarzenia poza kolejnością    | Liczba zdarzeń odebranych poza kolejnością, które zostały usunięte lub uzyskały skorygowaną sygnaturę czasową, na podstawie zasad określania kolejności zdarzeń. Może to mieć wpływ na konfigurację ustawienia okna tolerancja poza kolejnością. |
 | Zdarzenia wyjściowe          | Ilość danych wysyłanych przez zadanie Stream Analytics do elementu docelowego danych wyjściowych, w liczbie zdarzeń. |
 | Błędy środowiska uruchomieniowego         | Łączna liczba błędów związanych z przetwarzaniem zapytań (z wyjątkiem błędów znalezionych podczas pozyskiwania zdarzeń lub wyprowadzania wyników) |
 | Użycie SU%       | Wykorzystanie jednostek przesyłania strumieniowego przypisanych do zadania z karty skala zadania. Jeśli ten wskaźnik osiągnie 80%, lub powyżej, istnieje wysokie prawdopodobieństwo, że przetwarzanie zdarzeń może być opóźnione lub zatrzymane w toku. |
 | Opóźnienie znaku wodnego       | Maksymalne opóźnienie dla wszystkich partycji wszystkich danych wyjściowych w zadaniu. |
 
-Możesz użyć tych metryk do [monitorowania wydajności zadania Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). 
+Możesz użyć tych metryk do [monitorowania wydajności zadania Stream Analytics](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Dostosowywanie monitorowania w Azure Portal
-Możesz dostosować typ wykresu, pokazywane metryki i zakres czasu w ustawieniach edycji wykresu. Aby uzyskać szczegółowe informacje, zobacz [How to Dostosowywanie monitorowania](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Możesz dostosować typ wykresu, pokazywane metryki i zakres czasu w ustawieniach edycji wykresu. Aby uzyskać szczegółowe informacje, zobacz [How to Dostosowywanie monitorowania](../azure-monitor/platform/data-platform.md).
 
   ![Wykres Stream Analytics czasu monitora zapytania](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
@@ -59,11 +59,11 @@ Innym interesującym punktem danych do monitorowania zadania jest czas ostatnieg
 Jest to czas aplikacji (tj. czas, który używa sygnatury czasowej z danych zdarzenia) najnowszych danych wyjściowych zadania.
 
 ## <a name="get-help"></a>Uzyskaj pomoc
-Aby uzyskać dalszą pomoc, wypróbuj nasze [&stronie pytań na temat Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)
+Aby uzyskać dalszą pomoc, wypróbuj nasze [&stronie pytań na temat Azure Stream Analytics](/answers/topics/azure-stream-analytics.html)
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](/rest/api/streamanalytics/)

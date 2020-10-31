@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e43a43d929d256bc2a12b6b243d9620c5bd1aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8891bb5cd3b8bd8ae9e02c871d6d0ffe42078c0b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317705"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124768"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics kodu JavaScript zdefiniowanych przez użytkownika
  
@@ -83,7 +83,7 @@ Alias funkcji jest identyfikatorem UDA. Gdy jest wywoływana w Stream Analytics 
 
 ### <a name="function-type"></a>Typ funkcji
 
-W przypadku UDA typ funkcji powinien mieć wartość **JavaScript uda**.
+W przypadku UDA typ funkcji powinien mieć wartość **JavaScript uda** .
 
 ### <a name="output-type"></a>Typ danych wyjściowych
 
@@ -123,7 +123,7 @@ Poniżej przeprowadzimy proces tworzenia UDA z portalu. Przykładem używanym w 
 Teraz Utwórzmy kod JavaScript UDA w ramach istniejącego zadania ASA, wykonując następujące kroki.
 
 1. Zaloguj się do Azure Portal i Znajdź istniejące Stream Analytics zadanie.
-1. Następnie kliknij link funkcje w obszarze **topologia zadania**.
+1. Następnie kliknij link funkcje w obszarze **topologia zadania** .
 1. Kliknij ikonę **Dodaj** , aby dodać nową funkcję.
 1. W obszarze nowy widok funkcji wybierz pozycję **JavaScript uda** jako typ funkcji, a następnie w edytorze zostanie wyświetlony domyślny szablon uda.
 1. Wypełnij wartość "TWA" jako alias UDA i Zmień implementację funkcji w następujący sposób:
@@ -174,7 +174,7 @@ Teraz Utwórzmy kod JavaScript UDA w ramach istniejącego zadania ASA, wykonują
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Wywołanie JavaScript UDA w zapytaniu ASA
 
-W Azure Portal i Otwórz zadanie, Edytuj zapytanie i wywołaj funkcję TWA () z prefiksem mandatu "uda". Na przykład:
+W Azure Portal i Otwórz zadanie, Edytuj zapytanie i wywołaj funkcję TWA () z prefiksem mandatu "uda". Przykład:
 
 ```SQL
 WITH value AS
@@ -226,12 +226,12 @@ Utwórz lokalny plik JSON z poniższą zawartością, Przekaż plik do Stream An
 
 ## <a name="get-help"></a>Uzyskaj pomoc
 
-Aby uzyskać dodatkową pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Aby uzyskać dodatkową pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Dokumentacja języka zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Dokumentacja interfejsu API REST zarządzania Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Dokumentacja języka zapytań](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Dokumentacja interfejsu API REST zarządzania Azure Stream Analytics](/rest/api/streamanalytics/)

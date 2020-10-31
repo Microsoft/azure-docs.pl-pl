@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 09/01/2020
+ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 167c2f091d4d8a7d7d5c32009b484125d7275796
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282355"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125176"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 
@@ -33,15 +33,18 @@ Przypisanie użycia klienta obsługuje trzy opcje wdrażania:
 >- Przypisanie użycia klienta dotyczy nowych wdrożeń i nie obsługuje tagowania istniejących już wdrożonych zasobów.
 >
 >- Przypisanie użycia klienta jest wymagane dla ofert [aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md) opublikowanych w portalu Azure Marketplace.
+>
+>- Nie wszystkie usługi platformy Azure są zgodne z przyznanymi użyciem klientów. Usługi Azure Kubernetes Services (AKS) i VM Scale Sets mają znane problemy, które powodują, że w ramach raportowania użycia.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-guids"></a>Tworzenie identyfikatorów GUID
 
-Identyfikator GUID jest unikatowym identyfikatorem odwołania, który ma 32 cyfr szesnastkowych. Aby utworzyć identyfikatory GUID do śledzenia, należy użyć generatora GUID. Zespół usługi Azure Storage utworzył [formularz generatora GUID](https://aka.ms/StoragePartners) , który wyśle wiadomość E-mail na identyfikator GUID prawidłowego formatu i może być ponownie używany w różnych systemach śledzenia.
+Identyfikator GUID jest unikatowym identyfikatorem odwołania, który ma 32 cyfr szesnastkowych. Aby utworzyć identyfikatory GUID do śledzenia, należy użyć generatora GUID, na przykład za pośrednictwem programu PowerShell.
 
-> [!NOTE]
-> Zdecydowanie zaleca się użycie [formularza generatora GUID usługi Azure Storage](https://aka.ms/StoragePartners) w celu utworzenia identyfikatora GUID. Aby uzyskać więcej informacji, zobacz nasze [często zadawane pytania](#faq).
+```powershell
+[guid]::NewGuid()]
+```
 
 Zalecamy utworzenie unikatowego identyfikatora GUID dla każdej oferty i kanału dystrybucji dla każdego produktu. Można wybrać opcję użycia jednego identyfikatora GUID dla wielu kanałów dystrybucji produktu, jeśli nie chcesz, aby raportowanie było podzielone.
 
@@ -67,19 +70,19 @@ Po dodaniu identyfikatora GUID do szablonu lub w agencie użytkownika i zarejest
 
 1. Zarejestruj się jako [komercyjny wydawca portalu Marketplace](https://aka.ms/JoinMarketplace).
 
-   * Partnerzy muszą [mieć profil w centrum partnerskim](become-publisher.md). Zachęcamy do korzystania z oferty w witrynie Azure Marketplace lub AppSource.
+   * Partnerzy muszą [mieć profil w centrum partnerskim](./partner-center-portal/create-account.md). Zachęcamy do korzystania z oferty w witrynie Azure Marketplace lub AppSource.
    * Partnerzy mogą rejestrować wiele identyfikatorów GUID.
    * Partnerzy mogą rejestrować identyfikatory GUID dla szablonów rozwiązań i ofert spoza witryny Marketplace.
 
-1. W prawym górnym rogu wybierz ikonę koła zębatego ustawienia, a następnie wybierz pozycję **Ustawienia dewelopera**.
+1. W prawym górnym rogu wybierz ikonę koła zębatego ustawienia, a następnie wybierz pozycję **Ustawienia dewelopera** .
 
-1. Na **stronie Ustawienia konta**wybierz pozycję **Dodaj identyfikator GUID śledzenia.**
+1. Na **stronie Ustawienia konta** wybierz pozycję **Dodaj identyfikator GUID śledzenia.**
 
 1. W polu **GUID** wprowadź identyfikator GUID śledzenia. Wprowadź tylko identyfikator GUID bez `pid-` prefiksu. W polu **Opis** wprowadź nazwę lub opis oferty.
 
 1. Aby zarejestrować więcej niż jeden identyfikator GUID, ponownie wybierz pozycję **Dodaj identyfikator GUID śledzenia** . Na stronie są wyświetlane dodatkowe pola.
 
-1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz** .
 
 ## <a name="use-resource-manager-templates"></a>Używanie szablonów usługi Resource Manager
 Wiele rozwiązań partnerskich jest wdrażanych przy użyciu szablonów Azure Resource Manager. Jeśli masz szablon Menedżer zasobów, który jest dostępny w witrynie Azure Marketplace, w witrynie GitHub lub w ramach przewodnika Szybki Start, proces modyfikacji szablonu, który umożliwi przypisanie użycia klienta, jest prosty do przodu.
@@ -97,9 +100,9 @@ Aby dodać unikatowy identyfikator globalny (GUID), należy dokonać pojedynczej
 
 1. Otwórz szablon Menedżer zasobów.
 
-1. Dodaj nowy zasób typu [Microsoft. resources/Deployments](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) w głównym pliku szablonu. Zasób musi znajdować się w **mainTemplate.js** lubazuredeploy.jstylko ** dla** pliku, a nie w żadnych zagnieżdżonych lub połączonych szablonach.
+1. Dodaj nowy zasób typu [Microsoft. resources/Deployments](/azure/templates/microsoft.resources/deployments) w głównym pliku szablonu. Zasób musi znajdować się w **mainTemplate.js** lubazuredeploy.jstylko **dla** pliku, a nie w żadnych zagnieżdżonych lub połączonych szablonach.
 
-1. Wprowadź wartość identyfikatora GUID po `pid-` prefiksie jako nazwę zasobu. Na przykład jeśli identyfikator GUID to eb7927c8-dd66-43e1-b0cf-c346a422063, nazwą zasobu będzie _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
+1. Wprowadź wartość identyfikatora GUID po `pid-` prefiksie jako nazwę zasobu. Na przykład jeśli identyfikator GUID to eb7927c8-dd66-43e1-b0cf-c346a422063, nazwą zasobu będzie _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_ .
 
 1. Sprawdź, czy szablon nie ma błędów.
 
@@ -132,7 +135,7 @@ Zasób należy dodać do **mainTemplate.js** lub **azuredeploy.jstylko dla** pli
 
 ## <a name="use-the-resource-manager-apis"></a>Korzystanie z Menedżer zasobów interfejsów API
 
-W niektórych przypadkach warto wykonać wywołania bezpośrednio do Menedżer zasobów interfejsów API REST w celu wdrożenia usług platformy Azure. [Platforma Azure obsługuje wiele zestawów SDK](https://docs.microsoft.com/azure/?pivot=sdkstools) , aby umożliwić te wywołania. Można użyć jednego z zestawów SDK lub wywołać interfejsy API REST bezpośrednio w celu wdrożenia zasobów.
+W niektórych przypadkach warto wykonać wywołania bezpośrednio do Menedżer zasobów interfejsów API REST w celu wdrożenia usług platformy Azure. [Platforma Azure obsługuje wiele zestawów SDK](../index.yml?pivot=sdkstools) , aby umożliwić te wywołania. Można użyć jednego z zestawów SDK lub wywołać interfejsy API REST bezpośrednio w celu wdrożenia zasobów.
 
 Jeśli używasz szablonu Menedżer zasobów, należy oznaczyć rozwiązanie, postępując zgodnie z instrukcjami opisanymi wcześniej. Jeśli nie korzystasz z szablonu Menedżer zasobów i tworzysz bezpośrednie wywołania interfejsu API, możesz oznaczyć wdrożenie, aby skojarzyć użycie zasobów platformy Azure.
 
@@ -156,7 +159,7 @@ Dla języka Python Użyj atrybutu **config** . Możesz dodać atrybut tylko do U
 
 #### <a name="example-the-net-sdk"></a>Przykład: zestaw SDK platformy .NET
 
-W przypadku platformy .NET upewnij się, że ustawiono agenta użytkownika. Biblioteka [Microsoft. Azure. Management. Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) może służyć do ustawiania agenta użytkownika przy użyciu następującego kodu (przykład w języku C#):
+W przypadku platformy .NET upewnij się, że ustawiono agenta użytkownika. Biblioteka [Microsoft. Azure. Management. Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) może służyć do ustawiania agenta użytkownika przy użyciu następującego kodu (przykład w języku C#):
 
 ```csharp
 
@@ -183,7 +186,7 @@ Korzystając z interfejsu wiersza polecenia platformy Azure, aby dołączyć ide
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Aby uzyskać więcej informacji, zobacz [Azure SDK dla języka go](https://docs.microsoft.com/azure/developer/go/).
+Aby uzyskać więcej informacji, zobacz [Azure SDK dla języka go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Użyj Terraform
 

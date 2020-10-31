@@ -5,16 +5,16 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19d70642a6c76239f62b2fd6f7e713430a7adfbb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043087"
+ms.locfileid: "93124972"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Utwórz konto BlockBlobStorage
 
@@ -118,9 +118,6 @@ Aby utworzyć konto BlockBlobStorage w Azure Portal, wykonaj następujące kroki
 
 9. Jeśli chcesz zoptymalizować konto magazynu na potrzeby analizy danych, ustaw **hierarchiczną przestrzeń nazw** na **włączone** . W przeciwnym razie pozostaw tę opcję ustawioną na wartość domyślną. Włączenie tego ustawienia przy użyciu konta BlockBlobStorage zapewnia [warstwę Premium dla Data Lake Storage](premium-tier-for-data-lake-storage.md).  Aby dowiedzieć się więcej na temat Data Lake Storage, zobacz [wprowadzenie do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
-   > [!NOTE]
-   > Funkcja hierarchicznej przestrzeni nazw w ramach konta blokowego magazynu obiektów BLOB jest w publicznej wersji zapoznawczej. Informacje o dostępności regionalnej można znaleźć w temacie [dostępność regionalna](premium-tier-for-data-lake-storage.md#regional-availability).
-
 8. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia konta magazynu.
 
 9. Wybierz pozycję **Utwórz** .
@@ -162,9 +159,6 @@ Aby utworzyć konto BlockBlobStorage w Azure Portal, wykonaj następujące kroki
    ```
    Jeśli chcesz zoptymalizować konto magazynu na potrzeby analizy danych, Dodaj `-EnableHierarchicalNamespace $True` je do polecenia. Włączenie tego ustawienia przy użyciu konta BlockBlobStorage zapewnia [warstwę Premium dla Data Lake Storage](premium-tier-for-data-lake-storage.md).  Aby dowiedzieć się więcej na temat Data Lake Storage, zobacz [wprowadzenie do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
-   > [!NOTE]
-   > Funkcja hierarchicznej przestrzeni nazw w ramach konta blokowego magazynu obiektów BLOB jest w publicznej wersji zapoznawczej. Informacje o dostępności regionalnej można znaleźć w temacie [dostępność regionalna](premium-tier-for-data-lake-storage.md#regional-availability).
-
 ## <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Aby utworzyć konto blokowego obiektu BLOB przy użyciu interfejsu wiersza polecenia platformy Azure, musisz najpierw zainstalować interfejs wiersza polecenia platformy Azure w wersji 2.0. 2.0.46 lub nowszą wersję. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
@@ -195,10 +189,7 @@ Aby utworzyć konto blokowego obiektu BLOB przy użyciu interfejsu wiersza polec
    ```
 
    Jeśli chcesz zoptymalizować konto magazynu na potrzeby analizy danych, Dodaj `--hierarchical-namespace true` je do polecenia. Włączenie tego ustawienia przy użyciu konta BlockBlobStorage zapewnia [warstwę Premium dla Data Lake Storage](premium-tier-for-data-lake-storage.md).  Aby dowiedzieć się więcej na temat Data Lake Storage, zobacz [wprowadzenie do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
-   
-   > [!NOTE]
-   > Funkcja hierarchicznej przestrzeni nazw w ramach konta blokowego magazynu obiektów BLOB jest w publicznej wersji zapoznawczej. Informacje o dostępności regionalnej można znaleźć w temacie [dostępność regionalna](premium-tier-for-data-lake-storage.md#regional-availability).
-   
+
 ---
 
 ## <a name="next-steps"></a>Następne kroki

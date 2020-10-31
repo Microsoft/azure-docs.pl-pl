@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 766d3f8d4d4c03fb4fe173dbb12eb85bb09cd71a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903818"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124173"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Debuguj Azure Stream Analytics zapytań lokalnie przy użyciu diagramu zadań w Visual Studio Code
 
@@ -31,7 +31,7 @@ Skorzystaj z tego [przewodnika Szybki Start](quick-create-visual-studio-code.md)
 
 Jeśli chcesz przetestować zapytanie z lokalnymi danymi wejściowymi, postępuj zgodnie z tymi [instrukcjami](visual-studio-code-local-run.md). Jeśli chcesz przetestować przy użyciu danych wejściowych na żywo, [Skonfiguruj dane wejściowe](stream-analytics-add-inputs.md) przejdź do następnego kroku. 
 
-Otwórz plik skryptu * \. asaql* i wybierz pozycję **Uruchom lokalnie**. Następnie wybierz pozycję **Użyj lokalnego wejścia** lub **Użyj danych wejściowych na żywo**. Diagram zadań pojawia się po prawej stronie okna.
+Otwórz plik skryptu *\. asaql* i wybierz pozycję **Uruchom lokalnie** . Następnie wybierz pozycję **Użyj lokalnego wejścia** lub **Użyj danych wejściowych na żywo** . Diagram zadań pojawia się po prawej stronie okna.
 
 ### <a name="view-the-output-and-intermediate-result-set"></a>Wyświetlanie danych wyjściowych i pośrednich zestawów wyników  
 
@@ -56,7 +56,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
    > [!div class="mx-imgBorder"]
    > ![Metryki diagramu zadania](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png)
 
-3. Wybierz nazwę źródła danych wejściowych z listy rozwijanej, aby wyświetlić metryki wejściowe. Źródło danych wejściowych na poniższym zrzucie ekranu jest nazywane *cudzysłowami*. Aby uzyskać więcej informacji na temat metryk wejściowych, zobacz [Omówienie monitorowania zadania Stream Analytics i sposobu monitorowania zapytań](stream-analytics-monitoring.md).
+3. Wybierz nazwę źródła danych wejściowych z listy rozwijanej, aby wyświetlić metryki wejściowe. Źródło danych wejściowych na poniższym zrzucie ekranu jest nazywane *cudzysłowami* . Aby uzyskać więcej informacji na temat metryk wejściowych, zobacz [Omówienie monitorowania zadania Stream Analytics i sposobu monitorowania zapytań](stream-analytics-monitoring.md).
 
    > [!div class="mx-imgBorder"]
    > ![Metryki wejściowe diagramu zadania](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
@@ -104,7 +104,7 @@ Wybierz opcję **Podsumowanie zadania** w prawym górnym rogu diagramu zadania, 
 
 * Kod niestandardowy C# i funkcje Azure Machine Learning nie są obsługiwane. 
 
-* Tylko opcje danych wejściowych w chmurze mają obsługę [zasad czasu](stream-analytics-out-of-order-and-late-events.md) , podczas gdy lokalne Opcje wejściowe nie są.
+* Tylko opcje danych wejściowych w chmurze mają obsługę [zasad czasu](./stream-analytics-time-handling.md) , podczas gdy lokalne Opcje wejściowe nie są.
 
 ## <a name="next-steps"></a>Następne kroki
 

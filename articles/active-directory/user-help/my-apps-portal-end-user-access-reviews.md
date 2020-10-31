@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: fbea4ef39b970f667c5dddec52f56a428d401f65
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8da9e97aaa2c6d99990df4221d8b6e99ab18ac83
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277453"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124816"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Przeprowadzanie przeglądu dostępu z poziomu portalu Moje aplikacje
 
@@ -62,11 +62,11 @@ Jeśli administrator udzielił Ci uprawnień do wykonywania własnych przegląd�
 
 6. Wybierz pozycję **tak** , aby zachować dostęp, lub przycisk **nie** , aby usunąć swój dostęp.
 
-    Jeśli wybierzesz opcję **tak**, w polu **Przyczyna** może być konieczne określenie uzasadnienia.
+    Jeśli wybierzesz opcję **tak** , w polu **Przyczyna** może być konieczne określenie uzasadnienia.
 
     ![Strona przeglądu dostępu pokazująca pole przyczyna z przykładowym tekstem](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
-7. Wybierz pozycję **Prześlij**.
+7. Wybierz pozycję **Prześlij** .
 
     Przegląd dostępu zostanie zakończony i wrócisz do portalu **My Apps** .
 
@@ -76,5 +76,5 @@ Jeśli administrator udzielił Ci uprawnień do wykonywania własnych przegląd�
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dostęp do aplikacji i korzystanie z nich w portalu My Apps](my-apps-portal-end-user-access.md)
-- [Zmienianie informacji o profilu](my-apps-portal-end-user-update-profile.md)
+- [Zmienianie informacji o profilu](./my-account-portal-settings.md)
 - [Wyświetlanie i aktualizowanie informacji związanych z grupami](my-apps-portal-end-user-groups.md)

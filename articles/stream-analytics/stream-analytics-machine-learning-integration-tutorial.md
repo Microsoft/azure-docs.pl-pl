@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 529b1ce8026d9880bbc8caf87ab59148baf92df3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9b08b59090d9dd23405f8a0ba86ce608e3a64902
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019464"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123765"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Analiza tonacji z użyciem Azure Stream Analytics i Azure Machine Learning Studio (wersja klasyczna)
 
@@ -43,7 +43,7 @@ Przed rozpoczęciem upewnij się, że dysponujesz następującymi elementami:
 
 W tym kroku przekażesz plik CSV do kontenera magazynu.
 
-1. W Azure Portal wybierz pozycję **Utwórz zasób**  >  **Magazyn**  >  **konto magazynu**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób**  >  **Magazyn**  >  **konto magazynu** .
 
 2. Wypełnij kartę *podstawowe* z poniższymi szczegółami i pozostaw wartości domyślne dla pozostałych pól:
 
@@ -57,17 +57,17 @@ W tym kroku przekażesz plik CSV do kontenera magazynu.
 
    ![Podaj szczegóły konta magazynu](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-3. Wybierz pozycję **Recenzja + Utwórz**. Następnie wybierz pozycję **Utwórz** , aby wdrożyć konto magazynu.
+3. Wybierz pozycję **Recenzja + Utwórz** . Następnie wybierz pozycję **Utwórz** , aby wdrożyć konto magazynu.
 
-4. Po zakończeniu wdrażania przejdź do konta magazynu. W obszarze **Blob service** wybierz pozycję **Kontenery**. Następnie wybierz pozycję **+ kontener** , aby utworzyć nowy kontener.
+4. Po zakończeniu wdrażania przejdź do konta magazynu. W obszarze **Blob service** wybierz pozycję **Kontenery** . Następnie wybierz pozycję **+ kontener** , aby utworzyć nowy kontener.
 
    ![Utwórz kontener usługi BLOB Storage na potrzeby danych wejściowych](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
-5. Podaj nazwę kontenera i sprawdź, czy **poziom dostępu publicznego** jest ustawiony jako **prywatny**. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
+5. Podaj nazwę kontenera i sprawdź, czy **poziom dostępu publicznego** jest ustawiony jako **prywatny** . Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz** .
 
    ![Określ szczegóły kontenera obiektów BLOB](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
-6. Przejdź do nowo utworzonego kontenera i wybierz pozycję **Przekaż**. Przekaż pobrany wcześniej plik **sampleinput.csv** .
+6. Przejdź do nowo utworzonego kontenera i wybierz pozycję **Przekaż** . Przekaż pobrany wcześniej plik **sampleinput.csv** .
 
    ![Przycisk "Przekaż" dla kontenera](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
@@ -77,7 +77,7 @@ Teraz, gdy przykładowe dane są w obiekcie blob, można włączyć model analiz
 
 1. Przejdź do strony [model analizy predykcyjnej tonacji](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) w Cortana Intelligence Gallery.  
 
-2. Wybierz pozycję **Otwórz w programie Studio (klasyczne)**.  
+2. Wybierz pozycję **Otwórz w programie Studio (klasyczne)** .  
    
    ![Stream Analytics Azure Machine Learning Studio (klasyczny), Open Studio (klasyczny)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
@@ -115,7 +115,7 @@ Przejdź do [Azure Portal](https://portal.azure.com) i utwórz zadanie Stream An
 
 Zadanie pobiera dane wejściowe z pliku CSV, który został wcześniej przekazany do usługi BLOB Storage.
 
-1. Przejdź do zadania usługi Stream Analytics. W obszarze **topologia zadania**wybierz opcję **dane wejściowe** . Wybierz pozycję **Dodaj strumień wejściowy**  > **BLOB Storage**.
+1. Przejdź do zadania usługi Stream Analytics. W obszarze **topologia zadania** wybierz opcję **dane wejściowe** . Wybierz pozycję **Dodaj strumień wejściowy**  > **BLOB Storage** .
 
 2. Wypełnij **BLOB Storage** szczegóły, korzystając z następujących wartości:
 
@@ -127,13 +127,13 @@ Zadanie pobiera dane wejściowe z pliku CSV, który został wcześniej przekazan
    |Kontener|Wybierz kontener utworzony w poprzednim kroku.|
    |Format serializacji zdarzeń|CSV|
 
-3. Wybierz pozycję **Zapisz**.
+3. Wybierz pozycję **Zapisz** .
 
 ### <a name="configure-the-job-output"></a>Konfigurowanie danych wyjściowych zadania
 
 Zadanie wysyła wyniki do tego samego magazynu obiektów blob, w którym pobiera dane wejściowe.
 
-1. Przejdź do zadania usługi Stream Analytics. W obszarze **topologia zadania**wybierz opcję dane **wyjściowe** . Wybierz pozycję **Dodaj**  >  **Magazyn obiektów BLOB**.
+1. Przejdź do zadania usługi Stream Analytics. W obszarze **topologia zadania** wybierz opcję dane **wyjściowe** . Wybierz pozycję **Dodaj**  >  **Magazyn obiektów BLOB** .
 
 2. Wypełnij formularz **BLOB Storage** przy użyciu następujących wartości:
 
@@ -145,7 +145,7 @@ Zadanie wysyła wyniki do tego samego magazynu obiektów blob, w którym pobiera
    |Kontener|Wybierz kontener utworzony w poprzednim kroku.|
    |Format serializacji zdarzeń|CSV|
 
-3. Wybierz pozycję **Zapisz**.
+3. Wybierz pozycję **Zapisz** .
 
 ### <a name="add-the-studio-classic-function"></a>Dodawanie funkcji Studio (klasycznej)
 
@@ -161,11 +161,11 @@ W tej sekcji zdefiniujesz funkcję w zadaniu analizy strumienia. Funkcja może z
 
    |Pole  |Wartość  |
    |---------|---------|
-   | Alias funkcji | Użyj nazwy `sentiment` i wybierz opcję **Podaj Azure Machine Learning ustawienia funkcji ręcznie**, co daje możliwość wprowadzenia adresu URL i klucza.      |
+   | Alias funkcji | Użyj nazwy `sentiment` i wybierz opcję **Podaj Azure Machine Learning ustawienia funkcji ręcznie** , co daje możliwość wprowadzenia adresu URL i klucza.      |
    | Adres URL| Wklej adres URL usługi sieci Web.|
    |Klucz | Wklej klucz interfejsu API. |
 
-4. Wybierz pozycję **Zapisz**.
+4. Wybierz pozycję **Zapisz** .
 
 ### <a name="create-a-query-to-transform-the-data"></a>Tworzenie zapytania do przekształcania danych
 
@@ -173,7 +173,7 @@ Stream Analytics używa deklaratywnego zapytania opartego na języku SQL, aby zb
 
 1. Wróć do omówienia zadania Stream Analytics.
 
-2. W obszarze **topologia zadania**wybierz pozycję **zapytanie**.
+2. W obszarze **topologia zadania** wybierz pozycję **zapytanie** .
 
 3. Wprowadź następujące zapytanie:
 
@@ -202,7 +202,7 @@ Teraz możesz uruchomić zadanie Stream Analytics.
 
 2. Wybierz pozycję **Rozpocznij** w górnej części strony.
 
-3. W obszarze **zadania uruchamiania**wybierz opcję **niestandardowy**, a następnie wybierz jeden dzień przed przekazaniem pliku CSV do magazynu obiektów BLOB. Gdy wszystko będzie gotowe, wybierz pozycję **Uruchom**.  
+3. W obszarze **zadania uruchamiania** wybierz opcję **niestandardowy** , a następnie wybierz jeden dzień przed przekazaniem pliku CSV do magazynu obiektów BLOB. Gdy wszystko będzie gotowe, wybierz pozycję **Uruchom** .  
 
 ### <a name="check-the-output"></a>Sprawdzanie danych wyjściowych
 
@@ -211,7 +211,7 @@ Teraz możesz uruchomić zadanie Stream Analytics.
 2. Jeśli masz narzędzie, którego zwykle używasz do badania zawartości magazynu obiektów blob, użyj tego narzędzia do sprawdzenia kontenera. Alternatywnie wykonaj następujące czynności w Azure Portal:
 
       1. W Azure Portal Znajdź konto magazynu i w ramach konta Znajdź kontener. W kontenerze widoczne są dwa pliki: plik zawierający przykładowe tweety i plik CSV wygenerowany przez zadanie Stream Analytics.
-      2. Kliknij prawym przyciskiem myszy wygenerowany plik, a następnie wybierz polecenie **Pobierz**.
+      2. Kliknij prawym przyciskiem myszy wygenerowany plik, a następnie wybierz polecenie **Pobierz** .
 
 3. Otwórz wygenerowany plik CSV. Zobaczysz coś podobne do poniższego przykładu:  
 
@@ -227,6 +227,6 @@ Można również wyświetlić metryki dotyczące funkcji programu Studio (klasyc
 ## <a name="next-steps"></a>Następne kroki
 
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
-* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Integrowanie interfejsu API REST i Machine Learning Studio (klasyczny)](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](/rest/api/streamanalytics/)

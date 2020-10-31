@@ -8,31 +8,31 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8d62f87a6bf33bbbd85b68c9d2e0c6f4a93adf16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 889e298f64689748340713de6318f8ffcd181001
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044434"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123850"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Gwarancja Stream Analytics niezawodność zadania podczas aktualizacji usługi
 
-Częścią usługi jest w pełni zarządzaną usługą jest możliwość wprowadzenia nowych funkcji usługi i ulepszeń w szybkim tempie. W związku z tym Stream Analytics można wdrożyć aktualizację usługi co tydzień (lub kilka części). Bez względu na to, jak dużo testów jest wykonywane, istnieje ryzyko, że istniejące, uruchomione zadanie może zostać przerwane z powodu wprowadzenia błędu. W przypadku uruchamiania zadań o kluczowym znaczeniu należy unikać tych zagrożeń. Możesz zmniejszyć to ryzyko, wykonując na **[sparowanym modelu regionów](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** platformy Azure. 
+Częścią usługi jest w pełni zarządzaną usługą jest możliwość wprowadzenia nowych funkcji usługi i ulepszeń w szybkim tempie. W związku z tym Stream Analytics można wdrożyć aktualizację usługi co tydzień (lub kilka części). Bez względu na to, jak dużo testów jest wykonywane, istnieje ryzyko, że istniejące, uruchomione zadanie może zostać przerwane z powodu wprowadzenia błędu. W przypadku uruchamiania zadań o kluczowym znaczeniu należy unikać tych zagrożeń. Możesz zmniejszyć to ryzyko, wykonując na **[sparowanym modelu regionów](../best-practices-availability-paired-regions.md)** platformy Azure. 
 
 ## <a name="how-do-azure-paired-regions-address-this-concern"></a>Jak te zagadnienia są rozwiązywane w przypadku powiązanych regionów platformy Azure?
 
 Stream Analytics gwarantuje, że zadania w sparowanych regionach są aktualizowane w oddzielnych partiach. W związku z tym istnieje wystarczająco dużo czasu między aktualizacjami do identyfikowania potencjalnych problemów i ich korygowania.
 
-_Z wyjątkiem Indii indyjskich_ (w przypadku których w przypadku sparowanego regionu, Indie Południowe, nie ma obecności Stream Analytics), wdrożenie aktualizacji Stream Analytics nie wystąpi w tym samym czasie w zestawie sparowanych regionów. Wdrożenia w wielu regionach **w tej samej grupie** mogą wystąpić w tym **samym czasie**.
+_Z wyjątkiem Indii indyjskich_ (w przypadku których w przypadku sparowanego regionu, Indie Południowe, nie ma obecności Stream Analytics), wdrożenie aktualizacji Stream Analytics nie wystąpi w tym samym czasie w zestawie sparowanych regionów. Wdrożenia w wielu regionach **w tej samej grupie** mogą wystąpić w tym **samym czasie** .
 
-Artykuł dotyczący **[dostępności i sparowanych regionów](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** zawiera najbardziej aktualne informacje na temat tego, które regiony są sparowane.
+Artykuł dotyczący **[dostępności i sparowanych regionów](../best-practices-availability-paired-regions.md)** zawiera najbardziej aktualne informacje na temat tego, które regiony są sparowane.
 
-Zaleca się wdrożenie identycznych zadań w obu sparowanych regionach. Następnie należy [monitorować te zadania](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor) , aby otrzymywać powiadomienia o nieoczekiwanym wystąpieniu. Jeśli jedno z tych zadań kończy [się niepowodzeniem](https://docs.microsoft.com/azure/stream-analytics/job-states) po aktualizacji usługi Stream Analytics, możesz skontaktować się z działem pomocy technicznej, aby pomóc w zidentyfikowaniu głównej przyczyny. Należy również przełączać się do trybu failover dla wszystkich klientów podrzędnych w dobrej kondycji.
+Zaleca się wdrożenie identycznych zadań w obu sparowanych regionach. Następnie należy [monitorować te zadania](./stream-analytics-set-up-alerts.md#scenarios-to-monitor) , aby otrzymywać powiadomienia o nieoczekiwanym wystąpieniu. Jeśli jedno z tych zadań kończy [się niepowodzeniem](./job-states.md) po aktualizacji usługi Stream Analytics, możesz skontaktować się z działem pomocy technicznej, aby pomóc w zidentyfikowaniu głównej przyczyny. Należy również przełączać się do trybu failover dla wszystkich klientów podrzędnych w dobrej kondycji.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Wprowadzenie do Stream Analytics](stream-analytics-introduction.md)
 * [Wprowadzenie do usługi Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skalowanie zadań usługi Stream Analytics](stream-analytics-scale-jobs.md)
-* [Stream Analytics Dokumentacja języka zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Dokumentacja interfejsu API REST zarządzania Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics Dokumentacja języka zapytań](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Dokumentacja interfejsu API REST zarządzania Stream Analytics](/rest/api/streamanalytics/)

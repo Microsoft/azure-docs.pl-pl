@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: fe1caca11ec0a3d89ddae140d00cd3556b9d3d89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0788d8b4f659364fcedc690185c9159a24434125
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044468"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123918"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Lokalne testowanie danych na żywo przy użyciu narzędzi Azure Stream Analytics Tools for Visual Studio (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ Obsługiwane są następujące opcje testowania lokalnego:
 
 ## <a name="local-testing-with-live-data"></a>Testowanie lokalne z danymi dynamicznymi
 
-1. Po utworzeniu [projektu w chmurze Azure Stream Analytics w programie Visual Studio](stream-analytics-quick-create-vs.md)Otwórz polecenie **Script. asaql**. Lokalne testowanie domyślnie używa lokalnych danych wejściowych i lokalnych.
+1. Po utworzeniu [projektu w chmurze Azure Stream Analytics w programie Visual Studio](stream-analytics-quick-create-vs.md)Otwórz polecenie **Script. asaql** . Lokalne testowanie domyślnie używa lokalnych danych wejściowych i lokalnych.
 
    ![Azure Stream Analytics lokalne dane wejściowe i lokalne dla programu Visual Studio](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-local-input-output.png)
 
@@ -43,7 +43,7 @@ Obsługiwane są następujące opcje testowania lokalnego:
 
    ![Azure Stream Analytics czas rozpoczęcia danych na żywo w programie Visual Studio](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
 
-4. Kliknij pozycję **Uruchom lokalnie**. Zostanie wyświetlone okno konsoli z uruchomionymi postępami i metrykami zadań. Jeśli chcesz zatrzymać proces, możesz to zrobić ręcznie. 
+4. Kliknij pozycję **Uruchom lokalnie** . Zostanie wyświetlone okno konsoli z uruchomionymi postępami i metrykami zadań. Jeśli chcesz zatrzymać proces, możesz to zrobić ręcznie. 
 
    ![Okno Azure Stream Analytics procesu danych na żywo w programie Visual Studio](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
 
@@ -59,7 +59,7 @@ Obsługiwane są następujące opcje testowania lokalnego:
 
 * Power BI i Azure Data Lake Storage nie są obsługiwane przez ujścia danych wyjściowych ze względu na ograniczenia modelu uwierzytelniania.
 
-* Tylko opcje danych wejściowych w chmurze mają obsługę [zasad czasu](stream-analytics-out-of-order-and-late-events.md) , podczas gdy lokalne Opcje wejściowe nie są obsługiwane.
+* Tylko opcje danych wejściowych w chmurze mają obsługę [zasad czasu](./stream-analytics-time-handling.md) , podczas gdy lokalne Opcje wejściowe nie są obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
 

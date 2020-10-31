@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 6bfea42c6fca3369485ccf7a47158f7420df9c9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5714a2fd79d01f4cbc445c1ec1a726209ab6d427
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790036"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124938"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurowanie grupy dostępności grupy roboczej 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,11 +62,11 @@ Aby skonfigurować sufiks DNS, wykonaj następujące kroki:
 1. Wybierz pozycję **więcej...** , aby otworzyć okno dialogowe **sufiks DNS i nazwa NetBIOS komputera** . 
 1. Wpisz nazwę sufiksu DNS w obszarze **sufiks podstawowej domeny DNS tego komputera** , na przykład, `ag.wgcluster.example.com` a następnie wybierz przycisk **OK** : 
 
-   ![Dodawanie sufiksu DNS](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
+   ![Zrzut ekranu przedstawia sufiks D N S i nazwę NetBIOS komputera, w którym można wprowadzić wartość.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
 1. Upewnij się, że **pełna nazwa komputera** ma teraz sufiks DNS, a następnie wybierz przycisk **OK** , aby zapisać zmiany: 
 
-   ![Dodawanie sufiksu DNS](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
+   ![Zrzut ekranu pokazuje, gdzie ma zostać wyświetlona pełna nazwa komputera.](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
 
 1. Po wyświetleniu odpowiedniego monitu ponownie uruchom serwer. 
 1. Powtórz te kroki dla wszystkich innych węzłów, które mają być używane dla grupy dostępności. 

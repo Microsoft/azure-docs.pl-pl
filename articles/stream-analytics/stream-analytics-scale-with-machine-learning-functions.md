@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: d2fe8445d41f88852c6c9d4db84f4e1b03183a2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: feeb709f67a0e75f5980ec0520b95feb7edd5960
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015536"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124411"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Skalowanie zadania Stream Analytics za pomocą funkcji Azure Machine Learning Studio (klasycznych)
 
@@ -40,7 +40,7 @@ Określ *tolerancję* opóźnienia dla zadania Stream Analytics. Zwiększenie ro
 
 Zwiększenie rozmiaru partii umożliwia zadanie Stream Analytics przetwarzać **więcej zdarzeń** z taką **samą liczbą** żądań usług sieci Web programu Studio (klasycznych). Zwiększenie opóźnienia usługi sieci Web (klasycznej) jest zwykle liniowe w celu zwiększenia rozmiaru partii. 
 
-Ważne jest, aby wziąć pod uwagę najbardziej ekonomiczny rozmiar partii dla usługi sieci Web programu Studio (klasycznej) w każdej sytuacji. Domyślny rozmiar wsadu dla żądań usług sieci Web to 1000. Domyślny rozmiar można zmienić Stream Analytics za pomocą [interfejsu API REST](https://docs.microsoft.com/previous-versions/azure/mt653706(v=azure.100) "Interfejs API REST usługi Stream Analytics") lub [klienta programu PowerShell dla Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
+Ważne jest, aby wziąć pod uwagę najbardziej ekonomiczny rozmiar partii dla usługi sieci Web programu Studio (klasycznej) w każdej sytuacji. Domyślny rozmiar wsadu dla żądań usług sieci Web to 1000. Domyślny rozmiar można zmienić Stream Analytics za pomocą [interfejsu API REST](/previous-versions/azure/mt653706(v=azure.100) "Interfejs API REST usługi Stream Analytics") lub [klienta programu PowerShell dla Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
 
 Po ustaleniu rozmiaru partii można ustawić liczbę jednostek przesyłania strumieniowego (SUs) na podstawie liczby zdarzeń, które funkcja musi przetworzyć na sekundę. Aby uzyskać więcej informacji na temat jednostek przesyłania strumieniowego, zobacz [Stream Analytics skalowanie zadań](stream-analytics-scale-jobs.md).
 
@@ -52,7 +52,7 @@ Aby przetworzyć 200 000 zdarzeń na sekundę, zadanie Stream Analytics potrzebu
 
 ![Skalowanie Stream Analytics przy użyciu funkcji programu Studio (klasycznej) dwa przykładowe zadania](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Skalowanie Stream Analytics przy użyciu funkcji programu Studio (klasycznej) dwa przykładowe zadania")
 
-Ogólnie rzecz biorąc, ***B*** dla rozmiaru partii, ***L*** dla opóźnienia usługi sieci Web w usłudze Batch o rozmiarze B w milisekundach, przepływność zadania Stream Analytics ***przy użyciu usługi*** SUs to:
+Ogólnie rzecz biorąc, * *_B_* _ dla rozmiaru partii, _*_L_*_ w przypadku opóźnienia usługi sieci Web w partii o rozmiarze B w milisekundach, przepływność zadania Stream Analytics _*_przy użyciu usługi_*_ SUs to:
 
 ![Stream Analytics skalowania przy użyciu formuły funkcji w programie Studio (klasycznej)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Stream Analytics skalowania przy użyciu formuły funkcji w programie Studio (klasycznej)")
 
@@ -63,7 +63,7 @@ Aby uzyskać więcej informacji na temat tego ustawienia, zapoznaj się z [artyk
 ## <a name="example--sentiment-analysis"></a>Przykład — analiza tonacji
 Poniższy przykład obejmuje zadanie Stream Analytics przy użyciu funkcji tonacji Analysis Studio (klasycznej), zgodnie z opisem w [samouczku integracji Stream Analytics Machine Learning Studio (klasyczne)](stream-analytics-machine-learning-integration-tutorial.md).
 
-Zapytanie jest prostym w pełni partycjonowanym zapytaniem, a następnie funkcją **tonacji** , jak pokazano w następującym przykładzie:
+Zapytanie jest prostym w pełni partycjonowanym zapytaniem, a następnie funkcją _ *tonacji* *, jak pokazano w następującym przykładzie:
 
 ```SQL
     WITH subquery AS (
@@ -88,7 +88,7 @@ Jeśli współczynnik zdarzeń wejściowych rośnie przez 100x, zadanie Stream A
 
 Przy pierwszej opcji **opóźnienia** zadania rosną.
 
-Po drugiej opcji trzeba będzie udostępnić więcej usług SUs, aby mieć więcej współbieżnych żądań usługi sieci Web (klasycznych). Ta większa liczba usług SUs zwiększa **koszt**zadania.
+Po drugiej opcji trzeba będzie udostępnić więcej usług SUs, aby mieć więcej współbieżnych żądań usługi sieci Web (klasycznych). Ta większa liczba usług SUs zwiększa **koszt** zadania.
 
 Przyjrzyjmy się skalowaniu przy użyciu następujących pomiarów opóźnienia dla każdego rozmiaru wsadu:
 
@@ -99,7 +99,7 @@ Przyjrzyjmy się skalowaniu przy użyciu następujących pomiarów opóźnienia 
 | 300 ms | 10 000 — partie zdarzeń |
 | 500 ms | 25 000 — partie zdarzeń |
 
-1. Korzystanie z pierwszej opcji (**bez** aprowizacji więcej usług SUs). Rozmiar wsadu można zwiększyć do **25 000**. Zwiększenie rozmiaru partii w ten sposób umożliwi zadanie przetwarzania zdarzeń 1 000 000 z 20 współbieżnych połączeń z usługą sieci Web programu Studio (klasyczną) (z opóźnieniem 500 MS na wywołanie). W związku z tym dodatkowe opóźnienie zadania Stream Analytics ze względu na żądania funkcji tonacji w stosunku do żądań usługi sieci Web programu Studio (klasyczny) zostałyby zwiększone z **200 MS** do **500 MS**. **Nie** można jednak zwiększyć rozmiaru wsadu, ponieważ usługi sieci Web programu Studio (klasycznej) wymagają, aby rozmiar ładunku żądania wynosił 4 MB lub mniejszy, a żądania usługi sieci Web przekroczyły limit czasu 100 sekund operacji.
+1. Korzystanie z pierwszej opcji ( **bez** aprowizacji więcej usług SUs). Rozmiar wsadu można zwiększyć do **25 000** . Zwiększenie rozmiaru partii w ten sposób umożliwi zadanie przetwarzania zdarzeń 1 000 000 z 20 współbieżnych połączeń z usługą sieci Web programu Studio (klasyczną) (z opóźnieniem 500 MS na wywołanie). W związku z tym dodatkowe opóźnienie zadania Stream Analytics ze względu na żądania funkcji tonacji w stosunku do żądań usługi sieci Web programu Studio (klasyczny) zostałyby zwiększone z **200 MS** do **500 MS** . **Nie** można jednak zwiększyć rozmiaru wsadu, ponieważ usługi sieci Web programu Studio (klasycznej) wymagają, aby rozmiar ładunku żądania wynosił 4 MB lub mniejszy, a żądania usługi sieci Web przekroczyły limit czasu 100 sekund operacji.
 1. Przy użyciu drugiej opcji rozmiar wsadu jest pozostawiony o 1000 z opóźnieniem usługi sieci Web 200 – MS, co 20 współbieżnych połączeń z usługą sieci Web może przetwarzać 1000 * 20 * 5 zdarzeń = 100 000 na sekundę. W celu przetworzenia zdarzeń 1 000 000 na sekundę zadanie będzie wymagało 60 programu SUs. W porównaniu do pierwszej opcji zadanie Stream Analytics zwiększy liczbę żądań wsadowych usługi sieci Web, z kolei generując zwiększony koszt.
 
 Poniżej znajduje się tabela przepływności zadania Stream Analytics dla różnych rozmiarów usług SUs i wsadowych (liczba zdarzeń na sekundę).
@@ -120,17 +120,17 @@ Teraz warto już wiedzieć, jak działają funkcje programu Studio (klasyczne) w
 Zwykle rozmiar wsadu ustawiany dla programu Studio (klasyczny) nie będzie dokładnie widoczny przez liczbę zdarzeń zwróconych przez każde zadanie Stream Analytics "ściągania". W takim przypadku usługa sieci Web Studio (klasyczna) jest wywoływana ze partiami "częściowe". Użycie partii częściowych pozwala uniknąć ponoszenia dodatkowych kosztów opóźnienia zadania w przypadku zdarzeń łączących od ściągania do ściągania.
 
 ## <a name="new-function-related-monitoring-metrics"></a>Nowe metryki monitorowania powiązane z funkcją
-W obszarze monitorowanie zadania Stream Analytics dodano trzy dodatkowe metryki powiązane z funkcjami. Są to **żądania funkcji**, **zdarzenia funkcji** i **Nieudane żądania funkcji**, jak pokazano na ilustracji poniżej.
+W obszarze monitorowanie zadania Stream Analytics dodano trzy dodatkowe metryki powiązane z funkcjami. Są to **żądania funkcji** , **zdarzenia funkcji** i **Nieudane żądania funkcji** , jak pokazano na ilustracji poniżej.
 
 ![Skalowanie Stream Analytics za pomocą funkcji Studio (klasyczne)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Skalowanie Stream Analytics za pomocą funkcji Studio (klasyczne)")
 
 Są zdefiniowane w następujący sposób:
 
-**Żądania funkcji**: liczba żądań funkcji.
+**Żądania funkcji** : liczba żądań funkcji.
 
-**Zdarzenia funkcji**: liczba zdarzeń w żądaniach funkcji.
+**Zdarzenia funkcji** : liczba zdarzeń w żądaniach funkcji.
 
-**Nieudane żądania funkcji**: liczba nieudanych żądań funkcji.
+**Nieudane żądania funkcji** : liczba nieudanych żądań funkcji.
 
 ## <a name="key-takeaways"></a>Wnioski Key
 
@@ -140,12 +140,12 @@ Aby skalować zadanie Stream Analytics przy użyciu funkcji programu Studio (kla
 2. Tolerowane opóźnienie dla uruchomionego zadania Stream Analytics (i w ten sposób rozmiar wsadu żądań usługi sieci Web programu Studio (klasyczny)).
 3. Zainicjowana Stream Analytics usług SUs i liczba żądań usług sieci Web programu Studio (klasycznych) (z dodatkowymi kosztami związanymi z funkcją).
 
-W pełni partycjonowane zapytanie Stream Analytics zostało użyte jako przykład. Jeśli jest wymagana bardziej złożona kwerenda, [firma Microsoft Q&stronę pytania dla Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html) jest doskonałym zasobem do uzyskania dodatkowej pomocy od zespołu Stream Analytics.
+W pełni partycjonowane zapytanie Stream Analytics zostało użyte jako przykład. Jeśli jest wymagana bardziej złożona kwerenda, [firma Microsoft Q&stronę pytania dla Azure Stream Analytics](/answers/topics/azure-stream-analytics.html) jest doskonałym zasobem do uzyskania dodatkowej pomocy od zespołu Stream Analytics.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat Stream Analytics, zobacz:
 
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs (Skalowanie zadań usługi Azure Stream Analytics)](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference (Dokumentacja dotycząca języka zapytań usługi Azure Stream Analytics)](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference (Dokumentacja interfejsu API REST zarządzania usługą Azure Stream Analytics)](/rest/api/streamanalytics/)

@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 131cd9b1de82213d89ee07f30aed25544f6fcb18
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284909"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124955"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Często zadawane pytania dotyczące maszyn wirtualnych w portalu Azure Marketplace
 
@@ -22,7 +22,7 @@ Te często zadawane pytania obejmują typowe problemy, które można napotkać p
 
 Jeśli używasz modelu wdrażania Azure Resource Manager, masz trzy opcje:
 
-- [Tworzenie bramy sieci VPN opartej na trasach za pomocą Azure Portal](../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+- [Tworzenie bramy sieci VPN opartej na trasach za pomocą Azure Portal](../vpn-gateway/tutorial-create-gateway-portal.md)
 - [Tworzenie bramy sieci VPN opartej na trasach za pomocą Azure PowerShell](../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
 - [Tworzenie bramy sieci VPN opartej na trasach za pomocą interfejsu wiersza polecenia](../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
@@ -32,7 +32,7 @@ Szczegóły można znaleźć w [pomocy technicznej oprogramowania serwera firmy 
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>Jak zarządzać rozszerzeniem niestandardowego skryptu w maszynie wirtualnej?
 
-Aby uzyskać szczegółowe informacje na temat używania niestandardowego rozszerzenia skryptu przy użyciu modułu Azure PowerShell, szablonów Azure Resource Manager i kroków rozwiązywania problemów w systemach Windows, zobacz [rozszerzenie niestandardowego skryptu dla systemu Windows](/azure/virtual-machines/extensions/custom-script-windows).
+Aby uzyskać szczegółowe informacje na temat używania niestandardowego rozszerzenia skryptu przy użyciu modułu Azure PowerShell, szablonów Azure Resource Manager i kroków rozwiązywania problemów w systemach Windows, zobacz [rozszerzenie niestandardowego skryptu dla systemu Windows](../virtual-machines/extensions/custom-script-windows.md).
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>Czy obsługiwane są 32-bitowe aplikacje lub usługi w portalu Azure Marketplace?
 
@@ -40,7 +40,7 @@ Nie. Obsługiwane systemy operacyjne i standardowe usługi dla maszyn wirtualnyc
 
 Więcej informacji można znaleźć w następujących artykułach:
 
-- [Uruchamianie aplikacji 32-bitowych](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
+- [Uruchamianie aplikacji 32-bitowych](/windows/desktop/WinProg64/running-32-bit-applications)
 - [Obsługa 32-bitowych systemów operacyjnych na maszynach wirtualnych platformy Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Pomoc techniczna dotycząca oprogramowania serwerowego firmy Microsoft dla maszyn wirtualnych platformy Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 
