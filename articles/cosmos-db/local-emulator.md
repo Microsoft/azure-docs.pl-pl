@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b1a0382b6bb650b6761897f4a16f988e5ce00c1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482625"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088747"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Instalowanie i używanie emulatora usługi Azure Cosmos na potrzeby lokalnego tworzenia i testowania
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Emulator usługi Azure Cosmos udostępnia środowisko lokalne, które emuluje usługę Azure Cosmos DB na potrzeby programowania. Korzystając z emulatora usługi Azure Cosmos, możesz tworzyć i testować aplikację lokalnie, bez konieczności tworzenia subskrypcji platformy Azure ani ponoszenia kosztów. Gdy aplikacja działa w emulatorze usługi Azure Cosmos, możesz przełączyć się do korzystania z konta usługi Azure Cosmos w chmurze. W tym artykule opisano sposób instalowania emulatora i korzystania z niego w środowiskach Windows, Linux, macOS i Windows Docker.
 
@@ -80,7 +81,7 @@ Po zakończeniu instalacji, jeśli użyto ustawień domyślnych, dane odpowiadaj
 
 ## <a name="use-the-emulator-on-windows"></a><a id="run-on-windows"></a>Korzystanie z emulatora w systemie Windows
 
-Emulator usługi Azure Cosmos jest domyślnie instalowany w `C:\Program Files\Azure Cosmos DB Emulator` lokalizacji. Aby uruchomić emulator Azure Cosmos w systemie Windows, wybierz przycisk **Start** lub naciśnij klawisz systemu Windows. Zacznij wpisywać tekst **emulatora usługi Azure Cosmos**i wybierz emulator z listy aplikacji.
+Emulator usługi Azure Cosmos jest domyślnie instalowany w `C:\Program Files\Azure Cosmos DB Emulator` lokalizacji. Aby uruchomić emulator Azure Cosmos w systemie Windows, wybierz przycisk **Start** lub naciśnij klawisz systemu Windows. Zacznij wpisywać tekst **emulatora usługi Azure Cosmos** i wybierz emulator z listy aplikacji.
 
 :::image type="content" source="./media/local-emulator/database-local-emulator-start.png" alt-text="Wybierz przycisk Start lub naciśnij klawisz systemu Windows, zacznij wpisywać tekst emulatora usługi Azure Cosmos i wybierz emulator z listy aplikacji":::
 
@@ -98,7 +99,7 @@ Emulator usługi Azure Cosmos jest domyślnie uruchamiany na maszynie lokalnej (
 
 Emulator Azure Cosmos można uruchomić w kontenerze platformy Docker systemu Windows. Aby uzyskać więcej informacji, zobacz [centrum platformy Docker](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) dla Docker pull polecenia i [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) `Dockerfile` . Obecnie emulator nie działa na platformie Docker dla Oracle Linux. Wykonaj poniższe instrukcje, aby uruchomić emulator w Docker for Windows:
 
-1. Po zainstalowaniu [Docker for Windows](https://www.docker.com/docker-windows) przejdź do kontenerów systemu Windows, klikając prawym przyciskiem myszy ikonę platformy Docker na pasku narzędzi i wybierając pozycję **Przełącz na kontenery systemu Windows**.
+1. Po zainstalowaniu [Docker for Windows](https://www.docker.com/docker-windows) przejdź do kontenerów systemu Windows, klikając prawym przyciskiem myszy ikonę platformy Docker na pasku narzędzi i wybierając pozycję **Przełącz na kontenery systemu Windows** .
 
 1. Następnie ściągnij obraz emulatora z usługi Docker Hub, uruchamiając następujące polecenie w wybranej powłoce.
 
@@ -122,7 +123,7 @@ Emulator Azure Cosmos można uruchomić w kontenerze platformy Docker systemu Wi
    docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%hostDirectory%,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/winsrv2019/azure-cosmos-emulator:latest
    ```
 
-   # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
    ```powershell
 
@@ -159,7 +160,7 @@ Emulator Azure Cosmos można uruchomić w kontenerze platformy Docker systemu Wi
    powershell .\importcert.ps1
    ```
 
-   # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
    ```powershell
    cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
@@ -293,7 +294,7 @@ Jeśli pracujesz na komputerze Mac, wykonaj następujące czynności:
 
 1. Otwórz listę certyfikatów i zidentyfikuj ją z nazwą `localhost` .
 
-1. Otwórz menu kontekstowe dla danego elementu, wybierz opcję *Pobierz element* i w obszarze *zaufanie*w  >  *przypadku korzystania z tego certyfikatu* , wybierz pozycję *Zawsze ufaj*. 
+1. Otwórz menu kontekstowe dla danego elementu, wybierz opcję *Pobierz element* i w obszarze *zaufanie* w  >  *przypadku korzystania z tego certyfikatu* , wybierz pozycję *Zawsze ufaj* . 
 
    :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Wybierz przycisk Start lub naciśnij klawisz systemu Windows, zacznij wpisywać tekst emulatora usługi Azure Cosmos i wybierz emulator z listy aplikacji":::
   
@@ -328,7 +329,7 @@ Jeśli masz wiele maszyn przy użyciu pojedynczej sieci, a następnie skonfiguru
 
 Emulator możesz uruchomić w sieci lokalnej. Aby włączyć dostęp do sieci, należy określić `/AllowNetworkAccess` opcję w [wierszu polecenia](emulator-command-line-parameters.md), która wymaga również określenia `/Key=key_string` lub `/KeyFile=file_name` . Możesz użyć `/GenKeyFile=file_name` do wygenerowania pliku z kluczem losowym z góry. Następnie możesz przekazać ten program do `/KeyFile=file_name` lub `/Key=contents_of_file` .
 
-Aby włączyć dostęp do sieci po raz pierwszy, użytkownik powinien zamknąć emulator i usunąć *%LocalAppData%\CosmosDBEmulator*katalogu danych emulatora.
+Aby włączyć dostęp do sieci po raz pierwszy, użytkownik powinien zamknąć emulator i usunąć *%LocalAppData%\CosmosDBEmulator* katalogu danych emulatora.
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Uwierzytelniaj połączenia w przypadku korzystania z emulatora
 
@@ -458,11 +459,11 @@ Uruchom emulator z [wiersza polecenia](emulator-command-line-parameters.md)admin
 
 Aby odinstalować emulator, wykonaj następujące kroki:
 
-1. Zamknij wszystkie otwarte wystąpienia emulatora lokalnego, klikając prawym przyciskiem myszy ikonę **emulatora usługi Azure Cosmos** na pasku zadań, a następnie wybierając pozycję **Zakończ**. Zamykanie wszystkich wystąpień może potrwać około minuty.
+1. Zamknij wszystkie otwarte wystąpienia emulatora lokalnego, klikając prawym przyciskiem myszy ikonę **emulatora usługi Azure Cosmos** na pasku zadań, a następnie wybierając pozycję **Zakończ** . Zamykanie wszystkich wystąpień może potrwać około minuty.
 
 1. W polu wyszukiwania systemu Windows wpisz **aplikacje & funkcje** i wybierz pozycję **aplikacje & funkcje (Ustawienia systemowe)** .
 
-1. Na liście aplikacji przewiń do **emulatora Azure Cosmos DB**, wybierz go, kliknij polecenie **Odinstaluj**, a następnie potwierdź i wybierz ponownie przycisk **Odinstaluj** .
+1. Na liście aplikacji przewiń do **emulatora Azure Cosmos DB** , wybierz go, kliknij polecenie **Odinstaluj** , a następnie potwierdź i wybierz ponownie przycisk **Odinstaluj** .
 
 ## <a name="next-steps"></a>Następne kroki
 

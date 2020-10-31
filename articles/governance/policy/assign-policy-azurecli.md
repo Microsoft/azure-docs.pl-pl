@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start utworzysz przypisanie Azure Policy w
 ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0818dde40a48b4b093ee9c0adc735aba4c883487
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 9955f911f9a92d7b353a8f3d022af7884b5a6aae
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074111"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090158"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -24,7 +24,7 @@ Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure 
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-- Ten przewodnik Szybki Start wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej, aby zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+- Ten przewodnik Szybki Start wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 - Zarejestruj dostawcę zasobów usługi Azure Policy Insights przy użyciu interfejsu wiersza polecenia platformy Azure. Dzięki zarejestrowaniu dostawcy zasobów masz pewność, że subskrypcja będzie z nim współpracować. Aby zarejestrować dostawcę zasobów, należy mieć uprawnienia do wykonywania operacji rejestrowania dostawcy zasobów. Ta operacja jest uwzględniona w rolach Współautor i Właściciel. Uruchom następujące polecenie, aby zarejestrować dostawcę zasobów:
 
@@ -50,9 +50,9 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 Poprzednie polecenie korzysta z następujących informacji:
 
-- **Nazwa** —rzeczywista nazwa przypisania. W tym przykładzie użyto nazwy _audit-vm-manageddisks_.
-- **DisplayName** — nazwa wyświetlana przypisania zasad. W takim przypadku używasz _maszyn wirtualnych inspekcji bez przypisania dysków zarządzanych_.
-- **Zasady** — identyfikator definicji zasad, na podstawie której tworzysz przypisanie. W takim przypadku jest IDENTYFIKATORem _maszyn wirtualnych inspekcji definicji zasad, które nie korzystają z dysków zarządzanych_. Aby uzyskać identyfikator definicji zasad, uruchom następujące polecenie: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **Nazwa** —rzeczywista nazwa przypisania. W tym przykładzie użyto nazwy _audit-vm-manageddisks_ .
+- **DisplayName** — nazwa wyświetlana przypisania zasad. W takim przypadku używasz _maszyn wirtualnych inspekcji bez przypisania dysków zarządzanych_ .
+- **Zasady** — identyfikator definicji zasad, na podstawie której tworzysz przypisanie. W takim przypadku jest IDENTYFIKATORem _maszyn wirtualnych inspekcji definicji zasad, które nie korzystają z dysków zarządzanych_ . Aby uzyskać identyfikator definicji zasad, uruchom następujące polecenie: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Zakres** — zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może obejmować zarówno subskrypcje, jak i grupy zasobów. Pamiętaj, aby zastąpić fragment &lt;zakres&gt; nazwą grupy zasobów.
 
 ## <a name="identify-non-compliant-resources"></a>Identyfikowanie niezgodnych zasobów

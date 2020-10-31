@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: d3e7eca546adbcac8af882ff4cd5b09d3d643d4c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e62128edf6558e461bf2c61f16d513c4085241e7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489272"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090396"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurowanie i używanie linku Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 [Link Synapse platformy Azure dla Azure Cosmos DB](synapse-link.md) to natywna w chmurze funkcja przetwarzania transakcyjnego i analitycznego (HTAP), która pozwala uruchamiać analizę niemal w czasie rzeczywistym za pośrednictwem danych operacyjnych w Azure Cosmos DB. Link Synapse tworzy ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics.
 
@@ -44,7 +45,7 @@ Link Synapse platformy Azure jest dostępny Azure Cosmos DB dla kontenerów inte
 
    :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Znajdź funkcję w wersji zapoznawczej linku Synapse":::
 
-1. Następnie zostanie wyświetlony komunikat z prośbą o włączenie linku Synapse na Twoim koncie. Wybierz pozycję **Włącz**. Ten proces może potrwać od 1 do 5 minut.
+1. Następnie zostanie wyświetlony komunikat z prośbą o włączenie linku Synapse na Twoim koncie. Wybierz pozycję **Włącz** . Ten proces może potrwać od 1 do 5 minut.
 
    :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Znajdź funkcję w wersji zapoznawczej linku Synapse":::
 
@@ -70,11 +71,11 @@ Możesz włączyć magazyn analityczny w kontenerze usługi Azure Cosmos podczas
 
    :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Znajdź funkcję w wersji zapoznawczej linku Synapse":::
 
-1. Jeśli na tym koncie nie włączono wcześniej linku Synapse, zostanie wyświetlony monit z pytaniem, że jest to wymaganie wstępne do utworzenia kontenera z włączonym magazynem analitycznym. Jeśli zostanie wyświetlony monit, wybierz pozycję **Włącz łącze Synapse**. Ten proces może potrwać od 1 do 5 minut.
+1. Jeśli na tym koncie nie włączono wcześniej linku Synapse, zostanie wyświetlony monit z pytaniem, że jest to wymaganie wstępne do utworzenia kontenera z włączonym magazynem analitycznym. Jeśli zostanie wyświetlony monit, wybierz pozycję **Włącz łącze Synapse** . Ten proces może potrwać od 1 do 5 minut.
 
-1. Wybierz pozycję **OK**, aby utworzyć magazyn analityczny z włączoną obsługą usługi Azure Cosmos.
+1. Wybierz pozycję **OK** , aby utworzyć magazyn analityczny z włączoną obsługą usługi Azure Cosmos.
 
-1. Po utworzeniu kontenera Sprawdź, czy magazyn analityczny został włączony, klikając pozycję **Ustawienia**, znajdującą się poniżej dokumenty w Eksplorator danych i sprawdź, czy opcja **czas trwania magazynu analitycznego** jest włączona.
+1. Po utworzeniu kontenera Sprawdź, czy magazyn analityczny został włączony, klikając pozycję **Ustawienia** , znajdującą się poniżej dokumenty w Eksplorator danych i sprawdź, czy opcja **czas trwania magazynu analitycznego** jest włączona.
 
 ### <a name="net-sdk"></a>Zestaw SDK .NET
 
@@ -176,10 +177,10 @@ Jeśli utworzono kontener z włączonym magazynem analitycznym za pomocą Azure 
 
 1. Wybierz istniejący kontener z włączonym magazynem analitycznym. Rozwiń je i zmodyfikuj następujące wartości:
 
-  * Otwórz okno **Skalowanie i ustawienia**.
+  * Otwórz okno **Skalowanie i ustawienia** .
   * W obszarze **ustawienie** Znajdź, * * czas magazynu analitycznego na Live * *.
   * Wybierz pozycję **Włączony (brak wartości domyślnej)** lub wybierz pozycję **Włączony** i ustaw wartość TTL.
-  * Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+  * Kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
 #### <a name="net-sdk"></a>Zestaw SDK .NET
 
@@ -217,7 +218,7 @@ Skorzystaj z instrukcji w temacie [zapytania Azure Cosmos DB ze sklepu analitycz
 
 ## <a name="query-the-analytical-store-using-synapse-sql-serverless"></a><a id="query-analytical-store-sql-on-demand"></a> Zbadaj magazyn analityczny przy użyciu programu Synapse SQL Server
 
-Synapse programu SQL Server (funkcja w wersji zapoznawczej, która wcześniej była określana jako **SQL na żądanie**), umożliwia wykonywanie zapytań i analizowanie danych w kontenerach Azure Cosmos DB, które są włączone przy użyciu linku usługi Azure Synapse. Dane można analizować niemal w czasie rzeczywistym bez wpływania na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z magazynu analitycznego i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL. Aby dowiedzieć się więcej, zobacz artykuł dotyczący [magazynu analitycznego w kwerendzie przy użyciu programu Synapse SQL Server](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) .
+Synapse programu SQL Server (funkcja w wersji zapoznawczej, która wcześniej była określana jako **SQL na żądanie** ), umożliwia wykonywanie zapytań i analizowanie danych w kontenerach Azure Cosmos DB, które są włączone przy użyciu linku usługi Azure Synapse. Dane można analizować niemal w czasie rzeczywistym bez wpływania na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z magazynu analitycznego i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL. Aby dowiedzieć się więcej, zobacz artykuł dotyczący [magazynu analitycznego w kwerendzie przy użyciu programu Synapse SQL Server](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) .
 
 ## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Używaj bezSynapseowego programu SQL Server, aby analizować i wizualizować dane w Power BI
 

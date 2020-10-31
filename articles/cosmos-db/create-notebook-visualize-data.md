@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24ef78d44a1a632b86bf62e309960dd74b609c81
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85961102"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088815"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Samouczek: Tworzenie notesu w Azure Cosmos DB, aby analizować i wizualizować dane
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule opisano, jak używać wbudowanych notesów Jupyter do importowania przykładowych danych detalicznych do Azure Cosmos DB. Zobaczysz, jak używać poleceń SQL i Azure Cosmos DB Magic do uruchamiania zapytań, analizowania danych i wizualizacji wyników.
 
@@ -28,7 +29,7 @@ W tej sekcji utworzysz bazę danych i kontener usługi Azure Cosmos, a następni
 
 1. Przejdź do konta usługi Azure Cosmos i Otwórz **Eksplorator danych.**
 
-1. Przejdź do karty **notesy** , wybierz pozycję `…` dalej w obszarze **Moje notesy** i Utwórz **Nowy Notes**. Wybierz język **Python 3** jako domyślne jądro.
+1. Przejdź do karty **notesy** , wybierz pozycję `…` dalej w obszarze **Moje notesy** i Utwórz **Nowy Notes** . Wybierz język **Python 3** jako domyślne jądro.
 
    :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Tworzenie nowego notesu&quot;:::
 

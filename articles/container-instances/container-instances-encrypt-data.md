@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: 1c45999dbb354e8c2d550be82cdf37a6694d2dbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825681"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091359"
 ---
 # <a name="encrypt-deployment-data"></a>Szyfrowanie danych wdrożenia
 
@@ -27,13 +27,13 @@ Możesz polegać na kluczach zarządzanych przez firmę Microsoft do szyfrowania
 |    |    Klucze zarządzane przez firmę Microsoft     |     Klucze zarządzane przez klienta     |
 |----|----|----|
 |    **Operacje szyfrowania/odszyfrowywania**    |    Azure    |    Azure    |
-|    **Magazyn kluczy**    |    Magazyn kluczy firmy Microsoft    |    W usłudze Azure Key Vault    |
+|    **Magazyn kluczy**    |    Magazyn kluczy firmy Microsoft    |    Azure Key Vault    |
 |    **Odpowiedzialność za kluczowe rotacje**    |    Microsoft    |    Klient    |
 |    **Dostęp do klucza**    |    Tylko firma Microsoft    |    Firma Microsoft, klient    |
 
 Pozostała część dokumentu obejmuje kroki wymagane do zaszyfrowania danych wdrożenia ACI za pomocą klucza (klucza zarządzanego przez klienta). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="encrypt-data-with-a-customer-managed-key"></a>Szyfrowanie danych za pomocą klucza zarządzanego przez klienta
 
@@ -73,7 +73,7 @@ W przypadku właściwości magazynu kluczy należy użyć następujących wytycz
 
 ### <a name="generate-a-new-key"></a>Generuj nowy klucz 
 
-Po utworzeniu magazynu kluczy przejdź do zasobu w Azure Portal. W menu nawigacji po lewej stronie bloku zasób w obszarze Ustawienia kliknij pozycję **klucze**. W widoku dla "klucze" kliknij pozycję "Generuj/Importuj", aby wygenerować nowy klucz. Użyj dowolnej unikatowej nazwy dla tego klucza oraz wszelkich innych preferencji w zależności od wymagań. 
+Po utworzeniu magazynu kluczy przejdź do zasobu w Azure Portal. W menu nawigacji po lewej stronie bloku zasób w obszarze Ustawienia kliknij pozycję **klucze** . W widoku dla "klucze" kliknij pozycję "Generuj/Importuj", aby wygenerować nowy klucz. Użyj dowolnej unikatowej nazwy dla tego klucza oraz wszelkich innych preferencji w zależności od wymagań. 
 
 ![Generuj nowy klucz](./media/container-instances-encrypt-data/generate-key.png)
 
@@ -81,10 +81,10 @@ Po utworzeniu magazynu kluczy przejdź do zasobu w Azure Portal. W menu nawigacj
 
 Utwórz nowe zasady dostępu, aby umożliwić usłudze ACI dostęp do klucza.
 
-* Po wygenerowaniu klucza z powrotem w bloku zasobów magazynu kluczy w obszarze Ustawienia kliknij pozycję **zasady dostępu**.
-* Na stronie "zasady dostępu" dla magazynu kluczy kliknij pozycję **Dodaj zasady dostępu**.
+* Po wygenerowaniu klucza z powrotem w bloku zasobów magazynu kluczy w obszarze Ustawienia kliknij pozycję **zasady dostępu** .
+* Na stronie "zasady dostępu" dla magazynu kluczy kliknij pozycję **Dodaj zasady dostępu** .
 * Ustaw *uprawnienia klucza* do uwzględniania uprawnień klucza **Get** i **unotoki** ![ zestawu kluczy](./media/container-instances-encrypt-data/set-key-permissions.png)
-* W obszarze *Wybieranie podmiotu zabezpieczeń*wybierz pozycję **Usługa wystąpienia kontenera platformy Azure**
+* W obszarze *Wybieranie podmiotu zabezpieczeń* wybierz pozycję **Usługa wystąpienia kontenera platformy Azure**
 * Kliknij pozycję **Dodaj** u dołu 
 
 Zasady dostępu powinny teraz pojawiać się w zasadach dostępu magazynu kluczy.

@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: b0939191a8029ef30f17500bbaaa7eb32b5a6d7e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f31eb0fa6dbb881f7a09b21b9dd4842fdfd291f5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486552"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090294"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Szybki Start: Tworzenie danych wiosennych Azure Cosmos DB aplikacji V3 w celu zarządzania Azure Cosmos DB danymi interfejsu API SQL
-
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -50,15 +50,15 @@ W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejsu API SQ
 
 ## <a name="introductory-notes"></a>Uwagi wprowadzające
 
-*Struktura konta Cosmos DB.* Niezależnie od interfejsu API lub języka programowania, *konto* Cosmos DB zawiera zero lub więcej *baz danych*, *baza danych* (DB) zawiera zero lub więcej *kontenerów*, a *kontener* zawiera zero lub więcej elementów, jak pokazano na poniższym diagramie:
+*Struktura konta Cosmos DB.* Niezależnie od interfejsu API lub języka programowania, *konto* Cosmos DB zawiera zero lub więcej *baz danych* , *baza danych* (DB) zawiera zero lub więcej *kontenerów* , a *kontener* zawiera zero lub więcej elementów, jak pokazano na poniższym diagramie:
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Jednostki kont usługi Azure Cosmos" border="false":::
 
-Więcej informacji na temat baz danych, kontenerów i elementów można znaleźć [tutaj.](account-databases-containers-items.md) Niektóre ważne właściwości są definiowane na poziomie kontenera, między nimi *przepływność* i *klucz partycji*. 
+Więcej informacji na temat baz danych, kontenerów i elementów można znaleźć [tutaj.](account-databases-containers-items.md) Niektóre ważne właściwości są definiowane na poziomie kontenera, między nimi *przepływność* i *klucz partycji* . 
 
-Zainicjowana przepływność jest mierzona w jednostkach żądania (*jednostek ru*), które mają cenę pieniężną i są istotnym czynnikiem w kosztu eksploatacyjnym konta. Zainicjowaną przepływność można wybrać w poziomie szczegółowości poszczególnych kontenerów lub stopnia szczegółowości poszczególnych baz danych, jednak Specyfikacja przepływności na poziomie kontenera jest zazwyczaj preferowana. Więcej informacji o aprowizacji przepływności można znaleźć [tutaj.](set-throughput.md)
+Zainicjowana przepływność jest mierzona w jednostkach żądania ( *jednostek ru* ), które mają cenę pieniężną i są istotnym czynnikiem w kosztu eksploatacyjnym konta. Zainicjowaną przepływność można wybrać w poziomie szczegółowości poszczególnych kontenerów lub stopnia szczegółowości poszczególnych baz danych, jednak Specyfikacja przepływności na poziomie kontenera jest zazwyczaj preferowana. Więcej informacji o aprowizacji przepływności można znaleźć [tutaj.](set-throughput.md)
 
-Gdy elementy są wstawiane do kontenera Cosmos DB, baza danych rozszerza się w poziomie, dodając więcej magazynu i obliczeń do obsługi żądań. Pojemność magazynu i mocy obliczeniowej są dodawane w odrębnych jednostkach nazywanych *partycjami*, a użytkownik musi wybrać jedno pole w dokumentach, aby być kluczem partycji, który mapuje każdy dokument na partycję. Zarządzanie takimi partycjami polega na tym, że każda partycja ma przypisany surowy wycink z zakresu wartości klucza partycji; w związku z tym zaleca się wybranie klucza partycji, który jest relatywnie losowy lub równomiernie dystrybuowany. W przeciwnym razie niektóre partycje będą widzieć znacznie więcej żądań (*gorąca partycja*), a inne partycje zobaczą znacznie mniejszą liczbę żądań (*zimna partycja*) i należy to uniknąć. Więcej informacji na temat partycjonowania można znaleźć [tutaj](partitioning-overview.md).
+Gdy elementy są wstawiane do kontenera Cosmos DB, baza danych rozszerza się w poziomie, dodając więcej magazynu i obliczeń do obsługi żądań. Pojemność magazynu i mocy obliczeniowej są dodawane w odrębnych jednostkach nazywanych *partycjami* , a użytkownik musi wybrać jedno pole w dokumentach, aby być kluczem partycji, który mapuje każdy dokument na partycję. Zarządzanie takimi partycjami polega na tym, że każda partycja ma przypisany surowy wycink z zakresu wartości klucza partycji; w związku z tym zaleca się wybranie klucza partycji, który jest relatywnie losowy lub równomiernie dystrybuowany. W przeciwnym razie niektóre partycje będą widzieć znacznie więcej żądań ( *gorąca partycja* ), a inne partycje zobaczą znacznie mniejszą liczbę żądań ( *zimna partycja* ) i należy to uniknąć. Więcej informacji na temat partycjonowania można znaleźć [tutaj](partitioning-overview.md).
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
@@ -95,7 +95,7 @@ Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy d
 
 ### <a name="application-configuration-file"></a>Plik konfiguracji aplikacji
 
-W tym miejscu przedstawiono sposób, w jaki sprężyny rozruchowe i sprężynowe rozszerzają środowisko użytkownika — proces ustanawiania klienta Cosmos i łączenia się z zasobami Cosmos jest teraz konfiguracją, a nie kodem. Podczas uruchamiania aplikacji wiosny sprężyny obsługują wszystkie te standardowe przy użyciu ustawień w **aplikacji. Properties**:
+W tym miejscu przedstawiono sposób, w jaki sprężyny rozruchowe i sprężynowe rozszerzają środowisko użytkownika — proces ustanawiania klienta Cosmos i łączenia się z zasobami Cosmos jest teraz konfiguracją, a nie kodem. Podczas uruchamiania aplikacji wiosny sprężyny obsługują wszystkie te standardowe przy użyciu ustawień w **aplikacji. Properties** :
 
 ```xml
 cosmos.uri=${ACCOUNT_HOST}

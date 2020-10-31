@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 232260ada4d810127584e675480f91d0213e3953
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425093"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091501"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Zabezpiecz środowisko szkoleniowe Azure Machine Learning z sieciami wirtualnymi
 
@@ -60,10 +60,11 @@ Aby można było użyć [zarządzanego __obiektu docelowego obliczeń__ Azure Ma
 > * Sprawdź, czy zasady zabezpieczeń lub blokady w ramach subskrypcji lub grupy zasobów sieci wirtualnej ograniczają uprawnienia do zarządzania siecią wirtualną. Jeśli planujesz zabezpieczenie sieci wirtualnej przez ograniczenie ruchu, pozostaw kilka otwartych portów dla usługi obliczeniowej. Aby uzyskać więcej informacji, zobacz sekcję [wymagane porty](#mlcports) .
 > * Jeśli chcesz umieścić wiele wystąpień obliczeniowych lub klastrów w jednej sieci wirtualnej, może być konieczne zażądanie zwiększenia limitu przydziału dla co najmniej jednego z zasobów.
 > * Jeśli konta usługi Azure Storage dla obszaru roboczego są również zabezpieczone w sieci wirtualnej, muszą znajdować się w tej samej sieci wirtualnej co Azure Machine Learning wystąpienie obliczeniowe lub klaster. 
-> * Aby funkcja Jupyter wystąpienia obliczeniowego działała, należy się upewnić, że komunikacja gniazda internetowego nie jest wyłączona. Upewnij się, że sieć zezwala na połączenia protokołu WebSocket z *. instances.azureml.net i *. instances.azureml.ms.
-
+> * Aby funkcja Jupyter wystąpienia obliczeniowego działała, należy się upewnić, że komunikacja gniazda internetowego nie jest wyłączona. Upewnij się, że sieć zezwala na połączenia protokołu WebSocket z *. instances.azureml.net i *. instances.azureml.ms. 
+> * Gdy wystąpienie obliczeniowe zostanie wdrożone w prywatnym obszarze roboczym łącza, można uzyskać do niego dostęp tylko z poziomu sieci wirtualnej. Jeśli używasz niestandardowego pliku DNS lub hosta, Dodaj wpis dla prywatnego `<instance-name>.<region>.instances.azureml.ms` adresu IP obszaru roboczego prywatnego punktu końcowego. Aby uzyskać więcej informacji, zobacz artykuł [niestandardowy DNS](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns) .
+    
 > [!TIP]
-> Wystąpienie obliczeniowe Machine Learning lub klaster automatycznie przydziela dodatkowe zasoby sieciowe __do grupy zasobów zawierającej sieć wirtualną__. Dla każdego wystąpienia obliczeniowego lub klastra usługa przydziela następujące zasoby:
+> Wystąpienie obliczeniowe Machine Learning lub klaster automatycznie przydziela dodatkowe zasoby sieciowe __do grupy zasobów zawierającej sieć wirtualną__ . Dla każdego wystąpienia obliczeniowego lub klastra usługa przydziela następujące zasoby:
 > 
 > * Jedna sieciowa Grupa zabezpieczeń
 > * Jeden publiczny adres IP
@@ -79,7 +80,7 @@ Jeśli planujesz zabezpieczenie sieci wirtualnej przez ograniczenie ruchu siecio
 
 Usługa Batch dodaje sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) na poziomie interfejsów sieciowych dołączonych do maszyn wirtualnych. Te sieciowe grupy zabezpieczeń automatycznie konfigurują reguły ruchu przychodzącego i wychodzącego, aby zezwolić na następujący ruch:
 
-- Ruch przychodzący TCP na portach 29876 i 29877 z __tagu usługi__ __BatchNodeManagement__.
+- Ruch przychodzący TCP na portach 29876 i 29877 z __tagu usługi__ __BatchNodeManagement__ .
 
     ![Reguła przychodząca korzystająca z tagu usługi BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -89,7 +90,7 @@ Usługa Batch dodaje sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń
 
 - Ruch wychodzący na dowolny port do Internetu.
 
-- Dla ruchu przychodzącego TCP wystąpienia obliczeniowego na porcie 44224 z __tagu usługi__ __AzureMachineLearning__.
+- Dla ruchu przychodzącego TCP wystąpienia obliczeniowego na porcie 44224 z __tagu usługi__ __AzureMachineLearning__ .
 
 > [!IMPORTANT]
 > Zachowaj ostrożność przy modyfikowaniu lub dodawaniu reguły ruchu przychodzącego lub wychodzącego w sieciowych grupach zabezpieczeń skonfigurowanych za pomocą usługi Batch. Jeśli sieciowej grupy zabezpieczeń blokuje komunikację z węzłami obliczeniowymi, usługa COMPUTE ustawia stan węzłów obliczeniowych na niezdatny do użytku.
@@ -110,9 +111,9 @@ Jeśli nie chcesz używać domyślnych reguł ruchu wychodzącego i chcesz ogran
 
 - Odmowa wychodzącego połączenia internetowego przy użyciu reguł sieciowej grupy zabezpieczeń.
 
-- W przypadku __wystąpienia obliczeniowego__ lub __klastra obliczeniowego__należy ograniczyć ruch wychodzący do następujących elementów:
-   - Azure Storage, przy użyciu __znacznika usługi__ __Storage. RegionName__. Gdzie `{RegionName}` jest nazwą regionu świadczenia usługi Azure.
-   - Azure Container Registry, przy użyciu __znacznika usługi__ __AzureContainerRegistry. RegionName__. Gdzie `{RegionName}` jest nazwą regionu świadczenia usługi Azure.
+- W przypadku __wystąpienia obliczeniowego__ lub __klastra obliczeniowego__ należy ograniczyć ruch wychodzący do następujących elementów:
+   - Azure Storage, przy użyciu __znacznika usługi__ __Storage. RegionName__ . Gdzie `{RegionName}` jest nazwą regionu świadczenia usługi Azure.
+   - Azure Container Registry, przy użyciu __znacznika usługi__ __AzureContainerRegistry. RegionName__ . Gdzie `{RegionName}` jest nazwą regionu świadczenia usługi Azure.
    - Azure Machine Learning, przy użyciu __tagu usługi__ __AzureMachineLearning__
    - Azure Resource Manager, przy użyciu __tagu usługi__ __AzureResourceManager__
    - Azure Active Directory, przy użyciu __tagu usługi__ __usługi azureactivedirectory__
@@ -122,7 +123,7 @@ Konfiguracja reguły sieciowej grupy zabezpieczeń w Azure Portal jest pokazana 
 [![Wychodzące reguły sieciowej grupy zabezpieczeń dla środowisko obliczeniowe usługi Machine Learning](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> Jeśli planujesz użycie domyślnych obrazów platformy Docker dostarczonych przez firmę Microsoft i włączenie zależności zarządzanych przez użytkownika, należy również użyć następujących __tagów usługi__:
+> Jeśli planujesz użycie domyślnych obrazów platformy Docker dostarczonych przez firmę Microsoft i włączenie zależności zarządzanych przez użytkownika, należy również użyć następujących __tagów usługi__ :
 >
 > * __MicrosoftContainerRegistry__
 > * __AzureFrontDoor.FirstParty__
@@ -176,7 +177,7 @@ Można to zrobić na dwa sposoby:
         > * [Zakresy adresów IP platformy Azure i Tagi usług dla Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
         > * [Zakresy adresów IP platformy Azure i Tagi usług dla Chin platformy Azure](https://www.microsoft.com//download/details.aspx?id=57062)
     
-    Po dodaniu UDR, zdefiniuj trasę dla każdego powiązanego prefiksu adresu IP partii i ustaw __Typ następnego przeskoku__ na __Internet__. Na poniższej ilustracji przedstawiono przykład tego UDR w Azure Portal:
+    Po dodaniu UDR, zdefiniuj trasę dla każdego powiązanego prefiksu adresu IP partii i ustaw __Typ następnego przeskoku__ na __Internet__ . Na poniższej ilustracji przedstawiono przykład tego UDR w Azure Portal:
 
     ![Przykład UDR dla prefiksu adresu](./media/how-to-enable-virtual-network/user-defined-route.png)
 
@@ -252,7 +253,7 @@ Po zakończeniu procesu tworzenia nauczysz model przy użyciu klastra w eksperym
 
 Jeśli używasz notesów w wystąpieniu obliczeniowym platformy Azure, musisz się upewnić, że Notes jest uruchomiony w zasobie obliczeniowym za tą samą siecią wirtualną i podsiecią, co dane. 
 
-Wystąpienie obliczeniowe należy skonfigurować tak, aby znajdować się w tej samej sieci wirtualnej podczas tworzenia w obszarze **Ustawienia zaawansowane**  >  **Skonfiguruj sieć wirtualną**. Nie można dodać istniejącego wystąpienia obliczeniowego do sieci wirtualnej.
+Wystąpienie obliczeniowe należy skonfigurować tak, aby znajdować się w tej samej sieci wirtualnej podczas tworzenia w obszarze **Ustawienia zaawansowane**  >  **Skonfiguruj sieć wirtualną** . Nie można dodać istniejącego wystąpienia obliczeniowego do sieci wirtualnej.
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
@@ -285,21 +286,21 @@ Utwórz maszynę wirtualną lub klaster usługi HDInsight przy użyciu Azure Por
 
 Zezwól Azure Machine Learning na komunikowanie się z portem SSH na maszynie wirtualnej lub w klastrze, skonfiguruj wpis źródła dla sieciowej grupy zabezpieczeń. Port SSH zazwyczaj jest portem 22. Aby zezwolić na ruch z tego źródła, wykonaj następujące czynności:
 
-1. Z listy rozwijanej __Źródło__ wybierz pozycję __tag usługi__.
+1. Z listy rozwijanej __Źródło__ wybierz pozycję __tag usługi__ .
 
-1. Z listy rozwijanej __tag usługi źródłowej__ wybierz pozycję __AzureMachineLearning__.
+1. Z listy rozwijanej __tag usługi źródłowej__ wybierz pozycję __AzureMachineLearning__ .
 
     ![Reguły ruchu przychodzącego na potrzeby przeprowadzania eksperymentów na maszynie wirtualnej lub w klastrze usługi HDInsight w sieci wirtualnej](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
 1. Z listy rozwijanej __zakresy portów źródłowych__ wybierz pozycję __*__ .
 
-1. Z listy rozwijanej __Lokalizacja docelowa__ wybierz __dowolne__.
+1. Z listy rozwijanej __Lokalizacja docelowa__ wybierz __dowolne__ .
 
-1. Z listy rozwijanej __zakresy portów docelowych__ wybierz pozycję __22__.
+1. Z listy rozwijanej __zakresy portów docelowych__ wybierz pozycję __22__ .
 
-1. W obszarze __Protokół__wybierz opcję __dowolny__.
+1. W obszarze __Protokół__ wybierz opcję __dowolny__ .
 
-1. W obszarze __Akcja__wybierz pozycję __Zezwalaj__.
+1. W obszarze __Akcja__ wybierz pozycję __Zezwalaj__ .
 
 Zachowaj domyślne reguły ruchu wychodzącego dla sieciowej grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz domyślne reguły zabezpieczeń w [grupach zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 

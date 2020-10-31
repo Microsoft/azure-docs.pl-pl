@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4877272fc2db521977a4111317118380399d27c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80b651951fe0f18b482fa06e4df9a363749bd3b0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84322707"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090838"
 ---
 # <a name="contains-azure-cosmos-db"></a>ZAWIERA (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Zwraca wartość logiczną wskazującą, czy pierwsze wyrażenie ciągu zawiera drugie.  
   

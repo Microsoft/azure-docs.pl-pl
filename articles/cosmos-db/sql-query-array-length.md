@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3596ce4bc702d5e54225d8c90db2f9563feab670
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8c27f2269171bd6121973ace4e535d375adf2de
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303991"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089427"
 ---
 # <a name="array_length-azure-cosmos-db"></a>ARRAY_LENGTH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Zwraca liczbę elementów określonego wyrażenia tablicy.  
   
 ## <a name="syntax"></a>Składnia

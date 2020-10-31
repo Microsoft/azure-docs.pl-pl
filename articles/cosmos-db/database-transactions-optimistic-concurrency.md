@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c1ecd3a3d29d6876a59a2fa039802966f348a09d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278739"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089835"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transakcje i optymistyczna kontrola współbieżności
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Transakcje bazy danych zapewniają bezpieczny i przewidywalny model programowania do obsługi równoczesnych zmian w danych. Tradycyjne relacyjne bazy danych, takie jak SQL Server, umożliwiają pisanie logiki biznesowej za pomocą procedur składowanych i/lub wyzwalaczy, wysyłać je do serwera w celu wykonania bezpośrednio w aparacie bazy danych. W przypadku tradycyjnych relacyjnych baz danych wymagane jest zaradzenie sobie z dwoma różnymi językami programowania (nietransakcyjnymi) językami programowania aplikacji, takimi jak JavaScript, Python, C#, Java itp. oraz transakcyjnym językiem programowania (na przykład T-SQL), który jest natywnie wykonywany przez bazę danych.
 

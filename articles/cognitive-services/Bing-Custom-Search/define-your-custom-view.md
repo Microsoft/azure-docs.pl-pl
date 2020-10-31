@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86183209"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090821"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Skonfiguruj środowisko wyszukiwanie niestandardowe Bing
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Niestandardowe wystąpienie wyszukiwania umożliwia dostosowanie funkcji wyszukiwania w celu uwzględnienia zawartości tylko z witryn sieci Web, na które ponosili użytkownicy. Zamiast przeprowadzać wyszukiwanie w całej sieci Web, Bing przeszukuje tylko wycinki sieci Web, która Cię interesuje. Aby utworzyć niestandardowy widok internetowy, użyj [portalu](https://customsearch.ai) usługi wyszukiwania niestandardowego Bing.
 
@@ -27,7 +32,7 @@ Podczas definiowania wycinków sieci Web należy użyć następujących element�
 
 | Nazwa wycinka | Opis                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Obszar     | Wycinek domeny obejmuje całą zawartość znajdującą się w domenie internetowej. Na przykład `www.microsoft.com`. Pominięcie `www.` powoduje, że Bing również przeszukać domeny podrzędne domeny. Na przykład, jeśli określisz `microsoft.com` , Bing zwróci również wyniki z `support.microsoft.com` lub `technet.microsoft.com` . |
+| Domena     | Wycinek domeny obejmuje całą zawartość znajdującą się w domenie internetowej. Na przykład `www.microsoft.com`. Pominięcie `www.` powoduje, że Bing również przeszukać domeny podrzędne domeny. Na przykład, jeśli określisz `microsoft.com` , Bing zwróci również wyniki z `support.microsoft.com` lub `technet.microsoft.com` . |
 | Podstrony    | Wycinek podstrony obejmuje całą zawartość znajdującą się na podstronie i ścieżkach poniżej. W ścieżce można określić maksymalnie dwa podstrony. Na przykład `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Stron    | Wycinek strony sieci Web może zawierać tylko Tę stronę sieci Web w wyszukiwaniu niestandardowym. Opcjonalnie można określić, czy mają być dołączane podstrony.                                                                                                                                                                                  |
 
@@ -82,9 +87,9 @@ Te interfejsy API są podobne do nieniestandardowych [Wyszukiwanie obrazów Bing
 
 Możesz przetestować wystąpienie wyszukiwania, korzystając z okienka podglądu po prawej stronie portalu, aby przesłać zapytania wyszukiwania i wyświetlić wyniki. 
 
-1. Poniżej pola wyszukiwania wybierz pozycję **moje wystąpienie**. Wyniki wyszukiwania można porównać z usługą Bing, wybierając pozycję **Bing**. 
+1. Poniżej pola wyszukiwania wybierz pozycję **moje wystąpienie** . Wyniki wyszukiwania można porównać z usługą Bing, wybierając pozycję **Bing** . 
 2. Wybierz filtr wyszukiwania bezpiecznego i szukany rynek (zobacz [parametry zapytania](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
-3. Wprowadź zapytanie i naciśnij klawisz ENTER lub kliknij ikonę wyszukiwania, aby wyświetlić wyniki z bieżącej konfiguracji. Typ wyszukiwania można zmienić, klikając pozycję **Sieć Web**, **obraz**lub **wideo** , aby uzyskać odpowiednie wyniki. 
+3. Wprowadź zapytanie i naciśnij klawisz ENTER lub kliknij ikonę wyszukiwania, aby wyświetlić wyniki z bieżącej konfiguracji. Typ wyszukiwania można zmienić, klikając pozycję **Sieć Web** , **obraz** lub **wideo** , aby uzyskać odpowiednie wyniki. 
 
 <a name="adjustrank"></a>
 
@@ -120,7 +125,7 @@ Stronę sieci Web można przypiąć do góry na dwa sposoby:
 
 * Na **przypiętej** karcie wprowadź adres URL strony sieci Web, aby przypiąć do góry i odpowiadającą jej kwerendą.
 
-* W okienku **podglądu** wprowadź zapytanie wyszukiwania, a następnie kliknij przycisk Wyszukaj. Znajdź stronę sieci Web, którą chcesz przypiąć dla zapytania, a następnie kliknij pozycję **Przypnij do góry**. Strona sieci Web i zapytanie zostaną dodane do listy **przypiętych** .
+* W okienku **podglądu** wprowadź zapytanie wyszukiwania, a następnie kliknij przycisk Wyszukaj. Znajdź stronę sieci Web, którą chcesz przypiąć dla zapytania, a następnie kliknij pozycję **Przypnij do góry** . Strona sieci Web i zapytanie zostaną dodane do listy **przypiętych** .
 
 ### <a name="specify-the-pins-match-condition"></a>Określ warunek dopasowania numeru PIN
 

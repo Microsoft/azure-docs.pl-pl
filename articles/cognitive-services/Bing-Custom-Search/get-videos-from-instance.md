@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 222256036a59c7df302546bbf82648c4d524d43f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dbd9f609944fc63c186ca150d5b9921f3e86622
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68405093"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090583"
 ---
 # <a name="get-videos-from-your-custom-view"></a>Pobierz wideo z widoku niestandardowego
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Wyszukiwanie niestandardowych filmów wideo Bing pozwala wzbogacać niestandardowe środowisko wyszukiwania za pomocą filmów wideo. Podobnie jak w przypadku wyników z Internetu interfejs API wyszukiwania niestandardowego obsługuje wyszukiwanie wideo w witrynach internetowych uwzględnionych na liście w Twoim wystąpieniu. Filmy wideo można pobrać przy użyciu niestandardowego interfejsu API wyszukiwania wideo w usłudze Bing lub przy użyciu funkcji hostowanego interfejsu użytkownika. Korzystanie z funkcji hostowanego interfejsu użytkownika jest proste i zalecane w przypadku uruchamiania wyszukiwania w krótkiej kolejności. Aby uzyskać informacje o konfigurowaniu hostowanego interfejsu użytkownika do dołączania wideo, zobacz [Konfigurowanie środowiska interfejsu użytkownika hostowanego](hosted-ui.md).
 

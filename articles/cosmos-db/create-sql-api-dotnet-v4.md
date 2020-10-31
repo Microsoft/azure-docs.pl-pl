@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 67ed8c54e32a301a50fa49b1ebba284b216d8664
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 224a1b67ff0282c216763229593fcfed81d7567b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276311"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090107"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Szybki Start: Tworzenie aplikacji konsolowej przy użyciu zestawu .NET v4 SDK do zarządzania Azure Cosmos DB zasobów konta interfejsu API SQL.
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -49,7 +50,7 @@ Ta sekcja zawiera szczegółowe instrukcje dotyczące tworzenia konta usługi Az
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>tworzenie konta usługi Azure Cosmos
 
-Jeśli używasz opcji [wypróbuj Azure Cosmos DB bezpłatnie](https://azure.microsoft.com/try/cosmosdb/) , aby utworzyć konto usługi Azure Cosmos, musisz utworzyć konto Azure Cosmos DB typu **SQL API**. Konto testowe Azure Cosmos DB zostało już utworzone. Nie musisz jawnie tworzyć konta, więc możesz pominąć tę sekcję i przejść do następnej sekcji.
+Jeśli używasz opcji [wypróbuj Azure Cosmos DB bezpłatnie](https://azure.microsoft.com/try/cosmosdb/) , aby utworzyć konto usługi Azure Cosmos, musisz utworzyć konto Azure Cosmos DB typu **SQL API** . Konto testowe Azure Cosmos DB zostało już utworzone. Nie musisz jawnie tworzyć konta, więc możesz pominąć tę sekcję i przejść do następnej sekcji.
 
 Jeśli masz własną subskrypcję platformy Azure lub masz subskrypcję bezpłatnie, należy utworzyć konto usługi Azure Cosmos jawnie. Poniższy kod utworzy konto usługi Azure Cosmos z spójnością sesji. Konto jest replikowane w `South Central US` i `North Central US` .  
 

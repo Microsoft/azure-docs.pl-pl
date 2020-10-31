@@ -11,14 +11,19 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 4a63a54f5ad4d1bcccecb1d1a4892ef55c238b92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0033f4919e4e4e5e56e4057e00c393ae7be1ca44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319184"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090566"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurowanie środowiska hostowanego interfejsu użytkownika
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Wyszukiwanie niestandardowe Bing udostępnia hostowany interfejs użytkownika, który można łatwo zintegrować ze stronami sieci Web i aplikacjami internetowymi jako fragment kodu JavaScript. Za pomocą portalu wyszukiwanie niestandardowe Bing można skonfigurować opcje układu, koloru i wyszukiwania interfejsu użytkownika.
 
@@ -40,14 +45,14 @@ Aby skonfigurować hostowany interfejs użytkownika dla aplikacji sieci Web, wyk
     - Tylko wyniki: wyświetla tylko wyniki wyszukiwania, bez pola wyszukiwania. W przypadku korzystania z tego układu należy podać zapytanie wyszukiwania ( `&q=<query string>` ). Dodaj parametr zapytania do adresu URL żądania w fragmencie kodu JavaScript lub linku do punktu końcowego HTML.
     - Wyskakujące okienko: zawiera pole wyszukiwania i wyświetla wyniki wyszukiwania w przesuwanej nakładce.
 
-5. Wybierz motyw kolorów. Kolory można dostosować w celu dopasowania do aplikacji przez kliknięcie przycisku **Dostosuj motyw**. Aby zmienić kolor, wprowadź wartość SZESNASTKOWą RGB koloru (na przykład `#366eb8` ) lub kliknij Podgląd koloru.
+5. Wybierz motyw kolorów. Kolory można dostosować w celu dopasowania do aplikacji przez kliknięcie przycisku **Dostosuj motyw** . Aby zmienić kolor, wprowadź wartość SZESNASTKOWą RGB koloru (na przykład `#366eb8` ) lub kliknij Podgląd koloru.
 
    Zmiany można wyświetlić w podglądzie po prawej stronie portalu. Kliknięcie przycisku **Resetuj do ustawień domyślnych** spowoduje przywrócenie domyślnych kolorów dla wybranego motywu.
 
    > [!NOTE]
    > Weź pod uwagę ułatwienia dostępu, wybierając kolory.
 
-6. W obszarze **dodatkowe konfiguracje**podaj wartości odpowiednie dla aplikacji. Te ustawienia są opcjonalne. Aby zobaczyć efekt zastosowania lub usunięcia tych elementów, zobacz okienko podglądu po prawej stronie. Dostępne opcje konfiguracji:  
+6. W obszarze **dodatkowe konfiguracje** podaj wartości odpowiednie dla aplikacji. Te ustawienia są opcjonalne. Aby zobaczyć efekt zastosowania lub usunięcia tych elementów, zobacz okienko podglądu po prawej stronie. Dostępne opcje konfiguracji:  
 
 7. Wprowadź klucz subskrypcji wyszukiwania lub wybierz jeden z listy rozwijanej. Lista rozwijana zawiera klucze z subskrypcji konta platformy Azure. Zobacz [Cognitive Services konta interfejsu API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
 
@@ -91,7 +96,7 @@ Aby uzyskać dodatkowe informacje, w tym identyfikator konfiguracji niestandardo
 
 ## <a name="configuration-options"></a>Opcje konfiguracji
 
-Można skonfigurować zachowanie hostowanego interfejsu użytkownika, klikając **dodatkowe konfiguracje**i dostarczając wartości. Te ustawienia są opcjonalne. Aby zobaczyć efekt zastosowania lub usunięcia tych elementów, zobacz okienko podglądu po prawej stronie. 
+Można skonfigurować zachowanie hostowanego interfejsu użytkownika, klikając **dodatkowe konfiguracje** i dostarczając wartości. Te ustawienia są opcjonalne. Aby zobaczyć efekt zastosowania lub usunięcia tych elementów, zobacz okienko podglądu po prawej stronie. 
 
 ### <a name="web-search-configurations"></a>Konfiguracje wyszukiwania w sieci Web
 
@@ -100,7 +105,7 @@ Można skonfigurować zachowanie hostowanego interfejsu użytkownika, klikając 
 - Wyniki sieci Web na stronie: liczba wyników wyszukiwania w sieci Web do wyświetlenia w danym momencie (wartość maksymalna to 50 wyników na stronie).
 - Podpis obrazu: określa, czy obrazy są wyświetlane z wynikami wyszukiwania.
 
-Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**wyświetlane są następujące konfiguracje:
+Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane** wyświetlane są następujące konfiguracje:
 
 - Wyróżnij wyrazy: określa, czy wyniki wyszukiwania są wyświetlane pogrubioną czcionką.
 - Obiekt docelowy linku: określa, czy strona sieci Web otwiera się w nowej karcie przeglądarki (pustej) czy na tej samej karcie przeglądarki (samodzielnej), gdy użytkownik kliknie wynik wyszukiwania.
@@ -110,7 +115,7 @@ Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**wyświetlane są na
 - Wyniki obrazu włączone: określa, czy wyszukiwanie obrazów jest włączone (karta obrazy w górnej części strony).
 - Wyniki obrazu na stronę: liczba wyników wyszukiwania obrazów do wyświetlenia w danym momencie (wartość maksymalna to 150 wyników na stronie).
 
-Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**zostanie wyświetlona następująca konfiguracja.  
+Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane** zostanie wyświetlona następująca konfiguracja.  
   
 - Włącz filtry: dodaje filtry, których użytkownik może użyć do filtrowania obrazów zwracanych przez usługę Bing. Na przykład użytkownik może filtrować wyniki tylko dla animowanych plików GIF.
 
@@ -119,7 +124,7 @@ Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**zostanie wyświetlo
 - Wyniki wideo włączone: określa, czy wyszukiwanie wideo jest włączone (karta wideo znajduje się u góry strony).
 - Wyniki wideo na stronę: liczba wyników wyszukiwania wideo do wyświetlenia w danym momencie (maksymalna liczba wyników na stronę to 150).
 
-Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**zostanie wyświetlona następująca konfiguracja.  
+Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane** zostanie wyświetlona następująca konfiguracja.  
   
 - Włącz filtry: dodaje filtry, których użytkownik może używać do filtrowania filmów wideo zwracanych przez usługę Bing. Na przykład użytkownik może filtrować wyniki filmów wideo z określoną rozdzielczością lub klipami wideo odnalezionymi w ciągu ostatnich 24 godzin.
 
@@ -128,7 +133,7 @@ Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**zostanie wyświetlo
 - Tytuł strony: tekst wyświetlany w obszarze tytułu strony wyników wyszukiwania (nie dla układu wyskakującego).
 - Motyw paska narzędzi: Określa kolor tła obszaru tytułu strony wyników wyszukiwania.
 
-Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**wyświetlane są następujące konfiguracje.  
+Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane** wyświetlane są następujące konfiguracje.  
 
 |Column1  |Kolumna2  |
 |---------|---------|

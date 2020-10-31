@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2020
-ms.openlocfilehash: b691341fbaa5739639f81905a5fef335479694a7
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: eb2212d618d45187779b328c7ba164bbacc980a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927876"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088696"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB — Zapraszamy!
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Współczesne aplikacje muszą zapewniać szybki czas reakcji i zawsze działać w trybie online. Aby zapewnić małe opóźnienia i wysoką dostępność, wystąpienia tych aplikacji powinny być wdrażane w centrach danych, które są blisko ich użytkowników. Aplikacje muszą reagować w czasie rzeczywistym na duże zmiany użycia w godzinach szczytu, przechowywać coraz większe ilości danych i udostępniać je użytkownikom w ciągu kilku milisekund.
 

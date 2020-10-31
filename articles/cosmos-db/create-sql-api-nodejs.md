@@ -9,20 +9,21 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 25e5d583b2ae94277b155e8e03d61a308a88ec8d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b4ed27e1515e898a71fb503bb0f260c608ef9f6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322754"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090209"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Szybki Start: używanie Node.js do nawiązywania połączenia i wysyłania zapytań dotyczących danych z Azure Cosmos DB konta interfejsu API SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
 > - [Java SDK 4](create-sql-api-java.md)
-> * [Wiosenne dane v3](create-sql-api-spring-data.md)
+> * [Spring Data 3](create-sql-api-spring-data.md)
 > - [Node.js](create-sql-api-nodejs.md)
 > - [Python](create-sql-api-python.md)
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -47,7 +48,7 @@ W tym celu szybkiego startu możesz użyć opcji [wypróbuj Azure Cosmos DB bezp
 
 1. Przejdź do strony [wypróbuj Azure Cosmos DB bezpłatnie](https://azure.microsoft.com/try/cosmosdb/) .
 
-1. Wybierz konto interfejsu API **SQL** i wybierz pozycję **Utwórz**. Zaloguj się przy użyciu konto Microsoft.
+1. Wybierz konto interfejsu API **SQL** i wybierz pozycję **Utwórz** . Zaloguj się przy użyciu konto Microsoft.
 
 1. Po pomyślnym zalogowaniu Twoje konto usługi Azure Cosmos powinno być gotowe. Wybierz pozycję **Otwórz w Azure Portal** , aby otworzyć nowo utworzone konto.
 
@@ -57,7 +58,7 @@ Opcja "Wypróbuj Azure Cosmos DB bezpłatnie" nie wymaga subskrypcji platformy A
 
 Teraz można użyć narzędzia Eksplorator danych w Azure Portal, aby utworzyć bazę danych i kontener.
 
-1. Wybierz pozycję **Eksplorator danych**  >  **nowy kontener**.
+1. Wybierz pozycję **Eksplorator danych**  >  **nowy kontener** .
 
    Obszar **Dodaj kontener** jest wyświetlany po prawej stronie, może być konieczne przewinięcie w prawo w celu wyświetlenia go.
 
@@ -74,7 +75,7 @@ Teraz można użyć narzędzia Eksplorator danych w Azure Portal, aby utworzyć 
 
    Oprócz powyższych ustawień można opcjonalnie dodać **unikatowe klucze** dla kontenera. W tym przykładzie pozostawmy pole puste. Unikatowe klucze umożliwiają deweloperom dodanie warstwy integralności danych do bazy danych. Tworząc unikatowe Zasady kluczy podczas tworzenia kontenera, należy zapewnić unikatowość jednej lub więcej wartości na klucz partycji. Aby dowiedzieć się więcej, zapoznaj się z artykułem [Unique keys in Azure Cosmos DB (Unikatowe klucze w usłudze Azure Cosmos DB)](unique-keys.md).
 
-   Wybierz przycisk **OK**. W Eksploratorze danych zostanie wyświetlona nowa baza danych i nowy kontener.
+   Wybierz przycisk **OK** . W Eksploratorze danych zostanie wyświetlona nowa baza danych i nowy kontener.
 
 ## <a name="add-sample-data"></a>Dodawanie danych przykładowych
 
@@ -98,7 +99,7 @@ Teraz sklonujmy aplikację Node.js z usługi GitHub, ustawimy parametry połącz
 
 Ta czynność jest opcjonalna. Jeśli chcesz dowiedzieć się, jak zasoby bazy danych Azure Cosmos są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-string).
 
-Jeśli znasz poprzednią wersję zestawu SDK JavaScript języka SQL, możesz użyć, aby wyświetlić _kolekcje_ terminów i _dokument_. Ponieważ Azure Cosmos DB obsługuje [wiele modeli interfejsów API](introduction.md), [wersja 2.0 + zestawu JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) używa _kontenera_warunków ogólnych, który może być kolekcją, wykresem lub tabelą i _elementem_ do opisywania zawartości kontenera.
+Jeśli znasz poprzednią wersję zestawu SDK JavaScript języka SQL, możesz użyć, aby wyświetlić _kolekcje_ terminów i _dokument_ . Ponieważ Azure Cosmos DB obsługuje [wiele modeli interfejsów API](introduction.md), [wersja 2.0 + zestawu JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) używa _kontenera_ warunków ogólnych, który może być kolekcją, wykresem lub tabelą i _elementem_ do opisywania zawartości kontenera.
 
 Cosmos DB zestawu SDK języka JavaScript nazywa się " @azure/cosmos " i można go zainstalować z npm...
 
@@ -106,7 +107,7 @@ Cosmos DB zestawu SDK języka JavaScript nazywa się " @azure/cosmos " i można 
 npm install @azure/cosmos
 ```
 
-Wszystkie poniższe fragmenty kodu pochodzą z pliku _app.js_.
+Wszystkie poniższe fragmenty kodu pochodzą z pliku _app.js_ .
 
 - `CosmosClient`Zaimportowano z `@azure/cosmos` pakietu npm.
 
@@ -175,17 +176,17 @@ Wszystkie poniższe fragmenty kodu pochodzą z pliku _app.js_.
 
 Teraz wróć do Azure Portal, aby uzyskać szczegóły parametrów połączenia konta usługi Azure Cosmos. Skopiuj parametry połączenia do aplikacji, aby można było połączyć się z bazą danych.
 
-1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **klucze** w lewym okienku nawigacji, a następnie wybierz pozycję klucze **odczytu i zapisu**. Użyj przycisków kopiowania po prawej stronie ekranu, aby skopiować identyfikator URI i klucz podstawowy do pliku _app.js_ w następnym kroku.
+1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **klucze** w lewym okienku nawigacji, a następnie wybierz pozycję klucze **odczytu i zapisu** . Użyj przycisków kopiowania po prawej stronie ekranu, aby skopiować identyfikator URI i klucz podstawowy do pliku _app.js_ w następnym kroku.
 
    :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Eksplorator danych w witrynie Azure Portal, okienko Dodawanie kontenera":::
 
 2. W obszarze Otwórz plik _config.js_ .
 
-3. Skopiuj wartość identyfikatora URI z portalu (przy użyciu przycisku kopiowania) i ustaw ją jako wartość klucza punktu końcowego w _config.js_.
+3. Skopiuj wartość identyfikatora URI z portalu (przy użyciu przycisku kopiowania) i ustaw ją jako wartość klucza punktu końcowego w _config.js_ .
 
    `endpoint: "<Your Azure Cosmos account URI>"`
 
-4. Następnie skopiuj wartość klucza podstawowego z portalu i ustaw ją jako wartość `config.key` w _config.js_. Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB.
+4. Następnie skopiuj wartość klucza podstawowego z portalu i ustaw ją jako wartość `config.key` w _config.js_ . Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB.
 
    `key: "<Your Azure Cosmos account key>"`
 

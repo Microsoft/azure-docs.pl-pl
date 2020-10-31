@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 84cbdfbf4d34e1779fc119e4b6a92a3bbec88bdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d62ea00246123dedb386f168355cbf2834efc2ef
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88925134"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088798"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Samouczek: Kadrowanie obrazu za pomocą zestawu SDK wyszukiwanie wizualne Bing dla języka C #
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Zestaw SDK wyszukiwanie wizualne Bing umożliwia Przycinanie obrazu przed znalezieniem podobnych obrazów online. Ta aplikacja przycina pojedynczą osobę z obrazu zawierającego kilka osób, a następnie zwraca wyniki wyszukiwania zawierające podobne obrazy Znalezione w trybie online.
 

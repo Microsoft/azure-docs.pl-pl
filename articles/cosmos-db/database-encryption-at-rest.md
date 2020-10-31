@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: ceb2b8812b52b1ca2030a0fd0006c9388630c05e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: abe4bb3a53e3177857cb8041fd255ec916985054
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487487"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089869"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Szyfrowanie danych w usłudze Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Szyfrowanie w spoczynku to fraza, która często odnosi się do szyfrowania danych na nietrwałych urządzeniach magazynujących, takich jak dyski półprzewodnikowe (dysków SSD) i dyski twarde (HDD). Cosmos DB przechowuje podstawowe bazy danych w dysków SSD. Jego załączniki i kopie zapasowe są przechowywane w usłudze Azure Blob Storage, która jest zazwyczaj tworzona przy użyciu HDD. Dzięki wykorzystaniu szyfrowania dla Cosmos DB wszystkie bazy danych, załączniki multimedialne i kopie zapasowe są szyfrowane. Dane są teraz szyfrowane w trakcie przesyłania (za pośrednictwem sieci) i w spoczynku (w magazynie nietrwałym), co zapewnia kompleksowe szyfrowanie.
 

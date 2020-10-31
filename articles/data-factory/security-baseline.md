@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a917ade5da6938487076b983bd42ce9b27672c49
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 09c35ff8c045fa7d912324886fb31b02e606d2f8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637007"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089087"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Factory
 
@@ -688,9 +688,9 @@ Jeśli używasz Integration Runtime na maszynie wirtualnej platformy Azure, post
 
 W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby chronić przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-* [Update Management rozwiązanie na platformie Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Update Management rozwiązanie na platformie Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 * [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -702,9 +702,9 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki** : jeśli używasz Integration Runtime na maszynie wirtualnej platformy Azure, możesz użyć rozwiązania do zarządzania poprawkami innej firmy. Możesz użyć rozwiązania Update Management platformy Azure do zarządzania aktualizacjami i poprawkami dla maszyn wirtualnych. Update Management opiera się na lokalnie skonfigurowanym repozytorium aktualizacji w celu zastosowania poprawek obsługiwanych systemów Windows. Narzędzia, takie jak System Center Updates Publisher (aktualizacje wydawcy), umożliwiają publikowanie aktualizacji niestandardowych w programie Windows Server Update Services (WSUS). Ten scenariusz umożliwia Update Management poprawek maszyn, które używają Configuration Manager jako repozytorium aktualizacji z oprogramowaniem innych firm.
 
-* [Update Management rozwiązanie na platformie Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Update Management rozwiązanie na platformie Azure](https://docs.microsoft.com/azure/automation/update-management/overview)
 
-* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/automation/update-management/manage-updates-for-vm)
 
 **Monitorowanie Azure Security Center** : obecnie niedostępna
 

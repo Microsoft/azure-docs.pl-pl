@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 03ec22caedd4e317b9e1fe781dc3d983febc7a6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7aa2b75a6f6e95bdeff4176ee2ad852de3d7169
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072788"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090702"
 ---
 # <a name="custom-search"></a>Wyszukiwanie niestandardowe
+
+> [!WARNING]
+> Interfejsy API wyszukiwania Bing są przenoszone z Cognitive Services do usług Wyszukiwanie Bing. Od **30 października 2020** wszystkie nowe wystąpienia wyszukiwanie Bing muszą być obsługiwane zgodnie z procesem opisanym [tutaj](https://aka.ms/cogsvcs/bingmove).
+> Interfejsy API wyszukiwania Bing obsługa administracyjna przy użyciu Cognitive Services będzie obsługiwana przez kolejne trzy lata lub do końca Umowa Enterprise, w zależności od tego, co nastąpi wcześniej.
+> Instrukcje dotyczące migracji znajdują się w temacie [wyszukiwanie Bing Services](https://aka.ms/cogsvcs/bingmigration).
 Wyszukiwanie niestandardowe Bing umożliwia tworzenie dostosowanych funkcji wyszukiwania dla interesujących Cię tematów. Użytkownicy zobaczą wyniki wyszukiwania dostosowane do zawartości, która ich interesuje, zamiast przewijać kolejne strony ogólnych wyników wyszukiwania zawierające nieistotną zawartość.
 
 ## <a name="custom-search-endpoint"></a>Niestandardowy punkt końcowy wyszukiwania
@@ -58,7 +63,7 @@ https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 Aby uzyskać informacje na temat konfigurowania niestandardowego wystąpienia wyszukiwania, zobacz [Konfigurowanie niestandardowego środowiska wyszukiwania](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
 
 ## <a name="next-steps"></a>Następne kroki
-Interfejsy API **Bing** obsługują akcje wyszukiwania, które zwracają wyniki zgodnie z ich typem.Wszystkie punkty końcowe wyszukiwania zwracają wyniki jako obiekty odpowiedzi JSON. Wszystkie punkty końcowe obsługują zapytania, które zwracają określony język i/lub lokalizację według długości geograficznej, szerokości geograficznej i usługi wyszukiwania.
+Interfejsy API **Bing** obsługują akcje wyszukiwania, które zwracają wyniki zgodnie z ich typem. Wszystkie punkty końcowe wyszukiwania zwracają wyniki jako obiekty odpowiedzi JSON.  Wszystkie punkty końcowe obsługują zapytania, które zwracają określony język i/lub lokalizację według długości geograficznej, szerokości geograficznej i usługi wyszukiwania.
 
 Aby uzyskać pełne informacje na temat parametrów obsługiwanych przez poszczególne punkty końcowe, zobacz strony referencyjne dla każdego typu.
 Przykłady podstawowych żądań przy użyciu interfejs API wyszukiwania niestandardowego można znaleźć w temacie [wyszukiwanie niestandardowe — szybki start](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)

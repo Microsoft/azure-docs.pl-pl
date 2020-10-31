@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 4c485bf6b9eb34e68e399c24e51286428f47586f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf8da4379a7770e44e86663c02cc7a57da9d3452
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261906"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089784"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Włącz notesy dla kont Azure Cosmos DB (wersja zapoznawcza)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
 > Wbudowane notesy dla Azure Cosmos DB są obecnie dostępne w następujących regionach platformy Azure: Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia Południowe Zjednoczone Królestwo, Europa Zachodnia i zachodnie stany USA 2. Aby korzystać z notesów, [Utwórz nowe konto z notesami](#enable-notebooks-in-a-new-cosmos-account) lub [Włącz Notesy na istniejącym koncie](#enable-notebooks-in-an-existing-cosmos-account) w jednym z tych regionów.
@@ -23,17 +24,17 @@ Wbudowane notesy Jupyter w Azure Cosmos DB umożliwiają analizowanie i wizualiz
 ## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Włącz Notesy na nowym koncie Cosmos
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Wybierz pozycję **Utwórz zasoby**  >  **bazy danych**  >  **Azure Cosmos DB**.
-1. Na stronie **Tworzenie konta Azure Cosmos DB** wybierz pozycję **notesy**. 
+1. Wybierz pozycję **Utwórz zasoby**  >  **bazy danych**  >  **Azure Cosmos DB** .
+1. Na stronie **Tworzenie konta Azure Cosmos DB** wybierz pozycję **notesy** . 
  
     :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Możesz pominąć opcję **Sieć** i **Tagi** . 
-1. Przejrzyj ustawienia konta, a następnie wybierz pozycję **Utwórz**. Utworzenie konta trwa kilka minut. Poczekaj na wyświetlenie komunikatu **Wdrożenie zostało ukończone** na stronie portalu. 
+1. Wybierz pozycję **Przejrzyj i utwórz** . Możesz pominąć opcję **Sieć** i **Tagi** . 
+1. Przejrzyj ustawienia konta, a następnie wybierz pozycję **Utwórz** . Utworzenie konta trwa kilka minut. Poczekaj na wyświetlenie komunikatu **Wdrożenie zostało ukończone** na stronie portalu. 
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
-1. Wybierz pozycję **Przejdź do zasobu**, aby przejść do strony konta usługi Azure Cosmos DB.
+1. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony konta usługi Azure Cosmos DB.
 
    :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
@@ -46,7 +47,7 @@ Wbudowane notesy Jupyter w Azure Cosmos DB umożliwiają analizowanie i wizualiz
 Możesz również włączyć Notesy na istniejących kontach. Ten krok należy wykonać tylko raz dla każdego konta.
 
 1. Przejdź do okienka **Eksplorator danych** na koncie Cosmos.
-1. Wybierz pozycję **Włącz notesy**.
+1. Wybierz pozycję **Włącz notesy** .
 
     :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 
@@ -57,7 +58,7 @@ Możesz również włączyć Notesy na istniejących kontach. Ten krok należy w
 
 Aby sprawdzić, czy możesz używać notesów, wybierz jeden z notesów w obszarze przykładowe notesy. Spowoduje to zapisanie kopii notesu w obszarze roboczym i otwarcie go.
 
-W tym przykładzie użyjemy **GettingStarted. ipynb**. 
+W tym przykładzie użyjemy **GettingStarted. ipynb** . 
 
 :::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Opcja Wybierz notesy w Azure Cosmos DB Utwórz blok":::
 

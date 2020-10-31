@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 69c8f9f01241100a81ddd1707dbd226e6bf56c2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677096"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089019"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między produktem narzędzia ITSM/usługą a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](./itsmc-overview.md).
@@ -36,7 +36,7 @@ W poniższych sekcjach znajdują się szczegółowe informacje dotyczące sposob
 
 Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
-- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-overview.md#add-it-service-management-connector).
 - Aplikacja sieci Web Service Manager (aplikacja sieci Web) została wdrożona i skonfigurowana. [Tutaj znajdziesz](#create-and-deploy-service-manager-web-app-service)informacje o aplikacji sieci Web.
 - Utworzono i skonfigurowano połączenie hybrydowe. Więcej informacji: [Skonfiguruj połączenie hybrydowe](#configure-the-hybrid-connection).
 - Obsługiwane wersje Service Manager: 2012 R2 lub 2016.
@@ -184,7 +184,7 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączen
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 Upewnij się, że zostały spełnione następujące wymagania wstępne:
-- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-overview.md#add-it-service-management-connector).
 - Usługi ServiceNow obsługiwane wersje: Orlando, Nowy Jork, Madryt, Londyn, Kingston, Dżakarta, Stambuł, Helsinki, Genewa.
 > [!NOTE]
 > ITSMC obsługuje teraz tylko oficjalną ofertę SaaS z usługi. Prywatne wdrożenia usługi są teraz nieobsługiwane. 
@@ -240,7 +240,7 @@ Aby utworzyć połączenie usługi ServiceNow, wykonaj czynności opisane w poni
 | **Nazwa połączenia**   | Wpisz nazwę wystąpienia usługi ServiceNow, które chcesz połączyć z ITSMC.  Tej nazwy można użyć później w Log Analytics podczas konfigurowania elementów roboczych w tym narzędzia ITSM/widoku szczegółowej analizy dzienników. |
 | **Typ partnera**   | Wybierz pozycję **usługi ServiceNow** . |
 | **Nazwa użytkownika**   | Wpisz nazwę użytkownika integracji utworzoną w aplikacji usługi ServiceNow, aby umożliwić obsługę połączenia z usługą ITSMC. Więcej informacji: [Utwórz rolę użytkownika aplikacji usługi ServiceNow](#create-integration-user-role-in-servicenow-app).|
-| **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga** : Nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania i nie są przechowywane w żadnym miejscu w ramach usługi ITSMC.  |
+| **Password** (Hasło)   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga** : Nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania i nie są przechowywane w żadnym miejscu w ramach usługi ITSMC.  |
 | **Adres URL serwera**   | Wpisz adres URL wystąpienia usługi ServiceNow, które chcesz połączyć z ITSMC. Adres URL powinien wskazywać obsługiwaną wersję SaaS z sufiksem ". servicenow.com".|
 | **Identyfikator klienta**   | Wpisz identyfikator klienta, który ma być używany na potrzeby uwierzytelniania OAuth2 wygenerowanego wcześniej.  Więcej informacji na temat generowania identyfikatora klienta i klucza tajnego:   [konfiguracja uwierzytelniania OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Klucz tajny klienta**   | Wpisz klucz tajny klienta wygenerowany dla tego identyfikatora.   |
@@ -316,7 +316,7 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączen
 Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 
-- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-overview.md#add-it-service-management-connector).
 - Aplikacja Provance powinna być zarejestrowana w usłudze Azure AD — jest dostępny identyfikator klienta. Aby uzyskać szczegółowe informacje, zobacz [How to configure Active Directory Authentication](../../app-service/configure-authentication-provider-aad.md).
 
 - Rola użytkownika: administrator.
@@ -343,7 +343,7 @@ Aby utworzyć połączenie Provance, wykonaj czynności opisane w poniższej pro
 | **Nazwa połączenia**   | Wpisz nazwę wystąpienia Provance, które chcesz połączyć z ITSMC.  Ta nazwa jest używana później podczas konfigurowania elementów roboczych w tym narzędzia ITSM/widoku szczegółowej analizy dzienników. |
 | **Typ partnera**   | Wybierz pozycję **Provance** . |
 | **Nazwa użytkownika**   | Wpisz nazwę użytkownika, która może nawiązać połączenie z usługą ITSMC.    |
-| **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga:** Nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania i nie są przechowywane w żadnym miejscu ITSMC service._|
+| **Password** (Hasło)   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga:** Nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania i nie są przechowywane w żadnym miejscu ITSMC service._|
 | **Adres URL serwera**   | Wpisz adres URL wystąpienia Provance, które chcesz połączyć z ITSMC. |
 | **Identyfikator klienta**   | Wpisz identyfikator klienta, aby uwierzytelnić to połączenie, które zostało wygenerowane w wystąpieniu usługi Provance.  Więcej informacji na temat identyfikatora klienta można znaleźć w temacie [How to configure Active Directory Authentication](../../app-service/configure-authentication-provider-aad.md). |
 | **Zakres synchronizacji danych**   | Wybierz Provance elementy robocze, które chcesz synchronizować z platformą Azure Log Analytics, za pomocą ITSMC.  Te elementy robocze są importowane do usługi log Analytics.   **Opcje:**   Zdarzenia, żądania zmiany.|
@@ -373,7 +373,7 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączen
 
 Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
-- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC. Więcej informacji: [Dodawanie rozwiązania łącznik zarządzania usługami IT](./itsmc-overview.md#add-it-service-management-connector).
 - Wygenerowano identyfikator klienta. Więcej informacji: [generowanie identyfikatora klienta dla Cherwell](#generate-client-id-for-cherwell).
 - Rola użytkownika: administrator.
 
@@ -399,7 +399,7 @@ Aby utworzyć połączenie Cherwell, wykonaj czynności opisane w poniższej pro
 | **Nazwa połączenia**   | Wpisz nazwę wystąpienia Cherwell, które chcesz połączyć z ITSMC.  Ta nazwa jest używana później podczas konfigurowania elementów roboczych w tym narzędzia ITSM/widoku szczegółowej analizy dzienników. |
 | **Typ partnera**   | Wybierz pozycję **Cherwell.** |
 | **Nazwa użytkownika**   | Wpisz nazwę użytkownika Cherwell, która może nawiązać połączenie z ITSMC. |
-| **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga:** Nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania i nie są przechowywane w żadnym miejscu w ramach usługi ITSMC.|
+| **Password** (Hasło)   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga:** Nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania i nie są przechowywane w żadnym miejscu w ramach usługi ITSMC.|
 | **Adres URL serwera**   | Wpisz adres URL wystąpienia Cherwell, które chcesz połączyć z ITSMC. |
 | **Identyfikator klienta**   | Wpisz identyfikator klienta, aby uwierzytelnić to połączenie, które zostało wygenerowane w wystąpieniu usługi Cherwell.   |
 | **Zakres synchronizacji danych**   | Wybierz Cherwell elementy robocze, które chcesz synchronizować za pomocą ITSMC.  Te elementy robocze są importowane do usługi log Analytics.   **Opcje:**  Zdarzenia, żądania zmiany. |

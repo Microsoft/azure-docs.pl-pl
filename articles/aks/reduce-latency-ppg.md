@@ -4,62 +4,31 @@ description: Dowiedz się, jak za pomocą grup umieszczania zbliżeniowe ogranic
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 10/19/2020
 author: jluk
-ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a96489495abe3bfbed3030b3e08ff121c5c7cddf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986716"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090801"
 ---
-# <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Zmniejszanie opóźnień przy użyciu grup umieszczania w sąsiedztwie
+# <a name="reduce-latency-with-proximity-placement-groups"></a>Zmniejszanie opóźnień przy użyciu grup umieszczania w sąsiedztwie
 
 > [!Note]
 > W przypadku korzystania z grup umieszczania zbliżeniowe w AKS, współlokalizacja dotyczy tylko węzłów agenta. Ulepszono węzeł z węzłem i odpowiadający mu oczekiwany czas oczekiwania. Współlokalizacja nie ma wpływu na rozmieszczenie płaszczyzny kontroli klastra.
 
 Podczas wdrażania aplikacji na platformie Azure rozproszenie wystąpień maszyn wirtualnych (VM) między regionami lub strefami dostępności tworzy opóźnienie sieci, co może mieć wpływ na ogólną wydajność aplikacji. Grupa umieszczania bliskości jest grupą logiczną używaną do upewnienia się, że zasoby obliczeniowe platformy Azure znajdują się fizycznie blisko siebie. Niektóre aplikacje, takie jak gry, symulacje inżynieryjne i handel o wysokiej częstotliwości (HFT), wymagają krótkich opóźnień i zadań, które są szybko kompletne. W przypadku scenariuszy obliczeniowych o wysokiej wydajności (HPC), takich jak te, należy rozważyć użycie [grup umieszczania sąsiedztwa](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) dla pul węzłów klastra.
 
-## <a name="limitations"></a>Ograniczenia
+## <a name="before-you-begin"></a>Przed rozpoczęciem
+
+Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2,14 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
+
+### <a name="limitations"></a>Ograniczenia
 
 * Grupa położenia sąsiedztwa może mapować do najwyżej jednej strefy dostępności.
 * Pula węzłów musi używać Virtual Machine Scale Sets, aby skojarzyć grupę umieszczania sąsiedztwa.
 * Pula węzłów może skojarzyć grupę umieszczania bliskości w puli węzłów tylko do tworzenia czasu.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
-
-Wymagane są następujące zasoby:
-
-- Rozszerzenie AKS-Preview 0.4.53
-
-### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>Skonfiguruj funkcję w wersji zapoznawczej dla grup umieszczania w sąsiedztwie
-
-> [!IMPORTANT]
-> W przypadku używania grup umieszczania zbliżeniowe z pulami węzłów AKS, współlokalizacja dotyczy tylko węzłów agenta. Ulepszono węzeł z węzłem i odpowiadający mu oczekiwany czas oczekiwania. Współlokalizacja nie ma wpływu na rozmieszczenie płaszczyzny kontroli klastra.
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "ProximityPlacementGroupPreview"
-```
-
-Rejestracja może potrwać kilka minut. Użyj poniższego polecenia, aby sprawdzić, czy funkcja jest zarejestrowana:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/ProximityPlacementGroupPreview')].{Name:name,State:properties.state}"
-```
-
-W trakcie korzystania z wersji zapoznawczej potrzebne jest rozszerzenie interfejsu wiersza polecenia *AKS-Preview* do używania grup umieszczania sąsiedztwa. Użyj polecenia [AZ Extension Add][az-extension-add] , a następnie sprawdź, czy są dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## <a name="node-pools-and-proximity-placement-groups"></a>Pule węzłów i grupy umieszczania sąsiedztwa
 

@@ -8,14 +8,15 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07bfaabf051a016ca9617245ba8628ef6c7e80c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 918033f736a28534cd36a4637b41d0a6b3b4cdc7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566622"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088577"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Korzystanie z zarządzanych tożsamości przypisanych do systemu w celu uzyskiwania dostępu do danych Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule opisano, jak skonfigurować *niezawodne, kluczowe rozwiązanie niezależny od* do uzyskiwania dostępu do kluczy Azure Cosmos DB za pomocą [zarządzanych tożsamości](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). W przykładzie w tym artykule użyto Azure Functions, ale można użyć dowolnej usługi, która obsługuje zarządzane tożsamości. 
 
@@ -33,7 +34,7 @@ W tym kroku przypiszesz tożsamość zarządzaną przypisaną przez system do ap
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Zrzut ekranu przedstawiający funkcje platformy i opcje tożsamości dla aplikacji funkcji.":::
 
-1. Na karcie **tożsamość** **Włącz pozycję** **stan** tożsamości systemu i wybierz pozycję **Zapisz**. Okienko **tożsamość** powinno wyglądać następująco:  
+1. Na karcie **tożsamość** **Włącz pozycję** **stan** tożsamości systemu i wybierz pozycję **Zapisz** . Okienko **tożsamość** powinno wyglądać następująco:  
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Zrzut ekranu przedstawiający funkcje platformy i opcje tożsamości dla aplikacji funkcji.":::
 
@@ -60,19 +61,19 @@ W tym scenariuszu aplikacja funkcji odczyta temperaturę Aquarium, a następnie 
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Zrzut ekranu przedstawiający funkcje platformy i opcje tożsamości dla aplikacji funkcji.":::
 
-1. Wybierz pozycję **+ Dodaj** > **Dodaj przypisanie roli**.
+1. Wybierz pozycję **+ Dodaj** > **Dodaj przypisanie roli** .
 
 1. Zostanie otwarty panel **Dodawanie przypisania roli** z prawej strony:
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Zrzut ekranu przedstawiający funkcje platformy i opcje tożsamości dla aplikacji funkcji.":::
 
-   * **Rola**: Wybierz **współautor konta DocumentDB**
-   * **Przypisz dostęp do**: w podsekcji **Wybieranie tożsamości zarządzanej przez system** wybierz pozycję **aplikacja funkcji**.
-   * **Wybierz**: okienko zostanie wypełnione wszystkimi aplikacjami funkcji w subskrypcji, które mają **tożsamość systemu zarządzanego**. W takim przypadku wybierz aplikację funkcji **FishTankTemperatureService** : 
+   * **Rola** : Wybierz **współautor konta DocumentDB**
+   * **Przypisz dostęp do** : w podsekcji **Wybieranie tożsamości zarządzanej przez system** wybierz pozycję **aplikacja funkcji** .
+   * **Wybierz** : okienko zostanie wypełnione wszystkimi aplikacjami funkcji w subskrypcji, które mają **tożsamość systemu zarządzanego** . W takim przypadku wybierz aplikację funkcji **FishTankTemperatureService** : 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Zrzut ekranu przedstawiający funkcje platformy i opcje tożsamości dla aplikacji funkcji.":::
 
-1. Po wybraniu aplikacji funkcji wybierz pozycję **Zapisz**.
+1. Po wybraniu aplikacji funkcji wybierz pozycję **Zapisz** .
 
 ### <a name="assign-the-role-using-azure-cli"></a>Przypisywanie roli przy użyciu interfejsu wiersza polecenia platformy Azure
 

@@ -6,14 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 08f8095670b48fcefccb0a9adf477b83ce2537d3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485039"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089240"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Stronicowanie w Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W Azure Cosmos DB kwerendy mogą mieć wiele stron wyników. W tym dokumencie opisano kryteria, które są używane przez aparat zapytań Azure Cosmos DB do podjęcie decyzji, czy dzielić wyniki zapytania na wiele stron. Opcjonalnie można użyć tokenów kontynuacji do zarządzania wynikami zapytania, które obejmują wiele stron.
 
@@ -45,12 +46,13 @@ Oto kilka przykładów przetwarzania wyników zapytań z wieloma stronami:
 
 ## <a name="continuation-tokens"></a>Tokeny kontynuacji
 
-W zestawie .NET SDK i Java SDK można opcjonalnie użyć tokenów kontynuacji jako zakładki dla postępu zapytania. Azure Cosmos DB wykonywania zapytań są bezstanowe po stronie serwera i można je wznowić w dowolnym momencie przy użyciu tokenu kontynuacji. Tokeny kontynuacji nie są obsługiwane w zestawie SDK Node.js ani w zestawie Python SDK.
+W zestawie .NET SDK i Java SDK można opcjonalnie użyć tokenów kontynuacji jako zakładki dla postępu zapytania. Azure Cosmos DB wykonywania zapytań są bezstanowe po stronie serwera i można je wznowić w dowolnym momencie przy użyciu tokenu kontynuacji. Tokeny kontynuacji nie są obsługiwane w zestawie Node.js SDK. W przypadku zestawu SDK języka Python jest on obsługiwany w przypadku zapytań o pojedynczej partycji, a klucz podstawowy musi być określony w obiekcie Options, ponieważ nie jest wystarczający, aby można było go użyć w zapytaniu.
 
 Oto przykład użycia tokenów kontynuacji:
 
 - [Zestaw SDK platformy .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
 - [Zestaw SDK Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Zestaw SDK dla języka Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 Jeśli zapytanie zwraca token kontynuacji, istnieją dodatkowe wyniki zapytania.
 

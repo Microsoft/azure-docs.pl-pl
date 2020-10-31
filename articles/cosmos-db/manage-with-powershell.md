@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 3b5cc1dd61b4f01e40c1cc812e93a448855ad92d
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 53a44ed15517cad157e43d8de465438537e15121
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926516"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088611"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Zarządzanie zasobami interfejsu API Azure Cosmos DB Core (SQL) przy użyciu programu PowerShell
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W poniższym przewodniku opisano sposób użycia programu PowerShell do tworzenia skryptów i automatyzowania zarządzania zasobami interfejsu API Azure Cosmos DB Core (SQL), w tym konta Cosmos, bazy danych, kontenera i przepływności. Dla poleceń cmdlet programu PowerShell dla innych interfejsów API zobacz [przykłady programu PowerShell dla Cassandra](powershell-samples-cassandra.md), przykłady programu PowerShell dla [interfejsu API MongoDB](powershell-samples-mongodb.md), [przykłady programu PowerShell dla usługi Gremlin](powershell-samples-gremlin.md), [przykłady dla programu](powershell-samples-table.md) PowerShell dla tabeli
 

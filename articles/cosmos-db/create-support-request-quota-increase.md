@@ -6,14 +6,15 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.openlocfilehash: cd2bc3ec7e70049ee7e2c700731515a272e541dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7ec71220b75647e789508c760e50957b3b497fa
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87097985"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090039"
 ---
 # <a name="how-to-request-quota-increase-for-azure-cosmos-db-resources"></a>Jak zażądać zwiększenia przydziału dla zasobów Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Zasoby w Azure Cosmos DB mają [domyślne przydziały/limity](concepts-limits.md). Jednak może wystąpić sytuacja, w której obciążenie wymaga więcej przydziału niż wartość domyślna. W takim przypadku należy skontaktować się z zespołem Azure Cosmos DB, aby zażądać zwiększenia limitu przydziału. W tym artykule wyjaśniono, jak zażądać zwiększenia przydziału dla zasobów Azure Cosmos DB. Dowiesz się również, jak włączyć subskrypcję, aby uzyskać dostęp do regionu.
 
@@ -23,13 +24,13 @@ Aby zażądać zwiększenia limitu przydziału, należy utworzyć nowe żądanie
 
 1. Zaloguj się do witryny Azure Portal.
 
-1. W menu po lewej stronie wybierz pozycję **Pomoc i obsługa techniczna** , a następnie wybierz pozycję **nowe żądanie obsługi**.
+1. W menu po lewej stronie wybierz pozycję **Pomoc i obsługa techniczna** , a następnie wybierz pozycję **nowe żądanie obsługi** .
 
 1. Na karcie **podstawy** podaj następujące informacje:
 
    * W obszarze **Typ problemu** wybierz pozycję **Limity usługi i subskrypcji (limity przydziału)**
-   * W polu **subskrypcja**wybierz subskrypcję, dla której chcesz zwiększyć przydział.
-   * W obszarze **Typ limitu przydziału**wybierz pozycję **Cosmos DB**
+   * W polu **subskrypcja** wybierz subskrypcję, dla której chcesz zwiększyć przydział.
+   * W obszarze **Typ limitu przydziału** wybierz pozycję **Cosmos DB**
 
    :::image type="content" source="./media/create-support-request-quota-increase/create-quota-increase-request.png" alt-text="Utwórz nowe żądanie obsługi Cosmos DB w celu zwiększenia limitu przydziału":::
 
@@ -37,7 +38,7 @@ Aby zażądać zwiększenia limitu przydziału, należy utworzyć nowe żądanie
 
 1. Wypełnij następujące szczegóły w tej postaci:
 
-   * **Opis**: Podaj krótki opis żądania, taki jak obciążenie, dlaczego wartości domyślne nie są wystarczające. Na podstawie typu zasobu, dla którego ma zostać zwiększony przydział, wymagane jest podanie następujących informacji w polu **Opis** :
+   * **Opis** : Podaj krótki opis żądania, taki jak obciążenie, dlaczego wartości domyślne nie są wystarczające. Na podstawie typu zasobu, dla którego ma zostać zwiększony przydział, wymagane jest podanie następujących informacji w polu **Opis** :
 
      **Żądania regionów** Jeśli żądanie jest zgodne z dodaniem regionu do listy dozwolonych, upewnij się, że zostały wprowadzone następujące wartości:
 
@@ -55,15 +56,15 @@ Aby zażądać zwiększenia limitu przydziału, należy utworzyć nowe żądanie
        * Identyfikator subskrypcji
        * Limit konta nowej bazy danych
 
-   * **Przekazywanie plików**: Przekaż pliki diagnostyczne lub wszystkie inne pliki, które Twoim zdaniem są odpowiednie dla żądania pomocy technicznej. Aby dowiedzieć się więcej na temat wskazówek dotyczących przekazywania plików, zobacz artykuł [pomocy technicznej systemu Azure]( ../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files) .
+   * **Przekazywanie plików** : Przekaż pliki diagnostyczne lub wszystkie inne pliki, które Twoim zdaniem są odpowiednie dla żądania pomocy technicznej. Aby dowiedzieć się więcej na temat wskazówek dotyczących przekazywania plików, zobacz artykuł [pomocy technicznej systemu Azure]( ../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files) .
 
-   * **Ważność**: Wybierz jeden z dostępnych poziomów ważności na podstawie wpływu na działalność biznesową.
+   * **Ważność** : Wybierz jeden z dostępnych poziomów ważności na podstawie wpływu na działalność biznesową.
 
-   * **Preferowana metoda kontaktu**: możesz wybrać opcję komunikacji za pośrednictwem **poczty e-mail** lub **telefonicznie**.
+   * **Preferowana metoda kontaktu** : możesz wybrać opcję komunikacji za pośrednictwem **poczty e-mail** lub **telefonicznie** .
 
 1. Wypełnij pozostałe szczegóły, takie jak dostępność, język pomocy technicznej, informacje kontaktowe, adres e-mail i numer telefonu w formularzu.
 
-1. Wybierz pozycję **Dalej: przegląd + Utwórz**. Sprawdź poprawność dostarczonych informacji i wybierz pozycję **Utwórz** , aby utworzyć żądanie obsługi.
+1. Wybierz pozycję **Dalej: przegląd + Utwórz** . Sprawdź poprawność dostarczonych informacji i wybierz pozycję **Utwórz** , aby utworzyć żądanie obsługi.
 
 W ciągu 24 godzin zespół pomocy technicznej Azure Cosmos DB oceni Twoje żądanie i skontaktuje się z nim.
 

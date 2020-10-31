@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: c37224a3a455abcf3de62998cb65e1d66a1bb0f2
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910716"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088883"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>Ciągłej integracji/ciągłego dostarczania API Management przy użyciu szablonów Azure Resource Manager
 
@@ -67,7 +67,8 @@ Deweloperzy interfejsu API czołowe wyzwania podczas pracy z szablonami Menedże
 
 * Wydawcy interfejsu API mogą sprawdzić poprawność żądania ściągnięcia i upewnić się, że zmiany są bezpieczne i zgodne. Można na przykład sprawdzić, czy tylko protokół HTTPS może komunikować się z interfejsem API. Większość walidacji może być zautomatyzowana jako krok w potoku ciągłej integracji/ciągłego wdrażania.
 
-* Gdy zmiany zostaną zatwierdzone i scalone, wydawcy interfejsu API mogą zdecydować się na wdrożenie ich w wystąpieniu produkcyjnym zgodnie z harmonogramem lub na żądanie. Mogą zautomatyzować wdrażanie szablonów przy użyciu [akcji GitHub](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/devops/pipelines/), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md)lub innych narzędzi.
+* Gdy zmiany zostaną zatwierdzone i scalone, wydawcy interfejsu API mogą zdecydować się na wdrożenie ich w wystąpieniu produkcyjnym zgodnie z harmonogramem lub na żądanie. Wdrażanie szablonów można zautomatyzować za pomocą [akcji usługi GitHub](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/templates/deploy-cli.md)lub innych narzędzi.
+
 
 Dzięki temu organizacja może zautomatyzować wdrażanie zmian interfejsu API w wystąpieniach API Management, a także łatwo wspierać zmiany z jednego środowiska do innego. Ponieważ różne zespoły programistyczne interfejsu API będą działać na różnych zestawach szablonów i plikach interfejsu API, uniemożliwiają zakłócenia między różnymi zespołami.
 
