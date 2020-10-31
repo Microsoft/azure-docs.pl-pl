@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 577ec9e01310787dacb45a03e1efae128cbab872
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078224"
+ms.locfileid: "93128883"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitorowanie IoT Hub platformy Azure
 
@@ -23,7 +23,9 @@ Na stronie **Przegląd** w Azure Portal poszczególnych centrów IoT Hub znajduj
 
 :::image type="content" source="media/monitor-iot-hub/overview-portal.png" alt-text="Domyślne wykresy metryk na stronie omówienia usługi IoT Hub.":::
 
-Te informacje są przydatne, ale reprezentuje tylko niewielką ilość danych monitorowania, które są dostępne dla Centrum IoT. Niektóre dane monitorowania są zbierane automatycznie i są dostępne do analizy zaraz po utworzeniu Centrum IoT. Dodatkowe typy zbierania danych można włączyć za pomocą jakiejś konfiguracji.
+Należy pamiętać, że wartość liczby komunikatów może być opóźniona o 1 minutę i że z przyczyn związanych z infrastrukturą usługi IoT Hubj wartość może czasami odbijać się od wartości wyższych i niższych przy odświeżaniu. Ten licznik powinien być nieprawidłowy dla wartości naliczonych w ciągu ostatniej minuty.
+
+Informacje przedstawione w okienku Przegląd są przydatne, ale przedstawiają tylko niewielką ilość danych monitorowania dostępnych dla Centrum IoT. Niektóre dane monitorowania są zbierane automatycznie i są dostępne do analizy zaraz po utworzeniu Centrum IoT. Dodatkowe typy zbierania danych można włączyć za pomocą jakiejś konfiguracji.
 
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
 

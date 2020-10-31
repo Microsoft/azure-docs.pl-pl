@@ -4,13 +4,13 @@ description: W tym przewodniku szybki start pokazano, jak utworzyć aplikację L
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: 28bf79b61c0278a3f45820a23cd2c69f0b609700
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/13/2020
+ms.openlocfilehash: 60151e97c64a3d61044e4b82299573ee59951d46
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316493"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128206"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Szybki start: używanie wstępnie utworzonej aplikacji Home Automation
 
@@ -23,25 +23,28 @@ W tym przewodniku Szybki start utworzysz aplikację usługi LUIS, która używa 
 ## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
 Tworzenie aplikacji i zarządzanie nimi jest możliwe w obszarze **My Apps** (Moje aplikacje).
 
-1. Na liście Moje aplikacje wybierz pozycję **+ Nowa aplikacja do konwersacji**, a następnie na liście opcji wybierz pozycję **+ Nowa aplikacja do konwersacji** .
+### <a name="create-an-application"></a>Tworzenie aplikacji
 
-1. W oknie dialogowym Nadaj nazwę aplikacji `Home Automation` .
-1. Wybierz **angielską** jako kulturę.
-1. Wprowadź opcjonalny opis.
-1. Nie wybieraj zasobu predykcyjnego, jeśli zasób nie został jeszcze utworzony. Aby użyć punktu końcowego przewidywania aplikacji (przemieszczanie lub produkcja), należy przypisać zasób predykcyjny.
-1. Wybierz pozycję **Gotowe**.
+Aby utworzyć aplikację, kliknij pozycję  **+ Nowa aplikacja** . 
 
-    LUIS tworzy aplikację.
+W wyświetlonym oknie wprowadź następujące informacje:
 
-    ![W oknie dialogowym Nazwij aplikację "Automatyzacja domu"](./media/create-new-app-details.png)
+|Nazwa  |Opis  |
+|---------|---------|
+|AName     | Nazwa aplikacji. Na przykład "Automatyzacja domu".        |
+|Kultura     | Język, który aplikacja rozpoznaje i mówi.   |
+|Opis | Opis aplikacji.
+|Zasób predykcyjny | Zasób predykcyjny, który będzie odbierać zapytania. |
 
-    >[!NOTE]
-    >Kultury nie można zmienić po utworzeniu aplikacji.
+Wybierz pozycję **Gotowe** .
+
+>[!NOTE]
+>Kultury nie można zmienić po utworzeniu aplikacji.
 
 ## <a name="add-prebuilt-domain"></a>Dodawanie wstępnie utworzonej domeny
 
-1. W lewym okienku nawigacji wybierz opcję **prekompilowane domeny**.
-1. Wyszukaj **HomeAutomation**.
+1. W lewym okienku nawigacji wybierz opcję **prekompilowane domeny** .
+1. Wyszukaj **HomeAutomation** .
 1. Wybierz pozycję **Dodaj domenę** na karcie HomeAutomation.
 
     > [!div class="mx-imgBorder"]
@@ -51,18 +54,19 @@ Tworzenie aplikacji i zarządzanie nimi jest możliwe w obszarze **My Apps** (Mo
 
 ## <a name="intents-and-entities"></a>Intencje i jednostki
 
-1. Wybierz **intencje** , aby przejrzeć intencje domeny HomeAutomation. Prebudowana intencja domeny ma przykład wyrażenia długości.
-
-    > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu listy intencji HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Zrzut ekranu listy intencji HomeAutomation")
+1. Wybierz pozycję **intencje** w menu nawigacji po lewej stronie, aby zobaczyć intencje domeny HomeAutomation. Ma przykład wyrażenia długości, takie jak `HomeAutomation.QueryState` i     `HomeAutomation.SetDevice` .
 
     > [!NOTE]
     > **None** (Brak) to intencja zapewniana przez wszystkie aplikacje usługi LUIS. Używa się jej do obsługi wypowiedzi, które nie odnoszą się do funkcji zapewnianej przez aplikację.
 
-1. Wybierz intencję **HomeAutomation.TurnOff**. Zamiar zawiera listę przykładowych wyrażenia długości, które są oznaczone obiektami.
+1. Wybierz intencję **HomeAutomation.TurnOff** . Zamiar zawiera listę przykładowych wyrażenia długości, które są oznaczone obiektami.
 
     > [!div class="mx-imgBorder"]
     > [![Zrzut ekranu przedstawiający intencję HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Zrzut ekranu przedstawiający intencję HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+
+1. Jeśli chcesz wyświetlić jednostki dla aplikacji, wybierz pozycję **jednostki** . Po kliknięciu jednej z jednostek, takiej jak **HomeAutomation. DeviceName** , zostanie wyświetlona lista skojarzonych z nią wartości. 
+ 
+    :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Tekst alternatywny obrazu" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
 ## <a name="train-the-luis-app"></a>Uczenie aplikacji LUIS
 
@@ -73,13 +77,9 @@ Po przeprowadzeniu uczenia aplikacji możesz ją przetestować.
 
 1. Wybierz pozycję **Testuj** w prawym górnym rogu.
 
-1. Wpisz wypowiedź testu podobne `Turn off the lights` do interaktywnego okienka testów, a następnie naciśnij klawisz ENTER.
+1. Wpisz wypowiedź testu podobne `Turn off the lights` do interaktywnego okienka testów, a następnie naciśnij klawisz ENTER. Na przykład Wyłącz *światła* .
 
-    ```
-    Turn off the lights
-    ```
-
-    W tym przykładzie `Turn off the lights` jest poprawnie zidentyfikowany jako najpopularniejszy cel oceniania **HomeAutomation.**.
+    W tym przykładzie `Turn off the lights` jest poprawnie zidentyfikowany jako najpopularniejszy cel oceniania **HomeAutomation.** .
 
     ![Zrzut ekranu przedstawiający panel testowania z wyróżnioną wypowiedzią](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
@@ -94,7 +94,18 @@ Po przeprowadzeniu uczenia aplikacji możesz ją przetestować.
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publikowanie aplikacji w celu uzyskania adresu URL punktu końcowego
 
-[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
+Aby otrzymywać prognozę LUIS w programie Chat bot lub innej aplikacji klienckiej, należy opublikować aplikację w punkcie końcowym przewidywania.
+
+1. Wybierz pozycję **Publikuj** w prawym górnym rogu okna.
+
+1. Wybierz miejsce **produkcyjne** , a następnie wybierz pozycję **gotowe** .
+
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający LUIS publikowanie w punkcie końcowym](media/howto-publish/publish-app-popup.png)
+
+1. Wybierz link **dostęp do adresów URL punktu końcowego** w obszarze powiadomień, aby przejść do strony **zasobów platformy Azure** . Adresy URL punktów końcowych są wyświetlane jako **przykładowe zapytanie** .
+
+<!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 

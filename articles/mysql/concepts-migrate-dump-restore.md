@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 2/27/2020
-ms.openlocfilehash: 7cc18980d1dddc33ddf98f06de70449dee22e2ac
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 10/30/2020
+ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484597"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128967"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrowanie bazy danych MySQL do usługi Azure Database for MySQL przy użyciu zrzutu i przywracania
 
@@ -20,6 +20,8 @@ ms.locfileid: "92484597"
 W tym artykule opisano dwa typowe sposoby tworzenia kopii zapasowych i przywracania baz danych w Azure Database for MySQL
 - Zrzuć i Przywróć z wiersza polecenia (przy użyciu mysqldump)
 - Zrzuć i Przywróć przy użyciu PHPMyAdmin
+
+Można także zapoznać się z [przewodnikiem dotyczącym migracji bazy danych](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) , aby uzyskać szczegółowe informacje i przypadki użycia dotyczące migrowania baz danych do Azure Database for MySQL. Ten przewodnik zawiera wskazówki, które pozwolą na pomyślne planowanie i wykonywanie migracji programu MySQL na platformę Azure.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 Aby krokowo korzystać z tego przewodnika, musisz mieć:
@@ -37,7 +39,7 @@ Najczęstsze przypadki użycia są następujące:
 
 - **Przechodzenie od innego dostawcy usług zarządzanych** — najbardziej zarządzani dostawcy usług mogą nie zapewniać dostępu do fizycznego pliku magazynu ze względów bezpieczeństwa, więc logiczne kopie zapasowe i przywracanie są jedyną opcją migracji.
 - **Migrowanie ze środowiska lokalnego lub maszyny wirtualnej** — Azure Database for MySQL nie obsługuje przywracania fizycznych kopii zapasowych, co sprawia, że logiczne tworzenie kopii zapasowych i przywracanie jest jedynym rozwiązaniem.
-- **Przeniesienie magazynu kopii zapasowych z lokalnie nadmiarowego do magazynu geograficznie nadmiarowego** — Azure Database for MySQL umożliwia skonfigurowanie lokalnie nadmiarowego lub geograficznie nadmiarowego magazynu dla kopii zapasowej jest dozwolone tylko podczas tworzenia serwera. Po aprowizacji serwera nie można zmienić opcji nadmiarowości magazynu kopii zapasowej. Aby przenieść magazyn kopii zapasowych z magazynu lokalnie nadmiarowego do magazynu geograficznie nadmiarowego, należy wybrać opcję Zrzuć i Przywróć. 
+- **Przeniesienie magazynu kopii zapasowych z lokalnie nadmiarowego do magazynu geograficznie nadmiarowego** — Azure Database for MySQL umożliwia skonfigurowanie lokalnie nadmiarowego lub geograficznie nadmiarowego magazynu dla kopii zapasowej jest dozwolone tylko podczas tworzenia serwera. Po aprowizacji serwera nie można zmienić opcji nadmiarowości magazynu kopii zapasowych. Aby przenieść magazyn kopii zapasowych z magazynu lokalnie nadmiarowego do magazynu geograficznie nadmiarowego, należy wybrać opcję Zrzuć i Przywróć. 
 -  **Migrowanie z alternatywnych aparatów magazynu do InnoDB** -Azure Database for MySQL obsługuje tylko aparat magazynu InnoDB i w związku z tym nie obsługuje alternatywnych aparatów pamięci masowej. Jeśli tabele są skonfigurowane z innymi aparatami magazynu, przed rozpoczęciem migracji do Azure Database for MySQL należy je przekonwertować na format aparatu InnoDB.
 
     Jeśli na przykład masz witrynę WordPress lub WebApp przy użyciu tabel MyISAM, najpierw przekonwertuj te tabele przez Migrowanie do formatu InnoDB przed przywróceniem do Azure Database for MySQL. Użyj klauzuli, `ENGINE=InnoDB` Aby ustawić aparat używany podczas tworzenia nowej tabeli, a następnie Przenieś dane do zgodnej tabeli przed przywróceniem.
@@ -168,5 +170,5 @@ Aby uzyskać znane problemy, porady i wskazówki, zalecamy zapoznanie się z [bl
 
 ## <a name="next-steps"></a>Następne kroki
 - [Połącz aplikacje z Azure Database for MySQL](./howto-connection-string.md).
-- Aby uzyskać więcej informacji na temat migrowania baz danych do Azure Database for MySQL, zobacz [Przewodnik po migracji bazy danych](https://aka.ms/datamigration).
+- Aby uzyskać więcej informacji na temat migrowania baz danych do Azure Database for MySQL, zobacz [Przewodnik po migracji bazy danych](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
 - Jeśli chcesz przeprowadzić migrację dużych baz danych o rozmiarze bazy danych więcej niż 1 TBs, możesz rozważyć użycie narzędzi społeczności, takich jak **redumper/OnLoad** , które obsługują eksport równoległy i import. Dowiedz się [, jak migrować duże bazy danych MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

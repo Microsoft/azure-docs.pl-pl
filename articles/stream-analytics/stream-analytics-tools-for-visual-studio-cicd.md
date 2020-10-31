@@ -7,26 +7,26 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 175abe54ce5476bece309bbfaf7858cd2e214f52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187663"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127437"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Użyj pakietu NuGet pozostałej CI/CD Azure Stream Analytics na potrzeby integracji i programowania 
 W tym artykule opisano sposób użycia pakietu NuGet Azure Stream Analytics/CD w celu skonfigurowania ciągłego procesu integracji i wdrażania.
 
-Skorzystaj z wersji 2.3.0000.0 lub nowszej [narzędzia Stream Analytics Tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) , aby uzyskać pomoc techniczną dla programu MSBuild.
+Skorzystaj z wersji 2.3.0000.0 lub nowszej [narzędzia Stream Analytics Tools for Visual Studio](./stream-analytics-quick-create-vs.md) , aby uzyskać pomoc techniczną dla programu MSBuild.
 
 Dostępny jest pakiet NuGet: [Microsoft. Azure. Stream Analytics. CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Zapewnia ona narzędzia programu MSBuild, uruchomienia lokalnego i wdrażania, które obsługują proces ciągłej integracji i wdrażania [Stream Analytics projektów programu Visual Studio](stream-analytics-vs-tools.md). 
 > [!NOTE]
 > Pakiet NuGet może być używany tylko z 2.3.0000.0 lub nowszą wersją narzędzi Stream Analytics Tools for Visual Studio. Jeśli masz projekty utworzone w poprzednich wersjach narzędzi Visual Studio, po prostu otwórz je przy użyciu wersji 2.3.0000.0 lub nowszej i Zapisz. Następnie nowe możliwości są włączone. 
 
-Aby uzyskać więcej informacji, zobacz [Stream Analytics Tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Aby uzyskać więcej informacji, zobacz [Stream Analytics Tools for Visual Studio](./stream-analytics-quick-create-vs.md).
 
 ## <a name="msbuild"></a>MSBuild
-Podobnie jak w przypadku standardowego środowiska MSBuild programu Visual Studio, w celu utworzenia projektu dostępne są dwie opcje. Możesz kliknąć prawym przyciskiem myszy projekt, a następnie wybrać polecenie **Kompiluj**. Można również użyć programu **MSBuild** w pakiecie NuGet z wiersza polecenia.
+Podobnie jak w przypadku standardowego środowiska MSBuild programu Visual Studio, w celu utworzenia projektu dostępne są dwie opcje. Możesz kliknąć prawym przyciskiem myszy projekt, a następnie wybrać polecenie **Kompiluj** . Można również użyć programu **MSBuild** w pakiecie NuGet z wiersza polecenia.
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 
@@ -52,7 +52,7 @@ Parametry domyślne w parameters.jsna pliku pochodzą z ustawień w projekcie pr
       "value": null
     },
 ```
-Dowiedz się więcej na temat sposobu [wdrażania przy użyciu pliku szablonu Menedżer zasobów i Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Dowiedz się więcej na temat [używania obiektu jako parametru w szablonie Menedżer zasobów](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Dowiedz się więcej na temat sposobu [wdrażania przy użyciu pliku szablonu Menedżer zasobów i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Dowiedz się więcej na temat [używania obiektu jako parametru w szablonie Menedżer zasobów](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 Aby użyć tożsamości zarządzanej dla Azure Data Lake Store Gen1 jako ujścia danych wyjściowych, musisz zapewnić dostęp do jednostki usługi przy użyciu programu PowerShell przed wdrożeniem na platformie Azure. Dowiedz się więcej na temat sposobu [wdrażania ADLS Gen1 z zarządzaną tożsamością przy użyciu szablonu Menedżer zasobów](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 
@@ -60,7 +60,7 @@ Aby użyć tożsamości zarządzanej dla Azure Data Lake Store Gen1 jako ujścia
 ## <a name="command-line-tool"></a>Narzędzie wiersza polecenia
 
 ### <a name="build-the-project"></a>Kompilowanie projektu
-Pakiet NuGet ma narzędzie wiersza polecenia o nazwie **SA.exe**. Obsługuje ona kompilację projektu i testowanie lokalne na dowolnym komputerze, którego można użyć w procesie ciągłej integracji i ciągłego dostarczania. 
+Pakiet NuGet ma narzędzie wiersza polecenia o nazwie **SA.exe** . Obsługuje ona kompilację projektu i testowanie lokalne na dowolnym komputerze, którego można użyć w procesie ciągłej integracji i ciągłego dostarczania. 
 
 Pliki wdrożenia są domyślnie umieszczane w bieżącym katalogu. Ścieżkę wyjściową można określić za pomocą następującego parametru-OutputPath:
 

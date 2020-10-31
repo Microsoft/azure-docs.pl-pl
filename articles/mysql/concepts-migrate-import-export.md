@@ -5,19 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/22/2020
-ms.openlocfilehash: 6d0a29d8ef8123eafd6a1616a24003c1e36e6e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: 1b4959cbf082a589c90034f48d597907c9b7e6cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905928"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128933"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrowanie bazy danych MySQL przy użyciu funkcji importowania i eksportowania
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 W tym artykule opisano dwa typowe podejścia do importowania i eksportowania danych na serwer Azure Database for MySQL przy użyciu programu MySQL Workbench.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+Można także zapoznać się z [przewodnikiem dotyczącym migracji bazy danych](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) , aby uzyskać szczegółowe informacje i przypadki użycia dotyczące migrowania baz danych do Azure Database for MySQL. Ten przewodnik zawiera wskazówki, które pozwolą na pomyślne planowanie i wykonywanie migracji programu MySQL na platformę Azure.
+
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 Aby krokowo poprowadzić ten przewodnik, musisz:
 - Serwer Azure Database for MySQL, wykonując następujące czynności: [Utwórz serwer Azure Database for MySQL przy użyciu Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md).
 - Nie można importować/eksportować programu [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) lub innego narzędzia MySQL innej firmy.
@@ -45,7 +47,7 @@ Użyj narzędzi MySQL do importowania i eksportowania baz danych do bazy danych 
 - Podczas migrowania danych z zewnętrznych źródeł danych innych niż baza danych MySQL Utwórz pliki proste i zaimportuj je za pomocą [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 > [!Important]
-> Zarówno jeden serwer, jak i elastyczny serwer obsługują **tylko aparat magazynu InnoDB**. Upewnij się, że wszystkie tabele w bazie danych korzystają z aparatu magazynu InnoDB podczas ładowania danych do Azure Database for MySQL.
+> Zarówno jeden serwer, jak i elastyczny serwer obsługują **tylko aparat magazynu InnoDB** . Upewnij się, że wszystkie tabele w bazie danych korzystają z aparatu magazynu InnoDB podczas ładowania danych do Azure Database for MySQL.
 > Jeśli źródłowa baza danych używa innego aparatu magazynu, przed migracją bazy danych przekonwertuj go na aparat InnoDB. Na przykład jeśli masz aplikację WordPress lub Web, która korzysta z aparatu MyISAM, najpierw przekonwertuj tabele przez Migrowanie danych do tabel InnoDB. Użyj klauzuli, `ENGINE=INNODB` Aby ustawić aparat do tworzenia tabeli, a następnie Przenieś dane do zgodnej tabeli przed migracją.
 
    ```sql
@@ -72,26 +74,26 @@ Istnieją dwa sposoby eksportowania i importowania danych w programie MySQL Work
 
 Kreatory dla danych tabeli obsługują operacje importowania i eksportowania przy użyciu plików CSV i JSON. Obejmują one kilka opcji konfiguracji, takich jak separatory, wybór kolumn i wybór kodowania. Każdy Kreator można wykonać względem lokalnego lub zdalnie połączonego serwera MySQL. Akcja Importuj obejmuje mapowanie tabeli, kolumny i typu.
 
-Aby uzyskać dostęp do tych kreatorów z menu kontekstowego przeglądarki obiektów, kliknij prawym przyciskiem myszy tabelę. Następnie wybierz **Kreatora eksportu danych tabeli** lub **Kreatora importu danych tabeli**.
+Aby uzyskać dostęp do tych kreatorów z menu kontekstowego przeglądarki obiektów, kliknij prawym przyciskiem myszy tabelę. Następnie wybierz **Kreatora eksportu danych tabeli** lub **Kreatora importu danych tabeli** .
 
 #### <a name="table-data-export-wizard"></a>Kreator eksportu danych tabeli
 Poniższy przykład eksportuje tabelę do pliku CSV:
 1. Kliknij prawym przyciskiem myszy tabelę bazy danych, która ma zostać wyeksportowana.
-2. Wybierz **Kreatora eksportu danych tabeli**. Wybierz kolumny, które mają zostać wyeksportowane, przesunięcie wierszy (jeśli istnieje) i liczbę (jeśli istnieje).
-3. Na stronie **Wybierz dane do eksportowania** kliknij przycisk **dalej**. Wybierz ścieżkę pliku, plik CSV lub typ pliku JSON. Należy również wybrać separator wierszy, metodę otaczających ciągów i separator pola.
-4. Na stronie **Wybierz lokalizację pliku wyjściowego** kliknij przycisk **dalej**.
-5. Na stronie **Eksportuj dane** kliknij przycisk **dalej**.
+2. Wybierz **Kreatora eksportu danych tabeli** . Wybierz kolumny, które mają zostać wyeksportowane, przesunięcie wierszy (jeśli istnieje) i liczbę (jeśli istnieje).
+3. Na stronie **Wybierz dane do eksportowania** kliknij przycisk **dalej** . Wybierz ścieżkę pliku, plik CSV lub typ pliku JSON. Należy również wybrać separator wierszy, metodę otaczających ciągów i separator pola.
+4. Na stronie **Wybierz lokalizację pliku wyjściowego** kliknij przycisk **dalej** .
+5. Na stronie **Eksportuj dane** kliknij przycisk **dalej** .
 
 #### <a name="table-data-import-wizard"></a>Kreator importu danych tabeli
 Poniższy przykład importuje tabelę z pliku CSV:
 1. Kliknij prawym przyciskiem myszy tabelę bazy danych do zaimportowania.
-2. Wyszukaj i wybierz plik CSV, który ma zostać zaimportowany, a następnie kliknij przycisk **dalej**.
-3. Wybierz tabelę docelową (nową lub istniejącą) i zaznacz lub wyczyść pole wyboru **Obetnij tabelę przed importem** . Kliknij przycisk **Dalej**.
-4. Wybierz opcję kodowanie i kolumny do zaimportowania, a następnie kliknij przycisk **dalej**.
-5. Na stronie **Importuj dane** kliknij przycisk **dalej**. Kreator importuje odpowiednie dane.
+2. Wyszukaj i wybierz plik CSV, który ma zostać zaimportowany, a następnie kliknij przycisk **dalej** .
+3. Wybierz tabelę docelową (nową lub istniejącą) i zaznacz lub wyczyść pole wyboru **Obetnij tabelę przed importem** . Kliknij przycisk **Dalej** .
+4. Wybierz opcję kodowanie i kolumny do zaimportowania, a następnie kliknij przycisk **dalej** .
+5. Na stronie **Importuj dane** kliknij przycisk **dalej** . Kreator importuje odpowiednie dane.
 
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>Kreatory eksportu i importu danych SQL z okienka Nawigator
-Użyj kreatora, aby wyeksportować lub zaimportować kod SQL wygenerowany z Workbench MySQL lub wygenerowany z polecenia mysqldump. Uzyskaj dostęp do tych kreatorów z okienka **Nawigator** lub wybierając opcję **serwer** z menu głównego. Następnie wybierz pozycję **eksport danych** lub **Import danych**.
+Użyj kreatora, aby wyeksportować lub zaimportować kod SQL wygenerowany z Workbench MySQL lub wygenerowany z polecenia mysqldump. Uzyskaj dostęp do tych kreatorów z okienka **Nawigator** lub wybierając opcję **serwer** z menu głównego. Następnie wybierz pozycję **eksport danych** lub **Import danych** .
 
 #### <a name="data-export"></a>Eksport danych
 :::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Znajdź informacje o połączeniu w Azure Portal":::
@@ -115,4 +117,4 @@ Karta **Importowanie danych** służy do importowania lub przywracania eksportow
 
 ## <a name="next-steps"></a>Następne kroki
 - Jako inne podejście migracji należy przeczytać temat [Migrowanie bazy danych MySQL przy użyciu zrzutów i przywracania w Azure Database for MySQL](concepts-migrate-dump-restore.md).
-- Aby uzyskać więcej informacji na temat migrowania baz danych do Azure Database for MySQL, zobacz [Przewodnik po migracji bazy danych](https://aka.ms/datamigration).
+- Aby uzyskać więcej informacji na temat migrowania baz danych do Azure Database for MySQL, zobacz [Przewodnik po migracji bazy danych](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).

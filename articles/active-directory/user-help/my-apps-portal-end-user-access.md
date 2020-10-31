@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: e54f153738d232eaddff8b0fc499a763581ca726
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 61dd185d00cef2382763e7435c081e1d412cdb92
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277425"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127880"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Logowanie i uruchamianie aplikacji z poziomu portalu My Apps
 
@@ -60,7 +60,7 @@ Jeśli masz uprawnienia do uzyskiwania dostępu do aplikacji opartych na chmurze
 
 ### <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Pobierz i zainstaluj rozszerzenie moje aplikacje bezpieczne logowanie
 
-Po wyświetleniu monitu Pobierz i zainstaluj **rozszerzenie moje aplikacje bezpieczne logowanie**. To rozszerzenie ułatwia używanie logowania jednokrotnego z aplikacjami w chmurze w Twojej organizacji przy użyciu przeglądarki klasycznej. Po prostu umieść kursor nad aplikacją w portalu **Moje aplikacje** , wybierz pozycję **...**, a następnie wybierz pozycję **Zarządzaj swoją aplikacją**.
+Po wyświetleniu monitu Pobierz i zainstaluj **rozszerzenie moje aplikacje bezpieczne logowanie** . To rozszerzenie ułatwia używanie logowania jednokrotnego z aplikacjami w chmurze w Twojej organizacji przy użyciu przeglądarki klasycznej. Po prostu umieść kursor nad aplikacją w portalu **Moje aplikacje** , wybierz pozycję **...** , a następnie wybierz pozycję **Zarządzaj swoją aplikacją** .
 
 Jeśli Twoja organizacja ma już skonfigurowane Logowanie jednokrotne, rozszerzenie jest instalowane automatycznie i można pominąć tę sekcję.
 
@@ -77,9 +77,9 @@ Pobierz i zainstaluj rozszerzenie, zależnie od używanej przeglądarki.
 
 - **Microsoft Edge** — w Microsoft Store przejdź do funkcji [Moje aplikacje bezpieczne logowanie](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) , a następnie wybierz pozycję **Pobierz** , aby pobrać rozszerzenie dla przeglądarki Microsoft Edge w starszej wersji.
 
-- **Google Chrome** — w sklepie internetowym dla programu Chrome przejdź do funkcji [Moje aplikacje bezpieczne logowanie](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) , a następnie wybierz pozycję **Dodaj do przeglądarki Chrome**.
+- **Google Chrome** — w sklepie internetowym dla programu Chrome przejdź do funkcji [Moje aplikacje bezpieczne logowanie](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) , a następnie wybierz pozycję **Dodaj do przeglądarki Chrome** .
 
-- **Mozilla Firefox** — na stronie **Dodatki** w programie Firefox przejdź do funkcji [Moje aplikacje bezpieczne logowanie](https://addons.mozilla.org/firefox/addon/access-panel-extension/) , a następnie wybierz pozycję **Dodaj do przeglądarki Firefox**.
+- **Mozilla Firefox** — na stronie **Dodatki** w programie Firefox przejdź do funkcji [Moje aplikacje bezpieczne logowanie](https://addons.mozilla.org/firefox/addon/access-panel-extension/) , a następnie wybierz pozycję **Dodaj do przeglądarki Firefox** .
 
 Po prawej stronie paska **adresu** zostanie dodana ikona umożliwiająca logowanie się i dostosowanie rozszerzenia.
 
@@ -87,9 +87,9 @@ Po prawej stronie paska **adresu** zostanie dodana ikona umożliwiająca logowan
 
 Możesz wybrać liczbę aplikacji, które mają być wyświetlane w **ostatnio używanej** sekcji, i zdecydować, czy zezwolić wewnętrznym adresom URL organizacji na przekierowywanie.
 
-1. Zaznacz ikonę nowe rozszerzenie **Moje aplikacje bezpieczne logowanie** ikona ![ rozszerzenia ](media/my-apps-portal/my-apps-portal-extension-icon.png) , po prawej stronie paska **adresu** , a następnie wybierz pozycję **Zaloguj się, aby rozpocząć**.
+1. Zaznacz ikonę nowe rozszerzenie **Moje aplikacje bezpieczne logowanie** ikona ![ rozszerzenia ](media/my-apps-portal/my-apps-portal-extension-icon.png) , po prawej stronie paska **adresu** , a następnie wybierz pozycję **Zaloguj się, aby rozpocząć** .
 
-1. Kliknij prawym przyciskiem myszy ikonę **Ustawienia ikona Ustawienia** ![ ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) , a następnie wybierz pozycję **Ustawienia**.
+1. Kliknij prawym przyciskiem myszy ikonę **Ustawienia ikona Ustawienia** ![ ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) , a następnie wybierz pozycję **Ustawienia** .
 
 1. W polu **Ustawienia** wybierz liczbę najnowszych aplikacji, które mają być widoczne w portalu, i zdecyduj, czy wewnętrzne adresy URL organizacji mają być przekierowywane, aby można było z nich korzystać zdalnie.
 
@@ -113,11 +113,11 @@ Wyświetlaj aplikacje organizacji i korzystaj z nich w wersji mobilnej przegląd
 
 Jeśli administrator udzielił Ci uprawnień, możesz dodać nową aplikację do strony **aplikacje** .
 
-1. Na stronie **aplikacje** wybierz opcję **Dodaj aplikacje samoobsługowe**.
+1. Na stronie **aplikacje** wybierz opcję **Dodaj aplikacje samoobsługowe** .
 
    ![Strona Dodawanie aplikacji w portalu Moje aplikacje w witrynie myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
 
-1. Wybierz aplikację, którą chcesz dodać z podanej listy, a następnie wybierz pozycję **Dodaj**.
+1. Wybierz aplikację, którą chcesz dodać z podanej listy, a następnie wybierz pozycję **Dodaj** .
 
 1. Aplikacja zostanie dodana do listy na stronie **aplikacje** .
 
@@ -151,7 +151,7 @@ Po przejściu do portalu **My Apps** możesz:
 
 Po przejściu do strony **aplikacje** możesz:
 
-- [Zmienianie informacji o profilu](my-apps-portal-end-user-update-profile.md)
+- [Zmienianie informacji o profilu](./my-account-portal-settings.md)
 
 - [Wyświetlanie i aktualizowanie informacji związanych z grupami](my-apps-portal-end-user-groups.md)
 

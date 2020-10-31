@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 10/19/2020
-ms.openlocfilehash: b927e90c60110d6922649b75b6549528a2a9a40f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284769"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129120"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Jak wygenerować identyfikator URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej
 
@@ -34,12 +34,12 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 
 ### <a name="using-tool-1-azure-storage-explorer"></a>Korzystanie z narzędzia 1: Eksplorator usługi Azure Storage
 
-1. Przejdź do **konta magazynu**.
-1. Otwórz **Eksplorator usługi Storage**.
+1. Przejdź do **konta magazynu** .
+1. Otwórz **Eksplorator usługi Storage** .
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Okno konta magazynu.":::
 
-3. W **kontenerze**kliknij prawym przyciskiem myszy plik VHD i wybierz pozycję **Pobierz sygnaturę dostępu do udziału**.
+3. W **kontenerze** kliknij prawym przyciskiem myszy plik VHD i wybierz pozycję **Pobierz sygnaturę dostępu do udziału** .
 4. W oknie dialogowym **sygnatura dostępu współdzielonego** wypełnij następujące pola:
 
     1. Czas rozpoczęcia — data rozpoczęcia uprawnienia dostępu do dysku VHD. Podaj datę, która jest dniem poprzedzającym bieżącą datę.
@@ -49,7 +49,7 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 
     ![Okno dialogowe sygnatura dostępu współdzielonego.](media/vm/create-sas-uri-storage-explorer.png)
 
-5. Aby utworzyć skojarzony identyfikator URI sygnatury dostępu współdzielonego dla tego wirtualnego dysku twardego, wybierz pozycję **Utwórz**.
+5. Aby utworzyć skojarzony identyfikator URI sygnatury dostępu współdzielonego dla tego wirtualnego dysku twardego, wybierz pozycję **Utwórz** .
 6. Skopiuj identyfikator URI i Zapisz go w pliku tekstowym w bezpiecznej lokalizacji. Ten wygenerowany identyfikator URI SAS dotyczy dostępu na poziomie kontenera. Aby wprowadzić właściwe informacje, edytuj plik tekstowy, aby dodać nazwę dysku VHD.
 7. Wstaw nazwę wirtualnego dysku twardego po ciągu VHD w identyfikatorze URI sygnatury dostępu współdzielonego (w tym ukośniku). Końcowy identyfikator URI sygnatury dostępu współdzielonego powinien wyglądać następująco:
 
@@ -59,7 +59,7 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 
 ### <a name="using-tool-2-azure-cli"></a>Korzystanie z narzędzia 2: interfejs wiersza polecenia platformy Azure
 
-1. Pobierz i zainstaluj [Microsoft Azure CL](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)i. Wersje są dostępne dla systemów Windows, macOS i różnych dystrybucje systemu Linux.
+1. Pobierz i zainstaluj [Microsoft Azure CL](/cli/azure/install-azure-cli)i. Wersje są dostępne dla systemów Windows, macOS i różnych dystrybucje systemu Linux.
 2. Utwórz plik programu PowerShell (rozszerzenie pliku ps1), Skopiuj poniższy kod, a następnie zapisz go lokalnie.
 
     ```JSON
@@ -81,8 +81,8 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 1. Zapisz zmiany.
 2. Korzystając z jednej z następujących metod, Uruchom ten skrypt z uprawnieniami administracyjnymi, aby utworzyć parametry połączenia sygnatury dostępu współdzielonego na poziomie kontenera:
 
-    - Uruchom skrypt z konsoli programu. W systemie Windows kliknij prawym przyciskiem myszy skrypt, a następnie wybierz polecenie **Uruchom jako administrator**.
-    - Uruchom skrypt z edytora skryptów programu PowerShell, takiego jak [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Ten ekran przedstawia tworzenie parametrów połączenia sygnatury dostępu współdzielonego w ramach tego edytora:
+    - Uruchom skrypt z konsoli programu. W systemie Windows kliknij prawym przyciskiem myszy skrypt, a następnie wybierz polecenie **Uruchom jako administrator** .
+    - Uruchom skrypt z edytora skryptów programu PowerShell, takiego jak [Windows PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Ten ekran przedstawia tworzenie parametrów połączenia sygnatury dostępu współdzielonego w ramach tego edytora:
 
     [![Tworzenie parametrów połączenia sygnatury dostępu współdzielonego w edytorze programu PowerShell](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 

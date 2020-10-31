@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 467b8506eb0cafc61731a69804c70b8080ab21c2
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 649abf6d07a95c7f20f6416f7d3155f8d115782b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042454"
+ms.locfileid: "93127573"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Przesyłaj strumieniowo dane jako dane wejściowe do Stream Analytics
 
@@ -38,7 +38,7 @@ Za pomocą [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Stud
 
 Usługa Azure Event Hubs udostępnia wysoce skalowalne inwestorów do publikowania i subskrybowania zdarzeń. Centrum zdarzeń może zbierać miliony zdarzeń na sekundę, dzięki czemu można przetwarzać i analizować ogromne ilości danych wytworzonych przez połączone urządzenia i aplikacje. Razem Event Hubs i Stream Analytics zapewniają kompleksowe rozwiązanie do analizy w czasie rzeczywistym. Event Hubs umożliwia podawanie zdarzeń na platformie Azure w czasie rzeczywistym, a zadania Stream Analytics mogą przetwarzać te zdarzenia w czasie rzeczywistym. Można na przykład wysyłać do Event Hubs kliknięcia sieci Web, odczyty czujników lub zdarzenia dziennika online. Następnie można utworzyć Stream Analytics zadania, aby użyć Event Hubs jako strumieni danych wejściowych dla filtrowania w czasie rzeczywistym, agregowania i korelacji.
 
-`EventEnqueuedUtcTime` to sygnatura czasowa przybycia zdarzenia w centrum zdarzeń i jest domyślną sygnaturą czasową zdarzeń pochodzących z Event Hubs do Stream Analytics. Aby przetworzyć dane jako strumień przy użyciu sygnatury czasowej w ładunku zdarzenia, należy użyć słowa kluczowego [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) .
+`EventEnqueuedUtcTime` to sygnatura czasowa przybycia zdarzenia w centrum zdarzeń i jest domyślną sygnaturą czasową zdarzeń pochodzących z Event Hubs do Stream Analytics. Aby przetworzyć dane jako strumień przy użyciu sygnatury czasowej w ładunku zdarzenia, należy użyć słowa kluczowego [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics) .
 
 ### <a name="event-hubs-consumer-groups"></a>Event Hubs grupy konsumentów
 
@@ -56,7 +56,7 @@ W poniższej tabeli opisano każdą właściwość na stronie **nowe dane wejśc
 | **Nazwa centrum zdarzeń** | Nazwa centrum zdarzeń do użycia jako dane wejściowe. |
 | **Nazwa zasad centrum zdarzeń** | Zasady dostępu współdzielonego zapewniające dostęp do centrum zdarzeń. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego dostarczania ustawień centrum zdarzeń.|
 | **Grupa odbiorców centrum zdarzeń** (zalecane) | Zdecydowanie zaleca się użycie odrębnej grupy odbiorców dla każdego zadania Stream Analytics. Ten ciąg identyfikuje grupę odbiorców, która ma być używana do pozyskiwania danych z centrum zdarzeń. Jeśli grupa odbiorców nie zostanie określona, zadanie Stream Analytics używa $Default grupy odbiorców.  |
-| **Klucz partycji** | Jest to pole opcjonalne, które jest dostępne tylko wtedy, gdy zadanie jest skonfigurowane do używania [poziomu zgodności](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 lub wyższego. Jeśli dane wejściowe są podzielone na partycje przez właściwość, można w tym miejscu dodać nazwę tej właściwości. Służy do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. Jeśli to zadanie używa poziomu zgodności 1,2 lub nowszego, to pole ma wartość domyślną "PartitionId". |
+| **Klucz partycji** | Jest to pole opcjonalne, które jest dostępne tylko wtedy, gdy zadanie jest skonfigurowane do używania [poziomu zgodności](./stream-analytics-compatibility-level.md) 1,2 lub wyższego. Jeśli dane wejściowe są podzielone na partycje przez właściwość, można w tym miejscu dodać nazwę tej właściwości. Służy do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. Jeśli to zadanie używa poziomu zgodności 1,2 lub nowszego, to pole ma wartość domyślną "PartitionId". |
 | **Format serializacji zdarzeń** | Format serializacji (JSON, CSV, Avro lub [inny (protobuf, XML, własny,...)](custom-deserializer.md)) przychodzącego strumienia danych.  Upewnij się, że format JSON jest wyrównany ze specyfikacją i nie zawiera wiodących wartości 0 dla liczb dziesiętnych. |
 | **Kodowanie** | UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
 | **Typ kompresji zdarzenia** | Typ kompresji używany do odczytywania przychodzącego strumienia danych, na przykład None (wartość domyślna), GZip lub Wklęśnięcie. |
@@ -80,14 +80,14 @@ FROM Input
 ```
 
 > [!NOTE]
-> W przypadku używania centrum zdarzeń jako punktu końcowego dla IoT Hub tras można uzyskać dostęp do metadanych IoT Hub przy użyciu [funkcji GetMetadataPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue).
+> W przypadku używania centrum zdarzeń jako punktu końcowego dla IoT Hub tras można uzyskać dostęp do metadanych IoT Hub przy użyciu [funkcji GetMetadataPropertyValue](/stream-analytics-query/getmetadatapropertyvalue).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Przesyłanie strumieniowe danych z IoT Hub
 
 IoT Hub platformy Azure to wysoce skalowalna usługa do obsługi zdarzeń publikowania/subskrybowania, zoptymalizowana pod kątem scenariuszy IoT.
 
-Domyślna sygnatura czasowa zdarzeń pochodzących z IoT Hub w Stream Analytics jest sygnaturą czasową, jaką zdarzenie dotarło do IoT Hub, czyli `EventEnqueuedUtcTime` . Aby przetworzyć dane jako strumień przy użyciu sygnatury czasowej w ładunku zdarzenia, należy użyć słowa kluczowego [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) .
+Domyślna sygnatura czasowa zdarzeń pochodzących z IoT Hub w Stream Analytics jest sygnaturą czasową, jaką zdarzenie dotarło do IoT Hub, czyli `EventEnqueuedUtcTime` . Aby przetworzyć dane jako strumień przy użyciu sygnatury czasowej w ładunku zdarzenia, należy użyć słowa kluczowego [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics) .
 
 ### <a name="iot-hub-consumer-groups"></a>Grupy konsumentów Centrum IoT Hub
 
@@ -106,7 +106,7 @@ W poniższej tabeli opisano każdą właściwość na stronie **nowe dane wejśc
 | **Nazwa zasad dostępu współdzielonego** | Zasady dostępu współdzielonego zapewniające dostęp do IoT Hub. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. |
 | **Klucz zasad dostępu współdzielonego** | Współużytkowany klucz dostępu używany do autoryzacji dostępu do IoT Hub.  Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego dostarczania ustawień Centrum IoT. |
 | **Grupa konsumentów** | Zdecydowanie zaleca się użycie innej grupy odbiorców dla każdego zadania Stream Analytics. Grupa konsumentów służy do pozyskiwania danych z IoT Hub. Stream Analytics używa grupy konsumentów $Default, chyba że określisz inaczej.  |
-| **Klucz partycji** | Jest to pole opcjonalne, które jest dostępne tylko wtedy, gdy zadanie jest skonfigurowane do używania [poziomu zgodności](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 lub wyższego. Jeśli dane wejściowe są podzielone na partycje przez właściwość, można w tym miejscu dodać nazwę tej właściwości. Służy do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. Jeśli to zadanie używa poziomu zgodności 1,2 lub nowszego, to pole ma wartość domyślną "PartitionId". |
+| **Klucz partycji** | Jest to pole opcjonalne, które jest dostępne tylko wtedy, gdy zadanie jest skonfigurowane do używania [poziomu zgodności](./stream-analytics-compatibility-level.md) 1,2 lub wyższego. Jeśli dane wejściowe są podzielone na partycje przez właściwość, można w tym miejscu dodać nazwę tej właściwości. Służy do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. Jeśli to zadanie używa poziomu zgodności 1,2 lub nowszego, to pole ma wartość domyślną "PartitionId". |
 | **Format serializacji zdarzeń** | Format serializacji (JSON, CSV, Avro lub [inny (protobuf, XML, własny,...)](custom-deserializer.md)) przychodzącego strumienia danych.  Upewnij się, że format JSON jest wyrównany ze specyfikacją i nie zawiera wiodących wartości 0 dla liczb dziesiętnych. |
 | **Kodowanie** | UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
 | **Typ kompresji zdarzenia** | Typ kompresji używany do odczytywania przychodzącego strumienia danych, na przykład None (wartość domyślna), GZip lub Wklęśnięcie. |
@@ -137,7 +137,7 @@ Jeśli obiekt BLOB zostanie przekazany do kontenera konta magazynu o godzinie 13
 
 Jeśli zadanie Azure Stream Analytics zostało uruchomione przy użyciu *teraz* o godzinie 13:00, a obiekt BLOB zostanie przekazany do kontenera konta magazynu o godzinie 13:01, Azure Stream Analytics pobierze obiekt BLOB. Sygnatura czasowa przypisana do każdego obiektu BLOB jest oparta wyłącznie na `BlobLastModifiedTime` . Folder, w którym znajduje się obiekt BLOB, nie ma związku z przypisaną sygnaturą czasową. Na przykład jeśli istnieje obiekt BLOB *2019/10-01/00/b1.txt* z `BlobLastModifiedTime` 2019-11-11, sygnatura czasowa przypisana do tego obiektu BLOB to 2019-11-11.
 
-Aby przetworzyć dane jako strumień przy użyciu sygnatury czasowej w ładunku zdarzenia, należy użyć słowa kluczowego [timestamp by](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) . Zadanie Stream Analytics pobiera dane z usługi Azure Blob Storage lub ADLS Gen2 dane wejściowe co sekundę, jeśli plik BLOB jest dostępny. Jeśli plik BLOB jest niedostępny, istnieje wykładnicza wycofywania z maksymalnym opóźnieniem wynoszącym 90 sekund.
+Aby przetworzyć dane jako strumień przy użyciu sygnatury czasowej w ładunku zdarzenia, należy użyć słowa kluczowego [timestamp by](/stream-analytics-query/stream-analytics-query-language-reference) . Zadanie Stream Analytics pobiera dane z usługi Azure Blob Storage lub ADLS Gen2 dane wejściowe co sekundę, jeśli plik BLOB jest dostępny. Jeśli plik BLOB jest niedostępny, istnieje wykładnicza wycofywania z maksymalnym opóźnieniem wynoszącym 90 sekund.
 
 Dane wejściowe w formacie CSV wymagają wiersza nagłówka, aby zdefiniować pola dla zestawu danych, a wszystkie pola wiersza nagłówka muszą być unikatowe.
 
@@ -157,10 +157,10 @@ W poniższej tabeli opisano każdą właściwość na stronie **nowe dane wejśc
 | **Konto magazynu** | Nazwa konta magazynu, w którym znajdują się pliki obiektów BLOB. |
 | **Klucz konta magazynu** | Klucz tajny skojarzony z kontem magazynu. Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego podania ustawień. |
 | **Kontener** | Kontenery zapewniają logiczne grupowanie dla obiektów BLOB. Możesz wybrać opcję **Użyj istniejącego** kontenera lub  **utworzyć nowy** , aby utworzyć nowy kontener.|
-| **Wzorzec ścieżki** (opcjonalnie) | Ścieżka pliku używana do lokalizowania obiektów BLOB w określonym kontenerze. Jeśli chcesz odczytywać obiekty blob z katalogu głównego kontenera, nie ustawiaj wzorca ścieżki. W ścieżce można określić jedno lub więcej wystąpień następujących trzech zmiennych: `{date}` , `{time}` , lub `{partition}`<br/><br/>Przykład 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Przykład 2: `cluster1/logs/{date}`<br/><br/>`*`Znak nie jest dozwoloną wartością dla prefiksu ścieżki. Dozwolone są tylko poprawne <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">znaki obiektów blob platformy Azure</a> . Nie dołączaj nazw kontenerów ani nazw plików. |
+| **Wzorzec ścieżki** (opcjonalnie) | Ścieżka pliku używana do lokalizowania obiektów BLOB w określonym kontenerze. Jeśli chcesz odczytywać obiekty blob z katalogu głównego kontenera, nie ustawiaj wzorca ścieżki. W ścieżce można określić jedno lub więcej wystąpień następujących trzech zmiennych: `{date}` , `{time}` , lub `{partition}`<br/><br/>Przykład 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Przykład 2: `cluster1/logs/{date}`<br/><br/>`*`Znak nie jest dozwoloną wartością dla prefiksu ścieżki. Dozwolone są tylko poprawne <a HREF="/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata">znaki obiektów blob platformy Azure</a> . Nie dołączaj nazw kontenerów ani nazw plików. |
 | **Format daty** (opcjonalnie) | Jeśli używasz zmiennej daty w ścieżce, format daty, w którym są zorganizowane pliki. Przykład: `YYYY/MM/DD` <br/><br/> Gdy dane wejściowe obiektu BLOB mają `{date}` lub `{time}` w swojej ścieżce, foldery są przeszukiwane w kolejności rosnącej.|
 | **Format czasu** (opcjonalnie) |  Jeśli używasz zmiennej czasowej w ścieżce, format czasu, w którym są zorganizowane pliki. Obecnie jedyną obsługiwaną wartością jest `HH` dla godzin. |
-| **Klucz partycji** | Jest to pole opcjonalne, które jest dostępne tylko wtedy, gdy zadanie jest skonfigurowane do używania [poziomu zgodności](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 lub wyższego. Jeśli dane wejściowe są podzielone na partycje przez właściwość, można w tym miejscu dodać nazwę tej właściwości. Służy do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. Jeśli to zadanie używa poziomu zgodności 1,2 lub nowszego, to pole ma wartość domyślną "PartitionId". |
+| **Klucz partycji** | Jest to pole opcjonalne, które jest dostępne tylko wtedy, gdy zadanie jest skonfigurowane do używania [poziomu zgodności](./stream-analytics-compatibility-level.md) 1,2 lub wyższego. Jeśli dane wejściowe są podzielone na partycje przez właściwość, można w tym miejscu dodać nazwę tej właściwości. Służy do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. Jeśli to zadanie używa poziomu zgodności 1,2 lub nowszego, to pole ma wartość domyślną "PartitionId". |
 | **Liczba partycji wejściowych** | To pole jest obecne tylko w przypadku, gdy w wzorcu ścieżki występuje {Partition}. Wartość tej właściwości jest liczbą całkowitą >= 1. W przypadku, gdy {Partition} pojawia się w właściwości, zostanie użyta liczba z zakresu od 0 do wartości tego pola-1. |
 | **Format serializacji zdarzeń** | Format serializacji (JSON, CSV, Avro lub [inny (protobuf, XML, własny,...)](custom-deserializer.md)) przychodzącego strumienia danych.  Upewnij się, że format JSON jest wyrównany ze specyfikacją i nie zawiera wiodących wartości 0 dla liczb dziesiętnych. |
 | **Kodowanie** | W przypadku woluminów CSV i JSON UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
@@ -194,5 +194,5 @@ FROM Input
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

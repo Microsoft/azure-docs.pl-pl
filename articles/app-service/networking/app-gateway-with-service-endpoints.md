@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 837a57ee6ce836fb781f5bf5d5362d7c56cba31e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746206"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127828"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Application Gateway integrację z punktami końcowymi usługi
 Istnieją trzy różnice App Service, które wymagają nieco innej konfiguracji integracji z usługą Azure Application Gateway. Różnice obejmują regularne App Service — nazywane również wieloma dzierżawcami, wewnętrznymi Load Balancer (ILB) App Service Environment (ASE) i zewnętrznym środowiskiem ASE. W tym artykule opisano sposób konfigurowania tego programu przy użyciu App Service (wiele dzierżawców) i omówienia zagadnień dotyczących ILB oraz zewnętrznego środowiska ASE.
@@ -27,7 +27,7 @@ Istnieją trzy różnice App Service, które wymagają nieco innej konfiguracji 
 ## <a name="integration-with-app-service-multi-tenant"></a>Integracja z usługą App Service (wiele dzierżawców)
 App Service (wiele dzierżawców) ma publiczny internetowy punkt końcowy. Za pomocą [punktów końcowych usługi](../../virtual-network/virtual-network-service-endpoints-overview.md) można zezwalać na ruch tylko z określonej podsieci w ramach usługi Azure Virtual Network i blokować wszystkie inne elementy. W poniższym scenariuszu ta funkcja zostanie użyta w celu upewnienia się, że wystąpienie App Service może odbierać tylko ruch z określonego wystąpienia Application Gateway.
 
-![Application Gateway integrację z usługą App Service](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+![Diagram przedstawia Internet przepływający do Application Gateway na platformie Azure Virtual Network i przepływający przez ikonę zapory do wystąpień aplikacji w App Service.](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
 
 Istnieją dwie części tej konfiguracji Oprócz tworzenia App Service i Application Gateway. Pierwsza część włącza punkty końcowe usługi w podsieci Virtual Network, w której wdrożono Application Gateway. Punkty końcowe usługi zapewniają, że cały ruch sieciowy opuszczający podsieć do App Service zostanie oznaczony określonym IDENTYFIKATORem podsieci. Druga część to ustawienie ograniczenia dostępu do określonej aplikacji sieci Web, aby upewnić się, że dozwolony jest tylko ruch oznaczony przy użyciu tego konkretnego identyfikatora podsieci. Można go skonfigurować przy użyciu różnych narzędzi w zależności od preferencji.
 
@@ -40,7 +40,7 @@ W przypadku Azure Portal należy wykonać cztery kroki, aby zainicjować i skonf
 
 Teraz możesz uzyskiwać dostęp do App Service za pośrednictwem Application Gateway, ale jeśli spróbujesz uzyskać bezpośrednio dostęp do App Service, należy otrzymać błąd HTTP 403 wskazujący, że witryna sieci Web jest zatrzymana.
 
-![Application Gateway integrację z usługą App Service](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![Zrzut ekranu przedstawia tekst błędu 403 — ta aplikacja sieci Web jest zatrzymana.](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Korzystanie z szablonu usługi Azure Resource Manager
 [Szablon wdrożenia Menedżer zasobów][template-app-gateway-app-service-complete] będzie inicjować cały scenariusz. Scenariusz składa się z wystąpienia App Service zablokowanego za pomocą punktów końcowych usługi i ograniczenia dostępu, aby odbierać tylko ruch z Application Gateway. Szablon zawiera wiele inteligentnych ustawień domyślnych i unikatowych przyrostków dodawanych do nazw zasobów, które mają być proste. Aby je zastąpić, należy sklonować repozytorium lub pobrać szablon i edytować go. 

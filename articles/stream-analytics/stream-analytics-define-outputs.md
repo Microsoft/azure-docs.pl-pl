@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/2/2020
-ms.openlocfilehash: 95607b78ff80566b76b8e6aa20462957249015b4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fdd610be1dd7c5fe9c7aa574fde33df866116dd2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097655"
+ms.locfileid: "93128838"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Dane wyjściowe z Azure Stream Analytics
 
-Zadanie Azure Stream Analytics składa się z danych wejściowych, zapytań i danych wyjściowych. Istnieje kilka typów danych wyjściowych, do których można wysłać przekształcone dane. W tym artykule wymieniono obsługiwane Stream Analytics dane wyjściowe. Podczas projektowania zapytania o Stream Analytics należy odwołać się do nazwy danych wyjściowych za pomocą [klauzuli into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Można użyć jednego danych wyjściowych na zadanie lub wielu wyjść na zadanie przesyłania strumieniowego (jeśli są potrzebne) przez dodanie wielu klauzul INTO do zapytania.
+Zadanie Azure Stream Analytics składa się z danych wejściowych, zapytań i danych wyjściowych. Istnieje kilka typów danych wyjściowych, do których można wysłać przekształcone dane. W tym artykule wymieniono obsługiwane Stream Analytics dane wyjściowe. Podczas projektowania zapytania o Stream Analytics należy odwołać się do nazwy danych wyjściowych za pomocą [klauzuli into](/stream-analytics-query/into-azure-stream-analytics). Można użyć jednego danych wyjściowych na zadanie lub wielu wyjść na zadanie przesyłania strumieniowego (jeśli są potrzebne) przez dodanie wielu klauzul INTO do zapytania.
 
-Aby tworzyć, edytować i testować Stream Analytics dane wyjściowe zadań, możesz użyć [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [interfejsu API platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), interfejsu API [rest](https://docs.microsoft.com/rest/api/streamanalytics/)i [programu Visual Studio](stream-analytics-quick-create-vs.md).
+Aby tworzyć, edytować i testować Stream Analytics dane wyjściowe zadań, możesz użyć [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [interfejsu API platformy .NET](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), interfejsu API [rest](/rest/api/streamanalytics/)i [programu Visual Studio](stream-analytics-quick-create-vs.md).
 
 Niektóre typy danych wyjściowych obsługują [partycjonowanie](#partitioning), a [wyjściowe rozmiary partii](#output-batch-size) różnią się w celu zoptymalizowania przepływności. W poniższej tabeli przedstawiono funkcje, które są obsługiwane dla każdego typu danych wyjściowych:
 
@@ -41,7 +41,7 @@ Niektóre typy danych wyjściowych obsługują [partycjonowanie](#partitioning),
 
 Stream Analytics obsługuje partycje dla wszystkich danych wyjściowych z wyjątkiem Power BI. Aby uzyskać więcej informacji o kluczach partycji i liczbie modułów zapisywania danych wyjściowych, zobacz artykuł dotyczący określonego typu danych wyjściowych. Wszystkie artykuły wyjściowe są połączone w poprzedniej sekcji.  
 
-Ponadto w celu zapewnienia bardziej zaawansowanego dostrajania partycji liczba modułów zapisywania danych wyjściowych może być kontrolowana za pomocą `INTO <partition count>` klauzuli (patrz [do](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) w zapytaniu, co może być przydatne w osiągnięciu odpowiedniej topologii zadań. Jeśli karta wyjściowa nie zostanie podzielona na partycje, Brak danych w jednej partycji wejściowej powoduje opóźnienie do późnego przybycia czasu. W takich przypadkach dane wyjściowe są scalane z pojedynczym składnikiem zapisywania, co może powodować wąskie gardła w potoku. Aby dowiedzieć się więcej na temat zasad późnego przybycia, zobacz temat [Azure Stream Analytics uwagi dotyczące kolejności zdarzeń](stream-analytics-out-of-order-and-late-events.md).
+Ponadto w celu zapewnienia bardziej zaawansowanego dostrajania partycji liczba modułów zapisywania danych wyjściowych może być kontrolowana za pomocą `INTO <partition count>` klauzuli (patrz [do](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) w zapytaniu, co może być przydatne w osiągnięciu odpowiedniej topologii zadań. Jeśli karta wyjściowa nie zostanie podzielona na partycje, Brak danych w jednej partycji wejściowej powoduje opóźnienie do późnego przybycia czasu. W takich przypadkach dane wyjściowe są scalane z pojedynczym składnikiem zapisywania, co może powodować wąskie gardła w potoku. Aby dowiedzieć się więcej na temat zasad późnego przybycia, zobacz temat [Azure Stream Analytics uwagi dotyczące kolejności zdarzeń](./stream-analytics-time-handling.md).
 
 ## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
 
@@ -91,5 +91,5 @@ Te właściwości okna wsadowego są obsługiwane tylko przez interfejs API w we
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

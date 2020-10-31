@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: ca5bdf606b51b4019bd9e655d172733074febd39
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: bd5e05f38d34199d9012c52ca3fdad33af231aad
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077997"
+ms.locfileid: "93127989"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Szybki Start: tworzenie pamięci podręcznej warstwy przedsiębiorstwa (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Przed rozpoczęciem musisz mieć subskrypcję platformy Azure. Jeśli go nie mas
 
 1. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis** .
    
-   ![Wybieranie usługi Azure cache for Redis](media/cache-create/new-cache-menu.png)
+   :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Wybieranie usługi Azure cache for Redis":::
    
 1. Na stronie **nowy Redis Cache** Skonfiguruj ustawienia dla nowej pamięci podręcznej.
    
@@ -41,10 +41,7 @@ Przed rozpoczęciem musisz mieć subskrypcję platformy Azure. Jeśli go nie mas
    | **Lokalizacja** | Lista rozwijana i wybierz lokalizację. | Warstwy przedsiębiorstwa są dostępne w ograniczonych regionach świadczenia usługi Azure w wersji zapoznawczej. |
    | **Typ pamięci podręcznej** | Lista rozwijana i wybierz warstwę *Enterprise* lub *Enterprise Flash* i rozmiar. |  Warstwa określa rozmiar, wydajność i funkcje, które są dostępne dla pamięci podręcznej. |
    
-   ![Podstawowe informacje o warstwie korporacyjnej](media/cache-create/enterprise-tier-basics.png) 
-
-   > [!NOTE] 
-   > Pamiętaj, aby zaznaczyć pole wyboru "warunki" przed kontynuowaniem.
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Wybieranie usługi Azure cache for Redis" przed kontynuowaniem.
    >
 
 1. Wybierz pozycję **Dalej: sieci** i Pomiń.
@@ -53,11 +50,11 @@ Przed rozpoczęciem musisz mieć subskrypcję platformy Azure. Jeśli go nie mas
    > Opcja Link prywatny jest pobierana i może nie być dostępna natychmiast w Twoim regionie.
    >
 
-1. Wybierz pozycję **Dalej: Zaawansowane** .
+1. Wybierz pozycję **Dalej: Zaawansowane** i ustaw **zasady klastrowania** dla **przedsiębiorstwa** .
    
    Można zachować ustawienia domyślne lub zmienić je odpowiednio do potrzeb. Włączenie opcji **Zezwalaj na dostęp tylko za pośrednictwem protokołu TLS** wymaga użycia protokołu TLS w celu uzyskania dostępu do nowej pamięci podręcznej z poziomu aplikacji.
 
-   ![Warstwa przedsiębiorstwa — zaawansowane](media/cache-create/enterprise-tier-advanced.png) 
+   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Wybieranie usługi Azure cache for Redis":::
 
    > [!NOTE] 
    > Moduły Redis nie są jeszcze obsługiwane w warstwie programu Enterprise Flash. Jeśli planujesz użycie modułu Redis, pamiętaj o wybraniu pamięci podręcznej warstwy przedsiębiorstwa.
@@ -67,7 +64,7 @@ Przed rozpoczęciem musisz mieć subskrypcję platformy Azure. Jeśli go nie mas
 
 1. Wybierz pozycję **Dalej: Przeglądanie i tworzenie** .
 
-   ![Podsumowanie warstwy przedsiębiorstwa](media/cache-create/enterprise-tier-summary.png) 
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Wybieranie usługi Azure cache for Redis":::
 
 1. Przejrzyj ustawienia i kliknij przycisk **Utwórz** .
    

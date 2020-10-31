@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 78a81a2d392363ac45979fd28138f838653a2358
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84e1508dec4d4a5802f7a2ac8c0e6ada5a8044c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380972"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128695"
 ---
 # <a name="how-to-add-technical-details-for-your-saas-offer"></a>Jak dodać szczegóły techniczne dla oferty SaaS
 
@@ -38,7 +38,7 @@ Na karcie **konfiguracja techniczna** określisz szczegóły techniczne używane
 
 - **Azure Active Directory identyfikator dzierżawy** (wymagane) — aby znaleźć identyfikator dzierżawy dla aplikacji Azure Active Directory (Azure AD), przejdź do bloku [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Active Directory. W kolumnie **Nazwa wyświetlana** wybierz aplikację. Następnie poszukaj podanego numeru **identyfikatora dzierżawy** (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Azure Active Directory identyfikator aplikacji** (wymagane) — aby znaleźć [Identyfikator aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), przejdź do bloku [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Active Directory. W kolumnie **Nazwa wyświetlana** wybierz aplikację. Następnie wyszukaj numer IDENTYFIKACYJNy aplikacji (klienta) na liście (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Azure Active Directory identyfikator aplikacji** (wymagane) — aby znaleźć [Identyfikator aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), przejdź do bloku [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Active Directory. W kolumnie **Nazwa wyświetlana** wybierz aplikację. Następnie wyszukaj numer IDENTYFIKACYJNy aplikacji (klienta) na liście (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
 
 Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej karty: przegląd planu.
 
