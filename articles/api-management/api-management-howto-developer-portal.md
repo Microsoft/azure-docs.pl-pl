@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 30a6a73768db7b073258487435ddbe6c0daccf16
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317819"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074801"
 ---
 # <a name="overview-of-the-developer-portal"></a>Omówienie portalu dla deweloperów
 
@@ -62,7 +62,7 @@ Po pierwszym uruchomieniu wersji zapoznawczej portalu dla deweloperów udostępn
 
 Jeśli masz mocno dostosowany Portal w oparciu o wersję zapoznawczą zawartości, możesz nadal używać jej jako i ręcznie umieszczać nowe widżety na stronach portalu. W przeciwnym razie zalecamy zastąpienie zawartości portalu nową domyślną zawartością.
 
-Aby zresetować zawartość w portalu zarządzanym, wybierz pozycję **Zresetuj zawartość** w sekcji menu **operacje** . Ta operacja spowoduje usunięcie całej zawartości portalu i udostępnienie nowej zawartości domyślnej. Wszystkie dostosowania i zmiany w portalu deweloperów zostaną utracone. **Tej akcji nie można cofnąć**.
+Aby zresetować zawartość w portalu zarządzanym, wybierz pozycję **Zresetuj zawartość** w sekcji menu **operacje** . Ta operacja spowoduje usunięcie całej zawartości portalu i udostępnienie nowej zawartości domyślnej. Wszystkie dostosowania i zmiany w portalu deweloperów zostaną utracone. **Tej akcji nie można cofnąć** .
 
 ![Resetuj zawartość portalu](media/api-management-howto-developer-portal/reset-content.png)
 
@@ -126,7 +126,7 @@ Konsola interaktywna wykonuje żądanie interfejsu API po stronie klienta z prze
 
 Stan zasad CORS można sprawdzić w sekcji **Omówienie portalu** usługi API Management w Azure Portal. Okno ostrzeżenia wskazuje nieobecne lub nieprawidłowo skonfigurowane zasady.
 
-![Portal dla deweloperów API Management](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![Zrzut ekranu pokazujący, gdzie można sprawdzić stan zasad CORS.](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
 Automatyczne stosowanie zasad CORS przez kliknięcie przycisku **Włącz CORS** .
 

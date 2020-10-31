@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 3f787840422e61d6f43081d991ffc3ef28da6976
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a25cd2c0a9205dc184640e95f122c770b29cf24a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486535"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073251"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Uwierzytelnianie oparte na certyfikatach dla tożsamości usługi Azure AD w celu uzyskiwania dostępu do kluczy z konta Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Uwierzytelnianie oparte na certyfikatach umożliwia uwierzytelnienie aplikacji klienckiej przy użyciu usługi Azure Active Directory (Azure AD) z certyfikatem klienta. Uwierzytelnianie oparte na certyfikatach można wykonywać na maszynie, na której jest potrzebna tożsamość, np. maszynie lokalnej lub maszynie wirtualnej na platformie Azure. Aplikacja może następnie odczytać klucze Azure Cosmos DB bez podawania kluczy bezpośrednio w aplikacji. W tym artykule opisano sposób tworzenia przykładowej aplikacji usługi Azure AD, konfigurowania jej na potrzeby uwierzytelniania opartego na certyfikatach, logowania się do platformy Azure przy użyciu nowej tożsamości aplikacji, a następnie pobierania kluczy z konta usługi Azure Cosmos. W tym artykule Azure PowerShell skonfigurować tożsamości i przedstawiono przykładową aplikację w języku C#, która uwierzytelnia i uzyskuje dostęp do kluczy z konta usługi Azure Cosmos.  
 
@@ -30,7 +31,7 @@ W tym kroku zostanie zarejestrowana Przykładowa aplikacja sieci Web na koncie u
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Otwórz okienko **Active Directory** platformy Azure, przejdź do okienka **rejestracje aplikacji** i wybierz pozycję **Nowa rejestracja**. 
+1. Otwórz okienko **Active Directory** platformy Azure, przejdź do okienka **rejestracje aplikacji** i wybierz pozycję **Nowa rejestracja** . 
 
    :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="Rejestracja nowej aplikacji w Active Directory":::
 
@@ -44,7 +45,7 @@ W tym kroku zostanie zarejestrowana Przykładowa aplikacja sieci Web na koncie u
 
 1. Po wypełnieniu formularza wybierz pozycję **zarejestruj** .
 
-1. Po zarejestrowaniu aplikacji Zanotuj **Identyfikator aplikacji (klienta)** i **Identyfikator obiektu**, które będą używane w następnych krokach. 
+1. Po zarejestrowaniu aplikacji Zanotuj **Identyfikator aplikacji (klienta)** i **Identyfikator obiektu** , które będą używane w następnych krokach. 
 
    :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Rejestracja nowej aplikacji w Active Directory":::
 
@@ -107,7 +108,7 @@ Powyższe polecenie spowoduje wyniki podobne do poniższego zrzutu ekranu:
 
 1. Przejdź do swojego konta usługi Azure Cosmos, Otwórz blok **Kontrola dostępu (IAM)** .
 
-1. Wybierz pozycję **Dodaj** i **Dodaj przypisanie roli**. Dodaj sampleApp utworzone w poprzednim kroku z rolą **współautor** , jak pokazano na poniższym zrzucie ekranu:
+1. Wybierz pozycję **Dodaj** i **Dodaj przypisanie roli** . Dodaj sampleApp utworzone w poprzednim kroku z rolą **współautor** , jak pokazano na poniższym zrzucie ekranu:
 
    :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Rejestracja nowej aplikacji w Active Directory":::
 
@@ -123,9 +124,9 @@ W usłudze Azure App Registration dla aplikacji klienckiej:
 
 1. Otwórz okienko **Active Directory** platformy Azure, przejdź do okienka **rejestracje aplikacji** i Otwórz przykładową aplikację utworzoną w poprzednim kroku. 
 
-1. Wybierz pozycję **certyfikaty & wpisy tajne** , a następnie **Przekaż certyfikat**. Przejrzyj plik certyfikatu, który został utworzony w poprzednim kroku do przekazania.
+1. Wybierz pozycję **certyfikaty & wpisy tajne** , a następnie **Przekaż certyfikat** . Przejrzyj plik certyfikatu, który został utworzony w poprzednim kroku do przekazania.
 
-1. Wybierz pozycję **Dodaj**. Po przekazaniu certyfikatu zostaną wyświetlone wartości odcisku palca, Data rozpoczęcia i wygaśnięcie.
+1. Wybierz pozycję **Dodaj** . Po przekazaniu certyfikatu zostaną wyświetlone wartości odcisku palca, Data rozpoczęcia i wygaśnięcie.
 
 ## <a name="access-the-keys-from-powershell"></a>Uzyskiwanie dostępu do kluczy z programu PowerShell
 

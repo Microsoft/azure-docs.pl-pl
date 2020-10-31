@@ -4,12 +4,12 @@ description: Konfigurowanie testów sieci Web w usłudze Application Insights. O
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56644a4eb2f91dcce3bc2ee557542da75408ca83
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986036"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075147"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorowanie dostępności dowolnej witryny sieci Web
 
@@ -37,28 +37,28 @@ W Azure Portal wybierz pozycję **Utwórz zasób**  >  **Narzędzia deweloperski
 
 Nazwa "test ping adresu URL" jest bitem elementu Misnomer. Aby można było wyczyścić Ten test, nie jest możliwe użycie protokołu ICMP (Internet Control Message Protocol) do sprawdzenia dostępności witryny. Zamiast tego używa bardziej zaawansowanych funkcji żądania HTTP, aby sprawdzić, czy punkt końcowy odpowiada. Mierzy również wydajność skojarzoną z tą odpowiedzią i dodaje możliwość ustawienia niestandardowych kryteriów sukcesu, które są połączone z bardziej zaawansowanymi funkcjami, takimi jak analizowanie żądań zależnych i Zezwalanie na ponowne próby.
 
-Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i wybierz pozycję **Utwórz test**.
+Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i wybierz pozycję **Utwórz test** .
 
 ![Podaj przynajmniej adres URL swojej witryny sieci Web](./media/monitor-web-app-availability/availability-create-test-001.png)
 
 ### <a name="create-a-test"></a>Tworzenie testu
 
-|Ustawienie| Objaśnienie
+|Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Adres URL** |  Adres URL może odnosić się do dowolnej strony sieci Web, którą chcesz przetestować, ale musi być widoczny w publicznym Internecie. Adres URL może zawierać ciąg zapytania. Możesz więc np. szybko sprawdzić działanie bazy danych. Jeśli adres URL jest rozpoznawany jako przekierowanie, zostanie prześledzonych maksymalnie 10 przekierowań.|
 |**Analizuj zależne żądania**| Testuje obrazy, skrypty, pliki stylów i inne pliki, które są częścią strony sieci Web w teście. Rejestrowany czas odpowiedzi obejmuje czas poświęcony na pobieranie tych plików. Test kończy się niepowodzeniem, jeśli nie można pomyślnie pobrać któregokolwiek z tych zasobów w ramach limitu czasu dla całego testu. Jeśli pole opcji nie zostanie zaznaczone, test zażąda tylko pliku pod podanym adresem URL. Włączenie tej opcji skutkuje dokładniejszym sprawdzeniem. Test może zakończyć się niepowodzeniem, co może nie być zauważalne podczas ręcznego przeglądania witryny.
-|**Włącz ponawianie prób**|gdy test zakończy się niepowodzeniem, zostanie ponowiony po krótkim czasie. Błąd jest zgłaszany dopiero wtedy, gdy trzy kolejne próby się nie powiodą. Kolejne testy są następnie wykonywane ze zwykłą częstotliwością. Ponawianie prób jest tymczasowo wstrzymane do czasu następnego sukcesu. Ta reguła jest stosowana niezależnie w każdej lokalizacji testu. **Zalecamy korzystanie z tej opcji**. Średnio około 80% błędów znika po ponowieniu testu.|
+|**Włącz ponawianie prób**|gdy test zakończy się niepowodzeniem, zostanie ponowiony po krótkim czasie. Błąd jest zgłaszany dopiero wtedy, gdy trzy kolejne próby się nie powiodą. Kolejne testy są następnie wykonywane ze zwykłą częstotliwością. Ponawianie prób jest tymczasowo wstrzymane do czasu następnego sukcesu. Ta reguła jest stosowana niezależnie w każdej lokalizacji testu. **Zalecamy korzystanie z tej opcji** . Średnio około 80% błędów znika po ponowieniu testu.|
 |**Częstotliwość testów**| Ustawia częstotliwość uruchamiania testu z każdej lokalizacji testowej. Przy domyślnej częstotliwości równej 5 minut i 5 lokalizacjach testu witryna będzie testowana średnio co minutę.|
 |**Lokalizacje testów**| Są miejsca, w których serwery wysyłają żądania sieci Web do adresu URL. **Minimalna liczba zalecanych lokalizacji testowych to pięć** , aby upewnić się, że problemy w witrynie sieci Web można odróżnić od problemów z siecią. Wybrać można maksymalnie 16 lokalizacji.
 
-**Jeśli Twój adres URL nie jest widoczny w publicznej sieci Internet, możesz wybrać opcję selektywnego otwierania zapory, aby zezwalać tylko na transakcje testowe za pośrednictwem programu**. Aby dowiedzieć się więcej o wyjątkach zapory dla naszych agentów testów dostępności, zapoznaj się z [przewodnikiem po adresie IP](./ip-addresses.md#availability-tests).
+**Jeśli Twój adres URL nie jest widoczny w publicznej sieci Internet, możesz wybrać opcję selektywnego otwierania zapory, aby zezwalać tylko na transakcje testowe za pośrednictwem programu** . Aby dowiedzieć się więcej o wyjątkach zapory dla naszych agentów testów dostępności, zapoznaj się z [przewodnikiem po adresie IP](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
-> Zdecydowanie zalecamy testowanie z wielu lokalizacji z **co najmniej pięcioma lokalizacjami**. Ma to na celu uniknięcie fałszywych alarmów, które mogą powodować przejściowe problemy z określoną lokalizacją. Ponadto firma Microsoft ustaliła, że optymalna konfiguracja ma mieć **liczbę lokalizacji testowych równą progowi lokalizacji alertu + 2**.
+> Zdecydowanie zalecamy testowanie z wielu lokalizacji z **co najmniej pięcioma lokalizacjami** . Ma to na celu uniknięcie fałszywych alarmów, które mogą powodować przejściowe problemy z określoną lokalizacją. Ponadto firma Microsoft ustaliła, że optymalna konfiguracja ma mieć **liczbę lokalizacji testowych równą progowi lokalizacji alertu + 2** .
 
 ### <a name="success-criteria"></a>Kryteria sukcesu
 
-|Ustawienie| Objaśnienie
+|Ustawienie| Wyjaśnienie
 |----|----|----|
 | **Limit czasu testu** |Zmniejsz tę wartość, aby otrzymywać alerty o powolnych odpowiedziach. Test jest uznawany za błąd, jeśli w tym okresie nie odebrano odpowiedzi z witryny. W przypadku wybrania opcji **Analizuj zależne żądania** wszystkie obrazy, pliki stylów, skrypty i inne zasoby zależne muszą zostać odebrane w tym okresie.|
 | **Odpowiedź HTTP** | Zwrócony kod stanu, który jest liczony jako powodzenie. Kod 200 oznacza, że została zwrócona normalna strona sieci Web.|
@@ -66,11 +66,60 @@ Aby utworzyć pierwsze żądanie dostępności, Otwórz okienko dostępność i 
 
 ### <a name="alerts"></a>Alerty
 
-|Ustawienie| Objaśnienie
+|Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
-|**Motyw** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
+|**Klasyczny** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
 |**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między progiem lokalizacji alertu a liczbą lokalizacji testowych to liczba lokalizacji testu w **lokalizacji alertów**  =  **-2 z co najmniej pięcioma lokalizacjami testów.**|
+
+### <a name="location-population-tags"></a>Tagi populacji lokalizacji
+
+Poniższe Tagi populacji mogą być używane dla atrybutu lokalizacji geograficznej podczas wdrażania testu ping adresu URL dostępności przy użyciu Azure Resource Manager.
+
+#### <a name="azure-gov"></a>Azure gov
+
+| Nazwa wyświetlana   | Nazwa populacji     |
+|----------------|---------------------|
+| USGov Wirginia | USGov-VA-AZR        |
+| USGov Arizona  | USGov-PHX-AZR       |
+| USGov Teksas    | USGov-TX-AZR        |
+| USDoD wschód     | USGov-ddeast-AZR    |
+| USDoD środkowe  | USGov-ddcentral-AZR |
+
+#### <a name="us-sec"></a>US s
+
+| Nazwa wyświetlana | Nazwa populacji |
+|--------------|-----------------|
+| USSec zachodni   | ussec-zachodni — AZR  |
+| USSec wschód   | ussec-wschód-AZR  |
+
+#### <a name="us-nat"></a>US NAT
+
+| Nazwa wyświetlana | Nazwa populacji |
+|--------------|-----------------|
+| USNat wschód   | usnat-wschód-AZR  |
+| USNat zachodni   | usnat-zachodni — AZR  |
+
+#### <a name="azure"></a>Azure
+
+| Nazwa wyświetlana                           | Nazwa populacji   |
+|----------------------------------------|-------------------|
+| Australia Wschodnia                         | EMEA-au-SYD-Edge  |
+| Brazil South                           | Latam-br-gru-Edge |
+| Środkowe stany USA                             | US-FL-Mia-Edge    |
+| Azja Wschodnia                              | Azja i Pacyfik-HK-HKN-AZR   |
+| East US                                | US-VA-Ash-AZR     |
+| Francja Południowa (dawniej Francja Środkowa) | EMEA-ch-ZRH-Edge  |
+| Francja Środkowa                         | EMEA — fr-pra-Edge  |
+| Japan East                             | Azja i Pacyfik-JP-kaw-Edge  |
+| Europa Północna                           | EMEA-GB-DB3-AZR   |
+| Północno-środkowe stany USA                       | US-Il-CH1-AZR     |
+| South Central US                       | US-TX-SN1-AZR     |
+| Southeast Asia                         | Azja i Pacyfik-SG-Sin-AZR   |
+| Zachodnie Zjednoczone Królestwo                                | EMEA — SE-konie-Edge  |
+| West Europe                            | EMEA-NL-AMS-AZR   |
+| Zachodnie stany USA                                | US-CA-SJC-AZR     |
+| Południowe Zjednoczone Królestwo                               | EMEA-ru-MSA — brzeg  |
 
 ## <a name="see-your-availability-test-results"></a>Wyświetlanie wyników testów dostępności
 
@@ -118,7 +167,7 @@ Oprócz nieprzetworzonych wyników można także wyświetlić dwie metryki dost�
 1. Dostępność: procent testów, które zostały pomyślnie zakończone, dla wszystkich wykonań testów.
 2. Czas trwania testu: średni czas trwania testu dla wszystkich wykonań testów.
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 * Automatyczne [konfigurowanie testów dostępności za pomocą skryptów środowiska PowerShell](./powershell.md#add-an-availability-test).
 * Konfigurowanie [elementu webhook](../platform/alerts-webhooks.md) który jest wywoływany przy zgłaszaniu alertu.

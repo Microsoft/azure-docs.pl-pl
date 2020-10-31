@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: 4f5e88e7201c4097e2f8d654b8780ea12816b15d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c7d47b0bb167b3211b3859a47b0c8e11876b1614
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485107"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075405"
 ---
 # <a name="linq-to-sql-translation"></a>Tłumaczenie składni LINQ na język SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Dostawca zapytań Azure Cosmos DB wykonuje Mapowanie najlepszego nakładu pracy z zapytania LINQ do Cosmos DB zapytania SQL. Jeśli chcesz uzyskać zapytanie SQL tłumaczone z LINQ, użyj `ToString()` metody dla wygenerowanego `IQueryable` obiektu. W poniższym opisie założono podstawową znajomość programu [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
@@ -79,19 +80,19 @@ using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
 
 Dostawca LINQ zawarty w zestawie SDK programu SQL .NET obsługuje następujące operatory:
 
-- **Wybierz**: projekcje przekładają się na [wybór](sql-query-select.md), w tym Konstruowanie obiektu.
-- **Gdzie**: filtry przekładają się na [miejsce](sql-query-where.md)i obsługa tłumaczenia między `&&` , `||` i `!` do operatorów SQL
-- **SelectMany**: umożliwia rozwinięcia tablic do klauzuli [Join](sql-query-join.md) . Użyj do łańcucha lub zagnieżdżania wyrażeń do filtrowania elementów tablicy.
-- **OrderBy** i **OrderByDescending**: Przekształć do [order by](sql-query-order-by.md) przy użyciu ASC lub DESC.
-- Operatory **Count**, **sum**, **min**, **Max**i **Average** dla [agregacji](sql-query-aggregates.md)oraz ich równoważne **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**i **AverageAsync**.
-- **CompareTo**: operator tłumaczony na porównania zakresu. Często używane dla ciągów, ponieważ nie są one porównywalne w programie .NET.
-- **Pomiń** i **Zrób**: tłumaczy, aby [przesunięto i ograniczyć ograniczenie](sql-query-offset-limit.md) wyników zapytania i wykonać podział na strony.
-- **Funkcje matematyczne**: obsługuje tłumaczenie z platformy .NET,,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` , `Tan` , i `Truncate` do równoważnych [wbudowanych funkcji matematycznych](sql-query-mathematical-functions.md).
-- **Funkcje ciągów**: obsługuje tłumaczenie z platformy .NET,,,,,,,,,,, `Concat` `Contains` `Count` `EndsWith` `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` , i `TrimStart` do równoważnych [wbudowanych funkcji ciągu](sql-query-string-functions.md).
-- **Funkcje tablicowe**: obsługuje tłumaczenie z platformy .NET `Concat` , `Contains` i `Count` do równoważnych [wbudowanych funkcji tablicowych](sql-query-array-functions.md).
-- **Funkcje rozszerzenia geograficznego**: obsługuje tłumaczenie z metod zastępczych `Distance` ,, `IsValid` `IsValidDetailed` i `Within` do równoważnych [wbudowanych funkcji geoprzestrzennych](sql-query-geospatial-query.md).
-- **Funkcja rozszerzenia funkcji zdefiniowanej przez użytkownika**: obsługuje translację z metody zastępczej `UserDefinedFunctionProvider.Invoke` do odpowiedniej [funkcji zdefiniowanej przez użytkownika](sql-query-udfs.md).
-- **Różne**: obsługuje translację `Coalesce` operatorów i [Operatory](sql-query-operators.md)warunkowe. Można przetłumaczyć `Contains` na ciąg zawiera, ARRAY_CONTAINS lub w, w zależności od kontekstu.
+- **Wybierz** : projekcje przekładają się na [wybór](sql-query-select.md), w tym Konstruowanie obiektu.
+- **Gdzie** : filtry przekładają się na [miejsce](sql-query-where.md)i obsługa tłumaczenia między `&&` , `||` i `!` do operatorów SQL
+- **SelectMany** : umożliwia rozwinięcia tablic do klauzuli [Join](sql-query-join.md) . Użyj do łańcucha lub zagnieżdżania wyrażeń do filtrowania elementów tablicy.
+- **OrderBy** i **OrderByDescending** : Przekształć do [order by](sql-query-order-by.md) przy użyciu ASC lub DESC.
+- Operatory **Count** , **sum** , **min** , **Max** i **Average** dla [agregacji](sql-query-aggregates.md)oraz ich równoważne **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** i **AverageAsync** .
+- **CompareTo** : operator tłumaczony na porównania zakresu. Często używane dla ciągów, ponieważ nie są one porównywalne w programie .NET.
+- **Pomiń** i **Zrób** : tłumaczy, aby [przesunięto i ograniczyć ograniczenie](sql-query-offset-limit.md) wyników zapytania i wykonać podział na strony.
+- **Funkcje matematyczne** : obsługuje tłumaczenie z platformy .NET,,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` , `Tan` , i `Truncate` do równoważnych [wbudowanych funkcji matematycznych](sql-query-mathematical-functions.md).
+- **Funkcje ciągów** : obsługuje tłumaczenie z platformy .NET,,,,,,,,,,, `Concat` `Contains` `Count` `EndsWith` `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` , i `TrimStart` do równoważnych [wbudowanych funkcji ciągu](sql-query-string-functions.md).
+- **Funkcje tablicowe** : obsługuje tłumaczenie z platformy .NET `Concat` , `Contains` i `Count` do równoważnych [wbudowanych funkcji tablicowych](sql-query-array-functions.md).
+- **Funkcje rozszerzenia geograficznego** : obsługuje tłumaczenie z metod zastępczych `Distance` ,, `IsValid` `IsValidDetailed` i `Within` do równoważnych [wbudowanych funkcji geoprzestrzennych](sql-query-geospatial-query.md).
+- **Funkcja rozszerzenia funkcji zdefiniowanej przez użytkownika** : obsługuje translację z metody zastępczej `UserDefinedFunctionProvider.Invoke` do odpowiedniej [funkcji zdefiniowanej przez użytkownika](sql-query-udfs.md).
+- **Różne** : obsługuje translację `Coalesce` operatorów i [Operatory](sql-query-operators.md)warunkowe. Można przetłumaczyć `Contains` na ciąg zawiera, ARRAY_CONTAINS lub w, w zależności od kontekstu.
 
 ## <a name="examples"></a>Przykłady
 

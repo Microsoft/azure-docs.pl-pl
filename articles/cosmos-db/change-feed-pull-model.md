@@ -8,14 +8,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa0586ab2a0ff21e3187bba070dd4be7ef325288
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d2f39eae94b217ad1f95a6a559aa3e1044d10da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784681"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072694"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Zmień model ściągania kanału informacyjnego w Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Model ściągania źródła zmian umożliwia korzystanie ze źródła zmian Azure Cosmos DB w swoim własnym tempie. Podobnie jak w przypadku [procesora kanału informacyjnego zmian](change-feed-processor.md)można użyć modelu ściągania źródła zmian, aby zrównoleglanie przetwarzanie zmian wielu odbiorców z podajnikiem zmian.
 

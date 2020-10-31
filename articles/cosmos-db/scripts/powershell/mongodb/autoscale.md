@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 446de7ca48148bd8d9066e4862a23393850d5281
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bd455af8b8a9a8a293165616e490d4b4d1c79f7a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279382"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075488"
 ---
 # <a name="create-a-database-and-collection-with-autoscale-for-azure-cosmos-db---mongodb-api"></a>Tworzenie bazy danych i kolekcji z funkcją automatycznego skalowania dla interfejsu API Azure Cosmos DB MongoDB
+[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

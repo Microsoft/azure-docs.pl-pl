@@ -7,14 +7,15 @@ ms.author: sngun
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccd9f10bcf8be5539528be1f513f7e7dd74549e7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263351"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073693"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Połącz Qlik sens, aby Azure Cosmos DB i wizualizować dane
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 Qlik sens to narzędzie do wizualizacji danych łączące dane z różnych źródeł w jeden widok. Qlik wykrywa indeksy każdej możliwej relacji w danych, dzięki czemu możesz uzyskać natychmiastowy wgląd w dane. Możesz wizualizować Azure Cosmos DB danych, używając sensu Qlik. W tym artykule opisano kroki wymagane do nawiązania połączenia Azure Cosmos DB Qlik i wizualizacji danych. 
 
@@ -52,15 +53,15 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz goto
 
 ## <a name="connect-qlik-sense-to-cosmos-db"></a>Połącz Qlik sens z Cosmos DB
 
-1. Otwórz Qlik sens i wybierz pozycję **Utwórz nową aplikację**. Podaj nazwę aplikacji i wybierz pozycję **Utwórz**.
+1. Otwórz Qlik sens i wybierz pozycję **Utwórz nową aplikację** . Podaj nazwę aplikacji i wybierz pozycję **Utwórz** .
 
    :::image type="content" source="./media/visualize-qlik-sense/create-new-qlik-sense-app.png" alt-text="Utwórz nową aplikację Qlik wykrywania":::
 
-2. Po pomyślnym utworzeniu nowej aplikacji wybierz pozycję **Otwórz aplikację** , a następnie wybierz pozycję **Dodaj dane z plików i innych źródeł**. 
+2. Po pomyślnym utworzeniu nowej aplikacji wybierz pozycję **Otwórz aplikację** , a następnie wybierz pozycję **Dodaj dane z plików i innych źródeł** . 
 
 3. Ze źródeł danych wybierz pozycję **ODBC** , aby otworzyć okno Konfiguracja nowego połączenia. 
 
-4. Przejdź do **nazwy DSN użytkownika** i wybierz utworzone wcześniej połączenie ODBC. Podaj nazwę połączenia i wybierz pozycję **Utwórz**. 
+4. Przejdź do **nazwy DSN użytkownika** i wybierz utworzone wcześniej połączenie ODBC. Podaj nazwę połączenia i wybierz pozycję **Utwórz** . 
 
    :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Utwórz nową aplikację Qlik wykrywania":::
 

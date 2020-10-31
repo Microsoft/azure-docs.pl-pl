@@ -7,23 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476403"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073829"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informacje o rachunku za korzystanie z usługi Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Jako w pełni zarządzana usługa bazy danych w chmurze, Azure Cosmos DB upraszcza rozliczenia przez naliczanie opłat tylko za operacje bazy danych i Magazyn używany. Nie ma dodatkowych opłat licencyjnych, sprzętu, kosztów narzędzi ani kosztów infrastruktury w porównaniu z rozwiązaniami lokalnymi lub IaaS. Gdy rozważasz możliwości wieloregionu Azure Cosmos DB, usługa bazy danych zapewnia znaczną redukcję kosztów w porównaniu do istniejących rozwiązań lokalnych lub IaaS.
 
-- **Operacje bazy danych**: sposób naliczania opłat za operacje bazy danych zależy od typu konta usługi Azure Cosmos, którego używasz.
+- **Operacje bazy danych** : sposób naliczania opłat za operacje bazy danych zależy od typu konta usługi Azure Cosmos, którego używasz.
 
-  - **Zainicjowana przepływność**: opłaty są naliczane co godzinę za maksymalną zainicjowaną przepływność przez daną godzinę, w przyrostach wynoszących 100 ru/s.
-  - **Bezserwerowe**: opłaty są naliczane co godzinę dla łącznej liczby jednostek żądania zużywanych przez operacje bazy danych.
+  - **Zainicjowana przepływność** : opłaty są naliczane co godzinę za maksymalną zainicjowaną przepływność przez daną godzinę, w przyrostach wynoszących 100 ru/s.
+  - **Bezserwerowe** : opłaty są naliczane co godzinę dla łącznej liczby jednostek żądania zużywanych przez operacje bazy danych.
 
-- **Magazyn**: jest rozliczana stała stawka za łączną ilość miejsca w magazynie (w GB) zużywaną przez dane i indeksy w danej godzinie.
+- **Magazyn** : jest rozliczana stała stawka za łączną ilość miejsca w magazynie (w GB) zużywaną przez dane i indeksy w danej godzinie.
 
 Aby uzyskać najnowsze informacje o cenach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 
@@ -285,7 +286,7 @@ Azure Cosmos DB zarezerwowana pojemność umożliwia zakupienie alokowanej przep
 |**Region**| **Cena godzinowa za 100 RU/s**|**Jednostki (RU/s)**|**Kwota rozliczana (co godzinę)**| **Kwota rozliczana (miesięcznie)**|
 |----|----|----|----|----|
 |East US|$0,008 |50 K|$4|$2 880 |
-|Japonia Wschodnia|$0,009 |50 K| $4,50 |$3 240 |
+|Japan East|$0,009 |50 K| $4,50 |$3 240 |
 |Łącznie|||$8,50|$6 120 |
 
 Rozważmy, że zamiast tego zakupiono zastrzeżoną pojemność. Możesz kupić zarezerwowaną pojemność dla 100 – K RU/s w cenie $56 064 przez jeden rok (za 20% rabatu) lub $6,40 na godzinę. Zobacz cennik pojemności zarezerwowanych na [stronie cennika](https://azure.microsoft.com/pricing/details/cosmos-db/)).  
@@ -299,7 +300,7 @@ Rzeczywiste zakupione dane to kredyt z $8 USD za godzinę dla 100 K/s, przy uży
 |**Region**| **Cena godzinowa za 100 RU/s**|**Jednostki (RU/s)**| **Kwota rozliczana (co godzinę)**| **Kwota rozliczana (miesięcznie)**|
 |----|----|----|----|----|
 |East US|$0,008 |50 K|$4|$2 880 |
-|Japonia Wschodnia|$0,009 |50 K| $4,50 |$3 240 |
+|Japan East|$0,009 |50 K| $4,50 |$3 240 |
 |||Płatność zgodnie z rzeczywistym użyciem|$8,50|$6120|
 |Zarezerwowana pojemność zakupiona|$0,0064 (20% rabatu) |100 jednostki RU/s lub $8 pojemności wstępnie kupione |-$8|-$5 760 |
 |Rachunek netto|||(0,50 USD) |$360 |

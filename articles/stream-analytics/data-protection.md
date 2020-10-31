@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746398"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074254"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Ochrona danych w Azure Stream Analytics 
 
@@ -59,7 +59,7 @@ Aby dowiedzieć się, jak zapewnić zgodność z wymaganiami dotyczącymi zgodno
 
 Wykonaj poniższe kroki, aby skonfigurować konto magazynu dla prywatnych zasobów danych. Ta konfiguracja została wykonana z zadania Stream Analytics, a nie z konta magazynu.
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **Utwórz zasób** . 
 
@@ -73,6 +73,27 @@ Wykonaj poniższe kroki, aby skonfigurować konto magazynu dla prywatnych zasob�
 
    ![Ustawienia konta prywatnego magazynu danych](./media/data-protection/storage-account-create.png)
 
+## <a name="private-data-assets-that-are-stored"></a>Prywatne zasoby danych, które są przechowywane
+
+Wszystkie prywatne dane, które są wymagane do utrwalenia przez Stream Analytics są przechowywane na koncie magazynu. Przykłady prywatnych zasobów danych obejmują: 
+
+* Zapytania, które zostały utworzone i powiązane z nimi konfiguracje  
+
+* Funkcje zdefiniowane przez użytkownika 
+
+* Punkty kontrolne potrzebne przez środowisko uruchomieniowe Stream Analytics
+
+* Migawki danych referencyjnych 
+
+Są również przechowywane szczegóły połączenia zasobów, które są używane przez zadanie Stream Analytics. Zaszyfruj konto magazynu, aby zabezpieczyć wszystkie Twoje dane. 
+
+Aby dowiedzieć się, jak zapewnić zgodność z wymaganiami dotyczącymi zgodności w dowolnych sektorach lub środowiskach objętych regulacją, możesz przeczytać więcej na temat [ofert zgodności firmy Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="enables-data-residency"></a>Włącza dane w miejscu zamieszkania 
+Korzystając z tej funkcji, można wymusić wszelkie wymagania dotyczące miejsca zamieszkania danych, które mogą być wymagane przez podanie konta magazynu odpowiednio.
+
+## <a name="known-issues"></a>Znane problemy
+Istnieje znany problem polegający na tym, że zadanie korzystające z klucza zarządzanego przez klienta działa w niepowodzeń podczas korzystania z tożsamości zarządzanej do uwierzytelniania w dowolnych danych wejściowych lub wyjściowych. 
 
 ## <a name="next-steps"></a>Następne kroki
 

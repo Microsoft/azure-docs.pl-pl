@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17b2ab53c0154a29f9084f9dd999a53bcf477b72
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715993"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075130"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Windows (SMB)
 
-W tym artykule wymieniono typowe problemy związane z Microsoft Azure plikami w przypadku łączenia się z klientami systemu Windows. Zapewnia również możliwe przyczyny i rozwiązania tych problemów. Oprócz kroków opisanych w tym artykule można także użyć programu [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows),   Aby upewnić się, że środowisko klienta systemu Windows ma odpowiednie wymagania wstępne. AzFileDiagnostics automatyzuje wykrywanie większości objawów wymienionych w tym artykule i ułatwia skonfigurowanie środowiska w celu uzyskania optymalnej wydajności.
+W tym artykule wymieniono typowe problemy związane z Microsoft Azure plikami w przypadku łączenia się z klientami systemu Windows. Zapewnia również możliwe przyczyny i rozwiązania tych problemów. Oprócz kroków opisanych w tym artykule można także użyć programu [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) , aby upewnić się, że środowisko klienta systemu Windows ma odpowiednie wymagania wstępne. AzFileDiagnostics automatyzuje wykrywanie większości objawów wymienionych w tym artykule i ułatwia skonfigurowanie środowiska w celu uzyskania optymalnej wydajności.
 
 > [!IMPORTANT]
 > Zawartość tego artykułu dotyczy tylko udziałów SMB. Aby uzyskać szczegółowe informacje o udziałach NFS, zobacz [Rozwiązywanie problemów z udziałami plików NFS systemu Azure](storage-troubleshooting-files-nfs.md).
@@ -45,7 +45,7 @@ Jeśli reguły sieci wirtualnej i zapory są skonfigurowane na koncie magazynu, 
 
 ### <a name="solution-for-cause-2"></a>Rozwiązanie dla przyczyny 2
 
-Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci**. Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci** . Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>Przyczyna 3: uprawnienia na poziomie udziału są nieprawidłowe w przypadku korzystania z uwierzytelniania opartego na tożsamościach
 
@@ -167,7 +167,7 @@ Kod błędu: 403
 
 ### <a name="solution-for-cause-1"></a>Rozwiązanie dla przyczyny 1
 
-Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci**. Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na koncie magazynu. W celu przetestowania, czy reguły sieci wirtualnej lub zapory są przyczyną problemu, tymczasowo zmień ustawienie na koncie magazynu, aby **zezwolić na dostęp ze wszystkich sieci** . Aby dowiedzieć się więcej, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Przyczyna 2: Twoje konto użytkownika nie ma dostępu do konta magazynu
 
@@ -177,23 +177,82 @@ Przejdź do konta magazynu, na którym znajduje się udział plików platformy A
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Nie można usunąć pliku lub katalogu z udziału plików platformy Azure
-Podczas próby usunięcia pliku może zostać wyświetlony następujący błąd:
+Jeden z najważniejszych celów udziału plików polega na tym, że wielu użytkowników i aplikacji może jednocześnie współdziałać z plikami i katalogami w udziale. Aby pomóc w tej interakcji, udziały plików zapewniają kilka sposobów mediating dostępu do plików i katalogów.
 
-Określony zasób jest oznaczony do usunięcia przez klienta SMB.
+Po otwarciu pliku z zainstalowanego udziału plików platformy Azure za pośrednictwem protokołu SMB aplikacja/system operacyjny żąda dojścia do pliku, który jest odwołaniem do pliku. Po zażądaniu dojścia do pliku aplikacja określa tryb udostępniania plików, który określa poziom wyłącznego dostępu do pliku wymuszonego przez Azure Files: 
 
-### <a name="cause"></a>Przyczyna
-Ten problem występuje zwykle, gdy plik lub katalog ma otwarte dojście. 
+- `None`: masz wyłączny dostęp. 
+- `Read`: inne osoby mogą odczytywać plik, gdy jest otwarty.
+- `Write`: inne osoby mogą zapisywać do pliku, gdy jest otwarty. 
+- `ReadWrite`: kombinacja `Read` `Write` trybów udostępniania i.
+- `Delete`: inne osoby mogą usunąć plik, gdy jest otwarty. 
 
-### <a name="solution"></a>Rozwiązanie
+Chociaż jako protokół bezstanowy protokół FileREST nie ma koncepcji dojścia do plików, zapewnia podobny mechanizm do skorygowania dostępu do plików i folderów, które mogą być używane przez skrypt, aplikację lub usługę: dzierżawy plików. Gdy plik jest dzierżawiony, jest traktowany jako równoważny z dojściem do pliku z trybem udostępniania plików `None` . 
 
-Jeśli klienci SMB zamknęli wszystkie otwarte dojścia, a problem nadal wystąpi, wykonaj następujące czynności:
+Chociaż dojścia do plików i dzierżawy dają istotny cel, czasami dojścia do plików i dzierżawy mogą być oddzielone. W takim przypadku może to spowodować problemy z modyfikacją lub usunięciem plików. Mogą pojawić się komunikaty o błędach, takie jak:
 
-- Użyj polecenia cmdlet programu PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) , aby wyświetlić otwarte dojścia.
+- Proces nie może uzyskać dostępu do pliku, ponieważ jest on używany przez inny proces.
+- Nie można ukończyć akcji, ponieważ plik jest otwarty w innym programie.
+- Dokument jest zablokowany do edycji przez innego użytkownika.
+- Określony zasób jest oznaczony do usunięcia przez klienta SMB.
 
-- Użyj polecenia cmdlet [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) programu PowerShell, aby zamknąć otwarte dojścia. 
+Rozwiązanie tego problemu zależy od tego, czy jest to spowodowane przez oddzielone dojście do pliku, czy dzierżawę. 
+
+### <a name="cause-1"></a>Przyczyna 1
+Dojście do pliku uniemożliwia modyfikowanie lub usuwanie pliku/katalogu. Do wyświetlania otwartych dojść można użyć polecenia cmdlet programu PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) . 
+
+Jeśli wszyscy klienci SMB zamknęli swoje otwarte dojścia do pliku/katalogu i problem nadal wystąpi, można wymusić zamknięcie dojścia do pliku.
+
+### <a name="solution-1"></a>Rozwiązanie 1
+Aby wymusić zamknięcie dojścia do pliku, należy użyć polecenia cmdlet programu PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) . 
 
 > [!Note]  
 > Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+### <a name="cause-2"></a>Przyczyna 2
+Dzierżawa pliku uniemożliwia zmodyfikowanie lub usunięcie pliku. Możesz sprawdzić, czy plik ma dzierżawę pliku z następującym programem PowerShell, zastępując `<resource-group>` ,, `<storage-account>` `<file-share>` i `<path-to-file>` z odpowiednimi wartościami dla danego środowiska:
+
+```PowerShell
+# Set variables 
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$fileShareName = "<file-share>"
+$fileForLease = "<path-to-file>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName
+
+# Get reference to file
+$file = Get-AzStorageFile `
+        -Context $storageAccount.Context `
+        -ShareName $fileShareName `
+        -Path $fileForLease
+
+$fileClient = $file.ShareFileClient
+
+# Check if the file has a file lease
+$fileClient.GetProperties().Value
+```
+
+Jeśli plik ma dzierżawę, zwracany obiekt powinien zawierać następujące właściwości:
+
+```Output
+LeaseDuration         : Infinite
+LeaseState            : Leased
+LeaseStatus           : Locked
+```
+
+### <a name="solution-2"></a>Rozwiązanie 2
+Aby usunąć dzierżawę z pliku, można zwolnić dzierżawę lub przerwać dzierżawę. Aby zwolnić dzierżawę, potrzebna jest LeaseId dzierżawy, która jest ustawiana podczas tworzenia dzierżawy. Nie potrzebujesz LeaseId do przerwania dzierżawy.
+
+Poniższy przykład pokazuje, jak przerwać dzierżawę dla pliku wskazanego w przyczynie 2 (w tym przykładzie jest to kontynuowane przy użyciu zmiennych programu PowerShell z przyczyny 2):
+
+```PowerShell
+$leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($fileClient)
+$leaseClient.Break() | Out-Null
+```
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Slow file copying to and from Azure Files in Windows (Wolne kopiowanie plików do i z usługi Azure Files w systemie Windows)

@@ -6,14 +6,15 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 9c266e42804a12403e446bf024e93fe879497570
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec6a9db63504958640137fcd0fcfc904eb01afa5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803266"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074733"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Jak monitorować opóźnienia po stronie serwera dla operacji w kontenerze Azure Cosmos DB lub koncie
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Monitor dla Azure Cosmos DB zawiera widok metryk do monitorowania konta i tworzenia pulpitów nawigacyjnych. Metryki Azure Cosmos DB są zbierane domyślnie. Ta funkcja nie wymaga jawnie włączania ani konfigurowania niczego. Metryka opóźnienia po stronie serwera służy do wyświetlania opóźnienia operacji po stronie serwera. Azure Cosmos DB oferuje umowę SLA mniejszą niż 10 ms dla operacji odczytu/zapisu w punkcie z bezpośrednią łącznością. Na potrzeby operacji odczytu i zapisu umowy SLA są obliczane zgodnie z opisem w [dokumencie SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
@@ -29,11 +30,11 @@ Można wyszukać dziennik diagnostyczny, aby zobaczyć rozmiar zwracanych danych
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-1. Wybierz pozycję **monitor** na pasku nawigacyjnym po lewej stronie i wybierz pozycję **metryki**.
+1. Wybierz pozycję **monitor** na pasku nawigacyjnym po lewej stronie i wybierz pozycję **metryki** .
 
    :::image type="content" source="./media/monitor-server-side-latency/monitor-metrics-blade.png" alt-text="Okienko metryki w Azure Monitor":::
 
-1. W okienku **metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję**i **grupę zasobów**. W polu **Typ zasobu**wybierz pozycję **konta Azure Cosmos DB**, wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj**.
+1. W okienku **metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję** i **grupę zasobów** . W polu **Typ zasobu** wybierz pozycję **konta Azure Cosmos DB** , wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj** .
    
    :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Okienko metryki w Azure Monitor":::
 
@@ -43,9 +44,9 @@ Można wyszukać dziennik diagnostyczny, aby zobaczyć rozmiar zwracanych danych
 
 ## <a name="filters-for-server-side-latency"></a>Filtry dla opóźnień po stronie serwera
 
-Można również filtrować metryki i uzyskiwać wykresy wyświetlane przez określoną **CollectionName**, **connectionmode**, **DatabaseName**, **OperationType**, **region**i **PublicAPIType**. 
+Można również filtrować metryki i uzyskiwać wykresy wyświetlane przez określoną **CollectionName** , **connectionmode** , **DatabaseName** , **OperationType** , **region** i **PublicAPIType** . 
 
-Aby odfiltrować metryki, wybierz pozycję **Dodaj filtr** i wybierz wymaganą właściwość, taką jak **PublicAPIType** , i wybierz wartość **SQL**. Dodaj inny filtr dla elementu **OperationType**. Na wykresie są następnie wyświetlane opóźnienia po stronie serwera dla różnych operacji w wybranym okresie. Operacje wykonywane za pośrednictwem procedury składowanej nie są rejestrowane, więc nie są dostępne w ramach metryki operacji.
+Aby odfiltrować metryki, wybierz pozycję **Dodaj filtr** i wybierz wymaganą właściwość, taką jak **PublicAPIType** , i wybierz wartość **SQL** . Dodaj inny filtr dla elementu **OperationType** . Na wykresie są następnie wyświetlane opóźnienia po stronie serwera dla różnych operacji w wybranym okresie. Operacje wykonywane za pośrednictwem procedury składowanej nie są rejestrowane, więc nie są dostępne w ramach metryki operacji.
 
 Metryki **opóźnienia po stronie serwera** dla każdej operacji są wyświetlane jak pokazano na poniższej ilustracji:
 

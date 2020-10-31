@@ -4,16 +4,20 @@ ms.date: 09/10/2020
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.openlocfilehash: d4e8b8d6a23648b3c8eb5dedcd4ae041c8fbcf4b
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1aa344d80df6bfc22d0c94c6d5c61d305ace8d0c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875034"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073547"
 ---
-## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
+## <a name="prerequisites"></a>Wymagania wstępne
 
-- Do uruchamiania poleceń interfejsu wiersza polecenia platformy Azure wykonaj [lokalną instalację](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure lub Rozpocznij [Azure Cloud Shell](/azure/cloud-shell/quickstart) przy użyciu środowiska bash.
+- Użyj [Azure Cloud Shell](/azure/cloud-shell/quickstart) przy użyciu środowiska bash.
 
-- W przypadku korzystania z lokalnej instalacji zaloguj się przy użyciu interfejsu wiersza polecenia platformy Azure, naciskając polecenie [AZ login](/cli/azure/reference-index#az-login) .  Wykonaj kroki wyświetlane w terminalu, aby ukończyć proces uwierzytelniania.  Zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli) , aby uzyskać dodatkowe opcje logowania.
-- Po wyświetleniu monitu Zainstaluj rozszerzenia interfejsu wiersza polecenia platformy Azure przy pierwszym użyciu.  Dowiedz się więcej na temat rozszerzeń w temacie [używanie rozszerzeń przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
+   [![Uruchom osadzenie](https://shell.azure.com/images/launchcloudshell.png "Uruchamianie usługi Azure Cloud Shell")](https://shell.azure.com)  
+- Jeśli wolisz, wykonaj [lokalną instalację](/cli/azure/install-azure-cli) interfejsu wiersza polecenia platformy Azure w celu uruchomienia poleceń referencyjnych interfejsu CLI.
+   - W przypadku korzystania z lokalnej instalacji zaloguj się przy użyciu interfejsu wiersza polecenia platformy Azure, naciskając polecenie [AZ login](/cli/azure/reference-index#az-login) .  Wykonaj kroki wyświetlane w terminalu, aby ukończyć proces uwierzytelniania.  Zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli) , aby uzyskać dodatkowe opcje logowania.
+  - Po wyświetleniu monitu Zainstaluj rozszerzenia interfejsu wiersza polecenia platformy Azure przy pierwszym użyciu.  Dowiedz się więcej na temat rozszerzeń w temacie [używanie rozszerzeń przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
+  - Uruchom [AZ Version](/cli/azure/reference-index?#az_version) , aby znaleźć wersję i biblioteki zależne, które są zainstalowane. Aby uaktualnić do najnowszej wersji, uruchom polecenie [AZ upgrade](/cli/azure/reference-index?#az_upgrade).
+

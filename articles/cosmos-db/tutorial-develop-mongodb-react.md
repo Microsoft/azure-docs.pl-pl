@@ -10,14 +10,15 @@ ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 06c309de5054887a64e61d61345190c776835709
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cdb8612bb04d52df3603aa4520cad4cbacb661da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476590"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074084"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Tworzenie aplikacji bazy danych MongoDB przy użyciu platformy React i usługi Azure Cosmos DB  
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 W tym wieloczęściowym samouczku wideo przedstawiono sposób tworzenia głównej aplikacji do śledzenia przy użyciu zaplecza platformy React. Aplikacja używająca języka Node i usługi Express dla serwera łączy się z bazą danych Cosmos skonfigurowaną za pomocą [interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB](mongodb-introduction.md), a następnie łączy fronton platformy React z częścią serwera w aplikacji. W samouczku przedstawiono również sposób skalowania typu „wskaż i kliknij” bazy usługi Cosmos DB w witrynie Azure Portal oraz sposób wdrażania aplikacji w Internecie, tak aby wszyscy użytkownicy mogli śledzić swoje ulubione aplikacje główne. 
 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: b1c54c2e486f935b3c3ba1b13207caaa67099459
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e19c2a8711a9862bb72b29045c65ecd1bd5b5d20
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490989"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075505"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrowanie z biblioteki procesora źródła zmian do zestawu SDK platformy Azure Cosmos DB .NET v3
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W tym artykule opisano czynności wymagane do przeprowadzenia migracji kodu istniejącej aplikacji korzystającej z [biblioteki procesora źródła zmian](https://github.com/Azure/azure-documentdb-changefeedprocessor-dotnet) do funkcji [kanału informacyjnego zmiany](change-feed.md) w najnowszej wersji zestawu .NET SDK (nazywanej także zestawem SDK dla platformy .NET v3).
 
@@ -48,7 +49,7 @@ Procesor kanału informacyjnego zmian zestawu SDK v3 wykrywa stary stan bibliote
 
 Możesz bezpiecznie zatrzymać aplikację przy użyciu starego kodu, zmigrować kod do nowej wersji, uruchomić zmigrowane aplikacje i wszelkie zmiany, które wystąpiły podczas zatrzymania aplikacji, zostaną pobrane i przetworzone przez nową wersję.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zestaw SDK Azure Cosmos DB](sql-api-sdk-dotnet.md)
 * [Przykłady użycia w witrynie GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)

@@ -2,13 +2,13 @@
 title: Koncepcje Azure Event Grid
 description: Opis usługi Azure Event Grid i pojęć z nią związanych. Definiuje kilka najważniejszych składników Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 003139374a056da6ddc22dd1453d28761ff58871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116492"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075113"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Pojęcia w Azure Event Grid
 
@@ -37,11 +37,11 @@ Aby uzyskać informacje na temat implementowania dowolnego z obsługiwanych źr�
 
 Temat GridY zdarzeń zawiera punkt końcowy, w którym źródło wysyła zdarzenia. Wydawca tworzy temat siatka zdarzeń i decyduje o tym, czy źródło zdarzenia wymaga jednego tematu, czy też więcej niż jednego tematu. Temat służy do zbierania powiązanych zdarzeń. Aby odpowiedzieć na określone typy zdarzeń, subskrybenci decydują, które tematy zasubskrybować.
 
-Tematy systemowe to wbudowane tematy udostępniane przez usługi platformy Azure, takie jak Azure Storage, Azure Event Hubs i Azure Service Bus. Możesz tworzyć tematy systemowe w ramach subskrypcji platformy Azure i subskrybować je. Aby uzyskać więcej informacji, zobacz [Omówienie tematów systemowych](system-topics.md). 
+**Tematy systemowe** to wbudowane tematy udostępniane przez usługi platformy Azure, takie jak Azure Storage, Azure Event Hubs i Azure Service Bus. Możesz tworzyć tematy systemowe w ramach subskrypcji platformy Azure i subskrybować je. Aby uzyskać więcej informacji, zobacz [Omówienie tematów systemowych](system-topics.md). 
 
-Tematy niestandardowe to tematy aplikacji i innych firm. Gdy temat niestandardowy zostanie utworzony lub zostanie przypisany do niego dostęp, będzie on widoczny w ramach subskrypcji. Aby uzyskać więcej informacji, zobacz [Tematy niestandardowe](custom-topics.md).
+**Tematy niestandardowe** są tematami aplikacji i innych firm. Gdy temat niestandardowy zostanie utworzony lub zostanie przypisany do niego dostęp, będzie on widoczny w ramach subskrypcji. Aby uzyskać więcej informacji, zobacz [Tematy niestandardowe](custom-topics.md). Podczas projektowania aplikacji masz elastyczność podczas decydowania o liczbie tematów do utworzenia. W przypadku dużych rozwiązań Utwórz niestandardowy temat dla każdej kategorii powiązanych zdarzeń. Może to na przykład być aplikacja, która wysyła zdarzenia powiązane z modyfikowaniem kont użytkowników i przetwarzaniem zamówień. Istnieje małe prawdopodobieństwo, że procedura obsługi zdarzeń oczekuje obu kategorii zdarzeń. Utwórz dwa tematy niestandardowe, a procedury obsługi zdarzeń subskrybują temat, którymi są zainteresowane. W przypadku małych rozwiązań można chcieć wysłać wszystkie zdarzenia do jednego tematu. Subskrybenci zdarzeń mogą odfiltrować żądane typy zdarzeń.
 
-Podczas projektowania aplikacji masz elastyczność podczas decydowania o liczbie tematów do utworzenia. W przypadku dużych rozwiązań Utwórz niestandardowy temat dla każdej kategorii powiązanych zdarzeń. Może to na przykład być aplikacja, która wysyła zdarzenia powiązane z modyfikowaniem kont użytkowników i przetwarzaniem zamówień. Istnieje małe prawdopodobieństwo, że procedura obsługi zdarzeń oczekuje obu kategorii zdarzeń. Utwórz dwa tematy niestandardowe, a procedury obsługi zdarzeń subskrybują temat, którymi są zainteresowane. W przypadku małych rozwiązań można chcieć wysłać wszystkie zdarzenia do jednego tematu. Subskrybenci zdarzeń mogą odfiltrować żądane typy zdarzeń.
+Istnieje inny typ tematu: **temat partnera** . Funkcja [zdarzenia partnera](partner-events-overview.md) umożliwia dostawcy SaaS innej firmy publikowanie zdarzeń z usług, aby udostępnić je klientom, którzy mogą subskrybować te zdarzenia. Dostawca SaaS uwidacznia typ tematu, **temat partnera** , którego Subskrybenci używają do korzystania z zdarzeń. Oferuje również czysty model pub-sub, oddzielając problemy i własność zasobów używanych przez wydawców zdarzeń i subskrybentów.
 
 ## <a name="event-subscriptions"></a>Subskrypcje zdarzeń
 

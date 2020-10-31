@@ -8,14 +8,15 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7aace0b1ee6963aa220a60a11d02c370bf4d822a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2b74198f83ef972540038269d83048bfd1adda62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476556"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073897"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Konfigurowanie potoku ciągłej integracji/ciągłego wdrażania przy użyciu zadania kompilacji emulatora usługi Azure Cosmos DB w usłudze Azure DevOps
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Emulator usługi Azure Cosmos DB zapewnia środowisko lokalne, które emuluje usługę Azure Cosmos DB do celów programistycznych. Emulator umożliwia lokalne opracowywanie i testowanie aplikacji bez konieczności tworzenia subskrypcji platformy Azure i ponoszenia kosztów. 
 
@@ -48,7 +49,7 @@ Teraz, gdy rozszerzenie jest zainstalowane, zaloguj się do organizacji usługi 
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Znajdowanie i instalowanie zadania kompilacji emulatora usługi Azure Cosmos DB w witrynie Marketplace usługi Azure DevOps":::
 
-3. Na koniec wybierz odpowiedni szablon dla potoku kompilacji. Do celów tego samouczka wybierzemy szablon **ASP.NET**. Teraz masz potok kompilacji, który można skonfigurować do korzystania z zadania kompilacji emulatora Azure Cosmos DB. 
+3. Na koniec wybierz odpowiedni szablon dla potoku kompilacji. Do celów tego samouczka wybierzemy szablon **ASP.NET** . Teraz masz potok kompilacji, który można skonfigurować do korzystania z zadania kompilacji emulatora Azure Cosmos DB. 
 
 > [!NOTE]
 > Pula agentów wybrana dla tego elementu konfiguracji powinna mieć zainstalowaną Docker for Windows, chyba że instalacja zostanie wykonana ręcznie w poprzednim zadaniu jako część elementu konfiguracji. Aby uzyskać wybór pul agentów, zobacz artykuł dotyczący [agentów hostowanych firmy Microsoft](/azure/devops/pipelines/agents/hosted?preserve-view=true&tabs=yaml&view=azure-devops) . zalecamy rozpoczęcie od `Hosted VS2017` .
@@ -92,9 +93,9 @@ Ten krok jest opcjonalny i jest wymagany tylko w przypadku konfigurowania potoku
 
 Teraz skonfigurujemy nasze testy tak, aby używały emulatora. Zadanie kompilacji emulatora eksportuje zmienną środowiskową „CosmosDbEmulator.Endpoint”, wobec której wszystkie zadania w dalszej części potoku kompilacji mogą wysyłać żądania. 
 
-W tym samouczku użyjemy zadania [Visual Studio Test](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md), aby uruchomić testy jednostkowe skonfigurowane za pomocą pliku **.runsettings**. Aby dowiedzieć się więcej na temat konfigurowania testów jednostkowych, zapoznaj się z [dokumentacją](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017). Przykładowy kod aplikacji do wykonania, który jest używany w tym dokumencie, jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
+W tym samouczku użyjemy zadania [Visual Studio Test](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md), aby uruchomić testy jednostkowe skonfigurowane za pomocą pliku **.runsettings** . Aby dowiedzieć się więcej na temat konfigurowania testów jednostkowych, zapoznaj się z [dokumentacją](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017). Przykładowy kod aplikacji do wykonania, który jest używany w tym dokumencie, jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
-Poniżej przedstawiono przykładowy plik **.runsettings**, który definiuje parametry przekazywane do testów jednostkowych aplikacji. Należy pamiętać, że używana zmienna `authKey` to [dobrze znany klucz](./local-emulator.md#authenticate-requests) emulatora. Ta zmienna `authKey` to klucz oczekiwany przez zadanie kompilacji emulatora i powinna być zdefiniowana w pliku **.runsettings**.
+Poniżej przedstawiono przykładowy plik **.runsettings** , który definiuje parametry przekazywane do testów jednostkowych aplikacji. Należy pamiętać, że używana zmienna `authKey` to [dobrze znany klucz](./local-emulator.md#authenticate-requests) emulatora. Ta zmienna `authKey` to klucz oczekiwany przez zadanie kompilacji emulatora i powinna być zdefiniowana w pliku **.runsettings** .
 
 ```csharp
 <RunSettings>
@@ -157,7 +158,7 @@ namespace todo.Tests
 }
 ```
 
-Przejdź do opcji wykonywania w zadaniu Visual Studio Test. W opcji **Settings file** (Plik ustawień) określ, czy testy zostały skonfigurowane przy użyciu pliku **.runsettings**. W opcji **Override test run parameters** (Zastąp parametry przebiegu testu) dodaj element `-endpoint $(CosmosDbEmulator.Endpoint)`. W ten sposób skonfigurujesz zadanie Test tak, aby odwoływało się do punktu końcowego zadania kompilacji emulatora, a nie do punktu końcowego zdefiniowanego w pliku **.runsettings**.  
+Przejdź do opcji wykonywania w zadaniu Visual Studio Test. W opcji **Settings file** (Plik ustawień) określ, czy testy zostały skonfigurowane przy użyciu pliku **.runsettings** . W opcji **Override test run parameters** (Zastąp parametry przebiegu testu) dodaj element `-endpoint $(CosmosDbEmulator.Endpoint)`. W ten sposób skonfigurujesz zadanie Test tak, aby odwoływało się do punktu końcowego zadania kompilacji emulatora, a nie do punktu końcowego zdefiniowanego w pliku **.runsettings** .  
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Znajdowanie i instalowanie zadania kompilacji emulatora usługi Azure Cosmos DB w witrynie Marketplace usługi Azure DevOps":::
 

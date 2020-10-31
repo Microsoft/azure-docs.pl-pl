@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962353"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074186"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące konfiguracji i zarządzania dla Web Apps na platformie Azure
 
@@ -60,23 +60,25 @@ Aby uzyskać więcej informacji, zobacz [ograniczenia App Service](../azure-reso
 Aby ustawić strefę czasową serwera dla aplikacji sieci Web:
 
 1. W Azure Portal w subskrypcji App Service przejdź do menu **Ustawienia aplikacji** .
-2. W obszarze **Ustawienia aplikacji**Dodaj następujące ustawienie:
+2. W obszarze **Ustawienia aplikacji** Dodaj następujące ustawienie:
     * Klucz = WEBSITE_TIME_ZONE
     * Wartość = *wybrana strefa czasowa*
-3. Wybierz pozycję **Zapisz**.
+3. Wybierz pozycję **Zapisz** .
 
-W przypadku usług aplikacji działających w systemie Windows Zapoznaj się z kolumną **strefa** czasowa w artykule [strefy czasowe](/windows-hardware/manufacture/desktop/default-time-zones) dla zaakceptowanych wartości. W przypadku usług App Services działających w systemie Linux jako wartość strefy czasowej należy ustawić [nazwę bazy danych](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) . Oto przykład nazwy bazy danych: America/Adak.
+W przypadku usługi App Services, które działają w systemie Windows, zobacz dane wyjściowe z polecenia systemu Windows `tzutil /L` . Użyj wartości z drugiego wiersza każdego wpisu. Na przykład: "Tonga (czas standardowy)". Niektóre z tych wartości są również wymienione w kolumnie **timezone** w [domyślnych strefach czasowych](/windows-hardware/manufacture/desktop/default-time-zones).
+
+W przypadku usług App Services działających w systemie Linux ustaw wartość z [bazy danych Iana](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Na przykład: "Ameryka/Adak".
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Dlaczego moje ciągłe zadania WebJob czasami kończą się niepowodzeniem?
 
-Domyślnie aplikacje sieci Web są zwalniane, jeśli są bezczynne przez określony czas. Dzięki temu system będzie zaoszczędzić zasoby. W planach Basic i standard można włączyć ustawienie **zawsze włączone** , aby zapewnić, że aplikacja sieci Web zostanie załadowana przez cały czas. Jeśli aplikacja sieci Web uruchamia ciągłe zadania WebJob, należy włączyć opcję **zawsze włączone**lub zadania WebJob mogą nie działać niezawodnie. Aby uzyskać więcej informacji, zobacz [Tworzenie zadania WebJob działającego w sposób ciągły](webjobs-create.md#CreateContinuous).
+Domyślnie aplikacje sieci Web są zwalniane, jeśli są bezczynne przez określony czas. Dzięki temu system będzie zaoszczędzić zasoby. W planach Basic i standard można włączyć ustawienie **zawsze włączone** , aby zapewnić, że aplikacja sieci Web zostanie załadowana przez cały czas. Jeśli aplikacja sieci Web uruchamia ciągłe zadania WebJob, należy włączyć opcję **zawsze włączone** lub zadania WebJob mogą nie działać niezawodnie. Aby uzyskać więcej informacji, zobacz [Tworzenie zadania WebJob działającego w sposób ciągły](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Jak mogę uzyskać wychodzący adres IP dla mojej aplikacji sieci Web?
 
 Aby uzyskać listę wychodzących adresów IP dla aplikacji sieci Web:
 
 1. W Azure Portal, w bloku aplikacji sieci Web, przejdź do menu **Właściwości** .
-2. Wyszukaj **wychodzące adresy IP**.
+2. Wyszukaj **wychodzące adresy IP** .
 
 Zostanie wyświetlona lista wychodzących adresów IP.
 
@@ -129,7 +131,7 @@ Aby przejrzeć dzienniki zadań WebJob:
 2. Wybierz zadanie WebJob.
 3. Wybierz przycisk **Przełącz dane wyjściowe** .
 4. Aby pobrać plik wyjściowy, wybierz link **pobierania** .
-5. Dla poszczególnych przebiegów wybierz opcję **pojedyncze wywołanie**.
+5. Dla poszczególnych przebiegów wybierz opcję **pojedyncze wywołanie** .
 6. Wybierz przycisk **Przełącz dane wyjściowe** .
 7. Wybierz link pobierania.
 
@@ -183,8 +185,8 @@ Dostępne są dwie opcje przechwytywania śledzenia F12:
 ### <a name="f12-console-output"></a>Wyjście z konsoli F12
 
 1. Wybierz kartę **konsola** .
-2. Dla każdej karty zawierającej więcej niż zero elementów wybierz kartę (**błąd**, **Ostrzeżenie**lub **informacje**). Jeśli karta nie jest zaznaczona, ikona karty jest szara lub czarna, gdy przesuniesz kursor z tego kursora.
-3. Kliknij prawym przyciskiem myszy w obszarze komunikatów okienka, a następnie wybierz polecenie **Kopiuj wszystko**.
+2. Dla każdej karty zawierającej więcej niż zero elementów wybierz kartę ( **błąd** , **Ostrzeżenie** lub **informacje** ). Jeśli karta nie jest zaznaczona, ikona karty jest szara lub czarna, gdy przesuniesz kursor z tego kursora.
+3. Kliknij prawym przyciskiem myszy w obszarze komunikatów okienka, a następnie wybierz polecenie **Kopiuj wszystko** .
 4. Wklej skopiowany tekst w pliku, a następnie Zapisz plik.
 
 Aby wyświetlić plik HAR, można użyć [przeglądarki Har](http://www.softwareishard.com/har/viewer/).
@@ -282,7 +284,7 @@ Aby uzyskać szczegółową dokumentację dotyczącą uwierzytelniania i autoryz
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Jak mogę przekierować domyślną domenę *. azurewebsites.net do domeny niestandardowej mojej aplikacji sieci Web platformy Azure?
 
-Podczas tworzenia nowej witryny sieci Web przy użyciu Web Apps na platformie Azure do lokacji zostanie przypisana domyślna domena *sitename*. azurewebsites.NET. Jeśli dodasz niestandardową nazwę hosta do lokacji i nie chcesz, aby użytkownicy mogli uzyskać dostęp do domyślnej domeny *. azurewebsites.net, możesz przekierować domyślny adres URL. Aby dowiedzieć się, jak przekierować cały ruch z domeny domyślnej witryny sieci Web do domeny niestandardowej, zobacz [Przekierowanie domeny domyślnej do domeny niestandardowej w usłudze Azure Web Apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Podczas tworzenia nowej witryny sieci Web przy użyciu Web Apps na platformie Azure do lokacji zostanie przypisana domyślna domena *sitename* . azurewebsites.NET. Jeśli dodasz niestandardową nazwę hosta do lokacji i nie chcesz, aby użytkownicy mogli uzyskać dostęp do domyślnej domeny *. azurewebsites.net, możesz przekierować domyślny adres URL. Aby dowiedzieć się, jak przekierować cały ruch z domeny domyślnej witryny sieci Web do domeny niestandardowej, zobacz [Przekierowanie domeny domyślnej do domeny niestandardowej w usłudze Azure Web Apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Jak mogę określić, która wersja programu .NET jest zainstalowana w programie App Service?
 

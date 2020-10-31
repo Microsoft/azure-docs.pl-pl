@@ -6,14 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0c890d50bbfe498f9d90698394b2cc2d373c0d8b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489357"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072998"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Zmień wzorce projektowe kanału informacyjnego w Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Kanał informacyjny zmiany Azure Cosmos DB umożliwia wydajne przetwarzanie dużych zestawów danych przy użyciu dużej ilości operacji zapisu. Kanał informacyjny zmiany oferuje również alternatywę do wykonywania zapytań dotyczących całego zestawu danych w celu zidentyfikowania zmian. Ten dokument koncentruje się na wspólnych wzorcach, zaprojektowaniu, kompromisie i ograniczeniach dotyczących źródła zmian.
 
