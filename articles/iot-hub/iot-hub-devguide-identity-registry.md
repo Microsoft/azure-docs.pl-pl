@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3157eda4e2a21b0d153e7300db54f445fdb6878d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547762"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146930"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Informacje o rejestrze tożsamości w centrum IoT Hub
 
@@ -200,7 +200,7 @@ Tożsamości urządzeń są reprezentowane jako dokumenty JSON o następujących
 | statusUpdateTime |tylko do odczytu |Wskaźnik czasowy przedstawiający datę i godzinę ostatniej aktualizacji stanu. |
 | connectionState |tylko do odczytu |Pole wskazujące stan połączenia: **połączone** lub **rozłączone** . To pole reprezentuje widok IoT Hub stanu połączenia z urządzeniem. **Ważne** : to pole powinno być używane tylko na potrzeby tworzenia i debugowania. Stan połączenia jest aktualizowany tylko dla urządzeń korzystających z MQTT lub AMQP. Ponadto jest oparty na poleceniach ping na poziomie protokołu (MQTT Pings lub pinges AMQP) i może mieć maksymalnie 5 minut. Z tego względu można mieć fałszywe pozytywne, takie jak urządzenia zgłoszone jako połączone, ale które są rozłączone. |
 | connectionStateUpdatedTime |tylko do odczytu |Wskaźnik danych czasowych, przedstawiający datę i godzinę ostatniego zaktualizowania stanu połączenia. |
-| lastActivityTime |tylko do odczytu |Wskaźnik danych czasowych, przedstawiający datę i godzinę ostatniego połączenia urządzenia, odebrania lub wysłania wiadomości. |
+| lastActivityTime |tylko do odczytu |Wskaźnik danych czasowych, przedstawiający datę i godzinę ostatniego połączenia urządzenia, odebrania lub wysłania wiadomości. Ta właściwość jest ostatecznie spójna, ale można ją opóźnić do 5 – 10 minut. Z tego powodu nie należy używać w scenariuszach produkcyjnych. |
 
 > [!NOTE]
 > Stan połączenia może reprezentować tylko widok IoT Hub stanu połączenia. Aktualizacje tego stanu mogą być opóźnione, w zależności od warunków i konfiguracji sieci.

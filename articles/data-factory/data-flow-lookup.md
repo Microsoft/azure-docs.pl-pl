@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 10/30/2020
+ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040189"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147270"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformacja wyszukiwania w przepływie danych mapowania
 
@@ -68,6 +68,10 @@ Podczas testowania transformacji wyszukiwania z podglądem danych w trybie debug
 W sprzężeniach, wyszukiwaniu i przekształceniu istnieje, jeśli jeden lub oba strumienie danych mieszczą się w pamięci węzła procesu roboczego, można zoptymalizować wydajność, włączając **emisję** . Domyślnie aparat Spark automatycznie zdecyduje, czy ma być emitowana jedna strona. Aby ręcznie wybrać opcję emisji, wybierz pozycję **naprawione** .
 
 Nie zaleca się wyłączania emisji za pośrednictwem opcji **off** , chyba że sprzężenia są uruchamiane w przypadku błędów limitu czasu.
+
+## <a name="cached-lookup"></a>Buforowane wyszukiwanie
+
+Jeśli wykonujesz wiele mniejszych wyszukiwań w tym samym źródle, buforowany obiekt sink i wyszukiwanie może być lepszym przypadkiem użycia niż transformacja wyszukiwania. Typowe przykłady, w których obiekt ujścia pamięci podręcznej może być lepszy, wyszukuje maksymalną wartość w magazynie danych i dopasowuje kody błędów do bazy danych komunikatów o błędach. Aby uzyskać więcej informacji, zobacz [ujścia pamięci podręcznej](data-flow-sink.md#cache-sink) i [buforowane wyszukiwania](concepts-data-flow-expression-builder.md#cached-lookup).
 
 ## <a name="data-flow-script"></a>Skrypt przepływu danych
 

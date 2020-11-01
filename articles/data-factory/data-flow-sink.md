@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/27/2020
-ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.date: 10/30/2020
+ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891402"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147239"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformacja ujścia w przepływie danych mapowania
 
@@ -46,7 +46,7 @@ Mapowanie przepływu danych odbywa się zgodnie z podejściem wyodrębniania, ł
 | [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br>✓/✓<br> ✓/- |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties) <br> [Delta (wersja zapoznawcza)](format-delta.md) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (wersja zapoznawcza)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br>✓/✓<br> ✓/- <br> -/✓ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
-| [Baza danych SQL Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Wystąpienie zarządzane Azure SQL (wersja zapoznawcza)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (interfejs API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
@@ -72,6 +72,23 @@ Poniższy film wideo wyjaśnia różne opcje ujścia dla typów plików rozdziel
 **Użyj bazy danych tempdb:** Domyślnie Data Factory będzie używać globalnej tabeli tymczasowej do przechowywania danych w ramach procesu ładowania. Można również usunąć zaznaczenie opcji "Użyj bazy danych TempDB", a zamiast tego polecić Data Factory przechowywanie tymczasowej tabeli w bazie danych użytkownika, która znajduje się w bazie danych, która jest używana dla tego ujścia.
 
 ![TempDB](media/data-flow/tempdb.png "TempDB")
+
+## <a name="cache-sink"></a>Ujścia pamięci podręcznej
+ 
+*Ujścia pamięci podręcznej* polega na tym, że przepływ danych zapisuje dane w pamięci podręcznej Spark zamiast w magazynie danych. W mapowaniu przepływów danych można odwoływać się do tych danych w tym samym przepływie wielokrotnie przy użyciu funkcji *wyszukiwania w pamięci podręcznej* . Jest to przydatne, gdy chcesz odwoływać się do danych w ramach wyrażenia, ale nie chcesz jawnie dołączać do kolumn. Typowe przykłady, w których obiekt ujścia pamięci podręcznej może pomóc w wyszukiwaniu maksymalnej wartości w magazynie danych i dopasowania kodów błędów do bazy danych komunikatów o błędach. 
+
+Aby zapisać dane w ujściach pamięci podręcznej, Dodaj transformację ujścia i wybierz **pamięć podręczną** jako typ ujścia. W przeciwieństwie do innych typów ujścia, nie musisz wybierać zestawu danych ani połączonej usługi, ponieważ nie zapisujesz w sklepie zewnętrznym. 
+
+![Wybieranie ujścia pamięci podręcznej](media/data-flow/select-cache-sink.png "Wybieranie ujścia pamięci podręcznej")
+
+W ustawieniach ujścia można opcjonalnie określić kolumny klucza ujścia pamięci podręcznej. Są one używane jako warunki dopasowywania podczas korzystania z `lookup()` funkcji w odnośniku pamięci podręcznej. W przypadku określenia kolumn kluczy nie można użyć `outputs()` funkcji w odnośniku pamięci podręcznej. Aby dowiedzieć się więcej o składni wyszukiwania w pamięci podręcznej, zobacz [buforowane wyszukiwania](concepts-data-flow-expression-builder.md#cached-lookup).
+
+![Kolumny klucza ujścia pamięci podręcznej](media/data-flow/cache-sink-key-columns.png "Kolumny klucza ujścia pamięci podręcznej")
+
+Na przykład, jeśli określim pojedynczą kolumnę klucza `column1` w ujścia pamięci podręcznej o nazwie `cacheExample` , wywołanie `cacheExample#lookup()` może mieć jeden parametr określający wiersz w ujścia pamięci podręcznej, według którego ma być zgodny. Funkcja wyprowadza pojedynczą kolumnę złożoną z podkolumnami dla każdej mapowanej kolumny.
+
+> [!NOTE]
+> Obiekt sink pamięci podręcznej musi znajdować się w całkowicie niezależnym strumieniu danych z dowolnego przekształcenia, który odwołuje się do niego za pośrednictwem wyszukiwania Ujścia pamięci podręcznej musi również następować pierwszy obiekt ujścia. 
 
 ## <a name="field-mapping"></a>Mapowanie pola
 

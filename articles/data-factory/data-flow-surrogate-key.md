@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/08/2020
-ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: d1f8993b1adc297b1bfadba114df76a66e59afa2
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606291"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147188"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Przekształcanie klucza zastępczego w mapowaniu przepływu danych 
 
@@ -31,9 +31,9 @@ Użyj przekształcenia klucza dwuskładnikowego, aby dodać przyrostową wartoś
 
 ## <a name="increment-keys-from-existing-sources"></a>Przyrostowe klawisze z istniejących źródeł
 
-Aby rozpocząć sekwencję z wartości, która istnieje w źródle, użyj przekształcenia kolumn pochodnych po przekształceniu klucza zastępczego, aby dodać te dwie wartości jednocześnie:
+Aby rozpocząć sekwencję z wartości, która istnieje w źródle, zalecamy użycie ujścia pamięci podręcznej w celu zapisania tej wartości i użycie przekształceń kolumn pochodnych do dodawania dwóch wartości jednocześnie. Użyj buforowanego wyszukiwania, aby uzyskać dane wyjściowe i dołączyć je do wygenerowanego klucza. Aby uzyskać więcej informacji, zobacz [ujścia pamięci podręcznej](data-flow-sink.md#cache-sink) i [buforowane wyszukiwania](concepts-data-flow-expression-builder.md#cached-lookup).
 
-![SK Add Max](media/data-flow/sk006.png "Maksymalne dodanie przekształcenia klucza zastępczego")
+![Wyszukiwanie klucza zastępczego](media/data-flow/cached-lookup-example.png "Wyszukiwanie klucza zastępczego")
 
 ### <a name="increment-from-existing-maximum-value"></a>Zwiększ z istniejącej wartości maksymalnej
 
@@ -41,19 +41,18 @@ Aby obsłużyć wartość klucza z poprzednią maksymalną, istnieją dwie techn
 
 #### <a name="database-sources"></a>Źródła bazy danych
 
-Użyj opcji zapytania SQL, aby wybrać wartość MAX () ze źródła. Na przykład `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
+Użyj opcji zapytania SQL, aby wybrać wartość MAX () ze źródła. Na przykład `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`.
 
-![Zapytanie klucza zastępczego](media/data-flow/sk002.png "Zapytanie przekształcenia klucza zastępczego")
+![Zapytanie klucza zastępczego](media/data-flow/surrogate-key-max-database.png "Zapytanie przekształcenia klucza zastępczego")
 
 #### <a name="file-sources"></a>Źródła plików
 
 Jeśli poprzednia maksymalna wartość znajduje się w pliku, użyj `max()` funkcji w przekształceniu agregacji, aby uzyskać poprzednią wartość maksymalną:
 
-![Plik klucza zastępczego](media/data-flow/sk008.png "Plik klucza zastępczego")
+![Plik klucza zastępczego](media/data-flow/surrogate-key-max-file.png "Plik klucza zastępczego")
 
-W obu przypadkach należy przyłączyć przychodzące nowe dane razem ze źródłem, które zawiera poprzednią wartość maksymalną.
+W obu przypadkach należy zapisać w ujścia pamięci podręcznej i przeszukać wartość. 
 
-![Sprzężenie klawisza zastępczego](media/data-flow/sk004.png "Sprzężenie klawisza zastępczego")
 
 ## <a name="data-flow-script"></a>Skrypt przepływu danych
 

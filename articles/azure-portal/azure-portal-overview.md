@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4a00c1dcf973098895e80d5e3d656efd4a35d0d0
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072394"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147049"
 ---
 # <a name="azure-portal-overview"></a>Azure Portal — omówienie
 
@@ -24,7 +24,7 @@ W tym artykule wprowadzono Azure Portal, identyfikują elementy strony portalu i
 
 Witryna Azure Portal to ujednolicona, oparta na sieci Web konsola, która stanowi alternatywę dla narzędzi wiersza polecenia. Dzięki witrynie Azure Portal możesz zarządzać subskrypcją platformy Azure przy użyciu graficznego interfejsu użytkownika. Możesz tworzyć i monitorować wszystko, począwszy od prostych aplikacji internetowych po złożone wdrożenia w chmurze, a także zarządzać nimi. Twórz niestandardowe pulpity nawigacyjne, aby uzyskać zorganizowany widok zasobów. Konfiguruj opcje ułatwień dostępu w celu zapewnienia optymalnego środowiska.
 
-Azure Portal jest zaprojektowana pod kątem odporności i ciągłej dostępności. Jest ona dostępna w każdym centrum danych platformy Azure. Ta konfiguracja sprawia, że Azure Portal odporne na awarie poszczególnych centrów danych i pozwala uniknąć spowolnienia działania sieci przez zamknięcie użytkowników. Witryna Azure Portal jest stale aktualizowana i nie wymaga przestojów pod kątem działań konserwacyjnych.
+Witryna Azure Portal została zaprojektowana pod kątem odporności i ciągłej dostępności. Jest ona dostępna w każdym centrum danych platformy Azure. Ta konfiguracja sprawia, że Azure Portal odporne na awarie poszczególnych centrów danych i pozwala uniknąć spowolnienia działania sieci przez zamknięcie użytkowników. Witryna Azure Portal jest stale aktualizowana i nie wymaga przestojów pod kątem działań konserwacyjnych.
 
 ## <a name="azure-portal-menu"></a>Menu Azure Portal
 
@@ -40,11 +40,11 @@ W przypadku wybrania opcji Tryb zadokowany dla menu Portal będzie on zawsze wid
 
 ## <a name="azure-home"></a>Strona główna platformy Azure
 
-Jako nowy subskrybent usług platformy Azure pierwszy element widoczny po [zalogowaniu się do portalu](https://portal.azure.com) to **Strona główna platformy Azure**. Ta strona kompiluje zasoby, które pomogą w pełni wykorzystać subskrypcję platformy Azure. Dodaliśmy linki do bezpłatnych kursów online, dokumentacji, usług podstawowych i przydatnych witryn, które umożliwiają bieżące i zarządzanie zmianami w organizacji. Aby szybko i łatwo uzyskać dostęp do pracy w toku, pokazujemy również listę ostatnio odwiedzonych zasobów. Nie możesz dostosować tej strony, ale możesz wybrać, czy ma być wyświetlany **pulpit nawigacyjny** **platformy Azure** , czy Azure jako widok domyślny. Gdy logujesz się po raz pierwszy, w górnej części strony pojawi się monit, na którym możesz zapisać preferencję.
+Jako nowy subskrybent usług platformy Azure pierwszy element widoczny po [zalogowaniu się do portalu](https://portal.azure.com) to **Strona główna platformy Azure** . Ta strona kompiluje zasoby, które pomogą w pełni wykorzystać subskrypcję platformy Azure. Dodaliśmy linki do bezpłatnych kursów online, dokumentacji, usług podstawowych i przydatnych witryn, które umożliwiają bieżące i zarządzanie zmianami w organizacji. Aby szybko i łatwo uzyskać dostęp do pracy w toku, pokazujemy również listę ostatnio odwiedzonych zasobów. Nie możesz dostosować tej strony, ale możesz wybrać, czy ma być wyświetlany **pulpit nawigacyjny** **platformy Azure** , czy Azure jako widok domyślny. Gdy logujesz się po raz pierwszy, w górnej części strony pojawi się monit, na którym możesz zapisać preferencję.
 
-![Zrzut ekranu przedstawiający selektor widoku domyślnego](./media/azure-portal-overview/azure-portal-default-view.png)
+![Zrzut ekranu przedstawiający lokalizację, w której ma zostać zapisane Twoje preferencje.](./media/azure-portal-overview/azure-portal-default-view.png)
 
-Zarówno menu Azure Portal, jak i domyślny widok platformy Azure można zmienić w **ustawieniach portalu**. Jeśli zmienisz wybór, zmiana zostanie natychmiast zastosowana.
+Zarówno menu Azure Portal, jak i domyślny widok platformy Azure można zmienić w **ustawieniach portalu** . Jeśli zmienisz wybór, zmiana zostanie natychmiast zastosowana.
 
 ![Zrzut ekranu przedstawiający selektor widoku domyślnego](./media/azure-portal-overview/azure-portal-overview-portal-settings-menu-home.png)
 
@@ -70,12 +70,12 @@ Na rysunku poniżej przedstawiono podstawowe elementy Azure Portal, z których k
 |2| Wyszukiwanie globalne. Pasek wyszukiwania umożliwia szybkie znalezienie określonego zasobu, usługi lub dokumentacji.|
 |3|Kontrolki globalne. Podobnie jak w przypadku wszystkich elementów globalnych, te funkcje są zachowywane w portalu i obejmują: Cloud Shell, filtr subskrypcji, powiadomienia, ustawienia portalu, pomoc i obsługa techniczna oraz wysyłać do nas opinie.|
 |4|Twoje konto. Wyświetl informacje o Twoim koncie, przełącz katalogi, Wyloguj się lub Zaloguj się przy użyciu innego konta.|
-|5|Menu portalu. Menu Portal jest elementem globalnym, który ułatwia nawigowanie między usługami. Czasami określany jako pasek boczny, Tryb menu portalu można zmienić w **ustawieniach portalu**.|
+|5|Menu portalu. Menu Portal jest elementem globalnym, który ułatwia nawigowanie między usługami. Czasami określany jako pasek boczny, Tryb menu portalu można zmienić w **ustawieniach portalu** .|
 |6|Menu zasób. Wiele usług obejmuje menu zasobów ułatwiające zarządzanie usługą. Ten element może zostać wyświetlony jako lewe okienko.|
 |7|Pasek poleceń. Formanty na pasku poleceń są kontekstowe dla bieżącego fokusu.|
 |8|Okienko robocze.  Wyświetla szczegóły zasobu, który jest aktualnie fokusem.|
 |9|Stron. Linki do stron nadrzędnych umożliwiają przeniesienie poziomu w przepływie pracy.|
-|10|Formant główny służący do tworzenia nowego zasobu w bieżącej subskrypcji. Rozwiń lub Otwórz menu portalu, aby znaleźć i **utworzyć zasób**. Wyszukaj lub Przeglądaj witrynę Azure Marketplace dla typu zasobu, który chcesz utworzyć.|
+|10|Formant główny służący do tworzenia nowego zasobu w bieżącej subskrypcji. Rozwiń lub Otwórz menu portalu, aby znaleźć i **utworzyć zasób** . Wyszukaj lub Przeglądaj witrynę Azure Marketplace dla typu zasobu, który chcesz utworzyć.|
 |11|Lista ulubionych. Zobacz [Dodawanie, usuwanie i sortowanie ulubionych,](../azure-portal/azure-portal-add-remove-sort-favorites.md) aby dowiedzieć się, jak dostosować listę.|
 
 ## <a name="get-started-with-services"></a>Wprowadzenie do usług

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9ad004f65335d79205cbaddaa190b92a19c327d5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219794"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147287"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Szybki Start: jak utworzyć konto i przekazać swoje pierwsze wideo
 
@@ -27,8 +27,10 @@ Podczas tworzenia konta w usłudze Video Indexer można wybrać konto bezpłatne
 
 Aby rozpocząć tworzenie rozwiązań za pomocą usługi Video Indexer, przejdź do witryny internetowej usługi [Video Indexer](https://www.videoindexer.ai/) i utwórz konto.
 
+Po rozpoczęciu korzystania z Video Indexer wszystkie przechowywane dane i przekazana zawartość są szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft.
+
 > [!NOTE]
-> Po rozpoczęciu korzystania z Video Indexer wszystkie przechowywane dane i przekazana zawartość są szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft.
+> Przejrzyj [Video Indexer planowane zmiany authenticatication witryny sieci Web](release-notes.md#planned-video-indexer-website-authenticatication-changes).
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Przekazywanie pliku wideo za pomocą witryny internetowej usługi Video Indexer
 

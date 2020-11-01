@@ -1,67 +1,67 @@
 ---
 title: Integracja z partnerami obsługującymi dane o pogodzie
-description: W tym artykule opisano, jak dostawca danych pogody można zintegrować z usługą FarmBeats
+description: Dowiedz się, w jaki sposób dostawca danych pogody można zintegrować z usługą FarmBeats.
 author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: dd5d05ff6ed2368308f90f61ea0a6f107e43acd7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0fbd93e2a5f4e92089e10e75dc17e304ff80bf6
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740775"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147083"
 ---
-# <a name="weather-partner-integration"></a>Integracja z partnerami obsługującymi dane o pogodzie
+# <a name="weather-partner-integration-with-farmbeats"></a>Integracja z partnerem pogody z usługą FarmBeats
 
-Ten artykuł zawiera informacje na temat składnika Docker **łącznika** usługi Azure FarmBeats, który dostawcy danych pogody mogą opracowywać, aby zintegrować się z usługą FarmBeats, wykorzystując swoje interfejsy API i wysyłając dane pogody do FarmBeats. Gdy dane będą dostępne w FarmBeats, można je wykorzystać do łączenia danych i tworzenia modeli uczenia maszynowego/sztucznej analizy.
+Ten artykuł zawiera informacje na temat składnika Docker łącznika usługi Azure FarmBeats. Jako dostawca danych pogody możesz użyć platformy Docker, aby zintegrować z usługą FarmBeats. Użyj swoich interfejsów API, aby wysyłać dane pogody do FarmBeats. W programie FarmBeats dane mogą służyć do łączenia danych i tworzenia modeli uczenia maszynowego lub sztucznych modeli analizy.
 
  > [!NOTE]
- > Na potrzeby tej dokumentacji będziemy używać implementacji referencyjnej skompilowanej przy użyciu NOAA z platformy Azure Otwórz zestawy danych i jest dostępna pod adresem [https://github.com/azurefarmbeats/noaa_docker](https://github.com/azurefarmbeats/noaa_docker) .
- > Odpowiedni obraz platformy Docker jest dostępny pod adresem [https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
+ > W tym artykule używamy [implementacji referencyjnej](https://github.com/azurefarmbeats/noaa_docker) , która została skompilowana przy użyciu otwartych zestawów danych platformy Azure i dane pogodowe z krajowych oceanicznych i NOAA. Używamy również odpowiedniego [obrazu platformy Docker](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa).
 
-Partner pogody musi dostarczyć obraz/program platformy Docker (ze specyfikacjami wymienionymi poniżej) i hostować obraz platformy Docker w rejestrze kontenerów, który jest dostępny dla klientów. Partner pogody będzie musiał udostępnić klientom następujące informacje:
+Musisz podać [odpowiedni obraz platformy Docker lub program](#docker-specifications) i hostować obraz platformy Docker w rejestrze kontenera, do którego klienci mogą uzyskać dostęp. Podaj następujące informacje dla klientów:
 
 - Adres URL obrazu platformy Docker
 - Tag obrazu platformy Docker
-- Klucze/poświadczenia umożliwiające dostęp do obrazu platformy Docker
-- Klucze/poświadczenia interfejsu API specyficzne dla klienta umożliwiające dostęp do danych z systemu partnera pogody
-- Szczegóły jednostki SKU maszyny wirtualnej (partnerzy mogą ją udostępnić w przypadku, gdy platforma Docker ma określone wymagania dotyczące maszyn wirtualnych, w przeciwnym razie klienci mogą wybrać spośród obsługiwanych jednostek SKU maszyn wirtualnych na platformie Azure)
+- Klucze lub poświadczenia umożliwiające dostęp do obrazu platformy Docker
+- Klucze interfejsu API specyficzne dla klienta lub poświadczenia umożliwiające dostęp do danych z systemu
+- Szczegóły jednostki SKU maszyny wirtualnej (podaj te szczegóły, jeśli obraz platformy Docker ma określone wymagania dotyczące maszyny wirtualnej). W przeciwnym razie klienci mogą wybrać spośród obsługiwanych jednostek SKU maszyn wirtualnych na platformie Azure.
 
-Korzystając z podanych powyżej informacji platformy Docker, klient będzie rejestrował partnera pogody w ich wystąpieniach usługi FarmBeats. Aby dowiedzieć się więcej o tym, jak klienci mogą używać platformy Docker do pozyskiwania danych pogodowych w FarmBeats, zobacz przewodnik, aby [uzyskać dane pogodowe](./get-weather-data-from-weather-partner.md)
+Klienci używają tych informacji platformy Docker do rejestrowania partnera pogody w ich wystąpieniu FarmBeats. Aby uzyskać więcej informacji na temat sposobu, w jaki klienci mogą używać platformy Docker do pozyskiwania danych pogody w FarmBeats, zobacz [pobieranie danych od partnerów pogody](./get-weather-data-from-weather-partner.md).
 
 ## <a name="connector-docker-development"></a>Programowanie platformy Docker
 
 **Integracja oparta na interfejsie API REST**
 
-Interfejsy API FarmBeats zawierają dokumentację techniczną struktury Swagger. Aby uzyskać informacje na temat wszystkich interfejsów API i odpowiadających im żądań lub odpowiedzi, zobacz [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
+Interfejsy API FarmBeats zawierają dokumentację techniczną struktury Swagger. Aby uzyskać więcej informacji na temat interfejsów API i odpowiadających im żądań lub odpowiedzi, zobacz [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-Jeśli zainstalowano FarmBeats, możesz uzyskać dostęp do programu FarmBeats Swagger w `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
+Jeśli już zainstalowano FarmBeats, uzyskaj dostęp do programu FarmBeats Swagger w `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
-Należy zauważyć, że parametr "-API" jest dołączany do nazwy witryny sieci Web FarmBeats.
-Punkt końcowy interfejsu API będzie: `https://yourfarmbeatswebsitename-api.azurewebsites.net`
+Zwróć uwagę, że *interfejs API* jest dołączany do nazwy witryny sieci Web FarmBeats. Punkt końcowy interfejsu API to `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Biblioteka Datahub
 
-FarmBeats dostarczy biblioteki lib, która może być używana przez partnera pogody. Biblioteka lib jest obecnie dostępna w ramach implementacji odwołania w [tym miejscu](https://github.com/azurefarmbeats/noaa_docker/tree/master/datahub_lib). W przyszłości taka sama będzie dostępna jako zestaw SDK dla wielu języków.
+FarmBeats zawiera bibliotekę, której można użyć. Biblioteka lib jest obecnie dostępna jako [część implementacji odwołania](https://github.com/azurefarmbeats/noaa_docker/tree/master/datahub_lib). Później będzie dostępny jako zestaw SDK dla wielu języków.
 
 ### <a name="authentication"></a>Authentication
 
 **Uwierzytelnianie za pomocą interfejsów API FarmBeats**
 
-FarmBeats używa uwierzytelniania okaziciela i dostęp do interfejsów API można uzyskać, podając token dostępu w sekcji nagłówka żądania w następujący sposób:
+FarmBeats używa uwierzytelniania okaziciela. Możesz uzyskać dostęp do interfejsów API, podając token dostępu w sekcji nagłówka żądania. Oto przykład:
 
 ```
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
 
-Token dostępu można zażądać od funkcji platformy Azure uruchomionej w wystąpieniu FarmBeats klienta. Adres URL funkcji platformy Azure zostanie dostarczony do programu Docker jako argument, a token dostępu można uzyskać, wysyłając żądanie GET w adresie URL. Odpowiedź z adresu URL będzie zawierać token dostępu. Biblioteka Datahub zawiera funkcje pomocnika umożliwiające partnerom uzyskanie tokenu dostępu. Więcej informacji znajdziesz [tutaj](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_auth_helper.py).
+Możesz zażądać tokenu dostępu z aplikacji Azure Functions działającej w wystąpieniu FarmBeats klienta. Adres URL Azure Functions jest dostarczany do programu Docker jako argument. Token dostępu można uzyskać, wysyłając `GET` żądanie na adres URL. Odpowiedź z adresu URL zawiera token dostępu. 
 
-Token dostępu jest prawidłowy tylko przez kilka godzin i wymaga ponownego zażądania po jego wygaśnięciu.
+Użyj funkcji pomocnika w bibliotece Datahub, aby uzyskać token dostępu. Aby uzyskać więcej informacji, zobacz [stronę usługi GitHub dla obrazu platformy Docker NOAA](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_auth_helper.py).
 
-**Uwierzytelnianie za pomocą interfejsów API po stronie partnera**
+Token dostępu jest prawidłowy tylko dla kilku godzin. Po jego wygaśnięciu należy ponownie zażądać tego żądania.
 
-Aby umożliwić klientom uwierzytelnianie przy użyciu interfejsów API po stronie partnera podczas wykonywania platformy Docker, klienci muszą podać poświadczenia podczas rejestracji partnera w następujący sposób:
+**Uwierzytelnianie za pomocą interfejsów API po stronie partnerskiej**
+
+Aby uwierzytelniać się przy użyciu interfejsów API po stronie partnera podczas działania zadania platformy Docker, klienci muszą podać poświadczenia podczas rejestracji partnera. Oto przykład:
 
 ```json
 {
@@ -71,9 +71,13 @@ Aby umożliwić klientom uwierzytelnianie przy użyciu interfejsów API po stron
    }
 }
 ```
-Usługa API serializować ten DICT i zapisuje je w [magazynie](../../key-vault/general/basic-concepts.md)kluczy.
+Usługa API serializować ten DICT i zapisuje je w [magazynie kluczy](../../key-vault/general/basic-concepts.md).
 
-[Azure Data Factory](../../data-factory/introduction.md) służy do organizowania zadań pogodowych i zwiększania zasobów w celu wykonania kodu platformy Docker. Zapewnia również mechanizm bezpiecznego wypychania danych do maszyny wirtualnej, w której wykonywane jest zadanie platformy Docker. Poświadczenia interfejsu API, obecnie bezpiecznie przechowywane w magazynie kluczy są odczytywane jako bezpieczne ciągi z magazynu kluczy i udostępniane jako właściwości rozszerzone w katalogu roboczym kontenera Docker jako activity.js(ścieżka do pliku to "/mnt/working_dir/activity.json") kod platformy Docker może odczytywać poświadczenia z tego pliku w czasie wykonywania, aby uzyskać dostęp do interfejsów API po stronie partnera w imieniu klienta. Poświadczenia będą dostępne w pliku w następujący sposób:
+[Azure Data Factory](../../data-factory/introduction.md) służy do organizowania zadań pogodowych. Powoduje to przekazanie zasobów w celu uruchomienia kodu platformy Docker. Data Factory udostępnia również mechanizm do bezpiecznego wypychania danych do maszyny wirtualnej, na której działa zadanie platformy Docker. Poświadczenia interfejsu API są następnie bezpiecznie przechowywane w magazynie kluczy. 
+
+Poświadczenia są odczytywane jako bezpieczne ciągi z magazynu kluczy. Są one dostarczane jako właściwości rozszerzone w katalogu roboczym kontenera Docker. Ścieżka pliku jest */mnt/working_dir/activity.jswłączona* . 
+
+Kod platformy Docker może odczytać poświadczenia z *activity.jsw* czasie wykonywania w celu uzyskania dostępu do interfejsów API po stronie partnera dla klienta. W pliku JSON poświadczenia wyglądają podobnie jak w tym przykładzie kodu:
 
 ```json
 { 
@@ -83,135 +87,143 @@ Usługa API serializować ten DICT i zapisuje je w [magazynie](../../key-vault/g
    } 
 }
 ```
-Należy zauważyć, że "partnerCredentials" będzie dostępny w sposób dokładny, który został dostarczony przez klienta podczas rejestracji partnera
+`partnerCredentials`Poświadczenie jest dostępne w sposób, w jaki klient udostępnił go podczas rejestracji partnera.
 
-Biblioteka FarmBeats zawiera funkcje pomocnika umożliwiające partnerom odczytywanie poświadczeń z właściwości działania. Więcej informacji znajdziesz [tutaj](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_adf_helper.py).
+Biblioteka FarmBeats zawiera funkcje pomocnika. Te funkcje służą do odczytywania poświadczeń z właściwości działania. Aby uzyskać więcej informacji, zobacz [stronę usługi GitHub dla obrazu platformy Docker NOAA](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_adf_helper.py).
 
-Okres istnienia pliku jest tylko podczas wykonywania kodu platformy Docker i zostanie usunięty po zakończeniu przebiegu platformy Docker.
+Plik jest używany tylko wtedy, gdy działa kod platformy Docker. Po zakończeniu działania kodu plik zostanie usunięty.
 
-Aby uzyskać więcej informacji na temat działania potoków i działań usługi ADF, zobacz [https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping](../../data-factory/copy-activity-schema-and-type-mapping.md) .
+Aby uzyskać więcej informacji o tym, jak działają potoki i działania Data Factory, zobacz [Mapowanie schematu i typu danych](../../data-factory/copy-activity-schema-and-type-mapping.md).
 
 **Nagłówki żądań HTTP**
 
-Poniżej znajdują się najczęstsze nagłówki żądań, które należy określić podczas wywołania interfejsu API do FarmBeats.
+W poniższej tabeli przedstawiono najczęstsze nagłówki żądań, które należy określić podczas wywołania interfejsu API do FarmBeats.
 
-**Nagłówki** | **Opis i przykład**
+Header | Opis i przykład
 --- | ---
-Content-Type | Format żądania (Content-Type: Application/ <format> ). W przypadku interfejsów API FarmBeats Datahub format jest JSON. Content-Type: Application/JSON
-Autoryzacja | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <okaziciela Access-Token>
-Zaakceptuj | Format odpowiedzi. W przypadku interfejsów API FarmBeats Datahub format jest JSON. Akceptuj: Application/JSON
+Content-Type | Format żądania. Przykład: `Content-Type: application/<format>` <br/>W przypadku interfejsów API FarmBeats Datahub format jest JSON. Przykład: ` Content-Type: application/json`
+Autoryzacja | Token dostępu wymagany do wywołania interfejsu API. Przykład: `Authorization: Bearer <Access-Token>`
+Zaakceptuj | Format odpowiedzi. W przypadku interfejsów API FarmBeats Datahub format jest JSON. Przykład: `Accept: application/json`
 
 ## <a name="data-format"></a>Format danych
 
-JSON to typowy format danych niezależny od języka, który zapewnia prostą reprezentację dowolnych struktur danych. Aby uzyskać więcej informacji, zobacz [JSON.org](http://json.org).
+JSON to typowy format danych niezależny od języka, który zapewnia prostą reprezentację dowolnych struktur danych. Aby uzyskać więcej informacji, zobacz [JSON.org](https://json.org).
 
 ## <a name="docker-specifications"></a>Specyfikacje platformy Docker
 
-Program Docker musi mieć dwa składniki: **Bootstrap** i **Jobs** . Może istnieć więcej niż jedno zadanie.
+Program platformy Docker wymaga dwóch składników: ładowania początkowego i zadania. Program może mieć więcej niż jedno zadanie.
 
 ### <a name="bootstrap"></a>Uruchomienie
 
-Ten składnik powinien zostać wykonany po zainicjowaniu przez klienta rejestracji platformy Docker w systemie FarmBeats. Argumenty (arg1, arg2), które zostaną przekazane do tego programu, są następujące:
+Składnik ładowania początkowego powinien działać, gdy klient uruchamia rejestrację platformy Docker w systemie FarmBeats. Następujące argumenty ( `arg1` i `arg2` ) są przekazane do programu:
 
-- Punkt końcowy interfejsu API FarmBeats: FarmBeats punktu końcowego interfejsu API dla żądań interfejsu API: jest to punkt końcowy do tworzenia wywołań interfejsu API do wdrożenia FarmBeats.
-- Adres URL funkcji platformy Azure: jest to Twój własny punkt końcowy, który zapewni token dostępu dla interfejsów API FarmBeats. Po prostu wywołanie metody GET na tym adresie URL spowoduje pobranie tokenu dostępu w odpowiedzi.
+- **Punkt końcowy interfejsu API FarmBeats** : punkt końcowy interfejsu API FarmBeats dla żądań interfejsu API. Ten punkt końcowy wykonuje wywołania interfejsu API do wdrożenia FarmBeats.
+- **Adres URL Azure Functions** : własny punkt końcowy. Ten adres URL zawiera token dostępu dla interfejsów API FarmBeats. Możesz wywołać `GET` ten adres URL, aby pobrać token dostępu.
 
-Przy użyciu programu Bootstrap można utworzyć metadane wymagane, aby umożliwić użytkownikom uruchamianie zadań w celu uzyskania danych o pogodzie. Zapoznaj się z implementacją referencyjną [tutaj](https://github.com/azurefarmbeats/noaa_docker). bootstrap_manifest.jsw pliku można zaktualizować zgodnie z potrzebami użytkownika, a program ładowania referencyjnego utworzy wymagane metadane.
+Ten Bootstrap tworzy metadane, których użytkownicy potrzebują do uruchamiania zadań, aby uzyskać dane pogodowe. Aby uzyskać więcej informacji, zobacz [implementację referencyjną](https://github.com/azurefarmbeats/noaa_docker). 
 
-Następujące metadane są tworzone w ramach tego procesu. 
+W przypadku dostosowania *bootstrap_manifest.jsw* pliku, program ładowania referencyjnego utworzy wymagane metadane. Program ładowania początkowego tworzy następujące metadane: 
 
  > [!NOTE]
- > **Należy pamiętać** , że w przypadku aktualizacji bootstrap_manifest.jsw pliku, jak wspomniano w [implementacji referencyjnej](https://github.com/azurefarmbeats/noaa_docker), nie trzeba tworzyć poniższych metadanych, ponieważ Bootstrap zostanie utworzony w oparciu o plik manifestu.
+ > W przypadku aktualizacji *bootstrap_manifest.jsw* pliku zgodnie z opisem [implementacji referencyjnej](https://github.com/azurefarmbeats/noaa_docker) nie trzeba tworzyć następujących metadanych. Program ładowania początkowego użyje pliku manifestu do utworzenia niezbędnych metadanych.
 
-- /**WeatherDataModel** : WeatherDataModel jest modelem służącym do reprezentowania danych pogody i odnosi się do różnych zestawów danych dostarczanych przez źródło. Na przykład DailyForecastSimpleModel może zapewnić średnią temperaturę, wilgotność i informacje o opadach raz dziennie, a DailyForecastAdvancedModel może dostarczyć znacznie więcej informacji na temat godzinowej szczegółowości. Można utworzyć dowolną liczbę WeatherDataModels.
-- /**Typu zadania** : FarmBeats ma rozszerzalny system zarządzania zadaniami. Jako dostawca danych pogody będziesz mieć różne zestawy/interfejsy API (na przykład GetDailyForecasts) — możesz je włączyć w FarmBeats jako typu zadania. Po utworzeniu typu zadania klient może wyzwolić zadania tego typu, aby uzyskać dane pogodowe dla ich lokalizacji/farmy (zobacz typu zadania i interfejsy API zadań w [FarmBeats Swagger](https://aka.ms/farmbeatsswagger)).
+- /**WeatherDataModel** : metadane WeatherDataModel reprezentują dane o pogodzie. Odnosi się do zestawów danych dostarczanych przez źródło. Na przykład DailyForecastSimpleModel może zapewnić średnią temperaturę, wilgotność i informacje o opadach raz dziennie. Z kolei DailyForecastAdvancedModel może zapewnić znacznie więcej informacji na poziomie szczegółowości godzinowej. Można utworzyć dowolną liczbę modeli danych pogody.
+- /**Typu zadania** : FarmBeats ma rozszerzalny system zarządzania zadaniami. Jako dostawca danych pogody będziesz mieć różne zbiory i interfejsy API (na przykład GetDailyForecasts). Te zestawy danych i interfejsy API można włączyć w programie FarmBeats przy użyciu typu zadania. Po utworzeniu typu zadania klient może wyzwolić zadania tego typu, aby uzyskać dane pogodowe dla ich lokalizacji lub ich udziału w swojej organizacji. Aby uzyskać więcej informacji, zobacz typu zadania i interfejsy API zadań w [FarmBeats Swagger](https://aka.ms/farmbeatsswagger).
 
 ### <a name="jobs"></a>Stanowiska
 
-Ten składnik będzie wywoływany za każdym razem, gdy użytkownik FarmBeats uruchamia zadanie/JobType, które zostało utworzone w ramach procesu ładowania początkowego. Polecenie Docker Run dla zadania jest zdefiniowane jako część utworzonego elementu **/JobType** .
-- Odpowiedzialność za zadanie będzie pobierać dane ze źródła i wypchnąć je do FarmBeats. Parametry wymagane do pobrania danych powinny być zdefiniowane jako część/JobType w procesie ładowania początkowego.
-- W ramach zadania program będzie musiał utworzyć **/WeatherDataLocation** na podstawie/WeatherDataModel, który został utworzony w ramach procesu ładowania początkowego. **/WeatherDataLocation** odnosi się do lokalizacji (lat/Long), która jest dostarczana przez użytkownika jako parametr do zadania.
+Składnik Jobs jest wywoływany za każdym razem, gdy użytkownik FarmBeats uruchamia zadanie/JobType, które zostało utworzone w ramach procesu ładowania początkowego. Polecenie Docker Run dla zadania jest zdefiniowane jako część utworzonego elementu/JobType.
 
-### <a name="details-of-the-objects"></a>Szczegóły obiektów
+Zadanie pobiera dane ze źródła i wypycha je do FarmBeats. W procesie ładowania początkowego parametry, które są wymagane do pobrania danych, powinny być zdefiniowane jako część/JobType.
 
-  WeatherDataModel | Opis |
-  --- | ---
-  Nazwa  | Nazwa modelu danych pogody |
-  Opis  | Podaj znaczący opis modelu. |
-  Właściwości  | Dodatkowe właściwości zdefiniowane przez dostawcę danych. |
-  Nazwa > weatherMeasures  | Nazwa miary pogodowej. Na przykład humidity_max |
-  weatherMeasures > DataType  | Podwójna lub wyliczeniowa. Jeśli enum, measureEnumDefinition jest wymagany |
-  weatherMeasures > measureEnumDefinition  | Wymagane tylko wtedy, gdy typem danych jest enum. Na przykład {"nodeszcz": 0, "śnieg": 1, "Drizzle": 2, "deszcz": 3} |
-  Typ > weatherMeasures  | Typ danych telemetrii pogody. Na przykład "RelativeHumidity". Poniżej znajdują się typy zdefiniowane przez system: AmbientTemperature, nounit, CO2, Głębokość, ElectricalConductivity, LeafWetness, Length, LiquidLevel, azotan, O2, PH, fosforan, PointInTime, potas, ciśnienie, RainGauge, RelativeHumidity, sole, SoilMoisture, SoilTemperature, SolarRadiation, TimeDuration, PAR. Aby dodać więcej, zapoznaj się z interfejsem API/ExtendedType lub w [sekcji Dodawanie typów i jednostek](weather-partner-integration-in-azure-farmbeats.md#add-extendedtype) poniżej.
-  Jednostka > weatherMeasures | Jednostka danych telemetrycznych o pogodzie. Poniżej przedstawiono jednostki zdefiniowane przez system: nounit, Celsjusza, Fahrenheita, Kelvin, Rankine, Pascal, rtęć, PSI, milimetry, centymetr, metr, centymetr, stopy, kilometry, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion, MicroMol, MicroMolesPerLiter,, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter i Centibar. Aby dodać więcej, zapoznaj się z interfejsem API/ExtendedType lub w [sekcji Dodawanie typów i jednostek](weather-partner-integration-in-azure-farmbeats.md#add-extendedtype) poniżej.
-  weatherMeasures > agregacji  | Brak, średnia, maksimum, minimum, StandardDeviation, sum, suma
-  Głębokość > weatherMeasures  | Głębokość czujnika w centymetrach. Na przykład pomiar wilgoci 10 cm pod ziemią.
-  weatherMeasures > opis  | Podaj znaczący opis miary. |
-  **Typu zadania** | **Opis** |
-  Nazwa  | Nazwa zadania — na przykład Get_Daily_Forecast; zadanie, które zostanie uruchomione przez klienta w celu uzyskania danych pogody|
-  pipelineDetails > parametry > nazwa  | Nazwa parametru |
-  pipelineDetails > parametrów > typu | jeden z ciągów, int, float, bool, Array |
-  pipelineDetails > parametry > IsRequired | typu ma wartość true, jeśli parametr Required ma wartość false; wartość domyślna to true |
-  pipelineDetails > parametry > DefaultValue | Wartość domyślna parametru |
-  pipelineDetails > parametrów > opis | Opis parametru |
-  Właściwości  | Dodatkowe właściwości producenta.
-  Właściwości > **programRunCommand** | polecenie Docker Run — to polecenie zostanie wykonane, gdy klient uruchomi zadanie pogodowe. |
-  **WeatherDataLocation** | **Opis** |
-  weatherDataModelId  | Identyfikator odpowiadającego WeatherDataModel, który został utworzony podczas ładowania początkowego|
-  location  | reprezentuje szerokość geograficzną, długość geograficzną i podniesienia |
-  Nazwa | Nazwa obiektu |
-  Opis | Opis |
-  farmId | **opcjonalne** Identyfikator farmy udostępnianej przez klienta w ramach parametru zadania |
-  Właściwości  | Dodatkowe właściwości producenta.
+W ramach zadania program musi utworzyć/WeatherDataLocation w oparciu o/WeatherDataModel, który został utworzony podczas procesu ładowania początkowego. /WeatherDataLocation odpowiada lokalizacji (współrzędnej szerokości geograficznej i długości geograficznej), który użytkownik podano jako parametr zadania.
 
- Aby uzyskać informacje na temat poszczególnych obiektów i ich właściwości, zobacz [Swagger](https://aka.ms/FarmBeatsSwagger).
+### <a name="object-details"></a>Szczegóły obiektu
 
- > [!NOTE]
- > Interfejsy API zwracają unikatowe identyfikatory dla każdego utworzonego wystąpienia. Ten identyfikator musi być zachowywany przez translator w celu zarządzania urządzeniami i synchronizowania metadanych.
+WeatherDataModel | Opis |
+--- | ---
+Nazwa  | Nazwa modelu danych pogody. |
+Opis  | Zrozumiały opis modelu. |
+Właściwości  | Dodatkowe właściwości zdefiniowane przez dostawcę danych. |
+Nazwa > weatherMeasures  | Nazwa miary pogodowej. Na przykład humidity_max. |
+weatherMeasures > DataType  | Podwójna lub wyliczeniowa. Jeśli enum, measureEnumDefinition jest wymagany. |
+weatherMeasures > measureEnumDefinition  | Wymagane tylko wtedy, gdy typem danych jest enum. Na przykład `{ "NoRain": 0, "Snow": 1, "Drizzle": 2, "Rain": 3 }` |
+Typ > weatherMeasures  | Typ danych telemetrii pogody. Na przykład RelativeHumidity. Typy zdefiniowane przez system to AmbientTemperature, nounit, CO2, Głębokość, ElectricalConductivity, LeafWetness, Length, LiquidLevel, azotan, O2, PH, fosforan, PointInTime, potas, ciśnienie, RainGauge, RelativeHumidity, zasolenie, SoilMoisture, SoilTemperature, SolarRadiation, TimeDuration, UVRadiation i PAR. Aby dodać więcej typów, zobacz sekcję [Add ExtendedType](#add-extendedtype) w tym artykule.
+Jednostka > weatherMeasures | Jednostka danych telemetrycznych o pogodzie. Jednostki zdefiniowane przez system to nounit, Celsjusza, Fahrenheita, Kelvin, Rankine, Pascal, rtęć, PSI, milimetry, centymetr, metr, centymetr, stopy, kilometry, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion, MicroMole, MicroMolesPerLiter,, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter i Centibar. Aby dodać więcej jednostek, zapoznaj się z sekcją [Add ExtendedType](#add-extendedtype) w tym artykule.
+weatherMeasures > agregacji  | Typ agregacji. Możliwe wartości to None, Average, Maximum, minimum, StandardDeviation, sum i Total.
+Głębokość > weatherMeasures  | Głębokość czujnika w centymetrach. Na przykład pomiar wilgoci 10 cm pod ziemią.
+weatherMeasures > opis  | Zrozumiały opis miary. 
+
+Typu zadania | Opis |
+--- | ---
+Nazwa  | Nazwa zadania. Na przykład Get_Daily_Forecast. Klient uruchomi to zadanie w celu uzyskania danych o pogodzie.|
+pipelineDetails > parametry > nazwa  | Nazwa parametru. |
+pipelineDetails > parametrów > typu | Typ parametru. Możliwe wartości to String, int, float, bool i Array. |
+pipelineDetails > parametry > IsRequired | Wartość logiczna parametru. Wartość jest równa true, jeśli parametr jest wymagany. W przeciwnym razie wartość jest równa false. Wartość domyślna to true. |
+pipelineDetails > parametry > DefaultValue | Wartość domyślna parametru. |
+pipelineDetails > parametrów > opis | Opis parametru. |
+Właściwości  | Dodatkowe właściwości producenta.
+Właściwości > programRunCommand | Polecenie Docker Run. To polecenie jest uruchamiane, gdy klient uruchamia zadanie pogodowe. |
+
+WeatherDataLocation | Opis |
+--- | ---
+weatherDataModelId  | Identyfikator odpowiadającego WeatherDataModel, który został utworzony podczas procesu ładowania początkowego.|
+location  | Szerokości geograficznej, długości geograficznej i podniesienia uprawnień. |
+Nazwa | Nazwa obiektu. |
+Opis | Opis lokalizacji danych pogody. |
+farmId | Obowiązkowe Identyfikator farmy. Klient dostarcza ten identyfikator jako część parametru zadania. |
+Właściwości  | Dodatkowe właściwości producenta.
+
+Aby uzyskać więcej informacji o obiektach i ich właściwościach, zobacz [FarmBeats Swagger](https://aka.ms/FarmBeatsSwagger).
+
+> [!NOTE]
+> Interfejsy API zwracają unikatowe identyfikatory dla każdego tworzonego wystąpienia. Translator dla zarządzania urządzeniami i synchronizacji metadanych musi zachować ten identyfikator.
 
 **Synchronizacja metadanych**
 
-Platforma Docker powinna mieć możliwość wysyłania aktualizacji metadanych. Przykłady scenariuszy aktualizacji to: dodanie nowych parametrów pogodowych do zestawu danych dostawcy pogody, dodanie funkcji (np. Dodanie prognozy 30 dni)
+Składnik Docker łącznika powinien mieć możliwość wysyłania aktualizacji metadanych. Na przykład powinna wysyłać aktualizacje, gdy dostawca pogody dodaje nowe parametry do zestawu danych lub gdy zostanie dodana nowa funkcja, taka jak nowa 30-dniowa Prognoza.
 
 > [!NOTE]
-> Usuwanie nie jest obsługiwane dla metadanych. Model danych pogody.
+> Usuwanie nie jest obsługiwane dla metadanych w modelu danych pogody.
 >
-> Aby zaktualizować metadane, należy wywołać/Get/{ID} w modelu danych pogody, zaktualizować zmienione właściwości, a następnie wykonać/Put/{ID}, tak aby wszystkie właściwości ustawione przez użytkownika nie zostały utracone.
+> Aby zaktualizować metadane, należy wywołać `/Get/{ID}` model danych pogody. Zaktualizuj zmienione właściwości, a następnie wykonaj, `/Put/{ID}` Aby zachować wszystkie właściwości ustawiane przez użytkownika.
 
 ## <a name="weather-data-telemetry-specifications"></a>Specyfikacje danych pogody (Telemetria)
 
-Dane o pogodzie są mapowane na komunikat kanoniczny, który jest wypychany do centrum zdarzeń platformy Azure w celu przetworzenia. Azure Event Hubs to usługa, która umożliwia pozyskiwanie danych w czasie rzeczywistym z połączonych urządzeń i aplikacji. Aby wysłać dane pogody do FarmBeats, należy utworzyć klienta wysyłającego komunikaty do centrum zdarzeń w FarmBeats. Aby dowiedzieć się więcej o wysyłaniu danych telemetrycznych, zobacz [wysyłanie danych telemetrycznych do centrum zdarzeń](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+Dane o pogodzie są mapowane na komunikat kanoniczny, który jest wypychany do centrum zdarzeń platformy Azure w celu przetworzenia. Azure Event Hubs to usługa, która umożliwia pozyskiwanie danych w czasie rzeczywistym z połączonych urządzeń i aplikacji. 
 
-Oto przykładowy kod w języku Python, który wysyła dane telemetryczne jako klienta do określonego centrum zdarzeń.
+Aby wysłać dane pogody do FarmBeats, należy utworzyć klienta wysyłającego komunikaty do centrum zdarzeń w FarmBeats. Aby uzyskać więcej informacji, zobacz [wysyłanie telemetrii do centrum zdarzeń](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+
+Poniższy przykładowy kod w języku Python wysyła dane telemetryczne jako klienta do określonego centrum zdarzeń.
 
 ```python
 import azure
 from azure.eventhub import EventHubClient, Sender, EventData, Receiver, Offset
-EVENTHUBCONNECTIONSTRING = "<EventHub Connection String provided by customer>"
-EVENTHUBNAME = "<EventHub Name provided by customer>"
+EVENTHUBCONNECTIONSTRING = "<EventHub connection string provided by customer>"
+EVENTHUBNAME = "<EventHub name provided by customer>"
 
 write_client = EventHubClient.from_connection_string(EVENTHUBCONNECTIONSTRING, eventhub=EVENTHUBNAME, debug=False)
 sender = write_client.add_sender(partition="0")
 write_client.run()
 for i in range(5):
-    telemetry = "<Canonical Telemetry message>"
+    telemetry = "<Canonical telemetry message>"
     print("Sending telemetry: " + telemetry)
     sender.send(EventData(telemetry))
 write_client.stop()
 
 ```
 
-Format komunikatu kanonicznego jest następujący:
+Oto format komunikatu kanonicznego:
 
 ```json
 {
    "weatherstations": [
    {
-   "id": "id of the WeatherDataLocation",
+   "id": "ID of the WeatherDataLocation.",
    "weatherdata": [
    {
-     "timestamp": "timestamp of the data. For historical, this is the time for which the observations are sent. For forecast this is the time for which data is forecasted. Format is ISO 8601. Default time-zone is UTC",
-     "predictiontimestamp": "timestamp on which the forecast data is predicted i.e time of prediction. Required only for forecast data. Format is ISO 8601. Default timezone is UTC ",
+     "timestamp": "Timestamp of the data. For historical purposes, this is the time for which the observations are sent. For forecast, this is the time for which data is forecasted. Format is ISO 8601. Default time zone is UTC.",
+     "predictiontimestamp": "Timestamp on which the forecast data is predicted. I.e., the time of prediction. Required only for forecast data. Format is ISO 8601. Default time zone is UTC. ",
      "weathermeasurename1": <value>,
      "weathermeasurename2": <value>
      }
@@ -221,7 +233,7 @@ Format komunikatu kanonicznego jest następujący:
 }
 ```
 
-Na przykład Oto komunikat telemetrii:
+Oto przykład komunikatu telemetrii:
 
 ```json
 {
@@ -245,28 +257,28 @@ Na przykład Oto komunikat telemetrii:
 
 ## <a name="troubleshooting-and-error-management"></a>Rozwiązywanie problemów i zarządzanie błędami
 
-**Rejestrowanie błędów**
+### <a name="error-logging"></a>Rejestrowanie błędów
 
-Ponieważ zadanie partnerskie zostanie uruchomione w istniejącej platformie zadań — błędy są rejestrowane w taki sam sposób jak błędy innych wstępnie istniejących zadań w FarmBeats (na przykład GetFarmData, SensorPlacement itp.). Działanie usługi ADF uruchomione w ramach potoku APD rejestruje zarówno STDERR, jak i STDOUT. Oba pliki są dostępne na koncie magazynu "datahublogs-XXX" w grupie zasobów FarmBeats.
+Zadanie partnerskie działa w istniejącej platformie zadań. Błędy są rejestrowane w taki sam sposób jak błędy dla innych istniejących wcześniej zadań FarmBeats (na przykład GetFarmData i SensorPlacement). Działanie Data Factory działające w ramach dzienników potoku Data Factory zarówno `STDERR` , jak i `STDOUT` . Oba pliki są dostępne na `datahublogs-xxx` koncie magazynu w grupie zasobów FarmBeats.
 
-Biblioteka Datahub zawiera funkcje pomocnika, które umożliwiają rejestrowanie w ramach ogólnych dzienników Datahub. Więcej informacji znajdziesz [tutaj](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/framework/logger.py).
+Biblioteka Datahub zawiera funkcje pomocnika, które umożliwiają rejestrowanie w ramach ogólnych dzienników Datahub. Aby uzyskać więcej informacji, zobacz [stronę usługi GitHub dla obrazu platformy Docker NOAA](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/framework/logger.py).
 
-**Opcja rozwiązywania problemów lub pomoc techniczna**
+### <a name="troubleshooting-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-W przypadku, gdy klient nie może odbierać danych pogody w określonym wystąpieniu FarmBeats, partner pogody powinien zapewnić pomoc techniczną i mechanizm rozwiązywania problemów.
+Jeśli klient nie może odbierać danych pogody w wystąpieniu FarmBeats, należy zapewnić pomoc techniczną i mechanizm rozwiązywania problemu.
 
 ## <a name="add-extendedtype"></a>Dodaj Rozszerzonytype
 
-FarmBeats obsługuje dodawanie nowych typów i jednostek miary czujnika. Należy pamiętać, że partner pogody może dodawać nowe jednostki/typy przez aktualizację bootstrap_manifest.jsw pliku w implementacji odwołania [tutaj](https://github.com/azurefarmbeats/noaa_docker)
+FarmBeats obsługuje dodawanie nowych typów i jednostek miary czujnika. Możesz dodać nowe jednostki lub typy, aktualizując *bootstrap_manifest.js* pliku w [implementacji odwołania](https://github.com/azurefarmbeats/noaa_docker).
 
-Aby dodać nowy typ WeatherMeasure, na przykład "PrecipitationDepth", wykonaj poniższe kroki.
+Wykonaj następujące kroki, aby dodać nowy typ WeatherMeasure, na przykład PrecipitationDepth.
 
-1. Utwórz żądanie GET na/ExtendedType za pomocą zapytania filter-Key = WeatherMeasureType
+1. Utwórz `GET` żądanie na/ExtendedType za pomocą zapytania `filter - key = WeatherMeasureType` .
 2. Zanotuj identyfikator zwróconego obiektu.
-3. Dodaj nowy typ do listy w zwracanym obiekcie i wprowadź żądanie PUT na/ExtendedType{ID} z następującą nową listą. Ładunek wejściowy powinien być taki sam jak odebrana powyżej odpowiedź i nowa jednostka dołączona na końcu listy wartości.
+3. Dodaj nowy typ do listy w zwracanym obiekcie. Utwórz `PUT` żądanie na/ExtendedType{ID} z następującą nową listą. Ładunek wejściowy powinien być taki sam jak odebrana wcześniej odpowiedź. Na końcu listy wartości należy dołączyć nową jednostkę.
 
-Aby uzyskać więcej informacji na temat interfejsu API/ExtendedType, zobacz [Swagger](https://aka.ms/FarmBeatsSwagger).
+Aby uzyskać więcej informacji na temat interfejsu API/ExtendedType, zobacz [FarmBeats Swagger](https://aka.ms/FarmBeatsSwagger).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz masz łącznik platformy Docker, który integruje się z usługą FarmBeats. Następnie możesz zobaczyć, jak uzyskać dane pogodowe przy użyciu platformy Docker do FarmBeats. Zobacz [pobieranie danych pogody](get-weather-data-from-weather-partner.md).
+Teraz masz składnik Docker łącznika, który integruje się z usługą FarmBeats. Następnie Dowiedz się, jak [uzyskać dane pogodowe](get-weather-data-from-weather-partner.md) przy użyciu obrazu platformy Docker w FarmBeats. 

@@ -4,28 +4,28 @@ description: Dowiedz się, jak generować klucze SSH i używać ich z komputera 
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.date: 07/09/2020
+ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 7e99c9191e93562211f6294cf671f431a5db455d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825569"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147151"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Jak używać kluczy SSH w systemie Windows na platformie Azure
 
 Ten artykuł dotyczy użytkowników systemu Windows, którzy chcą [tworzyć](#create-an-ssh-key-pair) i używać kluczy *Secure Shell* (SSH) do [łączenia](#connect-to-your-vm) się z maszynami wirtualnymi z systemem Linux na platformie Azure. Możesz również [generować i przechowywać klucze SSH w Azure Portal,](../ssh-keys-portal.md) które będą używane podczas tworzenia maszyn wirtualnych w portalu.
 
 
-Aby używać kluczy SSH z poziomu klienta z systemem Linux lub macOS, zobacz [szybki](mac-create-ssh-keys.md). Aby zapoznać się z bardziej szczegółowym omówieniem protokołu SSH, zobacz [szczegółowe instrukcje: tworzenie kluczy SSH i zarządzanie nimi na potrzeby uwierzytelniania na maszynie wirtualnej z systemem Linux na platformie Azure](create-ssh-keys-detailed.md).
+Aby używać kluczy SSH z poziomu klienta z systemem Linux lub macOS, zobacz [szybkie kroki](mac-create-ssh-keys.md). Aby zapoznać się z bardziej szczegółowym omówieniem protokołu SSH, zobacz [szczegółowe instrukcje: tworzenie kluczy SSH i zarządzanie nimi na potrzeby uwierzytelniania na maszynie wirtualnej z systemem Linux na platformie Azure](create-ssh-keys-detailed.md).
 
 ## <a name="overview-of-ssh-and-keys"></a>Omówienie protokołów SSH i kluczy
 
-[SSH](https://www.ssh.com/ssh/) to protokół połączenia szyfrowanego, który umożliwia bezpieczne logowanie za pośrednictwem niezabezpieczonych połączeń. SSH to domyślny protokół połączeń dla maszyn wirtualnych z systemem Linux hostowanych na platformie Azure. Mimo że protokół SSH zapewnia szyfrowane połączenie, korzystanie z haseł przy użyciu protokołu SSH nadal pozostawia maszynę wirtualną zagrożoną atakami na rachunek. Zalecamy łączenie się z maszyną wirtualną za pośrednictwem protokołu SSH przy użyciu pary kluczy publiczny-prywatny, znanych także jako *klucze SSH*. 
+[SSH](https://www.ssh.com/ssh/) to protokół połączenia szyfrowanego, który umożliwia bezpieczne logowanie za pośrednictwem niezabezpieczonych połączeń. SSH to domyślny protokół połączeń dla maszyn wirtualnych z systemem Linux hostowanych na platformie Azure. Mimo że protokół SSH zapewnia szyfrowane połączenie, korzystanie z haseł przy użyciu protokołu SSH nadal pozostawia maszynę wirtualną zagrożoną atakami na rachunek. Zalecamy łączenie się z maszyną wirtualną za pośrednictwem protokołu SSH przy użyciu pary kluczy publiczny-prywatny, znanych także jako *klucze SSH* . 
 
-Para kluczy publiczny-prywatny jest taka sama jak blokada na wierzchu drzwi. Blokada jest udostępniona **publicznie**, każda osoba mająca właściwy klucz może otworzyć drzwi. Klucz jest **prywatny**i ma tylko osoby, którym ufasz, ponieważ może służyć do odblokowania drzwi. 
+Para kluczy publiczny-prywatny jest taka sama jak blokada na wierzchu drzwi. Blokada jest udostępniona **publicznie** , każda osoba mająca właściwy klucz może otworzyć drzwi. Klucz jest **prywatny** i ma tylko osoby, którym ufasz, ponieważ może służyć do odblokowania drzwi. 
 
 - *Klucz publiczny* jest umieszczany na maszynie wirtualnej z systemem Linux podczas tworzenia maszyny wirtualnej. 
 
