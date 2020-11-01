@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df1285145d0e8b04bf743a3967099d27d1195269
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a703f6d32cb665bfada73ca833f51c94d83f8b97
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362794"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146164"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -33,8 +33,363 @@ Co nowego w Azure Active Directory? Informacje o wersji zawierają:
 - Plany zmian
 
 ---
+## <a name="april-2020"></a>Kwiecień 2020 r.
 
- ## <a name="march-2020"></a>Marzec 2020 r.
+### <a name="combined-security-info-registration-experience-is-now-generally-available"></a>Środowisko rejestracji informacji o zabezpieczeniach jest teraz ogólnie dostępne
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Uwierzytelnienia (nazwy logowania)
+
+**Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
+
+Połączone środowisko rejestracji Multi-Factor Authentication (MFA) i Self-Service resetowania hasła (SSPR) jest teraz ogólnie dostępne. To nowe środowisko rejestracji umożliwia użytkownikom rejestrację usługi MFA i SSPR w jednym procesie krok po kroku. Po wdrożeniu nowego środowiska dla organizacji użytkownicy mogą rejestrować się w krótszym czasie i z mniejszą ilością problemów. Zapoznaj się z wpisem w blogu [tutaj](https://bit.ly/3etiRyQ).
+
+---
+
+### <a name="continuous-access-evaluation"></a>Ciągła ocena dostępu
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Uwierzytelnienia (nazwy logowania)
+
+**Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
+
+Ciągła ocena dostępu to nowa funkcja zabezpieczeń, która umożliwia niemal w czasie rzeczywistym egzekwowanie zasad dotyczących jednostek uzależnionych korzystających z tokenów dostępu usługi Azure AD w przypadku wystąpienia zdarzeń w usłudze Azure AD (takich jak usuwanie konta użytkownika). Ta funkcja jest najpierw wycofywana dla zespołów i klientów programu Outlook. Aby uzyskać więcej informacji, Przeczytaj nasz [blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) i  [dokumentację](../conditional-access/concept-continuous-access-evaluation.md).
+
+---
+
+### <a name="sms-sign-in-firstline-workers-can-sign-in-to-azure-ad-backed-applications-with-their-phone-number-and-no-password"></a>Logowanie za pomocą programu SMS: pracownicy Firstline mogą logować się do aplikacji z usługą Azure AD, używając numeru telefonu i bez hasła
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Uwierzytelnienia (nazwy logowania)
+
+**Możliwość produktu:** Uwierzytelnianie użytkownika
+
+Pakiet Office uruchamia serię aplikacji firmy dla urządzeń przenośnych, które są przeznaczone dla nietradycyjnych organizacji i pracowników w dużych organizacjach, które nie używają poczty e-mail jako podstawowej metody komunikacji. Te aplikacje umożliwiają pracownikom teraźniejszości, pracownikom, agentom pól lub pracownikom detalicznym, którzy nie otrzymują adresu e-mail od ich pracodawcy, mają dostęp do komputera lub do niego. Ten projekt umożliwi tym pracownikom logowanie do aplikacji firmowych, wprowadzając numer telefonu i roundtripping kod. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją administratora](../authentication/howto-authentication-sms-signin.md) i [dokumentacją użytkownika końcowego](../user-help/sms-sign-in-explainer.md).
+
+---
+
+### <a name="invite-internal-users-to-use-b2b-collaboration"></a>Zapraszanie użytkowników wewnętrznych do korzystania z współpracy B2B
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** B2B
+
+**Możliwość produktu:**
+
+Rozszerzamy możliwości zaproszenia B2B, aby zezwolić na zapraszanie istniejących kont wewnętrznych do korzystania z poświadczeń współpracy B2B. Jest to realizowane przez przekazanie obiektu użytkownika do interfejsu API zapraszania jako uzupełnienie typowych parametrów, takich jak zaproszony adres e-mail. Identyfikator obiektu użytkownika, nazwa UPN, członkostwo w grupie, przypisywanie aplikacji itp. pozostają nienaruszone, ale w przyszłości będą używać B2B do uwierzytelniania przy użyciu poświadczeń dzierżawy głównej, a nie poświadczeń wewnętrznych używanych przed zaproszeniem. Aby uzyskać szczegółowe informacje, zapoznaj się z [dokumentacją](../external-identities/invite-internal-users.md).
+
+---
+
+### <a name="report-only-mode-for-conditional-access-is-now-generally-available"></a>Tryb tylko do raportowania dla dostępu warunkowego jest teraz ogólnie dostępny
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Dostęp warunkowy
+
+**Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
+
+[Tryb tylko do raportowania dla dostępu warunkowego usługi Azure AD](../conditional-access/concept-conditional-access-report-only.md) pozwala oszacować wynik zasad bez wymuszania kontroli dostępu. Można testować zasady dotyczące tylko raportów w organizacji i zrozumieć ich wpływ przed ich włączeniem, zapewniając bezpieczniejsze i łatwiejsze wdrażanie. W ciągu ostatnich kilku miesięcy zaobserwowano silne wdrożenie trybu tylko do raportowania, a w przypadku ponad 26M użytkowników jest już w zasięgu zasad opartych na raportach. W tym ogłoszeniu nowe zasady dostępu warunkowego usługi Azure AD zostaną domyślnie utworzone w trybie tylko do raportowania. Oznacza to, że można monitorować wpływ zasad od momentu ich tworzenia. W przypadku użytkowników korzystających z interfejsów API programu MS Graph można również [programowo zarządzać zasadami dotyczącymi tylko raportów](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta). 
+
+---
+
+### <a name="conditional-access-insights-and-reporting-workbook-is-generally-available"></a>Szczegółowe informacje o dostępie warunkowym i skoroszycie raportów są ogólnie dostępne
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Dostęp warunkowy
+
+**Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
+
+Skoroszyt uzyskiwania dostępu warunkowego [i raportów](../conditional-access/howto-conditional-access-insights-reporting.md) zapewnia administratorom Widok podsumowania dostępu warunkowego usługi Azure AD w swojej dzierżawie. Korzystając z możliwości wybierania poszczególnych zasad, Administratorzy mogą lepiej zrozumieć, jakie zasady są wykonywane i które są monitorowane w czasie rzeczywistym. Skoroszyt strumieniuje dane przechowywane w Azure Monitor, które można skonfigurować w kilka minut, postępując zgodnie z [tymi instrukcjami](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). Aby pulpit nawigacyjny był bardziej wykrywalny, został przeniesiony na nowe informacje i kartę Raportowanie w menu dostęp warunkowy usługi Azure AD.
+
+---
+
+### <a name="policy-details-blade-for-conditional-access-is-in-public-preview"></a>Blok Szczegóły zasad dostępu warunkowego jest w publicznej wersji zapoznawczej
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Dostęp warunkowy
+
+**Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
+
+Nowy [blok Szczegóły zasad](../conditional-access/troubleshoot-conditional-access.md) przedstawia, które przypisania, warunki i formanty zostały spełnione podczas obliczania zasad dostępu warunkowego. Możesz uzyskać dostęp do bloku, zaznaczając wiersz na kartach **dostęp warunkowy** lub **tylko raport** w obszarze szczegóły logowania.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---april-2020"></a>Nowe aplikacje federacyjne dostępne w galerii aplikacja usługi Azure AD — kwiecień 2020
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Aplikacje dla przedsiębiorstw
+
+**Możliwości produktu:** integracja innej firmy
+
+W kwietniu 2020 dodaliśmy te 31 nowych aplikacji z obsługą Federacji do galerii aplikacji: 
+
+[SincroPool Apps](https://www.sincropool.com/), [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/), [float](../saas-apps/float-tutorial.md), [LMS365](https://lms.365.systems/), [IWT — pakiet zaopatrzenia](../saas-apps/iwt-procurement-suite-tutorial.md), [Lunni](https://lunni.fi/), [EasySSO for JIRA](../saas-apps/easysso-for-jira-tutorial.md), [Virtual Training Academy](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft) [COCO](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [pulpit nawigacyjny Meraki](../saas-apps/meraki-dashboard-tutorial.md), [Fortes Change Cloud](../saas-apps/fortes-change-cloud-tutorial.md) [Trend Micro Web Security(TMWS)](https://review.docs.microsoft.com/azure/active-directory/saas-apps/trend-micro-tutorial) [Microsoft 365 przeprowadzki](https://app.mover.io/login), [współpracownik,](https://speakerengage.com/login.php) [uczciwie](../saas-apps/honestly-tutorial.md), [Ally](../saas-apps/ally-tutorial.md), [DutyFlow](https://app.dutyflow.nl/) [, AlertMedia,](../saas-apps/alertmedia-tutorial.md) [gr8e](../saas-apps/gr8-people-tutorial.md) [Nitro Productivity Suite](../saas-apps/nitro-productivity-suite-tutorial.md) , [pendo,](../saas-apps/pendo-tutorial.md) [HighGround](../saas-apps/highground-tutorial.md), Timetabling, SynchroNet, Litmus, GroupTalk, Frontify, MongoDB, [GroupTalk](https://recorder.grouptalk.com/) [SynchroNet CLICK](../saas-apps/synchronet-click-tutorial.md)TickitLMS, Coco, [MongoDB Cloud](../saas-apps/mongodb-cloud-tutorial.md) [Harmony](../saas-apps/harmony-tutorial.md) [Timetabling Solutions](../saas-apps/timetabling-solutions-tutorial.md) [empower](https://www.made-in-office.com/en/) [Litmus](../saas-apps/litmus-tutorial.md) [Frontify](../saas-apps/frontify-tutorial.md) [TickitLMS Learn](../saas-apps/tickitlms-learn-tutorial.md)
+
+Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Aby uzyskać więcej informacji na temat tworzenia listy aplikacji w galerii aplikacji usługi Azure AD, zobacz [Wyświetlanie listy aplikacji w galerii aplikacji Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
+
+---
+
+### <a name="microsoft-graph-delta-query-support-for-oauth2permissiongrant-available-for-public-preview"></a>Obsługa zapytań różnicowych Microsoft Graph dla element oauth2permissiongrant dostępnych dla publicznej wersji zapoznawczej
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Program MS Graph
+
+**Możliwość produktu:** Środowisko deweloperskie
+
+Zapytanie różnicowa dla element oauth2permissiongrant jest dostępne w publicznej wersji zapoznawczej! Teraz można śledzić zmiany bez konieczności ciągłego sondowania Microsoft Graph. [Dowiedz się więcej.](/graph/api/oAuth2PermissionGrant-delta?tabs=http&view=graph-rest-beta)
+
+---
+
+### <a name="microsoft-graph-delta-query-support-for-organizational-contact-generally-available"></a>Obsługa zapytań różnicowych Microsoft Graph na potrzeby kontaktu z organizacjami jest ogólnie dostępna
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Program MS Graph
+
+**Możliwość produktu:** Środowisko deweloperskie
+
+Zapytanie różnicowe dotyczące kontaktów organizacyjnych jest ogólnie dostępne. Teraz można śledzić zmiany w aplikacjach produkcyjnych bez konieczności ciągłego sondowania Microsoft Graph. Zastąp wszelki istniejący kod, który stale sonduje dane orgContact przez zapytanie różnicowe, aby znacząco poprawić wydajność. [Dowiedz się więcej.](/graph/api/orgcontact-delta?tabs=http&view=graph-rest-1.0)
+
+---
+
+### <a name="microsoft-graph-delta-query-support-for-application-generally-available"></a>Obsługa zapytań różnicowych Microsoft Graph dla aplikacji jest ogólnie dostępna
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Program MS Graph
+
+**Możliwość produktu:** Środowisko deweloperskie
+
+Zapytanie różnicowa dla aplikacji jest ogólnie dostępne. Teraz można śledzić zmiany w aplikacjach produkcyjnych bez konieczności ciągłego sondowania Microsoft Graph. Zastąp wszystkie istniejące kod, który ciągle sonduje dane aplikacji przez zapytanie różnicowe, aby znacząco poprawić wydajność. [Dowiedz się więcej.](/graph/api/application-delta?view=graph-rest-1.0)
+
+---
+
+### <a name="microsoft-graph-delta-query-support-for-administrative-units-available-for-public-preview"></a>Obsługa zapytań różnicowych Microsoft Graph dla jednostek administracyjnych dostępnych do publicznej wersji zapoznawczej
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Program MS Graph
+
+**Możliwość produktu:** Zapytanie różnicowe dotyczące środowiska deweloperskiego dla jednostek administracyjnych jest dostępne w publicznej wersji zapoznawczej. Teraz można śledzić zmiany bez konieczności ciągłego sondowania Microsoft Graph. [Dowiedz się więcej.](/graph/api/administrativeunit-delta?tabs=http&view=graph-rest-beta)
+
+---
+
+### <a name="manage-authentication-phone-numbers-and-more-in-new-microsoft-graph-beta-apis"></a>Zarządzanie numerami telefonów i innymi innymi wersjami interfejsów API Microsoft Graph beta
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Program MS Graph
+
+**Możliwość produktu:** Środowisko deweloperskie
+
+Te interfejsy API są kluczowym narzędziem do zarządzania metodami uwierzytelniania użytkowników. Teraz można programowo zarejestrować i zarządzać wystawcami używanymi na potrzeby uwierzytelniania wieloskładnikowego i samoobsługowego resetowania hasła (SSPR). Jest to jedna z najbardziej żądanych funkcji usługi Azure MFA, SSPR i Microsoft Graph. Nowe interfejsy API, które zostały opublikowane w tym elemencie Wave, dają możliwość:
+
+- Odczytywanie, Dodawanie, aktualizowanie i usuwanie telefonów uwierzytelniania użytkownika
+- Resetowanie hasła użytkownika
+- Włączanie i wyłączanie programu SMS — Logowanie
+
+Aby uzyskać więcej informacji, zobacz [Omówienie interfejsu API metod uwierzytelniania usługi Azure AD](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+
+---
+
+### <a name="administrative-units-public-preview"></a>Jednostki administracyjne — publiczna wersja zapoznawcza
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Role usługi Azure AD
+
+**Możliwość produktu:** Access Control
+
+Jednostki administracyjne umożliwiają Przyznawanie uprawnień administratora, które są ograniczone do działu, regionu lub innego segmentu zdefiniowanej organizacji. Jednostki administracyjne mogą służyć do delegowania uprawnień do administratorów regionalnych lub do ustawiania zasad na poziomie szczegółowym. Administrator konta użytkownika może na przykład zaktualizować informacje o profilu, zresetować hasła i przypisać licencje dla użytkowników tylko w ich jednostce administracyjnej.
+
+Korzystając z jednostek administracyjnych, administrator centralny może:
+
+- Tworzenie jednostki administracyjnej na potrzeby zdecentralizowanego zarządzania zasobami
+- Przypisywanie roli z uprawnieniami administracyjnymi tylko dla użytkowników usługi Azure AD w jednostce administracyjnej
+- W razie konieczności Wypełnij jednostki administracyjne użytkownikami i grupami
+
+Aby uzyskać więcej informacji, zobacz [Zarządzanie jednostkami administracyjnymi w Azure Active Directory (wersja zapoznawcza)](../users-groups-roles/directory-administrative-units.md).
+
+---
+
+### <a name="printer-administrator-and-printer-technician-built-in-roles"></a>Role wbudowane dla administratorów drukarek i drukarek
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Role usługi Azure AD
+
+**Możliwość produktu:** Access Control
+
+**Administrator drukarki** : Użytkownicy z tą rolą mogą rejestrować drukarki i zarządzać wszystkimi aspektami wszystkich konfiguracji drukarek w rozwiązaniu uniwersalnego drukowania firmy Microsoft, w tym ustawieniami uniwersalnego łącznika wydruku. Mogą oni wyrazić zgodę na wszystkie delegowane żądania uprawnień do drukowania. Administratorzy drukarek mają również dostęp do raportów drukowania. 
+
+**Technika drukowania** : Użytkownicy z tą rolą mogą rejestrować drukarki i zarządzać stanem drukarki w uniwersalnym rozwiązaniu firmy Microsoft. Mogą również odczytywać wszystkie informacje o łączniku. Najważniejsze zadania nie można ustawić uprawnień użytkowników na drukarkach i udostępniających drukarki. [Dowiedz się więcej.](../roles/permissions-reference.md#printer-administrator)
+
+---
+
+### <a name="hybrid-identity-admin-built-in-role"></a>Wbudowana rola administratora tożsamości hybrydowej
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Role usługi Azure AD
+
+**Możliwość produktu:** Access Control
+
+Użytkownicy w tej roli mogą włączać i konfigurować usługi oraz ustawienia związane z włączaniem tożsamości hybrydowej w usłudze Azure AD oraz zarządzać nimi. Ta rola zapewnia możliwość skonfigurowania usługi Azure AD na jednej z trzech obsługiwanych metod uwierzytelniania&#8212;synchronizacji skrótów haseł (PHS), uwierzytelniania przekazywanego (PTA) lub Federacji (AD FS lub dostawcy Federacji innej firmy) &#8212;oraz do wdrożenia powiązanej infrastruktury lokalnej w celu jej włączenia. Infrastruktura lokalna obejmuje agentów aprowizacji i PTA. Ta rola umożliwia bezproblemową obsługę pojedynczych Sign-On (S-SSO) w celu zapewnienia bezproblemowego uwierzytelniania na urządzeniach z systemem innym niż Windows 10 lub komputerach z systemem innym niż Windows Server 2016. Ponadto ta rola zapewnia możliwość wyświetlania dzienników logowania i uzyskiwania dostępu do kondycji i analizy w celu monitorowania i rozwiązywania problemów. [Dowiedz się więcej.](../roles/permissions-reference.md#hybrid-identity-administrator)
+
+---
+
+### <a name="network-administrator-built-in-role"></a>Wbudowana rola administratora sieci
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Role usługi Azure AD
+
+**Możliwość produktu:** Access Control
+
+Użytkownicy z tą rolą mogą zapoznać się z zaleceniami dotyczącymi architektury obwodowej sieci firmy Microsoft, które są oparte na telemetrii sieci z lokalizacji użytkownika. Wydajność sieci dla Microsoft 365 opiera się na starannej architekturze sieci klienta w przedsiębiorstwie, która jest ogólnie specyficzna dla lokalizacji użytkownika. Ta rola pozwala edytować odnalezione lokalizacje użytkowników i konfigurację parametrów sieci dla tych lokalizacji, aby ułatwić lepsze pomiary telemetrii i zalecenia dotyczące projektowania. [Dowiedz się więcej.](../roles/permissions-reference.md#network-administrator)
+
+---
+
+### <a name="bulk-activity-and-downloads-in-the-azure-ad-admin-portal-experience"></a>Działania zbiorcze i pliki do pobrania w środowisku portalu administracyjnego usługi Azure AD
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Zarządzanie użytkownikami
+
+**Możliwość produktu:** Katalogi
+
+Teraz można wykonywać działania zbiorcze dla użytkowników i grup w usłudze Azure AD, przekazując plik CSV w środowisku portalu administratora usługi Azure AD. Możesz tworzyć użytkowników, usuwać użytkowników i zapraszać użytkowników-Gości. I można dodawać i usuwać członków z grupy.
+
+Możesz również pobrać listy zasobów usługi Azure AD ze środowiska portalu administracyjnego usługi Azure AD. Możesz pobrać listę użytkowników w katalogu, listę grup w katalogu i członków konkretnej grupy.
+
+Aby uzyskać więcej informacji, zapoznaj się z następującymi informacjami:
+
+- [Tworzenie użytkowników](../enterprise-users/users-bulk-add.md) lub [Zapraszanie użytkowników-Gości](../external-identities/tutorial-bulk-invite.md)
+- [Usuwanie użytkowników](../enterprise-users/users-bulk-delete.md) lub [Przywracanie usuniętych użytkowników](../enterprise-users/users-bulk-restore.md)
+- [Pobierz listę użytkowników](../enterprise-users/users-bulk-download.md) lub [Pobierz listę grup](../enterprise-users/groups-bulk-download.md)
+- [Dodawanie (importowanie) członków](../enterprise-users/groups-bulk-import-members.md) lub [usuwanie członków](../enterprise-users/groups-bulk-remove-members.md) lub [Pobieranie listy członków](../enterprise-users/groups-bulk-download-members.md) grupy
+
+---
+
+### <a name="my-staff-delegated-user-management"></a>Moi personel delegowany do zarządzania użytkownikami
+
+**Typ:** Nowa funkcja
+
+**Kategoria usługi:** Zarządzanie użytkownikami
+
+**Możliwość produktu:**
+
+Mój personel umożliwia menedżerom Firstline, takim jak kierownik sklepu, zapewnienie im dostępu do swoich kont usługi Azure AD. Zamiast polegać na centralnej pomocy technicznej, organizacje mogą delegować typowe zadania, takie jak resetowanie haseł lub zmiana numerów telefonów, do Firstline Manager. W przypadku mojego personelu użytkownik, który nie może uzyskać dostępu do swojego konta, może ponownie uzyskać dostęp w zaledwie kilka kliknięć, bez pomocy technicznej ani personelu działu IT. Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami za pomocą mojego personelu (wersja zapoznawcza)](../users-groups-roles/my-staff-configure.md) i [delegowanie zarządzania użytkownikami za pomocą mojego personelu (wersja zapoznawcza)](../user-help/my-staff-team-manager.md).
+
+---
+
+### <a name="an-upgraded-end-user-experience-in-access-reviews"></a>Uaktualnione środowisko użytkownika końcowego w przeglądach dostępu
+
+**Typ:** Zmieniono funkcję
+
+**Kategoria usługi:** Przeglądy dostępu
+
+**Możliwość produktu:** Zarządzanie tożsamościami
+
+Zaktualizowaliśmy środowisko recenzenta dla przeglądów dostępu do usługi Azure AD w portalu Moje aplikacje. Na koniec kwietnia recenzentów, którzy zalogowali się do środowiska recenzenta przeglądów dostępu usługi Azure AD zobaczyli transparent, który umożliwi im wypróbowanie zaktualizowanego środowiska w ramach dostępu. Należy pamiętać, że zaktualizowane środowisko przeglądów dostępu oferuje te same funkcje, co w przypadku bieżącego środowiska, ale udoskonalony interfejs użytkownika na nowe możliwości pozwalające wydajnie pracować nad użytkownikami. [Więcej informacji o zaktualizowanym doświadczeniu można znaleźć tutaj](../governance/perform-access-review.md). Ta Publiczna wersja zapoznawcza będzie Ostatnia do końca lipca 2020. Na koniec lipca Recenzenci, którzy nie zostali w trakcie korzystania z wersji zapoznawczej, zostaną automatycznie przekierowani do mojego dostępu w celu przeprowadzenia przeglądów dostępu. Jeśli chcesz, aby recenzenci mogli trwale przełączać się do funkcji wersji zapoznawczej w moim dostępie, wprowadź [tutaj żądanie](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+
+---
+
+### <a name="workday-inbound-user-provisioning-and-writeback-apps-now-support-the-latest-versions-of-workday-web-services-api"></a>Funkcja aprowizacji użytkowników przychodzących i zapisywania zwrotnego dla aplikacji w usłudze Workday obsługuje teraz najnowsze wersje interfejsu API usług sieci Web dla systemu Workday
+
+**Typ:** Zmieniono funkcję
+
+**Kategoria usługi:** Inicjowanie obsługi aplikacji
+
+**Możliwość produktu:** 
+
+W oparciu o opinie klientów Zaktualizowaliśmy teraz aplikacje przychodzącej obsługi administracyjnej użytkowników i zapisywania zwrotnego dla usługi Workday w galerii aplikacji dla przedsiębiorstw, które obsługują najnowsze wersje interfejsu API usług sieci Web (WWS). Dzięki tej zmianie klienci mogą określić wersję interfejsu API WWS, która ma być używana w parametrach połączenia. Dzięki temu klienci mogą pobrać więcej atrybutów HR dostępnych w wersjach dnia roboczego. Aplikacja zapisywania zwrotnego w programie Workday używa teraz zalecanej usługi sieci Web Change_Work_Contact_Info Workday do pokonania ograniczeń Maintain_Contact_Info.
+
+Jeśli żadna wersja nie zostanie określona w parametrach połączenia, domyślnie aplikacje do inicjowania obsługi przychodzącej z usługi Workday będą nadal używać WWS v 21.1 w celu przełączenia się do najnowszych interfejsów API platformy Workday na potrzeby inicjowania obsługi klienta przychodzącego, a klienci muszą zaktualizować parametry połączenia zgodnie z opisem [w samouczku](../saas-apps/workday-inbound-tutorial.md#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles) , a także zaktualizować wyrażenia XPath używane dla atrybutów produktu Workday, zgodnie z opisem w [podręczniku odwołania do atrybutu](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30) 
+
+Aby można było użyć nowego interfejsu API do zapisywania zwrotnego, nie ma żadnych zmian wymaganych w aplikacji do inicjowania obsługi funkcji zapisywania zwrotnego dla produktu Workday. Na stronie Workday upewnij się, że konto użytkownika integracji z systemem Workday (ISU) ma uprawnienia do wywołania procesu biznesowego Change_Work_Contact zgodnie z opisem w sekcji samouczek, [Konfigurowanie uprawnień zasad zabezpieczeń procesów firmy](../saas-apps/workday-inbound-tutorial.md#configuring-business-process-security-policy-permissions). 
+
+Zaktualizowaliśmy [Przewodnik samouczka](../saas-apps/workday-inbound-tutorial.md) , aby odzwierciedlić obsługę nowej wersji interfejsu API.
+
+---
+
+### <a name="users-with-default-access-role-are-now-in-scope-for-provisioning"></a>Użytkownicy z domyślną rolą dostępu są teraz w zakresie aprowizacji
+
+**Typ:** Zmieniono funkcję
+
+**Kategoria usługi:** Inicjowanie obsługi aplikacji
+
+**Możliwość produktu:** Zarządzanie cyklem życia tożsamości
+
+W przeszłości użytkownicy z domyślną rolą dostępu znajdują się poza zakresem aprowizacji. Otrzymaliśmy Opinie, dla których klienci chcą, aby użytkownicy z tą rolą mieli zasięg w zakresie aprowizacji. Od 16 kwietnia 2020 wszystkie nowe konfiguracje aprowizacji umożliwiają zainicjowanie obsługi administracyjnej użytkowników z domyślną rolą dostępu. Stopniowo zmienimy zachowanie istniejących konfiguracji aprowizacji, aby obsługiwać użytkowników aprowizacji z tą rolą. [Dowiedz się więcej.](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
+
+---
+
+### <a name="updated-provisioning-ui"></a>Zaktualizowany interfejs użytkownika aprowizacji
+
+**Typ:** Zmieniono funkcję
+
+**Kategoria usługi:** Inicjowanie obsługi aplikacji
+
+**Możliwość produktu:** Zarządzanie cyklem życia tożsamości
+
+Nasze środowisko aprowizacji zostało odświeżone, aby utworzyć bardziej ukierunkowany widok zarządzania. Po przejściu do bloku aprowizacji dla aplikacji dla przedsiębiorstw, która została już skonfigurowana, można łatwo monitorować postęp aprowizacji i zarządzać akcjami, takimi jak uruchamianie, zatrzymywanie i ponowne uruchamianie aprowizacji. [Dowiedz się więcej.](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+
+---
+
+### <a name="dynamic-group-rule-validation-is-now-available-for-public-preview"></a>Sprawdzanie poprawności reguły grupy dynamicznej jest teraz dostępne w publicznej wersji zapoznawczej
+
+**Typ:** Zmieniono funkcję
+
+**Kategoria usługi:** Zarządzanie grupami
+
+**Możliwość produktu:** Społeczności
+
+Azure Active Directory (Azure AD) zapewnia teraz metodę weryfikacji reguł grupy dynamicznej. Na karcie **Sprawdzanie poprawności reguł** można sprawdzić poprawność reguły dynamicznej względem przykładowych członków grupy, aby potwierdzić, że reguła działa zgodnie z oczekiwaniami. Podczas tworzenia lub aktualizowania zasad grupy dynamicznej Administratorzy chcą wiedzieć, czy użytkownik lub urządzenie będą członkiem grupy. Pomaga to w ocenie, czy użytkownik lub urządzenie spełnia kryteria reguły i pomoc w rozwiązywaniu problemów, gdy członkostwo nie jest oczekiwane.
+
+Aby uzyskać więcej informacji, zobacz [Weryfikowanie reguły członkostwa w grupie dynamicznej (wersja zapoznawcza)](../enterprise-users/groups-dynamic-rule-validation.md).
+
+---
+
+### <a name="identity-secure-score---security-defaults-and-mfa-improvement-action-updates"></a>Ocena bezpiecznego stanu — aktualizacje zabezpieczeń i akcje poprawy usługi MFA
+
+**Typ:** Zmieniono funkcję
+
+**Kategoria usługi:** NIE DOTYCZY
+
+**Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
+
+**Obsługa domyślnych ustawień zabezpieczeń dla akcji poprawy usługi Azure AD:** Firma Microsoft Security Score będzie aktualizować akcje naprawcze w celu obsługi [ustawień domyślnych zabezpieczeń w usłudze Azure AD](./concept-fundamentals-security-defaults.md), co ułatwia ochronę organizacji przy użyciu wstępnie skonfigurowanych ustawień zabezpieczeń dla typowych ataków. Będzie to miało wpływ na następujące akcje ulepszania:
+
+- Upewnij się, że wszyscy użytkownicy mogą ukończyć uwierzytelnianie wieloskładnikowe w celu zapewnienia bezpiecznego dostępu
+- Wymagaj uwierzytelniania wieloskładnikowego dla ról administracyjnych
+- Włącz zasady blokujące starsze uwierzytelnianie
+ 
+**Aktualizacje akcji poprawy usługi MFA:** Aby odzwierciedlić potrzebę firm, aby zapewnić najwyższy poziom bezpieczeństwa podczas stosowania zasad, które współpracują z firmą, firma Microsoft Security Score usunęła trzy akcje poprawy wyśrodkowane przez uwierzytelnianie wieloskładnikowe i dodaje dwa.
+
+Usunięte akcje ulepszania:
+
+- Rejestrowanie wszystkich użytkowników do uwierzytelniania wieloskładnikowego
+- Wymaganie uwierzytelniania wieloskładnikowego dla wszystkich użytkowników
+- Wymagaj uwierzytelniania wieloskładnikowego dla ról uprzywilejowanych usługi Azure AD
+
+Dodano akcje ulepszania:
+
+- Upewnij się, że wszyscy użytkownicy mogą ukończyć uwierzytelnianie wieloskładnikowe w celu zapewnienia bezpiecznego dostępu
+- Wymagaj uwierzytelniania wieloskładnikowego dla ról administracyjnych
+
+Te nowe akcje poprawy wymagają zarejestrowania użytkowników lub administratorów na potrzeby uwierzytelniania wieloskładnikowego (MFA) w katalogu i ustanowienia odpowiedniego zestawu zasad pasujących do potrzeb organizacji. Głównym celem jest zapewnienie elastyczności, dzięki czemu wszyscy użytkownicy i Administratorzy mogą uwierzytelniać się przy użyciu wielu czynników lub z zapytaniem do weryfikacji tożsamości opartej na ryzyku. Może to mieć formę istnienia wielu zasad, które stosują decyzje w zakresie lub ustawienia domyślne zabezpieczeń (od 16 marca), dzięki którym firma Microsoft zdecyduje się, kiedy należy zakwestionować użytkowników usługi MFA. [Przeczytaj więcej na temat Nowości w zabezpieczeniach firmy Microsoft](/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new).
+
+---
+
+## <a name="march-2020"></a>Marzec 2020 r.
 
 ### <a name="unmanaged-azure-active-directory-accounts-in-b2b-update-for-march--2021"></a>Niezarządzane konta Azure Active Directory w aktualizacji B2B dla marca 2021
 
@@ -42,7 +397,7 @@ Co nowego w Azure Active Directory? Informacje o wersji zawierają:
 **Kategoria usługi:** B2B  
 **Możliwość produktu:** B2B/B2C
  
-**Począwszy od 31 marca 2021**, firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont Azure Active Directory (Azure AD) i dzierżawców na potrzeby scenariuszy współpracy B2B. Zachęcamy do tego, abyśmy mogli korzystać z [uwierzytelniania jednorazowego kodu dostępu za pośrednictwem poczty e-mail](../external-identities/one-time-passcode.md).
+**Począwszy od 31 marca 2021** , firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont Azure Active Directory (Azure AD) i dzierżawców na potrzeby scenariuszy współpracy B2B. Zachęcamy do tego, abyśmy mogli korzystać z [uwierzytelniania jednorazowego kodu dostępu za pośrednictwem poczty e-mail](../external-identities/one-time-passcode.md).
 
 ---
 
@@ -183,7 +538,7 @@ Od tej pory Klienci, którzy mają bezpłatnych dzierżawców, mogą uzyskać do
 **Kategoria usługi:** Zarządzanie grupami  
 **Możliwość produktu:** Społeczności
 
-Aby zapewnić klientom bardziej elastyczny sposób tworzenia grup obejmujących katalogi, które najlepiej odpowiadają potrzebom, zamienisz opcję **grupy w poziomie katalogów** z **Groups**  >  ustawień**ogólnych** grupy w Azure Portal z linkiem do [dokumentacji grupy dynamicznej](../enterprise-users/groups-dynamic-membership.md). Ulepszono nasze dokumenty w celu uwzględnienia dodatkowych instrukcji, aby administratorzy mogli tworzyć wszystkie grupy użytkowników, które obejmują lub wykluczają użytkowników-Gości.
+Aby zapewnić klientom bardziej elastyczny sposób tworzenia grup obejmujących katalogi, które najlepiej odpowiadają potrzebom, zamienisz opcję **grupy w poziomie katalogów** z **Groups**  >  ustawień **ogólnych** grupy w Azure Portal z linkiem do [dokumentacji grupy dynamicznej](../enterprise-users/groups-dynamic-membership.md). Ulepszono nasze dokumenty w celu uwzględnienia dodatkowych instrukcji, aby administratorzy mogli tworzyć wszystkie grupy użytkowników, które obejmują lub wykluczają użytkowników-Gości.
 
 ---
 
@@ -432,11 +787,11 @@ W ramach modelu bezpiecznego i domyślnego dla plików cookie Przeglądarka Chro
 
 Zalecamy, aby wszyscy z naszych deweloperów testowali swoje aplikacje, korzystając z tych wskazówek:
 
-- Dla ustawienia **Użyj bezpiecznego pliku cookie** ustaw wartość **tak**.
+- Dla ustawienia **Użyj bezpiecznego pliku cookie** ustaw wartość **tak** .
 
-- Ustaw wartość domyślną dla atrybutu **SameSite** na **none**.
+- Ustaw wartość domyślną dla atrybutu **SameSite** na **none** .
 
-- Dodaj dodatkowy `SameSite` atrybut **Secure**.
+- Dodaj dodatkowy `SameSite` atrybut **Secure** .
 
 Aby uzyskać więcej informacji, zobacz [nadchodzące zmiany plików cookie SameSite w ASP.NET i ASP.NET Core](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/) oraz [potencjalne zakłócenia dla witryn internetowych klienta oraz produktów i usług firmy Microsoft w programie Chrome w wersji 79 lub nowszej](https://support.microsoft.com/help/4522904/potential-disruption-to-microsoft-services-in-chrome-beta-version-79).
 
@@ -614,7 +969,7 @@ Aby uzyskać więcej informacji o korzystaniu z definicji ról specyficznych dla
 
 **Typ:** Zaplanuj **kategorię usługi zmiany:** **zdolność produktu** do ochrony tożsamości: zabezpieczenia tożsamości & ochrona
 
-W odpowiedzi na opinie dla deweloperów Azure AD — wersja Premium w przypadku subskrybentów P2 mogą teraz wykonywać złożone zapytania dotyczące danych wykrywania ryzyka Azure AD Identity Protection przy użyciu nowego interfejsu API riskDetection na potrzeby Microsoft Graph. Istniejąca wersja beta interfejsu API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) przestanie zwracać dane **na około 10 stycznia 2020**. Jeśli Twoja organizacja korzysta z interfejsu API identityRiskEvent, należy przejść do nowego interfejsu API riskDetection.
+W odpowiedzi na opinie dla deweloperów Azure AD — wersja Premium w przypadku subskrybentów P2 mogą teraz wykonywać złożone zapytania dotyczące danych wykrywania ryzyka Azure AD Identity Protection przy użyciu nowego interfejsu API riskDetection na potrzeby Microsoft Graph. Istniejąca wersja beta interfejsu API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) przestanie zwracać dane **na około 10 stycznia 2020** . Jeśli Twoja organizacja korzysta z interfejsu API identityRiskEvent, należy przejść do nowego interfejsu API riskDetection.
 
 Więcej informacji na temat nowego interfejsu API riskDetection można znaleźć w [dokumentacji dotyczącej interfejsu API wykrywania ryzyka](/graph/api/resources/riskdetection).
 
@@ -628,9 +983,9 @@ Kilka tygodni przed publikacją w przeglądarce Chrome 80, firma Microsoft planu
 
 Aby uniknąć potencjalnie ujemnych wpływów spowodowanych tą zmianą, aktualizujemy dostęp do serwera proxy aplikacji i plików cookie sesji przez:
 
-- Ustawienie wartości domyślnej dla ustawienia **Użyj bezpiecznego pliku cookie** na wartość **tak**.
+- Ustawienie wartości domyślnej dla ustawienia **Użyj bezpiecznego pliku cookie** na wartość **tak** .
 
-- Ustawianie wartości domyślnej dla atrybutu **SameSite** na **none**.
+- Ustawianie wartości domyślnej dla atrybutu **SameSite** na **none** .
 
     >[!NOTE]
     > Pliki cookie dostępu do serwera proxy aplikacji są zawsze przesyłane wyłącznie za pośrednictwem bezpiecznych kanałów. Te zmiany dotyczą tylko plików cookie sesji.
@@ -749,7 +1104,7 @@ Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Int
 
 **Typ:** Zmieniono **kategorię usługi funkcji:** **zdolność produktu** do ochrony tożsamości: zabezpieczenia tożsamości & ochrona
 
-Teraz możesz uzyskać dostęp do wszystkich dostępnych funkcji zabezpieczeń usługi Azure AD z poziomu nowego elementu menu **zabezpieczenia** i z paska **wyszukiwania** w Azure Portal. Ponadto nowa strona docelowa **zabezpieczeń** , nazywana **zabezpieczeniami — wprowadzenie**, oferuje linki do naszej dokumentacji publicznej, wskazówek dotyczących zabezpieczeń i przewodników wdrażania.
+Teraz możesz uzyskać dostęp do wszystkich dostępnych funkcji zabezpieczeń usługi Azure AD z poziomu nowego elementu menu **zabezpieczenia** i z paska **wyszukiwania** w Azure Portal. Ponadto nowa strona docelowa **zabezpieczeń** , nazywana **zabezpieczeniami — wprowadzenie** , oferuje linki do naszej dokumentacji publicznej, wskazówek dotyczących zabezpieczeń i przewodników wdrażania.
 
 Nowe menu **zabezpieczeń** zawiera:
 
@@ -804,7 +1159,7 @@ Aby uzyskać więcej informacji na temat skoroszytów, zobacz [jak używać skor
 
 **Typ:** Planowanie **kategorii usługi zmiany:** moja profil/ **możliwość produktu konta:** współpraca
 
-Od października środowisko my profilu zostanie moje konto. W ramach tej zmiany wszędzie tam, gdzie się znajduje, **mój profil** zmieni się na **Moje konto**. W oparciu o zmiany nazw i niektóre ulepszenia projektowe zaktualizowane środowisko oferuje dodatkową integrację ze stroną konta Microsoft Office. W związku z tym będziesz mieć dostęp do instalacji i subskrypcji pakietu Office na stronie z **omówieniem konta** oraz z preferencjami kontaktu związanymi z pakietem Office na stronie **prywatność** .
+Od października środowisko my profilu zostanie moje konto. W ramach tej zmiany wszędzie tam, gdzie się znajduje, **mój profil** zmieni się na **Moje konto** . W oparciu o zmiany nazw i niektóre ulepszenia projektowe zaktualizowane środowisko oferuje dodatkową integrację ze stroną konta Microsoft Office. W związku z tym będziesz mieć dostęp do instalacji i subskrypcji pakietu Office na stronie z **omówieniem konta** oraz z preferencjami kontaktu związanymi z pakietem Office na stronie **prywatność** .
 
 Aby uzyskać więcej informacji na temat środowiska my profile (wersja zapoznawcza), zobacz temat [Omówienie portalu My profil (wersja zapoznawcza)](../user-help/my-account-portal-overview.md).
 
@@ -1080,11 +1435,11 @@ Aby uzyskać więcej informacji na temat udoskonalonego środowiska informacji o
 
 1. Zaloguj się do Azure Portal jako Administrator globalny lub administrator użytkowników.
 
-2. Przejdź do pozycji **Azure Active Directory > ustawienia użytkownika > zarządzanie ustawieniami funkcji Podgląd panelu dostępu**.
+2. Przejdź do pozycji **Azure Active Directory > ustawienia użytkownika > zarządzanie ustawieniami funkcji Podgląd panelu dostępu** .
 
-3. **Użytkownicy mogą korzystać z funkcji w wersji zapoznawczej na potrzeby rejestrowania obszaru informacje zabezpieczające i zarządzania nim** , wybrać opcję **wybrane**, a następnie wybrać grupę użytkowników lub wybrać opcję **wszystkie** , aby włączyć tę funkcję dla wszystkich użytkowników w dzierżawie.
+3. **Użytkownicy mogą korzystać z funkcji w wersji zapoznawczej na potrzeby rejestrowania obszaru informacje zabezpieczające i zarządzania nim** , wybrać opcję **wybrane** , a następnie wybrać grupę użytkowników lub wybrać opcję **wszystkie** , aby włączyć tę funkcję dla wszystkich użytkowników w dzierżawie.
 
-4. W programie * * użytkownicy mogą używać funkcji w wersji zapoznawczej do rejestrowania i zarządzania zabezpieczeniami * * info * * * * — wybierz opcję **Brak**.
+4. W programie * * użytkownicy mogą używać funkcji w wersji zapoznawczej do rejestrowania i zarządzania zabezpieczeniami * * info * * * * — wybierz opcję **Brak** .
 
 5. Zapisz ustawienia.
 
@@ -1634,7 +1989,7 @@ Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Int
 
 Nowe aktualizacje w przeglądach dostępu usługi Azure AD umożliwiają:
 
-- Oprócz wcześniej istniejących opcji co tydzień, co miesiąc, co kwartał i co rok należy zmienić częstotliwość kontroli dostępu do **półrocza**.
+- Oprócz wcześniej istniejących opcji co tydzień, co miesiąc, co kwartał i co rok należy zmienić częstotliwość kontroli dostępu do **półrocza** .
 
 - Podczas tworzenia jednego przeglądu dostępu wybierz wiele ról usługi Azure AD i Azure Resource. W tej sytuacji wszystkie role są skonfigurowane z tymi samymi ustawieniami, a wszyscy recenzenci są powiadamiani w tym samym czasie.
 
@@ -1866,17 +2221,17 @@ W odpowiedzi na Opinie klientów Ulepszono środowisko w wersji zapoznawczej us�
 
 **Aby włączyć już dziś udoskonalone środowisko dla użytkowników, wykonaj następujące kroki:**
 
-1. Jako Administrator globalny lub administrator użytkownika Zaloguj się do Azure Portal i przejdź do pozycji **Azure Active Directory > ustawienia użytkownika > Zarządzaj ustawieniami funkcji w wersji zapoznawczej panelu dostępu**.
+1. Jako Administrator globalny lub administrator użytkownika Zaloguj się do Azure Portal i przejdź do pozycji **Azure Active Directory > ustawienia użytkownika > Zarządzaj ustawieniami funkcji w wersji zapoznawczej panelu dostępu** .
 
-2. W przypadku **użytkowników, którzy mogą używać funkcji w wersji zapoznawczej do rejestrowania i zarządzania informacjami o zabezpieczeniach — odświeżanie** , wybierz opcję włączenia funkcji dla **wybranej grupy użytkowników** lub dla **wszystkich użytkowników**.
+2. W przypadku **użytkowników, którzy mogą używać funkcji w wersji zapoznawczej do rejestrowania i zarządzania informacjami o zabezpieczeniach — odświeżanie** , wybierz opcję włączenia funkcji dla **wybranej grupy użytkowników** lub dla **wszystkich użytkowników** .
 
 W ciągu najbliższych kilku tygodni usuniemy możliwość włączenia starego połączenia usługi SSPR w wersji zapoznawczej usługi MFA w przypadku dzierżawców, które nie są jeszcze włączone.
 
 **Aby sprawdzić, czy formant zostanie usunięty dla dzierżawy, wykonaj następujące kroki:**
 
-1. Jako Administrator globalny lub administrator użytkownika Zaloguj się do Azure Portal i przejdź do pozycji **Azure Active Directory > ustawienia użytkownika > Zarządzaj ustawieniami funkcji w wersji zapoznawczej panelu dostępu**.
+1. Jako Administrator globalny lub administrator użytkownika Zaloguj się do Azure Portal i przejdź do pozycji **Azure Active Directory > ustawienia użytkownika > Zarządzaj ustawieniami funkcji w wersji zapoznawczej panelu dostępu** .
 
-2. Jeśli **Użytkownicy, którzy mogą korzystać z funkcji w wersji zapoznawczej do rejestrowania i zarządzania informacjami o zabezpieczeniach** , mają ustawioną wartość **Brak**, opcja zostanie usunięta z dzierżawy.
+2. Jeśli **Użytkownicy, którzy mogą korzystać z funkcji w wersji zapoznawczej do rejestrowania i zarządzania informacjami o zabezpieczeniach** , mają ustawioną wartość **Brak** , opcja zostanie usunięta z dzierżawy.
 
 Bez względu na to, czy wcześniej włączono poprzednie środowisko w wersji zapoznawczej rejestracji usługi MFA/SSPR dla użytkowników, stare środowisko zostanie wyłączone w przyszłości. Ze względu na to zdecydowanie zalecamy przechodzenie do nowego, ulepszonego środowiska tak szybko, jak to możliwe.
 
@@ -1942,11 +2297,11 @@ Aby uzyskać więcej informacji, zobacz [jednorazowe uwierzytelnianie kodu dost�
 
 Wprowadziliśmy trzy nowe ustawienia plików cookie dostępne dla aplikacji publikowanych za poorednictwem serwera proxy aplikacji:
 
-- **Użyj HTTP-Only pliku cookie.** Ustawia flagę **HTTPOnly** na serwerze proxy aplikacji i plikach cookie sesji. Włączenie tego ustawienia zapewnia dodatkowe korzyści z zabezpieczeń, takie jak uniemożliwienie kopiowania lub modyfikowania plików cookie za pomocą skryptów po stronie klienta. Zalecamy włączenie tej flagi (wybierz opcję **tak**), aby uzyskać dodatkowe korzyści.
+- **Użyj HTTP-Only pliku cookie.** Ustawia flagę **HTTPOnly** na serwerze proxy aplikacji i plikach cookie sesji. Włączenie tego ustawienia zapewnia dodatkowe korzyści z zabezpieczeń, takie jak uniemożliwienie kopiowania lub modyfikowania plików cookie za pomocą skryptów po stronie klienta. Zalecamy włączenie tej flagi (wybierz opcję **tak** ), aby uzyskać dodatkowe korzyści.
 
-- **Użyj bezpiecznego pliku cookie.** Ustawia **bezpieczną** flagę na serwerze proxy aplikacji i plikach cookie sesji. Włączenie tego ustawienia zapewnia dodatkowe korzyści z zabezpieczeń, zapewniając, że pliki cookie są przesyłane tylko za pośrednictwem bezpiecznych kanałów protokołu TLS, takich jak HTTPS. Zalecamy włączenie tej flagi (wybierz opcję **tak**), aby uzyskać dodatkowe korzyści.
+- **Użyj bezpiecznego pliku cookie.** Ustawia **bezpieczną** flagę na serwerze proxy aplikacji i plikach cookie sesji. Włączenie tego ustawienia zapewnia dodatkowe korzyści z zabezpieczeń, zapewniając, że pliki cookie są przesyłane tylko za pośrednictwem bezpiecznych kanałów protokołu TLS, takich jak HTTPS. Zalecamy włączenie tej flagi (wybierz opcję **tak** ), aby uzyskać dodatkowe korzyści.
 
-- **Użyj trwałego pliku cookie.** Zapobiega utracie dostępu plików cookie po zamknięciu przeglądarki sieci Web. Te pliki cookie są ostatnie przez okres istnienia tokenu dostępu. Pliki cookie są jednak resetowane po osiągnięciu czasu wygaśnięcia lub ręcznym usunięciu pliku cookie przez użytkownika. Zalecamy zachowanie ustawienia domyślnego **nie**, włączając ustawienie dla starszych aplikacji, które nie udostępniają plików cookie między procesami.
+- **Użyj trwałego pliku cookie.** Zapobiega utracie dostępu plików cookie po zamknięciu przeglądarki sieci Web. Te pliki cookie są ostatnie przez okres istnienia tokenu dostępu. Pliki cookie są jednak resetowane po osiągnięciu czasu wygaśnięcia lub ręcznym usunięciu pliku cookie przez użytkownika. Zalecamy zachowanie ustawienia domyślnego **nie** , włączając ustawienie dla starszych aplikacji, które nie udostępniają plików cookie między procesami.
 
 Aby uzyskać więcej informacji na temat nowych plików cookie, zobacz [Ustawienia plików cookie dotyczące uzyskiwania dostępu do aplikacji lokalnych w Azure Active Directory](../manage-apps/application-proxy-configure-cookie-settings.md).
 
@@ -2036,7 +2391,7 @@ W związku z tym ta poprawka uniemożliwia bezpośrednie aktualizacje atrybutu I
 Obecnie publikujemy strumienie inspekcji i logowania za pomocą Azure Monitor, dzięki czemu możesz bezproblemowo zintegrować pliki dziennika z narzędziami SIEM lub z Log Analytics. Na podstawie opinii i przygotowania do ogólnej dostępności tej funkcji wprowadzamy następujące zmiany w naszym schemacie. Te zmiany schematu i powiązane z nimi aktualizacje dokumentacji będą wykonywane przez pierwszy tydzień stycznia.
 
 #### <a name="new-fields-in-the-audit-schema"></a>Nowe pola w schemacie inspekcji
-Dodajemy nowe pole **typu operacji** , aby zapewnić typ operacji wykonanej na zasobie. Na przykład **Dodaj**, **zaktualizuj**lub **Usuń**.
+Dodajemy nowe pole **typu operacji** , aby zapewnić typ operacji wykonanej na zasobie. Na przykład **Dodaj** , **zaktualizuj** lub **Usuń** .
 
 #### <a name="changed-fields-in-the-audit-schema"></a>Zmieniono pola w schemacie inspekcji
 Następujące pola są zmieniane w schemacie inspekcji:
@@ -2262,7 +2617,7 @@ Firma Microsoft zdaje sobie sprawę, że skonfigurowanie pojedynczych Sign-On (S
 
 - Jamf Pro
 
-Aby rozpocząć korzystanie z tego samego kliknięcia, przejdź do **Azure portal**  >  strony**Konfiguracja logowania jednokrotnego** w Azure Portal stronie konfiguracji usługi SSO dla aplikacji. Aby uzyskać więcej informacji, zobacz [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md)
+Aby rozpocząć korzystanie z tego samego kliknięcia, przejdź do **Azure portal**  >  strony **Konfiguracja logowania jednokrotnego** w Azure Portal stronie konfiguracji usługi SSO dla aplikacji. Aby uzyskać więcej informacji, zobacz [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md)
 
 ---
 
@@ -2673,16 +3028,16 @@ Powiadomienie aplikacji mobilnej można włączyć tylko w ramach zasad, które 
 
 **Typ:** Zaplanuj **kategorię usługi zmiany:** raportowanie **możliwości produktu:** monitorowanie & raportowanie
 
-Ze względu na nasze silniejsze Wymuszanie zabezpieczeń musiałeś wprowadzić zmianę uprawnień dla aplikacji, które korzystają z delegowanego przepływu autoryzacji w celu uzyskiwania dostępu do [interfejsów API dzienników aktywności usługi Azure AD](../reports-monitoring/concept-reporting-api.md). Ta zmiana będzie miała miejsce do **26 czerwca 2018**.
+Ze względu na nasze silniejsze Wymuszanie zabezpieczeń musiałeś wprowadzić zmianę uprawnień dla aplikacji, które korzystają z delegowanego przepływu autoryzacji w celu uzyskiwania dostępu do [interfejsów API dzienników aktywności usługi Azure AD](../reports-monitoring/concept-reporting-api.md). Ta zmiana będzie miała miejsce do **26 czerwca 2018** .
 
 Jeśli dowolna z aplikacji korzysta z interfejsów API dzienników aktywności usługi Azure AD, wykonaj następujące kroki, aby upewnić się, że aplikacja nie przerwie się po zmianie.
 
 **Aby zaktualizować uprawnienia aplikacji**
 
-1. Zaloguj się do Azure Portal, wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **rejestracje aplikacji**.
-2. Wybierz aplikację korzystającą z interfejsu API dzienników aktywności usługi Azure AD, wybierz pozycję **Ustawienia**, wybierz pozycję **wymagane uprawnienia**, a następnie wybierz pozycję **Windows Azure Active Directory** API.
-3. W obszarze **delegowane uprawnienia** w bloku **Włącz dostęp** zaznacz pole wyboru obok pozycji **Odczytaj dane katalogu** , a następnie wybierz pozycję **Zapisz**.
-4. Wybierz pozycję **Udziel uprawnień**, a następnie wybierz pozycję **tak**.
+1. Zaloguj się do Azure Portal, wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **rejestracje aplikacji** .
+2. Wybierz aplikację korzystającą z interfejsu API dzienników aktywności usługi Azure AD, wybierz pozycję **Ustawienia** , wybierz pozycję **wymagane uprawnienia** , a następnie wybierz pozycję **Windows Azure Active Directory** API.
+3. W obszarze **delegowane uprawnienia** w bloku **Włącz dostęp** zaznacz pole wyboru obok pozycji **Odczytaj dane katalogu** , a następnie wybierz pozycję **Zapisz** .
+4. Wybierz pozycję **Udziel uprawnień** , a następnie wybierz pozycję **tak** .
 
     >[!Note]
     >Musisz być administratorem globalnym, aby udzielić uprawnień do aplikacji.
@@ -2697,33 +3052,33 @@ Aby uzyskać więcej informacji, zobacz temat [udzielanie uprawnień](../reports
 
 Transport Layer Security (TLS) to protokół, który zapewnia prywatność i integralność danych między dwiema komunikującymi się aplikacjami i jest najczęściej wdrożonym protokołem zabezpieczeń.
 
-[Rada standardu zabezpieczeń PCI](https://www.pcisecuritystandards.org/) ustaliła, że wczesne wersje protokołu TLS i SSL (SSL) muszą zostać wyłączone na korzyść, aby włączyć nowe i bezpieczniejsze protokoły aplikacji, z zachowaniem zgodności rozpoczynającym się **30 czerwca 2018**. Ta zmiana oznacza, że w przypadku nawiązania połączenia z usługami Azure AD i wymagania zgodności PCI DSS należy wyłączyć protokół TLS 1,0. Dostępnych jest wiele wersji protokołu TLS, ale protokół TLS 1,2 to Najnowsza wersja dostępna dla Azure Active Directory usług. Zdecydowanie zalecamy Przechodzenie bezpośrednio do protokołu TLS 1,2 dla kombinacji klient/serwer i przeglądarka/serwer.
+[Rada standardu zabezpieczeń PCI](https://www.pcisecuritystandards.org/) ustaliła, że wczesne wersje protokołu TLS i SSL (SSL) muszą zostać wyłączone na korzyść, aby włączyć nowe i bezpieczniejsze protokoły aplikacji, z zachowaniem zgodności rozpoczynającym się **30 czerwca 2018** . Ta zmiana oznacza, że w przypadku nawiązania połączenia z usługami Azure AD i wymagania zgodności PCI DSS należy wyłączyć protokół TLS 1,0. Dostępnych jest wiele wersji protokołu TLS, ale protokół TLS 1,2 to Najnowsza wersja dostępna dla Azure Active Directory usług. Zdecydowanie zalecamy Przechodzenie bezpośrednio do protokołu TLS 1,2 dla kombinacji klient/serwer i przeglądarka/serwer.
 
-Nieaktualne przeglądarki mogą nie obsługiwać nowszych wersji protokołu TLS, takich jak TLS 1,2. Aby sprawdzić, które wersje protokołu TLS są obsługiwane przez przeglądarkę, przejdź do witryny [Qualyse SSL Labs](https://www.ssllabs.com/) i kliknij pozycję **Testuj przeglądarkę**. Zalecamy przeprowadzenie uaktualnienia do najnowszej wersji przeglądarki sieci Web i zaleca włączenie tylko protokołu TLS 1,2.
+Nieaktualne przeglądarki mogą nie obsługiwać nowszych wersji protokołu TLS, takich jak TLS 1,2. Aby sprawdzić, które wersje protokołu TLS są obsługiwane przez przeglądarkę, przejdź do witryny [Qualyse SSL Labs](https://www.ssllabs.com/) i kliknij pozycję **Testuj przeglądarkę** . Zalecamy przeprowadzenie uaktualnienia do najnowszej wersji przeglądarki sieci Web i zaleca włączenie tylko protokołu TLS 1,2.
 
 **Aby włączyć protokół TLS 1,2 w przeglądarce**
 
 - **Microsoft Edge i Internet Explorer (oba są ustawiane przy użyciu programu Internet Explorer)**
 
-    1. Otwórz program Internet Explorer, wybierz pozycję **Narzędzia**  >  **Opcje internetowe**  >  **Zaawansowane**.
-    2. W obszarze **zabezpieczenia** wybierz opcję **użyj protokołu TLS 1,2**, a następnie wybierz przycisk **OK**.
+    1. Otwórz program Internet Explorer, wybierz pozycję **Narzędzia**  >  **Opcje internetowe**  >  **Zaawansowane** .
+    2. W obszarze **zabezpieczenia** wybierz opcję **użyj protokołu TLS 1,2** , a następnie wybierz przycisk **OK** .
     3. Zamknij wszystkie okna przeglądarki i ponownie uruchom program Internet Explorer.
 
 - **Google Chrome**
 
-    1. Otwórz program Google Chrome, wpisz *Chrome://Settings/* na pasku adresu i naciśnij klawisz **Enter**.
-    2. Rozwiń opcje **Zaawansowane** , przejdź do obszaru **system** , a następnie wybierz pozycję **Otwórz ustawienia serwera proxy**.
-    3. W oknie **Właściwości internetowe** wybierz kartę **Zaawansowane** , przejdź do obszaru **zabezpieczenia** , wybierz opcję **Użyj protokołu TLS 1,2**, a następnie wybierz przycisk **OK**.
+    1. Otwórz program Google Chrome, wpisz *Chrome://Settings/* na pasku adresu i naciśnij klawisz **Enter** .
+    2. Rozwiń opcje **Zaawansowane** , przejdź do obszaru **system** , a następnie wybierz pozycję **Otwórz ustawienia serwera proxy** .
+    3. W oknie **Właściwości internetowe** wybierz kartę **Zaawansowane** , przejdź do obszaru **zabezpieczenia** , wybierz opcję **Użyj protokołu TLS 1,2** , a następnie wybierz przycisk **OK** .
     4. Zamknij wszystkie okna przeglądarki i uruchom ponownie usługę Google Chrome.
 
 - **Mozilla Firefox**
 
-    1. Otwórz przeglądarkę Firefox, wpisz *informacje: config* na pasku adresu, a następnie naciśnij klawisz **Enter**.
-    2. Wyszukaj termin, *TLS*, a następnie wybierz wpis **Security. TLS. Version. Max** .
-    3. Ustaw wartość na **3** , aby wymusić, aby przeglądarka korzystała z do wersji TLS 1,2, a następnie wybierz **przycisk OK**.
+    1. Otwórz przeglądarkę Firefox, wpisz *informacje: config* na pasku adresu, a następnie naciśnij klawisz **Enter** .
+    2. Wyszukaj termin, *TLS* , a następnie wybierz wpis **Security. TLS. Version. Max** .
+    3. Ustaw wartość na **3** , aby wymusić, aby przeglądarka korzystała z do wersji TLS 1,2, a następnie wybierz **przycisk OK** .
 
         >[!NOTE]
-        >Firefox w wersji 60,0 obsługuje protokół TLS 1,3, więc można także ustawić wartość Security. TLS. Version. max na **4**.
+        >Firefox w wersji 60,0 obsługuje protokół TLS 1,3, więc można także ustawić wartość Security. TLS. Version. max na **4** .
 
     4. Zamknij wszystkie okna przeglądarki i uruchom ponownie Mozilla Firefox.
 
@@ -2817,7 +3172,7 @@ Aby uzyskać więcej informacji na temat publicznej wersji zapoznawczej, zobacz 
 
 **Typ:** Zaplanuj **kategorię usługi zmiany:** uwierzytelnienia (logowania) **możliwości produktu:** platforma
 
-Oprogramowanie jako oferta usługi, takie jak Azure Active Directory (Azure AD), jest przeznaczone do pracy najlepiej, przechodząc bezpośrednio przez Internet, bez konieczności ExpressRoute lub innych prywatnych tuneli VPN. W związku z tym w dniu **1 sierpnia 2018**ExpressRoutemy obsługę usługi Azure AD przy użyciu publicznej komunikacji równorzędnej Azure i społeczności platformy Azure w komunikacji równorzędnej firmy Microsoft. Wszystkie usługi, których dotyczy ta zmiana, mogą zauważyć, że ruch usługi Azure AD stopniowo przesunie się z ExpressRoute do Internetu.
+Oprogramowanie jako oferta usługi, takie jak Azure Active Directory (Azure AD), jest przeznaczone do pracy najlepiej, przechodząc bezpośrednio przez Internet, bez konieczności ExpressRoute lub innych prywatnych tuneli VPN. W związku z tym w dniu **1 sierpnia 2018** ExpressRoutemy obsługę usługi Azure AD przy użyciu publicznej komunikacji równorzędnej Azure i społeczności platformy Azure w komunikacji równorzędnej firmy Microsoft. Wszystkie usługi, których dotyczy ta zmiana, mogą zauważyć, że ruch usługi Azure AD stopniowo przesunie się z ExpressRoute do Internetu.
 
 Chociaż zmieniamy naszą pomoc techniczną, wiemy, że nadal są sytuacje, w których może być konieczne użycie dedykowanego zestawu obwodów dla ruchu związanego z uwierzytelnianiem. W związku z tym usługa Azure AD będzie kontynuowała obsługę ograniczeń zakresu adresów IP dla dzierżawców przy użyciu ExpressRoute i usług, które są już w komunikacji równorzędnej firmy Microsoft z społecznością "inne usługi Office 365 Online Services". Jeśli ma to wpływ na usługi, ale wymagane jest ExpressRoute, należy wykonać następujące czynności:
 
@@ -2957,7 +3312,7 @@ Przeglądy dostępu do grup i aplikacji są teraz ogólnie dostępne w ramach Az
 
 **Typ:** Zmieniono **kategorię usługi funkcji:** uwierzytelnienia (logowania) **możliwości produktu:** uwierzytelnianie użytkownika
 
-Aplikacje utworzone w dniu lub po 25 kwietnia 2018 nie będą już mogły żądać **id_token** przy użyciu response_mode **zapytań** .  Dzięki temu usługa Azure AD jest wbudowana ze specyfikacjami OIDC i pomaga w zmniejszeniu obszaru ataków na aplikacje.  Aplikacje utworzone przed 25 kwietnia 2018 nie są blokowane przed użyciem **zapytania** response_mode z response_type **id_token**.  Zwrócony błąd podczas żądania id_token z usługi AAD jest **AADSTS70007: "Query" nie jest obsługiwaną wartością "response_mode" podczas żądania tokenu**.
+Aplikacje utworzone w dniu lub po 25 kwietnia 2018 nie będą już mogły żądać **id_token** przy użyciu response_mode **zapytań** .  Dzięki temu usługa Azure AD jest wbudowana ze specyfikacjami OIDC i pomaga w zmniejszeniu obszaru ataków na aplikacje.  Aplikacje utworzone przed 25 kwietnia 2018 nie są blokowane przed użyciem **zapytania** response_mode z response_type **id_token** .  Zwrócony błąd podczas żądania id_token z usługi Azure AD jest **AADSTS70007: "Query" nie jest obsługiwaną wartością elementu "response_mode" podczas żądania tokenu** .
 
 **Fragmenty** i **form_post** response_modes nadal działały — podczas tworzenia nowych obiektów aplikacji (na przykład w przypadku użycia serwera proxy aplikacji) przed utworzeniem nowej aplikacji upewnij się, że używasz jednej z tych response_modes.
 
@@ -3016,7 +3371,7 @@ Aby uzyskać więcej informacji, zobacz [raport dotyczący ryzykownych adresów 
 
 **Typ:** Nowa **Kategoria usługi funkcji:** aplikacja dla przedsiębiorstw **:** Logowanie jednokrotne
 
-Na stronie aplikacje przedsiębiorstwa Administratorzy mogą przekazać plik metadanych SAML w celu skonfigurowania logowania opartego na protokole SAML dla galerii usługi AAD i aplikacji spoza galerii.
+Na stronie aplikacje przedsiębiorstwa Administratorzy mogą przekazać plik metadanych SAML, aby skonfigurować logowanie oparte na protokole SAML dla galerii usługi Azure AD i aplikacji spoza galerii.
 
 Ponadto możesz użyć adresu URL metadanych federacji aplikacji usługi Azure AD, aby skonfigurować Logowanie jednokrotne za pomocą aplikacji dostosowanej.
 
@@ -3416,9 +3771,9 @@ Ta wersja obejmuje następujące aktualizacje i zmiany:
 
 - Rozwiązano problem polegający na tym, że certyfikaty z symbolami wieloznacznymi sieci SAN kończą się niepowodzeniem.
 
-- Naprawiono usterkę powodującą miiserver.exe awarię podczas eksportowania łącznika usługi AAD.
+- Naprawiono usterkę powodującą miiserver.exe awarię podczas eksportowania łącznika usługi Azure AD.
 
-- Naprawiono usterkę polegającą na tym, że podczas uruchamiania w kontrolerze domeny zostało zarejestrowane złe hasło przy użyciu Kreatora połączenia usługi AAD, aby zmienić konfigurację
+- Naprawiono usterkę polegającą na tym, że podczas uruchamiania na kontrolerze domeny jest rejestrowane niewłaściwe hasło przy użyciu kreatora programu Azure AD Connect, aby zmienić konfigurację
 
 **Nowe funkcje i ulepszenia**
 
@@ -3473,7 +3828,7 @@ Aby uzyskać więcej informacji, zobacz:
 
 **Typ:** Zmieniono **kategorię usługi funkcji:** warunki użytkowania **możliwości produktu:** zgodność
 
-Kiedy są wyświetlane warunki użytkowania, możesz teraz kliknąć problemy z **wyświetlaniem? Kliknij tutaj**. Kliknięcie tego linku otwiera warunki użytkowania natywnie na urządzeniu. Niezależnie od rozmiaru czcionki w dokumencie lub rozmiaru ekranu urządzenia, możesz powiększyć i odczytać dokument zgodnie z wymaganiami.
+Kiedy są wyświetlane warunki użytkowania, możesz teraz kliknąć problemy z **wyświetlaniem? Kliknij tutaj** . Kliknięcie tego linku otwiera warunki użytkowania natywnie na urządzeniu. Niezależnie od rozmiaru czcionki w dokumencie lub rozmiaru ekranu urządzenia, możesz powiększyć i odczytać dokument zgodnie z wymaganiami.
 
 ---
 
@@ -3509,7 +3864,7 @@ Aby uzyskać więcej informacji, zobacz [Azure Active Directory wykrywania zagro
 
 **Typ:** Nowa **Kategoria usługi funkcji:** **możliwości produktu** moje aplikacje: Logowanie jednokrotne
 
-Teraz można lepiej zarządzać sposobem wyświetlania aplikacji pakietu Office 365 w panelach dostępu użytkownika za pomocą nowego ustawienia użytkownika. Ta opcja jest pomocna w przypadku zmniejszenia liczby aplikacji w panelu dostępu użytkownika, jeśli wolisz wyświetlać tylko aplikacje pakietu Office w portalu usługi Office. Ustawienie znajduje się w **ustawieniach użytkownika** i ma etykietę, **Użytkownicy mogą widzieć tylko aplikacje pakietu Office 365 w portalu pakietu Office 365**.
+Teraz można lepiej zarządzać sposobem wyświetlania aplikacji pakietu Office 365 w panelach dostępu użytkownika za pomocą nowego ustawienia użytkownika. Ta opcja jest pomocna w przypadku zmniejszenia liczby aplikacji w panelu dostępu użytkownika, jeśli wolisz wyświetlać tylko aplikacje pakietu Office w portalu usługi Office. Ustawienie znajduje się w **ustawieniach użytkownika** i ma etykietę, **Użytkownicy mogą widzieć tylko aplikacje pakietu Office 365 w portalu pakietu Office 365** .
 
 Aby uzyskać więcej informacji, zobacz [ukrywanie aplikacji ze środowiska użytkownika w Azure Active Directory](../manage-apps/hide-application-from-user-portal.md).
 
@@ -3581,7 +3936,7 @@ Wykonaj następujące kroki:
 
 2. W prawym górnym rogu wybierz swoją nazwę, a następnie z listy wybierz pozycję **profil** .
 
-3. W **profilu**wybierz pozycję **Przejrzyj warunki użytkowania**.
+3. W **profilu** wybierz pozycję **Przejrzyj warunki użytkowania** .
 
 4. Teraz możesz przejrzeć zaakceptowane warunki użytkowania.
 
@@ -3834,7 +4189,7 @@ W centrum administracyjnym usługi Azure AD możesz teraz:
 
 1. W centrum administracyjnym usługi Azure AD wybierz pozycję [Wszyscy użytkownicy](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All) w sekcji **Zarządzanie** .
 
-2. Z listy **Pokaż** wybierz pozycję **ostatnio usunięci użytkownicy**.
+2. Z listy **Pokaż** wybierz pozycję **ostatnio usunięci użytkownicy** .
 
 3. Wybierz co najmniej jednego z ostatnio usuniętych użytkowników, a następnie Przywróć je lub trwale Usuń.
 
@@ -3895,7 +4250,7 @@ Ze względu na te nowe możliwości zostały wycofane interfejsy API raportów w
 
 **Typ:** **Kategoria stałej usługi:** **możliwości produktu** moje aplikacje: Logowanie jednokrotne
 
-Usługa Azure AD obsługuje automatyczne wykrywanie pól logowania dla aplikacji, które renderują pole Nazwa użytkownika i hasło w formacie HTML. Te kroki są udokumentowane w [sposób automatycznego przechwytywania pól logowania dla aplikacji](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). Tę możliwość można znaleźć, dodając aplikację *spoza galerii* na stronie aplikacje dla **przedsiębiorstw** w [Azure Portal](https://aad.portal.azure.com). Ponadto można skonfigurować tryb **logowania** jednokrotnego w tej nowej aplikacji do **logowania jednokrotnego opartego na hasłach**, wprowadzić adres URL sieci Web, a następnie zapisać stronę.
+Usługa Azure AD obsługuje automatyczne wykrywanie pól logowania dla aplikacji, które renderują pole Nazwa użytkownika i hasło w formacie HTML. Te kroki są udokumentowane w [sposób automatycznego przechwytywania pól logowania dla aplikacji](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). Tę możliwość można znaleźć, dodając aplikację *spoza galerii* na stronie aplikacje dla **przedsiębiorstw** w [Azure Portal](https://aad.portal.azure.com). Ponadto można skonfigurować tryb **logowania** jednokrotnego w tej nowej aplikacji do **logowania jednokrotnego opartego na hasłach** , wprowadzić adres URL sieci Web, a następnie zapisać stronę.
 
 Ze względu na problem z usługą ta funkcja została tymczasowo wyłączona. Problem został rozwiązany, a automatyczne wykrywanie pól logowania jest dostępne ponownie.
 

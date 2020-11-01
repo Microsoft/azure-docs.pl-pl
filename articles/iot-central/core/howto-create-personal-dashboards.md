@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bb4e2ac525270004a698471cd44955cd25fefc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83634652"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146113"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Tworzenie wielu pulpitów nawigacyjnych i zarządzanie nimi
 
@@ -42,7 +42,7 @@ Na przykład można dodać kafelek **telemetrii** dla bieżącej temperatury urz
 
 1. Wybierz **szablon urządzenia**
 1. Wybierz urządzenie z **urządzeń** , które ma być wyświetlane na kafelku pulpitu nawigacyjnego. Zostanie wyświetlona lista właściwości urządzenia, które mogą być używane na kafelku.
-1. Aby utworzyć kafelek na pulpicie nawigacyjnym, kliknij pozycję **temperatura** i przeciągnij ją do obszaru pulpit nawigacyjny. Możesz również kliknąć pole wyboru obok pozycji **temperatura** i kliknąć pozycję **Dodaj kafelek**. Poniższy zrzut ekranu przedstawia Wybieranie szablonu urządzenia i urządzenia, a następnie Tworzenie kafelka telemetrii na pulpicie nawigacyjnym.
+1. Aby utworzyć kafelek na pulpicie nawigacyjnym, kliknij pozycję **temperatura** i przeciągnij ją do obszaru pulpit nawigacyjny. Możesz również kliknąć pole wyboru obok pozycji **temperatura** i kliknąć pozycję **Dodaj kafelek** . Poniższy zrzut ekranu przedstawia Wybieranie szablonu urządzenia i urządzenia, a następnie Tworzenie kafelka telemetrii na pulpicie nawigacyjnym.
 1. Wybierz pozycję **Zapisz** w lewym górnym rogu, aby zapisać zmiany na pulpicie nawigacyjnym.
 
 > [!div class="mx-imgBorder"]
@@ -51,7 +51,7 @@ Na przykład można dodać kafelek **telemetrii** dla bieżącej temperatury urz
 Teraz, gdy przeglądasz osobisty pulpit nawigacyjny, zobaczysz nowy kafelek z ustawieniem **temperatury** dla urządzenia:
 
 > [!div class="mx-imgBorder"]
-> ![Pulpit nawigacyjny — karta z szczegółowymi informacjami o kafelku temperatury](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+> ![Zrzut ekranu pokazujący nowy kafelek z ustawieniem temperatury dla urządzenia.](media/howto-create-personal-dashboards/temperature-tile-complete.png)
 
 Możesz eksplorować inne typy kafelków w bibliotece, aby dowiedzieć się, jak dodatkowo dostosować swoje osobiste pulpity nawigacyjne.
 
@@ -64,7 +64,7 @@ Możesz mieć kilka osobistych pulpitów nawigacyjnych i przełączać się mię
 > [!div class="mx-imgBorder"]
 > ![Przełączanie między pulpitami nawigacyjnymi](media/howto-create-personal-dashboards/switch-dashboards.png)
 
-Możesz edytować osobiste pulpity nawigacyjne i usunąć wszystkie pulpity nawigacyjne, które nie są już potrzebne. Jeśli jesteś **administratorem**, masz również możliwość edytowania lub usuwania pulpitów nawigacyjnych na poziomie aplikacji.
+Możesz edytować osobiste pulpity nawigacyjne i usunąć wszystkie pulpity nawigacyjne, które nie są już potrzebne. Jeśli jesteś **administratorem** , masz również możliwość edytowania lub usuwania pulpitów nawigacyjnych na poziomie aplikacji.
 
 > [!div class="mx-imgBorder"]
 > ![Usuń pulpity nawigacyjne](media/howto-create-personal-dashboards/delete-dashboards.png)

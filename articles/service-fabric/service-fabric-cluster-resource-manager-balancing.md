@@ -5,17 +5,17 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 192aca589c3b1e660667dbe8377afe7802b56f17
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416265"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146198"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Równoważenie klastra usługi Service Fabric
 Klaster Service Fabric Menedżer zasobów obsługuje dynamiczne zmiany obciążenia, oddziałanie w celu dodania lub usunięcia węzłów lub usług. Automatycznie koryguje naruszenia ograniczeń i aktywnie ponownie równoważy klaster. Ale jak często wykonywane są te akcje i jakie są wyzwalacze?
 
-Istnieją trzy różne kategorie pracy wykonywanej przez klaster Menedżer zasobów. Są to:
+Istnieją trzy różne kategorie pracy wykonywanej przez klaster Menedżer zasobów. Oto one:
 
 1. Umieszczanie — ten etap zajmuje się umieszczeniem niestanowych replik lub bezstanowych wystąpień. Umieszczanie obejmuje nowe usługi i obsługujące repliki stanowe lub bezstanowe, które zakończyły się niepowodzeniem. Usuwanie i upuszczanie replik lub wystąpień jest tutaj obsługiwane.
 2. Sprawdzanie ograniczeń — ten etap sprawdza i koryguje naruszenia różnych ograniczeń położenia (reguł) w systemie. Przykłady reguł są takie jak upewnienie się, że węzły nie przekraczają pojemności i że są spełnione ograniczenia dotyczące umieszczania usługi.
@@ -74,12 +74,12 @@ za pomocą ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsn
 
 Obecnie klaster Menedżer zasobów wykonuje tylko jedną z tych akcji w danym momencie, sekwencyjnie. Jest to przydatne w przypadku tych czasomierzy jako "minimalnych interwałów" oraz akcji, które zostaną wykonane, gdy czasomierze są wyłączone jako "flagi ustawień". Na przykład klaster Menedżer zasobów ma zadbać o oczekujące żądania utworzenia usług przed przekazaniem klastra. Jak widać domyślne przedziały czasu, klaster Menedżer zasobów skanuje w poszukiwaniu wszystkiego, czego potrzebują. Zwykle oznacza to, że zestaw zmian wprowadzonych w każdym kroku jest mały. W przypadku częstego wprowadzania małych zmian klaster Menedżer zasobów reaguje, gdy wystąpią problemy w klastrze. Domyślne czasomierze zapewniają wiele operacji związanych z przetwarzaniem wsadowym, ponieważ wielu z tych samych typów zdarzeń ma być jednocześnie wykonywana. 
 
-Na przykład w przypadku awarii węzłów można w danym momencie wykonać wszystkie domeny błędów. Wszystkie te błędy są przechwytywane podczas kolejnej aktualizacji stanu po *PLBRefreshGap*. Poprawki są określane podczas następujących operacji umieszczania, sprawdzania ograniczeń i uruchamiania równoważenia. Domyślnie klaster Menedżer zasobów nie skanuje się w godzinach zmian w klastrze i próbuje rozwiązać wszystkie zmiany jednocześnie. Dzięki temu można prowadzić do rozbicie zmian.
+Na przykład w przypadku awarii węzłów można w danym momencie wykonać wszystkie domeny błędów. Wszystkie te błędy są przechwytywane podczas kolejnej aktualizacji stanu po *PLBRefreshGap* . Poprawki są określane podczas następujących operacji umieszczania, sprawdzania ograniczeń i uruchamiania równoważenia. Domyślnie klaster Menedżer zasobów nie skanuje się w godzinach zmian w klastrze i próbuje rozwiązać wszystkie zmiany jednocześnie. Dzięki temu można prowadzić do rozbicie zmian.
 
-Klaster Menedżer zasobów również potrzebuje dodatkowych informacji, aby określić, czy klaster jest niezrównoważony. W przypadku mamy dwie inne fragmenty konfiguracji: *BalancingThresholds* i *ActivityThresholds*.
+Klaster Menedżer zasobów również potrzebuje dodatkowych informacji, aby określić, czy klaster jest niezrównoważony. W przypadku mamy dwie inne fragmenty konfiguracji: *BalancingThresholds* i *ActivityThresholds* .
 
 ## <a name="balancing-thresholds"></a>Progi równoważenia
-Próg równoważenia jest głównym formantem służącym do wyzwalania ponownego równoważenia. Próg równoważenia dla metryki jest _wskaźnikiem_. Jeśli obciążenie dla metryki w najbardziej załadowanym węźle podzielone przez ilość obciążenia w najmniej załadowanym węźle przekracza tę metrykę *BalancingThreshold*, klaster jest niezrównoważony. W związku z tym podczas następnego sprawdzania Menedżer zasobów klastra zostanie wyzwolone równoważenie wyniku. Czasomierz *MinLoadBalancingInterval* definiuje, jak często klaster Menedżer zasobów powinien sprawdzać, czy konieczne jest ponowne zrównoważenie. Sprawdzenie nie oznacza, że coś się dzieje. 
+Próg równoważenia jest głównym formantem służącym do wyzwalania ponownego równoważenia. Próg równoważenia dla metryki jest _wskaźnikiem_ . Jeśli obciążenie dla metryki w najbardziej załadowanym węźle podzielone przez ilość obciążenia w najmniej załadowanym węźle przekracza tę metrykę *BalancingThreshold* , klaster jest niezrównoważony. W związku z tym podczas następnego sprawdzania Menedżer zasobów klastra zostanie wyzwolone równoważenie wyniku. Czasomierz *MinLoadBalancingInterval* definiuje, jak często klaster Menedżer zasobów powinien sprawdzać, czy konieczne jest ponowne zrównoważenie. Sprawdzenie nie oznacza, że coś się dzieje. 
 
 Progi równoważenia są definiowane dla poszczególnych metryk jako część definicji klastra. Aby uzyskać więcej informacji na temat metryk, zapoznaj się z [tym artykułem](service-fabric-cluster-resource-manager-metrics.md).
 
@@ -130,7 +130,7 @@ W dolnym przykładzie maksymalne obciążenie w węźle wynosi 10, podczas gdy m
 > "Równoważenie" obsługuje dwie różne strategie zarządzania obciążeniem w klastrze. Domyślną strategią używaną przez Menedżer zasobów klaster jest rozproszenie obciążenia między węzłami w klastrze. Inne strategie są [defragmentacją](service-fabric-cluster-resource-manager-defragmentation-metrics.md). Defragmentacja jest wykonywana podczas tego samego przebiegu równoważenia. Strategie równoważenia i defragmentacji mogą być używane dla różnych metryk w tym samym klastrze. Usługa może mieć zarówno metryki równoważenia, jak i defragmentacji. W przypadku metryk defragmentacji stosunek obciążeń w klastrze jest wyzwalany w przypadku, gdy jest _poniżej_ progu równoważenia. 
 >
 
-Poniżej progu równoważenia nie jest jawny cel. Progi równoważenia są tylko *wyzwalaczem*. Po uruchomieniu usługi równoważenia obciążenia klaster Menedżer zasobów określa, jakie ulepszenia mogą wprowadzić (jeśli istnieją). Tylko ze względu na to, że wyszukiwanie przy użyciu funkcji równoważenia obciążenia nie oznacza żadnych ruchów. Czasami klaster jest niezrównoważony, ale jest zbyt ograniczony do poprawnego działania. Ponadto ulepszenia wymagają zbyt [kosztownych](service-fabric-cluster-resource-manager-movement-cost.md)ruchów.
+Poniżej progu równoważenia nie jest jawny cel. Progi równoważenia są tylko *wyzwalaczem* . Po uruchomieniu usługi równoważenia obciążenia klaster Menedżer zasobów określa, jakie ulepszenia mogą wprowadzić (jeśli istnieją). Tylko ze względu na to, że wyszukiwanie przy użyciu funkcji równoważenia obciążenia nie oznacza żadnych ruchów. Czasami klaster jest niezrównoważony, ale jest zbyt ograniczony do poprawnego działania. Ponadto ulepszenia wymagają zbyt [kosztownych](service-fabric-cluster-resource-manager-movement-cost.md)ruchów.
 
 ## <a name="activity-thresholds"></a>Progi działania
 Czasami chociaż węzły są stosunkowo niezrównoważone, *łączna* ilość obciążenia w klastrze jest niska. Brak obciążenia może być przejściowym DIPM lub, ponieważ klaster jest nowy i dopiero zaczyna się. W obu przypadkach możesz nie chcieć poświęcać równoważenia czasu na klaster, ponieważ trudno jest uzyskać. Jeśli klaster został poddany zrównoważeniu, spędzasz zasoby sieciowe i obliczeniowe, aby poruszać się bez wprowadzania dużej *absolutnej* różnicy. Aby uniknąć niepotrzebnych ruchów, istnieje inna kontrolka znana jako progi aktywności. Progi działania umożliwiają określenie bezwzględnej dolnej granicy dla działania. Jeśli żaden węzeł nie przekracza tego progu, równoważenie nie zostanie wyzwolone nawet wtedy, gdy zostanie osiągnięty próg równoważenia obciążenia.
@@ -189,7 +189,7 @@ W tym miejscu możesz zobaczyć, gdzie się znajdujemy: istnieje łańcuch! Firm
 
 <center>
 
-![Usługi równoważenia obciążenia razem][Image4]
+![Diagram pokazujący, jak zrównoważyć usługi.][Image4]
 </center>
 
 Ze względu na ten łańcuch istnieje możliwość, że niezrównoważone metryki 1-4 mogą spowodować, że repliki lub wystąpienia należące do usług 1-3. Wiemy również, że niezrównoważone metryki 1, 2 i 3 nie mogą spowodować przesunięcia w Service4. Nie będzie to miało miejsca, ponieważ przeniesienie replik lub wystąpień należących do Service4 wokół nie będzie miało znaczenia, aby wpływać na bilansowanie metryk 1-3.
@@ -198,7 +198,7 @@ Klaster Menedżer zasobów automatycznie określa, jakie usługi są powiązane.
 
 <center>
 
-![Usługi równoważenia obciążenia razem][Image5]
+![Diagram pokazujący, że Menedżer zasobów klastra określa, które usługi są powiązane.][Image5]
 </center>
 
 ## <a name="next-steps"></a>Następne kroki

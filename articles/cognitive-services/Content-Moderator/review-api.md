@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 69a66c49d64ab9ba589050e1f20399f7f193b76e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912960"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143643"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Przeglądy, przepływy pracy i zadania moderowania zawartości
 
@@ -23,9 +23,24 @@ Content Moderator łączy moderowane maszynowo z funkcjami w pętli, aby utworzy
 
 ## <a name="reviews"></a>Przeglądy
 
-W przeglądzie zawartość jest przekazywana do narzędzia przeglądu i pojawia się na karcie **Przegląd** . W tym miejscu użytkownicy mogą zmienić zastosowane znaczniki i zastosować własne niestandardowe znaczniki odpowiednio do potrzeb. Gdy użytkownik przesyła przegląd, wyniki są wysyłane do określonego punktu końcowego wywołania zwrotnego, a zawartość jest usuwana z lokacji.
+W przeglądzie zawartość jest przekazywana do narzędzia do przeglądu. Możesz wyświetlić ją, klikając jej typ zawartości na karcie **Recenzja** na pulpicie nawigacyjnym. Na ekranie Recenzja można zmienić zastosowane znaczniki i zastosować własne niestandardowe znaczniki odpowiednio do potrzeb. Po przesłaniu przeglądu wyniki są wysyłane do określonego punktu końcowego wywołania zwrotnego, a zawartość jest usuwana z lokacji.
 
-![Przejrzyj witrynę internetową narzędzia Otwórz w przeglądarce, na karcie Przegląd](./Review-Tool-user-Guide/images/image-workflow-review.png)
+> [!div class="mx-imgBorder"]
+> ![Witryna narzędzia do przeglądu z wybraną kartą przegląd](./Review-Tool-user-Guide/images/review-tab.png)
+
+### <a name="manage-reviews"></a>Zarządzanie recenzjami
+
+Na pulpicie nawigacyjnym przejdź do okna **Administracja**  ->  **Zarządzanie recenzjami** , aby wyświetlić ekran administrator. W tym miejscu można wyświetlić listę wszystkich przeglądów (oczekujących i zakończonych).
+
+Przycisk **akcji** z trzema kropkami w każdym przeglądzie pozwala przejść do ekranu przegląd lub zbadać historię tego przeglądu.
+
+> [!div class="mx-imgBorder"]
+> ![Witryna internetowa narzędzia do przeglądu na ekranie przegląd](./Review-Tool-user-Guide/images/manage-reviews.png)
+
+Za pomocą paska narzędzi **wyszukiwania** można sortować przeglądy według różnych kategorii, takich jak stan przeglądu, Tagi, typ zawartości, podzespołów, przypisani Użytkownicy i Data utworzenia/modyfikacji.
+
+> [!div class="mx-imgBorder"]
+> ![Witryna narzędzia do przeglądu z wybraną kartą przegląd](./Review-Tool-user-Guide/images/review-search.png)
 
 Zapoznaj się z [przewodnikiem po narzędziu przeglądowym](./review-tool-user-guide/review-moderated-images.md) , aby rozpocząć tworzenie przeglądów, lub zobacz [Przewodnik po interfejsie API REST](./try-review-api-review.md) , aby dowiedzieć się, jak to zrobić programowo
 
@@ -35,11 +50,12 @@ Przepływ pracy to dostosowany do chmury filtr dla zawartości. Przepływy pracy
 
 ### <a name="view-workflows"></a>Wyświetl przepływy pracy
 
-Aby wyświetlić istniejące przepływy pracy, przejdź do [narzędzia przeglądu](https://contentmoderator.cognitive.microsoft.com/) i wybierz pozycję **Ustawienia**  >  **przepływy pracy** .
+Aby wyświetlić istniejące przepływy pracy, przejdź do [narzędzia przeglądu](https://contentmoderator.cognitive.microsoft.com/) i wybierz pozycję **administracyjne**  >  **przepływy pracy** .
 
-![Domyślny przepływ pracy](images/default-workflow-listed.PNG)
+> [!div class="mx-imgBorder"]
+> ![Domyślny przepływ pracy](images/default-workflow-list.png)
 
-Przepływy pracy można całkowicie opisać jako ciągi JSON, co sprawia, że są one dostępne programowo. Jeśli wybierzesz opcję **Edytuj** dla przepływu pracy, a następnie wybierzesz kartę **JSON** , zobaczysz wyrażenie JSON podobne do następujących:
+Przepływy pracy są definiowane jako ciągi JSON, co sprawia, że są one dostępne programowo. Jeśli wybierzesz opcję **Edytuj** dla przepływu pracy, a następnie wybierzesz kartę **JSON** , zobaczysz wyrażenie JSON podobne do następujących:
 
 ```json
 {

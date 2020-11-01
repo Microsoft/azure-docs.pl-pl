@@ -1,7 +1,7 @@
 ---
 title: 'Szybki Start: Wypróbuj Content Moderator w sieci Web'
 titleSuffix: Azure Cognitive Services
-description: Użyj narzędzia do przeglądu Content Moderator w trybie online, aby przetestować podstawowe funkcje Content Moderator bez konieczności pisania kodu.
+description: W tym przewodniku szybki start użyjesz narzędzia do przeglądu Content Moderator w trybie online, aby przetestować podstawowe funkcje Content Moderator bez konieczności pisania kodu.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Content moderator, moderowanie zawartości
-ms.openlocfilehash: 025c8fcf98a31d7b3380ee2530428d08428493fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1d9315986f7a6c57c1da012b9034e4f1a3730bc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596802"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143744"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Szybki Start: Wypróbuj Content Moderator w sieci Web
 
@@ -28,14 +28,13 @@ W tym przewodniku szybki start użyjesz narzędzia do przeglądu Content Moderat
 - Przeglądarka sieci Web
 
 ## <a name="set-up-the-review-tool"></a>Konfigurowanie narzędzia do przeglądu
-
 Narzędzie do przeglądu Content Moderator jest narzędziem opartym na sieci Web, które pozwala recenzentom ludzkim ułatwić korzystanie z usługi poznawczej w podejmowaniu decyzji. W tym przewodniku przedstawiono krótki proces konfigurowania narzędzia do przeglądu, dzięki któremu można zobaczyć, jak działa usługa Content Moderator. Przejdź do witryny [Narzędzia do przeglądu Content moderator](https://contentmoderator.cognitive.microsoft.com/) i Utwórz konto.
 
 ![Strona główna Content Moderator](images/homepage.PNG)
 
 ## <a name="create-a-review-team"></a>Tworzenie zespołu do przeprowadzania przeglądu
 
-Następnie utwórz zespół recenzji. W scenariuszu roboczym będzie to grupa osób, które ręcznie sprawdzają decyzje o moderowaniu usługi. Aby utworzyć zespół, należy wybrać **region**i podać **nazwę zespołu** i **Identyfikator zespołu**. Jeśli chcesz zaprosić współpracowników do zespołu, możesz to zrobić, wprowadzając tutaj ich adresy e-mail.
+Następnie utwórz zespół recenzji. W scenariuszu roboczym ten zespół będzie grupą osób, które ręcznie sprawdzają decyzje o moderowaniu usługi. Aby utworzyć zespół, należy wybrać **region** i podać **nazwę zespołu** i **Identyfikator zespołu** . Jeśli chcesz zaprosić współpracowników do zespołu, możesz to zrobić, wprowadzając tutaj ich adresy e-mail.
 
 > [!NOTE]
 > **Nazwa zespołu** jest przyjazną nazwą Twojego zespołu ds. recenzji. Jest to nazwa wyświetlana w Azure Portal. **Identyfikator zespołu** jest używany do identyfikowania zespołu recenzji programowo.
@@ -43,31 +42,35 @@ Następnie utwórz zespół recenzji. W scenariuszu roboczym będzie to grupa os
 > [!div class="mx-imgBorder"]
 > ![Zaproś członka zespołu](images/create-team.png)
 
-Jeśli zdecydujesz się na szyfrowanie danych przy użyciu klucza zarządzanego przez klienta (CMK), zostanie wyświetlony monit o podanie **identyfikatora zasobu** dla zasobu Content moderator w warstwie cenowej E0. Zasób, który należy podać, musi być nowy. 
+Jeśli zdecydujesz się na szyfrowanie danych przy użyciu klucza zarządzanego przez klienta (CMK), zostanie wyświetlony monit o podanie **identyfikatora zasobu** dla zasobu Content moderator w warstwie cenowej E0. Wymagany zasób musi być unikatowy dla tego zespołu. 
 
 > [!div class="mx-imgBorder"]
 > ![Zapraszanie członka zespołu za pomocą CMK](images/create-team-cmk.png)
 
-Jeśli spróbujesz ponownie użyć zasobu Content Moderator, zobaczysz następujące ostrzeżenie: 
-
-> [!div class="mx-imgBorder"]
-> ![Niepowodzenie CMK](images/create-team-cmk-fail.png)
-
 ## <a name="upload-sample-content"></a>Przekaż przykładową zawartość
 
-Teraz wszystko jest gotowe do przekazania przykładowej zawartości. Wybierz pozycję **wypróbuj > obraz**, **spróbuj > tekst**lub **spróbuj > wideo**.
+Teraz wszystko jest gotowe do przekazania przykładowej zawartości. Wybierz pozycję **wypróbuj > obraz** , **spróbuj > tekst** lub **spróbuj > wideo** .
 
-![Wypróbuj moderowanie obrazu lub tekstu](images/tryimagesortext.png)
+> [!div class="mx-imgBorder"]
+> ![Wypróbuj moderowanie obrazu lub tekstu](images/tryimagesortext.png)
 
-Prześlij zawartość pod kątem moderowania. Wewnętrznie narzędzie do przeglądu wywoła interfejsy API moderowania do skanowania zawartości. Po zakończeniu skanowania zobaczysz komunikat informujący o tym, że wyniki czekają na przegląd.
+Prześlij zawartość pod kątem moderowania. Możesz użyć następującej przykładowej zawartości tekstowej:
 
-![Pliki umiarkowane](images/submitted.png)
+```
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 4255550111
+```
+
+Wewnętrznie narzędzie do przeglądu wywoła interfejsy API moderowania do skanowania zawartości. Po zakończeniu skanowania zobaczysz komunikat informujący o tym, że wyniki czekają na przegląd.
+
+> [!div class="mx-imgBorder"]
+> ![Pliki umiarkowane](images/submitted.png)
 
 ## <a name="review-moderation-tags"></a>Przejrzyj Tagi moderowania
 
-Przejrzyj zastosowane znaczniki moderowania. Możesz zobaczyć, które Tagi zostały zastosowane do zawartości, i co to jest wynik w każdej kategorii. Zobacz tematy dotyczące moderowania [obrazów](image-moderation-api.md), [tekstu](text-moderation-api.md)i [wideo](video-moderation-api.md) , aby dowiedzieć się więcej na temat tego, co wskazuje różne Tagi zawartości.
+Przejrzyj zastosowane znaczniki moderowania. Możesz zobaczyć, które Tagi zostały zastosowane do zawartości, i co to jest wynik w każdej kategorii. Zapoznaj się z artykułami dotyczącymi moderowania [obrazów](image-moderation-api.md), [tekstu](text-moderation-api.md)i [wideo](video-moderation-api.md) , aby dowiedzieć się więcej na temat tego, co wskazuje różne Tagi zawartości.
 
-![Przegląd wyników](images/reviewresults_text.png)
+<!-- ![Review results](images/reviewresults_text.png) -->
 
 W projekcie ty lub Twój zespół recenzji może zmienić te znaczniki lub dodać więcej tagów w razie potrzeb. Te zmiany zostaną przesłane przy użyciu przycisku **dalej** . Ponieważ aplikacja biznesowa wywołuje interfejsy API moderatora, otagowana zawartość będzie w tym miejscu gotowa do przejrzenia przez zespoły przeglądów ludzkich. Możesz szybko przejrzeć duże ilości zawartości przy użyciu tego podejścia.
 

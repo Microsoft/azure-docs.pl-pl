@@ -1,20 +1,20 @@
 ---
 title: Samouczek — nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure
-description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak utworzyć serwer Azure SQL przy użyciu prywatnego punktu końcowego.
+description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak utworzyć serwer Azure SQL z prywatnym punktem końcowym przy użyciu Azure Portal.
 services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: d12b377d053ac546efef05d5594568c1c1dbcd0e
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: def14cec9d010104876acaf9588560722dd98884
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344857"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145671"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint"></a>Samouczek — nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure
+# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Samouczek — nawiązywanie połączenia z serwerem Azure SQL przy użyciu prywatnego punktu końcowego platformy Azure — Azure Portal
 
 Prywatny punkt końcowy platformy Azure to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Dzięki temu zasoby platformy Azure, takie jak maszyny wirtualne, mogą komunikować się z prywatnymi prywatnymi zasobami.
 
@@ -43,7 +43,7 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
 
 1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > Sieć > Sieć wirtualna** lub wyszukaj frazę **Sieć wirtualna** w polu wyszukiwania.
 
-2. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie **podstawowe** :
+2. W obszarze **Utwórz sieć wirtualną** wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
     | **Ustawienie**          | **Wartość**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -52,7 +52,7 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     | Grupa zasobów   | Wybierz pozycję **CreateSQLEndpointTutorial — RG** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
-    | Region           | Wybierz **Wschodnie stany USA** |
+    | Region (Region)           | Wybierz **Wschodnie stany USA** |
 
 3. Wybierz kartę **adresy IP** lub wybierz przycisk **Dalej: adresy IP** w dolnej części strony.
 
@@ -62,31 +62,31 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |--------------------|----------------------------|
     | Przestrzeń adresowa IPv4 | Wprowadź **10.1.0.0/16** |
 
-5. W obszarze **Nazwa podsieci**wybierz pozycję **domyślny**wyraz.
+5. W obszarze **Nazwa podsieci** wybierz pozycję **domyślny** wyraz.
 
-6. W obszarze **Edytuj podsieć**wprowadź następujące informacje:
+6. W obszarze **Edytuj podsieć** wprowadź następujące informacje:
 
     | Ustawienie            | Wartość                      |
     |--------------------|----------------------------|
     | Nazwa podsieci | Wprowadź **maskę** |
     | Zakres adresów podsieci | Wprowadź **10.1.0.0/24** |
 
-7. Wybierz pozycję **Zapisz**.
+7. Wybierz pozycję **Zapisz** .
 
 8. Wybierz kartę **zabezpieczenia** .
 
-9. W obszarze **BastionHost**wybierz pozycję **enable (Włącz**). Wprowadź następujące informacje:
+9. W obszarze **BastionHost** wybierz pozycję **enable (Włącz** ). Wprowadź następujące informacje:
 
     | Ustawienie            | Wartość                      |
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję **Utwórz nowy** . </br> W obszarze **Nazwa** wprowadź **myBastionIP** . </br> Wybierz pozycję **OK** . |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz pozycję **Utwórz** .
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -94,7 +94,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
 
 1. W lewym górnym rogu portalu wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **maszyny wirtualnej** lub Wyszukaj **maszynę wirtualną** w polu wyszukiwania.
    
-2. W obszarze **Utwórz maszynę wirtualną**wpisz lub wybierz wartości z karty **podstawowe** :
+2. W obszarze **Utwórz maszynę wirtualną** wpisz lub wybierz wartości z karty **podstawowe** :
 
     | Ustawienie | Wartość                                          |
     |-----------------------|----------------------------------|
@@ -103,9 +103,9 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Grupa zasobów | Wybierz **CreateSQLEndpointTutorial** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
-    | Region | Wybierz **Wschodnie stany USA** |
+    | Region (Region) | Wybierz **Wschodnie stany USA** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -113,7 +113,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Hasło | Wprowadź hasło |
     | Potwierdź hasło | Ponownie wprowadź hasło |
 
-3. Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski**, a następnie pozycję **Dalej: Sieć**.
+3. Wybierz kartę **Sieć** lub wybierz pozycję **Dalej: Dyski** , a następnie pozycję **Dalej: Sieć** .
   
 4. Na karcie Sieć wybierz lub wprowadź:
 
@@ -122,41 +122,41 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | **Interfejs sieciowy** |  |
     | Sieć wirtualna | **myVNet** |
     | Podsieć | **mySubnet** |
-    | Publiczny adres IP | Wybierz pozycję **Brak**. |
+    | Publiczny adres IP | Wybierz pozycję **Brak** . |
     | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowe**|
-    | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
+    | Publiczne porty wejściowe | Wybierz pozycję **Brak** . |
    
-5. Wybierz pozycję **Przejrzyj i utwórz**. 
+5. Wybierz pozycję **Przejrzyj i utwórz** . 
   
-6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
+6. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz** .
 
 ## <a name="create-an-azure-sql-server-and-private-endpoint"></a><a name ="create-a-private-endpoint"></a>Tworzenie serwera Azure SQL i prywatnego punktu końcowego
 
 W tej sekcji utworzysz program SQL Server na platformie Azure. 
 
-1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Databases**  >  **bazy danych SQL Database**.
+1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Databases**  >  **bazy danych SQL Database** .
 
-1. Na karcie **podstawy** **tworzenia bazy danych SQL**wprowadź lub wybierz następujące informacje:
+1. Na karcie **podstawy** **tworzenia bazy danych SQL** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **Szczegóły projektu** | |
     | Subskrypcja | Wybierz subskrypcję. |
-    | Grupa zasobów | Wybierz pozycję **CreateSQLEndpointTutorial**. Ta grupa zasobów została utworzona w poprzedniej sekcji.|
+    | Grupa zasobów | Wybierz pozycję **CreateSQLEndpointTutorial** . Ta grupa zasobów została utworzona w poprzedniej sekcji.|
     | **Szczegóły bazy danych** |  |
-    | Nazwa bazy danych  | Wprowadź **mysqldatabase**. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę. |
-    | Serwer | Wybierz pozycję**Utwórz nowy**. |
+    | Nazwa bazy danych  | Wprowadź **mysqldatabase** . Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę. |
+    | Serwer | Wybierz pozycję **Utwórz nowy** . |
 
-6. W obszarze **nowy serwer**wprowadź lub wybierz następujące informacje:
+6. W obszarze **nowy serwer** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | Nazwa serwera  | Wprowadź nazwę **mysqlserver**. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę.|
+    | Nazwa serwera  | Wprowadź nazwę **mysqlserver** . Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę.|
     | Identyfikator logowania administratora serwera | Wprowadź wybraną nazwę administratora. |
     | Hasło | Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 8 znaków i spełniać zdefiniowane wymagania. |
     | Lokalizacja | Wybierz **Wschodnie stany USA** |
     
-7. Wybierz przycisk **OK**.
+7. Wybierz pozycję **OK** .
 
 8. Wybierz kartę **Sieć** lub wybierz przycisk **Dalej: sieć** .
 
@@ -165,31 +165,31 @@ W tej sekcji utworzysz program SQL Server na platformie Azure.
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **Łączność sieciowa** | |
-    | Metoda łączności | Wybierz pozycję **prywatny punkt końcowy**. |
+    | Metoda łączności | Wybierz pozycję **prywatny punkt końcowy** . |
    
-10. Wybierz pozycję **+ Dodaj prywatny punkt końcowy** w **prywatnych punktach końcowych**.
+10. Wybierz pozycję **+ Dodaj prywatny punkt końcowy** w **prywatnych punktach końcowych** .
 
-11. W obszarze **Utwórz prywatny punkt końcowy**wprowadź lub wybierz następujące informacje:
+11. W obszarze **Utwórz prywatny punkt końcowy** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Subskrypcja | Wybierz subskrypcję. |
-    | Grupa zasobów | Wybierz pozycję **CreateSQLEndpointTutorial**. |
-    | Lokalizacja | Wybierz pozycję **Wschodnie stany USA**. |
-    | Nazwa | Wprowadź **myPrivateSQLendpoint**. |
-    | Docelowy zasób podrzędny | Wybierz pozycję **SqlServer**. |
+    | Grupa zasobów | Wybierz pozycję **CreateSQLEndpointTutorial** . |
+    | Lokalizacja | Wybierz pozycję **Wschodnie stany USA** . |
+    | Nazwa | Wprowadź **myPrivateSQLendpoint** . |
+    | Docelowy zasób podrzędny | Wybierz pozycję **SqlServer** . |
     | **Sieć** |  |
-    | Sieć wirtualna | Wybierz pozycję **myVNet**. |
-    | Podsieć | Wybierz pozycję Moja **podsieć**. |
+    | Sieć wirtualna | Wybierz pozycję **myVNet** . |
+    | Podsieć | Wybierz pozycję Moja **podsieć** . |
     | **Integracja Prywatna strefa DNS** | |
-    | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak**. |
-    | Prywatna strefa DNS | Pozostaw wartość domyślną **(New) privatelink.Database.Windows.NET**. |
+    | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak** . |
+    | Prywatna strefa DNS | Pozostaw wartość domyślną **(New) privatelink.Database.Windows.NET** . |
 
-12. Wybierz przycisk **OK**. 
+12. Wybierz pozycję **OK** . 
 
-13. Wybierz pozycję **Przejrzyj i utwórz**.
+13. Wybierz pozycję **Przejrzyj i utwórz** .
 
-14. Wybierz pozycję **Utwórz**.
+14. Wybierz pozycję **Utwórz** .
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testowanie łączności z prywatnym punktem końcowym
 
@@ -197,11 +197,11 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
 
 1. W okienku nawigacji po lewej stronie wybierz pozycję **grupy zasobów** .
 
-2. Wybierz pozycję **CreateSQLEndpointTutorial**.
+2. Wybierz pozycję **CreateSQLEndpointTutorial** .
 
-3. Wybierz pozycję **myVM**.
+3. Wybierz pozycję **myVM** .
 
-4. Na stronie Przegląd dla **myVM**wybierz pozycję **Połącz** , a następnie **bastionu**.
+4. Na stronie Przegląd dla **myVM** wybierz pozycję **Połącz** , a następnie **bastionu** .
 
 5. Wybierz przycisk **bastionu Użyj** niebieska.
 
@@ -224,31 +224,31 @@ W tej sekcji użyjesz maszyny wirtualnej utworzonej w poprzednim kroku, aby nawi
     Prywatny adres IP **10.1.0.5** jest zwracany dla nazwy programu SQL Server.  Ten adres znajduje się w podsieci sieci wirtualnej, która została wcześniej utworzona.
 
 
-9. Zainstaluj [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) w **myVM**.
+9. Zainstaluj [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) w **myVM** .
 
-10. Otwórz **SQL Server Management Studio**.
+10. Otwórz **SQL Server Management Studio** .
 
-4. W obszarze **Połącz z serwerem**wprowadź lub wybierz następujące informacje:
+4. W obszarze **Połącz z serwerem** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | Typ serwera | Wybierz pozycję **Aparat bazy danych**.|
-    | Nazwa serwera | Wprowadź ** \<sqlserver-name> . Database.Windows.NET** |
-    | Uwierzytelnianie | Wybierz pozycję **Uwierzytelnianie SQL Server**. |
+    | Typ serwera | Wybierz pozycję **Aparat bazy danych** .|
+    | Nazwa serwera | Wprowadź **\<sqlserver-name> . Database.Windows.NET** |
+    | Uwierzytelnianie | Wybierz pozycję **Uwierzytelnianie SQL Server** . |
     | Nazwa użytkownika | Wprowadź nazwę użytkownika wprowadzoną podczas tworzenia serwera |
     | Hasło | Wprowadź hasło wprowadzone podczas tworzenia serwera |
-    | Remember password (Zapamiętaj hasło) | Wybierz pozycję **Tak**. |
+    | Remember password (Zapamiętaj hasło) | Wybierz pozycję **Tak** . |
 
-1. Wybierz pozycję **Połącz**.
+1. Wybierz pozycję **Połącz** .
 2. Przeglądaj bazy danych z menu po lewej stronie.
-3. Zdefiniować Utwórz lub Zbadaj informacje z **mysqldatabase**.
-4. Zamknij połączenie pulpitu zdalnego z **myVM**. 
+3. Zdefiniować Utwórz lub Zbadaj informacje z **mysqldatabase** .
+4. Zamknij połączenie pulpitu zdalnego z **myVM** . 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów 
 Gdy skończysz korzystać z prywatnego punktu końcowego, programu SQL Server i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby: 
 1. Wprowadź **CreateSQLEndpointTutorial** w polu **wyszukiwania** w górnej części portalu i wybierz pozycję **CreateSQLEndpointTutorial** z wyników wyszukiwania. 
-2. Wybierz pozycję **Usuń grupę zasobów**. 
-3. Wprowadź CreateSQLEndpointTutorial w **polu wpisz nazwę grupy zasobów** i wybierz pozycję **Usuń**.
+2. Wybierz pozycję **Usuń grupę zasobów** . 
+3. Wprowadź CreateSQLEndpointTutorial w **polu wpisz nazwę grupy zasobów** i wybierz pozycję **Usuń** .
 
 ## <a name="next-steps"></a>Następne kroki
 

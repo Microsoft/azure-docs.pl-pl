@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3a4b7d68d7cd21ccb4b7eb8b97e0d331fb236e96
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793079"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146726"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfiguracja usługi Storage dla maszyn wirtualnych programu SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,11 +40,11 @@ Aby można było korzystać z ustawień konfiguracji automatycznego magazynu, ma
 
 W poniższych sekcjach opisano sposób konfigurowania magazynu dla nowych maszyn wirtualnych SQL Server.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Podczas aprowizacji maszyny wirtualnej platformy Azure przy użyciu obrazu galerii SQL Server wybierz pozycję **Zmień konfigurację** na karcie **Ustawienia SQL Server** , aby otworzyć stronę Konfiguracja magazynu zoptymalizowanego pod kątem wydajności. Możesz pozostawić wartości domyślne lub zmodyfikować typ konfiguracji dysku, który najlepiej odpowiada Twoim potrzebom, na podstawie obciążenia. 
 
-![SQL Server konfigurację magazynu maszyny wirtualnej podczas aprowizacji](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![Zrzut ekranu, który podświetla kartę Ustawienia SQL Server i opcję Zmień konfigurację.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Wybierz typ obciążenia, które wdrażasz SQL Server na potrzeby **optymalizacji magazynu** . W przypadku opcji **ogólnej** optymalizacji domyślnie istnieje jeden dysk z danymi o pojemności 5000 maks. liczba IOPS i ten sam dysk jest używany do przechowywania danych, dzienników transakcji i magazynu tempdb. Wybranie opcji **przetwarzanie transakcyjne** (OLTP) lub **Magazyn danych** spowoduje utworzenie oddzielnego dysku dla danych, oddzielnego dysku dla dziennika transakcji i użycie lokalnego SSD dla bazy tempdb. Nie istnieją różnice między **przetwarzaniem transakcyjnym** i **magazynem danych** , ale zmieniają [konfigurację rozłożenia i flagi śledzenia](#workload-optimization-settings). Wybranie usługi Premium Storage ustawia buforowanie do *odczytu* dla dysku danych i *Brak* dla dysku dziennika jako SQL Server najlepszych rozwiązań dotyczących [wydajności maszyn wirtualnych](performance-guidelines-best-practices.md). 
 
@@ -103,7 +103,7 @@ W przypadku istniejących maszyn wirtualnych SQL Server można zmodyfikować nie
 
 Aby zmodyfikować ustawienia magazynu, wybierz pozycję **Konfiguruj** w obszarze **Ustawienia** . 
 
-![Konfigurowanie magazynu dla istniejącej maszyny wirtualnej SQL Server](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
+![Zrzut ekranu, który podświetla opcję Konfiguruj i sekcję użycie magazynu.](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
 Można zmodyfikować ustawienia dysku dla dysków, które zostały skonfigurowane podczas procesu tworzenia maszyny wirtualnej SQL Server. Wybranie pozycji **rozszerzająca dysk** otwiera stronę modyfikacja dysku, umożliwiając zmianę typu dysku, a także dodanie dodatkowych dysków. 
 

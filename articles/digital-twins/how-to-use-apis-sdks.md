@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 54b6415b3d9ef9f9d5a5c9f5745c0d1ff81dc6e3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7bb336c6c1f483160b760b266e01249b7e1ee04e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93071474"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145552"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -59,7 +59,7 @@ Aby używać interfejsów API płaszczyzny danych:
    - Źródło zestawu SDK, w tym folder przykładów, można znaleźć w witrynie GitHub: [Biblioteka klienta usługi Azure IoT Digital bliźniaczych reprezentacji dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - Aby wyświetlić szczegółowe informacje i przykłady użycia, można kontynuować sekcję [zestawu SDK platformy .NET (C#)](#net-c-sdk-data-plane) w tym artykule.
 * Możesz użyć zestawu SDK **języka Java** . Aby użyć zestawu Java SDK...
-   - Możesz wyświetlić i zainstalować pakiet z Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
+   - Możesz wyświetlić i zainstalować pakiet z Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
    - można wyświetlić [dokumentację referencyjną zestawu SDK](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
    - Źródło zestawu SDK można znaleźć w usłudze GitHub: [Biblioteka klienta usługi Azure IoT Digital bliźniaczych reprezentacji dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * Możesz użyć zestawu SDK **języka JavaScript** . Aby użyć zestawu SDK języka JavaScript...
@@ -120,8 +120,8 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 // Read a list of models back from the service
-AsyncPageable<ModelData> modelDataList = client.GetModelsAsync();
-await foreach (ModelData md in modelDataList)
+AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
+await foreach (DigitalTwinsModelData md in modelDataList)
 {
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }
@@ -131,13 +131,13 @@ Utwórz bliźniaczych reprezentacji zapytania:
 
 ```csharp
 // Initialize twin metadata
-BasicDigitalTwin twinData = new BasicDigitalTwin();
+BasicDigitalTwin updateTwinData = new BasicDigitalTwin();
 
 twinData.Id = $"firstTwin";
 twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
-twinData.CustomProperties.Add("data", "Hello World!");
+twinData.Contents.Add("data", "Hello World!");
 try {
-    await client.CreateDigitalTwinAsync("firstTwin", JsonSerializer.Serialize(twinData));
+    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("firstTwin", updateTwinData);
 } catch(RequestFailedException rex) {
     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
 }
@@ -174,20 +174,18 @@ Dostępne są następujące klasy pomocnika:
 Zawsze możesz deserializować dane przędzy przy użyciu wybranej biblioteki JSON, takiej jak `System.Test.Json` lub `Newtonsoft.Json` . W przypadku podstawowego dostępu do sznurka klasy pomocników sprawiają, że jest to nieco bardziej wygodne.
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_id);
-BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_id);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
 ```
 
 `BasicDigitalTwin`Klasa pomocnika zapewnia również dostęp do właściwości zdefiniowanych na sznurze, za pomocą `Dictionary<string, object>` . Aby wyświetlić listę właściwości sznurka, można użyć:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_id);
-BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_id);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.CustomProperties.Keys)
+foreach (string prop in twin.Contents.Keys)
 {
-    if (twin.CustomProperties.TryGetValue(prop, out object value))
+    if (twin.Contents.TryGetValue(prop, out object value))
         Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -203,9 +201,9 @@ twin.Metadata.ModelId = "dtmi:example:Room;1";
 // Initialize properties
 Dictionary<string, object> props = new Dictionary<string, object>();
 props.Add("Temperature", 25.0);
-twin.CustomProperties = props;
+twin.Contents = props;
 
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myNewRoomID", twin);
 ```
 
 Powyższy kod jest odpowiednikiem następującej "ręcznej" wariantu:
@@ -220,28 +218,26 @@ Dictionary<string, object> twin = new Dictionary<string, object>()
     { "$metadata", meta },
     { "Temperature", 25.0 }
 };
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
+client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myNewRoomID", twin);
 ```
 
 ##### <a name="deserialize-a-relationship"></a>Deserializacja relacji
 
-Zawsze możesz deserializować dane relacji przy użyciu wybranej biblioteki JSON, takiej jak `System.Test.Json` lub `Newtonsoft.Json` . W przypadku podstawowego dostępu do relacji klasy pomocników sprawiają, że jest to nieco bardziej wygodne.
+Zawsze możesz deserializować dane relacji do wybranego typu. Aby uzyskać podstawowy dostęp do relacji, należy użyć typu `BasicRelationship` .
 
 ```csharp
-Response<string> res = client.GetRelationship(twin_id, rel_id);
-BasicRelationship rel = JsonSerializer.Deserialize<BasicRelationship>(res.Value);
+BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
 Console.WriteLine($"Relationship Name: {rel.Name}");
 ```
 
-`BasicRelationship`Klasa pomocnika zapewnia również dostęp do właściwości zdefiniowanych w relacji za pomocą `Dictionary<string, object>` . Aby wyświetlić właściwości, można użyć:
+`BasicRelationship`Klasa pomocnika zapewnia również dostęp do właściwości zdefiniowanych w relacji za pomocą `IDictionary<string, object>` . Aby wyświetlić właściwości, można użyć:
 
 ```csharp
-Response<string> res = client.GetRelationship(twin_id, rel_id);
-BasicRelationship rel = JsonSerializer.Deserialize<BasicRelationship>(res.Value);
+BasicRelationship res = client.GetRelationship<BasicRelationship>(twin_id, rel_id);
 Console.WriteLine($"Relationship Name: {rel.Name}");
-foreach (string prop in rel.CustomProperties.Keys)
+foreach (string prop in rel.Contents.Keys)
 {
-    if (twin.CustomProperties.TryGetValue(prop, out object value))
+    if (twin.Contents.TryGetValue(prop, out object value))
         Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -257,21 +253,22 @@ rel.Name = "contains"; // a relationship with this name must be defined in the m
 // Initialize properties
 Dictionary<string, object> props = new Dictionary<string, object>();
 props.Add("active", true);
-rel.CustomProperties = props;
-client.CreateRelationship("mySourceTwin", "rel001", JsonSerializer.Serialize<BasicRelationship>(rel));
+rel.Properties = props;
+client.CreateOrReplaceRelationshipAsync("mySourceTwin", "rel001", rel);
 ```
 
 ##### <a name="create-a-patch-for-twin-update"></a>Utwórz poprawkę dla aktualizacji bliźniaczych
 
-Aktualizacje wywołań bliźniaczych reprezentacji i Relationships używają struktury [poprawek JSON](http://jsonpatch.com/) . Aby utworzyć listę operacji poprawek w formacie JSON, można użyć `UpdateOperationsUtility` klasy, jak pokazano poniżej.
+Aktualizacje wywołań bliźniaczych reprezentacji i Relationships używają struktury [poprawek JSON](http://jsonpatch.com/) . Aby utworzyć listę operacji poprawek w formacie JSON, można użyć, `JsonPatchDocument` jak pokazano poniżej.
 
 ```csharp
-UpdateOperationsUtility uou = new UpdateOperationsUtility();
-uou.AppendAddOp("/Temperature", 25.0);
-uou.AppendAddOp("/myComponent/Property", "Hello");
+var updateTwinData = new JsonPatchDocument();
+updateTwinData.AppendAddOp("/Temperature", 25.0);
+updateTwinData.AppendAddOp("/myComponent/Property", "Hello");
 // Un-set a property
-uou.AppendRemoveOp("/Humidity");
-client.UpdateDigitalTwin("myTwin", uou.Serialize());
+updateTwinData.AppendRemoveOp("/Humidity");
+
+client.UpdateDigitalTwin("myTwin", updateTwinData);
 ```
 
 ## <a name="general-apisdk-usage-notes"></a>Ogólne informacje o użyciu interfejsu API/zestawu SDK

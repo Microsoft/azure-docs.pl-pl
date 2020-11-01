@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d7d82db7fc8a39a0865e80ee7873ee849627c583
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 454dc593dca216d3805036ce78ec9986cf317d4e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791073"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145858"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Szybki Start: tworzenie SQL Server 2017 na maszynie wirtualnej z systemem Windows w Azure Portal
 
@@ -47,7 +47,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Dodatkowe informacje można wyświetlić, wybierając pozycję **Pokaż szczegóły** na kafelku **maszyny wirtualne SQL** .
 1. Wybierz **bezpłatną licencję SQL Server: SQL Server 2017 Developer w systemie Windows Server 2016** obraz z listy rozwijanej.
 
-   ![Nowe okno wyszukiwania](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
+   ![Zrzut ekranu pokazujący, gdzie wybierasz bezpłatną licencję SQL Server: SQL Server 2017 Developer w obrazie systemu Windows Server 2016.](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
 
 1. Wybierz pozycję **Utwórz** .
 

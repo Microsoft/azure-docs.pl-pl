@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 06d114c500722259d02a940633a76d043b83064a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0832c975ecb410b97a24c975f9fc0f4799120abd
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077494"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145518"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Korzystanie z usługi Azure API Management z wewnętrzną siecią wirtualną
 Usługa API Management Azure Virtual Networks umożliwia Zarządzanie interfejsami API, które nie są dostępne w Internecie. Do nawiązania połączenia są dostępne różne technologie sieci VPN. API Management można wdrożyć w dwóch głównych trybach wewnątrz sieci wirtualnej:
@@ -43,11 +43,11 @@ Korzystając z API Management w trybie wewnętrznym, można osiągnąć następu
 
 Aby wykonać kroki opisane w tym artykule, musisz dysponować:
 
-+ **Aktywna subskrypcja platformy Azure**.
++ **Aktywna subskrypcja platformy Azure** .
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ **Wystąpienie usługi Azure API Management**. Aby uzyskać więcej informacji, zobacz [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
++ **Wystąpienie usługi Azure API Management** . Aby uzyskać więcej informacji, zobacz [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
 + Po wdrożeniu usługi API Management w sieci wirtualnej jest używana [Lista portów](./api-management-using-with-vnet.md#required-ports) i należy ją otworzyć. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Tworzenie API Management w wewnętrznej sieci wirtualnej
@@ -56,21 +56,23 @@ Usługa API Management w wewnętrznej sieci wirtualnej jest hostowana za [wewnę
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Włączanie połączenia sieci wirtualnej przy użyciu Azure Portal
 
 1. Przejdź do wystąpienia usługi Azure API Management w [Azure Portal](https://portal.azure.com/).
-2. Wybierz pozycję **Sieć wirtualna**.
+2. Wybierz pozycję **Sieć wirtualna** .
 3. Skonfiguruj wystąpienie API Management, które ma zostać wdrożone w sieci wirtualnej.
 
     ![Menu do konfigurowania API Management platformy Azure w wewnętrznej sieci wirtualnej][api-management-using-internal-vnet-menu]
 
-4. Wybierz pozycję **Zapisz**.
+4. Wybierz pozycję **Zapisz** .
 
 Po pomyślnym wdrożeniu należy zobaczyć **prywatny** wirtualny adres IP i **publiczny** wirtualny adres IP usługi API Management w bloku przegląd. **Prywatny** wirtualny adres IP to adres IP ze zrównoważonym obciążeniem z API Management delegowanej podsieci, w `gateway` której `portal` `management` `scm` można uzyskać dostęp do punktów końcowych. **Publiczny** wirtualny adres IP jest używany **tylko** dla ruchu płaszczyzny kontroli do `management` punktu końcowego przez port 3443 i można go zablokować do [ApiManagement][ServiceTags] servicetag.
 
 ![API Management pulpit nawigacyjny z skonfigurowaną wewnętrzną siecią wirtualną][api-management-internal-vnet-dashboard]
 
 > [!NOTE]
-> Konsola testowa dostępna w witrynie Azure Portal nie będzie działała w przypadku **wewnętrznej** usługi wdrożonej sieci wirtualnej, ponieważ adres URL bramy nie jest zarejestrowany w publicznym systemie DNS. Zamiast tego należy użyć konsoli testowej dostępnej w **portalu dla deweloperów**.
+> Konsola testowa dostępna w witrynie Azure Portal nie będzie działała w przypadku **wewnętrznej** usługi wdrożonej sieci wirtualnej, ponieważ adres URL bramy nie jest zarejestrowany w publicznym systemie DNS. Zamiast tego należy użyć konsoli testowej dostępnej w **portalu dla deweloperów** .
 
-### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Włączanie połączenia sieci wirtualnej przy użyciu poleceń cmdlet programu PowerShell
+### <a name="deploy-api-management-into-virtual-network"></a><a name="deploy-apim-internal-vnet"> </a>Wdróż API Management w Virtual Network
+
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635375"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145716"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Tworzenie wyrażeń w mapowaniu przepływu danych
 
@@ -30,15 +30,15 @@ Istnieje wiele punktów wejścia do otwarcia konstruktora wyrażeń. Są one zal
 
 W przypadku niektórych przekształceń, takich jak [Filter](data-flow-filter.md), kliknięcie pola tekstowego wyrażenie niebieskie spowoduje otwarcie konstruktora wyrażeń. 
 
-![Niebieskie pole wyrażenia](media/data-flow/expressionbox.png "Konstruktor wyrażeń")
+![Niebieskie pole wyrażenia](media/data-flow/expressionbox.png "Niebieskie pole wyrażenia")
 
 W przypadku odwoływania się do kolumn w zgodnym lub grupowym warunku wyrażenie może wyodrębnić wartości z kolumn. Aby utworzyć wyrażenie, wybierz **kolumnę obliczaną** .
 
-![Opcja kolumny obliczanej](media/data-flow/computedcolumn.png "Konstruktor wyrażeń")
+![Opcja kolumny obliczanej](media/data-flow/computedcolumn.png "Opcja kolumny obliczanej")
 
 W przypadkach, gdy wyrażenie lub wartość literału są prawidłowymi danymi wejściowymi, wybierz pozycję **Dodaj zawartość dynamiczną** , aby skompilować wyrażenie, którego wynikiem jest wartość literału.
 
-![Dodaj opcję zawartości dynamicznej](media/data-flow/add-dynamic-content.png "Konstruktor wyrażeń")
+![Dodaj opcję zawartości dynamicznej](media/data-flow/add-dynamic-content.png "Dodaj opcję zawartości dynamicznej")
 
 ## <a name="expression-elements"></a>Elementy wyrażenia
 
@@ -72,6 +72,16 @@ Jeśli masz nazwy kolumn, które zawierają znaki specjalne lub spacje, umieść
 ### <a name="parameters"></a>Parametry
 
 Parametry są wartościami, które są przekazane do przepływu danych w czasie wykonywania z potoku. Aby odwołać się do parametru, należy kliknąć parametr w widoku **elementów wyrażenia** lub odwołać się do niego przy użyciu znaku dolara przed jego nazwą. Na przykład parametr o nazwie parametr1 będzie przywoływany przez `$parameter1` . Aby dowiedzieć się więcej, zobacz [parametryzacjaing](parameters-data-flow.md)Flow Flows.
+
+### <a name="cached-lookup"></a>Buforowane wyszukiwanie
+
+Buforowane wyszukiwanie pozwala wykonać wbudowane wyszukiwanie danych wyjściowych w pamięci podręcznej. Dostępne są dwie funkcje do użycia w każdym ujścia `lookup()` i `outputs()` . Składnia do odwoływania się do tych funkcji to `cacheSinkName#functionName()` . Aby uzyskać więcej informacji, zobacz [ujścia pamięci podręcznej](data-flow-sink.md#cache-sink).
+
+`lookup()` przyjmuje pasujące kolumny w bieżącej transformacji jako parametry i zwraca kolumnę złożoną równą wierszowi pasującemu do kolumn klucza w ujścia pamięci podręcznej. Zwracana kolumna złożona zawiera podkolumnę dla każdej kolumny mapowanej w ujścia pamięci podręcznej. Na przykład jeśli masz obiekt ujścia pamięci podręcznej kodu błędu `errorCodeCache` , który miał kolumnę klucza zgodną z kodem i kolumną o nazwie `Message` . Wywołanie `errorCodeCache#lookup(errorCode).Message` zwróci komunikat odpowiadający danemu przekazaniu. 
+
+`outputs()` nie przyjmuje parametrów i zwraca cały ujścia pamięci podręcznej jako tablicę kolumn złożonych. Nie można wywołać tej metody, jeśli kolumny kluczy są określone w zlewie i powinny być używane tylko wtedy, gdy w ujściach pamięci podręcznej znajduje się niewielka liczba wierszy. Typowym przypadkiem użycia jest dołączenie maksymalnej wartości przyrostowego klucza. Jeśli buforowany pojedynczy wiersz `CacheMaxKey` zawiera kolumnę `MaxKey` , można odwołać się do pierwszej wartości, wywołując metodę `CacheMaxKey#outputs()[1].MaxKey` .
+
+![Buforowane wyszukiwanie](media/data-flow/cached-lookup-example.png "Buforowane wyszukiwanie")
 
 ### <a name="locals"></a>Zmienne lokalne
 

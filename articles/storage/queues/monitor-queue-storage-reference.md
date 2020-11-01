@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ec82ec6613b6d2e68d01815d5669bfb169037e72
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787486"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146573"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure queue storage
 
@@ -26,7 +26,7 @@ W poniższych tabelach przedstawiono metryki platformy zebrane dla usługi Azure
 
 ### <a name="capacity-metrics"></a>Metryki pojemności
 
-Wartości metryk pojemności są wysyłane do Azure Monitor co godzinę. Wartości są odświeżane codziennie. Ziarno czasu określa przedział czasu, dla którego są prezentowane wartości metryk. Obsługiwane ziarno czasu dla wszystkich metryk pojemności wynosi godzinę (PT1H).
+Wartości metryk pojemności są odświeżane codziennie (do 24 godzin). Ziarno czasu określa przedział czasu, dla którego są prezentowane wartości metryk. Obsługiwane ziarno czasu dla wszystkich metryk pojemności wynosi godzinę (PT1H).
 
 Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Monitor.
 
@@ -77,7 +77,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - Zobacz [monitorowanie usługi Azure queue storage](monitor-queue-storage.md) , aby uzyskać opis monitorowania usługi Azure Storage.
 - Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) .

@@ -6,18 +6,20 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 08/21/2020
-ms.custom: contperfq1
-ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.custom: contperfq1, contperfq2
+ms.openlocfilehash: 756c87299db85e426b4793d51bea833aa694a830
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755096"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145960"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Korzystanie z klienta Apache Beeline z usługą Apache Hive
 
-Dowiedz się, jak używać oprogramowania [Apache z usługi Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) do uruchamiania zapytań Apache Hive w usłudze HDInsight.
+W tym artykule opisano, jak używać wiersza polecenia [Apache z usługi Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) Client do tworzenia i wykonywania zapytań Apache Hive za pośrednictwem połączenia SSH.
+
+## <a name="background"></a>Tło
 
 Z usługi Beeline jest klientem programu Hive, który znajduje się w węzłach głównych klastra usługi HDInsight. Aby nawiązać połączenie z klientem Z usługi Beeline zainstalowanym w klastrze usługi HDInsight lub zainstalować lokalnie Z usługi Beeline, zobacz [Connect to lub install Apache z usługi Beeline](connect-install-beeline.md). Z usługi Beeline używa JDBC do nawiązywania połączenia z serwera hiveserver2, usługą hostowaną w klastrze usługi HDInsight. Możesz również użyć Z usługi Beeline, aby zdalnie uzyskiwać dostęp do usługi Hive w usłudze HDInsight za pośrednictwem Internetu. W poniższych przykładach przedstawiono najbardziej typowe parametry połączenia używane do nawiązywania połączenia z usługą HDInsight z Z usługi Beeline.
 
@@ -27,9 +29,7 @@ Z usługi Beeline jest klientem programu Hive, który znajduje się w węzłach 
 
 * Zwróć uwagę na schemat identyfikatora URI magazynu podstawowego klastra. Na przykład  `wasb://` w przypadku usługi Azure Storage w `abfs://` przypadku Azure Data Lake Storage Gen2 lub `adl://` Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI to `wasbs://` . Aby uzyskać więcej informacji, zobacz [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
 
-* Opcja 1: klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). W większości kroków przedstawionych w tym dokumencie przyjęto założenie, że używasz Z usługi Beeline z sesji SSH z klastrem.
-
-* Opcja 2: lokalny klient Z usługi Beeline.
+* Klient SSH. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). W większości kroków przedstawionych w tym dokumencie przyjęto założenie, że używasz Z usługi Beeline z sesji SSH z klastrem. Można również użyć lokalnego klienta Z usługi Beeline, ale te kroki nie zostały omówione w tym artykule.
 
 ## <a name="run-a-hive-query"></a>Uruchomienie zapytania programu Hive
 
@@ -56,7 +56,7 @@ Ten przykład jest oparty na użyciu klienta Z usługi Beeline z połączenia SS
     show tables;
     ```
 
-    W nowym klastrze jest wyświetlana tylko jedna tabela: **hivesampletable**.
+    W nowym klastrze jest wyświetlana tylko jedna tabela: **hivesampletable** .
 
 4. Użyj następującego polecenia, aby wyświetlić schemat dla hivesampletable:
 
@@ -109,11 +109,11 @@ Ten przykład jest oparty na użyciu klienta Z usługi Beeline z połączenia SS
 
     |Instrukcja |Opis |
     |---|---|
-    |USUŃ TABELĘ|Jeśli tabela istnieje, zostanie usunięta.|
+    |DROP TABLE|Jeśli tabela istnieje, zostanie usunięta.|
     |TWORZENIE TABELI ZEWNĘTRZNEJ|Tworzy tabelę **zewnętrzną** w usłudze Hive. Tabele zewnętrzne przechowują wyłącznie definicję tabeli w programie Hive. Dane pozostaną w oryginalnej lokalizacji.|
     |FORMAT WIERSZA|Sposób formatowania danych. W takim przypadku pola w każdym dzienniku są oddzielone spacją.|
     |PRZECHOWYWANE JAKO LOKALIZACJA TEXTFILE|Miejsce przechowywania danych i w jakim formacie pliku.|
-    |SELECT|Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]**. To zapytanie zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.|
+    |SELECT|Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]** . To zapytanie zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.|
     |INPUT__FILE__NAME jak "%. log"|Gałąź próbuje zastosować schemat do wszystkich plików w katalogu. W takim przypadku katalog zawiera pliki, które nie są zgodne ze schematem. Aby zapobiec utracie danych bezużytecznych w wynikach, ta instrukcja informuje gałąź, że powinna zwracać tylko dane z plików kończących się na. log.|
 
    > [!NOTE]  
@@ -157,13 +157,13 @@ Ten przykład jest oparty na użyciu klienta Z usługi Beeline z połączenia SS
 
 Ten przykład jest kontynuacją z poprzedniego przykładu. Wykonaj następujące kroki, aby utworzyć plik, a następnie uruchom go za pomocą Z usługi Beeline.
 
-1. Użyj następującego polecenia, aby utworzyć plik o nazwie **Query. HQL**:
+1. Użyj następującego polecenia, aby utworzyć plik o nazwie **Query. HQL** :
 
     ```bash
     nano query.hql
     ```
 
-1. Użyj następującego tekstu jako zawartości pliku. To zapytanie tworzy nową tabelę "wewnętrzną" o nazwie **errorLogs**:
+1. Użyj następującego tekstu jako zawartości pliku. To zapytanie tworzy nową tabelę "wewnętrzną" o nazwie **errorLogs** :
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -176,12 +176,12 @@ Ten przykład jest kontynuacją z poprzedniego przykładu. Wykonaj następujące
     |---|---|
     |CREATE TABLE, JEŚLI NIE ISTNIEJE|Jeśli tabela jeszcze nie istnieje, zostanie utworzona. Ponieważ **zewnętrzne** słowo kluczowe nie jest używane, ta instrukcja tworzy tabelę wewnętrzną. Tabele wewnętrzne są przechowywane w magazynie danych programu Hive i są zarządzane całkowicie przez program Hive.|
     |PRZECHOWYWANE JAKO ORC|Dane są przechowywane w formacie zoptymalizowanego wiersza kolumnowy (ORC). Format ORC to wysoce zoptymalizowany i wydajny format służący do przechowywania danych programu Hive.|
-    |WSTAW ZASTĄPIENIE... ZAZNACZENIA|Wybiera wiersze z tabeli **log4jLogs** zawierającej wartość **[Error]**, a następnie wstawia dane do tabeli **errorLogs** .|
+    |WSTAW ZASTĄPIENIE... ZAZNACZENIA|Wybiera wiersze z tabeli **log4jLogs** zawierającej wartość **[Error]** , a następnie wstawia dane do tabeli **errorLogs** .|
 
     > [!NOTE]  
     > W przeciwieństwie do tabel zewnętrznych, porzucanie tabeli wewnętrznej również usuwa dane źródłowe.
 
-1. Aby zapisać plik, użyj **klawiszy CTRL** + **X**, a następnie wprowadź **Y**, a na koniec **wprowadź**.
+1. Aby zapisać plik, użyj **klawiszy CTRL** + **X** , a następnie wprowadź **Y** , a na koniec **wprowadź** .
 
 1. Użyj następującego polecenia, aby uruchomić plik za pomocą Z usługi Beeline:
 
@@ -192,7 +192,7 @@ Ten przykład jest kontynuacją z poprzedniego przykładu. Wykonaj następujące
     > [!NOTE]  
     > `-i`Parametr uruchamia z usługi Beeline i uruchamia instrukcje w `query.hql` pliku. Po zakończeniu zapytania zostanie `jdbc:hive2://headnodehost:10001/>` wyświetlony monit. Można również uruchomić plik za pomocą `-f` parametru, który kończy z usługi Beeline po zakończeniu zapytania.
 
-1. Aby sprawdzić, czy tabela **errorLogs** została utworzona, użyj następującej instrukcji, aby zwrócić wszystkie wiersze z **errorLogs**:
+1. Aby sprawdzić, czy tabela **errorLogs** została utworzona, użyj następującej instrukcji, aby zwrócić wszystkie wiersze z **errorLogs** :
 
     ```hiveql
     SELECT * from errorLogs;

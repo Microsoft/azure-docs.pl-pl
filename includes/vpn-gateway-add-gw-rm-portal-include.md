@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,17 +9,17 @@ ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92479579"
 ---
-1. Z poziomu [Azure Portal](https://portal.azure.com)w obszarze **zasoby wyszukiwania, usługi i dokumenty (G +/)** wpisz **Brama sieci wirtualnej**. Znajdź **bramę sieci wirtualnej** w wynikach wyszukiwania i wybierz ją.
+1. Z poziomu [Azure Portal](https://portal.azure.com)w obszarze **zasoby wyszukiwania, usługi i dokumenty (G +/)** wpisz **Brama sieci wirtualnej** . Znajdź **bramę sieci wirtualnej** w wynikach wyszukiwania i wybierz ją.
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="Pole wyszukiwania" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
 
-1. Na stronie **Brama sieci wirtualnej** wybierz pozycję **+ Dodaj**. Spowoduje to otwarcie strony **Tworzenie bramy sieci wirtualnej**.
+1. Na stronie **Brama sieci wirtualnej** wybierz pozycję **+ Dodaj** . Spowoduje to otwarcie strony **Tworzenie bramy sieci wirtualnej** .
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="Pole wyszukiwania":::
 1. Na karcie **podstawowe** wprowadź wartości dla bramy sieci wirtualnej.
@@ -28,29 +28,29 @@ ms.locfileid: "92479579"
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Pole wyszukiwania":::
 
-   * **Subskrypcja**: wybierz subskrypcję, której chcesz użyć z listy rozwijanej.
-   * **Grupa zasobów**: to ustawienie jest wypełniane po wybraniu sieci wirtualnej na tej stronie.
+   * **Subskrypcja** : wybierz subskrypcję, której chcesz użyć z listy rozwijanej.
+   * **Grupa zasobów** : to ustawienie jest wypełniane po wybraniu sieci wirtualnej na tej stronie.
 
    **Szczegóły wystąpienia**
 
-   * **Nazwa**: Nadaj nazwę bramie. Nazwa bramy nie jest taka sama jak nazwa podsieci bramy. Jest to nazwa obiektu bramy, który zostanie utworzony.
-   * **Region**: Wybierz region, w którym chcesz utworzyć ten zasób. Region bramy musi być taki sam jak w przypadku sieci wirtualnej.
-   * **Typ bramy**: Wybierz pozycję **Sieć VPN**. Bramy sieci VPN używają typu bramy sieci wirtualnej **Sieć VPN**.
-   * **Typ sieci VPN**: Wybierz typ sieci VPN określony dla danej konfiguracji. Większość konfiguracji wymaga zastosowania typu sieci VPN opartego na trasach.
-   * **Jednostka SKU**: Wybierz jednostkę SKU bramy z listy rozwijanej. Jednostki SKU wymienione na liście rozwijanej zależą od wybranego typu sieci VPN. Więcej informacji o jednostkach SKU bramy zawiera artykuł [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Jednostki SKU bramy).
-   * **Generacja**: Aby uzyskać informacje o generowaniu VPN Gateway, zobacz [jednostki SKU bramy](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
-   * **Sieć wirtualna**: wybierz z listy rozwijanej sieć wirtualną, do której chcesz dodać bramę.
-   * **Zakres adresów podsieci bramy**: to pole pojawia się tylko wtedy, gdy sieć wirtualna nie ma podsieci bramy. Jeśli to możliwe, należy wprowadzić zakres/27 lub większy (/26,/25 itp.). Nie zalecamy tworzenia zakresu, który jest mniejszy niż/28. Jeśli masz już podsieć bramy, możesz wyświetlić szczegóły GatewaySubnet, przechodząc do sieci wirtualnej. Kliknij pozycję **podsieci** , aby wyświetlić zakres. Jeśli chcesz zmienić zakres, możesz usunąć i utworzyć ponownie GatewaySubnet.
+   * **Nazwa** : Nadaj nazwę bramie. Nazwa bramy nie jest taka sama jak nazwa podsieci bramy. Jest to nazwa obiektu bramy, który zostanie utworzony.
+   * **Region** : Wybierz region, w którym chcesz utworzyć ten zasób. Region bramy musi być taki sam jak w przypadku sieci wirtualnej.
+   * **Typ bramy** : Wybierz pozycję **Sieć VPN** . Bramy sieci VPN używają typu bramy sieci wirtualnej **Sieć VPN** .
+   * **Typ sieci VPN** : Wybierz typ sieci VPN określony dla danej konfiguracji. Większość konfiguracji wymaga zastosowania typu sieci VPN opartego na trasach.
+   * **Jednostka SKU** : Wybierz jednostkę SKU bramy z listy rozwijanej. Jednostki SKU wymienione na liście rozwijanej zależą od wybranego typu sieci VPN. Więcej informacji o jednostkach SKU bramy zawiera artykuł [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Jednostki SKU bramy).
+   * **Generacja** : Aby uzyskać informacje o generowaniu VPN Gateway, zobacz [jednostki SKU bramy](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+   * **Sieć wirtualna** : wybierz z listy rozwijanej sieć wirtualną, do której chcesz dodać bramę.
+   * **Zakres adresów podsieci bramy** : to pole pojawia się tylko wtedy, gdy sieć wirtualna nie ma podsieci bramy. Jeśli to możliwe, należy wprowadzić zakres/27 lub większy (/26,/25 itp.). Nie zalecamy tworzenia zakresu, który jest mniejszy niż/28. Jeśli masz już podsieć bramy, możesz wyświetlić szczegóły GatewaySubnet, przechodząc do sieci wirtualnej. Kliknij pozycję **podsieci** , aby wyświetlić zakres. Jeśli chcesz zmienić zakres, możesz usunąć i utworzyć ponownie GatewaySubnet.
 
    **Publiczny adres IP**
 
    To ustawienie określa obiekt publicznego adresu IP, który jest skojarzony z bramą sieci VPN. Publiczny adres IP jest dynamicznie przypisywany do tego obiektu podczas tworzenia bramy sieci VPN. Jedyną sytuacją, w której ma miejsce zmiana publicznego adresu IP, jest usunięcie bramy i jej ponowne utworzenie. Nie zmienia się on w przypadku zmiany rozmiaru, zresetowania ani przeprowadzania innych wewnętrznych czynności konserwacyjnych bądź uaktualnień bramy sieci VPN.
 
-     * **Publiczny adres IP**: pozostaw opcję **Utwórz nowe** .
-     * **Nazwa publicznego adresu IP**: w polu tekstowym wpisz nazwę dla wystąpienia publicznego adresu IP.
-     * **Przypisanie**: Brama sieci VPN obsługuje tylko dynamiczne.
-     * **Włącz tryb aktywny-aktywny**: wybierz opcję **Włącz tryb aktywny-aktywny** tylko w przypadku tworzenia konfiguracji bramy Active-Active. W przeciwnym razie pozostaw to ustawienie **wyłączone**.
-     * Pozostaw opcję **Skonfiguruj protokół BGP** jako **wyłączony**, chyba że konfiguracja wymaga tego ustawienia. Jeśli to ustawienie jest wymagane, domyślny numer ASN to 65515, ale można go zmienić.
+     * **Publiczny adres IP** : pozostaw opcję **Utwórz nowe** .
+     * **Nazwa publicznego adresu IP** : w polu tekstowym wpisz nazwę dla wystąpienia publicznego adresu IP.
+     * **Przypisanie** : Brama sieci VPN obsługuje tylko dynamiczne.
+     * **Włącz tryb aktywny-aktywny** : wybierz opcję **Włącz tryb aktywny-aktywny** tylko w przypadku tworzenia konfiguracji bramy Active-Active. W przeciwnym razie pozostaw to ustawienie **wyłączone** .
+     * Pozostaw opcję **Skonfiguruj protokół BGP** jako **wyłączony** , chyba że konfiguracja wymaga tego ustawienia. Jeśli to ustawienie jest wymagane, domyślny numer ASN to 65515, ale można go zmienić.
 1. Wybierz pozycję **Przegląd + Utwórz** , aby uruchomić walidację.
 1. Po zakończeniu walidacji wybierz pozycję **Utwórz** , aby wdrożyć bramę sieci VPN. Aby w pełni utworzyć i wdrożyć bramę, może upłynąć do 45 minut. Stan wdrożenia można sprawdzić na stronie Przegląd dla bramy.
 

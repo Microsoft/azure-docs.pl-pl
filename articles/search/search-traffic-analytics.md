@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91333736"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Zbieraj dane telemetryczne dla analizy ruchu wyszukiwania
@@ -49,11 +49,11 @@ Gdy masz zasób Application Insights, możesz wykonać [instrukcje dotyczące ob
 
 Skrót, który działa dla niektórych typów projektów programu Visual Studio, jest uwzględniony w poniższych krokach. Tworzy zasób i rejestruje aplikację w zaledwie kilka kliknięć.
 
-1. W przypadku programów Visual Studio i ASP.NET Development Otwórz rozwiązanie i wybierz pozycję **Project**  >  **Add Telemetria usługi Application Insights**.
+1. W przypadku programów Visual Studio i ASP.NET Development Otwórz rozwiązanie i wybierz pozycję **Project**  >  **Add Telemetria usługi Application Insights** .
 
-1. Kliknij pozycję **Rozpocznij**.
+1. Kliknij pozycję **Rozpocznij** .
 
-1. Zarejestruj swoją aplikację, podając konto Microsoft, subskrypcję platformy Azure i zasób Application Insights (domyślnie jest to nowy zasób). Kliknij pozycję **Zarejestruj**.
+1. Zarejestruj swoją aplikację, podając konto Microsoft, subskrypcję platformy Azure i zasób Application Insights (domyślnie jest to nowy zasób). Kliknij pozycję **Zarejestruj** .
 
 W tym momencie aplikacja jest skonfigurowana do monitorowania aplikacji, co oznacza, że wszystkie obciążenia stron są śledzone przy użyciu metryk domyślnych. Aby uzyskać więcej informacji o poprzednich krokach, zobacz [Włączanie telemetrii po stronie serwera Application Insights](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
@@ -129,12 +129,12 @@ var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
 Za każdym razem, gdy użytkownik wystawia żądanie wyszukiwania, należy je zarejestrować jako zdarzenie wyszukiwania z następującym schematem na Application Insights zdarzeniu niestandardowym. Pamiętaj, aby rejestrować tylko zapytania wyszukiwania generowane przez użytkownika.
 
-+ **SearchServiceName**: (String) nazwa usługi wyszukiwania
-+ **SearchId**: (GUID) unikatowy identyfikator zapytania wyszukiwania (znajduje się w odpowiedzi wyszukiwania)
-+ **IndexName**: (String) indeks usługi wyszukiwania do zbadania
-+ **QueryTerms**: (String) warunki wyszukiwania wprowadzone przez użytkownika
-+ **Właściwości resultcount dla**: (int) liczba zwróconych dokumentów (znajduje się w odpowiedzi na wyszukiwanie)
-+ **ScoringProfile**: (String) nazwa używanego profilu oceniania (jeśli istnieje)
++ **SearchServiceName** : (String) nazwa usługi wyszukiwania
++ **SearchId** : (GUID) unikatowy identyfikator zapytania wyszukiwania (znajduje się w odpowiedzi wyszukiwania)
++ **IndexName** : (String) indeks usługi wyszukiwania do zbadania
++ **QueryTerms** : (String) warunki wyszukiwania wprowadzone przez użytkownika
++ **Właściwości resultcount dla** : (int) liczba zwróconych dokumentów (znajduje się w odpowiedzi na wyszukiwanie)
++ **ScoringProfile** : (String) nazwa używanego profilu oceniania (jeśli istnieje)
 
 > [!NOTE]
 > Zażądaj liczby zapytań generowanych przez użytkownika, dodając do zapytania wyszukiwania $count = true. Aby uzyskać więcej informacji, zobacz [Wyszukiwanie dokumentów (REST)](/rest/api/searchservice/search-documents#counttrue--false).
@@ -173,9 +173,9 @@ appInsights.trackEvent("Search", {
 Za każdym razem, gdy użytkownik kliknie dokument, jest to sygnał, który musi być zarejestrowany na potrzeby analizy wyszukiwania. Użyj niestandardowych zdarzeń Application Insights, aby rejestrować te zdarzenia z następującym schematem:
 
 + **ServiceName: (** ciąg) nazwa usługi wyszukiwania
-+ **SearchId**: (GUID) unikatowy identyfikator powiązanego zapytania wyszukiwania
-+ **Maperze identyfikatorów dokumentów**: (String) — identyfikator dokumentu
-+ **Pozycja**: (int), ranga dokumentu na stronie wyników wyszukiwania
++ **SearchId** : (GUID) unikatowy identyfikator powiązanego zapytania wyszukiwania
++ **Maperze identyfikatorów dokumentów** : (String) — identyfikator dokumentu
++ **Pozycja** : (int), ranga dokumentu na stronie wyników wyszukiwania
 
 > [!NOTE]
 > Pozycja odwołuje się do kolejności kardynalnej w aplikacji. Możesz ustawić tę liczbę, o ile jest ona zawsze taka sama, aby umożliwić porównywanie.
@@ -209,19 +209,19 @@ appInsights.trackEvent("Click", {
 
 Po przydzieleniu aplikacji i zweryfikowaniu, że aplikacja jest prawidłowo połączona z Application Insights, można pobrać wstępnie zdefiniowany szablon raportu w celu przeanalizowania danych w programie Power BI Desktop. Raport zawiera wstępnie zdefiniowane wykresy i tabele przydatne do analizowania dodatkowych danych przechwyconych na potrzeby analizy ruchu wyszukiwania.
 
-1. W lewym okienku nawigacyjnym pulpitu nawigacyjnego usługi Azure Wyszukiwanie poznawcze w obszarze **Ustawienia**kliknij pozycję **Analiza ruchu wyszukiwania**.
+1. W lewym okienku nawigacyjnym pulpitu nawigacyjnego usługi Azure Wyszukiwanie poznawcze w obszarze **Ustawienia** kliknij pozycję **Analiza ruchu wyszukiwania** .
 
 1. Na stronie **Analiza ruchu wyszukiwania** w kroku 3 kliknij pozycję **Pobierz Power BI Desktop** , aby zainstalować Power BI.
 
    ![Pobierz raporty Power BI](./media/search-traffic-analytics/get-use-power-bi.png "Pobierz raporty Power BI")
 
-1. Na tej samej stronie kliknij pozycję **pobierz Power BI raport**.
+1. Na tej samej stronie kliknij pozycję **pobierz Power BI raport** .
 
 1. Raport zostanie otwarty w Power BI Desktop i zostanie wyświetlony monit o połączenie z Application Insights i podanie poświadczeń. Informacje o połączeniu można znaleźć na Azure Portal stronach dla zasobu Application Insights. W polu poświadczenia podaj tę samą nazwę użytkownika i hasło, które są używane podczas logowania do portalu.
 
    ![Połączenie z usługą Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Połączenie z usługą Application Insights")
 
-1. Kliknij przycisk **Załaduj**.
+1. Kliknij przycisk **Załaduj** .
 
 Raport zawiera wykresy i tabele, które ułatwiają podejmowanie bardziej świadomych decyzji dotyczących poprawy wydajności i przydatności wyszukiwania.
 

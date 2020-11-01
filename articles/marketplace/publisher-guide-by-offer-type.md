@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 10/06/2020
-ms.openlocfilehash: 54775d7e9923505c6e68a47feed6726b9cb84c47
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0d22e10a71c3eee2026f55a73074ba02c68c2b78
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129936"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146181"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Podręcznik publikowania dla różnych typów ofert
 
@@ -39,10 +39,8 @@ W poniższej tabeli przedstawiono typy ofert komercyjnych portalu Marketplace w 
 | [**Moduł IoT Edge**](iot-edge-module.md) | Moduły Azure IoT Edge są najmniejszymi jednostkami obliczeniowymi zarządzanymi przez IoT Edge i mogą zawierać usługi firmy Microsoft (takie jak Azure Stream Analytics), usługi innych firm lub własny kod specyficzny dla rozwiązania. |
 | [**Usługa zarządzana**](partner-center-portal/create-new-managed-service-offer.md) | Można utworzyć oferty usługi zarządzanej i zarządzać subskrypcjami delegowanymi przez klienta lub grupami zasobów za pomocą [usługi Azure Lighthouse](../lighthouse/overview.md).|
 | [**Aplikacja Power BI** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | Możesz publikować oferty AppSource, które kompilują lub rozszerzającą Power BI i Microsoft 365.|
-| [**Oprogramowanie jako usługa**](plan-saas-offer.md) | Użyj typu oferty oprogramowanie jako usługa (SaaS), aby umożliwić klientowi kupowanie rozwiązań technicznych opartych na technologii SaaS w ramach subskrypcji. |
+| [**Oprogramowanie jako usługa**](plan-saas-offer.md) | Użyj typu oferty oprogramowanie jako usługa (SaaS), aby umożliwić klientowi kupowanie rozwiązań technicznych opartych na technologii SaaS w ramach subskrypcji. Aby uzyskać informacje na temat wymagań dotyczących logowania jednokrotnego dla ofert SaaS, zobacz [oferty usługi Azure AD i transacting SaaS w portalu komercyjnym](azure-ad-saas.md). |
 
-
-Aby uzyskać informacje o wymaganiach dotyczących rejestracji jednokrotnej przez wystawienie opcji i typów ofert, zobacz [**wymagania dotyczące usługi Azure AD**](enable-appsource-marketplace-using-azure-ad.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

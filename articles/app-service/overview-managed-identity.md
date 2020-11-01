@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 82cb8da1a83e5b1e5430ebecf40f5152c824f6aa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 73b09c006b11e7f57dd3833191dd381b7f42a709
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742499"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145841"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -27,7 +27,7 @@ W tym temacie pokazano, jak utworzyć zarządzaną tożsamość dla App Service 
 
 Utworzenie aplikacji z tożsamością przypisaną przez system wymaga, aby w aplikacji była ustawiona dodatkowa właściwość.
 
-### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzyć aplikację w zwykły sposób, a następnie włączyć tę funkcję.
 
@@ -39,7 +39,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzy�
 
 4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone** . Kliknij pozycję **Zapisz** .
 
-    ![Tożsamość zarządzana w App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+    ![Zrzut ekranu pokazujący lokalizację, w której ma zostać przełączony stan, a następnie wybierz pozycję Zapisz.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
@@ -190,7 +190,7 @@ Jeśli musisz odwołać się do tych właściwości w późniejszym etapie szabl
 
 Utworzenie aplikacji z tożsamością przypisaną przez użytkownika wymaga utworzenia tożsamości, a następnie dodania jej identyfikatora zasobu do konfiguracji aplikacji.
 
-### <a name="using-the-azure-portal"></a>Za pomocą witryny Azure Portal
+### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Najpierw należy utworzyć zasób tożsamości przypisany przez użytkownika.
 

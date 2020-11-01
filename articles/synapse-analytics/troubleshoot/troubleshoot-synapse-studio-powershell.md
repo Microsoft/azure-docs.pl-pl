@@ -1,20 +1,20 @@
 ---
-title: Rozwiązywanie problemów z połączeniem Synapse Studio (wersja zapoznawcza) z programem PowerShell
+title: Rozwiązywanie problemów z łącznością Synapse Studio
 description: Rozwiązywanie problemów z łącznością usługi Azure Synapse Studio przy użyciu programu PowerShell
-author: julieMSFT
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.author: jrasnick
+ms.date: 10/30/2020
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7cf9f18701317482284a3f1fa4b69a2c2927f64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e433fd857f638c1c13e4545c19e0b6314ee62e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287716"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146510"
 ---
-# <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnozuj problemy z łącznością z usługą Azure Synapse Studio (wersja zapoznawcza) przy użyciu skryptu programu PowerShell
+# <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>Rozwiązywanie problemów z łącznością Synapse Studio z programem PowerShell
 
 Usługa Azure Synapse Studio (wersja zapoznawcza) zależy od zestawu punktów końcowych interfejsu API sieci Web do prawidłowego działania. Ten przewodnik pomoże Ci zidentyfikować przyczyny problemów z łącznością, które są następujące:
 - Konfigurowanie sieci lokalnej (na przykład sieci za zaporą firmową) na potrzeby uzyskiwania dostępu do usługi Azure Synapse Studio.

@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: c498046b9088f78eda95693fa23f0a0bb3472724
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05295efec3d7651c3a77dd5ad6e2c72b57a6c5a3
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626874"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146760"
 ---
 # <a name="import-an-openapi-specification"></a>Importowanie specyfikacji interfejsu OpenAPI
 
@@ -39,11 +39,11 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importowanie i publikowanie interfejsu API zaplecza
 
 1. Przejdź do usługi API Management w Azure Portal i wybierz opcję **interfejsy API** z menu.
-2. Wybierz pozycję **Specyfikacja interfejsu OpenAPI** z listy **Dodawanie nowego interfejsu API**.
+2. Wybierz pozycję **Specyfikacja interfejsu OpenAPI** z listy **Dodawanie nowego interfejsu API** .
 
     ![Specyfikacja OpenAPI](./media/import-api-from-oas/oas-api.png)
 3. Wprowadź ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz** .
 
 > [!NOTE]
 > Ograniczenia importu interfejsu API są udokumentowane w [innym artykule](api-management-api-import-restrictions.md).

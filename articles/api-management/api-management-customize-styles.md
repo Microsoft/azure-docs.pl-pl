@@ -11,15 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168209"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145773"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Dostosowywanie stylu stron portalu dla deweloperów
 
@@ -45,7 +45,7 @@ W tym artykule dowiesz się, jak dostosować styl elementów na stronach starsze
 
 ## <a name="customize-the-developer-portal"></a>Dostosowywanie portalu dla deweloperów
 
-1. Wybierz pozycję **Omówienie**.
+1. Wybierz pozycję **Omówienie** .
 2. Kliknij przycisk **Portal dla deweloperów (starsza wersja)** w górnej części okna **Przegląd** .
 3. W lewej górnej części ekranu będzie widoczna ikona składająca się z dwóch pędzli. Zatrzymaj wskaźnik myszy nad tą ikoną, aby otworzyć menu dostosowywania portalu.
 
@@ -55,11 +55,11 @@ W tym artykule dowiesz się, jak dostosować styl elementów na stronach starsze
     Na stronie zostaną wyświetlone wszystkie elementy, które można dostosować za pomocą **stylów**
 5. Wprowadź wartość „headings-color” w polu **Change variable values to customize developer portal appearance:** (Zmień wartości zmiennych w celu dostosowania wyglądu portalu dla deweloperów:).
 
-    Na stronie pojawi się element ** \@ nagłówki — kolor** . Ta zmienna steruje kolorem tekstu.
+    Na stronie pojawi się element **\@ nagłówki — kolor** . Ta zmienna steruje kolorem tekstu.
 
     ![Dostosowywanie stylu](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Kliknij pole dla zmiennej ** \@ nagłówki i kolor** . 
+6. Kliknij pole dla zmiennej **\@ nagłówki i kolor** . 
     
     Zostanie otwarta lista rozwijana selektora kolorów.
 7. Wybierz nowy kolor z listy rozwijanej selektora kolorów.
@@ -68,7 +68,7 @@ W tym artykule dowiesz się, jak dostosować styl elementów na stronach starsze
     > Dla wszystkich zmian wyświetlany jest podgląd w czasie rzeczywistym. W górnej części okienka dostosowywania widoczny jest wskaźnik postępu. Po kilku sekundach tekst nagłówka zmieni kolor na nowo wybrany.
 
 8. Wybierz pozycję **Publikuj** w lewym dolnym rogu menu okienka dostosowywania.
-9. Wybierz pozycję **Publikuj dostosowania**, aby udostępnić zmiany publicznie.
+9. Wybierz pozycję **Publikuj dostosowania** , aby udostępnić zmiany publicznie.
 
 ## <a name="view-your-change"></a>Wyświetlanie zmiany
 

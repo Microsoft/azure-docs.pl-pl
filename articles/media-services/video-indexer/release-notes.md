@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f7bf41bd864f6780eee00938f35bb34d2336eb5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505343"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145756"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -29,6 +29,21 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Znane problemy
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
+
+## <a name="october-2020"></a>Październik 2020 r.
+
+### <a name="animated-character-identification-improvements"></a>Ulepszenia identyfikacji znaków animowanych  
+
+Video Indexer obsługuje wykrywanie, grupowanie i rozpoznawanie znaków w animowanej zawartości poprzez integrację z Cognitive Services Custom Vision. Dodaliśmy znaczną poprawę tego algorytmu AI w rozpoznawaniu wykrywania i znaków, ponieważ wyniki analizy wyników i zidentyfikowane znaki są znacznie ulepszone.
+
+### <a name="planned-video-indexer-website-authenticatication-changes"></a>Planowane zmiany authenticatication witryny sieci Web Video Indexer
+
+Począwszy od 1 stycznia 2021, nie będzie już można zarejestrować się i zalogować się do witryny sieci Web [Video Indexer](https://www.videoindexer.ai/) (oferty wersji próbnej) za pomocą serwisu Facebook lub LinkedIn.
+
+Będziesz w stanie zarejestrować się i zalogować się przy użyciu jednego z następujących dostawców: Azure AD, Microsoft i Google.
+
+> [!NOTE]
+> Zaleca się wyeksportowanie zawartości do 1 stycznia 2021, ponieważ konta połączone z serwisem LinkedIn i Facebook zostaną usunięte, a zawartość nie będzie już dostępna.
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -123,7 +138,7 @@ W najbliższych tygodniach zmienimy ją i zwrócimy adres URL [witryny interneto
     * Zamienianie adresu URL na adres URL wskazujący interfejsy API widżetu Video Indexer (na przykład [widżet Insights](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Aby wygenerować nowy osadzony adres URL przy użyciu witryny sieci Web Video Indexer:
          
-         Naciśnij klawisz **Play** , aby przejść do strony wideo — > kliknij przycisk ** &lt; / &gt; Osadź** , > Skopiuj adres URL do aplikacji:
+         Naciśnij klawisz **Play** , aby przejść do strony wideo — > kliknij przycisk **&lt; / &gt; Osadź** , > Skopiuj adres URL do aplikacji:
    
     Regionalne adresy URL nie są obsługiwane i zostaną zablokowane w najbliższych tygodniach.
 

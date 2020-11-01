@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e7d5d4b730ef1669bd9bb7d74e35924061f5580
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75551696"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146215"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Omówienie architektury usługi Resource Manager dla klastra
 Menedżer zasobów klastra Service Fabric jest usługą centralną, która działa w klastrze. Zarządza żądanym stanem usług w klastrze, szczególnie w odniesieniu do zużycia zasobów i wszelkich reguł umieszczania. 
@@ -43,7 +43,7 @@ Przyjrzyjmy się na poniższym diagramie:
 
 <center>
 
-![Architektura modułu równoważenia zasobów][Image1]
+![Diagram przedstawiający Thow usługi Menedżer zasobów klastra agreguje wszystkie informacje z agentów lokalnych i reaguje na podstawie bieżącej konfiguracji.][Image1]
 </center>
 
 W czasie wykonywania istnieje wiele zmian, które mogą wystąpić. Załóżmy na przykład, że ilość zasobów niektórych usług zużywa zmiany, niektóre usługi kończą się niepowodzeniem, a niektóre węzły przyłączają się i opuszczają klaster. Wszystkie zmiany w węźle są agregowane i okresowo wysyłane do usługi Menedżer zasobów klastra (1, 2), gdzie są agregowane, analizowane i przechowywane. Co kilka sekund usługa sprawdza zmiany i określa, czy wymagane są jakieś akcje (3). Na przykład może to zauważyć, że niektóre puste węzły zostały dodane do klastra. W związku z tym decyduje się przenieść niektóre usługi do tych węzłów. Menedżer zasobów klastra może również zauważyć, że określony węzeł jest przeciążony lub że pewne usługi nie uległy awarii lub zostały usunięte, zwalniając zasoby w innym miejscu.

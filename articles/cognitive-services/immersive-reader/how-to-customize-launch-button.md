@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: 6d6757af6619edd41709a4b8f06ef615cd35bf30
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b24a9dcb7a369708b1374f367186dc4d9a6ce475
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636582"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146879"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>Jak dostosować przycisk czytnika immersyjny
 
@@ -41,7 +41,7 @@ Użyj `data-button-style` atrybutu, aby ustawić styl przycisku. Dozwolone warto
 
 Renderuje następujące elementy:
 
-![Przycisk ikony](./media/button-icon.png)
+![Jest to renderowany przycisk tekstu](./media/button-icon.png)
 
 ### <a name="text-button"></a>Przycisk tekstu
 
@@ -51,7 +51,7 @@ Renderuje następujące elementy:
 
 Renderuje następujące elementy:
 
-![Przycisk ikony](./media/button-text.png)
+![Jest to renderowany przycisk czytnika immersyjny.](./media/button-text.png)
 
 ### <a name="icon-and-text-button"></a>Przycisk ikony i tekstu
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4ddafd9fbeda1752a782085244597aea3ccbdd2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12ba0900f2499965f7843672183310dfecfbab2b
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271906"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146675"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migruj dysk dziennika do programu Ultra Disk
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,15 +44,15 @@ Aby włączyć zgodność, wykonaj następujące kroki:
 
 1. Przejdź do maszyny wirtualnej w [Azure Portal](https://portal.azure.com/). 
 1. Zatrzymaj/Cofnij przydział maszyny wirtualnej. 
-1. Wybierz pozycję **dyski** w obszarze **Ustawienia** , a następnie wybierz pozycję **dodatkowe ustawienia**. 
+1. Wybierz pozycję **dyski** w obszarze **Ustawienia** , a następnie wybierz pozycję **dodatkowe ustawienia** . 
 
    :::image type="content" source="media/storage-migrate-to-ultradisk/additional-disks-settings-azure-portal.png" alt-text="Wybierz dodatkowe ustawienia dla dysków w obszarze Ustawienia w Azure Portal":::
 
-1. Wybierz opcję **tak** , aby **włączyć zgodność Ultra Disk**. 
+1. Wybierz opcję **tak** , aby **włączyć zgodność Ultra Disk** . 
 
    :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Wybierz dodatkowe ustawienia dla dysków w obszarze Ustawienia w Azure Portal":::
 
-1. Wybierz pozycję **Zapisz**. 
+1. Wybierz pozycję **Zapisz** . 
 
 
 
@@ -83,7 +83,7 @@ Skonfiguruj SQL Server tak, aby korzystał z nowego dysku dziennika. Można to z
 1. Sprawdź konto usługi używane przez SQL Server. Można to zrobić za pomocą SQL Server Configuration Manager lub Services. msc.
 1. Przejdź do nowego dysku. 
 1. Utwórz folder (lub wiele folderów) do użycia w pliku dziennika. 
-1. Kliknij prawym przyciskiem myszy folder i wybierz polecenie **Właściwości**.
+1. Kliknij prawym przyciskiem myszy folder i wybierz polecenie **Właściwości** .
 1. Na karcie **zabezpieczenia** Udziel dostępu Pełna kontrola do konta usługi SQL Server. 
 1. Wybierz **przycisk OK**  , aby zapisać ustawienia. 
 1. Powtórz tę czynność dla każdego folderu głównego poziomu, w którym planujesz mieć dane SQL. 
@@ -143,14 +143,14 @@ W tym momencie baza danych przejdzie w tryb online z dziennikiem w nowej lokaliz
 Przenieś istniejące pliki do nowej lokalizacji za pomocą programu SSMS:
 
 1. Nawiąż połączenie z bazą danych w SQL Server Management Studio (SSMS). 
-1. Kliknij prawym przyciskiem myszy bazę danych, wybierz pozycję **Właściwości** , a następnie wybierz pozycję **pliki**. 
+1. Kliknij prawym przyciskiem myszy bazę danych, wybierz pozycję **Właściwości** , a następnie wybierz pozycję **pliki** . 
 1. Zanotuj ścieżkę istniejących plików. 
-1. Wybierz przycisk **OK**, aby zamknąć okno dialogowe. 
-1. Kliknij prawym przyciskiem myszy bazę danych, wybierz pozycję **zadania**  >  **Odłącz**. 
+1. Wybierz przycisk **OK** , aby zamknąć okno dialogowe. 
+1. Kliknij prawym przyciskiem myszy bazę danych, wybierz pozycję **zadania**  >  **Odłącz** . 
 1. Postępuj zgodnie z instrukcjami kreatora, aby odłączyć bazę danych. 
 1. Za pomocą Eksploratora plików ręcznie Przenieś plik dziennika do nowej lokalizacji.
 1. Dołącz bazę danych w SQL Server Management Studio
-   1. Kliknij prawym przyciskiem myszy pozycję **bazy danych** w **Eksplorator obiektów** a następnie wybierz polecenie **Dołącz bazę danych**. 
+   1. Kliknij prawym przyciskiem myszy pozycję **bazy danych** w **Eksplorator obiektów** a następnie wybierz polecenie **Dołącz bazę danych** . 
    1. Za pomocą okna dialogowego Dodaj każdy plik, w tym plik dziennika w nowej lokalizacji. 
    1. Wybierz **przycisk OK** , aby dołączyć bazę danych. 
 

@@ -1,18 +1,18 @@
 ---
-title: Apache Hive dzienniki wypełniania miejsca na dysku — usługa Azure HDInsight
-description: Dzienniki Apache Hive zajmują miejsce na dysku w węzłach głównych w usłudze Azure HDInsight.
+title: 'Rozwiązywanie problemów: dzienniki Apache Hive zapełnianie miejsca na dysku — usługa Azure HDInsight'
+description: W tym artykule przedstawiono kroki rozwiązywania problemów, które należy wykonać, gdy dzienniki Apache Hive zajmują miejsce na dysku w węzłach głównych w usłudze Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 10/05/2020
-ms.openlocfilehash: 5554a66927fc70f22ec552b938ae62038a04acb9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 64bf5714f5eb99df9929a47fef414a827ec680af
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533023"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145637"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Scenariusz: dzienniki Apache Hive zajmują miejsce na dysku w węzłach głównych w usłudze Azure HDInsight
 
@@ -20,13 +20,13 @@ W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania p
 
 ## <a name="issue"></a>Problem
 
-W klastrze Apache Hive/LLAP niepożądane dzienniki zajmują całe miejsce na dysku w węzłach głównych. Z tego powodu mogą wystąpić następujące problemy.
+W klastrze Apache Hive/LLAP niepożądane dzienniki zajmują całe miejsce na dysku w węzłach głównych. Ten stan może spowodować następujące problemy:
 
-1. Dostęp SSH nie powiedzie się z powodu braku miejsca w węźle głównym.
-2. Ambari nadaje *błąd http: usługa 503 jest niedostępna* .
-3. Nie można uruchomić ponownie programu serwera hiveserver2 Interactive.
+- Dostęp SSH nie powiódł się, ponieważ w węźle głównym nie ma miejsca.
+- Ambari zgłasza *błąd http: usługa 503 jest niedostępna* .
+- Nie można uruchomić ponownie programu serwera hiveserver2 Interactive.
 
-`ambari-agent`Gdy wystąpi problem, dzienniki będą wyglądać następująco.
+W `ambari-agent` przypadku wystąpienia problemu dzienniki będą zawierać następujące wpisy:
 ```
 ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
 ```
@@ -36,17 +36,17 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>Przyczyna
 
-W zaawansowanych konfiguracjach Hive-Log4J bieżący domyślny harmonogram usuwania jest ustawiany dla plików starszych niż 30 dni na podstawie daty ostatniej modyfikacji.
+W zaawansowanych konfiguracjach programu Hive Log4J bieżący domyślny harmonogram usuwania polega na usunięciu plików starszych niż 30 dni na podstawie daty ostatniej modyfikacji.
 
 ## <a name="resolution"></a>Rozwiązanie
 
-1. Przejdź do podsumowania składników programu Hive w portalu Ambari i kliknij `Configs` kartę.
+1. Przejdź do podsumowania składnika Hive w portalu Ambari i **Wybierz kartę konfiguracje** .
 
-2. Przejdź do `Advanced hive-log4j` sekcji w obszarze Ustawienia zaawansowane.
+2. Przejdź do `Advanced hive-log4j` sekcji w obszarze **Ustawienia zaawansowane** .
 
-3. Ustaw `appender.RFA.strategy.action.condition.age` parametr na wybrany wiek. Przykład przez 14 dni: `appender.RFA.strategy.action.condition.age = 14D`
+3. Ustaw `appender.RFA.strategy.action.condition.age` parametr na wybrany wiek. Ten przykład ustawi okres ważności na 14 dni: `appender.RFA.strategy.action.condition.age = 14D`
 
-4. Jeśli nie są wyświetlane żadne powiązane ustawienia, należy dołączyć następujące ustawienia.
+4. Jeśli nie widzisz żadnych powiązanych ustawień, Dołącz te ustawienia:
     ```
     # automatically delete hive log
     appender.RFA.strategy.action.type = Delete
@@ -57,7 +57,7 @@ W zaawansowanych konfiguracjach Hive-Log4J bieżący domyślny harmonogram usuwa
     appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
     ```
 
-5. Ustaw `hive.root.logger` w `INFO,RFA` następujący sposób. Domyślnym ustawieniem jest debugowanie, co sprawia, że dzienniki stają się bardzo duże.
+5. Ustaw `hive.root.logger` na `INFO,RFA` , jak pokazano w poniższym przykładzie. Ustawieniem domyślnym jest `DEBUG` , co sprawia, że dzienniki są duże.
 
     ```
     # Define some default values that can be overridden by system properties

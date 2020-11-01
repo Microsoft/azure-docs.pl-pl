@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558639"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145824"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Wprowadzenie do usługi Azure Defender dla rejestrów kontenerów
 
@@ -32,6 +32,12 @@ Security Center filtrów i klasyfikuje wyniki ze skanera. Gdy obraz jest w dobre
 
 Powiadamiając tylko w przypadku problemów, Security Center zmniejsza możliwości niechcianych alertów informacyjnych.
 
+
+> [!TIP]
+> Aby dowiedzieć się więcej o funkcjach zabezpieczeń kontenera Security Center, zobacz:
+>
+> - [Zabezpieczenia Azure Security Center i kontenera](container-security.md)
+> - [Wprowadzenie do usługi Azure Defender dla Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## <a name="when-are-images-scanned"></a>Kiedy są skanowane obrazy?
 
@@ -81,10 +87,5 @@ Tak. Jeśli istnieje organizacja, która ma być ignorowana, zamiast skorygować
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o funkcjach zabezpieczeń kontenera Security Center, zobacz:
-
-- [Zabezpieczenia Azure Security Center i kontenera](container-security.md)
-
-- [Wprowadzenie do usługi Azure Defender dla Kubernetes](defender-for-kubernetes-introduction.md)
-
-
+> [!div class="nextstepaction"]
+> [Skanowanie obrazów pod kątem luk w zabezpieczeniach](defender-for-container-registries-usage.md)

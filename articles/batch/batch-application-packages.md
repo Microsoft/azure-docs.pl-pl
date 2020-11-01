@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91277703"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji wsadowych
@@ -33,7 +33,7 @@ Istnieją ograniczenia dotyczące liczby aplikacji i pakietów aplikacji w ramac
 
 ## <a name="understand-applications-and-application-packages"></a>Informacje o aplikacjach i pakietach aplikacji
 
-W Azure Batch *aplikacja* odwołuje się do zestawu plików binarnych z wersjami, które mogą być automatycznie pobierane do węzłów obliczeniowych w puli. Aplikacja zawiera co najmniej jeden *pakiet aplikacji*, który reprezentuje różne wersje aplikacji.
+W Azure Batch *aplikacja* odwołuje się do zestawu plików binarnych z wersjami, które mogą być automatycznie pobierane do węzłów obliczeniowych w puli. Aplikacja zawiera co najmniej jeden *pakiet aplikacji* , który reprezentuje różne wersje aplikacji.
 
 Każdy *pakiet aplikacji* jest plikiem ZIP, który zawiera pliki binarne aplikacji i pliki pomocnicze. Obsługiwany jest tylko format ZIP.
 
@@ -69,7 +69,7 @@ Jeśli konto magazynu nie zostało jeszcze skonfigurowane, Azure Portal wyświet
 Po połączeniu dwóch kont program Batch może automatycznie wdrożyć pakiety przechowywane na połączonym koncie magazynu w węzłach obliczeniowych.
 
 > [!IMPORTANT]
-> Nie można używać pakietów aplikacji z kontami usługi Azure Storage skonfigurowanymi przy użyciu [reguł zapory](../storage/common/storage-network-security.md)lub z **hierarchiczną przestrzenią nazw** ustawioną na wartość **włączone**.
+> Nie można używać pakietów aplikacji z kontami usługi Azure Storage skonfigurowanymi przy użyciu [reguł zapory](../storage/common/storage-network-security.md)lub z **hierarchiczną przestrzenią nazw** ustawioną na wartość **włączone** .
 
 Usługa Batch używa usługi Azure Storage do przechowywania pakietów aplikacji jako blokowych obiektów BLOB. Opłaty są [naliczone jako normalne](https://azure.microsoft.com/pricing/details/storage/) dla danych blokowych obiektów blob, a rozmiar każdego pakietu nie może przekroczyć maksymalnego rozmiaru bloku obiektów BLOB. Aby uzyskać więcej informacji, zobacz [cele dotyczące skalowalności i wydajności usługi Azure Storage dla kont magazynu](../storage/blobs/scalability-targets.md). Aby zminimalizować koszty, należy wziąć pod uwagę rozmiar i liczbę pakietów aplikacji oraz okresowe usuwanie przestarzałych pakietów.
 
@@ -81,33 +81,33 @@ Aby wyświetlić aplikacje na koncie w usłudze Batch, wybierz pozycję **aplika
 
 Wybranie tej opcji menu spowoduje otwarcie okna **aplikacje** . W tym oknie jest wyświetlany identyfikator każdej aplikacji na Twoim koncie oraz następujące właściwości:
 
-- **Pakiety**: liczba wersji skojarzonych z tą aplikacją.
-- **Wersja domyślna**: Jeśli ma zastosowanie, wersja aplikacji, która zostanie zainstalowana, jeśli nie zostanie określona żadna wersja podczas wdrażania aplikacji.
-- **Zezwalaj na aktualizacje**: określa, czy aktualizacje i usunięcia pakietu są dozwolone.
+- **Pakiety** : liczba wersji skojarzonych z tą aplikacją.
+- **Wersja domyślna** : Jeśli ma zastosowanie, wersja aplikacji, która zostanie zainstalowana, jeśli nie zostanie określona żadna wersja podczas wdrażania aplikacji.
+- **Zezwalaj na aktualizacje** : określa, czy aktualizacje i usunięcia pakietu są dozwolone.
 
-Aby wyświetlić [strukturę plików](files-and-directories.md) pakietu aplikacji w węźle obliczeniowym, przejdź do konta partii w Azure Portal. Wybierz pozycję **Pule**. następnie wybierz pulę zawierającą węzeł obliczeniowy. Wybierz węzeł obliczeniowy, na którym jest zainstalowany pakiet aplikacji, a następnie otwórz folder **aplikacje** .
+Aby wyświetlić [strukturę plików](files-and-directories.md) pakietu aplikacji w węźle obliczeniowym, przejdź do konta partii w Azure Portal. Wybierz pozycję **Pule** . następnie wybierz pulę zawierającą węzeł obliczeniowy. Wybierz węzeł obliczeniowy, na którym jest zainstalowany pakiet aplikacji, a następnie otwórz folder **aplikacje** .
 
 ### <a name="view-application-details"></a>Wyświetl szczegóły aplikacji
 
 Aby wyświetlić szczegóły dotyczące aplikacji, wybierz ją w oknie **aplikacje** . Można skonfigurować następujące ustawienia dla aplikacji.
 
-- **Zezwalaj na aktualizacje**: wskazuje, czy pakiety aplikacji mogą być [aktualizowane lub usuwane](#update-or-delete-an-application-package). Wartość domyślna to **Tak**. Jeśli ustawisz wartość **nie**, nie można aktualizować ani usuwać istniejących pakietów aplikacji, ale nadal można dodawać nowe wersje pakietów aplikacji.
-- **Wersja domyślna**: domyślny pakiet aplikacji, który ma być używany podczas wdrażania aplikacji, jeśli nie określono żadnej wersji.
-- **Nazwa wyświetlana**: przyjazna nazwa, która może być używana przez rozwiązanie do przetwarzania wsadowego, gdy wyświetla informacje o aplikacji. Na przykład ta nazwa może być używana w interfejsie użytkownika usługi udostępnianej klientom w usłudze Batch.
+- **Zezwalaj na aktualizacje** : wskazuje, czy pakiety aplikacji mogą być [aktualizowane lub usuwane](#update-or-delete-an-application-package). Wartość domyślna to **Tak** . Jeśli ustawisz wartość **nie** , nie można aktualizować ani usuwać istniejących pakietów aplikacji, ale nadal można dodawać nowe wersje pakietów aplikacji.
+- **Wersja domyślna** : domyślny pakiet aplikacji, który ma być używany podczas wdrażania aplikacji, jeśli nie określono żadnej wersji.
+- **Nazwa wyświetlana** : przyjazna nazwa, która może być używana przez rozwiązanie do przetwarzania wsadowego, gdy wyświetla informacje o aplikacji. Na przykład ta nazwa może być używana w interfejsie użytkownika usługi udostępnianej klientom w usłudze Batch.
 
 ### <a name="add-a-new-application"></a>Dodaj nową aplikację
 
 Aby utworzyć nową aplikację, należy dodać pakiet aplikacji i określić unikatowy identyfikator aplikacji.
 
-Na koncie wsadowym wybierz pozycję **aplikacje** , a następnie wybierz pozycję **Dodaj**.
+Na koncie wsadowym wybierz pozycję **aplikacje** , a następnie wybierz pozycję **Dodaj** .
 
 :::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagram przedstawiający ogólny widok aplikacji i pakietów aplikacji.":::
 
 Wprowadź następujące informacje:
 
-- **Identyfikator aplikacji**: identyfikator nowej aplikacji.
-- **Wersja**": wersja pakietu aplikacji, który przekazujesz.
-- **Pakiet aplikacji**: plik zip zawierający pliki binarne aplikacji i pliki pomocnicze, które są wymagane do wykonania aplikacji.
+- **Identyfikator aplikacji** : identyfikator nowej aplikacji.
+- **Wersja** ": wersja pakietu aplikacji, który przekazujesz.
+- **Pakiet aplikacji** : plik zip zawierający pliki binarne aplikacji i pliki pomocnicze, które są wymagane do wykonania aplikacji.
 
 **Identyfikator aplikacji** i wprowadzona **wersja** muszą spełniać następujące wymagania:
 
@@ -116,13 +116,13 @@ Wprowadź następujące informacje:
 - Musi być unikatowa w ramach konta wsadowego.
 - Identyfikatory uwzględniają wielkość liter i nie uwzględniają wielkości liter.
 
-Gdy wszystko będzie gotowe, wybierz pozycję **Prześlij**. Po przekazaniu pliku zip na konto usługi Azure Storage Portal wyświetli powiadomienie. W zależności od rozmiaru przekazywanego pliku i szybkości połączenia sieciowego może to potrwać trochę czasu.
+Gdy wszystko będzie gotowe, wybierz pozycję **Prześlij** . Po przekazaniu pliku zip na konto usługi Azure Storage Portal wyświetli powiadomienie. W zależności od rozmiaru przekazywanego pliku i szybkości połączenia sieciowego może to potrwać trochę czasu.
 
 ### <a name="add-a-new-application-package"></a>Dodaj nowy pakiet aplikacji
 
-Aby dodać wersję pakietu aplikacji dla istniejącej aplikacji, wybierz aplikację w sekcji **aplikacje** na koncie usługi Batch, a następnie wybierz pozycję **Dodaj**.
+Aby dodać wersję pakietu aplikacji dla istniejącej aplikacji, wybierz aplikację w sekcji **aplikacje** na koncie usługi Batch, a następnie wybierz pozycję **Dodaj** .
 
-Tak jak w przypadku nowej aplikacji, określ **wersję** nowego pakietu, Przekaż plik. zip w polu **pakiet aplikacji** , a następnie wybierz pozycję **Prześlij**.
+Tak jak w przypadku nowej aplikacji, określ **wersję** nowego pakietu, Przekaż plik. zip w polu **pakiet aplikacji** , a następnie wybierz pozycję **Prześlij** .
 
 ### <a name="update-or-delete-an-application-package"></a>Aktualizowanie lub usuwanie pakietu aplikacji
 
@@ -130,9 +130,9 @@ Aby zaktualizować lub usunąć istniejący pakiet aplikacji, wybierz aplikację
 
 :::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagram przedstawiający ogólny widok aplikacji i pakietów aplikacji.":::
 
-W przypadku wybrania opcji **Aktualizuj**będzie możliwe przekazanie nowego pliku. zip. Spowoduje to zastąpienie poprzedniego pliku zip przekazanego dla tej wersji.
+W przypadku wybrania opcji **Aktualizuj** będzie możliwe przekazanie nowego pliku. zip. Spowoduje to zastąpienie poprzedniego pliku zip przekazanego dla tej wersji.
 
-W przypadku wybrania opcji **Usuń**zostanie wyświetlony monit o potwierdzenie usunięcia tej wersji. Po wybraniu **przycisku OK**usługa Batch usunie plik zip z konta usługi Azure Storage. Jeśli usuniesz domyślną wersję aplikacji, **domyślne ustawienie wersji** zostanie usunięte dla tej aplikacji.
+W przypadku wybrania opcji **Usuń** zostanie wyświetlony monit o potwierdzenie usunięcia tej wersji. Po wybraniu **przycisku OK** usługa Batch usunie plik zip z konta usługi Azure Storage. Jeśli usuniesz domyślną wersję aplikacji, **domyślne ustawienie wersji** zostanie usunięte dla tej aplikacji.
 
 ## <a name="install-applications-on-compute-nodes"></a>Instalowanie aplikacji w węzłach obliczeniowych
 
@@ -202,7 +202,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-W węzłach systemu Linux format jest nieco inny. Kropki (.), łączniki (-) i znaki liczbowe (#) są spłaszczone do podkreślenia w zmiennej środowiskowej. Należy również pamiętać, że sprawa identyfikatora aplikacji jest zachowywana. Na przykład:
+W węzłach systemu Linux format jest nieco inny. Kropki (.), łączniki (-) i znaki liczbowe (#) są spłaszczone do podkreślenia w zmiennej środowiskowej. Należy również pamiętać, że sprawa identyfikatora aplikacji jest zachowywana. Przykład:
 
 ```
 Linux:
@@ -225,7 +225,7 @@ AZ_BATCH_APP_PACKAGE_blender_2_7
 
 Podczas przekazywania pakietu aplikacji można określić domyślną wersję do wdrożenia w węzłach obliczeniowych. Jeśli określono domyślną wersję aplikacji, można pominąć sufiks wersji podczas odwoływania się do aplikacji. Domyślną wersję aplikacji można określić w Azure Portal w oknie **aplikacje** , jak pokazano w temacie [przekazywanie aplikacji i zarządzanie nimi](#upload-and-manage-applications).
 
-Na przykład jeśli ustawisz "2,7" jako wersję domyślną dla programu Application *Blend*, a zadania odwołują się do następującej zmiennej środowiskowej, węzły systemu Windows będą wykonywały wersję 2,7:
+Na przykład jeśli ustawisz "2,7" jako wersję domyślną dla programu Application *Blend* , a zadania odwołują się do następującej zmiennej środowiskowej, węzły systemu Windows będą wykonywały wersję 2,7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 

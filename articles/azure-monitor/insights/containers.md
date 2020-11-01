@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326906"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145688"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Rozwiązanie do monitorowania kontenerów w Azure Monitor
 
@@ -45,7 +45,7 @@ Przed rozpoczęciem zapoznaj się z poniższymi szczegółami, aby upewnić się
 
 W poniższej tabeli przedstawiono wsparcie w zakresie organizowania i monitorowania systemu operacyjnego platformy Docker, a następnie obsługę spisu kontenerów, wydajności i dzienników przy użyciu Azure Monitor.   
 
-|Aranżacja platformy Docker | ACS | Linux | Windows | Kontener<br>Stan zapasów | Obraz<br>Stan zapasów | Węzeł<br>Stan zapasów | Kontener<br>Wydajność | Kontener<br>Wydarzenie | Wydarzenie<br>Log | Kontener<br>Log |
+|Aranżacja platformy Docker | ACS | Linux | Windows | Kontener<br>Stan zapasów | Obraz<br>Stan zapasów | Węzeł<br>Stan zapasów | Kontener<br>Wydajność | Kontener<br>Zdarzenie | Zdarzenie<br>Log | Kontener<br>Log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -116,7 +116,7 @@ Zapoznaj się z artykułem [aparat platformy Docker w systemie Windows](/virtual
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalowanie i Konfigurowanie hostów kontenera systemu Linux
 
-Po zainstalowaniu platformy Docker Użyj następujących ustawień dla hosta kontenera, aby skonfigurować agenta do użycia z platformą Docker. Najpierw potrzebujesz identyfikatora i klucza obszaru roboczego Log Analytics, który można znaleźć w Azure Portal. W obszarze roboczym kliknij pozycję **Szybki Start**  >  **komputery** , aby wyświetlić **Identyfikator obszaru roboczego** i **klucz podstawowy**.  Skopiuj i wklej obie wartości do ulubionego edytora.
+Po zainstalowaniu platformy Docker Użyj następujących ustawień dla hosta kontenera, aby skonfigurować agenta do użycia z platformą Docker. Najpierw potrzebujesz identyfikatora i klucza obszaru roboczego Log Analytics, który można znaleźć w Azure Portal. W obszarze roboczym kliknij pozycję **Szybki Start**  >  **komputery** , aby wyświetlić **Identyfikator obszaru roboczego** i **klucz podstawowy** .  Skopiuj i wklej obie wartości do ulubionego edytora.
 
 **Dla wszystkich hostów kontenera systemu Linux z wyjątkiem CoreOS:**
 
@@ -476,12 +476,12 @@ Aby użyć Helm do wdrożenia agenta Log Analytics w środowisku Kubernetes syst
  
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
  
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
    
     Aby uzyskać więcej informacji, odwiedź [Wykres Helm rozwiązania kontenera](https://aka.ms/omscontainerhelm).
@@ -513,11 +513,11 @@ Aby włączyć monitorowanie kontenera systemu Windows i funkcji Hyper-V, zainst
 
 Można monitorować kontenery systemu Windows działające na Service Fabric. Jednak tylko [maszyny wirtualne działające na platformie Azure](../learn/quick-collect-azurevm.md) i [komputerach z systemem Windows w środowisku lokalnym](../platform/agent-windows.md) są obecnie obsługiwane dla Service Fabric.
 
-Możesz sprawdzić, czy rozwiązanie do monitorowania kontenerów zostało prawidłowo ustawione dla systemu Windows. Aby sprawdzić, czy pakiet administracyjny został pobrany prawidłowo, poszukaj *ContainerManagement.xxx*. Pliki powinny znajdować się w folderze C:\Program Files\Microsoft monitoring Agent\Agent\Health Service State\Management Pack.
+Możesz sprawdzić, czy rozwiązanie do monitorowania kontenerów zostało prawidłowo ustawione dla systemu Windows. Aby sprawdzić, czy pakiet administracyjny został pobrany prawidłowo, poszukaj *ContainerManagement.xxx* . Pliki powinny znajdować się w folderze C:\Program Files\Microsoft monitoring Agent\Agent\Health Service State\Management Pack.
 
 ## <a name="solution-components"></a>Składniki rozwiązania
 
-W Azure Portal przejdź do *Galeria rozwiązań* i Dodaj **rozwiązanie do monitorowania kontenerów**. Jeśli używasz agentów systemu Windows, po dodaniu tego rozwiązania jest instalowany następujący pakiet administracyjny na każdym komputerze z agentem. W pakiecie administracyjnym nie jest wymagana żadna konfiguracja ani konserwacja.
+W Azure Portal przejdź do *Galeria rozwiązań* i Dodaj **rozwiązanie do monitorowania kontenerów** . Jeśli używasz agentów systemu Windows, po dodaniu tego rozwiązania jest instalowany następujący pakiet administracyjny na każdym komputerze z agentem. W pakiecie administracyjnym nie jest wymagana żadna konfiguracja ani konserwacja.
 
 - *ContainerManagement.xxx* zainstalowany w folderze C:\Program Files\Microsoft monitoring Agent\Agent\Health Service State\Management Pack
 
@@ -574,7 +574,7 @@ Kliknij kafelek **kontenery** . W tym miejscu zobaczysz widoki zorganizowane wed
 
 Każdy obszar pulpitu nawigacyjnego jest wizualną reprezentacją wyszukiwania, które jest uruchamiane na zebranych danych.
 
-![Pulpit nawigacyjny kontenerów](./media/containers/containers-dash01.png)
+![Zrzut ekranu przedstawiający pulpit nawigacyjny do wyświetlania zebranych danych. ](./media/containers/containers-dash01.png)
 
 ![Pulpit nawigacyjny kontenerów](./media/containers/containers-dash02.png)
 
@@ -599,9 +599,9 @@ Log Analytics oznacza kontener jako **zakończony niepowodzeniem** , jeśli zako
 2. Log Analytics otwiera i wyświetla stan kontenerów, podobny do poniższego.  
    ![stan kontenerów](./media/containers/containers-log-search.png)
 3. Rozwiń wiersz niepowodzenie i kliknij przycisk +, aby dodać jego kryteria do zapytania. Następnie Dodaj komentarz do wiersza podsumowania w zapytaniu.
-   ![Kontenery zakończone niepowodzeniem](./media/containers/containers-state-failed-select.png)  
+   ![Zrzut ekranu pokazujący wiersz, który powinien zostać oznaczony jako komentarz.](./media/containers/containers-state-failed-select.png)  
 1. Uruchom zapytanie, a następnie rozwiń wiersz w wynikach, aby wyświetlić identyfikator obrazu.  
-   ![Kontenery zakończone niepowodzeniem](./media/containers/containers-state-failed.png)  
+   ![Zrzut ekranu pokazujący sposób wyświetlania identyfikatora obrazu.](./media/containers/containers-state-failed.png)  
 1. Wpisz następujące w zapytaniu dziennika. `ContainerImageInventory | where ImageID == <ImageID>` Aby wyświetlić szczegółowe informacje o obrazie, takie jak rozmiar obrazu i Liczba obrazów zatrzymanych i zakończonych niepowodzeniem.  
    ![Kontenery zakończone niepowodzeniem](./media/containers/containers-failed04.png)
 

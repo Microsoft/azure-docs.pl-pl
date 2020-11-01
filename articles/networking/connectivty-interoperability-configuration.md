@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "86171860"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Współdziałanie z funkcjami łączności zaplecza platformy Azure: szczegóły konfiguracji testu
@@ -23,17 +23,17 @@ W tym artykule opisano szczegóły konfiguracji [testu][Setup]. Konfiguracja tes
 
 ## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Łączność z siecią wirtualną przy użyciu komunikacji równorzędnej sieci wirtualnej
 
-Na poniższej ilustracji przedstawiono szczegóły dotyczące komunikacji równorzędnej platformy Azure Virtual Network sieci wirtualnej szprychy (VNet). Aby dowiedzieć się, jak skonfigurować komunikację równorzędną między dwoma sieci wirtualnych, zobacz [Zarządzanie wirtualnymi sieciami równorzędnymi][VNet-Config]. Jeśli sieć wirtualna szprych ma używać bram, które są połączone z siecią wirtualną koncentratora, wybierz opcję **Użyj bram zdalnych**.
+Na poniższej ilustracji przedstawiono szczegóły dotyczące komunikacji równorzędnej platformy Azure Virtual Network sieci wirtualnej szprychy (VNet). Aby dowiedzieć się, jak skonfigurować komunikację równorzędną między dwoma sieci wirtualnych, zobacz [Zarządzanie wirtualnymi sieciami równorzędnymi][VNet-Config]. Jeśli sieć wirtualna szprych ma używać bram, które są połączone z siecią wirtualną koncentratora, wybierz opcję **Użyj bram zdalnych** .
 
-[![1]][1]
+[![jedno]][1]
 
-Na poniższej ilustracji przedstawiono szczegółowe informacje o komunikacji równorzędnej sieci wirtualnej centrum. Jeśli chcesz, aby Sieć wirtualna z koncentratorem mogła korzystać z bram centrum, wybierz opcję **Zezwalaj na tranzyt bramy**.
+Na poniższej ilustracji przedstawiono szczegółowe informacje o komunikacji równorzędnej sieci wirtualnej centrum. Jeśli chcesz, aby Sieć wirtualna z koncentratorem mogła korzystać z bram centrum, wybierz opcję **Zezwalaj na tranzyt bramy** .
 
 [![dwóch]][2]
 
 ## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>Łączność między sieciami wirtualnymi przy użyciu połączenia VPN typu lokacja-lokacja
 
-Skonfiguruj połączenie sieci VPN typu lokacja-lokacja między węzłem i sieci wirtualnych rozgałęzienia przy użyciu bram sieci VPN w usłudze Azure VPN Gateway. Domyślnie bramy sieci VPN i bramy usługi Azure ExpressRoute używają wartości prywatnego numeru systemu autonomicznego (ASN) **65515**. Wartość ASN można zmienić w VPN Gateway. W konfiguracji testowej wartość ASN bramy sieci VPN gałęzi VNet jest zmieniana na **65516** , aby umożliwić obsługę routingu eBGP między węzłem a gałęzią sieci wirtualnych.
+Skonfiguruj połączenie sieci VPN typu lokacja-lokacja między węzłem i sieci wirtualnych rozgałęzienia przy użyciu bram sieci VPN w usłudze Azure VPN Gateway. Domyślnie bramy sieci VPN i bramy usługi Azure ExpressRoute używają wartości prywatnego numeru systemu autonomicznego (ASN) **65515** . Wartość ASN można zmienić w VPN Gateway. W konfiguracji testowej wartość ASN bramy sieci VPN gałęzi VNet jest zmieniana na **65516** , aby umożliwić obsługę routingu eBGP między węzłem a gałęzią sieci wirtualnych.
 
 
 [![r.3]][3]
@@ -45,7 +45,7 @@ Skonfiguruj połączenie sieci VPN typu lokacja-lokacja między węzłem i sieci
 
 Na poniższej ilustracji przedstawiono konfigurację obwodu usługi Azure region 1 ExpressRoute w kierunku lokalizacji lokalnej 1 routera brzegowej klienta (CE):
 
-[![czwart]][4]
+[![4]][4]
 
 Na poniższej ilustracji przedstawiono konfigurację połączenia między obwodem ExpressRoute 1 i siecią wirtualną koncentratora:
 

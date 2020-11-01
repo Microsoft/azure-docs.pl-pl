@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02c16c63d83fc33be5512d26eafb0ca0d6c9b98
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745981"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145892"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Samouczek: wdrażanie aplikacji w usłudze Service Fabric Mesh przy użyciu szablonu
 
@@ -50,7 +50,7 @@ Obrazy kontenera skojarzone z usługami w aplikacji usługi Service Fabric Mesh 
 
 Utwórz wystąpienie usługi ACR przy użyciu poniższej procedury.  Jeśli masz już skonfigurowane wystąpienia usługi ACR, możesz pominąć ten krok i przejść dalej.
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do platformy Azure i ustaw aktywną subskrypcję.
 
@@ -103,6 +103,11 @@ Po utworzeniu rejestru zostaną wyświetlone dane wyjściowe podobne do następu
 W tym samouczku używamy przykładowej aplikacji To Do List (lista zadań do wykonania).  Obrazy kontenera dla usług [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) i [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) można znaleźć w usłudze Docker Hub. Zobacz [Tworzenie aplikacji internetowej usługi Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md), aby uzyskać informacje na temat tworzenia aplikacji w programie Visual Studio. W usłudze Service Fabric Mesh można uruchamiać kontenery Docker systemu Windows i systemu Linux.  Jeśli pracujesz z kontenerami systemu Linux, wybierz pozycję **Przełącz na kontenery systemu Linux** na platformie Docker.  Jeśli pracujesz z kontenerami systemu Windows, wybierz pozycję **Przełącz na kontenery systemu Windows** na platformie Docker.
 
 Aby wypchnąć obraz do wystąpienia usługi ACR, najpierw musisz mieć ten obraz kontenera. Jeśli nie masz jeszcze żadnych lokalnych obrazów kontenerów, użyj polecenia [docker pull](https://docs.docker.com/engine/reference/commandline/pull/), aby ściągnąć obrazy [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) i [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) z usługi Docker Hub.
+
+>[!NOTE]
+> Od 2 listopada 2020 [limity szybkości pobierania mają zastosowanie](https://docs.docker.com/docker-hub/download-rate-limit/) do żądań anonimowych i uwierzytelnionych do usługi Docker Hub z kont planów bezpłatnych platformy Docker i są wymuszane na podstawie adresu IP. 
+> 
+> Te polecenia umożliwiają korzystanie z obrazów publicznych z usługi Docker Hub. Należy pamiętać, że może być ograniczona stawka. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie przy użyciu usługi Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
 
 Ściągnij obrazy systemu Windows:
 

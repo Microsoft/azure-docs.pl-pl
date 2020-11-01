@@ -8,19 +8,19 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 53887b7487c3f0bb70c9f8cc7cd61246fabc0b37
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970133"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145603"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Tworzenie niestandardowych zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji przy użyciu funkcji AutoRest
 
 Obecnie jedynymi opublikowanymi zestawami SDK płaszczyzny danych na potrzeby współdziałania z interfejsami API Digital bliźniaczych reprezentacji na platformie Azure są dla platformy .NET (C#), JavaScript i Java. Informacje o tych zestawach SDK i interfejsów API ogólnie można znaleźć w temacie [*How to: use Digital bliźniaczych reprezentacji API and SDK*](how-to-use-apis-sdks.md). Jeśli pracujesz w innym języku, w tym artykule przedstawiono sposób generowania własnego zestawu SDK płaszczyzny danych w wybranym języku przy użyciu funkcji AutoRest.
 
 >[!NOTE]
-> Możesz również użyć AutoRest do wygenerowania zestawu SDK płaszczyzny kontroli, jeśli chcesz. Aby to zrobić, wykonaj kroki opisane w tym artykule przy użyciu najnowszego pliku z **płaszczyzną kontroli Swagger** (openapi) z folderu [płaszczyzny kontroli Swagger]] ( https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) zamiast płaszczyzny danych 1).
+> Możesz również użyć AutoRest do wygenerowania zestawu SDK płaszczyzny kontroli, jeśli chcesz. Aby to zrobić, wykonaj kroki opisane w tym artykule przy użyciu najnowszego pliku z płaszczyzną **kontroli Swagger** (openapi) z poziomu [folderu Swagger płaszczyzny kontroli](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) , a nie płaszczyzny danych.
 
 ## <a name="set-up-your-machine"></a>Konfigurowanie maszyny
 
@@ -47,7 +47,7 @@ Aby uruchomić polecenie AutoRest dla pliku programu Azure Digital bliźniaczych
 autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-W związku z tym zobaczysz nowy folder o nazwie *ADTApi* w katalogu roboczym. Wygenerowane pliki zestawu SDK będą mieć *ADTApi*przestrzeni nazw. Ta przestrzeń nazw będzie nadal używana przez pozostałe przykłady użycia w tym artykule.
+W związku z tym zobaczysz nowy folder o nazwie *ADTApi* w katalogu roboczym. Wygenerowane pliki zestawu SDK będą mieć *ADTApi* przestrzeni nazw. Ta przestrzeń nazw będzie nadal używana przez pozostałe przykłady użycia w tym artykule.
 
 AutoRest obsługuje szeroką gamę generatorów kodu języka.
 
@@ -64,7 +64,7 @@ Oto odpowiednie kroki:
 3. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt *ADTApi* wygenerowanego rozwiązania i wybierz polecenie *Dodaj > istniejący element...*
 4. Znajdź folder, w którym został wygenerowany zestaw SDK, a następnie wybierz pliki na poziomie głównym
 5. Naciśnij przycisk "OK"
-6. Dodaj folder do projektu (Zaznacz projekt prawym przyciskiem myszy w Eksplorator rozwiązań i wybierz polecenie *dodaj > nowy folder*)
+6. Dodaj folder do projektu (Zaznacz projekt prawym przyciskiem myszy w Eksplorator rozwiązań i wybierz polecenie *dodaj > nowy folder* )
 7. Nazwij *modele* folderów
 8. Kliknij prawym przyciskiem myszy folder *modele* w Eksploratorze rozwiązań i wybierz polecenie *Dodaj > istniejący element...*
 9. Wybierz pliki w folderze *modele* wygenerowanego zestawu SDK i naciśnij przycisk "OK"
@@ -73,7 +73,7 @@ Aby pomyślnie skompilować zestaw SDK, potrzebne są następujące odwołania:
 * `Microsoft.Rest.ClientRuntime`
 * `Microsoft.Rest.ClientRuntime.Azure`
 
-Aby je dodać, Otwórz *narzędzia > Menedżer pakietów nuget > zarządzanie pakietami NuGet dla rozwiązania.*...
+Aby je dodać, Otwórz *narzędzia > Menedżer pakietów nuget > zarządzanie pakietami NuGet dla rozwiązania.* ...
 
 1. Na panelu upewnij się, że wybrana jest karta *Przeglądaj*
 2. Wyszukaj *firmę Microsoft. REST*
@@ -117,40 +117,25 @@ AutoRest generuje dwa typy wzorców stronicowania dla zestawu SDK:
 * Jeden dla wszystkich interfejsów API z wyjątkiem interfejsu API zapytań
 * Jeden dla interfejsu API zapytania
 
-W wzorcu stronicowania niezwiązanego z kwerendą istnieją dwie wersje każdego wywołania:
-* Wersja, która ma wykonać początkowe wywołanie (na przykład `DigitalTwins.ListEdges()` )
-* Wersja do pobrania następujących stron. Te wywołania mają sufiks "dalej" (na przykład `DigitalTwins.ListEdgesNext()` )
+W wzorcu stronicowania niezwiązanych z zapytaniami znajduje się fragment kodu przedstawiający sposób pobierania stronicowanej listy relacji wychodzących z usługi Azure Digital bliźniaczych reprezentacji:
 
-Oto fragment kodu przedstawiający sposób pobierania stronicowanej listy relacji wychodzących z usługi Azure Digital bliźniaczych reprezentacji:
 ```csharp
-try
-{
-    // List to hold the results in
-    List<object> relList = new List<object>();
-    // Enumerate the IPage object returned to get the results
-    // ListAsync will throw if an error occurs
-    IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
-    relList.AddRange(relPage);
-    // If there are more pages, the NextPageLink in the page is set
-    while (relPage.NextPageLink != null)
+ try 
+ {
+     // List the relationships.
+    AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
+    Console.WriteLine($"Twin {srcId} is connected to:");
+    // Iterate through the relationships found.
+    int numberOfRelationships = 0;
+    await foreach (string rel in results)
     {
-        // Get more pages...
-        relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
-        relList.AddRange(relPage);
+         ++numberOfRelationships;
+         // Do something with each relationship found
+         Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
     }
-    Console.WriteLine($"Found {relList.Count} relationships on {id}");
-    // Do something with each object found
-    // As relationships are custom types, they are JSON.Net types
-    foreach (JObject r in relList)
-    {
-        string relId = r.Value<string>("$edgeId");
-        string relName = r.Value<string>("$relationship");
-        Console.WriteLine($"Found relationship {relId} from {id}");
-    }
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error retrieving relationships on {id}: {e.Response.StatusCode}");
+    Console.WriteLine($"Found {numberOfRelationships} relationships on {srcId}");
+} catch (RequestFailedException rex) {
+    Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
 }
 ```
 

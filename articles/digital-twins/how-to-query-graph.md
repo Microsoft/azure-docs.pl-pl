@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ea12b3eb72ce05f2672f6ca0912cc67345413c3c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8aad0d9fde30a235903364d57a73c1c53f08ecce
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461281"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145790"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -50,18 +50,19 @@ WHERE ...
 Liczbę elementów w zestawie wyników można obliczyć przy użyciu `Select COUNT` klauzuli:
 
 ```sql
-SELECT COUNT() 
+SELECT COUNT()
 FROM DIGITALTWINS
-``` 
+```
 
 Dodaj `WHERE` klauzulę, aby policzyć liczbę elementów spełniających określone kryteria. Oto kilka przykładów zliczania z zastosowanym filtrem na podstawie typu modelu sznurka (Aby uzyskać więcej informacji na temat tej składni, zobacz [*zapytania według modelu*](#query-by-model) poniżej):
 
 ```sql
-SELECT COUNT() 
-FROM DIGITALTWINS 
-WHERE IS_OF_MODEL('dtmi:sample:Room;1') 
-SELECT COUNT() 
-FROM DIGITALTWINS c 
+SELECT COUNT()
+FROM DIGITALTWINS
+WHERE IS_OF_MODEL('dtmi:sample:Room;1')
+
+SELECT COUNT()
+FROM DIGITALTWINS c
 WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
 ```
 
@@ -74,72 +75,73 @@ JOIN LightPanel RELATED Room.contains
 JOIN LightBulb RELATED LightPanel.contains  
 WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
 AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
-AND Room.$dtId IN ['room1', 'room2'] 
+AND Room.$dtId IN ['room1', 'room2']
 ```
 
 ### <a name="specify-return-set-with-projections"></a>Określanie zestawu powrotu z projekcjami
 
-Korzystając z projekcji, można wybrać kolumny, które będą zwracane przez zapytanie. 
+Korzystając z projekcji, można wybrać kolumny, które będą zwracane przez zapytanie.
 
 >[!NOTE]
->W tej chwili złożone właściwości nie są obsługiwane. Aby upewnić się, że właściwości projekcji są prawidłowe, Połącz projekcje ze `IS_PRIMITIVE` sprawdzaniem. 
+>W tej chwili złożone właściwości nie są obsługiwane. Aby upewnić się, że właściwości projekcji są prawidłowe, Połącz projekcje ze `IS_PRIMITIVE` sprawdzaniem.
 
-Oto przykład zapytania korzystającego z projekcji do zwracania bliźniaczych reprezentacji i relacji. Następujące zapytanie bada *odbiorcę*, *fabrykę* i *krawędź* w scenariuszu, w którym *fabryka* z identyfikatorem *ABC* jest związana z *konsumentem* za pośrednictwem relacji *fabryki. Klient*, a ta relacja jest prezentowana jako *krawędź*.
+Oto przykład zapytania korzystającego z projekcji do zwracania bliźniaczych reprezentacji i relacji. Następujące zapytanie bada *odbiorcę* , *fabrykę* i *krawędź* w scenariuszu, w którym *fabryka* z identyfikatorem *ABC* jest związana z *konsumentem* za pośrednictwem relacji *fabryki. Klient* , a ta relacja jest prezentowana jako *krawędź* .
 
 ```sql
-SELECT Consumer, Factory, Edge 
-FROM DIGITALTWINS Factory 
-JOIN Consumer RELATED Factory.customer Edge 
-WHERE Factory.$dtId = 'ABC' 
+SELECT Consumer, Factory, Edge
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
 ```
 
-Można również użyć projekcji, aby zwrócić Właściwość sznurka. Następujące zapytanie bada Właściwość *name* *odbiorców* , którzy są powiązani z *fabryką* z identyfikatorem *ABC* za pomocą relacji *fabryki. Klient*. 
+Można również użyć projekcji, aby zwrócić Właściwość sznurka. Następujące zapytanie bada Właściwość *name* *odbiorców* , którzy są powiązani z *fabryką* z identyfikatorem *ABC* za pomocą relacji *fabryki. Klient* .
 
 ```sql
-SELECT Consumer.name 
-FROM DIGITALTWINS Factory 
-JOIN Consumer RELATED Factory.customer Edge 
-WHERE Factory.$dtId = 'ABC' 
+SELECT Consumer.name
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Consumer.name)
 ```
 
-Można również użyć projekcji do zwrócenia właściwości relacji. Podobnie jak w poprzednim przykładzie, następujące zapytanie projektuje Właściwość *name* *odbiorców* związanych z *fabryką* z identyfikatorem *ABC* przez relację *fabryki. Klient*; ale teraz zwraca również dwie właściwości tej relacji, *Prop1* i *prop2*. Robi to poprzez nazwę *krawędzi* relacji i gromadzenie jej właściwości.  
+Można również użyć projekcji do zwrócenia właściwości relacji. Podobnie jak w poprzednim przykładzie, następujące zapytanie projektuje Właściwość *name* *odbiorców* związanych z *fabryką* z identyfikatorem *ABC* przez relację *fabryki. Klient* ; ale teraz zwraca również dwie właściwości tej relacji, *Prop1* i *prop2* . Robi to poprzez nazwę *krawędzi* relacji i gromadzenie jej właściwości.  
 
 ```sql
-SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area 
-FROM DIGITALTWINS Factory 
-JOIN Consumer RELATED Factory.customer Edge 
-WHERE Factory.$dtId = 'ABC' 
+SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
 ```
 
 Aliasów można również używać do uproszczenia zapytań z projekcją.
 
-Następujące zapytanie wykonuje te same operacje co w poprzednim przykładzie, ale aliasuje nazwy właściwości do `consumerName` , `first` , `second` i `factoryArea` . 
- 
+Następujące zapytanie wykonuje te same operacje co w poprzednim przykładzie, ale aliasuje nazwy właściwości do `consumerName` , `first` , `second` i `factoryArea` .
+
 ```sql
-SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea 
-FROM DIGITALTWINS Factory 
-JOIN Consumer RELATED Factory.customer Edge 
-WHERE Factory.$dtId = 'ABC' 
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)" 
+SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)"
 ```
 
-Poniżej znajduje się podobne zapytanie, które wysyła zapytania do tego samego zestawu, co powyżej, ale zawiera projekty tylko właściwość *Consumer.Name* jako `consumerName` i *Factory* tworzy jako dwuosiowe wszystkie projekty. 
+Poniżej znajduje się podobne zapytanie, które wysyła zapytania do tego samego zestawu, co powyżej, ale zawiera projekty tylko właściwość *Consumer.Name* jako `consumerName` i *Factory* tworzy jako dwuosiowe wszystkie projekty.
 
 ```sql
-SELECT Consumer.name AS consumerName, Factory 
-FROM DIGITALTWINS Factory 
-JOIN Consumer RELATED Factory.customer Edge 
-WHERE Factory.$dtId = 'ABC' 
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) 
+SELECT Consumer.name AS consumerName, Factory
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
 ```
 
 ### <a name="query-by-property"></a>Zapytanie według właściwości
 
 Pobieranie bliźniaczych reprezentacji cyfrowych według **Właściwości** (łącznie z identyfikatorami i metadanymi):
+
 ```sql
-SELECT  * 
+SELECT  *
 FROM DigitalTwins T  
 WHERE T.firmwareVersion = '1.1'
 AND T.$dtId in ['123', '456']
@@ -149,20 +151,20 @@ AND T.Temperature = 70
 > [!TIP]
 > Identyfikator dwucyfrowego podpisu jest wysyłany przy użyciu pola metadanych `$dtId` .
 
-Możesz również uzyskać bliźniaczych reprezentacji na podstawie tego, **czy określona właściwość jest zdefiniowana**. Oto zapytanie, które pobiera bliźniaczych reprezentacji, które mają zdefiniowaną Właściwość *Location* :
+Możesz również uzyskać bliźniaczych reprezentacji na podstawie tego, **czy określona właściwość jest zdefiniowana** . Oto zapytanie, które pobiera bliźniaczych reprezentacji, które mają zdefiniowaną Właściwość *Location* :
 
 ```sql
 SELECT *
 FROM DIGITALTWINS WHERE IS_DEFINED(Location)
 ```
 
-Może to ułatwić uzyskanie bliźniaczych reprezentacji przez ich właściwości *tagów* , zgodnie z opisem w temacie [Dodawanie tagów do Digital bliźniaczych reprezentacji](how-to-use-tags.md). Oto zapytanie, które pobiera wszystkie bliźniaczych reprezentacji oznaczone *czerwonymi*:
+Może to ułatwić uzyskanie bliźniaczych reprezentacji przez ich właściwości *tagów* , zgodnie z opisem w temacie [Dodawanie tagów do Digital bliźniaczych reprezentacji](how-to-use-tags.md). Oto zapytanie, które pobiera wszystkie bliźniaczych reprezentacji oznaczone *czerwonymi* :
 
 ```sql
-select * from digitaltwins where is_defined(tags.red) 
+select * from digitaltwins where is_defined(tags.red)
 ```
 
-Możesz również uzyskać bliźniaczych reprezentacji na podstawie **typu właściwości**. Oto zapytanie, które pobiera bliźniaczych reprezentacji, którego właściwość *temperatury* jest liczbą:
+Możesz również uzyskać bliźniaczych reprezentacji na podstawie **typu właściwości** . Oto zapytanie, które pobiera bliźniaczych reprezentacji, którego właściwość *temperatury* jest liczbą:
 
 ```sql
 SELECT * FROM DIGITALTWINS T
@@ -171,7 +173,14 @@ WHERE IS_NUMBER(T.Temperature)
 
 ### <a name="query-by-model"></a>Zapytanie według modelu
 
-`IS_OF_MODEL`Operatora można użyć do filtrowania na podstawie [**modelu**](concepts-models.md)sznurka. Obsługuje dziedziczenie i ma kilka opcji przeciążenia.
+`IS_OF_MODEL`Operatora można użyć do filtrowania na podstawie [**modelu**](concepts-models.md)sznurka.
+
+Ta właściwość uważa semantykę [dziedziczenia](concepts-models.md#model-inheritance) i [wersji](how-to-manage-model.md#update-models) , a w przypadku, gdy dwuosiowy spełnia jeden z następujących warunków, ma **wartość true** dla danej sznurka:
+
+* Dwuosiowy realizuje bezpośrednio model dostarczony do `IS_OF_MODEL()` , a numer wersji modelu na przędze jest *większy lub równy* numerowi wersji podanego modelu
+* Przędza implementuje model, który *rozszerza* model, który jest dostarczany do `IS_OF_MODEL()` , a rozszerzony numer wersji modelu przędzy jest *większy lub równy* numerowi wersji podanego modelu
+
+Ta metoda ma kilka opcji przeciążenia.
 
 Najprostszym zastosowaniem jest `IS_OF_MODEL` tylko `twinTypeName` parametr: `IS_OF_MODEL(twinTypeName)` .
 Oto przykład zapytania, który przekazuje wartość w tym parametrze:
@@ -203,12 +212,12 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', ex
 
 ### <a name="query-based-on-relationships"></a>Zapytanie w oparciu o relacje
 
-Podczas wykonywania zapytań na podstawie **relacji**cyfrowych bliźniaczych reprezentacji ' język zapytań Digital bliźniaczych reprezentacji platformy Azure ma specjalną składnię.
+Podczas wykonywania zapytań na podstawie **relacji** cyfrowych bliźniaczych reprezentacji ' język zapytań Digital bliźniaczych reprezentacji platformy Azure ma specjalną składnię.
 
-Relacje są ściągane do zakresu zapytania w `FROM` klauzuli. Istotną różnicą od "klasycznych" języków typu SQL jest to, że każde wyrażenie w tej `FROM` klauzuli nie jest tabelą, a `FROM` klauzula wskazuje przechodzenie między różnymi jednostkami i jest zapisywana przy użyciu Digital bliźniaczych reprezentacji wersja systemu Azure `JOIN` . 
+Relacje są ściągane do zakresu zapytania w `FROM` klauzuli. Istotną różnicą od "klasycznych" języków typu SQL jest to, że każde wyrażenie w tej `FROM` klauzuli nie jest tabelą, a `FROM` klauzula wskazuje przechodzenie między różnymi jednostkami i jest zapisywana przy użyciu Digital bliźniaczych reprezentacji wersja systemu Azure `JOIN` .
 
 Należy przypomnieć, że dzięki możliwościom [modelu](concepts-models.md) Digital bliźniaczych reprezentacji na platformie Azure relacje nie istnieją niezależnie od bliźniaczych reprezentacji. Oznacza to, że język zapytań usługi Azure Digital bliźniaczych reprezentacji `JOIN` jest nieco inny niż ogólny kod SQL `JOIN` , ponieważ w tym miejscu nie można wykonywać zapytań niezależnie od siebie i muszą one być powiązane z sznurem.
-Aby uwzględnić tę różnicę, słowo kluczowe `RELATED` jest używane w `JOIN` klauzuli do odwoływania się do zestawu relacji typu bliźniaczy. 
+Aby uwzględnić tę różnicę, słowo kluczowe `RELATED` jest używane w `JOIN` klauzuli do odwoływania się do zestawu relacji typu bliźniaczy.
 
 W poniższej sekcji przedstawiono kilka przykładów tego wyglądu.
 
@@ -219,22 +228,22 @@ W poniższej sekcji przedstawiono kilka przykładów tego wyglądu.
 
 Aby uzyskać zestaw danych, który zawiera relacje, należy użyć pojedynczej `FROM` instrukcji, a następnie N `JOIN` instrukcji, gdzie `JOIN` instrukcja Express Relationships w wyniku `FROM` instrukcji or `JOIN` .
 
-Oto przykład zapytania opartego na relacji. Ten fragment kodu wybiera wszystkie cyfrowe bliźniaczych reprezentacji z właściwością *ID* "ABC" i wszystkie cyfrowe bliźniaczych reprezentacji powiązane z tymi cyfrowymi bliźniaczych reprezentacji za pośrednictwem relacji *zawiera* . 
+Oto przykład zapytania opartego na relacji. Ten fragment kodu wybiera wszystkie cyfrowe bliźniaczych reprezentacji z właściwością *ID* "ABC" i wszystkie cyfrowe bliźniaczych reprezentacji powiązane z tymi cyfrowymi bliźniaczych reprezentacji za pośrednictwem relacji *zawiera* .
 
 ```sql
 SELECT T, CT
 FROM DIGITALTWINS T
 JOIN CT RELATED T.contains
-WHERE T.$dtId = 'ABC' 
+WHERE T.$dtId = 'ABC'
 ```
 
->[!NOTE] 
+>[!NOTE]
 > Deweloper nie musi skorelować tego `JOIN` z wartością klucza w `WHERE` klauzuli (lub określić wartości klucza wbudowanej z `JOIN` definicją). Ta korelacja jest obliczana automatycznie przez system, ponieważ właściwości relacji same identyfikują jednostkę docelową.
 
 #### <a name="query-the-properties-of-a-relationship"></a>Zapytanie o właściwości relacji
 
-Podobnie jak w przypadku bliźniaczych reprezentacji Digital ma właściwości opisane za pośrednictwem DTDL, relacje mogą również mieć właściwości. Możesz badać bliźniaczych reprezentacji **na podstawie właściwości ich relacji**.
-Język zapytań usługi Azure Digital bliźniaczych reprezentacji umożliwia filtrowanie i projekcję relacji przez przypisanie aliasu do relacji w obrębie `JOIN` klauzuli. 
+Podobnie jak w przypadku bliźniaczych reprezentacji Digital ma właściwości opisane za pośrednictwem DTDL, relacje mogą również mieć właściwości. Możesz badać bliźniaczych reprezentacji **na podstawie właściwości ich relacji** .
+Język zapytań usługi Azure Digital bliźniaczych reprezentacji umożliwia filtrowanie i projekcję relacji przez przypisanie aliasu do relacji w obrębie `JOIN` klauzuli.
 
 Na przykład rozważmy relację *servicedBy* , która ma właściwość *reportedCondition* . W poniższym zapytaniu ta relacja ma alias "R", aby można było odwołać się do jego właściwości.
 
@@ -242,7 +251,7 @@ Na przykład rozważmy relację *servicedBy* , która ma właściwość *reporte
 SELECT T, SBT, R
 FROM DIGITALTWINS T
 JOIN SBT RELATED T.servicedBy R
-WHERE T.$dtId = 'ABC' 
+WHERE T.$dtId = 'ABC'
 AND R.reportedCondition = 'clean'
 ```
 
@@ -250,18 +259,18 @@ W powyższym przykładzie Zwróć uwagę na to, jak *reportedCondition* jest wł
 
 ### <a name="query-with-multiple-joins"></a>Zapytanie z wieloma sprzężeniami
 
-Obecnie w wersji zapoznawczej, do pięciu `JOIN` s są obsługiwane w jednym zapytaniu. Umożliwia to jednoczesne przechodzenie między różnymi poziomami relacji.
+`JOIN`Pojedyncze zapytanie obsługuje maksymalnie pięć s. Umożliwia to jednoczesne przechodzenie między różnymi poziomami relacji.
 
 Oto przykład zapytania z wielosprzężeniem, które pobiera wszystkie żarówki zawarte w panelach lekkich w pokojach 1 i 2.
 
 ```sql
-SELECT LightBulb 
-FROM DIGITALTWINS Room 
-JOIN LightPanel RELATED Room.contains 
-JOIN LightBulb RELATED LightPanel.contains 
-WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1') 
-AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1') 
-AND Room.$dtId IN ['room1', 'room2'] 
+SELECT LightBulb
+FROM DIGITALTWINS Room
+JOIN LightPanel RELATED Room.contains
+JOIN LightBulb RELATED LightPanel.contains
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')
+AND Room.$dtId IN ['room1', 'room2']
 ```
 
 ### <a name="other-compound-query-examples"></a>Inne przykładowe zapytania złożone
@@ -312,27 +321,30 @@ Obsługiwane są następujące funkcje ciągów:
 
 ## <a name="run-queries-with-an-api-call"></a>Uruchom zapytania z wywołaniem interfejsu API
 
-Po określeniu ciągu zapytania należy wykonać operację, wykonując wywołanie do **interfejsu API zapytania**.
+Po określeniu ciągu zapytania należy wykonać operację, wykonując wywołanie do **interfejsu API zapytania** .
 Poniższy fragment kodu ilustruje to wywołanie z aplikacji klienckiej:
 
 ```csharp
-var client = new AzureDigitalTwinsAPIClient(<your-credentials>);
-client.BaseUri = new Uri(<your-Azure-Digital-Twins-instance-URL>);
 
-QuerySpecification spec = new QuerySpecification("SELECT * FROM digitaltwins");
-QueryResult result = await client.Query.QueryTwinsAsync(spec);
+var adtInstanceEndpoint = new Uri(your-Azure-Digital-Twins-instance-URL>);
+var tokenCredential = new DefaultAzureCredential();
+
+var client = new DigitalTwinsClient(adtInstanceEndpoint, tokenCredential);
+
+string query = "SELECT * FROM digitaltwins";
+AsyncPageable<string> result = await client.QueryAsync<string>(query);
 ```
 
-To wywołanie zwraca wyniki zapytania w postaci obiektu QueryResult. 
+To wywołanie zwraca wyniki zapytania w postaci obiektu ciągu.
 
-Wywołania zapytań obsługują stronicowanie. Oto kompletny przykład z obsługą błędów i stronicowaniem:
+Wywołania zapytań obsługują stronicowanie. Oto kompletny przykład użycia `BasicDigitalTwin` jako typ wyniku zapytania z obsługą błędów i stronicowaniem:
 
 ```csharp
 string query = "SELECT * FROM digitaltwins";
 try
 {
-    AsyncPageable<string> qresult = client.QueryAsync(query);
-    await foreach (string item in qresult) 
+    AsyncPageable<BasicDigitalTwin> qresult = client.QueryAsync<BasicDigitalTwin>(query);
+    await foreach (BasicDigitalTwin item in qresult)
     {
         // Do something with each result
     }
@@ -340,7 +352,7 @@ try
 catch (RequestFailedException e)
 {
     Log.Error($"Error {e.Status}: {e.Message}");
-    return null;
+    throw;
 }
 ```
 
@@ -348,10 +360,11 @@ catch (RequestFailedException e)
 
 Może istnieć opóźnienie do 10 sekund, po upływie którego zmiany w wystąpieniu zostaną odzwierciedlone w zapytaniach. Na przykład jeśli zostanie wykonana operacja, taka jak tworzenie lub usuwanie bliźniaczych reprezentacji za pomocą interfejsu API DigitalTwins, wynik może nie być natychmiast widoczny w żądaniach interfejsu API zapytań. Oczekiwanie na krótki okres powinno być wystarczające do rozwiązania.
 
-W trakcie korzystania z `JOIN` wersji zapoznawczej obowiązują dodatkowe ograniczenia.
+Istnieją dodatkowe ograniczenia dotyczące korzystania z programu `JOIN` .
+
 * W instrukcji nie są obsługiwane żadne podzapytania `FROM` .
 * `OUTER JOIN` Semantyka nie jest obsługiwana, znaczenie, jeśli relacja ma rangę zero, cały "wiersz" jest eliminowany z wyjściowego zestawu wyników.
-* W trakcie okresu zapoznawczego głębokość przechodzenia wykresu jest ograniczona do pięciu `JOIN` poziomów na zapytanie.
+* Głębokość przechodzenia wykresu jest ograniczona do pięciu `JOIN` poziomów na zapytanie.
 * Źródło `JOIN` operacji jest ograniczone: zapytanie musi deklarować bliźniaczych reprezentacji, w którym rozpoczyna się zapytanie.
 
 ## <a name="query-best-practices"></a>Najlepsze rozwiązania dotyczące zapytań
@@ -363,27 +376,35 @@ Poniżej znajdują się porady dotyczące wykonywania zapytań w usłudze Azure 
 * Można znacznie zmniejszyć liczbę potrzebnych zapytań, tworząc tablicę bliźniaczych reprezentacji i wykonując zapytania z `IN` operatorem. Rozważmy na przykład scenariusz, w którym *budynki* zawierają *piętra* i *piętra* *.* Aby wyszukać pokoje w budynku, które są gorącą, możesz:
 
     1. Znajdź piętra w budynku na podstawie `contains` relacji
+
         ```sql
         SELECT Floor
         FROM DIGITALTWINS Building
         JOIN Floor RELATED Building.contains
         WHERE Building.$dtId = @buildingId
-        ``` 
+        ```
+
     2. Aby znaleźć pokoje, zamiast rozważać piętra jeden-do-jednego i uruchamiać `JOIN` zapytanie, aby znaleźć pokoje dla każdej z nich, można wykonać zapytanie z kolekcją podłóg w budynku (nazwane *piętro* w zapytaniu poniżej).
 
         W aplikacji klienckiej:
+
         ```csharp
         var floors = "['floor1','floor2', ..'floorn']"; 
         ```
+
         W zapytaniu:
+
         ```sql
+
         SELECT Room
         FROM DIGITALTWINS Floor
         JOIN Room RELATED Floor.contains
         WHERE Floor.$dtId IN ['floor1','floor2', ..'floorn']
         AND Room. Temperature > 72
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
+
         ```
+
 * Nazwy właściwości i wartości są rozróżniana wielkość liter, dlatego należy zadbać o użycie dokładnych nazw zdefiniowanych w modelach. Jeśli nazwy właściwości są błędnie napisane lub nieprawidłowo, zestaw wyników jest pusty i nie są zwracane żadne błędy.
 
 ## <a name="next-steps"></a>Następne kroki

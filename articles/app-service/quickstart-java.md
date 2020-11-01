@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f6a4045308aa0ae8488839b0d5ea4d476c4dc883
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6d154d8b35c175b88e91545ddc1e78f58f9be685
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776327"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146828"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Szybki Start: Tworzenie aplikacji Java na Azure App Service
 
@@ -80,7 +80,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 1. Po wyświetleniu monitu z opcją **subskrypcji** wybierz odpowiednią pozycję, `Subscription` wprowadzając liczbę drukowania w wierszu.
 1. Po wyświetleniu monitu z opcją **aplikacji sieci Web** Zaakceptuj opcję defaut, `<create>` naciskając klawisz ENTER.
-1. Po wyświetleniu monitu z opcją systemu **operacyjnego** wybierz pozycję **Windows** , wprowadzając polecenie `2` .
+1. Po wyświetleniu monitu z opcją systemu **operacyjnego** wybierz pozycję **Windows** , wprowadzając polecenie `3` .
 1. Użyj domyślnej wersji języka Java 1,8, naciskając klawisz ENTER.
 1. Na koniec naciśnij klawisz Enter przy ostatnim monicie, aby potwierdzić wybrane opcje.
 
@@ -213,8 +213,8 @@ Właściwość | Wymagane | Opis | Wersja
 `<subscriptionId>` | fałsz | Określ Identyfikator subskrypcji. | 0.1.0 +
 `<resourceGroup>` | true | Grupa zasobów platformy Azure dla aplikacji sieci Web. | 0.1.0 +
 `<appName>` | true | Nazwa aplikacji sieci Web. | 0.1.0 +
-`<region>` | true | Określa region, w którym będzie hostowana aplikacja sieci Web; wartość domyślna to **westeurope**. Wszystkie prawidłowe regiony w sekcji [Obsługiwane regiony](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . | 0.1.0 +
-`<pricingTier>` | fałsz | Warstwa cenowa aplikacji sieci Web. Wartość domyślna to **P1V2**.| 0.1.0 +
+`<region>` | true | Określa region, w którym będzie hostowana aplikacja sieci Web; wartość domyślna to **westeurope** . Wszystkie prawidłowe regiony w sekcji [Obsługiwane regiony](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . | 0.1.0 +
+`<pricingTier>` | fałsz | Warstwa cenowa aplikacji sieci Web. Wartość domyślna to **P1V2** .| 0.1.0 +
 `<runtime>` | true | Konfiguracja środowiska uruchomieniowego, w [tym miejscu](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)można zobaczyć szczegóły. | 0.1.0 +
 `<deployment>` | true | W konfiguracji wdrożenia można zobaczyć szczegóły [tutaj](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0 +
 

@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6658dcd54c7290bbbad0c24c1cc0debd5ead8b18
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 347948734da439691bced01cf3693d0990567748
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789866"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146232"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Jak za pomocą Azure Portal zainicjować obsługę administracyjną maszyny wirtualnej z systemem Windows za pomocą SQL Server
 
@@ -109,7 +109,7 @@ Na karcie **dyski** Skonfiguruj opcje dysków.
 ![Ustawienia dysku maszyny wirtualnej SQL](./media/create-sql-vm-portal/azure-sqlvm-disks.png)
   
   
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 
 Na karcie **Sieć** Skonfiguruj opcje sieci. 
 
@@ -196,7 +196,7 @@ Aby uzyskać więcej informacji, zobacz [Configure Azure Key Vault Integration f
 
 Na karcie **ustawienia SQL Server** w obszarze **Konfiguracja magazynu** wybierz pozycję **Zmień konfigurację** , aby otworzyć stronę Konfiguracja magazynu zoptymalizowanego pod kątem wydajności i określić wymagania dotyczące magazynu.
 
-![Konfiguracja magazynu maszyny wirtualnej SQL](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
+![Zrzut ekranu, który pokazuje, gdzie można zmienić konfigurację magazynu.](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
 
 W obszarze **Usługa Storage zoptymalizowana dla** wybierz jedną z następujących opcji:
 

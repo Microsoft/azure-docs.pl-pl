@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
-ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: seo-lt-2019
+ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789917"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146692"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Zawsze włączona Grupa dostępności na SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,13 +68,13 @@ Użyj odbiornika DNN, aby zastąpić istniejący odbiornik VNN lub użyć go w p
 Aby rozpocząć, zobacz [Konfigurowanie odbiornika DNN](availability-group-distributed-network-name-dnn-listener-configure.md).
 
 
-## <a name="deployment"></a>wdrażania 
+## <a name="deployment"></a>Wdrożenie 
 
 Istnieje wiele opcji wdrażania grupy dostępności do SQL Server na maszynach wirtualnych platformy Azure, a w przypadku większej automatyzacji niż inne. 
 
 Poniższa tabela zawiera porównanie dostępnych opcji: 
 
-| |**[Witryna Azure Portal](availability-group-azure-portal-configure.md)**|**[Interfejs wiersza polecenia platformy Azure/PowerShell](./availability-group-az-commandline-configure.md)**|**[Szablony szybkiego startu](availability-group-quickstart-template-configure.md)**|**[Ręcznie](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+| |**[Azure Portal](availability-group-azure-portal-configure.md)**|**[Interfejs wiersza polecenia platformy Azure/PowerShell](./availability-group-az-commandline-configure.md)**|**[Szablony szybkiego startu](availability-group-quickstart-template-configure.md)**|**[Ręcznie](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |**Wersja programu SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Wydanie programu SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, standard|
@@ -94,7 +94,7 @@ Poniższa tabela zawiera porównanie dostępnych opcji:
 
 
 
-## <a name="considerations"></a>Kwestie do rozważenia 
+## <a name="considerations"></a>Zagadnienia do rozważenia 
 
 W klastrze trybu failover gościa maszyny wirtualnej IaaS platformy Azure zaleca się korzystanie z jednej karty sieciowej na serwerze (w węźle klastra) i pojedynczej podsieci. Sieć platformy Azure ma fizyczną nadmiarowość, co sprawia, że dodatkowe karty sieciowe i podsieci nie są potrzebne w klastrze gościa maszyny wirtualnej Azure IaaS. Mimo że raport z weryfikacji klastra wyświetli ostrzeżenie, że węzły są dostępne tylko w ramach jednej sieci, to ostrzeżenie można zignorować w klastrach trybu failover gościa maszyny wirtualnej IaaS platformy Azure. 
 

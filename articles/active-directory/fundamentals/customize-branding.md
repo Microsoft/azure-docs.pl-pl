@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "89565858"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Dodawanie znakowania do strony logowania Azure Active Directory organizacji
@@ -37,7 +37,7 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
 ### <a name="to-customize-your-branding"></a>Aby dostosować znakowanie
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora globalnego dla katalogu.
 
-2. Wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **znakowanie firmowe**, a następnie wybierz pozycję **Konfiguruj**.
+2. Wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **znakowanie firmowe** , a następnie wybierz pozycję **Konfiguruj** .
 
     ![Strona firmy Contoso — znakowanie firmowe, opcja Konfiguruj wyróżnione](media/customize-branding/company-branding-configure-button.png)
 
@@ -86,15 +86,15 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
     
         - **Kwadratowy obraz logo, motyw ciemny.** Analogicznie jak powyżej. Ten obraz logo umieszcza symbol logo kwadratowego, gdy jest używany z ciemnym tłem, na przykład w przypadku ekranów przyłączonych do usługi Azure AD systemu Windows 10 podczas korzystania z funkcji OOBE (out-of-Box Experience).  Jeśli logo wygląda dobrze na białym, ciemnoniebieskim i czarnym tle, nie musisz dodawać tego obrazu. 
         
-        - **Pokaż opcję, która ma pozostać zalogowana.** Możesz zezwolić użytkownikom na logowanie się do usługi Azure AD do momentu jawnego wylogowania. Jeśli wybierzesz opcję **nie**, ta opcja jest ukryta, a użytkownicy muszą logować się za każdym razem, gdy przeglądarka zostanie zamknięta i ponownie otwarta.
+        - **Pokaż opcję, która ma pozostać zalogowana.** Możesz zezwolić użytkownikom na logowanie się do usługi Azure AD do momentu jawnego wylogowania. Jeśli wybierzesz opcję **nie** , ta opcja jest ukryta, a użytkownicy muszą logować się za każdym razem, gdy przeglądarka zostanie zamknięta i ponownie otwarta.
 
             Ta funkcja jest dostępna tylko dla domyślnego obiektu znakowania, a nie w żadnym obiekcie specyficznym dla języka. Aby dowiedzieć się więcej o konfigurowaniu i rozwiązywaniu problemów z opcją pozostawania zalogowania, zobacz [Konfigurowanie monitu "pozostanie zalogowanym?" dla kont usługi Azure AD](keep-me-signed-in.md)
         
             >[!NOTE]
-            >Niektóre funkcje usługi SharePoint Online oraz pakietu Office 2010 zależą od tego, czy użytkownicy mogą wybrać opcję pozostania zalogowanym. Jeśli ta opcja zostanie ustawiona na **Nie**, użytkownicy mogą otrzymywać dodatkowe i nieoczekiwane monity o zalogowanie.
+            >Niektóre funkcje usługi SharePoint Online oraz pakietu Office 2010 zależą od tego, czy użytkownicy mogą wybrać opcję pozostania zalogowanym. Jeśli ta opcja zostanie ustawiona na **Nie** , użytkownicy mogą otrzymywać dodatkowe i nieoczekiwane monity o zalogowanie.
    
 
-3. Po zakończeniu dodawania znakowania wybierz pozycję **Zapisz**.
+3. Po zakończeniu dodawania znakowania wybierz pozycję **Zapisz** .
 
     Jeśli ten proces spowoduje utworzenie pierwszej niestandardowej konfiguracji znakowania, zostanie ona domyślnie utworzona dla dzierżawy. Jeśli masz dodatkowe konfiguracje, będziesz mieć możliwość wybrania konfiguracji domyślnej.
     
@@ -107,13 +107,13 @@ Po utworzeniu marki niestandardowej można wrócić i zmienić dowolne elementy.
 ### <a name="to-edit-your-custom-branding"></a>Aby edytować niestandardowe znakowanie
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora globalnego dla katalogu.
 
-2. Wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **znakowanie firmowe**, a następnie wybierz pozycję **Konfiguruj**.
+2. Wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **znakowanie firmowe** , a następnie wybierz pozycję **Konfiguruj** .
 
     ![Firma Contoso — Strona znakowania firmy z domyślną konfiguracją](media/customize-branding/company-branding-default-config.png)
 
 3. Na stronie **Konfiguruj znakowanie firmowe** Dodaj, Usuń lub zmień dowolne informacje na podstawie opisów w sekcji [Dostosowywanie strony logowania do usługi Azure AD w](#customize-your-azure-ad-sign-in-page) tym artykule.
 
-4. Wybierz pozycję **Zapisz**.
+4. Wybierz pozycję **Zapisz** .
 
    Uwzględnienie zmian znakowania na stronie logowania może potrwać do godziny.
 
@@ -124,13 +124,13 @@ Nie można zmienić języka oryginalnej konfiguracji z poziomu języka domyślne
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu konta administratora globalnego dla katalogu.
 
-2. Wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **znakowanie firmowe**, a następnie wybierz pozycję **nowy język**.
+2. Wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **znakowanie firmowe** , a następnie wybierz pozycję **nowy język** .
 
     ![Strona firmy Contoso — znakowanie firmowe z wyróżnioną opcją nowego języka](media/customize-branding/company-branding-new-language.png)
 
 3. Na stronie **Konfiguruj znakowanie firmowe** wybierz swój język (na przykład francuski), a następnie Dodaj przetłumaczone informacje na podstawie opisów w sekcji [Dostosowywanie strony logowania do usługi Azure AD w](#customize-your-azure-ad-sign-in-page) tym artykule.
 
-4. Wybierz pozycję **Zapisz**.
+4. Wybierz pozycję **Zapisz** .
 
     Strona **contoso — firmowy znakowanie** jest aktualizowana, aby pokazać nową konfigurację języka francuskiego.
 

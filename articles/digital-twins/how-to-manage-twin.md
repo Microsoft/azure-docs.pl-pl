@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4962116b683d648f8f2d229b5113d2c8a01e15f8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0851838b89a9a2bdc54526ac40014f645f3d88a2
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131007"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146590"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie usługą Digital Twins
 
@@ -29,10 +29,10 @@ Ten artykuł koncentruje się na zarządzaniu cyfrowym bliźniaczych reprezentac
 
 ## <a name="create-a-digital-twin"></a>Tworzenie dwucyfrowej dwuosiowej
 
-Aby utworzyć dwuosiowy, należy użyć `CreateDigitalTwin()` metody na kliencie usługi w następujący sposób:
+Aby utworzyć dwuosiowy, należy użyć `CreateOrReplaceDigitalTwinAsync()` metody na kliencie usługi w następujący sposób:
 
 ```csharp
-await client.CreateDigitalTwinAsync("myTwinId", initData);
+await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
 ```
 
 Aby utworzyć dwucyfrowe sznurki, należy podać:
@@ -55,10 +55,10 @@ Możesz inicjować właściwości sznurka w momencie utworzenia sznurka.
 
 Interfejs API tworzenia przędzy akceptuje obiekt, który jest serializowany do prawidłowego opisu JSON właściwości przędzy. Zobacz [*pojęcia: Digital bliźniaczych reprezentacji i wykres bliźniaczy*](concepts-twins-graph.md) dla opisu formatu JSON dla sznurka. 
 
-Najpierw można utworzyć obiekt danych do reprezentowania sznurka i jego danych właściwości. Następnie można użyć, `JsonSerializer` Aby przekazać serializowaną wersję tego obiektu do wywołania interfejsu API dla `initdata` parametru, tak jak to:
+Najpierw można utworzyć obiekt danych reprezentujący dwuosiową i jej dane właściwości, takie jak:
 
 ```csharp
-await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
 ```
 Można utworzyć obiekt parametru ręcznie lub przy użyciu dostarczonej klasy pomocnika. Oto przykład każdego z nich.
 
@@ -80,14 +80,14 @@ twin.Metadata.ModelId = "dtmi:example:Room;1";
 Dictionary<string, object> props = new Dictionary<string, object>();
 props.Add("Temperature", 25.0);
 props.Add("Humidity", 50.0);
-twin.CustomProperties = props;
+twin.Contents = props;
 
-client.CreateDigitalTwinAsync("myRoomId", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myRoomId", twin);
 Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` obiekty są dołączone do `Id` pola. To pole można pozostawić puste, ale jeśli dodasz wartość identyfikatora, musi ona odpowiadać parametrowi identyfikatora przesłanemu do `CreateDigitalTwin()` wywołania. Przykład:
+> `BasicDigitalTwin` obiekty są dołączone do `Id` pola. To pole można pozostawić puste, ale jeśli dodasz wartość identyfikatora, musi ona odpowiadać parametrowi identyfikatora przesłanemu do `CreateOrReplaceDigitalTwinAsync()` wywołania. Przykład:
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -100,15 +100,14 @@ Możesz uzyskać dostęp do szczegółów dowolnych cyfr cyfrowych poprzez wywo�
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-To wywołanie zwraca dane z sznurka jako ciąg JSON. Oto przykład sposobu użycia tego do wyświetlania szczegółów bliźniaczych:
+To wywołanie zwraca dane z sznurka jako typ obiektu o jednoznacznie określonym typie, taki jak `BasicDigitalTwin` . Oto przykład sposobu użycia tego do wyświetlania szczegółów bliźniaczych:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin("myRoomId");
-twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin("myRoomId");
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.CustomProperties.Keys)
+foreach (string prop in twin.Contents.Keys)
 {
-  if (twin.CustomProperties.TryGetValue(prop, out object value))
+  if (twin.Contents.TryGetValue(prop, out object value))
   Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -183,12 +182,11 @@ Można przeanalizować zwracany kod JSON dla sznurka przy użyciu wybranej bibli
 Można również użyć klasy pomocnika serializacji, `BasicDigitalTwin` która jest dołączona do zestawu SDK, która zwróci podstawowe metadane i właściwości w formie wstępnie przeanalizowanej. Oto przykład:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_Id);
-BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-foreach (string prop in twin.CustomProperties.Keys)
+foreach (string prop in twin.Contents.Keys)
 {
-    if (twin.CustomProperties.TryGetValue(prop, out object value))
+    if (twin.Contents.TryGetValue(prop, out object value))
         Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
@@ -224,30 +222,12 @@ Oto przykład kodu poprawki JSON. Ten dokument zastępuje wartości właściwoś
   }
 ]
 ```
-Poprawki można tworzyć ręcznie lub za pomocą klasy pomocnika serializacji w [zestawie SDK](how-to-use-apis-sdks.md). Oto przykład każdego z nich.
-
-#### <a name="create-patches-manually"></a>Ręczne tworzenie poprawek
+Poprawki można tworzyć przy użyciu `JsonPatchDocument` [zestawu SDK](how-to-use-apis-sdks.md)programu. Oto przykład:
 
 ```csharp
-List<object> twinData = new List<object>();
-twinData.Add(new Dictionary<string, object>() {
-    { "op", "add"},
-    { "path", "/Temperature"},
-    { "value", 25.0}
-});
-
-await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
-Console.WriteLine("Updated twin properties");
-FetchAndPrintTwin(twin_Id, client);
-}
-```
-
-#### <a name="create-patches-using-the-helper-class"></a>Tworzenie poprawek przy użyciu klasy pomocnika
-
-```csharp
-UpdateOperationsUtility uou = new UpdateOperationsUtility();
-uou.AppendAddOp("/Temperature", 25.0);
-await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
+var updateTwinData = new JsonPatchDocument();
+updateTwinData.AppendAddOp("/Temperature", temperature.Value<double>());
+await client.UpdateDigitalTwinAsync(twin_Id, updateTwinData);
 ```
 
 ### <a name="update-properties-in-digital-twin-components"></a>Aktualizowanie właściwości w składnikach Digital bliźniaczy
@@ -346,11 +326,10 @@ public async Task FindAndDeleteOutgoingRelationshipsAsync(string dtId)
     try
     {
         // GetRelationshipsAsync will throw an error if a problem occurs
-        AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+        AsyncPageable<BasicRelationship> rels = client.GetRelationshipsAsync<BasicRelationship>(dtId);
 
-        await foreach (string relJson in relsJson)
+        await foreach (BasicRelationship rel in rels)
         {
-            var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
             await client.DeleteRelationshipAsync(dtId, rel.Id).ConfigureAwait(false);
             Log.Ok($"Deleted relationship {rel.Id} from {dtId}");
         }
@@ -455,8 +434,8 @@ namespace minimal
             Dictionary<string, object> props = new Dictionary<string, object>();
             props.Add("Temperature", 35.0);
             props.Add("Humidity", 55.0);
-            twin.CustomProperties = props;
-            await client.CreateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            twin.Contents = props;
+            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twin_Id, twin);
             Console.WriteLine("Twin created successfully");
             Console.WriteLine();
 
@@ -467,14 +446,9 @@ namespace minimal
             Console.WriteLine();
 
             //Update twin data
-            List<object> twinData = new List<object>();
-            twinData.Add(new Dictionary<string, object>() 
-            {
-                { "op", "add"},
-                { "path", "/Temperature"},
-                { "value", 25.0}
-            });
-            await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+            var updateTwinData = new JsonPatchDocument();
+            updateTwinData.AppendAdd("/Temperature", 25.0);
+            await client.UpdateDigitalTwinAsync(twin_Id, updateTwinData);
             Console.WriteLine("Twin properties updated");
             Console.WriteLine();
 
@@ -491,12 +465,11 @@ namespace minimal
         private static BasicDigitalTwin FetchAndPrintTwin(string twin_Id, DigitalTwinsClient client)
         {
             BasicDigitalTwin twin;
-            Response<string> res = client.GetDigitalTwin(twin_Id);
-            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            Response<BasicDigitalTwin> twin = client.GetDigitalTwin(twin_Id);
             Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-            foreach (string prop in twin.CustomProperties.Keys)
+            foreach (string prop in twin.Contents.Keys)
             {
-                if (twin.CustomProperties.TryGetValue(prop, out object value))
+                if (twin.Contents.TryGetValue(prop, out object value))
                     Console.WriteLine($"Property '{prop}': {value}");
             }
 
@@ -524,11 +497,10 @@ namespace minimal
             try
             {
                 // GetRelationshipsAsync will throw an error if a problem occurs
-                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+                AsyncPageable<BasicRelationship> rels = client.GetRelationshipsAsync<BasicRelationship>(dtId);
 
-                await foreach (string relJson in relsJson)
+                await foreach (BasicRelationship rel in rels)
                 {
-                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
                     await client.DeleteRelationshipAsync(dtId, rel.Id).ConfigureAwait(false);
                     Console.WriteLine($"Deleted relationship {rel.Id} from {dtId}");
                 }

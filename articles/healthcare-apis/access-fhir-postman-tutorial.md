@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: f8b5e344fc963d466571e75ff16f17367dc32971
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37086a925d65a80f219c8e0a3358c834a2691701
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844851"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145654"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Dostęp do interfejsu API platformy Azure dla usługi FHIR za pomocą programu Poster
 
@@ -72,7 +72,7 @@ Konieczna będzie pewna część szczegółów:
 | Identyfikator klienta             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | Identyfikator aplikacji             |
 | Klucz tajny klienta         | `XXXXXXXX`                                                                                                        | Klucz klienta tajnego          |
 | Zakres | `<Leave Blank>` |
-| State                 | `1234`                                                                                                            |                            |
+| Stan                 | `1234`                                                                                                            |                            |
 | Uwierzytelnianie klienta | Wyślij poświadczenia klienta w treści                                                                                 |                 
 
 Trafij "token żądania" i przejdziesz przez przepływ uwierzytelniania Azure Active Directory, a token zostanie zwrócony do programu Poster. Jeśli wystąpią problemy, Otwórz konsolę programu Poster (z elementu menu "widok->Pokaż konsolę wpisów").
@@ -121,7 +121,7 @@ Teraz masz prawidłowy token dostępu. Możesz wstawić nowego pacjenta. Przejd�
 
 Trafij "Send" i zobaczysz, że pacjent został pomyślnie utworzony:
 
-![Utworzono pacjenta](media/tutorial-postman/postman-patient-created.png)
+![Zrzut ekranu pokazujący, że pacjent został pomyślnie utworzony.](media/tutorial-postman/postman-patient-created.png)
 
 W przypadku powtórzenia wyszukiwania pacjenta należy teraz zobaczyć rekord pacjenta:
 

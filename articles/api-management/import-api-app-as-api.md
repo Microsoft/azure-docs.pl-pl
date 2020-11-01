@@ -1,6 +1,6 @@
 ---
 title: Importowanie aplikacji interfejsu API jako interfejsu API przy użyciu witryny Azure Portal | Microsoft Docs
-description: Ten samouczek przedstawia sposób użycia usługi API Management (APIM) do importowania aplikacji interfejsu API jako interfejsu API.
+description: W tym artykule pokazano, jak używać programu API Management (APIM) do importowania aplikacji interfejsu API jako interfejsu API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 007598046ae64b390d44e61438b69bd26024b1c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41209233ec59f578db4ff7fd344bb96aefeb975e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626891"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146777"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importowanie aplikacji interfejsu API jako interfejsu API
 
@@ -40,15 +40,15 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importowanie i publikowanie interfejsu API zaplecza
 
 1. Przejdź do usługi API Management w Azure Portal i wybierz opcję **interfejsy API** z menu.
-2. Wybierz pozycję **Aplikacja interfejsu API** z listy **Dodaj nowy interfejs API**.
+2. Wybierz pozycję **Aplikacja interfejsu API** z listy **Dodaj nowy interfejs API** .
 
     ![Aplikacja interfejsu API](./media/import-api-app-as-api/api-app.png)
-3. Naciśnij pozycję **Przeglądaj**, aby wyświetlić listę aplikacji interfejsu API w ramach subskrypcji.
+3. Naciśnij pozycję **Przeglądaj** , aby wyświetlić listę aplikacji interfejsu API w ramach subskrypcji.
 4. Wybierz aplikację. Usługa APIM znajduje program Swagger skojarzony z wybraną aplikacją, a następnie pobiera go i importuje. 
 
     Jeśli usługa APIM nie znajdzie programu Swagger, uwidoczni interfejs API jako interfejs API „przekazywania”. 
 5. Dodaj sufiks adresu URL interfejsu API. Sufiks to nazwa, która identyfikuje dany interfejs API w tym wystąpieniu usługi APIM. Musi ona być unikatowa w tym wystąpieniu usługi APIM.
-6. Opublikuj interfejs API przez skojarzenie go z produktem. W takim przypadku jest używany produkt typu „*Nieograniczony*”.  Jeśli chcesz, aby interfejs API został opublikowany i był dostępny dla deweloperów, dodaj go do produktu. Możesz to zrobić podczas tworzenia interfejsu API lub ustawić tę opcję później.
+6. Opublikuj interfejs API przez skojarzenie go z produktem. W takim przypadku jest używany produkt typu „ *Nieograniczony* ”.  Jeśli chcesz, aby interfejs API został opublikowany i był dostępny dla deweloperów, dodaj go do produktu. Możesz to zrobić podczas tworzenia interfejsu API lub ustawić tę opcję później.
 
     Produkty to skojarzenia co najmniej jednego interfejsu API. Możesz uwzględnić wiele interfejsów API i zaoferować je deweloperom za pośrednictwem portalu deweloperów. Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskrybować produkt. Podczas subskrybowania otrzymują oni klucz subskrypcji działający dla każdego interfejsu API w tym produkcie. Jeśli utworzono wystąpienie usługi APIM, oznacza to, że użytkownik jest już administratorem, więc domyślnie posiada subskrypcję każdego produktu.
 
@@ -57,18 +57,18 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
     * **Starter (początkowy)**
     * **Nieograniczona liczba**   
 7. Wprowadź inne ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
-8. Wybierz przycisk **Utwórz**.
+8. Wybierz pozycję **Utwórz** .
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>Przetestuj nowy interfejs API w Azure Portal
 
 Operacje mogą być wywoływane bezpośrednio z witryny Azure Portal, która zapewnia wygodny sposób wyświetlania i testowania operacji interfejsu API.  
 
 1. Wybierz interfejs API utworzony w poprzednim kroku.
-2. Naciśnij kartę **Test**.
+2. Naciśnij kartę **Test** .
 3. Wybierz operację.
 
     Na stronie zostaną wyświetlone pola parametrów zapytania i pola nagłówków. Jeden z nagłówków to „Ocp-Apim-Subscription-Key” dla klucza subskrypcji produktu, który został skojarzony z tym interfejsem API. Jeśli utworzono wystąpienie usługi APIM, oznacza to, że użytkownik jest już administratorem, więc klucz zostanie uzupełniony automatycznie. 
-1. Kliknij pozycję **Wyślij**.
+1. Kliknij pozycję **Wyślij** .
 
     Zaplecze odpowiada wartością **200 OK** i pewnymi danymi.
 

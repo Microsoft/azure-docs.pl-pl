@@ -1,6 +1,6 @@
 ---
 title: 'Nawiązywanie połączenia z siecią wirtualną z poziomu komputera — P2S VPN i natywnego uwierzytelniania certyfikatu platformy Azure: PowerShell'
-description: Bezpieczne łączenie klientów systemu Windows i Mac OS X z siecią wirtualną platformy Azure przy użyciu połączeń typu punkt-lokacja oraz certyfikatów z podpisem własnym lub wystawionych przez urząd certyfikacji. W tym artykule używany jest program PowerShell.
+description: Bezpieczne łączenie klientów systemu Windows i macOS z usługą Azure Virtual Network przy użyciu P2S i wystawionych certyfikatów urzędu certyfikacji. W tym artykule używany jest program PowerShell.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -8,29 +8,22 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5d2902222dea3e84ebed04d80d7349167f83cae1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b6df7aa919721576aad10d6a476be976ef81df7d
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076031"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145875"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurowanie połączenia sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure: PowerShell
 
-W tym artykule opisano sposób bezpiecznego łączenia poszczególnych klientów z systemem Windows, Linux lub Mac OS X w sieci wirtualnej platformy Azure. Połączenia sieci VPN typu punkt-lokacja są przydatne, gdy chcesz nawiązać połączenie z siecią wirtualną z lokalizacji zdalnej, na przykład podczas komunikacji z domu lub z konferencji. Możesz również użyć połączenia typu punkt-lokacja zamiast połączenia sieci VPN typu lokacja-lokacja w przypadku niewielkiej liczby klientów, którzy muszą się łączyć z siecią wirtualną. Połączenia punkt-lokacja nie wymagają urządzenia sieci VPN ani publicznego adresu IP. Połączenie typu punkt-lokacja tworzy połączenie sieci VPN nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol) lub IKEv2.
+W tym artykule opisano sposób bezpiecznego łączenia poszczególnych klientów z systemem Windows, Linux lub macOS do sieci wirtualnej platformy Azure. Połączenia sieci VPN typu punkt-lokacja są przydatne, gdy chcesz nawiązać połączenie z siecią wirtualną z lokalizacji zdalnej, na przykład podczas komunikacji z domu lub z konferencji. Możesz również użyć połączenia typu punkt-lokacja zamiast połączenia sieci VPN typu lokacja-lokacja w przypadku niewielkiej liczby klientów, którzy muszą się łączyć z siecią wirtualną. Połączenia punkt-lokacja nie wymagają urządzenia sieci VPN ani publicznego adresu IP. Połączenie typu punkt-lokacja tworzy połączenie sieci VPN nawiązywane za pośrednictwem protokołu SSTP (Secure Socket Tunneling Protocol) lub IKEv2.
 
 :::image type="content" source="./media/vpn-gateway-how-to-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Łączenie się z komputera z diagramem połączeń sieci wirtualnej platformy Azure":::
 
 Więcej informacji o sieci VPN typu punkt-lokacja znajduje się w temacie [Informacje o sieci VPN typu punkt-lokacja](point-to-site-about.md). Aby utworzyć tę konfigurację przy użyciu Azure Portal, zobacz [Konfigurowanie sieci VPN typu punkt-lokacja przy użyciu Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-## <a name="architecture"></a>Architektura
-
-Natywne połączenia z uwierzytelnianiem certyfikatu platformy Azure między lokacjami używają następujących elementów, które można skonfigurować w tym ćwiczeniu:
-
-* Brama sieci VPN oparta na trasie.
-* Klucz publiczny (plik cer) dla certyfikatu głównego, przekazany na platformę Azure. Przekazany certyfikat jest uznawany za certyfikat zaufany i używany do uwierzytelniania.
-* Certyfikat klienta generowany na podstawie certyfikatu głównego. Certyfikat klienta instalowany na każdym komputerze klienckim, który będzie łączyć się z siecią wirtualną. Ten certyfikat jest używany do uwierzytelniania klientów.
-* Konfiguracja klienta sieci VPN. Pliki konfiguracji klienta sieci VPN zawierają informacje niezbędne klientowi do połączenia się z siecią wirtualną. Pliki te służą do konfigurowania istniejącego, natywnego dla systemu operacyjnego klienta sieci VPN . Każdy klient, który nawiązuje połączenie, musi być skonfigurowany przy użyciu ustawień w tych plikach konfiguracji.
+[!INCLUDE [P2S basic architecture](../../includes/vpn-gateway-p2s-architecture.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,7 +35,7 @@ Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskry
 > Wiele kroków opisanych w tym artykule może używać Azure Cloud Shell. Nie można jednak używać Cloud Shell do generowania certyfikatów. Ponadto w celu przekazania klucza publicznego certyfikatu głównego należy użyć Azure PowerShell lokalnego lub Azure Portal.
 >
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="1-sign-in"></a><a name="signin"></a>1. Zaloguj się
 
