@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92202417"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Projektowanie na potrzeby odzyskiwania po awarii za pomocą prywatnej komunikacji równorzędnej ExpressRoute
 
 ExpressRoute jest przeznaczona do wysokiej dostępności w celu zapewnienia poufności łączności sieci prywatnej z zasobami firmy Microsoft. Innymi słowy, w ścieżce ExpressRoute w sieci firmy Microsoft nie ma single point of failure. Aby poznać zagadnienia dotyczące projektowania w celu zmaksymalizowania dostępności obwodu usługi ExpressRoute, zobacz [projektowanie pod kątem wysokiej dostępności dzięki ExpressRoute][HA].
 
-Jednak dzięki Murphy popularnej powiedzeniem —*Jeśli coś się nie powiedzie, w tym artykule zauważamy*, że firma Microsoft koncentruje się na rozwiązaniach, które wykraczają poza awarie, które można rozwiązać za pomocą pojedynczego obwodu usługi ExpressRoute. Innymi słowy, w tym artykule poinformuj nas o architekturze sieci dotyczącej tworzenia niezawodnej łączności sieciowej zaplecza na potrzeby odzyskiwania po awarii za pomocą obwodów ExpressRoute geograficznie nadmiarowych.
+Jednak dzięki Murphy popularnej powiedzeniem — *Jeśli coś się nie powiedzie, w tym artykule zauważamy* , że firma Microsoft koncentruje się na rozwiązaniach, które wykraczają poza awarie, które można rozwiązać za pomocą pojedynczego obwodu usługi ExpressRoute. Innymi słowy, w tym artykule poinformuj nas o architekturze sieci dotyczącej tworzenia niezawodnej łączności sieciowej zaplecza na potrzeby odzyskiwania po awarii za pomocą obwodów ExpressRoute geograficznie nadmiarowych.
 
 >[!NOTE]
 >Koncepcje opisane w tym artykule są równie stosowane, gdy obwód ExpressRoute jest tworzony w ramach wirtualnej sieci WAN lub poza nią.
@@ -45,7 +45,7 @@ Jednak w przypadku równoważenia obciążenia ruchu między geograficznie nadmi
 
 Rozważmy przykładową sieć zilustrowaną na poniższym diagramie. W przykładzie geograficznie nadmiarowe połączenie ExpressRoute jest ustanawiane między lokalizacją lokalną firmy Contoso i siecią wirtualną firmy Contoso w regionie świadczenia usługi Azure. Na diagramie pełny zielony wiersz wskazuje preferowaną ścieżkę (za pośrednictwem ExpressRoute 1), a jeden z kropek reprezentuje ścieżkę "ścieżka do" (za pośrednictwem ExpressRoute 2).
 
-[![1]][1]
+[![jedno]][1]
 
 Podczas projektowania łączności ExpressRoute na potrzeby odzyskiwania po awarii należy rozważyć następujące kwestie:
 
@@ -80,7 +80,7 @@ Poniższy zrzut ekranu ilustruje konfigurację wagi połączenia ExpressRoute za
 
 Na poniższym diagramie przedstawiono wpływ wybierania ścieżki ExpressRoute przy użyciu wagi połączeń. Domyślna waga połączenia to 0. W poniższym przykładzie waga połączenia dla ExpressRoute 1 jest skonfigurowana jako 100. Gdy sieć wirtualna odbiera prefiks trasy anonsowany za pośrednictwem więcej niż jednego obwodu usługi ExpressRoute, Sieć wirtualna będzie preferować połączenie o najwyższej wadze.
 
-[![czwart]][4]
+[![4]][4]
 
 Jeśli oba połączenia ExpressRoute 1 przechodzą w dół, Sieć wirtualna zobaczy anons trasy 10.1.11.0/24 tylko za pośrednictwem ExpressRoute 2; w związku z tym w tym stanie awarii jest używany obwód gotowości.
 
