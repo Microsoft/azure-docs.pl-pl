@@ -14,16 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 4587ab5e2cf36dce65cd02b167656c88cfde10a1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b769703f7e7054571a3b65a021c0123d8ae07078
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096958"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148239"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Włącz analizę zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik 
 
-
+> [!IMPORTANT]
+>
+> - Funkcja UEBA jest teraz **ogólnie dostępna** w następującej lokalizacje geograficzne i regionach na platformie Azure:
+>    - Stany Zjednoczone Geografia
+>    - Region Zachodni Europa
+>    - Geografia Australia
+>
+> - We wszystkich innych lokalizacje geograficzne i regionach ta funkcja jest pozostawać w **publicznej wersji zapoznawczej** i jest udostępniana bez umowy dotyczącej poziomu usług. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,7 +48,7 @@ Aby włączyć lub wyłączyć tę funkcję (te wymagania wstępne nie są wymag
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Jak włączyć analizy zachowań użytkowników i jednostek
 
-1. Z menu nawigacyjnego wskaźnikowego platformy Azure wybierz pozycję **zachowanie jednostki (wersja zapoznawcza)** .
+1. Z menu nawigacyjnego wskaźnikowego platformy Azure wybierz pozycję **zachowanie jednostki** .
 
 1. Pod nagłówkiem **Włącz** **opcję Włącz.**
 

@@ -79,8 +79,6 @@
   items:
     - name: Podręcznik publikowania dla różnych typów ofert
       href: publisher-guide-by-offer-type.md
-    - name: Włączanie oferowania uwierzytelniania przy użyciu usługi Azure AD
-      href: enable-appsource-marketplace-using-azure-ad.md
     - name: Oferta aplikacji platformy Azure
       items:
         - name: Planowanie oferty szablonu rozwiązania

@@ -3,12 +3,12 @@ title: Obsługa oceny serwera fizycznego w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny serwera fizycznego za pomocą oceny serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: d9f7dea69c78bb038c06e5cb276628eba0381bb2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 58ecba6bcedc036e31046aef292e482085ad7cc6
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319306"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148409"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Macierz obsługi dla oceny serwera fizycznego 
 
@@ -31,11 +31,21 @@ Aby ocenić serwery fizyczne, należy utworzyć projekt Azure Migrate i dodać n
 
 ## <a name="physical-server-requirements"></a>Wymagania dotyczące serwera fizycznego
 
-| **Pomoc techniczna**                | **Szczegóły**               
-| :-------------------       | :------------------- |
-| **Wdrożenie serwera fizycznego**       | Serwer fizyczny może być autonomiczny lub wdrożony w klastrze. |
-| **Uprawnienia**           | **Windows:** Użyj konta domeny w przypadku maszyn przyłączonych do domeny oraz konta lokalnego w przypadku maszyn, które nie są przyłączone do domeny. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności. <br/><br/> **Linux:** Potrzebujesz konta głównego na serwerach systemu Linux, które mają być odnajdywane. <br/> Alternatywnie upewnij się, że wymagane funkcje są ustawione przy użyciu następujących poleceń. <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH + EIP/sbin/fdisk (jeśli/usr/sbin/fdisk nie istnieje) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode <br/> chmod a + r/sys/Class/DMI/ID/product_uuid
-| **System operacyjny** | Wszystkie systemy operacyjne Windows i Linux można ocenić pod kątem migracji. |
+**Wdrożenie serwera fizycznego:** Serwer fizyczny może być autonomiczny lub wdrożony w klastrze.
+
+**System operacyjny:** Wszystkie systemy operacyjne Windows i Linux można ocenić pod kątem migracji.
+
+**Uprawnienia:**
+- W przypadku serwerów z systemem Windows należy użyć konta domeny dla komputerów przyłączonych do domeny oraz konta lokalnego dla maszyn, które nie są przyłączone do domeny. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności.
+- W przypadku serwerów systemu Linux potrzebujesz konta głównego na serwerach systemu Linux, które mają być odnajdywane. Alternatywnie można ustawić konto inne niż główne z wymaganymi możliwościami przy użyciu następujących poleceń:
+
+**Polecenie** | **Cel**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH + EIP/sbin/fdisk _(jeśli/usr/sbin/fdisk nie istnieje)_ | Aby zebrać dane konfiguracji dysku
+setcap cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid,<br>cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin,<br>cap_sys_resource, cap_audit_control, cap_setfcap = + EIP "/sbin/LVM | Aby zebrać dane o wydajności dysku
+setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode | Aby zebrać numer seryjny systemu BIOS
+chmod a + r/sys/Class/DMI/ID/product_uuid | Aby zebrać identyfikator GUID systemu BIOS
+
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Wymagania urządzenia usługi Azure Migrate

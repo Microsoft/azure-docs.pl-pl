@@ -3,12 +3,12 @@ title: Przewodnik konfigurowania konta laboratorium przyspieszonego dla Azure La
 description: Ten przewodnik ułatwia administratorom szybkie skonfigurowanie konta laboratorium do użycia w ramach szkoły.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c186560b27ebcb543a23785dc5fbc556614f64b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0855e59aced37e50c088cfe89ffeb3d0af9fcdca
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445427"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148307"
 ---
 # <a name="lab-account-setup-guide"></a>Przewodnik konfigurowania konta laboratorium
 
@@ -29,6 +29,10 @@ Aby szybko rozpocząć pracę, Utwórz jedno konto laboratorium, a następnie w 
 ### <a name="who-should-be-owners-and-contributors-of-the-lab-account"></a>Kto powinna być właścicielami i współautorami konta laboratorium?
 
 Administratorzy są zazwyczaj właścicielami i współautorami dla konta laboratorium. Są one odpowiedzialne za zarządzanie zasadami, które mają zastosowanie do wszystkich laboratoriów zawartych w ramach konta laboratorium. Osoba, która tworzy konto laboratorium, jest automatycznie właścicielem. Możesz dodać dodatkowych właścicieli i współautorów, zazwyczaj z dzierżawy usługi Azure Active Directory (Azure AD) skojarzonej z Twoją subskrypcją. Może to być przydatne do zarządzania kontem laboratorium przez przypisanie roli właściciela lub współautora na poziomie konta laboratorium.
+
+[!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+
+Użytkownicy laboratorium widzą tylko jedną listę maszyn wirtualnych, do których mają dostęp między dzierżawcami w ramach Azure Lab Services.
 
 ### <a name="who-will-be-allowed-to-create-and-manage-labs"></a>Kto będzie uprawniony do tworzenia laboratoriów i zarządzania nimi?
 
@@ -70,7 +74,7 @@ Po zrozumieniu wymagań dotyczących konta laboratorium można je skonfigurować
 
 1. **Utwórz konto laboratorium.** Aby uzyskać instrukcje, zapoznaj się z samouczkiem dotyczącym [tworzenia konta laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#create-a-lab-account) .
 
-   Podczas tworzenia konta laboratorium pomocne może okazać się zapoznanie się z zasobami platformy Azure. Aby uzyskać więcej informacji zobacz następujące artykuły:
+   Podczas tworzenia konta laboratorium pomocne może okazać się zapoznanie się z zasobami platformy Azure. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
    - [Subskrypcja](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
    - [Grupa zasobów](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)

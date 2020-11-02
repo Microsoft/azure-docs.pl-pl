@@ -14,14 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: ad0486c9d2eb6c651b507f4b0a44f4a6fc2b018f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d3c0ba55541baf3f31952b82a2fa357b48a5f1a9
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100664"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148358"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identyfikowanie zaawansowanych zagrożeń przy użyciu funkcji analizy zachowań użytkowników i jednostek (UEBA) na platformie Azure — wskaźnik
+
+> [!IMPORTANT]
+>
+> - Funkcje UEBA i strony jednostki są teraz **ogólnie dostępne** w następujących regionach i obszarach lokalizacje geograficzne platformy Azure:
+>    - Stany Zjednoczone Geografia
+>    - Region Zachodni Europa
+>    - Geografia Australia
+>
+> - We wszystkich innych lokalizacje geograficzne i regionach te funkcje pozostają na czas w **publicznej wersji zapoznawczej** i są udostępniane bez umowy dotyczącej poziomu usług. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Co to jest Analiza zachowań użytkowników i jednostek (UEBA)?
 

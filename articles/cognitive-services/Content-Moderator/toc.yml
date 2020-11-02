@@ -6,6 +6,8 @@
     - name: Czym jest pakiet Content Moderator?
       href: overview.md
       expanded: true
+    - name: Co nowego
+      href: whats-new.md
 - name: Przewodniki Szybki start
   items:
     - name: Wypróbowywanie pakietu Content Moderator w Internecie

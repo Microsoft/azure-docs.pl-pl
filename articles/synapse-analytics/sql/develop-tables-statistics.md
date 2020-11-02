@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: cefc6cc72ed8d74663464f4ac2d672369cd9d31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288668"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148256"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statystyka w programie SQL Synapse
 
@@ -74,7 +74,7 @@ Aby uniknąć wymiernego obniżenia wydajności, należy upewnić się, że stat
 > [!NOTE]
 > Tworzenie statystyk jest rejestrowane [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) w innym kontekście użytkownika.
 
-Gdy są tworzone automatyczne statystyki, przyjmują one formę: _WA_Sys_<8 Identyfikator kolumny liczbowej w>_ szesnastkowym<8 identyfikator tabeli cyfrowej w> szesnastkowym. Można wyświetlić już utworzone statystyki poprzez uruchomienie polecenia [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) :
+Gdy są tworzone automatyczne statystyki, przyjmują one formę: _WA_Sys_ <8 Identyfikator kolumny liczbowej w>_ szesnastkowym<8 identyfikator tabeli cyfrowej w> szesnastkowym. Można wyświetlić już utworzone statystyki poprzez uruchomienie polecenia [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) :
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -173,7 +173,7 @@ CREATE STATISTICS [statistics_name]
     ON [schema_name].[table_name]([column_name]);
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -190,7 +190,7 @@ CREATE STATISTICS [statistics_name]
     WITH FULLSCAN;
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -245,7 +245,7 @@ Aby utworzyć obiekt statystyk z wieloma kolumnami, należy użyć powyższych p
 > [!NOTE]
 > Histogram, który jest używany do oszacowania liczby wierszy w wyniku zapytania, jest dostępny tylko dla pierwszej kolumny wymienionej w definicji obiektu statystyki.
 
-W tym przykładzie histogram znajduje się w * \_ kategorii Product (produkt*). Statystyki między kolumnami są obliczane na *podstawie \_ kategorii produktu* i * \_ sub_category produktu*:
+W tym przykładzie histogram znajduje się w *\_ kategorii Product (produkt* ). Statystyki między kolumnami są obliczane na *podstawie \_ kategorii produktu* i *\_ sub_category produktu* :
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Ponieważ istnieje korelacja między * \_ kategorią produktu* a * \_ podrzędną \_ kategorią produktu*, obiekt statystyk wielokolumnowych może być przydatny, jeśli te kolumny są dostępne w tym samym czasie.
+Ponieważ istnieje korelacja między *\_ kategorią produktu* a *\_ podrzędną \_ kategorią produktu* , obiekt statystyk wielokolumnowych może być przydatny, jeśli te kolumny są dostępne w tym samym czasie.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Tworzenie statystyk dla wszystkich kolumn w tabeli
 
@@ -403,7 +403,7 @@ Aby zaktualizować konkretny obiekt Statystyczny, należy użyć następującej 
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -419,7 +419,7 @@ Prostą metodą aktualizowania wszystkich obiektów statystyk w tabeli jest:
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -522,7 +522,7 @@ Ten prosty przykład przedstawia wszystkie trzy części obiektu statystyki:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -537,7 +537,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
     WITH stat_header, histogram, density_vector
 ```
 
-Na przykład:
+Przykład:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
@@ -616,7 +616,7 @@ Możesz chcieć wydłużyć Potok danych, aby zapewnić, że statystyki są aktu
 Następujące zasady dotyczące identyfikatorów GUID są dostępne do aktualizowania statystyk:
 
 - Upewnij się, że zestaw danych ma zaktualizowany co najmniej jeden obiekt statystyk. Ten rozmiar aktualizacji (liczba wierszy i liczba stron) w ramach aktualizacji statystyk.
-- Skup się na kolumnach uczestniczących w klauzulach JOIN, GROUP BY, ORDER BY i DISTINCT.
+- Skup się na kolumnach, w których uczestniczą klauzule WHERE, JOIN, GROUP BY, ORDER BY i DISTINCT.
 - Aktualizuj kolumny "Ascending Key", takie jak daty transakcji częściej, ponieważ te wartości nie zostaną uwzględnione w histogramie statystyki.
 - Rzadziej Aktualizuj statyczne kolumny dystrybucji.
 
@@ -629,12 +629,12 @@ W poniższych przykładach pokazano, jak używać różnych opcji tworzenia stat
 > [!NOTE]
 > W tej chwili można utworzyć statystyki pojedynczej kolumny.
 >
-> Nazwa procedury sp_create_file_statistics zostanie zmieniona na sp_create_openrowset_statistics. Rola serwera publicznego ma przyznane uprawnienie do ADMINISTROWANia OPERACJAmi ZBIORCZymi, gdy rola publicznej bazy danych ma uprawnienia do wykonywania w sp_create_file_statistics i sp_drop_file_statistics. Można to zmienić w przyszłości.
+> Następujące uprawnienia są wymagane do wykonania sp_create_openrowset_statistics i sp_drop_openrowset_statistics: ADMINISTROWANie OPERACJAmi ZBIORCZymi lub ADMINISTROWANie OPERACJAmi ZBIORCZymi bazy danych.
 
 Następująca procedura składowana służy do tworzenia statystyk:
 
 ```sql
-sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 Argumenty: [ @stmt =] N ' statement_text '-określa instrukcję języka Transact-SQL, która zwróci wartości kolumn, które będą używane na potrzeby statystyk. Aby określić przykłady danych do użycia, można użyć klasy postanowień. Jeśli nie określono parametruexception, zostanie użyta FULLSCAN.
@@ -666,7 +666,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT year
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
         FORMAT = ''CSV'',
@@ -698,7 +698,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -712,18 +712,18 @@ FROM OPENROWSET(
 Aby zaktualizować statystyki, należy porzucić i utworzyć statystyki. Poniższa procedura składowana służy do usuwania statystyk:
 
 ```sql
-sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> Nazwa procedury sp_drop_file_statistics zostanie zmieniona na sp_drop_openrowset_statistics. Rola serwera publicznego ma przyznane uprawnienie do ADMINISTROWANia OPERACJAmi ZBIORCZymi, gdy rola publicznej bazy danych ma uprawnienia do wykonywania w sp_create_file_statistics i sp_drop_file_statistics. Można to zmienić w przyszłości.
+> Następujące uprawnienia są wymagane do wykonania sp_create_openrowset_statistics i sp_drop_openrowset_statistics: ADMINISTROWANie OPERACJAmi ZBIORCZymi lub ADMINISTROWANie OPERACJAmi ZBIORCZymi bazy danych.
 
 Argumenty: [ @stmt =] N "statement_text" — określa tę samą instrukcję Transact-SQL używaną podczas tworzenia statystyk.
 
 Aby zaktualizować statystyki dla kolumny Year w zestawie danych, która jest oparta na pliku population.csv, należy porzucić i utworzyć statystyki:
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT payment_type
+EXEC sys.sp_drop_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -743,7 +743,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''

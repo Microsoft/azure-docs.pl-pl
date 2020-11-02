@@ -97,12 +97,10 @@
           items:
             - name: Jak aprowizować i zarządzać
               href: how-to-provision-manage.md
-            - name: Jak diagnozować i rozwiązywać problemy
-              href: how-to-diagnose-troubleshoot.md
-        - name: Ruch przychodzący i magazynowanie
-          items:
             - name: Jak wybrać identyfikator TSID
               href: how-to-select-tsid.md
+            - name: Jak diagnozować i rozwiązywać problemy
+              href: how-to-diagnose-troubleshoot.md
         - name: Model
           items:
             - name: Jak edytować model
