@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: bffe69dd5b7d3cdfcba1df3420d494dcffc33f9a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042670"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186590"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ Interfejsy API obiektów blob i interfejsy API Data Lake Storage Gen2 mogą dzia
 
 W tej sekcji opisano problemy i ograniczenia dotyczące używania interfejsów API obiektów blob i interfejsów API Data Lake Storage Gen2 do działania na tych samych danych.
 
-* Do zapisu w tym samym wystąpieniu pliku nie można używać interfejsów API i Data Lake Storage. W przypadku zapisywania do pliku przy użyciu Data Lake Storage Gen2 interfejsów API, bloki tego pliku nie będą widoczne dla wywołań interfejsu API [pobierania listy zablokowanych](https://docs.microsoft.com/rest/api/storageservices/get-block-list) . Jedynym wyjątkiem jest zastępowanie. Można zastąpić plik/obiekt BLOB przy użyciu dowolnego interfejsu API.
+* Nie można użyć interfejsu API obiektów blob i Data Lake Storage interfejsów API do zapisu w tym samym wystąpieniu pliku. W przypadku zapisywania do pliku przy użyciu Data Lake Storage Gen2 interfejsów API, bloki tego pliku nie będą widoczne dla wywołań interfejsu API [pobierania listy zablokowanych](https://docs.microsoft.com/rest/api/storageservices/get-block-list) . Jedynym wyjątkiem jest zastępowanie. Można zastąpić plik/obiekt BLOB przy użyciu dowolnego interfejsu API.
 
 * W przypadku korzystania z operacji [list obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) bez określania ogranicznika wyniki będą obejmować zarówno katalogi, jak i obiekty blob. Jeśli zdecydujesz się użyć ogranicznika, użyj tylko ukośnika ( `/` ). Jest to jedyny obsługiwany ogranicznik.
 

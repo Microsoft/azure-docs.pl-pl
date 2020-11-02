@@ -1,18 +1,18 @@
 ---
 title: Uruchom Planista wdrażania na potrzeby odzyskiwania po awarii programu VMware z Azure Site Recovery
 description: W tym artykule opisano sposób uruchamiania Planista wdrażania usługi Azure Site Recovery na potrzeby odzyskiwania po awarii oprogramowania VMware na platformę Azure.
-author: mayurigupta13
+author: rajeswari-mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/15/2019
-ms.author: mayg
-ms.openlocfilehash: 308958f00a3658196f124ac911d4d0195ebeb228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: ramamill
+ms.openlocfilehash: 05d260de726c62c130a58938c2a2c9fa2440a96d
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119841"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186726"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Uruchamianie Planista wdrażania na potrzeby odzyskiwania po awarii oprogramowania VMware
 Ten artykuł to podręcznik użytkownika planisty wdrożenia usługi Azure Site Recovery dla wdrożeń produkcyjnych oprogramowania VMware na platformie Azure.
@@ -86,7 +86,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Port|(Opcjonalnie) Numer portu do połączenia z hostem vCenter/ESXi. Port domyślny to 443.|
 |-Protocol| (Opcjonalnie) Wybrany protokół — „http” lub „https” — na potrzeby łączenia z programem vCenter. Protokół domyślny to https.|
 | -StorageAccountName | (Opcjonalnie) Nazwa konta magazynu używana do wyszukiwania osiągalnej przepływności na potrzeby replikacji danych ze środowiska lokalnego na platformę Azure. Narzędzie przekazuje dane testowe na to konto magazynu w celu obliczenia przepływności. Musi to być konto magazynu ogólnego przeznaczenia typu v1 (GPv1). |
-| -StorageAccountKey | (Opcjonalnie) Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. W witrynie Azure Portal przejdź do pozycji Konta magazynu > <*Nazwa_konta_magazynu*> > Ustawienia > Klucze dostępu > Klucz1. |
+| -StorageAccountKey | (Opcjonalnie) Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. W witrynie Azure Portal przejdź do pozycji Konta magazynu > < *Nazwa_konta_magazynu* > > Ustawienia > Klucze dostępu > Klucz1. |
 | -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj parametru, jeśli docelowy region świadczenia usługi Azure to Azure USA lub Azure Chiny 21Vianet. |
 
 
@@ -96,7 +96,7 @@ Podczas profilowania można przekazać nazwę i klucz konta magazynu w celu znal
 
 Możesz uruchomić wiele wystąpień narzędzia dla różnych zestawów maszyn wirtualnych. Upewnij się, że nazwy maszyn wirtualnych nie powtarzają się w żadnym zestawie profilowania. Jeśli na przykład profilowano dziesięć maszyn wirtualnych (MW1–MW10) i po kilku dniach chcesz przeprowadzić profilowanie kolejnych pięciu maszyn wirtualnych (MW11–MW15), możesz uruchomić narzędzie z poziomu innej konsoli wiersza polecenia dla drugiego zestawu maszyn wirtualnych (MW11–MW15). Upewnij się, że drugi zestaw maszyn wirtualnych nie zawiera żadnych nazw maszyn wirtualnych z pierwszego wystąpienia profilowania, lub użyj innego katalogu wyjściowego dla drugiego przebiegu. Jeśli dwa wystąpienia narzędzia są używane na potrzeby profilowania tych samych maszyn wirtualnych i korzystają z tego samego katalogu wyjściowego, zostanie wygenerowany niepoprawny raport.
 
-Domyślnie narzędzie jest skonfigurowane do profilowania i generowania raportu do 1000 maszyn wirtualnych. Limit można zmienić, zmieniając wartość klucza MaxVMsSupported w pliku *ASRDeploymentPlanner.exe.config*.
+Domyślnie narzędzie jest skonfigurowane do profilowania i generowania raportu do 1000 maszyn wirtualnych. Limit można zmienić, zmieniając wartość klucza MaxVMsSupported w pliku *ASRDeploymentPlanner.exe.config* .
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -165,16 +165,16 @@ Po zakończeniu profilowania możesz uruchomić narzędzie w trybie generowania 
 |-Protocol|(Opcjonalnie) Wybrany protokół — „http” lub „https” — na potrzeby łączenia z programem vCenter. Protokół domyślny to https.|
 | -DesiredRPO | (Opcjonalnie) Żądany cel punktu odzyskiwania w minutach. Wartość domyślna to 15 minut.|
 | -Bandwidth | Przepustowość w Mb/s. Parametr służący do obliczania celu punktu odzyskiwania, który można osiągnąć dla określonej przepustowości. |
-| -StartDate | (Opcjonalnie) Data i godzina rozpoczęcia w formacie DD-MM-RRRR:GG:MM (format 24-godzinny). *StartDate* musi być określony wraz z parametrem *EndDate*. W przypadku określenia wartości parametru StartDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
-| -EndDate | (Opcjonalnie) Data i godzina zakończenia w 24-godzinnym formacie DD-MM-RRRR:GG:MM. Należy określić parametr *EndDate* wraz z *StartDate*. W przypadku określenia wartości parametru EndDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
+| -StartDate | (Opcjonalnie) Data i godzina rozpoczęcia w formacie DD-MM-RRRR:GG:MM (format 24-godzinny). *StartDate* musi być określony wraz z parametrem *EndDate* . W przypadku określenia wartości parametru StartDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
+| -EndDate | (Opcjonalnie) Data i godzina zakończenia w 24-godzinnym formacie DD-MM-RRRR:GG:MM. Należy określić parametr *EndDate* wraz z *StartDate* . W przypadku określenia wartości parametru EndDate wygenerowany raport będzie dotyczyć profilowanych danych zebranych od daty StartDate do daty EndDate. |
 | -GrowthFactor | (Opcjonalnie) Współczynnik wzrostu wyrażony jako wartość procentowa. Wartość domyślna to 30 procent. |
 | -UseManagedDisks | (Opcjonalnie) UseManagedDisks — Yes/No. Wartość domyślna to Yes. Liczba maszyn wirtualnych, które można umieścić w ramach pojedynczego konta magazynu, jest obliczana z uwzględnieniem tego, czy na potrzeby pracy w trybie failover/testu pracy w trybie failover jest używany dysk zarządzany, czy niezarządzany. |
-|-SubscriptionId |(Opcjonalnie) Identyfikator GUID subskrypcji. Należy pamiętać, że ten parametr jest wymagany, gdy konieczne jest wygenerowanie raportu szacowania kosztów z najnowszymi cenami w oparciu o subskrypcję, ofertę skojarzoną z subskrypcją i dla określonego docelowego regionu świadczenia usługi Azure w **podanej walucie**.|
+|-SubscriptionId |(Opcjonalnie) Identyfikator GUID subskrypcji. Należy pamiętać, że ten parametr jest wymagany, gdy konieczne jest wygenerowanie raportu szacowania kosztów z najnowszymi cenami w oparciu o subskrypcję, ofertę skojarzoną z subskrypcją i dla określonego docelowego regionu świadczenia usługi Azure w **podanej walucie** .|
 |-TargetRegion|(Opcjonalnie) Region świadczenia usługi Azure, w którym ma zostać przeprowadzona replikacja. Użycie tego parametru jest przydatne w przypadku generowania raportu dla konkretnego docelowego regionu świadczenia usługi Azure, ponieważ koszty korzystania z platformy Azure są różne w różnych regionach.<br>Domyślnym regionem jest WestUS2 lub ostatnio używany region docelowy.<br>Więcej informacji zawiera lista [obsługiwanych regionów docelowych](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Opcjonalnie) Oferta skojarzona z daną subskrypcją. Wartością domyślną jest MS-AZR-0003P (Płatność zgodnie z rzeczywistym użyciem).|
 |-Currency|(Opcjonalnie) Waluta, w jakiej pokazywany jest koszt w wygenerowanym raporcie. Domyślna waluta to dolar amerykański ($) lub ostatnio użyta waluta.<br>Więcej informacji zawiera lista [obsługiwanych walut](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-Domyślnie narzędzie jest skonfigurowane do profilowania i generowania raportu do 1000 maszyn wirtualnych. Limit można zmienić, zmieniając wartość klucza MaxVMsSupported w pliku *ASRDeploymentPlanner.exe.config*.
+Domyślnie narzędzie jest skonfigurowane do profilowania i generowania raportu do 1000 maszyn wirtualnych. Limit można zmienić, zmieniając wartość klucza MaxVMsSupported w pliku *ASRDeploymentPlanner.exe.config* .
 ```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -269,7 +269,7 @@ Otwórz konsolę wiersza polecenia i przejdź do folderu narzędzia do planowani
 |-Virtualization|Określ typ wirtualizacji (VMware lub Hyper-V).|
 | -Directory | (Opcjonalnie) Ścieżka UNC lub ścieżka katalogu lokalnego, w której są przechowywane profilowane dane (pliki wygenerowane podczas profilowania). Te dane są wymagane do wygenerowania raportu. Jeśli nie określono nazwy katalogu, jest używany katalog „ProfiledData”. |
 | -StorageAccountName | Nazwa konta magazynu używana w celu znalezienia użytej przepustowości na potrzeby replikacji danych ze środowiska lokalnego na platformę Azure. Narzędzie przekazuje dane testowe na to konto magazynu w celu określenia użytej przepustowości. Musi to być konto magazynu ogólnego przeznaczenia typu v1 (GPv1).|
-| -StorageAccountKey | Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. W witrynie Azure Portal przejdź do pozycji Konta magazynu > <*Nazwa_konta_magazynu*> > Ustawienia > Klucze dostępu > Klucz1 (lub podstawowy klucz dostępu w przypadku klasycznego konta magazynu). |
+| -StorageAccountKey | Klucz konta magazynu używany do uzyskiwania dostępu do konta magazynu. W witrynie Azure Portal przejdź do pozycji Konta magazynu > < *Nazwa_konta_magazynu* > > Ustawienia > Klucze dostępu > Klucz1 (lub podstawowy klucz dostępu w przypadku klasycznego konta magazynu). |
 | -VMListFile | Plik zawierający listę maszyn wirtualnych, które mają być profilowane, na potrzeby obliczenia użytej przepustowości. Można użyć bezwzględnej lub względnej ścieżki pliku. Ten plik powinien zawierać jedną nazwę/jeden adres IP maszyny wirtualnej w każdym wierszu. Nazwy maszyn wirtualnych określone w pliku powinny być takie same jak nazw maszyn wirtualnych na serwerze vCenter/hoście vSphere ESXi.<br>Na przykład plik VMList.txt zawiera informacje o następujących maszynach wirtualnych:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Environment | (Opcjonalnie) Jest to docelowe środowisko konta usługi Azure Storage. Ten parametr może przyjmować jedną z trzech wartości — AzureCloud, AzureUSGovernment i AzureChinaCloud. Wartością domyślną jest AzureCloud. Użyj parametru, jeśli docelowy region świadczenia usługi Azure to Azure USA lub Azure Chiny 21Vianet. |
 

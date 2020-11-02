@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341553"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186624"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza) 
 
@@ -51,8 +51,6 @@ Tworzenie i wypełnianie trzech grup zabezpieczeń dla obszaru roboczego:
 - **WS1 \_ WSAdmins** — dla użytkowników, którzy potrzebują pełnej kontroli nad obszarem roboczym
 - **WS1 \_ SparkAdmins** — dla tych użytkowników, którzy potrzebują pełnej kontroli nad aspektami Spark obszaru roboczego
 - **WS1 \_ Sqladmins** — dla użytkowników, którzy potrzebują pełnej kontroli nad aspektami programu SQL obszaru roboczego
-- Dodaj **WS1 \_ WSAdmins** do **WS1 \_ sqladmins**
-- Dodaj **WS1 \_ WSAdmins** do **WS1 \_ SparkAdmins**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>Krok 2. Przygotowywanie konta Data Lake Storage Gen2
 
@@ -98,7 +96,7 @@ Obszar roboczy Synapse wymaga dostępu do STG1 i CNT1, aby można było uruchami
 
 - Otwórz witrynę Azure Portal
 - Przejdź do WS1
-- W obszarze **Ustawienia**wybierz pozycję **SQL Active Directory administrator**
+- W obszarze **Ustawienia** wybierz pozycję **SQL Active Directory administrator**
 - Wybierz pozycję **Ustaw administratora** i wybierz pozycję WS1 \_ sqladmins
 
 ## <a name="step-6-maintain-access-control"></a>Krok 6. Obsługa kontroli dostępu

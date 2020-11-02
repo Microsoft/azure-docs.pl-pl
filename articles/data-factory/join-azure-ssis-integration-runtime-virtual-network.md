@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/02/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 0e9c669f2994e896205762c5f3f4df1b5fe214ae
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e73126cfc54294a7b9d54ff62c406d5e686ac470
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637228"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186777"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Dołączanie środowiska Azure SSIS Integration Runtime do sieci wirtualnej
 
@@ -99,7 +99,7 @@ Skonfiguruj sieć wirtualną tak, aby spełniała te wymagania:
 
 - Upewnij się, że grupa zasobów sieci wirtualnej (lub Grupa zasobów publiczne adresy IP), jeśli będziesz udostępniać własne publiczne adresy IP), może tworzyć i usuwać niektóre zasoby sieci platformy Azure. Aby uzyskać więcej informacji, zobacz [Konfigurowanie grupy zasobów](#resource-group). 
 
-- W przypadku dostosowania Azure-SSIS IR zgodnie z opisem w temacie [Konfiguracja niestandardowa dla Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md)węzły Azure-SSIS IR będą uzyskiwać prywatne adresy IP ze wstępnie zdefiniowanego zakresu od 172.16.0.0 do 172.31.255.255. Upewnij się, że zakresy prywatnych adresów IP sieci wirtualnych lub lokalnych nie kolidują z tym zakresem.
+- W przypadku dostosowania Azure-SSIS IR zgodnie z opisem w temacie [Konfiguracja niestandardowa dla Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md), nasz wewnętrzny proces zarządzania jego węzłami będzie używać prywatnych adresów IP ze wstępnie zdefiniowanego zakresu od 172.16.0.0 do 172.31.255.255. W związku z tym upewnij się, że zakresy prywatnych adresów IP sieci wirtualnych lub lokalnych nie kolidują z tym zakresem.
 
 Ten diagram przedstawia wymagane połączenia dla Azure-SSIS IR:
 
@@ -158,7 +158,7 @@ Jeśli musisz zaimplementować sieciowej grupy zabezpieczeń dla podsieci używa
 
 -   **Wymagania przychodzące Azure-SSIS IR**
 
-| Kierunek | Protokół transportowy | Źródło | Zakres portów źródłowych | Element docelowy | Zakres portów docelowych | Komentarze |
+| Kierunek | Protokół transportowy | Element źródłowy | Zakres portów źródłowych | Miejsce docelowe | Zakres portów docelowych | Komentarze |
 |---|---|---|---|---|---|---|
 | Przychodzący | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (w przypadku dołączenia środowiska IR do sieci wirtualnej Menedżer zasobów) <br/><br/>10100, 20100, 30100 (Jeśli dołączysz środowisko IR do klasycznej sieci wirtualnej)| Usługa Data Factory używa tych portów do komunikacji z węzłami Azure-SSIS IR w sieci wirtualnej. <br/><br/> Niezależnie od tego, czy tworzysz sieciowej grupy zabezpieczeń poziomu podsieci, Data Factory zawsze konfiguruje sieciowej grupy zabezpieczeń na poziomie kart sieciowych podłączonych do maszyn wirtualnych, które obsługują Azure-SSIS IR. Tylko ruch przychodzący z Data Factory adresów IP na określonych portach jest dozwolony przez ten sieciowej grupy zabezpieczeń na poziomie karty sieciowej. Nawet w przypadku otwarcia tych portów do ruchu internetowego na poziomie podsieci ruch z adresów IP, które nie są Data Factory adresy IP, jest blokowany na poziomie karty sieciowej. |
 | Przychodzący | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | Obowiązkowe Ta reguła jest wymagana tylko w przypadku, gdy pomoc techniczna firmy Microsoft poprosiła klienta o otwarcie na potrzeby zaawansowanego rozwiązywania problemów i może być ZAMKNIĘTA bezpośrednio po rozwiązaniu problemu. Tag usługi **CorpNetSaw** zezwala na korzystanie z pulpitu zdalnego tylko zabezpieczonym stacjom roboczym dostępu w sieci firmowej firmy Microsoft. Nie można wybrać tego tagu usługi z portalu i jest on dostępny tylko za pośrednictwem Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. <br/><br/> Na poziomie karty sieciowej sieciowej grupy zabezpieczeń Port 3389 jest otwarty domyślnie i zezwalamy na kontrolowanie portu 3389 na poziomie podsieci sieciowej grupy zabezpieczeń, Tymczasem Azure-SSIS IR nie 3389 zezwolił na ruch wychodzący domyślnie w regule zapory systemu Windows w każdym węźle podczerwieni do ochrony. |
@@ -166,7 +166,7 @@ Jeśli musisz zaimplementować sieciowej grupy zabezpieczeń dla podsieci używa
 
 -   **Wymagania wychodzące Azure-SSIS IR**
 
-| Kierunek | Protokół transportowy | Źródło | Zakres portów źródłowych | Element docelowy | Zakres portów docelowych | Komentarze |
+| Kierunek | Protokół transportowy | Element źródłowy | Zakres portów źródłowych | Miejsce docelowe | Zakres portów docelowych | Komentarze |
 |---|---|---|---|---|---|---|
 | Wychodzący | TCP | VirtualNetwork | * | AzureCloud | 443 | Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do uzyskiwania dostępu do usług platformy Azure, takich jak Azure Storage i Azure Event Hubs. |
 | Wychodzący | TCP | VirtualNetwork | * | Internet | 80 | Obowiązkowe Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do pobierania listy odwołania certyfikatów z Internetu. Jeśli zablokujesz ten ruch, może wystąpić obniżenie wydajności podczas uruchamiania środowiska IR i utrata możliwości sprawdzenia listy odwołania certyfikatów w celu użycia certyfikatu. Jeśli chcesz jeszcze bardziej zawęzić miejsce docelowe do określonych nazw FQDN, zapoznaj się z sekcją **Korzystanie z usługi Azure ExpressRoute lub UDR** .|
@@ -338,7 +338,7 @@ Użyj portalu, aby skonfigurować sieć wirtualną Azure Resource Manager przed 
 
 1. Uruchom przeglądarkę Microsoft Edge lub Google Chrome. Obecnie tylko te przeglądarki sieci Web obsługują interfejs użytkownika Data Factory. 
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
 1. Wybierz pozycję **więcej usług** . Odfiltruj i wybierz **sieci wirtualne** . 
 
@@ -368,7 +368,7 @@ Użyj portalu, aby skonfigurować klasyczną sieć wirtualną przed podjęciem p
 
 1. Uruchom przeglądarkę Microsoft Edge lub Google Chrome. Obecnie tylko te przeglądarki sieci Web obsługują interfejs użytkownika Data Factory. 
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 
 1. Wybierz pozycję **więcej usług** . Filtruj i wybieraj **sieci wirtualne (klasyczne)** . 
 
