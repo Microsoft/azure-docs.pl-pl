@@ -1,15 +1,17 @@
 - name: Omówienie
   href: overview.md
-- name: Przewodniki Szybki start dla systemu Red Hat
-  items: null
-- name: Przewodnik Szybki start — oprogramowanie WildFly w systemie CentOS
-  href: wildfly-on-centos.md
 - name: Obrazy systemu Red Hat Enterprise Linux
   items:
-    - name: Obrazy systemu Red Hat Enterprise Linux — omówienie
+    - name: Przegląd obrazu systemu RHEL
       href: redhat-images.md
-    - name: Obrazy systemu Red Hat Enterprise Linux — lista
+    - name: Lista obrazów systemu RHEL
       href: redhat-imagelist.md
+- name: Przewodniki Szybki start dotyczące języka Java od firmy Red Hat
+  items:
+    - name: Platforma JBoss EAP i system RHEL na maszynie wirtualnej / w zestawie skalowania maszyn wirtualnych
+      href: jboss-eap-on-rhel.md
+    - name: Serwer WildFly i system CentOS na maszynie wirtualnej
+      href: wildfly-on-centos.md
 - name: Infrastruktura aktualizacji systemu Red Hat na platformie Azure
   href: redhat-rhui.md
 - name: Oferta obrazów BYOS systemu Red Hat Enterprise Linux

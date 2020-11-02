@@ -127,6 +127,8 @@
   items:
     - name: Limity usługi Digital Twins
       href: reference-service-limits.md
+    - name: Cennik usługi Digital Twins
+      href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
     - name: Interfejsy API i zestawy SDK
       items:
         - name: Dokumentacja interfejsu API REST
@@ -188,7 +190,7 @@
     - name: Interfejs wiersza polecenia usługi Digital Twins
       items:
         - name: Dokumentacja interfejsu wiersza polecenia usługi Digital Twins
-          href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest
+          href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
         - name: Pakiet interfejsu wiersza polecenia
           href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
     - name: Specyfikacja DTDL

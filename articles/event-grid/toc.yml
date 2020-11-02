@@ -106,7 +106,7 @@
       items:
         - name: Przegląd tematów systemowych
           href: system-topics.md
-        - name: Źródła zdarzeń
+        - name: Źródła zdarzeń (wydawcy)
           items:
             - name: Azure App Configuration
               href: event-schema-app-configuration.md
@@ -138,13 +138,15 @@
               href: event-schema-azure-signalr.md
             - name: Subskrypcje platformy Azure
               href: event-schema-subscriptions.md
-    - name: Tematy partnerów
+    - name: Zdarzenia partnerów
       items:
-        - name: Przegląd tematów partnerów
-          href: partner-topics-overview.md
-        - name: Auth0
-          href: auth0-overview.md
-        - name: Zostań partnerem usługi Event Grid
+        - name: Przegląd zdarzeń partnerów
+          href: partner-events-overview.md
+        - name: Źródła zdarzeń (wydawcy)
+          items:
+            - name: Auth0
+              href: auth0-overview.md
+        - name: Omówienie dołączania partnera
           href: partner-onboarding-overview.md
     - name: Domeny zdarzeń
       href: event-domains.md
@@ -210,12 +212,16 @@
           href: create-view-manage-system-topics-cli.md
         - name: Szablon usługi Azure Resource Manager
           href: create-view-manage-system-topics-arm.md
+    - name: Zdarzenia partnerów
+      items:
+        - name: Dołączanie jako partner
+          href: onboard-partner.md
+        - name: Subskrybowanie do zdarzeń usługi Auth0
+          href: auth0-how-to.md
     - name: Uzyskiwanie kluczy dostępu dla tematów lub domen
       href: get-access-keys.md
     - name: Publikowanie w temacie niestandardowym
       href: post-to-custom-topic.md
-    - name: Subskrybowanie do zdarzeń usługi Auth0
-      href: auth0-how-to.md
     - name: Odbieranie zdarzeń w punkcie końcowym HTTP
       href: receive-events.md
     - name: Ustawianie lokalizacji utraconych komunikatów i zasad ponawiania

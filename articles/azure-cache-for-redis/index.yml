@@ -9,12 +9,12 @@ metadata:
   author: yegu-ms
   ms.author: yegu
   ms.date: 12/16/2019
-  ms.openlocfilehash: cbf495563a6d3a9000778d8980a506b6726fb658
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 2655c1a5b3a99422a71a2acc18671d9fdd31baa5
+  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88006013"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93100001"
 landingContent:
 - title: Informacje o usłudze Azure Cache for Redis
   linkLists:
@@ -24,22 +24,22 @@ landingContent:
       url: cache-overview.md
   - linkListType: video
     links:
-    - text: Opcje administracji
-      url: https://azure.microsoft.com/resources/videos/azure-redis-cache-administration-options/
-    - text: Buforowanie na potrzeby zabezpieczeń
-      url: https://azure.microsoft.com/resources/videos/azure-redis-security-cacheing/
     - text: Najlepsze rozwiązania
       url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
     - text: Poprawa wydajności
       url: https://azure.microsoft.com/resources/videos/increase-performance-through-redis-cluster-in-azure-redis-cache/
+    - text: Buforowanie na potrzeby zabezpieczeń
+      url: https://azure.microsoft.com/resources/videos/azure-redis-security-cacheing/
+    - text: Opcje administracji
+      url: https://azure.microsoft.com/resources/videos/azure-redis-cache-administration-options/
   - linkListType: whats-new
     links:
-    - text: Często zadawane pytania
-      url: cache-faq.md
+    - text: Tworzenie pamięci podręcznej w warstwie Enterprise
+      url: quickstart-create-redis-enterprise.md
     - text: Najlepsze rozwiązania dotyczące usługi Azure Cache for Redis
       url: cache-best-practices.md
-    - text: Dostawca stanu sesji ASP.NET dla usługi Azure Cache for Redis
-      url: cache-aspnet-session-state-provider.md
+    - text: Często zadawane pytania
+      url: cache-faq.md
 - title: 'Przewodniki Szybki start: Azure Cache for Redis'
   linkLists:
   - linkListType: quickstart
@@ -58,8 +58,12 @@ landingContent:
       url: cache-python-get-started.md
   - linkListType: tutorial
     links:
-    - text: Tworzenie rankingu z odkładaniem do pamięci podręcznej na platformie ASP.NET
-      url: cache-web-app-cache-aside-leaderboard.md
+    - text: Używanie dostawcy stanu sesji
+      url: cache-aspnet-session-state-provider.md
+    - text: Używanie dostawcy wyjściowej pamięci podręcznej
+      url: cache-aspnet-output-cache-provider.md
+    - text: Używanie aplikacji Spring Boot Initializer
+      url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
   - linkListType: get-started
     links:
     - text: Samples

@@ -113,6 +113,8 @@
       href: ../../virtual-network/public-ip-security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Resource Graph
       href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure Resource Manager
+      href: ../../azure-resource-manager/management/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Sentinel
       href: ../../sentinel/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure SQL Database

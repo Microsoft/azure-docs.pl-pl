@@ -59,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Networking
       href: concepts-network.md
-    - name: Magazyn
+    - name: Storage
       href: concepts-storage.md
     - name: Skalowanie
       href: concepts-scale.md
@@ -142,7 +142,7 @@
           href: upgrade-cluster.md
         - name: Używanie umowy SLA dotyczącej czasu dostępności
           href: uptime-sla.md
-        - name: Korzystanie z grup umieszczania w pobliżu (wersja zapoznawcza)
+        - name: Korzystanie z grup umieszczania w pobliżu
           href: reduce-latency-ppg.md
         - name: Uaktualnianie obrazu węzła
           href: node-image-upgrade.md
@@ -166,7 +166,7 @@
           items:
             - name: Używanie wielu pul węzłów
               href: use-multiple-node-pools.md
-            - name: Używanie pul węzłów typu spot (wersja zapoznawcza)
+            - name: Używanie pul węzłów typu spot
               href: spot-node-pool.md
             - name: Korzystanie z pul węzłów systemu
               href: use-system-pools.md

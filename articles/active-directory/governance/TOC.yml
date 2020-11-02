@@ -9,6 +9,8 @@
       href: entitlement-management-overview.md
     - name: Co to są przeglądy dostępu?
       href: access-reviews-overview.md
+    - name: Co to jest zarządzanie cyklem życia tożsamości?
+      href: what-is-identity-lifecycle-management.md
 - name: Samouczki
   expanded: true
   items:
@@ -23,6 +25,16 @@
           href: entitlement-management-delegate.md
         - name: Proces żądania i wiadomości e-mail
           href: entitlement-management-process.md
+    - name: Zarządzanie cyklem życia tożsamości
+      items:
+        - name: Co to jest aprowizacja?
+          href: what-is-provisioning.md
+        - name: Co to jest aprowizacja oparta na kadrach?
+          href: what-is-hr-driven-provisioning.md
+        - name: Co to jest aprowizacja aplikacji?
+          href: what-is-app-provisioning.md
+        - name: Co to jest aprowizacja między katalogami?
+          href: what-is-inter-directory-provisioning.md
     - name: Przeglądy dostępu
       items:
         - name: Zarządzanie dostępem gości za pomocą przeglądów

@@ -37,11 +37,13 @@
           href: onboard-service-principal.md
         - name: Łączenie maszyn z usługą Azure Arc przy użyciu rozszerzenia DSC programu PowerShell
           href: onboard-dsc.md
+        - name: Łączenie maszyn z rozwiązaniem Windows Admin Center
+          href: onboard-windows-admin-center.md
         - name: Łączenie maszyn z usługą Azure Arc przy użyciu programu PowerShell
           href: onboard-powershell.md
     - name: Zarządzanie
       items:
-        - name: Rozszerzenia maszyn wirtualnych platformy Azure
+        - name: Rozszerzenia maszyn wirtualnych
           items:
             - name: Omówienie
               href: manage-vm-extensions.md

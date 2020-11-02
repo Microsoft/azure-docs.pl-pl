@@ -32,6 +32,9 @@
     - name: Przypisywanie zasad — szablon usługi ARM
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: Przypisywanie zasad — Terraform
+      displayName: 'assign, compliance, hcl, provider'
+      href: ./assign-policy-terraform.md
 - name: Samouczki
   items:
     - name: Tworzenie zasad platformy Azure i zarządzanie nimi
@@ -191,7 +194,15 @@
           href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Włączanie usługi Azure Monitor dla maszyn wirtualnych (wersja zapoznawcza)
           displayName: 'monitor, insights, log analytics, builtin'
-          href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+          href: ../../azure-monitor/insights/vminsights-enable-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Integracja z usługą Azure Storage
+      items:
+        - name: Inspekcja protokołu TLS przy użyciu usługi Azure Policy
+          href: ../../storage/common/transport-layer-security-configure-minimum-version.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json#use-azure-policy-to-enforce-the-minimum-tls-version
+    - name: Integracja z usługą Azure Web Application Firewall
+      items:
+        - name: Integracja usługi WAF z usługą Azure Policy
+          href: ../../web-application-firewall/shared/waf-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Rozwiązywanie problemów
   items:
     - name: Typowe problemy
@@ -264,6 +275,16 @@
           href: /azure/templates/microsoft.authorization/policydefinitions
         - name: Definicje inicjatyw
           href: /azure/templates/microsoft.authorization/policysetdefinitions
+    - name: Zasoby dotyczące narzędzia Terraform
+      items:
+        - name: Przypisanie
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_assignment.html'
+        - name: Definicja
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_definition.html'
+        - name: Inicjatywa (definicja zestawu)
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_set_definition.html'
+        - name: Korekty
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_remediation.html'
 - name: Zasoby
   items:
     - name: GitHub — przykłady dla usługi Azure Policy
@@ -280,6 +301,8 @@
           href: 'https://www.azadvertizer.net/'
         - name: Wizualizator ładu Azure
           href: 'https://github.com/julianhayward/azure-mg-sub-governance-reporting'
+        - name: Skrypty usługi Azure Policy dla usługi Azure Monitor
+          href: 'https://github.com/JimGBritt/AzurePolicy/tree/master/AzureMonitor/Scripts'
     - name: Opinie i pomoc techniczna
       items:
         - name: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Policy

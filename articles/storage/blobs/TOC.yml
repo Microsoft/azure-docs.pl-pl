@@ -179,7 +179,7 @@
               href: storage-blob-rehydration.md
             - name: Warstwy wydajności
               href: storage-blob-performance-tiers.md
-            - name: Zarządzanie cyklem życia magazynu usługi Azure Blob Storage
+            - name: Automatyzowanie cyklu życia warstw dostępu
               href: storage-lifecycle-management-concepts.md
         - name: Odzyskiwanie po awarii i tryb failover
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -367,7 +367,7 @@
                       href: storage-blob-user-delegation-sas-create-cli.md
                     - name: .NET
                       href: storage-blob-user-delegation-sas-create-dotnet.md
-                - name: Tworzenie sygnatury dostępu współdzielonego usługi (.NET)
+                - name: Tworzenie sygnatury dostępu współdzielonego usługi
                   href: storage-blob-service-sas-create-dotnet.md
                 - name: Tworzenie sygnatury dostępu współdzielonego konta (.NET)
                   href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
