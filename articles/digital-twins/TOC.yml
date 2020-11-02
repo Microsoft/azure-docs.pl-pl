@@ -172,7 +172,7 @@
             - name: Zestaw SDK dla platformy .NET (C#) — źródło
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
             - name: Java SDK — Maven
-              href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar'
+              href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar'
             - name: Zestaw Java SDK — dokumentacja
               href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
             - name: Zestaw SDK dla języka Java — źródło

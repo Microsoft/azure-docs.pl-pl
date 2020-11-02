@@ -37,6 +37,8 @@
       items:
         - name: Łączenie z serwerem SQL — Portal
           href: tutorial-private-endpoint-sql-portal.md
+        - name: Łączenie z serwerem SQL — PowerShell
+          href: tutorial-private-endpoint-sql-powershell.md
 - name: Pojęcia
   items:
     - name: Prywatny punkt końcowy
