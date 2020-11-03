@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 3b1e71a5aadbe9e6a4fa89d4b3ec0fb6b1d9e6ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e491b89ec5e6488228dd8befed669a13842f9d15
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530458"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288556"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Punkty końcowe usługi sieci wirtualnej dla Azure Key Vault
 
@@ -54,7 +54,7 @@ Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapór Azure Key Vault i
 > Należy pamiętać o następujących ograniczeniach konfiguracji:
 > * Dozwolone są maksymalnie 127 reguły sieci wirtualnej i 127. 
 > * Małe zakresy adresów, które używają rozmiarów prefiksu "/31" lub "/32", nie są obsługiwane. Zamiast tego należy skonfigurować te zakresy przy użyciu poszczególnych reguł adresów IP.
-> * Reguły sieci IP są dozwolone tylko dla publicznych adresów IP. Zakresy adresów IP zarezerwowane dla sieci prywatnych (zgodnie z definicją w dokumencie RFC 1918) nie są dozwolone w regułach adresów IP. Sieci prywatne obejmują adresy, które zaczynają się od **10.**, **172.16-31**i **192,168.** 
+> * Reguły sieci IP są dozwolone tylko dla publicznych adresów IP. Zakresy adresów IP zarezerwowane dla sieci prywatnych (zgodnie z definicją w dokumencie RFC 1918) nie są dozwolone w regułach adresów IP. Sieci prywatne obejmują adresy, które zaczynają się od **10.** , **172.16-31** i **192,168.** 
 > * W tej chwili są obsługiwane tylko adresy IPv4.
 
 ## <a name="trusted-services"></a>Usługi zaufane
@@ -63,23 +63,23 @@ Poniżej znajduje się lista zaufanych usług, które mogą uzyskiwać dostęp d
 
 |Usługa zaufana|Obsługiwane scenariusze użycia|
 | --- | --- |
-|Usługa wdrażania Virtual Machines platformy Azure|[Wdróż certyfikaty na maszynach wirtualnych z poziomu Key Vault zarządzanych przez klienta](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
+|Usługa wdrażania Virtual Machines platformy Azure|[Wdróż certyfikaty na maszynach wirtualnych z poziomu Key Vault zarządzanych przez klienta](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Usługa wdrażania szablonów Azure Resource Manager|[Przekazywanie bezpiecznych wartości podczas wdrażania](../../azure-resource-manager/templates/key-vault-parameter.md).|
-|Jednostka SKU platformy Azure Application Gateway v2|[Zakończenie protokołu TLS z certyfikatami Key Vault](/azure/application-gateway/key-vault-certs)|
+|Jednostka SKU platformy Azure Application Gateway v2|[Zakończenie protokołu TLS z certyfikatami Key Vault](../../application-gateway/key-vault-certs.md)|
 |Azure Disk Encryption usługi szyfrowania woluminów|Zezwalaj na dostęp do klucza funkcji BitLocker (maszyna wirtualna z systemem Windows) lub hasła DM (maszyna wirtualna z systemem Linux) oraz klucz szyfrowania klucza podczas wdrażania maszyn wirtualnych. Umożliwia to [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
-|Azure Backup|Zezwalaj na wykonywanie kopii zapasowych i przywracanie odpowiednich kluczy i wpisów tajnych podczas tworzenia kopii zapasowej w usłudze Azure Virtual Machines przy użyciu [Azure Backup](../../backup/backup-introduction-to-azure-backup.md).|
+|Azure Backup|Zezwalaj na wykonywanie kopii zapasowych i przywracanie odpowiednich kluczy i wpisów tajnych podczas tworzenia kopii zapasowej w usłudze Azure Virtual Machines przy użyciu [Azure Backup](../../backup/backup-overview.md).|
 |Usługa Exchange Online & SharePoint Online|Zezwalaj na dostęp do klucza klienta dla usługi Azure szyfrowanie usługi Storage przy użyciu [klucza klienta](/microsoft-365/compliance/customer-key-overview).|
-|Azure Information Protection|Zezwalaj na dostęp do klucza dzierżawy dla [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
+|Azure Information Protection|Zezwalaj na dostęp do klucza dzierżawy dla [Azure Information Protection.](/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Wdróż certyfikat aplikacji sieci Web platformy Azure za pomocą Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Azure SQL Database|[Transparent Data Encryption z obsługą Bring Your Own Key na potrzeby Azure SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
-|Azure Storage|[Szyfrowanie usługi Storage przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
+|Azure Storage|[Szyfrowanie usługi Storage przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Szyfrowanie danych w Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) z kluczem zarządzanym przez klienta.|
-|Azure Databricks|[Szybka, łatwa i wydajna usługa analizy oparta na Apache Sparkach](../../azure-databricks/what-is-azure-databricks.md)|
-|Azure API Management|[Wdrażanie certyfikatów dla domeny niestandardowej z Key Vault przy użyciu pliku MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
+|Azure Databricks|[Szybka, łatwa i wydajna usługa analizy oparta na Apache Sparkach](/azure/databricks/scenarios/what-is-azure-databricks)|
+|Usługa Azure API Management|[Wdrażanie certyfikatów dla domeny niestandardowej z Key Vault przy użyciu pliku MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Pobieranie poświadczeń magazynu danych w Key Vault z Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
-|Azure Event Hubs|[Zezwalaj na dostęp do magazynu kluczy dla scenariusza kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
-|Azure Service Bus|[Zezwalaj na dostęp do magazynu kluczy dla scenariusza kluczy zarządzanych przez klienta](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
-|Usługa Azure Import/Export| [Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault dla usługi Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
+|Azure Event Hubs|[Zezwalaj na dostęp do magazynu kluczy dla scenariusza kluczy zarządzanych przez klienta](../../event-hubs/configure-customer-managed-key.md)|
+|Azure Service Bus|[Zezwalaj na dostęp do magazynu kluczy dla scenariusza kluczy zarządzanych przez klienta](../../service-bus-messaging/configure-customer-managed-key.md)|
+|Usługa Azure Import/Export| [Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault dla usługi Import/Export](../../storage/common/storage-import-export-encryption-key-portal.md)
 |Azure Container Registry|[Szyfrowanie rejestru przy użyciu kluczy zarządzanych przez klienta](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Przenoszenie artefaktów do innego rejestru](../../container-registry/container-registry-transfer-images.md)
 
 > [!NOTE]

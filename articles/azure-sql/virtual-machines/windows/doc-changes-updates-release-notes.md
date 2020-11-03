@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: 1d6eb4df91ce912832d15835a00bdb287f67e787
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 249e65b5a9440678015598d9969c0d2ed689c626
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789747"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285355"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Zmiany w dokumentacji dotyczące SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -69,7 +69,7 @@ System Azure umożliwia wdrożenie maszyny wirtualnej za pomocą obrazu SQL Serv
 | **Rodzina usługi Azure SQL** | SQL Server na platformie Azure Virtual Machines jest teraz częścią [produktów usługi Azure SQL](../../azure-sql-iaas-vs-paas-what-is-overview.md). Zapoznaj się z naszym [nowym wyglądem](../index.yml)! W produkcie nie wprowadzono żadnych zmian, ale Dokumentacja powinna ułatwić podejmowanie decyzji o produkcie usługi Azure SQL. | 
 
 
-## <a name="january-2020"></a>Styczeń 2020 r.
+## <a name="january-2020"></a>Styczeń 2020 r.
 
 | Zmiany | Szczegóły |
 | --- | --- |
@@ -88,7 +88,7 @@ System Azure umożliwia wdrożenie maszyny wirtualnej za pomocą obrazu SQL Serv
 | **SQL Server migrację maszyny wirtualnej do innego regionu** | Użyj Azure Site Recovery, aby [migrować maszynę wirtualną SQL Server z jednego regionu do innego](move-sql-vm-different-region.md). |
 |  **Nowe tryby instalacji programu SQL IaaS** | Teraz można zainstalować rozszerzenie SQL Server IaaS w [trybie uproszczonym](sql-server-iaas-agent-extension-automate-management.md) , aby uniknąć ponownego uruchomienia usługi SQL Server.  |
 | **Modyfikacja wersji SQL Server** | Teraz możesz zmienić [Właściwość wersji](change-sql-server-edition.md) dla maszyny wirtualnej SQL Server. |
-| **Zmiany dostawcy zasobów maszyny wirtualnej SQL** | [Maszynę wirtualną SQL Server można zarejestrować za pomocą dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md) przy użyciu nowych trybów IaaS języka SQL. Ta możliwość obejmuje obrazy [systemu Windows Server 2008](sql-vm-resource-provider-register.md#management-modes) .|
+| **Zmiany dostawcy zasobów maszyny wirtualnej SQL** | [Maszynę wirtualną SQL Server można zarejestrować za pomocą dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md) przy użyciu nowych trybów IaaS języka SQL. Ta możliwość obejmuje obrazy [systemu Windows Server 2008](sql-server-iaas-agent-extension-automate-management.md#management-modes) .|
 | **Korzystaj z obrazów własnych licencji przy użyciu Korzyść użycia hybrydowego platformy Azure** | Obrazy dotyczące przenoszenia własnych licencji wdrożone z portalu Azure Marketplace mogą teraz zmienić [Typ licencji na płatność zgodnie z rzeczywistym](licensing-model-azure-hybrid-benefit-ahb-change.md#remarks)użyciem.| 
 | **Nowe SQL Server Zarządzanie MASZYNami wirtualnymi w Azure Portal** | Teraz można zarządzać maszyną wirtualną SQL Server w Azure Portal. Aby uzyskać więcej informacji, zobacz [Zarządzanie maszynami wirtualnymi SQL Server w Azure Portal](manage-sql-vm-portal.md).  | 
 | **Rozszerzona pomoc techniczna dla SQL Server 2008 i 2008 R2** | [Rozszerzona pomoc techniczna](sql-server-2008-extend-end-of-support.md) dla SQL Server 2008 i SQL Server 2008 R2 *przez Migrowanie go na* maszynę wirtualną platformy Azure. | 

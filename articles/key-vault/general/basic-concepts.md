@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c1da45115303bb0a67d6ff796a40ef47c24224a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398514"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287440"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault podstawowe pojęcia
 
@@ -29,32 +29,32 @@ Oto inne ważne terminy:
 
 - **Użytkownik magazynu** — użytkownik magazynu może wykonywać akcje na zasobach wewnątrz magazynu kluczy, jeśli właściciel magazynu udzieli mu dostępu. Dostępne akcje zależą od przyznanych uprawnień.
 
-- **Zarządzani Administratorzy modułu HSM**: Użytkownicy, którym przypisano rolę administratora, mają pełną kontrolę nad zarządzaną pulą modułów HSM. Mogą tworzyć więcej przypisań ról w celu delegowania kontrolowanego dostępu innym użytkownikom.
+- **Zarządzani Administratorzy modułu HSM** : Użytkownicy, którym przypisano rolę administratora, mają pełną kontrolę nad zarządzaną pulą modułów HSM. Mogą tworzyć więcej przypisań ról w celu delegowania kontrolowanego dostępu innym użytkownikom.
 
-- **Zarządzany oficer kryptograficzny modułu HSM/użytkownik**: Wbudowane role, które są zwykle przypisane do użytkowników lub podmiotów usługi, które będą wykonywać operacje kryptograficzne przy użyciu kluczy w zarządzanym module HSM. Użytkownik kryptograficzny może utworzyć nowe klucze, ale nie może usunąć kluczy.
+- **Zarządzany oficer kryptograficzny modułu HSM/użytkownik** : Wbudowane role, które są zwykle przypisane do użytkowników lub podmiotów usługi, które będą wykonywać operacje kryptograficzne przy użyciu kluczy w zarządzanym module HSM. Użytkownik kryptograficzny może utworzyć nowe klucze, ale nie może usunąć kluczy.
 
-- **Szyfrowanie zarządzanej usługi kryptograficznej modułu HSM**: Wbudowana rola, która jest zwykle przypisana do tożsamości usługi zarządzanej przez konta usług (np. konto magazynu) na potrzeby szyfrowania danych przechowywanych przy użyciu klucza zarządzanego przez klienta.
+- **Szyfrowanie zarządzanej usługi kryptograficznej modułu HSM** : Wbudowana rola, która jest zwykle przypisana do tożsamości usługi zarządzanej przez konta usług (np. konto magazynu) na potrzeby szyfrowania danych przechowywanych przy użyciu klucza zarządzanego przez klienta.
 
 - **Zasób** — zasób to dostępny za pośrednictwem platformy Azure element, którym można zarządzać. Typowe przykłady to maszyna wirtualna, konto magazynu, aplikacja sieci Web, baza danych i Sieć wirtualna. Istnieje wiele innych.
 
 - **Grupa zasobów** — grupa zasobów to kontener, który zawiera powiązane zasoby dla rozwiązania platformy Azure. Grupa zasobów może zawierać wszystkie zasoby dla rozwiązania lub tylko te zasoby, które mają być zarządzane jako grupa. Użytkownik decyduje o sposobie przydziału zasobów do grup zasobów pod kątem tego, co jest najbardziej odpowiednie dla danej organizacji.
 
-- **Podmiot zabezpieczeń**: podmiot zabezpieczeń Azure to tożsamość zabezpieczeń, którą aplikacje, usługi i narzędzia automatyzacji zostały utworzone przez użytkownika w celu uzyskania dostępu do określonych zasobów platformy Azure. Należy je traktować jako "tożsamość użytkownika" (nazwę użytkownika i hasło lub certyfikat) z określoną rolą i ściśle kontrolowanymi uprawnieniami. Podmiot zabezpieczeń musi tylko wykonywać określone czynności, w przeciwieństwie do ogólnej tożsamości użytkownika. Zwiększa zabezpieczenia, jeśli przyznasz mu tylko minimalny poziom uprawnień potrzebny do wykonywania zadań zarządzania. Podmiot zabezpieczeń używany z aplikacją lub usługą jest jawnie nazywany nazwą **główną usługi**.
+- **Podmiot zabezpieczeń** : podmiot zabezpieczeń Azure to tożsamość zabezpieczeń, którą aplikacje, usługi i narzędzia automatyzacji zostały utworzone przez użytkownika w celu uzyskania dostępu do określonych zasobów platformy Azure. Należy je traktować jako "tożsamość użytkownika" (nazwę użytkownika i hasło lub certyfikat) z określoną rolą i ściśle kontrolowanymi uprawnieniami. Podmiot zabezpieczeń musi tylko wykonywać określone czynności, w przeciwieństwie do ogólnej tożsamości użytkownika. Zwiększa zabezpieczenia, jeśli przyznasz mu tylko minimalny poziom uprawnień potrzebny do wykonywania zadań zarządzania. Podmiot zabezpieczeń używany z aplikacją lub usługą jest jawnie nazywany nazwą **główną usługi**.
 
-- [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md): Azure AD to usługa Active Directory dla dzierżawy. Każdy katalog ma co najmniej jedną domenę. Katalog może mieć wiele skojarzonych subskrypcji, ale tylko jedną dzierżawę.
+- [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md): Azure AD to usługa Active Directory dla dzierżawy. Każdy katalog ma co najmniej jedną domenę. Katalog może mieć wiele skojarzonych subskrypcji, ale tylko jedną dzierżawę.
 
 - **Identyfikator dzierżawy Azure** — identyfikator dzierżawy to unikatowy sposób identyfikacji wystąpienia usługi Azure AD w ramach subskrypcji platformy Azure.
 
-- **Zarządzane tożsamości**: Azure Key Vault zapewnia sposób bezpiecznego przechowywania poświadczeń i innych kluczy i wpisów tajnych, ale kod wymaga uwierzytelnienia, aby Key Vault je pobrać. Korzystanie z tożsamości zarządzanej ułatwia rozwiązanie tego problemu, oferując usługi platformy Azure, które automatycznie zarządza tożsamością w usłudze Azure AD. Za pomocą tej tożsamości można uwierzytelnić się w usłudze Key Vault lub dowolnej innej usłudze obsługującej uwierzytelnianie usługi Azure AD bez konieczności przechowywania poświadczeń w kodzie. Aby uzyskać więcej informacji, zobacz poniższy obraz oraz [Omówienie zarządzanych tożsamości dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+- **Zarządzane tożsamości** : Azure Key Vault zapewnia sposób bezpiecznego przechowywania poświadczeń i innych kluczy i wpisów tajnych, ale kod wymaga uwierzytelnienia, aby Key Vault je pobrać. Korzystanie z tożsamości zarządzanej ułatwia rozwiązanie tego problemu, oferując usługi platformy Azure, które automatycznie zarządza tożsamością w usłudze Azure AD. Za pomocą tej tożsamości można uwierzytelnić się w usłudze Key Vault lub dowolnej innej usłudze obsługującej uwierzytelnianie usługi Azure AD bez konieczności przechowywania poświadczeń w kodzie. Aby uzyskać więcej informacji, zobacz poniższy obraz oraz [Omówienie zarządzanych tożsamości dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
     ![Diagram przedstawiający sposób działania zarządzanych tożsamości dla zasobów platformy Azure](../media/key-vault-whatis/msi.png)
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 Aby wykonać wszelkie operacje z Key Vault, musisz najpierw przeprowadzić do nich uwierzytelnienie. Istnieją trzy sposoby uwierzytelniania do Key Vault:
 
 - [Zarządzane tożsamości dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md): podczas wdrażania aplikacji na maszynie wirtualnej na platformie Azure można przypisać tożsamość do maszyny wirtualnej, która ma dostęp do Key Vault. Możesz również przypisywać tożsamości do [innych zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md). Zaletą tego podejścia jest to, że aplikacja lub usługa nie zarządza rotacją pierwszego klucza tajnego. Platforma Azure automatycznie obraca tożsamość. Zalecamy to podejście jako najlepsze rozwiązanie. 
-- Nazwa **główna usługi i certyfikat**: można użyć jednostki usługi i skojarzonego certyfikatu, który ma dostęp do Key Vault. Nie zalecamy tego podejścia, ponieważ właściciel aplikacji lub Deweloper musi obrócić certyfikat.
-- Nazwa **główna usługi i klucz tajny**: Chociaż do uwierzytelniania w Key Vault można użyć jednostki usługi i klucza tajnego, nie zalecamy tego. Trudno jest automatycznie obrócić wpis tajny Bootstrap używany do uwierzytelniania w Key Vault.
+- Nazwa **główna usługi i certyfikat** : można użyć jednostki usługi i skojarzonego certyfikatu, który ma dostęp do Key Vault. Nie zalecamy tego podejścia, ponieważ właściciel aplikacji lub Deweloper musi obrócić certyfikat.
+- Nazwa **główna usługi i klucz tajny** : Chociaż do uwierzytelniania w Key Vault można użyć jednostki usługi i klucza tajnego, nie zalecamy tego. Trudno jest automatycznie obrócić wpis tajny Bootstrap używany do uwierzytelniania w Key Vault.
 
 
 ## <a name="key-vault-roles"></a>Role usługi Key Vault

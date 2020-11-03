@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8a975673bec3b3579eaa699f873fe8c4b1481d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744882"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285649"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Jak włączyć rejestrowanie Key Vault
 
@@ -64,7 +64,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 Mimo że możesz użyć istniejącego konta magazynu dla dzienników, utworzymy nowe konto magazynu przeznaczone do Key Vault dzienników. 
 
-Aby ułatwić zarządzanie, użyjemy również tej samej grupy zasobów, która zawiera Magazyn kluczy. W [interfejsie wiersza polecenia platformy Azure — szybki start](quick-create-cli.md) i [Azure PowerShell szybki start](quick-create-powershell.md), ta grupa zasobów ma nazwę moja **zasobów**, a lokalizacja to *Wschodnie*. Zastąp te wartości własnymi, stosownie do potrzeb. 
+Aby ułatwić zarządzanie, użyjemy również tej samej grupy zasobów, która zawiera Magazyn kluczy. W [interfejsie wiersza polecenia platformy Azure — szybki start](quick-create-cli.md) i [Azure PowerShell szybki start](quick-create-powershell.md), ta grupa zasobów ma nazwę moja **zasobów** , a lokalizacja to *Wschodnie*. Zastąp te wartości własnymi, stosownie do potrzeb. 
 
 Należy również podać nazwę konta magazynu. Nazwy kont magazynu muszą mieć unikatową długość od 3 do 24 znaków i używać tylko cyfr i małych liter.  Na koniec utworzymy konto magazynu dla jednostki SKU "Standard_LRS".
 
@@ -147,7 +147,7 @@ Co to jest rejestrowane:
   * Tworzenie, modyfikowanie lub usuwanie tych kluczy lub wpisów tajnych.
   * Podpisywanie, weryfikowanie, szyfrowanie, odszyfrowywanie, zawijanie i depakowanie kluczy, pobieranie wpisów tajnych i wyświetlanie listy kluczy i wpisów tajnych (oraz ich wersji).
 * Nieuwierzytelnione żądania, które powodują uzyskanie odpowiedzi 401. Przykłady to żądania, które nie mają tokenu okaziciela, które są źle sformułowane lub wygasłe lub które mają nieprawidłowy token.  
-* Event Grid zdarzenia powiadomień o zbliżającym się wygaśnięciu, wygaśnięciu i zmianie zasad dostępu do magazynu (nowe zdarzenie wersji nie jest rejestrowane). Zdarzenia są rejestrowane niezależnie od tego, czy utworzono subskrypcję zdarzeń w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [schemat zdarzeń Event Grid dla Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
+* Event Grid zdarzenia powiadomień o zbliżającym się wygaśnięciu, wygaśnięciu i zmianie zasad dostępu do magazynu (nowe zdarzenie wersji nie jest rejestrowane). Zdarzenia są rejestrowane niezależnie od tego, czy utworzono subskrypcję zdarzeń w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [schemat zdarzeń Event Grid dla Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## <a name="access-your-logs"></a>Uzyskiwanie dostępu do dzienników
 
@@ -183,7 +183,7 @@ $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context | Get-AzSt
 
 Po uruchomieniu drugiego polecenia cmdlet w programie PowerShell, **/** ogranicznik w nazwach obiektów BLOB tworzy pełną strukturę folderów w folderze docelowym. Ta struktura będzie używana do pobierania i przechowywania obiektów BLOB jako plików.
 
-Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Na przykład:
+Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Przykład:
 
 * Jeśli masz wiele magazynów kluczy i chcesz pobrać dzienniki dla tylko jednego magazynu kluczy o nazwie CONTOSOKEYVAULT3:
 

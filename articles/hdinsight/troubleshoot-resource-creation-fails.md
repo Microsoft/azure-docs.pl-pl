@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: a47781bcdf60d863d6dcf77d70bc0ee496a51388
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2e9f6898dba559f557f49cc0ee9ff39644da243f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538803"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287352"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Rozwiązywanie problemów z błędami tworzenia zasobów w usłudze Azure HDInsight
 
@@ -33,24 +33,18 @@ Twoja subskrypcja może być skonfigurowana w taki sposób, aby ograniczyć licz
 
 Aby zażądać zwiększenia limitu przydziału, wykonaj następujące kroki:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com)i wybierz pozycję **Pomoc i obsługa techniczna** .
+1. Przejdź do [Azure Portal](https://portal.azure.com)i wybierz pozycję **Pomoc i obsługa techniczna**.
 
-1. Wybierz pozycję **Nowe żądanie obsługi** .
+1. Wybierz pozycję **Nowe żądanie obsługi**.
 
 1. Na karcie **podstawowe** na stronie **nowe żądanie obsługi** podaj następujące informacje:
 
-   * **Typ problemu:** Wybierz pozycję **usługi i limity subskrypcji (przydziały)** .
+   * **Typ problemu:** Wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
    * **Subskrypcja:** Wybierz subskrypcję, którą chcesz zmodyfikować.
-   * **Typ limitu przydziału:** Wybierz pozycję **HDInsight** .
+   * **Typ limitu przydziału:** Wybierz pozycję **HDInsight**.
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie biletu pomocy technicznej w celu zwiększenia liczby rdzeni](hdinsight-capacity-planning.md#quotas).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
-
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
-
-* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
-
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

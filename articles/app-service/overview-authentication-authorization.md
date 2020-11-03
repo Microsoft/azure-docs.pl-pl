@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09460e4e38ea1842d58ecf3a9b3cd00a072c271e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596043"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286911"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
 
@@ -140,12 +140,15 @@ Ta opcja zapewnia większą elastyczność obsługi żądań anonimowych. Na prz
 
 ### <a name="allow-only-authenticated-requests"></a>Zezwalaj tylko na uwierzytelnione żądania
 
-Opcja jest **Logowanie za pomocą programu \<provider> **. App Service przekierowuje wszystkie anonimowe żądania do wybranego `/.auth/login/<provider>` dostawcy. Jeśli żądanie anonimowe pochodzi z natywnej aplikacji mobilnej, zwrócona odpowiedź to `HTTP 401 Unauthorized` .
+Opcja jest **Logowanie za pomocą programu \<provider>**. App Service przekierowuje wszystkie anonimowe żądania do wybranego `/.auth/login/<provider>` dostawcy. Jeśli żądanie anonimowe pochodzi z natywnej aplikacji mobilnej, zwrócona odpowiedź to `HTTP 401 Unauthorized` .
 
 W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardziej precyzyjne uwierzytelnianie, takie jak autoryzacja specyficzna dla ról, może być obsługiwane przez sprawdzenie oświadczeń użytkownika (zobacz [dostęp do oświadczeń użytkowników](app-service-authentication-how-to.md#access-user-claims)).
 
 > [!CAUTION]
 > Ograniczenie dostępu w ten sposób dotyczy wszystkich wywołań aplikacji, które mogą nie być odpowiednie dla aplikacji, które chcą korzystać z publicznie dostępnej strony głównej, tak jak w przypadku aplikacji jednostronicowych.
+
+> [!NOTE]
+> Domyślnie każdy użytkownik w dzierżawie usługi Azure AD może zażądać tokenu dla aplikacji z usługi Azure AD. Można [skonfigurować aplikację w usłudze Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) , jeśli chcesz ograniczyć dostęp do aplikacji do zdefiniowanego zestawu użytkowników.
 
 ## <a name="more-resources"></a>Dodatkowe zasoby
 

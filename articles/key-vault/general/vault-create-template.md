@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282326"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285141"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Jak utworzyć zasady dostępu magazynu i magazynu kluczy platformy Azure przy użyciu szablonu Menedżer zasobów
 
@@ -84,7 +84,7 @@ Poniższy szablon przedstawia podstawowy sposób tworzenia magazynu kluczy. Niek
 
 ```
 
-Aby uzyskać więcej informacji na temat Key Vault ustawień szablonu, zobacz sekcję [Key Vault informacje o szablonie usługi ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
+Aby uzyskać więcej informacji na temat Key Vault ustawień szablonu, zobacz sekcję [Key Vault informacje o szablonie usługi ARM](/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
 > Jeśli szablon zostanie ponownie wdrożony, wszystkie istniejące zasady dostępu w magazynie kluczy zostaną zastąpione. Zalecamy wypełnienie `accessPolicies` Właściwości istniejącymi zasadami dostępu, aby uniknąć utraty dostępu do magazynu kluczy. 
@@ -160,7 +160,7 @@ Zasady dostępu można wdrożyć do istniejącego magazynu kluczy bez ponownego 
 }
 
 ```
-Aby uzyskać więcej informacji na temat ustawień szablonu Key Vault, zobacz sekcję [Key Vault informacje o szablonie usługi ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+Aby uzyskać więcej informacji na temat ustawień szablonu Key Vault, zobacz sekcję [Key Vault informacje o szablonie usługi ARM](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Więcej szablonów Menedżer zasobów Key Vault
 
@@ -168,13 +168,13 @@ Istnieją inne szablony Menedżer zasobów dostępne dla obiektów Key Vault:
 
 | Wpisy tajne | Klucze | Certyfikaty |
 |--|--|--|
-|<ul><li>[Szybki start](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Odwołanie](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|NIE DOTYCZY|NIE DOTYCZY|
+|<ul><li>[Szybki start](../secrets/quick-create-template.md)<li>[Odwołanie](/azure/templates/microsoft.keyvault/vaults/secrets)|NIE DOTYCZY|NIE DOTYCZY|
 
-Więcej Key Vault szablonów można znaleźć tutaj: [Key Vault Menedżer zasobów Reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
+Więcej Key Vault szablonów można znaleźć tutaj: [Key Vault Menedżer zasobów Reference](/azure/templates/microsoft.keyvault/allversions).
 
 ## <a name="deploy-the-templates"></a>Wdrażanie szablonów
 
-Możesz użyć Azure Portal do wdrożenia powyższych szablonów przy użyciu opcji **Kompiluj własny szablon w edytorze** , jak opisano tutaj: [Wdróż zasoby z szablonu niestandardowego](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
+Możesz użyć Azure Portal do wdrożenia powyższych szablonów przy użyciu opcji **Kompiluj własny szablon w edytorze** , jak opisano tutaj: [Wdróż zasoby z szablonu niestandardowego](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 Można również zapisać powyższe szablony w plikach i użyć następujących poleceń:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create):
 

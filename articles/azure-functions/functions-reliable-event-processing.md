@@ -3,14 +3,14 @@ title: Azure Functions przetwarzanie niezawodnego zdarzenia
 description: Unikaj braku komunikatów centrum zdarzeń w Azure Functions
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506030"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287221"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions przetwarzanie niezawodnego zdarzenia
 
@@ -50,7 +50,7 @@ Azure Functions zużywa zdarzenia centrum zdarzeń podczas cyklicznego wykonywan
 
 To zachowanie ujawnia kilka ważnych punktów:
 
-- *Nieobsłużone wyjątki mogą spowodować utratę komunikatów.* Wykonanie, które spowoduje wyjątek, będzie nadal postępować nad wskaźnikiem.
+- *Nieobsłużone wyjątki mogą spowodować utratę komunikatów.* Wykonanie, które spowoduje wyjątek, będzie nadal postępować nad wskaźnikiem.  Ustawienie [zasad ponawiania](./functions-bindings-error-pages.md#retry-policies) spowoduje opóźnienie postępu, dopóki nie zostaną ocenione wszystkie zasady ponawiania.
 - *Funkcje gwarantują dostarczenie co najmniej jednokrotne.* Kod i systemy zależne mogą być konieczne do [uwzględnienia faktu, że ten sam komunikat może zostać odebrany dwa razy](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Obsługa wyjątków
@@ -59,9 +59,9 @@ Zgodnie z ogólną regułą każda funkcja powinna zawierać [blok try/catch](./
 
 ### <a name="retry-mechanisms-and-policies"></a>Zasady i mechanizmy ponawiania
 
-Niektóre wyjątki są przejściowe i nie pojawiają się ponownie po ponownym próbie wykonania operacji później. To dlatego, że pierwszym krokiem jest zawsze ponowienie próby wykonania operacji. Można napisać samodzielnie reguły przetwarzania ponowień, ale są one commonplace, że dostępne są różne narzędzia. Za pomocą tych bibliotek można definiować niezawodne zasady ponawiania prób, które mogą również ułatwić zachowanie kolejności przetwarzania.
+Niektóre wyjątki są przejściowe i nie pojawiają się ponownie po ponownym próbie wykonania operacji później. To dlatego, że pierwszym krokiem jest zawsze ponowienie próby wykonania operacji.  W ramach wykonywania funkcji można wykorzystać [zasady ponawiania prób](./functions-bindings-error-pages.md#retry-policies) aplikacji lub utworzyć logikę ponowień.
 
-Wprowadzenie do funkcji bibliotek obsługi błędów umożliwia zdefiniowanie podstawowych i zaawansowanych zasad ponowień. Na przykład można zaimplementować zasady, które po przepływie pracy zilustrowane przez następujące reguły:
+Wprowadzenie zachowań obsługi błędów do funkcji pozwala definiować podstawowe i zaawansowane zasady ponawiania. Na przykład można zaimplementować zasady, które po przepływie pracy zilustrowane przez następujące reguły:
 
 - Spróbuj ponownie wstawić komunikat trzy razy (prawdopodobnie z opóźnieniem między ponownymi próbami).
 - Jeśli wynikiem wszystkich ponownych prób jest błąd, Dodaj komunikat do kolejki, aby przetwarzanie było kontynuowane w strumieniu.
@@ -69,10 +69,6 @@ Wprowadzenie do funkcji bibliotek obsługi błędów umożliwia zdefiniowanie po
 
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) to przykład biblioteki odporności i obsługi błędów przejściowych dla aplikacji w języku C#.
-
-Podczas pracy z wstępnie zgodnymi bibliotekami klas języka C# [filtry wyjątków](/dotnet/csharp/language-reference/keywords/try-catch) umożliwiają uruchamianie kodu przy każdym wystąpieniu nieobsługiwanego wyjątku.
-
-Przykłady, które pokazują, jak używać filtrów wyjątków, są dostępne w repozytorium [zestawu SDK Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) .
 
 ## <a name="non-exception-errors"></a>Błędy niepowodujące wyjątku
 

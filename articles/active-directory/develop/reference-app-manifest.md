@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6971e62b20dc1155b875f69eb1d4da9d7b6e6887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627010"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286961"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifest aplikacji usługi Azure Active Directory
 
@@ -46,7 +46,7 @@ W tej sekcji opisano atrybuty znalezione w manifeście aplikacji.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| identyfikator | Ciąg |
+| identyfikator | String |
 
 Unikatowy identyfikator aplikacji w katalogu. Ten identyfikator nie jest identyfikatorem używanym do identyfikowania aplikacji w żadnej transakcji protokołu. Służy do odwoływania się do obiektu w zapytaniach w katalogu.
 
@@ -105,7 +105,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| allowPublicClient | Boolean (wartość logiczna) |
+| allowPublicClient | Boolean |
 
 Określa typ aplikacji rezerwowej. Usługa Azure AD domyślnie wnioskuje typ aplikacji z replyUrlsWithType. Istnieją pewne scenariusze, w których usługa Azure AD nie może określić typu aplikacji klienta. Na przykład, taki scenariusz to [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) , gdzie żądanie HTTP odbywa się bez przekierowania adresu URL. W takich przypadkach usługa Azure AD interpretuje typ aplikacji na podstawie wartości tej właściwości. Jeśli ta wartość jest równa true, typ aplikacji rezerwowej jest ustawiany jako klient publiczny, taki jak zainstalowana aplikacja uruchomiona na urządzeniu przenośnym. Wartość domyślna to false, co oznacza, że rezerwowy typ aplikacji to poufny klient, taki jak aplikacja sieci Web.
 
@@ -119,7 +119,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| availableToOtherTenants | Boolean (wartość logiczna) |
+| availableToOtherTenants | Boolean |
 
 Ustaw wartość PRAWDA, jeśli aplikacja jest udostępniana innym dzierżawcom; w przeciwnym razie false.
 
@@ -130,7 +130,7 @@ Ustaw wartość PRAWDA, jeśli aplikacja jest udostępniana innym dzierżawcom; 
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| appId | Ciąg |
+| appId | String |
 
 Określa unikatowy identyfikator aplikacji przypisanej do aplikacji przez usługę Azure AD.
 
@@ -180,7 +180,7 @@ Nazwa wyświetlana aplikacji.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| errorUrl | Ciąg |
+| errorUrl | String |
 
 Ich.
 
@@ -188,12 +188,13 @@ Ich.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-|groupMembershipClaims | Ciąg |
+|groupMembershipClaims | String |
 
 Konfiguruje `groups` w tokenie dostępu użytkownika lub OAuth 2,0, który oczekuje aplikacja. Aby ustawić ten atrybut, należy użyć jednej z następujących prawidłowych wartości ciągu:
 
 - `"None"`
 - `"SecurityGroup"` (w przypadku grup zabezpieczeń i ról usługi Azure AD)
+- `"ApplicationGroup"` (Ta opcja obejmuje tylko grupy, które są przypisane do aplikacji)
 - `"All"` (spowoduje to wyświetlenie wszystkich grup zabezpieczeń, grup dystrybucyjnych i ról katalogu usługi Azure AD, do których należy użytkownik zalogowany).
 
 Przykład:
@@ -206,7 +207,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| głównej |Ciąg |
+| głównej |String |
 
 Adres URL strony głównej aplikacji.
 
@@ -217,7 +218,7 @@ Adres URL strony głównej aplikacji.
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-|Obiektu | Ciąg |
+|Obiektu | String |
 
 Unikatowy identyfikator aplikacji w katalogu.
 
@@ -233,7 +234,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| optionalClaims | Ciąg |
+| optionalClaims | String |
 
 Opcjonalne oświadczenia zwracane w tokenie przez usługę tokenu zabezpieczającego dla tej konkretnej aplikacji.
 
@@ -265,7 +266,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| informationalUrls | Ciąg |
+| informationalUrls | String |
 
 Określa linki do warunków użytkowania i zasad zachowania poufności informacji aplikacji. Warunki użytkowania usługi i zasady zachowania poufności informacji są udostępniane użytkownikom za pomocą funkcji wyrażania zgody użytkownika. Aby uzyskać więcej informacji, zobacz [jak: Dodawanie warunków użytkowania i zasad zachowania poufności informacji dla zarejestrowanych aplikacji usługi Azure AD](howto-add-terms-of-service-privacy-statement.md).
 
@@ -322,7 +323,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| logoUrl | Ciąg |
+| logoUrl | String |
 
 Wartość tylko do odczytu wskazująca adres URL usługi CDN na logo, które zostało przekazane w portalu.
 
@@ -336,7 +337,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| logoutUrl | Ciąg |
+| logoutUrl | String |
 
 Adres URL do wylogowania z aplikacji.
 
@@ -350,7 +351,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| name | Ciąg |
+| name | String |
 
 Nazwa wyświetlana aplikacji.
 
@@ -364,7 +365,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2AllowImplicitFlow | Boolean (wartość logiczna) |
+| oauth2AllowImplicitFlow | Boolean |
 
 Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów dostępu protokołu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript. Aby dowiedzieć się więcej, wprowadź `OAuth 2.0 implicit grant flow` w spisie treści i zobacz tematy dotyczące przepływu niejawnego.
 
@@ -378,7 +379,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2AllowIdTokenImplicitFlow | Boolean (wartość logiczna) |
+| oauth2AllowIdTokenImplicitFlow | Boolean |
 
 Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów identyfikatora przepływu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript.
 
@@ -417,7 +418,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2RequiredPostResponse | Boolean (wartość logiczna) |
+| oauth2RequiredPostResponse | Boolean |
 
 Określa, czy w ramach żądania tokenu OAuth 2,0 usługa Azure AD będzie zezwalać na żądania POST, w przeciwieństwie do żądań GET. Wartość domyślna to false, co oznacza, że dozwolone są tylko żądania GET.
 
@@ -431,7 +432,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| parentalControlSettings | Ciąg |
+| parentalControlSettings | String |
 
 - `countriesBlockedForMinors` Określa kraje/regiony, w których aplikacja jest zablokowana dla małoletnich.
 - `legalAgeGroupRule` Określa regułę grupy wieku prawnego, która ma zastosowanie do użytkowników aplikacji. Można ustawić na `Allow` , `RequireConsentForPrivacyServices` ,, `RequireConsentForMinors` `RequireConsentForKids` lub `BlockMinors` .
@@ -492,7 +493,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| publicClient | Boolean (wartość logiczna)|
+| publicClient | Boolean|
 
 Określa, czy ta aplikacja jest klientem publicznym (na przykład zainstalowaną aplikacją uruchomioną na urządzeniu przenośnym).
 
@@ -502,7 +503,7 @@ Ta właściwość jest dostępna tylko w środowisku **rejestracje aplikacji (st
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| publisherDomain | Ciąg |
+| publisherDomain | String |
 
 Zweryfikowana domena wydawcy dla aplikacji. Tylko do odczytu.
 
@@ -578,7 +579,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| samlMetadataUrl | Ciąg |
+| samlMetadataUrl | String |
 
 Adres URL metadanych SAML dla aplikacji.
 
@@ -592,7 +593,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| signInUrl | Ciąg |
+| signInUrl | String |
 
 Określa adres URL strony głównej aplikacji.
 
@@ -606,7 +607,7 @@ Przykład:
 
 | Klucz | Typ wartości |
 | :--- | :--- |
-| signInAudience | Ciąg |
+| signInAudience | String |
 
 Określa, jakie konta Microsoft są obsługiwane przez bieżącą aplikację. Obsługiwane są następujące wartości:
 - `AzureADMyOrg` -Użytkownicy z kontem służbowym firmy Microsoft w dzierżawie usługi Azure AD w organizacji (na przykład z jedną dzierżawą)

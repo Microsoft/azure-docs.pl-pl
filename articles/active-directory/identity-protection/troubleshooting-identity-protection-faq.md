@@ -11,30 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b1c0ef42454b085c5d4dbcdc14162b2c829c6a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074818"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288376"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Często zadawane pytania dotyczące ochrony tożsamości w programie Azure Active Directory
 
 ## <a name="dismiss-user-risk-known-issues"></a>Odrzuć znane problemy dotyczące ryzyka związanego z użytkownikiem
 
-**Odrzucanie ryzyka użytkownika** w ramach klasycznej ochrony tożsamości ustawia aktora w historii ryzyka użytkownika w usłudze **Azure AD** .
+**Odrzucanie ryzyka użytkownika** w ramach klasycznej ochrony tożsamości ustawia aktora w historii ryzyka użytkownika w usłudze **Azure AD**.
 
 **Odrzucanie ryzyka użytkownika** w ramach ochrony tożsamości ustawia aktora w historii ryzyka użytkownika w usłudze Identity Protection **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
 Istnieje obecnie znany problem powodujący opóźnienie w przepływie nieprzerwanego ryzyka dla użytkownika. Jeśli masz "zasady ryzyka dla użytkowników", te zasady przestaną być stosowane do odrzuconych użytkowników w ciągu kilku minut od kliknięcia pozycji "Odrzuć ryzyko użytkownika". Istnieją jednak znane opóźnienia w przypadku, gdy środowisko użytkownika odświeża "stan ryzyka" odrzuconych użytkowników. Aby obejść ten element, należy odświeżyć stronę na poziomie przeglądarki, aby zobaczyć najnowszego stanu zagrożenia użytkownika.
-
-## <a name="risky-users-report-known-issues"></a>Ryzykowni użytkownicy zgłaszają znane problemy
-
-W zapytaniach w polu Nazwa **użytkownika** jest rozróżniana wielkość liter, podczas gdy zapytania w polu **Nazwa** to Case-niezależny od.
-
-Przełączenie **Pokaż daty jako** Ukrycie kolumny **Ostatnia aktualizacja ryzyka** . Aby odczytać kolumnę, kliknij **kolumny** w górnej części bloku ryzykownych użytkowników.
-
-**Odrzuć wszystkie zdarzenia** z klasycznej ochrony tożsamości ustawia stan wykrycia ryzyka **zamknięte (rozwiązane)** .
 
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
@@ -84,7 +76,7 @@ Wszystkie wykrycia ryzyka są udokumentowane w artykule [co to jest ryzykowne](c
 - Ponadto firma Microsoft udostępnia informacje o naszych systemach uczenia maszynowego na potrzeby przyszłych ulepszeń oceny ryzyka.
 
     > [!NOTE]
-    > Jeśli użytkownik jest już korygowany, nie klikaj przycisku **Potwierdź złamane zabezpieczenia** , ponieważ przeniesie stan zagrożenia logowania i użytkownika w celu **potwierdzenia** , że poziom zagrożenia został naruszony i podwyższonego poziomu ryzyka na **wysoki** .
+    > Jeśli użytkownik jest już korygowany, nie klikaj przycisku **Potwierdź złamane zabezpieczenia** , ponieważ przeniesie stan zagrożenia logowania i użytkownika w celu **potwierdzenia** , że poziom zagrożenia został naruszony i podwyższonego poziomu ryzyka na **wysoki**.
 
 **Potwierdź bezpieczne** (w przypadku logowania) — informuje Azure AD Identity Protection, że logowanie zostało wykonane przez właściciela tożsamości i nie wskazuje na naruszenie zabezpieczeń.
 

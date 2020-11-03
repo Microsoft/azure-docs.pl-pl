@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: a5ba1699e082741db851ee2af3eb688ea8aa7843
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 05b1ea8e6daa9fae0588535534c4a8be45ab91d5
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748048"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285259"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Szybki Start: Azure Key Vault Biblioteka kliencka certyfikatów dla języka Python
 
@@ -24,16 +24,16 @@ Wprowadzenie do biblioteki klienta Azure Key Vault Certificate dla języka Pytho
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7 + lub 3.5.3 +](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [Python 2.7 + lub 3.5.3 +](/azure/developer/python/configure-local-development-environment)
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
 
 W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w oknie terminalu systemu Linux.
 
 ## <a name="set-up-your-local-environment"></a>Konfigurowanie środowiska lokalnego
 
-Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](/java/api/overview/azure/identity-readme)
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 1. Uruchom polecenie `login`.
 
@@ -136,7 +136,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Upewnij się, że kod w poprzedniej sekcji znajduje się w pliku o nazwie *kv_certificates. PR* . Następnie uruchom kod przy użyciu następującego polecenia:
+Upewnij się, że kod w poprzedniej sekcji znajduje się w pliku o nazwie *kv_certificates. PR*. Następnie uruchom kod przy użyciu następującego polecenia:
 
 ```terminal
 python kv_certificates.py

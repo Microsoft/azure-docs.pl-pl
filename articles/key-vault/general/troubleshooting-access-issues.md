@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1437ef8675d0ddc96eb7fc641b3663b66c3ea11b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125256"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285248"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Rozwiązywanie problemów z zasadami dostępu do magazynu kluczy Azure
 
@@ -20,11 +20,11 @@ ms.locfileid: "92125256"
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>Jak można sprawdzić, jak i kiedy są dostępne magazyny kluczy?
 
-Po utworzeniu co najmniej jednego magazynu kluczy prawdopodobnie zechcesz monitorować sposób i czas uzyskiwania dostępu do Twoich magazynów kluczy oraz przez kogo. Monitorowanie można przeprowadzić przez włączenie rejestrowania dla Azure Key Vault, aby zapoznać się z przewodnikiem krok po kroku, aby włączyć rejestrowanie. [Przeczytaj więcej](https://docs.microsoft.com/azure/key-vault/general/logging).
+Po utworzeniu co najmniej jednego magazynu kluczy prawdopodobnie zechcesz monitorować sposób i czas uzyskiwania dostępu do Twoich magazynów kluczy oraz przez kogo. Monitorowanie można przeprowadzić przez włączenie rejestrowania dla Azure Key Vault, aby zapoznać się z przewodnikiem krok po kroku, aby włączyć rejestrowanie. [Przeczytaj więcej](./logging.md).
 
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Jak można monitorować dostępność magazynu, okresy opóźnienia usługi lub inne metryki wydajności dla magazynu kluczy?
 
-Po rozpoczęciu skalowania usługi liczba żądań wysyłanych do magazynu kluczy zostanie wykorzystana. Takie zapotrzebowanie ma możliwość zwiększenia opóźnienia żądań i w skrajnych przypadkach, powodując ograniczenie żądań, co wpłynie na wydajność usługi. Można monitorować metryki wydajności magazynu kluczy i otrzymywać alerty dla określonych progów, aby zapoznać się z przewodnikiem krok po kroku w celu skonfigurowania monitorowania, [Dowiedz się więcej](https://docs.microsoft.com/azure/key-vault/general/alert).
+Po rozpoczęciu skalowania usługi liczba żądań wysyłanych do magazynu kluczy zostanie wykorzystana. Takie zapotrzebowanie ma możliwość zwiększenia opóźnienia żądań i w skrajnych przypadkach, powodując ograniczenie żądań, co wpłynie na wydajność usługi. Można monitorować metryki wydajności magazynu kluczy i otrzymywać alerty dla określonych progów, aby zapoznać się z przewodnikiem krok po kroku w celu skonfigurowania monitorowania, [Dowiedz się więcej](./alert.md).
 
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Nie mogę zmodyfikować zasad dostępu, jak można je włączyć?
 Użytkownik musi mieć wystarczającą liczbę uprawnień usługi AAD, aby zmodyfikować zasady dostępu. W takim przypadku użytkownik musi mieć wyższą rolę współautor.
@@ -53,7 +53,7 @@ Aplikacja wymaga również co najmniej jednej roli zarządzania tożsamościami 
 
 Obecnie Key Vault ponowne wdrażanie spowoduje usunięcie wszystkich zasad dostępu w Key Vault i zamieninie ich przy użyciu zasad dostępu w szablonie ARM. Nie ma opcji przyrostowej dla zasad dostępu Key Vault. Aby zachować zasady dostępu w Key Vault, należy przeczytać istniejące zasady dostępu w Key Vault i wypełnić szablon ARM przy użyciu tych zasad, aby uniknąć awarii dostępu.
 
-Kolejną opcją, która może pomóc w tym scenariuszu, jest użycie ról RBAC jako alternatywy dla zasad dostępu. Za pomocą RBAC można ponownie wdrożyć Magazyn kluczy bez konieczności ponownego określania zasad. Więcej informacji można znaleźć [tutaj](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
+Kolejną opcją, która może pomóc w tym scenariuszu, jest użycie ról RBAC jako alternatywy dla zasad dostępu. Za pomocą RBAC można ponownie wdrożyć Magazyn kluczy bez konieczności ponownego określania zasad. Więcej informacji można znaleźć [tutaj](./rbac-guide.md).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Zalecane kroki rozwiązywania problemów dla następujących typów błędów
 

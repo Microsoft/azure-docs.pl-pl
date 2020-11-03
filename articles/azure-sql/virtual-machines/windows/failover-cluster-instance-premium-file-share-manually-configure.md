@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: b6e33f32c6adcea12952474e3f09b45834b85c1e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1994cda9dbf22a81216408ee07d51f635e89cff4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164418"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285268"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Tworzenie FCI z udziałem plików w warstwie Premium (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,8 +41,8 @@ Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać nas
 
 ## <a name="mount-premium-file-share"></a>Zainstaluj udział plików w warstwie Premium
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). i przejdź do konta magazynu.
-1. Przejdź do obszaru **udziały plików** w obszarze **Usługa plików**, a następnie wybierz udział plików w warstwie Premium, który ma być używany dla magazynu SQL.
+1. Zaloguj się do [portalu Azure](https://portal.azure.com). i przejdź do konta magazynu.
+1. Przejdź do obszaru **udziały plików** w obszarze **Usługa plików** , a następnie wybierz udział plików w warstwie Premium, który ma być używany dla magazynu SQL.
 1. Wybierz pozycję **Połącz** , aby wyświetlić parametry połączenia dla udziału plików.
 1. Z listy rozwijanej wybierz literę dysku, której chcesz użyć, a następnie skopiuj oba bloki kodu do Notatnika.
 
@@ -69,11 +69,11 @@ Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać nas
 1. [Dodaj klaster trybu failover do każdej maszyny wirtualnej](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
    Aby zainstalować klaster trybu failover z interfejsu użytkownika, wykonaj następujące czynności na obu maszynach wirtualnych:
-   1. W **Menedżer serwera**wybierz pozycję **Zarządzaj**, a następnie wybierz pozycję **Dodaj role i funkcje**.
+   1. W **Menedżer serwera** wybierz pozycję **Zarządzaj** , a następnie wybierz pozycję **Dodaj role i funkcje**.
    1. W kreatorze **dodawania ról i funkcji** wybierz pozycję **dalej** , aż **wybierzesz pozycję funkcje**.
-   1. W obszarze **Wybierz funkcje**wybierz pozycję **klaster trybu failover**. Dołącz wszystkie wymagane funkcje i narzędzia do zarządzania. 
+   1. W obszarze **Wybierz funkcje** wybierz pozycję **klaster trybu failover**. Dołącz wszystkie wymagane funkcje i narzędzia do zarządzania. 
    1. Wybierz pozycję **Dodaj funkcje**.
-   1. Wybierz pozycję **dalej**, a następnie wybierz pozycję **Zakończ** , aby zainstalować funkcje.
+   1. Wybierz pozycję **dalej** , a następnie wybierz pozycję **Zakończ** , aby zainstalować funkcje.
 
    Aby zainstalować klaster trybu failover przy użyciu programu PowerShell, uruchom następujący skrypt z sesji programu PowerShell administratora na jednej z maszyn wirtualnych:
 
@@ -88,15 +88,25 @@ Sprawdź poprawność klastra w interfejsie użytkownika lub za pomocą programu
 
 Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykonaj następujące czynności na jednej z maszyn wirtualnych:
 
-1. W obszarze **Menedżer serwera**wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
-1. W obszarze **Menedżer klastra trybu failover**wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
+1. W obszarze **Menedżer serwera** wybierz pozycję **Narzędzia** , a następnie wybierz pozycję **Menedżer klastra trybu failover**.
+1. W obszarze **Menedżer klastra trybu failover** wybierz pozycję **Akcja** , a następnie wybierz pozycję **Weryfikuj konfigurację**.
 1. Wybierz pozycję **Dalej**.
-1. W obszarze **Wybierz serwery lub klaster**wprowadź nazwy obu maszyn wirtualnych.
-1. W obszarze **opcje testowania**wybierz opcję **Uruchom tylko wybrane testy**. 
+1. W obszarze **Wybierz serwery lub klaster** wprowadź nazwy obu maszyn wirtualnych.
+1. W obszarze **opcje testowania** wybierz opcję **Uruchom tylko wybrane testy**. 
 1. Wybierz pozycję **Dalej**.
-1. W obszarze **wybór testu**zaznacz wszystkie testy z wyjątkiem **magazynu** i **bezpośrednie miejsca do magazynowania**, jak pokazano poniżej:
+1. W obszarze **wybór testu** zaznacz wszystkie testy z wyjątkiem **magazynu** i **bezpośrednie miejsca do magazynowania** , jak pokazano poniżej:
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Kopiuj Oba polecenia programu PowerShell z portalu usługi File Share Connect"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Wybierz testy weryfikacji klastra":::
+
+1. Wybierz pozycję **Dalej**.
+1. W obszarze **potwierdzenie** wybierz pozycję **dalej**.
+
+Kreator **weryfikacji konfiguracji** uruchamia testy weryfikacyjne.
+
+Aby sprawdzić poprawność klastra przy użyciu programu PowerShell, uruchom następujący skrypt z sesji programu PowerShell administratora na jednej z maszyn wirtualnych:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
    ```
 
 Po sprawdzeniu poprawności klastra utwórz klaster trybu failover.
@@ -139,9 +149,9 @@ Skonfiguruj rozwiązanie kworum, które najlepiej odpowiada Twoim potrzebom bizn
 
 ## <a name="test-cluster-failover"></a>Testowanie trybu failover klastra
 
-Przetestuj tryb failover klastra. W **Menedżer klastra trybu failover**kliknij prawym przyciskiem myszy klaster, wybierz pozycję **więcej akcji**  >  **Przenieś zasób klastra podstawowego**  >  **Wybierz węzeł**, a następnie wybierz inny węzeł klastra. Przenieś zasób podstawowego klastra do każdego węzła klastra, a następnie przenieś go z powrotem do węzła podstawowego. Jeśli możesz pomyślnie przenieść klaster do każdego węzła, możesz zainstalować SQL Server.  
+Przetestuj tryb failover klastra. W **Menedżer klastra trybu failover** kliknij prawym przyciskiem myszy klaster, wybierz pozycję **więcej akcji**  >  **Przenieś zasób klastra podstawowego**  >  **Wybierz węzeł** , a następnie wybierz inny węzeł klastra. Przenieś zasób podstawowego klastra do każdego węzła klastra, a następnie przenieś go z powrotem do węzła podstawowego. Jeśli możesz pomyślnie przenieść klaster do każdego węzła, możesz zainstalować SQL Server.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Kopiuj Oba polecenia programu PowerShell z portalu usługi File Share Connect":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testowanie trybu failover klastra przez przeniesienie zasobu podstawowego do innych węzłów":::
 
 
 ## <a name="create-sql-server-fci"></a>Utwórz SQL Server FCI
@@ -150,25 +160,25 @@ Po skonfigurowaniu klastra trybu failover można utworzyć SQL Server FCI.
 
 1. Nawiąż połączenie z pierwszą maszyną wirtualną przy użyciu protokołu RDP.
 
-1. W **Menedżer klastra trybu failover**upewnij się, że wszystkie podstawowe zasoby klastra znajdują się na pierwszej maszynie wirtualnej. W razie potrzeby Przenieś wszystkie zasoby do tej maszyny wirtualnej.
+1. W **Menedżer klastra trybu failover** upewnij się, że wszystkie podstawowe zasoby klastra znajdują się na pierwszej maszynie wirtualnej. W razie potrzeby Przenieś wszystkie zasoby do tej maszyny wirtualnej.
 
 1. Znajdź nośnik instalacyjny. Jeśli maszyna wirtualna używa jednego z obrazów portalu Azure Marketplace, nośnik znajduje się w lokalizacji `C:\SQLServer_<version number>_Full` . 
 
 1. Wybierz pozycję **Konfiguracja**.
 
-1. W **centrum instalacji SQL Server**wybierz opcję **Instalacja**.
+1. W **centrum instalacji SQL Server** wybierz opcję **Instalacja**.
 
-1. Wybierz pozycję **nowa SQL Server Instalacja klastra trybu failover**, a następnie postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server FCI.
+1. Wybierz pozycję **nowa SQL Server Instalacja klastra trybu failover** , a następnie postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server FCI.
 
    Katalogi danych FCI muszą znajdować się w udziale plików w warstwie Premium. Wprowadź pełną ścieżkę udziału w tym formacie: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Zostanie wyświetlone ostrzeżenie z informacją o tym, że jako katalog danych został określony serwer plików. To ostrzeżenie jest oczekiwane. Upewnij się, że konto użytkownika używane do uzyskiwania dostępu do maszyny wirtualnej za pośrednictwem protokołu RDP podczas utrwalania udziału plików jest tym samym kontem, którego używa Usługa SQL Server, aby uniknąć możliwych błędów.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Kopiuj Oba polecenia programu PowerShell z portalu usługi File Share Connect":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Korzystanie z udziału plików jako katalogów danych SQL":::
 
 1. Po wykonaniu kroków opisanych w Kreatorze Instalator zainstaluje SQL Server FCI na pierwszym węźle.
 
 1. Po zainstalowaniu przez Instalatora FCI na pierwszym węźle Nawiąż połączenie z drugim węzłem przy użyciu protokołu RDP.
 
-1. Otwórz **centrum instalacji programu SQL Server**, a następnie wybierz pozycję **Instalacja**.
+1. Otwórz **centrum instalacji programu SQL Server** , a następnie wybierz pozycję **Instalacja**.
 
 1. Wybierz pozycję **Dodaj węzeł do klastra trybu failover SQL Server**. Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server i dodać serwer do FCI.
 
@@ -200,7 +210,7 @@ Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy sko
 
 - Usługa Microsoft Distributed Transaction Coordinator (MSDTC) nie jest obsługiwana w systemie Windows Server 2016 i jego starszych wersjach. 
 - Element FILESTREAM nie jest obsługiwany w przypadku klastra trybu failover z udziałem plików w warstwie Premium. Aby użyć FILESTREAM, wdróż klaster przy użyciu [bezpośrednie miejsca do magazynowania](failover-cluster-instance-storage-spaces-direct-manually-configure.md) lub [udostępnionych dysków platformy Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) .
-- Obsługiwane jest tylko rejestrowanie w [trybie uproszczonego zarządzania](sql-vm-resource-provider-register.md#management-modes) przy użyciu dostawcy zasobów maszyny wirtualnej SQL. 
+- Obsługiwane jest tylko rejestrowanie w [trybie uproszczonego zarządzania](sql-server-iaas-agent-extension-automate-management.md#management-modes) przy użyciu dostawcy zasobów maszyny wirtualnej SQL. 
 
 ## <a name="next-steps"></a>Następne kroki
 

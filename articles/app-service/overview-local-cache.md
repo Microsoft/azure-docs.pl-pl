@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9e43cb9188df8274d5bafa7fd9bc90c24339237
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080715"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286847"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Omówienie lokalnej pamięci podręcznej Azure App Service
 
@@ -45,10 +45,14 @@ Funkcja lokalnej pamięci podręcznej Azure App Service udostępnia widok roli s
 * Wdrażanie aplikacji za pomocą dowolnej obsługiwanej metody publikuje się bezpośrednio w magazynie trwałych zawartości udostępnionej. Aby odświeżyć foldery _D:\home\site_ i _D:\home\siteextensions_ w lokalnej pamięci podręcznej, należy ponownie uruchomić aplikację. Aby zapewnić bezproblemowe cykl życia, zapoznaj się z informacjami w dalszej części tego artykułu.
 * Domyślny widok zawartości witryny SCM będzie nadal znajdować się w magazynie zawartości udostępnionej.
 
-## <a name="enable-local-cache-in-app-service"></a>Włącz lokalną pamięć podręczną w App Service
+## <a name="enable-local-cache-in-app-service"></a>Włącz lokalną pamięć podręczną w App Service 
+
+> [!NOTE]
+> Lokalna pamięć podręczna nie jest obsługiwana w warstwie **F1** lub **D1** . 
+
 Lokalna pamięć podręczna jest konfigurowana przy użyciu kombinacji ustawień aplikacji zarezerwowanych. Te ustawienia aplikacji można skonfigurować przy użyciu następujących metod:
 
-* [Azure Portal](#Configure-Local-Cache-Portal)
+* [Witryna Azure Portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Konfigurowanie lokalnej pamięci podręcznej przy użyciu Azure Portal

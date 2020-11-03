@@ -4,30 +4,28 @@ description: Indeksuj dane przestrzenne za pomocą Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/03/2020
+ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: f250c15dbb30736e3e89a301fc236a848bd05da2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 347617fb13041a8fb31c28f259aaf761baae2e53
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092062"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286318"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indeksowanie danych geoprzestrzennych przy użyciu Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Zaprojektowano aparat bazy danych Azure Cosmos DB, aby niezależny od schemat i zapewnić obsługę pierwszej klasy w formacie JSON. Aparat zoptymalizowanej bazy danych z możliwością zapisu Azure Cosmos DB natywnie rozumie dane przestrzenne reprezentowane w standardzie GEOJSON.
 
-W Nutshell geometria jest rzutowana od współrzędnych Geodetic do płaszczyzny 2D, a następnie przedzielona stopniowo na komórki przy użyciu **QuadTree** . Te komórki są mapowane na 1D w oparciu o lokalizację komórki w **Hilbertej krzywej wypełniania** , która zachowuje miejscowość punktów. Ponadto, gdy dane lokalizacji są indeksowane, przechodzi przez proces znany jako **mozaikowania** , czyli wszystkie komórki, które przecinają lokalizację, są identyfikowane i przechowywane jako klucze w indeksie Azure Cosmos DB. W czasie zapytania, argumenty, takie jak punkty i wielokąty, są również tessellated do wyodrębnienia odpowiednich zakresów identyfikatorów komórek, a następnie używane do pobierania danych z indeksu.
+W Nutshell geometria jest rzutowana od współrzędnych Geodetic do płaszczyzny 2D, a następnie przedzielona stopniowo na komórki przy użyciu **QuadTree**. Te komórki są mapowane na 1D w oparciu o lokalizację komórki w **Hilbertej krzywej wypełniania** , która zachowuje miejscowość punktów. Ponadto, gdy dane lokalizacji są indeksowane, przechodzi przez proces znany jako **mozaikowania** , czyli wszystkie komórki, które przecinają lokalizację, są identyfikowane i przechowywane jako klucze w indeksie Azure Cosmos DB. W czasie zapytania, argumenty, takie jak punkty i wielokąty, są również tessellated do wyodrębnienia odpowiednich zakresów identyfikatorów komórek, a następnie używane do pobierania danych z indeksu.
 
-W przypadku określenia zasad indeksowania, które zawierają indeks przestrzenny dla/* (wszystkie ścieżki), wszystkie dane znajdujące się w kontenerze są indeksowane pod kątem wydajnych zapytań przestrzennych.
+W przypadku określenia zasad indeksowania obejmujących indeks przestrzenny dla `/*` (wszystkie ścieżki), wszystkie dane znajdujące się w kontenerze są indeksowane pod kątem wydajnych zapytań przestrzennych.
 
 > [!NOTE]
-> Azure Cosmos DB obsługuje indeksowanie punktów, LineStrings, wielokątów i wielowielokątnych
->
->
+> Azure Cosmos DB obsługuje indeksowania punktów, LineStrings, wielokątów i wielowielokątów. W przypadku indeksowania dowolnego z tych typów zostaną automatycznie przeindeksowane wszystkie inne typy. Innymi słowy, jeśli indeksuje się wielokąty, będziemy również indeksować punkty, LineStrings i wielowielokątne. Indeksowanie nowego typu przestrzennego nie ma wpływu na wielkość obciążenia RU lub rozmiar indeksu, chyba że masz prawidłowe dane GEOJSON tego typu.
 
-## <a name="modifying-geospatial-data-type"></a>Modyfikowanie typu danych geoprzestrzennych
+## <a name="modifying-geospatial-configuration"></a>Modyfikowanie konfiguracji geoprzestrzennej
 
 W kontenerze **Konfiguracja geoprzestrzenna** określa sposób indeksowania danych przestrzennych. Określ jedną **konfigurację geograficzną** dla kontenera: Geografia lub geometria.
 

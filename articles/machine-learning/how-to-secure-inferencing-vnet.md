@@ -11,14 +11,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a6b453b11c892b5d81c41cac9451b07be69aa4d3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735473"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285918"
 ---
-# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska Azure Machine Learning inferencing z sieciami wirtualnymi
+# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska wnioskowania usługi Azure Machine Learning za pomocą sieci wirtualnych
 
 W tym artykule dowiesz się, jak zabezpieczyć środowiska inferencing przy użyciu sieci wirtualnej w Azure Machine Learning.
 
@@ -68,7 +68,7 @@ Aby dodać AKS w sieci wirtualnej do obszaru roboczego, wykonaj następujące cz
 
 1. Wybierz z centrum pozycję __klastry wnioskowania__ , a następnie wybierz pozycję __+__ .
 
-1. W oknie dialogowym __nowy klaster wnioskowania__ wybierz pozycję __Zaawansowane__ w obszarze __Konfiguracja sieci__ .
+1. W oknie dialogowym __nowy klaster wnioskowania__ wybierz pozycję __Zaawansowane__ w obszarze __Konfiguracja sieci__.
 
 1. Aby skonfigurować ten zasób obliczeniowy do korzystania z sieci wirtualnej, wykonaj następujące czynności:
 
@@ -138,7 +138,7 @@ Po utworzeniu prywatnego klastra AKS [Dołącz klaster do sieci wirtualnej](how-
 
 Domyślnie wdrożenia AKS używają [publicznego modułu równoważenia obciążenia](../aks/load-balancer-standard.md). W tej sekcji dowiesz się, jak skonfigurować AKS do korzystania z wewnętrznego modułu równoważenia obciążenia. Używany jest wewnętrzny (lub prywatny) moduł równoważenia obciążenia, w przypadku którego jako frontonu można używać tylko prywatnych adresów IP. Wewnętrzne moduły równoważenia obciążenia są używane do równoważenia obciążenia ruchu w sieci wirtualnej
 
-Prywatny moduł równoważenia obciążenia jest włączony przez skonfigurowanie AKS do korzystania z _wewnętrznego modułu równoważenia obciążenia_ . 
+Prywatny moduł równoważenia obciążenia jest włączony przez skonfigurowanie AKS do korzystania z _wewnętrznego modułu równoważenia obciążenia_. 
 
 #### <a name="network-contributor-role"></a>Rola współautor sieci
 
@@ -217,6 +217,9 @@ except:
 az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
+> [!IMPORTANT]
+> Korzystając z interfejsu wiersza polecenia, można utworzyć klaster AKS tylko z wewnętrznym modułem równoważenia obciążenia. Nie ma polecenia AZ ml, aby uaktualnić istniejący klaster do korzystania z wewnętrznego modułu równoważenia obciążenia.
+
 Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Create AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) Reference.
 
 ---
@@ -260,6 +263,9 @@ Aby użyć ACI w sieci wirtualnej z obszarem roboczym, wykonaj następujące czy
 
 2. Wdróż model przy użyciu [AciWebservice.deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), użyj `vnet_name` parametrów i `subnet_name` . Ustaw te parametry na nazwę sieci wirtualnej i podsieć, w której włączono delegowanie.
 
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Ogranicz łączność wychodzącą z sieci wirtualnej
+
+Jeśli nie chcesz używać domyślnych reguł ruchu wychodzącego i chcesz ograniczyć dostęp wychodzący do sieci wirtualnej, musisz zezwolić na dostęp do Azure Container Registry. Na przykład upewnij się, że sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń) zawierają regułę umożliwiającą dostęp do tagu usługi __AzureContainerRegistry. RegionName__ , gdzie "{RegionName}" jest nazwą regionu platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

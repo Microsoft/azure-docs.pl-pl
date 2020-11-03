@@ -1,18 +1,18 @@
 ---
-title: Wskazówki dotyczące obsługi błędów Azure Functions
-description: Dowiedz się, jak obsłużyć błędy w Azure Functions z łączami do określonych błędów powiązań.
+title: Azure Functions obsługa błędów i wskazówki dotyczące ponawiania prób
+description: Dowiedz się, jak obsługiwać błędy i ponawiać zdarzenia w Azure Functions z łączami do określonych błędów powiązań.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 0617d55f7c67c788b1e898d963f7d509cef72d49
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: e52babd5b0612b4590f1422a941b25ba30c3f169
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096848"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284463"
 ---
-# <a name="azure-functions-error-handling"></a>Obsługa błędów Azure Functions
+# <a name="azure-functions-error-handling-and-retries"></a>Azure Functions obsługi błędów i ponownych prób
 
 Obsługa błędów w Azure Functions ma na celu uniknięcie utraty danych, nieodebranych zdarzeń i monitorowania kondycji aplikacji.
 
@@ -20,7 +20,7 @@ W tym artykule opisano ogólne strategie obsługi błędów oraz linki do błęd
 
 ## <a name="handling-errors"></a>Obsługa błędów
 
-[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-retries.md)]
 
 ## <a name="binding-error-codes"></a>Kody błędów powiązania
 

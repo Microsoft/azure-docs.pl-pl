@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604450"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286218"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Podstawy uwierzytelniania przy użyciu usługi Key Vault
 
@@ -24,8 +24,8 @@ Jako administrator możesz ściśle kontrolować, którzy użytkownicy i aplikac
 
 W tym dokumencie założono, że znasz następujące pojęcia. Jeśli nie znasz żadnych z tych koncepcji, przed kontynuowaniem postępuj zgodnie z łączami pomocy.
 
-* Azure Active Directory [łącze](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-* [Łącze](https://docs.microsoft.com/azure/key-vault/general/authentication#app-identity-and-security-principals) podmiotów zabezpieczeń
+* Azure Active Directory [łącze](../../active-directory/fundamentals/active-directory-whatis.md)
+* [Łącze](./authentication.md#app-identity-and-security-principals) podmiotów zabezpieczeń
 
 ## <a name="key-vault-configuration-steps-summary"></a>Podsumowanie kroków konfiguracji Key Vault
 
@@ -42,8 +42,8 @@ Gdy użytkownik lub aplikacja wysyła żądanie do magazynu kluczy, żądanie mu
 Skorzystaj z poniższych linków do dokumentacji, aby dowiedzieć się, jak zarejestrować użytkownika lub aplikację w Azure Active Directory.
 **Upewnij się, że utworzono hasło do rejestracji użytkownika i klucz tajny klienta lub poświadczenie certyfikatu klienta dla aplikacji.**
 
-* Rejestrowanie użytkownika w Azure Active Directory [linku](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
-* Rejestrowanie aplikacji w Azure Active Directory [linku](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
+* Rejestrowanie użytkownika w Azure Active Directory [linku](../../active-directory/fundamentals/add-users-azure-active-directory.md)
+* Rejestrowanie aplikacji w Azure Active Directory [linku](../../active-directory/develop/quickstart-register-app.md)
 
 ## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Przypisywanie podmiotu zabezpieczeń roli w Azure Active Directory
 
@@ -57,8 +57,8 @@ W kontekście magazynu kluczy te przypisania ról określają poziom dostępu po
 >[!NOTE]
 > Po przypisaniu roli do użytkownika na poziomie dzierżawy Azure Active Directory ten zestaw uprawnień będzie Trickle w dół do wszystkich subskrypcji, grup zasobów i zasobów w zakresie przypisania. Aby obsłużyć najwyższe uprawnienia, można przypisywać tę rolę bardziej szczegółowym zakresem. Na przykład można przypisać użytkownikowi rolę czytelnik na poziomie subskrypcji i rolę właściciela dla jednego magazynu kluczy. Przejdź do ustawień zarządzania dostępem do tożsamości (IAM) subskrypcji, grupy zasobów lub magazynu kluczy, aby przypisywać rolę z bardziej szczegółowym zakresem.
 
-* Aby dowiedzieć się więcej na temat [linku](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) role Azure Active Directory
-* Aby dowiedzieć się więcej na temat przypisywania lub usuwania [linku](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) przypisań ról
+* Aby dowiedzieć się więcej na temat [linku](../../role-based-access-control/built-in-roles.md) role Azure Active Directory
+* Aby dowiedzieć się więcej na temat przypisywania lub usuwania [linku](../../role-based-access-control/role-assignments-portal.md) przypisań ról
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Konfigurowanie zasad dostępu magazynu kluczy dla podmiotu zabezpieczeń
 
@@ -121,8 +121,8 @@ Przypisania ról Key Vault są zestawem wbudowanych przypisań ról platformy Az
 
 Aby dowiedzieć się więcej o Key Vault RBAC, zobacz następujące dokumenty:
 
-* Azure Key Vault [link](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac) RBAC
-* [Link](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) Azure Key Vault ról RBAC (wersja zapoznawcza)
+* Azure Key Vault [link](./secure-your-key-vault.md#management-plane-and-azure-rbac) RBAC
+* [Link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) Azure Key Vault ról RBAC (wersja zapoznawcza)
 
 ## <a name="configure-key-vault-firewall"></a>Konfigurowanie zapory Key Vault
 
@@ -132,9 +132,9 @@ Aby włączyć zaporę magazynu kluczy, kliknij kartę Sieć w portalu magazynu 
 
 * Dodaj adresy IPv4 do listy dozwolonych zapór magazynu kluczy. Ta opcja sprawdza się najlepiej w przypadku aplikacji, które mają statyczne adresy IP.
 
-* Dodaj sieć wirtualną do zapory magazynu kluczy. Ta opcja sprawdza się najlepiej w przypadku zasobów platformy Azure, które mają dynamiczne adresy IP, takie jak Virtual Machines. Możesz dodać zasoby platformy Azure do sieci wirtualnej i dodać sieć wirtualną do listy dozwolonych zapór magazynu kluczy. Ta opcja używa punktu końcowego usługi, który jest prywatnym adresem IP w ramach sieci wirtualnej. Zapewnia to dodatkową warstwę ochrony, dlatego żaden ruch między magazynem kluczy i siecią wirtualną nie jest kierowany przez publiczny Internet. Aby dowiedzieć się więcej o punkcie końcowym usługi, zobacz następującą dokumentację. [powiązań](https://docs.microsoft.com/azure/key-vault/general/network-security)
+* Dodaj sieć wirtualną do zapory magazynu kluczy. Ta opcja sprawdza się najlepiej w przypadku zasobów platformy Azure, które mają dynamiczne adresy IP, takie jak Virtual Machines. Możesz dodać zasoby platformy Azure do sieci wirtualnej i dodać sieć wirtualną do listy dozwolonych zapór magazynu kluczy. Ta opcja używa punktu końcowego usługi, który jest prywatnym adresem IP w ramach sieci wirtualnej. Zapewnia to dodatkową warstwę ochrony, dlatego żaden ruch między magazynem kluczy i siecią wirtualną nie jest kierowany przez publiczny Internet. Aby dowiedzieć się więcej o punkcie końcowym usługi, zobacz następującą dokumentację. [powiązań](./network-security.md)
 
-* Dodaj połączenie prywatne z magazynem kluczy. Ta opcja nawiązuje połączenie sieci wirtualnej bezpośrednio z określonym wystąpieniem magazynu kluczy, efektywnie udostępniając swój magazyn kluczy w sieci wirtualnej. Aby dowiedzieć się więcej o konfigurowaniu połączenia prywatnego punktu końcowego z magazynem kluczy, zobacz następujący [link](https://docs.microsoft.com/azure/key-vault/general/private-link-service) .
+* Dodaj połączenie prywatne z magazynem kluczy. Ta opcja nawiązuje połączenie sieci wirtualnej bezpośrednio z określonym wystąpieniem magazynu kluczy, efektywnie udostępniając swój magazyn kluczy w sieci wirtualnej. Aby dowiedzieć się więcej o konfigurowaniu połączenia prywatnego punktu końcowego z magazynem kluczy, zobacz następujący [link](./private-link-service.md) .
 
 ## <a name="test-your-service-principals-ability-to-access-key-vault"></a>Testowanie możliwości uzyskiwania dostępu do magazynu kluczy przez jednostkę usługi
 
@@ -142,11 +142,11 @@ Po wykonaniu wszystkich powyższych czynności będzie można ustawić i pobrać
 
 ### <a name="authentication-process-for-users-examples"></a>Proces uwierzytelniania dla użytkowników (przykłady)
 
-* Użytkownicy mogą logować się do Azure Portal, aby korzystać z magazynu kluczy. [Przewodnik Szybki Start dotyczący Key Vault Portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+* Użytkownicy mogą logować się do Azure Portal, aby korzystać z magazynu kluczy. [Przewodnik Szybki Start dotyczący Key Vault Portal](./quick-create-portal.md)
 
-* Użytkownik może użyć interfejsu wiersza polecenia platformy Azure, aby użyć magazynu kluczy. [Key Vault szybki start interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-cli)
+* Użytkownik może użyć interfejsu wiersza polecenia platformy Azure, aby użyć magazynu kluczy. [Key Vault szybki start interfejsu wiersza polecenia platformy Azure](./quick-create-cli.md)
 
-* Użytkownik może używać Azure PowerShell do korzystania z magazynu kluczy. [Key Vault Azure PowerShell — Szybki Start](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)
+* Użytkownik może używać Azure PowerShell do korzystania z magazynu kluczy. [Key Vault Azure PowerShell — Szybki Start](./quick-create-powershell.md)
 
 ### <a name="azure-active-directory-authentication-process-for-applications-or-services-examples"></a>Proces uwierzytelniania Azure Active Directory dla aplikacji lub usług (przykłady)
 
@@ -156,7 +156,7 @@ Po wykonaniu wszystkich powyższych czynności będzie można ustawić i pobrać
 
 * Zasób platformy Azure używa uwierzytelniania MSI w celu uzyskania tokenu Azure Active Directory. 
 
-* Dowiedz się więcej o [łączu](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) uwierzytelniania MSI
+* Dowiedz się więcej o [łączu](../../active-directory/managed-identities-azure-resources/overview.md) uwierzytelniania MSI
 
 ### <a name="authentication-process-for-application-python-example"></a>Proces uwierzytelniania dla aplikacji (przykład w języku Python)
 
@@ -196,4 +196,4 @@ if __name__ == "__main__":
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o uwierzytelnianiu magazynu kluczy bardziej szczegółowo, zapoznaj się z następującym dokumentem. [Uwierzytelnianie usługi Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+Aby dowiedzieć się więcej o uwierzytelnianiu magazynu kluczy bardziej szczegółowo, zapoznaj się z następującym dokumentem. [Uwierzytelnianie usługi Key Vault](./authentication.md)

@@ -4,21 +4,21 @@ description: Dowiedz się, jak skonfigurować i zmienić domyślne zasady indeks
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: d0ee7dc8890c228617eaeee8b1cdc72d2230458e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ede2e6b172c867a00f98c6b095381ad5a5f3a323
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082967"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285747"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-W usłudze Azure Cosmos DB każdy kontener ma zasady indeksowania, które określają sposób indeksowania elementów tego kontenera. Domyślne zasady indeksowania dla nowo utworzonych kontenerów indeksują każdą właściwość i każdy element oraz wymuszają indeksy zakresu dla wszelkich ciągów i liczb. Dzięki temu można uzyskać wysoką wydajność zapytań bez konieczności wcześniejszego myślenia o indeksowaniu i zarządzania indeksami.
+W usłudze Azure Cosmos DB każdy kontener ma zasady indeksowania, które określają sposób indeksowania elementów tego kontenera. Domyślne zasady indeksowania dla nowo utworzonych kontenerów indeksują każdą właściwość i każdy element oraz wymuszają indeksy zakresu dla wszelkich ciągów i liczb. Dzięki temu można uzyskać dobrą wydajność zapytań bez konieczności pomyślnego zaopiniowania indeksowania i zarządzania indeksem.
 
-W niektórych sytuacjach może być potrzebne zastąpienie tego automatycznego zachowania zachowaniem lepiej dostosowanym do wymagań. Można dostosować zasady indeksowania kontenera, ustawiając jego *tryb indeksowania* i dołączając lub wykluczając *ścieżki właściwości* .
+W niektórych sytuacjach może być potrzebne zastąpienie tego automatycznego zachowania zachowaniem lepiej dostosowanym do wymagań. Można dostosować zasady indeksowania kontenera, ustawiając jego *tryb indeksowania* i dołączając lub wykluczając *ścieżki właściwości*.
 
 > [!NOTE]
 > Metoda aktualizacji zasad indeksowania opisana w tym artykule ma zastosowanie tylko do interfejsu API SQL (Core) Azure Cosmos DB. Dowiedz się więcej na temat indeksowania w [interfejsie API Azure Cosmos DB MongoDB](mongodb-indexing.md)
@@ -31,7 +31,7 @@ Azure Cosmos DB obsługuje dwa tryby indeksowania:
 - **Brak** : indeksowanie jest wyłączone w kontenerze. Jest to często używane, gdy kontener jest używany jako czysty magazyn klucz-wartość bez konieczności stosowania indeksów pomocniczych. Może również służyć do poprawy wydajności operacji zbiorczych. Po zakończeniu operacji zbiorczych tryb indeksu może być ustawiony na spójny, a następnie monitorowany przy użyciu [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) do momentu ukończenia.
 
 > [!NOTE]
-> Azure Cosmos DB obsługuje również tryb indeksowania z opóźnieniem. Indeksowanie z opóźnieniem aktualizuje indeks na znacznie niższym poziomie priorytetu, gdy aparat nie wykonuje żadnej innej pracy. Może to doprowadzić do **niespójnych lub niekompletnych** wyników zapytań. Jeśli planujesz wysyłać zapytania względem kontenera Cosmos, nie wybieraj indeksowania z opóźnieniem. W czerwcu 2020 Wprowadziliśmy zmianę, która nie zezwala już na ustawienie nowych kontenerów na tryb indeksowania z opóźnieniem. Jeśli konto Azure Cosmos DB zawiera już co najmniej jeden kontener z indeksem z opóźnieniem, to konto zostanie automatycznie zwolnione ze zmiany. Możesz również zażądać wykluczenia, kontaktując się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (chyba że używasz konta usługi Azure Cosmos w trybie bez [serwera](serverless.md) , który nie obsługuje indeksowania z opóźnieniem).
+> Azure Cosmos DB obsługuje również tryb indeksowania z opóźnieniem. Indeksowanie z opóźnieniem aktualizuje indeks na znacznie niższym poziomie priorytetu, gdy aparat nie wykonuje żadnej innej pracy. Może to doprowadzić do **niespójnych lub niekompletnych** wyników zapytań. Jeśli planujesz wysyłać zapytania względem kontenera Cosmos, nie wybieraj indeksowania z opóźnieniem. Nowe kontenery nie mogą wybrać indeksowania z opóźnieniem. Możesz zażądać wykluczenia, kontaktując się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (chyba że używasz konta usługi Azure Cosmos w trybie bez [serwera](serverless.md) , który nie obsługuje indeksowania z opóźnieniem).
 
 Domyślnie zasady indeksowania są ustawione na `automatic` . Jest to osiągane przez ustawienie `automatic` właściwości w zasadach indeksowania na `true` . Ustawienie tej właściwości `true` umożliwia usłudze Azure CosmosDB Automatyczne indeksowanie dokumentów w miarę ich pisania.
 
@@ -74,7 +74,7 @@ Każda zasada indeksowania musi zawierać ścieżkę katalogu głównego `/*` ja
 - Uwzględnij ścieżkę główną, aby wykluczać ścieżki, które nie muszą być indeksowane. Jest to zalecane podejście, które pozwala Azure Cosmos DB aktywnie indeksować wszelkie nowe właściwości, które mogą zostać dodane do modelu.
 - Wyklucz ścieżkę katalogu głównego do selektywnego dołączania ścieżek, które muszą być indeksowane.
 
-- W przypadku ścieżek ze zwykłymi znakami, które zawierają: znaki alfanumeryczne i _ (podkreślenie), nie trzeba określać ciągu ścieżki wokół podwójnych cudzysłowów (na przykład "/Path/?"). W przypadku ścieżek z innymi znakami specjalnymi należy wypróbować ciąg ścieżki wokół podwójnych cudzysłowów (na przykład "/ \" Path-ABC \" /?"). Jeśli oczekujesz znaków specjalnych w ścieżce, możesz pominąć wszystkie ścieżki w celu zapewnienia bezpieczeństwa. Funkcjonalnie nie ma żadnej różnicy, jeśli wykorzystasz wszystkie ścieżki, a tylko te, które zawierają znaki specjalne.
+- W przypadku ścieżek ze zwykłymi znakami, które zawierają: znaki alfanumeryczne i _ (podkreślenie), nie trzeba określać ciągu ścieżki wokół podwójnych cudzysłowów (na przykład "/Path/?"). W przypadku ścieżek z innymi znakami specjalnymi należy wypróbować ciąg ścieżki wokół podwójnych cudzysłowów (na przykład "/ \" Path-ABC \" /?"). Jeśli oczekujesz znaków specjalnych w ścieżce, możesz pominąć wszystkie ścieżki w celu zapewnienia bezpieczeństwa. Funkcjonalnie nie powoduje żadnych różnic w przypadku ucieczki wszystkich ścieżek, które zawierają znaki specjalne.
 
 - Właściwość systemowa `_etag` jest domyślnie wykluczona z indeksowania, chyba że element ETag zostanie dodany do ścieżki dołączonej do indeksowania.
 
@@ -199,6 +199,7 @@ Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych dla z
 - Jeśli właściwość ma filtr zakresu ( `>` ,,, `<` `<=` `>=` lub `!=` ), wówczas ta właściwość powinna być zdefiniowana jako Ostatnia w indeksie złożonym. Jeśli zapytanie ma więcej niż jeden filtr zakresu, nie będzie używać indeksu złożonego.
 - Podczas tworzenia indeksu złożonego do optymalizowania zapytań z wieloma filtrami `ORDER` indeks złożony nie będzie miał wpływu na wyniki. Ta właściwość jest opcjonalna.
 - Jeśli nie zdefiniujesz indeksu złożonego dla zapytania z filtrami dla wielu właściwości, zapytanie będzie nadal kończyło się pomyślnie. Koszt RU zapytania można jednak zmniejszyć przy użyciu indeksu złożonego.
+- Zapytania z agregacjami (np. COUNT lub SUM) i filtry korzystają również z indeksów złożonych.
 
 Rozważmy następujące przykłady, w których zdefiniowany jest indeks złożony w polu Nazwa właściwości, wiek i sygnatura czasowa:
 
@@ -206,6 +207,7 @@ Rozważmy następujące przykłady, w których zdefiniowany jest indeks złożon
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name ASC, age ASC)```   | ```SELECT COUNT(1) FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
 | ```(name DESC, age ASC)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
@@ -246,6 +248,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych w celu optymalizacji zapytania z `ORDER BY` klauzulą Filter i:
 
 * Jeśli zapytanie filtruje właściwości, należy je najpierw uwzględnić w `ORDER BY` klauzuli.
+* Jeśli zapytanie jest filtrowane dla wielu właściwości, filtry równości muszą być pierwszymi właściwościami w `ORDER BY` klauzuli
 * Jeśli nie zdefiniujesz indeksu złożonego w zapytaniu z filtrem dla jednej właściwości i oddzielną `ORDER BY` klauzulą używającą innej właściwości, zapytanie będzie nadal kończyć się powodzeniem. Koszt RU zapytania można jednak zmniejszyć przy użyciu indeksu złożonego, szczególnie jeśli właściwość w `ORDER BY` klauzuli ma wysoką Kardynalność.
 * Wszystkie zagadnienia dotyczące tworzenia indeksów złożonych dla `ORDER BY` zapytań z wieloma właściwościami, a także zapytania z filtrami dla wielu właściwości nadal mają zastosowanie.
 
@@ -253,6 +256,8 @@ Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych w cel
 | **Indeks złożony**                      | **Przykładowe `ORDER BY` zapytanie**                                  | **Obsługiwane przez indeks złożony?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" AND c.timestamp > 1589840355 ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT * FROM c WHERE c.timestamp > 1589840355 AND c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
@@ -260,7 +265,7 @@ Poniższe zagadnienia są używane podczas tworzenia indeksów złożonych w cel
 
 ## <a name="modifying-the-indexing-policy"></a>Modyfikowanie zasad indeksowania
 
-Zasady indeksowania kontenera można aktualizować w dowolnym momencie przy [użyciu Azure Portal lub jednego z obsługiwanych zestawów SDK](how-to-manage-indexing-policy.md). Aktualizacja zasad indeksowania wyzwala transformację ze starego indeksu do nowego, który jest wykonywany w trybie online i w miejscu (dlatego w trakcie operacji nie jest używane dodatkowe miejsce do magazynowania). Stary indeks zasad jest efektywnie przekształcany w nowe zasady bez wpływu na dostępność zapisu, dostępność odczytu lub przepływność zainicjowaną w kontenerze. Przekształcanie indeksów jest operacją asynchroniczną i czas potrzebny do ukończenia zależy od przepływności, liczby elementów i ich rozmiaru.
+Zasady indeksowania kontenera można aktualizować w dowolnym momencie przy [użyciu Azure Portal lub jednego z obsługiwanych zestawów SDK](how-to-manage-indexing-policy.md). Aktualizacja zasad indeksowania wyzwala transformację ze starego indeksu do nowego, który jest wykonywany w trybie online i w miejscu (dlatego w trakcie operacji nie jest używane dodatkowe miejsce do magazynowania). Stare zasady indeksowania są efektywnie przekształcane w nowe zasady bez wpływu na dostępność zapisu, dostępność odczytu lub przepływność zainicjowaną na tym kontenerze. Przekształcanie indeksów jest operacją asynchroniczną i czas potrzebny do ukończenia zależy od przepływności, liczby elementów i ich rozmiaru.
 
 > [!IMPORTANT]
 > Przekształcanie indeksów to operacja, która zużywa [jednostki żądania](request-units.md). Jednostki żądań zużywane przez transformację indeksu nie są obecnie rozliczane, jeśli używasz kontenerów [bezserwerowych](serverless.md) . Te jednostki żądania będą rozliczane, gdy bezserwerowy staną się ogólnie dostępne.
@@ -281,14 +286,10 @@ W przypadku usuwania indeksów i natychmiastowego uruchamiania zapytań, które 
 
 Korzystanie z [funkcji Time-to-Live (TTL)](time-to-live.md) wymaga indeksowania. Oznacza to, że:
 
-- nie można aktywować czasu wygaśnięcia w kontenerze, w którym tryb indeksowania jest ustawiony na none.
+- nie można aktywować czasu wygaśnięcia w kontenerze, w którym jest ustawiony tryb indeksowania `none` ,
 - nie można ustawić trybu indeksowania na brak w kontenerze, w którym jest aktywowany czas wygaśnięcia.
 
-W przypadku scenariuszy, w których nie ma potrzeby indeksowania ścieżki właściwości, ale czas wygaśnięcia jest wymagany, można użyć zasad indeksowania z:
-
-- Tryb indeksowania ustawiony na spójne i
-- Brak dołączonej ścieżki i
-- `/*` jako jedyna wykluczona ścieżka.
+W przypadku scenariuszy, w których nie ma potrzeby indeksowania ścieżki właściwości, ale czas wygaśnięcia jest wymagany, można użyć zasad indeksowania z trybem indeksowania ustawionym na `consistent` , brak dołączonych ścieżek i `/*` jako jedynej wykluczonej ścieżki.
 
 ## <a name="next-steps"></a>Następne kroki
 

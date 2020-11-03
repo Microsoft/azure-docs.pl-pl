@@ -3,12 +3,12 @@ title: Planowanie wdrożenia rozwiązań VMware na platformie Azure
 description: W tym artykule opisano przepływ pracy wdrażania rozwiązań VMware platformy Azure.  Wynik końcowy to środowisko gotowe do tworzenia i migracji maszyn wirtualnych.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9b6d04e1e7a60bf812ca2b1e370c5075d306c432
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517365"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287049"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planowanie wdrożenia rozwiązań VMware na platformie Azure
 
@@ -17,7 +17,7 @@ Ten artykuł zawiera informacje o procesie planowania w celu identyfikowania i z
 Procesy tego szybkiego startu powodują tworzenie maszyn wirtualnych i migracji w środowisku gotowym do produkcji. 
 
 >[!IMPORTANT]
->Przed utworzeniem zasobu rozwiązania VMware platformy Azure należy wykonać artykuł [jak włączyć zasób rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md) , aby przesłać bilet pomocy technicznej mający przydzieloną liczbę węzłów. Gdy zespół pomocy technicznej otrzyma Twoje żądanie, zajmie do pięciu dni roboczych, aby potwierdzić żądanie i przydzielić węzły. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu. 
+>Przed utworzeniem zasobu rozwiązania VMware platformy Azure należy wykonać artykuł dotyczący [sposobu włączania zasobów rozwiązania VMware dla platformy Azure](enable-azure-vmware-solution.md) w celu przesłania biletu pomocy technicznej w celu przydzielenia hostów. Gdy zespół pomocy technicznej otrzyma Twoje żądanie, zajmie do pięciu dni roboczych, aby potwierdzić żądanie i przydzielić hosty. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i potrzebujesz większej liczby hostów, przejdziesz do tego samego procesu. 
 
 
 ## <a name="subscription"></a>Subskrypcja
@@ -31,7 +31,7 @@ Określ subskrypcję, która ma zostać użyta do wdrożenia rozwiązania VMware
 
 Zidentyfikuj grupę zasobów, której chcesz użyć dla rozwiązania VMware platformy Azure.  Ogólnie rzecz biorąc, Grupa zasobów jest tworzona dla rozwiązań VMware platformy Azure, ale można użyć istniejącej grupy zasobów.
 
-## <a name="region"></a>Region
+## <a name="region"></a>Region (Region)
 
 Określ region, dla którego ma zostać wdrożone rozwiązanie Azure VMware.  Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem dotyczącym produktów platformy Azure dostępnych według regionów](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
 
@@ -39,9 +39,9 @@ Określ region, dla którego ma zostać wdrożone rozwiązanie Azure VMware.  Ab
 
 Zdefiniuj nazwę zasobu, która będzie używana podczas wdrażania.  Nazwa zasobu jest przyjazną i opisową nazwą, w której jest określana Chmura prywatna rozwiązania Azure VMware.
 
-## <a name="size-nodes"></a>Węzły rozmiaru
+## <a name="size-hosts"></a>Rozmiar hostów
 
-Określ węzły rozmiaru, które mają być używane podczas wdrażania rozwiązania Azure VMware.  Aby uzyskać pełną listę, zobacz dokumentację [chmur prywatnych i klastrów rozwiązań VMware platformy Azure](concepts-private-clouds-clusters.md#hosts) .
+Określ rozmiar hostów, które mają być używane podczas wdrażania rozwiązania Azure VMware.  Aby uzyskać pełną listę, zobacz dokumentację [chmur prywatnych i klastrów rozwiązań VMware platformy Azure](concepts-private-clouds-clusters.md#hosts) .
 
 ## <a name="number-of-hosts"></a>Liczba hostów
 
@@ -79,7 +79,7 @@ Należy pamiętać, że wszystkie tworzone segmenty IP muszą być unikatowe na 
 
 **Przykład:** 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identyfikowanie — segment adresów IP" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identyfikowanie segmentu adresów IP dla obciążeń maszyny wirtualnej" border="false":::     
 
 ## <a name="optional-extend-networks"></a>Obowiązkowe Rozszerzone sieci
 
@@ -96,7 +96,7 @@ Określ `/29` blok adresów sieciowych CIDR wymagany dla komunikacji równorzęd
 
 **Przykład:** 10.1.0.0/29
 
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identyfikowanie — segment adresów IP" border="false":::
+:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identyfikowanie ExpressRoute Global Reach sieci równorzędnej" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Virtual Network platformy Azure, aby dołączyć rozwiązanie VMware dla platformy Azure
 
@@ -119,7 +119,7 @@ W obu przypadkach należy udokumentować, co chcesz zrobić w tym kroku.
 >[!NOTE]
 >Ta sieć wirtualna jest postrzegana przez środowisko lokalne i rozwiązanie platformy Azure VMware, dlatego należy się upewnić, że żaden segment IP używany w tej sieci wirtualnej i podsieci nie nakładają się na siebie.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identyfikowanie — segment adresów IP" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Tożsamość — Virtual Network platformy Azure, aby dołączyć rozwiązanie VMware dla platformy Azure" border="false":::
 
 ## <a name="vmware-hcx-network-segments"></a>Segmenty sieci VMware HCX
 

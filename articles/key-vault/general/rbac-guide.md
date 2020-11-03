@@ -9,25 +9,25 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f3775e73ce8f152fe39bc8170bbeba054f856630
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015159"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286599"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)
 
 > [!NOTE]
 > Dostawca zasobów Key Vault obsługuje dwa typy zasobów: **magazyny** i **zarządzane sprzętowych modułów zabezpieczeń**. Kontrola dostępu opisana w tym artykule dotyczy tylko **magazynów**. Aby dowiedzieć się więcej o kontroli dostępu dla zarządzanego modułu HSM, zobacz [zarządzana kontrola dostępu modułu HSM](../managed-hsm/access-control.md).
 
-Kontrola dostępu oparta na rolach (Azure RBAC) to system autoryzacji oparty na [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) , który zapewnia precyzyjne zarządzanie dostępem do zasobów platformy Azure.
+Kontrola dostępu oparta na rolach (Azure RBAC) to system autoryzacji oparty na [Azure Resource Manager](../../azure-resource-manager/management/overview.md) , który zapewnia precyzyjne zarządzanie dostępem do zasobów platformy Azure.
 
 Usługa Azure RBAC umożliwia użytkownikom zarządzanie uprawnieniami kluczy, wpisów tajnych i certyfikatów. Oferuje jedno miejsce do zarządzania wszystkimi uprawnieniami w ramach wszystkich magazynów kluczy. 
 
 Model RBAC platformy Azure umożliwia ustawianie uprawnień na różnych poziomach zakresu: grupy zarządzania, subskrypcji, grupy zasobów lub poszczególnych zasobów.  Funkcja RBAC systemu Azure dla magazynu kluczy zapewnia również możliwość posiadania oddzielnych uprawnień do poszczególnych kluczy, wpisów tajnych i certyfikatów.
 
-Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>Najlepsze rozwiązania dotyczące poszczególnych kluczy, wpisów tajnych i certyfikatów
 
@@ -59,7 +59,7 @@ Więcej informacji na temat wytycznych dotyczących zarządzania Azure Key Vault
 | Key Vault tajemnicy (wersja zapoznawcza)| Wykonaj wszelkie działania dotyczące wpisów tajnych magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 | Użytkownik Key Vault Secret (wersja zapoznawcza)| Odczytaj zawartość wpisu tajnego. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-Aby uzyskać więcej informacji na temat definicji ról wbudowanych platformy Azure, zobacz [role wbudowane platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Aby uzyskać więcej informacji na temat definicji ról wbudowanych platformy Azure, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Korzystanie z usługi Azure RBAC Secret, klucza i certyfikatu z Key Vault
 
@@ -70,7 +70,7 @@ Nowy model uprawnień usługi Azure RBAC dla magazynu kluczy zapewnia alternatyw
 Aby dodać przypisania ról, musisz mieć:
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) lub [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+- `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](../../role-based-access-control/built-in-roles.md#user-access-administrator) lub [właściciel](../../role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Włącz uprawnienia usługi Azure RBAC na Key Vault
 
@@ -194,7 +194,7 @@ Utwórz nowy wpis tajny (wpisy tajne \> + generowanie/import) powinien zostać w
 
 ### <a name="creating-custom-roles"></a>Tworzenie ról niestandardowych 
 
-[AZ role Definition Create — polecenie](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create)
+[AZ role Definition Create — polecenie](/cli/azure/role/definition#az-role-definition-create)
 
 **(Skrypt bash interfejsu wiersza polecenia)</br>**
 ```azurecli
@@ -216,7 +216,7 @@ az role definition create --role-definition '{ \
 
 Aby uzyskać więcej informacji o sposobach tworzenia ról niestandardowych, zobacz:
 
-[Role niestandardowe platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+[Role niestandardowe platformy Azure](../../role-based-access-control/custom-roles.md)
 
 ## <a name="known-limits-and-performance"></a>Znane limity i wydajność
 
@@ -224,7 +224,7 @@ Aby uzyskać więcej informacji o sposobach tworzenia ról niestandardowych, zob
 
 -   Opóźnienie przypisań ról: w bieżącej oczekiwanej wydajności zajmie to 10 minut (600 sekund) po zmianie przypisań ról dla roli do zastosowania
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
-- [Przegląd RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Samouczek ról niestandardowych](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Przegląd RBAC platformy Azure](../../role-based-access-control/overview.md)
+- [Samouczek ról niestandardowych](../../role-based-access-control/tutorial-custom-role-cli.md)

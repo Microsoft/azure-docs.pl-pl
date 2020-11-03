@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c55c87cd8ab1b2cd1dbaf2c877eb341744d822ef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440522"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287469"
 ---
 # <a name="azure-key-vault-backup"></a>Azure Key Vault kopia zapasowa
 
@@ -25,9 +25,9 @@ W tym dokumencie przedstawiono sposób tworzenia kopii zapasowych wpisów tajnyc
 
 Azure Key Vault automatycznie udostępnia funkcje ułatwiające zachowanie dostępności i Zapobieganie utracie danych. Utwórz kopię zapasową wpisów tajnych tylko wtedy, gdy masz krytyczne uzasadnienie biznesowe. Tworzenie kopii zapasowych wpisów tajnych w magazynie kluczy może wprowadzać wyzwania operacyjne, takie jak utrzymywanie wielu zestawów dzienników, uprawnień i kopii zapasowych po wygaśnięciu lub przeniesieniu wpisów tajnych.
 
-Key Vault utrzymuje dostępność w scenariuszach awarii i automatycznie przejdzie do trybu failover żądań do sparowanego regionu bez żadnej interwencji użytkownika. Aby uzyskać więcej informacji, zobacz [Azure Key Vault dostępności i nadmiarowości](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
+Key Vault utrzymuje dostępność w scenariuszach awarii i automatycznie przejdzie do trybu failover żądań do sparowanego regionu bez żadnej interwencji użytkownika. Aby uzyskać więcej informacji, zobacz [Azure Key Vault dostępności i nadmiarowości](./disaster-recovery-guidance.md).
 
-Jeśli chcesz chronić przed przypadkowym lub złośliwym usunięciem kluczy tajnych, skonfiguruj funkcje ochrony przed usuwaniem i przeczyszczaniem w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [Azure Key Vault Omówienie usuwania nietrwałego](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+Jeśli chcesz chronić przed przypadkowym lub złośliwym usunięciem kluczy tajnych, skonfiguruj funkcje ochrony przed usuwaniem i przeczyszczaniem w magazynie kluczy. Aby uzyskać więcej informacji, zobacz [Azure Key Vault Omówienie usuwania nietrwałego](./soft-delete-overview.md).
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -123,4 +123,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## <a name="next-steps"></a>Następne kroki
 
-Włącz [Rejestrowanie i monitorowanie](https://docs.microsoft.com/azure/key-vault/general/logging) dla Key Vault.
+Włącz [Rejestrowanie i monitorowanie](./logging.md) dla Key Vault.

@@ -12,12 +12,12 @@ ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: efb3c80c9bcd4c4285db5c318aff6c81ce8db636
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e56748df2fb69ace4e9b8d9f6908bc8013176a19
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083392"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287815"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Przykłady kodu platformy tożsamości firmy Microsoft (punkt końcowy v 2.0)
 
@@ -55,7 +55,8 @@ W poniższych przykładach przedstawiono aplikacje sieci Web, które logują uż
 
 | Platforma | Tylko oznaki użytkowników | Logowanie użytkowników i wywołań Microsoft Graph |
 | -------- | ------------------- | --------------------------------- |
-| ![Ten obraz zawiera logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [Samouczek dotyczący ASP.NET Core logowania użytkowników](https://aka.ms/aspnetcore-webapp-sign-in) | Ten sam przykład w [Microsoft Graph fazie ASP.NET Core aplikacji sieci Web](https://aka.ms/aspnetcore-webapp-call-msgraph) |
+| ![Ten obraz zawiera logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [Samouczek dotyczący ASP.NET Core logowania użytkowników](https://aka.ms/aspnetcore-webapp-sign-in) | Ten sam przykład w [Microsoft Graph fazie ASP.NET Core aplikacji sieci Web](https://aka.ms/aspnetcore-webapp-call-msgraph)</p>Zaawansowany przykład [uzyskiwania dostępu do pamięci podręcznej zalogowanego użytkownika z aplikacji w tle, interfejsów API i usług](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) |
+| ![Ten obraz pokazuje logo platformy ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | [AD FS migracji aplikacji usługi Azure AD element PlayBook dla deweloperów](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad) , aby dowiedzieć się, jak bezpiecznie i bezpiecznie migrować aplikacje zintegrowane z Active Directory Federation Services (AD FS) do Azure Active Directory (Azure AD) | |
 | ![Ten obraz pokazuje logo platformy ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET — szybki start](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-z ograniczeniami-Scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[MSGraph — szkolenia — aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png)  |                   | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![Ten obraz pokazuje logo języka Python](media/sample-v2-code/logo_python.png)  | [MS-Identity-Python-webapp-Authentication](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [MS-Identity-Python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
@@ -67,7 +68,8 @@ W poniższych przykładach przedstawiono publiczne aplikacje klienckie (aplikacj
 
 | Aplikacja kliencka | Platforma | Przepływ/Grant | Microsoft Graph wywołań | Wywołuje ASP.NET Core Web API |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
-| Pulpit (WPF)      | ![Ten obraz pokazuje logo .NET/C#](media/sample-v2-code/logo_NET.png) | [Kod autoryzacji](msal-authentication-flows.md#authorization-code)| [dotnet-Desktop-MSGraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-Native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
+| Samouczek pulpitu (.NET Core) — opcjonalnie za pomocą:</p>-pamięć podręczna tokenów międzyplatformowych</p>— niestandardowy interfejs użytkownika sieci Web | ![Ten obraz pokazuje logo .NET/C#](media/sample-v2-code/logo_NETcore.png) | [Kod autoryzacji](msal-authentication-flows.md#authorization-code)| [MS-Identity-dotnet-Desktop — samouczek](https://github.com/azure-samples/ms-identity-dotnet-desktop-tutorial) | |
+| Pulpit (WPF)      | ![Ten obraz pokazuje logo programu .NET Desktop/C#](media/sample-v2-code/logo_NET.png) | [Kod autoryzacji](msal-authentication-flows.md#authorization-code)| [dotnet-Desktop-MSGraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-Native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Pulpit (konsola)   | ![Obraz przedstawiający logo .NET/C# (Desktop)](media/sample-v2-code/logo_NET.png) | [Zintegrowane uwierzytelnianie systemu Windows](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-IWA-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
 | Pulpit (konsola)   | ![Ten obraz pokazuje logo języka Java](media/sample-v2-code/logo_java.png) | [Zintegrowane uwierzytelnianie systemu Windows](msal-authentication-flows.md#integrated-windows-authentication) |[MS-Identity-Java-Desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Pulpit (konsola)   | ![Jest to logo .NET/C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | [Nazwa użytkownika/hasło](msal-authentication-flows.md#usernamepassword) |[dotnetcore — wersja 2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
@@ -139,6 +141,6 @@ W poniższych przykładach pokazano, jak chronić funkcję platformy Azure przy 
 
 Aby dowiedzieć się więcej na temat [przykładów](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) i samouczków demonstrujących różne wzorce użycia dla interfejsu API Microsoft Graph, w tym uwierzytelniania za pomocą usługi Azure AD, zobacz [Microsoft Graph przykłady społeczności & samouczków](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-[Informacje koncepcyjne i informacje o interfejsie API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Informacje koncepcyjne i informacje o interfejsie API Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta&preserve-view=true)

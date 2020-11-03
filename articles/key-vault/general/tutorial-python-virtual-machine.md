@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 89118f13bc009ce60d4fd1c82dfe7688bf1e551b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae62bf353f8a92c4408d4a38a91771ad60a13107
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741270"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285302"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Samouczek: używanie Azure Key Vault z maszyną wirtualną w języku Python
 
@@ -37,7 +37,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Dla systemów Windows, Mac i Linux:
-  * [Git](https://git-scm.com/downloads)
+  * [Narzędzia](https://git-scm.com/downloads)
   * Ten samouczek wymaga uruchomienia interfejsu wiersza polecenia platformy Azure lokalnie. Musisz mieć zainstalowany interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja wiersza polecenia lub jego uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
@@ -66,7 +66,7 @@ Utwórz maszynę wirtualną o nazwie **myVM** przy użyciu jednej z następując
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
 | [Witryna Azure Portal](../../virtual-machines/linux/quick-create-portal.md) | [Witryna Azure Portal](../../virtual-machines/windows/quick-create-portal.md) |
 
-Aby utworzyć maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ VM Create](/cli/azure/vm) .  Poniższy przykład dodaje konto użytkownika o nazwie *azureuser* . Parametr `--generate-ssh-keys` jest używany, aby automatycznie wygenerować klucz SSH i umieścić go w domyślnej lokalizacji klucza ( *~/.ssh* ). 
+Aby utworzyć maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ VM Create](/cli/azure/vm) .  Poniższy przykład dodaje konto użytkownika o nazwie *azureuser*. Parametr `--generate-ssh-keys` jest używany, aby automatycznie wygenerować klucz SSH i umieścić go w domyślnej lokalizacji klucza ( *~/.ssh* ). 
 
 ```azurecli-interactive
 az vm create \
@@ -129,7 +129,7 @@ pip3 install azure.identity
 
 ## <a name="create-and-edit-the-sample-python-script"></a>Tworzenie i edytowanie przykładowego skryptu w języku Python
 
-Na maszynie wirtualnej Utwórz plik w języku Python o nazwie **Sample.py** . Edytuj plik, aby zawierał następujący kod, zastępując ciąg "<nazwą magazynu kluczy unikatowych>" nazwą magazynu:
+Na maszynie wirtualnej Utwórz plik w języku Python o nazwie **Sample.py**. Edytuj plik, aby zawierał następujący kod, zastępując ciąg "<nazwą magazynu kluczy unikatowych>" nazwą magazynu:
 
 ```python
 from azure.keyvault.secrets import SecretClient
@@ -148,7 +148,7 @@ print(f"The value of secret '{secretName}' in '{keyVaultName}' is: '{retrieved_s
 
 ## <a name="run-the-sample-python-app"></a>Uruchamianie przykładowej aplikacji w języku Python
 
-Na koniec Uruchom **Sample.py** . Jeśli wszystko zostało utracone, należy zwrócić wartość klucza tajnego:
+Na koniec Uruchom **Sample.py**. Jeśli wszystko zostało utracone, należy zwrócić wartość klucza tajnego:
 
 ```bash
 python3 sample.py
@@ -166,4 +166,4 @@ az group delete -g myResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Interfejsy API REST usługi Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
+[Interfejsy API REST usługi Azure Key Vault](/rest/api/keyvault/)

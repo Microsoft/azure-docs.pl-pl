@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: c101cb4eca246ee68a30ba3499981c589c564f92
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 832cb27f3056c52d22feabff0d8953b6725c1a7f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368659"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286611"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów tajnych w systemie Kubernetes
 
@@ -35,7 +35,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Przed rozpoczęciem pracy z tym samouczkiem zainstaluj [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+* Przed rozpoczęciem pracy z tym samouczkiem zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## <a name="create-a-service-principal-or-use-managed-identities"></a>Tworzenie nazwy głównej usługi lub korzystanie z tożsamości zarządzanych
 
@@ -56,7 +56,7 @@ Skopiuj poświadczenia **AppID** i **Password** do późniejszego użycia.
 
 Nie musisz używać Azure Cloud Shell. Wystarczy, że zostanie wyświetlony wiersz polecenia (Terminal) z zainstalowaną usługą Azure CLI. 
 
-Wypełnij sekcje "Tworzenie grupy zasobów", "Tworzenie klastra AKS" i "łączenie się z klastrem" w temacie [wdrażanie klastra usługi Azure Kubernetes Service przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough). 
+Wypełnij sekcje "Tworzenie grupy zasobów", "Tworzenie klastra AKS" i "łączenie się z klastrem" w temacie [wdrażanie klastra usługi Azure Kubernetes Service przy użyciu interfejsu wiersza polecenia platformy Azure](../../aks/kubernetes-walkthrough.md). 
 
 > [!NOTE] 
 > Jeśli planujesz użycie tożsamości pod zamiast nazwy głównej usługi, pamiętaj, aby włączyć ją podczas tworzenia klastra Kubernetes, jak pokazano w następującym poleceniu:
@@ -70,11 +70,11 @@ Wypełnij sekcje "Tworzenie grupy zasobów", "Tworzenie klastra AKS" i "łączen
     ```azurecli
     kubectl version
     ```
-1. Upewnij się, że wersja Kubernetes to 1.16.0 lub nowsza. W przypadku klastrów systemu Windows upewnij się, że wersja Kubernetes to 1.18.0 lub nowsza. Następujące polecenie uaktualnia zarówno klaster Kubernetes, jak i pulę węzłów. Wykonanie polecenia może potrwać kilka minut. W tym przykładzie grupa zasobów to *contosoResourceGroup*, a klaster Kubernetes to *contosoAKSCluster*.
+1. Upewnij się, że wersja Kubernetes to 1.16.0 lub nowsza. W przypadku klastrów systemu Windows upewnij się, że wersja Kubernetes to 1.18.0 lub nowsza. Następujące polecenie uaktualnia zarówno klaster Kubernetes, jak i pulę węzłów. Wykonanie polecenia może potrwać kilka minut. W tym przykładzie grupa zasobów to *contosoResourceGroup* , a klaster Kubernetes to *contosoAKSCluster*.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Aby wyświetlić metadane utworzonego klastra AKS, użyj następującego polecenia. Skopiuj **principalId**, **clientId**, identyfikator **subskrypcji**i **nodeResourceGroup** do późniejszego użycia. Jeśli klaster zaproszony nie został utworzony z włączonymi tożsamościami zarządzanymi, **principalId** i **clientId** będą mieć wartość null. 
+1. Aby wyświetlić metadane utworzonego klastra AKS, użyj następującego polecenia. Skopiuj **principalId** , **clientId** , identyfikator **subskrypcji** i **nodeResourceGroup** do późniejszego użycia. Jeśli klaster zaproszony nie został utworzony z włączonymi tożsamościami zarządzanymi, **principalId** i **clientId** będą mieć wartość null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -103,7 +103,7 @@ Przy użyciu interfejsu sterownika [magazynu kluczy tajnych](https://github.com/
 
 ## <a name="create-an-azure-key-vault-and-set-your-secrets"></a>Utwórz magazyn kluczy platformy Azure i ustaw wpisy tajne
 
-Aby utworzyć własny magazyn kluczy i ustawić wpisy tajne, postępuj zgodnie z instrukcjami w temacie [Set and pobierając klucz tajny z Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli).
+Aby utworzyć własny magazyn kluczy i ustawić wpisy tajne, postępuj zgodnie z instrukcjami w temacie [Set and pobierając klucz tajny z Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](../secrets/quick-create-cli.md).
 
 > [!NOTE] 
 > Nie musisz używać Azure Cloud Shell ani utworzyć nowej grupy zasobów. Możesz użyć grupy zasobów utworzonej wcześniej dla klastra Kubernetes.
@@ -114,21 +114,21 @@ Aby utworzyć własny niestandardowy obiekt SecretProviderClass z parametrami sp
 
 W przykładowym pliku SecretProviderClass YAML wprowadź brakujące parametry. Wymagane są następujące parametry:
 
-* **userAssignedIdentityID**: # [wymagane] Jeśli używasz nazwy głównej usługi, użyj identyfikatora klienta, aby określić, która zarządzana tożsamość użytkownika ma być używana. Jeśli używasz tożsamości przypisanej przez użytkownika jako tożsamości zarządzanej maszyny wirtualnej, określ identyfikator klienta tożsamości. Jeśli wartość jest pusta, domyślnie zostanie użyta tożsamość przypisana do systemu na maszynie wirtualnej 
+* **userAssignedIdentityID** : # [wymagane] Jeśli używasz nazwy głównej usługi, użyj identyfikatora klienta, aby określić, która zarządzana tożsamość użytkownika ma być używana. Jeśli używasz tożsamości przypisanej przez użytkownika jako tożsamości zarządzanej maszyny wirtualnej, określ identyfikator klienta tożsamości. Jeśli wartość jest pusta, domyślnie zostanie użyta tożsamość przypisana do systemu na maszynie wirtualnej 
 * **servicenamename: nazwa magazynu kluczy**
-* **obiekty**: kontener dla całej zawartości tajnej, którą chcesz zainstalować
-    * **ObjectName**: Nazwa tajnej zawartości
-    * **ObjectType**: typ obiektu (klucz tajny, klucz, certyfikat)
-* Grupa **zasobów: Nazwa**grupy zasobu # [wymagana dla wersji < 0.0.4] grupy zasobów magazynu kluczy
-* **subskrypcji**: Identyfikator subskrypcji magazynu kluczy # [wymagany dla wersji < 0.0.4] Identyfikator subskrypcji magazynu klucza
-* **tenantID**: Identyfikator dzierżawy lub identyfikator katalogu magazynu kluczy
+* **obiekty** : kontener dla całej zawartości tajnej, którą chcesz zainstalować
+    * **ObjectName** : Nazwa tajnej zawartości
+    * **ObjectType** : typ obiektu (klucz tajny, klucz, certyfikat)
+* Grupa **zasobów: Nazwa** grupy zasobu # [wymagana dla wersji < 0.0.4] grupy zasobów magazynu kluczy
+* **subskrypcji** : Identyfikator subskrypcji magazynu kluczy # [wymagany dla wersji < 0.0.4] Identyfikator subskrypcji magazynu klucza
+* **tenantID** : Identyfikator dzierżawy lub identyfikator katalogu magazynu kluczy
 
 Dokumentacja wszystkich wymaganych pól jest dostępna tutaj: [link](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 Zaktualizowany szablon jest przedstawiony w poniższym kodzie. Pobierz go jako plik YAML i Wypełnij wymagane pola. W tym przykładzie Magazyn kluczy jest **contosoKeyVault5**. Ma dwa wpisy tajne, **secret1** i **secret2**.
 
 > [!NOTE] 
-> Jeśli używasz tożsamości zarządzanych, ustaw wartość **usePodIdentity** jako *true*i ustaw wartość **userAssignedIdentityID** jako parę cudzysłowów (**""**). 
+> Jeśli używasz tożsamości zarządzanych, ustaw wartość **usePodIdentity** jako *true* i ustaw wartość **userAssignedIdentityID** jako parę cudzysłowów ( **""** ). 
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
@@ -194,7 +194,7 @@ Jeśli używasz nazwy głównej usługi, Udziel uprawnień do uzyskiwania dostę
     ```
 
 > [!NOTE] 
-> Jeśli wdrażasz Kubernetes pod i wystąpi błąd dotyczący nieprawidłowego identyfikatora tajnego klienta, być może masz starszy identyfikator tajny klienta, którego ważność wygasła lub zresetowana. Aby rozwiązać ten problem, Usuń wpis tajny *magazynu — poświadczenia* i Utwórz nowy przy użyciu bieżącego identyfikatora tajnego klienta. Aby usunąć wpisy *tajne — poświadczenia magazynu*, uruchom następujące polecenie:
+> Jeśli wdrażasz Kubernetes pod i wystąpi błąd dotyczący nieprawidłowego identyfikatora tajnego klienta, być może masz starszy identyfikator tajny klienta, którego ważność wygasła lub zresetowana. Aby rozwiązać ten problem, Usuń wpis tajny *magazynu — poświadczenia* i Utwórz nowy przy użyciu bieżącego identyfikatora tajnego klienta. Aby usunąć wpisy *tajne — poświadczenia magazynu* , uruchom następujące polecenie:
 >
 > ```azurecli
 > kubectl delete secrets secrets-store-creds
@@ -210,7 +210,7 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Jeśli używasz tożsamości zarządzanych, Przypisz określone role do utworzonego klastra AKS. 
 
-1. Aby utworzyć, wyświetlić lub odczytać tożsamość zarządzaną przypisaną przez użytkownika, do klastra AKS należy przypisać rolę [operatora tożsamości zarządzanej](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Upewnij się, że **$clientId** jest ClientId klastra Kubernetes. Zakres będzie objęty usługą subskrypcji platformy Azure, w odniesieniu do grupy zasobów węzła, która została utworzona podczas tworzenia klastra AKS. Ten zakres zapewni, że tylko zasoby w tej grupie mają wpływ role przypisane poniżej. 
+1. Aby utworzyć, wyświetlić lub odczytać tożsamość zarządzaną przypisaną przez użytkownika, do klastra AKS należy przypisać rolę [operatora tożsamości zarządzanej](../../role-based-access-control/built-in-roles.md#managed-identity-operator) . Upewnij się, że **$clientId** jest ClientId klastra Kubernetes. Zakres będzie objęty usługą subskrypcji platformy Azure, w odniesieniu do grupy zasobów węzła, która została utworzona podczas tworzenia klastra AKS. Ten zakres zapewni, że tylko zasoby w tej grupie mają wpływ role przypisane poniżej. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
@@ -355,4 +355,4 @@ Sprawdź, czy jest wyświetlana zawartość wpisu tajnego.
 
 Aby upewnić się, że Twój Magazyn kluczy jest możliwy do odzyskania, zobacz:
 > [!div class="nextstepaction"]
-> [Włącz usuwanie nietrwałe](https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli)
+> [Włącz usuwanie nietrwałe](./soft-delete-cli.md)

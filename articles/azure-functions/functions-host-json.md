@@ -3,12 +3,12 @@ title: host.jsw odwołaniu dla Azure Functions 2. x
 description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym w wersji 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167659"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284502"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Dokumentacja pliku host.json dla usługi Azure Functions w wersji 2.x lub nowszej 
 
@@ -117,6 +117,11 @@ W poniższym przykładzie *host.jsw* pliku dla wersji 2. x + dostępne są wszys
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -145,19 +150,19 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 > [!NOTE]
 > Próbkowanie dziennika może spowodować, że niektóre wykonania nie są wyświetlane w bloku monitora Application Insights. Aby uniknąć próbkowania dziennika, Dodaj `excludedTypes: "Request"` do `samplingSettings` wartości.
 
-| Właściwość | Domyślne | Opis |
+| Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
-| samplingSettings | nie dotyczy | Zobacz [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
+| samplingSettings | n/d | Zobacz [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Włącza zbieranie metryk na żywo. |
 | enableDependencyTracking | true | Włącza śledzenie zależności. |
 | enablePerformanceCountersCollection | true | Włącza Zbieranie liczników wydajności kudu. |
 | liveMetricsInitializationDelay | 00:00:15 | Tylko do użytku wewnętrznego. |
-| httpAutoCollectionOptions | nie dotyczy | Zobacz [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
-| snapshotConfiguration | nie dotyczy | Zobacz [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
+| httpAutoCollectionOptions | n/d | Zobacz [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
+| snapshotConfiguration | n/d | Zobacz [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|Właściwość | Domyślne | Opis |
+|Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
 | isEnabled | true | Włącza lub wyłącza próbkowanie. | 
 | maxTelemetryItemsPerSecond | 20 | Docelowa liczba elementów telemetrii zarejestrowanych na sekundę na każdym hoście serwera. Jeśli aplikacja działa na wielu hostach, Zmniejsz tę wartość, aby pozostała w ogólnym docelowym wskaźniku ruchu. | 
@@ -173,7 +178,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Właściwość | Domyślne | Opis |
+|Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Włącza lub wyłącza rozszerzone informacje żądania HTTP dla wyzwalaczy HTTP: nagłówki korelacji żądań przychodzących, obsługa kluczy wielu instrumentacji, metoda HTTP, ścieżka i odpowiedź. |
 | enableW3CDistributedTracing | true | Włącza lub wyłącza obsługę protokołu śledzenia rozproszonego W3C (i włącza starszą wersję schematu korelacji). Domyślnie włączone, jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość true. Jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość false, ta flaga ma zastosowanie tylko do żądań wychodzących, a nie do żądań przychodzących. |
@@ -183,7 +188,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 
 Aby uzyskać więcej informacji na temat migawek, zobacz [debugowanie migawek na wyjątkach w aplikacjach .NET](../azure-monitor/app/snapshot-debugger.md) i [Rozwiązywanie problemów z włączaniem Application Insights Snapshot Debugger lub wyświetlania migawek](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Właściwość | Domyślne | Opis |
+|Właściwość | Domyślny | Opis |
 | --------- | --------- | --------- | 
 | agentEndpoint | wartość null | Punkt końcowy używany do nawiązywania połączenia z usługą Application Insights Snapshot Debugger. Jeśli wartość jest równa null, używany jest domyślny punkt końcowy. |
 | captureSnapshotMemoryWeight | 0.5 | Waga określona dla bieżącego rozmiaru pamięci procesu podczas sprawdzania, czy jest wystarczająca ilość pamięci, aby wykonać migawkę. Oczekiwana wartość jest większa niż 0 prawidłowy ułamek (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -275,7 +280,7 @@ Ustawienia konfiguracji dla [monitora kondycji hosta](https://github.com/Azure/a
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |enabled|true|Określa, czy funkcja jest włączona. | 
 |healthCheckInterval|10 sekund|Przedział czasu między okresowymi kontrolami kondycji w tle. | 
@@ -307,12 +312,12 @@ Steruje zachowaniem rejestrowania aplikacji funkcji, w tym Application Insights.
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Określa, jaki poziom rejestrowania plików jest włączony.  Dostępne opcje to `never` , `always` , `debugOnly` . |
-|logLevel|nie dotyczy|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. W wersji 2. x i nowszych postępuj zgodnie z układem ASP.NET Core dla filtrowania kategorii dzienników. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) w dokumentacji ASP.NET Core. |
-|console|nie dotyczy| Ustawienie rejestrowania [konsoli](#console) . |
-|applicationInsights|nie dotyczy| Ustawienie [applicationInsights](#applicationinsights) . |
+|logLevel|n/d|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. W wersji 2. x i nowszych postępuj zgodnie z układem ASP.NET Core dla filtrowania kategorii dzienników. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) w dokumentacji ASP.NET Core. |
+|console|n/d| Ustawienie rejestrowania [konsoli](#console) . |
+|applicationInsights|n/d| Ustawienie [applicationInsights](#applicationinsights) . |
 
 ## <a name="console"></a>console
 
@@ -330,7 +335,7 @@ To ustawienie jest elementem podrzędnym [rejestrowania](#logging). Kontroluje R
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |isEnabled|fałsz|Włącza lub wyłącza rejestrowanie konsoli.| 
 
@@ -349,6 +354,28 @@ Zależność zarządzana to funkcja, która jest obecnie obsługiwana tylko w pr
 ## <a name="queues"></a>tworzone
 
 Ustawienia konfiguracji można znaleźć w temacie [wyzwalacze i powiązania kolejki magazynu](functions-bindings-storage-queue-output.md#host-json).  
+
+## <a name="retry"></a>retry
+
+Kontroluje opcje [zasad ponawiania prób](./functions-bindings-error-pages.md#retry-policies) dla wszystkich wykonań w aplikacji.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Właściwość  |Domyślny | Opis |
+|---------|---------|---------| 
+|strategii|wartość null|Wymagane. Strategia ponawiania, która ma zostać użyta. Prawidłowe wartości to `fixedDelay` lub `exponentialBackoff` .|
+|Wartość MaxRetryCount|wartość null|Wymagane. Maksymalna dozwolona liczba ponownych prób na wykonanie funkcji. `-1` oznacza, aby ponowić próbę w nieskończoność.|
+|delayInterval|wartość null|Opóźnienie, które jest używane między ponownymi próbami z `fixedDelay` strategią.|
+|minimumInterval|wartość null|Minimalne opóźnienie ponowienia próby w przypadku korzystania z `exponentialBackoff` strategii.|
+|maximumInterval|wartość null|Maksymalne opóźnienie ponowienia próby w przypadku korzystania z `exponentialBackoff` strategii.| 
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -374,13 +401,13 @@ Ustawienia konfiguracji dla zachowania pojedynczej blokady. Aby uzyskać więcej
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Okres, w którym są wykonywane blokady poziomu funkcji. Blokady autorenew.| 
 |listenerLockPeriod|00:01:00|Okres, w którym są wykonywane blokady odbiornika.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Przedział czasu używany do odzyskiwania blokady odbiornika, jeśli nie można uzyskać blokady odbiornika podczas uruchamiania.| 
 |lockAcquisitionTimeout|00:01:00|Maksymalny czas, przez jaki środowisko uruchomieniowe podejmie próbę uzyskania blokady.| 
-|lockAcquisitionPollingInterval|nie dotyczy|Interwał między kolejnymi próbami przejęcia blokady.| 
+|lockAcquisitionPollingInterval|n/d|Interwał między kolejnymi próbami przejęcia blokady.| 
 
 ## <a name="version"></a>Wersja
 

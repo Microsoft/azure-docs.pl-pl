@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: aa4b55cb0700a47d9235a1d526ef1b1678d6db8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333821"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285961"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorowanie i wyświetlanie dzienników i metryk przebiegów ML
 
@@ -93,7 +93,7 @@ RunDetails(run).show()
 
 ## <a name="show-output-upon-completion"></a>Pokaż dane wyjściowe po zakończeniu
 
-Gdy korzystasz z **ScriptRunConfig**, możesz użyć, ```run.wait_for_completion(show_output = True)``` Aby pokazać, kiedy szkolenie modelu zostało zakończone. ```show_output```Flaga zapewnia pełne dane wyjściowe. Aby uzyskać więcej informacji, zobacz sekcję ScriptRunConfig, [jak włączyć rejestrowanie](how-to-track-experiments.md#scriptrun-logs).
+Gdy korzystasz z **ScriptRunConfig** , możesz użyć, ```run.wait_for_completion(show_output = True)``` Aby pokazać, kiedy szkolenie modelu zostało zakończone. ```show_output```Flaga zapewnia pełne dane wyjściowe. Aby uzyskać więcej informacji, zobacz sekcję ScriptRunConfig, [jak włączyć rejestrowanie](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## <a name="query-run-metrics"></a>Metryki uruchamiania zapytania
@@ -105,7 +105,9 @@ Możesz wyświetlić metryki modelu przeszkolonego za pomocą ```run.get_metrics
 
 W programie [Azure Machine Learning Studio](https://ml.azure.com)można przeglądać ukończone rekordy przebiegu, w tym zarejestrowane metryki.
 
-Przejdź do karty **eksperymenty** i wybierz swój eksperyment. Na pulpicie nawigacyjnym uruchamiania eksperymentu można zobaczyć śledzone metryki i dzienniki dla każdego przebiegu. 
+Przejdź do karty **eksperymenty** . Aby wyświetlić wszystkie uruchomienia w obszarze roboczym w ramach eksperymentów, wybierz kartę **wszystkie uruchomienia** . Możesz przejść do szczegółów przebiegów dla konkretnych eksperymentów, stosując filtr eksperymentów na górnym pasku menu. 
+
+W widoku pojedynczego eksperymentu wybierz kartę **wszystkie eksperymenty** . Na pulpicie nawigacyjnym uruchamiania eksperymentu można zobaczyć śledzone metryki i dzienniki dla każdego przebiegu. 
 
 Przechodzenie do określonego przebiegu w celu wyświetlenia jego danych wyjściowych lub dzienników lub pobranie migawki eksperymentu, aby umożliwić udostępnianie folderu eksperymentu innym osobom.
 

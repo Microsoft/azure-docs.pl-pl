@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzyst
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074417"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286765"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -154,10 +154,10 @@ Postępuj zgodnie z instrukcjami *przed rozpoczęciem* w odpowiednim dokumencie,
 Ograniczenia nazewnictwa są implementowane przez platformę Azure i AKS. Jeśli nazwa zasobu lub parametr przerywa jedno z tych ograniczeń, zwracany jest błąd, który prosi o podanie innych danych wejściowych. Stosuje się następujące typowe wskazówki dotyczące nazewnictwa:
 
 * Nazwy klastrów muszą składać się z 1-63 znaków. Jedyne dozwolone znaki to litery, cyfry, łączniki i podkreślenia. Pierwszy i ostatni znak musi być literą lub cyfrą.
-* Nazwa grupy zasobów Node/*MC_* AKS łączy nazwę grupy zasobów i nazwę zasobu. Składnia autogenerata `MC_resourceGroupName_resourceName_AzureRegion` nie może zawierać więcej niż 80 znaków. W razie konieczności Zmniejsz długość nazwy grupy zasobów lub nazwę klastra AKS. Możesz również [dostosować nazwę grupy zasobów węzła](cluster-configuration.md#custom-resource-group-name)
+* Nazwa grupy zasobów Node/ *MC_* AKS łączy nazwę grupy zasobów i nazwę zasobu. Składnia autogenerata `MC_resourceGroupName_resourceName_AzureRegion` nie może zawierać więcej niż 80 znaków. W razie konieczności Zmniejsz długość nazwy grupy zasobów lub nazwę klastra AKS. Możesz również [dostosować nazwę grupy zasobów węzła](cluster-configuration.md#custom-resource-group-name)
 * *DnsPrefix* musi zaczynać i kończyć się wartościami alfanumerycznymi i muszą zawierać od 1-54 znaków. Prawidłowe znaki to wartości alfanumeryczne i łączniki (-). *DnsPrefix* nie może zawierać znaków specjalnych, takich jak kropka (.).
 * Nazwy puli węzłów AKS muszą składać się z małych liter i zawierać 1-11 znaków dla pul węzłów systemu Linux i 1-6 znaków dla pul węzłów Windows. Nazwa musi zaczynać się od litery i Jedyne dozwolone znaki to litery i cyfry.
-* *Nazwa użytkownika administratora*, która ustawia nazwę użytkownika administratora dla węzłów systemu Linux, musi rozpoczynać się od litery, może zawierać tylko litery, cyfry, łączniki i podkreślenia, a maksymalna długość wynosząca 64 znaków.
+* *Nazwa użytkownika administratora* , która ustawia nazwę użytkownika administratora dla węzłów systemu Linux, musi rozpoczynać się od litery, może zawierać tylko litery, cyfry, łączniki i podkreślenia, a maksymalna długość wynosząca 64 znaków.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Otrzymuję błędy podczas próby utworzenia, zaktualizowania, skalowania, usunięcia lub uaktualnienia klastra, ta operacja nie jest dozwolona, ponieważ inna operacja jest w toku.
 
@@ -167,7 +167,7 @@ Operacje klastra są ograniczone, gdy Poprzednia operacja jest nadal w toku. Aby
 
 Na podstawie danych wyjściowych stanu klastra:
 
-* Jeśli klaster jest w stanie aprowizacji *innym niż* *powodzenie lub nieudany*, poczekaj na zakończenie operacji (*uaktualnianie/aktualizowanie/tworzenie/skalowanie/usuwanie/Migrowanie*). Po zakończeniu poprzedniej operacji ponów próbę wykonania ostatniej operacji klastra.
+* Jeśli klaster jest w stanie aprowizacji *innym niż* *powodzenie lub nieudany* , poczekaj na zakończenie operacji ( *uaktualnianie/aktualizowanie/tworzenie/skalowanie/usuwanie/Migrowanie* ). Po zakończeniu poprzedniej operacji ponów próbę wykonania ostatniej operacji klastra.
 
 * Jeśli uaktualnienie nie powiodło się, wykonaj kroki opisane w temacie jak pojawiają się [błędy, w których klaster jest w stanie niepowodzenia, a uaktualnienie lub skalowanie nie będzie działało do momentu jego naprawienia](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -198,7 +198,7 @@ W przypadku ograniczania ruchu wychodzącego z klastra AKS są [wymagane i opcjo
 
 Sprawdź, czy ustawienia nie powodują konfliktu z żadnym z wymaganych lub opcjonalnymi zalecanymi portami wychodzącymi/regułami sieciowymi oraz nazwą FQDN/reguł aplikacji.
 
-## <a name="im-receiving-429---too-many-requests-errors"></a>Otrzymuję błędy "429 zbyt wiele żądań" 
+## <a name="im-receiving-429---too-many-requests-errors"></a>Otrzymuję błędy "429 zbyt wiele żądań"
 
 Gdy klaster Kubernetes na platformie Azure (AKS lub nie) często jest skalowany w górę lub w dół lub korzysta z automatycznego skalowania klastra (CA), te operacje mogą spowodować dużą liczbę wywołań HTTP, które z kolei przekroczą limit przydziału przypisanej subskrypcji wiodącej na awarię. Błędy będą wyglądać następująco
 
@@ -213,6 +213,12 @@ Rekomendowanie od zespołu inżynierów AKS ma na celu upewnienie się, że jest
 Jeśli te błędy ograniczania są mierzone na poziomie subskrypcji, mogą być nadal wykonywane, jeśli:
 - Istnieją aplikacje innych firm wykonujące żądania GET (np. Monitorowanie aplikacji itp...). Zaleca się zmniejszenie częstotliwości tych wywołań.
 - W VMSS istnieje wiele klastrów AKS/nodepools. Typowym zaleceniem jest posiadanie mniej niż 20-30 klastrów w danej subskrypcji.
+
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>Stan aprowizacji mojego klastra został zmieniony z gotowe do niepowodzenia z lub bez wykonywania operacji. Co mam zrobić?
+
+Jeśli stan aprowizacji klastra zmieni się z *gotowe* do *Niepowodzenie* z lub bez wykonywania jakichkolwiek operacji, ale aplikacje w klastrze są nadal uruchamiane, ten problem może zostać rozwiązany automatycznie przez usługę i nie ma to wpływu na aplikacje.
+
+Jeśli stan aprowizacji klastra pozostaje *niepowodzeniem* lub aplikacje w klastrze przestaną działać, [Prześlij żądanie pomocy technicznej](https://azure.microsoft.com/support/options/#submit).
 
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Storage i AKS
@@ -230,14 +236,14 @@ Jeśli te błędy ograniczania są mierzone na poziomie subskrypcji, mogą być 
 
 W programie Kubernetes w wersji 1,10, MountVolume. WaitForAttach może zakończyć się niepowodzeniem przy ponownej instalacji dysku platformy Azure.
 
-W systemie Linux może zostać wyświetlony nieprawidłowy błąd formatu DevicePath. Na przykład:
+W systemie Linux może zostać wyświetlony nieprawidłowy błąd formatu DevicePath. Przykład:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-W systemie Windows może zostać wyświetlony nieprawidłowy błąd numeru DevicePath (LUN). Na przykład:
+W systemie Windows może zostać wyświetlony nieprawidłowy błąd numeru DevicePath (LUN). Przykład:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -250,7 +256,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 |--|:--:|
 | 1.10 | 1.10.2 lub nowszy |
 | 1,11 | 1.11.0 lub nowszy |
-| 1,12 i nowsze | Nie dotyczy |
+| 1,12 i nowsze | Brak |
 
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Niepowodzenie podczas ustawiania identyfikatorów UID i GID w mountOptions dla dysku platformy Azure
@@ -284,7 +290,7 @@ spec:
   >[!NOTE]
   > Ponieważ GID i UID są domyślnie instalowane jako root lub 0. Jeśli gid lub UID są ustawione jako spoza katalogu głównego, na przykład 1000, Kubernetes będzie używać `chown` do zmiany wszystkich katalogów i plików znajdujących się na tym dysku. Ta operacja może być czasochłonna i może spowodować, że instalacja dysku będzie bardzo niska.
 
-* Użyj `chown` w initContainers, aby ustawić GID i UID. Na przykład:
+* Użyj `chown` w initContainers, aby ustawić GID i UID. Przykład:
 
 ```yaml
 initContainers:
@@ -307,7 +313,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1.12 | 1.12.9 lub nowszy |
 | 1.13 | 1.13.6 lub nowszy |
 | 1,14 | 1.14.2 lub nowszy |
-| 1,15 i nowsze | Nie dotyczy |
+| 1,15 i nowsze | Brak |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a Twój węzeł ma przestarzałą listę dysków, możesz rozwiązać problem, odłączając wszystkie nieistniejące dyski z maszyny wirtualnej jako operację zbiorczą. **Pojedyncze odłączenie nieistniejących dysków może zakończyć się niepowodzeniem.**
 
@@ -326,7 +332,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1.12 | 1.12.10 lub nowszy |
 | 1.13 | 1.13.8 lub nowszy |
 | 1,14 | 1.14.4 lub nowszy |
-| 1,15 i nowsze | Nie dotyczy |
+| 1,15 i nowsze | Brak |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a stan węzła jest w stanie niepowodzenia, możesz rozwiązać problem, ręcznie aktualizując status maszyny wirtualnej przy użyciu jednego z poniższych elementów:
 
@@ -359,7 +365,7 @@ Zalecane ustawienia:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 i nowsze | 0777 |
 
-Opcje instalacji można określić w obiekcie klasy magazynu. W poniższym przykładzie są ustawiane *0777*:
+Opcje instalacji można określić w obiekcie klasy magazynu. W poniższym przykładzie są ustawiane *0777* :
 
 ```yaml
 kind: StorageClass
@@ -382,7 +388,7 @@ parameters:
 Niektóre dodatkowe użyteczne ustawienia *mountOptions* :
 
 * *mfsymlinks* Azure Files instalacji (CIFS) obsługuje linki symboliczne
-* *nobrl* uniemożliwi wysyłanie żądań blokady zakresu bajtów do serwera. To ustawienie jest niezbędne w przypadku niektórych aplikacji, które są przerywane przez obowiązkowe zablokowanie zakresu bajtów w stylu CIFS. Większość serwerów CIFS nie obsługuje jeszcze żądań zablokowania zakresu bajtów doradczych. Jeśli nie korzystasz z *nobrl*, aplikacje, które są przerywane przez obowiązkowe blokowanie zakresu bajtów w stylu CIFS mogą powodować komunikaty o błędach podobne do:
+* *nobrl* uniemożliwi wysyłanie żądań blokady zakresu bajtów do serwera. To ustawienie jest niezbędne w przypadku niektórych aplikacji, które są przerywane przez obowiązkowe zablokowanie zakresu bajtów w stylu CIFS. Większość serwerów CIFS nie obsługuje jeszcze żądań zablokowania zakresu bajtów doradczych. Jeśli nie korzystasz z *nobrl* , aplikacje, które są przerywane przez obowiązkowe blokowanie zakresu bajtów w stylu CIFS mogą powodować komunikaty o błędach podobne do:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -435,7 +441,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 lub nowszy |
 | 1.13 | 1.13.4 lub nowszy |
-| 1,14 i nowsze | Nie dotyczy |
+| 1,14 i nowsze | Brak |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Instalacja Azure Files nie powiodła się z powodu zmiany klucza konta magazynu
 
@@ -443,13 +449,13 @@ Jeśli klucz konta magazynu został zmieniony, mogą pojawić się błędy insta
 
 Możesz zmniejszyć wartość ręcznie aktualizując `azurestorageaccountkey` pole ręcznie w kluczu tajnym systemu Azure za pomocą klucza konta magazynu szyfrowanego algorytmem Base64.
 
-Aby zakodować klucz konta magazynu w formacie Base64, można użyć programu `base64` . Na przykład:
+Aby zakodować klucz konta magazynu w formacie Base64, można użyć programu `base64` . Przykład:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Aby zaktualizować plik tajny platformy Azure, użyj programu `kubectl edit secret` . Na przykład:
+Aby zaktualizować plik tajny platformy Azure, użyj programu `kubectl edit secret` . Przykład:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret
@@ -470,11 +476,8 @@ Ten błąd występuje ze względu na sytuację wyścigu dla nadrzędnego skalowa
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Wolne miejsce na dysku, GetAzureDiskLun trwa 10 do 15 minut i występuje błąd
 
-W wersji Kubernetes **starszej niż 1.15.0**może zostać wyświetlony błąd, taki jak **błąd WaitForAttach nie można znaleźć jednostki LUN dla dysku**.  Obejście tego problemu ma na celu odczekanie około 15 minut, a następnie ponów próbę.
+W wersji Kubernetes **starszej niż 1.15.0** może zostać wyświetlony błąd, taki jak **błąd WaitForAttach nie można znaleźć jednostki LUN dla dysku**.  Obejście tego problemu ma na celu odczekanie około 15 minut, a następnie ponów próbę.
 
-<!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
-[cluster-autoscaler]: cluster-autoscaler.md
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Dlaczego uaktualnienia do Kubernetes 1,16 nie powiodły się podczas używania etykiet węzłów z prefiksem kubernetes.io
 
@@ -487,3 +490,9 @@ W związku z tym, aby uniknąć tego problemu, możesz:
 3. Usuń starszą nodepool
 
 AKS bada zdolność do mutacji aktywnych etykiet na nodepool w celu usprawnienia tego ograniczenia.
+
+
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

@@ -7,32 +7,33 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 607060851a8afa48b9570dfcb17732279a3629ee
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737847"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286667"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Korzystanie z procedur składowanych w programie Synapse SQL
 
-Wskazówki dotyczące implementowania procedur składowanych w puli SQL Synapse na potrzeby tworzenia rozwiązań.
+Synapse aprowizacji SQL i pule bezserwerowe umożliwiają umieszczenie złożonej logiki przetwarzania danych w procedurach składowanych SQL. Procedury składowane to doskonały sposób na hermetyzację kodu SQL i przechowywanie go w pobliżu danych w magazynie danych. Procedury składowane ułatwiają deweloperom modularyzacji swoich rozwiązań poprzez Hermetyzowanie kodu w jednostki umożliwiające zarządzanie i ułatwiają lepsze wykorzystywanie kodu. Każda procedura składowana może również akceptować parametry, aby zapewnić im jeszcze większą elastyczność.
+W tym artykule znajdziesz wskazówki dotyczące wdrażania procedur składowanych w puli Synapse SQL na potrzeby tworzenia rozwiązań.
 
 ## <a name="what-to-expect"></a>Czego oczekiwać
 
-Program SQL Synapse obsługuje wiele funkcji T-SQL, które są używane w SQL Server. Co ważniejsze, dostępne są funkcje skalowania w poziomie, których można użyć w celu zmaksymalizowania wydajności rozwiązania.
+Program SQL Synapse obsługuje wiele funkcji T-SQL, które są używane w SQL Server. Co ważniejsze, dostępne są funkcje skalowania w poziomie, których można użyć w celu zmaksymalizowania wydajności rozwiązania. W tym artykule przedstawiono informacje o funkcjach, które można umieścić w procedurach składowanych.
 
 > [!NOTE]
-> W treści procedury można używać tylko funkcji, które są obsługiwane w obszarze powierzchni Synapse SQL. Zapoznaj się z [tym artykułem](overview-features.md) , aby zidentyfikować obiekty, instrukcję, która może być używana w procedurach składowanych. W przykładach w tych artykułach są używane ogólne funkcje, które są dostępne zarówno w obszarze obszar powierzchniowy, jak i na powierzchnię administracyjną.
+> W treści procedury można używać tylko funkcji, które są obsługiwane w obszarze powierzchni Synapse SQL. Zapoznaj się z [tym artykułem](overview-features.md) , aby zidentyfikować obiekty, instrukcję, która może być używana w procedurach składowanych. W przykładach w tych artykułach są używane ogólne funkcje, które są dostępne zarówno w obszarze obszar powierzchniowy, jak i na powierzchnię administracyjną. Zapoznaj się z dodatkowymi [ograniczeniami dotyczącymi zainicjowanych i bezserwerowych pul SQL Synapse](#limitations) na końcu tego artykułu.
 
 Aby zachować skalę i wydajność puli SQL, istnieją także pewne funkcje i funkcje, które mają różnice zachowania i inne, które nie są obsługiwane.
 
 ## <a name="stored-procedures-in-synapse-sql"></a>Procedury składowane w Synapse SQL
 
-Procedury składowane to doskonały sposób na hermetyzację kodu SQL i przechowywanie go w pobliżu danych w magazynie danych. Procedury składowane ułatwiają deweloperom modularyzacji swoich rozwiązań poprzez hermetyzację kodu w celu zarządzania jednostkami, co ułatwia lepsze wykorzystywanie kodu. Każda procedura składowana może również akceptować parametry, aby zapewnić im jeszcze większą elastyczność. W poniższym przykładzie można zobaczyć procedury, które usuwają obiekty zewnętrzne, jeśli istnieją w bazie danych:
+W poniższym przykładzie można zobaczyć procedury, które usuwają obiekty zewnętrzne, jeśli istnieją w bazie danych:
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -184,23 +185,26 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXEUROCZE
 
-Synapse SQL nie zezwala na używanie zestawu wyników procedury składowanej z instrukcją INSERT. Istnieje alternatywne podejście, którego można użyć. Aby zapoznać się z przykładem, zapoznaj się z artykułem dotyczącym [tabel tymczasowych](develop-tables-temporary.md) dla puli aprowizacji Synapse.
+Zainicjowana Pula SQL Synapse nie zezwala na korzystanie z zestawu wyników procedury składowanej z instrukcją INSERT. Istnieje alternatywne podejście, którego można użyć. Aby zapoznać się z przykładem, zapoznaj się z artykułem dotyczącym [tabel tymczasowych](develop-tables-temporary.md) dla puli aprowizacji Synapse.
 
 ## <a name="limitations"></a>Ograniczenia
 
 Istnieją pewne aspekty procedur składowanych Transact-SQL, które nie są zaimplementowane w Synapse SQL, takie jak:
 
-* tymczasowe procedury składowane
-* numerowane procedury składowane
-* rozszerzone procedury składowane
-* Procedury składowane CLR
-* Opcja szyfrowania
-* Opcja replikacji
-* parametry z wartościami przechowywanymi w tabeli
-* parametry tylko do odczytu
-* domyślne parametry (w puli aprowizacji)
-* konteksty wykonywania
-* return, instrukcja
+| Funkcja/opcja | Zaaprowizowane | Praca bezserwerowa |
+| --- | --- |
+| Tymczasowe procedury składowane | Nie | Tak |
+| Numerowane procedury składowane | Nie | Nie |
+| Rozszerzone procedury składowane | Nie | Nie |
+| Procedury składowane CLR | Nie | Nie |
+| Opcja szyfrowania | Nie | Tak |
+| Opcja replikacji | Nie | Nie |
+| Parametry z wartościami przechowywanymi w tabeli | Nie | Nie |
+| Parametry tylko do odczytu | Nie | Nie |
+| Parametry domyślne | Nie | Tak |
+| Konteksty wykonywania | Nie | Nie |
+| Return — Instrukcja | Nie | Tak |
+| WSTAW DO.. SZEF | Nie | Tak |
 
 ## <a name="next-steps"></a>Następne kroki
 

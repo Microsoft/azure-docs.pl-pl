@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131177"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286707"
 ---
 # <a name="azure-key-vault-logging"></a>Funkcja rejestrowania usługi Azure Key Vault
 
@@ -26,7 +26,7 @@ Możesz uzyskać dostęp do informacji o rejestrowaniu 10 minut (maksymalnie) po
 * Użyj standardowych metod kontroli dostępu platformy Azure w celu zabezpieczenia dzienników, wprowadzając ograniczenia co do tego, kto może uzyskiwać do nich dostęp.
 * Usuń dzienniki, których nie chcesz już przechowywać na koncie magazynu.
 
-Aby uzyskać przegląd informacji na temat Key Vault, zobacz [co to jest Azure Key Vault?](overview.md). Informacje o tym, gdzie Key Vault są dostępne, można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/key-vault/). Aby uzyskać informacje na temat korzystania z [Azure Monitor Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
+Aby uzyskać przegląd informacji na temat Key Vault, zobacz [co to jest Azure Key Vault?](overview.md). Informacje o tym, gdzie Key Vault są dostępne, można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/key-vault/). Aby uzyskać informacje na temat korzystania z [Azure Monitor Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="interpret-your-key-vault-logs"></a>Interpretowanie dzienników usługi Key Vault
 
@@ -61,7 +61,7 @@ W poniższej tabeli wymieniono nazwy pól i opisy:
 
 | Nazwa pola | Opis |
 | --- | --- |
-| **time** |Data i godzina w formacie UTC. |
+| **pierwszym** |Data i godzina w formacie UTC. |
 | **Identyfikator** |Azure Resource Manager identyfikator zasobu. W przypadku dzienników Key Vault jest to zawsze identyfikator zasobu Key Vault. |
 | **operationName** |Nazwa operacji zgodnie z opisem w następnej tabeli. |
 | **operationVersion** |Wersja interfejsu API REST żądana przez klienta. |
@@ -73,9 +73,9 @@ W poniższej tabeli wymieniono nazwy pól i opisy:
 | **callerIpAddress** |Adres IP klienta, który wykonał żądanie. |
 | **korelacj** |Opcjonalny identyfikator GUID, który klient może przekazać w celu skorelowania dzienników po stronie klienta z dziennikami po stronie usługi (Key Vault). |
 | **Identity** |Tożsamość z tokenu, która została przedstawiona w żądaniu interfejsu API REST. Zwykle jest to "użytkownik", "Nazwa główna usługi" lub kombinacja "użytkownik + appId", jak w przypadku żądania, które wynika z Azure PowerShell polecenia cmdlet. |
-| **aœciwoœci** |Informacje, które różnią się w zależności od operacji (**OperationName**). W większości przypadków to pole zawiera informacje o kliencie (ciąg agenta użytkownika przekazaną przez klienta), dokładny identyfikator URI żądania interfejsu API REST i kod stanu HTTP. Ponadto, gdy obiekt jest zwracany w wyniku żądania (na przykład **Create** lub **VaultGet**), zawiera również identyfikator URI klucza (AS `id` ), identyfikator URI magazynu lub identyfikator URI wpisu tajnego. |
+| **aœciwoœci** |Informacje, które różnią się w zależności od operacji ( **OperationName** ). W większości przypadków to pole zawiera informacje o kliencie (ciąg agenta użytkownika przekazaną przez klienta), dokładny identyfikator URI żądania interfejsu API REST i kod stanu HTTP. Ponadto, gdy obiekt jest zwracany w wyniku żądania (na przykład **Create** lub **VaultGet** ), zawiera również identyfikator URI klucza (AS `id` ), identyfikator URI magazynu lub identyfikator URI wpisu tajnego. |
 
-Wartości pola **OperationName** są w formacie *ObjectVerb* . Na przykład:
+Wartości pola **OperationName** są w formacie *ObjectVerb* . Przykład:
 
 * Wszystkie operacje magazynu kluczy mają `Vault<action>` Format, taki jak `VaultGet` i `VaultCreate` .
 * Wszystkie operacje na kluczach mają `Key<action>` Format, taki jak `KeySign` i `KeyList` .
@@ -88,32 +88,32 @@ W poniższej tabeli wymieniono wartości **OperationName** i odpowiednie polecen
 | operationName | Polecenie interfejsu API REST |
 | --- | --- |
 | **Authentication** |Uwierzytelnianie za pośrednictwem punktu końcowego Azure Active Directory |
-| **VaultGet** |[Pobierz informacje o magazynie kluczy](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| **VaultPut** |[Utwórz lub zaktualizuj magazyn kluczy](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultDelete** |[Usuń magazyn kluczy](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| **VaultPatch** |[Zaktualizuj magazyn kluczy](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultList** |[Utwórz listę wszystkich magazynów kluczy w grupie zasobów](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| **KeyCreate** |[Utwórz klucz](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| **KeyGet** |[Pobierz informacje o kluczu](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **KeyImport** |[Importuj klucz do magazynu](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| **KeyBackup** |[Tworzenie kopii zapasowej klucza](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[Usuń klucz](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **KeyRestore** |[Przywróć klucz](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[Podpisz przy użyciu klucza](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyVerify** |[Weryfikuj za pomocą klucza](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| **KeyWrap** |[Opakuj klucz](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| **KeyUnwrap** |[Odpakuj klucz](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| **KeyEncrypt** |[Szyfruj za pomocą klucza](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[Odszyfruj za pomocą klucza](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[Zaktualizuj klucz](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **KeyList** |[Utwórz listę kluczy w magazynie](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **KeyListVersions** |[Utwórz listę wersji klucza](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[Utwórz klucz tajny](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[Pobierz wpis tajny](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[Zaktualizuj klucz tajny](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[Usuń klucz tajny](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[Utwórz listę kluczy tajnych w magazynie](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[Utwórz listę wersji klucza tajnego](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultGet** |[Pobierz informacje o magazynie kluczy](/rest/api/keyvault/vaults) |
+| **VaultPut** |[Utwórz lub zaktualizuj magazyn kluczy](/rest/api/keyvault/vaults) |
+| **VaultDelete** |[Usuń magazyn kluczy](/rest/api/keyvault/vaults) |
+| **VaultPatch** |[Zaktualizuj magazyn kluczy](/rest/api/keyvault/vaults) |
+| **VaultList** |[Utwórz listę wszystkich magazynów kluczy w grupie zasobów](/rest/api/keyvault/vaults) |
+| **KeyCreate** |[Utwórz klucz](/rest/api/keyvault/createkey) |
+| **KeyGet** |[Pobierz informacje o kluczu](/rest/api/keyvault/getkey) |
+| **KeyImport** |[Importuj klucz do magazynu](/rest/api/keyvault/vaults) |
+| **KeyBackup** |[Tworzenie kopii zapasowej klucza](/rest/api/keyvault/backupkey) |
+| **KeyDelete** |[Usuń klucz](/rest/api/keyvault/deletekey) |
+| **KeyRestore** |[Przywróć klucz](/rest/api/keyvault/restorekey) |
+| **KeySign** |[Podpisz przy użyciu klucza](/rest/api/keyvault/sign) |
+| **KeyVerify** |[Weryfikuj za pomocą klucza](/rest/api/keyvault/vaults) |
+| **KeyWrap** |[Opakuj klucz](/rest/api/keyvault/wrapkey) |
+| **KeyUnwrap** |[Odpakuj klucz](/rest/api/keyvault/unwrapkey) |
+| **KeyEncrypt** |[Szyfruj za pomocą klucza](/rest/api/keyvault/encrypt) |
+| **KeyDecrypt** |[Odszyfruj za pomocą klucza](/rest/api/keyvault/decrypt) |
+| **KeyUpdate** |[Zaktualizuj klucz](/rest/api/keyvault/updatekey) |
+| **KeyList** |[Utwórz listę kluczy w magazynie](/rest/api/keyvault/vaults) |
+| **KeyListVersions** |[Utwórz listę wersji klucza](/rest/api/keyvault/getkeyversions) |
+| **SecretSet** |[Utwórz klucz tajny](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[Pobierz wpis tajny](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[Zaktualizuj klucz tajny](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[Usuń klucz tajny](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[Utwórz listę kluczy tajnych w magazynie](/rest/api/keyvault/vaults) |
+| **SecretListVersions** |[Utwórz listę wersji klucza tajnego](/rest/api/keyvault/getsecretversions) |
 | **VaultAccessPolicyChangedEventGridNotification** | Opublikowano zdarzenie zmiany zasad dostępu do magazynu |
 | **SecretNearExpiryEventGridNotification** |Opublikowano wpis tajny po bliskim wygaśnięciu zdarzenia |
 | **SecretExpiredEventGridNotification** |Opublikowano wydarzenie wygasłe dla wpisu tajnego |

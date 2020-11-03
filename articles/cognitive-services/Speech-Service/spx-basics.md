@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 1255333e9bde54fcdf76dd40a9aaa4bc68fd103e
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 7ca290b7b7df9e4e03aec78b611361ba52942523
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242130"
+ms.locfileid: "93286693"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Poznaj podstawowe informacje o interfejsie wiersza polecenia mowy
 
@@ -163,7 +163,7 @@ To polecenie jest odpowiednikiem uruchomienia `spx synthesize --text Sample text
 
 * Nagłówki kolumn `audio.output` i `text` , odpowiadają odpowiednio do argumentów wiersza polecenia `--audio output` i `--text` . Wieloczęściowe argumenty wiersza polecenia, takie jak `--audio output` powinny być sformatowane w pliku bez spacji, brak wiodących kresek i kropki oddzielające ciągi, np. `audio.output` . Wszystkie inne istniejące argumenty wiersza polecenia można dodać do pliku jako dodatkowe kolumny przy użyciu tego wzorca.
 * Gdy plik jest sformatowany w ten sposób, żadne dodatkowe argumenty nie są wymagane do przesłania do `--foreach` .
-* Upewnij się, że poszczególne wartości są oddzielane `.tsv` za pomocą **karty** .
+* Upewnij się, że poszczególne wartości są oddzielane `.tsv` za pomocą **karty**.
 
 Jednak jeśli masz `.tsv` plik podobny do poniższego przykładu, z nagłówkami kolumn, które **nie pasują** do argumentów wiersza polecenia:
 
@@ -182,4 +182,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Ukończ [rozpoznawanie mowy](./quickstarts/speech-to-text-from-microphone.md) lub Przewodniki Szybki Start dotyczące funkcji rozpoznawania [mowy przy](./quickstarts/text-to-speech.md) użyciu zestawu SDK.
+* Ukończ [rozpoznawanie mowy](get-started-speech-to-text.md?pivots=programmer-tool-spx) lub Przewodniki Szybki Start dotyczące funkcji rozpoznawania [mowy przy](get-started-text-to-speech.md?pivots=programmer-tool-spx) użyciu interfejsu wiersza polecenia mowy.

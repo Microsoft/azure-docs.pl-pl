@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: bb574bb3dd000682090c6c3f861e885761753e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba80d78cbc7d34b1496daffbd489a1d0dbfed8b4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588521"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285671"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>Samouczek: uzyskiwanie dostępu do usługi Azure Blob Storage przy użyciu Azure Databricks i Azure Key Vault
 
@@ -29,11 +29,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Przed rozpoczęciem pracy z tym samouczkiem zainstaluj [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+Przed rozpoczęciem pracy z tym samouczkiem zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## <a name="create-a-storage-account-and-blob-container-with-azure-cli"></a>Tworzenie konta magazynu i kontenera obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure
 
-Aby używać obiektów blob, należy najpierw utworzyć konto magazynu ogólnego przeznaczenia. Jeśli nie masz [grupy zasobów](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create), utwórz ją przed uruchomieniem polecenia. Następujące polecenie tworzy i wyświetla metadane kontenera magazynu. Skopiuj **Identyfikator**.
+Aby używać obiektów blob, należy najpierw utworzyć konto magazynu ogólnego przeznaczenia. Jeśli nie masz [grupy zasobów](/cli/azure/group?view=azure-cli-latest#az-group-create), utwórz ją przed uruchomieniem polecenia. Następujące polecenie tworzy i wyświetla metadane kontenera magazynu. Skopiuj **Identyfikator**.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob
@@ -41,7 +41,7 @@ az storage account create --name contosoblobstorage5 --resource-group contosoRes
 
 ![Dane wyjściowe konsoli powyższego polecenia. Identyfikator jest wyróżniony w kolorze zielonym dla użytkownika końcowego, aby zobaczyć.](../media/databricks-command-output-1.png)
 
-Przed utworzeniem kontenera do przekazania obiektu BLOB do programu należy przypisać rolę [współautor danych obiektów blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) do siebie. W ramach tego przykładu rola zostanie przypisana do konta magazynu, które zostało wcześniej utworzone.
+Przed utworzeniem kontenera do przekazania obiektu BLOB do programu należy przypisać rolę [współautor danych obiektów blob magazynu](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) do siebie. W ramach tego przykładu rola zostanie przypisana do konta magazynu, które zostało wcześniej utworzone.
 
 ```azurecli
 az role assignment create --role "Storage Blob Data Contributor" --assignee t-trtr@microsoft.com --scope "/subscriptions/885e24c8-7a36-4217-b8c9-eed31e110504/resourceGroups/contosoResourceGroup5/providers/Microsoft.Storage/storageAccounts/contosoblobstorage5
@@ -94,7 +94,7 @@ az keyvault secret set --vault-name contosoKeyVault10 --name storageKey --value 
 
 ## <a name="create-an-azure-databricks-workspace-and-add-key-vault-secret-scope"></a>Utwórz obszar roboczy Azure Databricks i Dodaj Key Vault zakres tajny
 
-Tej sekcji nie można wykonać za pomocą wiersza polecenia. Postępuj zgodnie z tym [przewodnikiem](https://docs.microsoft.com/azure/azure-databricks/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope). Musisz uzyskać dostęp do [Azure Portal](https://ms.portal.azure.com/#home) , aby:
+Tej sekcji nie można wykonać za pomocą wiersza polecenia. Postępuj zgodnie z tym [przewodnikiem](/azure/databricks/scenarios/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope). Musisz uzyskać dostęp do [Azure Portal](https://ms.portal.azure.com/#home) , aby:
 
 1. Tworzenie zasobu Azure Databricks
 1. Uruchom obszar roboczy
@@ -102,7 +102,7 @@ Tej sekcji nie można wykonać za pomocą wiersza polecenia. Postępuj zgodnie z
 
 ## <a name="access-your-blob-container-from-azure-databricks-workspace"></a>Dostęp do kontenera obiektów blob z obszaru roboczego Azure Databricks
 
-Tej sekcji nie można wykonać za pomocą wiersza polecenia. Postępuj zgodnie z tym [przewodnikiem](https://docs.microsoft.com/azure/azure-databricks/store-secrets-azure-key-vault#access-your-blob-container-from-azure-databricks). Musisz użyć obszaru roboczego Azure Databricks, aby:
+Tej sekcji nie można wykonać za pomocą wiersza polecenia. Postępuj zgodnie z tym [przewodnikiem](/azure/databricks/scenarios/store-secrets-azure-key-vault#access-your-blob-container-from-azure-databricks). Musisz użyć obszaru roboczego Azure Databricks, aby:
 
 1. Tworzenie **nowego klastra**
 1. Tworzenie **nowego notesu**
@@ -124,4 +124,4 @@ df.show()
 
 Upewnij się, że Key Vault jest możliwe do odzyskania:
 > [!div class="nextstepaction"]
-> [Czyszczenie zasobów](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+> [Czyszczenie zasobów](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)

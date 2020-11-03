@@ -8,22 +8,21 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/02/2020
+ms.openlocfilehash: f0295c27f1d193b0dcd7829a11b4aabe0edb659b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791991"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286348"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Jak indeksować zaszyfrowane obiekty blob za pomocą indeksatorów obiektów blob i umiejętności na platformie Wyszukiwanie poznawcze Azure
 
-W tym artykule pokazano, jak za pomocą [usługi azure wyszukiwanie poznawcze](search-what-is-azure-search.md) indeksować dokumenty, które zostały wcześniej zaszyfrowane w ramach [usługi Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) przy użyciu [Azure Key Vault](../key-vault/general/overview.md). Zwykle indeksator nie może wyodrębnić zawartości z szyfrowanych plików, ponieważ nie ma dostępu do klucza szyfrowania. Jednak korzystając z niestandardowej umiejętności [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) , a następnie [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), można zapewnić dostęp do klucza do odszyfrowania plików, a następnie z nich z nich korzystać. Spowoduje to odblokowanie możliwości indeksowania tych dokumentów, a nigdy nie trzeba martwić się o przechowywane dane niezaszyfrowane.
+W tym artykule pokazano, jak za pomocą [usługi azure wyszukiwanie poznawcze](search-what-is-azure-search.md) indeksować dokumenty, które zostały wcześniej zaszyfrowane w ramach [usługi Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) przy użyciu [Azure Key Vault](../key-vault/general/overview.md). Zwykle indeksator nie może wyodrębnić zawartości z szyfrowanych plików, ponieważ nie ma dostępu do klucza szyfrowania. Jednak korzystając z niestandardowej umiejętności [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) , a następnie [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), można zapewnić dostęp do klucza do odszyfrowania plików, a następnie z nich z nich korzystać. Spowoduje to odblokowanie możliwości indeksowania tych dokumentów bez naruszenia stanu szyfrowania przechowywanych dokumentów.
 
-W tym przewodniku jest używany program Poster i interfejsy API REST wyszukiwania do wykonywania następujących zadań:
+Począwszy od wcześniej zaszyfrowanych całych dokumentów (tekstu bez struktury), takich jak PDF, HTML, DOCX i PPTX w usłudze Azure Blob Storage, w tym przewodniku jest używany program SMS i interfejsy API REST wyszukiwania do wykonywania następujących zadań:
 
 > [!div class="checklist"]
-> * Zacznij od całego dokumentu (tekst bez struktury), takiego jak PDF, HTML, DOCX i PPTX, w usłudze Azure Blob Storage, który został zaszyfrowany przy użyciu Azure Key Vault.
 > * Zdefiniuj potok, który odszyfruje dokumenty i wyodrębni z nich tekst.
 > * Zdefiniuj indeks do przechowywania danych wyjściowych.
 > * Wykonaj potok, aby utworzyć i załadować indeks.
@@ -36,13 +35,10 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 W tym przykładzie przyjęto założenie, że pliki zostały już przekazane do usługi Azure Blob Storage i zaszyfrowane w procesie. Jeśli potrzebujesz pomocy przy wstępnym przekazywaniu i zaszyfrowaniu plików, zapoznaj się z [tym samouczkiem](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) , aby dowiedzieć się, jak to zrobić.
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
-+ [Usługa Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) w tej samej subskrypcji co usługa Azure wyszukiwanie poznawcze. Magazyn kluczy musi mieć włączoną ochronę **nietrwałego usuwania** i **przeczyszczania** .
++ [Wyszukiwanie poznawcze platformy Azure](search-create-service-portal.md) w [warstwie rozliczeniowej](search-sku-tier.md#tiers) (podstawowa lub wyższa, w dowolnym regionie)
 + [Funkcja platformy Azure](https://azure.microsoft.com/services/functions/)
 + [Aplikacja klasyczna narzędzia Postman](https://www.getpostman.com/)
-+ [Utwórz](search-create-service-portal.md) lub [Znajdź istniejącą usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
-
-> [!Note]
-> Możesz użyć bezpłatnej usługi dla tego przewodnika. Bezpłatna usługa wyszukiwania ogranicza Ci trzy indeksy, trzy indeksatory, trzy źródła danych i trzy umiejętności. Ten przewodnik tworzy jeden z nich. Przed rozpoczęciem upewnij się, że masz miejsce w usłudze, aby akceptować nowe zasoby.
 
 ## <a name="1---create-services-and-collect-credentials"></a>1 — Tworzenie usług i zbieranie poświadczeń
 
@@ -68,9 +64,9 @@ W rezultacie umiejętność DecryptBlobFile Pobiera adres URL i token sygnatury 
      
        ![Dodawanie zasad dostępu do magazynu kluczy](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Zasady dostępu magazynu kluczy")
 
-    1. W obszarze **Konfiguruj z szablonu** wybierz pozycję **Azure Data Lake Storage lub Azure Storage** .
+    1. W obszarze **Konfiguruj z szablonu** wybierz pozycję **Azure Data Lake Storage lub Azure Storage**.
 
-    1. Dla podmiotu zabezpieczeń wybierz wdrożone wystąpienie funkcji platformy Azure. Można wyszukać go przy użyciu prefiksu zasobu, który został użyty do utworzenia go w kroku 2, który ma domyślną wartość prefiksu **psdbf-Function-App** .
+    1. Dla podmiotu zabezpieczeń wybierz wdrożone wystąpienie funkcji platformy Azure. Można wyszukać go przy użyciu prefiksu zasobu, który został użyty do utworzenia go w kroku 2, który ma domyślną wartość prefiksu **psdbf-Function-App**.
 
     1. Nie zaznaczaj niczego dla opcji autoryzowanej aplikacji.
      
@@ -121,7 +117,7 @@ Zainstaluj i skonfiguruj program ogłaszający.
 1. Pobierz [kod źródłowy kolekcji Poster](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json).
 1. Wybierz **File** pozycję  >  **Importuj** plik, aby zaimportować kod źródłowy do programu Poster.
 1. Wybierz kartę **kolekcje** , a następnie wybierz przycisk **...** (wielokropek).
-1. Wybierz pozycję **Edytuj** . 
+1. Wybierz pozycję **Edit** (Edytuj). 
    
    ![Aplikacja do publikowania po wyświetleniu nawigacji](media/indexing-encrypted-blob-files/postman-edit-menu.jpg "Przejdź do menu Edycja w programie Poster")
 1. W oknie dialogowym **Edycja** wybierz kartę **zmienne** . 
@@ -137,15 +133,15 @@ Aby uzyskać wartość dla `admin-key` , użyj zanotowanego wcześniej klucza AP
 |-------------|-----------------|
 | `admin-key` | Na stronie **klucze** usługi Azure wyszukiwanie poznawcze.  |
 | `search-service-name` | Nazwa usługi Azure Wyszukiwanie poznawcze. Adres URL to `https://{{search-service-name}}.search.windows.net` . | 
-| `storage-connection-string` | Na koncie magazynu na karcie **klucze dostępu** wybierz pozycję **Klucz1**  >  **Parametry połączenia** . | 
+| `storage-connection-string` | Na koncie magazynu na karcie **klucze dostępu** wybierz pozycję **Klucz1**  >  **Parametry połączenia**. | 
 | `storage-container-name` | Nazwa kontenera obiektów blob, który ma zaszyfrowane pliki do indeksowania. | 
 | `function-uri` |  W funkcji platformy Azure w obszarze **podstawy** na stronie głównej. | 
 | `function-code` | W funkcji platformy Azure, przechodząc do pozycji **klucze aplikacji** , klikając, aby wyświetlić klucz **domyślny** i kopiując wartość. | 
-| `api-version` | Pozostaw jako **2020-06-30** . |
-| `datasource-name` | Pozostaw jako **zaszyfrowane obiekty blob-ds** . | 
-| `index-name` | Pozostaw jako **zaszyfrowane obiekty blob-IDX** . | 
-| `skillset-name` | Pozostaw jako **zaszyfrowane obiekty blob-SS** . | 
-| `indexer-name` | Pozostaw jako **zaszyfrowane obiekty blob-IXR** . | 
+| `api-version` | Pozostaw jako **2020-06-30**. |
+| `datasource-name` | Pozostaw jako **zaszyfrowane obiekty blob-ds**. | 
+| `index-name` | Pozostaw jako **zaszyfrowane obiekty blob-IDX**. | 
+| `skillset-name` | Pozostaw jako **zaszyfrowane obiekty blob-SS**. | 
+| `indexer-name` | Pozostaw jako **zaszyfrowane obiekty blob-IXR**. | 
 
 ### <a name="review-the-request-collection-in-postman"></a>Przeglądanie kolekcji żądań w programie Poster
 

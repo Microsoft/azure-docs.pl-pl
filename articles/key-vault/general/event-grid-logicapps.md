@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2781ef69ce85e82dab45a9f890ef5e6862949d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087987"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284489"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Użyj Logic Apps do otrzymywania wiadomości e-mail o zmianach stanu wpisów tajnych magazynu kluczy
 
@@ -28,7 +28,7 @@ Omówienie integracji Azure Key Vault/Azure Event Grid można znaleźć w temaci
 - Konto e-mail od dowolnego dostawcy poczty e-mail obsługiwanego przez Azure Logic Apps (na przykład Office 365 Outlook). To konto e-mail służy do wysyłania powiadomień o zdarzeniach. Aby uzyskać pełną listę łączników obsługiwanych przez usługę Logic Apps, zobacz [Omówienie łączników](/connectors).
 - Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Magazyn kluczy w ramach subskrypcji platformy Azure. Nowy magazyn kluczy można szybko utworzyć, wykonując kroki z [zestawu i pobierając klucz tajny z Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](../secrets/quick-create-cli.md).
-- Zarejestrowano Event Grid jako dostawcę zasobów, zobacz [rejestracje dostawców zasobów](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
+- Zarejestrowano Event Grid jako dostawcę zasobów, zobacz [rejestracje dostawców zasobów](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Tworzenie aplikacji logiki za pomocą Event Grid
 
@@ -48,7 +48,7 @@ Aby utworzyć subskrypcję Azure Event Grid, wykonaj następujące kroki:
 1. Na ekranie **po wystąpieniu zdarzenia zasobu** wykonaj następujące czynności:
     - Pozostaw nazwę **subskrypcji** i **zasobu** jako domyślną.
     - Wybierz pozycję **Microsoft. Resource magazyn. magazyny** dla **typu zasobu**.
-    - W obszarze **Typ zdarzenia**wybierz pozycję **Microsoft. SecretNewVersionCreated** .
+    - W obszarze **Typ zdarzenia** wybierz pozycję **Microsoft. SecretNewVersionCreated** .
 
     ![Projektant aplikacji logiki — procedura obsługi zdarzeń](../media/eventgrid-logicappdesigner2.png)
 
@@ -60,7 +60,7 @@ Aby utworzyć subskrypcję Azure Event Grid, wykonaj następujące kroki:
 
 1. Kompiluj szablon wiadomości e-mail:
     - **Do:** Wprowadź adres e-mail, aby otrzymywać wiadomości e-mail z powiadomieniami. Na potrzeby tego samouczka użyj konta e-mail, do którego masz dostęp, w celach testowych.
-    - **Temat** i **Treść**: wpisz tekst wiadomości e-mail. Wybierz właściwości JSON przy użyciu narzędzia selektora, aby dodać zawartość dynamiczną na podstawie danych zdarzenia. Dane zdarzenia można pobrać przy użyciu polecenia `@{triggerBody()?['Data']}` .
+    - **Temat** i **Treść** : wpisz tekst wiadomości e-mail. Wybierz właściwości JSON przy użyciu narzędzia selektora, aby dodać zawartość dynamiczną na podstawie danych zdarzenia. Dane zdarzenia można pobrać przy użyciu polecenia `@{triggerBody()?['Data']}` .
 
     Twój szablon wiadomości e-mail może wyglądać podobnie do tego przykładu.
 
@@ -77,7 +77,7 @@ Aby utworzyć subskrypcję Azure Event Grid, wykonaj następujące kroki:
     
     ![Projektant aplikacji logiki — testowanie i weryfikowanie](../media/eventgrid-logicapps-kvnewsubs.png)
 
-1.  Przejdź do magazynu kluczy, wybierz pozycję wpisy **tajne**, a następnie wybierz pozycję **+ Generuj/Importuj**. Utwórz nowy wpis tajny dla celów testowych Nazwij klucz i Zachowaj pozostałe parametry w ustawieniach domyślnych.
+1.  Przejdź do magazynu kluczy, wybierz pozycję wpisy **tajne** , a następnie wybierz pozycję **+ Generuj/Importuj**. Utwórz nowy wpis tajny dla celów testowych Nazwij klucz i Zachowaj pozostałe parametry w ustawieniach domyślnych.
 
     ![Key Vault — Utwórz klucz tajny](../media/eventgrid-logicapps-kv-create-secret.png)
 

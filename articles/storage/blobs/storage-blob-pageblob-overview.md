@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: add94fe05eecd2fb77ba0d6d79fe6765afe3baaa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091019"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288328"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Omówienie obiektów BLOB na stronie platformy Azure
 
@@ -24,6 +24,10 @@ Usługa Azure Storage oferuje trzy typy magazynu obiektów blob: blokowe obiekty
 Stronicowe obiekty blob to zbiór stron 512-bajtowych, co umożliwia odczytywanie i zapisywanie dowolnych zakresów bajtów. W związku z tym, stronicowe obiekty blob są idealne do przechowywania opartych na indeksach i rozrzedzonych struktur danych, takich jak dyski systemu operacyjnego i danych dla Virtual Machines i baz danych Na przykład usługa Azure SQL DB używa stronicowych obiektów BLOB jako podstawowego magazynu trwałego dla swoich baz danych. Ponadto stronicowe obiekty blob są również często używane dla plików z aktualizacjami Range-Based.  
 
 Najważniejsze funkcje usługi Azure Page BLOB to interfejs REST, trwałość magazynu bazowego i bezproblemowe możliwości migracji na platformę Azure. Te funkcje zostały omówione bardziej szczegółowo w następnej sekcji. Ponadto obiekty blob na stronie platformy Azure są obecnie obsługiwane przez dwa typy magazynów: Premium Storage i magazyn w warstwie Standardowa. Premium Storage zaprojektowano specjalnie dla obciążeń wymagających spójnej wysokiej wydajności i małych opóźnień, dzięki czemu doskonałe obiekty blob są idealne dla scenariuszy magazynu o wysokiej wydajności. Standardowe konta magazynu są tańsze dla uruchamiania obciążeń niewrażliwych na opóźnienia.
+
+## <a name="restrictions"></a>Ograniczenia
+
+Stronicowe obiekty blob mogą korzystać tylko z warstwy dostępu **gorąca** , ale nie mogą używać warstw **chłodnych** lub **archiwum** . Aby uzyskać więcej informacji na temat warstw dostępu, zobacz [warstwy dostępu dla platformy Azure Blob Storage — gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md).
 
 ## <a name="sample-use-cases"></a>Przykładowe przypadki użycia
 
@@ -59,7 +63,7 @@ Najpierw Pobierz odwołanie do kontenera. Aby utworzyć stronicowy obiekt BLOB, 
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
-W celu utworzenia stronicowego obiektu BLOB najpierw tworzymy obiekt **CloudBlobClient** z podstawowym identyfikatorem URI uzyskiwania dostępu do magazynu obiektów BLOB dla konta magazynu (*pbaccount* na rysunku 1) wraz z obiektem **StorageCredentialsAccountAndKey** , jak pokazano w poniższym przykładzie. Przykład pokazuje, jak utworzyć odwołanie do obiektu **CloudBlobContainer** , a następnie utworzyć kontener (*testvhds*), jeśli jeszcze nie istnieje. Następnie za pomocą obiektu **CloudBlobContainer** Utwórz odwołanie do obiektu **CloudPageBlob** , określając nazwę obiektu BLOB (OS4. VHD), aby uzyskać dostęp. Aby utworzyć stronicowy obiekt BLOB, wywołaj [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), przekazując w maksymalnym rozmiarze dla obiektu BLOB do utworzenia. *BlobSize* musi być wielokrotnością 512 bajtów.
+W celu utworzenia stronicowego obiektu BLOB najpierw tworzymy obiekt **CloudBlobClient** z podstawowym identyfikatorem URI uzyskiwania dostępu do magazynu obiektów BLOB dla konta magazynu ( *pbaccount* na rysunku 1) wraz z obiektem **StorageCredentialsAccountAndKey** , jak pokazano w poniższym przykładzie. Przykład pokazuje, jak utworzyć odwołanie do obiektu **CloudBlobContainer** , a następnie utworzyć kontener ( *testvhds* ), jeśli jeszcze nie istnieje. Następnie za pomocą obiektu **CloudBlobContainer** Utwórz odwołanie do obiektu **CloudPageBlob** , określając nazwę obiektu BLOB (OS4. VHD), aby uzyskać dostęp. Aby utworzyć stronicowy obiekt BLOB, wywołaj [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), przekazując w maksymalnym rozmiarze dla obiektu BLOB do utworzenia. *BlobSize* musi być wielokrotnością 512 bajtów.
 
 ```csharp
 using Microsoft.Azure;
