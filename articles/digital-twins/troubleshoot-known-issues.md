@@ -68,7 +68,7 @@ W przypadku użytkowników zalogowanych przy użyciu osobistego [konto Microsoft
 
 Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.2.0** biblioteki **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** mogą wystąpić problemy z metodą [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) .
 
-To nie jest Najnowsza wersja biblioteki. Najnowsza wersja to **1.2.2** .
+To nie jest Najnowsza wersja biblioteki. Najnowsza wersja to **1.2.2**.
 
 Ta metoda jest używana w następujących artykułach: 
 * [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)
@@ -79,7 +79,7 @@ Problem zawiera odpowiedź o błędzie "Azure. Identity. AuthenticationFailedExc
 
 ### <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
-Aby rozwiązać ten problem, zaktualizuj aplikacje do `Azure.Identity` wersji **1.2.2** . W tej wersji biblioteki przeglądarka powinna ładować i uwierzytelniać się zgodnie z oczekiwaniami.
+Aby rozwiązać ten problem, zaktualizuj aplikacje do `Azure.Identity` wersji **1.2.2**. W tej wersji biblioteki przeglądarka powinna ładować i uwierzytelniać się zgodnie z oczekiwaniami.
 
 ### <a name="possible-causes"></a>Możliwe przyczyny
 

@@ -30,8 +30,8 @@ Po utworzeniu planów wybierz kartę **Przegląd planu** , aby wyświetlić:
 
 Akcje, które są dostępne w okienku **Przegląd planu** , różnią się w zależności od bieżącego stanu planu.
 
-- Jeśli plan jest stanem wersja robocza, wybierz pozycję **Usuń wersję roboczą** .
-- Jeśli plan jest publikowany na żywo, wybierz pozycję **Zatrzymaj sprzedawanie planu** lub **zsynchronizuj odbiorców prywatnych** .
+- Jeśli plan jest stanem wersja robocza, wybierz pozycję **Usuń wersję roboczą**.
+- Jeśli plan jest publikowany na żywo, wybierz pozycję **Zatrzymaj sprzedawanie planu** lub **zsynchronizuj odbiorców prywatnych**.
 
 ## <a name="create-a-new-plan"></a>Utwórz nowy plan
 
@@ -40,11 +40,11 @@ Wybierz pozycję **Utwórz nowy plan** u góry. Zostanie wyświetlone okno dialo
 W polu **identyfikator planu** Utwórz unikatowy identyfikator planu dla każdego planu w tej ofercie. Ten identyfikator będzie widoczny dla klientów w adresie sieci Web produktu. Używaj tylko małych liter i cyfr, kresek lub podkreśleń i maksymalnie 50 znaków.
 
 > [!NOTE]
-> Nie można zmienić identyfikatora planu po wybraniu opcji **Utwórz** .
+> Nie można zmienić identyfikatora planu po wybraniu opcji **Utwórz**.
 
 W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę, która jasno wskazuje różnice między planami. Na przykład możesz wprowadzić **system Windows Server** z opcją *płatność zgodnie z rzeczywistym* użyciem, *BYOL* , *zaawansowanym* i planem *przedsiębiorstwa* .
 
-Wybierz pozycję **Utwórz** .
+Wybierz pozycję **Utwórz**.
 
 ## <a name="plan-setup"></a>Konfigurowanie planu
 
@@ -52,7 +52,7 @@ Ustaw konfigurację wysokiego poziomu dla typu planu, określ, czy ma ona replik
 
 ### <a name="reuse-a-technical-configuration"></a>Ponowne użycie konfiguracji technicznej
 
-Jeśli masz więcej niż jeden plan tego samego typu, a pakiety są identyczne między nimi, możesz wybrać **ten plan ponownie korzysta z konfiguracji technicznej z innego planu** . Ta opcja umożliwia wybranie jednego z innych planów tego samego typu dla tej oferty i umożliwia ponowne użycie konfiguracji technicznej.
+Jeśli masz więcej niż jeden plan tego samego typu, a pakiety są identyczne między nimi, możesz wybrać **ten plan ponownie korzysta z konfiguracji technicznej z innego planu**. Ta opcja umożliwia wybranie jednego z innych planów tego samego typu dla tej oferty i umożliwia ponowne użycie konfiguracji technicznej.
 
 > [!NOTE]
 > W przypadku ponownego użycia konfiguracji technicznej z poziomu innego planu, cała karta **konfiguracja techniczna** znika z tego planu. Szczegóły konfiguracji technicznej z innego planu, w tym wszelkie aktualizacje wprowadzone w przyszłości, zostaną użyte również dla tego planu. Nie można zmienić tego ustawienia po opublikowaniu planu.
@@ -195,17 +195,17 @@ Generowanie maszyny wirtualnej definiuje sprzęt wirtualny, którego używa. W z
 
 2. Aby dodać kolejną generację do planu, wybierz pozycję **Dodaj generację** :
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="Widok listy rozwijanej generacja.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="Widok łącza &quot;Dodaj generację&quot;.":::
 
     Następnie wprowadź szczegóły generacji:
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-details.png" alt-text="Widok listy rozwijanej generacja.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-details.png" alt-text="Widok okna Szczegóły generacji.":::
 
     Wybrany **Identyfikator generacji** będzie widoczny dla klientów w miejscach takich jak adresy URL produktów i szablony ARM (jeśli dotyczy). Używaj tylko małych liter, znaków alfanumerycznych, łączników lub podkreśleń; Po opublikowaniu nie można go zmodyfikować.
 
 3. Aby zaktualizować istniejącą maszynę wirtualną, która ma już opublikowaną generację, po prostu Edytuj szczegóły na stronie **konfiguracji technicznej** :
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="Widok listy rozwijanej generacja.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="Widok strony planowanie konfiguracji technicznej.":::
 
 Aby dowiedzieć się więcej o różnicach między możliwościami generacji 1 i 2, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../virtual-machines/generation-2.md).
 
@@ -220,7 +220,7 @@ Podaj wersję dysku i identyfikator URI sygnatury dostępu współdzielonego (SA
 
 Niezależnie od używanego systemu operacyjnego, należy dodać tylko minimalną liczbę dysków z danymi wymaganą przez rozwiązanie. Podczas wdrażania klienci nie mogą usunąć dysków, które są częścią obrazu, ale zawsze mogą dodawać dyski w trakcie wdrażania lub po nim.
 
-Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem i wróć do **omówienia planu** .
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem i wróć do **omówienia planu**.
 
 ## <a name="next-steps"></a>Następne kroki
 

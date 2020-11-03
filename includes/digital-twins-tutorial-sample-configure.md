@@ -18,7 +18,7 @@ Następnie skonfiguruj przykładową aplikację kliencką, która będzie wspó�
 
 Przejdź na swoją maszynę do pobranego wcześniej pliku z [*kompleksowej usługi Azure Digital bliźniaczych reprezentacji*](/samples/azure-samples/digital-twins-samples/digital-twins-samples) (i rozpakuj go, jeśli jeszcze nie zostało to zrobione).
 
-Po umieszczeniu w folderze przejdź do _AdtSampleApp_ . Otwórz _**AdtE2ESample. sln**_ w programie Visual Studio 2019. 
+Po umieszczeniu w folderze przejdź do _AdtSampleApp_. Otwórz _**AdtE2ESample. sln**_ w programie Visual Studio 2019. 
 
 W programie Visual Studio wybierz pozycję _SampleClientApp > **appsettings.jsna**_ pliku, aby otworzyć ją w oknie edycji. Będzie to stanowić wstępnie ustawiony plik JSON z niezbędnymi zmiennymi konfiguracyjnymi do uruchomienia projektu.
 
@@ -32,7 +32,7 @@ W treści pliku Zmień `instanceUrl` adres URL *nazwy hosta* usługi Azure Digit
 
 Zapisz i zamknij plik. 
 
-Następnie skonfiguruj *appsettings.jsw* pliku, który ma zostać skopiowany do katalogu wyjściowego podczas kompilowania *SampleClientApp* . W tym celu kliknij prawym przyciskiem myszy *appsettings.jsw* pliku, a następnie wybierz polecenie *właściwości.* W Inspektorze *Właściwości* Zmień wartość właściwości *Kopiuj do katalogu wyjściowego* na *Kopiuj, jeśli nowszy* .
+Następnie skonfiguruj *appsettings.jsw* pliku, który ma zostać skopiowany do katalogu wyjściowego podczas kompilowania *SampleClientApp*. W tym celu kliknij prawym przyciskiem myszy *appsettings.jsw* pliku, a następnie wybierz polecenie *właściwości.* W Inspektorze *Właściwości* Zmień wartość właściwości *Kopiuj do katalogu wyjściowego* na *Kopiuj, jeśli nowszy*.
 
 :::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Fragment z okna programu Visual Studio z okienkiem Eksplorator rozwiązań z wyróżnioną appsettings.js, a okienko właściwości z właściwością &quot;Kopiuj do katalogu wyjściowego&quot; ma wartość &quot;Kopiuj, jeśli nowszy&quot;" border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
 

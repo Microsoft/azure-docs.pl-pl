@@ -37,11 +37,11 @@ Aby ukończyć ten przewodnik Szybki Start, musisz mieć subskrypcję platformy 
 
 Na maszynie będzie również potrzebne **Node.js** . Najnowszą wersję można uzyskać, korzystając z tego linku: [Node.js](https://nodejs.org/).
 
-Na koniec należy również pobrać przykład do użycia podczas szybkiego startu: przykładowa aplikacja **ADT Explorer** . Ten przykład zawiera aplikację używaną w przewodniku szybki start do ładowania i eksplorowania scenariusza bliźniaczych reprezentacji Digital na platformie Azure oraz przykładowych plików scenariusza. Aby uzyskać przykład, przejdź tutaj: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na swój komputer. Spowoduje to pobranie. Folder ZIP na maszynę jako _**Azure_Digital_Twins__ADT__explorer.zip**_ . Rozpakuj folder i Wyodrębnij pliki.
+Na koniec należy również pobrać przykład do użycia podczas szybkiego startu: przykładowa aplikacja **ADT Explorer** . Ten przykład zawiera aplikację używaną w przewodniku szybki start do ładowania i eksplorowania scenariusza bliźniaczych reprezentacji Digital na platformie Azure oraz przykładowych plików scenariusza. Aby uzyskać przykład, przejdź tutaj: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na swój komputer. Spowoduje to pobranie. Folder ZIP na maszynę jako _**Azure_Digital_Twins__ADT__explorer.zip**_. Rozpakuj folder i Wyodrębnij pliki.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Konfigurowanie usługi Azure Digital bliźniaczych reprezentacji i Eksploratora ADT
 
-Pierwszym krokiem w pracy z usługą Azure Digital bliźniaczych reprezentacji jest **skonfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji** . Po utworzeniu wystąpienia usługi i **skonfigurowaniu poświadczeń** do uwierzytelniania za pomocą Eksploratora ADT będzie można **nawiązać połączenie z wystąpieniem w Eksploratorze ADT** i wypełnić je przykładowymi danymi w dalszej części przewodnika Szybki Start.
+Pierwszym krokiem w pracy z usługą Azure Digital bliźniaczych reprezentacji jest **skonfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji**. Po utworzeniu wystąpienia usługi i **skonfigurowaniu poświadczeń** do uwierzytelniania za pomocą Eksploratora ADT będzie można **nawiązać połączenie z wystąpieniem w Eksploratorze ADT** i wypełnić je przykładowymi danymi w dalszej części przewodnika Szybki Start.
 
 Pozostała część tej sekcji przeprowadzi Cię przez te kroki.
 
@@ -70,7 +70,7 @@ Jeśli chcesz, możesz zamknąć okno konsoli uwierzytelniania lub pozostawić j
 
 Następnie uruchom aplikację ADT Explorer i skonfiguruj ją dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-Przejdź do folderu pobrane i rozpakowane _**Azure_Digital_Twins__ADT__explorer**_ . Otwórz okno konsoli w lokalizacji folderu *Azure_Digital_Twins__ADT__explorer/Client/src* .
+Przejdź do folderu pobrane i rozpakowane _**Azure_Digital_Twins__ADT__explorer**_ . Otwórz okno konsoli w lokalizacji folderu *Azure_Digital_Twins__ADT__explorer/Client/src*.
 
 Uruchom `npm install` , aby pobrać wszystkie wymagane zależności.
 
@@ -78,19 +78,19 @@ Następnie uruchom aplikację, uruchamiając polecenie `npm run start` .
 
 Po kilku sekundach zostanie otwarte okno przeglądarki, a aplikacja zostanie wyświetlona w przeglądarce.
 
-:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
+:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
 
 Naciśnij przycisk *Zaloguj* w górnej części okna (pokazano na poniższej ilustracji), aby skonfigurować Eksploratora ADT do pracy z utworzonym wystąpieniem. 
 
-:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/sign-in.png":::
+:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="W Eksploratorze ADT Wyróżnij ikonę logowania w górnej części okna. Ikona pokazuje prostą Silhouette osoby nałożonej przy użyciu Silhouette klucza." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-Wprowadź *adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji* , który został zebrany wcześniej w sekcji [wymagania wstępne](#prerequisites) , w formacie *https://{Nazwa hosta wystąpienia}* .
+Wprowadź *adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji* , który został zebrany wcześniej w sekcji [wymagania wstępne](#prerequisites) , w formacie *https://{Nazwa hosta wystąpienia}*.
 
 >[!NOTE]
 > Możesz odwiedzać/edytować te informacje w dowolnym momencie, wybierając tę samą ikonę, aby ponownie pobrać pole logowania. Dane zostaną zachowane.
 
 > [!TIP]
-> Jeśli `SignalRService.subscribe` podczas nawiązywania połączenia zostanie wyświetlony komunikat o błędzie, upewnij się, że adres URL usługi Azure Digital bliźniaczych reprezentacji zaczyna się od *https://* .
+> Jeśli `SignalRService.subscribe` podczas nawiązywania połączenia zostanie wyświetlony komunikat o błędzie, upewnij się, że adres URL usługi Azure Digital bliźniaczych reprezentacji zaczyna się od *https://*.
 
 Jeśli zobaczysz *wymagane uprawnienia* do okna podręcznego od firmy Microsoft, przyznaj zgodę na tę aplikację i zaakceptuj ją, aby kontynuować.
 
@@ -102,7 +102,7 @@ Następnie zaimportujemy przykładowy scenariusz i wykres do Eksploratora ADT. P
 
 Pierwszym krokiem w rozwiązaniu Digital bliźniaczych reprezentacji na platformie Azure jest definiowanie słownika dla danego środowiska. Jest to realizowane przez tworzenie [**modeli**](concepts-models.md)niestandardowych, które opisują typy obiektów istniejących w danym środowisku. 
 
-Każdy model jest zapisywana w języku JSON-LD podobnym do **DTDL (Digital bliźniaczy Definition Language)** i opisuje pojedynczy typ jednostki pod względem jego *Właściwości* , *telemetrii* , *relacji* i *składników* . Później te modele będą używane jako podstawy bliźniaczych reprezentacji cyfrowych, które reprezentują określone wystąpienia tych typów.
+Każdy model jest zapisywana w języku JSON-LD podobnym do **DTDL (Digital bliźniaczy Definition Language)** i opisuje pojedynczy typ jednostki pod względem jego *Właściwości* , *telemetrii* , *relacji* i *składników*. Później te modele będą używane jako podstawy bliźniaczych reprezentacji cyfrowych, które reprezentują określone wystąpienia tych typów.
 
 Zwykle podczas tworzenia modelu należy wykonać trzy czynności:
 1. Napisz definicję modelu (w ramach przewodnika Szybki Start, która została już wykonana jako część przykładowego rozwiązania)
@@ -117,21 +117,21 @@ W tym przewodniku szybki start pliki modelu zostały już zapisaną i zweryfikow
 
 W polu *Widok modelu* kliknij ikonę *Przekaż model* .
 
-:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/upload-model.png":::
+:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="W polu widok modelu zostanie wyróżniona środkowa ikona. Pokazuje strzałkę wskazującą chmurę." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
 1. W wyświetlonym oknie dialogowym Wybieranie pliku przejdź do folderu *Azure_Digital_Twins__ADT__explorer/Client/examples* w pobranym repozytorium.
 2. Wybierz pozycję *Room.js* i *Floor.jsna* , a następnie kliknij przycisk OK. (Możesz przekazać dodatkowe modele, jeśli chcesz, ale nie będą używane w tym przewodniku Szybki Start).
 3. Postępuj zgodnie z wyskakującym oknem dialogowym z prośbą o zalogowanie się do konta platformy Azure.
 
 >[!NOTE]
->Jeśli zostanie wyświetlony następujący komunikat o błędzie: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." border="false"::: 
+>Jeśli zostanie wyświetlony następujący komunikat o błędzie: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Odczyt podręczny &quot;błąd: błąd podczas pobierania modeli: ClientAuthError: błąd otwierania okna podręcznego. Taka sytuacja może wystąpić, jeśli używasz programu IE lub w przeglądarce są blokowane okienka wyskakujące." border="false"::: 
 > Spróbuj wyłączyć blokowanie wyskakujących okienek lub użyć innej przeglądarki.
 
 Program ADT Explorer przekaże teraz te pliki modelu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Powinny one być wyświetlane w polu *Widok modelu* , wyświetlając ich przyjazne nazwy i pełne identyfikatory modeli. Możesz kliknąć bąbelki informacje o *modelu* , aby zobaczyć kod DTDL za nimi.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Widok pola &quot;model widoku&quot; z dwoma definicjami modelu wymienionymi w obszarze (dtmi: example; 1) i pokoju (dtmi: przykład: Pokój; 1). Ikona &quot;widok modelu&quot; przedstawiająca literę &quot;i&quot; w okręgu jest wyróżniona dla każdego modelu." lightbox="media/quickstart-adt-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -155,7 +155,7 @@ W tej sekcji zostaną przekazane wstępnie utworzone bliźniaczych reprezentacji
 
 W polu *Widok wykresu* kliknij ikonę *Importuj wykres* .
 
-:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/import-graph.png":::
+:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="W polu widok wykresu zostanie wyróżniona ikona. Pokazuje strzałkę wskazującą chmurę." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
 W polu Selektor plików przejdź do folderu *Azure_Digital_Twins__ADT__explorer/Client/examples* i wybierz _**buildingScenario.xlsx**_ plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Naciśnij przycisk OK.
 
@@ -165,17 +165,17 @@ Aby potwierdzić przekazywanie wykresu, naciśnij ikonę *Zapisz* w prawym górn
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="Wyróżnianie ikony Zapisz w okienku podglądu wykresu" lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-Eksplorator ADT będzie teraz używał przekazanego pliku do utworzenia żądanego bliźniaczych reprezentacji i relacji między nimi. Zostanie wyświetlone okno dialogowe pokazujące, że zostało zakończone. Naciśnij przycisk *Zamknij* .
+Eksplorator ADT będzie teraz używał przekazanego pliku do utworzenia żądanego bliźniaczych reprezentacji i relacji między nimi. Zostanie wyświetlone okno dialogowe pokazujące, że zostało zakończone. Naciśnij przycisk *Zamknij*.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Okno dialogowe informujące o powodzeniu importowania grafu. Plik &quot;Import&quot; został pomyślnie odczytany. 4 bliźniaczych reprezentacji zaimportowano. zaimportowano 2 relacje &quot;." lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -185,7 +185,7 @@ Eksplorator ADT będzie teraz używał przekazanego pliku do utworzenia żądane
 
 Wykres został teraz przekazany do Eksploratora ADT. Aby wyświetlić wykres, należy kliknąć przycisk *Uruchom zapytanie* w oknie *Eksplorator wykresu* w górnej części okna Eksploratora ADT. 
 
-:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/run-query.png":::
+:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Zostanie wyróżniony przycisk odczytu &quot;uruchom zapytanie&quot; w górnej części okna" lightbox="media/quickstart-adt-explorer/run-query.png":::
 
 Spowoduje to uruchomienie zapytania domyślnego w celu wybrania i wyświetlenia wszystkich bliźniaczych reprezentacji cyfrowych. Eksplorator ADT pobiera wszystkie bliźniaczych reprezentacji i relacje z usługi i rysuje wykres zdefiniowany przez nich w polu *Widok wykresu* .
 
@@ -193,9 +193,9 @@ Spowoduje to uruchomienie zapytania domyślnego w celu wybrania i wyświetlenia 
 
 Teraz można zobaczyć przekazany Graf przykładowego scenariusza:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Widok &quot;widok wykresu&quot; z wykresem bliźniaczym wewnątrz. Okrąg oznaczony etykietą &quot;floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;room1&quot;; okrąg oznaczony etykietą &quot;floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;room0&quot;.":::
 
-Okręgi ("węzły grafu") reprezentują bliźniaczych reprezentacjiy cyfrowe, a wiersze reprezentują relacje. Zobaczysz, że *Floor0* bliźniaczy zawiera *Room0* , a *Floor1a* zawiera *Room1* .
+Okręgi ("węzły grafu") reprezentują bliźniaczych reprezentacjiy cyfrowe, a wiersze reprezentują relacje. Zobaczysz, że *Floor0* bliźniaczy zawiera *Room0* , a *Floor1a* zawiera *Room1*.
 
 Jeśli używasz myszy, możesz kliknąć i przeciągnąć fragmenty wykresu, aby przenieść je wokół siebie.
 
@@ -207,31 +207,31 @@ Oto właściwości *Room0* :
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Zaznacz wokół pola &quot;Eksplorator właściwości&quot; właściwości Room0, w tym (między innymi) pole $dtId &quot;Room0&quot;, pole temperatury 70 i pole wilgotności 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-Należy pamiętać, że *Room0* ma temperaturę **70** .
+Należy pamiętać, że *Room0* ma temperaturę **70**.
 
 Oto właściwości *Room1* :
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Zaznacz wokół pola &quot;Eksplorator właściwości&quot; właściwości Room1, w tym (między innymi) pole $dtId &quot;Room1&quot;, pole temperatury 80 i pole wilgotności 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-Należy pamiętać, że *Room1* ma temperaturę **80** .
+Należy pamiętać, że *Room1* ma temperaturę **80**.
 
 ### <a name="query-the-graph"></a>Tworzenie zapytań względem grafu
 
 Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możliwość łatwego i wydajnego [wykonywania zapytań](concepts-query-language.md) na pytania dotyczące środowiska. 
 
-Jednym ze sposobów wykonywania zapytań dotyczących bliźniaczych reprezentacji w grafie jest ich *Właściwości* . Zapytania oparte na właściwościach mogą pomóc w udzieleniu odpowiedzi na różne pytania, w tym Znajdowanie wartości odstających w środowisku, które mogą wymagać uwagi.
+Jednym ze sposobów wykonywania zapytań dotyczących bliźniaczych reprezentacji w grafie jest ich *Właściwości*. Zapytania oparte na właściwościach mogą pomóc w udzieleniu odpowiedzi na różne pytania, w tym Znajdowanie wartości odstających w środowisku, które mogą wymagać uwagi.
 
 W tej sekcji zostanie uruchomione zapytanie z odpowiedzią na następujące pytanie: _**jakie są wszystkie bliźniaczych reprezentacji w moim środowisku z temperaturą powyżej 75?**_
 
@@ -241,30 +241,30 @@ Aby wyświetlić odpowiedź, uruchom następujące zapytanie w polu *Eksplorator
 SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 ```
 
-Wycofaj z wyświetlania właściwości przędzy wcześniej, że *Room0* ma temperaturę **70** , a *Room1* ma temperaturę **80** . W związku z tym w tym miejscu tylko _**Room1**_ są wyświetlane w wynikach.
+Wycofaj z wyświetlania właściwości przędzy wcześniej, że *Room0* ma temperaturę **70** , a *Room1* ma temperaturę **80**. W związku z tym w tym miejscu tylko _**Room1**_ są wyświetlane w wynikach.
     
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Wyniki zapytania właściwości, zawierające tylko Room1" lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
 
 >[!TIP]
 > Inne operatory porównania ( *<* , *>* ,, *=* lub *! =* ) są również obsługiwane w powyższym zapytaniu. Aby wypróbować Twoje pytania, możesz spróbować podłączyć te, różne wartości lub różne właściwości sznurka do zapytania.
 
 ## <a name="edit-data-in-the-graph"></a>Edytowanie danych na grafie
 
-Za pomocą Eksploratora ADT można edytować właściwości bliźniaczych reprezentacji reprezentowanych w grafie. W tej sekcji będziemy **_podnieść temperaturę_ Room0 do 76** .
+Za pomocą Eksploratora ADT można edytować właściwości bliźniaczych reprezentacji reprezentowanych w grafie. W tej sekcji będziemy **_podnieść temperaturę_ Room0 do 76**.
 
 W tym celu wybierz pozycję *Room0* , aby wyświetlić jej listę właściwości w polu *Eksplorator właściwości* .
 
-Właściwości na tej liście są edytowalne. Wybierz wartość temperatury **70** , aby włączyć wprowadzanie nowej wartości. Wprowadź **76** i naciśnij ikonę *Zapisz* , aby zaktualizować temperaturę do **76** .
+Właściwości na tej liście są edytowalne. Wybierz wartość temperatury **70** , aby włączyć wprowadzanie nowej wartości. Wprowadź **76** i naciśnij ikonę *Zapisz* , aby zaktualizować temperaturę do **76**.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Pole &quot;Eksplorator właściwości&quot; wyświetla właściwości dla Room0. Wartość temperatury jest polem edytowalnym pokazującym 76 i wyróżnieniem wokół ikony zapisywania." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-Po pomyślnym zapisaniu zobaczysz okno *informacji o poprawek* zawierające kod poprawki, który został użyty w tle za pomocą [interfejsu API](how-to-use-apis-sdks.md) Digital bliźniaczych reprezentacji platformy Azure, aby przeprowadzić aktualizację. Naciśnij przycisk *Zamknij* .
+Po pomyślnym zapisaniu zobaczysz okno *informacji o poprawek* zawierające kod poprawki, który został użyty w tle za pomocą [interfejsu API](how-to-use-apis-sdks.md) Digital bliźniaczych reprezentacji platformy Azure, aby przeprowadzić aktualizację. Naciśnij przycisk *Zamknij*.
 
 ### <a name="query-to-see-the-result"></a>Zapytanie w celu wyświetlenia wyniku
 
@@ -276,7 +276,7 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 
 Teraz, gdy temperatura *Room0* została zmieniona z **70** na **76** , oba bliźniaczych reprezentacji powinny być widoczne w wyniku.
 
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Wyniki zapytania właściwości, pokazujące zarówno Room0, jak i Room1" lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
 
 ## <a name="review-and-contextualize-learnings"></a>Przegląd i contextualize nauk
 

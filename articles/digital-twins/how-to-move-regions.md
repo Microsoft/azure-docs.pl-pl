@@ -76,7 +76,7 @@ Jeśli przykład nie jest w stanie obsłużyć rozmiaru grafu, możesz wyeksport
 
 Aby kontynuować pracę z Eksploratorem ADT, najpierw Pobierz przykładowy kod aplikacji i skonfiguruj go do uruchamiania na komputerze. 
 
-Przejdź do przykładu: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na maszynę jako _**Azure_Digital_Twins__ADT__explorer.zip**_ . Rozpakuj plik.
+Przejdź do przykładu: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na maszynę jako _**Azure_Digital_Twins__ADT__explorer.zip**_. Rozpakuj plik.
 
 Następnie skonfiguruj i Skonfiguruj uprawnienia dla Eksploratora ADT. Aby to zrobić, postępuj zgodnie z instrukcjami w sekcji [*Konfigurowanie programu Azure Digital bliźniaczych reprezentacji i ADT Explorer w programie*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) Azure Digital bliźniaczych reprezentacji — Szybki Start. Ta sekcja przeprowadzi Cię przez następujące kroki:
 1. Skonfiguruj wystąpienie usługi Azure Digital bliźniaczych reprezentacji (możesz pominąć tę część, ponieważ istnieje już wystąpienie)
@@ -89,7 +89,7 @@ Teraz aplikacja Przykładowa ADT Explorer jest uruchamiana w przeglądarce na ko
 
 Aby zweryfikować połączenie, możesz nacisnąć przycisk *Uruchom zapytanie* , aby uruchomić domyślne zapytanie, które wyświetla wszystkie bliźniaczych reprezentacji i relacje w grafie w oknie *Eksplorator grafów* .
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Zostanie wyróżniony przycisk odczytu &quot;uruchom zapytanie&quot; w górnej części okna" lightbox="media/how-to-move-regions/run-query.png":::
 
 Możesz pozostawić uruchomiony program ADT Explorer, ponieważ będzie on używany ponownie w dalszej części tego artykułu, aby ponownie przekazać te elementy do nowego wystąpienia w regionie docelowym.
 
@@ -101,12 +101,12 @@ Aby jednocześnie pobrać wszystkie z nich, należy najpierw upewnić się, że 
  
 Następnie kliknij ikonę *Eksportuj wykres* w polu *Widok wykresu* .
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="W polu widok wykresu zostanie wyróżniona ikona. Pokazuje strzałkę wskazującą w dół w chmurze." lightbox="media/how-to-move-regions/export-graph.png":::
 
-Spowoduje to włączenie linku *pobierania* w *widoku wykresu* . Wybierz go, aby pobrać reprezentację wyniku zapytania w formacie JSON, w tym modele, bliźniaczych reprezentacji i relacje. Powinno to spowodować pobranie pliku *JSON* na komputer.
+Spowoduje to włączenie linku *pobierania* w *widoku wykresu*. Wybierz go, aby pobrać reprezentację wyniku zapytania w formacie JSON, w tym modele, bliźniaczych reprezentacji i relacje. Powinno to spowodować pobranie pliku *JSON* na komputer.
 
 >[!NOTE]
->Jeśli pobrany plik ma inne rozszerzenie pliku, spróbuj edytować rozszerzenie bezpośrednio i zmienić je na *Format JSON* .
+>Jeśli pobrany plik ma inne rozszerzenie pliku, spróbuj edytować rozszerzenie bezpośrednio i zmienić je na *Format JSON*.
 
 ## <a name="move"></a>Move
 
@@ -114,7 +114,7 @@ Następnie zakończy się "Przenieś" wystąpienia, tworząc nowe wystąpienie w
 
 ### <a name="create-a-new-instance"></a>Utwórz nowe wystąpienie
 
-Najpierw **Utwórz nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie docelowym** . Aby to zrobić, wykonaj kroki opisane w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md), pamiętając o następujących wskaźnikach:
+Najpierw **Utwórz nowe wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie docelowym**. Aby to zrobić, wykonaj kroki opisane w temacie [*How to: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-portal.md), pamiętając o następujących wskaźnikach:
 * Tę samą nazwę można zachować, **Jeśli** znajduje się ona w innej grupie zasobów. Jeśli musisz użyć tej samej grupy zasobów, która zawiera oryginalne wystąpienie, nowe wystąpienie będzie potrzebować własnej odrębnej nazwy.
 * Wprowadź nowy region docelowy po wyświetleniu monitu o lokalizację.
 
@@ -134,9 +134,9 @@ W przeciwnym razie, aby kontynuować, Wróć do okna przeglądarki z uruchomiony
 
 Obecnie Eksplorator ADT jest połączony z oryginalnym wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Przełącz połączenie, aby wskazywało nowe wystąpienie, naciskając przycisk *Zaloguj* w górnej części okna. 
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="W Eksploratorze ADT Wyróżnij ikonę logowania w górnej części okna. Ikona pokazuje prostą Silhouette osoby nałożonej przy użyciu Silhouette klucza." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Zastąp *adres URL ADT* , aby odzwierciedlał nowe wystąpienie. Zmień tę wartość, aby odczytał *https://{New instance hostname}* .
+Zastąp *adres URL ADT* , aby odzwierciedlał nowe wystąpienie. Zmień tę wartość, aby odczytał *https://{New instance hostname}*.
 
 *Połącz* trafień. Może zostać wyświetlony monit o zalogowanie się ponownie przy użyciu poświadczeń platformy Azure i/lub udzielenie tej aplikacji zgody na Twoje wystąpienie.
 
@@ -146,7 +146,7 @@ Następnie Przekaż pobrane wcześniej składniki rozwiązania do nowego wystąp
 
 Aby przekazać **modele, bliźniaczych reprezentacji i Graf** , kliknij ikonę *importowania wykresu* w polu *Widok wykresu* . Ta opcja przekaże wszystkie trzy z tych składników jednocześnie (nawet modele, które nie są aktualnie używane na grafie).
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="W polu widok wykresu zostanie wyróżniona ikona. Pokazuje strzałkę wskazującą chmurę." lightbox="media/how-to-move-regions/import-graph.png":::
 
 W polu Selektor plików przejdź do pobranego wykresu. Wybierz plik Graph *. JSON* i *Otwórz* go.
 
@@ -156,7 +156,7 @@ Aby potwierdzić przekazywanie wykresu, naciśnij ikonę *Zapisz* w prawym górn
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/graph-preview-save.png":::
+        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Wyróżnianie ikony Zapisz w okienku podglądu wykresu" lightbox="media/how-to-move-regions/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -166,7 +166,7 @@ Program ADT Explorer przekaże teraz modele i Graf (w tym bliźniaczych reprezen
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Okno dialogowe informujące o powodzeniu importowania grafu. Plik &quot;Import&quot; został pomyślnie odczytany. zaimportowano 2 modele. 4 bliźniaczych reprezentacji zaimportowano. zaimportowano 2 relacje &quot;." lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -174,13 +174,13 @@ Program ADT Explorer przekaże teraz modele i Graf (w tym bliźniaczych reprezen
     :::column-end:::
 :::row-end:::
 
-Aby sprawdzić, czy wszystko zostało przekazane pomyślnie, kliknij przycisk *Uruchom zapytanie* w oknie *Eksplorator grafu* , aby uruchomić domyślne zapytanie, które wyświetla wszystkie bliźniaczych reprezentacji i relacje na grafie. Spowoduje to również odświeżenie listy modeli w *widoku model* .
+Aby sprawdzić, czy wszystko zostało przekazane pomyślnie, kliknij przycisk *Uruchom zapytanie* w oknie *Eksplorator grafu* , aby uruchomić domyślne zapytanie, które wyświetla wszystkie bliźniaczych reprezentacji i relacje na grafie. Spowoduje to również odświeżenie listy modeli w *widoku model*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Zaznacz dookoła tego samego przycisku &quot;uruchom zapytanie&quot; od wcześniej w górnej części okna" lightbox="media/how-to-move-regions/run-query.png":::
 
 Powinien zostać wyświetlony wykres ze wszystkimi bliźniaczych reprezentacji i relacjami wyświetlanymi w oknie *Eksplorator grafów* . W polu *Widok modelu* powinny również być widoczne modele.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Widok Eksploratora ADT przedstawiający 2 modele wyróżnione w polu &quot;model widoku&quot; i wykres wyróżniony w polu &quot;Eksplorator grafu&quot;" lightbox="media/how-to-move-regions/post-upload.png":::
 
 To potwierdza, że modele, bliźniaczych reprezentacji i Graf zostały ponownie przekazane do nowego wystąpienia w regionie docelowym.
 
@@ -225,7 +225,7 @@ Możesz również spróbować uruchomić dowolne aplikacje niestandardowe lub pr
 
 ## <a name="clean-up-source-resources"></a>Czyszczenie zasobów źródłowych
 
-Teraz, gdy nowe wystąpienie jest skonfigurowane w regionie docelowym z kopią danych i połączeń oryginalnego wystąpienia, można **usunąć oryginalne wystąpienie** .
+Teraz, gdy nowe wystąpienie jest skonfigurowane w regionie docelowym z kopią danych i połączeń oryginalnego wystąpienia, można **usunąć oryginalne wystąpienie**.
 
 Można to zrobić w [Azure Portal](https://portal.azure.com)przy użyciu [interfejsu wiersza polecenia](how-to-use-cli.md)lub [interfejsów API płaszczyzny kontroli](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
@@ -233,4 +233,4 @@ Aby usunąć wystąpienie przy użyciu Azure Portal, [Otwórz Portal](https://po
 
 Naciśnij przycisk *Usuń* i postępuj zgodnie z monitami, aby zakończyć usuwanie.
 
-:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie.":::
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Zobacz szczegóły wystąpienia usługi Azure Digital bliźniaczych reprezentacji w Azure Portal na karcie Przegląd. Przycisk Usuń jest wyróżniony":::

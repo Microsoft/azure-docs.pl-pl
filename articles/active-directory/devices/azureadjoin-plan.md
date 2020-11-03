@@ -246,7 +246,7 @@ Aby można było skonfigurować ustawienia mobilności, można najpierw dodać d
 **Aby dodać dostawcę zarządzania urządzeniami przenośnymi** :
 
 1. Na **stronie Azure Active Directory** w sekcji **Zarządzanie** kliknij pozycję `Mobility (MDM and MAM)` . 
-1. Kliknij pozycję **Dodaj aplikację** .
+1. Kliknij pozycję **Dodaj aplikację**.
 1. Wybierz z listy dostawcę MDM.
 
    :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Zrzut ekranu przedstawiający Azure Active Directory dodanie strony aplikacji. Poniżej wymieniono kilku dostawców M D M." border="false":::
@@ -272,7 +272,7 @@ Istnieją trzy adresy URL powiązane z konfiguracją rozwiązania MDM:
 - Adres URL odnajdywania zarządzania urządzeniami przenośnymi 
 - Adres URL zgodności zarządzania urządzeniami przenośnymi
 
-:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Zrzut ekranu przedstawiający Azure Active Directory dodanie strony aplikacji. Poniżej wymieniono kilku dostawców M D M." border="false":::
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Zrzut ekranu przedstawiający część sekcji konfiguracyjnej &quot;Azure Active Directory M D&quot; oraz pola U R L dotyczące warunków użytkowania, odnajdywania i zgodności M D." border="false":::
 
 Każdy adres URL ma wstępnie zdefiniowaną wartość domyślną. Jeśli te pola są puste, skontaktuj się z dostawcą MDM, aby uzyskać więcej informacji.
 
