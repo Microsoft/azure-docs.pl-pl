@@ -4,17 +4,17 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255257"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93235892"
 ---
-Ta funkcja jest łatwa do skonfigurowania, ale nie oznacza to, że Twoje doświadczenie będzie bezpłatne. Jeśli wystąpią problemy z uzyskaniem dostępu do żądanego punktu końcowego, istnieją pewne narzędzia, których można użyć do testowania łączności z poziomu konsoli aplikacji. Istnieją dwie konsole, których można użyć. Jedna z nich jest konsolą kudu, a druga jest konsolą w Azure Portal. Aby nawiązać połączenie z konsolą kudu z poziomu aplikacji, przejdź do pozycji **Narzędzia**  >  **kudu**. Możesz również uzyskać dostęp do konsoli Kudo na stronie [sitename]. SCM. azurewebsites. NET. Po załadowaniu witryny sieci Web przejdź do karty **konsola debugowania** . Aby uzyskać dostęp do konsoli obsługiwanej przez Azure Portal z poziomu aplikacji, przejdź **Tools**do  >  **konsoli**narzędzia.
+Ta funkcja jest łatwa do skonfigurowania, ale nie oznacza to, że Twoje doświadczenie będzie bezpłatne. Jeśli wystąpią problemy z uzyskaniem dostępu do żądanego punktu końcowego, istnieją pewne narzędzia, których można użyć do testowania łączności z poziomu konsoli aplikacji. Istnieją dwie konsole, których można użyć. Jedna z nich jest konsolą kudu, a druga jest konsolą w Azure Portal. Aby nawiązać połączenie z konsolą kudu z poziomu aplikacji, przejdź do pozycji **Narzędzia**  >  **kudu**. Możesz również uzyskać dostęp do konsoli Kudo na stronie [sitename]. SCM. azurewebsites. NET. Po załadowaniu witryny sieci Web przejdź do karty **konsola debugowania** . Aby uzyskać dostęp do konsoli obsługiwanej przez Azure Portal z poziomu aplikacji, przejdź **Tools** do  >  **konsoli** narzędzia.
 
 #### <a name="tools"></a>Narzędzia
-W natywnych aplikacjach systemu Windows narzędzia **ping**, **nslookup**i **tracert** nie działają przez konsolę ze względu na ograniczenia zabezpieczeń (działają w [niestandardowych kontenerach systemu Windows](../articles/app-service/quickstart-custom-container.md)). Aby wypełnić wartość void, dodawane są dwa osobne narzędzia. Aby przetestować funkcje DNS, dodaliśmy narzędzie o nazwie **nameresolver.exe**. Składnia jest następująca:
+W natywnych aplikacjach systemu Windows narzędzia **ping** , **nslookup** i **tracert** nie działają przez konsolę ze względu na ograniczenia zabezpieczeń (działają w [niestandardowych kontenerach systemu Windows](../articles/app-service/quickstart-custom-container.md)). Aby wypełnić wartość void, dodawane są dwa osobne narzędzia. Aby przetestować funkcje DNS, dodaliśmy narzędzie o nazwie **nameresolver.exe**. Składnia jest następująca:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
@@ -46,7 +46,7 @@ Jeśli te elementy nie odpowiadają na problemy, należy najpierw sprawdzić, ja
 * Czy lokalizacja docelowa jest adresem innym niż RFC1918 i nie masz WEBSITE_VNET_ROUTE_ALL ustawionej na 1?
 * Czy istnieje sieciowej grupy zabezpieczeń blokujące ruch wychodzący z podsieci integracji?
 * Jeśli korzystasz z usługi Azure ExpressRoute lub sieci VPN, czy brama lokalna została skonfigurowana do kierowania ruchu z kopii zapasowej na platformę Azure? Jeśli możesz uzyskać dostęp do punktów końcowych w sieci wirtualnej, ale nie w środowisku lokalnym, sprawdź trasy.
-* Czy masz wystarczające uprawnienia do ustawiania delegowania w podsieci integracji? Podczas konfiguracji integracji regionalnej sieci wirtualnej Twoja podsieć integracji jest delegowana do firmy Microsoft. Web. Interfejs użytkownika integracji sieci wirtualnej deleguje podsieć do firmy Microsoft. Web automatycznie. Jeśli Twoje konto nie ma wystarczających uprawnień sieciowych do ustawiania delegowania, będziesz potrzebować kogoś, kto może ustawić atrybuty w podsieci integracji w celu delegowania podsieci. Aby ręcznie delegować podsieć integracji, przejdź do interfejsu użytkownika podsieć usługi Azure Virtual Network i ustaw delegowanie dla Microsoft. Web.
+* Czy masz wystarczające uprawnienia do ustawiania delegowania w podsieci integracji? Podczas konfiguracji integracji regionalnej sieci wirtualnej Twoja podsieć integracji jest delegowana do firmy Microsoft. Web/dopuszczalna. Interfejs użytkownika integracji sieci wirtualnej deleguje podsieć do firmy Microsoft. Web/dopuszczalna automatycznie. Jeśli Twoje konto nie ma wystarczających uprawnień sieciowych do ustawiania delegowania, będziesz potrzebować kogoś, kto może ustawić atrybuty w podsieci integracji w celu delegowania podsieci. Aby ręcznie delegować podsieć integracji, przejdź do interfejsu użytkownika podsieci usługi Azure Virtual Network i ustaw delegowanie dla elementu Microsoft. Web/dopuszczalna.
 
 **Integracja z siecią wirtualną wymagana przez bramę**
 * Czy zakres adresów punkt-lokacja w zakresach RFC 1918 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?

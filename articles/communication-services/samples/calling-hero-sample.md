@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 799c46ad2715e1edd3d2fba24a8350fd2608d3d8
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461145"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233937"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Wprowadzenie do grupy wywołującej przykład Hero
 
@@ -38,19 +38,21 @@ Przykład zawiera aplikację po stronie klienta i aplikację po stronie serwera.
 
 Oto jak wygląda przykład:
 
-:::image type="content" source="./media/calling/landing-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
+:::image type="content" source="./media/calling/landing-page.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.":::
 
-Po naciśnięciu przycisku &quot;Rozpocznij połączenie" aplikacja sieci Web pobierze token dostępu użytkownika z aplikacji po stronie serwera. Token ten jest następnie używany do łączenia aplikacji klienta z usługami Azure Communications Services. Po pobraniu tokenu zostanie wyświetlony monit o określenie aparatu i mikrofonu, który ma być używany. Można wyłączyć lub włączyć urządzenia z kontrolkami przełączania:
+Po naciśnięciu przycisku "Rozpocznij połączenie" aplikacja sieci Web pobierze token dostępu użytkownika z aplikacji po stronie serwera. Token ten jest następnie używany do łączenia aplikacji klienta z usługami Azure Communications Services. Po pobraniu tokenu zostanie wyświetlony monit o określenie aparatu i mikrofonu, który ma być używany. Można wyłączyć lub włączyć urządzenia z kontrolkami przełączania:
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
-
-Po naciśnięciu przycisku &quot;Rozpocznij połączenie":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Zrzut ekranu przedstawiający ekran przed wywołaniem przykładowej aplikacji.":::
 
 Po skonfigurowaniu wyświetlanej nazwy i urządzeń można przyłączyć się do sesji wywołania. Teraz zobaczysz główną kanwę wywołań, w której działa podstawowe środowisko wywoływania.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Zrzut ekranu przedstawiający stronę docelową przykładowej aplikacji.&quot;:::
+:::image type="content" source="./media/calling/main-app.png" alt-text="Zrzut ekranu przedstawiający ekran główny przykładowej aplikacji.":::
 
-Po naciśnięciu przycisku &quot;Rozpocznij połączenie" w prawym górnym rogu. Na pasku bocznym uczestników zostanie wyświetlona lista uczestników i link pozwalający zaprosić więcej użytkowników do rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie ustawień mikrofonu i aparatu.
+Składniki głównego ekranu wywołującego:
+
+1. **Galeria multimediów** : Główny etap pokazujący uczestników. Jeśli Uczestnik ma włączony aparat fotograficzny, w tym miejscu są wyświetlane ich kanały wideo. Każdy uczestnik ma pojedynczy kafelek, który pokazuje ich nazwę wyświetlaną i strumień wideo (gdy istnieje)
+2. **Nagłówek** : to miejsce, w którym znajdują się podstawowe kontrolki wywołania, aby przełączać ustawienia i pasek boczny uczestnika, włączać lub wyłączać i mieszać zawartość ekranu oraz pozostawiać wywołanie.
+3. **Pasek boczny** : to miejsce, w którym informacje o uczestnikach i ustawieniach są wyświetlane po przełączeniu przy użyciu kontrolek w nagłówku. Składnik może zostać odrzucony przy użyciu "X" w prawym górnym rogu. Na pasku bocznym uczestników zostanie wyświetlona lista uczestników i link pozwalający zaprosić więcej użytkowników do rozmowy. Pasek boczny ustawienia umożliwia skonfigurowanie ustawień mikrofonu i aparatu.
 
 Poniżej znajdziesz więcej informacji na temat wymagań wstępnych i kroków związanych z konfigurowaniem przykładu.
 
@@ -73,7 +75,7 @@ Możesz przetestować przykład lokalnie, otwierając wiele sesji przeglądarki 
 ## <a name="before-running-the-sample-for-the-first-time"></a>Przed uruchomieniem przykładu po raz pierwszy
 
 1. Otwórz wystąpienie programu PowerShell, terminalu systemu Windows, wiersza polecenia lub równoważne i przejdź do katalogu, do którego chcesz sklonować przykład.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
 3. Pobierz `Connection String` z Azure Portal. Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [Tworzenie zasobów usługi Azure Communication](../quickstarts/create-communication-resource.md)
 4. Po otrzymaniu `Connection String` Dodaj parametry połączenia do **wywołania/appsetting.jsw** pliku znalezionym w folderze Service .NET. Wprowadź parametry połączenia w zmiennej: `ResourceConnectionString` .
 

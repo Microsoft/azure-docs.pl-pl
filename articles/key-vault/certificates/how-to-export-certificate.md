@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: c768f6564884ade5d27199a64843437f5ce725f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a594d06fa84bb6e5ef502b02e1bec8244062ccb
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019159"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233971"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Eksportuj certyfikaty z Azure Key Vault
 
@@ -33,8 +33,8 @@ Po utworzeniu certyfikatu Key Vault zostanie utworzony *klucz* , który można r
 
 Po utworzeniu certyfikatu Key Vault można pobrać go z klucza prywatnego z możliwością adresowania. Pobierz certyfikat w formacie PFX lub PEM.
 
-- Możliwe do **eksportowania**: zasady użyte do utworzenia certyfikatu wskazują, że klucz jest eksportowalny.
-- **Nie można eksportować**: zasady użyte do utworzenia certyfikatu wskazują, że klucz nie jest eksportowalny. W takim przypadku klucz prywatny nie jest częścią wartości, gdy zostanie pobrany jako wpis tajny.
+- Możliwe do **eksportowania** : zasady użyte do utworzenia certyfikatu wskazują, że klucz jest eksportowalny.
+- **Nie można eksportować** : zasady użyte do utworzenia certyfikatu wskazują, że klucz nie jest eksportowalny. W takim przypadku klucz prywatny nie jest częścią wartości, gdy zostanie pobrany jako wpis tajny.
 
 Obsługiwane typy kluczy: RSA, RSA-HSM, EC, we-HSM, Oct (wymienione [tutaj](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) można eksportować tylko za pomocą RSA, we. Klucze HSM nie mogą być eksportowane.
 
@@ -77,20 +77,28 @@ az keyvault secret download -–file {nameofcert.pfx}
 
 Aby uzyskać więcej informacji, zobacz [definicje parametrów](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Użyj tego polecenia w Azure PowerShell, aby uzyskać certyfikat o nazwie **TestCert01** z magazynu kluczy o nazwie **ContosoKV01**. Aby pobrać certyfikat jako plik PFX, uruchom następujące polecenie. Te polecenia uzyskują dostęp do **SecretId**, a następnie zapisują zawartość jako plik PFX.
+Użyj tego polecenia w Azure PowerShell, aby uzyskać certyfikat o nazwie **TestCert01** z magazynu kluczy o nazwie **ContosoKV01**. Aby pobrać certyfikat jako plik PFX, uruchom następujące polecenie. Te polecenia uzyskują dostęp do **SecretId** , a następnie zapisują zawartość jako plik PFX.
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$kvSecret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $Cert.Name
-$kvSecretBytes = [System.Convert]::FromBase64String($kvSecret.SecretValueText)
-$certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
-$certCollection.Import($kvSecretBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-$password = '******'
-$protectedCertificateBytes = $certCollection.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
-$pfxPath = [Environment]::GetFolderPath("Desktop") + "\MyCert.pfx"
-[System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)
+$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secretValueText = '';
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+    $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+$secretByte = [Convert]::FromBase64String($secretValueText)
+$x509Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
+$x509Cert.Import($secretByte, "", "Exportable,PersistKeySet")
+$type = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx
+$pfxFileByte = $x509Cert.Export($type, $password)
+
+# Write to a file
+[System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
 ```
 
 To polecenie eksportuje cały łańcuch certyfikatów z kluczem prywatnym. Certyfikat jest chroniony hasłem.

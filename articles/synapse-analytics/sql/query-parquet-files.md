@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e00ecd6048239683951a2d1e60d3bcb0eb5aa68
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288311"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242436"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików Parquet przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -155,43 +155,7 @@ ORDER BY
 
 ## <a name="type-mapping"></a>Mapowanie typu
 
-Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli opisano, jak typy Parquet są mapowane na typy natywne języka SQL.
-
-| Typ Parquet | Parquet — typ logiczny (Adnotacja) | Typ danych SQL |
-| --- | --- | --- |
-| TYPU | | bit |
-| DANE BINARNE/BYTE_ARRAY | | varbinary |
-| DOUBLE | | float |
-| FLOAT | | liczba rzeczywista |
-| ELEMENTEM | | int |
-| INT64 | | bigint |
-| INT96 | |datetime2 |
-| FIXED_LEN_BYTE_ARRAY | |binarny |
-| BINARNY |UTF8 |varchar \* (sortowanie UTF8) |
-| BINARNY |PARAMETRY |varchar \* (sortowanie UTF8) |
-| BINARNY |PODSTAWOWE|varchar \* (sortowanie UTF8) |
-| BINARNY |INTERFEJSU |uniqueidentifier |
-| BINARNY |DOKŁADNOŚCI |decimal |
-| BINARNY |JSON |varchar (max) \* (sortowanie UTF8) |
-| BINARNY |BSON |varbinary (max) |
-| FIXED_LEN_BYTE_ARRAY |DOKŁADNOŚCI |decimal |
-| BYTE_ARRAY |DAT |varchar (max), serializacji do formatu standardowego |
-| ELEMENTEM |INT (8, prawda) |smallint |
-| ELEMENTEM |INT (16, true) |smallint |
-| ELEMENTEM |INT (32, true) |int |
-| ELEMENTEM |INT (8, FAŁSZ) |tinyint |
-| ELEMENTEM |INT (16, FAŁSZ) |int |
-| ELEMENTEM |INT (32, false) |bigint |
-| ELEMENTEM |DATE |date |
-| ELEMENTEM |DOKŁADNOŚCI |decimal |
-| ELEMENTEM |CZAS (MŁYNER)|time |
-| INT64 |INT (64, true) |bigint |
-| INT64 |INT (64, false) |Liczba dziesiętna (20, 0) |
-| INT64 |DOKŁADNOŚCI |decimal |
-| INT64 |TIME (MICROS/NANOS) |time |
-|INT64 |SYGNATURA CZASOWA (MILL/MICROS/NANOS) |datetime2 |
-|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |STAW |varchar (max), serializacja do formatu JSON |
-|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|ZMAPOWAĆ|varchar (max), serializacja do formatu JSON |
+W przypadku mapowania typu Parquet na typ natywny Sprawdź mapowanie typu SQL [dla Parquet](develop-openrowset.md#type-mapping-for-parquet).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,17 +1,17 @@
 ---
 title: Prywatny link — Azure Database for MySQL
 description: Dowiedz się, jak działa łącze prywatne dla Azure Database for MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: e6086aecc73f04b25e95d3c93c60abd2164a5610
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544243"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242861"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Prywatny link do Azure Database for MySQL
 
@@ -72,21 +72,21 @@ Po utworzeniu przez administratora sieci prywatnego punktu końcowego (PE) admin
 
 * Wybierz z listy indywidualny element PEC, wybierając go.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Wybierz Portal prywatnego punktu końcowego":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Wybierz prywatny punkt końcowy oczekujący na zatwierdzenie":::
 
 * Administrator serwera MySQL może zatwierdzić lub odrzucić PEC i opcjonalnie dodać odpowiedź krótką tekstu.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Wybierz Portal prywatnego punktu końcowego":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Wybierz komunikat dotyczący prywatnego punktu końcowego":::
 
 * Po zatwierdzeniu lub odrzuceniu lista będzie odzwierciedlać odpowiedni stan wraz z tekstem odpowiedzi
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Wybierz Portal prywatnego punktu końcowego":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Wybierz stan końcowy prywatnego punktu końcowego":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Przypadki użycia prywatnego linku do Azure Database for MySQL
 
 Klienci mogą łączyć się z prywatnym punktem końcowym z tej samej sieci wirtualnej, równorzędnej podsieci w tym samym regionie lub za pośrednictwem połączenia między sieciami wirtualnymi w różnych regionach. Ponadto klienci mogą łączyć się z lokalnego przy użyciu ExpressRoute, prywatnej komunikacji równorzędnej lub tunelowania sieci VPN. Poniżej znajduje się uproszczony diagram przedstawiający typowe przypadki użycia.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Wybierz Portal prywatnego punktu końcowego":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Wybieranie prywatnego punktu końcowego — Omówienie":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Łączenie z maszyny wirtualnej platformy Azure w Virtual Network komunikacji równorzędnej (VNet)
 Skonfiguruj [komunikację równorzędną sieci](../virtual-network/tutorial-connect-virtual-networks-powershell.md) wirtualnych w celu nawiązania połączenia z Azure Database for MySQL z maszyny wirtualnej platformy Azure w równorzędnej sieci wirtualnej.

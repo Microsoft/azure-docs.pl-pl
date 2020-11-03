@@ -1,18 +1,18 @@
 ---
 title: Link prywatny — interfejs wiersza polecenia platformy Azure — Azure Database for MariaDB
 description: Dowiedz się, jak skonfigurować link prywatny dla Azure Database for MariaDB z interfejsu wiersza polecenia platformy Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb3ed4e41125131538957addce5bf935b897b581
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c7f95b2009521b054958be48e444a129b0a59ed3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537222"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242895"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Tworzenie prywatnego linku do Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia i zarządzanie nim
 
@@ -133,24 +133,24 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
 
-1. Na pasku wyszukiwania portalu wpisz *myVm* .
+1. Na pasku wyszukiwania portalu wpisz *myVm*.
 
-1. Wybierz przycisk **Połącz** . Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną** .
+1. Wybierz przycisk **Połącz**. Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną**.
 
-1. Wybierz pozycję **Pobierz plik RDP** . Platforma Azure tworzy plik Remote Desktop Protocol ( *RDP* ) i pobiera go na komputer.
+1. Wybierz pozycję **Pobierz plik RDP**. Platforma Azure tworzy plik Remote Desktop Protocol ( *RDP* ) i pobiera go na komputer.
 
 1. Otwórz *pobrany plik RDP* .
 
-    1. Po wyświetleniu monitu wybierz pozycję **Połącz** .
+    1. Po wyświetleniu monitu wybierz pozycję **Połącz**.
 
     1. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej.
 
         > [!NOTE]
         > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta** , aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Wybierz pozycję **OK** .
+1. Wybierz pozycję **OK**.
 
-1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj** .
+1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
 1. Po wyświetleniu pulpitu maszyny wirtualnej zminimalizuj ją i wróć z powrotem do pulpitu lokalnego.  
 
@@ -181,7 +181,7 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
     | Hasło | Wprowadź hasło podane podczas tworzenia serwera MariaDB. |
     ||
 
-5. Wybierz pozycję **Testuj połączenie** lub **przycisk OK** .
+5. Wybierz pozycję **Testuj połączenie** lub **przycisk OK**.
 
 6. Zdefiniować Przeglądaj bazy danych z menu po lewej stronie i twórz lub Badaj informacje z bazy danych MariaDB
 

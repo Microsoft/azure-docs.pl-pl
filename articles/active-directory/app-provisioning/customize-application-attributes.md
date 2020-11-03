@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: aaafd3833c63458f8403dfeb3620d76f631315b5
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899195"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233887"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -111,7 +111,7 @@ Aplikacje i systemy obsługujące Dostosowywanie listy atrybutów obejmują:
 - SuccessFactors do Azure Active Directory Active Directory/SuccessFactors
 - Azure Active Directory (obsługiwane są[domyślne atrybuty usługi Azure AD interfejs API programu Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) i niestandardowe rozszerzenia katalogu)
 - Aplikacje obsługujące [standard scim 2,0](https://tools.ietf.org/html/rfc7643), w których atrybuty zdefiniowane w [podstawowym schemacie](https://tools.ietf.org/html/rfc7643) muszą być dodane
-- W przypadku Azure Active Directory zapisywania zwrotnego w dniu Workday lub SuccessFactors jest obsługiwane aktualizowanie odpowiednich metadanych dla obsługiwanych atrybutów (XPATH i wykryto), ale nie jest to obsługiwane w przypadku dodawania nowych atrybutów Workday lub SuccessFactors poza tymi zawartymi w schemacie domyślnym
+- W przypadku Azure Active Directory zapisywania zwrotnego w dniach Workday lub SuccessFactors jest obsługiwane aktualizowanie odpowiednich metadanych dla obsługiwanych atrybutów (XPATH i wykryto), ale nie jest to obsługiwane w przypadku dodawania nowych atrybutów Workday lub SuccessFactors poza tymi zawartymi w schemacie domyślnym
 
 
 > [!NOTE]
@@ -136,11 +136,11 @@ Podczas edytowania listy obsługiwanych atrybutów są dostępne następujące w
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Inicjowanie obsługi niestandardowego atrybutu rozszerzenia w aplikacji zgodnej z standard scim
 Standard scim RFC definiuje podstawowy schemat użytkownika i grupy, a także umożliwia obsługę rozszerzeń schematu w celu spełnienia wymagań aplikacji. Aby dodać atrybut niestandardowy do aplikacji Standard scim:
-   1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com), wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz aplikację, a następnie wybierz pozycję **Inicjowanie obsługi** .
+   1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com), wybierz pozycję **aplikacje dla przedsiębiorstw** , wybierz aplikację, a następnie wybierz pozycję **Inicjowanie obsługi**.
    2. W obszarze **mapowania** wybierz obiekt (użytkownika lub grupę), dla którego chcesz dodać atrybut niestandardowy.
-   3. W dolnej części strony wybierz pozycję **Pokaż opcje zaawansowane** .
-   4. Wybierz pozycję **Edytuj listę atrybutów dla elementu nazwa_aplikacji** .
-   5. W dolnej części listy atrybutów wprowadź informacje o atrybucie niestandardowym w udostępnionych polach. Następnie wybierz pozycję **Dodaj atrybut** .
+   3. W dolnej części strony wybierz pozycję **Pokaż opcje zaawansowane**.
+   4. Wybierz pozycję **Edytuj listę atrybutów dla elementu nazwa_aplikacji**.
+   5. W dolnej części listy atrybutów wprowadź informacje o atrybucie niestandardowym w udostępnionych polach. Następnie wybierz pozycję **Dodaj atrybut**.
 
 W przypadku aplikacji Standard scim nazwa atrybutu musi być zgodna ze wzorcem przedstawionym w poniższym przykładzie. Parametry "CustomExtensionName" i "CustomAttribute" można dostosować zgodnie z wymaganiami aplikacji, na przykład: urn: IETF: params: Standard scim: schematy: Extension: CustomExtensionName: 2.0: User: CustomAttribute 
 

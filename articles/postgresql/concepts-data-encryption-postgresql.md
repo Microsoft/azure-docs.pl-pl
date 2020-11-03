@@ -1,17 +1,17 @@
 ---
 title: Szyfrowanie danych z kluczem zarządzanym przez klienta — Azure Database for PostgreSQL — pojedynczy serwer
 description: Azure Database for PostgreSQL szyfrowanie danych za pomocą jednego serwera z kluczem zarządzanym przez klienta umożliwia Bring Your Own Key (BYOK) na potrzeby ochrony danych w spoczynku. Umożliwia to również organizacjom rozdzielanie obowiązków związanych z zarządzaniem kluczami i danymi.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c07f59ae183c2d4ac920c6b3773fc6d177622ad2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 078b0fe63cf89f2736a8707ad561c798c4818317
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490190"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242419"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL szyfrowanie danych na jednym serwerze z kluczem zarządzanym przez klienta
 
@@ -35,9 +35,9 @@ Szyfrowanie danych za pomocą kluczy zarządzanych przez klienta dla Azure Datab
 
 ## <a name="terminology-and-description"></a>Terminologia i opis
 
-**Klucz szyfrowania danych (unencryption)**: symetryczny klucz AES256 używany do szyfrowania partycji lub bloku danych. Szyfrowanie każdego bloku danych przy użyciu innego klucza sprawia, że ataki analizy kryptograficznej są trudniejsze. Dostęp do DEKs jest wymagany przez dostawcę zasobów lub wystąpienie aplikacji, które szyfruje i odszyfrowuje określony blok. Gdy zastąpisz klucz szyfrowania danych za pomocą nowego klucza, tylko dane w skojarzonym bloku muszą zostać ponownie zaszyfrowane przy użyciu nowego klucza.
+**Klucz szyfrowania danych (unencryption)** : symetryczny klucz AES256 używany do szyfrowania partycji lub bloku danych. Szyfrowanie każdego bloku danych przy użyciu innego klucza sprawia, że ataki analizy kryptograficznej są trudniejsze. Dostęp do DEKs jest wymagany przez dostawcę zasobów lub wystąpienie aplikacji, które szyfruje i odszyfrowuje określony blok. Gdy zastąpisz klucz szyfrowania danych za pomocą nowego klucza, tylko dane w skojarzonym bloku muszą zostać ponownie zaszyfrowane przy użyciu nowego klucza.
 
-**Klucz szyfrowania klucza (KEK)**: klucz szyfrowania używany do szyfrowania DEKs. Element KEK, który nigdy nie pozostawia Key Vault umożliwia zaszyfrowanie i kontrola DEKs. Jednostka, która ma dostęp do KEK, może różnić się od jednostki, która wymaga tego klucza. Ponieważ KEK jest wymagany do odszyfrowania DEKs, KEK jest efektywnie jednym punktem, przez który DEKs może być skutecznie usunięty przez usunięcie KEK.
+**Klucz szyfrowania klucza (KEK)** : klucz szyfrowania używany do szyfrowania DEKs. Element KEK, który nigdy nie pozostawia Key Vault umożliwia zaszyfrowanie i kontrola DEKs. Jednostka, która ma dostęp do KEK, może różnić się od jednostki, która wymaga tego klucza. Ponieważ KEK jest wymagany do odszyfrowania DEKs, KEK jest efektywnie jednym punktem, przez który DEKs może być skutecznie usunięty przez usunięcie KEK.
 
 DEKs szyfrowany za pomocą KEKs są przechowywane oddzielnie. Tylko jednostka z dostępem do KEK może odszyfrować te DEKs. Aby uzyskać więcej informacji, zobacz [zabezpieczenia w szyfrowaniu](../security/fundamentals/encryption-atrest.md)w stanie spoczynku.
 
@@ -47,9 +47,9 @@ DEKs szyfrowany za pomocą KEKs są przechowywane oddzielnie. Tylko jednostka z 
 
 Aby serwer PostgreSQL mógł używać kluczy zarządzanych przez klienta przechowywanych w Key Vault na potrzeby szyfrowania bazy danych programu, administrator Key Vault ma następujące prawa dostępu do serwera:
 
-* **Pobierz**: w celu pobrania publicznej części i właściwości klucza w magazynie kluczy.
-* **wrapKey**: aby można było zaszyfrować klucz szyfrowania danych. Zaszyfrowany klucz szyfrowania danych jest przechowywany w Azure Database for PostgreSQL.
-* **unwrapKey**: aby można było odszyfrować klucz szyfrowania danych. Do szyfrowania/odszyfrowywania danych Azure Database for PostgreSQL musi zostać zaszyfrowany/odszyfrowany.
+* **Pobierz** : w celu pobrania publicznej części i właściwości klucza w magazynie kluczy.
+* **wrapKey** : aby można było zaszyfrować klucz szyfrowania danych. Zaszyfrowany klucz szyfrowania danych jest przechowywany w Azure Database for PostgreSQL.
+* **unwrapKey** : aby można było odszyfrować klucz szyfrowania danych. Do szyfrowania/odszyfrowywania danych Azure Database for PostgreSQL musi zostać zaszyfrowany/odszyfrowany.
 
 Administrator magazynu kluczy może również [włączyć rejestrowanie Key Vault zdarzeń inspekcji](../azure-monitor/insights/key-vault-insights-overview.md), aby mogły być później poddane inspekcji.
 
@@ -79,7 +79,7 @@ W przypadku korzystania z szyfrowania danych przy użyciu klucza zarządzanego p
 * Upewnij się, że Key Vault i Azure Database for PostgreSQL pojedynczy serwer znajduje się w tym samym regionie, aby zapewnić szybszy dostęp do zawijania danych i odpakowywanie operacji.
 * Zablokuj Magazyn kluczy platformy Azure tylko do **prywatnego punktu końcowego i wybranych sieci** i Zezwalaj tylko *zaufanym usługom firmy Microsoft* na Zabezpieczanie zasobów.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagram przedstawiający przegląd Bring Your Own Key":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Trusted-Service-with-AKV":::
 
 Poniżej przedstawiono zalecenia dotyczące konfigurowania klucza zarządzanego przez klienta:
 

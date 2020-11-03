@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a14f7ac212d9957e5258f75a386b8730ad5de700
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85254705"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233846"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Szybki Start: Konfigurowanie Data Science Virtual Machine dla systemu Linux (Ubuntu)
 
@@ -39,27 +39,27 @@ Poniżej przedstawiono procedurę tworzenia wystąpienia Data Science Virtual Ma
    
 1. Wprowadź następujące informacje, aby skonfigurować każdy krok kreatora:
 
-    1. **Podstawy**:
+    1. **Podstawy** :
     
-       * **Subskrypcja**: Jeśli masz więcej niż jedną subskrypcję, wybierz tę, w której zostanie utworzona i rozliczona. Musisz mieć uprawnienia do tworzenia zasobów dla tej subskrypcji.
-       * **Grupa zasobów**: Utwórz nową grupę lub Użyj istniejącej.
-       * **Nazwa maszyny wirtualnej**: Wprowadź nazwę maszyny wirtualnej. Ta nazwa będzie używana w Azure Portal.
-       * **Region**: wybierz najbardziej odpowiednie centrum danych. Aby uzyskać najszybszy dostęp do sieci, znajduje się w centrum danych, które ma najwięcej z nich lub znajduje się najbliżej fizycznej lokalizacji. Dowiedz się więcej o [regionach platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-       * **Obraz**: pozostaw wartość domyślną.
-       * **Rozmiar**: Ta opcja powinna automatycznie wypełniać rozmiar, który jest odpowiedni dla ogólnych obciążeń. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Linux na platformie Azure](../../virtual-machines/linux/sizes.md).
-       * **Typ uwierzytelniania**: aby szybciej skonfigurować konfigurację, wybierz pozycję "hasło". 
+       * **Subskrypcja** : Jeśli masz więcej niż jedną subskrypcję, wybierz tę, w której zostanie utworzona i rozliczona. Musisz mieć uprawnienia do tworzenia zasobów dla tej subskrypcji.
+       * **Grupa zasobów** : Utwórz nową grupę lub Użyj istniejącej.
+       * **Nazwa maszyny wirtualnej** : Wprowadź nazwę maszyny wirtualnej. Ta nazwa będzie używana w Azure Portal.
+       * **Region** : wybierz najbardziej odpowiednie centrum danych. Aby uzyskać najszybszy dostęp do sieci, znajduje się w centrum danych, które ma najwięcej z nich lub znajduje się najbliżej fizycznej lokalizacji. Dowiedz się więcej o [regionach platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+       * **Obraz** : pozostaw wartość domyślną.
+       * **Rozmiar** : Ta opcja powinna automatycznie wypełniać rozmiar, który jest odpowiedni dla ogólnych obciążeń. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Linux na platformie Azure](../../virtual-machines/linux/sizes.md).
+       * **Typ uwierzytelniania** : aby szybciej skonfigurować konfigurację, wybierz pozycję "hasło". 
          
          > [!NOTE]
          > Jeśli zamierzasz używać JupyterHub, upewnij się, że wybrano opcję "Password" (hasło), ponieważ JupyterHub *nie* jest skonfigurowana do używania kluczy publicznych SSH.
 
-       * **Nazwa użytkownika**: Wprowadź nazwę użytkownika administratora. Ta nazwa użytkownika będzie używana do logowania się do maszyny wirtualnej. Ta nazwa użytkownika nie może być taka sama jak nazwa użytkownika platformy Azure. *Nie* używaj wielkich liter.
+       * **Nazwa użytkownika** : Wprowadź nazwę użytkownika administratora. Ta nazwa użytkownika będzie używana do logowania się do maszyny wirtualnej. Ta nazwa użytkownika nie może być taka sama jak nazwa użytkownika platformy Azure. *Nie* używaj wielkich liter.
          
          > [!IMPORTANT]
          > Jeśli używasz wielkich liter w nazwie użytkownika, JupyterHub nie będzie działał i wystąpi błąd wewnętrzny serwera 500.
 
-       * **Hasło**: wprowadź hasło, które będzie używane do logowania się do maszyny wirtualnej.    
+       * **Hasło** : wprowadź hasło, które będzie używane do logowania się do maszyny wirtualnej.    
     
-   1. Wybierz pozycję **Przeglądanie + tworzenie**.
+   1. Wybierz pozycję **Przejrzyj i utwórz**.
    1. **Przegląd + tworzenie**
       * Sprawdź, czy wszystkie wprowadzone informacje są poprawne. 
       * Wybierz przycisk **Utwórz**.
@@ -96,12 +96,12 @@ Maszyna wirtualna z systemem Linux została już zainicjowana z serwerem X2Go i 
 
 1. W oknie konfiguracji wynikowej wprowadź następujące parametry konfiguracji:
    * **Karta Session** (Sesja):
-     * **Host**: wprowadź zanotowany wcześniej adres IP maszyny wirtualnej.
+     * **Host** : wprowadź zanotowany wcześniej adres IP maszyny wirtualnej.
      * **Login** (Identyfikator logowania): wprowadź nazwę użytkownika na maszynie wirtualnej z systemem Linux.
      * **SSH Port** (Port SSH): pozostaw wartość domyślną 22.
      * **Session Type** (Typ sesji): zmień wartość na **XFCE**. Obecnie maszyna wirtualna z systemem Linux obsługuje tylko pulpit XFCE.
    * **Karta Media** (Multimedia): możesz wyłączyć obsługę dźwięku i drukowanie przez klienta, jeśli nie potrzebujesz tych funkcji.
-   * **Foldery udostępnione**: Użyj tej karty, aby dodać katalog komputera klienckiego, który ma zostać zainstalowany na maszynie wirtualnej. 
+   * **Foldery udostępnione** : Użyj tej karty, aby dodać katalog komputera klienckiego, który ma zostać zainstalowany na maszynie wirtualnej. 
 
    ![Konfiguracja rozwiązania X2Go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Wybierz pozycję **OK**.
@@ -126,7 +126,7 @@ Ubuntu DSVM uruchamia [JupyterHub](https://github.com/jupyterhub/jupyterhub), wi
       ![Wprowadź nazwę logowania Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
 >[!NOTE]
-> Jeśli na tym etapie wystąpi błąd 500, prawdopodobnie w nazwie użytkownika są używane wielkie litery. Jest to znana interakcja między centrum Jupyter i PAMAuthenticator, którego używa. 
+> Jeśli na tym etapie wystąpi błąd 500, prawdopodobnie w nazwie użytkownika są używane wielkie litery. Jest to znana interakcja między centrum Jupyter i PAMAuthenticator, którego używa. Jeśli zostanie wyświetlony komunikat o błędzie "nie można nawiązać połączenia z tą stroną", prawdopodobnie trzeba będzie dostosować uprawnienia do sieciowej grupy zabezpieczeń. W Azure Portal Znajdź zasób sieciowej grupy zabezpieczeń w grupie zasobów. Aby uzyskać dostęp do usługi JupyterHub z publicznej sieci Internet, musisz mieć otwarty port 8000. (Obraz pokazuje, że ta maszyna wirtualna jest skonfigurowana dla dostępu just in Time, co jest zdecydowanie zalecane. Zobacz [Zabezpieczanie portów zarządzania przy użyciu dostępu just in Time](../../security-center/security-center-just-in-time.md). ![Konfiguracja sieciowej grupy zabezpieczeń](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Przejrzyj wiele przykładowych notesów, które są dostępne.
 

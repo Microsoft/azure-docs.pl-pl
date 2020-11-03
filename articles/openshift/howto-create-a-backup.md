@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: febee51a20f57d71d633243145a1aa0c8fb9b437
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078582"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233682"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Tworzenie kopii zapasowej aplikacji klastra usługi Azure Red Hat OpenShift 4
 
@@ -22,6 +22,9 @@ W tym artykule opisano przygotowanie środowiska do utworzenia kopii zapasowej a
 > [!div class="checklist"]
 > * Skonfiguruj wymagania wstępne i Zainstaluj niezbędne narzędzia
 > * Tworzenie kopii zapasowej aplikacji usługi Azure Red Hat OpenShift 4
+
+> [!NOTE] 
+> Velero nie tworzy kopii zapasowych danych klucza OpenShift etcd usługi Azure Red Hat. Jeśli potrzebujesz kopii zapasowej etcd, zobacz [Tworzenie kopii](https://docs.openshift.com/container-platform/4.5/backup_and_restore/backing-up-etcd.html)zapasowych etcd.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 

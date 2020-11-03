@@ -3,12 +3,12 @@ title: Ciągłej integracji/ciągłego wdrażania za pomocą Azure Pipelines i s
 description: Opisuje sposób konfigurowania ciągłej integracji w programie Azure Pipelines przy użyciu szablonów Azure Resource Manager. Pokazano, jak używać skryptu programu PowerShell lub skopiować pliki do lokalizacji tymczasowej i wdrożyć je stamtąd.
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653404"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233818"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrowanie szablonów usługi ARM z usługą Azure Pipelines
 
@@ -52,7 +52,7 @@ W tym artykule przyjęto założenie, że szablon ARM i organizacja usługi Azur
 
 Możesz dodać zadanie Azure PowerShell lub skopiować plik i wdrożyć zadania.
 
-## <a name="azure-powershell-task"></a>Azure PowerShell, zadanie
+## <a name="azure-powershell-task"></a>Zadanie programu Azure PowerShell
 
 W tej sekcji pokazano, jak skonfigurować ciągłe wdrażanie przy użyciu pojedynczego zadania, które uruchamia skrypt programu PowerShell w projekcie. Jeśli potrzebujesz skryptu programu PowerShell, który wdraża szablon, zobacz [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) lub [Deploy-AzureResourceGroup.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzureResourceGroup.ps1).
 
@@ -70,7 +70,7 @@ steps:
   inputs:
     azureSubscription: 'script-connection'
     ScriptType: 'FilePath'
-    ScriptPath: './Deploy-Template.ps1'
+    ScriptPath: './Deploy-AzTemplate.ps1'
     ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
     azurePowerShellVersion: 'LatestVersion'
 ```
@@ -101,7 +101,7 @@ W programie `ScriptArguments` Podaj wszelkie parametry potrzebne przez skrypt. W
 ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-Po wybraniu opcji **Zapisz**potok kompilacji zostanie automatycznie uruchomiony. Wróć do podsumowania potoku kompilacji i obejrzyj stan.
+Po wybraniu opcji **Zapisz** potok kompilacji zostanie automatycznie uruchomiony. Wróć do podsumowania potoku kompilacji i obejrzyj stan.
 
 ![Wyświetlanie wyników](./media/add-template-to-azure-pipelines/view-results.png)
 
@@ -226,7 +226,7 @@ steps:
     deploymentName: 'deploy1'
 ```
 
-Po wybraniu opcji **Zapisz**potok kompilacji zostanie automatycznie uruchomiony. Wróć do podsumowania potoku kompilacji i obejrzyj stan.
+Po wybraniu opcji **Zapisz** potok kompilacji zostanie automatycznie uruchomiony. Wróć do podsumowania potoku kompilacji i obejrzyj stan.
 
 ## <a name="next-steps"></a>Następne kroki
 

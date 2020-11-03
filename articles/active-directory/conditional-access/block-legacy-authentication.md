@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c3107be1c36f1c15a1bcb27c5e0dcf851cfb946
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1485c2abd24022dbfa6476e3c5a530413b9cb4f2
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145529"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233801"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Instrukcje: blokowanie starszego uwierzytelniania w usłudze Azure AD przy użyciu dostępu warunkowego   
 
@@ -60,7 +60,7 @@ W tej sekcji opisano sposób konfigurowania zasad dostępu warunkowego w celu bl
 
 Następujące opcje są uznawane za starsze protokoły uwierzytelniania
 
-- Uwierzytelniony protokół SMTP używany przez klienta POP i IMAP do wysyłania wiadomości e-mail.
+- Uwierzytelniony protokół SMTP używany przez klientów POP i IMAP do wysyłania wiadomości e-mail.
 - Wykrywanie automatyczne — używane przez klientów programu Outlook i EAS do znajdowania skrzynek pocztowych w usłudze Exchange Online i łączenia się z nimi.
 - Exchange ActiveSync (EAS) — służy do łączenia się z skrzynkami pocztowymi w usłudze Exchange Online.
 - Exchange Online PowerShell — służy do łączenia się z usługą Exchange Online przy użyciu zdalnego programu PowerShell. Jeśli zablokujesz uwierzytelnianie podstawowe dla programu Exchange Online PowerShell, musisz użyć modułu programu PowerShell w usłudze Exchange Online, aby nawiązać połączenie. Aby uzyskać instrukcje, zobacz [nawiązywanie połączenia z programem Exchange Online PowerShell przy użyciu uwierzytelniania wieloskładnikowego](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).

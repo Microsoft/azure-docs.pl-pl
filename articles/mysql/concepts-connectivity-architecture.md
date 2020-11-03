@@ -1,17 +1,17 @@
 ---
 title: Architektura łączności — Azure Database for MySQL
 description: Opisuje architekturę łączności dla serwera Azure Database for MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 73178a9707d35fe7337210b11e76504794bc93ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d3842675cf4b36dfaa95ed6041bf8c6f0978a53
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896388"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242878"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architektura łączności w Azure Database for MySQL
 W tym artykule opisano architekturę Azure Database for MySQL łączności oraz sposób kierowania ruchu do wystąpienia Azure Database for MySQL z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -65,14 +65,14 @@ W poniższej tabeli wymieniono podstawowe i pomocnicze adresy IP bramy Azure Dat
 | Południowe Zjednoczone Królestwo | 51.140.184.11   |
 | Zachodnie Zjednoczone Królestwo | 51.141.8.11  |
 | Zachodnio-środkowe stany USA | 13.78.145.25     |
-| West Europe | 40.68.37.158, 191.237.232.75, 13.69.105.208 ,104.40.169.187 |
+| Europa Zachodnia | 40.68.37.158, 191.237.232.75, 13.69.105.208 ,104.40.169.187 |
 | Zachodnie stany USA | 104.42.238.205, 23.99.34.75 ,13.86.216.212, 13.86.217.212 |
 | Zachodnie stany USA 2 | 13.66.226.202  |
 ||||
 
 ## <a name="connection-redirection"></a>Przekierowanie połączenia
 
-Azure Database for MySQL obsługuje dodatkowe zasady połączeń, **przekierowania**, które ułatwiają skrócenie opóźnienia sieci między aplikacjami klienckimi i serwerami MySQL. Po nawiązaniu początkowej sesji TCP z serwerem Azure Database for MySQL przy użyciu tej funkcji serwer zwraca adres zaplecza węzła, który hostuje serwer MySQL, do klienta programu. Następnie wszystkie kolejne pakiety przepływają bezpośrednio do serwera, pomijając bramę. Ponieważ pakiety są przesyłane bezpośrednio na serwer, opóźnienia i przepływność zwiększają wydajność.
+Azure Database for MySQL obsługuje dodatkowe zasady połączeń, **przekierowania** , które ułatwiają skrócenie opóźnienia sieci między aplikacjami klienckimi i serwerami MySQL. Po nawiązaniu początkowej sesji TCP z serwerem Azure Database for MySQL przy użyciu tej funkcji serwer zwraca adres zaplecza węzła, który hostuje serwer MySQL, do klienta programu. Następnie wszystkie kolejne pakiety przepływają bezpośrednio do serwera, pomijając bramę. Ponieważ pakiety są przesyłane bezpośrednio na serwer, opóźnienia i przepływność zwiększają wydajność.
 
 Ta funkcja jest obsługiwana na serwerach Azure Database for MySQL z wersjami Engine 5,6, 5,7 i 8,0.
 
