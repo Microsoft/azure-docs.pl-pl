@@ -1,5 +1,5 @@
 ---
-title: Diagnozuj problemy z konfiguracją linków prywatnych na Azure Key Vault
+title: Diagnozowanie problemów z konfiguracją linków prywatnych w usłudze Azure Key Vault
 description: Rozwiązywanie typowych problemów z połączeniami prywatnymi przy użyciu Key Vault i głębokiego szczegółowe w konfiguracji
 author: msfcolombo
 ms.author: fcolombo
@@ -7,14 +7,14 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998406"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289370"
 ---
-# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnozuj problemy z konfiguracją linków prywatnych na Azure Key Vault
+# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnozowanie problemów z konfiguracją linków prywatnych w usłudze Azure Key Vault
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -56,7 +56,7 @@ Jeśli aplikacja, skrypt lub portal jest uruchomiony w dowolnej sieci połączon
 
 Ten przewodnik nie dotyczy rozwiązań zarządzanych przez firmę Microsoft, w przypadku których Magazyn kluczy jest dostępny dla produktu platformy Azure, który istnieje niezależnie od Virtual Network klienta. Przykładami takich scenariuszy są usługa Azure Storage lub Azure SQL skonfigurowana pod kątem szyfrowania w spoczynku, usługa Azure Event Hub szyfruje dane za pomocą kluczy dostarczonych przez klienta, Azure Data Factory uzyskiwania dostępu do poświadczeń usługi przechowywanych w magazynie kluczy, Azure Pipelines pobierania wpisów tajnych z magazynu kluczy i innych podobnych scenariuszy. W takich przypadkach *należy sprawdzić, czy produkt obsługuje magazyny kluczy z włączoną zaporą*. Ta obsługa jest zwykle wykonywana przy użyciu funkcji [zaufanych usług](overview-vnet-service-endpoints.md#trusted-services) zapory Key Vault. Wiele produktów nie jest jednak uwzględnionych na liście zaufanych usług z różnych powodów. W takim przypadku należy skontaktować się z pomocą techniczną specyficzną dla produktu.
 
-Niewielka liczba produktów platformy Azure obsługuje koncepcję *iniekcji sieci wirtualnej*. W przypadku prostych postanowień produkt dodaje urządzenie sieciowe do Virtual Network klienta, co pozwala mu wysyłać żądania tak, jakby zostały wdrożone do Virtual Network. Przykładem jest [Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Produkty takie jak to mogą zgłaszać żądania do magazynu kluczy przy użyciu linków prywatnych, a ten przewodnik rozwiązywania problemów może pomóc.
+Niewielka liczba produktów platformy Azure obsługuje koncepcję *iniekcji sieci wirtualnej*. W przypadku prostych postanowień produkt dodaje urządzenie sieciowe do Virtual Network klienta, co pozwala mu wysyłać żądania tak, jakby zostały wdrożone do Virtual Network. Przykładem jest [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Produkty takie jak to mogą zgłaszać żądania do magazynu kluczy przy użyciu linków prywatnych, a ten przewodnik rozwiązywania problemów może pomóc.
 
 ## <a name="2-confirm-that-the-connection-is-approved-and-succeeded"></a>2. Upewnij się, że połączenie zostało zatwierdzone i zakończyło się pomyślnie
 
@@ -65,7 +65,7 @@ Poniższe kroki sprawdzają, czy połączenie prywatnego punktu końcowego zosta
 1. Otwórz Azure Portal i Otwórz zasób magazynu kluczy.
 2. W menu po lewej stronie wybierz pozycję **Sieć**.
 3. Kliknij kartę **połączenia prywatne punktu końcowego** . Spowoduje to wyświetlenie wszystkich prywatnych połączeń punktów końcowych i ich odpowiednich stanów. Jeśli nie ma żadnych połączeń lub jeśli brakuje połączenia dla Virtual Network, musisz utworzyć nowy prywatny punkt końcowy. Zostanie to omówione później.
-4. Nadal w **połączeniach prywatnych punktów końcowych**Znajdź diagnozę i upewnij się, że "stan połączenia" została **zatwierdzona** i "stan aprowizacji" **zakończyło się pomyślnie**.
+4. Nadal w **połączeniach prywatnych punktów końcowych** Znajdź diagnozę i upewnij się, że "stan połączenia" została **zatwierdzona** i "stan aprowizacji" **zakończyło się pomyślnie**.
     - Jeśli połączenie jest w stanie "oczekiwanie", można je tylko zatwierdzić.
     - Jeśli połączenie "odrzucone", "Niepowodzenie", "błąd", "Rozłączono" lub inny stan, to nie obowiązuje, należy utworzyć nowy prywatny zasób punktu końcowego.
 
@@ -278,7 +278,7 @@ Jak widać, rozpoznawanie nazw jest pod kontrolą. Racjonalne znaczenie dla tego
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>Zbadaj `/healthstatus` punkt końcowy magazynu kluczy
 
-Magazyn kluczy udostępnia `/healthstatus` punkt końcowy, który może być używany na potrzeby diagnostyki. Nagłówki odpowiedzi zawierają adres IP źródła, który jest widoczny dla usługi magazynu kluczy. Ten punkt końcowy można wywołać za pomocą następującego polecenia (**należy pamiętać, aby użyć nazwy hosta magazynu kluczy**):
+Magazyn kluczy udostępnia `/healthstatus` punkt końcowy, który może być używany na potrzeby diagnostyki. Nagłówki odpowiedzi zawierają adres IP źródła, który jest widoczny dla usługi magazynu kluczy. Ten punkt końcowy można wywołać za pomocą następującego polecenia ( **należy pamiętać, aby użyć nazwy hosta magazynu kluczy** ):
 
 Windows (PowerShell):
 

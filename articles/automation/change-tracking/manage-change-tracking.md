@@ -3,14 +3,14 @@ title: Zarządzanie Change Tracking i spisem w Azure Automation
 description: W tym artykule opisano sposób używania Change Tracking i spisu do śledzenia zmian oprogramowania i usług firmy Microsoft w danym środowisku.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: a599bb6f07683540f5b12c6a69d6565161f89a4f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210333"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288749"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Zarządzanie usługą Change Tracking and Inventory
 
@@ -35,7 +35,7 @@ Change Tracking i spisu można użyć do śledzenia zmian plików i folderów/ka
 
 Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerach z systemem Windows:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 
 2. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Automation**. Po rozpoczęciu wpisywania lista filtruje sugestie w oparciu o dane wejściowe. Wybierz opcję **Konta automatyzacji**.
 
@@ -45,7 +45,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
 
 5. Wybierz pozycję **Edytuj ustawienia** (symbol koła zębatego).
 
-6. Na stronie Konfiguracja obszaru roboczego wybierz pozycję **pliki systemu Windows**, a następnie kliknij pozycję **+ Dodaj** , aby dodać nowy plik do śledzenia.
+6. Na stronie Konfiguracja obszaru roboczego wybierz pozycję **pliki systemu Windows** , a następnie kliknij pozycję **+ Dodaj** , aby dodać nowy plik do śledzenia.
 
 7. W okienku Dodaj plik systemu Windows dla Change Tracking wprowadź informacje dotyczące pliku lub folderu do śledzenia, a następnie kliknij przycisk **Zapisz**. Poniższa tabela zawiera definicje właściwości, których można użyć w celu uzyskania informacji.
 
@@ -59,6 +59,13 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
     |Rekursja     | Prawda, Jeśli rekursja jest używana podczas wyszukiwania elementu do śledzenia, a w przeciwnym razie ma wartość false.        |    
     |Przekaż zawartość pliku | Wartość true, aby przekazać zawartość pliku do śledzonych zmian, i w przeciwnym razie zwraca wartość false.|
 
+    Jeśli planujesz konfigurowanie monitorowania plików i folderów za pomocą symboli wieloznacznych, weź pod uwagę następujące kwestie:
+
+    - Do śledzenia wielu plików wymagane są symbole wieloznaczne.
+    - Symboli wieloznacznych można używać tylko w ostatnim segmencie ścieżki, na przykład *C:\folder\file* lub */etc/*. conf *
+    - Jeśli zmienna środowiskowa zawiera nieprawidłową ścieżkę, walidacja powiedzie się, ale ścieżka zakończy się niepowodzeniem po uruchomieniu spisu.
+    - Podczas ustawiania ścieżki należy unikać ogólnych ścieżek, takich jak *c:*. * *, co spowoduje, że przechodzą zbyt wiele folderów.
+
 8. Upewnij się, że określono wartość true dla **zawartości pliku do przekazania**. To ustawienie umożliwia śledzenie zawartości plików dla wskazanej ścieżki pliku.
 
 ### <a name="configure-file-tracking-on-linux"></a>Konfigurowanie śledzenia plików w systemie Linux
@@ -67,7 +74,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
 
 1. Wybierz pozycję **Edytuj ustawienia** (symbol koła zębatego).
 
-2. Na stronie Konfiguracja obszaru roboczego wybierz pozycję **pliki systemu Linux**, a następnie wybierz pozycję **+ Dodaj** , aby dodać nowy plik do śledzenia.
+2. Na stronie Konfiguracja obszaru roboczego wybierz pozycję **pliki systemu Linux** , a następnie wybierz pozycję **+ Dodaj** , aby dodać nowy plik do śledzenia.
 
 3. Na stronie **Dodawanie pliku systemu Linux dla Change Tracking** wprowadź informacje dotyczące pliku lub katalogu, który ma być śledzony, a następnie wybierz pozycję **Zapisz**. Poniższa tabela zawiera definicje właściwości, których można użyć w celu uzyskania informacji.
 
@@ -138,7 +145,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie kluczy rejestru na ko
 
 3. Wybierz pozycję **+ Dodaj** , aby dodać nowy klucz rejestru do śledzenia.
 
-4. Na stronie **Dodaj rejestr systemu Windows dla Change Tracking** wprowadź informacje dotyczące klucza do śledzenia, a następnie wybierz pozycję **Zapisz**. Poniższa tabela zawiera definicje właściwości, których można użyć w celu uzyskania informacji.
+4. Na stronie **Dodaj rejestr systemu Windows dla Change Tracking** wprowadź informacje dotyczące klucza do śledzenia, a następnie wybierz pozycję **Zapisz**. Poniższa tabela zawiera definicje właściwości, których można użyć w celu uzyskania informacji. Podczas określania ścieżki rejestru, musi to być klucz, a nie wartość.
 
     |Właściwość  |Opis  |
     |---------|---------|

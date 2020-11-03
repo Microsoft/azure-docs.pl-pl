@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: b58f402766e369894fcf014836ab9f24c231c489
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 8689b6851ae219ee6f41ebf58736692e557b2344
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927502"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289726"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Samouczek: Importowanie certyfikatu w Azure Key Vault
 
@@ -41,21 +41,21 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Tworzenie magazynu
 
-1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób** .
-2. W polu wyszukiwania wpisz **Key Vault** .
-3. Na liście wyników wybierz pozycję **Key Vault** .
-4. W sekcji Key Vault, wybierz przycisk **Utwórz** .
+1. W menu Azure Portal lub na stronie **głównej** wybierz pozycję **Utwórz zasób**.
+2. W polu wyszukiwania wpisz **Key Vault**.
+3. Na liście wyników wybierz pozycję **Key Vault**.
+4. W sekcji Key Vault, wybierz przycisk **Utwórz**.
 5. W sekcji **Tworzenie magazynu kluczy** podaj następujące informacje:
-    - **Nazwa** : wymagana jest unikatowa nazwa. W tym przewodniku szybki start użyjemy **przykładowego magazynu** . 
+    - **Nazwa** : wymagana jest unikatowa nazwa. W tym przewodniku szybki start użyjemy **przykładowego magazynu**. 
     - **Subskrypcja** : wybierz subskrypcję.
     - W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów.
     - W menu rozwijanym **Lokalizacja** wybierz lokalizację.
     - Dla pozostałych opcji zostaw wartości domyślne.
-6. Po podaniu powyższych informacje wybierz przycisk **Utwórz** .
+6. Po podaniu powyższych informacje wybierz przycisk **Utwórz**.
 
 Zanotuj dwie poniższe właściwości:
 
-* **Nazwa magazynu** : w tym przykładzie **przykład-magazyn** . Użyjesz tej nazwy w innych krokach.
+* **Nazwa magazynu** : w tym przykładzie **przykład-magazyn**. Użyjesz tej nazwy w innych krokach.
 * **Identyfikator URI magazynu** : w tym przykładzie jest to https://example-vault.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania operacji na tym nowym magazynie.
@@ -64,21 +64,21 @@ Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonyw
 
 ## <a name="import-a-certificate-to-key-vault"></a>Importuj certyfikat do Key Vault
 
-Aby zaimportować certyfikat do magazynu, należy mieć plik certyfikatu PEM lub PFX na dysku. W takim przypadku zostanie zaimportowany certyfikat z nazwą pliku o nazwie **ExampleCertificate** .
+Aby zaimportować certyfikat do magazynu, należy mieć plik certyfikatu PEM lub PFX na dysku. W takim przypadku zostanie zaimportowany certyfikat z nazwą pliku o nazwie **ExampleCertificate**.
 
 > [!IMPORTANT]
 > W usłudze Azure Key Vault obsługiwane są certyfikaty w formatach PFX i PEM. 
 > - Format pliku PEM zawiera co najmniej jeden plik certyfikatu x509.
 > - Format pliku PFX to format pliku archiwum służący do przechowywania kilku obiektów kryptograficznych w jednym pliku, tj. certyfikat serwera (wystawiony dla Twojej domeny), odpowiadający mu klucz prywatny i opcjonalnie może zawierać pośredni urząd certyfikacji.  
 
-1. Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty** .
-2. Kliknij pozycję **Wygeneruj/zaimportuj** .
+1. Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
+2. Kliknij pozycję **Wygeneruj/zaimportuj**.
 3. Na ekranie **Tworzenie certyfikatu** wybierz następujące wartości:
     - **Metoda tworzenia certyfikatu** : import.
     - **Nazwa certyfikatu** : ExampleCertificate.
     - **Przekaż plik certyfikatu** : Wybierz plik certyfikatu z dysku
     - **Hasło** : w przypadku przekazywania pliku certyfikatu chronionego hasłem Podaj tutaj hasło. W przeciwnym razie pozostaw to pole puste. Po pomyślnym zaimportowaniu pliku certyfikatu Magazyn kluczy usunie to hasło.
-4. Kliknij pozycję **Utwórz** .
+4. Kliknij pozycję **Utwórz**.
 
 ![Właściwości certyfikatu](../media/certificates/tutorial-import-cert/cert-import.png)
 
@@ -104,9 +104,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-Dowiedz się więcej o [parametrach](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
+Dowiedz się więcej o [parametrach](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
 
-Po zaimportowaniu certyfikatu można wyświetlić certyfikat przy użyciu polecenia [Pokaż certyfikat](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+Po zaimportowaniu certyfikatu można wyświetlić certyfikat przy użyciu polecenia [Pokaż certyfikat](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
 
 
 ```azurecli
@@ -135,7 +135,7 @@ Import-AzureKeyVaultCertificate
       [<CommonParameters>]
 ```
 
-Dowiedz się więcej o [parametrach](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Dowiedz się więcej o [parametrach](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
@@ -144,14 +144,14 @@ Inne przewodniki Szybki start i samouczki usługi Key Vault bazują na tym przew
 Jeśli nie będą Ci one już potrzebne, usuń grupę zasobów, a zostanie także usunięta usługa Key Vault i powiązane zasoby. Aby usunąć grupę zasobów za pośrednictwem portalu:
 
 1. Wprowadź nazwę grupy zasobów w polu wyszukiwania w górnej części portalu. Gdy w wynikach wyszukiwania zobaczysz grupę zasobów używaną w tym przewodniku Szybki start, wybierz ją.
-2. Wybierz pozycję **Usuń grupę zasobów** .
-3. W polu **WPISZ NAZWĘ GRUPY ZASOBÓW:** wpisz nazwę grupy zasobów i wybierz pozycję **Usuń** .
+2. Wybierz pozycję **Usuń grupę zasobów**.
+3. W polu **WPISZ NAZWĘ GRUPY ZASOBÓW:** wpisz nazwę grupy zasobów i wybierz pozycję **Usuń**.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku utworzono Key Vault i zaimportowano do niego certyfikat. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
 
-- Przeczytaj więcej [na temat zarządzania tworzeniem certyfikatów w Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
+- Przeczytaj więcej [na temat zarządzania tworzeniem certyfikatów w Azure Key Vault](./create-certificate-scenarios.md)
 - Zobacz przykłady [importowania certyfikatów przy użyciu interfejsów API REST](/rest/api/keyvault/importcertificate/importcertificate)
 - Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań

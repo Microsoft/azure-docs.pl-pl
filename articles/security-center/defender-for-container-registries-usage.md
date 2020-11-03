@@ -7,18 +7,18 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a1357f263c450605025b6f1e9b7bdea47d0d4f58
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370546"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289217"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Korzystanie z usługi Azure Defender dla rejestrów kontenerów do skanowania obrazów pod kątem luk w zabezpieczeniach
 
 Na tej stronie opisano sposób użycia wbudowanego skanera luk w zabezpieczeniach do skanowania obrazów kontenerów przechowywanych w Azure Container Registry opartych na Azure Resource Manager.
 
-Gdy **usługa Azure Defender dla rejestrów kontenerów** jest włączona, każdy obraz wypychany do rejestru zostanie natychmiast przeskanowany. Ponadto zostanie również zeskanowany dowolny obraz pobrany w ciągu ostatnich 30 dni. 
+Gdy usługa **Azure Defender dla rejestrów kontenerów** jest włączona, wszystkie obrazy wypychane do rejestru zostaną natychmiast przeskanowane. Ponadto zostanie również zeskanowany dowolny obraz pobrany w ciągu ostatnich 30 dni. 
 
 Gdy skaner zgłasza luki w zabezpieczeniach Security Center, Security Center przedstawia wyniki i powiązane informacje jako zalecenia. Ponadto, ustalenia obejmują powiązane informacje, takie jak czynności zaradcze, odpowiednie CVEs, wyniki CVSS i inne. Zidentyfikowane luki w zabezpieczeniach można wyświetlić dla jednej lub kilku subskrypcji lub dla określonego rejestru.
 
@@ -31,7 +31,7 @@ Gdy skaner zgłasza luki w zabezpieczeniach Security Center, Security Center prz
 |Obsługiwane rejestry i obrazy:|Obrazy systemu Linux w rejestrach ACR dostępnych z publicznej sieci Internet z dostępem do powłoki|
 |Nieobsługiwane rejestry i obrazy:|Obrazy systemu Windows<br>Rejestry prywatne<br>Rejestry z dostępem ograniczonym do zapory, punktu końcowego usługi lub prywatnych punktów końcowych, takich jak link prywatny platformy Azure<br>Obrazy Super minimalistyczny, takie jak obrazy wyłuskane [Docker](https://hub.docker.com/_/scratch/) lub obrazy "Distroless", które zawierają tylko aplikacje i ich zależności środowiska uruchomieniowego bez Menedżera pakietów, powłoki lub systemu operacyjnego|
 |Wymagane role i uprawnienia:|Rola **czytelnik zabezpieczeń** i [Azure Container Registry czytelnik](../container-registry/container-registry-roles.md)|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|Połączeń|![Tak ](./media/icons/yes-icon.png) chmury komercyjne<br>![Tak ](./media/icons/yes-icon.png) US gov — tylko funkcja skanowania w trybie push jest obecnie obsługiwana. Dowiedz się więcej w [przypadku skanowania obrazów?](defender-for-container-registries-introduction.md#when-are-images-scanned)<br>![Brak ](./media/icons/no-icon.png) Chin gov, inne gov|
 |||
 
 
@@ -139,7 +139,7 @@ Można użyć dowolnego z następujących kryteriów:
 
 Aby utworzyć regułę:
 
-1. Na stronie Szczegóły rekomendacji dotyczącej **luk w zabezpieczeniach w Azure Container Registry obrazów należy skorygować**pozycję **Wyłącz regułę**.
+1. Na stronie Szczegóły rekomendacji dotyczącej **luk w zabezpieczeniach w Azure Container Registry obrazów należy skorygować** pozycję **Wyłącz regułę**.
 1. Wybierz odpowiedni zakres.
 1. Zdefiniuj kryteria.
 1. Wybierz pozycję **Zastosuj regułę**.
@@ -149,7 +149,7 @@ Aby utworzyć regułę:
 1. Aby wyświetlić, przesłonić lub usunąć regułę: 
     1. Wybierz pozycję **Wyłącz regułę**.
     1. Z listy zakres subskrypcje z aktywnymi regułami są wyświetlane jako **zastosowana reguła**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Tworzenie reguły wyłączania dla ustaleń o usłudze VA w rejestrze":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modyfikowanie lub usuwanie istniejącej reguły":::
     1. Aby wyświetlić lub usunąć regułę, wybierz menu wielokropka ("...").
 
 

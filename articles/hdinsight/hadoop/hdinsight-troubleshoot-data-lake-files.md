@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
-ms.openlocfilehash: 92cce0751a400e17f9975d7ae3d10e6612017823
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8bac53cd08629e8b0a9cb91e596856c0ae6b5a2f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533635"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289118"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Nie można uzyskać dostępu do plików magazynu Data Lake w usłudze Azure HDInsight
 
@@ -32,7 +32,7 @@ Użytkownik mógł mieć odwołane uprawnienia jednostki usługi (SP) w plikach/
 
 ### <a name="resolution"></a>Rozwiązanie
 
-1. Sprawdź, czy SP ma uprawnienia "x" do przechodzenia wzdłuż ścieżki. Aby uzyskać więcej informacji, zobacz [uprawnienia](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Przykładowe polecenie systemu plików DFS, aby sprawdzić dostęp do plików/folderów na koncie magazynu Data Lake:
+1. Sprawdź, czy SP ma uprawnienia "x" do przechodzenia wzdłuż ścieżki. Aby uzyskać więcej informacji, zobacz [uprawnienia](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Przykładowe `dfs` polecenie, aby sprawdzić dostęp do plików/folderów na koncie magazynu Data Lake:
 
     ```
     hdfs dfs -ls /<path to check access>
@@ -54,7 +54,7 @@ Token Refresh failed - Received invalid http response: 500
 
 Certyfikat podany dla dostępu do jednostki usługi mógł wygasnąć.
 
-1. SSH do węzła głównego. Sprawdź dostęp do konta magazynu przy użyciu następującego polecenia systemu plików DFS:
+1. SSH do węzła głównego. Sprawdź dostęp do konta magazynu przy użyciu następującego `dfs` polecenia:
 
     ```
     hdfs dfs -ls /
@@ -161,16 +161,10 @@ Invoke-AzureRmResourceAction `
 
 ```
 
-W przypadku przypisywania istniejącego certyfikatu należy utworzyć certyfikat z gotowym plikiem. pfx i hasłem. Skojarz certyfikat z jednostką usługi, z którą został utworzony klaster, i Przygotuj identyfikator AppId.
+W przypadku przypisywania istniejącego certyfikatu należy utworzyć certyfikat z gotowym plikiem. pfx i hasłem. Skojarz certyfikat z jednostką usługi, z którą klaster został utworzony, za pomocą gotowego identyfikatora AppId.
 
 Wykonaj polecenie programu PowerShell po zastąpieniu parametrów wartościami rzeczywistymi.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
-
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
-
-* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
-
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

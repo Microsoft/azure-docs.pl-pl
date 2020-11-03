@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07be83527fa781f87ed1de06fa41bd6d08ee9dc4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 74669036a40048ca21aae56856981197defe1c35
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426586"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286539"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrowanie usługi Key Vault z usługą Azure Private Link
 
@@ -67,7 +67,7 @@ Teraz będzie można zobaczyć skonfigurowany prywatny punkt końcowy. Masz tera
 
 Jeśli masz już Magazyn kluczy, możesz utworzyć połączenie prywatne, wykonując następujące czynności:
 
-1. Zaloguj się do Portalu Azure. 
+1. Zaloguj się w witrynie Azure Portal. 
 1. Na pasku wyszukiwania wpisz ciąg "magazyny kluczy".
 1. Z listy wybierz magazyn kluczy, do którego chcesz dodać prywatny punkt końcowy.
 1. Wybierz kartę "Sieć" w obszarze Ustawienia
@@ -243,14 +243,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Upewnij się, że masz zasób strefy Prywatna strefa DNS. 
     1. Musisz mieć Prywatna strefa DNS zasób strefy o dokładnej nazwie: privatelink.vaultcore.azure.net. 
-    2. Aby dowiedzieć się, jak skonfigurować to ustawienie, zobacz następujący link. [Strefy Prywatna strefa DNS](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    2. Aby dowiedzieć się, jak skonfigurować to ustawienie, zobacz następujący link. [Strefy Prywatna strefa DNS](../../dns/private-dns-privatednszone.md)
     
 * Sprawdź, czy prywatna strefa DNS nie jest połączona z siecią wirtualną. Może to być problem, jeśli nadal jest wyświetlany publiczny adres IP. 
     1. Jeśli usługa DNS strefy prywatnej nie jest połączona z siecią wirtualną, zapytanie DNS pochodzące z sieci wirtualnej zwróci publiczny adres IP magazynu kluczy. 
     2. Przejdź do zasobu strefy Prywatna strefa DNS w Azure Portal i kliknij opcję linki sieci wirtualnej. 
     4. Należy wymienić sieć wirtualną, która będzie wykonywać wywołania do magazynu kluczy. 
     5. Jeśli tak nie jest, Dodaj go. 
-    6. Aby uzyskać szczegółowe instrukcje, zobacz następujący link do dokumentu [Virtual Network prywatna strefa DNS Zone](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+    6. Aby uzyskać szczegółowe instrukcje, zobacz następujący link do dokumentu [Virtual Network prywatna strefa DNS Zone](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Upewnij się, że strefa Prywatna strefa DNS nie zawiera rekordu A dla magazynu kluczy. 
     1. Przejdź do strony strefy Prywatna strefa DNS. 
@@ -270,13 +270,13 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 > [!NOTE]
 > Liczba magazynów kluczy z włączonymi prywatnymi punktami końcowymi na subskrypcję jest przystosowanym limitem. Limit przedstawiony poniżej jest domyślnym limitem. Jeśli chcesz poprosić o zwiększenie limitu dla usługi, Wyślij wiadomość e-mail na adres akv-privatelink@microsoft.com . Te żądania będą zatwierdzane w przypadku poszczególnych przypadków.
 
-**Cennik**: Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
+**Cennik** : Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Ograniczenia**: prywatny punkt końcowy dla Azure Key Vault jest dostępny tylko w publicznych regionach platformy Azure.
+**Ograniczenia** : prywatny punkt końcowy dla Azure Key Vault jest dostępny tylko w publicznych regionach platformy Azure.
 
-**Maksymalna liczba prywatnych punktów końcowych na Key Vault**: 64.
+**Maksymalna liczba prywatnych punktów końcowych na Key Vault** : 64.
 
-**Domyślna liczba magazynów kluczy z prywatnymi punktami końcowymi na subskrypcję**: 400.
+**Domyślna liczba magazynów kluczy z prywatnymi punktami końcowymi na subskrypcję** : 400.
 
 Aby uzyskać więcej informacji, zobacz [usługa Azure Private Link Service: ograniczenia](../../private-link/private-link-service-overview.md#limitations)
 

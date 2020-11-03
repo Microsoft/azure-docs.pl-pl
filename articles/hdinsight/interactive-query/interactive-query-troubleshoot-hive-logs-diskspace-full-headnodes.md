@@ -7,12 +7,12 @@ author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 10/05/2020
-ms.openlocfilehash: 64bf5714f5eb99df9929a47fef414a827ec680af
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 107ec012bf2ff76ee1cbe4c5f8252566a5a16127
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145637"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288931"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Scenariusz: dzienniki Apache Hive zajmują miejsce na dysku w węzłach głównych w usłudze Azure HDInsight
 
@@ -23,7 +23,7 @@ W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania p
 W klastrze Apache Hive/LLAP niepożądane dzienniki zajmują całe miejsce na dysku w węzłach głównych. Ten stan może spowodować następujące problemy:
 
 - Dostęp SSH nie powiódł się, ponieważ w węźle głównym nie ma miejsca.
-- Ambari zgłasza *błąd http: usługa 503 jest niedostępna* .
+- Ambari zgłasza *błąd http: usługa 503 jest niedostępna*.
 - Nie można uruchomić ponownie programu serwera hiveserver2 Interactive.
 
 W `ambari-agent` przypadku wystąpienia problemu dzienniki będą zawierać następujące wpisy:
@@ -42,7 +42,7 @@ W zaawansowanych konfiguracjach programu Hive Log4J bieżący domyślny harmonog
 
 1. Przejdź do podsumowania składnika Hive w portalu Ambari i **Wybierz kartę konfiguracje** .
 
-2. Przejdź do `Advanced hive-log4j` sekcji w obszarze **Ustawienia zaawansowane** .
+2. Przejdź do `Advanced hive-log4j` sekcji w obszarze **Ustawienia zaawansowane**.
 
 3. Ustaw `appender.RFA.strategy.action.condition.age` parametr na wybrany wiek. Ten przykład ustawi okres ważności na 14 dni: `appender.RFA.strategy.action.condition.age = 14D`
 
@@ -71,10 +71,4 @@ W zaawansowanych konfiguracjach programu Hive Log4J bieżący domyślny harmonog
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
-
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
-
-* Połącz się za pomocą [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
-
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć żądanie pomocy technicznej platformy Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

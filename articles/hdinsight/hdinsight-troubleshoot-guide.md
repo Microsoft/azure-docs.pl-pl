@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
-ms.openlocfilehash: 343ddbb28be21d4352b4817937dc22442115003e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 5ffd688a60f793ffa497cd0d23ed88437e56a07c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628749"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289033"
 ---
 # <a name="troubleshoot-azure-hdinsight"></a>Rozwiązywanie problemów z usługą Azure HDInsight
 
@@ -32,14 +32,8 @@ ms.locfileid: "92628749"
 | Usługa HDInsight w systemie Linux i optymalizacja | - [Informacje dotyczące korzystania z usługi HDInsight w systemie Linux](hdinsight-hadoop-linux-information.md)<br>- [Rozwiązywanie problemów dotyczących pamięci i wydajności Apache Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Wydajność zapytań Apache Hive](https://web.archive.org/web/20190217214250/https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
 | Dzienniki i zrzuty | - [Dostęp do Apache Hadoop dzienników aplikacji PRZĘDZy w systemie Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Włącz Zrzuty sterty dla usług Apache Hadoop w systemie Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)|
 | błędy | - [Zrozumienie i rozwiązywanie błędów WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Apache Hive ustawień, aby naprawić błąd OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
-| Narzędzia | - [Optymalizowanie Apache Hive zapytań](hdinsight-hadoop-optimize-hive-query.md)<br>- [Narzędzie HDInsight IntelliJ](./spark/apache-spark-intellij-tool-plugin.md)<br>- [Narzędzie do przezaćmienia HDInsight](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [Narzędzie HDInsight programu vscode](hdinsight-for-vscode.md)<br>- [Narzędzie HDInsight Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
+| narzędzia | - [Optymalizowanie Apache Hive zapytań](hdinsight-hadoop-optimize-hive-query.md)<br>- [Narzędzie HDInsight IntelliJ](./spark/apache-spark-intellij-tool-plugin.md)<br>- [Narzędzie do przezaćmienia HDInsight](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [Narzędzie HDInsight programu vscode](hdinsight-for-vscode.md)<br>- [Narzędzie HDInsight Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
-
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
-
-* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
-
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

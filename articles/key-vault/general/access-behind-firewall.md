@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 1ab5ae7bf9f1d13458e3bbeeec564fe642eb3303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588732"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289174"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Uzyskiwanie dostępu do usługi Azure Key Vault za zaporą
 
@@ -43,7 +43,7 @@ W celu uwierzytelnienia aplikacja kliencka usługi Key Vault będzie musiała uz
 | Nazwa główna użytkownika lub jednostka usługi przy użyciu konta służbowego z usługą Azure AD (na przykład user@contoso.com) |**Globalne**<br> login.microsoftonline.com:443<br><br> **Chińska wersja platformy Azure:**<br> login.chinacloudapi.cn:443<br><br>**Administracja USA platformy Azure:**<br> login.microsoftonline.us:443<br><br>**Azure (Niemcy):**<br> login.microsoftonline.de:443 |
 | Nazwa główna użytkownika lub jednostka usługi przy użyciu konta służbowego i punkt końcowy usług Active Directory Federation Services (AD FS) lub inny federacyjny punkt końcowy (na przykład user@contoso.com) |Wszystkie punkty końcowe dla konta służbowego oraz punkty końcowe usług AD FS lub inne federacyjne punkty końcowe |
 
-Istnieją inne możliwe złożone scenariusze. Aby uzyskać dodatkowe informacje, zapoznaj się z artykułami [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-scenarios.md) (Przepływ uwierzytelniania w usłudze Azure Active Directory), [Integrating Applications with Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) (Integrowanie aplikacji za pomocą usługi Azure Active Directory) i [Protokoły uwierzytelniania usługi Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
+Istnieją inne możliwe złożone scenariusze. Aby uzyskać dodatkowe informacje, zapoznaj się z artykułami [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-vs-authorization.md) (Przepływ uwierzytelniania w usłudze Azure Active Directory), [Integrating Applications with Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) (Integrowanie aplikacji za pomocą usługi Azure Active Directory) i [Protokoły uwierzytelniania usługi Active Directory](/previous-versions/azure/dn151124(v=azure.100)).  
 
 ## <a name="key-vault-management"></a>Zarządzanie usługą Key Vault
 
@@ -56,7 +56,7 @@ Aby zarządzać usługą Key Vault (akcje CRUD i ustawianie zasad dostępu), apl
 
 ## <a name="key-vault-operations"></a>Operacje usługi Key Vault
 
-We wszystkich przypadkach operacji kryptograficznych na obiektach (kluczach i wpisach tajnych) oraz zarządzania tymi obiektami klient magazynu kluczy musi uzyskać dostęp do punktu końcowego magazynu kluczy. Sufiks DNS punktu końcowego różni się w zależności od lokalizacji magazynu kluczy. Format punktu końcowego magazynu kluczy wygląda następująco: *nazwa magazynu*.*specyficzny dla regionu sufiks systemu DNS* zgodnie z opisem w poniższej tabeli.  
+We wszystkich przypadkach operacji kryptograficznych na obiektach (kluczach i wpisach tajnych) oraz zarządzania tymi obiektami klient magazynu kluczy musi uzyskać dostęp do punktu końcowego magazynu kluczy. Sufiks DNS punktu końcowego różni się w zależności od lokalizacji magazynu kluczy. Format punktu końcowego magazynu kluczy wygląda następująco: *nazwa magazynu*. *specyficzny dla regionu sufiks systemu DNS* zgodnie z opisem w poniższej tabeli.  
 
 | Typ operacji | Punkt końcowy:port |
 | --- | --- |
@@ -74,4 +74,4 @@ Authentication and Identity (w ramach usługi Azure Active Directory) to usługa
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli masz pytania dotyczące Key Vault, odwiedź [stronę pytań&Microsoft pytań i odpowiedzi na Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).
+Jeśli masz pytania dotyczące Key Vault, odwiedź [stronę pytań&Microsoft pytań i odpowiedzi na Azure Key Vault](/answers/topics/azure-key-vault.html).

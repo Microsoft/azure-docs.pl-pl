@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: d9881fe91885a9a97b51da176be98a9ed6d007ba
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 3f192493dfd6bfc2fb3d5802b1dd94cd4ca3a9a9
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900775"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285229"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -22,7 +22,7 @@ Ta sekcja zawiera listę operacji dla dostawców zasobów platformy Azure, któr
 
 Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę operacji.
 
-## <a name="all"></a>Wszystko
+## <a name="all"></a>Wszystkie
 
 | Ogólne |
 | --- |
@@ -121,7 +121,7 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft. wspólny](#microsoftdevtestlab) |
 | [Microsoft. LabServices](#microsoftlabservices) |
 | [Microsoft. VisualStudio](#microsoftvisualstudio) |
-| **Migrate (Migracja)** |
+| **Migrate** |
 | [Microsoft. Migrowanie](#microsoftmigrate) |
 | [Microsoft. OffAzure](#microsoftoffazure) |
 | **Monitorowanie** |
@@ -271,7 +271,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Support/supportTickets/Communications/Read | Wyświetla jedną lub całą komunikację biletów pomocy technicznej |
 > | Microsoft. Support/supportTickets/Communications/Write | Dodaje nową komunikację do biletu pomocy technicznej |
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Compute
 
 ### <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -629,7 +629,7 @@ Usługa platformy Azure: [Service Fabric](../service-fabric/index.yml)
 > | Microsoft. servicefabric/Locations/Operations/Read | Odczytaj wszystkie operacje według lokalizacji |
 > | Microsoft. servicefabric/Operations/Read | Odczytaj wszystkie dostępne operacje |
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 ### <a name="microsoftcdn"></a>Microsoft. CDN
 
@@ -843,7 +843,6 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/odczyt | Pobiera NetworkRuleCollection zapory platformy Azure |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Write | CreatesOrUpdates NetworkRuleCollection zapory platformy Azure |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Delete | Usuwa NetworkRuleCollection zapory platformy Azure |
-> | Microsoft. Network/azureWebCategories/odczyt | Pobiera kategorie usługi Azure webcategories |
 > | Microsoft. Network/bastionHosts/odczyt | Pobiera hosta bastionu |
 > | Microsoft. Network/bastionHosts/Write | Tworzenie lub aktualizowanie hosta bastionu |
 > | Microsoft. Network/bastionHosts/Delete | Usuwa hosta bastionu |
@@ -1243,8 +1242,6 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/virtualHubs/bgpConnections/odczyt | Pobiera zasób podrzędny z koncentratorem BGP dla koncentratora wirtualnego |
 > | Microsoft. Network/virtualHubs/bgpConnections/Write | Tworzy lub aktualizuje zasób podrzędny połączenia usługi BGP Hub koncentratora wirtualnego |
 > | Microsoft. Network/virtualHubs/bgpConnections/Delete | Usuwa zasób podrzędny połączenia z koncentratorem BGP koncentratora wirtualnego |
-> | Microsoft. Network/virtualHubs/bgpConnections/advertisedRoutes/Action | Pobiera trasy anonsowane przez virtualrouter |
-> | Microsoft. Network/virtualHubs/bgpConnections/learnedRoutes/Action | Pobiera virtualrouterne trasy |
 > | Microsoft. Network/virtualHubs/hubRouteTables/odczyt | Pobiera zasób podrzędny tabeli tras koncentratora wirtualnego |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Write | Tworzy lub aktualizuje zasób podrzędny tabeli tras koncentratora wirtualnego |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Delete | Usuwa zasób podrzędny tabeli tras koncentratora wirtualnego |
@@ -1332,9 +1329,6 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/vpngateways/startpacketcapture/akcja | Uruchom przechwytywanie pakietów bramy sieci VPN z uwzględnieniem zasobu |
 > | Microsoft. Network/vpngateways/stoppacketcapture/akcja | Zatrzymaj przechwytywanie pakietów bramy sieci VPN za pomocą adresie sasurl |
 > | Microsoft. Network/vpngateways/listvpnconnectionshealth/akcja | Pobiera kondycję połączenia dla wszystkich lub podzbioru połączeń na bramy vpngateway |
-> | Microsoft. Network/vpnGateways/natRules/odczyt | Pobiera zasób reguły NAT |
-> | Microsoft. Network/vpnGateways/natRules/Write | Umieszcza zasób reguły NAT |
-> | Microsoft. Network/vpnGateways/natRules/Delete | Usuwa zasób reguły NAT |
 > | Microsoft. Network/vpnGateways/vpnConnections/odczyt | Pobiera VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Write | VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Delete | Usuwa element VpnConnection. |
@@ -1522,6 +1516,7 @@ Usługa platformy Azure: [Magazyn](../storage/index.yml)
 > | Microsoft. Storage/lokalizacje/użycia/odczyt | Zwraca limit i bieżącą liczbę użycia dla zasobów w określonej subskrypcji |
 > | Microsoft. Storage/Operations/Read | Sonduje stan operacji asynchronicznej. |
 > | Microsoft. Storage/SKU/odczyt | Wyświetla listę jednostek SKU obsługiwanych przez firmę Microsoft. Storage. |
+> | Microsoft. Storage/storageAccounts/updateInternalProperties/akcja |  |
 > | Microsoft. Storage/storageAccounts/hnsonmigration/akcja | Klient może przerwać trwającą migrację SNS na koncie magazynu |
 > | Microsoft. Storage/storageAccounts/hnsonmigration/akcja | Klient może przeprowadzić migrację do typu konta SNS |
 > | Microsoft. Storage/storageAccounts/restoreBlobRanges/akcja | Przywróć zakresy obiektów BLOB do stanu określonego czasu |
@@ -1572,6 +1567,7 @@ Usługa platformy Azure: [Magazyn](../storage/index.yml)
 > | Microsoft. Storage/storageAccounts/fileServices/udziały/odczyt | Wyświetl listę udziałów plików |
 > | Microsoft. Storage/storageAccounts/fileServices/udziały/zapis | Utwórz lub zaktualizuj udział plików |
 > | Microsoft. Storage/storageAccounts/inventoryPolicies/Delete |  |
+> | Microsoft. Storage/storageAccounts/inventoryPolicies/odczyt |  |
 > | Microsoft. Storage/storageAccounts/inventoryPolicies/odczyt |  |
 > | Microsoft. Storage/storageAccounts/inventoryPolicies/Write |  |
 > | Microsoft. Storage/storageAccounts/localUsers/Delete | Usuń użytkownika lokalnego |
@@ -1870,7 +1866,7 @@ Usługa platformy Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft. StorSimple/menedżerowie/storageDomains/operationResults/Read | Wyświetla lub pobiera wyniki operacji |
 > | Microsoft. StorSimple/Operations/Read | Wyświetla lub pobiera operacje |
 
-## <a name="web"></a>Sieć Web
+## <a name="web"></a>sieć Web
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
@@ -2128,18 +2124,19 @@ Usługa platformy Azure: [usługa Azure sygnalizująca](../azure-signalr/index.y
 > | Microsoft. SignalRService/Signaler/privateEndpointConnections/odczyt | Odczytaj połączenie prywatnego punktu końcowego |
 > | Microsoft. SignalRService/Signaler/privateLinkResources/odczyt | Wyświetl listę wszystkich prywatnych zasobów linku sygnalizującego |
 > | **Akcja dataaction** | **Opis** |
-> | Microsoft. SignalRService/Signaler/serverConnection/Action | Rozpocznij połączenie z serwerem. |
-> | Microsoft. SignalRService/Signaler/clientConnection/Action | Dodawanie/usuwanie połączeń klientów z grup lub zamykanie połączenia z klientem. |
-> | Microsoft. SignalRService/sygnalizujący/użytkownik/akcja | Dodawanie/usuwanie użytkowników z grup. |
-> | Microsoft. SignalRService/Signaler/clientConnection/odczyt | Sprawdź istnienie połączenia. |
-> | Microsoft. SignalRService/Signaler/clientConnection/Write | Wysyłaj komunikaty bezpośrednio do połączenia klienta. |
-> | Microsoft. SignalRService/sygnalizujący/Group/Read | Sprawdź istnienie grupy. |
-> | Microsoft. SignalRService/sygnalizujący/Group/Write | Rozgłaszanie komunikatów do połączeń klienckich w grupie/niektórych grupach. |
-> | Microsoft. SignalRService/sygnalizujący/Hub/zapis | Emituj komunikaty do wszystkich połączeń klienta podłączonych do tego centrum. |
-> | Microsoft. SignalRService/sygnalizujący/Service/accessKey/Action | Pobierz tymczasowy AccessKey do podpisywania ClientTokens. |
-> | Microsoft. SignalRService/sygnalizujący/Service/clientToken/Action | Pobierz ClientToken do uruchomienia połączenia z klientem. |
-> | Microsoft. SignalRService/sygnalizujący/użytkownik/odczyt | Sprawdź, czy istnieje użytkownik i czy znajdował się w grupie. |
-> | Microsoft. SignalRService/sygnalizujący/użytkownik/zapis | Wysyłaj komunikaty do użytkownika, który może mieć wiele połączeń klienta. |
+> | Microsoft. SignalRService/Signaler/auth/accessKey/Action | Generuj tymczasowy AccessKey do podpisywania ClientTokens. |
+> | Microsoft. SignalRService/Signaler/auth/clientToken/Action | Generowanie ClientToken do uruchamiania połączenia z klientem. |
+> | Microsoft. SignalRService/Signaler/clientConnection/Send/Action | Wysyłaj komunikaty bezpośrednio do połączenia klienta. |
+> | Microsoft. SignalRService/Signaler/clientConnection/odczyt | Sprawdź istnienie połączenia z klientem. |
+> | Microsoft. SignalRService/Signaler/clientConnection/Write | Zamknij połączenie z klientem. |
+> | Microsoft. SignalRService/sygnalizujący/Group/Send/Action | Emituj komunikat do grupy. |
+> | Microsoft. SignalRService/sygnalizujący/Group/Read | Sprawdź, czy istnieje grupa lub czy użytkownik istnieje w grupie. |
+> | Microsoft. SignalRService/sygnalizujący/Group/Write | Dołącz/Opuść grupę. |
+> | Microsoft. SignalRService/sygnalizujący/Hub/Send/Action | Emituj komunikaty do wszystkich połączeń klientów w centrum. |
+> | Microsoft. SignalRService/Signaler/serverConnection/Write | Rozpocznij połączenie z serwerem. |
+> | Microsoft. SignalRService/sygnalizujący/User/Send/Action | Wysyłanie komunikatów do użytkownika, którzy mogą składać się z wielu połączeń klienta. |
+> | Microsoft. SignalRService/sygnalizujący/użytkownik/odczyt | Sprawdź istnienie użytkownika. |
+> | Microsoft. SignalRService/sygnalizujący/użytkownik/zapis |  |
 
 ### <a name="microsoftweb"></a>Microsoft. Web
 
@@ -2628,7 +2625,7 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/staticSites/customdomains/Validate/akcja | Weryfikowanie domeny niestandardowej można dodać do lokacji statycznej |
 > | Microsoft. Web/staticSites/Functions/Read | Wyświetlanie listy funkcji dla lokacji statycznej |
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Kontenery
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -3256,6 +3253,11 @@ Usługa platformy Azure: [Data Factory](../data-factory/index.yml)
 > | Microsoft. DataFactory/Factors/linkedServices/Read | Odczytuje połączoną usługę. |
 > | Microsoft. DataFactory/Factors/linkedServices/Delete | Usuwa połączoną usługę. |
 > | Microsoft. DataFactory/Factors/linkedServices/Write | Utwórz lub zaktualizuj połączoną usługę |
+> | Microsoft. DataFactory/Factors/managedVirtualNetworks/Read | Odczytaj Virtual Network zarządzane. |
+> | Microsoft. DataFactory/Factors/managedVirtualNetworks/Write | Utwórz lub zaktualizuj zarządzane Virtual Network. |
+> | Microsoft. DataFactory/Factors/managedVirtualNetworks/managedPrivateEndpoints/Read | Odczytaj zarządzany prywatny punkt końcowy. |
+> | Microsoft. DataFactory/Factors/managedVirtualNetworks/managedPrivateEndpoints/Write | Utwórz lub zaktualizuj zarządzany prywatny punkt końcowy. |
+> | Microsoft. DataFactory/Factors/managedVirtualNetworks/managedPrivateEndpoints/Delete | Usuń zarządzany prywatny punkt końcowy. |
 > | Microsoft. DataFactory/Factors/operationResults/Read | Pobiera wyniki operacji. |
 > | Microsoft. DataFactory/Factors/pipelineruns/Read | Odczytuje uruchomienia potoku. |
 > | Microsoft. DataFactory/Factors/pipelineruns/Cancel/Action | Anuluje uruchomienie potoku określone przez identyfikator uruchomienia. |
@@ -3862,6 +3864,8 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/instancePools/Delete | Usuwa pulę wystąpień |
 > | Microsoft. SQL/instancePools/Usages/Read | Pobiera informacje o użyciu puli wystąpień |
 > | Microsoft. SQL/lokalizacje/odczyt | Pobiera dostępne lokalizacje dla danej subskrypcji |
+> | Microsoft. SQL/Locations/administratorAzureAsyncOperation/Read | Pobiera wynik operacji dla administratorów asynchronicznych platformy Azure. |
+> | Microsoft. SQL/Locations/administratorOperationResults/Read | Pobiera wynik operacji administratora wystąpienia zarządzanego. |
 > | Microsoft. SQL/Locations/auditingSettingsAzureAsyncOperation/Read | Pobierz wynik operacji ustawiania zasad inspekcji rozszerzonego obiektu BLOB serwera |
 > | Microsoft. SQL/Locations/auditingSettingsOperationResults/Read | Pobierz wynik operacji ustawiania zasad inspekcji obiektu BLOB serwera |
 > | Microsoft. SQL/lokalizacje/możliwości/odczyt | Pobiera możliwości dla tej subskrypcji w danej lokalizacji |
@@ -3883,6 +3887,8 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/Locations/extendedAuditingSettingsOperationResults/Read | Pobierz wynik operacji ustawiania zasad inspekcji rozszerzonego obiektu BLOB serwera |
 > | Microsoft. SQL/Locations/firewallRulesAzureAsyncOperation/Read | Pobiera stan operacji reguły zapory. |
 > | Microsoft. SQL/Locations/firewallRulesOperationResults/Read | Pobiera stan operacji reguły zapory. |
+> | Microsoft. SQL/Locations/hybridLinkAzureAsyncOperation/Read | Pobiera stan operacji asynchronicznej w ramach długotrwałego linku hybrydowego w wystąpieniu zarządzanym usługi Azure SQL. |
+> | Microsoft. SQL/Locations/hybridLinkOperationResults/Read | Pobiera stan operacji asynchronicznej dla długotrwałego linku hybrydowego. |
 > | Microsoft. SQL/Locations/instanceFailoverGroups/Read | Zwraca listę grup trybu failover wystąpienia lub pobiera właściwości dla określonego wystąpienia grupy trybu failover. |
 > | Microsoft. SQL/Locations/instanceFailoverGroups/Write | Tworzy grupę trybu failover wystąpienia z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonej grupy trybu failover. |
 > | Microsoft. SQL/Locations/instanceFailoverGroups/Delete | Usuwa istniejącą grupę trybu failover wystąpienia. |
@@ -3998,6 +4004,9 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/managedInstances/encryptionProtector/revalidate/akcja | Zaktualizuj właściwości określonej ochrony szyfrowania serwera. |
 > | Microsoft. SQL/managedInstances/encryptionProtector/odczyt | Zwraca listę funkcji ochrony szyfrowania serwera lub pobiera właściwości dla określonej ochrony szyfrowania serwera. |
 > | Microsoft. SQL/managedInstances/encryptionProtector/Write | Zaktualizuj właściwości określonej ochrony szyfrowania serwera. |
+> | Microsoft. SQL/managedInstances/hybridLink/odczyt | Zwróć listę linków hybrydowych lub pobiera właściwości dla określonej grupy dostępności rozproszonej. |
+> | Microsoft. SQL/managedInstances/hybridLink/Write | Tworzy lub aktualizuje link hybrydowy z określonymi parametrami. |
+> | Microsoft. SQL/managedInstances/hybridLink/Delete | Usuwa link hybrydowy z określoną grupą dostępności rozproszonej. |
 > | Microsoft. SQL/managedInstances/inaccessibleManagedDatabases/odczyt | Pobiera listę niedostępnych zarządzanych baz danych w wystąpieniu zarządzanym |
 > | Microsoft. SQL/managedInstances/klucze/odczyt | Zwróć listę kluczy wystąpienia zarządzanego lub pobiera właściwości dla określonego klucza wystąpienia zarządzanego. |
 > | Microsoft. SQL/managedInstances/klucze/zapis | Tworzy klucz z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego klucza wystąpienia zarządzanego. |
@@ -6541,6 +6550,9 @@ Usługa platformy Azure: [Key Vault](../key-vault/index.yml)
 > | Microsoft./magazyny/magazynu/eventGridFilters/odczyt | Powiadamia Microsoft. EventGrid, że jest wyświetlana subskrypcja usługi dla Key Vault |
 > | Microsoft./magazyny kluczy/magazynu/eventGridFilters/zapis | Powiadamia Microsoft. kluczy, że jest tworzona nowa subskrypcja EventGrid dla Key Vault |
 > | Microsoft./magazyny/magazynu/eventGridFilters/usuwanie | Powiadamia Microsoft. EventGrid, że jest usuwana subskrypcja usługi dla Key Vault |
+> | Microsoft./magazyny/magazynu/klucze/odczyt | Wyświetl listę kluczy w określonym magazynie lub Odczytaj bieżącą wersję określonego klucza. |
+> | Microsoft./magazyny/magazynu/klucze/zapis | Utwórz nowy klucz lub zaktualizuj istniejący klucz. |
+> | Microsoft./magazyny/magazynu/klucze/wersje/odczyt | Wyświetl listę wersji określonego klucza lub Odczytaj określoną wersję klucza. |
 > | Microsoft./magazyny/magazynu/wpisy tajne/odczyty | Wyświetl właściwości wpisu tajnego, ale nie jego wartość. |
 > | Microsoft./magazyny/magazynu/wpisy tajne/zapis | Utwórz nowy wpis tajny lub zaktualizuj wartość istniejącego klucza tajnego. |
 > | **Akcja dataaction** | **Opis** |
@@ -6964,7 +6976,7 @@ Usługa platformy Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/
 > | Microsoft. VisualStudio/Project/Delete | Usuń projekt |
 > | Microsoft. VisualStudio/Project/Read | Odczytaj projekt |
 
-## <a name="migrate"></a>Migrate (Migracja)
+## <a name="migrate"></a>Migrate
 
 ### <a name="microsoftmigrate"></a>Microsoft. Migrowanie
 
@@ -8283,6 +8295,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/SqlDataClassification/Read | Odczytaj dane z tabeli SqlDataClassification |
 > | Microsoft. OperationalInsights/Workspaces/Query/SQLQueryPerformance/Read | Odczytaj dane z tabeli SQLQueryPerformance |
 > | Microsoft. OperationalInsights/Workspaces/Query/SqlVulnerabilityAssessmentResult/Read | Odczytaj dane z tabeli SqlVulnerabilityAssessmentResult |
+> | Microsoft. OperationalInsights/Workspaces/Query/SqlVulnerabilityAssessmentScanStatus/Read | Odczytaj dane z tabeli SqlVulnerabilityAssessmentScanStatus |
 > | Microsoft. OperationalInsights/Workspaces/Query/StorageBlobLogs/Read | Odczytaj dane z tabeli StorageBlobLogs |
 > | Microsoft. OperationalInsights/Workspaces/Query/StorageFileLogs/Read | Odczytaj dane z tabeli StorageFileLogs |
 > | Microsoft. OperationalInsights/Workspaces/Query/StorageQueueLogs/Read | Odczytaj dane z tabeli StorageQueueLogs |

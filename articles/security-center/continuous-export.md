@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: cd4f2198721e0d92abe22b1b6d95dceda2dc874d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789186"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289238"
 ---
 # <a name="continuously-export-security-center-data"></a>Ciągłe eksportowanie danych Security Center
 
@@ -41,7 +41,7 @@ W tym artykule opisano sposób konfigurowania eksportu ciągłego do Log Analyti
 |Stan wydania:|Ogólnie dostępna (GA)|
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|<ul><li>**Administrator zabezpieczeń** lub **właściciel** w grupie zasobów</li><li>Uprawnienia do zapisu dla zasobu docelowego</li><li>Jeśli używasz zasad "DeployIfNotExist" Azure Policy "opisanych poniżej, będziesz mieć również uprawnienia do przypisywania zasad</li></ul>|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Tak](./media/icons/yes-icon.png) Chiny gov (do centrum zdarzeń), inne gov|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov, inne gov<br>![Tak](./media/icons/yes-icon.png) Chiny gov (do centrum zdarzeń)|
 |||
 
 
@@ -58,9 +58,9 @@ Można skonfigurować eksport ciągły ze stron Security Center w Azure Portal, 
 
 Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły eksport do Log Analytics obszaru roboczego czy Event Hubs platformy Azure.
 
-1. Na pasku bocznym Security Center wybierz pozycję **cennik & ustawienia** .
+1. Na pasku bocznym Security Center wybierz pozycję **cennik & ustawienia**.
 1. Wybierz określoną subskrypcję, dla której chcesz skonfigurować eksportowanie danych.
-1. Na pasku bocznym strony Ustawienia dla tej subskrypcji wybierz pozycję **eksport ciągły** .
+1. Na pasku bocznym strony Ustawienia dla tej subskrypcji wybierz pozycję **eksport ciągły**.
     [ ![ Opcje eksportowania w Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) tym miejscu są wyświetlane opcje eksportowania. Dla każdego dostępnego elementu docelowego eksportu istnieje karta. 
 1. Wybierz typ danych, który chcesz wyeksportować, i wybierz spośród filtrów dla każdego typu (na przykład wyeksportuj tylko alerty o wysokiej ważności).
 1. Opcjonalnie, jeśli wybór obejmuje jedno z czterech zaleceń, można dołączyć do nich wyniki oceny luk w zabezpieczeniach:
@@ -71,12 +71,12 @@ Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły
 
     Aby uwzględnić ustalenia z tymi zaleceniami, Włącz opcję **Uwzględnij wnioski dotyczące zabezpieczeń** .
 
-    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń&quot; :::
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń" :::
 
-1. W obszarze &quot;Eksportuj element docelowy" Wybierz miejsce, w którym chcesz zapisać dane. Dane można zapisywać w miejscu docelowym w innej subskrypcji (na przykład w centralnym wystąpieniu centrum zdarzeń lub w centralnym obszarze roboczym Log Analytics).
-1. Wybierz pozycję **Zapisz** .
+1. W obszarze "Eksportuj element docelowy" Wybierz miejsce, w którym chcesz zapisać dane. Dane można zapisywać w miejscu docelowym w innej subskrypcji (na przykład w centralnym wystąpieniu centrum zdarzeń lub w centralnym obszarze roboczym Log Analytics).
+1. Wybierz pozycję **Zapisz**.
 
-### <a name="use-the-rest-api"></a>[**Korzystanie z interfejsu API REST**](#tab/rest-api)
+### <a name="use-the-rest-api"></a>[**Używanie interfejsu API REST**](#tab/rest-api)
 
 ### <a name="configure-continuous-export-using-the-rest-api"></a>Konfigurowanie eksportu ciągłego przy użyciu interfejsu API REST
 
@@ -124,15 +124,11 @@ Aby wdrożyć konfiguracje eksportu ciągłego w całej organizacji, należy uż
     > [!TIP]
     > Można je również znaleźć, wyszukując Azure Policy:
     > 1. Otwórz Azure Policy.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń&quot; :::
-
-1. W obszarze &quot;Eksportuj element docelowy":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Uzyskiwanie dostępu Azure Policy":::
     > 2. Z menu Azure Policy wybierz pozycję **definicje** i wyszukaj je według nazwy. 
 
-1. Na odpowiedniej stronie Azure Policy wybierz pozycję **Przypisz** .
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń&quot; :::
-
-1. W obszarze &quot;Eksportuj element docelowy":::
+1. Na odpowiedniej stronie Azure Policy wybierz pozycję **Przypisz**.
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Przypisywanie Azure Policy":::
 
 1. Otwórz każdą kartę i ustaw parametry zgodnie z potrzebami:
     1. Na karcie **podstawy** Ustaw zakres dla zasad. Aby użyć scentralizowanego zarządzania, przypisz zasady do grupy zarządzania zawierającej subskrypcje, które będą używać konfiguracji eksportu ciągłego. 
@@ -141,11 +137,9 @@ Aby wdrożyć konfiguracje eksportu ciągłego w całej organizacji, należy uż
         > Każdy parametr zawiera etykietkę narzędzia opisującą dostępne opcje.
         >
         > Karta parametry Azure Policy (1) zapewnia dostęp do podobnych opcji konfiguracji jako strony eksportu ciągłego Security Center (2).
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń&quot; :::
-
-1. W obszarze &quot;Eksportuj element docelowy" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Porównywanie parametrów eksportu ciągłego z Azure Policy" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. Opcjonalnie, aby zastosować to przypisanie do istniejących subskrypcji, Otwórz kartę **korygowanie** i wybierz opcję utworzenia zadania korygowania.
-1. Przejrzyj stronę Podsumowanie i wybierz pozycję **Utwórz** .
+1. Przejrzyj stronę Podsumowanie i wybierz pozycję **Utwórz**.
 
 --- 
 
@@ -160,7 +154,7 @@ Alerty zabezpieczeń i zalecenia są przechowywane odpowiednio w tabelach *Secur
 Nazwa rozwiązania Log Analytics zawierającego te tabele zależy od tego, czy usługa Azure Defender jest włączona: zabezpieczenia ("Security and Audit") czy SecurityCenterFree. 
 
 > [!TIP]
-> Aby wyświetlić dane w docelowym obszarze roboczym, należy włączyć jedno z tych rozwiązań **Security and Audit** lub **SecurityCenterFree** .
+> Aby wyświetlić dane w docelowym obszarze roboczym, należy włączyć jedno z tych rozwiązań **Security and Audit** lub **SecurityCenterFree**.
 
 ![Tabela * SecurityAlert * w Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 
@@ -175,7 +169,7 @@ Azure Monitor zapewnia ujednolicone środowisko alertów dla różnych alertów 
 
 Aby wyświetlić alerty i zalecenia z Security Center w Azure Monitor, skonfiguruj regułę alertu na podstawie zapytań Log Analytics (alert dziennika):
 
-1. Na stronie **alerty** Azure Monitor wybierz pozycję **Nowa reguła alertu** .
+1. Na stronie **alerty** Azure Monitor wybierz pozycję **Nowa reguła alertu**.
 
     ![Strona alertów Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
@@ -183,7 +177,7 @@ Aby wyświetlić alerty i zalecenia z Security Center w Azure Monitor, skonfigur
 
     * W obszarze **zasób** wybierz obszar roboczy log Analytics, do którego wyeksportowano alerty zabezpieczeń i zalecenia.
 
-    * W obszarze **warunek** wybierz opcję **Wyszukiwanie w dzienniku niestandardowym** . Na wyświetlonej stronie Skonfiguruj zapytanie, okres lookback i okres częstotliwości. W zapytaniu wyszukiwania można wpisać *SecurityAlert* lub *SecurityRecommendation* , aby wykonać zapytanie dotyczące typów danych, które Security Center ciągle eksportować w miarę włączania eksportu ciągłego do log Analytics funkcji. 
+    * W obszarze **warunek** wybierz opcję **Wyszukiwanie w dzienniku niestandardowym**. Na wyświetlonej stronie Skonfiguruj zapytanie, okres lookback i okres częstotliwości. W zapytaniu wyszukiwania można wpisać *SecurityAlert* lub *SecurityRecommendation* , aby wykonać zapytanie dotyczące typów danych, które Security Center ciągle eksportować w miarę włączania eksportu ciągłego do log Analytics funkcji. 
     
     * Opcjonalnie Skonfiguruj [grupę akcji](../azure-monitor/platform/action-groups.md) , którą chcesz wyzwolić. Grupy akcji mogą wyzwalać wysyłanie wiadomości e-mail, bilety narzędzia ITSM, elementy webhook i inne elementy.
     ![Reguła alertu Azure Monitor](./media/continuous-export/azure-monitor-alert-rule.png)

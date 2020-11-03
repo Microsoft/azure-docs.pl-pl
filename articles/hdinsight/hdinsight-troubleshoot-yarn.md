@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 84224172dbfd63fee51b3a7b80f5990b04e5e228
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535029"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288976"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z platformą YARN usługi Apache Hadoop za pomocą usługi Azure HDInsight
 
@@ -32,7 +32,7 @@ W tym przykładzie dwie istniejące kolejki ( **domyślne** i **thriftsvr** ) s�
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
-1. Wybierz ikonę **widoki Ambari** , a następnie wybierz wzorzec siatki. Następnie wybierz pozycję **Menedżer kolejki przędzy** .
+1. Wybierz ikonę **widoki Ambari** , a następnie wybierz wzorzec siatki. Następnie wybierz pozycję **Menedżer kolejki przędzy**.
 
     ![Menedżer kolejki PRZĘDZy Ambari pulpitu nawigacyjnego Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Wybierz kolejkę **domyślną** .
@@ -41,7 +41,7 @@ W tym przykładzie dwie istniejące kolejki ( **domyślne** i **thriftsvr** ) s�
 3. Dla kolejki **domyślnej** Zmień **pojemność** z 50% na 25%. W przypadku kolejki **thriftsvr** Zmień **pojemność** na 25%.
 
     ![Zmień pojemność na 25% dla kolejek domyślnych i thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
-4. Aby utworzyć nową kolejkę, wybierz pozycję **Dodaj kolejkę** .
+4. Aby utworzyć nową kolejkę, wybierz pozycję **Dodaj kolejkę**.
 
     ![Kolejka dodawania pulpitu nawigacyjnego PRZĘDZy Ambari Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
@@ -52,7 +52,7 @@ W tym przykładzie dwie istniejące kolejki ( **domyślne** i **thriftsvr** ) s�
 6. Pozostaw wartości **wydajności** o 50%, a następnie wybierz przycisk **Akcje** .
 
     ![Akcja wybierania nici Ambari Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
-7. Wybierz pozycję **Zapisz i Odśwież kolejki** .
+7. Wybierz pozycję **Zapisz i Odśwież kolejki**.
 
     ![Wybierz kolejno pozycje Zapisz i Odśwież kolejki](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
@@ -136,10 +136,4 @@ Te zmiany są natychmiast widoczne w interfejsie użytkownika harmonogramu PRZĘ
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
-
-- Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
-
-- Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
-
-- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

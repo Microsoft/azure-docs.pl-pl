@@ -10,18 +10,18 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: cea061c1fd36bed9fa1e43c874fbca347707f78d
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925871"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289603"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Tworzenie i scalanie CSR w Key Vault
 
 Azure Key Vault obsługuje przechowywanie certyfikatu cyfrowego wystawionego przez dowolny wybrany urząd certyfikacji w magazynie kluczy. Obsługuje ona tworzenie żądania podpisania certyfikatu za pomocą pary kluczy prywatnych-publicznych, która może być podpisana przez wybrany urząd certyfikacji. Może to być wewnętrzny urząd certyfikacji przedsiębiorstwa lub zewnętrzny publiczny urząd certyfikacji. Żądanie podpisania certyfikatu (również CSR lub żądanie certyfikacji) to komunikat wysyłany przez użytkownika do urzędu certyfikacji w celu żądania wystawienia certyfikatu cyfrowego.
 
-Aby uzyskać więcej ogólnych informacji o certyfikatach, zobacz [Azure Key Vault Certificates](/azure/key-vault/certificates/about-certificates).
+Aby uzyskać więcej ogólnych informacji o certyfikatach, zobacz [Azure Key Vault Certificates](./about-certificates.md).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -34,7 +34,7 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
 
 
 
-1.  Najpierw **Utwórz zasady dotyczące certyfikatów** . Key Vault nie zarejestruje ani nie odnowi certyfikatu z wystawcy w imieniu użytkownika, ponieważ urząd certyfikacji wybrany w tym scenariuszu nie jest obsługiwany, w związku z czym wystawca jest ustawiony na nieznany.
+1.  Najpierw **Utwórz zasady dotyczące certyfikatów**. Key Vault nie zarejestruje ani nie odnowi certyfikatu z wystawcy w imieniu użytkownika, ponieważ urząd certyfikacji wybrany w tym scenariuszu nie jest obsługiwany, w związku z czym wystawca jest ustawiony na nieznany.
 
     ```azurepowershell
     $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
@@ -62,18 +62,18 @@ Poniższe kroki ułatwią utworzenie certyfikatu z urzędów certyfikacji, któr
 ### <a name="azure-portal"></a>Azure Portal
 
 1.  Aby wygenerować CSR dla wybranego urzędu certyfikacji, przejdź do magazynu kluczy, do którego chcesz dodać certyfikat.
-2.  Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty** .
+2.  Na stronie właściwości Key Vault wybierz pozycję **Certyfikaty**.
 3.  Wybierz kartę **generowanie/Importowanie** .
 4.  Na ekranie **Tworzenie certyfikatu** wybierz następujące wartości:
     - **Metoda tworzenia certyfikatu:** Utworzenie.
     - **Nazwa certyfikatu:** ContosoManualCSRCertificate.
     - **Typ urzędu certyfikacji:** Certyfikat wystawiony przez niezintegrowany urząd certyfikacji
     - **Temat:**`"CN=www.contosoHRApp.com"`
-    - Wybierz inne wartości zgodnie z potrzebami. Kliknij pozycję **Utwórz** .
+    - Wybierz inne wartości zgodnie z potrzebami. Kliknij pozycję **Utwórz**.
 
     ![Właściwości certyfikatu](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.  Zobaczysz, że certyfikat został teraz dodany na liście certyfikatów. Wybierz ten nowy certyfikat, który został właśnie utworzony. Bieżący stan certyfikatu to "wyłączone", ponieważ nie został jeszcze wystawiony przez urząd certyfikacji.
-7. Kliknij kartę **operacja certyfikatu** i wybierz pozycję **Pobierz CSR** .
+7. Kliknij kartę **operacja certyfikatu** i wybierz pozycję **Pobierz CSR**.
  ![Zrzut ekranu, który podświetla przycisk Pobierz CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 8.  Przyjmij plik CSR do urzędu certyfikacji, aby żądanie zostało podpisane.

@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce96eb5e91ccc4cb9f69711f9e6fd8fd59ce65bc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669939"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286217"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
 
@@ -33,7 +33,7 @@ Ten artykuł koncentruje się na ograniczeniach dzierżawy dla Microsoft 365, al
 
 Ogólne rozwiązanie składa się z następujących składników:
 
-1. **Azure AD** : Jeśli `Restrict-Access-To-Tenants: <permitted tenant list>` istnieje, usługa Azure AD wystawia tokeny zabezpieczające tylko dla dozwolonych dzierżawców.
+1. **Azure AD** : Jeśli `Restrict-Access-To-Tenants: <permitted tenant list>` nagłówek jest obecny, usługa Azure AD wystawia tokeny zabezpieczające tylko dla dozwolonych dzierżawców.
 
 2. **Infrastruktura lokalnego serwera proxy** : ta infrastruktura jest urządzeniem serwera proxy z możliwością inspekcji Transport Layer Security (TLS). Musisz skonfigurować serwer proxy, aby wstawić nagłówek zawierający listę dozwolonych dzierżawców do ruchu przeznaczonego dla usługi Azure AD.
 
@@ -63,11 +63,11 @@ Aby włączyć ograniczenia dzierżawy za pomocą infrastruktury serwera proxy, 
 
 - Klienci muszą ufać łańcuchowi certyfikatów przedstawionym przez serwer proxy do komunikacji TLS. Na przykład jeśli używane są certyfikaty z wewnętrznej [infrastruktury kluczy publicznych (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) , certyfikat wewnętrznego wystawiania certyfikatu głównego urzędu certyfikacji musi być zaufany.
 
-- Ta funkcja jest uwzględniona w subskrypcjach Microsoft 365, ale jeśli chcesz użyć ograniczeń dzierżawy do kontrolowania dostępu do innych aplikacji SaaS, wówczas Azure AD — wersja Premium 1 licencje są wymagane.
+- Azure AD — wersja Premium 1 licencje są wymagane do użycia ograniczeń dzierżawy. 
 
 #### <a name="configuration"></a>Konfiguracja
 
-Dla każdego żądania przychodzącego do login.microsoftonline.com, login.microsoft.com i login.windows.net, Wstaw dwa nagłówki HTTP: *ograniczanie dostępu do dzierżawców* i *ograniczanie dostępu do kontekstu* .
+Dla każdego żądania przychodzącego do login.microsoftonline.com, login.microsoft.com i login.windows.net, Wstaw dwa nagłówki HTTP: *ograniczanie dostępu do dzierżawców* i *ograniczanie dostępu do kontekstu*.
 
 > [!NOTE]
 > Podczas konfigurowania przechwycenia protokołu SSL i iniekcji nagłówków upewnij się, że ruch https://device.login.microsoftonline.com jest wykluczony. Ten adres URL jest używany na potrzeby uwierzytelniania urządzeń i wykonywania operacji przerywania i inspekcji protokołu TLS może zakłócać uwierzytelnianie certyfikatu klienta, co może powodować problemy z rejestracją urządzeń i dostępem warunkowym opartym na urządzeniach.
@@ -81,7 +81,7 @@ Nagłówki powinny zawierać następujące elementy:
 - Aby *ograniczyć dostęp do kontekstu* , użyj wartości identyfikatora pojedynczego katalogu, deklarując, który dzierżawca ustawia ograniczenia dzierżawy. Na przykład, aby zadeklarować contoso jako dzierżawcę, który ustawił zasady ograniczeń dzierżawy, para nazwa/wartość będzie wyglądać następująco: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  W tym miejscu **musisz** użyć własnego identyfikatora katalogu.
 
 > [!TIP]
-> Identyfikator katalogu można znaleźć w [portalu Azure Active Directory](https://aad.portal.azure.com/). Zaloguj się jako administrator, wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **Właściwości** . 
+> Identyfikator katalogu można znaleźć w [portalu Azure Active Directory](https://aad.portal.azure.com/). Zaloguj się jako administrator, wybierz pozycję **Azure Active Directory** , a następnie wybierz pozycję **Właściwości**. 
 >
 > Aby sprawdzić, czy identyfikator katalogu lub nazwa domeny odnoszą się do tej samej dzierżawy, użyj tego identyfikatora lub domeny zamiast <tenant> w tym adresie URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration` .  Jeśli wyniki z domeną i IDENTYFIKATORem są takie same, odnoszą się do tej samej dzierżawy. 
 
@@ -106,9 +106,9 @@ Podczas konfigurowania ograniczeń dzierżawy w firmowej infrastrukturze serwer�
 
 1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com/). Zostanie wyświetlony pulpit nawigacyjny **Centrum administracyjnego Azure Active Directory** .
 
-2. W lewym okienku wybierz pozycję **Azure Active Directory** . Zostanie wyświetlona strona przegląd Azure Active Directory.
+2. W lewym okienku wybierz pozycję **Azure Active Directory**. Zostanie wyświetlona strona przegląd Azure Active Directory.
 
-3. Na stronie Przegląd wybierz pozycję **ograniczenia dzierżawy** .
+3. Na stronie Przegląd wybierz pozycję **ograniczenia dzierżawy**.
 
 Administrator dzierżawy określony jako dzierżawca kontekstu ograniczonego dostępu może użyć tego raportu, aby zobaczyć, że logowanie zostało zablokowane z powodu zasad ograniczeń dzierżawy, w tym użytych tożsamości i identyfikatora katalogu docelowego. Logowania są uwzględniane, jeśli dzierżawa ustawienia ograniczenia to dzierżawa użytkownika lub dzierżawa zasobów dla logowania.
 
@@ -176,13 +176,13 @@ Programu Fiddler to bezpłatny serwer proxy debugowania sieci Web, który może 
       }
       ```
 
-      Jeśli musisz zezwolić na wiele dzierżawców, użyj przecinka do oddzielenia nazw dzierżawców. Na przykład:
+      Jeśli musisz zezwolić na wiele dzierżawców, użyj przecinka do oddzielenia nazw dzierżawców. Przykład:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
 4. Zapisz i zamknij plik CustomRules.
 
-Po skonfigurowaniu programu Fiddler można przechwytywać ruch, przechodząc do menu **plik** i wybierając pozycję **Przechwyć ruch** .
+Po skonfigurowaniu programu Fiddler można przechwytywać ruch, przechodząc do menu **plik** i wybierając pozycję **Przechwyć ruch**.
 
 ### <a name="staged-rollout-of-proxy-settings"></a>Etapowe wdrażanie ustawień serwera proxy
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441372"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285851"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Właściwości Azure Active Directory użytkownika współpracy B2B
 
@@ -28,7 +28,7 @@ W zależności od potrzeb organizacji użytkownik współpracy B2B usługi Azure
 - Stan 1: domowa w zewnętrznym wystąpieniu usługi Azure AD i reprezentowana jako użytkownik-Gość w organizacji zapraszanie. W takim przypadku użytkownik B2B loguje się przy użyciu konta usługi Azure AD należącego do zaproszonej dzierżawy. Jeśli organizacja partnera nie korzysta z usługi Azure AD, nadal jest tworzony użytkownik-Gość w usłudze Azure AD. Wymagania polegają na tym, że zrealizują swoje zaproszenia, a usługa Azure AD weryfikuje swój adres e-mail. To rozwiązanie jest również nazywane dzierżawcą just-in-Time (JIT) lub dzierżawą "wirusową".
 
    > [!IMPORTANT]
-   > **Od 31 marca 2021**firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
+   > **Od 31 marca 2021** firma Microsoft nie będzie już obsługiwać wykupu zaproszeń przez tworzenie niezarządzanych kont usługi Azure AD i dzierżawców na potrzeby scenariuszy współpracy B2B. W przygotowaniu Zachęcamy klientów do samodzielnego [uwierzytelniania kodu dostępu za pośrednictwem poczty e-mail](one-time-passcode.md). Prosimy o opinię na temat tej publicznej funkcji w wersji zapoznawczej i przyjemnością, aby utworzyć jeszcze więcej sposobów współpracy.
 
 - Stan 2: nastawione na konto Microsoft lub inne i reprezentowane jako użytkownik-Gość w organizacji hosta. W takim przypadku użytkownik Gość loguje się przy użyciu konto Microsoft lub konta społecznościowego (google.com lub podobny). Tożsamość zaproszonego użytkownika jest tworzona jako konto Microsoft w katalogu zapraszanej organizacji podczas realizacji oferty.
 
@@ -59,7 +59,7 @@ Dla użytkowników-Gości w stanie 2, **źródłem** jest **konto Microsoft**.
 
 ![Użytkownik-Gość stanu 2 po utworzeniu oferty](media/user-properties/after-redemption-state2.png)
 
-Dla użytkowników-Gości w stanie 3 i stan 4 Właściwość **Source** ma wartość **Azure Active Directory** lub **Windows Server Active Directory**, zgodnie z opisem w następnej sekcji.
+Dla użytkowników-Gości w stanie 3 i stan 4 Właściwość **Source** ma wartość **Azure Active Directory** lub **Windows Server Active Directory** , zgodnie z opisem w następnej sekcji.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Właściwości klucza użytkownika współpracy B2B usługi Azure AD
 ### <a name="usertype"></a>UserType
@@ -71,7 +71,9 @@ Ta właściwość wskazuje relację użytkownika z dzierżawcą hosta. Ta właś
   > [!NOTE]
   > Użytkownik nie ma żadnego powiązania z logowaniem użytkownika, rolą katalogu użytkownika i tak dalej. Ta właściwość po prostu wskazuje relację użytkownika z organizacją hosta i umożliwia organizacji wymuszanie zasad, które są zależne od tej właściwości.
 
-### <a name="source"></a>Element źródłowy
+Aby uzyskać szczegółowe informacje dotyczące cennika, zapoznaj się z [cennikiem Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
+
+### <a name="source"></a>Źródło
 Ta właściwość wskazuje, w jaki sposób użytkownik loguje się.
 
 - Zaproszony użytkownik: ten użytkownik został zaproszony, ale jeszcze nie zakończył zaproszenia.

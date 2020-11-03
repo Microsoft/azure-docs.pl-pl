@@ -7,15 +7,16 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cfe4b92dbed69440ee2c07cff758faad7e01293f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f03016c9a44968db49cd68bfec025c328861fc07
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707918"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286429"
 ---
 # <a name="supported-postgresql-major-versions"></a>Obsługiwane wersje główne PostgreSQL
-Firma Microsoft dąży do obsługi wersji n-2 aparatu PostgreSQL w Azure Database for PostgreSQL-pojedynczym serwerze. Wersje byłyby w bieżącej wersji głównej na platformie Azure (n) i dwóch wcześniejszych wersjach głównych (-2).
+
+Aby uzyskać szczegółowe informacje dotyczące zasad pomocy technicznej, zobacz [zasady dotyczące wersji Azure Database for PostgreSQL](concepts-version-policy.md) .
 
 Azure Database for PostgreSQL obecnie obsługuje następujące wersje główne:
 
@@ -35,6 +36,7 @@ Bieżąca wersja pomocnicza to 9.5.20. Zapoznaj się z [dokumentacją PostgreSQL
 Projekt PostgreSQL regularnie wydaje drobne wersje, aby naprawić zgłoszone błędy. Azure Database for PostgreSQL automatycznie poprawek serwerów z drobnymi wersjami podczas comiesięcznych wdrożeń usługi. 
 
 Automatyczne uaktualnienia w miejscu dla wersji głównych nie są obsługiwane. Aby uaktualnić do następnej wersji głównej, możesz 
+   * Zapoznaj się z [uaktualnieniami wersji głównych przy użyciu zrzutów i przywracania](./how-to-upgrade-using-dump-and-restore.md)
    * Używanie [pg_dump i pg_restore](./howto-migrate-using-dump-and-restore.md) do przenoszenia bazy danych na serwer utworzony przy użyciu nowej wersji aparatu
    * Alternatywnie można przeprowadzić uaktualnienie z PostgreSQL 10 do 11 przy użyciu [usługi Azure Database Migration Service](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)
 

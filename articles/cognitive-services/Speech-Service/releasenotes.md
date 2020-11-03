@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: e22400016eae0642c4e25fcfd4fcaaaab22a27a8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8faf9c913ea9bab2feaf698efeb6fd5b3ca63179
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280576"
+ms.locfileid: "93289628"
 ---
 # <a name="speech-service-release-notes"></a>Informacje o wersji usługi mowy
 
@@ -24,21 +24,13 @@ ms.locfileid: "93280576"
 
 **Uwaga** : zestaw Speech SDK w systemie Windows zależy od udostępnionego Microsoft Visual C++ pakietu redystrybucyjnego dla programu Visual Studio 2015, 2017 i 2019. Pobierz je [tutaj](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
-**Interfejs wiersza polecenia mowy (znany również jako SPX)**<br>
-SPX jest interfejs wiersza polecenia do korzystania z usługi Azure Speech bez pisania kodu. Pobierz najnowszą wersję [tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics).
-- `spx csr dataset upload --kind audio|language|acoustic` — Tworzenie zestawów danych z lokalnych miejsc, nie tylko z adresów URL.
-- `spx csr evaluation create|status|list|update|delete` — Porównaj nowe modele z modelami bazowymi prawdy/innymi.
-- `spx * list` — obsługuje środowisko niestronicowane (niewymaganie--górne X--Skip X).
-- `spx * --http header A=B` — obsługuje niestandardowe nagłówki (dodane dla pakietu Office na potrzeby uwierzytelniania niestandardowego). 
-- `spx help` — ulepszony kolor tekstu i znacznika powrotu po tekście (niebieski).
-
 **Nowe funkcje**
 - **Linux** : Dodano obsługę Debian 10 i Ubuntu 20,04 LTS.
 - **Python/obiektyw-C** : Dodano obsługę `KeywordRecognizer` interfejsu API. Dokumentacja będzie [tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics)dostępna.
 - **C++/Java/C #** : Dodano obsługę ustawiania dowolnego `HttpHeader` klucza/wartości za pośrednictwem `ServicePropertyChannel::HttpHeader` .
 - **JavaScript** : Dodano obsługę `ConversationTranscriber` interfejsu API. Przeczytaj dokumentację [tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
-- **C++/c #** : dodano nową `AudioDataStream FromFile` metodę (do odczytu. Pliki WAV) [tutaj (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audiodatastream) i [tutaj (C#)](
-https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream.fromfile).
+- **C++/c #** : dodano nową `AudioDataStream FromWavFileInput` metodę (do odczytu. Pliki WAV) [tutaj (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) i [tutaj (C#)](
+https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
 -  **C++/c #/Java/python/Objective-C/SWIFT** : dodano `stopSpeakingAsync()` metodę, aby zatrzymać syntezę zamiany tekstu na mowę. Przeczytaj dokumentację referencyjną [tutaj (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [tutaj (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [tutaj (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [tutaj (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)i w [tym miejscu ("cel-C/Swift")](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
 - **C#, C++, Java** : dodano `FromDialogServiceConnector()` funkcję do `Connection` klasy, która może służyć do monitorowania zdarzeń połączeń i rozłączania dla programu `DialogServiceConnector` . Przeczytaj dokumentację referencyjną [tutaj (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [tutaj (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)i [tutaj (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
@@ -72,6 +64,16 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 
 **COVID-19 przetestowanie:** Ze względu na to, że praca zdalna jest wykonywana w ciągu ostatnich kilku tygodni, nie udało nam się wykonać tyle testów weryfikacyjnych ręcznych. Firma Microsoft nie wprowadziła żadnych zmian, które mogą być uszkodzone i wszystkie testy zautomatyzowane zostały zakończone powodzeniem. W mało prawdopodobnym zdarzeniu, poinformuj nas o tym w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Bądź w dobrej kondycji
+
+## <a name="speech-cli-also-known-as-spx-2020-october-release"></a>Interfejs wiersza polecenia mowy (znany również jako SPX): 2020 – wydanie z października
+SPX jest interfejs wiersza polecenia do korzystania z usługi Azure Speech bez pisania kodu. Pobierz najnowszą wersję [tutaj](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). <br>
+
+**Nowe funkcje**
+- `spx csr dataset upload --kind audio|language|acoustic` — Tworzenie zestawów danych z lokalnych miejsc, nie tylko z adresów URL.
+- `spx csr evaluation create|status|list|update|delete` — Porównaj nowe modele z modelami bazowymi prawdy/innymi.
+- `spx * list` — obsługuje środowisko niestronicowane (niewymaganie--górne X--Skip X).
+- `spx * --http header A=B` — obsługuje niestandardowe nagłówki (dodane dla pakietu Office na potrzeby uwierzytelniania niestandardowego). 
+- `spx help` — ulepszony kolor tekstu i znacznika powrotu po tekście (niebieski).
 
 
 ## <a name="text-to-speech-2020-august-release"></a>Zamiana tekstu na mowę 2020 — wydanie z sierpnia

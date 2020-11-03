@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 64b2955b1417d6931172b41f83f05d5f1b560708
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 68eee2d55e3c22b502d17a91f4ba4509c292c31c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911889"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288678"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -79,6 +79,9 @@ Nie, ze względu na wymagania dotyczące przepustowości i opóźnienia.
 #### <a name="can-azure-bastion-be-used-for-connecting-to-azure-vmware-solution-vms"></a>Czy usługa Azure bastionu może być używana do nawiązywania połączenia z maszynami wirtualnymi rozwiązań VMware platformy Azure?
 Azure bastionu to usługa, która jest zalecana do łączenia się z polem skoku, aby uniemożliwić udostępnianie rozwiązania Azure VMware do Internetu. Nie można używać usługi Azure bastionu do nawiązywania połączeń z maszynami wirtualnymi rozwiązań VMware platformy Azure, ponieważ nie są one obiektami usługi Azure IaaS.
 
+#### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Czy Azure Load Balancer można używać wewnętrznych dla maszyn wirtualnych rozwiązania Azure VMware?
+Nie. Azure Load Balancer Internal obsługuje tylko maszyny wirtualne IaaS platformy Azure. Azure Load Balancer nie obsługuje pul zaplecza opartych na protokole IP; tylko maszyny wirtualne platformy Azure lub obiekty zestawu skalowania maszyn wirtualnych (VMSS), w których maszyny wirtualne rozwiązań platformy Azure VMware nie są obiektami platformy Azure.
+
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Czy do nawiązania połączenia z rozwiązaniem VMware platformy Azure można używać istniejącej bramy ExpressRoute?
 Tak, możesz użyć istniejącej bramy ExpressRoute, aby nawiązać połączenie z rozwiązaniem VMware platformy Azure, o ile nie przekracza limit czterech obwodów ExpressRoute na sieć wirtualną.  Jednak w celu uzyskania dostępu do rozwiązania VMware platformy Azure ze środowisk lokalnych za pośrednictwem usługi ExpressRoute należy mieć ExpressRoute Global Reach, ponieważ Brama ExpressRoute nie zapewnia routingu przechodniego między podłączonymi do niego obwodami.
 
@@ -118,7 +121,7 @@ Ponieważ te rozwiązania do tworzenia kopii zapasowych są instalowane i zarzą
 
 #### <a name="what-is-the-correct-storage-policy-for-the-dedupe-setup"></a>Jakie są poprawne zasady magazynu dla konfiguracji deduplikacji?
 
-Użyj zasad magazynu *thin_provision* dla szablonu maszyny wirtualnej.  Wartość domyślna to *thick_provision* .
+Użyj zasad magazynu *thin_provision* dla szablonu maszyny wirtualnej.  Wartość domyślna to *thick_provision*.
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>Czy dzienniki infrastruktury SNMP są udostępnione?
 

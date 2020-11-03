@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 71d8961af372f927fab909073daa715766542f87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9545c040809331a5556b11f6cc7536931e2d421
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606663"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289578"
 ---
 # <a name="certificate-creation-methods"></a>Metody tworzenia certyfikatów
 
@@ -82,7 +82,7 @@ Tworzenie certyfikatu można wykonać ręcznie lub przy użyciu wystawcy "samodz
 
 |Dostawca|Typ certyfikatu|Konfiguracja konfiguracji  
 |--------------|----------------------|------------------|  
-|DigiCert|Key Vault oferuje certyfikaty SSL OV lub EV z DigiCert| [Przewodnik po integracji](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+|DigiCert|Key Vault oferuje certyfikaty SSL OV lub EV z DigiCert| [Przewodnik po integracji](./how-to-integrate-certificate-authority.md)
 |GlobalSign|Key Vault oferuje certyfikaty SSL OV lub EV z GlobalSign| [Przewodnik po integracji](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  Wystawca certyfikatu jest jednostką reprezentowaną w Azure Key Vault (KV) jako zasób CertificateIssuer. Służy do przekazywania informacji o źródle certyfikatu KV; Nazwa wystawcy, dostawca, poświadczenia i inne szczegóły administracyjne.

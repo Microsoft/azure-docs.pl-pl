@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: eb522e047ed8bb4929a3aba270df35322256319b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f1a26e3323e4d1db2e9b2bda9afaa2756307749b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534893"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288967"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Troubleshoot Apache Hive by using Azure HDInsight (Rozwiązywanie problemów z technologią Apache Hive za pomocą usługi Azure HDInsight)
 
@@ -49,7 +49,7 @@ Kod w krokach rozwiązania założono, że ścieżki danych w nowym klastrze są
 
 ### <a name="resolution-steps"></a>Kroki rozwiązania
 
-1. Połącz się z klastrem usługi HDInsight przy użyciu protokołu SSH. Aby uzyskać więcej informacji, zobacz **dodatkowy odczyt** .
+1. Połącz się z klastrem usługi HDInsight przy użyciu protokołu SSH. Aby uzyskać więcej informacji, zobacz **dodatkowy odczyt**.
 
 2. Aby wyświetlić dzienniki klienta programu Hive, użyj następującego polecenia:
 
@@ -155,7 +155,7 @@ Istnieją dwa sposoby zbierania danych tez DAG:
   1. Przejdź do Ambari.
   2. Przejdź do widoku tez (w obszarze ikony kafelków w prawym górnym rogu).
   3. Wybierz DAG, które chcesz wyświetlić.
-  4. Wybierz pozycję **Pobierz dane** .
+  4. Wybierz pozycję **Pobierz dane**.
 
 ### <a name="additional-reading"></a><a name="additional-reading-end"></a>Materiały uzupełniające
 
@@ -163,10 +163,4 @@ Istnieją dwa sposoby zbierania danych tez DAG:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
-
-- Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
-
-- Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
-
-- Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

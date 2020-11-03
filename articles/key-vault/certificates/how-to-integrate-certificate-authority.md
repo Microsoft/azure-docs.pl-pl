@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327420"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289546"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrowanie usługi Key Vault z urzędem certyfikacji DigiCert
 
@@ -23,7 +23,7 @@ Azure Key Vault umożliwia łatwe inicjowanie obsługi i wdrażanie certyfikató
 
 Użytkownicy magazynu kluczy Azure mogą generować certyfikaty DigiCert bezpośrednio z ich Key Vault. Key Vault zapewnić kompleksowe zarządzanie cyklem życia certyfikatu dla certyfikatów wystawionych przez DigiCert za pomocą zaufanego powiązania Key Vault z urzędem certyfikacji DigiCert.
 
-Aby uzyskać więcej ogólnych informacji o certyfikatach, zobacz [Azure Key Vault Certificates](/azure/key-vault/certificates/about-certificates).
+Aby uzyskać więcej ogólnych informacji o certyfikatach, zobacz [Azure Key Vault Certificates](./about-certificates.md).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -56,11 +56,11 @@ Po zebraniu powyższych informacji z konta DigiCert CertCentral możesz teraz do
 4.  Wybierz opcję **Dodaj** .
  ![Dodawanie urzędów certyfikacji](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  Na ekranie **Tworzenie urzędu certyfikacji** wybierz następujące wartości:
-    -   **Nazwa**: Dodaj rozpoznawalną nazwę wystawcy. Przykład DigicertCA
-    -   **Dostawca**: wybierz z menu pozycję DigiCert.
-    -   **Identyfikator konta**: Wprowadź identyfikator konta DigiCert CertCentral
-    -   **Hasło konta**: Wprowadź klucz interfejsu API wygenerowany na koncie usługi DigiCert CertCentral
-    -   **Identyfikator organizacji**: wprowadź OrgID zebrane z konta DigiCert CertCentral 
+    -   **Nazwa** : Dodaj rozpoznawalną nazwę wystawcy. Przykład DigicertCA
+    -   **Dostawca** : wybierz z menu pozycję DigiCert.
+    -   **Identyfikator konta** : Wprowadź identyfikator konta DigiCert CertCentral
+    -   **Hasło konta** : Wprowadź klucz interfejsu API wygenerowany na koncie usługi DigiCert CertCentral
+    -   **Identyfikator organizacji** : wprowadź OrgID zebrane z konta DigiCert CertCentral 
     -   Kliknij pozycję **Utwórz**.
    
 6.  Zobaczysz, że DigicertCA został już dodany do listy urzędów certyfikacji.

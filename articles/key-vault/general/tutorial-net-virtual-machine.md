@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: f8e794a51a6789ba58d9475bb1ca78a442d7e315
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9557ada8001022d460c35a091fdac7699ac5e5ec
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741369"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289381"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Samouczek: używanie Azure Key Vault z maszyną wirtualną w programie .NET
 
@@ -40,7 +40,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Dla systemów Windows, Mac i Linux:
-  * [Git](https://git-scm.com/downloads)
+  * [Narzędzia](https://git-scm.com/downloads)
   * [Zestaw .NET Core 3,1 SDK lub nowszy](https://dotnet.microsoft.com/download/dotnet-core/3.1).
   * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -48,7 +48,7 @@ Dla systemów Windows, Mac i Linux:
 
 Przed rozpoczęciem kodowania należy utworzyć pewne zasoby, umieścić wpis tajny w magazynie kluczy i przypisać uprawnienia.
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Aby zalogować się do platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure, wpisz:
 
@@ -204,4 +204,4 @@ Gdy nie są już potrzebne, Usuń maszynę wirtualną i Magazyn kluczy.
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Interfejsy API REST usługi Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
+> [Interfejsy API REST usługi Azure Key Vault](/rest/api/keyvault/)

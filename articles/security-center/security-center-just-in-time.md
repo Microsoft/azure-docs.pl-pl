@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 9a01dabbd0a3e9d76caaead544be655b9505030d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342386"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289199"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Zabezpieczanie portów zarządzania przy użyciu dostępu just in time
 
@@ -89,9 +89,9 @@ W Security Center można włączyć i skonfigurować dostęp JIT do maszyny wirt
 
     Dla każdego portu (niestandardowego i domyślnego) okienka **Dodawanie konfiguracji portów** dostępne są następujące opcje:
 
-    - **Protokół**— protokół, który jest dozwolony na tym porcie, gdy żądanie zostanie zatwierdzone
-    - **Dozwolone źródła**IP — zakresy adresów IP, które są dozwolone na tym porcie, gdy żądanie zostanie zatwierdzone
-    - **Maksymalny czas żądania**— maksymalny przedział czasu, w którym można otworzyć określony port
+    - **Protokół** — protokół, który jest dozwolony na tym porcie, gdy żądanie zostanie zatwierdzone
+    - **Dozwolone źródła** IP — zakresy adresów IP, które są dozwolone na tym porcie, gdy żądanie zostanie zatwierdzone
+    - **Maksymalny czas żądania** — maksymalny przedział czasu, w którym można otworzyć określony port
 
      1. Ustaw odpowiednie zabezpieczenia portów.
 
@@ -113,7 +113,7 @@ Aby edytować istniejące reguły JIT dla maszyny wirtualnej:
 
     ![Edytowanie konfiguracji JIT dostępu do maszyny wirtualnej w Azure Security Center](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
 
-1. W obszarze **Konfiguracja dostępu JIT do maszyny wirtualnej**można edytować istniejące ustawienia już chronionego portu lub dodać nowy port niestandardowy.
+1. W obszarze **Konfiguracja dostępu JIT do maszyny wirtualnej** można edytować istniejące ustawienia już chronionego portu lub dodać nowy port niestandardowy.
 
 1. Po zakończeniu edycji portów wybierz pozycję **Zapisz**.
  
@@ -136,7 +136,7 @@ Można włączyć JIT na maszynie wirtualnej ze stron usługi Azure Virtual Mach
 
 1. W menu wybierz pozycję **Konfiguracja**.
 
-1. W obszarze **dostęp just in Time**wybierz pozycję **Włącz just in Time**. 
+1. W obszarze **dostęp just in Time** wybierz pozycję **Włącz just in Time**. 
 
     Pozwala to na dostęp just in Time do maszyny wirtualnej przy użyciu następujących ustawień domyślnych:
 
@@ -157,7 +157,7 @@ Można włączyć JIT na maszynie wirtualnej ze stron usługi Azure Virtual Mach
 
         ![Edytowanie konfiguracji JIT dostępu do maszyny wirtualnej w Azure Security Center](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
 
-    1. W obszarze **Konfiguracja dostępu JIT do maszyny wirtualnej**można edytować istniejące ustawienia już chronionego portu lub dodać nowy port niestandardowy.
+    1. W obszarze **Konfiguracja dostępu JIT do maszyny wirtualnej** można edytować istniejące ustawienia już chronionego portu lub dodać nowy port niestandardowy.
 
     1. Po zakończeniu edycji portów wybierz pozycję **Zapisz**.
 
@@ -184,13 +184,13 @@ Następujące polecenia programu PowerShell tworzą tę konfigurację JIT:
         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
              number=22;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"},
              @{
              number=3389;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"})})
     ```
 
@@ -241,7 +241,7 @@ Każda z tych opcji została omówiona na osobnej karcie poniżej.
 
 Jeśli maszyna wirtualna ma włączoną funkcję JIT, musisz poprosić o uzyskanie dostępu, aby się z nim połączyć. Możesz zażądać dostępu na dowolnym z obsługiwanych sposobów, niezależnie od tego, jak włączono JIT.
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Konfigurowanie dostępu JIT VM w Azure Security Center":::
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Żądanie dostępu JIT z Security Center":::
 
 1. Na stronie **dostęp do maszyny wirtualnej just-in-Time** wybierz kartę **skonfigurowane** .
 
@@ -253,7 +253,7 @@ Jeśli maszyna wirtualna ma włączoną funkcję JIT, musisz poprosić o uzyskan
 
 1. Wybierz pozycję **Żądaj dostępu**. Zostanie otwarte okno **żądania dostępu** .
 
-1. W obszarze **Żądaj dostępu**dla każdej maszyny wirtualnej Skonfiguruj porty, które chcesz otworzyć, oraz źródłowe adresy IP, na których jest otwierany port, oraz przedział czasu, w którym port zostanie otwarty. Możliwe będzie tylko żądanie dostępu do skonfigurowanych portów. Każdy port ma maksymalny dozwolony czas pochodzący z utworzonej konfiguracji JIT.
+1. W obszarze **Żądaj dostępu** dla każdej maszyny wirtualnej Skonfiguruj porty, które chcesz otworzyć, oraz źródłowe adresy IP, na których jest otwierany port, oraz przedział czasu, w którym port zostanie otwarty. Możliwe będzie tylko żądanie dostępu do skonfigurowanych portów. Każdy port ma maksymalny dozwolony czas pochodzący z utworzonej konfiguracji JIT.
 
 1. Wybierz pozycję **Otwórz porty**.
 
@@ -344,7 +344,7 @@ Dowiedz się więcej na temat [zasad dostępu do sieci JIT](/rest/api/securityce
 
 Szczegółowe informacje na temat działań maszyn wirtualnych można uzyskać przy użyciu funkcji przeszukiwania dzienników. Aby wyświetlić dzienniki:
 
-1. Z **dostępu just in Time do maszyny wirtualnej**wybierz **skonfigurowaną** kartę.
+1. Z **dostępu just in Time do maszyny wirtualnej** wybierz **skonfigurowaną** kartę.
 
 1. Dla maszyny wirtualnej, którą chcesz poddać inspekcji, otwórz menu wielokropka na końcu wiersza.
  

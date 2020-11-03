@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 8a594d06fa84bb6e5ef502b02e1bec8244062ccb
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e7ea3ef16b60e53450436bda66ce3dde091c81c2
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233971"
+ms.locfileid: "93289560"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Eksportuj certyfikaty z Azure Key Vault
 
@@ -23,11 +23,11 @@ Dowiedz się, jak eksportować certyfikaty z Azure Key Vault. Certyfikaty można
 
 ## <a name="about-azure-key-vault-certificates"></a>Informacje o certyfikatach usługi Azure Key Vault
 
-Azure Key Vault umożliwia łatwe inicjowanie obsługi i wdrażanie certyfikatów cyfrowych dla sieci oraz zarządzanie nimi. Umożliwia również bezpieczną komunikację z aplikacjami. Aby uzyskać więcej informacji, zobacz [Azure Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) .
+Azure Key Vault umożliwia łatwe inicjowanie obsługi i wdrażanie certyfikatów cyfrowych dla sieci oraz zarządzanie nimi. Umożliwia również bezpieczną komunikację z aplikacjami. Aby uzyskać więcej informacji, zobacz [Azure Key Vault Certificates](./about-certificates.md) .
 
 ### <a name="composition-of-a-certificate"></a>Składanie certyfikatu
 
-Po utworzeniu certyfikatu Key Vault zostanie utworzony *klucz* , który można rozwiązać i *wpis tajny* o tej samej nazwie. Klucz Key Vault umożliwia wykonywanie najważniejszych operacji. Wpis tajny Key Vault umożliwia pobieranie wartości certyfikatu jako klucza tajnego. Certyfikat Key Vault zawiera również publiczne metadane certyfikatu x509. Aby uzyskać więcej informacji, przejdź do [kompozycji certyfikatu](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) .
+Po utworzeniu certyfikatu Key Vault zostanie utworzony *klucz* , który można rozwiązać i *wpis tajny* o tej samej nazwie. Klucz Key Vault umożliwia wykonywanie najważniejszych operacji. Wpis tajny Key Vault umożliwia pobieranie wartości certyfikatu jako klucza tajnego. Certyfikat Key Vault zawiera również publiczne metadane certyfikatu x509. Aby uzyskać więcej informacji, przejdź do [kompozycji certyfikatu](./about-certificates.md#composition-of-a-certificate) .
 
 ### <a name="exportable-and-non-exportable-keys"></a>Klucze eksportujące i NIEEKSPORTUJĄCE
 
@@ -36,9 +36,9 @@ Po utworzeniu certyfikatu Key Vault można pobrać go z klucza prywatnego z moż
 - Możliwe do **eksportowania** : zasady użyte do utworzenia certyfikatu wskazują, że klucz jest eksportowalny.
 - **Nie można eksportować** : zasady użyte do utworzenia certyfikatu wskazują, że klucz nie jest eksportowalny. W takim przypadku klucz prywatny nie jest częścią wartości, gdy zostanie pobrany jako wpis tajny.
 
-Obsługiwane typy kluczy: RSA, RSA-HSM, EC, we-HSM, Oct (wymienione [tutaj](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) można eksportować tylko za pomocą RSA, we. Klucze HSM nie mogą być eksportowane.
+Obsługiwane typy kluczy: RSA, RSA-HSM, EC, we-HSM, Oct (wymienione [tutaj](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) można eksportować tylko za pomocą RSA, we. Klucze HSM nie mogą być eksportowane.
 
-Aby uzyskać więcej informacji, zobacz [Informacje o Azure Key Vault certyfikatach](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key) .
+Aby uzyskać więcej informacji, zobacz [Informacje o Azure Key Vault certyfikatach](./about-certificates.md#exportable-or-non-exportable-key) .
 
 ## <a name="export-stored-certificates"></a>Eksportowanie przechowywanych certyfikatów
 
@@ -61,7 +61,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-Wyświetl [przykłady i definicje parametrów,](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) Aby uzyskać więcej informacji.
+Wyświetl [przykłady i definicje parametrów,](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) Aby uzyskać więcej informacji.
 
 Pobranie jako certyfikatu oznacza pobranie publicznej części. Jeśli chcesz, aby zarówno klucz prywatny, jak i publiczne metadane, możesz pobrać go jako wpis tajny.
 
@@ -75,7 +75,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-Aby uzyskać więcej informacji, zobacz [definicje parametrów](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
+Aby uzyskać więcej informacji, zobacz [definicje parametrów](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -102,7 +102,7 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 ```
 
 To polecenie eksportuje cały łańcuch certyfikatów z kluczem prywatnym. Certyfikat jest chroniony hasłem.
-Aby uzyskać więcej informacji na temat polecenia **Get-AzKeyVaultCertificate** i parametrów, zobacz [Get-AzKeyVaultCertificate-example 2](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
+Aby uzyskać więcej informacji na temat polecenia **Get-AzKeyVaultCertificate** i parametrów, zobacz [Get-AzKeyVaultCertificate-example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -121,4 +121,4 @@ Aby uzyskać więcej informacji, zobacz procedurę [eksportowania Azure App Serv
 ---
 
 ## <a name="read-more"></a>Dowiedz się więcej
-* [Różne typy i definicje plików certyfikatów](https://docs.microsoft.com/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)
+* [Różne typy i definicje plików certyfikatów](/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)

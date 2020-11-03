@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792484"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289308"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,8 +48,8 @@ SQL Server na maszynach wirtualnych platformy Azure oferuje różne opcje jako r
 
 ||[Dyski udostępnione platformy Azure](../../../virtual-machines/windows/disks-shared.md)|[Udziały plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Bezpośrednie miejsca do magazynowania (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Minimalna wersja systemu operacyjnego**| Wszystko |Windows Server 2012|Windows Server 2016|
-|**Minimalna wersja SQL Server**|Wszystko|SQL Server 2012|SQL Server 2016|
+|**Minimalna wersja systemu operacyjnego**| Wszystkie |Windows Server 2012|Windows Server 2016|
+|**Minimalna wersja SQL Server**|Wszystkie|SQL Server 2012|SQL Server 2016|
 |**Obsługiwana dostępność maszyny wirtualnej** |Zestawy dostępności z grupami umieszczania zbliżeniowego |Zestawy dostępności i strefy dostępności|Zestawy dostępności |
 |**Obsługuje FileStream**|Tak|Nie|Tak |
 |**Pamięć podręczna Azure Blob**|Nie|Nie|Tak|
@@ -149,7 +149,7 @@ Aby uzyskać więcej informacji na temat opcji łączności klastra, zobacz [Rou
 Należy wziąć pod uwagę następujące ograniczenia dotyczące wystąpień klastra trybu failover z SQL Server na platformie Azure Virtual Machines. 
 
 ### <a name="lightweight-resource-provider"></a>Lekki dostawca zasobów   
-W tej chwili SQL Server wystąpienia klastra trybu failover w usłudze Azure Virtual Machines są obsługiwane tylko przy użyciu [uproszczonego trybu zarządzania](sql-vm-resource-provider-register.md#management-modes) [rozszerzenia agenta SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md). Aby zmienić tryb pełnego rozszerzenia na lekki, Usuń zasób **maszyny wirtualnej SQL** dla odpowiednich maszyn wirtualnych, a następnie zarejestruj je u dostawcy zasobów maszyny wirtualnej SQL w trybie uproszczonym. Po usunięciu zasobu **maszyny wirtualnej SQL** przy użyciu Azure Portal wyczyść pole wyboru obok odpowiedniej maszyny wirtualnej. 
+W tej chwili SQL Server wystąpienia klastra trybu failover w usłudze Azure Virtual Machines są obsługiwane tylko przy użyciu [uproszczonego trybu zarządzania](sql-server-iaas-agent-extension-automate-management.md#management-modes) [rozszerzenia agenta SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md). Aby zmienić tryb pełnego rozszerzenia na lekki, Usuń zasób **maszyny wirtualnej SQL** dla odpowiednich maszyn wirtualnych, a następnie zarejestruj je u dostawcy zasobów maszyny wirtualnej SQL w trybie uproszczonym. Po usunięciu zasobu **maszyny wirtualnej SQL** przy użyciu Azure Portal wyczyść pole wyboru obok odpowiedniej maszyny wirtualnej. 
 
 Pełne rozszerzenie obsługuje takie funkcje, jak automatyczne tworzenie kopii zapasowych, stosowanie poprawek i zaawansowane zarządzanie portalem. Te funkcje nie będą działały dla SQL Server maszyn wirtualnych po ponownym zainstalowaniu agenta w trybie uproszczonego zarządzania.
 

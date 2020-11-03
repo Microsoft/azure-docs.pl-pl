@@ -4,15 +4,15 @@ description: Dowiedz się, jak zarządzać zasadami indeksowania, dołączać lu
 author: timsander1
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 96ae4162c78f66b75d8c1ef2a8cec16995a5f016
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 335eac64bd5dff5b466fd97f5b2e093f2f56ee79
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075708"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289933"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami indeksowania w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ Poniżej przedstawiono kilka przykładów zasad indeksowania pokazywanych w [ich
     }
 ```
 
-Te zasady indeksowania są równoważne z tymi, które są ustawiane ręcznie ```kind``` , ```dataType``` i ```precision``` do wartości domyślnych. Te właściwości nie są już wymagane do jawnego ustawiania i można je pominąć z poziomu zasad indeksowania w całości (jak pokazano w powyższym przykładzie).
+Te zasady indeksowania są równoważne z tymi, które są ustawiane ręcznie ```kind``` , ```dataType``` i ```precision``` do wartości domyślnych. Te właściwości nie są już wymagane do jawnego ustawiania i należy je pominąć z poziomu zasad indeksowania w całości (jak pokazano w powyższym przykładzie).
 
 ```json
     {
@@ -101,7 +101,7 @@ Te zasady indeksowania są równoważne z tymi, które są ustawiane ręcznie ``
     }
 ```
 
-Te zasady indeksowania są równoważne z tymi, które są ustawiane ręcznie ```kind``` , ```dataType``` i ```precision``` do wartości domyślnych. Te właściwości nie są już wymagane do jawnego ustawiania i można je pominąć z poziomu zasad indeksowania w całości (jak pokazano w powyższym przykładzie).
+Te zasady indeksowania są równoważne z tymi, które są ustawiane ręcznie ```kind``` , ```dataType``` i ```precision``` do wartości domyślnych. Te właściwości nie są już wymagane do jawnego ustawiania i należy je pominąć z poziomu zasad indeksowania w całości (jak pokazano w powyższym przykładzie).
 
 ```json
     {
@@ -143,7 +143,7 @@ Te zasady indeksowania są równoważne z tymi, które są ustawiane ręcznie ``
 ```
 
 > [!NOTE]
-> Zwykle zaleca się użycie zasad indeksowania **rezygnacji** , aby Azure Cosmos DB aktywnie indeksować wszelkie nowe właściwości, które mogą zostać dodane do modelu.
+> Ogólnie zaleca się użycie zasad indeksowania **rezygnacji** , aby umożliwić Azure Cosmos DB aktywne indeksowanie wszelkich nowych właściwości, które mogą zostać dodane do modelu danych.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Używanie indeksu przestrzennego tylko dla określonej ścieżki właściwości
 
@@ -177,7 +177,7 @@ Te zasady indeksowania są równoważne z tymi, które są ustawiane ręcznie ``
 
 ## <a name="composite-indexing-policy-examples"></a>Przykłady złożonych zasad indeksowania
 
-Oprócz dołączania lub wykluczania ścieżek dla poszczególnych właściwości można również określić indeks złożony. Jeśli chcesz wykonać zapytanie z `ORDER BY` klauzulą dla wielu właściwości, wymagany jest [indeks złożony](index-policy.md#composite-indexes) dla tych właściwości. Ponadto indeksy złożone będą mieć korzyść wydajności dla zapytań, które mają filtr i mają klauzulę ORDER BY dla różnych właściwości.
+Oprócz dołączania lub wykluczania ścieżek dla poszczególnych właściwości można również określić indeks złożony. Jeśli chcesz wykonać zapytanie z `ORDER BY` klauzulą dla wielu właściwości, wymagany jest [indeks złożony](index-policy.md#composite-indexes) dla tych właściwości. Ponadto indeksy złożone będą mieć korzyść wydajności dla zapytań, które mają wiele filtrów lub klauzule Filter i ORDER BY.
 
 > [!NOTE]
 > Ścieżki złożone są niejawne `/?` , ponieważ tylko wartość skalarna w tej ścieżce jest indeksowana. `/*`Symbol wieloznaczny nie jest obsługiwany w ścieżkach złożonych. Nie należy określać `/?` ani `/*` w ścieżce złożonej.
@@ -314,7 +314,7 @@ Określenie zamówienia jest opcjonalne. Jeśli nie zostanie określony, kolejno
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Wykluczanie wszystkich ścieżek właściwości, ale utrzymywanie aktywności indeksowania
 
-Tych zasad można używać w sytuacjach, gdy [Funkcja czasu wygaśnięcia (TTL)](time-to-live.md) jest aktywna, ale nie jest wymagany żaden dodatkowy indeks (aby użyć Azure Cosmos dB jako czystego magazynu klucz-wartość).
+Tych zasad można używać w sytuacjach, gdy [Funkcja czasu wygaśnięcia (TTL)](time-to-live.md) jest aktywna, ale nie są wymagane żadne dodatkowe indeksy (aby użyć Azure Cosmos dB jako czystego magazynu klucz-wartość).
 
 ```json
     {
@@ -354,21 +354,21 @@ W Azure Cosmos DB zasady indeksowania można aktualizować przy użyciu dowolnej
 
 Kontenery usługi Azure Cosmos przechowują swoje zasady indeksowania jako dokument JSON, który Azure Portal umożliwia bezpośrednie edytowanie.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 1. Utwórz nowe konto usługi Azure Cosmos lub wybierz istniejące.
 
 1. Otwórz okienko **Eksplorator danych** i wybierz kontener, w którym chcesz korzystać.
 
-1. Kliknij pozycję **skaluj & ustawienia** .
+1. Kliknij pozycję **skaluj & ustawienia**.
 
 1. Modyfikowanie dokumentu JSON zasad indeksowania (Zobacz przykłady [poniżej](#indexing-policy-examples))
 
-1. Gdy wszystko będzie gotowe, kliknij przycisk **Zapisz** .
+1. Gdy wszystko będzie gotowe, kliknij przycisk **Zapisz**.
 
 :::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Zarządzanie indeksowaniem przy użyciu witryny Azure Portal":::
 
-## <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
+## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
 Aby utworzyć kontener z niestandardowymi zasadami indeksowania, zobacz [Tworzenie kontenera z niestandardowymi zasadami indeksu przy użyciu interfejsu wiersza polecenia](manage-with-cli.md#create-a-container-with-a-custom-index-policy)
 

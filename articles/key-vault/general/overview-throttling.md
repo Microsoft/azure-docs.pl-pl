@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7aa33bb062abf748031b27df46d42e8f13aabfc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819960"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289680"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Wskazówki dotyczące ograniczania usługi Azure Key Vault
 
@@ -47,8 +47,8 @@ Jeśli okaże się, że powyższy kod nadal nie spełnia Twoich potrzeb, Wypełn
 
 W przypadku zatwierdzenia dodatkowej pojemności należy zwrócić uwagę na następujące kwestie w wyniku wzrostu pojemności:
 1. Zmiany modelu spójności danych. Gdy magazyn jest dozwolony na liście z dodatkową przepływność, usługa Key Vault gwarancja spójności danych usług (niezbędna do spełnienia wyższego RPS pliku woluminu, ponieważ nie można zatrzymać podstawowej usługi magazynu platformy Azure).  W Nutshell:
-  1. **Bez zezwolenia na listę**: usługa Key Vault będzie odzwierciedlała wyniki operacji zapisu (np. SecretSet, CreateKey) natychmiast w kolejnych wywołaniach (np. SecretGet, znak.
-  1. **Z opcją Zezwalaj na listę**: usługa Key Vault będzie odzwierciedlała wyniki operacji zapisu (np. SecretSet, CreateKey) w ciągu 60 sekund w kolejnych wywołaniach (np. SecretGet, znak.
+  1. **Bez zezwolenia na listę** : usługa Key Vault będzie odzwierciedlała wyniki operacji zapisu (np. SecretSet, CreateKey) natychmiast w kolejnych wywołaniach (np. SecretGet, znak.
+  1. **Z opcją Zezwalaj na listę** : usługa Key Vault będzie odzwierciedlała wyniki operacji zapisu (np. SecretSet, CreateKey) w ciągu 60 sekund w kolejnych wywołaniach (np. SecretGet, znak.
 1. Kod klienta musi przestrzegać zasad wycofywania dla 429 ponownych prób. Kod klienta wywołujący usługę Key Vault nie może natychmiast ponowić próby Key Vault żądań, gdy odbierze kod odpowiedzi 429.  Wskazówki dotyczące ograniczania przepustowości Azure Key Vault opublikowane w tym miejscu zalecają zastosowanie wykładniczej wycofywania podczas otrzymywania kodu odpowiedzi HTTP 429.
 
 Jeśli masz prawidłowy przypadek biznesowy dla wyższych limitów ograniczania przepustowości, skontaktuj się z nami.
@@ -96,7 +96,6 @@ W przypadku błędu HTTP o kodzie 429 Rozpocznij ograniczanie klienta przy użyc
 
 W tym momencie nie należy otrzymywać kodów odpowiedzi HTTP 429.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-Aby uzyskać bardziej szczegółowe ukierunkowanie ograniczania przepływności na Microsoft Cloud, zobacz [Ograniczanie poziomu wzorca](https://docs.microsoft.com/azure/architecture/patterns/throttling).
-
+Aby uzyskać bardziej szczegółowe ukierunkowanie ograniczania przepływności na Microsoft Cloud, zobacz [Ograniczanie poziomu wzorca](/azure/architecture/patterns/throttling).

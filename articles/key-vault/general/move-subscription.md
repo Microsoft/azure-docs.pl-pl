@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: c92671028f851a456b3222100e33958c9e26466a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0cd4cad74257dbf83ec8d30405eacca341a8d31
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785327"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289522"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Przeniesienie Azure Key Vault do innej subskrypcji
 
@@ -100,9 +100,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Po skojarzeniu magazynu z prawidłowym IDENTYFIKATORem dzierżawy i usunięciu starych wpisów zasad dostępu Ustaw nowe wpisy zasad dostępu za pomocą polecenia cmdlet Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) lub interfejsu wiersza polecenia platformy Azure [AZ datamagazyn Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) .
 
-Jeśli używasz zarządzanej tożsamości dla zasobów platformy Azure, musisz ją zaktualizować także do nowej dzierżawy Azure Active Directory. Aby uzyskać więcej informacji na temat tożsamości zarządzanych, [Omówienie tożsamości zarządzanej](/azure/active-directory/managed-identities-azure-resources/overview).
+Jeśli używasz zarządzanej tożsamości dla zasobów platformy Azure, musisz ją zaktualizować także do nowej dzierżawy Azure Active Directory. Aby uzyskać więcej informacji na temat tożsamości zarządzanych, [Omówienie tożsamości zarządzanej](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Jeśli używasz tożsamości zarządzanej, musisz również zaktualizować tożsamość, ponieważ stara tożsamość nie będzie już poprawna Azure Active Directory dzierżawy. Zobacz następujące dokumenty, aby pomóc w rozwiązaniu tego problemu. 
 
-* [Aktualizowanie pliku MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
-* [Prześlij subskrypcję do nowego katalogu](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
+* [Aktualizowanie pliku MSI](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)
+* [Prześlij subskrypcję do nowego katalogu](../../role-based-access-control/transfer-subscription.md)

@@ -13,17 +13,17 @@ ms.workload: iaas-sql-server
 ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d6900d0fdf656fa8309b18971691bb35587f7f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761264"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286076"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Rejestrowanie wielu maszyn wirtualnych SQL na platformie Azure przy użyciu dostawcy zasobów maszyny wirtualnej SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W tym artykule opisano sposób samoSQL Serverowego rejestrowania maszyn wirtualnych na platformie Azure za pomocą dostawcy zasobów maszyny wirtualnej SQL przy użyciu `Register-SqlVMs` polecenia cmdlet programu PowerShell.
+W tym artykule opisano sposób samoSQL Serverowego rejestrowania maszyn wirtualnych na platformie Azure za pomocą dostawcy zasobów maszyny wirtualnej SQL przy użyciu `Register-SqlVMs` polecenia cmdlet programu PowerShell. Rejestracja przy użyciu dostawcy zasobów maszyny wirtualnej SQL powoduje zainstalowanie [rozszerzenia agenta SQL IaaS](sql-server-iaas-agent-extension-automate-management.md).
 
 W tym artykule przedstawiono zbiorczo rejestrację SQL Server maszyn wirtualnych. Alternatywnie można rejestrować [wszystkie SQL Server maszyny wirtualne automatycznie](sql-vm-resource-provider-automatic-registration.md) lub [SQL Server maszyn wirtualnych](sql-vm-resource-provider-register.md). 
 
@@ -33,18 +33,18 @@ W tym artykule przedstawiono zbiorczo rejestrację SQL Server maszyn wirtualnych
 
 Proces rejestracji nie wiąże się z ryzykiem, nie ma żadnego przestoju i nie uruchomi ponownie SQL Server ani maszyny wirtualnej. 
 
-Aby uzyskać więcej informacji na temat dostawcy zasobów, zobacz [dostawca zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md). 
+Aby uzyskać więcej informacji, zobacz [dostawca zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby zarejestrować SQL Server maszynę wirtualną przy użyciu dostawcy zasobów, potrzebne są następujące elementy: 
 
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free/) , która została [zarejestrowana w dostawcy zasobów](sql-vm-resource-provider-register.md#register-subscription-with-rp) i zawiera niezarejestrowane SQL Server maszyn wirtualnych. 
-- Poświadczenia klienta używane do rejestrowania maszyn wirtualnych istnieją w żadnej z następujących ról platformy Azure: współautor, **współautor**lub **właściciel** **maszyny wirtualnej**. 
+- Poświadczenia klienta używane do rejestrowania maszyn wirtualnych istnieją w żadnej z następujących ról platformy Azure: współautor, **współautor** lub **właściciel** **maszyny wirtualnej**. 
 - Najnowsza wersja polecenia [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Najnowsza wersja [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 Przed kontynuowaniem należy najpierw utworzyć kopię lokalną skryptu, zaimportować ją jako moduł programu PowerShell i nawiązać połączenie z platformą Azure. 
 
@@ -219,7 +219,7 @@ Raport jest generowany jako `.txt` plik o nazwie `RegisterSqlVMScriptReport<Time
 | Liczba pominiętych maszyn wirtualnych, ponieważ nie są one uruchomione SQL Server w systemie Windows | Liczba maszyn wirtualnych, które zostały pominięte, ponieważ nie działają SQL Server lub nie są maszynami wirtualnymi z systemem Windows. Maszyny wirtualne są wyświetlane w formacie `SubscriptionID, Resource Group, Virtual Machine` . | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>Log 
+### <a name="log"></a>Dziennik 
 
 Błędy są rejestrowane w pliku dziennika o nazwie `VMsNotRegisteredDueToError<Timestamp>.log` , gdzie sygnatura czasowa jest momentu uruchomienia skryptu. Jeśli błąd znajduje się na poziomie subskrypcji, dziennik zawiera identyfikator subskrypcji rozdzielany przecinkami i komunikat o błędzie. Jeśli błąd dotyczy rejestracji maszyny wirtualnej, dziennik zawiera identyfikator subskrypcji, nazwę grupy zasobów, nazwę maszyny wirtualnej, kod błędu i komunikat rozdzielony przecinkami. 
 
@@ -227,7 +227,7 @@ Błędy są rejestrowane w pliku dziennika o nazwie `VMsNotRegisteredDueToError<
 
 Podczas rejestrowania SQL Server maszyn wirtualnych z dostawcą zasobów przy użyciu dostarczonego skryptu należy wziąć pod uwagę następujące kwestie:
 
-- Rejestracja w ramach dostawcy zasobów wymaga agenta gościa działającego na maszynie wirtualnej SQL Server. Obrazy systemu Windows Server 2008 nie mają agenta gościa, dlatego te maszyny wirtualne będą kończyć się niepowodzeniem i muszą zostać zarejestrowane ręcznie przy użyciu [trybu zarządzania bez agenta](sql-vm-resource-provider-register.md#management-modes).
+- Rejestracja w ramach dostawcy zasobów wymaga agenta gościa działającego na maszynie wirtualnej SQL Server. Obrazy systemu Windows Server 2008 nie mają agenta gościa, dlatego te maszyny wirtualne będą kończyć się niepowodzeniem i muszą zostać zarejestrowane ręcznie przy użyciu [trybu zarządzania bez agenta](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 - W celu przezwyciężenia przezroczystych błędów logika ponawiania jest wbudowana. Jeśli maszyna wirtualna została pomyślnie zarejestrowana, jest to szybka operacja. Jeśli jednak rejestracja nie powiedzie się, każda maszyna wirtualna zostanie ponowiona.  W związku z tym należy zapewnić znaczny czas na ukończenie procesu rejestracji — chociaż rzeczywiste wymaganie czasu zależy od typu i liczby błędów. 
 
 ## <a name="full-script"></a>Pełny skrypt

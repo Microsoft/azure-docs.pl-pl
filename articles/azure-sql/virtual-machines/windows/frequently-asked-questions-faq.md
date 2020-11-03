@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3d8908739d6dda76f4c3d44540c36b36115d6f5
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786500"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289404"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Często zadawane pytania dotyczące SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -169,15 +169,15 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Czy mogę odinstalować domyślne wystąpienie programu SQL Server?**
 
-   Tak, ale należy wziąć pod uwagę pewne kwestie. Po pierwsze rozliczenia skojarzone z SQL Server mogą być nadal wykonywane w zależności od modelu licencji dla maszyny wirtualnej. Po drugie, zgodnie z opisem w poprzedniej odpowiedzi, istnieją funkcje, które opierają się na [rozszerzeniu SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). W przypadku odinstalowania wystąpienia domyślnego bez usuwania rozszerzenia IaaS, rozszerzenie nadal szuka wystąpienia domyślnego i może generować błędy dziennika zdarzeń. Te błędy pochodzą z następujących dwóch źródeł: **Microsoft SQL Server zarządzania poświadczeniami** i **Microsoft SQL Server agenta IaaS** . Jeden z błędów może być podobny do następującego:
+   Tak, ale należy wziąć pod uwagę pewne kwestie. Po pierwsze rozliczenia skojarzone z SQL Server mogą być nadal wykonywane w zależności od modelu licencji dla maszyny wirtualnej. Po drugie, zgodnie z opisem w poprzedniej odpowiedzi, istnieją funkcje, które opierają się na [rozszerzeniu SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). W przypadku odinstalowania wystąpienia domyślnego bez usuwania rozszerzenia IaaS, rozszerzenie nadal szuka wystąpienia domyślnego i może generować błędy dziennika zdarzeń. Te błędy pochodzą z następujących dwóch źródeł: **Microsoft SQL Server zarządzania poświadczeniami** i **Microsoft SQL Server agenta IaaS**. Jeden z błędów może być podobny do następującego:
 
       Podczas nawiązywania połączenia z serwerem SQL wystąpił błąd dotyczący sieci lub wystąpienia. Serwer nie został znaleziony lub był niedostępny.
 
    W przypadku podjęcia decyzji o odinstalowaniu wystąpienia domyślnego należy również odinstalować także [rozszerzenie Agent SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md) . 
 
-1. **Czy można użyć nazwanego wystąpienia SQL Server z rozszerzeniem IaaS** ?
+1. **Czy można użyć nazwanego wystąpienia SQL Server z rozszerzeniem IaaS?**
    
-   Tak, jeśli nazwane wystąpienie jest jedynym wystąpieniem w SQL Server i jeśli oryginalne wystąpienie domyślne zostało [odinstalowane prawidłowo](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Jeśli nie ma wystąpienia domyślnego i istnieje wiele wystąpień nazwanych na jednej maszynie wirtualnej SQL Server, instalacja rozszerzenia agenta SQL Server IaaS nie powiedzie się. 
+   Tak, jeśli nazwane wystąpienie jest jedynym wystąpieniem w SQL Server i jeśli oryginalne wystąpienie domyślne zostało [odinstalowane prawidłowo](sql-server-iaas-agent-extension-automate-management.md#named-instance-support). Jeśli nie ma wystąpienia domyślnego i istnieje wiele wystąpień nazwanych na jednej maszynie wirtualnej SQL Server, instalacja rozszerzenia agenta SQL Server IaaS nie powiedzie się.  
 
 1. **Czy mogę usunąć SQL Server i powiązane z nimi rozliczanie licencji z poziomu maszyny wirtualnej SQL Server?**
 
@@ -210,7 +210,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Czy mogę uaktualnić wystąpienie SQL Server 2008/2008 R2 po zarejestrowaniu go u dostawcy zasobów maszyny wirtualnej SQL Server?**
 
-   Tak. Możesz użyć dowolnego nośnika instalacyjnego, aby uaktualnić wersję i wydanie SQL Server, a następnie uaktualnić [tryb rozszerzenia SQL IaaS](sql-vm-resource-provider-register.md#management-modes)) _bez agenta_ do _pełnego_ . Dzięki temu będzie można uzyskać dostęp do wszystkich korzyści z rozszerzenia IaaS języka SQL, takich jak Zarządzanie portalem, zautomatyzowane kopie zapasowe i automatyczne stosowanie poprawek. 
+   Jeśli system operacyjny to Windows Server 2008 R2 lub nowszy, tak. Możesz użyć dowolnego nośnika instalacyjnego, aby uaktualnić wersję i wydanie SQL Server, a następnie uaktualnić [tryb rozszerzenia SQL IaaS](sql-server-iaas-agent-extension-automate-management.md#management-modes)) _bez agenta_ do _pełnego_. Dzięki temu będzie można uzyskać dostęp do wszystkich korzyści z rozszerzenia IaaS języka SQL, takich jak Zarządzanie portalem, zautomatyzowane kopie zapasowe i automatyczne stosowanie poprawek. Jeśli wersja systemu operacyjnego to Windows Server 2008, obsługiwany jest tylko tryb noagent. 
 
 1. **Jak mogę uzyskać bezpłatne rozszerzone aktualizacje zabezpieczeń dla moich wystąpień programu SQL Server 2008 i SQL Server 2008 R2, dla których kończy się wsparcie?**
 

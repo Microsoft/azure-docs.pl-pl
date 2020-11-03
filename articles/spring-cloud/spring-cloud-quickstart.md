@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a060528d3140203541f6a13064659651c7a4f67d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a4400adeff8907e2d4ff690a83c63d32da8031bd
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488961"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289327"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny
 
@@ -112,7 +112,7 @@ W programie Visual Studio Utwórz ASP.NET Core aplikację sieci Web o nazwie "He
    }
    ```
 
-1. Również w *appsettings.jsna*, Zmień poziom rejestrowania dla `Microsoft` kategorii z `Warning` na `Information` . Ta zmiana gwarantuje, że dzienniki będą generowane podczas wyświetlania dzienników przesyłania strumieniowego w późniejszym kroku.
+1. Również w *appsettings.jsna* , Zmień poziom rejestrowania dla `Microsoft` kategorii z `Warning` na `Information` . Ta zmiana gwarantuje, że dzienniki będą generowane podczas wyświetlania dzienników przesyłania strumieniowego w późniejszym kroku.
 
    *appsettings.jsw* pliku wygląda teraz podobnie do poniższego przykładu:
 
@@ -218,10 +218,10 @@ Poniższa procedura umożliwia utworzenie wystąpienia chmury wiosennej platform
 
 1. Wypełnij formularz na stronie **Tworzenie** chmury Azure wiosennej.  Należy wziąć pod uwagę następujące wytyczne:
 
-   * **Subskrypcja**: wybierz subskrypcję, dla której chcesz naliczać opłaty za ten zasób.
-   * **Grupa zasobów**: Utwórz nową grupę zasobów. Wprowadzona nazwa zostanie użyta w kolejnych krokach **\<resource group name\>** .
-   * **Szczegóły/nazwa usługi**: Określ **\<service instance name\>** .  Nazwa musi mieć długość od 4 do 32 znaków i może zawierać tylko małe litery, cyfry i łączniki.  Pierwszy znak nazwy usługi musi być literą, a ostatni znak musi być literą lub cyfrą.
-   * **Region**: Wybierz region wystąpienia usługi.
+   * **Subskrypcja** : wybierz subskrypcję, dla której chcesz naliczać opłaty za ten zasób.
+   * **Grupa zasobów** : Utwórz nową grupę zasobów. Wprowadzona nazwa zostanie użyta w kolejnych krokach **\<resource group name\>** .
+   * **Szczegóły/nazwa usługi** : Określ **\<service instance name\>** .  Nazwa musi mieć długość od 4 do 32 znaków i może zawierać tylko małe litery, cyfry i łączniki.  Pierwszy znak nazwy usługi musi być literą, a ostatni znak musi być literą lub cyfrą.
+   * **Region** : Wybierz region wystąpienia usługi.
 
    ![Początek portalu ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -242,7 +242,7 @@ Poniższa procedura kompiluje i wdraża utworzony wcześniej projekt.
 1. Utwórz aplikację w wystąpieniu chmury Azure wiosennej z przypisanym publicznym punktem końcowym. Użyj tej samej nazwy aplikacji "Hello-World", która została określona w *appsettings.jsna*.
 
    ```console
-   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public
+   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public --runtime-version NetCore_31
    ```
 
 1. Wdróż plik *. zip* w aplikacji.
@@ -387,10 +387,10 @@ Poniższa procedura umożliwia utworzenie wystąpienia chmury wiosennej platform
     ![Dodawanie ikony ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Wypełnij formularz na stronie **Tworzenie** chmury Azure wiosennej.  Należy wziąć pod uwagę następujące wytyczne:
-    - **Subskrypcja**: wybierz subskrypcję, dla której chcesz naliczać opłaty za ten zasób.
-    - **Grupa zasobów**: najlepszym rozwiązaniem jest utworzenie nowych grup zasobów dla nowych zasobów. Ta procedura zostanie użyta w kolejnych krokach **\<resource group name\>** .
-    - **Szczegóły/nazwa usługi**: Określ **\<service instance name\>** .  Nazwa musi mieć długość od 4 do 32 znaków i może zawierać tylko małe litery, cyfry i łączniki.  Pierwszy znak nazwy usługi musi być literą, a ostatni znak musi być literą lub cyfrą.
-    - **Lokalizacja**: Wybierz region wystąpienia usługi.
+    - **Subskrypcja** : wybierz subskrypcję, dla której chcesz naliczać opłaty za ten zasób.
+    - **Grupa zasobów** : najlepszym rozwiązaniem jest utworzenie nowych grup zasobów dla nowych zasobów. Ta procedura zostanie użyta w kolejnych krokach **\<resource group name\>** .
+    - **Szczegóły/nazwa usługi** : Określ **\<service instance name\>** .  Nazwa musi mieć długość od 4 do 32 znaków i może zawierać tylko małe litery, cyfry i łączniki.  Pierwszy znak nazwy usługi musi być literą, a ostatni znak musi być literą lub cyfrą.
+    - **Lokalizacja** : Wybierz region wystąpienia usługi.
 
     ![Początek portalu ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -451,7 +451,7 @@ Aby wdrożyć platformę Azure, musisz zalogować się przy użyciu konta platfo
 1. W polu tekstowym **chmura Wiosenna** wybierz wystąpienie chmury Azure wiosennej, która została utworzona w ramach aprowizacji [wystąpienia chmury wiosennej platformy Azure](./spring-cloud-quickstart-provision-service-instance.md).
 1. Ustaw **publiczny punkt końcowy** , aby *włączyć*.
 1. W polu tekstowym **aplikacja:** wybierz pozycję **Utwórz aplikację..**..
-1. Wprowadź *hellospring*, a następnie kliknij przycisk **OK**.
+1. Wprowadź *hellospring* , a następnie kliknij przycisk **OK**.
 
     [![Wdróż na platformie Azure ](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png)](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png#lightbox)
 
@@ -481,7 +481,7 @@ Dzienniki są wyświetlane w wynikach:
 
 #### <a name="intellij"></a>[IntelliJ](#tab/IntelliJ)
 
-1. Wybierz opcję **Eksplorator platformy Azure**, a następnie pozycję **chmura Wiosenna**.
+1. Wybierz opcję **Eksplorator platformy Azure** , a następnie pozycję **chmura Wiosenna**.
 1. Kliknij prawym przyciskiem myszy działającą aplikację.
 1. Z listy rozwijanej wybierz pozycję **dzienniki przesyłania strumieniowego** .
 1. Wybierz wystąpienie.

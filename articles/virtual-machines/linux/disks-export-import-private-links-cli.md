@@ -8,16 +8,16 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 66c331a79a4da7b8fb397e7d0209b24e00645783
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 20b2f74b33ae57016188ee66af29570f7ec1b529
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741711"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289264"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Interfejs wiersza polecenia platformy Azure — ograniczanie dostępu do usługi Import/Export dla dysków zarządzanych przy użyciu linków prywatnych
 
-Obsługa linków prywatnych z dyskami zarządzanymi jest obecnie dostępna w wersji zapoznawczej. Możesz użyć [prywatnych punktów końcowych](../../private-link/private-endpoint-overview.md) , aby ograniczyć eksport i importowanie dysków zarządzanych i bezpiecznie uzyskiwać dostęp do danych za pośrednictwem [prywatnego linku](../../private-link/private-link-overview.md) klientów w sieci wirtualnej platformy Azure. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla usługi Managed Disks. Ruch sieciowy między klientami w sieci wirtualnej i dyskami zarządzanymi odbywa się tylko przez sieć wirtualną oraz link prywatny w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
+Możesz użyć [prywatnych punktów końcowych](../../private-link/private-endpoint-overview.md) , aby ograniczyć eksport i importowanie dysków zarządzanych i bezpiecznie uzyskiwać dostęp do danych za pośrednictwem [prywatnego linku](../../private-link/private-link-overview.md) klientów w sieci wirtualnej platformy Azure. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla usługi Managed Disks. Ruch sieciowy między klientami w sieci wirtualnej i dyskami zarządzanymi odbywa się tylko przez sieć wirtualną oraz link prywatny w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
 
 Aby użyć prywatnych linków do eksportowania/importowania dysków zarządzanych, należy najpierw utworzyć zasób dostępu do dysku i połączyć go z siecią wirtualną w tej samej subskrypcji, tworząc prywatny punkt końcowy. Następnie skojarz dysk lub migawkę z wystąpieniem dostępu do dysku. Na koniec ustaw właściwość NetworkAccessPolicy dysku lub migawki na `AllowPrivate` . Spowoduje to ograniczenie dostępu do sieci wirtualnej. 
 

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 45c0108ed87dd5264b9192f5dd69e0198bd59fc1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126777"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289774"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informacje o certyfikatach usługi Azure Key Vault
 
@@ -44,7 +44,7 @@ Po utworzeniu certyfikatu Key Vault można go pobrać ze klucza prywatnego z adr
 
 Klucz adresowania jest bardziej istotny dla niemożliwych do eksportu certyfikatów KV. Operacje na kluczu KV z adresami są mapowane z pola *użycie* klucza dla zasad certyfikatu KV użytych do utworzenia certyfikatu kV.  
 
- - Obsługiwane typy kluczy: RSA, RSA-HSM, EC, we-HSM, Oct (wymienione [tutaj](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) można eksportować tylko za pomocą RSA, we. Klucze HSM nie mogą być eksportowane.
+ - Obsługiwane typy kluczy: RSA, RSA-HSM, EC, we-HSM, Oct (wymienione [tutaj](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) można eksportować tylko za pomocą RSA, we. Klucze HSM nie mogą być eksportowane.
 
 
 ## <a name="certificate-attributes-and-tags"></a>Atrybuty i Tagi certyfikatu
@@ -57,14 +57,14 @@ Atrybuty certyfikatu są duplikowane do atrybutów klucza, który można adresow
 
 Certyfikat Key Vault ma następujące atrybuty:  
 
--   *włączone*: wartość logiczna, opcjonalna, **wartość**domyślna to true. Można określić, aby wskazać, czy dane certyfikatu mogą być pobierane jako tajne, czy jako klucz. Używany także w połączeniu z *NBF* i *EXP* , gdy operacja występuje między *NBF* i *EXP*, i będzie dozwolona tylko wtedy, gdy wartość Enabled jest ustawiona na true. Operacje poza oknem *NBF* i *EXP* są automatycznie niedozwolone.  
+-   *włączone* : wartość logiczna, opcjonalna, **wartość** domyślna to true. Można określić, aby wskazać, czy dane certyfikatu mogą być pobierane jako tajne, czy jako klucz. Używany także w połączeniu z *NBF* i *EXP* , gdy operacja występuje między *NBF* i *EXP* , i będzie dozwolona tylko wtedy, gdy wartość Enabled jest ustawiona na true. Operacje poza oknem *NBF* i *EXP* są automatycznie niedozwolone.  
 
 Istnieją dodatkowe atrybuty tylko do odczytu, które znajdują się w odpowiedzi:
 
--   *utworzono*: IntDate: wskazuje, kiedy ta wersja certyfikatu została utworzona.  
--   *Zaktualizowano*: IntDate: wskazuje, kiedy ta wersja certyfikatu została zaktualizowana.  
--   *EXP*: IntDate: zawiera wartość daty wygaśnięcia certyfikatu x509.  
--   *NBF*: IntDate: zawiera wartość daty certyfikatu x509.  
+-   *utworzono* : IntDate: wskazuje, kiedy ta wersja certyfikatu została utworzona.  
+-   *Zaktualizowano* : IntDate: wskazuje, kiedy ta wersja certyfikatu została zaktualizowana.  
+-   *EXP* : IntDate: zawiera wartość daty wygaśnięcia certyfikatu x509.  
+-   *NBF* : IntDate: zawiera wartość daty certyfikatu x509.  
 
 > [!Note] 
 > Jeśli certyfikat usługi Key Vault wygaśnie, adresowany klucz i wpis tajny przestaną działać.  
@@ -82,11 +82,11 @@ Zasady dotyczące certyfikatów zawierają informacje dotyczące sposobu tworzen
 
 Po utworzeniu certyfikatu Key Vault od podstaw należy podać zasady. Zasady określają sposób tworzenia tej wersji certyfikatu Key Vault lub następnej wersji certyfikatu Key Vault. Po ustanowieniu zasad nie jest to wymagane z kolejnymi operacjami tworzenia dla przyszłych wersji. Istnieje tylko jedno wystąpienie zasad dla wszystkich wersji certyfikatu Key Vault.  
 
-Na wysokim poziomie zasady certyfikatów zawierają następujące informacje (ich definicje można znaleźć [tutaj](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
+Na wysokim poziomie zasady certyfikatów zawierają następujące informacje (ich definicje można znaleźć [tutaj](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
 
 -   Właściwości certyfikatu x509: zawiera nazwę podmiotu, alternatywne nazwy podmiotu i inne właściwości używane do tworzenia żądania certyfikatu x509.  
 -   Właściwości klucza: zawiera typ klucza, Długość klucza, możliwe do eksportu i pola ReuseKeyOnRenewal. Te pola instruują Magazyn kluczy, aby utworzyć klucz. 
-     - Obsługiwane typy kluczy: RSA, RSA-HSM, EC, EC-HSM, Oct (wymienione [tutaj](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
+     - Obsługiwane typy kluczy: RSA, RSA-HSM, EC, EC-HSM, Oct (wymienione [tutaj](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
 -   Właściwości klucza tajnego: zawiera właściwości tajne, takie jak typ zawartości klucza tajnego adresowanego do wygenerowania wartości klucza tajnego w celu pobierania certyfikatu jako klucza tajnego.  
 -   Akcje okresu istnienia: zawiera akcje okresu istnienia dla certyfikatu KV. Każda akcja okresu istnienia zawiera:  
 
@@ -103,14 +103,14 @@ Poniższa tabela przedstawia mapowanie zasad użycia klucza x509 do efektywnych 
 
 |**Flagi użycia klucza x509**|**Key Vault kluczowe operacje**|**Zachowanie domyślne**|
 |----------|--------|--------|
-|DataEncipherment|szyfrowanie, odszyfrowywanie| Nie dotyczy |
-|DecipherOnly|zawartości| Nie dotyczy  |
+|DataEncipherment|szyfrowanie, odszyfrowywanie| Brak |
+|DecipherOnly|zawartości| Brak  |
 |Bity digitalSignature|Podpisz, zweryfikuj| Key Vault domyślne bez określenia użycia podczas tworzenia certyfikatu | 
-|EncipherOnly|encrypt| Nie dotyczy |
-|KeyCertSign|Podpisz, zweryfikuj|Nie dotyczy|
+|EncipherOnly|encrypt| Brak |
+|KeyCertSign|Podpisz, zweryfikuj|Brak|
 |KeyEncipherment|wrapKey, unwrapKey| Key Vault domyślne bez określenia użycia podczas tworzenia certyfikatu | 
-|Niemożność wyparcia|Podpisz, zweryfikuj| Nie dotyczy |
-|crlsign bit|Podpisz, zweryfikuj| Nie dotyczy |
+|Niemożność wyparcia|Podpisz, zweryfikuj| Brak |
+|crlsign bit|Podpisz, zweryfikuj| Brak |
 
 ## <a name="certificate-issuer"></a>Wystawca certyfikatu
 
@@ -133,7 +133,7 @@ Przed utworzeniem wystawcy certyfikatu w Key Vault należy pomyślnie wykonać n
 
     -   Zapewnia konfigurację, która ma zostać użyta do utworzenia obiektu wystawcy dostawcy w magazynie kluczy  
 
-Aby uzyskać więcej informacji na temat tworzenia obiektów wystawcy z poziomu portalu certyfikatów, zobacz [blog Key Vault Certificates](https://aka.ms/kvcertsblog)  
+Aby uzyskać więcej informacji na temat tworzenia obiektów wystawcy z poziomu portalu certyfikatów, zobacz [blog Key Vault Certificates](/archive/blogs/kv/manage-certificates-via-azure-key-vault)  
 
 Key Vault umożliwia tworzenie wielu obiektów wystawcy z inną konfiguracją dostawcy wystawcy. Po utworzeniu obiektu Issuer jego nazwy można odwoływać się w jednej lub wielu zasadach certyfikatów. Odwołujący się do obiektu wystawcy instruuje Key Vault, aby użyć konfiguracji określonej w obiekcie Issuer podczas żądania certyfikatu x509 od dostawcy urzędu certyfikacji podczas tworzenia i odnawiania certyfikatu.  
 

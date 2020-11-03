@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 848f3cd2d5719d62e39f46c166d51e09ec89bd4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b90d13d6f4fa5a33bff38aaa66728a5d0f3d70f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792518"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289947"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu Bezpośrednie miejsca do magazynowania (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Na poniższym diagramie przedstawiono kompletne rozwiązanie, w którym są wyko
 
 Na powyższym diagramie przedstawiono następujące zasoby w tej samej grupie zasobów:
 
-- Dwie maszyny wirtualne w klastrze trybu failover systemu Windows Server. Jeśli maszyna wirtualna znajduje się w klastrze trybu failover, jest również nazywana *węzłem klastra* lub *węzłem* .
+- Dwie maszyny wirtualne w klastrze trybu failover systemu Windows Server. Jeśli maszyna wirtualna znajduje się w klastrze trybu failover, jest również nazywana *węzłem klastra* lub *węzłem*.
 - Każda maszyna wirtualna ma co najmniej dwa dyski danych.
 - Bezpośrednie miejsca do magazynowania synchronizuje dane na dyskach danych i przedstawia zsynchronizowany magazyn jako pulę magazynów.
 - Pula magazynów prezentuje udostępniony wolumin klastra (CSV) do klastra trybu failover.
@@ -68,10 +68,10 @@ Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać nas
 
    Aby zainstalować klaster trybu failover z interfejsu użytkownika, wykonaj następujące czynności na obu maszynach wirtualnych:
 
-   1. W **Menedżer serwera** wybierz pozycję **Zarządzaj** , a następnie wybierz pozycję **Dodaj role i funkcje** .
-   1. W kreatorze **dodawania ról i funkcji** wybierz pozycję **dalej** , aż **wybierzesz pozycję funkcje** .
-   1. W obszarze **Wybierz funkcje** wybierz pozycję **klaster trybu failover** . Dołącz wszystkie wymagane funkcje i narzędzia do zarządzania. 
-   1. Wybierz pozycję **Dodaj funkcje** .
+   1. W **Menedżer serwera** wybierz pozycję **Zarządzaj** , a następnie wybierz pozycję **Dodaj role i funkcje**.
+   1. W kreatorze **dodawania ról i funkcji** wybierz pozycję **dalej** , aż **wybierzesz pozycję funkcje**.
+   1. W obszarze **Wybierz funkcje** wybierz pozycję **klaster trybu failover**. Dołącz wszystkie wymagane funkcje i narzędzia do zarządzania. 
+   1. Wybierz pozycję **Dodaj funkcje**.
    1. Wybierz pozycję **dalej** , a następnie wybierz pozycję **Zakończ** , aby zainstalować funkcje.
 
    Aby zainstalować klaster trybu failover przy użyciu programu PowerShell, uruchom następujący skrypt z sesji programu PowerShell administratora na jednej z maszyn wirtualnych:
@@ -90,18 +90,18 @@ Sprawdź poprawność klastra w interfejsie użytkownika lub za pomocą programu
 
 Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykonaj następujące czynności na jednej z maszyn wirtualnych:
 
-1. W obszarze **Menedżer serwera** wybierz pozycję **Narzędzia** , a następnie wybierz pozycję **Menedżer klastra trybu failover** .
-1. W obszarze **Menedżer klastra trybu failover** wybierz pozycję **Akcja** , a następnie wybierz pozycję **Weryfikuj konfigurację** .
-1. Wybierz pozycję **Dalej** .
+1. W obszarze **Menedżer serwera** wybierz pozycję **Narzędzia** , a następnie wybierz pozycję **Menedżer klastra trybu failover**.
+1. W obszarze **Menedżer klastra trybu failover** wybierz pozycję **Akcja** , a następnie wybierz pozycję **Weryfikuj konfigurację**.
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **Wybierz serwery lub klaster** wprowadź nazwy obu maszyn wirtualnych.
-1. W obszarze **opcje testowania** wybierz opcję **Uruchom tylko wybrane testy** . 
-1. Wybierz pozycję **Dalej** .
+1. W obszarze **opcje testowania** wybierz opcję **Uruchom tylko wybrane testy**. 
+1. Wybierz pozycję **Dalej**.
 1. W obszarze **wybór testu** zaznacz wszystkie testy z wyjątkiem **magazynu** , jak pokazano poniżej:
 
    ![Wybierz testy weryfikacji klastra](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
-1. Wybierz pozycję **Dalej** .
-1. W obszarze **potwierdzenie** wybierz pozycję **dalej** .
+1. Wybierz pozycję **Dalej**.
+1. W obszarze **potwierdzenie** wybierz pozycję **dalej**.
 
     Kreator **weryfikacji konfiguracji** uruchamia testy weryfikacyjne.
 
@@ -192,11 +192,11 @@ Po skonfigurowaniu klastra trybu failover i wszystkich składników klastra, w t
 
 1. W **Menedżer klastra trybu failover** upewnij się, że wszystkie podstawowe zasoby klastra znajdują się na pierwszej maszynie wirtualnej. W razie potrzeby Przenieś wszystkie zasoby na tę maszynę wirtualną.
 
-1. Znajdź nośnik instalacyjny. Jeśli maszyna wirtualna używa jednego z obrazów portalu Azure Marketplace, nośnik znajduje się w lokalizacji `C:\SQLServer_<version number>_Full` . Wybierz pozycję **Konfiguracja** .
+1. Znajdź nośnik instalacyjny. Jeśli maszyna wirtualna używa jednego z obrazów portalu Azure Marketplace, nośnik znajduje się w lokalizacji `C:\SQLServer_<version number>_Full` . Wybierz pozycję **Konfiguracja**.
 
-1. W **SQL Server centrum instalacji** wybierz opcję **Instalacja** .
+1. W **SQL Server centrum instalacji** wybierz opcję **Instalacja**.
 
-1. Wybierz pozycję **nowa SQL Server Instalacja klastra trybu failover** . Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server FCI.
+1. Wybierz pozycję **nowa SQL Server Instalacja klastra trybu failover**. Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server FCI.
 
    Katalogi danych FCI muszą znajdować się w magazynie klastrowanym. W przypadku Bezpośrednie miejsca do magazynowania nie jest to dysk udostępniony, ale punkt instalacji do woluminu na każdym serwerze. Bezpośrednie miejsca do magazynowania synchronizuje wolumin między obydwoma węzłami. Wolumin jest prezentowany w klastrze jako plik CSV. Użyj punktu instalacji woluminu CSV dla katalogów danych.
 
@@ -206,9 +206,9 @@ Po skonfigurowaniu klastra trybu failover i wszystkich składników klastra, w t
 
 1. Po zainstalowaniu przez Instalatora FCI na pierwszym węźle Nawiąż połączenie z drugim węzłem przy użyciu protokołu RDP.
 
-1. Otwórz **centrum instalacji SQL Server** . Wybierz opcję **Instalacja** .
+1. Otwórz **centrum instalacji SQL Server**. Wybierz opcję **Instalacja**.
 
-1. Wybierz pozycję **Dodaj węzeł do klastra trybu failover SQL Server** . Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server i dodać serwer do FCI.
+1. Wybierz pozycję **Dodaj węzeł do klastra trybu failover SQL Server**. Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server i dodać serwer do FCI.
 
    >[!NOTE]
    >W przypadku korzystania z obrazu galerii portalu Azure Marketplace zawierającego SQL Server narzędzia SQL Server zostały dołączone do obrazu. Jeśli nie korzystasz z jednego z tych obrazów, zainstaluj SQL Server narzędzia osobno. Aby uzyskać więcej informacji, zobacz [pobieranie SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -239,7 +239,7 @@ Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy sko
 
 - Usługa Azure Virtual Machines obsługuje program Microsoft Distributed Transaction Coordinator (MSDTC) w systemie Windows Server 2019 z magazynem na CSV i w ramach [standardowego modułu równoważenia obciążenia](../../../load-balancer/load-balancer-overview.md).
 - Dyski dołączone jako dyski sformatowane w systemie plików NTFS mogą być używane z Bezpośrednie miejsca do magazynowania tylko wtedy, gdy opcja kwalifikowania dysku nie jest zaznaczona lub wyczyszczona, gdy do klastra jest dodawany magazyn. 
-- Obsługiwane jest tylko rejestrowanie w [trybie uproszczonego zarządzania](sql-vm-resource-provider-register.md#management-modes) przy użyciu dostawcy zasobów maszyny wirtualnej SQL.
+- Obsługiwane jest tylko rejestrowanie w [trybie uproszczonego zarządzania](sql-server-iaas-agent-extension-automate-management.md#management-modes) przy użyciu dostawcy zasobów maszyny wirtualnej SQL.
 
 ## <a name="next-steps"></a>Następne kroki
 

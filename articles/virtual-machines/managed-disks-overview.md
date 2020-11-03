@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972037"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289359"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Wprowadzenie do dysków zarządzanych na platformie Azure
 
@@ -27,7 +27,7 @@ Przejdźmy do niektórych korzyści z używania usługi Managed Disks.
 
 ### <a name="highly-durable-and-available"></a>Wysoce trwałe i dostępne
 
-Dyski zarządzane są przeznaczone do dostępności na 99,999%. Dyski zarządzane uzyskują się w ten sposób, dostarczając trzy repliki danych, co zapewnia wysoką trwałość. Jeśli jedna lub nawet dwie repliki napotykają problemy, pozostałe repliki pomagają zapewnić trwałość danych i wysoką tolerancję przed awariami. Ta architektura umożliwiła platformę Azure spójnie dostarczać trwałość klasy korporacyjnej dla dysków infrastruktury jako usługi (IaaS), a wiodący w branży ZERO% stawka niepowodzeń.
+Dyski zarządzane są przeznaczone do dostępności na 99,999%. W przypadku dysków zarządzanych osiąga się ją przez udostępnienie trzech replik danych, co zapewnia wysoką trwałość. Jeśli jedna lub nawet dwie repliki napotykają problemy, pozostałe repliki pomagają zapewnić trwałość danych i wysoką tolerancję na awarie. Ta architektura umożliwiła platformę Azure spójnie dostarczać trwałość klasy korporacyjnej dla dysków infrastruktury jako usługi (IaaS), a wiodący w branży ZERO% stawka niepowodzeń.
 
 ### <a name="simple-and-scalable-vm-deployment"></a>Proste i skalowalne wdrożenie maszyny wirtualnej
 
@@ -59,7 +59,7 @@ Aby dowiedzieć się, jak przenieść dysk VHD na platformę Azure, zapoznaj si�
 
 ### <a name="private-links"></a>Linki prywatne
 
-Obsługa linków prywatnych dla dysków zarządzanych jest obecnie w wersji zapoznawczej i może służyć do importowania lub eksportowania dysku zarządzanego w sieci. Linki prywatne umożliwiają generowanie identyfikatora URI sygnatury dostępu współdzielonego (SAS) powiązanego z niedołączonymi dyskami zarządzanymi i migawkami, których można użyć do eksportowania danych do innych regionów na potrzeby rozszerzania regionalnego, odzyskiwania po awarii i analizy śledczej. Możesz również użyć identyfikatora URI sygnatury dostępu współdzielonego, aby bezpośrednio przekazać dysk VHD do pustego dysku z lokalnego. Teraz możesz skorzystać z [prywatnych linków](../private-link/private-link-overview.md) , aby ograniczyć eksport i import dysków zarządzanych, tak aby mogły one wystąpić tylko w ramach sieci wirtualnej platformy Azure. Linki prywatne umożliwiają zapewnienie, że dane są przesyłane tylko w ramach bezpiecznej sieci szkieletowej firmy Microsoft.
+W celu zaimportowania lub wyeksportowania wewnętrznego dysku zarządzanego do sieci można użyć obsługi linku prywatnego dla dysków zarządzanych. Linki prywatne umożliwiają generowanie identyfikatora URI sygnatury dostępu współdzielonego (SAS) powiązanego z niedołączonymi dyskami zarządzanymi i migawkami, których można użyć do eksportowania danych do innych regionów na potrzeby rozszerzania regionalnego, odzyskiwania po awarii i analizy śledczej. Możesz również użyć identyfikatora URI sygnatury dostępu współdzielonego, aby bezpośrednio przekazać dysk VHD do pustego dysku z lokalnego. Teraz możesz skorzystać z [prywatnych linków](../private-link/private-link-overview.md) , aby ograniczyć eksport i import dysków zarządzanych, tak aby mogły one wystąpić tylko w ramach sieci wirtualnej platformy Azure. Linki prywatne umożliwiają zapewnienie, że dane są przesyłane tylko w ramach bezpiecznej sieci szkieletowej firmy Microsoft.
 
 Aby dowiedzieć się, jak włączyć linki prywatne do importowania lub eksportowania dysku zarządzanego, zapoznaj się z artykułami dotyczącymi [interfejsu wiersza polecenia](linux/disks-export-import-private-links-cli.md) lub [portalu](disks-enable-private-links-for-import-export-portal.md) .
 

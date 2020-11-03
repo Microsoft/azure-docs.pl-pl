@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: wdrażanie interfejsu API platformy Azure dla usługi FHIR przy użyciu szablonu ARM'
 description: W tym przewodniku szybki start dowiesz się, jak wdrożyć interfejs API platformy Azure pod kątem szybkich zasobów współdziałania z opieką zdrowotną (FHIR®) przy użyciu szablonu Azure Resource Manager (szablon ARM).
-author: mgblythe
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
+ms.author: cavoeg
 ms.date: 10/06/2020
-ms.openlocfilehash: 0d045aac63daf99bf67ec79438f55eedd5f200d9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c04bb82810bf55d6ac55b2697f5010896e0eb9b4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521445"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289293"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Szybki Start: używanie szablonu ARM do wdrażania interfejsu API platformy Azure dla usługi FHIR
 
@@ -31,7 +31,7 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 
 Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/).
 
-# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/).
 * Jeśli chcesz uruchomić kod lokalnie, [Azure PowerShell](/powershell/azure/install-az-ps).
@@ -75,19 +75,19 @@ Na stronie **wdrażanie interfejsu API platformy Azure dla FHIR** :
 
 1. Jeśli chcesz, Zmień domyślną **subskrypcję** na inną subskrypcję.
 
-2. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**, wprowadź nazwę nowej grupy zasobów, a następnie wybierz pozycję **OK**.
+2. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , wprowadź nazwę nowej grupy zasobów, a następnie wybierz pozycję **OK**.
 
 3. Jeśli utworzono nową grupę zasobów, wybierz **region** dla grupy zasobów.
 
 4. Wprowadź nową **nazwę usługi** i wybierz **lokalizację** interfejsu API platformy Azure dla usługi FHIR. Lokalizacja może być taka sama jak lub różna od regionu grupy zasobów.
 
-    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Wdróż usługę Azure API for FHIR przy użyciu szablonu ARM w Azure Portal.":::
+    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Wdróż interfejs API platformy Azure dla usługi FHIR przy użyciu szablonu ARM w Azure Portal.":::
 
 5. Wybierz pozycję **Przejrzyj i utwórz**.
 
 6. Przeczytaj warunki i postanowienia, a następnie wybierz pozycję **Utwórz**.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 > [!NOTE]
 > Jeśli chcesz uruchomić skrypty programu PowerShell lokalnie, najpierw wprowadź, `Connect-AzAccount` Aby skonfigurować swoje poświadczenia platformy Azure.
@@ -156,7 +156,7 @@ Wykonaj następujące kroki, aby zapoznać się z omówieniem nowego interfejsu 
 
 3. Aby sprawdzić, czy nowe konto interfejsu API FHIR jest inicjowane, wybierz link obok pozycji **punkt końcowy metadanych FHIR** , aby pobrać instrukcję obsługi interfejsu API FHIR. Link ma format `https://<service-name>.azurehealthcareapis.com/metadata` . Jeśli konto jest inicjowane, zostanie wyświetlony duży plik JSON.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 Uruchom następujący kod interaktywny, aby wyświetlić szczegółowe informacje na temat usługi Azure API for FHIR. Musisz wprowadzić nazwę nowej usługi i grupy zasobów.
 

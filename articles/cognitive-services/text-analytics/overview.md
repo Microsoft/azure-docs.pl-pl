@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d58c501af3d90fec1eea43d13fa2383c8e847f18
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89647470"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289692"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Czym jest interfejs API analizy tekstu?
 
@@ -29,7 +29,9 @@ Interfejs API jest częścią usług [Azure Cognitive Services](https://docs.mic
 
 ## <a name="sentiment-analysis"></a>Analiza tonacji
 
-Korzystaj z [analizy tonacji](how-tos/text-analytics-how-to-sentiment-analysis.md) i Dowiedz się, jakie osoby uważają za swoją markę lub temat, wyszukując tekst pod kątem pozytywnych lub negatywnych tonacji. Ta funkcja interfejsu API zwraca wynik tonacji z zakresu od 0 do 1 dla każdego dokumentu, gdzie 1 to najbardziej dodatnia wartość.
+Korzystaj z [analizy tonacji](how-tos/text-analytics-how-to-sentiment-analysis.md) i Dowiedz się, jakie osoby uważają za swoją markę lub temat, wyszukując tekst pod kątem pozytywnych lub negatywnych tonacji. 
+
+Funkcja udostępnia etykiety tonacji (na przykład "negatywna", "neutralna" i "pozytywne") w oparciu o najwyższy wynik zaufania znaleziony przez usługę na poziomie zdania i dokumentu. Ta funkcja zwraca również wyniki zaufania z zakresu od 0 do 1 dla każdego dokumentu & w nim zdania dla pozytywnych, neutralnych i ujemnych tonacji. Usługę można również uruchomić lokalnie [przy użyciu kontenera](how-tos/text-analytics-how-to-install-containers.md).
 
 Począwszy od wersji zapoznawczej programu v 3.1, funkcja wyszukiwania jest funkcją analiza tonacji. Funkcja ta oferuje również bardziej szczegółowe informacje o opiniach związanych z aspektami (np. atrybutami produktów lub usług), nazywanymi analiza tonacji opartymi na aspektach.
 

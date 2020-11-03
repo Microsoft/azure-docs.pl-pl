@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37a17105be0b6754bbdfd935c6c17933314114d4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426446"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289589"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure
 
@@ -30,11 +30,11 @@ Zarządzane tożsamości dla zasobów platformy Azure zapewniają usługi platfo
 Następujące usługi platformy Azure obsługują tożsamości zarządzane dla zasobów platformy Azure:
 
 
-### <a name="azure-api-management"></a>Azure API Management
+### <a name="azure-api-management"></a>Usługa Azure API Management
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | ![Udostępnione][check] |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
 | Przypisana przez użytkownika | Wersja zapoznawcza | Wersja zapoznawcza | Niedostępne | Wersja zapoznawcza |
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure API Management (w regionach, w których są dostępne):
@@ -45,8 +45,8 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 
 | Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Udostępnione][check] | Niedostępny | Niedostępny |
-| Przypisana przez użytkownika | ![Udostępnione][check] | ![Udostępnione][check]  | Niedostępny  | Niedostępny |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Niedostępny | Niedostępny |
+| Przypisana przez użytkownika | ![Dostępne][check] | ![Dostępne][check]  | Niedostępny  | Niedostępny |
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla konfiguracji aplikacji platformy Azure (w regionach, w których są dostępne):
 
@@ -56,8 +56,8 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 
 | Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Udostępnione][check] | ![Udostępnione][check] | ![Udostępnione][check] |
-| Przypisana przez użytkownika | ![Udostępnione][check] | ![Udostępnione][check]  | ![Udostępnione][check]  | ![Udostępnione][check] |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | ![Dostępne][check] | ![Dostępne][check] |
+| Przypisana przez użytkownika | ![Dostępne][check] | ![Dostępne][check]  | ![Dostępne][check]  | ![Dostępne][check] |
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure App Service (w regionach, w których są dostępne):
 
@@ -79,8 +79,8 @@ Usługa Azure ARC z włączonym Kubernetes obecnie [obsługuje tożsamość przy
 
 |Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | Niedostępne |
-| Przypisana przez użytkownika | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | Niedostępne |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | Niedostępne |
+| Przypisana przez użytkownika | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | Niedostępne |
 
 Zapoznaj się z poniższą listą, aby użyć zarządzanej tożsamości z [planami platformy Azure](../../governance/blueprints/overview.md):
 
@@ -92,14 +92,14 @@ Zapoznaj się z poniższą listą, aby użyć zarządzanej tożsamości z [plana
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | ![Udostępnione][check] |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
 | Przypisana przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
 
 ### <a name="azure-cognitive-services"></a>Azure Cognitive Services
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | ![Udostępnione][check] |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
 | Przypisana przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
 
 
@@ -132,20 +132,20 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | ![Udostępnione][check] |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
 | Przypisana przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | ![Udostępnione][check] |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
 | Przypisana przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Data Factory v2 (w regionach, w których są dostępne):
 
 - [Witryna Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
-- [Program PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
+- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
@@ -170,8 +170,8 @@ Typ tożsamości zarządzanej |Wszystkie ogólnie dostępne<br>Globalne regiony 
 
 Typ tożsamości zarządzanej |Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Udostępnione][check] | ![Udostępnione][check] | ![Udostępnione][check] |
-| Przypisana przez użytkownika | ![Udostępnione][check] | ![Udostępnione][check]  | ![Udostępnione][check]  | ![Udostępnione][check]  |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | ![Dostępne][check] | ![Dostępne][check] |
+| Przypisana przez użytkownika | ![Dostępne][check] | ![Dostępne][check]  | ![Dostępne][check]  | ![Dostępne][check]  |
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Functions (w regionach, w których są dostępne):
 
@@ -184,7 +184,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | ![Udostępnione][check] |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
 | Przypisana przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Data Factory v2 (w regionach, w których są dostępne):
@@ -202,8 +202,8 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 
 | Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | ![Udostępnione][check] | 
-| Przypisana przez użytkownika | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | ![Udostępnione][check] |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | Niedostępne | 
+| Przypisana przez użytkownika | Wersja zapoznawcza | Niedostępne | Niedostępne | Niedostępne |
 
 
 Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service](../../aks/use-managed-identity.md).
@@ -213,8 +213,8 @@ Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanyc
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | ![Udostępnione][check] |
-| Przypisana przez użytkownika | ![Udostępnione][check] | ![Dostępne][check] | Niedostępne | ![Udostępnione][check] |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
+| Przypisana przez użytkownika | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
 
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Logic Apps (w regionach, w których są dostępne):
@@ -235,7 +235,7 @@ Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanyc
 
 |Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Udostępnione][check] | ![Udostępnione][check] | ![Udostępnione][check] |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | ![Dostępne][check] | ![Dostępne][check] |
 | Przypisana przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Policy (w regionach, w których są dostępne):
@@ -243,7 +243,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 - [Witryna Azure Portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [Program PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
-- [Szablony usługi Azure Resource Manager](/azure/templates/microsoft.authorization/policyassignments)
+- [Szablony Azure Resource Manager](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
 
@@ -253,8 +253,8 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | Niedostępny | Niedostępny | Niedostępne |
-| Przypisana przez użytkownika | ![Udostępnione][check] | Niedostępny | Niedostępny |Niedostępny |
+| Przypisana przez system | ![Dostępne][check] | Niedostępny | Niedostępny | Niedostępne |
+| Przypisana przez użytkownika | ![Dostępne][check] | Niedostępny | Niedostępny |Niedostępny |
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla aplikacji Service Fabric platformy Azure we wszystkich regionach:
 
@@ -264,7 +264,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 
 | Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | Niedostępny | Niedostępny | Niedostępny | 
+| Przypisana przez system | ![Dostępne][check] | Niedostępny | Niedostępny | Niedostępny | 
 | Przypisana przez użytkownika | Niedostępny | Niedostępny | Niedostępny | Niedostępny |
 
 
@@ -281,15 +281,15 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 
 |Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | Wersja zapoznawcza | Wersja zapoznawcza | Wersja zapoznawcza |
-| Przypisana przez użytkownika | ![Udostępnione][check] | Wersja zapoznawcza | Wersja zapoznawcza | Wersja zapoznawcza |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Wersja zapoznawcza | Wersja zapoznawcza |
+| Przypisana przez użytkownika | ![Dostępne][check] | ![Dostępne][check] | Wersja zapoznawcza | Wersja zapoznawcza |
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure Virtual Machine Scale Sets (w regionach, w których są dostępne):
 
 - [Witryna Azure Portal](qs-configure-portal-windows-vm.md)
 - [Program PowerShell](qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](qs-configure-cli-windows-vm.md)
-- [Szablony usługi Azure Resource Manager](qs-configure-template-windows-vm.md)
+- [Szablony Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 
@@ -298,15 +298,15 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 
 | Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Przypisana przez system | ![Udostępnione][check] | ![Udostępnione][check] | Wersja zapoznawcza | Wersja zapoznawcza | 
-| Przypisana przez użytkownika | ![Udostępnione][check] | ![Udostępnione][check] | Wersja zapoznawcza | Wersja zapoznawcza |
+| Przypisana przez system | ![Dostępne][check] | ![Dostępne][check] | Wersja zapoznawcza | Wersja zapoznawcza | 
+| Przypisana przez użytkownika | ![Dostępne][check] | ![Dostępne][check] | Wersja zapoznawcza | Wersja zapoznawcza |
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure Virtual Machines (w regionach, w których są dostępne):
 
 - [Witryna Azure Portal](qs-configure-portal-windows-vm.md)
 - [Program PowerShell](qs-configure-powershell-windows-vm.md)
 - [Interfejs wiersza polecenia platformy Azure](qs-configure-cli-windows-vm.md)
-- [Szablony usługi Azure Resource Manager](qs-configure-template-windows-vm.md)
+- [Szablony Azure Resource Manager](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 - [Zestawy Azure SDK](qs-configure-sdk-windows-vm.md)
 
@@ -319,7 +319,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 | Przypisana przez użytkownika | [Dostępne w obsługiwanych regionach](../../virtual-machines/windows/image-builder-overview.md#regions) | Niedostępny | Niedostępny | Niedostępny |
 
 Aby dowiedzieć się, jak skonfigurować tożsamość zarządzaną dla konstruktora obrazów maszyn wirtualnych platformy Azure (w regionach, w których jest dostępna), zobacz [Omówienie konstruktora obrazów](../../virtual-machines/windows/image-builder-overview.md#permissions).
-### <a name="azure-signalr-service"></a>Azure SignalR Service
+### <a name="azure-signalr-service"></a>Usługa Azure SignalR Service
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -345,25 +345,25 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 
 | Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Globalne platformy Azure | `https://management.azure.com/`| ![Udostępnione][check] |
-| Azure Government | `https://management.usgovcloudapi.net/` | ![Udostępnione][check] |
-| Azure (Niemcy) | `https://management.microsoftazure.de/` | ![Udostępnione][check] |
-| Azure w Chinach — 21Vianet | `https://management.chinacloudapi.cn` | ![Udostępnione][check] |
+| Globalne platformy Azure | `https://management.azure.com/`| ![Dostępne][check] |
+| Azure Government | `https://management.usgovcloudapi.net/` | ![Dostępne][check] |
+| Azure (Niemcy) | `https://management.microsoftazure.de/` | ![Dostępne][check] |
+| Azure w Chinach — 21Vianet | `https://management.chinacloudapi.cn` | ![Dostępne][check] |
 
 ### <a name="azure-key-vault"></a>W usłudze Azure Key Vault
 
 | Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Globalne platformy Azure | `https://vault.azure.net`| ![Udostępnione][check] |
-| Azure Government | `https://vault.usgovcloudapi.net` | ![Udostępnione][check] |
-| Azure (Niemcy) |  `https://vault.microsoftazure.de` | ![Udostępnione][check] |
-| Azure w Chinach — 21Vianet | `https://vault.azure.cn` | ![Udostępnione][check] |
+| Globalne platformy Azure | `https://vault.azure.net`| ![Dostępne][check] |
+| Azure Government | `https://vault.usgovcloudapi.net` | ![Dostępne][check] |
+| Azure (Niemcy) |  `https://vault.microsoftazure.de` | ![Dostępne][check] |
+| Azure w Chinach — 21Vianet | `https://vault.azure.cn` | ![Dostępne][check] |
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
 
 | Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Globalne platformy Azure | `https://datalake.azure.net/` | ![Udostępnione][check] |
+| Globalne platformy Azure | `https://datalake.azure.net/` | ![Dostępne][check] |
 | Azure Government |  | Niedostępny |
 | Azure (Niemcy) |   | Niedostępny |
 | Azure w Chinach — 21Vianet |  | Niedostępny |
@@ -372,16 +372,16 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 
 | Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Globalne platformy Azure | `https://database.windows.net/` | ![Udostępnione][check] |
-| Azure Government | `https://database.usgovcloudapi.net/` | ![Udostępnione][check] |
-| Azure (Niemcy) | `https://database.cloudapi.de/` | ![Udostępnione][check] |
-| Azure w Chinach — 21Vianet | `https://database.chinacloudapi.cn/` | ![Udostępnione][check] |
+| Globalne platformy Azure | `https://database.windows.net/` | ![Dostępne][check] |
+| Azure Government | `https://database.usgovcloudapi.net/` | ![Dostępne][check] |
+| Azure (Niemcy) | `https://database.cloudapi.de/` | ![Dostępne][check] |
+| Azure w Chinach — 21Vianet | `https://database.chinacloudapi.cn/` | ![Dostępne][check] |
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
 | Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Globalne platformy Azure | `https://eventhubs.azure.net` | ![Udostępnione][check] |
+| Globalne platformy Azure | `https://eventhubs.azure.net` | ![Dostępne][check] |
 | Azure Government |  | Niedostępny |
 | Azure (Niemcy) |   | Niedostępny |
 | Azure w Chinach — 21Vianet |  | Niedostępny |
@@ -390,8 +390,8 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 
 | Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Globalne platformy Azure | `https://servicebus.azure.net`  | ![Udostępnione][check] |
-| Azure Government |  | ![Udostępnione][check] |
+| Globalne platformy Azure | `https://servicebus.azure.net`  | ![Dostępne][check] |
+| Azure Government |  | ![Dostępne][check] |
 | Azure (Niemcy) |   | Niedostępny |
 | Azure w Chinach — 21Vianet |  | Niedostępny |
 
@@ -407,19 +407,19 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 
 | Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Globalne platformy Azure | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Udostępnione][check] |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Udostępnione][check] |
-| Azure (Niemcy) | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Udostępnione][check] |
-| Azure w Chinach — 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Udostępnione][check] |
+| Globalne platformy Azure | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Dostępne][check] |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Dostępne][check] |
+| Azure (Niemcy) | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Dostępne][check] |
+| Azure w Chinach — 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Dostępne][check] |
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
 | Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
-| Globalne platformy Azure | `https://*.asazure.windows.net` | ![Udostępnione][check] |
-| Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Udostępnione][check] |
-| Azure (Niemcy) | `https://*.asazure.cloudapi.de` | ![Udostępnione][check] |
-| Azure w Chinach — 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Udostępnione][check] |
+| Globalne platformy Azure | `https://*.asazure.windows.net` | ![Dostępne][check] |
+| Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Dostępne][check] |
+| Azure (Niemcy) | `https://*.asazure.cloudapi.de` | ![Dostępne][check] |
+| Azure w Chinach — 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Dostępne][check] |
 
 > [!Note]
 > Program Microsoft Power BI [obsługuje również zarządzane tożsamości](../../stream-analytics/powerbi-output-managed-identity.md).

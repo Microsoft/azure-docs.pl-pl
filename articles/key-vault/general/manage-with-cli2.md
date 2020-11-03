@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504538"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289893"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Zarządzanie Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure 
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 Użyj `az keyvault create` polecenia, aby utworzyć magazyn kluczy. Ten skrypt ma trzy obowiązkowe parametry: nazwę grupy zasobów, nazwę magazynu kluczy i lokalizację geograficzną.
 
-Aby utworzyć nowy magazyn o nazwie **ContosoKeyVault**, w grupie zasobów  **ContosoResourceGroup**, znajdującej się w lokalizacji **Azja Wschodnia** , wpisz: 
+Aby utworzyć nowy magazyn o nazwie **ContosoKeyVault** , w grupie zasobów  **ContosoResourceGroup** , znajdującej się w lokalizacji **Azja Wschodnia** , wpisz: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 Dane wyjściowe tego polecenia przedstawiają właściwości utworzonego magazynu kluczy. Dwie najważniejsze właściwości to:
 
-* **Nazwa**: w tym przykładzie nazwa to ContosoKeyVault. Ta nazwa będzie używana do innych poleceń Key Vault.
-* **vaultUri**: w tym przykładzie identyfikator URI to https://contosokeyvault.vault.azure.net . Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+* **Nazwa** : w tym przykładzie nazwa to ContosoKeyVault. Ta nazwa będzie używana do innych poleceń Key Vault.
+* **vaultUri** : w tym przykładzie identyfikator URI to https://contosokeyvault.vault.azure.net . Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
 
 Twoje konto platformy Azure ma teraz uprawnienia do wykonywania dowolnych operacji na tym magazynie kluczy. Od tej pory nikt nie jest autoryzowany.
 
@@ -194,7 +194,7 @@ Aplikacje używające magazynu kluczy muszą zostać uwierzytelnione przy użyci
 
 Aby uzyskać token, aplikacja musi przedstawić obie wartości usłudze Azure Active Directory. Sposób, w jaki aplikacja jest skonfigurowana w celu uzyskania tokenu, będzie zależeć od aplikacji. W przypadku [przykładowej aplikacji usługi Key Vault](https://www.microsoft.com/download/details.aspx?id=45343) właściciel aplikacji ustawia te wartości w pliku app.config.
 
-Aby uzyskać szczegółowe instrukcje dotyczące rejestrowania aplikacji z Azure Active Directory należy zapoznać się z artykułami dotyczącymi [integrowania aplikacji z Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md), [używania portalu do tworzenia aplikacji Azure Active Directory i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../../active-directory/develop/howto-create-service-principal-portal.md), oraz [utworzyć jednostkę usługi platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
+Aby uzyskać szczegółowe instrukcje dotyczące rejestrowania aplikacji z Azure Active Directory należy zapoznać się z artykułami dotyczącymi [integrowania aplikacji z Azure Active Directory](../../active-directory/develop/quickstart-register-app.md), [używania portalu do tworzenia aplikacji Azure Active Directory i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../../active-directory/develop/howto-create-service-principal-portal.md), oraz [utworzyć jednostkę usługi platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Aby zarejestrować aplikację w Azure Active Directory:
 
