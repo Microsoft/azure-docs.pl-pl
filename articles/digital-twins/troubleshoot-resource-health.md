@@ -28,7 +28,7 @@ Aby sprawdzić kondycję wystąpienia, wykonaj następujące kroki:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Można go znaleźć, wpisując jego nazwę na pasku wyszukiwania portalu. 
 
-2. Z menu wystąpienia wybierz pozycję _**Kondycja zasobów**_ w obszarze *Pomoc techniczna i rozwiązywanie problemów* . Spowoduje to przejście do strony umożliwiającej wyświetlenie historii kondycji zasobów. 
+2. Z menu wystąpienia wybierz pozycję _**Kondycja zasobów**_ w obszarze *Pomoc techniczna i rozwiązywanie problemów*. Spowoduje to przejście do strony umożliwiającej wyświetlenie historii kondycji zasobów. 
 
     :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Zrzut ekranu przedstawiający stronę &quot;kondycja zasobu&quot;. Istnieje sekcja &quot;Historia kondycji&quot; pokazująca dzienny Raport z ostatnich dziewięciu dni. Każdy dzień pokazuje stan &quot;dostępne&quot;.":::
 
