@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5bcb6df1b03b0c1c835e198818813ad8d914c630
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147117"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279419"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
-Można zarządzać [modelami](concepts-models.md) , dla których wystąpienie usługi Azure Digital bliźniaczych reprezentacji wie o korzystaniu z [**interfejsów API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)lub [interfejsu wiersza polecenia platformy Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). 
+Można zarządzać [modelami](concepts-models.md) , dla których wystąpienie usługi Azure Digital bliźniaczych reprezentacji wie o korzystaniu z [**interfejsów API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)lub [interfejsu wiersza polecenia platformy Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). 
 
 Operacje zarządzania obejmują przekazywanie, sprawdzanie poprawności, pobieranie i usuwanie modeli. 
 
@@ -200,7 +200,7 @@ Po utworzeniu nowego sznurka, ponieważ nowa wersja modelu i stara wersja modelu
 
 Oznacza to również, że przekazywanie nowej wersji modelu nie wpływa automatycznie na istniejące bliźniaczych reprezentacji. Istniejący bliźniaczych reprezentacji będzie po prostu mieć wystąpienia starej wersji modelu.
 
-Aby zaktualizować istniejące bliźniaczych reprezentacji do nowej wersji modelu, należy zastosować ich poprawki, zgodnie z opisem w sekcji [*aktualizowanie modelu cyfrowej sieci bliźniaczyej*](how-to-manage-twin.md#update-a-digital-twins-model) , how to *: Manage Digital bliźniaczych reprezentacji* . W ramach tej samej poprawki należy zaktualizować zarówno **Identyfikator modelu** (do nowej wersji), jak i **wszystkie pola, które muszą zostać zmienione na sznurze, aby były zgodne z nowym modelem** .
+Aby zaktualizować istniejące bliźniaczych reprezentacji do nowej wersji modelu, należy zastosować ich poprawki, zgodnie z opisem w sekcji [*aktualizowanie modelu cyfrowej sieci bliźniaczyej*](how-to-manage-twin.md#update-a-digital-twins-model) , how to *: Manage Digital bliźniaczych reprezentacji*. W ramach tej samej poprawki należy zaktualizować zarówno **Identyfikator modelu** (do nowej wersji), jak i **wszystkie pola, które muszą zostać zmienione na sznurze, aby były zgodne z nowym modelem**.
 
 ### <a name="remove-models"></a>Usuń modele
 

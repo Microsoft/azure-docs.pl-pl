@@ -3,7 +3,7 @@ title: 'Samouczek: wdrażanie aplikacji Django języka Python za pomocą Postgre
 description: Utwórz aplikację sieci Web w języku Python z bazą danych PostgreSQL i Wdróż ją na platformie Azure. Samouczek używa platformy Django Framework, a aplikacja jest hostowana w Azure App Service w systemie Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 11/02/2020
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 63fdee6036580df42f7f965244b5f888c1ec082d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f6b845ec92a4d0d5365ec0615064bfbc238fd1ba
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540758"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279709"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Samouczek: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL w Azure App Service
 
@@ -49,7 +49,7 @@ Otwórz okno terminalu i sprawdź, czy wersja języka Python to 3,6 lub nowszego
 python3 --version
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```cmd
 py -3 --version
@@ -99,9 +99,9 @@ cd djangoapp
 
 # <a name="download"></a>[Pobieranie](#tab/download)
 
-Odwiedź stronę [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp) , wybierz pozycję **Klonuj** , a następnie wybierz pozycję **Pobierz plik zip** . 
+Odwiedź stronę [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp) , wybierz pozycję **Klonuj** , a następnie wybierz pozycję **Pobierz plik zip**. 
 
-Rozpakuj plik ZIP do folderu o nazwie *djangoapp* . 
+Rozpakuj plik ZIP do folderu o nazwie *djangoapp*. 
 
 Następnie otwórz okno terminalu w tym folderze *djangoapp* .
 
@@ -111,10 +111,10 @@ Przykład djangoapp zawiera opartą na danych aplikację do sondowania Django, k
 
 Przykład jest również modyfikowany do uruchamiania w środowisku produkcyjnym, takim jak App Service:
 
-- Ustawienia produkcyjne znajdują się w pliku *azuresite/Production. PR* . Szczegóły dotyczące programowania znajdują się w *azuresite/Settings. PR* .
-- Aplikacja używa ustawień produkcyjnych, gdy `DJANGO_ENV` zmienna środowiskowa jest ustawiona na "produkcja". Tę zmienną środowiskową utworzysz w dalszej części tego samouczka wraz z innymi osobami używanymi do konfiguracji bazy danych PostgreSQL.
+- Ustawienia produkcyjne znajdują się w pliku *azuresite/Production. PR* . Ustawienia deweloperskie znajdują się w *azuresite/Settings. PR*.
+- Aplikacja używa ustawień produkcyjnych, gdy `WEBSITE_HOSTNAME` zmienna środowiskowa jest ustawiona. Azure App Service automatycznie ustawi tę zmienną na adres URL aplikacji sieci Web, na przykład `msdocs-django.azurewebsites.net` .
 
-Te zmiany są specyficzne dla konfigurowania Django do uruchamiania w dowolnym środowisku produkcyjnym i nie są szczególnie App Service. Aby uzyskać więcej informacji, zobacz [Lista kontrolna wdrożenia Django](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Zobacz również [Ustawienia produkcyjne dla Django na platformie Azure](configure-language-python.md#production-settings-for-django-apps) , aby uzyskać szczegółowe informacje na temat niektórych zmian.
+Ustawienia produkcyjne są specyficzne dla konfigurowania Django do uruchamiania w dowolnym środowisku produkcyjnym i nie są szczególnie App Service. Aby uzyskać więcej informacji, zobacz [Lista kontrolna wdrożenia Django](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Zobacz również [Ustawienia produkcyjne dla Django na platformie Azure](configure-language-python.md#production-settings-for-django-apps) , aby uzyskać szczegółowe informacje na temat niektórych zmian.
 
 [Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -188,7 +188,7 @@ To polecenie wykonuje następujące akcje, co może potrwać kilka minut:
 - Utwórz aplikację App Service, jeśli nie istnieje.
 - Włącz domyślne rejestrowanie dla aplikacji, jeśli nie została jeszcze włączona.
 - Przekaż repozytorium przy użyciu wdrożenia ZIP z włączonym automatyzacją kompilacji.
-- Buforuj typowe parametry, takie jak nazwa grupy zasobów i planu App Service, do pliku *. Azure/config* . W związku z tym nie trzeba określać wszystkich parametrów z nowszymi poleceniami. Na przykład aby ponownie wdrożyć aplikację po wprowadzeniu zmian, można po prostu uruchomić polecenie `az webapp up` bez żadnych parametrów. Polecenia, które pochodzą z rozszerzeń CLI, takie jak `az postgres up` , nie są już używane do korzystania z pamięci podręcznej, dlatego należy określić grupę zasobów i lokalizację z początkowym użyciem `az webapp up` .
+- Buforuj typowe parametry, takie jak nazwa grupy zasobów i planu App Service, do pliku *. Azure/config*. W związku z tym nie trzeba określać wszystkich parametrów z nowszymi poleceniami. Na przykład aby ponownie wdrożyć aplikację po wprowadzeniu zmian, można po prostu uruchomić polecenie `az webapp up` bez żadnych parametrów. Polecenia, które pochodzą z rozszerzeń CLI, takie jak `az postgres up` , nie są już używane do korzystania z pamięci podręcznej, dlatego należy określić grupę zasobów i lokalizację z początkowym użyciem `az webapp up` .
 
 Po pomyślnym wdrożeniu polecenie generuje dane wyjściowe JSON podobne do poniższego przykładu:
 
@@ -196,26 +196,23 @@ Po pomyślnym wdrożeniu polecenie generuje dane wyjściowe JSON podobne do poni
 
 [Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
-> [!NOTE]
-> Jeśli spróbujesz odwiedzić adres URL aplikacji w tym momencie, wystąpi błąd "DisallowedHost at/". Ten błąd występuje, ponieważ aplikacja nie została jeszcze skonfigurowana do używania ustawień produkcyjnych omówionych wcześniej w poniższej sekcji.
-
 ### <a name="configure-environment-variables-to-connect-the-database"></a>Konfigurowanie zmiennych środowiskowych w celu nawiązania połączenia z bazą danych
 
 Po wdrożeniu kodu do App Service, następnym krokiem jest połączenie aplikacji z bazą danych Postgres na platformie Azure.
 
-Kod aplikacji oczekuje na znalezienie informacji o bazie danych w czterech zmiennych środowiskowych o nazwach `DBHOST` , `DBNAME` , `DBUSER` i `DBPASS` . Aby można było używać ustawień produkcyjnych, wymagana jest również `DJANGO_ENV` zmienna środowiskowa ustawiona na `production` .
+Kod aplikacji oczekuje na znalezienie informacji o bazie danych w czterech zmiennych środowiskowych o nazwach `DBHOST` , `DBNAME` , `DBUSER` i `DBPASS` .
 
 Aby ustawić zmienne środowiskowe w App Service, Utwórz "Ustawienia aplikacji" przy użyciu następującego polecenia [AZ webapp config AppSettings Set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) .
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
+az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
 - Zamień na *\<postgres-server-name>* nazwę użytą wcześniej z `az postgres up` poleceniem. Kod w *azuresite/produkcyjny. PR* automatycznie dołącza `.postgres.database.azure.com` do utworzenia pełnego adresu URL serwera Postgres.
 - Zastąp *\<username>* *\<password>* Parametry i poświadczeniami administratora używanymi z wcześniejszym `az postgres up` poleceniem lub tymi, które zostały `az postgres up` przez Ciebie wygenerowane. Kod w *azuresite/Production. PR* automatycznie konstruuje pełną nazwę użytkownika Postgres z `DBUSER` i `DBHOST` , dlatego nie należy zawierać `@server` części. (Podobnie jak wspomniano wcześniej, nie należy używać `$` znaku w żadnej wartości, ponieważ ma specjalne znaczenie dla zmiennych środowiskowych systemu Linux).
 - Nazwy grup zasobów i aplikacji są rysowane na podstawie buforowanych wartości w pliku *. Azure/config* .
 
-W kodzie w języku Python te ustawienia są dostępne jako zmienne środowiskowe z instrukcjami takimi jak `os.environ.get('DJANGO_ENV')` . Aby uzyskać więcej informacji, zobacz [dostęp do zmiennych środowiskowych](configure-language-python.md#access-environment-variables).
+W kodzie w języku Python te ustawienia są dostępne jako zmienne środowiskowe z instrukcjami takimi jak `os.environ.get('DBHOST')` . Aby uzyskać więcej informacji, zobacz [dostęp do zmiennych środowiskowych](configure-language-python.md#access-environment-variables).
 
 [Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -304,7 +301,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 # Configure the Python virtual environment
@@ -352,7 +349,7 @@ Przetestuj aplikację lokalnie, wykonując następujące czynności:
 
 1. Przejdź ponownie do *protokołu http: \/ /localhost: 8000* i Odpowiedz na pytanie, aby przetestować aplikację. 
 
-1. Zatrzymaj serwer Django, naciskając klawisz **Ctrl** + **C** .
+1. Zatrzymaj serwer Django, naciskając klawisz **Ctrl** + **C**.
 
 W przypadku uruchamiania lokalnego aplikacja korzysta z lokalnej bazy danych Sqlite3 i nie zakłóca pracy w produkcyjnej bazie danych. W razie potrzeby można również użyć lokalnej bazy danych PostgreSQL, aby lepiej symulować środowisko produkcyjne.
 
@@ -376,7 +373,7 @@ python manage.py migrate
 
 Uruchom ponownie serwer programistyczny `python manage.py runserver` i przetestuj aplikację pod adresem *http: \/ /localhost: 8000/admin* :
 
-Zatrzymaj ponownie serwer sieci Web Django za pomocą **klawisza Ctrl** + **C** .
+Zatrzymaj ponownie serwer sieci Web Django za pomocą **klawisza Ctrl** + **C**.
 
 [Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -427,7 +424,7 @@ az webapp log tail
 
 Jeśli nie widzisz dzienników konsoli, sprawdź ponownie w ciągu 30 sekund.
 
-Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, wpisz **Ctrl** + **C** .
+Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, wpisz **Ctrl** + **C**.
 
 [Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 

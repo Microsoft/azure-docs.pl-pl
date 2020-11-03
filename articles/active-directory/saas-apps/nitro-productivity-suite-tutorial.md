@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2020
+ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 4a4df1ff0561e180ca0a3fd36363ceff7da042df
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e645f4075aa1c4c027e8ea884108fdeb708467af
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92522431"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279946"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nitro-productivity-suite"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z pakietem produktywności Nitro
 
@@ -25,8 +25,6 @@ W tym samouczku dowiesz się, jak zintegrować pakiet Nitro produktywności z us
 * Kontrolka w usłudze Azure AD, która ma dostęp do pakietu Nitro produktywności.
 * Zezwól użytkownikom na automatyczne logowanie się do pakietu Nitro produktywności przy użyciu kont usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
-
-Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,13 +39,12 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Pakiet Nitro produktywności obsługuje usługę **SP** i **dostawcy tożsamości** zainicjowano Logowanie jednokrotne.
 * Pakiet produktywności Nitro obsługuje Inicjowanie obsługi użytkowników **just in Time** .
-* Po skonfigurowaniu pakietu Nitro produktywności można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. Aby uzyskać więcej informacji, zobacz [Informacje o sposobie wymuszania kontroli sesji przy użyciu Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-nitro-productivity-suite-from-the-gallery"></a>Dodaj pakiet Nitro produktywności z galerii
 
 Aby skonfigurować integrację pakietu Nitro produktywności w usłudze Azure AD, musisz dodać pakiet Nitroing Suite z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. Zaloguj się do Azure Portal przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku po lewej stronie wybierz pozycję **Azure Active Directory**.
 1. Przejdź do pozycji **Aplikacje dla przedsiębiorstw** i wybierz pozycję **Wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
@@ -62,17 +59,19 @@ Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą pakie
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą pakietu Nitro produktywności, wykonaj następujące bloki konstrukcyjne:
 
 1. [Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso) , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    1. [Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user) , aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-    1. [Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user) aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-1. Skonfiguruj Logowanie jednokrotne w [pakiecie Nitro produktywności](#configure-nitro-productivity-suite-sso) , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-    1. [Utwórz użytkownika testowego pakietu Nitro produktywności](#create-a-nitro-productivity-suite-test-user) , aby dysponować odpowiednikiem B. Simon w pakiecie Nitro produktywności, połączonym z reprezentacją usługi Azure AD.
+
+    a. [Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user) , aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    
+    b. [Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user) aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+    
+2. [Utwórz użytkownika testowego pakietu Nitro produktywności](#create-a-nitro-productivity-suite-test-user) , aby dysponować odpowiednikiem B. Simon w pakiecie Nitro produktywności, połączonym z reprezentacją usługi Azure AD.
 1. [Przetestuj Logowanie jednokrotne](#test-sso) , aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracji aplikacji **pakietu Nitro produktywności** Znajdź sekcję **Zarządzanie** . Wybierz pozycję **Logowanie jednokrotne**.
+1. W Azure Portal na stronie integracji aplikacji **pakietu Nitro produktywności** Znajdź sekcję **Zarządzanie** . Wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. W sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)**. Wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -103,7 +102,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     b. W polu tekstowym **adres URL odpowiedzi** skopiuj i wklej pole **adres URL usługi ACS** w [portalu administratora Nitro](https://admin.gonitro.com/). Powinien on mieć następujący wzorzec: `https://gonitro-prod.eu.auth0.com/login/callback?connection=<ENVIRONMENT>`
 
-1. Wybierz opcję **Ustaw dodatkowe adresy URL**i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie zainicjowania programu **SP** :
+1. Wybierz opcję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie zainicjowania programu **SP** :
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL: `https://sso.gonitro.com/login`
 
@@ -139,20 +138,10 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **Nitro produktywność**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
-
-   ![Zrzut ekranu przedstawiający sekcję Zarządzanie z wyróżnionymi użytkownikami i grupami](common/users-groups-blade.png)
-
 1. Wybierz pozycję **Dodaj użytkownika**. Następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
-
-    ![Zrzut ekranu strony użytkownicy i grupy z wyróżnioną pozycją Dodaj użytkownika](common/add-assign-user.png)
-
 1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy użytkowników. Następnie wybierz **pozycję zaznacz** w dolnej części ekranu.
-1. Jeśli oczekujesz, że jakakolwiek wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz z listy odpowiednią rolę dla użytkownika. Następnie wybierz **pozycję zaznacz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
-
-## <a name="configure-nitro-productivity-suite-sso"></a>Konfigurowanie rejestracji jednokrotnej w pakiecie Nitro produktywności
-
-Aby skonfigurować Logowanie jednokrotne na stronie zestawu Nitro produktywności, Wyślij pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy url z Azure Portal do [zespołu pomocy technicznej Nitro Suite](https://www.gonitro.com/support). Zespół pomocy technicznej gwarantuje, że połączenie SSO protokołu SAML jest prawidłowo ustawione na obu stronach.
 
 ### <a name="create-a-nitro-productivity-suite-test-user"></a>Tworzenie użytkownika testowego pakietu Nitro produktywności
 
@@ -160,20 +149,21 @@ Pakiet Nitro produktywności obsługuje funkcję aprowizacji użytkowników just
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu następujących opcji. 
 
-Po wybraniu kafelka pakietu Nitro produktywności w panelu dostępu użytkownik zostanie automatycznie zalogowany do pakietu nitro, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji, zobacz artykuł [Logowanie i uruchamianie aplikacji z poziomu portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Zainicjowano SP:
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+1. Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL logowania do pakietu Nitro produktywności, w którym można zainicjować przepływ logowania.  
 
-- [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](./tutorial-list.md)
+2. Przejdź bezpośrednio do adresu URL logowania do pakietu Nitro produktywności i zainicjuj tam przepływ logowania.
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md)
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do pakietu Nitro produktywności, dla którego skonfigurowano Logowanie jednokrotne 
 
-- [Wypróbuj pakiet Nitro produktywności w usłudze Azure AD](https://aad.portal.azure.com/)
+Możesz również użyć panelu dostępu programu Microsoft, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka Nitro produktywności w panelu dostępu, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do pakietu produktywności nitro, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Co to jest kontrola sesji w Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Chroń pakiet Nitro produktywność dzięki zaawansowanemu wglądowi i kontrolkom](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Następne kroki
+
+Po skonfigurowaniu pakietu Nitro produktywności można wymusić kontrolki sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji rozciągają się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

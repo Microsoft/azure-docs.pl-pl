@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6b1f53226b82a5342efda8665b6a366a3a7fd310
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 21188f473cbd5a6fd2a1ee549f47ad9b0e5b8af3
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461417"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279483"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -22,7 +22,7 @@ W usłudze Azure Digital bliźniaczych reprezentacji można kierować [powiadomi
 
 Ten artykuł przeprowadzi Cię przez proces tworzenia punktów końcowych i tras przy użyciu [Azure Portal](https://portal.azure.com).
 
-Punkty końcowe i trasy można także zarządzać za pomocą [interfejsów API tras](/rest/api/digital-twins/dataplane/eventroutes), [zestawu .NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Aby uzyskać wersję tego artykułu, która używa tych mechanizmów zamiast portalu, zobacz [*How to: Manage Endpoints and Routes (interfejsy API i CLI)*](how-to-manage-routes-apis-cli.md).
+Punkty końcowe i trasy można także zarządzać za pomocą [interfejsów API tras](/rest/api/digital-twins/dataplane/eventroutes), [zestawu .NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). Aby uzyskać wersję tego artykułu, która używa tych mechanizmów zamiast portalu, zobacz [*How to: Manage Endpoints and Routes (interfejsy API i CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +37,7 @@ Te szczegóły można znaleźć w [Azure Portal](https://portal.azure.com) po sk
 
 Wybierz wystąpienie z wyników, aby wyświetlić stronę szczegółów wystąpienia:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Zrzut ekranu przedstawiający szczegóły wystąpienia ADT." border="false":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Tworzenie punktu końcowego dla usługi Azure Digital bliźniaczych reprezentacji
 
@@ -52,7 +52,7 @@ Aby można było połączyć punkt końcowy z usługą Azure Digital bliźniaczy
 
 ### <a name="create-an-event-grid-endpoint"></a>Tworzenie punktu końcowego Event Grid
 
-**Warunek wstępny**: Tworzenie tematu siatki zdarzeń, wykonując czynności opisane w [sekcji *Tworzenie niestandardowego tematu* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) Event Grid *niestandardowych zdarzeń* przewodnika Szybki Start.
+**Warunek wstępny** : Tworzenie tematu siatki zdarzeń, wykonując czynności opisane w [sekcji *Tworzenie niestandardowego tematu*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) Event Grid *niestandardowych zdarzeń* przewodnika Szybki Start.
 
 Po utworzeniu tematu można połączyć go z usługą Azure Digital bliźniaczych reprezentacji na stronie swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji w [Azure Portal](https://portal.azure.com) (można znaleźć wystąpienie, wprowadzając jego nazwę na pasku wyszukiwania portalu).
 
@@ -62,21 +62,21 @@ Na stronie *Tworzenie punktu końcowego* , który zostanie otwarty, można utwor
 
 Następnie Utwórz punkt końcowy, naciskając pozycję _Zapisz_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Zrzut ekranu przedstawiający tworzenie punktu końcowego typu Event Grid.":::
 
 Możesz sprawdzić, czy punkt końcowy został pomyślnie utworzony, sprawdzając ikonę powiadomienia na górnym pasku Azure Portal: 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Zrzut ekranu przedstawiający powiadomienie w celu zweryfikowania utworzenia punktu końcowego." border="false":::
 
 Możesz również wyświetlić punkt końcowy, który został utworzony ponownie na stronie *punkty końcowe* wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
 Jeśli Tworzenie punktu końcowego nie powiedzie się, obserwuj komunikat o błędzie i spróbuj ponownie za kilka minut.
 
-Teraz temat usługi Event Grid jest dostępny jako punkt końcowy w programie Azure Digital bliźniaczych reprezentacji, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#create-an-event-route).
+Teraz temat usługi Event Grid jest dostępny jako punkt końcowy w programie Azure Digital bliźniaczych reprezentacji, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia** , którą utworzysz [w dalszej części tego artykułu](#create-an-event-route).
 
 ### <a name="create-an-event-hubs-endpoint"></a>Tworzenie punktu końcowego Event Hubs
 
-**Wymagania wstępne**: 
+**Wymagania wstępne** : 
 * Potrzebujesz _Event Hubs przestrzeni nazw_ i _centrum zdarzeń_. Aby wykonać te czynności, wykonaj kroki opisane w Event Hubs [*utworzyć centrum zdarzeń*](../event-hubs/event-hubs-create.md) — Szybki Start.
 * Wymagana jest _reguła autoryzacji_. Aby to zrobić, zapoznaj się z artykułem Event Hubs [*Autoryzuj dostęp do zasobów Event Hubs za pomocą sygnatury dostępu współdzielonego*](../event-hubs/authorize-access-shared-access-signature.md) .
 
@@ -84,21 +84,21 @@ Przejdź do strony szczegółów wystąpienia usługi Azure Digital bliźniaczyc
 
 Z menu wystąpienie wybierz pozycję _punkty końcowe_. Następnie na stronie *punkty końcowe* wybierz pozycję *+ Utwórz punkt końcowy*. 
 
-Na stronie *Tworzenie punktu końcowego* , który zostanie otwarty, można utworzyć punkt końcowy typu _centrum zdarzeń_ , wybierając odpowiedni przycisk radiowy. Wprowadź nazwę punktu końcowego w polu _Nazwa_ . Następnie wybierz swoją _subskrypcję_i wstępnie utworzoną _przestrzeń nazw centrum zdarzeń_, _centrum zdarzeń_i _regułę autoryzacji_ z odpowiednich list rozwijanych.
+Na stronie *Tworzenie punktu końcowego* , który zostanie otwarty, można utworzyć punkt końcowy typu _centrum zdarzeń_ , wybierając odpowiedni przycisk radiowy. Wprowadź nazwę punktu końcowego w polu _Nazwa_ . Następnie wybierz swoją _subskrypcję_ i wstępnie utworzoną _przestrzeń nazw centrum zdarzeń_ , _centrum zdarzeń_ i _regułę autoryzacji_ z odpowiednich list rozwijanych.
 
 Następnie Utwórz punkt końcowy, naciskając pozycję _Zapisz_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Zrzut ekranu przedstawiający tworzenie punktu końcowego typu Event Hubs.":::
 
 Możesz sprawdzić, czy punkt końcowy został pomyślnie utworzony, sprawdzając ikonę powiadomienia na górnym pasku Azure Portal. 
 
 Jeśli Tworzenie punktu końcowego nie powiedzie się, obserwuj komunikat o błędzie i spróbuj ponownie za kilka minut.
 
-Teraz centrum zdarzeń jest dostępne jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#create-an-event-route).
+Teraz centrum zdarzeń jest dostępne jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia** , którą utworzysz [w dalszej części tego artykułu](#create-an-event-route).
 
 ### <a name="create-a-service-bus-endpoint"></a>Tworzenie punktu końcowego Service Bus
 
-**Wymagania wstępne**: 
+**Wymagania wstępne** : 
 * Potrzebujesz _Service Bus przestrzeni nazw_ i _tematu Service Bus_. Utwórz oba te elementy, wykonując kroki opisane w temacie Service Bus [*Tworzenie tematów i subskrypcji*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) przewodnika Szybki Start. Nie musisz kończyć sekcji [*Tworzenie subskrypcji w temacie*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic) .
 * Wymagana jest _reguła autoryzacji_. Aby go utworzyć, zapoznaj się z artykułem [*uwierzytelnianie i autoryzacja*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) Service Bus.
 
@@ -106,17 +106,17 @@ Przejdź do strony szczegółów wystąpienia usługi Azure Digital bliźniaczyc
 
 Z menu wystąpienie wybierz pozycję _punkty końcowe_. Następnie na stronie *punkty końcowe* wybierz pozycję *+ Utwórz punkt końcowy*. 
 
-Na stronie *Tworzenie punktu końcowego* , który zostanie otwarty, można utworzyć punkt końcowy typu _Service Bus_ , wybierając odpowiedni przycisk radiowy. Wprowadź nazwę punktu końcowego w polu _Nazwa_ . Następnie wybierz swoją _subskrypcję_i wstępnie utworzoną _przestrzeń nazw Service Bus_, _temat Service Bus_i _regułę autoryzacji_ z odpowiednich list rozwijanych.
+Na stronie *Tworzenie punktu końcowego* , który zostanie otwarty, można utworzyć punkt końcowy typu _Service Bus_ , wybierając odpowiedni przycisk radiowy. Wprowadź nazwę punktu końcowego w polu _Nazwa_ . Następnie wybierz swoją _subskrypcję_ i wstępnie utworzoną _przestrzeń nazw Service Bus_ , _temat Service Bus_ i _regułę autoryzacji_ z odpowiednich list rozwijanych.
 
 Następnie Utwórz punkt końcowy, naciskając pozycję _Zapisz_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Zrzut ekranu przedstawiający tworzenie punktu końcowego typu Service Bus.":::
 
 Możesz sprawdzić, czy punkt końcowy został pomyślnie utworzony, sprawdzając ikonę powiadomienia na górnym pasku Azure Portal. 
 
 Jeśli Tworzenie punktu końcowego nie powiedzie się, obserwuj komunikat o błędzie i spróbuj ponownie za kilka minut.
 
-Teraz temat Service Bus jest dostępny jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia**, którą utworzysz [w dalszej części tego artykułu](#create-an-event-route).
+Teraz temat Service Bus jest dostępny jako punkt końcowy wewnątrz Digital bliźniaczych reprezentacji systemu Azure, pod nazwą określoną w polu _Nazwa_ . Ta nazwa będzie używana zazwyczaj jako obiekt docelowy **trasy zdarzenia** , którą utworzysz [w dalszej części tego artykułu](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Tworzenie punktu końcowego z utraconymi wiadomościami
 
@@ -130,7 +130,7 @@ Aby uzyskać instrukcje, jak to zrobić za pomocą interfejsów API, zobacz [*in
 
 Aby faktycznie wysyłać dane z usługi Azure Digital bliźniaczych reprezentacji do punktu końcowego, należy zdefiniować **trasę zdarzeń**. Te trasy umożliwiają deweloperom tworzenie przepływów zdarzeń w całym systemie i w ramach usług podrzędnych. Przeczytaj więcej na temat tras zdarzeń w temacie [*pojęcia: Routing Digital bliźniaczych reprezentacji Events*](concepts-route-events.md).
 
-**Wymaganie wstępne**: należy utworzyć punkty końcowe zgodnie z wcześniejszym opisem w tym artykule przed rozpoczęciem tworzenia trasy. Po zakończeniu konfigurowania punktów końcowych można utworzyć trasę zdarzenia.
+**Wymaganie wstępne** : należy utworzyć punkty końcowe zgodnie z wcześniejszym opisem w tym artykule przed rozpoczęciem tworzenia trasy. Po zakończeniu konfigurowania punktów końcowych można utworzyć trasę zdarzenia.
 
 >[!NOTE]
 >Jeśli ostatnio wdrożono punkty końcowe, sprawdź, czy są one gotowe do wdrożenia, **przed** podjęciem próby użycia ich dla nowej trasy zdarzeń. Jeśli nie możesz skonfigurować trasy, ponieważ punkty końcowe nie są gotowe, odczekaj kilka minut i spróbuj ponownie.
@@ -157,7 +157,7 @@ Na stronie *Tworzenie trasy zdarzenia* , która zostanie otwarta, wybierz co naj
 
 Aby można było włączyć trasę, należy również **dodać filtr trasy zdarzeń** o wartości co najmniej `true` . (Pozostawienie wartości domyślnej `false` spowoduje utworzenie trasy, ale żadne zdarzenia nie będą wysyłane do niego). W tym celu Przełącz przełącznik dla _edytora zaawansowanego_ , aby go włączyć, i wpisz `true` w polu *filtru* .
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Zrzut ekranu przedstawiający tworzenie trasy zdarzeń dla danego wystąpienia." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Po zakończeniu kliknij przycisk _Zapisz_ , aby utworzyć trasę zdarzenia.
 
@@ -182,7 +182,7 @@ Aby użyć filtrów podstawowych, rozwiń opcję _typy zdarzeń_ i zaznacz pola 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Zrzut ekranu przedstawiający tworzenie trasy zdarzeń z filtrem podstawowym. Zaznaczanie pól wyboru zdarzeń.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -192,7 +192,7 @@ Spowoduje to wypełnienie pola tekstowego filtru tekstem, który został wybrany
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Zrzut ekranu przedstawiający tworzenie trasy zdarzeń z filtrem podstawowym. Wyświetlanie automatycznie wypełnionego tekstu filtru po zaznaczeniu zdarzeń.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -206,7 +206,7 @@ Aby utworzyć trasę zdarzeń z zaawansowanymi opcjami filtru, Przełącz przeł
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Zrzut ekranu przedstawiający tworzenie trasy zdarzeń z filtrem zaawansowanym.":::
     :::column-end:::
     :::column:::
     :::column-end:::

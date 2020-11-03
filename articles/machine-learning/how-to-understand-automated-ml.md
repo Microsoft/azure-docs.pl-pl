@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: d27c65938d10f9061961ebb585327bc77d8b2859
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d66c5001d94d0c2d28ae3c55b468fbaf45871c98
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092464"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280352"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Oceń automatyczne wyniki eksperymentu w usłudze Machine Learning
 
@@ -159,7 +159,7 @@ Można porównać automatycznie dźwig modelu z Azure Machine Learningm z linią
 
 ### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
 
-Krzywa wyższej podniesienia, która jest wyższym modelem, znajduje się powyżej linii bazowej, wskazuje lepszy model. 
+Lepszym modelem jest krzywa podnoszenia, która jest wyższa na grafie i od linii bazowej. 
 
 #### <a name="example-1-a-classification-model-that-performs-poorly-compared-to-a-random-selection-model"></a>Przykład 1: model klasyfikacji, który jest niewłaściwie porównywany z losowym modelem wyboru
 ![Model klasyfikacji, który jest niezgodny z losowym modelem wyboru](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -234,12 +234,12 @@ Przewidywany a prawda przedstawia relację między przewidywaną wartością a j
 Po każdym uruchomieniu można zobaczyć przewidywany wykres a true dla każdego modelu regresji. Aby chronić prywatność danych, wartości są Binned razem, a rozmiar każdego pojemnika jest pokazywany jako wykres słupkowy w dolnej części obszaru wykresu. Można porównać model predykcyjny, korzystając z jaśniejszego obszaru cieniowania pokazującego marginesy błędów, względem idealnej wartości, w której powinien się znajdować model.
 
 ### <a name="what-does-a-good-model-look-like"></a>Jak wygląda dobry model?
-Ten wykres może służyć do mierzenia wydajności modelu, jak bliżej osi y = x, a wartości przewidywane to lepsza dokładność modelu predykcyjnego.
+Ten wykres może służyć do mierzenia wydajności modelu, jak bliżej osi y = x, a wartości przewidywane to lepsza wydajność modelu predykcyjnego.
 
-#### <a name="example-1-a-classification-model-with-low-accuracy"></a>Przykład 1: model klasyfikacji o niskiej dokładności
+#### <a name="example-1-a-regression-model-with-low-performance"></a>Przykład 1: model regresji z niską wydajnością
 ![Model regresji z niską dokładnością w prognozie](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-#### <a name="example-2-a-regression-model-with-high-accuracy"></a>Przykład 2: model regresji o wysokiej dokładności 
+#### <a name="example-2-a-regression-model-with-high-performance"></a>Przykład 2: model regresji o wysokiej wydajności
 ![Model regresji o wysokiej dokładności w jego przewidywaniach](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a> 
@@ -254,7 +254,7 @@ Aby pokazać margines błędu z niską ilością bias, histogram reszty powinien
 #### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Przykład 1: model regresji z bias w jego błędach
 ![Model regresji SA z odchyleniami w jego błędach](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-#### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Przykład 2: model regresji z bardziej równomiernym rozkładem błędów
+#### <a name="example-2-a-regression-model-with-a-more-even-distribution-of-errors"></a>Przykład 2: model regresji z bardziej równomiernym rozkładem błędów
 ![Model regresji z większą ilością równomiernej dystrybucji błędów](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 <a name="explain-model"></a>

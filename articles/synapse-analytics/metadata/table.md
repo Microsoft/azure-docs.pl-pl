@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b9835cf5de28fbd515a214554f723d99e8e8fe4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d19376d21081d899d8ff7226c6d7c5b76267fabf
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260735"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280458"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabele udostępnione metadanych usługi Azure Synapse Analytics
 
@@ -74,12 +74,12 @@ Tabele platformy Spark zapewniają różne typy danych niż aparaty SQL Synapse.
 | `decimal`      | `decimal`        |<!-- need precision and scale-->|
 | `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
 | `date`      | `date`           ||
-| `string`    |    `varchar(max)`   | Z sortowaniem `Latin1_General_CP1_CI_AS_UTF8` |
+| `string`    |    `varchar(max)`   | Z sortowaniem `Latin1_General_100_BIN2_UTF8` |
 | `binary`    |    `varbinary(max)` ||
 | `boolean`   |    `bit`            ||
-| `array`     |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem `Latin1_General_CP1_CI_AS_UTF8` |
-| `map`       |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem `Latin1_General_CP1_CI_AS_UTF8` |
-| `struct`    |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem `Latin1_General_CP1_CI_AS_UTF8` |
+| `array`     |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem `Latin1_General_100_BIN2_UTF8` |
+| `map`       |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem `Latin1_General_100_BIN2_UTF8` |
+| `struct`    |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem `Latin1_General_100_BIN2_UTF8` |
 
 <!-- TODO: Add precision and scale to the types mentioned above -->
 

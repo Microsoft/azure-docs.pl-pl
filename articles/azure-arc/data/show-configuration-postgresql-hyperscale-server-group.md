@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 716759fd6542cd473c236992ac88b69bfe5d0a66
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a268cd6b2fa3da6846554e3d1b170298abec7f18
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148010"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279405"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Pokaż konfigurację PostgreSQL grupy serwerów z włączonym łukiem
 
@@ -36,7 +36,7 @@ Utwórz listę zasobów Kubernetes typu Postgres. Uruchom polecenie:
 kubectl get postgresqls [-n <namespace name>]
 ```
 
-Dane wyjściowe tego polecenia przedstawiają listę utworzonych grup serwerów. Dla każdego z nich wskazuje liczbę numerów. Na przykład:
+Dane wyjściowe tego polecenia przedstawiają listę utworzonych grup serwerów. Dla każdego z nich wskazuje liczbę numerów. Przykład:
 
 ```output
 NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
@@ -54,7 +54,7 @@ Uruchom:
 kubectl get pods [-n <namespace name>]
 ```
 
-Spowoduje to zwrócenie listy wartości. Zostaną wyświetlone zasobniki używane przez grupy serwerów na podstawie nazw nadanych tym grupom serwerów. Na przykład:
+Spowoduje to zwrócenie listy wartości. Zostaną wyświetlone zasobniki używane przez grupy serwerów na podstawie nazw nadanych tym grupom serwerów. Przykład:
 
 ```console 
 NAME                 READY   STATUS    RESTARTS   AGE
@@ -108,7 +108,7 @@ Domyślnie prefiks nazwy obwodu PVC wskazuje jego użycie:
 - `data-`...: jest używany obwód PVC dla plików danych
 - `logs-`...: to obwód PVC używany dla plików dzienników transakcji/pliku WAL
 
-Na przykład:
+Przykład:
 
 ```output
 NAME                                            STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
@@ -183,7 +183,7 @@ Ogólny format tego polecenia to:
 kubectl describe <CRD name>/<server group name> [-n <namespace name>]
 ```
 
-Na przykład:
+Przykład:
 
 ```console
 kubectl describe postgresql-12/postgres02
@@ -210,7 +210,7 @@ Spec:
       Name:  citus
       Name:  pg_stat_statements
   Scale:
-    Shards:  2
+    Workers:  2
   Scheduling:
     Default:
       Resources:
@@ -236,20 +236,50 @@ Status:
 Events:               <none>
 ```
 
+>[!NOTE]
+>`Workers` `Shards` W poprzednim przykładzie w wersji 2020 października. Aby uzyskać więcej informacji, zobacz informacje o [wersji — usługi danych z włączonym usługą Azure ARC (wersja zapoznawcza)](release-notes.md) .
+
 Zadzwońmy do określonych punktów orientacyjnych w opisie `servergroup` pokazanego powyżej. Co informuje nas o tej grupie serwerów?
 
 - Jest to wersja 12 Postgres: 
-   > Natur         `postgresql-12`
+   > ```json
+   > Kind:         `postgresql-12`
+   > ```
 - Został utworzony w miesiącu 2020 sierpnia:
-   > Sygnatura czasowa tworzenia:  `2020-08-31T21:01:07Z`
+   > ```json
+   > Creation Timestamp:  `2020-08-31T21:01:07Z`
+   > ```
 - W tej grupie serwerów utworzono dwa rozszerzenia Postgres: `citus` i `pg_stat_statements`
-   > Aparat: rozszerzenia: Name:  `citus` name:  `pg_stat_statements`
+   > ```json
+   > Engine:
+   >    Extensions:
+   >      Name:  `citus`
+   >      Name:  `pg_stat_statements`
+   > ```
 - Używa dwóch węzłów procesu roboczego
-   > Skala: fragmentów:  `2`
+   > ```json
+   > Scale:
+   >    Workers:  `2`
+   > ```
 - Gwarantowane jest użycie 1 procesora CPU/rdzeń wirtualny i 512 MB pamięci RAM na węzeł. Będzie ona używać więcej niż 4 procesor CPU/rdzeni wirtualnych i 1024MB pamięci:
-   > Planowanie: domyślne: zasoby: limity: procesor CPU: 4 pamięć: żądania 1024Mi: procesor: 1 pamięć: 512Mi
+   > ```json
+   > Scheduling:
+   >    Default: 
+   >      Resources:
+   >        Limits:
+   >          Cpu:     4
+   >          Memory:  1024Mi
+   >        Requests:
+   >          Cpu:     1
+   >          Memory:  512Mi
+   > ```
  - Jest on dostępny dla zapytań i nie ma żadnego problemu. Wszystkie węzły są uruchomione:
-   > Stan:... Gotowe zasobniki: 3/3 stan: gotowe
+   > ```json
+   > Status:
+   >  ...
+   >  Ready Pods:         3/3
+   >  State:              Ready
+   > ```
 
 **Z azdata:**
 
@@ -259,7 +289,7 @@ Ogólny format polecenia to:
 azdata arc postgres server show -n <server group name>
 ```
 
-Na przykład:
+Przykład:
 
 ```console
 azdata arc postgres server show -n postgres02
@@ -292,7 +322,7 @@ Zwraca poniższe dane wyjściowe w formacie i treści bardzo podobne do zwrócon
       ]
     },
     "scale": {
-      "shards": 2
+      "workers": 2
     },
     "scheduling": {
       "default": {

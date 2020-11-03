@@ -6,15 +6,15 @@ author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02efaf3f0382a7af63717e777036637de2bbec25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40f8834a69101682abaaa7eac8ec9cafe8ef3d9e
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033204"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279371"
 ---
 # <a name="ingest-data-into-a-sql-pool"></a>Pozyskiwanie danych do puli SQL
 
@@ -22,16 +22,16 @@ W tym artykule dowiesz się, jak pozyskać dane z konta magazynu Azure Data Lake
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure**: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
-* **Konto usługi Azure Storage**: używasz Azure Data Lake Storage Gen 2 jako magazynu danych *źródłowych* . Jeśli nie masz konta magazynu, zobacz [Tworzenie konta usługi Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , aby uzyskać instrukcje.
-* **Azure Synapse Analytics**: używasz puli SQL jako magazynu danych *ujścia* . Jeśli nie masz wystąpienia usługi Azure Synapse Analytics, zapoznaj się z tematem [Tworzenie puli SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) na potrzeby kroków, aby je utworzyć.
+* **Subskrypcja platformy Azure** : Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
+* **Konto usługi Azure Storage** : używasz Azure Data Lake Storage Gen 2 jako magazynu danych *źródłowych* . Jeśli nie masz konta magazynu, zobacz [Tworzenie konta usługi Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , aby uzyskać instrukcje.
+* **Azure Synapse Analytics** : używasz puli SQL jako magazynu danych *ujścia* . Jeśli nie masz wystąpienia usługi Azure Synapse Analytics, zapoznaj się z tematem [Tworzenie puli SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) na potrzeby kroków, aby je utworzyć.
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
 
 W usłudze Azure Synapse Analytics, połączona Usługa polega na definiowaniu informacji o połączeniu z innymi usługami. Ta sekcja umożliwia dodanie połączonej usługi Azure Synapse Analytics i Azure Data Lake Storage Gen2.
 
 1. Otwórz środowisko Azure Synapse Analytics i przejdź na kartę **Zarządzanie** .
-1. W obszarze **połączenia zewnętrzne**wybierz pozycję **połączone usługi**.
+1. W obszarze **połączenia zewnętrzne** wybierz pozycję **połączone usługi**.
 1. Aby dodać połączoną usługę, wybierz pozycję **Nowy**.
 1. Wybierz z listy kafelek Azure Data Lake Storage Gen2 i wybierz pozycję **Kontynuuj**.
 1. Wprowadź poświadczenia uwierzytelniania. Klucz konta, nazwa główna usługi i tożsamość zarządzana są obecnie obsługiwanymi typami uwierzytelniania. Wybierz pozycję Testuj połączenie, aby sprawdzić, czy Twoje poświadczenia są poprawne. Po zakończeniu wybierz pozycję **Utwórz**.
@@ -41,7 +41,7 @@ W usłudze Azure Synapse Analytics, połączona Usługa polega na definiowaniu i
 
 Potok zawiera przepływ logiczny dla wykonywania zestawu działań. W tej sekcji utworzysz potok zawierający działanie kopiowania, które pozyskuje dane z ADLS Gen2 w puli SQL.
 
-1. Przejdź do karty **aranżacja** . Wybierz ikonę znaku plus obok nagłówka potoki i wybierz pozycję **potok**.
+1. Przejdź do karty **integracja** . Wybierz ikonę znaku plus obok nagłówka potoki i wybierz pozycję **potok**.
 1. W obszarze **Przenieś i Przekształć** w okienku działania przeciągnij pozycję **Kopiuj dane** na kanwę potoku.
 1. Wybierz działanie Kopiuj i przejdź do karty **Źródło** . Wybierz pozycję **Nowy** , aby utworzyć nowy źródłowy zestaw danych.
 1. Wybierz Azure Data Lake Storage Gen2 jako magazyn danych, a następnie wybierz pozycję Kontynuuj.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503321"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279903"
 ---
 # <a name="secure-azure-digital-twins"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji
 
@@ -24,13 +24,13 @@ Usługa Azure Digital bliźniaczych reprezentacji obsługuje również szyfrowan
 
 Usługa Azure RBAC jest świadczona do usługi Azure Digital bliźniaczych reprezentacji za pośrednictwem integracji z usługą [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Możesz użyć kontroli RBAC platformy Azure, aby przyznać uprawnienia *podmiotowi zabezpieczeń*, które może być użytkownikiem, grupą lub jednostką usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniany przez usługę Azure AD i odbiera token OAuth 2,0 w programie Return. Token ten może służyć do autoryzowania żądania dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
+Możesz użyć kontroli RBAC platformy Azure, aby przyznać uprawnienia *podmiotowi zabezpieczeń* , które może być użytkownikiem, grupą lub jednostką usługi aplikacji. Podmiot zabezpieczeń jest uwierzytelniany przez usługę Azure AD i odbiera token OAuth 2,0 w programie Return. Token ten może służyć do autoryzowania żądania dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
 ### <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
 
 W przypadku usługi Azure AD dostęp jest procesem dwuetapowym. Gdy podmiot zabezpieczeń (użytkownik, Grupa lub aplikacja) próbuje uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, żądanie musi być *uwierzytelnione* i *autoryzowane*. 
 
-1. Najpierw jest *uwierzytelniana*tożsamość podmiotu zabezpieczeń i zwracany jest token OAuth 2,0.
+1. Najpierw jest *uwierzytelniana* tożsamość podmiotu zabezpieczeń i zwracany jest token OAuth 2,0.
 2. Następnie token jest przesyłany w ramach żądania do usługi Azure Digital bliźniaczych reprezentacji, aby *autoryzować* dostęp do określonego zasobu.
 
 Krok uwierzytelniania wymaga, aby każde żądanie aplikacji zawierało token dostępu OAuth 2,0 w czasie wykonywania. Jeśli aplikacja jest uruchomiona w ramach jednostki platformy Azure, takiej jak aplikacja [Azure Functions](../azure-functions/functions-overview.md) , może użyć **zarządzanej tożsamości** w celu uzyskania dostępu do zasobów. Więcej informacji na temat tożsamości zarządzanych można znaleźć w następnej sekcji.
@@ -72,7 +72,7 @@ Aby uzyskać więcej informacji na temat sposobu definiowania wbudowanych ról, 
 W przypadku odwoływania się do ról w zautomatyzowanych scenariuszach zalecamy odwoływanie się do nich za pomocą ich **identyfikatorów** zamiast nazw. Nazwy mogą ulec zmianie między wersjami, ale identyfikatory nie będą, dzięki czemu mają bardziej stabilne odwołanie w automatyzacji.
 
 > [!TIP]
-> Jeśli assiging role z poleceniem cmdlet, takim jak `New-AzRoleAssignment` ([odwołanie](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), możesz użyć `-RoleDefinitionId` PARAMETRU zamiast `-RoleDefinitionName` do przekazywania identyfikatora zamiast nazwy roli.
+> Jeśli assiging role z poleceniem cmdlet, takim jak `New-AzRoleAssignment` ([odwołanie](/powershell/module/az.resources/new-azroleassignment)), możesz użyć `-RoleDefinitionId` PARAMETRU zamiast `-RoleDefinitionName` do przekazywania identyfikatora zamiast nazwy roli.
 
 ### <a name="permission-scopes"></a>Zakresy uprawnień
 
@@ -88,6 +88,32 @@ Na poniższej liście opisano poziomy, w których można ograniczyć dostęp do 
 ### <a name="troubleshooting-permissions"></a>Rozwiązywanie problemów z uprawnieniami
 
 Jeśli użytkownik próbuje wykonać akcję niedozwoloną przez ich rolę, może otrzymać błąd od odczytu żądania obsługi `403 (Forbidden)` . Aby uzyskać więcej informacji i kroków rozwiązywania problemów, zobacz [*Rozwiązywanie problemów: żądanie usługi Azure Digital bliźniaczych reprezentacji nie powiodło się. stan: 403 (niedozwolone)*](troubleshoot-error-403.md).
+
+## <a name="service-tags"></a>Tagi usługi
+
+**Tag usługi** reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Aby uzyskać więcej informacji na temat tagów usługi, zobacz  [*Tagi sieci wirtualnej*](../virtual-network/service-tags-overview.md). 
+
+Możesz użyć tagów usługi do definiowania kontroli dostępu do sieci dla [sieciowych grup zabezpieczeń](../virtual-network/network-security-groups-overview.md#security-rules)   lub [zapory platformy Azure](../firewall/service-tags.md)przy użyciu tagów usługi zamiast określonych adresów IP podczas tworzenia reguł zabezpieczeń. Określając nazwę tagu usługi (w tym przypadku **AzureDigitalTwins** ) w odpowiednim polu *źródłowym*   lub *docelowym*   reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić. 
+
+Poniżej znajdują się szczegółowe informacje dotyczące tagu usługi **AzureDigitalTwins** .
+
+| Tag | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
+| --- | --- | --- | --- | --- |
+| AzureDigitalTwins | Azure Digital Twins<br>Uwaga: ten tag lub adresy IP objęte tym tagiem mogą służyć do ograniczania dostępu do punktów końcowych skonfigurowanych dla [tras zdarzeń](concepts-route-events.md). | Przychodzący | Nie | Tak |
+
+### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>Używanie tagów usługi do uzyskiwania dostępu do punktów końcowych trasy zdarzeń 
+
+Poniżej przedstawiono procedurę uzyskiwania dostępu do punktów końcowych [trasy zdarzeń](concepts-route-events.md) przy użyciu tagów usługi w usłudze Azure Digital bliźniaczych reprezentacji.
+
+1. Najpierw pobierz ten plik JSON zawierający zakresy i znaczniki usługi platformy Azure: [*zakresy adresów IP platformy Azure i Tagi usług*](https://www.microsoft.com/download/details.aspx?id=56519). 
+
+2. Wyszukaj adresy IP "AzureDigitalTwins" w pliku JSON.  
+
+3. Zapoznaj się z dokumentacją zewnętrznego zasobu połączonego z punktem końcowym (na przykład [Event Grid](../event-grid/overview.md), [centrum zdarzeń](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)lub [Azure Storage](../storage/blobs/storage-blobs-overview.md) dla [zdarzeń utraconych](concepts-route-events.md#dead-letter-events)), aby zobaczyć, jak ustawić filtry IP dla tego zasobu.
+
+4. Ustaw filtry IP dla zasobów zewnętrznych przy użyciu zakresów adresów IP z *kroku 2*.  
+
+5. W razie potrzeby zaktualizuj zakresy adresów IP. Zakresy mogą ulec zmianie z upływem czasu, dlatego dobrym pomysłem jest regularne sprawdzenie i odświeżanie ich w razie potrzeby. Częstotliwość tych aktualizacji może się różnić, ale dobrym pomysłem jest sprawdzenie ich raz w tygodniu.
 
 ## <a name="encryption-of-data-at-rest"></a>Szyfrowanie danych magazynowanych
 

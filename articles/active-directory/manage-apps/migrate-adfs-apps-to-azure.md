@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22b0ba97a0f3eddda9a0e0d4f5e5392d12f21eef
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: a07130e55339ed689b65b48e6fd83e65f36d155e
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026092"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280544"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Przeniesienie uwierzytelniania aplikacji z Active Directory Federation Services do Azure Active Directory
 
@@ -39,7 +39,7 @@ Wiele organizacji korzysta z oprogramowania jako usługi (SaaS) lub niestandardo
 
 ![Aplikacje połączone bezpośrednio lokalnie](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 
-**Aby zwiększyć bezpieczeństwo aplikacji, celem jest posiadanie jednego zestawu kontroli dostępu i zasad w środowiskach lokalnych i w chmurze** .
+**Aby zwiększyć bezpieczeństwo aplikacji, celem jest posiadanie jednego zestawu kontroli dostępu i zasad w środowiskach lokalnych i w chmurze**.
 
 ![Aplikacje połączone za pomocą usługi Azure AD](media/migrate-adfs-apps-to-azure/app-integration-after-migration1.png)
 
@@ -147,7 +147,7 @@ Aplikacje, które można łatwo przenieść, zawierają aplikacje SAML 2,0, któ
 
 * Nazwisko
 
-* Atrybut alternatywny, taki jak **NameID** w języku SAML, w tym atrybut poczty usługi Azure AD, prefiks poczty, identyfikator pracownika, atrybuty rozszerzenia 1–15 lub lokalny atrybut **SamAccountName** . Aby uzyskać więcej informacji, zobacz [Edytowanie oświadczenia NameIdentifier](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
+* Atrybut alternatywny, taki jak **NameID** w języku SAML, w tym atrybut poczty usługi Azure AD, prefiks poczty, identyfikator pracownika, atrybuty rozszerzenia 1–15 lub lokalny atrybut **SamAccountName**. Aby uzyskać więcej informacji, zobacz [Edytowanie oświadczenia NameIdentifier](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
 
 * Oświadczenia niestandardowe.
 
@@ -198,13 +198,13 @@ W poniższej tabeli opisano niektóre typowe mapowania ustawień między AD FS z
 
 | Ustawienie konfiguracji| AD FS| Jak skonfigurować usługę Azure AD| Token SAML |
 | - | - | - | - |
-| **Adres URL logowania do aplikacji** <p>Adres URL użytkownika służącego do logowania się do aplikacji w ramach przepływu SAML zainicjowanego przez dostawcę usług (SP).| Nie dotyczy| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Nie dotyczy |
-| **Adres URL odpowiedzi aplikacji** <p>Adres URL aplikacji z perspektywy dostawcy tożsamości (dostawcy tożsamości). Dostawcy tożsamości wysyła użytkownika i token tutaj po zalogowaniu się użytkownika do dostawcy tożsamości.  Jest to również znany jako **punkt końcowy odbiorcy potwierdzenia SAML** .| Wybierz kartę **punkty końcowe**| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Element docelowy w tokenie SAML. Przykładowa wartość: `https://contoso.my.salesforce.com` |
-| **Adres URL wylogowania aplikacji** <p>Jest to adres URL, do którego są wysyłane żądania "Czyszczenie wylogowania", gdy użytkownik wyloguje się z aplikacji. Dostawcy tożsamości wysyła żądanie wylogowania użytkownika ze wszystkich innych aplikacji.| Wybierz kartę **punkty końcowe**| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Nie dotyczy |
+| **Adres URL logowania do aplikacji** <p>Adres URL użytkownika służącego do logowania się do aplikacji w ramach przepływu SAML zainicjowanego przez dostawcę usług (SP).| Brak| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Brak |
+| **Adres URL odpowiedzi aplikacji** <p>Adres URL aplikacji z perspektywy dostawcy tożsamości (dostawcy tożsamości). Dostawcy tożsamości wysyła użytkownika i token tutaj po zalogowaniu się użytkownika do dostawcy tożsamości.  Jest to również znany jako **punkt końcowy odbiorcy potwierdzenia SAML**.| Wybierz kartę **punkty końcowe**| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Element docelowy w tokenie SAML. Przykładowa wartość: `https://contoso.my.salesforce.com` |
+| **Adres URL wylogowania aplikacji** <p>Jest to adres URL, do którego są wysyłane żądania "Czyszczenie wylogowania", gdy użytkownik wyloguje się z aplikacji. Dostawcy tożsamości wysyła żądanie wylogowania użytkownika ze wszystkich innych aplikacji.| Wybierz kartę **punkty końcowe**| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Brak |
 | **Identyfikator aplikacji** <p>To jest identyfikator aplikacji z perspektywy dostawcy tożsamości. Wartość adresu URL logowania jest często używana dla identyfikatora (ale nie zawsze).  Czasami aplikacja wywołuje ten identyfikator jednostki.| Wybierz kartę **identyfikatory**|Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Mapuje do elementu **odbiorców** w tokenie SAML. |
-| **Metadane federacji aplikacji** <p>Jest to lokalizacja metadanych federacji aplikacji. Używana przez dostawcę tożsamości do automatycznego aktualizowania określonych ustawień konfiguracji, takich jak punkty końcowe lub certyfikaty szyfrowania.| Wybierz kartę **monitorowanie**| Nie dotyczy. Usługa Azure AD nie obsługuje bezpośredniego korzystania z metadanych federacji aplikacji. Można ręcznie zaimportować metadane federacji.| Nie dotyczy |
-| **Identyfikator/nazwa użytkownika** <p>Atrybut używany do jednoznacznego wskazywania tożsamości użytkownika z usług Azure AD lub AD FS do aplikacji.  Ten atrybut jest zazwyczaj nazwą UPN lub adresem e-mail użytkownika.| Reguły dotyczące roszczeń. W większości przypadków reguła dotycząca roszczeń wystawia zgłoszenie z typem kończącym się na NameIdentifier.| Identyfikator można znaleźć pod nagłówkiem **atrybuty użytkownika i oświadczenia** . Domyślnie używana jest nazwa UPN| Mapuje do elementu **NameID** w tokenie języka SAML. |
-| **Inne oświadczenia** <p>Przykłady innych informacji o zgłoszeniach, które są często wysyłane z dostawcy tożsamości do aplikacji, obejmują imię, nazwisko, adres E-mail i członkostwo w grupie.| W usługach AD FS są to inne reguły oświadczenia powiązane z jednostką uzależnioną.| Identyfikator można znaleźć w obszarze **atrybuty użytkownika nagłówka & oświadczenia** . Wybierz pozycję **Wyświetl** i edytuj wszystkie inne atrybuty użytkownika.| Nie dotyczy |
+| **Metadane federacji aplikacji** <p>Jest to lokalizacja metadanych federacji aplikacji. Używana przez dostawcę tożsamości do automatycznego aktualizowania określonych ustawień konfiguracji, takich jak punkty końcowe lub certyfikaty szyfrowania.| Wybierz kartę **monitorowanie**| Nie dotyczy. Usługa Azure AD nie obsługuje bezpośredniego korzystania z metadanych federacji aplikacji. Można ręcznie zaimportować metadane federacji.| Brak |
+| **Identyfikator/nazwa użytkownika** <p>Atrybut używany do jednoznacznego wskazywania tożsamości użytkownika z usług Azure AD lub AD FS do aplikacji.  Ten atrybut jest zazwyczaj nazwą UPN lub adresem e-mail użytkownika.| Reguły dotyczące roszczeń. W większości przypadków reguła dotycząca roszczeń wystawia zgłoszenie z typem kończącym się na NameIdentifier.| Identyfikator można znaleźć pod nagłówkiem **atrybuty użytkownika i oświadczenia**. Domyślnie używana jest nazwa UPN| Mapuje do elementu **NameID** w tokenie języka SAML. |
+| **Inne oświadczenia** <p>Przykłady innych informacji o zgłoszeniach, które są często wysyłane z dostawcy tożsamości do aplikacji, obejmują imię, nazwisko, adres E-mail i członkostwo w grupie.| W usługach AD FS są to inne reguły oświadczenia powiązane z jednostką uzależnioną.| Identyfikator można znaleźć w obszarze **atrybuty użytkownika nagłówka & oświadczenia**. Wybierz pozycję **Wyświetl** i edytuj wszystkie inne atrybuty użytkownika.| Brak |
 
 
 ### <a name="map-identity-provider-idp-settings"></a>Ustawienia dostawcy tożsamości (dostawcy tożsamości)
@@ -238,9 +238,9 @@ Aplikacje SaaS muszą wiedzieć, gdzie wysyłać żądania uwierzytelniania i ja
 | - | - | - |
 | **Adres URL logowania dostawcy tożsamości** <p>Adres URL logowania dostawcy tożsamości z perspektywy aplikacji (do którego użytkownik jest przekierowywany na potrzeby logowania).| Adres URL logowania AD FS jest nazwą usługi federacyjnej AD FS, po której następuje "/adfs/ls/." <p>Na przykład: `https://fs.contoso.com/adfs/ls/`| Zastąp ciąg {dzierżawca} IDENTYFIKATORem dzierżawy. <p> W przypadku aplikacji korzystających z protokołu SAML-P: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>W przypadku aplikacji korzystających z protokołu WS-Federation: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
 | **Adres URL wylogowania dostawcy tożsamości**<p>Adres URL wylogowania dostawcy tożsamości z perspektywy aplikacji (do którego użytkownik jest przekierowywany, gdy zdecyduje się wylogować się z aplikacji).| Adres URL wylogowania jest taki sam jak adres URL logowania lub jest to ten sam adres URL z dołączonym parametrem "WA = wsignout 1.0". Na przykład: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Zastąp ciąg {dzierżawca} IDENTYFIKATORem dzierżawy.<p>W przypadku aplikacji korzystających z protokołu SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> W przypadku aplikacji korzystających z protokołu WS-Federation: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
-| **Certyfikat podpisywania tokenu**<p>Dostawcy tożsamości używa klucza prywatnego certyfikatu do podpisywania wystawionych tokenów. Weryfikuje, że token pochodzi od tego samego dostawcy tożsamości, z którym aplikacja ma skonfigurowaną relację zaufania.| Certyfikat podpisywania tokenu usług AD FS znajduje się w funkcji zarządzania usługami AD FS w obszarze **Certyfikaty** .| Znajdź je w Azure Portal we **właściwościach logowania** jednokrotnego aplikacji, w obszarze **certyfikatu podpisywania SAML** nagłówka. W tym miejscu możesz pobrać certyfikat, aby następnie przekazać go do aplikacji.  <p>Jeśli aplikacja ma więcej niż jeden certyfikat, wszystkie certyfikaty można znaleźć w pliku XML metadanych Federacji. |
-| **Identyfikator/"wystawca"**<p>Identyfikator dostawcy tożsamości z perspektywy aplikacji (czasami nazywany "IDENTYFIKATORem wystawcy").<p>W tokenie SAML wartość jest wyświetlana jako element wystawcy.| Identyfikator AD FS jest zazwyczaj identyfikatorem usługi federacyjnej w AD FS Management w obszarze **> Edytowanie właściwości usługa federacyjna** . Na przykład: `http://fs.contoso.com/adfs/services/trust`| Zastąp ciąg {dzierżawca} IDENTYFIKATORem dzierżawy.<p>https: \/ /STS.Windows.NET/{tenant-ID}/ |
-| **Metadane federacji dostawcy tożsamości**<p>Lokalizacja publicznie dostępnych metadanych Federacji dostawcy tożsamości. (Niektóre aplikacje używają metadanych federacji jako alternatywy sytuacji, w której administrator indywidualnie konfiguruje adresy URL, identyfikator i certyfikat podpisywania tokenu).| Znajdź adres URL metadanych Federacji AD FS w obszarze Zarządzanie AD FS w obszarze **punkty końcowe > usługi > typ > metadanych: metadane federacji** . Na przykład: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Odpowiadająca wartość w usłudze Azure AD jest zgodna z wzorcem [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . Zastąp ciąg {Nazwadomenydzierżawy} nazwą swojej dzierżawy w formacie "contoso.onmicrosoft.com".   <p>Aby uzyskać więcej informacji, zobacz [Metadane federacji](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
+| **Certyfikat podpisywania tokenu**<p>Dostawcy tożsamości używa klucza prywatnego certyfikatu do podpisywania wystawionych tokenów. Weryfikuje, że token pochodzi od tego samego dostawcy tożsamości, z którym aplikacja ma skonfigurowaną relację zaufania.| Certyfikat podpisywania tokenu usług AD FS znajduje się w funkcji zarządzania usługami AD FS w obszarze **Certyfikaty**.| Znajdź je w Azure Portal we **właściwościach logowania** jednokrotnego aplikacji, w obszarze **certyfikatu podpisywania SAML** nagłówka. W tym miejscu możesz pobrać certyfikat, aby następnie przekazać go do aplikacji.  <p>Jeśli aplikacja ma więcej niż jeden certyfikat, wszystkie certyfikaty można znaleźć w pliku XML metadanych Federacji. |
+| **Identyfikator/"wystawca"**<p>Identyfikator dostawcy tożsamości z perspektywy aplikacji (czasami nazywany "IDENTYFIKATORem wystawcy").<p>W tokenie SAML wartość jest wyświetlana jako element wystawcy.| Identyfikator AD FS jest zazwyczaj identyfikatorem usługi federacyjnej w AD FS Management w obszarze **> Edytowanie właściwości usługa federacyjna**. Na przykład: `http://fs.contoso.com/adfs/services/trust`| Zastąp ciąg {dzierżawca} IDENTYFIKATORem dzierżawy.<p>https: \/ /STS.Windows.NET/{tenant-ID}/ |
+| **Metadane federacji dostawcy tożsamości**<p>Lokalizacja publicznie dostępnych metadanych Federacji dostawcy tożsamości. (Niektóre aplikacje używają metadanych federacji jako alternatywy sytuacji, w której administrator indywidualnie konfiguruje adresy URL, identyfikator i certyfikat podpisywania tokenu).| Znajdź adres URL metadanych Federacji AD FS w obszarze Zarządzanie AD FS w obszarze **punkty końcowe > usługi > typ > metadanych: metadane federacji**. Na przykład: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Odpowiadająca wartość w usłudze Azure AD jest zgodna z wzorcem [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . Zastąp ciąg {Nazwadomenydzierżawy} nazwą swojej dzierżawy w formacie "contoso.onmicrosoft.com".   <p>Aby uzyskać więcej informacji, zobacz [Metadane federacji](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
 
 
 ## <a name="represent-ad-fs-security-policies-in-azure-ad"></a>Reprezentacja AD FS zasad zabezpieczeń w usłudze Azure AD
@@ -322,7 +322,7 @@ Określanie reguł MFA dla użytkownika lub grupy w usłudze Azure AD:
 
 1. Utwórz [nowe zasady dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json).
 
-2. Wybierz pozycję **Przypisania** . Dodaj użytkowników lub grupy, dla których chcesz wymusić uwierzytelnianie MFA.
+2. Wybierz pozycję **Przypisania**. Dodaj użytkowników lub grupy, dla których chcesz wymusić uwierzytelnianie MFA.
 
 3. Skonfiguruj opcje **kontroli dostępu** , jak pokazano poniżej:
 
@@ -335,7 +335,7 @@ Określ reguły uwierzytelniania MFA dla niezarejestrowanego urządzenia w usłu
 
 1. Utwórz [nowe zasady dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json).
 
-2. Ustaw **przydziały** dla **wszystkich użytkowników** .
+2. Ustaw **przydziały** dla **wszystkich użytkowników**.
 
 3. Skonfiguruj opcje **kontroli dostępu** , jak pokazano poniżej:
 
@@ -350,7 +350,7 @@ Określ reguły MFA na podstawie lokalizacji użytkownika w usłudze Azure AD:
 
 1. Utwórz [nowe zasady dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json).
 
-1. Ustaw **przydziały** dla **wszystkich użytkowników** .
+1. Ustaw **przydziały** dla **wszystkich użytkowników**.
 
 1. [Skonfiguruj nazwane lokalizacje w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) , w przeciwnym wypadku Federacji z wewnątrz sieci firmowej, jest zaufana.
 
@@ -448,7 +448,7 @@ Następnie przejdź do [Azure Portal](https://aad.portal.azure.com/) , aby spraw
 
 1. Wybierz pozycję **Zarządzaj**  >  **użytkownikami i grupami** , aby przypisać do aplikacji co najmniej jednego użytkownika lub grupę.
 
-1. Wybierz pozycję **Zarządzaj**  >  **dostępem warunkowym** . Przejrzyj listę zasad i upewnij się, że nie blokujesz dostępu do aplikacji za pomocą [zasad dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
+1. Wybierz pozycję **Zarządzaj**  >  **dostępem warunkowym**. Przejrzyj listę zasad i upewnij się, że nie blokujesz dostępu do aplikacji za pomocą [zasad dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
 W zależności od sposobu skonfigurowania aplikacji Sprawdź, czy logowanie jednokrotne działa prawidłowo.
 
@@ -456,7 +456,7 @@ W zależności od sposobu skonfigurowania aplikacji Sprawdź, czy logowanie jedn
 | - | - |
 | Połączenie OAuth/OpenID Connect| Wybierz pozycję **aplikacje dla przedsiębiorstw > uprawnienia** i upewnij się, że masz zgodę na użycie aplikacji w organizacji w ustawieniach użytkownika aplikacji.
 ‎ |
-| Logowanie jednokrotne oparte na języku SAML| Użyj przycisku [Testuj ustawienia SAML](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) w obszarze **Logowanie jednokrotne** .
+| Logowanie jednokrotne oparte na języku SAML| Użyj przycisku [Testuj ustawienia SAML](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) w obszarze **Logowanie jednokrotne**.
 ‎ |
 | Password-Based LOGOWANIE JEDNOKROTNE| Pobierz i zainstaluj rozszerzenie " [bezpieczne logowanie do aplikacji](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)" [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). To rozszerzenie ułatwia rozpoczęcie pracy z aplikacjami w chmurze w organizacji, które wymagają korzystania z procesu rejestracji jednokrotnej.
 ‎ |
@@ -489,5 +489,8 @@ Po zakończeniu wdrażania można wysłać komunikat informujący użytkowników
 Komunikacja z użytkownikami zewnętrznymi: Ta grupa użytkowników jest zazwyczaj najbardziej krytycznym problemem w przypadku problemów. Jest to szczególnie prawdziwe, jeśli stan zabezpieczeń wymusza różne zestawy reguł dostępu warunkowego lub profile ryzyka dla partnerów zewnętrznych. Upewnij się, że partnerzy zewnętrzni są świadomi harmonogramu migracji do chmury i mają przedział czasu, w którym zaleca się uczestnictwo w wdrożeniu pilotażowym, które testuje wszystkie przepływy w ramach współpracy zewnętrznej. Na koniec upewnij się, że masz dostęp do pomocy technicznej w przypadku problemów z przerywaniem.
 
 ## <a name="next-steps"></a>Następne kroki
+
 Odczytywanie  [migracji uwierzytelniania aplikacji do usługi Azure AD](https://aka.ms/migrateapps/whitepaper)<p>
 Konfigurowanie [dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) i usługi [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)
+
+Wypróbuj przykład kodu krokowego:[AD FS do migracji aplikacji usługi Azure AD element PlayBook dla deweloperów](https://aka.ms/adfsplaybook)

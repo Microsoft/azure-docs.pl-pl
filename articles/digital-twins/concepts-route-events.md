@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 91ba36a0bffab6c66020bab41ace65659ed084f7
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d085d59dc1dbe09c014dcaf5aa239805824354f0
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146317"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279968"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -73,7 +73,7 @@ Interfejsy API punktu końcowego dostępne w płaszczyźnie sterującej są nast
  
 Aby utworzyć trasę zdarzeń, można użyć [**interfejsów API**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**poleceń interfejsu wiersza polecenia**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)platformy Azure Digital bliźniaczych reprezentacji lub [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Oto przykład tworzenia trasy zdarzeń w aplikacji klienckiej przy użyciu `CreateOrReplaceEventRouteAsync` wywołania [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) : 
+Oto przykład tworzenia trasy zdarzeń w aplikacji klienckiej przy użyciu `CreateOrReplaceEventRouteAsync` wywołania [zestawu SDK platformy .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) : 
 
 ```csharp
 string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
@@ -94,7 +94,7 @@ Trasy można także tworzyć za pomocą [interfejsu wiersza polecenia usługi Az
 
 ## <a name="dead-letter-events"></a>Zdarzenia utraconych wiadomości
 
-Gdy punkt końcowy nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony** . Po spełnieniu **jednego z następujących** warunków usługa Azure Digital bliźniaczych reprezentacji będzie martwa zdarzenie. 
+Gdy punkt końcowy nie może dostarczyć zdarzenia w określonym czasie lub po próbie dostarczenia zdarzenia przez określoną liczbę razy, może wysłać niedostarczone zdarzenie do konta magazynu. Ten proces jest znany jako **utracony**. Po spełnieniu **jednego z następujących** warunków usługa Azure Digital bliźniaczych reprezentacji będzie martwa zdarzenie. 
 
 * Zdarzenie nie jest dostarczane w okresie czasu wygaśnięcia
 * Liczba prób dostarczenia zdarzenia przekroczyła limit.
