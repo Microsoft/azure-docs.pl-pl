@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3ee7761d43710e0833eb8002851e286ce5449983
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c56c52193f433571f16e4acf7bd6e7b89641b26f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636123"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233954"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funkcje transformacji w przepływie danych przetwarzanie
 
@@ -25,7 +25,7 @@ Przepływ danych przetwarzanie w Azure Data Factory umożliwia wykonywanie bezob
 
 Obecnie nie wszystkie Power Query funkcje M są obsługiwane dla przetwarzanie danych, mimo że są dostępne podczas tworzenia. Podczas kompilowania przepływów danych przetwarzanie zostanie wyświetlony monit z następującym komunikatem o błędzie, jeśli funkcja nie jest obsługiwana:
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
 
 Poniżej znajduje się lista obsługiwanych Power Query funkcji M.
 
@@ -76,7 +76,7 @@ Następujące funkcje M dodają lub przekształcają kolumny: [Table. addColumn]
 
 Użyj [tabeli Table. Group](/powerquery-m/table-group) do agregowania wartości.
 * Musi być używana z funkcją agregacji
-* Obsługiwane funkcje agregacji:   [Table. RowCount](/powerquery-m/table-rowcount),   [list. sum](/powerquery-m/list-sum),   [list. Count](/powerquery-m/list-count),   [list. Average](/powerquery-m/list-average),   [list. min](/powerquery-m/list-min), List   [. Max](/powerquery-m/list-max),   [list. StandardDeviation](/powerquery-m/list-standarddeviation), list.   [First](/powerquery-m/list-first),   [list. Last](/powerquery-m/list-last)
+* Obsługiwane funkcje agregacji:   [list. sum](/powerquery-m/list-sum),   [list. Count](/powerquery-m/list-count),   [list. Average](/powerquery-m/list-average),   [list. min](/powerquery-m/list-min),   [list. Max](/powerquery-m/list-max),   [list. StandardDeviation](/powerquery-m/list-standarddeviation),   [list. First](/powerquery-m/list-first),   [list. Last](/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Sortowanie
 
@@ -96,7 +96,7 @@ Zachowuj i usuwaj najważniejsze, zachowuj zakres (odpowiadające funkcje M, tyl
 | Table.NestedJoin | Wykonanie sprzężenia spowoduje błąd walidacji. Aby można było obejść te kolumny, muszą być rozwinięte. |
 | Table.Distinct | Usuwanie zduplikowanych wierszy nie jest obsługiwane. |
 | Table.RemoveLastN | Usuwanie dolnych wierszy nie jest obsługiwane. |
-| Table.RowCount | Nieobsługiwane, ale można je uzyskać za pomocą opcji Dodaj kolumnę ze wszystkimi komórkami pustymi (można użyć kolumny warunku), a następnie za pomocą polecenia Grupuj według w tej kolumnie. Tabela. Grupa jest obsługiwana. | 
+| Table.RowCount | Nieobsługiwane, ale można je osiągnąć przez dodanie kolumny niestandardowej zawierającej wartość 1, a następnie agregowanie tej kolumny z listą. sum. Tabela. Grupa jest obsługiwana. | 
 | Obsługa błędów na poziomie wiersza | Obsługa błędów na poziomie wiersza nie jest obecnie obsługiwana. Na przykład, aby odfiltrować wartości inne niż liczbowe z kolumny, jednym z metod jest przekształcenie kolumny tekstowej na liczbę. Każda komórka, której nie można przekształcić, będzie w stanie błędu i musi zostać przefiltrowana. Ten scenariusz nie jest możliwy w przepływie danych przetwarzanie. |
 | Table.Transpose | Nieobsługiwane |
 | Table.Pivot | Nieobsługiwane |

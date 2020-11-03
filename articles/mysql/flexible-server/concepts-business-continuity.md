@@ -1,17 +1,17 @@
 ---
 title: Przegląd ciągłości działania — Azure Database for MySQL elastyczny serwer
 description: Dowiedz się więcej na temat pojęć związanych z ciągłością działania w Azure Database for MySQL elastycznym serwerze
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 833031a787f8571a8f8aea8e536410d4abcca298
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c29e952e22aaccf31c10de8f6e16d240b4660a23
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546419"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240719"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Przegląd ciągłości działania z serwerem elastycznym Azure Database for MySQL (wersja zapoznawcza)
 

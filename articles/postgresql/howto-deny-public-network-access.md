@@ -1,17 +1,17 @@
 ---
 title: Odmowa dostępu do sieci publicznej — Azure Portal-Azure Database for PostgreSQL — pojedynczy serwer
 description: Dowiedz się, jak skonfigurować odmowę dostępu do sieci publicznej za pomocą Azure Portal dla Azure Database for PostgreSQL jednego serwera
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 1dfc8d473d0cfe663569d2508404bf190f2da841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd777fe42dc8fa3ec4643fa9607f5ca8b7aac795
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901579"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240328"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Odmowa dostępu do sieci publicznej w Azure Database for PostgreSQL pojedynczym serwerze przy użyciu Azure Portal
 
@@ -29,13 +29,13 @@ Wykonaj następujące kroki, aby ustawić PostgreSQL jeden serwer Odmów dostęp
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz istniejący Azure Database for PostgreSQL pojedynczy serwer.
 
-1. Na stronie PostgreSQL Single Server w obszarze **Ustawienia**kliknij pozycję **zabezpieczenia połączeń** , aby otworzyć stronę Konfiguracja zabezpieczeń połączenia.
+1. Na stronie PostgreSQL Single Server w obszarze **Ustawienia** kliknij pozycję **zabezpieczenia połączeń** , aby otworzyć stronę Konfiguracja zabezpieczeń połączenia.
 
-1. W polu **Odmów dostępu do sieci publicznej**wybierz pozycję **tak** , aby włączyć opcję Odmów dostępu publicznego dla pojedynczego serwera PostgreSQL.
+1. W polu **Odmów dostępu do sieci publicznej** wybierz pozycję **tak** , aby włączyć opcję Odmów dostępu publicznego dla pojedynczego serwera PostgreSQL.
 
     :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access.PNG" alt-text="Azure Database for PostgreSQL dostęp do sieci przy pojedynczym serwerze":::
 
-1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+1. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
 1. Powiadomienie zostanie potwierdzone, że ustawienie zabezpieczeń połączenia zostało pomyślnie włączone.
 

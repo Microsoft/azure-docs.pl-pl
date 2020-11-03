@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 422f8106ac52c85f0680d54e420d0f1b4d326910
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 185bb47677e978a3098f39024995da6399f90658
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017696"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241773"
 ---
 # <a name="outbound-proxy-azure-load-balancer"></a>Azure Load Balancer wychodzącego serwera proxy
 
 Moduł równoważenia obciążenia platformy Azure może służyć jako serwer proxy dla wychodzącej łączności z Internetem. Moduł równoważenia obciążenia zapewnia łączność wychodzącą dla wystąpień zaplecza. 
 
-Ta konfiguracja używa **translatora adresów sieciowych (Resources)**. Podzbiór danych ponownie zapisuje adres IP zaplecza na publicznym adresie IP modułu równoważenia obciążenia. 
+Ta konfiguracja używa **translatora adresów sieciowych (Resources)** . Podzbiór danych ponownie zapisuje adres IP zaplecza na publicznym adresie IP modułu równoważenia obciążenia. 
 
 Przydziały adresów IP włączają **podszywającanie** się w ramach wystąpienia zaplecza. Takie zamaskowane uniemożliwia ze źródeł zewnętrznych adresowanie do wystąpień zaplecza. 
 
@@ -42,9 +42,9 @@ Jeśli port jest używany do połączeń przychodzących, będzie miał **odbior
 
 Aby nawiązać połączenie wychodzące, należy użyć **portu tymczasowych** w celu zapewnienia lokalizacji docelowej z portem, na którym należy się komunikować i obsługiwać różne przepływy ruchu. 
 
-Każdy adres IP ma 65 535 portów. Pierwsze porty 1024 są zarezerwowane jako **porty systemowe**. Każdy port może być używany dla połączeń przychodzących lub wychodzących dla protokołów TCP i UDP. 
+Każdy adres IP ma 65 535 portów. Pierwsze porty 1024 są zarezerwowane jako **porty systemowe** . Każdy port może być używany dla połączeń przychodzących lub wychodzących dla protokołów TCP i UDP. 
 
-Z pozostałych portów platforma Azure przyznaje 64 000 do użycia jako tymczasowe **porty**. Po dodaniu adresu IP jako konfiguracji adresu IP frontonu można użyć tych portów tymczasowych dla tego elementu.
+Z pozostałych portów platforma Azure przyznaje 64 000 do użycia jako tymczasowe **porty** . Po dodaniu adresu IP jako konfiguracji adresu IP frontonu można użyć tych portów tymczasowych dla tego elementu.
 
 Za pomocą reguł ruchu wychodzącego te porty mogą być dystrybuowane do wystąpień zaplecza, aby umożliwić im Udostępnianie publicznych adresów IP modułu równoważenia obciążenia dla połączeń wychodzących.
 
@@ -52,7 +52,7 @@ Sieci na hoście dla każdego wystąpienia zaplecza będą podłączane do pakie
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Porty wydechowe
 
-Każde połączenie z tym samym docelowym adresem IP i portem docelowym będzie używać portu. To połączenie utrzymuje odrębny **przepływ ruchu** z wystąpienia zaplecza lub **klienta** do **serwera**. Ten proces nadaje serwerowi unikatowy port, na którym ma być adresowany ruch. Bez tego procesu komputer kliencki nie rozpoznaje tego, z którego przepływu jest częścią pakietu.
+Każde połączenie z tym samym docelowym adresem IP i portem docelowym będzie używać portu. To połączenie utrzymuje odrębny **przepływ ruchu** z wystąpienia zaplecza lub **klienta** do **serwera** . Ten proces nadaje serwerowi unikatowy port, na którym ma być adresowany ruch. Bez tego procesu komputer kliencki nie rozpoznaje tego, z którego przepływu jest częścią pakietu.
 
 Wyobraź sobie, że ma wiele przeglądarek https://www.microsoft.com :
 
@@ -92,7 +92,7 @@ W poniższej <a name="snatporttable"></a> tabeli przedstawiono alokacje wstępne
 | 801-1000 | 32 | 
 
 >[!NOTE]
-> Jeśli masz pulę zaplecza o maksymalnym rozmiarze 6, każde wystąpienie może mieć 64000/10 = 6 400 portów, jeśli zdefiniujesz jawną regułę wychodzącą. Zgodnie z powyższą tabelą każda z nich będzie miała 1 024 tylko w przypadku wybrania opcji alokacja automatyczna.
+> Jeśli masz pulę zaplecza o maksymalnym rozmiarze 10, każde wystąpienie może mieć 64000/10 = 6 400 portów, jeśli zdefiniujesz jawną regułę wychodzącą. Zgodnie z powyższą tabelą każda z nich będzie miała 1 024 tylko w przypadku wybrania opcji alokacja automatyczna.
 
 ## <a name="outbound-rules-and-virtual-network-nat"></a><a name="outboundrules"></a> Reguły ruchu wychodzącego i translatora adresów sieciowych Virtual Network
 

@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: fefa19e8dfee295d34231d36df079b80d1e82768
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d8eb450d2010bf2a525a26f1c5ff48f59732ce43
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778586"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240974"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Zarządzanie wygasaniem zawartości internetowej w usłudze Azure CDN
 > [!div class="op_single_selector"]
@@ -73,9 +73,9 @@ Preferowaną metodą ustawiania nagłówka serwera sieci Web `Cache-Control` jes
 
 1. W obszarze **niestandardowe reguły buforowania** Utwórz dwa warunki dopasowywania:
 
-     a. W przypadku pierwszego warunku dopasowywania Ustaw **warunek dopasowania** na wartość **Path** , a następnie wprowadź `/webfolder1/*` dla **wartości dopasowywania** . Ustaw **zachowanie buforowania** w celu **przesłonięcia** i wprowadź 4 w polu **godziny** .
+     a. W przypadku pierwszego warunku dopasowywania Ustaw **warunek dopasowania** na wartość **Path** , a następnie wprowadź `/webfolder1/*` dla **wartości dopasowywania** . Ustaw **zachowanie buforowania** w celu **przesłonięcia** i wprowadź 4 w polu **dni** .
 
-     b. W przypadku drugiego warunku dopasowywania Ustaw **warunek dopasowania** na wartość **Path** i wprowadź `/webfolder1/file1.txt` dla **wartości dopasowywania** . Ustaw **zachowanie buforowania** w celu **przesłonięcia** i wprowadź wartość 2 w polu **godziny** .
+     b. W przypadku drugiego warunku dopasowywania Ustaw **warunek dopasowania** na wartość **Path** i wprowadź `/webfolder1/file1.txt` dla **wartości dopasowywania** . Ustaw **zachowanie buforowania** w celu **przesłonięcia** i wprowadź wartość 2 w polu **dni** .
 
     ![Przykład niestandardowych reguł buforowania usługi CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 

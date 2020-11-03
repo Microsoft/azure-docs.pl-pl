@@ -1,17 +1,17 @@
 ---
 title: Podwójne szyfrowanie infrastruktury — Azure Database for PostgreSQL Azure Portal
 description: Dowiedz się, jak skonfigurować podwójne szyfrowanie infrastruktury dla Azure Database for PostgreSQL i zarządzać nimi.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 362c051cf1dd7e97430bd6afaf4821a9c960b71d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea486b534ac3e703849ddb3922d7c3a428dd076b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901551"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242232"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Podwójne szyfrowanie infrastruktury dla Azure Database for PostgreSQL
 
@@ -27,7 +27,7 @@ Wykonaj następujące kroki, aby utworzyć serwer Azure Database for MySQL z szy
 
 1. Wybierz pozycję **Utwórz zasób** (+) w lewym górnym rogu portalu.
 
-2. Wybierz pozycję **bazy danych**  >  **Azure Database for PostgreSQL**. Możesz również wprowadzić PostgreSQL w polu wyszukiwania, aby znaleźć usługę. Włączono opcję wdrożenia **pojedynczego serwera** .
+2. Wybierz pozycję **bazy danych**  >  **Azure Database for PostgreSQL** . Możesz również wprowadzić PostgreSQL w polu wyszukiwania, aby znaleźć usługę. Włączono opcję wdrożenia **pojedynczego serwera** .
 
    :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Azure Database for PostgreSQL w menu":::
 
@@ -52,7 +52,7 @@ Ten przykład umożliwia utworzenie grupy zasobów o nazwie `myresourcegroup` w 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-W poniższym przykładzie jest tworzony serwer PostgreSQL 11 z regionu zachodnie stany USA o nazwie `mydemoserver` w grupie zasobów `myresourcegroup` z identyfikatorem logowania administratora serwera `myadmin` . Jest to serwer **4. generacji** **ogólnego przeznaczenia** z 2 **rdzeniami wirtualnymi**. Spowoduje to również włączenie szyfrowania podwójnego poziomu infrastruktury dla serwera, który został utworzony. Zastąp zmienną `<server_admin_password>` swoją własną wartością.
+W poniższym przykładzie jest tworzony serwer PostgreSQL 11 z regionu zachodnie stany USA o nazwie `mydemoserver` w grupie zasobów `myresourcegroup` z identyfikatorem logowania administratora serwera `myadmin` . Jest to serwer **4. generacji** **ogólnego przeznaczenia** z 2 **rdzeniami wirtualnymi** . Spowoduje to również włączenie szyfrowania podwójnego poziomu infrastruktury dla serwera, który został utworzony. Zastąp zmienną `<server_admin_password>` swoją własną wartością.
 
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 11 --infrastructure-encryption >Enabled/Disabled>

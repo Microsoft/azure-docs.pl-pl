@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 99bd1ac156b12a5be7b8c5c17eb5b568b7070a25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0779ac261fbb4ee91bf63021bb0cc685a371c2b2
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77463221"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234073"
 ---
 # <a name="ldap-sync-in-ranger-and-apache-ambari-in-azure-hdinsight"></a>Synchronizacja LDAP w Ranger i Apache Ambari w usłudze Azure HDInsight
 
@@ -20,16 +20,19 @@ Klastry usługi HDInsight pakiet Enterprise Security (ESP) używają Ranger do a
 
 ## <a name="general-guidelines"></a>Ogólne wskazówki
 
-* Zawsze Wdrażaj klastry przy użyciu grup.
-* Zamiast zmieniać filtry grupy w Ambari i Ranger, spróbuj zarządzać wszystkimi nimi w usłudze Azure AD i korzystać z grup zagnieżdżonych w celu przyłączenia wymaganych użytkowników.
-* Gdy użytkownik zostanie zsynchronizowany, nie zostanie usunięty, nawet jeśli użytkownik nie jest częścią grup.
-* Jeśli musisz bezpośrednio zmienić filtry LDAP, użyj interfejsu użytkownika w pierwszej kolejności, w jaki zawiera kilka walidacji.
+* Należy zawsze wdrażać klastry z co najmniej jedną grupą.
+* Jeśli chcesz używać więcej grup w klastrze, sprawdź, czy warto zaktualizować członkostwa w grupach w Azure Active Directory (Azure AD).
+* Jeśli chcesz zmienić grupy klastrów, możesz zmienić filtry synchronizacji przy użyciu Ambari.
+* Wszystkie zmiany członkostwa w grupie w usłudze Azure AD są odzwierciedlone w klastrze podczas kolejnych synchronizacji. Zmiany muszą zostać najpierw zsynchronizowane w celu Azure AD Domain Services (Azure AD DS), a następnie do klastrów.
+* Klastry usługi HDInsight używają oprogramowania Samba/winbind do projekcji członkostw w grupach w węzłach klastra.
+* Elementy członkowskie grupy są synchronizowane przechodniie (wszystkie podgrupy i ich członkowie) zarówno w Ambari, jak i w Ranger. 
 
 ## <a name="users-are-synced-separately"></a>Użytkownicy są synchronizowane osobno
 
-Ambari i Ranger nie współdzielą bazy danych użytkownika, ponieważ służą one do dwóch różnych celów. Jeśli użytkownik musi korzystać z interfejsu użytkownika Ambari, należy synchronizować użytkownika z Ambari. Jeśli użytkownik nie jest synchronizowany z usługą Ambari, interfejs użytkownika/interfejs API usługi Ambari odrzuci ten element, ale inne części systemu będą działały (są one chronione przez Ranger lub Menedżer zasobów, a nie Ambari). Jeśli chcesz uwzględnić użytkownika w zasadach Ranger, zsynchronizuj użytkownika z Ranger.
-
-Po wdrożeniu bezpiecznego klastra elementy członkowskie grupy są synchronizowane przechodniie (wszystkie podgrupy i ich członkowie) zarówno do Ambari, jak i Ranger. 
+ * Ambari i Ranger nie współdzielą bazy danych użytkownika, ponieważ służą one do dwóch różnych celów. 
+   * Jeśli użytkownik musi korzystać z interfejsu użytkownika Ambari, użytkownik musi zostać zsynchronizowany z Ambari. 
+   * Jeśli użytkownik nie zostanie zsynchronizowany z usługą Ambari, interfejs użytkownika Ambari/interfejs API zostanie odrzucony, ale inne części systemu będą działały (są chronione przez Ranger lub Menedżer zasobów, a nie przez Ambari).
+   * Aby uwzględnić użytkowników lub grupy w zasadach Ranger, podmioty zabezpieczeń muszą być jawnie zsynchronizowane w Ranger.
 
 ## <a name="ambari-user-sync-and-configuration"></a>Ambari i Konfiguracja użytkownika
 
@@ -37,28 +40,20 @@ W przypadku węzłów głównych zadanie firmy CRONUS `/opt/startup_scripts/star
 
 Dzienniki powinny znajdować się w `/var/log/ambari-server/ambari-server.log` . Aby uzyskać więcej informacji, zobacz [Konfigurowanie poziomu rejestrowania Ambari](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html).
 
-W klastrach Data Lake punkt zaczepienia tworzenia użytkownika służy do tworzenia folderów macierzystych dla synchronizowanych użytkowników i są ustawiani jako właściciele folderów macierzystych. Jeśli użytkownik nie jest synchronizowany do Ambari prawidłowo, może to oznaczać błędy podczas uzyskiwania dostępu do przemieszczania i innych folderów tymczasowych.
-
-### <a name="update-groups-to-be-synced-to-ambari"></a>Aktualizowanie grup do zsynchronizowania z Ambari
-
-Jeśli nie możesz zarządzać członkostwem w grupach w usłudze Azure AD, masz dwie opcje:
-
-* Wykonaj jednorazową synchronizację, tak jak opisano to w pełni w temacie [synchronizowanie użytkowników i grup LDAP](https://docs.cloudera.com/HDPDocuments/HDP3/latest/ambari-authentication-ldap-ad/content/authe_ldapad_synchronizing_ldap_users_and_groups.html). Przy każdej zmianie członkostwa w grupie należy wykonać tę synchronizację ponownie.
-
-* Napisz zadanie firmy CRONUS, aby [okresowo wywoływać interfejs API Ambari](https://community.cloudera.com/t5/Support-Questions/How-do-I-automate-the-Ambari-LDAP-sync/m-p/96634) przy użyciu nowych grup.
+W klastrach Data Lake punkt zaczepienia tworzenia użytkownika służy do tworzenia folderów macierzystych dla synchronizowanych użytkowników i są ustawiani jako właściciele folderów macierzystych. Jeśli użytkownik nie zostanie zsynchronizowany w celu poprawnego Ambari, może to oznaczać błędy w uruchomionych zadaniach, ponieważ folder macierzysty może nie być poprawnie skonfigurowany.
 
 ## <a name="ranger-user-sync-and-configuration"></a>Ranger i Konfiguracja użytkownika
 
 Ranger ma wbudowany aparat synchronizacji, który jest uruchamiany co godzinę w celu synchronizacji użytkowników. Baza danych użytkownika nie jest współużytkowana z Ambari. Usługa HDInsight konfiguruje filtr wyszukiwania, aby synchronizować użytkownika administracyjnego, użytkownika licznika alarmowego i członków grupy określonej podczas tworzenia klastra. Elementy członkowskie grupy zostaną zsynchronizowane przechodniie:
 
-* Wyłącz synchronizację przyrostową.
-* Włącz mapę synchronizacji grupy użytkowników.
-* Określ filtr wyszukiwania do uwzględnienia przechodnich elementów członkowskich grupy.
-* Synchronizuj sAMAccountName dla użytkowników i nazw atrybutów dla grup.
+1. Wyłącz synchronizację przyrostową.
+1. Włącz mapę synchronizacji grupy użytkowników.
+1. Określ filtr wyszukiwania do uwzględnienia przechodnich elementów członkowskich grupy.
+1. Zsynchronizuj atrybut sAMAccountName dla użytkowników i atrybut nazwy dla grup.
 
 ### <a name="group-or-incremental-sync"></a>Grupa lub synchronizacja przyrostowa
 
-Ranger obsługuje opcję synchronizacji grup, ale działa jako część wspólna z filtrem użytkownika. Nie jest to Unia między członkostwami w grupach a filtrem użytkownika. Typowy przypadek użycia filtru synchronizacji grupy w Ranger to-Group Filter: (DN = clusteradmingroup), filtr użytkownika: (Miasto = Seattle).
+Ranger obsługuje opcję synchronizacji grup, ale działa jako część wspólna z filtrem użytkownika, a nie jako Unię między członkostwami w grupach i filtrem użytkownika. Typowy przypadek użycia filtru synchronizacji grupy w Ranger to-Group Filter: (DN = clusteradmingroup), filtr użytkownika: (Miasto = Seattle).
 
 Synchronizacja przyrostowa działa tylko dla użytkowników, którzy są już zsynchronizowani (po raz pierwszy). Przyrostowy nie będzie synchronizować żadnych nowych użytkowników dodanych do grup po synchronizacji początkowej.
 
@@ -73,8 +68,12 @@ Ranger synchronizacji użytkownika może się zdarzyć z jednej z węzłów gł�
 1. Zaloguj się do Ambari.
 1. Przejdź do sekcji Konfiguracja Ranger.
 1. Przejdź do sekcji Advanced **usersync-Log4J** .
-1. Zmień `log4j.rootLogger` poziom na `DEBUG` (po zmianie powinien wyglądać tak `log4j.rootLogger = DEBUG,logFile,FilterLog` ).
+1. Zmień `log4j.rootLogger` poziom na `DEBUG` . (Po jej zmianie powinna wyglądać jak `log4j.rootLogger = DEBUG,logFile,FilterLog` ).
 1. Zapisz konfigurację i uruchom ponownie Ranger.
+
+## <a name="known-issues-with-ranger-user-sync"></a>Znane problemy związane z synchronizacją użytkownika Ranger
+* Jeśli nazwa grupy zawiera znaki Unicode, synchronizacja Ranger nie powiedzie się. Jeśli użytkownik należy do grupy, która ma znaki międzynarodowe, Ranger synchronizuje członkostwo w grupie częściowej
+* Nazwa użytkownika (sAMAccountName) i nazwa grupy (nazwa) muszą mieć co najwyżej 20 znaków. Jeśli nazwa grupy jest dłuższa, wówczas użytkownik będzie traktowany jak, jeśli nie należą do grupy, podczas obliczania uprawnień.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.subservice: language-understanding
 keywords: Azure, sztuczna inteligencja, AI, przetwarzanie języka naturalnego, NLP, LUIS, Azure Luis, zrozumienie języka naturalnego, AI chatbot, chatbot Maker, zrozumienie języka naturalnego
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e389152292239076f3077e2edfb8d5be52ab815b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327294"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241382"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Szybki Start: Language Understanding (LUIS) Biblioteka klienta zestawu SDK do tworzenia i wysyłania zapytań do aplikacji LUIS
 
@@ -21,7 +21,8 @@ Utwórz i Zbadaj aplikację LUIS (AI) platformy Azure przy użyciu bibliotek kli
 
 Language Understanding (LUIS) umożliwia stosowanie przetwarzania języka naturalnego (NLP) do konwersacji użytkownika, tekstu języka naturalnego w celu przewidywania ogólnego znaczenia i ściągania odpowiednich szczegółowych informacji.
 
-* Biblioteka klienta **zestawu SDK tworzenia** umożliwia tworzenie, edytowanie, uczenie i publikowanie aplikacji Luis. * Biblioteka klienta programu **przewidywania środowiska uruchomieniowego SDK** umożliwia wykonywanie zapytań dotyczących opublikowanej aplikacji.
+* Biblioteka klienta **zestawu SDK tworzenia** umożliwia tworzenie, edytowanie, uczenie i publikowanie aplikacji Luis.
+* Biblioteka klienta programu **przewidywania środowiska uruchomieniowego SDK** umożliwia wykonywanie zapytań dotyczących opublikowanej aplikacji.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [LUIS development with C# SDK](./includes/sdk-csharp.md)]
@@ -41,7 +42,7 @@ Możesz usunąć aplikację z [portalu Luis](https://www.luis.ai) i usunąć zas
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-* Uwierzytelnianie w bibliotece klienta — błędy uwierzytelniania wskazują zwykle, że użyto nieprawidłowego punktu końcowego & klucza. Ten przewodnik Szybki Start używa klucza tworzenia i punktu końcowego dla środowiska uruchomieniowego przewidywania jako wygody, ale tylko wtedy, gdy nie został jeszcze użyty miesięczny limit przydziału. Jeśli nie możesz użyć klucza tworzenia i punktu końcowego, musisz użyć klucza i punktu końcowego przewidywania w czasie wykonywania w celu uzyskania dostępu do biblioteki klienta zestawu SDK przewidywania środowiska uruchomieniowego.
+* Uwierzytelnianie w bibliotece klienta — błędy uwierzytelniania wskazują zwykle, że użyto nieprawidłowego punktu końcowego & klucza. Ten przewodnik Szybki Start używa klucza tworzenia i punktu końcowego dla środowiska uruchomieniowego przewidywania jako wygody, ale będzie działał tylko wtedy, gdy nie został jeszcze użyty miesięczny limit przydziału. Jeśli nie możesz użyć klucza tworzenia i punktu końcowego, musisz użyć klucza i punktu końcowego przewidywania w czasie wykonywania w celu uzyskania dostępu do biblioteki klienta zestawu SDK przewidywania środowiska uruchomieniowego.
 * Tworzenie jednostek — Jeśli wystąpi błąd podczas tworzenia zagnieżdżonej jednostki uczenia maszynowego użytej w tym samouczku, upewnij się, że skopiowano kod i nie zmienił się kod w celu utworzenia innej jednostki.
 * Tworzenie przykładowej wyrażenia długości — Jeśli wystąpi błąd podczas tworzenia przykładowego kodu wypowiedź użytego w tym samouczku, upewnij się, że skopiowano kod i nie zmienił się kod w celu utworzenia innego przykładowego kodu.
 * Uczenie — w przypadku wystąpienia błędu szkoleniowego zwykle oznacza to pustą aplikację (nie ma intencji z przykładem wyrażenia długości) lub aplikację z intencjami lub nieprawidłowymi jednostkami.

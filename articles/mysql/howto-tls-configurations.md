@@ -1,17 +1,17 @@
 ---
 title: Konfiguracja protokołu TLS — Azure Portal — Azure Database for MySQL
 description: Dowiedz się, jak skonfigurować konfigurację protokołu TLS przy użyciu Azure Portal dla Azure Database for MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: d94e589a19b29e68883c0217b62b883f9d026789
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 290752c0e577e6c2cd58d83f77fea8a5406388e4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902735"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240634"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mysql-using-azure-portal"></a>Konfigurowanie ustawień protokołu TLS w Azure Database for MySQL przy użyciu Azure Portal
 
@@ -31,13 +31,13 @@ Wykonaj następujące kroki, aby ustawić minimalną wersję protokołu TLS dla 
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz istniejący serwer Azure Database for MySQL.
 
-1. Na stronie serwer MySQL w obszarze **Ustawienia**kliknij pozycję **zabezpieczenia połączeń** , aby otworzyć stronę Konfiguracja zabezpieczeń połączenia.
+1. Na stronie serwer MySQL w obszarze **Ustawienia** kliknij pozycję **zabezpieczenia połączeń** , aby otworzyć stronę Konfiguracja zabezpieczeń połączenia.
 
-1. W polu **minimalna wersja protokołu TLS**wybierz **1,2** , aby odmówić połączeń z protokołem TLS w wersji niższej niż TLS 1,2 dla serwera MySQL.
+1. W polu **minimalna wersja protokołu TLS** wybierz **1,2** , aby odmówić połączeń z protokołem TLS w wersji niższej niż TLS 1,2 dla serwera MySQL.
 
     :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Konfiguracja protokołu TLS Azure Database for MySQL":::
 
-1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+1. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
 1. Powiadomienie zostanie potwierdzone, że ustawienie zabezpieczeń połączenia zostało pomyślnie włączone.
 

@@ -1,18 +1,18 @@
 ---
 title: Szyfrowanie danych — interfejs wiersza polecenia platformy Azure — Azure Database for MySQL
 description: Dowiedz się, jak skonfigurować szyfrowanie danych Azure Database for MySQL i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb83cd4fe7e98b1cde6dcee5d3f25fa5e35f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799823"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242096"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Szyfrowanie danych dla Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -50,7 +50,7 @@ Dowiedz się, jak skonfigurować szyfrowanie danych dla Azure Database for MySQL
 * Klucz musi mieć następujące atrybuty do użycia jako klucz zarządzany przez klienta:
   * Brak daty wygaśnięcia
   * Niewyłączone
-  * Wykonywanie operacji **Get**, **zawijania**i **odpakowania**
+  * Wykonywanie operacji **Get** , **zawijania** i **odpakowania**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Ustaw odpowiednie uprawnienia dla operacji Key
 
@@ -68,7 +68,7 @@ Dowiedz się, jak skonfigurować szyfrowanie danych dla Azure Database for MySQL
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. Ustaw **uprawnienia klucza** (**pobieranie**, **Zawijanie**, **odpakowywanie) dla** **podmiotu zabezpieczeń**, który jest nazwą serwera MySQL.
+2. Ustaw **uprawnienia klucza** ( **pobieranie** , **Zawijanie** , **odpakowywanie) dla** **podmiotu zabezpieczeń** , który jest nazwą serwera MySQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

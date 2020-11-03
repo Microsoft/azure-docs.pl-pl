@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 9d3c9d03c4297af0b9155c2d528e27221b42bc9e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 466129e8435ef694821b078592a100a111a43f3a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124843"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242283"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -41,48 +41,36 @@ Na koniec należy również pobrać przykład do użycia podczas szybkiego start
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Konfigurowanie usługi Azure Digital bliźniaczych reprezentacji i Eksploratora ADT
 
-Pierwszym krokiem w pracy z usługą Azure Digital bliźniaczych reprezentacji jest skonfigurowanie **wystąpienia usługi Azure Digital bliźniaczych reprezentacji** . Po utworzeniu wystąpienia usługi będzie można je wypełnić za pomocą przykładowych danych w dalszej części przewodnika Szybki Start.
+Pierwszym krokiem w pracy z usługą Azure Digital bliźniaczych reprezentacji jest **skonfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji** . Po utworzeniu wystąpienia usługi i **skonfigurowaniu poświadczeń** do uwierzytelniania za pomocą Eksploratora ADT będzie można **nawiązać połączenie z wystąpieniem w Eksploratorze ADT** i wypełnić je przykładowymi danymi w dalszej części przewodnika Szybki Start.
 
-Należy również skonfigurować uprawnienia dla Eksploratora ADT do uruchamiania na komputerze i uzyskać dostęp do wystąpienia usługi Azure Digital bliźniaczych reprezentacji, w tym konfigurowania **aplikacji** Azure Active Directory (Azure AD) do użycia. Następnie możesz użyć przykładowej aplikacji do eksplorowania Twojego wystąpienia i jego danych.
+Pozostała część tej sekcji przeprowadzi Cię przez te kroki.
 
-### <a name="set-up-azure-digital-twins-instance-and-app-registration"></a>Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji i rejestracji aplikacji
+### <a name="set-up-azure-digital-twins-instance"></a>Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
+### <a name="set-up-local-azure-credentials"></a>Konfigurowanie lokalnych poświadczeń platformy Azure
 
-### <a name="set-adt-explorer-permissions"></a>Ustawianie uprawnień programu ADT Explorer
+Aplikacja Eksplorator ADT korzysta z [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (części `Azure.Identity` biblioteki) do uwierzytelniania użytkowników za pomocą wystąpienia usługi Azure Digital bliźniaczych reprezentacji, gdy zostanie on uruchomiony na komputerze lokalnym. Aby uzyskać więcej informacji na temat różnych sposobów uwierzytelniania aplikacji klienckiej za pomocą usługi Azure Digital bliźniaczych reprezentacji, zobacz [*How to: Write Code uwierzytelniania aplikacji*](how-to-authenticate-client.md).
 
-Następnie przygotuj utworzone wystąpienie usługi Azure Digital bliźniaczych reprezentacji do pracy z Eksploratorem ADT, który jest aplikacją sieci Web hostowaną lokalnie. Odwiedź stronę [rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) w Azure Portal i wybierz nazwę **rejestracji aplikacji** utworzonej w poprzedniej sekcji z listy.
+W przypadku tego typu uwierzytelniania program ADT Explorer szuka poświadczeń w środowisku lokalnym, takich jak logowanie do platformy Azure w lokalnym [interfejsie wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) lub w programie Visual Studio/Visual Studio Code. Oznacza to, że należy **zalogować się lokalnie do platformy Azure** za pomocą jednego z tych mechanizmów, aby skonfigurować poświadczenia dla aplikacji ADT Explorer.
 
-Wybierz pozycję *uwierzytelnianie* z menu Rejestracja i naciśnij pozycję *+ Dodaj platformę* .
+Jeśli użytkownik jest już zalogowany do platformy Azure za pomocą jednego z tych sposobów, można przejść do [następnej sekcji](#run-and-configure-adt-explorer).
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+W przeciwnym razie możesz zainstalować lokalny **interfejs wiersza polecenia platformy Azure** , wykonując następujące czynności:
+1. Wykonaj czynności opisane w [**tym linku instalacji**](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) , aby zakończyć instalację zgodną z systemem operacyjnym.
+2. Otwórz okno konsoli na komputerze.
+3. Uruchom `az login` i postępuj zgodnie z monitami dotyczącymi uwierzytelniania, aby zalogować się do konta platformy Azure.
 
-Na stronie *Konfigurowanie platform* poniżej wybierz pozycję *Sieć Web* .
-Wypełnij szczegóły konfiguracji w następujący sposób:
-* **Identyfikatory URI przekierowania** : Dodaj identyfikator URI przekierowania *http://localhost:3000* .
-* **Niejawne udzielenie** : zaznacz pole wyboru *tokeny dostępu* .
+Po wykonaniu tej czynności program ADT Explorer powinien automatycznie pobrać poświadczenia platformy Azure po uruchomieniu w następnej sekcji.
 
-Naciśnij pozycję *Konfiguruj* , aby zakończyć.
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-
-Teraz masz skonfigurowaną konfigurację sieci Web, która będzie używana w programie ADT Explorer. Należy uwzględnić kartę Uwierzytelnianie w Azure Portal. Po sprawdzeniu poniższych sekcji kliknij pozycję *Zapisz* .
-
-:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone.":::
+Jeśli chcesz, możesz zamknąć okno konsoli uwierzytelniania lub pozostawić je otwarte do użycia w następnym kroku.
 
 ### <a name="run-and-configure-adt-explorer"></a>Uruchom i skonfiguruj Eksploratora ADT
 
 Następnie uruchom aplikację ADT Explorer i skonfiguruj ją dla swojego wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
-Przejdź do folderu pobrane i rozpakowane _**Azure_Digital_Twins__ADT__explorer**_ . Otwórz wiersz polecenia w lokalizacji folderu *Azure_Digital_Twins__ADT__explorer/Client/src* .
+Przejdź do folderu pobrane i rozpakowane _**Azure_Digital_Twins__ADT__explorer**_ . Otwórz okno konsoli w lokalizacji folderu *Azure_Digital_Twins__ADT__explorer/Client/src* .
 
 Uruchom `npm install` , aby pobrać wszystkie wymagane zależności.
 
@@ -96,10 +84,7 @@ Naciśnij przycisk *Zaloguj* w górnej części okna (pokazano na poniższej ilu
 
 :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą &quot;Floor1&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room1&quot;; okrąg oznaczony etykietą &quot;Floor0&quot; jest połączony przez strzałkę o nazwie &quot;Contains&quot; z kółkiem o nazwie &quot;Room0&quot;. &quot;Floor1&quot; i &quot;Floor0&quot; nie są połączone." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-Wprowadź ważne informacje zebrane wcześniej w sekcji [wymagania wstępne](#prerequisites) :
-* Identyfikator aplikacji (klienta)
-* Identyfikator katalogu (dzierżawcy)
-* Adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji w formacie *https://{Nazwa hosta wystąpienia}*
+Wprowadź *adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji* , który został zebrany wcześniej w sekcji [wymagania wstępne](#prerequisites) , w formacie *https://{Nazwa hosta wystąpienia}* .
 
 >[!NOTE]
 > Możesz odwiedzać/edytować te informacje w dowolnym momencie, wybierając tę samą ikonę, aby ponownie pobrać pole logowania. Dane zostaną zachowane.
@@ -313,12 +298,6 @@ Aby zagnieździć prace dla tego przewodnika Szybki Start, należy najpierw zako
 Jeśli planujesz kontynuować korzystanie z samouczków Digital bliźniaczych reprezentacji systemu Azure, wystąpienie używane w tym przewodniku Szybki Start może być ponownie używane na potrzeby tych artykułów i nie trzeba go usunąć.
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
-
-Następnie usuń Azure Active Directory rejestrację aplikacji utworzoną dla aplikacji klienckiej przy użyciu tego polecenia:
-
-```azurecli-interactive
-az ad app delete --id <your-application-ID>
-```
 
 Na koniec Usuń folder przykładowego projektu pobrany do komputera lokalnego ( _**Azure_Digital_Twins__ADT__explorer**_ ). Może być konieczne usunięcie zarówno wersji spakowanej, jak i rozpakowanej.
 

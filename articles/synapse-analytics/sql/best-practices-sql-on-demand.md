@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de3e3503d63cf6dcaa98adc318d86df7700458d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476278"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241875"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące usług SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -60,17 +60,17 @@ Typy danych używane w zapytaniu mają wpływ na wydajność. Aby uzyskać lepsz
 
 - Użyj najmniejszego rozmiaru danych, który będzie uwzględniać największą możliwą wartość.
   - Jeśli maksymalna długość wartości znakowej to 30 znaków, należy użyć typu danych znak o długości 30.
-  - Jeśli wszystkie wartości kolumny znaków mają stały rozmiar, użyj **znaków** lub **nchar**. W przeciwnym razie użyj **varchar** lub **nvarchar**.
-  - Jeśli maksymalna wartość kolumny liczba całkowita to 500, użyj wartości **smallint** , ponieważ jest to najmniejszy typ danych, który może posłużyć tej wartości. Zakresy typu danych Integer można znaleźć w [tym artykule](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
-- Jeśli to możliwe, użyj **varchar** i **char** zamiast **nvarchar** i **nchar**.
+  - Jeśli wszystkie wartości kolumny znaków mają stały rozmiar, użyj **znaków** lub **nchar** . W przeciwnym razie użyj **varchar** lub **nvarchar** .
+  - Jeśli maksymalna wartość kolumny liczba całkowita to 500, użyj wartości **smallint** , ponieważ jest to najmniejszy typ danych, który może posłużyć tej wartości. Zakresy typu danych Integer można znaleźć w [tym artykule](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15&preserve-view=true).
+- Jeśli to możliwe, użyj **varchar** i **char** zamiast **nvarchar** i **nchar** .
 - Jeśli to możliwe, używaj typów danych opartych na liczbie całkowitej. Operacje sortowania, przyłączania i grupowania według operacji są wykonywane szybciej na liczbach całkowitych niż w przypadku danych znakowych.
 - Jeśli używasz wnioskowania schematu, [Sprawdź wywnioskowane typy danych](#check-inferred-data-types).
 
 ## <a name="check-inferred-data-types"></a>Sprawdź wywnioskowane typy danych
 
-[Wnioskowanie schematu](query-parquet-files.md#automatic-schema-inference) ułatwia szybkie Pisanie zapytań i Eksplorowanie danych bez znajomości schematów plików. Koszt tej wygody polega na tym, że wywnioskowane typy danych są większe niż rzeczywiste typy danych. Dzieje się tak, gdy w plikach źródłowych nie ma wystarczającej ilości informacji, aby upewnić się, że używany jest odpowiedni typ danych. Na przykład pliki Parquet nie zawierają metadanych o maksymalnej długości kolumny znakowej. Dzięki temu program SQL na żądanie rozpoznaje go jako varchar (8000).
+[Wnioskowanie schematu](query-parquet-files.md#automatic-schema-inference) ułatwia szybkie Pisanie zapytań i Eksplorowanie danych bez znajomości schematów plików. Koszt tej wygody polega na tym, że wywnioskowane typy danych mogą być większe niż rzeczywiste typy danych. Dzieje się tak, gdy w plikach źródłowych nie ma wystarczającej ilości informacji, aby upewnić się, że używany jest odpowiedni typ danych. Na przykład pliki Parquet nie zawierają metadanych o maksymalnej długości kolumny znakowej. Dzięki temu program SQL na żądanie rozpoznaje go jako varchar (8000).
 
-Za pomocą [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15) można sprawdzić typy danych wyników zapytania.
+Za pomocą [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true) można sprawdzić typy danych wyników zapytania.
 
 Poniższy przykład pokazuje, jak można zoptymalizować wywnioskowane typy danych. Ta procedura służy do wyświetlania odroczonych typów danych: 
 ```sql  

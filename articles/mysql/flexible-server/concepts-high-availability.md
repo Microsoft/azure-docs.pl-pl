@@ -1,17 +1,17 @@
 ---
 title: Omówienie nadmiarowej wysokiej dostępności strefy przy użyciu Azure Database for MySQL elastyczny serwer
 description: Dowiedz się więcej o pojęciach nadmiarowej wysokiej dostępności strefy z Azure Database for MySQL elastyczny serwer
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937132"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241188"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Pojęcia dotyczące wysokiej dostępności w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
 
@@ -100,5 +100,5 @@ Poniżej przedstawiono kilka zagadnień, które należy wziąć pod uwagę w prz
 ## <a name="next-steps"></a>Następne kroki
 
 -   Informacje o [ciągłości działania firmy](./concepts-business-continuity.md)
--   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
+-   Więcej informacji na temat [strefy nadmiarowej wysokiej dostępności](./concepts-high-availability.md)
 -   Informacje na temat [tworzenia kopii zapasowych i odzyskiwania](./concepts-backup-restore.md)

@@ -1,17 +1,17 @@
 ---
 title: Jak zapewnić sprawdzanie poprawności szyfrowania danych Azure Database for MySQL
 description: Dowiedz się, jak zweryfikować szyfrowanie szyfrowania danych Azure Database for MySQL przy użyciu klucza zarządzanego przez klientów.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f47b3d5679b70461eaba64b5815770162cb6fda
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905804"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241076"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Weryfikowanie szyfrowania danych dla Azure Database for MySQL
 
@@ -25,15 +25,15 @@ Ten artykuł pomaga sprawdzić, czy szyfrowanie danych przy użyciu klucza zarz�
 
     * W Azure Portal przejdź do **Azure Key Vault**  ->  **kluczy** Azure Key Vault
     * Wybierz klucz używany do szyfrowania serwera.
-    * Ustaw stan klucza z **włączony** na wartość **nie**.
+    * Ustaw stan klucza z **włączony** na wartość **nie** .
   
-       Po pewnym czasie (**~ 15 min**) **stan** serwera Azure Database for MySQL powinien być **niedostępny**. Wszystkie operacje we/wy wykonywane względem serwera zakończą się niepowodzeniem, co oznacza, że serwer jest rzeczywiście szyfrowany za pomocą klucza Customers, a klucz jest obecnie nieprawidłowy.
+       Po pewnym czasie ( **~ 15 min** ) **stan** serwera Azure Database for MySQL powinien być **niedostępny** . Wszystkie operacje we/wy wykonywane względem serwera zakończą się niepowodzeniem, co oznacza, że serwer jest rzeczywiście szyfrowany za pomocą klucza Customers, a klucz jest obecnie nieprawidłowy.
     
        Aby zapewnić **dostęp** do serwera, możesz ponownie sprawdzić poprawność klucza. 
     
-    * Ustaw stan klucza w Key Vault na **tak**.
-    * Na stronie **szyfrowanie danych**serwera wybierz pozycję ponownie **Zweryfikuj klucz**.
-    * Po pomyślnym zakończeniu ponownej weryfikacji klucza **stan** serwera zmieni się na **dostępne**.
+    * Ustaw stan klucza w Key Vault na **tak** .
+    * Na stronie **szyfrowanie danych** serwera wybierz pozycję ponownie **Zweryfikuj klucz** .
+    * Po pomyślnym zakończeniu ponownej weryfikacji klucza **stan** serwera zmieni się na **dostępne** .
 
 2. Na Azure Portal, jeśli masz pewność, że klucz szyfrowania jest ustawiony, dane są szyfrowane przy użyciu klucza klienci używanego w Azure Portal.
 

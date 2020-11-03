@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ef09fd81aaeca92e87be2a0fddbc9be16ebac1d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474788"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242045"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Jak używać funkcji OPENROWSET z SQL na żądanie (wersja zapoznawcza)
 
@@ -95,6 +95,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
+[ , HEADER_ROW = { TRUE | FALSE } ]
 ```
 
 ## <a name="arguments"></a>Argumenty
@@ -127,7 +128,7 @@ Unstructured_data_path, który ustanawia ścieżkę do danych może być ścież
  Określa ścieżkę w magazynie, która wskazuje folder lub plik, który ma zostać odczytany. Jeśli ścieżka wskazuje kontener lub folder, wszystkie pliki zostaną odczytane z danego kontenera lub folderu. Pliki w podfolderach nie będą uwzględniane. 
 
  Możesz użyć symboli wieloznacznych, aby docelowa była wiele plików lub folderów. Dozwolone jest użycie wielu niesąsiadujących symboli wieloznacznych.
-Poniżej znajduje się przykład, który odczytuje wszystkie pliki *CSV* zaczynające się od *populacji* ze wszystkich folderów zaczynających się od */CSV/Population*:  
+Poniżej znajduje się przykład, który odczytuje wszystkie pliki *CSV* zaczynające się od *populacji* ze wszystkich folderów zaczynających się od */CSV/Population* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Jeśli określisz unstructured_data_path jako folder, zapytanie SQL na żądanie pobierze pliki z tego folderu. 
@@ -144,12 +145,13 @@ W poniższym przykładzie, jeśli unstructured_data_path = `https://mystorageacc
 Klauzula WITH umożliwia określenie kolumn, które mają być odczytywane z plików.
 
 - W przypadku plików danych CSV odczytywanie wszystkich kolumn, dostarczanie nazw kolumn i ich typów danych. Jeśli chcesz podzbiór kolumn, Użyj numerów porządkowych, aby wybrać kolumny z plików danych źródłowych według liczby porządkowej. Kolumny będą powiązane z oznaczeniem porządkowym. 
-
-    > [!IMPORTANT]
-    > Klauzula WITH jest wymagana dla plików CSV.
-    >
+    > [!TIP]
+    > Można również pominąć klauzulę WITH dla plików CSV. Typy danych zostaną automatycznie wywnioskowane z zawartości pliku. Można użyć argumentu HEADER_ROW, aby określić istnienie wiersza nagłówka, w którym nazwy kolumn przypadków będą odczytywane z wiersza nagłówka. Aby uzyskać szczegółowe informacje, sprawdź [automatyczne odnajdowanie schematów](#automatic-schema-discovery).
     
-- W przypadku plików danych Parquet Podaj nazwy kolumn, które pasują do nazw kolumn w źródłowych plikach danych. Kolumny będą powiązane według nazwy. Jeśli klauzula WITH zostanie pominięta, zostaną zwrócone wszystkie kolumny z plików Parquet.
+- W przypadku plików danych Parquet Podaj nazwy kolumn, które pasują do nazw kolumn w źródłowych plikach danych. Kolumny będą powiązane według nazwy i uwzględniają wielkość liter. Jeśli klauzula WITH zostanie pominięta, zostaną zwrócone wszystkie kolumny z plików Parquet.
+    > [!IMPORTANT]
+    > Nazwy kolumn w plikach Parquet uwzględniają wielkość liter. Jeśli określisz nazwę kolumny z wielkością liter inną niż nazwa kolumny w pliku Parquet, wartości NULL zostaną zwrócone dla tej kolumny.
+
 
 column_name = nazwa kolumny wyjściowej. W przypadku podanej nazwy zastępuje nazwę kolumny w pliku źródłowym.
 
@@ -170,7 +172,7 @@ WITH (
 
 FIELDTERMINATOR = "field_terminator"
 
-Określa terminator pola do użycia. Domyślny terminator pola jest przecinkiem ("**,**").
+Określa terminator pola do użycia. Domyślny terminator pola jest przecinkiem (" **,** ").
 
 ROWTERMINATOR = "row_terminator" "
 
@@ -205,6 +207,10 @@ Określa wersję parsera, która ma być używana podczas odczytywania plików. 
 
 Analizator CSV w wersji 1,0 jest domyślny i bogaty w funkcję. Wersja 2,0 została skompilowana z myślą o wydajności i nie obsługuje wszystkich opcji i kodowań. 
 
+Specyficzne dla analizatora CSV wersja 1,0:
+
+- Następujące opcje nie są obsługiwane: HEADER_ROW.
+
 Specyficzne dla analizatora CSV wersja 2,0:
 
 - Nie wszystkie typy danych są obsługiwane.
@@ -212,22 +218,93 @@ Specyficzne dla analizatora CSV wersja 2,0:
 - Następujące opcje nie są obsługiwane: DATA_COMPRESSION.
 - Pusty ciąg w cudzysłowie ("") jest interpretowany jako pusty ciąg.
 
+HEADER_ROW = {TRUE | FALSE
+
+Określa, czy plik CSV zawiera wiersz nagłówka. Wartość domyślna to FALSE. Obsługiwane w PARSER_VERSION = "2.0". Jeśli wartość jest równa TRUE, nazwy kolumn są odczytywane z pierwszego wiersza zgodnie z argumentem FIRSTROW.
+
+## <a name="fast-delimited-text-parsing"></a>Szybkie rozdzielone analizowanie tekstu
+
+Istnieją dwa rozdzielone wersje analizatora tekstu, których można użyć. Analizator woluminów CSV w wersji 1,0 jest domyślny i jest bogaty, a w przypadku usługi parser w wersji 2,0 jest tworzona dla wydajności. Poprawa wydajności w analizatorze 2,0 pochodzi z zaawansowanych technik analizy i wielowątkowości. Różnica w szybkości będzie większa w miarę zwiększania się rozmiaru pliku.
+
+## <a name="automatic-schema-discovery"></a>Automatyczne odnajdowanie schematów
+
+Można łatwo badać pliki CSV i Parquet bez znajomości lub określania schematu, pomijając klauzulę WITH. Nazwy kolumn i typy danych zostaną wywnioskowane na podstawie plików.
+
+Pliki Parquet zawierają metadane kolumn, które zostaną odczytane, mapowania typów można znaleźć w [mapowaniach typów dla Parquet](#type-mapping-for-parquet). Sprawdź [odczytywanie plików Parquet bez określania schematu](#read-parquet-files-without-specifying-schema) dla przykładów.
+
+Nazwy kolumn dla plików CSV można odczytywać z wiersza nagłówka. Można określić, czy wiersz nagłówka istnieje przy użyciu argumentu HEADER_ROW. Jeśli HEADER_ROW = FALSE, zostaną użyte ogólne nazwy kolumn: C1, C2,... Nazwa pospolita, gdzie n jest liczbą kolumn w pliku. Typy danych zostaną wywnioskowane z pierwszych 100 wierszy danych. Sprawdź [odczytywanie plików CSV bez określania schematu](#read-csv-files-without-specifying-schema) dla przykładów.
+
+> [!IMPORTANT]
+> Istnieją przypadki, w których nie można wywnioskować odpowiedniego typu danych z powodu braku informacji, a zamiast tego zostanie użyty większy typ danych. Zapewnia to obciążenie wydajności i jest szczególnie ważne w przypadku kolumn znaków, które zostaną wywnioskowane jako varchar (8000). Jeśli w plikach znajdują się kolumny znaków i używasz wnioskowania schematu, aby uzyskać optymalną wydajność, [Sprawdź wywnioskowane typy danych](best-practices-sql-on-demand.md#check-inferred-data-types) i [Używaj odpowiednich typów danych](best-practices-sql-on-demand.md#use-appropriate-data-types).
+
+### <a name="type-mapping-for-parquet"></a>Mapowanie typu dla Parquet
+
+Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli opisano, jak typy Parquet są mapowane na typy natywne języka SQL.
+
+| Typ Parquet | Parquet — typ logiczny (Adnotacja) | Typ danych SQL |
+| --- | --- | --- |
+| TYPU | | bit |
+| DANE BINARNE/BYTE_ARRAY | | varbinary |
+| DOUBLE | | float |
+| FLOAT | | liczba rzeczywista |
+| ELEMENTEM | | int |
+| INT64 | | bigint |
+| INT96 | |datetime2 |
+| FIXED_LEN_BYTE_ARRAY | |binarny |
+| BINARNY |UTF8 |varchar \* (sortowanie UTF8) |
+| BINARNY |PARAMETRY |varchar \* (sortowanie UTF8) |
+| BINARNY |PODSTAWOWE|varchar \* (sortowanie UTF8) |
+| BINARNY |INTERFEJSU |uniqueidentifier |
+| BINARNY |DOKŁADNOŚCI |decimal |
+| BINARNY |JSON |varchar (max) \* (sortowanie UTF8) |
+| BINARNY |BSON |varbinary (max) |
+| FIXED_LEN_BYTE_ARRAY |DOKŁADNOŚCI |decimal |
+| BYTE_ARRAY |DAT |varchar (max), serializacji do formatu standardowego |
+| ELEMENTEM |INT (8, prawda) |smallint |
+| ELEMENTEM |INT (16, true) |smallint |
+| ELEMENTEM |INT (32, true) |int |
+| ELEMENTEM |INT (8, FAŁSZ) |tinyint |
+| ELEMENTEM |INT (16, FAŁSZ) |int |
+| ELEMENTEM |INT (32, false) |bigint |
+| ELEMENTEM |DATE |date |
+| ELEMENTEM |DOKŁADNOŚCI |decimal |
+| ELEMENTEM |CZAS (MŁYNER)|time |
+| INT64 |INT (64, true) |bigint |
+| INT64 |INT (64, false) |Liczba dziesiętna (20, 0) |
+| INT64 |DOKŁADNOŚCI |decimal |
+| INT64 |TIME (MICROS/NANOS) |time |
+|INT64 |SYGNATURA CZASOWA (MILL/MICROS/NANOS) |datetime2 |
+|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |STAW |varchar (max), serializacja do formatu JSON |
+|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|ZMAPOWAĆ|varchar (max), serializacja do formatu JSON |
+
 ## <a name="examples"></a>Przykłady
 
-Poniższy przykład zwraca tylko dwie kolumny z numerami porządkowymi 1 i 4 z plików Population*. csv. Ponieważ w plikach nie ma wiersza nagłówka, rozpocznie się odczytywanie z pierwszego wiersza:
+### <a name="read-csv-files-without-specifying-schema"></a>Odczytaj pliki CSV bez określania schematu
+
+Poniższy przykład odczytuje plik CSV, który zawiera wiersz nagłówka bez określania nazw kolumn i typów danych: 
 
 ```sql
-SELECT * 
+SELECT 
+    *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
-        FORMAT = 'CSV',
-        FIRSTROW = 1
-    )
-WITH (
-    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
-    [population] bigint 4
-) AS [r]
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0',
+    HEADER_ROW = TRUE) as [r]
 ```
+
+Poniższy przykład odczytuje plik CSV, który nie zawiera wiersza nagłówka bez określania nazw kolumn i typów danych: 
+
+```sql
+SELECT 
+    *
+FROM OPENROWSET(
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0') as [r]
+```
+
+### <a name="read-parquet-files-without-specifying-schema"></a>Odczytaj pliki Parquet bez określania schematu
 
 Poniższy przykład zwraca wszystkie kolumny pierwszego wiersza z zestawu danych spisu, w formacie Parquet i bez określania nazw kolumn i typów danych: 
 
@@ -241,6 +318,42 @@ FROM
     ) AS [r]
 ```
 
+### <a name="read-specific-columns-from-csv-file"></a>Odczytaj określone kolumny z pliku CSV
+
+Poniższy przykład zwraca tylko dwie kolumny z numerami porządkowymi 1 i 4 z plików Population*. csv. Ponieważ w plikach nie ma wiersza nagłówka, rozpocznie się odczytywanie z pierwszego wiersza:
+
+```sql
+SELECT 
+    * 
+FROM OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
+        FORMAT = 'CSV',
+        FIRSTROW = 1
+    )
+WITH (
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
+    [population] bigint 4
+) AS [r]
+```
+
+### <a name="read-specific-columns-from-parquet-file"></a>Odczytaj określone kolumny z pliku Parquet
+
+Poniższy przykład zwraca tylko dwie kolumny pierwszego wiersza z zestawu danych spisu w formacie Parquet: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    [stateName] VARCHAR (50),
+    [population] bigint
+) AS [r]
+```
+
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej przykładów, zobacz [Przewodnik Szybki Start dotyczący usługi Query Data Storage](query-data-storage.md) , aby dowiedzieć się, jak używać `OPENROWSET` programu do odczytywania formatów plików [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md)i [JSON](query-json-files.md) . Możesz również dowiedzieć się, jak zapisać wyniki zapytania w usłudze Azure Storage przy użyciu [CETAS](develop-tables-cetas.md).
+Aby uzyskać więcej przykładów, zobacz [Przewodnik Szybki Start dotyczący usługi Query Data Storage](query-data-storage.md) , aby dowiedzieć się, jak używać `OPENROWSET` programu do odczytywania formatów plików [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md)i [JSON](query-json-files.md) . Zapoznaj się z [najlepszymi rozwiązaniami](best-practices-sql-on-demand.md) w celu uzyskania optymalnej wydajności. Możesz również dowiedzieć się, jak zapisać wyniki zapytania w usłudze Azure Storage przy użyciu [CETAS](develop-tables-cetas.md).

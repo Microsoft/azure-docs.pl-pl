@@ -1,17 +1,17 @@
 ---
 title: Architektura łączności — Azure Database for MariaDB
 description: Opisuje architekturę łączności dla serwera Azure Database for MariaDB.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: c3f557c757a46252b9fa0416cc62a827b233f1b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9c1331b7d868c29fddf7b709912e87d55d73c45
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065356"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241450"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architektura łączności w Azure Database for MariaDB
 W tym artykule opisano architekturę Azure Database for MariaDB łączności oraz sposób kierowania ruchu do wystąpienia Azure Database for MariaDB z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -67,14 +67,14 @@ W poniższej tabeli wymieniono podstawowe i pomocnicze adresy IP bramy Azure Dat
 | Południowe Zjednoczone Królestwo | 51.140.184.11   |
 | Zachodnie Zjednoczone Królestwo | 51.141.8.11  |
 | Zachodnio-środkowe stany USA | 13.78.145.25     |
-| West Europe | 40.68.37.158, 191.237.232.75, 13.69.105.208, 104.40.169.187  |
+| Europa Zachodnia | 40.68.37.158, 191.237.232.75, 13.69.105.208, 104.40.169.187  |
 | Zachodnie stany USA | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
 | Zachodnie stany USA 2 | 13.66.226.202  |
 ||||
 
 ## <a name="connection-redirection"></a>Przekierowanie połączenia
 
-Azure Database for MariaDB obsługuje dodatkowe zasady połączeń, **przekierowania**, które ułatwiają skrócenie opóźnienia sieci między aplikacjami klienckimi i serwerami MariaDB. Po nawiązaniu początkowej sesji TCP z serwerem Azure Database for MariaDB przy użyciu tej funkcji serwer zwraca adres zaplecza węzła hostującym serwer MariaDB do klienta. Następnie wszystkie kolejne pakiety przepływają bezpośrednio do serwera, pomijając bramę. Ponieważ pakiety są przesyłane bezpośrednio na serwer, opóźnienia i przepływność zwiększają wydajność.
+Azure Database for MariaDB obsługuje dodatkowe zasady połączeń, **przekierowania** , które ułatwiają skrócenie opóźnienia sieci między aplikacjami klienckimi i serwerami MariaDB. Po nawiązaniu początkowej sesji TCP z serwerem Azure Database for MariaDB przy użyciu tej funkcji serwer zwraca adres zaplecza węzła hostującym serwer MariaDB do klienta. Następnie wszystkie kolejne pakiety przepływają bezpośrednio do serwera, pomijając bramę. Ponieważ pakiety są przesyłane bezpośrednio na serwer, opóźnienia i przepływność zwiększają wydajność.
 
 Ta funkcja jest obsługiwana na serwerach Azure Database for MariaDB z wersjami Engine 10,2 i 10,3.
 

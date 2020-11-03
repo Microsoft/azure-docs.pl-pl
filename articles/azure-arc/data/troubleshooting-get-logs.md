@@ -1,6 +1,6 @@
 ---
-title: Pobieranie dzienników do rozwiązywania problemów z kontrolerem danych z obsługą usługi Azure Arc
-description: Pobierz dzienniki usługi, aby rozwiązać problem z kontrolerem danych z obsługą usługi Azure Arc.
+title: Pobieranie dzienników w celu rozwiązywania problemów z usługami danych z obsługą usługi Azure Arc
+description: Dowiedz się, jak pobierać pliki dzienników z kontrolera danych w celu rozwiązywania problemów z usługami danych z obsługą usługi Azure Arc.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,27 +9,27 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0c4cff7583f08fe27649cee464fcef802cddd88f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320205"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234051"
 ---
-# <a name="get-azure-arc-enabled-data-services-logs"></a>Pobierz dzienniki usług danych z obsługą usługi Azure Arc
+# <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Pobieranie dzienników w celu rozwiązywania problemów z usługami danych z obsługą usługi Azure Arc
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed kontynuowaniem należy:
+Przed kontynuowaniem należy wykonać następujące czynności:
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Instrukcje dotyczące instalacji](./install-client-tools.md).
-* Konto administratora do logowania się do kontrolera usług danych z włączonym usługą Azure Arc.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. Aby uzyskać więcej informacji, zobacz [Instalowanie narzędzi klienckich do wdrażania usług Azure Arc Data Services i zarządzania nimi](./install-client-tools.md).
+* Konto administratora do logowania się do kontrolera danych z włączonym łukiem platformy Azure.
 
-## <a name="get-azure-arc-enabled-data-services-logs"></a>Pobierz dzienniki usług danych z obsługą usługi Azure Arc
+## <a name="get-log-files"></a>Pobierz pliki dziennika
 
-W celu rozwiązywania problemów można uzyskać dzienniki usług danych z obsługą usługi Azure Arc w ramach wszystkich zasobników lub określonych zasobników. Można to zrobić przy użyciu standardowych narzędzi Kubernetes, takich jak `kubectl logs` polecenie lub w tym artykule, w którym będziesz korzystać z [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] Narzędzia, co ułatwia pobieranie wszystkich dzienników jednocześnie.
+Dzienniki usług można pobrać ze wszystkich zasobników lub określonych zasobników w celu rozwiązywania problemów. Jednym ze sposobów jest użycie standardowych narzędzi Kubernetes, takich jak `kubectl logs` polecenie. W tym artykule użyjesz [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] Narzędzia, które ułatwia pobieranie wszystkich dzienników jednocześnie.
 
 1. Zaloguj się do kontrolera danych przy użyciu konta administratora.
 
@@ -43,7 +43,7 @@ W celu rozwiązywania problemów można uzyskać dzienniki usług danych z obsł
    azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
    ```
 
-   Na przykład:
+   Przykład:
 
    ```console
    #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
@@ -53,27 +53,27 @@ Kontroler danych tworzy pliki dziennika w bieżącym katalogu roboczym w podkata
 
 ## <a name="options"></a>Opcje
 
-`azdata arc dc debug copy-logs` Program udostępnia następujące opcje zarządzania danymi wyjściowymi.
+`azdata arc dc debug copy-logs`Polecenie udostępnia następujące opcje zarządzania danymi wyjściowymi:
 
-* Wyprowadza pliki dziennika do innego katalogu przy użyciu `--target-folder` parametru.
+* Wyprowadzanie plików dziennika do innego katalogu przy użyciu `--target-folder` parametru.
 * Kompresuj pliki, pomijając `--skip-compress` parametr.
-* Wyzwól i Uwzględnij zrzuty pamięci, pomijając `--exclude-dumps` . Ta metoda nie jest zalecana, chyba że pomoc techniczna firmy Microsoft zażądał zrzutów pamięci. Wykonanie zrzutu pamięci wymaga ustawienia kontrolera danych `allowDumps` ustawionego na `true` czas tworzenia kontrolera danych.
+* Wywołaj i Uwzględnij zrzuty pamięci, pomijając `--exclude-dumps` . Ta metoda nie jest zalecana, chyba że pomoc techniczna firmy Microsoft zażądał zrzutów pamięci. Pobieranie zrzutu pamięci wymaga ustawienia kontrolera danych `allowDumps` `true` po utworzeniu kontrolera danych.
 * Przefiltruj, aby zbierać dzienniki dla tylko określonego ( `--pod` ) lub kontenera ( `--container` ) według nazwy.
-* Przefiltruj, aby zbierać dzienniki dla określonego zasobu niestandardowego przez przekazanie `--resource-kind` `--resource-name` parametru i. `resource-kind`Wartość parametru powinna być jedną z niestandardowych nazw definicji zasobów, które można pobrać za pomocą polecenia `kubectl get customresourcedefinition` .
+* Przefiltruj, aby zbierać dzienniki dla określonego zasobu niestandardowego przez przekazanie `--resource-kind` `--resource-name` parametrów i. `resource-kind`Wartość parametru powinna być jedną z nazw niestandardowych definicji zasobów. Te nazwy można pobrać przy użyciu polecenia `kubectl get customresourcedefinition` .
 
-Za pomocą tych parametrów można zastąpić `<parameters>` w poniższym przykładzie. 
+Za pomocą tych parametrów można zastąpić `<parameters>` w następującym przykładzie: 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
 ```
 
-Na przykład
+Przykład:
 
 ```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Przykład hierarchii folderów. Hierarchia folderów jest zorganizowana według nazwy, a następnie kontenera, a następnie według hierarchii katalogów w kontenerze.
+Przykładem jest następująca hierarchia folderów. Jest zorganizowany według nazwy, a następnie kontenera, a następnie według hierarchii katalogów w kontenerze.
 
 ```output
 <export directory>

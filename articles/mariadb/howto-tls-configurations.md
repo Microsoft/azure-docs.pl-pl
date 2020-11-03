@@ -1,17 +1,17 @@
 ---
 title: Konfiguracja protokołu TLS — Azure Portal — Azure Database for MariaDB
 description: Dowiedz się, jak skonfigurować konfigurację protokołu TLS przy użyciu Azure Portal dla Azure Database for MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: fac719daf05e8b319db7c86d0dbc61c2814b0a0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55a664ceb3524a0c545e037dcba7a2af90034ad4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120351"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241988"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mariadb-using-azure-portal"></a>Konfigurowanie ustawień protokołu TLS w Azure Database for MariaDB przy użyciu Azure Portal
 
@@ -31,13 +31,13 @@ Wykonaj następujące kroki, aby ustawić minimalną wersję protokołu TLS dla 
 
 1. W [Azure Portal](https://portal.azure.com/)wybierz istniejący serwer Azure Database for MariaDB.
 
-1. Na stronie serwer MariaDB w obszarze **Ustawienia**kliknij pozycję **zabezpieczenia połączeń** , aby otworzyć stronę Konfiguracja zabezpieczeń połączenia.
+1. Na stronie serwer MariaDB w obszarze **Ustawienia** kliknij pozycję **zabezpieczenia połączeń** , aby otworzyć stronę Konfiguracja zabezpieczeń połączenia.
 
-1. W polu **minimalna wersja protokołu TLS**wybierz **1,2** , aby odmówić połączeń z protokołem TLS w wersji niższej niż TLS 1,2 dla serwera MariaDB.
+1. W polu **minimalna wersja protokołu TLS** wybierz **1,2** , aby odmówić połączeń z protokołem TLS w wersji niższej niż TLS 1,2 dla serwera MariaDB.
 
     ![Konfiguracja protokołu TLS Azure Database for MariaDB](./media/howto-tls-configurations/tls-configurations.png)
 
-1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+1. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
 1. Powiadomienie zostanie potwierdzone, że ustawienie zabezpieczeń połączenia zostało pomyślnie włączone.
 

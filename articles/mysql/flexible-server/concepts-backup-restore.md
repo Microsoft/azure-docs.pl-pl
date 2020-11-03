@@ -1,17 +1,17 @@
 ---
 title: Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL elastycznym serwerze
 description: Informacje na temat pojęć związanych z tworzeniem kopii zapasowych i przywracaniem Azure Database for MySQL elastycznym serwerze
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 44cfe9bc6cd357cc0c649cecd022d3955bb5a2ce
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d69427f9f11a47cedeccb4b1da38b770952f029
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545875"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240770"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
 

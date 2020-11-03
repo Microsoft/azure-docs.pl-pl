@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e586e9acc9510dc1aaae511fa51e5a0c3255bd8f
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 4c2900ed5ebe0df3ed827acc1a16caff3beaf4d4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026500"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241093"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Przenoszenie wystąpienia usługi Azure Digital bliźniaczych reprezentacji do innego regionu platformy Azure
 
@@ -80,9 +80,8 @@ Przejdź do przykładu: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](
 
 Następnie skonfiguruj i Skonfiguruj uprawnienia dla Eksploratora ADT. Aby to zrobić, postępuj zgodnie z instrukcjami w sekcji [*Konfigurowanie programu Azure Digital bliźniaczych reprezentacji i ADT Explorer w programie*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) Azure Digital bliźniaczych reprezentacji — Szybki Start. Ta sekcja przeprowadzi Cię przez następujące kroki:
 1. Skonfiguruj wystąpienie usługi Azure Digital bliźniaczych reprezentacji (możesz pominąć tę część, ponieważ istnieje już wystąpienie)
-2. Konfigurowanie **rejestracji aplikacji usługi Azure AD** w celu zapewnienia dostępu do Twojego wystąpienia
-3. Skonfiguruj uprawnienia dla Eksploratora ADT do uruchamiania na maszynie
-4. Uruchom Eksploratora ADT i skonfiguruj go tak, aby łączył się z wystąpieniem. Będziesz używać **nazwy hosta** oryginalnego wystąpienia usługi Azure Digital bliźniaczych reprezentacji, które jest przenoszone, oraz **identyfikatora klienta** i **identyfikatora dzierżawy** z rejestracji aplikacji.
+2. Skonfiguruj lokalne poświadczenia platformy Azure, aby zapewnić dostęp do wystąpienia
+3. Uruchom Eksploratora ADT i skonfiguruj go tak, aby łączył się z wystąpieniem. Będziesz używać **nazwy hosta** oryginalnego wystąpienia usługi Azure Digital bliźniaczych reprezentacji, które jest przenoszone.
 
 Teraz aplikacja Przykładowa ADT Explorer jest uruchamiana w przeglądarce na komputerze. Próbka powinna być połączona z oryginalnym wystąpieniem usługi Azure Digital bliźniaczych reprezentacji.
 
@@ -137,7 +136,7 @@ Obecnie Eksplorator ADT jest połączony z oryginalnym wystąpieniem usługi Azu
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Okno przeglądarki pokazujące aplikację uruchomioną na hoście lokalnym: 3000. Aplikacja jest nazywana Eksploratorem ADT i zawiera pola Eksploratora zapytań, modelu, widoku wykresu i Eksploratora właściwości. Nie ma jeszcze danych na ekranie." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Można ponownie użyć tej samej rejestracji aplikacji, więc wystarczy zamienić *adres URL ADT* , aby odzwierciedlał nowe wystąpienie. Zmień tę wartość, aby odczytał *https://{New instance hostname}* .
+Zastąp *adres URL ADT* , aby odzwierciedlał nowe wystąpienie. Zmień tę wartość, aby odczytał *https://{New instance hostname}* .
 
 *Połącz* trafień. Może zostać wyświetlony monit o zalogowanie się ponownie przy użyciu poświadczeń platformy Azure i/lub udzielenie tej aplikacji zgody na Twoje wystąpienie.
 
@@ -210,6 +209,7 @@ Dokładne zasoby, które należy edytować, zależą od danego scenariusza, ale 
 * Azure Maps
 * Usługa Device Provisioning (DPS)
 * Aplikacje osobiste lub firmowe poza platformą Azure, takie jak **aplikacja kliencka** utworzona w [*samouczku: kod aplikacji klienckiej*](tutorial-code.md), która nawiązuje połączenie z wystąpieniem i wywołuje interfejsy API Digital bliźniaczych reprezentacji platformy Azure
+* **Nie trzeba** ponownie tworzyć rejestracji aplikacji usługi Azure AD. Jeśli używasz [rejestracji aplikacji](how-to-create-app-registration.md) do nawiązywania połączenia z interfejsami API Digital bliźniaczych reprezentacji platformy Azure, możesz ponownie użyć tej samej rejestracji aplikacji z nowym wystąpieniem.
 
 Po wykonaniu tego kroku nowe wystąpienie w regionie docelowym powinno być kopią oryginalnego wystąpienia.
 

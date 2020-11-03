@@ -1,17 +1,17 @@
 ---
 title: Link prywatny — Azure Database for PostgreSQL — pojedynczy serwer
 description: Dowiedz się, jak działa łącze prywatne dla Azure Database for PostgreSQL-jednego serwera.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 9b93e3f42c6b635ced7fdca61cb2ffe4f74d19bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a864ce42888aace385cf60a4122f204c8f76831d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489510"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240430"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Prywatny link do usługi Azure Database for PostgreSQL-Single Server
 
@@ -113,7 +113,7 @@ W przypadku korzystania z prywatnego linku w połączeniu z regułami zapory są
 
 ## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Odmów dostępu publicznego dla Azure Database for PostgreSQL pojedynczego serwera
 
-Jeśli chcesz używać tylko prywatnych punktów końcowych do uzyskiwania dostępu do Azure Database for PostgreSQL pojedynczego serwera, możesz wyłączyć opcję ustawiania wszystkich publicznych punktów końcowych ([reguł zapory](concepts-firewall-rules.md) i [punktów końcowych usługi sieci wirtualnej](concepts-data-access-and-security-vnet.md)), ustawiając ustawienia **Odmów dostępu do poczty publicznej** na serwerze bazy danych. 
+Jeśli chcesz używać tylko prywatnych punktów końcowych do uzyskiwania dostępu do Azure Database for PostgreSQL pojedynczego serwera, możesz wyłączyć opcję ustawiania wszystkich publicznych punktów końcowych ( [reguł zapory](concepts-firewall-rules.md) i [punktów końcowych usługi sieci wirtualnej](concepts-data-access-and-security-vnet.md)), ustawiając ustawienia **Odmów dostępu do poczty publicznej** na serwerze bazy danych. 
 
 Jeśli to ustawienie ma wartość *tak* , tylko połączenia za pośrednictwem prywatnych punktów końcowych są dozwolone dla Azure Database for PostgreSQL. Jeśli to ustawienie jest ustawione na wartość *żaden klient nie* może nawiązać połączenia z Azure Database for PostgreSQL na podstawie ustawienia zapory lub punktu końcowego usługi sieci wirtualnej. Ponadto po ustawieniu wartości dostępu do sieci prywatnej klienci nie mogą dodawać i/lub aktualizować istniejących reguł zapory i zasad punktu końcowego usługi sieci wirtualnej.
 

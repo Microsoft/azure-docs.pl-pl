@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 1255333e9bde54fcdf76dd40a9aaa4bc68fd103e
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893819"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242130"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Poznaj podstawowe informacje o interfejsie wiersza polecenia mowy
 
@@ -65,15 +65,16 @@ Oprócz rozpoznawania mowy i syntezy, można także przeprowadzić Tłumaczenie 
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
 ```
 
-W tym poleceniu należy określić zarówno źródło (język do **przetłumaczenia**), jak i obiekt docelowy (język do tłumaczenia **na**). Użycie `--microphone` argumentu spowoduje nasłuchiwanie dźwięku na bieżącym aktywnym urządzeniu wejściowym i zatrzymanie po naciśnięciu klawisza `ENTER` . Dane wyjściowe to tłumaczenie tekstu w języku docelowym, zapisywane w pliku tekstowym.
+W tym poleceniu należy określić zarówno źródło (język do **przetłumaczenia** ), jak i obiekt docelowy (język do tłumaczenia **na** ). Użycie `--microphone` argumentu spowoduje nasłuchiwanie dźwięku na bieżącym aktywnym urządzeniu wejściowym i zatrzymanie po naciśnięciu klawisza `ENTER` . Dane wyjściowe to tłumaczenie tekstu w języku docelowym, zapisywane w pliku tekstowym.
 
 > [!NOTE]
 > Zapoznaj się z listą wszystkich obsługiwanych języków z odpowiednimi kodami ustawień regionalnych w [artykule język i ustawienia regionalne](language-support.md) .
 
 ### <a name="configuration-files-in-the-datastore"></a>Pliki konfiguracji w magazynie danych
 
-Interfejs wiersza polecenia mowy może odczytywać i zapisywać wiele ustawień w plikach konfiguracji, które są przechowywane w lokalnym magazynie danych interfejsu wiersza polecenia mowy, i są nazwane w ramach wywołań interfejsu wiersza polecenia mowy przy użyciu znaku @. Interfejs wiersza polecenia mowy próbuje zapisać nowe ustawienie w nowym `./spx/data` podkatalogu, który tworzy w bieżącym katalogu roboczym.
-Podczas wyszukiwania wartości konfiguracji interfejs wiersza polecenia mowy wyszukuje w bieżącym katalogu roboczym, a następnie w `./spx/data` ścieżce.
+Zachowanie interfejsu wiersza polecenia mowy może polegać na ustawieniach w plikach konfiguracji, do których można odwoływać się w ramach wywołań interfejsu wiersza polecenia mowy przy użyciu znaku @.
+Interfejs wiersza polecenia mowy zapisuje nowe ustawienie w nowym `./spx/data` podkatalogu, który tworzy w bieżącym katalogu roboczym.
+Podczas wyszukiwania wartości konfiguracji interfejs wiersza polecenia mowy wyszukuje w bieżącym katalogu roboczym, a następnie w magazynie danych pod adresem `./spx/data` , a następnie w innych magazynach danych, łącznie z końcowym magazynem danych tylko do odczytu w `spx` pliku binarnym.
 Poprzednio magazyn danych został użyty do zapisania `@key` `@region` wartości i, więc nie trzeba ich określić przy użyciu każdego wywołania wiersza polecenia.
 Przy użyciu plików konfiguracji można także przechowywać własne ustawienia konfiguracji, a nawet używać ich do przekazywania adresów URL lub innej zawartości dynamicznej wygenerowanej w czasie wykonywania.
 
@@ -162,7 +163,7 @@ To polecenie jest odpowiednikiem uruchomienia `spx synthesize --text Sample text
 
 * Nagłówki kolumn `audio.output` i `text` , odpowiadają odpowiednio do argumentów wiersza polecenia `--audio output` i `--text` . Wieloczęściowe argumenty wiersza polecenia, takie jak `--audio output` powinny być sformatowane w pliku bez spacji, brak wiodących kresek i kropki oddzielające ciągi, np. `audio.output` . Wszystkie inne istniejące argumenty wiersza polecenia można dodać do pliku jako dodatkowe kolumny przy użyciu tego wzorca.
 * Gdy plik jest sformatowany w ten sposób, żadne dodatkowe argumenty nie są wymagane do przesłania do `--foreach` .
-* Upewnij się, że poszczególne wartości są oddzielane `.tsv` za pomocą **karty**.
+* Upewnij się, że poszczególne wartości są oddzielane `.tsv` za pomocą **karty** .
 
 Jednak jeśli masz `.tsv` plik podobny do poniższego przykładu, z nagłówkami kolumn, które **nie pasują** do argumentów wiersza polecenia:
 
