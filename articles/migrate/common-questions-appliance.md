@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące urządzenia Azure Migrate
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące urządzenia Azure Migrateowego.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 7be6260a7d3eb25ce2854f6949554e2c66019980
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314776"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337595"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Urządzenie Azure Migrate: typowe pytania
 
@@ -42,12 +42,13 @@ Urządzenie można wdrożyć w następujący sposób:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Jak urządzenie nawiązuje połączenie z platformą Azure?
 
-Urządzenie może nawiązać połączenie za pośrednictwem Internetu lub przy użyciu usługi Azure ExpressRoute. Upewnij się, że te [adresy URL](./migrate-appliance.md#url-access) są zatwierdzone do nawiązania połączenia z platformą Azure.
+Urządzenie może nawiązać połączenie za pośrednictwem Internetu lub przy użyciu usługi Azure ExpressRoute. 
 
-- Aby można było używać usługi Azure ExpressRoute Azure Migrate do obsługi ruchu związanego z replikacją, wymagana jest Komunikacja równorzędna firmy Microsoft lub istniejąca publiczna Komunikacja równorzędna (publiczna Komunikacja równorzędna jest przestarzała w przypadku nowych tworzenia obiektów.).
-- Replikacja za pośrednictwem usługi Azure ExpressRoute z włączoną obsługą prywatnej komunikacji równorzędnej nie jest obsługiwana.
+- Upewnij się, że urządzenie może połączyć się z tymi [adresami URL platformy Azure](./migrate-appliance.md#url-access). 
+- Możesz użyć ExpressRoute z usługą komunikacji równorzędnej firmy Microsoft.  Publiczna Komunikacja równorzędna jest przestarzała i nie jest dostępna dla nowych obwodów usługi ExpressRoute.
+- Prywatna Komunikacja równorzędna nie jest obsługiwana.
 
-Usługa Azure ExpressRoute z konfiguracją komunikacji równorzędnej firmy Microsoft jest zalecaną domeną routingu dla ruchu związanego z replikacją.
+
 
 ## <a name="does-appliance-analysis-affect-performance"></a>Czy analiza urządzenia ma wpływ na wydajność?
 
@@ -65,9 +66,9 @@ Urządzenie musi mieć dostęp do adresów URL platformy Azure. [Przejrzyj](migr
 
 Zapoznaj się z następującymi artykułami, aby uzyskać informacje na temat danych zbieranych na maszynach wirtualnych przez urządzenie Azure Migrate:
 
-- **Maszyna wirtualna VMware**: [przeglądanie](migrate-appliance.md#collected-data---vmware) zebranych danych.
-- **Maszyna wirtualna funkcji Hyper-V**: [Przegląd](migrate-appliance.md#collected-data---hyper-v) zebranych danych.
-- **Serwery fizyczne lub wirtualne**:[Przegląd](migrate-appliance.md#collected-data---physical) zebranych danych.
+- **Maszyna wirtualna VMware** : [przeglądanie](migrate-appliance.md#collected-data---vmware) zebranych danych.
+- **Maszyna wirtualna funkcji Hyper-V** : [Przegląd](migrate-appliance.md#collected-data---hyper-v) zebranych danych.
+- **Serwery fizyczne lub wirtualne** : [Przegląd](migrate-appliance.md#collected-data---physical) zebranych danych.
 
 ## <a name="how-is-data-stored"></a>W jaki sposób przechowywane są dane?
 

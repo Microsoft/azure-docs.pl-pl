@@ -3,16 +3,17 @@ title: Funkcje matematyczne w Azure Cosmos DB języku zapytań
 description: Dowiedz się więcej o funkcjach matematycznych w Azure Cosmos DB, aby wykonać obliczenia na podstawie wartości wejściowych, które są podane jako argumenty, i zwrócić wartość liczbową.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b6b2c47d5a4cb71ecf46d1eb1c33e2f667fa8052
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9dc3631b738da78df83113d89d23051033674d11
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078258"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338377"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>Funkcje matematyczne (Azure Cosmos DB)  
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -56,7 +57,7 @@ Następujące obsługiwane wbudowane funkcje matematyczne wykonują obliczenia, 
 * [SIGN](sql-query-sign.md)
 * [SIN](sql-query-sin.md)
 * [SQRT](sql-query-sqrt.md)
-* [SQUARE](sql-query-square.md)
+* [KWADRATOWE](sql-query-square.md)
 * [TAN](sql-query-tan.md)
 * [TRUNC](sql-query-trunc.md)
 

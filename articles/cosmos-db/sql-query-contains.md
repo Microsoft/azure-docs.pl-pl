@@ -3,16 +3,17 @@ title: Zawiera w Azure Cosmos DB języku zapytań
 description: Dowiedz się, jak Funkcja systemowa SQL w Azure Cosmos DB zwraca wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu zawiera sekundę
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 80b651951fe0f18b482fa06e4df9a363749bd3b0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4b6835b22e5cfa4ca703b95d70e20112b8723def
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090838"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339176"
 ---
 # <a name="contains-azure-cosmos-db"></a>ZAWIERA (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

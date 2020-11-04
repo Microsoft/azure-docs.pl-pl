@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f065b1bc98eab86542ecff73e1471e4d90cd4182
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677819"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339538"
 ---
 # <a name="vm-certification-troubleshooting"></a>Rozwiązywanie problemów z certyfikacją maszyn wirtualnych
 
@@ -47,15 +47,15 @@ Sprawdź, czy obraz obsługuje rozszerzenia maszyn wirtualnych.
 Aby włączyć rozszerzenia maszyny wirtualnej, wykonaj następujące czynności:
 
 1. Wybierz maszynę wirtualną z systemem Linux.
-1. Przejdź do pozycji **Ustawienia diagnostyki** .
-1. Aby włączyć macierze podstawowe, zaktualizuj **konto magazynu** .
-1. Wybierz pozycję **Zapisz** .
+1. Przejdź do pozycji **Ustawienia diagnostyki**.
+1. Aby włączyć macierze podstawowe, zaktualizuj **konto magazynu**.
+1. Wybierz pozycję **Zapisz**.
 
    ![Włącz monitorowanie na poziomie gościa](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 Aby sprawdzić, czy rozszerzenia maszyn wirtualnych zostały prawidłowo aktywowane, wykonaj następujące czynności:
 
-1. Na maszynie wirtualnej wybierz kartę **rozszerzenia maszyn wirtualnych** , a następnie sprawdź stan **rozszerzenia diagnostyki systemu Linux** .
+1. Na maszynie wirtualnej wybierz kartę **rozszerzenia maszyn wirtualnych** , a następnie sprawdź stan **rozszerzenia diagnostyki systemu Linux**.
 1. 
     * W przypadku *pomyślnego stanu aprowizacji* , przypadek testowy rozszerzeń został zakończony pomyślnie.  
     * W przypadku *niepowodzenia inicjowania obsługi administracyjnej* przypadek testowy rozszerzeń zakończył się niepowodzeniem i należy ustawić flagę z ograniczeniami.
@@ -81,6 +81,45 @@ Problemy z aprowizacjim mogą obejmować następujące scenariusze awarii:
 > Aby uzyskać więcej informacji na temat generalizacji maszyn wirtualnych, zobacz:
 > - [Dokumentacja systemu Linux](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Dokumentacja systemu Windows](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+
+
+## <a name="vhd-specifications"></a>Specyfikacje wirtualnego dysku twardego
+
+### <a name="conectix-cookie-and-other-vhd-specifications"></a>Conectix plik cookie i inne specyfikacje wirtualnego dysku twardego
+Ciąg "conectix" jest częścią specyfikacji wirtualnego dysku twardego i zdefiniowany jako plik cookie 8-bajtowy w stopce wirtualnego dysku twardego, który identyfikuje twórcę pliku. Wszystkie pliki VHD utworzone przez firmę Microsoft mają ten plik cookie. 
+
+Obiekt BLOB sformatowanego wirtualnego dysku twardego powinien mieć 512 stopkę jest to format stopki wirtualnego dysku twardego:
+
+|Pola stopki dysku twardego|Rozmiar (w bajtach)|
+|---|---|
+Plików|8
+Funkcje|4
+Wersja formatu pliku|4
+Przesunięcie danych|8
+Sygnatura czasowa|4
+Aplikacja dla twórców|4
+Wersja twórcy|4
+System operacyjny hosta twórcy|4
+Oryginalny rozmiar|8
+Bieżący rozmiar|8
+Geometria dysku|4
+Typ dysku|4
+Suma kontrolna|4
+Unikatowy identyfikator|16
+Zapisany stan|1
+Zarezerwowany|427
+
+
+### <a name="vhd-specifications"></a>Specyfikacje wirtualnego dysku twardego
+Aby zapewnić bezproblemowe środowisko publikowania, upewnij się, że **wirtualny dysk twardy spełnia następujące kryteria:**
+* Plik cookie musi zawierać ciąg "conectix"
+* Typ dysku musi być ustalony
+* Rozmiar wirtualny wirtualnego dysku twardego wynosi co najmniej baza
+* Dysk VHD jest wyrównany (tj. rozmiar wirtualny musi być wielokrotnością 1 MB)
+* Długość obiektu BLOB wirtualnego dysku twardego = rozmiar wirtualny + długość stopki wirtualnego dysku twardego (512)
+
+Specyfikację wirtualnego dysku twardego można pobrać [tutaj.](https://www.microsoft.com/download/details.aspx?id=23850)
+
 
 ## <a name="software-compliance-for-windows"></a>Zgodność oprogramowania dla systemu Windows
 
@@ -123,8 +162,8 @@ Poniższa tabela zawiera listę typowych błędów znalezionych podczas wykonywa
 |---|---|---|---|
 |1|Przypadek testowy wersji agenta systemu Linux|Minimalna wersja agenta systemu Linux to 2.2.41 lub nowsza. To wymaganie jest obowiązkowe od 1 maja 2020.|Zaktualizuj wersję agenta systemu Linux i powinna być 2,241 lub nowsza. Więcej informacji można znaleźć na [stronie aktualizacji agenta systemu Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Przypadek testowy historii bash|Zobaczysz błąd, jeśli rozmiar historii bash w przesłanym obrazie przekracza 1 kilobajt (KB). Rozmiar jest ograniczony do 1 KB, aby upewnić się, że wszystkie potencjalnie poufne informacje nie są przechwytywane w pliku historii bash.|Aby rozwiązać ten problem, Zainstaluj wirtualny dysk twardy w przypadku dowolnej innej działającej maszyny wirtualnej i wprowadź żądane zmiany (na przykład Usuń pliki historii *. bash* ), aby zmniejszyć rozmiar do 1 KB.|
-|3|Wymagany przypadek testowy parametru jądra|Ten błąd zostanie wyświetlony, gdy wartość dla **konsoli** nie zostanie ustawiona na **ttyS0** . Sprawdź, uruchamiając następujące polecenie:<br>`cat /proc/cmdline`|Ustaw wartość dla **konsoli** na **ttyS0** i ponownie prześlij żądanie.|
-|4|Przypadek testowy interwału ClientAlive|Jeśli wynik zestawu narzędzi daje wynik niepowodzenia dla tego przypadku testowego, istnieje niewłaściwa wartość dla **ClientAliveInterval** .|Dla opcji **ClientAliveInterval** ustaw wartość mniejszą lub równą 235, a następnie prześlij żądanie ponownie.|
+|3|Wymagany przypadek testowy parametru jądra|Ten błąd zostanie wyświetlony, gdy wartość dla **konsoli** nie zostanie ustawiona na **ttyS0**. Sprawdź, uruchamiając następujące polecenie:<br>`cat /proc/cmdline`|Ustaw wartość dla **konsoli** na **ttyS0** i ponownie prześlij żądanie.|
+|4|Przypadek testowy interwału ClientAlive|Jeśli wynik zestawu narzędzi daje wynik niepowodzenia dla tego przypadku testowego, istnieje niewłaściwa wartość dla **ClientAliveInterval**.|Dla opcji **ClientAliveInterval** ustaw wartość mniejszą lub równą 235, a następnie prześlij żądanie ponownie.|
 
 ### <a name="windows-test-cases"></a>Przypadki testowe systemu Windows
 
@@ -173,7 +212,7 @@ Ponieważ maszyny wirtualne umożliwiają dostęp do podstawowego systemu operac
 
 |Rozmiar dysku VHD|Rzeczywisty rozmiar zajęty|Rozwiązanie|
 |---|---|---|
-|>500 tebibajtów (TiB)|nie dotyczy|Skontaktuj się z zespołem pomocy technicznej w celu zatwierdzenia wyjątku.|
+|>500 tebibajtów (TiB)|n/d|Skontaktuj się z zespołem pomocy technicznej w celu zatwierdzenia wyjątku.|
 |250-500 TiB|>200 gibibajtach (GiB) — różnica między rozmiarem obiektu BLOB|Skontaktuj się z zespołem pomocy technicznej w celu zatwierdzenia wyjątku.|
 |
 
@@ -391,7 +430,7 @@ Zawsze upewnij się, że poświadczenia domyślne nie są wysyłane przy użyciu
   
 ## <a name="datadisk-mapped-incorrectly"></a>Nieprawidłowo mapowany dysk
 
-Gdy żądanie jest przesyłane z wieloma dyskami danych, ale ich kolejność nie jest w kolejności, jest to traktowane jako problem z mapowaniem. Na przykład jeśli istnieją trzy dyski danych, kolejność numerów musi wynosić *0, 1, 2* . Każda inna kolejność jest traktowana jako problem z mapowaniem.
+Gdy żądanie jest przesyłane z wieloma dyskami danych, ale ich kolejność nie jest w kolejności, jest to traktowane jako problem z mapowaniem. Na przykład jeśli istnieją trzy dyski danych, kolejność numerów musi wynosić *0, 1, 2*. Każda inna kolejność jest traktowana jako problem z mapowaniem.
 
 Prześlij ponownie żądanie z prawidłową kolejnością na dyskach danych.
 
@@ -501,36 +540,36 @@ Aby zapewnić stały obraz maszyny wirtualnej w celu zastąpienia obrazu maszyny
 Aby wykonać te kroki, należy przygotować zasoby techniczne dla obrazu maszyny wirtualnej, który ma zostać dodany. Aby uzyskać więcej informacji, zobacz temat [Tworzenie maszyny wirtualnej przy użyciu zatwierdzonej bazy](azure-vm-create-using-approved-base.md) lub [Tworzenie maszyny wirtualnej przy użyciu własnego obrazu](azure-vm-create-using-own-image.md)oraz [generowanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej](azure-vm-get-sas-uri.md).
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
+2. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
 3. W kolumnie **alias oferty** wybierz ofertę.
 4. Na karcie **Przegląd planu** w kolumnie **Nazwa** wybierz plan, do którego chcesz dodać maszynę wirtualną.
-5. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych** wybierz pozycję **+ Dodaj obraz maszyny wirtualnej** .
+5. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych** wybierz pozycję **+ Dodaj obraz maszyny wirtualnej**.
 
 > [!NOTE]
 > Do jednego planu można dodać tylko jeden obraz maszyny wirtualnej. Aby dodać wiele obrazów maszyn wirtualnych, Opublikuj pierwszy na żywo przed dodaniem kolejnego obrazu maszyny wirtualnej.
 
 6. W wyświetlonych polach Podaj nową wersję dysku i obraz maszyny wirtualnej.
-7. Wybierz pozycję **Zapisz wersję roboczą** .
+7. Wybierz pozycję **Zapisz wersję roboczą**.
 
 Przejdź do następnej sekcji poniżej, aby usunąć obraz maszyny wirtualnej z luką w zabezpieczeniach.
 
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>Usuwanie obrazu maszyny wirtualnej z wykorzystaniem luk w zabezpieczeniach lub wykorzystania
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
+2. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
 3. W kolumnie **alias oferty** wybierz ofertę.
 4. Na karcie **Przegląd planu** w kolumnie **Nazwa** wybierz plan z maszyną wirtualną, którą chcesz usunąć.
-5. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych** obok obrazu maszyny wirtualnej, który chcesz usunąć, wybierz pozycję **Usuń obraz maszyny wirtualnej** .
-6. W wyświetlonym oknie dialogowym wybierz pozycję **Kontynuuj** .
-7. Wybierz pozycję **Zapisz wersję roboczą** .
+5. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych** obok obrazu maszyny wirtualnej, który chcesz usunąć, wybierz pozycję **Usuń obraz maszyny wirtualnej**.
+6. W wyświetlonym oknie dialogowym wybierz pozycję **Kontynuuj**.
+7. Wybierz pozycję **Zapisz wersję roboczą**.
 
 Aby ponownie opublikować ofertę, przejdź do następnej sekcji poniżej.
 
 #### <a name="republish-the-offer"></a>Ponowne opublikowanie oferty
 
-1. Wybierz pozycję **Przejrzyj i Opublikuj** .
+1. Wybierz pozycję **Przejrzyj i Opublikuj**.
 2. Jeśli musisz podać informacje dotyczące zespołu certyfikacji, Dodaj go do pola **uwagi dotyczące certyfikacji** .
-3. Kliknij pozycję **Opublikuj** .
+3. Kliknij pozycję **Opublikuj**.
 
 Aby zakończyć proces publikowania, zobacz [Przegląd i publikowanie ofert](review-publish-offer.md).
 

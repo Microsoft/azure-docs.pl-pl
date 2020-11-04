@@ -3,16 +3,17 @@ title: Opłata jednostkowa żądania dla Azure Cosmos DB jako magazyn wartości 
 description: Dowiedz się więcej na temat opłat za jednostkę żądania Azure Cosmos DB w przypadku prostych operacji zapisu i odczytu, gdy są one używane jako magazyn klucz/wartość.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cd80e98d0838cb06228c92c7ea7efeb3fc30a0ed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9354ae0a22ef2e8ab4ee6a57563d3f3c4c8e4547
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082882"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339309"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB jako magazyn wartości klucza — przegląd kosztów
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -23,7 +24,7 @@ W tym artykule opisano koszt Azure Cosmos DB prostych operacji zapisu i odczytu,
 
 ## <a name="why-we-use-request-units-rus"></a>Dlaczego używamy jednostek żądania (jednostek ru)
 
-Wydajność Azure Cosmos DB zależy od ilości alokowanej przepływności wyrażonej w [jednostkach żądania](request-units.md) (ru/s). Inicjowanie obsługi jest na drugim poziomie szczegółowości i jest kupowane w RU/s ([nie należy mylić z godzinową płatnością](https://azure.microsoft.com/pricing/details/cosmos-db/)). Jednostek ru należy traktować jako logiczne abstrakcyjne (walutowe), które upraszczają obsługę wymaganej przepływności dla aplikacji. Użytkownicy nie muszą myśleć o rozróżnieniu między przepływem operacji odczytu i zapisu. Model pojedynczej waluty jednostek ru tworzy efektywność udostępniania udostępnionej pojemności między operacjami odczytu i zapisu. Ten model pojemności zainicjowanej pozwala usłudze zapewnić **przewidywalną i spójną przepływność, gwarantowane małe opóźnienia i wysoką dostępność** . Na koniec model RU jest używany do przedstawiania przepływności, a każdy zainicjowany RU ma również określoną ilość zasobów (np. pamięci, rdzeni/procesora i operacji we/wy na sekundę).
+Wydajność Azure Cosmos DB zależy od ilości alokowanej przepływności wyrażonej w [jednostkach żądania](request-units.md) (ru/s). Inicjowanie obsługi jest na drugim poziomie szczegółowości i jest kupowane w RU/s ([nie należy mylić z godzinową płatnością](https://azure.microsoft.com/pricing/details/cosmos-db/)). Jednostek ru należy traktować jako logiczne abstrakcyjne (walutowe), które upraszczają obsługę wymaganej przepływności dla aplikacji. Użytkownicy nie muszą myśleć o rozróżnieniu między przepływem operacji odczytu i zapisu. Model pojedynczej waluty jednostek ru tworzy efektywność udostępniania udostępnionej pojemności między operacjami odczytu i zapisu. Ten model pojemności zainicjowanej pozwala usłudze zapewnić **przewidywalną i spójną przepływność, gwarantowane małe opóźnienia i wysoką dostępność**. Na koniec model RU jest używany do przedstawiania przepływności, a każdy zainicjowany RU ma również określoną ilość zasobów (np. pamięci, rdzeni/procesora i operacji we/wy na sekundę).
 
 Jako globalnie dystrybuowany system bazy danych, Cosmos DB jest jedyną usługą platformy Azure, która zapewnia kompleksową umowy slaę obejmującą opóźnienia, przepływność, spójność i wysoką dostępność. Wybrana przepustowość jest stosowana do każdego regionu skojarzonego z Twoim kontem Cosmos. W przypadku operacji odczytu Cosmos DB oferuje wiele dobrze zdefiniowanych [poziomów spójności](consistency-levels.md) , które można wybrać. 
 

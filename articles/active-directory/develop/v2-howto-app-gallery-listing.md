@@ -1,5 +1,5 @@
 ---
-title: Publikowanie aplikacji w galerii aplikacji usługi Azure AD
+title: Publikowanie aplikacji w galerii aplikacji Azure Active Directory
 description: Dowiedz się, jak wyświetlić listę aplikacji, która obsługuje logowanie jednokrotne w galerii aplikacji Azure Active Directory.
 services: active-directory
 author: kenwith
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275673"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339439"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publikowanie aplikacji w galerii aplikacji usługi Azure AD
 
@@ -60,11 +60,28 @@ Kroki umożliwiające opublikowanie aplikacji w galerii aplikacji usługi Azure 
 5. Prześlij swoją aplikację.
 6. Dołącz do sieci Microsoft Partner Network.
 
+## <a name="what-is-the-azure-ad-application-gallery"></a>Co to jest Galeria aplikacji usługi Azure AD?
+
+- Klienci szukają najlepszego możliwego środowiska logowania jednokrotnego.
+- Konfiguracja aplikacji jest prosta i minimalna.
+- Szybkie wyszukiwanie umożliwia znalezienie aplikacji w galerii.
+- Wszyscy klienci usługi Azure AD w wersji bezpłatna, podstawowa i Premium mogą korzystać z tej integracji.
+- Podzielni klienci mogą uzyskać samouczek konfigurowania krok po kroku.
+- Klienci korzystający z systemu do zarządzania tożsamościami w różnych domenach ([Standard scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) mogą korzystać z aprowizacji dla tej samej aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Potrzebujesz stałego konta do testowania z co najmniej dwoma zarejestrowanymi użytkownikami.
 
+- W przypadku aplikacji federacyjnych (otwartych IDENTYFIKATORami i protokołu SAML/WS-The-karmione) aplikacja musi obsługiwać model oprogramowanie jako usługa (SaaS) w celu uzyskania listy w galerii aplikacji usługi Azure AD. Aplikacje w galerii Enterprise Gallery muszą obsługiwać wiele konfiguracji klientów, a nie klientów.
+- W przypadku połączenia z programem Open ID aplikacja musi być wielodostępna, a [Struktura zgody na usługę Azure AD](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) musi być poprawnie zaimplementowana dla aplikacji. Użytkownik może wysłać żądanie logowania do wspólnego punktu końcowego, aby klient mógł wyrazić zgodę na dostęp do aplikacji. Możesz kontrolować dostęp użytkowników na podstawie identyfikatora dzierżawy oraz nazwy UPN użytkownika otrzymanej w tokenie.
+- W przypadku protokołu SAML 2.0/WS-The---------------------------------- Przed przesłaniem żądania upewnij się, że ta funkcja działa prawidłowo.
+- W przypadku logowania jednokrotnego za pomocą hasła upewnij się, że aplikacja obsługuje uwierzytelnianie formularzy, tak aby można było uruchomić Logowanie jednokrotne w oczekiwany sposób.
+- Potrzebujesz stałego konta do testowania z co najmniej dwoma zarejestrowanymi użytkownikami.
+
+**Jak uzyskać dostęp do usługi Azure AD dla deweloperów?**
+
+Możesz skorzystać z bezpłatnego konta testowego ze wszystkimi funkcjami usługi Azure AD w warstwie Premium — 90 dni wolnych https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Krok 1 — wybór odpowiedniego standardu logowania jednokrotnego dla aplikacji
 
@@ -135,7 +152,7 @@ Aby zapoznać się z konkretnymi przykładami, zobacz [przykłady kodu platformy
 Aby przejrzeć przykłady dotyczące urządzeń przenośnych, zobacz: 
 * [Android](quickstart-v2-android.md)
 * [iOS](quickstart-v2-ios.md)
-* [platforma uniwersalna systemu Windows](quickstart-v2-uwp.md)
+* [Platforma uniwersalna systemu Windows](quickstart-v2-uwp.md)
 
 ### <a name="implement-saml-20"></a>Zaimplementuj element SAML 2,0
 
@@ -236,7 +253,7 @@ Jeśli chcesz dodać aplikację do listy w galerii za pomocą OpenID Connect Con
 
 ![Wyświetlanie aplikacji OpenID Connect Connect w galerii](./media/howto-app-gallery-listing/openid.png)
 
-Jeśli chcesz dodać aplikację do listy w galerii za pomocą **saml 2,0** lub **WS-karmione**, wybierz pozycję **SAML 2.0/WS-karmione** , jak pokazano.
+Jeśli chcesz dodać aplikację do listy w galerii za pomocą **saml 2,0** lub **WS-karmione** , wybierz pozycję **SAML 2.0/WS-karmione** , jak pokazano.
 
 ![Wyświetlanie listy aplikacji SAML 2,0 lub WS-Fed w galerii](./media/howto-app-gallery-listing/saml.png)
 
@@ -256,6 +273,16 @@ Możesz zaktualizować lub usunąć istniejącą aplikację galerii w [portalu s
 
 > [!NOTE]
 > Jeśli masz problemy z dostępem, zapoznaj się z poprzednią sekcją dotyczącą tworzenia konta. Jeśli to nie zadziała, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+### <a name="list-requests-by-customers"></a>Wyświetlanie listy żądań według klientów
+
+Klienci mogą przesłać żądanie, aby wyświetlić listę aplikacji, wybierając pozycję **żądania aplikacji przez klientów**  >  **przesyłając nowe żądanie**.
+
+![Pokazuje kafelek aplikacje żądane przez klienta](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Oto przepływ aplikacji żądanych przez klienta.
+
+![Pokazuje przepływ aplikacji żądanych przez klienta](./media/howto-app-gallery-listing/customer-request-2.png)
 
 
 ### <a name="timelines"></a>Osie czasu

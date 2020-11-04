@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: ce045da7d21c2af0dfde5ee896b4f7f343ce6545
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 57e740e6c47d9518c12a49473e103d0abe772618
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541268"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337017"
 ---
-# <a name="use-github-actions-to-connect-to-azure-mysql"></a>Łączenie się z usługą Azure MySQL za pomocą akcji usługi GitHub
+# <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Szybki Start: korzystanie z akcji GitHub do łączenia się z usługą Azure MySQL
 
 Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/actions) za pomocą przepływu pracy, aby wdrożyć aktualizacje bazy danych do [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/). 
 
@@ -66,7 +66,7 @@ Dane wyjściowe są obiektem JSON z poświadczeniami przypisania roli, które za
 
 ## <a name="copy-the-mysql-connection-string"></a>Kopiuj parametry połączenia MySQL 
 
-W Azure Portal przejdź do serwera Azure Database for MySQL **i Otwórz pozycję**  >  **Parametry połączenia** . Skopiuj parametry połączenia **ADO.NET** . Zastąp wartości symboli zastępczych dla `your_database` i `your_password` . Parametry połączenia będą wyglądać podobnie do tego. 
+W Azure Portal przejdź do serwera Azure Database for MySQL **i Otwórz pozycję**  >  **Parametry połączenia**. Skopiuj parametry połączenia **ADO.NET**. Zastąp wartości symboli zastępczych dla `your_database` i `your_password` . Parametry połączenia będą wyglądać podobnie do tego. 
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;
@@ -77,11 +77,11 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
 1. W witrynie [GitHub](https://github.com/)Przejrzyj repozytorium.
 
-1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło** .
+1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło**.
 
 1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj klucz tajny jako nazwę `AZURE_CREDENTIALS` .
 
-    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
+    Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Przykład:
 
     ```yaml
     - uses: azure/login@v1
@@ -98,7 +98,7 @@ Parametry połączenia będą używane jako wpis tajny usługi GitHub.
 
 1. Przejdź do **akcji** dla repozytorium GitHub. 
 
-2. Wybierz **samodzielnie Skonfiguruj swój przepływ pracy** . 
+2. Wybierz **samodzielnie Skonfiguruj swój przepływ pracy**. 
 
 2. Usuń wszystko po `on:` sekcji pliku przepływu pracy. Na przykład pozostały przepływ pracy może wyglądać następująco. 
 

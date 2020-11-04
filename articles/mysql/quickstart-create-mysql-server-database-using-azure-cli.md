@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 161d1c95507d366ce00f75580a100fd2607675d9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0c43f1ea81bbc29817e6a2509c9967bf3b5782c9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544022"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337289"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -62,7 +62,7 @@ Poniżej znajdują się szczegółowe informacje dotyczące argumentów:
 name | mydemoserver | Wprowadź unikatową nazwę serwera Azure Database for MySQL. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków.
 resource-group | myresourcegroup | Podaj nazwę grupy zasobów platformy Azure.
 location | westus | Lokalizacja platformy Azure dla serwera.
-admin-user | myadmin | Nazwa użytkownika w przypadku logowania administratora. Nie może być to **azure_superuser** , **admin** , **administrator** , **root** , **guest** ani **public** .
+admin-user | myadmin | Nazwa użytkownika w przypadku logowania administratora. Nie może być to **azure_superuser** , **admin** , **administrator** , **root** , **guest** ani **public**.
 admin-password | *bezpieczne hasło* | Hasło użytkownika administratora. Musi zawierać od 8 do 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
 sku-name|GP_Gen5_2|Wprowadź nazwę warstwy cenowej i konfiguracji obliczeniowej. Zgodnie z konwencją {warstwa cenowa} _{generacja obliczeniowa}_ {rdzenie wirtualne} w skrócie. Aby uzyskać więcej informacji, zobacz [warstwy cenowe](./concepts-pricing-tiers.md) .
 
@@ -91,7 +91,7 @@ Aby nawiązać połączenie z serwerem, musisz podać informacje o hoście i po�
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin** .
+Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -143,6 +143,4 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
->[Tworzenie aplikacji PHP w systemie Windows za pomocą programu MySQL](../app-service/tutorial-php-mysql-app.md) 
-> [Tworzenie aplikacji PHP w systemie Linux przy użyciu programu MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux) 
-> [Tworzenie aplikacji sprężynowej opartej na języku Java za pomocą programu MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
+>[Tworzenie aplikacji PHP w systemie Windows za pomocą programu MySQL](../app-service/tutorial-php-mysql-app.md)

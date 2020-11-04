@@ -3,17 +3,18 @@ title: Porady dotyczące wydajności Azure Cosmos DB synchronizacji Java SDK V2
 description: Informacje o opcjach konfiguracji klienta zwiększające wydajność usługi Azure Cosmos Database na potrzeby synchronizacji zestawu Java SDK V2
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b5c8e1a1e810deb9e5315816c122c0ac09ce778
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a074b872ed19a7d3e6b3e410c69da0f2b78e85e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085551"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339703"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB synchronizacji Java SDK V2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,7 +37,7 @@ Azure Cosmos DB to szybka i elastyczna dystrybuowana baza danych, która bezprob
 
 Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" należy wziąć pod uwagę następujące opcje:
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 <a id="direct-connection"></a>
 
 1. **Tryb połączenia: Użyj DirectHttps**
@@ -73,7 +74,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
     Jeśli to możliwe, należy umieścić dowolne aplikacje wywołujące Azure Cosmos DB w tym samym regionie, w którym znajduje się baza danych usługi Azure Cosmos. Dla przybliżonego porównania, wywołania do Azure Cosmos DB w tym samym regionie, kompletne w ciągu 1-2 MS, ale opóźnienie między zachodnim i wschodnim wybrzeżem Stanów Zjednoczonych to >50 ms. To opóźnienie może się różnić od żądania żądania w zależności od trasy wykonywanej przez żądanie, gdy przechodzi od klienta do granicy centrum danych platformy Azure. Najniższe możliwe opóźnienie jest realizowane przez zagwarantowanie, że aplikacja wywołująca znajduje się w tym samym regionie platformy Azure, co punkt końcowy Azure Cosmos DB aprowizacji. Aby uzyskać listę dostępnych regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services).
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Diagram przedstawia zasady połączenia platformy Azure Cosmos D B." border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Diagram przedstawia żądania i odpowiedzi w dwóch regionach, w których komputery łączą się z kontem Cosmos D B za pomocą usług warstwy środkowej." border="false":::
    
 ## <a name="sdk-usage"></a>Użycie zestawu SDK
 1. **Zainstaluj najnowszy zestaw SDK**

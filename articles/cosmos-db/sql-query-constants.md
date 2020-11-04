@@ -3,15 +3,16 @@ title: Stałe SQL w Azure Cosmos DB
 description: Dowiedz się, w jaki sposób stałe zapytań SQL w Azure Cosmos DB są używane do reprezentowania określonej wartości danych
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: ebc1f66e68d4cf37546e7d33a9b723385330395c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100868"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339210"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB stałe zapytania SQL  
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,11 +25,11 @@ ms.locfileid: "93100868"
 |-|-|  
 |**Niezdefiniowane**|Pojedyncza wartość: **undefined**|  
 |**Null**|Pojedyncza wartość: **null**|  
-|**Typu**|Wartości: **false** , **true** .|  
+|**Wartość logiczna**|Wartości: **false** , **true**.|  
 |**Liczba**|Liczba zmiennoprzecinkowa podwójnej precyzji, IEEE 754 Standard.|  
 |**Ciąg**|Sekwencja zero lub więcej znaków Unicode. Ciągi muszą być ujęte w pojedyncze lub podwójne cudzysłowy.|  
-|**Macierzy**|Sekwencja zero lub więcej elementów. Każdy element może być wartością dowolnego typu danych skalarnych, z wyjątkiem **undefined** .|  
-|**Stream**|Zestaw nieuporządkowany zero lub więcej par nazwa/wartość. Nazwa jest ciągiem Unicode, wartość może być dowolnego typu danych skalarnych, z wyjątkiem **undefined** .|  
+|**Macierzy**|Sekwencja zero lub więcej elementów. Każdy element może być wartością dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
+|**Stream**|Zestaw nieuporządkowany zero lub więcej par nazwa/wartość. Nazwa jest ciągiem Unicode, wartość może być dowolnego typu danych skalarnych, z wyjątkiem **undefined**.|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Składnia
   
@@ -68,7 +69,7 @@ ms.locfileid: "93100868"
   
 * `<null_constant>; null`  
   
-  Reprezentuje wartość **null** **typu null** .  
+  Reprezentuje wartość **null** **typu null**.  
   
 * `<boolean_constant>`  
   

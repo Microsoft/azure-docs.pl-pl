@@ -1,20 +1,20 @@
 ---
-title: Korzystanie z usługi ID brokera (wersja zapoznawcza) na potrzeby zarządzania poświadczeniami — Azure HDInsight
+title: Broker identyfikatorów usługi Azure HDInsight (HIB)
 description: Dowiedz się więcej o usłudze Azure HDInsight ID Broker, aby uprościć uwierzytelnianie dla przyłączonych do domeny Apache Hadoop klastrów.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 6617c778c0b79a55058eafb40fd9b49b627819ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/03/2020
+ms.openlocfilehash: df4faf367951402914abb03285498e0da6f3105f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043268"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337680"
 ---
-# <a name="azure-hdinsight-id-broker-preview"></a>Broker identyfikatorów usługi Azure HDInsight (wersja zapoznawcza)
+# <a name="azure-hdinsight-id-broker-hib"></a>Broker identyfikatorów usługi Azure HDInsight (HIB)
 
 W tym artykule opisano sposób konfigurowania i używania funkcji brokera identyfikatorów usługi Azure HDInsight. Za pomocą tej funkcji można uzyskać nowoczesne uwierzytelnianie OAuth na platformie Apache Ambari przy jednoczesnym wymuszeniu uwierzytelniania wieloskładnikowego bez konieczności używania starszych skrótów haseł w Azure Active Directory Domain Services (AD DS platformy Azure).
 
@@ -45,7 +45,7 @@ Nadal może istnieć wiele starszych aplikacji, które obsługują tylko uwierzy
 
 Na poniższym diagramie przedstawiono przepływ uwierzytelniania podstawowego dla użytkowników federacyjnych. Najpierw Brama próbuje ukończyć uwierzytelnianie przy użyciu usługi [ROPC Flow](../../active-directory/develop/v2-oauth-ropc.md). W przypadku braku skrótów haseł synchronizowanych z usługą Azure AD powracanie do odnajdywania punktu końcowego AD FS i kończenia uwierzytelniania przez uzyskanie dostępu do punktu końcowego AD FS.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram przedstawiający przepływ uwierzytelniania przy użyciu brokera identyfikatora usługi HDInsight.":::
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram przedstawiający architekturę z uwierzytelnianiem podstawowym.":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Włącz brokera identyfikatorów usługi HDInsight
@@ -54,7 +54,7 @@ Aby utworzyć klaster pakiet Enterprise Security z włączonym brokerem identyfi
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Postępuj zgodnie z podstawowymi procedurami tworzenia klastra pakiet Enterprise Security. Aby uzyskać więcej informacji, zobacz [Tworzenie klastra usługi HDInsight przy użyciu pakiet Enterprise Security](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
-1. Wybierz pozycję **Włącz brokera identyfikatorów HDInsight** .
+1. Wybierz pozycję **Włącz brokera identyfikatorów HDInsight**.
 
 Funkcja brokera identyfikatorów usługi HDInsight dodaje do klastra jedną dodatkową maszynę wirtualną. Ta maszyna wirtualna jest węzłem brokera identyfikatora usługi HDInsight i obejmuje składniki serwera do obsługi uwierzytelniania. Węzeł brokera identyfikatorów HDInsight jest przyłączony do domeny AD DS platformy Azure.
 

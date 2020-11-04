@@ -5,15 +5,16 @@ author: anfeldma-ms
 ms.custom: devx-track-java
 ms.author: anfeldma
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: eb2553346881bc2e8de631988bd11642b85aa847
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b33524acd09cbf565127dc81ef2b5bfa16b4504d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099644"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339771"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrowanie aplikacji do korzystania z Azure Cosmos DB Java SDK v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -67,7 +68,7 @@ Poniżej przedstawiono zmiany poziomu interfejsu API w Azure Cosmos DB Java SDK 
 
   * **Java SDK 3. x. x** : wszystkie klasy należą do asynchronicznego interfejsu API, chyba że nazwa klasy jest dołączana `Async` po `Cosmos` .
 
-  * **Asynchroniczny zestaw Java SDK 2. x. x** : nazwy klas są podobne do synchronizacji zestawu Java SDK 2. x. x, ale nazwa zaczyna się od *Async* .
+  * **Asynchroniczny zestaw Java SDK 2. x. x** : nazwy klas są podobne do synchronizacji zestawu Java SDK 2. x. x, ale nazwa zaczyna się od *Async*.
 
 ### <a name="hierarchical-api-structure"></a>Hierarchiczna struktura interfejsu API
 

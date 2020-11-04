@@ -3,15 +3,16 @@ title: Indeksowanie w usłudze Azure Cosmos DB
 description: Dowiedz się, jak indeksowanie działa w Azure Cosmos DB, różne rodzaje indeksów, takie jak zakres, przestrzenny, obsługiwane indeksy złożone.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: acb0396ece32c568a4d8c384bebcbabd7480eb09
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101463"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339760"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indeksowanie w usłudze Azure Cosmos DB — omówienie
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -181,7 +182,7 @@ Tak długo, jak jeden predykat filtru używa jednego z rodzajów indeksu, aparat
 
 Rozważmy na przykład następujące zapytanie: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . Predykat zapytania (filtrowanie dla elementów, gdzie każda lokalizacja ma wartość "Francja", ponieważ jego kraj/region) byłoby zgodny z ścieżką wyróżnioną w kolorze czerwonym poniżej:
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Poprzedni element reprezentowany jako drzewo" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Dopasowanie określonej ścieżki w drzewie" border="false":::
 
 > [!NOTE]
 > `ORDER BY`Klauzula, która porządkuje według pojedynczej właściwości, *zawsze* wymaga indeksu zakresu i zakończy się niepowodzeniem, jeśli ścieżka, do której się odwołuje, nie ma takiej wartości. Podobnie, `ORDER BY` zapytanie, które porządkuje wiele właściwości, *zawsze* wymaga indeksu złożonego.

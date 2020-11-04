@@ -3,16 +3,17 @@ title: EndsWith w języku zapytań Azure Cosmos DB
 description: Dowiedz się więcej o funkcji systemowej ENDSWITH SQL w Azure Cosmos DB, aby zwrócić wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu kończące się drugim
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: dd34a41fd9757d91845eb53626b00381c7ddda7a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0cc93fee8aacc711a797925cb2e2808b73cafd1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100290"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338836"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +32,7 @@ ENDSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
    Jest wyrażeniem ciągu.  
   
 *str_expr2*  
-   Jest wyrażeniem ciągu, które ma zostać porównane z końcem *str_expr1* .
+   Jest wyrażeniem ciągu, które ma zostać porównane z końcem *str_expr1*.
 
 *bool_expr* Opcjonalna wartość dla ignorowania wielkości liter. Po ustawieniu na wartość true, ENDSWITH będzie wykonywać wyszukiwanie bez uwzględniania wielkości liter. Jeśli nie określono tego parametru, ta wartość jest równa false.
   

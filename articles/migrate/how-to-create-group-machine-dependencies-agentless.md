@@ -3,12 +3,12 @@ title: Konfigurowanie analizy zależności bez agentów w ocenie serwera Azure M
 description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure Migrate.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8893b0f41bb7a06c02a6c2aa28002980144b582a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667473"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337697"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizowanie zależności maszyny (bez agentów)
 
@@ -25,7 +25,7 @@ W tym artykule opisano sposób konfigurowania analizy zależności bez agentów 
 
 - W widoku Analiza zależności nie można obecnie dodawać ani usuwać serwera z grupy.
 - Mapa zależności dla grupy serwerów jest obecnie niedostępna.
-- Zbieranie danych zależności można skonfigurować współbieżnie dla serwerów 1000. Można analizować większą liczbę serwerów przez sekwencjonowanie w partiach 1000.
+- W projekcie Azure Migrate zbieranie danych zależności można skonfigurować współbieżnie dla serwerów 1000. Można analizować większą liczbę serwerów przez sekwencjonowanie w partiach 1000.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
@@ -48,8 +48,8 @@ Dodaj konto użytkownika do urządzenia.
 
 1. Otwórz aplikację zarządzanie urządzeniami. 
 2. Przejdź do panelu **Podaj szczegóły programu vCenter** .
-3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych**kliknij pozycję **Dodaj poświadczenia** .
-3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i hasło w polu **Nazwa użytkownika** / **Password**
+3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych** kliknij pozycję **Dodaj poświadczenia** .
+3. Wybierz **system operacyjny** , podaj przyjazną nazwę konta i hasło w polu **Nazwa użytkownika** / **Password**
 6. Kliknij przycisk **Zapisz**.
 7. Kliknij przycisk **Zapisz i Rozpocznij odnajdywanie**.
 
@@ -59,7 +59,7 @@ Dodaj konto użytkownika do urządzenia.
 
 Wybierz maszyny, na których chcesz włączyć odnajdowanie zależności. 
 
-1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: Ocena serwera** , kliknij przycisk **odnalezione serwery**.
 2. Kliknij ikonę **analiza zależności** .
 3. Kliknij pozycję **Dodaj serwery**.
 4. Na stronie **Dodawanie serwerów** wybierz urządzenie, które odnajduje odpowiednie maszyny.
@@ -72,7 +72,7 @@ Możesz wizualizować zależności na sześć godzin po rozpoczęciu odnajdywani
 
 ## <a name="visualize-dependencies"></a>Wizualizacja zależności
 
-1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: Ocena serwera** , kliknij przycisk **odnalezione serwery**.
 2. Wyszukaj maszynę, którą chcesz wyświetlić.
 3. W kolumnie **zależności** kliknij pozycję **Wyświetl zależności.**
 4. Zmień okres, dla którego ma zostać wyświetlona mapa, przy użyciu listy rozwijanej czas **trwania** .
@@ -93,7 +93,7 @@ Możesz wizualizować zależności na sześć godzin po rozpoczęciu odnajdywani
 
 ## <a name="export-dependency-data"></a>Eksportuj dane zależności
 
-1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: Ocena serwera** , kliknij przycisk **odnalezione serwery**.
 2. Kliknij ikonę **analiza zależności** .
 3. Kliknij pozycję **Eksportuj zależności aplikacji**.
 4. Na stronie **Eksportuj zależności aplikacji** wybierz urządzenie, które odnajduje odpowiednie maszyny.
@@ -127,7 +127,7 @@ Port docelowy | Numer portu na maszynie docelowej
 
 Wybierz maszyny, na których chcesz zatrzymać odnajdywanie zależności. 
 
-1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+1. W **Azure Migrate: Ocena serwera** , kliknij przycisk **odnalezione serwery**.
 2. Kliknij ikonę **analiza zależności** .
 3. Kliknij przycisk **Usuń serwery**.
 3. Na stronie **usuwanie serwerów** wybierz **urządzenie** , które odnajduje maszyny wirtualne, na których chcesz zatrzymać odnajdywanie zależności.

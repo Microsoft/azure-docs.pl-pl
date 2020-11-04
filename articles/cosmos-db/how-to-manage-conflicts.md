@@ -3,16 +3,17 @@ title: Zarządzanie konfliktami między regionami w Azure Cosmos DB
 description: Dowiedz się, jak zarządzać konfliktami w Azure Cosmos DB przez tworzenie zasad ostatniego rozwiązywania konfliktów — WINS lub niestandardowych
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7370642f5a325867c901d7ebd362e6dfa68e098f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8f98c2201159350f5774f4d2b05102384f31f3af
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101514"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339346"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami rozwiązywania konfliktów w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -23,7 +24,7 @@ W przypadku zapisów w wielu regionach, gdy wielu klientów zapisuje do tego sam
 
 Poniższe przykłady pokazują, jak skonfigurować kontener za pomocą zasad rozwiązywania konfliktów polegających na traktowaniu ostatniego zapisu jako prawidłowego. Domyślną ścieżką dla ostatniego składnika zapisywania usługi WINS jest pole timestamp lub `_ts` Właściwość. W przypadku interfejsu API SQL może to również być ustawiona jako ścieżka zdefiniowana przez użytkownika z typem liczbowym. W konflikcie jest najwyższa wartość WINS. Jeśli ścieżka nie jest ustawiona lub jest nieprawidłowa, domyślnie jest to `_ts` . Konflikty rozwiązane z tymi zasadami nie są wyświetlane w kanale informacyjnym konfliktu. Te zasady mogą być używane przez wszystkie interfejsy API.
 
-### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>Zestaw SDK .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -57,7 +58,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
 ### <a name="java-v4-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-javav4"></a> Zestaw SDK Java v4
 
-# <a name="async"></a>[Async](#tab/api-async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -113,7 +114,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-python"></a>Zestaw SDK języka Python
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-python"></a>Zestaw SDK dla języka Python
 
 ```python
 udp_collection = {
@@ -199,7 +200,7 @@ function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
 }
 ```
 
-### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>Zestaw SDK .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -245,7 +246,7 @@ await container.Scripts.CreateStoredProcedureAsync(
 
 ### <a name="java-v4-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-javav4"></a> Zestaw SDK Java v4
 
-# <a name="async"></a>[Async](#tab/api-async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -308,7 +309,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 
 Po utworzeniu kontenera należy utworzyć procedurę składowaną `resolver`.
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Zestaw SDK języka Python
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Zestaw SDK dla języka Python
 
 ```python
 udp_collection = {
@@ -328,7 +329,7 @@ Po utworzeniu kontenera należy utworzyć procedurę składowaną `resolver`.
 
 Poniższe przykłady pokazują, jak skonfigurować kontener za pomocą niestandardowych zasad rozwiązywania konfliktów. Te konflikty są widoczne w kanale informacyjnym konfliktów.
 
-### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-dotnet"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-dotnet"></a>Zestaw SDK .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -360,7 +361,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
 ### <a name="java-v4-sdk"></a><a id="create-custom-conflict-resolution-policy-javav4"></a> Zestaw SDK Java v4
 
-# <a name="async"></a>[Async](#tab/api-async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -415,7 +416,7 @@ const {
 });
 ```
 
-### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-python"></a>Zestaw SDK języka Python
+### <a name="python-sdk"></a><a id="create-custom-conflict-resolution-policy-python"></a>Zestaw SDK dla języka Python
 
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
@@ -432,7 +433,7 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 Te przykłady pokazują, jak odczytywać z kanału informacyjnego konfliktów kontenera. Konflikty są wyświetlane w kanale informacyjnym powodującym konflikt tylko wtedy, gdy nie zostały rozpoznane automatycznie lub w przypadku użycia niestandardowych zasad konfliktu.
 
-### <a name="net-sdk"></a><a id="read-from-conflict-feed-dotnet"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="read-from-conflict-feed-dotnet"></a>Zestaw SDK .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 

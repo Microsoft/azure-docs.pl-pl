@@ -11,19 +11,19 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c72a2b134fc2c24789ebb75f61d9b64d63d3d48e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597908"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339482"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Omówienie logowania jednokrotnego opartego na protokole SAML
 
 W [serii szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami wiesz, jak używać usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) dla aplikacji. W tym artykule opisano opcję opartą na protokole SAML do logowania jednokrotnego. 
 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Korzystanie z usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) i Konfigurowanie logowania jednokrotnego (SSO) może być proste lub złożone w zależności od używanej aplikacji. Niektóre aplikacje można skonfigurować za pomocą zaledwie kilku akcji. Inne wymagają konfiguracji szczegółowej. Aby szybko uzyskać informacje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Jeśli dodawana aplikacja jest prosta, prawdopodobnie nie musisz czytać tego artykułu. Jeśli dodawana aplikacja wymaga konfiguracji niestandardowej dla logowania jednokrotnego opartego na protokole SAML, ten artykuł jest dla Ciebie.
 
@@ -85,21 +85,24 @@ W usłudze Azure AD można pobrać aktywny certyfikat w formacie base64 lub RAW 
 
 Niektóre typowe elementy do sprawdzenia, czy certyfikat obejmują: 
    - *Poprawna data wygaśnięcia.* Można skonfigurować datę wygaśnięcia na maksymalnie trzy lata w przyszłości.
-   - *Stan aktywny dla odpowiedniego certyfikatu.* Jeśli stan jest **nieaktywny**, Zmień stan na **aktywny**. Aby zmienić stan, kliknij prawym przyciskiem myszy wiersz certyfikatu i wybierz pozycję **Ustaw certyfikat jako aktywny**.
+   - *Stan aktywny dla odpowiedniego certyfikatu.* Jeśli stan jest **nieaktywny** , Zmień stan na **aktywny**. Aby zmienić stan, kliknij prawym przyciskiem myszy wiersz certyfikatu i wybierz pozycję **Ustaw certyfikat jako aktywny**.
    - *Poprawna opcja podpisywania i algorytm.*
    - *Poprawne adresy e-mail powiadomień.* Gdy aktywny certyfikat zbliża się do daty wygaśnięcia, usługa Azure AD wyśle powiadomienie na adres e-mail skonfigurowany w tym polu.
 
 Czasami może być konieczne pobranie certyfikatu. Należy zachować ostrożność, gdzie ją zapisujesz! Aby pobrać certyfikat, wybierz jedną z opcji format Base64, format nieprzetworzony lub XML metadanych Federacji. Usługa Azure AD udostępnia również **adres URL metadanych federacji aplikacji** , w którym można uzyskać dostęp do metadanych specyficznych dla aplikacji w formacie `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>` .
 
+> [!NOTE]
+> Aplikacja powinna mieć możliwość obsługi znacznika kolejności bajtów znajdującego się w kodzie XML renderowanym podczas korzystania z programu https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id} . Znacznik kolejności bajtów jest reprezentowany jako znak ASCII niedrukowalny» ¿y i w formacie szesnastkowym, który jest reprezentowany przez EF BBbinding podczas przeglądania danych XML.
+
 Aby wprowadzić zmiany w certyfikatach, wybierz przycisk Edytuj. Na stronie **certyfikatu podpisywania SAML** można wykonać kilka czynności:
-   - Utwórz nowy certyfikat: wybierz pozycję **nowy certyfikat**, wybierz **datę wygaśnięcia**, a następnie wybierz pozycję **Zapisz**. Aby uaktywnić certyfikat, wybierz menu kontekstowe (**...**) i wybierz pozycję **Ustaw certyfikat jako aktywny**.
-   - Przekaż certyfikat z kluczem prywatnym i poświadczeniami PFX: wybierz pozycję **Importuj certyfikat** i przejdź do certyfikatu. Wprowadź **hasło PFX**, a następnie wybierz pozycję **Dodaj**.  
+   - Utwórz nowy certyfikat: wybierz pozycję **nowy certyfikat** , wybierz **datę wygaśnięcia** , a następnie wybierz pozycję **Zapisz**. Aby uaktywnić certyfikat, wybierz menu kontekstowe ( **...** ) i wybierz pozycję **Ustaw certyfikat jako aktywny**.
+   - Przekaż certyfikat z kluczem prywatnym i poświadczeniami PFX: wybierz pozycję **Importuj certyfikat** i przejdź do certyfikatu. Wprowadź **hasło PFX** , a następnie wybierz pozycję **Dodaj**.  
    - Skonfiguruj zaawansowane podpisywanie certyfikatu. Aby uzyskać więcej informacji na temat tych opcji, zobacz [Zaawansowane opcje podpisywania certyfikatu](certificate-signing-options.md).
    - Powiadamiaj dodatkowe osoby, gdy aktywny certyfikat zbliża się do daty wygaśnięcia: wprowadź adresy e-mail w polach **powiadomienia e-mail adresy** .
 
 ## <a name="set-up-the-application-to-use-azure-ad"></a>Konfigurowanie aplikacji do korzystania z usługi Azure AD
 
-Sekcja **Konfigurowanie \<applicationName> ** zawiera listę wartości, które należy skonfigurować w aplikacji, aby używały usługi Azure AD jako dostawcy tożsamości SAML. Należy ustawić wartości na stronie konfiguracji w witrynie sieci Web aplikacji. Na przykład jeśli konfigurujesz usługi GitHub, przejdź do witryny github.com i ustaw wartości. Jeśli aplikacja została już wstępnie skonfigurowana i w galerii usługi Azure AD, znajdziesz link umożliwiający **wyświetlenie instrukcji krok po kroku**. W przeciwnym razie należy znaleźć dokumentację dla konfigurowanej aplikacji. 
+Sekcja **Konfigurowanie \<applicationName>** zawiera listę wartości, które należy skonfigurować w aplikacji, aby używały usługi Azure AD jako dostawcy tożsamości SAML. Należy ustawić wartości na stronie konfiguracji w witrynie sieci Web aplikacji. Na przykład jeśli konfigurujesz usługi GitHub, przejdź do witryny github.com i ustaw wartości. Jeśli aplikacja została już wstępnie skonfigurowana i w galerii usługi Azure AD, znajdziesz link umożliwiający **wyświetlenie instrukcji krok po kroku**. W przeciwnym razie należy znaleźć dokumentację dla konfigurowanej aplikacji. 
 
 Wartości **adresu URL logowania** i **wylogowania** są rozpoznawane w tym samym punkcie końcowym, który jest punktem końcowym obsługi żądania SAML dla dzierżawy usługi Azure AD. 
 

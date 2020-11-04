@@ -5,15 +5,16 @@ author: SnehaGunda
 ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 37f5acdb2921b6f2bf4a5ed5a8c435db78e01513
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087370"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339669"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Szybki Start: Tworzenie Azure Cosmos DB i kontenera przy użyciu szablonu ARM
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +23,7 @@ Azure Cosmos DB to Microsoft Fast NoSQL Database z otwartymi interfejsami API dl
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
@@ -58,13 +59,13 @@ Więcej przykładów szablonów Azure Cosmos DB można znaleźć w [galerii szab
 
 2. Wybierz lub wprowadź następujące wartości.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Wdrażanie na platformie Azure":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Szablon ARM, integracja Azure Cosmos DB, wdrażanie portalu":::
 
     O ile nie zostanie on określony, użyj wartości domyślnych, aby utworzyć zasoby usługi Azure Cosmos.
 
     * **Subskrypcja** : wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów** : wybierz pozycję **Utwórz nową** , wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK** .
-    * **Lokalizacja** : wybierz lokalizację.  Na przykład **Środkowe stany USA** .
+    * **Grupa zasobów** : wybierz pozycję **Utwórz nową** , wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**.
+    * **Lokalizacja** : wybierz lokalizację.  Na przykład **Środkowe stany USA**.
     * **Nazwa konta** : Wprowadź nazwę dla konta usługi Azure Cosmos. Musi być globalnie unikatowa.
     * **Lokalizacja** : wprowadź lokalizację, w której chcesz utworzyć konto usługi Azure Cosmos. Konto usługi Azure Cosmos może znajdować się w tej samej lokalizacji co grupa zasobów.
     * **Region podstawowy** : podstawowy region repliki dla konta usługi Azure Cosmos.
@@ -77,9 +78,9 @@ Więcej przykładów szablonów Azure Cosmos DB można znaleźć w [galerii szab
     * **Przepływność** : przepływność dla kontenera, minimalna wartość przepływności to 400 ru/s.
     * **Wyrażam zgodę na powyższe warunki i postanowienia** : Zaznacz.
 
-3. Wybierz pozycję **Kup** . Po pomyślnym wdrożeniu konta usługi Azure Cosmos otrzymasz powiadomienie:
+3. Wybierz pozycję **Kup**. Po pomyślnym wdrożeniu konta usługi Azure Cosmos otrzymasz powiadomienie:
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Wdrażanie na platformie Azure":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Szablon ARM, integracja Cosmos DB, wdrażanie powiadomienia portalu":::
 
 Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-powershell.md).
 

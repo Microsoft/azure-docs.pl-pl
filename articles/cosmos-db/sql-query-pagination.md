@@ -4,14 +4,15 @@ description: Informacje o pojęciach dotyczących stronicowania i tokenach konty
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 08f8095670b48fcefccb0a9adf477b83ce2537d3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8219611ac2334594dc826db3c8191102d7383835
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089240"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338275"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Stronicowanie w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +25,7 @@ Czasami wyniki zapytania zostaną podzielone na wiele stron. Wyniki każdej stro
 
 Można określić maksymalną liczbę elementów zwracanych przez zapytanie, ustawiając `MaxItemCount` . `MaxItemCount`Jest określony na żądanie i Instruuje aparat zapytań, aby zwrócił tę liczbę elementów lub mniej. Możesz ustawić `MaxItemCount` na, `-1` Jeśli nie chcesz umieszczać limitu liczby wyników na wykonanie zapytania.
 
-Ponadto istnieją inne powody, dla których aparat kwerend może potrzebować podzielenia wyników zapytania na wiele stron. Należą do nich:
+Ponadto istnieją inne powody, dla których aparat kwerend może potrzebować podzielenia wyników zapytania na wiele stron. Należą do nich następujące elementy:
 
 - Kontener został ograniczony i nie było dostępne jednostek ru do zwrócenia więcej wyników zapytania
 - Odpowiedź wykonania zapytania była zbyt duża

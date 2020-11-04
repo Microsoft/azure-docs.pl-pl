@@ -2,14 +2,14 @@
 title: Azure Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego
 description: Omówienie kontroli dostępu Service Bus przy użyciu sygnatur dostępu współdzielonego — Omówienie, szczegółowe informacje na temat autoryzacji SAS i Azure Service Bus.
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 11/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f71320613682f7d4b9f3b706845e68f581b3dc10
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012079"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339414"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego
 
@@ -20,7 +20,7 @@ Funkcja SAS chroni dostęp do Service Bus na podstawie reguł autoryzacji. Są o
 > [!NOTE]
 > Azure Service Bus obsługuje autoryzowanie dostępu do przestrzeni nazw Service Bus i jej jednostek przy użyciu Azure Active Directory (Azure AD). Autoryzowanie użytkowników lub aplikacji przy użyciu tokenu OAuth 2,0 zwróconego przez usługę Azure AD zapewnia doskonałe zabezpieczenia i łatwość użycia w odniesieniu do sygnatur dostępu współdzielonego (SAS). W przypadku usługi Azure AD nie ma potrzeby przechowywania tokenów w kodzie i ryzyka potencjalnych luk w zabezpieczeniach.
 >
-> Jeśli to możliwe, firma Microsoft zaleca korzystanie z usługi Azure AD z aplikacjami Azure Service Bus. Aby uzyskać więcej informacji zobacz następujące artykuły:
+> Jeśli to możliwe, firma Microsoft zaleca korzystanie z usługi Azure AD z aplikacjami Azure Service Bus. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 > - [Uwierzytelnianie i Autoryzowanie aplikacji za pomocą Azure Active Directory w celu uzyskania dostępu do Azure Service Bus jednostek](authenticate-application.md).
 > - [Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Azure Service Bus](service-bus-managed-service-identity.md)
 
@@ -36,7 +36,7 @@ Token [sygnatury dostępu współdzielonego](/dotnet/api/microsoft.servicebus.sh
 
 Każda przestrzeń nazw Service Bus i każda jednostka Service Bus ma zasady autoryzacji dostępu współdzielonego, które składają się z reguł. Zasady na poziomie przestrzeni nazw mają zastosowanie do wszystkich jednostek w przestrzeni nazw, niezależnie od ich konfiguracji poszczególnych zasad.
 
-Dla każdej reguły zasad autoryzacji użytkownik wybiera trzy informacje: **imię i nazwisko**, **zakres**i **prawa**. **Nazwa** to po prostu; Unikatowa nazwa w tym zakresie. Zakres jest w łatwy sposób wystarczający: jest to identyfikator URI zasobu, którego dotyczy. W przypadku przestrzeni nazw Service Bus zakres jest w pełni kwalifikowaną nazwą domeny (FQDN), taką jak `https://<yournamespace>.servicebus.windows.net/` .
+Dla każdej reguły zasad autoryzacji użytkownik wybiera trzy informacje: **imię i nazwisko** , **zakres** i **prawa**. **Nazwa** to po prostu; Unikatowa nazwa w tym zakresie. Zakres jest w łatwy sposób wystarczający: jest to identyfikator URI zasobu, którego dotyczy. W przypadku przestrzeni nazw Service Bus zakres jest w pełni kwalifikowaną nazwą domeny (FQDN), taką jak `https://<yournamespace>.servicebus.windows.net/` .
 
 Prawa przyznane przez regułę zasad mogą być kombinacją:
 
@@ -52,13 +52,27 @@ Do reguły autoryzacji przypisywany jest *klucz podstawowy* i *klucz pomocniczy*
 
 Podczas tworzenia przestrzeni nazw Service Bus reguła zasad o nazwie **RootManageSharedAccessKey** jest tworzona automatycznie dla przestrzeni nazw. Te zasady mają uprawnienia do zarządzania całą przestrzenią nazw. Zaleca się traktowanie tej reguły, takiej jak administracyjne konto **Główne** i nie używanie jej w aplikacji. Dodatkowe reguły zasad można utworzyć na karcie **Konfiguracja** dla przestrzeni nazw w portalu za pośrednictwem programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
+## <a name="best-practices-when-using-sas"></a>Najlepsze rozwiązania dotyczące korzystania z sygnatury dostępu współdzielonego
+W przypadku używania sygnatur dostępu współdzielonego w aplikacjach należy znać dwa potencjalne zagrożenia:
+
+- W przypadku przecieków sygnatury dostępu współdzielonego mogą one być używane przez każdego, kto je uzyska, co może spowodować naruszenie zasobów Event Hubs.
+- Jeśli sygnatura dostępu współdzielonego dostarczona do aplikacji klienckiej wygaśnie i aplikacja nie może pobrać nowego skojarzenia zabezpieczeń z usługi, może to utrudnić działanie aplikacji.
+
+Poniższe zalecenia dotyczące korzystania z sygnatur dostępu współdzielonego mogą pomóc w ograniczeniu ryzyka:
+
+- **Klienci mają automatycznie odnawiać sygnaturę dostępu WSPÓŁdzielonego w razie potrzeby** : klienci powinni odnowić sygnaturę dostępu współdzielonego przed wygaśnięciem, aby umożliwić ponowną próbę, jeśli usługa dostarczająca sygnaturę dostępu współdzielonego Jeśli sygnatura dostępu współdzielonego ma być używana w przypadku niewielkiej liczby natychmiastowych, krótkoterminowych operacji, które powinny być wykonane w okresie wygaśnięcia, może to być niepotrzebne, ponieważ nie jest oczekiwane odnowienie sygnatury dostępu współdzielonego. Jednak jeśli masz klienta, który rutynowo przesyła żądania za pośrednictwem sygnatury dostępu współdzielonego, to możliwość wygaśnięcia jest dostępna. Kluczową kwestią jest zrównoważenie potrzeb, aby sygnatura dostępu współdzielonego była krótkoterminowa (jak wcześniej zostało to określone) z koniecznością zapewnienia, że klient żąda odnowienia na początku, aby uniknąć przerw w działaniu z powodu wygaśnięcia sygnatury dostępu współdzielonego przed pomyślnym odnowieniem.
+- **Należy zachować ostrożność w czasie uruchamiania sygnatury dostępu współdzielonego** : Jeśli ustawisz **teraz** czas rozpoczęcia dla sygnatury dostępu współdzielonego, to z powodu pochylenia zegara (różnice w bieżącym czasie w zależności od różnych maszyn) błędy mogą być nieprzerwanie zaobserwowane przez pierwsze kilka minut. Ogólnie rzecz biorąc Ustaw czas rozpoczęcia na co najmniej 15 minut w przeszłości. Lub nie ustawiaj jej wcale, co spowoduje, że będzie ona natychmiast ważna we wszystkich przypadkach. To samo ogólnie dotyczy czasu wygaśnięcia. Należy pamiętać, że w dowolnym kierunku zegara może być pochylony do 15 minut na dowolnym z tych żądań. 
+- **Być zależne od zasobu, do którego ma zostać uzyskany dostęp** : najlepszym rozwiązaniem w zakresie zabezpieczeń jest zapewnienie użytkownikowi minimalnych wymaganych uprawnień. Jeśli użytkownik potrzebuje tylko dostępu do odczytu do pojedynczej jednostki, udziel im dostępu do odczytu dla tej pojedynczej jednostki, a dostęp do odczytu/zapisu/usuwania nie zostanie usunięty do wszystkich jednostek. Pomaga również zmniejszyć szkody w przypadku naruszenia bezpieczeństwa SAS, ponieważ SAS ma mniej mocy w ręce osoby atakującej.
+- **Nie zawsze używaj sygnatury dostępu współdzielonego** : czasami ryzyko związane z konkretną operacją na Event Hubs ma większe korzyści wynikające z użycia sygnatury dostępu współdzielonego. W przypadku takich operacji Utwórz usługę warstwy środkowej, która zapisuje dane w Event Hubs po sprawdzeniu poprawności reguły biznesowej, uwierzytelnianiu i inspekcji.
+- **Zawsze używaj protokołu HTTPS** : zawsze używaj protokołu HTTPS do tworzenia lub dystrybuowania sygnatury dostępu współdzielonego. Jeśli sygnatura dostępu współdzielonego jest przenoszona za pośrednictwem protokołu HTTP i przechwycona, osoba atakująca wykonująca dołączenie w środku jest w stanie odczytać sygnaturę dostępu współdzielonego, a następnie użyć jej w taki sam sposób, jak w przypadku zamierzonego użytkownika.
+
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Konfiguracja uwierzytelniania sygnatury dostępu współdzielonego
 
 Regułę [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) można skonfigurować dla Service Bus przestrzenie nazw, kolejki lub tematy. Konfigurowanie [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) w subskrypcji Service Bus nie jest obecnie obsługiwane, ale możesz użyć reguł skonfigurowanych dla przestrzeni nazw lub tematu, aby zabezpieczyć dostęp do subskrypcji. Przykład roboczy, który ilustruje tę procedurę, można znaleźć w artykule [używanie uwierzytelniania sygnatury dostępu współdzielonego (SAS) z subskrypcją Service Bus](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
 
-![SYGNATUR](./media/service-bus-sas/service-bus-namespace.png)
+![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
-Na tym rysunku reguły autoryzacji *manageRuleNS*, *sendRuleNS*i *listenRuleNS* dotyczą zarówno kolejki Q1, jak i tematu T1, natomiast *listenRuleQ* i *sendRuleQ* mają zastosowanie tylko do kolejki Q1 i *sendRuleT* dotyczy tylko tematu T1.
+Na tym rysunku reguły autoryzacji *manageRuleNS* , *sendRuleNS* i *listenRuleNS* dotyczą zarówno kolejki Q1, jak i tematu T1, natomiast *listenRuleQ* i *sendRuleQ* mają zastosowanie tylko do kolejki Q1 i *sendRuleT* dotyczy tylko tematu T1.
 
 ## <a name="generate-a-shared-access-signature-token"></a>Generowanie tokenu sygnatury dostępu współdzielonego
 
@@ -73,7 +87,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`** -Identyfikator URI zasobu, do którego uzyskuje się dostęp.
 * **`sig`** Podpisane.
 
-`signature-string`Jest to skrót SHA-256 obliczany na podstawie identyfikatora URI zasobu (**zakres** zgodnie z opisem w poprzedniej sekcji) oraz ciąg reprezentacji tokenu wygasa natychmiast, oddzielony znakami LF.
+`signature-string`Jest to skrót SHA-256 obliczany na podstawie identyfikatora URI zasobu ( **zakres** zgodnie z opisem w poprzedniej sekcji) oraz ciąg reprezentacji tokenu wygasa natychmiast, oddzielony znakami LF.
 
 Obliczenia skrótu wyglądają podobnie jak w poniższym pseudo kodzie i zwracają 256-bitową/32-bajtową wartość skrótu.
 
@@ -85,7 +99,7 @@ Token zawiera wartości niebędące skrótami, dzięki czemu odbiorca może pono
 
 Identyfikator URI zasobu to pełny identyfikator URI zasobu Service Bus, do którego odnosi się dostęp. Na przykład `http://<namespace>.servicebus.windows.net/<entityPath>` lub `sb://<namespace>.servicebus.windows.net/<entityPath>` `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3` . 
 
-**Identyfikator URI musi być [zakodowany przy użyciu wartości procentowej](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1).**
+**Identyfikator URI musi być [zakodowany przy użyciu wartości procentowej](/dotnet/api/system.web.httputility.urlencode).**
 
 Reguła autoryzacji dostępu współdzielonego używana do podpisywania musi być skonfigurowana w jednostce określonej przez ten identyfikator URI lub według jednego z hierarchicznych obiektów nadrzędnych. Na przykład `http://contoso.servicebus.windows.net/contosoTopics/T1` lub `http://contoso.servicebus.windows.net` w poprzednim przykładzie.
 
@@ -160,7 +174,7 @@ sendClient.Send(helloMessage);
 
 Dostawcy tokenu można także używać bezpośrednio do wystawiania tokenów do przekazania innym klientom.
 
-Parametry połączenia mogą zawierać nazwę reguły (*SharedAccessKeyName*) i klucz reguły (*SharedAccessKey*) lub wcześniej wystawiony token (*SharedAccessSignature*). Gdy są obecne w parametrach połączenia przesłanych do dowolnego konstruktora lub metody fabryki akceptujących parametry połączenia, dostawca tokenów SAS jest automatycznie tworzony i wypełniany.
+Parametry połączenia mogą zawierać nazwę reguły ( *SharedAccessKeyName* ) i klucz reguły ( *SharedAccessKey* ) lub wcześniej wystawiony token ( *SharedAccessSignature* ). Gdy są obecne w parametrach połączenia przesłanych do dowolnego konstruktora lub metody fabryki akceptujących parametry połączenia, dostawca tokenów SAS jest automatycznie tworzony i wypełniany.
 
 Należy pamiętać, że aby korzystać z autoryzacji sygnatury dostępu współdzielonego z przekaźnikami Service Bus, można użyć kluczy SAS skonfigurowanych dla Service Bus przestrzeni nazw. Jeśli jawnie utworzysz przekaźnik w przestrzeni nazw ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) z obiektem [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)), możesz ustawić reguły sygnatury dostępu współdzielonego tylko dla tego przekaźnika. Aby używać autoryzacji sygnatury dostępu współdzielonego z subskrypcjami Service Bus, można użyć kluczy SAS skonfigurowanych dla Service Bus przestrzeni nazw lub tematu.
 
@@ -257,7 +271,7 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane do różnych operacji 
 
 | Operacja | Wymagane jest żądanie | Zakres roszczeń |
 | --- | --- | --- |
-| **Obszaru** | | |
+| **Przestrzeń nazw** | | |
 | Konfigurowanie reguły autoryzacji w przestrzeni nazw |Zarządzanie |Dowolny adres przestrzeni nazw |
 | **Rejestr usługi** | | |
 | Wyliczanie zasad prywatnych |Zarządzanie |Dowolny adres przestrzeni nazw |

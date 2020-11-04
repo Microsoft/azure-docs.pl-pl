@@ -4,14 +4,15 @@ description: Dowiedz się, jak nawiązać połączenie z usługą GitHub i zaimp
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 46170a0f723e912c370eb6e068542a02b9959948
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8315369d2100036a50aae770267aa04bceb2dfb0
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101480"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339805"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importuj notesy z repozytorium GitHub do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,7 +29,7 @@ Możesz połączyć się ze swoimi repozytoriami usługi GitHub lub innymi publi
 
 1. Wybierz element menu **Połącz z usługą GitHub** .
 
-1. Zostanie otwarta karta, w której można wybrać opcję połączenia tylko z **repozytoriami publicznymi** lub **repozytoriami publicznymi i prywatnymi** .  Po wybraniu wymaganej opcji wybierz opcję **Autoryzuj dostęp** . Aby Azure Cosmos DB uzyskać dostęp do repozytoriów na koncie usługi GitHub, wymagana jest autoryzacja.
+1. Zostanie otwarta karta, w której można wybrać opcję połączenia tylko z **repozytoriami publicznymi** lub **repozytoriami publicznymi i prywatnymi**.  Po wybraniu wymaganej opcji wybierz opcję **Autoryzuj dostęp**. Aby Azure Cosmos DB uzyskać dostęp do repozytoriów na koncie usługi GitHub, wymagana jest autoryzacja.
 
    :::image type="content" source="./media/import-github-notebooks/authorize-access-github.png" alt-text="Autoryzuj Azure Cosmos DB, aby uzyskać dostęp do repozytoriów usługi GitHub":::
 
@@ -38,23 +39,23 @@ Możesz połączyć się ze swoimi repozytoriami usługi GitHub lub innymi publi
 
 1. Po wybraniu wymaganego repozytorium wpis repozytorium jest przenoszony z sekcji **przypięte repozytoria** do **przypiętych repozytoriów** . W razie potrzeby można również wybrać konkretną gałąź tego repozytorium, z której mają zostać zaimportowane notesy.
 
-   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Autoryzuj Azure Cosmos DB, aby uzyskać dostęp do repozytoriów usługi GitHub":::
+   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Wybierz repozytorium i gałąź":::
 
 1. Wybierz **przycisk OK** , aby ukończyć operację importowania. Wszystkie notesy dostępne w wybranej gałęzi repozytorium są importowane do konta usługi Azure Cosmos.
 
 Po zintegrowaniu usługi z kontem w usłudze GitHub zobaczysz listę repozytoriów i notesów na koncie usługi Azure Cosmos. Ta instrukcja ma wartość true, nawet jeśli wielu użytkowników loguje się do konta Azure Cosmos DB i doda własne konta. Innymi słowy, wielu użytkowników może korzystać z tego samego konta usługi Azure Cosmos, aby połączyć obszar roboczy Notes z usługą GitHub. Jednak każdy użytkownik widzi tylko listę repozytoriów i notesów, które zostały zaimportowane. Notesy importowane przez inne osoby nie są widoczne dla użytkownika.
 
-Aby rozłączyć konto usługi GitHub z obszaru roboczego notesy, Otwórz kartę **Eksplorator danych** , wybierz pozycję `…` dalej w przypadku **repozytoriów GitHub** i wybierz pozycję **Rozłącz z serwisu GitHub** .
+Aby rozłączyć konto usługi GitHub z obszaru roboczego notesy, Otwórz kartę **Eksplorator danych** , wybierz pozycję `…` dalej w przypadku **repozytoriów GitHub** i wybierz pozycję **Rozłącz z serwisu GitHub**.
 
 ## <a name="edit-a-notebook-and-push-changes-to-github"></a>Edytowanie notesu i wypychanie zmian do usługi GitHub
 
 Można edytować istniejący Notes lub dodać nowy Notes do repozytorium i zapisać zmiany z powrotem w serwisie GitHub.
 
-Po edycji istniejącego notesu wybierz pozycję **Zapisz** . Zostanie otwarte okno dialogowe, w którym można wprowadzić komunikat zatwierdzenia dla wprowadzonych zmian. Wybierz pozycję **Zatwierdź** , a Notes w serwisie GitHub został zaktualizowany. Możesz sprawdzić poprawność aktualizacji, logując się do konta usługi GitHub i sprawdzając historię zatwierdzeń.
+Po edycji istniejącego notesu wybierz pozycję **Zapisz**. Zostanie otwarte okno dialogowe, w którym można wprowadzić komunikat zatwierdzenia dla wprowadzonych zmian. Wybierz pozycję **Zatwierdź** , a Notes w serwisie GitHub został zaktualizowany. Możesz sprawdzić poprawność aktualizacji, logując się do konta usługi GitHub i sprawdzając historię zatwierdzeń.
 
 W regularnym przepływie usługi GitHub po zatwierdzeniu zmian zwykle wypychane zostaną zmiany w zdalnym. Jednak w tym przypadku opcja zatwierdzania służy do przeznaczenie "przemieszczanie, zatwierdzanie i wypychanie" aktualizacji do usługi GitHub.
 
-:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Autoryzuj Azure Cosmos DB, aby uzyskać dostęp do repozytoriów usługi GitHub":::
+:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Edytuj Notesy i zatwierdź zmiany w serwisie GitHub":::
 
 ## <a name="next-steps"></a>Następne kroki
 

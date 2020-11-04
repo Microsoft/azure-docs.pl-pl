@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 9b05149515f2d40ad8043cd65c2ec5589440713e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ec406208f862eac2450cc6352f13f3596a7c9775
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90882522"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337391"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: używanie języka PHP do łączenia i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji języka [PHP](https://secure.php.net/manual/intro-whatis.php). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że wiesz już, jak opracowywać zawartość za pomocą języka PHP, i dopiero zaczynasz pracę z usługą Azure Database for MySQL.
@@ -28,7 +28,7 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 ## <a name="install-php"></a>Instalowanie języka PHP
 Zainstaluj język PHP na własnym serwerze lub utwórz [aplikację internetową](../app-service/overview.md), która zawiera język PHP.
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 - Pobierz [wersję 7.1.4 języka PHP](https://secure.php.net/downloads.php).
 - Zainstaluj język PHP i zapoznaj się z [podręcznikiem języka PHP](https://secure.php.net/manual/install.macosx.php) w celu przeprowadzenia dalszej konfiguracji.
 
@@ -227,6 +227,16 @@ mysqli_stmt_close($stmt);
 //Close the connection
 mysqli_close($conn);
 ?>
+```
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Aby wyczyścić wszystkie zasoby używane w ramach tego przewodnika Szybki Start, Usuń grupę zasobów przy użyciu następującego polecenia:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Następne kroki

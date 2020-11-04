@@ -3,15 +3,16 @@ title: Azure Cosmos DB arkusze Ściągawka PDF
 description: Drukowalne arkusze PDF Ściągawka, które ułatwiają wykonywanie zapytań dotyczących danych Azure Cosmos DB za pomocą interfejsów API SQL, MongoDB, grafów i tabel
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 0e9010ba79e4253d7569a0bba79fa05423e1a1ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2ef8aed7243e8956ad9ca62b630cda0efbd2deb9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081760"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339652"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Arkusze Ściągawka zapytań Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +30,7 @@ Pobierz [Azure Cosmos DB arkuszach o rozmiarze z Ściągawka](https://go.microso
 ## <a name="oversized-cheat-sheets"></a>Zbyt duże arkusze Ściągawka
 Pobierz [Ściągawka arkusze zapytań o rozmiarze a3 Azure Cosmos DB](https://go.microsoft.com/fwlink/?linkid=870413) , jeśli zamierzasz drukować przy użyciu drukarki ploterowej lub dużej skali na papierze o rozmiarze a3 (11,7 "x 16,5").
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB zapytań z arkuszami Ściągawka — rozmiar Letter, z użyciem interfejsu SQL API, JavaScript, MongoDB, Gremlin i interfejs API tabel zapytań i funkcji" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB zapytań z arkuszami Ściągawka — rozmiaru a3, przy użyciu interfejsu SQL API, języka JavaScript, MongoDB, Gremlin i zapytań i funkcji interfejs API tabel" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać pomoc w pisaniu zapytań, zobacz następujące artykuły:

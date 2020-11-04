@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób migrowania maszyn fizycznych na plat
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 187d660c0aa3ce1fa37a706b37102d2e4f9b4d25
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 67ea5800885b4edb16581f22c199d139053af495
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308499"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337816"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrowanie maszyn jako serwerów fizycznych na platformę Azure
 
@@ -59,7 +59,7 @@ Przygotuj platformę Azure do migracji przy użyciu migracji serwera.
 ### <a name="assign-permissions-to-create-project"></a>Przypisywanie uprawnień do tworzenia projektu
 
 1. W witrynie Azure Portal otwórz daną subskrypcję i wybierz pozycję **Kontrola dostępu (IAM)** .
-2. W obszarze **Sprawdź dostęp**Znajdź odpowiednie konto i kliknij je, aby wyświetlić uprawnienia.
+2. W obszarze **Sprawdź dostęp** Znajdź odpowiednie konto i kliknij je, aby wyświetlić uprawnienia.
 3. Należy mieć uprawnienia **współautora** lub **właściciela** .
     - Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji.
     - Jeśli nie jesteś właścicielem subskrypcji, poproś właściciela o przypisanie roli.
@@ -98,8 +98,8 @@ Upewnij się, że maszyny są zgodne z wymaganiami dotyczącymi migracji na plat
 
 Azure Migrate: Migracja serwera używa urządzenia replikacji do replikowania maszyn na platformę Azure. Urządzenie replikacji uruchamia następujące składniki.
 
-- **Serwer konfiguracji**: serwer konfiguracji koordynuje komunikację między środowiskiem lokalnym i platformą Azure oraz zarządza replikacją danych.
-- **Serwer przetwarzania**: serwer przetwarzania działa jako brama replikacji. Odbiera dane replikacji; optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do konta magazynu pamięci podręcznej na platformie Azure. 
+- **Serwer konfiguracji** : serwer konfiguracji koordynuje komunikację między środowiskiem lokalnym i platformą Azure oraz zarządza replikacją danych.
+- **Serwer przetwarzania** : serwer przetwarzania działa jako brama replikacji. Odbiera dane replikacji; optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do konta magazynu pamięci podręcznej na platformie Azure. 
 
 Przygotuj się do wdrożenia urządzenia w następujący sposób:
 
@@ -118,20 +118,20 @@ Skonfiguruj projekt Azure Migrate, a następnie Dodaj do niego narzędzie do mig
 1. W witrynie Azure Portal > **Wszystkie usługi** znajdź pozycję **Azure Migrate**.
 2. W obszarze **Usługi** wybierz pozycję **Azure Migrate**.
 3. W obszarze **Przegląd** kliknij pozycję **Ocena i migracja serwerów**.
-4. W obszarze **odnajdywanie, ocenianie i Migrowanie serwerów**kliknij pozycję **Oceń i Przeprowadź migrację serwerów**.
+4. W obszarze **odnajdywanie, ocenianie i Migrowanie serwerów** kliknij pozycję **Oceń i Przeprowadź migrację serwerów**.
 
     ![Odnajdywanie i ocenianie serwerów](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
 
 5. W obszarze **Odnajdywanie, ocena i migracja serwerów** kliknij pozycję **Dodaj narzędzia**.
-6. W obszarze **Projekt migracji**wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.
+6. W obszarze **Projekt migracji** wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.
 7. W obszarze **Szczegóły projektu** określ nazwę projektu i lokalizację geograficzną, w której chcesz utworzyć projekt, a następnie kliknij przycisk **Dalej**. Przejrzyj obsługiwane lokalizacje geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Tworzenie projektu usługi Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
-8. W obszarze **Wybierz narzędzie oceny**, wybierz pozycję **Pomiń teraz dodawanie narzędzia oceny** > **Dalej**.
+8. W obszarze **Wybierz narzędzie oceny** , wybierz pozycję **Pomiń teraz dodawanie narzędzia oceny** > **Dalej**.
 9. W obszarze **Wybierz narzędzie migracji** wybierz pozycję **Azure Migrate: Migracja serwera** > **Dalej**.
 10. W obszarze **Przegląd i dodawanie narzędzi** przejrzyj ustawienia, a następnie kliknij pozycję **Dodaj narzędzia**
-11. Po dodaniu narzędzia pojawia się ono w Azure Migrate **Servers**  >  **Narzędzia migracji**serwerów > projektu.
+11. Po dodaniu narzędzia pojawia się ono w Azure Migrate **Servers**  >  **Narzędzia migracji** serwerów > projektu.
 
 ## <a name="set-up-the-replication-appliance"></a>Konfigurowanie urządzenia do replikacji
 
@@ -140,12 +140,12 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
 
 ### <a name="download-the-replication-appliance-installer"></a>Pobierz Instalatora urządzenia replikacji
 
-1. Na **serwerach**Azure Migrate Project >, w **Azure Migrate: Migracja serwera**, kliknij przycisk **odkryj**.
+1. Na **serwerach** Azure Migrate Project >, w **Azure Migrate: Migracja serwera** , kliknij przycisk **odkryj**.
 
     ![Odnajdywanie maszyn wirtualnych](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
-3. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** kliknij pozycję **niezwirtualizowane/inne**.
-4. W **obszarze region docelowy**wybierz region świadczenia usługi Azure, do którego chcesz przeprowadzić migrację maszyn.
+3. W obszarze **odnajdywanie** maszyn  >  **są zwirtualizowane maszyny?** kliknij pozycję **niezwirtualizowane/inne**.
+4. W **obszarze region docelowy** wybierz region świadczenia usługi Azure, do którego chcesz przeprowadzić migrację maszyn.
 5. Wybierz pozycję **Potwierdź, że docelowy region migracji to nazwa regionu**.
 6. Kliknij pozycję **Utwórz zasoby**. Spowoduje to utworzenie magazynu Azure Site Recovery w tle.
     - Jeśli już skonfigurowano migrację z Azure Migrate migracji do serwera, nie można skonfigurować opcji docelowej, ponieważ zasoby zostały wcześniej skonfigurowane.    
@@ -153,14 +153,14 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
     - Wszystkie kolejne migracje znajdują się w tym regionie.
 
 7. W **czy chcesz zainstalować nowe urządzenie do replikacji?** wybierz pozycję **Zainstaluj urządzenie replikacji**.
-9. W obszarze **pobieranie i instalowanie oprogramowania do replikacji urządzenia**Pobierz Instalatora urządzenia i klucz rejestracji. Aby zarejestrować urządzenie, musisz być kluczem. Klucz jest ważny przez pięć dni od jego pobrania.
+9. W obszarze **pobieranie i instalowanie oprogramowania do replikacji urządzenia** Pobierz Instalatora urządzenia i klucz rejestracji. Aby zarejestrować urządzenie, musisz być kluczem. Klucz jest ważny przez pięć dni od jego pobrania.
 
     ![Pobierz dostawcę](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 10. Skopiuj plik Instalatora urządzenia i plik klucza do komputera z systemem Windows Server 2016, który został utworzony dla urządzenia.
 11. Po zakończeniu instalacji Kreator konfiguracji urządzenia zostanie uruchomiony automatycznie (można również uruchomić Kreatora ręcznie przy użyciu skrótu cspsconfigtool utworzonego na pulpicie urządzenia). Za pomocą karty Zarządzanie kontami kreatora można dodać szczegóły konta do użycia podczas instalacji wypychanej usługi mobilności. W tym samouczku będziemy ręcznie instalować usługę mobilności na źródłowych maszynach wirtualnych do replikacji, więc Utwórz fikcyjne konto w tym kroku i przejdź dalej. Poniżej przedstawiono szczegółowe informacje na temat tworzenia fikcyjnego konta "Gość" jako przyjaznej nazwy, "username" jako nazwy użytkownika i hasła do konta. Będziesz używać tego fikcyjnego konta na etapie włączania replikacji. 
 
-12. Po ponownym uruchomieniu urządzenia po zakończeniu instalacji w obszarze **odnajdywanie maszyn**wybierz nowe urządzenie na liście **Wybierz serwer konfiguracji**, a następnie kliknij pozycję **finalizowanie rejestracji**. Finalizowanie rejestracji wykonuje kilka zadań końcowych w celu przygotowania urządzenia do replikacji.
+12. Po ponownym uruchomieniu urządzenia po zakończeniu instalacji w obszarze **odnajdywanie maszyn** wybierz nowe urządzenie na liście **Wybierz serwer konfiguracji** , a następnie kliknij pozycję **finalizowanie rejestracji**. Finalizowanie rejestracji wykonuje kilka zadań końcowych w celu przygotowania urządzenia do replikacji.
 
     ![Finalizowanie rejestracji](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
@@ -194,7 +194,7 @@ Na maszynach, które mają zostać zmigrowane, należy zainstalować agenta usł
     ```
 2. Uruchom Instalatora usługi mobilności:
     ```
-   UnifiedAgent.exe /Role "MS" /Silent
+   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
     ```
 3. Zarejestruj agenta przy użyciu urządzenia replikacji:
     ```
@@ -212,7 +212,7 @@ Na maszynach, które mają zostać zmigrowane, należy zainstalować agenta usł
     ```
 2. Uruchom skrypt Instalatora:
     ```
-    sudo ./install -r MS -q
+    sudo ./install -r MS -v VmWare -q
     ```
 3. Zarejestruj agenta przy użyciu urządzenia replikacji:
     ```
@@ -226,18 +226,18 @@ Teraz wybierz maszyny do migracji.
 > [!NOTE]
 > Można replikować do 10 maszyn jednocześnie. Jeśli chcesz replikować więcej, a następnie Replikuj je jednocześnie w partiach 10.
 
-1. Na **serwerach**Azure Migrate project > **Azure Migrate: Migracja serwera**, kliknij przycisk **replikacja**.
+1. Na **serwerach** Azure Migrate project > **Azure Migrate: Migracja serwera** , kliknij przycisk **replikacja**.
 
     ![Zrzut ekranu przedstawiający ekran Azure Migrate serwerów z przyciskiem replikacja wybrana w Azure Migrate: Migracja serwera w obszarze Narzędzia migracji.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. W obszarze **replikacja**> **Ustawienia źródła**  >  **są zwirtualizowane na maszynach?** wybierz opcję **niezwirtualizowane/inne**.
-3. W **urządzeniu lokalnym**wybierz nazwę skonfigurowanego urządzenia Azure Migrate.
-4. W obszarze **serwer przetwarzania**wybierz nazwę urządzenia replikacji.
-6. W obszarze **poświadczenia gościa**wybierz konto fikcyjne utworzone wcześniej podczas [instalacji Instalatora replikacji](#download-the-replication-appliance-installer) , aby ręcznie zainstalować usługę mobilności (instalacja wypychana nie jest obsługiwana). Następnie kliknij przycisk **Dalej: maszyny wirtualne**.   
+2. W obszarze **replikacja** > **Ustawienia źródła**  >  **są zwirtualizowane na maszynach?** wybierz opcję **niezwirtualizowane/inne**.
+3. W **urządzeniu lokalnym** wybierz nazwę skonfigurowanego urządzenia Azure Migrate.
+4. W obszarze **serwer przetwarzania** wybierz nazwę urządzenia replikacji.
+6. W obszarze **poświadczenia gościa** wybierz konto fikcyjne utworzone wcześniej podczas [instalacji Instalatora replikacji](#download-the-replication-appliance-installer) , aby ręcznie zainstalować usługę mobilności (instalacja wypychana nie jest obsługiwana). Następnie kliknij przycisk **Dalej: maszyny wirtualne**.   
 
     ![Zrzut ekranu przedstawiający kartę Ustawienia źródła na ekranie replikacja z wyróżnionym polem poświadczenia gościa.](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
-7. W **Virtual Machines**w **ustawieniach migracji importu z oceny?** pozostaw ustawienie domyślne **nie, określ ustawienia migracji ręcznie**.
+7. W **Virtual Machines** w **ustawieniach migracji importu z oceny?** pozostaw ustawienie domyślne **nie, określ ustawienia migracji ręcznie**.
 8. Sprawdź wszystkie maszyny wirtualne, które chcesz zmigrować. Następnie kliknij przycisk **Dalej: ustawienia docelowe**.
 
     ![Wybieranie maszyn wirtualnych](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
@@ -245,37 +245,37 @@ Teraz wybierz maszyny do migracji.
 
 9. W obszarze **Ustawienia elementu docelowego** wybierz subskrypcję i docelowy region migracji, a następnie określ grupę zasobów, w której będą znajdować się maszyny wirtualne platformy Azure po migracji.
 10. W obszarze **Sieć wirtualna** wybierz sieć wirtualną/podsieć platformy Azure, do której zostaną dołączone maszyny wirtualne platformy Azure po migracji.
-11. W obszarze **Opcje dostępności**wybierz pozycję:
+11. W obszarze **Opcje dostępności** wybierz pozycję:
     -  Strefa dostępności służąca do przypinania zmigrowanej maszyny do określonej strefy dostępności w regionie. Użyj tej opcji, aby dystrybuować serwery tworzące wielowęzłową warstwę aplikacji między Strefy dostępności. W przypadku wybrania tej opcji należy określić strefę dostępności, która ma być używana dla każdej z wybranych maszyn na karcie obliczenia. Ta opcja jest dostępna tylko wtedy, gdy region docelowy wybrany do migracji obsługuje Strefy dostępności
     -  Zestaw dostępności umożliwiający umieszczenie zmigrowanej maszyny w zestawie dostępności. Docelowa Grupa zasobów, która została wybrana, musi mieć co najmniej jeden zestaw dostępności, aby można było użyć tej opcji.
     - Nie jest wymagana opcja nadmiarowości infrastruktury, jeśli nie potrzebujesz żadnej z tych konfiguracji dostępności dla zmigrowanych maszyn.
-12. W obszarze **Korzyść użycia hybrydowego platformy Azure**:
+12. W obszarze **Korzyść użycia hybrydowego platformy Azure** :
 
-    - Wybierz pozycję **Nie**, jeśli nie chcesz stosować korzyści użycia hybrydowego platformy Azure. Następnie kliknij przycisk **Dalej**.
-    - Wybierz opcję **Tak**, jeśli masz maszyny z systemem Windows Server, które są objęte aktywnym programem Software Assurance lub subskrypcjami systemu Windows Server, i chcesz zastosować korzyść do migrowanych maszyn. Następnie kliknij przycisk **Dalej**.
+    - Wybierz pozycję **Nie** , jeśli nie chcesz stosować korzyści użycia hybrydowego platformy Azure. Następnie kliknij przycisk **Dalej**.
+    - Wybierz opcję **Tak** , jeśli masz maszyny z systemem Windows Server, które są objęte aktywnym programem Software Assurance lub subskrypcjami systemu Windows Server, i chcesz zastosować korzyść do migrowanych maszyn. Następnie kliknij przycisk **Dalej**.
 
     ![Ustawienia docelowe](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
-13. W obszarze **obliczenia**Sprawdź nazwę maszyny wirtualnej, rozmiar, typ dysku systemu operacyjnego i konfigurację dostępności (w przypadku wybrania w poprzednim kroku). Maszyny wirtualne muszą być zgodne z [wymaganiami platformy Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+13. W obszarze **obliczenia** Sprawdź nazwę maszyny wirtualnej, rozmiar, typ dysku systemu operacyjnego i konfigurację dostępności (w przypadku wybrania w poprzednim kroku). Maszyny wirtualne muszą być zgodne z [wymaganiami platformy Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
-    - **Rozmiar maszyny wirtualnej**: Jeśli korzystasz z zaleceń dotyczących oceny, rozmiar maszyny wirtualnej zostanie wyświetlony na liście rozwijanej rozmiar zalecane. W przeciwnym razie usługa Azure Migrate wybierze rozmiar na podstawie najbliższego dopasowania w subskrypcji platformy Azure. Alternatywnie możesz wybrać rozmiar ręczny w obszarze **rozmiaru maszyny wirtualnej platformy Azure**.
-    - **Dysk systemu operacyjnego**: Określ dysk systemu operacyjnego (Boot) dla maszyny wirtualnej. Dysk systemu operacyjnego to dysk, na którym jest zainstalowany program ładujący i instalator systemu operacyjnego.
-    - **Strefa dostępności**: Określ strefę dostępności, która ma zostać użyta.
-    - **Zestaw dostępności**: Określ zestaw dostępności, który ma być używany.
+    - **Rozmiar maszyny wirtualnej** : Jeśli korzystasz z zaleceń dotyczących oceny, rozmiar maszyny wirtualnej zostanie wyświetlony na liście rozwijanej rozmiar zalecane. W przeciwnym razie usługa Azure Migrate wybierze rozmiar na podstawie najbliższego dopasowania w subskrypcji platformy Azure. Alternatywnie możesz wybrać rozmiar ręczny w obszarze **rozmiaru maszyny wirtualnej platformy Azure**.
+    - **Dysk systemu operacyjnego** : Określ dysk systemu operacyjnego (Boot) dla maszyny wirtualnej. Dysk systemu operacyjnego to dysk, na którym jest zainstalowany program ładujący i instalator systemu operacyjnego.
+    - **Strefa dostępności** : Określ strefę dostępności, która ma zostać użyta.
+    - **Zestaw dostępności** : Określ zestaw dostępności, który ma być używany.
 
 > [!NOTE]
 > Jeśli chcesz wybrać inną opcję dostępności dla zestawów maszyn wirtualnych, przejdź do kroku 1 i powtórz kroki, wybierając różne opcje dostępności po uruchomieniu replikacji dla jednego zestawu maszyn wirtualnych.
 
    ![Ustawienia obliczeń](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. W obszarze **dyski**Określ, czy dyski maszyn wirtualnych mają być replikowane na platformę Azure, a następnie wybierz typ dysku (standardowy dysk SSD lub dyski w warstwie Premium) na platformie Azure. Następnie kliknij przycisk **Dalej**.
+13. W obszarze **dyski** Określ, czy dyski maszyn wirtualnych mają być replikowane na platformę Azure, a następnie wybierz typ dysku (standardowy dysk SSD lub dyski w warstwie Premium) na platformie Azure. Następnie kliknij przycisk **Dalej**.
     - Dyski można wykluczyć z replikacji.
     - Jeśli wykluczysz dyski, nie będą one znajdować się na maszynie wirtualnej platformy Azure po migracji. 
 
     ![Ustawienia dysku](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
 
-14. W obszarze **Przegląd i rozpoczynanie replikacji** sprawdź ustawienia, a następnie kliknij pozycję **Replikuj**, aby uruchomić replikację początkową dla serwerów.
+14. W obszarze **Przegląd i rozpoczynanie replikacji** sprawdź ustawienia, a następnie kliknij pozycję **Replikuj** , aby uruchomić replikację początkową dla serwerów.
 
 > [!NOTE]
 > Ustawienia replikacji można aktualizować w dowolnym momencie przed rozpoczęciem replikacji, **Zarządzanie**  >  **maszynami replikowanymi**. Ustawień nie można zmienić po rozpoczęciu replikacji.
@@ -306,7 +306,7 @@ Po rozpoczęciu replikacji różnicowej można przeprowadzić migrację testową
 Wykonaj migrację testową w następujący sposób:
 
 
-1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Migracja serwera**, kliknij przycisk **Testuj zmigrowane serwery**.
+1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Migracja serwera** , kliknij przycisk **Testuj zmigrowane serwery**.
 
      ![Serwery z przeprowadzoną migracją testową](./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png)
 
@@ -317,7 +317,7 @@ Wykonaj migrację testową w następujący sposób:
 3. W obszarze **Testowanie migracji** wybierz sieć wirtualną platformy Azure, w której zostanie umieszczona maszyna wirtualna platformy Azure po migracji. Zalecamy użycie nieprodukcyjnej sieci wirtualnej.
 4. Zostanie uruchomione zadanie **Testowanie migracji**. Monitoruj zadanie w powiadomieniach portalu.
 5. Po zakończeniu migracji sprawdź zmigrowane maszyny wirtualne platformy Azure w obszarze **Maszyny wirtualne** w witrynie Azure Portal. Nazwa maszyny ma sufiks **-Test**.
-6. Po zakończeniu testu kliknij prawym przyciskiem myszy maszynę wirtualną platformy Azure w obszarze **Replikowanie maszyn**, a następnie kliknij pozycję **Wyczyść migrację testową**.
+6. Po zakończeniu testu kliknij prawym przyciskiem myszy maszynę wirtualną platformy Azure w obszarze **Replikowanie maszyn** , a następnie kliknij pozycję **Wyczyść migrację testową**.
 
     ![Czyszczenie migracji](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
 
@@ -326,12 +326,12 @@ Wykonaj migrację testową w następujący sposób:
 
 Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można przeprowadzić migrację maszyn lokalnych.
 
-1. W Azure Migrate serwery > Project **Servers**  >  **Azure Migrate: Migracja serwera**, kliknij przycisk **replikowanie serwerów**.
+1. W Azure Migrate serwery > Project **Servers**  >  **Azure Migrate: Migracja serwera** , kliknij przycisk **replikowanie serwerów**.
 
     ![Replikowanie serwerów](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
 2. W obszarze **Replikowanie maszyn** kliknij prawym przyciskiem myszy maszynę wirtualną > **Migruj**.
-3. W obszarze **Migrowanie**  >  **Zamknij maszyny wirtualne i przeprowadź planowaną migrację bez utraty danych**wybierz pozycję **tak**  >  **OK**.
+3. W obszarze **Migrowanie**  >  **Zamknij maszyny wirtualne i przeprowadź planowaną migrację bez utraty danych** wybierz pozycję **tak**  >  **OK**.
     - Jeśli nie chcesz zamykać maszyny wirtualnej, wybierz pozycję **Nie**
     
     Uwaga: w przypadku migracji serwera fizycznego zaleca się przełączenie aplikacji w ramach okna migracji (nie Zezwalaj aplikacjom na akceptowanie żadnych połączeń), a następnie zainicjowanie migracji (serwer musi być uruchomiony, aby można było zsynchronizować pozostałe zmiany) przed ukończeniem migracji.

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3e851c47e67ac6e42d81b7688e457c2f9e17725b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: dadf710f726a89184e73189041b6735c548d7d75
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543954"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337230"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Samouczek: projektowanie bazy danych usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -27,6 +27,8 @@ Usługa Azure Database for MySQL jest usługą relacyjnej bazy danych w chmurze 
 > * Zapytania o dane
 > * Aktualizowanie danych
 > * Przywracanie danych
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 
@@ -85,7 +87,7 @@ Aby nawiązać połączenie z serwerem, musisz podać informacje o hoście i po�
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin** .
+Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -196,12 +198,25 @@ Przywrócenie serwera do określonego punktu w czasie powoduje utworzenie nowego
 
 Polecenie jest synchroniczne i zostanie zakończone po przywróceniu serwera. Po zakończeniu przywracania zlokalizuj nowy serwer, który został utworzony. Sprawdź, czy dane zostały przywrócone zgodnie z oczekiwaniami.
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+Jeśli te zasoby nie są Ci potrzebne do pracy z innym przewodnikiem Szybki start lub samouczkiem, możesz je usunąć, uruchamiając następujące polecenie: 
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+Jeśli po prostu chcesz usunąć jeden z nowo utworzonych serwerów, możesz uruchomić polecenie [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete).
+
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## <a name="next-steps"></a>Następne kroki
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie serwera usługi Azure Database for MySQL
 > * Konfigurowanie zapory serwera
-> * Tworzenie bazy danych za pomocą [narzędzia wiersza polecenia MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)
+> * Tworzenie bazy danych za pomocą narzędzia wiersza polecenia mysql
 > * Ładowanie przykładowych danych
 > * Zapytania o dane
 > * Aktualizowanie danych
