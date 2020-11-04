@@ -3,15 +3,16 @@ title: Azure Cosmos DB zasad indeksowania
 description: Dowiedz się, jak skonfigurować i zmienić domyślne zasady indeksowania dla automatycznego indeksowania i zwiększenia wydajności w Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: ede2e6b172c867a00f98c6b095381ad5a5f3a323
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 9e62d6c475a4aeb366d034af1c80fc728f1a9211
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285747"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335827"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

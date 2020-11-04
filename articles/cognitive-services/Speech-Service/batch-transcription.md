@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e4e5f4c1a50c814174dbbd5d419fe24b2e9f88e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360756"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336684"
 ---
 # <a name="how-to-use-batch-transcription"></a>Jak korzystać z transkrypcji partii
 
@@ -36,8 +36,6 @@ Korzystając z interfejsów API REST transkrypcji wsadowej, można wywołać nas
 
 Możesz przejrzeć i przetestować szczegółowy interfejs API, który jest dostępny jako [dokument struktury Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
-Ten interfejs API nie wymaga niestandardowych punktów końcowych i nie ma wymagań współbieżności.
-
 Zadania transkrypcji partii są planowane na podstawie najlepszego nakładu pracy.
 Nie można oszacować, kiedy zadanie zmieni się w stan uruchomienia, ale powinno wystąpić w ciągu kilku minut w przypadku normalnego obciążenia systemu. Raz w stanie uruchomienia transkrypcja odbywa się szybciej niż szybkość odtwarzania dźwięku w środowisku uruchomieniowym.
 
@@ -46,9 +44,12 @@ Nie można oszacować, kiedy zadanie zmieni się w stan uruchomienia, ale powinn
 Podobnie jak w przypadku wszystkich funkcji usługi Speech, można utworzyć klucz subskrypcji z [Azure Portal](https://portal.azure.com) , postępując zgodnie z [przewodnikiem](overview.md#try-the-speech-service-for-free)wprowadzenie.
 
 >[!NOTE]
-> Aby można było użyć transkrypcji partii, wymagana jest Standardowa subskrypcja (S0) dla usługi rozpoznawania mowy. Bezpłatne klucze subskrypcji (F0) nie działają. Aby uzyskać więcej informacji, zobacz [Cennik i limity](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Aby można było użyć transkrypcji partii, wymagana jest Standardowa subskrypcja (S0) dla usługi rozpoznawania mowy. Bezpłatne klucze subskrypcji (F0) nie będą działały. Aby uzyskać więcej informacji, zobacz [Cennik i limity](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 Jeśli planujesz dostosowanie modeli, postępuj zgodnie z instrukcjami w temacie [dostosowanie akustyczne](how-to-customize-acoustic-models.md) i [Dostosowywanie języka](how-to-customize-language-model.md). Aby można było używać utworzonych modeli w transkrypcji partii, potrzebna jest ich lokalizacja modelu. Lokalizację modelu można pobrać podczas inspekcji szczegółów modelu ( `self` Właściwości). Wdrożony niestandardowy punkt końcowy *nie jest wymagany* w przypadku usługi transkrypcji partii.
+
+>[!NOTE]
+> W ramach interfejsu API REST transkrypcja usługi Batch ma zestaw [przydziałów i limitów](speech-services-quotas-and-limits.md#speech-to-text-quotas-and-limits-per-speech-resource), które zachęcamy do przeglądu. Aby skorzystać z pełnego wykorzystania możliwości transkrypcji w usłudze Batch w celu wydajnego transkrypcja dużej liczby plików audio, zalecamy wysyłanie wielu plików na żądanie lub wskazanie kontenera Blob Storage z plikami audio do transkrypcja. Usługa będzie transkrypcja pliki jednocześnie zmniejszając czas szybkością oferowaną. Używanie wielu plików w pojedynczym żądaniu jest bardzo proste i proste — Zobacz sekcję [konfiguracyjną](#configuration) . 
 
 ## <a name="batch-transcription-api"></a>Interfejs API transkrypcji usługi Batch
 
@@ -65,12 +66,16 @@ Aby utworzyć uporządkowaną końcową transkrypcję, użyj sygnatur czasowych 
 
 ### <a name="configuration"></a>Konfiguracja
 
-Parametry konfiguracji są podane jako dane JSON (co najmniej jeden z pojedynczych plików):
+Parametry konfiguracji są podane jako dane JSON.
+
+**Jego przepisywania jeden lub więcej pojedynczych plików.** Jeśli masz więcej niż jeden plik do Transkrypcja, zalecamy wysłanie wielu plików w jednym żądaniu. W poniższym przykładzie użyto trzech plików:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -80,7 +85,7 @@ Parametry konfiguracji są podane jako dane JSON (co najmniej jeden z pojedynczy
 }
 ```
 
-Parametry konfiguracji są podane jako dane JSON (przetwarzanie całego kontenera magazynu):
+**Przetwarzanie całego kontenera magazynu:**
 
 ```json
 {
@@ -93,12 +98,14 @@ Parametry konfiguracji są podane jako dane JSON (przetwarzanie całego kontener
 }
 ```
 
-Poniższy kod JSON określa niestandardowy model szkolony do użycia w transkrypcji partii:
+**Użyj niestandardowego modelu przeszkolonego w transkrypcji partii.** W przykładzie użyto trzech plików:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -156,14 +163,14 @@ Użyj tych opcjonalnych właściwości, aby skonfigurować transkrypcję:
       `channels`
    :::column-end:::
    :::column span="2":::
-      Opcjonalne `0` i `1` Domyślnie uzyskanego. Tablica numerów kanałów do przetworzenia. W tym miejscu podzbiór dostępnych kanałów w pliku audio może być określony do przetworzenia (np. `0` tylko).
+      Opcjonalne `0` i `1` Domyślnie uzyskanego. Tablica numerów kanałów do przetworzenia. W tym miejscu podzbiór dostępnych kanałów w pliku audio może być określony do przetworzenia (tylko na przykład `0` ).
 :::row-end:::
 :::row:::
    :::column span="1":::
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      Opcjonalne, nie usuwaj domyślnie. Czas trwania usuwania transkrypcji po zakończeniu transkrypcji. `timeToLive`Jest przydatny do masowego tworzenia transkrypcji, aby upewnić się, że zostaną ostatecznie usunięte (np. `PT12H` przez 12 godzin).
+      Opcjonalne, nie usuwaj domyślnie. Czas trwania usuwania transkrypcji po zakończeniu transkrypcji. `timeToLive`Jest przydatny do masowego tworzenia transkrypcji, aby upewnić się, że zostaną ostatecznie usunięte (na przykład `PT12H` przez 12 godzin).
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -323,7 +330,80 @@ Zaktualizuj przykładowy kod przy użyciu informacji o subskrypcji, regionu usł
 
 Przykładowy kod konfiguruje klienta i przesyła żądanie transkrypcji. Następnie sonduje informacje o stanie i drukuje szczegóły dotyczące postępu transkrypcji.
 
-[!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptionstatus)]
+```csharp
+// get the status of our transcriptions periodically and log results
+int completed = 0, running = 0, notStarted = 0;
+while (completed < 1)
+{
+    completed = 0; running = 0; notStarted = 0;
+
+    // get all transcriptions for the user
+    paginatedTranscriptions = null;
+    do
+    {
+        // <transcriptionstatus>
+        if (paginatedTranscriptions == null)
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync().ConfigureAwait(false);
+        }
+        else
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync(paginatedTranscriptions.NextLink).ConfigureAwait(false);
+        }
+
+        // delete all pre-existing completed transcriptions. If transcriptions are still running or not started, they will not be deleted
+        foreach (var transcription in paginatedTranscriptions.Values)
+        {
+            switch (transcription.Status)
+            {
+                case "Failed":
+                case "Succeeded":
+                    // we check to see if it was one of the transcriptions we created from this client.
+                    if (!createdTranscriptions.Contains(transcription.Self))
+                    {
+                        // not created form here, continue
+                        continue;
+                    }
+
+                    completed++;
+
+                    // if the transcription was successful, check the results
+                    if (transcription.Status == "Succeeded")
+                    {
+                        var paginatedfiles = await client.GetTranscriptionFilesAsync(transcription.Links.Files).ConfigureAwait(false);
+
+                        var resultFile = paginatedfiles.Values.FirstOrDefault(f => f.Kind == ArtifactKind.Transcription);
+                        var result = await client.GetTranscriptionResultAsync(new Uri(resultFile.Links.ContentUrl)).ConfigureAwait(false);
+                        Console.WriteLine("Transcription succeeded. Results: ");
+                        Console.WriteLine(JsonConvert.SerializeObject(result, SpeechJsonContractResolver.WriterSettings));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Transcription failed. Status: {0}", transcription.Properties.Error.Message);
+                    }
+
+                    break;
+
+                case "Running":
+                    running++;
+                    break;
+
+                case "NotStarted":
+                    notStarted++;
+                    break;
+            }
+        }
+
+        // for each transcription in the list we check the status
+        Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
+    }
+    while (paginatedTranscriptions.NextLink != null);
+
+    // </transcriptionstatus>
+    // check again after 1 minute
+    await Task.Delay(TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+}
+```
 
 Aby uzyskać szczegółowe informacje o poprzednich wywołaniach, zobacz [dokument struktury Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). Aby wyświetlić pełny przykład, przejdź do witryny [GitHub](https://aka.ms/csspeech/samples) w `samples/batch` podkatalogu.
 

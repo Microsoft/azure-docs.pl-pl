@@ -1,93 +1,314 @@
 ---
 title: Rozwiązywanie problemów z obrazami udostępnionymi na platformie Azure
 description: Dowiedz się, jak rozwiązywać problemy z udostępnionymi galeriami obrazów.
-author: cynthn
+author: olayemio
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: troubleshooting
 ms.workload: infrastructure
-ms.date: 06/15/2020
-ms.author: cynthn
+ms.date: 10/27/2020
+ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d01ac7d5b01f485c3b0100c468332475a9bd4274
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 189fa12b1fc11e79ab64231a7ecd453113b8771a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978547"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336014"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Rozwiązywanie problemów z udostępnionymi galeriami obrazów na platformie Azure
 
 Jeśli napotkasz problemy podczas wykonywania jakichkolwiek operacji na galeriach obrazów udostępnionych, definicjach obrazów i wersjach obrazów, uruchom polecenie powodujące niepowodzenie ponownie w trybie debugowania. Tryb debugowania jest aktywowany przez przekazanie `--debug` przełącznika przy użyciu interfejsu wiersza polecenia i `-Debug` przełącznika przy użyciu programu PowerShell. Po zlokalizowaniu błędu postępuj zgodnie z tym dokumentem, aby rozwiązać problemy.
 
 
-## <a name="unable-to-create-a-shared-image-gallery"></a>Nie można utworzyć galerii obrazów udostępnionych
+## <a name="issues-with-creating-or-modifying-a-gallery"></a>Problemy związane z tworzeniem lub modyfikowaniem galerii ##
 
-Możliwe przyczyny:
+*Nazwa galerii jest nieprawidłowa. Dozwolone znaki to angielskie znaki alfanumeryczne ze znakami podkreślenia i kropki dozwolone w środku, do 80 znaków. Wszystkie inne znaki specjalne, w tym łączniki, są niedozwolone.*  
+**Przyczyna** : dana nazwa galerii nie spełnia wymagań dotyczących nazewnictwa.  
+**Obejście** : wybierz nazwę spełniającą następujące warunki: 1) 80-limit znaków, 2) zawiera tylko angielskie litery, cyfry, znaki podkreślenia i kropki, 3) zaczyna się i kończąc z angielską literą lub cyframi.
 
-*Nazwa galerii jest nieprawidłowa.*
+*Nazwa jednostki "galleryname" jest nieprawidłowa zgodnie z jej regułą walidacji: ^ [^ \_ \w] [\w-. \_ ] {0,79} (? <! [-.]) $.*  
+**Przyczyna** : Nazwa galerii nie spełnia wymagań dotyczących nazewnictwa.  
+**Obejście** : wybierz nazwę galerii, która spełnia następujące warunki: 1) 80-limit znaków, 2) zawiera tylko angielskie litery, cyfry, znaki podkreślenia i kropki, 3) zaczyna się i kończąc z angielską literą lub cyframi.
 
-Dozwolone znaki w nazwie galerii to wielkie lub małe litery, cyfry, kropki i kropki. Nazwa galerii nie może zawierać kresek. Zmień nazwę galerii i spróbuj ponownie. 
+*Podana nazwa zasobu <Galeria \> zawiera następujące nieprawidłowe znaki końcowe: <\> . Nazwa nie może kończyć się znakami: <znaku\>*  
+**Przyczyna** : Nazwa galerii kończąca się kropką lub podkreśleniem.  
+**Obejście** : wybierz nazwę galerii, która spełnia następujące warunki: 1) 80-limit znaków, 2) zawiera tylko angielskie litery, cyfry, znaki podkreślenia i kropki, 3) zaczyna się i kończąc z angielską literą lub cyframi.
 
-*Nazwa galerii nie jest unikatowa w ramach subskrypcji.*
+*Podana lokalizacja <region \> nie jest dostępny dla typu zasobu "Microsoft. COMPUTE/Galerie". Lista dostępnych regionów dla typu zasobu to...*  
+**Przyczyna** : region określony dla galerii jest niepoprawny lub wymaga żądania dostępu.  
+**Obejście** : Sprawdź, czy nazwa regionu jest wpisana poprawnie. Możesz uruchomić to polecenie, aby zobaczyć, do jakich regionów masz dostęp. Jeśli region nie znajduje się na liście, Prześlij [żądanie dostępu](/troubleshoot/azure/general/region-access-request-process).
 
-Wybierz inną nazwę galerii i spróbuj ponownie.
+*Nie można usunąć zasobu przed usunięciem zasobów zagnieżdżonych.*  
+**Przyczyna** : podjęto próbę usunięcia galerii zawierającej co najmniej jedną istniejącą definicję obrazu. Galeria musi być pusta, aby można było ją usunąć.  
+**Obejście** : Usuń wszystkie definicje obrazów w galerii, a następnie wybierz pozycję Usuń galerię. Jeśli definicja obrazu zawiera wersje obrazu, należy usunąć wersje obrazu przed usunięciem definicji obrazu.
 
+*Zasób <galleryname \> już istnieje w lokalizacji <region \_ 1 \> w grupie zasobów <grupy Resources \> . Nie można utworzyć zasobu o tej samej nazwie w lokalizacji <regionie \_ 2 \> . Wybierz nową nazwę zasobu.*  
+**Przyczyna** : masz już istniejącą galerię w grupie zasobów o tej samej nazwie i podjęto próbę utworzenia innej galerii o tej samej nazwie, ale w innym regionie.  
+**Obejście** : Użyj innej galerii lub innej grupy zasobów.
 
-## <a name="unable-to-create-an-image-definition"></a>Nie można utworzyć definicji obrazu 
+## <a name="issues-with-creating-or-modifying-image-definitions"></a>Problemy związane z tworzeniem lub modyfikowaniem definicji obrazu ##
 
-Możliwe przyczyny:
+*Zmiana właściwości "galleryImage. Properties. <\> " jest niedozwolona.*  
+**Przyczyna** : podjęto próbę zmiany typu systemu operacyjnego, stanu systemu operacyjnego, generacji funkcji Hyper-V, oferty, wydawcy i jednostki SKU. Zmiana żadnej z tych właściwości jest niedozwolona.  
+**Obejście** : zamiast tego Utwórz nową definicję obrazu.
 
-*Nazwa definicji obrazu jest nieprawidłowa.*
+*Zasób <galerianame/imageDefinitionName \> już istnieje w lokalizacji <region \_ 1 \> w grupie zasobów <grupy odsources \> . Nie można utworzyć zasobu o tej samej nazwie w lokalizacji <regionie \_ 2 \> . Wybierz nową nazwę zasobu.*  
+**Przyczyna** : masz już istniejącą definicję obrazu w tej samej galerii i grupie zasobów o tej samej nazwie i podjęto próbę utworzenia innej definicji obrazu o tej samej nazwie i w tej samej galerii, ale w innym regionie.  
+**Obejście** : Użyj innej nazwy dla definicji obrazu lub Umieść definicję obrazu w innej galerii lub grupie zasobów
 
-Dozwolone znaki dla definicji obrazu to wielkie lub małe litery, cyfry, kropki, łączniki i kropki. Zmień nazwę definicji obrazu i spróbuj ponownie.
+*Podana nazwa zasobu <Gallery \> /<imageDefinitionName \> ma następujące nieprawidłowe znaki końcowe: znak <\> . Nazwa nie może kończyć się znakami: <znaku\>*  
+**Przyczyna** : dany <imageDefinitionName \> kończący się kropką lub podkreśleniem.  
+**Obejście** : wybierz nazwę definicji obrazu spełniającą następujące warunki: 1) 80-limit znaków, 2) zawiera tylko litery angielskie, cyfry, łączniki, podkreślenia i kropki, 3) zaczynają się i kończą się literami w języku angielskim lub cyframi.
 
-*Właściwości obowiązkowe do tworzenia definicji obrazu nie są wypełnione.*
+*Nazwa jednostki <imageDefinitionName \> jest nieprawidłowa zgodnie z jej regułą walidacji: ^ [^ \_ \\ W] [ \\ W-. \_ ] {0,79} (? <! [-.]) $"*  
+**Przyczyna** : dany <imageDefinitionName \> kończący się kropką lub podkreśleniem.  
+**Obejście** : wybierz nazwę definicji obrazu spełniającą następujące warunki: 1) 80-limit znaków, 2) zawiera tylko litery angielskie, cyfry, łączniki, podkreślenia i kropki, 3) zaczynają się i kończą się literami w języku angielskim lub cyframi.
 
-Właściwości, takie jak nazwa, Wydawca, oferta, jednostka SKU i typ systemu operacyjnego, są obowiązkowe. Sprawdź, czy wszystkie właściwości są przesyłane.
+*Właściwość galleryImage. Properties. Identifier. <\> nie jest prawidłowa. Nie może być pusty. Dozwolone znaki to wielkie lub małe litery, cyfry, łącznik (-), kropka (.), znak podkreślenia ( \_ ). Nazwy nie mogą kończyć się kropką (.). Długość nazwy nie może przekraczać <znaków liczbowych \> .*  
+**Przyczyna** : dany wydawca, oferta lub wartość jednostki SKU nie spełniają wymagań dotyczących nazewnictwa.  
+**Obejście** : wybierz wartość spełniającą następujące warunki: 1) 128-limit znaków wydawców lub 64 znaków dla oferty i jednostki SKU, 2) zawiera tylko litery angielskie, cyfry, łączniki, znaki podkreślenia i kropki oraz 3) nie kończące się kropką.
 
-Upewnij się, że definicja obrazu **OSType**, Linux lub Windows jest taka sama jak źródło używane do tworzenia wersji obrazu. 
+*Nie można wykonać żądanej operacji na zasobie zagnieżdżonym. Nie odnaleziono elementu nadrzędnego <galleryname \> .*  
+**Przyczyna** : nie istnieje Galeria o nazwie <galleryname \> w bieżącej subskrypcji i grupie zasobów.  
+**Obejście** : Sprawdź, czy nazwa galerii, subskrypcji i grupy zasobów jest poprawna. W przeciwnym razie Utwórz nową galerię o nazwie <galleryname \> .
 
+*Podana lokalizacja <region \> nie jest dostępny dla typu zasobu "Microsoft. COMPUTE/Galerie". Lista dostępnych regionów dla typu zasobu to...*  
+**Przyczyna** : region <\> jest niepoprawny lub wymaga żądania dostępu  
+**Obejście** : Sprawdź, czy nazwa regionu jest wpisana poprawnie. Możesz uruchomić to polecenie, aby zobaczyć, do jakich regionów masz dostęp. Jeśli region nie znajduje się na liście, Prześlij [żądanie dostępu](/troubleshoot/azure/general/region-access-request-process).
 
-## <a name="unable-to-create-an-image-version"></a>Nie można utworzyć wersji obrazu 
+*Nie można serializować wartości: <wartość \> jako typ: "ISO-8601"., ISO8601Error: brak wystawcy iso 8601. Nie można przeanalizować ciągu DateTime <wartość\>*  
+**Przyczyna** : wartość podana dla właściwości nie jest prawidłowo sformatowana jako Data.  
+**Obejście** : Podaj datę w formacie RRRR-MM-DD, rrrr-mm-dd'T'HH: mm: Sszzz lub [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-prawidłowy format.
 
-Możliwe przyczyny:
+*Nie można przekonwertować ciągu na wartość DateTimeOffset: <\> . Ścieżka "Properties. <Właściwość \> "*  
+**Przyczyna** : wartość podana dla właściwości nie jest prawidłowo sformatowana jako Data.  
+**Obejście** : Podaj datę w formacie RRRR-MM-DD, rrrr-mm-dd'T'HH: mm: Sszzz lub [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-prawidłowy format.
 
-*Nazwa wersji obrazu jest nieprawidłowa.*
+*EndOfLifeDate musi być ustawiona na datę przyszłą.*  
+**Przyczyna** : Właściwość data końca okresu istnienia nie jest prawidłowo sformatowana jako data, która jest późniejsza niż dzisiejsza data.  
+**Obejście** : Podaj datę w formacie RRRR-MM-DD, rrrr-mm-dd'T'HH: mm: Sszzz lub [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-prawidłowy format.
 
-Dozwolone znaki wersji obrazu to liczby i kropki. Liczba musi należeć do zakresu 32-bitowej liczby całkowitej. Format: *MajorVersion. MinorVersion. patch*. Zmień nazwę wersji obrazu i spróbuj ponownie.
+*argument--<Właściwość \> : nieprawidłowa wartość int: <wartość\>*  
+**Przyczyna** : Właściwość <\> akceptuje tylko wartości całkowite, a <wartość \> nie jest liczbą całkowitą.  
+**Obejście** : wybierz wartość całkowitą.
 
-*Nie znaleziono źródłowego obrazu zarządzanego, z którego jest tworzona wersja obrazu.* 
+*Minimalna wartość właściwości <\> nie może być większa niż maksymalna wartość właściwości <\> .*  
+**Przyczyna** : wartość minimalna podana dla właściwości <\> jest wyższa niż maksymalna wartość podana dla właściwości <\> .  
+**Obejście** : Zmień wartości tak, aby wartość minimalna była mniejsza lub równa maksymalnej.
 
-Sprawdź, czy obraz źródłowy istnieje i znajduje się w tym samym regionie co wersja obrazu.
+*Obraz galerii: <imageDefinitionName \> identyfikowany przez (Wydawca: <Publisher \> , oferta: <oferta \> , jednostka SKU: <SKU \> ) już istnieje. Wybierz innego wydawcę, ofertę, kombinację jednostki SKU.*  
+**Przyczyna** : podjęto próbę utworzenia nowej definicji obrazu z tym samym wydawcą, ofertą i jednostką SKU tryplet jako istniejącą definicją obrazu w tej samej galerii.  
+**Obejście** : w danej galerii wszystkie definicje obrazów muszą mieć unikatową kombinację wydawcy, oferty, jednostki SKU. Wybierz unikatową kombinację lub wybierz nową galerię i ponownie Utwórz definicję obrazu.
 
-*Nie zainicjowano obsługi obrazu zarządzanego.*
+*Nie można usunąć zasobu przed usunięciem zasobów zagnieżdżonych.*  
+**Przyczyna** : podjęto próbę usunięcia definicji obrazu zawierającej wersje obrazu. Definicja obrazu musi być pusta, aby można było ją usunąć.  
+**Obejście** : Usuń wszystkie wersje obrazu w definicji obrazu, a następnie wybierz pozycję Usuń definicję obrazu.
 
-Upewnij się, że stan aprowizacji obrazu zarządzanego jest **zakończony pomyślnie**.
+*Nie można powiązać właściwości <parametru \> . Nie można przekonwertować wartości <wartości \> na typ <PropertyType \> . Nie można dopasować nazwy identyfikatora <wartość \> do prawidłowej nazwy modułu wyliczającego. Określ jedną z następujących nazw modułów wyliczających i spróbuj ponownie: <choice1 \> , <Choice2 \> ,...*  
+**Przyczyna** : właściwość ma ograniczoną listę możliwych wartości, a <wartość \> nie jest jedną z nich.  
+**Obejście** : Wybierz jedną z możliwych <\> wartości wyboru.
 
-*Lista regionów docelowych nie obejmuje regionu źródłowego.*
+*Nie można powiązać właściwości <parametru \> . Nie można przekonwertować wartości <wartość \> na typ &quot; System. DateTime&quot;*  
+**Przyczyna** : wartość podana dla właściwości nie jest prawidłowo sformatowana jako Data.  
+**Obejście** : Podaj datę w formacie RRRR-MM-DD, rrrr-mm-dd'T'HH: mm: Sszzz lub [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-prawidłowy format.
 
-Lista regionów docelowych musi zawierać region źródłowy wersji obrazu. Upewnij się, że na liście regionów docelowych została uwzględniona lokalizacja źródłowa, w której ma zostać zreplikowana wersja obrazu.
+*Nie można powiązać właściwości <parametru \> . Nie można przekonwertować wartości <wartość \> na typ &quot; System. Int32&quot;*  
+**Przyczyna** : Właściwość <\> akceptuje tylko wartości całkowite, a <wartość \> nie jest liczbą całkowitą.  
+**Obejście** : wybierz wartość całkowitą.
 
-*Replikacja do wszystkich regionów docelowych nie została ukończona.*
+*Typ konta magazynu ZRS nie jest obsługiwany w tym regionie.*  
+**Przyczyna** : wybrano standardową ZRS w regionie, który jeszcze go nie obsługuje.  
+**Obejście** : Zmień typ konta magazynu na "Premium \_ LRS" lub "standardowa \_ LRS". Zapoznaj się z naszą dokumentacją, aby uzyskać najnowszą [listę regionów](/azure/storage/common/storage-redundancy#zone-redundant-storage) z WŁĄCZONĄ funkcją ZRS Preview.
 
-Użyj flagi **--expand ReplicationStatus** , aby sprawdzić, czy replikacja do wszystkich określonych regionów docelowych została ukończona. W przeciwnym razie poczekaj do 6 godzin, aż zadanie zostanie ukończone. Jeśli to się nie powiedzie, ponownie uruchom polecenie, aby utworzyć i replikować wersję obrazu. Jeśli istnieje wiele regionów docelowych, do których jest replikowana wersja obrazu, należy wziąć pod uwagę replikację w fazach.
+## <a name="issues-with-creating-or-updating-image-versions"></a>Problemy związane z tworzeniem lub aktualizowaniem wersji obrazu ##
 
-## <a name="unable-to-create-a-vm-or-a-scale-set"></a>Nie można utworzyć maszyny wirtualnej lub zestawu skalowania 
+*Podana lokalizacja <region \> nie jest dostępny dla typu zasobu "Microsoft. COMPUTE/Galerie". Lista dostępnych regionów dla typu zasobu to...*  
+**Przyczyna** : region <\> jest niepoprawny lub wymaga żądania dostępu  
+**Obejście** : Sprawdź, czy nazwa regionu jest wpisana poprawnie. Możesz uruchomić to polecenie, aby zobaczyć, do jakich regionów masz dostęp. Jeśli region nie znajduje się na liście, Prześlij [żądanie dostępu](/troubleshoot/azure/general/region-access-request-process).
 
-Możliwe przyczyny:
+*Nie można wykonać żądanej operacji na zasobie zagnieżdżonym. Nie znaleziono zasobu nadrzędnego <Gallery/imageDefinitionName \> .*  
+**Przyczyna** : nie istnieje Galeria o nazwie <Gallery/imageDefinitionName \> w bieżącej subskrypcji i grupie zasobów.  
+**Obejście** : Sprawdź, czy nazwa galerii, subskrypcji i grupy zasobów jest poprawna. W przeciwnym razie Utwórz nową galerię o nazwie <Gallery \> i/lub definicji obrazu o nazwie <imageDefinitionName \> w wskazanej grupie zasobów.
 
-*Użytkownik próbujący utworzyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych nie ma dostępu do odczytu do wersji obrazu.*
+*Nie można powiązać właściwości <parametru \> . Nie można przekonwertować wartości <wartość \> na typ &quot; System. DateTime&quot;*  
+**Przyczyna** : wartość podana dla właściwości nie jest prawidłowo sformatowana jako Data.  
+**Obejście** : Podaj datę w formacie RRRR-MM-DD, rrrr-mm-dd'T'HH: mm: Sszzz lub [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)-prawidłowy format.
 
-Skontaktuj się z właścicielem subskrypcji i poproś o przyznanie dostępu do odczytu do wersji obrazu lub zasobów nadrzędnych (takich jak Galeria obrazów udostępnionych lub definicja obrazu) za pośrednictwem [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
+*Nie można powiązać właściwości <parametru \> . Nie można przekonwertować wartości <wartość \> na typ &quot; System. Int32&quot;*  
+**Przyczyna** : Właściwość <\> akceptuje tylko wartości całkowite, a <wartość \> nie jest liczbą całkowitą.  
+**Obejście** : wybierz wartość całkowitą.
 
-*Nie znaleziono wersji obrazu.*
+*Wersja obrazu galerii regiony profilu publikowania <publishingRegions \> musi zawierać lokalizację wersji obrazu <sourceRegion\>*  
+**Przyczyna** : Lokalizacja obrazu źródłowego (<sourceRegion \> ) musi być uwzględniona na liście <publishingRegions \>  
+**Obejście** : uwzględnij < sourceRegion \> na liście <publishingRegions \> .
 
-Sprawdź, czy region, w którym próbujesz utworzyć maszynę wirtualną lub skalowanie maszyn wirtualnych, znajduje się na liście regionów docelowych wersji obrazu. Jeśli region znajduje się już na liście regionów docelowych, sprawdź, czy zadanie replikacji zostało ukończone. Możesz użyć flagi **-ReplicationStatus** , aby sprawdzić, czy replikacja do wszystkich określonych regionów docelowych została ukończona. 
+*Wartość <wartość \> właściwości <parametru \> jest poza zakresem. Wartość musi należeć do przedziału od <minValue \> i <MaxValue \> włącznie.*  
+**Przyczyna** : wartość <\> jest poza zakresem możliwych wartości właściwości <\> .  
+**Obejście** : wybierz wartość znajdującą się w zakresie <minValue \> i <MaxValue \> włącznie.
 
-*Tworzenie zestawu skalowania maszyn wirtualnych lub maszyny wirtualnej zajmuje dużo czasu.*
+*\>Nie odnaleziono resourceID <źródła. Sprawdź, czy źródło istnieje i znajduje się w tym samym regionie, w którym jest tworzona wersja obrazu galerii.*  
+**Przyczyna** : nie ma źródła zlokalizowanego w <ResourceID \> lub źródło w <ResourceID \> nie znajduje się w tym samym regionie, w którym jest tworzony obraz galerii.  
+**Obejście** : Sprawdź, czy <ResourceID \> jest poprawny i czy region źródłowy wersji obrazu galerii jest taki sam jak region <ResourceID\>
 
-Sprawdź, czy **OSType** wersji obrazu, z której próbujesz utworzyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych, ma ten sam **OSType** źródła, którego użyto do utworzenia wersji obrazu. 
+*Nie można zmienić właściwości "galleryImageVersion. Properties. obszarze storageprofile. <diskImage \> . Source.ID".*  
+**Przyczyna** : nie można zmienić identyfikatora źródła wersji obrazu galerii po utworzeniu.  
+**Obejście** : Upewnij się, że identyfikator źródła jest taki sam jak istniejący identyfikator źródła lub Zmień numer wersji obrazu.
+
+*Na dyskach danych wejściowych wykryto zduplikowane numery LUN. Numer LUN musi być unikatowy dla każdego dysku z danymi.*  
+**Przyczyna** : podczas tworzenia wersji obrazu przy użyciu listy dysków i/lub migawek dysku, co najmniej dwa dyski lub migawki dysków mają te same numery LUN.  
+**Obejście** : Usuń lub Zmień wszystkie zduplikowane numery LUN.
+
+*Zduplikowane identyfikatory źródeł znajdują się na dyskach wejściowych. Identyfikator źródła musi być unikatowy dla każdego dysku.*  
+**Przyczyna** : podczas tworzenia wersji obrazu przy użyciu listy dysków i/lub migawek dysku, co najmniej dwa dyski lub migawki dysków mają ten sam identyfikator zasobu.  
+**Obejście** : Usuń lub Zmień zduplikowane identyfikatory źródeł dysków.
+
+*Identyfikator właściwości <resourceID \> w ścieżce "Properties. obszarze storageprofile. <diskImages \> . Source.ID" jest nieprawidłowy. Oczekiwano w pełni kwalifikowanego identyfikatora zasobu rozpoczynającego się od "/subscriptions/{subscriptionId}" lub "/providers/{resourceProviderNamespace}/".*  
+**Przyczyna** : identyfikator ResourceID <\> jest niepoprawnie sformatowany.  
+**Obejście** : Sprawdź, czy ResourceID jest prawidłowy.
+
+*Identyfikator źródła: <resourceID \> musi być obrazem zarządzanym, maszyną wirtualną lub inną wersją obrazu galerii*  
+**Przyczyna** : identyfikator ResourceID <\> jest niepoprawnie sformatowany.  
+**Obejście** : w przypadku używania maszyny wirtualnej, obrazu zarządzanego lub wersji obrazu galerii jako obrazu źródłowego upewnij się, że identyfikator zasobu maszyny wirtualnej, obraz zarządzany lub wersja obrazu galerii są poprawne.
+
+*Identyfikator źródła: <resourceID \> musi być dyskiem zarządzanym lub migawką.*  
+**Przyczyna** : identyfikator ResourceID <\> jest niepoprawnie sformatowany.  
+**Obejście** : Jeśli używasz dysków i/lub migawek dysków jako źródeł dla wersji obrazu, sprawdź, czy identyfikatory zasobów dysków i/lub migawek dysku są poprawne.
+
+*Nie można utworzyć wersji obrazu galerii z: <resourceID \> , ponieważ stan systemu operacyjnego w obrazie galerii nadrzędnej (<OsState \_ 1 \> ) nie jest <OsState \_ 2 \> .*  
+**Przyczyna** : stan systemu operacyjnego (uogólniony lub wyspecjalizowany) nie jest zgodny z stanem systemu operacyjnego określonym w definicji obrazu.  
+**Obejście** : Wybierz źródło na podstawie maszyny wirtualnej ze stanem systemu operacyjnego <OsState \_ 1 \> lub Utwórz nową definicję obrazu dla maszyn wirtualnych na podstawie <OsState \_ 2 \> .
+
+*Zasób o identyfikatorze "<resourceID \> " ma inną generację funkcji hypervisor ["<V # \_ 1 \> "] niż generowanie funkcji hypervisor obrazu galerii nadrzędnej ["<V # \_ 2 \> "]*  
+**Przyczyna** : generowanie funkcji hypervisor wersji obrazu nie jest zgodne z generowaniem funkcji hypervisor określonej w definicji obrazu. System operacyjny definicji obrazu jest <V # \_ 1 \> , a wersja obrazu systemu operacyjnego jest <V # \_ 2 \> .  
+**Obejście** : Wybierz źródło z tą samą generację funkcji hypervisor co definicja obrazu lub Utwórz/wybierz nową definicję obrazu, która ma taką samą generację funkcji hypervisor jak wersja obrazu.
+
+*Zasób o identyfikatorze "<resourceID \> " ma inny typ systemu operacyjnego ["<OsType \_ 1 \> "] niż generacja typu systemu operacyjnego obrazów galerii nadrzędnej ["<OsType \_ 2 \> "]*  
+**Przyczyna** : generowanie funkcji hypervisor wersji obrazu nie jest zgodne z generowaniem funkcji hypervisor określonej w definicji obrazu. System operacyjny definicji obrazu jest <OsType \_ 1 \> , a wersja obrazu system operacyjny to <OsType \_ 2 \> .  
+**Obejście** : Wybierz źródło z tym samym systemem operacyjnym (Linux/Windows) jak definicja obrazu lub Utwórz/wybierz nową definicję obrazu, która ma taką samą generację systemu operacyjnego jak wersja obrazu.
+
+*Źródłowa maszyna wirtualna <resourceID \> nie może zawierać dysku z systemem operacyjnym.*  
+**Przyczyna** : Źródło w lokalizacji "<ResourceID \> " zawiera dysk z systemem operacyjnym. Galeria obrazów udostępnionych aktualnie nie obsługuje dysku z systemem operacyjnym.  
+**Obejście** : Wybierz inne źródło w oparciu o maszynę wirtualną, która nie korzysta z dysku z systemem operacyjnym.
+
+*Źródłowa maszyna wirtualna <resourceID \> nie może zawierać dysku ["<diskID \> "] przechowywanego w typie konta UltraSSD.*  
+**Przyczyna** : dysk "<diskID \> jest dyskiem UltraSSD. Udostępniona Galeria obrazów nie obsługuje obecnie SSD w warstwie Ultra dysków.  
+**Obejście** : Użyj źródła, które zawiera tylko SSD w warstwie Premium, SSD w warstwie Standardowa i/lub HDD w warstwie Standardowa-Managed Disks.
+
+*Należy utworzyć źródłową maszynę wirtualną <resourceID \> z Managed Disks.*  
+**Przyczyna** : maszyna wirtualna w <ResourceID \> używa dysków niezarządzanych.  
+**Obejście** : Użyj źródła na podstawie maszyny wirtualnej, która zawiera tylko SSD w warstwie Premium, SSD w warstwie Standardowa i/lub HDD w warstwie Standardowa dyski zarządzane.
+
+*Zbyt wiele żądań w źródle "<resourceID \> ". Zmniejsz liczbę żądań w źródle lub zaczekaj trochę czasu przed ponowną próbą.*  
+**Przyczyna** : Źródło dla tej wersji obrazu jest obecnie ograniczane z powodu zbyt dużej liczby żądań.  
+**Obejście** : Spróbuj utworzyć wersję obrazu później.
+
+*Zestaw szyfrowania dysków "<diskEncryptionSetID \> " musi znajdować się w tej samej subskrypcji "<subskrypcji" \> jako zasób galerii.*  
+**Przyczyna** : zestawy szyfrowania dysków mogą być używane tylko w tej samej subskrypcji i regionie, w której zostały utworzone.  
+**Obejście** : Utwórz lub użyj szyfrowania ustawionego w tej samej subskrypcji i regionie co wersja obrazu
+
+*Zaszyfrowane Źródło: element "<resourceID \> " ma inny identyfikator subskrypcji niż bieżąca wersja obrazu galerii "<subskrypcji \_ 1 \> ". Spróbuj ponownie, używając niezaszyfrowanych źródeł lub Użyj subskrypcji "<subcriptionID \_ 2" źródła, \> Aby utworzyć wersję obrazu galerii.*  
+**Przyczyna** : Galeria obrazów udostępnionych nie obsługuje obecnie tworzenia wersji obrazu w innej subskrypcji z innego obrazu źródłowego, jeśli obraz źródłowy jest szyfrowany.  
+**Obejście** : Użyj nieszyfrowanego źródła lub Utwórz wersję obrazu w tej samej subskrypcji co źródło.
+
+*Nie znaleziono zestawu szyfrowania dysków <diskEncryptionSetID \> .*  
+**Przyczyna** : szyfrowanie dysku może być nieprawidłowe.  
+**Obejście** : Sprawdź, czy identyfikator zasobu zestawu szyfrowania dysków jest poprawny.
+
+*Nazwa wersji obrazu jest nieprawidłowa. Nazwa wersji obrazu powinna być zgodna z wersją główną (int). Pomocniczy (int). Format poprawki (int), na przykład: 1.0.0, 2018.12.1 itp.*  
+**Przyczyna** : prawidłowy format wersji obrazu to 3 liczby całkowite oddzielone kropką. Nazwa wersji obrazu nie jest zgodna z prawidłowym formatem.  
+**Obejście** : Użyj nazwy wersji obrazu, która jest zgodna z formatem "główna" (int). Pomocniczy (int). Poprawka (int), na przykład: 1.0.0. lub 2018.12.1.
+
+*Wartość parametru galleryArtifactVersion. Properties. publishingProfile. targetRegions. Encryption. dataDiskImages. diskEncryptionSetId jest nieprawidłowa*  
+**Przyczyna** : Identyfikator zasobu zestawu szyfrowania dysków użyty w obrazie dysku danych używa nieprawidłowego formatu.  
+**Obejście** : Upewnij się, że identyfikator zasobu ustawiony na dysk jest zgodny z formatem/subscriptions/<Identyfikator subskrypcji \> /ResourceGroups/<ResourceGroupName \> /providers/Microsoft.COMPUTE/<diskEncryptionSetName \> .
+
+*Wartość parametru galleryArtifactVersion. Properties. publishingProfile. targetRegions. Encryption. osDiskImage. diskEncryptionSetId jest nieprawidłowa.* 
+ **Przyczyna** : Identyfikator zasobu zestawu szyfrowania dysku użyty w obrazie dysku systemu operacyjnego ma nieprawidłowy format  
+**Obejście** : Upewnij się, że identyfikator zasobu ustawiony na dysk jest zgodny z formatem/subscriptions/<Identyfikator subskrypcji \> /ResourceGroups/<ResourceGroupName \> /providers/Microsoft.COMPUTE/<diskEncryptionSetName \> .
+
+*Nie można określić nowej jednostki LUN szyfrowania obrazu dysku danych [numer <\> ] z ustawionym szyfrowaniem dysków w regionie [<region \> ] dla żądania wersji obrazu galerii aktualizacji. Aby zaktualizować tę wersję, Usuń nową jednostkę LUN. Jeśli trzeba zmienić ustawienia szyfrowania obrazu dysku danych, należy utworzyć nową wersję obrazu galerii z prawidłowymi ustawieniami.*  
+**Przyczyna** : dodano szyfrowanie do dysku danych istniejącej wersji obrazu. Nie można dodać szyfrowania do istniejącej wersji obrazu.  
+**Obejście** : Utwórz nową wersję obrazu galerii lub Usuń dodane ustawienia szyfrowania.
+
+*Źródło wersji artefaktu galerii można określić bezpośrednio w obszarze obszarze storageprofile lub w ramach poszczególnych dysków systemu operacyjnego lub danych. Można podać jeden i tylko jeden typ źródła (obraz użytkownika, migawka, dysk, maszyna wirtualna).*  
+**Przyczyna** : brak identyfikatora źródła.  
+**Obejście** : Upewnij się, że identyfikator źródła źródła jest obecny.
+
+*Nie znaleziono źródła: <resourceID \> . Upewnij się, że źródło istnieje.*  
+**Przyczyna** : Identyfikator zasobu źródła może być nieprawidłowy.  
+**Obejście** : Upewnij się, że identyfikator zasobu źródła jest prawidłowy.
+
+*Dla dysku "galleryArtifactVersion. Properties. publishingProfile. targetRegions. Encryption. osDiskImage. diskEncryptionSetId" w regionie docelowym "<region 1" wymagany jest zestaw szyfrowania \_ dysku \> \> , ponieważ dla odpowiedniego dysku w regionie "<region \_ 2" jest używany zestaw szyfrowania dysków "<diskEncryptionSetId" \> .*  
+**Przyczyna** : szyfrowanie zostało użyte na dysku systemu operacyjnego w <regionie \_ 2 \> , ale nie w <regionie \_ 1 \> .  
+**Obejście** : Jeśli używasz szyfrowania na dysku systemu operacyjnego, użyj szyfrowania we wszystkich regionach.
+
+*Zestaw szyfrowania dysków jest wymagany dla dysku "LUN <Number \> " w regionie docelowym "<region \_ 1", \> ponieważ zestaw szyfrowania dysków "<diskEncryptionSetID \> " jest używany dla odpowiedniego dysku w regionie "<region \_ 2 \> ".*  
+**Przyczyna** : szyfrowanie zostało użyte na dysku danych w numerze LUN <numerem \> w <regionie \_ 2 \> , ale nie w <regionie \_ 1 \> .  
+**Obejście** : w przypadku szyfrowania na dysku danych Użyj szyfrowania we wszystkich regionach.
+
+*Określono nieprawidłową jednostkę LUN [numer <\> ] w elemencie Encryption. dataDiskImages. Numer LUN musi mieć jedną z następujących wartości ["0, 9"].*  
+**Przyczyna** : numer LUN określony na potrzeby szyfrowania nie jest zgodny z żadnym z numerów LUN dysków dołączonych do maszyny wirtualnej.  
+**Obejście** : Zmień numer LUN w szyfrowaniu na numer LUN dysku danych znajdującego się na maszynie wirtualnej.
+
+*Określono zduplikowane jednostki LUN "<Number \> " w regionie docelowym "<regionu \> " Encryption. dataDiskImages.*  
+**Przyczyna** : w ustawieniach szyfrowania używanych w regionie <\> określono numer LUN co najmniej dwa razy.  
+**Obejście** : Zmień numer lun w <regionie, \> Aby upewnić się, że wszystkie numery LUN są unikatowe w <regionie \> .
+
+*OSDiskImage i DataDiskImage nie mogą wskazywać tego samego obiektu BLOB <sourceID\>*  
+**Przyczyna** : Źródło dysku systemu operacyjnego i co najmniej jeden dysk danych nie są unikatowe.  
+**Obejście** : Zmień źródło dysku systemu operacyjnego i/lub dysków danych, aby upewnić się, że dysk systemu operacyjnego oraz każdy dysk z danymi są unikatowe.
+
+*Zduplikowane regiony są niedozwolone w docelowych regionach publikacji.*  
+**Przyczyna** : region znajduje się na liście regionów publikacji więcej niż raz.  
+**Obejście** : Usuń zduplikowany region.
+
+*Dodawanie nowych dysków z danymi lub zmiana jednostki LUN dysku danych w istniejącym obrazie jest niedozwolone.*  
+**Przyczyna** : wywołanie aktualizacji wersji obrazu zawiera nowy dysk z danymi lub ma nowy numer LUN dla dysku.  
+**Obejście** : Użyj numerów LUN i dysków danych istniejącej wersji obrazu.
+
+*Zestaw szyfrowania dysków <diskEncryptionSetID \> musi należeć do tej samej subskrypcji <\> Identyfikator subskrypcji jako zasób galerii.*  
+**Przyczyna** : w przypadku udostępnionej galerii obrazów nie jest obecnie obsługiwane używanie szyfrowania dysków w innej subskrypcji.  
+**Obejście** : Utwórz wersję obrazu i konfigurację szyfrowania dysków w tej samej subskrypcji.
+
+## <a name="issues-creating-or-updating-a-vm-or-scale-sets-from-image-version"></a>Problemy z tworzeniem lub aktualizowaniem maszyny wirtualnej lub zestawów skalowania z wersji obrazu ##
+
+*Klient ma uprawnienia do wykonania akcji "Microsoft. COMPUTE/Galerie/images/Versions/Read" w zakresie <resourceID \> , ale bieżąca dzierżawa <tenantId1 \> nie ma autoryzacji dostępu do połączonej subskrypcji <subscriptionId2 \> .*  
+**Przyczyna** : maszyna wirtualna lub zestaw skalowania został utworzony przy użyciu obrazu SIG w innej dzierżawie. Podjęto próbę wprowadzenia zmiany do maszyny wirtualnej lub zestawu skalowania, ale nie masz dostępu do subskrypcji, która jest właścicielem obrazu.  
+**Obejście** : skontaktuj się z właścicielem subskrypcji wersji obrazu, aby przyznać dostęp do odczytu do wersji obrazu.
+
+*Obraz galerii <resourceID \> nie jest dostępny w regionie <region \> . Skontaktuj się z właścicielem obrazu, aby przeprowadzić replikację do tego regionu lub zmienić żądany region.*  
+**Przyczyna** : maszyna wirtualna jest tworzona w regionie, który nie należy do listy opublikowanych regionów obrazu galerii.  
+**Obejście** : Replikuj obraz do regionu lub Utwórz maszynę wirtualną w jednym z regionów w regionach publikowania obrazu galerii.
+
+*Parametr "osProfile" jest niedozwolony.*  
+**Przyczyna** : podano nazwę użytkownika administratora, hasło lub klucze SSH dla maszyny wirtualnej, która została utworzona z wyspecjalizowanej wersji obrazu.  
+**Obejście problemu** : nie należy podawać nazwy użytkownika administratora, hasła ani kluczy SSH, jeśli zamierzasz utworzyć MASZYNę wirtualną na podstawie tego obrazu. W przeciwnym razie użyj uogólnionej wersji obrazu i podaj nazwę użytkownika, hasło lub klucze SSH administratora.
+
+*Brak wymaganego parametru "osProfile" (null).*  
+**Przyczyna** : maszyna wirtualna jest tworzona na podstawie uogólnionego obrazu i nie zawiera nazwy użytkownika administratora, hasła lub kluczy SSH. Ponieważ obrazy uogólnione nie zachowują nazwy użytkownika administratora, hasła ani kluczy SSH, te pola należy określić podczas tworzenia maszyny wirtualnej lub zestawu skalowania.  
+**Obejście** : Określ nazwę użytkownika, hasło lub klucze SSH administratora lub użyj wyspecjalizowanej wersji obrazu.
+
+*Nie można utworzyć wersji obrazu galerii z: <resourceID \> , ponieważ stan systemu operacyjnego w obrazie galerii nadrzędnej ("wyspecjalizowany") nie jest "uogólniony".*  
+**Przyczyna** : wersja obrazu jest tworzona na podstawie uogólnionego źródła, ale jego definicja nadrzędna jest wyspecjalizowana.  
+**Obejście** : Utwórz wersję obrazu przy użyciu wyspecjalizowanego źródła lub użyj uogólnionej definicji nadrzędnej.
+
+*Nie można zaktualizować zestawu skalowania maszyn wirtualnych <vmssName \> , ponieważ bieżący stan systemu operacyjnego zestawu skalowania maszyn wirtualnych został uogólniony, co jest inne niż zaktualizowany stan systemu operacyjnego obrazu galerii, który jest wyspecjalizowany.*  
+**Przyczyna** : bieżący obraz źródła dla zestawu skalowania to uogólniony obraz źródłowy, ale jest aktualizowany przy użyciu obrazu źródła, który jest wyspecjalizowany. Bieżący obraz źródłowy i nowy obraz źródła dla zestawu skalowania muszą być tego samego stanu.  
+**Obejście** : Aby zaktualizować zestawu skalowania, użyj uogólnionej wersji obrazu.
+
+*Zestaw szyfrowania dysków <diskEncryptionSetId \> w galerii obrazów udostępnionych <versionId \> należy do subskrypcji <subscriptionId1 \> i nie można go używać z zasobem "" w ramach subskrypcji <subscriptionId2\>*  
+**Przyczyna** : zestaw szyfrowania dysków używany do szyfrowania wersji obrazu znajduje się w innej subskrypcji niż subskrypcja do hostowania wersji obrazu.  
+**Obejście** : Użyj tej samej subskrypcji dla wersji obrazu i zestawu szyfrowania dysków.
+
+*Tworzenie zestawu skalowania maszyn wirtualnych lub maszyny wirtualnej zajmuje dużo czasu.*  
+**Obejście** : Sprawdź, czy **OSType** wersji obrazu, z której próbujesz utworzyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych, ma ten sam **OSType** źródła, którego użyto do utworzenia wersji obrazu. 
+
+## <a name="issues-creating-a-disk-from-an-image-version"></a>Problemy z tworzeniem dysku z wersji obrazu ##
+
+*Wartość parametru elementu imagereference jest nieprawidłowa.*  
+**Przyczyna** : próbowano wyeksportować z wersji obrazu SIG do dysku, ale użyto pozycji LUN, która nie istnieje na obrazie.    
+**Obejście** : Sprawdź wersję obrazu, aby zobaczyć, które pozycje LUN są używane.
 
 ## <a name="unable-to-share-resources"></a>Nie można udostępnić zasobów
 

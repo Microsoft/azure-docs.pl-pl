@@ -3,32 +3,19 @@ title: Włączanie rozszerzenia maszyny wirtualnej przy użyciu interfejsu wiers
 description: W tym artykule opisano sposób wdrażania rozszerzeń maszyn wirtualnych na serwerach z obsługą usługi Azure Arc w środowiskach hybrydowych przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8f09914f246635f07b3c51c682bd67591c706732
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 99504c86046c1ef34eeab500a703b9a028cb46fb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462958"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336747"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Włączanie rozszerzeń maszyn wirtualnych platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym artykule opisano sposób wdrażania i odinstalowywania rozszerzeń maszyn wirtualnych platformy Azure, które są obsługiwane przez serwery z obsługą usługi Azure ARC, na maszynę hybrydową z systemem Linux lub Windows przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-[Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
-
-Przed rozpoczęciem korzystania z interfejsu wiersza polecenia platformy Azure do zarządzania rozszerzeniami maszyn wirtualnych na serwerze hybrydowym zarządzanym przez serwery z obsługą łuku należy zainstalować `ConnectedMachine` rozszerzenie interfejsu wiersza polecenia. Uruchom następujące polecenie na serwerze z włączonym Łukem:
-
-```azurecli
-az extension add connectedmachine
-```
-
-Po zakończeniu instalacji zostanie zwrócony następujący komunikat:
-
-`The installed extension `connectedmachine` is experimental and not covered by customer support. Please use with discretion.`
 
 ## <a name="enable-extension"></a>Włącz rozszerzenie
 

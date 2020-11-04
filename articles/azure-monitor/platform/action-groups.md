@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cbe3ef7080397b135ea0fb17cd50de9b1ccfdf09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367741"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336123"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. W ramach subskrypcji można skonfigurować maksymalnie 2 000 grup akcji.
@@ -20,9 +20,9 @@ W tym artykule przedstawiono sposób tworzenia grup akcji i zarządzania nimi w 
 
 Każda akcja składa się z następujących właściwości:
 
-* **Typ**: powiadomienie lub akcja wykonane. Przykładami mogą być wysyłanie połączeń głosowych, wiadomości SMS i poczty e-mail; lub wyzwalając różne typy zautomatyzowanych akcji. Zobacz typy w dalszej części tego artykułu.
-* **Nazwa**: unikatowy identyfikator w ramach grupy akcji.
-* **Szczegóły**: odpowiednie szczegóły, które różnią się w zależności od *typu*.
+* **Typ** : powiadomienie lub akcja wykonane. Przykładami mogą być wysyłanie połączeń głosowych, wiadomości SMS i poczty e-mail; lub wyzwalając różne typy zautomatyzowanych akcji. Zobacz typy w dalszej części tego artykułu.
+* **Nazwa** : unikatowy identyfikator w ramach grupy akcji.
+* **Szczegóły** : odpowiednie szczegóły, które różnią się w zależności od *typu*.
 
 Aby uzyskać informacje na temat sposobu konfigurowania grup akcji przy użyciu szablonów Azure Resource Manager, zobacz [Group action Menedżer zasobów templates](./action-groups-create-resource-manager-template.md).
 
@@ -30,21 +30,21 @@ Aby uzyskać informacje na temat sposobu konfigurowania grup akcji przy użyciu 
 
 1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **monitor**. Okienko **monitorowanie** konsoliduje wszystkie ustawienia monitorowania i dane w jednym widoku.
 
-1. Wybierz pozycję **alerty**, a następnie wybierz pozycję **Zarządzaj akcjami**.
+1. Wybierz pozycję **alerty** , a następnie wybierz pozycję **Zarządzaj akcjami**.
 
     ![Przycisk zarządzania akcjami](./media/action-groups/manage-action-groups.png)
     
-1. Wybierz pozycję **Dodaj grupę akcji**i Wypełnij odpowiednie pola w oknie środowisko kreatora.
+1. Wybierz pozycję **Dodaj grupę akcji** i Wypełnij odpowiednie pola w oknie środowisko kreatora.
 
     ![Polecenie "Dodaj grupę akcji"](./media/action-groups/add-action-group.PNG)
 
 ### <a name="configure-basic-action-group-settings"></a>Skonfiguruj podstawowe ustawienia grupy akcji
 
-W obszarze **szczegóły projektu**:
+W obszarze **szczegóły projektu** :
 
 Wybierz **subskrypcję** i **grupę zasobów** , w której jest zapisywana grupa akcji.
 
-W obszarze **szczegóły wystąpienia**:
+W obszarze **szczegóły wystąpienia** :
 
 1. Wprowadź **nazwę grupy akcji**.
 
@@ -59,15 +59,15 @@ W obszarze **szczegóły wystąpienia**:
 
 1. Zdefiniuj listę powiadomień do wysłania w przypadku wyzwolenia alertu. Dla każdego powiadomienia podaj następujące elementy:
 
-    a. **Typ powiadomienia**: Wybierz typ powiadomienia, które chcesz wysłać. Dostępne są następujące opcje:
+    a. **Typ powiadomienia** : Wybierz typ powiadomienia, które chcesz wysłać. Dostępne opcje:
       * Azure Resource Manager rolę e-mail — Wyślij wiadomość e-mail do użytkowników przypisanych do określonych ról ARM na poziomie subskrypcji.
       * Poczta e-mail/wiadomość SMS/wypychanie/głos — wysyłaj te typy powiadomień do określonych adresatów.
     
-    b. **Nazwa**: Wprowadź unikatową nazwę powiadomienia.
+    b. **Nazwa** : Wprowadź unikatową nazwę powiadomienia.
 
-    c. **Szczegóły**: na podstawie wybranego typu powiadomienia wprowadź adres e-mail, numer telefonu itp.
+    c. **Szczegóły** : na podstawie wybranego typu powiadomienia wprowadź adres e-mail, numer telefonu itp.
     
-    d. **Wspólny schemat alertów**: można włączyć [wspólny schemat alertów](./alerts-common-schema.md), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
+    d. **Wspólny schemat alertów** : można włączyć [wspólny schemat alertów](./alerts-common-schema.md), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
 
     ![Karta powiadomienia](./media/action-groups/action-group-2-notifications.png)
     
@@ -77,13 +77,13 @@ W obszarze **szczegóły wystąpienia**:
 
 1. Zdefiniuj listę akcji do wyzwolenia po wyzwoleniu alertu. Dla każdej akcji podaj następujące elementy:
 
-    a. **Typ akcji**: Wybierz element Runbook usługi Automation, funkcja platformy Azure, narzędzia ITSM, aplikację logiki, bezpieczny element webhook, element webhook.
+    a. **Typ akcji** : Wybierz element Runbook usługi Automation, funkcja platformy Azure, narzędzia ITSM, aplikację logiki, bezpieczny element webhook, element webhook.
     
-    b. **Nazwa**: Wprowadź unikatową nazwę dla akcji.
+    b. **Nazwa** : Wprowadź unikatową nazwę dla akcji.
 
-    c. **Szczegóły**: na podstawie typu akcji wprowadź identyfikator URI elementu webhook, aplikację platformy Azure, połączenie narzędzia ITSM lub element Runbook usługi Automation. Dla akcji narzędzia ITSM należy dodatkowo określić **element roboczy** i inne pola wymagane przez narzędzie narzędzia ITSM.
+    c. **Szczegóły** : na podstawie typu akcji wprowadź identyfikator URI elementu webhook, aplikację platformy Azure, połączenie narzędzia ITSM lub element Runbook usługi Automation. Dla akcji narzędzia ITSM należy dodatkowo określić **element roboczy** i inne pola wymagane przez narzędzie narzędzia ITSM.
     
-    d. **Wspólny schemat alertów**: można włączyć [wspólny schemat alertów](./alerts-common-schema.md), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
+    d. **Wspólny schemat alertów** : można włączyć [wspólny schemat alertów](./alerts-common-schema.md), który umożliwia korzystanie z jednego rozszerzalnego i ujednoliconego ładunku alertów dla wszystkich usług alertów w Azure monitor.
     
     ![Karta akcje](./media/action-groups/action-group-3-actions.png)
 
@@ -93,7 +93,7 @@ W obszarze **szczegóły wystąpienia**:
 
     ![Karta Tagi](./media/action-groups/action-group-4-tags.png)
     
-1. Kliknij przycisk **Przejrzyj i utwórz**, aby przejrzeć ustawienia. Spowoduje to szybkie sprawdzenie poprawności danych wejściowych, aby upewnić się, że są zaznaczone wszystkie wymagane pola. Jeśli występują problemy, zostaną zgłoszone w tym miejscu. Po przejrzeniu ustawień kliknij przycisk **Utwórz** , aby zainicjować obsługę administracyjną grupy akcji.
+1. Kliknij przycisk **Przejrzyj i utwórz** , aby przejrzeć ustawienia. Spowoduje to szybkie sprawdzenie poprawności danych wejściowych, aby upewnić się, że są zaznaczone wszystkie wymagane pola. Jeśli występują problemy, zostaną zgłoszone w tym miejscu. Po przejrzeniu ustawień kliknij przycisk **Utwórz** , aby zainicjować obsługę administracyjną grupy akcji.
     
     ![Karta Recenzja + tworzenie](./media/action-groups/action-group-5-review.png)
 
@@ -287,7 +287,9 @@ Aby otrzymywać aktualizacje dotyczące zmian wprowadzonych w tych adresach IP, 
 
 W grupie akcji może istnieć ograniczona liczba akcji elementu webhook.
 
-### <a name="service-tag"></a>Tag usługi
+Częste aktualizacje źródłowych adresów IP mogą być dość czasochłonne w elemencie webhook. Korzystanie z **tagu usługi** dla obiektu *Actions* ułatwia zminimalizowanie złożoności często używanych ręcznie aktualizacji adresów IP. Prefiksy zakresów źródłowych adresów IP udostępnione powyżej są zarządzane przez firmę Microsoft, co obejmuje **tag usługi**.
+
+#### <a name="service-tag"></a>Tag usługi
 Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieci dla obiektu ActionType.
 
 1. W Azure Portal w obszarze usługi platformy Azure Wyszukaj *grupę zabezpieczeń sieci*.
@@ -311,8 +313,6 @@ Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy
     1.  Kliknij pozycję **Dodaj**.
     
     :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Przykład dotyczący dodawania tagu usługi."border="true":::
-
-Użycie **tagu usługi** dla obiektu Actions ułatwia zminimalizowanie złożoności częstych aktualizacji adresów IP.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej na temat [zachowania alertu programu SMS](./alerts-sms-behavior.md).  

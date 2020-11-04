@@ -3,16 +3,17 @@ title: Funkcje przestrzenne w Azure Cosmos DB języku zapytań
 description: Dowiedz się więcej o funkcjach systemu przestrzennego SQL w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 515e6da43a115c092ba48fdfcd2457f0b0c60623
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 690a5cef2141af75412eaca207a16c59b37aa3ac
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082440"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335385"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>Funkcje przestrzenne (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

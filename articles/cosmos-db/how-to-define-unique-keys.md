@@ -3,16 +3,17 @@ title: Definiowanie unikatowych kluczy dla kontenera usługi Azure Cosmos
 description: Dowiedz się, jak definiować unikatowe klucze dla kontenera usługi Azure Cosmos za pomocą Azure Portal, programu PowerShell, platformy .NET, środowiska Java i różnych zestawów SDK.
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: b814100097897aff6047b8b6d6cc0e8ebaa409ba
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101531"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336626"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definiowanie unikatowych kluczy dla kontenera usługi Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +28,7 @@ W tym artykule przedstawiono różne sposoby definiowania [unikatowych kluczy](u
 
 1. Otwórz okienko **Eksplorator danych** i wybierz kontener, w którym chcesz korzystać.
 
-1. Kliknij pozycję **nowy kontener** .
+1. Kliknij pozycję **nowy kontener**.
 
 1. W oknie dialogowym **Dodawanie kontenera** kliknij pozycję **+ Dodaj unikatowy klucz** , aby dodać unikatowy wpis klucza.
 
