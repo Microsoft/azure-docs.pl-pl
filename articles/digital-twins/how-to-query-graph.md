@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8aad0d9fde30a235903364d57a73c1c53f08ecce
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7bb38824f2071e2575877940795f9b90a2a384b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145790"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325767"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Tworzenie zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure
 
@@ -85,7 +85,7 @@ Korzystając z projekcji, można wybrać kolumny, które będą zwracane przez z
 >[!NOTE]
 >W tej chwili złożone właściwości nie są obsługiwane. Aby upewnić się, że właściwości projekcji są prawidłowe, Połącz projekcje ze `IS_PRIMITIVE` sprawdzaniem.
 
-Oto przykład zapytania korzystającego z projekcji do zwracania bliźniaczych reprezentacji i relacji. Następujące zapytanie bada *odbiorcę* , *fabrykę* i *krawędź* w scenariuszu, w którym *fabryka* z identyfikatorem *ABC* jest związana z *konsumentem* za pośrednictwem relacji *fabryki. Klient* , a ta relacja jest prezentowana jako *krawędź* .
+Oto przykład zapytania korzystającego z projekcji do zwracania bliźniaczych reprezentacji i relacji. Następujące zapytanie bada *odbiorcę* , *fabrykę* i *krawędź* w scenariuszu, w którym *fabryka* z identyfikatorem *ABC* jest związana z *konsumentem* za pośrednictwem relacji *fabryki. Klient* , a ta relacja jest prezentowana jako *krawędź*.
 
 ```sql
 SELECT Consumer, Factory, Edge
@@ -94,7 +94,7 @@ JOIN Consumer RELATED Factory.customer Edge
 WHERE Factory.$dtId = 'ABC'
 ```
 
-Można również użyć projekcji, aby zwrócić Właściwość sznurka. Następujące zapytanie bada Właściwość *name* *odbiorców* , którzy są powiązani z *fabryką* z identyfikatorem *ABC* za pomocą relacji *fabryki. Klient* .
+Można również użyć projekcji, aby zwrócić Właściwość sznurka. Następujące zapytanie bada Właściwość *name* *odbiorców* , którzy są powiązani z *fabryką* z identyfikatorem *ABC* za pomocą relacji *fabryki. Klient*.
 
 ```sql
 SELECT Consumer.name
@@ -104,7 +104,7 @@ WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Consumer.name)
 ```
 
-Można również użyć projekcji do zwrócenia właściwości relacji. Podobnie jak w poprzednim przykładzie, następujące zapytanie projektuje Właściwość *name* *odbiorców* związanych z *fabryką* z identyfikatorem *ABC* przez relację *fabryki. Klient* ; ale teraz zwraca również dwie właściwości tej relacji, *Prop1* i *prop2* . Robi to poprzez nazwę *krawędzi* relacji i gromadzenie jej właściwości.  
+Można również użyć projekcji do zwrócenia właściwości relacji. Podobnie jak w poprzednim przykładzie, następujące zapytanie projektuje Właściwość *name* *odbiorców* związanych z *fabryką* z identyfikatorem *ABC* przez relację *fabryki. Klient* ; ale teraz zwraca również dwie właściwości tej relacji, *Prop1* i *prop2*. Robi to poprzez nazwę *krawędzi* relacji i gromadzenie jej właściwości.  
 
 ```sql
 SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area
@@ -151,7 +151,7 @@ AND T.Temperature = 70
 > [!TIP]
 > Identyfikator dwucyfrowego podpisu jest wysyłany przy użyciu pola metadanych `$dtId` .
 
-Możesz również uzyskać bliźniaczych reprezentacji na podstawie tego, **czy określona właściwość jest zdefiniowana** . Oto zapytanie, które pobiera bliźniaczych reprezentacji, które mają zdefiniowaną Właściwość *Location* :
+Możesz również uzyskać bliźniaczych reprezentacji na podstawie tego, **czy określona właściwość jest zdefiniowana**. Oto zapytanie, które pobiera bliźniaczych reprezentacji, które mają zdefiniowaną Właściwość *Location* :
 
 ```sql
 SELECT *
@@ -164,7 +164,7 @@ Może to ułatwić uzyskanie bliźniaczych reprezentacji przez ich właściwośc
 select * from digitaltwins where is_defined(tags.red)
 ```
 
-Możesz również uzyskać bliźniaczych reprezentacji na podstawie **typu właściwości** . Oto zapytanie, które pobiera bliźniaczych reprezentacji, którego właściwość *temperatury* jest liczbą:
+Możesz również uzyskać bliźniaczych reprezentacji na podstawie **typu właściwości**. Oto zapytanie, które pobiera bliźniaczych reprezentacji, którego właściwość *temperatury* jest liczbą:
 
 ```sql
 SELECT * FROM DIGITALTWINS T
@@ -175,39 +175,41 @@ WHERE IS_NUMBER(T.Temperature)
 
 `IS_OF_MODEL`Operatora można użyć do filtrowania na podstawie [**modelu**](concepts-models.md)sznurka.
 
-Ta właściwość uważa semantykę [dziedziczenia](concepts-models.md#model-inheritance) i [wersji](how-to-manage-model.md#update-models) , a w przypadku, gdy dwuosiowy spełnia jeden z następujących warunków, ma **wartość true** dla danej sznurka:
+Jest to zgodne z [dziedziczeniem](concepts-models.md#model-inheritance) i [przechowywaniem wersji](how-to-manage-model.md#update-models), a wynikiem jest **wartość true** dla danej przędzy, jeśli dwuosiowa spełnia jeden z następujących warunków:
 
 * Dwuosiowy realizuje bezpośrednio model dostarczony do `IS_OF_MODEL()` , a numer wersji modelu na przędze jest *większy lub równy* numerowi wersji podanego modelu
 * Przędza implementuje model, który *rozszerza* model, który jest dostarczany do `IS_OF_MODEL()` , a rozszerzony numer wersji modelu przędzy jest *większy lub równy* numerowi wersji podanego modelu
 
-Ta metoda ma kilka opcji przeciążenia.
+Jeśli na przykład kwerenda dotyczy bliźniaczych reprezentacji modelu `dtmi:example:widget;4` , zapytanie zwróci wszystkie bliźniaczych reprezentacji na podstawie **wersji 4 lub nowszej** modelu **widżetu** , a także bliźniaczych reprezentacji w oparciu o wersję **4 lub większą** z **modeli, które dziedziczą z widżetu**.
+
+`IS_OF_MODEL` może przyjmować kilka różnych parametrów, a pozostała część tej sekcji jest przeznaczona dla różnych opcji przeciążenia.
 
 Najprostszym zastosowaniem jest `IS_OF_MODEL` tylko `twinTypeName` parametr: `IS_OF_MODEL(twinTypeName)` .
 Oto przykład zapytania, który przekazuje wartość w tym parametrze:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1')
 ```
 
 Aby określić kolekcję przędzy do przeszukania, gdy istnieje więcej niż jeden (jak w przypadku `JOIN` użycia), Dodaj `twinCollection` parametr: `IS_OF_MODEL(twinCollection, twinTypeName)` .
 Oto przykład zapytania, które dodaje wartość dla tego parametru:
 
 ```sql
-SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1')
 ```
 
 Aby wykonać dokładne dopasowanie, Dodaj `exact` parametr: `IS_OF_MODEL(twinTypeName, exact)` .
 Oto przykład zapytania, które dodaje wartość dla tego parametru:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1', exact)
 ```
 
 Można również przekazać wszystkie trzy argumenty jednocześnie: `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
 Oto przykład zapytania określającego wartość dla wszystkich trzech parametrów:
 
 ```sql
-SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
 ```
 
 ### <a name="query-based-on-relationships"></a>Zapytanie w oparciu o relacje
@@ -242,7 +244,7 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Zapytanie o właściwości relacji
 
-Podobnie jak w przypadku bliźniaczych reprezentacji Digital ma właściwości opisane za pośrednictwem DTDL, relacje mogą również mieć właściwości. Możesz badać bliźniaczych reprezentacji **na podstawie właściwości ich relacji** .
+Podobnie jak w przypadku bliźniaczych reprezentacji Digital ma właściwości opisane za pośrednictwem DTDL, relacje mogą również mieć właściwości. Możesz badać bliźniaczych reprezentacji **na podstawie właściwości ich relacji**.
 Język zapytań usługi Azure Digital bliźniaczych reprezentacji umożliwia filtrowanie i projekcję relacji przez przypisanie aliasu do relacji w obrębie `JOIN` klauzuli.
 
 Na przykład rozważmy relację *servicedBy* , która ma właściwość *reportedCondition* . W poniższym zapytaniu ta relacja ma alias "R", aby można było odwołać się do jego właściwości.
@@ -321,7 +323,7 @@ Obsługiwane są następujące funkcje ciągów:
 
 ## <a name="run-queries-with-an-api-call"></a>Uruchom zapytania z wywołaniem interfejsu API
 
-Po określeniu ciągu zapytania należy wykonać operację, wykonując wywołanie do **interfejsu API zapytania** .
+Po określeniu ciągu zapytania należy wykonać operację, wykonując wywołanie do **interfejsu API zapytania**.
 Poniższy fragment kodu ilustruje to wywołanie z aplikacji klienckiej:
 
 ```csharp

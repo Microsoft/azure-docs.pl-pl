@@ -9,23 +9,23 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 0064509c1158d8b016413046cb528bfd125b5f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 158541d34568b7ea02ea82dbfe90f5801824716f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362320"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325779"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Ponowne uczenie i wdrażanie klasycznej usługi sieci Web (klasycznej)
 
-**dotyczy:** ![ Zielony znacznik wyboru. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ X wskazujący nie.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Zielony znacznik wyboru. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ X wskazujący nie. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Przeszkolenie modeli uczenia maszynowego jest jednym ze sposobów upewnienia się, że są one dokładne i oparte na najbardziej przydatnych dostępnych danych. W tym artykule przedstawiono sposób ponownego uczenia klasycznej usługi sieci Web (klasycznej). Aby zapoznać się z przewodnikiem dotyczącym ponownego uczenia nowej usługi sieci Web programu Studio (klasycznej), [Zobacz ten artykuł.](retrain-machine-learning-model.md)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule założono, że masz już eksperyment szkoleniowy i eksperyment predykcyjny. Te kroki są wyjaśnione w sekcji [ponowne uczenie i wdrażanie modelu uczenia maszynowego.](/azure/machine-learning/studio/retrain-machine-learning-model) Jednak zamiast wdrażania modelu uczenia maszynowego jako nowej usługi sieci Web, należy wdrożyć eksperyment predykcyjny jako klasyczną usługę sieci Web.
+W tym artykule założono, że masz już eksperyment szkoleniowy i eksperyment predykcyjny. Te kroki są wyjaśnione w sekcji [ponowne uczenie i wdrażanie modelu uczenia maszynowego.](./retrain-machine-learning-model.md) Jednak zamiast wdrażania modelu uczenia maszynowego jako nowej usługi sieci Web, należy wdrożyć eksperyment predykcyjny jako klasyczną usługę sieci Web.
      
 ## <a name="add-a-new-endpoint"></a>Dodaj nowy punkt końcowy
 
@@ -76,7 +76,7 @@ Strona Pomoc dotycząca poprawek zawiera adres URL poprawki, którego należy u�
 
 Możesz teraz użyć przeszkolonego modelu, aby zaktualizować utworzony wcześniej punkt końcowy oceniania.
 
-Poniższy przykładowy kod pokazuje, jak zaktualizować punkt końcowy przy użyciu adresu URL *BaseLocation*, *RelativeLocation*, *SasBlobToken*i patch.
+Poniższy przykładowy kod pokazuje, jak zaktualizować punkt końcowy przy użyciu adresu URL *BaseLocation* , *RelativeLocation* , *SasBlobToken* i patch.
 
 ```csharp
 private async Task OverwriteModel()
@@ -122,7 +122,7 @@ private async Task OverwriteModel()
 
 Wartość parametru *name* w *zasobach* powinna być zgodna z nazwą zasobu zapisanego przeszkolonego modelu w eksperymentie predykcyjnym. Aby uzyskać nazwę zasobu:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 1. W menu po lewej stronie kliknij pozycję **Machine Learning**.
 1. W obszarze Nazwa kliknij swój obszar roboczy, a następnie kliknij pozycję **usługi sieci Web**.
 1. W obszarze Nazwa kliknij pozycję **model spisu [EXP predykcyjny.]**.
