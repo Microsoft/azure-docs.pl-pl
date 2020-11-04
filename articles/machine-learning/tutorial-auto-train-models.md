@@ -11,14 +11,14 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: cf6616dcc3935946ad4a7213263bb20281d25354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 731c6c743b103111a699074e10d8ba43a353d8e6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896785"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317998"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Samouczek: Używanie automatycznego uczenia maszynowego do przewidywania opłat za taksówkę
+# <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Samouczek: Przewidywanie opłat za taksówkę za pomocą zautomatyzowanego uczenia maszynowego
 
 
 W tym samouczku użyjesz automatycznego uczenia maszynowego w Azure Machine Learning, aby utworzyć model regresji do przewidywania cen opłat za taksówkę NYC. Ten proces akceptuje dane szkoleniowe i ustawienia konfiguracji, a następnie automatycznie wykonuje iterację przez kombinacje różnych metod normalizacji/normalizacji funkcji, modeli i parametrów z parametrami, aby dotrzeć do najlepszego modelu.
@@ -173,7 +173,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Konfigurowanie obszaru roboczego
 
-Utwórz obiekt obszaru roboczego na podstawie istniejącego obszaru roboczego. [Obszar roboczy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) to Klasa, która akceptuje informacje o subskrypcji i zasobach platformy Azure. Tworzy ona również zasób w chmurze służący do monitorowania i śledzenia przebiegów modelu. `Workspace.from_config()` Odczytuje **config.js** pliku i ładuje szczegóły uwierzytelniania do obiektu o nazwie `ws` . Obiekt `ws` jest używany w kodzie w tym samouczku.
+Utwórz obiekt obszaru roboczego na podstawie istniejącego obszaru roboczego. [Obszar roboczy](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) to Klasa, która akceptuje informacje o subskrypcji i zasobach platformy Azure. Tworzy ona również zasób w chmurze służący do monitorowania i śledzenia przebiegów modelu. `Workspace.from_config()` Odczytuje **config.js** pliku i ładuje szczegóły uwierzytelniania do obiektu o nazwie `ws` . Obiekt `ws` jest używany w kodzie w tym samouczku.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -182,7 +182,7 @@ ws = Workspace.from_config()
 
 ## <a name="split-the-data-into-train-and-test-sets"></a>Podział danych na zestawy treningowe i testowe
 
-Podziel dane na zestawy szkoleniowe i testowe przy użyciu `train_test_split` funkcji w `scikit-learn` bibliotece. Ta funkcja dzieli dane na zestaw danych x (**Features**) na potrzeby szkolenia modeli oraz zestawu danych y (**wartości do przewidywania**) na potrzeby testowania.
+Podziel dane na zestawy szkoleniowe i testowe przy użyciu `train_test_split` funkcji w `scikit-learn` bibliotece. Ta funkcja dzieli dane na zestaw danych x ( **Features** ) na potrzeby szkolenia modeli oraz zestawu danych y ( **wartości do przewidywania** ) na potrzeby testowania.
 
 Parametr `test_size` określa procent danych przydzielanych do testowania. `random_state`Parametr ustawia inicjator dla generatora losowego, dzięki czemu podziały testu pociąga są deterministyczne.
 
@@ -212,7 +212,7 @@ Zdefiniuj parametr eksperymentu i ustawienia modelu dla szkolenia. Wyświetl pe�
 |**experiment_timeout_hours**|0.3|Maksymalny czas (w godzinach), przez jaki połączone wszystkie iteracje mogą upłynąć przed zakończeniem eksperymentu.|
 |**enable_early_stopping**|Prawda|Oflaguj, aby włączyć wczesne zakończenie, jeśli wynik nie zostanie ulepszony w krótkim czasie.|
 |**primary_metric**| spearman_correlation | Metryka, który ma być optymalizowana. Na podstawie tej metryki zostanie wybrany model o najlepszym dopasowaniu.|
-|**cechowania**| auto | Przy użyciu **opcji**autoeksperymenty mogą wstępnie przetwarzać dane wejściowe (obsługujące brakujące dane, konwertowanie tekstu na liczbowe itd.)|
+|**cechowania**| auto | Przy użyciu **opcji** autoeksperymenty mogą wstępnie przetwarzać dane wejściowe (obsługujące brakujące dane, konwertowanie tekstu na liczbowe itd.)|
 |**verbosity**| logging.INFO | Steruje poziomem rejestrowania.|
 |**n_cross_validations**|5|Liczba podziałów krzyżowego sprawdzania poprawności w przypadku nieokreślenia danych weryfikacji.|
 
@@ -300,7 +300,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>Eksplorowanie wyników
 
-Poznaj wyniki automatycznego szkolenia przy użyciu [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Widżet umożliwia wyświetlenie wykresu i tabeli wszystkich poszczególnych iteracji przebiegów oraz metryki i metadanych dokładności szkoleniowej. Ponadto można odfiltrować różne metryki dokładności niż Metryka podstawowa za pomocą selektora listy rozwijanej.
+Poznaj wyniki automatycznego szkolenia przy użyciu [widżetu Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Widżet umożliwia wyświetlenie wykresu i tabeli wszystkich poszczególnych iteracji przebiegów oraz metryki i metadanych dokładności szkoleniowej. Ponadto można odfiltrować różne metryki dokładności niż Metryka podstawowa za pomocą selektora listy rozwijanej.
 
 ```python
 from azureml.widgets import RunDetails
@@ -322,7 +322,7 @@ print(fitted_model)
 
 ### <a name="test-the-best-model-accuracy"></a>Testowanie dokładności najlepszego modelu
 
-Użyj najlepszego modelu, aby uruchomić przewidywania na zestawie danych testowych w celu przewidywania opłat za taksówkę. Funkcja `predict` używa najlepszego modelu i przewiduje wartości y, **kosztu podróży**z `x_test` zestawu danych. Wyświetl pierwsze 10 wartości przewidywanego kosztu z zestawu `y_predict`.
+Użyj najlepszego modelu, aby uruchomić przewidywania na zestawie danych testowych w celu przewidywania opłat za taksówkę. Funkcja `predict` używa najlepszego modelu i przewiduje wartości y, **kosztu podróży** z `x_test` zestawu danych. Wyświetl pierwsze 10 wartości przewidywanego kosztu z zestawu `y_predict`.
 
 ```python
 y_test = x_test.pop("totalAmount")

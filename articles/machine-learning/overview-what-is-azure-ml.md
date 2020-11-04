@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: ad025d2278d6c9ab360ddbdc250e8db4b4eec665
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 4dcc1d755f4fe11dda69f84466d3e958ca981ddf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495758"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316290"
 ---
 # <a name="what-is-azure-machine-learning"></a>Co to jest usługa Azure Machine Learning?
 
@@ -43,7 +43,7 @@ Dzięki prognozom lub przewidywaniom uzyskiwanym za pomocą uczenia maszynowego 
 Azure Machine Learning udostępnia wszystkie narzędzia dla deweloperów i analityków danych, które są potrzebne dla swoich przepływów pracy uczenia maszynowego, w tym:
 + [Projektant Azure Machine Learning](tutorial-designer-automobile-price-train-score.md): Przeciągnij i upuść moduły, aby skompilować eksperymenty, a następnie wdrożyć potoki.
 
-+ Notesy Jupyter: Użyj naszych [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks) lub Utwórz własne notesy, aby korzystać z naszego <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">zestawu SDK dla</a> przykładów języka Python dla uczenia maszynowego. 
++ Notesy Jupyter: Użyj naszych [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks) lub Utwórz własne notesy, aby korzystać z naszego <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">zestawu SDK dla</a> przykładów języka Python dla uczenia maszynowego. 
 
 + Skrypty i notesy języka r, w których używasz <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">zestawu SDK dla języka r</a> , do pisania własnego kodu lub korzystania z modułów r w projektancie.
 
@@ -61,9 +61,9 @@ Możesz nawet używać [MLflow do śledzenia metryk i wdrażania modeli](how-to-
 
 ## <a name="build-ml-models-in-python-or-r"></a>Tworzenie modeli ML w języku Python lub R
 
-Rozpocznij szkolenie na maszynie lokalnej przy użyciu <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">zestawu SDK</a> języka Azure Machine Learning Python lub <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">zestawu R SDK</a>. Następnie można skalować w poziomie do chmury. 
+Rozpocznij szkolenie na maszynie lokalnej przy użyciu <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">zestawu SDK</a> języka Azure Machine Learning Python lub <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">zestawu R SDK</a>. Następnie można skalować w poziomie do chmury. 
 
-Dzięki wielu dostępnym [docelowym obiektom obliczeniowym](how-to-create-attach-compute-studio.md), takim jak środowisko obliczeniowe usługi Azure Machine Learning i [usługa Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), oraz [zaawansowanym usługom dostrajania hiperparametrów](how-to-tune-hyperparameters.md), można tworzyć lepsze modele szybciej, wykorzystując możliwości chmury.
+Dzięki wielu dostępnym [docelowym obiektom obliczeniowym](how-to-create-attach-compute-studio.md), takim jak środowisko obliczeniowe usługi Azure Machine Learning i [usługa Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), oraz [zaawansowanym usługom dostrajania hiperparametrów](how-to-tune-hyperparameters.md), można tworzyć lepsze modele szybciej, wykorzystując możliwości chmury.
 
 Możesz również [zautomatyzować szkolenia i dostrajanie modeli](tutorial-auto-train-models.md) za pomocą zestawu SDK.
 
@@ -92,9 +92,9 @@ Możesz również [zautomatyzować szkolenia i dostrajanie modeli](tutorial-auto
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: wdrażanie & zarządzania cyklem życia
 Jeśli dysponujesz odpowiednim modelem, możesz go łatwo używać w usłudze sieci Web, na urządzeniu IoT lub z Power BI. Aby uzyskać więcej informacji, zobacz artykuł opisujący, [jak i gdzie wdrażać](how-to-deploy-and-where.md).
 
-Następnie możesz zarządzać wdrożonymi modelami przy użyciu [zestawu SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true), [Azure Machine Learning Studio](https://ml.azure.com)lub [interfejsu wiersza polecenia Machine Learning](reference-azure-machine-learning-cli.md).
+Następnie możesz zarządzać wdrożonymi modelami przy użyciu [zestawu SDK Azure Machine Learning dla języka Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py), [Azure Machine Learning Studio](https://ml.azure.com)lub [interfejsu wiersza polecenia Machine Learning](reference-azure-machine-learning-cli.md).
 
-Te modele mogą być używane i zwracać przewidywania w [czasie rzeczywistym](how-to-consume-web-service.md) lub [asynchronicznie](how-to-use-parallel-run-step.md) w przypadku dużych ilości danych.
+Te modele mogą być używane i zwracać przewidywania w [czasie rzeczywistym](how-to-consume-web-service.md) lub [asynchronicznie](./tutorial-pipeline-batch-scoring-classification.md) w przypadku dużych ilości danych.
 
 Dzięki zaawansowanym [potokom uczenia maszynowego](concept-ml-pipelines.md)można współpracować nad każdym krokiem w procesie przygotowywania danych, uczenia modelu i oceny, dzięki wdrożeniu. Potoki umożliwiają:
 
@@ -111,10 +111,10 @@ Aby rozpocząć korzystanie z Azure Machine Learning, zobacz [następne kroki](#
 
 Azure Machine Learning współpracuje z innymi usługami na platformie Azure, a także integruje się z narzędziami typu open source, takimi jak Git i MLFlow.
 
-+ Cele obliczeniowe, takie jak __usługa Azure Kubernetes__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__i __Azure HDInsight__. Aby uzyskać więcej informacji na temat obiektów docelowych obliczeń, zobacz [co to są cele obliczeniowe?](concept-compute-target.md).
-+ __Azure Event Grid__. Aby uzyskać więcej informacji, zobacz temat [Korzystanie z zdarzeń Azure Machine Learning](concept-event-grid-integration.md).
++ Cele obliczeniowe, takie jak __usługa Azure Kubernetes__ , __Azure Container Instances__ , __Azure Databricks__ , __Azure Data Lake Analytics__ i __Azure HDInsight__. Aby uzyskać więcej informacji na temat obiektów docelowych obliczeń, zobacz [co to są cele obliczeniowe?](concept-compute-target.md).
++ __Azure Event Grid__. Aby uzyskać więcej informacji, zobacz temat [Korzystanie z zdarzeń Azure Machine Learning](./how-to-use-event-grid.md).
 + __Azure monitor__. Aby uzyskać więcej informacji, zobacz [monitorowanie Azure Machine Learning](monitor-azure-machine-learning.md).
-+ Magazyny danych, takie jak __konta usługi Azure Storage__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__i __otwarte zestawy danych platformy Azure__. Aby uzyskać więcej informacji, zobacz [dostęp do danych w usługach Azure Storage](how-to-access-data.md) i [Tworzenie zestawów danych za pomocą otwartych zestawów danych platformy Azure](how-to-create-register-datasets.md).
++ Magazyny danych, takie jak __konta usługi Azure Storage__ , __Azure Data Lake Storage__ , __Azure SQL Database__ , __Azure Database for PostgreSQL__ i __otwarte zestawy danych platformy Azure__. Aby uzyskać więcej informacji, zobacz [dostęp do danych w usługach Azure Storage](how-to-access-data.md) i [Tworzenie zestawów danych za pomocą otwartych zestawów danych platformy Azure](how-to-create-register-datasets.md).
 + __Sieci wirtualne platformy Azure__. Aby uzyskać więcej informacji, zobacz [Omówienie izolacji i prywatności w sieci wirtualnej](how-to-network-security-overview.md).
 + __Azure Pipelines__. Aby uzyskać więcej informacji, zobacz [uczenie i wdrażanie modeli uczenia maszynowego](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Dzienniki repozytorium git__. Aby uzyskać więcej informacji, zobacz Integracja z usługą [git](concept-train-model-git-integration.md).

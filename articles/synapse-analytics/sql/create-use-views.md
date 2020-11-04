@@ -1,6 +1,6 @@
 ---
-title: Tworzenie i Używanie widoków w SQL na żądanie (wersja zapoznawcza)
-description: W tej sekcji dowiesz się, jak tworzyć widoki i używać ich do zawijania zapytań SQL na żądanie (wersja zapoznawcza). Widoki umożliwią ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz użyć narzędzi, takich jak Power BI, w połączeniu z SQL na żądanie.
+title: Tworzenie i Używanie widoków w bezserwerowej puli SQL (wersja zapoznawcza)
+description: W tej sekcji dowiesz się, jak tworzyć widoki i używać ich do zawijania zapytań puli SQL bezserwerowej (wersja zapoznawcza). Widoki umożliwią ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z pulą SQL bez użycia serwera.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c965b27fde80e1cb8d52b1061917d83e5cd7f5d6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: d578529839afb5393dd013cb10f48c755f08addd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927808"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316237"
 ---
-# <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Tworzenie i Używanie widoków w usłudze SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
+# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Tworzenie i Używanie widoków przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-W tej sekcji dowiesz się, jak tworzyć widoki i używać ich do zawijania zapytań SQL na żądanie (wersja zapoznawcza). Widoki umożliwią ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz użyć narzędzi, takich jak Power BI, w połączeniu z SQL na żądanie.
+W tej sekcji dowiesz się, jak tworzyć widoki i używać ich do zawijania zapytań puli SQL bezserwerowej (wersja zapoznawcza). Widoki umożliwią ponowne użycie tych zapytań. Widoki są również potrzebne, jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z pulą SQL bez użycia serwera.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

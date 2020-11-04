@@ -1,6 +1,6 @@
 ---
-title: Pozyskiwanie danych do puli SQL
-description: Dowiedz się, jak pozyskiwanie danych do puli SQL w usłudze Azure Synapse Analytics
+title: Pozyskiwanie danych do dedykowanej puli SQL
+description: Dowiedz się, jak pozyskiwanie danych do dedykowanej puli SQL w usłudze Azure Synapse Analytics
 services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 40f8834a69101682abaaa7eac8ec9cafe8ef3d9e
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279371"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317786"
 ---
-# <a name="ingest-data-into-a-sql-pool"></a>Pozyskiwanie danych do puli SQL
+# <a name="ingest-data-into-a-dedicated-sql-pool"></a>Pozyskiwanie danych do dedykowanej puli SQL
 
-W tym artykule dowiesz się, jak pozyskać dane z konta magazynu Azure Data Lake Gen 2 do puli SQL przy użyciu usługi Azure Synapse Analytics.
+W tym artykule dowiesz się, jak pozyskiwać dane z konta magazynu Azure Data Lake Gen 2 do dedykowanej puli SQL w usłudze Azure Synapse Analytics.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure** : Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 * **Konto usługi Azure Storage** : używasz Azure Data Lake Storage Gen 2 jako magazynu danych *źródłowych* . Jeśli nie masz konta magazynu, zobacz [Tworzenie konta usługi Azure Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , aby uzyskać instrukcje.
-* **Azure Synapse Analytics** : używasz puli SQL jako magazynu danych *ujścia* . Jeśli nie masz wystąpienia usługi Azure Synapse Analytics, zapoznaj się z tematem [Tworzenie puli SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) na potrzeby kroków, aby je utworzyć.
+* **Azure Synapse Analytics** : dedykowana Pula SQL jest używana jako magazyn danych *ujścia* . Jeśli nie masz wystąpienia usługi Azure Synapse Analytics, zapoznaj się z tematem [Tworzenie dedykowanej puli SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) w celu wykonania czynności, aby ją utworzyć.
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
 
@@ -39,7 +39,7 @@ W usłudze Azure Synapse Analytics, połączona Usługa polega na definiowaniu i
 
 ## <a name="create-pipeline"></a>Tworzenie potoku
 
-Potok zawiera przepływ logiczny dla wykonywania zestawu działań. W tej sekcji utworzysz potok zawierający działanie kopiowania, które pozyskuje dane z ADLS Gen2 w puli SQL.
+Potok zawiera przepływ logiczny dla wykonywania zestawu działań. W tej sekcji utworzysz potok zawierający działanie kopiowania, które pobiera dane z ADLS Gen2 do dedykowanej puli SQL.
 
 1. Przejdź do karty **integracja** . Wybierz ikonę znaku plus obok nagłówka potoki i wybierz pozycję **potok**.
 1. W obszarze **Przenieś i Przekształć** w okienku działania przeciągnij pozycję **Kopiuj dane** na kanwę potoku.
@@ -68,7 +68,7 @@ W tym kroku ręcznie wyzwolimy potok opublikowany w poprzednim kroku.
 1. Na pasku narzędzi wybierz pozycję **Dodaj wyzwalacz** , a następnie wybierz pozycję **Wyzwól teraz**. Na stronie **Uruchomienie potoku** wybierz przycisk **Zakończ**.  
 1. Przejdź do karty **monitorowanie** znajdującej się na lewym pasku bocznym. Widoczne jest uruchomienie potoku, które zostało wyzwolone za pomocą wyzwalacza ręcznego. Możesz użyć linków w kolumnie **Akcje** , aby wyświetlić szczegóły działania i ponownie uruchomić potok.
 1. Aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku, wybierz link **Wyświetl uruchomienia działań** w kolumnie **Akcje**. W tym przykładzie istnieje tylko jedno działanie, dlatego na liście jest widoczny tylko jeden wpis. Aby uzyskać szczegółowe informacje na temat operacji kopiowania, wybierz link **Szczegóły** (ikona okularów) w kolumnie **Akcje**. Wybierz pozycję **uruchomienia potoku** u góry, aby wrócić do widoku uruchomienia potoków. Aby odświeżyć widok, wybierz pozycję **Odśwież**.
-1. Sprawdź, czy dane są poprawnie zapisywane w puli SQL.
+1. Sprawdź, czy dane są poprawnie zapisywane w dedykowanej puli SQL.
 
 
 ## <a name="next-steps"></a>Następne kroki

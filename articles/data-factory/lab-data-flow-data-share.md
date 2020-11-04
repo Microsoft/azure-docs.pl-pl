@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 1c8958062c7430f98db0925c2b3996887bfe5548
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 11f4e7c50acc8256722949a50760c574d3b9d9e9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637364"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318239"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integracja danych przy użyciu Azure Data Factory i udziału danych platformy Azure
 
@@ -73,25 +73,25 @@ W obszarze Azure Data Factory połączone usługi definiują informacje o połą
 1. Pierwsza połączona usługa, którą skonfigurujesz, to baza danych SQL platformy Azure. Korzystając z paska wyszukiwania, można filtrować listę magazynów danych. Kliknij kafelek **Azure SQL Database** i kliknij przycisk Kontynuuj.
 
     ![Konfiguracja portalu 4](media/lab-data-flow-data-share/configure4.png)
-1. W okienku Konfiguracja bazy danych SQL wprowadź wartość "SQLDB" jako nazwę połączonej usługi. Wprowadź swoje poświadczenia, aby umożliwić usłudze Data Factory łączenie się z bazą danych. Jeśli używasz uwierzytelniania SQL, wprowadź wartość w polu Nazwa serwera, baza danych, nazwa użytkownika i hasło. Aby sprawdzić, czy informacje o połączeniu są poprawne, kliknij przycisk **Test connection** . Po zakończeniu kliknij przycisk **Utwórz** .
+1. W okienku Konfiguracja bazy danych SQL wprowadź wartość "SQLDB" jako nazwę połączonej usługi. Wprowadź swoje poświadczenia, aby umożliwić usłudze Data Factory łączenie się z bazą danych. Jeśli używasz uwierzytelniania SQL, wprowadź wartość w polu Nazwa serwera, baza danych, nazwa użytkownika i hasło. Aby sprawdzić, czy informacje o połączeniu są poprawne, kliknij przycisk **Test connection**. Po zakończeniu kliknij przycisk **Utwórz** .
 
     ![Konfiguracja portalu 5](media/lab-data-flow-data-share/configure5.png)
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Tworzenie połączonej usługi Azure Synapse Analytics
 
-1. Powtórz ten sam proces, aby dodać połączoną usługę Azure Synapse Analytics. Na karcie połączenia kliknij pozycję **Nowy** . Wybierz kafelek **Azure Synapse Analytics (dawniej SQL DW)** , a następnie kliknij przycisk Kontynuuj.
+1. Powtórz ten sam proces, aby dodać połączoną usługę Azure Synapse Analytics. Na karcie połączenia kliknij pozycję **Nowy**. Wybierz kafelek **Azure Synapse Analytics (dawniej SQL DW)** , a następnie kliknij przycisk Kontynuuj.
 
     ![Konfiguracja portalu 6](media/lab-data-flow-data-share/configure6.png)
-1. W okienku Konfiguracja połączonej usługi wprowadź wartość "SQLDW" jako nazwę połączonej usługi. Wprowadź swoje poświadczenia, aby umożliwić usłudze Data Factory łączenie się z bazą danych. Jeśli używasz uwierzytelniania SQL, wprowadź wartość w polu Nazwa serwera, baza danych, nazwa użytkownika i hasło. Aby sprawdzić, czy informacje o połączeniu są poprawne, kliknij przycisk **Test connection** . Po zakończeniu kliknij przycisk **Utwórz** .
+1. W okienku Konfiguracja połączonej usługi wprowadź wartość "SQLDW" jako nazwę połączonej usługi. Wprowadź swoje poświadczenia, aby umożliwić usłudze Data Factory łączenie się z bazą danych. Jeśli używasz uwierzytelniania SQL, wprowadź wartość w polu Nazwa serwera, baza danych, nazwa użytkownika i hasło. Aby sprawdzić, czy informacje o połączeniu są poprawne, kliknij przycisk **Test connection**. Po zakończeniu kliknij przycisk **Utwórz** .
 
     ![Konfiguracja portalu 7](media/lab-data-flow-data-share/configure7.png)
 
 ### <a name="create-an-azure-data-lake-storage-gen2-linked-service"></a>Tworzenie połączonej usługi Azure Data Lake Storage Gen2
 
-1. Ostatnia połączona usługa wymagana dla tego laboratorium to Azure Data Lake Storage Gen2.  Na karcie połączenia kliknij pozycję **Nowy** . Wybierz kafelek **Azure Data Lake Storage Gen2** i kliknij przycisk Kontynuuj.
+1. Ostatnia połączona usługa wymagana dla tego laboratorium to Azure Data Lake Storage Gen2.  Na karcie połączenia kliknij pozycję **Nowy**. Wybierz kafelek **Azure Data Lake Storage Gen2** i kliknij przycisk Kontynuuj.
 
     ![Portal — Konfigurowanie 8](media/lab-data-flow-data-share/configure8.png)
-1. W okienku Konfiguracja połączonej usługi wprowadź wartość "ADLSGen2" jako nazwę połączonej usługi. Jeśli używasz uwierzytelniania klucza konta, wybierz konto usługi ADLS Gen2 Storage z listy rozwijanej **nazwa konta magazynu** . Aby sprawdzić, czy informacje o połączeniu są poprawne, kliknij przycisk **Test connection** . Po zakończeniu kliknij przycisk **Utwórz** .
+1. W okienku Konfiguracja połączonej usługi wprowadź wartość "ADLSGen2" jako nazwę połączonej usługi. Jeśli używasz uwierzytelniania klucza konta, wybierz konto usługi ADLS Gen2 Storage z listy rozwijanej **nazwa konta magazynu** . Aby sprawdzić, czy informacje o połączeniu są poprawne, kliknij przycisk **Test connection**. Po zakończeniu kliknij przycisk **Utwórz** .
 
     ![Portal — Konfigurowanie 9](media/lab-data-flow-data-share/configure9.png)
 
@@ -111,7 +111,7 @@ W Azure Data Factory potok jest logicznym grupą działań, które wspólnie wyk
 
 ### <a name="create-a-pipeline-with-a-copy-activity"></a>Tworzenie potoku za pomocą działania kopiowania
 
-1. W okienku zasoby fabryki kliknij ikonę znaku plus, aby otworzyć menu nowy zasób. Wybierz pozycję **potok** .
+1. W okienku zasoby fabryki kliknij ikonę znaku plus, aby otworzyć menu nowy zasób. Wybierz pozycję **potok**.
 
     ![Kopia portalu 1](media/lab-data-flow-data-share/copy1.png)
 1. Na karcie **Ogólne** kanwy potoku Nazwij swój potok, na przykład "IngestAndTransformTaxiData".
@@ -123,13 +123,13 @@ W Azure Data Factory potok jest logicznym grupą działań, które wspólnie wyk
 
 ### <a name="configure-azure-sql-db-source-dataset"></a>Konfigurowanie źródłowego zestawu danych usługi Azure SQL DB
 
-1. Kliknij kartę **Źródło** działania kopiowania. Aby utworzyć nowy zestaw danych, kliknij przycisk **Nowy** . Źródłem będzie tabela "dbo. TripData ' znajduje się w wcześniej skonfigurowanym elemencie "SQLDB" połączonej usługi.
+1. Kliknij kartę **Źródło** działania kopiowania. Aby utworzyć nowy zestaw danych, kliknij przycisk **Nowy**. Źródłem będzie tabela "dbo. TripData ' znajduje się w wcześniej skonfigurowanym elemencie "SQLDB" połączonej usługi.
 
     ![Kopia portalu 4](media/lab-data-flow-data-share/copy4.png)
 1. Wyszukaj **Azure SQL Database** i kliknij przycisk Kontynuuj.
 
     ![Kopia portalu 5](media/lab-data-flow-data-share/copy5.png)
-1. Wywołaj zestaw danych "TripData". Wybierz pozycję "SQLDB" jako połączoną usługę. Wybierz nazwę tabeli "dbo. TripData ' z listy rozwijanej Nazwa tabeli. Zaimportuj schemat **z połączenia/magazynu** . Po zakończeniu kliknij przycisk OK.
+1. Wywołaj zestaw danych "TripData". Wybierz pozycję "SQLDB" jako połączoną usługę. Wybierz nazwę tabeli "dbo. TripData ' z listy rozwijanej Nazwa tabeli. Zaimportuj schemat **z połączenia/magazynu**. Po zakończeniu kliknij przycisk OK.
 
     ![Kopia portalu 6](media/lab-data-flow-data-share/copy6.png)
 
@@ -137,7 +137,7 @@ Zestaw danych źródłowych został pomyślnie utworzony. Upewnij się, że w us
 
 ### <a name="configure-adls-gen2-sink-dataset"></a>Konfigurowanie zestawu danych ujścia ADLS Gen2
 
-1. Kliknij kartę **ujścia** działania kopiowania. Aby utworzyć nowy zestaw danych, kliknij przycisk **Nowy** .
+1. Kliknij kartę **ujścia** działania kopiowania. Aby utworzyć nowy zestaw danych, kliknij przycisk **Nowy**.
 
     ![Kopia portalu 7](media/lab-data-flow-data-share/copy7.png)
 1. Wyszukaj **Azure Data Lake Storage Gen2** i kliknij przycisk Kontynuuj.
@@ -146,7 +146,7 @@ Zestaw danych źródłowych został pomyślnie utworzony. Upewnij się, że w us
 1. W okienku wybierz Format wybierz pozycję **DelimitedText** podczas zapisywania do pliku CSV. Kliknij przycisk Kontynuuj.
 
     ![Kopia portalu 9](media/lab-data-flow-data-share/copy9.png)
-1. Nazwij zestaw danych ujścia "TripDataCSV". Wybierz pozycję "ADLSGen2" jako połączoną usługę. Wprowadź miejsce zapisania pliku CSV. Można na przykład napisać dane do pliku `trip-data.csv` w kontenerze `staging-container` . Ustaw **pierwszy wiersz jako nagłówek** na wartość true, ponieważ chcesz, aby dane wyjściowe miały nagłówki. Ponieważ plik nie istnieje jeszcze w miejscu docelowym, ustaw dla opcji **Importuj schemat** **wartość Brak** . Po zakończeniu kliknij przycisk OK.
+1. Nazwij zestaw danych ujścia "TripDataCSV". Wybierz pozycję "ADLSGen2" jako połączoną usługę. Wprowadź miejsce zapisania pliku CSV. Można na przykład napisać dane do pliku `trip-data.csv` w kontenerze `staging-container` . Ustaw **pierwszy wiersz jako nagłówek** na wartość true, ponieważ chcesz, aby dane wyjściowe miały nagłówki. Ponieważ plik nie istnieje jeszcze w miejscu docelowym, ustaw dla opcji **Importuj schemat** **wartość Brak**. Po zakończeniu kliknij przycisk OK.
 
     ![Kopia portalu 10](media/lab-data-flow-data-share/copy10.png)
 
@@ -176,7 +176,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
 1. W okienku działania kanwy potoku Otwórz przystawkę **przenoszenie i przekształcanie** i przeciągnij aktywność **przepływu danych** na kanwę.
 
     ![Przepływ danych portalu 1](media/lab-data-flow-data-share/dataflow1.png)
-1. W okienku po otwarciu wybierz pozycję **Utwórz nowy przepływ danych** i wybierz pozycję **Mapowanie przepływu danych** . Kliknij pozycję **OK** .
+1. W okienku po otwarciu wybierz pozycję **Utwórz nowy przepływ danych** i wybierz pozycję **Mapowanie przepływu danych**. Kliknij pozycję **OK**.
 
     ![Przepływ danych portalu 2](media/lab-data-flow-data-share/dataflow2.png)
 1. Nastąpi przekierowanie do kanwy przepływu danych, w której będziesz kompilować logikę transformacji. Na karcie Ogólne Nadaj nazwę przepływowi danych "JoinAndAggregateData".
@@ -191,7 +191,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
 1. Nazwij Źródło "TripDataCSV" i wybierz zestaw danych "TripDataCSV" z listy rozwijanej Źródło. Jeśli zapamiętasz, schemat nie został wcześniej zaimportowany podczas tworzenia tego zestawu danych, ponieważ nie było tam żadnych danych. Ponieważ `trip-data.csv` już istnieje, kliknij przycisk **Edytuj** , aby przejść do karty ustawienia zestawu danych.
 
     ![Przepływ danych portalu 5](media/lab-data-flow-data-share/dataflow5.png)
-1. Przejdź do **schematu** karty i kliknij pozycję **Importuj schemat** . Wybierz pozycję **połączenie/magazyn** , aby zaimportować bezpośrednio z magazynu plików. 14 kolumn typu String powinna pojawić się.
+1. Przejdź do **schematu** karty i kliknij pozycję **Importuj schemat**. Wybierz pozycję **połączenie/magazyn** , aby zaimportować bezpośrednio z magazynu plików. 14 kolumn typu String powinna pojawić się.
 
     ![Przepływ danych portalu 6](media/lab-data-flow-data-share/dataflow6.png)
 1. Wróć do przepływu danych "JoinAndAggregateData". Jeśli klaster debugowania został uruchomiony (wskazany przez zielony okrąg obok suwaka debugowania), możesz uzyskać migawkę danych na karcie **Podgląd danych** . Kliknij przycisk **Odśwież** , aby pobrać Podgląd danych.
@@ -209,10 +209,10 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
 1. Nadaj nazwę temu źródłowi "TripFaresSQL". Kliknij przycisk **nowe** obok pola zestaw danych źródłowych, aby utworzyć nowy zestaw danych bazy danych SQL.
 
     ![Przepływ danych portalu 9](media/lab-data-flow-data-share/dataflow9.png)
-1. Wybierz kafelek **Azure SQL Database** i kliknij przycisk Kontynuuj. *Uwaga: możesz zauważyć, że wiele łączników w usłudze Fabryka danych nie jest obsługiwane w mapowaniu przepływu danych. Aby przekształcić dane z jednego z tych źródeł, należy pozyskać je do obsługiwanego źródła za pomocą działania kopiowania* .
+1. Wybierz kafelek **Azure SQL Database** i kliknij przycisk Kontynuuj. *Uwaga: możesz zauważyć, że wiele łączników w usłudze Fabryka danych nie jest obsługiwane w mapowaniu przepływu danych. Aby przekształcić dane z jednego z tych źródeł, należy pozyskać je do obsługiwanego źródła za pomocą działania kopiowania*.
 
     ![Przepływ danych portalu 10](media/lab-data-flow-data-share/dataflow10.png)
-1. Wywołaj zestaw danych "TripFares". Wybierz pozycję "SQLDB" jako połączoną usługę. Wybierz nazwę tabeli "dbo. TripFares ' z listy rozwijanej Nazwa tabeli. Zaimportuj schemat **z połączenia/magazynu** . Po zakończeniu kliknij przycisk OK.
+1. Wywołaj zestaw danych "TripFares". Wybierz pozycję "SQLDB" jako połączoną usługę. Wybierz nazwę tabeli "dbo. TripFares ' z listy rozwijanej Nazwa tabeli. Zaimportuj schemat **z połączenia/magazynu**. Po zakończeniu kliknij przycisk OK.
 
     ![Przepływ danych portalu 11](media/lab-data-flow-data-share/dataflow11.png)
 1. Aby sprawdzić dane, Pobierz Podgląd danych na karcie **Podgląd danych** .
@@ -221,7 +221,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
 
 ### <a name="inner-join-tripdatacsv-and-tripfaressql"></a>Wewnętrzne sprzężenie TripDataCSV i TripFaresSQL
 
-1. Aby dodać nową transformację, kliknij ikonę znaku plus w prawym dolnym rogu elementu "TripDataCSV". W obszarze **wielu danych wejściowych/wyjściowych** wybierz pozycję **Dołącz** .
+1. Aby dodać nową transformację, kliknij ikonę znaku plus w prawym dolnym rogu elementu "TripDataCSV". W obszarze **wielu danych wejściowych/wyjściowych** wybierz pozycję **Dołącz**.
 
     ![Dołączenie do portalu 1](media/lab-data-flow-data-share/join1.png)
 1. Nazwij transformację join "InnerJoinWithTripFares". Wybierz pozycję "TripFaresSQL" z listy rozwijanej odpowiedniego strumienia. Wybierz pozycję **wewnętrzne** jako typ sprzężenia. Aby dowiedzieć się więcej o różnych typach sprzężeń w mapowaniu przepływu danych, zobacz [typy sprzężeń](./data-flow-join.md#join-types).
@@ -235,7 +235,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
 
 ### <a name="aggregate-by-payment_type"></a>Agreguj według payment_type
 
-1. Po zakończeniu transformacji sprzężenia Dodaj transformację agregacji, klikając ikonę znaku plus obok pozycji "InnerJoinWithTripFares". Wybierz pozycję **Agreguj** pod **modyfikatorem schematu** .
+1. Po zakończeniu transformacji sprzężenia Dodaj transformację agregacji, klikając ikonę znaku plus obok pozycji "InnerJoinWithTripFares". Wybierz pozycję **Agreguj** pod **modyfikatorem schematu**.
 
     ![Portal AGG 1](media/lab-data-flow-data-share/agg1.png)
 1. Nadaj agregacji agregowanie "AggregateByPaymentType". Wybierz `payment_type` jako kolumnę Grupuj według.
@@ -248,12 +248,12 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
     Najpierw utworzysz wyrażenie średniej opłaty. W polu tekstowym **Dodaj lub zaznacz kolumnę** wpisz "average_fare".
 
     ![Portal AGG 3](media/lab-data-flow-data-share/agg3.png)
-1. Aby wprowadzić wyrażenie agregacji, kliknij niebieskie pole z etykietą **wprowadź wyrażenie** . Spowoduje to otwarcie konstruktora wyrażeń przepływu danych, narzędzia służącego do wizualnego tworzenia wyrażeń przepływu danych przy użyciu schematu wejściowego, wbudowanych funkcji i operacji oraz parametrów zdefiniowanych przez użytkownika. Aby uzyskać więcej informacji o możliwościach konstruktora wyrażeń, zobacz dokumentację programu [Expression Builder](./concepts-data-flow-expression-builder.md).
+1. Aby wprowadzić wyrażenie agregacji, kliknij niebieskie pole z etykietą **wprowadź wyrażenie**. Spowoduje to otwarcie konstruktora wyrażeń przepływu danych, narzędzia służącego do wizualnego tworzenia wyrażeń przepływu danych przy użyciu schematu wejściowego, wbudowanych funkcji i operacji oraz parametrów zdefiniowanych przez użytkownika. Aby uzyskać więcej informacji o możliwościach konstruktora wyrażeń, zobacz dokumentację programu [Expression Builder](./concepts-data-flow-expression-builder.md).
 
     Aby uzyskać średnią opłatę, użyj `avg()` funkcji agregacji do agregowania `total_amount` rzutowania kolumny do liczby całkowitej za pomocą `toInteger()` . W języku wyrażeń przepływu danych jest to zdefiniowane jako `avg(toInteger(total_amount))` . Po zakończeniu kliknij przycisk **Zapisz i Zakończ** .
 
     ![Portal AGG 4](media/lab-data-flow-data-share/agg4.png)
-1. Aby dodać dodatkowe wyrażenie agregacji, kliknij ikonę znaku plus obok pozycji `average_fare` . Wybierz pozycję **Dodaj kolumnę** .
+1. Aby dodać dodatkowe wyrażenie agregacji, kliknij ikonę znaku plus obok pozycji `average_fare` . Wybierz pozycję **Dodaj kolumnę**.
 
     ![Portal AGG 5](media/lab-data-flow-data-share/agg5.png)
 1. W polu tekstowym **Dodaj lub zaznacz kolumnę** wpisz "total_trip_distance". Jak w ostatnim kroku, Otwórz konstruktora wyrażeń, aby wprowadzić wyrażenie.
@@ -310,7 +310,7 @@ Część fabryki danych w tym laboratorium została ukończona. Opublikuj zasoby
 
 W tej sekcji dowiesz się, jak skonfigurować nowy udział danych przy użyciu Azure Portal. Obejmuje to utworzenie nowego udziału danych, który będzie zawierać zestawy DataSet z Azure Data Lake Store Gen2 i Azure Synapse Analytics (dawniej SQL Data Warehouse). Następnie skonfigurujesz harmonogram migawek, który zapewni odbiorcom danych opcję automatycznego odświeżania danych, które są im udostępniane. Następnie zapraszasz adresatów do udziału danych. 
 
-Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsumentem danych* . Jako odbiorca danych postanowisz o zaakceptowaniu zaproszenia do udziału danych, konfigurowaniu miejsca, w którym dane mają być odbierane, oraz mapowania zestawów danych do różnych lokalizacji magazynu. Następnie wyzwolisz migawkę, która skopiuje dane udostępnione Tobie do określonego miejsca docelowego. 
+Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsumentem danych*. Jako odbiorca danych postanowisz o zaakceptowaniu zaproszenia do udziału danych, konfigurowaniu miejsca, w którym dane mają być odbierane, oraz mapowania zestawów danych do różnych lokalizacji magazynu. Następnie wyzwolisz migawkę, która skopiuje dane udostępnione Tobie do określonego miejsca docelowego. 
 
 ### <a name="sharing-data-data-provider-flow"></a>Udostępnianie danych (przepływ Dostawca danych)
 
@@ -320,7 +320,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
     ![Reklamy portalu](media/lab-data-flow-data-share/portal-ads.png)
 
-1. Wybierz konto udziału danych z nazwą "Provider". Na przykład **DataProvider0102** . 
+1. Wybierz konto udziału danych z nazwą "Provider". Na przykład **DataProvider0102**. 
 
 1. Wybierz pozycję **Rozpocznij udostępnianie danych**
 
@@ -336,7 +336,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
     ![Szczegóły udostępniania](media/lab-data-flow-data-share/ads-details.png)
 
-1. Wybierz opcję **Kontynuuj** . 
+1. Wybierz opcję **Kontynuuj**. 
 
 1. Wybierz pozycję **Dodaj zestawy danych** 
 
@@ -346,8 +346,6 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
     ![Dodaj zestaw danych SQL](media/lab-data-flow-data-share/add-dataset-sql.png)
 
-> [!NOTE]
-> SQL Data Warehouse jest teraz znana jako Analiza usługi Azure Synapse
 
 1. Otrzymasz skrypt do uruchomienia, zanim będzie można wykonać operację. Dostarczony skrypt tworzy użytkownika w bazie danych SQL, aby zezwolić na uwierzytelnianie za pomocą pliku MSI udostępniania danych platformy Azure w jego imieniu. 
 
@@ -374,7 +372,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
 1. Wybierz pozycję **Dalej**
 
-1. Rozwiń węzeł *wwtaxidata* . Rozwiń pozycję *dane dotyczące taksówki Boston* . Zwróć uwagę, że możesz udostępnić na poziomie pliku. 
+1. Rozwiń węzeł *wwtaxidata*. Rozwiń pozycję *dane dotyczące taksówki Boston*. Zwróć uwagę, że możesz udostępnić na poziomie pliku. 
 
 1. Wybierz folder *dane z taksówką Boston* , aby dodać cały folder do udziału danych. 
 
@@ -396,11 +394,11 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
 1. Sprawdź **harmonogram migawek** i skonfiguruj co godzinę odświeżanie danych przy użyciu listy rozwijanej *cykl* .  
 
-1. Wybierz pozycję **Utwórz** .
+1. Wybierz przycisk **Utwórz**.
 
     Masz już aktywny udział danych. Umożliwia przegląd informacji o tym, co można zobaczyć jako dostawca danych podczas tworzenia udziału danych. 
 
-1. Wybierz utworzony udział danych, zatytułowany **DataProvider** . Możesz przejść do niego, wybierając pozycję **wysłane udziały** w **udziale danych** . 
+1. Wybierz utworzony udział danych, zatytułowany **DataProvider**. Możesz przejść do niego, wybierając pozycję **wysłane udziały** w **udziale danych**. 
 
 1. Kliknij pozycję harmonogram migawek. Harmonogram migawek można wyłączyć, jeśli wybierzesz opcję. 
 
@@ -428,21 +426,21 @@ W wiadomości e-mail, która powinna zostać odebrana, kliknij pozycję "Wyświe
 
 Może zostać wyświetlony monit o wybranie subskrypcji. Upewnij się, że wybrano subskrypcję, dla której wykonano pracę w ramach tego laboratorium. 
 
-1. Kliknij zaproszenie zatytułowane *DataProvider* . 
+1. Kliknij zaproszenie zatytułowane *DataProvider*. 
 
 1. Na tym ekranie zaproszenia zobaczysz różne szczegóły dotyczące udziału danych, który został wcześniej skonfigurowany jako dostawca danych. Przejrzyj szczegóły i zaakceptuj warunki użytkowania, jeśli zostały podane.
 
 1. Wybierz subskrypcję i grupę zasobów, która już istnieje dla laboratorium. 
 
-1. W obszarze **konto udostępniania danych** wybierz pozycję **dataconsumer** . Możesz również utworzyć nowe konto udostępniania danych. 
+1. W obszarze **konto udostępniania danych** wybierz pozycję **dataconsumer**. Możesz również utworzyć nowe konto udostępniania danych. 
 
-1. Obok pozycji **odebrana nazwa udziału** zobaczysz domyślną nazwę udziału, która została określona przez dostawcę danych. Nadaj udziałowi przyjazną nazwę opisującą dane, które chcesz otrzymywać, np. **TaxiDataShare** .
+1. Obok pozycji **odebrana nazwa udziału** zobaczysz domyślną nazwę udziału, która została określona przez dostawcę danych. Nadaj udziałowi przyjazną nazwę opisującą dane, które chcesz otrzymywać, np. **TaxiDataShare**.
 
     ![Akceptacja zaproszenia](media/lab-data-flow-data-share/consumer-accept.png)
 
-1. Możesz **zaakceptować i skonfigurować teraz** lub **zaakceptować i skonfigurować później** . Jeśli zdecydujesz się zaakceptować i skonfigurować teraz, określ konto magazynu, dla którego mają zostać skopiowane wszystkie dane. Jeśli zdecydujesz się zaakceptować i skonfigurować później, zestawy danych w udziale zostaną odmapowane i trzeba będzie je ręcznie zmapować. Będziemy w przyszłości wybrać tę opcję. 
+1. Możesz **zaakceptować i skonfigurować teraz** lub **zaakceptować i skonfigurować później**. Jeśli zdecydujesz się zaakceptować i skonfigurować teraz, określ konto magazynu, dla którego mają zostać skopiowane wszystkie dane. Jeśli zdecydujesz się zaakceptować i skonfigurować później, zestawy danych w udziale zostaną odmapowane i trzeba będzie je ręcznie zmapować. Będziemy w przyszłości wybrać tę opcję. 
 
-1. Wybierz pozycję **Akceptuj i skonfiguruj później** . 
+1. Wybierz pozycję **Akceptuj i skonfiguruj później**. 
 
     W przypadku konfigurowania tej opcji zostanie utworzona subskrypcja udziału, ale nie ma miejsca, w którym dane mają być gruntowe, ponieważ nie zamapowana miejsca docelowego. 
 
@@ -456,7 +454,7 @@ Może zostać wyświetlony monit o wybranie subskrypcji. Upewnij się, że wybra
 
     ![niezamapowane zestawy danych](media/lab-data-flow-data-share/unmapped.png)
 
-1. Wybierz tabelę usługi Azure Synapse Analytics, a następnie wybierz pozycję **+ Mapuj, aby określić element docelowy** .
+1. Wybierz tabelę usługi Azure Synapse Analytics, a następnie wybierz pozycję **+ Mapuj, aby określić element docelowy**.
 
 1. Po prawej stronie ekranu wybierz listę rozwijaną **docelowy typ danych** . 
 
@@ -480,7 +478,7 @@ Może zostać wyświetlony monit o wybranie subskrypcji. Upewnij się, że wybra
 
 1. Otwórz nową kartę Azure Portal. Nie zamykaj istniejącej karty, ponieważ musisz wrócić do niej w chwilę. 
 
-1. Na nowo otwartej karcie przejdź do **bazy danych SQL** .
+1. Na nowo otwartej karcie przejdź do **bazy danych SQL**.
 
 1. Wybierz bazę danych SQL (w subskrypcji powinna być tylko jedna). Należy zachować ostrożność, aby nie wybierać magazynu danych. 
 
@@ -492,7 +490,7 @@ Może zostać wyświetlony monit o wybranie subskrypcji. Upewnij się, że wybra
 
     To polecenie umożliwia usłudze udostępnianie danych platformy Azure używanie tożsamości zarządzanych dla usług platformy Azure do uwierzytelniania w SQL Server, aby można było skopiować do niego dane. 
 
-1. Wróć do oryginalnej karty i wybierz pozycję **Mapuj do lokalizacji docelowej** .
+1. Wróć do oryginalnej karty i wybierz pozycję **Mapuj do lokalizacji docelowej**.
 
 1. Następnie wybierz folder Azure Data Lake Gen2, który jest częścią zestawu danych, i zamapuj go na konto usługi Azure Blob Storage. 
 
@@ -502,7 +500,7 @@ Może zostać wyświetlony monit o wybranie subskrypcji. Upewnij się, że wybra
 
     ![mapowane](media/lab-data-flow-data-share/all-mapped.png)
     
-1. Wybierz pozycję **szczegóły** . 
+1. Wybierz pozycję **szczegóły**. 
 
     Zwróć uwagę, że **migawka wyzwalacza** nie jest już wyszarzona, ponieważ udział danych ma teraz miejsca docelowe do kopiowania.
 

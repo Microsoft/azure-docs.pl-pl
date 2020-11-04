@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 5e422b5292f77150e2755cb5963e2cd95d148654
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 382ba871f95b3b36c3f819de8d582ba2c5dc358a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939107"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316094"
 ---
 # <a name="machine-learning-capabilities-in-azure-synapse-analytics-workspaces-preview"></a>Możliwości Machine Learning na platformie Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)
 
@@ -81,4 +81,4 @@ Do oceniania partii można łatwo używać modeli, które zostały przeszkolone 
 * [Rozpoczynanie pracy z usługą Azure Synapse Analytics](../get-started.md)
 * [Tworzenie obszaru roboczego](../get-started-create-workspace.md)
 * [Szybki Start: Tworzenie nowej Azure Machine Learning połączonej usługi w programie Synapse](quickstart-integrate-azure-machine-learning.md)
-* [Samouczek: Kreator oceniania modelu uczenia maszynowego — Pula SQL](tutorial-sql-pool-model-scoring-wizard.md)
+* [Samouczek: Kreator oceniania modelu uczenia maszynowego — dedykowana Pula SQL](tutorial-sql-pool-model-scoring-wizard.md)

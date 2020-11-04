@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8082694b9f08023653d47e1f7fb442219cf8b475
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672863"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316703"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
 
@@ -34,7 +34,7 @@ W tym artykule dowiesz się, jak włączyć następujące zasoby obszarów roboc
 > - Obszar roboczy usługi Azure Machine Learning
 > - Konta usługi Azure Storage
 > - Azure Machine Learning magazyny i zestawy danych
-> - Azure Key Vault
+> - W usłudze Azure Key Vault
 > - Azure Container Registry
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -48,7 +48,7 @@ W tym artykule dowiesz się, jak włączyć następujące zasoby obszarów roboc
     - "Microsoft. Network/virtualNetworks/Join/Action" w zasobie sieci wirtualnej.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" w zasobie podsieci.
 
-    Aby uzyskać więcej informacji na temat usługi Azure RBAC z obsługą sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking) .
+    Aby uzyskać więcej informacji na temat usługi Azure RBAC z obsługą sieci, zobacz [wbudowane role sieciowe](../role-based-access-control/built-in-roles.md#networking) .
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>Zabezpieczanie obszaru roboczego za pomocą prywatnego punktu końcowego
@@ -66,7 +66,7 @@ Azure Machine Learning obsługuje konta magazynu skonfigurowane do korzystania z
 >
 > Domyślne konto magazynu jest automatycznie inicjowane podczas tworzenia obszaru roboczego.
 >
-> W przypadku kont magazynu innych niż domyślne `storage_account` parametr w [ `Workspace.create()` funkcji](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) umożliwia określenie NIESTANDARDOWEGO konta magazynu według identyfikatora zasobu platformy Azure.
+> W przypadku kont magazynu innych niż domyślne `storage_account` parametr w [ `Workspace.create()` funkcji](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) umożliwia określenie NIESTANDARDOWEGO konta magazynu według identyfikatora zasobu platformy Azure.
 
 Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej, wykonaj następujące czynności:
 
@@ -74,12 +74,12 @@ Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej,
 
    [![Magazyn połączony z obszarem roboczym Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Na stronie konto usługi magazynu wybierz pozycję __zapory i sieci wirtualne__ .
+1. Na stronie konto usługi magazynu wybierz pozycję __zapory i sieci wirtualne__.
 
    ![Obszar "zapory i sieci wirtualne" na stronie usługi Azure Storage w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
 1. Na stronie __zapory i sieci wirtualne__ wykonaj następujące czynności:
-    1. Wybierz pozycję __Wybrane sieci__ .
+    1. Wybierz pozycję __Wybrane sieci__.
     1. W obszarze __sieci wirtualne__ wybierz łącze __Dodaj istniejące sieci wirtualne__ . Ta akcja powoduje dodanie sieci wirtualnej, w której znajdują się obliczenia (zobacz krok 1).
 
         > [!IMPORTANT]
@@ -95,7 +95,7 @@ Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej,
     > [!IMPORTANT]
     > Podczas pracy z zestawem SDK Azure Machine Learning środowisko programistyczne musi mieć możliwość nawiązania połączenia z kontem usługi Azure Storage. Gdy konto magazynu znajduje się w sieci wirtualnej, zapora musi zezwalać na dostęp ze swojego adresu IP środowiska deweloperskiego.
     >
-    > Aby włączyć dostęp do konta magazynu, odwiedź __zapory i sieci wirtualne__ dla konta magazynu *z przeglądarki sieci Web na kliencie deweloperskim* . Następnie użyj pola wyboru __Dodaj adres IP klienta__ , aby dodać adres IP klienta do __zakresu adresów__ . Możesz również użyć pola __zakres adresów__ , aby ręcznie wprowadzić adres IP środowiska deweloperskiego. Po dodaniu adresu IP klienta może on uzyskać dostęp do konta magazynu przy użyciu zestawu SDK.
+    > Aby włączyć dostęp do konta magazynu, odwiedź __zapory i sieci wirtualne__ dla konta magazynu *z przeglądarki sieci Web na kliencie deweloperskim*. Następnie użyj pola wyboru __Dodaj adres IP klienta__ , aby dodać adres IP klienta do __zakresu adresów__. Możesz również użyć pola __zakres adresów__ , aby ręcznie wprowadzić adres IP środowiska deweloperskiego. Po dodaniu adresu IP klienta może on uzyskać dostęp do konta magazynu przy użyciu zestawu SDK.
 
    [![Okienko "zapory i sieci wirtualne" w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -125,10 +125,10 @@ Domyślnie Azure Machine Learning sprawdza ważność danych i sprawdzanie pośw
 
  Azure Data Lake Store Gen1 i Azure Data Lake Store Gen2 Pomijaj walidację domyślnie, więc nie są wymagane żadne dalsze działania. Jednak dla następujących usług można użyć podobnej składni, aby pominąć walidację magazynu danych:
 
-- Usługa Azure Blob Storage
+- Azure Blob Storage
 - Udział plików platformy Azure
 - PostgreSQL
-- Usługa Azure SQL Database
+- Azure SQL Database
 
 Poniższy przykład kodu tworzy nowy magazyn danych obiektów blob platformy Azure `skip_validation=True` .
 
@@ -175,12 +175,12 @@ Aby korzystać z funkcji eksperymentowania Azure Machine Learning z Azure Key Va
 
 1. Przejdź do Key Vault, która jest skojarzona z obszarem roboczym.
 
-1. Na stronie __Key Vault__ w lewym okienku wybierz pozycję __Sieć__ .
+1. Na stronie __Key Vault__ w lewym okienku wybierz pozycję __Sieć__.
 
 1. Na karcie __zapory i sieci wirtualne__ wykonaj następujące czynności:
-    1. W obszarze __Zezwalaj na dostęp z__ , wybierz pozycję __prywatny punkt końcowy i wybrane sieci__ .
+    1. W obszarze __Zezwalaj na dostęp z__ , wybierz pozycję __prywatny punkt końcowy i wybrane sieci__.
     1. W obszarze __sieci wirtualne__ wybierz pozycję __Dodaj istniejące sieci wirtualne__ , aby dodać sieć wirtualną, w której znajduje się obliczenie eksperymentu.
-    1. W obszarze __Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory?__ wybierz pozycję __tak__ .
+    1. W obszarze __Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory?__ wybierz pozycję __tak__.
 
    [![Sekcja "zapory i sieci wirtualne" w okienku Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -188,7 +188,7 @@ Aby korzystać z funkcji eksperymentowania Azure Machine Learning z Azure Key Va
 
 Aby używać Azure Container Registry wewnątrz sieci wirtualnej, należy spełnić następujące wymagania:
 
-* Azure Container Registry musi być w wersji Premium. Aby uzyskać więcej informacji na temat uaktualniania, zobacz [Zmiana jednostek SKU](/azure/container-registry/container-registry-skus#changing-skus).
+* Azure Container Registry musi być w wersji Premium. Aby uzyskać więcej informacji na temat uaktualniania, zobacz [Zmiana jednostek SKU](../container-registry/container-registry-skus.md#changing-tiers).
 
 * Azure Container Registry musi znajdować się w tej samej sieci wirtualnej i podsieci co konto magazynu i cele obliczeniowe używane do uczenia lub wnioskowania.
 
@@ -233,7 +233,7 @@ Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure C
     > [!IMPORTANT]
     > Twoje konto magazynu, klaster obliczeniowy i Azure Container Registry muszą znajdować się w tej samej podsieci sieci wirtualnej.
     
-    Aby uzyskać więcej informacji, zobacz informacje o metodzie [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) .
+    Aby uzyskać więcej informacji, zobacz informacje o metodzie [Update ()](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) .
 
 1. Zastosuj następujący szablon Azure Resource Manager. Ten szablon umożliwia obszarowi roboczemu komunikowanie się z ACR.
 
@@ -289,7 +289,7 @@ Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure C
 
     Ten szablon służy do tworzenia _prywatnego punktu końcowego_ dla dostępu do sieci z obszaru roboczego do ACR. Poniższy zrzut ekranu przedstawia przykład tego prywatnego punktu końcowego.
 
-    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Azure Container Registry obszaru roboczego":::
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Ustawienia prywatnego punktu końcowego ACR":::
 
     > [!IMPORTANT]
     > Nie usuwaj tego punktu końcowego! Jeśli przypadkowo usuniesz ten szablon, możesz go ponownie zastosować w tym kroku, aby utworzyć nowy.

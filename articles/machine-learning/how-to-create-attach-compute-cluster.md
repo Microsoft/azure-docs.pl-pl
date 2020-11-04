@@ -11,30 +11,30 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 56ab5ba93545ffdbfd36850c08eda78cc239f694
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: ce80c6bbd3e4a5154e80317c3918776c771e67fb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207125"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318204"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Tworzenie klastra obliczeniowego Azure Machine Learning
 
 Dowiedz się, jak utworzyć [klaster obliczeniowy](concept-compute-target.md#azure-machine-learning-compute-managed) i zarządzać nim w obszarze roboczym Azure Machine Learning.
 
-Za pomocą Azure Machine Learning klastra obliczeniowego można rozesłać proces uczenia lub przetwarzania wsadowego za pośrednictwem klastra węzłów obliczeniowych procesora CPU lub procesora GPU w chmurze. Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, które obejmują procesory GPU, zobacz [rozmiary maszyny wirtualnej zoptymalizowanej według procesora GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
+Za pomocą Azure Machine Learning klastra obliczeniowego można rozesłać proces uczenia lub przetwarzania wsadowego za pośrednictwem klastra węzłów obliczeniowych procesora CPU lub procesora GPU w chmurze. Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, które obejmują procesory GPU, zobacz [rozmiary maszyny wirtualnej zoptymalizowanej według procesora GPU](../virtual-machines/sizes-gpu.md). 
 
 W tym artykule dowiesz się, jak:
 
 * Tworzenie klastra obliczeniowego
 * Obniż koszt klastra obliczeniowego
-* Skonfiguruj [zarządzaną tożsamość](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) klastra
+* Skonfiguruj [zarządzaną tożsamość](../active-directory/managed-identities-azure-resources/overview.md) klastra
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 
-* [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+* [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="what-is-a-compute-cluster"></a>Co to jest klaster obliczeniowy?
 
@@ -60,7 +60,7 @@ Klastry obliczeniowe mogą bezpiecznie uruchamiać zadania w [środowisku sieci 
 
 ## <a name="create"></a>Utwórz
 
-**Szacowany czas**: około 5 minut.
+**Szacowany czas** : około 5 minut.
 
 Azure Machine Learning obliczeń można użyć ponownie w ramach przebiegów. Obliczenia mogą być współużytkowane z innymi użytkownikami w obszarze roboczym i zachowywane między działami, automatyczne skalowanie węzłów w górę lub w dół na podstawie liczby przesłanych przebiegów oraz max_nodes ustawionych w klastrze. Ustawienie min_nodes steruje minimalnymi dostępnymi węzłami.
 
@@ -74,13 +74,13 @@ Obliczenia są skalowane automatycznie do zerowych węzłów, gdy nie są używa
 
 Aby utworzyć trwały Azure Machine Learning zasobów obliczeniowych w języku Python, określ właściwości **vm_size** i **max_nodes** . Azure Machine Learning następnie używa inteligentnych ustawień domyślnych dla innych właściwości. 
     
-* **vm_size**: rodzina maszyn wirtualnych węzłów utworzonych przez Azure Machine Learning COMPUTE.
-* **max_nodes**: Maksymalna liczba węzłów do automatycznego skalowania w górę do momentu uruchomienia zadania na Azure Machine Learning obliczeń.
+* **vm_size** : rodzina maszyn wirtualnych węzłów utworzonych przez Azure Machine Learning COMPUTE.
+* **max_nodes** : Maksymalna liczba węzłów do automatycznego skalowania w górę do momentu uruchomienia zadania na Azure Machine Learning obliczeń.
 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-Podczas tworzenia Azure Machine Learning obliczeń można także skonfigurować kilka zaawansowanych właściwości. Właściwości umożliwiają tworzenie trwałego klastra o stałym rozmiarze lub w ramach istniejącej Virtual Network platformy Azure w ramach subskrypcji.  Aby uzyskać szczegółowe informacje, zobacz [klasę AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) .
+Podczas tworzenia Azure Machine Learning obliczeń można także skonfigurować kilka zaawansowanych właściwości. Właściwości umożliwiają tworzenie trwałego klastra o stałym rozmiarze lub w ramach istniejącej Virtual Network platformy Azure w ramach subskrypcji.  Aby uzyskać szczegółowe informacje, zobacz [klasę AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) .
 
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
@@ -90,7 +90,7 @@ Podczas tworzenia Azure Machine Learning obliczeń można także skonfigurować 
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
+Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -217,4 +217,4 @@ Zobacz [Konfigurowanie tożsamości zarządzanej w programie Studio](how-to-crea
 Użyj klastra obliczeniowego, aby:
 
 * [Prześlij przebieg szkoleniowy](how-to-set-up-training-targets.md) 
-* [Uruchom wnioskowanie wsadowe](how-to-use-parallel-run-step.md).
+* [Uruchom wnioskowanie wsadowe](./tutorial-pipeline-batch-scoring-classification.md).

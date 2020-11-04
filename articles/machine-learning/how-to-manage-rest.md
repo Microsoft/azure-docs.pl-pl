@@ -1,7 +1,7 @@
 ---
 title: Używanie REST do zarządzania zasobami ML
 titleSuffix: Azure Machine Learning
-description: Jak używać interfejsów API REST do tworzenia, uruchamiania i usuwania zasobów usługi Azure ML
+description: Jak używać interfejsów API REST do tworzenia, uruchamiania i usuwania zasobów Azure Machine Learning, takich jak obszar roboczy lub modele rejestrów.
 author: lobrien
 ms.author: laobri
 services: machine-learning
@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b733fbc44deefe46e3496e288ebad525346ef005
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a0580adbe6d51e4de811a57ee17203d65a2435
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322312"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316898"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Tworzenie, uruchamianie i usuwanie zasobów usługi Azure ML przy użyciu interfejsu REST
 
 
 
-Istnieje kilka sposobów zarządzania zasobami usługi Azure ML. Możesz użyć [portalu](https://portal.azure.com/), [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true)lub [zestawu SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Można też wybrać interfejs API REST. Interfejs API REST używa zleceń HTTP w standardowym sposobie tworzenia, pobierania, aktualizowania i usuwania zasobów. Interfejs API REST działa z dowolnym językiem lub narzędziem, które może wykonywać żądania HTTP. Prosta struktura usługi REST często sprawia, że jest dobrym wyborem w środowiskach skryptów i automatyzacji MLOps. 
+Istnieje kilka sposobów zarządzania zasobami usługi Azure ML. Możesz użyć [portalu](https://portal.azure.com/), [interfejsu wiersza polecenia](/cli/azure/?preserve-view=true&view=azure-cli-latest)lub [zestawu SDK języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Można też wybrać interfejs API REST. Interfejs API REST używa zleceń HTTP w standardowym sposobie tworzenia, pobierania, aktualizowania i usuwania zasobów. Interfejs API REST działa z dowolnym językiem lub narzędziem, które może wykonywać żądania HTTP. Prosta struktura usługi REST często sprawia, że jest dobrym wyborem w środowiskach skryptów i automatyzacji MLOps. 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -36,9 +36,9 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - **Subskrypcja platformy Azure** , dla której masz prawa administracyjne. Jeśli nie masz takiej subskrypcji, wypróbuj [bezpłatną lub płatną subskrypcję osobistą](https://aka.ms/AMLFree)
-- [Obszar roboczy usługi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
-- Administracyjne żądania REST używają uwierzytelniania nazwy głównej usługi. Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) , aby utworzyć jednostkę usługi w obszarze roboczym
-- Narzędzie **zwinięcie** . Program **zwinięcie** jest dostępny w [podsystemie Windows dla systemu Linux](https://aka.ms/wslinstall/) lub dowolnej dystrybucji systemu UNIX. W programie PowerShell **zwinięcie** jest aliasem dla elementu **Invoke-WebRequest** i `curl -d "key=val" -X POST uri` zmieni się `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri` . 
+- [Obszar roboczy usługi Azure Machine Learning](./how-to-manage-workspace.md)
+- Administracyjne żądania REST używają uwierzytelniania nazwy głównej usługi. Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](./how-to-setup-authentication.md#service-principal-authentication) , aby utworzyć jednostkę usługi w obszarze roboczym
+- Narzędzie **zwinięcie** . Program **zwinięcie** jest dostępny w [podsystemie Windows dla systemu Linux](/windows/wsl/install-win10) lub dowolnej dystrybucji systemu UNIX. W programie PowerShell **zwinięcie** jest aliasem dla elementu **Invoke-WebRequest** i `curl -d "key=val" -X POST uri` zmieni się `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri` . 
 
 ## <a name="retrieve-a-service-principal-authentication-token"></a>Pobieranie tokenu uwierzytelniania jednostki usługi
 
@@ -48,7 +48,7 @@ Administracyjne żądania REST są uwierzytelniane przy użyciu niejawnego przep
 - Identyfikator klienta (który zostanie skojarzony z utworzonym tokenem)
 - Klucz tajny klienta (należy chronić)
 
-Należy mieć te wartości z odpowiedzi na tworzenie nazwy głównej usługi. Te wartości zostały omówione w temacie [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Jeśli używasz subskrypcji firmy, możesz nie mieć uprawnień do tworzenia nazwy głównej usługi. W takim przypadku należy użyć [bezpłatnej lub płatnej subskrypcji osobistej](https://aka.ms/AMLFree).
+Należy mieć te wartości z odpowiedzi na tworzenie nazwy głównej usługi. Te wartości zostały omówione w temacie [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](./how-to-setup-authentication.md#service-principal-authentication). Jeśli używasz subskrypcji firmy, możesz nie mieć uprawnień do tworzenia nazwy głównej usługi. W takim przypadku należy użyć [bezpłatnej lub płatnej subskrypcji osobistej](https://aka.ms/AMLFree).
 
 Aby pobrać token:
 
@@ -202,7 +202,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 
 Zwróć uwagę, że w celu wyświetlenia listy eksperymentów ścieżka zaczyna się od `history/v1.0` while, aby wyświetlić listę modeli, ścieżka zaczyna się od `modelmanagement/v1.0` . Interfejs API REST jest podzielony na kilka grup operacyjnych, z których każda ma odrębną ścieżkę. 
 
-|Warstwowy|Ścieżka|
+|Obszar|Ścieżka|
 |-|-|
 |Artifacts|/rest/api/azureml|
 |Magazyny danych|/azure/machine-learning/how-to-access-data|
@@ -236,7 +236,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/com
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Aby utworzyć lub zastąpić nazwany zasób obliczeniowy, będzie używane żądanie PUT. W następujących tematach oprócz teraz znanych podstawiania `your-subscription-id` ,, `your-resource-group` `your-workspace-name` , i `your-access-token` , podstawiania `your-compute-name` i wartości dla,,, `location` , `vmSize` `vmPriority` `scaleSettings` `adminUserName` i `adminUserPassword` . Zgodnie z opisem w temacie Reference w [środowisko obliczeniowe usługi Machine Learning-Create lub Update SDK](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate), następujące polecenie tworzy dedykowany Standard_D1 z pojedynczym węzłem (podstawowy zasób obliczeniowy procesora), który będzie skalowany w dół po 30 minutach:
+Aby utworzyć lub zastąpić nazwany zasób obliczeniowy, będzie używane żądanie PUT. W następujących tematach oprócz teraz znanych podstawiania `your-subscription-id` ,, `your-resource-group` `your-workspace-name` , i `your-access-token` , podstawiania `your-compute-name` i wartości dla,,, `location` , `vmSize` `vmPriority` `scaleSettings` `adminUserName` i `adminUserPassword` . Zgodnie z opisem w temacie Reference w [środowisko obliczeniowe usługi Machine Learning-Create lub Update SDK](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate), następujące polecenie tworzy dedykowany Standard_D1 z pojedynczym węzłem (podstawowy zasób obliczeniowy procesora), który będzie skalowany w dół po 30 minutach:
 
 ```bash
 curl -X PUT \
@@ -271,7 +271,7 @@ Pomyślne żądanie otrzyma `201 Created` odpowiedź, ale należy zauważyć, ż
 
 ### <a name="create-an-experimental-run"></a>Utwórz przebieg eksperymentalny
 
-Aby rozpocząć Uruchamianie w ramach eksperymentu, potrzebujesz folderu zip zawierającego skrypt szkoleniowy i powiązane pliki oraz plik JSON definicji uruchomienia. Folder zip musi mieć plik wpisu w języku Python w katalogu głównym. Przykładowo w folderze o nazwie **train.zip**należy umieścić w pliku zip prosty program Python, taki jak poniższy.
+Aby rozpocząć Uruchamianie w ramach eksperymentu, potrzebujesz folderu zip zawierającego skrypt szkoleniowy i powiązane pliki oraz plik JSON definicji uruchomienia. Folder zip musi mieć plik wpisu w języku Python w katalogu głównym. Przykładowo w folderze o nazwie **train.zip** należy umieścić w pliku zip prosty program Python, taki jak poniższy.
 
 ```python
 # hello.py
@@ -349,7 +349,7 @@ curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscriptio
 
 ### <a name="delete-resources-you-no-longer-need"></a>Usuń zasoby, które nie są już potrzebne
 
-Niektóre zasoby, ale nie wszystkie, obsługują zlecenie DELETE. Sprawdź [odwołanie do interfejsu API](https://docs.microsoft.com/rest/api/azureml/) przed zatwierdzeniem do interfejsu API REST w celu usunięcia przypadków użycia. Aby usunąć model, na przykład można użyć:
+Niektóre zasoby, ale nie wszystkie, obsługują zlecenie DELETE. Sprawdź [odwołanie do interfejsu API](/rest/api/azureml/) przed zatwierdzeniem do interfejsu API REST w celu usunięcia przypadków użycia. Aby usunąć model, na przykład można użyć:
 
 ```bash
 curl
@@ -422,6 +422,6 @@ W przypadku niektórych operacji Azure Machine Learning obszar roboczy używa Az
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z kompletnym [odwołaniem interfejsu API REST usługi Azure](https://docs.microsoft.com/rest/api/azureml/).
-- Dowiedz się, w jaki sposób używać projektanta do [przewidywania cen samochodów w programie Designer](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
-- Eksploruj [Azure Machine Learning z notesami Jupyter](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).
+- Zapoznaj się z kompletnym [odwołaniem interfejsu API REST usługi Azure](/rest/api/azureml/).
+- Dowiedz się, w jaki sposób używać projektanta do [przewidywania cen samochodów w programie Designer](./tutorial-designer-automobile-price-train-score.md).
+- Eksploruj [Azure Machine Learning z notesami Jupyter](..//machine-learning/samples-notebooks.md).

@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e48261c4c6aeb75556663e1bf77c675557bcd1b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b638cb2b33f24220e7ceb852402862c707cc7bc6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315494"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316006"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Proces nauki danych zespołu w działaniu: korzystanie z usługi Azure Synapse Analytics
 W ramach tego samouczka przeprowadzimy Cię przez proces tworzenia i wdrażania modelu uczenia maszynowego przy użyciu usługi Azure Synapse Analytics dla publicznie dostępnego zestawu danych — zestawu danych [podróży NYC z taksówkami](https://www.andresmh.com/nyctaxitrips/) . Model klasyfikacji binarnej skonstruowany przewiduje, czy Porada jest płatna za podróż.  Modele obejmują klasyfikację wieloklasową (bez względu na to, czy jest to Porada) i regresję (dystrybucja dla płatnych sum).
 
-Procedura jest zgodna z przepływem pracy [zespołowej analizy danych (przetwarzania TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Pokazujemy, jak skonfigurować środowisko do nauki o danych, jak załadować dane do usługi Azure Synapse Analytics oraz jak korzystać z usługi Azure Synapse Analytics lub notesu IPython w celu eksplorowania funkcji danych i inżynierów z modelem. Następnie pokazano, jak skompilować i wdrożyć model przy użyciu Azure Machine Learning.
+Procedura jest zgodna z przepływem pracy [zespołowej analizy danych (przetwarzania TDSP)](./index.yml) . Pokazujemy, jak skonfigurować środowisko do nauki o danych, jak załadować dane do usługi Azure Synapse Analytics oraz jak korzystać z usługi Azure Synapse Analytics lub notesu IPython w celu eksplorowania funkcji danych i inżynierów z modelem. Następnie pokazano, jak skompilować i wdrożyć model przy użyciu Azure Machine Learning.
 
 ## <a name="the-nyc-taxi-trips-dataset"></a><a name="dataset"></a>Zestaw danych podróży z NYC taksówkami
 Dane dotyczące podróży z taksówką NYC obejmują około 20 GB skompresowanych plików CSV (~ 48 GB nieskompresowanych), nagrywanie ponad 173 000 000 pojedynczych podróży i opłat za każdą podróż. Każdy rekord rejsu zawiera lokalizację i czas odbioru oraz Dropoff, a także numer licencji () i Medallion (unikatowy identyfikator taksówki). Dane obejmują wszystkie podróże w roku 2013 i są dostępne w następujących dwóch zestawach danych dla każdego miesiąca:
@@ -61,10 +61,10 @@ Dane dotyczące podróży z taksówką NYC obejmują około 20 GB skompresowanyc
 * \_Data i godzina pobrania.
 
 ## <a name="address-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Adresowanie trzech typów zadań przewidywania
-Opracowujemy trzy problemy z przewidywaniami na podstawie * \_ kwoty* pozostałej do zilustrowania trzech rodzajów zadań modelowania:
+Opracowujemy trzy problemy z przewidywaniami na podstawie *\_ kwoty* pozostałej do zilustrowania trzech rodzajów zadań modelowania:
 
-1. **Klasyfikacja binarna**: w celu przewidywania, czy Porada została zapłacona dla podróży, to oznacza, *że \_ Kwota TIP* , która jest większa niż $0, jest dodatnim przykładem, podczas gdy * \_ Kwota* pozostała do $0 jest ujemna.
-2. **Klasyfikacja wieloklasowa**: przewidywanie zakresu porady dla podróży. Podziel * \_ kwotę* na pięć przedziałów lub klas:
+1. **Klasyfikacja binarna** : w celu przewidywania, czy Porada została zapłacona dla podróży, to oznacza, *że \_ Kwota TIP* , która jest większa niż $0, jest dodatnim przykładem, podczas gdy *\_ Kwota* pozostała do $0 jest ujemna.
+2. **Klasyfikacja wieloklasowa** : przewidywanie zakresu porady dla podróży. Podziel *\_ kwotę* na pięć przedziałów lub klas:
 
 `Class 0 : tip_amount = $0`
 
@@ -76,15 +76,15 @@ Opracowujemy trzy problemy z przewidywaniami na podstawie * \_ kwoty* pozostałe
 
 `Class 4 : tip_amount > $20`
 
-3. **Zadanie regresji**: przewidywanie kwoty Porada płatnej dla podróży.
+3. **Zadanie regresji** : przewidywanie kwoty Porada płatnej dla podróży.
 
 ## <a name="set-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Konfigurowanie środowiska nauki o danych Azure na potrzeby zaawansowanej analizy
 Aby skonfigurować środowisko nauki danych platformy Azure, wykonaj następujące kroki.
 
 **Tworzenie własnego konta usługi Azure Blob Storage**
 
-* Podczas aprowizacji własnego magazynu obiektów blob platformy Azure wybierz lokalizację geograficzną magazynu obiektów blob platformy Azure w lub jak najbliżej **Południowo-środkowe stany USA**, czyli miejsce, w którym są przechowywane dane z NYC. Dane zostaną skopiowane za pomocą AzCopy z publicznego kontenera magazynu obiektów BLOB do kontenera na własnym koncie magazynu. Bliżej magazynu obiektów blob platformy Azure to Południowo-środkowe stany USA, tym szybciej to zadanie (krok 4) zostanie zakończone.
-* Aby utworzyć własne konto usługi Azure Storage, wykonaj czynności opisane w sekcji [Informacje o kontach usługi Azure Storage](../../storage/common/storage-create-storage-account.md). Pamiętaj, aby tworzyć notatki dotyczące następujących poświadczeń konta magazynu, ponieważ będą one potrzebne w dalszej części tego instruktażu.
+* Podczas aprowizacji własnego magazynu obiektów blob platformy Azure wybierz lokalizację geograficzną magazynu obiektów blob platformy Azure w lub jak najbliżej **Południowo-środkowe stany USA** , czyli miejsce, w którym są przechowywane dane z NYC. Dane zostaną skopiowane za pomocą AzCopy z publicznego kontenera magazynu obiektów BLOB do kontenera na własnym koncie magazynu. Bliżej magazynu obiektów blob platformy Azure to Południowo-środkowe stany USA, tym szybciej to zadanie (krok 4) zostanie zakończone.
+* Aby utworzyć własne konto usługi Azure Storage, wykonaj czynności opisane w sekcji [Informacje o kontach usługi Azure Storage](../../storage/common/storage-account-create.md). Pamiętaj, aby tworzyć notatki dotyczące następujących poświadczeń konta magazynu, ponieważ będą one potrzebne w dalszej części tego instruktażu.
 
   * **Nazwa konta magazynu**
   * **Klucz konta magazynu**
@@ -93,7 +93,7 @@ Aby skonfigurować środowisko nauki danych platformy Azure, wykonaj następują
 **Inicjowanie obsługi administracyjnej wystąpienia usługi Azure Synapse Analytics.**
 Postępuj zgodnie z dokumentacją w temacie [Tworzenie i wykonywanie zapytań dotyczących usługi Azure Synapse Analytics w Azure Portal,](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) aby udostępnić wystąpienie usługi Azure Synapse Analytics. Upewnij się, że wprowadzono notację na następujących poświadczeniach usługi Azure Synapse Analytics, które będą używane w dalszych krokach.
 
-* **Nazwa serwera**: \<server Name> . Database.Windows.NET
+* **Nazwa serwera** : \<server Name> . Database.Windows.NET
 * **Nazwa SQLDW (baza danych)**
 * **Nazwa użytkownika**
 * **Hasło**
@@ -139,7 +139,7 @@ Po pomyślnym wykonaniu bieżący katalog roboczy zmieni się na *-DESTDIR*. Pow
 
 ![Bieżące zmiany w katalogu roboczym][19]
 
-W *DESTDIR*, wykonaj następujący skrypt programu PowerShell w trybie administratora:
+W *DESTDIR* , wykonaj następujący skrypt programu PowerShell w trybie administratora:
 
 ```azurepowershell
 ./SQLDW_Data_Import.ps1
@@ -154,7 +154,7 @@ Gdy skrypt programu PowerShell jest uruchamiany po raz pierwszy, zostanie wyświ
 
 Ten plik **skryptu programu PowerShell** wykonuje następujące zadania:
 
-* **Pobiera i instaluje AzCopy**, jeśli AzCopy nie jest jeszcze zainstalowany
+* **Pobiera i instaluje AzCopy** , jeśli AzCopy nie jest jeszcze zainstalowany
 
   ```azurepowershell
   $AzCopy_path = SearchAzCopy
@@ -388,7 +388,7 @@ W tej sekcji przeprowadzamy eksplorowanie i generowanie funkcji, uruchamiając z
 Połącz się z usługą Azure Synapse Analytics przy użyciu programu Visual Studio za pomocą nazwy logowania i hasła usługi Azure Synapse Analytics, a następnie otwórz **Eksplorator obiektów SQL** w celu potwierdzenia, że baza danych i tabele zostały zaimportowane. Pobierz plik *SQLDW_Explorations. SQL* .
 
 > [!NOTE]
-> Aby otworzyć Edytor zapytań programu Parallel Data Warehouse (PDW), użyj polecenia **New Query** , gdy w **programie SQL Eksplorator obiektów**wybrano polecenie PDW. Standardowy Edytor zapytań SQL nie jest obsługiwany przez program PDW.
+> Aby otworzyć Edytor zapytań programu Parallel Data Warehouse (PDW), użyj polecenia **New Query** , gdy w **programie SQL Eksplorator obiektów** wybrano polecenie PDW. Standardowy Edytor zapytań SQL nie jest obsługiwany przez program PDW.
 >
 >
 
@@ -396,7 +396,7 @@ Poniżej przedstawiono typy zadań eksploracji danych i generowania funkcji wyko
 
 * Eksplorowanie dystrybucji danych kilku pól w różnych oknach czasu.
 * Zbadaj jakość danych pól długości i szerokości geograficznej.
-* Generowanie etykiet klasyfikacji danych binarnych i wieloklasowych na podstawie ** \_ kwoty**pozostałej.
+* Generowanie etykiet klasyfikacji danych binarnych i wieloklasowych na podstawie **\_ kwoty** pozostałej.
 * Generuj funkcje i odległość wyjazdu obliczeniowego/porównania.
 * Dołącz dwie tabele i Wyodrębnij losową próbkę, która będzie używana do kompilowania modeli.
 
@@ -418,7 +418,7 @@ Te zapytania zapewniają szybką weryfikację liczby wierszy i kolumn w tabelach
 **Dane wyjściowe:** Należy uzyskać 173 179 759 wierszy i 14 kolumn.
 
 ### <a name="exploration-trip-distribution-by-medallion"></a>Eksploracja: dystrybucja podróży według Medallion
-To przykładowe zapytanie identyfikuje Medallions (liczby taksówki), które ukończyły ponad 100 podróży w określonym przedziale czasu. Zapytanie jest korzystne z poziomu dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem schematu partycji typu ** \_ DateTime**. Wykonywanie zapytania dotyczącego pełnego zestawu danych spowoduje również użycie partycjonowanej tabeli i/lub skanowania indeksu.
+To przykładowe zapytanie identyfikuje Medallions (liczby taksówki), które ukończyły ponad 100 podróży w określonym przedziale czasu. Zapytanie jest korzystne z poziomu dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem schematu partycji typu **\_ DateTime**. Wykonywanie zapytania dotyczącego pełnego zestawu danych spowoduje również użycie partycjonowanej tabeli i/lub skanowania indeksu.
 
 ```sql
 SELECT medallion, COUNT(*)
@@ -609,7 +609,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 | 3 |40,761456 |-73,999886 |40,766544 |-73,988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Przygotowywanie danych do kompilowania modelu
-Następujące zapytanie sprzęga **nyctaxie \_ ** i **nyctaxi \_ taryfy** czasowe, generuje tablicę klasyfikacji **tipped**danych binarnych, ** \_ klasę**etykiet klasyfikacji wieloklasowego i wyodrębnia przykład z pełnego dołączonego zestawu danych. Próbkowanie jest wykonywane przez pobranie podzestawu TRIPS na podstawie czasu odbioru.  To zapytanie można skopiować, a następnie wkleić bezpośrednio w [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net) [Importuj dane]import[-Data] modułu do bezpośredniego pozyskiwania danych z wystąpienia SQL Database na platformie Azure. Zapytanie wyklucza rekordy z nieprawidłowymi współrzędnymi (0, 0).
+Następujące zapytanie sprzęga **nyctaxie \_** i **nyctaxi \_ taryfy** czasowe, generuje tablicę klasyfikacji **tipped** danych binarnych, **\_ klasę** etykiet klasyfikacji wieloklasowego i wyodrębnia przykład z pełnego dołączonego zestawu danych. Próbkowanie jest wykonywane przez pobranie podzestawu TRIPS na podstawie czasu odbioru.  To zapytanie można skopiować, a następnie wkleić bezpośrednio w [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net) [Importuj dane]import[-Data] modułu do bezpośredniego pozyskiwania danych z wystąpienia SQL Database na platformie Azure. Zapytanie wyklucza rekordy z nieprawidłowymi współrzędnymi (0, 0).
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -759,7 +759,7 @@ Czas odczytywania przykładowej tabeli wynosi 14,096495 sekund.
 Liczba pobranych wierszy i kolumn = (1000, 21).
 
 ### <a name="descriptive-statistics"></a>Statystyki opisowe
-Teraz możesz przystąpić do eksplorowania przykładowych danych. Zaczynamy od przejrzenia niektórych opisowych statystyk dotyczących ** \_ odległości podróży** (lub innych pól, które można określić).
+Teraz możesz przystąpić do eksplorowania przykładowych danych. Zaczynamy od przejrzenia niektórych opisowych statystyk dotyczących **\_ odległości podróży** (lub innych pól, które można określić).
 
 ```sql
 df1['trip_distance'].describe()
@@ -814,7 +814,7 @@ pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 ![Wyjście liniowe][4]
 
 ### <a name="visualization-scatterplot-examples"></a>Wizualizacja: przykłady Scatterplot
-Pokazujemy wykres punktowy **między \_ czasem podróży \_ w \_ sekundach** i ** \_ odległości podróży** , aby sprawdzić, czy istnieje korelacja
+Pokazujemy wykres punktowy **między \_ czasem podróży \_ w \_ sekundach** i **\_ odległości podróży** , aby sprawdzić, czy istnieje korelacja
 
 ```sql
 plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -822,7 +822,7 @@ plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![Scatterplot dane wyjściowe relacji między czasem a odległością][6]
 
-Podobnie możemy sprawdzić relację między ** \_ kodem częstotliwości** i ** \_ odległością podróży**.
+Podobnie możemy sprawdzić relację między **\_ kodem częstotliwości** i **\_ odległością podróży**.
 
 ```sql
 plt.scatter(df1['passenger_count'], df1['trip_distance'])
@@ -937,9 +937,9 @@ pd.read_sql(query,conn)
 ## <a name="build-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Tworzenie modeli w Azure Machine Learning
 Teraz możemy przystąpić do tworzenia modeli i wdrażania modeli w [Azure Machine Learning](https://studio.azureml.net). Dane są gotowe do użycia w każdym z wymienionych wcześniej problemów przewidywania, mianowicie:
 
-1. **Klasyfikacja binarna**: w celu przewidywania, czy Porada została zapłacona za podróż.
-2. **Klasyfikacja wieloklasowa**: aby przewidzieć zakres płatnej porady zgodnie z wcześniej zdefiniowanymi klasami.
-3. **Zadanie regresji**: przewidywanie kwoty Porada płatnej dla podróży.
+1. **Klasyfikacja binarna** : w celu przewidywania, czy Porada została zapłacona za podróż.
+2. **Klasyfikacja wieloklasowa** : aby przewidzieć zakres płatnej porady zgodnie z wcześniej zdefiniowanymi klasami.
+3. **Zadanie regresji** : przewidywanie kwoty Porada płatnej dla podróży.
 
 Aby rozpocząć ćwiczenie modelowania, zaloguj się do obszaru roboczego **Azure Machine Learning (klasycznego)** . Jeśli nie utworzono jeszcze obszaru roboczego uczenia maszynowego, zobacz [Tworzenie obszaru roboczego Azure Machine Learning Studio (klasycznego)](../classic/create-workspace.md).
 
@@ -968,7 +968,7 @@ W tym ćwiczeniu zostały już omówione i zaprojektowane dane w usłudze Azure 
 2. Wybierz **Azure SQL Database** jako **Źródło danych** w panelu **Właściwości** .
 3. Wprowadź nazwę DNS bazy danych w polu **Nazwa serwera bazy danych** . Formatowanie `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Wprowadź **nazwę bazy danych** w odpowiednim polu.
-5. Wprowadź *nazwę użytkownika SQL* w polu **nazwa konta użytkownika serwera**i *hasło* w polu **hasło konta użytkownika serwera**.
+5. Wprowadź *nazwę użytkownika SQL* w polu **nazwa konta użytkownika serwera** i *hasło* w polu **hasło konta użytkownika serwera**.
 7. W obszarze tekst **kwerendy bazy danych** Edytuj zapytanie, które wyodrębnia niezbędne pola bazy danych (w tym wszystkie pola obliczane, takie jak etykiety), i w dół próbkuje dane do żądanego rozmiaru próbki.
 
 Przykładem eksperymentu klasyfikacji binarnej odczytującego dane bezpośrednio z bazy danych usługi Azure Synapse Analytics znajduje się poniższy rysunek (Pamiętaj, aby zastąpić nazwy tabel nyctaxi_trip i nyctaxi_fare według nazwy schematu i nazw tabel użytych w przewodniku). Podobne eksperymenty mogą być zbudowane w przypadku problemów klasyfikacji i regresji wieloklasowej.
@@ -976,7 +976,7 @@ Przykładem eksperymentu klasyfikacji binarnej odczytującego dane bezpośrednio
 ![Uczenie maszynowe platformy Azure][10]
 
 > [!IMPORTANT]
-> W zapytaniach dotyczących wyodrębniania i próbkowania danych modelowania, które zostały podane w poprzednich sekcjach, **wszystkie etykiety dla trzech ćwiczeń modelowania są zawarte w zapytaniu**. Ważne (wymagane) krok w każdym z ćwiczeń modelowania polega na **wykluczeniu** niepotrzebnych etykiet dla innych dwóch problemów oraz wszelkich innych **przecieków docelowych**. Na przykład, w przypadku używania klasyfikacji binarnej, użyj etykiety **przechylonej** i Wyklucz ** \_ klasę etykietki**pól, ** \_ kwotę wskazówki**i **łączną \_ kwotę**. Te ostatnie są wyciekami docelowymi, ponieważ implikują zapłacone wskazówki.
+> W zapytaniach dotyczących wyodrębniania i próbkowania danych modelowania, które zostały podane w poprzednich sekcjach, **wszystkie etykiety dla trzech ćwiczeń modelowania są zawarte w zapytaniu**. Ważne (wymagane) krok w każdym z ćwiczeń modelowania polega na **wykluczeniu** niepotrzebnych etykiet dla innych dwóch problemów oraz wszelkich innych **przecieków docelowych**. Na przykład, w przypadku używania klasyfikacji binarnej, użyj etykiety **przechylonej** i Wyklucz **\_ klasę etykietki** pól, **\_ kwotę wskazówki** i **łączną \_ kwotę**. Te ostatnie są wyciekami docelowymi, ponieważ implikują zapłacone wskazówki.
 >
 > Aby wykluczyć niepotrzebne kolumny lub wycieki docelowe, możesz użyć modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ) lub [edytować metadane][edit-metadata]. Aby uzyskać więcej informacji, zobacz [Wybieranie kolumn w zestawie danych][select-columns] i edytowanie stron odwołań do [metadanych][edit-metadata] .
 >
@@ -1046,6 +1046,6 @@ Ten przykładowy przewodnik i towarzyszące mu skrypty i notesy IPython są udos
 
 
 <!-- Module References -->
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

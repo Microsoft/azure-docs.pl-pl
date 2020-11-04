@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521071"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317094"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Zarządzanie elementami Runbook w Azure Automation
 
@@ -45,7 +45,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importowanie elementu Runbook
 
-Możesz zaimportować skrypt przepływu pracy programu PowerShell lub programu PowerShell (**. ps1**), graficzny element Runbook (**. graphrunbook**) lub skrypt python 2 (**. PR**), aby utworzyć własny element Runbook. Należy określić [Typ elementu Runbook](automation-runbook-types.md) , który jest tworzony podczas importowania, biorąc pod uwagę poniższe zagadnienia.
+Możesz zaimportować skrypt przepływu pracy programu PowerShell lub programu PowerShell ( **. ps1** ), graficzny element Runbook ( **. graphrunbook** ) lub skrypt python 2 ( **. PR** ), aby utworzyć własny element Runbook. Należy określić [Typ elementu Runbook](automation-runbook-types.md) , który jest tworzony podczas importowania, biorąc pod uwagę poniższe zagadnienia.
 
 * Plik **. ps1** , który nie zawiera przepływu pracy, można zaimportować do [elementu Runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks) lub [elementu Runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Jeśli zaimportujesz go do elementu Runbook przepływu pracy programu PowerShell, zostanie on przekonwertowany na przepływ pracy. W takim przypadku Komentarze są zawarte w elemencie Runbook w celu opisania wprowadzonych zmian.
 
@@ -68,7 +68,7 @@ Aby zaimportować plik skryptu do Azure Automation, można użyć poniższej pro
 4. Kliknij pozycję **plik Runbook** i wybierz plik do zaimportowania.
 5. Jeśli pole **Nazwa** jest włączone, istnieje możliwość zmiany nazwy elementu Runbook. Nazwa musi zaczynać się od litery i może zawierać litery, cyfry, podkreślenia i kreski.
 6. [Typ elementu Runbook](automation-runbook-types.md) jest wybierany automatycznie, ale można zmienić typ po wprowadzeniu odpowiednich ograniczeń do konta.
-7. Kliknij przycisk **Utwórz**. Nowy element Runbook zostanie wyświetlony na liście elementów Runbook dla konta usługi Automation.
+7. Kliknij pozycję **Utwórz**. Nowy element Runbook zostanie wyświetlony na liście elementów Runbook dla konta usługi Automation.
 8. Aby można było uruchomić [element Runbook,](#publish-a-runbook) należy go opublikować.
 
 > [!NOTE]
@@ -228,7 +228,7 @@ Aby użyć skryptu niestandardowego:
 
 ## <a name="test-a-runbook"></a>Testowanie elementu Runbook
 
-Podczas testowania elementu Runbook jest wykonywana [wersja robocza](#publish-a-runbook) i wszystkie wykonywane działania. Nie utworzono historii zadań, ale strumienie [wyjściowe](automation-runbook-output-and-messages.md#use-the-output-stream) i [ostrzegawcze i błędów](automation-runbook-output-and-messages.md#monitor-message-streams) są wyświetlane w okienku danych wyjściowych testu. Komunikaty do [pełnego strumienia](automation-runbook-output-and-messages.md#monitor-message-streams) są wyświetlane w okienku danych wyjściowych tylko wtedy, gdy zmienna [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) jest ustawiona na `Continue` .
+Podczas testowania elementu Runbook jest wykonywana [wersja robocza](#publish-a-runbook) i wszystkie wykonywane działania. Nie utworzono historii zadań, ale strumienie [wyjściowe](automation-runbook-output-and-messages.md#use-the-output-stream) i [ostrzegawcze i błędów](automation-runbook-output-and-messages.md#working-with-message-streams) są wyświetlane w okienku danych wyjściowych testu. Komunikaty do [pełnego strumienia](automation-runbook-output-and-messages.md#write-output-to-verbose-stream) są wyświetlane w okienku danych wyjściowych tylko wtedy, gdy zmienna [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) jest ustawiona na `Continue` .
 
 Mimo że wersja robocza jest uruchamiana, element Runbook nadal wykonuje się normalnie i wykonuje wszelkie akcje dotyczące zasobów w środowisku. Z tego powodu należy przetestować elementy Runbook wyłącznie dla zasobów nieprodukcyjnych.
 
@@ -298,7 +298,7 @@ Listę zadań można filtrować, wybierając pozycję **Filtruj zadania**. Odfil
 
 Możesz też wyświetlić szczegóły podsumowania zadania dla określonego elementu Runbook, wybierając ten element Runbook ze strony elementów Runbook na koncie usługi Automation, a następnie wybierając pozycję **zadania**. Ta akcja przedstawia stronę zadania. W tym miejscu możesz kliknąć rekord zadania, aby wyświetlić jego szczegóły i dane wyjściowe.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Zrzut ekranu strony zadania.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Zrzut ekranu strony zadania z wyróżnionym przyciskiem błędy.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Pobieranie stanów zadań przy użyciu programu PowerShell
 

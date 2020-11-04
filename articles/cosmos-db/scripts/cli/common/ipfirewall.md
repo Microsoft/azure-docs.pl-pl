@@ -4,15 +4,14 @@ description: Tworzenie konta usługi Azure Cosmos za pomocą zapory IP
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 487c428110b63f66d7a069a7363bbc40bb685f1d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cfa1273716c44aa54cd959c5a8e1d59c163f7b16
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100970"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316819"
 ---
 # <a name="create-an-azure-cosmos-account-with-ip-firewall-using-azure-cli"></a>Tworzenie konta usługi Azure Cosmos za pomocą zapory IP przy użyciu interfejsu wiersza polecenia platformy Azure
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]

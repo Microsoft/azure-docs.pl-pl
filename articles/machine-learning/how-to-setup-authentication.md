@@ -1,7 +1,7 @@
 ---
 title: Konfigurowanie uwierzytelniania
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak skonfigurować i skonfigurować uwierzytelnianie dla różnych zasobów i przepływów pracy w programie Azure Machine Learning. Istnieje wiele sposobów konfigurowania i używania uwierzytelniania w ramach usługi, od prostego uwierzytelniania opartego na interfejsie użytkownika na potrzeby tworzenia i testowania, do pełnego Azure Active Directory uwierzytelniania głównego usługi.
+description: Dowiedz się, jak skonfigurować i skonfigurować uwierzytelnianie dla różnych zasobów i przepływów pracy w programie Azure Machine Learning.
 services: machine-learning
 author: cjgronlund
 ms.author: cgronlun
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: a23f44e60bd68e51c26cc6a0bbf3e85e64914135
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: fd6f933e1b3c1e7c003f62e03215273e3d28ea5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125771"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318532"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy
 
@@ -38,7 +38,7 @@ Niezależnie od używanego typu uwierzytelniania kontrola dostępu oparta na rol
 ## <a name="interactive-authentication"></a>Uwierzytelnianie interakcyjne
 
 > [!IMPORTANT]
-> Uwierzytelnianie interakcyjne używa przeglądarki i wymaga plików cookie (w tym plików cookie innych firm). Jeśli pliki cookie zostały wyłączone, może wystąpić błąd, na przykład "nie możemy cię zalogować". Ten błąd może również wystąpić, jeśli włączono [usługę Azure MFA Authentication](/azure/active-directory/authentication/concept-mfa-howitworks).
+> Uwierzytelnianie interakcyjne używa przeglądarki i wymaga plików cookie (w tym plików cookie innych firm). Jeśli pliki cookie zostały wyłączone, może wystąpić błąd, na przykład "nie możemy cię zalogować". Ten błąd może również wystąpić, jeśli włączono [usługę Azure MFA Authentication](../active-directory/authentication/concept-mfa-howitworks.md).
 
 Większość przykładów w dokumentacji i przykładach używa uwierzytelniania interakcyjnego. Na przykład podczas korzystania z zestawu SDK istnieją dwa wywołania funkcji, które automatycznie monitują o przepływ uwierzytelniania oparty na interfejsie użytkownika:
 
@@ -77,7 +77,7 @@ Aby można było korzystać z uwierzytelniania przy użyciu nazwy głównej usł
 >
 > Przyczyną uzyskania najmniejszego dostępu jest fakt, że nazwa główna usługi używa hasła do uwierzytelniania, a hasło może być przechowywane jako część skryptu automatyzacji. W przypadku przecieku hasła, gdy minimalny dostęp wymagany do określonych zadań minimalizuje złośliwe użycie programu SP.
 
-Najprostszym sposobem utworzenia SP i udzielenia dostępu do obszaru roboczego jest użycie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Aby utworzyć jednostkę usługi i udzielić jej dostępu do obszaru roboczego, wykonaj następujące czynności:
+Najprostszym sposobem utworzenia SP i udzielenia dostępu do obszaru roboczego jest użycie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Aby utworzyć jednostkę usługi i udzielić jej dostępu do obszaru roboczego, wykonaj następujące czynności:
 
 > [!NOTE]
 > Aby wykonać wszystkie te kroki, musisz być administratorem w ramach subskrypcji.
@@ -92,7 +92,7 @@ Najprostszym sposobem utworzenia SP i udzielenia dostępu do obszaru roboczego j
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    Aby poznać inne metody uwierzytelniania, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
+    Aby poznać inne metody uwierzytelniania, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 1. Zainstaluj rozszerzenie Azure Machine Learning:
 
@@ -190,11 +190,11 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Używanie jednostki usługi w interfejsie wiersza polecenia platformy Azure
 
-Można użyć jednostki usługi dla poleceń interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Logowanie przy użyciu nazwy głównej usługi](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
+Można użyć jednostki usługi dla poleceń interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Logowanie przy użyciu nazwy głównej usługi](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Korzystanie z jednostki usługi przy użyciu interfejsu API REST (wersja zapoznawcza)
 
-Nazwa główna usługi może być również używana do uwierzytelniania w [interfejsie API REST](https://docs.microsoft.com/rest/api/azureml/) Azure Machine Learning (wersja zapoznawcza). Używasz [przepływu przyznawania poświadczeń klienta](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)Azure Active Directory, który zezwala na wywołania usługi do usługi dla bezobsługowego uwierzytelniania w zautomatyzowanych przepływach pracy. Przykłady są implementowane za pomocą [biblioteki ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) w języku Python i Node.js, ale można również użyć dowolnej biblioteki Open Source, która obsługuje openid connect Connect 1,0.
+Nazwa główna usługi może być również używana do uwierzytelniania w [interfejsie API REST](/rest/api/azureml/) Azure Machine Learning (wersja zapoznawcza). Używasz [przepływu przyznawania poświadczeń klienta](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)Azure Active Directory, który zezwala na wywołania usługi do usługi dla bezobsługowego uwierzytelniania w zautomatyzowanych przepływach pracy. Przykłady są implementowane za pomocą [biblioteki ADAL](../active-directory/azuread-dev/active-directory-authentication-libraries.md) w języku Python i Node.js, ale można również użyć dowolnej biblioteki Open Source, która obsługuje openid connect Connect 1,0.
 
 > [!NOTE]
 > MSAL.js jest nowszą biblioteką niż ADAL, ale nie można przeprowadzić uwierzytelniania między usługami przy użyciu poświadczeń klienta z MSAL.js, ponieważ jest to przede wszystkim Biblioteka po stronie klienta przeznaczona do uwierzytelniania interaktywnego/interfejsu użytkownika powiązanego z określonym użytkownikiem. Zalecamy użycie biblioteki ADAL, jak pokazano poniżej, aby utworzyć zautomatyzowane przepływy pracy za pomocą interfejsu API REST.
@@ -375,7 +375,7 @@ aci_service = Model.deploy(workspace=ws,
 aci_service.wait_for_deployment(True)
 ```
 
-Aby pobrać klucze uwierzytelniania, użyj `aci_service.get_keys()` . Aby ponownie wygenerować klucz, użyj `regen_key()` funkcji i przekaż wartość **podstawową** lub **pomocniczą** .
+Aby pobrać klucze uwierzytelniania, użyj `aci_service.get_keys()` . Aby ponownie wygenerować klucz, użyj `regen_key()` funkcji i przekaż wartość **podstawową** lub **pomocniczą**.
 
 ```python
 aci_service.regen_key("Primary")
@@ -391,7 +391,7 @@ Po włączeniu uwierzytelniania tokenów dla usługi sieci Web użytkownicy musz
 
 * Uwierzytelnianie tokenu jest **domyślnie wyłączone** w przypadku wdrażania w usłudze Azure Kubernetes Service.
 * Uwierzytelnianie tokenu **nie jest obsługiwane** w przypadku wdrażania programu w celu Azure Container Instances.
-* Uwierzytelnianie tokenu **nie może być używane w tym samym czasie, co uwierzytelnianie oparte na kluczach** .
+* Uwierzytelnianie tokenu **nie może być używane w tym samym czasie, co uwierzytelnianie oparte na kluczach**.
 
 Aby kontrolować uwierzytelnianie tokenu, użyj `token_auth_enabled` parametru podczas tworzenia lub aktualizowania wdrożenia:
 

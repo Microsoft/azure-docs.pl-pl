@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89458336"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316188"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista kontrolna wydajności i skalowalności dla usługi Table Storage
 
@@ -31,9 +31,9 @@ Ten artykuł organizuje sprawdzone rozwiązania dotyczące wydajności w ramach 
 | &nbsp; |Tarcze skalowalności |[Czy można zaprojektować aplikację tak, aby korzystała z nie więcej niż maksymalna liczba kont magazynu?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Tarcze skalowalności |[Czy unikasz zbliżania się limitów pojemności i transakcji?](#capacity-and-transaction-targets) |
 | &nbsp; |Tarcze skalowalności |[Czy zbliżasz się do elementów docelowych skalowalności dla jednostek na sekundę?](#targets-for-data-operations) |
-| &nbsp; |Networking |[Czy urządzenia po stronie klienta mają dostatecznie wysoką przepustowość i małe opóźnienia w celu osiągnięcia wymaganej wydajności?](#throughput) |
-| &nbsp; |Networking |[Czy urządzenia po stronie klienta mają link do sieci o wysokiej jakości?](#link-quality) |
-| &nbsp; |Networking |[Czy aplikacja kliencka znajduje się w tym samym regionie co konto magazynu?](#location) |
+| &nbsp; |Sieć |[Czy urządzenia po stronie klienta mają dostatecznie wysoką przepustowość i małe opóźnienia w celu osiągnięcia wymaganej wydajności?](#throughput) |
+| &nbsp; |Sieć |[Czy urządzenia po stronie klienta mają link do sieci o wysokiej jakości?](#link-quality) |
+| &nbsp; |Sieć |[Czy aplikacja kliencka znajduje się w tym samym regionie co konto magazynu?](#location) |
 | &nbsp; |Bezpośredni dostęp klienta |[Czy używasz sygnatur dostępu współdzielonego (SAS) i udostępniania zasobów między źródłami (CORS), aby umożliwić bezpośredni dostęp do usługi Azure Storage?](#sas-and-cors) |
 | &nbsp; |Przetwarzanie wsadowe |[Czy aplikacja wsadowa aktualizuje aktualizacje przy użyciu transakcji grup jednostek?](#batch-transactions) |
 | &nbsp; |Konfiguracja platformy .NET |[Czy używasz platformy .NET Core 2,1 lub nowszej w celu uzyskania optymalnej wydajności?](#use-net-core) |
@@ -43,8 +43,8 @@ Ten artykuł organizuje sprawdzone rozwiązania dotyczące wydajności w ramach 
 | &nbsp; |narzędzia |[Czy używasz najnowszych wersji bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft?](#client-libraries-and-tools) |
 | &nbsp; |Ponowne próby |[Czy zasady ponawiania są używane z wykładniczą wycofywaniaą do ograniczania błędów i przekroczeń limitu czasu?](#timeout-and-server-busy-errors) |
 | &nbsp; |Ponowne próby |[Czy aplikacja unika ponawiania prób w przypadku błędów, które nie są ponawiane?](#non-retryable-errors) |
-| &nbsp; |Konfigurowanie |[Czy używasz formatu JSON dla żądań tabeli?](#use-json) |
-| &nbsp; |Konfigurowanie |[Czy wyłączono algorytm nagle, aby zwiększyć wydajność małych żądań?](#disable-nagle) |
+| &nbsp; |Konfiguracja |[Czy używasz formatu JSON dla żądań tabeli?](#use-json) |
+| &nbsp; |Konfiguracja |[Czy wyłączono algorytm nagle, aby zwiększyć wydajność małych żądań?](#disable-nagle) |
 | &nbsp; |Tabele i partycje |[Czy masz poprawnie partycjonowane dane?](#schema) |
 | &nbsp; |Partycje aktywne |[Czy unikasz wzorców tylko do dołączania i tylko do prefiksu?](#append-only-and-prepend-only-patterns) |
 | &nbsp; |Partycje aktywne |[Czy operacje wstawiania/aktualizowania są rozłożone na wiele partycji?](#high-traffic-data) |
@@ -90,7 +90,7 @@ Limit skalowalności dla dostępu do tabel to 20 000 jednostek (1 KB każdej) na
 
 W ramach jednej partycji obiekt docelowy skalowalności do uzyskiwania dostępu do tabel to 2 000 jednostek (1 KB każdej) na sekundę przy użyciu tego samego zliczania, jak opisano w poprzedniej sekcji.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Ograniczenia sieci fizycznej aplikacji mogą mieć znaczący wpływ na wydajność. W poniższych sekcjach opisano niektóre ograniczenia, które mogą napotkać użytkownicy.  
 
@@ -153,7 +153,7 @@ Ustaw limit połączeń przed otwarciem wszystkich połączeń.
 
 W przypadku innych języków programowania zapoznaj się z dokumentacją tego języka, aby określić, jak ustawić limit połączeń.  
 
-Aby uzyskać więcej informacji, zobacz blog [usługi sieci Web w blogu: połączenia współbieżne](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Aby uzyskać więcej informacji, zobacz blog [usługi sieci Web w blogu: połączenia współbieżne](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Zwiększ minimalną liczbę wątków
 
@@ -171,7 +171,7 @@ Chociaż równoległość może być świetna dla wydajności, należy zachować
 
 ## <a name="client-libraries-and-tools"></a>Biblioteki i narzędzia klienta
 
-Aby uzyskać najlepszą wydajność, zawsze używaj najnowszych bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft. Biblioteki klienckie usługi Azure Storage są dostępne dla różnych języków. Usługa Azure Storage obsługuje również program PowerShell i interfejs wiersza polecenia platformy Azure. Firma Microsoft aktywnie opracowuje te biblioteki i narzędzia klienckie z uwzględnieniem wydajności, a następnie zapewnia ich aktualność przy użyciu najnowszych wersji usługi i gwarantuje, że obsługa wielu sprawdzonych rozwiązań dotyczących wydajności jest wewnętrznie. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą usługi Azure Storage](/azure/storage/#reference).
+Aby uzyskać najlepszą wydajność, zawsze używaj najnowszych bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft. Biblioteki klienckie usługi Azure Storage są dostępne dla różnych języków. Usługa Azure Storage obsługuje również program PowerShell i interfejs wiersza polecenia platformy Azure. Firma Microsoft aktywnie opracowuje te biblioteki i narzędzia klienckie z uwzględnieniem wydajności, a następnie zapewnia ich aktualność przy użyciu najnowszych wersji usługi i gwarantuje, że obsługa wielu sprawdzonych rozwiązań dotyczących wydajności jest wewnętrznie.
 
 ## <a name="handle-service-errors"></a>Obsługa błędów usługi
 
@@ -189,7 +189,7 @@ Biblioteki klienta obsługują ponawianie prób z świadomością, które błęd
 
 Aby uzyskać więcej informacji na temat kodów błędów usługi Azure Storage, zobacz informacje o [stanie i kodach błędów](/rest/api/storageservices/status-and-error-codes2).
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Ta sekcja zawiera kilka ustawień szybkiego konfigurowania, których można użyć w celu zwiększenia wydajności Table service:
 
@@ -197,7 +197,7 @@ Ta sekcja zawiera kilka ustawień szybkiego konfigurowania, których można uży
 
 Począwszy od usługi Storage w wersji 2013-08-15, Table service obsługuje używanie kodu JSON zamiast formatu AtomPub opartego na języku XML do przesyłania danych tabeli. Użycie formatu JSON może zmniejszyć rozmiar ładunku o nawet do 75% i znacząco poprawić wydajność aplikacji.
 
-Aby uzyskać więcej informacji, zobacz [tabele Microsoft Azure publikowania: wprowadzenie formatu JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) i [ładunku dla operacji usługi Table Service](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Aby uzyskać więcej informacji, zobacz [tabele Microsoft Azure publikowania: wprowadzenie formatu JSON](/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) i [ładunku dla operacji usługi Table Service](/rest/api/storageservices/Payload-Format-for-Table-Service-Operations).
 
 ### <a name="disable-nagle"></a>Wyłącz nagle
 
@@ -243,7 +243,7 @@ W tej sekcji opisano sprawdzone praktyki dotyczące wykonywania zapytań dotycz�
 
 Istnieje kilka sposobów określania zakresu jednostek do zapytania. Na poniższej liście opisano każdą opcję zakresu zapytania.
 
-- **Zapytania dotyczące punktów:**— zapytanie o punkt pobiera dokładnie jedną jednostkę przez określenie klucza partycji i klucza wiersza jednostki do pobrania. Te zapytania są wydajne i należy ich używać wszędzie tam, gdzie jest to możliwe.
+- **Zapytania dotyczące punktów:** — zapytanie o punkt pobiera dokładnie jedną jednostkę przez określenie klucza partycji i klucza wiersza jednostki do pobrania. Te zapytania są wydajne i należy ich używać wszędzie tam, gdzie jest to możliwe.
 - **Zapytania dotyczące partycji:** Zapytanie partycji to zapytanie, które pobiera zestaw danych, które współużytkują wspólny klucz partycji. Zwykle zapytanie określa zakres wartości klucza wiersza lub zakres wartości dla niektórych właściwości jednostki oprócz klucza partycji. Te zapytania są mniej wydajne niż zapytania punktowe i powinny być używane oszczędnie.
 - **Zapytania tabeli:** Zapytanie tabeli to zapytanie, które pobiera zestaw jednostek, które nie korzystają ze wspólnego klucza partycji. Te zapytania są niewydajne i należy je unikać, jeśli jest to możliwe.
 
@@ -273,10 +273,10 @@ Transakcje usługi Batch są nazywane transakcjami grupy jednostek w usłudze Az
 
 #### <a name="upsert"></a>Upsert
 
-W miarę możliwości używaj tabeli **upsert** . Istnieją dwa typy **upsert**, które mogą być bardziej wydajne niż tradycyjne operacje **wstawiania** i **aktualizacji** :  
+W miarę możliwości używaj tabeli **upsert** . Istnieją dwa typy **upsert** , które mogą być bardziej wydajne niż tradycyjne operacje **wstawiania** i **aktualizacji** :  
 
-- **InsertOrMerge**: Użyj tej operacji, gdy chcesz przekazać podzestaw właściwości jednostki, ale nie ma pewności, czy jednostka już istnieje. Jeśli jednostka istnieje, to wywołanie aktualizuje właściwości zawarte w operacji **upsert** i pozostawia wszystkie istniejące właściwości, jeśli są one, jeśli jednostka nie istnieje, wstawia nową jednostkę. Jest to podobne do użycia projekcji w zapytaniu, w którym należy jedynie przekazać właściwości, które są zmieniane.
-- **InsertOrReplace**: Użyj tej operacji, jeśli chcesz przekazać całkowicie nową jednostkę, ale nie masz pewności, czy już istnieje. Użyj tej operacji, Jeśli wiesz, że nowo przekazana jednostka jest całkowicie poprawna, ponieważ całkowicie zastępuje starą jednostkę. Na przykład, chcesz zaktualizować jednostkę, która przechowuje bieżącą lokalizację użytkownika, niezależnie od tego, czy aplikacja ma poprzednio przechowywane dane lokalizacji dla użytkownika; Nowa jednostka lokalizacji została ukończona i nie są potrzebne żadne informacje z poprzedniej jednostki.
+- **InsertOrMerge** : Użyj tej operacji, gdy chcesz przekazać podzestaw właściwości jednostki, ale nie ma pewności, czy jednostka już istnieje. Jeśli jednostka istnieje, to wywołanie aktualizuje właściwości zawarte w operacji **upsert** i pozostawia wszystkie istniejące właściwości, jeśli są one, jeśli jednostka nie istnieje, wstawia nową jednostkę. Jest to podobne do użycia projekcji w zapytaniu, w którym należy jedynie przekazać właściwości, które są zmieniane.
+- **InsertOrReplace** : Użyj tej operacji, jeśli chcesz przekazać całkowicie nową jednostkę, ale nie masz pewności, czy już istnieje. Użyj tej operacji, Jeśli wiesz, że nowo przekazana jednostka jest całkowicie poprawna, ponieważ całkowicie zastępuje starą jednostkę. Na przykład, chcesz zaktualizować jednostkę, która przechowuje bieżącą lokalizację użytkownika, niezależnie od tego, czy aplikacja ma poprzednio przechowywane dane lokalizacji dla użytkownika; Nowa jednostka lokalizacji została ukończona i nie są potrzebne żadne informacje z poprzedniej jednostki.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>Przechowywanie serii danych w jednej jednostce
 

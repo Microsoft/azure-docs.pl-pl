@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Łączenie SQL na żądanie w celu Power BI Desktop & tworzenia raportu'
-description: W tym samouczku dowiesz się, jak połączyć SQL na żądanie w usłudze Azure Synapse Analytics, aby Power BI Desktop i utworzyć raport demonstracyjny na podstawie widoku.
+title: 'Samouczek: łączenie bezserwerowej puli SQL w celu Power BI Desktop & tworzenia raportu'
+description: W tym samouczku dowiesz się, jak połączyć pulę SQL bezserwerową w usłudze Azure Synapse Analytics, aby Power BI Desktop i utworzyć raport demonstracyjny na podstawie widoku.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2b068dd7c5e7fb3f9e3505f93245515d90ae23
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539558"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317189"
 ---
-# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Samouczek: korzystanie z SQL na żądanie z Power BI Desktop & Tworzenie raportu
+# <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Samouczek: używanie bezserwerowej puli SQL z Power BI Desktop & Tworzenie raportu
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
@@ -24,7 +24,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 >
 > - Utwórz demonstracyjną bazę danych
 > - Utwórz widok używany na potrzeby raportu
-> - Łączenie Power BI Desktop z SQL na żądanie
+> - Połącz Power BI Desktop z pulą SQL bezserwerowej
 > - Utwórz raport w oparciu o widok
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -42,8 +42,8 @@ Wartości dla następujących parametrów:
 
 | Parametr                                 | Opis                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Adres punktu końcowego usługi SQL na żądanie    | Używane jako nazwa serwera                                   |
-| Region punktu końcowego usługi SQL na żądanie     | Służy do określania magazynu używanego w przykładach |
+| Adres punktu końcowego usługi puli SQL bezserwerowej    | Używane jako nazwa serwera                                   |
+| Region punktu końcowego usługi puli SQL bezserwerowej     | Służy do określania magazynu używanego w przykładach |
 | Nazwa użytkownika i hasło dostępu do punktu końcowego | Używane do uzyskiwania dostępu do punktu końcowego                               |
 | Baza danych, która będzie używana do tworzenia widoków     | Baza danych używana jako punkt wyjścia w przykładach       |
 
@@ -65,7 +65,7 @@ GO
 
 ## <a name="2---create-data-source"></a>2 — Tworzenie źródła danych
 
-Do uzyskiwania dostępu do plików w magazynie przez usługę SQL na żądanie jest wymagane źródło danych. Utwórz źródło danych dla konta magazynu znajdującego się w tym samym regionie, w którym znajduje się punkt końcowy. Mimo że usługa SQL na żądanie może uzyskać dostęp do kont magazynu z różnych regionów, posiadanie magazynu i punktu końcowego w tym samym regionie zapewnia lepszą wydajność.
+Źródło danych jest niezbędne do uzyskiwania dostępu do plików w magazynie za pomocą usługi puli SQL bezserwerowej. Utwórz źródło danych dla konta magazynu znajdującego się w tym samym regionie, w którym znajduje się punkt końcowy. Mimo że Pula SQL bezserwerowa ma dostęp do kont magazynu z różnych regionów, posiadanie magazynu i punktu końcowego w tym samym regionie zapewnia lepszą wydajność.
 
 Utwórz źródło danych, uruchamiając następujący skrypt języka Transact-SQL (T-SQL):
 

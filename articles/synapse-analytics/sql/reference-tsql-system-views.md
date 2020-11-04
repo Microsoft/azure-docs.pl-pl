@@ -1,5 +1,5 @@
 ---
-title: Widoki systemowe obsługiwane w programie Synapse SQL — wersja zapoznawcza
+title: Widoki systemowe obsługiwane w programie SQL Synapse
 description: Linki do dokumentacji dotyczącej widoków systemu obsługiwanych w programie SQL Synapse.
 author: filippopovic
 ms.service: synapse-analytics
@@ -8,20 +8,21 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7079bbcf3bd7cb7f6073b132cd558386744f6884
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4e4e6a1607fa42f4be07451f9aa0d8ff923d85d6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092770"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317321"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Widoki systemowe obsługiwane w programie SQL Synapse
+
 Linki do dokumentacji dotyczącej instrukcji języka T-SQL obsługiwanych w programie SQL Synapse.
 
 > [!NOTE]
-> Synapse SQL na żądanie obsługuje tylko widoki wykazu SQL Server.  
+> Synapse bezserwerowa Pula SQL obsługuje tylko widoki wykazu SQL Server.  
 
-## <a name="sql-pool-catalog-views"></a>Widoki wykazu puli SQL
+## <a name="dedicated-sql-pool-and-serverless-sql-pool-catalog-views"></a>Dedykowana Pula SQL i nieserwerowe widoki wykazu puli SQL
 
 * [sys.pdw_column_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-column-distribution-properties-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.pdw_distributions](/sql/relational-databases/system-catalog-views/sys-pdw-distributions-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -47,7 +48,7 @@ Linki do dokumentacji dotyczącej instrukcji języka T-SQL obsługiwanych w prog
 * [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (wersja zapoznawcza)
 * [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (wersja zapoznawcza)
 
-## <a name="sql-pool-dynamic-management-views-dmvs"></a>Dynamiczne widoki zarządzania puli SQL (widoków DMV)
+## <a name="dedicated-sql-pool-dynamic-management-views-dmvs"></a>Dedykowane widoki dynamicznego zarządzania puli SQL (widoków DMV)
 
 * [sys.dm_pdw_dms_cores](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-cores-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_pdw_dms_external_work](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-external-work-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -69,9 +70,9 @@ Linki do dokumentacji dotyczącej instrukcji języka T-SQL obsługiwanych w prog
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-applicable-to-sql-pool"></a>SQL Server widoków DMV mające zastosowanie do puli SQL
+## <a name="sql-server-dmvs-applicable-to-dedicated-sql-pool"></a>SQL Server widoków DMV mające zastosowanie do dedykowanej puli SQL
 
-Poniższe widoków DMV mają zastosowanie do puli SQL, ale muszą być wykonywane przez połączenie z bazą danych **Master** .
+Poniższe widoków DMV mają zastosowanie do dedykowanej puli SQL, ale muszą być wykonywane przez połączenie z bazą danych **Master** .
 
 * [sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -151,16 +152,16 @@ Poniższe widoków DMV mają zastosowanie do puli SQL, ale muszą być wykonywan
 * [sys. Types](/sql/relational-databases/system-catalog-views/sys-types-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys. widoki](/sql/relational-databases/system-catalog-views/sys-views-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-available-in-sql-pool"></a>SQL Server widoków DMV dostępne w puli SQL
+## <a name="sql-server-dmvs-available-in-dedicated-sql-pool"></a>SQL Server widoków DMV dostępne w dedykowanej puli SQL
 
-Pula SQL uwidacznia wiele SQL Server dynamicznych widoków zarządzania (widoków DMV). Te widoki, które są zgłaszane w puli SQL, zgłaszają stan baz danych SQL działających w ramach dystrybucji.
+Pula SQL uwidacznia wiele SQL Server dynamicznych widoków zarządzania (widoków DMV). Te widoki, które są zgłaszane w dedykowanej puli SQL, zgłaszają stan baz danych SQL działających w ramach dystrybucji.
 
 Usługi SQL Pool i system platform Analytics (Parallel Data Warehouse) używają tych samych widoków systemowych. Każdy DMV ma kolumnę o nazwie pdw_node_id, która jest identyfikatorem węzła obliczeniowego.
 
 > [!NOTE]
 > Aby użyć tych widoków, Wstaw "pdw_nodes_" do nazwy, jak pokazano w poniższej tabeli:
 
-| Nazwa DMV w puli SQL | SQL Server artykułu Transact-SQL|
+| Nazwa DMV w dedykowanej puli SQL | SQL Server artykułu Transact-SQL|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)|
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)|
@@ -222,9 +223,9 @@ Usługi SQL Pool i system platform Analytics (Parallel Data Warehouse) używają
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-top-version-generators-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-pool"></a>SQL Server widoków DMV 2016, dostępny w puli SQL
+## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool"></a>SQL Server widoków DMV 2016, dostępne w dedykowanej puli SQL
 
-Poniższe widoków DMV mają zastosowanie do puli SQL, ale muszą być wykonywane przez połączenie z bazą danych **Master** .
+Poniższe widoków DMV mają zastosowanie do dedykowanej puli SQL, ale muszą być wykonywane przez połączenie z bazą danych **Master** .
 
 * [sys.dm_exec_compute_node_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-errors-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_exec_compute_node_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-status-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285961"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316689"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorowanie i wyświetlanie dzienników i metryk przebiegów ML
 
@@ -58,7 +58,7 @@ Po zakończeniu przebiegu nie jest on już wyświetlany na tej stronie. Aby wyś
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Monitorowanie uruchomień przy użyciu widżetu Notes Jupyter
 
-Gdy używasz metody **ScriptRunConfig** do przesyłania przebiegów, możesz obserwować postęp przebiegu przy użyciu [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Podobnie jak przesyłanie przebiegu, widżet jest asynchroniczny i udostępnia aktualizacje na bieżąco co 10–15 sekund aż do zakończenia zadania.
+Gdy używasz metody **ScriptRunConfig** do przesyłania przebiegów, możesz obserwować postęp przebiegu przy użyciu [widżetu Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Podobnie jak przesyłanie przebiegu, widżet jest asynchroniczny i udostępnia aktualizacje na bieżąco co 10–15 sekund aż do zakończenia zadania.
 
 Wyświetl widżet Jupyter podczas oczekiwania na ukończenie przebiegu.
     
@@ -134,4 +134,3 @@ Spróbuj wykonać następujące kroki, aby dowiedzieć się, jak używać Azure 
 * Dowiedz się [, jak śledzić eksperymenty i włączać dzienniki w projektancie Azure Machine Learning](how-to-track-designer-experiments.md).
 
 * Zobacz w samouczku [Trenowanie modelu klasyfikacji obrazów za pomocą usługi Azure Machine Learning](tutorial-train-models-with-aml.md) przykład sposobu rejestrowania najlepszego modelu i wdrożenia go.
-

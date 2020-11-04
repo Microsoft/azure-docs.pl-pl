@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: e86be87faf6bb0c58674a15882e52dcef43fe42e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66155e5dce00caf73af64fb0b8a4ab75f7c948a7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711522"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316628"
 ---
 # <a name="azure-table-storage-monitoring-data-reference"></a>Informacje o danych monitorowania usługi Azure Table Storage
 
@@ -36,7 +36,7 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 
 #### <a name="table-storage"></a>Table Storage
 
-W tej tabeli przedstawiono [metryki magazynu tabel](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
+W tej tabeli przedstawiono [metryki magazynu tabel](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices).
 
 | Metryka | Opis |
 | ------------------- | ----------------- |
@@ -77,7 +77,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - Zobacz [monitorowanie usługi Azure Table Storage](monitor-table-storage.md) , aby uzyskać opis monitorowania usługi Azure Storage.
 - Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) .

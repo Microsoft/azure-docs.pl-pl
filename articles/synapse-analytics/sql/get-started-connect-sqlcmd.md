@@ -1,6 +1,6 @@
 ---
 title: Nawiązywanie połączenia z usługą Synapse SQL przy użyciu narzędzia sqlcmd
-description: Użyj narzędzia wiersza polecenia sqlcmd, aby nawiązać połączenie z usługą SQL Server na żądanie (wersja zapoznawcza) i z nią Query.
+description: Użyj narzędzia wiersza polecenia sqlcmd, aby nawiązać połączenie z pulą SQL bezserwerową (wersja zapoznawcza) i dedykowaną pulą SQL i wykonać zapytania.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,23 +9,23 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1af42a838463132a241447c11b90bfb489f879ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 10f15ec2108e897164206543358d7a9e7bd40f64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87059465"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316499"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu narzędzia sqlcmd
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio (wersja zapoznawcza)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Można użyć narzędzia wiersza polecenia [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , aby nawiązać połączenie z usługą SQL Server na żądanie (wersja zapoznawcza) i do puli SQL w ramach Synapse SQL.  
+Można użyć narzędzia wiersza polecenia [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , aby nawiązać połączenie z pulą SQL bezserwerową (wersja zapoznawcza) i dedykowaną pulą SQL w ramach Synapse SQL.  
 
 ## <a name="1-connect"></a>1. Połącz
 Aby rozpocząć pracę z narzędziem [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), Otwórz wiersz polecenia i wprowadź polecenie **sqlcmd** , a następnie parametry połączenia dla bazy danych SQL Synapse. Wymagane parametry połączenia to:
@@ -41,13 +41,13 @@ Aby użyć uwierzytelniania SQL Server, należy dodać parametry nazwy użytkown
 
 Parametry połączenia mogą wyglądać podobnie jak w poniższym przykładzie:
 
-**SQL na żądanie**
+**Pula SQL bezserwerowa**
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
 ```
 
-**Pula SQL**
+**Dedykowana Pula SQL**
 
 ```
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -59,13 +59,13 @@ Aby użyć zintegrowanego uwierzytelniania usługi Azure Active Directory, nale�
 
 Parametry połączenia mogą wyglądać następująco:
 
-**SQL na żądanie**
+**Pula SQL bezserwerowa**
 
 ```
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -G -I
 ```
 
-**Pula SQL**
+**Dedykowana Pula SQL**
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
@@ -76,7 +76,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ## <a name="2-query"></a>2. zapytanie
 
-### <a name="use-sql-pool"></a>Użyj puli SQL
+### <a name="use-dedicated-sql-pool"></a>Użyj dedykowanej puli SQL
 
 Po nawiązaniu połączenia można wydać wszystkie obsługiwane instrukcje [języka Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (T-SQL) w odniesieniu do wystąpienia. W tym przykładzie zapytania są przesyłane w trybie interaktywnym:
 
@@ -87,7 +87,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-W przypadku puli SQL w poniższych przykładach pokazano, jak uruchamiać zapytania w trybie wsadowym przy użyciu opcji-Q lub przekazywać instrukcję SQL do narzędzia sqlcmd:
+W przypadku dedykowanej puli SQL w poniższych przykładach pokazano, jak uruchamiać zapytania w trybie wsadowym przy użyciu opcji-Q lub przekazywać instrukcję SQL do narzędzia sqlcmd:
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -97,7 +97,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-### <a name="use-sql-on-demand"></a>Korzystanie z bazy danych SQL na żądanie
+### <a name="use-serverless-sql-pool"></a>Użyj bezserwerowej puli SQL
 
 Po nawiązaniu połączenia można wydać wszystkie obsługiwane instrukcje [języka Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (T-SQL) w odniesieniu do wystąpienia.  W poniższym przykładzie zapytania są przesyłane w trybie interaktywnym:
 
@@ -108,7 +108,7 @@ C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Her
 3> QUIT
 ```
 
-W przypadku programu SQL na żądanie w przykładach pokazano, jak uruchamiać zapytania w trybie wsadowym przy użyciu opcji-Q lub przekazywać instrukcję SQL do narzędzia sqlcmd:
+W przypadku puli SQL bezserwerowej poniższe przykłady pokazują, jak uruchamiać zapytania w trybie wsadowym przy użyciu opcji-Q lub przekazywać instrukcję SQL do narzędzia sqlcmd:
 
 ```sql
 sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P 'Enter_Your_Password_Here' -I -Q "SELECT COUNT(*) FROM  OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet', FORMAT='PARQUET')"

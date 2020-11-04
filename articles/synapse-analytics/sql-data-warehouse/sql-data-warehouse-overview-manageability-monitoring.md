@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie i monitorowanie — Omówienie
-description: Przegląd monitorowania i możliwości zarządzania dotyczącego wykorzystania zasobów, działania dzienników i zapytań, zalecenia oraz ochrona danych (kopia zapasowa i przywracanie) przy użyciu puli SQL Synapse.
+description: Omówienie monitorowania i zarządzania dotyczące wykorzystania zasobów, działania dzienników i zapytań, zalecenia oraz ochronę danych (Tworzenie i przywracanie kopii zapasowych) z dedykowaną pulą SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 19b2b4aecedbaa66c258b9076c517b02034a46fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4792842eddac3e8082be2d3a67736824a02dfebd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85200991"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317489"
 ---
-# <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>Zarządzanie i monitorowanie za pomocą puli SQL Synapse
+# <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Zarządzanie i monitorowanie za pomocą dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
-Synapse SQL umożliwia obsługę administracyjną magazynu danych za pośrednictwem puli SQL. Poniższe artykuły ułatwią Ci Zarządzanie magazynem danych i monitorowanie go. Dowiesz się również, jak zoptymalizować użycie i wydajność magazynu danych.
+Synapse SQL umożliwia obsługę administracyjną magazynu danych za pośrednictwem dedykowanej puli SQL. Poniższe artykuły ułatwią Ci Zarządzanie magazynem danych i monitorowanie go. Dowiesz się również, jak zoptymalizować użycie i wydajność magazynu danych.
 
 ## <a name="overview"></a>Omówienie
 
@@ -33,4 +33,4 @@ Synapse SQL umożliwia obsługę administracyjną magazynu danych za pośrednict
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać instrukcje dotyczące przewodników, zobacz [monitorowanie i dostrajanie puli SQL](sql-data-warehouse-manage-monitor.md).
+Aby uzyskać instrukcje dotyczące przewodników, zobacz [monitorowanie i dostrajanie dedykowanej puli SQL](sql-data-warehouse-manage-monitor.md).

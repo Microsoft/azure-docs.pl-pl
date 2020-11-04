@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8f54ece9a932ed4cc0adc29747e1c58ee22646c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee2280aba99606d9e31a0e565a67cd6202df3c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333872"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317023"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Wykrywanie dryfowania danych (wersja zapoznawcza) w zestawach DataSet
 
@@ -36,14 +36,14 @@ Za pomocą monitorów zestawu danych Azure Machine Learning (wersja zapoznawcza)
 
 [Zestaw danych usługi Azure Machine Learning](how-to-create-register-datasets.md) jest używany do tworzenia monitora. Zestaw danych musi zawierać kolumnę sygnatur czasowych.
 
-Metryki dotyczące dryfu danych można wyświetlić za pomocą zestawu SDK języka Python lub w programie Azure Machine Learning Studio.  Inne metryki i szczegółowe dane są dostępne za pomocą zasobu [usługi Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) skojarzonego z obszarem roboczym Azure Machine Learning.
+Metryki dotyczące dryfu danych można wyświetlić za pomocą zestawu SDK języka Python lub w programie Azure Machine Learning Studio.  Inne metryki i szczegółowe dane są dostępne za pomocą zasobu [usługi Azure Application Insights](../azure-monitor/app/app-insights-overview.md) skojarzonego z obszarem roboczym Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby tworzyć i korzystać z monitorów zestawu danych, potrzebne są:
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 * [Obszar roboczy Azure Machine Learning](how-to-manage-workspace.md).
-* [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), który obejmuje pakiet usługi Azure DataSets.
+* [Zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), który obejmuje pakiet usługi Azure DataSets.
 * Dane ze strukturą (tabelaryczną) z sygnaturą czasową określoną w ścieżce pliku, nazwie pliku lub kolumnie w danych.
 
 ## <a name="what-is-data-drift"></a>Co to jest dryfowanie danych?
@@ -73,7 +73,7 @@ Za pomocą monitora zestawu danych można:
 
 Algorytm dryfowania danych zawiera ogólną miarę zmian danych i wskazanie, które funkcje są odpowiedzialne za dalsze badanie. Monitory zestawu danych tworzą wiele innych metryk przez profilowanie nowych danych w `timeseries` zestawie danych. 
 
-Niestandardowe alerty można skonfigurować na wszystkich metrykach wygenerowanych przez Monitor za pomocą [usługi Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Za pomocą monitorów zestawu danych można szybko przechwycić problemy z danymi i skrócić czas debugowania problemu, identyfikując możliwe przyczyny.  
+Niestandardowe alerty można skonfigurować na wszystkich metrykach wygenerowanych przez Monitor za pomocą [usługi Azure Application Insights](../azure-monitor/app/app-insights-overview.md). Za pomocą monitorów zestawu danych można szybko przechwycić problemy z danymi i skrócić czas debugowania problemu, identyfikując możliwe przyczyny.  
 
 Koncepcyjnie istnieją trzy podstawowe scenariusze konfigurowania monitorów zestawów danych w Azure Machine Learning.
 
@@ -87,7 +87,7 @@ Monitory zestawu danych są zależne od następujących usług platformy Azure.
 
 |Usługa platformy Azure  |Opis  |
 |---------|---------|
-| *Zestaw danych* | Funkcja dryf używa Machine Learning zestawów danych, aby pobierać dane szkoleniowe i porównywać dane w celu szkolenia modeli.  Generowanie profilu danych jest używane do generowania niektórych raportowanych metryk, takich jak minimalna, maksymalna, różne wartości, liczba unikatowych wartości. |
+| *Zestawu* | Funkcja dryf używa Machine Learning zestawów danych, aby pobierać dane szkoleniowe i porównywać dane w celu szkolenia modeli.  Generowanie profilu danych jest używane do generowania niektórych raportowanych metryk, takich jak minimalna, maksymalna, różne wartości, liczba unikatowych wartości. |
 | *Potok i obliczenia w usłudze Azure* | Zadanie obliczania dryfu jest hostowane w potoku Azure.  Zadanie jest wyzwalane na żądanie lub według harmonogramu do uruchomienia w ramach obliczeń skonfigurowanych na czas tworzenia monitora dryfu.
 | *Application Insights*| Dryf emituje metryki do Application Insights należące do obszaru roboczego uczenia maszynowego.
 | *Azure Blob Storage*| Dryf emituje metryki w formacie JSON do magazynu obiektów blob platformy Azure.
@@ -102,7 +102,7 @@ Docelowy zestaw danych wymaga `timeseries` zestawu cech dla niego, określając 
 
 ### <a name="python-sdk"></a><a name="sdk-dataset"></a>Zestaw SDK dla języka Python
 
-[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)Metoda klasy [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) definiuje kolumnę sygnatury czasowej dla zestawu danych.
+[`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)Metoda klasy [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) definiuje kolumnę sygnatury czasowej dla zestawu danych.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -129,9 +129,9 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Pełny przykład użycia `timeseries` cech zestawów danych można znaleźć w [przykładowym notesie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) lub [dokumentacji zestawu SDK zestawów danych](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+Pełny przykład użycia `timeseries` cech zestawów danych można znaleźć w [przykładowym notesie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) lub [dokumentacji zestawu SDK zestawów danych](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
-### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
+### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Studio uczenia maszynowego Azure
 
 Jeśli tworzysz zestaw danych przy użyciu Azure Machine Learning Studio, upewnij się, że ścieżka do danych zawiera informacje o znaczniku czasu, Uwzględnij wszystkie podfoldery z danymi i ustaw format partycji.
 
@@ -145,7 +145,7 @@ W ustawieniach **schematu** należy określić kolumnę sygnatury czasowej z wir
 
 Jeśli dane są partycjonowane według daty, tak jak tutaj, można również określić partition_timestamp.  Umożliwia to wydajniejsze przetwarzanie dat.
 
-:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Ustawianie sygnatury czasowej":::
+:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Sygnatura czasowa partycji":::
 
 
 ## <a name="create-dataset-monitors"></a>Tworzenie monitorów zestawu danych
@@ -213,7 +213,7 @@ Pełny przykład konfigurowania `timeseries` zestawu danych i wykrywania dryfowa
 
 1. Kliknij przycisk **+ Utwórz monitor** i Kontynuuj pracę kreatora, klikając przycisk **dalej**.  
 
-:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Ustawianie sygnatury czasowej":::
+:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Kreator tworzenia monitora":::
 
 * **Wybierz docelowy zestaw danych**.  Docelowy zestaw danych jest tabelarycznym zestawem danych z określoną kolumną sygnatur czasowych, która zostanie przeanalizowana pod kątem dryfowania danych. Docelowy zestaw danych musi mieć wspólne funkcje z bazowym zestawem danych, który powinien być `timeseries` zestawem danych, do którego dodawane są nowe dane. Dane historyczne w docelowym zestawie danych mogą być analizowane lub można monitorować nowe dane.
 
@@ -236,11 +236,11 @@ Po zakończeniu pracy kreatora, wynikający z monitora zestawu danych pojawi si�
 
 ## <a name="understand-data-drift-results"></a>Zrozumienie wyników dryfowania danych
 
-W tej sekcji przedstawiono wyniki monitorowania zestawu danych, które znajdują **się na**  /  stronie**Monitory zestawu danych DataSet** w programie Azure Studio.  Możesz zaktualizować ustawienia, a także przeanalizować istniejące dane dla określonego okresu na tej stronie.  
+W tej sekcji przedstawiono wyniki monitorowania zestawu danych, które znajdują **się na**  /  stronie **Monitory zestawu danych DataSet** w programie Azure Studio.  Możesz zaktualizować ustawienia, a także przeanalizować istniejące dane dla określonego okresu na tej stronie.  
 
 Zacznij od wglądu w dane najwyższego poziomu do wielkości dryfu danych oraz wyróżniania funkcji do dalszej analizy.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Ustawianie sygnatury czasowej":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Przegląd dryfu":::
 
 
 | Metryka | Opis | 
@@ -253,7 +253,7 @@ Zacznij od wglądu w dane najwyższego poziomu do wielkości dryfu danych oraz w
 
 Zobacz, jak zestaw danych różni się od docelowego zestawu danych w określonym przedziale czasu.  Bliżej 100%, tym większa jest różnica między dwoma zestawami danych.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Ustawianie sygnatury czasowej":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Trend wielkości dryfu":::
 
 ### <a name="drift-magnitude-by-features"></a>Wielkość dryfu według funkcji
 
@@ -263,7 +263,7 @@ Docelowy zestaw danych jest również profilowany w czasie. Odległość statyst
 
 W Azure Machine Learning Studio kliknij pasek na wykresie, aby wyświetlić szczegóły poziomu funkcji dla tej daty. Domyślnie zostanie wyświetlona dystrybucja zestawu danych punktu odniesienia i Najnowsza dystrybucja przebiegu tej samej funkcji.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Ustawianie sygnatury czasowej":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Wielkość dryfu według funkcji":::
 
 Te metryki można także pobrać w zestawie SDK języka Python za pomocą `get_metrics()` metody dla `DataDriftDetector` obiektu.
 
@@ -271,7 +271,7 @@ Te metryki można także pobrać w zestawie SDK języka Python za pomocą `get_m
 
 Na koniec przewiń w dół, aby wyświetlić szczegółowe informacje dotyczące poszczególnych funkcji.  Użyj listy rozwijanej powyżej wykresu, aby wybrać funkcję, a następnie wybierz metrykę, którą chcesz wyświetlić.
 
-:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Ustawianie sygnatury czasowej":::
+:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Wykres funkcji liczbowej i porównanie":::
 
 Metryki na wykresie zależą od typu funkcji.
 
@@ -288,16 +288,16 @@ Metryki na wykresie zależą od typu funkcji.
     
     | Metryka | Opis |  
     | ------ | ----------- |  
-    | Odległość euclidian     |  Obliczone dla kolumn kategorii.Odległość Euclidean jest obliczana na dwóch wektorach wygenerowanych na podstawie rozkładu empirycznego tej samej kolumny kategorii z dwóch zestawów danych.wartość 0 oznacza, że nie ma różnicy w rozkładach empirycznych.Im więcej odbędzie się od 0, tym większa kolumna jest przechylać.Trendy mogą być zauważalne z wykresu szeregowego czasu tej metryki i mogą być pomocne w odwróceniu funkcji dryfowania.  |
+    | Odległość euclidian     |  Obliczone dla kolumn kategorii. Odległość Euclidean jest obliczana na dwóch wektorach wygenerowanych na podstawie rozkładu empirycznego tej samej kolumny kategorii z dwóch zestawów danych. wartość 0 oznacza, że nie ma różnicy w rozkładach empirycznych.  Im więcej odbędzie się od 0, tym większa kolumna jest przechylać. Trendy mogą być zauważalne z wykresu szeregowego czasu tej metryki i mogą być pomocne w odwróceniu funkcji dryfowania.  |
     | Unikatowe wartości | Liczba unikatowych wartości (Kardynalność) funkcji. |
 
 Na tym wykresie wybierz pojedynczą datę, aby porównać dystrybucję funkcji między obiektem docelowym a tą datą dla wyświetlanej funkcji. W przypadku funkcji liczbowych pokazuje dwa rozkłady prawdopodobieństwa.  Jeśli funkcja jest liczbowa, zostanie wyświetlony wykres słupkowy.
 
-:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Ustawianie sygnatury czasowej":::
+:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Wybierz datę do porównania z elementem docelowym":::
 
 ## <a name="metrics-alerts-and-events"></a>Metryki, alerty i zdarzenia
 
-Metryki mogą być zapytania w ramach zasobu [usługi Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) skojarzonego z obszarem roboczym uczenia maszynowego. Masz dostęp do wszystkich funkcji Application Insights, w tym konfiguracji niestandardowych reguł alertów i grup akcji, aby wyzwolić akcję, taką jak wiadomość E-mail/SMS/wypychanie/głos lub funkcja platformy Azure. Aby uzyskać szczegółowe informacje, zobacz kompletną dokumentację Application Insights. 
+Metryki mogą być zapytania w ramach zasobu [usługi Azure Application Insights](../azure-monitor/app/app-insights-overview.md) skojarzonego z obszarem roboczym uczenia maszynowego. Masz dostęp do wszystkich funkcji Application Insights, w tym konfiguracji niestandardowych reguł alertów i grup akcji, aby wyzwolić akcję, taką jak wiadomość E-mail/SMS/wypychanie/głos lub funkcja platformy Azure. Aby uzyskać szczegółowe informacje, zobacz kompletną dokumentację Application Insights. 
 
 Aby rozpocząć, przejdź do [Azure Portal](https://portal.azure.com) i wybierz stronę **omówienia** obszaru roboczego.  Skojarzony zasób Application Insights jest po prawej stronie:
 
@@ -322,6 +322,6 @@ Możesz użyć istniejącej grupy akcji lub utworzyć nową, aby zdefiniować ak
 ## <a name="next-steps"></a>Następne kroki
 
 * Przejdź do programu [Azure Machine Learning Studio](https://ml.azure.com) lub [notesu Python](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) , aby skonfigurować Monitor zestawu danych.
-* Zobacz jak skonfigurować dryfowanie danych dla [modeli wdrożonych w usłudze Azure Kubernetes Service](how-to-monitor-data-drift.md).
+* Zobacz jak skonfigurować dryfowanie danych dla [modeli wdrożonych w usłudze Azure Kubernetes Service](./how-to-enable-data-collection.md).
 * Skonfiguruj monitory przedryfania zestawu danych za pomocą [siatki zdarzeń](how-to-use-event-grid.md). 
 * Jeśli występują problemy, zobacz te typowe [wskazówki dotyczące rozwiązywania problemów](resource-known-issues.md#data-drift) .

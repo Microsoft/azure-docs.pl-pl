@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601434628258b8af3fb5fb9336f701be72441c64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776123"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318122"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -30,7 +30,7 @@ Można uruchomić i zatrzymać projekt i kontrolować postęp etykietowania. Mo�
 > [!Important]
 > Obecnie obsługiwane są tylko projekty klasyfikacji obrazów i identyfikacji obiektów. Ponadto obrazy danych muszą być dostępne w magazynie datastorage obiektów blob platformy Azure. (Jeśli nie masz istniejącego magazynu danych, możesz przekazać obrazy podczas tworzenia projektu).
 
-W tym artykule dowiesz się, jak:
+Ten artykuł obejmuje następujące zagadnienia:
 
 > [!div class="checklist"]
 > * Tworzenie projektu
@@ -84,7 +84,7 @@ Aby utworzyć zestaw danych na podstawie danych, które zostały już zapisane w
     * Dołącz "/* *" do ścieżki, aby uwzględnić wszystkie pliki w podfolderach wybranej ścieżki.
     * Dołącz "* */* . *", aby uwzględnić wszystkie dane w bieżącym kontenerze i jego podfolderach.
 1. Podaj opis zestawu danych.
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 
@@ -98,7 +98,7 @@ Aby bezpośrednio przekazać dane:
 1. *Opcjonalne:* Wybierz pozycję **Ustawienia zaawansowane** , aby dostosowywać magazyn danych, kontener i ścieżkę do swoich potrzeb.
 1. Wybierz pozycję **Przeglądaj** , aby wybrać pliki lokalne do przekazania.
 1. Podaj opis zestawu danych.
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 Dane są przekazywane do domyślnego magazynu obiektów BLOB ("workspaceblobstore") obszaru roboczego Machine Learning.
@@ -152,7 +152,7 @@ Wybierz opcję *Włącz oznaczenie ml z etykietami* i określ procesor GPU, aby 
 * Klastrowanie
 * Etykietowanie
 
-Dokładna liczba obrazów z etykietami, które są niezbędne do rozpoczęcia etykietowania pomocy, nie jest ustalona.  Może się to różnić w zależności od jednego projektu etykietowego do innego. W przypadku niektórych projektów czasami możliwe jest wyświetlenie przednich lub zadań klastra po ręcznym etykietowaniu obrazów 300. Przy pomocy zatytułowanej do uczenia maszynowego jest stosowana technika o nazwie *nauka przekazu*, która korzysta ze wstępnie przeszkolonego modelu, aby przeskoczyć proces szkolenia. Jeśli klasy zestawu danych są podobne do tych w modelu wstępnie szkolonym, etykietki wstępne mogą być dostępne po tylko kilku setkach obrazów oznaczonych ręcznie. Jeśli zestaw danych znacznie różni się od danych używanych do wstępnego uczenia modelu, może to zająć dużo czasu.
+Dokładna liczba obrazów z etykietami, które są niezbędne do rozpoczęcia etykietowania pomocy, nie jest ustalona.  Może się to różnić w zależności od jednego projektu etykietowego do innego. W przypadku niektórych projektów czasami możliwe jest wyświetlenie przednich lub zadań klastra po ręcznym etykietowaniu obrazów 300. Przy pomocy zatytułowanej do uczenia maszynowego jest stosowana technika o nazwie *nauka przekazu* , która korzysta ze wstępnie przeszkolonego modelu, aby przeskoczyć proces szkolenia. Jeśli klasy zestawu danych są podobne do tych w modelu wstępnie szkolonym, etykietki wstępne mogą być dostępne po tylko kilku setkach obrazów oznaczonych ręcznie. Jeśli zestaw danych znacznie różni się od danych używanych do wstępnego uczenia modelu, może to zająć dużo czasu.
 
 Ponieważ końcowe etykiety nadal opierają się na danych wejściowych z Labeler, Technologia ta jest czasami wywoływana *przez człowieka w pętli* etykiet.
 
@@ -189,7 +189,18 @@ Aby wstrzymać lub ponownie uruchomić projekt, przełącz stan **działania** w
 
 Karta **pulpit nawigacyjny** pokazuje postęp zadania etykietowania.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Kreator tworzenia etykiet dla projektu"
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Pulpit nawigacyjny etykiet danych":::
+
+Wykres postępu pokazuje, ile elementów zostało oznaczonych i ile nie zostało to jeszcze zrobione.  Elementy oczekujące mogą być następujące:
+
+* Jeszcze nie dodano do zadania
+* Uwzględnione w zadaniu, które jest przypisane do elementu Labeler, ale jeszcze nie zostało ukończone 
+* W kolejce zadań, które zostały jeszcze przypisane
+
+Środkowa sekcja pokazuje kolejkę zadań, które zostały jeszcze przypisane. Gdy etykieta z asystą jest wyłączona, w tej sekcji przedstawiono liczbę ręcznych zadań do przypisania. Gdy etykieta z asystą jest włączona, zostanie ona również wyświetlona:
+
+* Zadania zawierające elementy klastrowane w kolejce
+* Zadania zawierające elementy, które są oznaczone jako "w kolejce"
 
 Ponadto, gdy jest włączona etykieta z asystą, na małym przebiegu szkolenia pojawia się mały pasek postępu.  Sekcje eksperymenty zawierają linki do poszczególnych przebiegów uczenia maszynowego.
 
@@ -202,7 +213,7 @@ Po prawej stronie jest dystrybuowanie etykiet dla tych zadań, które zostały u
 
 ### <a name="data-tab"></a>Karta dane
 
-Na karcie **dane** można zobaczyć zestaw danych i przejrzeć dane z etykietami. Jeśli zobaczysz nieprawidłowe etykiety danych, zaznacz ją i wybierz polecenie **Odrzuć**, co spowoduje usunięcie etykiet i umieszczenie danych z powrotem w kolejce bez etykiety.
+Na karcie **dane** można zobaczyć zestaw danych i przejrzeć dane z etykietami. Jeśli zobaczysz nieprawidłowe etykiety danych, zaznacz ją i wybierz polecenie **Odrzuć** , co spowoduje usunięcie etykiet i umieszczenie danych z powrotem w kolejce bez etykiety.
 
 ### <a name="details-tab"></a>Karta Szczegóły
 
@@ -249,4 +260,4 @@ Plik COCO jest tworzony w domyślnym magazynie obiektów BLOB obszaru roboczego 
 
 * [Samouczek: Tworzenie pierwszego projektu etykietowania klasyfikacji obrazu](tutorial-labeling.md).
 * Obrazy etykiet do [wykrywania klasyfikacji obrazów lub obiektów](how-to-label-images.md)
-* Dowiedz się więcej o [Azure Machine Learning i Machine Learning Studio (klasyczne)](compare-azure-ml-to-studio-classic.md)
+* Dowiedz się więcej o [Azure Machine Learning i Machine Learning Studio (klasyczne)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

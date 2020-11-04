@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ac134e6a371ea85a20094e688adc57da8550a03d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6e0d80c35a4822ad46973c94b32cf71b129ad1e1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078989"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318027"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie nim
 
@@ -38,7 +38,7 @@ Wystąpienia obliczeniowe mogą bezpiecznie uruchamiać zadania w [środowisku s
 
 * Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 
-* [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+* [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="create"></a>Utwórz
 
@@ -82,9 +82,9 @@ except ComputeTargetException:
 
 Aby uzyskać więcej informacji na temat klas, metod i parametrów używanych w tym przykładzie, zobacz następujące dokumenty referencyjne:
 
-* [Klasa ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance?view=azure-ml-py&preserve-view=true)
-* [ComputeTarget. Create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#create-workspace--name--provisioning-configuration-)
-* [ComputeInstance.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false--is-delete-operation-false-)
+* [Klasa ComputeInstance](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance?preserve-view=true&view=azure-ml-py)
+* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
+* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false--is-delete-operation-false-)
 
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
@@ -93,7 +93,7 @@ Aby uzyskać więcej informacji na temat klas, metod i parametrów używanych w 
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) Reference.
+Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) Reference.
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -161,7 +161,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* Usuń
+* Usuwanie
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -178,7 +178,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
 
 * Rozpocznij 
 
@@ -186,7 +186,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
 
 * Uruchom ponownie 
 
@@ -194,15 +194,15 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
-* Usuń
+* Usuwanie
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v
     ```
 
-    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -226,7 +226,7 @@ Dla każdego wystąpienia obliczeniowego w utworzonym obszarze roboczym (lub kt�
 
 ---
 
-[Usługa Azure RBAC](/azure/role-based-access-control/overview) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie zawierać Logowanie jednokrotne, a wszystkie akcje będą korzystały z tożsamości tego użytkownika dla usługi Azure RBAC oraz do naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
+[Usługa Azure RBAC](../role-based-access-control/overview.md) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie zawierać Logowanie jednokrotne, a wszystkie akcje będą korzystały z tożsamości tego użytkownika dla usługi Azure RBAC oraz do naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
 
 Te akcje mogą być kontrolowane przez funkcję RBAC platformy Azure:
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/odczyt*
@@ -294,4 +294,4 @@ Można zainstalować dowolne z [dostępnych jądra Jupyter](https://github.com/j
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Prześlij przebieg szkoleniowy](how-to-set-up-training-targets.md) 
+* [Prześlij przebieg szkoleniowy](how-to-set-up-training-targets.md)

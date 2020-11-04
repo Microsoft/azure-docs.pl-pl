@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cb455880852295d7176e813208a93919a2c14bb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708399"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318268"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Utwórz cele obliczeniowe dla szkolenia i wdrożenia modelu w programie Azure Machine Learning Studio
 
@@ -45,7 +45,7 @@ Aby wyświetlić wszystkie cele obliczeniowe dla obszaru roboczego, wykonaj nast
 
 1. Przejdź do [Azure Machine Learning Studio](https://ml.azure.com).
  
-1. W obszarze __Zarządzaj__wybierz pozycję __obliczenia__.
+1. W obszarze __Zarządzaj__ wybierz pozycję __obliczenia__.
 
 1. Wybierz pozycję karty u góry, aby wyświetlić każdy typ elementu docelowego obliczeń.
 
@@ -59,11 +59,11 @@ Wykonaj poprzednie kroki, aby wyświetlić listę elementów docelowych oblicze�
 
 1. Jeśli nie masz obiektów docelowych obliczeń, wybierz pozycję  **Utwórz** w środku strony.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Wyświetl listę elementów docelowych obliczeń":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Utwórz element docelowy obliczeń":::
 
 1. Jeśli zostanie wyświetlona lista zasobów obliczeniowych, wybierz pozycję **+ Nowy** nad listą.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Wyświetl listę elementów docelowych obliczeń":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Wybierz pozycję Nowy":::
 
 
 1. Wypełnij formularz dla typu obliczenia:
@@ -77,14 +77,14 @@ Wykonaj poprzednie kroki, aby wyświetlić listę elementów docelowych oblicze�
 
 1. Wyświetl stan operacji tworzenia, wybierając obiekt docelowy obliczeń z listy:
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Wyświetl listę elementów docelowych obliczeń":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Wyświetlanie stanu obliczeń z listy":::
 
 
 ### <a name="compute-instance"></a>Wystąpienie obliczeniowe
 
 Wykonaj [powyższe kroki](#portal-create) , aby utworzyć wystąpienie obliczeniowe.  Następnie wypełnij formularz w następujący sposób:
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Wyświetl listę elementów docelowych obliczeń":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Tworzenie nowego wystąpienia obliczeniowego":::
 
 
 |Pole  |Opis  |
@@ -93,7 +93,7 @@ Wykonaj [powyższe kroki](#portal-create) , aby utworzyć wystąpienie obliczeni
 |Typ maszyny wirtualnej |  Wybierz procesor CPU lub GPU. Tego typu nie można zmienić po utworzeniu     |
 |Rozmiar maszyny wirtualnej     |  Obsługiwane rozmiary maszyn wirtualnych mogą być ograniczone w Twoim regionie. Sprawdź [listę dostępności](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Włącz/Wyłącz dostęp SSH     |   Dostęp SSH jest domyślnie wyłączony.  Nie można uzyskać dostępu do protokołu SSH. Zmieniono po utworzeniu. Upewnij się, że włączono dostęp, jeśli planujesz interaktywną debugowanie za pomocą usługi [vs Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Ustawienia zaawansowane     |  Opcjonalny. Skonfiguruj sieć wirtualną. Określ **grupę zasobów**, **sieć wirtualną**i **podsieć** , aby utworzyć wystąpienie obliczeniowe wewnątrz Virtual Network platformy Azure. Aby uzyskać więcej informacji, zobacz te [wymagania sieciowe dotyczące sieci](how-to-enable-virtual-network.md#compute-instance) wirtualnej.  |
+|Ustawienia zaawansowane     |  Opcjonalny. Skonfiguruj sieć wirtualną. Określ **grupę zasobów** , **sieć wirtualną** i **podsieć** , aby utworzyć wystąpienie obliczeniowe wewnątrz Virtual Network platformy Azure. Aby uzyskać więcej informacji, zobacz te [wymagania sieciowe dotyczące sieci](./how-to-secure-training-vnet.md) wirtualnej.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Klastry obliczeniowe
 
@@ -108,13 +108,13 @@ Tworzenie klastra obliczeniowego pojedynczego lub wielowęzłowego na potrzeby s
 |Rozmiar maszyny wirtualnej     |  Obsługiwane rozmiary maszyn wirtualnych mogą być ograniczone w Twoim regionie. Sprawdź [listę dostępności](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Minimalna liczba węzłów | Minimalna liczba węzłów, które mają zostać objęte obsługą administracyjną. Jeśli potrzebujesz dedykowanej liczby węzłów, ustaw tę wartość w tym miejscu. Oszczędzaj pieniądze, ustawiając minimalną wartość 0, aby nie zapłacić za żadne węzły, gdy klaster jest w stanie bezczynności. |
 |Maksymalna liczba węzłów | Maksymalna liczba węzłów, które mają zostać objęte obsługą administracyjną. Obliczenia będą automatycznie skalowane do maksymalnej liczby węzłów, gdy zadanie zostanie przesłane. |
-|Ustawienia zaawansowane     |  Opcjonalny. Skonfiguruj sieć wirtualną. Określ **grupę zasobów**, **sieć wirtualną**i **podsieć** , aby utworzyć wystąpienie obliczeniowe wewnątrz Virtual Network platformy Azure. Aby uzyskać więcej informacji, zobacz te [wymagania sieciowe dotyczące sieci](how-to-enable-virtual-network.md#compute-instance) wirtualnej.   Dołącz także [zarządzane tożsamości](#managed-identity) , aby udzielić dostępu do zasobów     |
+|Ustawienia zaawansowane     |  Opcjonalny. Skonfiguruj sieć wirtualną. Określ **grupę zasobów** , **sieć wirtualną** i **podsieć** , aby utworzyć wystąpienie obliczeniowe wewnątrz Virtual Network platformy Azure. Aby uzyskać więcej informacji, zobacz te [wymagania sieciowe dotyczące sieci](./how-to-secure-training-vnet.md) wirtualnej.   Dołącz także [zarządzane tożsamości](#managed-identity) , aby udzielić dostępu do zasobów     |
 
 #### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Konfigurowanie tożsamości zarządzanej
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
-Podczas tworzenia klastra lub podczas edycji szczegółów klastra obliczeniowego, w **ustawieniach zaawansowanych**Przełącz opcję **Przypisz tożsamość zarządzaną** i określ tożsamość przypisaną przez użytkownika lub tożsamość.
+Podczas tworzenia klastra lub podczas edycji szczegółów klastra obliczeniowego, w **ustawieniach zaawansowanych** Przełącz opcję **Przypisz tożsamość zarządzaną** i określ tożsamość przypisaną przez użytkownika lub tożsamość.
 
 #### <a name="managed-identity-usage"></a>Użycie tożsamości zarządzanej
 
@@ -132,11 +132,11 @@ Utwórz lub Dołącz klaster usługi Azure Kubernetes Service (AKS) dla dużej s
 |---------|---------|
 |Nazwa obiektu obliczeniowego     |  <li>Nazwa jest wymagana. Nazwa musi składać się z od 2 do 16 znaków. </li><li>Prawidłowe znaki to wielkie i małe litery, cyfry i  **-** znaki.</li><li>Nazwa musi rozpoczynać się od litery</li><li>Nazwa musi być unikatowa we wszystkich istniejących obliczeniach w regionie świadczenia usługi Azure. Jeśli wybrana nazwa nie jest unikatowa, zostanie wyświetlony alert</li><li>Jeśli **-**  jest używany znak, musi następować co najmniej jedną literę w dalszej części nazwy</li>     |
 |Kubernetes Service | Wybierz pozycję **Utwórz nowy** i Wypełnij resztę formularza.  Lub wybierz pozycję **Użyj istniejącej** , a następnie wybierz istniejący klaster AKS z subskrypcji.
-|Region |  Wybierz region, w którym zostanie utworzony klaster |
+|Region (Region) |  Wybierz region, w którym zostanie utworzony klaster |
 |Rozmiar maszyny wirtualnej     |  Obsługiwane rozmiary maszyn wirtualnych mogą być ograniczone w Twoim regionie. Sprawdź [listę dostępności](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Cel klastra  | Wybierz **produkcję lub tworzenie** i **testowanie** |
 |Liczba węzłów | Liczba węzłów pomnożona przez liczbę rdzeni (procesorów wirtualnych vCPU) maszyny wirtualnej musi być większa lub równa 12. |
-| Konfiguracja sieci | Wybierz pozycję **Zaawansowane** , aby utworzyć obliczenia w ramach istniejącej sieci wirtualnej. Aby uzyskać więcej informacji na temat AKS w sieci wirtualnej, zapoznaj się [z izolacją sieci podczas szkoleń i wnioskowania z prywatnymi punktami końcowymi i sieciami wirtualnymi](how-to-enable-virtual-network.md#aksvnet). |
+| Konfiguracja sieci | Wybierz pozycję **Zaawansowane** , aby utworzyć obliczenia w ramach istniejącej sieci wirtualnej. Aby uzyskać więcej informacji na temat AKS w sieci wirtualnej, zapoznaj się [z izolacją sieci podczas szkoleń i wnioskowania z prywatnymi punktami końcowymi i sieciami wirtualnymi](./how-to-secure-inferencing-vnet.md). |
 | Włącz konfigurację protokołu SSL | Użyj tego, aby skonfigurować certyfikat SSL na potrzeby obliczeń |
 
 ### <a name="attached-compute"></a>Dołączone obliczenia
@@ -157,8 +157,8 @@ Wykonaj [powyższe kroki](#portal-create) , aby dołączyć obliczenia.  Następ
     > [!NOTE]
     > Firma Microsoft zaleca korzystanie z kluczy SSH, które są bezpieczniejsze niż hasła. Hasła są podatne na ataki z wymuszeniem. Klucze SSH korzystają z podpisów kryptograficznych. Aby uzyskać informacje na temat sposobu tworzenia kluczy SSH do użycia z usługą Azure Virtual Machines, zobacz następujące dokumenty:
     >
-    > * [Tworzenie i Używanie kluczy SSH w systemie Linux lub macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Tworzenie i Używanie kluczy SSH w systemie Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Tworzenie i Używanie kluczy SSH w systemie Linux lub macOS](../virtual-machines/linux/mac-create-ssh-keys.md)
+    > * [Tworzenie i Używanie kluczy SSH w systemie Windows](../virtual-machines/linux/ssh-from-windows.md)
 
 1. Wybierz pozycję __Dołącz__. 
 
@@ -176,4 +176,4 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * [Samouczek: uczenie modelu](tutorial-train-models-with-aml.md) używa zarządzanego obiektu docelowego obliczeń do uczenia modelu.
 * Dowiedz się, jak [efektywnie dostrajać parametry](how-to-tune-hyperparameters.md) , aby tworzyć lepsze modele.
 * Po uzyskaniu przeszkolonego modelu Dowiedz się, [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
-* [Używanie Azure Machine Learning z sieciami wirtualnymi platformy Azure](how-to-enable-virtual-network.md)
+* [Używanie Azure Machine Learning z sieciami wirtualnymi platformy Azure](./how-to-network-security-overview.md)

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c13b71858915ab262ab3e0e99ab8c482d19160ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217545"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318493"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Udostępnianie i odbieranie danych z usługi Azure SQL Database i usługi Azure Synapse Analytics
 
@@ -54,11 +54,11 @@ Poniżej znajduje się lista wymagań wstępnych dotyczących udostępniania dan
     1. W programie SQL Server w Azure Portal przejdź do *zapór i sieci wirtualnych*
     1. Kliknij **Yes** przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
-    1. Kliknij pozycję **Zapisz**. 
+    1. Kliknij przycisk **Zapisz**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 ### <a name="create-a-data-share-account"></a>Tworzenie konta udziału danych
 
@@ -80,7 +80,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
     | Nazwa | *datashareaccount* | Określ nazwę konta udziału danych. |
     | | |
 
-1. Wybierz pozycję **Przegląd + Utwórz**, a następnie pozycję **Utwórz** , aby zainicjować obsługę konta udziału danych. Inicjowanie obsługi nowego konta udziału danych zwykle trwa około 2 minuty. 
+1. Wybierz pozycję **Przegląd + Utwórz** , a następnie pozycję **Utwórz** , aby zainicjować obsługę konta udziału danych. Inicjowanie obsługi nowego konta udziału danych zwykle trwa około 2 minuty. 
 
 1. Po zakończeniu wdrażania wybierz pozycję **Przejdź do zasobu**.
 
@@ -92,7 +92,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz pozycję **Rozpocznij udostępnianie danych**.
 
-1. Wybierz pozycję **Utwórz**.   
+1. Wybierz przycisk **Utwórz**.   
 
 1. Wprowadź szczegółowe informacje o udziale. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
 
@@ -126,7 +126,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz opcję **Kontynuuj**.
 
-1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**.
+1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz przycisk **Utwórz**.
 
 Udział danych platformy Azure został utworzony, a odbiorca Twojego udziału danych jest teraz gotowy do zaakceptowania Twojego zaproszenia. 
 
@@ -169,17 +169,17 @@ Jeśli zdecydujesz się na otrzymywanie danych do Azure SQL Database, usługa Az
     1. W programie SQL Server w Azure Portal przejdź do *zapór i sieci wirtualnych*
     1. Kliknij **Yes** przycisk tak *, aby zezwolić usługom i zasobom platformy Azure na dostęp do tego serwera*.
     1. Kliknij pozycję **+ Dodaj adres IP klienta**. Adres IP klienta może ulec zmianie. Ten proces może wymagać powtarzania przy następnym udostępnieniu danych SQL z Azure Portal. Możesz również dodać zakres adresów IP.
-    1. Kliknij pozycję **Zapisz**. 
+    1. Kliknij przycisk **Zapisz**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 ### <a name="open-invitation"></a>Otwórz zaproszenie
 
 1. Możesz otworzyć zaproszenie z poczty e-mail lub bezpośrednio z Azure Portal. 
 
-   Aby otworzyć zaproszenie z poczty e-mail, sprawdź skrzynkę odbiorczą dla zaproszenia od dostawcy danych. Zaproszenie pochodzi z Microsoft Azure, zatytułowane **zaproszenie <yourdataprovider@domain.com> udziału danych platformy Azure **. Kliknij pozycję **Wyświetl zaproszenie** , aby zobaczyć zaproszenie na platformie Azure. 
+   Aby otworzyć zaproszenie z poczty e-mail, sprawdź skrzynkę odbiorczą dla zaproszenia od dostawcy danych. Zaproszenie pochodzi z Microsoft Azure, zatytułowane **zaproszenie <yourdataprovider@domain.com> udziału danych platformy Azure**. Kliknij pozycję **Wyświetl zaproszenie** , aby zobaczyć zaproszenie na platformie Azure. 
 
    Aby otworzyć zaproszenie z Azure Portal bezpośrednio, Wyszukaj **zaproszenia udziału danych** w Azure Portal. Spowoduje to przejście do listy zaproszeń udziału danych.
 
@@ -192,7 +192,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
    ![Warunki użytkowania](./media/terms-of-use.png "Warunki użytkowania") 
 
-1. W obszarze *docelowe konto udziału danych*wybierz subskrypcję i grupę zasobów, w ramach której będziesz wdrażać udział danych. 
+1. W obszarze *docelowe konto udziału danych* wybierz subskrypcję i grupę zasobów, w ramach której będziesz wdrażać udział danych. 
 
    W polu **konto udostępniania danych** wybierz pozycję **Utwórz nową** , jeśli nie masz istniejącego konta udziału danych. W przeciwnym razie wybierz istniejące konto udziału danych, do którego chcesz zaakceptować udział danych. 
 
@@ -228,7 +228,7 @@ Te kroki dotyczą tylko udostępniania opartego na migawce.
 
    ![Wyzwalanie migawki](./media/trigger-snapshot.png "Wyzwalanie migawki") 
 
-1. Po *pomyślnym*zakończeniu ostatniego uruchomienia Przejdź do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz pozycję **zestawy danych**, a następnie kliknij link w ścieżce docelowej. 
+1. Po *pomyślnym* zakończeniu ostatniego uruchomienia Przejdź do docelowego magazynu danych, aby wyświetlić odebrane dane. Wybierz pozycję **zestawy danych** , a następnie kliknij link w ścieżce docelowej. 
 
    ![Zestawy danych dla odbiorców](./media/consumer-datasets.png "Mapowanie zestawu danych klienta") 
 
@@ -242,7 +242,7 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 |:--- |:--- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Wartość logiczna |
+| bit |Boolean |
 | char |String, Char [] |
 | date |DateTime |
 | Datetime (data/godzina) |DateTime |
@@ -250,7 +250,7 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 | DateTimeOffset |DateTimeOffset |
 | Liczba dziesiętna |Liczba dziesiętna |
 | FILESTREAM — atrybut (varbinary (max)) |Byte [] |
-| Liczba zmiennoprzecinkowa |Double |
+| Float |Double |
 | image (obraz) |Byte [] |
 | int |Int32 |
 | pieniędzy |Liczba dziesiętna |
@@ -271,11 +271,11 @@ Po udostępnieniu danych ze źródła SQL następujące mapowanie są używane z
 | uniqueidentifier |Guid (identyfikator GUID) |
 | varbinary |Byte [] |
 | varchar |String, Char [] |
-| xml |Ciąg |
+| xml |String |
 
 >[!NOTE]
 > 1. W przypadku typów danych, które są mapowane na typ pośredni dziesiętnego, obecnie migawka obsługuje dokładność do 28. Jeśli masz dane wymagające dokładności większej niż 28, Rozważ przekonwertowanie na ciąg. 
-> 1.  Jeśli udostępniasz dane z usługi Azure SQL Database w usłudze Azure Synapse Analytics, nie wszystkie typy danych są obsługiwane. Aby uzyskać szczegółowe informacje, zobacz [typy danych tabeli w puli SQL Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) . 
+> 1.  Jeśli udostępniasz dane z usługi Azure SQL Database w usłudze Azure Synapse Analytics, nie wszystkie typy danych są obsługiwane. Aby uzyskać szczegółowe informacje, zobacz [typy danych tabeli w dedykowanej puli SQL](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) . 
 
 ## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Always Encrypted lub dynamiczne maskowanie danych
 Obecnie udział danych platformy Azure nie obsługuje baz danych usługi Azure SQL, w których skonfigurowano Always Encrypted. 

@@ -10,17 +10,17 @@ ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2ed8910db8b903dab3b81d9db6c9b5798d2b6b69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7642fe6642c1b938645e520c15ac367e12630f91
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542057"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316669"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Wizualizuj przebiegi eksperymentu i metryki za pomocą TensorBoard i Azure Machine Learning
 
 
-Ten artykuł zawiera informacje na temat sposobu wyświetlania przebiegów eksperymentu i metryk w programie TensorBoard przy użyciu [ `tensorboard` pakietu](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py&preserve-view=true) w głównym zestawie SDK Azure Machine Learning. Po sprawdzeniu przebiegów eksperymentów możesz lepiej dostosowywać i ponownie szkolić modele uczenia maszynowego.
+Ten artykuł zawiera informacje na temat sposobu wyświetlania przebiegów eksperymentu i metryk w programie TensorBoard przy użyciu [ `tensorboard` pakietu](/python/api/azureml-tensorboard/?preserve-view=true&view=azure-ml-py) w głównym zestawie SDK Azure Machine Learning. Po sprawdzeniu przebiegów eksperymentów możesz lepiej dostosowywać i ponownie szkolić modele uczenia maszynowego.
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) to pakiet aplikacji sieci Web służący do sprawdzania i analizowania struktury eksperymentów oraz wydajności.
 
@@ -42,7 +42,7 @@ Sposób uruchamiania programu TensorBoard z Azure Machine Learning eksperymenty 
             * **Instrukcje-to-use-Azure > śledzenie i monitorowanie eksperymentów > tensorboard > Export-Run-tensorboard > Export-Run-History-to-tensorboard. ipynb**
             * **Instrukcje-to-use-Azure > śledzenie i monitorowanie eksperymentów > tensorboard > tensorboard > tensorboard. ipynb**
     * Własny serwer notesu Juptyer
-       * [Zainstaluj zestaw SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) z `tensorboard` dodatkowymi
+       * [Zainstaluj zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) z `tensorboard` dodatkowymi
         * [Utwórz obszar roboczy Azure Machine Learning](how-to-manage-workspace.md).  
         * [Utwórz plik konfiguracji obszaru roboczego](how-to-configure-environment.md#workspace).
 
@@ -166,7 +166,7 @@ run = exp.submit(src)
 
 TensorBoard można uruchomić w trakcie działania lub po jego zakończeniu. W poniższej tabeli utworzysz wystąpienie obiektu TensorBoard, `tb` które przyjmuje historię uruchamiania eksperymentu załadowanej w `run` , a następnie uruchamia TensorBoard z `start()` metodą. 
   
-[Konstruktor TensorBoard](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true) pobiera tablicę przebiegów, więc upewnij się, że jest ona przekazana jako tablica jednoelementowa.
+[Konstruktor TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?preserve-view=true&view=azure-ml-py) pobiera tablicę przebiegów, więc upewnij się, że jest ona przekazana jako tablica jednoelementowa.
 
 ```python
 from azureml.tensorboard import Tensorboard
@@ -247,7 +247,7 @@ for alpha in tqdm(alphas):
 
 ### <a name="export-runs-to-tensorboard"></a>Eksportuj przebiegi do TensorBoard
 
-Dzięki metodzie [export_to_tensorboard ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py&preserve-view=true) zestawu SDK możemy wyeksportować historię uruchamiania naszego eksperymentu usługi Azure Machine Learning do dzienników tensorboard, aby można było wyświetlić je za pośrednictwem tensorboard.  
+Dzięki metodzie [export_to_tensorboard ()](/python/api/azureml-tensorboard/azureml.tensorboard.export?preserve-view=true&view=azure-ml-py) zestawu SDK możemy wyeksportować historię uruchamiania naszego eksperymentu usługi Azure Machine Learning do dzienników tensorboard, aby można było wyświetlić je za pośrednictwem tensorboard.  
 
 W poniższym kodzie tworzymy folder `logdir` w naszym bieżącym katalogu roboczym. Ten folder umożliwia wyeksportowanie historii uruchamiania eksperymentu i dzienników z programu `root_run` , a następnie oznaczenie tego przebiegu jako ukończone. 
 
@@ -273,7 +273,7 @@ root_run.complete()
 > Można również wyeksportować konkretny przebieg do TensorBoard przez określenie nazwy przebiegu  `export_to_tensorboard(run_name, logdir)`
 
 ### <a name="start-and-stop-tensorboard"></a>Uruchamianie i zatrzymywanie TensorBoard
-Gdy nasza historia przebiegu tego eksperymentu zostanie wyeksportowana, można uruchomić TensorBoard z użyciem metody [Start ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-start-browser-false-) . 
+Gdy nasza historia przebiegu tego eksperymentu zostanie wyeksportowana, można uruchomić TensorBoard z użyciem metody [Start ()](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?preserve-view=true&view=azure-ml-py#&preserve-view=truestart-start-browser-false-) . 
 
 ```Python
 from azureml.tensorboard import Tensorboard
@@ -285,7 +285,7 @@ tb = Tensorboard([], local_root=logdir, port=6006)
 tb.start()
 ```
 
-Gdy skończysz, pamiętaj, aby wywołać metodę [stop ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true#&preserve-view=truestop--) obiektu TensorBoard. W przeciwnym razie TensorBoard będzie nadal działać do momentu wyłączenia jądra notesu. 
+Gdy skończysz, pamiętaj, aby wywołać metodę [stop ()](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?preserve-view=true&view=azure-ml-py#&preserve-view=truestop--) obiektu TensorBoard. W przeciwnym razie TensorBoard będzie nadal działać do momentu wyłączenia jądra notesu. 
 
 ```python
 tb.stop()
@@ -296,4 +296,4 @@ tb.stop()
 W tym samouczku przedstawiono dwa eksperymenty i zapoznaj się z informacjami na temat sposobu uruchamiania TensorBoard na ich historie, aby identyfikować obszary umożliwiające dostosowanie i przeszkolenie. 
 
 * Jeśli Twój model jest zadowalający, przejdź do naszego [sposobu wdrażania artykułu modelu](how-to-deploy-and-where.md) . 
-* Dowiedz się więcej na temat [dostrajania parametrów](how-to-tune-hyperparameters.md). 
+* Dowiedz się więcej na temat [dostrajania parametrów](how-to-tune-hyperparameters.md).

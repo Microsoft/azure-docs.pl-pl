@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8edf782c03300cf22bd349548da425669f492bc1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 460fed7244ba8094da41ae6b5b8161de3d9efe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093535"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317279"
 ---
 # <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
@@ -22,14 +22,14 @@ Usługa Azure Synapse Analytics ma dwa czynniki formularzy SQL, które umożliwi
 
 Aby autoryzować do Synapse SQL, można użyć dwóch typów autoryzacji:
 
-- Autoryzacja usługi AAD
+- Autoryzacja Azure Active Directory
 - Autoryzacja SQL
 
-Autoryzacja w usłudze AAD opiera się na Azure Active Directory i umożliwia korzystanie z jednego miejsca do zarządzania użytkownikami. Autoryzacja SQL umożliwia starszym aplikacjom używanie Synapse SQL w dobrze znany sposób.
+Azure Active Directory umożliwia korzystanie z jednego miejsca do zarządzania użytkownikami. Autoryzacja SQL umożliwia starszym aplikacjom używanie Synapse SQL w dobrze znany sposób.
 
 ## <a name="administrative-accounts"></a>Konta administracyjne
 
-Istnieją dwa konta z uprawnieniami administracyjnymi (**Administrator serwera** i **Administrator usługi Active Directory**), które funkcjonują jako administratorzy. Aby zidentyfikować te konta administratorów dla programu SQL Server, Otwórz Azure Portal i przejdź do karty właściwości w programie SQL Synapse.
+Istnieją dwa konta z uprawnieniami administracyjnymi ( **Administrator serwera** i **Administrator usługi Active Directory** ), które funkcjonują jako administratorzy. Aby zidentyfikować te konta administratorów dla programu SQL Server, Otwórz Azure Portal i przejdź do karty właściwości w programie SQL Synapse.
 
 ![Administratorzy serwera SQL](./media/sql-authentication/sql-admins.png)
 
@@ -51,18 +51,18 @@ Konta administratorów **serwera** i **usługi Azure AD** mają następującą c
 - Może dodawać i usuwać członków do `dbmanager` ról i `loginmanager` .
 - Może wyświetlać `sys.sql_logins` tabelę systemową.
 
-## <a name="sql-on-demand-preview"></a>[SQL na żądanie (wersja zapoznawcza)](#tab/serverless)
+## <a name="serverless-sql-pool-preview"></a>[Pula SQL bezserwerowa (wersja zapoznawcza)](#tab/serverless)
 
-Aby zarządzać użytkownikami mającymi dostęp do programu SQL na żądanie, możesz użyć poniższych instrukcji.
+Aby zarządzać użytkownikami mającymi dostęp do bezserwerowej puli SQL, można użyć poniższych instrukcji.
 
-Aby utworzyć identyfikator logowania do bazy danych SQL na żądanie, użyj następującej składni:
+Aby utworzyć identyfikator logowania do puli SQL bezserwerowej, użyj następującej składni:
 
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-Po zakończeniu logowania można utworzyć użytkowników w poszczególnych bazach danych w punkcie końcowym SQL na żądanie i przyznać im wymagane uprawnienia. Aby utworzyć użycie, można użyć następującej składni:
+Po zakończeniu logowania można utworzyć użytkowników w poszczególnych bazach danych w ramach punktu końcowego puli SQL bezserwerowej i przyznać im wymagane uprawnienia. Aby utworzyć użycie, można użyć następującej składni:
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -127,7 +127,7 @@ Teraz użytkownik może połączyć się z `master` bazą danych i może tworzy�
 
 ### <a name="login-managers"></a>Menedżerowie logowania
 
-Druga rola administracyjna to rola menedżera logowania. Członkowie tej roli mogą tworzyć nowe nazwy logowania w bazie danych master. Jeśli chcesz, możesz wykonać te same kroki (utworzenie identyfikatora logowania i użytkownika, a następnie dodanie użytkownika do roli **loginmanager**), aby umożliwić użytkownikowi tworzenie nowych identyfikatorów logowania w bazie danych master. Zazwyczaj logowanie nie jest konieczne, ponieważ firma Microsoft zaleca korzystanie z użytkowników zawartej bazy danych, którzy uwierzytelniają się na poziomie bazy danych zamiast korzystać z użytkowników na podstawie nazw logowania. Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
+Druga rola administracyjna to rola menedżera logowania. Członkowie tej roli mogą tworzyć nowe nazwy logowania w bazie danych master. Jeśli chcesz, możesz wykonać te same kroki (utworzenie identyfikatora logowania i użytkownika, a następnie dodanie użytkownika do roli **loginmanager** ), aby umożliwić użytkownikowi tworzenie nowych identyfikatorów logowania w bazie danych master. Zazwyczaj logowanie nie jest konieczne, ponieważ firma Microsoft zaleca korzystanie z użytkowników zawartej bazy danych, którzy uwierzytelniają się na poziomie bazy danych zamiast korzystać z użytkowników na podstawie nazw logowania. Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
 
 ---
 
@@ -158,7 +158,7 @@ W Azure SQL Database lub Synapse bezserwerowym Użyj `ALTER ROLE` instrukcji.
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-W puli SQL Użyj [Sp_addrolemember exec](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+W dedykowanej puli SQL Użyj [Sp_addrolemember exec](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
@@ -187,7 +187,7 @@ Wydajne zarządzanie dostępem obejmuje korzystanie z uprawnień przypisanych do
 
 - W przypadku uwierzytelniania programu SQL Server utwórz zawartych użytkowników bazy danych w bazie danych. Umieść co najmniej jednego użytkownika bazy danych w [roli bazy danych](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), a następnie przypisz [uprawnienia](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do roli bazy danych.
 
-Role bazy danych mogą być rolami wbudowanymi, takimi jak **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** i **db_denydatareader**. Rola **db_owner** jest najczęściej używana do udzielenia pełnych uprawnień jedynie niewielkiej liczbie użytkowników. Inne ustalone role bazy danych ułatwiają szybkie tworzenie prostej bazy danych, ale nie zaleca się ich używania w większości przypadków tworzenia produkcyjnych baz danych. 
+Role bazy danych mogą być rolami wbudowanymi, takimi jak **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** i **db_denydatareader**. Rola **db_owner** jest najczęściej używana do udzielenia pełnych uprawnień jedynie niewielkiej liczbie użytkowników. Inne ustalone role bazy danych ułatwiają szybkie tworzenie prostej bazy danych, ale nie zaleca się ich używania w większości przypadków tworzenia produkcyjnych baz danych. 
 
 Na przykład ustalona rola bazy danych **db_datareader** pozwala na odczyt każdej tabeli w bazie danych, co nie zawsze jest niezbędne. 
 

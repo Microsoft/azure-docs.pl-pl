@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635783"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317069"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Managed Virtual Network (wersja zapoznawcza)
 
@@ -51,7 +51,7 @@ Zarządzane prywatne punkty końcowe są prywatnymi punktami końcowymi utworzon
 
 ![Nowy zarządzany prywatny punkt końcowy](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory obsługuje linki prywatne. Link prywatny umożliwia dostęp do usług platformy Azure (PaaS) (takich jak Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)).
+Azure Data Factory obsługuje linki prywatne. Link prywatny umożliwia dostęp do usług platformy Azure (PaaS) (takich jak Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (dawniej SQL Data Warehouse)).
 
 W przypadku korzystania z prywatnego linku ruch między magazynami danych i zarządzanym Virtual Network przechodzi całkowicie za pośrednictwem sieci szkieletowej firmy Microsoft. Prywatne łącze chroniące przed ryzykiem eksfiltracji danych. Aby utworzyć prywatny link do zasobu, można utworzyć prywatny punkt końcowy.
 
@@ -83,7 +83,7 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - Azure SQL Database (nie obejmuje wystąpienia zarządzanego usługi Azure SQL)
 - Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
 - Azure CosmosDB — SQL
-- Azure Key Vault
+- W usłudze Azure Key Vault
 - Usługa linków prywatnych platformy Azure
 - Azure Search
 - Azure Database for MySQL
@@ -99,7 +99,7 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - South Central US
 - Central US
 - Europa Północna
-- West Europe
+- Europa Zachodnia
 - Południowe Zjednoczone Królestwo
 - Southeast Asia
 - Australia Wschodnia

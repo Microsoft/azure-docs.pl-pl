@@ -9,22 +9,22 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 394521156d6192d25c3a4d254ac2c9b94c6231f5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093552"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318403"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse użycie zasobów SQL
 
 W tym artykule opisano modele użycia zasobów Synapse SQL (wersja zapoznawcza).
 
-## <a name="sql-on-demand"></a>SQL na żądanie
+## <a name="serverless-sql-pool"></a>Pula SQL bezserwerowa
 
-SQL na żądanie jest płatność za usługę zapytań, która nie wymaga wybrania odpowiedniego rozmiaru. System automatycznie dostosowuje się w oparciu o Twoje wymagania, zwalniając użytkownika z zarządzania infrastrukturą i wybierając odpowiedni rozmiar rozwiązania.
+Bezserwerowa Pula SQL to płatność za usługę zapytań, która nie wymaga wybrania odpowiedniego rozmiaru. System automatycznie dostosowuje się w oparciu o Twoje wymagania, zwalniając użytkownika z zarządzania infrastrukturą i wybierając odpowiedni rozmiar rozwiązania.
 
-## <a name="sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Pula SQL — jednostki magazynu danych (jednostek dwu) i magazyn danych obliczeniowych (cDWUs)
+## <a name="dedicated-sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Dedykowana Pula SQL — jednostki magazynu danych (jednostek dwu) i magazyn danych obliczeniowych (cDWUs)
 
 Zalecenia dotyczące wyboru idealnej liczby jednostek magazynu danych (jednostek dwu) w celu zoptymalizowania cen i wydajności oraz sposobu zmiany liczby jednostek.
 
@@ -50,12 +50,12 @@ Zwiększanie jednostek dwu:
 
 Cel poziomu usługi (SLO) to ustawienie skalowalności określające koszt i poziom wydajności magazynu danych. Poziomy usługi dla Gen2 są mierzone w jednostkach obliczeniowych magazynu danych (cDWU), na przykład DW2000c. Poziomy usługi Gen1 są mierzone w jednostek dwu, na przykład DW2000.
 
-Cel poziomu usługi (SLO) to ustawienie skalowalności określające koszt i poziom wydajności magazynu danych. Poziomy usługi dla puli SQL Gen2 są mierzone w jednostkach magazynu danych (jednostek dwu), na przykład DW2000c.
+Cel poziomu usługi (SLO) to ustawienie skalowalności określające koszt i poziom wydajności magazynu danych. Poziomy usługi dla dedykowanej puli SQL Gen2 są mierzone w jednostkach magazynu danych (jednostek dwu), na przykład DW2000c.
 
 > [!NOTE]
 > Usługa Azure Synapse Analytics Gen2 niedawno dodaliśmy dodatkowe możliwości skalowania do obsługi warstw obliczeniowych jako 100 cDWU. Istniejące magazyny danych obecnie w Gen1, które wymagają niższych warstw obliczeń, można teraz uaktualnić do Gen2 w regionach, które są obecnie dostępne bez dodatkowych kosztów.  Jeśli region nie jest jeszcze obsługiwany, można nadal przeprowadzić uaktualnienie do obsługiwanego regionu. Aby uzyskać więcej informacji, zobacz [uaktualnianie do Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-W języku T-SQL ustawienie SERVICE_OBJECTIVE określa poziom usług i warstwę wydajności dla puli SQL.
+W języku T-SQL ustawienie SERVICE_OBJECTIVE określa poziom usług i warstwę wydajności dla dedykowanej puli SQL.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -127,7 +127,7 @@ Aby zmienić jednostek dwu:
 
 1. Otwórz [Azure Portal](https://portal.azure.com), Otwórz bazę danych i wybierz pozycję **Skala**.
 
-2. W obszarze **skalowanie**przesuń suwak w lewo lub w prawo, aby zmienić ustawienie jednostek dwu.
+2. W obszarze **skalowanie** przesuń suwak w lewo lub w prawo, aby zmienić ustawienie jednostek dwu.
 
 3. Wybierz pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Wybierz pozycję **tak** , aby potwierdzić, lub przycisk **nie** , aby anulować.
 
@@ -204,7 +204,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-Ta DMV zwraca informacje o różnych operacjach zarządzania w puli SQL, takich jak operacja i stan operacji, która jest IN_PROGRESS lub UKOŃCZONa.
+Ta DMV zwraca informacje dotyczące różnych operacji zarządzania w dedykowanej puli SQL, takich jak operacja i stan operacji, która jest IN_PROGRESS lub UKOŃCZONa.
 
 ### <a name="the-scaling-workflow"></a>Przepływ pracy skalowania
 

@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b4755d1d2e14b8ce3b05cfef6d30d7f6102905d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288107"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318829"
 ---
-# <a name="use-file-metadata-in-queries"></a>Korzystanie z metadanych plików w zapytaniach
+# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Korzystanie z metadanych plików w przypadku zapytań puli SQL bezserwerowych
 
-Program SQL na żądanie może rozdzielić wiele plików i folderów zgodnie z opisem w artykule [foldery zapytań i wiele plików](query-folders-multiple-csv-files.md) . W tym artykule dowiesz się, jak używać informacji metadanych o nazwach plików i folderów w zapytaniach.
+Pula SQL bezserwerowa może rozdzielić wiele plików i folderów zgodnie z opisem w artykule [foldery zapytań i wiele plików](query-folders-multiple-csv-files.md) . W tym artykule dowiesz się, jak używać informacji metadanych o nazwach plików i folderów w zapytaniach.
 
 Czasami może być konieczne sprawdzenie, który plik lub źródło folderu jest skorelowane z określonym wierszem w zestawie wyników.
 

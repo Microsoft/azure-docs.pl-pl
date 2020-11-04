@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 35c0b5529cd9ada612caf4884683fbeaacb25b33
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2c91b330f52733a91fbceb1dc9ca2309c0d10547
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100137"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317100"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Skonfiguruj operacje zapisu obejmujące wiele regionów w aplikacjach korzystających z Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,22 @@ Po utworzeniu konta z włączoną obsługą wielu regionów zapisu należy wprow
 
 > [!Note]
 > Konta Cosmos początkowo skonfigurowane z pojedynczym regionem zapisu można skonfigurować w wielu regionach zapisu z nierównym czasem w dół. Aby dowiedzieć się więcej, zobacz [Konfigurowanie regionów wielokrotnego zapisu](how-to-manage-database-account.md#configure-multiple-write-regions)
+
+## <a name="azure-portal"></a><a id="portal"></a> Azure Portal
+
+Wykonaj następujące kroki, aby włączyć zapisy wieloregionowe z Azure Portal:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+
+1. Przejdź do konta usługi Azure Cosmos i z menu Otwórz okienko **Replikuj dane globalnie** .
+
+1. W obszarze **zapis wieloregionowy** wybierz opcję **Włącz**. Automatycznie dodaje istniejące regiony do regionów odczytu i zapisu.
+
+1. Możesz dodać dodatkowe regiony, wybierając ikony na mapie lub wybierając przycisk **Dodaj region** . Wszystkie dodawane regiony będą miały włączoną funkcję odczytu i zapisu.
+
+1. Po zaktualizowaniu listy regionów wybierz pozycję **Zapisz** , aby zastosować zmiany.
+
+   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Zrzut ekranu umożliwiający zapisywanie wieloregionowe przy użyciu Azure Portal" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK 2
 
@@ -61,7 +77,7 @@ CosmosClient client = cosmosClientBuilder.Build();
 
 Aby włączyć operacje zapisu w wielu regionach w aplikacji, wywołaj `.multipleWriteRegionsEnabled(true)` i `.preferredRegions(preferredRegions)` w konstruktorze klienta, gdzie `preferredRegions` jest `List` zawierający jeden element, czyli region, w którym aplikacja jest wdrażana i gdzie Cosmos DB jest replikowana:
 
-# <a name="async"></a>[Async](#tab/api-async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
    [Java SDK v4](sql-api-sdk-java-v4.md) (Maven [com. Azure:: Azure-Cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
 
@@ -109,7 +125,7 @@ const client = new CosmosClient({
 });
 ```
 
-## <a name="python-sdk"></a><a id="python"></a>Zestaw SDK języka Python
+## <a name="python-sdk"></a><a id="python"></a>Zestaw SDK dla języka Python
 
 Aby włączyć w aplikacji zapisy wieloregionowe, ustaw wartość `connection_policy.UseMultipleWriteLocations` `true` . Ponadto ustaw `connection_policy.PreferredLocations` na region, w którym aplikacja jest wdrażana i gdzie Cosmos DB jest replikowana.
 
