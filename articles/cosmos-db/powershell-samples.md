@@ -3,15 +3,16 @@ title: Przykłady Azure PowerShell dla interfejsu API Azure Cosmos DB Core (SQL)
 description: Pobierz przykłady Azure PowerShell, aby wykonywać typowe zadania w interfejsie API Azure Cosmos DB for Core (SQL)
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: e9ec15f757b6d798a8adf3eb6970321cec112afe
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 95b3bdf7c0f232655b4f64f3700579f3672eb3b8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096159"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341981"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-core-sql-api"></a>Przykłady Azure PowerShell dla interfejsu API Azure Cosmos DB Core (SQL)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

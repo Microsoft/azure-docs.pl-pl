@@ -3,15 +3,16 @@ title: Elastyczne skalowanie przy użyciu interfejs API Cassandra w Azure Cosmos
 description: Dowiedz się więcej o opcjach dostępnych do skalowania Azure Cosmos DB konta interfejs API Cassandra i ich zalety/wady
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: 0d5aded62c9c3990a3fa102863f4850bbfda6702
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aad2e80598146be7b45a8a7b8a02cfe050163102
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088687"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340961"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Elastyczne skalowanie Azure Cosmos DB interfejs API Cassandra konta
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -63,7 +64,7 @@ Zaletą tego podejścia jest to, że pozwala to na dynamiczne reagowanie na potr
 
 Oprócz standardowego (ręcznego) lub programowego sposobu aprowizacji przepływności można także skonfigurować kontenery usługi Azure Cosmos w przepływności z obsługą skalowania automatycznego. Skalowanie automatyczne będzie automatycznie i natychmiast skalowane do potrzeb użycia w określonych zakresach RU bez naruszenia umowy SLA. Aby dowiedzieć się więcej, zobacz artykuł [Tworzenie kontenerów i baz danych usługi Azure Cosmos w artykule Skalowanie automatyczne](provision-throughput-autoscale.md) .
 
-Zaletą tego podejścia jest najprostszy sposób zarządzania potrzebami skalowania w systemie. Nie ma zastosowania limitu szybkości **w skonfigurowanych zakresach ru** . Wadą jest to, że jeśli wymagania dotyczące skalowania w systemie są przewidywalne, Skalowanie automatyczne może być tańszym sposobem obsługi wymagań dotyczących skalowania, niż przy użyciu Bespoke płaszczyzny kontroli lub poziomów zestawu SDK wymienionych powyżej.
+Zaletą tego podejścia jest najprostszy sposób zarządzania potrzebami skalowania w systemie. Nie ma zastosowania limitu szybkości **w skonfigurowanych zakresach ru**. Wadą jest to, że jeśli wymagania dotyczące skalowania w systemie są przewidywalne, Skalowanie automatyczne może być tańszym sposobem obsługi wymagań dotyczących skalowania, niż przy użyciu Bespoke płaszczyzny kontroli lub poziomów zestawu SDK wymienionych powyżej.
 
 Aby ustawić lub zmienić maksymalną przepływność (jednostek ru) na potrzeby automatycznego skalowania przy użyciu CQL, użyj następującej wartości (zastępowanie odpowiednio nazwy przestrzeni kluczy/tabeli):
 

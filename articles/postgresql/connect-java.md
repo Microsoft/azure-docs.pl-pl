@@ -1,6 +1,6 @@
 ---
-title: Używanie języka Java i JDBC z Azure Database for PostgreSQL
-description: Dowiedz się, jak używać języka Java i JDBC z Azure Database for PostgreSQL.
+title: 'Szybki Start: używanie języka Java i JDBC z Azure Database for PostgreSQL'
+description: W tym przewodniku szybki start dowiesz się, jak używać języka Java i JDBC z Azure Database for PostgreSQL.
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
@@ -8,14 +8,14 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 402e69606196ecb1030023c49fa5afefd31b9e94
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92734980"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341420"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Używanie języka Java i JDBC z Azure Database for PostgreSQL
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Szybki Start: używanie języka Java i JDBC z Azure Database for PostgreSQL
 
 W tym temacie przedstawiono Tworzenie przykładowej aplikacji, która używa języka Java i [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) do przechowywania i pobierania informacji w [Azure Database for PostgreSQL](./index.yml).
 
@@ -485,7 +485,7 @@ Wykonanie klasy głównej powinno teraz generować następujące dane wyjściowe
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>Usuwanie wniosków i zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gratulacje! Utworzono aplikację Java, która używa JDBC do przechowywania i pobierania danych z Azure Database for PostgreSQL.
 

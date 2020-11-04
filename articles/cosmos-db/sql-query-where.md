@@ -3,15 +3,16 @@ title: Klauzula WHERE w Azure Cosmos DB
 description: Informacje o klauzuli WHERE języka SQL dla Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 4f1698390e759a4f347ed37157ca6b7073c44607
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5620a9fb95fb52a487095afd75d5f30c82a8bce1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093524"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341472"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Klauzula WHERE w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -76,7 +77,7 @@ Można użyć następujących obsługiwanych operatorów binarnych:
 |Bitowy    | \|, &, ^, <<, >>, >>> (wypełnienie zerami, przesunięcie w prawo) |
 |Logiczny    | AND, OR, NOT      |
 |Porównanie | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|String     |  \|\| (łączenie) |
+|Ciąg     |  \|\| (łączenie) |
 
 Następujące zapytania używają operatorów binarnych:
 

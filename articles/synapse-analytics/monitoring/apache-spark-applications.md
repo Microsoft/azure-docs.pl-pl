@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 9f55d65b215c03769caa7c812dcda138f8e83595
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 16b37258d922db59f520d4e30c45773f6d1108cf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322463"
+ms.locfileid: "93341074"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Monitorowanie aplikacji Apache Spark przy użyciu programu Synapse Studio
 
@@ -35,27 +35,11 @@ Przed rozpoczęciem pracy z tym samouczkiem upewnij się, że zostały spełnion
 
 - Obszar roboczy programu Synapse Studio. Aby uzyskać instrukcje, zobacz temat [Tworzenie obszaru roboczego programu Synapse Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
-- Bezserwerowa Pula Apache Spark.
+- Pula Apache Spark.
 
-## <a name="monitor-running-apache-spark-application"></a>Monitoruj uruchomioną aplikację Apache Spark
-
-Otwórz **monitor** , a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegóły dotyczące Apache Spark działających aplikacji, wybierz aplikację do przesyłania Apache Spark i Wyświetl szczegóły. Jeśli aplikacja Apache Spark nadal działa, można monitorować postęp.
-
-  ![Wybierz uruchomione zadanie](./media/how-to-monitor-spark-applications/select-running-job.png)
-
-1. Sprawdź **ukończone zadania** , **stan** i **łączny czas trwania**.
-
-2. Anuluj aplikację Apache Spark.
-
-3. Odśwież zapytanie dziennika.
-
-4. Wyświetl wykres.
-
-5. Sprawdź informacje **podsumowujące** .
-
-6. Sprawdź **dzienniki**. Informacje dziennika są puste w trakcie działania.
-
-    ![Wyświetl uruchomione zadanie](./media/how-to-monitor-spark-applications/view-running-job.png)
+## <a name="view-apache-spark-applications"></a>Wyświetl Apache Spark aplikacje 
+Wszystkie Apache Spark aplikacje można wyświetlić z poziomu **Monitor**  ->  **aplikacji monitorowanie Apache Spark**.
+   ![aplikacje platformy Apache Spark](./media/how-to-monitor-spark-applications/apache-spark-applications.png)
 
 ## <a name="view-completed-apache-spark-application"></a>Wyświetl ukończoną aplikację Apache Spark
 
@@ -69,17 +53,17 @@ Otwórz **monitor** , a następnie wybierz pozycję **Apache Spark aplikacje**. 
 
 3. Otwórz łącze serwer historii Apache Spark, klikając opcję **serwer historii platformy Spark**.
 
-4. Sprawdź informacje **podsumowujące** , klikając ikonę na grafie.
+4. Sprawdź informacje **podsumowujące** .
 
-5. Sprawdź **dzienniki**. Możesz wybrać inny typ dzienników z listy rozwijanej, a następnie pobrać informacje dziennika, klikając pozycję **Pobierz dzienniki**.
+5. Sprawdź **dzienniki**. Możesz wybrać inny typ dzienników z listy rozwijanej, a następnie pobrać informacje dziennika, klikając pozycję **Pobierz dzienniki** , a następnie zaznacz pole wyboru **filtru błędy i ostrzeżenia** , aby odfiltrować wymagane błędy i ostrzeżenia.
 
 6. Przegląd zadania można zobaczyć na wykresie wygenerowanym zadania. Domyślnie wykres przedstawia wszystkie zadania. Ten widok można filtrować według **identyfikatora zadania**.
 
-7. Domyślnie jest wyświetlany ekran **postępu** . Przepływ danych można sprawdzić, wybierając pozycję **Odczytaj** lub **zapisaną** na liście rozwijanej **Wyświetlanie** .
+7. Domyślnie jest wyświetlany ekran **postępu** . Przepływ danych można sprawdzić, wybierając pozycję **postęp** / **Read** / **zapisywana** / **czas trwania** na liście rozwijanej **wyświetlania** .
 
-8. Aby odtworzyć zadanie, wybierz pozycję **odtwarzanie**. W dowolnym momencie można wybrać pozycję **Zatrzymaj** , aby zatrzymać.
+8. Aby odtworzyć zadanie, kliknij przycisk **Odtwórz** . Aby zatrzymać, możesz w dowolnym momencie kliknąć przycisk **Zatrzymaj** .
 
-9. Użyj przycisku przewiń myszą, aby powiększyć i pomniejszyć na wykresie zadania, lub wybierz pozycję **Powiększ, aby dopasować** ją do ekranu.
+9. Użyj przewijania lub paska przewijania myszy, aby powiększyć i pomniejszyć wykres zadania, możesz również wybrać opcję **powiększenie, aby dopasować** ją do ekranu.
 
 10. W węźle grafu zadania są wyświetlane następujące informacje dotyczące poszczególnych etapów:
 
@@ -101,9 +85,34 @@ Otwórz **monitor** , a następnie wybierz pozycję **Apache Spark aplikacje**. 
 
      ![Wyświetl ukończone zadanie](./media/how-to-monitor-spark-applications/view-completed-job.png)
     
-11. Kliknięcie grafu spowoduje wyświetlenie szczegółów dotyczących etapu.
+11. Kliknij pozycję **Wyświetl szczegóły** na grafie, a następnie Pokaż szczegóły etapu.
 
-   ![szczegóły etapu](./media/how-to-monitor-spark-applications/details-for-stage.png)
+    ![szczegóły etapu](./media/how-to-monitor-spark-applications/details-for-stage.png)
+
+
+## <a name="monitor-running-apache-spark-application"></a>Monitoruj uruchomioną aplikację Apache Spark
+
+Otwórz **monitor** , a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegóły dotyczące Apache Spark działających aplikacji, wybierz aplikację do przesyłania Apache Spark i Wyświetl szczegóły. Jeśli aplikacja Apache Spark nadal działa, można monitorować postęp.
+
+   ![Wybierz uruchomione zadanie](./media/how-to-monitor-spark-applications/select-running-job.png)
+
+1. Sprawdź **ukończone zadania** , **stan** i **łączny czas trwania**.
+
+2. **Anuluj** aplikację Apache Spark.
+
+3. **Odśwież** Zapytanie dziennika.
+
+4. Kliknij przycisk **interfejsu użytkownika Spark** , aby przejść do strony zadań platformy Spark.
+
+5. Wyświetl wykres. Przegląd zadania można zobaczyć na wykresie wygenerowanym zadania. Zapoznaj się z tematem krok 6, 7, 8, 9, 10 [Zakończono Apache Spark aplikacji](#view-completed-apache-spark-application).
+
+6. Sprawdź informacje **podsumowujące** .
+
+7. Sprawdź diagnostykę na karcie **Diagnostyka** .
+
+8. Sprawdź **dzienniki** na tej karcie. Możesz wybrać inny typ dzienników z listy rozwijanej, a następnie pobrać informacje dziennika, klikając pozycję **Pobierz dzienniki** , a następnie zaznacz pole wyboru **filtru błędy i ostrzeżenia** , aby odfiltrować wymagane błędy i ostrzeżenia.
+
+    ![Wyświetl uruchomione zadanie](./media/how-to-monitor-spark-applications/view-running-job.png)
 
 ## <a name="view-canceled-apache-spark-application"></a>Wyświetl anulowaną aplikację Apache Spark
 
@@ -117,11 +126,13 @@ Otwórz **monitor** , a następnie wybierz pozycję **Apache Spark aplikacje**. 
 
 3. Otwórz łącze serwer historii Apache, klikając pozycję **serwer historii platformy Spark**.
 
-4. Wyświetl wykres.
+4. Wyświetl wykres. Przegląd zadania można zobaczyć na wykresie wygenerowanym zadania. Zapoznaj się z tematem krok 6, 7, 8, 9, 10 [Zakończono Apache Spark aplikacji](#view-completed-apache-spark-application).
 
 5. Sprawdź informacje **podsumowujące** .
 
-6. Sprawdź **dzienniki**. Możesz wybrać inny typ dzienników z listy rozwijanej, a następnie pobrać informacje dziennika, klikając pozycję **Pobierz dzienniki**.
+6. Sprawdź **dzienniki**. Możesz wybrać inny typ dzienników z listy rozwijanej, a następnie pobrać informacje dziennika, klikając pozycję **Pobierz** dzienniki, a następnie zaznacz pole wyboru **filtru błędy i ostrzeżenia** , aby odfiltrować wymagane błędy i ostrzeżenia.
+
+7. Kliknij pozycję **Wyświetl szczegóły** na grafie, a następnie Pokaż szczegóły etapu.
 
    ![Wyświetl anulowane zadanie](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
 
@@ -137,7 +148,7 @@ Otwórz **monitor** , a następnie wybierz pozycję **Apache Spark aplikacje**. 
 
 3. Otwórz łącze serwer historii Apache Spark, klikając opcję **serwer historii platformy Spark**.
 
-4. Wyświetl wykres.
+4. Wyświetl wykres. Przegląd zadania można zobaczyć na wykresie wygenerowanym zadania. Zapoznaj się z artykułem krok 6, 7, 8, 9, 10 [Zakończono Apache Spark aplikacji](#view-completed-apache-spark-application)
 
 5. Sprawdź informacje **podsumowujące** .
 

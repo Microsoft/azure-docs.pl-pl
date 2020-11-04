@@ -4,15 +4,16 @@ description: Użyj Azure Functions, aby nawiązać połączenie ze źródłem zm
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 83a422bbdc4e33ecd955451bb3c1e305cee2b2f4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7f4903cf29f15132db91e47d78efe5a556efd937
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072845"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340247"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architektury oparte na zdarzeniach bezserwerowych z Azure Cosmos DB i Azure Functions
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

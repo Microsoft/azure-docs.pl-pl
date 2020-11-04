@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 76b82d3c008ede99e69f3a19a56911fbfecd5642
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 54193c9333c75fd8b973ebe33470fca3617e2f2d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148770"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341845"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Jak delegować rejestrację użytkownika i subskrypcję produktu
 
@@ -52,18 +52,18 @@ Teraz musisz utworzyć **punkt końcowy delegowania**. Musi wykonać kilka akcji
    
     Parametry zapytania dotyczące przypadku logowania/rejestracji:
    
-   * **operacja**: określa, jakiego typu żądanie delegowania jest — może tylko **zalogować** się w tym przypadku
-   * **ReturnUrl**: adres URL strony, na której użytkownik kliknął link logowania lub rejestracji
-   * **sól**: specjalny ciąg soli używany do obliczania skrótu zabezpieczeń
-   * **SIG**: obliczony skrót zabezpieczeń, który ma być używany do porównania z własnym obliczanym skrótem
+   * **operacja** : określa, jakiego typu żądanie delegowania jest — może tylko **zalogować** się w tym przypadku
+   * **ReturnUrl** : adres URL strony, na której użytkownik kliknął link logowania lub rejestracji
+   * **sól** : specjalny ciąg soli używany do obliczania skrótu zabezpieczeń
+   * **SIG** : obliczony skrót zabezpieczeń, który ma być używany do porównania z własnym obliczanym skrótem
 2. Sprawdź, czy żądanie pochodzi z usługi Azure API Management (opcjonalne, ale zdecydowanie zalecane na potrzeby zabezpieczeń)
    
-   * Oblicza wartość skrótu HMAC-SHA512 ciągu na podstawie parametrów zapytania **ReturnUrl** i **soli** ([przykładowego kodu podanego poniżej]):
+   * Oblicza wartość skrótu HMAC-SHA512 ciągu na podstawie parametrów zapytania **ReturnUrl** i **soli** ( [przykładowego kodu podanego poniżej]):
      
-     > HMAC (**sól** + ' \n ' + **ReturnUrl**)
+     > HMAC ( **sól** + ' \n ' + **ReturnUrl** )
 
    * Porównaj powyższe-obliczony skrót do wartości parametru kwerendy **SIG** . Jeśli dwa skróty są zgodne, przejdź do następnego kroku, w przeciwnym razie Odmów żądania.
-3. Sprawdź, czy otrzymujesz żądanie logowania/rejestracji: parametr zapytania **operacji** zostanie ustawiony na "**Logowanie**".
+3. Sprawdź, czy otrzymujesz żądanie logowania/rejestracji: parametr zapytania **operacji** zostanie ustawiony na " **Logowanie** ".
 4. Zaprezentowanie użytkownikowi interfejsu użytkownika w celu zalogowania się lub zarejestrowania
 5. Jeśli użytkownik jest zalogowany, musisz utworzyć odpowiednie konto dla nich w API Management. [Utwórz użytkownika] przy użyciu interfejsu API REST API Management. W tym celu należy się upewnić, że identyfikator użytkownika jest ustawiony na taką samą wartość jak w magazynie użytkownika lub na identyfikator, który można śledzić.
 6. Po pomyślnym uwierzytelnieniu użytkownika:
@@ -71,7 +71,7 @@ Teraz musisz utworzyć **punkt końcowy delegowania**. Musi wykonać kilka akcji
    * [Żądanie tokenu dostępu współdzielonego] za pośrednictwem interfejsu API REST API Management
    * Dołącz parametr zapytania returnUrl do adresu URL logowania jednokrotnego otrzymanego z wywołania interfejsu API powyżej:
      
-     > na przykład `https://customer.portal.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     > na przykład `https://<developer portal domain, for example: contoso.developer.azure-api.net>/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
      
    * Przekieruj użytkownika do powyższego wygenerowanego adresu URL
 
@@ -84,10 +84,10 @@ Oprócz operacji **logowania** można także wykonać zarządzanie kontami, wyko
 
 Należy przekazać następujące parametry zapytania dla operacji zarządzania kontami.
 
-* **operacja**: określa, jakiego typu żądanie delegowania jest (ChangePassword, ChangeProfile lub CloseAccount)
-* **userId**: identyfikator użytkownika konta do zarządzania
-* **sól**: specjalny ciąg soli używany do obliczania skrótu zabezpieczeń
-* **SIG**: obliczony skrót zabezpieczeń, który ma być używany do porównania z własnym obliczanym skrótem
+* **operacja** : określa, jakiego typu żądanie delegowania jest (ChangePassword, ChangeProfile lub CloseAccount)
+* **userId** : identyfikator użytkownika konta do zarządzania
+* **sól** : specjalny ciąg soli używany do obliczania skrótu zabezpieczeń
+* **SIG** : obliczony skrót zabezpieczeń, który ma być używany do porównania z własnym obliczanym skrótem
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegowanie subskrypcji produktu
 
@@ -108,21 +108,21 @@ Następnie upewnij się, że punkt końcowy delegowania wykonuje następujące c
    
     Parametry zapytania dotyczące przypadku subskrypcji produktu:
    
-   * **operacja**: określa, jakiego typu żądanie delegowania. W przypadku żądań subskrypcji produktu prawidłowe opcje są następujące:
+   * **operacja** : określa, jakiego typu żądanie delegowania. W przypadku żądań subskrypcji produktu prawidłowe opcje są następujące:
      * "Subskrybuj": żądanie subskrybowania użytkownika dla danego produktu o podanym IDENTYFIKATORze (patrz poniżej)
      * "Anuluj subskrypcję": żądanie anulowania subskrypcji użytkownika z produktu
      * "Odnów": żądanie odnowienia subskrypcji (na przykład może wygasnąć)
-   * **ProductID**: w *subskrypcji* — identyfikator produktu, którego użytkownik zażądał subskrybowania
+   * **ProductID** : w *subskrypcji* — identyfikator produktu, którego użytkownik zażądał subskrybowania
    * Identyfikator **subskrypcji: po** *anulowaniu subskrypcji* i *odnowieniu* identyfikatora
-   * **userId**: w *subskrypcji* — identyfikator użytkownika, dla którego wykonano żądanie
-   * **sól**: specjalny ciąg soli używany do obliczania skrótu zabezpieczeń
-   * **SIG**: obliczony skrót zabezpieczeń, który ma być używany do porównania z własnym obliczanym skrótem
+   * **userId** : w *subskrypcji* — identyfikator użytkownika, dla którego wykonano żądanie
+   * **sól** : specjalny ciąg soli używany do obliczania skrótu zabezpieczeń
+   * **SIG** : obliczony skrót zabezpieczeń, który ma być używany do porównania z własnym obliczanym skrótem
 
 2. Sprawdź, czy żądanie pochodzi z usługi Azure API Management (opcjonalne, ale zdecydowanie zalecane na potrzeby zabezpieczeń)
    
-   * Oblicza wartość HMAC-SHA512 ciągu w oparciu o parametry **ProductID**, **userId**i **soli** zapytania:
+   * Oblicza wartość HMAC-SHA512 ciągu w oparciu o parametry **ProductID** , **userId** i **soli** zapytania:
      
-     > HMAC (**sól** + ' \n ' + **ProductID** + ' \n ' + **userId**)
+     > HMAC ( **sól** + ' \n ' + **ProductID** + ' \n ' + **userId** )
      > 
      > 
    * Porównaj powyższe-obliczony skrót do wartości parametru kwerendy **SIG** . Jeśli dwa skróty są zgodne, przejdź do następnego kroku, w przeciwnym razie Odmów żądania.
@@ -133,7 +133,7 @@ Następnie upewnij się, że punkt końcowy delegowania wykonuje następujące c
 
 Te przykłady kodu pokazują, jak:
 
-* Wypełnij *klucz weryfikacji delegowania*, który jest ustawiany na ekranie delegowania portalu wydawcy
+* Wypełnij *klucz weryfikacji delegowania* , który jest ustawiany na ekranie delegowania portalu wydawcy
 * Utwórz HMAC, który jest następnie używany do weryfikacji podpisu, potwierdzając ważność pozostałej returnUrl.
 
 Ten sam kod działa w przypadku identyfikatorów productId i userId z niewielkim modyfikacją.

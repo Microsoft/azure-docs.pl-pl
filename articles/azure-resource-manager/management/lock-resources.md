@@ -2,14 +2,14 @@
 title: Zablokuj zasoby, aby uniemożliwić zmiany
 description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania krytycznych zasobów platformy Azure, stosując blokadę dla wszystkich użytkowników i ról.
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 11/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3830c7e78cf3cc607c7abfca63e6ae74f89b7aff
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 57b4fecd0293c714dfd910ae2ad4866397646ce8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281742"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340145"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -24,7 +24,7 @@ W przypadku zastosowania blokady w zakresie nadrzędnym wszystkie zasoby w tym z
 
 W przeciwieństwie do kontroli dostępu opartej na rolach blokady zarządzania są używane do stosowania ograniczenia do wszystkich użytkowników i ról. Aby dowiedzieć się więcej o ustawianiu uprawnień dla użytkowników i ról, zobacz [Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
-Blokady usługi Resource Manager dotyczą tylko operacji wykonywanych na płaszczyźnie zarządzania, która składa się z operacji wysyłanych do witryny `https://management.azure.com`. Blokady nie ograniczają sposobu wykonywania własnych funkcji przez zasoby. Zmiany zasobów są ograniczone, ale operacje zasobów nie są ograniczone. Na przykład blokada tylko do odczytu na SQL Database uniemożliwia usunięcie lub zmodyfikowanie bazy danych. Nie uniemożliwia tworzenia, aktualizowania ani usuwania danych w bazie danych. Transakcje danych są dozwolone, ponieważ te operacje nie są wysyłane do witryny `https://management.azure.com`.
+Blokady usługi Resource Manager dotyczą tylko operacji wykonywanych na płaszczyźnie zarządzania, która składa się z operacji wysyłanych do witryny `https://management.azure.com`. Blokady nie ograniczają sposobu wykonywania własnych funkcji przez zasoby. Zmiany zasobów są ograniczone, ale operacje zasobów nie są ograniczone. Na przykład blokada tylko do odczytu na serwerze logicznym SQL Database uniemożliwia usunięcie lub modyfikację serwera. Nie uniemożliwia to tworzenia, aktualizowania ani usuwania danych w bazach danych na tym serwerze. Transakcje danych są dozwolone, ponieważ te operacje nie są wysyłane do witryny `https://management.azure.com`.
 
 ## <a name="considerations-before-applying-locks"></a>Zagadnienia przed zastosowaniem blokad
 
@@ -76,12 +76,12 @@ Aby usunąć wszystkie elementy usługi, w tym zablokowaną grupę zasobów infr
 
 W przypadku użycia szablonu Menedżer zasobów do wdrożenia blokady należy użyć różnych wartości dla nazwy i typu w zależności od zakresu blokady.
 
-W przypadku zastosowania blokady do **zasobu**należy użyć następujących formatów:
+W przypadku zastosowania blokady do **zasobu** należy użyć następujących formatów:
 
 * Nazwij `{resourceName}/Microsoft.Authorization/{lockName}`
 * Wprowadź `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
-W przypadku stosowania blokady do **grupy zasobów** lub **subskrypcji**należy użyć następujących formatów:
+W przypadku stosowania blokady do **grupy zasobów** lub **subskrypcji** należy użyć następujących formatów:
 
 * Nazwij `{lockName}`
 * Wprowadź `Microsoft.Authorization/locks`

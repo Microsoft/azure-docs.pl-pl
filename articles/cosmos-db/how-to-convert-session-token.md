@@ -3,16 +3,17 @@ title: Jak skonwertować formaty tokenów sesji w zestawie .NET SDK — Azure Co
 description: Informacje na temat konwertowania formatów tokenów sesji w celu zapewnienia zgodności między różnymi wersjami zestawu SDK platformy .NET
 author: vinhms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ece181d06c7d3dbd00ba2f1262a3887ad966d088
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7ed06eeb7330989b4a251dc77e516eb8ac578bff
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101667"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342049"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Konwertowanie formatów tokenów sesji w zestawie .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +28,7 @@ W tym artykule wyjaśniono, jak konwertować różne formaty tokenów sesji w ce
 
 ## <a name="session-token-formats"></a>Formaty tokenów sesji
 
-Istnieją dwa formaty tokenów sesji: **proste** i **wektorowe** .  Te dwa formaty nie są zamienne, więc format powinien zostać przekonwertowany podczas przekazywania do aplikacji klienckiej z różnymi wersjami.
+Istnieją dwa formaty tokenów sesji: **proste** i **wektorowe**.  Te dwa formaty nie są zamienne, więc format powinien zostać przekonwertowany podczas przekazywania do aplikacji klienckiej z różnymi wersjami.
 - Format tokenu sesji **prostego** jest używany przez zestaw .NET SDK V1 (Microsoft.Azure.DocumentDB-Version 1. x)
 - Format tokenu sesji **wektorowej** jest używany przez zestaw .NET SDK V2 (Microsoft.Azure.DocumentDB — wersja 2. x)
 

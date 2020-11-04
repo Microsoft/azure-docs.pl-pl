@@ -3,16 +3,17 @@ title: Porady dotyczące wydajności Azure Cosmos DB dla zestawu .NET SDK v3
 description: Informacje o opcjach konfiguracji klienta pomagające ulepszyć wydajność zestawu SDK programu Azure Cosmos DB .NET v3.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: 8c042032fb12e63ae32eb5a51b06e07386e5fbfc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ab9fc4f08b96fc10a20125c30af2d6b8050c7606
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308842"
+ms.locfileid: "93341743"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -63,7 +64,7 @@ W przypadku testowania o wysokiej przepływności lub stawek, które są większ
 > [!NOTE] 
 > Duże użycie procesora CPU może spowodować zwiększone opóźnienia i wyjątki limitu czasu żądania.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 <a id="direct-connection"></a>
 
 **Zasady połączenia: Użyj trybu połączenia bezpośredniego**

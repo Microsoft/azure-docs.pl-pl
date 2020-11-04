@@ -3,16 +3,17 @@ title: Język zapytań dodatku Azure Cosmos DB
 description: Dowiedz się więcej o MOŻLIWOŚCIach systemu SQL w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 41c5cc1a6032a0aee16f1922fc59349449c65b55
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39db52223feea63a4e3afbd4775f884acbbca548
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091943"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341692"
 ---
 # <a name="power-azure-cosmos-db"></a>MOC (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +32,7 @@ POWER (<numeric_expr1>, <numeric_expr2>)
    Jest wyrażeniem liczbowym.  
   
 *numeric_expr2*  
-   Jest potęgą, do której należy podnieść *numeric_expr1* .  
+   Jest potęgą, do której należy podnieść *numeric_expr1*.  
   
 ## <a name="return-types"></a>Typy zwracane
   

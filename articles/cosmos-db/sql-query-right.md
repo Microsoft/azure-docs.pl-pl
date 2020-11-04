@@ -3,16 +3,17 @@ title: Do prawej w Azure Cosmos DB języku zapytań
 description: Dowiedz się więcej o funkcji systemowej SQL bezpośrednio w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3219ccc58d5a4c517adfaf9fef196fae3a955d3e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: be950fed563d8e80339dc80181e7fe5a78092734
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082831"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341584"
 ---
 # <a name="right-azure-cosmos-db"></a>PRAWY (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

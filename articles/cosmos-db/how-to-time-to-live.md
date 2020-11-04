@@ -3,16 +3,17 @@ title: Skonfiguruj czas wygaśnięcia w usłudze Azure Cosmos DB i Zarządzaj ni
 description: Informacje o konfigurowaniu czasu wygaśnięcia i zarządzaniu nim w kontenerze i elemencie w Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 7cf0f91a655901373b02a51004cf77eb25c8cf8e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2ddba95f9ccc25d536638dbc68c41027d26e71c7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085891"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341012"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurowanie czasu wygaśnięcia w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,12 +30,12 @@ Wykonaj następujące czynności, aby włączyć czas wygaśnięcia dla kontener
 
 2. Utwórz nowe konto usługi Azure Cosmos lub wybierz istniejące.
 
-3. Otwórz okienko **Eksplorator danych** .
+3. Otwórz okienko **Eksplorator danych**.
 
 4. Wybierz istniejący kontener, rozwiń go, a następnie zmodyfikuj następujące wartości:
 
-   * Otwórz okno **Skalowanie i ustawienia** .
-   * W obszarze **Ustawienia** znajdź pozycję **Czas wygaśnięcia** .
+   * Otwórz okno **Skalowanie i ustawienia**.
+   * W obszarze **Ustawienia** znajdź pozycję **Czas wygaśnięcia**.
    * Wybierz pozycję **Włączony (brak wartości domyślnej)** lub wybierz pozycję **Włączony** i ustaw wartość TTL.
    * Kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
@@ -213,16 +214,16 @@ Wykonaj następujące kroki, aby włączyć czas wygaśnięcia dla elementu:
 
 2. Utwórz nowe konto usługi Azure Cosmos lub wybierz istniejące.
 
-3. Otwórz okienko **Eksplorator danych** .
+3. Otwórz okienko **Eksplorator danych**.
 
 4. Wybierz istniejący kontener, rozwiń go, a następnie zmodyfikuj następujące wartości:
 
-   * Otwórz okno **Skalowanie i ustawienia** .
-   * W obszarze **Ustawienia** znajdź pozycję **Czas wygaśnięcia** .
+   * Otwórz okno **Skalowanie i ustawienia**.
+   * W obszarze **Ustawienia** znajdź pozycję **Czas wygaśnięcia**.
    * Wybierz opcję **włączone (brak wartości domyślnej)** lub wybierz opcję **włączone** i ustaw wartość TTL. 
    * Kliknij przycisk **Zapisz** , aby zapisać zmiany.
 
-5. Następnie przejdź do elementu, dla którego chcesz ustawić czas wygaśnięcia, Dodaj `ttl` Właściwość i wybierz pozycję **Aktualizuj** . 
+5. Następnie przejdź do elementu, dla którego chcesz ustawić czas wygaśnięcia, Dodaj `ttl` Właściwość i wybierz pozycję **Aktualizuj**. 
 
    ```json
    {

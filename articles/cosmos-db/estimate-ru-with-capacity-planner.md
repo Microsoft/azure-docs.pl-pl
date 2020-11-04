@@ -3,15 +3,16 @@ title: Oszacuj koszty przy użyciu Azure Cosmos DB planista pojemności
 description: Planista wydajności Azure Cosmos DB pozwala oszacować przepływność (RU/s) wymagany i koszt dla obciążenia. W tym artykule opisano, jak używać nowej wersji planisty wydajności do oszacowania przepływności i wymaganego kosztu.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: 460f47ce453f183821ec0f49c38865c44b15ba9f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 017aeaaa24e8ac2d493d0de81a7abb655bae5611
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096720"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342083"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Szacowanie RU/s przy użyciu Azure Cosmos DB planista pojemności
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +25,7 @@ Planista pojemności może być używana w dwóch trybach.
 
 |**Tryb**  |**Opis**  |
 |---------|---------|
-|Podstawowa|Zapewnia szybkie, wysokiego poziomu RU/s i oszacowanie kosztów. W tym trybie założono domyślne ustawienia Azure Cosmos DB dla zasad indeksowania, spójności i innych parametrów. <br/><br/>Użyj trybu podstawowego, aby szybko oszacować wysoki poziom oszacowania podczas oceniania potencjalnych obciążeń do uruchomienia na Azure Cosmos DB.|
+|Podstawowy|Zapewnia szybkie, wysokiego poziomu RU/s i oszacowanie kosztów. W tym trybie założono domyślne ustawienia Azure Cosmos DB dla zasad indeksowania, spójności i innych parametrów. <br/><br/>Użyj trybu podstawowego, aby szybko oszacować wysoki poziom oszacowania podczas oceniania potencjalnych obciążeń do uruchomienia na Azure Cosmos DB.|
 |Zaawansowany|Zapewnia bardziej szczegółowy zakres RU/s i oszacowanie kosztów, z możliwością dostrajania dodatkowych ustawień — zasad indeksowania, poziomu spójności i innych parametrów, które wpływają na koszt i przepływność. <br/><br/>Użyj trybu zaawansowanego, gdy szacujesz RU/s dla nowego projektu lub chcesz bardziej szczegółowo oszacować. |
 
 
@@ -40,7 +41,7 @@ Aby szybko oszacować obciążenie dla obciążenia przy użyciu trybu Basic, pr
 |Odczyty/s na region|Oczekiwana liczba odczytów na sekundę. |
 |Zapisy/s na region|Oczekiwana Liczba zapisów na sekundę. |
 
-Po wypełnieniu wymaganych szczegółów wybierz pozycję **Oblicz** . Na karcie **szacowanie kosztów** jest wyświetlany łączny koszt magazynu i przepływność aprowizacji. Można rozwinąć link **Pokaż szczegóły** na tej karcie, aby uzyskać informacje o przepływności wymaganej do odczytu i zapisu żądania. Za każdym razem, gdy zmieniasz wartość dowolnego pola, wybierz pozycję **Oblicz** , aby ponownie obliczyć szacowany koszt. 
+Po wypełnieniu wymaganych szczegółów wybierz pozycję **Oblicz**. Na karcie **szacowanie kosztów** jest wyświetlany łączny koszt magazynu i przepływność aprowizacji. Można rozwinąć link **Pokaż szczegóły** na tej karcie, aby uzyskać informacje o przepływności wymaganej do odczytu i zapisu żądania. Za każdym razem, gdy zmieniasz wartość dowolnego pola, wybierz pozycję **Oblicz** , aby ponownie obliczyć szacowany koszt. 
 
 :::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Planista wydajności — Tryb podstawowy":::
 
@@ -63,7 +64,7 @@ Po zalogowaniu można zobaczyć dodatkowe pola w porównaniu do pól w trybie po
 
 Możesz również użyć przycisku **Zapisz oszacowanie** , aby pobrać plik CSV zawierający bieżące oszacowanie. 
 
-:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Planista wydajności — Tryb podstawowy":::
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Zaawansowany tryb planowania wydajności":::
 
 Ceny przedstawione w terminarzu wydajności Azure Cosmos DB są oszacowaniami opartymi na publicznych stawkach cenowych dotyczących przepływności i magazynu. Wszystkie ceny są podane w dolarach amerykańskich. Zapoznaj się ze [stroną cennika Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) , aby wyświetlić wszystkie stawki według regionów.  
 

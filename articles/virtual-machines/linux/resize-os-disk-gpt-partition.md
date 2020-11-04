@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 30a960c3ed76788158b15022947fec49a95ae299
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa260e911673ea99b292ab5dc9895840d0098ef
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375214"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340338"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Zmiana rozmiaru dysku systemu operacyjnego z partycją GPT
 
@@ -177,7 +177,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 
 1. W oparciu o typ systemu plików użyj odpowiednich poleceń, aby zmienić rozmiar systemu plików.
    
-   W przypadku **XFS**Użyj następującego polecenia:
+   W przypadku **XFS** Użyj następującego polecenia:
    
    ```
    #xfs_growfs /
@@ -200,13 +200,13 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    data blocks changed from 7470331 to 12188923
    ```
    
-   W przypadku **ext4**Użyj następującego polecenia:
+   W przypadku **ext4** Użyj następującego polecenia:
    
    ```
    #resize2fs /dev/sda4
    ```
    
-1. Sprawdź zwiększony rozmiar systemu plików dla **DF-ty**przy użyciu następującego polecenia:
+1. Sprawdź zwiększony rozmiar systemu plików dla **DF-ty** przy użyciu następującego polecenia:
    
    ```
    #df -Thl
@@ -231,7 +231,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
    
    W poprzednim przykładzie widzimy, że zwiększono rozmiar systemu plików dla dysku systemu operacyjnego.
 
-### <a name="rhel"></a>RHEL
+### <a name="rhel-lvm"></a>RHEL LVM
 
 Aby zwiększyć rozmiar dysku systemu operacyjnego w RHEL 7. x z LVM:
 
@@ -351,6 +351,129 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 
 > [!NOTE]
 > Aby użyć tej samej procedury, aby zmienić rozmiar dowolnego innego woluminu logicznego, Zmień nazwę **LV** w kroku 7.
+
+### <a name="rhel-raw"></a>RHEL RAW
+>[!NOTE]
+>Zawsze należy utworzyć migawkę maszyny wirtualnej przed zwiększeniem rozmiaru dysku systemu operacyjnego.
+
+Aby zwiększyć rozmiar dysku systemu operacyjnego w RHEL z nieprzetworzoną partycją:
+
+Zatrzymaj maszynę wirtualną.
+Zwiększ rozmiar dysku systemu operacyjnego z portalu.
+Uruchom maszynę wirtualną.
+Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
+
+1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik **główny** przy użyciu następującego polecenia:
+ 
+   ```
+   sudo su
+   ```
+
+1. Zainstaluj pakiet **gptfdisk** , który jest wymagany do zwiększenia rozmiaru dysku systemu operacyjnego.
+
+   ```
+   yum install gdisk -y
+   ```
+
+1.  Aby wyświetlić wszystkie sektory dostępne na dysku, uruchom następujące polecenie:
+    ```
+    gdisk -l /dev/sda
+    ```
+
+1. Zobaczysz szczegóły dotyczące typu partycji. Upewnij się, że jest to tabela GPT. Zidentyfikuj partycję główną. Nie zmieniaj ani nie usuwaj partycji rozruchowej (partycja rozruchowa systemu BIOS) i partycji systemowej ("partycja systemowa EFI")
+
+1. Użyj poniższego polecenia, aby rozpocząć partycjonowanie po raz pierwszy. 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. Zobaczysz komunikat z prośbą o następne polecenie ("polecenie:? w celu uzyskania pomocy "). 
+
+   ```
+   w
+   ```
+
+1. Zostanie wyświetlone ostrzeżenie informujące o "ostrzeżeniu! Nagłówek pomocniczy został zbyt wcześnie umieszczony na dysku! Czy chcesz rozwiązać ten problem? (T/N): ". Musisz nacisnąć przycisk "t"
+
+   ```
+   Y
+   ```
+
+1. Powinien zostać wyświetlony komunikat z informacją, że sprawdzanie końcowe zostało ukończone i zażądaj potwierdzenia. Naciśnij klawisz "Y"
+
+   ```
+   Y
+   ```
+
+1. Sprawdź, czy wszystko zostało wykonane prawidłowo przy użyciu polecenia partprobe
+
+   ```
+   partprobe
+   ```
+
+1. Powyższe kroki zapewniają, że pomocniczy nagłówek GPT jest umieszczony na końcu. Następnym krokiem jest rozpoczęcie procesu zmiany rozmiarów przy użyciu narzędzia gdisk. Użyj poniższego polecenia.
+
+   ```
+   gdisk /dev/sda
+   ```
+1. Aby wyświetlić listę partycji, w menu poleceń naciśnij klawisz "p". Zidentyfikuj partycję główną (w krokach sda2 jest traktowana jako partycja główna), a partycja rozruchowa (w krokach, sda3 jest traktowana jako partycja rozruchowa) 
+
+   ```
+   p
+   ```
+    ![Partycja główna i partycja rozruchowa](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. Naciśnij przycisk 'd ', aby usunąć partycję, a następnie wybierz numer partycji przypisanej do rozruchu (w tym przykładzie jest to "3").
+   ```
+   d
+   3
+   ```
+1. Naciśnij przycisk 'd ', aby usunąć partycję, a następnie wybierz numer partycji przypisanej do rozruchu (w tym przykładzie jest to "2").
+   ```
+   d
+   2
+   ```
+    ![Usuwanie partycji głównej i partycji rozruchowej](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. Aby ponownie utworzyć partycję główną o większym rozmiarze, naciśnij przycisk "n", wprowadź numer partycji, który został usunięty wcześniej dla katalogu głównego ("2" w tym przykładzie) i wybierz pierwszy sektor jako "wartość domyślna", ostatni sektor jako "wartość ostatniego sektora — sektor rozmiaru rozruchu" ("4096 w tym przypadku" odpowiada na rozruch z 2 MB) i kod szesnastkowy "8300"
+   ```
+   n
+   2
+   (Enter default)
+   (Calculateed value of Last sector value - 4096)
+   8300
+   ```
+1. Aby ponownie utworzyć partycję rozruchową, należy nacisnąć klawisz "n", wprowadzić numer partycji, który został wcześniej usunięty dla rozruchu ("3" w tym przykładzie) i wybrać pierwszy sektor jako wartość domyślną ", ostatni sektor jako" wartość domyślna "i kod szesnastkowy jako" EF02 "
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. Zapisz zmiany za pomocą polecenia "w" i naciśnij klawisz "Y", aby potwierdzić
+   ```
+   w
+   Y
+   ```
+1. Uruchom polecenie "partprobe", aby sprawdzić stabilność dysku
+   ```
+   partprobe
+   ```
+1. Przeprowadź ponowny rozruch maszyny wirtualnej, a rozmiar partycji głównej zostałby zwiększony
+   ```
+   reboot
+   ```
+
+   ![Nowa partycja główna i partycja rozruchowa](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. Uruchom polecenie xfs_growfs na partycji, aby zmienić ich rozmiar
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

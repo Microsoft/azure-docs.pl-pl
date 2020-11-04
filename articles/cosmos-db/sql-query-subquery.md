@@ -3,15 +3,16 @@ title: Podzapytania SQL dla Azure Cosmos DB
 description: Dowiedz się więcej o podzapytaniach SQL i ich typowych przypadkach użycia oraz różnych typach podzapytań w Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 16be1b91d007ca2dbc88405cfc55ff519f51ee41
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f5f209229d17a2587258d21ee90e7560e629d082
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081540"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340859"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Przykłady podzapytań SQL dla Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

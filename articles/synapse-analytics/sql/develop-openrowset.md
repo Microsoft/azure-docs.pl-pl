@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5059b051b16107ac7508e509d319159651de11e3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324414"
+ms.locfileid: "93341335"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Jak używać funkcji OPENROWSET przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -96,6 +96,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
+[ , DATAFILETYPE = { 'char' | 'widechar' } ]
 ```
 
 ## <a name="arguments"></a>Argumenty
@@ -112,7 +113,7 @@ Unstructured_data_path, który ustanawia ścieżkę do danych może być ścież
 - Ścieżka bezwzględna w formacie " \<prefix> :// \<storage_account_path> / \<storage_path> " umożliwia użytkownikowi bezpośrednie odczytywanie plików.
 - Ścieżka względna w formacie "<storage_path>", która musi być używana z `DATA_SOURCE` parametrem i opisuje wzorzec pliku w lokalizacji <storage_account_path> zdefiniowanej w `EXTERNAL DATA SOURCE` . 
 
- Poniżej znajdziesz odpowiednie <storage account path> wartości, które zostaną połączone z określonym zewnętrznym źródłem danych. 
+Poniżej znajdziesz odpowiednie <storage account path> wartości, które zostaną połączone z określonym zewnętrznym źródłem danych. 
 
 | Zewnętrzne źródło danych       | Prefiks | Ścieżka konta magazynu                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
@@ -125,16 +126,18 @@ Unstructured_data_path, który ustanawia ścieżkę do danych może być ścież
 
 '\<storage_path>'
 
- Określa ścieżkę w magazynie, która wskazuje folder lub plik, który ma zostać odczytany. Jeśli ścieżka wskazuje kontener lub folder, wszystkie pliki zostaną odczytane z danego kontenera lub folderu. Pliki w podfolderach nie będą uwzględniane. 
+Określa ścieżkę w magazynie, która wskazuje folder lub plik, który ma zostać odczytany. Jeśli ścieżka wskazuje kontener lub folder, wszystkie pliki zostaną odczytane z danego kontenera lub folderu. Pliki w podfolderach nie będą uwzględniane. 
 
- Możesz użyć symboli wieloznacznych, aby docelowa była wiele plików lub folderów. Dozwolone jest użycie wielu niesąsiadujących symboli wieloznacznych.
+Możesz użyć symboli wieloznacznych, aby docelowa była wiele plików lub folderów. Dozwolone jest użycie wielu niesąsiadujących symboli wieloznacznych.
 Poniżej znajduje się przykład, który odczytuje wszystkie pliki *CSV* zaczynające się od *populacji* ze wszystkich folderów zaczynających się od */CSV/Population* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Jeśli określisz unstructured_data_path jako folder, zapytanie puli SQL bezserwerowe pobierze pliki z tego folderu. 
 
+Można nakazać bezserwerowej puli SQL przechodzenie między folderami, określając/* na końcu ścieżki, jak na przykład: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
+
 > [!NOTE]
-> W przeciwieństwie do usługi Hadoop i bazy danych, bezserwerowa Pula SQL nie zwraca podfolderów. Ponadto, w przeciwieństwie do usługi Hadoop i Base, bezserwerowa Pula SQL zwraca pliki, dla których nazwa pliku zaczyna się od znaku podkreślenia (_) lub kropki (.).
+> W przeciwieństwie do usługi Hadoop i bazy danych, bezserwerowa Pula SQL nie zwraca podfolderów, chyba że na końcu ścieżki nie określono/* *. Ponadto, w przeciwieństwie do usługi Hadoop i Base, bezserwerowa Pula SQL zwraca pliki, dla których nazwa pliku zaczyna się od znaku podkreślenia (_) lub kropki (.).
 
 W poniższym przykładzie, jeśli unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , bezserwerowe zapytanie puli SQL zwróci wiersze z mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
 
@@ -222,6 +225,10 @@ HEADER_ROW = {TRUE | FALSE
 
 Określa, czy plik CSV zawiera wiersz nagłówka. Wartość domyślna to FALSE. Obsługiwane w PARSER_VERSION = "2.0". Jeśli wartość jest równa TRUE, nazwy kolumn są odczytywane z pierwszego wiersza zgodnie z argumentem FIRSTROW.
 
+DataFileType = {"char" | "widechar"}
+
+Określa kodowanie: char jest używany dla UTF8, widechar jest używany dla plików UTF16.
+
 ## <a name="fast-delimited-text-parsing"></a>Szybkie rozdzielone analizowanie tekstu
 
 Istnieją dwa rozdzielone wersje analizatora tekstu, których można użyć. Analizator woluminów CSV w wersji 1,0 jest domyślny i jest bogaty, a w przypadku usługi parser w wersji 2,0 jest tworzona dla wydajności. Poprawa wydajności w analizatorze 2,0 pochodzi z zaawansowanych technik analizy i wielowątkowości. Różnica w szybkości będzie większa w miarę zwiększania się rozmiaru pliku.
@@ -235,7 +242,7 @@ Pliki Parquet zawierają metadane kolumn, które zostaną odczytane, mapowania t
 Nazwy kolumn dla plików CSV można odczytywać z wiersza nagłówka. Można określić, czy wiersz nagłówka istnieje przy użyciu argumentu HEADER_ROW. Jeśli HEADER_ROW = FALSE, zostaną użyte ogólne nazwy kolumn: C1, C2,... Nazwa pospolita, gdzie n jest liczbą kolumn w pliku. Typy danych zostaną wywnioskowane z pierwszych 100 wierszy danych. Sprawdź [odczytywanie plików CSV bez określania schematu](#read-csv-files-without-specifying-schema) dla przykładów.
 
 > [!IMPORTANT]
-> Istnieją przypadki, w których nie można wywnioskować odpowiedniego typu danych z powodu braku informacji, a zamiast tego zostanie użyty większy typ danych. Zapewnia to obciążenie wydajności i jest szczególnie ważne w przypadku kolumn znaków, które zostaną wywnioskowane jako varchar (8000). Jeśli w plikach znajdują się kolumny znaków i używasz wnioskowania schematu, aby uzyskać optymalną wydajność, [Sprawdź wywnioskowane typy danych](best-practices-sql-on-demand.md#check-inferred-data-types) i [Używaj odpowiednich typów danych](best-practices-sql-on-demand.md#use-appropriate-data-types).
+> Istnieją przypadki, w których nie można wywnioskować odpowiedniego typu danych z powodu braku informacji, a zamiast tego zostanie użyty większy typ danych. Zapewnia to obciążenie wydajności i jest szczególnie ważne w przypadku kolumn znaków, które zostaną wywnioskowane jako varchar (8000). Aby uzyskać optymalną wydajność, [Sprawdź wywnioskowane typy danych](best-practices-sql-on-demand.md#check-inferred-data-types) i [Używaj odpowiednich typów danych](best-practices-sql-on-demand.md#use-appropriate-data-types).
 
 ### <a name="type-mapping-for-parquet"></a>Mapowanie typu dla Parquet
 

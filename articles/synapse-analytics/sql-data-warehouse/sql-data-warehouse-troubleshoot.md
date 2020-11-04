@@ -11,12 +11,12 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fe20304341d6e99eb77ad2818e675b0063efd693
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a50554c73958400f1f16348d3b8fb2bac88ac61b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319527"
+ms.locfileid: "93340281"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Rozwiązywanie problemów z usługą SQL Synapse w usłudze Azure Synapse Analytics
 
@@ -67,8 +67,6 @@ W tym artykule wymieniono typowe problemy dotyczące rozwiązywania problemów w
 | :------------------------------------ | :----------------------------------------------------------- |
 | Nieobsługiwane funkcje SQL Database     | Zobacz [Nieobsługiwane funkcje tabeli](sql-data-warehouse-tables-overview.md#unsupported-table-features). |
 | Nieobsługiwane typy danych SQL Database   | Zobacz [nieobsługiwane typy danych](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |
-| Ograniczenia dotyczące usuwania i aktualizacji         | Aby obejść [nieobsługiwaną aktualizację i składnię usuwania](sql-data-warehouse-develop-ctas.md), zobacz sekcję [obejścia aktualizacji](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements), [usuwanie obejść](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements) i używanie CTAs. |
-| Instrukcja MERGE nie jest obsługiwana      | Zobacz sekcję [scalanie rozwiązań](sql-data-warehouse-develop-ctas.md#replace-merge-statements).                  |
 | Ograniczenia procedury składowanej          | Zobacz [ograniczenia procedury składowanej](sql-data-warehouse-develop-stored-procedures.md#limitations) , aby poznać niektóre ograniczenia procedur składowanych. |
 | UDF nie obsługują instrukcji SELECT | Jest to bieżące ograniczenie naszych UDF.  Zobacz [Tworzenie funkcji](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dla składni obsługiwanej przez nas. |
 

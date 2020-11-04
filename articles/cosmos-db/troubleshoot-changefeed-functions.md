@@ -3,16 +3,17 @@ title: Rozwiązywanie problemów występujących podczas korzystania z wyzwalacz
 description: Typowe problemy, obejścia i kroki diagnostyczne podczas korzystania z wyzwalacza Azure Functions dla Cosmos DB
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9da07dc76bdd9273b70f68ee1abcddfa04519fda
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9fc5da214a50cb000d2154d08bb9b6f6f98ac5ec
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101038"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340536"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z wyzwalacza Azure Functions dla Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -32,7 +33,7 @@ Ten artykuł będzie zawsze odnosił się do Azure Functions v2, gdy środowisko
 
 Kluczową funkcją pakietu rozszerzenia jest zapewnienie obsługi wyzwalacza Azure Functions i powiązań dla Cosmos DB. Zawiera również [zestaw Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), który jest przydatny, jeśli chcesz korzystać z Azure Cosmos DB programowo bez użycia wyzwalacza i powiązań.
 
-Jeśli chcesz użyć zestawu SDK Azure Cosmos DB, upewnij się, że nie dodajesz do projektu innego odwołania do pakietu NuGet. Zamiast tego **pozwól, aby odwołanie do zestawu SDK było rozpoznawane za pomocą pakietu rozszerzenia Azure Functions "** . Korzystanie z zestawu SDK Azure Cosmos DB niezależnie od wyzwalacza i powiązań
+Jeśli chcesz użyć zestawu SDK Azure Cosmos DB, upewnij się, że nie dodajesz do projektu innego odwołania do pakietu NuGet. Zamiast tego **pozwól, aby odwołanie do zestawu SDK było rozpoznawane za pomocą pakietu rozszerzenia Azure Functions "**. Korzystanie z zestawu SDK Azure Cosmos DB niezależnie od wyzwalacza i powiązań
 
 Ponadto, jeśli ręcznie tworzysz własne wystąpienie [klienta Azure Cosmos DB SDK](./sql-api-sdk-dotnet-core.md), należy postępować zgodnie ze wzorcem, który ma tylko jedno wystąpienie klienta [przy użyciu pojedynczego podejścia do wzorca](../azure-functions/manage-connections.md#documentclient-code-example-c). Ten proces pozwoli uniknąć potencjalnych problemów z gniazdem w operacjach.
 
@@ -44,7 +45,7 @@ Funkcja platformy Azure kończy się niepowodzeniem z komunikatem o błędzie "N
 
 Oznacza to, że jeden lub oba kontenery usługi Azure Cosmos wymagane do działania wyzwalacza nie istnieją lub nie są dostępne dla funkcji platformy Azure. Sam błąd informuje o tym, **które usługi Azure Cosmos Database i kontenera są wywoływane** na podstawie konfiguracji.
 
-1. Sprawdź, czy `ConnectionStringSetting` atrybut i czy **odwołuje się do ustawienia, które istnieje w aplikacja funkcji platformy Azure** . Wartość w tym atrybucie nie powinna być ciągiem połączenia, ale nazwą ustawienia konfiguracji.
+1. Sprawdź, czy `ConnectionStringSetting` atrybut i czy **odwołuje się do ustawienia, które istnieje w aplikacja funkcji platformy Azure**. Wartość w tym atrybucie nie powinna być ciągiem połączenia, ale nazwą ustawienia konfiguracji.
 2. Sprawdź, czy `databaseName` `collectionName` Usługa i istnieje na koncie usługi Azure Cosmos. Jeśli używasz automatycznej wymiany wartości (przy użyciu `%settingName%` wzorców), upewnij się, że nazwa ustawienia istnieje w aplikacja funkcji platformy Azure.
 3. Jeśli nie określisz `LeaseCollectionName/leaseCollectionName` , wartość domyślna to "dzierżawy". Sprawdź, czy kontener istnieje. Opcjonalnie można ustawić `CreateLeaseCollectionIfNotExists` atrybut w wyzwalaczu na, aby `true` automatycznie go utworzyć.
 4. Sprawdź [konfigurację zapory konta usługi Azure Cosmos](how-to-configure-firewall.md) , aby zobaczyć, że nie blokuje ona funkcji platformy Azure.
@@ -95,7 +96,7 @@ W tym scenariuszu najlepszym sposobem działania jest dodanie `try/catch` blokó
 > [!NOTE]
 > Wyzwalacz usługi Azure Functions dla usługi Cosmos DB domyślnie nie będzie ponawiać próby przetworzenia partii zmian, jeśli wystąpił nieobsługiwany wyjątek podczas wykonywania kodu. Oznacza to, że powodem, że zmiany nie dotarły do lokalizacji docelowej, jest to, że nie można ich przetworzyć.
 
-Jeśli okaże się, że niektóre zmiany nie zostały odebrane przez wyzwalacz, najbardziej typowym scenariuszem jest **uruchomienie innej funkcji platformy Azure** . Może to być inna funkcja platformy Azure wdrożona na platformie Azure lub funkcja platformy Azure działająca lokalnie na komputerze dewelopera, który ma **dokładnie taką samą konfigurację** (te same kontenery monitorowane i dzierżawy), a ta funkcja platformy Azure służy do kradzieży podzbioru zmian, które mają być przetwarzane przez funkcję platformy Azure.
+Jeśli okaże się, że niektóre zmiany nie zostały odebrane przez wyzwalacz, najbardziej typowym scenariuszem jest **uruchomienie innej funkcji platformy Azure**. Może to być inna funkcja platformy Azure wdrożona na platformie Azure lub funkcja platformy Azure działająca lokalnie na komputerze dewelopera, który ma **dokładnie taką samą konfigurację** (te same kontenery monitorowane i dzierżawy), a ta funkcja platformy Azure służy do kradzieży podzbioru zmian, które mają być przetwarzane przez funkcję platformy Azure.
 
 Ponadto można sprawdzić poprawność scenariusza, Jeśli wiesz, ile wystąpień aplikacja funkcji platformy Azure jest uruchomionych. Jeśli sprawdzisz kontener dzierżaw i policzesz liczbę elementów dzierżawy w ramach, różne wartości `Owner` właściwości w nich powinny być równe liczbie wystąpień aplikacja funkcji. Jeśli istnieje więcej właścicieli niż znane wystąpienia usługi Azure aplikacja funkcji, oznacza to, że Ci dodatkowi właściciele są "kradzieżą" zmian.
 

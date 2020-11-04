@@ -3,16 +3,17 @@ title: RADIANy w Azure Cosmos DB języku zapytań
 description: Dowiedz się więcej na temat funkcji systemu SQL RADIANów w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bf65daa1a765030efce5d1310a792df473571a5e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c6eaff5abd8c10aa90b89a54cd48281ba8ec09dc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091841"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341675"
 ---
 # <a name="radians-azure-cosmos-db"></a>RADIANy (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

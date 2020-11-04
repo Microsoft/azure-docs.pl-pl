@@ -3,16 +3,17 @@ title: Azure Cosmos DB tryby łączności z zestawem SDK SQL
 description: Dowiedz się więcej na temat różnych trybów łączności dostępnych w Azure Cosmos DB zestawach SQL SDK.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: 3eb10452dda0227bcada3a576d28fb55089397cb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 892d73c2b23a9806cd38b188f594f129fda9303d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305115"
+ms.locfileid: "93340723"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB tryby łączności z zestawem SDK SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

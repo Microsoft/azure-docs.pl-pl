@@ -3,16 +3,17 @@ title: Pracuj z procedurami składowanymi, wyzwalaczami i UDF w Azure Cosmos DB
 description: W tym artykule przedstawiono pojęcia, takie jak procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika w programie Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7dc81581846f8abdae81fa3552d9fa4645f32a05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101310"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340706"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,7 +43,7 @@ Pisanie procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytk
 
 ## <a name="transactions"></a>Transakcje
 
-Transakcja w typowej bazie danych może być zdefiniowana jako sekwencja operacji wykonywanych jako pojedyncza jednostka logiczna. Każda transakcja zapewnia **gwarancje własności kwasowej** . KWAS jest dobrze znanym akronimem, który **oznacza: tomicity** , **C** onsistency, **i** solation i **D** urability. 
+Transakcja w typowej bazie danych może być zdefiniowana jako sekwencja operacji wykonywanych jako pojedyncza jednostka logiczna. Każda transakcja zapewnia **gwarancje własności kwasowej**. KWAS jest dobrze znanym akronimem, który **oznacza: tomicity** , **C** onsistency, **i** solation i **D** urability. 
 
 * Niepodzielność gwarantuje, że wszystkie operacje wykonywane w ramach transakcji są traktowane jako jedna jednostka, a wszystkie z nich są zatwierdzone lub żadna z nich nie jest. 
 

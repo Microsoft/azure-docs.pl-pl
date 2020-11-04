@@ -3,16 +3,17 @@ title: Obsługa przepływności bazy danych w Azure Cosmos DB interfejsie API SQ
 description: Dowiedz się, jak zainicjować przepływność na poziomie bazy danych w Azure Cosmos DB interfejsu API SQL przy użyciu Azure Portal, interfejsu wiersza polecenia, programu PowerShell i różnych zestawów SDK.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 63de1c970a118ddf24c52e7e14a0632a4eee7fba
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4ecbee2260da735cd6ba74d3b9ffb55b4a652e9e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086299"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342002"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Udostępnianie standardowej (ręcznej) przepływności dla bazy danych w interfejsie API Azure Cosmos DB-SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,12 +28,12 @@ Jeśli używasz innego interfejsu API, zobacz artykuł [API for MongoDB](how-to-
 
 1. [Utwórz nowe konto usługi Azure Cosmos](create-sql-api-dotnet.md#create-account)lub Wybierz istniejące konto usługi Azure Cosmos.
 
-1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa baza danych** . Podaj następujące szczegóły:
+1. Otwórz okienko **Data Explorer** i wybierz pozycję **Nowa baza danych**. Podaj następujące szczegóły:
 
    * Wprowadź identyfikator bazy danych.
    * Wybierz opcję **zainicjuj przepływność bazy danych** .
    * Wprowadź przepływność (na przykład 1000 jednostek RU).
-   * Wybierz pozycję **OK** .
+   * Wybierz pozycję **OK**.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Zrzut ekranu okna dialogowego Nowa baza danych":::
 

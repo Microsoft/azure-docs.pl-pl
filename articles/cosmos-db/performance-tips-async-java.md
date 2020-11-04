@@ -3,17 +3,18 @@ title: Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
 description: Informacje o opcjach konfiguracji klienta zwiększające wydajność usługi Azure Cosmos Database w przypadku asynchronicznego zestawu Java SDK V2
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: c1dec2c8451ddd1feb4b5b0dac9c82e1716079b7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4285571ead30f74f9136ad81687e52d92fdd1c47
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325844"
+ms.locfileid: "93341760"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,7 +37,7 @@ Azure Cosmos DB to szybka i elastyczna dystrybuowana baza danych, która bezprob
 
 Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" należy wziąć pod uwagę następujące opcje:
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 * **Tryb połączenia: Użyj trybu bezpośredniego**
     
@@ -98,7 +99,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
     Jeśli używasz Azure Cosmos DB jako bazy danych referencyjnych (to oznacza, że baza danych jest używana w wielu operacjach odczytu punktu i kilku operacjach zapisu), można zaakceptować ustawienie _idleEndpointTimeout * na 0 (czyli bez limitu czasu).
 
 
-    | Opcja konfiguracji       | Domyślny    |
+    | Opcja konfiguracji       | Domyślne    |
     | :------------------:       | :-----:    |
     | bufferPageSize             | 8192       |
     | Parametru          | "PT1M"     |

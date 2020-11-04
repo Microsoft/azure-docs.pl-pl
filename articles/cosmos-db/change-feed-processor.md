@@ -4,17 +4,18 @@ description: Dowiedz się, jak użyć procesora Azure Cosmos DB zmian, aby odczy
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dfd96e7c62d700ccec2ecd4b223668d7aca4f18f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072810"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340230"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesor zestawienia zmian w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +32,7 @@ Są cztery główne składniki implementacji procesora zestawienia zmian:
 
 1. **Kontener dzierżawy:** Kontener dzierżawy działa jako magazyn stanów i koordynuje przetwarzanie zestawienia zmian przez wielu pracowników. Kontener dzierżawy może być przechowywany na tym samym koncie co monitorowany kontener lub na osobnym koncie.
 
-1. **Host:** Host to wystąpienie aplikacji korzystające z procesora zestawienia zmian do nasłuchiwania zmian. Wiele wystąpień z tą samą konfiguracją dzierżawy może działać równolegle, ale każde wystąpienie powinno mieć inną **nazwę wystąpienia** .
+1. **Host:** Host to wystąpienie aplikacji korzystające z procesora zestawienia zmian do nasłuchiwania zmian. Wiele wystąpień z tą samą konfiguracją dzierżawy może działać równolegle, ale każde wystąpienie powinno mieć inną **nazwę wystąpienia**.
 
 1. **Obiekt delegowany:** Obiekt delegowany to kod, który definiuje, co ty jako deweloper zrobisz z każdą partią zmian odczytywanych przez procesor zestawienia zmian. 
 
@@ -62,7 +63,7 @@ Normalny cykl życiowy wystąpienia hosta wygląda następująco:
 
 1. Przeczytaj Źródło zmian.
 1. W przypadku braku zmian w stanie uśpienia przez wstępnie zdefiniowany czas (dostosowywalny `WithPollInterval` w programie w ramach konstruktora) i przejdź do #1.
-1. Jeśli istnieją zmiany, wyślij je do **delegata** .
+1. Jeśli istnieją zmiany, wyślij je do **delegata**.
 1. Po **pomyślnym** zakończeniu przetwarzania zmian przez delegata należy zaktualizować magazyn dzierżawy o ostatni przetworzony punkt w czasie i przejść do #1.
 
 ## <a name="error-handling"></a>Obsługa błędów
@@ -113,7 +114,7 @@ Procesor kanału informacyjnego zmian zostanie zainicjowany dla tej konkretnej d
 
 ### <a name="reading-from-the-beginning"></a>Odczytywanie od początku
 
-W innych scenariuszach, takich jak migracja danych lub analizowanie całej historii kontenera, musimy przeczytać Źródło zmian od **początku okresu istnienia tego kontenera** . Aby to zrobić, można użyć `WithStartTime` na rozszerzeniu konstruktora, ale przekazywać `DateTime.MinValue.ToUniversalTime()` , które generują reprezentację UTC wartości minimalnej `DateTime` , na przykład:
+W innych scenariuszach, takich jak migracja danych lub analizowanie całej historii kontenera, musimy przeczytać Źródło zmian od **początku okresu istnienia tego kontenera**. Aby to zrobić, można użyć `WithStartTime` na rozszerzeniu konstruktora, ale przekazywać `DateTime.MinValue.ToUniversalTime()` , które generują reprezentację UTC wartości minimalnej `DateTime` , na przykład:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 

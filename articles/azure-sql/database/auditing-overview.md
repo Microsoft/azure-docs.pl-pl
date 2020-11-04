@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8fd794822e9e4fe282d6ef8a8ccf1eb908c03560
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321668"
+ms.locfileid: "93340043"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,6 +104,13 @@ Aby włączyć inspekcję operacji pomoc techniczna firmy Microsoft (wersja zapo
   > Inspekcja operacji pomocy technicznej firmy Microsoft (wersja zapoznawcza) nie obsługuje miejsca docelowego konta magazynu. Aby włączyć tę funkcję, należy skonfigurować obszar roboczy Log Analytics lub miejsce docelowe centrum zdarzeń.
 
 ![Zrzut ekranu przedstawiający operacje pomoc techniczna firmy Microsoft](./media/auditing-overview/support-operations.png)
+
+Aby przejrzeć dzienniki inspekcji pomoc techniczna firmy Microsoft operacji w obszarze roboczym Log Analytics, użyj następującego zapytania:
+
+```kusto
+AzureDiagnostics
+| where Category == "DevOpsOperationsAudit"
+```
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Inspekcja w miejscu docelowym magazynu
 
@@ -205,9 +212,7 @@ W przypadku wybrania opcji zapisania dzienników inspekcji na koncie usługi Azu
 - Dodatkowe metody:
 
   - Po pobraniu kilku plików lub podfolderu, który zawiera pliki dziennika, można scalić je lokalnie zgodnie z opisem w artykule informacje o plikach inspekcji scalania programu SSMS opisane wcześniej.
-  - Programowe Wyświetlanie dzienników inspekcji obiektów blob:
-
-    - [Wykonywanie zapytań dotyczących plików zdarzeń rozszerzonych](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) za pomocą programu PowerShell.
+  - Programowe Wyświetlanie dzienników inspekcji obiektów blob: [wykonywanie zapytań o pliki zdarzeń rozszerzonych](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) za pomocą programu PowerShell.
 
 ## <a name="production-practices"></a><a id="production-practices"></a>Praktyki produkcyjne
 

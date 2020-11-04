@@ -5,15 +5,16 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8694a884b26194c61cc77d00848692a24e3009be
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 243f6f26be592e2db82d8f46df3de9aafcd2078b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073710"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340473"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -52,13 +53,13 @@ Aby rozpocząć, należy przejść do [Azure Portal](https://portal.azure.com) i
 
 Najbardziej typowym kodem stanu błędu jest 429 (ograniczanie szybkości/ograniczanie przepustowości). Ten błąd oznacza, że żądania Azure Cosmos DB przekraczają przepływność zainicjowaną. Najbardziej typowym rozwiązaniem tego problemu jest [skalowanie w górę jednostek ru](./set-throughput.md) dla danej kolekcji.
 
-:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Liczba żądań na minutę":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Określanie rozkładu przepływności między partycjami
 
 Dobrą kardynalnością kluczy partycji jest istotna dla każdej skalowalnej aplikacji. Aby określić dystrybucję przepływności dowolnego kontenera partycjonowanego podzielonego na partycje, przejdź do **bloku metryki** w [Azure Portal](https://portal.azure.com). Na karcie **przepływność** , podział magazynu jest pokazywany w polu **Maksymalna liczba ZUŻYTych jednostek ru na sekundę według poszczególnych wykresów partycji fizycznej** . Na poniższej ilustracji przedstawiono przykład słabej dystrybucji danych, jak pokazano na partycji skośnej po lewej stronie.
 
-:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Użycie pojedynczej partycji":::
 
 Nierówna dystrybucja przepływności może spowodować powstanie partycji na *gorąco* , co może spowodować ograniczenie żądań i może wymagać ponownego partycjonowania. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partitioning-overview.md).
 
@@ -66,11 +67,11 @@ Nierówna dystrybucja przepływności może spowodować powstanie partycji na *g
 
 Posiadanie odpowiedniej kardynalności partycji jest niezbędne dla każdej skalowalnej aplikacji. Aby określić dystrybucję magazynu dla dowolnego kontenera partycjonowanego podzielonego na partycje, przejdź do bloku metryki w [Azure Portal](https://portal.azure.com). Na karcie Magazyn zostanie wyświetlona wartość podział magazynu w magazynie dane i indeks używane przez wykres najważniejszych kluczy partycji. Poniższa ilustracja przedstawia słabą dystrybucję magazynu danych, jak pokazano na partycji skośnej po lewej stronie.
 
-:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Przykład słabej dystrybucji danych":::
 
 Możesz przyczynić się, że klucz partycji pochyla dystrybucję, klikając partycję na wykresie.
 
-:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Klucz partycji pochyla rozkład":::
 
 Po zidentyfikowaniu, który klucz partycji powoduje pochylenie w dystrybucji, może być konieczne ponowne partycjonowanie kontenera przy użyciu bardziej rozproszonego klucza partycji. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partitioning-overview.md).
 

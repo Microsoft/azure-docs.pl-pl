@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 66d09503f5db95811f807aa7faa83b92facca992
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a6923f0a1d568cc695b86d1538ba55a3eb3444da
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543699"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341488"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Samouczek: Inicjowanie obsługi administracyjnej serwera Azure Database for MySQL przy użyciu szablonu Azure Resource Manager
 
 [Interfejs API REST usługi Azure Database for MySQL](/rest/api/mysql/) umożliwia inżynierom DevOps automatyzowanie i integrowanie aprowizacji, konfiguracji i operacji zarządzanych serwerów i baz danych MySQL na platformie Azure.  Interfejs API umożliwia tworzenie, wyliczanie i usuwanie serwerów i baz danych MySQL oraz zarządzanie nimi w usłudze Azure Database for MySQL.
 
-Usługa Azure Resource Manager korzysta z podstawowego interfejsu API REST na potrzeby deklarowania i programowania zasobów platformy Azure wymaganych w przypadku wdrożeń na dużą skalę, zgodnie z koncepcją infrastruktury jako kodu. Szablon parametryzuje nazwę zasobu platformy Azure, jednostkę SKU, sieć, konfigurację zapory i ustawienia, co pozwala na jego wielokrotne używanie po jednorazowym utworzeniu.  Szablony usługi Azure Resource Manager można łatwo utworzyć za pomocą [witryny Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) lub [programu Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI). Umożliwiają one tworzenie pakietów aplikacji i standaryzację oraz automatyzację wdrażania, a operacje te można zintegrować w potoku ciągłej integracji/ciągłego wdrażania metodyki DevOps.  Jeśli na przykład szukasz sposobu szybkiego wdrożenia aplikacji internetowej z wewnętrzną bazą danych Azure Database for MySQL, możesz zrealizować wdrożenie typu end-to-end za pomocą tego [szablonu szybkiego startu](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) z galerii GitHub.
+Azure Resource Manager korzysta z bazowego interfejsu API REST do deklarowania i zaprogramowania zasobów platformy Azure wymaganych do wdrożeń na dużą skalę, co pozwala na dostosowanie infrastruktury jako koncepcji kodu. Szablon parametryzuje nazwę zasobu platformy Azure, jednostkę SKU, sieć, konfigurację zapory i ustawienia, co pozwala na jego wielokrotne używanie po jednorazowym utworzeniu.  Szablony usługi Azure Resource Manager można łatwo utworzyć za pomocą [witryny Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) lub [programu Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI). Umożliwiają one tworzenie pakietów aplikacji i standaryzację oraz automatyzację wdrażania, a operacje te można zintegrować w potoku ciągłej integracji/ciągłego wdrażania metodyki DevOps.  Jeśli na przykład szukasz sposobu szybkiego wdrożenia aplikacji internetowej z wewnętrzną bazą danych Azure Database for MySQL, możesz zrealizować wdrożenie typu end-to-end za pomocą tego [szablonu szybkiego startu](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) z galerii GitHub.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności, używając szablonu usługi Azure Resource Manager i innych narzędzi:
 
@@ -29,6 +29,8 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności, używaj�
 > * Ładowanie przykładowych danych
 > * Zapytania o dane
 > * Aktualizowanie danych
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 
@@ -115,7 +117,7 @@ Aby nawiązać połączenie z serwerem, musisz podać informacje o hoście i po�
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin** .
+Wynik jest w formacie JSON. Zanotuj wartości **fullyQualifiedDomainName** i **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -199,13 +201,47 @@ Wiersz jest aktualizowany podczas pobierania danych.
 SELECT * FROM inventory;
 ```
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Gdy nie jest już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie zasobów z grupy zasobów.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **grupy zasobów**.
+
+2. Na liście Grupa zasobów wybierz nazwę grupy zasobów.
+
+3. Na stronie **Przegląd** w grupie zasobów wybierz pozycję **Usuń grupę zasobów**.
+
+4. W oknie dialogowym potwierdzenia wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+---
+
 ## <a name="next-steps"></a>Następne kroki
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie serwera usługi Azure Database for MySQL za pomocą punktu końcowego usługi sieci wirtualnej przy użyciu szablonu usługi Azure Resource Manager
-> * Tworzenie bazy danych za pomocą [narzędzia wiersza polecenia MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)
+> * Tworzenie bazy danych za pomocą narzędzia wiersza polecenia mysql
 > * Ładowanie przykładowych danych
 > * Zapytania o dane
 > * Aktualizowanie danych
-> 
+
+> [!div class="nextstepaction"]
 > [Jak połączyć aplikacje z usługą Azure Database for MySQL](./howto-connection-string.md)

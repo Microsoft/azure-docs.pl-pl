@@ -4,16 +4,17 @@ description: Dowiedz się, jak importować lub pozyskiwanie danych do Azure Cosm
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e80a67890dcf76d115464ea62c0729aedd444667
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6e50fe1f5b1658458a2d561f8157f04d1cbceb41
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099236"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341249"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Zbiorcze importowanie danych do Azure Cosmos DB konta interfejsu API SQL przy użyciu zestawu .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +46,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 
 ## <a name="step-2-set-up-your-net-project"></a>Krok 2. Konfigurowanie projektu .NET
 
-Otwórz wiersz polecenia systemu Windows lub okno terminalu na komputerze lokalnym. Wszystkie polecenia zostaną uruchomione w następnych sekcjach z poziomu wiersza polecenia lub terminalu. Uruchom następujące polecenie dotnet New, aby utworzyć nową aplikację o nazwie *Bulk-import-demonstracyjny* . `--langVersion`Parametr ustawia właściwość *LangVersion* w utworzonym pliku projektu.
+Otwórz wiersz polecenia systemu Windows lub okno terminalu na komputerze lokalnym. Wszystkie polecenia zostaną uruchomione w następnych sekcjach z poziomu wiersza polecenia lub terminalu. Uruchom następujące polecenie dotnet New, aby utworzyć nową aplikację o nazwie *Bulk-import-demonstracyjny*. `--langVersion`Parametr ustawia właściwość *LangVersion* w utworzonym pliku projektu.
 
    ```bash
    dotnet new console –langVersion:8 -n bulk-import-demo

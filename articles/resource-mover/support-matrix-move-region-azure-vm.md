@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521309"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341862"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Obsługa przemieszczania maszyn wirtualnych platformy Azure między regionami platformy Azure
 
@@ -101,7 +101,7 @@ SUSE Linux Enterprise Server 15 i 15 SP1 |  Obsługiwane są wszystkie jądra sy
 **Ustawienie** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
 Rozmiar | Rozmiar maszyny wirtualnej platformy Azure z co najmniej dwoma rdzeniami procesora i 1 GB pamięci RAM | Sprawdź [rozmiary maszyn wirtualnych platformy Azure](../virtual-machines/sizes-general.md).
-Zestawy dostępności | Nie jest obecnie obsługiwana. | Jeśli dodasz maszynę wirtualną platformy Azure z ustawionym zestawem dostępności do kolekcji Move z opcjami domyślnymi, proces przygotowywania zakończy się niepowodzeniem. Można przenieść maszynę wirtualną do strefy dostępności lub przenieść ją jako maszynę wirtualną z pojedynczym wystąpieniem. Te ustawienia można modyfikować na stronie Edytowanie właściwości docelowych.
+Zestawy dostępności | Obsługiwane | Obsługiwane.
 Strefy dostępności | Obsługiwane | Obsługiwane, w zależności od obsługi regionu docelowego.
 Obrazy galerii platformy Azure (opublikowane przez firmę Microsoft) | Obsługiwane | Obsługiwane, jeśli maszyna wirtualna jest uruchamiana w obsługiwanym systemie operacyjnym.
 Obrazy galerii platformy Azure (opublikowane przez inną firmę)  | Obsługiwane | Obsługiwane, jeśli maszyna wirtualna jest uruchamiana w obsługiwanym systemie operacyjnym.

@@ -3,15 +3,16 @@ title: Wprowadzenie do zapytań SQL w Azure Cosmos DB
 description: Dowiedz się, jak używać zapytań SQL do wykonywania zapytań dotyczących danych z Azure Cosmos DB. Przykładowe dane można przekazać do kontenera w Azure Cosmos DB i wykonać zapytanie.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: tisande
-ms.openlocfilehash: ee38e076e76111f4f4e6bf3b8fa8dde8c3debcfc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7a4b2a778fc3d520c0ce85bed5bec0b49fc14384
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100817"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341913"
 ---
 # <a name="getting-started-with-sql-queries"></a>Wprowadzenie do zapytań SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

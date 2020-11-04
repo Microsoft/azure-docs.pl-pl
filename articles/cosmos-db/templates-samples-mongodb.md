@@ -3,15 +3,16 @@ title: Szablony Menedżer zasobów dla Azure Cosmos DB interfejsu API dla MongoD
 description: Użyj szablonów Azure Resource Manager, aby utworzyć i skonfigurować interfejs API Azure Cosmos DB dla MongoDB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 821bf1329f32c8d4ca759baf2a5bbb5baed70674
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7664d48bad153b34e7557e9faaf4c8aa0d4215ad
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101104"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340631"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Zarządzanie zasobami interfejsu API usługi Azure Cosmos DB MongoDB przy użyciu szablonów Azure Resource Manager
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

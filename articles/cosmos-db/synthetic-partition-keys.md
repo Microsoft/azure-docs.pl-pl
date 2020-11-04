@@ -2,21 +2,22 @@
 title: Utwórz klucz partycji syntetycznej w Azure Cosmos DB
 description: Dowiedz się, jak używać syntetycznych kluczy partycji w kontenerach usługi Azure Cosmos w celu równomiernego dystrybuowania danych i obciążenia między kluczami partycji
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: d6868859247fc430ee96581ae85fb7077af04999
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6b8bc44f1ba5624c37620205aaa574e618ef395f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098029"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340655"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Tworzenie syntetycznego klucza partycji
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Najlepszym rozwiązaniem jest posiadanie klucza partycji z wieloma różnymi wartościami, takimi jak setki lub tysiące. Celem jest równomierne dystrybuowanie danych i obciążeń między elementami skojarzonymi z tymi wartościami klucza partycji. Jeśli taka właściwość nie istnieje w danych, można utworzyć *klucz partycji syntetycznej* . W tym dokumencie opisano kilka podstawowych technik generowania klucza partycji syntetycznej dla Twojego kontenera Cosmos.
+Najlepszym rozwiązaniem jest posiadanie klucza partycji z wieloma różnymi wartościami, takimi jak setki lub tysiące. Celem jest równomierne dystrybuowanie danych i obciążeń między elementami skojarzonymi z tymi wartościami klucza partycji. Jeśli taka właściwość nie istnieje w danych, można utworzyć *klucz partycji syntetycznej*. W tym dokumencie opisano kilka podstawowych technik generowania klucza partycji syntetycznej dla Twojego kontenera Cosmos.
 
 ## <a name="concatenate-multiple-properties-of-an-item"></a>Łączenie wielu właściwości elementu
 

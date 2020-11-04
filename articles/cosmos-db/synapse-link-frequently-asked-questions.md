@@ -6,15 +6,15 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 30f139c92fe426369c609dabd826a7bff1617e72
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0791ed6882feedeab47b75eff6a69bf0a49ab7ee
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098046"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341295"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Link Synapse platformy Azure dla Azure Cosmos DB umożliwia ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics. Umożliwia klientom Uruchamianie analizy niemal w czasie rzeczywistym na podstawie danych operacyjnych z pełną izolacją wydajności z obciążeń transakcyjnych i bez potoku ETL. W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące usługi Synapse Link dla usługi Azure Cosmos DB.
 
@@ -157,7 +157,7 @@ Kontener Azure Cosmos DB włączony z magazynem analitycznym ma następującą i
 
 Kontener magazynu transakcyjnego będzie reprezentowany z następującą ikoną:
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Kontener Azure Cosmos DB włączony z magazynem analitycznym — ikona":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Azure Cosmos DB kontenera włączonym za pomocą ikony magazynu transakcyjnego":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-azure-synapse-studio"></a>Jak przekazać poświadczenia Azure Cosmos DB z usługi Azure Synapse Studio?
 

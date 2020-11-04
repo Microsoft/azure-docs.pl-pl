@@ -3,16 +3,17 @@ title: Migrowanie z biblioteki wykonawców zbiorczych do pomocy technicznej zbio
 description: Dowiedz się, jak przeprowadzić migrację aplikacji z korzystania z biblioteki wykonawców zbiorczych do pomocy technicznej zbiorczej w zestawie Azure Cosmos DB SDK v3
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f7f51f6944de48e58ff53e7685164df3a04afe56
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 24d6b475964e4bf7745495e9c41d0e89bb76f7e9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075589"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341296"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrowanie z biblioteki wykonawców zbiorczych do pomocy technicznej zbiorczej w Azure Cosmos DB .NET v3 SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

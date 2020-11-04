@@ -4,16 +4,18 @@ description: Dowiedz się, jak używać TransactionalBatch w zestawie SDK platfo
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c27eb2b4e0dc0d269e1cffc9e213cebeb93443e2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328734"
+ms.locfileid: "93340570"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>Transakcyjne operacje wsadowe w Azure Cosmos DB przy użyciu zestawu .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 W partii transakcyjnej opisano grupę operacji punktu, które muszą być pomyślne lub niepowodzeniem razem z tym samym kluczem partycji w kontenerze. W zestawie SDK platformy .NET `TranscationalBatch` Klasa jest używana do definiowania tej partii operacji. Jeśli wszystkie operacje zakończą się pomyślnie w kolejności, w której zostały opisane w transakcyjnej operacji wsadowej, transakcja zostanie zatwierdzona. Jeśli jednak jakakolwiek operacja zakończy się niepowodzeniem, cała transakcja zostanie wycofana.
 
