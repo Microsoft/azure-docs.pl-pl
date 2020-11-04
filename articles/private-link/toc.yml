@@ -39,6 +39,8 @@
           href: tutorial-private-endpoint-sql-portal.md
         - name: Łączenie z serwerem SQL — PowerShell
           href: tutorial-private-endpoint-sql-powershell.md
+        - name: Łączenie z serwerem SQL — interfejs wiersza polecenia platformy Azure
+          href: tutorial-private-endpoint-sql-cli.md
 - name: Pojęcia
   items:
     - name: Prywatny punkt końcowy

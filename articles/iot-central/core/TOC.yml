@@ -221,6 +221,8 @@
           href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Dokumentacja interfejsu API usługi IoT Central
       href: /rest/api/iotcentral/
+    - name: Miejsce przechowywania danych klienta
+      href: iot-central-customer-data-residency.md
     - name: Żądania danych klienta
       href: iot-central-customer-data-requests.md
     - name: Obsługiwane przeglądarki

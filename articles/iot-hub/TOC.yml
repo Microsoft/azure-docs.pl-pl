@@ -74,7 +74,7 @@
           href: tutorial-routing-view-message-routing-results.md
     - name: Wzbogacenia wiadomości
       href: tutorial-message-enrichments.md
-    - name: Używanie metryk i dzienników diagnostycznych
+    - name: Korzystanie z metryk i dzienników
       href: tutorial-use-metrics-and-diags.md
     - name: Ręczne przechodzenie do trybu failover
       href: tutorial-manual-failover.md

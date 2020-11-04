@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 8dd08112bbfd56ddccb14cef1123b10ed7907a95
-  ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+  ms.openlocfilehash: b29654a0eb305d2e20dcc8aed5c60d96b7ca3268
+  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/21/2020
-  ms.locfileid: "92329217"
+  ms.lasthandoff: 11/04/2020
+  ms.locfileid: "93313269"
 highlightedContent:
   items:
   - title: Wprowadzenie — przewodnik dla deweloperów platformy Azure
@@ -643,7 +643,7 @@ productDirectory:
     - developer-tools
     url: azure-app-configuration/index.yml
   - title: Azure Data Studio
-    summary: Lekki edytor, który może uruchamiać zapytania SQL na żądanie oraz wyświetlać i zapisywać wyniki w formacie tekstowym, JSON lub programu Excel.
+    summary: Lekki edytor, który może uruchamiać zapytania kierowane do bezserwerowej puli SQL oraz wyświetlać i zapisywać wyniki w formacie tekstowym, JSON lub programu Excel.
     imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
     azureCategories:
     - developer-tools

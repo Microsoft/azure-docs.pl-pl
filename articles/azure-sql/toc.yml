@@ -993,6 +993,8 @@
                   href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: Zarządzanie
               items:
+                - name: Rozszerzenie agenta środowiska IaaS programu SQL
+                  href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
                 - name: Dedykowany host
                   href: virtual-machines/windows/dedicated-host.md
                 - name: Rozszerzona obsługa programu SQL 2008 i R2
@@ -1021,12 +1023,14 @@
                   href: virtual-machines/windows/change-sql-server-version.md
                 - name: Magazyn
                   href: virtual-machines/windows/storage-configuration.md
+                - name: Automatyczne stosowanie poprawek
+                  href: virtual-machines/windows/automated-patching.md
                 - name: Integracja magazynu kluczy Azure
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: Migrowanie magazynu na dysk UltraSSD
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: Rejestrowanie za pomocą dostawcy zasobów maszyny wirtualnej SQL
-                  displayName: 'resource provider, registration'
+                - name: Zainstaluj rozszerzenie agenta środowiska IaaS programu SQL
+                  displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: Automatyczna rejestracja
                       href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
@@ -1034,12 +1038,6 @@
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: Rejestrowanie zbiorcze wielu maszyn wirtualnych
                       href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-                - name: Automatyzacja zadań zarządzania
-                  items:
-                    - name: "Korzystanie z rozszerzenia agenta IaaS w\_programie SQL Server"
-                      href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-                    - name: Automatyczne stosowanie poprawek
-                      href: virtual-machines/windows/automated-patching.md
             - name: Migrate (Migracja)
               items:
                 - name: Migracja bazy danych programu SQL Server do maszyny wirtualnej

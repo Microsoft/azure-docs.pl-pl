@@ -116,6 +116,8 @@
           items:
             - name: Tworzenie i przywracanie kopii zapasowych
               href: backup-restore-postgresql-hyperscale.md
+            - name: Zmienianie portu bazy danych PostgreSQL
+              href: change-postgresql-port.md
             - name: Konfigurowanie skalowanie
               items:
                 - name: Pokaż konfigurację
