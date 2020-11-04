@@ -5,12 +5,14 @@
   items:
     - name: Co to jest Metrics Advisor?
       href: overview.md
+    - name: Co nowego?
+      href: whats-new.md
 - name: Przewodniki Szybki start
   items:
     - name: Używanie portalu internetowego
       href: quickstarts/web-portal.md
-    - name: Używanie interfejsu API REST
-      href: quickstarts/rest-api.md
+    - name: Używanie interfejsu API REST lub bibliotek klienckich
+      href: quickstarts/rest-api-and-client-library.md
 - name: Instrukcje
   items:
     - name: Dołączanie danych
