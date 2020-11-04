@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: da2535a9764c909af3a491402311fe263dbb48fb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92038484"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331024"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Czy usługa Azure Virtual WAN jest dostępna w wersji GA?
 
@@ -70,7 +70,7 @@ Dostępne są dwie opcje dodawania serwerów DNS dla klientów P2S. Pierwsza met
 
    // Re-generate Vpn profile either from PS/Portal for Vpn clients to have the specified dns servers
    ```
-2. Lub, jeśli używasz klienta sieci VPN platformy Azure dla systemu Windows 10, możesz zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** znaczniki przed jego zaimportowaniem.
+2. Lub, jeśli używasz klienta sieci VPN platformy Azure dla systemu Windows 10, możesz zmodyfikować pobrany plik XML profilu i dodać **\<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers>** znaczniki przed jego zaimportowaniem.
 
    ```powershell
       <azvpnprofile>
@@ -259,6 +259,8 @@ Tak. Ta opcja jest obecnie dostępna tylko za pośrednictwem programu PowerShell
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Czy w wirtualnej sieci WAN jest obsługiwane protokół IPv6?
 
 Protokół IPv6 nie jest obsługiwany w przypadku koncentratora wirtualnego sieci WAN i jego bram. Jeśli masz sieć wirtualną z obsługą protokołów IPv4 i IPv6 i chcesz podłączyć sieć wirtualną do wirtualnej sieci WAN, ten scenariusz nie jest obecnie obsługiwany. 
+
+W przypadku scenariusza sieci VPN typu punkt-lokacja z programem Internet zagadnień za pośrednictwem zapory platformy Azure prawdopodobnie trzeba będzie wyłączyć łączność protokołu IPv6 na urządzeniu klienckim, aby wymusić ruch do wirtualnego koncentratora sieci WAN. Jest to spowodowane tym, że nowoczesne urządzenia domyślnie korzystają domyślnie z adresów IPv6.
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Co to jest zalecana wersja interfejsu API, która ma być używana przez skrypty automatyzując różne wirtualne funkcje sieci WAN?
 

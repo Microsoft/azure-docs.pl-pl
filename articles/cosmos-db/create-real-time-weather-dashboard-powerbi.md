@@ -4,15 +4,16 @@ description: Dowiedz się, jak utworzyć pulpit nawigacyjny pogody na żywo w Po
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: fc285599176057c57621dc6bfefbe9188d3badd7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b3ec3e96aa1ba4bce3893c1af2446bb509a867b6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096890"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333600"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Tworzenie pulpitu nawigacyjnego w czasie rzeczywistym przy użyciu Azure Cosmos DB i Power BI
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +25,7 @@ W tym artykule opisano kroki wymagane do utworzenia pulpitu nawigacyjnego pogody
 Istnieje wiele sposobów konfigurowania pulpitów nawigacyjnych raportowania dla danych przechowywanych w Azure Cosmos DB. W zależności od wymagań dotyczących nieodświeżoności i wielkości danych w poniższej tabeli opisano konfigurację raportowania dla każdego scenariusza:
 
 
-|Scenariusz |Konfigurowanie |
+|Scenariusz |Konfiguracja |
 |---------|---------|
 |1. generowanie raportów ad hoc (bez odświeżania)    |  [Power BI łącznik Azure Cosmos DB z trybem importu](powerbi-visualize.md)       |
 |2. generowanie raportów ad hoc przy użyciu okresowego odświeżania   |  [Power BI łącznik Azure Cosmos DB z trybem importu (zaplanowane okresowo odświeżanie)](powerbi-visualize.md)       |
@@ -58,7 +59,12 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
 
 1. **Skonfiguruj odświeżanie przyrostowe** — wykonaj kroki opisane w sekcji [odświeżanie przyrostowe w artykule Power BI](/power-bi/service-premium-incremental-refresh) , aby skonfigurować odświeżanie przyrostowe dla zestawu danych. Dodaj parametry **RangeStart** i **RangeEnd** , jak pokazano na poniższym zrzucie ekranu:
 
-   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/configure-range-parameters.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB" = Table.SelectRows(#"Expanded Document", each [Document.date] > DateTime.ToText(RangeStart,"yyyy-MM-dd") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd"))
+   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/configure-range-parameters.png" alt-text="Konfigurowanie parametrów zakresu":::
+
+   Ponieważ zestaw danych ma kolumnę daty, która znajduje się w postaci tekstowej, parametry **RangeStart** i **RangeEnd** powinny być przekształcone w celu użycia następującego filtra. W okienku **Edytor zaawansowany** zmodyfikuj zapytanie Dodaj następujący tekst, aby odfiltrować wiersze na podstawie parametrów RangeStart i RangeEnd:
+
+   ```
+   #"Filtered Rows" = Table.SelectRows(#"Expanded Document", each [Document.date] > DateTime.ToText(RangeStart,"yyyy-MM-dd") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd"))
    ```
    
    W zależności od tego, która kolumna i typ danych znajdują się w źródłowym zestawie danych, można odpowiednio zmienić pola RangeStart i RangeEnd
@@ -67,19 +73,19 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
    |Właściwość  |Typ danych  |Filtr  |
    |---------|---------|---------|
    |_ts     |   Numeryczne      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) i [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
-   |Data (na przykład:-2019-08-19)     |   String      | [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD")        |
-   |Data (na przykład:-2019-08-11 12:00:00)   |  String       |  [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD GG: mm: SS") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD GG: mm: SS")       |
+   |Data (na przykład:-2019-08-19)     |   Ciąg      | [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD")        |
+   |Data (na przykład:-2019-08-11 12:00:00)   |  Ciąg       |  [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD GG: mm: SS") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD GG: mm: SS")       |
 
 
 1. **Zdefiniuj zasady odświeżania** — Zdefiniuj zasady odświeżania, przechodząc do karty **odświeżanie przyrostowe** w menu **kontekstowym** dla tabeli. Ustaw zasady odświeżania do odświeżania **codziennie** i przechowuj dane z ostatniego miesiąca.
 
-   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
+   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png" alt-text="Zdefiniuj zasady odświeżania":::
 
-   Zignoruj ostrzeżenie informujące o *tym, że zapytanie M nie może zostać potwierdzone jako składane* . Łącznik Azure Cosmos DB składa kwerendy filtru.
+   Zignoruj ostrzeżenie informujące o *tym, że zapytanie M nie może zostać potwierdzone jako składane*. Łącznik Azure Cosmos DB składa kwerendy filtru.
 
 1. **Załaduj dane i Wygeneruj raporty** — przy użyciu załadowanych wcześniej danych Utwórz wykresy w celu raportowania temperatury i opadów.
 
-   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
+   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png" alt-text="Ładowanie danych i generowanie raportu":::
 
 1. **Publikowanie raportu w celu Power BI wersji Premium** — ponieważ odświeżanie przyrostowe jest funkcją tylko Premium, okno dialogowe publikowania umożliwia tylko wybór obszaru roboczego w pojemności Premium. Pierwsze odświeżanie może trwać dłużej ze względu na konieczność zaimportowania danych historycznych. Kolejne odświeżenia danych są znacznie szybsze, ponieważ korzystają z odświeżania przyrostowego.
 
@@ -96,19 +102,19 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
 
 1. **Tworzenie nowego projektu Analysis Services tabelarycznego w programie Visual Studio**  -   [Zainstaluj narzędzia SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017&preserve-view=true) i Utwórz Analysis Services Projekt tabelaryczny w programie Visual Studio.
 
-   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
+   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png" alt-text="Utwórz projekt Azure Analysis Services":::
 
    Wybierz **zintegrowane wystąpienie obszaru roboczego** i ustaw poziom zgodności na **SQL Server 2017/Azure Analysis Services (1400)**
 
-   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/tabular-model-designer.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
+   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/tabular-model-designer.png" alt-text="Azure Analysis Services projektanta modelu tabelarycznego":::
 
 1. **Dodaj źródło danych Azure Cosmos DB** — umożliwia przejście do **modeli** >  **źródła danych**  >  **nowe źródło danych** i dodanie Azure Cosmos DB źródła danych, jak pokazano na poniższym zrzucie ekranu:
 
-   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
+   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Dodaj źródło danych Cosmos DB":::
 
-   Połącz się z Azure Cosmos DB, podając **Identyfikator URI konta** , **nazwę bazy danych** i **nazwę kontenera** . Teraz można zobaczyć dane z kontenera usługi Azure Cosmos do Power BI.
+   Połącz się z Azure Cosmos DB, podając **Identyfikator URI konta** , **nazwę bazy danych** i **nazwę kontenera**. Teraz można zobaczyć dane z kontenera usługi Azure Cosmos do Power BI.
 
-   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
+   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Podgląd danych Azure Cosmos DB":::
 
 1. **Konstruowanie modelu Analysis Services** — Otwórz Edytor zapytań, wykonaj wymagane operacje, aby zoptymalizować załadowany zestaw danych:
 
@@ -138,12 +144,16 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
 
 1. **Tworzenie partycji analizy platformy Azure** — tworzenie partycji w Azure Analysis Services, aby podzielić zestaw danych na partycje logiczne, które mogą być odświeżane niezależnie i przy użyciu różnych częstotliwości. W tym przykładzie utworzysz dwie partycje, które będą podzielić zestaw danych na dane z ostatniego miesiąca i wszystkie inne.
 
-   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-partitions.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB" = Table.SelectRows(#"Sorted Rows", each [Document.month] = "2019-07")`
+   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-partitions.png" alt-text="Tworzenie partycji usług Analysis Services":::
+
+   Utwórz następujące dwie partycje w Azure Analysis Services:
+
+   * **Ostatni miesiąc** - `#"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each [Document.month] = "2019-07")`
    * **Uzyskane** -  `#"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each [Document.month] <> "2019-07")`
 
-1. **Wdróż model na platformie Azure Analysis Server** kliknij prawym przyciskiem myszy projekt Azure Analysis Services i wybierz polecenie **Wdróż** . Dodaj nazwę serwera w okienku **Właściwości serwera wdrażania** .
+1. **Wdróż model na platformie Azure Analysis Server** kliknij prawym przyciskiem myszy projekt Azure Analysis Services i wybierz polecenie **Wdróż**. Dodaj nazwę serwera w okienku **Właściwości serwera wdrażania** .
 
-   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
+   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png" alt-text="Wdróż model Azure Analysis Services":::
 
 1. **Skonfiguruj odświeżanie i scalanie partycji** — Azure Analysis Services umożliwia niezależne przetwarzanie partycji. Ponieważ chcemy, aby Najnowsza partycja **miesięczna** była stale aktualizowana o najnowsze dane, ustaw interwał odświeżania na 5 minut. Można odświeżyć dane przy użyciu [interfejsu API REST](../analysis-services/analysis-services-async-refresh.md), usługi [Azure Automation](../analysis-services/analysis-services-refresh-azure-automation.md)lub [aplikacji logiki](../analysis-services/analysis-services-refresh-logic-app.md). Odświeżanie danych w partycji historycznej nie jest wymagane. Ponadto należy napisać kod, aby skonsolidować najnowszą partycję miesiąca do partycji historycznej i utworzyć nową partycję miesiąca.
 
@@ -151,11 +161,11 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
 
 1. **Połącz się z usługą Azure Analysis Server przy użyciu łącznika Azure Analysis Services Database** — wybierz **tryb Live** i Połącz się z wystąpieniem Azure Analysis Services, jak pokazano na poniższym zrzucie ekranu:
 
-   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-get-data.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
+   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-get-data.png" alt-text="Pobieranie danych z usługi Azure Analysis Services":::
 
 1. **Załaduj dane i Generuj raporty** — przy użyciu załadowanych wcześniej danych Utwórz wykresy w celu raportowania temperatury i opadów. Ponieważ tworzysz połączenie na żywo, należy wykonać zapytania dotyczące danych w modelu Azure Analysis Services, który został wdrożony w poprzednim kroku. Wykresy temperatury zostaną zaktualizowane w ciągu pięciu minut od momentu załadowania nowych danych do Azure Cosmos DB.
 
-   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png" alt-text="Łącznik usługi PowerBI w usłudze Cosmos DB":::
+   :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png" alt-text="Ładowanie danych i generowanie raportów":::
 
 ## <a name="next-steps"></a>Następne kroki
 

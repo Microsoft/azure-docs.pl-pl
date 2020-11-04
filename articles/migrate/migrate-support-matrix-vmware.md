@@ -3,12 +3,12 @@ title: Obsługa oceny VMware w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny maszyn wirtualnych VMware za pomocą oceny serwera Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9d5c954be2a6f05e5132a5f57f8169f436719a8d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315791"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332274"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Macierz obsługi dla oceny oprogramowania VMware 
 
@@ -66,14 +66,14 @@ Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funk
 
 **Pomoc techniczna** | **Szczegóły**
 --- | ---
-**Obsługiwane maszyny** | Funkcja odnajdywania aplikacji jest obecnie obsługiwana tylko w przypadku maszyn wirtualnych VMware.
+**Obsługiwane maszyny** | Funkcja odnajdywania aplikacji jest obecnie obsługiwana tylko w przypadku maszyn wirtualnych VMware. Na każdym urządzeniu Azure Migrate można odnajdywać aplikacje zainstalowane na maksymalnie 10000 maszynach wirtualnych VMware.
 **Odnajdywanie** | Odnajdowanie aplikacji jest bezagentem. Używa poświadczeń gościa komputera i zdalnie uzyskuje dostęp do maszyn przy użyciu usług WMI i wywołań SSH.
 **Obsługa maszyn wirtualnych** | Funkcja odnajdywania aplikacji jest obsługiwana w przypadku maszyn wirtualnych, na których działają wszystkie wersje systemów Windows i Linux.
-**vCenter** | VCenter Server konto tylko do odczytu używane do oceny, wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa**, aby można było korzystać z maszyny wirtualnej w celu odnajdywania aplikacji.
+**vCenter** | VCenter Server konto tylko do odczytu używane do oceny, wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa** , aby można było korzystać z maszyny wirtualnej w celu odnajdywania aplikacji.
 **Dostęp do maszyny wirtualnej** | Funkcja odnajdywania aplikacji musi mieć konto użytkownika lokalnego na maszynie wirtualnej w celu odnajdywania aplikacji.<br/><br/> Azure Migrate obecnie obsługuje użycie jednego poświadczenia dla wszystkich serwerów z systemem Windows i jedno poświadczenie dla wszystkich serwerów z systemem Linux.<br/><br/> Tworzysz konto użytkownika-gościa dla maszyn wirtualnych z systemem Windows oraz normalne/normalne konto użytkownika (dostęp sudo) dla wszystkich maszyn wirtualnych z systemem Linux.
 **Narzędzia VMware** | Narzędzia VMware muszą być zainstalowane i uruchomione na maszynach wirtualnych, które mają zostać odnajdywane. <br/><br/> Wersja narzędzi VMware musi być nowsza niż 10.2.0.
-**Program PowerShell** | Na maszynach wirtualnych musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
-**Dostęp do portu** | Na hostach ESXi z uruchomionymi maszynami wirtualnymi urządzenie Azure Migrate musi mieć możliwość nawiązania połączenia z portem TCP 443.
+**PowerShell** | Na maszynach wirtualnych musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
+**Dostęp do portu** | Urządzenie Azure Migrate musi mieć możliwość nawiązania połączenia z portem TCP 443 na hostach ESXi z uruchomionymi maszynami wirtualnymi, na których mają zostać odnajdywane aplikacje. VCenter Server zwraca połączenie hosta ESXI, aby pobrać plik zawierający informacje o aplikacji.
 **Limity** | W przypadku odnajdywania aplikacji można wyszukiwać do 10000 maszyn wirtualnych na każdym urządzeniu Azure Migrate.
 
 
@@ -92,7 +92,7 @@ Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funk
 **Konto systemu Linux** | W przypadku analizy zależności na komputerach z systemem Linux urządzenie Azure Migrate musi mieć konto użytkownika głównego<br/><br/> Alternatywnie konto użytkownika wymaga tych uprawnień w przypadku plików/bin/netstat i/bin/ls: CAP_DAC_READ_SEARCH i CAP_SYS_PTRACE. Te funkcje należy ustawić przy użyciu następujących poleceń: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/netstat
 **Wymagani agenci** | Na maszynach, które mają być analizowane, nie jest wymagany żaden Agent.
 **Narzędzia VMware** | Narzędzia VMware (nowsze niż 10,2) muszą być zainstalowane i uruchomione na każdej maszynie wirtualnej, która ma zostać przeanalizowana.
-**Program PowerShell** | Na maszynach wirtualnych z systemem Windows musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
+**PowerShell** | Na maszynach wirtualnych z systemem Windows musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
 **Dostęp do portu** | Na hostach ESXi z maszynami wirtualnymi, które chcesz analizować, urządzenie Azure Migrate musi mieć możliwość nawiązania połączenia z portem TCP 443.
 
 

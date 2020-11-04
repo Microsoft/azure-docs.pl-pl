@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: 2ee616bfe9e88f2f3da37f1e4963ec7a73d59468
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: db94a82112f2670facd4d89178f11653c5316c36
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912093"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331781"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka Python do nawiązywania połączeń i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 
@@ -45,7 +45,7 @@ W tym przewodniku Szybki Start są potrzebne następujące aplikacje:
 Połączenie z bazą danych Azure Database for PostgreSQL wymaga w pełni kwalifikowanej nazwy serwera i poświadczeń logowania. Te informacje można uzyskać z Azure Portal.
 
 1. W [Azure Portal](https://portal.azure.com/)Wyszukaj i wybierz nazwę serwera Azure Database for PostgreSQL.
-1. Na stronie **Przegląd** serwera Skopiuj w pełni kwalifikowaną **nazwę serwera** i nazwa **użytkownika administratora** . W pełni kwalifikowana **Nazwa serwera** ma zawsze postać *\<my-server-name> . Postgres.Database.Azure.com* , a nazwa **użytkownika administratora** jest zawsze w postaci *\<my-admin-username>@\<my-server-name>* .
+1. Na stronie **Przegląd** serwera Skopiuj w pełni kwalifikowaną **nazwę serwera** i nazwa **użytkownika administratora**. W pełni kwalifikowana **Nazwa serwera** ma zawsze postać *\<my-server-name> . Postgres.Database.Azure.com* , a nazwa **użytkownika administratora** jest zawsze w postaci *\<my-admin-username>@\<my-server-name>* .
 
    Potrzebujesz także hasła administratora. Jeśli zapomnisz, możesz zresetować ją na tej stronie.
 
@@ -101,7 +101,7 @@ conn.close()
 
 Po pomyślnym uruchomieniu kodu generowane są następujące dane wyjściowe:
 
-:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Nazwa serwera usługi Azure Database for PostgreSQL":::
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Dane wyjściowe wiersza polecenia":::
 
 
 [Masz problemy? Daj nam znać](https://aka.ms/postgres-doc-feedback)
@@ -149,6 +149,16 @@ print("Deleted 1 row of data")
 ```
 
 [Masz problemy? Daj nam znać](https://aka.ms/postgres-doc-feedback)
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Aby wyczyścić wszystkie zasoby używane w ramach tego przewodnika Szybki Start, Usuń grupę zasobów przy użyciu następującego polecenia:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]

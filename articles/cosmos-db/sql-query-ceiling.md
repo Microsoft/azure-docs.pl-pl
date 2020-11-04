@@ -3,16 +3,17 @@ title: PUŁAP w Azure Cosmos DB języku zapytań
 description: Dowiedz się, jak Funkcja systemowa SQL sufit w Azure Cosmos DB zwraca najmniejszą liczbę całkowitą większą lub równą określonemu wyrażeniu liczbowym.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2ffc1ba208ca6b587354fcce683dc7db3a8ccb64
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8c5fdda416aca698b9ad0a68ef050957f32aef31
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081692"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332410"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>GÓRNy limit (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

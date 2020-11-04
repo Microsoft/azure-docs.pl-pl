@@ -3,16 +3,17 @@ title: ARRAY_LENGTH w języku zapytań Azure Cosmos DB
 description: Dowiedz się, jak Funkcja systemowa SQL długości tablicy w Azure Cosmos DB zwraca liczbę elementów określonego wyrażenia tablicy
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d8c27f2269171bd6121973ace4e535d375adf2de
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 014dc2584b82951f575468ef31ee2ed69a8ef753
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089427"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332597"
 ---
 # <a name="array_length-azure-cosmos-db"></a>ARRAY_LENGTH (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

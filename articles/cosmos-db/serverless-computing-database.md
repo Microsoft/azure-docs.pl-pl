@@ -3,15 +3,16 @@ title: Przetwarzanie bazy danych bez serwera z użyciem Azure Cosmos DB i Azure 
 description: Dowiedz się, jak Azure Cosmos DB i Azure Functions mogą być używane razem do tworzenia aplikacji komputerowych opartych na zdarzeniach.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 5264fb44f8088ae8f942abf95bc8c0ef6d917413
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 73a34cc27eaba33d04f4d31585c7f494f58e7274
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096142"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334076"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Przetwarzanie baz danych bezserwerowe przy użyciu Azure Cosmos DB i Azure Functions
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,9 +25,9 @@ Za pomocą natywnej integracji między [Azure Cosmos DB](https://azure.microsoft
 
 Azure Cosmos DB i Azure Functions umożliwiają integrację baz danych i aplikacji bezserwerowych w następujący sposób:
 
-* Utwórz **wyzwalacz Azure Functions oparty na zdarzeniach dla Cosmos DB** . Ten wyzwalacz opiera się na strumieniach [źródeł zmian](change-feed.md) do monitorowania kontenera usługi Azure Cosmos pod kątem zmian. Po wprowadzeniu jakichkolwiek zmian do kontenera strumień strumieniowego źródła danych jest wysyłany do wyzwalacza, który wywołuje funkcję platformy Azure.
-* Alternatywnie można powiązać funkcję platformy Azure z kontenerem usługi Azure Cosmos przy użyciu **powiązania danych wejściowych** . Powiązania wejściowe odczytują dane z kontenera, gdy zostanie wykonana funkcja.
-* Powiąż funkcję z kontenerem usługi Azure Cosmos za pomocą **powiązania danych wyjściowych** . Powiązania wyjściowe zapisują dane do kontenera po zakończeniu działania funkcji.
+* Utwórz **wyzwalacz Azure Functions oparty na zdarzeniach dla Cosmos DB**. Ten wyzwalacz opiera się na strumieniach [źródeł zmian](change-feed.md) do monitorowania kontenera usługi Azure Cosmos pod kątem zmian. Po wprowadzeniu jakichkolwiek zmian do kontenera strumień strumieniowego źródła danych jest wysyłany do wyzwalacza, który wywołuje funkcję platformy Azure.
+* Alternatywnie można powiązać funkcję platformy Azure z kontenerem usługi Azure Cosmos przy użyciu **powiązania danych wejściowych**. Powiązania wejściowe odczytują dane z kontenera, gdy zostanie wykonana funkcja.
+* Powiąż funkcję z kontenerem usługi Azure Cosmos za pomocą **powiązania danych wyjściowych**. Powiązania wyjściowe zapisują dane do kontenera po zakończeniu działania funkcji.
 
 > [!NOTE]
 > Obecnie Azure Functions wyzwalacza, powiązania wejściowe i powiązania wyjściowe dla Cosmos DB są obsługiwane tylko w przypadku korzystania z interfejsu API SQL. Dla wszystkich innych Azure Cosmos DB interfejsów API należy uzyskać dostęp do bazy danych z funkcji przy użyciu klienta statycznego dla interfejsu API.
@@ -62,7 +63,7 @@ W implementacjach IoT można wywołać funkcję, gdy lampa Check Engine jest wy�
 
 Na poniższej ilustracji przedstawiono kod zapisany w Azure Portal dla tego wyzwalacza.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Jak integracja Azure Cosmos DB i Azure Functions":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Utwórz wyzwalacz Azure Functions dla Cosmos DB w Azure Portal":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Przypadek użycia finansowego — wyzwalacz czasomierza i powiązanie wejściowe
 
@@ -70,15 +71,15 @@ W obszarze implementacje finansowe można wywołać funkcję, gdy saldo konta ba
 
 **Implementacja:** Wyzwalacz czasomierza z powiązaniem wejściowym Azure Cosmos DB
 
-1. Korzystając z [wyzwalacza czasomierza](../azure-functions/functions-bindings-timer.md), można pobrać informacje o saldzie konta bankowego przechowywane w kontenerze usługi Azure Cosmos w interwałach czasowych przy użyciu **powiązania danych wejściowych** .
+1. Korzystając z [wyzwalacza czasomierza](../azure-functions/functions-bindings-timer.md), można pobrać informacje o saldzie konta bankowego przechowywane w kontenerze usługi Azure Cosmos w interwałach czasowych przy użyciu **powiązania danych wejściowych**.
 2. Jeśli saldo jest poniżej progu niskiego salda ustawionego przez użytkownika, wykonaj akcję z akcją w funkcji platformy Azure.
 3. Powiązanie danych wyjściowych może być [integracją SendGrid](../azure-functions/functions-bindings-sendgrid.md) , która wysyła wiadomość e-mail z konta usługi do adresów e-mail zidentyfikowanych dla każdego z kont niskiego salda.
 
 Poniższe obrazy przedstawiają kod w Azure Portal w tym scenariuszu.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Jak integracja Azure Cosmos DB i Azure Functions":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Index.js pliku dla wyzwalacza czasomierza dla scenariusza finansowego":::
 
-:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Jak integracja Azure Cosmos DB i Azure Functions":::
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Uruchom plik. CSX dla wyzwalacza czasomierza dla scenariusza finansowego":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Przypadek użycia gier — Azure Functions wyzwalacza i powiązania danych wyjściowych dla Cosmos DB 
 
@@ -87,7 +88,7 @@ W grach podczas tworzenia nowego użytkownika można wyszukać innych użytkowni
 **Implementacja:** Użyj wyzwalacza Azure Functions i powiązania wyjściowego dla Cosmos DB
 
 1. Przy użyciu [bazy danych](graph-introduction.md) programu Azure Cosmos DB Graph do przechowywania wszystkich użytkowników można utworzyć nową funkcję z wyzwalaczem Azure Functions dla Cosmos DB. 
-2. Za każdym razem, gdy nowy użytkownik zostanie wstawiony, funkcja jest wywoływana, a następnie wynik jest przechowywany za pomocą **powiązania danych wyjściowych** .
+2. Za każdym razem, gdy nowy użytkownik zostanie wstawiony, funkcja jest wywoływana, a następnie wynik jest przechowywany za pomocą **powiązania danych wyjściowych**.
 3. Funkcja wysyła zapytanie do bazy danych grafu w celu wyszukania wszystkich użytkowników, którzy są bezpośrednio powiązani z nowym użytkownikiem i zwracają ten zestaw danych do funkcji.
 4. Te dane są następnie przechowywane w Azure Cosmos DB, które można następnie łatwo pobrać przez dowolną aplikację frontonu, która pokazuje nowego użytkownika połączonego znajomych.
 
@@ -125,21 +126,21 @@ Azure Cosmos DB jest zalecaną bazą danych dla architektury przetwarzania bezse
 
 * **Natychmiastowy dostęp do wszystkich danych** : masz szczegółowy dostęp do każdej przechowywanej wartości, ponieważ Azure Cosmos DB [automatycznie domyślnie indeksuje](index-policy.md) wszystkie dane i sprawia, że te indeksy są dostępne natychmiast. Oznacza to, że można stale wysyłać zapytania, aktualizować i dodawać nowe elementy do bazy danych oraz uzyskiwać natychmiastowy dostęp za pośrednictwem Azure Functions.
 
-* **Bezschematowe** . Azure Cosmos DB jest bezschematowa — w związku z tym jednoznacznie można obsłużyć wszelkie dane wyjściowe z funkcji platformy Azure. To podejście "dojście" umożliwia proste tworzenie różnych funkcji, które wszystkie dane wyjściowe będą Azure Cosmos DB.
+* **Bezschematowe**. Azure Cosmos DB jest bezschematowa — w związku z tym jednoznacznie można obsłużyć wszelkie dane wyjściowe z funkcji platformy Azure. To podejście "dojście" umożliwia proste tworzenie różnych funkcji, które wszystkie dane wyjściowe będą Azure Cosmos DB.
 
-* **Skalowalna przepływność** . Przepływność można skalować w górę i w dół w Azure Cosmos DB. Jeśli masz setki lub tysiące funkcji wysyłających zapytania i zapisu do tego samego kontenera, możesz skalować w górę jednostki [ru/s](request-units.md) , aby obsłużyć obciążenie. Wszystkie funkcje mogą działać równolegle przy użyciu przyznanych RU/s, a Twoje dane są gwarantowane [spójność](consistency-levels.md).
+* **Skalowalna przepływność**. Przepływność można skalować w górę i w dół w Azure Cosmos DB. Jeśli masz setki lub tysiące funkcji wysyłających zapytania i zapisu do tego samego kontenera, możesz skalować w górę jednostki [ru/s](request-units.md) , aby obsłużyć obciążenie. Wszystkie funkcje mogą działać równolegle przy użyciu przyznanych RU/s, a Twoje dane są gwarantowane [spójność](consistency-levels.md).
 
-* **Replikacja globalna** . Możesz replikować Azure Cosmos DB danych na [całym świecie](distribute-data-globally.md) , aby ograniczyć opóźnienia, lokalizowanie danych w pobliżu miejsca, w którym znajdują się użytkownicy. Podobnie jak w przypadku wszystkich zapytań Azure Cosmos DB, dane z wyzwalaczy sterowanych zdarzeniami są odczytywane z Azure Cosmos DB najbliżej użytkownika.
+* **Replikacja globalna**. Możesz replikować Azure Cosmos DB danych na [całym świecie](distribute-data-globally.md) , aby ograniczyć opóźnienia, lokalizowanie danych w pobliżu miejsca, w którym znajdują się użytkownicy. Podobnie jak w przypadku wszystkich zapytań Azure Cosmos DB, dane z wyzwalaczy sterowanych zdarzeniami są odczytywane z Azure Cosmos DB najbliżej użytkownika.
 
 Jeśli chcesz przeprowadzić integrację z usługą Azure Functions, aby przechowywać dane i nie potrzebować głębokiego indeksowania, lub jeśli zachodzi potrzeba przechowywania załączników i plików multimedialnych, [wyzwalacz BLOB Storage platformy Azure](../azure-functions/functions-bindings-storage-blob.md) może być lepszym rozwiązaniem.
 
 Zalety Azure Functions: 
 
-* **Sterowane zdarzeniami** . Azure Functions są sterowane zdarzeniami i mogą nasłuchiwać źródła zmian z Azure Cosmos DB. Oznacza to, że nie musisz tworzyć logiki nasłuchiwania, po prostu Zadbaj o zmiany, które nasłuchuje. 
+* **Sterowane zdarzeniami**. Azure Functions są sterowane zdarzeniami i mogą nasłuchiwać źródła zmian z Azure Cosmos DB. Oznacza to, że nie musisz tworzyć logiki nasłuchiwania, po prostu Zadbaj o zmiany, które nasłuchuje. 
 
-* **Brak limitów** . Funkcje są wykonywane równolegle, a usługa jest uruchamiana na tyle, ile potrzebujesz. Parametry są ustawiane.
+* **Brak limitów**. Funkcje są wykonywane równolegle, a usługa jest uruchamiana na tyle, ile potrzebujesz. Parametry są ustawiane.
 
-* **Dobre dla szybkich zadań** . Usługa uruchamia nowe wystąpienia funkcji za każdym razem, gdy zdarzenie zostanie wyzwolone i zamyka je zaraz po zakończeniu działania funkcji. Płacisz tylko za czas działania funkcji.
+* **Dobre dla szybkich zadań**. Usługa uruchamia nowe wystąpienia funkcji za każdym razem, gdy zdarzenie zostanie wyzwolone i zamyka je zaraz po zakończeniu działania funkcji. Płacisz tylko za czas działania funkcji.
 
 Jeśli nie masz pewności, czy przepływ, Logic Apps, Azure Functions lub zadania WebJob są najlepsze dla implementacji, zobacz [Wybieranie między przepływem, Logic Apps, funkcjami i zadaniami WebJob](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 

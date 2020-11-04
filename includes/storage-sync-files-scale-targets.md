@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 47eae616ffc62e42448da23fb02152dae17aa548
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 29518fb971649087d8a5afa39d69c7fc2c014f98
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116682"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330981"
 ---
 | Zasób | Cel | Limit sztywny |
 |----------|--------------|------------|
@@ -21,7 +21,7 @@ ms.locfileid: "92116682"
 | Grupy synchronizacji na usługę synchronizacji magazynu | 200 grup synchronizacji | Tak |
 | Zarejestrowane serwery na usługę synchronizacji magazynu | serwery 99 | Tak |
 | Punkty końcowe chmury na grupę synchronizacji | 1 punkt końcowy w chmurze | Tak |
-| Punkty końcowe serwera dla grupy synchronizacji | punkty końcowe serwera 50 | Nie |
+| Punkty końcowe serwera dla grupy synchronizacji | punkty końcowe serwera 100 | Tak |
 | Punkty końcowe serwera na serwer | 30 punktów końcowych serwera | Tak |
 | Obiekty systemu plików (Katalogi i pliki) dla każdej grupy synchronizacji | 100 000 000 obiektów | Nie |
 | Maksymalna liczba obiektów systemu plików (katalogów i plików) w katalogu | 5 000 000 obiektów | Tak |

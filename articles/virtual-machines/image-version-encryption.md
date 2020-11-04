@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f6bf436110e9822d687419b74a8a22bad7a6d700
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048087"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333468"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Wersja zapoznawcza: Używanie kluczy zarządzanych przez klienta do szyfrowania obrazów
 
@@ -25,7 +25,7 @@ Szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez klienta u
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ten artykuł wymaga, aby na potrzeby obrazu było już ustawione szyfrowanie dysków.
+Ten artykuł wymaga, aby w każdym regionie był już ustawiony zestaw szyfrowanie dysków, do którego chcesz replikować obraz.
 
 - Aby użyć tylko klucza zarządzanego przez klienta, zobacz temat **Włączanie kluczy zarządzanych przez klienta za pomocą szyfrowania po stronie serwera** przy użyciu [Azure Portal](./disks-enable-customer-managed-keys-portal.md) lub [programu PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
@@ -210,7 +210,7 @@ Podczas tworzenia wersji obrazu w portalu możesz użyć karty **szyfrowanie** ,
 
 
 1. Na stronie **Tworzenie wersji obrazu** wybierz kartę **szyfrowanie** .
-2. W obszarze **typ szyfrowania**wybierz pozycję **szyfrowanie w systemie i klucz zarządzany przez klienta** lub **podwójne szyfrowanie za pomocą kluczy zarządzanych przez platformę i klienta**. 
+2. W obszarze **typ szyfrowania** wybierz pozycję **szyfrowanie w systemie i klucz zarządzany przez klienta** lub **podwójne szyfrowanie za pomocą kluczy zarządzanych przez platformę i klienta**. 
 3. Dla każdego dysku w obrazie wybierz z listy rozwijanej **ustawienia szyfrowanie dysków** , które mają być używane. 
 
 ### <a name="create-the-vm"></a>Tworzenie maszyny wirtualnej

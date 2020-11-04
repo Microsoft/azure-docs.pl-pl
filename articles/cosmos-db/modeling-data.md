@@ -5,14 +5,15 @@ description: Dowiedz się więcej na temat modelowania danych w bazach danych No
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 0868b0d3e917b857d09c89e3a35d03872c42a23e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096652"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333260"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelowanie danych w Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,7 +37,7 @@ Na potrzeby porównania najpierw zobaczymy, jak możemy modelować dane w relacy
 
 :::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Model relacyjnej bazy danych" border="false":::
 
-W przypadku pracy z relacyjnymi bazami danych strategia ma na celu normalizację wszystkich danych. Normalizacja danych zazwyczaj obejmuje przejęcie jednostki, takiej jak osoba, i przedzielenie jej na składniki dyskretne. W powyższym przykładzie osoba może mieć wiele rekordów szczegółów kontaktu, a także wiele rekordów adresów. Szczegóły kontaktu można podzielić na dalsze wyodrębnianie wspólnych pól, takich jak typ. To samo dotyczy adresu, każdy rekord może być typu *dom* lub *Business* .
+W przypadku pracy z relacyjnymi bazami danych strategia ma na celu normalizację wszystkich danych. Normalizacja danych zazwyczaj obejmuje przejęcie jednostki, takiej jak osoba, i przedzielenie jej na składniki dyskretne. W powyższym przykładzie osoba może mieć wiele rekordów szczegółów kontaktu, a także wiele rekordów adresów. Szczegóły kontaktu można podzielić na dalsze wyodrębnianie wspólnych pól, takich jak typ. To samo dotyczy adresu, każdy rekord może być typu *dom* lub *Business*.
 
 Identyfikator GUID w przypadku normalizacji danych ma na celu **uniknięcie przechowywania nadmiarowych danych** w każdym rekordzie i raczej odnieść się do danych. W tym przykładzie w celu odczytania osoby z uwzględnieniem wszystkich informacji kontaktowych i adresów należy użyć sprzężeń, aby efektywnie redagować (lub denormalizować) dane w czasie wykonywania.
 
@@ -86,9 +87,9 @@ Ogólnie rzecz biorąc, użyj osadzonych modeli danych w programie:
 
 * **Istnieją relacje między** jednostkami.
 * Między jednostkami istnieją relacje **"jeden do kilku** ".
-* Dane osadzone są **rzadko zmieniane** .
-* Istnieją osadzone dane, które nie zostaną powiększone **bez powiązania** .
-* Istnieje osadzona Data, do której często wykonywane są **zapytania** .
+* Dane osadzone są **rzadko zmieniane**.
+* Istnieją osadzone dane, które nie zostaną powiększone **bez powiązania**.
+* Istnieje osadzona Data, do której często wykonywane są **zapytania**.
 
 > [!NOTE]
 > Zwykle nieznormalizowane modele danych zapewniają lepszą wydajność **odczytu** .
@@ -243,7 +244,7 @@ Ogólnie rzecz biorąc, używaj znormalizowanych modeli danych, gdy:
 * Reprezentuje relacje **jeden do wielu** .
 * Reprezentuje relacje **wiele do wielu** .
 * Często związane ze sobą **zmiany** danych.
-* Dane, do których istnieją odwołania, mogą być **niepowiązane** .
+* Dane, do których istnieją odwołania, mogą być **niepowiązane**.
 
 > [!NOTE]
 > Zwykle normalizacja zapewnia lepszą wydajność **zapisu** .
@@ -300,7 +301,7 @@ W powyższym przykładzie podaliśmy niepowiązaną kolekcję do dokumentu wydaw
 W relacyjnej bazie danych *wiele: wiele* relacji jest często modelowanych przy użyciu tabel sprzężenia, które po prostu łączą rekordy z innych tabel.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Model relacyjnej bazy danych" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Sprzęganie tabel" border="false":::
 
 Może być skłonny do replikowania tych samych rzeczy przy użyciu dokumentów i tworzenia modelu danych, który wygląda podobnie do poniższego.
 
@@ -403,7 +404,7 @@ Upewnij się, że jeśli nazwa autora została zmieniona lub chcesz zaktualizowa
 
 W przykładzie istnieją **wstępnie obliczone wartości zagregowane** , aby zaoszczędzić kosztowne przetwarzanie operacji odczytu. W przykładzie niektóre dane osadzone w dokumencie autor są danymi obliczanymi w czasie wykonywania. Za każdym razem, gdy nowa książka jest publikowana, tworzony jest dokument księgi, **a** pole countOfBooks jest ustawione na wartość obliczoną na podstawie liczby dokumentów księgi istniejących dla danego autora. Ta optymalizacja jest lepsza w odniesieniu do dużych systemów, w których możemy umożliwić wykonywanie obliczeń przy zapisach w celu zoptymalizowania operacji odczytu.
 
-Istnieje możliwość, że model z polami wstępnie obliczonymi jest możliwy, ponieważ Azure Cosmos DB obsługuje **transakcje wielodokumentowe** . Wiele magazynów NoSQL nie może wykonywać transakcji między dokumentami i dlatego ambasadoruje decyzje projektowe, takie jak "Zawsze osadzaj wszystko", z powodu tego ograniczenia. Za pomocą Azure Cosmos DB można używać wyzwalaczy po stronie serwera lub procedur składowanych, które wstawiają książki i aktualizują autorów w ramach transakcji KWAŚNej. Teraz nie **trzeba** osadzać wszystkiego w jednym dokumencie, aby upewnić się, że dane pozostają spójne.
+Istnieje możliwość, że model z polami wstępnie obliczonymi jest możliwy, ponieważ Azure Cosmos DB obsługuje **transakcje wielodokumentowe**. Wiele magazynów NoSQL nie może wykonywać transakcji między dokumentami i dlatego ambasadoruje decyzje projektowe, takie jak "Zawsze osadzaj wszystko", z powodu tego ograniczenia. Za pomocą Azure Cosmos DB można używać wyzwalaczy po stronie serwera lub procedur składowanych, które wstawiają książki i aktualizują autorów w ramach transakcji KWAŚNej. Teraz nie **trzeba** osadzać wszystkiego w jednym dokumencie, aby upewnić się, że dane pozostają spójne.
 
 ## <a name="distinguishing-between-different-document-types"></a>Rozróżnianie między różnymi typami dokumentów
 

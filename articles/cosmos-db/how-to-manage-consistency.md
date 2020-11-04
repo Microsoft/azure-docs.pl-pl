@@ -3,16 +3,17 @@ title: Zarządzanie spójnością w Azure Cosmos DB
 description: Informacje o konfigurowaniu poziomów spójności i zarządzaniu nimi w Azure Cosmos DB przy użyciu Azure Portal, zestawu .NET SDK, zestawu Java SDK i różnych zestawów SDK
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 4be2b8cdd987b6357df283f0791593c51417dfc7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101500"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333481"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Zarządzanie poziomami spójności w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +28,7 @@ W tym artykule wyjaśniono, jak zarządzać poziomami spójności w usłudze Azu
 
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
 
-Aby wyświetlić lub zmodyfikować domyślny poziom spójności, zaloguj się do witryny Azure Portal. Znajdź konto usługi Azure Cosmos i Otwórz domyślne okienko **spójności** . Wybierz odpowiedni poziom spójności jako nowe ustawienie domyślne, a następnie wybierz pozycję **Zapisz** . Azure Portal udostępnia również wizualizację różnych poziomów spójności przy użyciu notatek muzycznych. 
+Aby wyświetlić lub zmodyfikować domyślny poziom spójności, zaloguj się do witryny Azure Portal. Znajdź konto usługi Azure Cosmos i Otwórz domyślne okienko **spójności** . Wybierz odpowiedni poziom spójności jako nowe ustawienie domyślne, a następnie wybierz pozycję **Zapisz**. Azure Portal udostępnia również wizualizację różnych poziomów spójności przy użyciu notatek muzycznych. 
 
 :::image type="content" source="./media/how-to-manage-consistency/consistency-settings.png" alt-text="Menu spójności w witrynie Azure Portal":::
 
@@ -66,7 +67,7 @@ Klienci mogą zastąpić domyślny poziom spójności, który jest ustawiony prz
 > [!TIP]
 > Spójność **może być możliwa tylko na poziomie żądania** . Aby przejść ze słabszego do silniejszego spójności, zaktualizuj domyślną spójność dla konta Cosmos.
 
-### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>Zestaw SDK .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -96,7 +97,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
 
-# <a name="async"></a>[Async](#tab/api-async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -112,7 +113,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 ### <a name="java-v2-sdks"></a><a id="override-default-consistency-javav2"></a> Zestawy SDK Java v2
 
-# <a name="async"></a>[Async](#tab/api-async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
 Async Java v2 SDK (Maven com. Microsoft. Azure:: Azure-cosmosdb)
 
@@ -152,7 +153,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>Zestaw SDK języka Python
+### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>Zestaw SDK dla języka Python
 
 ```python
 # Override consistency at the client level
@@ -167,7 +168,7 @@ Jeden z poziomów spójności w Azure Cosmos DB jest spójność *sesji* . Jest 
 
 Aby ręcznie zarządzać tokenami sesji, pobieraj token sesji z odpowiedzi i ustawiaj go dla poszczególnych żądań. Jeśli nie chcesz ręcznie zarządzać tokenami sesji, nie musisz korzystać z tych przykładów. Zestaw SDK automatycznie śledzi tokeny sesji. Jeśli nie ustawisz tokenu sesji ręcznie, zestaw SDK domyślnie użyje najnowszego tokenu sesji.
 
-### <a name="net-sdk"></a><a id="utilize-session-tokens-dotnet"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="utilize-session-tokens-dotnet"></a>Zestaw SDK .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -197,7 +198,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
 ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
 
-# <a name="async"></a>[Async](#tab/api-async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
    Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -213,7 +214,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
 ### <a name="java-v2-sdks"></a><a id="utilize-session-tokens-javav2"></a>Zestawy SDK Java v2
 
-# <a name="async"></a>[Async](#tab/api-async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
 Async Java v2 SDK (Maven com. Microsoft. Azure:: Azure-cosmosdb)
 
@@ -264,7 +265,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>Zestaw SDK języka Python
+### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>Zestaw SDK dla języka Python
 
 ```python
 // Get the session token from the last response headers
@@ -280,9 +281,9 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorowanie metryki PBS (Probabilistically Bounded Staleness)
 
-Jak ostateczna jest spójność ostateczna? W przypadku średniego przypadku można zaoferować nieaktualność w odniesieniu do historii wersji i czasu. Metryka [**probabilistically ograniczona (PBS)**](https://pbs.cs.berkeley.edu/) próbuje określić prawdopodobieństwo nieodświeżoności i pokazuje ją jako metrykę. Aby wyświetlić metrykę usługi PBS, przejdź do swojego konta usługi Azure Cosmos w Azure Portal. Otwórz okienko **metryki** i wybierz kartę **spójność** . Przyjrzyj się grafowi o nazwie **prawdopodobieństwo silnie spójnych odczytów w oparciu o obciążenie (zobacz PBS)** .
+Jak ostateczna jest spójność ostateczna? W przypadku średniego przypadku można zaoferować nieaktualność w odniesieniu do historii wersji i czasu. Metryka [**probabilistically ograniczona (PBS)**](https://pbs.cs.berkeley.edu/) próbuje określić prawdopodobieństwo nieodświeżoności i pokazuje ją jako metrykę. Aby wyświetlić metrykę usługi PBS, przejdź do swojego konta usługi Azure Cosmos w Azure Portal. Otwórz okienko **metryki** i wybierz kartę **spójność** . Przyjrzyj się grafowi o nazwie **prawdopodobieństwo silnie spójnych odczytów w oparciu o obciążenie (zobacz PBS)**.
 
-:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Menu spójności w witrynie Azure Portal":::
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Wykres PBS w witrynie Azure Portal":::
 
 ## <a name="next-steps"></a>Następne kroki
 

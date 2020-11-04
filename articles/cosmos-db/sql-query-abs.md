@@ -3,16 +3,17 @@ title: ABS w Azure Cosmos DB języku zapytań
 description: Dowiedz się, jak Funkcja systemowa SQL bezwzględna (ABS) w Azure Cosmos DB zwraca wartość dodatnią określonego wyrażenia liczbowego
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: adda656ffe0ad9ec100b0f52147c4e547a238cf0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b3047c395ce6ef55a4cad8083e98ccfc7105c7a2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091076"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332869"
 ---
 # <a name="abs-azure-cosmos-db"></a>ABS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8a9661f7f5cdd66dc0aab6d937701cda48048219
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1ddc8c2b9531dd78c1c6746e28b8ff5864af563e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488031"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331955"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -61,9 +61,9 @@ Poniżej znajdują się szczegółowe informacje dotyczące powyższych argument
 name | mydemoserver | Unikatowa nazwa identyfikująca serwer Azure Database for PostgreSQL. Nazwa serwera może zawierać tylko małe litery, cyfry i znaki łącznika (-). Musi zawierać od 3 do 63 znaków. Aby uzyskać więcej informacji, zobacz [Azure Database for PostgreSQL regułami nazewnictwa](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql).
 resource-group | myresourcegroup | Nazwa grupy zasobów platformy Azure.
 location | westus | Lokalizacja platformy Azure dla serwera.
-admin-user | myadmin | Nazwa użytkownika dla logowania administratora. Nie może to być **azure_superuser**, **admin**, **administrator**, **root**, **Guest**ani **Public**.
+admin-user | myadmin | Nazwa użytkownika dla logowania administratora. Nie może to być **azure_superuser** , **admin** , **administrator** , **root** , **Guest** ani **Public**.
 admin-password | *bezpieczne hasło* | Hasło administratora. Musi zawierać od 8 do 128 znaków z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
-sku-name|GP_Gen5_2| Nazwa warstwy cenowej i konfiguracji obliczeniowej. Postępuj zgodnie z Konwencją {warstwa cenowa}_{Generation COMPUTE}_{rdzeni wirtualnych} w postaci skróconej. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
+sku-name|GP_Gen5_2| Nazwa warstwy cenowej i konfiguracji obliczeniowej. Postępuj zgodnie z Konwencją {warstwa cenowa} _{Generation COMPUTE}_ {rdzeni wirtualnych} w postaci skróconej. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT] 
 >- Domyślna wersja PostgreSQL na serwerze to 9,6. Aby wyświetlić wszystkie obsługiwane wersje, zobacz [obsługiwane wersje główne PostgreSQL](./concepts-supported-versions.md).
@@ -123,7 +123,7 @@ Wynik jest w formacie JSON. Zanotuj wartości **administratorLogin** i **fullyQu
 ```
 
 ## <a name="connect-to-the-azure-database-for-postgresql-server-by-using-psql"></a>Nawiązywanie połączenia z serwerem Azure Database for PostgreSQL przy użyciu PSQL
-Klient [PSQL](https://www.postgresql.org/docs/current/static/app-psql.html) to popularny wybór służący do nawiązywania połączeń z serwerami PostgreSQL. Możesz nawiązać połączenie z serwerem za pomocą PSQL z [Azure Cloud Shell](../cloud-shell/overview.md). Możesz również użyć PSQL w środowisku lokalnym, jeśli jest dostępny. Pusta baza danych, **Postgres**, jest tworzona automatycznie przy użyciu nowego serwera PostgreSQL. Tej bazy danych można użyć do nawiązania połączenia z usługą PSQL, jak pokazano w poniższym kodzie. 
+Klient [PSQL](https://www.postgresql.org/docs/current/static/app-psql.html) to popularny wybór służący do nawiązywania połączeń z serwerami PostgreSQL. Możesz nawiązać połączenie z serwerem za pomocą PSQL z [Azure Cloud Shell](../cloud-shell/overview.md). Możesz również użyć PSQL w środowisku lokalnym, jeśli jest dostępny. Pusta baza danych, **Postgres** , jest tworzona automatycznie przy użyciu nowego serwera PostgreSQL. Tej bazy danych można użyć do nawiązania połączenia z usługą PSQL, jak pokazano w poniższym kodzie. 
 
    ```bash
  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -153,7 +153,3 @@ az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
 > [Migrowanie bazy danych przy użyciu funkcji eksportowania i importowania](./howto-migrate-using-export-and-import.md)
-> 
-> [Wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL](../app-service/tutorial-python-postgresql-app.md)
->
-> [Nawiązywanie połączenia z aplikacją Node.JS](./connect-nodejs.md)

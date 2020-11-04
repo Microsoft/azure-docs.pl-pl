@@ -1,18 +1,18 @@
 ---
 title: 'Szybki Start: Tworzenie szablonu usługi Azure DB dla PostgreSQL — ARM'
-description: W tym artykule dowiesz się, jak utworzyć Azure Database for PostgreSQL pojedynczy serwer przy użyciu szablonu Azure Resource Manager.
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć Azure Database for PostgreSQL pojedynczy serwer przy użyciu szablonu Azure Resource Manager.
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/14/2020
-ms.openlocfilehash: bf53b6673da57428b648c0043a1454560f64e4bb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 9b022f83ed2a4e3a23165cc6bda298a53c008c7c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042918"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331645"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie szablonu ARM do tworzenia Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -20,7 +20,7 @@ Azure Database for PostgreSQL to usługa zarządzana, która służy do uruchami
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w witrynie Azure Portal.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
@@ -66,25 +66,25 @@ Więcej przykładów szablonów Azure Database for PostgreSQL można znaleźć w
 
 Wybierz następujący link, aby wdrożyć szablon Azure Database for PostgreSQL Server w Azure Portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 Na stronie **wdrażanie Azure Database for PostgreSQL przy użyciu sieci wirtualnej** :
 
-1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , wprowadź nazwę nowej grupy zasobów, a następnie wybierz pozycję **OK** .
+1. W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową** , wprowadź nazwę nowej grupy zasobów, a następnie wybierz pozycję **OK**.
 
 2. Jeśli utworzono nową grupę zasobów, wybierz **lokalizację** dla grupy zasobów i nowy serwer.
 
-3. Wprowadź **nazwę serwera** , **Identyfikator logowania administratora** i **hasło logowania administratora** .
+3. Wprowadź **nazwę serwera** , **Identyfikator logowania administratora** i **hasło logowania administratora**.
 
-    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Wdrażanie na platformie Azure":::
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Wdrażanie Azure Database for PostgreSQL przy użyciu okna Sieć wirtualna, szablon szybkiego startu platformy Azure, Azure Portal":::
 
 4. Zmień inne ustawienia domyślne, jeśli chcesz:
 
     * **Subskrypcja** : subskrypcja platformy Azure, która ma być używana dla serwera.
-    * **Pojemność jednostki SKU** : pojemność rdzeń wirtualny, która może być *2* (wartość domyślna), *4* , *8* , *16* , *32* lub *64* .
-    * **Nazwa jednostki SKU** : prefiks warstwy SKU, Rodzina SKU i pojemność jednostki SKU, dołączone przez podkreślenia, takie jak *B_Gen5_1* , *GP_Gen5_2* (domyślne) lub *MO_Gen5_32* .
+    * **Pojemność jednostki SKU** : pojemność rdzeń wirtualny, która może być *2* (wartość domyślna), *4* , *8* , *16* , *32* lub *64*.
+    * **Nazwa jednostki SKU** : prefiks warstwy SKU, Rodzina SKU i pojemność jednostki SKU, dołączone przez podkreślenia, takie jak *B_Gen5_1* , *GP_Gen5_2* (domyślne) lub *MO_Gen5_32*.
     * **Rozmiar jednostki SKU MB** : rozmiar magazynu (w megabajtach) serwera Azure Database for PostgreSQL (domyślnie *51200* ).
-    * **Warstwa SKU** : warstwa wdrożenia, taka jak *podstawowa* , *GeneralPurpose* (domyślna) lub *MemoryOptimized* .
+    * **Warstwa SKU** : warstwa wdrożenia, taka jak *podstawowa* , *GeneralPurpose* (domyślna) lub *MemoryOptimized*.
     * **Rodzina SKU** : *obliczenia* lub *5 rdzeń* (domyślnie), która wskazuje na generowanie sprzętu na potrzeby wdrażania serwera.
     * **Wersja PostgreSQL** : wersja serwera PostgreSQL do wdrożenia, na przykład *9,5* , *9,6* , *10* lub *11* (wartość domyślna).
     * **Liczba dni przechowywania kopii zapasowych** : żądany okres przechowywania kopii zapasowych z Geograficznie nadmiarowy w dniach (domyślnie *7* ).
@@ -95,9 +95,9 @@ Na stronie **wdrażanie Azure Database for PostgreSQL przy użyciu sieci wirtual
     * **Prefiks adresu** sieci wirtualnej: prefiks adresu dla usługi Virtual Network (domyślnie *10.0.0.0/16* ).
     * **Prefiks podsieci** : prefiks adresu podsieci (domyślnie *10.0.0.0/16* ).
 
-5. Przeczytaj warunki i postanowienia, a następnie wybierz **Akceptuję warunki i postanowienia podane powyżej** .
+5. Przeczytaj warunki i postanowienia, a następnie wybierz **Akceptuję warunki i postanowienia podane powyżej**.
 
-6. Wybierz pozycję **Kup** .
+6. Wybierz pozycję **Kup**.
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
@@ -148,7 +148,7 @@ read -p "Press [ENTER] to continue: "
 
 Wykonaj następujące kroki, aby zobaczyć przegląd nowego serwera Azure Database for PostgreSQL:
 
-1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **serwery Azure Database for PostgreSQL** .
+1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **serwery Azure Database for PostgreSQL**.
 
 2. Na liście baza danych wybierz nowy serwer. Zostanie wyświetlona strona **Przegląd** dla nowego serwera Azure Database for PostgreSQL.
 
@@ -181,13 +181,13 @@ Gdy nie jest już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **grupy zasobów** .
+1. W [Azure Portal](https://portal.azure.com)Wyszukaj i wybierz pozycję **grupy zasobów**.
 
 2. Na liście Grupa zasobów wybierz nazwę grupy zasobów.
 
-3. Na stronie **Przegląd** w grupie zasobów wybierz pozycję **Usuń grupę zasobów** .
+3. Na stronie **Przegląd** w grupie zasobów wybierz pozycję **Usuń grupę zasobów**.
 
-4. W oknie dialogowym potwierdzenia wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń** .
+4. W oknie dialogowym potwierdzenia wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 

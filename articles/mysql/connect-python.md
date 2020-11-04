@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: a08145ba5ffb5b30eb2c472d3eb8f608703f44a0
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 8d181483032deed35adfd6eebcbf870b89593407
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743458"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332070"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: używanie języka Python do łączenia i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 
@@ -67,7 +67,7 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z Azure 
    
 1. Na stronie **Przegląd** serwera Zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**. Jeśli zapomnisz hasła, możesz również zresetować hasło na tej stronie.
    
-   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Nazwa serwera usługi Azure Database for MySQL":::
+   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Nazwa serwera Azure Database for MySQL 2":::
 
 ## <a name="run-the-python-examples"></a>Uruchamianie przykładów języka Python
 
@@ -79,7 +79,7 @@ Dla każdego przykładu kodu w tym artykule:
 1. Aby uruchomić kod, Otwórz wiersz polecenia lub `bash` powłokę i zmień katalog na folder projektu, na przykład `cd pythonmysql` . Wpisz polecenie, a `python` po nim nazwę pliku, `python createtable.py` a następnie naciśnij klawisz ENTER. 
    
    > [!NOTE]
-   > Jeśli nie można odnaleźć *python.exe* w systemie Windows, może być konieczne dodanie ścieżki języka Python do zmiennej środowiskowej PATH lub podawanie pełnej ścieżki *python.exe*, na przykład `C:\python27\python.exe createtable.py` .
+   > Jeśli nie można odnaleźć *python.exe* w systemie Windows, może być konieczne dodanie ścieżki języka Python do zmiennej środowiskowej PATH lub podawanie pełnej ścieżki *python.exe* , na przykład `C:\python27\python.exe createtable.py` .
 
 ## <a name="create-a-table-and-insert-data"></a>Tworzenie tabeli i wstawianie danych
 
@@ -270,6 +270,16 @@ else:
   cursor.close()
   conn.close()
   print("Done.")
+```
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Aby wyczyścić wszystkie zasoby używane w ramach tego przewodnika Szybki Start, Usuń grupę zasobów przy użyciu następującego polecenia:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Następne kroki

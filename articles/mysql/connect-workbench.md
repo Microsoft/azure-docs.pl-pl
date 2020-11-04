@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 5ec6aab8aaa63b848131d44f78867100f154d251
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 57bd8348977270de9b0e445e0a40c006b65d8392
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896320"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332044"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: korzystanie z programu MySQL Workbench do nawiązywania połączeń i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 
@@ -49,7 +49,7 @@ Aby nawiązać połączenie z serwerem usługi Azure MySQL za pomocą narzędzia
 
 2.    W oknie dialogowym **Setup New Connection** (Konfigurowanie nowego połączenia) wprowadź poniższe informacje na karcie **Parameters** (Parametry):
 
-:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Nazwa serwera usługi Azure Database for MySQL":::
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="konfigurowanie nowego połączenia":::
 
 | **Ustawienie** | **Sugerowana wartość** | **Opis pola** |
 |---|---|---|
@@ -60,7 +60,7 @@ Aby nawiązać połączenie z serwerem usługi Azure MySQL za pomocą narzędzia
 | Nazwa użytkownika |  *Nazwa logowania administratora serwera* | Wpisz nazwę logowania administratora serwera, którą podano wcześniej podczas tworzenia usługi Azure Database for MySQL. Przykładowa nazwa użytkownika to myadmin@mydemoserver. Postępuj zgodnie z instrukcjami w poprzedniej sekcji, aby uzyskać informacje dotyczące połączenia, jeśli nie pamiętasz nazwy użytkownika. Format to *username \@ servername*.
 | Hasło | Twoje hasło | Kliknij przycisk **Zapisz w magazynie...** , aby zapisać hasło. |
 
-3.   Kliknij przycisk **Testuj połączenie**, aby sprawdzić, czy wszystkie parametry zostały prawidłowo skonfigurowane. 
+3.   Kliknij przycisk **Testuj połączenie** , aby sprawdzić, czy wszystkie parametry zostały prawidłowo skonfigurowane. 
 
 4.   Kliknij przycisk **OK** , aby zapisać połączenie. 
 
@@ -103,13 +103,23 @@ Aby nawiązać połączenie z serwerem usługi Azure MySQL za pomocą narzędzia
 
     Zrzut ekranu przedstawia przykładowy kod SQL w aplikacji SQL Workbench i dane wyjściowe po jego uruchomieniu.
     
-    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Nazwa serwera usługi Azure Database for MySQL":::
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Karta SQL aplikacji MySQL Workbench umożliwia uruchamianie przykładowego kodu SQL":::
 
 2. Aby uruchomić przykładowy kod SQL, kliknij ikonę pioruna na pasku narzędzi karty **SQL File** (Plik SQL).
 3. Zwróć uwagę na trzy karty wyników w sekcji **Result Grid** (Siatka wyników) pośrodku strony. 
 4. Zwróć uwagę na listę **Output** (Dane wyjściowe) w dolnej części strony. Zawiera ona stan każdego polecenia. 
 
 Nawiązano połączenie z usługą Azure Database for MySQL przy użyciu aplikacji MySQL Workbench i wykonano zapytanie o dane przy użyciu języka SQL.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Aby wyczyścić wszystkie zasoby używane w ramach tego przewodnika Szybki Start, Usuń grupę zasobów przy użyciu następującego polecenia:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]

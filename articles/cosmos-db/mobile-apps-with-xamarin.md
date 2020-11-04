@@ -3,17 +3,18 @@ title: 'Samouczek: Tworzenie aplikacji mobilnych za pomocą platformy Xamarin i 
 description: 'Samouczek: samouczek służący do tworzenia aplikacji platformy Xamarin dla systemu iOS, Android lub formularzy przy użyciu Azure Cosmos DB. Azure Cosmos DB to szybka, działająca w skali globalnej, chmurowa baza danych dla aplikacji mobilnych.'
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13a80541310b40ed2f038b6c71cd9d6eaeb54649
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ec5888ba596579c6bbbf6891ca5e578e80003d80
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096686"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333277"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji mobilnych za pomocą platformy Xamarin i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -49,7 +50,7 @@ W poniższym samouczku pokazano sposób tworzenia aplikacji mobilnych za pomocą
 ### <a name="get-started"></a>Rozpoczęcie pracy
 Rozpoczęcie pracy z usługą Azure Cosmos DB jest łatwe. Przejdź do witryny Azure Portal i utwórz nowe konto usługi Azure Cosmos DB. Kliknij kartę **Szybki Start** . Pobierz przykładową listę do wykonania formularzy Xamarin, która jest już połączona z kontem Azure Cosmos DB. 
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Możliwości usługi Azure Cosmos DB w przypadku aplikacji mobilnych":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Azure Cosmos DB — Szybki start dla aplikacji mobilnych":::
 
 Jeśli masz istniejącą aplikację platformy Xamarin, możesz również dodać [pakiet NuGet usługi Azure Cosmos DB](sql-api-sdk-dotnet-core.md). Azure Cosmos DB obsługuje biblioteki udostępnione Xamarin. iOS, Xamarin. Android i Xamarin Forms.
 
@@ -87,19 +88,19 @@ Wykonaj następujące kroki, aby zmienić aplikację listy zadań do wykonania w
 
 Pełny kod przykładowy tego wzorca możesz znaleźć w witrynie [brokera tokenu zasobów w serwisie GitHub](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems). Ten diagram przedstawia rozwiązanie:
 
-:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Możliwości usługi Azure Cosmos DB w przypadku aplikacji mobilnych" border="false":::
+:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Broker użytkowników i uprawnień usługi Azure Cosmos DB" border="false":::
 
 Jeśli chcesz, aby dwaj użytkownicy mieli dostęp do tej samej listy czynności do wykonania, możesz dodać dodatkowe uprawnienia do tokenu dostępu w brokerze tokenów zasobów.
 
 ### <a name="scale-on-demand"></a>Skalowanie na żądanie
 Azure Cosmos DB to zarządzana baza danych jako usługa. Gdy zwiększa się Twoja baza użytkowników, nie musisz troszczyć się o aprowizowanie maszyn wirtualnych czy zwiększanie liczby rdzeni. Musisz jedynie poinformować usługę Azure Cosmos DB, ilu operacji na sekundę (jakiej przepływności) potrzebuje Twoja aplikacja. Przepływność możesz określić za pomocą karty **Skala** , używając miary przepływności nazywanej jednostkami żądań (RU) na sekundę. Na przykład operacja odczytu w dokumencie 1 KB wymaga jednego RU. Możesz także dodać alerty do metryki **Przepływność** , aby monitorować wzrost ruchu i programowo zmieniać przepływność po wystąpieniu alertu.
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Możliwości usługi Azure Cosmos DB w przypadku aplikacji mobilnych":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Skalowanie przepływności na żądanie w usłudze Azure Cosmos DB":::
 
 ### <a name="go-planet-scale"></a>Przejście do skali globalnej
 W miarę zdobywania popularności przez Twoją aplikację możesz zyskać użytkowników na całym świecie. Możesz tez chcieć przygotować się na nieprzewidziane zdarzenia. Przejdź do witryny Azure Portal i otwórz swoje konto usługi Azure Cosmos DB. Kliknij mapę, aby Twoje dane były ciągle replikowane w dowolnej liczbie regionów na całym świecie. Ta funkcja udostępnia Twoje dane wszędzie tam, gdzie znajdują się użytkownicy. Możesz również dodać zasady trybu failover, aby przygotować się na awarie.
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="Możliwości usługi Azure Cosmos DB w przypadku aplikacji mobilnych" border="false":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="Skalowanie w regionach geograficznych usługi Azure Cosmos DB" border="false":::
 
 Gratulacje. Rozwiązanie korzystające z platformy Xamarin i usługi Azure Cosmos DB zostało ukończone i masz aplikację mobilną. Wykonaj podobne kroki, aby utworzyć aplikacje środowiska Cordova za pomocą zestawu SDK JavaScript usługi Azure Cosmos DB i natywne aplikacje dla systemu iOS/Android za pomocą interfejsów API REST usługi Azure Cosmos DB.
 

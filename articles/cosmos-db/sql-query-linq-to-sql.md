@@ -3,15 +3,16 @@ title: Tłumaczenie LINQ to SQL w Azure Cosmos DB
 description: Poznaj operatory LINQ obsługiwane i sposób mapowania zapytań LINQ do zapytań SQL w Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: c7d47b0bb167b3211b3859a47b0c8e11876b1614
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38d37d03c99bd3a39b00276da110ea0ef6bb962e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075405"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332376"
 ---
 # <a name="linq-to-sql-translation"></a>Tłumaczenie składni LINQ na język SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -84,7 +85,7 @@ Dostawca LINQ zawarty w zestawie SDK programu SQL .NET obsługuje następujące 
 - **Gdzie** : filtry przekładają się na [miejsce](sql-query-where.md)i obsługa tłumaczenia między `&&` , `||` i `!` do operatorów SQL
 - **SelectMany** : umożliwia rozwinięcia tablic do klauzuli [Join](sql-query-join.md) . Użyj do łańcucha lub zagnieżdżania wyrażeń do filtrowania elementów tablicy.
 - **OrderBy** i **OrderByDescending** : Przekształć do [order by](sql-query-order-by.md) przy użyciu ASC lub DESC.
-- Operatory **Count** , **sum** , **min** , **Max** i **Average** dla [agregacji](sql-query-aggregates.md)oraz ich równoważne **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** i **AverageAsync** .
+- Operatory **Count** , **sum** , **min** , **Max** i **Average** dla [agregacji](sql-query-aggregates.md)oraz ich równoważne **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** i **AverageAsync**.
 - **CompareTo** : operator tłumaczony na porównania zakresu. Często używane dla ciągów, ponieważ nie są one porównywalne w programie .NET.
 - **Pomiń** i **Zrób** : tłumaczy, aby [przesunięto i ograniczyć ograniczenie](sql-query-offset-limit.md) wyników zapytania i wykonać podział na strony.
 - **Funkcje matematyczne** : obsługuje tłumaczenie z platformy .NET,,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` , `Tan` , i `Truncate` do równoważnych [wbudowanych funkcji matematycznych](sql-query-mathematical-functions.md).

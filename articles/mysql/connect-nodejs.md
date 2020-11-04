@@ -8,12 +8,12 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 48e6a2a6bcf20e22edbf0d2f98607b8310d2f22d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 55c352df83e8f72a418452dd28d621556b207e5e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91307861"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332172"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: używanie Node.js do nawiązywania połączenia i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 
@@ -50,7 +50,7 @@ W zależności od używanej platformy postępuj zgodnie z instrukcjami w odpowie
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. Uruchom następujące polecenia, aby zainstalować środowisko **Node.js** i program **npm**, czyli menedżera pakietów dla środowiska Node.js.
+1. Uruchom następujące polecenia, aby zainstalować środowisko **Node.js** i program **npm** , czyli menedżera pakietów dla środowiska Node.js.
 
    ```bash
    sudo apt-get install -y nodejs npm
@@ -66,9 +66,9 @@ W zależności od używanej platformy postępuj zgodnie z instrukcjami w odpowie
    ```
 3. Sprawdź instalację, sprawdzając tekst danych wyjściowych listy npm. Numer wersji może się różnić po wydaniu nowych poprawek.
 
-### <a name="mac-os"></a>Mac OS
+### <a name="macos"></a>macOS
 
-1. Wprowadź następujące polecenia, aby zainstalować rozwiązanie **brew**, czyli łatwy w użyciu menedżer pakietów dla systemu Mac OS X i środowiska **Node.js**.
+1. Wprowadź następujące polecenia, aby zainstalować **rozwiązania brew** , łatwy w użyciu Menedżer pakietów dla macOS i **Node.js**.
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -90,7 +90,7 @@ W zależności od używanej platformy postępuj zgodnie z instrukcjami w odpowie
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usługą Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Z menu po lewej stronie w obszarze Azure Portal wybierz pozycję **wszystkie zasoby**, a następnie wyszukaj utworzony serwer (na przykład **mydemoserver**).
+2. Z menu po lewej stronie w obszarze Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wyszukaj utworzony serwer (na przykład **mydemoserver** ).
 3. Wybierz nazwę serwera.
 4. Po przejściu do panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
  :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Nazwa serwera usługi Azure Database for MySQL":::
@@ -319,6 +319,16 @@ function deleteData(){
                 else  console.log('Done.') 
         });
 };
+```
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Aby wyczyścić wszystkie zasoby używane w ramach tego przewodnika Szybki Start, Usuń grupę zasobów przy użyciu następującego polecenia:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Następne kroki

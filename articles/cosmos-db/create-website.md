@@ -3,15 +3,16 @@ title: Wdrażanie aplikacji sieci Web przy użyciu szablonu Azure Cosmos DB
 description: Dowiedz się, jak wdrożyć konto usługi Azure Cosmos, Web Apps Azure App Service i przykładową aplikację sieci Web przy użyciu szablonu Azure Resource Manager.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: c206c89bf8e9abae219ce863a8b08f4b0e7041c3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 55d58a6c4724bd01325db029ed75d77ccc96d0f8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089920"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333583"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Wdrażanie Azure Cosmos DB i Azure App Service za pomocą aplikacji internetowej z usługi GitHub przy użyciu szablonu Azure Resource Manager
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +42,7 @@ Najpierw wybierz poniższy przycisk **Wdróż na platformie Azure** , aby otworz
 
 Raz w Azure Portal wybierz subskrypcję do wdrożenia, a następnie wybierz lub Utwórz nową grupę zasobów. Następnie Wypełnij poniższe wartości.
 
-:::image type="content" source="./media/create-website/template-deployment.png" alt-text="Wdróż na platformie Azure":::
+:::image type="content" source="./media/create-website/template-deployment.png" alt-text="Zrzut ekranu przedstawiający interfejs użytkownika wdrażania szablonów":::
 
 * **Region** — jest to wymagane przez Menedżer zasobów. Wprowadź ten sam region, w którym znajdują się zasoby.
 * **Nazwa aplikacji** — ta nazwa jest używana przez wszystkie zasoby dla tego wdrożenia. Upewnij się, że wybrano unikatową nazwę, aby uniknąć konfliktów z istniejącymi Azure Cosmos DB i App Service kontami.
@@ -65,31 +66,31 @@ Po wypełnieniu wartości wybierz przycisk **Utwórz** , aby rozpocząć wdraża
 
 Po wdrożeniu zasobów przez szablon można teraz zobaczyć każdy z nich w grupie zasobów.
 
-:::image type="content" source="./media/create-website/resource-group.png" alt-text="Wdróż na platformie Azure":::
+:::image type="content" source="./media/create-website/resource-group.png" alt-text="Grupa zasobów":::
 
 ### <a name="view-cosmos-db-endpoint-and-keys"></a>Wyświetl Cosmos DB punkt końcowy i klucze
 
 Następnie otwórz konto usługi Azure Cosmos w portalu. Poniższy zrzut ekranu przedstawia punkt końcowy i klucze dla konta usługi Azure Cosmos.
 
-:::image type="content" source="./media/create-website/cosmos-keys.png" alt-text="Wdróż na platformie Azure":::
+:::image type="content" source="./media/create-website/cosmos-keys.png" alt-text="Klucze Cosmos":::
 
 ### <a name="view-the-azure-cosmos-db-keys-in-application-settings"></a>Wyświetl klucze Azure Cosmos DB w ustawieniach aplikacji
 
 Następnie przejdź do Azure App Service w grupie zasobów. Kliknij kartę Konfiguracja, aby wyświetlić ustawienia aplikacji dla App Service. Ustawienia aplikacji zawierają wartości konta Cosmos DB i klucza podstawowego niezbędne do nawiązania połączenia z Cosmos DB, a także nazwy baz danych i kontenerów, które zostały przesłane z wdrożenia szablonu.
 
-:::image type="content" source="./media/create-website/application-settings.png" alt-text="Wdróż na platformie Azure":::
+:::image type="content" source="./media/create-website/application-settings.png" alt-text="Ustawienia aplikacji":::
 
 ### <a name="view-web-app-in-deployment-center"></a>Wyświetl aplikację sieci Web w centrum wdrażania
 
 Przejdź do centrum wdrażania App Service. Tutaj zobaczysz punkty repozytorium do repozytorium GitHub przesłane do szablonu. Ponadto stan poniżej wskazuje powodzenie (aktywne), co oznacza, że aplikacja została pomyślnie wdrożona i uruchomiona.
 
-:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Wdróż na platformie Azure":::
+:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Centrum wdrażania":::
 
 ### <a name="run-the-web-application"></a>Uruchamianie aplikacji internetowej
 
 Kliknij przycisk **Przeglądaj** w górnej części centrum wdrażania, aby otworzyć aplikację sieci Web. Aplikacja sieci Web zostanie otwarta na ekranie głównym. Kliknij pozycję **Utwórz nową** i wprowadź dane do pól, a następnie kliknij przycisk Zapisz. Ekran wynikowy pokazuje dane zapisane w Cosmos DB.
 
-:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Wdróż na platformie Azure":::
+:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Ekran główny":::
 
 ## <a name="step-3-how-does-it-work"></a>Krok 3. jak to działa
 
@@ -99,19 +100,19 @@ Aby to działało, należy wykonać trzy elementy.
 
 Najpierw aplikacja musi zażądać punktu końcowego Cosmos DB i klucza w `Startup` klasie w aplikacji sieci web ASP.NET MVC. [Cosmos DB do wykonania przykład](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) może działać lokalnie, gdzie można wprowadzać informacje o połączeniu do appsettings.js. Jednak po wdrożeniu ten plik jest wdrażany razem z aplikacją. Jeśli te linie w kolorze czerwonym nie mogą uzyskać dostępu do ustawień z appsettings.jsna, spróbuje użyć ustawień aplikacji w Azure App Service.
 
-:::image type="content" source="./media/create-website/startup.png" alt-text="Wdróż na platformie Azure":::
+:::image type="content" source="./media/create-website/startup.png" alt-text="Zrzut ekranu przedstawia metodę z kilkoma zmiennymi ciągu oznaczonymi czerwonymi, w tym databaseName, ContainerName, Account i Key.":::
 
 ### <a name="using-special-azure-resource-management-functions"></a>Używanie specjalnych funkcji zarządzania zasobami platformy Azure
 
 Aby te wartości były dostępne dla aplikacji po wdrożeniu, szablon Azure Resource Manager może zażądać tych wartości z konta Cosmos DB przy użyciu specjalnych funkcji zarządzania zasobami platformy Azure, w tym [odwołań](../azure-resource-manager/templates/template-functions-resource.md#reference) i [listKeys](../azure-resource-manager/templates/template-functions-resource.md#listkeys) , które ponoszą wartości z konta Cosmos DB, i wstawiaj je do wartości ustawień aplikacji z nazwami kluczy, które są zgodne z ustawieniami używanymi w aplikacji powyżej w formacie "{Section: Key}". Na przykład `CosmosDb:Account`.
 
-:::image type="content" source="./media/create-website/template-keys.png" alt-text="Wdróż na platformie Azure":::
+:::image type="content" source="./media/create-website/template-keys.png" alt-text="Klucze szablonu":::
 
 ### <a name="deploying-web-apps-from-github"></a>Wdrażanie aplikacji internetowych z usługi GitHub
 
 Na koniec należy wdrożyć aplikację sieci Web z usługi GitHub w App Service. W tym celu należy użyć poniższego kodu JSON. W przypadku tego zasobu należy zachować ostrożność. `"type": "sourcecontrols"` `"name": "web"` Wartości właściwości i są na stałe kodowane i nie powinny być zmieniane.
 
-:::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Wdróż na platformie Azure":::
+:::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Wdrażanie z usługi GitHub":::
 
 ## <a name="next-steps"></a>Następne kroki
 
