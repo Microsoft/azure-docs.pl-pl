@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f6ec6bced9c84e4e5b0f04cc32eebb438052bd6c
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927978"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348291"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Serwer elastyczny Azure Database for MySQL (wersja zapoznawcza)
 
@@ -50,7 +50,7 @@ Jeśli skonfigurowano nadmiarową wysoką dostępność strefy, usługa inicjuje
 
 Zobacz [pojęcia wysokiej dostępności](concepts-high-availability.md) , aby uzyskać więcej szczegółów.
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagram koncepcyjny wysokiej dostępności pojedynczej strefy"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagram koncepcyjny nadmiarowej strefy wysokiej dostępności"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Automatyczne stosowanie poprawek za pomocą zarządzanego okna obsługi
 
@@ -66,7 +66,7 @@ Aby dowiedzieć się więcej, zobacz [pojęcia dotyczące kopii zapasowych](conc
 
 ## <a name="network-isolation"></a>Izolacja sieci
 
-Dostępne są dwie opcje sieciowe umożliwiające nawiązanie połączenia z serwerem elastycznym Azure Database for MySQL. Opcje są **dostęp prywatny (Integracja z siecią wirtualną)** i **dostęp publiczny (dozwolone adresy IP)** . 
+Dostępne są dwie opcje sieciowe umożliwiające nawiązanie połączenia z serwerem elastycznym Azure Database for MySQL. Opcje są **dostęp prywatny (Integracja z siecią wirtualną)** i **dostęp publiczny (dozwolone adresy IP)**. 
 
 * **Dostęp prywatny (Integracja z siecią wirtualną)** — możesz wdrożyć elastyczny serwer do [Virtual Network platformy Azure](../../virtual-network/virtual-networks-overview.md). Sieci wirtualne platformy Azure zapewniają prywatną i bezpieczną komunikację sieciową. Zasoby w sieci wirtualnej mogą komunikować się za pomocą prywatnych adresów IP.
 
@@ -75,7 +75,7 @@ Dostępne są dwie opcje sieciowe umożliwiające nawiązanie połączenia z ser
    * Używanie sieci VPN lub ExpressRoute do nawiązywania połączeń z zasobów spoza platformy Azure z serwerem elastycznym
    * Brak publicznego punktu końcowego
 
-* **Dostęp publiczny (dozwolone adresy IP)** — można wdrożyć elastyczny serwer z publicznym punktem końcowym. Publiczny punkt końcowy jest publicznie rozpoznawalnym adresem DNS. Fraza "dozwolone adresy IP" odnosi się do zakresu adresów IP wybranych do udzielenia uprawnienia dostępu do serwera. Te uprawnienia są nazywane **regułami zapory** .
+* **Dostęp publiczny (dozwolone adresy IP)** — można wdrożyć elastyczny serwer z publicznym punktem końcowym. Publiczny punkt końcowy jest publicznie rozpoznawalnym adresem DNS. Fraza "dozwolone adresy IP" odnosi się do zakresu adresów IP wybranych do udzielenia uprawnienia dostępu do serwera. Te uprawnienia są nazywane **regułami zapory**.
 
 Zobacz [pojęcia dotyczące sieci](concepts-networking.md) , aby dowiedzieć się więcej.
 
@@ -89,9 +89,9 @@ Zobacz [pojęcia dotyczące obliczeń i magazynu](concepts-compute-storage.md) ,
 
 MySQL to jeden z popularnych aparatów baz danych do uruchamiania aplikacji sieci Web i mobilnych w skali internetowej. Wielu naszych klientów używa jej do usług edukacyjnych online, usług przesyłania strumieniowego wideo, cyfrowych rozwiązań płatniczych, platform handlu elektronicznego, usług gier, portali Aktualności, administracji publicznej i usług opieki zdrowotnej. Te usługi są wymagane do obsłużenia i skalowania w miarę wzrostu ruchu w sieci Web lub aplikacji mobilnej.
 
-Po stronie aplikacje aplikacja jest zazwyczaj opracowywana w języku Java lub php i migrowana do uruchamiania w ramach [zestawów skalowania maszyn wirtualnych platformy Azure](/azure/virtual-machine-scale-sets/overview.md)   lub [platformy Azure App Services](/azure/app-service/overview.md)   lub są one kontenerami do uruchamiania w [usłudze Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes.md). W przypadku zestawu skalowania maszyn wirtualnych, App Service lub AKS jako infrastruktury źródłowej, skalowanie aplikacji jest uproszczone przez natychmiastowe Inicjowanie obsługi nowych maszyn wirtualnych i replikowanie bezstanowych składników aplikacji w celu przewidzenia żądań, ale często baza danych ma wpływ na wąskie gardło.
+Po stronie aplikacje aplikacja jest zazwyczaj opracowywana w języku Java lub php i migrowana do uruchamiania w ramach [zestawów skalowania maszyn wirtualnych platformy Azure](../../virtual-machine-scale-sets/overview.md)   lub [platformy Azure App Services](../../app-service/overview.md)   lub są one kontenerami do uruchamiania w [usłudze Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). W przypadku zestawu skalowania maszyn wirtualnych, App Service lub AKS jako infrastruktury źródłowej, skalowanie aplikacji jest uproszczone przez natychmiastowe Inicjowanie obsługi nowych maszyn wirtualnych i replikowanie bezstanowych składników aplikacji w celu przewidzenia żądań, ale często baza danych ma wpływ na wąskie gardło.
 
-Funkcja Read Replica umożliwia replikowanie danych z Azure Database for MySQL serwera elastycznego na serwer tylko do odczytu. Można replikować z serwera źródłowego do **maksymalnie 10 replik** . Repliki są aktualizowane asynchronicznie przy użyciu natywnej [lokalizacji pliku dziennika binarnego (binlog)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)aparatu programu MySQL. Możesz użyć rozwiązania serwera proxy usługi równoważenia obciążenia, takiego jak [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) , aby bezproblemowo skalować obciążenie aplikacji do odczytu replik bez ponoszenia żadnych kosztów refaktoryzacji aplikacji. 
+Funkcja Read Replica umożliwia replikowanie danych z Azure Database for MySQL serwera elastycznego na serwer tylko do odczytu. Można replikować z serwera źródłowego do **maksymalnie 10 replik**. Repliki są aktualizowane asynchronicznie przy użyciu natywnej [lokalizacji pliku dziennika binarnego (binlog)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)aparatu programu MySQL. Możesz użyć rozwiązania serwera proxy usługi równoważenia obciążenia, takiego jak [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) , aby bezproblemowo skalować obciążenie aplikacji do odczytu replik bez ponoszenia żadnych kosztów refaktoryzacji aplikacji. 
 
 Aby dowiedzieć się więcej, zobacz [Przeczytaj koncepcje replikacji](concepts-read-replicas.md) . 
 
@@ -132,7 +132,7 @@ Usługa uruchamia wersję społeczności MySQL. Zapewnia to pełną zgodność a
 
 Jedną z zalet korzystania z obciążeń na platformie Azure jest globalny zasięg. Elastyczny serwer dla Azure Database for MySQL jest dostępny dzisiaj w następujących regionach świadczenia usługi Azure:
 
-- West Europe
+- Europa Zachodnia
 - Europa Północna
 - Południowe Zjednoczone Królestwo
 - Wschodnie stany USA 2

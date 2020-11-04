@@ -5,22 +5,23 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 21bbe15a37e95df297f580064beb63ebd5debe57
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9becd6341baad54a74f10ae2f38cf9ccf1fd3037
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899903"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347900"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Utwórz i skonfiguruj klaster usługi Azure Kubernetes Services (AKS) do używania węzłów wirtualnych w Azure Portal
 
-Aby szybko wdrożyć obciążenia w klastrze usługi Azure Kubernetes Service (AKS), można użyć węzłów wirtualnych. Dzięki węzłom wirtualnym masz szybką obsługę administracyjną w przypadku zasobników i płacisz na sekundę w czasie wykonywania. W scenariuszu skalowania nie trzeba czekać, aż klaster Kubernetes ma wdrożyć węzły obliczeniowe maszyny wirtualnej w celu uruchomienia dodatkowych zasobników. Węzły wirtualne są obsługiwane tylko w przypadku systemów i węzłów systemu Linux.
+W tym artykule pokazano, jak za pomocą Azure Portal utworzyć i skonfigurować zasoby sieci wirtualnej oraz klaster AKS z włączonymi węzłami wirtualnymi.
 
-W tym artykule pokazano, jak utworzyć i skonfigurować zasoby sieci wirtualnej oraz klaster AKS z włączonymi węzłami wirtualnymi.
+> [!NOTE]
+> [Ten artykuł](virtual-nodes.md) zawiera omówienie dostępności i ograniczeń w regionie przy użyciu węzłów wirtualnych.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Węzły wirtualne umożliwiają komunikację sieciową między jednostkami, które działają w Azure Container Instances (ACI) i klastrze AKS. W celu zapewnienia tej komunikacji zostanie utworzona podsieć sieci wirtualnej i przypisane uprawnienia delegowane. Węzły wirtualne działają tylko w przypadku klastrów AKS utworzonych przy użyciu *zaawansowanej* sieci. Domyślnie klastry AKS są tworzone z użyciem sieci *podstawowej* . W tym artykule opisano sposób tworzenia sieci wirtualnej i podsieci, a następnie wdrażania klastra AKS, który korzysta z zaawansowanej sieci.
+Węzły wirtualne umożliwiają komunikację sieciową między jednostkami, które działają w Azure Container Instances (ACI) i klastrze AKS. W celu zapewnienia tej komunikacji zostanie utworzona podsieć sieci wirtualnej i przypisane uprawnienia delegowane. Węzły wirtualne działają tylko w przypadku klastrów AKS utworzonych przy użyciu *zaawansowanej* sieci (Azure CNI). Domyślnie klastry AKS są tworzone przy użyciu sieci *podstawowej* (korzystającą wtyczki kubenet). W tym artykule opisano sposób tworzenia sieci wirtualnej i podsieci, a następnie wdrażania klastra AKS, który korzysta z zaawansowanej sieci.
 
 Jeśli nie korzystasz wcześniej z ACI, zarejestruj dostawcę usług w ramach subskrypcji. Stan rejestracji dostawcy ACI można sprawdzić za pomocą polecenia [AZ Provider list][az-provider-list] , jak pokazano w następującym przykładzie:
 
@@ -42,52 +43,24 @@ Jeśli dostawca jest wyświetlany jako *NotRegistered* , zarejestruj dostawcę p
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Dostępność regionalna
-
-W przypadku wdrożeń węzłów wirtualnych obsługiwane są następujące regiony:
-
-* Australia Wschodnia (australiaeast)
-* Środkowe stany USA (środkowe)
-* Wschodnie stany USA (wschód)
-* Wschodnie stany USA 2 (eastus2)
-* Japonia Wschodnia (japaneast)
-* Europa Północna (northeurope)
-* Azja Południowo-Wschodnia (southeastasia)
-* Zachodnio-środkowe stany USA (westcentralus)
-* Europa Zachodnia (westeurope)
-* Zachodnie stany USA (Zachodnie)
-* Zachodnie stany USA 2 (westus2)
-
-## <a name="known-limitations"></a>Znane ograniczenia
-Funkcjonalność węzłów wirtualnych jest w dużym stopniu zależna od zestawu funkcji ACI. Poza [przydziałami i limitami dla Azure Container Instances](../container-instances/container-instances-quotas.md)następujące scenariusze nie są jeszcze obsługiwane w przypadku węzłów wirtualnych:
-
-* Używanie nazwy głównej usługi do ściągania obrazów ACR. [Obejście](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) polega na użyciu wpisów [tajnych Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Virtual Network ograniczenia](../container-instances/container-instances-virtual-network-concepts.md) , w tym wirtualne sieci równorzędne, zasady sieci Kubernetes i ruch wychodzący do Internetu za pomocą sieciowych grup zabezpieczeń.
-* Inicjuj kontenery
-* [Aliasy hostów](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Argumenty](../container-instances/container-instances-exec.md#restrictions) dla elementu exec w ACI
-* [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) nie będzie wdrażać zasobników w węźle wirtualnym
-* Węzły Wirtualne obsługują planowanie zasobników systemu Linux. Możesz ręcznie zainstalować dostawcę Open Source [Virtual KUBELET ACI](https://github.com/virtual-kubelet/azure-aci) Provider, aby zaplanować kontenery systemu Windows Server na ACI.
-* Węzły wirtualne wymagają klastrów AKS z obsługą sieci Azure CNI
-
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Tworzenie klastra AKS
 
-W lewym górnym rogu Azure Portal wybierz pozycję **Utwórz zasób**  >  **Kubernetes usługi** .
+W lewym górnym rogu Azure Portal wybierz pozycję **Utwórz zasób**  >  **Kubernetes usługi**.
 
 Na stronie **Podstawowe** skonfiguruj następujące opcje:
 
-- *SZCZEGÓŁY PROJEKTU* : wybierz subskrypcję platformy Azure, a następnie wybierz lub utwórz grupę zasobów platformy Azure, taką jak *myResourceGroup* . Wprowadź **nazwę klastra Kubernetes** , taką jak *myAKSCluster* .
+- *SZCZEGÓŁY PROJEKTU* : wybierz subskrypcję platformy Azure, a następnie wybierz lub utwórz grupę zasobów platformy Azure, taką jak *myResourceGroup*. Wprowadź **nazwę klastra Kubernetes** , taką jak *myAKSCluster*.
 - *SZCZEGÓŁY KLASTRA* : wybierz region, wersję platformy Kubernetes i prefiks nazwy DNS dla klastra usługi AKS.
 - *Pula węzłów podstawowych* : Wybierz rozmiar maszyny wirtualnej dla węzłów AKS. Rozmiar maszyny wirtualnej **nie może** zostać zmieniony po wdrożeniu klastra AKS.
-     - Wybierz liczbę węzłów do wdrożenia w klastrze. W tym artykule Ustaw **liczbę węzłów** na *1* . Liczbę węzłów **można** dostosować po wdrożeniu klastra.
+     - Wybierz liczbę węzłów do wdrożenia w klastrze. W tym artykule Ustaw **liczbę węzłów** na *1*. Liczbę węzłów **można** dostosować po wdrożeniu klastra.
 
-Kliknij przycisk **Dalej: Skaluj** .
+Kliknij przycisk **Dalej: Skaluj**.
 
-Na stronie **Skala** wybierz pozycję *włączone* w obszarze **węzły wirtualne** .
+Na stronie **Skala** wybierz pozycję *włączone* w obszarze **węzły wirtualne**.
 
 ![Utwórz klaster AKS i Włącz węzły wirtualne](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -95,7 +68,7 @@ Domyślnie zostanie utworzona jednostka usługi Azure Active Directory. Ta nazwa
 
 Klaster jest również skonfigurowany pod kątem zaawansowanej sieci. Węzły wirtualne są skonfigurowane do używania własnej podsieci sieci wirtualnej platformy Azure. Ta podsieć ma delegowane uprawnienia do łączenia zasobów platformy Azure między klastrem AKS. Jeśli nie masz jeszcze delegowanej podsieci, Azure Portal tworzy i konfiguruje sieć wirtualną platformy Azure oraz podsieć do użycia z węzłami wirtualnymi.
 
-Wybierz pozycję **Przeglądanie + tworzenie** . Po zakończeniu walidacji wybierz pozycję **Utwórz** .
+Wybierz pozycję **Przejrzyj i utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz**.
 
 Utworzenie klastra usługi AKS i przygotowanie go do użycia trwa kilka minut.
 
@@ -241,5 +214,5 @@ Węzły wirtualne są jednym składnikiem rozwiązania do skalowania w AKS. Aby 
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider#az-provider-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-provider-list]: /cli/azure/provider&preserve-view=true#az-provider-list
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az-provider-register

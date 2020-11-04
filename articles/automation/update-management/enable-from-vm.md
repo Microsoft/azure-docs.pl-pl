@@ -2,19 +2,19 @@
 title: Włączanie Update Management Azure Automation z poziomu maszyny wirtualnej platformy Azure
 description: W tym artykule opisano sposób włączania Update Management z maszyny wirtualnej platformy Azure.
 services: automation
-ms.date: 09/16/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 2d81b822986f641e64b9211300f83e3b254f316d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222862"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347084"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Włączanie rozwiązania Update Management z poziomu maszyny wirtualnej platformy Azure
 
-W tym artykule opisano, jak można użyć maszyny wirtualnej platformy Azure, aby włączyć funkcję [Update Management](overview.md) na innych maszynach. Aby włączyć maszyny wirtualne platformy Azure na dużą skalę, należy włączyć istniejącą maszynę wirtualną przy użyciu Update Management.
+W tym artykule opisano, jak włączyć funkcję [Update Management](overview.md) na co najmniej jednej maszynie wirtualnej platformy Azure (VM). Aby włączyć maszyny wirtualne platformy Azure na dużą skalę, musisz włączyć istniejącą maszynę wirtualną platformy Azure przy użyciu Update Management.
 
 > [!NOTE]
 > Podczas włączania Update Management tylko niektóre regiony są obsługiwane na potrzeby łączenia obszaru roboczego Log Analytics i konta usługi Automation. Aby uzyskać listę obsługiwanych par mapowania, zobacz [Mapowanie regionów dla konta usługi Automation i obszaru roboczego log Analytics](../how-to/region-mappings.md).
@@ -35,7 +35,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Wybierz maszynę wirtualną, dla której chcesz włączyć Update Management. Maszyny wirtualne mogą znajdować się w dowolnym regionie, niezależnie od lokalizacji konta usługi Automation. Ty
 
-3. Na stronie maszyna wirtualna w obszarze **operacje**wybierz pozycję **gość + aktualizacje hosta**.
+3. Na stronie maszyna wirtualna w obszarze **operacje** wybierz pozycję **gość + aktualizacje hosta**.
 
     ![Wybierz pozycję Gość + aktualizacje hosta z okienka po lewej stronie](media/enable-from-vm/select-guest-and-os-updates.png)
 

@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148527"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346999"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
 
@@ -262,7 +262,8 @@ Kwarantanna obrazu jest obecnie funkcją w wersji zapoznawczej ACR. Można włą
 Skonfigurowanie usługi Azure Container Registry do anonimowego (publicznego) dostępu do ściągania jest obecnie funkcją w wersji zapoznawczej. Jeśli masz jakieś [zasoby mapy zakresu (użytkownika) lub tokenów](./container-registry-repository-scoped-permissions.md) w rejestrze, usuń je przed podniesieniem poziomu biletu pomocy technicznej (mapowania zakresu systemowego można zignorować). Aby włączyć dostęp publiczny, należy otworzyć bilet pomocy technicznej pod adresem https://aka.ms/acr/support/create-ticket . Aby uzyskać szczegółowe informacje, zobacz [forum opinii na platformie Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
-> Dostęp do tylko interfejsów API wymaganych do ściągnięcia znanego obrazu można uzyskać anonimowo. Żadne inne interfejsy API dla operacji, takich jak lista tagów lub lista repozytoriów, są dostępne anonimowo.
+> * Dostęp do tylko interfejsów API wymaganych do ściągnięcia znanego obrazu można uzyskać anonimowo. Żadne inne interfejsy API dla operacji, takich jak lista tagów lub lista repozytoriów, są dostępne anonimowo.
+> * Przed podjęciem próby anonimowej operacji ściągania Uruchom polecenie, `docker logout` Aby upewnić się, że wszystkie istniejące poświadczenia platformy Docker zostały wyczyszczone.
 
 ## <a name="diagnostics-and-health-checks"></a>Testy diagnostyczne i kondycji
 

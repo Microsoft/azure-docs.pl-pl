@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 8f0df92eadc4db132d567e708abe6e28e82642d6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129562"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346047"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
 
@@ -72,7 +72,6 @@ az extension update --name aks-preview
 - Wymaga [zarządzanej integracji z usługą Azure AD](managed-aad.md).
 - Nie możesz zintegrować usługi Azure RBAC z autoryzacją Kubernetes w istniejących klastrach w trakcie okresu zapoznawczego, ale będziesz mieć dostęp do ogólnej dostępności.
 - Użyj [polecenia kubectl v 1.18.3 +][az-aks-install-cli].
-- W trakcie okresu zapoznawczego można dodawać tylko uprawnienia na *poziomie przestrzeni nazw* za pośrednictwem interfejsu wiersza polecenia platformy Azure.
 - Jeśli masz CRDs i tworzysz niestandardowe definicje ról, jedynym sposobem na pokrycie CRDs dzisiaj jest zapewnienie `Microsoft.ContainerService/managedClusters/*/read` . AKS pracuje nad zapewnieniem bardziej szczegółowych uprawnień dla CRDs. Dla pozostałych obiektów można użyć określonych grup interfejsów API, na przykład: `Microsoft.ContainerService/apps/deployments/read` .
 - Nowe przypisania ról mogą trwać do 5 min i aktualizować je na serwerze autoryzacji.
 - Wymaga, aby dzierżawa usługi Azure AD była taka sama jak dzierżawa dla subskrypcji zawierającej klaster AKS. 

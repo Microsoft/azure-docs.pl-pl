@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e72a98ddd5219662c8850326b4f43b25e545177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595853"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348172"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>tworzenie bramy aplikacji hostującej wiele witryn internetowych przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Za pomocą interfejsu wiersza polecenia platformy Azure podczas tworzenia [bramy aplikacji](overview.md) możesz [skonfigurować hostowanie wielu witryn internetowych](multiple-site-overview.md). W tym artykule opisano Definiowanie pul adresów zaplecza przy użyciu zestawów skalowania maszyn wirtualnych. Następnie, bazując na należących do Ciebie domenach, skonfigurujesz odbiorniki i reguły, aby się upewnić, że ruch internetowy dociera do odpowiednich serwerów w pulach. W tym artykule przyjęto założenie, że posiadasz wiele domen i używasz przykładowych * \. contoso.com www* i *www \. fabrikam.com*.
+Za pomocą interfejsu wiersza polecenia platformy Azure podczas tworzenia [bramy aplikacji](overview.md) możesz [skonfigurować hostowanie wielu witryn internetowych](multiple-site-overview.md). W tym artykule opisano Definiowanie pul adresów zaplecza przy użyciu zestawów skalowania maszyn wirtualnych. Następnie, bazując na należących do Ciebie domenach, skonfigurujesz odbiorniki i reguły, aby się upewnić, że ruch internetowy dociera do odpowiednich serwerów w pulach. W tym artykule przyjęto założenie, że posiadasz wiele domen i używasz przykładowych *\. contoso.com www* i *www \. fabrikam.com*.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -124,7 +124,7 @@ Dodaj detektory, które są konieczne do kierowania ruchem za pomocą polecenia 
 
 >[!NOTE]
 > W przypadku jednostki SKU Application Gateway lub WAF v2 można także skonfigurować maksymalnie 5 nazw hostów na odbiornik i można użyć symboli wieloznacznych w nazwie hosta. Aby uzyskać więcej informacji, zobacz [symbole wieloznaczne nazw hostów w odbiorniku](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
->Aby użyć wielu nazw hostów i symboli wieloznacznych w odbiorniku przy użyciu interfejsu wiersza polecenia platformy Azure, musisz użyć `--host-names` zamiast `--host-name` . Nazwy hostów mogą zawierać do 5 nazw hostów jako wartości rozdzielane przecinkami. Na przykład `--host-names "*.contoso.com,*.fabrikam.com"`
+>Aby użyć wielu nazw hostów i symboli wieloznacznych w odbiorniku przy użyciu interfejsu wiersza polecenia platformy Azure, musisz użyć `--host-names` zamiast `--host-name` . Nazwy hostów można wymienić na pięć nazw hostów jako wartości rozdzielane znakami. Na przykład `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -175,7 +175,7 @@ az network application-gateway rule delete \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Tworzenie zestawów skalowania maszyn wirtualnych
 
-W tym przykładzie utworzysz trzy zestawy skalowania maszyn wirtualnych do obsługi trzech pul zaplecza w bramie aplikacji. Utworzone zestawy skalowania będą miały nazwy *myvmss1*, *myvmss2* i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na których instaluje się usługi IIS.
+W tym przykładzie utworzysz trzy zestawy skalowania maszyn wirtualnych do obsługi trzech pul zaplecza w bramie aplikacji. Utworzone zestawy skalowania będą miały nazwy *myvmss1* , *myvmss2* i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na których instaluje się usługi IIS.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

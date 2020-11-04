@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b36a71899be43f40ec16c76b5e53c8c3e7fb3552
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2ea92ad2e9c81b568e11ff97d7b6a88eeb4f188e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124530"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346574"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell
 
@@ -28,7 +28,7 @@ Przykładowe zadanie odczytuje dane przesyłane strumieniowo z urządzenia usłu
 
 * Dla tego przewodnika Szybki start jest wymagany moduł Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby znaleźć wersję zainstalowaną na komputerze lokalnym. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps).
 
-* Niektóre IoT Hub akcje nie są obsługiwane przez Azure PowerShell i muszą zostać ukończone przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0.70 lub nowszej oraz rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) i użyj polecenia `az extension add --name azure-iot`, aby zainstalować rozszerzenie IoT.
+* Niektóre IoT Hub akcje nie są obsługiwane przez Azure PowerShell i muszą zostać ukończone przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0.70 lub nowszej oraz rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i użyj polecenia `az extension add --name azure-iot`, aby zainstalować rozszerzenie IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
@@ -68,9 +68,9 @@ Przed zdefiniowaniem zadania usługi Stream Analytics przygotuj dane, które bę
 
 Poniższy blok kodu interfejsu wiersza polecenia platformy Azure wykonuje wiele poleceń, aby przygotować dane wejściowe wymagane przez zadanie. Przejrzyj sekcje, aby zapoznać się z kodem.
 
-1. W oknie programu PowerShell uruchom polecenie [az login](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), aby zalogować się na konto platformy Azure.
+1. W oknie programu PowerShell uruchom polecenie [az login](/cli/azure/authenticate-azure-cli), aby zalogować się na konto platformy Azure.
 
-    Po pomyślnym zalogowaniu interfejs wiersza polecenia platformy Azure zwraca listę subskrypcji. Skopiuj subskrypcję używaną na potrzeby tego przewodnika Szybki Start i uruchom polecenie [az account set](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription), aby wybrać tę subskrypcję. Wybierz tę samą subskrypcję, którą wybrano w poprzedniej sekcji za pomocą programu PowerShell. Pamiętaj, aby zastąpić ciąg `<your subscription name>` nazwą swojej subskrypcji.
+    Po pomyślnym zalogowaniu interfejs wiersza polecenia platformy Azure zwraca listę subskrypcji. Skopiuj subskrypcję używaną na potrzeby tego przewodnika Szybki Start i uruchom polecenie [az account set](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription), aby wybrać tę subskrypcję. Wybierz tę samą subskrypcję, którą wybrano w poprzedniej sekcji za pomocą programu PowerShell. Pamiętaj, aby zastąpić ciąg `<your subscription name>` nazwą swojej subskrypcji.
 
     ```azurecli
     az login
@@ -78,19 +78,19 @@ Poniższy blok kodu interfejsu wiersza polecenia platformy Azure wykonuje wiele 
     az account set --subscription "<your subscription>"
     ```
 
-2. Utwórz centrum IoT Hub za pomocą polecenia [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). W tym przykładzie tworzone jest centrum IoT Hub o nazwie **MyASAIoTHub** . Ponieważ nazwy centrów IoT Hub są unikatowe, musisz utworzyć własną nazwę centrum IoT Hub. Ustaw jednostkę SKU F1, aby skorzystać z warstwy bezpłatnej, jeśli jest dostępna w ramach subskrypcji. W przeciwnym razie wybierz kolejną najniższą warstwę.
+2. Utwórz centrum IoT Hub za pomocą polecenia [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). W tym przykładzie tworzone jest centrum IoT Hub o nazwie **MyASAIoTHub**. Ponieważ nazwy centrów IoT Hub są unikatowe, musisz utworzyć własną nazwę centrum IoT Hub. Ustaw jednostkę SKU F1, aby skorzystać z warstwy bezpłatnej, jeśli jest dostępna w ramach subskrypcji. W przeciwnym razie wybierz kolejną najniższą warstwę.
 
     ```azurecli
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    Po utworzeniu centrum IoT Hub pobierz parametry połączenia tego centrum IoT Hub za pomocą polecenia [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest). Skopiuj całe parametry połączenia i zapisz je, ponieważ będą używane podczas dodawania centrum IoT Hub w danych wejściowych zadania usługi Stream Analytics.
+    Po utworzeniu centrum IoT Hub pobierz parametry połączenia tego centrum IoT Hub za pomocą polecenia [az iot hub show-connection-string](/cli/azure/iot/hub). Skopiuj całe parametry połączenia i zapisz je, ponieważ będą używane podczas dodawania centrum IoT Hub w danych wejściowych zadania usługi Stream Analytics.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. Dodaj urządzenie do centrum IoT Hub za pomocą polecenia [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). W tym przykładzie zostanie utworzone urządzenie o nazwie **MyASAIoTDevice** .
+3. Dodaj urządzenie do centrum IoT Hub za pomocą polecenia [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). W tym przykładzie zostanie utworzone urządzenie o nazwie **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
@@ -304,7 +304,7 @@ New-AzStreamAnalyticsTransformation `
 
 2. Zastąp symbol zastępczy w wierszu 15 całymi parametrami połączenia urządzenia usługi Azure IoT Hub, które zostały zapisane w poprzedniej sekcji.
 
-3. Kliknij przycisk **Uruchom** . Dane wyjściowe powinny pokazywać dane z czujników i komunikaty, które są wysyłane do usługi IoT Hub.
+3. Kliknij przycisk **Uruchom**. Dane wyjściowe powinny pokazywać dane z czujników i komunikaty, które są wysyłane do usługi IoT Hub.
 
     ![Symulator Raspberry Pi Azure IoT Online Simulator](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 

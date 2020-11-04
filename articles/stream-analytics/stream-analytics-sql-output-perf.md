@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: db396bbd2f26638c39f2573fb6014cd2602279d0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129749"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346336"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics dane wyjściowe do Azure SQL Database
 
@@ -35,7 +35,7 @@ Poniżej przedstawiono konfiguracje w ramach każdej usługi, która może pomó
 
 ## <a name="sql-azure"></a>Usługi SQL Azure
 
-- **Partycjonowane tabele i indeksy** — za pomocą [partycjonowanej](/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) tabeli SQL i indeksów partycjonowanych w tabeli z tą samą kolumną, co klucz partycji (na przykład PartitionID), może znacznie zmniejszyć rywalizację między partycjami podczas operacji zapisu. W przypadku partycjonowanej tabeli należy utworzyć [funkcję partycji](/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) i [schemat partycji](/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) w podstawowej grupie plików. Spowoduje to również zwiększenie dostępności istniejących danych podczas ładowania nowych danych. Limit operacji we/wy dziennika można uzyskać na podstawie liczby partycji, które można zwiększyć, uaktualniając jednostkę SKU.
+- **Partycjonowane tabele i indeksy** — za pomocą [partycjonowanej](/sql/relational-databases/partitions/partitioned-tables-and-indexes) tabeli SQL i indeksów partycjonowanych w tabeli z tą samą kolumną, co klucz partycji (na przykład PartitionID), może znacznie zmniejszyć rywalizację między partycjami podczas operacji zapisu. W przypadku partycjonowanej tabeli należy utworzyć [funkcję partycji](/sql/t-sql/statements/create-partition-function-transact-sql) i [schemat partycji](/sql/t-sql/statements/create-partition-scheme-transact-sql) w podstawowej grupie plików. Spowoduje to również zwiększenie dostępności istniejących danych podczas ładowania nowych danych. Limit operacji we/wy dziennika można uzyskać na podstawie liczby partycji, które można zwiększyć, uaktualniając jednostkę SKU.
 
 - **Unikaj unikatowych naruszeń klucza** — Jeśli w dzienniku aktywności Azure Stream Analytics występuje [wiele komunikatów ostrzegawczych naruszenia klucza](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) , upewnij się, że na zadaniu nie ma wpływu unikatowe naruszenia ograniczenia, które prawdopodobnie wystąpią w przypadku przypadków odzyskiwania. Można to uniknąć przez ustawienie opcji [Ignoruj \_ DUP \_ klucza](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) w indeksach.
 

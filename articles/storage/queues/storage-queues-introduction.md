@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: d1ec251edf384e8032a67dc66982787d17c75dbd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f618b7203cdbf99d79079cf81de38c6d15c91981
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781468"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345571"
 ---
 # <a name="what-are-azure-queues"></a>Czym są kolejki platformy Azure?
 
@@ -23,23 +23,23 @@ Azure Queue Storage to usługa służąca do przechowywania dużej liczby komuni
 
 Usługa kolejki zawiera następujące składniki:
 
-![Diagram przedstawiający relację między kontem magazynu, kolejkami i komunikatami](./media/storage-queues-introduction/queue1.png)
+![Diagram przedstawiający relację między kontem magazynu, kolejkami i komunikatami.](./media/storage-queues-introduction/queue1.png)
 
-* **Format adresu URL:** adresy URL kolejek mają następujący format:
+- **Format adresu URL:** adresy URL kolejek mają następujący format:
 
-    `https://<storage account>.queue.core.windows.net/<queue>`
-  
-    Następujący adres URL dotyczy kolejki w schemacie:  
-  
-    `https://myaccount.queue.core.windows.net/images-to-download`
+  `https://<storage account>.queue.core.windows.net/<queue>`
 
-* **Konto magazynu:** Cały dostęp do usługi Azure Storage odbywa się za pomocą konta magazynu. Aby uzyskać informacje na temat pojemności konta magazynu, zobacz [cele skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+  Następujący adres URL dotyczy kolejki w schemacie:
 
-* **Kolejka:** kolejka zawiera zestaw komunikatów. Nazwa kolejki **musi** zawierać tylko małe litery. Informacje dotyczące nazewnictwa kolejek można znaleźć w temacie [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata) (Nazewnictwo kolejek i metadanych).
+  `https://myaccount.queue.core.windows.net/images-to-download`
 
-* **Komunikat** : komunikat w dowolnym formacie, o maksymalnym rozmiarze 64 KB. Przed wersjami 2017-07-29 maksymalny dozwolony czas wygaśnięcia wynosi siedem dni. W wersji 2017-07-29 lub nowszej maksymalny czas wygaśnięcia może być dowolną liczbą dodatnią lub-1 oznacza, że komunikat nie wygasa. Jeśli ten parametr zostanie pominięty, domyślny czas wygaśnięcia wynosi siedem dni.
+- **Konto magazynu:** Cały dostęp do usługi Azure Storage odbywa się za pomocą konta magazynu. Aby uzyskać informacje na temat pojemności konta magazynu, zobacz [cele skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+
+- **Kolejka:** kolejka zawiera zestaw komunikatów. Nazwa kolejki **musi** zawierać tylko małe litery. Informacje dotyczące nazewnictwa kolejek można znaleźć w temacie [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata) (Nazewnictwo kolejek i metadanych).
+
+- **Komunikat** : komunikat w dowolnym formacie, o maksymalnym rozmiarze 64 KB. Przed wersjami 2017-07-29 maksymalny dozwolony czas wygaśnięcia wynosi siedem dni. W wersji 2017-07-29 lub nowszej maksymalny czas wygaśnięcia może być dowolną liczbą dodatnią lub-1 oznacza, że komunikat nie wygasa. Jeśli ten parametr zostanie pominięty, domyślny czas wygaśnięcia wynosi siedem dni.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie konta magazynu](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
-* [Wprowadzenie do kolejek przy użyciu platformy .NET](storage-dotnet-how-to-use-queues.md)
+- [Tworzenie konta magazynu](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
+- [Wprowadzenie do kolejek przy użyciu platformy .NET](storage-dotnet-how-to-use-queues.md)

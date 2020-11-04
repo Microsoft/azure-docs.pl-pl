@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: bc630fc5ea9407c284e2e2e879c349a83302cd9f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6942fd68625fd8eac18ea899330fd99f31f771f7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122627"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346115"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Rozwiązywanie problemów dotyczących danych wyjściowych Azure Stream Analytics
 
@@ -67,7 +67,7 @@ Podczas normalnego działania zadania dane wyjściowe mogą mieć dłuższy i d�
 * Czy źródło nadrzędnego jest ograniczone
 * Czy logika przetwarzania w zapytaniu jest intensywnie COMPUTE
 
-Aby wyświetlić szczegóły danych wyjściowych, wybierz zadanie przesyłania strumieniowego w Azure Portal, a następnie wybierz pozycję **Diagram zadań** . Dla każdego elementu wejściowego istnieje Metryka zdarzenia zaległości na partycję. Jeśli Metryka ciągle rośnie, jest wskaźnikiem, że zasoby systemowe są ograniczone. Zwiększenie jest potencjalnie możliwe z powodu ograniczania przepływów danych wyjściowych lub wysokiego użycia procesora CPU. Aby uzyskać więcej informacji, zobacz [debugowanie oparte na danych przy użyciu diagramu zadań](stream-analytics-job-diagram-with-metrics.md).
+Aby wyświetlić szczegóły danych wyjściowych, wybierz zadanie przesyłania strumieniowego w Azure Portal, a następnie wybierz pozycję **Diagram zadań**. Dla każdego elementu wejściowego istnieje Metryka zdarzenia zaległości na partycję. Jeśli Metryka ciągle rośnie, jest wskaźnikiem, że zasoby systemowe są ograniczone. Zwiększenie jest potencjalnie możliwe z powodu ograniczania przepływów danych wyjściowych lub wysokiego użycia procesora CPU. Aby uzyskać więcej informacji, zobacz [debugowanie oparte na danych przy użyciu diagramu zadań](stream-analytics-job-diagram-with-metrics.md).
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Ostrzeżenie o naruszeniu klucza z danymi wyjściowymi Azure SQL Database
 
@@ -91,7 +91,7 @@ Gdy zadanie Stream Analytics z danymi wyjściowymi SQL otrzyma pierwszą partię
 2. Zadanie Pobiera schemat tabeli docelowej.
 3. Zadanie sprawdza poprawność nazw kolumn i typów względem schematu tabeli docelowej.
 4. Zadanie przygotowuje tabelę danych znajdującą się w pamięci z rekordów wyjściowych w partii.
-5. Zadanie zapisuje tabelę danych do SQL przy użyciu [interfejsu API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1)docelowa elementu BulkCopy.
+5. Zadanie zapisuje tabelę danych do SQL przy użyciu [interfejsu API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver)docelowa elementu BulkCopy.
 
 Podczas wykonywania tych kroków w danych wyjściowych SQL mogą wystąpić następujące typy błędów:
 

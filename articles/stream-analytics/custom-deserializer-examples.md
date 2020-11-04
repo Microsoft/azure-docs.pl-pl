@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 87f3e2014281580cc35f941ad62046dcb24539df
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9a69ca707577ceddc56ae691d6e5e701458cae28
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129409"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346605"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Odczytaj dane wejściowe w dowolnym formacie przy użyciu niestandardowych deserializacji platformy .NET
 
@@ -201,7 +201,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>Format serializacji interfejsów API REST
 
-Każde dane wejściowe Stream Analytics ma **format serializacji** . Aby uzyskać więcej informacji na temat opcji wprowadzania, zobacz dokumentację [interfejsu API REST](./stream-analytics-define-inputs.md) .
+Każde dane wejściowe Stream Analytics ma **format serializacji**. Aby uzyskać więcej informacji na temat opcji wprowadzania, zobacz dokumentację [interfejsu API REST](/rest/api/streamanalytics/2016-03-01/inputs) .
 
 Poniższy kod JavaScript jest przykładem formatu serializacji deserializacji .NET podczas korzystania z interfejsu API REST:
 
@@ -231,7 +231,7 @@ Ta funkcja jest dostępna w następujących regionach:
 * East US
 * Zachodnie stany USA
 * Wschodnie stany USA 2
-* West Europe
+* Europa Zachodnia
 
 Możesz [zażądać obsługi](https://aka.ms/ccodereqregion) dodatkowych regionów.
 

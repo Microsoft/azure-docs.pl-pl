@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c1ee42b5b5884b0ce3491282d256d4bea87f44e1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f8959bf84e2b5629e03c2571fa494b96cec4f8e9
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083545"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347645"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
@@ -146,9 +146,9 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 W zapytaniu jest używany element sugerujący. Po utworzeniu sugestii Wywołaj jeden z następujących interfejsów API dla środowiska wyszukiwania w trakcie wpisywania:
 
-+ [Sugestie interfejsu API REST](/rest/api/searchservice/suggestions) 
-+ [Autouzupełnianie interfejsu API REST](/rest/api/searchservice/autocomplete) 
-+ [Metoda SuggestWithHttpMessagesAsync] (/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?
++ [Sugestie interfejsu API REST](/rest/api/searchservice/suggestions)
++ [Autouzupełnianie interfejsu API REST](/rest/api/searchservice/autocomplete)
++ [SuggestWithHttpMessagesAsync, Metoda](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
 + [AutocompleteWithHttpMessagesAsync, Metoda](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
 
 W aplikacji wyszukiwania kod klienta powinien korzystać z biblioteki, takiej jak [Funkcja autouzupełniania interfejsu użytkownika jQuery](https://jqueryui.com/autocomplete/) , aby zebrać częściowe zapytanie i zapewnić dopasowanie. Aby uzyskać więcej informacji na temat tego zadania, zobacz [Dodawanie funkcji Autouzupełnianie lub sugerowanych wyników do kodu klienta](search-autocomplete-tutorial.md).
@@ -166,8 +166,6 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 ## <a name="sample-code"></a>Przykładowy kod
 
 + [Tworzenie pierwszej aplikacji w języku C# (Lekcja 3 — Dodawanie wyszukiwania w trakcie pisania)](tutorial-csharp-type-ahead-and-suggestions.md) pokazuje, że zasugerowana jest konstrukcja, sugerowane zapytania, Autouzupełnianie i nawigacja aspektowa. Ten przykładowy kod jest uruchamiany w usłudze Azure Wyszukiwanie poznawcze piaskownicy i używa wstępnie załadowanego indeksu hoteli, więc wystarczy nacisnąć klawisz F5, aby uruchomić aplikację. Żadna subskrypcja ani logowanie nie są wymagane.
-
-+ [DotNetHowToAutocomplete](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) jest starszym przykładem zawierającym kod C# i Java. Przedstawiono w nim także zasugerowaną konstrukcję, sugerowane zapytania, Autouzupełnianie i nawigację aspektową. Ten przykładowy kod używa hostowanych danych [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) . 
 
 ## <a name="next-steps"></a>Następne kroki
 

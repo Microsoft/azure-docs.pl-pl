@@ -3,12 +3,12 @@ title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 206bd6604ecd9dfece9c946c653b2720e75ff1e3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653370"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347798"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -107,7 +107,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | batchAccounts | Region | 3-24 | Małe litery i cyfry. |
+> | batchAccounts | Region (Region) | 3-24 | Małe litery i cyfry. |
 > | batchAccounts/aplikacje | konto wsadowe | 1-64 | Alfanumeryczne, podkreślenia i łączniki. |
 > | batchAccounts/certyfikaty | konto wsadowe | 5-45 | Alfanumeryczne, podkreślenia i łączniki. |
 > | batchAccounts/pule | konto wsadowe | 1-64 | Alfanumeryczne, podkreślenia i łączniki. |
@@ -494,6 +494,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | firewallPolicies | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończący alfanumeryczne lub podkreślenie. |
 > | firewallPolicies / ruleGroups | zasady zapory | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończący alfanumeryczne lub podkreślenie. |
 > | Usługi frontdoor | global | 5-64 | Alfanumeryczne i łączniki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
+> | frontdoorWebApplicationFirewallPolicies | grupa zasobów | 1-128 | Znaki alfanumeryczne.<br><br>Zacznij od litery. |
 > | loadBalancers | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończący alfanumeryczne lub podkreślenie. |
 > | loadBalancers/inboundNatRules | Moduł równoważenia obciążenia | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończący alfanumeryczne lub podkreślenie. |
 > | localNetworkGateways | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończący alfanumeryczne lub podkreślenie. |
@@ -543,7 +544,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | rozwiązania | obszar roboczy | Nie dotyczy | W przypadku rozwiązań utworzonych przez firmę Microsoft nazwa musi być we wzorcu:<br>`SolutionType(WorkspaceName)`<br><br>W przypadku rozwiązań utworzonych przez inne firmy nazwa musi być we wzorcu:<br>`SolutionType[WorkspaceName]`<br><br>Na przykład prawidłowa nazwa to:<br>`AntiMalware(contoso-IT)`<br><br>W typie rozwiązania jest rozróżniana wielkość liter. |
+> | rozwiązania | obszar roboczy | Brak | W przypadku rozwiązań utworzonych przez firmę Microsoft nazwa musi być we wzorcu:<br>`SolutionType(WorkspaceName)`<br><br>W przypadku rozwiązań utworzonych przez inne firmy nazwa musi być we wzorcu:<br>`SolutionType[WorkspaceName]`<br><br>Na przykład prawidłowa nazwa to:<br>`AntiMalware(contoso-IT)`<br><br>W typie rozwiązania jest rozróżniana wielkość liter. |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 
@@ -653,7 +654,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | storageAccounts/managementPolicies | konto magazynu |  | Musi być `default` . |
 > | blob | kontener | 1-1024 | Wszystkie znaki adresu URL, z uwzględnieniem wielkości liter |
 > | kolejka | konto magazynu | 3-63 | Małe litery, cyfry i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. Nie można używać kolejnych łączników. |
-> | tabela | konto magazynu | 3-63 | Znaki alfanumeryczne.<br><br>Zacznij od litery. |
+> | table (stolik) | konto magazynu | 3-63 | Znaki alfanumeryczne.<br><br>Zacznij od litery. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft. StorageSync
 

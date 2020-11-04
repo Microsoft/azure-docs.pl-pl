@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125176"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348342"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 
@@ -74,7 +74,7 @@ Po dodaniu identyfikatora GUID do szablonu lub w agencie użytkownika i zarejest
    * Partnerzy mogą rejestrować wiele identyfikatorów GUID.
    * Partnerzy mogą rejestrować identyfikatory GUID dla szablonów rozwiązań i ofert spoza witryny Marketplace.
 
-1. W prawym górnym rogu wybierz ikonę koła zębatego ustawienia, a następnie wybierz pozycję **Ustawienia dewelopera** .
+1. W prawym górnym rogu wybierz ikonę koła zębatego ustawienia, a następnie wybierz pozycję **Ustawienia dewelopera**.
 
 1. Na **stronie Ustawienia konta** wybierz pozycję **Dodaj identyfikator GUID śledzenia.**
 
@@ -82,7 +82,7 @@ Po dodaniu identyfikatora GUID do szablonu lub w agencie użytkownika i zarejest
 
 1. Aby zarejestrować więcej niż jeden identyfikator GUID, ponownie wybierz pozycję **Dodaj identyfikator GUID śledzenia** . Na stronie są wyświetlane dodatkowe pola.
 
-1. Wybierz pozycję **Zapisz** .
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="use-resource-manager-templates"></a>Używanie szablonów usługi Resource Manager
 Wiele rozwiązań partnerskich jest wdrażanych przy użyciu szablonów Azure Resource Manager. Jeśli masz szablon Menedżer zasobów, który jest dostępny w witrynie Azure Marketplace, w witrynie GitHub lub w ramach przewodnika Szybki Start, proces modyfikacji szablonu, który umożliwi przypisanie użycia klienta, jest prosty do przodu.
@@ -102,7 +102,7 @@ Aby dodać unikatowy identyfikator globalny (GUID), należy dokonać pojedynczej
 
 1. Dodaj nowy zasób typu [Microsoft. resources/Deployments](/azure/templates/microsoft.resources/deployments) w głównym pliku szablonu. Zasób musi znajdować się w **mainTemplate.js** lubazuredeploy.jstylko **dla** pliku, a nie w żadnych zagnieżdżonych lub połączonych szablonach.
 
-1. Wprowadź wartość identyfikatora GUID po `pid-` prefiksie jako nazwę zasobu. Na przykład jeśli identyfikator GUID to eb7927c8-dd66-43e1-b0cf-c346a422063, nazwą zasobu będzie _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_ .
+1. Wprowadź wartość identyfikatora GUID po `pid-` prefiksie jako nazwę zasobu. Na przykład jeśli identyfikator GUID to eb7927c8-dd66-43e1-b0cf-c346a422063, nazwą zasobu będzie _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Sprawdź, czy szablon nie ma błędów.
 
@@ -159,7 +159,7 @@ Dla języka Python Użyj atrybutu **config** . Możesz dodać atrybut tylko do U
 
 #### <a name="example-the-net-sdk"></a>Przykład: zestaw SDK platformy .NET
 
-W przypadku platformy .NET upewnij się, że ustawiono agenta użytkownika. Biblioteka [Microsoft. Azure. Management. Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) może służyć do ustawiania agenta użytkownika przy użyciu następującego kodu (przykład w języku C#):
+W przypadku platformy .NET upewnij się, że ustawiono agenta użytkownika. Biblioteka [Microsoft. Azure. Management. Fluent](/dotnet/api/microsoft.azure.management.fluent) może służyć do ustawiania agenta użytkownika przy użyciu następującego kodu (przykład w języku C#):
 
 ```csharp
 

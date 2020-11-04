@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7cf3caa0e309c1640db6ca2817a91f9db71c5110
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 03655e88d4d4c9183bff71e04bf447f470fcf557
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129919"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348410"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Podstawa zabezpieczeń platformy Azure dla Stream Analytics
 
@@ -238,9 +238,9 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki** : usługa Azure AD ma wbudowane role, które muszą być jawnie przypisane. Role mogą być zapytania w celu odnalezienia członkostwa. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
-* [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitorowanie Azure Security Center** : tak
 
@@ -542,7 +542,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 * [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
 
-* [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
@@ -682,7 +682,7 @@ Ponadto za pomocą usługi Azure Resource Graph można wykonywać zapytania/odna
 
 **Wskazówki** : Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. StreamAnalytics", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji Azure Stream Analytics. Mogą również korzystać z wbudowanych definicji zasad związanych z Azure Stream Analytics, takich jak dzienniki diagnostyczne w Azure Stream Analytics powinny być włączone.
 
-* [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Azure Policy wbudowane definicje zasad](../governance/policy/samples/built-in-policies.md)
 
@@ -724,7 +724,7 @@ Ponadto za pomocą usługi Azure Resource Graph można wykonywać zapytania/odna
 
 **Wskazówki** : Użyj Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim, w tym niestandardowe zasady platformy Azure, szablony Azure Resource Manager, skrypty konfiguracji żądanego stanu, funkcje zdefiniowane przez użytkownika i zapytania. Aby uzyskać dostęp do zasobów zarządzanych w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS.
 
-* [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
 * [Informacje o uprawnieniach i grupach na platformie Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -880,7 +880,7 @@ Aby można było tworzyć kopie zapasowe danych z obsługiwanych usług konta ma
 
 Klucze zarządzane/dostarczone przez klienta można tworzyć w ramach Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell.
 
-* [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Monitorowanie Azure Security Center** : obecnie niedostępna
 

@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d661800c53cc0795efde1f411675d17661fb968
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400574"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345537"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Samouczek: współpraca z kolejkami usługi Azure Storage na platformie .NET
 
@@ -95,6 +95,8 @@ Utwórz aplikację platformy .NET Core o nazwie **QueueApp**. Dla uproszczenia t
    C:\Tutorials\QueueApp>_
    ```
 
+<!-- markdownlint-disable MD023 -->
+
 ## <a name="add-the-azure-client-libraries"></a>Dodawanie bibliotek klienckich platformy Azure
 
 1. Dodaj biblioteki klienta usługi Azure Storage do projektu za pomocą `dotnet add package` polecenia.
@@ -160,7 +162,7 @@ Dodaj parametry połączenia do aplikacji, aby mogły uzyskać dostęp do konta 
 
 1. Przełącz się z powrotem do Visual Studio Code.
 
-1. W metodzie **Main**  Zastąp `Console.WriteLine("Hello World!");` kod następującym wierszem, który pobiera parametry połączenia ze zmiennej środowiskowej.
+1. W metodzie **Main** Zastąp `Console.WriteLine("Hello World!");` kod następującym wierszem, który pobiera parametry połączenia ze zmiennej środowiskowej.
 
    # <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: d4c23e6b213c102813758742b8d191735207d285
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 04137fef640da46ca8876811e127e109a8c3d445
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124904"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348308"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Utwórz stronę docelową dla oferty SaaS z transakcyjnymi w komercyjnej witrynie Marketplace
 
@@ -122,7 +122,7 @@ Token identyfikatora zawiera podstawowe informacje umożliwiające identyfikacj�
 | surname | Nazwisko użytkownika. |
 |||
 
-Dodatkowe właściwości — takie jak nazwa firmy użytkownika lub lokalizacja użytkownika (kraj) — można wybrać do uwzględnienia w żądaniu. Aby uzyskać więcej informacji [, zobacz właściwości typu zasobu użytkownika](/graph/api/resources/user?view=graph-rest-1.0#properties) .
+Dodatkowe właściwości — takie jak nazwa firmy użytkownika lub lokalizacja użytkownika (kraj) — można wybrać do uwzględnienia w żądaniu. Aby uzyskać więcej informacji [, zobacz właściwości typu zasobu użytkownika](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties) .
 
 Większość aplikacji, które są zarejestrowane w usłudze Azure AD, przyznaje delegowane uprawnienia do odczytu informacji o użytkowniku z dzierżawy usługi Azure AD swojej firmy. Każdemu żądaniu do Microsoft Graph informacji musi towarzyszyć token dostępu do uwierzytelniania. Określone kroki w celu wygenerowania tokenu dostępu będą zależeć od stosu technologii, który jest używany, ale przykładowy kod będzie zawierać przykład. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu w imieniu użytkownika](/graph/auth-v2-user).
 

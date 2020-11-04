@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e5b7ed75f22659a9a38ac761cc61c841102a067
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809202"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345843"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Jak używać Magazynu kolejek w języku PHP
 
@@ -38,7 +38,7 @@ W tym przewodniku należy użyć funkcji usługi magazynu kolejek, które mogą 
 ### <a name="install-via-composer"></a>Instalowanie przez układacz
 
 1. Utwórz plik o nazwie **composer.js** w folderze głównym projektu i Dodaj do niego następujący kod:
-   
+
     ```json
     {
       "require": {
@@ -46,9 +46,10 @@ W tym przewodniku należy użyć funkcji usługi magazynu kolejek, które mogą 
       }
     }
     ```
+
 2. Pobierz **[układacz. PHAR][composer-phar]** w katalogu głównym projektu.
 3. Otwórz wiersz polecenia i wykonaj następujące polecenie w katalogu głównym projektu
-   
+
     ```
     php composer.phar install
     ```
@@ -89,8 +90,9 @@ UseDevelopmentStorage=true
 
 Aby utworzyć klienta usługa kolejki platformy Azure, należy użyć klasy **QueueRestProxy** . Można użyć jednej z następujących technik:
 
-* Przekaż parametry połączenia bezpośrednio do niego.
-* Użyj zmiennych środowiskowych w aplikacji sieci Web do przechowywania parametrów połączenia. Aby skonfigurować parametry połączenia, zobacz dokument [Ustawienia konfiguracji aplikacji sieci Web platformy Azure](../../app-service/configure-common.md) .
+- Przekaż parametry połączenia bezpośrednio do niego.
+- Użyj zmiennych środowiskowych w aplikacji sieci Web do przechowywania parametrów połączenia. Aby skonfigurować parametry połączenia, zobacz dokument [Ustawienia konfiguracji aplikacji sieci Web platformy Azure](../../app-service/configure-common.md) .
+
 W przedstawionych tutaj przykładach parametry połączenia są przekazywane bezpośrednio.
 
 ```php
@@ -139,8 +141,6 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > W przypadku kluczy metadanych nie należy polegać na rozróżnianiu wielkości liter. Wszystkie klucze są odczytywane z usługi małymi literami.
-> 
-> 
 
 ## <a name="add-a-message-to-a-queue"></a>Dodawanie komunikatu do kolejki
 
@@ -223,7 +223,7 @@ else{
 
 ## <a name="de-queue-the-next-message"></a>Usunięcie następnego komunikatu z kolejki
 
-Kod usuwa komunikat z kolejki w dwóch krokach. Najpierw należy wywołać **QueueRestProxy->listMessages**, co sprawia, że komunikat jest niewidoczny dla każdego innego kodu, który odczytuje z kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. (Jeśli wiadomość nie zostanie usunięta w tym okresie, zostanie ona ponownie widoczna w kolejce). Aby zakończyć usuwanie komunikatu z kolejki, należy wywołać **QueueRestProxy->deleteMessage**. Ten dwuetapowy proces usuwania komunikatu gwarantuje, że gdy kod nie może przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu może uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje **deleteMessage** bezpośrednio po przetworzeniu komunikatu.
+Kod usuwa komunikat z kolejki w dwóch krokach. Najpierw należy wywołać **QueueRestProxy->listMessages** , co sprawia, że komunikat jest niewidoczny dla każdego innego kodu, który odczytuje z kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. (Jeśli wiadomość nie zostanie usunięta w tym okresie, zostanie ona ponownie widoczna w kolejce). Aby zakończyć usuwanie komunikatu z kolejki, należy wywołać **QueueRestProxy->deleteMessage**. Ten dwuetapowy proces usuwania komunikatu gwarantuje, że gdy kod nie może przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu może uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje **deleteMessage** bezpośrednio po przetworzeniu komunikatu.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -425,8 +425,8 @@ catch(ServiceException $e){
 
 Teraz, gdy znasz już podstawy usługi Azure queue storage, Skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu:
 
-* Odwiedź stronę [referencyjną interfejsu API dla biblioteki klienta php usługi Azure Storage](https://azure.github.io/azure-storage-php/)
-* Zapoznaj się z [przykładem zaawansowanej kolejki](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
+- Odwiedź stronę [referencyjną interfejsu API dla biblioteki klienta php usługi Azure Storage](https://azure.github.io/azure-storage-php/)
+- Zapoznaj się z [przykładem zaawansowanej kolejki](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
 Aby uzyskać więcej informacji, zobacz również [Centrum deweloperów języka PHP](https://azure.microsoft.com/develop/php/).
 

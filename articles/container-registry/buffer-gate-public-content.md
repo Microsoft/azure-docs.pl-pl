@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: bb185e7d5803219135fddf421b7d6a89edd296b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: def1c3a9b8a1086f453c7e71d766ab0dd89b0c2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315814"
+ms.locfileid: "93347526"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Zarządzanie zawartością publiczną za pomocą Azure Container Registry
 
@@ -28,7 +28,7 @@ Bez odpowiednich kontroli, posiadanie zależności od zawartości rejestru publi
 Pierwszy krok, jeśli obecnie pobierasz Obrazy publiczne z usługi Docker Hub w ramach przepływu pracy kompilowania lub wdrażania, zalecamy [uwierzytelnienie przy użyciu konta usługi Docker Hub](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) zamiast anonimowego żądania ściągnięcia.
 
 > [!NOTE]
-> Od 2 listopada 2020 [limity szybkości pobierania](https://docs.docker.com/docker-hub/download-rate-limit) dotyczą żądań anonimowych i uwierzytelnionych do usługi Docker Hub z kont planów bezpłatnych platformy Docker i są wymuszane przez adres IP i identyfikator platformy Docker, respecitively. 
+> Od 2 listopada 2020 [limity szybkości pobierania](https://docs.docker.com/docker-hub/download-rate-limit) dotyczą żądań anonimowych i uwierzytelnionych do usługi Docker Hub z kont planów bezpłatnych platformy Docker i są wymuszane odpowiednio przy użyciu adresu IP i identyfikatora platformy Docker. 
 >
 > Podczas szacowania liczby żądań ściągnięcia należy wziąć pod uwagę, że w przypadku korzystania z usług dostawcy w chmurze lub pracy za firmową translacją adresów sieciowych do usługi Docker Hub w agregacji jako podzbiór adresów IP zostanie wyświetlonych wiele użytkowników. Dodanie funkcji uwierzytelniania płatnego konta usługi Docker do żądań wysyłanych do centrum platformy Docker spowoduje uniknięcie potencjalnych przerw w świadczeniu usług z powodu ograniczenia szybkości ograniczania.
 >

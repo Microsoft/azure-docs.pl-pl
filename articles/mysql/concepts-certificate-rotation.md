@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 6005e56982d6adad937586c6a1b364fab09603ec
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 58143bde757a44cde4e4237715823c8556ac5e12
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242317"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348444"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Informacje o zmianach w katalogu głównym urzędu certyfikacji dotyczące Azure Database for MySQL
 
@@ -31,10 +31,10 @@ Nowy certyfikat zostanie użyty od 15 lutego 2021 (02/15/2021). Jeśli podczas n
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Jak mogę dowiedzieć się, czy na mojej bazie danych ma być to naruszone?
 
 Wszystkie aplikacje korzystające z protokołu SSL/TLS i sprawdź, czy certyfikat główny musi zaktualizować certyfikat główny. Możesz określić, czy Twoje połączenia weryfikują certyfikat główny, przeglądając parametry połączenia.
--   Jeśli parametry połączenia obejmują `sslmode=verify-ca` lub `sslmode=verify-identity` , należy zaktualizować certyfikat.
--   Jeśli parametry połączenia obejmują `sslmode=disable` , `sslmode=allow` , `sslmode=prefer` , lub `sslmode=require` , nie trzeba aktualizować certyfikatów. 
+-    Jeśli parametry połączenia obejmują `sslmode=verify-ca` lub `sslmode=verify-identity` , należy zaktualizować certyfikat.
+-    Jeśli parametry połączenia obejmują `sslmode=disable` , `sslmode=allow` , `sslmode=prefer` , lub `sslmode=require` , nie trzeba aktualizować certyfikatów. 
 -  Jeśli używanie łączników języka Java i parametrów połączenia zawiera useSSL = false lub requireSSL = false, nie trzeba aktualizować certyfikatów.
--   Jeśli parametry połączenia nie określają sslmode, nie trzeba aktualizować certyfikatów.
+-    Jeśli parametry połączenia nie określają sslmode, nie trzeba aktualizować certyfikatów.
 
 Jeśli używasz klienta, który dzieli parametry połączenia, przejrzyj dokumentację klienta, aby dowiedzieć się, czy weryfikuje certyfikaty.
 Aby zrozumieć Azure Database for MySQL sslmode, przejrzyj [opisy trybu SSL](concepts-ssl-connection-security.md#ssl-default-settings).
@@ -80,19 +80,19 @@ Aby uniknąć przerwania dostępności aplikacji z powodu nieoczekiwanego odwoł
  </br>-----KOŃCOWY CERTYFIKAT-----
 
 *   Zastąp oryginalny plik PEM głównego urzędu certyfikacji z plikiem połączonego głównego urzędu certyfikacji i uruchom ponownie aplikację/klienta.
-*   W przyszłości po wdrożeniu nowego certyfikatu po stronie serwera można zmienić plik PEM urzędu certyfikacji na DigiCertGlobalRootG2. CRT. pem.
+*    W przyszłości po wdrożeniu nowego certyfikatu po stronie serwera można zmienić plik PEM urzędu certyfikacji na DigiCertGlobalRootG2. CRT. pem.
 
 ## <a name="what-can-be-the-impact-of-not-updating-the-certificate"></a>Jaki może być wpływ nieaktualizowania certyfikatu?
 Jeśli używasz Azure Database for MySQL wystawionego certyfikatu zgodnie z opisem w tym miejscu, dostępność aplikacji może zostać przerwana, ponieważ baza danych nie będzie osiągalna. W zależności od aplikacji może pojawić się wiele komunikatów o błędach, w tym między innymi:
-*   Nieprawidłowy certyfikat/odwołany certyfikat
-*   Przekroczono limit czasu połączenia
+*    Nieprawidłowy certyfikat/odwołany certyfikat
+*    Przekroczono limit czasu połączenia
 
 > [!NOTE]
 > Nie usuwaj ani nie zmieniaj **certyfikatu Baltimore** , dopóki nie zostanie wprowadzona zmiana certyfikatu. Po zakończeniu zmiany wyślemy powiadomienie, po czym będzie ona bezpieczna do usuwania certyfikatu Baltimore. 
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. Jeśli nie korzystam z protokołu SSL/TLS, czy nadal muszę zaktualizować główny urząd certyfikacji?
+###    <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. Jeśli nie korzystam z protokołu SSL/TLS, czy nadal muszę zaktualizować główny urząd certyfikacji?
 Jeśli nie używasz protokołu SSL/TLS, akcje nie są wymagane. 
 
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. Jeśli używam protokołu SSL/TLS, należy ponownie uruchomić serwer bazy danych w celu zaktualizowania głównego urzędu certyfikacji?
@@ -104,7 +104,7 @@ Jeśli certyfikat główny nie zostanie zaktualizowany do 15 lutego 2021 (02/15/
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mysql"></a>4. jaki jest wpływ w przypadku używania App Service z Azure Database for MySQL?
 W przypadku usług Azure App Services łączących się z Azure Database for MySQL mogą istnieć dwa możliwe scenariusze, które są zależne od tego, jak korzystasz z protokołu SSL z aplikacją.
 *   Ten nowy certyfikat został dodany do App Service na poziomie platformy. Jeśli używasz certyfikatów SSL zawartych na platformie App Service w aplikacji, nie jest wymagana żadna akcja.
-*   Jeśli jawnie dołączasz ścieżkę do pliku certyfikatu protokołu SSL w kodzie, należy pobrać nowy certyfikat i zaktualizować kod, aby użyć nowego certyfikatu. Dobrym przykładem tego scenariusza jest użycie kontenerów niestandardowych w App Service, jak to zostało udostępnione w [dokumentacji App Service](/azure/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress)
+*   Jeśli jawnie dołączasz ścieżkę do pliku certyfikatu protokołu SSL w kodzie, należy pobrać nowy certyfikat i zaktualizować kod, aby użyć nowego certyfikatu. Dobrym przykładem tego scenariusza jest użycie kontenerów niestandardowych w App Service, jak to zostało udostępnione w [dokumentacji App Service](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress)
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mysql"></a>5. jaki jest wpływ, jeśli korzystasz z usługi Azure Kubernetes Services (AKS) z Azure Database for MySQL?
 Jeśli próbujesz nawiązać połączenie z Azure Database for MySQL przy użyciu usługi Azure Kubernetes Services (AKS), będzie ona podobna do dostępu z poziomu dedykowanego środowiska macierzystego klientów. Zapoznaj się z [tymi](../aks/ingress-own-tls.md)krokami.
@@ -123,13 +123,13 @@ Ponieważ klienci używani do łączenia się z serwerem muszą zaktualizować i
 ### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Jeśli Tworzę nowy serwer po 15 lutego 2021 (02/15/2021), wpłynie to na problem?
 W przypadku serwerów utworzonych po 15 lutego 2021 (02/15/2021) można użyć nowo wystawionego certyfikatu dla aplikacji do łączenia się przy użyciu protokołu SSL.
 
-### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. jak często firma Microsoft aktualizuje swoje certyfikaty lub jakie są zasady wygasania?
+###    <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. jak często firma Microsoft aktualizuje swoje certyfikaty lub jakie są zasady wygasania?
 Te certyfikaty używane przez Azure Database for MySQL są udostępniane przez zaufane urzędy certyfikacji. W związku z tym obsługa tych certyfikatów w Azure Database for MySQL jest związana z obsługą tych certyfikatów przez urząd certyfikacji. Jednak podobnie jak w tym przypadku, w tych wstępnie zdefiniowanych certyfikatach mogą znajdować się nieprzewidziane usterki, które muszą zostać ustalone najwcześniej.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. Jeśli używam replik odczytu, czy muszę wykonać tę aktualizację tylko na serwerze źródłowym lub w replikach odczytu?
+###    <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. Jeśli używam replik odczytu, czy muszę wykonać tę aktualizację tylko na serwerze źródłowym lub w replikach odczytu?
 Ponieważ ta aktualizacja jest zmianą po stronie klienta, jeśli klient używany do odczytywania danych z serwera repliki, należy również zastosować zmiany dla tych klientów.
 
-### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Jeśli używam replikacji danych, należy wykonać dowolną akcję?
+###    <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Jeśli używam replikacji danych, należy wykonać dowolną akcję?
 W przypadku korzystania z [replikacji danych w](concepts-data-in-replication.md) celu nawiązania połączenia z usługą Azure Database for MySQL należy wziąć pod uwagę dwie kwestie:
 *   Jeśli replikacja danych jest z maszyny wirtualnej (Premium lub Azure Virtual Machine) do Azure Database for MySQL, należy sprawdzić, czy protokół SSL jest używany do tworzenia repliki. Uruchom opcję **Pokaż stan podrzędny** i sprawdź poniższe ustawienie.  
 
@@ -152,5 +152,5 @@ Aby sprawdzić, czy jest używane połączenie SSL do łączenia się z serwerem
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. czy jest wymagana akcja, jeśli mam już DigiCertGlobalRootG2 w moim pliku certyfikatu?
 Nie. Jeśli plik certyfikatu ma już **DigiCertGlobalRootG2** , nie jest wymagana żadna akcja.
 
-### <a name="15-what-if-i-have-further-questions"></a>15. co zrobić, jeśli mam więcej pytań?
+###    <a name="15-what-if-i-have-further-questions"></a>15. co zrobić, jeśli mam więcej pytań?
 Jeśli masz pytania, uzyskaj odpowiedzi od ekspertów społeczności w [firmie Microsoft Q&A](mailto:AzureDatabaseforMySQL@service.microsoft.com). Jeśli masz plan pomocy technicznej i potrzebujesz pomocy technicznej, [skontaktuj się z nami](mailto:AzureDatabaseforMySQL@service.microsoft.com).

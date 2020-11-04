@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 5fa895964c30021452b8ce7b070a8b127d65e972
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a3ef198c79683786a7d6fb36a46cd0c989071c9e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305961"
+ms.locfileid: "93346897"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Przykład: wykrywanie języka za pomocą analiza tekstu
 
@@ -39,30 +39,30 @@ Musisz mieć dokumenty JSON w tym formacie: ID i Text.
 Rozmiar dokumentu musi zawierać 5 120 znaków na dokument. Możesz mieć do 1 000 elementów (identyfikatorów) na kolekcję. Kolekcja jest przesyłana w treści żądania. Poniższy przykład jest przykładem zawartości, którą można przesłać do wykrywania języka:
 
 ```json
-    {
-        "documents": [
-            {
-                "id": "1",
-                "text": "This document is in English."
-            },
-            {
-                "id": "2",
-                "text": "Este documento está en inglés."
-            },
-            {
-                "id": "3",
-                "text": "Ce document est en anglais."
-            },
-            {
-                "id": "4",
-                "text": "本文件为英文"
-            },
-            {
-                "id": "5",
-                "text": "Этот документ на английском языке."
-            }
-        ]
-    }
+{
+    "documents": [
+        {
+            "id": "1",
+            "text": "This document is in English."
+        },
+        {
+            "id": "2",
+            "text": "Este documento está en inglés."
+        },
+        {
+            "id": "3",
+            "text": "Ce document est en anglais."
+        },
+        {
+            "id": "4",
+            "text": "本文件为英文"
+        },
+        {
+            "id": "5",
+            "text": "Этот документ на английском языке."
+        }
+    ]
+}
 ```
 
 ## <a name="step-1-structure-the-request"></a>Krok 1: Określenie struktury żądania
@@ -99,55 +99,67 @@ Wynik dodatni 1,0 wyraża najwyższy możliwy poziom ufności analizy.
 
 ```json
 {
-    "documents": [
+    "documents":[
         {
-            "id": "1",
-            "detectedLanguage": {
-                "name": "English",
-                "iso6391Name": "en",
-                "confidenceScore": 1.0
+            "detectedLanguage":{
+                "confidenceScore":0.99,
+                "iso6391Name":"en",
+                "name":"English"
             },
-            "warnings": []
+            "id":"1",
+            "warnings":[
+                
+            ]
         },
         {
-            "id": "2",
-            "detectedLanguage": {
-                "name": "Spanish",
-                "iso6391Name": "es",
-                "confidenceScore": 1.0
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"es",
+                "name":"Spanish"
             },
-            "warnings": []
+            "id":"2",
+            "warnings":[
+                
+            ]
         },
         {
-            "id": "3",
-            "detectedLanguage": {
-                "name": "French",
-                "iso6391Name": "fr",
-                "confidenceScore": 1.0
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"fr",
+                "name":"French"
             },
-            "warnings": []
+            "id":"3",
+            "warnings":[
+                
+            ]
         },
         {
-            "id": "4",
-            "detectedLanguage": {
-                "name": "Chinese_Simplified",
-                "iso6391Name": "zh_chs",
-                "confidenceScore": 1.0
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"zh_chs",
+                "name":"Chinese_Simplified"
             },
-            "warnings": []
+            "id":"4",
+            "warnings":[
+                
+            ]
         },
         {
-            "id": "5",
-            "detectedLanguage": {
-                "name": "Russian",
-                "iso6391Name": "ru",
-                "confidenceScore": 1.0
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"ru",
+                "name":"Russian"
             },
-            "warnings": []
+            "id":"5",
+            "warnings":[
+                
+            ]
         }
     ],
-    "errors": [],
-    "modelVersion": "2019-10-01"
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
 }
 ```
 
@@ -160,19 +172,19 @@ Na przykład "niemożliwe" jest wspólne dla języka angielskiego i francuskiego
 **Dane wejściowe**
 
 ```json
-    {
-        "documents": [
-            {
-                "id": "1",
-                "text": "impossible"
-            },
-            {
-                "id": "2",
-                "text": "impossible",
-                "countryHint": "fr"
-            }
-        ]
-    }
+{
+    "documents": [
+        {
+            "id": "1",
+            "text": "impossible"
+        },
+        {
+            "id": "2",
+            "text": "impossible",
+            "countryHint": "fr"
+        }
+    ]
+}
 ```
 
 Usługa ma teraz dodatkowy kontekst, aby zapewnić lepszą opinię: 
@@ -180,46 +192,60 @@ Usługa ma teraz dodatkowy kontekst, aby zapewnić lepszą opinię:
 **Dane wyjściowe**
 
 ```json
-    {
-        "documents": [
-            {
-                "id": "1",
-                "detectedLanguage": [
-                    {
-                        "name": "English",
-                        "iso6391Name": "en",
-                        "confidenceScore": 1
-                    }
-                ]
+{
+    "documents":[
+        {
+            "detectedLanguage":{
+                "confidenceScore":0.62,
+                "iso6391Name":"en",
+                "name":"English"
             },
-            {
-                "id": "2",
-                "detectedLanguage": [
-                    {
-                        "name": "French",
-                        "iso6391Name": "fr",
-                        "confidenceScore": 1
-                    }
-                ]
-            }
-        ],
-        "errors": []
-    }
+            "id":"1",
+            "warnings":[
+                
+            ]
+        },
+        {
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"fr",
+                "name":"French"
+            },
+            "id":"2",
+            "warnings":[
+                
+            ]
+        }
+    ],
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
+}
 ```
 
 Jeśli analizator nie może przeanalizować danych wejściowych, zwraca `(Unknown)` . Przykładem jest przesłanie bloku tekstu, który składa się wyłącznie z cyfr arabskich.
 
 ```json
-    {
-        "id": "5",
-        "detectedLanguage": [
-            {
-                "name": "(Unknown)",
-                "iso6391Name": "(Unknown)",
-                "confidenceScore": "NaN"
-            }
-        ]
-    }
+{
+    "documents":[
+        {
+            "detectedLanguage":{
+                "confidenceScore":0.0,
+                "iso6391Name":"(Unknown)",
+                "name":"(Unknown)"
+            },
+            "id":"1",
+            "warnings":[
+                
+            ]
+        }
+    ],
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
+}
 ```
 
 ### <a name="mixed-language-content"></a>Zawartość języka mieszanego
@@ -229,14 +255,14 @@ Zawartość w języku mieszanym w tym samym dokumencie zwraca język z najwięks
 **Dane wejściowe**
 
 ```json
-    {
-      "documents": [
+{
+    "documents": [
         {
-          "id": "1",
-          "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
+            "id": "1",
+            "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
         }
-      ]
-    }
+    ]
+}
 ```
 
 **Dane wyjściowe**
@@ -244,21 +270,25 @@ Zawartość w języku mieszanym w tym samym dokumencie zwraca język z najwięks
 Wynikowe dane wyjściowe składają się z języka dominującego, z wynikiem niższym niż 1,0, który wskazuje słaby poziom zaufania.
 
 ```json
-    {
-      "documents": [
+{
+    "documents":[
         {
-          "id": "1",
-          "detectedLanguage": [
-            {
-              "name": "Spanish",
-              "iso6391Name": "es",
-              "confidencescore": 0.94
-            }
-          ]
+            "detectedLanguage":{
+                "confidenceScore":0.94,
+                "iso6391Name":"es",
+                "name":"Spanish"
+            },
+            "id":"1",
+            "warnings":[
+                
+            ]
         }
-      ],
-      "errors": []
-    }
+    ],
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
+}
 ```
 
 ## <a name="summary"></a>Podsumowanie
@@ -270,7 +300,7 @@ W tym artykule przedstawiono koncepcje i przepływ pracy wykrywania języka przy
 + Żądanie POST jest `/languages` punktem końcowym przy użyciu spersonalizowanego [klucza dostępu i punktu końcowego](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) , który jest prawidłowy dla Twojej subskrypcji.
 + Dane wyjściowe odpowiedzi składają się z identyfikatorów języka dla każdego identyfikatora dokumentu. Dane wyjściowe mogą być przesyłane strumieniowo do dowolnej aplikacji, która akceptuje kod JSON. Przykładowe aplikacje to programy Excel i Power BI, aby podać kilka nazw.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Korzystanie z biblioteki klienta analiza tekstu](../quickstarts/text-analytics-sdk.md)

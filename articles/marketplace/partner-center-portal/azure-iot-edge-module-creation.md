@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 957695892c39dd3ddfd9dc45d60158c89eb22698
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130633"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347486"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Tworzenie oferty modułu usługi IoT Edge
 
@@ -21,8 +21,8 @@ W tym artykule opisano sposób tworzenia i publikowania oferty usługi Edge dla 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview** .
-3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **IoT Edge module** .
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **IoT Edge module**.
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-iot-edge.png)
 
@@ -31,16 +31,16 @@ W tym artykule opisano sposób tworzenia i publikowania oferty usługi Edge dla 
 
 ### <a name="offer-id-and-alias"></a>Identyfikator oferty i alias
 
-Wprowadź **Identyfikator oferty** . To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
+Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
 - Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** , adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz** .
+- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
-Wprowadź **alias oferty** . Jest to nazwa używana dla oferty w centrum partnerskim.
+Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
 
 - Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
-- Tego nie można zmienić po wybraniu opcji **Utwórz** .
+- Tego nie można zmienić po wybraniu opcji **Utwórz**.
 
 Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
@@ -48,7 +48,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
+Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, Usuń wersję roboczą
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -94,7 +94,7 @@ Ta strona umożliwia definiowanie kategorii używanych do grupowania oferty w wi
 Wybierz kategorie i podkategorie, aby umieścić ofertę w odpowiednich obszarach wyszukiwania w portalu Marketplace. Pamiętaj, aby opisać, w jaki sposób oferta obsługuje te kategorie w opisie oferty. Wybierz pozycję:
 
 - Co najmniej jeden i maksymalnie dwie kategorie, w tym podstawowa i pomocnicza Kategoria (opcjonalnie).
-- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy** .
+- Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli żadna Podkategoria nie ma zastosowania do oferty, wybierz pozycję **nie dotyczy**.
 
 Zapoznaj się z pełną listą kategorii i podkategorii w artykule [Oferta z najlepszymi rozwiązaniami](../gtm-offer-listing-best-practices.md). W portalu Marketplace moduły IoT Edge są zawsze wyświetlane w kategorii modułu  **Internet rzeczy**  >  **IoT Edge**   .
 
@@ -111,7 +111,7 @@ Oferujemy standardowy szablon kontraktu, aby ułatwić obsługę transakcji w po
 
 Aby dowiedzieć się więcej na temat standardowej umowy, zobacz temat [Standardowy kontrakt dla komercyjnego portalu Microsoft Marketplace](../standard-contract.md). Możesz również pobrać plik PDF [kontraktu standardowego](https://go.microsoft.com/fwlink/?linkid=2041178) (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone).
 
-Aby korzystać z kontraktu standardowego, zaznacz pole wyboru **Użyj kontraktu standardowego dla komercyjnego portalu firmy Microsoft** , a następnie kliknij przycisk **Akceptuj** .
+Aby korzystać z kontraktu standardowego, zaznacz pole wyboru **Użyj kontraktu standardowego dla komercyjnego portalu firmy Microsoft** , a następnie kliknij przycisk **Akceptuj**.
 
 > [!NOTE]
 > Po opublikowaniu oferty przy użyciu standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft nie można używać własnych niestandardowych warunków i postanowień. Oferuj swoje rozwiązanie w ramach standardowej umowy lub w ramach własnych warunków i postanowień.
@@ -242,7 +242,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład sposobu wyświetlania informacji o ofercie w wynikach wyszukiwania w portalu Azure Marketplace:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w wynikach wyszukiwania w portalu Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -252,7 +252,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Azure Portal.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -263,7 +263,7 @@ Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Market
 
 <br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal wynikach wyszukiwania:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w wynikach wyszukiwania Azure Portal.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -310,16 +310,16 @@ Akcje dostępne w omówieniu planu różnią się w zależności od bieżącego 
 
 ### <a name="create-new-plan"></a>Utwórz nowy plan
 
-Wybierz pozycję **Utwórz nowy plan** . Zostanie wyświetlone okno dialogowe **nowy plan** .
+Wybierz pozycję **Utwórz nowy plan**. Zostanie wyświetlone okno dialogowe **nowy plan** .
 
 W polu **identyfikator planu** Utwórz unikatowy identyfikator planu dla każdego planu w tej ofercie. Ten identyfikator będzie widoczny dla klientów w adresie sieci Web produktu. Używaj tylko małych liter i cyfr, kresek lub podkreśleń i maksymalnie 50 znaków.
 
-W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę dla każdego planu w tej ofercie. Można na przykład użyć nazwy oferty **systemu Windows Server** z planami **Windows Server 2016** i **Windows Server 2019** .
+W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę dla każdego planu w tej ofercie. Można na przykład użyć nazwy oferty **systemu Windows Server** z planami **Windows Server 2016** i **Windows Server 2019**.
 
 > [!NOTE]
-> Nie można zmienić identyfikatora planu po wybraniu opcji **Utwórz** .
+> Nie można zmienić identyfikatora planu po wybraniu opcji **Utwórz**.
 
-Wybierz pozycję **Utwórz** .
+Wybierz przycisk **Utwórz**.
 
 ### <a name="plan-setup"></a>Konfigurowanie planu
 
@@ -327,7 +327,7 @@ Na tej karcie można skonfigurować chmurę, w której plan jest dostępny. Odpo
 
 #### <a name="azure-regions"></a>Regiony świadczenia usługi Azure
 
-Wszystkie plany dla ofert modułu IoT Edge są automatycznie udostępniane na **platformie Azure Global** .  Twój plan może być używany przez klientów we wszystkich globalnych regionach platformy Azure korzystających z portalu Marketplace. Aby uzyskać szczegółowe informacje, zobacz [dostępność geograficzna i obsługa waluty](../marketplace-geo-availability-currencies.md).
+Wszystkie plany dla ofert modułu IoT Edge są automatycznie udostępniane na **platformie Azure Global**.  Twój plan może być używany przez klientów we wszystkich globalnych regionach platformy Azure korzystających z portalu Marketplace. Aby uzyskać szczegółowe informacje, zobacz [dostępność geograficzna i obsługa waluty](../marketplace-geo-availability-currencies.md).
 
 Wybierz opcję [Azure Government](../../azure-government/documentation-government-welcome.md) , aby rozwiązanie było wyświetlane w tym miejscu. Jest to chmura społecznościowa dla instytucji rządowych, której dostęp jest kontrolowany przez klientów z federalnych, stanowych i lokalnych lub plemienneych instytucji rządowych, a także partnerów uprawnionych do ich używania. Wydawca jest odpowiedzialny za wszelkie kontrole zgodności, miary zabezpieczeń i najlepsze rozwiązania dla tej społeczności w chmurze. Azure Government używa fizycznie wyizolowanych centrów danych i sieci (znajdujących się tylko w Stanach Zjednoczonych). Przed [opublikowaniem](../../azure-government/documentation-government-manage-marketplace-partners.md) w celu Azure Government Przetestuj i Potwierdź swoje rozwiązanie w tym obszarze, ponieważ wyniki mogą się różnić. Aby przygotować i przetestować rozwiązanie, zażądaj konta próbnego od [Microsoft Azure Government wersji próbnej](https://azure.microsoft.com/global-infrastructure/government/request/).
 
@@ -336,7 +336,7 @@ Wybierz opcję [Azure Government](../../azure-government/documentation-governmen
 
 #### <a name="azure-government-certifications"></a>Certyfikaty Azure Government
 
-Ta opcja jest widoczna tylko w przypadku wybrania **Azure Government** w obszarze **regiony platformy Azure** .
+Ta opcja jest widoczna tylko w przypadku wybrania **Azure Government** w obszarze **regiony platformy Azure**.
 
 Usługi Azure Government Services obsługują dane, które podlegają określonym przepisom i wymogom rządowym. Na przykład FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD P4 i CJIS. Aby zapewnić świadomość certyfikatów dla tych programów, możesz udostępnić do 100 linków opisujących certyfikaty. Mogą to być linki do Twoich aukcji bezpośrednio w programie lub do własnej witryny sieci Web. Te linki są widoczne tylko dla Azure Government klientów.
 
@@ -362,7 +362,7 @@ Po zakończeniu tych pól wybierz pozycję **Zapisz wersję roboczą** .
 
 Oto przykładowe szczegóły dotyczące planu witryny Azure Marketplace (wszystkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustruje szczegóły planu witryny Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -372,7 +372,7 @@ Oto przykładowe szczegóły dotyczące planu witryny Azure Marketplace (wszystk
 
 <br>Poniżej przedstawiono przykładowe szczegóły planu Azure Portal (wszelkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustruje szczegóły planu Azure Portal.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -413,15 +413,15 @@ Na karcie **szczegóły repozytorium obrazów** uzyskasz następujące informacj
 
 **Nazwa użytkownika administratora dla Azure Container Registry** : Podaj [nazwę użytkownika administratora](../../container-registry/container-registry-authentication.md#admin-account)) skojarzoną z Azure Container Registryem zawierającym obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Aby uzyskać nazwę użytkownika i hasło administratora, ustaw właściwość z **obsługą administracyjną** na **wartość true** przy użyciu interfejsu Azure Command-Line Interface (CLI). Opcjonalnie możesz ustawić **użytkownika administracyjnego** , aby **włączyć** go w Azure Portal.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustruje okno dialogowe Aktualizowanie rejestru kontenerów.":::
 
 #### <a name="call-out-description"></a>Opis połączenia
 
 1. Administrator
 
-<br>**Hasło dla Azure Container Registry** : Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show.](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+<br>**Hasło dla Azure Container Registry** : Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show.](/cli/azure/acr/credential#az-acr-credential-show)
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustruje ekran klucz dostępu w Azure Portal.":::
 
 #### <a name="call-out-descriptions"></a>Opisy połączeń
 
@@ -429,19 +429,19 @@ Na karcie **szczegóły repozytorium obrazów** uzyskasz następujące informacj
 2. Nazwa użytkownika
 3. Hasło
 
-**Nazwa repozytorium w Azure Container Registry** . Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Nazwa repozytorium jest określana podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  **strony repozytoria** Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](../../container-registry/container-registry-repositories.md). Po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na koncie.
+**Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Nazwa repozytorium jest określana podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  **strony repozytoria** Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](../../container-registry/container-registry-repositories.md). Po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na koncie.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Tagi obrazu dla nowych wersji oferty
 
 Po opublikowaniu aktualizacji klienci muszą mieć możliwość automatycznego pobrania aktualizacji z portalu Azure Marketplace. Jeśli nie chcesz ich aktualizować, muszą być w stanie pozostać w określonej wersji obrazu. Można to zrobić przez dodanie nowych tagów obrazu przy każdym wprowadzeniu aktualizacji do obrazu.
 
-**Tag obrazu** . To pole musi zawierać **najnowszy** tag wskazujący na najnowszą wersję obrazu na wszystkich obsługiwanych platformach. Musi on również zawierać tag Version (na przykład, zaczynając od XX. XX. XX, gdzie XX jest liczbą). Klienci powinni używać [tagów manifestu](https://github.com/estesp/manifest-tool) , aby docelowa była wiele platform. Wszystkie Tagi, do których odwołuje się tag manifestu, również muszą zostać dodane, aby można było je przekazać. Wszystkie Tagi manifestu (z wyjątkiem najnowszego tagu) muszą rozpoczynać się od litery X. Y-lub X. Y. Z-gdzie X, Y i Z są liczbami całkowitymi. Na przykład jeśli najnowszy tag wskazuje na 1.0.1-Linux-x64, 1.0.1-Linux-arm32 i 1.0.1-Windows-arm32, te sześć tagów należy dodać do tego pola. Aby uzyskać szczegółowe informacje o tagach i wersji, zobacz [Przygotowywanie zasobów technicznych modułu IoT Edge.](create-iot-edge-module-asset.md)
+**Tag obrazu**. To pole musi zawierać **najnowszy** tag wskazujący na najnowszą wersję obrazu na wszystkich obsługiwanych platformach. Musi on również zawierać tag Version (na przykład, zaczynając od XX. XX. XX, gdzie XX jest liczbą). Klienci powinni używać [tagów manifestu](https://github.com/estesp/manifest-tool) , aby docelowa była wiele platform. Wszystkie Tagi, do których odwołuje się tag manifestu, również muszą zostać dodane, aby można było je przekazać. Wszystkie Tagi manifestu (z wyjątkiem najnowszego tagu) muszą rozpoczynać się od litery X. Y-lub X. Y. Z-gdzie X, Y i Z są liczbami całkowitymi. Na przykład jeśli najnowszy tag wskazuje na 1.0.1-Linux-x64, 1.0.1-Linux-arm32 i 1.0.1-Windows-arm32, te sześć tagów należy dodać do tego pola. Aby uzyskać szczegółowe informacje o tagach i wersji, zobacz [Przygotowywanie zasobów technicznych modułu IoT Edge.](create-iot-edge-module-asset.md)
 
 ### <a name="default-deployment-settings-optional"></a>Domyślne ustawienia wdrożenia (opcjonalnie)
 
 Zdefiniuj najczęściej używane ustawienia w celu wdrożenia modułu IoT Edge. Zoptymalizuj wdrożenia klientów, umożliwiając im uruchamianie modułu IoT Edge za pomocą ustawień domyślnych.
 
-**Trasy domyślne** . IoT Edge Hub zarządza komunikacją między modułami, IoT Hub i urządzeniami. Można ustawić trasy dla danych wejściowych i wyjściowych między modułami i IoT Hub, co zapewnia elastyczność wysyłania wiadomości, gdy wymagają one przechodzenia bez konieczności stosowania dodatkowych usług do przetwarzania komunikatów lub pisania dodatkowych kodów. Trasy są konstruowane przy użyciu par nazwa/wartość. Można zdefiniować maksymalnie pięć domyślnych nazw tras, które mają długość do 512 znaków.
+**Trasy domyślne**. IoT Edge Hub zarządza komunikacją między modułami, IoT Hub i urządzeniami. Można ustawić trasy dla danych wejściowych i wyjściowych między modułami i IoT Hub, co zapewnia elastyczność wysyłania wiadomości, gdy wymagają one przechodzenia bez konieczności stosowania dodatkowych usług do przetwarzania komunikatów lub pisania dodatkowych kodów. Trasy są konstruowane przy użyciu par nazwa/wartość. Można zdefiniować maksymalnie pięć domyślnych nazw tras, które mają długość do 512 znaków.
 
 Należy pamiętać, aby użyć prawidłowej [składni trasy](../../iot-edge/module-composition.md#declare-routes)) w wartości trasy (zazwyczaj zdefiniowanej jako z/Message/* w $upstream). Oznacza to, że wszystkie komunikaty wysyłane przez dowolne moduły przejdą do IoT Hub. Aby odwołać się do modułu, użyj jego domyślnej nazwy, która będzie **nazwą oferty** , bez spacji i znaków specjalnych. Aby odwołać się do innych modułów, które nie są jeszcze znane, użyj <FROM_MODULE_NAME> Konwencji, aby poinformować klientów, że potrzebują oni zaktualizować te informacje. Aby uzyskać szczegółowe informacje na temat tras IoT Edge, zobacz [deklarowanie tras](../../iot-edge/module-composition.md#declare-routes)).
 
@@ -452,21 +452,21 @@ Na przykład, jeśli moduł ContosoModule nasłuchuje danych wejściowych na Con
 - Nazwa #2: FromContosoModuleToCloud
 - Wartość #2: od/messages/modules/ContonsoModule/outputs/ContosoOutput do $upstream
 
-**Domyślne właściwości sznurka modułu** . Sznurek modułu jest dokumentem JSON w IoT Hub, w którym przechowywane są informacje o stanie wystąpienia modułu, łącznie z żądanymi właściwościami. Odpowiednie właściwości są używane wraz z zgłoszonymi właściwościami do synchronizacji konfiguracji lub warunków modułu. Zaplecze rozwiązania może ustawić odpowiednie właściwości i moduł może je odczytać. Moduł może również odbierać powiadomienia o zmianach w odpowiednich właściwościach. Żądane właściwości są tworzone przy użyciu maksymalnie pięciu par nazwa/wartość, a każda wartość domyślna musi być krótsza niż 512 znaków. Można zdefiniować maksymalnie pięć pożądanych właściwości nazwa/wartość. Wartości właściwości przędzy muszą być prawidłowymi wartościami JSON, niezmienionymi bez użycia tablic z maksymalną zagnieżdżoną hierarchią czterech poziomów. W scenariuszu, w którym parametr wymagany dla wartości domyślnej nie ma sensu (na przykład adres IP serwera klienta), można dodać parametr jako wartość domyślną. Aby dowiedzieć się więcej o właściwościach bliźniaczych, zobacz [Definiowanie lub aktualizowanie żądanych właściwości](../../iot-edge/module-composition.md#define-or-update-desired-properties).
+**Domyślne właściwości sznurka modułu**. Sznurek modułu jest dokumentem JSON w IoT Hub, w którym przechowywane są informacje o stanie wystąpienia modułu, łącznie z żądanymi właściwościami. Odpowiednie właściwości są używane wraz z zgłoszonymi właściwościami do synchronizacji konfiguracji lub warunków modułu. Zaplecze rozwiązania może ustawić odpowiednie właściwości i moduł może je odczytać. Moduł może również odbierać powiadomienia o zmianach w odpowiednich właściwościach. Żądane właściwości są tworzone przy użyciu maksymalnie pięciu par nazwa/wartość, a każda wartość domyślna musi być krótsza niż 512 znaków. Można zdefiniować maksymalnie pięć pożądanych właściwości nazwa/wartość. Wartości właściwości przędzy muszą być prawidłowymi wartościami JSON, niezmienionymi bez użycia tablic z maksymalną zagnieżdżoną hierarchią czterech poziomów. W scenariuszu, w którym parametr wymagany dla wartości domyślnej nie ma sensu (na przykład adres IP serwera klienta), można dodać parametr jako wartość domyślną. Aby dowiedzieć się więcej o właściwościach bliźniaczych, zobacz [Definiowanie lub aktualizowanie żądanych właściwości](../../iot-edge/module-composition.md#define-or-update-desired-properties).
 
 Na przykład, jeśli moduł obsługuje dynamicznie konfigurowalne częstotliwość odświeżania przy użyciu odpowiednich właściwości przędzy, warto zdefiniować następującą domyślną właściwość splotu:
 
 - Nazwa #1: RefreshRate
 - Wartość #1:60
 
-**Domyślne zmienne środowiskowe** . Zmienne środowiskowe zawierają dodatkowe informacje dotyczące modułu, który pomaga w procesie konfiguracji. Zmienne środowiskowe są tworzone przy użyciu par nazwa/wartość. Każda domyślna nazwa zmiennej środowiskowej i wartość musi być krótsza niż 512 znaków i można zdefiniować maksymalnie pięć. Jeśli parametr wymagany dla wartości domyślnej nie ma sensu (na przykład adres IP serwera klienta), można dodać parametr jako wartość domyślną.
+**Domyślne zmienne środowiskowe**. Zmienne środowiskowe zawierają dodatkowe informacje dotyczące modułu, który pomaga w procesie konfiguracji. Zmienne środowiskowe są tworzone przy użyciu par nazwa/wartość. Każda domyślna nazwa zmiennej środowiskowej i wartość musi być krótsza niż 512 znaków i można zdefiniować maksymalnie pięć. Jeśli parametr wymagany dla wartości domyślnej nie ma sensu (na przykład adres IP serwera klienta), można dodać parametr jako wartość domyślną.
 
 Jeśli na przykład moduł wymaga zaakceptowania warunków użytkowania przed rozpoczęciem, można zdefiniować następującą zmienną środowiskową:
 
 - Nazwa #1: ACCEPT_EULA
 - Wartość #1: Y
 
-**Domyślne opcje tworzenia kontenera** . Opcje tworzenia kontenera kierują tworzeniem kontenera Docker modułu IoT Edge. IoT Edge obsługuje opcje tworzenia kontenera interfejsu API aparatu platformy Docker. Zobacz wszystkie opcje w [kontenerach listy.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) Pole Create Options musi być prawidłowym kodem JSON, bez znaku ucieczki i mniej niż 512 znaków.
+**Domyślne opcje tworzenia kontenera**. Opcje tworzenia kontenera kierują tworzeniem kontenera Docker modułu IoT Edge. IoT Edge obsługuje opcje tworzenia kontenera interfejsu API aparatu platformy Docker. Zobacz wszystkie opcje w [kontenerach listy.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) Pole Create Options musi być prawidłowym kodem JSON, bez znaku ucieczki i mniej niż 512 znaków.
 
 Na przykład, jeśli moduł wymaga powiązania portu, Zdefiniuj następujące opcje tworzenia:
 
@@ -476,7 +476,7 @@ Na przykład, jeśli moduł wymaga powiązania portu, Zdefiniuj następujące op
 
 Po zakończeniu wszystkich wymaganych sekcji oferty możesz przesłać ją do przeglądu i publikacji.
 
-W prawym górnym rogu portalu wybierz pozycję **Przejrzyj i Opublikuj** .
+W prawym górnym rogu portalu wybierz pozycję **Przejrzyj i Opublikuj**.
 
 Na stronie Przegląd można zobaczyć stan publikowania:
 
@@ -486,10 +486,10 @@ Na stronie Przegląd można zobaczyć stan publikowania:
     - **Ukończono** — sekcja zawiera wszystkie wymagane dane i nie ma błędów. Aby można było przesłać ofertę, wszystkie sekcje oferty muszą zostać ukończone.
 - Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że oferta została prawidłowo przetestowana. Ponadto Podaj wszelkie dodatkowe uwagi pomocne przy zrozumieniu oferty.
 
-Aby przesłać ofertę do publikacji, wybierz pozycję **Publikuj** .
+Aby przesłać ofertę do publikacji, wybierz pozycję **Publikuj**.
 
-Wyślemy Ci wiadomość e-mail z prośbą o poinformowanie o udostępnieniu wersji zapoznawczej oferty do przejrzenia i zatwierdzenia. Aby opublikować publiczną ofertę, przejdź do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** .
+Wyślemy Ci wiadomość e-mail z prośbą o poinformowanie o udostępnieniu wersji zapoznawczej oferty do przejrzenia i zatwierdzenia. Aby opublikować publiczną ofertę, przejdź do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](//azure/marketplace/partner-center-portal/update-existing-offer)
+- [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](update-existing-offer.md)

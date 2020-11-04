@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gości
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305551"
+ms.locfileid: "93346880"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -24,7 +24,11 @@ Podczas inspekcji systemu Linux konfiguracja gościa używa oprogramowania [Chef
 Wykonaj poniższe czynności, aby utworzyć własną konfigurację służącą do sprawdzania poprawności stanu maszyny platformy Azure lub spoza niej.
 
 > [!IMPORTANT]
+> Niestandardowe definicje zasad z konfiguracją gościa w Azure Government i środowiska Chin platformy Azure to funkcja w wersji zapoznawczej.
+>
 > Do przeprowadzania inspekcji na maszynach wirtualnych platformy Azure jest wymagane rozszerzenie konfiguracji gościa. Aby wdrożyć rozszerzenie w skali na wszystkich komputerach z systemem Linux, Przypisz następującą definicję zasad: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> Nie używaj wpisów tajnych ani informacji poufnych w niestandardowych pakietach zawartości.
 
 ## <a name="install-the-powershell-module"></a>Zainstaluj moduł programu PowerShell
 
@@ -49,7 +53,9 @@ Systemy operacyjne, w których można zainstalować moduł:
 - Windows
 
 > [!NOTE]
-> Polecenie cmdlet "test-GuestConfigurationPackage" wymaga OpenSSL w wersji 1,0 ze względu na zależność od OMI. Powoduje to błąd w dowolnym środowisku z OpenSSL 1,1 lub nowszym.
+> Polecenie cmdlet `Test-GuestConfigurationPackage` wymaga OpenSSL w wersji 1,0 ze względu na zależność od OMI. Powoduje to błąd w dowolnym środowisku z OpenSSL 1,1 lub nowszym.
+>
+> Uruchomienie polecenia cmdlet `Test-GuestConfigurationPackage` jest obsługiwane tylko w systemie Windows dla modułu konfiguracji gościa w wersji 2.1.0.
 
 Moduł zasobów konfiguracji gościa wymaga następującego oprogramowania:
 
@@ -319,13 +325,16 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>Cykl życia zasad
 
-Aby można było wydać aktualizację definicji zasad, istnieją dwa pola, które wymagają uwagi.
+Aby można było wydać aktualizację definicji zasad, istnieją trzy pola, które wymagają uwagi.
 
-- **Wersja** : po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić numer wersji większy niż aktualnie opublikowany. Właściwość aktualizuje wersję przypisania konfiguracji gościa, aby Agent rozpoznał zaktualizowany pakiet.
+> [!NOTE]
+> `version`Właściwość przypisania konfiguracji gościa ma wpływ tylko na pakiety hostowane przez firmę Microsoft. Najlepszym rozwiązaniem w przypadku przechowywania wersji zawartości niestandardowej jest uwzględnienie wersji w nazwie pliku.
+
+- **Wersja** : po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić numer wersji większy niż aktualnie opublikowany.
+- **contentUri** : po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić identyfikator URI dla lokalizacji pakietu. Dołączenie wersji pakietu do nazwy pliku zapewni zmianę wartości tej właściwości w każdej wersji.
 - **contentHash** : Ta właściwość jest automatycznie aktualizowana przez `New-GuestConfigurationPolicy` polecenie cmdlet. Jest to wartość skrótu pakietu utworzonego przez `New-GuestConfigurationPackage` . Właściwość musi być poprawna dla `.zip` publikowanych plików. Jeśli zostanie zaktualizowana tylko właściwość **contentUri** , rozszerzenie nie zaakceptuje pakietu zawartości.
 
 Najprostszym sposobem zwolnienia zaktualizowanego pakietu jest powtórzenie procesu opisanego w tym artykule i udostępnienie zaktualizowanego numeru wersji. Ten proces gwarantuje, że wszystkie właściwości zostały prawidłowo zaktualizowane.
-
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrowanie zasad konfiguracji gościa za pomocą tagów
 

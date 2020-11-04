@@ -3,12 +3,12 @@ title: Ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z samouczka dot
 description: W tym samouczku dowiesz się, jak używać usługi Azure Live Video Analytics na Azure IoT Edge, aby ciągle rejestrować wideo w chmurze i przesyłać strumieniowo dowolną część tego filmu wideo przy użyciu Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 4333ceb9c02f39629e4bd06d3d9634b97bb2e2d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e8bf1202e95cb4e76b54473f9d84076d24accea
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91774032"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346370"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z chmury
 
@@ -74,8 +74,8 @@ Przed rozpoczęciem upewnij się, że zostały spełnione trzeci punktor w sekcj
 
 W tym samouczku znajdują się następujące pliki:
 
-* **~/CloudDrive/LVA-Sample/Edge-Deployment/.env**: zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.
-* **~/clouddrive/lva-sample/appsettings.json**: używany przez Visual Studio Code do uruchamiania przykładowego kodu.
+* **~/CloudDrive/LVA-Sample/Edge-Deployment/.env** : zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.
+* **~/clouddrive/lva-sample/appsettings.json** : używany przez Visual Studio Code do uruchamiania przykładowego kodu.
 
 Te pliki będą potrzebne do wykonania następujących czynności:
 
@@ -93,7 +93,7 @@ Te pliki będą potrzebne do wykonania następujących czynności:
     Parametry połączenia IoT Hub umożliwiają używanie Visual Studio Code do wysyłania poleceń do modułów brzegowych za pośrednictwem usługi Azure IoT Hub.
     
 1. Następnie przejdź do folderu src/Edge i Utwórz plik o nazwie **. env**.
-1. Skopiuj zawartość z pliku ~/CloudDrive/LVA-Sample/.env. Tekst powinien wyglądać następująco:
+1. Skopiuj zawartość z pliku ~/CloudDrive/LVA-Sample/Edge-Deployment/.env. Tekst powinien wyglądać następująco:
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -114,14 +114,14 @@ Te pliki będą potrzebne do wykonania następujących czynności:
 
 W Visual Studio Code Otwórz pozycję src/Edge/deployment.template.jsna. Ten szablon definiuje, które moduły krawędzi zostaną wdrożone na urządzeniu brzegowym (maszyna wirtualna z systemem Linux Azure). W sekcji **modułów** znajdują się dwa wpisy o następujących nazwach:
 
-* **lvaEdge**: to jest analiza filmów wideo na żywo w IoT Edge module.
-* **rtspsim**: to jest symulator RTSP.
+* **lvaEdge** : to jest analiza filmów wideo na żywo w IoT Edge module.
+* **rtspsim** : to jest symulator RTSP.
 
 Następnie przejdź do folderu src/Cloud-to-Device-Console-App. Tutaj zobaczysz appsettings.jsw utworzonym pliku wraz z kilkoma innymi plikami:
 
-* **C2D-Console-App. csproj**: plik projektu dla Visual Studio Code.
-* **operations.js**: ten plik zawiera listę różnych operacji, które mają zostać uruchomione.
-* **Program.cs**: przykładowy kod programu, który:
+* **C2D-Console-App. csproj** : plik projektu dla Visual Studio Code.
+* **operations.js** : ten plik zawiera listę różnych operacji, które mają zostać uruchomione.
+* **Program.cs** : przykładowy kod programu, który:
     * Ładuje ustawienia aplikacji.
     * Wywołuje bezpośrednie metody udostępniane przez usługę Live Video Analytics w module IoT Edge. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie [metod bezpośrednich](direct-methods.md).
     * Wstrzymuje pracę, aby przeanalizować dane wyjściowe z programu w oknie **terminalu** oraz zdarzenia wygenerowane przez moduł w oknie **danych wyjściowych** .
@@ -143,8 +143,8 @@ Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzego
    ![Utwórz wdrożenie dla pojedynczego urządzenia](./media/quickstarts/create-deployment-single-device.png)
 1. Zostanie wyświetlony monit o **wybranie urządzenia IoT Hub**. Z listy rozwijanej wybierz pozycję LVA-Sample-Device.
 1. W ciągu około 30 sekund Odśwież IoT Hub platformy Azure w lewej dolnej części. Na urządzeniu brzegowym powinny zostać wdrożone następujące moduły:
-    * Analiza wideo na żywo na IoT Edge (Nazwa modułu: **lvaEdge**)
-    * Symulator RTSP (Nazwa modułu **rtspsim**)
+    * Analiza wideo na żywo na IoT Edge (Nazwa modułu: **lvaEdge** )
+    * Symulator RTSP (Nazwa modułu **rtspsim** )
  
     ![Usługa IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
 
@@ -164,11 +164,63 @@ Gdy korzystasz z modułu IoT Edge analizy filmów wideo na żywo, aby nagrać st
 1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Graf multimedialny":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Ustawienia rozszerzenia":::
 1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Graf multimedialny"
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Pokaż pełny komunikat":::
+1. <!--In Visual Studio Code, go-->Przejdź do pozycji src/Cloud-to-Device-App/operations.jsw systemie.
+1. W węźle **GraphTopologySet** Edytuj następujące elementy:
+
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
+1. Następnie w węzłach **GraphInstanceSet** i **GraphTopologyDelete** upewnij się, że wartość **topologyname** pasuje do wartości właściwości **name** w poprzedniej topologii grafu:
+
+    `"topologyName" : "CVRToAMSAsset"`  
+1. Otwórz [topologię](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) w przeglądarce i zapoznaj się z tematem assetNamePattern. Aby upewnić się, że masz element zawartości o unikatowej nazwie, możesz chcieć zmienić nazwę wystąpienia grafu w operations.jsw pliku (z wartości domyślnej przykład-Graph-1).
+
+    `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
+1. Rozpocznij sesję debugowania, wybierając klawisz F5. Zobaczysz kilka komunikatów wydrukowanych w oknie **terminalu** .
+1. operations.jsw pliku rozpoczyna się z wywołaniami do GraphTopologyList i GraphInstanceList. Jeśli wyczyszczono zasoby po poprzednich przewodnikach szybki start lub samouczkach, ta akcja zwróci puste listy, a następnie Wstrzymuje wybieranie **klawisza ENTER** , jak pokazano poniżej:
+
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+      "@apiVersion": "1.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+      "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+
+1. Po wybraniu **klawisza ENTER** w oknie **terminalu** zostanie wykonany kolejny zestaw wywołań metody bezpośredniej:
+   * Wywołanie GraphTopologySet przy użyciu poprzedniej topologyUrl
+   * Wywołanie GraphInstanceSet przy użyciu następującej treści
+     
+     ```
+     {
+       "@apiVersion": "1.0",
+       "name": "Sample-Graph-1",
+       "properties": {
+         "topologyName": "CVRToAMSAsset",
+         "description": "Sample graph description",
+         "parameters": [
+           {
+             "name": "rtspUrl",
+             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+           },
+           {
+             "name": "rtspUserName",
+             "value": "testuser"
+           },
+           {
+             "name": "rtspPassword",
+             "value": "testpassword"
            }
          ]
        }

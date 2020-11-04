@@ -3,18 +3,18 @@ title: Nagrywanie filmów wideo na podstawie zdarzeń do chmury i odtwarzanie z 
 description: W tym samouczku dowiesz się, jak za pomocą usługi Azure Live Video Analytics na Azure IoT Edge zarejestrować rejestrowanie wideo oparte na zdarzeniach w chmurze i odtworzyć je z poziomu chmury.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: a2388a01544d2158e7ca6f1692df07b14ec03a93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c97854673b369db9fe1cb026161a1e81a6bf31
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773556"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346659"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: Rejestrowanie wideo oparte na zdarzeniach w chmurze i odtwarzanie z chmury
 
 W ramach tego samouczka nauczysz się, jak za pomocą usługi Azure Live Video Analytics na Azure IoT Edge selektywnie rejestrować fragmenty aktywnego źródła wideo do Azure Media Services w chmurze. Ten przypadek użycia jest określany mianem [rejestrowania wideo opartego na zdarzeniach](event-based-video-recording-concept.md) (EVR) w tym samouczku. Aby nagrać fragmenty wideo na żywo, będziesz używać modelu AI wykrywania obiektów do wyszukiwania obiektów w wideo i rejestrowania klipów wideo tylko w przypadku wykrycia określonego typu obiektu. Dowiesz się również, jak odtworzyć zarejestrowane klipy wideo przy użyciu Media Services. Ta funkcja jest przydatna w różnych scenariuszach, w których istnieje potrzeba zachowania archiwum interesujących klipów wideo. 
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj odpowiednie zasoby.
@@ -63,7 +63,7 @@ Nagrywanie wideo oparte na zdarzeniach dotyczy procesu nagrywania wideo wyzwalan
 Alternatywnie można wyzwolić nagrywanie tylko wtedy, gdy usługa inferencing wykryje, że wystąpiło określone zdarzenie. W tym samouczku użyjesz wideo o pojazdach poruszających się na autostradach i nagrywaj klipy wideo po wykryciu wózka.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording-tutorial/overview.svg" alt-text="Graf multimedialny&quot;:::
+> :::image type="content" source="./media/event-based-video-recording-tutorial/overview.svg" alt-text="Graf multimedialny":::
 
 Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-concept.md) i dodatkowych modułów, które spełniają żądany scenariusz. Zaliczane są cztery moduły IoT Edge:
 
@@ -75,26 +75,30 @@ Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-conce
 Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) do przechwycenia symulowanego wideo na żywo ruchu na autostradach i wysłania tego wideo do dwóch ścieżek:
 
 * Pierwsza ścieżka jest węzłem [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , który wyprowadza ramki wideo z określoną (zmniejszoną) szybkością klatek. Te ramki wideo są wysyłane do węzła rozszerzenia HTTP. Następnie węzeł przekazuje ramki, jako obrazy, do modułu AI YOLO v3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
-* Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty &quot;znalezione obiekty" są następnie kierowane do węzła źródła IoT Hub wykresu multimediów. Po odebraniu takiego komunikatu węzeł IoT Hub Source na grafie multimediów wyzwala węzeł [procesora bramy sygnałów](media-graph-concept.md#signal-gate-processor) . Następnie zostanie otwarty węzeł procesora bramy sygnałów przez skonfigurowany czas. Przepływy wideo przez bramę do węzła ujścia zasobów dla tego czasu trwania. Ta część strumienia na żywo jest następnie rejestrowana za pośrednictwem węzła [ujścia zasobów](media-graph-concept.md#asset-sink) do [zasobu](terminology.md#asset) na koncie Azure Media Services.
+* Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty "znalezione obiekty" są następnie kierowane do węzła źródła IoT Hub wykresu multimediów. Po odebraniu takiego komunikatu węzeł IoT Hub Source na grafie multimediów wyzwala węzeł [procesora bramy sygnałów](media-graph-concept.md#signal-gate-processor) . Następnie zostanie otwarty węzeł procesora bramy sygnałów przez skonfigurowany czas. Przepływy wideo przez bramę do węzła ujścia zasobów dla tego czasu trwania. Ta część strumienia na żywo jest następnie rejestrowana za pośrednictwem węzła [ujścia zasobów](media-graph-concept.md#asset-sink) do [zasobu](terminology.md#asset) na koncie Azure Media Services.
 
 ## <a name="set-up-your-development-environment"></a>Konfigurowanie środowiska projektowego
 
 Przed rozpoczęciem upewnij się, że zostały spełnione trzeci punktor w sekcji [wymagania wstępne](#prerequisites). Po zakończeniu działania skryptu konfiguracji zasobów wybierz nawiasy klamrowe, aby uwidocznić strukturę folderów. Zobaczysz kilka plików utworzonych w katalogu ~/CloudDrive/LVA-Sample.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="Graf multimedialny&quot;:::
+> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="Ustawienia aplikacji":::
 
-Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-concept.md) i dodatkowych modułów, które spełniają żądany scenariusz. Zaliczane są cztery moduły IoT Edge:
+W tym samouczku znajdują się następujące pliki:
 
-* Analiza filmów wideo na żywo w module IoT Edge.
-* Moduł graniczny uruchamiający model AI za punktem końcowym HTTP. Ten moduł AI używa modelu [Yolo v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) , który może wykrywać wiele typów obiektów.
-* Niestandardowy moduł do zliczania i filtrowania obiektów, które są określane jako licznik obiektów na diagramie. Utworzysz licznik obiektów i wdróżesz go w tym samouczku.
-* [Moduł symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do symulowania aparatu RTSP.
-    
-Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) do przechwycenia symulowanego wideo na żywo ruchu na autostradach i wysłania tego wideo do dwóch ścieżek:
+* **~/CloudDrive/LVA-Sample/Edge-Deployment/.env** : zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.
+* **~/clouddrive/lva-sample/appsetting.json** : używany przez Visual Studio Code do uruchamiania przykładowego kodu.
 
-* Pierwsza ścieżka jest węzłem [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , który wyprowadza ramki wideo z określoną (zmniejszoną) szybkością klatek. Te ramki wideo są wysyłane do węzła rozszerzenia HTTP. Następnie węzeł przekazuje ramki, jako obrazy, do modułu AI YOLO v3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
-* Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty &quot;znalezione obiekty" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
+Te pliki będą potrzebne do wykonania tych czynności.
+
+1. Sklonuj repozytorium z linku w witrynie GitHub https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp .
+1. Uruchom Visual Studio Code i Otwórz folder, do którego zostało pobrane repozytorium.
+1. W Visual Studio Code przejdź do folderu src/Cloud-to-Device-Console-App i Utwórz plik o nazwie **appsettings.json**. Ten plik zawiera ustawienia, które są konieczne do uruchomienia programu.
+1. Skopiuj zawartość z pliku ~/CloudDrive/LVA-Sample/appsettings.jsna plik. Tekst powinien wyglądać następująco:
+
+    ```
+    {  
+        "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
         "deviceId" : "lva-sample-device",  
         "moduleId" : "lvaEdge"  
     }
@@ -103,7 +107,7 @@ Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źród
     Parametry połączenia IoT Hub umożliwiają używanie Visual Studio Code do wysyłania poleceń do modułów brzegowych za pośrednictwem usługi Azure IoT Hub.
     
 1. Następnie przejdź do folderu src/Edge i Utwórz plik o nazwie **. env**.
-1. Skopiuj zawartość z pliku ~/CloudDrive/LVA-Sample/.env. Tekst powinien wyglądać następująco:
+1. Skopiuj zawartość z pliku ~/CloudDrive/LVA-Sample/Edge-Deployment/.env. Tekst powinien wyglądać następująco:
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -128,10 +132,10 @@ W Visual Studio Code przejdź do węzła src/Edge. Zobaczysz utworzony plik ENV 
 
 Otwórz w programie src/Edge/deployment.objectCounter.template.js. W sekcji **modułów** znajdują się cztery wpisy, które odpowiadają elementom wymienionym w poprzedniej sekcji "koncepcje":
 
-* **lvaEdge**: to jest analiza filmów wideo na żywo w IoT Edge module.
-* **yolov3**: jest to moduł AI zbudowany przy użyciu modelu Yolo v3.
-* **rtspsim**: to jest symulator RTSP.
-* **objectCounter**: to jest moduł, który szuka określonych obiektów w wynikach z yolov3.
+* **lvaEdge** : to jest analiza filmów wideo na żywo w IoT Edge module.
+* **yolov3** : jest to moduł AI zbudowany przy użyciu modelu Yolo v3.
+* **rtspsim** : to jest symulator RTSP.
+* **objectCounter** : to jest moduł, który szuka określonych obiektów w wynikach z yolov3.
 
 W przypadku modułu objectCounter Zobacz ciąg ($ {MODULEs. objectCounter}) użyty dla wartości "Image". Jest to oparte na [samouczku](../../iot-edge/tutorial-develop-for-linux.md) dotyczącym tworzenia modułu IoT Edge. Visual Studio Code automatycznie rozpoznaje, że kod modułu objectCounter jest w obszarze src/Edge/modules/objectCounter. 
 
@@ -151,19 +155,7 @@ Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzego
 Korzystając z Visual Studio Code, postępuj zgodnie z [tymi instrukcjami](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) , aby zalogować się do platformy Docker. Następnie wybierz opcję **Kompiluj i wypchnij IoT Edge rozwiązanie**. Dla tego kroku Użyj elementu src/Edge/deployment.objectCounter.template.js.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="Graf multimedialny&quot;:::
-
-Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-concept.md) i dodatkowych modułów, które spełniają żądany scenariusz. Zaliczane są cztery moduły IoT Edge:
-
-* Analiza filmów wideo na żywo w module IoT Edge.
-* Moduł graniczny uruchamiający model AI za punktem końcowym HTTP. Ten moduł AI używa modelu [Yolo v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) , który może wykrywać wiele typów obiektów.
-* Niestandardowy moduł do zliczania i filtrowania obiektów, które są określane jako licznik obiektów na diagramie. Utworzysz licznik obiektów i wdróżesz go w tym samouczku.
-* [Moduł symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do symulowania aparatu RTSP.
-    
-Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) do przechwycenia symulowanego wideo na żywo ruchu na autostradach i wysłania tego wideo do dwóch ścieżek:
-
-* Pierwsza ścieżka jest węzłem [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , który wyprowadza ramki wideo z określoną (zmniejszoną) szybkością klatek. Te ramki wideo są wysyłane do węzła rozszerzenia HTTP. Następnie węzeł przekazuje ramki, jako obrazy, do modułu AI YOLO v3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
-* Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty &quot;znalezione obiekty":::
+> :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="Rozwiązanie do kompilowania i wypychania IoT Edge":::
 
 Ta akcja powoduje utworzenie modułu objectCounter do zliczania obiektów i wypchnięcie obrazu do Azure Container Registry.
 
@@ -172,19 +164,7 @@ Ta akcja powoduje utworzenie modułu objectCounter do zliczania obiektów i wypc
 Ten krok powoduje utworzenie manifestu wdrażania IoT Edge przy użyciu src/Edge/config/deployment.objectCounter.amd64.jsw systemie. Kliknij prawym przyciskiem myszy ten plik, a następnie wybierz pozycję **Utwórz wdrożenie dla jednego urządzenia**.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Graf multimedialny&quot;:::
-
-Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-concept.md) i dodatkowych modułów, które spełniają żądany scenariusz. Zaliczane są cztery moduły IoT Edge:
-
-* Analiza filmów wideo na żywo w module IoT Edge.
-* Moduł graniczny uruchamiający model AI za punktem końcowym HTTP. Ten moduł AI używa modelu [Yolo v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) , który może wykrywać wiele typów obiektów.
-* Niestandardowy moduł do zliczania i filtrowania obiektów, które są określane jako licznik obiektów na diagramie. Utworzysz licznik obiektów i wdróżesz go w tym samouczku.
-* [Moduł symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do symulowania aparatu RTSP.
-    
-Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) do przechwycenia symulowanego wideo na żywo ruchu na autostradach i wysłania tego wideo do dwóch ścieżek:
-
-* Pierwsza ścieżka jest węzłem [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , który wyprowadza ramki wideo z określoną (zmniejszoną) szybkością klatek. Te ramki wideo są wysyłane do węzła rozszerzenia HTTP. Następnie węzeł przekazuje ramki, jako obrazy, do modułu AI YOLO v3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
-* Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty &quot;znalezione obiekty":::
+> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Tworzenie wdrożenia dla pojedynczego urządzenia":::
 
 Jeśli jest to pierwszy samouczek z funkcją analizy filmów wideo na żywo na IoT Edge, Visual Studio Code monit o wprowadzenie IoT Hub parametrów połączenia. Możesz skopiować go z appsettings.jspliku.
 
@@ -194,19 +174,7 @@ Na tym etapie wdrożenie modułów brzegowych na urządzeniu IoT Edge zostało r
 W ciągu około 30 sekund Odśwież IoT Hub platformy Azure w lewej dolnej części w Visual Studio Code. Należy sprawdzić, czy zostały wdrożone cztery moduły o nazwie lvaEdge, rtspsim, yolov3 i objectCounter.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording-tutorial/iot-hub.png" alt-text="Graf multimedialny&quot;:::
-
-Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-concept.md) i dodatkowych modułów, które spełniają żądany scenariusz. Zaliczane są cztery moduły IoT Edge:
-
-* Analiza filmów wideo na żywo w module IoT Edge.
-* Moduł graniczny uruchamiający model AI za punktem końcowym HTTP. Ten moduł AI używa modelu [Yolo v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) , który może wykrywać wiele typów obiektów.
-* Niestandardowy moduł do zliczania i filtrowania obiektów, które są określane jako licznik obiektów na diagramie. Utworzysz licznik obiektów i wdróżesz go w tym samouczku.
-* [Moduł symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do symulowania aparatu RTSP.
-    
-Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) do przechwycenia symulowanego wideo na żywo ruchu na autostradach i wysłania tego wideo do dwóch ścieżek:
-
-* Pierwsza ścieżka jest węzłem [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , który wyprowadza ramki wideo z określoną (zmniejszoną) szybkością klatek. Te ramki wideo są wysyłane do węzła rozszerzenia HTTP. Następnie węzeł przekazuje ramki, jako obrazy, do modułu AI YOLO v3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
-* Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty &quot;znalezione obiekty":::
+> :::image type="content" source="./media/event-based-video-recording-tutorial/iot-hub.png" alt-text="Wdrożono cztery moduły":::
 
 ## <a name="prepare-for-monitoring-events"></a>Przygotowanie do monitorowania zdarzeń
 
@@ -217,19 +185,7 @@ Aby wyświetlić zdarzenia z modułu objectCounter i z poziomu modułu analizy f
 1. Kliknij prawym przyciskiem myszy plik LVA-Sample-Device i wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Graf multimedialny&quot;:::
-
-Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-concept.md) i dodatkowych modułów, które spełniają żądany scenariusz. Zaliczane są cztery moduły IoT Edge:
-
-* Analiza filmów wideo na żywo w module IoT Edge.
-* Moduł graniczny uruchamiający model AI za punktem końcowym HTTP. Ten moduł AI używa modelu [Yolo v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) , który może wykrywać wiele typów obiektów.
-* Niestandardowy moduł do zliczania i filtrowania obiektów, które są określane jako licznik obiektów na diagramie. Utworzysz licznik obiektów i wdróżesz go w tym samouczku.
-* [Moduł symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do symulowania aparatu RTSP.
-    
-Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) do przechwycenia symulowanego wideo na żywo ruchu na autostradach i wysłania tego wideo do dwóch ścieżek:
-
-* Pierwsza ścieżka jest węzłem [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , który wyprowadza ramki wideo z określoną (zmniejszoną) szybkością klatek. Te ramki wideo są wysyłane do węzła rozszerzenia HTTP. Następnie węzeł przekazuje ramki, jako obrazy, do modułu AI YOLO v3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
-* Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty &quot;znalezione obiekty":::
+    > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia":::
     
 ## <a name="run-the-program"></a>Uruchamianie programu
 
@@ -237,35 +193,60 @@ Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źród
 1. Kliknij prawym przyciskiem myszy i wybierz pozycję **Ustawienia rozszerzenia**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Graf multimedialny&quot;:::
-
-Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-concept.md) i dodatkowych modułów, które spełniają żądany scenariusz. Zaliczane są cztery moduły IoT Edge:
-
-* Analiza filmów wideo na żywo w module IoT Edge.
-* Moduł graniczny uruchamiający model AI za punktem końcowym HTTP. Ten moduł AI używa modelu [Yolo v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) , który może wykrywać wiele typów obiektów.
-* Niestandardowy moduł do zliczania i filtrowania obiektów, które są określane jako licznik obiektów na diagramie. Utworzysz licznik obiektów i wdróżesz go w tym samouczku.
-* [Moduł symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do symulowania aparatu RTSP.
-    
-Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) do przechwycenia symulowanego wideo na żywo ruchu na autostradach i wysłania tego wideo do dwóch ścieżek:
-
-* Pierwsza ścieżka jest węzłem [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , który wyprowadza ramki wideo z określoną (zmniejszoną) szybkością klatek. Te ramki wideo są wysyłane do węzła rozszerzenia HTTP. Następnie węzeł przekazuje ramki, jako obrazy, do modułu AI YOLO v3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
-* Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty &quot;znalezione obiekty":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Ustawienia rozszerzenia":::
 1. Wyszukaj i Włącz opcję "Pokaż pełny komunikat".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Graf multimedialny&quot;:::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Pokaż pełny komunikat":::
+1. <!--In Visual Studio Code, go-->Przejdź do pozycji src/Cloud-to-Device-App/operations.jsw systemie.
+1. W węźle **GraphTopologySet** Edytuj następujące elementy:
 
-Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-concept.md) i dodatkowych modułów, które spełniają żądany scenariusz. Zaliczane są cztery moduły IoT Edge:
-
-* Analiza filmów wideo na żywo w module IoT Edge.
-* Moduł graniczny uruchamiający model AI za punktem końcowym HTTP. Ten moduł AI używa modelu [Yolo v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) , który może wykrywać wiele typów obiektów.
-* Niestandardowy moduł do zliczania i filtrowania obiektów, które są określane jako licznik obiektów na diagramie. Utworzysz licznik obiektów i wdróżesz go w tym samouczku.
-* [Moduł symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do symulowania aparatu RTSP.
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
     
-Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) do przechwycenia symulowanego wideo na żywo ruchu na autostradach i wysłania tego wideo do dwóch ścieżek:
+1. Następnie w węzłach **GraphInstanceSet** i **GraphTopologyDelete** Edytuj:
 
-* Pierwsza ścieżka jest węzłem [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , który wyprowadza ramki wideo z określoną (zmniejszoną) szybkością klatek. Te ramki wideo są wysyłane do węzła rozszerzenia HTTP. Następnie węzeł przekazuje ramki, jako obrazy, do modułu AI YOLO v3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
-* Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty &quot;znalezione obiekty"
+    `"topologyName" : "EVRtoAssetsOnObjDetect"`
+1. Rozpocznij sesję debugowania, wybierając klawisz F5. Zobaczysz kilka komunikatów wydrukowanych w oknie **terminalu** .
+1. operations.jsw pliku rozpoczyna się z wywołaniami do GraphTopologyList i GraphInstanceList. Jeśli wyczyszczono zasoby po poprzednich przewodnikach szybki start lub samouczkach, ta akcja zwróci puste listy i wstrzymuje Wybieranie **klawisza ENTER** , jak pokazano poniżej:
+
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+      "@apiVersion": "1.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+      "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+1. Po wybraniu **klawisza ENTER** w oknie **terminalu** zostanie wykonany kolejny zestaw wywołań metody bezpośredniej:
+   * Wywołanie GraphTopologySet przy użyciu poprzedniej topologyUrl
+   * Wywołanie GraphInstanceSet przy użyciu następującej treści
+     
+        ```
+        {
+          "@apiVersion": "1.0",
+          "name": "Sample-Graph-1",
+          "properties": {
+            "topologyName": "EVRtoAssetsOnObjDetect",
+            "description": "Sample graph description",
+            "parameters": [
+              {
+                "name": "rtspUrl",
+                "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+              },
+              {
+                "name": "rtspUserName",
+                "value": "testuser"
+              },
+              {
+                "name": "rtspPassword",
+                "value": "testpassword"
               }
             ]
           }
@@ -420,37 +401,13 @@ Możesz przeanalizować Media Services element zawartości, który został utwor
 1. Wybierz pozycję **elementy zawartości** z listy **Media Services** .
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/continuous-video-recording-tutorial/assets.png" alt-text="Graf multimedialny&quot;:::
-
-Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-concept.md) i dodatkowych modułów, które spełniają żądany scenariusz. Zaliczane są cztery moduły IoT Edge:
-
-* Analiza filmów wideo na żywo w module IoT Edge.
-* Moduł graniczny uruchamiający model AI za punktem końcowym HTTP. Ten moduł AI używa modelu [Yolo v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) , który może wykrywać wiele typów obiektów.
-* Niestandardowy moduł do zliczania i filtrowania obiektów, które są określane jako licznik obiektów na diagramie. Utworzysz licznik obiektów i wdróżesz go w tym samouczku.
-* [Moduł symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do symulowania aparatu RTSP.
-    
-Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) do przechwycenia symulowanego wideo na żywo ruchu na autostradach i wysłania tego wideo do dwóch ścieżek:
-
-* Pierwsza ścieżka jest węzłem [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , który wyprowadza ramki wideo z określoną (zmniejszoną) szybkością klatek. Te ramki wideo są wysyłane do węzła rozszerzenia HTTP. Następnie węzeł przekazuje ramki, jako obrazy, do modułu AI YOLO v3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
-* Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty &quot;znalezione obiekty":::
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/assets.png" alt-text="Ciągłe nagrywanie wideo":::
 1. Znajdziesz element zawartości o nazwie sampleAssetFromEVR-LVAEdge-{DateTime}. Jest to nazwa podana we właściwości outputLocation zdarzenia RecordingStarted. AssetNamePattern w topologii określa, jak ta nazwa została wygenerowana.
 1. Wybierz element zawartości. 
 1. Na stronie Szczegóły zasobu wybierz pozycję **Utwórz nowy** w polu tekstowym **adres URL przesyłania strumieniowego** .
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/continuous-video-recording-tutorial/new-asset.png" alt-text="Graf multimedialny&quot;:::
-
-Diagram jest obrazkową reprezentacją [grafu multimedialnego](media-graph-concept.md) i dodatkowych modułów, które spełniają żądany scenariusz. Zaliczane są cztery moduły IoT Edge:
-
-* Analiza filmów wideo na żywo w module IoT Edge.
-* Moduł graniczny uruchamiający model AI za punktem końcowym HTTP. Ten moduł AI używa modelu [Yolo v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) , który może wykrywać wiele typów obiektów.
-* Niestandardowy moduł do zliczania i filtrowania obiektów, które są określane jako licznik obiektów na diagramie. Utworzysz licznik obiektów i wdróżesz go w tym samouczku.
-* [Moduł symulatora RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) do symulowania aparatu RTSP.
-    
-Jak widać na diagramie, w grafie multimedialnym zostanie użyty węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) do przechwycenia symulowanego wideo na żywo ruchu na autostradach i wysłania tego wideo do dwóch ścieżek:
-
-* Pierwsza ścieżka jest węzłem [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , który wyprowadza ramki wideo z określoną (zmniejszoną) szybkością klatek. Te ramki wideo są wysyłane do węzła rozszerzenia HTTP. Następnie węzeł przekazuje ramki, jako obrazy, do modułu AI YOLO v3, który jest detektorem obiektów. Węzeł otrzymuje wyniki, czyli obiekty (pojazdy w ruchu) wykryte przez model. Węzeł rozszerzenia HTTP publikuje następnie wyniki za pośrednictwem węzła ujścia komunikatów IoT Hub do centrum IoT Edge.
-* Moduł objectCounter jest skonfigurowany do odbierania komunikatów z Centrum IoT Edge, które obejmują wyniki wykrywania obiektów (pojazdy w ruchu). Moduł sprawdza te komunikaty i szuka obiektów określonego typu, które zostały skonfigurowane za pomocą ustawienia. Po znalezieniu takiego obiektu ten moduł wysyła komunikat do centrum IoT Edge. Te komunikaty &quot;znalezione obiekty":::
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/new-asset.png" alt-text="Nowy element zawartości":::
 1. W otwartym Kreatorze Zaakceptuj opcje domyślne i wybierz pozycję **Dodaj**. Aby uzyskać więcej informacji, zobacz [odtwarzanie wideo](video-playback-concept.md).
 
     > [!TIP]

@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 2f61fef58485a905b96bdada32b915106e60d1a8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2ee32b3ced8fdcd5f9f889c4fd0183e46ad5d8d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425133"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346013"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Jak używać Magazynu kolejek w języku Java
 
@@ -22,7 +22,7 @@ ms.locfileid: "92425133"
 
 ## <a name="overview"></a>Omówienie
 
-W tym przewodniku pokazano, jak kodować typowe scenariusze za pomocą usługi Azure queue storage. Przykłady zostały napisane w języku Java i wymagają użycia [zestawu SDK usługi Azure Storage dla języka Java][Azure Storage SDK for Java]. Scenariusze obejmują **Wstawianie**, **wgląd**, **pobieranie**i **usuwanie** komunikatów w kolejce. Podano również kod służący do **tworzenia** i **usuwania** kolejek. Aby uzyskać więcej informacji o kolejkach, zobacz sekcję [następne kroki](#next-steps) .
+W tym przewodniku pokazano, jak kodować typowe scenariusze za pomocą usługi Azure queue storage. Przykłady zostały napisane w języku Java i wymagają użycia [zestawu SDK usługi Azure Storage dla języka Java][Azure Storage SDK for Java]. Scenariusze obejmują **Wstawianie** , **wgląd** , **pobieranie** i **usuwanie** komunikatów w kolejce. Podano również kod służący do **tworzenia** i **usuwania** kolejek. Aby uzyskać więcej informacji o kolejkach, zobacz sekcję [następne kroki](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -34,7 +34,7 @@ W tym przewodniku pokazano, jak kodować typowe scenariusze za pomocą usługi A
 
 Najpierw sprawdź, czy system programistyczny spełnia wymagania wstępne wymienione w [bibliotece klienta usługi Azure queue storage dla języka Java V12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
-Aby utworzyć aplikację Java o nazwie *Queues-How-to-V12*:
+Aby utworzyć aplikację Java o nazwie *Queues-How-to-V12* :
 
 1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj Maven, aby utworzyć nową aplikację konsolową z nazwami *Queues-How-to-V12*. Wpisz następujące polecenie **MVN** , aby utworzyć "Hello World!" Projekt Java.
 
@@ -152,7 +152,8 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
-Ten ciąg można zapisać w pliku konfiguracji usługi o nazwie *ServiceConfiguration. cscfg*. W przypadku aplikacji uruchomionej w ramach roli Microsoft Azure należy uzyskać dostęp do parametrów połączenia przez wywołanie metody **RoleEnvironment. getConfigurationSettings**. Oto przykład pobierania parametrów połączenia z elementu **ustawień** o nazwie *StorageConnectionString*:
+
+Ten ciąg można zapisać w pliku konfiguracji usługi o nazwie *ServiceConfiguration. cscfg*. W przypadku aplikacji uruchomionej w ramach roli Microsoft Azure należy uzyskać dostęp do parametrów połączenia przez wywołanie metody **RoleEnvironment. getConfigurationSettings**. Oto przykład pobierania parametrów połączenia z elementu **ustawień** o nazwie *StorageConnectionString* :
 
 ```java
 // Retrieve storage account from connection-string.
@@ -393,13 +394,13 @@ Możesz uzyskać szacunkową liczbę komunikatów w kolejce.
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
-Metoda **GetProperties** prosi usługa kolejki o kilka bieżących wartości. Jedna z wartości jest liczbą komunikatów w kolejce. Licznik jest tylko przybliżony, ponieważ komunikaty mogą być dodawane lub usuwane po żądaniu. Metoda **getApproximateMessageCount** zwraca ostatnią wartość pobraną przez wywołanie metody **GetProperties**bez wywoływania usługa kolejki.
+Metoda **GetProperties** prosi usługa kolejki o kilka bieżących wartości. Jedna z wartości jest liczbą komunikatów w kolejce. Licznik jest tylko przybliżony, ponieważ komunikaty mogą być dodawane lub usuwane po żądaniu. Metoda **getApproximateMessageCount** zwraca ostatnią wartość pobraną przez wywołanie metody **GetProperties** bez wywoływania usługa kolejki.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_GetQueueLength":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Metoda **downloadAttributes** prosi usługa kolejki o kilka bieżących wartości. Jedna z wartości jest liczbą komunikatów w kolejce. Licznik jest tylko przybliżony, ponieważ komunikaty mogą być dodawane lub usuwane po żądaniu. Metoda **getApproximateMessageCount** zwraca ostatnią wartość pobraną przez wywołanie do **downloadAttributes**, bez wywoływania usługa kolejki.
+Metoda **downloadAttributes** prosi usługa kolejki o kilka bieżących wartości. Jedna z wartości jest liczbą komunikatów w kolejce. Licznik jest tylko przybliżony, ponieważ komunikaty mogą być dodawane lub usuwane po żądaniu. Metoda **getApproximateMessageCount** zwraca ostatnią wartość pobraną przez wywołanie do **downloadAttributes** , bez wywoływania usługa kolejki.
 
 ```java
 try
@@ -436,13 +437,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
-Kod usuwa komunikat z kolejki w dwóch krokach. Po wywołaniu **receiveMessage**uzyskasz następny komunikat w kolejce. Komunikat zwrócony z **receiveMessage** jest niewidoczny dla każdego innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, należy również wywołać **deleteMessage**. Jeśli Twój kod nie może przetworzyć komunikatu, ten dwuetapowy proces zapewnia, że można uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje **deleteMessage** bezpośrednio po przetworzeniu komunikatu.
+Kod usuwa komunikat z kolejki w dwóch krokach. Po wywołaniu **receiveMessage** uzyskasz następny komunikat w kolejce. Komunikat zwrócony z **receiveMessage** jest niewidoczny dla każdego innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, należy również wywołać **deleteMessage**. Jeśli Twój kod nie może przetworzyć komunikatu, ten dwuetapowy proces zapewnia, że można uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje **deleteMessage** bezpośrednio po przetworzeniu komunikatu.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Kod usuwa komunikat z kolejki w dwóch krokach. Po wywołaniu **retrieveMessage**uzyskasz następny komunikat w kolejce. Komunikat zwrócony z **retrieveMessage** jest niewidoczny dla każdego innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, należy również wywołać **deleteMessage**. Jeśli Twój kod nie może przetworzyć komunikatu, ten dwuetapowy proces zapewnia, że można uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje **deleteMessage** bezpośrednio po przetworzeniu komunikatu.
+Kod usuwa komunikat z kolejki w dwóch krokach. Po wywołaniu **retrieveMessage** uzyskasz następny komunikat w kolejce. Komunikat zwrócony z **retrieveMessage** jest niewidoczny dla każdego innego kodu odczytującego komunikaty z tej kolejki. Domyślnie komunikat pozostanie niewidoczny przez 30 sekund. Aby zakończyć usuwanie komunikatu z kolejki, należy również wywołać **deleteMessage**. Jeśli Twój kod nie może przetworzyć komunikatu, ten dwuetapowy proces zapewnia, że można uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje **deleteMessage** bezpośrednio po przetworzeniu komunikatu.
 
 ```java
 try
@@ -481,13 +482,13 @@ Istnieją dwa sposoby dostosowywania pobierania komunikatów z kolejki. Najpierw
 
 # <a name="java-v12"></a>[V12 Java](#tab/java)
 
-Poniższy przykład kodu używa metody **receiveMessages** , aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu pętli **for** . Ustawia również limit czasu niewidoczności na pięć minut (300 sekund) dla każdego komunikatu. Limit czasu jest uruchamiany dla wszystkich komunikatów w tym samym czasie. Po upływie pięciu minut od wywołania do **receiveMessages**wszystkie komunikaty, które nie zostały usunięte, staną się znów widoczne.
+Poniższy przykład kodu używa metody **receiveMessages** , aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu pętli **for** . Ustawia również limit czasu niewidoczności na pięć minut (300 sekund) dla każdego komunikatu. Limit czasu jest uruchamiany dla wszystkich komunikatów w tym samym czasie. Po upływie pięciu minut od wywołania do **receiveMessages** wszystkie komunikaty, które nie zostały usunięte, staną się znów widoczne.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessages":::
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
-Poniższy przykład kodu używa metody **retrieveMessages** , aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu pętli **for** . Ustawia również limit czasu niewidoczności na pięć minut (300 sekund) dla każdego komunikatu. Limit czasu jest uruchamiany dla wszystkich komunikatów w tym samym czasie. Po upływie pięciu minut od wywołania do **retrieveMessages**wszystkie komunikaty, które nie zostały usunięte, staną się znów widoczne.
+Poniższy przykład kodu używa metody **retrieveMessages** , aby pobrać 20 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu pętli **for** . Ustawia również limit czasu niewidoczności na pięć minut (300 sekund) dla każdego komunikatu. Limit czasu jest uruchamiany dla wszystkich komunikatów w tym samym czasie. Po upływie pięciu minut od wywołania do **retrieveMessages** wszystkie komunikaty, które nie zostały usunięte, staną się znów widoczne.
 
 ```java
 try
@@ -600,10 +601,10 @@ catch (Exception e)
 
 Teraz, gdy znasz już podstawy magazynu kolejek, Skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
 
-* [Zestaw SDK usługi Azure Storage dla języka Java][Azure Storage SDK for Java]
-* [Dokumentacja zestawu SDK klienta usługi Azure Storage][Azure Storage Client SDK Reference]
-* [Interfejs API REST usług Azure Storage][Azure Storage Services REST API]
-* [Blog zespołu usługi Azure Storage][Azure Storage Team Blog]
+- [Zestaw SDK usługi Azure Storage dla języka Java][Azure Storage SDK for Java]
+- [Dokumentacja zestawu SDK klienta usługi Azure Storage][Azure Storage Client SDK Reference]
+- [Interfejs API REST usług Azure Storage][Azure Storage Services REST API]
+- [Blog zespołu usługi Azure Storage][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
 [Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage

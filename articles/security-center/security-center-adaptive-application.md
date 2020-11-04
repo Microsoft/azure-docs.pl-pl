@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 95c3ad6f689893195e0e5c17c59ab31143cf238d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339717"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346523"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -135,7 +135,7 @@ Aby edytować reguły dla grupy komputerów:
 
       ![Dodawanie reguły niestandardowej](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. Jeśli definiujesz znaną bezpieczną ścieżkę, Zmień **Typ reguły** na "Path". W ścieżce można uwzględnić symbole wieloznaczne.
+   1. Jeśli definiujesz znaną bezpieczną ścieżkę, Zmień **Typ reguły** na "Path" i wprowadź pojedynczą ścieżkę. W ścieżce można uwzględnić symbole wieloznaczne.
    
       > [!TIP]
       > Niektóre scenariusze, w których mogą być przydatne symbole wieloznaczne w ścieżce:
@@ -156,12 +156,12 @@ Aby edytować reguły dla grupy komputerów:
 
     To okienko zawiera nazwę grupy (którą można modyfikować), typ systemu operacyjnego, lokalizację i inne istotne szczegóły.
 
-    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Otwieranie adaptacyjnych kontrolek aplikacji z poziomu pulpitu nawigacyjnego platformy Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Strona Ustawienia grupy dla adaptacyjnych kontrolek aplikacji" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
     > Opcja **Wymuś** w ustawieniach trybu ochrony typu pliku jest wyszarzona we **wszystkich** scenariuszach. W tej chwili nie są dostępne żadne opcje wymuszania. 
     >
-    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Otwieranie adaptacyjnych kontrolek aplikacji z poziomu pulpitu nawigacyjnego platformy Azure":::
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Tryb wymuszania ochrony plików jest trwale szary. Nie są dostępne żadne opcje wymuszania.":::
 
 1. Opcjonalnie możesz zmodyfikować nazwy grupy lub tryby ochrony typów plików.
 

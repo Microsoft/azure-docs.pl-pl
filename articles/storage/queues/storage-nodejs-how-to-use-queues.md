@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 77c35ae4b9e845cd3c0f638407c0d71c36fcf9f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a9fb1a179164d24c84213762ee7e2332a1aa25
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289688"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345945"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Jak korzystać z usługi Azure queue storage z programu Node.js
 
@@ -44,7 +44,7 @@ Aby utworzyć pustą aplikację Node.js, zobacz [Tworzenie aplikacji internetowe
 
 1. W oknie polecenia wpisz **npm zainstaluj \@ platformę Azure/Storage-Queue** .
 
-1. Sprawdź, czy **folder \_ modułów węzła** został utworzony. Wewnątrz tego folderu znajdziesz pakiet z ** \@ kolejką na platformie Azure/magazyn** , który zawiera bibliotekę kliencką potrzebną do uzyskania dostępu do magazynu.
+1. Sprawdź, czy **folder \_ modułów węzła** został utworzony. Wewnątrz tego folderu znajdziesz pakiet z **\@ kolejką na platformie Azure/magazyn** , który zawiera bibliotekę kliencką potrzebną do uzyskania dostępu do magazynu.
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
@@ -160,13 +160,13 @@ Poniższy przykład aktualizuje tekst komunikatu.
 
 # <a name="javascript-v12"></a>[V12 JavaScript](#tab/javascript)
 
-Zmień zawartość w miejscu w kolejce przez wywołanie [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
+Zmień zawartość w miejscu w kolejce przez wywołanie [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Zmień zawartość w miejscu w kolejce przez wywołanie **updateMessage**. 
+Zmień zawartość w miejscu w kolejce przez wywołanie **updateMessage**.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -234,8 +234,8 @@ Użycie funkcji **GetMessages** , jeśli nie ma komunikatów w kolejce nie zwró
 
 Istnieją dwa sposoby dostosowywania pobierania komunikatów z kolejki:
 
-* [Options. numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) — pobiera partię komunikatów (do 32).
-* [Options. visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) — ustawia dłuższy lub krótszy limit czasu niewidoczności.
+- [Options. numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) — pobiera partię komunikatów (do 32).
+- [Options. visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) — ustawia dłuższy lub krótszy limit czasu niewidoczności.
 
 W poniższym przykładzie zastosowano metodę **receiveMessages** , aby uzyskać pięć komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu `for` pętli. Ustawia również limit czasu niewidoczności na pięć minut dla wszystkich komunikatów zwracanych przez tę metodę.
 
@@ -245,8 +245,8 @@ W poniższym przykładzie zastosowano metodę **receiveMessages** , aby uzyskać
 
 Istnieją dwa sposoby dostosowywania pobierania komunikatów z kolejki:
 
-* `options.numOfMessages` — Pobierz partię komunikatów (do 32).
-* `options.visibilityTimeout` -Ustaw dłuższy lub krótszy limit czasu niewidoczności.
+- `options.numOfMessages` — Pobierz partię komunikatów (do 32).
+- `options.visibilityTimeout` -Ustaw dłuższy lub krótszy limit czasu niewidoczności.
 
 W poniższym przykładzie zastosowano metodę **GetMessages** , aby pobrać 15 komunikatów w jednym wywołaniu. Następnie przetwarza każdy komunikat przy użyciu `for` pętli. Ustawia również limit czasu niewidoczności na pięć minut dla wszystkich komunikatów zwracanych przez tę metodę.
 
@@ -347,8 +347,8 @@ Aby wyczyścić wszystkie komunikaty z kolejki bez usuwania, wywołaj **clearMes
 
 Teraz, gdy znasz już podstawy magazynu kolejek, Skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
 
-* Odwiedź [Blog zespołu usługi Azure Storage][Azure Storage Team Blog] , aby dowiedzieć się, co nowego
-* Odwiedź [bibliotekę klienta usługi Azure Storage dla repozytorium JavaScript][Azure Storage client library for JavaScript] w serwisie GitHub
+- Odwiedź [Blog zespołu usługi Azure Storage][Azure Storage Team Blog] , aby dowiedzieć się, co nowego
+- Odwiedź [bibliotekę klienta usługi Azure Storage dla repozytorium JavaScript][Azure Storage client library for JavaScript] w serwisie GitHub
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

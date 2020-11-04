@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/04/2020
 ms.author: alexeyo
-ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567166"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345401"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Mowa
 
@@ -24,20 +24,35 @@ Ten artykuł zawiera krótkie informacje i **szczegółowy opis** przydziałów 
 ## <a name="quotas-and-limits-quick-reference"></a>Przydziały i limity — Krótki przewodnik
 Przechodzenie do [przydziałów i ograniczeń zamiany tekstu na mowę](#text-to-speech-quotas-and-limits-per-speech-resource)
 ### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Przydziały i limity funkcji zamiany mowy na tekst dla zasobu usługi Mowa
-W tabeli poniżej parametrów bez "regulowanego" wiersz **nie** jest dostosowywany do wszystkich warstw cenowych.
+W tabelach poniżej parametrów bez "regulowanego" wiersz **nie** jest dostosowywany do wszystkich warstw cenowych.
+
+#### <a name="online-transcription"></a>Transkrypcja online
 
 | limit przydziału | Bezpłatna (F0)<sup>1</sup> | Standardowa (S0) |
 |--|--|--|
-| **Limit równoczesnych żądań transkrypcji online (modele bazowe i niestandardowe)** |  |  |
-| Wartość domyślna | 1 | 20 |
+| **Limit liczby żądań współbieżnych (modele podstawowe i niestandardowe)** | 1 | 20 (wartość domyślna) |
 | Wraz | Nr<sup>2</sup> | Tak<sup>2</sup> |
-| **Limit żądań interfejsu API REST ([API Management](../../api-management/api-management-key-concepts.md) punkty końcowe)** | 100 żądań na 10 sekund | 100 żądań na 10 sekund |
-| **Maksymalny rozmiar pliku zestawu danych na potrzeby importowania danych** | 2 GB | 2 GB |
-| **Maksymalny rozmiar wejściowego obiektu BLOB dla transkrypcji partii** | Nie dotyczy | 2,5 GB |
-| **Maksymalny rozmiar kontenera obiektów BLOB dla transkrypcji partii** | Nie dotyczy | 5 GB |
-| **Maksymalna liczba obiektów BLOB na kontener na potrzeby transkrypcji partii** | Nie dotyczy | 10 000 |
-| **Maksymalna liczba plików na żądanie transkrypcji dla transkrypcji partii (w przypadku używania wielu adresów URL zawartości jako dane wejściowe)** | Nie dotyczy | 1000  |
-| **Maksymalna liczba jednocześnie uruchomionych zadań dla transkrypcji partii** | Nie dotyczy | 2000  |
+
+#### <a name="batch-transcription"></a>Transkrypcja partii
+| limit przydziału | Bezpłatna (F0)<sup>1</sup> | Standardowa (S0) |
+|--|--|--|
+| Limit interfejsu API REST | Transkrypcja usługi Batch nie jest dostępna dla F0 | 300 żądań na minutę |
+| Maksymalny rozmiar pliku wejściowego audio | Brak | 1 GB |
+| Maksymalny rozmiar wejściowego obiektu BLOB (może zawierać więcej niż jeden plik, na przykład w archiwum zip; Pamiętaj o powyższym limicie rozmiaru pliku) | Brak | 2,5 GB |
+| Maksymalny rozmiar kontenera obiektów BLOB | Brak | 5 GB |
+| Maksymalna liczba obiektów BLOB na kontener | Brak | 10 000 |
+| Maksymalna liczba plików na żądanie transkrypcji (w przypadku korzystania z wielu adresów URL zawartości jako dane wejściowe) | Brak | 1000  |
+| Maksymalna liczba uruchomionych jednocześnie zadań | Brak | 2000  |
+
+#### <a name="model-customization"></a>Dostosowywanie modelu
+| limit przydziału | Bezpłatna (F0)<sup>1</sup> | Standardowa (S0) |
+|--|--|--|
+| Limit interfejsu API REST | 300 żądań na minutę | 300 żądań na minutę |
+| Maksymalna liczba zestawów danych mowy | 2 | 500 |
+| Maksymalny rozmiar pliku zestawu danych akustycznych na potrzeby importowania danych | 2 GB | 2 GB |
+| Maksymalny rozmiar pliku zestawu danych języka na potrzeby importowania danych | 200 MB | 1,5 GB |
+| Maksymalny rozmiar pliku zestawu danych wymowy na potrzeby importowania danych | 1 KB | 1 MB |
+| Maksymalny rozmiar tekstu podczas używania `text` parametru w żądaniu interfejsu API [tworzenia modelu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) | 200 KB | 500 KB |
 
 <sup>1</sup> dla warstwy cenowej **bezpłatna (F0)** Zobacz również miesięczne diety na [stronie cennika](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> zapoznaj się z [dodatkowymi wyjaśnieniami](#detailed-description-quota-adjustment-and-best-practices), [najlepszymi rozwiązaniami](#general-best-practices-to-mitigate-throttling-during-autoscaling)i [instrukcjami dotyczącymi dostosowywania](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
@@ -57,7 +72,7 @@ W tabeli poniżej parametrów bez "regulowanego" wiersz **nie** jest dostosowywa
 | **Przydziały określone dla protokołu WebSocket** |  |  |
 |Maksymalna długość audio wyprodukowanych na drodze | 10 min | 10 min |
 |Maksymalny rozmiar komunikatu SSML na przekształcenie |64 KB |64 KB |
-| **Limit żądań interfejsu API REST** | 20 żądań na minutę | 25 żądań na 5 sekund |
+| **Limit interfejsu API REST** | 20 żądań na minutę | 25 żądań na 5 sekund |
 
 
 <sup>3</sup> dla warstwy cenowej **bezpłatna (F0)** Zobacz również miesięczne diety na [stronie cennika](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
@@ -92,22 +107,22 @@ Istniejąca wartość parametru limitu współbieżnych żądań **nie** jest wi
 >[Kontenery mowy](speech-container-howto.md) nie wymagają zwiększenia liczby równoczesnych żądań, ponieważ kontenery są ograniczone tylko przez procesory, w których są hostowane sprzęt.
 
 #### <a name="have-the-required-information-ready"></a>Przygotuj wymagane informacje:
-- Dla **modelu podstawowego**:
+- Dla **modelu podstawowego** :
   - Identyfikator zasobu mowy
-  - Region
-- Dla **modelu niestandardowego**: 
-  - Region
+  - Region (Region)
+- Dla **modelu niestandardowego** : 
+  - Region (Region)
   - Identyfikator niestandardowego punktu końcowego
 
-- **Jak uzyskać informacje (model podstawowy)**:  
+- **Jak uzyskać informacje (model podstawowy)** :  
   - Przejdź do [Azure Portal](https://portal.azure.com/)
   - Wybierz zasób mowy, dla którego chcesz zwiększyć limit żądań współbieżności
-  - Wybierz *Właściwości* (Grupa*zarządzania zasobami* ) 
+  - Wybierz *Właściwości* (Grupa *zarządzania zasobami* ) 
   - Skopiuj i Zapisz wartości następujących pól:
     - **Identyfikator zasobu**
     - **Lokalizacja** (region punktu końcowego)
 
-- **Jak uzyskać informacje (model niestandardowy)**:
+- **Jak uzyskać informacje (model niestandardowy)** :
   - Przejdź do portalu [mowy Studio](https://speech.microsoft.com/)
   - Zaloguj się w razie potrzeby
   - Przejdź do Custom Speech
@@ -124,7 +139,7 @@ Zainicjuj zwiększenie limitu współbieżnych żądań dla zasobu lub w razie p
 - Upewnij się, że masz [wymagane informacje](#have-the-required-information-ready)
 - Przejdź do [Azure Portal](https://portal.azure.com/)
 - Wybierz zasób mowy, dla którego chcesz zwiększyć (lub sprawdzić) limit żądań współbieżności
-- Wybierz pozycję *nowe żądanie obsługi* (*Pomoc techniczna + grupa rozwiązywania problemów* ) 
+- Wybierz pozycję *nowe żądanie obsługi* ( *Pomoc techniczna + grupa rozwiązywania problemów* ) 
 - Zostanie wyświetlone nowe okno z automatycznie wypełnionymi informacjami o subskrypcji platformy Azure i zasobach platformy Azure
 - Wprowadź *Podsumowanie* (na przykład "Zwiększ limit żądań współbieżności monitora STT")
 - W obszarze *typ problemu* wybierz pozycję "problemy z przydziałem lub subskrypcją"
@@ -176,7 +191,7 @@ Zainicjuj zwiększenie limitu współbieżnych żądań dla zasobu lub w razie p
 - Upewnij się, że masz [wymagane informacje](#prepare-the-required-information)
 - Przejdź do [Azure Portal](https://portal.azure.com/)
 - Wybierz zasób mowy, dla którego chcesz zwiększyć (lub sprawdzić) limit żądań współbieżności
-- Wybierz pozycję *nowe żądanie obsługi* (*Pomoc techniczna + grupa rozwiązywania problemów* ) 
+- Wybierz pozycję *nowe żądanie obsługi* ( *Pomoc techniczna + grupa rozwiązywania problemów* ) 
 - Zostanie wyświetlone nowe okno z automatycznie wypełnionymi informacjami o subskrypcji platformy Azure i zasobach platformy Azure
 - Wprowadź *Podsumowanie* (na przykład "Zwiększ limit żądań współbieżności dla niestandardowego punktu końcowego")
 - W obszarze *typ problemu* wybierz pozycję "problemy z przydziałem lub subskrypcją"

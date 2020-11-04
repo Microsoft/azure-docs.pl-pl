@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a2f1229ab8a292b06dfc43b95d9047ed8d233523
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791141"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345710"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Wykonywanie operacji usługi Azure Queue Storage przy użyciu programu Azure PowerShell
 
@@ -22,12 +22,12 @@ Azure queue storage to usługa służąca do przechowywania dużej liczby komuni
 
 > [!div class="checklist"]
 >
-> * Tworzenie kolejki
-> * Pobieranie kolejki
-> * Dodawanie komunikatu
-> * Odczytaj wiadomość
-> * Usuwanie wiadomości
-> * Usuwanie kolejki
+> - Tworzenie kolejki
+> - Pobieranie kolejki
+> - Dodawanie komunikatu
+> - Odczytaj wiadomość
+> - Usuwanie wiadomości
+> - Usuwanie kolejki
 
 Ta procedura wymaga, aby moduł Azure PowerShell AZ w wersji 0,7 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -35,7 +35,7 @@ Brak poleceń cmdlet programu PowerShell dla płaszczyzny danych dla kolejek. Ab
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do subskrypcji platformy Azure za pomocą polecenia `Connect-AzAccount` i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
@@ -45,7 +45,7 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Pobierz listę lokalizacji
 
-Jeśli nie wiesz, której lokalizacji użyć, możesz wyświetlić listę dostępnych lokalizacji. Po wyświetleniu listy znajdź lokalizację, której chcesz użyć. W tym ćwiczeniu zostanie użyta **Wschodnia** . Zapisz ją w **lokalizacji** zmiennej do użycia w przyszłości.
+Jeśli nie wiesz, której lokalizacji użyć, możesz wyświetlić listę dostępnych lokalizacji. Po wyświetleniu listy znajdź lokalizację, której chcesz użyć. W tym ćwiczeniu zostanie użyta **Wschodnia**. Zapisz ją w **lokalizacji** zmiennej do użycia w przyszłości.
 
 ```powershell
 Get-AzLocation | Select-Object Location
@@ -127,13 +127,13 @@ Jeśli używasz [Eksplorator usługi Azure Storage](https://storageexplorer.com)
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Odczytaj komunikat z kolejki, a następnie usuń go
 
-Komunikaty są odczytywane w najlepszym przypadku, gdy jest to pierwsze zamówienie. Nie jest to gwarantowane. Po odczytaniu komunikatu z kolejki jest on niewidoczny dla wszystkich innych procesów, które przeglądają kolejkę. Pozwala to zagwarantować, że jeśli kod nie przetworzy komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu może uzyskać ten sam komunikat i spróbować ponownie.  
+Komunikaty są odczytywane w najlepszym przypadku, gdy jest to pierwsze zamówienie. Nie jest to gwarantowane. Po odczytaniu komunikatu z kolejki jest on niewidoczny dla wszystkich innych procesów, które przeglądają kolejkę. Pozwala to zagwarantować, że jeśli kod nie przetworzy komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu może uzyskać ten sam komunikat i spróbować ponownie.
 
 Ten **limit czasu niewidoczności** określa, jak długo komunikat pozostaje niewidoczny przed ponownym udostępnieniem do przetworzenia. Wartość domyślna to 30 sekund.
 
 Kod odczytuje komunikat z kolejki w dwóch krokach. Po wywołaniu metody [Microsoft. Azure. Storage. Queue. CloudQueue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) zostanie wyświetlony następny komunikat w kolejce. Komunikat zwrócony z funkcji **GetMessage** staje się niewidoczny dla innego kodu odczytującego komunikaty z tej kolejki. Aby zakończyć usuwanie komunikatu z kolejki, należy wywołać metodę [Microsoft. Azure. Storage. Queue. CloudQueue. DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) .
 
-W poniższym przykładzie przeczytasz trzy komunikaty w kolejce, a następnie zaczekaj 10 sekund (limit czasu niewglądu). Następnie należy ponownie przeczytać trzy komunikaty, usuwając komunikaty po ich przeczytaniu przez wywołanie **DeleteMessage** . Jeśli spróbujesz odczytać kolejkę po usunięciu wiadomości, $queueMessage zostanie zwrócona jako wartość NULL.
+W poniższym przykładzie przeczytasz trzy komunikaty w kolejce, a następnie zaczekaj 10 sekund (limit czasu niewglądu). Następnie należy ponownie przeczytać trzy komunikaty, usuwając komunikaty po ich przeczytaniu przez wywołanie **DeleteMessage**. Jeśli spróbujesz odczytać kolejkę po usunięciu wiadomości, $queueMessage zostanie zwrócona jako wartość NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -185,17 +185,17 @@ W tym artykule poznasz informacje o zarządzaniu podstawowym magazynem kolejek p
 
 > [!div class="checklist"]
 >
-> * Tworzenie kolejki
-> * Pobieranie kolejki
-> * Dodawanie komunikatu
-> * Przeczytaj następną wiadomość
-> * Usuwanie wiadomości
-> * Usuwanie kolejki
+> - Tworzenie kolejki
+> - Pobieranie kolejki
+> - Dodawanie komunikatu
+> - Przeczytaj następną wiadomość
+> - Usuwanie wiadomości
+> - Usuwanie kolejki
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Polecenia cmdlet Microsoft Azure PowerShell Storage
 
-* [Polecenia cmdlet programu PowerShell usługi Storage](/powershell/module/az.storage)
+- [Polecenia cmdlet programu PowerShell usługi Storage](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
+- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.

@@ -6,22 +6,23 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4b43cfe41943dcf086afe332508bc6e48fbdb4d7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a655c8c145b4f3812dae9f1a4ec1e5eebbe44809
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899886"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348478"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Tworzenie i Konfigurowanie klastra usługi Azure Kubernetes Services (AKS) w celu używania węzłów wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby szybko skalować obciążenia aplikacji w klastrze usługi Azure Kubernetes Service (AKS), można użyć węzłów wirtualnych. Dzięki węzłom wirtualnym można szybko zainicjowania obsługi pojemności i płacisz na sekundę w czasie wykonywania. Nie musisz czekać, aż klaster Kubernetes ma wdrażać węzły obliczeniowe maszyny wirtualnej w celu uruchamiania dodatkowych zasobników. Węzły wirtualne są obsługiwane tylko w przypadku systemów i węzłów systemu Linux.
+W tym artykule pokazano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć i skonfigurować zasoby sieci wirtualnej i klaster AKS, a następnie włączyć węzły wirtualne.
 
-W tym artykule pokazano, jak utworzyć i skonfigurować zasoby sieci wirtualnej i klaster AKS, a następnie włączyć węzły wirtualne.
+> [!NOTE]
+> [Ten artykuł](virtual-nodes.md) zawiera omówienie dostępności i ograniczeń w regionie przy użyciu węzłów wirtualnych.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Węzły wirtualne umożliwiają komunikację sieciową między jednostkami, które działają w Azure Container Instances (ACI) i klastrze AKS. W celu zapewnienia tej komunikacji zostanie utworzona podsieć sieci wirtualnej i przypisane uprawnienia delegowane. Węzły wirtualne działają tylko w przypadku klastrów AKS utworzonych przy użyciu *zaawansowanej* sieci. Domyślnie klastry AKS są tworzone z użyciem sieci *podstawowej* . W tym artykule opisano sposób tworzenia sieci wirtualnej i podsieci, a następnie wdrażania klastra AKS, który korzysta z zaawansowanej sieci.
+Węzły wirtualne umożliwiają komunikację sieciową między jednostkami, które działają w Azure Container Instances (ACI) i klastrze AKS. W celu zapewnienia tej komunikacji zostanie utworzona podsieć sieci wirtualnej i przypisane uprawnienia delegowane. Węzły wirtualne działają tylko w przypadku klastrów AKS utworzonych przy użyciu *zaawansowanej* sieci (Azure CNI). Domyślnie klastry AKS są tworzone przy użyciu sieci *podstawowej* (korzystającą wtyczki kubenet). W tym artykule opisano sposób tworzenia sieci wirtualnej i podsieci, a następnie wdrażania klastra AKS, który korzysta z zaawansowanej sieci.
 
 Jeśli nie korzystasz wcześniej z ACI, zarejestruj dostawcę usług w ramach subskrypcji. Stan rejestracji dostawcy ACI można sprawdzić za pomocą polecenia [AZ Provider list][az-provider-list] , jak pokazano w następującym przykładzie:
 
@@ -43,34 +44,6 @@ Jeśli dostawca jest wyświetlany jako *NotRegistered* , zarejestruj dostawcę p
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Dostępność regionalna
-
-W przypadku wdrożeń węzłów wirtualnych obsługiwane są następujące regiony:
-
-* Australia Wschodnia (australiaeast)
-* Środkowe stany USA (środkowe)
-* Wschodnie stany USA (wschód)
-* Wschodnie stany USA 2 (eastus2)
-* Japonia Wschodnia (japaneast)
-* Europa Północna (northeurope)
-* Azja Południowo-Wschodnia (southeastasia)
-* Zachodnio-środkowe stany USA (westcentralus)
-* Europa Zachodnia (westeurope)
-* Zachodnie stany USA (Zachodnie)
-* Zachodnie stany USA 2 (westus2)
-
-## <a name="known-limitations"></a>Znane ograniczenia
-Funkcjonalność węzłów wirtualnych jest w dużym stopniu zależna od zestawu funkcji ACI. Poza [przydziałami i limitami dla Azure Container Instances](../container-instances/container-instances-quotas.md)następujące scenariusze nie są jeszcze obsługiwane w przypadku węzłów wirtualnych:
-
-* Używanie nazwy głównej usługi do ściągania obrazów ACR. [Obejście](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) polega na użyciu wpisów [tajnych Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Virtual Network ograniczenia](../container-instances/container-instances-vnet.md) , w tym wirtualne sieci równorzędne, zasady sieci Kubernetes i ruch wychodzący do Internetu za pomocą sieciowych grup zabezpieczeń.
-* Inicjuj kontenery
-* [Aliasy hostów](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Argumenty](../container-instances/container-instances-exec.md#restrictions) dla elementu exec w ACI
-* [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) nie będzie wdrażać zasobników w węźle wirtualnym
-* Węzły Wirtualne obsługują planowanie zasobników systemu Linux. Możesz ręcznie zainstalować dostawcę Open Source [Virtual KUBELET ACI](https://github.com/virtual-kubelet/azure-aci) Provider, aby zaplanować kontenery systemu Windows Server na ACI.
-* Węzły wirtualne wymagają klastrów AKS z obsługą sieci Azure CNI
-
 ## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie.
@@ -81,7 +54,7 @@ Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lok
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create]. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *westus* .
+Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create]. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *westus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -89,7 +62,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-Utwórz sieć wirtualną za pomocą polecenia [AZ Network VNET Create][az-network-vnet-create] . Poniższy przykład tworzy nazwę sieci wirtualnej *myVnet* z prefiksem adresu *10.0.0.0/8* i podsiecią o nazwie *myAKSSubnet* . Prefiks adresu tej podsieci domyślnie *10.240.0.0/16* :
+Utwórz sieć wirtualną za pomocą polecenia [AZ Network VNET Create][az-network-vnet-create] . Poniższy przykład tworzy nazwę sieci wirtualnej *myVnet* z prefiksem adresu *10.0.0.0/8* i podsiecią o nazwie *myAKSSubnet*. Prefiks adresu tej podsieci domyślnie *10.240.0.0/16* :
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +73,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Teraz Utwórz dodatkową podsieć dla węzłów wirtualnych przy użyciu polecenia [AZ Network VNET Subnet Create][az-network-vnet-subnet-create] . Poniższy przykład tworzy podsieć o nazwie *myVirtualNodeSubnet* z prefiksem adresu *10.241.0.0/16* .
+Teraz Utwórz dodatkową podsieć dla węzłów wirtualnych przy użyciu polecenia [AZ Network VNET Subnet Create][az-network-vnet-subnet-create] . Poniższy przykład tworzy podsieć o nazwie *myVirtualNodeSubnet* z prefiksem adresu *10.241.0.0/16*.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -132,7 +105,7 @@ Dane wyjściowe są podobne do poniższego przykładu:
 }
 ```
 
-Zwróć uwagę na wartości *appId* i *password* . Te wartości są używane w kolejnych krokach.
+Zwróć uwagę na wartości *appId* i *password*. Te wartości są używane w kolejnych krokach.
 
 ## <a name="assign-permissions-to-the-virtual-network"></a>Przypisywanie uprawnień do sieci wirtualnej
 

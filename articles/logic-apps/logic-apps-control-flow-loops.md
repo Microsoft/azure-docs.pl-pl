@@ -6,21 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657476"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348070"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Tworzenie pętli, które powtarzają akcje przepływu pracy lub tablice procesów w usłudze Azure Logic Apps
 
-Aby przetworzyć tablicę w aplikacji logiki, można utworzyć [pętlę "foreach"](#foreach-loop). Ta pętla powtarza jedną lub więcej akcji dla każdego elementu w tablicy. Aby uzyskać ograniczenia dotyczące liczby elementów tablicy, które mogą przetwarzać pętle "foreach", zobacz [limity i konfiguracja](../logic-apps/logic-apps-limits-and-config.md). 
+Aby przetworzyć tablicę w aplikacji logiki, można utworzyć [pętlę "foreach"](#foreach-loop). Ta pętla powtarza jedną lub więcej akcji dla każdego elementu w tablicy. Aby ograniczyć liczbę elementów tablicy, które może przetworzyć pętlę "foreach", zobacz [limity współbieżności, zapętlania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Aby powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, można utworzyć [pętlę "until"](#until-loop). Aplikacja logiki najpierw uruchamia wszystkie akcje wewnątrz pętli, a następnie sprawdza warunek lub stan. Jeśli warunek jest spełniony, pętla zostanie zatrzymana. W przeciwnym razie pętla powtarza się. Aby uzyskać ograniczenia dotyczące liczby pętli "until" w przebiegu aplikacji logiki, zobacz [limity i konfiguracja](../logic-apps/logic-apps-limits-and-config.md). 
+Aby powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, można utworzyć [pętlę "until"](#until-loop). Aplikacja logiki najpierw uruchamia wszystkie akcje wewnątrz pętli, a następnie sprawdza warunek lub stan. Jeśli warunek jest spełniony, pętla zostanie zatrzymana. W przeciwnym razie pętla powtarza się. Dla limitu liczby pętli "until", które mogą być uruchamiane przez aplikację logiki, zobacz [limity współbieżności, zapętlowania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
-> Jeśli masz wyzwalacz, który odbiera tablicę i chcesz uruchomić przepływ pracy dla każdego elementu tablicy, możesz *departia* tę tablicę za pomocą [Właściwości wyzwalacza **SplitOn** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
+> Jeśli masz wyzwalacz, który odbiera tablicę i chcesz uruchomić przepływ pracy dla każdego elementu tablicy, możesz *departia* tę tablicę za pomocą [Właściwości wyzwalacza **SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,7 +32,9 @@ Aby powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, można utw
 
 ## <a name="foreach-loop"></a>Pętla "foreach"
 
-"Pętla foreach" powtarza jedną lub więcej akcji dla każdego elementu tablicy i działa tylko w tablicach. Poniżej przedstawiono niektóre zagadnienia dotyczące użycia pętli "foreach":
+Pętla "foreach" powtarza jedną lub więcej akcji dla każdego elementu tablicy i działa tylko w tablicach. Poniżej przedstawiono niektóre zagadnienia dotyczące użycia pętli "foreach":
+
+* Pętla "foreach" może przetwarzać ograniczoną liczbę elementów tablicy. W przypadku tego limitu należy zapoznać się z [limitami współbieżności, zapętlania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 * Domyślnie iteracje w pętli "foreach" są uruchamiane w tym samym czasie lub równolegle. To zachowanie różni [się od automatyzowania w **celu zastosowania do każdej** pętli](/power-automate/apply-to-each) , w której iteracje są uruchamiane pojedynczo lub sekwencyjnie. Można jednak [skonfigurować sekwencyjne iteracje pętli "foreach"](#sequential-foreach-loop). Na przykład jeśli chcesz wstrzymać następną iterację w pętli "foreach" przy użyciu [akcji Opóźnij](../connectors/connectors-native-delay.md), musisz ustawić pętlę, aby uruchamiała się sekwencyjnie.
 
@@ -122,11 +124,11 @@ Jeśli pracujesz w widoku kodu dla aplikacji logiki, możesz zdefiniować `Forea
 
 Domyślnie cykle w pętli "foreach" są uruchamiane równolegle. Aby uruchomić każdy cykl sekwencyjnie, ustaw opcję **Sekwencyjna** pętla. Pętle "foreach" muszą być uruchamiane sekwencyjnie, gdy istnieją zagnieżdżone pętle lub zmienne wewnątrz pętli, w których oczekiwano przewidywalnych wyników. 
 
-1. W prawym górnym rogu pętli wybierz pozycję **wielokropek** (**...**) > **Ustawienia**.
+1. W prawym górnym rogu pętli wybierz pozycję **wielokropek** ( **...** ) > **Ustawienia**.
 
    ![W pętli "foreach" Wybierz pozycję "..." > "Ustawienia"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. W obszarze **Kontrola współbieżności**Zmień ustawienie **Kontrola współbieżności** **na włączone**. Przenieś suwak **stopień równoległości** na **1**, a następnie wybierz pozycję **gotowe**.
+1. W obszarze **Kontrola współbieżności** Zmień ustawienie **Kontrola współbieżności** **na włączone**. Przenieś suwak **stopień równoległości** na **1** , a następnie wybierz pozycję **gotowe**.
 
    ![Włącz kontrolę współbieżności](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -150,7 +152,7 @@ Jeśli pracujesz z definicją JSON aplikacji logiki, możesz użyć `Sequential`
 
 ## <a name="until-loop"></a>Pętla "until"
   
-Aby uruchamiać i powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, należy umieścić te akcje w pętli "until". Aplikacja logiki najpierw uruchamia dowolną akcję i wszystkie akcje wewnątrz pętli, a następnie sprawdza warunek lub stan. Jeśli warunek jest spełniony, pętla zostanie zatrzymana. W przeciwnym razie pętla powtarza się.
+Aby uruchamiać i powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, należy umieścić te akcje w pętli "until". Aplikacja logiki najpierw uruchamia dowolną akcję i wszystkie akcje wewnątrz pętli, a następnie sprawdza warunek lub stan. Jeśli warunek jest spełniony, pętla zostanie zatrzymana. W przeciwnym razie pętla powtarza się. Dla limitu liczby pętli "until", które mogą być uruchamiane przez aplikację logiki, zobacz [limity współbieżności, zapętlowania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Poniżej przedstawiono kilka typowych scenariuszy, w których można użyć pętli "until":
 
@@ -213,7 +215,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
 
    ![Dodaj akcję zwiększającą zmienną](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. W polu **Nazwa**wybierz zmienną **Limit** . Dla **wartości wprowadź wartość**"1". 
+1. W polu **Nazwa** wybierz zmienną **Limit** . Dla **wartości wprowadź wartość** "1". 
 
      ![Zwiększ wartość "limit" o 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -232,7 +234,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
 
       | Właściwość | Wartość | Opis |
       | -------- | ----- | ----------- | 
-      | **Działanie** | *\<email-address\@domain>* | Adres e-mail adresata. Na potrzeby testowania użyj własnego adresu e-mail. | 
+      | **Do** | *\<email-address\@domain>* | Adres e-mail adresata. Na potrzeby testowania użyj własnego adresu e-mail. | 
       | **Temat** | Bieżąca wartość **limitu** | Określ temat wiadomości e-mail. Na potrzeby tego przykładu upewnij się, że dołączysz zmienną **limitu** . | 
       | **Treść** | <*Poczta e-mail — zawartość*> | Określ zawartość wiadomości e-mail, która ma zostać wysłana. Na potrzeby tego przykładu wpisz dowolny tekst. | 
       |||| 

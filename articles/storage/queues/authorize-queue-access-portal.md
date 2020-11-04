@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc6c4e57d0e04cc85bd83c11ba583b3f0b24fa82
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715513"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345996"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Wybierz sposób autoryzacji dostępu do danych kolejki w Azure Portal
 
-Gdy uzyskujesz dostęp do danych z kolejki przy użyciu [Azure Portal](https://portal.azure.com), Portal wysyła żądania do usługi Azure Storage w ramach okładek. Żądanie do usługi Azure Storage może być autoryzowane przy użyciu konta usługi Azure AD lub klucza dostępu do konta magazynu. Portal wskazuje, której metody używasz, i umożliwia przełączenie między nimi, jeśli masz odpowiednie uprawnienia.  
+Gdy uzyskujesz dostęp do danych z kolejki przy użyciu [Azure Portal](https://portal.azure.com), Portal wysyła żądania do usługi Azure Storage w ramach okładek. Żądanie do usługi Azure Storage może być autoryzowane przy użyciu konta usługi Azure AD lub klucza dostępu do konta magazynu. Portal wskazuje, której metody używasz, i umożliwia przełączenie między nimi, jeśli masz odpowiednie uprawnienia.
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Uprawnienia wymagające dostępu do danych kolejki
 
@@ -37,7 +37,7 @@ Aby uzyskać dostęp do danych kolejki przy użyciu klucza dostępu do konta, mu
 Podczas próby dostępu do danych kolejki w Azure Portal Portal najpierw sprawdza, czy przypisano rolę z użyciem elementu **Microsoft. Storage/storageAccounts/ListKeys/Action**. Jeśli przypisano rolę z tą akcją, Portal używa klucza konta do uzyskiwania dostępu do danych kolejki. Jeśli nie masz przypisanej roli z tą akcją, Portal próbuje uzyskać dostęp do danych przy użyciu konta usługi Azure AD.
 
 > [!NOTE]
-> Administrator usług ról klasycznych administrator i Co-Administrator obejmujący odpowiednik roli [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Rola **właściciela** obejmuje wszystkie akcje, w tym **Microsoft. Storage/storageAccounts/ListKeys/Action**, dzięki czemu użytkownik z jedną z tych ról administracyjnych może również uzyskać dostęp do danych w kolejce przy użyciu klucza konta. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> Administrator usług ról klasycznych administrator i Co-Administrator obejmujący odpowiednik roli [właściciela](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Rola **właściciela** obejmuje wszystkie akcje, w tym **Microsoft. Storage/storageAccounts/ListKeys/Action** , dzięki czemu użytkownik z jedną z tych ról administracyjnych może również uzyskać dostęp do danych w kolejce przy użyciu klucza konta. Aby uzyskać więcej informacji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Korzystanie z konta usługi Azure AD
 
@@ -74,11 +74,11 @@ Po przejściu do kolejki Azure Portal wskazuje, czy aktualnie używasz klucza do
 
 W przypadku uwierzytelniania przy użyciu klucza dostępu do konta w portalu zostanie wyświetlony **klucz dostępu** określony jako metoda uwierzytelniania:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Zrzut ekranu przedstawiający sposób nawigowania do danych kolejki w Azure Portal":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Zrzut ekranu przedstawiający użytkowników, którzy aktualnie uzyskują dostęp do kolejek przy użyciu klucza konta":::
 
 Aby przełączyć się do korzystania z konta usługi Azure AD, kliknij link wyróżniony na obrazie. Jeśli masz odpowiednie uprawnienia za pośrednictwem przypisanych do Ciebie ról platformy Azure, możesz to zrobić. Jeśli jednak nie masz odpowiednich uprawnień, zobaczysz komunikat o błędzie podobny do następującego:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Zrzut ekranu przedstawiający sposób nawigowania do danych kolejki w Azure Portal":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Błąd wyświetlany, jeśli konto usługi Azure AD nie obsługuje dostępu":::
 
 Zwróć uwagę, że na liście nie są wyświetlane żadne kolejki, jeśli Twoje konto usługi Azure AD nie ma uprawnień do ich wyświetlania. Kliknij link **Przełącz do klucza dostępu** , aby ponownie użyć klawisza dostępu do uwierzytelniania.
 
@@ -86,7 +86,7 @@ Zwróć uwagę, że na liście nie są wyświetlane żadne kolejki, jeśli Twoje
 
 W przypadku uwierzytelniania za pomocą konta usługi Azure AD zobaczysz **konto użytkownika usługi Azure AD** określone jako metoda uwierzytelniania w portalu:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Zrzut ekranu przedstawiający sposób nawigowania do danych kolejki w Azure Portal":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Zrzut ekranu przedstawiający użytkowników aktualnie uzyskujących dostęp do kolejek przy użyciu konta usługi Azure AD":::
 
 Aby przełączyć się do korzystania z klucza dostępu do konta, kliknij link wyróżniony na obrazie. Jeśli masz dostęp do klucza konta, będziesz mieć możliwość przejścia. Jeśli jednak nie masz dostępu do klucza konta, Azure Portal wyświetli komunikat o błędzie.
 

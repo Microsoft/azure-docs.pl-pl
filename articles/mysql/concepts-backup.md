@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: bbeb1248fef846afbd1641a668c6db3be4870ca6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 00cd5a76a52e1b58bc2f01315dd3a1a859074a58
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082100"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348461"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL
 
@@ -42,9 +42,9 @@ Magazyn ogólnego przeznaczenia to magazyn zaplecza obsługujący [ogólnego prz
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Serwery magazynu ogólnego przeznaczenia z magazynem do 16 TB
 
-W podzestawie [regionów świadczenia usługi Azure](/azure/mysql/concepts-pricing-tiers#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać magazyn ogólnego przeznaczenia o pojemności do 16 TB. Innymi słowy, magazyn do 16 TB magazynu jest domyślnym magazynem ogólnego przeznaczenia dla wszystkich [regionów](/azure/mysql/concepts-pricing-tiers#storage) , w których jest obsługiwany. Kopie zapasowe na tych serwerach magazynu 16 TB są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi.
+W podzestawie [regionów świadczenia usługi Azure](/azure/mysql/concepts-pricing-tiers#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać magazyn ogólnego przeznaczenia o pojemności do 16 TB. Innymi słowy, magazyn do 16 TB magazynu jest domyślnym magazynem ogólnego przeznaczenia dla wszystkich [regionów](concepts-pricing-tiers.md#storage) , w których jest obsługiwany. Kopie zapasowe na tych serwerach magazynu 16 TB są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi.
 
-W podzestawie [regionów świadczenia usługi Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać magazyn ogólnego przeznaczenia o pojemności do 16 TB. Innymi słowy, magazyn do 16 TB magazynu jest domyślnym magazynem ogólnego przeznaczenia dla wszystkich [regionów](/concepts-pricing-tiers.md#storage) , w których jest obsługiwany. Kopie zapasowe na tych serwerach magazynu 16 TB są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi.
+W podzestawie [regionów świadczenia usługi Azure](concepts-pricing-tiers.md#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać magazyn ogólnego przeznaczenia o pojemności do 16 TB. Innymi słowy, magazyn do 16 TB magazynu jest domyślnym magazynem ogólnego przeznaczenia dla wszystkich [regionów](concepts-pricing-tiers.md#storage) , w których jest obsługiwany. Kopie zapasowe na tych serwerach magazynu 16 TB są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi.
 
 Różnicowe kopie zapasowe migawek są tworzone co najmniej raz dziennie. Różnicowe kopie zapasowe migawek nie są tworzone zgodnie z ustalonym harmonogramem. Kopie zapasowe migawek różnicowych są wykonywane co 24 godziny, chyba że dziennik transakcji (binlog w programie MySQL) przekracza 50 GB od czasu ostatniej różnicowej kopii zapasowej. W ciągu dnia dozwolonych jest maksymalnie sześć migawek różnicowych.
 

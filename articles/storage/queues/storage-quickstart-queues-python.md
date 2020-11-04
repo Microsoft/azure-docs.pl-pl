@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 57fc0ebc10158b41539d4802aa6a8ebdd466dd90
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 50f15d041f9bcea66400eda0877e9d7914335d74
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783304"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345725"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla języka Python
 
@@ -21,26 +21,26 @@ Rozpocznij pracę z biblioteką klienta usługi Azure queue storage w wersji 12 
 
 Użyj biblioteki klienta usługi Azure queue storage V12 dla języka Python, aby:
 
-* Tworzenie kolejki
-* Dodawanie komunikatów do kolejki
-* Wgląd w wiadomości w kolejce
-* Aktualizowanie komunikatu w kolejce
-* Odbieranie komunikatów z kolejki
-* Usuwanie komunikatów z kolejki
-* Usuwanie kolejki
+- Tworzenie kolejki
+- Dodawanie komunikatów do kolejki
+- Wgląd w wiadomości w kolejce
+- Aktualizowanie komunikatu w kolejce
+- Odbieranie komunikatów z kolejki
+- Usuwanie komunikatów z kolejki
+- Usuwanie kolejki
 
 Dodatkowe zasoby:
 
-* [Dokumentacja referencyjna interfejsu API](/python/api/azure-storage-queue/index)
-* [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
-* [Pakiet (indeks pakietu języka Python)](https://pypi.org/project/azure-storage-queue/)
-* [Samples](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Dokumentacja referencyjna interfejsu API](/python/api/azure-storage-queue/index)
+- [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
+- [Pakiet (indeks pakietu języka Python)](https://pypi.org/project/azure-storage-queue/)
+- [Samples](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
-* Konto magazynu platformy Azure — [Tworzenie konta magazynu](../common/storage-account-create.md)
-* Język [Python](https://www.python.org/downloads/) dla systemu operacyjnego — 2,7, 3,5 lub nowszy
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+- Konto magazynu platformy Azure — [Tworzenie konta magazynu](../common/storage-account-create.md)
+- Język [Python](https://www.python.org/downloads/) dla systemu operacyjnego — 2,7, 3,5 lub nowszy
 
 ## <a name="setting-up"></a>Konfigurowanie
 
@@ -48,7 +48,7 @@ W tej sekcji omówiono przygotowanie projektu do pracy z biblioteką klienta us�
 
 ### <a name="create-the-project"></a>Tworzenie projektu
 
-Tworzenie aplikacji w języku Python o nazwie *Queues — szybki start-V12* .
+Tworzenie aplikacji w języku Python o nazwie *Queues — szybki start-V12*.
 
 1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla projektu.
 
@@ -101,9 +101,9 @@ To polecenie powoduje zainstalowanie biblioteki klienta usługi Azure queue stor
 
 Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów. Komunikat w kolejce może mieć rozmiar do 64 KB. Kolejka może zawierać miliony komunikatów, do łącznego limitu pojemności konta magazynu. Kolejki są często używane do tworzenia zaległości prac do przetwarzania asynchronicznego. Magazyn kolejek oferuje trzy typy zasobów:
 
-* Konto magazynu
-* Kolejka na koncie magazynu
-* Komunikaty w kolejce
+- Konto magazynu
+- Kolejka na koncie magazynu
+- Komunikaty w kolejce
 
 Na poniższym diagramie przedstawiono relacje między tymi zasobami.
 
@@ -111,22 +111,22 @@ Na poniższym diagramie przedstawiono relacje między tymi zasobami.
 
 Użyj następujących klas języka Python do korzystania z tych zasobów:
 
-* [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): `QueueServiceClient` umożliwia zarządzanie wszystkimi kolejkami na koncie magazynu.
-* [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` Klasa umożliwia zarządzanie pojedynczą kolejką i jej komunikatami oraz manipulowanie nimi.
-* [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` Klasa reprezentuje poszczególne obiekty zwracane podczas wywoływania [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) w kolejce.
+- [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): `QueueServiceClient` umożliwia zarządzanie wszystkimi kolejkami na koncie magazynu.
+- [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` Klasa umożliwia zarządzanie pojedynczą kolejką i jej komunikatami oraz manipulowanie nimi.
+- [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` Klasa reprezentuje poszczególne obiekty zwracane podczas wywoływania [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) w kolejce.
 
 ## <a name="code-examples"></a>Przykłady kodu
 
 Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności w bibliotece klienta usługi Azure queue storage dla języka Python:
 
-* [Pobieranie parametrów połączenia](#get-the-connection-string)
-* [Tworzenie kolejki](#create-a-queue)
-* [Dodawanie komunikatów do kolejki](#add-messages-to-a-queue)
-* [Wgląd w wiadomości w kolejce](#peek-at-messages-in-a-queue)
-* [Aktualizowanie komunikatu w kolejce](#update-a-message-in-a-queue)
-* [Odbieranie komunikatów z kolejki](#receive-messages-from-a-queue)
-* [Usuwanie komunikatów z kolejki](#delete-messages-from-a-queue)
-* [Usuwanie kolejki](#delete-a-queue)
+- [Pobieranie parametrów połączenia](#get-the-connection-string)
+- [Tworzenie kolejki](#create-a-queue)
+- [Dodawanie komunikatów do kolejki](#add-messages-to-a-queue)
+- [Wgląd w wiadomości w kolejce](#peek-at-messages-in-a-queue)
+- [Aktualizowanie komunikatu w kolejce](#update-a-message-in-a-queue)
+- [Odbieranie komunikatów z kolejki](#receive-messages-from-a-queue)
+- [Usuwanie komunikatów z kolejki](#delete-messages-from-a-queue)
+- [Usuwanie kolejki](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Pobieranie parametrów połączenia
 
@@ -316,5 +316,5 @@ Samouczki, przykłady, szybki start i inne dokumenty można znaleźć w temacie:
 > [!div class="nextstepaction"]
 > [Platforma Azure dla deweloperów języka Python](/azure/python/)
 
-* Aby dowiedzieć się więcej, zobacz [biblioteki usługi Azure Storage dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
-* Aby wyświetlić więcej przykładowych aplikacji usługi Azure queue storage, przejdź do [przykładów biblioteki klienta usługi Azure queue storage V12](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
+- Aby dowiedzieć się więcej, zobacz [biblioteki usługi Azure Storage dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
+- Aby wyświetlić więcej przykładowych aplikacji usługi Azure queue storage, przejdź do [przykładów biblioteki klienta usługi Azure queue storage V12](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

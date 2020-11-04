@@ -10,12 +10,12 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 6937f3aa136ee4d5b906492c3f8cffc86acbc2e5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785667"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346030"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Uruchamianie poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych kolejki
 
@@ -27,7 +27,7 @@ Można przypisać uprawnienia do kolejki danych do podmiotu zabezpieczeń usług
 
 Rozszerzenia usługi Azure Storage są obsługiwane w przypadku operacji na danych kolejki. Operacje, które można wywołać, zależą od uprawnień udzielonych podmiotowi zabezpieczeń usługi Azure AD, za pomocą którego logujesz się do programu PowerShell. Uprawnienia do kolejek usługi Azure Storage są przypisywane za pośrednictwem usługi Azure RBAC. Na przykład, jeśli przypisano rolę **czytnika danych kolejki** , można uruchamiać polecenia skryptów, które odczytują dane z kolejki. Jeśli przypisano rolę **współautor danych kolejki** , można uruchamiać polecenia skryptów, które odczytują, zapisują lub usuwają kolejkę lub zawarte w nich dane.
 
-Aby uzyskać szczegółowe informacje o uprawnieniach wymaganych dla każdej operacji usługi Azure Storage w kolejce, zobacz [wywoływanie operacji magazynu za pomocą tokenów OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+Aby uzyskać szczegółowe informacje o uprawnieniach wymaganych dla każdej operacji usługi Azure Storage w kolejce, zobacz [wywoływanie operacji magazynu za pomocą tokenów OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Wywoływanie poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD
 
@@ -45,7 +45,7 @@ Poniższy przykład pokazuje, jak utworzyć kolejkę na nowym koncie magazynu z 
 
     Aby uzyskać więcej informacji na temat logowania się do platformy Azure przy użyciu programu PowerShell, zobacz [Logowanie za pomocą Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Utwórz grupę zasobów platformy Azure, wywołując metodę [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+1. Utwórz grupę zasobów platformy Azure, wywołując metodę [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
     ```powershell
     $resourceGroup = "sample-resource-group-ps"

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e4e5f4c1a50c814174dbbd5d419fe24b2e9f88e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f89dd6b7926baf6c1c64cff81e8b613461a3e925
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336684"
+ms.locfileid: "93345503"
 ---
 # <a name="how-to-use-batch-transcription"></a>Jak korzystać z transkrypcji partii
 
@@ -49,7 +49,7 @@ Podobnie jak w przypadku wszystkich funkcji usługi Speech, można utworzyć klu
 Jeśli planujesz dostosowanie modeli, postępuj zgodnie z instrukcjami w temacie [dostosowanie akustyczne](how-to-customize-acoustic-models.md) i [Dostosowywanie języka](how-to-customize-language-model.md). Aby można było używać utworzonych modeli w transkrypcji partii, potrzebna jest ich lokalizacja modelu. Lokalizację modelu można pobrać podczas inspekcji szczegółów modelu ( `self` Właściwości). Wdrożony niestandardowy punkt końcowy *nie jest wymagany* w przypadku usługi transkrypcji partii.
 
 >[!NOTE]
-> W ramach interfejsu API REST transkrypcja usługi Batch ma zestaw [przydziałów i limitów](speech-services-quotas-and-limits.md#speech-to-text-quotas-and-limits-per-speech-resource), które zachęcamy do przeglądu. Aby skorzystać z pełnego wykorzystania możliwości transkrypcji w usłudze Batch w celu wydajnego transkrypcja dużej liczby plików audio, zalecamy wysyłanie wielu plików na żądanie lub wskazanie kontenera Blob Storage z plikami audio do transkrypcja. Usługa będzie transkrypcja pliki jednocześnie zmniejszając czas szybkością oferowaną. Używanie wielu plików w pojedynczym żądaniu jest bardzo proste i proste — Zobacz sekcję [konfiguracyjną](#configuration) . 
+> W ramach interfejsu API REST transkrypcja usługi Batch ma zestaw [przydziałów i limitów](speech-services-quotas-and-limits.md#batch-transcription), które zachęcamy do przeglądu. Aby skorzystać z pełnego wykorzystania możliwości transkrypcji w usłudze Batch w celu wydajnego transkrypcja dużej liczby plików audio, zalecamy wysyłanie wielu plików na żądanie lub wskazanie kontenera Blob Storage z plikami audio do transkrypcja. Usługa będzie transkrypcja pliki jednocześnie zmniejszając czas szybkością oferowaną. Używanie wielu plików w pojedynczym żądaniu jest bardzo proste i proste — Zobacz sekcję [konfiguracyjną](#configuration) . 
 
 ## <a name="batch-transcription-api"></a>Interfejs API transkrypcji usługi Batch
 
