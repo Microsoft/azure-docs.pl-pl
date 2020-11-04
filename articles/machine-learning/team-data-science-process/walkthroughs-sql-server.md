@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8789050257b8bc67649233760baefe7e2ee9adf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864098"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320155"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server przewodniki dotyczące analizy danych przy użyciu języka R, Python i T-SQL
 
@@ -32,21 +32,21 @@ W instruktażu [Use SQL Server](sql-walkthrough.md) pokazano, jak tworzyć i wdr
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Przewidywanie wskazówek dotyczących taksówki przy użyciu oprogramowania Microsoft R z SQL Server 
 
-W instruktażu [Use SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) pokazano, jak skompilować i wdrożyć model języka R w celu SQL Server. Przewodnik został zaprojektowany w celu wprowadzenia deweloperów języka R do usług R Services (w bazie danych).
+W instruktażu [Use SQL Server R Services](/sql/machine-learning/tutorials/walkthrough-data-science-end-to-end-walkthrough) pokazano, jak skompilować i wdrożyć model języka R w celu SQL Server. Przewodnik został zaprojektowany w celu wprowadzenia deweloperów języka R do usług R Services (w bazie danych).
 
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Przewidywanie wskazówek dotyczących taksówki przy użyciu języka R z języka T-SQL lub procedur składowanych z SQL Server
 
-[Przewodnik dotyczący analizy danych dla języka R i SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) udostępnia PROGRAMISTOM języka SQL z doświadczeniem w tworzeniu zaawansowanego rozwiązania do analizy w języku Transact-SQL przy użyciu SQL Server R Services do operacjonalizować rozwiązania R. 
+[Przewodnik dotyczący analizy danych dla języka R i SQL Server](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) udostępnia PROGRAMISTOM języka SQL z doświadczeniem w tworzeniu zaawansowanego rozwiązania do analizy w języku Transact-SQL przy użyciu SQL Server R Services do operacjonalizować rozwiązania R. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Przewidywanie wskazówek dotyczących taksówki przy użyciu języka Python w SQL Server procedurach składowanych
 
-Przewodnik dotyczący [korzystania z języka T-SQL z SQL Server Python Services](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) oferuje programistów SQL z doświadczeniem w tworzeniu rozwiązania uczenia maszynowego w programie SQL Server. Pokazuje, jak włączyć język Python do aplikacji, dodając kod języka Python do procedur składowanych.
+Przewodnik dotyczący [korzystania z języka T-SQL z SQL Server Python Services](/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) oferuje programistów SQL z doświadczeniem w tworzeniu rozwiązania uczenia maszynowego w programie SQL Server. Pokazuje, jak włączyć język Python do aplikacji, dodając kod języka Python do procedur składowanych.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby zapoznać się z omówieniem najważniejszych składników, które składają się na proces nauki o danych zespołowych, zobacz [Omówienie procesu nauki o danych zespołowych](overview.md).
 
-Aby zapoznać się z omówieniem cyklu życia procesu nauki o danych zespołu, którego możesz użyć do struktury projektów analizy danych, zobacz [cykl życia procesu nauki o danych zespołowych](lifecycle.md). Cykl życia przedstawia kroki od początku do końca, które projekty zwykle są wykonywane podczas wykonywania. 
+Aby zapoznać się z omówieniem cyklu życia procesu nauki o danych zespołu, którego możesz użyć do struktury projektów analizy danych, zobacz [cykl życia procesu nauki o danych zespołowych](lifecycle.md). Cykl życia przedstawia kroki od początku do końca, które projekty zwykle są wykonywane podczas wykonywania.

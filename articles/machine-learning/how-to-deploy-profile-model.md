@@ -1,7 +1,7 @@
 ---
 title: Użycie pamięci modelu profilowego i procesora CPU
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak profilować pamięć modelu i użycie procesora CPU
+description: Dowiedz się, jak profilować model przed wdrożeniem. Profilowanie określa użycie pamięci i procesora CPU przez model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 95f35c2734e0a8dbc39d409847976b8b31716f81
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: b9ae40b3d2673961f9b84ed702f18b25b79b6d0c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998781"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320410"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Profilowanie modelu w celu określenia wykorzystania zasobów
 

@@ -11,25 +11,26 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d160040620fcaa60a8adc955efcc54ac3ca2609e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289173"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321449"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Grupowanie według opcji w Synapse SQL
+
 Synapse SQL umożliwia tworzenie rozwiązań przez implementację różnych opcji Grupuj według. 
 
-## <a name="what-does-group-by-do"></a>Co robi Grupuj według
+## <a name="what-group-by-does"></a>Co robi Grupuj według
 
 Klauzula [Group by](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL agreguje dane do zestawu podsumowującego wierszy.
 
-SQL na żądanie obsługuje cały zakres opcji Grupuj według. Pula SQL obsługuje ograniczoną liczbę opcji Grupuj według.
+Pula SQL bezserwerowa obsługuje cały zakres opcji Grupuj według. Dedykowana Pula SQL obsługuje ograniczoną liczbę opcji Grupuj według.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>Grupowanie według opcji obsługiwanych w puli SQL
+## <a name="group-by-options-supported-in-dedicated-sql-pool"></a>Grupowanie według opcji obsługiwanych w dedykowanej puli SQL
 
-Grupuj według zawiera pewne opcje, których Pula SQL nie obsługuje. Dostępne są następujące rozwiązania:
+Grupuj według zawiera pewne opcje, które nie obsługują dedykowanej puli SQL. Dostępne są następujące rozwiązania:
 
 * Grupuj według z pakietem zbiorczym
 * ZESTAWY GRUPUJĄCE

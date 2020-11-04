@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c024b12210d408fe2a9987cba56a08e4b660ae1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027549"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321343"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Zaawansowane eksplorowanie i modelowanie danych za pomocą platformy Spark
 
-W tym instruktażu Usługa HDInsight Spark używa do eksploracji danych i uczenia modeli klasyfikacji i regresji binarnej przy użyciu funkcji optymalizacji krzyżowej i przeprowadzenia parametrów w przypadku przykładowej NYCi i 2013 taryfy danych. Przeprowadzimy Cię przez kroki [procesu analizy danych](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), kompleksowego, korzystającego z klastra usługi HDInsight Spark do przetwarzania i przechowywania danych oraz modeli. Proces eksploruje i wizualizowa dane wprowadzane z Azure Storage Blob, a następnie przygotowuje dane do tworzenia modeli predykcyjnych. Język Python został użyty do kodu rozwiązania i przedstawienia odpowiednich wykresów. Te modele są kompilowane przy użyciu zestawu narzędzi Spark MLlib Toolkit do wykonywania zadań modelowania binarnych i regresji. 
+W tym instruktażu Usługa HDInsight Spark używa do eksploracji danych i uczenia modeli klasyfikacji i regresji binarnej przy użyciu funkcji optymalizacji krzyżowej i przeprowadzenia parametrów w przypadku przykładowej NYCi i 2013 taryfy danych. Przeprowadzimy Cię przez kroki [procesu analizy danych](./index.yml), kompleksowego, korzystającego z klastra usługi HDInsight Spark do przetwarzania i przechowywania danych oraz modeli. Proces eksploruje i wizualizowa dane wprowadzane z Azure Storage Blob, a następnie przygotowuje dane do tworzenia modeli predykcyjnych. Język Python został użyty do kodu rozwiązania i przedstawienia odpowiednich wykresów. Te modele są kompilowane przy użyciu zestawu narzędzi Spark MLlib Toolkit do wykonywania zadań modelowania binarnych i regresji. 
 
 * Zadanie **klasyfikacji binarnej** służy do przewidywania, czy dla podróży jest płacona Porada. 
 * Zadanie **regresji** służy do przewidywania wielkości końcówki na podstawie innych funkcji etykietki. 
@@ -119,7 +119,7 @@ Jądra PySpark, które są dostarczane z notesami Jupyter, mają kontekst predef
 Jądro PySpark zawiera wstępnie zdefiniowane "MAGICS", które są poleceniami specjalnymi, które można wywołać za pomocą%%. Istnieją dwa takie polecenia, które są używane w tych przykładach kodu.
 
 * **%% lokalne** Określa, że kod w kolejnych wierszach ma być wykonywany lokalnie. Kod musi być prawidłowym kodem w języku Python.
-* **%% SQL-o \<variable name> ** Wykonuje zapytanie programu Hive względem elementu SqlContext. Jeśli parametr-o zostanie przesłany, wynik zapytania jest utrwalany w lokalnym kontekście języka Python%% jako Pandas Dataframe.
+* **%% SQL-o \<variable name>** Wykonuje zapytanie programu Hive względem elementu SqlContext. Jeśli parametr-o zostanie przesłany, wynik zapytania jest utrwalany w lokalnym kontekście języka Python%% jako Pandas Dataframe.
 
 Aby uzyskać więcej informacji na temat jądra dla notesów Jupyter oraz wstępnie zdefiniowanych "magicznych", zobacz [jądra dostępne dla notesów Jupyter z klastrami usługi HDInsight Spark Linux w usłudze HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -202,7 +202,7 @@ Po przeprowadzeniu danych do platformy Spark następnym krokiem w procesie anali
 Ten kod i kolejne fragmenty kodu używają programu SQL Magic do wykonywania zapytań dotyczących przykładu i lokalnego Magic w celu wykreślenia danych.
 
 * **SQL Magic ( `%%sql` )** jądro usługi HDInsight PySpark obsługuje łatwe wbudowane zapytania HiveQL względem elementu SqlContext. Argument (-o VARIABLE_NAME) utrwala dane wyjściowe zapytania SQL jako element Pandas Dataframe na serwerze Jupyter. Oznacza to, że jest dostępny w trybie lokalnym.
-* ** `%%local` Magic** służy do uruchamiania kodu lokalnie na serwerze Jupyter, który jest węzła głównego klastra usługi HDInsight. Zwykle używasz `%%local` Magic po użyciu `%%sql -o` Magic do uruchomienia zapytania. Parametr-o będzie utrwalał dane wyjściowe zapytania SQL lokalnie. Następnie `%%local` Magic wyzwala następny zestaw fragmentów kodu do uruchomienia lokalnego na danych wyjściowych zapytań SQL, które zostały utrwalone lokalnie. Dane wyjściowe są automatycznie wizualizowane po uruchomieniu kodu.
+* **`%%local` Magic** służy do uruchamiania kodu lokalnie na serwerze Jupyter, który jest węzła głównego klastra usługi HDInsight. Zwykle używasz `%%local` Magic po użyciu `%%sql -o` Magic do uruchomienia zapytania. Parametr-o będzie utrwalał dane wyjściowe zapytania SQL lokalnie. Następnie `%%local` Magic wyzwala następny zestaw fragmentów kodu do uruchomienia lokalnego na danych wyjściowych zapytań SQL, które zostały utrwalone lokalnie. Dane wyjściowe są automatycznie wizualizowane po uruchomieniu kodu.
 
 To zapytanie pobiera liczbę podróży według liczby pasażerów. 
 
@@ -764,7 +764,7 @@ Czas wykonania powyżej komórki: 2,67 s
 
 **Wykreśl krzywą ROC.**
 
-*PredictionAndLabelsDF* jest zarejestrowany w tabeli, *tmp_results*w poprzedniej komórce. *tmp_results* może służyć do wykonywania zapytań i wyników wyjściowych w ramce danych SQLResults do wykreślania. Oto kod.
+*PredictionAndLabelsDF* jest zarejestrowany w tabeli, *tmp_results* w poprzedniej komórce. *tmp_results* może służyć do wykonywania zapytań i wyników wyjściowych w ramce danych SQLResults do wykreślania. Oto kod.
 
 ```python
 # QUERY RESULTS                              
@@ -895,7 +895,7 @@ Czas wykonania powyżej komórki: 107,98 s
 
 **Wykreśl krzywą ROC.**
 
-*PredictionAndLabelsDF* jest zarejestrowany w tabeli, *tmp_results*w poprzedniej komórce. *tmp_results* może służyć do wykonywania zapytań i wyników wyjściowych w ramce danych SQLResults do wykreślania. Oto kod.
+*PredictionAndLabelsDF* jest zarejestrowany w tabeli, *tmp_results* w poprzedniej komórce. *tmp_results* może służyć do wykonywania zapytań i wyników wyjściowych w ramce danych SQLResults do wykreślania. Oto kod.
 
 ```python
 # QUERY RESULTS
@@ -1508,4 +1508,3 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 Teraz, po utworzeniu modeli regresji i klasyfikacji przy użyciu MlLib Spark, możesz dowiedzieć się, jak obliczyć i oszacować te modele.
 
 **Użycie modelu:** Aby dowiedzieć się, jak obliczyć i oszacować modele klasyfikacji i regresji utworzone w tym temacie, zobacz [ocenę i ocenę modeli uczenia maszynowego opartych na platformie Spark](spark-model-consumption.md).
-

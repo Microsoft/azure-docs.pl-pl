@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 13d43eb788c750a2f24033a6138ebf00ac57fffe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 123e55202de8a33bca88afcfd1f0dc0c7edeae77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372577"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320099"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Samouczek: korzystanie z własnych danych (część 4 z 4)
 
@@ -202,7 +202,7 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 `target_path`Wartość określa ścieżkę do magazynu danych, w którym zostaną przekazane dane CIFAR10.
 
 >[!TIP] 
-> Gdy używasz Azure Machine Learning do przekazywania danych, możesz użyć [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) do przekazywania plików ad hoc. Jeśli potrzebujesz narzędzia ETL, możesz użyć [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) do pozyskiwania danych na platformie Azure.
+> Gdy używasz Azure Machine Learning do przekazywania danych, możesz użyć [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) do przekazywania plików ad hoc. Jeśli potrzebujesz narzędzia ETL, możesz użyć [Azure Data Factory](../data-factory/introduction.md) do pozyskiwania danych na platformie Azure.
 
 Uruchom plik Python, aby przekazać dane. (Przekazywanie powinno być szybkie, mniejsze niż 60 sekund).
 
@@ -271,7 +271,7 @@ Skrypt kontrolny jest podobny do jednego z [części 3 tej serii](tutorial-1st-e
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      [Zestaw danych](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) służy do odwoływania się do danych przekazanych do usługi Azure Blob Storage. Zbiory danych są warstwą abstrakcji na podstawie dane, które są przeznaczone do poprawy niezawodności i wiarygodności.
+      [Zestaw danych](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) służy do odwoływania się do danych przekazanych do usługi Azure Blob Storage. Zbiory danych są warstwą abstrakcji na podstawie dane, które są przeznaczone do poprawy niezawodności i wiarygodności.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -279,7 +279,7 @@ Skrypt kontrolny jest podobny do jednego z [części 3 tej serii](tutorial-1st-e
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) jest modyfikowany w celu uwzględnienia listy argumentów, do których zostanie przekazane `train.py` . `dataset.as_named_input('input').as_mount()`Argument oznacza, że określony katalog zostanie _zainstalowany_ do elementu docelowego obliczeń.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) jest modyfikowany w celu uwzględnienia listy argumentów, do których zostanie przekazane `train.py` . `dataset.as_named_input('input').as_mount()`Argument oznacza, że określony katalog zostanie _zainstalowany_ do elementu docelowego obliczeń.
    :::column-end:::
 :::row-end:::
 

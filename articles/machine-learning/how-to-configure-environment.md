@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: a6612f3df5fba834dff8fc60e90c359ceff4cbe1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7e189885fbf7befcaea3f63148a42c81dc1da03e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743103"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320486"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne dla Azure Machine Learning
 
@@ -55,19 +55,19 @@ Plik konfiguracji obszaru roboczego to plik JSON, który informuje zestaw SDK, j
 
 Ten plik JSON musi znajdować się w strukturze katalogów zawierającej skrypty języka Python lub notesy Jupyter. Może znajdować się w tym samym katalogu, podkatalogu o nazwie *. Azure* lub w katalogu nadrzędnym.
 
-Aby użyć tego pliku z kodu, użyj [`Workspace.from_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) metody. Ten kod ładuje informacje z pliku i łączy się z obszarem roboczym.
+Aby użyć tego pliku z kodu, użyj [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) metody. Ten kod ładuje informacje z pliku i łączy się z obszarem roboczym.
 
 Utwórz plik konfiguracji obszaru roboczego w jednej z następujących metod:
 
-* Witryna Azure Portal
+* Azure Portal
 
     **Pobierz plik** : w [Azure Portal](https://ms.portal.azure.com)wybierz pozycję  **Pobierz config.js** z sekcji **Przegląd** w obszarze roboczym.
 
-    ![Witryna Azure Portal](./media/how-to-configure-environment/configure.png)
+    ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
 * Azure Machine Learning Python SDK
 
-    Utwórz skrypt, aby połączyć się z obszarem roboczym Azure Machine Learning i użyć [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) metody do wygenerowania pliku i zapisania go jako *. azure/config.jsw systemie* . Pamiętaj o zamianie `subscription_id` , `resource_group` , i `workspace_name` ze swoimi własnymi.
+    Utwórz skrypt, aby połączyć się z obszarem roboczym Azure Machine Learning i użyć [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) metody do wygenerowania pliku i zapisania go jako *. azure/config.jsw systemie*. Pamiętaj o zamianie `subscription_id` , `resource_group` , i `workspace_name` ze swoimi własnymi.
 
     ```python
     from azureml.core import Workspace
@@ -97,7 +97,7 @@ Aby skonfigurować lokalne środowisko deweloperskie (które może być równie�
     > Jeśli korzystasz z systemu Linux lub macOS i używasz powłoki innej niż bash (na przykład ZSH), podczas uruchamiania niektórych poleceń mogą pojawić się błędy. Aby obejść ten problem, użyj `bash` polecenia w celu uruchomienia nowej powłoki bash i uruchomienia w niej poleceń.
 
 1. Aktywuj nowo utworzone środowisko wirtualne języka Python.
-1. Zainstaluj [zestaw Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+1. Zainstaluj [zestaw Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 1. Aby skonfigurować lokalne środowisko do korzystania z obszaru roboczego Azure Machine Learning, [Utwórz plik konfiguracji obszaru roboczego](#workspace) lub Użyj istniejącego.
 
 Teraz, po skonfigurowaniu lokalnego środowiska, możesz rozpocząć pracę z Azure Machine Learning. Zapoznaj się [Azure Machine Learning z przewodnikiem wprowadzenie](tutorial-1st-experiment-sdk-setup-local.md) do języka Python, aby rozpocząć pracę.
@@ -172,7 +172,7 @@ Aby użyć DSVM jako środowiska deweloperskiego
 
     * Użyj Azure Portal, aby utworzyć [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) lub DSVM [systemu Windows](data-science-virtual-machine/provision-vm.md) .
     * [Tworzenie DSVM przy użyciu szablonów usługi ARM](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
-    * Korzystanie z interfejsu wiersza polecenia platformy Azure
+    * Używanie interfejsu wiersza polecenia platformy Azure
 
         Aby utworzyć Ubuntu DSVM, użyj następującego polecenia:
 
@@ -223,7 +223,7 @@ Jak Azure Databricks współpracuje z Azure Machine Learning:
 
 ### <a name="set-up-your-databricks-cluster"></a>Konfigurowanie klastra datakostks
 
-Utwórz [klaster datakostki](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Niektóre ustawienia są stosowane tylko w przypadku instalowania zestawu SDK w celu automatycznego uczenia maszynowego w kostkach.
+Utwórz [klaster datakostki](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Niektóre ustawienia są stosowane tylko w przypadku instalowania zestawu SDK w celu automatycznego uczenia maszynowego w kostkach.
 **Utworzenie klastra potrwa kilka minut.**
 
 Użyj następujących ustawień:
@@ -243,7 +243,7 @@ Przed kontynuowaniem Zaczekaj, aż klaster zostanie uruchomiony.
 
 Po uruchomieniu klastra [Utwórz bibliotekę](https://docs.databricks.com/user-guide/libraries.html#create-a-library) , aby dołączyć odpowiedni pakiet Azure Machine Learning SDK do klastra. W przypadku zautomatyzowanej ML przejdź do [zestawu SDK dla kostek datakostków z automatyczną nauką uczenia maszynowego](#sdk-for-databricks-with-automated-machine-learning).
 
-1. Kliknij prawym przyciskiem myszy folder bieżący obszar roboczy, w którym chcesz przechowywać bibliotekę. Wybierz pozycję **Utwórz**  >  **bibliotekę** .
+1. Kliknij prawym przyciskiem myszy folder bieżący obszar roboczy, w którym chcesz przechowywać bibliotekę. Wybierz pozycję **Utwórz**  >  **bibliotekę**.
 
 1. Wybierz następującą opcję (nie są obsługiwane żadne inne instalacje zestawu SDK)
 
@@ -254,15 +254,15 @@ Po uruchomieniu klastra [Utwórz bibliotekę](https://docs.databricks.com/user-g
    > [!Warning]
    > Nie można zainstalować żadnych innych rozszerzeń zestawu SDK. Wybierz tylko opcję [ `databricks` ].
 
-   * Nie wybieraj opcji **Dołącz automatycznie do wszystkich klastrów** .
+   * Nie wybieraj opcji **Dołącz automatycznie do wszystkich klastrów**.
    * Wybierz pozycję  **Dołącz** obok nazwy klastra.
 
 1. Monitoruj błędy do momentu zmiany stanu **dołączone** , co może potrwać kilka minut.  Jeśli ten krok zakończy się niepowodzeniem:
 
    Spróbuj ponownie uruchomić klaster przez:
-   1. W lewym okienku wybierz pozycję **klastry** .
+   1. W lewym okienku wybierz pozycję **klastry**.
    1. W tabeli wybierz nazwę klastra.
-   1. Na karcie **biblioteki** wybierz pozycję **Uruchom ponownie** .
+   1. Na karcie **biblioteki** wybierz pozycję **Uruchom ponownie**.
 
    Rozważ również:
    + W konfiguracji AutoML podczas korzystania z Azure Databricks dodać następujące parametry:
@@ -297,4 +297,4 @@ Wypróbuj:
 ## <a name="next-steps"></a>Następne kroki
 
 - [Uczenie modelu](tutorial-train-models-with-aml.md) na Azure Machine Learning z zestawem danych mnist ręcznie
-- Wyświetl informacje o [zestawie Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
+- Wyświetl informacje o [zestawie Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)

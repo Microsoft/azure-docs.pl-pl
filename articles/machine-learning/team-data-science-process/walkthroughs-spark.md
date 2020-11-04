@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1662af6cd3499fdf851d4e1bd8a0db48da7635b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864149"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320136"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Przewodniki dotyczące analizy danych w usłudze HDInsight Spark przy użyciu PySpark i scala na platformie Azure
 
@@ -40,12 +40,11 @@ Zobacz [Zaawansowane eksplorowanie i modelowanie danych za pomocą platformy Spa
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Przewidywanie wskazówek dotyczących taksówki przy użyciu Scala na platformie Azure Spark
 
-W instruktażu [Scala z platformą Spark w systemie Azure](scala-walkthrough.md) jest przewidywane, czy Porada jest płatna, oraz jaki jest zakres kwot, które należy zapłacić. Pokazano, jak używać Scala do nadzorowanych zadań uczenia maszynowego z pakietami MLlib (Spark Machine Learning Library) i SparkML w klastrze Azure HDInsight Spark. Przeprowadzi Cię przez zadania, które stanowią [proces analizy danych](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): pozyskiwanie i Eksploracja danych, Wizualizacja, Inżynieria funkcji, modelowanie i użycie modelu. Modele skompilowane obejmują regresję logistyczną i liniową, lasy losowe i podwyższające gradienty drzew.
+W instruktażu [Scala z platformą Spark w systemie Azure](scala-walkthrough.md) jest przewidywane, czy Porada jest płatna, oraz jaki jest zakres kwot, które należy zapłacić. Pokazano, jak używać Scala do nadzorowanych zadań uczenia maszynowego z pakietami MLlib (Spark Machine Learning Library) i SparkML w klastrze Azure HDInsight Spark. Przeprowadzi Cię przez zadania, które stanowią [proces analizy danych](./index.yml): pozyskiwanie i Eksploracja danych, Wizualizacja, Inżynieria funkcji, modelowanie i użycie modelu. Modele skompilowane obejmują regresję logistyczną i liniową, lasy losowe i podwyższające gradienty drzew.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby zapoznać się z omówieniem procesu nauki o danych zespołowych, zobacz [Omówienie procesu nauka danych zespołu](overview.md).
 
-Aby zapoznać się z omówieniem cyklu życia procesu nauki o danych zespołowych, zobacz [cykl życia procesu nauki o danych zespołowych](lifecycle.md). Ten cykl życia przedstawia kroki od początku do końca, które zwykle są wykonywane podczas wykonywania projektów. 
-
+Aby zapoznać się z omówieniem cyklu życia procesu nauki o danych zespołowych, zobacz [cykl życia procesu nauki o danych zespołowych](lifecycle.md). Ten cykl życia przedstawia kroki od początku do końca, które zwykle są wykonywane podczas wykonywania projektów.

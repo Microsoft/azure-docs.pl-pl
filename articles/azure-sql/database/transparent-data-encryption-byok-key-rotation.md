@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: c24c82e6e013734798b75d7c2cfa5ca126e32bc4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 37931aee24e2dbcab03bca400d58f236601c87e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788608"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321418"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Obróć funkcję ochrony Transparent Data Encryption (TDE)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ W tym artykule opisano rotację kluczy dla [serwera](logical-servers.md) przy u�
 W tym przewodniku omówiono dwie opcje rotacji funkcji ochrony TDE na serwerze.
 
 > [!NOTE]
-> Należy wznowić wstrzymaną pulę SQL usługi Azure Synapse Analytics przed rozpoczęciem rotacji kluczy.
+> Wstrzymanie dedykowanej puli SQL w usłudze Azure Synapse Analytics musi zostać wznowione przed rozpoczęciem rotacji kluczy.
 
 > [!IMPORTANT]
 > Nie usuwaj poprzednich wersji klucza po przejściu. Gdy klucze są zestawiane, niektóre dane są nadal szyfrowane przy użyciu poprzednich kluczy, takich jak starsze kopie zapasowe bazy danych.

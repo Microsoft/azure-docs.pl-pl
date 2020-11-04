@@ -1,6 +1,6 @@
 ---
-title: Optymalizowanie transakcji dla puli SQL
-description: Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w puli SQL.
+title: Optymalizowanie transakcji dla dedykowanej puli SQL
+description: Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w dedykowanej puli SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 174ae84e66f10db4ad24ed561b228f0031492d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a17e3c80f15bb1e4c5aacba4dc974e363eca285e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288651"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319854"
 ---
-# <a name="optimize-transactions-in-sql-pool"></a>Optymalizowanie transakcji w puli SQL
+# <a name="optimize-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optymalizowanie transakcji za pomocą dedykowanej puli SQL w usłudze Azure Synapse Analytics 
 
-Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w puli SQL, jednocześnie minimalizując ryzyko długotrwałego wycofywania.
+Dowiedz się, jak zoptymalizować wydajność kodu transakcyjnego w dedykowanej puli SQL, jednocześnie minimalizując ryzyko długotrwałego wycofywania.
 
 ## <a name="transactions-and-logging"></a>Transakcje i rejestrowanie
 
-Transakcje są ważnym składnikiem aparatu relacyjnej bazy danych. Podczas modyfikacji danych Pula SQL używa transakcji. Te transakcje mogą być jawne lub niejawne. Pojedyncze instrukcje INSERT, UPDATE i DELETE to wszystkie przykłady niejawnych transakcji. Transakcje jawne używają instrukcji BEGIN przeładunek, Zatwierdź transakcję lub Wycofaj ładunek. Jawne transakcje są zwykle używane, gdy wielokrotne instrukcje modyfikacji muszą być powiązane z pojedynczą jednostką niepodzielną.
+Transakcje są ważnym składnikiem aparatu relacyjnej bazy danych. Dedykowana Pula SQL używa transakcji podczas modyfikacji danych. Te transakcje mogą być jawne lub niejawne. Pojedyncze instrukcje INSERT, UPDATE i DELETE to wszystkie przykłady niejawnych transakcji. Transakcje jawne używają instrukcji BEGIN przeładunek, Zatwierdź transakcję lub Wycofaj ładunek. Jawne transakcje są zwykle używane, gdy wielokrotne instrukcje modyfikacji muszą być powiązane z pojedynczą jednostką niepodzielną.
 
-Pula SQL zatwierdza zmiany w bazie danych przy użyciu dzienników transakcji. Każda dystrybucja ma swój własny dziennik transakcji. Zapisy w dzienniku transakcji są automatyczne. Nie jest wymagana żadna konfiguracja. Jednak proces ten gwarantuje, że zapis wprowadza obciążenie systemu. Ten wpływ można zminimalizować przez zapisanie wydajnego kodu transactionowego. W szerokim stopniu funkcjonalny kod jest podzielony na dwie kategorie.
+Dedykowana Pula SQL zatwierdza zmiany w bazie danych przy użyciu dzienników transakcji. Każda dystrybucja ma swój własny dziennik transakcji. Zapisy w dzienniku transakcji są automatyczne. Nie jest wymagana żadna konfiguracja. Jednak proces ten gwarantuje, że zapis wprowadza obciążenie systemu. Ten wpływ można zminimalizować przez zapisanie wydajnego kodu transactionowego. W szerokim stopniu funkcjonalny kod jest podzielony na dwie kategorie.
 
 * Używaj minimalnych konstrukcji rejestrowania wszędzie tam, gdzie to możliwe
 * Przetwarzaj dane przy użyciu partii o określonym zakresie, aby uniknąć długotrwałych transakcji długoterminowych
@@ -50,7 +50,7 @@ Następujące operacje mogą być w sposób minimalny zarejestrowane:
 * ALTER INDEX REBUILD
 * DROP INDEX
 * TRUNCATE TABLE
-* USUŃ TABELĘ
+* DROP TABLE
 * ALTER TABLE SWITCH PARTITION
 
 <!--
@@ -78,7 +78,7 @@ CTAS i Wstaw... SELECT to operacje ładowania zbiorczego. Jednak oba mają wpły
 Warto zauważyć, że wszystkie zapisy do aktualizacji pomocniczych lub nieklastrowanych indeksów będą zawsze w pełni zarejestrowane.
 
 > [!IMPORTANT]
-> Pula SQL ma dystrybucje 60. W związku z tym, przy założeniu, że wszystkie wiersze są równomiernie dystrybuowane i wypełnianie w pojedynczej partycji, partia będzie musiała zawierać 6 144 000 wierszy lub większa do minimalnej rejestracji podczas zapisywania w klastrowanym indeksie magazynu kolumn. Jeśli tabela jest podzielona na partycje i wstawiane wiersze rozciągają się na granice partycji, w granicach partycji będą potrzebne 6 144 000 wierszy, przy założeniu, że nawet dystrybucji danych. Każda partycja w każdej dystrybucji musi niezależnie przekroczyć próg wiersza 102 400 dla operacji INSERT, który ma być minimalnym zalogowaniem do dystrybucji.
+> Dedykowana Pula SQL ma dystrybucje 60. W związku z tym, przy założeniu, że wszystkie wiersze są równomiernie dystrybuowane i wypełnianie w pojedynczej partycji, partia będzie musiała zawierać 6 144 000 wierszy lub większa do minimalnej rejestracji podczas zapisywania w klastrowanym indeksie magazynu kolumn. Jeśli tabela jest podzielona na partycje i wstawiane wiersze rozciągają się na granice partycji, w granicach partycji będą potrzebne 6 144 000 wierszy, przy założeniu, że nawet dystrybucji danych. Każda partycja w każdej dystrybucji musi niezależnie przekroczyć próg wiersza 102 400 dla operacji INSERT, który ma być minimalnym zalogowaniem do dystrybucji.
 
 Ładowanie danych do niepustej tabeli z indeksem klastrowanym może często zawierać kombinację całkowicie zarejestrowanych i minimalnych zarejestrowanych wierszy. Klastrowany indeks to zrównoważone drzewo (b-Tree) stron. Jeśli strona, w której jest zapisywana, zawiera już wiersze z innej transakcji, te zapisy zostaną w pełni zarejestrowane. Jeśli jednak strona jest pusta, zapis na tej stronie zostanie zapisany w sposób minimalny.
 
@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Ponowne utworzenie dużych tabel może skorzystać z używania funkcji zarządzania obciążeniami puli SQL. Aby uzyskać więcej informacji, zobacz [klasy zasobów dla zarządzania obciążeniami](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Ponowne utworzenie dużych tabel może skorzystać z używania dedykowanych funkcji zarządzania obciążeniami puli SQL. Aby uzyskać więcej informacji, zobacz [klasy zasobów dla zarządzania obciążeniami](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="optimize-with-partition-switching"></a>Optymalizuj z przełączaniem do partycji
 
@@ -406,20 +406,20 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Wskazówki dotyczące wstrzymywania i skalowania
 
-Usługa Azure Synapse Analytics umożliwia [wstrzymywanie, wznawianie i skalowanie](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) puli SQL na żądanie. 
+Usługa Azure Synapse Analytics umożliwia [wstrzymywanie, wznawianie i skalowanie](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) dedykowanej puli SQL na żądanie. 
 
-W przypadku wstrzymania lub skalowania puli SQL należy zrozumieć, że wszystkie transakcje związane z lotem są kończone natychmiastowo; powoduje wycofywanie wszelkich otwartych transakcji. 
+W przypadku wstrzymania lub skalowania dedykowanej puli SQL należy zrozumieć, że wszystkie transakcje związane z lotem są kończone natychmiast; powoduje wycofywanie wszelkich otwartych transakcji. 
 
-Jeśli obciążenie wystawiło długotrwałą i niekompletną modyfikację danych przed operacją wstrzymania lub skalowania, należy to zrobić. To cofnięcie może mieć wpływ na czas oczekiwania na wstrzymanie lub skalowanie puli SQL. 
+Jeśli obciążenie wystawiło długotrwałą i niekompletną modyfikację danych przed operacją wstrzymania lub skalowania, należy to zrobić. To cofnięcie może mieć wpływ na czas oczekiwania na wstrzymanie lub skalowanie dedykowanej puli SQL. 
 
 > [!IMPORTANT]
 > Zarówno `UPDATE` , jak i `DELETE` są w pełni zarejestrowane operacje, więc operacje cofania/ponawiania mogą trwać znacznie dłużej niż równoważne operacje, które nie zostały zarejestrowane w sposób minimalny.
 
-Najlepszym scenariuszem jest umożliwienie wykonywania transakcji modyfikacji danych lotu przed zawstrzymywaniem lub skalowaniem puli SQL. Jednak ten scenariusz może nie zawsze być praktyczny. Aby zmniejszyć ryzyko długotrwałego wycofywania, należy wziąć pod uwagę jedną z następujących opcji:
+Najlepszym scenariuszem jest umożliwienie przeprowadzenia transakcji modyfikacji danych lotu przed zawstrzymywaniem lub skalowaniem dedykowanej puli SQL. Jednak ten scenariusz może nie zawsze być praktyczny. Aby zmniejszyć ryzyko długotrwałego wycofywania, należy wziąć pod uwagę jedną z następujących opcji:
 
 * Ponownie Napisz długotrwałe operacje przy użyciu [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Przerwij operację do fragmentów; działanie na podzestawie wierszy
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [transakcje w puli SQL](develop-transactions.md) , aby dowiedzieć się więcej na temat poziomów izolacji i limitów transakcyjnych.  Aby zapoznać się z innymi najlepszymi rozwiązaniami, zobacz [najlepsze rozwiązania dotyczące puli SQL](best-practices-sql-pool.md).
+Zobacz [transakcje w dedykowanej puli SQL](develop-transactions.md) , aby dowiedzieć się więcej na temat poziomów izolacji i limitów transakcyjnych.  Aby zapoznać się z innymi najlepszymi rozwiązaniami, zobacz [najlepsze rozwiązania dotyczące puli SQL](best-practices-sql-pool.md).

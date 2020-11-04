@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bddd9a6825899f646a86ae274c539b54156667c5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905274"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319396"
 ---
 # <a name="permutation-feature-importance"></a>Ważność funkcji permutacji
 
@@ -24,7 +24,7 @@ W tym module wartości funkcji są losowo przebierane w jedną kolumnę w czasie
 
 Wyniki zwracane przez moduł reprezentują *zmianę* wydajności przeszkolonego modelu, po permutacji. Ważne funkcje są zwykle bardziej wrażliwe na proces Shuffling, więc będą powodować wyższe znaczenie. 
 
-Ten artykuł zawiera omówienie funkcji permutacji, jej teoretyczną podstawę i jej aplikacji w usłudze Machine Learning: [ważność funkcji permutacji](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+Ten artykuł zawiera omówienie funkcji permutacji, jej teoretyczną podstawę i jej aplikacji w usłudze Machine Learning: [ważność funkcji permutacji](/archive/blogs/machinelearning/permutation-feature-importance).  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>Jak używać ważności funkcji permutacji
 
@@ -36,11 +36,11 @@ Generowanie zestawu wyników funkcji wymaga, aby był już szkolony model, a tak
 
 3.  Po prawej stronie Wprowadź połączenie zestawu danych. Najlepiej wybrać taki, który jest inny niż zestaw danych, który był używany do uczenia modelu. Ten zestaw danych jest używany do oceniania na podstawie nauczonego modelu. Jest on również używany do oceny modelu po zmianie wartości funkcji.  
 
-4.  W przypadku **losowego inicjatora**wprowadź wartość, która ma być używana jako inicjator losowy. Jeśli określisz wartość 0 (wartość domyślna), jest generowana liczba na podstawie zegara systemowego.
+4.  W przypadku **losowego inicjatora** wprowadź wartość, która ma być używana jako inicjator losowy. Jeśli określisz wartość 0 (wartość domyślna), jest generowana liczba na podstawie zegara systemowego.
 
      Wartość inicjatora jest opcjonalna, ale należy podać wartość, jeśli chcesz, aby odtwarzalność w przebiegach tego samego potoku.  
 
-5.  Aby uzyskać **metrykę mierzenia wydajności**, wybierz jedną metrykę, która ma być używana podczas obliczania jakości modelu po permutacji.  
+5.  Aby uzyskać **metrykę mierzenia wydajności** , wybierz jedną metrykę, która ma być używana podczas obliczania jakości modelu po permutacji.  
 
      Azure Machine Learning Designer obsługuje następujące metryki, w zależności od tego, czy oceniasz model klasyfikacji czy regresji:  
 
@@ -69,4 +69,4 @@ Przyczyna różnic polega na tym, że ważność funkcji permutacji nie mierzy s
   
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning.

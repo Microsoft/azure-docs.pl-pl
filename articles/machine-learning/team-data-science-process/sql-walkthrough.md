@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 580181aaaea975ee07bcec8108297079c5373b92
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331900"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320417"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proces nauki danych zespołu w działaniu: używanie SQL Server
 W tym samouczku przedstawiono proces kompilowania i wdrażania modelu uczenia maszynowego przy użyciu SQL Server i publicznie dostępnego zestawu danych — zestawu danych [podróży NYC z taksówkami](https://www.andresmh.com/nyctaxitrips/) . Procedura jest zgodna ze standardowym przepływem nauki o danych: pozyskiwanie i Eksplorowanie danych, inżynierów w celu ułatwienia uczenia się, a następnie kompilowania i wdrażania modelu.
@@ -55,10 +55,10 @@ Dane dotyczące rejsu z NYC taksówkami dotyczą 20 GB skompresowanych plików C
 Unikatowy klucz do przyłączenia \_ danych podróży i \_ opłaty za podróż są złożone z pól: Medallion, \_ licencja na hakera i \_ Data i godzina pobrania.
 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Przykłady zadań przewidywania
-Będziemy formułować trzy problemy z przewidywaniami na podstawie * \_ kwoty Porada*:
+Będziemy formułować trzy problemy z przewidywaniami na podstawie *\_ kwoty Porada* :
 
-* Klasyfikacja binarna: przewidywanie, czy Porada została zapłacona za podróż, to oznacza, że jest to $0 *dodatnia \_ * * \_ wartość* , która jest większa niż $0
-* Klasyfikacja wieloklasowa: przewidywanie zakresu porady dla podróży. Podziel * \_ kwotę* na pięć przedziałów lub klas:
+* Klasyfikacja binarna: przewidywanie, czy Porada została zapłacona za podróż, to oznacza, że jest to $0 *dodatnia \_* *\_ wartość* , która jest większa niż $0
+* Klasyfikacja wieloklasowa: przewidywanie zakresu porady dla podróży. Podziel *\_ kwotę* na pięć przedziałów lub klas:
 
    `Class 0 : tip_amount = $0`
 
@@ -84,7 +84,7 @@ Aby skonfigurować środowisko nauki danych platformy Azure:
 
 1. [Tworzenie konta magazynu](../../storage/common/storage-account-create.md)
 2. [Tworzenie obszaru roboczego usługi Azure Machine Learning](../classic/create-workspace.md)
-3. [Zapewnij Data Science Virtual Machine](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), który udostępnia SQL Server i serwer notesu IPython.
+3. [Zapewnij Data Science Virtual Machine](../data-science-virtual-machine/overview.md), który udostępnia SQL Server i serwer notesu IPython.
    
    > [!NOTE]
    > Przykładowe skrypty i notesy IPython zostaną pobrane do maszyny wirtualnej do nauki o danych podczas procesu instalacji. Po zakończeniu działania skryptu po instalacji na maszynie wirtualnej przykłady będą znajdować się w bibliotece dokumentów maszyny wirtualnej:  
@@ -133,11 +133,11 @@ Wydajność ładowania/przenoszenia dużych ilości danych do SQL Database i kol
      
        ![SQL Database domyślne][15]  
 5. Aby utworzyć nową bazę danych i zestaw grup plików do przechowywania partycjonowanych tabel, Otwórz przykładowy skrypt **Utwórz \_ bazę danych \_ default. SQL**. Skrypt utworzy nową bazę danych o nazwie **TaxiNYC** i 12 grupach plików w domyślnej lokalizacji danych. Każda grupa plików będzie przechowywać jeden miesiąc danych \_ i opłat za podróż \_ . W razie potrzeby zmodyfikuj nazwę bazy danych. Kliknij przycisk **Execute (wykonaj** ), aby uruchomić skrypt.
-6. Następnie Utwórz dwie tabele partycji, jedną dla \_ danych podróży i drugą dla opłaty za podróż \_ . Otwórz przykładowy skrypt **Tworzenie \_ partycjonowanej \_ tabeli. SQL**, która będzie:
+6. Następnie Utwórz dwie tabele partycji, jedną dla \_ danych podróży i drugą dla opłaty za podróż \_ . Otwórz przykładowy skrypt **Tworzenie \_ partycjonowanej \_ tabeli. SQL** , która będzie:
    
    * Utwórz funkcję partycji, aby podzielić dane na miesiąc.
    * Utwórz schemat partycji, aby zamapować dane każdego miesiąca do innej grupy plików.
-   * Utwórz dwie partycjonowane tabele zamapowane na schemat partycji: ** \_ podróż nyctaxi** będzie przechowywać dane dotyczące podróży, \_ a ** \_ opłaty** za przejazd nyctaxi będą przechowywane w ramach taryfy czasowej \_ .
+   * Utwórz dwie partycjonowane tabele zamapowane na schemat partycji: **\_ podróż nyctaxi** będzie przechowywać dane dotyczące podróży, \_ a **\_ opłaty** za przejazd nyctaxi będą przechowywane w ramach taryfy czasowej \_ .
      
      Kliknij przycisk **Execute (wykonaj** ), aby uruchomić skrypt i utworzyć partycjonowane tabele.
 7. W folderze **przykładowe skrypty** dostępne są dwa przykładowe skrypty programu PowerShell umożliwiające zaprezentowanie równoległych importów zbiorczych danych do tabel SQL Server.
@@ -150,9 +150,9 @@ Wydajność ładowania/przenoszenia dużych ilości danych do SQL Database i kol
    
     Można również wybrać tryb uwierzytelniania, domyślnie jest uwierzytelnianie systemu Windows. Kliknij zieloną strzałkę na pasku narzędzi, aby uruchomić. Skrypt uruchomi 24 zbiorcze operacje importu równolegle, 12 dla każdej partycjonowanej tabeli. Postęp importowania danych można monitorować, otwierając SQL Server domyślnego folderu danych zgodnie z powyższym ustawieniem.
 9. Skrypt programu PowerShell zgłasza czas rozpoczęcia i zakończenia. Po zakończeniu wszystkich importów zbiorczych jest raportowany czas zakończenia. Sprawdź docelowy folder dziennika, aby sprawdzić, czy zbiorcze Importy zostały pomyślne, czyli nie zgłoszono błędów w docelowym folderze dziennika.
-10. Baza danych jest teraz gotowa do eksploracji, Inżynieria funkcji i innych operacji. Ponieważ tabele są partycjonowane według pola ** \_ daty i godziny pobrania** , zapytania, które zawierają warunki **w klauzuli** ** \_ DateTime do pobrania** , będą korzystać z schematu partycji.
-11. W **SQL Server Management Studio**poznanie dostarczonego przykładowego skryptu przykładowego ** \_ zapytania. SQL**. Aby uruchomić dowolne z przykładowych zapytań, zaznacz wiersze zapytania, a następnie kliknij przycisk **Execute (wykonaj** ) na pasku narzędzi.
-12. Dane podróży z NYC taksówki są ładowane w dwóch oddzielnych tabelach. Aby poprawić operacje join, zdecydowanie zaleca się indeksowanie tabel. Przykładowy skrypt **tworzy \_ partycjonowany \_ indeks. SQL** tworzy partycjonowane indeksy na Medallion kluczowej sprzężenia, licencji na naprawę **i dacie \_ pobrania \_ **.
+10. Baza danych jest teraz gotowa do eksploracji, Inżynieria funkcji i innych operacji. Ponieważ tabele są partycjonowane według pola **\_ daty i godziny pobrania** , zapytania, które zawierają warunki **w klauzuli** **\_ DateTime do pobrania** , będą korzystać z schematu partycji.
+11. W **SQL Server Management Studio** poznanie dostarczonego przykładowego skryptu przykładowego **\_ zapytania. SQL**. Aby uruchomić dowolne z przykładowych zapytań, zaznacz wiersze zapytania, a następnie kliknij przycisk **Execute (wykonaj** ) na pasku narzędzi.
+12. Dane podróży z NYC taksówki są ładowane w dwóch oddzielnych tabelach. Aby poprawić operacje join, zdecydowanie zaleca się indeksowanie tabel. Przykładowy skrypt **tworzy \_ partycjonowany \_ indeks. SQL** tworzy partycjonowane indeksy na Medallion kluczowej sprzężenia, licencji na naprawę **i dacie \_ pobrania \_**.
 
 ## <a name="data-exploration-and-feature-engineering-in-sql-server"></a><a name="dbexplore"></a>Eksploracja danych i inżynieria funkcji w SQL Server
 W tej sekcji wykonamy eksplorowanie i generowanie funkcji, uruchamiając zapytania SQL bezpośrednio w **SQL Server Management Studio** przy użyciu utworzonej wcześniej bazy danych SQL Server. Przykładowy skrypt o nazwie **przykładowe \_ zapytania. SQL** jest dostępny w folderze **przykładowe skrypty** . Zmodyfikuj skrypt, aby zmienić nazwę bazy danych, jeśli różni się od domyślnego: **TaxiNYC**.
@@ -162,7 +162,7 @@ W tym ćwiczeniu będziemy:
 * Połącz się z **SQL Server Management Studio** przy użyciu uwierzytelniania systemu Windows lub uwierzytelniania SQL i nazwy logowania SQL i hasła.
 * Eksplorowanie dystrybucji danych kilku pól w różnych oknach czasu.
 * Zbadaj jakość danych pól długości i szerokości geograficznej.
-* Generowanie etykiet klasyfikacji danych binarnych i wieloklasowych na podstawie ** \_ kwoty**pozostałej.
+* Generowanie etykiet klasyfikacji danych binarnych i wieloklasowych na podstawie **\_ kwoty** pozostałej.
 * Generuj funkcje i odległość wyjazdu obliczeniowego/porównania.
 * Dołącz dwie tabele i Wyodrębnij losową próbkę, która będzie używana do kompilowania modeli.
 
@@ -179,7 +179,7 @@ Aby uzyskać szybką weryfikację liczby wierszy i kolumn w tabelach wypełniony
 - Raportuj liczbę kolumn w tabeli nyctaxi_trip: `SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>Eksploracja: dystrybucja podróży według Medallion
-W tym przykładzie zidentyfikowano Medallion (liczby taksówki) z ponad 100 podróży w danym okresie. Zapytanie jest korzystne z poziomu dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem schematu partycji typu ** \_ DateTime**. Wykonywanie zapytania dotyczącego pełnego zestawu danych spowoduje również użycie partycjonowanej tabeli i/lub skanowania indeksu.
+W tym przykładzie zidentyfikowano Medallion (liczby taksówki) z ponad 100 podróży w danym okresie. Zapytanie jest korzystne z poziomu dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem schematu partycji typu **\_ DateTime**. Wykonywanie zapytania dotyczącego pełnego zestawu danych spowoduje również użycie partycjonowanej tabeli i/lub skanowania indeksu.
 
 ```sql
 SELECT medallion, COUNT(*)
@@ -258,10 +258,10 @@ AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 ```
 
 #### <a name="feature-engineering-in-sql-queries"></a>Inżynieria funkcji w zapytaniach SQL
-Zapytania eksploracji generacji etykiet i przeprowadzenia konwersji geografii mogą również służyć do generowania etykiet/funkcji przez usunięcie części zliczania. Dodatkowe przykłady SQL dla inżynierów funkcji są dostępne w sekcji [eksplorowanie i opracowywanie funkcji w notesie IPython](#ipnb) . Bardziej wydajne jest uruchamianie zapytań generacji funkcji na pełnym zestawie danych lub w dużym podzestawie przy użyciu zapytań SQL, które są uruchamiane bezpośrednio w wystąpieniu bazy danych SQL Server. Zapytania mogą być wykonywane w **SQL Server Management Studio**, IPython notesie lub dowolnym narzędziu programistycznym lub środowisku, które może uzyskać dostęp do bazy danych lokalnie lub zdalnie.
+Zapytania eksploracji generacji etykiet i przeprowadzenia konwersji geografii mogą również służyć do generowania etykiet/funkcji przez usunięcie części zliczania. Dodatkowe przykłady SQL dla inżynierów funkcji są dostępne w sekcji [eksplorowanie i opracowywanie funkcji w notesie IPython](#ipnb) . Bardziej wydajne jest uruchamianie zapytań generacji funkcji na pełnym zestawie danych lub w dużym podzestawie przy użyciu zapytań SQL, które są uruchamiane bezpośrednio w wystąpieniu bazy danych SQL Server. Zapytania mogą być wykonywane w **SQL Server Management Studio** , IPython notesie lub dowolnym narzędziu programistycznym lub środowisku, które może uzyskać dostęp do bazy danych lokalnie lub zdalnie.
 
 #### <a name="preparing-data-for-model-building"></a>Przygotowywanie danych do kompilowania modelu
-Następujące zapytanie sprzęga **nyctaxie \_ ** i **nyctaxi opłaty za \_ przejazd** , generuje binarną etykietę klasyfikacji, ** \_ klasę**etykietki klasyfikacji z wieloklasową **, a**następnie wyodrębnia losowo 1% próbek z pełnego dołączonego zestawu danych. To zapytanie można skopiować, a następnie wkleić bezpośrednio do modułu [Azure Machine Learning Studio](https://studio.azureml.net) [Importowanie danych][import-data] w celu bezpośredniego pozyskiwania danych z wystąpienia bazy danych SQL Server na platformie Azure. Zapytanie wyklucza rekordy z nieprawidłowymi współrzędnymi (0, 0).
+Następujące zapytanie sprzęga **nyctaxie \_** i **nyctaxi opłaty za \_ przejazd** , generuje binarną etykietę klasyfikacji, **\_ klasę** etykietki klasyfikacji z wieloklasową **, a** następnie wyodrębnia losowo 1% próbek z pełnego dołączonego zestawu danych. To zapytanie można skopiować, a następnie wkleić bezpośrednio do modułu [Azure Machine Learning Studio](https://studio.azureml.net) [Importowanie danych][import-data] w celu bezpośredniego pozyskiwania danych z wystąpienia bazy danych SQL Server na platformie Azure. Zapytanie wyklucza rekordy z nieprawidłowymi współrzędnymi (0, 0).
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -364,7 +364,7 @@ Czas odczytu tabeli przykładowej to 6,492000 sekund
 Liczba pobranych wierszy i kolumn = (84952, 21)
 
 #### <a name="descriptive-statistics"></a>Statystyki opisowe
-Teraz możesz eksplorować dane próbkowane. Zaczynamy od przejrzenia statystyk opisowych dla ** \_ odległości podróży** (lub dowolnego innego) pola:
+Teraz możesz eksplorować dane próbkowane. Zaczynamy od przejrzenia statystyk opisowych dla **\_ odległości podróży** (lub dowolnego innego) pola:
 
 ```sql
 df1['trip_distance'].describe()
@@ -415,7 +415,7 @@ pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 ![#4 wykresu][4]
 
 #### <a name="visualization-scatterplot-example"></a>Wizualizacja: przykład Scatterplot
-Pokazujemy wykres punktowy **między \_ czasem podróży \_ w \_ sekundach** i ** \_ odległości podróży** , aby sprawdzić, czy istnieje korelacja
+Pokazujemy wykres punktowy **między \_ czasem podróży \_ w \_ sekundach** i **\_ odległości podróży** , aby sprawdzić, czy istnieje korelacja
 
 ```sql
 plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -423,7 +423,7 @@ plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![#6 wykresu][6]
 
-Podobnie możemy sprawdzić relację między ** \_ kodem częstotliwości** i ** \_ odległością podróży**.
+Podobnie możemy sprawdzić relację między **\_ kodem częstotliwości** i **\_ odległością podróży**.
 
 ```sql
 plt.scatter(df1['passenger_count'], df1['trip_distance'])
@@ -437,7 +437,7 @@ Podczas przygotowywania danych do kompilowania modeli w [Azure Machine Learning 
 W tej sekcji utworzymy nową tabelę do przechowywania danych próbkowanych i przetworzonych. Przykład bezpośredniej kwerendy SQL na potrzeby konstruowania modelu znajduje się w sekcji [Eksploracja danych i inżynieria funkcji w SQL Server](#dbexplore) .
 
 #### <a name="create-a-sample-table-and-populate-with-1-of-the-joined-tables-drop-table-first-if-it-exists"></a>Utwórz przykładową tabelę i wypełnij ją 1% sprzężonych tabel. Najpierw Porzuć tabelę, jeśli istnieje.
-W tej sekcji dołączymy tabele **nyctaxie \_ ** i ** \_ opłaty za nyctaxi**, Wyodrębnij losową próbę z 1% i Utrwalaj dane przykładowe w nowej tabeli o nazwie **nyctaxi 1 \_ \_ procent**:
+W tej sekcji dołączymy tabele **nyctaxie \_** i **\_ opłaty za nyctaxi** , Wyodrębnij losową próbę z 1% i Utrwalaj dane przykładowe w nowej tabeli o nazwie **nyctaxi 1 \_ \_ procent** :
 
 ```sql
 cursor = conn.cursor()
@@ -463,7 +463,7 @@ cursor.commit()
 ```
 
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Eksploracja danych przy użyciu zapytań SQL w notesie IPython
-W tej sekcji eksplorujemy dystrybucje danych przy użyciu danych z próbką 1%, które są utrwalane w nowo utworzonej tabeli. Podobne eksploracje mogą być wykonywane przy użyciu oryginalnych tabel, **opcjonalnie przy użyciu** tabeli odnoszącej, aby ograniczyć próbkę eksploracji lub ograniczając wyniki do danego przedziału czasu przy użyciu partycji ** \_ DateTime odbioru** , jak pokazano w sekcji [Eksploracja danych i inżynieria funkcji w SQL Server](#dbexplore) .
+W tej sekcji eksplorujemy dystrybucje danych przy użyciu danych z próbką 1%, które są utrwalane w nowo utworzonej tabeli. Podobne eksploracje mogą być wykonywane przy użyciu oryginalnych tabel, **opcjonalnie przy użyciu** tabeli odnoszącej, aby ograniczyć próbkę eksploracji lub ograniczając wyniki do danego przedziału czasu przy użyciu partycji **\_ DateTime odbioru** , jak pokazano w sekcji [Eksploracja danych i inżynieria funkcji w SQL Server](#dbexplore) .
 
 #### <a name="exploration-daily-distribution-of-trips"></a>Eksploracja: codzienne rozpowszechnianie podróży
 
@@ -496,7 +496,7 @@ W tej sekcji wygenerujemy nowe etykiety i funkcje bezpośrednio przy użyciu zap
 W poniższym przykładzie Wygenerowano dwa zestawy etykiet do użycia podczas modelowania:
 
 1. Przerzucane **tipped** etykiety klas binarnych (przewidywanie, jeśli zostanie podaną wskazówką)
-2. ** \_ Klasa** etykiet dla wielu klas (przewidywanie pojemnika lub zakresu końcówki)
+2. **\_ Klasa** etykiet dla wielu klas (przewidywanie pojemnika lub zakresu końcówki)
 
 ```sql   
     nyctaxi_one_percent_add_col = '''
@@ -585,7 +585,7 @@ cursor.commit()
 ```
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Inżynieria funkcji: Wyodrębnij funkcje lokalizacji z dziesiętnej szerokości/długości geograficznej
-Ten przykład dzieli dziesiętną reprezentację pola szerokości geograficznej i/lub długości geograficznej na kilka regionów pól o różnych stopnia szczegółowości, takich jak kraj/region, miasto, miejscowość, blok itp. Nowe pola geograficzne nie są zamapowane na rzeczywiste lokalizacje. Aby uzyskać informacje na temat mapowania lokalizacji geokodu, zobacz [usługi Bing Maps](https://msdn.microsoft.com/library/ff701710.aspx).
+Ten przykład dzieli dziesiętną reprezentację pola szerokości geograficznej i/lub długości geograficznej na kilka regionów pól o różnych stopnia szczegółowości, takich jak kraj/region, miasto, miejscowość, blok itp. Nowe pola geograficzne nie są zamapowane na rzeczywiste lokalizacje. Aby uzyskać informacje na temat mapowania lokalizacji geokodu, zobacz [usługi Bing Maps](/bingmaps/rest-services/locations/find-a-location-by-point).
 
 ```sql
 nyctaxi_one_percent_insert_col = '''
@@ -653,7 +653,7 @@ W tym ćwiczeniu zostały już omówione i zaprojektowane dane w SQL Server i po
 2. Wybierz **Azure SQL Database** jako **Źródło danych** w panelu **Właściwości** .
 3. Wprowadź nazwę DNS bazy danych w polu **Nazwa serwera bazy danych** . Formatowanie `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Wprowadź **nazwę bazy danych** w odpowiednim polu.
-5. Wprowadź **nazwę użytkownika SQL** w polu **nazwa konta użytkownika serwera**i **hasło** w polu **hasło konta użytkownika serwera**.
+5. Wprowadź **nazwę użytkownika SQL** w polu **nazwa konta użytkownika serwera** i **hasło** w polu **hasło konta użytkownika serwera**.
 7. W obszarze tekst **kwerendy bazy danych** Edytuj zapytanie, które wyodrębnia niezbędne pola bazy danych (w tym wszystkie pola obliczane, takie jak etykiety), i w dół próbkuje dane do żądanego rozmiaru próbki.
 
 Przykładem eksperymentu klasyfikacji binarnej odczytującego dane bezpośrednio z bazy danych SQL Server znajduje się na poniższej ilustracji. Podobne eksperymenty mogą być zbudowane w przypadku problemów klasyfikacji i regresji wieloklasowej.
@@ -661,7 +661,7 @@ Przykładem eksperymentu klasyfikacji binarnej odczytującego dane bezpośrednio
 ![Uczenie Azure Machine Learning][10]
 
 > [!IMPORTANT]
-> W zapytaniach dotyczących wyodrębniania i próbkowania danych modelowania, które zostały podane w poprzednich sekcjach, **wszystkie etykiety dla trzech ćwiczeń modelowania są zawarte w zapytaniu**. Ważne (wymagane) krok w każdym z ćwiczeń modelowania polega na **wykluczeniu** niepotrzebnych etykiet dla innych dwóch problemów oraz wszelkich innych **przecieków docelowych**. Na przykład, w przypadku używania klasyfikacji binarnej, użyj etykiety **przechylonej** i Wyklucz ** \_ klasę etykietki**pól, ** \_ kwotę wskazówki**i **łączną \_ kwotę**. Te ostatnie są wyciekami docelowymi, ponieważ implikują zapłacone wskazówki.
+> W zapytaniach dotyczących wyodrębniania i próbkowania danych modelowania, które zostały podane w poprzednich sekcjach, **wszystkie etykiety dla trzech ćwiczeń modelowania są zawarte w zapytaniu**. Ważne (wymagane) krok w każdym z ćwiczeń modelowania polega na **wykluczeniu** niepotrzebnych etykiet dla innych dwóch problemów oraz wszelkich innych **przecieków docelowych**. Na przykład, w przypadku używania klasyfikacji binarnej, użyj etykiety **przechylonej** i Wyklucz **\_ klasę etykietki** pól, **\_ kwotę wskazówki** i **łączną \_ kwotę**. Te ostatnie są wyciekami docelowymi, ponieważ implikują zapłacone wskazówki.
 > 
 > Aby wykluczyć niepotrzebne kolumny i/lub wycieki docelowe, możesz użyć modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ) lub [edytować metadane][edit-metadata]. Aby uzyskać więcej informacji, zobacz [Wybieranie kolumn w zestawie danych][select-columns] i edytowanie stron odwołań do [metadanych][edit-metadata] .
 > 
@@ -722,6 +722,6 @@ Ten przykładowy przewodnik i towarzyszące mu skrypty i notesy IPython są udos
 
 
 <!-- Module References -->
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3f6a48815519499ddc39dcc12cafe0fe95e70e0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440001"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320229"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformy i narzędzia dla projektów do nauki o danych
 
@@ -60,7 +60,7 @@ Apache Spark to platforma przetwarzania równoległego typu open source, która 
 
 Tworząc klaster Spark w usłudze HDInsight, tworzysz zasoby obliczeniowe systemu Azure z zainstalowaną i skonfigurowaną platformą Spark. Utworzenie klastra Spark w usłudze HDInsight trwa około 10 minut. Przechowywanie danych do przetworzenia w usłudze Azure Blob Storage. Aby uzyskać informacje na temat korzystania z usługi Azure Blob Storage z klastrem, zobacz [Korzystanie z usługi Azure Blob Storage zgodnej z systemem plików HDFS w usłudze HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-Zespół przetwarzania TDSP od firmy Microsoft opublikował dwa kompleksowe przewodniki dotyczące korzystania z klastrów Azure HDInsight Spark do kompilowania rozwiązań do nauki o danych, a przy użyciu języka Python i innych Scala. Aby uzyskać więcej informacji na temat **klastrów**usługi Azure HDInsight Spark, zobacz [Omówienie: Apache Spark w usłudze HDInsight w systemie Linux](../../hdinsight/spark/apache-spark-overview.md). Aby dowiedzieć się, jak utworzyć rozwiązanie do nauki o danych przy użyciu języka **Python** w klastrze Azure HDInsight Spark, zobacz [Omówienie analizy danych przy użyciu platformy Spark w usłudze Azure HDInsight](spark-overview.md). Aby dowiedzieć się, jak utworzyć rozwiązanie do nauki o danych przy użyciu usługi **Scala** w klastrze Azure HDInsight Spark, zobacz [naukę danych przy użyciu Scala i platformy Spark na platformie Azure](scala-walkthrough.md). 
+Zespół przetwarzania TDSP od firmy Microsoft opublikował dwa kompleksowe przewodniki dotyczące korzystania z klastrów Azure HDInsight Spark do kompilowania rozwiązań do nauki o danych, a przy użyciu języka Python i innych Scala. Aby uzyskać więcej informacji na temat **klastrów** usługi Azure HDInsight Spark, zobacz [Omówienie: Apache Spark w usłudze HDInsight w systemie Linux](../../hdinsight/spark/apache-spark-overview.md). Aby dowiedzieć się, jak utworzyć rozwiązanie do nauki o danych przy użyciu języka **Python** w klastrze Azure HDInsight Spark, zobacz [Omówienie analizy danych przy użyciu platformy Spark w usłudze Azure HDInsight](spark-overview.md). Aby dowiedzieć się, jak utworzyć rozwiązanie do nauki o danych przy użyciu usługi **Scala** w klastrze Azure HDInsight Spark, zobacz [naukę danych przy użyciu Scala i platformy Spark na platformie Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
@@ -92,23 +92,23 @@ Aby uzyskać więcej informacji na temat klastrów Hive usługi Azure HDInsight,
 
 Azure File Storage to usługa oferująca udziały plików w chmurze przy użyciu standardowego protokołu bloku komunikatów serwera (SMB). Obsługiwane są wersje 2.1 i 3.0 protokołu SMB. W usłudze Magazyn plików Azure można migrować starsze aplikacje korzystające z udziałów plików na platformę Azure szybko i bez kosztownych modyfikacji oprogramowania. Aplikacje uruchomione na maszynach wirtualnych lub w ramach usług w chmurze platformy Azure, a także na klientach lokalnych mogą instalować udziały plików w chmurze tak samo jak aplikacja na komputerze instalująca typowy udział SMB. Dowolna liczba składników aplikacji może następnie równocześnie zainstalować udział Magazynu plików i uzyskiwać do niego dostęp.
 
-Szczególnie przydatne w przypadku projektów analizy danych jest możliwość utworzenia magazynu plików platformy Azure jako miejsca do udostępniania danych projektu członkom zespołu projektu. Każdy z nich uzyskuje dostęp do tej samej kopii danych w usłudze Azure File Storage. Mogą również używać tego magazynu plików do udostępniania zestawów funkcji generowanych podczas wykonywania projektu. Jeśli projekt jest zakontraktowaniem klienta, klienci mogą utworzyć magazyn plików platformy Azure w ramach własnej subskrypcji platformy Azure, aby udostępnić Ci dane i funkcje projektu. W ten sposób klient ma pełną kontrolę nad zasobami danych projektu. Aby uzyskać więcej informacji na temat usługi Azure File Storage, zobacz [Rozpoczynanie pracy z usługą Azure File Storage w systemie Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) oraz [jak korzystać z usługi Azure File Storage z systemem Linux](../../storage/files/storage-how-to-use-files-linux.md).
+Szczególnie przydatne w przypadku projektów analizy danych jest możliwość utworzenia magazynu plików platformy Azure jako miejsca do udostępniania danych projektu członkom zespołu projektu. Każdy z nich uzyskuje dostęp do tej samej kopii danych w usłudze Azure File Storage. Mogą również używać tego magazynu plików do udostępniania zestawów funkcji generowanych podczas wykonywania projektu. Jeśli projekt jest zakontraktowaniem klienta, klienci mogą utworzyć magazyn plików platformy Azure w ramach własnej subskrypcji platformy Azure, aby udostępnić Ci dane i funkcje projektu. W ten sposób klient ma pełną kontrolę nad zasobami danych projektu. Aby uzyskać więcej informacji na temat usługi Azure File Storage, zobacz [Rozpoczynanie pracy z usługą Azure File Storage w systemie Windows](../../storage/files/storage-dotnet-how-to-use-files.md) oraz [jak korzystać z usługi Azure File Storage z systemem Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
 ## <a name="sql-server-2019-r-and-python-services"></a>SQL Server 2019 R i usługi Python
 
 Usługa R Services (in-Database) udostępnia platformę do tworzenia i wdrażania inteligentnych aplikacji, które mogą odkrywać nowe informacje. Możesz użyć rozbudowanego i zaawansowanego języka R, w tym wielu pakietów dostarczonych przez społeczność R, aby tworzyć modele i generować prognozy na podstawie danych SQL Server. Ponieważ usługi R (in-Database) integrują język R z SQL Server, analiza jest bliska danych, co eliminuje koszty i zagrożenia bezpieczeństwa związane z przeniesieniem danych.
 
-Usługa r Services (in-Database) obsługuje język R typu open source z kompleksowym zestawem SQL Server narzędzi i technologii. Oferują one najwyższą wydajność, bezpieczeństwo, niezawodność i możliwości zarządzania. Możesz wdrażać rozwiązania języka R przy użyciu wygodnych i dobrze znanych narzędzi. Aplikacje produkcyjne mogą wywołać środowisko uruchomieniowe języka R i pobrać prognozy i wizualizacje przy użyciu języka Transact-SQL. Możesz również użyć bibliotek skalowania, aby zwiększyć skalę i wydajność rozwiązań R. Aby uzyskać więcej informacji, zobacz [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+Usługa r Services (in-Database) obsługuje język R typu open source z kompleksowym zestawem SQL Server narzędzi i technologii. Oferują one najwyższą wydajność, bezpieczeństwo, niezawodność i możliwości zarządzania. Możesz wdrażać rozwiązania języka R przy użyciu wygodnych i dobrze znanych narzędzi. Aplikacje produkcyjne mogą wywołać środowisko uruchomieniowe języka R i pobrać prognozy i wizualizacje przy użyciu języka Transact-SQL. Możesz również użyć bibliotek skalowania, aby zwiększyć skalę i wydajność rozwiązań R. Aby uzyskać więcej informacji, zobacz [SQL Server R Services](/sql/advanced-analytics/r/sql-server-r-services).
 
-Zespół przetwarzania TDSP od firmy Microsoft opublikował dwa kompleksowe przewodniki, które pokazują, jak tworzyć rozwiązania do nauki o danych w SQL Server 2016 R Services: jeden dla programistów języka R i jeden dla deweloperów SQL. Dla **programistów języka R**, zobacz [Przewodnik po kompleksowej](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)analizie danych. W przypadku **deweloperów SQL**zobacz [w temacie Advanced Analytics Database for SQL Developers (samouczek)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
+Zespół przetwarzania TDSP od firmy Microsoft opublikował dwa kompleksowe przewodniki, które pokazują, jak tworzyć rozwiązania do nauki o danych w SQL Server 2016 R Services: jeden dla programistów języka R i jeden dla deweloperów SQL. Dla **programistów języka R** , zobacz [Przewodnik po kompleksowej](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)analizie danych. W przypadku **deweloperów SQL** zobacz [w temacie Advanced Analytics Database for SQL Developers (samouczek)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
 ## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Dodatek: narzędzia do konfigurowania projektów do nauki o danych
 
 ### <a name="install-git-credential-manager-on-windows"></a>Instalowanie programu Git Credential Manager w systemie Windows
 
-Jeśli korzystasz z usługi przetwarzania TDSP w **systemie Windows**, musisz zainstalować program **git Credential Manager (GCM)** , aby komunikować się z repozytoriami git. Aby zainstalować GCM, należy najpierw zainstalować **Chocolaty**. Aby zainstalować Chocolaty i GCM, uruchom następujące polecenia w programie Windows PowerShell jako **administrator**:  
+Jeśli korzystasz z usługi przetwarzania TDSP w **systemie Windows** , musisz zainstalować program **git Credential Manager (GCM)** , aby komunikować się z repozytoriami git. Aby zainstalować GCM, należy najpierw zainstalować **Chocolaty**. Aby zainstalować Chocolaty i GCM, uruchom następujące polecenia w programie Windows PowerShell jako **administrator** :  
 
 ```powershell
 iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
@@ -138,11 +138,11 @@ Jeśli używasz maszyn z systemem Linux (CentOS) do uruchamiania poleceń git, m
 
 1. Skopiuj cały klucz SSH, w tym *SSH-RSA*. 
 1. Zaloguj się do Azure DevOps Services. 
-1. Kliknij **<swoją nazwę \> ** w prawym górnym rogu strony, a następnie kliknij pozycję **zabezpieczenia**. 
+1. Kliknij **<swoją nazwę \>** w prawym górnym rogu strony, a następnie kliknij pozycję **zabezpieczenia**. 
     
    ![Kliknij swoją nazwę, a następnie kliknij pozycję Zabezpieczenia.](./media/platforms-and-tools/resources-2-user-setting.png)
 
-1. Kliknij pozycję **klucze publiczne SSH**, a następnie kliknij pozycję **+ Dodaj**. 
+1. Kliknij pozycję **klucze publiczne SSH** , a następnie kliknij pozycję **+ Dodaj**. 
 
    ![Kliknij pozycję publiczne klucze SSH, a następnie kliknij pozycję + Dodaj.](./media/platforms-and-tools/resources-3-add-ssh.png)
 
@@ -153,4 +153,4 @@ Jeśli używasz maszyn z systemem Linux (CentOS) do uruchamiania poleceń git, m
 
 Dostępne są również pełne przewodniki pokazujące wszystkie kroki procesu dla **konkretnych scenariuszy** . Są one wyświetlane i połączone z opisami miniatur w temacie [przykładowe](walkthroughs.md) wskazówki. Ilustrują one sposób łączenia chmur, narzędzi lokalnych i usług w przepływ pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
 
-Aby zapoznać się z przykładami, które pokazują, jak wykonać kroki w procesie nauki danych zespołu przy użyciu Azure Machine Learning Studio (klasyczny), zobacz ścieżkę [usługi Azure ml](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) Learning.
+Aby zapoznać się z przykładami, które pokazują, jak wykonać kroki w procesie nauki danych zespołu przy użyciu Azure Machine Learning Studio (klasyczny), zobacz ścieżkę [usługi Azure ml](./index.yml) Learning.

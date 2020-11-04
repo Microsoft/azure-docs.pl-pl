@@ -1,6 +1,6 @@
 ---
 title: Najlepsze rozwiązania dotyczące ładowania danych
-description: Zalecenia i optymalizacje wydajności dotyczące ładowania danych do programu SQL Synapse
+description: Zalecenia i optymalizacje wydajności dotyczące ładowania danych do dedykowanej puli SQL Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4c07ad2aaf6c682dc370e3223dba1f199242ca2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289235"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321505"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Najlepsze rozwiązania dotyczące ładowania danych na potrzeby magazynowania danych
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące ładowania danych do dedykowanej puli SQL Azure Synapse Analytics
 
 W tym artykule znajdziesz zalecenia i optymalizacje wydajności na potrzeby ładowania danych.
 
 ## <a name="prepare-data-in-azure-storage"></a>Przygotowywanie danych w usłudze Azure Storage
 
-Aby zminimalizować opóźnienie, należy rozszukać warstwę magazynu i magazyn danych.
+Aby zminimalizować opóźnienie, należy rozszukać warstwę magazynu i dedykowaną pulę SQL.
 
 Podczas eksportowania danych do formatu plików ORC mogą pojawić się błędy braku pamięci Java, jeśli w danych znajdują się duże kolumny tekstu. Aby obejść to ograniczenie, można wyeksportować tylko podzestaw wszystkich kolumn.
 
@@ -36,7 +36,7 @@ Duże pliki skompresowane można podzielić na mniejsze.
 
 ## <a name="run-loads-with-enough-compute"></a>Uruchom ładowanie z wystarczającą ilością obliczeń
 
-Aby uzyskać większą szybkość ładowania, uruchamiaj tylko jedno zadanie ładowania naraz. Jeśli nie jest to możliwe, uruchamiaj jak najmniejszą liczbę zadań ładowania jednocześnie. Jeśli spodziewasz się dużego zadania ładowania, rozważ przeskalowanie puli SQL przed obciążeniem.
+Aby uzyskać większą szybkość ładowania, uruchamiaj tylko jedno zadanie ładowania naraz. Jeśli nie jest to możliwe, uruchamiaj jak najmniejszą liczbę zadań ładowania jednocześnie. Jeśli spodziewasz się dużego zadania ładowania, rozważ przeskalowanie w górę dedykowanej puli SQL przed obciążeniem.
 
 Aby uruchamiać zadania ładowania przy użyciu odpowiednich zasobów obliczeniowych, utwórz użytkowników ładujących na potrzeby uruchamiania ładowania. Przypisz każdego użytkownika ładującego do określonej klasy zasobów lub grupy obciążeń. Aby uruchomić ładowanie, zaloguj się jako jeden z użytkowników ładujących, a następnie uruchom obciążenie. Ładowanie zostanie uruchomione przy użyciu klasy zasobów przypisanej do użytkownika.  Jest to prostsza metoda niż zmienianie klasy zasobów użytkownika odpowiednio do bieżących potrzeb.
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: c1ecd3a3d29d6876a59a2fa039802966f348a09d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9209b33f23b7f6c836dedb6227d052610a21d9d2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089835"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319491"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transakcje i optymistyczna kontrola współbieżności
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,4 +65,5 @@ Dowiedz się więcej o transakcjach bazy danych i optymistycznej kontroli wspó�
 - [Praca z bazami danych usługi Azure Cosmos, kontenerami i elementami](account-databases-containers-items.md)
 - [Poziomy spójności](consistency-levels.md)
 - [Typy konfliktów i zasady ich rozwiązywania](conflict-resolution-policies.md)
+- [Korzystanie z TransactionalBatch](transactional-batch.md)
 - [Procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika](stored-procedures-triggers-udfs.md)

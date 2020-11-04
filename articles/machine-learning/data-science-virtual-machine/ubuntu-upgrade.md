@@ -10,12 +10,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: d57de4d52ccf3a029a8dd1350635fb65dd3ac829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b98384d4d735f4c124c6af40d6edbff896900ce
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828570"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320984"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Uaktualnianie maszyny Data Science Virtual Machine do systemu Ubuntu 18.04
 
@@ -38,9 +38,9 @@ W Azure Portal Użyj paska wyszukiwania, aby znaleźć funkcję **migawek** .
 
 :::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Zrzut ekranu przedstawiający Azure Portal i pasek wyszukiwania, z wyróżnionymi * * migawkami * *":::
 
-1. Wybierz pozycję **Dodaj**, co spowoduje przejście do strony **Tworzenie migawki** . Wybierz subskrypcję i grupę zasobów maszyny wirtualnej. W polu **region**wybierz ten sam region, w którym znajduje się magazyn docelowy. Wybierz dysk magazynu DSVM i dodatkowe opcje tworzenia kopii zapasowej. **HDD w warstwie Standardowa** jest odpowiednim typem magazynu dla tego scenariusza tworzenia kopii zapasowych.
+1. Wybierz pozycję **Dodaj** , co spowoduje przejście do strony **Tworzenie migawki** . Wybierz subskrypcję i grupę zasobów maszyny wirtualnej. W polu **region** wybierz ten sam region, w którym znajduje się magazyn docelowy. Wybierz dysk magazynu DSVM i dodatkowe opcje tworzenia kopii zapasowej. **HDD w warstwie Standardowa** jest odpowiednim typem magazynu dla tego scenariusza tworzenia kopii zapasowych.
 
-:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Zrzut ekranu przedstawiający Azure Portal i pasek wyszukiwania, z wyróżnionymi * * migawkami * *":::
+:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Zrzut ekranu przedstawiający opcje tworzenia migawek":::
 
 2. Gdy wszystkie szczegóły są wypełnione i są prawidłowe, wybierz kolejno pozycje **Przegląd + Utwórz** , aby zweryfikować i utworzyć migawkę. Po pomyślnym zakończeniu migawki zostanie wyświetlony komunikat z informacją, że wdrożenie zostało zakończone.
 
@@ -65,9 +65,14 @@ Proces uaktualniania zajmie trochę czasu. Po przekroczeniu tego programu progra
 
 Po uaktualnieniu i ponownym uruchomieniu maszyny wirtualnej spróbuj uzyskać do niej dostęp za pośrednictwem protokołu SSH. Adres IP mógł ulec zmianie podczas ponownego rozruchu, więc potwierdź go przed podjęciem próby nawiązania połączenia.
 
-Jeśli zostanie wyświetlony błąd **Identyfikacja hosta zdalnego została zmieniona**, należy ponownie wygenerować poświadczenia protokołu SSH.
+Jeśli zostanie wyświetlony błąd **Identyfikacja hosta zdalnego została zmieniona** , należy ponownie wygenerować poświadczenia protokołu SSH.
 
-:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Zrzut ekranu przedstawiający Azure Portal i pasek wyszukiwania, z wyróżnionymi * * migawkami * *"
+:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Zrzut ekranu programu PowerShell przedstawiający ostrzeżenie o zmianie identyfikacji hosta zdalnego":::
+
+Aby to zrobić, na komputerze lokalnym Uruchom polecenie:
+
+```bash
+ssh-keygen -R "your server hostname or ip"
 ```
 
 Teraz powinno być możliwe nawiązanie połączenia przy użyciu protokołu SSH. Jeśli nadal występują problemy, na stronie **Połącz** postępuj zgodnie z linkiem, aby **rozwiązać problemy z łącznością SSH**.
@@ -98,19 +103,19 @@ Możesz zdecydować się na uaktualnienie części systemu operacyjnego w system
 
 Jeśli migawka maszyny wirtualnej nie została jeszcze utworzona jak opisano wcześniej, zrób to. 
 
-1. W Azure Portal Wyszukaj **dyski** i wybierz pozycję **Dodaj**, co spowoduje otwarcie strony **dysk** .
+1. W Azure Portal Wyszukaj **dyski** i wybierz pozycję **Dodaj** , co spowoduje otwarcie strony **dysk** .
 
-:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Zrzut ekranu przedstawiający Azure Portal i pasek wyszukiwania, z wyróżnionymi * * migawkami * *":::
+:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Zrzut ekranu przedstawiający Azure Portal wyświetlania strony Wyszukiwanie dysków i przycisk Dodaj":::
 
-2. Ustaw dla **subskrypcji**, **grupy zasobów**i **regionu** wartości z migawki maszyny wirtualnej. Wybierz **nazwę** dysku, który ma zostać utworzony.
+2. Ustaw dla **subskrypcji** , **grupy zasobów** i **regionu** wartości z migawki maszyny wirtualnej. Wybierz **nazwę** dysku, który ma zostać utworzony.
 
 3. Wybierz **Typ źródła** jako **migawkę** i wybierz migawkę maszyny wirtualnej jako **migawkę źródłową**. Przejrzyj i Utwórz dysk. 
 
-:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Zrzut ekranu przedstawiający Azure Portal i pasek wyszukiwania, z wyróżnionymi * * migawkami * *":::
+:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe tworzenia dysku z opcjami":::
 
 ### <a name="create-a-new-ubuntu-data-science-virtual-machine"></a>Utwórz nowy Data Science Virtual Machine Ubuntu
 
-Utwórz nowy Ubuntu Data Science Virtual Machine przy użyciu [Azure Portal](https://portal.azure.com) lub [szablonu ARM](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager). 
+Utwórz nowy Ubuntu Data Science Virtual Machine przy użyciu [Azure Portal](https://portal.azure.com) lub [szablonu ARM](./dsvm-tutorial-resource-manager.md). 
 
 ### <a name="recreate-user-accounts-on-your-new-data-science-virtual-machine"></a>Utwórz ponownie konta użytkowników na nowym Data Science Virtual Machine
 
@@ -118,7 +123,7 @@ Ponieważ właśnie skopiujesz dane ze starego komputera, musisz utworzyć ponow
 
 System Linux jest wystarczająco elastyczny, aby można było dostosować katalogi i ścieżki w nowej instalacji, aby postępować zgodnie z poprzednią maszyną. Ogólnie rzecz biorąc, łatwiej jest używać preferowanego układu nowoczesnej Ubuntu i modyfikować środowisko użytkownika i skrypty do dostosowania.
 
-Aby uzyskać więcej informacji, zobacz [Szybki Start: konfigurowanie Data Science Virtual Machine dla systemu Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+Aby uzyskać więcej informacji, zobacz [Szybki Start: konfigurowanie Data Science Virtual Machine dla systemu Linux (Ubuntu)](./dsvm-ubuntu-intro.md).
 
 ### <a name="mount-the-disk-of-the-snapshotted-vm-as-a-data-disk-on-your-new-data-science-virtual-machine"></a>Zainstaluj dysk maszyny wirtualnej snapshotted jako dysk danych w nowym Data Science Virtual Machine
 
@@ -128,7 +133,7 @@ Aby uzyskać więcej informacji, zobacz [Szybki Start: konfigurowanie Data Scien
 
 3. Z listy rozwijanej **Nazwa dysku** wybierz dysk utworzony na podstawie migawki starej maszyny wirtualnej.
 
-:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Zrzut ekranu przedstawiający Azure Portal i pasek wyszukiwania, z wyróżnionymi * * migawkami * *":::
+:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Zrzut ekranu przedstawiający stronę opcji DSVM z opcjami załączników dysku":::
 
 4. Wybierz pozycję **Zapisz** , aby zaktualizować maszynę wirtualną.
 
@@ -147,7 +152,7 @@ Aby uzyskać więcej informacji, zobacz [Szybki Start: konfigurowanie Data Scien
     
     Wyniki powinny wyglądać podobnie do poniższej ilustracji. Na obrazie dysk `sda1` jest instalowany w katalogu głównym i `sdb2` jest `/mnt` dyskiem magazynującym. Dysk danych utworzony na podstawie migawki starej maszyny wirtualnej jest identyfikowany jako `sdc1` , ale nie jest jeszcze dostępny, co zostało potwierdzone przez brak lokalizacji instalacji. Wyniki mogą mieć różne identyfikatory, ale powinien zostać wyświetlony podobny wzorzec.
     
-    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Zrzut ekranu przedstawiający Azure Portal i pasek wyszukiwania, z wyróżnionymi * * migawkami * *":::
+    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Zrzut ekranu przedstawiający dane wyjściowe lsblk z niezainstalowanym dyskiem danych":::
     
 3. Aby uzyskać dostęp do dysku danych, Utwórz dla niego lokalizację i zainstaluj ją. Zamień na `/dev/sdc1` odpowiednią wartość zwracaną przez `lsblk` :
 
@@ -157,7 +162,7 @@ Aby uzyskać więcej informacji, zobacz [Szybki Start: konfigurowanie Data Scien
     
 4. Teraz program `/datadrive` zawiera katalogi i pliki starego Data Science Virtual Machine. Przenieś lub Skopiuj żądane katalogi lub pliki z dysku danych na nową maszynę wirtualną.
 
-Aby uzyskać więcej informacji, zobacz [Używanie portalu do dołączania dysku danych do maszyny wirtualnej z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
+Aby uzyskać więcej informacji, zobacz [Używanie portalu do dołączania dysku danych do maszyny wirtualnej z systemem Linux](../../virtual-machines/linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 ## <a name="connect-and-confirm-version-upgrade"></a>Nawiązywanie połączenia i Potwierdzanie uaktualnienia wersji
 
@@ -169,13 +174,13 @@ cat /etc/os-release
 
 Zobaczysz, że korzystasz z programu Ubuntu 18,04.
 
-:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Zrzut ekranu przedstawiający Azure Portal i pasek wyszukiwania, z wyróżnionymi * * migawkami * *":::
+:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Zrzut ekranu przedstawiający Terminal Ubuntu pokazujący dane wersji systemu operacyjnego":::
 
 Zmiana wersji jest również pokazana w Azure Portal.
 
-:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="Zrzut ekranu przedstawiający Azure Portal i pasek wyszukiwania, z wyróżnionymi * * migawkami * *":::
+:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="Zrzut ekranu przedstawiający Portal pokazujący DSVM właściwości, w tym wersję systemu operacyjnego":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Analiza danych z maszyną do nauki o danych Ubuntu na platformie Azure](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough)
-- [Jakie narzędzia są dostępne na platformie Azure Data Science Virtual Machine?](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/tools-included)
+- [Analiza danych z maszyną do nauki o danych Ubuntu na platformie Azure](./linux-dsvm-walkthrough.md)
+- [Jakie narzędzia są dostępne na platformie Azure Data Science Virtual Machine?](./tools-included.md)

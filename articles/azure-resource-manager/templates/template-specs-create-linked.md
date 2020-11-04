@@ -2,17 +2,17 @@
 title: Tworzenie specyfikacji szablonu z połączonymi szablonami
 description: Dowiedz się, jak utworzyć specyfikację szablonu z połączonymi szablonami.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: b1862789ede4a9d2ab8c57bdb913c449a560dc58
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728543"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321589"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Samouczek: Tworzenie specyfikacji szablonu z połączonymi szablonami (wersja zapoznawcza)
 
-Dowiedz się, jak utworzyć [specyfikację szablonu](template-specs.md) z [połączonym szablonem](linked-templates.md#linked-template). Specyfikacje szablonu są używane do udostępniania szablonów ARM innym użytkownikom w organizacji. W tym artykule opisano sposób tworzenia specyfikacji szablonu do pakowania szablonu głównego i jego połączonych szablonów przy użyciu `relativePath` właściwości [zasobu wdrożenia](/azure/templates/microsoft.resources/deployments).
+Dowiedz się, jak utworzyć [specyfikację szablonu](template-specs.md) z szablonem głównym i [połączonym szablonem](linked-templates.md#linked-template). Specyfikacje szablonu są używane do udostępniania szablonów ARM innym użytkownikom w organizacji. W tym artykule opisano sposób tworzenia specyfikacji szablonu do pakowania szablonu głównego i jego połączonych szablonów przy użyciu `relativePath` właściwości [zasobu wdrożenia](/azure/templates/microsoft.resources/deployments).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -27,7 +27,7 @@ Utwórz szablon główny i połączony szablon.
 
 Aby połączyć szablon, Dodaj [zasób wdrożenia](/azure/templates/microsoft.resources/deployments) do szablonu głównego. We `templateLink` Właściwości określ ścieżkę względną dla połączonego szablonu zgodnie ze ścieżką szablonu nadrzędnego.
 
-Połączony szablon jest nazywany **linkedTemplate.json**i jest przechowywany w podfolderze o nazwie **artefakty** w ścieżce, w której jest przechowywany szablon główny.  Możesz użyć jednej z następujących wartości dla relativePath:
+Połączony szablon jest nazywany **linkedTemplate.json** i jest przechowywany w podfolderze o nazwie **artefakty** w ścieżce, w której jest przechowywany szablon główny.  Możesz użyć jednej z następujących wartości dla relativePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`

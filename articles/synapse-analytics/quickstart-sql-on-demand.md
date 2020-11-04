@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: korzystanie z SQL na żądanie'
-description: W tym przewodniku szybki start zobaczysz, jak łatwo można wysyłać zapytania o różne typy plików przy użyciu funkcji SQL na żądanie (wersja zapoznawcza).
+title: 'Szybki Start: korzystanie z puli SQL bezserwerowej'
+description: W tym przewodniku szybki start zobaczysz, jak łatwo można wykonywać zapytania o różne typy plików przy użyciu puli SQL bezserwerowej (wersja zapoznawcza).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2e502a984e71a06eb57b345371d70d659c6a031
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86274173"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321673"
 ---
-# <a name="quickstart-use-sql-on-demand"></a>Szybki Start: korzystanie z SQL na żądanie
+# <a name="quickstart-use-serverless-sql-pool"></a>Szybki Start: korzystanie z puli SQL bezserwerowej
 
-Synapse SQL na żądanie (wersja zapoznawcza) to usługa zapytań bezserwerowych, która umożliwia uruchamianie zapytań SQL dotyczących plików umieszczonych w usłudze Azure Storage. W tym przewodniku szybki start dowiesz się, jak wysyłać zapytania o różne typy plików przy użyciu programu SQL na żądanie. Obsługiwane formaty są wymienione w [OPENROWSET](sql/develop-openrowset.md).
+Synapse bezserwerowa Pula SQL (wersja zapoznawcza) to bezserwerowa usługa zapytań, która umożliwia uruchamianie zapytań SQL dotyczących plików umieszczonych w usłudze Azure Storage. W tym przewodniku szybki start dowiesz się, jak wykonywać zapytania o różne typy plików przy użyciu puli SQL bezserwerowej. Obsługiwane formaty są wymienione w [OPENROWSET](sql/develop-openrowset.md).
 
 Ten przewodnik Szybki Start przedstawia wykonywanie zapytań: CSV, Apache Parquet i plików JSON.
 
@@ -34,8 +34,8 @@ Parametry dla tego przewodnika Szybki Start:
 
 | Parametr                                 | Opis                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Adres punktu końcowego usługi SQL na żądanie    | Używane jako nazwa serwera                                   |
-| Region punktu końcowego usługi SQL na żądanie     | Służy do określenia magazynu, który będzie używany w przykładach |
+| adres punktu końcowego usługi puli SQL bezserwerowej    | Używane jako nazwa serwera                                   |
+| Region punktu końcowego usługi puli SQL bezserwerowej     | Służy do określenia magazynu, który będzie używany w przykładach |
 | Nazwa użytkownika i hasło dostępu do punktu końcowego | Używane do uzyskiwania dostępu do punktu końcowego                               |
 | Baza danych służąca do tworzenia widoków         | Baza danych używana jako punkt początkowy w próbkach       |
 
@@ -44,7 +44,7 @@ Parametry dla tego przewodnika Szybki Start:
 Przed rozpoczęciem korzystania z przykładów:
 
 - Tworzenie bazy danych dla widoków (w przypadku, gdy chcesz używać widoków)
-- Utwórz poświadczenia, które będą używane przez SQL na żądanie do uzyskiwania dostępu do plików w magazynie
+- Utwórz poświadczenia, które mają być używane przez bezserwerową pulę SQL do uzyskiwania dostępu do plików w magazynie
 
 ### <a name="create-database"></a>Tworzenie bazy danych
 
@@ -62,7 +62,7 @@ CREATE DATABASE mydbname
 
 ### <a name="create-data-source"></a>Utwórz źródło danych
 
-Aby uruchamiać zapytania przy użyciu programu SQL na żądanie, Utwórz źródło danych, które może być używane przez program SQL na żądanie do uzyskiwania dostępu do plików w magazynie.
+Aby uruchamiać zapytania przy użyciu puli SQL bezserwerowej, należy utworzyć źródło danych, za pomocą którego można uzyskać dostęp do plików w magazynie przy użyciu puli SQL bezserwerowej.
 Wykonaj Poniższy fragment kodu, aby utworzyć źródło danych używane w przykładach w tej sekcji:
 
 ```sql
@@ -115,7 +115,7 @@ Aby uzyskać więcej przykładów, zobacz jak [zbadać plik CSV](sql/query-singl
 Poniższy przykład pokazuje możliwości automatycznego wnioskowania schematu do wykonywania zapytań dotyczących plików Parquet. Zwraca liczbę wierszy we wrześniu 2017 bez określania schematu.
 
 > [!NOTE]
-> Nie ma potrzeby określania kolumn w klauzuli w `OPENROWSET WITH` przypadku odczytywania plików Parquet. W takim przypadku SQL na żądanie wykorzystuje metadane w pliku Parquet i wiąże kolumny według nazwy.
+> Nie ma potrzeby określania kolumn w klauzuli w `OPENROWSET WITH` przypadku odczytywania plików Parquet. W takim przypadku bezserwerowa Pula SQL korzysta z metadanych w pliku Parquet i wiąże kolumny według nazwy.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -133,7 +133,7 @@ Znajdź więcej informacji na temat [wykonywania zapytań dotyczących plików P
 
 ### <a name="json-sample-file"></a>Przykładowy plik JSON
 
-Pliki są przechowywane w kontenerze *JSON* , w *książkach*folderów i zawierają jedną pozycję książki z następującą strukturą:
+Pliki są przechowywane w kontenerze *JSON* , w *książkach* folderów i zawierają jedną pozycję książki z następującą strukturą:
 
 ```json
 {  
@@ -153,7 +153,7 @@ Pliki są przechowywane w kontenerze *JSON* , w *książkach*folderów i zawiera
 
 ### <a name="query-json-files"></a>Wykonywanie zapytań względem plików JSON
 
-Poniższe zapytanie pokazuje, w jaki sposób używać [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do pobierania wartości skalarnych (tytuł, wydawca) z książki z tytułem *probabilistyczne i metodami statystycznymi w Cryptology, wprowadzeniem do wybranych artykułów*:
+Poniższe zapytanie pokazuje, w jaki sposób używać [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) do pobierania wartości skalarnych (tytuł, wydawca) z książki z tytułem *probabilistyczne i metodami statystycznymi w Cryptology, wprowadzeniem do wybranych artykułów* :
 
 ```sql
 SELECT

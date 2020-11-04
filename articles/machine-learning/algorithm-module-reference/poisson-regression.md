@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91d6d15fc8855b49bece3a7ed903074e716b7ac4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905252"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319412"
 ---
 # <a name="poisson-regression"></a>Regresja Poissona
 
@@ -29,7 +29,7 @@ Ten moduł służy do tworzenia modelu regresji Poissona w potoku. Regresja Pois
 - Rozkład Poissona jest dystrybucją dyskretną; w związku z tym nie ma znaczenia, aby użyć tej metody z liczbami niecałkowitymi.
 
 > [!TIP]
-> Jeśli obiekt docelowy nie jest liczbą, regresja Poissona prawdopodobnie nie jest odpowiednią metodą. Wypróbuj [inne moduły regresji w projektancie](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms). 
+> Jeśli obiekt docelowy nie jest liczbą, regresja Poissona prawdopodobnie nie jest odpowiednią metodą. Wypróbuj [inne moduły regresji w projektancie](./module-reference.md#machine-learning-algorithms). 
 
 Po skonfigurowaniu metody regresji należy przeprowadzić uczenie modelu przy użyciu zestawu danych zawierającego przykłady wartości, która ma zostać przewidywalna. Model przeszkolony może być następnie używany do prognozowania.
 
@@ -49,7 +49,7 @@ Ze względu na to, że zmienna odpowiedzi ma rozkład Poissona, model wykonuje r
 
 ## <a name="how-to-configure-poisson-regression"></a>Jak skonfigurować regresję Poissona
 
-1. Dodaj moduł **regresji Poissona** do potoku w projektancie. Ten moduł można znaleźć w obszarze **algorytmy Machine Learning**w kategorii **regresja** .
+1. Dodaj moduł **regresji Poissona** do potoku w projektancie. Ten moduł można znaleźć w obszarze **algorytmy Machine Learning** w kategorii **regresja** .
 
 2. Dodaj zestaw danych zawierający dane szkoleniowe o poprawnym typie. 
 
@@ -57,13 +57,13 @@ Ze względu na to, że zmienna odpowiedzi ma rozkład Poissona, model wykonuje r
 
 3. W prawym okienku modułu **regresja Poissona** Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .  
   
-    - **Pojedynczy parametr**: Jeśli wiesz, jak chcesz skonfigurować model, podaj określony zestaw wartości jako argumenty.
+    - **Pojedynczy parametr** : Jeśli wiesz, jak chcesz skonfigurować model, podaj określony zestaw wartości jako argumenty.
   
-    - **Zakres parametrów**: Jeśli nie masz pewności co do najlepszych parametrów, Przeczyść parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Trainer wykonuje iterację wielu określonych wartości, aby znaleźć optymalną konfigurację.
+    - **Zakres parametrów** : Jeśli nie masz pewności co do najlepszych parametrów, Przeczyść parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Trainer wykonuje iterację wielu określonych wartości, aby znaleźć optymalną konfigurację.
   
-4. **Tolerancja optymalizacji**: wpisz wartość, która definiuje interwał tolerancji podczas optymalizacji. Im niższa wartość, tym wolniejsze i dokładniejsze dopasowanie.
+4. **Tolerancja optymalizacji** : wpisz wartość, która definiuje interwał tolerancji podczas optymalizacji. Im niższa wartość, tym wolniejsze i dokładniejsze dopasowanie.
 
-5. **Waga uregulowania L1** i **waga rozważenia (L2**): wpisz wartości, które mają być używane dla uregulowania L1 i L2. *Uregulowanie* dodaje ograniczenia do algorytmu dotyczące aspektów modelu, które są niezależne od danych szkoleniowych. Uregulowanie jest często stosowane w celu uniknięcia zamontowania. 
+5. **Waga uregulowania L1** i **waga rozważenia (L2** ): wpisz wartości, które mają być używane dla uregulowania L1 i L2. *Uregulowanie* dodaje ograniczenia do algorytmu dotyczące aspektów modelu, które są niezależne od danych szkoleniowych. Uregulowanie jest często stosowane w celu uniknięcia zamontowania. 
 
     - Uregulowanie L1 jest przydatne, jeśli celem jest posiadanie modelu, który jest tak jak to możliwe.
 
@@ -73,9 +73,9 @@ Ze względu na to, że zmienna odpowiedzi ma rozkład Poissona, model wykonuje r
 
     W tym module można zastosować kombinację regulacji L1 i L2. Łącząc rozłożenie L1 i L2, można nałożyć karę na wielkość wartości parametrów. Dowiedzenie próbuje zminimalizować karę, w wyniku zminimalizowania straty.
 
-    Aby zapoznać się z dobrą dyskusją dotyczącej uregulowania L1 i L2, zobacz temat [uregulowanie L1 i L2 dla Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx).
+    Aby zapoznać się z dobrą dyskusją dotyczącej uregulowania L1 i L2, zobacz temat [uregulowanie L1 i L2 dla Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning).
 
-6. **Rozmiar pamięci dla L-BFGS**: Określ ilość pamięci do zarezerwowania na potrzeby dopasowywania i optymalizacji modelu.
+6. **Rozmiar pamięci dla L-BFGS** : Określ ilość pamięci do zarezerwowania na potrzeby dopasowywania i optymalizacji modelu.
 
      L-BFGS to określona metoda optymalizacji oparta na algorytmie Broyden – Fletcher – Goldfarb – Shanno (BFGS). Metoda używa ograniczonej ilości pamięci (L) do obliczenia następnego etapu.
 
@@ -83,9 +83,9 @@ Ze względu na to, że zmienna odpowiedzi ma rozkład Poissona, model wykonuje r
 
 7. Połącz zestaw danych szkoleniowych i nieszkolony model z jednym z modułów szkoleniowych: 
 
-    - W przypadku ustawienia opcji **Utwórz tryb Trainer** na **pojedynczy parametr**Użyj modułu [uczenie modelu](train-model.md) .
+    - W przypadku ustawienia opcji **Utwórz tryb Trainer** na **pojedynczy parametr** Użyj modułu [uczenie modelu](train-model.md) .
 
-    - W przypadku ustawienia opcji **Utwórz tryb Trainer** na **zakres parametrów**należy użyć modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) .
+    - W przypadku ustawienia opcji **Utwórz tryb Trainer** na **zakres parametrów** należy użyć modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) .
 
     > [!WARNING]
     > 
@@ -105,4 +105,4 @@ Po zakończeniu szkolenia:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning.

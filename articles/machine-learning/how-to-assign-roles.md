@@ -11,16 +11,16 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18, devx-track-azurecli
-ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: aa84d7cce09b370ab35ef67029f4dbe2ca29cabb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736610"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320844"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning
 
-W tym artykule dowiesz się, jak zarządzać dostępem do obszaru roboczego Azure Machine Learning. [Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview) służy do zarządzania dostępem do zasobów platformy Azure. Użytkownicy w Azure Active Directory są przypisani do określonych ról, które przyznają dostęp do zasobów. Platforma Azure udostępnia wbudowane role i możliwość tworzenia ról niestandardowych.
+W tym artykule dowiesz się, jak zarządzać dostępem do obszaru roboczego Azure Machine Learning. [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) służy do zarządzania dostępem do zasobów platformy Azure. Użytkownicy w Azure Active Directory są przypisani do określonych ról, które przyznają dostęp do zasobów. Platforma Azure udostępnia wbudowane role i możliwość tworzenia ról niestandardowych.
 
 ## <a name="default-roles"></a>Role domyślne
 
@@ -34,18 +34,18 @@ Obszar roboczy usługi Azure Machine Learning to zasób platformy Azure. Tak jak
 | **Rola niestandardowa** | Umożliwia dostosowanie dostępu do określonych operacji kontroli lub płaszczyzny danych w obszarze roboczym. Na przykład przesyłanie przebiegu, tworzenie obliczeń, Wdrażanie modelu lub rejestrowanie zestawu danych. |
 
 > [!IMPORTANT]
-> Dostęp do roli można ograniczyć do wielu poziomów na platformie Azure. Na przykład ktoś z dostępem właściciela do obszaru roboczego może nie mieć dostępu właściciela do grupy zasobów, która zawiera obszar roboczy. Aby uzyskać więcej informacji, zobacz [jak działa usługa Azure RBAC](/azure/role-based-access-control/overview#how-azure-rbac-works).
+> Dostęp do roli można ograniczyć do wielu poziomów na platformie Azure. Na przykład ktoś z dostępem właściciela do obszaru roboczego może nie mieć dostępu właściciela do grupy zasobów, która zawiera obszar roboczy. Aby uzyskać więcej informacji, zobacz [jak działa usługa Azure RBAC](../role-based-access-control/overview.md#how-azure-rbac-works).
 
-Aby uzyskać więcej informacji na temat określonych ról wbudowanych, zobacz [role wbudowane platformy Azure](/azure/role-based-access-control/built-in-roles).
+Aby uzyskać więcej informacji na temat określonych ról wbudowanych, zobacz [role wbudowane platformy Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="manage-workspace-access"></a>Zarządzanie dostępem do obszaru roboczego
 
 Jeśli jesteś właścicielem obszaru roboczego, możesz dodawać i usuwać role dla obszaru roboczego. Możesz również przypisywać role do użytkowników. Skorzystaj z poniższych linków, aby dowiedzieć się, jak zarządzać dostępem:
-- [Interfejs użytkownika Azure Portal](/azure/role-based-access-control/role-assignments-portal)
-- [Program PowerShell](/azure/role-based-access-control/role-assignments-powershell)
-- [Interfejs wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
-- [Interfejs API REST](/azure/role-based-access-control/role-assignments-rest)
-- [Szablony Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
+- [Interfejs użytkownika Azure Portal](../role-based-access-control/role-assignments-portal.md)
+- [Program PowerShell](../role-based-access-control/role-assignments-powershell.md)
+- [Interfejs wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md)
+- [Interfejs API REST](../role-based-access-control/role-assignments-rest.md)
+- [Szablony Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 
 Jeśli zainstalowano [interfejs wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md), do przypisywania ról użytkownikom można używać poleceń CLI:
 
@@ -65,7 +65,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="azure-machine-learning-operations"></a>Operacje Azure Machine Learning
 
-Azure Machine Learning wbudowane akcje dla wielu operacji i zadań. Aby uzyskać pełną listę, zobacz [operacje związane z dostawcą zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Azure Machine Learning wbudowane akcje dla wielu operacji i zadań. Aby uzyskać pełną listę, zobacz [operacje związane z dostawcą zasobów platformy Azure](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 ## <a name="mlflow-operations-in-azure-machine-learning"></a>MLflow operacji w usłudze Azure Machine Learning
 
@@ -135,7 +135,7 @@ Po wdrożeniu ta rola zostanie udostępniona w określonym obszarze roboczym. Te
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe platformy Azure](/azure/role-based-access-control/custom-roles). Aby uzyskać więcej informacji o operacjach (akcjach i akcjach), których można użyć do użycia z rolami niestandardowymi, zobacz [operacje dostawcy zasobów](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Aby uzyskać więcej informacji na temat ról niestandardowych, zobacz [role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md). Aby uzyskać więcej informacji o operacjach (akcjach i akcjach), których można użyć do użycia z rolami niestandardowymi, zobacz [operacje dostawcy zasobów](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -165,7 +165,7 @@ Poniższa tabela zawiera podsumowanie działań Azure Machine Learning i uprawni
 
 ### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>PYTANIE: Czy publikujemy wbudowane role platformy Azure dla usługi Machine Learning?
 
-Obecnie nie publikujemy [wbudowanych ról platformy Azure](/azure/role-based-access-control/built-in-roles) dla usługi Machine Learning. Nie można zaktualizować wbudowanej roli po opublikowaniu, a firma Microsoft nadal ustala definicje ról na podstawie scenariuszy klientów i informacji zwrotnych. 
+Obecnie nie publikujemy [wbudowanych ról platformy Azure](../role-based-access-control/built-in-roles.md) dla usługi Machine Learning. Nie można zaktualizować wbudowanej roli po opublikowaniu, a firma Microsoft nadal ustala definicje ról na podstawie scenariuszy klientów i informacji zwrotnych. 
 
 <a id="customroles"></a>
 
@@ -419,7 +419,7 @@ W interfejsie wiersza polecenia platformy Azure Uruchom następujące polecenie.
 az provider operation show –n Microsoft.MachineLearningServices
 ```
 
-Można je również znaleźć na liście [operacji dostawcy zasobów](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Można je również znaleźć na liście [operacji dostawcy zasobów](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 
 ### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>PYTANIE: Jakie są typowe pytania dotyczące usługi w przypadku korzystania z usługi Azure RBAC?
@@ -427,18 +427,18 @@ Można je również znaleźć na liście [operacji dostawcy zasobów](/azure/rol
 Poniżej przedstawiono kilka kwestii, z którymi należy się zapoznać w przypadku korzystania z kontroli dostępu opartej na rolach (Azure RBAC):
 
 - Podczas tworzenia zasobu na platformie Azure Załóżmy, że nie jesteś bezpośrednio właścicielem obszaru roboczego. Rola jest dziedziczona od najwyższej roli zakresu, do której masz autoryzację w ramach tej subskrypcji. Przykładowo jeśli jesteś administratorem sieci i masz uprawnienia do tworzenia obszaru roboczego Machine Learning, przypiszesz rolę administratora sieci do tego obszaru roboczego, a nie rolę właściciela.
-- Jeśli istnieją dwa przypisania ról do tego samego Azure Active Directory użytkownika, które powodują konflikt z sekcjami akcji/nienaruszonych, operacje wymienione w zaistnieniu z jednej roli mogą nie zostać zastosowane, jeśli są również wyświetlane jako akcje w innej roli. Aby dowiedzieć się więcej o tym, jak platforma Azure analizuje przypisania ról, Przeczytaj, w [jaki sposób kontrola RBAC na platformie Azure określa, czy użytkownik ma dostęp do zasobu](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Jeśli istnieją dwa przypisania ról do tego samego Azure Active Directory użytkownika, które powodują konflikt z sekcjami akcji/nienaruszonych, operacje wymienione w zaistnieniu z jednej roli mogą nie zostać zastosowane, jeśli są również wyświetlane jako akcje w innej roli. Aby dowiedzieć się więcej o tym, jak platforma Azure analizuje przypisania ról, Przeczytaj, w [jaki sposób kontrola RBAC na platformie Azure określa, czy użytkownik ma dostęp do zasobu](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 - Aby wdrożyć zasoby obliczeniowe w sieci wirtualnej, należy jawnie mieć uprawnienia do następujących akcji:
     - "Microsoft. Network/virtualNetworks/Join/Action" w zasobie sieci wirtualnej.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" w zasobie podsieci.
     
-    Aby uzyskać więcej informacji na temat usługi Azure RBAC z obsługą sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking).
+    Aby uzyskać więcej informacji na temat usługi Azure RBAC z obsługą sieci, zobacz [wbudowane role sieciowe](../role-based-access-control/built-in-roles.md#networking).
 
 - Wykonanie nowych przypisań ról w ramach stosu może czasami zająć maksymalnie 1 godzinę.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>PYTANIE: Jakie uprawnienia są potrzebne do użycia tożsamości zarządzanej przez użytkownika z moimi klastrami Amlcompute?
 
-Aby przypisać tożsamość przypisaną do użytkownika w klastrach Amlcompute, jeden musi mieć uprawnienia do zapisu do tworzenia obliczeń i mieć [rolę operatora tożsamości zarządzanej](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Aby uzyskać więcej informacji na temat kontroli RBAC platformy Azure z tożsamościami zarządzanymi, przeczytaj artykuł [jak zarządzać tożsamością przypisaną przez użytkownika](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+Aby przypisać tożsamość przypisaną do użytkownika w klastrach Amlcompute, jeden musi mieć uprawnienia do zapisu do tworzenia obliczeń i mieć [rolę operatora tożsamości zarządzanej](../role-based-access-control/built-in-roles.md#managed-identity-operator). Aby uzyskać więcej informacji na temat kontroli RBAC platformy Azure z tożsamościami zarządzanymi, przeczytaj artykuł [jak zarządzać tożsamością przypisaną przez użytkownika](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>PYTANIE: Czy obsługujemy kontrolę dostępu opartą na rolach w portalu Studio?
@@ -480,4 +480,4 @@ Aby wykonać wszystkie operacje związane z przydziałami w obszarze roboczym, m
 - [Przegląd zabezpieczeń przedsiębiorstwa](concept-enterprise-security.md)
 - [Omówienie izolacji i prywatności sieci wirtualnej](how-to-network-security-overview.md)
 - [Samouczek: uczenie modeli](tutorial-train-models-with-aml.md)
-- [Operacje dostawcy zasobów](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)
+- [Operacje dostawcy zasobów](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)

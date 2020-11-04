@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b45cc87c525ab66a3807f71901728e60d086ea74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6eb0be4d9946907dc5bb2f22b27530a27a37aec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440409"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321253"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalowalna nauka danych dzięki Azure Data Lake: kompleksowy przewodnik
-W tym instruktażu pokazano, jak używać Azure Data Lake do eksploracji danych i binarnych zadań klasyfikacji na przykład zestawu danych dotyczących podróży i taryfy z NYCą. Przeprowadzi Cię przez kroki [procesu analizy danych zespołu](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), kompleksowego, od pozyskiwania danych do szkoleń modelowych, a następnie do wdrożenia usługi sieci Web, która publikuje model.
+W tym instruktażu pokazano, jak używać Azure Data Lake do eksploracji danych i binarnych zadań klasyfikacji na przykład zestawu danych dotyczących podróży i taryfy z NYCą. Przeprowadzi Cię przez kroki [procesu analizy danych zespołu](./index.yml), kompleksowego, od pozyskiwania danych do szkoleń modelowych, a następnie do wdrożenia usługi sieci Web, która publikuje model.
 
 ## <a name="technologies"></a>Technologie
 
@@ -92,7 +92,7 @@ Utwórz konto usługi ADLA na podstawie [Azure Portal](https://portal.azure.com)
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>Tworzenie konta usługi Azure Blob Storage
-Utwórz konto usługi Azure Blob Storage na podstawie [Azure Portal](https://portal.azure.com). Aby uzyskać szczegółowe informacje, zobacz sekcję Tworzenie konta magazynu w temacie [Informacje o kontach usługi Azure Storage](../../storage/common/storage-create-storage-account.md).
+Utwórz konto usługi Azure Blob Storage na podstawie [Azure Portal](https://portal.azure.com). Aby uzyskać szczegółowe informacje, zobacz sekcję Tworzenie konta magazynu w temacie [Informacje o kontach usługi Azure Storage](../../storage/common/storage-account-create.md).
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -143,7 +143,7 @@ Zadania przetwarzania danych przedstawione w tej sekcji obejmują pozyskiwanie, 
 
 Skrypty U-SQL są opisane tutaj i udostępniane w osobnym pliku. Możesz pobrać pełne **skrypty U-SQL** z usługi [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-Aby wykonać polecenie U-SQL, Otwórz program Visual Studio, kliknij **plik--> New--> Project**, wybierz **projekt U-SQL**i Zapisz go w folderze.
+Aby wykonać polecenie U-SQL, Otwórz program Visual Studio, kliknij **plik--> New--> Project** , wybierz **projekt U-SQL** i Zapisz go w folderze.
 
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
@@ -156,7 +156,7 @@ Aby wykonać polecenie U-SQL, Otwórz program Visual Studio, kliknij **plik--> N
 
 ### <a name="data-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Pozyskiwanie danych: odczytywanie danych z publicznego obiektu BLOB
 
-Lokalizacja danych w obiekcie blob platformy Azure jest przywoływana jako ** \_ Nazwa wasb://Container \@ konta usługi BLOB \_ Storage \_ \_ name.blob.Core.Windows.NET/blob_name** i może zostać wyodrębniona przy użyciu **Extractors.Csv ()**. Zastąp własną nazwę kontenera i nazwę konta magazynu w następujących skryptach dla nazwy kontenera nazwa \_ \@ konta usługi BLOB \_ Storage \_ \_ w adresie wasb. Ponieważ nazwy plików są w tym samym formacie, można użyć pliku ** \_ Data \_ \{ \* \} . csv** w celu odczytania wszystkich 12 plików podróży.
+Lokalizacja danych w obiekcie blob platformy Azure jest przywoływana jako **\_ Nazwa wasb://Container \@ konta usługi BLOB \_ Storage \_ \_ name.blob.Core.Windows.NET/blob_name** i może zostać wyodrębniona przy użyciu **Extractors.Csv ()**. Zastąp własną nazwę kontenera i nazwę konta magazynu w następujących skryptach dla nazwy kontenera nazwa \_ \@ konta usługi BLOB \_ Storage \_ \_ w adresie wasb. Ponieważ nazwy plików są w tym samym formacie, można użyć pliku **\_ Data \_ \{ \* \} . csv** w celu odczytania wszystkich 12 plików podróży.
 
 ```sql
 ///Read in Trip data
@@ -181,7 +181,7 @@ FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyct
 USING Extractors.Csv();
 ```
 
-Ponieważ istnieją nagłówki w pierwszym wierszu, należy usunąć nagłówki i zmienić typy kolumn na odpowiednie. Przetworzone dane można zapisać do Azure Data Lake Storage przy użyciu **swebhdfs://data_lake_storage_name. azuredatalakestorage. NET/folder_name/file_name**_ lub do konta usługi Azure Blob Storage przy użyciu  **wasb://container_name \@ blob_storage_account_name. blob. Core. windows. NET/blob_name**.
+Ponieważ istnieją nagłówki w pierwszym wierszu, należy usunąć nagłówki i zmienić typy kolumn na odpowiednie. Przetworzone dane można zapisać do Azure Data Lake Storage przy użyciu **swebhdfs://data_lake_storage_name. azuredatalakestorage. NET/folder_name/file_name** _ lub do konta usługi Azure Blob Storage przy użyciu  **wasb://container_name \@ blob_storage_account_name. blob. Core. windows. NET/blob_name**.
 
 ```sql
 // change data types
@@ -461,7 +461,7 @@ USING Outputters.Csv();
 ```
 
 ### <a name="run-u-sql-jobs"></a><a name="run"></a>Uruchamianie zadań U-SQL
-Po edycji skryptów U-SQL można przesłać je na serwer przy użyciu konta Azure Data Lake Analytics. Kliknij **Data Lake**, **Prześlij zadanie**, wybierz **konto analizy**, wybierz **równoległość**, a następnie kliknij przycisk **Prześlij** .
+Po edycji skryptów U-SQL można przesłać je na serwer przy użyciu konta Azure Data Lake Analytics. Kliknij **Data Lake** , **Prześlij zadanie** , wybierz **konto analizy** , wybierz **równoległość** , a następnie kliknij przycisk **Prześlij** .
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
 
@@ -671,7 +671,7 @@ Utwórz klaster usługi HDInsight (Linux) na podstawie [Azure Portal](https://po
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>Tworzenie tabeli programu Hive w usłudze HDInsight
-Teraz utworzysz tabele Hive, które będą używane w Azure Machine Learning Studio (klasyczne) w klastrze usługi HDInsight przy użyciu danych przechowywanych w Azure Data Lake Storage w poprzednim kroku. Przejdź do utworzonego klastra usługi HDInsight. Kliknij kolejno pozycje **Ustawienia**  -->  **Właściwości**  -->  **klaster AAD Identity**  -->  **ADLS Access**, upewnij się, że konto Azure Data Lake Storage zostało dodane na liście z prawami odczyt, zapis i wykonywanie.
+Teraz utworzysz tabele Hive, które będą używane w Azure Machine Learning Studio (klasyczne) w klastrze usługi HDInsight przy użyciu danych przechowywanych w Azure Data Lake Storage w poprzednim kroku. Przejdź do utworzonego klastra usługi HDInsight. Kliknij kolejno pozycje **Ustawienia**  -->  **Właściwości**  -->  **klaster AAD Identity**  -->  **ADLS Access** , upewnij się, że konto Azure Data Lake Storage zostało dodane na liście z prawami odczyt, zapis i wykonywanie.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
@@ -722,7 +722,7 @@ Po zakończeniu zapytania powinny być widoczne następujące wyniki:
 ### <a name="build-and-deploy-models-in-azure-machine-learning-studio"></a>Kompilowanie i wdrażanie modeli w Azure Machine Learning Studio
 Teraz można przystąpić do kompilowania i wdrażania modelu, który przewiduje, czy Porada jest płatna Azure Machine Learning. Dane przykładowe stratified są gotowe do użycia w tej klasyfikacji binarnej (etykietka lub nie). Modele predykcyjne wykorzystujące klasyfikacje wieloklasowe (tip_class) i regresję (tip_amount) mogą być również kompilowane i wdrażane za pomocą Azure Machine Learning Studio, ale w tym miejscu pokazano tylko, jak obsłużyć przypadek przy użyciu binarnego modelu klasyfikacji.
 
-1. Pobierz dane do Azure Machine Learning Studio (klasyczne) przy użyciu modułu **Importuj dane** dostępnego w sekcji **dane wejściowe i wyjściowe** . Aby uzyskać więcej informacji, zobacz stronę odwołania [modułu importowania danych](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) .
+1. Pobierz dane do Azure Machine Learning Studio (klasyczne) przy użyciu modułu **Importuj dane** dostępnego w sekcji **dane wejściowe i wyjściowe** . Aby uzyskać więcej informacji, zobacz stronę odwołania [modułu importowania danych](/azure/machine-learning/studio-module-reference/import-data) .
 2. Wybierz pozycję **zapytanie programu Hive** jako **Źródło danych** w panelu **Właściwości** .
 3. Wklej następujący skrypt Hive w edytorze **zapytań bazy danych programu Hive**
 
@@ -754,7 +754,7 @@ Pulpit nawigacyjny usługi sieci Web wyświetla się wkrótce:
 Wykonanie tego przewodnika spowodowało utworzenie środowiska nauki o danych do tworzenia skalowalnych kompleksowych rozwiązań w Azure Data Lake. To środowisko zostało użyte do analizy dużego publicznego zestawu danych, przechodzenia przez kolejne etapy procesu analizy danych, od pozyskiwania danych za pośrednictwem szkoleń modelowych, a następnie do wdrożenia modelu jako usługi sieci Web. Skrypt U-SQL został użyty do przetworzenia, eksplorowania i próbkowania danych. Narzędzia Python i Hive zostały użyte z Azure Machine Learning Studio (klasyczny) do kompilowania i wdrażania modeli predykcyjnych.
 
 ## <a name="whats-next"></a>Co dalej?
-Ścieżka szkoleniowa dla [procesu nauka danych zespołu (przetwarzania TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) zawiera linki do tematów opisujących każdy krok w procesie zaawansowanej analizy. Na stronie [przewodniki dotyczące procesów naukowych](walkthroughs.md) dotyczącej analizy danych zespołu znajduje się szereg instruktaży, które pokazują, jak używać zasobów i usług w różnych scenariuszach analiz predykcyjnych:
+Ścieżka szkoleniowa dla [procesu nauka danych zespołu (przetwarzania TDSP)](./index.yml) zawiera linki do tematów opisujących każdy krok w procesie zaawansowanej analizy. Na stronie [przewodniki dotyczące procesów naukowych](walkthroughs.md) dotyczącej analizy danych zespołu znajduje się szereg instruktaży, które pokazują, jak używać zasobów i usług w różnych scenariuszach analiz predykcyjnych:
 
 * [Proces nauki danych zespołu w działaniu: korzystanie z usługi Azure Synapse Analytics](sqldw-walkthrough.md)
 * [Proces nauki danych zespołu w działaniu: korzystanie z klastrów usługi HDInsight Hadoop](hive-walkthrough.md)

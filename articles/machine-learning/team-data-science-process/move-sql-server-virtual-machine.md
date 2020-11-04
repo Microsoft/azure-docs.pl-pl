@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8350437d04fd019aab8fb22be8ad0e9a4a2831d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c80a90b07e25942e751d52cafa47f6e3e94852ab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012182"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320338"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Przenoszenie danych do programu SQL Server na maszynie wirtualnej platformy Azure
 
@@ -43,7 +43,7 @@ W tym samouczku założono, że masz:
 
 * **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji, możesz zarejestrować się, aby uzyskać dostęp do [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 * **Konto usługi Azure Storage**. Do przechowywania danych w tym samouczku będzie używane konto usługi Azure Storage. Jeśli nie masz konta usługi Azure Storage, zobacz artykuł [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) . Po utworzeniu konta magazynu należy uzyskać klucz konta używany do uzyskiwania dostępu do magazynu. Zobacz [Zarządzanie kluczami dostępu do konta magazynu](../../storage/common/storage-account-keys-manage.md).
-* Zainicjowano **SQL Server na maszynie wirtualnej platformy Azure**. Aby uzyskać instrukcje, zobacz [Konfigurowanie maszyny wirtualnej platformy Azure SQL Server jako serwera notesu IPython na potrzeby zaawansowanej analizy](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
+* Zainicjowano **SQL Server na maszynie wirtualnej platformy Azure**. Aby uzyskać instrukcje, zobacz [Konfigurowanie maszyny wirtualnej platformy Azure SQL Server jako serwera notesu IPython na potrzeby zaawansowanej analizy](../data-science-virtual-machine/overview.md).
 * Zainstalowano i skonfigurowano **Azure PowerShell** lokalnie. Aby uzyskać instrukcje, zobacz [How to Install and configure Azure PowerShell](/powershell/azure/).
 
 ## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> Przeniesienie danych z prostego źródła pliku do SQL Server na maszynie wirtualnej platformy Azure
@@ -58,7 +58,7 @@ BCP to narzędzie wiersza polecenia, które jest instalowane z SQL Server i jest
 
 > [!NOTE]
 > **Gdzie mają być moje dane dla narzędzia BCP?**  
-> Chociaż nie jest to wymagane, posiadanie plików zawierających dane źródłowe znajdujących się na tym samym komputerze co docelowy SQL Server umożliwia szybsze transfery (prędkość sieci a szybkość operacji we/wy dysku lokalnego). Pliki proste zawierające dane można przenieść na maszynę, na której zainstalowano SQL Server przy użyciu różnych narzędzi do kopiowania plików, takich jak [AzCopy](../../storage/common/storage-use-azcopy.md), [Eksplorator usługi Azure Storage](https://storageexplorer.com/) lub kopiowania/wklejania systemu windows za pośrednictwem Remote Desktop Protocol (RDP).
+> Chociaż nie jest to wymagane, posiadanie plików zawierających dane źródłowe znajdujących się na tym samym komputerze co docelowy SQL Server umożliwia szybsze transfery (prędkość sieci a szybkość operacji we/wy dysku lokalnego). Pliki proste zawierające dane można przenieść na maszynę, na której zainstalowano SQL Server przy użyciu różnych narzędzi do kopiowania plików, takich jak [AzCopy](../../storage/common/storage-use-azcopy-v10.md), [Eksplorator usługi Azure Storage](https://storageexplorer.com/) lub kopiowania/wklejania systemu windows za pośrednictwem Remote Desktop Protocol (RDP).
 >
 >
 
@@ -82,7 +82,7 @@ BCP to narzędzie wiersza polecenia, które jest instalowane z SQL Server i jest
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
-> **Optymalizacja wstawek narzędzia bcp** Zapoznaj się z poniższym artykułem [wskazówki dotyczące optymalizacji importu zbiorczego "](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) aby zoptymalizować takie wstawki.
+> **Optymalizacja wstawek narzędzia bcp** Zapoznaj się z poniższym artykułem [wskazówki dotyczące optymalizacji importu zbiorczego "](/previous-versions/sql/sql-server-2008-r2/ms177445(v=sql.105)) aby zoptymalizować takie wstawki.
 >
 >
 
@@ -133,7 +133,7 @@ Set-ExecutionPolicy Restricted #reset the execution policy
 ```
 
 ### <a name="bulk-insert-sql-query"></a><a name="insert-tables-bulkquery"></a>Wstaw zbiorczo zapytanie SQL
-[Zbiorcze zapytanie SQL](https://msdn.microsoft.com/library/ms188365) można użyć do zaimportowania danych do bazy danych z plików opartych na wierszach/kolumnach (obsługiwane typy są omówione w temacie[przygotowanie danych do eksportu zbiorczego lub importu (SQL Server)](https://msdn.microsoft.com/library/ms188609)).
+[Zbiorcze zapytanie SQL](/sql/t-sql/statements/bulk-insert-transact-sql) można użyć do zaimportowania danych do bazy danych z plików opartych na wierszach/kolumnach (obsługiwane typy są omówione w temacie[przygotowanie danych do eksportu zbiorczego lub importu (SQL Server)](/sql/relational-databases/import-export/prepare-data-for-bulk-export-or-import-sql-server)).
 
 Poniżej przedstawiono kilka przykładowych poleceń wstawiania zbiorczego, które są następujące:  
 
@@ -158,10 +158,10 @@ Poniżej przedstawiono kilka przykładowych poleceń wstawiania zbiorczego, któ
 
 ### <a name="built-in-utilities-in-sql-server"></a><a name="sql-builtin-utilities"></a>Wbudowane narzędzia w SQL Server
 Do zaimportowania danych do maszyny wirtualnej SQL Server na platformie Azure z poziomu prostego pliku można użyć SQL Server Integration Services (SSIS).
-SSIS jest dostępny w dwóch środowiskach programu Studio. Aby uzyskać szczegółowe informacje, zobacz [środowiska usług Integration Services (SSIS) i Studio](https://technet.microsoft.com/library/ms140028.aspx):
+SSIS jest dostępny w dwóch środowiskach programu Studio. Aby uzyskać szczegółowe informacje, zobacz [środowiska usług Integration Services (SSIS) i Studio](/sql/integration-services/integration-services-ssis-development-and-management-tools):
 
-* Aby uzyskać szczegółowe informacje na temat SQL Server narzędzi danych, zobacz [Microsoft SQL Server narzędzia danych](https://msdn.microsoft.com/data/tools.aspx)  
-* Aby uzyskać szczegółowe informacje na temat Kreatora importu/eksportu, zobacz [SQL Server Kreatora importu i eksportu](https://msdn.microsoft.com/library/ms141209.aspx)
+* Aby uzyskać szczegółowe informacje na temat SQL Server narzędzi danych, zobacz [Microsoft SQL Server narzędzia danych](/sql/ssdt/download-sql-server-data-tools-ssdt)  
+* Aby uzyskać szczegółowe informacje na temat Kreatora importu/eksportu, zobacz [SQL Server Kreatora importu i eksportu](/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard)
 
 ## <a name="moving-data-from-on-premises-sql-server-to-sql-server-on-an-azure-vm"></a><a name="sqlonprem_to_sqlonazurevm"></a>Przeniesienie danych z SQL Server lokalnych do SQL Server na maszynie wirtualnej platformy Azure
 Można również użyć następujących strategii migracji:
@@ -177,13 +177,13 @@ Opiszemy każdą z poniższych opcji poniżej:
 **Kreator wdrażania bazy danych SQL Server do Microsoft Azure maszyny wirtualnej** jest prostym i zalecanym sposobem przenoszenia danych z lokalnego wystąpienia SQL Server do SQL Server na maszynie wirtualnej platformy Azure. Aby zapoznać się ze szczegółowymi krokami, a także w omówieniu innych alternatyw, zobacz [Migrowanie bazy danych do SQL Server na maszynie wirtualnej platformy Azure](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
 
 ### <a name="export-to-flat-file"></a><a name="export-flat-file"></a>Eksportuj do pliku prostego
-Różne metody mogą służyć do zbiorczego eksportowania danych z lokalnego SQL Server, zgodnie z opisem w temacie [import zbiorczy i eksport danych (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) . Ten dokument obejmuje przykład programu do kopiowania zbiorczego (BCP). Gdy dane zostaną wyeksportowane do pliku prostego, można je zaimportować do innego serwera SQL przy użyciu importu zbiorczego.
+Różne metody mogą służyć do zbiorczego eksportowania danych z lokalnego SQL Server, zgodnie z opisem w temacie [import zbiorczy i eksport danych (SQL Server)](/sql/relational-databases/import-export/bulk-import-and-export-of-data-sql-server) . Ten dokument obejmuje przykład programu do kopiowania zbiorczego (BCP). Gdy dane zostaną wyeksportowane do pliku prostego, można je zaimportować do innego serwera SQL przy użyciu importu zbiorczego.
 
 1. Wyeksportuj dane z lokalnego SQL Server do pliku przy użyciu narzędzia bcp w następujący sposób:
 
     `bcp dbname..tablename out datafile.tsv -S    servername\sqlinstancename -T -t \t -t \n -c`
 2. Utwórz bazę danych i tabelę na SQL Server maszynie wirtualnej na platformie Azure przy użyciu `create database` i `create table` dla schematu tabeli wyeksportowanego w kroku 1.
-3. Utwórz plik formatu do opisywania schematu tabeli eksportowanych/importowanych danych. Szczegóły pliku formatu opisano w temacie [Tworzenie pliku formatu (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx).
+3. Utwórz plik formatu do opisywania schematu tabeli eksportowanych/importowanych danych. Szczegóły pliku formatu opisano w temacie [Tworzenie pliku formatu (SQL Server)](/sql/relational-databases/import-export/create-a-format-file-sql-server).
 
     Formatuj generowanie plików podczas uruchamiania narzędzia BCP z komputera SQL Server
 
@@ -202,8 +202,8 @@ Różne metody mogą służyć do zbiorczego eksportowania danych z lokalnego SQ
 ### <a name="database-back-up-and-restore"></a><a name="sql-backup"></a>Tworzenie kopii zapasowej i przywracanie bazy danych
 SQL Server obsługuje:
 
-1. [Tworzenie kopii zapasowej i przywracanie bazy danych](https://msdn.microsoft.com/library/ms187048.aspx) (zarówno do pliku lokalnego, jak i do BACPAC eksportu do obiektów BLOB) oraz [aplikacji warstwy danych](https://msdn.microsoft.com/library/ee210546.aspx) (przy użyciu BACPAC).
-2. Możliwość bezpośredniego tworzenia SQL Server maszyn wirtualnych na platformie Azure przy użyciu skopiowanej bazy danych lub kopiowania do istniejącej bazy danych w programie SQL Database. Aby uzyskać więcej informacji, zobacz [Korzystanie z Kreatora kopiowania bazy danych](https://msdn.microsoft.com/library/ms188664.aspx).
+1. [Tworzenie kopii zapasowej i przywracanie bazy danych](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) (zarówno do pliku lokalnego, jak i do BACPAC eksportu do obiektów BLOB) oraz [aplikacji warstwy danych](/sql/relational-databases/data-tier-applications/data-tier-applications) (przy użyciu BACPAC).
+2. Możliwość bezpośredniego tworzenia SQL Server maszyn wirtualnych na platformie Azure przy użyciu skopiowanej bazy danych lub kopiowania do istniejącej bazy danych w programie SQL Database. Aby uzyskać więcej informacji, zobacz [Korzystanie z Kreatora kopiowania bazy danych](/sql/relational-databases/databases/use-the-copy-database-wizard).
 
 Poniżej przedstawiono zrzut ekranu przedstawiający opcje tworzenia kopii zapasowej/przywracania bazy danych z SQL Server Management Studio.
 

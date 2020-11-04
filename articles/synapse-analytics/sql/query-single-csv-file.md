@@ -1,6 +1,6 @@
 ---
-title: Wykonywanie zapytań dotyczących plików CSV za pomocą SQL na żądanie (wersja zapoznawcza)
-description: W tym artykule dowiesz się, jak wykonywać zapytania dotyczące pojedynczych plików CSV z różnymi formatami plików przy użyciu funkcji SQL na żądanie (wersja zapoznawcza).
+title: Wykonywanie zapytań dotyczących plików CSV za pomocą puli SQL bezserwerowej (wersja zapoznawcza)
+description: W tym artykule dowiesz się, jak wykonywać zapytania dotyczące pojedynczych plików CSV z różnymi formatami plików, używając bezserwerowej puli SQL (wersja zapoznawcza).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288294"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321465"
 ---
 # <a name="query-csv-files"></a>Wykonywanie zapytań o pliki CSV
 
-W tym artykule dowiesz się, jak wysyłać zapytania do pojedynczego pliku CSV przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Pliki CSV mogą mieć różne formaty: 
+W tym artykule dowiesz się, jak wykonywać zapytania dotyczące pojedynczego pliku CSV przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Pliki CSV mogą mieć różne formaty: 
 
 - Z wierszem nagłówka i bez niego
 - Wartości rozdzielane przecinkami i tabulatorami

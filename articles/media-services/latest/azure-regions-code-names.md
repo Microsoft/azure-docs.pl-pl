@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 462cf6cf850885b31588123bac46ff99bf319ee8
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: c17eeda91af46c4159f7c4b1747416298f24c703
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93243144"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319641"
 ---
 # <a name="regional-code-names-and-endpoints"></a>Regionalne nazwy kodu i punkty końcowe
 
@@ -64,6 +64,9 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 
 ### <a name="azure-germany"></a>Azure (Niemcy)
 
+> [!NOTE]
+> Punkty końcowe platformy Azure (Niemcy) stosują się tylko do suwerennych chmur w Niemczech.
+
 | Usługa | Punkt końcowy |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
@@ -78,7 +81,7 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Odbiorcy tokenu |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Regiony platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Regionalne nazwy kodu i punkty końcowe](azure-regions-code-names.md)

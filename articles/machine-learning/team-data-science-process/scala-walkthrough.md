@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 56f266eaba76bb990a4d2bc3d902f4c5911d9c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae4549fe343422bbf60275a97768ca407f2dc7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026189"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321367"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analiza danych przy użyciu języka Scala i platformy Spark na platformie Azure
-W tym artykule pokazano, jak używać Scala do nadzorowanych zadań uczenia maszynowego z skalowalnymi pakietami MLlib i Spark ML platformy Spark w klastrze Azure HDInsight Spark. Przeprowadzi Cię przez zadania, które stanowią [proces analizy danych](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): pozyskiwanie i Eksploracja danych, Wizualizacja, Inżynieria funkcji, modelowanie i użycie modelu. Modele w artykule obejmują regresję logistyczną i liniową, lasy losowe i drzewa z podwyższeniem poziomu gradientu (GBTs), a także dwa popularne, nadzorowane zadania uczenia maszynowego:
+W tym artykule pokazano, jak używać Scala do nadzorowanych zadań uczenia maszynowego z skalowalnymi pakietami MLlib i Spark ML platformy Spark w klastrze Azure HDInsight Spark. Przeprowadzi Cię przez zadania, które stanowią [proces analizy danych](./index.yml): pozyskiwanie i Eksploracja danych, Wizualizacja, Inżynieria funkcji, modelowanie i użycie modelu. Modele w artykule obejmują regresję logistyczną i liniową, lasy losowe i drzewa z podwyższeniem poziomu gradientu (GBTs), a także dwa popularne, nadzorowane zadania uczenia maszynowego:
 
 * Problem z regresją: przewidywanie kwoty pozostałej ($) dla podróży z taksówką
 * Klasyfikacja binarna: przewidywanie porady lub brak porady (1/0) na potrzeby podróży z taksówką
@@ -52,7 +52,7 @@ Kroki instalacji i kod w tym artykule dotyczą usługi Azure HDInsight 3,4 Spark
 Opis danych o wykorzystaniu z NYCych taksówki i instrukcje dotyczące wykonywania kodu z notesu programu Jupyter w klastrze Spark znajdują się w odpowiednich sekcjach [Omówienie informacji o nauce danych przy użyciu platformy Spark w usłudze Azure HDInsight](spark-overview.md).  
 
 ## <a name="execute-scala-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Wykonywanie kodu Scala z notesu Jupyter w klastrze Spark
-Notes Jupyter można uruchomić z poziomu Azure Portal. Znajdź klaster Spark na pulpicie nawigacyjnym, a następnie kliknij go, aby przejść do strony zarządzania klastra. Następnie kliknij pozycję **pulpity nawigacyjne klastra**, a następnie kliknij przycisk **Jupyter Notebook** , aby otworzyć Notes skojarzony z klastrem Spark.
+Notes Jupyter można uruchomić z poziomu Azure Portal. Znajdź klaster Spark na pulpicie nawigacyjnym, a następnie kliknij go, aby przejść do strony zarządzania klastra. Następnie kliknij pozycję **pulpity nawigacyjne klastra** , a następnie kliknij przycisk **Jupyter Notebook** , aby otworzyć Notes skojarzony z klastrem Spark.
 
 ![Pulpit nawigacyjny klastra i notesy Jupyter](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
@@ -353,7 +353,7 @@ W przypadku funkcji modelowania opartych na drzewie z platformy Spark ML i MLlib
 1. Utwórz nową funkcję przez **pakowania** godziny w przedziałach czasowych.
 2. Zastosuj **indeksowanie i jednostronicowe kodowanie** do funkcji kategorii.
 3. **Próbki i podzielić dane** na części szkoleń i testowych.
-4. **Określ zmienne i funkcje szkoleniowe**, a następnie utwórz indeksowane lub jednokodowane, zakodowane szkolenie i testowanie danych wejściowych z rozproszonym punktem z etykietami (odporne) lub ramkami danych.
+4. **Określ zmienne i funkcje szkoleniowe** , a następnie utwórz indeksowane lub jednokodowane, zakodowane szkolenie i testowanie danych wejściowych z rozproszonym punktem z etykietami (odporne) lub ramkami danych.
 5. Automatycznie **Kategoryzuj i vectorize funkcje i elementy docelowe** , które mają być używane jako dane wejściowe dla modeli uczenia maszynowego.
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Utwórz nową funkcję przez pakowania godziny w przedziałach czasowych
@@ -922,7 +922,7 @@ W tej sekcji użyjesz narzędzi uczenia maszynowego, których deweloperzy częst
 * Optymalizowanie modelu przy użyciu funkcji CrossValidator z walidacją i parametrów funkcji Hyper-Parameter
 * Optymalizuj model przy użyciu niestandardowego kodu do sprawdzania krzyżowego i czyszczenia parametrów, aby użyć dowolnej funkcji uczenia maszynowego i zestawu parametrów (regresja liniowa)
 
-**Wzajemne sprawdzanie poprawności** jest techniką, która ocenia, jak dobrze jest przeszkolony model na znanym zestawie danych, aby przewidzieć funkcje zestawów danych, na których nie zostały przeszkolone. Ogólnym dobrym pomysłem jest to, że model jest szkolony na zestawie danych znanych danych, a następnie dokładność jego prognoz jest testowana względem niezależnego zestawu danych. Typowa implementacja polega na podzieleniu zestawu danych na składowe *k*, a następnie nauczenie modelu w sposób okrężny na wszystkich, ale jednym ze zgięciów.
+**Wzajemne sprawdzanie poprawności** jest techniką, która ocenia, jak dobrze jest przeszkolony model na znanym zestawie danych, aby przewidzieć funkcje zestawów danych, na których nie zostały przeszkolone. Ogólnym dobrym pomysłem jest to, że model jest szkolony na zestawie danych znanych danych, a następnie dokładność jego prognoz jest testowana względem niezależnego zestawu danych. Typowa implementacja polega na podzieleniu zestawu danych na składowe *k* , a następnie nauczenie modelu w sposób okrężny na wszystkich, ale jednym ze zgięciów.
 
 **Optymalizacja parametrów funkcji Hyper-Parameter** to problem polegający na wyborze zestawu funkcji Hyper-Parameters dla algorytmu uczenia, zazwyczaj z celem optymalizacji miary wydajności algorytmu w niezależnym zestawie danych. Parametr Hyper-Parameter jest wartością, która musi być określona poza procedurą szkolenia modelu. Założenia dotyczące wartości parametrów funkcji Hyper-Parameter mogą mieć wpływ na elastyczność i dokładność modelu. Drzewa decyzyjne mają parametry funkcji Hyper-Parameters, na przykład na żądaną głębokość i liczbę liści w drzewie. Należy ustawić nieprawidłową klasyfikację dla maszyny wektorowej pomocy technicznej (SVM).
 
@@ -1135,9 +1135,8 @@ val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 Godzina uruchomienia komórki: 61 sekund.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Automatyczne korzystanie z modeli uczenia maszynowego opartego na platformie Spark z Scala
-Aby zapoznać się z omówieniem tematów, które przeprowadzą Cię przez zadania wchodzące w skład procesu analizy danych na platformie Azure, zobacz [zespół ds. analizy danych](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Aby zapoznać się z omówieniem tematów, które przeprowadzą Cię przez zadania wchodzące w skład procesu analizy danych na platformie Azure, zobacz [zespół ds. analizy danych](./index.yml).
 
 [Przewodniki dotyczące procesów naukowych dla nauki o danych zespołowych](walkthroughs.md) opisują inne przewodniki, które pokazują kroki w procesie nauki danych zespołu dla konkretnych scenariuszy. Instruktaż ilustrują również sposób łączenia narzędzi i usług w chmurze i lokalnych z przepływem pracy lub potoku w celu utworzenia inteligentnej aplikacji.
 
 [Wynikowe modele usługi Uczenie maszynowe oparte na platformie Spark](spark-model-consumption.md) pokazują, jak używać kodu Scala do automatycznego ładowania i oceny nowych zestawów danych za pomocą modeli uczenia maszynowego wbudowanych w platformie Spark i zapisanych w usłudze Azure Blob Storage. Można postępować zgodnie z zawartymi w nim instrukcjami i po prostu zamienić kod języka Python na kod Scala w tym artykule, aby zapewnić automatyczne użycie.
-

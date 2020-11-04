@@ -3,12 +3,12 @@ title: Wdróż horyzont w rozwiązaniu VMware platformy Azure
 description: Dowiedz się, jak wdrożyć platformę VMware w rozwiązaniu VMware platformy Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6a466aea5cbdf4452a2c46b455932042d920c3b9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369016"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321356"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Wdróż horyzont w rozwiązaniu VMware platformy Azure 
 
@@ -86,7 +86,7 @@ Mając na celu użycie usługi Azure Private Cloud i SDDC Max, zalecamy architek
 
 Połączenie między usługą Azure Virtual Network a chmurami prywatnymi platformy Azure/SDDCs należy skonfigurować przy użyciu ExpressRoute FastPath. Na poniższym diagramie przedstawiono wdrożenie podstawowego horyzontu.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Horyzont na platformie Azure VMware i w chmurze w systemie Azure" border="false":::
+:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Typowe wdrożenie usługi Horizon pod przy użyciu szybkiej ścieżki ExpressPath" border="false":::
 
 ## <a name="network-connectivity-to-scale-horizon-on-azure-vmware-solution"></a>Połączenie sieciowe z funkcją skalowania na platformie Azure VMware
 
@@ -94,7 +94,7 @@ W tej sekcji przedstawiono architekturę sieci na wysokim poziomie z Typowymi pr
 
 ### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Pojedynczy zakres na platformie Azure VMware
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Horyzont na platformie Azure VMware i w chmurze w systemie Azure" border="false":::
+:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Pojedynczy zakres na platformie Azure VMware" border="false":::
 
 Pojedynczym horyzontem wdrożenia jest najbardziej prosty scenariusz wdrażania do przodu, ponieważ wdrażasz tylko jeden zakres w regionie Wschodnie stany USA.  Ponieważ każdą chmurę prywatną i SDDC są szacowane do obsługi sesji komputerów stacjonarnych 4 000, należy wdrożyć maksymalny rozmiar horyzontu pod.  Można zaplanować wdrożenie maksymalnie trzech chmur prywatnych/SDDCs.
 
@@ -112,7 +112,7 @@ Odmianą przykładu podstawowego może być obsługa łączności zasobów lokal
 
 Na diagramie przedstawiono sposób obsługi łączności zasobów lokalnych. Aby nawiązać połączenie z siecią firmową do Virtual Network platformy Azure, potrzebny będzie obwód usługi ExpressRoute.  Należy również połączyć sieć firmową z każdą chmurą prywatną i SDDCs przy użyciu usługi ExpressRoute Global Reach.  Umożliwia połączenie z usługi SDDC z obwodem ExpressRoute i zasobami lokalnymi. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Horyzont na platformie Azure VMware i w chmurze w systemie Azure" border="false":::
+:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Podłączanie sieci firmowej do Virtual Network platformy Azure" border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Wiele zasobników horyzontów na platformie Azure VMware w wielu regionach
 
@@ -120,9 +120,9 @@ Innym scenariuszem jest skalowanie horyzontu na wiele zasobników.  W tym scenar
 
 Możesz połączyć Virtual Network platformy Azure w każdym regionie z chmurami prywatnymi/SDDCs w innym regionie. Umożliwia ona serwerom połączeń Horizon część Federacji CPA do łączenia się ze wszystkimi pulpitami w obszarze zarządzania. Dodanie dodatkowych chmur prywatnych/SDDCs do tej konfiguracji umożliwi skalowanie do 24 000 sesji ogółem. 
 
-Te same zasady mają zastosowanie w przypadku wdrożenia dwóch zasobników w tym samym regionie.  Upewnij się, że w *osobnym Virtual Network platformy Azure*zostanie wdrożony drugi horyzont, a. Podobnie jak w przypadku pojedynczego przykładu, możesz połączyć sieć firmową i lokalne miejsce na tym przykładzie wieloskładnikowym/regionu przy użyciu ExpressRoute i Global Reach. 
+Te same zasady mają zastosowanie w przypadku wdrożenia dwóch zasobników w tym samym regionie.  Upewnij się, że w *osobnym Virtual Network platformy Azure* zostanie wdrożony drugi horyzont, a. Podobnie jak w przypadku pojedynczego przykładu, możesz połączyć sieć firmową i lokalne miejsce na tym przykładzie wieloskładnikowym/regionu przy użyciu ExpressRoute i Global Reach. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Horyzont na platformie Azure VMware i w chmurze w systemie Azure" border="false":::
+:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" Wiele zasobników horyzontów na platformie Azure VMware w wielu regionach" border="false":::
 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Rozmiar hostów rozwiązań platformy Azure VMware na potrzeby wdrożeń z horyzontem 
 
@@ -211,3 +211,6 @@ Na podstawie standardowej architektury wdrażania maszyny wirtualne infrastruktu
 | Udział plików systemu Windows               | D4sv3          |         | *Opcjonalne*                               |
 
 Koszt maszyny wirtualnej infrastruktury wynosi \$ 0,36 za użytkownika miesięcznie dla wdrożenia 2 000-pulpitu w powyższym przykładzie. W tym przykładzie zastosowano Cennik 2020 dla Wschodnie stany USA na platformie Azure. Ceny mogą się różnić w zależności od regionu, wybranych opcji i chronometrażu.
+
+## <a name="next-steps"></a>Następne kroki
+Aby dowiedzieć się więcej na temat rozwiązania VMware Horizon na platformie Azure VMware, przeczytaj temat [często zadawane pytania dotyczące programu VMware](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5a0804ae5ee2dbffaa57fc967fda29701562ab44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ee92a9eaf9316cbd453ea1ec4def58bb543a5a6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085705"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321138"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Eksplorowanie danych w usłudze Azure Blob Storage za pomocą Pandas
 
@@ -28,7 +28,7 @@ To zadanie jest krokiem w [procesie nauki danych zespołu](overview.md).
 W tym artykule założono, że masz:
 
 * Utworzono konto usługi Azure Storage. Jeśli potrzebujesz instrukcji, zobacz [Tworzenie konta usługi Azure Storage](../../storage/common/storage-account-create.md)
-* Dane przechowywane na koncie usługi Azure Blob Storage. Jeśli potrzebujesz instrukcji, zobacz temat [przeniesienie danych do i z usługi Azure Storage](../../storage/common/storage-moving-data.md)
+* Dane przechowywane na koncie usługi Azure Blob Storage. Jeśli potrzebujesz instrukcji, zobacz temat [przeniesienie danych do i z usługi Azure Storage](../../storage/common/storage-choose-data-transfer-solution.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Załaduj dane do Pandas Dataframe
 Aby eksplorować zestaw danych i manipulować nim, najpierw należy go pobrać ze źródła obiektów BLOB do pliku lokalnego, który następnie można załadować w Pandas Dataframe. Poniżej przedstawiono kroki, które należy wykonać w przypadku tej procedury:

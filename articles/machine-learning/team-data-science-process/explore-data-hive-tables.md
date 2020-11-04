@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c0dfa06e2ece2ba4631c0d5681b066ab0134daba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7234a8c45c20c64dddb43a52a099aa92f2d297d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085671"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321120"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Eksplorowanie danych tabel programu Hive za pomocą zapytań Hive
 
@@ -28,9 +28,9 @@ To zadanie jest krokiem w [procesie nauki danych zespołu](overview.md).
 W tym artykule założono, że masz:
 
 * Utworzono konto usługi Azure Storage. Jeśli potrzebujesz instrukcji, zobacz [Tworzenie konta usługi Azure Storage](../../storage/common/storage-account-create.md)
-* Zainicjowano obsługę niestandardowego klastra Hadoop z usługą HDInsight. Jeśli potrzebujesz instrukcji, zobacz [Dostosowywanie klastrów Azure HDInsight Hadoop na potrzeby zaawansowanej analizy](customize-hadoop-cluster.md).
+* Zainicjowano obsługę niestandardowego klastra Hadoop z usługą HDInsight. Jeśli potrzebujesz instrukcji, zobacz [Dostosowywanie klastrów Azure HDInsight Hadoop na potrzeby zaawansowanej analizy](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Dane zostały przekazane do tabel programu Hive w klastrach Azure HDInsight Hadoop. Jeśli tak nie jest, postępuj zgodnie z instrukcjami w temacie [Tworzenie i ładowanie danych do tabel programu Hive](move-hive-tables.md) , aby najpierw przekazać dane do tabel programu Hive.
-* Włączono dostęp zdalny do klastra. Jeśli potrzebujesz instrukcji, zobacz [dostęp do węzła głównego klastra usługi Hadoop](customize-hadoop-cluster.md).
+* Włączono dostęp zdalny do klastra. Jeśli potrzebujesz instrukcji, zobacz [dostęp do węzła głównego klastra usługi Hadoop](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Jeśli potrzebujesz instrukcji dotyczących przesyłania zapytań Hive, zobacz [Jak przesłać zapytania Hive](move-hive-tables.md#submit)
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Przykładowe skrypty zapytań Hive do eksploracji danych
@@ -72,4 +72,3 @@ W tym artykule założono, że masz:
 
 ## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Dodatkowe skrypty zapytań dla scenariuszy danych podróży z taksówką
 Przykłady zapytań, które są specyficzne dla scenariuszy [danych dotyczących rejsów z NYCem](https://chriswhong.com/open-data/foil_nyc_taxi/) , są również dostępne w [repozytorium GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Te zapytania mają już określony schemat danych i są gotowe do przesłania do uruchomienia.
-

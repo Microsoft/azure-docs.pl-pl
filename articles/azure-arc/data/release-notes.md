@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2da8bd0b36b553a4b5f85b6f79987ab1a7b8d5a7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286572"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321721"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Informacje o wersji — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Numer wersji interfejsu wiersza polecenia platformy Azure ( `azdata` ): 20.2.3. 
 
 W tej wersji wprowadzono następujące istotne zmiany: 
 
-* Pliki definicji zasobów niestandardowych PostgreSQL (CRD) zamieniają `shards` nazwę terminu na `workers` . Ten termin ( `workers` ) jest zgodny z nazwą parametru wiersza polecenia.
+* W definicji niestandardowego zasobu PostgreSQL (CRD) termin `shards` jest zmieniany na `workers` . Ten termin ( `workers` ) jest zgodny z nazwą parametru wiersza polecenia.
 
 * `azdata arc postgres server delete` monituje o potwierdzenie przed usunięciem wystąpienia usługi Postgres.  Służy `--force` do pomijania monitu.
 
@@ -50,15 +50,15 @@ W tej wersji wprowadzono następujące istotne zmiany:
 
    * Jeśli żadne dane nie zostały załadowane na platformę Azure, zostanie wyświetlony monit o ponowne wypróbowanie.
 
-* `azdata arc dc debug copy-logs` teraz odczytuje również z `/var/opt/controller/log` folderu i zbiera dzienniki Postgres.
+* `azdata arc dc debug copy-logs` teraz odczytuje również z `/var/opt/controller/log` folderu i zbiera dzienniki aparatu PostgreSQL w systemie Linux.
 
-*   Wyświetlaj wskaźnik roboczy podczas Postgres tworzenia i przywracania kopii zapasowej.
+*   Wyświetlaj wskaźnik roboczy podczas tworzenia i przywracania kopii zapasowej za pomocą PostgreSQL.
 
 * `azdata arc postrgres backup list` zawiera teraz informacje o rozmiarze kopii zapasowej.
 
 * Właściwość Name administratora wystąpienia zarządzanego SQL została dodana do prawej kolumny bloku przegląd w Azure Portal.
 
-* Azure Data Studio obsługuje Konfigurowanie liczby węzłów procesu roboczego, rdzeń wirtualny i ustawień pamięci dla grupy serwerów. 
+* Azure Data Studio obsługuje Konfigurowanie liczby węzłów procesu roboczego, rdzeń wirtualny i ustawień pamięci na potrzeby skalowania PostgreSQL. 
 
 * Wersja zapoznawcza obsługuje tworzenie kopii zapasowych/przywracanie dla Postgres w wersji 11 i 12.
 
@@ -80,9 +80,7 @@ Aby uzyskać instrukcje, zobacz [co to są usługi danych z włączonym usługą
 - Na razie w przypadku korzystania z systemu plików NFS `allowRunAsRoot` `true` przed utworzeniem kontrolera danych usługi Azure Arc należy ustawić wartość w pliku profilu wdrożenia.
 - Tylko uwierzytelnianie logowania SQL i PostgreSQL.  Brak obsługi Azure Active Directory ani Active Directory.
 - Tworzenie kontrolera danych w systemie OpenShift wymaga obniżonych ograniczeń zabezpieczeń.  Szczegółowe informacje znajdują się w dokumentacji.
-- Skalowanie liczby węzłów roboczych PostgresSQL _w dół_ nie jest obsługiwane.
 - Jeśli używasz aparatu usługi Azure Kubernetes (aparat AKS) na Azure Stack Hub z kontrolerem danych usługi Azure Arc i wystąpieniami baz danych, uaktualnienie do nowszej wersji Kubernetes nie jest obsługiwane. Odinstaluj kontroler danych usługi Azure Arc i wszystkie wystąpienia bazy danych przed uaktualnieniem klastra Kubernetes.
-- Wersja zapoznawcza nie obsługuje wykonywania kopii zapasowych/przywracania dla aparatu Postgres w wersji 11. (Rozwiązane w październiku, 2020) Obsługuje tylko tworzenie kopii zapasowych i przywracanie dla Postgres w wersji 12.
 - Usługa Azure Kubernetes Service (AKS), klastry obejmujące [wiele stref dostępności](../../aks/availability-zones.md) nie są obecnie obsługiwane dla usług danych z obsługą usługi Azure Arc. Aby uniknąć tego problemu, podczas tworzenia klastra AKS w Azure Portal, jeśli wybierzesz region, w którym strefy są dostępne, wyczyść wszystkie strefy z kontrolki zaznaczenie. Zobacz poniższy obraz:
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Wyczyść pola wyboru dla każdej strefy, aby określić brak.":::
@@ -90,10 +88,11 @@ Aby uzyskać instrukcje, zobacz [co to są usługi danych z włączonym usługą
 
 ### <a name="known-issues-for-azure-arc-enabled-postgresql-hyperscale"></a>Znane problemy dotyczące usługi Azure ARC z włączonym skalowaniem PostgreSQL   
 
+- Wersja zapoznawcza nie obsługuje wykonywania kopii zapasowych/przywracania dla aparatu PostgreSQL w wersji 11. Obsługuje tylko tworzenie kopii zapasowych i przywracanie dla PostgreSQL w wersji 12.
+- `azdata arc dc debug copy-logs` ndoes nie zbiera dzienników aparatu PostgreSQL w systemie Windows.
 - Ponowne utworzenie grupy serwerów o nazwie grupy serwerów, która została właśnie usunięta, może się nie powieść lub zawiesić. 
    - **Obejście problemu** Nie należy ponownie używać tej samej nazwy podczas ponownego tworzenia grupy serwerów lub oczekiwania na usługę równoważenia obciążenia/zewnętrzną wcześniej grupę serwerów. Przy założeniu, że nazwa usuniętej grupy serwerów `postgres01` i była hostowana w przestrzeni nazw `arc` , przed ponownym utworzeniem grupy serwerów o tej samej nazwie Zaczekaj, aż `postgres01-external-svc` nie zostanie wyświetlony w danych wyjściowych polecenia polecenia kubectl `kubectl get svc -n arc` .
- 
-- Załadowanie strony przeglądu i strony Konfiguracja usługi obliczeniowej i magazynu w Azure Data Studio jest powolne. 
+ - Załadowanie strony przeglądu i strony Konfiguracja usługi obliczeniowej i magazynu w Azure Data Studio jest powolne. 
 
 
 

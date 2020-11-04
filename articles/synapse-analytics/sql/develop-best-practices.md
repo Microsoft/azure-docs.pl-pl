@@ -10,17 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: fe00d7f107911e2245041419c20f86e2e32a0480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5e514602668c96d63562e45fb114cf9770a54a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289263"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321494"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Najlepsze rozwiązania dotyczące programowania Synapse SQL
+
 W tym artykule opisano wskazówki i najlepsze rozwiązania w zakresie tworzenia rozwiązań magazynu danych. 
 
-## <a name="sql-pool-development-best-practices"></a>Najlepsze rozwiązania dotyczące programowania puli SQL
+## <a name="dedicated-sql-pool-development-best-practices"></a>Najlepsze rozwiązania dotyczące programowania w puli SQL
 
 ### <a name="reduce-cost-with-pause-and-scale"></a>Obniżenie kosztów dzięki wstrzymaniu i skalowaniu
 
@@ -55,12 +56,12 @@ Zobacz poniższe linki, aby uzyskać dodatkowe informacje o tym, jak wybór kolu
 Zobacz również [Omówienie tabeli](develop-tables-overview.md), [dystrybucji tabel](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [wybierania dystrybucji tabel](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)i [CREATE TABLE jako wybrane](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="do-not-over-partition"></a>Unikanie nadmiernego partycjonowania
-Gdy Partycjonowanie danych może być skuteczne do obsługi danych za pomocą przełączania partycji lub optymalizowania skanowania za pomocą eliminacji partycji, zbyt wiele partycji może spowalniać zapytania.  Często wysoce ziarnista strategia partycjonowania, która może być dobrze włączona SQL Server może nie współpracować z pulą SQL.  
+Gdy Partycjonowanie danych może być skuteczne do obsługi danych za pomocą przełączania partycji lub optymalizowania skanowania za pomocą eliminacji partycji, zbyt wiele partycji może spowalniać zapytania.  Często wysoce ziarnista strategia partycjonowania, która może być dobrze włączona SQL Server może nie współpracować z dedykowaną pulą SQL.  
 
 > [!NOTE]
-> Często wysoce ziarnista strategia partycjonowania, która może być dobrze włączona SQL Server może nie współpracować z pulą SQL.  
+> Często wysoce ziarnista strategia partycjonowania, która może być dobrze włączona SQL Server może nie współpracować z dedykowaną pulą SQL.  
 
-Zbyt duża liczba partycji danych może także zmniejszyć skuteczność indeksów klastrowanego magazynu kolumn, jeśli każda partycja ma mniej niż milion wierszy. Pula SQL dzieli Twoje dane na 60 baz danych. 
+Zbyt duża liczba partycji danych może także zmniejszyć skuteczność indeksów klastrowanego magazynu kolumn, jeśli każda partycja ma mniej niż milion wierszy. Dedykowana Pula SQL dzieli Twoje dane na 60 baz danych. 
 
 Dlatego, jeśli utworzysz tabelę z 100 partycji, wynik będzie wynosić 6000 partycji.  Każde obciążenie jest inne, więc warto eksperymentować z podziałem na partycje — w ten sposób można przekonać się, jakie rozwiązanie sprawdzi się najlepiej w przypadku danego obciążenia.  
 
@@ -95,7 +96,7 @@ Zobacz także [Omówienie tabel](develop-tables-overview.md), [typy danych tabel
 
 ### <a name="optimize-clustered-columnstore-tables"></a>Optymalizowanie tabel klastrowanego magazynu kolumn
 
-Klastrowane indeksy magazynu kolumn to jeden z najbardziej wydajnych sposobów przechowywania danych w puli SQL.  Domyślnie tabele w puli SQL są tworzone jako klastrowane magazynu kolumn.  
+Klastrowane indeksy magazynu kolumn to jeden z najbardziej wydajnych sposobów przechowywania danych w dedykowanej puli SQL.  Domyślnie tabele w dedykowanej puli SQL są tworzone jako klastrowane magazynu kolumn.  
 
 Dla uzyskania najlepszej wydajności kwerend w odniesieniu do tabel magazynu kolumn ważne jest zapewnienie dobrej jakości segmentów.  Jeśli wiersze są zapisywane w tabelach magazynu kolumn przy dużym wykorzystaniu pamięci, może to spowodować obniżenie jakości segmentów w magazynie kolumn.  
 
@@ -103,7 +104,7 @@ Jakość segmentu określa się na podstawie liczby wierszy w skompresowanej gru
 
 Ponieważ duże jakości segmenty magazynu kolumn są ważne, dobrym pomysłem jest użycie identyfikatorów użytkowników, które znajdują się w średniej lub dużej klasie zasobów do ładowania danych. W przypadku korzystania z niższych [jednostek magazynu danych](resource-consumption-models.md) do użytkownika ładującego należy przypisać większą klasę zasobów.
 
-Ponieważ tabele magazynu kolumn zwykle nie przepychają danych do skompresowanego segmentu magazynu kolumn, dopóki nie będzie więcej niż 1 000 000 wierszy na tabelę, a każda tabela puli SQL zostanie podzielona na 60 tabel, tabele magazynu kolumn nie będą korzystać z zapytania, chyba że tabela ma więcej niż 60 000 000 wierszy.  
+Ponieważ tabele magazynu kolumn zwykle nie przepychają danych do skompresowanego segmentu magazynu kolumn, dopóki w tabeli nie ma więcej niż 1 000 000 wierszy, a każda dedykowana tabela puli SQL zostanie podzielona na 60 tabel, tabele magazynu kolumn nie będą korzystać z zapytań, chyba że tabela ma więcej niż 60 000 000 wierszy.  
 
 > [!TIP]
 > W przypadku tabel zawierających mniej niż 60 000 000 wierszy posiadanie indeksu magazynu kolumn może nie być najlepszym rozwiązaniem.  
@@ -116,23 +117,23 @@ Podczas wykonywania zapytania odnoszącego się do tabeli magazynu kolumn kweren
 
 Zobacz również [indeksy tabel](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Przewodnik po indeksach magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), ponowne [Kompilowanie indeksów magazynu kolumn](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
 
-## <a name="sql-on-demand-development-best-practices"></a>Najlepsze rozwiązania dotyczące programowania na żądanie w języku SQL
+## <a name="serverless-sql-pool-development-best-practices"></a>Najlepsze rozwiązania w zakresie programowania puli SQL Server
 
 ### <a name="general-considerations"></a>Zagadnienia ogólne
 
-Usługa SQL na żądanie umożliwia wykonywanie zapytań dotyczących plików na kontach usługi Azure Storage. Nie ma ona lokalnego magazynu ani możliwości pozyskiwania, co oznacza, że wszystkie pliki docelowe zapytań są zewnętrzne na żądanie. W związku z tym wszystkie elementy związane z odczytem plików z magazynu mogą mieć wpływ na wydajność zapytań.
+Pula SQL bezserwerowa umożliwia wykonywanie zapytań dotyczących plików na kontach usługi Azure Storage. Nie ma możliwości lokalnego magazynu ani pozyskiwania, co oznacza, że wszystkie pliki docelowe zapytań są spoza puli SQL bezserwerowej. W związku z tym wszystkie elementy związane z odczytem plików z magazynu mogą mieć wpływ na wydajność zapytań.
 
-### <a name="colocate-azure-storage-account-and-sql-on-demand"></a>Lokalizowanie konta usługi Azure Storage i SQL na żądanie
+### <a name="colocate-azure-storage-account-and-serverless-sql-pool"></a>Umieść konto usługi Azure Storage i bezserwerową pulę SQL
 
-Aby zminimalizować opóźnienie, umieść konto usługi Azure Storage i punkt końcowy na żądanie SQL. Konta magazynu i punkty końcowe inicjowane podczas tworzenia obszaru roboczego znajdują się w tym samym regionie.
+Aby zminimalizować opóźnienie, należy odszukać konto usługi Azure Storage oraz punkt końcowy puli SQL bezserwerowej. Konta magazynu i punkty końcowe inicjowane podczas tworzenia obszaru roboczego znajdują się w tym samym regionie.
 
-Aby uzyskać optymalną wydajność, Jeśli uzyskujesz dostęp do innych kont magazynu za pomocą programu SQL na żądanie, upewnij się, że znajdują się one w tym samym regionie. W przeciwnym razie nastąpi zwiększone opóźnienie transferu sieciowego danych z regionu zdalnego do regionu punktu końcowego.
+Aby uzyskać optymalną wydajność, Jeśli uzyskujesz dostęp do innych kont magazynu z pulą SQL bezserwerowa, upewnij się, że znajdują się one w tym samym regionie. W przeciwnym razie nastąpi zwiększone opóźnienie transferu sieciowego danych z regionu zdalnego do regionu punktu końcowego.
 
 ### <a name="azure-storage-throttling"></a>Ograniczanie usługi Azure Storage
 
-Wiele aplikacji i usług może uzyskać dostęp do konta magazynu. Gdy połączone operacje we/wy są generowane przez aplikacje, usługi i obciążenie na żądanie SQL, przekraczają limity konta magazynu. W przypadku ograniczenia przepustowości magazynu występuje znaczny negatywny wpływ na wydajność zapytań.
+Wiele aplikacji i usług może uzyskać dostęp do konta magazynu. Gdy połączone operacje we/wy są generowane przez aplikacje, usługi i obciążenie puli SQL bezserwerowe, przekroczenie limitów konta magazynu. W przypadku ograniczenia przepustowości magazynu występuje znaczny negatywny wpływ na wydajność zapytań.
 
-Po wykryciu ograniczenia przepustowości SQL na żądanie ma wbudowaną obsługę tego scenariusza. Program SQL na żądanie będzie przesyłał żądania do magazynu w wolniejszym tempie, dopóki ograniczanie zostanie rozwiązane. 
+Po wykryciu ograniczenia przepustowości Pula SQL bezserwerowa ma wbudowaną obsługę tego scenariusza. Bezserwerowa Pula SQL będzie wykonywać żądania do magazynu w wolniejszym tempie, dopóki ograniczanie zostanie rozwiązane. 
 
 Jednak w celu zapewnienia optymalnego wykonywania zapytań zaleca się, aby nie naciskać konta magazynu z innymi obciążeniami podczas wykonywania zapytania.
 
@@ -140,7 +141,7 @@ Jednak w celu zapewnienia optymalnego wykonywania zapytań zaleca się, aby nie 
 
 Jeśli to możliwe, można przygotować pliki w celu uzyskania lepszej wydajności:
 
-- Konwertuj CSV na Parquet — Parquet jest formatem kolumnowym. Ponieważ jest ona skompresowana, ma mniejsze rozmiary plików niż pliki CSV z tymi samymi danymi, a na żądanie musi być krótszy czas i liczba żądań magazynu, aby je odczytać.
+- Konwertuj CSV na Parquet — Parquet jest formatem kolumnowym. Ponieważ jest ona skompresowana, ma mniejsze rozmiary plików niż pliki CSV z tymi samymi danymi, a pula SQL bezserwerowa będzie potrzebować mniej czasu i żądań magazynowania, aby je odczytać.
 - Jeśli zapytanie odwołuje się do pojedynczego dużego pliku, można je podzielić na wiele mniejszych plików.
 - Spróbuj zachować rozmiar pliku CSV poniżej 10 GB.
 - Preferowane jest posiadanie plików o równym rozmiarze dla pojedynczej ścieżki OPENROWSET lub lokalizacji tabeli zewnętrznej.
@@ -148,17 +149,17 @@ Jeśli to możliwe, można przygotować pliki w celu uzyskania lepszej wydajnoś
 
 ### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Używanie funkcji FileInfo i FilePath do określonych partycji
 
-Dane często są zorganizowane w partycjach. Można wydać instrukcję SQL na żądanie, aby wykonywać zapytania dotyczące określonych folderów i plików. Spowoduje to zmniejszenie liczby plików i ilości danych, które zapytanie musi odczytać i przetworzyć. 
+Dane często są zorganizowane w partycjach. Można nakazać bezserwerową pulę SQL, aby wykonywać zapytania dotyczące określonych folderów i plików. Spowoduje to zmniejszenie liczby plików i ilości danych, które zapytanie musi odczytać i przetworzyć. 
 
 W związku z tym osiągniesz lepszą wydajność. Aby uzyskać więcej informacji, zapoznaj się z funkcjami [filename](query-data-storage.md#filename-function) i [FilePath](query-data-storage.md#filepath-function) i przykładami dotyczącymi [zapytań określonych plików](query-specific-files.md).
 
 Jeśli dane w magazynie nie są partycjonowane, rozważ ich partycjonowanie, aby można było używać tych funkcji do optymalizowania zapytań przeznaczonych dla tych plików.
 
-Podczas [wykonywania zapytania dotyczącego Apache Spark partycjonowania dla tabel zewnętrznych platformy Azure Synapse](develop-storage-files-spark-tables.md) z bazy danych SQL na żądanie, zapytanie będzie automatycznie kierować tylko pliki, które są zbędne.
+Podczas [wykonywania zapytania o Apache Spark partycjonowane dla tabel zewnętrznych platformy Azure Synapse](develop-storage-files-spark-tables.md) z puli SQL bezserwerowej, zapytanie będzie automatycznie kierować tylko pliki, które są zbędne.
 
 ### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Korzystanie z CETAS w celu zwiększenia wydajności zapytań i sprzężeń
 
-[CETAS](develop-tables-cetas.md) to jedna z najważniejszych funkcji dostępnych w programie SQL na żądanie. CETAS to równoległa operacja, która tworzy metadane tabeli zewnętrznej i eksportuje wynik zapytania SELECT do zestawu plików na koncie magazynu.
+[CETAS](develop-tables-cetas.md) to jedna z najważniejszych funkcji dostępnych w puli SQL bez użycia serwera. CETAS to równoległa operacja, która tworzy metadane tabeli zewnętrznej i eksportuje wynik zapytania SELECT do zestawu plików na koncie magazynu.
 
 Można użyć CETAS do przechowywania często używanych części zapytań, takich jak sprzężone tabele odwołań, do nowego zestawu plików. Później można przyłączyć się do tej pojedynczej tabeli zewnętrznej zamiast powtarzających się wspólnych sprzężeń w wielu zapytaniach. 
 
@@ -166,7 +167,7 @@ Ponieważ CETAS generuje pliki Parquet, statystyki zostaną automatycznie utworz
 
 ### <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, użyj funkcji **wyszukiwania dokumentu** w lewej części tej strony, aby przeszukać wszystkie dokumenty w puli SQL.  [Microsoft Q&stronie pytania dla puli SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) jest miejscem, w którym można zadawać pytania do innych użytkowników i grupy produktów w puli SQL.  
+Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, użyj funkcji **wyszukiwania dokumentu** w lewej części tej strony, aby przeszukać wszystkie dokumenty w puli SQL.  [Firma Microsoft&pytań i odpowiedzi na pytania dotyczące usługi Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) to miejsce, w którym można zadawać pytania innym użytkownikom i grupom produktów usługi Azure Synapse Analytics. Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  
 
-Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  Jeśli wolisz zadać pytania na Stack Overflow, masz również [Forum usługi Azure SQL pool Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw).
+Jeśli wolisz zadać pytania na Stack Overflow, oferujemy również [Forum usługi Azure Synapse Analytics Stack overflowe](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

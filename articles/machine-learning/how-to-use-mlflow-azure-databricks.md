@@ -11,18 +11,18 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c6bcf6f228049c4f5c4d1cd0d22cb69fb9677c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e72784dbdcf08d672a8498609ca3a5bbd11e632d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347034"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319024"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Śledź eksperymenty Azure Databricks ML z MLflow i Azure Machine Learning (wersja zapoznawcza)
 
 W tym artykule dowiesz się, jak włączyć śledzenie identyfikatorów URI i interfejsu API rejestrowania MLflow, wspólnie znane jako [śledzenie MLflow](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), aby połączyć Azure DATABRICKS (ADB) eksperymenty, MLflow i Azure Machine Learning.
 
-[MLflow](https://www.mlflow.org) to biblioteka typu open source służąca do zarządzania cyklem życia eksperymentów uczenia maszynowego. Śledzenie MLFlow to składnik MLflow, który rejestruje i śledzi wskaźniki uruchamiania szkoleniowe i artefakty modelu. Dowiedz się więcej na temat [Azure Databricks i MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/). 
+[MLflow](https://www.mlflow.org) to biblioteka typu open source służąca do zarządzania cyklem życia eksperymentów uczenia maszynowego. Śledzenie MLFlow to składnik MLflow, który rejestruje i śledzi wskaźniki uruchamiania szkoleniowe i artefakty modelu. Dowiedz się więcej na temat [Azure Databricks i MLflow](/azure/databricks/applications/mlflow/). 
 
 Zobacz [Śledzenie przebiegów eksperymentu i tworzenie punktów końcowych za pomocą MLflow i Azure Machine Learning,](how-to-use-mlflow.md) Aby uzyskać dodatkową integrację z funkcjami MLflow i Azure Machine Learning.
 
@@ -35,8 +35,8 @@ Zobacz [Śledzenie przebiegów eksperymentu i tworzenie punktów końcowych za p
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Zainstaluj pakiet `azureml-mlflow`. 
-    * Ten pakiet automatycznie łączy `azureml-core` [zestaw SDK języka Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), który zapewnia łączność z MLflow w celu uzyskania dostępu do obszaru roboczego.
-* [Azure Databricks obszar roboczy i klaster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+    * Ten pakiet automatycznie łączy `azureml-core` [zestaw SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), który zapewnia łączność z MLflow w celu uzyskania dostępu do obszaru roboczego.
+* [Azure Databricks obszar roboczy i klaster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 * [Utwórz obszar roboczy usługi Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="track-azure-databricks-runs"></a>Śledź uruchomienia Azure Databricks
@@ -156,9 +156,9 @@ Po przeszkoleniu modelu można rejestrować i rejestrować modele na serwerze ś
 
 Serwer śledzenia wewnętrznej bazy danych jest domyślnie obszarem roboczym Azure Databricks; Jeśli nie wybrano, aby [śledzenie MLflow było śledzone tylko w obszarze roboczym Azure Machine Learning](#set-mlflow-tracking-to-only-track-in-your-azure-machine-learning-workspace), to serwer śledzenia zaplecza jest Azure Machine Learningm obszarem roboczym.   
 
-* **Jeśli zarejestrowany model o nazwie nie istnieje**, Metoda rejestruje nowy model, tworzy wersję 1 i zwraca obiekt ModelVersion MLflow. 
+* **Jeśli zarejestrowany model o nazwie nie istnieje** , Metoda rejestruje nowy model, tworzy wersję 1 i zwraca obiekt ModelVersion MLflow. 
 
-* **Jeśli zarejestrowany model o tej nazwie już istnieje**, metoda tworzy nową wersję modelu i zwraca obiekt Version. 
+* **Jeśli zarejestrowany model o tej nazwie już istnieje** , metoda tworzy nową wersję modelu i zwraca obiekt Version. 
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model", 
@@ -234,4 +234,4 @@ Jeśli nie planujesz używania zarejestrowanych metryk i artefaktów w obszarze 
 
 * [Zarządzaj modelami](concept-model-management-and-deployment.md).
 * [Śledź uruchomienia eksperymentów i twórz punkty końcowe z MLflow i Azure Machine Learning](how-to-use-mlflow.md). 
-* Dowiedz się więcej na temat [Azure Databricks i MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/).
+* Dowiedz się więcej na temat [Azure Databricks i MLflow](/azure/databricks/applications/mlflow/).

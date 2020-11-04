@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: ce8ff8bedc6f6e4f99a940bbdb26bd3fafc930d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b708d85e94782ea264432ae3780b2b1f0d240396
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296777"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320816"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 
 
-W tym artykule dowiesz się, jak skonfigurować i przeszkolić model regresji do prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego AutoML [Azure Machine Learning w zestawie SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
+W tym artykule dowiesz się, jak skonfigurować i przeszkolić model regresji do prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego AutoML [Azure Machine Learning w zestawie SDK języka Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
 W tym celu wykonasz następujące czynności: 
 
@@ -120,7 +120,7 @@ Dowiedz się więcej o tym, jak AutoML stosuje krzyżowe sprawdzanie poprawnośc
 
 ## <a name="configure-experiment"></a>Konfigurowanie eksperymentu
 
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)Obiekt definiuje ustawienia i dane niezbędne do automatycznego zadania uczenia maszynowego. Konfiguracja dla modelu prognozowania jest podobna do konfiguracji standardowego modelu regresji, ale niektóre modele, opcje konfiguracji i cechowania czynności istnieją w odniesieniu do danych szeregów czasowych. 
+[`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py)Obiekt definiuje ustawienia i dane niezbędne do automatycznego zadania uczenia maszynowego. Konfiguracja dla modelu prognozowania jest podobna do konfiguracji standardowego modelu regresji, ale niektóre modele, opcje konfiguracji i cechowania czynności istnieją w odniesieniu do danych szeregów czasowych. 
 
 ### <a name="supported-models"></a>Obsługiwane modele
 Automatyczne Uczenie maszynowe automatycznie próbuje różne modele i algorytmy w ramach procesu tworzenia i dostrajania modelu. Jako użytkownik nie ma potrzeby określania algorytmu. Do prognozowania eksperymentów zarówno natywna seria czasowa, jak i modele uczenia głębokiego są częścią systemu rekomendacji. W poniższej tabeli zestawiono ten podzbiór modeli. 
@@ -138,7 +138,7 @@ ForecastTCN (wersja zapoznawcza)| ForecastTCN to model sieci neuronowych zaproje
 
 Podobnie jak w przypadku problemu z regresją, definiuje się standardowe parametry szkolenia, takie jak typ zadania, liczba iteracji, dane szkoleniowe i liczba operacji krzyżowych. W przypadku zadań prognozowania należy ustawić dodatkowe parametry, które mają wpływ na eksperyment. 
 
-Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zobacz [dokumentację referencyjną](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) dla wzorców projektu składni.
+Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zobacz [dokumentację referencyjną](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) dla wzorców projektu składni.
 
 | &nbsp;Nazwa parametru | Opis | Wymagane |
 |-------|-------|-------|
@@ -149,10 +149,11 @@ Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zobacz [doku
 |`target_lags`|Liczba wierszy do rozłożeniu wartości docelowych na podstawie częstotliwości danych. Opóźnienie jest reprezentowane jako lista lub jedna liczba całkowita. Zwłoki należy używać, gdy relacja między zmiennymi niezależnymi i zmienną zależną nie jest zgodna ani nie jest domyślnie skorelowana. ||
 |`feature_lags`| Funkcja zwłoki zostanie automatycznie podjęta przy użyciu zautomatyzowanej ML `target_lags` , gdy są ustawione i `feature_lags` ma ustawioną wartość `auto` . Włączenie funkcji spowolnienia może pomóc w zwiększeniu dokładności. Funkcja spowolnienia jest domyślnie wyłączona. ||
 |`target_rolling_window_size`|*n* okresy historyczne używane do generowania prognozowanych wartości, <= rozmiar zestawu szkoleniowego. W przypadku pominięcia *n* to pełny rozmiar zestawu szkoleniowego. Określ ten parametr, jeśli chcesz wziąć pod uwagę tylko określoną ilość historii podczas uczenia modelu. Dowiedz się więcej o [agregacji przedziałów okien docelowych](#target-rolling-window-aggregation).||
+|`short_series_handling`| Umożliwia obsługę krótkich szeregów czasowych, aby uniknąć awarii podczas szkoleń z powodu niewystarczających ilości danych. Obsługa krótkich serii jest domyślnie ustawiona na wartość true.|
 
 
 Poniższy kod, 
-* Tworzy `time-series settings` obiekt w postaci słownika. 
+* Wykorzystuje `ForecastingParameters` klasę do definiowania parametrów prognozowania dla szkolenia eksperymentu
 * Ustawia `time_column_name` do `day_datetime` pola w zestawie danych. 
 * Definiuje `time_series_id_column_names` parametr do `"store"` . Zapewnia to, że dla danych są tworzone **dwie osobne grupy szeregów czasowych** . jeden dla sklepu A i B.
 * Ustawia wartość `forecast_horizon` na 50, aby przewidzieć cały zestaw testów. 
@@ -161,16 +162,18 @@ Poniższy kod,
 * Ustawia `target_lags` ustawienie zalecane automatyczne, które automatycznie wykryje tę wartość.
 
 ```python
-time_series_settings = {
-    "time_column_name": "day_datetime",
-    "time_series_id_column_names": ["store"],
-    "forecast_horizon": 50,
-    "target_lags": "auto",
-    "target_rolling_window_size": 10,
-}
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecasting_parameters = ForecastingParameters(
+    time_column_name='day_datetime', 
+    forecast_horizon=50,
+    time_series_id_column_names=["store"],
+    target_lags='auto',
+    target_rolling_window_size=10
+)
 ```
 
-`time_series_settings`Są one następnie przesyłane do obiektu standardowego `AutoMLConfig` wraz z `forecasting` typem zadania, metryką podstawową, kryteriami wyjścia i danymi szkoleniowymi. 
+`forecasting_parameters`Są one następnie przesyłane do obiektu standardowego `AutoMLConfig` wraz z `forecasting` typem zadania, metryką podstawową, kryteriami wyjścia i danymi szkoleniowymi. 
 
 ```python
 from azureml.core.workspace import Workspace
@@ -346,4 +349,3 @@ Zapoznaj się z [przykładami prognozowanych notesów](https://github.com/Azure/
 * Dowiedz się więcej [na temat interpretacji: informacje o modelu w zautomatyzowanej usłudze Machine Learning (wersja zapoznawcza)](how-to-machine-learning-interpretability-automl.md). 
 * Dowiedz się, jak uczenie wielu modeli za pomocą AutoML w [akceleratorze rozwiązań wielu modeli](https://aka.ms/many-models).
 * Postępuj zgodnie z [samouczkiem](tutorial-auto-train-models.md) , aby uzyskać kompleksowy przykład tworzenia eksperymentów przy użyciu zautomatyzowanej uczenia maszynowego.
-

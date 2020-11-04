@@ -8,28 +8,28 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287751"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321009"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Synapse Studio (wersja zapoznawcza)
 
 Ten przewodnik rozwiązywania problemów zawiera instrukcje dotyczące tego, jakie informacje należy podać podczas otwierania biletu pomocy technicznej dotyczącej problemów z łącznością sieciową. Mając odpowiednie informacje, możemy szybko rozwiązać ten problem.
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Problem z łącznością usługi SQL na żądanie (wersja zapoznawcza)
+## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>Problem z połączeniem usługi bezserwerowej puli SQL (wersja zapoznawcza)
 
 ### <a name="symptom-1"></a>Objaw 1
 
-Opcja "SQL on-demand" jest wyszarzona na liście rozwijanej "Połącz z".
+Opcja "bezserwerowa Pula SQL" jest wyszarzona na liście rozwijanej "Połącz z".
 
 ![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>Objaw 2
 
-Uruchomienie zapytania przy użyciu instrukcji "SQL on-demand" powoduje wyświetlenie komunikatu o błędzie "nie można nawiązać połączenia z serwerem".
+Uruchomienie zapytania z opcją "bezserwerowa Pula SQL" powoduje wyświetlenie komunikatu o błędzie "nie można nawiązać połączenia z serwerem".
 
 ![Objaw 2](media/troubleshooting-synapse-studio/symptom2.png)
  
@@ -45,7 +45,7 @@ Otwórz panel "informacje diagnostyczne", wybierz przycisk "Pobierz diagnostykę
 
 Aby rozpocząć rozwiązywanie problemów, ponów próbę wykonania operacji w usłudze Azure Synapse Studio.
 
-- Dla symptomu 1 Wybierz przycisk "Odśwież" z prawej strony listy rozwijanej "Użyj bazy danych" na karcie "skrypt SQL" i sprawdź, czy widzisz pozycję "SQL na żądanie".
+- W przypadku symptomu 1 Wybierz przycisk "Odśwież" z prawej strony listy rozwijanej "Użyj bazy danych" na karcie "skrypt SQL" i sprawdź, czy widzisz polecenie "bezserwerowa Pula SQL".
 - W przypadku symptomu 2 spróbuj ponownie uruchomić zapytanie, aby sprawdzić, czy zostało wykonane pomyślnie.
 
 Jeśli problem nadal istnieje, naciśnij klawisz F12 w przeglądarce, aby otworzyć okno "Narzędzia deweloperskie" (DevTools).
@@ -61,7 +61,7 @@ Znajdź element, którego kolumna URL pasuje do następującego wzorca:
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Gdzie [*A*] jest nazwą obszaru roboczego, a "-OnDemand" może mieć wartość "-sqlod", gdzie [*B*] powinna być nazwą bazy danych, taką jak "Master". Powinien istnieć co najwyżej dwa elementy o tej samej wartości adresu URL, ale różne wartości metod; Opcje i POST. Sprawdź, czy te dwa elementy mają wartość "200" lub "20x" w kolumnie Stan, gdzie "x" może być dowolną pojedynczą cyfrą.
+Gdzie [ *A* ] jest nazwą obszaru roboczego, a "-OnDemand" może mieć wartość "-sqlod", gdzie [ *B* ] powinna być nazwą bazy danych, taką jak "Master". Powinien istnieć co najwyżej dwa elementy o tej samej wartości adresu URL, ale różne wartości metod; Opcje i POST. Sprawdź, czy te dwa elementy mają wartość "200" lub "20x" w kolumnie Stan, gdzie "x" może być dowolną pojedynczą cyfrą.
 
 Jeśli jeden z nich ma coś innego niż "20x" i:
 
@@ -71,7 +71,7 @@ Jeśli jeden z nich ma coś innego niż "20x" i:
 
     - Jeśli zobaczysz ERR_NAME_NOT_RESOLVED i utworzysz obszar roboczy w ciągu 10 minut, odczekaj 10 minut, a następnie ponów próbę sprawdzenia, czy problem nadal istnieje.
     - Jeśli widzisz ERR_INTERNET_DISCONNECTED lub ERR_NETWORK_CHANGED, może to oznaczać, że połączenie z siecią komputera ma problemy. Sprawdź połączenie sieciowe i spróbuj ponownie wykonać operację.
-    - Jeśli widzisz ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR lub inne kody błędów zawierające "SSL", może to oznaczać, że konfiguracja lokalnego protokołu SSL ma problemy, lub administrator sieci zablokował dostęp do serwera SQL na żądanie. Otwórz bilet pomocy technicznej i Dołącz kod błędu w opisie.
+    - Jeśli widzisz ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR lub inne kody błędów zawierające "SSL", może to oznaczać, że konfiguracja lokalnego protokołu SSL ma problemy, lub administrator sieci zablokował dostęp do serwera puli SQL bez serwera. Otwórz bilet pomocy technicznej i Dołącz kod błędu w opisie.
     - Jeśli zobaczysz ERR_NETWORK_ACCESS_DENIED, może być konieczne skontaktowanie się z administratorem w sprawie tego, czy lokalne zasady zapory mają zablokowany dostęp do domeny *. database.windows.net, czy portu zdalnego 1443.
     - Opcjonalnie spróbuj natychmiast wykonać tę samą operację na innym komputerze i/lub w środowisku sieciowym, aby wykluczyć problem z konfiguracją sieci na komputerze.
 

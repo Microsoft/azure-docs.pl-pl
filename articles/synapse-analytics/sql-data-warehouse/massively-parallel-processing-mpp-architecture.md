@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d32aa011e9e816f97b050d43f9558af0cf82e90
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479344"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319664"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architektura usługi Azure Synapse Analytics (dawniej SQL DW)
 
@@ -25,8 +25,8 @@ Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie da
 
 - Synapse SQL: Ukończ analizę opartą na języku T-SQL
 
-  - Pula SQL (płatność za jednostek DWUd) — ogólnie dostępna
-  - SQL na żądanie (płatność za 1 TB przetworzonych) — (wersja zapoznawcza)
+  - Dedykowana Pula SQL (płatność za jednostek dwu z obsługą administracyjną) — ogólnie dostępna
+  - Bezserwerowa Pula SQL (płatność za 1 TB) — (wersja zapoznawcza)
 - Spark: głębokie zintegrowane Apache Spark (wersja zapoznawcza)
 - Integracja danych: integracja danych hybrydowych (wersja zapoznawcza)
 - Studio: ujednolicone środowisko użytkownika.  (Wersja zapoznawcza)
@@ -35,7 +35,7 @@ Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie da
 
 ## <a name="synapse-sql-architecture-components"></a>Składniki architektury SQL Synapse
 
-[Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) wykorzystuje architekturę skalowalną w poziomie do dystrybucji obliczeniowego przetwarzania danych w wielu węzłach. Jednostka skali jest abstrakcją mocy obliczeniowej, która jest znana jako [Jednostka magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md). Obliczenia są niezależne od magazynu, co umożliwia skalowanie obliczeniowe niezależnie od danych w systemie.
+[Synapse SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) wykorzystuje architekturę skalowalną w poziomie do dystrybucji obliczeniowego przetwarzania danych w wielu węzłach. Jednostka skali jest abstrakcją mocy obliczeniowej, która jest znana jako [Jednostka magazynu danych](what-is-a-data-warehouse-unit-dwu-cdwu.md). Obliczenia są niezależne od magazynu, co umożliwia skalowanie obliczeniowe niezależnie od danych w systemie.
 
 ![Architektura usługi](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
