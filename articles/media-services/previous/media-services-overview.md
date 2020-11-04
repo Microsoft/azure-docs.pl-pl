@@ -3,7 +3,7 @@ title: Omówienie usługi Azure Media Services | Microsoft Docs
 description: Microsoft Azure Media Services to oparta na chmurze rozszerzona platforma, która umożliwia deweloperom tworzenie skalowalnych aplikacji do dostarczania multimediów i zarządzania nimi. Ten artykuł zawiera omówienie Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
-ms.author: juliako
-ms.openlocfilehash: 0d896b0ce23116f1b87718f492d407ac094b9e6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: c6f889963e87d900040d1fe77031f943ab368837
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261159"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348750"
 ---
 # <a name="azure-media-services-overview"></a>Omówienie usługi Azure Media Services
 
@@ -69,7 +69,7 @@ W celu tworzenia rozwiązań Media Services można użyć następujących elemen
     * [Zestaw Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
     * [Azure Media Services dla środowiska Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Jest to wersja zestawu Node.js SDK firmy innej niż Microsoft. Jest ona opracowywana przez społeczność i aktualnie nie obsługuje 100% interfejsów API usług AMS.)
 * Istniejące narzędzia:
-    * [Azure Portal](https://portal.azure.com/)
+    * [Witryna Azure Portal](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) to aplikacja Winforms/C# dla systemu Windows)
 
 > [!NOTE]
@@ -78,7 +78,7 @@ W celu tworzenia rozwiązań Media Services można użyć następujących elemen
 
 ## <a name="code-samples"></a>Przykłady kodu
 
-Wiele przykładów kodu możesz znaleźć w galerii **Przykłady kodu platformy Azure**: [Przykłady kodu usługi Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Wiele przykładów kodu możesz znaleźć w galerii **Przykłady kodu platformy Azure** : [Przykłady kodu usługi Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 ## <a name="concepts"></a>Pojęcia
 
@@ -86,13 +86,12 @@ Pojęcia związane z usługą Azure Media Services zostały przedstawione w tema
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>Obsługiwane scenariusze i dostępność usługi Media Services w centrach danych
 
-Aby uzyskać szczegółowe informacje, zobacz temat [Scenariusze oraz dostępność funkcji i usług AMS w centrach danych](scenarios-and-availability.md).
+Aby uzyskać więcej informacji o typowych scenariuszach platformy Azure, zobacz [scenariusze AMS](scenarios-and-availability.md).
+Informacje o dostępności regionalnej można znaleźć w temacie [dostępność usługi Media Service](availability-regions-v-2.md).
 
 ## <a name="service-level-agreement-sla"></a>Umowa dotycząca poziomu usług (SLA)
 
 Aby uzyskać więcej informacji, zobacz temat [Umowy dotyczące poziomu usług platformy Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
-
-Aby uzyskać informacje na temat dostępności w centrach danych, zobacz sekcję [Dostępność](scenarios-and-availability.md#availability).
 
 ## <a name="support"></a>Pomoc techniczna
 

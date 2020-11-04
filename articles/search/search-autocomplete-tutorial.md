@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098454"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348614"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich
 
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Funkcja Sugeruj
 
-Jeśli używasz języka C# i aplikacji MVC, plik **HomeController.cs** w katalogu controllers jest miejscem, w którym można utworzyć klasę sugerowanych wyników. W programie .NET Funkcja Sugeruj jest oparta na [metodzie DocumentsOperationsExtensions. sugerował](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Aby uzyskać więcej informacji na temat zestawu .NET SDK, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](./search-howto-dotnet-sdk.md).
+Jeśli używasz języka C# i aplikacji MVC, plik **HomeController.cs** w katalogu controllers jest miejscem, w którym można utworzyć klasę sugerowanych wyników. W programie .NET Funkcja Sugeruj jest oparta na [metodzie DocumentsOperationsExtensions. sugerował](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Aby uzyskać więcej informacji na temat zestawu .NET SDK, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](search-howto-dotnet-sdk.md).
 
 `InitSearch`Metoda tworzy uwierzytelnionego klienta indeksu http w usłudze Azure wyszukiwanie poznawcze. Właściwości klasy [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) określają, które pola są przeszukiwane i zwracane w wynikach, liczbę dopasowań oraz czy użyto dopasowania rozmytego. 
 
@@ -181,7 +181,7 @@ Funkcja Suggest przyjmuje dwa parametry, które określają, czy są zwracane wy
 
 ## <a name="autocomplete"></a>Autouzupełnianie
 
-Do tej pory kod środowiska użytkownika wyszukiwania został wyśrodkowany na sugestii. Następny blok kodu przedstawia Autouzupełnianie przy użyciu funkcji Autouzupełnianie interfejsu użytkownika XDSoft jQuery, przekazując żądanie do usługi Azure Wyszukiwanie poznawcze Autouzupełnianie. Podobnie jak w przypadku sugestii, w aplikacji języka C# kod, który obsługuje interakcję użytkownika, znajduje się w **indeksie. cshtml** .
+Do tej pory kod środowiska użytkownika wyszukiwania został wyśrodkowany na sugestii. Następny blok kodu przedstawia Autouzupełnianie przy użyciu funkcji Autouzupełnianie interfejsu użytkownika XDSoft jQuery, przekazując żądanie do usługi Azure Wyszukiwanie poznawcze Autouzupełnianie. Podobnie jak w przypadku sugestii, w aplikacji języka C# kod, który obsługuje interakcję użytkownika, znajduje się w **indeksie. cshtml**.
 
 ```javascript
 $(function () {
@@ -253,4 +253,3 @@ Skorzystaj z tych linków, aby uzyskać szczegółowe instrukcje lub kod pokazuj
 
 + [Samouczek: Tworzenie pierwszej aplikacji w języku C# (Lekcja 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [Przykładowy kod w języku C#: Azure-Search-dotnet-Samples/Create-First-App/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# i JavaScript za pomocą przykładowego kodu REST](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 189fa12b1fc11e79ab64231a7ecd453113b8771a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336014"
+ms.locfileid: "93348920"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Rozwiązywanie problemów z udostępnionymi galeriami obrazów na platformie Azure
 
@@ -223,8 +223,8 @@ Jeśli napotkasz problemy podczas wykonywania jakichkolwiek operacji na galeriac
 **Przyczyna** : Identyfikator zasobu zestawu szyfrowania dysków użyty w obrazie dysku danych używa nieprawidłowego formatu.  
 **Obejście** : Upewnij się, że identyfikator zasobu ustawiony na dysk jest zgodny z formatem/subscriptions/<Identyfikator subskrypcji \> /ResourceGroups/<ResourceGroupName \> /providers/Microsoft.COMPUTE/<diskEncryptionSetName \> .
 
-*Wartość parametru galleryArtifactVersion. Properties. publishingProfile. targetRegions. Encryption. osDiskImage. diskEncryptionSetId jest nieprawidłowa.* 
- **Przyczyna** : Identyfikator zasobu zestawu szyfrowania dysku użyty w obrazie dysku systemu operacyjnego ma nieprawidłowy format  
+*Wartość parametru galleryArtifactVersion. Properties. publishingProfile. targetRegions. Encryption. osDiskImage. diskEncryptionSetId jest nieprawidłowa.*  
+**Przyczyna** : Identyfikator zasobu zestawu szyfrowania dysku użyty w obrazie dysku systemu operacyjnego ma nieprawidłowy format  
 **Obejście** : Upewnij się, że identyfikator zasobu ustawiony na dysk jest zgodny z formatem/subscriptions/<Identyfikator subskrypcji \> /ResourceGroups/<ResourceGroupName \> /providers/Microsoft.COMPUTE/<diskEncryptionSetName \> .
 
 *Nie można określić nowej jednostki LUN szyfrowania obrazu dysku danych [numer <\> ] z ustawionym szyfrowaniem dysków w regionie [<region \> ] dla żądania wersji obrazu galerii aktualizacji. Aby zaktualizować tę wersję, Usuń nową jednostkę LUN. Jeśli trzeba zmienić ustawienia szyfrowania obrazu dysku danych, należy utworzyć nową wersję obrazu galerii z prawidłowymi ustawieniami.*  

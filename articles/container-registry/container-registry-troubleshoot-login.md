@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z logowaniem do rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas logowania do usługi Azure Container Registry
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148443"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348903"
 ---
 # <a name="troubleshoot-registry-login"></a>Rozwiązywanie problemów z logowaniem do rejestru
 
@@ -77,10 +77,11 @@ Powiązane linki:
 Sprawdź poprawność poświadczeń używanych w danym scenariuszu lub przewidzianych przez właściciela rejestru. Niektóre możliwe problemy:
 
 * W przypadku używania jednostki usługi Active Directory upewnij się, że używasz poprawnych poświadczeń w dzierżawie Active Directory:
-  * Nazwa użytkownika — identyfikator aplikacji głównej usługi (nazywany także *identyfikatorem klienta*)
-  * Hasło — hasło główne usługi (nazywane także *kluczem tajnym klienta*)
+  * Nazwa użytkownika — identyfikator aplikacji głównej usługi (nazywany także *identyfikatorem klienta* )
+  * Hasło — hasło główne usługi (nazywane także *kluczem tajnym klienta* )
 * W przypadku korzystania z usługi platformy Azure, takiej jak Azure Kubernetes Service lub Azure DevOps w celu uzyskania dostępu do rejestru, Potwierdź konfigurację rejestru dla usługi.
 * W przypadku uruchomienia `az acr login` z `--expose-token` opcją, która umożliwia logowanie w rejestrze bez użycia demona Docker, należy się upewnić, że uwierzytelniasz się przy użyciu nazwy użytkownika `00000000-0000-0000-0000-000000000000` .
+* Jeśli rejestr jest skonfigurowany do [anonimowego dostępu ściągania](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), istniejące poświadczenia platformy Docker przechowywane z poprzedniego logowania platformy Docker mogą uniemożliwić dostęp anonimowy. Uruchom `docker logout` przed podjęciem próby anonimowej operacji ściągania w rejestrze.
 
 Powiązane linki:
 

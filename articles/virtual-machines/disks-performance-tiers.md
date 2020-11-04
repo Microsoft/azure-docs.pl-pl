@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359683"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348699"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Warstwy wydajności dla dysków zarządzanych (wersja zapoznawcza)
 
@@ -55,10 +55,6 @@ Aby uzyskać informacje dotyczące rozliczeń, zobacz [Cennik dysku zarządzaneg
 - Aby można było zmienić warstwę dysku, należy cofnąć przydział maszyny wirtualnej lub odłączyć dysk od uruchomionej maszyny wirtualnej.
 - Użycie warstw wydajności P60, P70 i P80 jest ograniczone do dysków 4 096 GiB lub wyższych.
 - Warstwę wydajności dysku można zmienić na starszą wersję co 24 godziny.
-
-## <a name="regional-availability"></a>Dostępność regionalna
-
-Możliwość dostosowania warstwy wydajności dysku zarządzanego jest obecnie dostępna tylko w dysków SSD Premium w regionach Wschodnie stany USA 2, Południowo-środkowe stany USA, zachodnio-środkowe stany USA, Australia Południowo-Wschodnia.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Utwórz pusty dysk danych o warstwie wyższej niż warstwa bazowa
 

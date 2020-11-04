@@ -3,25 +3,25 @@ title: Jak utworzyć definicje zasad konfiguracji gościa na podstawie zasady gr
 description: Dowiedz się, jak skonwertować zasady grupy z linii bazowej zabezpieczeń systemu Windows Server 2019 do definicji zasad.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893377"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348648"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Jak utworzyć definicje zasad konfiguracji gościa na podstawie zasady grupy linii bazowej dla systemu Windows
 
 Przed utworzeniem niestandardowych definicji zasad warto przeczytać informacje dotyczące omówienia koncepcji w [Azure Policy konfiguracji gościa](../concepts/guest-configuration.md). Aby dowiedzieć się więcej o tworzeniu niestandardowych definicji zasad konfiguracji gościa dla systemu Linux, zobacz [jak utworzyć zasady konfiguracji gościa dla systemu Linux](./guest-configuration-create-linux.md). Aby dowiedzieć się więcej na temat tworzenia niestandardowych definicji zasad konfiguracji gościa dla systemu Windows, zobacz [jak utworzyć zasady konfiguracji gościa dla systemu Windows](./guest-configuration-create.md).
 
-Podczas przeprowadzania inspekcji systemu Windows konfiguracja gościa używa modułu zasobów platformy [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) do utworzenia pliku konfiguracji. Konfiguracja platformy DSC definiuje stan, w jakim powinna być maszyna. Jeśli Ocena konfiguracji nie jest **zgodna**, zostanie wyzwolony efekt zasad *auditIfNotExists* .
+Podczas przeprowadzania inspekcji systemu Windows konfiguracja gościa używa modułu zasobów platformy [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) do utworzenia pliku konfiguracji. Konfiguracja platformy DSC definiuje stan, w jakim powinna być maszyna. Jeśli Ocena konfiguracji nie jest **zgodna** , zostanie wyzwolony efekt zasad *auditIfNotExists* .
 [Azure Policy konfiguracja gościa](../concepts/guest-configuration.md) tylko inspekcji ustawień wewnątrz maszyn.
 
 > [!IMPORTANT]
-> Niestandardowe definicje zasad z konfiguracją gościa są funkcją w wersji zapoznawczej.
->
 > Do przeprowadzania inspekcji na maszynach wirtualnych platformy Azure jest wymagane rozszerzenie konfiguracji gościa. Aby wdrożyć rozszerzenie na dużą skalę na wszystkich maszynach z systemem Windows, przypisz następujące definicje zasad:
 > - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> 
+> Nie używaj wpisów tajnych ani informacji poufnych w niestandardowych pakietach zawartości.
 
 Społeczność DSC opublikowała [moduł BaselineManagement](https://github.com/microsoft/BaselineManagement) w celu przekonwertowania wyeksportowanych szablonów zasady grupy w formacie DSC. Wraz z poleceniem cmdlet GuestConfiguration moduł BaselineManagement tworzy Azure Policy pakiet konfiguracji gościa dla systemu Windows z zawartości zasady grupy. Aby uzyskać szczegółowe informacje na temat korzystania z modułu BaselineManagement, zobacz artykuł [Szybki Start: konwertowanie zasady grupy na DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
@@ -29,7 +29,7 @@ W tym przewodniku omówiono proces tworzenia Azure Policy pakietu konfiguracji G
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Pobierz linię bazową zabezpieczeń systemu Windows Server 2019 i zainstaluj powiązane moduły programu PowerShell
 
-Aby zainstalować **DSC**, **GuestConfiguration**, **Zarządzanie punktami odniesienia**i powiązane moduły platformy Azure w programie PowerShell:
+Aby zainstalować **DSC** , **GuestConfiguration** , **Zarządzanie punktami odniesienia** i powiązane moduły platformy Azure w programie PowerShell:
 
 1. W wierszu polecenia programu PowerShell uruchom następujące polecenie:
 
@@ -87,78 +87,12 @@ Następnie Konwertujemy pobraną linię bazową serwera 2019 na pakiet konfigura
 
 ## <a name="create-azure-policy-guest-configuration"></a>Utwórz konfigurację Azure Policy gościa
 
-Następnym krokiem jest opublikowanie pliku na platformie Azure Blob Storage. 
-
-1. Poniższy skrypt zawiera funkcję, której można użyć do zautomatyzowania tego zadania. Należy pamiętać, że polecenia używane w `publish` funkcji wymagają `Az.Storage` modułu.
+1. Następnym krokiem jest opublikowanie pliku na platformie Azure Blob Storage. Polecenie `Publish-GuestConfigurationPackage` wymaga `Az.Storage` modułu.
 
    ```azurepowershell-interactive
-    function Publish-Configuration {
-        param(
-        [Parameter(Mandatory=$true)]
-        $resourceGroup,
-        [Parameter(Mandatory=$true)]
-        $storageAccountName,
-        [Parameter(Mandatory=$true)]
-        $storageContainerName,
-        [Parameter(Mandatory=$true)]
-        $filePath,
-        [Parameter(Mandatory=$true)]
-        $blobName
-        )
-
-        # Get Storage Context
-        $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-            -Name $storageAccountName | `
-            ForEach-Object { $_.Context }
-
-        # Upload file
-        $Blob = Set-AzStorageBlobContent -Context $Context `
-            -Container $storageContainerName `
-            -File $filePath `
-            -Blob $blobName `
-            -Force
-
-        # Get url with SAS token
-        $StartTime = (Get-Date)
-        $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-        $SAS = New-AzStorageBlobSASToken -Context $Context `
-            -Container $storageContainerName `
-            -Blob $blobName `
-            -StartTime $StartTime `
-            -ExpiryTime $ExpiryTime `
-            -Permission rl `
-            -FullUri
-
-        # Output
-        return $SAS
-    }
+   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
    ```
 
-1. Utwórz parametry, aby zdefiniować unikatową grupę zasobów, konto magazynu i kontener. 
-   
-   ```azurepowershell-interactive
-    # Replace the $resourceGroup, $storageAccount, and $storageContainer values below.
-    $resourceGroup = 'rfc_customguestconfig'
-    $storageAccount = 'guestconfiguration'
-    $storageContainer = 'content'
-    $path = 'c:\git\policyfiles\Server2019Baseline\Server2019Baseline.zip'
-    $blob = 'Server2019Baseline.zip' 
-    ```
-
-1. Użyj funkcji publikowania z przypisanymi parametrami, aby opublikować pakiet konfiguracyjny gościa w Blob Storage publicznej.
-
-
-   ```azurepowershell-interactive
-   $PublishConfigurationSplat = @{
-       resourceGroup = $resourceGroup
-       storageAccountName = $storageAccount
-       storageContainerName = $storageContainer
-       filePath = $path
-       blobName = $blob
-       FullUri = $true
-   }
-   $uri = Publish-Configuration @PublishConfigurationSplat
-    ```
 1. Po utworzeniu i przekazaniu niestandardowego pakietu zasad konfiguracji gościa Utwórz definicję zasad konfiguracji gościa. Użyj `New-GuestConfigurationPolicy` polecenia cmdlet, aby utworzyć konfigurację gościa.
 
    ```azurepowershell-interactive

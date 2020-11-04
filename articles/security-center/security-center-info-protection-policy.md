@@ -13,23 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: aa3492cb67a4ccd1c09a1f1cb55ddc4f2e00953d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0a487f778693e87e680033edd0d80c55d1a85f66
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318557"
+ms.locfileid: "93348631"
 ---
 # <a name="sql-information-protection-policy-in-azure-security-center"></a>Zasady dotyczące programu SQL Information Protection w Azure Security Center
  
-[Funkcja odnajdywania i klasyfikowania danych](../azure-sql/database/data-discovery-and-classification-overview.md) w usłudze SQL Information Protection jest wbudowana w [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), [wystąpienie zarządzane usługi Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)i [usługa Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Zapewnia zaawansowane funkcje odnajdywania, klasyfikowania, etykietowania i raportowania poufnych danych w bazach danych.
+[Mechanizm odnajdywania i klasyfikowania danych](../azure-sql/database/data-discovery-and-classification-overview.md) usługi SQL Information Protection zapewnia zaawansowane funkcje odnajdywania, klasyfikowania, etykietowania i raportowania poufnych danych w bazach danych. Jest ona wbudowana w [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), [wystąpienia zarządzanego Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)i [usługi Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
-Mechanizm klasyfikacji opiera się na dwóch głównych konstrukcjach, które składają się na taksonomię klasyfikacji:
+Mechanizm klasyfikacji jest oparty na następujących dwóch elementach:
 
-- **Etykiety** — główne atrybuty klasyfikacji używane do definiowania poziomu czułości danych przechowywanych w kolumnie. 
-- **Typy informacji** — zapewnia dodatkowy poziom szczegółowości dla typu danych przechowywanych w kolumnie.
+- **Etykiety** — główne atrybuty klasyfikacji używane do definiowania *poziomu czułości danych* przechowywanych w kolumnie. 
+- **Typy informacji** — zapewnia dodatkowy poziom szczegółowości dla *typu danych* przechowywanych w kolumnie.
 
 Opcje zasad usługi Information Protection w Security Center udostępniają wstępnie zdefiniowany zestaw etykiet i typów informacji, które są używane jako wartości domyślne dla aparatu klasyfikacji. Zasady można dostosować zgodnie z potrzebami organizacji, zgodnie z poniższym opisem.
+
+> [!IMPORTANT]
+> Aby dostosować zasady ochrony informacji dla dzierżawy platformy Azure, musisz mieć uprawnienia administracyjne w głównej grupie zarządzania dzierżawcy. Dowiedz się więcej, [Aby uzyskać wgląd w całą dzierżawę Azure Security Center](security-center-management-groups.md).
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="Strona przedstawiająca zasady dotyczące programu SQL Information Protection":::
  
@@ -40,9 +43,9 @@ Opcje zasad usługi Information Protection w Security Center udostępniają wst�
 
 Istnieją trzy sposoby uzyskiwania dostępu do zasad ochrony informacji:
 
-- **(Zalecane)** Na stronie Cennik i ustawienia w Security Center.
-- Na podstawie zalecenia dotyczącego zabezpieczeń należy klasyfikować dane poufne w bazach danych SQL.
-- Na stronie odnajdywania danych usługi Azure SQL DB.
+- **(Zalecane)** Na stronie cennika i ustawienia Security Center
+- Ze względów bezpieczeństwa "dane poufne w bazach danych SQL należy klasyfikować"
+- Na stronie odnajdywania danych usługi Azure SQL DB
 
 Każda z nich jest wyświetlana na odpowiedniej karcie poniżej.
 
@@ -52,9 +55,10 @@ Każda z nich jest wyświetlana na odpowiedniej karcie poniżej.
 
 ### <a name="access-the-policy-from-security-centers-pricing-and-settings-page"></a>Uzyskiwanie dostępu do zasad na stronie cennika i ustawienia Security Center <a name="sqlip-tenant"></a>
 
-Aby dostosować zasady ochrony informacji dla dzierżawy platformy Azure, musisz mieć [uprawnienia administracyjne w głównej grupie zarządzania dzierżawcy](security-center-management-groups.md). 
-
 Na stronie **cennika i ustawienia** usługi Security Center wybierz pozycję **SQL Information Protection**.
+
+> [!NOTE]
+> Ta opcja jest wyświetlana tylko dla użytkowników z uprawnieniami na poziomie dzierżawy. 
 
 :::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Uzyskiwanie dostępu do zasad usługi SQL Information Protection ze strony cen i ustawień Azure Security Center":::
 
@@ -70,9 +74,9 @@ Użyj zalecenia Security Center, "poufne dane w bazach danych SQL powinny być s
 
     :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Znajdowanie zalecenia zapewniającego dostęp do zasad ochrony informacji SQL":::
 
-1. Na stronie Szczegóły zalecenia wybierz odpowiednią bazę danych z kart **kondycja** lub **zła kondycja** .
+1. Na stronie Szczegóły zalecenia wybierz bazę danych z kart **kondycja** lub **zła kondycja** .
 
-1. Zostanie otwarta strona **klasyfikacji & odnajdywania danych** . Wybierz pozycję **Konfiguruj**. 
+1. Zostanie otwarta strona **klasyfikacji & odnajdywania danych** . Wybierz pozycję **Konfiguruj**.
 
     :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-security-center-recommendation.png" alt-text="Otwieranie zasad usługi SQL Information Protection z odpowiedniego zalecenia w Azure Security Center":::
 
@@ -103,14 +107,21 @@ Aby zarządzać typami informacji i je dostosowywać:
 
     :::image type="content" source="./media/security-center-info-protection-policy/manage-types.png" alt-text="Zarządzanie typami informacji w ramach zasad ochrony informacji":::
 
-1. Aby dodać nowy **Typ informacji** , wybierz opcję **Utwórz typ informacji** w górnym menu. Można skonfigurować nazwę, opis i ciągi wzorców wyszukiwania dla **typu informacji**. Ciągi wzorców wyszukiwania mogą opcjonalnie używać słów kluczowych z symbolami wieloznacznymi (za pomocą znaku "%"), który jest używany przez aparat automatycznego odnajdywania do identyfikowania poufnych danych w bazach danych na podstawie metadanych kolumn.
+1. Aby dodać nowy typ, wybierz opcję **Utwórz typ informacji**. Można skonfigurować nazwę, opis i ciągi wzorców wyszukiwania dla typu informacji. Ciągi wzorców wyszukiwania mogą opcjonalnie używać słów kluczowych z symbolami wieloznacznymi (za pomocą znaku "%"), który jest używany przez aparat automatycznego odnajdywania do identyfikowania poufnych danych w bazach danych na podstawie metadanych kolumn.
  
     :::image type="content" source="./media/security-center-info-protection-policy/configure-new-type.png" alt-text="Skonfiguruj nowy typ informacji dla zasad usługi Information Protection":::
 
-1. Możesz również skonfigurować wbudowane **typy informacji** przez dodanie dodatkowych ciągów wzorca wyszukiwania, wyłączenie niektórych istniejących ciągów lub zmianę opisu. Nie można usunąć wbudowanych **typów informacji** ani edytować ich nazw. 
+1. Możesz również zmodyfikować wbudowane typy przez dodanie dodatkowych ciągów wzorca wyszukiwania, wyłączenie niektórych istniejących ciągów lub zmianę opisu. 
+
+    > [!TIP]
+    > Nie można usunąć typów wbudowanych ani zmienić ich nazw. 
+
 1. **Typy informacji** są wymienione w kolejności rosnącej klasyfikacji odnajdywania, co oznacza, że typy wyższe na liście będą podejmować próby dopasowania najpierw. Aby zmienić klasyfikację między typami informacji, przeciągnij typy do prawego miejsca w tabeli lub użyj przycisków **Przenieś w górę** i **Przenieś w dół** , aby zmienić kolejność. 
+
 1. Po zakończeniu wybierz **przycisk OK** .
+
 1. Po zakończeniu zarządzania typami informacji Pamiętaj o skojarzeniu odpowiednich typów z odpowiednimi etykietami, klikając opcję **Konfiguruj** dla określonej etykiety i dodając lub usuwając typy informacji zgodnie z potrzebami.
+
 1. Aby zastosować zmiany, wybierz pozycję **Zapisz** na stronie **etykiet** głównych.
  
 
@@ -132,9 +143,9 @@ Możesz pobrać plik JSON ze zdefiniowanymi etykietami i typami informacji, edyt
 
 ## <a name="next-steps"></a>Następne kroki
  
-Ten artykuł zawiera informacje na temat definiowania zasad Information Protection SQL w programie Azure Security Center. Aby dowiedzieć się więcej o używaniu programu SQL Information Protection do klasyfikowania i ochrony poufnych danych w bazach danych SQL, zobacz [Azure SQL Database odnajdywania i klasyfikowania danych](../azure-sql/database/data-discovery-and-classification-overview.md). 
+W tym artykule przedstawiono informacje dotyczące definiowania zasad ochrony informacji w programie Azure Security Center. Aby dowiedzieć się więcej o używaniu programu SQL Information Protection do klasyfikowania i ochrony poufnych danych w bazach danych SQL, zobacz [Azure SQL Database odnajdywania i klasyfikowania danych](../azure-sql/database/data-discovery-and-classification-overview.md).
 
-Aby uzyskać więcej informacji na temat zasad zabezpieczeń i zabezpieczeń danych w Azure Security Center, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na temat zasad zabezpieczeń i zabezpieczeń danych w Security Center, zobacz następujące artykuły:
  
 - [Ustawianie zasad zabezpieczeń w Azure Security Center](tutorial-security-policy.md): informacje na temat konfigurowania zasad zabezpieczeń dla subskrypcji i grup zasobów platformy Azure
 - [Azure Security Center zabezpieczenia danych](security-center-data-security.md): Dowiedz się, jak Security Center zarządza danymi i zabezpiecza je

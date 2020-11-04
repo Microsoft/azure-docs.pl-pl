@@ -1,7 +1,7 @@
 ---
 title: Wpisy tajne uwierzytelniania w szkoleniu
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak przekazywać wpisy tajne do przebiegów szkoleniowych w sposób bezpieczny przy użyciu obszaru roboczego Azure Key Vault fo ryour.
+description: Dowiedz się, jak przekazywać wpisy tajne do przebiegów szkoleniowych w sposób bezpieczny przy użyciu Azure Key Vault dla obszaru roboczego.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 60459579b277684355eaf5cb92ba2f75fb05cd28
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ce47041d888b8a7786f0f87f54e725919638e7f7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305421"
+ms.locfileid: "93349022"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Użyj wpisów tajnych poświadczeń uwierzytelniania w Azure Machine Learningych przebiegach szkoleniowych
 

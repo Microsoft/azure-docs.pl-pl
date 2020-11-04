@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3bea474ae61ba4a0213d880934d9536d6ad71796
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1b8b95ea318dd7a82d9512908838209bc5cc2995
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131636"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349107"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 Pamięć podręczna systemu Azure dla usługi Redis zapewnia magazyn danych w pamięci oparty na oprogramowaniu [Redis](https://redis.io/) . Redis poprawia wydajność i skalowalność aplikacji, która jest wielokrotnie wykorzystywana w magazynach danych zaplecza. Jest w stanie przetwarzać duże ilości żądań aplikacji przez zachowywanie często używanych danych w pamięci serwera, które mogą być zapisywane i odczytywane szybko. Redis zapewnia krytyczne rozwiązanie do przechowywania danych o małym opóźnieniu i wysokiej przepływności dla nowoczesnych aplikacji.
@@ -35,16 +35,13 @@ Pamięć podręczna systemu Azure dla usługi Redis umożliwia zwiększenie wyda
 
 Usługa Azure cache for Redis obsługuje System OSS Redis w wersji 4. x i, jako wersja zapoznawcza, 6,0. Podjęto decyzję o pominięciu Redis 5,0 w celu przeprowadzenia najnowszej wersji. Wcześniej usługa Azure cache for Redis obsługiwała tylko jedną wersję Redis. Zostanie udostępniona nowsza wersja uaktualnienia i co najmniej jednej starszej stabilnej wersji. Możesz [wybrać, która wersja](cache-how-to-version.md) najlepiej sprawdza się w przypadku aplikacji.
 
-> [!NOTE]
-> Redis 6,0 jest obecnie w wersji zapoznawczej. [skontaktuj się z nami](mailto:azurecache@microsoft.com) , jeśli interesują Cię zainteresowania. Ta wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="service-tiers"></a>Warstwy usług
 Usługa Azure Cache for Redis jest dostępna w następujących warstwach:
 
 | Warstwa | Opis |
 |---|---|
-| Podstawowa | Pamięć podręczna Redis usługi OSS działa na jednej maszynie wirtualnej. Ta warstwa nie ma umowy dotyczącej poziomu usług (SLA) i doskonale nadaje się do tworzenia i testowania oraz obciążeń niekrytycznych. |
+| Podstawowy | Pamięć podręczna Redis usługi OSS działa na jednej maszynie wirtualnej. Ta warstwa nie ma umowy dotyczącej poziomu usług (SLA) i doskonale nadaje się do tworzenia i testowania oraz obciążeń niekrytycznych. |
 | Standardowa | Pamięć podręczna Redis usługi OSS uruchomiona na dwóch maszynach wirtualnych w zreplikowanej konfiguracji. |
 | Premium | Wysokiej wydajności pamięci podręczne OSS Redis. Ta warstwa oferuje wyższą przepływność, mniejsze opóźnienia, lepszą dostępność i więcej funkcji. Pamięć podręczna w warstwie Premium jest wdrażana na bardziej zaawansowanych maszynach wirtualnych w porównaniu do tych w przypadku pamięci podręcznych Basic i Standard. |
 | Enterprise | Pamięci podręczne o wysokiej wydajności obsługiwane przez oprogramowanie Redis Labs Redis Enterprise. Ta warstwa obsługuje moduły Redis, w tym RediSearch, RedisBloom i RedisTimeSeries. Dodatkowo oferuje jeszcze wyższą dostępność niż warstwa Premium. |
@@ -93,7 +90,7 @@ Warstwy przedsiębiorstwa bazują na Redis Enterprise, komercyjnej wersji Redis 
 
 ## <a name="next-steps"></a>Następne kroki
 * [Tworzenie pamięci podręcznej platformy Azure dla wystąpienia Redis](quickstart-create-redis.md)
-* [Tworzenie pamięci podręcznej warstwy przedsiębiorstwa](quickstart-create-redis-enterprise.md)
+* [Tworzenie pamięci podręcznej w warstwie Enterprise](quickstart-create-redis-enterprise.md)
 * [Korzystanie z usługi Azure cache for Redis w aplikacji sieci Web ASP.NET](cache-web-app-howto.md)
 * [Korzystanie z usługi Azure cache for Redis w programie .NET Core](cache-dotnet-core-quickstart.md)
 * [Użyj usługi Azure cache for Redis w .NET Framework](cache-dotnet-how-to-use-azure-redis-cache.md)

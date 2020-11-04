@@ -1,97 +1,129 @@
 ---
-title: Uzyskaj pomoc dotyczącą wdrażania rozwiązań VMware platformy Azure lub niepowodzeń aprowizacji
-description: Jak uzyskać potrzebne informacje z chmury prywatnej rozwiązania VMware platformy Azure, aby wysłać żądanie obsługi dla niepowodzeń wdrażania lub aprowizacji rozwiązań VMware platformy Azure.
+title: Obsługa wdrażania rozwiązań VMware platformy Azure lub niepowodzenia aprowizacji
+description: Uzyskaj informacje z chmury prywatnej rozwiązań VMware platformy Azure, aby wysłać żądanie obsługi wdrożenia rozwiązania VMware lub błędu aprowizacji.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 1f46dde895db417fd2b488a6203d5482e73d3c5e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d609774b0d3a2de7809d04e4fa0c4e3e6593590
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779496"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349124"
 ---
-# <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Uzyskaj pomoc dotyczącą wdrażania rozwiązań VMware platformy Azure lub niepowodzeń aprowizacji
+# <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Otwórz żądanie obsługi dla wdrożenia rozwiązania Azure VMware lub niepowodzenia aprowizacji
 
-Ten artykuł pomaga w rozwiązywaniu problemów z wdrażaniem rozwiązań VMware platformy Azure i inicjowaniem obsługi administracyjnej. Jeśli masz błędy w chmurze prywatnej, musisz otworzyć [żądanie obsługi](https://rc.portal.azure.com/#create/Microsoft.Support) (SR) w Azure Portal. 
+W tym artykule pokazano, jak otworzyć [żądanie obsługi](https://rc.portal.azure.com/#create/Microsoft.Support) i podać kluczowe informacje dotyczące wdrożenia rozwiązania VMware w ramach platformy Azure lub niepowodzenia aprowizacji. 
 
-Najpierw należy zebrać pewne kluczowe informacje w Azure Portal:
+W przypadku wystąpienia błędu w chmurze prywatnej należy otworzyć żądanie pomocy technicznej w Azure Portal. Aby otworzyć żądanie pomocy technicznej, najpierw Uzyskaj pewne informacje o kluczu w Azure Portal:
 
 - Identyfikator korelacji
-- Identyfikator obwodu ExpressRoute
+- Identyfikator obwodu usługi Azure ExpressRoute
+- Komunikaty o błędach
 
-## <a name="collect-the-correlation-id"></a>Zbierz identyfikator korelacji
+## <a name="get-the-correlation-id"></a>Pobierz identyfikator korelacji
  
-Identyfikator korelacji jest generowany podczas tworzenia chmury prywatnej lub dowolnego zasobu na platformie Azure. Każde wdrożenie Azure Resource Manager generuje również identyfikator korelacji. Ten identyfikator umożliwia szybsze tworzenie i rozwiązywanie SR. 
+Podczas tworzenia chmury prywatnej lub dowolnego zasobu na platformie Azure identyfikator korelacji dla zasobu jest generowany automatycznie dla zasobu. Dołącz identyfikator korelacji chmury prywatnej do żądania obsługi, aby szybciej otworzyć i rozwiązać żądanie.
+
+W Azure Portal można uzyskać identyfikator korelacji dla zasobu na dwa sposoby:
+
+* Okienko **Przegląd**
+* Dzienniki wdrożenia
  
-Oto przykład danych wyjściowych z niepowodzenia wdrożenia chmury prywatnej z wyróżnionym IDENTYFIKATORem korelacji.
+ ### <a name="get-the-correlation-id-from-the-resource-overview"></a>Pobieranie identyfikatora korelacji z przeglądu zasobów
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się.":::
+Oto przykładowe szczegóły operacji wdrożenia chmury prywatnej zakończonej niepowodzeniem z wybranym IDENTYFIKATORem korelacji:
 
-Skopiuj i Zapisz ten identyfikator korelacji, aby uwzględnić go w żądaniu obsługi. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie żądania obsługi](#create-your-support-request) na końcu tego artykułu.
+:::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Zrzut ekranu przedstawiający niepowodzenie wdrożenia chmury prywatnej z wybranym IDENTYFIKATORem korelacji.":::
 
-Jeśli błąd wystąpił w etapach weryfikacji wstępnej, nie zostanie wygenerowany identyfikator korelacji. W takim przypadku można podać informacje używane podczas tworzenia chmury prywatnej rozwiązania Azure VMware, w tym:
+Aby uzyskać dostęp do wyników wdrożenia w okienku **przeglądu** chmury prywatnej:
 
-- Lokalizacja
-- Grupa zasobów
-- Nazwa zasobu
+1. W Azure Portal wybierz swoją chmurę prywatną.
+
+1. W menu po lewej stronie wybierz pozycję **Przegląd**.
+
+Po zainicjowaniu wdrożenia wyniki wdrożenia są wyświetlane w okienku **Przegląd** chmury prywatnej.
+
+Skopiuj i Zapisz identyfikator korelacji wdrożenia chmury prywatnej do uwzględnienia w żądaniu obsługi.
+
+### <a name="get-the-correlation-id-from-the-deployment-log"></a>Pobierz identyfikator korelacji z dziennika wdrożenia
+
+Identyfikator korelacji dla niepowodzenia wdrożenia można uzyskać, przeszukując dziennik aktywności wdrożenia w Azure Portal.
+
+Aby uzyskać dostęp do dziennika wdrożenia:
+
+1. W Azure Portal Wybierz chmurę prywatną, a następnie wybierz ikonę powiadomienia.
+
+   :::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Zrzut ekranu pokazujący ikonę powiadomienia w Azure Portal.":::
+
+1. W okienku **powiadomienia** wybierz pozycję **więcej zdarzeń w dzienniku aktywności** :
+
+    :::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Zrzut ekranu pokazujący więcej zdarzeń w linku dziennika aktywności wybranym w okienku powiadomienia.":::
+
+1. Aby znaleźć nieudane wdrożenie i jego identyfikator korelacji, wyszukaj nazwę zasobu lub inne informacje, które zostały użyte podczas tworzenia zasobu. 
+
+    Poniższy przykład przedstawia wyniki wyszukiwania dla zasobu chmury prywatnej o nazwie pc03.
  
-### <a name="collect-a-summary-of-errors"></a>Zbierz podsumowanie błędów
-
-Szczegóły wszystkich błędów mogą również pomóc w rozwiązaniu problemu. Na poprzednim ekranie wybierz komunikat ostrzegawczy, aby wyświetlić podsumowanie błędów.
+    :::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Zrzut ekranu pokazujący wyniki wyszukiwania przykładowego zasobu chmury prywatnej i okienka Tworzenie lub aktualizowanie PrivateCloud.":::
  
- :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się.":::
+1. W wynikach wyszukiwania w okienku **Dziennik aktywności** wybierz nazwę operacji wdrożenia zakończonego niepowodzeniem.
 
-Ponownie skopiuj i Zapisz to podsumowanie, aby uwzględnić je w funkcji SR.
+1. W okienku **Utwórz lub zaktualizuj PrivateCloud** wybierz kartę **JSON** , a następnie wyszukaj `correlationId` w wyświetlonym dzienniku. Skopiuj `correlationId` wartość, aby dołączyć ją do żądania obsługi. 
  
-### <a name="retrieve-past-deployments"></a>Pobierz wcześniejsze wdrożenia
+## <a name="copy-error-messages"></a>Kopiuj komunikaty o błędach
 
-W przypadku wcześniejszych wdrożeń, w tym niepowodzenia, można wyszukać w dzienniku aktywności wdrożenia dostęp do programu, wybierając ikonę powiadomienia.
+Aby pomóc w rozwiązaniu problemu z wdrożeniem, Dołącz wszystkie komunikaty o błędach, które są wyświetlane w Azure Portal. Wybierz komunikat ostrzegawczy, aby wyświetlić podsumowanie błędów:
+ 
+:::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Zrzut ekranu pokazujący szczegóły błędu na karcie Podsumowanie w okienku błędy z wybraną ikoną kopiowania.":::
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się.":::
+Aby skopiować komunikat o błędzie, wybierz ikonę kopiowania. Zapisz skopiowaną wiadomość, aby dołączyć ją do żądania obsługi.
+ 
+## <a name="get-the-expressroute-id-uri"></a>Pobierz identyfikator ExpressRoute (URI)
+ 
+Być może próbujesz skalować istniejącą chmurę prywatną w ramach obwodu usługi Private Cloud ExpressRoute lub połączyć ją w równorzędny sposób. W tym scenariuszu potrzebny jest identyfikator ExpressRoute do dołączenia do żądania obsługi.
 
-W obszarze powiadomienia wybierz pozycję **więcej zdarzeń w dzienniku aktywności** .
+Aby skopiować identyfikator ExpressRoute:
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się.":::
+1. W Azure Portal wybierz swoją chmurę prywatną.
+1. W menu po lewej stronie w obszarze **Zarządzaj** wybierz pozycję **łączność**. 
+1. W okienku po prawej stronie wybierz kartę **ExpressRoute** .
+1. Wybierz ikonę kopiowania dla **identyfikatora ExpressRoute** i Zapisz wartość do użycia w żądaniu obsługi.
+ 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Skopiuj identyfikator ExpressRoute do Schowka."::: 
+ 
+## <a name="pre-validation-failures"></a>Błędy przed walidacją
 
-Następnie wyszukaj nazwę zasobu lub innych informacji użytych do utworzenia zasobu, aby znaleźć nieudane wdrożenie i jego identyfikator korelacji. Poniższy przykład przedstawia wyniki wyszukiwania w zasobie chmury prywatnej (pc03).
- 
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się.":::
- 
-Wybranie nazwy operacji wdrożenia zakończonego niepowodzeniem spowoduje otwarcie okna ze szczegółowymi informacjami. Wybierz kartę JSON i poszukaj korelacji. Skopiuj i Dołącz do funkcji SR. 
- 
-## <a name="collect-the-expressroute-id-uri"></a>Zbierz identyfikator ExpressRoute (URI)
- 
-Być może próbujesz skalować istniejącą chmurę prywatną w ramach obwodu usługi Private Cloud ExpressRoute lub połączyć ją w równorzędny sposób. W takim przypadku potrzebny będzie identyfikator ExpressRoute. 
+Jeśli sprawdzenie przed weryfikacją w chmurze prywatnej nie powiodło się (przed wdrożeniem), identyfikator korelacji nie zostanie wygenerowany. W tym scenariuszu w żądaniu pomocy technicznej można podać następujące informacje:
 
-W Azure Portal wybierz pozycję **łączność > ExpressRoute** i skopiuj **Identyfikator ExpressRoute** do Schowka.
- 
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się."::: 
- 
-> [!NOTE]
-> W przypadku sprawdzenia przed walidacją mogą zakończyć się niepowodzeniem przed wdrożeniem, a jedyne dostępne informacje będą komunikatami o błędach i błędach. Mogą one być przydatne w wielu awariach, na przykład w przypadku problemów związanych z limitem przydziału i są ważne do uwzględnienia tych komunikatów w żądaniu obsługi. Aby zebrać te dane, zobacz wcześniejszą sekcję, [zbieranie informacji o błędach](#collect-a-summary-of-errors).
+- Komunikaty o błędach i niepowodzeniu. Te komunikaty mogą być przydatne w wielu błędach, na przykład w przypadku problemów związanych z limitem przydziału. Ważne jest, aby skopiować te komunikaty i dołączyć je do żądania pomocy technicznej zgodnie z opisem w tym artykule.
+- Informacje używane do tworzenia chmury prywatnej rozwiązania Azure VMware, w tym:
+  - Lokalizacja
+  - Grupa zasobów
+  - Nazwa zasobu
 
 ## <a name="create-your-support-request"></a>Utwórz żądanie pomocy technicznej
 
-Ogólne wskazówki dotyczące tworzenia żądania pomocy technicznej można znaleźć w temacie [jak utworzyć żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
+Aby uzyskać ogólne informacje na temat tworzenia żądania pomocy technicznej, zobacz [jak utworzyć żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
-Poniżej przedstawiono szczegółowe wskazówki dotyczące tworzenia rozwiązania SR dla systemu Azure VMware lub niepowodzeń aprowizacji.
+Aby utworzyć żądanie pomocy technicznej dotyczące wdrożenia rozwiązania Azure VMware lub niepowodzenia aprowizacji:
 
-1. Wybierz ikonę **pomocy** , a następnie **+ nowe żądanie obsługi** .
+1. W Azure Portal wybierz ikonę **pomocy** , a następnie wybierz pozycję **nowe żądanie obsługi**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Wdrożenie chmury prywatnej z IDENTYFIKATORem korelacji nie powiodło się.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Zrzut ekranu przedstawiający okienko nowe żądanie obsługi w Azure Portal.":::
 
-2. Wypełnij wszystkie wymagane pola i na karcie **podstawowe** :
+1. Wprowadź lub wybierz wymagane informacje:
 
-    - W obszarze **typ problemu** wybierz pozycję **Konfiguracja i problemy z instalacją** .
+   1. Na karcie **Ustawienia podstawowe** :
 
-    - W przypadku **problemu z podtypem** wybierz opcję **Zainicjuj obsługę chmury prywatnej** .
+      1. W obszarze **typ problemu** wybierz pozycję **Konfiguracja i problemy z instalacją**.
 
-3. Na karcie **szczegóły** :
+      1. W przypadku **problemu z podtypem** wybierz opcję **Zainicjuj obsługę chmury prywatnej**.
 
-    - Wypełnij wszystkie wymagane pola.
+   1. Na karcie **szczegóły** :
 
-    - Wklej identyfikator korelacji lub identyfikator ExpressRoute do określonych pól. Jeśli nie widzisz konkretnego pola, możesz je wkleić w polu tekstowym w obszarze **Podaj szczegóły dotyczące problemu.**
+      1. Wprowadź lub wybierz wymagane informacje.
 
-    - Wklej wszystkie szczegóły błędów, w tym podsumowanie błędów, które zostały skopiowane, w polu tekstowym w obszarze **Podaj szczegóły dotyczące problemu.**
+      1. Wklej identyfikator korelacji lub identyfikator ExpressRoute, w którym są wymagane te informacje. Jeśli nie widzisz określonych pól tekstowych dla tych wartości, wklej je w polu tekstowym **Podaj szczegóły dotyczące problemu** .
 
-4. Przejrzyj i wybierz pozycję **Utwórz** , aby utworzyć wirtualizację SR.
+    1. Wklej wszystkie szczegóły błędów, w tym błędy lub komunikaty o niepowodzeniu, które zostały skopiowane, w polu tekstowym **Podaj szczegóły dotyczące problemu** .
+
+1. Przejrzyj wpisy, a następnie wybierz pozycję **Utwórz** , aby utworzyć żądanie pomocy technicznej.

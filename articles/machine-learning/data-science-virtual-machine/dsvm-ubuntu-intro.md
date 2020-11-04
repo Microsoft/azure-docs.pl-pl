@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 631717252abe956357cf8b588fa653890037bbc9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 97283a096d1b1549b2c7fa8f34a32b4bb4dca1eb
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322174"
+ms.locfileid: "93349056"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Szybki Start: Konfigurowanie Data Science Virtual Machine dla systemu Linux (Ubuntu)
 
@@ -121,12 +121,16 @@ Ubuntu DSVM uruchamia [JupyterHub](https://github.com/jupyterhub/jupyterhub), wi
 
    1. Na komputerze lokalnym Otwórz przeglądarkę internetową i przejdź do protokołu https: \/ /Your-VM-IP: 8000, zastępując ciąg "The-VM-IP" adresem IP, który został wcześniej zanotowany.
    1. Przeglądarka prawdopodobnie uniemożliwia otworzenie strony bezpośrednio, co oznacza, że wystąpił błąd certyfikatu. DSVM zapewnia bezpieczeństwo za pośrednictwem certyfikatu z podpisem własnym. Większość przeglądarek pozwoli Ci kliknąć po tym ostrzeżeniu. Wiele przeglądarek będzie w dalszym ciągu dostarczać wizualne ostrzeżenie dotyczące certyfikatu w całej sesji sieci Web.
+
+      >[!NOTE]
+      > Jeśli `ERR_EMPTY_RESPONSE` w przeglądarce zostanie wyświetlony komunikat o błędzie, upewnij się, że uzyskujesz dostęp do komputera, jawnie używając protokołu *https* , a nie za pośrednictwem *protokołu HTTP* lub tylko adresu internetowego. Jeśli adres internetowy zostanie wpisany bez `https://` linii adresowej, większość przeglądarek domyślnie zostanie `http` wyświetlona i zostanie wyświetlony ten błąd.
+
    1. Wprowadź nazwę użytkownika i hasło, które zostały użyte podczas tworzenia maszyny wirtualnej i zaloguj się. 
 
       ![Wprowadź nazwę logowania Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
->[!NOTE]
-> Jeśli na tym etapie wystąpi błąd 500, prawdopodobnie w nazwie użytkownika są używane wielkie litery. Jest to znana interakcja między centrum Jupyter i PAMAuthenticator, którego używa. Jeśli zostanie wyświetlony komunikat o błędzie "nie można nawiązać połączenia z tą stroną", prawdopodobnie trzeba będzie dostosować uprawnienia do sieciowej grupy zabezpieczeń. W Azure Portal Znajdź zasób sieciowej grupy zabezpieczeń w grupie zasobów. Aby uzyskać dostęp do usługi JupyterHub z publicznej sieci Internet, musisz mieć otwarty port 8000. (Obraz pokazuje, że ta maszyna wirtualna jest skonfigurowana dla dostępu just in Time, co jest zdecydowanie zalecane. Zobacz [Zabezpieczanie portów zarządzania przy użyciu dostępu just in Time](../../security-center/security-center-just-in-time.md). ![Konfiguracja sieciowej grupy zabezpieczeń](./media/dsvm-ubuntu-intro/nsg-permissions.png)
+      >[!NOTE]
+      > Jeśli na tym etapie wystąpi błąd 500, prawdopodobnie w nazwie użytkownika są używane wielkie litery. Jest to znana interakcja między centrum Jupyter i PAMAuthenticator, którego używa. Jeśli zostanie wyświetlony komunikat o błędzie "nie można nawiązać połączenia z tą stroną", prawdopodobnie trzeba będzie dostosować uprawnienia do sieciowej grupy zabezpieczeń. W Azure Portal Znajdź zasób sieciowej grupy zabezpieczeń w grupie zasobów. Aby uzyskać dostęp do usługi JupyterHub z publicznej sieci Internet, musisz mieć otwarty port 8000. (Obraz pokazuje, że ta maszyna wirtualna jest skonfigurowana dla dostępu just in Time, co jest zdecydowanie zalecane. Zobacz [Zabezpieczanie portów zarządzania przy użyciu dostępu just in Time](../../security-center/security-center-just-in-time.md). ![Konfiguracja sieciowej grupy zabezpieczeń](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Przejrzyj wiele przykładowych notesów, które są dostępne.
 

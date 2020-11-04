@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: a9f48d95281971fc49a6a3fda93e4ee13ed8d753
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b344e9e24d15189b805f586227c7253395e8448e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130786"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348988"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Informacje o danych wejściowych dla Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Stream Analytics ma integrację pierwszej klasy z czterema rodzajami zasobów ja
 
 Te zasoby wejściowe mogą być aktywne w ramach tej samej subskrypcji platformy Azure co zadanie Stream Analytics lub z innej subskrypcji.
 
-Za pomocą [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [interfejsu API platformy .NET](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [interfejsu API REST](./stream-analytics-define-inputs.md)i [programu Visual Studio](stream-analytics-tools-for-visual-studio-install.md) można tworzyć, edytować i testować dane wejściowe zadań Stream Analytics.
+Za pomocą [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [interfejsu API platformy .NET](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [interfejsu API REST](/rest/api/streamanalytics/2016-03-01/inputs)i [programu Visual Studio](stream-analytics-tools-for-visual-studio-install.md) można tworzyć, edytować i testować dane wejściowe zadań Stream Analytics.
 
 ## <a name="stream-and-reference-inputs"></a>Dane wejściowe strumienia i odwołania
 Gdy dane są wypychane do źródła danych, są używane przez zadanie Stream Analytics i przetwarzane w czasie rzeczywistym. Istnieją dwa typy danych wejściowych: dane strumienia danych i dane referencyjne.
@@ -37,7 +37,7 @@ Strumień danych to nieograniczona sekwencja zdarzeń w czasie. Zadania usługi 
 Aby uzyskać więcej informacji na temat danych wejściowych przesyłania strumieniowego, zobacz [przesyłanie strumieniowe danych jako dane wejściowe do Stream Analytics](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Dane wejściowe odwołania
-Stream Analytics obsługuje również dane wejściowe znane jako *informacje referencyjne* . Dane referencyjne są całkowicie statyczne lub zmieniają się powoli. Jest zazwyczaj używany do przeprowadzenia korelacji i wyszukiwania. Na przykład można przyłączyć dane danych wejściowych strumienia danych do danych w danych referencyjnych, podobnie jak w przypadku wykonywania sprzężenia SQL w celu wyszukania wartości statycznych. Magazyn obiektów blob platformy Azure, Azure Data Lake Storage Gen2 i Azure SQL Database są obecnie obsługiwane jako źródła danych wejściowych. Źródłowe źródła danych referencyjne mają limit równy 300 MB, w zależności od złożoności zapytania i przydzieloną liczbę jednostek przesyłania strumieniowego (zobacz sekcję [ograniczenie rozmiaru](stream-analytics-use-reference-data.md#size-limitation) w dokumentacji danych referencyjnych, aby uzyskać więcej informacji).
+Stream Analytics obsługuje również dane wejściowe znane jako *informacje referencyjne*. Dane referencyjne są całkowicie statyczne lub zmieniają się powoli. Jest zazwyczaj używany do przeprowadzenia korelacji i wyszukiwania. Na przykład można przyłączyć dane danych wejściowych strumienia danych do danych w danych referencyjnych, podobnie jak w przypadku wykonywania sprzężenia SQL w celu wyszukania wartości statycznych. Magazyn obiektów blob platformy Azure, Azure Data Lake Storage Gen2 i Azure SQL Database są obecnie obsługiwane jako źródła danych wejściowych. Źródłowe źródła danych referencyjne mają limit równy 300 MB, w zależności od złożoności zapytania i przydzieloną liczbę jednostek przesyłania strumieniowego (zobacz sekcję [ograniczenie rozmiaru](stream-analytics-use-reference-data.md#size-limitation) w dokumentacji danych referencyjnych, aby uzyskać więcej informacji).
 
 Aby uzyskać więcej informacji na temat danych wejściowych referencyjnych, zobacz [Korzystanie z danych referencyjnych dla odnośników w Stream Analytics](stream-analytics-use-reference-data.md)
 

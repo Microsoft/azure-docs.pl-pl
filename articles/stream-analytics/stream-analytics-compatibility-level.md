@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 87ee8a9c57fc456ba02f97bf56db25e4c91e9398
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129817"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348937"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Poziom zgodności dla zadań Azure Stream Analytics
 
@@ -33,13 +33,13 @@ Gdy tworzysz nowe zadanie Stream Analytics, najlepszym rozwiązaniem jest utworz
 
 ## <a name="set-the-compatibility-level"></a>Ustawianie poziomu zgodności
 
-Możesz ustawić poziom zgodności dla zadania Stream Analytics w Azure Portal lub przy użyciu [wywołania interfejsu API Rest tworzenia zadań](./stream-analytics-quick-create-portal.md).
+Możesz ustawić poziom zgodności dla zadania Stream Analytics w Azure Portal lub przy użyciu [wywołania interfejsu API Rest tworzenia zadań](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel).
 
 Aby zaktualizować poziom zgodności zadania w Azure Portal:
 
 1. Użyj [Azure Portal](https://portal.azure.com) , aby zlokalizować Stream Analytics zadanie.
 2. **Zatrzymaj** zadanie przed aktualizacją poziomu zgodności. Nie można zaktualizować poziomu zgodności, jeśli zadanie jest w stanie uruchomienia.
-3. W obszarze **Konfiguruj** nagłówek wybierz pozycję **poziom zgodności** .
+3. W obszarze **Konfiguruj** nagłówek wybierz pozycję **poziom zgodności**.
 4. Wybierz żądaną wartość poziomu zgodności.
 5. Wybierz pozycję **Zapisz** w dolnej części strony.
 
@@ -75,15 +75,15 @@ Aby uzyskać więcej informacji, zobacz [Aktualizacje funkcji geoprzestrzennych 
 
 ### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Natywna integracja zbiorczej usługi API z danymi wyjściowymi CosmosDB
 
-**Poprzednie poziomy:** Zachowanie upsert zostało *wstawione lub scalone* .
+**Poprzednie poziomy:** Zachowanie upsert zostało *wstawione lub scalone*.
 
 **poziom 1,2:** Natywna integracja zbiorczej interfejsu API z danymi wyjściowymi CosmosDB maksymalizuje przepływność i wydajnie obsługuje żądania ograniczania. Aby uzyskać więcej informacji, zobacz [stronę Azure Stream Analytics dane wyjściowe do Azure Cosmos DB](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
-Zachowanie upsert jest *wstawiane lub zastępowane* .
+Zachowanie upsert jest *wstawiane lub zastępowane*.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset podczas zapisywania w danych wyjściowych SQL
 
-**Poprzednie poziomy:** typy [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) zostały dostosowane do czasu UTC.
+**Poprzednie poziomy:** typy [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql) zostały dostosowane do czasu UTC.
 
 **poziom 1,2:** DateTimeOffset nie jest już dostosowywany.
 
@@ -121,7 +121,7 @@ Następujące istotne zmiany są wprowadzane w obszarze poziom zgodności 1,1:
 
 ### <a name="service-bus-xml-format"></a>Service Bus format XML
 
-**poziom 1,0:** Azure Stream Analytics użyciu DataContractSerializer, więc zawartość komunikatów zawiera tagi XML. Przykład:
+**poziom 1,0:** Azure Stream Analytics użyciu DataContractSerializer, więc zawartość komunikatów zawiera tagi XML. Na przykład:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

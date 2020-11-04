@@ -4,13 +4,12 @@ description: Dowiedz się, jak zabezpieczyć Azure Policy program Kubernetes w u
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-author: jluk
-ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900127"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348529"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Zabezpieczanie zasobników przy użyciu usługi Azure Policy
 
@@ -61,7 +60,7 @@ Następujące ograniczenia ogólne mają zastosowanie do Azure Policy dodatku dl
 Następujące ograniczenia mają zastosowanie tylko do Azure Policy dodatku dla AKS:
 
 - Nie można jednocześnie włączyć [zasad zabezpieczeń AKS (wersja zapoznawcza)](use-pod-security-policies.md) i dodatku Azure Policy dla AKS. 
-- Obszary nazw są automatycznie wykluczane przez Azure Policy dodatku do oceny: _polecenia-system_ , _strażnik-system_ i _AKS-Periscope_ .
+- Obszary nazw są automatycznie wykluczane przez Azure Policy dodatku do oceny: _polecenia-system_ , _strażnik-system_ i _AKS-Periscope_.
 
 ### <a name="recommendations"></a>Zalecenia
 
@@ -150,7 +149,7 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > W celu pozostawania w dobrej kondycji w przestrzeniach nazw administratorów, takich jak polecenia-system, należy uruchomić niezależną przestrzeń nazw, usuwając z listy Domyślnie wykluczone przestrzenie nazw, które mogą powodować naruszenia zasad z powodu wymaganego systemu.
 
-Usługa AKS wymaga, aby w klastrze działały systemowe w celu zapewnienia krytycznych usług, takich jak rozpoznawanie nazw DNS. Zasady ograniczające funkcjonalność pod mogą mieć wpływ na stabilność systemu. W związku z tym następujące przestrzenie nazw są **wykluczone z oceny zasad podczas żądania przyjmowania podczas tworzenia, aktualizacji i inspekcji zasad** . Wymusza to wykluczenie nowych wdrożeń do tych przestrzeni nazw z zasad platformy Azure.
+Usługa AKS wymaga, aby w klastrze działały systemowe w celu zapewnienia krytycznych usług, takich jak rozpoznawanie nazw DNS. Zasady ograniczające funkcjonalność pod mogą mieć wpływ na stabilność systemu. W związku z tym następujące przestrzenie nazw są **wykluczone z oceny zasad podczas żądania przyjmowania podczas tworzenia, aktualizacji i inspekcji zasad**. Wymusza to wykluczenie nowych wdrożeń do tych przestrzeni nazw z zasad platformy Azure.
 
 1. polecenia — system
 1. Strażnik — system

@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b59c7d2af33efd82f27af9e13fc9c1f36ca788ee
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787469"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348597"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
 
@@ -69,9 +69,9 @@ Aby ukończyć ten samouczek, należy odwołać się do następujących czterech
 - [Biblioteka kolejki usługi Azure Storage dla platformy .NET](https://www.nuget.org/packages/Azure.Storage.Queues/): Ten pakiet umożliwia pracę z usługa kolejki usługi Azure Storage do przechowywania komunikatów, do których dostęp jest możliwy dla klienta.
 - [Biblioteka Configuration Manager dla platformy .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): Ten pakiet zapewnia dostęp do plików konfiguracji dla aplikacji klienckich.
 
-Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące kroki:
+Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące czynności:
 
-1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet** .
+1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet**.
 1. Wybierz pozycję **Przeglądaj**
 1. Wyszukaj w trybie online pozycję "Azure. Storage. Queues" i wybierz pozycję **Zainstaluj** , aby zainstalować bibliotekę klienta magazynu i jej zależności. Spowoduje to również zainstalowanie bibliotek Azure. Storage. Common i Azure. Core, które są zależnościami biblioteki kolejki.
 1. Wyszukaj w trybie online pozycję "System.Configuration.ConfigurationManager", a następnie wybierz pozycję **Zainstaluj** , aby zainstalować Configuration Manager.
@@ -84,9 +84,9 @@ Aby ukończyć ten samouczek, należy odwołać się do następujących trzech p
 - [Microsoft Azure Storage biblioteki kolejki dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Ta biblioteka klienta umożliwia pracę z Microsoft Azure Storage usługa kolejki do przechowywania komunikatów, do których dostęp jest możliwy dla klienta.
 - [Biblioteka programu Microsoft Azure Configuration Manager dla środowiska .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): ten pakiet zawiera klasę do analizowania parametrów połączenia w pliku konfiguracji, niezależnie od tego, gdzie została uruchomiona aplikacja.
 
-Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące kroki:
+Aby uzyskać te pakiety, można użyć narzędzia NuGet. Wykonaj następujące czynności:
 
-1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet** .
+1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet**.
 1. Wybierz pozycję **Przeglądaj**
 1. Wyszukaj w trybie online pozycję "Microsoft. Azure. Storage. queue" i wybierz pozycję **Zainstaluj** , aby zainstalować bibliotekę klienta magazynu i jej zależności. Spowoduje to również zainstalowanie biblioteki Microsoft. Azure. Storage. Common, która jest zależna od biblioteki kolejki.
 1. Wyszukaj w trybie online pozycję "Microsoft.Azure.ConfigurationManager", a następnie wybierz pozycję **Zainstaluj** , aby zainstalować usługę Azure Configuration Manager.
@@ -113,7 +113,7 @@ Przykładowy kod musi autoryzować dostęp do konta magazynu. Na potrzeby autory
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
 2. Odszukaj konto magazynu.
-3. W sekcji **Ustawienia** omówienia kont magazynu wybierz pozycję **Klucze dostępu** . Zostaną wyświetlone klucze dostępu do Twojego konta, a także pełne parametry połączenia dla każdego klucza.
+3. W sekcji **Ustawienia** omówienia kont magazynu wybierz pozycję **Klucze dostępu**. Zostaną wyświetlone klucze dostępu do Twojego konta, a także pełne parametry połączenia dla każdego klucza.
 4. Znajdź wartość **Parametry połączenia** w obszarze **key1** i kliknij przycisk **Kopiuj** , aby skopiować parametry połączenia. W następnym kroku dodasz wartość parametrów połączenia do zmiennej środowiskowej.
 
     ![Zrzut ekranu pokazujący sposób kopiowania parametrów połączenia z witryny Azure Portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)

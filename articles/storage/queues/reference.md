@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: de504cc4209aea19925c4c3e2385c7feabceedeb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2ad975840a2eab0ca51dd0a219e5d86c1bd1835c
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781621"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348869"
 ---
 # <a name="azure-queue-storage-reference"></a>Dokumentacja usługi Azure Queue Storage
 
@@ -89,7 +89,7 @@ W poniższej tabeli przedstawiono odwołania i przykładową dokumentację inter
 
 ### <a name="other-rest-reference"></a>Inne odwołanie do REST
 
-- [Interfejs API REST usługi Azure Storage Import-Export ](/rest/api/storageimportexport/) ułatwia zarządzanie zadaniami importu/eksportu w celu przesyłania danych do lub z magazynu obiektów BLOB.
+- [Interfejs API REST usługi Azure Storage Import-Export](/rest/api/storageimportexport/) ułatwia zarządzanie zadaniami importu/eksportu w celu przesyłania danych do lub z magazynu obiektów BLOB.
 
 ## <a name="other-languages-and-platforms"></a>Inne języki i platformy
 
