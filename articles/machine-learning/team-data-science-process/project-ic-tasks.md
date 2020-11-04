@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ecb5fef9c9b14bde72de29a45e29d7e16131bd1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76721255"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321918"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Zadania dla pojedynczego współautora w procesie nauki danych zespołu
 
 W tym temacie opisano zadania wykonywane przez *pojedynczego współautor* w celu skonfigurowania projektu w [procesie nauki o danych zespołowych](overview.md) (przetwarzania TDSP). Celem jest praca w środowisku zespołu współpracy, które jest zgodne z przetwarzania TDSP. PRZETWARZANIA TDSP zaprojektowano tak, aby pomóc w ulepszaniu współpracy i uczenia zespołu. Aby zapoznać się z zarysem ról pracowników i skojarzonych z nimi zadań, które są obsługiwane przez zespół ds. analizy danych w przetwarzania TDSP, zobacz temat [role i zadania zespołowego procesu nauki danych](roles-tasks.md).
 
-Na poniższym diagramie przedstawiono zadania, które zostały ukończone przez poszczególnych współautorów (analityków danych) w celu skonfigurowania środowiska zespołu. Aby uzyskać instrukcje dotyczące wykonywania projektu analizy danych w ramach przetwarzania TDSP, zobacz [wykonywanie projektów analizy danych](project-execution.md). 
+Na poniższym diagramie przedstawiono zadania, które zostały ukończone przez poszczególnych współautorów (analityków danych) w celu skonfigurowania środowiska zespołu. Aby uzyskać instrukcje dotyczące wykonywania projektu analizy danych w ramach przetwarzania TDSP, zobacz [wykonywanie projektów analizy danych](./agile-development.md). 
 
 ![Zadania poszczególnych współautorów](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
 
@@ -46,7 +46,7 @@ Aby sklonować repozytoria i zmodyfikować zawartość na komputerze lokalnym lu
 
 - Subskrypcja platformy Azure.
 - Na maszynie zainstalowano narzędzie git. Jeśli używasz DSVM, program git jest wstępnie zainstalowany. W przeciwnym razie zapoznaj się z [dodatkiem platformy i narzędzia](platforms-and-tools.md#appendix).
-- Jeśli chcesz użyć DSVM, system Windows lub Linux DSVM utworzony i skonfigurowany na platformie Azure. Aby uzyskać więcej informacji i instrukcje, zapoznaj się z [dokumentacją Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
+- Jeśli chcesz użyć DSVM, system Windows lub Linux DSVM utworzony i skonfigurowany na platformie Azure. Aby uzyskać więcej informacji i instrukcje, zapoznaj się z [dokumentacją Data Science Virtual Machine](../data-science-virtual-machine/index.yml).
 - W przypadku systemu Windows DSVM na komputerze zainstalowano program [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) . W pliku *README.MD* przewiń w dół do sekcji **pobieranie i instalacja** , a następnie wybierz **najnowszy Instalator**. Pobierz instalatora *exe* ze strony Instalatora i uruchom go. 
 - W przypadku systemu Linux DSVM klucz publiczny skonfigurowany na DSVM i dodany do usługi Azure DevOps. Aby uzyskać więcej informacji i instrukcje, zobacz sekcję **Tworzenie klucza publicznego SSH** w [dodatku platformy i narzędzia](platforms-and-tools.md#appendix). 
 - Informacje o usłudze Azure File Storage dla dowolnego magazynu plików platformy Azure, który trzeba zainstalować w DSVM. 
@@ -55,7 +55,7 @@ Aby sklonować repozytoria i zmodyfikować zawartość na komputerze lokalnym lu
 
 Aby lokalnie korzystać z repozytoriów i wypchnąć zmiany do współużytkowanego zespołu i repozytoriów projektu, należy najpierw skopiować lub *sklonować* repozytoria na komputerze lokalnym. 
 
-1. W usłudze Azure DevOps przejdź do strony podsumowania projektu zespołu przy *użyciu protokołu HTTPS \/ / \<server name> / \<organization name> / \<team name> :*, na przykład **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**.
+1. W usłudze Azure DevOps przejdź do strony podsumowania projektu zespołu przy *użyciu protokołu HTTPS \/ / \<server name> / \<organization name> / \<team name> :* , na przykład **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**.
    
 1. Wybierz pozycję **repozytoria** w lewym okienku nawigacji, a w górnej części strony wybierz repozytorium, które chcesz sklonować.
    
@@ -103,4 +103,3 @@ Poniżej znajdują się linki do szczegółowych opisów innych ról i zadań zd
 - [Zadania Menedżera grupy dla zespołu ds. analizy danych](group-manager-tasks.md)
 - [Zadania lidera zespołu dla zespołu ds. analizy danych](team-lead-tasks.md)
 - [Zadania lidera projektu dla zespołu ds. analizy danych](project-lead-tasks.md)
-

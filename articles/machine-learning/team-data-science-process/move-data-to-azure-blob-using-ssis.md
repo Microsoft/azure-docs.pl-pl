@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ad87272749011c81c1040825da3f3c53858a55bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9572d612e7ee8e2fd72850ba14447e8449f0f371
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322859"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322011"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Przenoszenie danych do i z usługi Azure Blob Storage przy użyciu łączników usług SSIS
-[Pakiet SQL Server Integration Services Feature Pack dla platformy Azure](https://msdn.microsoft.com/library/mt146770.aspx) udostępnia składniki umożliwiające łączenie się z platformą Azure, przenoszenie danych między platformą Azure i lokalnymi źródłami danych oraz przetwarzanie danych przechowywanych na platformie Azure.
+[Pakiet SQL Server Integration Services Feature Pack dla platformy Azure](/sql/integration-services/azure-feature-pack-for-integration-services-ssis) udostępnia składniki umożliwiające łączenie się z platformą Azure, przenoszenie danych między platformą Azure i lokalnymi źródłami danych oraz przetwarzanie danych przechowywanych na platformie Azure.
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -30,20 +30,20 @@ Przykłady dotyczące korzystania z tych zasobów platformy Azure znajdują się
 Omówienie scenariuszy kanonicznych, które używają usług SSIS do realizacji potrzeb firmy wspólnych w scenariuszach integracji danych hybrydowych, można znaleźć [w temacie więcej dzięki SQL Server Integration Services Feature Pack for Azure](https://techcommunity.microsoft.com/t5/sql-server-integration-services/doing-more-with-sql-server-integration-services-feature-pack-for/ba-p/388238) blog.
 
 > [!NOTE]
-> Pełny Wprowadzenie do usługi Azure Blob Storage można znaleźć w [temacie Podstawowe informacje](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) dotyczące usługi Azure BLOB i [usłudze Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Pełny Wprowadzenie do usługi Azure Blob Storage można znaleźć w [temacie Podstawowe informacje](../../storage/blobs/storage-quickstart-blobs-dotnet.md) dotyczące usługi Azure BLOB i [usłudze Azure Blob Service](/rest/api/storageservices/Blob-Service-Concepts).
 > 
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby wykonać zadania opisane w tym artykule, musisz mieć skonfigurowaną subskrypcję platformy Azure i konto usługi Azure Storage. Aby przekazać lub pobrać dane, potrzebna jest nazwa konta i klucz konta usługi Azure Storage.
 
-* Aby skonfigurować **subskrypcję platformy Azure**, zobacz [bezpłatna miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
-* Instrukcje dotyczące tworzenia **konta magazynu** i uzyskiwania informacji o kontach i kluczach znajdują się w temacie [Informacje o kontach usługi Azure Storage](../../storage/common/storage-create-storage-account.md).
+* Aby skonfigurować **subskrypcję platformy Azure** , zobacz [bezpłatna miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
+* Instrukcje dotyczące tworzenia **konta magazynu** i uzyskiwania informacji o kontach i kluczach znajdują się w temacie [Informacje o kontach usługi Azure Storage](../../storage/common/storage-account-create.md).
 
-Aby korzystać z **łączników usług SSIS**, należy pobrać następujące polecenie:
+Aby korzystać z **łączników usług SSIS** , należy pobrać następujące polecenie:
 
-* **SQL Server 2014 lub 2016 Standard (lub nowszy)**: instalacja zawiera SQL Server Integration Services.
-* **Microsoft SQL Server 2014 lub 2016 Integration Services Feature Pack for Azure**: te łączniki można odpowiednio pobrać z witryny [SQL Server 2014 integration services](https://www.microsoft.com/download/details.aspx?id=47366) i [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) .
+* **SQL Server 2014 lub 2016 Standard (lub nowszy)** : instalacja zawiera SQL Server Integration Services.
+* **Microsoft SQL Server 2014 lub 2016 Integration Services Feature Pack for Azure** : te łączniki można odpowiednio pobrać z witryny [SQL Server 2014 integration services](https://www.microsoft.com/download/details.aspx?id=47366) i [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) .
 
 > [!NOTE]
 > Program SSIS jest instalowany z SQL Server, ale nie jest uwzględniony w wersji Express. Aby uzyskać informacje o aplikacjach uwzględnionych w różnych wersjach SQL Server, zobacz [wersje SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
@@ -52,13 +52,13 @@ Aby korzystać z **łączników usług SSIS**, należy pobrać następujące pol
 
 Aby zapoznać się z materiałami szkoleniowymi dotyczącymi usług SSIS, zobacz [praktyczne uczenie usług SSIS](https://www.microsoft.com/sql-server/training-certification)
 
-Aby uzyskać informacje na temat sposobu tworzenia prostych pakietów wyodrębniania, transformacji i ładowania (ETL) przy użyciu programu SISS, zobacz [samouczek usług SSIS: Tworzenie prostego pakietu ETL](https://msdn.microsoft.com/library/ms169917.aspx).
+Aby uzyskać informacje na temat sposobu tworzenia prostych pakietów wyodrębniania, transformacji i ładowania (ETL) przy użyciu programu SISS, zobacz [samouczek usług SSIS: Tworzenie prostego pakietu ETL](/sql/integration-services/ssis-how-to-create-an-etl-package).
 
 ## <a name="download-nyc-taxi-dataset"></a>Pobierz zestaw danych NYC taksówki
 W przykładzie opisanym w tym miejscu użyto publicznie dostępnego zestawu danych — zestawu danych [podróży z NYC taksówkami](https://www.andresmh.com/nyctaxitrips/) . Zestaw danych składa się z około 173 000 000 taksówki kolarstwu w NYC roku 2013. Istnieją dwa typy danych: informacje o wykorzystaniu danych i taryfy czasowej. Ponieważ istnieje plik dla każdego miesiąca, mamy 24 pliki, z których każdy jest około 2 GB nieskompresowany.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Przekazywanie danych do usługi Azure Blob Storage
-Aby przenieść dane za pomocą pakietu SSIS Feature Pack z lokalnego do magazynu obiektów blob platformy Azure, użyjemy wystąpienia [**zadania przekazywania obiektów blob platformy Azure**](https://msdn.microsoft.com/library/mt146776.aspx), pokazanego tutaj:
+Aby przenieść dane za pomocą pakietu SSIS Feature Pack z lokalnego do magazynu obiektów blob platformy Azure, użyjemy wystąpienia [**zadania przekazywania obiektów blob platformy Azure**](/sql/integration-services/control-flow/azure-blob-upload-task), pokazanego tutaj:
 
 ![Konfigurowanie maszyny wirtualnej do analizy danych](./media/move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
 
@@ -79,11 +79,10 @@ Parametry używane przez zadanie są opisane tutaj:
 > 
 
 ## <a name="download-data-from-azure-blob-storage"></a>Pobieranie danych z usługi Azure Blob Storage
-Aby pobrać dane z usługi Azure Blob Storage do magazynu lokalnego przy użyciu usług SSIS, użyj wystąpienia [zadania pobierania obiektów blob platformy Azure](https://msdn.microsoft.com/library/mt146779.aspx).
+Aby pobrać dane z usługi Azure Blob Storage do magazynu lokalnego przy użyciu usług SSIS, użyj wystąpienia [zadania pobierania obiektów blob platformy Azure](/sql/integration-services/control-flow/azure-blob-download-task).
 
 ## <a name="more-advanced-ssis-azure-scenarios"></a>Bardziej zaawansowane scenariusze SSIS-Azure
 Pakiet Feature Pack dla usług SSIS umożliwia obsługę bardziej złożonych przepływów przez pakowanie zadań jednocześnie. Na przykład dane obiektów BLOB mogą być przekazywane bezpośrednio do klastra usługi HDInsight, którego dane wyjściowe można pobrać z powrotem do obiektu BLOB, a następnie do magazynu lokalnego. W przypadku usług SSIS można uruchamiać zadania Hive i świńskie w klastrze usługi HDInsight przy użyciu dodatkowych łączników usług SSIS:
 
-* Aby uruchomić skrypt Hive w klastrze usługi Azure HDInsight przy użyciu usług SSIS, użyj [zadania Hive usługi Azure HDInsight](https://msdn.microsoft.com/library/mt146771.aspx).
-* Aby uruchomić skrypt wieprzowy w klastrze usługi Azure HDInsight przy użyciu usług SSIS, użyj [zadania trzody chlewnej usługi Azure HDInsight](https://msdn.microsoft.com/library/mt146781.aspx).
-
+* Aby uruchomić skrypt Hive w klastrze usługi Azure HDInsight przy użyciu usług SSIS, użyj [zadania Hive usługi Azure HDInsight](/sql/integration-services/control-flow/azure-hdinsight-hive-task).
+* Aby uruchomić skrypt wieprzowy w klastrze usługi Azure HDInsight przy użyciu usług SSIS, użyj [zadania trzody chlewnej usługi Azure HDInsight](/sql/integration-services/control-flow/azure-hdinsight-pig-task).

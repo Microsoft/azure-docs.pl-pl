@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0be75b3b0a7b9b5aaec0da1d9f41f67a7108e77a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c20bf1c5856276c4c7ee0e37ed4ef2120d1d93d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085314"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322040"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Tworzenie funkcji dla danych w programie SQL Server przy użyciu języka SQL i Python
 W tym dokumencie pokazano, jak generować funkcje dla danych przechowywanych na SQL Server maszynie wirtualnej na platformie Azure, które pomagają algorytmom bardziej wydajnym dowiedzieć się z danych. Aby wykonać to zadanie, możesz użyć języka SQL lub programowania, takiego jak Python. W tym miejscu pokazano oba podejścia.
 
-To zadanie jest krokiem w [procesie nauki o danych zespołowych (przetwarzania TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+To zadanie jest krokiem w [procesie nauki o danych zespołowych (przetwarzania TDSP)](./index.yml).
 
 > [!NOTE]
 > W przypadku praktycznego przykładu możesz zapoznać się z [zestawem danych NYC taksówkami](https://www.andresmh.com/nyctaxitrips/) i zapoznaj się z IPNB z tytułem [NYC Data przetwarzanie przy użyciu notesu IPython i SQL Server,](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) Aby uzyskać kompleksowy przewodnik.
@@ -99,12 +99,12 @@ Te funkcje oparte na lokalizacji mogą być dodatkowo używane do generowania do
 
 > [!TIP]
 > Można programowo wstawić rekordy przy użyciu wybranego języka. Może być konieczne wstawienie danych w fragmentach w celu zwiększenia wydajności zapisu. [Oto przykład, jak to zrobić za pomocą moduł pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
-> Kolejną alternatywą jest wstawianie danych w bazie danych za pomocą [narzędzia bcp](https://msdn.microsoft.com/library/ms162802.aspx)
+> Kolejną alternatywą jest wstawianie danych w bazie danych za pomocą [narzędzia bcp](/sql/tools/bcp-utility)
 > 
 > 
 
 ### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Nawiązywanie połączenia z Azure Machine Learning
-Nowo wygenerowana funkcja może zostać dodana jako kolumna do istniejącej tabeli lub zapisana w nowej tabeli i dołączona do oryginalnej tabeli w celu uczenia maszynowego. Funkcje mogą być generowane lub dostępne, jeśli zostały już utworzone, przy użyciu modułu [Importuj dane](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) na platformie Azure ml, jak pokazano poniżej:
+Nowo wygenerowana funkcja może zostać dodana jako kolumna do istniejącej tabeli lub zapisana w nowej tabeli i dołączona do oryginalnej tabeli w celu uczenia maszynowego. Funkcje mogą być generowane lub dostępne, jeśli zostały już utworzone, przy użyciu modułu [Importuj dane](/azure/machine-learning/studio-module-reference/import-data) na platformie Azure ml, jak pokazano poniżej:
 
 ![Czytelnicy Azure ML](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
@@ -126,5 +126,4 @@ conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>
 data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 ```
 
-Teraz możesz współpracować z ramką danych Pandas, jak opisano w tematach [Tworzenie funkcji dla danych usługi Azure Blob Storage za pomocą Panda](create-features-blob.md).
-
+Teraz możesz współpracować z ramką danych Pandas, jak opisano w tematach [Tworzenie funkcji dla danych usługi Azure Blob Storage za pomocą Panda](./explore-data-blob.md).

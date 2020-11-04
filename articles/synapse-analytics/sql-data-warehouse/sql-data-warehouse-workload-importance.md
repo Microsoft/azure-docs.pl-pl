@@ -1,6 +1,6 @@
 ---
 title: Znaczenie obciążenia
-description: Wskazówki dotyczące ustawiania ważności zapytań puli SQL Synapse w usłudze Azure Synapse Analytics.
+description: Wskazówki dotyczące ustawiania ważności dla dedykowanych zapytań puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212347"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322131"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Ważność obciążeń usługi Azure Synapse Analytics
 
-W tym artykule wyjaśniono, jak ważność obciążenia może mieć wpływ na kolejność wykonywania żądań Synapse w puli SQL na platformie Azure Synapse.
+W tym artykule wyjaśniono, jak ważność obciążenia może mieć wpływ na kolejność wykonywania dedykowanych żądań puli SQL w usłudze Azure Synapse.
 
 ## <a name="importance"></a>Ważność
 
@@ -38,7 +38,7 @@ Poza podstawowym scenariuszem ważności opisanym powyżej z danymi dotyczącymi
 
 ### <a name="locking"></a>Blokowanie
 
-Dostęp do blokad dla działania odczytu i zapisu jest jednym obszarem naturalnej rywalizacji. Działania takie jak [przełączanie partycji](sql-data-warehouse-tables-partition.md) lub [zmiana nazwy obiektu](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) wymagają podniesionych blokad.  Bez znaczenia obciążenia Synapse puli SQL w usłudze Azure Synapse optymalizuje się pod kątem przepływności. Optymalizacja pod kątem przepływności oznacza, że gdy uruchomione i kolejkowane żądania mają takie same potrzeby blokowania i dostępne są zasoby, żądania kolejkowane mogą pomijać żądania o wyższych wymaganiach blokowania, które dotarły wcześniej do kolejki żądań. Po zastosowaniu ważności obciążenia do żądań o wyższych wymaganiach blokowania. Żądanie o wyższej ważności zostanie uruchomione przed żądaniem o niższej ważności.
+Dostęp do blokad dla działania odczytu i zapisu jest jednym obszarem naturalnej rywalizacji. Działania takie jak [przełączanie partycji](sql-data-warehouse-tables-partition.md) lub [zmiana nazwy obiektu](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) wymagają podniesionych blokad.  Bez znaczenia obciążenia dedykowana Pula SQL w usłudze Azure Synapse optymalizuje się pod kątem przepływności. Optymalizacja pod kątem przepływności oznacza, że gdy uruchomione i kolejkowane żądania mają takie same potrzeby blokowania i dostępne są zasoby, żądania kolejkowane mogą pomijać żądania o wyższych wymaganiach blokowania, które dotarły wcześniej do kolejki żądań. Po zastosowaniu ważności obciążenia do żądań o wyższych wymaganiach blokowania. Żądanie o wyższej ważności zostanie uruchomione przed żądaniem o niższej ważności.
 
 Rozpatrzmy następujący przykład:
 
@@ -50,7 +50,7 @@ Jeśli Q2 i Q3 mają takie same znaczenie i jest nadal wykonywane, Q3 rozpocznie
 
 ### <a name="non-uniform-requests"></a>Niejednorodne żądania
 
-W innym scenariuszu, w którym istotność może pomóc spełnić wymagania dotyczące zapytań, są przesyłane żądania z różnymi klasami zasobów.  Jak wspomniano wcześniej, w ramach tego samego znaczenia Synapse Pula SQL na platformie Azure Synapse optymalizuje się pod kątem przepływności. Gdy żądania o rozmiarze mieszanym (takie jak smallrc lub mediumrc) są umieszczane w kolejce, Synapse w puli SQL zostanie wybrana najwcześniej przychodzące żądanie zgodne z dostępnymi zasobami. Jeśli jest stosowana ważność obciążenia, żądanie o najwyższym znaczeniu zostanie zaplanowane dalej.
+W innym scenariuszu, w którym istotność może pomóc spełnić wymagania dotyczące zapytań, są przesyłane żądania z różnymi klasami zasobów.  Jak wcześniej wspomniano, w tym samym znaczeniu dedykowana Pula SQL na platformie Azure Synapse optymalizuje się pod kątem przepływności. Gdy żądania o rozmiarze mieszanym (takie jak smallrc lub mediumrc) są umieszczane w kolejce, dedykowana Pula SQL wybiera najwcześniej przychodzące żądanie zgodne z dostępnymi zasobami. Jeśli jest stosowana ważność obciążenia, żądanie o najwyższym znaczeniu zostanie zaplanowane dalej.
   
 Rozważmy następujący przykład na DW500c:
 

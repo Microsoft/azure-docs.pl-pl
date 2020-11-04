@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 04528d28e9f54710cd0a63372e32b099c2e07fb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026172"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321909"
 ---
 # <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Przykładowe dane w usłudze Azure Blob Storage
 
@@ -25,7 +25,7 @@ W tym artykule opisano dane próbkowania przechowywane w usłudze Azure Blob Sto
 **Dlaczego warto Przykładowo dane?**
 Jeśli zestaw danych, który planujesz analizować jest duży, zazwyczaj dobrym pomysłem jest Przepróbkowanie danych w celu zmniejszenia ich do mniejszej, ale reprezentatywnej i większej możliwej do zarządzania wielkości. Próbkowanie ułatwia zrozumienie, eksplorację i inżynierowanie danych. Jej rolą w procesie Cortany Analytics jest umożliwienie szybkiego tworzenia prototypów funkcji przetwarzania danych i modeli uczenia maszynowego.
 
-To zadanie próbkowania jest krokiem w [procesie nauki o danych zespołowych (przetwarzania TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+To zadanie próbkowania jest krokiem w [procesie nauki o danych zespołowych (przetwarzania TDSP)](./index.yml).
 
 ## <a name="download-and-down-sample-data"></a>Pobierz i zmniejsz przykładowe dane
 1. Pobierz dane z usługi Azure Blob Storage przy użyciu Blob service z następującego przykładowego kodu w języku Python: 
@@ -102,7 +102,6 @@ Możesz użyć następującego przykładowego kodu, aby w pełni próbkować dan
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
     ```
 
-3. Odczytaj dane z obiektu blob platformy Azure przy użyciu Azure Machine Learning [Importuj dane](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) , jak pokazano na poniższej ilustracji:
+3. Odczytaj dane z obiektu blob platformy Azure przy użyciu Azure Machine Learning [Importuj dane](/azure/machine-learning/studio-module-reference/import-data) , jak pokazano na poniższej ilustracji:
 
 ![Obiekt BLOB czytnika](./media/sample-data-blob/reader_blob.png)
-

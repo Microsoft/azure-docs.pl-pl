@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6c8e6fee2b9f01b8d7ab48990760aa4c4d6e11b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 497b8f5598cf7aa7720f47863d465f5e29789b07
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361504"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321956"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Dostęp do zestawów danych z językiem Python za pomocą biblioteki klienta Python usługi Azure Machine Learning
 Wersja zapoznawcza Microsoft Azure Machine Learning Biblioteka kliencka języka Python umożliwia bezpieczny dostęp do Azure Machine Learning zestawów danych ze środowiska lokalnego języka Python oraz umożliwia tworzenie zestawów danych i zarządzanie nimi w obszarze roboczym.
@@ -73,7 +73,7 @@ Ze względów bezpieczeństwa funkcja fragmentu kodu jest dostępna tylko dla u�
 
 ![Zrzut ekranu przedstawia ustawienia na stronie użytkownicy Azure Machine Learning Studio.][security]
 
-Jeśli rola nie jest ustawiona jako **właściciel**, możesz wysłać żądanie do osoby, która ma zostać zaproszona jako właściciel, lub poprosić właściciela obszaru roboczego o udostępnienie fragmentu kodu.
+Jeśli rola nie jest ustawiona jako **właściciel** , możesz wysłać żądanie do osoby, która ma zostać zaproszona jako właściciel, lub poprosić właściciela obszaru roboczego o udostępnienie fragmentu kodu.
 
 Aby uzyskać Token autoryzacji, można wybrać jedną z następujących opcji:
 
@@ -364,6 +364,5 @@ Jeśli dane są już serializowane, użyj `update_from_raw_data` zamiast `update
 
 
 <!-- Module References -->
-[convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
+[convert-to-csv]: /azure/machine-learning/studio-module-reference/convert-to-csv
+[split]: /azure/machine-learning/studio-module-reference/split-data

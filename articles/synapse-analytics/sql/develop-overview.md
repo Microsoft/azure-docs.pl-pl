@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4c61b43855e4a845956a937d9d9cfe738d6f47a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a24a61e26bdfaba0619e3965e95b1828380a1c8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032949"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322107"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Projektowanie decyzji i technik kodowania dla funkcji SQL Synapse w usłudze Azure Synapse Analytics
-W tym artykule znajdziesz listę zasobów dla puli SQL i funkcji SQL na żądanie (wersja zapoznawcza) usługi Synapse SQL. Zalecane artykuły są podzielone na dwie sekcje: najważniejsze decyzje projektowe i techniki programowania i kodowania.
+W tym artykule znajdziesz listę zasobów dla dedykowanej puli SQL i bezserwerowej puli SQL (wersja zapoznawcza) usługi Synapse SQL. Zalecane artykuły są podzielone na dwie sekcje: najważniejsze decyzje projektowe i techniki programowania i kodowania.
 
 Celem tych artykułów jest ułatwienie opracowywania optymalnego podejścia technicznego dla składników SQL Synapse w programie Synapse Analytics.
 
 ## <a name="key-design-decisions"></a>Najważniejsze decyzje projektowe
 Artykuły poniżej wyróżniają koncepcje i decyzje projektowe dotyczące programowania w programie SQL Synapse:
 
-| Artykuł | Pula SQL | SQL na żądanie |
+| Artykuł | dedykowana Pula SQL | Pula SQL bezserwerowa |
 | ------- | -------- | ------------- |
 | [Połączenia](connect-overview.md)                    | Tak | Tak |
 | [Klasy zasobów i współbieżność](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Tak    | Nie |
@@ -44,7 +44,7 @@ Artykuły poniżej wyróżniają koncepcje i decyzje projektowe dotyczące progr
 
 Poniżej znajdziesz podstawowe artykuły, które podkreślają konkretne techniki kodowania, porady i zalecenia dotyczące programowania:
 
-| Artykuł | Pula SQL | SQL na żądanie |
+| Artykuł | dedykowana Pula SQL | Pula SQL bezserwerowa |
 | ------- | -------- | ------------- |
 | [Procedury składowane](develop-stored-procedures.md)  | Tak                | Nie                      |
 | [Etykiety](develop-label.md)                           | Tak                | Nie                      |

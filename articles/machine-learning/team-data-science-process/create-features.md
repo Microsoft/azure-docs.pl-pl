@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250661"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322027"
 ---
 # <a name="feature-engineering-in-data-science"></a>Inżynieria funkcji w dziedzinie analizy danych
 
 Ten artykuł zawiera informacje na temat inżynierii funkcji i jej roli w celu ulepszania danych w usłudze Machine Learning. Dowiedz się więcej na temat przykładów przykładowych pobranych z eksperymentów [Azure Machine Learning Studio (klasycznych)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) . 
 
-* **Inżynieria funkcji**: proces tworzenia nowych funkcji z danych pierwotnych w celu zwiększenia mocy predykcyjnej algorytmu uczenia. Wbudowane funkcje powinny przechwytywać dodatkowe informacje, które nie są łatwo widoczne w oryginalnym zestawie funkcji.
-* **Wybór funkcji**: proces wybierania podzbioru kluczy funkcji w celu zmniejszenia liczby problemów szkoleniowych.
+* **Inżynieria funkcji** : proces tworzenia nowych funkcji z danych pierwotnych w celu zwiększenia mocy predykcyjnej algorytmu uczenia. Wbudowane funkcje powinny przechwytywać dodatkowe informacje, które nie są łatwo widoczne w oryginalnym zestawie funkcji.
+* **Wybór funkcji** : proces wybierania podzbioru kluczy funkcji w celu zmniejszenia liczby problemów szkoleniowych.
 
 Zwykle **Funkcja inżynierii funkcji** jest stosowana najpierw w celu wygenerowania dodatkowych funkcji, a następnie **wybór funkcji** jest gotowy do wyeliminowania nieistotnych, nadmiarowych lub wysoce skorelowanych funkcji.
 
@@ -60,7 +60,7 @@ Oprócz zestawu funkcji A, który już istnieje w oryginalnych danych pierwotnyc
 
 ### <a name="feature-engineering-using-studio-classic"></a>Inżynieria funkcji z użyciem programu Studio (klasyczny)
 
-W doświadczeniu Studio (klasycznego) te cztery zbiory danych są tworzone przez cztery gałęzie ze wstępnie przetworzonego zestawu danych wejściowych. Z wyjątkiem gałęzi z lewej strony każda z tych gałęzi zawiera moduł [wykonywania skryptu języka R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) , w którym funkcje pochodne (zestaw funkcji B, C i D) są konstruowane i dołączane do zaimportowanego zestawu danych.
+W doświadczeniu Studio (klasycznego) te cztery zbiory danych są tworzone przez cztery gałęzie ze wstępnie przetworzonego zestawu danych wejściowych. Z wyjątkiem gałęzi z lewej strony każda z tych gałęzi zawiera moduł [wykonywania skryptu języka R](/azure/machine-learning/studio-module-reference/execute-r-script) , w którym funkcje pochodne (zestaw funkcji B, C i D) są konstruowane i dołączane do zaimportowanego zestawu danych.
 
 Na poniższej ilustracji przedstawiono skrypt języka R używany do tworzenia zestawu funkcji B w drugiej gałęzi.
 
@@ -80,9 +80,9 @@ Inżynieria funkcji jest szeroko stosowana w zadaniach związanych z górnictwem
 
 ### <a name="feature-hashing"></a>Mieszanie funkcji
 
-Aby można było wykonać to zadanie, stosowana jest technika " [mieszanie funkcji](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) " w celu wydajnego przetworzenia arbitralnych funkcji tekstowych w indeksach. Zamiast kojarzenia każdej funkcji tekstowej (słowa/frazy) z określonym indeksem, ta metoda stosuje funkcję mieszania do funkcji i używa ich wartości skrótu jako indeksów bezpośrednio.
+Aby można było wykonać to zadanie, stosowana jest technika " [mieszanie funkcji](/azure/machine-learning/studio-module-reference/feature-hashing) " w celu wydajnego przetworzenia arbitralnych funkcji tekstowych w indeksach. Zamiast kojarzenia każdej funkcji tekstowej (słowa/frazy) z określonym indeksem, ta metoda stosuje funkcję mieszania do funkcji i używa ich wartości skrótu jako indeksów bezpośrednio.
 
-W programie Studio (klasyczny) istnieje moduł [skrótu funkcji](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) , który wygodnie tworzy funkcje programu Word/phrase. Na poniższej ilustracji przedstawiono przykład użycia tego modułu. Wejściowy zestaw danych zawiera dwie kolumny: klasyfikację książki od 1 do 5 i rzeczywistą zawartość przeglądu. Celem tego modułu jest pobranie wielu nowych funkcji, które pokazują częstotliwość występowania odpowiednich wyrazów (/phrase) w ramach konkretnego przeglądu książki. Aby użyć tego modułu, wykonaj następujące czynności:
+W programie Studio (klasyczny) istnieje moduł [skrótu funkcji](/azure/machine-learning/studio-module-reference/feature-hashing) , który wygodnie tworzy funkcje programu Word/phrase. Na poniższej ilustracji przedstawiono przykład użycia tego modułu. Wejściowy zestaw danych zawiera dwie kolumny: klasyfikację książki od 1 do 5 i rzeczywistą zawartość przeglądu. Celem tego modułu jest pobranie wielu nowych funkcji, które pokazują częstotliwość występowania odpowiednich wyrazów (/phrase) w ramach konkretnego przeglądu książki. Aby użyć tego modułu, wykonaj następujące czynności:
 
 * Najpierw wybierz kolumnę zawierającą tekst wejściowy ("Col2" w tym przykładzie).
 * Następnie ustaw wartość "Hashing bitsize" na 8, co oznacza, że zostanie utworzonych 2 ^ 8 = 256 funkcji. Słowa/fazy we wszystkich tekstach zostaną zmieszane do 256 indeksów. Wartość parametru "Hashing bitsize" z zakresu od 1 do 31. Wyrazy, które/phrase, są mniej podobne do tego samego indeksu, jeśli ustawienie ma być większą liczbą.
