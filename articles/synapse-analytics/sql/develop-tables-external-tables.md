@@ -9,38 +9,38 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a9bb3ac7d3028937a422f2cd94aca4f4f4f41b58
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a5a958228d79c86550604109d7aaf19e68593a57
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167539"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314956"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Używanie tabel zewnętrznych z Synapse SQL
 
-Zewnętrzna tabela wskazuje dane znajdujące się w usłudze Hadoop, w usłudze Azure Storage BLOB lub Azure Data Lake Storage. Tabele zewnętrzne są używane do odczytywania danych z plików lub zapisywania danych w plikach w usłudze Azure Storage. Za pomocą języka SQL Synapse można używać tabel zewnętrznych do odczytywania i zapisywania danych w puli SQL lub SQL na żądanie (wersja zapoznawcza).
+Zewnętrzna tabela wskazuje dane znajdujące się w usłudze Hadoop, w usłudze Azure Storage BLOB lub Azure Data Lake Storage. Tabele zewnętrzne są używane do odczytywania danych z plików lub zapisywania danych w plikach w usłudze Azure Storage. Za pomocą języka SQL Synapse można używać tabel zewnętrznych do odczytywania i zapisywania danych w dedykowanej puli SQL lub bezserwerowej puli SQL (wersja zapoznawcza).
 
-## <a name="external-tables-in-synapse-sql-pool-and-on-demand"></a>Tabele zewnętrzne w puli Synapse SQL i na żądanie
+## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Tabele zewnętrzne w dedykowanej puli SQL i bezserwerowej
 
-### <a name="sql-pool"></a>[Pula SQL](#tab/sql-pool) 
+### <a name="dedicated-sql-pool"></a>[Dedykowana Pula SQL](#tab/sql-pool) 
 
-W puli SQL można użyć tabeli zewnętrznej do:
+W dedykowanej puli SQL można użyć tabeli zewnętrznej do:
 
 - Wykonaj zapytania dotyczące usługi Azure Blob Storage i Azure Data Lake Gen2 przy użyciu instrukcji języka Transact-SQL.
-- Importuj i przechowuj dane z usługi Azure Blob Storage i Azure Data Lake Storage do puli SQL.
+- Importuj i przechowuj dane z usługi Azure Blob Storage i Azure Data Lake Storage do dedykowanej puli SQL.
 
 Gdy jest używany w połączeniu z instrukcją [CREATE TABLE jako SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , wybranie z tabeli zewnętrznej importuje dane do tabeli w puli SQL. Oprócz [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)tabele zewnętrzne są przydatne do ładowania danych. 
 
 Aby zapoznać się z samouczkiem ładowania, zobacz Tworzenie [danych z usługi Azure Blob Storage przy użyciu sieci podstawowej](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-### <a name="sql-on-demand"></a>[SQL na żądanie](#tab/sql-on-demand)
+### <a name="serverless-sql-pool"></a>[Pula SQL bezserwerowa](#tab/sql-on-demand)
 
-W przypadku usługi SQL na żądanie będziesz używać tabeli zewnętrznej do:
+W przypadku puli SQL bezserwerowej należy użyć tabeli zewnętrznej do:
 
 - Wykonywanie zapytań dotyczących danych w usłudze Azure Blob Storage lub Azure Data Lake Storage przy użyciu instrukcji języka Transact-SQL
-- Przechowywanie wyników zapytania na żądanie SQL w plikach na platformie Azure Blob Storage lub Azure Data Lake Storage przy użyciu [CETAS](develop-tables-cetas.md)
+- Przechowywanie bezserwerowych wyników zapytania puli SQL w plikach na platformie Azure Blob Storage lub Azure Data Lake Storage przy użyciu [CETAS](develop-tables-cetas.md)
 
-Tabele zewnętrzne można utworzyć przy użyciu programu SQL na żądanie, wykonując następujące czynności:
+Tabele zewnętrzne można utworzyć za pomocą puli SQL bezserwerowej, wykonując następujące czynności:
 
 1. UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH
 2. CREATE EXTERNAL FILE FORMAT
@@ -56,7 +56,7 @@ Zewnętrzna tabela dostępu do magazynu platformy Azure przy użyciu podanego w 
 - Źródło danych może mieć poświadczenia umożliwiające zewnętrznym tabelom dostęp do plików w usłudze Azure Storage przy użyciu tokenu SAS lub tożsamości zarządzanej przez obszar roboczy — aby poznać przykłady, zobacz artykuł dotyczący [tworzenia plików magazynu w ramach kontroli dostępu do magazynu](develop-storage-files-storage-access-control.md#examples) .
 
 > [!IMPORTANT]
-> W puli SQL źródło danych bez creadential umożliwia użytkownikowi usługi Azure AD dostęp do plików magazynu przy użyciu tożsamości usługi Azure AD. W programie SQL na żądanie należy utworzyć źródło danych z poświadczeniami z zakresem bazy danych zawierającymi `IDENTITY='User Identity'` właściwości — Zobacz [przykłady tutaj](develop-storage-files-storage-access-control.md#examples).
+> W dedykowanej puli SQL źródło danych utworzone bez poświadczeń umożliwia użytkownikom usługi Azure AD dostęp do plików magazynu przy użyciu tożsamości usługi Azure AD. W puli SQL bezserwerowej należy utworzyć źródło danych z poświadczeniami z zakresem bazy danych zawierającymi `IDENTITY='User Identity'` właściwości — Zobacz [przykłady tutaj](develop-storage-files-storage-access-control.md#examples).
 
 ## <a name="create-external-data-source"></a>UTWÓRZ ZEWNĘTRZNE ŹRÓDŁO DANYCH
 
@@ -64,7 +64,7 @@ Zewnętrzne źródła danych są używane do łączenia się z kontami magazynu.
 
 ### <a name="syntax-for-create-external-data-source"></a>Składnia dla tworzenia zewnętrznego źródła danych
 
-#### <a name="sql-pool"></a>[Pula SQL](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Dedykowana Pula SQL](#tab/sql-pool)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -76,7 +76,7 @@ WITH
 [;]
 ```
 
-#### <a name="sql-on-demand"></a>[SQL na żądanie](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Pula SQL bezserwerowa](#tab/sql-on-demand)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -110,16 +110,16 @@ LOCATION = `'<prefix>://<path>'`   — udostępnia protokół połączenia i śc
 #### <a name="credential"></a>Poświadczenie
 CREDENTIAL = `<database scoped credential>` to opcjonalne poświadczenie, które będzie używane do uwierzytelniania w usłudze Azure Storage. Zewnętrzne źródło danych bez poświadczeń może uzyskać dostęp do konta magazynu publicznego. 
 
-Zewnętrzne źródła danych bez poświadczeń w puli SQL mogą również korzystać z tożsamości usługi Azure AD wywołujących w celu uzyskiwania dostępu do plików w magazynie. Zewnętrzne źródło danych z poświadczeniami użycia określonej w poświadczeniu do uzyskiwania dostępu do plików.
-- W puli SQL poświadczenia w zakresie bazy danych mogą określać niestandardową tożsamość aplikacji, tożsamość zarządzaną w obszarze roboczym lub klucz SAK. 
-- W usłudze SQL na żądanie poświadczenia bazy danych mogą określać tożsamość usługi Azure AD, tożsamość zarządzaną w obszarze roboczym lub klucz sygnatury dostępu współdzielonego. 
+Zewnętrzne źródła danych bez poświadczeń w dedykowanej puli SQL będą używać tożsamości usługi Azure AD obiektu wywołującego w celu uzyskiwania dostępu do plików w magazynie. Zewnętrzne źródło danych dla puli SQL bezserwerowej z poświadczeniem  `IDENTITY='User Identity'` będzie używać tożsamości usługi Azure AD wywołującego w celu uzyskiwania dostępu do plików.
+- W dedykowanej puli SQL poświadczenia w zakresie bazy danych mogą określać niestandardową tożsamość aplikacji, tożsamość zarządzaną przez obszar roboczy lub klucz SAK. 
+- W puli SQL bezserwerowej poświadczenia w zakresie bazy danych mogą określać tożsamość usługi Azure AD, tożsamość zarządzaną w obszarze roboczym lub klucz sygnatury dostępu współdzielonego. 
 
 #### <a name="type"></a>TYP
-Typ = `HADOOP` jest obowiązkowy opcja w puli SQL i określa, że technologia podstawowa jest używana do uzyskiwania dostępu do plików źródłowych. Ten parametr nie może być używany w usłudze SQL na żądanie, która używa wbudowanego czytnika natywnego.
+Typ = `HADOOP` jest opcją obowiązkową w dedykowanej puli SQL i określa, że technologia podstawowa jest używana do uzyskiwania dostępu do plików źródłowych. Nie można użyć tego parametru w puli SQL bezserwerowej, która używa wbudowanego czytnika natywnego.
 
 ### <a name="example-for-create-external-data-source"></a>Przykład tworzenia zewnętrznego źródła danych
 
-#### <a name="sql-pool"></a>[Pula SQL](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Dedykowana Pula SQL](#tab/sql-pool)
 
 Poniższy przykład tworzy zewnętrzne źródło danych dla Azure Data Lake Gen2 wskazujące zestaw danych New York:
 
@@ -133,7 +133,7 @@ WITH
   ) ;
 ```
 
-#### <a name="sql-on-demand"></a>[SQL na żądanie](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Pula SQL bezserwerowa](#tab/sql-on-demand)
 
 Poniższy przykład tworzy zewnętrzne źródło danych dla Azure Data Lake Gen2, do którego można uzyskać dostęp przy użyciu poświadczeń sygnatury dostępu współdzielonego:
 
@@ -195,7 +195,7 @@ WITH (
 }
 ```
 
-#### <a name="sql-on-demand"></a>[SQL na żądanie](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Pula SQL bezserwerowa](#tab/sql-on-demand)
 
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
@@ -266,7 +266,7 @@ Prawda — jeśli pobierasz dane z pliku tekstowego, przechowuj każdą brakują
 
 FALSE — Przechowuj wszystkie brakujące wartości jako wartości NULL. Wszystkie wartości NULL, które są przechowywane przy użyciu wyrazu NULL w rozdzielonym pliku tekstowym, są importowane jako ciąg "NULL".
 
-Kodowanie = {"UTF8" | "UTF16"} — SQL na żądanie może odczytywać zakodowane pliki tekstowe UTF8 i UTF16.
+Kodowanie = {"UTF8" | "UTF16"} — bezserwerowa Pula SQL może odczytywać pliki tekstowe z rozdzielonymi kodowaniem UTF8 i UTF16.
 
 DATA_COMPRESSION = *data_compression_method* — ten argument określa metodę kompresji danych zewnętrznych. 
 
@@ -321,7 +321,7 @@ column_name <data_type>
 
 *{database_name. schema_name. table_name | schema_name. table_name | table_name}*
 
-Nazwa tabeli, która ma zostać utworzona. W przypadku tabeli zewnętrznej SQL na żądanie przechowuje tylko metadane tabeli. Żadne rzeczywiste dane nie są przenoszone ani przechowywane na żądanie SQL.
+Nazwa tabeli, która ma zostać utworzona. W przypadku tabeli zewnętrznej Pula SQL bezserwerowa przechowuje tylko metadane tabeli. Żadne rzeczywiste dane nie są przenoszone ani przechowywane w puli SQL bezserwerowej.
 
 <column_definition>,... *n* ]
 
@@ -332,16 +332,16 @@ Tworzenie tabeli zewnętrznej obsługuje możliwość konfigurowania nazwy kolum
 
 Podczas odczytu z plików Parquet można określić tylko kolumny, które mają zostać odczytane, i pominąć resztę.
 
-LOCATION = "*folder_or_filepath*"
+LOCATION = " *folder_or_filepath* "
 
 Określa folder lub ścieżkę pliku i nazwę pliku dla rzeczywistych danych w usłudze Azure Blob Storage. Lokalizacja jest uruchamiana z folderu głównego. Folder główny to lokalizacja danych określona w zewnętrznym źródle danych.
 
-W przypadku określenia lokalizacji folderu zapytanie na żądanie SQL zostanie wybrane z tabeli zewnętrznej i pobrane pliki z folderu.
+W przypadku określenia lokalizacji folderu bezserwerowe zapytanie puli SQL zostanie wybrane z tabeli zewnętrznej i pobrane pliki z folderu.
 
 > [!NOTE]
-> W przeciwieństwie do usługi Hadoop i bazy danych SQL na żądanie nie zwraca podfolderów. Zwraca pliki, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.).
+> W przeciwieństwie do usługi Hadoop i bazy danych, bezserwerowa Pula SQL nie zwraca podfolderów. Zwraca pliki, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.).
 
-W tym przykładzie, jeśli LOCATION = "/webdata/", zapytanie na żądanie SQL zwróci wiersze z mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
+W tym przykładzie, jeśli LOCATION = "/webdata/", kwerenda puli SQL bezserwerowa zwróci wiersze z mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
 
 ![Dane cykliczne dla tabel zewnętrznych](./media/develop-tables-external-tables/folder-traversal.png)
 
@@ -381,7 +381,7 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="create-and-query-external-tables-from-a-file-in-azure-data-lake"></a>Tworzenie i wykonywanie zapytań dotyczących tabel zewnętrznych z pliku w Azure Data Lake
 
-Korzystając z funkcji Data Lake eksploracji, możesz teraz tworzyć i wysyłać zapytania do tabeli zewnętrznej przy użyciu puli SQL lub SQL na żądanie z prostym kliknięciem pliku.
+Korzystając z możliwości eksploracji Data Lake możesz teraz tworzyć i wysyłać zapytania do tabeli zewnętrznej przy użyciu dedykowanej puli SQL lub bezserwerowej puli SQL z prostym kliknięciem prawym przyciskiem myszy na pliku.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -395,7 +395,7 @@ Z panelu dane wybierz plik, dla którego chcesz utworzyć zewnętrzną tabelę:
 > [!div class="mx-imgBorder"]
 >![externaltable1](./media/develop-tables-external-tables/external-table-1.png)
 
-Zostanie otwarte okno dialogowe. Wybierz pozycję Pula SQL lub SQL na żądanie, nadaj jej nazwę tabeli i wybierz pozycję Otwórz skrypt:
+Zostanie otwarte okno dialogowe. Wybierz dedykowaną pulę SQL lub bezserwerową pulę SQL, nadaj nazwę tabeli i wybierz pozycję Otwórz skrypt:
 
 > [!div class="mx-imgBorder"]
 >![externaltable2](./media/develop-tables-external-tables/external-table-2.png)

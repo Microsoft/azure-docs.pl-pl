@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z procedur składowanych
-description: Wskazówki dotyczące wdrażania procedur składowanych w programie Synapse SQL na potrzeby tworzenia rozwiązań.
+description: Porady dotyczące implementowania procedur składowanych przy użyciu języka SQL Synapse w usłudze Azure Synapse Analytics na potrzeby opracowywania rozwiązań.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 607060851a8afa48b9570dfcb17732279a3629ee
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3940d762dbc249e0303ddf905acbeeed7f96aa4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286667"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315564"
 ---
-# <a name="use-stored-procedures-in-synapse-sql"></a>Korzystanie z procedur składowanych w programie Synapse SQL
+# <a name="stored-procedures-using-synapse-sql-in-azure-synapse-analytics"></a>Procedury składowane przy użyciu języka SQL Synapse w usłudze Azure Synapse Analytics
 
 Synapse aprowizacji SQL i pule bezserwerowe umożliwiają umieszczenie złożonej logiki przetwarzania danych w procedurach składowanych SQL. Procedury składowane to doskonały sposób na hermetyzację kodu SQL i przechowywanie go w pobliżu danych w magazynie danych. Procedury składowane ułatwiają deweloperom modularyzacji swoich rozwiązań poprzez Hermetyzowanie kodu w jednostki umożliwiające zarządzanie i ułatwiają lepsze wykorzystywanie kodu. Każda procedura składowana może również akceptować parametry, aby zapewnić im jeszcze większą elastyczność.
 W tym artykule znajdziesz wskazówki dotyczące wdrażania procedur składowanych w puli Synapse SQL na potrzeby tworzenia rozwiązań.
@@ -27,7 +27,7 @@ W tym artykule znajdziesz wskazówki dotyczące wdrażania procedur składowanyc
 Program SQL Synapse obsługuje wiele funkcji T-SQL, które są używane w SQL Server. Co ważniejsze, dostępne są funkcje skalowania w poziomie, których można użyć w celu zmaksymalizowania wydajności rozwiązania. W tym artykule przedstawiono informacje o funkcjach, które można umieścić w procedurach składowanych.
 
 > [!NOTE]
-> W treści procedury można używać tylko funkcji, które są obsługiwane w obszarze powierzchni Synapse SQL. Zapoznaj się z [tym artykułem](overview-features.md) , aby zidentyfikować obiekty, instrukcję, która może być używana w procedurach składowanych. W przykładach w tych artykułach są używane ogólne funkcje, które są dostępne zarówno w obszarze obszar powierzchniowy, jak i na powierzchnię administracyjną. Zapoznaj się z dodatkowymi [ograniczeniami dotyczącymi zainicjowanych i bezserwerowych pul SQL Synapse](#limitations) na końcu tego artykułu.
+> W treści procedury można używać tylko funkcji, które są obsługiwane w obszarze powierzchni Synapse SQL. Zapoznaj się z [tym artykułem](overview-features.md) , aby zidentyfikować obiekty, instrukcję, która może być używana w procedurach składowanych. W przykładach w tych artykułach są używane ogólne funkcje, które są dostępne zarówno w przypadku bezserwerowego, jak i dedykowanego obszaru powierzchni. Zapoznaj się z dodatkowymi [ograniczeniami dotyczącymi zainicjowanych i bezserwerowych pul SQL Synapse](#limitations) na końcu tego artykułu.
 
 Aby zachować skalę i wydajność puli SQL, istnieją także pewne funkcje i funkcje, które mają różnice zachowania i inne, które nie są obsługiwane.
 

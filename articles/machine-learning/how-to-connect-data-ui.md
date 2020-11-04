@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841360"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312790"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Łączenie się z danymi za pomocą programu Azure Machine Learning Studio
 
@@ -31,7 +31,7 @@ W poniższej tabeli zdefiniowano i podsumowano zalety magazynów danych i zestaw
 
 Aby zrozumieć, w jaki sposób magazyny danych i zestawy danych mieszczą się w ogólnym przepływie pracy Azure Machine Learning, zobacz artykuł [bezpieczny dostęp do](concept-data.md#data-workflow) danych.
 
-Aby uzyskać pierwsze środowisko kodu, zapoznaj się z następującymi artykułami, aby użyć [zestawu SDK języka Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) w programie:
+Aby uzyskać pierwsze środowisko kodu, zapoznaj się z następującymi artykułami, aby użyć [zestawu SDK języka Python Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) w programie:
 * [Nawiązywanie połączenia z usługami Azure Storage z magazynami danych](how-to-access-data.md). 
 * [Utwórz Azure Machine Learning zestawy danych](how-to-create-register-datasets.md). 
 
@@ -48,21 +48,21 @@ Aby uzyskać pierwsze środowisko kodu, zapoznaj się z następującymi artykuł
 
 ## <a name="create-datastores"></a>Tworzenie magazynów danych
 
-Magazyny danych można tworzyć na podstawie [tych rozwiązań usługi Azure Storage](how-to-access-data.md#matrix). **W przypadku nieobsługiwanych rozwiązań magazynu**i zapisania kosztu ruchu wychodzącego w trakcie eksperymentów z sieci, należy [przenieść dane](how-to-access-data.md#move) do obsługiwanego rozwiązania usługi Azure Storage. [Dowiedz się więcej o magazynach](how-to-access-data.md)danych. 
+Magazyny danych można tworzyć na podstawie [tych rozwiązań usługi Azure Storage](how-to-access-data.md#matrix). **W przypadku nieobsługiwanych rozwiązań magazynu** i zapisania kosztu ruchu wychodzącego w trakcie eksperymentów z sieci, należy [przenieść dane](how-to-access-data.md#move) do obsługiwanego rozwiązania usługi Azure Storage. [Dowiedz się więcej o magazynach](how-to-access-data.md)danych. 
 
 
 
 Utwórz nowy magazyn danych w kilku krokach za pomocą programu Azure Machine Learning Studio.
 
 > [!IMPORTANT]
-> Jeśli Twoje konto magazynu danych znajduje się w sieci wirtualnej, wymagane są dodatkowe czynności konfiguracyjne, aby upewnić się, że Studio ma dostęp do danych. Aby zapewnić stosowanie odpowiednich czynności konfiguracyjnych, zobacz [izolacja sieci & prywatność](how-to-enable-virtual-network.md#machine-learning-studio) .
+> Jeśli Twoje konto magazynu danych znajduje się w sieci wirtualnej, wymagane są dodatkowe czynności konfiguracyjne, aby upewnić się, że Studio ma dostęp do danych. Aby zapewnić stosowanie odpowiednich czynności konfiguracyjnych, zobacz [izolacja sieci & prywatność](how-to-enable-studio-virtual-network.md) .
 
 1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Wybierz pozycję **magazyny** danych w lewym okienku w obszarze **Zarządzaj**.
-1. Wybierz pozycję **+ nowy magazyn**danych.
+1. Wybierz pozycję **+ nowy magazyn** danych.
 1. Wypełnij formularz dla nowego magazynu danych. Formularz jest inteligentnie aktualizowany na podstawie wybranych opcji typu usługi Azure Storage i typu uwierzytelniania. Zapoznaj się z [sekcją dostęp do magazynu i uprawnienia](#access-validation) , aby dowiedzieć się, gdzie znaleźć poświadczenia uwierzytelniania potrzebne do wypełnienia tego formularza.
 
-Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia **magazynu danych obiektów blob platformy Azure**:
+Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia **magazynu danych obiektów blob platformy Azure** :
 
 ![Formularz dla nowego magazynu danych](media/how-to-connect-data-ui/new-datastore-form.png)
 
@@ -86,7 +86,7 @@ Aby utworzyć zestaw danych w programie Studio:
 1. Wybierz pozycję **Utwórz zestaw danych** , aby wybrać źródło zestawu danych. To źródło może być plikami lokalnymi, magazynem danych, publicznymi adresami URL lub [otwartymi zestawami danych platformy Azure](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 1. Wybierz **tabelaryczną** lub **plik** dla typu zestawu danych.
 1. Wybierz pozycję **dalej** , aby otworzyć formularz **Magazyn danych i wybór pliku** . Na tym formularzu wybierz lokalizację, w której ma zostać zachowany zestaw danych, a także wybierz pliki danych, które mają być używane dla zestawu danych.
-    1. Włącz weryfikację pomijania, jeśli dane są w sieci wirtualnej. Dowiedz się więcej o [izolacji i prywatności sieci wirtualnej](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. Włącz weryfikację pomijania, jeśli dane są w sieci wirtualnej. Dowiedz się więcej o [izolacji i prywatności sieci wirtualnej](how-to-enable-studio-virtual-network.md).
     1. W przypadku tabelarycznych zestawów danych można określić cechę "szeregów czasowych", aby włączyć operacje związane z czasem na tym elemencie dataset. Dowiedz się [, jak dodać cechy szeregów czasowych do zestawu danych](how-to-monitor-datasets.md#studio-dataset).
 1. Wybierz pozycję **dalej** , aby wypełnić **Ustawienia, Podgląd** i formularze **schematów** ; są one inteligentnie wypełniane na podstawie typu pliku i można później skonfigurować zestaw danych przed utworzeniem w tych formularzach. 
 1. Wybierz pozycję **dalej** , aby przejrzeć formularz **Potwierdź szczegóły** . Sprawdź wybrane opcje i Utwórz opcjonalny profil danych dla zestawu danych. Dowiedz się więcej na temat [profilowania danych](#profile).
@@ -115,10 +115,10 @@ W każdym przypadku profil danych Azure Machine Learning DataSet obejmuje:
 
 |Statystyka|Opis
 |------|------
-|Cecha| Nazwa sumowanej kolumny.
+|Cechy| Nazwa sumowanej kolumny.
 |Profil| Wizualizacja w wierszu oparta na wywnioskowanym typie. Na przykład ciągi, wartości logiczne i daty będą mieć liczby wartości, podczas gdy miejsca dziesiętne (liczbowe) mają przybliżone histogramy. Pozwala to na szybkie zrozumienie dystrybucji danych.
 |Dystrybucja typów| Liczba wartości w wierszu dla typów w kolumnie. Wartości null są własnym typem, więc Wizualizacja jest przydatna do wykrywania nieparzystych lub brakujących wartości.
-|Type|Wywnioskowany typ kolumny. Możliwe wartości to: ciągi, wartości logiczne, daty i miejsca dziesiętne.
+|Typ|Wywnioskowany typ kolumny. Możliwe wartości to: ciągi, wartości logiczne, daty i miejsca dziesiętne.
 |Min.| Minimalna wartość kolumny. Puste wpisy są wyświetlane dla funkcji, których typ nie ma własnej kolejności (np. wartości logicznych).
 |Maks.| Maksymalna wartość kolumny. 
 |Liczba| Łączna liczba brakujących i nieobecnych wpisów w kolumnie.
@@ -136,13 +136,13 @@ Aby zapewnić bezpieczne łączenie się z usługą Azure Storage, Azure Machine
 
 ### <a name="virtual-network"></a>Sieć wirtualna
 
-Jeśli Twoje konto magazynu danych znajduje się w **sieci wirtualnej**, wymagane są dodatkowe czynności konfiguracyjne, aby zapewnić, że Azure Machine Learning ma dostęp do danych. Aby zapewnić stosowanie odpowiednich czynności konfiguracyjnych podczas tworzenia i rejestrowania magazynu danych, należy zapoznać się z tematem [izolacja sieci & prywatności](how-to-enable-virtual-network.md#machine-learning-studio) .  
+Jeśli Twoje konto magazynu danych znajduje się w **sieci wirtualnej** , wymagane są dodatkowe czynności konfiguracyjne, aby zapewnić, że Azure Machine Learning ma dostęp do danych. Aby zapewnić stosowanie odpowiednich czynności konfiguracyjnych podczas tworzenia i rejestrowania magazynu danych, należy zapoznać się z tematem [izolacja sieci & prywatności](how-to-enable-studio-virtual-network.md) .  
 
 ### <a name="access-validation"></a>Sprawdzanie poprawności dostępu
 
-**W ramach początkowego procesu tworzenia i rejestracji magazynu**danych Azure Machine Learning automatycznie sprawdza, czy istnieje podstawowa usługa magazynu, oraz czy podany przez użytkownika podmiot zabezpieczeń (username, nazwa główna usługi lub token SAS) ma dostęp do określonego magazynu.
+**W ramach początkowego procesu tworzenia i rejestracji magazynu** danych Azure Machine Learning automatycznie sprawdza, czy istnieje podstawowa usługa magazynu, oraz czy podany przez użytkownika podmiot zabezpieczeń (username, nazwa główna usługi lub token SAS) ma dostęp do określonego magazynu.
 
-**Po utworzeniu magazynu**danych sprawdzanie poprawności jest wykonywane tylko w przypadku metod, które wymagają dostępu do źródłowego kontenera magazynu, a **nie** do pobierania obiektów magazynu danych. Na przykład sprawdzanie poprawności ma miejsce, jeśli chcesz pobrać pliki z magazynu danych; ale jeśli chcesz jedynie zmienić domyślny magazyn danych, walidacja nie następuje.
+**Po utworzeniu magazynu** danych sprawdzanie poprawności jest wykonywane tylko w przypadku metod, które wymagają dostępu do źródłowego kontenera magazynu, a **nie** do pobierania obiektów magazynu danych. Na przykład sprawdzanie poprawności ma miejsce, jeśli chcesz pobrać pliki z magazynu danych; ale jeśli chcesz jedynie zmienić domyślny magazyn danych, walidacja nie następuje.
 
 Aby uwierzytelnić dostęp do podstawowej usługi magazynu, możesz podać klucz konta, tokeny sygnatur dostępu współdzielonego (SAS) lub jednostkę usługi zgodnie z typem magazynu danych, który chcesz utworzyć. [Macierz typ magazynu](how-to-access-data.md#matrix) zawiera listę obsługiwanych typów uwierzytelniania, które odpowiadają każdemu typowi magazynu danych.
 
@@ -153,7 +153,7 @@ Informacje na temat klucza konta, tokenu sygnatury dostępu współdzielonego i 
       1. W przypadku kluczy konta przejdź do pozycji **klucze dostępu** w okienku **Ustawienia** .
       1. W przypadku tokenów SAS przejdź do obszaru **sygnatury dostępu współdzielonego** w okienku **Ustawienia** .
 
-* Jeśli planujesz użyć jednostki [usługi](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) do uwierzytelniania, przejdź do **rejestracje aplikacji** i wybierz aplikację, której chcesz użyć.
+* Jeśli planujesz użyć jednostki [usługi](../active-directory/develop/howto-create-service-principal-portal.md) do uwierzytelniania, przejdź do **rejestracje aplikacji** i wybierz aplikację, której chcesz użyć.
     * Odpowiadająca jej Strona **przeglądu** będzie zawierać wymagane informacje, takie jak identyfikator dzierżawy i identyfikator klienta.
 
 > [!IMPORTANT]
@@ -161,7 +161,7 @@ Informacje na temat klucza konta, tokenu sygnatury dostępu współdzielonego i 
 
 ### <a name="permissions"></a>Uprawnienia
 
-W przypadku kontenera obiektów blob platformy Azure i Azure Data Lake magazynu generacji 2 Upewnij się, że poświadczenia uwierzytelniania mają dostęp do **czytnika danych obiektu blob magazynu** . Dowiedz się więcej o [czytniku danych BLOB Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+W przypadku kontenera obiektów blob platformy Azure i Azure Data Lake magazynu generacji 2 Upewnij się, że poświadczenia uwierzytelniania mają dostęp do **czytnika danych obiektu blob magazynu** . Dowiedz się więcej o [czytniku danych BLOB Storage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). 
 
 ## <a name="train-with-datasets"></a>Szkolenie przy użyciu zestawów danych
 

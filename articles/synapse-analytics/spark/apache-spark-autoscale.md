@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500355"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313646"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Automatyczne skalowanie pul Apache Spark usługi Azure Synapse Analytics
 
@@ -49,7 +49,7 @@ W przypadku skalowania w dół w oparciu o liczbę modułów wykonujących, wzor
 
 ## <a name="get-started"></a>Wprowadzenie
 
-### <a name="create-a-spark-pool-with-autoscaling"></a>Tworzenie puli platformy Spark z funkcją automatycznego skalowania
+### <a name="create-a-serverless-apache-spark-pool-with-autoscaling"></a>Utwórz bezserwerową pulę Apache Spark przy użyciu skalowania automatycznego
 
 Aby włączyć funkcję automatycznego skalowania, wykonaj następujące czynności w ramach procesu tworzenia puli normalnej:
 

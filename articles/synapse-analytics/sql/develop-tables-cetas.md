@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93f23cdcfb3fb7107e3b1838b48b3e58ccc2d028
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d0805aaf694f1569e613ab74135c95e454adbdc0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288770"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315074"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS z Synapse SQL
 
-Możesz użyć opcji Utwórz tabelę ZEWNĘTRZną jako SELECT (CETAS) w puli SQL lub SQL na żądanie (wersja zapoznawcza), aby wykonać następujące zadania:  
+Możesz użyć opcji Utwórz tabelę ZEWNĘTRZną jako SELECT (CETAS) w dedykowanej puli SQL lub bezserwerowej puli SQL (wersja zapoznawcza), aby wykonać następujące zadania:  
 
 - Tworzenie tabeli zewnętrznej
 - Eksportowanie, równolegle, wyniki instrukcji SELECT języka Transact-SQL:
@@ -27,13 +27,13 @@ Możesz użyć opcji Utwórz tabelę ZEWNĘTRZną jako SELECT (CETAS) w puli SQL
   - Azure Storage Blob
   - Usługa Azure Data Lake Storage 2. generacji
 
-## <a name="cetas-in-sql-pool"></a>CETAS w puli SQL
+## <a name="cetas-in-dedicated-sql-pool"></a>CETAS w dedykowanej puli SQL
 
-Dla puli SQL CETAS użycie i składnię, zaznacz artykuł [Tworzenie tabeli zewnętrznej jako SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) . Ponadto, aby uzyskać wskazówki dotyczące CTAS przy użyciu puli SQL, zobacz artykuł [CREATE TABLE jako SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) .
+W przypadku dedykowanej puli SQL CETAS użycie i składnię, zaznacz artykuł [Tworzenie tabeli zewnętrznej jako SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) . Dodatkowo Aby uzyskać wskazówki dotyczące CTAS przy użyciu dedykowanej puli SQL, zobacz artykuł [CREATE TABLE jako SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) .
 
-## <a name="cetas-in-sql-on-demand"></a>CETAS na żądanie SQL
+## <a name="cetas-in-serverless-sql-pool"></a>CETAS w puli SQL bezserwerowej
 
-W przypadku korzystania z SQL na żądanie CETAS jest używany do tworzenia tabeli zewnętrznej i eksportowania wyników zapytania do Azure Storage Blob lub Azure Data Lake Storage Gen2.
+W przypadku korzystania z puli SQL bezserwerowej CETAS jest używany do tworzenia tabeli zewnętrznej i eksportowania wyników zapytania do Azure Storage Blob lub Azure Data Lake Storage Gen2.
 
 ## <a name="syntax"></a>Składnia
 
@@ -56,7 +56,7 @@ CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] 
 
 *[[ *database_name* . [ *schema_name* ]. ] | *schema_name* . ] *table_name**
 
-Nazwa tabeli, która ma zostać utworzona. W przypadku tabeli zewnętrznej SQL na żądanie przechowuje tylko metadane tabeli. Żadne rzeczywiste dane nie są przenoszone ani przechowywane na żądanie SQL.
+Nazwa tabeli, która ma zostać utworzona. W przypadku tabeli zewnętrznej Pula SQL bezserwerowa przechowuje tylko metadane tabeli. Żadne rzeczywiste dane nie są przenoszone ani przechowywane w puli SQL bezserwerowej.
 
 LOCATION = *"PATH_TO_FOLDER"*
 
@@ -144,7 +144,7 @@ CETAS może służyć do przechowywania zestawów wyników przy użyciu następu
 - varbinary
 - char
 - varchar
-- data
+- date
 - time
 - datetime2
 - decimal
@@ -164,7 +164,7 @@ Następujące typy danych nie mogą być używane w SELECT część elementu CET
 
 - nchar
 - nvarchar
-- data/godzina
+- datetime
 - smalldatetime
 - datetimeoffset
 - pieniędzy

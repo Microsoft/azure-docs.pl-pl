@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737990"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313539"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Zarządzanie bibliotekami Apache Spark w usłudze Azure Synapse Analytics
 
-Biblioteki zapewniają kod wielokrotnego użytku, który może być dołączany do programów lub projektów. Aby udostępnić innym firmom lub lokalnie skompilowany kod dla aplikacji, możesz zainstalować bibliotekę na jednej z pul platformy Spark (wersja zapoznawcza). Po zainstalowaniu biblioteki dla puli platformy Spark będzie ona dostępna dla wszystkich sesji korzystających z tej samej puli. 
+Biblioteki zapewniają kod wielokrotnego użytku, który może być dołączany do programów lub projektów. Aby udostępnić innym firmom lub lokalnie skompilowany kod dla aplikacji, możesz zainstalować bibliotekę na jednym z pul Apache Spark bezserwerowych (wersja zapoznawcza). Po zainstalowaniu biblioteki dla puli platformy Spark będzie ona dostępna dla wszystkich sesji korzystających z tej samej puli. 
 
 ## <a name="default-installation"></a>Instalacja domyślna
 Apache Spark w usłudze Azure Synapse Analytics ma kompletną instalację Anacondas plus dodatkowe biblioteki. Listę pełnych bibliotek można znaleźć w obszarze [Obsługa wersji Apache Spark](apache-spark-version-support.md). 
@@ -68,7 +68,7 @@ Aby zaktualizować lub dodać dodatkowe biblioteki do puli platformy Spark (wers
    
 2.  Uruchom obszar roboczy usługi Azure Synapse Analytics z poziomu Azure Portal.
 
-3.  Wybierz pozycję **Zarządzaj** w głównym panelu nawigacyjnym, a następnie wybierz pozycję **Pule Apache Spark** .
+3.  Wybierz pozycję **Zarządzaj** w głównym panelu nawigacyjnym, a następnie wybierz pozycję **Pule Apache Spark**.
    
 4. Wybierz jedną pulę platformy Spark i Przekaż plik konfiguracyjny środowiska przy użyciu selektora plików w sekcji  **pakiety** na stronie.
 
@@ -106,7 +106,7 @@ Aby zaktualizować lub odinstalować bibliotekę:
 
 3. Przejdź do sekcji **Packages** i przekaż nowy plik konfiguracyjny środowiska
    
-4. Po zapisaniu zmian konieczne będzie zakończenie aktywnych sesji i ponowne uruchomienie puli. Opcjonalnie można wymusić zakończenie aktywnych sesji, zaznaczając pole wyboru, aby **wymusić nowe ustawienia** .
+4. Po zapisaniu zmian konieczne będzie zakończenie aktywnych sesji i ponowne uruchomienie puli. Opcjonalnie można wymusić zakończenie aktywnych sesji, zaznaczając pole wyboru, aby **wymusić nowe ustawienia**.
 
     ![Dodaj biblioteki języka Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Dodaj biblioteki języka Python")
    

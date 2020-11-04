@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5a04e5a7136ac1a33766bf543a27ff7794498c26
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: be2afad7e7cb08d9c677e589846f3d67cf43e708
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996366"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314238"
 ---
 # <a name="collect-data-from-models-in-production"></a>Zbieranie danych z modeli w środowisku produkcyjnym
 
@@ -67,11 +67,11 @@ Dane wyjściowe są zapisywane w magazynie obiektów BLOB. Ponieważ dane są do
 
 - Potrzebny jest klaster AKS. Aby uzyskać informacje na temat sposobu tworzenia i wdrażania ich w programie, zobacz artykuł [jak wdrożyć i gdzie](how-to-deploy-and-where.md).
 
-- [Skonfiguruj środowisko](how-to-configure-environment.md) i zainstaluj [zestaw SDK monitorowania Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+- [Skonfiguruj środowisko](how-to-configure-environment.md) i zainstaluj [zestaw SDK monitorowania Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 ## <a name="enable-data-collection"></a>Włączanie zbierania danych
 
-[Zbieranie danych](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) można włączyć niezależnie od modelu wdrażanego za pomocą Azure Machine Learning lub innych narzędzi.
+[Zbieranie danych](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py) można włączyć niezależnie od modelu wdrażanego za pomocą Azure Machine Learning lub innych narzędzi.
 
 Aby włączyć zbieranie danych, należy:
 
@@ -153,7 +153,7 @@ Możesz wybrać narzędzie preferencji do analizowania danych zbieranych w magaz
 
 1. Pobierz i Otwórz [Power BI Desktop](https://www.powerbi.com).
 
-1. Wybierz pozycję **Pobierz dane** i wybierz pozycję [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
+1. Wybierz pozycję **Pobierz dane** i wybierz pozycję [**Azure Blob Storage**](/power-bi/desktop-data-sources).
 
     [![Power BI Konfiguracja obiektu BLOB](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
@@ -187,7 +187,7 @@ Możesz wybrać narzędzie preferencji do analizowania danych zbieranych w magaz
 
 ### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> Analizowanie danych modelu za pomocą Azure Databricks
 
-1. Utwórz [obszar roboczy Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+1. Utwórz [obszar roboczy Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
 1. Przejdź do obszaru roboczego kostki danych.
 

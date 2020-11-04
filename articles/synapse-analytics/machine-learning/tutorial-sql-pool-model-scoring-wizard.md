@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Kreator oceniania modelu uczenia maszynowego dla pul SQL'
-description: Samouczek dotyczący sposobu używania Kreatora oceniania modelu uczenia maszynowego do wzbogacania danych w Synapse pule SQL
+title: 'Samouczek: Kreator oceniania modelu uczenia maszynowego dla dedykowanych pul SQL'
+description: Samouczek dotyczący sposobu używania Kreatora oceniania modelu uczenia maszynowego do wzbogacania danych w dedykowanych pulach SQL.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,29 +9,29 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 8e92ff75bb6a9757c06de3561a385cbcbb7f75ba
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f5c5edc067b3f7b525fd129462c48ca50fdafc8f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019974"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314034"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-synapse-sql-pools"></a>Samouczek: Kreator oceniania modelu uczenia maszynowego dla pul Synapse SQL
+# <a name="tutorial-machine-learning-model-scoring-wizard-for-dedicated-sql-pools"></a>Samouczek: Kreator oceniania modelu uczenia maszynowego dla dedykowanych pul SQL
 
-Dowiedz się, jak łatwo wzbogacać dane w pulach SQL za pomocą predykcyjnych modeli uczenia maszynowego.  Modele, które są tworzone przez analityków danych, są teraz łatwo dostępne dla specjalistów ds. danych na potrzeby analizy predykcyjnej. Specjalista ds. danych w Synapse może po prostu wybrać model z rejestru modeli Azure Machine Learning, aby wdrożyć w Synapse pule SQL i uruchamiać przewidywania w celu wzbogacania danych.
+Dowiedz się, jak łatwo wzbogacać dane w dedykowane pule SQL za pomocą predykcyjnych modeli uczenia maszynowego.  Modele, które są tworzone przez analityków danych, są teraz łatwo dostępne dla specjalistów ds. danych na potrzeby analizy predykcyjnej. Specjalista ds. danych w Synapse może po prostu wybrać model z rejestru modeli Azure Machine Learning, aby wdrożyć w Synapse pule SQL i uruchamiać przewidywania w celu wzbogacania danych.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > - Uczenie modelu uczenia maszynowego i rejestrowanie modelu w rejestrze Azure Machine Learning model
-> - Używanie Kreatora oceniania SQL do uruchamiania prognoz w puli SQL Synapse
+> - Używanie Kreatora oceniania SQL do uruchamiania prognoz w dedykowanej puli SQL
 
 Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Obszar roboczy Synapse Analytics](../get-started-create-workspace.md) z kontem magazynu ADLS Gen2 skonfigurowanym jako magazyn domyślny. Musisz być **współautorem danych obiektów blob magazynu** dla systemu plików ADLS Gen2, z którym pracujesz.
-- Synapse pulę SQL w obszarze roboczym analizy Synapse. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie puli SQL Synapse](../quickstart-create-sql-pool-studio.md).
+- Dedykowana Pula SQL w obszarze roboczym analizy Synapse. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie dedykowanej puli SQL](../quickstart-create-sql-pool-studio.md).
 - Azure Machine Learning połączoną usługę w obszarze roboczym analizy Synapse. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie połączonej usługi Azure Machine Learning w Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
@@ -52,7 +52,7 @@ Przed uruchomieniem wszystkich komórek w notesie Sprawdź, czy wystąpienie obl
 
 1. Uruchom obszar roboczy Azure Machine Learning w programie [Azure Machine Learning Studio](https://ml.azure.com).
 
-1. Przejdź do **notesów** , a następnie kliknij pozycję **Przekaż pliki**, wybierz pozycję "przewidywanie NYCych wskazówek dotyczących ipynb", które zostały pobrane i przekazane.
+1. Przejdź do **notesów** , a następnie kliknij pozycję **Przekaż pliki** , wybierz pozycję "przewidywanie NYCych wskazówek dotyczących ipynb", które zostały pobrane i przekazane.
    ![Przekazywanie pliku](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00a.png)
 
 1. Po przekazaniu i otwarciu notesu kliknij pozycję **Uruchom wszystkie komórki**.
@@ -62,7 +62,7 @@ Przed uruchomieniem wszystkich komórek w notesie Sprawdź, czy wystąpienie obl
 1. Notes będzie szkolić model ONNX i zarejestrować go w MLFlow. Przejdź do pozycji **modele** , aby sprawdzić, czy nowy model jest poprawnie zarejestrowany.
    ![Model w rejestrze](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
 
-1. Uruchomienie notesu spowoduje również wyeksportowanie danych testowych do pliku CSV. Pobierz plik CSV do systemu lokalnego. Później należy zaimportować plik CSV do puli SQL i użyć danych do przetestowania modelu.
+1. Uruchomienie notesu spowoduje również wyeksportowanie danych testowych do pliku CSV. Pobierz plik CSV do systemu lokalnego. Później zaimportujesz plik CSV do dedykowanej puli SQL i użyjesz danych do przetestowania modelu.
 
    Plik CSV jest tworzony w tym samym folderze, w którym znajduje się plik notesu. Kliknij przycisk "Odśwież" w Eksploratorze plików, jeśli nie widzisz go od razu.
 
@@ -72,11 +72,11 @@ Przed uruchomieniem wszystkich komórek w notesie Sprawdź, czy wystąpienie obl
 
 1. Otwórz obszar roboczy Synapse za pomocą programu Synapse Studio.
 
-1. Przejdź do **danych**  ->  konta**połączonego**  ->  **magazynu**. Przekaż `test_data.csv` na domyślne konto magazynu.
+1. Przejdź do **danych**  ->  konta **połączonego**  ->  **magazynu**. Przekaż `test_data.csv` na domyślne konto magazynu.
 
    ![Przekazywanie danych](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00a.png)
 
-1. Przejdź do **projektowania**  ->  **skryptów SQL**. Utwórz nowy skrypt SQL do załadowania `test_data.csv` do puli SQL.
+1. Przejdź do **projektowania**  ->  **skryptów SQL**. Utwórz nowy skrypt SQL do załadowania `test_data.csv` do dedykowanej puli SQL.
 
    > [!NOTE]
    > Zaktualizuj adres URL pliku w tym skrypcie przed jego uruchomieniem.
@@ -117,9 +117,9 @@ Przed uruchomieniem wszystkich komórek w notesie Sprawdź, czy wystąpienie obl
    GO
    ```
 
-   ![Ładowanie danych do puli SQL](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
+   ![Ładowanie danych do dedykowanej puli SQL](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
 
-1. Przejdź do **Data**  ->  **obszaru roboczego**dane. Otwórz Kreatora oceniania bazy danych SQL, klikając prawym przyciskiem myszy tabelę puli SQL. Wybierz **Machine Learning**  ->  **wzbogacania z istniejącym modelem**.
+1. Przejdź do **Data**  ->  **obszaru roboczego** dane. Otwórz Kreatora oceniania bazy danych SQL, klikając prawym przyciskiem myszy dedykowaną tabelę puli SQL. Wybierz **Machine Learning**  ->  **wzbogacania z istniejącym modelem**.
 
    > [!NOTE]
    > Opcja Uczenie maszynowe nie jest wyświetlana, jeśli nie utworzono połączonej usługi dla Azure Machine Learning (zobacz **wymagania wstępne** na początku tego samouczka).
@@ -138,7 +138,7 @@ Przed uruchomieniem wszystkich komórek w notesie Sprawdź, czy wystąpienie obl
 
    ![Mapowanie tabeli na model](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
 
-1. Wygenerowany kod T-SQL jest opakowany wewnątrz procedury składowanej. Dlatego należy podać nazwę procedury składowanej. Plik binarny modelu, w tym metadane (wersja, opis itp.), będzie fizycznie kopiowany z Azure Machine Learning do tabeli puli SQL. W związku z tym należy określić tabelę, w której ma zostać zapisany model. Możesz wybrać opcję "Użyj istniejącej tabeli" lub "Utwórz nową tabelę". Po zakończeniu kliknij pozycję **Wdróż model + Otwórz Edytor** , aby wdrożyć model i wygenerować skrypt predykcyjny języka T-SQL.
+1. Wygenerowany kod T-SQL jest opakowany wewnątrz procedury składowanej. Dlatego należy podać nazwę procedury składowanej. Plik binarny modelu z uwzględnieniem metadanych (wersji, opisu itp.) będzie fizycznie kopiowany z Azure Machine Learning do dedykowanej tabeli puli SQL. W związku z tym należy określić tabelę, w której ma zostać zapisany model. Możesz wybrać opcję "Użyj istniejącej tabeli" lub "Utwórz nową tabelę". Po zakończeniu kliknij pozycję **Wdróż model + Otwórz Edytor** , aby wdrożyć model i wygenerować skrypt predykcyjny języka T-SQL.
 
    ![Utwórz procedurę](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00f.png)
 

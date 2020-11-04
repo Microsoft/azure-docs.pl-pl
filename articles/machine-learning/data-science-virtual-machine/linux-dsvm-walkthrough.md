@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: 65a627cc009699660de0897ce853acaa78381f6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275986"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315805"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Nauka danych przy użyciu Data Science Virtual Machine Ubuntu na platformie Azure
 
@@ -28,8 +28,8 @@ Przed użyciem DSVM systemu Linux należy spełnić następujące wymagania wst�
 
 * **Subskrypcja platformy Azure**. Aby uzyskać subskrypcję platformy Azure, zobacz artykuł [Tworzenie bezpłatnego konta platformy Azure już dzisiaj](https://azure.microsoft.com/free/).
 
-* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Aby uzyskać informacje o aprowizacji maszyny wirtualnej, zobacz temat [udostępnianie Ubuntu Data Science Virtual Machine](linux-dsvm-intro.md).
-* [**X2go**](https://wiki.x2go.org/doku.php) zainstalowane na komputerze z otwartą sesją pulpit Xfce. Aby uzyskać więcej informacji, zobacz [Instalowanie i Konfigurowanie klienta x2go](linux-dsvm-intro.md#x2go).
+* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Aby uzyskać informacje o aprowizacji maszyny wirtualnej, zobacz temat [udostępnianie Ubuntu Data Science Virtual Machine](./release-notes.md).
+* [**X2go**](https://wiki.x2go.org/doku.php) zainstalowane na komputerze z otwartą sesją pulpit Xfce. Aby uzyskać więcej informacji, zobacz [Instalowanie i Konfigurowanie klienta x2go](dsvm-ubuntu-intro.md#x2go).
 * Aby usprawnić przewijanie w przeglądarce sieci Web w programie DSVM, przełącz `gfx.xrender.enabled` flagę w `about:config` . [Dowiedz się więcej](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Należy również rozważyć `mousewheel.enable_pixel_scrolling` ustawienie `False` . [Dowiedz się więcej](https://support.mozilla.org/questions/981140).
 
 ## <a name="download-the-spambase-dataset"></a>Pobierz zestaw danych spambase
@@ -62,11 +62,11 @@ mv headers spambaseHeaders.data
 
 Zestaw danych zawiera kilka typów statystyk dla każdej wiadomości e-mail:
 
-* Kolumny, takie jak **Word \_ FREQ \_ _Word_ ** , wskazują procent słów w wiadomości e-mail pasującej do *wyrazu*. Jeśli na przykład **słowo \_ FREQ \_ ** ma wartość **1**, *nastąpiło*1% wszystkich wyrazów w wiadomości e-mail.
-* Kolumny, takie jak **char \_ FREQ \_ _char_ ** wskazują procent wszystkich znaków w wiadomości e-mail, które są *znakami*.
-* ** \_ Długość uruchomienia \_ w \_ Wielkiej** litery jest najdłuższym długością sekwencji wielkich liter.
-* ** \_ \_ \_ średnia długość uruchomienia kapitału** to średnia długość wszystkich sekwencji wielkich liter.
-* ** \_ \_ \_ całkowita długość uruchomienia kapitału** to łączna długość wszystkich sekwencji wielkich liter.
+* Kolumny, takie jak **Word \_ FREQ \_ _Word_** , wskazują procent słów w wiadomości e-mail pasującej do *wyrazu*. Jeśli na przykład **słowo \_ FREQ \_** ma wartość **1** , *nastąpiło* 1% wszystkich wyrazów w wiadomości e-mail.
+* Kolumny, takie jak **char \_ FREQ \_ _char_** wskazują procent wszystkich znaków w wiadomości e-mail, które są *znakami*.
+* **\_ Długość uruchomienia \_ w \_ Wielkiej** litery jest najdłuższym długością sekwencji wielkich liter.
+* **\_ \_ \_ średnia długość uruchomienia kapitału** to średnia długość wszystkich sekwencji wielkich liter.
+* **\_ \_ \_ całkowita długość uruchomienia kapitału** to łączna długość wszystkich sekwencji wielkich liter.
 * **spam** wskazuje, czy wiadomość e-mail została uznana za spam, czy nie (1 = spam, 0 = nie spam).
 
 ## <a name="explore-the-dataset-by-using-r-open"></a>Eksplorowanie zestawu danych przy użyciu języka R Open
@@ -213,7 +213,7 @@ Oprócz przykładów opartych na architekturze udostępnia się również zestaw
 
 - [Przewodnik dotyczący tworzenia kompleksowych rozwiązań w celu wykrywania produktów w obrazach](https://github.com/Azure/cortana-intelligence-product-detection-from-images): wykrywanie obrazów to technika, która umożliwia lokalizowanie i klasyfikowanie obiektów w obrazach. Technologia ta pozwala uzyskać ogromne korzyści w wielu domenach biznesowych w czasie rzeczywistym. Na przykład Detaliści mogą użyć tej techniki, aby określić, który produkt został pobrany przez klienta z półki. Te informacje z kolei ułatwiają przechowywanie spisu produktów. 
 
-- [Głębokie uczenie audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): w tym samouczku pokazano, jak szkolić model uczenia głębokiego na potrzeby wykrywania zdarzeń audio w [zestawie danych dotyczących dźwięków miejskich](https://urbansounddataset.weebly.com/). Samouczek zawiera omówienie sposobu pracy z danymi audio.
+- [Głębokie uczenie audio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): w tym samouczku pokazano, jak szkolić model uczenia głębokiego na potrzeby wykrywania zdarzeń audio w [zestawie danych dotyczących dźwięków miejskich](https://urbansounddataset.weebly.com/). Samouczek zawiera omówienie sposobu pracy z danymi audio.
 
 - [Klasyfikacja dokumentów tekstowych](https://github.com/anargyri/lstm_han): w tym instruktażu przedstawiono sposób tworzenia i uczenia dwóch różnych architektur sieci neuronowych: hierarchicznej sieci i długiej ilości pamięci (LSTM). Te sieci neuronowych używają interfejsu API Keras do uczenia głębokiego do klasyfikowania dokumentów tekstowych. Keras to przód do trzech najpopularniejszych platform uczenia głębokiego: Microsoft Cognitive Toolkit, TensorFlow i Theano.
 
@@ -315,7 +315,7 @@ Kilka przykładowych notesów jest już zainstalowanych na DSVM:
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*nalityczny *t*OOL *t*o *L*zdobyć *E*asily) to graficzne narzędzie języka r do wyszukiwania danych. Rattle ma intuicyjny interfejs, który ułatwia ładowanie, eksplorowanie i Przekształcanie danych oraz tworzenie i ocenę modeli. [Rattle: interfejs GUI wyszukiwania danych dla języka R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) zawiera Przewodnik pokazujący funkcje Rattle.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) ( *R* *A* nalityczny *t* OOL *t* o *L* zdobyć *E* asily) to graficzne narzędzie języka r do wyszukiwania danych. Rattle ma intuicyjny interfejs, który ułatwia ładowanie, eksplorowanie i Przekształcanie danych oraz tworzenie i ocenę modeli. [Rattle: interfejs GUI wyszukiwania danych dla języka R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) zawiera Przewodnik pokazujący funkcje Rattle.
 
 Zainstaluj i uruchom program Rattle, uruchamiając następujące polecenia:
 
@@ -328,12 +328,12 @@ rattle()
 > [!NOTE]
 > Nie musisz instalować Rattle na DSVM. Jednak po otwarciu Rattle może zostać wyświetlony monit o zainstalowanie dodatkowych pakietów.
 
-Rattle używa interfejsu opartego na kartach. Większość kart odpowiada krokom w [zespołowym procesie nauki danych](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), takim jak ładowanie danych lub Eksplorowanie danych. Proces analizy danych jest przepływem od lewej do prawej za pośrednictwem kart. Ostatnia karta zawiera dziennik poleceń języka R, które zostały uruchomione przez Rattle.
+Rattle używa interfejsu opartego na kartach. Większość kart odpowiada krokom w [zespołowym procesie nauki danych](../team-data-science-process/index.yml), takim jak ładowanie danych lub Eksplorowanie danych. Proces analizy danych jest przepływem od lewej do prawej za pośrednictwem kart. Ostatnia karta zawiera dziennik poleceń języka R, które zostały uruchomione przez Rattle.
 
 Aby załadować i skonfigurować zestaw danych:
 
 1. Aby załadować plik, wybierz kartę **dane** .
-1. Wybierz selektor obok **nazwy pliku**, a następnie wybierz pozycję **spambaseHeaders. Data**.
+1. Wybierz selektor obok **nazwy pliku** , a następnie wybierz pozycję **spambaseHeaders. Data**.
 1. Do załadowania pliku. Wybierz pozycję **Wykonaj**. Powinno zostać wyświetlone podsumowanie każdej kolumny, w tym określony typ danych. bez względu na to, czy jest to wejście, obiekt docelowy czy inny typ zmiennej; oraz liczbę unikatowych wartości.
 1. Rattle poprawnie zidentyfikowała kolumnę **spamu** jako element docelowy. Wybierz kolumnę **spam** , a następnie ustaw **docelowy typ danych** na **categoric**.
 
@@ -346,16 +346,16 @@ Aby eksplorować dane:
 Karta **Eksplorowanie** umożliwia również generowanie szczegółowych wykresów. Aby wykreślić histogram dotyczący danych:
 
 1. Wybierz opcję **dystrybucje**.
-1. W obszarze **word_freq_remove** i **Word_freq_you**wybierz pozycję **histogram**.
-1. Wybierz pozycję **Wykonaj**. W jednym oknie wykresu powinny być widoczne oba wykresy gęstości, w _których jest jasne, że słowo pojawia_ się częściej _niż w_wiadomościach e-mail.
+1. W obszarze **word_freq_remove** i **Word_freq_you** wybierz pozycję **histogram**.
+1. Wybierz pozycję **Wykonaj**. W jednym oknie wykresu powinny być widoczne oba wykresy gęstości, w _których jest jasne, że słowo pojawia_ się częściej _niż w_ wiadomościach e-mail.
 
 Wykresy **korelacji** są również interesujące. Aby utworzyć wykres:
 
-1. W obszarze **Typ**wybierz pozycję **korelacja**.
+1. W obszarze **Typ** wybierz pozycję **korelacja**.
 1. Wybierz pozycję **Wykonaj**.
 1. Rattle ostrzega o tym, że zaleca się użycie maksymalnie 40 zmiennych. Wybierz pozycję **tak** , aby wyświetlić wykres.
 
-Istnieje kilka interesujących korelacji: _technologia_ jest silnie skorelowana z _HP_ i _Labs_, na przykład. Jest również silnie skorelowane z _650_ , ponieważ kod obszaru dawców zestawu danych to 650.
+Istnieje kilka interesujących korelacji: _technologia_ jest silnie skorelowana z _HP_ i _Labs_ , na przykład. Jest również silnie skorelowane z _650_ , ponieważ kod obszaru dawców zestawu danych to 650.
 
 Wartości liczbowe korelacji między wyrazami są dostępne w oknie **Eksplorowanie** . Warto zwrócić uwagę na przykład, że _technologia_ jest niekorzystnie _skorelowane z i_ _pieniędzy_.
 
@@ -374,20 +374,20 @@ Rattle może również uruchamiać analizę klastra. Wykluczmy niektóre funkcje
 * word_freq_business
 * spam
 
-Wróć do karty **klaster** . Wybierz pozycję **KMeans**, a następnie ustaw **liczbę klastrów** na **4**. Wybierz pozycję **Wykonaj**. Wyniki są wyświetlane w oknie dane wyjściowe. Jeden klaster ma wysoką częstotliwość _George_ i _HP_i prawdopodobnie jest uzasadnioną służbową pocztą e-mail.
+Wróć do karty **klaster** . Wybierz pozycję **KMeans** , a następnie ustaw **liczbę klastrów** na **4**. Wybierz pozycję **Wykonaj**. Wyniki są wyświetlane w oknie dane wyjściowe. Jeden klaster ma wysoką częstotliwość _George_ i _HP_ i prawdopodobnie jest uzasadnioną służbową pocztą e-mail.
 
 Aby utworzyć podstawowy model uczenia maszynowego w strukturze:
 
 1. Wybierz kartę **model** ,
-1. W polu **Typ**wybierz pozycję **drzewo**.
+1. W polu **Typ** wybierz pozycję **drzewo**.
 1. Wybierz polecenie **Execute (wykonaj** ), aby wyświetlić drzewo w formularzu tekstowym w oknie danych wyjściowych.
 1. Wybierz przycisk **rysowania** , aby wyświetlić wersję graficzną. Drzewo decyzyjne wygląda podobnie do drzewa uzyskanego wcześniej przy użyciu rpart.
 
 Przydatna funkcja Rattle może uruchamiać kilka metod uczenia maszynowego i szybko je oceniać. Oto kroki:
 
-1. Dla opcji **Typ**zaznacz **wszystko**.
+1. Dla opcji **Typ** zaznacz **wszystko**.
 1. Wybierz pozycję **Wykonaj**.
-1. Po zakończeniu działania Rattle można wybrać dowolną wartość **typu** , na przykład **SVM**, i wyświetlić wyniki.
+1. Po zakończeniu działania Rattle można wybrać dowolną wartość **typu** , na przykład **SVM** , i wyświetlić wyniki.
 1. Możesz również porównać wydajność modeli w zestawie walidacji, korzystając z karty **szacowanie** . Na przykład wybór **macierzy błędów** pokazuje macierz pomyłek, ogólny błąd i średnią błąd klasy dla każdego modelu w zestawie walidacji. Można również wykreślić krzywe ROC, uruchamiać analizę czułości i wykonywać inne typy ocen modeli.
 
 Po zakończeniu tworzenia modeli wybierz kartę **Dziennik** , aby wyświetlić kod języka R, który został uruchomiony przez Rattle podczas sesji. Możesz wybrać przycisk **Eksportuj** , aby go zapisać.
@@ -416,7 +416,7 @@ host    all             all             127.0.0.1/32            ident
 host    all             all             ::1/128                 ident
 ```
 
-Zmień linię **połączenia lokalnego IPv4** , aby używać **algorytmu MD5** zamiast **ident**, więc można zalogować się przy użyciu nazwy użytkownika i hasła:
+Zmień linię **połączenia lokalnego IPv4** , aby używać **algorytmu MD5** zamiast **ident** , więc można zalogować się przy użyciu nazwy użytkownika i hasła:
 
 ```
 # IPv4 local connections:
@@ -464,18 +464,18 @@ Teraz eksplorujmy dane i uruchamiasz niektóre zapytania za pomocą SQuirreL SQL
 
 Aby rozpocząć, w menu **aplikacje** Otwórz SQuirreL SQL. Aby skonfigurować sterownik:
 
-1. Wybierz **Windows**pozycję  >  **sterowniki widoku**systemu Windows.
+1. Wybierz **Windows** pozycję  >  **sterowniki widoku** systemu Windows.
 1. Kliknij prawym przyciskiem myszy pozycję **PostgreSQL** i wybierz pozycję **Modyfikuj sterownik**.
 1. Wybierz pozycję **dodatkowa ścieżka klasy**  >  **Dodaj**.
-1. W obszarze **Nazwa pliku**wprowadź **/usr/share/Java/jdbcdrivers/PostgreSQL-9.4.1208.jre6.jar**.
-1. Wybierz pozycję **Open** (Otwórz).
-1. Wybierz pozycję **Wyświetl sterowniki**. W obszarze **Nazwa klasy**wybierz pozycję **org. PostgreSQL. Driver**, a następnie wybierz przycisk **OK**.
+1. W obszarze **Nazwa pliku** wprowadź **/usr/share/Java/jdbcdrivers/PostgreSQL-9.4.1208.jre6.jar**.
+1. Wybierz pozycję **Otwórz**.
+1. Wybierz pozycję **Wyświetl sterowniki**. W obszarze **Nazwa klasy** wybierz pozycję **org. PostgreSQL. Driver** , a następnie wybierz przycisk **OK**.
 
 Aby skonfigurować połączenie z serwerem lokalnym:
 
 1. Wybierz pozycję **Windows**  >  **View aliasy.**
 1. Wybierz **+** przycisk, aby utworzyć nowy alias. Dla nowej nazwy aliasu wprowadź **bazę danych spamu**. 
-1. W obszarze **Sterownik**wybierz pozycję **PostgreSQL**.
+1. W obszarze **Sterownik** wybierz pozycję **PostgreSQL**.
 1. Ustaw adres URL **JDBC: PostgreSQL://localhost/spam**.
 1. Wprowadź nazwę użytkownika i hasło.
 1. Wybierz przycisk **OK**.
@@ -494,7 +494,7 @@ Istnieje wiele zapytań, które można uruchomić, aby eksplorować te dane. Na 
 SELECT avg(word_freq_make), spam from data group by spam;
 ```
 
-Lub jakie są cechy poczty e-mail, które często zawierają *3D*?
+Lub jakie są cechy poczty e-mail, które często zawierają *3D* ?
 
 ```SQL
 SELECT * from data order by word_freq_3d desc;
@@ -538,5 +538,3 @@ GO
 ```
 
 Możesz również wysyłać zapytania przy użyciu języka SQL SQuirreL. Wykonaj czynności podobne do PostgreSQL przy użyciu sterownika JDBC SQL Server. Sterownik JDBC znajduje się w folderze/usr/share/Java/jdbcdrivers/sqljdbc42.jar.
-
-

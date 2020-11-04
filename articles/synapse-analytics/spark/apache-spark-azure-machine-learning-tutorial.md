@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979e360bb920fc3b34a201b1287b50b141bffa9b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540510"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313628"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Samouczek: uruchamianie eksperymentów przy użyciu zautomatyzowanej platformy Azure i Apache Spark
 
@@ -28,14 +28,17 @@ W tym samouczku przedstawiono następujące zadania:
 - Uczenie zautomatyzowanego modelu regresji uczenia maszynowego
 - Oblicz dokładność modelu
 
-### <a name="before-you-begin"></a>Zanim rozpoczniesz
-- Utwórz pulę Apache Spark, postępując zgodnie z [samouczkiem Tworzenie puli Apache Spark](../quickstart-create-apache-spark-pool-studio.md).
+### <a name="before-you-begin"></a>Przed rozpoczęciem
+
+- Utwórz bezserwerową pulę Apache Spark, wykonując czynności opisane w obszarze [Utwórz bezserwerową pulę Apache Spark szybki start](../quickstart-create-apache-spark-pool-studio.md).
 - Ukończ [samouczek konfiguracji obszaru roboczego Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) , jeśli nie masz istniejącego obszaru roboczego Azure Machine Learning. 
 
 ### <a name="understand-regression-models"></a>Omówienie modeli regresji
+
 *Modele regresji* przewidują liczbowe wartości wyjściowe na podstawie niezależnych predykcyjnych. W regresji celem jest pomoc w ustaleniu relacji między niezależnymi zmiennymi predykcyjnymi przez oszacowanie wpływu jednej zmiennej na inne.  
 
 ### <a name="regression-analysis-example-on-the-nyc-taxi-data"></a>Przykład analizy regresji dla danych z NYC taksówkami
+
 W tym przykładzie użyjesz platformy Spark do przeprowadzenia analizy danych TIP podróży z Nowego Jorku. Dane są dostępne za pomocą [otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Ten podzestaw zestawu danych zawiera informacje dotyczące żółtej podróży z taksówką, w tym informacje o każdej podróży, godzinie rozpoczęcia i zakończenia oraz lokalizacji, kosztu i innych interesujących atrybutów.
 
 > [!IMPORTANT]
@@ -143,7 +146,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>Konwertowanie ramki Dataframe na zestaw danych Azure Machine Learning
-Aby przesłać zdalny eksperyment, konieczne będzie przekonwertowanie naszego zestawu danych na Azure Machine Learning ```TabularDatset``` . [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) reprezentuje dane w formacie tabelarycznym przez analizowanie podanych plików.
+Aby przesłać zdalny eksperyment, konieczne będzie przekonwertowanie naszego zestawu danych na Azure Machine Learning ```TabularDatset``` . [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) reprezentuje dane w formacie tabelarycznym przez analizowanie podanych plików.
 
 Poniższy kod pobiera istniejący obszar roboczy i domyślny Azure Machine Learning domyślnym magazynem danych. Następnie przekazuje magazyn danych i lokalizacje plików do parametru Path, aby utworzyć nowy ```TabularDataset``` . 
 
@@ -165,7 +168,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 
 ![Obraz przekazanego zestawu danych.](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
 
-## <a name="submit-an-auto-ml-experiment"></a>Przesyłanie eksperymentu dotyczącego samochodów
+## <a name="submit-an-automl-experiment"></a>Przesyłanie eksperymentu AutoML
 
 #### <a name="define-training-settings"></a>Definiowanie ustawień szkoleniowych
 

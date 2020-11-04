@@ -1,6 +1,6 @@
 ---
-title: Tworzenie i używanie tabel zewnętrznych w programie SQL na żądanie (wersja zapoznawcza)
-description: W tej sekcji dowiesz się, jak tworzyć tabele zewnętrzne i korzystać z nich na żądanie SQL (wersja zapoznawcza).
+title: Tworzenie i używanie tabel zewnętrznych w puli SQL bezserwerowej (wersja zapoznawcza)
+description: W tej sekcji dowiesz się, jak tworzyć tabele zewnętrzne i korzystać z nich w puli SQL bezserwerowej (wersja zapoznawcza).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a52db131311d9956cf7217d910f22c3a4f07738
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289331"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314718"
 ---
-# <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Tworzenie i używanie tabel zewnętrznych w programie SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
+# <a name="create-and-use-external-tables-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Tworzenie i używanie tabel zewnętrznych przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-W tej sekcji dowiesz się, jak tworzyć [tabele zewnętrzne](develop-tables-external-tables.md) i korzystać z nich na żądanie SQL (wersja zapoznawcza). Tabele zewnętrzne są przydatne, gdy chcesz kontrolować dostęp do danych zewnętrznych w programie SQL na żądanie, a jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z SQL na żądanie. Tabele zewnętrzne mogą uzyskać dostęp do dwóch typów magazynu:
+W tej sekcji dowiesz się, jak tworzyć [tabele zewnętrzne](develop-tables-external-tables.md) i korzystać z nich w puli SQL bezserwerowej (wersja zapoznawcza). Tabele zewnętrzne są przydatne, gdy chcesz kontrolować dostęp do danych zewnętrznych w puli SQL bezserwerowej i jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z pulą SQL bez użycia serwera. Tabele zewnętrzne mogą uzyskać dostęp do dwóch typów magazynu:
 - Magazyn publiczny, w którym użytkownicy uzyskują dostęp do publicznych plików magazynu.
 - Chroniony magazyn, w którym użytkownicy uzyskują dostęp do plików magazynu przy użyciu poświadczeń SAS, tożsamości usługi Azure AD lub zarządzanej tożsamości obszaru roboczego Synapse.
 

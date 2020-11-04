@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2bac9645fa66cd33c7cda79f16628c1104e27d7d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00b4f38f4a2a44b88718224db2b2442033816f83
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480551"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313887"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Reguły zapory IP usługi Azure Synapse Analytics (wersja zapoznawcza)
 
@@ -21,7 +21,7 @@ W tym artykule opisano reguły zapory IP i naucz się, jak je skonfigurować w u
 
 ## <a name="ip-firewall-rules"></a>Reguły zapory adresów IP
 
-Reguły zapory adresów IP udzielają lub nie zezwalają na dostęp do obszaru roboczego Synapse na podstawie źródłowego adresu IP każdego żądania. Reguły zapory IP można skonfigurować dla obszaru roboczego. Reguły zapory adresów IP skonfigurowane na poziomie obszaru roboczego mają zastosowanie do wszystkich publicznych punktów końcowych obszaru roboczego (pule SQL, SQL na żądanie i programowanie).
+Reguły zapory adresów IP udzielają lub nie zezwalają na dostęp do obszaru roboczego Synapse na podstawie źródłowego adresu IP każdego żądania. Reguły zapory IP można skonfigurować dla obszaru roboczego. Reguły zapory adresów IP skonfigurowane na poziomie obszaru roboczego mają zastosowanie do wszystkich publicznych punktów końcowych obszaru roboczego (dedykowane pule SQL, bezserwerowa Pula SQL i programowanie).
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Tworzenie reguł zapory adresów IP i zarządzanie nimi
 
@@ -37,7 +37,7 @@ Możesz również dodać reguły zapory adresów IP do obszaru roboczego Synapse
 
 ## <a name="connect-to-synapse-from-your-own-network"></a>Nawiązywanie połączenia z usługą Synapse z własnej sieci
 
-Możesz nawiązać połączenie z obszarem roboczym usługi Synapse za pomocą programu Synapse Studio. Możesz również użyć SQL Server Management Studio (SSMS), aby nawiązać połączenie z zasobami SQL (pulami SQL i SQL na żądanie) w obszarze roboczym.
+Możesz nawiązać połączenie z obszarem roboczym usługi Synapse za pomocą programu Synapse Studio. Możesz również użyć SQL Server Management Studio (SSMS), aby nawiązać połączenie z zasobami SQL (dedykowanymi pulami SQL i bezserwerową pulą SQL) w obszarze roboczym.
 
 Upewnij się, że Zapora w sieci i komputer lokalny zezwalają na komunikację wychodzącą na portach TCP 80, 443 i 1443 dla Synapse Studio.
 

@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7a361319c3fc6c80c6dac80c48fb10155a3ff5b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027515"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314839"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Eksplorowanie i modelowanie danych za pomocą platformy Spark
 
 Dowiedz się, jak używać usługi HDInsight Spark do uczenia modeli uczenia maszynowego do prognozowania opłat za taksówkę przy użyciu platformy Spark MLlib
 
-Ten przykład przedstawia różne kroki [procesu nauki o danych zespołowych](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). Podzbiór NYCego i taryfy czasowej 2013 jest używany do ładowania, eksplorowania i przygotowywania danych. Następnie, korzystając z MLlib Spark, modele klasyfikacji i regresji binarnej są przeszkolone, aby przewidzieć, czy Porada zostanie zapłacona za podróż, i oszacować kwotę tej porady.
+Ten przykład przedstawia różne kroki [procesu nauki o danych zespołowych](./index.yml). Podzbiór NYCego i taryfy czasowej 2013 jest używany do ładowania, eksplorowania i przygotowywania danych. Następnie, korzystając z MLlib Spark, modele klasyfikacji i regresji binarnej są przeszkolone, aby przewidzieć, czy Porada zostanie zapłacona za podróż, i oszacować kwotę tej porady.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ Kroki instalacji i kod zostały przedstawione w tym przewodniku dotyczącym korz
 > [!NOTE]
 > Poniższe opisy dotyczą korzystania z platformy Spark 1,6. W przypadku wersji Spark 2,0 użyj notesów opisanych powyżej. 
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 Platforma Spark może odczytywać i zapisywać dane w Azure Storage Blob (znane również jako WASB). Wszystkie istniejące dane przechowywane w tym miejscu mogą być przetwarzane przy użyciu platformy Spark, a wyniki są przechowywane ponownie w WASB.
 
@@ -92,7 +92,7 @@ Jądra PySpark, które są dostarczane z notesami Jupyter, mają kontekst predef
 Jądro PySpark zawiera wstępnie zdefiniowane "MAGICS", które są poleceniami specjalnymi, które można wywołać za pomocą%%. Istnieją dwa takie polecenia, które są używane w tych przykładach kodu.
 
 * **%% lokalne** Określa, że kod w kolejnych wierszach ma być wykonywany lokalnie. Kod musi być prawidłowym kodem w języku Python.
-* **%% SQL-o \<variable name> ** Wykonuje zapytanie programu Hive względem elementu SqlContext. Jeśli parametr-o zostanie przesłany, wynik zapytania jest utrwalany w lokalnym kontekście języka Python%% jako Pandas Dataframe.
+* **%% SQL-o \<variable name>** Wykonuje zapytanie programu Hive względem elementu SqlContext. Jeśli parametr-o zostanie przesłany, wynik zapytania jest utrwalany w lokalnym kontekście języka Python%% jako Pandas Dataframe.
 
 Aby uzyskać więcej informacji na temat jądra notesu Jupyter i wstępnie zdefiniowanych "MAGICS", zobacz [jądra dostępne dla notesów Jupyter z klastrami usługi HDInsight Spark Linux w usłudze HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -181,7 +181,7 @@ Po przeprowadzeniu danych do platformy Spark następnym krokiem w procesie anali
 Ten kod i kolejne fragmenty kodu używają programu SQL Magic do wykonywania zapytań dotyczących przykładu i lokalnego Magic w celu wykreślenia danych.
 
 * **SQL Magic ( `%%sql` )** jądro usługi HDInsight PySpark obsługuje łatwe wbudowane zapytania HiveQL względem elementu SqlContext. Argument (-o VARIABLE_NAME) utrwala dane wyjściowe zapytania SQL jako element Pandas Dataframe na serwerze Jupyter. To ustawienie powoduje, że dane wyjściowe są dostępne w trybie lokalnym.
-* ** `%%local` Magic** służy do uruchamiania kodu lokalnie na serwerze Jupyter, który jest węzła głównego klastra usługi HDInsight. Zwykle używasz `%%local` Magic w połączeniu z `%%sql` parametrem Magic with-o. Parametr-o będzie utrwalał dane wyjściowe zapytania SQL lokalnie, a następnie%% Local Magic wywoła następny zestaw fragmentów kodu do lokalnego uruchamiania na podstawie danych wyjściowych zapytań SQL, które są utrwalane lokalnie
+* **`%%local` Magic** służy do uruchamiania kodu lokalnie na serwerze Jupyter, który jest węzła głównego klastra usługi HDInsight. Zwykle używasz `%%local` Magic w połączeniu z `%%sql` parametrem Magic with-o. Parametr-o będzie utrwalał dane wyjściowe zapytania SQL lokalnie, a następnie%% Local Magic wywoła następny zestaw fragmentów kodu do lokalnego uruchamiania na podstawie danych wyjściowych zapytań SQL, które są utrwalane lokalnie
 
 Dane wyjściowe są automatycznie wizualizowane po uruchomieniu kodu.
 
@@ -697,7 +697,7 @@ Czas wykonania powyżej komórki: 57,61 s
 
 **Wykreśl krzywą ROC.**
 
-*PredictionAndLabelsDF* jest zarejestrowany w tabeli, *tmp_results*w poprzedniej komórce. *tmp_results* może służyć do wykonywania zapytań i wyników wyjściowych w ramce danych SQLResults do wykreślania. Oto kod.
+*PredictionAndLabelsDF* jest zarejestrowany w tabeli, *tmp_results* w poprzedniej komórce. *tmp_results* może służyć do wykonywania zapytań i wyników wyjściowych w ramce danych SQLResults do wykreślania. Oto kod.
 
 ```python
 # QUERY RESULTS                              
@@ -1119,4 +1119,4 @@ Teraz, po utworzeniu modeli regresji i klasyfikacji przy użyciu MlLib Spark, mo
 
 **Użycie modelu:** Aby dowiedzieć się, jak obliczyć i oszacować modele klasyfikacji i regresji utworzone w tym temacie, zobacz [ocenę i ocenę modeli uczenia maszynowego opartych na platformie Spark](spark-model-consumption.md).
 
-Czyszczenie z zastosowaniem **krzyżowym i**przeszukiwaniem: zobacz [Zaawansowane Eksploracja i modelowanie danych za pomocą platformy Spark](spark-advanced-data-exploration-modeling.md) , w jaki sposób można przeszkoleć modele przy użyciu weryfikacji krzyżowej i funkcji Hyper-Parameter.
+Czyszczenie z zastosowaniem **krzyżowym i** przeszukiwaniem: zobacz [Zaawansowane Eksploracja i modelowanie danych za pomocą platformy Spark](spark-advanced-data-exploration-modeling.md) , w jaki sposób można przeszkoleć modele przy użyciu weryfikacji krzyżowej i funkcji Hyper-Parameter.

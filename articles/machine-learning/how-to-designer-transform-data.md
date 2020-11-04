@@ -10,19 +10,19 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9124bbfc7300f3a5116c572d569b41e15356ab8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f08d0f1be166630d9cf4b0b9236d78228fd78aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983839"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312801"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Przekształcanie danych w projektancie Azure Machine Learning
 
 
 W tym artykule przedstawiono sposób przekształcania i zapisywania zestawów danych w projektancie Azure Machine Learning, dzięki czemu można przygotować własne dane do uczenia maszynowego.
 
-Do przygotowania dwóch zestawów danych zostanie użyty przykładowy wynikowy [plik klasyfikacji dochodu dla "](sample-designer-datasets.md) dane osobowe dla dorosłych": jeden zestaw danych, który zawiera informacje dotyczące spisu dla dorosłych tylko z Stany Zjednoczone i innego zestawu danych, który zawiera informacje o spisie od osób trzecich.
+Do przygotowania dwóch zestawów danych zostanie użyty przykładowy wynikowy [plik klasyfikacji dochodu dla "](./samples-designer.md) dane osobowe dla dorosłych": jeden zestaw danych, który zawiera informacje dotyczące spisu dla dorosłych tylko z Stany Zjednoczone i innego zestawu danych, który zawiera informacje o spisie od osób trzecich.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -74,7 +74,7 @@ W tej sekcji użyjesz [modułu Split Data](algorithm-module-reference/split-data
 
 1. W okienku Szczegóły modułu z prawej strony kanwy Ustaw **tryb dzielenia** na **wyrażenie regularne**.
 
-1. Wprowadź **wyrażenie regularne**: `\"native-country" United-States` .
+1. Wprowadź **wyrażenie regularne** : `\"native-country" United-States` .
 
     Tryb **wyrażenia regularnego** testuje pojedynczą kolumnę dla wartości. Aby uzyskać więcej informacji na temat modułu Split Data (podział danych), zobacz [stronę referencyjną modułu algorytmu](algorithm-module-reference/split-data.md)powiązanego.
 
@@ -97,36 +97,36 @@ Teraz, gdy potok został skonfigurowany tak, aby podzielił dane, musisz określ
 
     ![Zrzut ekranu przedstawiający sposób łączenia modułów eksportu danych](media/how-to-designer-transform-data/export-data-pipeline.png).
 
-1. Wybierz moduł **eksportu danych** , który jest *połączony z*największym portem modułu **Split Data** .
+1. Wybierz moduł **eksportu danych** , który jest *połączony z* największym portem modułu **Split Data** .
 
     Kolejność portów wyjściowych dla modułu **Split Data** . Pierwszy port wyjściowy zawiera wiersze, w których wyrażenie regularne ma wartość true. W takim przypadku pierwszy port zawiera wiersze dla dochodów na podstawie Stanów Zjednoczonych, a drugi port zawiera wiersze dla dochodów niezwiązanych z stanem USA.
 
 1. W okienku Szczegóły modułu z prawej strony kanwy ustaw następujące opcje:
     
-    **Typ magazynu**danych: BLOB Storage platformy Azure
+    **Typ magazynu** danych: BLOB Storage platformy Azure
 
-    **Magazyn**danych: wybierz istniejący magazyn danych lub wybierz pozycję "nowy magazyn danych", aby utworzyć go teraz.
+    **Magazyn** danych: wybierz istniejący magazyn danych lub wybierz pozycję "nowy magazyn danych", aby utworzyć go teraz.
 
-    **Ścieżka**: `/data/us-income`
+    **Ścieżka** : `/data/us-income`
 
-    **Format pliku**: CSV
+    **Format pliku** : CSV
 
     > [!NOTE]
     > W tym artykule przyjęto założenie, że masz dostęp do magazynu danych zarejestrowanego w bieżącym obszarze roboczym Azure Machine Learning. Aby uzyskać instrukcje dotyczące sposobu konfigurowania magazynu danych, zobacz [nawiązywanie połączenia z usługami Azure Storage](how-to-connect-data-ui.md#create-datastores).
 
     Jeśli nie masz magazynu danych, możesz utworzyć go teraz. Na przykład w tym artykule zostaną zapisane zestawy danych na domyślnym koncie usługi BLOB Storage skojarzonym z obszarem roboczym. Spowoduje to zapisanie zestawów danych do `azureml` kontenera w nowym folderze o nazwie `data` .
 
-1.  Wybierz moduł **eksportu danych** połączony z najbardziej *odpowiednim*portem modułu **Split Data** .
+1.  Wybierz moduł **eksportu danych** połączony z najbardziej *odpowiednim* portem modułu **Split Data** .
 
 1. W okienku Szczegóły modułu z prawej strony kanwy ustaw następujące opcje:
     
-    **Typ magazynu**danych: BLOB Storage platformy Azure
+    **Typ magazynu** danych: BLOB Storage platformy Azure
 
-    **Magazyn**danych: Wybierz ten sam magazyn danych, jak powyżej
+    **Magazyn** danych: Wybierz ten sam magazyn danych, jak powyżej
 
-    **Ścieżka**: `/data/non-us-income`
+    **Ścieżka** : `/data/non-us-income`
 
-    **Format pliku**: CSV
+    **Format pliku** : CSV
 
 1. Upewnij się, że moduł **eksportu danych** połączony z lewym portem **danych z podziałem** ma **ścieżkę** `/data/us-income` .
 

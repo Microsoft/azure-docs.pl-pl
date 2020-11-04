@@ -9,18 +9,18 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: b5f1d0712098e4fe331607860f6e0ed488d29c1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 394e735be5da65ffa75e10200589a4adb4e7cad2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848796"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313921"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Samouczek: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
 W tym samouczku pokazano, jak połączyć klaster usługi Azure Databricks z danymi przechowywanymi na koncie magazynu platformy Azure z włączoną usługą Azure Data Lake Storage Gen2. Takie połączenie umożliwia natywne wykonywanie w klastrze zapytań i analiz dotyczących tych danych.
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie klastra usługi Databricks
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 * Utwórz konto usługi Azure Data Lake Storage Gen2.
 
-  Zobacz [Tworzenie konta Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+  Zobacz [Tworzenie konta magazynu, które ma być używane z Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * Upewnij się, że Twoje konto użytkownika ma przypisaną [rolę Współautor danych obiektu blob magazynu](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
 
@@ -66,7 +66,7 @@ W tym samouczku w celu zademonstrowania sposobu wykonywania operacji ETL są uż
 
 W tej sekcji utworzysz usługę Azure Databricks przy użyciu witryny Azure Portal.
 
-1. W Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Azure Databricks**analizy zasobów.
+1. W Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Azure Databricks** analizy zasobów.
 
     ![Datakostki na Azure Portal](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Datakostki na Azure Portal")
 
@@ -84,7 +84,7 @@ W tej sekcji utworzysz usługę Azure Databricks przy użyciu witryny Azure Port
 
 3. Tworzenie konta potrwa kilka minut. Stan operacji można monitorować za pomocą paska postępu znajdującego się u góry.
 
-4. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego**, a następnie pozycję **Utwórz**.
+4. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego** , a następnie pozycję **Utwórz**.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Tworzenie klastra Spark w usłudze Azure Databricks
 
@@ -120,7 +120,7 @@ Korzystanie z narzędzia AzCopy do kopiowania danych z pliku *csv* na konto usł
 
    Postępuj zgodnie z instrukcjami, które pojawiają się w oknie wiersza polecenia w celu uwierzytelnienia konta użytkownika.
 
-2. Aby skopiować dane z pliku *csv*, wprowadź następujące polecenie.
+2. Aby skopiować dane z pliku *csv* , wprowadź następujące polecenie.
 
    ```bash
    azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
@@ -142,7 +142,7 @@ W tej sekcji utworzysz kontener i folder na koncie magazynu.
 
     ![Tworzenie notesu w kostkach](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Tworzenie notesu w kostkach")
 
-3. W oknie dialogowym**Tworzenie notesu** wprowadź nazwę notesu. Jako język wybierz pozycję **Python**, a następnie wybierz utworzony wcześniej klaster Spark.
+3. W oknie dialogowym **Tworzenie notesu** wprowadź nazwę notesu. Jako język wybierz pozycję **Python** , a następnie wybierz utworzony wcześniej klaster Spark.
 
 4. Wybierz przycisk **Utwórz**.
 
@@ -164,7 +164,7 @@ W tej sekcji utworzysz kontener i folder na koncie magazynu.
 
 18. W tym bloku kodu zamień symbole zastępcze `appId`, `clientSecret`, `tenant` i `storage-account-name` na wartości zebrane podczas wykonywania kroków wymagań wstępnych. Zastąp `container-name` wartość symbolu zastępczego nazwą kontenera.
 
-19. Naciśnij klawisze **SHIFT+ENTER**, aby uruchomić kod w tym bloku.
+19. Naciśnij klawisze **SHIFT+ENTER** , aby uruchomić kod w tym bloku.
 
    Nie zamykaj tego notesu, ponieważ później będziesz jeszcze dodawać do niego polecenia.
 
@@ -195,7 +195,7 @@ from pyspark.sql import SQLContext
 display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
-Aby utworzyć nowy plik i uzyskać listę plików w folderze *parquet/flights*, uruchom następujący skrypt:
+Aby utworzyć nowy plik i uzyskać listę plików w folderze *parquet/flights* , uruchom następujący skrypt:
 
 ```python
 dbutils.fs.put("/mnt/flightdata/1.txt", "Hello, World!", True)
@@ -206,7 +206,7 @@ Przy użyciu tego przykładowego kodu możesz eksplorować hierarchię systemu p
 
 ## <a name="query-the-data"></a>Wykonywanie zapytań na danych
 
-Następnie możesz rozpocząć wykonywanie zapytań dotyczących danych przekazanych na swoje konto magazynu. Wprowadź każdy z poniższych bloków kodu w komórce **Cmd 1** i naciśnij klawisze **Cmd + Enter**, aby uruchomić skrypt języka Python.
+Następnie możesz rozpocząć wykonywanie zapytań dotyczących danych przekazanych na swoje konto magazynu. Wprowadź każdy z poniższych bloków kodu w komórce **Cmd 1** i naciśnij klawisze **Cmd + Enter** , aby uruchomić skrypt języka Python.
 
 Aby utworzyć ramki danych dla źródeł danych, uruchom następujący skrypt:
 

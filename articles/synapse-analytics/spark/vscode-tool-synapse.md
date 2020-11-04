@@ -1,6 +1,6 @@
 ---
 title: Samouczek — narzędzia platformy Spark & Hive dla programu vscode (aplikacja Spark)
-description: Samouczek — używanie narzędzi Hive & platformy Spark do tworzenia aplikacji platformy Spark, które są zapisywane w języku Python, i przesyłania ich do puli Apache Spark (wersja zapoznawcza).
+description: Samouczek — używanie narzędzi Hive & platformy Spark do tworzenia aplikacji platformy Spark, które są zapisywane w języku Python, i przesyłania ich do puli bezserwerowej Apache Spark (wersja zapoznawcza).
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 6778d78ff5e342d97c1c9bc477c1a88eca42a10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99b2b04d0f29d92b503cc0bed2460b79cfa6c354
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91348501"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315659"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>Samouczek: Tworzenie aplikacji Apache Spark za pomocą programu vscode przy użyciu obszaru roboczego Synapse
 
@@ -26,7 +26,7 @@ Narzędzia programu Hive & platformy Spark można instalować na platformach obs
 
 Aby wykonać kroki opisane w tym artykule, wymagane są następujące elementy:
 
-- Pula Apache Spark. Aby utworzyć pulę Apache Spark, zobacz [Tworzenie puli Apache Spark przy użyciu Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
+- Bezserwerowa Pula Apache Spark. Aby utworzyć bezserwerową pulę Apache Spark, zobacz [Tworzenie puli Apache Spark przy użyciu Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 - [Program Visual Studio Code](https://code.visualstudio.com/)
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Narzędzie mono jest wymagane tylko dla systemów Linux i macOS.
 - [Środowisko interaktywne PySpark dla Visual Studio Code](../../hdinsight/set-up-pyspark-interactive-environment.md).
@@ -42,7 +42,7 @@ Po spełnieniu wymagań wstępnych można zainstalować narzędzia Hive & platfo
 
 3. W polu wyszukiwania wprowadź **gałąź & platformy Spark**.
 
-4. W wynikach wyszukiwania wybierz pozycję **Narzędzia platformy Spark & Hive** , a następnie wybierz pozycję **Zainstaluj**:
+4. W wynikach wyszukiwania wybierz pozycję **Narzędzia platformy Spark & Hive** , a następnie wybierz pozycję **Zainstaluj** :
 
      ![Gałąź & platformy Spark dla Visual Studio Code instalacji języka Python](./media/vscode-tool-synapse/install-hdInsight-plugin.png)
 
@@ -52,7 +52,7 @@ Po spełnieniu wymagań wstępnych można zainstalować narzędzia Hive & platfo
 
 Aby otworzyć folder roboczy i utworzyć plik w Visual Studio Code, wykonaj następujące kroki:
 
-1. Na pasku menu Przejdź do **pliku**  >  **Otwórz folder...**  >  **C:\HD\Synaseexample**, a następnie wybierz przycisk **Wybierz folder** . Folder zostanie wyświetlony w widoku **Eksploratora** po lewej stronie.
+1. Na pasku menu Przejdź do **pliku**  >  **Otwórz folder...**  >  **C:\HD\Synaseexample** , a następnie wybierz przycisk **Wybierz folder** . Folder zostanie wyświetlony w widoku **Eksploratora** po lewej stronie.
 
 2. W widoku **Eksploratora** wybierz folder **Synaseexample** , a następnie wybierz ikonę **nowy plik** obok folderu Work:
 
@@ -68,7 +68,7 @@ Zaloguj się do subskrypcji platformy Azure, aby nawiązać połączenie z pulam
 
 Wykonaj następujące kroki, aby nawiązać połączenie z platformą Azure:
 
-1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...**, a następnie wprowadź **Azure: Logowanie**:
+1. Na pasku menu Przejdź do **widoku**  >  **paleta poleceń...** , a następnie wprowadź **Azure: Logowanie** :
 
      ![Narzędzia programu Hive & platformy Spark dla Visual Studio Code logowania](./media/vscode-tool-synapse/hdinsight-for-vscode-extension-login.png)
 
@@ -130,7 +130,7 @@ for (word, count) in sortedCollection:
 
      ![Zainstaluj jądro pyspark](./media/vscode-tool-synapse/install-the-pyspark-kernel.png)
 
-5. Jeśli chcesz zainstalować ją później, możesz przejść do **File**  >  **Preference**  >  pozycji**Ustawienia**preferencji plików, a następnie odznaczyć pozycję **HDInsight: Włącz opcję Pomiń instalację Pyspark** w ustawieniach. 
+5. Jeśli chcesz zainstalować ją później, możesz przejść do **File**  >  **Preference**  >  pozycji **Ustawienia** preferencji plików, a następnie odznaczyć pozycję **HDInsight: Włącz opcję Pomiń instalację Pyspark** w ustawieniach. 
     
      ![Włącz instalację pomijania pyspark](./media/vscode-tool-synapse/enable-skip-pyspark-installation.png)
 
@@ -156,7 +156,7 @@ for (word, count) in sortedCollection:
 
      ![interakcyjne menu kontekstowe pyspark](./media/vscode-tool-synapse/pyspark-interactive-right-click.png)
 
-12. Wybierz pulę Spark, jeśli nie określono domyślnej puli platformy Spark. Po kilku chwilach interaktywne wyniki języka **Python** pojawiają się na nowej karcie. Kliknij pozycję PySpark, aby przełączyć jądro do **Synapse PySpark**, a następnie prześlij ponownie wybrany kod, a kod zostanie uruchomiony pomyślnie. Narzędzia umożliwiają również przesyłanie bloku kodu zamiast całego pliku skryptu za pomocą menu kontekstowego:
+12. Wybierz pulę Spark, jeśli nie określono domyślnej puli platformy Spark. Po kilku chwilach interaktywne wyniki języka **Python** pojawiają się na nowej karcie. Kliknij pozycję PySpark, aby przełączyć jądro do **Synapse PySpark** , a następnie prześlij ponownie wybrany kod, a kod zostanie uruchomiony pomyślnie. Narzędzia umożliwiają również przesyłanie bloku kodu zamiast całego pliku skryptu za pomocą menu kontekstowego:
 
      ![interaktywne](./media/vscode-tool-synapse/pyspark-interactive-python-interactive-window.png)
 
@@ -166,7 +166,7 @@ for (word, count) in sortedCollection:
 
      ![Dodaj #%%](./media/vscode-tool-synapse/run-cell.png)
 
-2. Kliknij pozycję **Uruchom komórkę**. Po kilku chwilach interaktywne wyniki języka Python pojawiają się na nowej karcie. Kliknij pozycję PySpark, aby przełączyć jądro do **Synapse PySpark**, a następnie kliknij ponownie przycisk **Uruchom komórkę** , a kod zostanie uruchomiony pomyślnie. 
+2. Kliknij pozycję **Uruchom komórkę**. Po kilku chwilach interaktywne wyniki języka Python pojawiają się na nowej karcie. Kliknij pozycję PySpark, aby przełączyć jądro do **Synapse PySpark** , a następnie kliknij ponownie przycisk **Uruchom komórkę** , a kod zostanie uruchomiony pomyślnie. 
 
      ![wyniki przebiegu komórki](./media/vscode-tool-synapse/run-cell-get-results.png)
 
@@ -178,7 +178,7 @@ for (word, count) in sortedCollection:
 
      ![Ustaw domyślną pulę platformy Spark i Załaduj ponownie](./media/vscode-tool-synapse/set-the-default-spark-pool-and-reload.png)
 
-3. Kliknij pozycję PySpark, aby przełączyć jądro do **Synapse PySpark**, a następnie kliknij opcję **Run Cell**(po czasie), gdy zostanie wyświetlony wynik.
+3. Kliknij pozycję PySpark, aby przełączyć jądro do **Synapse PySpark** , a następnie kliknij opcję **Run Cell** (po czasie), gdy zostanie wyświetlony wynik.
 
      ![Uruchom wyniki ipynb](./media/vscode-tool-synapse/run-ipynb-file-results.png)
 
@@ -238,7 +238,7 @@ Możesz wykonywać różne operacje w Eksploratorze platformy Azure w ramach nar
 
 ### <a name="launch-workspace"></a>Uruchom obszar roboczy
 
-1. W Eksploratorze Azure przejdź do **Synapse**, rozwiń go i Wyświetl listę subskrypcji Synapse.
+1. W Eksploratorze Azure przejdź do **Synapse** , rozwiń go i Wyświetl listę subskrypcji Synapse.
 
      ![Eksplorator Synapse](./media/vscode-tool-synapse/synapse-explorer.png)
 
@@ -252,19 +252,19 @@ Możesz wykonywać różne operacje w Eksploratorze platformy Azure w ramach nar
 
 4. Rozwiń obszar roboczy, zostaną wyświetlone **domyślne magazyny** i **Pule platformy Spark** .
 
-5. Kliknij prawym przyciskiem myszy **domyślny magazyn**, zostanie wyświetlona **pełna ścieżka kopiowania** i **otwarta w programie Synapse Studio** . 
+5. Kliknij prawym przyciskiem myszy **domyślny magazyn** , zostanie wyświetlona **pełna ścieżka kopiowania** i **otwarta w programie Synapse Studio** . 
 
      ![Kliknij prawym przyciskiem myszy magazyn domyślny](./media/vscode-tool-synapse/right-click-on-default-storage.png)
 
-     - Kliknięcie przycisku **Kopiuj pełną ścieżkę**spowoduje SKOPIOWANIE adresu URL konta podstawowego ADLS Gen2, można wkleić go w miejscu, w którym potrzebujesz.
+     - Kliknięcie przycisku **Kopiuj pełną ścieżkę** spowoduje SKOPIOWANIE adresu URL konta podstawowego ADLS Gen2, można wkleić go w miejscu, w którym potrzebujesz.
 
-     - Kliknij pozycję **Otwórz w programie Synapse Studio**, a podstawowe konto magazynu zostanie otwarte w programie Synapse Studio.
+     - Kliknij pozycję **Otwórz w programie Synapse Studio** , a podstawowe konto magazynu zostanie otwarte w programie Synapse Studio.
 
      ![magazyn domyślny w programie Synapse Studio](./media/vscode-tool-synapse/default-storage-in-synapse-studio.png)
 
 6. Rozwiń **magazyn domyślny**. zostanie wyświetlone podstawowe konto magazynu.
 
-7. Rozszerzanie **pul platformy Spark**, zostaną wyświetlone wszystkie pule platformy Spark w obszarze roboczym.
+7. Rozszerzanie **pul platformy Spark** , zostaną wyświetlone wszystkie pule platformy Spark w obszarze roboczym.
 
      ![Rozwiń pulę magazynu](./media/vscode-tool-synapse/expand-storage-pool.png)
 

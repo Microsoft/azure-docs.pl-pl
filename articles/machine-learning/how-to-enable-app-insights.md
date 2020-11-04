@@ -11,14 +11,14 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a36f69c9956dd05c5fbd85d7e37b90c0b1e4c21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09eeafa99c14984f74f8807014f646379c7507f0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897654"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314222"
 ---
-# <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorowanie i zbieranie danych z punktów końcowych usługi sieci Web ML
+# <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorowanie i zbieranie danych z punktów końcowych usługi internetowej ML
 
 
 W tym artykule dowiesz się, jak zbierać dane z modeli wdrożonych w punktach końcowych usługi sieci Web w usłudze Azure Kubernetes Service (AKS) lub Azure Container Instances (ACI). Użyj [usługi Azure Application Insights](../azure-monitor/app/app-insights-overview.md) , aby zebrać następujące dane z punktu końcowego:
@@ -204,9 +204,9 @@ Aby rejestrować informacje o żądaniu usługi sieci Web, Dodaj `print` instruk
 ## <a name="export-data-for-retention-and-processing"></a>Eksportowanie danych do przechowywania i przetwarzania
 
 >[!Important]
-> Usługa Azure Application Insights obsługuje tylko eksporty do magazynu obiektów BLOB. Aby uzyskać więcej informacji na temat limitów tej implementacji, zobacz [Eksportowanie danych telemetrycznych z usługi App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Usługa Azure Application Insights obsługuje tylko eksporty do magazynu obiektów BLOB. Aby uzyskać więcej informacji na temat limitów tej implementacji, zobacz [Eksportowanie danych telemetrycznych z usługi App Insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
 
-Użyj Application Insights " [eksportu ciągłego](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) ", aby wyeksportować dane do konta magazynu obiektów blob, w którym można zdefiniować ustawienia przechowywania. Application Insights eksportuje dane w formacie JSON. 
+Użyj Application Insights " [eksportu ciągłego](../azure-monitor/app/export-telemetry.md) ", aby wyeksportować dane do konta magazynu obiektów blob, w którym można zdefiniować ustawienia przechowywania. Application Insights eksportuje dane w formacie JSON. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Eksport ciągły":::
 
@@ -215,8 +215,8 @@ Użyj Application Insights " [eksportu ciągłego](https://docs.microsoft.com/az
 W tym artykule przedstawiono sposób włączania rejestrowania i wyświetlania dzienników dla punktów końcowych usługi sieci Web. Wypróbuj następujące artykuły, aby wykonać kolejne kroki:
 
 
-* [Jak wdrożyć model w klastrze AKS](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+* [Jak wdrożyć model w klastrze AKS](./how-to-deploy-azure-kubernetes-service.md)
 
-* [Jak wdrożyć model do Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+* [Jak wdrożyć model do Azure Container Instances](./how-to-deploy-azure-container-instance.md)
 
-* [MLOps: Zarządzaj i wdrażaj modele oraz monitoruj je za pomocą Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) , aby dowiedzieć się więcej o korzystaniu z danych zebranych z modeli w środowisku produkcyjnym. Takie dane mogą pomóc w nieustannym ulepszaniu procesu uczenia maszynowego.
+* [MLOps: Zarządzaj i wdrażaj modele oraz monitoruj je za pomocą Azure Machine Learning](./concept-model-management-and-deployment.md) , aby dowiedzieć się więcej o korzystaniu z danych zebranych z modeli w środowisku produkcyjnym. Takie dane mogą pomóc w nieustannym ulepszaniu procesu uczenia maszynowego.

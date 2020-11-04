@@ -1,6 +1,6 @@
 ---
-title: Dostęp do plików w magazynie w usłudze SQL na żądanie (wersja zapoznawcza)
-description: Opisuje wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL.
+title: Dostęp do plików w magazynie w puli SQL bezserwerowej (wersja zapoznawcza)
+description: Opisuje wykonywanie zapytań dotyczących plików magazynu przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 73a5414a979742c4a7df16dcd2a5edda3748abef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288991"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315934"
 ---
-# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Dostęp do magazynu zewnętrznego w programie Synapse SQL (na żądanie)
+# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Dostęp do magazynu zewnętrznego przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-W tym dokumencie opisano, jak użytkownik może odczytywać dane z plików przechowywanych w usłudze Azure Storage w programie Synapse SQL (na żądanie). Użytkownicy mają następujące opcje dostępu do magazynu:
+W tym dokumencie opisano, jak użytkownicy mogą odczytywać dane z plików przechowywanych w usłudze Azure Storage w puli SQL bezserwerowej. Użytkownicy mają następujące opcje dostępu do magazynu:
 
 - Funkcja [OPENROWSET](develop-openrowset.md) , która umożliwia wykonywanie zapytań ad hoc w plikach w usłudze Azure Storage.
 - [Zewnętrzna tabela](develop-tables-external-tables.md) , która jest wstępnie zdefiniowaną strukturą danych utworzoną na podstawie zestawu plików zewnętrznych.
@@ -27,7 +27,7 @@ Użytkownik może używać [różnych metod uwierzytelniania](develop-storage-fi
 
 ## <a name="query-files-using-openrowset"></a>Wykonywanie zapytań dotyczących plików przy użyciu funkcji OPENROWSET
 
-Funkcja OPENROWSET umożliwia użytkownikom wysyłanie zapytań do zewnętrznych plików w usłudze Azure Storage, jeśli mają dostęp do magazynu. Aby można było odczytać zawartość plików w usłudze Azure Storage, użytkownik, który jest połączony z punktem końcowym usługi Synapse SQL na żądanie, powinien użyć następującego zapytania:
+Funkcja OPENROWSET umożliwia użytkownikom wysyłanie zapytań do zewnętrznych plików w usłudze Azure Storage, jeśli mają dostęp do magazynu. Użytkownik, który jest podłączony do bezserwerowej puli SQL, powinien użyć następującego zapytania, aby odczytać zawartość plików w usłudze Azure Storage:
 
 ```sql
 SELECT * FROM

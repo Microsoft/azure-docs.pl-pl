@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: a1c986663c42b87e7e5d4530b26200d48fe612cb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080723"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314260"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i zestawu .NET SDK w wersji 2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,12 +47,12 @@ Zalecamy przetwarzanie hosta systemu Windows 64-bitowego w celu zwiększenia wyd
 
 - W przypadku projektów testowych opartych na VSTest można zmienić przetwarzanie hosta **, wybierając opcję Testuj**  >  **Ustawienia testu**  >  **domyślne architektura procesora jako x64** w menu **test** programu Visual Studio.
 
-- W przypadku lokalnie wdrożonych aplikacji sieci Web ASP.NET można zmienić przetwarzanie hosta, wybierając opcję **Użyj 64-bitowej wersji IIS Express dla witryn i projektów sieci Web** w obszarze **Narzędzia**  >  **Opcje**  >  **projekty i rozwiązania**  >  **projekty sieci Web** .
+- W przypadku lokalnie wdrożonych aplikacji sieci Web ASP.NET można zmienić przetwarzanie hosta, wybierając opcję **Użyj 64-bitowej wersji IIS Express dla witryn i projektów sieci Web** w obszarze **Narzędzia**  >  **Opcje**  >  **projekty i rozwiązania**  >  **projekty sieci Web**.
 
 - W przypadku aplikacji sieci Web ASP.NET wdrożonych na platformie Azure można zmienić przetwarzanie hosta, wybierając platformę **64-bitową** w **ustawieniach aplikacji** w Azure Portal.
 
 > [!NOTE] 
-> Domyślnie nowe projekty programu Visual Studio są ustawiane na **dowolny procesor** . Zalecamy ustawienie dla projektu wartości **x64** , aby nie przełączać się na **architekturę x86** . Projekt ustawiony na **dowolny procesor CPU** może z łatwością przechodzić do **architektury x86** , jeśli zostanie dodany zależność tylko dla architektury x86.<br/>
+> Domyślnie nowe projekty programu Visual Studio są ustawiane na **dowolny procesor**. Zalecamy ustawienie dla projektu wartości **x64** , aby nie przełączać się na **architekturę x86**. Projekt ustawiony na **dowolny procesor CPU** może z łatwością przechodzić do **architektury x86** , jeśli zostanie dodany zależność tylko dla architektury x86.<br/>
 > ServiceInterop.dll musi znajdować się w folderze, z którego jest wykonywana Biblioteka DLL SDK. Ta wartość powinna być istotna tylko w przypadku ręcznego kopiowania bibliotek DLL lub niestandardowych systemów kompilacji/wdrażania.
     
 **Włącz odzyskiwanie pamięci po stronie serwera (GC)**

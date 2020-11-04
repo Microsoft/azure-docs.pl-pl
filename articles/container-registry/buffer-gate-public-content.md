@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bb185e7d5803219135fddf421b7d6a89edd296b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130854"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315814"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Zarządzanie zawartością publiczną za pomocą Azure Container Registry
 
@@ -25,16 +25,14 @@ Bez odpowiednich kontroli, posiadanie zależności od zawartości rejestru publi
 
 ## <a name="authenticate-with-docker-hub"></a>Uwierzytelnianie za pomocą narzędzia Docker Hub
 
-Pierwszy krok, jeśli obecnie pobierasz Obrazy publiczne z usługi Docker Hub w ramach przepływu pracy kompilowania lub wdrażania, zalecamy uwierzytelnienie przy użyciu konta usługi Docker Hub zamiast anonimowego żądania ściągnięcia.
+Pierwszy krok, jeśli obecnie pobierasz Obrazy publiczne z usługi Docker Hub w ramach przepływu pracy kompilowania lub wdrażania, zalecamy [uwierzytelnienie przy użyciu konta usługi Docker Hub](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) zamiast anonimowego żądania ściągnięcia.
 
 > [!NOTE]
-> Od 2 listopada 2020 limity szybkości pobierania mają zastosowanie do żądań anonimowych i uwierzytelnionych do usługi Docker Hub z kont planów bezpłatnych platformy Docker i są wymuszane na podstawie adresu IP. 
+> Od 2 listopada 2020 [limity szybkości pobierania](https://docs.docker.com/docker-hub/download-rate-limit) dotyczą żądań anonimowych i uwierzytelnionych do usługi Docker Hub z kont planów bezpłatnych platformy Docker i są wymuszane przez adres IP i identyfikator platformy Docker, respecitively. 
 >
-> Podczas szacowania liczby żądań ściągnięcia należy wziąć pod uwagę, że w przypadku korzystania z usług dostawcy w chmurze lub pracy za firmową translacją adresów sieciowych do usługi Docker Hub w agregacji jako podzbiór adresów IP zostanie wyświetlonych wiele użytkowników.  Dodanie funkcji uwierzytelniania płatnego konta usługi Docker do żądań wysyłanych do centrum platformy Docker spowoduje uniknięcie potencjalnych przerw w świadczeniu usług z powodu ograniczenia szybkości ograniczania.
+> Podczas szacowania liczby żądań ściągnięcia należy wziąć pod uwagę, że w przypadku korzystania z usług dostawcy w chmurze lub pracy za firmową translacją adresów sieciowych do usługi Docker Hub w agregacji jako podzbiór adresów IP zostanie wyświetlonych wiele użytkowników. Dodanie funkcji uwierzytelniania płatnego konta usługi Docker do żądań wysyłanych do centrum platformy Docker spowoduje uniknięcie potencjalnych przerw w świadczeniu usług z powodu ograniczenia szybkości ograniczania.
 >
 > Aby uzyskać szczegółowe informacje, zobacz [Cennik platformy Docker i subskrypcje](https://www.docker.com/pricing) oraz [warunki użytkowania usługi Docker](https://www.docker.com/legal/docker-terms-service).
-
-Przykłady uwierzytelniania i scenariusze można znaleźć w temacie [Limit szybkości pobierania](https://docs.docker.com/docker-hub/download-rate-limit/).
 
 ### <a name="docker-hub-access-token"></a>Token dostępu do centrum platformy Docker
 

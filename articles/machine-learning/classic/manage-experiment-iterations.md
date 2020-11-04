@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 374320c0becfecc6691af91b36a1d80b087300e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361947"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312865"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Zarządzanie przebiegami eksperymentów w Azure Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Tworzenie modelu analizy predykcyjnej jest procesem iteracyjnym — w miarę modyfikowania różnych funkcji i parametrów eksperymentu wyniki są zbieżne do momentu, gdy masz nauczone, skuteczny model. Kluczem do tego procesu jest śledzenie różnych iteracji parametrów i konfiguracji eksperymentu.
@@ -33,7 +33,7 @@ Możesz sprawdzić poprzednie uruchomienia eksperymentów w dowolnym momencie, a
 ## <a name="view-the-prior-run"></a>Wyświetl poprzednie uruchomienie
 Jeśli masz otwarty eksperyment, który jest uruchamiany co najmniej raz, możesz wyświetlić poprzedni przebieg eksperymentu, klikając polecenie **poprzednie uruchomienie** w okienku właściwości.
 
-Załóżmy na przykład, że tworzysz eksperyment i uruchamiasz jego wersje o 11:23, 11:42 i 11:55. W przypadku otwarcia ostatniego uruchomienia eksperymentu (11:55) i kliknięcia polecenia **poprzedni przebiegu**zostanie otwarta wersja uruchomiona o 11:42.
+Załóżmy na przykład, że tworzysz eksperyment i uruchamiasz jego wersje o 11:23, 11:42 i 11:55. W przypadku otwarcia ostatniego uruchomienia eksperymentu (11:55) i kliknięcia polecenia **poprzedni przebiegu** zostanie otwarta wersja uruchomiona o 11:42.
 
 ## <a name="view-the-run-history"></a>Wyświetlanie historii uruchamiania
 Aby wyświetlić wszystkie poprzednie uruchomienia eksperymentu, kliknij pozycję **Wyświetl historię uruchamiania** w otwartym eksperymentie.
@@ -45,9 +45,9 @@ Załóżmy na przykład, że tworzysz eksperyment z modułem [regresja liniowa][
 | 0,1 |9/11/2014 4:18:58 pm |
 | 0,2 |9/11/2014 4:24:33 PM |
 | 0,4 |9/11/2014 4:28:36 pm |
-| 0,5 |9/11/2014 4:33:31 PM |
+| 0.5 |9/11/2014 4:33:31 PM |
 
-Po kliknięciu przycisku **Wyświetl historię uruchamiania**zostanie wyświetlona lista wszystkich przebiegów:
+Po kliknięciu przycisku **Wyświetl historię uruchamiania** zostanie wyświetlona lista wszystkich przebiegów:
 
 ![Przykładowa historia przebiegów](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
@@ -58,7 +58,7 @@ Kliknij dowolny z tych przebiegów, aby wyświetlić migawkę eksperymentu w mom
 > 
 > 
 
-Lista eksperymentów na karcie **eksperymenty** w Machine Learning Studio (klasyczny) zawsze wyświetla najnowszą wersję eksperymentu. Jeśli otworzysz poprzednie uruchomienie eksperymentu (przy użyciu **wcześniejszej** **historii uruchamiania lub wyświetlania**), możesz powrócić do wersji roboczej, klikając polecenie **Wyświetl historię uruchamiania** i wybierając iterację mającą **stan** **edytowalny**.
+Lista eksperymentów na karcie **eksperymenty** w Machine Learning Studio (klasyczny) zawsze wyświetla najnowszą wersję eksperymentu. Jeśli otworzysz poprzednie uruchomienie eksperymentu (przy użyciu **wcześniejszej** **historii uruchamiania lub wyświetlania** ), możesz powrócić do wersji roboczej, klikając polecenie **Wyświetl historię uruchamiania** i wybierając iterację mającą **stan** **edytowalny**.
 
 ## <a name="run-a-previous-experiment"></a>Uruchom poprzedni eksperyment
 Po kliknięciu przycisku **poprzedni przebieg** lub **Wyświetl historię uruchamiania** i Otwórz poprzedni przebieg, można wyświetlić gotowy eksperyment w trybie tylko do odczytu.
@@ -76,4 +76,4 @@ Załóżmy na przykład, że masz historię uruchamiania eksperymentu przedstawi
 Teraz możesz nadal modyfikować i uruchamiać tę wersję eksperymentu, tworząc nową historię uruchamiania, aby zarejestrować swoją pracę.
 
 <!-- Module References -->
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression

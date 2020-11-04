@@ -1,6 +1,6 @@
 ---
 title: Integracja kontroli źródła
-description: Środowisko DevOps Database klasy korporacyjnej dla puli SQL z integracją natywnej kontroli źródła przy użyciu Azure Repos (git i GitHub).
+description: Środowisko DevOps Database klasy korporacyjnej dla dedykowanej puli SQL z natywną integracją kontroli źródła przy użyciu Azure Repos (git i GitHub).
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4751f3cf213098873b0c53b15df82f57d155787a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89441325"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313297"
 ---
-# <a name="source-control-integration-for-sql-pool"></a>Integracja kontroli źródła dla puli SQL
+# <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integracja kontroli źródła dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
-W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Data Tools (SSDT) z kontrolą źródła.  Integracja kontroli źródła to pierwszy krok w tworzeniu potoku ciągłej integracji i wdrażania przy użyciu zasobu puli SQL w usłudze Azure Synapse Analytics.
+W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Data Tools (SSDT) z kontrolą źródła.  Integracja kontroli źródła to pierwszy krok w tworzeniu potoku ciągłej integracji i wdrażania przy użyciu dedykowanego zasobu puli SQL w usłudze Azure Synapse Analytics.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 - Utwórz konto w [organizacji usługi Azure DevOps](https://azure.microsoft.com/services/devops/)
 - Przejdź do samouczka [Tworzenie i łączenie](create-data-warehouse-portal.md)
@@ -37,12 +37,12 @@ W tym samouczku opisano sposób integrowania projektu bazy danych SQL Server Dat
 
    ![Zarządzanie połączeniami](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Zarządzanie połączeniami")
 
-3. Połącz się z projektem, wybierając pozycję **Zarządzaj połączeniami**, a następnie połącz się z **projektem**.
- ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Connect")
+3. Połącz się z projektem, wybierając pozycję **Zarządzaj połączeniami** , a następnie połącz się z **projektem**.
+ ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Połącz")
 
 
 4. Znajdź projekt utworzony w kroku jeden, wybierz pozycję **Połącz**.
-![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Connect")
+![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Połącz")
 
 
 3. Sklonuj repozytorium Azure DevOps z projektu na komputerze lokalnym.
@@ -85,8 +85,8 @@ Aby uzyskać więcej informacji na temat łączenia projektów przy użyciu prog
 
    ![Sprawdź](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Weryfikowanie zmian")
 
-4. (**Opcjonalnie**) Użyj opcji Porównaj schemat i zaktualizuj zmiany w docelowym hurtowni danych przy użyciu SSDT, aby upewnić się, że definicje obiektów w repozytorium Azure Repository i repozytorium lokalnym odzwierciedlają magazyn danych.
+4. ( **Opcjonalnie** ) Użyj opcji Porównaj schemat i zaktualizuj zmiany w docelowym hurtowni danych przy użyciu SSDT, aby upewnić się, że definicje obiektów w repozytorium Azure Repository i repozytorium lokalnym odzwierciedlają magazyn danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Programowanie dla puli SQL](sql-data-warehouse-overview-develop.md)
+- [Programowanie dla dedykowanej puli SQL](sql-data-warehouse-overview-develop.md)
