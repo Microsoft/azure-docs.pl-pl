@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
-ms.openlocfilehash: 97cadfb8f5004cfd2701335172d4416c64f05259
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e0b61c1ca6ae30044e4c9d4705bdce01eac1942
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907865"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323696"
 ---
 # <a name="module-k-means-clustering"></a>Moduł: K-oznacza klastrowanie
 
@@ -22,7 +22,7 @@ W tym artykule opisano, jak używać modułu *k-oznaczania klastrowania* w progr
  
 K-oznacza to jeden z najprostszych i najlepszych znanych *nienadzorowanych* algorytmów uczenia. Można użyć algorytmu dla różnych zadań uczenia maszynowego, takich jak: 
 
-* [Wykrywanie nieprawidłowych danych](https://msdn.microsoft.com/magazine/jj891054.aspx).
+* [Wykrywanie nieprawidłowych danych](/archive/msdn-magazine/2013/february/data-clustering-detecting-abnormal-data-using-k-means-clustering).
 * Klastrowanie dokumentów tekstowych.
 * Analizowanie zestawów danych przed użyciem innych metod klasyfikacji lub regresji. 
 
@@ -58,46 +58,46 @@ Gdy przetwarza dane szkoleniowe, algorytm K-oznacza rozpoczyna się od początko
   
 2.  Aby określić sposób, w jaki model ma być szkolony, wybierz opcję **Utwórz tryb Trainer** .  
   
-    -   **Pojedynczy parametr**: Jeśli znasz dokładne parametry, których chcesz użyć w modelu klastrowania, możesz podać określony zestaw wartości jako argumenty.  
+    -   **Pojedynczy parametr** : Jeśli znasz dokładne parametry, których chcesz użyć w modelu klastrowania, możesz podać określony zestaw wartości jako argumenty.  
   
-3.  Dla **liczby centroids**wpisz liczbę klastrów, z którymi ma się rozpoczynać algorytm.  
+3.  Dla **liczby centroids** wpisz liczbę klastrów, z którymi ma się rozpoczynać algorytm.  
   
      Model nie gwarantuje większej liczby klastrów. Algorytm rozpoczyna się od tej liczby punktów danych i iteruje, aby znaleźć optymalną konfigurację. Można odwołać się do [kodu źródłowego skryptu sklearn](https://github.com/scikit-learn/scikit-learn/blob/fd237278e/sklearn/cluster/_kmeans.py#L1069).
   
 4.  **Inicjowanie** właściwości służy do określenia algorytmu, który jest używany do definiowania początkowej konfiguracji klastra.  
   
-    -   **Pierwsze N**: pewna początkowa liczba punktów danych jest wybierana z zestawu danych i używana jako początkowy sposób. 
+    -   **Pierwsze N** : pewna początkowa liczba punktów danych jest wybierana z zestawu danych i używana jako początkowy sposób. 
     
          Ta metoda jest również nazywana *metodą Forgy*.  
   
-    -   **Losowo**: algorytm losowo umieszcza punkt danych w klastrze, a następnie oblicza początkową wartość jako centroidaą losowo przypisanych punktów klastra. 
+    -   **Losowo** : algorytm losowo umieszcza punkt danych w klastrze, a następnie oblicza początkową wartość jako centroidaą losowo przypisanych punktów klastra. 
 
          Ta metoda jest również nazywana metodą *losowej partycji* .  
   
-    -   **K-oznacza**, że jest to domyślna metoda inicjowania klastrów.  
+    -   **K-oznacza** , że jest to domyślna metoda inicjowania klastrów.  
   
          Algorytm **k----+ +** został zaproponowany w 2007 przez David Arthur i Sergei Vassilvitskii, aby uniknąć słabych klastrów przez standardowy K-oznacza algorytm. **K-oznacza** , że program + + jest ulepszony na standardowym poziomie K — przy użyciu innej metody do wyboru początkowych centrów klastra.  
   
     
-5.  W przypadku **liczby losowej inicjatora**opcjonalnie wpisz wartość, która ma być używana jako inicjator dla inicjowania klastra. Ta wartość może mieć znaczny wpływ na wybór klastra.  
+5.  W przypadku **liczby losowej inicjatora** opcjonalnie wpisz wartość, która ma być używana jako inicjator dla inicjowania klastra. Ta wartość może mieć znaczny wpływ na wybór klastra.  
   
-6.  W polu **Metryka**wybierz funkcję, która ma być używana do mierzenia odległości między wektorami klastra lub między nowymi punktami danych i losowo wybranym centroida. Azure Machine Learning obsługuje następujące metryki dotyczące odległości klastra:  
+6.  W polu **Metryka** wybierz funkcję, która ma być używana do mierzenia odległości między wektorami klastra lub między nowymi punktami danych i losowo wybranym centroida. Azure Machine Learning obsługuje następujące metryki dotyczące odległości klastra:  
   
-    -   **Euclidean**: odległość Euclidean jest często używana jako miara punktowego klastra dla K-oznacza klastrowanie. Ta Metryka jest preferowana, ponieważ minimalizuje średnią odległość między punktami i centroids.
+    -   **Euclidean** : odległość Euclidean jest często używana jako miara punktowego klastra dla K-oznacza klastrowanie. Ta Metryka jest preferowana, ponieważ minimalizuje średnią odległość między punktami i centroids.
   
-7.  W przypadku **iteracji**wpisz, ile razy algorytm powinien wykonać iterację danych szkoleniowych, zanim zakończy wybór centroids.  
+7.  W przypadku **iteracji** wpisz, ile razy algorytm powinien wykonać iterację danych szkoleniowych, zanim zakończy wybór centroids.  
   
      Można dostosować ten parametr, aby zrównoważy dokładność przed czasem szkolenia.  
   
-8.  W obszarze **przypisz etykietę**wybierz opcję, która określa, w jaki sposób kolumna etykiety, jeśli znajduje się w zestawie danych, powinna być obsługiwana.  
+8.  W obszarze **przypisz etykietę** wybierz opcję, która określa, w jaki sposób kolumna etykiety, jeśli znajduje się w zestawie danych, powinna być obsługiwana.  
   
      Ponieważ K-oznacza, że usługa klastrowania jest nienadzorowanym sposobem uczenia maszynowego, etykiety są opcjonalne. Jeśli jednak zestaw danych ma już kolumnę etykieta, można użyć tych wartości do zaznaczania klastrów lub można określić, że wartości będą ignorowane.  
   
-    -   **Ignoruj kolumnę etykiety**: wartości w kolumnie etykieta są ignorowane i nie są używane podczas tworzenia modelu.
+    -   **Ignoruj kolumnę etykiety** : wartości w kolumnie etykieta są ignorowane i nie są używane podczas tworzenia modelu.
   
-    -   **Wypełnij brakujące wartości**: wartości kolumn etykieta są używane jako funkcje ułatwiające tworzenie klastrów. Jeśli w dowolnym wierszu brakuje etykiety, wartość jest ustawiana za pomocą innych funkcji.  
+    -   **Wypełnij brakujące wartości** : wartości kolumn etykieta są używane jako funkcje ułatwiające tworzenie klastrów. Jeśli w dowolnym wierszu brakuje etykiety, wartość jest ustawiana za pomocą innych funkcji.  
   
-    -   **Zastąp z najbliżej Center**: wartości kolumny etykieta są zamieniane na wartości z przewidywanymi etykietami, używając etykiety punktu znajdującego się najbliżej bieżącej centroida.  
+    -   **Zastąp z najbliżej Center** : wartości kolumny etykieta są zamieniane na wartości z przewidywanymi etykietami, używając etykiety punktu znajdującego się najbliżej bieżącej centroida.  
 
 8.  Wybierz opcję **normalizing Features** , jeśli chcesz znormalizować funkcje przed szkoleniem.
   
@@ -105,7 +105,7 @@ Gdy przetwarza dane szkoleniowe, algorytm K-oznacza rozpoczyna się od początko
 
 10. Uczenie modelu.  
   
-    -   Jeśli ustawisz **tryb Trainer** na **pojedynczy parametr**, Dodaj oznakowany zestaw danych i nauczysz model przy użyciu modułu [uczenie klastra](train-clustering-model.md) .  
+    -   Jeśli ustawisz **tryb Trainer** na **pojedynczy parametr** , Dodaj oznakowany zestaw danych i nauczysz model przy użyciu modułu [uczenie klastra](train-clustering-model.md) .  
   
 ## <a name="results"></a>Wyniki
 
@@ -145,4 +145,4 @@ Ogólnie rzecz biorąc, w przypadku modeli klastrowania istnieje możliwość, �
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning.

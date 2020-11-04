@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 1742c80fd6914a1c9420f37217df02791e80da9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dab99c902269f7d598eedb8c2fa23bbed3948c4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710060"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325368"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Miejsce zapisywania i zapisywania plików do Azure Machine Learning eksperymentów
 
@@ -30,13 +30,13 @@ Podczas uruchamiania szkoleń w [obiekcie docelowym obliczeń](concept-compute-t
 
 Przed zainicjowaniem eksperymentu w elemencie docelowym obliczeń lub na komputerze lokalnym należy upewnić się, że wymagane pliki są dostępne dla tego obiektu docelowego obliczeń, takich jak pliki zależności i pliki danych, które muszą zostać uruchomione w kodzie.
 
-Azure Machine Learning uruchamia skrypty szkoleniowe, kopiując cały katalog źródłowy. Jeśli masz poufne dane, które nie mają być przekazywane, użyj [pliku. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) lub nie dołączaj go do katalogu źródłowego. Zamiast tego można uzyskiwać dostęp do danych przy użyciu usługi [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
+Azure Machine Learning uruchamia skrypty szkoleniowe, kopiując cały katalog źródłowy. Jeśli masz poufne dane, które nie mają być przekazywane, użyj [pliku. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) lub nie dołączaj go do katalogu źródłowego. Zamiast tego można uzyskiwać dostęp do danych przy użyciu usługi [datastore](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).
 
 Limit magazynu migawek eksperymentu wynosi 300 MB i/lub 2000 plików.
 
 Z tego powodu zalecamy:
 
-* **Przechowywanie plików w Azure Machine Learning [magazynie](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)danych.** Zapobiega to problemom z opóźnieniami eksperymentu i ma zalety uzyskiwania dostępu do danych z zdalnego obiektu docelowego obliczeń, co oznacza, że uwierzytelnianie i Instalowanie jest zarządzane przez Azure Machine Learning. Dowiedz się więcej na temat określania magazynu danych jako katalogu źródłowego i przekazywania plików do magazynu danych w artykule [dostępnym ze sklepów datastores](how-to-access-data.md) .
+* **Przechowywanie plików w Azure Machine Learning [magazynie](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py)danych.** Zapobiega to problemom z opóźnieniami eksperymentu i ma zalety uzyskiwania dostępu do danych z zdalnego obiektu docelowego obliczeń, co oznacza, że uwierzytelnianie i Instalowanie jest zarządzane przez Azure Machine Learning. Dowiedz się więcej na temat określania magazynu danych jako katalogu źródłowego i przekazywania plików do magazynu danych w artykule [dostępnym ze sklepów datastores](how-to-access-data.md) .
 
 * **Jeśli potrzebujesz tylko kilku plików danych i skryptów zależności i nie będzie można użyć sklepu datastore,** Umieść pliki w tym samym katalogu folderu co skrypt szkoleniowy. Określ ten folder jako `source_directory` bezpośrednio w skrypcie szkoleniowym lub w kodzie, który wywołuje skrypt szkoleniowy.
 
@@ -69,7 +69,7 @@ Podczas zapisywania zmian zalecamy zapisanie plików do magazynu danych Azure Ma
 Jeśli nie jest wymagane przechowywanie danych, Zapisz pliki w `./outputs` folderze i/lub `./logs` .
 
 >[!Important]
-> Dwa foldery, dane *wyjściowe* i *dzienniki*, otrzymują specjalne traktowanie według Azure Machine Learning. Podczas uczenia pliki do `./outputs` i `./logs` foldery są automatycznie przekazywane do historii uruchamiania, dzięki czemu będziesz mieć do nich dostęp po zakończeniu przebiegu.
+> Dwa foldery, dane *wyjściowe* i *dzienniki* , otrzymują specjalne traktowanie według Azure Machine Learning. Podczas uczenia pliki do `./outputs` i `./logs` foldery są automatycznie przekazywane do historii uruchamiania, dzięki czemu będziesz mieć do nich dostęp po zakończeniu przebiegu.
 
 * W **przypadku danych wyjściowych, takich jak komunikaty o stanie lub wyniki oceniania,** Zapisuj pliki do `./outputs` folderu, tak aby były utrwalane jako artefakty w historii uruchamiania. Należy mieć na uwadze liczbę i rozmiar plików zapisaną w tym folderze, ponieważ opóźnienie może wystąpić podczas przekazywania zawartości do historii uruchamiania. Jeśli opóźnienie jest istotna, zaleca się zapisanie plików do magazynu danych.
 

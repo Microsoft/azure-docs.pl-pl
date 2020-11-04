@@ -1,6 +1,6 @@
 ---
-title: Instrukcje języka T-SQL
-description: Linki do dokumentacji dotyczącej instrukcji języka T-SQL obsługiwanych w puli SQL Synapse.
+title: Instrukcje języka T-SQL w puli dedykowanej bazy danych SQL
+description: Linki do dokumentacji dotyczącej instrukcji języka T-SQL obsługiwanych w przypadku dedykowanej puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7a52049dc08b0a8170acc4d15860db69aea44a2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 390907eaf529df3f9adfd481e96ff166be543d01
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86276451"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324633"
 ---
-# <a name="t-sql-statements-supported-in-synapse-sql-pool"></a>Instrukcje języka T-SQL obsługiwane w puli SQL Synapse
+# <a name="t-sql-statements-supported-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Instrukcje języka T-SQL obsługiwane dla dedykowanej puli SQL w usłudze Azure Synapse Analytics 
 
-Linki do dokumentacji dotyczącej instrukcji języka T-SQL obsługiwanych w puli SQL Synapse.
+Linki do dokumentacji dotyczącej instrukcji języka T-SQL obsługiwanych w dedykowanej puli SQL.
 
 ## <a name="data-definition-language-ddl-statements"></a>Instrukcje języka definicji danych (DDL)
 
@@ -93,7 +93,7 @@ Linki do dokumentacji dotyczącej instrukcji języka T-SQL obsługiwanych w puli
 * [ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [ZAZNACZYĆ](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [UNION](/sql/t-sql/language-elements/set-operators-union-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [WHERE](/sql/t-sql/queries/where-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [MIEJSCU](/sql/t-sql/queries/where-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [Do góry](/sql/t-sql/queries/top-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [Tworzenie aliasów](/sql/t-sql/queries/aliasing-azure-sql-data-warehouse-parallel-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [Warunek wyszukiwania](/sql/t-sql/queries/search-condition-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -131,4 +131,4 @@ Linki do dokumentacji dotyczącej instrukcji języka T-SQL obsługiwanych w puli
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [elementy języka T-SQL w puli Synapse SQL](sql-data-warehouse-reference-tsql-language-elements.md)i [widoki systemowe w puli Synapse SQL](../sql/reference-tsql-system-views.md).
+Aby uzyskać więcej informacji, zobacz [elementy języka T-SQL w dedykowanej puli SQL](sql-data-warehouse-reference-tsql-language-elements.md)i [widoki systemowe w dedykowanej puli SQL](../sql/reference-tsql-system-views.md).

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d4ae18b335453f3e1d3512951675afe10c804c8d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7c1bfa618ea0ddddd7666698bc4fffa3ced5079d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094425"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323081"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -35,7 +35,7 @@ Wystąpienie obliczeniowe to w pełni zarządzana stacja robocza oparta na chmur
 |Najważniejsze korzyści|Opis|
 |----|----|
 |Produktywność|Możesz tworzyć i wdrażać modele przy użyciu zintegrowanych notesów i następujących narzędzi w programie Azure Machine Learning Studio:<br/>-Jupyter<br/>- JupyterLab<br/>-RStudio (wersja zapoznawcza)<br/>Wystąpienie obliczeniowe jest w pełni zintegrowane z Azure Machine Learning obszarem roboczym i Studio. Notesy i dane można udostępniać innym analitykom danych w obszarze roboczym.<br/> Możesz również użyć [vs Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) z wystąpieniami obliczeniowymi.
-|Zarządzane & bezpieczne|Zmniejsz poziom bezpieczeństwa i Dodaj zgodność z wymaganiami dotyczącymi zabezpieczeń przedsiębiorstwa. Wystąpienia obliczeniowe zapewniają niezawodne zasady zarządzania i bezpieczne konfiguracje sieci, takie jak:<br/><br/>-Autoudostępnianie z szablonów Menedżer zasobów lub Azure Machine Learning SDK<br/>- [Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Obsługa sieci wirtualnej](how-to-enable-virtual-network.md#compute-instance)<br/>-Zasady protokołu SSH do włączania/wyłączania dostępu SSH<br/>Włączono protokół TLS 1,2 |
+|Zarządzane & bezpieczne|Zmniejsz poziom bezpieczeństwa i Dodaj zgodność z wymaganiami dotyczącymi zabezpieczeń przedsiębiorstwa. Wystąpienia obliczeniowe zapewniają niezawodne zasady zarządzania i bezpieczne konfiguracje sieci, takie jak:<br/><br/>-Autoudostępnianie z szablonów Menedżer zasobów lub Azure Machine Learning SDK<br/>- [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [Obsługa sieci wirtualnej](./how-to-secure-training-vnet.md#compute-instance)<br/>-Zasady protokołu SSH do włączania/wyłączania dostępu SSH<br/>Włączono protokół TLS 1,2 |
 |Wstępnie skonfigurowane &nbsp; dla &nbsp; ml|Oszczędź czas na zadaniach instalacyjnych ze wstępnie skonfigurowanymi i aktualnymi pakietami ML, platformami uczenia głębokiego, sterownikami procesora GPU.|
 |W pełni dostosowywalne|Szeroka pomoc techniczna dla typów maszyn wirtualnych platformy Azure, w tym GPU i utrwalone dostosowanie niskiego poziomu, takie jak instalowanie pakietów i sterowników, sprawia, że zaawansowane scenariusze to Breeze. |
 
@@ -77,7 +77,7 @@ Następujące narzędzia i środowiska są już zainstalowane w wystąpieniu obl
 |Anaconda Python||
 |Jupyter i rozszerzenia||
 |Jupyterlab i rozszerzenia||
-[Zestaw SDK usługi Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>z PyPI|Zawiera większość dodatkowych pakietów platformy Azure.  Aby wyświetlić pełną listę, [Otwórz okno terminalu na wystąpieniu obliczeniowym](how-to-run-jupyter-notebooks.md#terminal) i uruchom polecenie <br/> `conda list -n azureml_py36 azureml*` |
+[Zestaw SDK usługi Azure Machine Learning dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>z PyPI|Zawiera większość dodatkowych pakietów platformy Azure.  Aby wyświetlić pełną listę, [Otwórz okno terminalu na wystąpieniu obliczeniowym](how-to-run-jupyter-notebooks.md#terminal) i uruchom polecenie <br/> `conda list -n azureml_py36 azureml*` |
 |Inne pakiety PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pakiety Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pakiety uczenia głębokiego|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -120,7 +120,7 @@ Dla każdego wystąpienia obliczeniowego w obszarze roboczym, którego możesz u
 * Użyj protokołu SSH do wystąpienia obliczeniowego. Dostęp SSH jest domyślnie wyłączony, ale można go włączyć podczas tworzenia wystąpienia obliczeniowego. Dostęp SSH odbywa się za pośrednictwem mechanizmu publicznego/prywatnego klucza. Karta przekaże szczegóły dotyczące połączenia SSH, takie jak adres IP, nazwa użytkownika i numer portu.
 * Pobierz szczegóły dotyczące określonego wystąpienia obliczeniowego, takiego jak adres IP i region.
 
-[Usługa Azure RBAC](/azure/role-based-access-control/overview) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie zawierać Logowanie jednokrotne, a wszystkie akcje będą korzystały z tożsamości tego użytkownika dla usługi Azure RBAC oraz do naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
+[Usługa Azure RBAC](../role-based-access-control/overview.md) pozwala kontrolować, którzy użytkownicy w obszarze roboczym mogą tworzyć, usuwać, uruchamiać, zatrzymywać, ponownie uruchamiać wystąpienie obliczeniowe. Wszyscy użytkownicy z rolą współautor i właściciel obszaru roboczego mogą tworzyć, usuwać, uruchamiać, zatrzymywać i ponownie uruchamiać wystąpienia obliczeniowe w obszarze roboczym. Jednak tylko twórca określonego wystąpienia obliczeniowego lub użytkownik przypisany, jeśli został utworzony w ich imieniu, może uzyskać dostęp do Jupyter, JupyterLab i RStudio na tym wystąpieniu obliczeniowym. Wystąpienie obliczeniowe jest przeznaczone dla pojedynczego użytkownika, który ma dostęp do katalogu głównego, i może być terminalem za pomocą Jupyter/JupyterLab/RStudio. Wystąpienie obliczeniowe będzie zawierać Logowanie jednokrotne, a wszystkie akcje będą korzystały z tożsamości tego użytkownika dla usługi Azure RBAC oraz do naliczania przebiegów eksperymentów. Dostęp SSH jest kontrolowany za pośrednictwem mechanizmu publicznego/prywatnego klucza.
 
 Te akcje mogą być kontrolowane przez funkcję RBAC platformy Azure:
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/odczyt*

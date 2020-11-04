@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05926f7ce25714fb76415802876db0640eb30aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908099"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323773"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Wyjątki i kody błędów dla projektanta
 
@@ -187,7 +187,7 @@ Sprawdź również, czy konto, kontener lub obiekt BLOB został usunięty. Użyj
 
 Niektóre nowsze typy kont nie są obsługiwane przez Azure Machine Learning. Na przykład nowe typy magazynów "gorąca" lub "zimne" nie mogą być używane do uczenia maszynowego. Zarówno klasyczne konta magazynu, jak i konta magazynu utworzone jako "ogólnego przeznaczenia" działają prawidłowo.
 
-Jeśli podano pełną ścieżkę do obiektu BLOB, należy sprawdzić, czy ścieżka jest określona jako **Container/blobname**, i czy zarówno kontener, jak i obiekt BLOB istnieją na koncie.  
+Jeśli podano pełną ścieżkę do obiektu BLOB, należy sprawdzić, czy ścieżka jest określona jako **Container/blobname** , i czy zarówno kontener, jak i obiekt BLOB istnieją na koncie.  
 
  Ścieżka nie powinna zawierać ukośnika wiodącego. Na przykład **/Container/BLOB** jest niepoprawny i powinien zostać wprowadzony jako **kontener/obiekt BLOB**.  
 
@@ -357,7 +357,7 @@ W przypadku kolumn, które mają być używane do grupowania lub kategoryzacji, 
 ## <a name="error-0018"></a>0018 błędów  
  Wyjątek występuje, jeśli wejściowy zestaw danych jest nieprawidłowy.  
 
-**Rozwiązanie:** Ten błąd w Azure Machine Learning może występować w wielu kontekstach, więc nie istnieje pojedyncze rozwiązanie. Ogólnie rzecz biorąc, błąd wskazuje, że dane podane jako dane wejściowe modułu mają nieprawidłową liczbę kolumn lub że typ danych nie jest zgodny z wymaganiami modułu. Na przykład:  
+**Rozwiązanie:** Ten błąd w Azure Machine Learning może występować w wielu kontekstach, więc nie istnieje pojedyncze rozwiązanie. Ogólnie rzecz biorąc, błąd wskazuje, że dane podane jako dane wejściowe modułu mają nieprawidłową liczbę kolumn lub że typ danych nie jest zgodny z wymaganiami modułu. Przykład:  
 
 -   Moduł wymaga kolumny etykieta, ale żadna kolumna nie jest oznaczona jako etykieta lub nie wybrano jeszcze kolumny etykieta.  
   
@@ -439,7 +439,7 @@ W przypadku kolumn, które mają być używane do grupowania lub kategoryzacji, 
 ## <a name="error-0022"></a>0022 błędów  
  Wyjątek występuje, jeśli liczba wybranych kolumn w wejściowym zestawie danych nie jest równa oczekiwanej liczbie.  
 
- Ten błąd w Azure Machine Learning może wystąpić, gdy moduł podrzędny lub operacja wymaga określonej liczby kolumn lub danych wejściowych, a podano zbyt mało lub zbyt wiele kolumn lub danych wejściowych. Na przykład:  
+ Ten błąd w Azure Machine Learning może wystąpić, gdy moduł podrzędny lub operacja wymaga określonej liczby kolumn lub danych wejściowych, a podano zbyt mało lub zbyt wiele kolumn lub danych wejściowych. Przykład:  
 
 -   Należy określić pojedynczą kolumnę etykiety lub kolumnę klucza i przypadkowo zaznaczyć wiele kolumn.  
   
@@ -713,7 +713,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **Rozwiązanie:** Ten błąd jest spowodowany przez wiele warunków i nie ma konkretnego rozwiązania.  
  Poniższa tabela zawiera komunikaty ogólne dla tego błędu, po którym następuje określony opis warunku. 
 
- Jeśli żadne szczegóły nie są dostępne, [firma Microsoft Q&stronie pytania dotyczącej wysyłania opinii](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) i zawiera informacje o modułach, które wygenerowały błąd i powiązane warunki.
+ Jeśli żadne szczegóły nie są dostępne, [firma Microsoft Q&stronie pytania dotyczącej wysyłania opinii](/answers/topics/azure-machine-learning-studio-classic.html) i zawiera informacje o modułach, które wygenerowały błąd i powiązane warunki.
 
 |Komunikaty o wyjątkach|
 |------------------------|
@@ -862,7 +862,7 @@ Kolejną przyczyną tego błędu może być próba użycia kolumny zawierającej
 
  Ten błąd w Azure Machine Learning występuje, jeśli klucz używany do uzyskiwania dostępu do konta usługi Azure Storage jest niepoprawny. Na przykład ten błąd może pojawić się, jeśli klucz usługi Azure Storage został obcięty podczas kopiowania i wklejania, lub jeśli użyto nieprawidłowego klucza.  
 
- Aby uzyskać więcej informacji na temat uzyskiwania klucza dla konta usługi Azure Storage, zobacz [Wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu do magazynu](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
+ Aby uzyskać więcej informacji na temat uzyskiwania klucza dla konta usługi Azure Storage, zobacz [Wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu do magazynu](../../storage/common/storage-account-create.md).  
 
 **Rozwiązanie:** Ponownie odwiedź moduł i sprawdź, czy klucz usługi Azure Storage jest prawidłowy dla tego konta. w razie potrzeby skopiuj klucz z klasycznego portalu Azure.  
 
@@ -1083,9 +1083,9 @@ Komunikat o błędzie z usługi Hive jest zwykle raportowany ponownie w dziennik
 
 Zapoznaj się z następującymi artykułami, aby uzyskać pomoc dotyczącą zapytań programu Hive dotyczących uczenia maszynowego:
 
-+ [Tworzenie tabel programu Hive i ładowanie danych z usługi Azure Blob Storage](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Eksplorowanie danych w tabelach przy użyciu zapytań Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Tworzenie funkcji dla danych w klastrze usługi Hadoop przy użyciu zapytań Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Tworzenie tabel programu Hive i ładowanie danych z usługi Azure Blob Storage](../team-data-science-process/move-hive-tables.md)
++ [Eksplorowanie danych w tabelach przy użyciu zapytań Hive](../team-data-science-process/explore-data-hive-tables.md)
++ [Tworzenie funkcji dla danych w klastrze usługi Hadoop przy użyciu zapytań Hive](../team-data-science-process/create-features-hive.md)
 + [Gałąź programu SQL users Ściągawka arkusz (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1106,8 +1106,8 @@ Zapoznaj się z następującymi artykułami, aby uzyskać pomoc dotyczącą zapy
  Sprawdź, czy zapytanie działa prawidłowo poza platformą Azure, logując się do serwera bazy danych bezpośrednio i uruchamiając zapytanie.  
 
  Jeśli w wyjątku modułu jest raportowany komunikat generowany przez program SQL, należy wykonać akcję na podstawie zgłoszonego błędu. Na przykład komunikaty o błędach czasami zawierają określone wskazówki dotyczące przyczyny błędu:
-+ *Nie ma takiej kolumny ani brakującej bazy danych*, co oznacza, że być może wpisano nieprawidłową nazwę kolumny. Jeśli masz pewność, że nazwa kolumny jest poprawna, spróbuj użyć nawiasów lub znaków cudzysłowu, aby ująć identyfikator kolumny.
-+ *Błąd logiki SQL w \<SQL keyword\> sąsiedztwie *, wskazujący, że może wystąpić błąd składniowy przed określonym słowem kluczowym
++ *Nie ma takiej kolumny ani brakującej bazy danych* , co oznacza, że być może wpisano nieprawidłową nazwę kolumny. Jeśli masz pewność, że nazwa kolumny jest poprawna, spróbuj użyć nawiasów lub znaków cudzysłowu, aby ująć identyfikator kolumny.
++ *Błąd logiki SQL w \<SQL keyword\> sąsiedztwie* , wskazujący, że może wystąpić błąd składniowy przed określonym słowem kluczowym
 
   
 |Komunikaty o wyjątkach|
@@ -1164,7 +1164,7 @@ Ten błąd w Azure Machine Learning występuje podczas próby zapełnienia danyc
 
 Obsługa błędów dla tego zdarzenia została wprowadzona we wcześniejszej wersji Azure Machine Learning, która pozwala na dalsze dostosowywanie metod pakowania. Obecnie wszystkie metody pakowania są oparte na wyborze z listy rozwijanej, więc nie powinno być już możliwe uzyskanie tego błędu.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Komunikaty o wyjątkach|
 |------------------------|
@@ -1516,11 +1516,10 @@ Wewnętrzny wyjątek biblioteki.
 
 Ten błąd jest dostarczany w celu przechwycenia nieobsłużonych błędów aparatu wewnętrznego. W związku z tym przyczyny tego błędu mogą się różnić w zależności od modułu, który wygenerował błąd.  
 
-Aby uzyskać dalszą pomoc, zalecamy opublikowanie szczegółowego komunikatu zawierającego błąd do [forum Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), wraz z opisem scenariusza, włącznie z danymi używanymi jako dane wejściowe. Ta opinia pomoże nam określić priorytety błędów i zidentyfikować Najważniejsze problemy w celu dalszej pracy.  
+Aby uzyskać dalszą pomoc, zalecamy opublikowanie szczegółowego komunikatu zawierającego błąd do [forum Azure Machine Learning](/answers/topics/azure-machine-learning.html), wraz z opisem scenariusza, włącznie z danymi używanymi jako dane wejściowe. Ta opinia pomoże nam określić priorytety błędów i zidentyfikować Najważniejsze problemy w celu dalszej pracy.  
 
 |Komunikaty o wyjątkach|
 |------------------------|
 |Wyjątek biblioteki.|
 |Wyjątek biblioteki: {Exception}.|
 |Nieznany wyjątek biblioteki: {Exception}. {customer_support_guidance}.|
-

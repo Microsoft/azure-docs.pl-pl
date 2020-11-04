@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 133c7e95e620bfea51d1d6c9f6fd1d2946eeca33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7c442aaf6484e8e47bd6d00c91023fba43af75d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347262"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325028"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Wprowadzenie do Azure Machine Learning Studio (klasyczne) w języku R
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 <!-- Stephen F Elston, Ph.D. -->
@@ -144,7 +144,7 @@ Zaczniemy od załadowania pliku **csdairydata.csv** do Machine Learning Studio (
 
 1. Uruchom środowisko Machine Learning Studio (klasyczne).
 1. Wybierz pozycję **+ Nowy** w lewym dolnym rogu ekranu, a następnie wybierz pozycję **zestaw danych**.
-1. Wybierz pozycję **z pliku lokalnego**, a następnie wybierz pozycję **Przeglądaj** , aby wybrać plik.
+1. Wybierz pozycję **z pliku lokalnego** , a następnie wybierz pozycję **Przeglądaj** , aby wybrać plik.
 1. Upewnij się, że wybrano **ogólny plik CSV z nagłówkiem (CSV)** jako typ zestawu danych.
 1. Zaznacz znacznik wyboru.
 1. Po przekazaniu zestawu danych powinien zostać wyświetlony nowy zestaw danych po wybraniu karty **zestawy danych** .
@@ -155,11 +155,11 @@ Teraz, gdy mamy pewne dane w Machine Learning Studio (klasyczne), musimy utworzy
 
 1. Wybierz pozycję **+ Nowy** w lewym dolnym rogu ekranu, a następnie wybierz pozycję **eksperymentowanie**  >  **pustego eksperymentu**.
 1. Nazwij ten eksperyment, wybierając i modyfikując **eksperyment utworzony na** tytule w górnej części strony. Na przykład zmień go na **przeanalizowanie mleczarni urzędu certyfikacji**.
-1. Po lewej stronie eksperymentu wybierz pozycję **zapisane zestawy danych**  >  **MOJE ZESTAWY**danych. Powinien zostać wyświetlony wcześniej przekazany plik **cadairydata.csv** .
+1. Po lewej stronie eksperymentu wybierz pozycję **zapisane zestawy danych**  >  **MOJE ZESTAWY** danych. Powinien zostać wyświetlony wcześniej przekazany plik **cadairydata.csv** .
 1. Przeciągnij **csdairydata.csv zestaw danych** na eksperyment.
 1. W polu **Wyszukaj elementy eksperymentu** w górnej części okienka po lewej stronie wpisz polecenie [Wykonaj skrypt języka R][execute-r-script]. Moduł zostanie wyświetlony na liście wyszukiwania.
 1. Przeciągnij moduł [wykonywania skryptu R][execute-r-script] na paletę.
-1. Połącz dane wyjściowe **csdairydata.csv zestawu danych** z lewej strony wejściowej (**pozycję DataSet1**) [skryptu Execute języka R][execute-r-script].
+1. Połącz dane wyjściowe **csdairydata.csv zestawu danych** z lewej strony wejściowej ( **pozycję DataSet1** ) [skryptu Execute języka R][execute-r-script].
 1. Wybierz pozycję **Zapisz**.
 
 W tym momencie eksperyment powinien wyglądać podobnie do tego przykładu.
@@ -169,7 +169,7 @@ W tym momencie eksperyment powinien wyglądać podobnie do tego przykładu.
 
 #### <a name="check-on-the-data"></a>Sprawdź dane
 
-Spójrzmy na dane, które zostały załadowane do naszego eksperymentu. W eksperymentie wybierz dane wyjściowe ** zestawu danychcadairydata.csv**i wybierz opcję **Wizualizuj**. Powinieneś zobaczyć coś takiego jak to podsumowanie.
+Spójrzmy na dane, które zostały załadowane do naszego eksperymentu. W eksperymentie wybierz dane wyjściowe **zestawu danychcadairydata.csv** i wybierz opcję **Wizualizuj**. Powinieneś zobaczyć coś takiego jak to podsumowanie.
 
 ![Zrzut ekranu pokazujący podsumowanie zestawu danych cadairydata.csv.](./media/r-quickstart/fig4.png)
 
@@ -1029,10 +1029,10 @@ Ta funkcja generuje następujące dane wyjściowe.
 ##
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
-## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 ***
-## Time              1.63e-09   1.72e-10    9.47   <2e-16 ***
+## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 **_
+## Time              1.63e-09   1.72e-10    9.47   <2e-16 _*_
 ## I(Month.Count^2) -1.71e-06   4.89e-06   -0.35    0.726
-## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 *  
+## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 _  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
@@ -1062,10 +1062,10 @@ Ta funkcja generuje następujące dane wyjściowe.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## (Intercept)       6.38e+00   4.07e-02   156.6   <2e-16 ***
-## Time              1.57e-09   4.32e-11    36.3   <2e-16 ***
-## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 ***
+## Time              1.57e-09   4.32e-11    36.3   <2e-16 **_
+## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0417 on 213 degrees of freedom
 ## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
@@ -1113,21 +1113,21 @@ Ta funkcja generuje następujące dane wyjściowe.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## Time              1.57e-09   2.72e-11    57.7   <2e-16 ***
-## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 ***
-## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 ***
-## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 ***
-## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 ***
-## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 ***
-## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 ***
-## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 ***
-## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 ***
-## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 ***
-## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 ***
-## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 ***
-## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 ***
-## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 ***
+## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 **_
+## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 _*_
+## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 _*_
+## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 _*_
+## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 _*_
+## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 _*_
+## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 _*_
+## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 _*_
+## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 _*_
+## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 _*_
+## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 _*_
+## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 _*_
+## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0263 on 202 degrees of freedom
 ## Multiple R-squared:     1,    Adjusted R-squared:     1
@@ -1276,9 +1276,9 @@ Z tych wyników widzimy, że dodanie wskaźników sezonowych do modelu zmniejsza
 
 RStudio jest dobrze udokumentowane. Oto kilka linków do najważniejszych sekcji dokumentacji RStudio, aby rozpocząć pracę.
 
-* **Tworzenie projektów**: można organizować kod R i zarządzać nim w projektach za pomocą RStudio. Aby uzyskać więcej informacji, zobacz [using projects](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Postępuj zgodnie z tymi instrukcjami i Utwórz projekt dla przykładów kodu języka R w tym artykule.
-* **Edytuj i wykonaj kod r**: RStudio zapewnia zintegrowane środowisko do edycji i wykonywania kodu języka r. Aby uzyskać więcej informacji, zobacz [Edytowanie i wykonywanie kodu](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
-* **Debugowanie**: RStudio obejmuje zaawansowane funkcje debugowania. Aby uzyskać więcej informacji o tych funkcjach, zobacz [debugowanie za pomocą RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Aby uzyskać informacje o funkcjach rozwiązywania problemów z punktem przerwania, zobacz temat [Rozwiązywanie problemów](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)
+* **Tworzenie projektów** : można organizować kod R i zarządzać nim w projektach za pomocą RStudio. Aby uzyskać więcej informacji, zobacz [using projects](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Postępuj zgodnie z tymi instrukcjami i Utwórz projekt dla przykładów kodu języka R w tym artykule.
+* **Edytuj i wykonaj kod r** : RStudio zapewnia zintegrowane środowisko do edycji i wykonywania kodu języka r. Aby uzyskać więcej informacji, zobacz [Edytowanie i wykonywanie kodu](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
+* **Debugowanie** : RStudio obejmuje zaawansowane funkcje debugowania. Aby uzyskać więcej informacji o tych funkcjach, zobacz [debugowanie za pomocą RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Aby uzyskać informacje o funkcjach rozwiązywania problemów z punktem przerwania, zobacz temat [Rozwiązywanie problemów](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)
 
 ## <a name="further-reading"></a><a id="appendixb"></a>Dodatkowe informacje
 

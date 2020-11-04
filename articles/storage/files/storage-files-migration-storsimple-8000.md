@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4aec299e15964d45ad949034ba02729ff43934de
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043195"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322203"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 i 8600 migracji do Azure File Sync
 
@@ -76,7 +76,7 @@ Jeśli nie możesz znaleźć kluczy w rekordach, możesz pobrać klucz z urządz
 >
 > * Nawiązywanie połączenia za pośrednictwem sesji HTTPS jest najbezpieczniejszym i zalecanym rozwiązaniem.
 > * Bezpośrednie łączenie z konsolą szeregową urządzenia jest bezpieczne, ale połączenie z konsolą szeregową przez przełączniki sieciowe nie jest obsługiwane.
-> * Połączenia sesji HTTP są opcjami, ale *nie są szyfrowane* . Nie są one zalecane, chyba że są używane w ramach zamkniętej, zaufanej sieci.
+> * Połączenia sesji HTTP są opcjami, ale *nie są szyfrowane*. Nie są one zalecane, chyba że są używane w ramach zamkniętej, zaufanej sieci.
 
 ### <a name="storsimple-volume-backups"></a>Kopie zapasowe woluminów StorSimple
 
@@ -119,7 +119,7 @@ Na końcu fazy 1:
 * Istnieje plan, dla którego należy migrować woluminy, a także sposób mapowania woluminów do odpowiedniej liczby udziałów plików platformy Azure i kont magazynu.
 
 > [!CAUTION]
-> Jeśli musisz migrować kopie zapasowe z woluminów StorSimple, **Zatrzymaj to tutaj** .
+> Jeśli musisz migrować kopie zapasowe z woluminów StorSimple, **Zatrzymaj to tutaj**.
 >
 > To podejście migracji opiera się na nowych możliwościach usługi przekształcania danych, które obecnie nie mogą migrować kopii zapasowych. Obsługa migracji kopii zapasowych zostanie zakończona na końcu 2020. Obecnie można migrować wyłącznie dane na żywo. Jeśli rozpoczniesz pracę teraz, nie będziesz w przyszłości mieć możliwości wykonywania kopii zapasowych. Kopie zapasowe muszą być "odtwarzane" w udziałach plików platformy Azure od najstarszych do najnowszych do danych na żywo, z migawek udziałów plików platformy Azure między.
 
@@ -165,8 +165,8 @@ Nadal nie masz pewności?
 
 #### <a name="account-kind"></a>Rodzaj konta
 
-* W przypadku magazynu w warstwie Standardowa wybierz pozycję *StorageV2 (ogólnego przeznaczenia w wersji 2)* .
-* W przypadku udziałów plików w warstwie Premium wybierz pozycję *FileStorage* .
+* W przypadku magazynu w warstwie Standardowa wybierz pozycję *StorageV2 (ogólnego przeznaczenia w wersji 2)*.
+* W przypadku udziałów plików w warstwie Premium wybierz pozycję *FileStorage*.
 
 #### <a name="replication"></a>Replikacja
 
@@ -174,13 +174,13 @@ Dostępne są kilka ustawień replikacji. Dowiedz się więcej o różnych typac
 
 Wybierz jedną z następujących dwóch opcji:
 
-* *Magazyn lokalnie nadmiarowy (LRS)* .
+* *Magazyn lokalnie nadmiarowy (LRS)*.
 * *Magazyn strefowo nadmiarowy (ZRS)* , który nie jest dostępny we wszystkich regionach świadczenia usługi Azure.
 
 > [!NOTE]
 > Tylko typy nadmiarowości LRS i ZRS są zgodne z dużymi udziałami plików platformy Azure o pojemności 100 TiB.
 
-Magazyn globalnie nadmiarowy (GRS) we wszystkich odmianach nie jest obecnie obsługiwany. Możesz zmienić typ nadmiarowości później i przełączyć się na GRS, gdy zostanie on odebrany na platformie Azure.
+Magazyn Geograficznie nadmiarowy (GRS) we wszystkich odmianach nie jest obecnie obsługiwany. Możesz zmienić typ nadmiarowości później i przełączyć się na GRS, gdy zostanie on odebrany na platformie Azure.
 
 #### <a name="enable-100-tib-capacity-file-shares"></a>Włącz udziały plików 100 TiB o pojemności
 
@@ -206,16 +206,16 @@ Po utworzeniu kont magazynu przejdź do sekcji **udział plików** konta magazyn
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="Obraz przedstawiający kartę Zaawansowane w Azure Portal na potrzeby tworzenia konta magazynu.":::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="Zrzut ekranu Azure Portal pokazujący nowy interfejs użytkownika udziału plików.":::
     :::column-end:::
     :::column:::
-        </br>**Nazwa**</br>Małe litery, cyfry i łączniki są obsługiwane.</br></br>**limit przydziału**</br>Przydział w tym miejscu jest porównywalny do limitu przydziału twardego SMB w wystąpieniu systemu Windows Server. Najlepszym rozwiązaniem jest nie ustawienie limitu przydziału w tym miejscu, ponieważ migracja i inne usługi zakończą się niepowodzeniem po osiągnięciu limitu przydziału.</br></br>**Warstwy**</br>Wybierz pozycję **transakcja zoptymalizowana pod** kątem nowego udziału plików. Podczas migracji nastąpi wiele transakcji. W późniejszym czasie można zmienić warstwę do warstwy najlepiej dopasowanej do obciążenia.
+        </br>**Nazwa**</br>Małe litery, cyfry i łączniki są obsługiwane.</br></br>**limit przydziału**</br>Przydział w tym miejscu jest porównywalny do limitu przydziału twardego SMB w wystąpieniu systemu Windows Server. Najlepszym rozwiązaniem jest nie ustawienie limitu przydziału w tym miejscu, ponieważ migracja i inne usługi zakończą się niepowodzeniem po osiągnięciu limitu przydziału.</br></br>**Warstwy**</br>Wybierz pozycję **transakcja zoptymalizowana pod** kątem nowego udziału plików. Podczas migracji nastąpi wiele transakcji. Im bardziej wydajny koszt zmiany warstwy na warstwę najlepiej dopasowane do obciążenia.
     :::column-end:::
 :::row-end:::
 
 ### <a name="storsimple-data-manager"></a>StorSimple Data Manager
 
-Zasób platformy Azure, w którym będą przechowywane zadania migracji, jest nazywany **StorSimple Data Manager** . Wybierz pozycję **nowy zasób** i wyszukaj go. Następnie wybierz przycisk **Utwórz** .
+Zasób platformy Azure, w którym będą przechowywane zadania migracji, jest nazywany **StorSimple Data Manager**. Wybierz pozycję **nowy zasób** i wyszukaj go. Następnie wybierz przycisk **Utwórz**.
 
 Ten tymczasowy zasób jest używany na potrzeby aranżacji. Anulowanie aprowizacji jest możliwe po zakończeniu migracji. Należy ją wdrożyć w tej samej subskrypcji, grupie zasobów i regionie co konto magazynu StorSimple.
 
@@ -232,7 +232,7 @@ Na koniec fazy 2 wdrożono konta magazynu i wszystkie udziały plików platformy
 
 ## <a name="phase-3-create-and-run-a-migration-job"></a>Faza 3: Tworzenie i uruchamianie zadania migracji
 
-W tej sekcji opisano sposób konfigurowania zadania migracji i dokładnego mapowania katalogów na woluminie StorSimple, które powinny zostać skopiowane do wybranych docelowych udziałów plików platformy Azure. Aby rozpocząć, przejdź do StorSimple Data Manager, Znajdź **definicje zadań** w menu, a następnie wybierz pozycję **+ Definicja zadania** . Docelowy typ magazynu to domyślny **udział plików platformy Azure** .
+W tej sekcji opisano sposób konfigurowania zadania migracji i dokładnego mapowania katalogów na woluminie StorSimple, które powinny zostać skopiowane do wybranych docelowych udziałów plików platformy Azure. Aby rozpocząć, przejdź do StorSimple Data Manager, Znajdź **definicje zadań** w menu, a następnie wybierz pozycję **+ Definicja zadania**. Docelowy typ magazynu to domyślny **udział plików platformy Azure**.
 
 ![Typy zadań migracji serii StorSimple 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job-type.png "Zrzut ekranu definicji zadania Azure Portal z otwartym oknem dialogowym nowe definicje zadań z pytaniem o typ zadania: Kopiuj do udziału plików lub kontenera obiektów BLOB.")
 
@@ -244,7 +244,7 @@ W tej sekcji opisano sposób konfigurowania zadania migracji i dokładnego mapow
         ![Zadanie migracji serii StorSimple 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Zrzut ekranu przedstawiający formularz tworzenia nowego zadania dla zadania usługi przekształcania danych.")
     :::column-end:::
     :::column:::
-        **Nazwa definicji zadania**</br>Ta nazwa powinna wskazywać zestaw plików, które są przenoszone. Przyznaj mu podobną nazwę, ponieważ udział plików platformy Azure jest dobrym zwyczajem. </br></br>**Lokalizacja, w której jest uruchamiane zadanie**</br>W przypadku wybrania regionu należy wybrać ten sam region, w którym znajduje się konto magazynu StorSimple lub, jeśli to nie jest dostępne, a następnie zamknąć region. </br></br><h3>Element źródłowy</h3>**Subskrypcja źródłowa**</br>Wybierz subskrypcję, w ramach której przechowujesz zasób StorSimple Menedżer urządzeń. </br></br>**Zasób StorSimple**</br>Wybierz StorSimple Menedżer urządzeń Twoje urządzenie jest zarejestrowane w usłudze. </br></br>**Klucz szyfrowania danych usługi**</br>Sprawdź tę [wcześniejszą sekcję w tym artykule](#storsimple-service-data-encryption-key) , jeśli nie możesz zlokalizować klucza w rekordach. </br></br>**Urządzenie**</br>Wybierz urządzenie StorSimple, które zawiera wolumin, na którym chcesz przeprowadzić migrację. </br></br>**Wolumin**</br>Wybierz wolumin źródłowy. Następnie zdecyduj, czy chcesz migrować cały wolumin lub podkatalogi do docelowego udziału plików platformy Azure. </br></br><h3>Cel</h3>Wybierz subskrypcję, konto magazynu i udział plików platformy Azure jako element docelowy tego zadania migracji.
+        **Nazwa definicji zadania**</br>Ta nazwa powinna wskazywać zestaw plików, które są przenoszone. Przyznaj mu podobną nazwę, ponieważ udział plików platformy Azure jest dobrym zwyczajem. </br></br>**Lokalizacja, w której jest uruchamiane zadanie**</br>W przypadku wybrania regionu należy wybrać ten sam region, w którym znajduje się konto magazynu StorSimple lub, jeśli to nie jest dostępne, a następnie zamknąć region. </br></br><h3>Źródło</h3>**Subskrypcja źródłowa**</br>Wybierz subskrypcję, w ramach której przechowujesz zasób StorSimple Menedżer urządzeń. </br></br>**Zasób StorSimple**</br>Wybierz StorSimple Menedżer urządzeń Twoje urządzenie jest zarejestrowane w usłudze. </br></br>**Klucz szyfrowania danych usługi**</br>Sprawdź tę [wcześniejszą sekcję w tym artykule](#storsimple-service-data-encryption-key) , jeśli nie możesz zlokalizować klucza w rekordach. </br></br>**Urządzenie**</br>Wybierz urządzenie StorSimple, które zawiera wolumin, na którym chcesz przeprowadzić migrację. </br></br>**Wolumin**</br>Wybierz wolumin źródłowy. Następnie zdecyduj, czy chcesz migrować cały wolumin lub podkatalogi do docelowego udziału plików platformy Azure. </br></br><h3>Cel</h3>Wybierz subskrypcję, konto magazynu i udział plików platformy Azure jako element docelowy tego zadania migracji.
     :::column-end:::
 :::row-end:::
 
@@ -270,21 +270,21 @@ Mapowanie jest wyrażone od lewej do prawej: [ścieżka \source] \> [ścieżka \
 |Znak semantyczny          | Znaczenie  |
 |:---------------------------|:---------|
 | **\\**                     | Wskaźnik poziomu głównego.       |
-| **\>**                     | [Source] i [target-operator mapowania.     |
+| **\>**                     | [Source] i [target-Mapping] operatora.     |
 |**\|** lub RETURN (nowy wiersz) | Separator dwóch instrukcji dotyczących mapowania folderów. </br>Alternatywnie możesz pominąć ten znak i wybrać polecenie **Enter** , aby uzyskać następne wyrażenie mapowania w osobnym wierszu.        |
 
 ### <a name="examples"></a>Przykłady
 Przenosi zawartość folderu *dane użytkownika* do katalogu głównego docelowego udziału plików:
 ``` console
-\User data > \\
+\User data > \
 ```
 Przenosi całą zawartość woluminu do nowej ścieżki w docelowym udziale plików:
 ``` console
-\ \> \Apps\HR tracker
+\ > \Apps\HR tracker
 ```
 Przenosi zawartość folderu źródłowego do nowej ścieżki w docelowym udziale plików:
 ``` console
-\HR resumes-Backup \> \Backups\HR\resumes
+\HR resumes-Backup > \Backups\HR\resumes
 ```
 Sortuje wiele lokalizacji źródłowych do nowej struktury katalogów:
 ``` console
@@ -296,7 +296,7 @@ Sortuje wiele lokalizacji źródłowych do nowej struktury katalogów:
 ### <a name="semantic-rules"></a>Reguły semantyczne
 
 * Zawsze określaj ścieżki folderów względem poziomu głównego.
-* Rozpocznij każdą ścieżkę folderu z wskaźnikiem poziomu głównego \" .
+* Rozpocznij każdą ścieżkę folderu z wskaźnikiem poziomu głównego " \\ ".
 * Nie dołączaj liter dysków.
 * W przypadku określania wielu ścieżek ścieżki źródłowe lub docelowe nie mogą się nakładać:</br>
    Nieprawidłowy przykład nakładania się ścieżki źródłowej:</br>
@@ -425,12 +425,12 @@ Po wprowadzeniu zmian do wszystkich elementów, ale **synchronizacji początkowe
 
 Możesz również użyć Podgląd zdarzeń w wystąpieniu systemu Windows Server, aby określić, kiedy przestrzeń nazw została w pełni dostarczona.
 
-1. Otwórz **Podgląd zdarzeń** i przejdź do **aplikacji i usług** .
-1. Przejdź do i Otwórz **Microsoft\FileSync\Agent\Telemetry** .
+1. Otwórz **Podgląd zdarzeń** i przejdź do **aplikacji i usług**.
+1. Przejdź do i Otwórz **Microsoft\FileSync\Agent\Telemetry**.
 1. Poszukaj najnowszego **zdarzenia 9102** , które odnosi się do zakończonej sesji synchronizacji.
 1. Wybierz pozycję **szczegóły** i upewnij się, że szukasz zdarzenia, dla którego jest **pobierana** wartość **SyncDirection** .
-1. W czasie, gdy przestrzeń nazw została zakończona do pobrania do serwera, będzie istnieć jedno zdarzenie z **scenariuszem** , wartość **FullGhostedSync** i **wynik HRESULT**  =  **0** .
-1. Jeśli to zdarzenie zostanie pominięte, możesz również wyszukać inne **zdarzenia 9102** z **SyncDirection**  =  **pobierania** i **scenariusza**  =  **"RegularSync"** . Znalezienie jednego z tych zdarzeń wskazuje również, że przestrzeń nazw zakończyła pobieranie i synchronizowanie w regularnych sesjach synchronizacji, niezależnie od tego, czy istnieją jakieś elementy do synchronizacji, czy nie.
+1. W czasie, gdy przestrzeń nazw została zakończona do pobrania do serwera, będzie istnieć jedno zdarzenie z **scenariuszem** , wartość **FullGhostedSync** i **wynik HRESULT**  =  **0**.
+1. Jeśli to zdarzenie zostanie pominięte, możesz również wyszukać inne **zdarzenia 9102** z **SyncDirection**  =  **pobierania** i **scenariusza**  =  **"RegularSync"**. Znalezienie jednego z tych zdarzeń wskazuje również, że przestrzeń nazw zakończyła pobieranie i synchronizowanie w regularnych sesjach synchronizacji, niezależnie od tego, czy istnieją jakieś elementy do synchronizacji, czy nie.
 
 ### <a name="a-final-robocopy"></a>Końcowy RoboCopy
 
@@ -518,7 +518,7 @@ Tle
    :::column-end:::
 :::row-end:::
 
-Podczas konfigurowania lokalizacji źródłowej i docelowej polecenia RoboCopy upewnij się, że znasz strukturę źródłową i docelową, aby upewnić się, że są one zgodne. Jeśli została użyta funkcja mapowania katalogów w ramach zadania migracji, struktura katalogu głównego może różnić się od struktury woluminu StorSimple. W takim przypadku może być potrzebne wiele zadań RoboCopy, po jednym dla każdego podkatalogu.
+Podczas konfigurowania lokalizacji źródłowej i docelowej polecenia RoboCopy upewnij się, że znasz strukturę źródłową i docelową, aby upewnić się, że są one zgodne. Jeśli została użyta funkcja mapowania katalogów w ramach zadania migracji, struktura katalogu głównego może różnić się od struktury woluminu StorSimple. W takim przypadku może być potrzebne wiele zadań RoboCopy, po jednym dla każdego podkatalogu. Jeśli nie masz pewności, czy polecenie zostanie wykonane zgodnie z oczekiwaniami, możesz użyć */l* parametru, która symuluje polecenie bez faktycznego wprowadzania jakichkolwiek zmian.
 
 To polecenie RoboCopy używa/MIR, dlatego nie przenosi plików, które są takie same (pliki warstwowe, na przykład). Ale jeśli ścieżka źródłowa i docelowa jest nieprawidłowa,/MIR Przeczyszcza również struktury katalogów w wystąpieniu systemu Windows Server lub udziale plików platformy Azure, które nie znajdują się na ścieżce źródłowej StorSimple. Muszą one dokładnie pasować do zadania RoboCopy, aby osiągnąć zamierzony cel aktualizowania zmigrowanej zawartości przy użyciu najnowszych zmian wprowadzonych podczas migracji.
 
@@ -547,7 +547,7 @@ W przypadku anulowania aprowizacji zasobu utracisz dostęp do konfiguracji tego 
 Zanim zaczniesz, najlepszym rozwiązaniem jest obserwowanie nowego wdrożenia Azure File Sync w środowisku produkcyjnym przez pewien czas. Dzięki temu można rozwiązać wszelkie problemy, które mogą wystąpić. Po zapoznaniu się z wdrożeniem Azure File Sync przez co najmniej kilka dni możesz rozpocząć cofanie aprowizacji zasobów w następującej kolejności:
 
 1. Cofaj obsługę administracyjną zasobu StorSimple Data Manager za pośrednictwem Azure Portal. Wszystkie zadania DTS zostaną usunięte razem z nim. Nie będziesz w stanie łatwo pobrać dzienników kopiowania. Jeśli są ważne dla rekordów, pobierz je przed cofnięciem aprowizacji.
-1. Upewnij się, że urządzenia fizyczne StorSimple zostały zmigrowane, a następnie Wyrejestruj je. Jeśli nie masz pewności, że zostały zmigrowane, nie należy przechodzić. W przypadku anulowania aprowizacji tych zasobów, gdy są nadal niezbędne, nie będzie można odzyskać danych ani ich konfiguracji.
+1. Upewnij się, że urządzenia fizyczne StorSimple zostały zmigrowane, a następnie Wyrejestruj je. Jeśli nie masz pewności, że zostały zmigrowane, nie należy przechodzić. W przypadku anulowania aprowizacji tych zasobów, gdy są nadal niezbędne, nie będzie można odzyskać danych ani ich konfiguracji.<br>Opcjonalnie można najpierw cofnąć aprowizacji zasobu woluminu StorSimple, co spowoduje wyczyszczenie danych z urządzenia. Może to potrwać kilka dni i **nie będzie** forensically danych na urządzeniu. Jeśli jest to ważne, należy obsługiwać zero dysków niezależnie od anulowania aprowizacji zasobów i zgodnie z zasadami.
 1. Jeśli nie ma więcej zarejestrowanych urządzeń w StorSimple Menedżer urządzeń, możesz wykonać operację usuwania Menedżer urządzeń samego zasobu.
 1. Teraz można usunąć konto magazynu StorSimple na platformie Azure. Ponownie, Zatrzymaj i Potwierdź, że migracja została ukończona i że nic nie zależą od tych danych przed kontynuowaniem.
 1. Odłącz urządzenie fizyczne StorSimple od centrum danych.

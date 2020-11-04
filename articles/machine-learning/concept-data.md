@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446693"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322235"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning ułatwia łączenie się z danymi w chmurze.  Zapewnia wa
     
 ## <a name="data-workflow"></a>Przepływ danych
 
-Gdy wszystko będzie gotowe do użycia danych w rozwiązaniu do magazynowania w chmurze, zalecamy wykonanie następującego przepływu pracy dostarczania danych. W tym przepływie pracy założono, że masz [konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) i dane w usłudze magazynu w chmurze na platformie Azure. 
+Gdy wszystko będzie gotowe do użycia danych w rozwiązaniu do magazynowania w chmurze, zalecamy wykonanie następującego przepływu pracy dostarczania danych. W tym przepływie pracy założono, że masz [konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal) i dane w usłudze magazynu w chmurze na platformie Azure. 
 
 1. Utwórz [Magazyn danych Azure Machine Learning](#datastores) , aby przechowywać informacje o połączeniu z usługą Azure Storage.
 
@@ -81,9 +81,9 @@ Zestawy danych mogą być tworzone na podstawie plików lokalnych, publicznych a
 
 Istnieją dwa typy zestawów danych: 
 
-+ [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) odwołuje się do jednego lub wielu plików w magazynach danych lub publicznych adresach URL. Jeśli dane zostały już oczyszczone i gotowe do użycia w eksperymentach szkoleniowych, możesz [pobrać lub zainstalować pliki](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) , do których odwołuje się FileDatasets, do obiektu docelowego obliczeń.
++ [FileDataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) odwołuje się do jednego lub wielu plików w magazynach danych lub publicznych adresach URL. Jeśli dane zostały już oczyszczone i gotowe do użycia w eksperymentach szkoleniowych, możesz [pobrać lub zainstalować pliki](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) , do których odwołuje się FileDatasets, do obiektu docelowego obliczeń.
 
-+ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) reprezentuje dane w formacie tabelarycznym przez analizowanie dostarczonego pliku lub listy plików. Aby ułatwić manipulowanie i czyszczenie, można załadować TabularDataset do Pandas lub Spark Dataframe. Aby uzyskać pełną listę formatów danych, z których można utworzyć TabularDatasets, zobacz [Klasa TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
++ [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) reprezentuje dane w formacie tabelarycznym przez analizowanie dostarczonego pliku lub listy plików. Aby ułatwić manipulowanie i czyszczenie, można załadować TabularDataset do Pandas lub Spark Dataframe. Aby uzyskać pełną listę formatów danych, z których można utworzyć TabularDatasets, zobacz [Klasa TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Dodatkowe możliwości zestawów danych można znaleźć w następującej dokumentacji:
 
@@ -100,7 +100,7 @@ Zestawy danych umożliwiają wykonywanie wielu zadań uczenia maszynowego poprze
      + [Projektant](tutorial-designer-automobile-price-train-score.md#import-data)
      + [żadnym](how-to-train-with-datasets.md)
      + [Potoki Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ Uzyskaj dostęp do zestawów danych do oceniania za pomocą [wnioskowania wsadowego](how-to-use-parallel-run-step.md) w [potokach uczenia maszynowego](how-to-create-your-first-pipeline.md).
++ Uzyskaj dostęp do zestawów danych do oceniania za pomocą [wnioskowania wsadowego](./tutorial-pipeline-batch-scoring-classification.md) w [potokach uczenia maszynowego](how-to-create-your-first-pipeline.md).
 + Skonfiguruj monitor zestawu danych na potrzeby wykrywania [dryfowania danych](#drift) .
 
 <a name="label"></a>

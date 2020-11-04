@@ -10,16 +10,16 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python, contperfq2
-ms.openlocfilehash: ce32871620cc0a471e56a5b65191834d7c23b88d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 80bc5034e6e192c1b493a65e61b94ae1b785a430
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735705"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325602"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego
 
-W tym artykule dowiesz się, jak debugować i rozwiązywać problemy z [potokami uczenia maszynowego](concept-ml-pipelines.md) w [zestawach SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) i [Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+W tym artykule dowiesz się, jak debugować i rozwiązywać problemy z [potokami uczenia maszynowego](concept-ml-pipelines.md) w [zestawach SDK Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) i [Azure Machine Learning Designer](./concept-designer.md). 
 
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 
@@ -28,7 +28,7 @@ Poniższa tabela zawiera typowe problemy podczas tworzenia potoku z potencjalnym
 | Problem | Możliwe rozwiązanie |
 |--|--|
 | Nie można przekazać danych do `PipelineData` katalogu | Upewnij się, że utworzono katalog w skrypcie, który odnosi się do miejsca, w którym potok oczekuje danych wyjściowych kroku. W większości przypadków argument wejściowy określi katalog wyjściowy, a następnie utworzysz katalog jawnie. Użyj polecenia `os.makedirs(args.output_dir, exist_ok=True)` , aby utworzyć katalog wyjściowy. Zapoznaj się z [samouczkiem](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) przykładowego skryptu oceniania, który pokazuje ten Wzorzec projektowy. |
-| Błędy zależności | Jeśli w potoku zdalnym widoczne są błędy zależności, które nie były wykonywane podczas lokalnego testowania, potwierdź zależności środowiska zdalnego i wersje zgodne z wymaganiami w środowisku testowym. (Zobacz [Tworzenie środowiska, buforowanie i ponowne używanie](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
+| Błędy zależności | Jeśli w potoku zdalnym widoczne są błędy zależności, które nie były wykonywane podczas lokalnego testowania, potwierdź zależności środowiska zdalnego i wersje zgodne z wymaganiami w środowisku testowym. (Zobacz [Tworzenie środowiska, buforowanie i ponowne używanie](./concept-environments.md#environment-building-caching-and-reuse)|
 | Niejednoznaczne błędy z obiektami docelowymi obliczeń | Spróbuj usunąć i ponownie utworzyć cele obliczeniowe. Ponowne tworzenie obiektów docelowych obliczeń jest szybkie i może rozwiązać pewne problemy przejściowe. |
 | Potok nie wykorzystał się z kroków | Ponowne użycie kroku jest włączone domyślnie, ale upewnij się, że nie zostało wyłączone w kroku potoku. Jeśli ponowne użycie jest wyłączone, `allow_reuse` parametr w kroku zostanie ustawiony na `False` . |
 | Potok jest niepotrzebny. | Aby zapewnić, że kroki mają zostać uruchomione ponownie tylko wtedy, gdy ich dane podstawowe lub skrypty zmienią się, należy rozdzielić katalogi kodu źródłowego dla każdego kroku. Jeśli używasz tego samego katalogu źródłowego dla wielu kroków, może wystąpić niepotrzebne wykonanie ponownie. Użyj `source_directory` parametru w obiekcie krok potoku, aby wskazać odizolowany katalog dla tego kroku, i upewnij się, że nie używasz tej samej `source_directory` ścieżki dla wielu kroków. |
@@ -176,11 +176,11 @@ Testowanie skryptów lokalnie to doskonały sposób na Debugowanie głównych fr
 
 Poniższa tabela zawiera informacje dotyczące różnych opcji debugowania potoków. Nie jest to pełna lista, ponieważ istnieją inne opcje oprócz Azure Machine Learning, Python i OpenCensus.
 
-| Biblioteka                    | Typ   | Przykład                                                          | Element docelowy                                  | Zasoby                                                                                                                                                                                                                                                                                                                    |
+| Biblioteka                    | Typ   | Przykład                                                          | Miejsce docelowe                                  | Zasoby                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | Metryka | `run.log(name, val)`                                             | Interfejs użytkownika portalu Azure Machine Learning             | [Jak śledzić eksperymenty](how-to-track-experiments.md)<br>[Azure. Core. Run — Klasa](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)                                                                                                                                                 |
+| Azure Machine Learning SDK | Metryka | `run.log(name, val)`                                             | Interfejs użytkownika portalu Azure Machine Learning             | [Jak śledzić eksperymenty](how-to-track-experiments.md)<br>[Azure. Core. Run — Klasa](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
 | Drukowanie w języku Python/rejestrowanie    | Dziennik    | `print(val)`<br>`logging.info(message)`                          | Dzienniki sterowników, Azure Machine Learning Designer | [Jak śledzić eksperymenty](how-to-track-experiments.md)<br><br>[Rejestrowanie w języku Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| Zestaw OpenCensus Python          | Dziennik    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights — ślady                | [Debugowanie potoków w usłudze Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[Eksporterzy biblioteki OpenCensus usługi Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Rejestrowanie w języku Python Cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
+| Zestaw OpenCensus Python          | Dziennik    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights — ślady                | [Debugowanie potoków w usłudze Application Insights](./how-to-log-pipelines-application-insights.md)<br><br>[Eksporterzy biblioteki OpenCensus usługi Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Rejestrowanie w języku Python Cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Przykład opcji rejestrowania
 
@@ -220,7 +220,7 @@ W przypadku potoków utworzonych w projektancie można znaleźć plik **70_drive
 
 ### <a name="enable-logging-for-real-time-endpoints"></a>Włączanie rejestrowania dla punktów końcowych w czasie rzeczywistym
 
-W celu rozwiązywania problemów i debugowania punktów końcowych w czasie rzeczywistym w projektancie należy włączyć rejestrowanie w usłudze Application Insights przy użyciu zestawu SDK. Rejestrowanie umożliwia rozwiązywanie problemów i debugowanie modeli oraz problemów z użyciem. Aby uzyskać więcej informacji, zobacz [Rejestrowanie wdrożonych modeli](how-to-enable-logging.md#logging-for-deployed-models). 
+W celu rozwiązywania problemów i debugowania punktów końcowych w czasie rzeczywistym w projektancie należy włączyć rejestrowanie w usłudze Application Insights przy użyciu zestawu SDK. Rejestrowanie umożliwia rozwiązywanie problemów i debugowanie modeli oraz problemów z użyciem. Aby uzyskać więcej informacji, zobacz [Rejestrowanie wdrożonych modeli](./how-to-enable-app-insights.md). 
 
 ### <a name="get-logs-from-the-authoring-page"></a>Pobieranie dzienników ze strony tworzenia
 
@@ -248,7 +248,7 @@ Pliki dziennika dla określonych przebiegów można również znaleźć na stron
 > Aby zaktualizować potok na stronie szczegółów uruchomienia potoku, należy **sklonować** uruchomienie potoku do nowej wersji roboczej potoku. Uruchomienie potoku jest migawką potoku. Jest on podobny do pliku dziennika i nie można go zmienić. 
 
 ## <a name="application-insights"></a>Application Insights
-Aby uzyskać więcej informacji na temat korzystania z biblioteki OpenCensus Python w ten sposób, zobacz ten przewodnik: [debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego w Application Insights](how-to-debug-pipelines-application-insights.md)
+Aby uzyskać więcej informacji na temat korzystania z biblioteki OpenCensus Python w ten sposób, zobacz ten przewodnik: [debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego w Application Insights](./how-to-log-pipelines-application-insights.md)
 
 ## <a name="interactive-debugging-with-visual-studio-code"></a>Interaktywny debugowanie za pomocą Visual Studio Code
 
@@ -260,6 +260,6 @@ W niektórych przypadkach może być konieczne interaktywne Debugowanie kodu w j
 
 * Aby uzyskać kompletny przykład przedstawiający automatyczne Uczenie maszynowe w potokach ML, zobacz [Korzystanie z zautomatyzowanej ml w potoku Azure Machine Learning w języku Python](how-to-use-automlstep-in-pipelines.md).
 
-* Zapoznaj się z dokumentacją zestawu SDK, aby uzyskać pomoc dotyczącą pakietu [Azure-Pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) oraz pakietem [kroków dla potoków usługi Azure](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) .
+* Zapoznaj się z dokumentacją zestawu SDK, aby uzyskać pomoc dotyczącą pakietu [Azure-Pipelines-Core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) oraz pakietem [kroków dla potoków usługi Azure](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) .
 
 * Zapoznaj się z listą [wyjątków projektanta i kodów błędów](algorithm-module-reference/designer-error-codes.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131160"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324217"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Warstwa Premium dla Azure Data Lake Storage
 
@@ -79,7 +79,7 @@ Warstwa Premium dla Azure Data Lake Storage jest dostępna w następujących reg
 |--|--|
 |East US|LRS, ZRS|
 |Wschodnie stany USA 2|LRS, ZRS|
-|Środkowe stany USA|LRS|
+|Central US|LRS|
 |Zachodnie stany USA|LRS|
 |Zachodnie stany USA 2|LRS, ZRS|
 |Zachodnio-środkowe stany USA|LRS|
@@ -87,7 +87,7 @@ Warstwa Premium dla Azure Data Lake Storage jest dostępna w następujących reg
 |Kanada Środkowa|LRS|
 |Kanada Wschodnia|LRS|
 |Europa Północna|LRS, ZRS|
-|West Europe|LRS, ZRS|
+|Europa Zachodnia|LRS, ZRS|
 |Południowe Zjednoczone Królestwo|LRS|
 |Zachodnie Zjednoczone Królestwo|LRS|
 |Francja Środkowa|LRS|
@@ -103,3 +103,12 @@ Warstwa Premium dla Azure Data Lake Storage jest dostępna w następujących reg
 |Australia Wschodnia|LRS, ZRS|
 |Australia Południowo-Wschodnia|LRS|
 |Brazil South|LRS|
+
+## <a name="next-steps"></a>Następne kroki
+
+Skorzystaj z warstwy Premium, aby uzyskać Azure Data Lake Storage z ulubioną usługą analizy, taką jak Azure Databricks, Azure HDInsight i Azure Synapse Analytics. 
+
+- [Samouczek: Azure Data Lake Storage Gen2, Azure Databricks & Spark](data-lake-storage-use-databricks-spark.md) 
+- [Używanie Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) Usługa HDInsight obsługuje obecnie konto używające warstwy wydajności Premium wraz z klastrem HBase, w którym włączono szybsze operacje zapisu.
+- [Szybki Start: Tworzenie obszaru roboczego Synapse](../../synapse-analytics/quickstart-create-workspace.md)
+

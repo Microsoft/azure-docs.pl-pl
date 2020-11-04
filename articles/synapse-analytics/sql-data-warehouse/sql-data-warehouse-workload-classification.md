@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 266eebc8322b5fc648180c0524abc973a4b60373
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b66b8a9fb3b5eb7dc78c00ba084e8609877dec7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212381"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323872"
 ---
 # <a name="azure-synapse-analytics-workload-classification"></a>Klasyfikacja obciążeń usługi Azure Synapse Analytics
 
-W tym artykule opisano proces klasyfikacji obciążenia przypisujący grupę obciążeń i ważność do żądań przychodzących z Synapse pulami SQL na platformie Azure Synapse.
+W tym artykule opisano proces klasyfikacji obciążenia przypisujący grupę obciążeń i znaczenie żądań przychodzących z dedykowanymi pulami SQL w usłudze Azure Synapse.
 
 ## <a name="classification"></a>Klasyfikacja
 
@@ -36,7 +36,7 @@ Nie wszystkie instrukcje są klasyfikowane, ponieważ nie wymagają zasobów lub
 
 ## <a name="classification-process"></a>Proces klasyfikacji
 
-Klasyfikacja dla puli SQL Synapse w usłudze Azure Synapse jest już obecna, przypisując użytkownikom do roli, która ma odpowiednią klasę zasobów przypisaną do niej przy użyciu [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Możliwość scharakteryzowania żądań poza logowaniem do klasy zasobów jest ograniczona tą możliwością. Bardziej zaawansowana Metoda klasyfikacji jest teraz dostępna ze składnią [klasyfikatora tworzenia obciążenia](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Dzięki tej składni użytkownicy puli SQL Synapse mogą przypisywać ważność i ilość zasobów systemowych przypisanych do żądania za pośrednictwem `workload_group` parametru.
+Klasyfikację dedykowanej puli SQL w usłudze Azure Synapse można już dzisiaj, przypisując użytkownikom do roli, która ma odpowiadającą jej klasę zasobów przypisaną do niej przy użyciu [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Możliwość scharakteryzowania żądań poza logowaniem do klasy zasobów jest ograniczona tą możliwością. Bardziej zaawansowana Metoda klasyfikacji jest teraz dostępna ze składnią [klasyfikatora tworzenia obciążenia](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Korzystając z tej składni, użytkownicy dedykowanej puli SQL mogą przypisywać ważność i ilość zasobów systemowych przypisanych do żądania za pośrednictwem `workload_group` parametru.
 
 > [!NOTE]
 > Klasyfikacja jest oceniana na podstawie żądania. Wiele żądań w jednej sesji może być klasyfikowanych inaczej.

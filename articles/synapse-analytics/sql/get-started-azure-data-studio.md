@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3c1b61cb4f799b79ca00fc92ffadc2374a61c03
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132469"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323821"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu Azure Data Studio (wersja zapoznawcza)
 
@@ -22,7 +22,7 @@ ms.locfileid: "92132469"
 >
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
@@ -42,15 +42,15 @@ Połączenie wymaga następujących parametrów:
 * **Baza danych:** Nazwa bazy danych
 
 > [!NOTE]
-> Jeśli chcesz użyć **SQL na żądanie (wersja zapoznawcza)** , adres URL powinien wyglądać następująco:
+> Jeśli chcesz użyć **bezserwerowej puli SQL (wersja zapoznawcza)** , adres URL powinien wyglądać następująco:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> Jeśli chcesz użyć **puli SQL** , adres URL powinien wyglądać następująco:
+> Jeśli chcesz użyć **dedykowanej puli SQL** , adres URL powinien wyglądać następująco:
 >
 > - `<Azure Synapse workspace name>`. sql.azuresynapse.net
 
-Wybierz pozycję **uwierzytelnianie systemu Windows**, **Azure Active Directory**lub **Identyfikator logowania SQL** jako **Typ uwierzytelniania**.
+Wybierz pozycję **uwierzytelnianie systemu Windows** , **Azure Active Directory** lub **Identyfikator logowania SQL** jako **Typ uwierzytelniania**.
 
 Aby użyć **logowania SQL** jako typu uwierzytelniania, Dodaj parametry nazwy użytkownika/hasła:
 
@@ -61,11 +61,11 @@ Aby użyć Azure Active Directory, należy wybrać wymagany typ uwierzytelniania
 
 ![Uwierzytelnianie za pomocą usługi AAD](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-Poniższy zrzut ekranu przedstawia **szczegóły połączenia** dla **uwierzytelniania systemu Windows**:
+Poniższy zrzut ekranu przedstawia **szczegóły połączenia** dla **uwierzytelniania systemu Windows** :
 
 ![Uwierzytelnianie systemu Windows](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-Poniższy zrzut ekranu przedstawia **szczegóły połączenia** przy użyciu **logowania SQL**:
+Poniższy zrzut ekranu przedstawia **szczegóły połączenia** przy użyciu **logowania SQL** :
 
 ![Identyfikator logowania SQL](./media/get-started-azure-data-studio/2-database-details.png)
 
@@ -77,7 +77,7 @@ Po nawiązaniu połączenia możesz wysyłać zapytania do Synapse SQL przy uży
 
 ![Nowe zapytanie](./media/get-started-azure-data-studio/5-new-query.png)
 
-Na przykład można użyć następującej instrukcji języka Transact-SQL do [wysyłania zapytań do plików Parquet](query-parquet-files.md) przy użyciu usługi SQL na żądanie:
+Na przykład można użyć następującej instrukcji języka Transact-SQL do [wykonywania zapytań dotyczących plików Parquet](query-parquet-files.md) przy użyciu puli SQL bezserwerowej:
 
 ```sql
 SELECT COUNT(*)
@@ -92,7 +92,7 @@ Poznaj inne sposoby nawiązywania połączenia z usługą Synapse SQL:
 
 - [SSMS](get-started-ssms.md)
 - [Power BI](get-started-power-bi-professional.md)
-- [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [sqlcmd](get-started-connect-sqlcmd.md)
 
 Aby uzyskać więcej informacji, odwiedź stronę [używanie Azure Data Studio do łączenia i wykonywania zapytań dotyczących danych za pomocą dedykowanej puli SQL w usłudze Azure Synapse Analytics](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-dw). 

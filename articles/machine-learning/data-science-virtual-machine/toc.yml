@@ -61,7 +61,7 @@
 - name: Zasoby
   items:
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-science-vm.html'
+      href: /answers/topics/azure-data-science-vm.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=dsvm'
     - name: Przewodnik dla deweloperów języka R

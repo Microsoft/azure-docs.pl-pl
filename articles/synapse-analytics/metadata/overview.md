@@ -1,6 +1,6 @@
 ---
 title: Model udostępnionej metadanych
-description: Usługa Azure Synapse Analytics umożliwia różnym aparatom obliczeniowym obszarów roboczych udostępnianie baz danych i tabel między jej pulami usługi Spark (wersja zapoznawcza), aparatem SQL na żądanie (wersja zapoznawcza) i pulami SQL.
+description: Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel między jej Apache Spark pulami (wersja zapoznawcza), bezserwerową pulą SQL (wersja zapoznawcza) i dedykowane pule SQL.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87387340"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324664"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Udostępnione metadane usługi Azure Synapse Analytics
 
-Usługa Azure Synapse Analytics umożliwia różnym aparatom obliczeniowym obszarów roboczych udostępnianie baz danych i tabel między jej pulami (wersja zapoznawcza) i aparatem SQL na żądanie (wersja zapoznawcza).
+Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel między jej Apache Spark pulami (wersja zapoznawcza) i bezserwerową pulą SQL (wersja zapoznawcza).
 
 [!INCLUDE [preview](../includes/note-preview.md)]
 
@@ -32,7 +32,7 @@ Model udostępnionej metadanych obsługuje nowoczesny wzorzec magazynu danych w 
 
 2. Utworzone bazy danych platformy Spark i wszystkie ich tabele stają się widoczne w dowolnym wystąpieniu puli Spark usługi Azure Synapse Workspace i mogą być używane z dowolnego zadania platformy Spark. Ta możliwość podlega [uprawnieniom](#security-model-at-a-glance) , ponieważ wszystkie pule platformy Spark w obszarze roboczym współdzielą ten sam magazyn metadanych katalogu.
 
-3. Bazy danych utworzone przez platformę Spark i tabele z Parquetymi kopiami zapasowymi stają się widoczne w aparacie roboczym SQL na żądanie. [Bazy danych](database.md) są tworzone automatycznie w metadanych na żądanie SQL, a [tabela zewnętrzna i zarządzana](table.md) utworzona przez zadanie platformy Spark są udostępniane jako tabele zewnętrzne w metadanych na żądanie SQL w `dbo` schemacie odpowiedniej bazy danych. 
+3. Bazy danych utworzone przez platformę Spark i tabele z Parquetymi kopiami zapasowymi stają się widoczne w puli SQL bezserwerowej. [Bazy danych](database.md) są tworzone automatycznie w metadanych puli SQL bezserwerowej, a zarówno [tabela zewnętrzna, jak i zarządzana](table.md) utworzona przez zadanie Spark są udostępniane jako tabele zewnętrzne w metadanych puli SQL bezserwerowej w `dbo` schemacie odpowiedniej bazy danych. 
 
 <!--[INSERT PICTURE]-->
 
@@ -52,7 +52,7 @@ Aby uzyskać więcej informacji, zobacz [udostępniona baza danych usługi Azure
 
 ## <a name="change-maintenance"></a>Zmień konserwację
 
-Jeśli obiekt metadanych zostanie usunięty lub zmieniony przy użyciu platformy Spark, zmiany zostaną pobrane i rozpropagowane do aparatu SQL na żądanie. Synchronizacja jest asynchroniczna, a zmiany są odzwierciedlane w aparacie SQL po krótkim opóźnieniu.
+Jeśli obiekt metadanych został usunięty lub zmieniony z platformą Spark, zmiany są pobierane i propagowane do puli SQL bez serwera. Synchronizacja jest asynchroniczna, a zmiany są odzwierciedlane w aparacie SQL po krótkim opóźnieniu.
 
 ## <a name="next-steps"></a>Następne kroki
 

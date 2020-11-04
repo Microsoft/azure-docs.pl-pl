@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883084"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325449"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Uruchamianie prognoz wsadowych za pomocą narzędzia Azure Machine Learning Designer
 
@@ -29,7 +29,7 @@ W tym instruktażu pouczysz się wykonywać następujące zadania:
 > * Korzystanie z punktu końcowego potoku
 > * Zarządzanie wersjami punktów końcowych
 
-Aby dowiedzieć się, jak skonfigurować usługi wsadowe oceniania przy użyciu zestawu SDK, zobacz towarzyszące [instrukcje](how-to-run-batch-predictions.md).
+Aby dowiedzieć się, jak skonfigurować usługi wsadowe oceniania przy użyciu zestawu SDK, zobacz towarzyszące [instrukcje](./tutorial-pipeline-batch-scoring-classification.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -51,7 +51,7 @@ Potok szkoleniowy musi być uruchamiany co najmniej raz, aby można było utworz
 
 Teraz, gdy potok szkoleniowy został uruchomiony, można utworzyć potok wnioskowania o partie.
 
-1. Obok pozycji **Prześlij**wybierz nową listę rozwijaną **Utwórz potok wnioskowania**.
+1. Obok pozycji **Prześlij** wybierz nową listę rozwijaną **Utwórz potok wnioskowania**.
 
 1. Wybierz **potok wnioskowania partii**.
 
@@ -80,7 +80,7 @@ Teraz wszystko jest gotowe do wdrożenia potoku wnioskowania. Spowoduje to wdro�
 
 1. Wybierz przycisk **Publikuj**.
 
-1. W wyświetlonym oknie dialogowym Rozwiń listę rozwijaną dla **PipelineEndpoint**i wybierz pozycję **Nowy PipelineEndpoint**.
+1. W wyświetlonym oknie dialogowym Rozwiń listę rozwijaną dla **PipelineEndpoint** i wybierz pozycję **Nowy PipelineEndpoint**.
 
 1. Podaj nazwę punktu końcowego i opcjonalny opis.
 

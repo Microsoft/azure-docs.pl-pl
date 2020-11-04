@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: afc851be08e6708efc0138dc45931cda147c67c1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 7bee7bede0219f41d9d5e56214a6dc1b94977cb5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895889"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322735"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Samouczek: uruchamianie "Hello World!" Skrypt języka Python (część 2 z 4)
 
@@ -24,7 +24,7 @@ W ramach tego samouczka nauczysz się używać zestawu SDK Azure Machine Learnin
 
 Ten samouczek jest *częścią 2 serii samouczków* , w której przedstawiono podstawowe informacje na temat Azure Machine Learning i zakończenia zadań uczenia maszynowego opartych na zadaniach na platformie Azure. W tym samouczku przedstawiono pracę wykonaną w [części 1: Skonfiguruj maszynę lokalną do Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md).
 
-Ten samouczek obejmuje następujące kroki:
+W tym samouczku wykonasz następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz i uruchom "Hello World!" Skrypt języka Python lokalnie.
@@ -99,7 +99,7 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [Obszar roboczy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) nawiązuje połączenie z obszarem roboczym Azure Machine Learning, dzięki czemu można komunikować się z zasobami Azure Machine Learning.
+      [Obszar roboczy](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) nawiązuje połączenie z obszarem roboczym Azure Machine Learning, dzięki czemu można komunikować się z zasobami Azure Machine Learning.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -107,7 +107,7 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [Eksperyment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) zapewnia prosty sposób organizowania wielu przebiegów w ramach jednej nazwy. Później można zobaczyć, jak eksperymenty ułatwiają porównywanie metryk między dziesiątami z przebiegów.
+      [Eksperyment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) zapewnia prosty sposób organizowania wielu przebiegów w ramach jednej nazwy. Później można zobaczyć, jak eksperymenty ułatwiają porównywanie metryk między dziesiątami z przebiegów.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -115,7 +115,7 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) otacza `hello.py` kod i przekazuje go do obszaru roboczego. Jak sugeruje nazwa, można użyć tej klasy, aby _skonfigurować_ sposób _uruchamiania_ _skryptu_ w Azure Machine Learning. Określa również miejsce docelowe obliczeń, w których będzie wykonywany skrypt. W tym kodzie obiektem docelowym jest klaster obliczeniowy utworzony w [samouczku Instalatora](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) otacza `hello.py` kod i przekazuje go do obszaru roboczego. Jak sugeruje nazwa, można użyć tej klasy, aby _skonfigurować_ sposób _uruchamiania_ _skryptu_ w Azure Machine Learning. Określa również miejsce docelowe obliczeń, w których będzie wykonywany skrypt. W tym kodzie obiektem docelowym jest klaster obliczeniowy utworzony w [samouczku Instalatora](tutorial-1st-experiment-sdk-setup-local.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -123,7 +123,7 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Przesyła skrypt. To przesyłanie jest nazywane [przebiegiem](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true). Przebieg hermetyzuje pojedyncze wykonanie kodu. Użyj przebiegu, aby monitorować postęp skryptu, przechwycić dane wyjściowe, analizować wyniki, wizualizować metryki i nie tylko.
+       Przesyła skrypt. To przesyłanie jest nazywane [przebiegiem](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py). Przebieg hermetyzuje pojedyncze wykonanie kodu. Użyj przebiegu, aby monitorować postęp skryptu, przechwycić dane wyjściowe, analizować wyniki, wizualizować metryki i nie tylko.
    :::column-end:::
 :::row-end:::
 :::row:::

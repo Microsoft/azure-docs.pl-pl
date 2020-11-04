@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z pętli T-SQL
-description: Porady dotyczące korzystania z pętli T-SQL, zastępowania kursorów i opracowywania powiązanych rozwiązań z pulą SQL w Synapse SQL.
+description: Porady dotyczące korzystania z pętli T-SQL, zastępowania kursorów i opracowywania powiązanych rozwiązań za pomocą Synapse SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,23 +10,24 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33e1ebc2269ef1db6bb0646f845b09be1a01c724
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99ee41de7ffd66191ff712a5ffbda65f3233196f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289059"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324443"
 ---
-# <a name="use-t-sql-loops-in-synapse-sql"></a>Używanie pętli T-SQL w programie SQL Synapse
-Ten artykuł zawiera istotne porady dotyczące korzystania z pętli T-SQL, zastępowania kursorów i tworzenia powiązanych rozwiązań z pulą SQL w Synapse SQL.
+# <a name="use-t-sql-loops-with-synapse-sql-in-azure-synapse-analytics"></a>Używanie pętli T-SQL w programie Synapse SQL w usłudze Azure Synapse Analytics
+
+Ten artykuł zawiera istotne porady dotyczące korzystania z pętli T-SQL, zastępowania kursorów i tworzenia powiązanych rozwiązań za pomocą Synapse SQL.
 
 ## <a name="purpose-of-while-loops"></a>Przeznaczenie pętli WHILE
 
 Synapse SQL obsługuje pętlę [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15&preserve-view=true) do wielokrotnego wykonywania bloków instrukcji. Ta Pętla WHILE działa tak długo, jak określone warunki są prawdziwe lub do momentu, aż kod zakończy pętlę przy użyciu słowa kluczowego BREAK. 
 
-Pętle w puli SQL są przydatne do zastępowania kursorów zdefiniowanych w kodzie SQL. Na szczęście prawie wszystkie kursory, które są zapisywane w kodzie SQL, są do przodu, tylko do odczytu. Tak więc, podczas gdy pętle są świetną alternatywą dla zastępowania kursorów.
+Pętle w Synapse SQL są przydatne do zastępowania kursorów zdefiniowanych w kodzie SQL. Na szczęście prawie wszystkie kursory, które są zapisywane w kodzie SQL, są do przodu, tylko do odczytu. Tak więc, podczas gdy pętle są świetną alternatywą dla zastępowania kursorów.
 
-## <a name="replace-cursors-in-sql-pool"></a>Zastąp kursory w puli SQL
+## <a name="replace-cursors-in-synapse-sql"></a>Zastąp kursory w Synapse SQL
 
 Przed napisaniem w programie należy wziąć pod uwagę następujące kwestie: "czy można ponownie napisać ten kursor, aby użyć operacji ustawionych?". W wielu przypadkach odpowiedź ma wartość yes i jest często najlepszym rozwiązaniem. Operacja oparta na zestawie często wykonuje się szybciej niż iteracyjne, sekwencyjne wiersz po wierszu.
 

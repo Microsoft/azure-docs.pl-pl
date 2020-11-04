@@ -1,7 +1,7 @@
 ---
 title: Bez wdrożenia kodu (wersja zapoznawcza)
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak wdrożyć model bez skryptu wejścia.
+description: Wdrożenie kodu nie pozwala na wdrożenie modelu jako usługi sieci Web bez konieczności ręcznego tworzenia skryptu wejścia.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 32b2afe036b443846199b5e9d74e690859fb581d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: a17126695aa5138d1df7fd17cfaa2f5f75ad1004
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998852"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324916"
 ---
 # <a name="preview-no-code-model-deployment"></a>Przeglądania Wdrożenie modelu bez kodu
 
@@ -63,7 +63,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Aby wypróbować model, zobacz temat [Korzystanie z modelu Azure Machine Learning wdrożonego jako usługa sieci Web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Wiele projektów ONNX korzysta z plików protobuf, aby kompaktować dane szkoleniowe i weryfikacyjne, co może utrudnić znać format danych oczekiwany przez usługę. Jako deweloper modelu należy dokumentować dla deweloperów:
+Aby wypróbować model, zobacz temat [Korzystanie z modelu Azure Machine Learning wdrożonego jako usługa sieci Web](./how-to-consume-web-service.md). Wiele projektów ONNX korzysta z plików protobuf, aby kompaktować dane szkoleniowe i weryfikacyjne, co może utrudnić znać format danych oczekiwany przez usługę. Jako deweloper modelu należy dokumentować dla deweloperów:
 
 * Format wejściowy (JSON lub binarny)
 * Kształt danych wejściowych i typ (na przykład tablica zmiennoprzecinkowa kształtu [100100, 3])

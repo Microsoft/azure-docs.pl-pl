@@ -12,6 +12,12 @@
       href: cloud-services-dotnet-get-started.md
     - name: Przykład języka Python dla usługi w chmurze programu Visual Studio
       href: cloud-services-python-ptvs.md
+- name: Pojęcia
+  items:
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
 - name: Instrukcje
   items:
     - name: Planowanie

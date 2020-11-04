@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c02abf095beefdd131a5835d015175d56a63de47
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346266"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322816"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prognozowanie odpowiedzi za pomocą prostego modelu
 
@@ -98,7 +98,7 @@ Aby odpowiedzieć na nasze pytanie, Eyeball 1,35 Carats i Rysuj linię pionową.
 ![Znajdź odpowiedź w modelu](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Utwórz Interwał ufności
-Jest to naturalne, aby zastanawiać się, jak precyzyjne jest to prognozowanie. Warto dowiedzieć się, czy z poziomu rombu 1,35 w karatach jest bardzo blisko $10 000, czy też do większej lub mniejszej ilości. Aby to zrobić, Narysujmy kopertę wokół linii regresji, która zawiera większość kropek. Ta koperta jest nazywana naszym *interwałem ufności*: mamy pewność, że ceny mieszczą się w tej kopercie, ponieważ w przeszłości większość z nich ma. Możemy rysować dwa więcej linii poziomych, od których linia 1,35 w karatach przecina górną i dolną część tej koperty.
+Jest to naturalne, aby zastanawiać się, jak precyzyjne jest to prognozowanie. Warto dowiedzieć się, czy z poziomu rombu 1,35 w karatach jest bardzo blisko $10 000, czy też do większej lub mniejszej ilości. Aby to zrobić, Narysujmy kopertę wokół linii regresji, która zawiera większość kropek. Ta koperta jest nazywana naszym *interwałem ufności* : mamy pewność, że ceny mieszczą się w tej kopercie, ponieważ w przeszłości większość z nich ma. Możemy rysować dwa więcej linii poziomych, od których linia 1,35 w karatach przecina górną i dolną część tej koperty.
 
 ![Interwał ufności](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
@@ -109,7 +109,7 @@ Przeprowadzimy Cię przez analityków danych i udałomy się to zrobić po prost
 
 * Prosimy o pytanie, że możemy odpowiedzieć na dane
 * Utworzyliśmy *model* przy użyciu *regresji liniowej*
-* Wprowadziliśmy *prognozę*z *interwałem pewności*
+* Wprowadziliśmy *prognozę* z *interwałem pewności*
 
 Nie używamy jednak obliczeń matematycznych ani komputerów.
 
@@ -129,4 +129,4 @@ Upewnij się, że zapoznaj się z innymi filmami wideo w obszarze "Analiza danyc
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wypróbuj pierwszy eksperyment nauki o danych z Machine Learning Studio (klasyczny)](create-experiment.md)
-* [Zapoznaj się z wprowadzeniem do Machine Learning na Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Zapoznaj się z wprowadzeniem do Machine Learning na Microsoft Azure](../overview-what-is-azure-ml.md)

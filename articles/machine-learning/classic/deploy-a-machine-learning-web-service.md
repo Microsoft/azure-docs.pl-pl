@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345055"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322833"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Wdrażanie usługi sieci Web Azure Machine Learning Studio (klasycznej)
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Azure Machine Learning Studio (klasyczny) umożliwia tworzenie i testowanie rozwiązań analitycznych predykcyjnych. Następnie możesz wdrożyć rozwiązanie jako usługę sieci Web.
@@ -89,11 +89,11 @@ Podczas konwertowania tego eksperymentu szkoleniowego na eksperyment predykcyjny
   
     Na przykład, w tym przykładzie przykładowy zestaw danych może mieć brakujące wartości, więc dołączono do nich [nieoczyszczony moduł danych][clean-missing-data] . Ponadto przykładowy zestaw danych zawiera kolumny, które nie są konieczne do uczenia modelu. W związku z tym dodano [kolumny SELECT w module DataSet][select-columns] , aby wykluczyć te dodatkowe kolumny z przepływu danych. Jeśli wiesz, że dane, które zostaną przesłane na potrzeby oceniania za pomocą usługi sieci Web, nie mają brakujących wartości, możesz usunąć [nieczysty moduł danych][clean-missing-data] . Jednak ponieważ moduł [Wybierz kolumny w zestawie danych][select-columns] ułatwia definiowanie kolumn danych oczekiwanych przez szkolony model, ten moduł musi pozostać.
 
-* **Uczenie** — te moduły są używane do uczenia modelu. Po kliknięciu przycisku **Konfiguruj usługę sieci Web**te moduły są zastępowane jednym modułem zawierającym przeszkolony model. Ten nowy moduł jest zapisywany w sekcji **przeszkolonych modeli** w palecie modułów.
+* **Uczenie** — te moduły są używane do uczenia modelu. Po kliknięciu przycisku **Konfiguruj usługę sieci Web** te moduły są zastępowane jednym modułem zawierającym przeszkolony model. Ten nowy moduł jest zapisywany w sekcji **przeszkolonych modeli** w palecie modułów.
 
 * **Wynik** — w tym przykładzie moduł [Split Data][split] jest używany do dzielenia strumienia danych na dane testowe i dane szkoleniowe. W eksperymentie predykcyjnym nie jesteśmy już szkoleniami, więc można usunąć [dane podzielone][split] . Analogicznie, drugi moduł [modelu][score-model] oceny i moduł [oceny modelu][evaluate-model] są używane do porównywania wyników danych testowych, więc te moduły nie są konieczne w przypadku eksperymentu predykcyjnego. Moduł pozostały [model oceny][score-model] jest jednak wymagany do zwrócenia wyniku oceny przez usługę sieci Web.
 
-Oto jak wygląda przykład po kliknięciu przycisku **Skonfiguruj usługę sieci Web**:
+Oto jak wygląda przykład po kliknięciu przycisku **Skonfiguruj usługę sieci Web** :
 
 ![Przekonwertowany eksperyment predykcyjny](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
@@ -149,7 +149,7 @@ Na stronie wdrażanie eksperymentu wprowadź nazwę usługi sieci Web.
 Wybierz plan cenowy. Jeśli masz istniejący plan cenowy, możesz go wybrać, w przeciwnym razie musisz utworzyć nowy plan cenowy dla usługi.
 
 1. Z listy rozwijanej **Plan cen** wybierz istniejący plan lub wybierz opcję **Wybierz nowy plan** .
-2. W polu **Nazwa planu**wpisz nazwę, która będzie identyfikować plan na rachunku.
+2. W polu **Nazwa planu** wpisz nazwę, która będzie identyfikować plan na rachunku.
 3. Wybierz jedną z **miesięcznych warstw planu**. Plan domyślnie jest dzielony na warstwy planów dla domyślnego regionu, a usługi internetowe są wdrażane dla tego regionu.
 
 Kliknij przycisk **Wdróż** , a strona **szybkiego startu** dla usługi sieci Web zostanie otwarta.
@@ -211,16 +211,16 @@ Cennik jest specyficzny dla regionu, dlatego należy zdefiniować plan rozliczen
 5. Z listy rozwijanej **region** wybierz region dla nowego planu. Opcje planu dla wybranego regionu będą wyświetlane w sekcji **Opcje planu** na stronie.
 6. Z listy rozwijanej **Grupa zasobów** wybierz grupę zasobów dla planu. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Azure Resource Manager przegląd](../../azure-resource-manager/management/overview.md).
 7. W polu **Nazwa planu** wpisz nazwę planu.
-8. W obszarze **Opcje planu**kliknij poziom rozliczenia dla nowego planu.
-9. Kliknij przycisk **Utwórz**.
+8. W obszarze **Opcje planu** kliknij poziom rozliczenia dla nowego planu.
+9. Kliknij pozycję **Utwórz**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Wdrażanie usługi sieci Web w innym regionie
 
 1. Na stronie Microsoft Azure Machine Learning Web Services kliknij opcję menu **usługi sieci Web** .
 2. Wybierz usługę sieci Web wdrażaną w nowym regionie.
 3. Kliknij przycisk **Kopiuj**.
-4. W polu **nazwa usługi sieci Web**wpisz nową nazwę usługi sieci Web.
-5. W polu **Opis usługi sieci Web**wpisz opis usługi sieci Web.
+4. W polu **nazwa usługi sieci Web** wpisz nową nazwę usługi sieci Web.
+5. W polu **Opis usługi sieci Web** wpisz opis usługi sieci Web.
 6. Z listy rozwijanej **subskrypcja** wybierz subskrypcję, w której będzie znajdować się nowa usługa sieci Web.
 7. Z listy rozwijanej **Grupa zasobów** wybierz grupę zasobów dla usługi sieci Web. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Azure Resource Manager przegląd](../../azure-resource-manager/management/overview.md).
 8. Z listy rozwijanej **region** wybierz region, w którym ma zostać wdrożona usługa sieci Web.
@@ -250,7 +250,7 @@ Aby przetestować usługę wykonywania wsadowego, kliknij link Podgląd **testow
 
 Na stronie **Konfiguracja** można zmienić nazwę wyświetlaną usługi i podać opis. Nazwa i opis są wyświetlane w [Azure Portal](https://portal.azure.com/) , w którym można zarządzać usługami sieci Web.
 
-Można podać opis danych wejściowych, danych wyjściowych i parametrów usługi sieci Web, wprowadzając ciąg dla każdej kolumny w obszarze **schemat wejściowy**, **schemat danych wyjściowych**i **parametr usługi sieci Web**. Opisy te są używane w przykładowej dokumentacji kodu podanej dla usługi sieci Web.
+Można podać opis danych wejściowych, danych wyjściowych i parametrów usługi sieci Web, wprowadzając ciąg dla każdej kolumny w obszarze **schemat wejściowy** , **schemat danych wyjściowych** i **parametr usługi sieci Web**. Opisy te są używane w przykładowej dokumentacji kodu podanej dla usługi sieci Web.
 
 Możesz włączyć rejestrowanie, aby zdiagnozować wszystkie błędy widoczne podczas uzyskiwania dostępu do usługi sieci Web. Aby uzyskać więcej informacji, zobacz [Włączanie rejestrowania dla usług sieci web Machine Learning Studio (klasycznych)](web-services-logging.md).
 
@@ -282,7 +282,7 @@ Ponieważ ten eksperyment został wdrożony wcześniej, zostanie wyświetlony mo
 > [!NOTE]
 > Jeśli wprowadzono zmiany w konfiguracji oryginalnej usługi sieci Web, na przykład wprowadzając nową nazwę wyświetlaną lub opis, należy ponownie wprowadzić te wartości.
 
-Jedną z opcji aktualizowania usługi sieci Web jest możliwość programowego ponownego uczenia modelu. Aby uzyskać więcej informacji, zobacz temat ponowne [uczenie modeli Machine Learning Studio (klasycznych)](/azure/machine-learning/studio/retrain-machine-learning-model).
+Jedną z opcji aktualizowania usługi sieci Web jest możliwość programowego ponownego uczenia modelu. Aby uzyskać więcej informacji, zobacz temat ponowne [uczenie modeli Machine Learning Studio (klasycznych)](./retrain-machine-learning-model.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -305,11 +305,11 @@ Jedną z opcji aktualizowania usługi sieci Web jest możliwość programowego p
 
 [webserviceparameters]: web-service-parameters.md
 [deploy]: deploy-a-machine-learning-web-service.md
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[export-data]: /azure/machine-learning/studio-module-reference/export-data

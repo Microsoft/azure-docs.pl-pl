@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: e807cde2d99cf23d459b395444d642e46ada32ab
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3b5f96e60e088f94561bf3398469ec913a71bba6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93071457"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322440"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Szybki Start: Konfigurowanie Data Science Virtual Machine dla systemu Windows
 
@@ -41,13 +41,13 @@ Aby utworzyć wystąpienie DSVM:
       * **Nazwa maszyny wirtualnej** : Wprowadź nazwę maszyny wirtualnej. Jest to sposób ich wyświetlania w Azure Portal.
       * **Lokalizacja** : wybierz najbardziej odpowiednie centrum danych. Aby uzyskać najszybszy dostęp do sieci, znajduje się w centrum danych, które ma najwięcej z nich lub znajduje się najbliżej fizycznej lokalizacji. Dowiedz się więcej o [regionach platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/).
       * **Obraz** : pozostaw wartość domyślną.
-      * **Rozmiar** : powinno to być automatycznie wypełniane rozmiarem odpowiednim dla ogólnych obciążeń. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Windows na platformie Azure](../../virtual-machines/windows/sizes.md).
+      * **Rozmiar** : powinno to być automatycznie wypełniane rozmiarem odpowiednim dla ogólnych obciążeń. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Windows na platformie Azure](../../virtual-machines/sizes.md).
       * **Nazwa użytkownika** : Wprowadź nazwę użytkownika administratora. Jest to nazwa użytkownika, która będzie używana do logowania się do maszyny wirtualnej i nie musi być taka sama jak nazwa użytkownika platformy Azure.
       * **Hasło** : wprowadź hasło, które będzie używane do logowania się do maszyny wirtualnej.    
-1. Wybierz pozycję **Przejrzyj i utwórz** .
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. **Przegląd + tworzenie**
    * Sprawdź, czy wszystkie wprowadzone informacje są poprawne. 
-   * Wybierz pozycję **Utwórz** .
+   * Wybierz przycisk **Utwórz**.
 
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Aby utworzyć wystąpienie DSVM:
 
 ## <a name="access-the-dsvm"></a>Dostęp do DSVM
 
-Po utworzeniu maszyny wirtualnej i zainicjowaniu jej obsługi postępuj zgodnie z instrukcjami wyświetlanymi w celu [nawiązania połączenia z maszyną wirtualną opartą na platformie Azure](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base). Użyj poświadczeń konta administratora, które zostały skonfigurowane w kroku **podstawowe informacje** o tworzeniu maszyny wirtualnej. 
+Po utworzeniu maszyny wirtualnej i zainicjowaniu jej obsługi postępuj zgodnie z instrukcjami wyświetlanymi w celu [nawiązania połączenia z maszyną wirtualną opartą na platformie Azure](../../marketplace/azure-vm-create-using-approved-base.md). Użyj poświadczeń konta administratora, które zostały skonfigurowane w kroku **podstawowe informacje** o tworzeniu maszyny wirtualnej. 
 
 Możesz zacząć korzystać z narzędzi, które są zainstalowane i skonfigurowane na maszynie wirtualnej. Do wielu narzędzi można uzyskać dostęp za pomocą kafelków menu **Start** i ikon pulpitu.
 
@@ -70,4 +70,3 @@ Możesz również dołączyć DSVM do Azure Notebooks uruchamiania notesów Jupy
 * Zapoznaj się z narzędziami w DSVM, otwierając menu **Start** .
 * Dowiedz się więcej na temat Azure Machine Learning, odczytując informacje o tym, [co jest Azure Machine Learning?](../overview-what-is-azure-ml.md) i wypróbować [samouczki](../index.yml).
 * Zapoznaj się z artykułem [nauka danych w systemie Windows Data Science Virtual Machine na platformie Azure](./vm-do-ten-things.md)
-

@@ -2,16 +2,16 @@
 title: Rozwiązywanie problemów dotyczących Azure Automation elementu Runbook
 description: W tym artykule opisano sposób rozwiązywania problemów z elementami Runbook Azure Automation.
 services: automation
-ms.date: 07/28/2020
+ms.date: 11/03/2020
 ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e173e76b80717d6685e9a6b383ee98eddf910f5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904806"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323491"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementami runbook
 
@@ -42,7 +42,7 @@ Po otrzymaniu błędów podczas wykonywania elementu Runbook w Azure Automation 
     * [Odnów certyfikat,](../manage-runas-account.md#cert-renewal) Jeśli konto Uruchom jako wygasło.
     * [Odnów element webhook,](../automation-webhooks.md#renew-a-webhook) Jeśli próbujesz użyć wygasłego elementu webhook, aby uruchomić element Runbook.
     * [Sprawdź stan zadania](../automation-runbook-execution.md#job-statuses) , aby określić bieżące Stany elementu Runbook i niektóre możliwe przyczyny problemu.
-    * [Dodaj dodatkowe dane wyjściowe](../automation-runbook-output-and-messages.md#monitor-message-streams) do elementu Runbook, aby określić, co się dzieje przed wstrzymaniem elementu Runbook.
+    * [Dodaj dodatkowe dane wyjściowe](../automation-runbook-output-and-messages.md#working-with-message-streams) do elementu Runbook, aby określić, co się dzieje przed wstrzymaniem elementu Runbook.
     * [Obsługa wszelkich wyjątków](../automation-runbook-execution.md#exceptions) zgłaszanych przez zadanie.
 
 1. Wykonaj ten krok, jeśli zadanie elementu Runbook lub środowisko w hybrydowym procesie roboczym elementu Runbook nie odpowiada.
@@ -201,7 +201,7 @@ Ten błąd może wystąpić, jeśli:
 Wykonaj następujące kroki, aby określić, czy masz uwierzytelnienie na platformie Azure i czy masz dostęp do subskrypcji, którą próbujesz wybrać:
 
 1. Aby upewnić się, że skrypt działa autonomicznie, przetestuj go poza Azure Automation.
-1. Przed uruchomieniem polecenia cmdlet upewnij się, że skrypt uruchamia polecenie cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) `Select-*` .
+1. Przed uruchomieniem polecenia cmdlet upewnij się, że skrypt uruchamia polecenie cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) `Select-*` .
 1. Dodaj `Disable-AzContextAutosave –Scope Process` do początku elementu Runbook. To polecenie cmdlet zapewnia, że wszystkie poświadczenia mają zastosowanie tylko do wykonywania bieżącego elementu Runbook.
 1. Jeśli nadal widzisz komunikat o błędzie, zmodyfikuj swój kod przez dodanie `AzContext` parametru do `Connect-AzAccount` , a następnie wykonaj kod.
 
@@ -291,7 +291,7 @@ Ten błąd może być spowodowany użyciem nieaktualnych modułów platformy Azu
 
 Możesz rozwiązać ten problem, aktualizując moduły platformy Azure do najnowszej wersji:
 
-1. Na koncie usługi Automation wybierz pozycję **moduły**, a następnie wybierz pozycję **Aktualizuj moduły platformy Azure**.
+1. Na koncie usługi Automation wybierz pozycję **moduły** , a następnie wybierz pozycję **Aktualizuj moduły platformy Azure**.
 1. Aktualizacja trwa około 15 minut. Po zakończeniu uruchom ponownie element Runbook, który się nie powiódł.
 
 Aby dowiedzieć się więcej na temat aktualizowania modułów, zobacz temat [aktualizowanie modułów platformy Azure w Azure Automation](../automation-update-azure-modules.md).
@@ -398,7 +398,7 @@ Jeśli strumień zawiera obiekty, `Start-AzAutomationRunbook` nie obsługuje pra
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Zaimplementuj logikę sondowania i użyj polecenia cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) , aby pobrać dane wyjściowe. Przykład tej logiki został zdefiniowany tutaj:
+Zaimplementuj logikę sondowania i użyj polecenia cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) , aby pobrać dane wyjściowe. Przykład tej logiki został zdefiniowany tutaj:
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -476,14 +476,14 @@ Podczas uruchamiania polecenia cmdlet zostanie wyświetlony następujący komuni
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd może wystąpić podczas pobierania danych wyjściowych zadania z elementu Runbook, który ma wiele [strumieni pełnych](../automation-runbook-output-and-messages.md#monitor-verbose-stream).
+Ten błąd może wystąpić podczas pobierania danych wyjściowych zadania z elementu Runbook, który ma wiele [strumieni pełnych](../automation-runbook-output-and-messages.md#write-output-to-verbose-stream).
 
 ### <a name="resolution"></a>Rozwiązanie
 
 Aby rozwiązać ten problem, wykonaj jedną z następujących czynności:
 
 * Edytuj element Runbook i zmniejsz liczbę strumieni zadań, które emituje.
-* Zmniejsz liczbę strumieni do pobrania podczas uruchamiania polecenia cmdlet. W tym celu można ustawić wartość `Stream` parametru polecenia cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) , aby pobrać tylko strumienie wyjściowe. 
+* Zmniejsz liczbę strumieni do pobrania podczas uruchamiania polecenia cmdlet. W tym celu można ustawić wartość `Stream` parametru polecenia cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) , aby pobrać tylko strumienie wyjściowe. 
 
 ## <a name="scenario-runbook-job-fails-because-allocated-quota-was-exceeded"></a><a name="quota-exceeded"></a>Scenariusz: zadanie elementu Runbook nie powiodło się, ponieważ przekroczono przydzieloną przydział
 
@@ -505,7 +505,7 @@ Jeśli chcesz użyć więcej niż 500 minut przetwarzania miesięcznie, Zmień s
 
 1. Zaloguj się do subskrypcji platformy Azure.
 1. Wybierz konto usługi Automation, które ma zostać uaktualnione.
-1. Wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **Cennik**.
+1. Wybierz pozycję **Ustawienia** , a następnie wybierz pozycję **Cennik**.
 1. Wybierz pozycję **Włącz** na dole strony, aby uaktualnić konto do warstwy Podstawowa.
 
 ## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Scenariusz: strumień wyjściowy elementu Runbook o rozmiarze większym niż 1 MB
@@ -576,7 +576,7 @@ Ten błąd może wskazywać, że elementy Runbook, które działają w piaskowni
 
 Istnieją dwa sposoby rozwiązania tego błędu:
 
-* Zamiast korzystać z [zadania startowego](/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), należy użyć polecenia [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) , aby uruchomić element Runbook.
+* Zamiast korzystać z [zadania startowego](/powershell/module/microsoft.powershell.core/start-job), należy użyć polecenia [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) , aby uruchomić element Runbook.
 * Spróbuj uruchomić element Runbook w hybrydowym procesie roboczym elementu Runbook.
 
 Aby dowiedzieć się więcej na temat tego zachowania i innych zachowań Azure Automation elementów Runbook, zobacz [wykonywanie elementów Runbook w programie Azure Automation](../automation-runbook-execution.md).
@@ -605,8 +605,8 @@ Innym rozwiązaniem jest zoptymalizowanie elementu Runbook przez utworzenie [pod
 
 Polecenia cmdlet programu PowerShell, które umożliwiają korzystanie z podrzędnego scenariusza elementu Runbook, to:
 
-* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). To polecenie cmdlet pozwala uruchomić element runbook i przekazać do niego parametry.
-* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0). Jeśli istnieją operacje, które należy wykonać po zakończeniu podrzędnego elementu Runbook, to polecenie cmdlet umożliwia sprawdzenie stanu zadania dla każdego elementu podrzędnego.
+* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). To polecenie cmdlet pozwala uruchomić element runbook i przekazać do niego parametry.
+* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob). Jeśli istnieją operacje, które należy wykonać po zakończeniu podrzędnego elementu Runbook, to polecenie cmdlet umożliwia sprawdzenie stanu zadania dla każdego elementu podrzędnego.
 
 ## <a name="scenario-error-in-job-streams-about-the-get_serializationsettings-method"></a><a name="get-serializationsettings"></a>Scenariusz: błąd w strumieniach zadań dotyczących metody get_SerializationSettings
 
@@ -642,7 +642,7 @@ Gdy element Runbook lub aplikacja próbuje działać w piaskownicy platformy Azu
 
 ### <a name="cause"></a>Przyczyna
 
-Ten problem może wystąpić, ponieważ Piaskownice platformy Azure uniemożliwiają dostęp do wszystkich pozaprocesowych serwerów COM. Na przykład aplikacja w trybie piaskownicy lub element Runbook nie mogą odwoływać się do Instrumentacja zarządzania Windows (WMI) ani do usługi Instalator Windows (msiserver.exe). 
+Ten problem może wystąpić, ponieważ Piaskownice platformy Azure uniemożliwiają dostęp do wszystkich pozaprocesowych serwerów COM. Na przykład aplikacja w trybie piaskownicy lub element Runbook nie mogą odwoływać się do Instrumentacja zarządzania Windows (WMI) ani do usługi Instalator Windows (msiserver.exe).
 
 ### <a name="resolution"></a>Rozwiązanie
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 71ac7793fe5226215c5d4eab98f84dba356b114c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f13773a8e3e78451dfb587e55c40a20d1b4b385c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275969"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324769"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integracja z usługą git dla Azure Machine Learning
 
@@ -39,7 +39,7 @@ Aby uzyskać więcej informacji na temat klonowania, zobacz Przewodnik dotycząc
 
 ## <a name="authenticate-your-git-account-with-ssh"></a>Uwierzytelnianie konta git przy użyciu protokołu SSH
 ### <a name="generate-a-new-ssh-key"></a>Generuj nowy klucz SSH
-1) [Otwórz okno terminalu](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) na karcie Azure Machine Learning Notes.
+1) [Otwórz okno terminalu](./how-to-run-jupyter-notebooks.md#terminal) na karcie Azure Machine Learning Notes.
 
 2) Wklej tekst poniżej, zastępując swój adres e-mail.
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Zacznij od **kroku 2**.
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Zacznij od **kroku 2**.
 
 + [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Zacznij od **kroku 4**.
 
@@ -115,7 +115,7 @@ Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of know
 
 Protokół SSH może wyświetlać odcisk palca SSH serwera i poprosił o jego zweryfikowanie. Należy sprawdzić, czy wyświetlane odciski palca odpowiadają jednemu z odcisków palców na stronie kluczy publicznych SSH.
 
-SSH wyświetla ten odcisk palca, gdy nawiązuje połączenie z nieznanym hostem w celu ochrony przed [atakami typu man-in-the-Middle](https://technet.microsoft.com/library/cc959354.aspx). Po zaakceptowaniu odcisku palca hosta protokół SSH nie wyświetli monitu ponownie, chyba że odcisk palca zostanie zmieniony.
+SSH wyświetla ten odcisk palca, gdy nawiązuje połączenie z nieznanym hostem w celu ochrony przed [atakami typu man-in-the-Middle](/previous-versions/windows/it-pro/windows-2000-server/cc959354(v=technet.10)). Po zaakceptowaniu odcisku palca hosta protokół SSH nie wyświetli monitu ponownie, chyba że odcisk palca zostanie zmieniony.
 
 3) Po wyświetleniu monitu, jeśli chcesz kontynuować łączenie, wpisz polecenie `yes` . Narzędzie git spowoduje sklonowanie repozytorium i skonfigurowanie źródła pochodzenia do łączenia się z protokołem SSH na potrzeby przyszłych poleceń usługi git.
 
@@ -153,9 +153,9 @@ Informacje dotyczące usługi git są przechowywane we właściwościach przebie
 ### <a name="azure-portal"></a>Azure Portal
 
 1. W [portalu Studio](https://ml.azure.com)wybierz swój obszar roboczy.
-1. Wybierz pozycję __eksperymenty__, a następnie wybierz jedno z eksperymentów.
+1. Wybierz pozycję __eksperymenty__ , a następnie wybierz jedno z eksperymentów.
 1. Wybierz jeden z przebiegów z kolumny __numer uruchomienia__ .
-1. Wybierz pozycję dane __wyjściowe + dzienniki__, a następnie rozwiń pozycję __dzienniki__ i wpisy w usłudze __Azure__ . Wybierz łącze zaczynające się od __ ### \_ platformy Azure__.
+1. Wybierz pozycję dane __wyjściowe + dzienniki__ , a następnie rozwiń pozycję __dzienniki__ i wpisy w usłudze __Azure__ . Wybierz łącze zaczynające się od __### \_ platformy Azure__.
 
 Zarejestrowane informacje zawierają tekst podobny do następującego:
 
@@ -178,7 +178,7 @@ Zarejestrowane informacje zawierają tekst podobny do następującego:
 
 ### <a name="python-sdk"></a>Zestaw SDK dla języka Python
 
-Po przesłaniu przebiegu szkoleniowego zwracany jest obiekt [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) . `properties`Atrybut tego obiektu zawiera zarejestrowane informacje usługi git. Na przykład poniższy kod pobiera skrót zatwierdzenia:
+Po przesłaniu przebiegu szkoleniowego zwracany jest obiekt [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) . `properties`Atrybut tego obiektu zawiera zarejestrowane informacje usługi git. Na przykład poniższy kod pobiera skrót zatwierdzenia:
 
 ```python
 run.properties['azureml.git.commit']
@@ -192,7 +192,7 @@ run.properties['azureml.git.commit']
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Aby uzyskać więcej informacji, zapoznaj się z dokumentacją [AZ ml Run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true) Reference.
+Aby uzyskać więcej informacji, zapoznaj się z dokumentacją [AZ ml Run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest) Reference.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 66216cc21101f133281f9adbda96d395661dcbfe
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280492"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324556"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -329,7 +329,7 @@ W tym celu należy użyć funkcji *ProcessDTRoutedData* platformy Azure, aby zak
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Fragment z pełnego, wyróżnionej graficznie grafiki scenariusza ze strzałką C, elementy po stronie Azure Digital bliźniaczych reprezentacji: Event Grid i druga funkcja platformy Azure":::
 
 Poniżej przedstawiono akcje, które należy wykonać w celu skonfigurowania tego przepływu danych:
-1. Utwórz punkt końcowy usługi Azure Digital bliźniaczych reprezentacji, który łączy wystąpienie z Event Grid
+1. Utwórz punkt końcowy Event Grid w usłudze Azure Digital bliźniaczych reprezentacji, który łączy wystąpienie z Event Grid
 2. Konfigurowanie trasy w ramach usługi Azure Digital bliźniaczych reprezentacji do wysyłania zdarzeń zmiany właściwości przędzy do punktu końcowego
 3. Wdróż aplikację Azure Functions, która nasłuchuje (za pomocą [Event Grid](../event-grid/overview.md)) w punkcie końcowym i odpowiednio aktualizuje inne bliźniaczych reprezentacji
 4. Uruchamianie symulowanego urządzenia i zapytanie usługi Azure Digital bliźniaczych reprezentacji w celu wyświetlenia wyników na żywo
@@ -354,7 +354,7 @@ az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-g
 
 Dane wyjściowe tego polecenia to informacje dotyczące utworzonego tematu usługi Event Grid.
 
-Następnie Utwórz punkt końcowy usługi Azure Digital bliźniaczych reprezentacji wskazujący poświęcony usłudze Event Grid. Użyj poniższego polecenia, wypełniając pola zastępcze w razie potrzeby:
+Następnie Utwórz punkt końcowy Event Grid w usłudze Azure Digital bliźniaczych reprezentacji, która spowoduje połączenie wystąpienia z tematem usługi Event Grid. Użyj poniższego polecenia, wypełniając pola zastępcze w razie potrzeby:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
@@ -372,11 +372,11 @@ Poszukaj `provisioningState` pola w danych wyjściowych i sprawdź, czy wartoś�
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Wynik zapytania punktu końcowego, który pokazuje punkt końcowy z provisioningStateem zakończonym powodzeniem":::
 
-Zapisz nazwy, które zostały nadaną w temacie usługi Event Grid, oraz punkt końcowy bliźniaczych reprezentacji Digital Azure. Będziesz ich używać później.
+Zapisz nazwy, które zostały nadaną w temacie usługi Event Grid, i punkt końcowy Event Grid w usłudze Azure Digital bliźniaczych reprezentacji. Będziesz ich używać później.
 
 ### <a name="set-up-route"></a>Konfigurowanie trasy
 
-Następnie utwórz trasę usługi Azure Digital bliźniaczych reprezentacji, która wysyła zdarzenia do właśnie utworzonego punktu końcowego usługi Azure Digital bliźniaczych reprezentacji.
+Następnie utwórz trasę bliźniaczych reprezentacji cyfrowych platformy Azure, która wysyła zdarzenia do właśnie utworzonego punktu końcowego Event Grid.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

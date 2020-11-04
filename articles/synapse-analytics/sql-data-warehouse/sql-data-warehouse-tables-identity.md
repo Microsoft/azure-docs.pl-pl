@@ -1,6 +1,6 @@
 ---
 title: Używanie tożsamości do tworzenia kluczy zastępczych
-description: Zalecenia i przykłady dotyczące używania właściwości IDENTITY do tworzenia kluczy zastępczych w tabelach w puli SQL Synapse.
+description: Zalecenia i przykłady dotyczące używania właściwości IDENTITY do tworzenia kluczy zastępczych w tabelach w dedykowanej puli SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 96e81b3d7781f1c6f7bf5743a083e9640dd6c831
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876009"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323582"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Używanie tożsamości do tworzenia kluczy zastępczych w puli Synapse SQL
+# <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>Używanie tożsamości do tworzenia kluczy zastępczych przy użyciu dedykowanej puli SQL w usłudze AzureSynapse Analytics
 
-W tym artykule znajdziesz zalecenia i przykłady dotyczące używania właściwości IDENTITY do tworzenia kluczy zastępczych w tabelach w puli SQL Synapse.
+W tym artykule znajdziesz zalecenia i przykłady dotyczące używania właściwości IDENTITY do tworzenia kluczy zastępczych w tabelach w dedykowanej puli SQL.
 
 ## <a name="what-is-a-surrogate-key"></a>Co to jest klucz zastępczy
 
@@ -31,7 +31,7 @@ Klucz zastępczy w tabeli jest kolumną o unikatowym identyfikatorze dla każdeg
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Tworzenie tabeli z kolumną tożsamości
 
-Właściwość IDENTITY została zaprojektowana w celu skalowania w poziomie między wszystkimi dystrybucjami w puli SQL Synapse bez wpływu na wydajność ładowania. W związku z tym implementacja tożsamości jest ukierunkowana na osiągnięcie tych celów.
+Właściwość IDENTITY została zaprojektowana w celu skalowania w poziomie między wszystkimi dystrybucjami w dedykowanej puli SQL bez wpływu na wydajność ładowania. W związku z tym implementacja tożsamości jest ukierunkowana na osiągnięcie tych celów.
 
 Można zdefiniować tabelę jako mającą właściwość IDENTITY podczas pierwszej tworzenia tabeli przy użyciu składni podobnej do następującej:
 
@@ -53,7 +53,7 @@ W tym pozostałej części tej sekcji przedstawiono wszystkie szczegóły wdroż
 
 ### <a name="allocation-of-values"></a>Alokacja wartości
 
-Właściwość IDENTITY nie gwarantuje kolejności, w której wartości zastępcze są przydzielane ze względu na rozproszoną architekturę hurtowni danych. Właściwość IDENTITY została zaprojektowana w celu skalowania w poziomie między wszystkimi dystrybucjami w puli SQL Synapse bez wpływu na wydajność ładowania. 
+Właściwość IDENTITY nie gwarantuje kolejności, w której wartości zastępcze są przydzielane ze względu na rozproszoną architekturę hurtowni danych. Właściwość IDENTITY została zaprojektowana w celu skalowania w poziomie między wszystkimi dystrybucjami w dedykowanej puli SQL bez wpływu na wydajność ładowania. 
 
 Poniższy przykład jest ilustracją:
 
@@ -103,7 +103,7 @@ CREATE TABLE jako SELECT (CTAS) ma takie samo zachowanie SQL Server, które zost
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Jawne wstawianie wartości do kolumny tożsamości
 
-Synapse Pula SQL obsługuje `SET IDENTITY_INSERT <your table> ON|OFF` składnię. Możesz użyć tej składni, aby jawnie wstawić wartości do kolumny tożsamość.
+Dedykowana Pula SQL obsługuje `SET IDENTITY_INSERT <your table> ON|OFF` składnię. Możesz użyć tej składni, aby jawnie wstawić wartości do kolumny tożsamość.
 
 Wiele modeli danych, takich jak użycie wstępnie zdefiniowanych wartości ujemnych dla niektórych wierszy w ich wymiarach. Przykładem jest wiersz-1 lub "nieznany element członkowski".
 
@@ -164,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Obecnie nie jest możliwe użycie `CREATE TABLE AS SELECT` podczas ładowania danych do tabeli z kolumną tożsamości.
 >
 
-Aby uzyskać więcej informacji na temat ładowania danych, zobacz [projektowanie wyodrębniania, ładowania i przekształcania (ELT) dla puli SQL Synapse](design-elt-data-loading.md) i  [ładowanie najlepszych](guidance-for-loading-data.md)rozwiązań.
+Aby uzyskać więcej informacji na temat ładowania danych, zobacz [projektowanie wyodrębniania, ładowania i przekształcania (ELT) dla dedykowanej puli SQL](design-elt-data-loading.md) i  [ładowanie najlepszych](guidance-for-loading-data.md)rozwiązań.
 
 ## <a name="system-views"></a>Widoki systemowe
 
@@ -198,7 +198,7 @@ Nie można użyć właściwości IDENTITY:
 - Gdy kolumna jest również kluczem dystrybucji
 - Gdy tabela jest tabelą zewnętrzną
 
-Następujące powiązane funkcje nie są obsługiwane w puli Synapse SQL:
+Następujące powiązane funkcje nie są obsługiwane w dedykowanej puli SQL:
 
 - [TOŻSAMOŚĆ ()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

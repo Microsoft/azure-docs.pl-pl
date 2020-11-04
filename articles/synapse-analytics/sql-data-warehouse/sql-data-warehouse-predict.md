@@ -11,19 +11,19 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ef56274e0bda3f1a9d494852520a77ecdfc25799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048010"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325384"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Ocena modeli uczenia maszynowego z PRZEWIDYWANIAmi
 
 Synapse SQL zapewnia możliwość oceny modeli uczenia maszynowego przy użyciu znanego języka T-SQL. Dzięki [przewidywaniu](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)w języku T-SQL można przenieść istniejące modele uczenia maszynowego z danymi historycznymi i przedstawić je w ramach bezpiecznych granic magazynu danych. Funkcja przewidywania przyjmuje model [ONNX (Open neuronowych Network Exchange)](https://onnx.ai/) i danych jako dane wejściowe. Ta funkcja eliminuje etap przechodzenia cennych danych poza magazyn danych na potrzeby oceniania. Celem jest umożliwienie specjalistom ds. danych łatwego wdrażania modeli uczenia maszynowego przy użyciu znanego interfejsu T-SQL, a także bezproblemowe współdziałanie z analitykami danych, którzy pracują z właściwą strukturą dla swoich zadań.
 
 > [!NOTE]
-> Ta funkcja nie jest obecnie obsługiwana w programie SQL na żądanie.
+> Ta funkcja nie jest obecnie obsługiwana w puli SQL bezserwerowej.
 
 Funkcja wymaga, aby model był szkolony poza programem SQL Synapse. Po skompilowaniu modelu załaduj go do magazynu danych i zapoznaj się z składnią przewidywania T-SQL, aby uzyskać wgląd w dane.
 

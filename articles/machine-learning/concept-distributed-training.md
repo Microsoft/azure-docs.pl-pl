@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 62edee6a882191551ce2409646ea8b617576c059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c479a64b2100cfc1a6fdf17f5e6f5636d3a689d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651157"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322226"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Uczenie rozproszone z Azure Machine Learning
 
@@ -24,9 +24,9 @@ W przypadku szkoleń rozproszonych obciążenie związane z modelem są dzielone
 
 ## <a name="deep-learning-and-distributed-training"></a>Uczenie głębokie i szkolenia rozproszone 
 
-Istnieją dwa główne typy szkoleń rozproszonych: [równoległości danych](#data-parallelism) i [równoległości modeli](#model-parallelism). W przypadku szkoleń rozproszonych dotyczących modeli uczenia głębokiego [zestaw SDK Azure Machine Learning w języku Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) obsługuje integracje z popularnymi strukturami, PyTorch i TensorFlow. Obie platformy wykorzystują równoległość danych do szkolenia rozproszonego i mogą wykorzystać [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) do optymalizacji szybkości obliczeniowej. 
+Istnieją dwa główne typy szkoleń rozproszonych: [równoległości danych](#data-parallelism) i [równoległości modeli](#model-parallelism). W przypadku szkoleń rozproszonych dotyczących modeli uczenia głębokiego [zestaw SDK Azure Machine Learning w języku Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) obsługuje integracje z popularnymi strukturami, PyTorch i TensorFlow. Obie platformy wykorzystują równoległość danych do szkolenia rozproszonego i mogą wykorzystać [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) do optymalizacji szybkości obliczeniowej. 
 
-* [Uczenie rozproszone z PyTorch](how-to-train-pytorch.md#distributed-training)
+* [Trenowanie rozproszone przy użyciu platformy PyTorch](how-to-train-pytorch.md#distributed-training)
 
 * [Uczenie rozproszone z TensorFlow](how-to-train-tensorflow.md#distributed-training)
 
@@ -51,6 +51,6 @@ W modelu równoległości węzły procesu roboczego muszą synchronizować param
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak [używać obiektów docelowych obliczeń do uczenia modeli](how-to-set-up-training-targets.md) przy użyciu zestawu SDK języka Python.
-* Aby zapoznać się z przykładem technicznym, zobacz [scenariusz architektury referencyjnej](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning).
+* Aby zapoznać się z przykładem technicznym, zobacz [scenariusz architektury referencyjnej](/azure/architecture/reference-architectures/ai/training-deep-learning).
 * [Uczenie modeli ml z TensorFlow](how-to-train-tensorflow.md).
-* [Uczenie modeli ml z PyTorch](how-to-train-pytorch.md). 
+* [Uczenie modeli ml z PyTorch](how-to-train-pytorch.md).

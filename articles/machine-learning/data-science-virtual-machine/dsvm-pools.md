@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789c6c36def21bfe1c2acc8797c1847455a5c86c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708972"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324397"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Tworzenie udostępnionej puli Virtual Machines nauki o danych
 
@@ -27,7 +27,7 @@ Za pomocą wielu metod i technologii można utworzyć pulę DSVMs. Ten artykuł 
 
 Pula interaktywnych maszyn wirtualnych, które są współużytkowane przez cały zespół ds. analizy danych, umożliwia użytkownikom logowanie się do dostępnego wystąpienia DSVM zamiast tworzenia dedykowanego wystąpienia dla każdego zestawu użytkowników. Ta konfiguracja zapewnia lepszą dostępność i bardziej efektywne wykorzystanie zasobów.
 
-Za pomocą technologii [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) można utworzyć interaktywną pulę maszyn wirtualnych. Za pomocą zestawów skalowania można tworzyć i zarządzać grupami maszyn wirtualnych o identycznej obciążeniu i skalowaniu.
+Za pomocą technologii [Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) można utworzyć interaktywną pulę maszyn wirtualnych. Za pomocą zestawów skalowania można tworzyć i zarządzać grupami maszyn wirtualnych o identycznej obciążeniu i skalowaniu.
 
 Użytkownik loguje się do adresu IP lub DNS puli głównej. Zestaw skalowania automatycznie kieruje sesję do dostępnego DSVM w zestawie skalowania. Ponieważ użytkownicy chcą spójne i znane środowisko niezależnie od maszyny wirtualnej, do której się logują, wszystkie wystąpienia maszyny wirtualnej w zestawie skalowania instalują udostępniony dysk sieciowy, taki jak udział Azure Files lub udział systemu plików NFS. Udostępniony obszar roboczy użytkownika jest zwykle przechowywany w udostępnionym magazynie plików, który jest zainstalowany na każdym z wystąpień.
 
@@ -53,7 +53,7 @@ Poprzedni szablon umożliwia port SSH i JupyterHub z zestawu skalowania frontonu
 
 [Skrypt instalujący udział Azure Files](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) jest również dostępny w repozytorium Azure DataScienceVM w witrynie GitHub. Skrypt instaluje udział Azure Files w określonym punkcie instalacji w pliku parametrów. Skrypt tworzy również linki nietrwałe do zainstalowanego dysku w katalogu macierzystym początkowego użytkownika. Katalog notesu specyficzny dla użytkownika w udziale Azure Files jest niezależny do `$HOME/notebooks/remote` katalogu, dzięki czemu użytkownicy mogą uzyskiwać dostęp do swoich notesów Jupyter, uruchamiać je i zapisywać. Tej samej Konwencji można użyć podczas tworzenia dodatkowych użytkowników na maszynie wirtualnej, aby wskazywały obszar roboczy Jupyter każdego użytkownika na udział Azure Files.
 
-Zestawy skalowania maszyn wirtualnych obsługują Skalowanie automatyczne. Możesz ustawić reguły, kiedy należy utworzyć dodatkowe wystąpienia i kiedy skalować wystąpienia w dół. Na przykład można skalować w dół do zero wystąpień, aby zaoszczędzić na kosztach użycia sprzętu w chmurze, gdy maszyny wirtualne nie są używane. Strony dokumentacji zestawów skalowania maszyn wirtualnych zawierają szczegółowe kroki [skalowania](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview)automatycznego.
+Zestawy skalowania maszyn wirtualnych obsługują Skalowanie automatyczne. Możesz ustawić reguły, kiedy należy utworzyć dodatkowe wystąpienia i kiedy skalować wystąpienia w dół. Na przykład można skalować w dół do zero wystąpień, aby zaoszczędzić na kosztach użycia sprzętu w chmurze, gdy maszyny wirtualne nie są używane. Strony dokumentacji zestawów skalowania maszyn wirtualnych zawierają szczegółowe kroki [skalowania](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)automatycznego.
 
 ## <a name="next-steps"></a>Następne kroki
 

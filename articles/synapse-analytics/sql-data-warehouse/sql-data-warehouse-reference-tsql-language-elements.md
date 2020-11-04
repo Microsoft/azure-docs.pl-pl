@@ -1,6 +1,6 @@
 ---
-title: Elementy języka T-SQL
-description: Linki do dokumentacji dla elementów języka T-SQL obsługiwanych w puli SQL Synapse.
+title: Elementy języka T-SQL dla dedykowanej puli SQL
+description: Linki do dokumentacji dla elementów języka T-SQL obsługiwanych w dedykowanej puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bccbe67c1ea4b93a7a1938fbab6b6f3d06cb5da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 966df3be13eda4450608d42890fcfe2240ac61a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289501"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324643"
 ---
-# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Elementy języka T-SQL obsługiwane w puli SQL Synapse
+# <a name="t-sql-language-elements-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Elementy języka T-SQL dla dedykowanej puli SQL w usłudze Azure Synapse Analytics 
 
-Linki do dokumentacji dla elementów języka T-SQL obsługiwanych w puli SQL Synapse.
+Linki do dokumentacji dla elementów języka T-SQL obsługiwanych w dedykowanej puli SQL.
 
 ## <a name="core-elements"></a>Podstawowe elementy
 
@@ -203,7 +203,7 @@ Linki do dokumentacji dla elementów języka T-SQL obsługiwanych w puli SQL Syn
 * [ODSTĘP](/sql/t-sql/functions/space-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SQL_VARIANT_PROPERTY](/sql/t-sql/functions/sql-variant-property-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SQRT](/sql/t-sql/functions/sqrt-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [SQUARE](/sql/t-sql/functions/square-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [KWADRATOWE](/sql/t-sql/functions/square-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STDEV](/sql/t-sql/functions/stdev-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [ODCH](/sql/t-sql/functions/stdevp-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -290,4 +290,4 @@ Linki do dokumentacji dla elementów języka T-SQL obsługiwanych w puli SQL Syn
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [instrukcje języka T-SQL w puli Synapse SQL](sql-data-warehouse-reference-tsql-statements.md)i [widoki systemowe w puli Synapse SQL](../sql/reference-tsql-system-views.md).
+Aby uzyskać więcej informacji, zobacz [instrukcje języka T-SQL w dedykowanej puli SQL](sql-data-warehouse-reference-tsql-statements.md)i [widoki systemowe w dedykowanej puli SQL](../sql/reference-tsql-system-views.md).

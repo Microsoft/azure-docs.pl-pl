@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d34748a2b9f46bde187b4f003e210ffdaecd93e2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675689"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324818"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Uczenie modeli za pomocą Azure Machine Learning
 
@@ -26,14 +26,14 @@ Azure Machine Learning oferuje kilka sposobów uczenia modeli — od rozwiązań
     | Metoda uczenia | Opis |
     | ----- | ----- |
     | [Uruchom konfigurację](#run-configuration) | **Typowym sposobem uczenia modeli** jest użycie skryptu szkoleniowego i uruchomienie konfiguracji. Konfiguracja uruchamiania zawiera informacje konieczne do skonfigurowania środowiska szkoleniowego używanego do uczenia modelu. W konfiguracji przebiegu możesz określić swój skrypt szkoleniowy, obiekt docelowy obliczeń i środowisko Azure ML, a następnie uruchomić zadanie szkoleniowe. |
-    | [Zautomatyzowane uczenie maszynowe](#automated-machine-learning) | Automatyczne Uczenie maszynowe umożliwia **uczenie modeli bez obszernej wiedzy o nauce lub programowaniu** . W przypadku osób z tłem i programowaniem danych zapewnia ona sposób oszczędzania czasu i zasobów dzięki automatyzowaniu wyboru algorytmu i dostrajania parametrów. Nie musisz martwić się o Definiowanie konfiguracji uruchamiania podczas korzystania z funkcji automatycznego uczenia maszynowego. |
-    | [Potok uczenia maszynowego](#machine-learning-pipeline) | Potoki nie są różnymi metodami szkoleniowymi, ale **sposób definiowania przepływu pracy przy użyciu modularnych, wielokrotnych kroków** , które mogą obejmować szkolenie w ramach przepływu pracy. Potoki usługi Machine Learning obsługują korzystanie z funkcji automatycznego uczenia maszynowego i uruchamiania konfiguracji w celu uczenia modeli. Ponieważ potoki nie są ukierunkowane na szkolenie, przyczyny użycia potoku są bardziej zróżnicowane niż inne metody uczenia się. Ogólnie rzecz biorąc, można użyć potoku, gdy:<br>* Chcesz **zaplanować procesy nienadzorowane** , takie jak długotrwałe zadania szkoleniowe lub Przygotowywanie danych.<br>* Należy użyć **wielu kroków** , które są skoordynowane w niejednorodnych zasobach obliczeniowych i lokalizacjach magazynu.<br>* Użyj potoku jako **szablonu wielokrotnego użytku** dla konkretnych scenariuszy, takich jak przeszkolenie lub wsadowe ocenianie.<br>* **Śledź źródła danych, dane wejściowe i wyjściowe** dla przepływu pracy.<br>* Przepływ pracy jest **implementowany przez różne zespoły, które pracują niezależnie od konkretnych kroków** . Kroki można następnie połączyć w potoku w celu zaimplementowania przepływu pracy. |
+    | [Zautomatyzowane uczenie maszynowe](#automated-machine-learning) | Automatyczne Uczenie maszynowe umożliwia **uczenie modeli bez obszernej wiedzy o nauce lub programowaniu**. W przypadku osób z tłem i programowaniem danych zapewnia ona sposób oszczędzania czasu i zasobów dzięki automatyzowaniu wyboru algorytmu i dostrajania parametrów. Nie musisz martwić się o Definiowanie konfiguracji uruchamiania podczas korzystania z funkcji automatycznego uczenia maszynowego. |
+    | [Potok uczenia maszynowego](#machine-learning-pipeline) | Potoki nie są różnymi metodami szkoleniowymi, ale **sposób definiowania przepływu pracy przy użyciu modularnych, wielokrotnych kroków** , które mogą obejmować szkolenie w ramach przepływu pracy. Potoki usługi Machine Learning obsługują korzystanie z funkcji automatycznego uczenia maszynowego i uruchamiania konfiguracji w celu uczenia modeli. Ponieważ potoki nie są ukierunkowane na szkolenie, przyczyny użycia potoku są bardziej zróżnicowane niż inne metody uczenia się. Ogólnie rzecz biorąc, można użyć potoku, gdy:<br>* Chcesz **zaplanować procesy nienadzorowane** , takie jak długotrwałe zadania szkoleniowe lub Przygotowywanie danych.<br>* Należy użyć **wielu kroków** , które są skoordynowane w niejednorodnych zasobach obliczeniowych i lokalizacjach magazynu.<br>* Użyj potoku jako **szablonu wielokrotnego użytku** dla konkretnych scenariuszy, takich jak przeszkolenie lub wsadowe ocenianie.<br>* **Śledź źródła danych, dane wejściowe i wyjściowe** dla przepływu pracy.<br>* Przepływ pracy jest **implementowany przez różne zespoły, które pracują niezależnie od konkretnych kroków**. Kroki można następnie połączyć w potoku w celu zaimplementowania przepływu pracy. |
 
 + [Azure Machine Learning SDK dla języka r (wersja zapoznawcza)](#r-sdk-preview): zestaw SDK dla języka r używa pakietu reticulate do powiązania z zestawem Python SDK Azure Machine Learning. Dzięki temu można uzyskać dostęp do podstawowych obiektów i metod zaimplementowanych w zestawie Python SDK z dowolnego środowiska języka R.
 
 + **Projektant** : Projektant Azure Machine Learning umożliwia łatwe wprowadzenie do uczenia maszynowego w celu tworzenia weryfikacji koncepcji lub dla użytkowników z niewielkim doświadczeniem związanym z kodowaniem. Pozwala to na uczenie modeli przy użyciu funkcji przeciągania i upuszczania interfejsu użytkownika opartego na sieci Web. Możesz użyć kodu w języku Python jako części projektu lub pouczenia modeli bez pisania kodu.
 
-+ **CLI** : interfejs wiersza polecenia usługi Machine Learning umożliwia wykonywanie typowych zadań przy użyciu Azure Machine Learning i jest często używany do **tworzenia skryptów i automatyzowania zadań** . Na przykład po utworzeniu skryptu szkoleniowego lub potoku można użyć interfejsu wiersza polecenia, aby rozpocząć szkolenie zgodnie z harmonogramem lub w przypadku aktualizowania plików danych używanych do szkoleń. W przypadku modeli szkoleniowych dostępne są polecenia, które przesyłają zadania szkoleniowe. Może przesyłać zadania przy użyciu konfiguracji uruchamiania lub potoków.
++ **CLI** : interfejs wiersza polecenia usługi Machine Learning umożliwia wykonywanie typowych zadań przy użyciu Azure Machine Learning i jest często używany do **tworzenia skryptów i automatyzowania zadań**. Na przykład po utworzeniu skryptu szkoleniowego lub potoku można użyć interfejsu wiersza polecenia, aby rozpocząć szkolenie zgodnie z harmonogramem lub w przypadku aktualizowania plików danych używanych do szkoleń. W przypadku modeli szkoleniowych dostępne są polecenia, które przesyłają zadania szkoleniowe. Może przesyłać zadania przy użyciu konfiguracji uruchamiania lub potoków.
 
 Każda z tych metod szkoleniowych może używać różnych typów zasobów obliczeniowych do szkoleń. Zbiorowo te zasoby są określane jako [__cele obliczeniowe__](concept-azure-machine-learning-architecture.md#compute-targets). Obiekt docelowy obliczeń może być maszyną lokalną lub zasobem w chmurze, takim jak Azure Machine Learning COMPUTE, Azure HDInsight lub zdalną maszynę wirtualną.
 
@@ -41,13 +41,13 @@ Każda z tych metod szkoleniowych może używać różnych typów zasobów oblic
 
 Zestaw Azure Machine Learning SDK dla języka Python umożliwia tworzenie i uruchamianie przepływów pracy uczenia maszynowego przy użyciu Azure Machine Learning. Można korzystać z usługi z interaktywnej sesji języka Python, Jupyter notesów, Visual Studio Code lub innego środowiska IDE.
 
-* [Co to jest zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
-* [Instalowanie/aktualizowanie zestawu SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* [Co to jest zestaw Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+* [Instalowanie/aktualizowanie zestawu SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 * [Skonfiguruj środowisko programistyczne dla Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Uruchom konfigurację
 
-Ogólne zadanie szkoleniowe z Azure Machine Learning można zdefiniować za pomocą [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true). Następnie zostanie użyta konfiguracja uruchomienia skryptu wraz ze skryptami szkoleniowymi do uczenia modelu w obiekcie docelowym obliczeń.
+Ogólne zadanie szkoleniowe z Azure Machine Learning można zdefiniować za pomocą [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). Następnie zostanie użyta konfiguracja uruchomienia skryptu wraz ze skryptami szkoleniowymi do uczenia modelu w obiekcie docelowym obliczeń.
 
 Możesz rozpocząć od konfiguracji uruchamiania komputera lokalnego, a następnie w razie potrzeby przełączyć się na jeden dla docelowej wartości obliczeniowej opartej na chmurze. Podczas zmieniania elementu docelowego obliczeń można zmienić tylko używaną konfigurację uruchamiania. Uruchomienie rejestruje również informacje o zadaniu szkoleniowym, takie jak dane wejściowe, wyjściowe i dzienniki.
 
@@ -90,8 +90,8 @@ Cykl życia szkoleń platformy Azure składa się z:
 1. Kompilowanie lub pobieranie pliku dockerfile do węzła obliczeniowego 
     1. System oblicza wartość skrótu: 
         - Obraz podstawowy 
-        - Niestandardowe kroki platformy Docker (zobacz [Wdrażanie modelu przy użyciu niestandardowego obrazu platformy Docker](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - Conda Definition YAML (zobacz [tworzenie & używanie środowisk oprogramowania w Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+        - Niestandardowe kroki platformy Docker (zobacz [Wdrażanie modelu przy użyciu niestandardowego obrazu platformy Docker](./how-to-deploy-custom-docker-image.md))
+        - Conda Definition YAML (zobacz [tworzenie & używanie środowisk oprogramowania w Azure Machine Learning](./how-to-use-environments.md))
     1. System używa tego skrótu jako klucza w odnośniku Azure Container Registry obszaru roboczego (ACR)
     1. Jeśli nie zostanie znaleziona, szuka dopasowania w ACR globalnym
     1. Jeśli nie zostanie znaleziona, system kompiluje nowy obraz (który zostanie zapisany w pamięci podręcznej i zarejestrowany w obszarze roboczym ACR)
@@ -101,7 +101,7 @@ Cykl życia szkoleń platformy Azure składa się z:
 1. Zapisywanie dzienników, plików modelu i innych plików zapisywanych na `./outputs` koncie magazynu skojarzonym z obszarem roboczym
 1. Skalowanie w dół obliczeniowe, w tym Usuwanie magazynu tymczasowego 
 
-Jeśli zdecydujesz się na nauczenie się na komputerze lokalnym ("Konfigurowanie jako lokalne uruchomienie"), nie musisz używać platformy Docker. W przypadku wybrania opcji platformy Docker można używać lokalnie (zobacz sekcję [Konfigurowanie potoku](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) dla przykładu).
+Jeśli zdecydujesz się na nauczenie się na komputerze lokalnym ("Konfigurowanie jako lokalne uruchomienie"), nie musisz używać platformy Docker. W przypadku wybrania opcji platformy Docker można używać lokalnie (zobacz sekcję [Konfigurowanie potoku](./how-to-debug-pipelines.md) dla przykładu).
 
 ## <a name="r-sdk-preview"></a>Zestaw SDK języka R (wersja zapoznawcza)
 

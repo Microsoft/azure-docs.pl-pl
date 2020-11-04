@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 5256db4547f8c19960a6f470ce3c84b2eef25e24
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 444b76a594e768face892462da12a1cbb35a5106
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776616"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324689"
 ---
 # <a name="getting-started"></a>Wprowadzenie
 
@@ -35,15 +35,15 @@ Cognitive Services oparte na chmurze to inteligentne algorytmy hostowane na plat
 
 ### <a name="containerized-services-optional"></a>Usługi kontenerowe (opcjonalnie)
 
-Jeśli aplikacja lub obciążenie używa bardzo dużych zestawów danych, wymaga sieci prywatnej lub nie może się skontaktować z chmurą, komunikacja z usługami w chmurze może być niemożliwa. W tej sytuacji kontener Cognitive Services ma następujące korzyści:
+Jeśli w aplikacji lub obciążeniu są używane duże zestawy danych, wymagana jest sieć prywatna lub nie można skontaktować się z chmurą, dzięki czemu komunikacja z usługami w chmurze może być niemożliwa. W tej sytuacji kontener Cognitive Services ma następujące korzyści:
 
-* **Niska łączność**: można wdrożyć kontenery Cognitive Services w dowolnym środowisku obliczeniowym, zarówno w chmurze, jak i wyłączone. Jeśli aplikacja nie może skontaktować się z chmurą, rozważ wdrożenie Cognitive Services kontenerów w aplikacji.
+* **Niska łączność** : można wdrożyć kontenery Cognitive Services w dowolnym środowisku obliczeniowym, zarówno w chmurze, jak i wyłączone. Jeśli aplikacja nie może skontaktować się z chmurą, rozważ wdrożenie Cognitive Services kontenerów w aplikacji.
 
-* **Małe opóźnienia**: ponieważ usługi kontenerów nie wymagają komunikacji dwukierunkowej z chmurą, odpowiedzi są zwracane z znacznie mniejszymi opóźnieniami.
+* **Małe opóźnienia** : ponieważ usługi kontenerów nie wymagają komunikacji dwukierunkowej z chmurą, odpowiedzi są zwracane z znacznie mniejszymi opóźnieniami.
 
-* **Prywatność i bezpieczeństwo danych**: można wdrożyć usługi kontenerów w sieciach prywatnych, dzięki czemu poufne dane nie opuszczają sieci.
+* **Prywatność i bezpieczeństwo danych** : można wdrożyć usługi kontenerów w sieciach prywatnych, dzięki czemu poufne dane nie opuszczają sieci.
 
-* **Wysoka skalowalność**: usługi kontenerowe nie mają "limitów szybkości" i działają na komputerach zarządzanych przez użytkownika. Dzięki temu można skalować Cognitive Services bez końca do obsługi znacznie większych obciążeń.
+* **Wysoka skalowalność** : usługi kontenerowe nie mają "limitów szybkości" i działają na komputerach zarządzanych przez użytkownika. Dzięki temu można skalować Cognitive Services bez końca do obsługi znacznie większych obciążeń.
 
 Postępuj zgodnie z [tym przewodnikiem](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support?tabs=luis) , aby utworzyć kontener usługi poznawczej.
 
@@ -70,7 +70,7 @@ Azure Databricks to platforma analityczna oparta na Apache Spark z jednym klikni
 Opcjonalnie możesz użyć Synapse Analytics, aby utworzyć klaster Spark. Usługa Azure Synapse Analytics umożliwia łączenie z magazynem danych w przedsiębiorstwie i analizą danych Big Data. Zapewnia to swobodę wykonywania zapytań dotyczących danych na Twoich warunkach przy użyciu niezależnych od serwera zasobów na żądanie lub aprowizacji. Aby rozpocząć korzystanie z usługi Synapse Analytics, wykonaj następujące kroki:
 
 1. [Utwórz obszar roboczy Synapse (wersja zapoznawcza)](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
-1. [Utwórz nową pulę Apache Spark (wersja zapoznawcza) przy użyciu Azure Portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
+1. [Utwórz nową pulę Apache Spark bezserwerową (wersja zapoznawcza) przy użyciu Azure Portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
 
 W programie Synapse Analytics domyślnie instalowane są dane big data dla Cognitive Services.
 
@@ -98,9 +98,9 @@ Najpierw można utworzyć Notes w Azure Databricks. W przypadku innych dostawcó
 
     <img src="media/databricks-notebook-details.jpg" alt="New notebook details" width="50%"/>
 
-    Wybierz pozycję **Utwórz**.
+    Wybierz przycisk **Utwórz**.
 
-1. Wklej poniższy fragment kodu poniżej do nowego notesu.
+1. Wklej ten fragment kodu do nowego notesu.
 
 ```python
 from mmlspark.cognitive import *

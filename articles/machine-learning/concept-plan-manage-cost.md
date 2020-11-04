@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: f73643baa92956280d67d0d931459af3a80925ee
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e8554bf4385c7ddad540b8ba807988618fe80b53
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233752"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322992"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planowanie i zarządzanie kosztami Azure Machine Learning
 
@@ -53,11 +53,11 @@ Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Machine Learning](
 
 ## <a name="get-cost-alerts"></a>Pobierz alerty kosztów
 
-Twórz [budżety](../cost-management/tutorial-acm-create-budgets.md) , aby zarządzać kosztami i tworzyć [alerty](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) , które automatycznie powiadamiają uczestników wydatków o wykorzystaniu anomalii i poświęcają ryzyko. Alerty są oparte na wydatkach w porównaniu z budżetem i progami kosztów. Budżety i alerty są tworzone dla subskrypcji platformy Azure i grup zasobów, dzięki czemu są one przydatne jako część ogólnej strategii monitorowania kosztów. Jednak budżety i alerty mogą mieć ograniczoną funkcjonalność do zarządzania poszczególnymi kosztami usług platformy Azure, ponieważ są one przeznaczone do śledzenia kosztów na wyższym poziomie.
+Twórz [budżety](../cost-management-billing/costs/tutorial-acm-create-budgets.md) , aby zarządzać kosztami i tworzyć [alerty](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) , które automatycznie powiadamiają uczestników wydatków o wykorzystaniu anomalii i poświęcają ryzyko. Alerty są oparte na wydatkach w porównaniu z budżetem i progami kosztów. Budżety i alerty są tworzone dla subskrypcji platformy Azure i grup zasobów, dzięki czemu są one przydatne jako część ogólnej strategii monitorowania kosztów. Jednak budżety i alerty mogą mieć ograniczoną funkcjonalność do zarządzania poszczególnymi kosztami usług platformy Azure, ponieważ są one przeznaczone do śledzenia kosztów na wyższym poziomie.
 
 ## <a name="monitor-costs"></a>Monitorowanie kosztów
 
-Gdy korzystasz z zasobów z Azure Machine Learning, naliczane są koszty. Koszty jednostki użycia zasobów platformy Azure różnią się w zależności od interwału czasu (sekundy, minuty, godziny i dni) lub według użycia jednostki żądania. Po rozpoczęciu korzystania z Azure Machine Learning są naliczane koszty. Zapoznaj się z tymi kosztami w okienku [Analiza kosztów](../cost-management/quick-acm-cost-analysis.md) w Azure Portal.
+Gdy korzystasz z zasobów z Azure Machine Learning, naliczane są koszty. Koszty jednostki użycia zasobów platformy Azure różnią się w zależności od interwału czasu (sekundy, minuty, godziny i dni) lub według użycia jednostki żądania. Po rozpoczęciu korzystania z Azure Machine Learning są naliczane koszty. Zapoznaj się z tymi kosztami w okienku [Analiza kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md) w Azure Portal.
 
 Możesz wyświetlić koszty w wykresach i tabelach dla różnych przedziałów czasu. Możesz również wyświetlić koszty związane z budżetami i prognozowanymi kosztami. Przełączenie na dłuższe widoki w czasie pomaga identyfikować trendy wydatków i zobaczyć, gdzie mogły wystąpić nadwyżki. Jeśli utworzono budżety, zobacz miejsce ich przekroczenia.  
 
@@ -86,7 +86,7 @@ Można również skonfigurować ilość czasu bezczynności węzła przed scalen
 + W przypadku przeprowadzania mniej iteracyjnych eksperymentów należy skrócić ten czas, aby zaoszczędzić koszty.
 + W przypadku przeprowadzania wysoko iteracyjnych eksperymentów deweloperskich i testowych może być konieczne zwiększenie czasu, aby nie płacić za stałe skalowanie w górę i w dół po każdej zmianie w skrypcie lub środowisku szkoleniowym.
 
-Klastry AmlCompute można skonfigurować w celu zmiany wymagań obciążeń w Azure Portal, przy użyciu [klasy zestawu SDK AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true), [interfejsu wiersza polecenia AmlCompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)z [interfejsami API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+Klastry AmlCompute można skonfigurować w celu zmiany wymagań obciążeń w Azure Portal, przy użyciu [klasy zestawu SDK AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py), [interfejsu wiersza polecenia AmlCompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)z [interfejsami API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300

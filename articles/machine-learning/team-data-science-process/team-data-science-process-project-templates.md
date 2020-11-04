@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac6055029b8fc7bbba11a8e3b789df3b6b1622e2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864234"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322754"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planowanie projektu analizy danych zespołu
 
@@ -30,7 +30,7 @@ Cykl życia przedstawia główne etapy, które są zwykle wykonywane przez proje
 - Wdrożenie
 - Akceptacja klienta
 
-Opisy poszczególnych etapów znajdują się w temacie [cykle procesu nauki o danych zespołowych](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
+Opisy poszczególnych etapów znajdują się w temacie [cykle procesu nauki o danych zespołowych](./lifecycle.md).
 
  
 ## <a name="microsoft-project-template"></a>Szablon programu Microsoft Project
@@ -60,5 +60,4 @@ Za pomocą tego [repozytorium szablonów projektu](https://github.com/Azure/Azur
 
 [Opracowywanie projektów analizy danych](agile-development.md) Ten dokument zawiera opis projektu analizy danych w systematyczny, kontrolowanym przez siebie wersji i współpracy przy użyciu procesu nauki o danych zespołowych.
 
-Dostępne są również instruktaże pokazujące wszystkie kroki procesu dla **konkretnych scenariuszy** . Są one wyświetlane i połączone z opisami miniatur w artykule [przykładowe instruktaże](walkthroughs.md) . Ilustrują one sposób łączenia chmur, narzędzi lokalnych i usług w przepływ pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
-
+Dostępne są również instruktaże pokazujące wszystkie kroki procesu dla **konkretnych scenariuszy** . Są one wyświetlane i połączone z opisami miniatur w artykule [przykładowe instruktaże](walkthroughs.md) . Ilustrują one sposób łączenia chmur, narzędzi lokalnych i usług w przepływ pracy lub potoku w celu utworzenia inteligentnej aplikacji.

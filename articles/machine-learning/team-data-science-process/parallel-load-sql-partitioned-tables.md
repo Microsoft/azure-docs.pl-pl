@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 30c4838dd5a6f4e8b08d3619588ee3ae746349ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 456e881d84697f4542f972ac0798cc95a3455b3c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86042139"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322410"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Kompiluj i Optymalizuj tabele umożliwiające szybkie importowanie danych do SQL Server na maszynie wirtualnej platformy Azure
 
 W tym artykule opisano sposób tworzenia tabel partycjonowanych na potrzeby szybkiego równoległego importowania danych do bazy danych SQL Server. W celu ładowania i przesyłania danych Big Data do bazy danych SQL można ulepszyć Importowanie danych do bazy danych SQL i kolejnych zapytań przy użyciu *partycjonowanych tabel i widoków*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Tworzenie nowej bazy danych i zestawu grup plików
-* [Utwórz nową bazę danych](https://technet.microsoft.com/library/ms176061.aspx), jeśli jeszcze nie istnieje.
+* [Utwórz nową bazę danych](/sql/t-sql/statements/create-database-transact-sql), jeśli jeszcze nie istnieje.
 * Dodawanie grup plików bazy danych do bazy danych, która zawiera partycjonowane pliki fizyczne. 
-* Można to zrobić przy użyciu [polecenia](https://msdn.microsoft.com/library/bb522682.aspx) [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) , jeśli baza danych już istnieje.
+* Można to zrobić przy użyciu [polecenia](/sql/t-sql/statements/alter-database-transact-sql-set-options) [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql) , jeśli baza danych już istnieje.
 * Dodaj co najmniej jeden plik (w razie potrzeby) do każdej grupy plików bazy danych.
   
   > [!NOTE]
@@ -33,7 +33,7 @@ W tym artykule opisano sposób tworzenia tabel partycjonowanych na potrzeby szyb
   > 
   > 
 
-Poniższy przykład tworzy nową bazę danych z trzema grupami plików innymi niż grupy podstawowe i dzienników, zawierające jeden plik fizyczny w każdym z nich. Pliki bazy danych są tworzone w domyślnym folderze danych SQL Server, zgodnie z konfiguracją w wystąpieniu SQL Server. Aby uzyskać więcej informacji na temat domyślnych lokalizacji plików, zapoznaj się z tematem [lokalizacje plików dla domyślnych i nazwanych wystąpień SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
+Poniższy przykład tworzy nową bazę danych z trzema grupami plików innymi niż grupy podstawowe i dzienników, zawierające jeden plik fizyczny w każdym z nich. Pliki bazy danych są tworzone w domyślnym folderze danych SQL Server, zgodnie z konfiguracją w wystąpieniu SQL Server. Aby uzyskać więcej informacji na temat domyślnych lokalizacji plików, zapoznaj się z tematem [lokalizacje plików dla domyślnych i nazwanych wystąpień SQL Server](/sql/sql-server/install/file-locations-for-default-and-named-instances-of-sql-server).
 
 ```sql
    DECLARE @data_path nvarchar(256);
@@ -60,7 +60,7 @@ Poniższy przykład tworzy nową bazę danych z trzema grupami plików innymi ni
 Aby utworzyć partycjonowane tabele zgodnie ze schematem danych, zamapowane do grup plików bazy danych utworzonych w poprzednim kroku, należy najpierw utworzyć funkcję partycji i schemat. Po zaimportowaniu zbiorczych danych do tabel partycjonowanych rekordy są dystrybuowane między grupami plików zgodnie ze schematem partycji, zgodnie z poniższym opisem.
 
 ### <a name="1-create-a-partition-function"></a>1. Utwórz funkcję partycji
-[Tworzenie funkcji partycji](https://msdn.microsoft.com/library/ms187802.aspx) Ta funkcja definiuje zakres wartości/granic do uwzględnienia w każdej tabeli partycji pojedynczej, na przykład w celu ograniczenia partycji według miesiąca (niektóre \_ pola DateTime \_ ) w roku 2013:
+[Tworzenie funkcji partycji](/sql/t-sql/statements/create-partition-function-transact-sql) Ta funkcja definiuje zakres wartości/granic do uwzględnienia w każdej tabeli partycji pojedynczej, na przykład w celu ograniczenia partycji według miesiąca (niektóre \_ pola DateTime \_ ) w roku 2013:
   
 ```sql
    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
@@ -71,7 +71,7 @@ Aby utworzyć partycjonowane tabele zgodnie ze schematem danych, zamapowane do g
 ```
 
 ### <a name="2-create-a-partition-scheme"></a>2. Utwórz schemat partycji
-[Utwórz schemat partycji](https://msdn.microsoft.com/library/ms179854.aspx). Ten schemat mapuje każdy zakres partycji w funkcji Partition na fizyczną grupę plików, na przykład:
+[Utwórz schemat partycji](/sql/t-sql/statements/create-partition-scheme-transact-sql). Ten schemat mapuje każdy zakres partycji w funkcji Partition na fizyczną grupę plików, na przykład:
   
 ```sql
       CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
@@ -94,24 +94,24 @@ Aby sprawdzić, jakie zakresy są stosowane w każdej partycji zgodnie z funkcj�
 ```
 
 ### <a name="3-create-a-partition-table"></a>3. Tworzenie tabeli partycji
-[Utwórz partycjonowane tabele](https://msdn.microsoft.com/library/ms174979.aspx)zgodnie ze schematem danych i określ schemat partycji oraz pole ograniczenia używane do partycjonowania tabeli, na przykład:
+[Utwórz partycjonowane tabele](/sql/t-sql/statements/create-table-transact-sql)zgodnie ze schematem danych i określ schemat partycji oraz pole ograniczenia używane do partycjonowania tabeli, na przykład:
   
 ```sql
    CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
 ```
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie partycjonowanych tabel i indeksów](https://msdn.microsoft.com/library/ms188730.aspx).
+Aby uzyskać więcej informacji, zobacz [Tworzenie partycjonowanych tabel i indeksów](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Importuj zbiorczo dane dla każdej tabeli partycji pojedynczej
 
 * Można użyć narzędzia BCP, BULK INSERT lub innych metod, takich jak [SQL Server Kreatora migracji](https://sqlazuremw.codeplex.com/). W podanym przykładzie zastosowano metodę BCP.
-* Zmień [bazę danych](https://msdn.microsoft.com/library/bb522682.aspx) , aby zmienić schemat rejestrowania transakcji na BULK_LOGGED, aby zminimalizować obciążenie rejestrowania, na przykład:
+* Zmień [bazę danych](/sql/t-sql/statements/alter-database-transact-sql-set-options) , aby zmienić schemat rejestrowania transakcji na BULK_LOGGED, aby zminimalizować obciążenie rejestrowania, na przykład:
   
    ```sql
       ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
    ```
-* Aby przyspieszyć ładowanie danych, uruchom równolegle operacje importu zbiorczego. Aby uzyskać porady dotyczące przyspieszania importowania zbiorczego danych Big Data do baz danych SQL Server, zobacz [obciążenie 1 TB w czasie krótszym niż 1 godzina](https://docs.microsoft.com/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour).
+* Aby przyspieszyć ładowanie danych, uruchom równolegle operacje importu zbiorczego. Aby uzyskać porady dotyczące przyspieszania importowania zbiorczego danych Big Data do baz danych SQL Server, zobacz [obciążenie 1 TB w czasie krótszym niż 1 godzina](/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour).
 
 Poniższy skrypt programu PowerShell jest przykładem równoległego ładowania danych przy użyciu narzędzia BCP.
 
@@ -180,7 +180,7 @@ Poniższy skrypt programu PowerShell jest przykładem równoległego ładowania 
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Tworzenie indeksów w celu optymalizowania sprzężeń i wydajności zapytań
 * W przypadku wyodrębnienia danych do modelowania z wielu tabel Utwórz indeksy w kluczach sprzężenia, aby zwiększyć wydajność przyłączania.
-* [Utwórz indeksy](https://technet.microsoft.com/library/ms188783.aspx) (klastrowane lub nieklastrowane) przeznaczone dla tej samej grupy plików dla każdej partycji, na przykład:
+* [Utwórz indeksy](/sql/t-sql/statements/create-index-transact-sql) (klastrowane lub nieklastrowane) przeznaczone dla tej samej grupy plików dla każdej partycji, na przykład:
   
 ```sql
    CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
@@ -198,4 +198,3 @@ Poniższy skrypt programu PowerShell jest przykładem równoległego ładowania 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Zaawansowany proces i technologia analityczna w przykładowym działaniu
 Aby zapoznać się z kompleksowym przykładem, korzystając z procesu nauki o danych zespołowych z publicznym zestawem danych, zobacz [zespołowe przetwarzanie danych w ramach działania: używanie SQL Server](sql-walkthrough.md).
-

@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: a6b453b11c892b5d81c41cac9451b07be69aa4d3
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3f1e2e12b7ba0a47c20614065510ffd1ae8bf195
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285918"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325351"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska wnioskowania usługi Azure Machine Learning za pomocą sieci wirtualnych
 
@@ -47,7 +47,7 @@ W tym artykule dowiesz się, jak zabezpieczyć następujące zasoby inferencing 
     - "Microsoft. Network/virtualNetworks/Join/Action" w zasobie sieci wirtualnej.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" w zasobie podsieci.
 
-    Aby uzyskać więcej informacji na temat usługi Azure RBAC z obsługą sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking) .
+    Aby uzyskać więcej informacji na temat usługi Azure RBAC z obsługą sieci, zobacz [wbudowane role sieciowe](../role-based-access-control/built-in-roles.md#networking) .
 
 <a id="aksvnet"></a>
 
@@ -86,7 +86,7 @@ Aby dodać AKS w sieci wirtualnej do obszaru roboczego, wykonaj następujące cz
     Aby znaleźć adres IP punktu końcowego oceniania, należy zapoznać się z identyfikatorem URI oceny wdrożonej usługi. Aby uzyskać informacje na temat wyświetlania identyfikatora URI oceniania, zobacz temat [Korzystanie z modelu wdrożonego jako usługa sieci Web](how-to-consume-web-service.md#connection-information).
 
    > [!IMPORTANT]
-   > Zachowaj domyślne reguły ruchu wychodzącego dla sieciowej grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz domyślne reguły zabezpieczeń w [grupach zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+   > Zachowaj domyślne reguły ruchu wychodzącego dla sieciowej grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz domyślne reguły zabezpieczeń w [grupach zabezpieczeń](../virtual-network/network-security-groups-overview.md#default-security-rules).
 
    [![Reguła zabezpieczeń dla ruchu przychodzącego](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
@@ -170,7 +170,7 @@ Prywatny moduł równoważenia obciążenia jest włączony przez skonfigurowani
     ```azurecli-interactive
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
-Aby uzyskać więcej informacji na temat używania wewnętrznego modułu równoważenia obciążenia z programem AKS, zobacz [Korzystanie z wewnętrznego modułu równoważenia obciążenia z usługą Azure Kubernetes Service](/azure/aks/internal-lb).
+Aby uzyskać więcej informacji na temat używania wewnętrznego modułu równoważenia obciążenia z programem AKS, zobacz [Korzystanie z wewnętrznego modułu równoważenia obciążenia z usługą Azure Kubernetes Service](../aks/internal-lb.md).
 
 #### <a name="enable-private-load-balancer"></a>Włączanie prywatnego modułu równoważenia obciążenia
 
@@ -220,7 +220,7 @@ az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalance
 > [!IMPORTANT]
 > Korzystając z interfejsu wiersza polecenia, można utworzyć klaster AKS tylko z wewnętrznym modułem równoważenia obciążenia. Nie ma polecenia AZ ml, aby uaktualnić istniejący klaster do korzystania z wewnętrznego modułu równoważenia obciążenia.
 
-Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Create AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) Reference.
+Aby uzyskać więcej informacji, zobacz [AZ ml computetarget Create AKS](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) Reference.
 
 ---
 
@@ -261,7 +261,7 @@ Aby użyć ACI w sieci wirtualnej z obszarem roboczym, wykonaj następujące czy
     > [!IMPORTANT]
     > Podczas włączania delegowania Użyj `Microsoft.ContainerInstance/containerGroups` wartości jako __delegowanej podsieci do usługi__ .
 
-2. Wdróż model przy użyciu [AciWebservice.deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), użyj `vnet_name` parametrów i `subnet_name` . Ustaw te parametry na nazwę sieci wirtualnej i podsieć, w której włączono delegowanie.
+2. Wdróż model przy użyciu [AciWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), użyj `vnet_name` parametrów i `subnet_name` . Ustaw te parametry na nazwę sieci wirtualnej i podsieć, w której włączono delegowanie.
 
 ## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Ogranicz łączność wychodzącą z sieci wirtualnej
 

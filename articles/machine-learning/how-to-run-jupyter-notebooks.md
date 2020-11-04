@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628681"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325405"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym
 
@@ -42,7 +42,7 @@ W obszarze roboczym Azure Machine Learning Utwórz nowy Notes Jupyter i Rozpoczn
 Aby utworzyć nowy Notes: 
 
 1. Otwórz obszar roboczy w programie [Azure Machine Learning Studio](https://ml.azure.com).
-1. Po lewej stronie wybierz pozycję **notesy** . 
+1. Po lewej stronie wybierz pozycję **notesy**. 
 1. Wybierz ikonę  **Utwórz nowy plik** nad listą **plików użytkownika** w sekcji **Moje pliki** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Utwórz nowy plik":::
@@ -50,7 +50,7 @@ Aby utworzyć nowy Notes:
 1. Nazwij plik. 
 1. Dla plików Jupyter Notebook wybierz opcję **Notes** jako typ pliku.
 1. Wybierz katalog plików.
-1. Wybierz pozycję **Utwórz** .
+1. Wybierz przycisk **Utwórz**.
 
 Można również tworzyć pliki tekstowe.  Zaznacz **tekst** jako typ pliku i Dodaj rozszerzenie do nazwy (na przykład myfile.py lub myfile.txt)  
 
@@ -75,16 +75,16 @@ Dostęp do wszystkich operacji git można uzyskać przy użyciu okna terminalu. 
 Aby uzyskać dostęp do terminalu:
 
 1. Otwórz obszar roboczy w programie [Azure Machine Learning Studio](https://ml.azure.com).
-1. Po lewej stronie wybierz pozycję **notesy** .
+1. Po lewej stronie wybierz pozycję **notesy**.
 1. Wybierz dowolny Notes znajdujący się w sekcji **pliki użytkownika** po lewej stronie.  Jeśli nie masz tam żadnych notesów, najpierw [Utwórz Notes](#create)
 1. Wybierz element docelowy **obliczeń** lub Utwórz nowy i poczekaj na jego uruchomienie.
 1. Wybierz ikonę **Otwórz Terminal** .
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Utwórz nowy plik":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Otwórz Terminal":::
 
-1. Jeśli nie widzisz ikony, wybierz pozycję **...** z prawej strony elementu docelowego obliczeń, a następnie wybierz pozycję **Otwórz Terminal** .
+1. Jeśli nie widzisz ikony, wybierz pozycję **...** z prawej strony elementu docelowego obliczeń, a następnie wybierz pozycję **Otwórz Terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Utwórz nowy plik":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Otwórz Terminal z...":::
 
 
 Dowiedz się więcej [na temat klonowania repozytoriów Git w systemie plików obszaru roboczego](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
@@ -114,9 +114,9 @@ Na pasku narzędzi notesu można również uruchomić Jupyter lub JupyterLab.  A
 Użyj trybu koncentracji uwagi, aby rozwinąć bieżący widok, dzięki czemu możesz skupić się na aktywnych kartach. Tryb koncentracji uwagi powoduje ukrycie Eksploratora plików notesów.
 
 1. Na pasku narzędzi okna terminalu wybierz **tryb koncentracji uwagi** , aby włączyć tryb koncentracji uwagi. W zależności od szerokości okna może się to znajdować w elemencie menu **...** na pasku narzędzi.
-1. W trybie koncentracji uwagi Wróć do widoku standardowego, wybierając pozycję **widok standardowy** .
+1. W trybie koncentracji uwagi Wróć do widoku standardowego, wybierając pozycję **widok standardowy**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Utwórz nowy plik":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Przełącz tryb koncentracji uwagi/widok standardowy":::
 
 
 ### <a name="use-intellisense"></a>Korzystanie z funkcji IntelliSense
@@ -136,7 +136,7 @@ W trakcie tworzenia notesu zazwyczaj możesz kończyć się komórkami używanym
 1. Uruchom wszystkie komórki notesu.
 1. Wybierz komórkę zawierającą kod, który ma zostać uruchomiony w nowym notesie. Na przykład kod, który przesyła eksperyment lub może być kodem, który rejestruje model.
 1. Wybierz ikonę **Zbierz** , która pojawia się na pasku narzędzi komórki.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Utwórz nowy plik":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Zrzut ekranu: wybierz ikonę zbierania":::
 1. Wprowadź nazwę nowego notesu "zebrana".  
 
 Nowy notes zawiera tylko komórki kodu, a wszystkie komórki wymagane do wygenerowania tych samych wyników co Komórka wybrana do zebrania.
@@ -147,7 +147,7 @@ Azure Machine Learning tworzy plik punktu kontrolnego podczas tworzenia pliku *i
 
 Na pasku narzędzi Notes wybierz menu, a następnie **Zapisz plik &gt; i punkt kontrolny** , aby ręcznie zapisać Notes i dodać plik punktu kontrolnego skojarzony z notesem.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Utwórz nowy plik":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Zrzut ekranu narzędzia zapisywania na pasku narzędzi notesu":::
 
 Każdy Notes jest automatycznie zapisywany co 30 sekund. Funkcja autozapisywania aktualizuje tylko początkowy plik *ipynb* , a nie plik punktu kontrolnego.
  
@@ -180,15 +180,15 @@ Notesy **plików użytkownika** *można* usuwać w dowolny z następujących spo
 Aby uruchomić eksperyment z notesu, należy najpierw połączyć się z uruchomionym [wystąpieniem obliczeniowym](concept-compute-instance.md). Jeśli nie masz wystąpienia obliczeniowego, wykonaj następujące kroki, aby go utworzyć: 
 
 1. Wybierz **+** na pasku narzędzi Notes. 
-2. Nazwij obliczenia i wybierz **rozmiar maszyny wirtualnej** . 
-3. Wybierz pozycję **Utwórz** .
+2. Nazwij obliczenia i wybierz **rozmiar maszyny wirtualnej**. 
+3. Wybierz przycisk **Utwórz**.
 4. Wystąpienie obliczeniowe jest połączone z notesem automatycznie i można teraz uruchamiać komórki.
 
 Można wyświetlać i używać tylko utworzonych wystąpień obliczeniowych.  **Pliki użytkownika** są przechowywane niezależnie od maszyny wirtualnej i są współdzielone między wszystkimi wystąpieniami obliczeniowymi w obszarze roboczym.
 
 ### <a name="view-logs-and-output"></a>Wyświetlanie dzienników i danych wyjściowych
 
-Użyj [widżetów Notes](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) , aby wyświetlić postęp przebiegów i dzienników. Widżet jest asynchroniczny i udostępnia aktualizacje do momentu zakończenia szkolenia. Azure Machine Learning widżety są również obsługiwane w Jupyter i JupterLab.
+Użyj [widżetów Notes](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) , aby wyświetlić postęp przebiegów i dzienników. Widżet jest asynchroniczny i udostępnia aktualizacje do momentu zakończenia szkolenia. Azure Machine Learning widżety są również obsługiwane w Jupyter i JupterLab.
 
 ## <a name="change-the-notebook-environment"></a>Zmień środowisko notesu
 

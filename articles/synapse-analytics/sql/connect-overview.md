@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bbd82f856213bb36e71625eabc8bce9999ccd53f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 532ada430e7ff2ae76eb0cfbc389792bb0d98209
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289399"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322668"
 ---
 # <a name="connect-to-synapse-sql"></a>Nawiązywanie połączenia z usługą Synapse SQL
 Połącz się z funkcją SQL Synapse w usłudze Azure Synapse Analytics.
 
-## <a name="supported-tools-for-sql-on-demand-preview"></a>Obsługiwane narzędzia dla SQL na żądanie (wersja zapoznawcza)
+## <a name="supported-tools-for-serverless-sql-pool-preview"></a>Obsługiwane narzędzia dla puli SQL bezserwerowej (wersja zapoznawcza)
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) jest w pełni obsługiwana począwszy od wersji 1.18.0. Program SSMS jest częściowo obsługiwany począwszy od wersji 18,5, można go używać do nawiązywania połączeń i tylko zapytań.
 
@@ -31,8 +31,8 @@ Połącz się z funkcją SQL Synapse w usłudze Azure Synapse Analytics.
 
 ## <a name="find-your-server-name"></a>Znajdowanie nazwy serwera
 
-Nazwa serwera dla puli SQL w następującym przykładzie to: showdemoweu.sql.azuresynapse.net.
-Nazwa serwera dla SQL na żądanie w następującym przykładzie to: showdemoweu-ondemand.sql.azuresynapse.net.
+Nazwa serwera dla dedykowanej puli SQL w następującym przykładzie to: showdemoweu.sql.azuresynapse.net.
+Nazwa serwera dla puli SQL bezserwerowej w następującym przykładzie: showdemoweu-ondemand.sql.azuresynapse.net.
 
 Aby znaleźć w pełni kwalifikowaną nazwę serwera:
 
@@ -46,9 +46,9 @@ Aby znaleźć w pełni kwalifikowaną nazwę serwera:
 
 ![Pełna nazwa serwera](./media/connect-overview/server-connect-example.png)
 
-## <a name="sql-on-demand"></a>**SQL na żądanie**
+## <a name="serverless-sql-pool"></a>**Pula SQL bezserwerowa**
 
-![Pełna nazwa serwera SQL na żądanie](./media/connect-overview/server-connect-example-sqlod.png)
+![Pełna nazwa serwera bezserwerowa Pula SQL](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Obsługiwane sterowniki i parametry połączenia
 Synapse SQL obsługuje [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [php](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)i [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Aby znaleźć najnowszą wersję i dokumentację, wybierz jeden z powyższych sterowników. Aby automatycznie wygenerować parametry połączenia dla sterownika, którego używasz z Azure Portal, wybierz pozycję **Pokaż parametry połączenia bazy danych** z poprzedniego przykładu. Poniżej przedstawiono również przykłady parametrów połączenia dla każdego sterownika.
@@ -92,7 +92,7 @@ Synapse SQL Standard podczas tworzenia połączeń i obiektów. Te ustawienia ni
 
 ## <a name="recommendations"></a>Zalecenia
 
-W celu wykonywania zapytań **na żądanie SQL** zalecane są narzędzia [Azure Data Studio](get-started-azure-data-studio.md) i Azure Synapse Studio.
+W przypadku wykonywania zapytań **puli SQL bezserwerowych** zalecane narzędzia są [Azure Data Studio](get-started-azure-data-studio.md) i Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby nawiązać połączenie i rozpocząć tworzenie zapytań przy użyciu programu Visual Studio, zobacz artykuł [Query with Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Wykonywanie zapytań przy użyciu programu Visual Studio). Aby dowiedzieć się więcej na temat opcji uwierzytelniania, zobacz [uwierzytelnianie w programie SQL Synapse](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

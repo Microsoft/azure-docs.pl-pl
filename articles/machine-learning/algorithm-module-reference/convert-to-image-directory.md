@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/09/2020
-ms.openlocfilehash: 2e597299c9b157d79a5317c97550fc30820636d6
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940370"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324900"
 ---
 # <a name="convert-to-image-directory"></a>Konwertowanie na katalog obrazów
 
@@ -49,7 +49,7 @@ W tym artykule opisano sposób użycia modułu Konwertuj do katalogu obrazów w 
 
     W przypadku oceniania folder zestawu danych obrazu musi zawierać niesklasyfikowane obrazy.
 
-1. [Zarejestrowanie zestawu danych obrazu jako zestawu danych](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) w obszarze roboczym, ponieważ dane wejściowe modułu Convert to Image Directory muszą być **plikami zestawu danych**.
+1. [Zarejestrowanie zestawu danych obrazu jako zestawu danych](../how-to-create-register-datasets.md) w obszarze roboczym, ponieważ dane wejściowe modułu Convert to Image Directory muszą być **plikami zestawu danych**.
 
 1. Dodaj zarejestrowany zestaw danych obrazu do kanwy. Swój zarejestrowany zestaw danych można znaleźć w kategorii **zestawy** danych na liście modułów po lewej stronie kanwy. Obecnie projektant nie obsługuje zestawu danych obrazu wizualizacji.
 
@@ -82,4 +82,4 @@ Dane wyjściowe **konwersji do modułu usługi Image Directory** są w formacie 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning.

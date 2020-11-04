@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: ab14547ef5d9791728ce96fdf2c414945a46aab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef9ea055f437b53313dc9ee11b0b91f095664f5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362490"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322857"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Tworzenie wielu punktów końcowych usługi sieci Web na podstawie jednego eksperymentu z ML Studio (klasyczny) i programu PowerShell
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Oto typowy problem uczenia maszynowego: chcesz utworzyć wiele modeli, które mają ten sam przepływ pracy szkoleniowej i korzystać z tego samego algorytmu. Ale chcesz, aby miały różne zestawy danych szkoleniowych jako dane wejściowe. W tym artykule pokazano, jak to zrobić na dużą skalę w Azure Machine Learning Studio (klasyczny) przy użyciu tylko jednego eksperymentu.
 
@@ -28,7 +28,7 @@ Możesz nauczyć model, używając Scalonej wersji wszystkich zestawów danych w
 
 To rozwiązanie może być najlepszym rozwiązaniem, ale nie chcesz tworzyć 1 000 eksperymentów szkoleniowych w Azure Machine Learning Studio (klasyczny) z każdą z nich reprezentującą unikatową lokalizację. Oprócz przeciążania zadania wydaje się również niewydajne, ponieważ każdy eksperyment będzie miał wszystkie te same składniki, z wyjątkiem zestawu danych szkoleniowych.
 
-Na szczęście można to zrobić za pomocą [interfejsu API ponownego szkolenia Azure Machine Learning Studio (klasycznego)](/azure/machine-learning/studio/retrain-machine-learning-model) i automatyzując zadanie przy użyciu [Azure Machine Learning Studio (klasycznego) programu PowerShell](powershell-module.md).
+Na szczęście można to zrobić za pomocą [interfejsu API ponownego szkolenia Azure Machine Learning Studio (klasycznego)](./retrain-machine-learning-model.md) i automatyzując zadanie przy użyciu [Azure Machine Learning Studio (klasycznego) programu PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Aby przyspieszyć działanie przykładu, zmniejsz liczbę lokalizacji z przedziału od 1 000 do 10. Jednak te same zasady i procedury mają zastosowanie do 1 000 lokalizacji. Jeśli jednak chcesz przeprowadzić uczenie z zestawów danych 1 000, możesz uruchomić równolegle poniższe skrypty programu PowerShell. Jak to zrobić, wykraczające poza zakres tego artykułu, ale można znaleźć przykłady użycia wielowątkowego programu PowerShell w Internecie.  
@@ -55,7 +55,7 @@ Można to zrobić na inne sposoby. Możesz użyć zapytania SQL z parametrem us�
 
 ![Przeszkolone dane wyjściowe modułu modelu do modułu wyjściowego usługi sieci Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
-Teraz Uruchommy ten eksperyment szkoleniowy przy użyciu wartości domyślnej *rental001.csv* jako zestawu danych szkoleniowych. Jeśli wyświetli się dane wyjściowe modułu **szacowania** (kliknij dane wyjściowe i wybierz polecenie **wizualizator**), zobaczysz znośnego wydajność *AUC* = 0,91. W tym momencie możesz przystąpić do wdrożenia usługi sieci Web z tego eksperymentu szkoleniowego.
+Teraz Uruchommy ten eksperyment szkoleniowy przy użyciu wartości domyślnej *rental001.csv* jako zestawu danych szkoleniowych. Jeśli wyświetli się dane wyjściowe modułu **szacowania** (kliknij dane wyjściowe i wybierz polecenie **wizualizator** ), zobaczysz znośnego wydajność *AUC* = 0,91. W tym momencie możesz przystąpić do wdrożenia usługi sieci Web z tego eksperymentu szkoleniowego.
 
 ## <a name="deploy-the-training-and-scoring-web-services"></a>Wdrażanie usług sieci Web szkoleń i oceniania
 Aby wdrożyć usługę szkoleniową sieci Web, kliknij przycisk **Skonfiguruj usługę sieci Web** pod kanwą eksperymentu i wybierz pozycję **Wdróż usługę sieci Web**. Wywołaj tę usługę sieci Web "szkolenia z zakresu roweru".
@@ -99,7 +99,7 @@ Teraz utworzono 10 punktów końcowych i wszystkie zawierają ten sam szkolony m
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Aktualizowanie punktów końcowych, aby używać oddzielnych zestawów danych szkoleniowych przy użyciu programu PowerShell
 Następnym krokiem jest zaktualizowanie punktów końcowych o modele, które zostały jednoznacznie przeszkolone na poszczególnych klientach. Najpierw należy utworzyć te modele z poziomu usługi sieci Web **szkoleń rowerowych** . Wróćmy do usługi sieci Web **szkoleń rowerowych** . Musisz wywołać swój punkt końcowy BES 10 razy z 10 różnymi zestawami danych szkoleniowych, aby utworzyć 10 różnych modeli. Aby to zrobić, użyj polecenia cmdlet programu **InovkeAmlWebServiceBESEndpoint** PowerShell.
 
-Musisz również podać poświadczenia dla konta usługi BLOB Storage w usłudze `$configContent` . Mianowicie, w polach, `AccountName` `AccountKey` i `RelativeLocation` . `AccountName`Może to być jedna z nazw kont, jak widać na **Azure Portal** (karta*Storage* ). Po kliknięciu konta magazynu `AccountKey` można je znaleźć, naciskając przycisk **Zarządzaj kluczami dostępu** u dołu i kopiując *podstawowy klucz dostępu*. `RelativeLocation`Jest ścieżką względną do magazynu, w którym będzie przechowywany nowy model. Na przykład ścieżka `hai/retrain/bike_rental/` w poniższym skrypcie wskazuje kontener o nazwie `hai` i `/retrain/bike_rental/` jest podfolderami. Obecnie nie można tworzyć podfolderów za pomocą interfejsu użytkownika portalu, ale istnieje [kilka eksploratorów usługi Azure Storage](../../storage/common/storage-explorers.md) , które umożliwiają wykonanie tej czynności. Zaleca się utworzenie nowego kontenera w magazynie do przechowywania nowych przeszkolonych modeli (plików iLearner) w następujący sposób: ze strony magazynu kliknij przycisk **Dodaj** u dołu i nadaj mu nazwę `retrain` . Podsumowując, niezbędne zmiany w następującym skrypcie odnoszą się do `AccountName` , `AccountKey` i `RelativeLocation` (: `"retrain/model' + $seq + '.ilearner"` ).
+Musisz również podać poświadczenia dla konta usługi BLOB Storage w usłudze `$configContent` . Mianowicie, w polach, `AccountName` `AccountKey` i `RelativeLocation` . `AccountName`Może to być jedna z nazw kont, jak widać na **Azure Portal** (karta *Storage* ). Po kliknięciu konta magazynu `AccountKey` można je znaleźć, naciskając przycisk **Zarządzaj kluczami dostępu** u dołu i kopiując *podstawowy klucz dostępu*. `RelativeLocation`Jest ścieżką względną do magazynu, w którym będzie przechowywany nowy model. Na przykład ścieżka `hai/retrain/bike_rental/` w poniższym skrypcie wskazuje kontener o nazwie `hai` i `/retrain/bike_rental/` jest podfolderami. Obecnie nie można tworzyć podfolderów za pomocą interfejsu użytkownika portalu, ale istnieje [kilka eksploratorów usługi Azure Storage](../../storage/common/storage-explorers.md) , które umożliwiają wykonanie tej czynności. Zaleca się utworzenie nowego kontenera w magazynie do przechowywania nowych przeszkolonych modeli (plików iLearner) w następujący sposób: ze strony magazynu kliknij przycisk **Dodaj** u dołu i nadaj mu nazwę `retrain` . Podsumowując, niezbędne zmiany w następującym skrypcie odnoszą się do `AccountName` , `AccountKey` i `RelativeLocation` (: `"retrain/model' + $seq + '.ilearner"` ).
 
 ```powershell
 # Invoke the retraining API 10 times
@@ -123,7 +123,7 @@ For ($i = 1; $i -le 10; $i++){
 
 Jak widać powyżej, zamiast konstruowania 10 różnych plików JSON konfiguracji zadań BES, zamiast tego należy dynamicznie utworzyć ciąg konfiguracyjny. Następnie podawanie go do parametru *jobConfigString* polecenia cmdlet **InvokeAmlWebServceBESEndpoint** . Nie ma potrzeby zachowywania kopii na dysku.
 
-Jeśli wszystko przebiegnie prawidłowo, po czasie powinno zostać wyświetlone 10. iLearner plików z *model001. iLearner* do *model010. iLearner*w ramach konta usługi Azure Storage. Teraz możesz przystąpić do aktualizowania 10 punktów końcowych usługi sieci Web z tymi modelami za pomocą polecenia cmdlet **AmlWebServiceEndpoint** programu PowerShell. Należy pamiętać, że można tylko zastosować poprawki do innych niż domyślne punkty końcowe, które zostały wcześniej utworzone programowo.
+Jeśli wszystko przebiegnie prawidłowo, po czasie powinno zostać wyświetlone 10. iLearner plików z *model001. iLearner* do *model010. iLearner* w ramach konta usługi Azure Storage. Teraz możesz przystąpić do aktualizowania 10 punktów końcowych usługi sieci Web z tymi modelami za pomocą polecenia cmdlet **AmlWebServiceEndpoint** programu PowerShell. Należy pamiętać, że można tylko zastosować poprawki do innych niż domyślne punkty końcowe, które zostały wcześniej utworzone programowo.
 
 ```powershell
 # Patch the 10 endpoints with respective .ilearner models

@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 11/03/2020
 tags: connectors
-ms.openlocfilehash: cb851734dc8f71347168e7ac16ac0752845dda7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31714eee2e79481bbc8afb47718ed38e178d5b82
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823612"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324237"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą protokołu SSH i usługi Azure Logic Apps
 
@@ -40,6 +40,8 @@ Można użyć wyzwalaczy, które monitorują zdarzenia na serwerze SFTP i udost�
 Aby uzyskać różnice między łącznikiem protokołu SFTP-SSH a łącznikiem SFTP, zapoznaj się z sekcją [porównanie protokołu SFTP-SSH i SFTP](#comparison) w dalszej części tego tematu.
 
 ## <a name="limits"></a>Limity
+
+* Łącznik SFTP-SSH obsługuje uwierzytelnianie klucza prywatnego lub uwierzytelnianie przy użyciu hasła.
 
 * W przypadku akcji protokołu SFTP-SSH, które obsługują dzielenie może obsłużyć pliki o rozmiarze do 1 GB, natomiast akcje SFTP-SSH, które nie obsługują fragmentów [, mogą obsługiwać](../logic-apps/logic-apps-handle-large-messages.md) pliki do 50 MB. Mimo że domyślny rozmiar fragmentu to 15 MB, ten rozmiar można dynamicznie zmieniać, rozpoczynając od 5 MB i stopniowo zwiększając do 50 MB, na podstawie takich czynników, jak opóźnienie sieci, czas odpowiedzi serwera i tak dalej.
 
@@ -84,7 +86,7 @@ Poniżej przedstawiono inne kluczowe różnice między łącznikiem SFTP-SSH a �
 
 * Udostępnia akcję **zmiany nazwy pliku** , która zmienia nazwę pliku na serwerze SFTP.
 
-* Buforuje połączenie z serwerem SFTP *przez maksymalnie 1 godzinę*, co zwiększa wydajność i zmniejsza liczbę prób nawiązania połączenia z serwerem. Aby ustawić czas trwania tego zachowania buforowania, Edytuj Właściwość [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) w konfiguracji SSH na serwerze SFTP.
+* Buforuje połączenie z serwerem SFTP *przez maksymalnie 1 godzinę* , co zwiększa wydajność i zmniejsza liczbę prób nawiązania połączenia z serwerem. Aby ustawić czas trwania tego zachowania buforowania, Edytuj Właściwość [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) w konfiguracji SSH na serwerze SFTP.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -96,16 +98,16 @@ Poniżej przedstawiono inne kluczowe różnice między łącznikiem SFTP-SSH a �
   >
   > Łącznik SFTP-SSH obsługuje *tylko* te formaty kluczy prywatnych, algorytmy i odciski palców:
   >
-  > * **Formaty kluczy prywatnych**: klucze RSA (Rivest Shamir Adleman) i DSA (algorytm podpisywania cyfrowego) w formatach OpenSSH i SSH.com. Jeśli klucz prywatny jest w formacie. PPK), najpierw [przekonwertuj klucz na format pliku OpenSSH (PEM)](#convert-to-openssh).
+  > * **Formaty kluczy prywatnych** : klucze RSA (Rivest Shamir Adleman) i DSA (algorytm podpisywania cyfrowego) w formatach OpenSSH i SSH.com. Jeśli klucz prywatny jest w formacie. PPK), najpierw [przekonwertuj klucz na format pliku OpenSSH (PEM)](#convert-to-openssh).
   >
-  > * **Algorytmy szyfrowania**: des-EDE3-CBC, des-EDE3-CFB, des-CBC, aes-128-CBC, AES-192-CBC i AES-256-CBC
+  > * **Algorytmy szyfrowania** : des-EDE3-CBC, des-EDE3-CFB, des-CBC, aes-128-CBC, AES-192-CBC i AES-256-CBC
   >
-  > * **Odcisk palca**: MD5
+  > * **Odcisk palca** : MD5
   >
-  > Po dodaniu wyzwalacza SFTP-SSH lub akcji do aplikacji logiki należy podać informacje o połączeniu dla serwera SFTP. Po podaniu klucza prywatnego SSH dla tego połączenia ***nie wprowadzaj ręcznie ani nie edytuj klucza***, co może spowodować niepowodzenie połączenia. Zamiast tego należy ***skopiować klucz*** z pliku prywatnego klucza SSH i ***wkleić*** go do szczegółów połączenia. 
+  > Po dodaniu wyzwalacza SFTP-SSH lub akcji do aplikacji logiki należy podać informacje o połączeniu dla serwera SFTP. Po podaniu prywatnego klucza SSH dla tego połączenia * *_nie wprowadzaj ręcznie ani nie edytuj klucza_* _, co może spowodować niepowodzenie połączenia. Zamiast tego należy _*_skopiować klucz_*_ z pliku prywatnego klucza SSH i _*_wkleić_*_ go do szczegółów połączenia. 
   > Aby uzyskać więcej informacji, zobacz sekcję [łączenie się](#connect) z PROTOKOŁem SSH w dalszej części tego artykułu.
 
-* Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Aplikacja logiki, w której chcesz uzyskać dostęp do konta SFTP. Aby rozpocząć pracę z wyzwalaczem SFTP-SSH, [Utwórz pustą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Aby użyć akcji SFTP-SSH, uruchom aplikację logiki z innym wyzwalaczem, na przykład wyzwalaczem **cyklu** .
 
@@ -137,7 +139,7 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Na przykład:
+   Przykład:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -157,7 +159,7 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
 1. Zapisz plik klucza prywatnego z `.pem` rozszerzeniem nazwy pliku.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Kwestie do rozważenia
 
 W tej sekcji opisano zagadnienia dotyczące wyzwalaczy i akcji tego łącznika.
 
@@ -197,9 +199,9 @@ Aby utworzyć plik na serwerze SFTP, możesz skorzystać z akcji **Utwórz plik*
 
    1. Wybierz pozycję **Edytuj**  >  **kopię**.
 
-   1. W wyzwalaczu SFTP-SSH lub akcji, który został dodany, wklej *pełny* klucz skopiowany do właściwości **prywatnego klucza SSH** , która obsługuje wiele wierszy.  ***Upewnij się, że wkleisz*** klucz. ***Nie wprowadzaj ręcznie ani nie edytuj klucza***.
+   1. W wyzwalaczu SFTP-SSH lub akcji, który został dodany, wklej *pełny* klucz skopiowany do właściwości **prywatnego klucza SSH** , która obsługuje wiele wierszy.  **_Upewnij się, że wkleisz_* klucz. _*_Nie wprowadzaj ręcznie ani nie edytuj klucza_*_.
 
-1. Po zakończeniu wprowadzania szczegółów połączenia wybierz pozycję **Utwórz**.
+1. Po zakończeniu wprowadzania szczegółów połączenia wybierz _ * Utwórz * *.
 
 1. Podaj teraz niezbędne szczegóły wybranego wyzwalacza lub akcji i Kontynuuj tworzenie przepływu pracy aplikacji logiki.
 
@@ -209,11 +211,11 @@ Aby utworzyć plik na serwerze SFTP, możesz skorzystać z akcji **Utwórz plik*
 
 Aby zastąpić domyślne zachowanie adaptacyjne używane do rozdzielania, można określić stały rozmiar fragmentu od 5 MB do 50 MB.
 
-1. W prawym górnym rogu akcji wybierz przycisk wielokropka (**...**), a następnie wybierz pozycję **Ustawienia**.
+1. W prawym górnym rogu akcji wybierz przycisk wielokropka ( **...** ), a następnie wybierz pozycję **Ustawienia**.
 
    ![Otwórz ustawienia protokołu SFTP-SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
-1. W obszarze **transfer zawartości**w właściwości **rozmiar fragmentu** wprowadź wartość całkowitą z `5` do `50` , na przykład: 
+1. W obszarze **transfer zawartości** w właściwości **rozmiar fragmentu** wprowadź wartość całkowitą z `5` do `50` , na przykład: 
 
    ![Określ rozmiar fragmentu do użycia zamiast niego](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
@@ -227,7 +229,7 @@ Aby zastąpić domyślne zachowanie adaptacyjne używane do rozdzielania, można
 
 Ten wyzwalacz uruchamia przepływ pracy aplikacji logiki, gdy na serwerze SFTP zostanie dodany lub zmieniony plik. Na przykład można dodać warunek, który sprawdza zawartość pliku i pobiera zawartość w zależności od tego, czy zawartość spełnia określony warunek. Następnie można dodać akcję, która pobiera zawartość pliku i umieszcza tę zawartość w folderze na serwerze SFTP.
 
-**Przykład przedsiębiorstwa**: ten wyzwalacz służy do monitorowania folderu SFTP dla nowych plików reprezentujących zamówienia klienta. Następnie można użyć akcji SFTP, takiej jak **pobieranie zawartości pliku** , aby uzyskać zawartość zamówienia do dalszej obróbki i przechowywać ją w bazie danych zamówień.
+**Przykład przedsiębiorstwa** : ten wyzwalacz służy do monitorowania folderu SFTP dla nowych plików reprezentujących zamówienia klienta. Następnie można użyć akcji SFTP, takiej jak **pobieranie zawartości pliku** , aby uzyskać zawartość zamówienia do dalszej obróbki i przechowywać ją w bazie danych zamówień.
 
 <a name="get-content"></a>
 
@@ -253,21 +255,23 @@ Jeśli nie możesz uniknąć ani opóźnić przeniesienia pliku, możesz pominą
 
 1. Jeśli te metadane pliku są potrzebne później, można użyć akcji **Pobierz metadane pliku** .
 
+<a name="connection-attempt-failed"></a>
+
 ### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>504: "próba nawiązania połączenia nie powiodła się, ponieważ połączona Strona nie odpowiedziała prawidłowo po upływie określonego czasu lub nawiązane połączenie nie powiodło się, ponieważ podłączony host nie odpowiedział" lub "żądanie do serwera SFTP zajęło więcej niż" 00:00:30 "s"
 
-Ten błąd może wystąpić, gdy aplikacja logiki nie może pomyślnie nawiązać połączenia z serwerem SFTP. Może być wiele różnych powodów i sugerujemy rozwiązanie problemu z następujących aspektów. 
+Ten błąd może wystąpić, gdy aplikacja logiki nie może pomyślnie nawiązać połączenia z serwerem SFTP. Przyczyny tego problemu mogą być różne, dlatego wypróbuj następujące opcje rozwiązywania problemów:
 
-1. Limit czasu połączenia wynosi 20 sekund. Upewnij się, że serwer SFTP ma dobrą wydajność, a urządzenia intermidiate, takie jak zapora, nie zwiększają nakładu pracy. 
+* Limit czasu połączenia wynosi 20 sekund. Sprawdź, czy serwer SFTP ma dobrą wydajność i pośrednie urządzenia, takie jak zapory, nie dodając narzutu. 
 
-2. Jeśli istnieje Zapora, upewnij się, że adresy **IP łącznika zarządzanego** są dodawane do listy zatwierdzonych. Te adresy IP można znaleźć dla regionu aplikacji logiki [**tutaj**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+* Jeśli masz skonfigurowaną zaporę, upewnij się, że adresy **IP łącznika zarządzanego** są dodawane do listy zatwierdzonych. Aby znaleźć adresy IP dla regionu aplikacji logiki, zobacz [limity i konfiguracja dla Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#multi-tenant-azure---outbound-ip-addresses).
 
-3. Jeśli ten problem występuje sporadycznie, Przetestuj ustawienia ponawiania, aby zobaczyć, czy większa liczba ponownych prób od domyślnego 4 może pomóc.
+* Jeśli ten błąd wystąpi sporadycznie, należy zmienić ustawienie **zasad ponawiania** dla akcji SFTP-SSH na liczbę ponownych prób wyższych niż domyślne cztery ponowne próby.
 
-4. Sprawdź, czy serwer SFTP ogranicza liczbę połączeń z poszczególnych adresów IP. Jeśli tak, może być konieczne ograniczenie liczby współbieżnych wystąpień aplikacji logiki. 
+* Sprawdź, czy serwer SFTP ogranicza liczbę połączeń z poszczególnych adresów IP. Jeśli istnieje ograniczenie, może być konieczne ograniczenie liczby współbieżnych wystąpień aplikacji logiki.
 
-5. Zwiększ wartość właściwości [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) , tak jak 1 godzina w konfiguracji SSH na serwerze SFTP, aby zmniejszyć koszt ustanowienia połączenia.
+* Aby zmniejszyć koszt ustanowienia połączenia, w konfiguracji SSH dla serwera SFTP Zwiększ wartość właściwości [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) na około 1 godzinę.
 
-6. Możesz sprawdzić dziennik serwera SFTP, aby sprawdzić, czy żądanie z aplikacji logiki kiedykolwiek dotarło do serwera SFTP. Może być również konieczne wykonanie niektórych funkcji śledzenia sieci na zaporze i na serwerze SFTP, aby Dig dalsze problemy z łącznością.
+* Przejrzyj dziennik serwera SFTP, aby sprawdzić, czy żądanie z aplikacji logiki osiągnęło serwer SFTP. Aby uzyskać więcej informacji na temat problemu z łącznością, można również uruchomić śledzenie sieci na zaporze i na serwerze SFTP.
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 

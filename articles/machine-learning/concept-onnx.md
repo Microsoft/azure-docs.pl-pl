@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 06/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: acaab8aaa12a107f4d0f8a8aac0baf7d5ebb8e4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7b818de12a968869d655a80917572ddf5f2c210
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012762"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323008"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX i Azure Machine Learning: Tworzenie i przyspieszenie modeli ML
 
@@ -29,9 +29,9 @@ Firma Microsoft i społeczność partnerów utworzyli ONNX jako otwarty standard
 [Środowisko uruchomieniowe ONNX](https://onnxruntime.ai) to aparat wnioskowania o wysokiej wydajności służący do wdrażania modeli ONNX w środowisku produkcyjnym. Jest zoptymalizowany pod kątem chmury i brzegowej oraz działa w systemach Linux, Windows i Mac. Pisanie w języku C++ zawiera również interfejsy API języka C, Python, C#, Java i JavaScript (Node.js) do użycia w różnych środowiskach. Środowisko uruchomieniowe ONNX obsługuje zarówno DNN, jak i tradycyjne modele ML oraz integruje się z akceleratorami na różnych urządzeniach, takich jak TensorRT w procesorach GPU NVidia, OpenVINO na procesorach Intel, DirectML w systemie Windows i innych. Za pomocą środowiska uruchomieniowego ONNX można korzystać z zalet optymalizacji, testowania i ciągłego ulepszania klasy produkcyjnej.
 
 Środowisko uruchomieniowe ONNX jest używane w usługach firmy Microsoft o dużej skali, takich jak Bing, Office i Azure Cognitive Services. Zyski wydajności są zależne od wielu czynników, ale te usługi firmy Microsoft miały średni wzrost __wydajności procesora CPU__. Oprócz usług Azure Machine Learning środowisko uruchomieniowe ONNX działa również w innych produktach, które obsługują Machine Learning obciążeń, w tym:
-+ System Windows: środowisko uruchomieniowe jest wbudowane w system Windows w ramach [systemu windows Machine Learning](https://docs.microsoft.com/windows/ai/windows-ml/) i działa na setkach milionów urządzeń. 
-+ Rodzina produktów SQL Azure: uruchamianie natywnej oceny danych w [usłudze Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/onnx-overview) i [wystąpieniu zarządzanym Azure SQL](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview).
-+ ML.NET: [Uruchom modele ONNX w ml.NET](https://docs.microsoft.com/dotnet/machine-learning/tutorials/object-detection-onnx).
++ System Windows: środowisko uruchomieniowe jest wbudowane w system Windows w ramach [systemu windows Machine Learning](/windows/ai/windows-ml/) i działa na setkach milionów urządzeń. 
++ Rodzina produktów SQL Azure: uruchamianie natywnej oceny danych w [usłudze Azure SQL Edge](../azure-sql-edge/onnx-overview.md) i [wystąpieniu zarządzanym Azure SQL](../azure-sql/managed-instance/machine-learning-services-overview.md).
++ ML.NET: [Uruchom modele ONNX w ml.NET](/dotnet/machine-learning/tutorials/object-detection-onnx).
 
 
 [![Diagram przepływu ONNX przedstawiający szkolenia, konwertery i wdrażanie](./media/concept-onnx/onnx.png)](././media/concept-onnx/onnx.png#lightbox)
@@ -42,7 +42,7 @@ Modele ONNX można uzyskać na kilka sposobów:
 + Uczenie nowego modelu ONNX w Azure Machine Learning (Zobacz przykłady w dolnej części tego artykułu) lub przy użyciu [funkcji automatycznych Machine Learning](concept-automated-ml.md#automl--onnx)
 + Konwertuj istniejący model z innego formatu na ONNX (zobacz [samouczki](https://github.com/onnx/tutorials)) 
 + Pobierz wstępnie szkolony model ONNX z [modelu ONNX zoo](https://github.com/onnx/models)
-+ Generuj dostosowany model ONNX z [usługi Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
++ Generuj dostosowany model ONNX z [usługi Azure Custom Vision Service](../cognitive-services/custom-vision-service/index.yml) 
 
 Wiele modeli, w tym Klasyfikacja obrazu, wykrywanie obiektów i przetwarzanie tekstu, można reprezentować jako modele ONNX. W przypadku wystąpienia problemu z modelem, którego nie można pomyślnie przekonwertować, należy rozwiązać problem w usłudze GitHub odpowiedniego konwertera, który został użyty. Możesz kontynuować korzystanie z istniejącego modelu formatu do momentu rozwiązania problemu.
 
@@ -98,5 +98,3 @@ Dowiedz się więcej na temat **ONNX** lub współtworzenia projektu:
 Dowiedz się więcej na temat **środowiska uruchomieniowego ONNX** lub współtworzenia projektu:
 + [Witryna sieci Web projektu środowiska uruchomieniowego ONNX](https://onnxruntime.ai)
 + [Repozytorium GitHub środowiska uruchomieniowego ONNX](https://github.com/Microsoft/onnxruntime)
-
-

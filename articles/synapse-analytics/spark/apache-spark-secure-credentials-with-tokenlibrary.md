@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 90e7297236994650e0820e883c94a98b29c49fb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1cdb010e34674d52ebe2135ad1591a163a078708
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249420"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324948"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Zabezpieczanie poświadczeń za pomocą połączonych usług z TokenLibrary
 Dostęp do danych ze źródeł zewnętrznych jest typowym wzorcem. O ile zewnętrzne źródło danych nie zezwala na dostęp anonimowy, należy zabezpieczyć połączenie za pomocą poświadczeń, klucza tajnego lub parametrów połączenia.  
@@ -122,5 +122,5 @@ print(accountKey)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zapisz w puli SQL](./synapse-spark-sql-pool-import-export.md)
+- [Zapisz w dedykowanej puli SQL](./synapse-spark-sql-pool-import-export.md)
 

@@ -1,25 +1,50 @@
 ---
 title: Nowości w dokumentacji platformy tożsamości firmy Microsoft
+titleSuffix: Microsoft identity platform
 description: Nowa i zaktualizowana dokumentacja platformy tożsamości firmy Microsoft.
-ms.date: 10/09/2020
+services: active-directory
+author: mmacy
+manager: CelesteDG
+ms.date: 11/03/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-services: active-directory
-author: mmacy
-manager: CelesteDG
-ms.openlocfilehash: e6b1e16666188b21926d7547d80bda87303bc0f1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d5865810dafef9ce2bb525a8f1b6cdbdb1a86566
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979614"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322566"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Dokumentacja platformy tożsamości firmy Microsoft: co nowego
 
 Witamy w dokumentacji platformy tożsamości firmy Microsoft. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy.
+
+## <a name="october-2020"></a>Październik 2020 r.
+
+### <a name="new-articles"></a>Nowe artykuły
+
+- [Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w aplikacji sieci Web Node przy użyciu przepływu kodu uwierzytelniania](quickstart-v2-nodejs-webapp-msal.md)
+- [Instrukcje: Włączanie logowania jednokrotnego dla aplikacji w systemie Android przy użyciu MSAL](msal-android-single-sign-on.md)
+- [Obsługa logowania jednokrotnego i zasad ochrony aplikacji w aplikacjach mobilnych, które tworzysz](mobile-sso-support-overview.md)
+- Dokumentacja platformy tożsamości firmy Microsoft: co nowego (ten artykuł)
+- [Samouczek: Logowanie użytkowników i wywoływanie chronionego interfejsu API z aplikacji Blazor webassembly](tutorial-blazor-webassembly.md)
+- [Biblioteka uwierzytelniania w sieci Web firmy Microsoft](microsoft-identity-web.md)
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)](active-directory-configurable-token-lifetimes.md)
+- [Instrukcje: Logowanie się dowolnego użytkownika usługi Azure Active Directory za pomocą wzorca aplikacji wielodostępnych](howto-convert-app-to-be-multi-tenant.md)
+- [Szybki Start: modyfikowanie kont obsługiwanych przez aplikację](quickstart-modify-supported-accounts.md)
+- [Wideo poświęcone platformie tożsamości firmy Microsoft](identity-videos.md)
+- [Przewodnik migracji biblioteki ADAL do MSAL dla systemu Android](migrate-android-adal-msal.md)
+- [Szybki Start: wywoływanie interfejsu API sieci Web ASP.NET chronionego przez platformę tożsamości firmy Microsoft](quickstart-v2-dotnet-native-aspnet.md)
+- [Poświadczenia certyfikatu uwierzytelniania aplikacji platformy tożsamości firmy Microsoft](active-directory-certificate-credentials.md)
+- [Samouczek: Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji dla systemu iOS lub macOS](tutorial-v2-ios.md)
+- [Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji JavaScript jednostronicowej (SPA)](tutorial-v2-javascript-spa.md)
+- [Samouczek: korzystanie z trybu udostępnionego urządzenia w aplikacji systemu Android](tutorial-v2-shared-device-mode.md)
 
 ## <a name="september-2020"></a>Wrzesień 2020
 
@@ -62,27 +87,3 @@ Witamy w dokumentacji platformy tożsamości firmy Microsoft. W tym artykule wym
 - [Szybki Start: Konfigurowanie aplikacji do udostępniania internetowego interfejsu API](quickstart-configure-app-expose-web-apis.md)
 - [Wideo poświęcone platformie tożsamości firmy Microsoft](identity-videos.md)
 - [Szybki Start: wywoływanie interfejsu API sieci Web ASP.NET chronionego przez platformę tożsamości firmy Microsoft](quickstart-v2-dotnet-native-aspnet.md)
-
-## <a name="july-2020"></a>Lipiec 2020 r.
-
-### <a name="new-articles"></a>Nowe artykuły
-
-- [Dodawanie aplikacji do galerii aplikacji Azure Active Directory](v2-howto-app-gallery-listing.md)
-- [Uzyskaj certyfikat AppSource Certified for Azure Active Directory](v2-howto-get-appsource-certified.md)
-
-### <a name="updated-articles"></a>Zaktualizowane artykuły
-
-- [Platforma tożsamości firmy Microsoft i protokół OAuth 2,0 w imieniu użytkownika](v2-oauth2-on-behalf-of-flow.md)
-- [Ograniczenia i limity identyfikatora URI przekierowania/adresu URL odpowiedzi](reply-url.md)
-- [Chroniony internetowy interfejs API: Konfiguracja kodu](scenario-protected-web-api-app-configuration.md)
-- [Chroniony internetowy interfejs API: weryfikowanie zakresów i ról aplikacji](scenario-protected-web-api-verification-scope-app-roles.md)
-- [Internetowy interfejs API, który wywołuje interfejsy API sieci Web: uzyskiwanie tokenu dla aplikacji](scenario-web-api-call-api-acquire-token.md)
-- [Internetowy interfejs API, który wywołuje interfejsy API sieci Web: Konfiguracja kodu](scenario-web-api-call-api-app-configuration.md)
-- [Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu dla aplikacji](scenario-web-app-call-api-acquire-token.md)
-- [Aplikacja internetowa, która loguje użytkowników: Konfiguracja kodu](scenario-web-app-sign-user-app-configuration.md)
-- [Microsoft Identity platform — Omówienie](v2-overview.md)
-- [Wideo poświęcone platformie tożsamości firmy Microsoft](identity-videos.md)
-- [Szybki Start: Dodawanie logowania do aplikacji sieci Web w języku Java przez firmę Microsoft](quickstart-v2-java-webapp.md)
-- [Przepływy uwierzytelniania](msal-authentication-flows.md)
-- [Wywoływanie interfejsu API Microsoft Graph z aplikacji platforma uniwersalna systemu Windows (XAML)](tutorial-v2-windows-uwp.md)
-- [Inicjuj aplikacje klienckie przy użyciu MSAL.js](msal-js-initializing-client-applications.md)

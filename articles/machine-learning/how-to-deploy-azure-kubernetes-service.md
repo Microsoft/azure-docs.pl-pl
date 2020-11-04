@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 50f8768aec12b8bda8d9d489462a8f61e8d83c18
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: b98d3ea69286fe7c23b6c2978b71699ba7eb0e00
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999187"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325187"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Wdrażanie modelu w klastrze usługi Azure Kubernetes Service
 
@@ -34,7 +34,7 @@ Dowiedz się, jak za pomocą Azure Machine Learning wdrożyć model jako usług�
 Podczas wdrażania w usłudze Azure Kubernetes należy wdrożyć klaster AKS, który jest __połączony z obszarem roboczym__. Aby uzyskać informacje na temat łączenia klastra AKS z obszarem roboczym, zobacz [Tworzenie i dołączanie klastra usługi Azure Kubernetes](how-to-create-attach-kubernetes.md).
 
 > [!IMPORTANT]
-> Zalecamy debugowanie lokalnie przed wdrożeniem w usłudze sieci Web. Aby uzyskać więcej informacji, zobacz [debugowanie lokalne](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+> Zalecamy debugowanie lokalnie przed wdrożeniem w usłudze sieci Web. Aby uzyskać więcej informacji, zobacz [debugowanie lokalne](./how-to-troubleshoot-deployment.md#debug-locally)
 >
 > Możesz również skorzystać z usługi Azure Machine Learning — [Wdrażanie w notesie lokalnym](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -44,7 +44,7 @@ Podczas wdrażania w usłudze Azure Kubernetes należy wdrożyć klaster AKS, kt
 
 - Model uczenia maszynowego zarejestrowany w obszarze roboczym. Jeśli nie masz zarejestrowanego modelu, zapoznaj [się z tematem jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
 
-- [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+- [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 - W fragmentach kodu w języku __Python__ w tym artykule założono, że ustawiono następujące zmienne:
 
@@ -71,8 +71,8 @@ W Azure Machine Learning "wdrożenie" jest używane w bardziej ogólnym sensie u
 1. Kompilowanie lub pobieranie pliku dockerfile do węzła obliczeniowego (odnosi się do Kubernetes)
     1. System oblicza wartość skrótu: 
         - Obraz podstawowy 
-        - Niestandardowe kroki platformy Docker (zobacz [Wdrażanie modelu przy użyciu niestandardowego obrazu platformy Docker](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - Conda Definition YAML (zobacz [tworzenie & używanie środowisk oprogramowania w Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+        - Niestandardowe kroki platformy Docker (zobacz [Wdrażanie modelu przy użyciu niestandardowego obrazu platformy Docker](./how-to-deploy-custom-docker-image.md))
+        - Conda Definition YAML (zobacz [tworzenie & używanie środowisk oprogramowania w Azure Machine Learning](./how-to-use-environments.md))
     1. System używa tego skrótu jako klucza w odnośniku Azure Container Registry obszaru roboczego (ACR)
     1. Jeśli nie zostanie znaleziona, szuka dopasowania w ACR globalnym
     1. Jeśli nie zostanie znaleziona, system kompiluje nowy obraz (który zostanie zbuforowany i wypychany do obszaru roboczego ACR)
@@ -87,7 +87,7 @@ W Azure Machine Learning "wdrożenie" jest używane w bardziej ogólnym sensie u
 Składnik frontonu (Azure-Fe), który przekierowuje przychodzące żądania wnioskowania do wdrożonych usług automatycznie skaluje się w razie potrzeby. Skalowanie programu Uczenie maszynowe — Fe opiera się na przeznaczeniu i rozmiarze klastra AKS (liczba węzłów). Przeznaczenie i węzły klastra są konfigurowane podczas [tworzenia lub dołączania klastra AKS](how-to-create-attach-kubernetes.md). Istnieje jedna usługa Azure-Fe na klaster, która może być uruchomiona w wielu zasobnikach.
 
 > [!IMPORTANT]
-> W przypadku korzystania z klastra skonfigurowanego jako programowanie __-testowanie__samodzielny jest **wyłączony**.
+> W przypadku korzystania z klastra skonfigurowanego jako programowanie __-testowanie__ samodzielny jest **wyłączony**.
 
 Uczenie maszynowe — Fe skaluje się w górę (w pionie), aby używać większej liczby rdzeni i wychodzące (w poziomie) do korzystania z więcej wartości Gdy podejmowana jest decyzja o skalowaniu w górę, używany jest czas potrzebny do rozesłania przychodzących żądań wnioskowania. Jeśli ten czas przekroczy wartość progową, nastąpi skalowanie w górę. Jeśli czas do skierowania żądań przychodzących nadal przekroczy wartość progową, nastąpi skalowanie w poziomie.
 
@@ -95,7 +95,7 @@ Podczas skalowania w dół i w programie używane jest użycie procesora CPU. Je
 
 ## <a name="deploy-to-aks"></a>Wdrażanie w usłudze AKS
 
-Aby wdrożyć model w usłudze Azure Kubernetes Service, Utwórz __konfigurację wdrożenia__ opisującą wymaganą wartość zasobów obliczeniowych. Na przykład liczba rdzeni i pamięć. Potrzebna jest również __Konfiguracja wnioskowania__opisująca środowisko wymagane do hostowania modelu i usługi sieci Web. Aby uzyskać więcej informacji na temat tworzenia konfiguracji wnioskowania, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
+Aby wdrożyć model w usłudze Azure Kubernetes Service, Utwórz __konfigurację wdrożenia__ opisującą wymaganą wartość zasobów obliczeniowych. Na przykład liczba rdzeni i pamięć. Potrzebna jest również __Konfiguracja wnioskowania__ opisująca środowisko wymagane do hostowania modelu i usługi sieci Web. Aby uzyskać więcej informacji na temat tworzenia konfiguracji wnioskowania, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > Liczba modeli do wdrożenia jest ograniczona do 1 000 modeli na wdrożenie (na kontener).
@@ -121,10 +121,10 @@ print(service.get_logs())
 
 Aby uzyskać więcej informacji na temat klas, metod i parametrów używanych w tym przykładzie, zobacz następujące dokumenty referencyjne:
 
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py&preserve-view=true)
-* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py&preserve-view=true)
-* [Model. deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truewait-for-deployment-show-output-false-)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute?preserve-view=true&view=azure-ml-py)
+* [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?preserve-view=true&view=azure-ml-py)
+* [Model. deploy](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -136,7 +136,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Aby uzyskać więcej informacji, zobacz [AZ ml model Deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-deploy) Reference.
+Aby uzyskać więcej informacji, zobacz [AZ ml model Deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) Reference.
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -154,7 +154,7 @@ Składnik obsługujący Skalowanie automatyczne dla wdrożeń modeli Azure ML to
 > [!IMPORTANT]
 > * **Nie należy włączać funkcji automatycznego skalowania w poziomie Kubernetes pod kątem wdrożeń modeli**. W takim przypadku dwa składniki skalowania automatycznego będą konkurować ze sobą nawzajem. Usługa Uczenie maszynowe — Fe została zaprojektowana w celu automatycznego skalowania modeli wdrożonych przez usługę Azure ML, gdzie HPA musiałaby odgadnąć lub przybliżyć użycie modelu z ogólnej metryki, takiej jak użycie procesora CPU lub Konfiguracja metryki niestandardowej.
 > 
-> * Usługa **Azure-Fe nie skaluje liczby węzłów w KLASTRZE AKS**, ponieważ może to prowadzić do nieoczekiwanego wzrostu kosztów. Zamiast tego **skaluje liczbę replik dla modelu** w granicach klastra fizycznego. Jeśli potrzebujesz skalować liczbę węzłów w klastrze, możesz ręcznie skalować klaster lub [skonfigurować automatyczne skalowanie klastra AKS](/azure/aks/cluster-autoscaler).
+> * Usługa **Azure-Fe nie skaluje liczby węzłów w KLASTRZE AKS** , ponieważ może to prowadzić do nieoczekiwanego wzrostu kosztów. Zamiast tego **skaluje liczbę replik dla modelu** w granicach klastra fizycznego. Jeśli potrzebujesz skalować liczbę węzłów w klastrze, możesz ręcznie skalować klaster lub [skonfigurować automatyczne skalowanie klastra AKS](../aks/cluster-autoscaler.md).
 
 Skalowanie automatyczne może być kontrolowane przez ustawienie `autoscale_target_utilization` , `autoscale_min_replicas` i `autoscale_max_replicas` dla usługi sieci Web AKS. W poniższym przykładzie pokazano, jak włączyć skalowanie automatyczne:
 
@@ -188,7 +188,7 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-Aby uzyskać więcej informacji na temat ustawienia `autoscale_target_utilization` , `autoscale_max_replicas` , i `autoscale_min_replicas` , zobacz odwołanie do modułu [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true) .
+Aby uzyskać więcej informacji na temat ustawienia `autoscale_target_utilization` , `autoscale_max_replicas` , i `autoscale_min_replicas` , zobacz odwołanie do modułu [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) .
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Wdróż modele do AKS przy użyciu kontrolowanego wdrożenia (wersja zapoznawcza)
 
@@ -302,7 +302,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Jeśli musisz ponownie wygenerować klucz, użyj [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true)
+> Jeśli musisz ponownie wygenerować klucz, użyj [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Uwierzytelnianie przy użyciu tokenów
 
@@ -324,12 +324,12 @@ print(token)
 >
 > Firma Microsoft zdecydowanie zaleca utworzenie obszaru roboczego Azure Machine Learning w tym samym regionie, w którym znajduje się klaster usługi Azure Kubernetes. W celu uwierzytelnienia przy użyciu tokenu usługa sieci Web wykona wywołanie do regionu, w którym jest tworzony obszar roboczy Azure Machine Learning. Jeśli region obszaru roboczego jest niedostępny, nie będzie można pobrać tokenu dla usługi sieci Web nawet wtedy, gdy klaster znajduje się w innym regionie niż obszar roboczy. W efekcie uwierzytelnianie oparte na tokenach jest niedostępne do momentu ponownego udostępnienia regionu obszaru roboczego. Ponadto im większa odległość między regionem klastra a regionem obszaru roboczego, tym dłużej potrwa pobieranie tokenu.
 >
-> Aby pobrać token, należy użyć zestawu SDK Azure Machine Learning lub polecenia [AZ ml Service Get-Access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-service-get-access-token) .
+> Aby pobrać token, należy użyć zestawu SDK Azure Machine Learning lub polecenia [AZ ml Service Get-Access-token](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) .
 
 
-### <a name="vulnerability-scanning"></a>Skanowanie luk w zabezpieczeniach
+### <a name="vulnerability-scanning"></a>Skanowanie pod kątem luk w zabezpieczeniach
 
-Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. Należy zezwolić Azure Security Center na skanowanie zasobów i postępować zgodnie z zaleceniami. Aby uzyskać więcej informacji, zobacz [Integracja usług Azure Kubernetes Services z usługą Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. Należy zezwolić Azure Security Center na skanowanie zasobów i postępować zgodnie z zaleceniami. Aby uzyskać więcej informacji, zobacz [Integracja usług Azure Kubernetes Services z usługą Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,16 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: e422c1a7b333254ed49b53bcdf2d10e65f2846e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cfdeaee863c8e11a76ac5842ae6c35d370e2ae2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345325"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322544"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretowanie wyników modelu w Azure Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 W tym temacie wyjaśniono, jak wizualizować i interpretować wyniki prognozowania w Azure Machine Learning Studio (klasyczny). Po przeprowadzeniu szkolenia modelu i zakończeniu przewidywania względem niego ("Ocena modelu") należy zrozumieć i zinterpretować wynik przewidywania.
@@ -80,7 +80,7 @@ Po zrozumieniu i ocenie wyników przewidywania eksperyment może być opublikowa
 
 Rysunek 3. Ocenianie eksperymentu problemu klasyfikacji dwóch klas w tęczówki
 
-Teraz musisz ustawić dane wejściowe i wyjściowe dla usługi sieci Web. Dane wejściowe to właściwy port wejściowy [modelu oceny][score-model], czyli dane wejściowe funkcji kwitnienia Iris. Wybór danych wyjściowych zależy od tego, czy interesuje Cię Klasa predykcyjna (etykieta z oceną), prawdopodobieństwo oceny lub oba te elementy. W tym przykładzie zakłada się, że interesują Cię oba elementy. Aby wybrać żądane kolumny wyjściowe, użyj [opcji wybierz kolumny w module zestawu danych][select-columns] . Kliknij pozycję [Wybierz kolumny w zestawie danych][select-columns], kliknij pozycję **Uruchom selektor kolumny**i wybierz pozycję **etykiety z oceną** i **wyniki oceny**. Po ustawieniu portu wyjściowego [wybranych kolumn w zestawie danych][select-columns] i jego ponownym uruchomieniu należy rozpocząć publikowanie eksperymentu oceniania jako usługi sieci Web, klikając pozycję **Publikuj usługę sieci Web**. Końcowy eksperyment wygląda jak rysunek 4.
+Teraz musisz ustawić dane wejściowe i wyjściowe dla usługi sieci Web. Dane wejściowe to właściwy port wejściowy [modelu oceny][score-model], czyli dane wejściowe funkcji kwitnienia Iris. Wybór danych wyjściowych zależy od tego, czy interesuje Cię Klasa predykcyjna (etykieta z oceną), prawdopodobieństwo oceny lub oba te elementy. W tym przykładzie zakłada się, że interesują Cię oba elementy. Aby wybrać żądane kolumny wyjściowe, użyj [opcji wybierz kolumny w module zestawu danych][select-columns] . Kliknij pozycję [Wybierz kolumny w zestawie danych][select-columns], kliknij pozycję **Uruchom selektor kolumny** i wybierz pozycję **etykiety z oceną** i **wyniki oceny**. Po ustawieniu portu wyjściowego [wybranych kolumn w zestawie danych][select-columns] i jego ponownym uruchomieniu należy rozpocząć publikowanie eksperymentu oceniania jako usługi sieci Web, klikając pozycję **Publikuj usługę sieci Web**. Końcowy eksperyment wygląda jak rysunek 4.
 
 ![Eksperyment klasyfikacji dwóch klas Iris](./media/interpret-model-results/4.png)
 
@@ -107,7 +107,7 @@ W danych szkoleniowych są wyekstrahowane 16 funkcji z obrazów list odręcznych
 
 Rysunek 6. Eksperyment problemu klasyfikacji wieloklasowego rozpoznawania litery
 
-Wizualizowanie wyników modułu [modelu wynikowego][score-model] przez kliknięcie portu wyjściowego modułu [oceny wyniku][score-model] , a następnie kliknięcie **wizualizacji**, powinna zostać wyświetlona zawartość, jak pokazano na rysunku 7.
+Wizualizowanie wyników modułu [modelu wynikowego][score-model] przez kliknięcie portu wyjściowego modułu [oceny wyniku][score-model] , a następnie kliknięcie **wizualizacji** , powinna zostać wyświetlona zawartość, jak pokazano na rysunku 7.
 
 ![Wyniki modelu wyników](./media/interpret-model-results/7.png)
 
@@ -247,7 +247,7 @@ Rysunek 20. Zalecany eksperyment systemu
 
 **Prognozowanie klasyfikacji dla danego użytkownika i elementu**
 
-Wybierając opcję **prognozowanie klasyfikacji** w obszarze **przewidywanie**, należy zadać systemowi zalecanym do przewidywania oceny danego użytkownika i elementu. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 21.
+Wybierając opcję **prognozowanie klasyfikacji** w obszarze **przewidywanie** , należy zadać systemowi zalecanym do przewidywania oceny danego użytkownika i elementu. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 21.
 
 ![Wynik wyniku proponowanego systemu — przewidywanie oceny](./media/interpret-model-results/21.png)
 
@@ -257,7 +257,7 @@ Pierwsze dwie kolumny to pary elementu User-Item dostarczone przez dane wejścio
 
 **Zalecane elementy dla danego użytkownika**
 
-Wybierając pozycję **element rekomendacja** w obszarze **predykcyjny zalecenia**, prosisz o system polecający, aby zalecać elementy dla danego użytkownika. Ostatni parametr, który należy wybrać w tym scenariuszu, jest *zalecanym wyborem elementu*. Opcja **z elementów ocenianych (na potrzeby oceny modelu)** służy głównie do oceny modelu podczas procesu szkolenia. Na potrzeby tego etapu przewidywania wybieramy **spośród wszystkich elementów**. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 22.
+Wybierając pozycję **element rekomendacja** w obszarze **predykcyjny zalecenia** , prosisz o system polecający, aby zalecać elementy dla danego użytkownika. Ostatni parametr, który należy wybrać w tym scenariuszu, jest *zalecanym wyborem elementu*. Opcja **z elementów ocenianych (na potrzeby oceny modelu)** służy głównie do oceny modelu podczas procesu szkolenia. Na potrzeby tego etapu przewidywania wybieramy **spośród wszystkich elementów**. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 22.
 
 ![Wynik wyniku zalecanego systemu — zalecenie dotyczące elementu](./media/interpret-model-results/22.png)
 
@@ -267,7 +267,7 @@ Pierwsza z sześciu kolumn reprezentuje podane identyfikatory użytkowników, ab
 
 **Znajdź użytkowników związanych z danym użytkownikiem**
 
-Wybierając **odpowiednich użytkowników** w obszarze **predykcyjny polecający**, użytkownik jest proszony o wyszukanie pokrewnych użytkowników dla danego użytkownika. Pokrewni użytkownicy są użytkownikami, którzy mają podobne preferencje. Ostatnim parametrem wybieranym w tym scenariuszu jest *wybór związany z użytkownikiem*. Opcja **od użytkowników, którzy oceniali elementy (na potrzeby oceny modelu)** , jest przede wszystkim do oceny modelu w trakcie procesu szkoleniowego. Wybierz **spośród wszystkich użytkowników** tego etapu przewidywania. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 23.
+Wybierając **odpowiednich użytkowników** w obszarze **predykcyjny polecający** , użytkownik jest proszony o wyszukanie pokrewnych użytkowników dla danego użytkownika. Pokrewni użytkownicy są użytkownikami, którzy mają podobne preferencje. Ostatnim parametrem wybieranym w tym scenariuszu jest *wybór związany z użytkownikiem*. Opcja **od użytkowników, którzy oceniali elementy (na potrzeby oceny modelu)** , jest przede wszystkim do oceny modelu w trakcie procesu szkoleniowego. Wybierz **spośród wszystkich użytkowników** tego etapu przewidywania. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 23.
 
 ![Wynik oceny zalecanych użytkowników systemu](./media/interpret-model-results/23.png)
 
@@ -277,7 +277,7 @@ W pierwszej z sześciu kolumn są wyświetlane podane identyfikatory użytkownik
 
 **Znajdź elementy dotyczące danego elementu**
 
-Wybierając **powiązane elementy** w obszarze **predykcyjny polecający**, użytkownik jest proszony o wyszukanie pokrewnych elementów dla danego elementu. Elementy pokrewne to elementy, które najprawdopodobniej będą odnosi się do tego samego użytkownika. Ostatnim parametrem, który należy wybrać w tym scenariuszu, jest *wybór powiązanego elementu*. Opcja **z elementów ocenianych (na potrzeby oceny modelu)** służy głównie do oceny modelu podczas procesu szkolenia. Wybieramy **ze wszystkich elementów** dla tego etapu przewidywania. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 24.
+Wybierając **powiązane elementy** w obszarze **predykcyjny polecający** , użytkownik jest proszony o wyszukanie pokrewnych elementów dla danego elementu. Elementy pokrewne to elementy, które najprawdopodobniej będą odnosi się do tego samego użytkownika. Ostatnim parametrem, który należy wybrać w tym scenariuszu, jest *wybór powiązanego elementu*. Opcja **z elementów ocenianych (na potrzeby oceny modelu)** służy głównie do oceny modelu podczas procesu szkolenia. Wybieramy **ze wszystkich elementów** dla tego etapu przewidywania. Wizualizacja danych wyjściowych [Matchbox oceny wyniku][score-matchbox-recommender] jest następująca, jak rysunek 24.
 
 ![Wynik oceny zalecanych elementów systemu](./media/interpret-model-results/24.png)
 
@@ -304,10 +304,10 @@ Po uruchomieniu usługi sieci Web zwrócony wynik wygląda jak rysunek 26. Pię�
 Rysunek 26. Problem z usługą sieci Web z zaleceniem zalecenia dotyczącego restauracji
 
 <!-- Module References -->
-[assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
-[train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+[assign-to-clusters]: /azure/machine-learning/studio-module-reference/assign-data-to-clusters
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-matchbox-recommender]: /azure/machine-learning/studio-module-reference/score-matchbox-recommender
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-clustering-model]: /azure/machine-learning/studio-module-reference/train-clustering-model
+[train-matchbox-recommender]: /azure/machine-learning/studio-module-reference/train-matchbox-recommender

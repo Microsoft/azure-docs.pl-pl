@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 695539e4739002480b3622eb217ef920d4cb34e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 279c07ff892cb261c8bda1937c6e9f8f1b6c6793
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357492"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325707"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Wykonywanie analizy za pomocą Azure Machine Learning Studio (klasyczny) przy użyciu bazy danych SQL Server
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Często przedsiębiorstwa, które współpracują z danymi lokalnymi, mogą wykorzystać skalę i elastyczność chmury na potrzeby obciążeń uczenia maszynowego. Ale nie chcą zakłócać swoich bieżących procesów i przepływów pracy, przenosząc dane lokalne do chmury. Azure Machine Learning Studio (klasyczny) obsługuje teraz odczytywanie danych z SQL Serverj bazy danych, a następnie uczenie i ocenianie modelu przy użyciu tych danych. Nie jest już konieczne ręczne kopiowanie i synchronizowanie danych między chmurą a serwerem lokalnym. Zamiast tego moduł **Importuj dane** w Azure Machine Learning Studio (klasyczny) można teraz odczytywać bezpośrednio z bazy danych SQL Server do zadań szkolenia i oceniania.
@@ -91,7 +91,7 @@ Pierwszym krokiem jest utworzenie i skonfigurowanie bramy w celu uzyskania dost�
     ![Pobieranie i rejestrowanie bramy danych](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 6. <span id="note-1" class="anchor"></span>Jeśli nie pobrano jeszcze i nie zainstalowano bramy Zarządzanie danymi firmy Microsoft, kliknij pozycję **Pobierz bramę zarządzania danymi**. Spowoduje to przejście do centrum pobierania Microsoft, w którym można wybrać wymaganą wersję bramy, pobrać ją i zainstalować. Aby uzyskać szczegółowe informacje na temat wymagań wstępnych instalacji, czynności instalacyjnych i wskazówek dotyczących rozwiązywania problemów, należy [przenieść dane między źródłami lokalnymi i chmurą przy użyciu bramy zarządzanie danymi](../../data-factory/tutorial-hybrid-copy-portal.md).
 7. Po zainstalowaniu bramy zostanie otwarta Zarządzanie danymi Configuration Manager Gateway i zostanie wyświetlone okno dialogowe **Rejestrowanie bramy** . Wklej **klucz rejestracji bramy** skopiowany do schowka, a następnie kliknij pozycję **zarejestruj**.
-8. Jeśli masz już zainstalowaną bramę, uruchom Configuration Manager Zarządzanie danymi bramy. Kliknij przycisk **Zmień klucz**, wklej **klucz rejestracji bramy** skopiowany do Schowka w poprzednim kroku, a następnie kliknij przycisk **OK**.
+8. Jeśli masz już zainstalowaną bramę, uruchom Configuration Manager Zarządzanie danymi bramy. Kliknij przycisk **Zmień klucz** , wklej **klucz rejestracji bramy** skopiowany do Schowka w poprzednim kroku, a następnie kliknij przycisk **OK**.
 9. Po zakończeniu instalacji zostanie wyświetlone okno dialogowe **Rejestrowanie bramy** dla programu Microsoft Zarządzanie danymi Gateway Configuration Manager. Wklej klucz rejestracji bramy skopiowany do Schowka w poprzednim kroku, a następnie kliknij pozycję **zarejestruj**.
 
     ![Rejestrowanie bramy](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
@@ -134,7 +134,7 @@ Po skonfigurowaniu bramy można dodać moduł **importowania danych** do ekspery
 5. Wybierz zainstalowaną i zarejestrowaną **bramę danych** . Można skonfigurować inną bramę, wybierając pozycję "(Dodaj nową bramę danych)".
 
    ![Wybieranie bramy danych dla modułu importowania danych](./media/use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
-6. Wprowadź **nazwę serwera bazy danych** SQL i **nazwę bazy danych**wraz z **kwerendą bazy danych** SQL, która ma zostać wykonana.
+6. Wprowadź **nazwę serwera bazy danych** SQL i **nazwę bazy danych** wraz z **kwerendą bazy danych** SQL, która ma zostać wykonana.
 7. Kliknij pozycję **wprowadź wartości** w obszarze **Nazwa użytkownika i hasło** , a następnie wprowadź swoje poświadczenia bazy danych. W zależności od konfiguracji SQL Server można użyć zintegrowanego uwierzytelniania systemu Windows lub uwierzytelniania SQL Server.
 
    ![Wprowadź poświadczenia bazy danych](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792025"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325525"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure
 
@@ -53,7 +53,7 @@ Zapoznaj się z innymi artykułami w tej serii:
 
 Jeśli uzyskujesz dostęp do programu Studio z zasobu w sieci wirtualnej (na przykład wystąpienie obliczeniowe lub maszyna wirtualna), musisz zezwolić na ruch wychodzący z sieci wirtualnej do programu Studio. 
 
-Na przykład, jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) w celu ograniczenia ruchu wychodzącego, Dodaj regułę do miejsca docelowego __tagu usługi__ __AzureFrontDoor. frontonu__ .
+Na przykład, jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) w celu ograniczenia ruchu wychodzącego, Dodaj regułę do miejsca docelowego __tagu usługi__ __AzureFrontDoor. frontonu__.
 
 ## <a name="access-data-using-the-studio"></a>Uzyskiwanie dostępu do danych przy użyciu programu Studio
 
@@ -71,7 +71,7 @@ Program Virtual Machines obsługuje odczytywanie danych z następujących typów
 * Obiekt bob Azure
 * Usługa Azure Data Lake Storage 1. generacji
 * Usługa Azure Data Lake Storage 2. generacji
-* Usługa Azure SQL Database
+* Azure SQL Database
 
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Przyznaj dostęp do __czytnika__ tożsamości zarządzanego obszaru roboczego do prywatnego linku do magazynu
 
@@ -85,9 +85,9 @@ Azure Machine Learning używa [magazynów](concept-data.md#datastores) danych do
 
 1. Aby utworzyć nowy magazyn danych, wybierz pozycję __+ nowy magazyn__ danych.
 
-    Aby zaktualizować istniejący magazyn danych, wybierz magazyn danych i wybierz pozycję __Aktualizuj poświadczenia__ .
+    Aby zaktualizować istniejący magazyn danych, wybierz magazyn danych i wybierz pozycję __Aktualizuj poświadczenia__.
 
-1. W ustawieniach magazynu danych wybierz opcję __tak__ , aby  __umożliwić usłudze Azure Machine Learning dostęp do magazynu przy użyciu tożsamości zarządzanej przez obszar roboczy__ .
+1. W ustawieniach magazynu danych wybierz opcję __tak__ , aby  __umożliwić usłudze Azure Machine Learning dostęp do magazynu przy użyciu tożsamości zarządzanej przez obszar roboczy__.
 
 
 Te kroki umożliwiają dodanie tożsamości zarządzanej przez obszar roboczy jako __czytnika__ do usługi magazynu przy użyciu funkcji kontroli dostępu opartej na zasobach platformy Azure (Azure RBAC). Dostęp __czytnika__ umożliwia pobranie ustawień zapory przez obszar roboczy i upewnienie się, że dane nie opuszczają sieci wirtualnej.
@@ -99,7 +99,7 @@ Te kroki umożliwiają dodanie tożsamości zarządzanej przez obszar roboczy ja
 
 Korzystanie z tożsamości zarządzanej w celu uzyskiwania dostępu do usług magazynu wpływa na niektóre zagadnienia dotyczące zabezpieczeń. Te zagadnienia są unikatowe dla typu konta magazynu, do którego uzyskujesz dostęp. W tej sekcji opisano zmiany dotyczące poszczególnych typów kont magazynu.
 
-### <a name="azure-blob-storage"></a>Usługa Azure Blob Storage
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 
 W przypadku __usługi Azure Blob Storage__ tożsamość zarządzana przez obszar roboczy jest również dodawana jako [czytnik danych obiektów BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) , dzięki czemu może odczytywać dane z magazynu obiektów BLOB.
 
@@ -119,7 +119,7 @@ Azure Data Lake Storage Gen1 obsługuje tylko listy kontroli dostępu w stylu PO
 
 Aby uzyskać dostęp do danych przechowywanych w Azure SQL Database przy użyciu tożsamości zarządzanej, należy utworzyć użytkownika programu SQL Server, który jest mapowany na tożsamość zarządzaną. Aby uzyskać więcej informacji na temat tworzenia użytkownika od dostawcy zewnętrznego, zobacz [Tworzenie zawartych użytkowników mapowanych na tożsamości usługi Azure AD](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 
-Po utworzeniu użytkownika zawartego w programie SQL Udziel uprawnień do niego przy użyciu [polecenia Udziel T-SQL](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+Po utworzeniu użytkownika zawartego w programie SQL Udziel uprawnień do niego przy użyciu [polecenia Udziel T-SQL](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
 ### <a name="azure-machine-learning-designer-default-datastore"></a>Domyślny magazyn danych projektanta Azure Machine Learning
 
@@ -135,8 +135,8 @@ Możesz również zastąpić domyślny magazyn danych dla każdego modułu. Zape
 
 1. Wybierz moduł, którego dane wyjściowe chcesz określić.
 1. Rozwiń sekcję **Ustawienia wyjściowe** .
-1. Wybierz opcję **Zastąp domyślne ustawienia wyjściowe** .
-1. Wybierz pozycję **Ustaw ustawienia wyjściowe** .
+1. Wybierz opcję **Zastąp domyślne ustawienia wyjściowe**.
+1. Wybierz pozycję **Ustaw ustawienia wyjściowe**.
 1. Określ nowy magazyn danych.
 
 ## <a name="next-steps"></a>Następne kroki

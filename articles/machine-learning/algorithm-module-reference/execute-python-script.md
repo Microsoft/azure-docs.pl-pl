@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: e07e12e82d96b591db324673f4c24b9074128065
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e6a7eabec76cf27044b5d0e13acfc2431cb19b77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092997"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323752"
 ---
 # <a name="execute-python-script-module"></a>Wykonaj moduł skryptu języka Python
 
@@ -61,7 +61,7 @@ if spec is None:
 > Moduł skryptu języka Python excute nie obsługuje instalowania pakietów, które są zależne od dodatkowych bibliotek natywnych za pomocą polecenia, takiego jak "apt-get", takie jak Java, moduł pyodbc i itp. Jest to spowodowane tym, że ten moduł jest wykonywany w prostym środowisku z wstępnie zainstalowanym językiem Python i z uprawnieniem innym niż administrator.  
 
 ## <a name="upload-files"></a>Przekazywanie plików
-Moduł wykonywania skryptu języka Python obsługuje przekazywanie plików przy użyciu [zestawu SDK języka python Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
+Moduł wykonywania skryptu języka Python obsługuje przekazywanie plików przy użyciu [zestawu SDK języka python Azure Machine Learning](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
 
 Poniższy przykład pokazuje, jak przekazać plik obrazu w module wykonywania skryptu języka Python:
 
@@ -110,17 +110,17 @@ Moduł wykonywania skryptu języka Python zawiera przykładowy kod w języku Pyt
 
 1. Dodaj moduł **wykonywania skryptu języka Python** do potoku.
 
-2. Dodaj i Połącz **pozycję DataSet1** dowolnych zestawów danych z projektanta, który ma być używany na potrzeby danych wejściowych. Odwołuje się do tego zestawu danych w skrypcie języka Python jako **DataFrame1** .
+2. Dodaj i Połącz **pozycję DataSet1** dowolnych zestawów danych z projektanta, który ma być używany na potrzeby danych wejściowych. Odwołuje się do tego zestawu danych w skrypcie języka Python jako **DataFrame1**.
 
     Użycie zestawu danych jest opcjonalne. Użyj go, jeśli chcesz wygenerować dane przy użyciu języka Python, lub użyj kodu Python, aby zaimportować dane bezpośrednio do modułu.
 
-    Ten moduł obsługuje Dodawanie drugiego zestawu danych w **Dataset2** . Odwołuje się do drugiego zestawu danych w skrypcie języka Python jako **DataFrame2** .
+    Ten moduł obsługuje Dodawanie drugiego zestawu danych w **Dataset2**. Odwołuje się do drugiego zestawu danych w skrypcie języka Python jako **DataFrame2**.
 
     Zestawy danych przechowywane w Azure Machine Learning są automatycznie konwertowane na Pandas ramki, gdy są ładowane z tym modułem.
 
     ![Wykonaj mapę wejściową języka Python](media/module/python-module.png)
 
-4. Aby uwzględnić nowe pakiety lub kod w języku Python, Połącz spakowany plik zawierający te zasoby niestandardowe z portem **pakietu skryptu** . Lub jeśli skrypt ma rozmiar większy niż 16 KB, użyj portu **pakietu skryptu** , aby uniknąć błędów, takich jak *CommandLine, przekracza limit 16597 znaków* . 
+4. Aby uwzględnić nowe pakiety lub kod w języku Python, Połącz spakowany plik zawierający te zasoby niestandardowe z portem **pakietu skryptu** . Lub jeśli skrypt ma rozmiar większy niż 16 KB, użyj portu **pakietu skryptu** , aby uniknąć błędów, takich jak *CommandLine, przekracza limit 16597 znaków*. 
 
     
     1. Pakiet skryptu i innych zasobów niestandardowych należy powiązać z plikiem zip.
@@ -185,7 +185,7 @@ Moduł wykonywania skryptu języka Python zawiera przykładowy kod w języku Pyt
     Do projektanta można zwrócić dwa zestawy danych, które muszą być sekwencją typu `pandas.DataFrame` . Możesz tworzyć inne dane wyjściowe w kodzie języka Python i zapisywać je bezpośrednio w usłudze Azure Storage.
 
     > [!WARNING]
-    > **Nie** zaleca się łączenia się z bazą danych ani innymi magazynami zewnętrznymi w **module wykonywania skryptów języka Python** . Możesz użyć modułu [Importuj dane](./import-data.md) i [modułu eksport danych](./export-data.md)     
+    > **Nie** zaleca się łączenia się z bazą danych ani innymi magazynami zewnętrznymi w **module wykonywania skryptów języka Python**. Możesz użyć modułu [Importuj dane](./import-data.md) i [modułu eksport danych](./export-data.md)     
 
 6. Prześlij potok.
 
@@ -315,4 +315,4 @@ Wstępnie zainstalowane pakiety są następujące:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning.

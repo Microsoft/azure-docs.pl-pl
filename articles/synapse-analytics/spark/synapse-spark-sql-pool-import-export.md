@@ -1,6 +1,6 @@
 ---
-title: Importowanie i eksportowanie danych między pulami Spark (wersja zapoznawcza) a pulami SQL
-description: Ten artykuł zawiera informacje na temat używania łącznika niestandardowego do przeniesienia danych między pulami SQL i pulami platformy Spark (wersja zapoznawcza).
+title: Importowanie i eksportowanie danych między pulami Apache Spark bezserwerowymi (wersjami zapoznawczymi) i pulami SQL
+description: Ten artykuł zawiera informacje na temat używania łącznika niestandardowego do przemieszczania danych między dedykowanymi pulami SQL i bezserwerowymi pulami Apache Spark (wersja zapoznawcza).
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee82fbaa9687e064747908600c7e5c9017f8f1a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91259922"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323893"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
-Usługa Azure Synapse Apache Spark do Synapse SQL Connector została zaprojektowana w celu wydajnego transferu danych między pulami usługi Spark (wersja zapoznawcza) a pulami SQL na platformie Azure Synapse. Usługa Azure Synapse Apache Spark Synapse łącznik SQL działa tylko w pulach SQL, nie działa z SQL na żądanie.
+Usługa Azure Synapse Apache Spark Synapse SQL Connector została zaprojektowana w celu wydajnego transferu danych między pulami Apache Spark nieserwerowymi (wersjami zapoznawczymi) i pulami SQL na platformie Azure Synapse. Usługa Azure Synapse Apache Spark Synapse łącznik SQL działa tylko w przypadku dedykowanych pul SQL, ale nie działa z pulą SQL bez serwera.
 
 ## <a name="design"></a>Projekt
 
 Przenoszenie danych między pulami platformy Spark i pulami SQL można wykonać przy użyciu JDBC. Jednak w przypadku dwóch systemów rozproszonych, takich jak platforma Spark i pule SQL, JDBC zachodzi wąskie gardło z transferem danych szeregowych.
 
-Pula Apache Spark platformy Azure Synapse do Synapse SQL Connector jest implementacją źródła danych dla Apache Spark. Używa Azure Data Lake Storage Gen2 i Base w pulach SQL do wydajnego transferu danych między klastrem Spark a wystąpieniem programu SQL Synapse.
+Pula Apache Spark platformy Azure Synapse do Synapse SQL Connector jest implementacją źródła danych dla Apache Spark. Używa Azure Data Lake Storage Gen2 i Base w dedykowanych pulach SQL do wydajnego transferu danych między klastrem Spark a wystąpieniem programu SQL Synapse.
 
 ![Architektura łącznika](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -32,7 +32,7 @@ Pula Apache Spark platformy Azure Synapse do Synapse SQL Connector jest implemen
 
 Uwierzytelnianie między systemami odbywa się bezproblemowo w usłudze Azure Synapse Analytics. Usługa tokenów nawiązuje połączenie z Azure Active Directory, aby uzyskać tokeny zabezpieczające, które mają być używane podczas uzyskiwania dostępu do konta magazynu lub serwera magazynu danych.
 
-Z tego powodu nie ma potrzeby tworzenia poświadczeń ani określania ich w interfejsie API łącznika, o ile uwierzytelnianie AAD jest skonfigurowane na koncie magazynu i na serwerze magazynu danych. W przeciwnym razie można określić uwierzytelnianie SQL. Więcej szczegółów znajduje się w sekcji [użycie](#usage) .
+Z tego powodu nie ma potrzeby tworzenia poświadczeń ani określania ich w interfejsie API łącznika, o ile usługa Azure AD-Auth jest skonfigurowana na koncie magazynu i serwerze magazynu danych. W przeciwnym razie można określić uwierzytelnianie SQL. Więcej szczegółów znajduje się w sekcji [użycie](#usage) .
 
 ## <a name="constraints"></a>Ograniczenia
 
@@ -67,7 +67,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 Instrukcje import nie są wymagane, ale są wstępnie zaimportowane do środowiska notesu.
 
-### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Transferowanie danych do lub z puli SQL dołączonej do obszaru roboczego
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-attached-within-the-workspace"></a>Transferowanie danych do lub z dedykowanej puli SQL dołączonej do obszaru roboczego
 
 > [!NOTE]
 > **Importy niewymagane w środowisku notesu**
@@ -91,12 +91,12 @@ Powyższy interfejs API będzie działał zarówno wewnętrznie (zarządzany), j
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-Interfejs API zapisu tworzy tabelę w puli SQL, a następnie wywołuje bazę do ładowania danych.  Tabela nie może istnieć w puli SQL lub zostanie zwrócony błąd z informacją o tym, że "istnieje już obiekt o nazwie..."
+Interfejs API zapisu tworzy tabelę w dedykowanej puli SQL, a następnie wywołuje bazę danych, aby załadować dane.  Tabela nie może istnieć w dedykowanej puli SQL lub zostanie zwrócony błąd wskazujący, że "istnieje już obiekt o nazwie..."
 
 Wartości tabletype
 
-- Stałe. tabela zarządzana wewnętrznie w puli SQL
-- Stałe. zewnętrzna — tabela zewnętrzna w puli SQL
+- Stałe. tabela zarządzana wewnętrznie w dedykowanej puli SQL
+- Stałe. zewnętrzna — tabela zewnętrzna w dedykowanej puli SQL
 
 Tabela zarządzana przez pulę SQL
 
@@ -106,10 +106,10 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 Tabela zewnętrzna puli SQL
 
-Aby można było zapisywać w tabeli zewnętrznej puli SQL, zewnętrzne źródło danych i zewnętrzny FORMAT pliku muszą istnieć w puli SQL.  Aby uzyskać więcej informacji, przeczytaj artykuł [Tworzenie zewnętrznych źródeł danych](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) i [zewnętrznych formatów plików](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) w puli SQL.  Poniżej znajdują się przykłady tworzenia zewnętrznego źródła danych i zewnętrznych formatów plików w puli SQL.
+Aby zapisać w dedykowanej tabeli zewnętrznej puli SQL, zewnętrzne źródło danych i zewnętrzny FORMAT pliku muszą istnieć w dedykowanej puli SQL.  Aby uzyskać więcej informacji, przeczytaj artykuł [Tworzenie zewnętrznych źródeł danych](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) i [zewnętrznych formatów plików](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) w dedykowanej puli SQL.  Poniżej znajdują się przykłady tworzenia zewnętrznego źródła danych i zewnętrznych formatów plików w dedykowanej puli SQL.
 
 ```sql
---For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
+--For an external table, you need to pre-create the data source and file format in dedicated SQL pool using SQL queries:
 CREATE EXTERNAL DATA SOURCE <DataSourceName>
 WITH
   ( LOCATION = 'abfss://...' ,
@@ -134,7 +134,7 @@ df.write.
 
 ```
 
-### <a name="if-you-transfer-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>W przypadku transferu danych do lub z puli lub bazy danych SQL lub spoza obszaru roboczego
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-or-database-outside-the-workspace"></a>Transferowanie danych do lub z dedykowanej puli SQL lub bazy danych poza obszarem roboczym
 
 > [!NOTE]
 > Importy niewymagane w środowisku notesu
@@ -160,11 +160,11 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="use-sql-auth-instead-of-aad"></a>Użyj uwierzytelniania SQL zamiast usługi AAD
+### <a name="use-sql-auth-instead-of-azure-ad"></a>Użyj uwierzytelniania SQL zamiast usługi Azure AD
 
 #### <a name="read-api"></a>Odczytaj interfejs API
 
-Obecnie łącznik nie obsługuje uwierzytelniania opartego na tokenach w puli SQL, która znajduje się poza obszarem roboczym. Musisz użyć uwierzytelniania SQL.
+Obecnie łącznik nie obsługuje uwierzytelniania opartego na tokenach w dedykowanej puli SQL, która znajduje się poza obszarem roboczym. Musisz użyć uwierzytelniania SQL.
 
 ```scala
 val df = spark.read.
@@ -227,7 +227,7 @@ Musisz być właścicielem danych obiektów blob magazynu na koncie magazynu ADL
 
 - Powinien być możliwy dostęp do listy ACL wszystkich folderów z "Synapse" i w dół z Azure Portal. Aby uzyskać dostęp do listy ACL w folderze głównym "/", postępuj zgodnie z poniższymi instrukcjami.
 
-- Łączenie się z kontem magazynu połączonym z obszarem roboczym z Eksplorator usługi Storage przy użyciu usługi AAD
+- Nawiązywanie połączenia z kontem magazynu połączonym z obszarem roboczym z Eksplorator usługi Storage przy użyciu usługi Azure AD
 - Wybierz konto i podaj adres URL ADLS Gen2 i domyślny system plików dla obszaru roboczego
 - Po wyświetleniu konta magazynu na liście kliknij prawym przyciskiem myszy obszar roboczy listy i wybierz pozycję "Zarządzaj dostępem".
 - Dodaj użytkownika do folderu/z uprawnieniami dostępu "wykonaj". Wybierz pozycję "OK"
@@ -237,5 +237,5 @@ Musisz być właścicielem danych obiektów blob magazynu na koncie magazynu ADL
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie puli SQL przy użyciu Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Tworzenie dedykowanej puli SQL przy użyciu Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 - [Utwórz nową pulę Apache Spark przy użyciu Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

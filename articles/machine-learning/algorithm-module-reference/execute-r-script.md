@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330397"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323749"
 ---
 # <a name="execute-r-script-module"></a>Wykonaj moduł skryptu języka R
 
@@ -121,7 +121,7 @@ Po zakończeniu przebiegu potoku można wyświetlić podgląd obrazu w prawym pa
 
 ## <a name="access-to-registered-dataset"></a>Dostęp do zarejestrowanego zestawu danych
 
-Aby [uzyskać dostęp do zarejestrowanych zestawów danych](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) w obszarze roboczym, można odwołać się do następującego przykładowego kodu:
+Aby [uzyskać dostęp do zarejestrowanych zestawów danych](../how-to-create-register-datasets.md) w obszarze roboczym, można odwołać się do następującego przykładowego kodu:
 
 ```R
         azureml_main <- function(dataframe1, dataframe2){
@@ -147,11 +147,11 @@ Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ra
 
 1. Połącz wszystkie dane wejściowe wymagane przez skrypt. Wejścia są opcjonalne i mogą zawierać dane oraz dodatkowy kod R.
 
-    * **Pozycję DataSet1**: odwołanie do pierwszego danych wejściowych jako `dataframe1` . Wejściowy zestaw danych musi być sformatowany jako plik CSV, TSV lub ARFF. Można też połączyć zestaw danych Azure Machine Learning.
+    * **Pozycję DataSet1** : odwołanie do pierwszego danych wejściowych jako `dataframe1` . Wejściowy zestaw danych musi być sformatowany jako plik CSV, TSV lub ARFF. Można też połączyć zestaw danych Azure Machine Learning.
 
-    * **Dataset2**: odwołuje się do drugiego danych wejściowych jako `dataframe2` . Ten zestaw danych musi być również sformatowany jako plik CSV, TSV lub ARFF lub jako zestaw danych Azure Machine Learning.
+    * **Dataset2** : odwołuje się do drugiego danych wejściowych jako `dataframe2` . Ten zestaw danych musi być również sformatowany jako plik CSV, TSV lub ARFF lub jako zestaw danych Azure Machine Learning.
 
-    * **Pakiet skryptu**: trzecie wejście akceptuje pliki. zip. Plik spakowany może zawierać wiele plików i wiele typów plików.
+    * **Pakiet skryptu** : trzecie wejście akceptuje pliki. zip. Plik spakowany może zawierać wiele plików i wiele typów plików.
 
 1. W polu tekstowym **skrypt języka r** wpisz lub wklej prawidłowy skrypt języka r.
 
@@ -216,7 +216,7 @@ Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ra
     }
     ```
 
-1.  W przypadku **losowego inicjatora**wprowadź wartość, która ma być używana w środowisku języka R jako wartość losowego inicjatora. Ten parametr jest odpowiednikiem wywołania `set.seed(value)` w kodzie R.  
+1.  W przypadku **losowego inicjatora** wprowadź wartość, która ma być używana w środowisku języka R jako wartość losowego inicjatora. Ten parametr jest odpowiednikiem wywołania `set.seed(value)` w kodzie R.  
 
 1. Prześlij potok.  
 
@@ -237,7 +237,7 @@ Istnieje wiele sposobów na rozbudowanie potoku przy użyciu niestandardowych sk
 
 Moduł wykonywania skryptu języka R obsługuje dowolne pliki skryptów języka R jako dane wejściowe. Aby ich używać, należy przekazać je do obszaru roboczego w ramach pliku zip.
 
-1. Aby przekazać plik. zip zawierający kod R do obszaru roboczego, przejdź do strony zasobów **zestawy danych** . Wybierz pozycję **Utwórz zestaw danych**, a następnie wybierz pozycję **z pliku lokalnego** i opcję **Typ zestawu danych** .  
+1. Aby przekazać plik. zip zawierający kod R do obszaru roboczego, przejdź do strony zasobów **zestawy danych** . Wybierz pozycję **Utwórz zestaw danych** , a następnie wybierz pozycję **z pliku lokalnego** i opcję **Typ zestawu danych** .  
 
 1. Sprawdź, czy spakowany plik jest wyświetlany w obszarze **Moje zestawy danych** w kategorii **zestawy danych** w lewym drzewie modułu.
 
@@ -505,4 +505,4 @@ Obecnie dostępne są następujące wstępnie zainstalowane pakiety języka R:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning.

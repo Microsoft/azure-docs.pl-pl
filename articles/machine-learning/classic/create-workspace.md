@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 700cc461563f145f58e02f7ed9a09b2899a4eb5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fc7fd1f3f7615c0622b684e3da4020c7da601f5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345826"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322867"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Tworzenie i udostępnianie obszaru roboczego Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Aby użyć Azure Machine Learning Studio (klasyczny), musisz mieć obszar roboczy Machine Learning Studio (klasyczny). Ten obszar roboczy zawiera narzędzia potrzebne do tworzenia i publikowania eksperymentów oraz zarządzania nimi.
 
@@ -44,7 +44,7 @@ Aby otworzyć obszar roboczy w Machine Learning Studio (klasyczny), użytkownik 
 
      ![Tworzenie nowego obszaru roboczego programu Studio (klasycznego)](./media/create-workspace/create-new-workspace.png)
 
-5. Kliknij przycisk **Utwórz**.
+5. Kliknij pozycję **Utwórz**.
 
    Machine Learning jest obecnie dostępna w ograniczonej liczbie regionów. Jeśli subskrypcja nie obejmuje jednego z tych regionów, może zostać wyświetlony komunikat o błędzie "nie masz żadnych subskrypcji w dozwolonych regionach".  Aby zażądać dodania regionu do subskrypcji, Utwórz nowe żądanie pomocy technicznej firmy Microsoft z Azure Portal, wybierz **rozliczenia** jako typ problemu i postępuj zgodnie z monitami, aby przesłać żądanie.
 

@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6947c567ee2ffd70fdb3a1dfc17a641f63124ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 946435175ea5cd366103bc1254bae0d9afe0926e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91348587"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325807"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Samouczek 1: przewidywanie ryzyka kredytowego — Azure Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -75,7 +75,7 @@ Aby opracować model predykcyjny na potrzeby oceny ryzyka kredytowego, potrzebuj
 
 Użyjesz pliku o nazwie **german.data**. Pobierz ten plik na lokalny dysk twardy.  
 
-Zestaw danych **german.data** zawiera wiersze 20 zmiennych z 1000 złożonych w przeszłości wniosków kredytowych. Tych 20 zmiennych reprezentuje zestaw cech tego zestawu danych (*wektor cech*), który dostarcza charakterystyki identyfikujące każdego wnioskodawcę kredytowego. Dodatkowa kolumna w każdym wierszu reprezentuje obliczone ryzyko kredytowe wnioskodawcy, przy czym dla 700 kandydatów ryzyko kredytowe oceniono jako niskie, a dla 300 kandydatów jako wysokie.
+Zestaw danych **german.data** zawiera wiersze 20 zmiennych z 1000 złożonych w przeszłości wniosków kredytowych. Tych 20 zmiennych reprezentuje zestaw cech tego zestawu danych ( *wektor cech* ), który dostarcza charakterystyki identyfikujące każdego wnioskodawcę kredytowego. Dodatkowa kolumna w każdym wierszu reprezentuje obliczone ryzyko kredytowe wnioskodawcy, przy czym dla 700 kandydatów ryzyko kredytowe oceniono jako niskie, a dla 300 kandydatów jako wysokie.
 
 Witryna internetowa UCI zawiera opis atrybutów wektora cech dla tych danych. Te dane obejmują informacje finansowe, historię kredytową, stan zatrudnienia i dane osobowe. Każdy wnioskodawca został poddany klasyfikacji binarnej, która wskazuje, czy jego ryzyko kredytowe jest wysokie, czy niskie. 
 
@@ -111,7 +111,7 @@ Innym sposobem jest użycie polecenia sed systemu Unix:
 sed 's/ /,/g' german.data > german.csv
 ```
 
-W obu przypadkach zostanie utworzona rozdzielana przecinkami wersja danych w pliku o nazwie **german.csv**, którego możesz użyć w eksperymencie.
+W obu przypadkach zostanie utworzona rozdzielana przecinkami wersja danych w pliku o nazwie **german.csv** , którego możesz użyć w eksperymencie.
 
 ### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Przekaż zestaw danych do Machine Learning Studio (klasyczny)
 
@@ -119,7 +119,7 @@ Gdy dane zostaną przekonwertowane do formatu CSV, należy przekazać je do Mach
 
 1. Otwórz stronę główną Machine Learning Studio ( [https://studio.azureml.net](https://studio.azureml.net) ). 
 
-2. Kliknij menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) w lewym górnym rogu okna, kliknij pozycję **Azure Machine Learning**, wybierz pozycję **Studio** i zaloguj się.
+2. Kliknij menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) w lewym górnym rogu okna, kliknij pozycję **Azure Machine Learning** , wybierz pozycję **Studio** i zaloguj się.
 
 3. Kliknij pozycję **+ NEW** (+NOWY) w dolnej części okna.
 
@@ -179,7 +179,7 @@ Następnym krokiem w tym samouczku jest utworzenie eksperymentu w Machine Learni
 
 Można wyświetlić pierwsze 100 wierszy danych i niektóre informacje statystyczne dla całego zestawu danych: kliknij port wyjściowy zestawu danych (mały okrąg u dołu) i wybierz opcję **Wizualizuj**.  
 
-Ponieważ plik danych nie pochodzi z nagłówkami kolumn, program Studio (klasyczny) podał nagłówki ogólne (Kol1, Col2 *itp.*). Dobre nagłówki nie są niezbędne do utworzenia modelu, ale ułatwiają pracę z danymi w eksperymencie. Ponadto po opublikowaniu tego modelu w usłudze internetowej nagłówki pomagają w identyfikowaniu kolumn użytkownikowi usługi.  
+Ponieważ plik danych nie pochodzi z nagłówkami kolumn, program Studio (klasyczny) podał nagłówki ogólne (Kol1, Col2 *itp.* ). Dobre nagłówki nie są niezbędne do utworzenia modelu, ale ułatwiają pracę z danymi w eksperymencie. Ponadto po opublikowaniu tego modelu w usłudze internetowej nagłówki pomagają w identyfikowaniu kolumn użytkownikowi usługi.  
 
 Nagłówki kolumn możesz dodać za pomocą modułu [Edit Metadata][edit-metadata] (Edytowanie metadanych).
 
@@ -313,6 +313,6 @@ Teraz możesz przystąpić do trenowania i ewaluowania modeli dla tych danych.
 > [Samouczek 2 — Trenowanie i ewaluowanie modeli](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
-[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
-[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data

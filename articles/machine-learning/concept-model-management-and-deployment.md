@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f03a1e44fdb62570b693753f5e01c7ab0f53e78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64784d747e9f33961c2f5d2df95e0d5a83e01548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302421"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324842"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Zarządzanie modelami, wdrażanie i monitorowanie za pomocą Azure Machine Learning
 
@@ -71,6 +71,9 @@ Zarejestrowane modele są identyfikowane za pomocą nazwy i wersji. Za każdym r
 Nie można usunąć zarejestrowanego modelu, który jest używany w aktywnym wdrożeniu.
 Aby uzyskać więcej informacji, zobacz sekcję Register model w artykule [Wdrażanie modeli](how-to-deploy-and-where.md#registermodel).
 
+> [!IMPORTANT]
+> Korzystając z opcji Filtruj według `Tags` na stronie modele Azure Machine Learning Studio, zamiast korzystać z `TagName : TagValue` klientów należy używać `TagName=TagValue` (bez spacji)
+
 ### <a name="profile-models"></a>Modele profili
 
 Azure Machine Learning może pomóc zrozumieć wymagania dotyczące procesora i pamięci usługi, które zostaną utworzone podczas wdrażania modelu. Profilowanie testuje usługę, która uruchamia model i zwraca informacje takie jak użycie procesora CPU, użycie pamięci i opóźnienie odpowiedzi. Zapewnia również zalecenia dotyczące procesora i pamięci na podstawie użycia zasobów.
@@ -106,7 +109,7 @@ Należy również podać konfigurację docelowej platformy wdrażania. Na przyk�
 Po utworzeniu obrazu są również dodawane składniki wymagane przez usługę Azure Machine Learning. Na przykład zasoby, które są konieczne do uruchomienia usługi internetowej i współdziałają z usługą IoT Edge.
 
 #### <a name="batch-scoring"></a>Ocenianie usługi Batch
-Ocenianie wsadowe jest obsługiwane przy użyciu potoków ML. Aby uzyskać więcej informacji, zobacz [przewidywania wsadowe dotyczące danych Big Data](how-to-use-parallel-run-step.md).
+Ocenianie wsadowe jest obsługiwane przy użyciu potoków ML. Aby uzyskać więcej informacji, zobacz [przewidywania wsadowe dotyczące danych Big Data](./tutorial-pipeline-batch-scoring-classification.md).
 
 #### <a name="real-time-web-services"></a>Usługi sieci Web w czasie rzeczywistym
 
@@ -142,7 +145,7 @@ Aby uzyskać więcej informacji, zobacz [Wdrażanie modeli](how-to-deploy-and-wh
 
 ### <a name="analytics"></a>Analiza
 
-Firma Microsoft Power BI obsługuje używanie modeli uczenia maszynowego na potrzeby analizy danych. Aby uzyskać więcej informacji, zobacz [Azure Machine Learning Integration w Power BI (wersja zapoznawcza)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Firma Microsoft Power BI obsługuje używanie modeli uczenia maszynowego na potrzeby analizy danych. Aby uzyskać więcej informacji, zobacz [Azure Machine Learning Integration w Power BI (wersja zapoznawcza)](/power-bi/service-machine-learning-integration).
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Przechwyć dane ładu wymagane do przechwycenia kompleksowego cyklu życia ML
 
@@ -158,7 +161,7 @@ Usługa Azure ML oferuje możliwość śledzenia kompleksowego dziennika inspekc
 > [!TIP]
 > Niektóre informacje o modelach i zestawach danych są przechwytywane automatycznie, ale można dodać dodatkowe informacje za pomocą __tagów__. Podczas wyszukiwania zarejestrowanych modeli i zestawów danych w obszarze roboczym można używać tagów jako filtru.
 >
-> Skojarzenie zestawu danych z zarejestrowanym modelem jest opcjonalnym krokiem. Aby uzyskać informacje na temat odwoływania się do zestawu danych podczas rejestrowania modelu, zobacz Dokumentacja klasy [modelu](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true) .
+> Skojarzenie zestawu danych z zarejestrowanym modelem jest opcjonalnym krokiem. Aby uzyskać informacje na temat odwoływania się do zestawu danych podczas rejestrowania modelu, zobacz Dokumentacja klasy [modelu](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py) .
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Powiadamianie, Automatyzowanie i wyzwalanie alertów dotyczących zdarzeń w cyklu życia w ML

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276088"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322315"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -33,10 +33,10 @@ Obszar roboczy jest scentralizowanym miejscem do:
 * Magazynowanie zasobów tworzonych podczas korzystania z Azure Machine Learning, w tym:
   * [Środowiska](#environments)
   * [Eksperymenty](#experiments)
-  * [Potoki](#ml-pipelines)
+  * [Pipelines](#ml-pipelines)
   * [Zestawy danych](#datasets-and-datastores)
   * [Modele](#models)
-  * [Punkty końcowe](#endpoints)
+  * [Punktów końcowych](#endpoints)
 
 Obszar roboczy zawiera inne zasoby platformy Azure, które są używane przez obszar roboczy:
 
@@ -53,9 +53,9 @@ Obszar roboczy można udostępniać innym osobom.
 
 W Azure Machine Learning wprowadzono dwie w pełni zarządzane maszyny wirtualne oparte na chmurze, które zostały skonfigurowane na potrzeby zadań uczenia maszynowego:
 
-* <a name="compute-instance"></a>**Wystąpienie obliczeniowe**: wystąpienie obliczeniowe to maszyna wirtualna, która obejmuje wiele narzędzi i środowisk zainstalowanych na potrzeby uczenia maszynowego. Podstawowym użyciem wystąpienia obliczeniowego jest dla stacji roboczej deweloperskiej.  Możesz zacząć uruchamiać przykładowe notesy bez konieczności instalacji. Wystąpienia obliczeniowego można także użyć jako elementu docelowego obliczeń dla zadań szkolenia i inferencing.
+* <a name="compute-instance"></a>**Wystąpienie obliczeniowe** : wystąpienie obliczeniowe to maszyna wirtualna, która obejmuje wiele narzędzi i środowisk zainstalowanych na potrzeby uczenia maszynowego. Podstawowym użyciem wystąpienia obliczeniowego jest dla stacji roboczej deweloperskiej.  Możesz zacząć uruchamiać przykładowe notesy bez konieczności instalacji. Wystąpienia obliczeniowego można także użyć jako elementu docelowego obliczeń dla zadań szkolenia i inferencing.
 
-* **Klastry obliczeniowe**: Klastry obliczeniowe to klaster maszyn wirtualnych z funkcjami skalowania wielowęzłowego. Klastry obliczeniowe są lepiej dopasowane do celów obliczeniowych dużych zadań i produkcyjnych.  Klaster jest skalowany automatycznie podczas przesyłania zadania.  Użyj jako elementu docelowego obliczeń szkoleniowych lub do wdrożenia deweloperskiego/testowego.
+* **Klastry obliczeniowe** : Klastry obliczeniowe to klaster maszyn wirtualnych z funkcjami skalowania wielowęzłowego. Klastry obliczeniowe są lepiej dopasowane do celów obliczeniowych dużych zadań i produkcyjnych.  Klaster jest skalowany automatycznie podczas przesyłania zadania.  Użyj jako elementu docelowego obliczeń szkoleniowych lub do wdrożenia deweloperskiego/testowego.
 
 Aby uzyskać więcej informacji na temat szkoleniowych obiektów docelowych, zobacz [uczenie obiektów docelowych obliczeń](concept-compute-target.md#train).  Aby uzyskać więcej informacji na temat celów obliczeniowych wdrożenia, zobacz [cele wdrożenia](concept-compute-target.md#deploy).
 
@@ -102,7 +102,7 @@ Podczas przesyłania skryptu w celu uczenia modelu należy utworzyć przebieg. U
 
 [Obszar roboczy](#workspace)  >  [Eksperymenty](#experiments)  >  [Uruchom](#runs)  >  **Uruchom konfigurację**
 
-Konfiguracja przebiegu definiuje sposób uruchamiania skryptu w określonym elemencie docelowym obliczeń. Konfiguracja służy do określania skryptu, lokalizacji docelowej obliczeń i środowiska Azure ML do uruchomienia, wszystkich rozdystrybuowanych konfiguracji specyficznych dla zadań i pewnych dodatkowych właściwości. Aby uzyskać więcej informacji na temat pełnego zestawu konfigurowalnych opcji dla przebiegów, zobacz [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
+Konfiguracja przebiegu definiuje sposób uruchamiania skryptu w określonym elemencie docelowym obliczeń. Konfiguracja służy do określania skryptu, lokalizacji docelowej obliczeń i środowiska Azure ML do uruchomienia, wszystkich rozdystrybuowanych konfiguracji specyficznych dla zadań i pewnych dodatkowych właściwości. Aby uzyskać więcej informacji na temat pełnego zestawu konfigurowalnych opcji dla przebiegów, zobacz [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
 
 Konfigurację przebiegu można utrwalić do pliku znajdującego się w katalogu zawierającym skrypt szkoleniowy.   Lub może być skonstruowany jako obiekt w pamięci i używany do przesyłania przebiegu.
 
@@ -202,9 +202,9 @@ Wdrożony punkt końcowy modułu IoT to kontener platformy Docker, który obejmu
 Jeśli włączono monitorowanie, platforma Azure zbiera dane telemetryczne z modelu w module Azure IoT Edge. Dane telemetryczne są dostępne tylko dla Ciebie i są przechowywane w wystąpieniu konta magazynu.
 
 Azure IoT Edge zapewnia, że moduł jest uruchomiony, i monitoruje urządzenie, które je obsługuje. 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
-### <a name="azure-machine-learning-cli"></a>Interfejs wiersza polecenia Azure Machine Learning 
+### <a name="azure-machine-learning-cli"></a>Interfejs wiersza polecenia usługi Azure Machine Learning 
 
 Interfejs wiersza polecenia [Azure Machine Learning](reference-azure-machine-learning-cli.md) jest rozszerzeniem dla platformy Azure, który działa na wielu platformach. To rozszerzenie udostępnia polecenia służące do automatyzowania działań związanych z uczeniem maszynowym.
 
@@ -233,10 +233,10 @@ W programie Studio znajduje się również dostęp do interaktywnych narzędzi, 
 > Narzędzia oznaczone poniżej (wersja zapoznawcza) są obecnie dostępne w publicznej wersji zapoznawczej.
 > Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Korzystanie z usługi w dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
++  Korzystanie z usługi w dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 + Korzystanie z usługi w dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (wersja zapoznawcza).
 + Za pomocą [projektanta Azure Machine Learning](concept-designer.md) wykonaj kroki przepływu pracy bez pisania kodu. 
-+ Użyj [interfejsu wiersza polecenia Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) do automatyzacji.
++ Użyj [interfejsu wiersza polecenia Azure Machine Learning](./reference-azure-machine-learning-cli.md) do automatyzacji.
 + [Akcelerator rozwiązań wielu modeli](https://aka.ms/many-models) (wersja zapoznawcza) jest oparty na Azure Machine Learning i umożliwia uczenie, obsługę setek lub nawet tysięcy modeli uczenia maszynowego oraz zarządzanie nimi.
 
 ## <a name="next-steps"></a>Następne kroki

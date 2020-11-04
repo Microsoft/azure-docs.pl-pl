@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: a14f7ac212d9957e5258f75a386b8730ad5de700
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 631717252abe956357cf8b588fa653890037bbc9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233846"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322174"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Szybki Start: Konfigurowanie Data Science Virtual Machine dla systemu Linux (Ubuntu)
 
@@ -46,7 +46,7 @@ Poniżej przedstawiono procedurę tworzenia wystąpienia Data Science Virtual Ma
        * **Nazwa maszyny wirtualnej** : Wprowadź nazwę maszyny wirtualnej. Ta nazwa będzie używana w Azure Portal.
        * **Region** : wybierz najbardziej odpowiednie centrum danych. Aby uzyskać najszybszy dostęp do sieci, znajduje się w centrum danych, które ma najwięcej z nich lub znajduje się najbliżej fizycznej lokalizacji. Dowiedz się więcej o [regionach platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Obraz** : pozostaw wartość domyślną.
-       * **Rozmiar** : Ta opcja powinna automatycznie wypełniać rozmiar, który jest odpowiedni dla ogólnych obciążeń. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Linux na platformie Azure](../../virtual-machines/linux/sizes.md).
+       * **Rozmiar** : Ta opcja powinna automatycznie wypełniać rozmiar, który jest odpowiedni dla ogólnych obciążeń. Dowiedz się więcej o [rozmiarach maszyn wirtualnych z systemem Linux na platformie Azure](../../virtual-machines/sizes.md).
        * **Typ uwierzytelniania** : aby szybciej skonfigurować konfigurację, wybierz pozycję "hasło". 
          
          > [!NOTE]
@@ -144,6 +144,6 @@ Oto jak można kontynuować uczenie i eksplorację:
 
 * Analiza [danych w Data Science Virtual Machine dla systemu Linux](linux-dsvm-walkthrough.md) zawiera informacje na temat wykonywania kilku typowych zadań związanych z nauką o danych przy użyciu DSVM systemu Linux. 
 * Zapoznaj się z różnymi narzędziami do nauki o danych w DSVM, korzystając z narzędzi opisanych w tym artykule. Aby uzyskać więcej informacji na temat narzędzi zainstalowanych na maszynie wirtualnej, można również uruchomić `dsvm-more-info` na powłoce w obrębie maszyny wirtualnej.  
-* Dowiedz się, jak systematycznie kompilować rozwiązania analityczne przy użyciu [zespołowego procesu nauki o danych](https://aka.ms/tdsp).
+* Dowiedz się, jak systematycznie kompilować rozwiązania analityczne przy użyciu [zespołowego procesu nauki o danych](../team-data-science-process/index.yml).
 * Odwiedź [Azure AI Gallery](https://gallery.azure.ai/) , aby zapoznać się z przykładami dotyczącymi usługi Machine Learning i analizy danych, które korzystają z usług Azure AI.
 * Zapoznaj się z odpowiednią [dokumentacją](./reference-ubuntu-vm.md) dla tej maszyny wirtualnej.

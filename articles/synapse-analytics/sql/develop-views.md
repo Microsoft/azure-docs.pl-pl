@@ -1,6 +1,6 @@
 ---
-title: Widoki T-SQL korzystające z Synapse SQL
-description: Porady dotyczące korzystania z widoków T-SQL i opracowywania rozwiązań przy użyciu języka SQL Synapse.
+title: Widoki języka T-SQL korzystające z pul SQL
+description: Porady dotyczące korzystania z widoków T-SQL i opracowywania rozwiązań z dedykowaną pulą SQL i bezserwerową pulą SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,15 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fafa0c2e1b02cc49bfb852ed7770b0927b0e9334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e416974d1326415e9a459e39d7bdea8e3fd8a84c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032728"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323817"
 ---
-# <a name="t-sql-views-using-synapse-sql"></a>Widoki T-SQL korzystające z Synapse SQL
-W tym artykule znajdziesz porady dotyczące korzystania z widoków T-SQL i opracowywania rozwiązań przy użyciu języka SQL Synapse. 
+# <a name="t-sql-views-with-dedicated-sql-pool-and-serverless-sql-pool-preview--in-azure-synapse-analytics"></a>Widoki języka T-SQL z dedykowaną pulą SQL i bezserwerową pulą SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+
+W tym artykule znajdziesz porady dotyczące korzystania z widoków T-SQL i opracowywania rozwiązań z dedykowaną pulą SQL i bezserwerową pulą SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics.
 
 ## <a name="why-use-views"></a>Dlaczego warto używać widoków
 
@@ -26,12 +27,7 @@ Widoki mogą być używane na wiele różnych sposobów ulepszania jakości rozw
 ### <a name="sql-pool---create-view"></a>Pula SQL — Tworzenie widoku
 
 > [!NOTE]
-> **Pula SQL**: Składnia dla tworzenia widoku nie została omówiona w tym artykule. Aby uzyskać więcej informacji, zobacz dokumentację [tworzenia widoku](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) .
-
-### <a name="sql-on-demand-preview---create-view"></a>SQL na żądanie (wersja zapoznawcza) — Tworzenie widoku
-
-> [!NOTE]
-> **SQL na żądanie**: Składnia dla tworzenia widoku nie została omówiona w tym artykule. Aby uzyskać więcej informacji, zobacz dokumentację [tworzenia widoku](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) .
+> Składnia instrukcji CREATE VIEW nie została omówiona w tym artykule. Aby uzyskać więcej informacji, zobacz dokumentację [tworzenia widoku](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
 ## <a name="architectural-abstraction"></a>Abstrakcja architektury
 
@@ -54,7 +50,6 @@ FROM   dbo.DimDate_stg AS stg
 
 RENAME OBJECT DimDate TO DimDate_Old;
 RENAME OBJECT DimDate_New TO DimDate;
-
 ```
 
 Należy pamiętać, że takie podejście może spowodować, że tabele pojawiają się i znikają z widoku użytkownika, a monit "tabela nie istnieje". Widoki mogą służyć do zapewnienia użytkownikom spójnej warstwy prezentacji podczas zmiany nazwy obiektów bazowych.

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907925"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323718"
 ---
 # <a name="feature-hashing-module-reference"></a>Odwołanie do modułu wyznaczania wartości skrótu funkcji
 
@@ -22,7 +22,7 @@ W tym artykule opisano moduł dostępny w programie Azure Machine Learning Desig
 
 Użyj modułu wyznaczania wartości skrótu funkcji, aby przekształcić strumień tekstu w języku angielskim do zestawu funkcji całkowitych. Następnie można przekazać tę funkcję skrótu do algorytmu uczenia maszynowego, aby szkolić model analizy tekstu.
 
-Funkcje wyznaczania wartości skrótu funkcji dostępne w tym module bazują na strukturze nimbusml. Aby uzyskać więcej informacji, zobacz [Klasa NgramHash](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+Funkcje wyznaczania wartości skrótu funkcji dostępne w tym module bazują na strukturze nimbusml. Aby uzyskać więcej informacji, zobacz [Klasa NgramHash](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
 
 ## <a name="what-is-feature-hashing"></a>Co to jest mieszanie funkcji?
 
@@ -90,7 +90,7 @@ Wyniki liczbowe umożliwiają również korzystanie z typowych metod uczenia mas
     
     Domyślny rozmiar bitowy to 10. W przypadku wielu problemów ta wartość jest odpowiednia. Może być potrzebne więcej miejsca, aby uniknąć kolizji, w zależności od rozmiaru słownictwa n-gramowego w tekście szkoleniowym.
     
-1. W przypadku **N-gramów**wprowadź liczbę określającą maksymalną długość N-gramów, która ma zostać dodana do słownika szkoleniowego. N-gram jest sekwencją *n* wyrazów, traktowaną jako unikatowa jednostka.
+1. W przypadku **N-gramów** wprowadź liczbę określającą maksymalną długość N-gramów, która ma zostać dodana do słownika szkoleniowego. N-gram jest sekwencją *n* wyrazów, traktowaną jako unikatowa jednostka.
 
     Na przykład, jeśli wprowadzisz 3, unigrams, i trigrams zostanie utworzony.
 
@@ -131,4 +131,4 @@ Optymalny zestaw metod przetwarzania wstępnego, które mają być stosowane w d
 
 ## <a name="next-steps"></a>Następne kroki
             
-Zobacz [zestaw modułów dostępnych](module-reference.md) do Azure Machine Learning 
+Zobacz [zestaw modułów dostępnych](module-reference.md) do Azure Machine Learning

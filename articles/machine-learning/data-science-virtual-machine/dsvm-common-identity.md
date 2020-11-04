@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959147"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324790"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Skonfiguruj wspólną tożsamość na Data Science Virtual Machine
 
@@ -23,9 +23,9 @@ Na Microsoft Azure maszynę wirtualną (VM), w tym Data Science Virtual Machine 
 
 Active Directory to popularny dostawca tożsamości i jest obsługiwany na platformie Azure jako usługa w chmurze i jako katalog lokalny. Korzystając z Azure Active Directory (Azure AD) lub Active Directory lokalnych, można uwierzytelniać użytkowników w autonomicznym DSVM lub klastrze DSVMs w zestawie skalowania maszyn wirtualnych platformy Azure. Można to zrobić przez przyłączenie wystąpień DSVM do domeny Active Directory.
 
-Jeśli masz już Active Directory, możesz użyć jej jako wspólnego dostawcy tożsamości. Jeśli nie masz Active Directory, możesz uruchomić zarządzane wystąpienie Active Directory na platformie Azure za pomocą [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (AD DS platformy Azure).
+Jeśli masz już Active Directory, możesz użyć jej jako wspólnego dostawcy tożsamości. Jeśli nie masz Active Directory, możesz uruchomić zarządzane wystąpienie Active Directory na platformie Azure za pomocą [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) (AD DS platformy Azure).
 
-Dokumentacja [usługi Azure AD](https://docs.microsoft.com/azure/active-directory/) zawiera szczegółowe [instrukcje dotyczące zarządzania](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution), w tym wskazówki dotyczące łączenia usługi Azure AD z katalogiem lokalnym, jeśli go masz.
+Dokumentacja [usługi Azure AD](../../active-directory/index.yml) zawiera szczegółowe [instrukcje dotyczące zarządzania](../../active-directory/hybrid/whatis-hybrid-identity.md), w tym wskazówki dotyczące łączenia usługi Azure AD z katalogiem lokalnym, jeśli go masz.
 
 W tym artykule opisano sposób konfigurowania w pełni zarządzanej usługi domeny Active Directory na platformie Azure przy użyciu usługi Azure AD DS. Następnie można przyłączyć się do DSVMs do domeny zarządzanej Active Directory. Takie podejście umożliwia użytkownikom dostęp do puli DSVMs (i innych zasobów platformy Azure) za pomocą wspólnego konta użytkownika i poświadczeń.
 
@@ -37,29 +37,29 @@ Usługa Azure AD DS ułatwia zarządzanie tożsamościami przez udostępnienie w
 
    1. Zaloguj się do [Centrum administracyjnego Azure Active Directory](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
     
-   1. Wybierz pozycję **Azure Active Directory**, a następnie **Użytkownicy i grupy**.
+   1. Wybierz pozycję **Azure Active Directory** , a następnie **Użytkownicy i grupy**.
     
-   1. W obszarze **Użytkownicy i grupy**wybierz pozycję **Wszyscy użytkownicy**, a następnie wybierz pozycję **nowy użytkownik**.
+   1. W obszarze **Użytkownicy i grupy** wybierz pozycję **Wszyscy użytkownicy** , a następnie wybierz pozycję **nowy użytkownik**.
    
         Zostanie otwarte okienko **użytkownika** :
       
         ![Okienko "użytkownik"](./media/add-user.png)
     
-   1. Wprowadź dane użytkownika, na przykład **Nazwisko** i **Nazwę użytkownika**. Częścią nazwy domeny musi być początkowa domyślna nazwa domeny "[nazwa domeny]. onmicrosoft. com" lub zweryfikowana, Niefederacyjna [nazwa domeny niestandardowej](../../active-directory/add-custom-domain.md) , taka jak "contoso.com".
+   1. Wprowadź dane użytkownika, na przykład **Nazwisko** i **Nazwę użytkownika**. Częścią nazwy domeny musi być początkowa domyślna nazwa domeny "[nazwa domeny]. onmicrosoft. com" lub zweryfikowana, Niefederacyjna [nazwa domeny niestandardowej](../../active-directory/fundamentals/add-custom-domain.md) , taka jak "contoso.com".
     
    1. Skopiuj lub w inny sposób zanotuj wygenerowane hasło użytkownika, aby przekazać je użytkownikowi po ukończeniu tego procesu.
     
-   1. Opcjonalnie możesz otworzyć sekcje **Profil**, **Grupy** lub **Rola katalogu** dla użytkownika i uzupełnić w nich informacje. 
+   1. Opcjonalnie możesz otworzyć sekcje **Profil** , **Grupy** lub **Rola katalogu** dla użytkownika i uzupełnić w nich informacje. 
     
-   1. W obszarze **użytkownik**wybierz pozycję **Utwórz**.
+   1. W obszarze **użytkownik** wybierz pozycję **Utwórz**.
     
    1. Bezpiecznie Rozpowszechnij wygenerowane hasło do nowego użytkownika, aby mogli się zalogować.
 
-1. Utwórz wystąpienie usługi Azure AD DS. Postępuj zgodnie z instrukcjami w artykule  [włączanie Azure Active Directory Domain Services przy użyciu Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (sekcja "Tworzenie wystąpienia i Konfigurowanie ustawień podstawowych"). Ważne jest, aby zaktualizować istniejące hasła użytkowników w Active Directory, aby hasło w usłudze Azure AD DS zostało zsynchronizowane. Ważne jest również, aby dodać serwer DNS do usługi Azure AD DS, zgodnie z opisem w sekcji "Wypełnij pola w oknie podstawy Azure Portal, aby utworzyć wystąpienie usługi Azure AD DS".
+1. Utwórz wystąpienie usługi Azure AD DS. Postępuj zgodnie z instrukcjami w artykule  [włączanie Azure Active Directory Domain Services przy użyciu Azure Portal](../../active-directory-domain-services/tutorial-create-instance.md) (sekcja "Tworzenie wystąpienia i Konfigurowanie ustawień podstawowych"). Ważne jest, aby zaktualizować istniejące hasła użytkowników w Active Directory, aby hasło w usłudze Azure AD DS zostało zsynchronizowane. Ważne jest również, aby dodać serwer DNS do usługi Azure AD DS, zgodnie z opisem w sekcji "Wypełnij pola w oknie podstawy Azure Portal, aby utworzyć wystąpienie usługi Azure AD DS".
 
 1. Utwórz oddzielną podsieć DSVM w sieci wirtualnej utworzonej w sekcji "Tworzenie i Konfigurowanie sieci wirtualnej" w poprzednim kroku.
 1. Utwórz co najmniej jedno wystąpienie DSVM w podsieci DSVM.
-1. Postępuj zgodnie z [instrukcjami](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) , aby dodać DSVM do Active Directory. 
+1. Postępuj zgodnie z [instrukcjami](../../active-directory-domain-services/join-ubuntu-linux-vm.md) , aby dodać DSVM do Active Directory. 
 1. Zainstaluj udział Azure Files w celu hostowania katalogu macierzystego lub notesu, aby można było zainstalować ten obszar roboczy na dowolnym komputerze. (Jeśli potrzebujesz ścisłych uprawnień na poziomie pliku, musisz mieć sieciowy system plików [NFS] uruchomiony na co najmniej jednej maszyny wirtualnej).
 
    1. [Utwórz udział Azure Files](../../storage/files/storage-how-to-create-file-share.md).
@@ -79,6 +79,3 @@ W przypadku skalowania automatycznego można użyć zestawu skalowania maszyn wi
 ## <a name="next-steps"></a>Następne kroki
 
 * [Bezpieczne przechowywanie poświadczeń w celu uzyskania dostępu do zasobów w chmurze](dsvm-secure-access-keys.md)
-
-
-

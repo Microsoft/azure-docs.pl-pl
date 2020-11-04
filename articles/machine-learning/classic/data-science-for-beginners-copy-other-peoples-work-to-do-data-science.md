@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 59343c500f50430530b24fbfb7d747108377efd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84caf1ea684e46eec00f8479bd0e7c4123e731b1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345646"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322799"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiowanie pracy innych osób w celu przeprowadzenia analizy danych
 ## <a name="video-5-data-science-for-beginners-series"></a>Wideo 5: Analiza danych dla początkujących serii
@@ -91,4 +91,4 @@ Upewnij się, że zapoznaj się z innymi filmami wideo w obszarze "Analiza danyc
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wypróbuj swój pierwszy eksperyment z nauką o danych przy użyciu Azure Machine Learning Studio (klasyczny)](create-experiment.md)
-* [Zapoznaj się z wprowadzeniem do Machine Learning na Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Zapoznaj się z wprowadzeniem do Machine Learning na Microsoft Azure](../overview-what-is-azure-ml.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) przy użyciu programu Synapse Studio'
-description: Utwórz nową pulę Apache Spark przy użyciu programu Synapse Studio, wykonując czynności opisane w tym przewodniku.
+title: 'Szybki Start: Tworzenie puli Apache Spark bezserwerowej (wersja zapoznawcza) przy użyciu programu Synapse Studio'
+description: Utwórz bezserwerową pulę Apache Spark przy użyciu programu Synapse Studio, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c497b9974ad2d6fdd9482ae673de5807669d8ff5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748278"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324183"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) przy użyciu programu Synapse Studio
+# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>Szybki Start: Tworzenie puli Apache Spark bezserwerowej (wersja zapoznawcza) przy użyciu programu Synapse Studio
 
 Usługa Azure Synapse Analytics oferuje różne aparaty analityczne, które ułatwiają pozyskiwanie, przekształcanie, modelowanie, analizowanie i obsługiwanie danych. Pula Apache Spark oferuje możliwości obliczeniowe Big Data dla Open Source. Po utworzeniu puli Apache Spark w obszarze roboczym Synapse dane mogą być ładowane, modelowane, przetwarzane i obsługiwane w celu uzyskania szczegółowych informacji.  
 
@@ -41,13 +41,13 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 1. Przejdź do obszaru roboczego Synapse, w którym zostanie utworzona Pula Apache Spark, wpisując nazwę usługi (lub nazwę zasobu bezpośrednio) na pasku wyszukiwania.
 
     ![Azure Portal pasku wyszukiwania z obszarami roboczymi Synapse, które zostały wpisane.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics** .
+1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics**.
 
     ![Lista przefiltrowanych obszarów roboczych Synapse, które zawierają nazwę contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 ## <a name="launch-synapse-studio"></a>Uruchamianie programu Synapse Studio 
 
-W obszarze roboczym przegląd wybierz pozycję **Uruchom program Synapse Studio** , aby otworzyć lokalizację, w której zostanie utworzona Pula Apache Spark. Wpisz nazwę usługi lub nazwę zasobu bezpośrednio na pasku wyszukiwania.
+W obszarze roboczym przegląd wybierz **adres URL sieci Web obszaru roboczego** , aby otworzyć program Synapse Studio.
 
 ![Azure Portal Omówienie obszaru roboczego Synapse z wyróżnioną opcją Uruchom Synapse Studio.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
@@ -79,9 +79,9 @@ W obszarze roboczym przegląd wybierz pozycję **Uruchom program Synapse Studio*
 
 1. Na następnej karcie (Ustawienia dodatkowe) pozostaw wszystkie ustawienia jako domyślne.
 
-1. Nie będziemy teraz dodawać żadnych tagów, więc wybierz pozycję **Recenzja + Utwórz** .
+1. Nie będziemy teraz dodawać żadnych tagów, więc wybierz pozycję **Recenzja + Utwórz**.
 
-1. Na karcie **Recenzja + tworzenie** upewnij się, że szczegóły są poprawne na podstawie wprowadzonych wcześniej elementów, a następnie naciśnij pozycję **Utwórz** . 
+1. Na karcie **Recenzja + tworzenie** upewnij się, że szczegóły są poprawne na podstawie wprowadzonych wcześniej elementów, a następnie naciśnij pozycję **Utwórz**. 
 
     ![Utwórz nową pulę Apache Spark w programie Synapse Studio](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-26.png)
 
@@ -104,7 +104,7 @@ Jeśli chcesz usunąć pulę Apache Spark, wykonaj następujące czynności:
 
     ![Lista pul Apache Spark, dla których wybrano ostatnio utworzoną pulę.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-29.png)
 
-1. Naciśnij klawisz **delete** .
+1. Naciśnij klawisz **delete**.
 1. Potwierdź usunięcie i naciśnij przycisk **Usuń** .
 1. Po pomyślnym zakończeniu procesu Pula Apache Spark nie będzie już wyświetlana w obszarze zasoby obszaru roboczego. 
 

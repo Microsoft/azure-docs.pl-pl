@@ -6,12 +6,12 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 4975bb2a8ad384b8abc28f1d1835c2c9e98b8c54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95acb028867caf6f497dd99ad3082efcaab09c7b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315437"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325300"
 ---
 Skrypt wejściowy odbiera dane przesyłane do wdrożonej usługi internetowej i przekazuje je do modelu. Następnie pobiera odpowiedź zwróconą przez model i zwraca ją do klienta. *Skrypt jest specyficzny dla modelu*. Musi on zrozumieć dane, które są oczekiwane i zwracane przez model.
 
@@ -49,7 +49,7 @@ import os
 model = open(os.path.join('.', 'models', 'model1.onnx'))
 ```
 
-#### <a name="writing-run"></a>Zapis przebiegu ()
+### <a name="writing-run"></a>Zapis przebiegu ()
 
 `run()` jest wykonywane za każdym razem, gdy model otrzymuje żądanie oceniania i oczekuje treści żądania jako dokumentu JSON o następującej strukturze:
 

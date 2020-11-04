@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5e5ab4e3c9332d0daa1acf32edeeba2423c97ac3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736561"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324595"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Wdróż model uczenia maszynowego w Azure Functions (wersja zapoznawcza)
 
@@ -26,12 +26,12 @@ Dowiedz się, jak wdrożyć model na podstawie Azure Machine Learning jako aplik
 > [!IMPORTANT]
 > Chociaż obie Azure Machine Learning i Azure Functions są ogólnie dostępne, możliwość spakowania modelu z usługi Machine Learning Service for Functions jest dostępna w wersji zapoznawczej.
 
-Za pomocą Azure Machine Learning można tworzyć obrazy platformy Docker z przeszkolonych modeli uczenia maszynowego. Azure Machine Learning teraz zawiera funkcję wersji zapoznawczej umożliwiającą tworzenie tych modeli uczenia maszynowego w aplikacjach funkcji, które można [wdrożyć w Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
+Za pomocą Azure Machine Learning można tworzyć obrazy platformy Docker z przeszkolonych modeli uczenia maszynowego. Azure Machine Learning teraz zawiera funkcję wersji zapoznawczej umożliwiającą tworzenie tych modeli uczenia maszynowego w aplikacjach funkcji, które można [wdrożyć w Azure Functions](../azure-functions/functions-deployment-technologies.md#docker-container).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz artykuł [Tworzenie obszaru roboczego](how-to-manage-workspace.md) .
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * Model uczenia maszynowego zarejestrowany w Twoim obszarze roboczym. Jeśli nie masz modelu, Skorzystaj z [samouczka klasyfikacji obrazów: uczenie modelu](tutorial-train-models-with-aml.md) do uczenia i zarejestrowania go.
 
     > [!IMPORTANT]
@@ -47,23 +47,23 @@ Za pomocą Azure Machine Learning można tworzyć obrazy platformy Docker z prze
 
 Przed wdrożeniem należy zdefiniować, co jest potrzebne do uruchomienia modelu jako usługi sieci Web. Na poniższej liście opisano podstawowe elementy, które są związane z wdrożeniem:
 
-* __Skrypt wejściowy__ . Ten skrypt akceptuje żądania, ocenia żądanie przy użyciu modelu i zwraca wyniki.
+* __Skrypt wejściowy__. Ten skrypt akceptuje żądania, ocenia żądanie przy użyciu modelu i zwraca wyniki.
 
     > [!IMPORTANT]
     > Skrypt wejścia jest specyficzny dla modelu; musi on zrozumieć format danych żądania przychodzącego, format danych oczekiwanych przez model i format danych zwracanych do klientów.
     >
     > Jeśli dane żądania są w formacie, którego nie można używać w modelu, skrypt może przekształcić go w akceptowalny format. Może również przekształcić odpowiedź przed powrotem do klienta programu.
     >
-    > Domyślnie podczas tworzenia pakietów dla funkcji dane wejściowe są traktowane jako tekst. Jeśli interesuje się zużywanie nieprzetworzonych bajtów danych wejściowych (na przykład dla wyzwalaczy obiektów BLOB), należy użyć [AMLRequest do akceptowania danych pierwotnych](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
+    > Domyślnie podczas tworzenia pakietów dla funkcji dane wejściowe są traktowane jako tekst. Jeśli interesuje się zużywanie nieprzetworzonych bajtów danych wejściowych (na przykład dla wyzwalaczy obiektów BLOB), należy użyć [AMLRequest do akceptowania danych pierwotnych](./how-to-deploy-advanced-entry-script.md#binary-data).
 
-Aby uzyskać więcej informacji na temat skryptu wprowadzania, zobacz [Definiowanie oceniania kodu](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
+Aby uzyskać więcej informacji na temat skryptu wprowadzania, zobacz [Definiowanie oceniania kodu](./how-to-deploy-and-where.md#define-an-entry-script)
 
 * **Zależności** , takie jak skrypty pomocnika lub pakiety Python/Conda wymagane do uruchomienia skryptu lub modelu wprowadzania
 
-Te jednostki są hermetyzowane w __konfiguracji wnioskowania__ . Konfiguracja wnioskowania przywołuje skrypt wejściowy i inne zależności.
+Te jednostki są hermetyzowane w __konfiguracji wnioskowania__. Konfiguracja wnioskowania przywołuje skrypt wejściowy i inne zależności.
 
 > [!IMPORTANT]
-> Podczas tworzenia konfiguracji wnioskowania do użytku z Azure Functions należy użyć obiektu [środowiska](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) . Należy pamiętać, że w przypadku definiowania środowiska niestandardowego należy dodać polecenie "Azure-default" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web. Poniższy przykład ilustruje tworzenie obiektu środowiska i używanie go z konfiguracją wnioskowania:
+> Podczas tworzenia konfiguracji wnioskowania do użytku z Azure Functions należy użyć obiektu [środowiska](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) . Należy pamiętać, że w przypadku definiowania środowiska niestandardowego należy dodać polecenie "Azure-default" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web. Poniższy przykład ilustruje tworzenie obiektu środowiska i używanie go z konfiguracją wnioskowania:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -84,7 +84,7 @@ Aby uzyskać więcej informacji o środowiskach, zobacz [Tworzenie środowisk i 
 Aby uzyskać więcej informacji na temat konfiguracji wnioskowania, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Podczas wdrażania w usłudze Functions nie trzeba tworzyć __konfiguracji wdrożenia__ .
+> Podczas wdrażania w usłudze Functions nie trzeba tworzyć __konfiguracji wdrożenia__.
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Zainstaluj pakiet SDK wersji zapoznawczej dla obsługi funkcji
 
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Tworzenie obrazu
 
-Aby utworzyć obraz platformy Docker wdrożony w Azure Functions, Użyj usługi [Azure. contrib. Functions. Package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) lub określonej funkcji pakietu dla wyzwalacza, którego chcesz używać. Poniższy fragment kodu pokazuje, jak utworzyć nowy pakiet z wyzwalaczem obiektu BLOB z konfiguracji modelu i wnioskowania:
+Aby utworzyć obraz platformy Docker wdrożony w Azure Functions, Użyj usługi [Azure. contrib. Functions. Package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) lub określonej funkcji pakietu dla wyzwalacza, którego chcesz używać. Poniższy fragment kodu pokazuje, jak utworzyć nowy pakiet z wyzwalaczem obiektu BLOB z konfiguracji modelu i wnioskowania:
 
 > [!NOTE]
 > W fragmencie kodu założono `model` , że zawiera zarejestrowany model i `inference_config` zawiera konfigurację środowiska wnioskowania. Aby uzyskać więcej informacji, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](how-to-deploy-and-where.md).
@@ -113,7 +113,7 @@ print(blob.location)
 Gdy `show_output=True` są wyświetlane dane wyjściowe procesu kompilacji platformy Docker. Po zakończeniu procesu obraz został utworzony w Azure Container Registry dla obszaru roboczego. Po skompilowaniu obrazu zostanie wyświetlona lokalizacja w Azure Container Registry. Zwrócona Lokalizacja ma format `<acrinstance>.azurecr.io/package@sha256:<imagename>` .
 
 > [!NOTE]
-> Pakowanie dla funkcji obecnie obsługuje wyzwalacze HTTP, wyzwalacze obiektów blob i wyzwalacze usługi Service Bus. Aby uzyskać więcej informacji na temat wyzwalaczy, zobacz [Azure Functions powiązania](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
+> Pakowanie dla funkcji obecnie obsługuje wyzwalacze HTTP, wyzwalacze obiektów blob i wyzwalacze usługi Service Bus. Aby uzyskać więcej informacji na temat wyzwalaczy, zobacz [Azure Functions powiązania](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
 
 > [!IMPORTANT]
 > Zapisz informacje o lokalizacji, ponieważ są używane podczas wdrażania obrazu.
@@ -144,7 +144,7 @@ Gdy `show_output=True` są wyświetlane dane wyjściowe procesu kompilacji platf
     }
     ```
 
-    Zapisz wartość dla __nazwy użytkownika__ i jednego z __haseł__ .
+    Zapisz wartość dla __nazwy użytkownika__ i jednego z __haseł__.
 
 1. Jeśli nie masz jeszcze grupy zasobów lub planu usługi App Service do wdrożenia usługi, następujące polecenia pokazują, jak utworzyć obie:
 
@@ -293,12 +293,12 @@ Po załadowaniu obrazu i udostępnieniu aplikacji wykonaj następujące kroki, a
 
     Po zakończeniu wykonywania polecenia Otwórz plik. Zawiera dane zwrócone przez model.
 
-Aby uzyskać więcej informacji na temat korzystania z wyzwalaczy obiektów blob, zobacz artykuł [Tworzenie funkcji wyzwalanej przez usługę Azure Blob Storage](/azure/azure-functions/functions-create-storage-blob-triggered-function) .
+Aby uzyskać więcej informacji na temat korzystania z wyzwalaczy obiektów blob, zobacz artykuł [Tworzenie funkcji wyzwalanej przez usługę Azure Blob Storage](../azure-functions/functions-create-storage-blob-triggered-function.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak skonfigurować aplikację funkcji w dokumentacji [funkcji](/azure/azure-functions/functions-create-function-linux-custom-image) .
-* Dowiedz się więcej o usłudze BLOB Storage wyzwala [powiązania usługi Azure Blob Storage](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+* Dowiedz się, jak skonfigurować aplikację funkcji w dokumentacji [funkcji](../azure-functions/functions-create-function-linux-custom-image.md) .
+* Dowiedz się więcej o usłudze BLOB Storage wyzwala [powiązania usługi Azure Blob Storage](../azure-functions/functions-bindings-storage-blob.md).
 * [Wdróż model do Azure App Service](how-to-deploy-app-service.md).
 * [Korzystanie z modelu ML wdrożonego jako usługa sieci Web](how-to-consume-web-service.md)
-* [Dokumentacja interfejsu API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)
+* [Dokumentacja interfejsu API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py)

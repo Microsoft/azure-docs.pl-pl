@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d4ab3bccf281928be2b55eb5a36ae20a0aa8a08a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c12727e08c6ec9075aa6c1e256279ab7596417b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288719"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324526"
 ---
-# <a name="design-tables-using-synapse-sql"></a>Projektowanie tabel przy użyciu języka SQL Synapse
+# <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Projektowanie tabel przy użyciu języka SQL Synapse w usłudze Azure Synapse Analytics
 
-Ten dokument zawiera najważniejsze pojęcia dotyczące projektowania tabel z użyciem puli SQL i SQL na żądanie (wersja zapoznawcza).  
+Ten dokument zawiera najważniejsze pojęcia dotyczące projektowania tabel z dedykowaną pulą SQL i bezserwerową pulą SQL (wersja zapoznawcza).  
 
-[SQL na żądanie (wersja zapoznawcza)](on-demand-workspace-overview.md) to usługa zapytań dla danych w usłudze Data Lake. Nie ma magazynu lokalnego na potrzeby pozyskiwania danych. [Pula SQL](best-practices-sql-pool.md) reprezentuje kolekcję zasobów analitycznych, które są obsługiwane podczas korzystania z programu Synapse SQL. Rozmiar puli SQL jest określany przez jednostki magazynowania danych (jednostek dwu).
+[Pula SQL Bezserwerowa (wersja zapoznawcza)](on-demand-workspace-overview.md) to usługa zapytań dla danych w usłudze Data Lake. Nie ma magazynu lokalnego na potrzeby pozyskiwania danych. [Dedykowana Pula SQL](best-practices-sql-pool.md) reprezentuje kolekcję zasobów analitycznych, które są obsługiwane podczas korzystania z programu Synapse SQL. Rozmiar dedykowanej puli SQL jest określany przez jednostki magazynowania danych (jednostek dwu).
 
-W poniższej tabeli wymieniono tematy istotne dla puli SQL i programu SQL na żądanie:
+W poniższej tabeli wymieniono tematy istotne dla dedykowanej puli SQL i bezserwerowej puli SQL:
 
-| Temat                                                        | Pula SQL | SQL na żądanie |
+| Temat                                                        | dedykowana Pula SQL | Pula SQL bezserwerowa |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
 | [Określanie kategorii tabeli](#determine-table-category)        | Tak                | Nie                      |
 | [Nazwy schematów](#schema-names)                                | Tak                | Tak                     |
@@ -69,11 +69,11 @@ CREATE SCHEMA wwi;
 
 ## <a name="table-names"></a>Nazwy tabel
 
-W przypadku migrowania wielu baz danych z rozwiązania Premium do puli SQL najlepszym rozwiązaniem jest przeprowadzenie migracji wszystkich tabel faktów, wymiarów i integracji do jednego schematu puli SQL. Można na przykład przechowywać wszystkie tabele w [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) przykładowego magazynu danych w ramach jednego schematu o nazwie WWI.
+W przypadku migrowania wielu baz danych z rozwiązania Premium do dedykowanej puli SQL najlepszym rozwiązaniem jest Migrowanie wszystkich tabel faktów, wymiarów i integracji do jednego schematu puli SQL. Można na przykład przechowywać wszystkie tabele w [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) przykładowego magazynu danych w ramach jednego schematu o nazwie WWI.
 
-Aby wyświetlić organizację tabel w puli SQL, można użyć faktów, Dim i int jako prefiksów nazw tabel. W poniższej tabeli przedstawiono niektóre z nazw schematu i tabeli dla WideWorldImportersDW.  
+Aby wyświetlić organizację tabel w dedykowanej puli SQL, można użyć faktów, Dim i int jako prefiksów nazw tabel. W poniższej tabeli przedstawiono niektóre z nazw schematu i tabeli dla WideWorldImportersDW.  
 
-| Tabela WideWorldImportersDW  | Typ tabeli | Pula SQL |
+| Tabela WideWorldImportersDW  | Typ tabeli | dedykowana Pula SQL |
 |:-----|:-----|:------|:-----|
 | City (Miasto) | Wymiar | WWI. DimCity |
 | Zamówienie | Fact | WWI. FactOrder |
@@ -92,9 +92,9 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 ### <a name="temporary-table"></a>Tabela tymczasowa
 
-Tabela tymczasowa istnieje tylko na czas trwania sesji. Możesz użyć tabeli tymczasowej, aby uniemożliwić innym użytkownikom wyświetlanie wyników tymczasowych. Korzystanie z tabel tymczasowych również zmniejsza potrzebę czyszczenia.  Tabele tymczasowe wykorzystują magazyn lokalny i w puli SQL mogą oferować szybszą wydajność.  
+Tabela tymczasowa istnieje tylko na czas trwania sesji. Możesz użyć tabeli tymczasowej, aby uniemożliwić innym użytkownikom wyświetlanie wyników tymczasowych. Korzystanie z tabel tymczasowych również zmniejsza potrzebę czyszczenia.  Tabele tymczasowe wykorzystują magazyn lokalny i w dedykowanych pulach SQL mogą oferować szybszą wydajność.  
 
-SQL na żądanie obsługuje tabele tymczasowe. Jednak jego użycie jest ograniczone, ponieważ można wybrać z tabeli tymczasowej, ale nie można dołączyć jej do plików w magazynie.
+Pula SQL bezserwerowa obsługuje tabele tymczasowe. Jednak jego użycie jest ograniczone, ponieważ można wybrać z tabeli tymczasowej, ale nie można dołączyć jej do plików w magazynie.
 
 Aby uzyskać więcej informacji, zobacz  [tabele tymczasowe](develop-tables-temporary.md).
 
@@ -102,17 +102,17 @@ Aby uzyskać więcej informacji, zobacz  [tabele tymczasowe](develop-tables-temp
 
 [Zewnętrzne tabele](develop-tables-external-tables.md) wskazują dane znajdujące się w obiekcie blob usługi Azure Storage lub Azure Data Lake Storage.
 
-Importuj dane z tabel zewnętrznych do puli SQL przy użyciu instrukcji [CREATE TABLE as SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) . Aby zapoznać się z samouczkiem dotyczącym ładowania, zobacz [Korzystanie z bazy danych w celu ładowania dane z usługi Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Importuj dane z tabel zewnętrznych do dedykowanych pul SQL przy użyciu instrukcji [CREATE TABLE as SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) . Aby zapoznać się z samouczkiem dotyczącym ładowania, zobacz [Korzystanie z bazy danych w celu ładowania dane z usługi Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-W przypadku programu SQL na żądanie możesz użyć [CETAS](develop-tables-cetas.md) , aby zapisać wynik zapytania w tabeli zewnętrznej w usłudze Azure Storage.
+W przypadku puli SQL bezserwerowej można użyć [CETAS](develop-tables-cetas.md) do zapisania wyniku zapytania w tabeli zewnętrznej w usłudze Azure Storage.
 
 ## <a name="data-types"></a>Typy danych
 
-Pula SQL obsługuje najczęściej używane typy danych. Aby zapoznać się z listą obsługiwanych typów danych, zobacz [typy danych w CREATE TABLE odwołanie](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes&preserve-view=true) w instrukcji CREATE TABLE. Aby uzyskać więcej informacji na temat korzystania z typów danych, zobacz [typy danych](../sql/develop-tables-data-types.md).
+Dedykowana Pula SQL obsługuje najczęściej używane typy danych. Aby zapoznać się z listą obsługiwanych typów danych, zobacz [typy danych w CREATE TABLE odwołanie](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes&preserve-view=true) w instrukcji CREATE TABLE. Aby uzyskać więcej informacji na temat korzystania z typów danych, zobacz [typy danych](../sql/develop-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Rozproszone tabele
 
-Podstawową funkcją puli SQL jest sposób, w jaki można przechowywać i pracować w tabelach w ramach [dystrybucji](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions).  Pula SQL obsługuje trzy metody dystrybucji danych:
+Podstawową funkcją dedykowanej puli SQL jest sposób, w jaki można przechowywać i pracować w tabelach w ramach [dystrybucji](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions).  Dedykowana Pula SQL obsługuje trzy metody dystrybucji danych:
 
 - Działanie okrężne (ustawienie domyślne)
 - Skrót
@@ -148,9 +148,9 @@ Kategoria tabeli często określa optymalną opcję dystrybucji tabeli.
 
 ## <a name="partitions"></a>Partycje
 
-W puli SQL tabela partycjonowana jest przechowywana i wykonuje operacje na wierszach tabeli zgodnie z zakresami danych. Na przykład tabela może być partycjonowana według dnia, miesiąca lub roku. Można poprawić wydajność zapytań za pomocą eliminacji partycji, co ogranicza skanowanie zapytania do danych w ramach partycji.
+W dedykowanych pulach SQL tabela partycjonowana i wykonuje operacje na wierszach tabeli zgodnie z zakresami danych. Na przykład tabela może być partycjonowana według dnia, miesiąca lub roku. Można poprawić wydajność zapytań za pomocą eliminacji partycji, co ogranicza skanowanie zapytania do danych w ramach partycji.
 
-Możesz również zachować dane za pomocą przełączania partycji. Ponieważ dane w puli SQL są już dystrybuowane, zbyt wiele partycji może spowalniać wydajność zapytań. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące partycjonowania](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
+Możesz również zachować dane za pomocą przełączania partycji. Ponieważ dane w dedykowanej puli SQL są już dystrybuowane, zbyt wiele partycji może powolnej wydajności zapytań. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące partycjonowania](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
 
 > [!TIP]
 > Gdy partycja przełączy się na partycje tabeli, które nie są puste, rozważ użycie opcji TRUNCATE_TARGET w instrukcji [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) , jeśli istniejące dane mają zostać obcięte.
@@ -161,7 +161,7 @@ Kod poniżej przełącza przekształcone dane codziennie na partycję SalesFact 
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
 ```
 
-W przypadku bazy danych SQL na żądanie można ograniczyć pliki/foldery (partycje), które będą odczytywane przez zapytanie. Partycjonowanie według ścieżki jest obsługiwane przy użyciu funkcji FilePath i FileInfo opisanych w temacie [wykonywanie zapytań dotyczących plików magazynu](develop-storage-files-overview.md). Poniższy przykład odczytuje folder z danymi dla roku 2017:
+W puli SQL bezserwerowej można ograniczyć pliki/foldery (partycje), które będą odczytywane przez zapytanie. Partycjonowanie według ścieżki jest obsługiwane przy użyciu funkcji FilePath i FileInfo opisanych w temacie [wykonywanie zapytań dotyczących plików magazynu](develop-storage-files-overview.md). Poniższy przykład odczytuje folder z danymi dla roku 2017:
 
 ```sql
 SELECT
@@ -185,7 +185,7 @@ ORDER BY
 
 ## <a name="columnstore-indexes"></a>Indeksy magazynu kolumn
 
-Domyślnie Pula SQL przechowuje tabelę jako klastrowany indeks magazynu kolumn. Ta forma magazynu danych zapewnia wysoką kompresję danych i wydajność zapytań w przypadku dużych tabel.  Klastrowany indeks magazynu kolumn jest zazwyczaj najlepszym wyborem, ale w niektórych przypadkach indeks klastrowany lub sterta jest odpowiednią strukturą magazynu.  
+Domyślnie dedykowana Pula SQL przechowuje tabelę jako klastrowany indeks magazynu kolumn. Ta forma magazynu danych zapewnia wysoką kompresję danych i wydajność zapytań w przypadku dużych tabel.  Klastrowany indeks magazynu kolumn jest zazwyczaj najlepszym wyborem, ale w niektórych przypadkach indeks klastrowany lub sterta jest odpowiednią strukturą magazynu.  
 
 > [!TIP]
 > Tabela sterty może być szczególnie przydatna do ładowania danych przejściowych, takich jak tabela tymczasowa, która jest przekształcana w ostateczną tabelę.
@@ -194,38 +194,37 @@ Aby zapoznać się z listą funkcji magazynu kolumn, zobacz [co nowego w indeksa
 
 ## <a name="statistics"></a>Statystyki
 
-
 Optymalizator zapytań używa statystyk na poziomie kolumny podczas tworzenia planu wykonywania zapytania. Aby poprawić wydajność zapytań, ważne jest posiadanie statystyk dla poszczególnych kolumn, zwłaszcza kolumn używanych w sprzężeniach zapytań. Synapse SQL obsługuje automatyczne tworzenie statystyk. 
 
 Aktualizowanie statystyczne nie odbywa się automatycznie. Aktualizacja statystyk po dodaniu lub zmianie znaczącej liczby wierszy. Na przykład zaktualizuj statystyki po załadowaniu. Dodatkowe informacje znajdują się w artykule [wskazówki dotyczące statystyk](develop-tables-statistics.md) .
 
 ## <a name="primary-key-and-unique-key"></a>Klucz podstawowy i unikatowy klucz
 
-KLUCZ podstawowy jest obsługiwany tylko w przypadku, gdy są używane obiekty nieklastrowane i niewymuszone.  Ograniczenie UNIQUE jest obsługiwane tylko wtedy, gdy nie jest WYMUSZANe.  Aby uzyskać więcej informacji, zobacz artykuł [ograniczenia tabeli puli SQL](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) .
+W przypadku dedykowanej puli SQL klucz podstawowy jest obsługiwany tylko w przypadku, gdy są używane zarówno nieklastrowane, jak i niewymuszone.  Ograniczenie UNIQUE jest obsługiwane tylko wtedy, gdy nie jest WYMUSZANe.  Aby uzyskać więcej informacji, zobacz artykuł [ograniczenia tabeli puli SQL](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) .
 
 ## <a name="commands-for-creating-tables"></a>Polecenia służące do tworzenia tabel
 
-Tabelę można utworzyć jako nową pustą tabelę. Możesz również utworzyć i wypełnić tabelę z wynikami instrukcji SELECT. Poniżej przedstawiono polecenia T-SQL służące do tworzenia tabeli.
+W przypadku dedykowanej puli SQL można utworzyć tabelę jako nową pustą tabelę. Możesz również utworzyć i wypełnić tabelę z wynikami instrukcji SELECT. Poniżej przedstawiono polecenia T-SQL służące do tworzenia tabeli.
 
 | Instrukcja T-SQL | Opis |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Tworzy pustą tabelę przez zdefiniowanie wszystkich kolumn i opcji tabeli. |
-| [TWORZENIE TABELI ZEWNĘTRZNEJ](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Tworzy tabelę zewnętrzną. Definicja tabeli jest przechowywana w puli SQL. Dane tabeli są przechowywane w usłudze Azure Blob Storage lub Azure Data Lake Storage. |
+| [TWORZENIE TABELI ZEWNĘTRZNEJ](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Tworzy tabelę zewnętrzną. Definicja tabeli jest przechowywana w dedykowanej puli SQL. Dane tabeli są przechowywane w usłudze Azure Blob Storage lub Azure Data Lake Storage. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Wypełnia nową tabelę wynikami instrukcji SELECT. Kolumny tabeli i typy danych są oparte na wynikach instrukcji SELECT. Aby zaimportować dane, ta instrukcja może zostać wybrana z tabeli zewnętrznej. |
 | [UTWÓRZ TABELĘ ZEWNĘTRZNĄ JAKO WYBRANĄ](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Tworzy nową tabelę zewnętrzną przez wyeksportowanie wyników instrukcji SELECT do lokalizacji zewnętrznej.  Lokalizacją jest usługa Azure Blob Storage lub Azure Data Lake Storage. |
 
 ## <a name="align-source-data-with-the-data-warehouse"></a>Wyrównaj dane źródłowe z magazynem danych
 
-Tabele magazynu danych są wypełniane przez załadowanie danych z innego źródła danych. Aby osiągnąć pomyślne obciążenie, liczba i typy danych kolumn w danych źródłowych muszą być wyrównane z definicją tabeli w magazynie danych.
+Dedykowane tabele puli SQL są wypełniane przez załadowanie danych z innego źródła danych. Aby osiągnąć pomyślne obciążenie, liczba i typy danych kolumn w danych źródłowych muszą być wyrównane z definicją tabeli w magazynie danych.
 
 > [!NOTE]
 > Pobieranie danych do wyrównania może być najtrudniejszą częścią projektowania tabel.
 
-Jeśli dane pochodzą z wielu magazynów danych, można przenieść dane do magazynu danych i zapisać je w tabeli integracji. Gdy dane są w tabeli integracji, można użyć możliwości puli SQL w celu zaimplementowania operacji transformacji. Po przygotowaniu danych można je wstawić do tabel produkcyjnych.
+Jeśli dane pochodzą z wielu magazynów danych, można przenieść dane do magazynu danych i zapisać je w tabeli integracji. Gdy dane są w tabeli integracji, można użyć możliwości dedykowanej puli SQL do implementowania operacji transformacji. Po przygotowaniu danych można je wstawić do tabel produkcyjnych.
 
 ## <a name="unsupported-table-features"></a>Nieobsługiwane funkcje tabeli
 
-Pula SQL obsługuje wiele funkcji tabel oferowanych przez inne bazy danych, ale nie wszystkie.  Na poniższej liście przedstawiono niektóre funkcje tabeli, które nie są obsługiwane w puli SQL.
+Dedykowana Pula SQL obsługuje wiele funkcji tabel oferowanych przez inne bazy danych, ale nie wszystkie.  Na poniższej liście przedstawiono niektóre funkcje tabeli, które nie są obsługiwane w dedykowanej puli SQL.
 
 - Klucz obcy, sprawdzanie [ograniczeń tabeli](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [Kolumny obliczane](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
@@ -240,7 +239,7 @@ Pula SQL obsługuje wiele funkcji tabel oferowanych przez inne bazy danych, ale 
 
 ## <a name="table-size-queries"></a>Zapytania o rozmiar tabeli
 
-Jednym z prostych sposobów identyfikowania miejsca i wierszy używanych przez tabelę w każdej z dystrybucji 60 jest użycie [polecenia DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+W dedykowanej puli SQL jeden prosty sposób identyfikowania miejsca i wierszy zużywanych przez tabelę w każdej z dystrybucji 60 to użycie [polecenia DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -441,4 +440,4 @@ ORDER BY    distribution_id
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnym krokiem po utworzeniu tabel dla hurtowni danych jest załadowanie danych do tabeli.  Aby zapoznać się z samouczkiem ładowania, zobacz [ładowanie danych do puli SQL](../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#load-the-data-into-sql-pool).
+Następnym krokiem po utworzeniu tabel dla hurtowni danych jest załadowanie danych do tabeli.  Aby zapoznać się z samouczkiem ładowania, zobacz [ładowanie danych do dedykowanej puli SQL](../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#load-the-data-into-sql-pool).

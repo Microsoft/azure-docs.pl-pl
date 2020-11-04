@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c4c7b8da659fa7fe8879ae92c4947b7f0867274c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2a22174fb23a4f0f7bebd58e276a6778e986ce9e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173499"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322926"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analizowanie danych na koncie magazynu
 
@@ -43,10 +43,10 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 ### <a name="analyze-data-in-a-storage-account"></a>Analizowanie danych na koncie magazynu
 
 1. W programie Synapse Studio przejdź do centrum **danych** , a następnie wybierz pozycję **połączone**.
-1. Przejdź do pozycji **konta magazynu**mój  >  **obszar roboczy (podstawowe-contosolake)**.
+1. Przejdź do pozycji **konta magazynu** mój  >  **obszar roboczy (podstawowe-contosolake)**.
 1. Wybierz pozycję **Użytkownicy (podstawowy)**. Powinien zostać wyświetlony folder **NYCTaxi** . Wewnątrz powinny być widoczne dwa foldery o nazwie **PassengerCountStats.csv** i **PassengerCountStats. Parquet**.
 1. Otwórz folder **PassengerCountStats. Parquet** . W programie zobaczysz plik Parquet o takiej samej nazwie `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` .
-1. Kliknij prawym przyciskiem myszy pozycję **Parquet**, a następnie wybierz pozycję **Nowy Notes**. Tworzy Notes o takiej samej komórce:
+1. Kliknij prawym przyciskiem myszy pozycję **Parquet** , a następnie wybierz pozycję **Nowy Notes**. Tworzy Notes o takiej samej komórce:
 
     ```py
     %%pyspark
@@ -65,7 +65,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ) AS [r];
     ```
 
-    W oknie Skrypt pole **Połącz z** ma ustawioną wartość **SQL na żądanie**.
+    W oknie Skrypt pole **Połącz z** jest ustawione na **pulę SQL bez serwera**.
 
 1. Uruchom skrypt.
 

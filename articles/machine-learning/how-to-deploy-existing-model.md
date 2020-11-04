@@ -1,7 +1,7 @@
 ---
 title: Używanie i wdrażanie istniejących modeli
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak przenieść lokalnie przeszkolone modele ML do chmury platformy Azure za pomocą Azure Machine Learning.  Można rejestrować modele utworzone poza Azure Machine Learning, a następnie wdrażać je jako usługę sieci Web lub moduł Azure IoT Edge.
+description: Dowiedz się, jak przenieść modele ML do chmury platformy Azure, korzystając z Azure Machine Learning. Następnie należy wdrożyć model jako usługę sieci Web lub moduł IoT.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: e8f789819c762702061465e01cf1e64b349c3344
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6721357464c2a49331d9c02982841d36aa207cc6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735545"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324990"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Wdróż istniejący model przy użyciu Azure Machine Learning
 
@@ -28,13 +28,13 @@ Aby uzyskać więcej informacji na temat pojęć i warunków zawartych w tym art
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Obszar roboczy Azure Machine Learning](how-to-manage-workspace.md)
-  + W przykładach języka Python założono, że `ws` zmienna jest ustawiona na obszar roboczy Azure Machine Learning. Aby uzyskać więcej informacji na temat łączenia się z obszarem roboczym, zapoznaj się z [dokumentacją zestawu Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=trueworkspace).
+  + W przykładach języka Python założono, że `ws` zmienna jest ustawiona na obszar roboczy Azure Machine Learning. Aby uzyskać więcej informacji na temat łączenia się z obszarem roboczym, zapoznaj się z [dokumentacją zestawu Azure Machine Learning SDK dla języka Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=trueworkspace).
   
   + Przykłady interfejsu wiersza polecenia używają symboli zastępczych `myworkspace` i `myresourcegroup` , które należy zamienić na nazwę obszaru roboczego i grupę zasobów, która go zawiera.
 
-* [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).  
+* [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) i [Machine Learning rozszerzenia interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md).
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) i [Machine Learning rozszerzenia interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md).
 
 * Model szkolony. Model musi być utrwalony w co najmniej jednym pliku w środowisku deweloperskim. <br><br>W celu zaprezentowania rejestrowania modelu przeszkolonego przykładowy kod w tym artykule używa modeli z [projektu Paolo Ripamonti usługi Twitter tonacji Analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
@@ -52,7 +52,7 @@ model = Model.register(model_path = "./models",
                        workspace = ws)
 ```
 
-Aby uzyskać więcej informacji, zobacz Dokumentacja [model. Register ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-) .
+Aby uzyskać więcej informacji, zobacz Dokumentacja [model. Register ()](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-) .
 
 ```azurecli
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
@@ -61,7 +61,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 > [!TIP]
 > Można również ustawić obiekty Add `tags` i `properties` dictionary na zarejestrowany model. Te wartości mogą być używane później, aby ułatwić identyfikację określonego modelu. Na przykład używana struktura, parametry szkoleniowe itp.
 
-Aby uzyskać więcej informacji, zobacz sekcję [AZ ml model Register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-register) Reference.
+Aby uzyskać więcej informacji, zobacz sekcję [AZ ml model Register](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) Reference.
 
 
 Aby uzyskać więcej informacji na temat rejestracji modelu ogólnie, zobacz artykuł [Zarządzanie, wdrażanie i monitorowanie modeli uczenia maszynowego](concept-model-management-and-deployment.md).
@@ -103,7 +103,7 @@ inference_config = InferenceConfig(entry_script="score.py",
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 + [Jak używać środowisk](how-to-use-environments.md).
-+ Odwołanie [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) .
++ Odwołanie [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) .
 
 
 Interfejs wiersza polecenia ładuje konfigurację wnioskowania z pliku YAML:
@@ -220,7 +220,7 @@ Aby uzyskać więcej informacji na temat skryptów wprowadzania, zobacz [Wdraża
 
 ## <a name="define-deployment"></a>Definiowanie wdrożenia
 
-Pakiet usługi [WebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py&preserve-view=true) zawiera klasy używane do wdrożenia. Używana Klasa określa, gdzie model jest wdrażany. Na przykład, aby wdrożyć jako usługę sieci Web w usłudze Azure Kubernetes, użyj [AksWebService.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-) , aby utworzyć konfigurację wdrożenia.
+Pakiet usługi [WebService](/python/api/azureml-core/azureml.core.webservice?preserve-view=true&view=azure-ml-py) zawiera klasy używane do wdrożenia. Używana Klasa określa, gdzie model jest wdrażany. Na przykład, aby wdrożyć jako usługę sieci Web w usłudze Azure Kubernetes, użyj [AksWebService.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-) , aby utworzyć konfigurację wdrożenia.
 
 Poniższy kod w języku Python definiuje konfigurację wdrożenia dla lokalnego wdrożenia. Ta konfiguracja wdraża model jako usługę sieci Web na komputerze lokalnym.
 
@@ -233,7 +233,7 @@ from azureml.core.webservice import LocalWebservice
 deployment_config = LocalWebservice.deploy_configuration()
 ```
 
-Aby uzyskać więcej informacji, zobacz informacje o [LocalWebservice.deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-port-none-) .
+Aby uzyskać więcej informacji, zobacz informacje o [LocalWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.localwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-port-none-) .
 
 Interfejs wiersza polecenia ładuje konfigurację wdrożenia z pliku YAML:
 
@@ -260,7 +260,7 @@ print(service.state)
 print("scoring URI: " + service.scoring_uri)
 ```
 
-Aby uzyskać więcej informacji, zobacz Dokumentacja [model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) .
+Aby uzyskać więcej informacji, zobacz Dokumentacja [model. deploy ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) .
 
 Aby wdrożyć model z interfejsu wiersza polecenia, użyj następującego polecenia. To polecenie wdraża wersję 1 zarejestrowanego modelu ( `sentiment:1` ) przy użyciu konfiguracji wnioskowania i wdrożenia przechowywanej w `inferenceConfig.json` plikach i `deploymentConfig.json` :
 
@@ -268,7 +268,7 @@ Aby wdrożyć model z interfejsu wiersza polecenia, użyj następującego polece
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-Aby uzyskać więcej informacji, zobacz [AZ ml model Deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-deploy) Reference.
+Aby uzyskać więcej informacji, zobacz [AZ ml model Deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) Reference.
 
 Aby uzyskać więcej informacji na temat wdrażania, zobacz [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9405eb01dbe2d7ea9d4a9e64bf7dd79ca356e9f5
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926992"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323797"
 ---
 # <a name="evaluate-model-module"></a>Oceń moduł modelu
 
@@ -30,11 +30,11 @@ Ten moduł służy do mierzenia dokładności nauczonego modelu. Dostarczasz zes
 
 
 > [!TIP]
-> Jeśli dopiero zaczynasz korzystać z wersji ewaluacyjnej modelu, zalecamy korzystanie z serii wideo przez Dr. Stephen Elston w ramach [kursu uczenia maszynowego](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) z usługi EdX. 
+> Jeśli dopiero zaczynasz korzystać z wersji ewaluacyjnej modelu, zalecamy korzystanie z serii wideo przez Dr. Stephen Elston w ramach [kursu uczenia maszynowego](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials) z usługi EdX. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>Jak używać modelu szacowania
-1. Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu wynikowego](./score-model.md) lub danych wyjściowych zestawu danych wynikowych [przypisywania danych do klastrów](./assign-data-to-clusters.md) do lewego portu wejściowego **oceny modelu** . 
+1. Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu wynikowego](./score-model.md) lub danych wyjściowych zestawu danych wynikowych [przypisywania danych do klastrów](./assign-data-to-clusters.md) do lewego portu wejściowego **oceny modelu**. 
     > [!NOTE] 
     > Jeśli używasz modułów takich jak "Wybieranie kolumn w zestawie danych", aby wybrać część wejściowego zestawu danych, upewnij się, że rzeczywista kolumna etykiety (używana w szkoleniu), kolumna "oceny prawdopodobieństwa" i "oceny etykiet" istnieją do obliczenia metryk, takich jak AUC, dokładność dla binarnej klasyfikacji/wykrywania anomalii.
     > Rzeczywista kolumna etykiet, kolumna "oceny etykiet" istnieje, aby obliczyć metryki dla klasyfikacji/regresji dla wieloklasowego.
@@ -48,7 +48,7 @@ Ten moduł służy do mierzenia dokładności nauczonego modelu. Dostarczasz zes
     > + W przypadku zadania o wielu klasyfikacjach zestaw danych do oceny musi mieć jedną kolumnę o nazwie `Multi Class Scored Labels` , która reprezentuje etykiety z wynikami.
     > Jeśli dane wyjściowe modułu nadrzędnego nie mają tych kolumn, należy zmodyfikować zgodnie z powyższymi wymaganiami.
 
-2. Obowiązkowe Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu oceny](./score-model.md) lub danych wyjściowych zestawu danych wynikowych przypisywania danych do klastrów dla drugiego modelu **na odpowiedni port wejściowy** **oceny modelu** . Możesz łatwo porównać wyniki z dwóch różnych modeli na tych samych danych. Dwa algorytmy wejściowe powinny być tym samym typem algorytmu. Lub można porównać wyniki z dwóch różnych przebiegów nad tymi samymi danymi z różnymi parametrami.
+2. Obowiązkowe Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu oceny](./score-model.md) lub danych wyjściowych zestawu danych wynikowych przypisywania danych do klastrów dla drugiego modelu **na odpowiedni port wejściowy** **oceny modelu**. Możesz łatwo porównać wyniki z dwóch różnych modeli na tych samych danych. Dwa algorytmy wejściowe powinny być tym samym typem algorytmu. Lub można porównać wyniki z dwóch różnych przebiegów nad tymi samymi danymi z różnymi parametrami.
 
     > [!NOTE]
     > Typ algorytmu odnosi się do "klasyfikacji dwuklasowej", "klasyfikacji wieloklasowej", "regresji", "klastrowanie" w ramach "Machine Learning algorytmów". 
@@ -142,4 +142,4 @@ Następujące metryki są zgłaszane do oceny modeli klastrowania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning.

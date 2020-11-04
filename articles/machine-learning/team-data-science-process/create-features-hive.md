@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6261e31fd84b9471fa4ea5d30e1d6a4afbac9115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c0a02c2cbc11002f8e0bf0295dab91de5d0365
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085382"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323674"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Tworzenie funkcji dla danych w klastrze usługi Hadoop przy użyciu zapytań programu Hive
 W tym dokumencie przedstawiono sposób tworzenia funkcji dla danych przechowywanych w klastrze Azure HDInsight Hadoop przy użyciu zapytań programu Hive. Te zapytania Hive używają osadzonych funkcji User-Defined Hive (UDF), które są udostępniane przez skrypty.
@@ -25,15 +25,15 @@ Operacje wymagające tworzenia funkcji mogą być czasochłonne. Wydajność zap
 
 Przykłady przedstawionych zapytań są specyficzne dla scenariuszy [danych dotyczących podróży z NYCem](https://chriswhong.com/open-data/foil_nyc_taxi/) , które są również dostępne w [repozytorium GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Te zapytania mają już określony schemat danych i są gotowe do przesłania do uruchomienia. W ostatniej sekcji opisano parametry, które użytkownicy mogą dostrajać, aby można było ulepszyć wydajność zapytań Hive.
 
-To zadanie jest krokiem w [procesie nauki o danych zespołowych (przetwarzania TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+To zadanie jest krokiem w [procesie nauki o danych zespołowych (przetwarzania TDSP)](./index.yml).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule założono, że masz:
 
 * Utworzono konto usługi Azure Storage. Jeśli potrzebujesz instrukcji, zobacz [Tworzenie konta usługi Azure Storage](../../storage/common/storage-account-create.md)
-* Zainicjowano obsługę niestandardowego klastra Hadoop z usługą HDInsight.  Jeśli potrzebujesz instrukcji, zobacz [Dostosowywanie klastrów Azure HDInsight Hadoop na potrzeby zaawansowanej analizy](customize-hadoop-cluster.md).
+* Zainicjowano obsługę niestandardowego klastra Hadoop z usługą HDInsight.  Jeśli potrzebujesz instrukcji, zobacz [Dostosowywanie klastrów Azure HDInsight Hadoop na potrzeby zaawansowanej analizy](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Dane zostały przekazane do tabel programu Hive w klastrach Azure HDInsight Hadoop. Jeśli tak nie jest, postępuj zgodnie z instrukcjami [tworzenia i ładowania danych do tabel programu Hive](move-hive-tables.md) , aby najpierw przekazać dane do tabel programu Hive.
-* Włączono dostęp zdalny do klastra. Jeśli potrzebujesz instrukcji, zobacz [dostęp do węzła głównego klastra usługi Hadoop](customize-hadoop-cluster.md).
+* Włączono dostęp zdalny do klastra. Jeśli potrzebujesz instrukcji, zobacz [dostęp do węzła głównego klastra usługi Hadoop](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 ## <a name="feature-generation"></a><a name="hive-featureengineering"></a>Generowanie funkcji
 W tej sekcji przedstawiono kilka przykładów sposobu generowania funkcji przy użyciu zapytań programu Hive. Po wygenerowaniu dodatkowych funkcji można je dodać jako kolumny do istniejącej tabeli lub utworzyć nową tabelę z dodatkowymi funkcjami i kluczem podstawowym, które następnie można dołączyć do oryginalnej tabeli. Poniżej przedstawiono przykłady:
@@ -104,7 +104,7 @@ select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime f
 from <databasename>.<tablename>;
 ```
 
-W tej kwerendzie, jeśli *\<datetime field>* ma wzór podobny do *03/26/2015 12:04:39*, wartość * \<pattern of the datetime field> "* powinna być `'MM/dd/yyyy HH:mm:ss'` . Aby go przetestować, użytkownicy mogą uruchamiać
+W tej kwerendzie, jeśli *\<datetime field>* ma wzór podobny do *03/26/2015 12:04:39* , wartość *\<pattern of the datetime field> "* powinna być `'MM/dd/yyyy HH:mm:ss'` . Aby go przetestować, użytkownicy mogą uruchamiać
 
 ```hiveql
 select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
@@ -124,7 +124,7 @@ from <databasename>.<tablename>;
 ### <a name="calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Obliczanie odległości między zestawami współrzędnych GPS
 Zapytanie zawarte w tej sekcji można bezpośrednio zastosować do danych podróży z NYCą. Celem tego zapytania jest pokazanie, jak zastosować osadzoną funkcję matematyczną w programie Hive w celu wygenerowania funkcji.
 
-Pola, które są używane w tym zapytaniu, to współrzędne GPS dotyczące lokalizacji odbioru i Dropoff, nazwanych * \_ długości*geograficznej, *pobrania \_ szerokości geograficznej*, *Dropoff \_ *i *Dropoff \_ szerokości geograficznej*. Zapytania obliczające bezpośrednią odległość między współrzędnymi odbioru i Dropoff są następujące:
+Pola, które są używane w tym zapytaniu, to współrzędne GPS dotyczące lokalizacji odbioru i Dropoff, nazwanych *\_ długości* geograficznej, *pobrania \_ szerokości geograficznej* , *Dropoff \_* i *Dropoff \_ szerokości geograficznej*. Zapytania obliczające bezpośrednią odległość między współrzędnymi odbioru i Dropoff są następujące:
 
 ```hiveql
 set R=3959;
@@ -144,7 +144,7 @@ and dropoff_latitude between 30 and 90
 limit 10;
 ```
 
-Równania matematyczne obliczające odległość między dwoma współrzędnymi GPS można znaleźć w witrynie <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type scripters</a> , utworzonej przez Peterowi Lapisu. W tym języku JavaScript funkcja `toRad()` jest tylko *lat_or_lon*pi/180, która konwertuje stopnie na radiany. W tym miejscu *lat_or_lon* jest szerokość lub długość geograficzna. Ponieważ gałąź nie udostępnia funkcji `atan2` , ale udostępnia funkcję `atan` , `atan2` Funkcja jest implementowana przez `atan` funkcję w powyższym zapytaniu Hive przy użyciu definicji podanej w witrynie <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Równania matematyczne obliczające odległość między dwoma współrzędnymi GPS można znaleźć w witrynie <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type scripters</a> , utworzonej przez Peterowi Lapisu. W tym języku JavaScript funkcja `toRad()` jest tylko *lat_or_lon* pi/180, która konwertuje stopnie na radiany. W tym miejscu *lat_or_lon* jest szerokość lub długość geograficzna. Ponieważ gałąź nie udostępnia funkcji `atan2` , ale udostępnia funkcję `atan` , `atan2` Funkcja jest implementowana przez `atan` funkcję w powyższym zapytaniu Hive przy użyciu definicji podanej w witrynie <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Tworzenie obszaru roboczego](./media/create-features-hive/atan2new.png)
 
@@ -153,7 +153,7 @@ Pełną listę programu Hive Embedded UDF można znaleźć w sekcji **wbudowane 
 ## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Tematy zaawansowane: dostrajanie parametrów Hive w celu zwiększenia szybkości zapytania
 Domyślne ustawienia parametrów klastra Hive mogą nie być odpowiednie dla zapytań Hive i danych przetwarzanych przez zapytania. W tej sekcji omówiono niektóre parametry, które użytkownicy mogą dostosowywać, aby zwiększyć wydajność zapytań programu Hive. Użytkownicy muszą dodać zapytania dostrajania parametrów przed zapytania dotyczące przetwarzania danych.
 
-1. **Przestrzeń sterty języka Java**: w przypadku kwerend obejmujących łączenie dużych zestawów danych lub przetwarzania długich rekordów **Uruchamianie poza stertą** jest jednym z typowych błędów. Ten błąd można uniknąć, ustawiając parametry *MapReduce. map. Java.* *domapreduce. Task. IO. Sort. MB* do żądanych wartości. Oto przykład:
+1. **Przestrzeń sterty języka Java** : w przypadku kwerend obejmujących łączenie dużych zestawów danych lub przetwarzania długich rekordów **Uruchamianie poza stertą** jest jednym z typowych błędów. Ten błąd można uniknąć, ustawiając parametry *MapReduce. map. Java.* *domapreduce. Task. IO. Sort. MB* do żądanych wartości. Oto przykład:
    
     ```hiveql
     set mapreduce.map.java.opts=-Xmx4096m;
@@ -162,20 +162,20 @@ Domyślne ustawienia parametrów klastra Hive mogą nie być odpowiednie dla zap
 
     Ten parametr przypisuje pamięć o pojemności 4 GB do przestrzeni sterty Java, a jednocześnie sortuje bardziej wydajne przez przydzielenie większej ilości pamięci. Dobrym pomysłem jest odtwarzanie przy użyciu tych alokacji, jeśli występują błędy niepowodzeń zadań związane z miejscem sterty.
 
-1. **Rozmiar bloku systemu plików DFS**: ten parametr ustawia najmniejszą liczbę danych przechowywanych w systemie plików. Jeśli na przykład rozmiar bloku systemu plików DFS to 128 MB, wówczas wszystkie dane o rozmiarze mniejszym niż i do 128 MB są przechowywane w jednym bloku. Dane, które są większe niż 128 MB, są przydzielane do dodatkowych bloków. 
+1. **Rozmiar bloku systemu plików DFS** : ten parametr ustawia najmniejszą liczbę danych przechowywanych w systemie plików. Jeśli na przykład rozmiar bloku systemu plików DFS to 128 MB, wówczas wszystkie dane o rozmiarze mniejszym niż i do 128 MB są przechowywane w jednym bloku. Dane, które są większe niż 128 MB, są przydzielane do dodatkowych bloków. 
 2. Wybór małego rozmiaru bloku powoduje, że w usłudze Hadoop są duże nadpory, ponieważ węzeł name ma przetwarzać wiele innych żądań, aby znaleźć odpowiedni blok odnoszący się do pliku. Zalecanym ustawieniem dotyczącym gigabajtów (lub większych) danych jest:
 
     ```hiveql
     set dfs.block.size=128m;
     ```
 
-2. **Optymalizacja operacji JOIN w programie Hive**: Chociaż operacje JOIN w mapie/zmniejszą strukturę zwykle odbywają się w fazie zmniejszania, czasami można osiągnąć ogromne zyski przez przyłączenia do harmonogramu w fazie mapy (zwanej również "mapjoins"). Ustaw tę opcję:
+2. **Optymalizacja operacji JOIN w programie Hive** : Chociaż operacje JOIN w mapie/zmniejszą strukturę zwykle odbywają się w fazie zmniejszania, czasami można osiągnąć ogromne zyski przez przyłączenia do harmonogramu w fazie mapy (zwanej również "mapjoins"). Ustaw tę opcję:
    
     ```hiveql
     set hive.auto.convert.join=true;
     ```
 
-3. **Określanie liczby odwzorowań do Hive**: podczas gdy usługa Hadoop zezwala użytkownikowi na ustawienie liczby elementów ograniczających, liczba mapera nie jest zwykle ustawiana przez użytkownika. Lewę, która umożliwia pewne kontrolę nad tą liczbą, jest wybranie zmiennych Hadoop *mapred. min. Split. size* i *mapred. max. Split. size* , ponieważ rozmiar każdego zadania mapy jest określany przez:
+3. **Określanie liczby odwzorowań do Hive** : podczas gdy usługa Hadoop zezwala użytkownikowi na ustawienie liczby elementów ograniczających, liczba mapera nie jest zwykle ustawiana przez użytkownika. Lewę, która umożliwia pewne kontrolę nad tą liczbą, jest wybranie zmiennych Hadoop *mapred. min. Split. size* i *mapred. max. Split. size* , ponieważ rozmiar każdego zadania mapy jest określany przez:
    
     ```hiveql
     num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
@@ -198,4 +198,3 @@ Domyślne ustawienia parametrów klastra Hive mogą nie być odpowiednie dla zap
     set mapred.reduce.tasks=128;
     set mapred.tasktracker.reduce.tasks.maximum=128;
     ```
-

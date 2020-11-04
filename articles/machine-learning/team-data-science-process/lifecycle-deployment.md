@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fe5eba72b507ebea6bc1012c567de70bc3deb5ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3bf8e5f81ae7bf35ff34039fa1e81c9fd4a406b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261349"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324541"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Etap wdrażania cyklu życia zespołowego procesu nauki danych
 
@@ -39,7 +39,7 @@ Wdrażaj modele przy użyciu potoku danych w środowisku produkcyjnym lub w podo
 ## <a name="how-to-do-it"></a>Jak to zrobić
 Główne zadanie rozkierowane na ten etap:
 
-**Operacjonalizować model**: Wdróż model i potok w środowisku produkcyjnym lub w podobnym do produkcyjnym dla użycia aplikacji.
+**Operacjonalizować model** : Wdróż model i potok w środowisku produkcyjnym lub w podobnym do produkcyjnym dla użycia aplikacji.
 
 ### <a name="operationalize-a-model"></a>Operacjonalizowanie modelu
 Po utworzeniu zestawu modeli, które działają prawidłowo, można operacjonalizować je do użycia przez inne aplikacje. W zależności od wymagań firmy przewidywania są wykonywane w czasie rzeczywistym lub na podstawie partii. Aby wdrożyć modele, należy uwidocznić je za pomocą interfejsu Open API. Interfejs umożliwia łatwe wykorzystanie modelu z różnych aplikacji, takich jak:
@@ -71,4 +71,4 @@ Poniżej przedstawiono linki do poszczególnych etapów cyklu życia przetwarzan
 
 Oferujemy pełne instruktaże, które pokazują wszystkie kroki procesu dla konkretnych scenariuszy. [Przykładowy artykuł instruktażowy](walkthroughs.md) zawiera listę scenariuszy z linkami i opisami miniatur. Instruktaże ilustrują sposób łączenia chmur, narzędzi lokalnych i usług do przepływu pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
 
-Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning](./index.yml).

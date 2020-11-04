@@ -10,18 +10,18 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6708214eadb2f5d0d66d72f5db5cb4a195d206
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330132"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324862"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Uczenie głębokie a uczenie maszynowe w Azure Machine Learning
 
 W tym artykule opisano uczenie głębokie i uczenie maszynowe oraz ich dopasowanie do szerszej kategorii sztucznej analizy. Dowiedz się więcej na temat rozwiązań do uczenia głębokiego, które możesz kompilować na Azure Machine Learning, takich jak wykrywanie oszustw, rozpoznawanie głosu i twarzy, analiza tonacji i prognozowanie szeregów czasowych.
 
-Aby uzyskać wskazówki dotyczące wybierania algorytmów dla rozwiązań, zobacz [arkusz Machine Learning Algorithm Ściągawka](algorithm-cheat-sheet.md).
+Aby uzyskać wskazówki dotyczące wybierania algorytmów dla rozwiązań, zobacz [arkusz Machine Learning Algorithm Ściągawka](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Uczenie głębokie, uczenie maszynowe i AI
 
@@ -73,7 +73,7 @@ Uczenie głębokie zostało zastosowane w wielu przypadkach użycia wykrywania o
 
 Wykrywanie obiektów jest już używane w branżach, takich jak gry, handel detaliczny, turystyka i samoobsługowe samochody.
 
-Dowiedz się, jak używać modelu klasyfikacji obrazów z platformy typu "open source" w Azure Machine Learning: [klasyfikowanie obrazów przy użyciu modelu Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+Dowiedz się, jak używać modelu klasyfikacji obrazów z platformy typu "open source" w Azure Machine Learning: [klasyfikowanie obrazów przy użyciu modelu Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generowanie podpisu obrazu
 
@@ -93,7 +93,7 @@ Analiza tekstu oparta na metodach uczenia głębokiego polega na analizowaniu du
 
 Firmy wykorzystują głębokie uczenie do przeprowadzania analizy tekstu w celu wykrywania handlu niejawnego i zgodności z przepisami obowiązującymi w instytucji rządowych. Innym typowym przykładem jest oszustwo ubezpieczeniowe: Analiza tekstu często została użyta do przeanalizowania dużych ilości dokumentów w celu rozpoznania szans oszustw związanych z ubezpieczeniem. 
 
-Dowiedz się, jak używać modelu TensorFlow w Azure Machine Learning: [klasyfikowanie cyfr odręcznych przy użyciu modelu TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+Dowiedz się, jak używać modelu TensorFlow w Azure Machine Learning: [klasyfikowanie cyfr odręcznych przy użyciu modelu TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>Sztuczne sieci neuronowych
 
@@ -117,8 +117,8 @@ Sieci neuronowych splotowych są używane w takich obszarach jak rozpoznawanie w
 
 ## <a name="next-steps"></a>Następne kroki
 
-W poniższych artykułach przedstawiono więcej opcji korzystania z modeli uczenia głębokiego "open source" w [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
+W poniższych artykułach przedstawiono więcej opcji korzystania z modeli uczenia głębokiego "open source" w [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
 
-- [Klasyfikowanie odręcznych cyfr przy użyciu TensorFlow szacowania i Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [Klasyfikowanie odręcznych cyfr przy użyciu TensorFlow szacowania i Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [Klasyfikowanie odręcznych cyfr przy użyciu modelu łańcucha](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
+- [Klasyfikowanie odręcznych cyfr przy użyciu modelu łańcucha](./how-to-set-up-training-targets.md)

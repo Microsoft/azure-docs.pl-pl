@@ -1,6 +1,6 @@
 ---
 title: Samouczek — Azure Toolkit for IntelliJ (aplikacja Spark)
-description: Samouczek — Użyj Azure Toolkit for IntelliJ do opracowania aplikacji platformy Spark, które są zapisywane w Scala, i prześlij je do puli Apache Spark (wersja zapoznawcza).
+description: Samouczek — Użyj Azure Toolkit for IntelliJ do opracowania aplikacji platformy Spark, które są zapisywane w Scala, i prześlij je do puli bezserwerowej Apache Spark (wersja zapoznawcza).
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: be127d4214577e017522aec6a1b61b8f62638ed9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368744"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325226"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Samouczek: Tworzenie aplikacji Apache Spark za pomocą IntelliJ przy użyciu obszaru roboczego Synapse
 
-W tym samouczku pokazano, jak za pomocą wtyczki Azure Toolkit for IntelliJ tworzyć aplikacje Apache Spark, które są zapisywane w [Scala](https://www.scala-lang.org/), a następnie przesyłać je do puli platformy Spark (wersja zapoznawcza) bezpośrednio z poziomu zintegrowanego środowiska projektowego INTELLIJ (IDE). Możesz użyć wtyczki na kilka sposobów:
+W tym samouczku pokazano, jak za pomocą wtyczki Azure Toolkit for IntelliJ tworzyć aplikacje Apache Spark, które są zapisywane w [Scala](https://www.scala-lang.org/), a następnie przesyłać je do puli Apache Spark bezserwerowej (wersja zapoznawcza) bezpośrednio z zintegrowanego środowiska projektowego INTELLIJ (IDE). Możesz użyć wtyczki na kilka sposobów:
 
 - Tworzenie i przesyłanie aplikacji Scala Spark w puli platformy Spark.
 - Uzyskaj dostęp do zasobów pul platformy Spark.
@@ -40,7 +40,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 - Następujące wymagania wstępne są przeznaczone tylko dla użytkowników systemu Windows:
 
   Podczas uruchamiania lokalnej aplikacji platformy Spark Scala na komputerze z systemem Windows może wystąpić wyjątek, zgodnie z opisem w platformie [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Wyjątek występuje z powodu braku WinUtils.exe w systemie Windows.
-  Aby rozwiązać ten problem, Pobierz [plik wykonywalny WinUtils](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) do lokalizacji takiej jak **C:\WinUtils\bin**. Następnie Dodaj zmienną środowiskową **HADOOP_HOME**i ustaw wartość zmiennej na **C:\WinUtils**.
+  Aby rozwiązać ten problem, Pobierz [plik wykonywalny WinUtils](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) do lokalizacji takiej jak **C:\WinUtils\bin**. Następnie Dodaj zmienną środowiskową **HADOOP_HOME** i ustaw wartość zmiennej na **C:\WinUtils**.
 
 ## <a name="create-a-spark-scala-application-for-a-spark-pool"></a>Tworzenie aplikacji Spark Scala dla puli platformy Spark
 
@@ -96,7 +96,7 @@ Zaloguj się do subskrypcji platformy Azure, aby nawiązać połączenie z pulam
 
    ![IntelliJ pomysł Explorer kliknij prawym przyciskiem myszy pozycję Azure](./media/intellij-tool-synapse/explorer-rightclick-azure.png)
 
-3. W oknie dialogowym **Logowanie do platformy Azure** wybierz pozycję **Logowanie do urządzenia**, a następnie wybierz pozycję **Zaloguj**.
+3. W oknie dialogowym **Logowanie do platformy Azure** wybierz pozycję **Logowanie do urządzenia** , a następnie wybierz pozycję **Zaloguj**.
 
     ![IntelliJ pomysł platformy Azure](./media/intellij-tool-synapse/intellij-view-explorer2.png)
 
@@ -116,7 +116,7 @@ Zaloguj się do subskrypcji platformy Azure, aby nawiązać połączenie z pulam
 
     ![Okno dialogowe Select Subscriptions (Wybieranie subskrypcji)](./media/intellij-tool-synapse/Select-Subscriptions.png)
 
-8. W **Eksploratorze Azure**rozwiń węzeł **Apache Spark na Synapse** , aby wyświetlić obszary robocze, które znajdują się w Twoich subskrypcjach.
+8. W **Eksploratorze Azure** rozwiń węzeł **Apache Spark na Synapse** , aby wyświetlić obszary robocze, które znajdują się w Twoich subskrypcjach.
 
     ![Widok główny Eksploratora Azure IntelliJ pomysł](./media/intellij-tool-synapse/azure-explorer-workspace.png)
 
@@ -136,13 +136,13 @@ Po utworzeniu aplikacji Scala można uruchomić ją zdalnie.
 
     ![Przesyłanie aplikacji platformy Spark do usługi HDInsight — polecenie 2](./media/intellij-tool-synapse/create-synapse-configuration02.png)
 
-3. W oknie **konfiguracje uruchamiania/debugowania** podaj następujące wartości, a następnie wybierz przycisk **OK**:
+3. W oknie **konfiguracje uruchamiania/debugowania** podaj następujące wartości, a następnie wybierz przycisk **OK** :
 
     |Właściwość |Wartość |
     |----|----|
     |Pule platformy Spark|Wybierz pule platformy Spark, na których chcesz uruchomić aplikację.|
     |Wybierz artefakt do przesłania|Pozostaw ustawienie domyślne.|
-    |Nazwa klasy głównej|Wartością domyślną jest główna Klasa z wybranego pliku. Możesz zmienić klasę, wybierając wielokropek (**...**) i wybierając inną klasę.|
+    |Nazwa klasy głównej|Wartością domyślną jest główna Klasa z wybranego pliku. Możesz zmienić klasę, wybierając wielokropek ( **...** ) i wybierając inną klasę.|
     |Konfiguracje zadań|Można zmienić domyślny klucz i wartości. Aby uzyskać więcej informacji, zobacz [interfejs API REST usługi Apache usługi Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Argumenty wiersza polecenia|W razie potrzeby można wprowadzać argumenty rozdzielone spacją dla klasy głównej.|
     |Odwołania do Jars i plików, do których istnieją odwołania|Możesz wprowadzić ścieżki do przywoływanych Jars i plików, jeśli istnieją. Można również przeglądać pliki w wirtualnym systemie plików platformy Azure, który obecnie obsługuje tylko ADLS Gen2 klaster. Aby uzyskać więcej informacji: [Konfiguracja Apache Spark] https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) i [sposób przekazywania zasobów do klastra](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
@@ -166,7 +166,7 @@ Poniższe instrukcje umożliwiają skonfigurowanie lokalnego uruchomienia i loka
 
 ### <a name="scenario-1-do-local-run"></a>Scenariusz 1. Uruchamianie lokalne
 
-1. Otwórz okno dialogowe **konfiguracje uruchamiania/debugowania** , a następnie wybierz znak plus ( **+** ). Następnie wybierz opcję **Apache Spark on Synapse** . Wprowadź informacje o **nazwie**i **nazwie klasy głównej** do zapisania.
+1. Otwórz okno dialogowe **konfiguracje uruchamiania/debugowania** , a następnie wybierz znak plus ( **+** ). Następnie wybierz opcję **Apache Spark on Synapse** . Wprowadź informacje o **nazwie** i **nazwie klasy głównej** do zapisania.
 
     ![IntelliJ uruchamianie konfiguracji debugowania — uruchomienie lokalne 1](./media/intellij-tool-synapse/local-run-synapse.png)
 
@@ -195,7 +195,7 @@ W programie Azure Toolkit for IntelliJ można wykonywać różne operacje w Eksp
 
 ### <a name="launch-workspace"></a>Uruchom obszar roboczy
 
-1. W Eksploratorze Azure przejdź do **Apache Spark na Synapse**, a następnie rozwiń go.
+1. W Eksploratorze Azure przejdź do **Apache Spark na Synapse** , a następnie rozwiń go.
 
     ![Widok główny Eksploratora Azure IntelliJ pomysł](./media/intellij-tool-synapse/azure-explorer-workspace.png)
 
@@ -216,7 +216,7 @@ Upewnij się, że spełniono wymagania wstępne WINUTILS.EXE.
 1. Na pasku menu Przejdź do opcji **Uruchom**  >  **Edytowanie konfiguracji..**..
 2. W oknie **konfiguracje uruchamiania/debugowania** w lewym okienku przejdź do **Apache Spark na Synapse**  >  **[Spark on Synapse] MojaApl**.
 3. W oknie głównym wybierz kartę **uruchomiono lokalnie** .
-4. Podaj następujące wartości, a następnie wybierz przycisk **OK**:
+4. Podaj następujące wartości, a następnie wybierz przycisk **OK** :
 
     |Właściwość |Wartość |
     |----|----|
@@ -247,7 +247,7 @@ Jest on obsługiwany tylko w systemach IntelliJ 2018,2 i 2018,3.
 
 3. W oknie głównym wybierz kartę **zdalne uruchamianie na klastrze** .
 
-4. Podaj następujące wartości, a następnie wybierz przycisk **OK**:
+4. Podaj następujące wartości, a następnie wybierz przycisk **OK** :
 
     |Właściwość |Wartość |
     |----|----|

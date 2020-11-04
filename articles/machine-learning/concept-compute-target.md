@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841961"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322298"
 ---
-# <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są cele obliczeniowe w Azure Machine Learning?
+# <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są docelowe obiekty obliczeniowe w usłudze Azure Machine Learning?
 
 *Obiekt docelowy obliczeń* jest wydzielonym zasobem obliczeniowym lub środowiskiem, w którym jest uruchamiany skrypt szkoleniowy lub hostowanie wdrożenia usługi. Ta lokalizacja może być maszyną lokalną lub zasobem obliczeniowym opartym na chmurze. Użycie obiektów docelowych obliczeń ułatwia późniejsze zmiany środowiska obliczeniowego bez konieczności zmiany kodu.
 
@@ -54,7 +54,7 @@ Podczas wykonywania wnioskowania Azure Machine Learning tworzy kontener platform
 
 * Jako punkt końcowy _wnioskowania partii_ , który jest używany do okresowego przetwarzania partii danych. Wnioskowanie wsadowe używa [Azure Machine Learning klastrów obliczeniowych](how-to-create-attach-compute-cluster.md).
 
-* Na _urządzeniu IoT_ (wersja zapoznawcza). Wdrożenie na urządzeniu IoT opiera się tylko na Azure Machine Learning do skompilowania kontenera Docker. Z tego miejsca jest wdrażana za pomocą Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [wdrażanie jako moduł IoT Edge (wersja zapoznawcza)](/azure/iot-edge/tutorial-deploy-machine-learning).
+* Na _urządzeniu IoT_ (wersja zapoznawcza). Wdrożenie na urządzeniu IoT opiera się tylko na Azure Machine Learning do skompilowania kontenera Docker. Z tego miejsca jest wdrażana za pomocą Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [wdrażanie jako moduł IoT Edge (wersja zapoznawcza)](../iot-edge/tutorial-deploy-machine-learning.md).
 
 Dowiedz się [, gdzie i jak wdrożyć model w miejscu docelowym obliczeń](how-to-deploy-and-where.md).
 
@@ -89,7 +89,7 @@ Po utworzeniu te zasoby obliczeniowe są automatycznie częścią obszaru robocz
 
 ### <a name="supported-vm-series-and-sizes"></a>Obsługiwane serie maszyn wirtualnych i rozmiary
 
-Po wybraniu rozmiaru węzła dla zarządzanego zasobu obliczeniowego w Azure Machine Learning można wybierać spośród spośród wybranych rozmiarów maszyn wirtualnych dostępnych na platformie Azure. Platforma Azure oferuje szeroką gamę rozmiarów dla systemów Linux i Windows dla różnych obciążeń. Aby dowiedzieć się więcej, zobacz [typy i rozmiary maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Po wybraniu rozmiaru węzła dla zarządzanego zasobu obliczeniowego w Azure Machine Learning można wybierać spośród spośród wybranych rozmiarów maszyn wirtualnych dostępnych na platformie Azure. Platforma Azure oferuje szeroką gamę rozmiarów dla systemów Linux i Windows dla różnych obciążeń. Aby dowiedzieć się więcej, zobacz [typy i rozmiary maszyn wirtualnych](../virtual-machines/sizes.md).
 
 Istnieje kilka wyjątków i ograniczeń umożliwiających wybranie rozmiaru maszyny wirtualnej:
 
@@ -133,7 +133,7 @@ Obecnie wyizolowane oferty maszyn wirtualnych obejmują:
 
 *Obsługa technologii RDMA
 
-Aby dowiedzieć się więcej o izolacji, zobacz [izolacja w chmurze publicznej platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
+Aby dowiedzieć się więcej o izolacji, zobacz [izolacja w chmurze publicznej platformy Azure](../security/fundamentals/isolation-choices.md).
 
 ## <a name="unmanaged-compute"></a>Obliczenia niezarządzane
 

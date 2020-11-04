@@ -1,6 +1,6 @@
 ---
 title: Wskazówki dotyczące projektowania tabel rozproszonych
-description: Zalecenia dotyczące projektowania tabel rozproszonych rozproszonych i rozmieszczonych w trybie okrężnym w puli SQL Synapse.
+description: Zalecenia dotyczące projektowania tabel rozproszonych rozproszonych i rozmieszczonych w trybie okrężnym przy użyciu dedykowanej puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487011"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323623"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Wskazówki dotyczące projektowania tabel rozproszonych w puli Synapse SQL
+# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Wskazówki dotyczące projektowania tabel rozproszonych przy użyciu dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
-Zalecenia dotyczące projektowania tabel rozproszonych rozproszonych i rozmieszczonych w trybie okrężnym w Synapse pulach SQL.
+Zalecenia dotyczące projektowania tabel rozproszonych rozproszonych i rozmieszczonych w trybie okrężnym w dedykowanych pulach SQL.
 
-W tym artykule założono, że znasz koncepcje dystrybucji danych i przenoszenia danych w programie Synapse SQL.  Aby uzyskać więcej informacji, zobacz [Architektura usługi Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
+W tym artykule założono, że znasz koncepcje dystrybucji i przenoszenia danych w dedykowanej puli SQL.  Aby uzyskać więcej informacji, zobacz [Architektura usługi Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>Co to jest tabela rozproszona?
 
@@ -36,7 +36,7 @@ W ramach projektu tabeli należy zrozumieć możliwie jak najwięcej danych i ja
 
 - Jak duży jest tabela?
 - Jak często jest odświeżana tabela?
-- Czy istnieją tabele faktów i wymiarów w puli Synapse SQL?
+- Czy istnieją tabele faktów i wymiarów w dedykowanej puli SQL?
 
 ### <a name="hash-distributed"></a>Wartość skrótu dystrybuowana
 
@@ -44,7 +44,7 @@ W tabeli rozproszonej przez funkcję mieszania wiersze tabeli są dystrybuowane 
 
 ![Tabela rozproszona](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabela rozproszona")  
 
-Ponieważ identyczne wartości zawsze są skrótami do tej samej dystrybucji, magazyn danych ma wbudowaną wiedzę o lokalizacjach wierszy. W puli SQL Synapse ta wiedza służy do minimalizowania przenoszenia danych podczas wykonywania zapytań, co zwiększa wydajność zapytań.
+Ponieważ identyczne wartości zawsze są skrótami do tej samej dystrybucji, magazyn danych ma wbudowaną wiedzę o lokalizacjach wierszy. W dedykowanej puli SQL ta wiedza służy do minimalizowania przenoszenia danych podczas wykonywania zapytań, co zwiększa wydajność zapytań.
 
 Tabele rozproszone przez funkcję mieszania dobrze sprawdzają się w przypadku dużych tabel faktów w schemacie gwiazdy. Mogą mieć bardzo dużą liczbę wierszy i nadal osiągać wysoką wydajność. Istnieją oczywiście zagadnienia dotyczące projektowania, które pomagają w uzyskaniu wydajności systemu rozproszonego do zapewnienia. Wybór odpowiedniej kolumny dystrybucji jest taki, jak opisano w tym artykule.
 
@@ -113,7 +113,7 @@ Aby zrównoważyć przetwarzanie równoległe, wybierz kolumnę dystrybucji, kt�
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Wybierz kolumnę dystrybucji, która minimalizuje przenoszenie danych
 
-W celu uzyskania poprawnych kwerend wyników zapytania mogą przenosić dane z jednego węzła obliczeniowego do innego. Przenoszenie danych odbywa się często, gdy zapytania mają sprzężenia i agregacje w tabelach rozproszonych. Wybór kolumny dystrybucji, która pomaga zminimalizować przenoszenie danych, jest jednym z najważniejszych strategii optymalizacji wydajności puli SQL Synapse.
+W celu uzyskania poprawnych kwerend wyników zapytania mogą przenosić dane z jednego węzła obliczeniowego do innego. Przenoszenie danych odbywa się często, gdy zapytania mają sprzężenia i agregacje w tabelach rozproszonych. Wybór kolumny dystrybucji, która pomaga zminimalizować przenoszenie danych, jest jednym z najważniejszych strategii optymalizacji wydajności dedykowanej puli SQL.
 
 Aby zminimalizować przenoszenie danych, wybierz kolumnę dystrybucji, która:
 
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Aby utworzyć tabelę rozproszoną, należy użyć jednej z następujących instrukcji:
 
-- [CREATE TABLE (Synapse Pula SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE jako SELECT (Synapse Pula SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (dedykowana Pula SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE jako wybór (dedykowana Pula SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

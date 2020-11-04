@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791328"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324998"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Korzystanie z punktów końcowych usługi sieci wirtualnej i reguł dla serwerów w Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -83,7 +83,7 @@ W przypadku Azure SQL Database funkcja reguł sieci wirtualnej ma następujące 
 
 - Na zaporze zakresy adresów IP dotyczą następujących elementów sieciowych, ale reguły sieci wirtualnej nie są:
   - [Wirtualna sieć prywatna (VPN) typu lokacja-lokacja (S2S)][vpn-gateway-indexmd-608y]
-  - Lokalna za pośrednictwem [ExpressRoute][expressroute-indexmd-744v]
+  - Lokalna za pośrednictwem [ExpressRoute](../../expressroute/index.yml)
 
 ### <a name="considerations-when-using-service-endpoints"></a>Zagadnienia dotyczące korzystania z punktów końcowych usługi
 
@@ -136,7 +136,7 @@ Baza i instrukcja COPY są często używane do ładowania danych do usługi Azur
    > - Jeśli masz konto usługi Magazyn ogólnego przeznaczenia w wersji 1 lub BLOB, musisz **najpierw przeprowadzić uaktualnienie do wersji 2** przy użyciu tego [przewodnika](../../storage/common/storage-account-upgrade.md).
    > - Aby uzyskać znane problemy z Azure Data Lake Storage Gen2, zapoznaj się z tym [przewodnikiem](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)** , a następnie wybierz pozycję **Dodaj przypisanie roli** . Przypisywanie **danych obiektu blob magazynu współautor** roli platformy Azure na serwerze hostującym usługę Azure Synapse Analytics, która została zarejestrowana w Azure Active Directory (AAD), jak w kroku #1.
+1. W obszarze konto magazynu przejdź do pozycji **Access Control (IAM)** , a następnie wybierz pozycję **Dodaj przypisanie roli**. Przypisywanie **danych obiektu blob magazynu współautor** roli platformy Azure na serwerze hostującym usługę Azure Synapse Analytics, która została zarejestrowana w Azure Active Directory (AAD), jak w kroku #1.
 
    > [!NOTE]
    > Tylko członkowie z uprawnieniami właściciela na koncie magazynu mogą wykonać ten krok. W przypadku różnych wbudowanych ról platformy Azure Zapoznaj się z tym [przewodnikiem](../../role-based-access-control/built-in-roles.md).
@@ -210,7 +210,7 @@ Błąd połączenia 40914 odnosi się do *reguł sieci wirtualnej* określonych 
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Portal może utworzyć regułę sieci wirtualnej
 
-W tej sekcji pokazano, jak można użyć [Azure Portal][http-azure-portal-link-ref-477t] do utworzenia *reguły sieci wirtualnej* w bazie danych programu Azure SQL Database. Reguła nakazuje bazie danych akceptowanie komunikacji z określonej podsieci, która została oznaczona jako *punkt końcowy usługi Virtual Network* .
+W tej sekcji pokazano, jak można użyć [Azure Portal][http-azure-portal-link-ref-477t] do utworzenia *reguły sieci wirtualnej* w bazie danych programu Azure SQL Database. Reguła nakazuje bazie danych akceptowanie komunikacji z określonej podsieci, która została oznaczona jako *punkt końcowy usługi Virtual Network*.
 
 > [!NOTE]
 > Jeśli zamierzasz dodać punkt końcowy usługi do reguł zapory sieci wirtualnej serwera, najpierw upewnij się, że punkty końcowe usługi są włączone dla tej podsieci.
@@ -231,16 +231,16 @@ Wewnętrznie polecenia cmdlet programu PowerShell dla akcji sieci wirtualnej SQL
 
 Musisz mieć już podsieć, która jest otagowana przy użyciu konkretnej *nazwy typu* punktu końcowego usługi Virtual Network odpowiedniej dla Azure SQL Database.
 
-- Odpowiednia nazwa typu punktu końcowego to **Microsoft. SQL** .
+- Odpowiednia nazwa typu punktu końcowego to **Microsoft. SQL**.
 - Jeśli podsieć może nie być otagowana przy użyciu nazwy typu, zobacz [Sprawdź, czy podsieć jest punktem końcowym][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
 
 ## <a name="azure-portal-steps"></a>Azure Portal kroki
 
-1. Zaloguj się do [Azure portal][http-azure-portal-link-ref-477t].
+1. Zaloguj się do [portalu Azure][http-azure-portal-link-ref-477t].
 
-2. Wyszukaj i wybierz pozycję **serwery SQL** , a następnie wybierz serwer. W obszarze **zabezpieczenia** wybierz pozycję **zapory i sieci wirtualne** .
+2. Wyszukaj i wybierz pozycję **serwery SQL** , a następnie wybierz serwer. W obszarze **zabezpieczenia** wybierz pozycję **zapory i sieci wirtualne**.
 
 3. Ustaw ustawienie **Zezwalaj na dostęp do usług platformy Azure** .
 
@@ -255,7 +255,7 @@ Musisz mieć już podsieć, która jest otagowana przy użyciu konkretnej *nazwy
 
     > [!TIP]
     > Należy podać prawidłowy **prefiks adresu** dla podsieci. Wartość można znaleźć w portalu.
-    > Przejdź do **wszystkich zasobów** &gt; **wszystkie typy** &gt; **sieci wirtualne** . Filtr Wyświetla sieci wirtualne. Kliknij sieć wirtualną, a następnie kliknij pozycję **podsieci** . Kolumna **zakres adresów** ma prefiks adresu, którego potrzebujesz.
+    > Przejdź do **wszystkich zasobów** &gt; **wszystkie typy** &gt; **sieci wirtualne**. Filtr Wyświetla sieci wirtualne. Kliknij sieć wirtualną, a następnie kliknij pozycję **podsieci**. Kolumna **zakres adresów** ma prefiks adresu, którego potrzebujesz.
 
     ![Wypełnij pola dla nowej reguły.][image-portal-firewall-create-update-vnet-rule-20-png]
 

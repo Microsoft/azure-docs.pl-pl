@@ -8,16 +8,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff8ade938433e09c6b9ff9deffe64d8294d96b8c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897570"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325546"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania 
 
-Gdy administrator projektu [tworzy projekt etykietowania](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) w Azure Machine Learning, można użyć narzędzia do etykietowania (publiczna wersja zapoznawcza), aby szybko przygotować dane dla Machine Learning projektu. W tym artykule opisano:
+Gdy administrator projektu [tworzy projekt etykietowania](./how-to-create-labeling-projects.md#create-a-labeling-project) w Azure Machine Learning, można użyć narzędzia do etykietowania (publiczna wersja zapoznawcza), aby szybko przygotować dane dla Machine Learning projektu. W tym artykule opisano:
 
 > [!div class="checklist"]
 > * Jak uzyskać dostęp do projektów etykietowania
@@ -82,7 +82,7 @@ W szczególności przede wszystkim w projekcie etykietowania model uczenia maszy
 
 Jeśli projekt jest typu "Klasyfikacja obrazu wiele klas", przypiszesz jeden tag do całego obrazu. Aby zapoznać się ze wskazówkami w dowolnym momencie, przejdź do strony z **instrukcjami** i wybierz pozycję **Wyświetl szczegółowe instrukcje**.
 
-Jeśli zauważysz, że po przypisaniu znacznika do obrazu wystąpi błąd, możesz go naprawić. Wybierz znak "**X**" na etykiecie, która jest wyświetlana poniżej obrazu, aby wyczyścić tag. Lub zaznacz obraz i wybierz inną klasę. Nowo wybrana wartość zastąpi poprzednio zastosowany tag.
+Jeśli zauważysz, że po przypisaniu znacznika do obrazu wystąpi błąd, możesz go naprawić. Wybierz znak " **X** " na etykiecie, która jest wyświetlana poniżej obrazu, aby wyczyścić tag. Lub zaznacz obraz i wybierz inną klasę. Nowo wybrana wartość zastąpi poprzednio zastosowany tag.
 
 ## <a name="tag-images-for-multi-label-classification"></a>Tagowanie obrazów na potrzeby klasyfikacji z wieloma etykietami
 
@@ -96,7 +96,7 @@ Wybierz obraz, który chcesz oznaczyć etykietą, a następnie wybierz tag. Tag 
 
 ![Animacja pokazuje przepływ wieloetykietowy](./media/how-to-label-images/multilabel.gif)
 
-Aby poprawić błąd, kliknij znak "**X**", aby wyczyścić pojedynczy tag, lub wybierz obrazy, a następnie wybierz tag, który czyści tag ze wszystkich zaznaczonych obrazów. Ten scenariusz jest przedstawiony tutaj. Kliknięcie pozycji "Ziemia" spowoduje wyczyszczenie tego tagu z dwóch zaznaczonych obrazów.
+Aby poprawić błąd, kliknij znak " **X** ", aby wyczyścić pojedynczy tag, lub wybierz obrazy, a następnie wybierz tag, który czyści tag ze wszystkich zaznaczonych obrazów. Ten scenariusz jest przedstawiony tutaj. Kliknięcie pozycji "Ziemia" spowoduje wyczyszczenie tego tagu z dwóch zaznaczonych obrazów.
 
 ![Zrzut ekranu przedstawia wiele selektorów](./media/how-to-label-images/multiple-deselection.png)
 
@@ -127,7 +127,7 @@ Aby usunąć *wszystkie* pola związane z bieżącym obrazem, wybierz narzędzie
 
 Po utworzeniu pól ograniczenia dla obrazu wybierz pozycję **Prześlij** , aby zapisać swoją służbę lub nie będzie można zapisać pracy w toku.
 
-## <a name="finish-up"></a>Kończenie
+## <a name="finish-up"></a>Zakończenie
 
 Gdy przesyłasz stronę oznakowanych danych, platforma Azure przypisze Ci nowe dane bez etykiet do użytkownika z kolejki służbowej. Jeśli nie ma więcej dostępnych danych bez etykiet, zostanie wyświetlony komunikat z linkiem do strony głównej portalu.
 
@@ -135,5 +135,4 @@ Gdy skończysz etykietowanie, wybierz swoją nazwę w prawym górnym rogu portal
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak [uczenie modeli klasyfikacji obrazów na platformie Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
-
+* Dowiedz się, jak [uczenie modeli klasyfikacji obrazów na platformie Azure](./tutorial-train-models-with-aml.md)

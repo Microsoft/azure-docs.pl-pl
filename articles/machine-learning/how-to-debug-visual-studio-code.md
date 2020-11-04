@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 374cc79b42d2dcaed0312c0ec205073906ce1fc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e042fd62d99c9fdf88a144c93739bf1f3f08a78c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530678"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325581"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Interaktywny debugowanie za pomocą Visual Studio Code
 
@@ -38,7 +38,7 @@ Użyj rozszerzenia Azure Machine Learning, aby sprawdzić, uruchomić i debugowa
 > W systemie Windows pamiętaj, aby [skonfigurować platformę Docker do korzystania z kontenerów systemu Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 > [!TIP]
-> W przypadku systemu Windows, chociaż nie jest to wymagane, zdecydowanie zaleca się [Używanie platformy Docker z podsystemem Windows dla systemu Linux (WSL) 2](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
+> W przypadku systemu Windows, chociaż nie jest to wymagane, zdecydowanie zaleca się [Używanie platformy Docker z podsystemem Windows dla systemu Linux (WSL) 2](/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
 
 > [!IMPORTANT]
 > Przed uruchomieniem eksperymentu lokalnego upewnij się, że platforma Docker jest uruchomiona.
@@ -58,7 +58,7 @@ Użyj rozszerzenia Azure Machine Learning, aby sprawdzić, uruchomić i debugowa
     1. Podaj nazwę skryptu, który chcesz uruchomić. Ścieżka jest określana względem katalogu otwartego w VS Code.
     1. Wybierz, czy chcesz użyć zestawu danych Azure Machine Learning, czy nie. [Zestawy danych Azure Machine Learning](how-to-manage-resources-vscode.md#create-dataset) można tworzyć przy użyciu rozszerzenia.
     1. Debugpy jest wymagany w celu dołączenia debugera do kontenera, w którym działa eksperyment. Aby dodać debugpy jako zależność, wybierz pozycję **Dodaj debugpy**. W przeciwnym razie wybierz pozycję **Pomiń**. Nie można dodać debugpy jako zależność uruchamia Twój eksperyment bez dołączania do debugera.
-    1. Plik konfiguracji zawierający ustawienia konfiguracji uruchamiania zostanie otwarty w edytorze. Jeśli ustawienia są zadowalające, wybierz pozycję **Prześlij eksperyment**. Alternatywnie możesz otworzyć paletę poleceń (**wyświetl > paletę poleceń**) z paska menu i wprowadzić `Azure ML: Submit experiment` polecenie w polu tekstowym.
+    1. Plik konfiguracji zawierający ustawienia konfiguracji uruchamiania zostanie otwarty w edytorze. Jeśli ustawienia są zadowalające, wybierz pozycję **Prześlij eksperyment**. Alternatywnie możesz otworzyć paletę poleceń ( **wyświetl > paletę poleceń** ) z paska menu i wprowadzić `Azure ML: Submit experiment` polecenie w polu tekstowym.
 1. Po przesłaniu eksperymentu zostanie utworzony obraz platformy Docker zawierający skrypt i konfiguracje określone w konfiguracji przebiegu.
 
     Po rozpoczęciu procesu kompilacji obrazu platformy Docker zawartość `60_control_log.txt` strumienia pliku do konsoli wyjściowej w vs Code.
@@ -339,7 +339,7 @@ Zapisz `ip_address` wartość. Jest on używany w następnej sekcji.
 W niektórych przypadkach może być konieczne interaktywne Debugowanie kodu w języku Python zawartego we wdrożeniu modelu. Na przykład, jeśli skrypt wejścia kończy się niepowodzeniem i powód nie może być określony przez dodatkowe rejestrowanie. Za pomocą VS Code i debugpy można dołączyć do kodu działającego wewnątrz kontenera Docker.
 
 > [!IMPORTANT]
-> Ta metoda debugowania nie działa w przypadku `Model.deploy()` `LocalWebservice.deploy_configuration` lokalnego wdrażania modelu i. Zamiast tego należy utworzyć obraz przy użyciu metody [model. Package ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) .
+> Ta metoda debugowania nie działa w przypadku `Model.deploy()` `LocalWebservice.deploy_configuration` lokalnego wdrażania modelu i. Zamiast tego należy utworzyć obraz przy użyciu metody [model. Package ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) .
 
 Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker w systemie lokalnym. Aby uzyskać więcej informacji na temat korzystania z platformy Docker, zapoznaj się z [dokumentacją platformy Docker](https://docs.docker.com/). Należy pamiętać, że podczas pracy z wystąpieniami obliczeniowymi program Docker jest już zainstalowany.
 

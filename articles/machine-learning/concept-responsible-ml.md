@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2ece76ef3594cadfa1fcda89259ee18eb1f9084
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829394"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324853"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Jakie są osoby odpowiedzialne za uczenie maszynowe? (wersja zapoznawcza)
 
@@ -73,7 +73,7 @@ W tradycyjnych rozwiązaniach magazynu i obliczeń w chmurze chmura musi mieć n
 
 Szyfrowanie Homomorphic pozwala na przeprowadzanie obliczeń na zaszyfrowanych danych bez konieczności uzyskiwania dostępu do klucza tajnego (odszyfrowywania). Wyniki obliczeń są szyfrowane i mogą być ujawnione tylko przez właściciela klucza tajnego. Przy użyciu szyfrowania homomorphic operatory w chmurze nigdy nie będą miały niezaszyfrowanego dostępu do danych przechowywanych i przetwarzanych przez te osoby. Obliczenia są wykonywane bezpośrednio na zaszyfrowanych danych. Prywatność danych opiera się na najnowocześniejszej kryptografii, a właściciel danych kontroluje wszystkie wersje informacji. Aby uzyskać więcej informacji na temat szyfrowania homomorphic firmy Microsoft, zobacz [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
 
-Aby rozpocząć korzystanie z szyfrowania homomorphic w Azure Machine Learning, użyj [zaszyfrowanego](https://pypi.org/project/encrypted-inference/) powiązania języka Python dla [programu Microsoft Seal](https://github.com/microsoft/SEAL). Microsoft SEAL to biblioteka szyfrowania homomorphic typu open source, która umożliwia dodawanie i mnożenie w przypadku szyfrowanych liczb całkowitych lub liczb rzeczywistych. Aby dowiedzieć się więcej o programie Microsoft SEAL, zapoznaj się z tematem [centrum architektury platformy Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) lub [stronę projektu Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
+Aby rozpocząć korzystanie z szyfrowania homomorphic w Azure Machine Learning, użyj [zaszyfrowanego](https://pypi.org/project/encrypted-inference/) powiązania języka Python dla [programu Microsoft Seal](https://github.com/microsoft/SEAL). Microsoft SEAL to biblioteka szyfrowania homomorphic typu open source, która umożliwia dodawanie i mnożenie w przypadku szyfrowanych liczb całkowitych lub liczb rzeczywistych. Aby dowiedzieć się więcej o programie Microsoft SEAL, zapoznaj się z tematem [centrum architektury platformy Azure](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) lub [stronę projektu Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
 
 Zapoznaj się z poniższym przykładem, aby dowiedzieć się, [jak wdrożyć zaszyfrowaną usługę sieci Web inferencing w Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
 
@@ -94,7 +94,7 @@ Niektóre informacje o modelu, które można chcieć udokumentować w ramach ark
 
 Zapoznaj się z poniższym przykładem, aby dowiedzieć się, jak zaimplementować [Arkusz danych dla modeli przy](https://github.com/microsoft/MLOps/blob/master/pytorch_with_datasheet/model_with_datasheet.ipynb)użyciu zestawu SDK Azure Machine Learning.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- Aby uzyskać więcej informacji, zobacz [odpowiedzialny zestaw narzędzi do innowacji](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) , aby poznać najlepsze rozwiązania.
+- Aby uzyskać więcej informacji, zobacz [odpowiedzialny zestaw narzędzi do innowacji](/azure/architecture/guide/responsible-innovation/) , aby poznać najlepsze rozwiązania.
 - Dowiedz się więcej o zestawie wskazówek [dotyczących informacji dotyczących](https://www.partnershiponai.org/about-ml/) systemu uczenia maszynowego.

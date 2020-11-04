@@ -1,6 +1,6 @@
 ---
-title: Jak używać funkcji OPENROWSET w programie SQL na żądanie (wersja zapoznawcza)
-description: W tym artykule opisano składnię funkcji OPENROWSET w SQL na żądanie (wersja zapoznawcza) i wyjaśniono, jak używać argumentów.
+title: Jak używać funkcji OPENROWSET w bezserwerowej puli SQL (wersja zapoznawcza)
+description: W tym artykule opisano składnię funkcji OPENROWSET w puli SQL bezserwerowej (wersja zapoznawcza) i wyjaśniono, jak używać argumentów.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2ef09fd81aaeca92e87be2a0fddbc9be16ebac1d
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 5059b051b16107ac7508e509d319159651de11e3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242045"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324414"
 ---
-# <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Jak używać funkcji OPENROWSET z SQL na żądanie (wersja zapoznawcza)
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Jak używać funkcji OPENROWSET przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-`OPENROWSET(BULK...)`Funkcja umożliwia dostęp do plików w usłudze Azure Storage. `OPENROWSET` Funkcja odczytuje zawartość zdalnego źródła danych (na przykład pliku) i zwraca zawartość jako zestaw wierszy. W ramach zasobu SQL na żądanie (wersja zapoznawcza) dostawca zestawu wierszy zbiorczych OPENROWSET jest dostępny przez wywołanie funkcji OPENROWSET i określenie opcji BULK.  
+`OPENROWSET(BULK...)`Funkcja umożliwia dostęp do plików w usłudze Azure Storage. `OPENROWSET` Funkcja odczytuje zawartość zdalnego źródła danych (na przykład pliku) i zwraca zawartość jako zestaw wierszy. W ramach zasobu puli SQL bezserwerowej (wersja zapoznawcza) dostawca zestawu wierszy zbiorczych OPENROWSET jest dostępny przez wywołanie funkcji OPENROWSET i określenie opcji BULK.  
 
 Do `OPENROWSET` funkcji można odwoływać się w `FROM` klauzuli zapytania, tak jakby była nazwą tabeli `OPENROWSET` . Obsługuje operacje zbiorcze za pośrednictwem wbudowanego dostawcy ZBIORCZego, który umożliwia odczytywanie danych z pliku i zwracanie ich jako zestawu wierszy.
 
@@ -131,12 +131,12 @@ Unstructured_data_path, który ustanawia ścieżkę do danych może być ścież
 Poniżej znajduje się przykład, który odczytuje wszystkie pliki *CSV* zaczynające się od *populacji* ze wszystkich folderów zaczynających się od */CSV/Population* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
-Jeśli określisz unstructured_data_path jako folder, zapytanie SQL na żądanie pobierze pliki z tego folderu. 
+Jeśli określisz unstructured_data_path jako folder, zapytanie puli SQL bezserwerowe pobierze pliki z tego folderu. 
 
 > [!NOTE]
-> W przeciwieństwie do usługi Hadoop i bazy danych SQL na żądanie nie zwraca podfolderów. Ponadto, w przeciwieństwie do platformy Hadoop i bazy danych SQL na żądanie, zwraca pliki, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.).
+> W przeciwieństwie do usługi Hadoop i bazy danych, bezserwerowa Pula SQL nie zwraca podfolderów. Ponadto, w przeciwieństwie do usługi Hadoop i Base, bezserwerowa Pula SQL zwraca pliki, dla których nazwa pliku zaczyna się od znaku podkreślenia (_) lub kropki (.).
 
-W poniższym przykładzie, jeśli unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , zapytanie SQL na żądanie zwróci wiersze z mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
+W poniższym przykładzie, jeśli unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , bezserwerowe zapytanie puli SQL zwróci wiersze z mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
 
 ![Dane cykliczne dla tabel zewnętrznych](./media/develop-openrowset/folder-traversal.png)
 

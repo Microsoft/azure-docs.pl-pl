@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: d356bd43e5e09dfce96a801732e79d2efe8c08bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9da757e47308fe0fe1a96958e464b440d99f0984
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440341"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324725"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Reference: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -97,7 +97,7 @@ Istnieje również skrypt języka R umożliwiający zainstalowanie [najwyżej 20
 
 ## <a name="python"></a>Python
 
-Anaconda Python jest instalowany z środowiskami Python 2,7 i 3,5. Środowisko 2,7 jest nazywane _korzeniem_, a środowisko 3,5 jest nazywane _py35_. Ta dystrybucja zawiera podstawowy język Python wraz z około 300 z najpopularniejszych pakietów obliczeń matematycznych, inżynieryjnych i analitycznych.
+Anaconda Python jest instalowany z środowiskami Python 2,7 i 3,5. Środowisko 2,7 jest nazywane _korzeniem_ , a środowisko 3,5 jest nazywane _py35_. Ta dystrybucja zawiera podstawowy język Python wraz z około 300 z najpopularniejszych pakietów obliczeń matematycznych, inżynieryjnych i analitycznych.
 
 Środowisko py35 jest ustawieniem domyślnym. Aby aktywować środowisko główne (2,7), użyj tego polecenia:
 
@@ -148,7 +148,7 @@ Można uzyskać dostęp do serwera notesu Jupyter z dowolnego hosta. Wprowadź *
 > [!NOTE]
 > Port 8000 jest domyślnie otwarty w zaporze po zainicjowaniu obsługi maszyny wirtualnej. 
 
-Spakowane przykładowe notesy — jeden w języku Python i jeden w języku R. Po uwierzytelnieniu do notesu Jupyter za pomocą nazwy użytkownika i hasła lokalnego systemu Linux możesz zobaczyć link do przykładów na stronie głównej notesu. Nowy Notes można utworzyć, wybierając pozycję **Nowy**, a następnie wybierając odpowiednie jądro języka. Jeśli przycisk **Nowy** nie jest widoczny, wybierz ikonę **Jupyter** w lewym górnym rogu, aby przejść do strony głównej serwera notesu.
+Spakowane przykładowe notesy — jeden w języku Python i jeden w języku R. Po uwierzytelnieniu do notesu Jupyter za pomocą nazwy użytkownika i hasła lokalnego systemu Linux możesz zobaczyć link do przykładów na stronie głównej notesu. Nowy Notes można utworzyć, wybierając pozycję **Nowy** , a następnie wybierając odpowiednie jądro języka. Jeśli przycisk **Nowy** nie jest widoczny, wybierz ikonę **Jupyter** w lewym górnym rogu, aby przejść do strony głównej serwera notesu.
 
 ## <a name="apache-spark-standalone"></a>Autonomiczne Apache Spark
 
@@ -206,13 +206,13 @@ Aby uzyskać więcej informacji, zobacz [Squirrel SQL](http://squirrel-sql.sourc
 
 Pakiet sterowników ODBC dla SQL Server również zawiera dwa narzędzia wiersza polecenia:
 
-- **BCP**: Narzędzie bcp zbiorczo kopiuje dane między wystąpieniem Microsoft SQL Server i plikiem danych w formacie określonym przez użytkownika. Narzędzia bcp można użyć do zaimportowania dużej liczby nowych wierszy do tabel SQL Server lub do eksportowania danych z tabel do plików danych. Aby zaimportować dane do tabeli, należy użyć pliku formatu utworzonego dla tej tabeli. Lub należy zrozumieć strukturę tabeli i typy danych, które są prawidłowe dla jego kolumn.
+- **BCP** : Narzędzie bcp zbiorczo kopiuje dane między wystąpieniem Microsoft SQL Server i plikiem danych w formacie określonym przez użytkownika. Narzędzia bcp można użyć do zaimportowania dużej liczby nowych wierszy do tabel SQL Server lub do eksportowania danych z tabel do plików danych. Aby zaimportować dane do tabeli, należy użyć pliku formatu utworzonego dla tej tabeli. Lub należy zrozumieć strukturę tabeli i typy danych, które są prawidłowe dla jego kolumn.
 
-  Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia za pomocą narzędzia bcp](https://msdn.microsoft.com/library/hh568446.aspx).
+  Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia za pomocą narzędzia bcp](/sql/connect/odbc/linux-mac/connecting-with-bcp).
 
-- **sqlcmd**: można wprowadzać instrukcje Transact-SQL za pomocą narzędzia sqlcmd. Możesz również wprowadzić procedury systemowe i pliki skryptów w wierszu polecenia. To narzędzie używa ODBC do uruchamiania partii Transact-SQL.
+- **sqlcmd** : można wprowadzać instrukcje Transact-SQL za pomocą narzędzia sqlcmd. Możesz również wprowadzić procedury systemowe i pliki skryptów w wierszu polecenia. To narzędzie używa ODBC do uruchamiania partii Transact-SQL.
 
-  Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia przy użyciu narzędzia sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
+  Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia przy użyciu narzędzia sqlcmd](/sql/connect/odbc/linux-mac/connecting-with-sqlcmd).
 
   > [!NOTE]
   > Istnieją pewne różnice w tym narzędziu między platformami Linux i Windows. Zapoznaj się z dokumentacją, aby uzyskać szczegółowe informacje.
@@ -228,13 +228,13 @@ Biblioteki są dostępne w językach R i Python na potrzeby dostępu do bazy dan
 
 Następujące narzędzia platformy Azure są zainstalowane na maszynie wirtualnej:
 
-* Interfejs wiersza polecenia **platformy Azure**: za pomocą poleceń powłoki można tworzyć zasoby platformy Azure i zarządzać nimi za pomocą polecenia. Aby otworzyć narzędzia platformy Azure, wprowadź **Pomoc platformy Azure**. Aby uzyskać więcej informacji, zobacz [stronę dokumentacji interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Eksplorator usługi Azure Storage**: Eksplorator usługi Azure Storage to graficzne narzędzie umożliwiające przeglądanie obiektów przechowywanych na koncie usługi Azure Storage oraz przekazywanie i pobieranie danych do i z obiektów blob platformy Azure. Dostęp do Eksplorator usługi Storage można uzyskać za pomocą ikony skrótu pulpitu. Możesz również otworzyć ją z poziomu monitu powłoki, wprowadzając **StorageExplorer**. Użytkownik musi być zalogowany z poziomu klienta usługi X2Go lub mieć skonfigurowane przekazywanie X11.
-* **Biblioteki platformy Azure**: poniżej przedstawiono niektóre z wstępnie zainstalowanych bibliotek.
+* Interfejs wiersza polecenia **platformy Azure** : za pomocą poleceń powłoki można tworzyć zasoby platformy Azure i zarządzać nimi za pomocą polecenia. Aby otworzyć narzędzia platformy Azure, wprowadź **Pomoc platformy Azure**. Aby uzyskać więcej informacji, zobacz [stronę dokumentacji interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-az-cli2).
+* **Eksplorator usługi Azure Storage** : Eksplorator usługi Azure Storage to graficzne narzędzie umożliwiające przeglądanie obiektów przechowywanych na koncie usługi Azure Storage oraz przekazywanie i pobieranie danych do i z obiektów blob platformy Azure. Dostęp do Eksplorator usługi Storage można uzyskać za pomocą ikony skrótu pulpitu. Możesz również otworzyć ją z poziomu monitu powłoki, wprowadzając **StorageExplorer**. Użytkownik musi być zalogowany z poziomu klienta usługi X2Go lub mieć skonfigurowane przekazywanie X11.
+* **Biblioteki platformy Azure** : poniżej przedstawiono niektóre z wstępnie zainstalowanych bibliotek.
   
-  * **Python**: biblioteki związane z platformą Azure w języku Python to *Azure* *, Azure,* *pydocumentdb*i *moduł pyodbc*. Za pomocą pierwszych trzech bibliotek można uzyskać dostęp do usług Azure Storage, Azure Machine Learning i Azure Cosmos DB (baza danych NoSQL na platformie Azure). Czwarta Biblioteka moduł pyodbc (wraz ze sterownikiem Microsoft ODBC dla SQL Server) umożliwia dostęp do SQL Server, Azure SQL Database i Azure Synapse Analytics z poziomu języka Python przy użyciu interfejsu ODBC. Wprowadź **listę PIP** , aby wyświetlić wszystkie wymienione biblioteki. Upewnij się, że uruchamiasz to polecenie w środowiskach Python 2,7 i 3,5.
-  * **R**: biblioteki związane z platformą Azure w języku R to Azure i RODBC.
-  * **Java**: listę bibliotek Java platformy Azure można znaleźć w katalogu/dsvm/SDK/AzureSDKJava na maszynie wirtualnej. Biblioteki kluczy to usługi Azure Storage i interfejsy API zarządzania, Azure Cosmos DB i sterowniki JDBC dla SQL Server.  
+  * **Python** : biblioteki związane z platformą Azure w języku Python to *Azure* *, Azure,* *pydocumentdb* i *moduł pyodbc*. Za pomocą pierwszych trzech bibliotek można uzyskać dostęp do usług Azure Storage, Azure Machine Learning i Azure Cosmos DB (baza danych NoSQL na platformie Azure). Czwarta Biblioteka moduł pyodbc (wraz ze sterownikiem Microsoft ODBC dla SQL Server) umożliwia dostęp do SQL Server, Azure SQL Database i Azure Synapse Analytics z poziomu języka Python przy użyciu interfejsu ODBC. Wprowadź **listę PIP** , aby wyświetlić wszystkie wymienione biblioteki. Upewnij się, że uruchamiasz to polecenie w środowiskach Python 2,7 i 3,5.
+  * **R** : biblioteki związane z platformą Azure w języku R to Azure i RODBC.
+  * **Java** : listę bibliotek Java platformy Azure można znaleźć w katalogu/dsvm/SDK/AzureSDKJava na maszynie wirtualnej. Biblioteki kluczy to usługi Azure Storage i interfejsy API zarządzania, Azure Cosmos DB i sterowniki JDBC dla SQL Server.  
 
 Dostęp do [Azure Portal](https://portal.azure.com) można uzyskać z wstępnie zainstalowanej przeglądarki Firefox. Na Azure Portal można tworzyć i monitorować zasoby platformy Azure oraz zarządzać nimi.
 
@@ -246,21 +246,21 @@ Po zalogowaniu się do Azure Machine Learning Studio można użyć kanwy ekspery
 
 Operacjonalizować modele uczenia maszynowego, które zostały skompilowane, umieszczając je w interfejsie usługi sieci Web. Modele uczenia maszynowego operacjonalizowania umożliwiają klientom w dowolnym języku wywoływanie prognoz z tych modeli. Aby uzyskać więcej informacji, zobacz [dokumentację Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-Możesz również kompilować modele w języku R lub Python na maszynie wirtualnej, a następnie wdrożyć je w środowisku produkcyjnym na Azure Machine Learning. W celu włączenia tej funkcji zainstalowano biblioteki w języku R (**Azure**) i Python (**Azure**).
+Możesz również kompilować modele w języku R lub Python na maszynie wirtualnej, a następnie wdrożyć je w środowisku produkcyjnym na Azure Machine Learning. W celu włączenia tej funkcji zainstalowano biblioteki w języku R ( **Azure** ) i Python ( **Azure** ).
 
 > [!NOTE]
 > Te instrukcje zostały opracowane dla Data Science Virtual Machine wersji systemu Windows. Jednak informacje o wdrażaniu modeli do Azure Machine Learning mają zastosowanie do maszyny wirtualnej z systemem Linux.
 
 ## <a name="machine-learning-tools"></a>Narzędzia uczenia maszynowego
 
-Maszyna wirtualna zawiera narzędzia i algorytmy uczenia maszynowego, które zostały wstępnie skompilowane i wstępnie zainstalowane lokalnie. Należą do nich:
+Maszyna wirtualna zawiera narzędzia i algorytmy uczenia maszynowego, które zostały wstępnie skompilowane i wstępnie zainstalowane lokalnie. Należą do nich następujące elementy:
 
-* **Vowpal Wabbit**: Krótki algorytm uczenia w trybie online.
-* **xgboost**: narzędzie, które zapewnia zoptymalizowane, podwyższające algorytmy drzewa.
-* **Rattle**: narzędzie graficzne oparte na języku R ułatwiające eksplorowanie i modelowanie danych.
-* **Python**: Anaconda Python jest powiązany z algorytmami uczenia maszynowego z bibliotekami, takimi jak Scikit — uczenie się. Inne biblioteki można zainstalować za pomocą `pip install` polecenia.
-* **LightGBM**: szybka i rozproszona platforma do tworzenia gradientów o wysokiej wydajności oparta na algorytmach drzewa decyzyjnego.
-* **R**: Zaawansowana biblioteka funkcji uczenia maszynowego jest dostępna dla języka R. wstępnie zainstalowane biblioteki to LM, GLM, randomForest i rpart. Aby zainstalować inne biblioteki, należy uruchomić następujące polecenie:
+* **Vowpal Wabbit** : Krótki algorytm uczenia w trybie online.
+* **xgboost** : narzędzie, które zapewnia zoptymalizowane, podwyższające algorytmy drzewa.
+* **Rattle** : narzędzie graficzne oparte na języku R ułatwiające eksplorowanie i modelowanie danych.
+* **Python** : Anaconda Python jest powiązany z algorytmami uczenia maszynowego z bibliotekami, takimi jak Scikit — uczenie się. Inne biblioteki można zainstalować za pomocą `pip install` polecenia.
+* **LightGBM** : szybka i rozproszona platforma do tworzenia gradientów o wysokiej wydajności oparta na algorytmach drzewa decyzyjnego.
+* **R** : Zaawansowana biblioteka funkcji uczenia maszynowego jest dostępna dla języka R. wstępnie zainstalowane biblioteki to LM, GLM, randomForest i rpart. Aby zainstalować inne biblioteki, należy uruchomić następujące polecenie:
 
     ```r
     install.packages(<lib name>)
@@ -316,7 +316,7 @@ Aby uzyskać więcej informacji na temat xgboost, zobacz [stronę dokumentacji x
 
 ### <a name="rattle"></a>Rattle
 
-Rattle ( **R** **Nalityczny** **t**OOL **t**o **L**zdobyć **E**asily) korzysta z eksplorowania i modelowania danych opartych na graficznym interfejsie użytkownika. Prezentuje statystyczne i wizualne podsumowania danych, przekształca dane, które można łatwo modelować, kompiluje zarówno nienadzorowane, jak i nadzorowane modele z danych, przedstawia wydajność modeli graficznie i ocenia nowe zestawy danych. Generuje również kod języka R, replikuje operacje w interfejsie użytkownika, które można uruchomić bezpośrednio w języku R lub użyć jako punktu wyjścia do dalszej analizy.
+Rattle ( **R** **Nalityczny** **t** OOL **t** o **L** zdobyć **E** asily) korzysta z eksplorowania i modelowania danych opartych na graficznym interfejsie użytkownika. Prezentuje statystyczne i wizualne podsumowania danych, przekształca dane, które można łatwo modelować, kompiluje zarówno nienadzorowane, jak i nadzorowane modele z danych, przedstawia wydajność modeli graficznie i ocenia nowe zestawy danych. Generuje również kod języka R, replikuje operacje w interfejsie użytkownika, które można uruchomić bezpośrednio w języku R lub użyć jako punktu wyjścia do dalszej analizy.
 
 Aby uruchomić Rattle, musisz być w sesji logowania na pulpicie graficznym. Na terminalu wprowadź **r** , aby otworzyć środowisko języka r. W wierszu polecenia języka R wprowadź następujące polecenia:
 

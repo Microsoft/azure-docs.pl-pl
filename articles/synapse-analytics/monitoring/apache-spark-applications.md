@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 4d6c50436ddf68e2610aeb10ddfaaab0a5d060f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f55d65b215c03769caa7c812dcda138f8e83595
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387357"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322463"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Monitorowanie aplikacji Apache Spark przy użyciu programu Synapse Studio
 
@@ -35,15 +35,15 @@ Przed rozpoczęciem pracy z tym samouczkiem upewnij się, że zostały spełnion
 
 - Obszar roboczy programu Synapse Studio. Aby uzyskać instrukcje, zobacz temat [Tworzenie obszaru roboczego programu Synapse Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
-- Pula Apache Spark.
+- Bezserwerowa Pula Apache Spark.
 
 ## <a name="monitor-running-apache-spark-application"></a>Monitoruj uruchomioną aplikację Apache Spark
 
-Otwórz **monitor**, a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegóły dotyczące Apache Spark działających aplikacji, wybierz aplikację do przesyłania Apache Spark i Wyświetl szczegóły. Jeśli aplikacja Apache Spark nadal działa, można monitorować postęp.
+Otwórz **monitor** , a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegóły dotyczące Apache Spark działających aplikacji, wybierz aplikację do przesyłania Apache Spark i Wyświetl szczegóły. Jeśli aplikacja Apache Spark nadal działa, można monitorować postęp.
 
   ![Wybierz uruchomione zadanie](./media/how-to-monitor-spark-applications/select-running-job.png)
 
-1. Sprawdź **ukończone zadania**, **stan**i **łączny czas trwania**.
+1. Sprawdź **ukończone zadania** , **stan** i **łączny czas trwania**.
 
 2. Anuluj aplikację Apache Spark.
 
@@ -59,11 +59,11 @@ Otwórz **monitor**, a następnie wybierz pozycję **Apache Spark aplikacje**. A
 
 ## <a name="view-completed-apache-spark-application"></a>Wyświetl ukończoną aplikację Apache Spark
 
-Otwórz **monitor**, a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegółowe informacje o ukończonych aplikacjach Apache Spark, wybierz aplikację Apache Spark i Wyświetl szczegóły.
+Otwórz **monitor** , a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegółowe informacje o ukończonych aplikacjach Apache Spark, wybierz aplikację Apache Spark i Wyświetl szczegóły.
 
   ![Wybierz zadanie zakończone](./media/how-to-monitor-spark-applications/select-completed-job.png)
 
-1. Sprawdź **ukończone zadania**, **stan**i **łączny czas trwania**.
+1. Sprawdź **ukończone zadania** , **stan** i **łączny czas trwania**.
 
 2. Odśwież zapytanie dziennika.
 
@@ -107,11 +107,11 @@ Otwórz **monitor**, a następnie wybierz pozycję **Apache Spark aplikacje**. A
 
 ## <a name="view-canceled-apache-spark-application"></a>Wyświetl anulowaną aplikację Apache Spark
 
-Otwórz **monitor**, a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegóły dotyczące anulowanych aplikacji Apache Spark, wybierz aplikację Apache Spark i Wyświetl szczegóły.
+Otwórz **monitor** , a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegóły dotyczące anulowanych aplikacji Apache Spark, wybierz aplikację Apache Spark i Wyświetl szczegóły.
 
  ![Wybierz zadanie anulowane](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
 
-1. Sprawdź **ukończone zadania**, **stan**i **łączny czas trwania**.
+1. Sprawdź **ukończone zadania** , **stan** i **łączny czas trwania**.
 
 2. Odśwież zapytanie dziennika.
 
@@ -127,11 +127,11 @@ Otwórz **monitor**, a następnie wybierz pozycję **Apache Spark aplikacje**. A
 
 ## <a name="debug-failed-apache-spark-application"></a>Debugowanie nie powiodło się Apache Spark aplikacji
 
-Otwórz **monitor**, a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegóły dotyczące nieudanych aplikacji Apache Spark, wybierz aplikację Apache Spark i Wyświetl szczegóły.
+Otwórz **monitor** , a następnie wybierz pozycję **Apache Spark aplikacje**. Aby wyświetlić szczegóły dotyczące nieudanych aplikacji Apache Spark, wybierz aplikację Apache Spark i Wyświetl szczegóły.
 
 ![Wybierz zadanie zakończone niepowodzeniem](./media/how-to-monitor-spark-applications/select-failed-job.png)
 
-1. Sprawdź **ukończone zadania**, **stan**i **łączny czas trwania**.
+1. Sprawdź **ukończone zadania** , **stan** i **łączny czas trwania**.
 
 2. Odśwież zapytanie dziennika.
 

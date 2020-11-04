@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 401398da4d71f32973f720dd0ca5cc9b550892e8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890173"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323039"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opcje pozyskiwania danych dla przepływów pracy Azure Machine Learning
 
@@ -33,7 +33,7 @@ Pozyskiwanie danych to proces, w którym dane bez struktury są wyodrębniane z 
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) oferuje natywną obsługę monitorowania i wyzwalaczy źródła danych na potrzeby potoków pozyskiwania danych.  
+[Azure Data Factory](../data-factory/introduction.md) oferuje natywną obsługę monitorowania i wyzwalaczy źródła danych na potrzeby potoków pozyskiwania danych.  
 
 W poniższej tabeli zestawiono zalety i wady korzystania z Azure Data Factory dla przepływów pracy pozyskiwania danych.
 
@@ -41,11 +41,11 @@ W poniższej tabeli zestawiono zalety i wady korzystania z Azure Data Factory dl
 ---|---
 Specjalnie skompilowany do wyodrębniania, ładowania i przekształcania danych.|Obecnie oferuje ograniczony zestaw Azure Data Factory zadań potoku 
 Umożliwia tworzenie przepływów pracy opartych na danych na potrzeby organizowania przenoszenia i przekształcania danych na dużą skalę.|Kosztowne Konstruowanie i konserwowanie. Aby uzyskać więcej informacji, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) Azure Data Factory.
-Integracja z różnymi narzędziami platformy Azure, takimi jak [Azure Databricks](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook) i [Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity) | Nie uruchamiaj natywnie skryptów, zamiast polega na osobnym obliczeniu dla przebiegów skryptów 
+Integracja z różnymi narzędziami platformy Azure, takimi jak [Azure Databricks](../data-factory/transform-data-using-databricks-notebook.md) i [Azure Functions](../data-factory/control-flow-azure-function-activity.md) | Nie uruchamiaj natywnie skryptów, zamiast polega na osobnym obliczeniu dla przebiegów skryptów 
 Natywnie obsługuje pozyskiwanie danych wyzwalane przez źródło danych| 
 Procesy przygotowywania i uczenia modeli są niezależne.|
 Możliwość odtworzenia danych osadzonych dla Azure Data Factory dataflows|
-Zapewnia [interfejs użytkownika](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) o małym kodzie dla podejść niezwiązanych ze skryptami |
+Zapewnia [interfejs użytkownika](../data-factory/quickstart-create-data-factory-portal.md) o małym kodzie dla podejść niezwiązanych ze skryptami |
 
 Te kroki i Poniższy diagram ilustrują przepływ pracy pozyskiwania danych Azure Data Factory.
 
@@ -60,7 +60,7 @@ Dowiedz się, jak utworzyć potok pozyskiwania danych dla Machine Learning z [Az
 
 ## <a name="azure-machine-learning-python-sdk"></a>Azure Machine Learning Python SDK 
 
-Za pomocą [zestawu SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml)można uwzględnić zadania pozyskiwania danych w ramach kroku [potoku Azure Machine Learning](how-to-create-your-first-pipeline.md) .
+Za pomocą [zestawu SDK języka Python](/python/api/overview/azure/ml)można uwzględnić zadania pozyskiwania danych w ramach kroku [potoku Azure Machine Learning](how-to-create-your-first-pipeline.md) .
 
 Poniższa tabela zawiera podsumowanie specjalistów i con przy użyciu zestawu SDK oraz krok potoku w przypadku zadań pozyskiwania danych.
 

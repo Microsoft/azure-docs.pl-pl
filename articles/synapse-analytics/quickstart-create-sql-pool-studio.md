@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Tworzenie puli Synapse SQL przy użyciu programu Synapse Studio'
-description: Utwórz nową pulę SQL Synapse przy użyciu programu Synapse Studio, wykonując czynności opisane w tym przewodniku.
+title: 'Szybki Start: Tworzenie dedykowanej dedykowanej puli SQL przy użyciu programu Synapse Studio'
+description: Utwórz dedykowaną pulę SQL przy użyciu programu Synapse Studio, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 806831ac5e965afcd076066f4baa498297a43a3e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6ffa7bb07ddb42946acdcef6ee3b7f2aa804f774
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740532"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324319"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-using-synapse-studio"></a>Szybki Start: Tworzenie puli Synapse SQL przy użyciu programu Synapse Studio
+# <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Szybki Start: Tworzenie dedykowanej puli SQL przy użyciu programu Synapse Studio
 
-Usługa Azure Synapse Analytics oferuje różne aparaty analityczne, które ułatwiają pozyskiwanie, przekształcanie, modelowanie i analizowanie danych. Pula SQL oferuje możliwości obliczeniowe i magazynowe oparte na języku T-SQL. Po utworzeniu puli SQL w obszarze roboczym usługi Synapse dane można ładować, modelować, przetwarzać i dostarczać w celu szybszego wglądu w informacje analityczne.
+Usługa Azure Synapse Analytics oferuje różne aparaty analityczne, które ułatwiają pozyskiwanie, przekształcanie, modelowanie i analizowanie danych. Dedykowana Pula SQL oferuje oparte na języku T-SQL możliwości obliczeniowe i magazynowe. Po utworzeniu dedykowanej puli SQL w obszarze roboczym usługi Synapse dane można ładować, modelować, przetwarzać i dostarczać w celu szybszego wglądu w informacje analityczne.
 
-W tym przewodniku szybki start opisano kroki tworzenia puli SQL w obszarze roboczym Synapse przy użyciu programu Synapse Studio.
+W tym przewodniku szybki start opisano kroki tworzenia dedykowanej puli SQL w obszarze roboczym Synapse przy użyciu programu Synapse Studio.
 
 Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -36,20 +36,20 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Przejdź do obszaru roboczego Synapse
 
-1. Przejdź do obszaru roboczego Synapse, w którym zostanie utworzona Pula SQL, wpisując nazwę usługi (lub nazwę zasobu bezpośrednio) na pasku wyszukiwania.
+1. Przejdź do obszaru roboczego Synapse, w którym zostanie utworzona dedykowana Pula SQL, wpisując nazwę usługi (lub nazwę zasobu bezpośrednio) na pasku wyszukiwania.
 
     ![Azure Portal pasku wyszukiwania z obszarami roboczymi Synapse, które zostały wpisane.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics** .
+1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics**.
 
     ![Lista przefiltrowanych obszarów roboczych Synapse, które zawierają nazwę contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 ## <a name="launch-synapse-studio"></a>Uruchamianie programu Synapse Studio
 
-1. W obszarze roboczym przegląd wybierz pozycję **Uruchom program Synapse Studio** , aby otworzyć lokalizację, w której zostanie utworzona Pula SQL. Wpisz nazwę usługi lub nazwę zasobu bezpośrednio na pasku wyszukiwania.
+1. W obszarze roboczym przegląd wybierz **adres URL sieci Web obszaru roboczego** , aby uruchomić program Synapse Studio.
 
-    ![Azure Portal Omówienie obszaru roboczego Synapse z wyróżnioną opcją Uruchom Synapse Studio.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
+    ![Azure Portal Omówienie obszaru roboczego Synapse z wyróżnionym adresem URL w sieci Web obszaru roboczego.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
-## <a name="create-a-sql-pool-in-synapse-studio"></a>Tworzenie puli SQL w programie Synapse Studio
+## <a name="create-a-dedicated-sql-pool-in-synapse-studio"></a>Tworzenie dedykowanej puli SQL w programie Synapse Studio
 
 1. Na stronie głównej programu Synapse Studio przejdź do **centrum zarządzania** w lewym okienku nawigacji, wybierając ikonę **Zarządzaj** .
 
@@ -67,20 +67,20 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
     | Ustawienie | Sugerowana wartość | Opis |
     | :------ | :-------------- | :---------- |
-    | **Nazwa puli SQL** | contosoedw | Jest to nazwa, która będzie dostępna w puli SQL. |
+    | **Nazwa puli SQL** | contosoedw | Jest to nazwa, która będzie miała dedykowaną pulę SQL. |
     | **Poziom wydajności** | DW100c | Ustaw wartość na najmniejszy rozmiar, aby zmniejszyć koszty dla tego przewodnika Szybki Start |
 
     ![Pule SQL Utwórz kartę podstawowe informacje.](media/quickstart-create-sql-pool/create-sql-pool-studio-24.png)
     > [!IMPORTANT]
-    > Należy zauważyć, że istnieją określone ograniczenia dotyczące nazw, które mogą być używane przez pule SQL. Nazwy nie mogą zawierać znaków specjalnych, muszą składać się z co najwyżej 15 znaków, nie zawierać słów zarezerwowanych i być unikatowe w obszarze roboczym.
+    > Należy zauważyć, że istnieją określone ograniczenia dotyczące nazw, które mogą być używane przez dedykowane pule SQL. Nazwy nie mogą zawierać znaków specjalnych, muszą składać się z co najwyżej 15 znaków, nie zawierać słów zarezerwowanych i być unikatowe w obszarze roboczym.
 
 4. Na następnej karcie **Ustawienia dodatkowe** wybierz pozycję **Brak** , aby zainicjować obsługę administracyjną puli SQL bez danych. Pozostaw domyślne sortowanie jako wybrane.
 
     ![Utwórz przepływ puli SQL — karta Ustawienia dodatkowe.](media/quickstart-create-sql-pool/create-sql-pool-studio-25.png)
 
-1. Nie będziemy teraz dodawać żadnych tagów, więc następnie wybierz pozycję **Recenzja + Utwórz** .
+1. Nie będziemy teraz dodawać żadnych tagów, więc następnie wybierz pozycję **Recenzja + Utwórz**.
 
-1. Na karcie **Recenzja + tworzenie** upewnij się, że szczegóły są poprawne na podstawie wprowadzonych wcześniej elementów, a następnie naciśnij pozycję **Utwórz** . 
+1. Na karcie **Recenzja + tworzenie** upewnij się, że szczegóły są poprawne na podstawie wprowadzonych wcześniej elementów, a następnie naciśnij pozycję **Utwórz**. 
 
     ![Utwórz przepływ w puli SQL — Przejrzyj kartę Ustawienia.](media/quickstart-create-sql-pool/create-sql-pool-studio-26.png)
 
@@ -90,24 +90,24 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
     ![Przepływ tworzenia puli SQL — Inicjowanie obsługi zasobów.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
 
-1. Po utworzeniu puli SQL będzie ona dostępna w obszarze roboczym do ładowania danych, przetwarzania strumieni, odczytywania z usługi Lake itp.
+1. Po utworzeniu dedykowanej puli SQL będzie ona dostępna w obszarze roboczym do ładowania danych, przetwarzania strumieni, odczytywania z usługi Lake itp.
 
-## <a name="clean-up-sql-pools-using-synapse-studio"></a>Czyszczenie pul SQL przy użyciu programu Synapse Studio    
+## <a name="clean-up-dedicated-sql-pool-using-synapse-studio"></a>Czyszczenie dedykowanej puli SQL przy użyciu programu Synapse Studio    
 
-Wykonaj poniższe kroki, aby usunąć pulę SQL z obszaru roboczego przy użyciu programu Synapse Studio.
+Wykonaj poniższe kroki, aby usunąć dedykowaną pulę SQL z obszaru roboczego przy użyciu programu Synapse Studio.
 > [!WARNING]
-> Usunięcie puli SQL spowoduje usunięcie aparatu analitycznego z obszaru roboczego. Nie będzie już można łączyć się z pulą, a wszystkie zapytania, potoki, skrypty używające tej puli SQL nie będą już działać.
+> Usunięcie dedykowanej puli SQL spowoduje usunięcie aparatu analitycznego z obszaru roboczego. Nie będzie już można nawiązać połączenia z pulą, a wszystkie zapytania, potoki, skrypty używające tej dedykowanej puli SQL przestaną działać.
 
-Jeśli chcesz usunąć pulę SQL, wykonaj następujące czynności:
+Jeśli chcesz usunąć dedykowaną pulę SQL, wykonaj następujące czynności:
 
 1. Przejdź do pul SQL w centrum zarządzania w programie Synapse Studio.
-1. Wybierz wielokropek w puli SQL do usunięcia (w tym przypadku **contosoedw** ), aby wyświetlić polecenia dla puli SQL:
+1. Wybierz wielokropek w dedykowanej puli SQL do usunięcia (w tym przypadku **contosoedw** ), aby wyświetlić polecenia dla dedykowanej puli SQL:
 
     ![Lista pul SQL z wybraną ostatnio utworzoną pulą.](media/quickstart-create-sql-pool/create-sql-pool-studio-28.png)
-1. Naciśnij klawisz **delete** .
+1. Naciśnij klawisz **delete**.
 1. Potwierdź usunięcie i naciśnij przycisk **Usuń** .
-1. Po pomyślnym zakończeniu procesu Pula SQL nie będzie już wyświetlana w obszarze zasoby obszaru roboczego.
+1. Gdy proces zakończy się pomyślnie, dedykowana Pula SQL nie będzie już wyświetlana w obszarze zasoby obszaru roboczego.
 
 ## <a name="next-steps"></a>Następne kroki 
 - Zobacz [Szybki Start: Tworzenie notesu Apache Spark](quickstart-apache-spark-notebook.md).
-- Zobacz [Szybki Start: Tworzenie puli Synapse SQL przy użyciu Azure Portal](quickstart-create-sql-pool-portal.md).
+- Zobacz [Szybki Start: Tworzenie dedykowanej puli SQL przy użyciu Azure Portal](quickstart-create-sql-pool-portal.md).

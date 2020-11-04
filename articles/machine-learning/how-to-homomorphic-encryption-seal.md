@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 21c57257f9ce5a33585f151d38c16736f94a166c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3509530994b07a16fb1f2780fffc6fd27cf8aa7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998688"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325510"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Jak wdrożyć zaszyfrowaną usługę sieci Web inferencing (wersja zapoznawcza)
 
-Dowiedz się, jak wdrożyć model klasyfikacji obrazów jako zaszyfrowaną usługę sieci Web inferencing w [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). Usługa sieci Web jest obrazem kontenera Docker, który zawiera model i logikę oceniania.
+Dowiedz się, jak wdrożyć model klasyfikacji obrazów jako zaszyfrowaną usługę sieci Web inferencing w [Azure Container Instances](../container-instances/index.yml) (ACI). Usługa sieci Web jest obrazem kontenera Docker, który zawiera model i logikę oceniania.
 
 W tym przewodniku używasz usługi Azure Machine Learning, aby:
 
@@ -30,7 +30,7 @@ W tym przewodniku używasz usługi Azure Machine Learning, aby:
 > * Przekształć zaszyfrowane przewidywania
 > * Czyszczenie zasobów
 
-ACI to doskonałe rozwiązanie do testowania i analizowania przepływu pracy wdrażania modelu. W przypadku skalowalnych wdrożeń produkcyjnych rozważ skorzystanie z usługi Azure Kubernetes Service. Aby uzyskać więcej informacji, zobacz [jak i gdzie wdrażać modele](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+ACI to doskonałe rozwiązanie do testowania i analizowania przepływu pracy wdrażania modelu. W przypadku skalowalnych wdrożeń produkcyjnych rozważ skorzystanie z usługi Azure Kubernetes Service. Aby uzyskać więcej informacji, zobacz [jak i gdzie wdrażać modele](./how-to-deploy-and-where.md).
 
 Metoda szyfrowania użyta w tym przykładzie to [szyfrowanie homomorphic](https://github.com/Microsoft/SEAL#homomorphic-encryption). Szyfrowanie Homomorphic pozwala na przeprowadzanie obliczeń na zaszyfrowanych danych bez konieczności uzyskiwania dostępu do klucza tajnego (odszyfrowywania). Wyniki obliczeń są szyfrowane i mogą być ujawnione tylko przez właściciela klucza tajnego. 
 

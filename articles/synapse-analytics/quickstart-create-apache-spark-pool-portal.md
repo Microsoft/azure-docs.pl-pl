@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Tworzenie puli Apache Spark przy użyciu Azure Portal'
-description: Utwórz nową pulę Apache Spark przy użyciu Azure Portal, wykonując czynności opisane w tym przewodniku.
+title: 'Szybki Start: Tworzenie puli Apache Spark bezserwerowej przy użyciu Azure Portal'
+description: Utwórz bezserwerową pulę Apache Spark przy użyciu Azure Portal, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7578ca12c46ec6de626eeb1340ce680eda6bbb92
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041311"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323524"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Szybki Start: Tworzenie nowej puli Apache Spark przy użyciu Azure Portal
+# <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Szybki Start: Tworzenie nowej puli Apache Spark bezserwerowej przy użyciu Azure Portal
 
 Usługa Azure Synapse Analytics oferuje różne aparaty analityczne, które ułatwiają pozyskiwanie, przekształcanie, modelowanie, analizowanie i dystrybuowanie danych. Pula Apache Spark zapewnia możliwości obliczeniowe Big Data dla programu Open Source. Po utworzeniu puli Apache Spark w obszarze roboczym usługi Synapse dane można ładować, modelować, przetwarzać i rozpowszechniać w celu uzyskania szybszych szczegółowych informacji analitycznych.
 
@@ -39,13 +39,13 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 ## <a name="navigate-to-the-synapse-workspace"></a>Przejdź do obszaru roboczego Synapse 
 1. Przejdź do obszaru roboczego Synapse, w którym zostanie utworzona Pula Apache Spark, wpisując nazwę usługi (lub nazwę zasobu bezpośrednio) na pasku wyszukiwania.
 ![Azure Portal pasku wyszukiwania z obszarami roboczymi Synapse, które zostały wpisane.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics** .
+1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics**.
 ![Lista przefiltrowanych obszarów roboczych Synapse, które zawierają nazwę contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 
 ## <a name="create-new-apache-spark-pool"></a>Utwórz nową pulę Apache Spark
 
-1. W obszarze roboczym Synapse, w którym chcesz utworzyć pulę Apache Spark wybierz pozycję **Nowa pula Apache Spark** .
+1. W obszarze roboczym Synapse, w którym chcesz utworzyć pulę Apache Spark wybierz pozycję **Nowa pula Apache Spark**.
     ![Omówienie obszaru roboczego Synapse z czerwonym prostokątem wokół polecenia w celu utworzenia nowej puli Apache Spark](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
 2. Wprowadź następujące szczegóły na karcie **podstawowe** :
 
@@ -64,12 +64,12 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 3. Wybierz pozycję **Dalej: Ustawienia dodatkowe** i przejrzyj ustawienia domyślne. Nie należy modyfikować żadnych ustawień domyślnych.
     ![Zrzut ekranu przedstawiający stronę "Tworzenie puli Apache Spark" z wybraną kartą "Ustawienia dodatkowe".](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
-4. Wybierz pozycję **Dalej: Tagi** . Nie dodawaj żadnych tagów.
+4. Wybierz pozycję **Dalej: Tagi**. Nie dodawaj żadnych tagów.
     ![Utwórz przepływ Apache Spark puli — karta Ustawienia dodatkowe.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
-5. Wybierz pozycję **Przejrzyj i utwórz** .
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 
-6. Upewnij się, że szczegóły są poprawne w zależności od tego, co zostało wcześniej wprowadzone, i wybierz pozycję **Utwórz** .
+6. Upewnij się, że szczegóły są poprawne w zależności od tego, co zostało wcześniej wprowadzone, i wybierz pozycję **Utwórz**.
     ![Tworzenie przepływu Apache Spark puli — przegląd ustawień.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. W tym momencie przepływ aprowizacji zasobów zostanie uruchomiony, co oznacza, że zostanie on ukończony.
@@ -90,7 +90,7 @@ Jeśli chcesz usunąć pulę Apache Spark, wykonaj następujące czynności:
 
 1. Przejdź do bloku pule Apache Spark w obszarze roboczym.
 2. Wybierz pulę Apache Spark do usunięcia (w tym przypadku **contosospark** ).
-3. Naciśnij klawisz **delete** .
+3. Naciśnij klawisz **delete**.
  ![Lista pul Apache Spark, dla których wybrano ostatnio utworzoną pulę.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Potwierdź usunięcie i naciśnij przycisk **Usuń** .
  ![Okno dialogowe potwierdzenia usuwania wybranej puli Apache Spark.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)
@@ -99,4 +99,4 @@ Jeśli chcesz usunąć pulę Apache Spark, wykonaj następujące czynności:
 ## <a name="next-steps"></a>Następne kroki
 
 - Zobacz [Szybki Start: Tworzenie notesu Apache Spark](quickstart-apache-spark-notebook.md).
-- Zobacz [Szybki Start: Tworzenie puli Synapse SQL przy użyciu Azure Portal](quickstart-create-sql-pool-portal.md).
+- Zobacz [Szybki Start: Tworzenie dedykowanej puli SQL Synapse przy użyciu Azure Portal](quickstart-create-sql-pool-portal.md).

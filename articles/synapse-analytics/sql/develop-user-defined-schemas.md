@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: aebe1d995f3cb6da4663876b8d39d36a1a8b16c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a21d2f0debb2ade8e46b0cdb5b3fa5b51f0a180c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030171"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323864"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Schematy zdefiniowane przez użytkownika w programie Synapse SQL
 
@@ -27,7 +27,7 @@ Tradycyjna architektura analityczna często używa oddzielnych baz danych do two
 Zamiast tego Synapse SQL uruchamia całe obciążenie analizy w jednej bazie danych. Sprzężenia między bazami danych nie są dozwolone. Synapse SQL oczekuje, że wszystkie tabele używane przez magazyn będą przechowywane w jednej bazie danych.
 
 > [!NOTE]
-> Pule SQL nie obsługują zapytań między bazami danych dowolnego rodzaju. W związku z tym należy skorygować implementacje analityczne korzystające z tego wzorca. SQL na żądanie (wersja zapoznawcza) obsługuje zapytania obejmujące wiele baz danych.
+> Dedykowane pule SQL nie obsługują zapytań między bazami danych dowolnego rodzaju. W związku z tym należy skorygować implementacje analityczne korzystające z tego wzorca. Pula SQL bezserwerowa (wersja zapoznawcza) obsługuje zapytania obejmujące wiele baz danych.
 
 ## <a name="user-defined-schema-recommendations"></a>Zalecenia dotyczące schematu zdefiniowanego przez użytkownika
 

@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z transakcji
-description: Porady dotyczące implementowania transakcji w puli SQL (magazyn danych) na potrzeby tworzenia rozwiązań.
+description: Porady dotyczące implementowania transakcji za pomocą dedykowanej puli SQL w usłudze Azure Synapse Analytics na potrzeby tworzenia rozwiązań.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,20 +10,20 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288617"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323835"
 ---
-# <a name="use-transactions-in-sql-pool"></a>Używanie transakcji w puli SQL
+# <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Używanie transakcji z dedykowaną pulą SQL w usłudze Azure Synapse Analytics
 
-Porady dotyczące implementowania transakcji w puli SQL (magazyn danych) na potrzeby tworzenia rozwiązań.
+Porady dotyczące implementowania transakcji za pomocą dedykowanej puli SQL w usłudze Azure Synapse Analytics na potrzeby tworzenia rozwiązań.
 
 ## <a name="what-to-expect"></a>Czego oczekiwać
 
-Zgodnie z oczekiwaniami Pula SQL obsługuje transakcje w ramach obciążenia magazynu danych. Jednak w celu zapewnienia, że wydajność puli SQL jest utrzymywana na dużą skalę, niektóre funkcje są ograniczone w porównaniu do SQL Server. W tym artykule omówiono różnice i inne elementy.
+Zgodnie z oczekiwaniami dedykowana Pula SQL obsługuje transakcje w ramach obciążenia magazynu danych. Jednak w celu zapewnienia, że wydajność dedykowanej puli SQL jest utrzymywana na dużą skalę, niektóre funkcje są ograniczone w porównaniu do SQL Server. W tym artykule omówiono różnice i inne elementy.
 
 ## <a name="transaction-isolation-levels"></a>Poziomy izolacji transakcji
 
@@ -92,7 +92,7 @@ Aby zoptymalizować i zminimalizować ilość danych zapisywana w dzienniku, zap
 Pula SQL używa funkcji XACT_STATE (), aby zgłosić nieudaną transakcję przy użyciu wartości-2. Ta wartość oznacza, że transakcja zakończyła się niepowodzeniem i jest oznaczona wyłącznie do wycofania.
 
 > [!NOTE]
-> Użycie-2 przez funkcję XACT_STATE, aby zauważyć, że nieudana transakcja reprezentuje inne zachowanie, aby SQL Server. SQL Server używa wartości-1 do reprezentowania transakcji niezatwierdzonej. SQL Server może tolerować błędy wewnątrz transakcji, bez konieczności oznaczania jej jako niezatwierdzonej. Na przykład `SELECT 1/0` może wystąpić błąd, ale nie wymusić transakcji w stanie niezatwierdzonym. SQL Server również zezwala na odczyty w transakcji niezatwierdzonej. Jednak Pula SQL nie zezwala na to. Jeśli wystąpi błąd w transakcji puli SQL, zostanie automatycznie wprowadzony stan-2 i nie będzie można wykonać żadnych dalszych instrukcji SELECT, dopóki instrukcja nie zostanie wycofana. W związku z tym ważne jest, aby sprawdzić, czy kod aplikacji jest używany XACT_STATE (), ponieważ może być konieczne dokonanie modyfikacji kodu.
+> Użycie-2 przez funkcję XACT_STATE, aby zauważyć, że nieudana transakcja reprezentuje inne zachowanie, aby SQL Server. SQL Server używa wartości-1 do reprezentowania transakcji niezatwierdzonej. SQL Server może tolerować błędy wewnątrz transakcji, bez konieczności oznaczania jej jako niezatwierdzonej. Na przykład `SELECT 1/0` może wystąpić błąd, ale nie wymusić transakcji w stanie niezatwierdzonym. SQL Server również zezwala na odczyty w transakcji niezatwierdzonej. Jednak dedykowana Pula SQL nie zezwala na to. Jeśli wystąpi błąd w ramach dedykowanej transakcji puli SQL, zostanie automatycznie wprowadzony stan-2 i nie będzie można wykonać żadnych dalszych instrukcji SELECT do momentu wycofania instrukcji z powrotem. W związku z tym ważne jest, aby sprawdzić, czy kod aplikacji jest używany XACT_STATE (), ponieważ może być konieczne dokonanie modyfikacji kodu.
 
 Na przykład w SQL Server może zostać wyświetlona transakcja, która wygląda następująco:
 
@@ -138,7 +138,7 @@ Msg 111233, poziom 16, stan 1, wiersz 1 111233; Bieżąca transakcja została pr
 
 Nie otrzymasz danych wyjściowych funkcji ERROR_ *.
 
-W puli SQL kod musi być nieco zmieniony:
+W dedykowanej puli SQL kod musi być nieco zmieniony:
 
 ```sql
 SET NOCOUNT ON;
@@ -181,11 +181,11 @@ Wszystko, co zostało zmienione, polega na tym, że WYCOFANie transakcji musiał
 
 ## <a name="error_line-function"></a>Error_Line () — funkcja
 
-Warto również zauważyć, że Pula SQL nie implementuje ani nie obsługuje funkcji ERROR_LINE (). Jeśli ta funkcja jest dostępna w kodzie, należy ją usunąć, aby była zgodna z pulą SQL. Zamiast zaimplementować równoważne funkcje, użyj etykiet zapytań w kodzie. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [etykiet](develop-label.md) .
+Warto również zauważyć, że dedykowana Pula SQL nie implementuje ani nie obsługuje funkcji ERROR_LINE (). Jeśli ta funkcja jest dostępna w kodzie, należy ją usunąć, aby była zgodna z dedykowaną pulą SQL. Zamiast zaimplementować równoważne funkcje, użyj etykiet zapytań w kodzie. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [etykiet](develop-label.md) .
 
 ## <a name="use-of-throw-and-raiserror"></a>Użycie instrukcji THROW i RAISERROR
 
-THROW to bardziej nowoczesny implementacja do wywoływania wyjątków w puli SQL, ale również jest obsługiwana wartość RAISERROR. Istnieje jednak kilka różnic, które warto zwrócić uwagę.
+THROW to bardziej nowoczesny implementacja do wywoływania wyjątków w dedykowanej puli SQL, ale również jest obsługiwana. Istnieje jednak kilka różnic, które warto zwrócić uwagę.
 
 * Liczby komunikatów o błędach zdefiniowane przez użytkownika nie mogą znajdować się w zakresie 100 000 – 150 000 dla THROW
 * Komunikaty o błędach instrukcji RAISERROR są stałe o 50 000
@@ -204,4 +204,4 @@ Pula SQL zawiera kilka innych ograniczeń odnoszących się do transakcji. Są o
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat optymalizowania transakcji, zobacz [najlepsze rozwiązania](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)w zakresie transakcji. Dostępne są również dodatkowe przewodniki z najlepszymi rozwiązaniami dla [puli SQL](best-practices-sql-pool.md) i [SQL na żądanie (wersja zapoznawcza)](best-practices-sql-on-demand.md).
+Aby dowiedzieć się więcej na temat optymalizowania transakcji, zobacz [najlepsze rozwiązania](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)w zakresie transakcji. Dostępne są również dodatkowe przewodniki dotyczące najlepszych rozwiązań dla [puli](best-practices-sql-pool.md) SQL i [bezserwerowej puli SQL (wersja zapoznawcza)](best-practices-sql-on-demand.md).

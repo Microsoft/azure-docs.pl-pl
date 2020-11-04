@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 11/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203439"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322162"
 ---
 # <a name="string-claims-transformations"></a>Przekształcenia oświadczeń ciągów
 
@@ -80,10 +80,10 @@ Profil techniczny z własnym potwierdzeniem wywołuje profil techniczny **logowa
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **inputClaim1**: someone@contoso.com
-  - **inputClaim2**: someone@outlook.com
+  - **inputClaim1** : someone@contoso.com
+  - **inputClaim2** : someone@outlook.com
 - Parametry wejściowe:
-  - **stringComparison**: ordinalIgnoreCase
+  - **stringComparison** : ordinalIgnoreCase
 - Wynik: zgłoszono błąd
 
 ## <a name="changecase"></a>ChangeCase
@@ -115,11 +115,11 @@ Ta transformacja oświadczenia umożliwia zmianę dowolnego typu oświadczenia c
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **adres e-mail**: SomeOne@contoso.com
+  - **adres e-mail** : SomeOne@contoso.com
 - Parametry wejściowe:
-    - **toCase**: niższy
+    - **toCase** : niższy
 - Oświadczenia wyjściowe:
-  - **adres e-mail**: someone@contoso.com
+  - **adres e-mail** : someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
@@ -146,9 +146,9 @@ Użyj tej transformacji oświadczeń, aby ustawić wartość typu oświadczenia 
 ### <a name="example"></a>Przykład
 
 - Parametr wejściowy:
-    - **wartość**: warunki użytkowania usługi contoso...
+    - **wartość** : warunki użytkowania usługi contoso...
 - Oświadczenia wyjściowe:
-    - **createdClaim**: oświadczenia o organizacjach OT zawiera "warunki korzystania z usługi firmy Contoso..." wartościami.
+    - **createdClaim** : oświadczenia o organizacjach OT zawiera "warunki korzystania z usługi firmy Contoso..." wartościami.
 
 ## <a name="compareclaims"></a>CompareClaims
 
@@ -183,13 +183,13 @@ Ta transformacja oświadczeń służy do sprawdzania, czy oświadczenie jest ró
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **inputClaim1**: someone@contoso.com
-  - **inputClaim2**: someone@outlook.com
+  - **inputClaim1** : someone@contoso.com
+  - **inputClaim2** : someone@outlook.com
 - Parametry wejściowe:
-    - **operator**: nie równa się
-    - **IgnoreCase**: true
+    - **operator** : nie równa się
+    - **IgnoreCase** : true
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: true
+    - **oświadczenie outputclaim** : true
 
 ## <a name="compareclaimtovalue"></a>CompareClaimToValue
 
@@ -223,13 +223,13 @@ Możesz użyć tej transformacji oświadczeń, aby sprawdzić, czy oświadczenie
 
 ### <a name="example"></a>Przykład
 - Oświadczenia wejściowe:
-    - **inputClaim1**: V1
+    - **inputClaim1** : V1
 - Parametry wejściowe:
-    - **CompareTo**: V1
-    - **operator**: równe
-    - **IgnoreCase**: true
+    - **CompareTo** : V1
+    - **operator** : równe
+    - **IgnoreCase** : true
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: true
+    - **oświadczenie outputclaim** : true
 
 ## <a name="createrandomstring"></a>CreateRandomString
 
@@ -259,9 +259,9 @@ Poniższy przykład generuje globalnie unikatowy identyfikator. Ta transformacja
 ### <a name="example"></a>Przykład
 
 - Parametry wejściowe:
-    - **randomGeneratorType**: identyfikator GUID
+    - **randomGeneratorType** : identyfikator GUID
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: bc8bedd2-AAA3-411e-bdee-2f1810b73dfc
+    - **oświadczenie outputclaim** : bc8bedd2-AAA3-411e-bdee-2f1810b73dfc
 
 Poniższy przykład generuje losową wartość całkowitą z zakresu od 0 do 1000. Wartość jest sformatowana do OTP_ {wartość losowa}.
 
@@ -282,12 +282,12 @@ Poniższy przykład generuje losową wartość całkowitą z zakresu od 0 do 100
 ### <a name="example"></a>Przykład
 
 - Parametry wejściowe:
-    - **randomGeneratorType**: liczba całkowita
-    - **maximumNumber**: 1000
-    - **StringFormat —**: OTP_{0}
-    - **Base64**: false
+    - **randomGeneratorType** : liczba całkowita
+    - **maximumNumber** : 1000
+    - **StringFormat —** : OTP_{0}
+    - **Base64** : false
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: OTP_853
+    - **oświadczenie outputclaim** : OTP_853
 
 
 ## <a name="formatstringclaim"></a>FormatStringClaim
@@ -319,11 +319,11 @@ Ta transformacja oświadczeń służy do formatowania dowolnego ciągu z jednym 
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **oświadczenie inputclaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
+    - **oświadczenie inputclaim** : 5164db16-3eee-4629-bfda-dcc3326790e9
 - Parametry wejściowe:
-    - **StringFormat —**: cpim_ {0} @ {RelyingPartyTenantId}
+    - **StringFormat —** : cpim_ {0} @ {RelyingPartyTenantId}
 - Oświadczenia wyjściowe:
-  - **oświadczenie outputclaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **oświadczenie outputclaim** : cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -356,12 +356,12 @@ Ta transformacja oświadczeń służy do formatowania dowolnego ciągu z dwoma p
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **inputClaim1**: Jan
-    - **inputClaim2**: Fernando
+    - **inputClaim1** : Jan
+    - **inputClaim2** : Fernando
 - Parametry wejściowe:
-    - **StringFormat —**: {0}{1}
+    - **StringFormat —** : {0}{1}
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: Jan Fernando
+    - **oświadczenie outputclaim** : Jan Fernando
 
 ## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
@@ -427,10 +427,10 @@ Transformacja oświadczeń ustawia *wartość typu oświadczenia* , a wartość 
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wyjściowe:
-  - **podmiot**: kod weryfikacyjny E-mail konta Contoso
-  - **komunikat**: Dziękujemy za zweryfikowanie konta.
-  - **codeIntro**: Twój kod jest
-  - **sygnatura**: z poważaniemi
+  - **podmiot** : kod weryfikacyjny E-mail konta Contoso
+  - **komunikat** : Dziękujemy za zweryfikowanie konta.
+  - **codeIntro** : Twój kod jest
+  - **sygnatura** : z poważaniemi
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -464,7 +464,7 @@ Transformacja oświadczeń wyszukuje tekst elementu i zwraca jego wartość. Je�
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -472,9 +472,9 @@ Transformacja oświadczeń wyszukuje tekst elementu i zwraca jego wartość. Je�
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **mapFromClaim**: B2C_V1_90001
+    - **mapFromClaim** : B2C_V1_90001
 - Oświadczenia wyjściowe:
-    - **restrictionValueClaim**: nie można się zalogować, ponieważ jest to element pomocniczy.
+    - **restrictionValueClaim** : nie można się zalogować, ponieważ jest to element pomocniczy.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -509,14 +509,14 @@ Poniższy przykład wyszukuje nazwę domeny w jednej z kolekcji inputParameters.
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **inputParameterId**: test.com
+    - **inputParameterId** : test.com
 - Parametry wejściowe:
-    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **Microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com**: c7026f88-4299-4CDB-965d-3f166464b8a9
-    - **errorOnFailedLookup**: FAŁSZ
+    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **Microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com** : c7026f88-4299-4CDB-965d-3f166464b8a9
+    - **errorOnFailedLookup** : FAŁSZ
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: c7026f88-4299-4CDB-965d-3f166464b8a9
+    - **oświadczenie outputclaim** : c7026f88-4299-4CDB-965d-3f166464b8a9
 
 Gdy `errorOnFailedLookup` parametr wejściowy jest ustawiony na `true` , przekształcenie oświadczeń **LookupValue** jest zawsze wykonywane z poziomu [profilu technicznego weryfikacji](validation-technical-profile.md) , który jest wywoływany przez [własny profil techniczny](self-asserted-technical-profile.md)lub [DisplayConrtol](display-controls.md). `LookupNotFound`Metadane w profilu technicznym z własnym potwierdzeniem sterują komunikatem o błędzie prezentowanym użytkownikowi.
 
@@ -544,12 +544,12 @@ Poniższy przykład wyszukuje nazwę domeny w jednej z kolekcji inputParameters.
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **inputParameterId**: Live.com
+    - **inputParameterId** : Live.com
 - Parametry wejściowe:
-    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **Microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **test.com**: c7026f88-4299-4CDB-965d-3f166464b8a9
-    - **errorOnFailedLookup**: true
+    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **Microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com** : c7026f88-4299-4CDB-965d-3f166464b8a9
+    - **errorOnFailedLookup** : true
 - Błąd:
     - Nie znaleziono dopasowania dla wartości wejściowego żądania na liście identyfikatorów parametrów wejściowych i errorOnFailedLookup ma wartość true.
 
@@ -573,9 +573,9 @@ Ta transformacja oświadczenia służy do usuwania zbędnych danych z zbioru wł
 ```
 
 - Oświadczenia wejściowe:
-    - **oświadczenie outputclaim**: Witamy w aplikacji contoso. Jeśli będziesz kontynuować przeglądanie tej witryny sieci Web i korzystanie z niej, wyrażasz zgodę na przestrzeganie i powiąże się z następującymi warunkami i postanowieniami...
+    - **oświadczenie outputclaim** : Witamy w aplikacji contoso. Jeśli będziesz kontynuować przeglądanie tej witryny sieci Web i korzystanie z niej, wyrażasz zgodę na przestrzeganie i powiąże się z następującymi warunkami i postanowieniami...
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: null
+    - **oświadczenie outputclaim** : null
 
 ## <a name="parsedomain"></a>ParseDomain
 
@@ -602,9 +602,9 @@ Użyj tej transformacji oświadczeń, aby przeanalizować nazwę domeny po znaku
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **EmailAddress**: joe@outlook.com
+  - **EmailAddress** : joe@outlook.com
 - Oświadczenia wyjściowe:
-    - **domena**: Outlook.com
+    - **domena** : Outlook.com
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 
@@ -641,13 +641,13 @@ Sprawdza, czy podany numer telefonu jest prawidłowy, na podstawie wzorca wyraż
 ```
 
 - Oświadczenia wejściowe:
-    - **claimToMatch**: "64854114520"
+    - **claimToMatch** : "64854114520"
 - Parametry wejściowe:
-    - **matchTo**: "^ [0-9] {4,16} $"
-    - **outputClaimIfMatched**: "isphone"
+    - **matchTo** : "^ [0-9] {4,16} $"
+    - **outputClaimIfMatched** : "isphone"
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: "isphone"
-    - **regexCompareResultClaim**: true
+    - **oświadczenie outputclaim** : "isphone"
+    - **regexCompareResultClaim** : true
 
 ### <a name="example-2"></a>Przykład 2
 
@@ -672,15 +672,15 @@ Sprawdza, czy podany adres e-mail jest prawidłowy, i zwraca alias adresu e-mail
 ```
 
 - Oświadczenia wejściowe:
-    - **claimToMatch**: " emily@contoso.com "
+    - **claimToMatch** : " emily@contoso.com "
 - Parametry wejściowe:
-    - **matchTo**: `(?&lt;mailAlias&gt;.*)@(.*)$`
-    - **outputClaimIfMatched**: "isemail"
-    - **extractGroups**: true
+    - **matchTo** : `(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched** : "isemail"
+    - **extractGroups** : true
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: "isemail"
-    - **regexCompareResultClaim**: true
-    - **mailAlias**: Emily
+    - **oświadczenie outputclaim** : "isemail"
+    - **regexCompareResultClaim** : true
+    - **mailAlias** : Emily
     
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
@@ -720,16 +720,16 @@ Możesz użyć tej transformacji oświadczeń, aby sprawdzić, czy oświadczenie
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **oświadczenie inputclaim**: V1
+    - **oświadczenie inputclaim** : V1
 - Parametry wejściowe:
-    - **matchTo**: V1
-    - **stringComparison**: ordinalIgnoreCase
-    - **stringMatchMsg**: B2C_V1_90005
-    - **stringMatchMsgCode**: organizacje telekomunikacyjne są uaktualnione do wersji 2
+    - **matchTo** : V1
+    - **stringComparison** : ordinalIgnoreCase
+    - **stringMatchMsg** : B2C_V1_90005
+    - **stringMatchMsgCode** : organizacje telekomunikacyjne są uaktualnione do wersji 2
 - Oświadczenia wyjściowe:
-    - **outputClaim1**: B2C_V1_90005
-    - **outputClaim2**: organizacje telekomunikacyjne są uaktualnione do wersji 2
-    - **stringCompareResultClaim**: true
+    - **outputClaim1** : B2C_V1_90005
+    - **outputClaim2** : organizacje telekomunikacyjne są uaktualnione do wersji 2
+    - **stringCompareResultClaim** : true
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
 
@@ -766,14 +766,14 @@ Na przykład następujące przekształcenia oświadczeń sprawdzają, czy warto�
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **claimToMatch**: pomocniczy
+    - **claimToMatch** : pomocniczy
 - Parametry wejściowe:
-    - **matchTo**: pomocniczy
-    - **stringComparison**: ordinalIgnoreCase
-    - **outputClaimIfMatched**: B2C_V1_90001
+    - **matchTo** : pomocniczy
+    - **stringComparison** : ordinalIgnoreCase
+    - **outputClaimIfMatched** : B2C_V1_90001
 - Oświadczenia wyjściowe:
-    - **isMinorResponseCode**: B2C_V1_90001
-    - **ismoll**: prawda
+    - **isMinorResponseCode** : B2C_V1_90001
+    - **ismoll** : prawda
 
 
 ## <a name="stringcontains"></a>StringContains
@@ -807,12 +807,12 @@ Użyj tej transformacji oświadczeń, aby sprawdzić, czy typ oświadczenia cią
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **oświadczenie inputclaim**: "admin, osoba zatwierdzająca, Edytor"
+    - **oświadczenie inputclaim** : "admin, osoba zatwierdzająca, Edytor"
 - Parametry wejściowe:
-    - **zawiera**: "Administrator",
-    - **IgnoreCase**: true
+    - **zawiera** : "Administrator",
+    - **IgnoreCase** : true
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: true
+    - **oświadczenie outputclaim** : true
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -845,12 +845,12 @@ Na przykład Pobierz prefiks kraju/regionu numeru telefonu.
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **oświadczenie inputclaim**: "+ 1644114520"
+    - **oświadczenie inputclaim** : "+ 1644114520"
 - Parametry wejściowe:
-    - **startIndex**: 0
-    - **Długość**: 2
+    - **startIndex** : 0
+    - **Długość** : 2
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: "+ 1"
+    - **oświadczenie outputclaim** : "+ 1"
 
 ## <a name="stringreplace"></a>StringReplace
 
@@ -883,12 +883,12 @@ Na przykład Normalizuj numer telefonu, usuwając `-` znaki
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **oświadczenie inputclaim**: "+ 164-411-452-054"
+    - **oświadczenie inputclaim** : "+ 164-411-452-054"
 - Parametry wejściowe:
-    - **OldValue**: "-"
-    - **Długość**: ""
+    - **OldValue** : "-"
+    - **NewValue** : ""
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**: "+ 164411452054"
+    - **oświadczenie outputclaim** : "+ 164411452054"
 
 ## <a name="stringjoin"></a>StringJoin
 
@@ -919,11 +919,11 @@ W poniższym przykładzie jest pobierana kolekcja ról użytkownika i konwertowa
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **oświadczenie inputclaim**: ["admin", "author", "Reader"]
+  - **oświadczenie inputclaim** : ["admin", "author", "Reader"]
 - Parametry wejściowe:
-  - **ogranicznik**: ","
+  - **ogranicznik** : ","
 - Oświadczenia wyjściowe:
-  - **oświadczenie outputclaim**: "admin, Author, Reader"
+  - **oświadczenie outputclaim** : "admin, Author, Reader"
 
 
 ## <a name="stringsplit"></a>StringSplit
@@ -955,11 +955,11 @@ W poniższym przykładzie ciąg określający ogranicznik jest rozdzielany przec
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **oświadczenie inputclaim**: "admin, Author, Reader"
+  - **oświadczenie inputclaim** : "admin, Author, Reader"
 - Parametry wejściowe:
-  - **ogranicznik**: ","
+  - **ogranicznik** : ","
 - Oświadczenia wyjściowe:
-  - **oświadczenie outputclaim**: ["admin", "author", "Reader"]
+  - **oświadczenie outputclaim** : ["admin", "author", "Reader"]
 
 ## <a name="string-claim-transformations-expressions"></a>Wyrażenia przekształceń deklaracji ciągu
 Wyrażenia transformacji przekształceń w Azure AD B2C zasad niestandardowych zawierają informacje kontekstu dotyczące identyfikatora dzierżawy i identyfikatora profilu technicznego.

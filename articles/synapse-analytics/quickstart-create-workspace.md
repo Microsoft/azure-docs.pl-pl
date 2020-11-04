@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d06d1b0553161523708f4bb142f1c715a77eb2dd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fa7faf64e1889ef2d1abe644f23f0be363709a6b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461111"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322720"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Szybki Start: Tworzenie obszaru roboczego Synapse
 W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi Azure Synapse za pomocą Azure Portal.
@@ -22,13 +22,13 @@ W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi
 ## <a name="create-a-synapse-workspace"></a>Tworzenie obszaru roboczego usługi Synapse
 
 1. Otwórz [Azure Portal](https://portal.azure.com)i w górnej części Szukaj **Synapse**.
-1. W wynikach wyszukiwania w obszarze **usługi**wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**.
+1. W wynikach wyszukiwania w obszarze **usługi** wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**.
 1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy.
 1. Na karcie **podstawy** nadaj obszarowi nazw unikatową nazwę. Będziemy używać **mysworkspace** w tym dokumencie
 1. Do utworzenia obszaru roboczego jest potrzebne konto ADLSGEN2. Najprostszą opcją jest utworzenie nowej. Jeśli chcesz ponownie użyć istniejącego, musisz wykonać dodatkową konfigurację. 
 1. Opcja 1 — Tworzenie nowego konta ADLSGEN2 
-    1. W obszarze **wybierz Data Lake Storage Gen 2**kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.
-    1. W obszarze **wybierz Data Lake Storage Gen 2**kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**.
+    1. W obszarze **wybierz Data Lake Storage Gen 2** kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.
+    1. W obszarze **wybierz Data Lake Storage Gen 2** kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**.
 1. Opcja 2 zapoznaj się z instrukcjami **przygotowywania konta magazynu** w dolnej części tego dokumentu.
 1. Obszar roboczy usługi Azure Synapse będzie używać tego konta magazynu jako konta magazynu "podstawowe" i kontenera do przechowywania danych obszaru roboczego. Obszar roboczy przechowuje dane w tabelach Apache Spark. Przechowuje dzienniki aplikacji platformy Spark w folderze o nazwie **/Synapse/WorkspaceName**.
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy jest gotowy w ciągu kilku minut.
@@ -48,8 +48,8 @@ Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby 
     * Przypisz siebie do roli **właściciela** .
     * Przypisz siebie do roli **właściciela danych obiektu blob magazynu** .
 1. W okienku po lewej stronie wybierz pozycję **kontenery** i Utwórz kontener.
-1. Można nadać kontenerowi dowolną nazwę. W tym dokumencie zmienimy nazwy **użytkowników**kontenera.
-1. Zaakceptuj domyślne ustawienie **poziomu dostępu publicznego**, a następnie wybierz pozycję **Utwórz**.
+1. Można nadać kontenerowi dowolną nazwę. W tym dokumencie zmienimy nazwy **użytkowników** kontenera.
+1. Zaakceptuj domyślne ustawienie **poziomu dostępu publicznego** , a następnie wybierz pozycję **Utwórz**.
 
 ### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Konfigurowanie dostępu do konta magazynu z obszaru roboczego
 
@@ -65,6 +65,6 @@ Zarządzane tożsamości dla obszaru roboczego usługi Azure Synapse prawdopodob
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie puli SQL](quickstart-create-sql-pool-studio.md) 
-* [Tworzenie puli Apache Spark](quickstart-create-apache-spark-pool-portal.md)
-* [Korzystanie z bazy danych SQL na żądanie](quickstart-sql-on-demand.md)
+* [Tworzenie dedykowanej puli SQL](quickstart-create-sql-pool-studio.md) 
+* [Utwórz bezserwerową pulę Apache Spark](quickstart-create-apache-spark-pool-portal.md)
+* [Użyj bezserwerowej puli SQL](quickstart-sql-on-demand.md)

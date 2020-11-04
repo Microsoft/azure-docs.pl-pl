@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3bd4953812ec88f28ac16956a85c95afc5bb8a38
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 2225ef42d8862935e5cd682a3c11a7ce687babab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999220"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325562"
 ---
 # <a name="advanced-entry-script-authoring"></a>Tworzenie zaawansowanego skryptu wejściowego
 
@@ -26,7 +26,7 @@ W tym artykule pokazano, jak napisać skrypty wprowadzania dla wyspecjalizowanyc
 
 W tym artykule założono, że masz już szkolony model uczenia maszynowego, który zamierzasz wdrożyć za pomocą Azure Machine Learning. Aby dowiedzieć się więcej na temat wdrażania modelu, zobacz [ten samouczek](how-to-deploy-and-where.md).
 
-## <a name="automatically-generate-a-swagger-schema"></a>Automatycznie Generuj schemat Swagger
+## <a name="automatically-generate-a-swagger-schema"></a>Automatyczne generowanie schematu struktury Swagger
 
 Aby automatycznie wygenerować schemat dla usługi sieci Web, podaj przykład danych wejściowych i/lub wyjściowych w konstruktorze dla jednego z obiektów typu zdefiniowane. Typ i przykład są używane do automatycznego tworzenia schematu. Azure Machine Learning następnie tworzy specyfikację [openapi](https://swagger.io/docs/specification/about/) (Swagger) dla usługi sieci Web podczas wdrażania.
 
@@ -89,7 +89,7 @@ def run(data):
 
 ## <a name="power-bi-compatible-endpoint"></a>Power BI zgodny punkt końcowy 
 
-Poniższy przykład ilustruje sposób definiowania kształtu interfejsu API zgodnie z powyższą instrukcją. Ta metoda jest obsługiwana w przypadku używania wdrożonej usługi sieci Web na podstawie Power BI. ([Dowiedz się więcej na temat korzystania z usługi sieci Web z programu Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)).
+Poniższy przykład ilustruje sposób definiowania kształtu interfejsu API zgodnie z powyższą instrukcją. Ta metoda jest obsługiwana w przypadku używania wdrożonej usługi sieci Web na podstawie Power BI. ([Dowiedz się więcej na temat korzystania z usługi sieci Web z programu Power BI](/power-bi/service-machine-learning-integration)).
 
 ```python
 import json
@@ -261,7 +261,7 @@ AZUREML_MODEL_DIR jest zmienną środowiskową utworzoną podczas wdrażania us�
 
 W poniższej tabeli opisano wartość AZUREML_MODEL_DIR w zależności od liczby wdrożonych modeli:
 
-| wdrażania | Wartość zmiennej środowiskowej |
+| Wdrożenie | Wartość zmiennej środowiskowej |
 | ----- | ----- |
 | Jeden model | Ścieżka do folderu zawierającego model. |
 | Wiele modeli | Ścieżka do folderu zawierającego wszystkie modele. Modele są zlokalizowane według nazwy i wersji w tym folderze ( `$MODEL_NAME/$VERSION` ) |
@@ -312,7 +312,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-Podczas rejestrowania modelu należy podać nazwę modelu, która jest używana do zarządzania modelem w rejestrze. Ta nazwa jest używana z metodą [model.get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) w celu pobrania ścieżki pliku lub plików modelu w lokalnym systemie plików. Po zarejestrowaniu folderu lub kolekcji plików ten interfejs API zwróci ścieżkę do katalogu, który zawiera te pliki.
+Podczas rejestrowania modelu należy podać nazwę modelu, która jest używana do zarządzania modelem w rejestrze. Ta nazwa jest używana z metodą [model.get_model_path ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) w celu pobrania ścieżki pliku lub plików modelu w lokalnym systemie plików. Po zarejestrowaniu folderu lub kolekcji plików ten interfejs API zwróci ścieżkę do katalogu, który zawiera te pliki.
 
 Po zarejestrowaniu modelu nadaj mu nazwę. Nazwa odnosi się do lokalizacji modelu, lokalnie lub podczas wdrażania usługi.
 
