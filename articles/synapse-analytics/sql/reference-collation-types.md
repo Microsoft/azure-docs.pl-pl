@@ -1,6 +1,6 @@
 ---
 title: Obsługa sortowania
-description: Typy sortowania obsługiwane w usłudze Azure Synapse SQL
+description: Typy sortowania obsługujące Synapse SQL w usłudze Azure Synapse Analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: reference
@@ -8,25 +8,25 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 436dbac814197556385a33d956928f97fd4716bf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288073"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311925"
 ---
-# <a name="database-collation-support-for-synapse-sql"></a>Obsługa sortowania bazy danych dla Synapse SQL
+# <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Obsługa sortowania bazy danych dla Synapse SQL w usłudze Azure Synapse Analytics 
 
 Sortowanie udostępnia ustawienia regionalne, strony kodowej, porządek sortowania i reguły czułości znaków dla typów danych opartych na znakach. Po wybraniu tej opcji wszystkie kolumny i wyrażenia wymagające informacji o sortowaniu dziedziczą wybrane sortowanie z poziomu bazy danych. Dziedziczenie domyślne można przesłonić, jawnie podając inne sortowanie dla typu danych opartego na znakach.
 
-Podczas tworzenia nowej bazy danych puli SQL można zmienić domyślne sortowanie bazy danych z Azure Portal. Ta funkcja ułatwia tworzenie nowej bazy danych przy użyciu jednego z 3800 obsługiwanych baz danych.
+Domyślne sortowanie baz danych można zmienić z Azure Portal podczas tworzenia nowej dedykowanej bazy danych puli SQL. Ta funkcja ułatwia tworzenie nowej bazy danych przy użyciu jednego z 3800 obsługiwanych baz danych.
 
-Przy użyciu instrukcji CREATE DATABASE można określić domyślne sortowanie bazy danych na żądanie w usłudze SQL Synapse podczas tworzenia.
+Można określić domyślne sortowanie bazy danych puli SQL bez serwera podczas tworzenia przy użyciu instrukcji CREATE DATABASE.
 
 ## <a name="change-collation"></a>Zmień sortowanie
-Aby zmienić domyślne sortowanie bazy danych puli SQL, należy zaktualizować do pola sortowania w środowisku aprowizacji. Na przykład jeśli chcesz zmienić domyślne sortowanie na wielkość liter, Zmień nazwę sortowania z SQL_Latin1_General_CP1_CI_AS na SQL_Latin1_General_CP1_CS_AS. 
+Aby zmienić domyślne sortowanie dla dedykowanej bazy danych puli SQL, należy zaktualizować do pola sortowania w środowisku aprowizacji. Na przykład jeśli chcesz zmienić domyślne sortowanie na wielkość liter, Zmień nazwę sortowania z SQL_Latin1_General_CP1_CI_AS na SQL_Latin1_General_CP1_CS_AS. 
 
-Aby zmienić domyślne sortowanie dla bazy danych SQL na żądanie, można użyć instrukcji ALTER DATABASE.
+Aby zmienić domyślne sortowanie dla bazy danych puli SQL bezserwerowej, można użyć instrukcji ALTER DATABASE.
 
 ## <a name="list-of-unsupported-collation-types"></a>Lista nieobsługiwanych typów sortowania
 *    Japanese_Bushu_Kakusu_140_BIN
@@ -98,7 +98,7 @@ Aby zmienić domyślne sortowanie dla bazy danych SQL na żądanie, można uży�
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
 
-Ponadto Pula SQL nie obsługuje następujących typów sortowania:
+Ponadto dedykowana Pula SQL nie obsługuje następujących typów sortowania:
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS
@@ -113,9 +113,9 @@ Po przekazaniu elementu "Collation" jako parametru właściwości funkcja Databa
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dodatkowe informacje o najlepszych rozwiązaniach dotyczących puli SQL i SQL na żądanie można znaleźć w następujących artykułach:
+Dodatkowe informacje na temat najlepszych rozwiązań dotyczących dedykowanej puli SQL i bezserwerowej puli można znaleźć w następujących artykułach:
 
-- [Najlepsze rozwiązania dotyczące puli SQL](best-practices-sql-pool.md)
-- [Najlepsze rozwiązania dotyczące programu SQL na żądanie](best-practices-sql-on-demand.md)
+- [Najlepsze rozwiązania dotyczące dedykowanej puli SQL](best-practices-sql-pool.md)
+- [Najlepsze rozwiązania dotyczące puli SQL bezserwerowej](best-practices-sql-on-demand.md)
 
 

@@ -1,32 +1,32 @@
 ---
-title: Rozwiązywanie problemów z wdrażaniem platformy Docker
+title: Rozwiązywanie problemów z wdrażaniem usługi sieci Web
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak obejść, rozwiązać i rozwiązać typowe błędy wdrażania platformy Docker za pomocą usługi Azure Kubernetes i Azure Container Instances przy użyciu Azure Machine Learning.
+description: Dowiedz się, jak obejść, rozwiązać i rozwiązać typowe błędy wdrażania platformy Docker za pomocą usługi Azure Kubernetes i Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: clauren42
-ms.author: clauren
+author: gvashishtha
+ms.author: gopalv
 ms.reviewer: jmartens
-ms.date: 08/06/2020
+ms.date: 11/02/2020
 ms.topic: troubleshooting
 ms.custom: contperfq4, devx-track-python, deploy
-ms.openlocfilehash: 259b5c789d2323dbc797116cf0d09045811a6873
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: dfbfea22738e6aeb0df31ad941b2ff10e53795a4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073346"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311289"
 ---
-# <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Rozwiązywanie problemów z wdrażaniem modeli przez platformę Docker za pomocą usługi Azure Kubernetes Service i Azure Container Instances 
+# <a name="troubleshoot-model-deployment"></a>Rozwiązywanie problemów z wdrażaniem modelu
 
 Dowiedz się, jak rozwiązywać problemy i rozwiązywać typowe błędy wdrażania platformy Docker za pomocą usług Azure Container Instances (ACI) i Azure Kubernetes Service (AKS) przy użyciu Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure**. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
-* [Zestaw SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
-* [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * [Rozszerzenie interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Aby debugować lokalnie, musisz mieć działającą instalację platformy Docker w systemie lokalnym.
 
@@ -34,66 +34,48 @@ Dowiedz się, jak rozwiązywać problemy i rozwiązywać typowe błędy wdrażan
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Kroki wdrażania modeli uczenia maszynowego w programie Docker
 
-Podczas wdrażania modelu w Azure Machine Learning należy użyć interfejsu API [model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) i obiektu [środowiska](how-to-use-environments.md) . Usługa tworzy podstawowy obraz platformy Docker na etapie wdrażania i instaluje wymagane modele wszystkie w jednym wywołaniu. Podstawowe zadania wdrażania są następujące:
+Po wdrożeniu modelu do obliczeń nielokalnych w Azure Machine Learning są wykonywane następujące czynności:
 
-1. Zarejestruj model w rejestrze modelu obszaru roboczego.
+1. Pliku dockerfile określony w obiekcie Environments w InferenceConfig jest wysyłany do chmury wraz z zawartością katalogu źródłowego
+1. Jeśli wcześniej skompilowany obraz nie jest dostępny w rejestrze kontenerów, nowy obraz platformy Docker zostanie skompilowany w chmurze i zapisany w domyślnym rejestrze kontenera obszaru roboczego.
+1. Obraz platformy Docker z rejestru kontenerów jest pobierany do obiektu docelowego obliczeń.
+1. Domyślny magazyn obiektów BLOB obszaru roboczego jest instalowany w miejscu docelowym obliczeń, zapewniając dostęp do zarejestrowanych modeli
+1. Serwer sieci Web jest inicjowany przez uruchomienie funkcji skryptu wejścia `init()`
+1. Gdy wdrożony model odbiera żądanie, `run()` funkcja obsługuje to żądanie
 
-2. Zdefiniuj konfigurację wnioskowania:
-    1. Utwórz obiekt [środowiska](how-to-use-environments.md) . Ten obiekt może korzystać z zależności w pliku YAML środowiska, jednego z naszych środowisk nadzorowanych.
-    2. Utwórz konfigurację wnioskowania (obiekt InferenceConfig) w oparciu o środowisko i skrypt oceniania.
+Główną różnicą podczas korzystania z lokalnego wdrożenia jest to, że obraz kontenera jest zbudowany na komputerze lokalnym, co oznacza, że należy zainstalować platformę Docker na potrzeby lokalnego wdrożenia.
 
-3. Wdróż model w usłudze Azure Container Instance (ACI) lub w usłudze Azure Kubernetes Service (AKS).
+Zrozumienie tych ogólnych kroków powinno ułatwić zrozumienie, gdzie występują błędy.
 
-Dowiedz się więcej o tym procesie w [Zarządzanie modelami](concept-model-management-and-deployment.md) wprowadzenie.
+## <a name="get-deployment-logs"></a>Pobierz dzienniki wdrożenia
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+Pierwszym krokiem w debugowaniu błędów jest pobieranie dzienników wdrożenia. Najpierw postępuj zgodnie z [instrukcjami w tym miejscu](how-to-deploy-and-where.md#connect-to-your-workspace) , aby połączyć się z obszarem roboczym.
 
-W przypadku wystąpienia dowolnego problemu najpierw należy podzielić zadanie wdrożenia (opisane wcześniej) na poszczególne kroki, aby wyizolować problem.
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azcli)
 
-W przypadku używania [modelu model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) z obiektem [środowiska](how-to-use-environments.md) jako parametru wejściowego kod może być podzielony na trzy główne kroki:
+Aby pobrać dzienniki ze wdrożonej usługi sieci Web, wykonaj następujące czynności:
 
-1. Zarejestrowanie modelu. Oto przykładowy kod:
+```bash
+az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
+```
 
-    ```python
-    from azureml.core.model import Model
-
-
-    # register a model out of a run record
-    model = best_run.register_model(model_name='my_best_model', model_path='outputs/my_model.pkl')
-
-    # or, you can register a file or a folder of files as a model
-    model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
-    ```
-
-2. Zdefiniuj konfigurację wnioskowania dla wdrożenia:
-
-    ```python
-    from azureml.core.model import InferenceConfig
-    from azureml.core.environment import Environment
+# <a name="python"></a>[Python](#tab/python)
 
 
-    # create inference configuration based on the requirements defined in the YAML
-    myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
-    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    ```
+Przy założeniu, że masz obiekt typu `azureml.core.Workspace` o nazwie `ws` , możesz wykonać następujące czynności:
 
-3. Wdróż model przy użyciu konfiguracji wnioskowania utworzonej w poprzednim kroku:
+```python
+print(ws.webservices)
 
-    ```python
-    from azureml.core.webservice import AciWebservice
+# Choose the webservice you are interested in
 
+from azureml.core import Webservice
 
-    # deploy the model
-    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
-    aci_service = Model.deploy(workspace=ws,
-                           name='my-service',
-                           models=[model],
-                           inference_config=inference_config,
-                           deployment_config=aci_config)
-    aci_service.wait_for_deployment(show_output=True)
-    ```
+service = Webservice(ws, '<insert name of webservice>')
+print(service.get_logs())
+```
 
-Przerwanie procesu wdrażania Thee w poszczególnych zadaniach ułatwia identyfikowanie niektórych bardziej typowych błędów.
+---
 
 ## <a name="debug-locally"></a>Debuguj lokalnie
 
@@ -161,7 +143,7 @@ print(service.run(input_data=test_sample))
 > [!NOTE]
 > Skrypt zostanie ponownie załadowany z lokalizacji określonej przez `InferenceConfig` obiekt używany przez usługę.
 
-Aby zmienić model, Conda zależności lub konfigurację wdrożenia, użyj [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueupdate--args-). Poniższy przykład aktualizuje model używany przez usługę:
+Aby zmienić model, Conda zależności lub konfigurację wdrożenia, użyj [Update ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-). Poniższy przykład aktualizuje model używany przez usługę:
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -169,7 +151,7 @@ service.update([different_model], inference_config, deployment_config)
 
 ### <a name="delete-the-service"></a>Usuwanie usługi
 
-Aby usunąć usługę, użyj polecenie [delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--).
+Aby usunąć usługę, użyj polecenie [delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
 
 ### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> Inspekcja dziennika platformy Docker
 
@@ -187,7 +169,7 @@ Możesz rozwiązać ten problem, zwiększając wartość `memory_gb` w `deployme
  
 ## <a name="container-cannot-be-scheduled"></a>Nie można zaplanować kontenera
 
-W przypadku wdrażania usługi do elementu docelowego obliczeń usługi Azure Kubernetes Azure Machine Learning próbuje zaplanować usługę z żądaną ilością zasobów. Jeśli w klastrze nie ma dostępnych węzłów z odpowiednią ilością zasobów po 5 minutach, wdrożenie zakończy się niepowodzeniem. Komunikat o błędzie to `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Ten błąd można rozwiązać, dodając więcej węzłów, zmieniając jednostkę SKU węzłów lub zmieniając wymagania dotyczące zasobów usługi. 
+Podczas wdrażania usługi w docelowym elemencie obliczeniowym usługi Azure Kubernetes Service usługa Azure Machine Learning podejmie próbę zaplanowania usługi przy użyciu żądanej ilości zasobów. Jeśli w klastrze nie ma dostępnych węzłów z odpowiednią ilością zasobów po 5 minutach, wdrożenie zakończy się niepowodzeniem. Komunikat o błędzie to `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Ten błąd można rozwiązać, dodając więcej węzłów, zmieniając jednostkę SKU węzłów lub zmieniając wymagania dotyczące zasobów usługi. 
 
 Komunikat o błędzie będzie zazwyczaj wskazywał zasób, którego potrzebujesz więcej — na przykład jeśli zostanie wyświetlony komunikat o błędzie informujący, że `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` usługa wymaga procesora GPU, a w klastrze istnieją trzy węzły, które nie mają dostępnych procesorów GPU. Można to rozwiązać, dodając więcej węzłów, jeśli używasz jednostki SKU procesora GPU, przełączając się do jednostki SKU z włączoną obsługą procesora GPU, jeśli nie zmienisz środowiska, aby nie wymagały procesora GPU.  
 
@@ -199,7 +181,7 @@ Skorzystaj z informacji w sekcji [sprawdzanie dziennika platformy Docker](#docke
 
 ## <a name="function-fails-get_model_path"></a>Niepowodzenie funkcji: get_model_path ()
 
-Często w `init()` funkcji w skrypcie oceniania funkcja [model.get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) jest wywoływana w celu zlokalizowania pliku modelu lub folderu plików modelu w kontenerze. Jeśli nie można znaleźć pliku lub folderu modelu, funkcja kończy się niepowodzeniem. Najprostszym sposobem debugowania tego błędu jest uruchomienie poniższego kodu w języku Python w ramach powłoki kontenera:
+Często w `init()` funkcji w skrypcie oceniania funkcja [model.get_model_path ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) jest wywoływana w celu zlokalizowania pliku modelu lub folderu plików modelu w kontenerze. Jeśli nie można znaleźć pliku lub folderu modelu, działanie funkcji kończy się niepowodzeniem. Najprostszym sposobem debugowania tego błędu jest uruchomienie poniższego kodu w języku Python w ramach powłoki kontenera:
 
 ```python
 from azureml.core.model import Model
@@ -214,7 +196,7 @@ Ustawienie poziomu rejestrowania na debugowanie może spowodować zarejestrowani
 
 ## <a name="function-fails-runinput_data"></a>Niepowodzenie funkcji: Uruchom (input_data)
 
-Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Na przykład:
+Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Przykład:
 
 ```python
 def run(input_data):
@@ -229,7 +211,7 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Uwaga**: Zwracanie komunikatów o błędach z `run(input_data)` wywołania powinno odbywać się tylko do celów debugowania. Ze względów bezpieczeństwa nie należy zwracać komunikatów o błędach w ten sposób w środowisku produkcyjnym.
+**Uwaga** : Zwracanie komunikatów o błędach z `run(input_data)` wywołania powinno odbywać się tylko do celów debugowania. Ze względów bezpieczeństwa nie należy zwracać komunikatów o błędach w ten sposób w środowisku produkcyjnym.
 
 ## <a name="http-status-code-502"></a>Kod stanu HTTP 502
 
@@ -239,7 +221,7 @@ Kod stanu 502 wskazuje, że usługa zgłosiła wyjątek lub uległa awarii w `ru
 
 Wdrożenia usługi Kubernetes platformy Azure obsługują Skalowanie automatyczne, co umożliwia dodawanie replik w celu obsługi dodatkowego obciążenia. Skalowanie automatyczne jest przeznaczone do obsługi **stopniowych** zmian obciążenia. Jeśli otrzymujesz duże liczby żądań na sekundę, klienci mogą otrzymać kod stanu HTTP 503. Mimo że automatyczne skalowanie reaguje szybko, zajmie dużo czasu, aby utworzyć dodatkowe kontenery.
 
-Decyzje dotyczące skalowania w górę/w dół opierają się na wykorzystaniu bieżących replik kontenerów. Liczba replik, które są zajęte (przetwarzanie żądania) podzielona przez łączną liczbę bieżących replik jest bieżącym wykorzystaniem. Jeśli ta liczba przekroczy `autoscale_target_utilization` , zostanie utworzona więcej replik. Jeśli jest niższa, repliki są skracane. Decyzje dotyczące dodawania replik to eager i Fast (około 1 s). Decyzje dotyczące usuwania replik są ostrożne (około 1 minutę). Domyślnie skalowanie użycia obiektów docelowych jest ustawione na **70%**, co oznacza, że usługa może obsłużyć liczbę żądań na sekundę (RPS pliku) **do 30%**.
+Decyzje dotyczące skalowania w górę/w dół opierają się na wykorzystaniu bieżących replik kontenerów. Liczba replik, które są zajęte (przetwarzanie żądania) podzielona przez łączną liczbę bieżących replik jest bieżącym wykorzystaniem. Jeśli ta liczba przekroczy `autoscale_target_utilization` , zostanie utworzona więcej replik. Jeśli jest niższa, repliki są skracane. Decyzje dotyczące dodawania replik to eager i Fast (około 1 s). Decyzje dotyczące usuwania replik są ostrożne (około 1 minutę). Domyślnie skalowanie użycia obiektów docelowych jest ustawione na **70%** , co oznacza, że usługa może obsłużyć liczbę żądań na sekundę (RPS pliku) **do 30%**.
 
 Istnieją dwie rzeczy, które mogą pomóc w zapobieganiu kodów stanu 503:
 
@@ -249,7 +231,7 @@ Istnieją dwie rzeczy, które mogą pomóc w zapobieganiu kodów stanu 503:
 * Zmień poziom wykorzystania, przy którym automatyczne skalowanie tworzy nowe repliki. Cel wykorzystania można dostosować, ustawiając `autoscale_target_utilization` wartość na niższą.
 
     > [!IMPORTANT]
-    > Ta zmiana nie powoduje *szybszego*tworzenia replik. Zamiast tego są tworzone przy niższym progu wykorzystania. Zamiast czekać, aż usługa zostanie wykorzystana przez 70%, zmiana wartości na 30% powoduje utworzenie replik w przypadku wystąpienia 30%.
+    > Ta zmiana nie powoduje *szybszego* tworzenia replik. Zamiast tego są tworzone przy niższym progu wykorzystania. Zamiast czekać, aż usługa zostanie wykorzystana przez 70%, zmiana wartości na 30% powoduje utworzenie replik w przypadku wystąpienia 30%.
     
     Jeśli usługa sieci Web już korzysta z bieżącej maksymalnej liczby replik i nadal widzisz 503 kodów stanu, zwiększ `autoscale_max_replicas` wartość, aby zwiększyć maksymalną liczbę replik.
 
@@ -277,7 +259,7 @@ Istnieją dwie rzeczy, które mogą pomóc w zapobieganiu kodów stanu 503:
     > [!NOTE]
     > Jeśli odbierane są żądania większe niż w przypadku nowych replik minimalnych, może dojść do 503s. Na przykład w miarę wzrostu ruchu do usługi może być konieczne zwiększenie minimalnej liczby replik.
 
-Aby uzyskać więcej informacji na temat ustawiania `autoscale_target_utilization` , `autoscale_max_replicas` , i `autoscale_min_replicas` dla, zobacz odwołanie do modułu [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true) .
+Aby uzyskać więcej informacji na temat ustawiania `autoscale_target_utilization` , `autoscale_max_replicas` , i `autoscale_min_replicas` dla, zobacz odwołanie do modułu [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) .
 
 ## <a name="http-status-code-504"></a>Kod stanu HTTP 504
 
@@ -287,11 +269,11 @@ Można zwiększyć limit czasu lub spróbować przyspieszyć usługę, modyfikuj
 
 ## <a name="advanced-debugging"></a>Zaawansowane debugowanie
 
-Może być konieczne interaktywne Debugowanie kodu w języku Python zawartego we wdrożeniu modelu. Na przykład, jeśli skrypt wejścia kończy się niepowodzeniem i powód nie może być określony przez dodatkowe rejestrowanie. Za pomocą Visual Studio Code i debugpy można dołączyć do kodu działającego wewnątrz kontenera Docker.
+Może być konieczne interaktywne debugowanie kodu Python zawartego we wdrożeniu modelu. Na przykład, jeśli skrypt wejścia kończy się niepowodzeniem i powód nie może być określony przez dodatkowe rejestrowanie. Za pomocą Visual Studio Code i debugpy można dołączyć do kodu działającego wewnątrz kontenera Docker.
 
 Aby uzyskać więcej informacji, zobacz [interaktywny debugowanie w przewodniku vs Code](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
-## <a name="model-deployment-user-forum"></a>[Forum użytkownika dotyczące wdrażania modelu](https://docs.microsoft.com/answers/topics/azure-machine-learning-inference.html)
+## <a name="model-deployment-user-forum"></a>[Forum użytkownika dotyczące wdrażania modelu](/answers/topics/azure-machine-learning-inference.html)
 
 ## <a name="next-steps"></a>Następne kroki
 

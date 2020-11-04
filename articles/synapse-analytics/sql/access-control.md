@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503287"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311751"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Zarządzanie dostępem do obszarów roboczych, danych i potoków
 
@@ -64,7 +64,7 @@ Po aprowizacji obszaru roboczego należy wybrać konto [Azure Data Lake Storage 
 
 1. Przejdź do [ **interfejsu użytkownika sieci Web usługi Azure Synapse**](https://web.azuresynapse.net)
 2. Przejdź do **zarządzania**   >  **Security**  >  **kontrolą dostępu** zabezpieczeń
-3. Wybierz pozycję **Dodaj administratora**, a następnie wybierz pozycję `Synapse_WORKSPACENAME_Admins`
+3. Wybierz pozycję **Dodaj administratora** , a następnie wybierz pozycję `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Krok 4. Konfigurowanie dostępu administratora SQL dla obszaru roboczego
 
@@ -94,21 +94,21 @@ Po aprowizacji obszaru roboczego należy wybrać konto [Azure Data Lake Storage 
 Kontrola dostępu do danych bazowych jest dzielona na trzy części:
 
 - Dostęp za pomocą płaszczyzny danych do konta magazynu (już skonfigurowanego powyżej w kroku 2)
-- Dostęp za pomocą płaszczyzny danych do baz danych SQL (dla pul SQL i SQL na żądanie)
-- Tworzenie poświadczeń dla baz danych SQL na żądanie za pośrednictwem konta magazynu
+- Dostęp do baz danych SQL (w przypadku dedykowanych pul SQL i bezserwerowej puli SQL)
+- Tworzenie poświadczeń dla bezserwerowych baz danych puli SQL za pośrednictwem konta magazynu
 
 ## <a name="access-control-to-sql-databases"></a>Kontrola dostępu do baz danych SQL
 
 > [!TIP]
 > Poniższe kroki muszą zostać uruchomione dla **każdej** bazy danych SQL, aby umożliwić użytkownikom dostęp do wszystkich baz danych SQL, z wyjątkiem [uprawnień na poziomie serwera](#server-level-permission) , gdzie można przypisywać użytkownikowi rolę administratora systemu.
 
-### <a name="sql-on-demand"></a>SQL na żądanie
+### <a name="serverless-sql-pool"></a>Pula SQL bezserwerowa
 
 W tej sekcji znajdziesz przykłady umożliwiające użytkownikowi uprawnienie do konkretnej bazy danych lub pełnych uprawnień serwera.
 
 #### <a name="database-level-permission"></a>Uprawnienie na poziomie bazy danych
 
-Aby udzielić dostępu użytkownikowi do **pojedynczej** bazy danych SQL na żądanie, wykonaj czynności opisane w tym przykładzie:
+Aby udzielić dostępu użytkownikowi do **pojedynczej** bazy danych puli SQL bez serwera, wykonaj czynności opisane w tym przykładzie:
 
 1. Utwórz nazwę logowania
 
@@ -140,16 +140,16 @@ Aby udzielić dostępu użytkownikowi do **pojedynczej** bazy danych SQL na żą
 
 #### <a name="server-level-permission"></a>Uprawnienie na poziomie serwera
 
-Aby udzielić użytkownikowi pełnego dostępu do **wszystkich** baz danych SQL na żądanie, wykonaj czynności opisane w tym przykładzie:
+Aby udzielić użytkownikowi pełnego dostępu do **wszystkich** baz danych puli SQL bezserwerowych, wykonaj czynności opisane w tym przykładzie:
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### <a name="sql-pools"></a>Pule SQL
+### <a name="dedicated-sql-pool"></a>Dedykowana Pula SQL
 
-Aby udzielić dostępu użytkownikowi do **jednego** SQL Database, wykonaj następujące kroki:
+Aby udzielić dostępu użytkownikowi do **pojedynczej** bazy danych SQL, wykonaj następujące kroki:
 
 1. Utwórz użytkownika w bazie danych, uruchamiając następujące polecenie określające żądaną bazę danych w selektorze kontekstu (listę rozwijaną z wybranymi bazami danych):
 
@@ -167,18 +167,18 @@ Aby udzielić dostępu użytkownikowi do **jednego** SQL Database, wykonaj nast�
 
 > [!IMPORTANT]
 > *db_datareader* i *db_datawriter* mogą współdziałać z uprawnieniami do odczytu i zapisu, jeśli udzielanie *db_owner* nie pożądane.
-> Aby użytkownik platformy Spark mógł odczytywać i zapisywać dane bezpośrednio z platformy Spark do/z puli SQL, wymagane jest uprawnienie *db_owner* .
+> Aby użytkownik platformy Spark mógł odczytywać i zapisywać dane bezpośrednio z platformy Spark do/z dedykowanej puli SQL, wymagane jest uprawnienie *db_owner* .
 
-Po utworzeniu użytkowników Sprawdź, czy SQL na żądanie może wysyłać zapytania do konta magazynu.
+Po utworzeniu użytkowników Sprawdź, czy możesz wysyłać zapytania do konta magazynu za pomocą puli SQL bezserwerowej.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>Kontrola dostępu do przebiegów potoku obszaru roboczego
 
 ### <a name="workspace-managed-identity"></a>Tożsamość zarządzana przez obszar roboczy
 
 > [!IMPORTANT]
-> Aby pomyślnie uruchomić potoki, które zawierają zestawy danych lub działania odwołujące się do puli SQL, tożsamość obszaru roboczego musi mieć bezpośredni dostęp do puli SQL.
+> Aby pomyślnie uruchomić potoki, które zawierają zestawy danych lub działania odwołujące się do dedykowanej puli SQL, tożsamość obszaru roboczego musi mieć bezpośredni dostęp do puli SQL.
 
-Uruchom następujące polecenia w każdej puli SQL, aby umożliwić tożsamości zarządzanej przez obszar roboczy uruchamianie potoków w bazie danych puli SQL:
+Uruchom następujące polecenia w każdej dedykowanej puli SQL, aby zezwolić na tożsamość zarządzaną przez obszar roboczy do uruchamiania potoków w bazie danych puli SQL:
 
 ```sql
 --Create user in DB

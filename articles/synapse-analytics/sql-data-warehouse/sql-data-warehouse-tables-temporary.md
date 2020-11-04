@@ -1,6 +1,6 @@
 ---
 title: Tabele tymczasowe
-description: Podstawowe wskazówki dotyczące używania tabel tymczasowych w puli SQL Synapse, wyróżnianie zasad tabel tymczasowych na poziomie sesji.
+description: Podstawowe wskazówki dotyczące używania tabel tymczasowych w dedykowanej puli SQL, wyróżnianie zasad tabel tymczasowych na poziomie sesji.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,34 +10,36 @@ ms.subservice: sql-dw
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 61cc351470c0446b58d83d2d7f9c998d959c3649
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 077782099d6d61982052dc1690d545e58e928d8c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85414406"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310681"
 ---
-# <a name="temporary-tables-in-synapse-sql-pool"></a>Tabele tymczasowe w puli SQL Synapse
+# <a name="temporary-tables-in-dedicated-sql-pool"></a>Tabele tymczasowe w dedykowanej puli SQL
+
 Ten artykuł zawiera podstawowe wskazówki dotyczące używania tabel tymczasowych i wyróżniania zasad tabel tymczasowych na poziomie sesji. 
 
 Korzystając z informacji zawartych w tym artykule, można modularyzacji swój kod, ulepszając możliwości ponownego wykorzystania i prostoty konserwacji.
 
 ## <a name="what-are-temporary-tables"></a>Co to są tabele tymczasowe?
-Tabele tymczasowe są przydatne podczas przetwarzania danych, zwłaszcza podczas przekształcania, w którym wyniki pośrednie są przejściowe. W puli SQL tabele tymczasowe istnieją na poziomie sesji.  
+
+Tabele tymczasowe są przydatne podczas przetwarzania danych, zwłaszcza podczas przekształcania, w którym wyniki pośrednie są przejściowe. W dedykowanej puli SQL tabele tymczasowe istnieją na poziomie sesji.  
 
 Tabele tymczasowe są widoczne tylko dla sesji, w której zostały utworzone i są automatycznie usuwane po wylogowaniu się tej sesji.  
 
 Tabele tymczasowe oferują korzyść wydajności, ponieważ ich wyniki są zapisywane w lokalnym, a nie w magazynie zdalnym.
 
-Tabele tymczasowe są przydatne podczas przetwarzania danych, zwłaszcza podczas przekształcania, w którym wyniki pośrednie są przejściowe. W przypadku puli SQL tabele tymczasowe istnieją na poziomie sesji.  Są one widoczne tylko dla sesji, w której zostały utworzone. W związku z tym są one automatycznie porzucane podczas wylogowywania sesji. 
+Tabele tymczasowe są przydatne podczas przetwarzania danych, zwłaszcza podczas przekształcania, w którym wyniki pośrednie są przejściowe. W przypadku dedykowanej puli SQL tabele tymczasowe istnieją na poziomie sesji.  Są one widoczne tylko dla sesji, w której zostały utworzone. W związku z tym są one automatycznie porzucane podczas wylogowywania sesji. 
 
-## <a name="temporary-tables-in-sql-pool"></a>Tabele tymczasowe w puli SQL
+## <a name="temporary-tables-in-dedicated-sql-pool"></a>Tabele tymczasowe w dedykowanej puli SQL
 
-W przypadku zasobu puli SQL tabele tymczasowe oferują korzyść wydajności, ponieważ ich wyniki są zapisywane w lokalnym, a nie w magazynie zdalnym.
+W przypadku dedykowanego zasobu puli SQL tabele tymczasowe oferują korzyść wydajności, ponieważ ich wyniki są zapisywane w lokalnym, a nie w magazynie zdalnym.
 
 ### <a name="create-a-temporary-table"></a>Tworzenie tabeli tymczasowej
 
-Tabele tymczasowe są tworzone przez utworzenie prefiksu nazwy tabeli z `#` .  Na przykład:
+Tabele tymczasowe są tworzone przez utworzenie prefiksu nazwy tabeli z `#` .  Przykład:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -205,7 +207,7 @@ Ta procedura składowana opuszcza istniejący #stats_ddl, aby upewnić się, że
 
 Jednakże, ponieważ nie ma `DROP TABLE` na końcu procedury składowanej, gdy procedura składowana zostanie ukończona, opuszcza utworzoną tabelę, aby można ją było odczytać poza procedurą składowaną.  
 
-W puli SQL, w przeciwieństwie do innych baz danych SQL Server, można użyć tabeli tymczasowej poza procedurą, która ją utworzyła.  Tabele tymczasowe puli SQL mogą być używane w **dowolnym miejscu** w ramach sesji. Ta funkcja może prowadzić do bardziej modularnego i możliwego do zarządzania kodu, jak w poniższym przykładzie:
+W przypadku dedykowanej puli SQL, w przeciwieństwie do innych baz danych SQL Server, można użyć tabeli tymczasowej poza procedurą, która ją utworzyła.  Dedykowane tabele tymczasowe puli SQL mogą być używane w **dowolnym miejscu** w ramach sesji. Ta funkcja może prowadzić do bardziej modularnego i możliwego do zarządzania kodu, jak w poniższym przykładzie:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -227,11 +229,11 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Ograniczenia tabeli tymczasowej
-Podczas implementowania tabel tymczasowych usługa SQL Pool nakłada kilka ograniczeń.  Obecnie obsługiwane są tylko tabele tymczasowe w zakresie sesji.  Globalne tabele tymczasowe nie są obsługiwane.  
+Dedykowana Pula SQL nakłada się na kilka ograniczeń podczas implementowania tabel tymczasowych.  Obecnie obsługiwane są tylko tabele tymczasowe w zakresie sesji.  Globalne tabele tymczasowe nie są obsługiwane.  
 
 Ponadto nie można tworzyć widoków w tabelach tymczasowych.  Tabele tymczasowe można tworzyć tylko za pomocą rozkładu mieszania lub działania okrężnego.  Zreplikowana tymczasowa dystrybucja tabel nie jest obsługiwana. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat opracowywania tabel, zobacz artykuł [Projektowanie tabel przy użyciu zasobów Synapse SQL](sql-data-warehouse-tables-overview.md) .
+Aby dowiedzieć się więcej na temat opracowywania tabel, zobacz artykuł [Projektowanie tabel przy użyciu dedykowanej puli SQL](sql-data-warehouse-tables-overview.md) .
 

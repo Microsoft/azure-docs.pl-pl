@@ -1,6 +1,6 @@
 ---
-title: Wykonywanie zapytań dotyczących danych w magazynie przy użyciu języka SQL na żądanie (wersja zapoznawcza)
-description: W tym artykule opisano sposób wykonywania zapytań w usłudze Azure Storage przy użyciu zasobu SQL na żądanie (wersja zapoznawcza) w ramach usługi Azure Synapse Analytics.
+title: Wykonywanie zapytań dotyczących magazynu danych za pomocą puli SQL bezserwerowej (wersja zapoznawcza)
+description: W tym artykule opisano sposób tworzenia zapytań do usługi Azure Storage przy użyciu zasobu puli SQL bezserwerowej (wersja zapoznawcza) w ramach usługi Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3fd3a94efd6e7870ae3919a011fc24f66b97c559
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288379"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310955"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
+# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-SQL na żądanie (wersja zapoznawcza) umożliwia wykonywanie zapytań dotyczących danych w usłudze Data Lake. Oferuje obszar powierzchni zapytania T-SQL, który służy do obsługi zapytań o dane z częściową strukturą i bez struktury. Do wykonywania zapytań są obsługiwane następujące aspekty języka T-SQL:
+Pula SQL bezserwerowa (wersja zapoznawcza) umożliwia wykonywanie zapytań dotyczących danych w usłudze Data Lake. Oferuje obszar powierzchni zapytania T-SQL, który służy do obsługi zapytań o dane z częściową strukturą i bez struktury. Do wykonywania zapytań są obsługiwane następujące aspekty języka T-SQL:
 
 - Pełny [wybór](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) obszaru powierzchni, w tym większość [funkcji SQL i operatorów](overview-features.md).
 - Utwórz tabelę ZEWNĘTRZną jako SELECT ([CETAS](develop-tables-cetas.md)) tworzy [tabelę zewnętrzną](develop-tables-external-tables.md) , a następnie eksportuje, równolegle, wyniki instrukcji SELECT języka Transact-SQL do usługi Azure Storage.
 
-Aby uzyskać więcej informacji na temat tego, co to jest program vs. co nie jest obecnie obsługiwane, zapoznaj się z artykułem [Omówienie programu SQL na żądanie](on-demand-workspace-overview.md) lub w następujących artykułach:
+Aby uzyskać więcej informacji na temat tego, co to jest program vs. co nie jest obecnie obsługiwane, przeczytaj artykuł [Omówienie puli SQL bezserwerowej](on-demand-workspace-overview.md) lub następujące artykuły:
 - [Opracowywanie dostępu do magazynu](develop-storage-files-overview.md) , w którym można dowiedzieć się, jak używać funkcji [tabela zewnętrzna](develop-tables-external-tables.md) i funkcja [OPENROWSET](develop-openrowset.md) do odczytywania danych z magazynu.
 - [Kontrola dostępu do magazynu](develop-storage-files-storage-access-control.md) , w którym można dowiedzieć się, jak włączyć funkcję SQL Synapse w celu uzyskania dostępu do magazynu przy użyciu uwierzytelniania SAS lub zarządzanej tożsamości obszaru roboczego.
 
 ## <a name="overview"></a>Omówienie
 
-Aby zapewnić bezproblemowe środowisko wykonywania zapytań dotyczących danych znajdujących się w plikach usługi Azure Storage, usługa SQL na żądanie używa funkcji [OPENROWSET](develop-openrowset.md) z dodatkowymi możliwościami:
+Aby zapewnić bezproblemowe środowisko wykonywania zapytań dotyczących danych znajdujących się w plikach usługi Azure Storage, bezserwerowa Pula SQL używa funkcji [OPENROWSET](develop-openrowset.md) z dodatkowymi możliwościami:
 
 - [Kwerenda wielu plików lub folderów](#query-multiple-files-or-folders)
 - [Format pliku PARQUET](#query-parquet-files)
@@ -65,7 +65,7 @@ WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 Istnieją pewne dodatkowe opcje, których można użyć do dostosowania reguł analizy do niestandardowego formatu CSv:
 - ESCAPE_CHAR = "char" określa znak w pliku, który jest używany do wyprowadzania siebie i wszystkich wartości ograniczników w pliku. Jeśli po znaku ucieczki następuje wartość inna niż sama lub jakakolwiek z wartości ogranicznika, znak ucieczki jest usuwany podczas odczytywania wartości.
 ESCAPE_CHAR parametr zostanie zastosowany, niezależnie od tego, czy FIELDQUOTE jest czy nie jest włączony. Nie będzie on używany do ucieczki znaku cudzysłowu. Znak cudzysłowu musi być zmieniony przy użyciu innego znaku cudzysłowu. Znak quota może pojawić się w wartości kolumny tylko wtedy, gdy wartość jest hermetyzowana przy użyciu znaków cudzysłowu.
-- FIELDTERMINATOR = "field_terminator" Określa terminator pola, które ma być używane. Domyślny terminator pola jest przecinkiem ("**,**")
+- FIELDTERMINATOR = "field_terminator" Określa terminator pola, które ma być używane. Domyślny terminator pola jest przecinkiem (" **,** ")
 - ROWTERMINATOR = "row_terminator" Określa terminator wiersza, który ma być używany. Domyślnym terminatorem wiersza jest znak nowego wiersza: **\r\n**.
 
 ## <a name="file-schema"></a>Schemat pliku
@@ -146,7 +146,7 @@ Zwracany typ danych to nvarchar (1024). W celu uzyskania optymalnej wydajności 
 
 ## <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Pracuj z typami złożonymi i zagnieżdżonymi lub powtarzanymi strukturami danych
 
-Aby umożliwić bezproblemowe środowisko pracy z danymi przechowywanymi w zagnieżdżonych lub powtarzanych typach danych, na przykład w plikach [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) , SQL na żądanie dodał następujące rozszerzenia.
+Aby umożliwić bezproblemowe środowisko pracy z danymi przechowywanymi w zagnieżdżonych lub powtarzanych typach danych, na przykład w plikach [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) , bezserwerowa Pula SQL dodała następujące rozszerzenia.
 
 #### <a name="project-nested-or-repeated-data"></a>Dane zagnieżdżone lub powtórzone projektu
 

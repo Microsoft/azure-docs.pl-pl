@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea791e4fc1031c0a5c041119c409f8623ce7aee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee915346a93a600ea352be42dc14e0464525c025
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260380"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312256"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Nawiązywanie połączenia z obszarem roboczym usługi Azure Synapse za pomocą linków prywatnych (wersja zapoznawcza)
 
@@ -23,11 +23,14 @@ W tym artykule przedstawiono sposób tworzenia prywatnego punktu końcowego w ob
 
 Jeśli jeszcze tego nie zrobiono, zarejestruj dostawcę zasobów sieciowych. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów. Po [zarejestrowaniu](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)wybierz pozycję *Microsoft. Network* z listy dostawców zasobów. Jeśli dostawca zasobów sieciowych jest już zarejestrowany, przejdź do kroku 2.
 
-
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Krok 2. Otwieranie obszaru roboczego usługi Azure Synapse w Azure Portal
 
-Wybierz pozycję **połączenie prywatne punktu końcowego** w obszarze **zabezpieczenia** , a następnie wybierz pozycję **+ prywatny punkt końcowy**.
+Wybierz pozycję **połączenie prywatne punktu końcowego** w obszarze **zabezpieczenia**. 
 ![Otwórz obszar roboczy usługi Azure Synapse w Azure Portal](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1.png)
+
+Na następnym ekranie wybierz pozycję **+ prywatny punkt końcowy**.
+
+![Otwórz prywatny punkt końcowy w Azure Portal](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1a.png)
 
 ## <a name="step-3-select-your-subscription-and-region-details"></a>Krok 3. Wybieranie szczegółów dotyczących subskrypcji i regionu
 

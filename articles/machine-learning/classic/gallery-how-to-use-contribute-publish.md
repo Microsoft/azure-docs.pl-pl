@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc405c56538ab305d6e0b8a22c1095458cb1264e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346841"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309876"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Udostępnianie i odnajdywanie zasobów w Azure AI Gallery
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 
@@ -28,7 +28,7 @@ Galeria zawiera różne zasoby, których można użyć do opracowania własnych 
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Co mogę znaleźć w galerii?
 
-Azure AI Gallery zawiera wiele różnych zasobów, które zostały wniesione przez firmę Microsoft i członków społeczności nauki o danych. Należą do nich:
+Azure AI Gallery zawiera wiele różnych zasobów, które zostały wniesione przez firmę Microsoft i członków społeczności nauki o danych. Należą do nich następujące elementy:
 
 * **Eksperymenty** — Galeria zawiera szeroką gamę eksperymentów, które zostały opracowane w Azure Machine Learning Studio (klasyczny). Ten zakres od szybkich eksperymentów z zakresu weryfikacji koncepcji, które przedstawiają konkretną technikę uczenia maszynowego, do w pełni opracowanych rozwiązań w celu uzyskania złożonych problemów z uczeniem maszynowym.
 * **Samouczki** — dostępne są kilka samouczków, które przeprowadzą Cię przez technologie i koncepcje uczenia maszynowego, lub opisują zaawansowane metody rozwiązywania różnych problemów z uczeniem maszynowym.
@@ -48,12 +48,12 @@ Możesz nawet udostępnić interesujący Cię zasób znajomym lub współpracown
 
 Gdy zalogujesz się, jesteś członkiem społeczności galerii. Pozwala to na pobieranie zasobów lub Współtworzenie własnych elementów galerii, dzięki czemu inni mogą korzystać z wykrytych rozwiązań.
 
-**Eksperymenty**można pobrać, korzystając z **niestandardowych modułów** do tworzenia własnych rozwiązań analitycznych.
-Możesz współtworzyć **eksperymenty**, **samouczki**i **kolekcje** w galerii.
+**Eksperymenty** można pobrać, korzystając z **niestandardowych modułów** do tworzenia własnych rozwiązań analitycznych.
+Możesz współtworzyć **eksperymenty** , **samouczki** i **kolekcje** w galerii.
 
 ## <a name="download-experiments-modules"></a>Pobieranie eksperymentów, modułów
 
-**Eksperymenty**i **moduły niestandardowe** można pobrać do własnego obszaru roboczego Machine Learning Studio (klasycznego) do użycia podczas tworzenia własnych rozwiązań.
+**Eksperymenty** i **moduły niestandardowe** można pobrać do własnego obszaru roboczego Machine Learning Studio (klasycznego) do użycia podczas tworzenia własnych rozwiązań.
 
 Aby pobrać zasób z galerii AI:
 
@@ -65,7 +65,7 @@ Aby pobrać zasób z galerii AI:
 Aby pobrać zasób z programu Studio (klasyczny):
 
 1. W programie Studio (klasyczne) wybierz pozycję **Nowy**.
-1. Wybierz **moduł**, **eksperyment**lub **Notes**.
+1. Wybierz **moduł** , **eksperyment** lub **Notes**.
 1. Przeglądaj lub Wyszukaj, aby znaleźć zasób galerii.
 1. Wskaż mysz nad zasobem, a następnie wybierz pozycję **Otwórz w programie Studio**.
     ![Otwórz eksperyment z galerii w Machine Learning Studio (klasyczny)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
@@ -75,7 +75,7 @@ Gdy zasób znajduje się w obszarze roboczym, możesz go dostosować i używać 
 Aby użyć zaimportowanego modułu niestandardowego:
 
 1. Utwórz eksperyment lub Otwórz istniejący eksperyment.
-1. Aby rozwinąć listę modułów niestandardowych w obszarze roboczym, wybierz pozycję **niestandardowa**w palecie modułów. Paleta modułów jest z lewej strony kanwy eksperymentu.
+1. Aby rozwinąć listę modułów niestandardowych w obszarze roboczym, wybierz pozycję **niestandardowa** w palecie modułów. Paleta modułów jest z lewej strony kanwy eksperymentu.
 1. Wybierz zaimportowany moduł i przeciągnij go do eksperymentu.
 
 ## <a name="contribute-experiments"></a>Eksperymenty współtworzenia
@@ -108,10 +108,10 @@ Możesz też zalogować się za pomocą narzędzia do dyskusji, takiego jak Disq
 
 1. Na stronie **wybór obrazu** wybierz obraz miniatury dla eksperymentu. Obraz miniatury pojawia się w górnej części strony Szczegóły eksperymentu i na kafelku eksperymentu. Inni użytkownicy będą widzieli obraz miniatury podczas przeglądania galerii. Możesz przekazać obraz z komputera lub wybrać obraz podstawowy z galerii.
 
-1. Na stronie **Ustawienia** w obszarze **widoczność**Zdecyduj, czy zawartość ma być publikowana publicznie (**publiczna**), czy ma być dostępna tylko dla osób, które mają link do strony (bez**listy**).
+1. Na stronie **Ustawienia** w obszarze **widoczność** Zdecyduj, czy zawartość ma być publikowana publicznie ( **publiczna** ), czy ma być dostępna tylko dla osób, które mają link do strony (bez **listy** ).
 
    > [!TIP]
-   > Jeśli chcesz upewnić się, że dokumentacja będzie wyglądała prawidłowo przed udostępnieniem jej publicznie, możesz najpierw opublikować eksperyment jako **nieznajdujący**się na liście. Później można zmienić ustawienie widoczność na **publiczne** na stronie Szczegóły eksperymentu. Należy pamiętać, że po ustawieniu eksperymentu na **publiczny** nie można później zmienić go na **nieznajdujący**się na liście.
+   > Jeśli chcesz upewnić się, że dokumentacja będzie wyglądała prawidłowo przed udostępnieniem jej publicznie, możesz najpierw opublikować eksperyment jako **nieznajdujący** się na liście. Później można zmienić ustawienie widoczność na **publiczne** na stronie Szczegóły eksperymentu. Należy pamiętać, że po ustawieniu eksperymentu na **publiczny** nie można później zmienić go na **nieznajdujący** się na liście.
 
 1. Aby opublikować eksperyment w galerii, zaznacz znacznik wyboru **OK** .
 
@@ -124,14 +124,14 @@ Możesz zmienić dowolne z poniższych informacji dla eksperymentu bezpośrednio
 * Nazwa eksperymentu
 * Podsumowanie lub opis
 * Tagi
-* Obraz
-* Ustawienie widoczności (**publiczne** lub **nieznajdujące**się na liście)
+* Image (Obraz)
+* Ustawienie widoczności ( **publiczne** lub **nieznajdujące** się na liście)
 
 Możesz również usunąć eksperyment z galerii.
 
 Możesz wprowadzić te zmiany lub usunąć eksperyment, ze strony Szczegóły eksperymentu lub ze strony Twojego profilu w galerii.
 
-* Aby zmienić szczegóły eksperymentu, na stronie Szczegóły eksperymentu wybierz pozycję **Edytuj**. Strona szczegółów przechodzi do trybu edycji. Aby wprowadzić zmiany, wybierz opcję **Edytuj** obok nazwy eksperymentu, podsumowania lub tagów. Po zakończeniu wprowadzania zmian wybierz pozycję **gotowe**. Aby zmienić ustawienia widoczności dla eksperymentu (**publiczne** lub **nieznajdujące**się na liście) lub usunąć eksperyment z galerii, wybierz ikonę **Ustawienia** .
+* Aby zmienić szczegóły eksperymentu, na stronie Szczegóły eksperymentu wybierz pozycję **Edytuj**. Strona szczegółów przechodzi do trybu edycji. Aby wprowadzić zmiany, wybierz opcję **Edytuj** obok nazwy eksperymentu, podsumowania lub tagów. Po zakończeniu wprowadzania zmian wybierz pozycję **gotowe**. Aby zmienić ustawienia widoczności dla eksperymentu ( **publiczne** lub **nieznajdujące** się na liście) lub usunąć eksperyment z galerii, wybierz ikonę **Ustawienia** .
 
 * Na stronie Twój profil wybierz strzałkę w dół dla eksperymentu, a następnie wybierz pozycję **Edytuj**. Spowoduje to przejście do strony szczegółów eksperymentu w trybie edycji. Po zakończeniu wprowadzania zmian wybierz pozycję **gotowe**. Aby usunąć eksperyment z galerii, wybierz pozycję **Usuń**.
 
@@ -152,14 +152,14 @@ Możesz pomóc innym, pisząc **samouczek** w galerii, który objaśnia koncepcj
 
 1. Wybierz pozycję **nowy element**.
 
-1. Na stronie **Opis** dla **pozycji Typ elementu**wybierz pozycję **samouczek** lub **Kolekcja**. Wprowadź nazwę, krótkie podsumowanie, szczegółowy opis i wszelkie Tagi, które mogą pomóc innym użytkownikom w znalezieniu Twojego wkładu. Następnie kliknij przycisk **Dalej**.
+1. Na stronie **Opis** dla **pozycji Typ elementu** wybierz pozycję **samouczek** lub **Kolekcja**. Wprowadź nazwę, krótkie podsumowanie, szczegółowy opis i wszelkie Tagi, które mogą pomóc innym użytkownikom w znalezieniu Twojego wkładu. Następnie kliknij przycisk **Dalej**.
 
 1. Na stronie **wybór obrazu** wybierz obraz, który jest wyświetlany wraz z Twoim wkładem. Możesz przekazać własny plik obrazu lub wybrać obraz podstawowy. Wybierz obraz, który może pomóc użytkownikom identyfikować zawartość i cel Twojego wkładu. Następnie kliknij przycisk **Dalej**.
 
-1. Na stronie **Ustawienia** , w obszarze **widoczność**wybierz, czy Twój udział jest **publiczny** (może go wyświetlać każdy użytkownik) lub bez **listy** (tylko osoby z linkiem bezpośrednim mogą ją wyświetlać).
+1. Na stronie **Ustawienia** , w obszarze **widoczność** wybierz, czy Twój udział jest **publiczny** (może go wyświetlać każdy użytkownik) lub bez **listy** (tylko osoby z linkiem bezpośrednim mogą ją wyświetlać).
 
    > [!TIP]
-   > Jeśli chcesz upewnić się, że dokumentacja będzie wyglądała prawidłowo przed udostępnieniem jej publicznie, możesz najpierw opublikować eksperyment jako **nieznajdujący**się na liście. Później można zmienić ustawienie widoczność na **publiczne** na stronie Szczegóły eksperymentu. Należy pamiętać, że po ustawieniu eksperymentu na **publiczny** nie można później zmienić go na **nieznajdujący**się na liście.
+   > Jeśli chcesz upewnić się, że dokumentacja będzie wyglądała prawidłowo przed udostępnieniem jej publicznie, możesz najpierw opublikować eksperyment jako **nieznajdujący** się na liście. Później można zmienić ustawienie widoczność na **publiczne** na stronie Szczegóły eksperymentu. Należy pamiętać, że po ustawieniu eksperymentu na **publiczny** nie można później zmienić go na **nieznajdujący** się na liście.
 
 1. Wybierz przycisk **Utwórz**.
 
@@ -169,7 +169,7 @@ Twój udział jest teraz w Azure AI Gallery. Twoje wkłady są wyświetlane na s
 
 Elementy do kolekcji można dodać na dwa sposoby:
 
-* Otwórz kolekcję, wybierz pozycję **Edytuj**, a następnie wybierz pozycję **Dodaj element**. Możesz dodać elementy, które zostały dodane do galerii, lub przeszukać w galerii elementy do dodania. Po wybraniu elementów do dodania kliknij przycisk **Dodaj**.
+* Otwórz kolekcję, wybierz pozycję **Edytuj** , a następnie wybierz pozycję **Dodaj element**. Możesz dodać elementy, które zostały dodane do galerii, lub przeszukać w galerii elementy do dodania. Po wybraniu elementów do dodania kliknij przycisk **Dodaj**.
 
 * Jeśli znajdziesz element, który chcesz dodać podczas przeglądania galerii, Otwórz element i wybierz polecenie **Dodaj do kolekcji**. Wybierz kolekcję, do której chcesz dodać element.
 

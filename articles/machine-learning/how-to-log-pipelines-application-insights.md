@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8a3a82e091791b39ddf36e39987590dcddea320f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 624409be4d7e2cfba37dbe16e083904766ae1389
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897493"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309657"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Zbierz pliki dziennika potoku uczenia maszynowego w Application Insights na potrzeby alertów i debugowania
 
@@ -38,7 +38,7 @@ Umieszczenie dzienników w miejscu spowoduje udostępnienie historii wyjątków 
 
 Ta sekcja zawiera wprowadzenie do korzystania z programu OpenCensus z potoku Azure Machine Learning. Aby uzyskać szczegółowy samouczek, zobacz [OpenCensus Azure monitor exports](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Dodaj PythonScriptStep do potoku usługi Azure ML. Skonfiguruj [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) z zależnością od opencensus-EXT-Azure. Skonfiguruj `APPLICATIONINSIGHTS_CONNECTION_STRING` zmienną środowiskową.
+Dodaj PythonScriptStep do potoku usługi Azure ML. Skonfiguruj [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) z zależnością od opencensus-EXT-Azure. Skonfiguruj `APPLICATIONINSIGHTS_CONNECTION_STRING` zmienną środowiskową.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -153,7 +153,7 @@ W wyniku Application Insights zostanie wyświetlony komunikat dziennika, poziom,
 
 ### <a name="additional-helpful-queries"></a>Dodatkowe pomocne zapytania
 
-Niektóre z zapytań poniżej używają elementu "customDimensions. Level". Te poziomy ważności odpowiadają poziomowi, który został pierwotnie Wysłany przez dziennik Python. Aby uzyskać dodatkowe informacje dotyczące zapytań, zobacz [Azure monitor kwerendy dzienników](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Niektóre z zapytań poniżej używają elementu "customDimensions. Level". Te poziomy ważności odpowiadają poziomowi, który został pierwotnie Wysłany przez dziennik Python. Aby uzyskać dodatkowe informacje dotyczące zapytań, zobacz [Azure monitor kwerendy dzienników](/azure/data-explorer/kusto/query/).
 
 | Przypadek użycia                                                               | Zapytanie                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -166,4 +166,4 @@ Niektóre z zapytań poniżej używają elementu "customDimensions. Level". Te p
 
 Po umieszczeniu dzienników w wystąpieniu Application Insights mogą one służyć do ustawiania [alertów Azure monitor](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) na podstawie wyników zapytania.
 
-Możesz również dodawać wyniki z zapytań do [pulpitu nawigacyjnego platformy Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query) , aby uzyskać dodatkowe informacje.
+Możesz również dodawać wyniki z zapytań do [pulpitu nawigacyjnego platformy Azure](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) , aby uzyskać dodatkowe informacje.

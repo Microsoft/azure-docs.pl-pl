@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 47df04a0195c4cfcc4e40db5bf21387a284f682c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad84d3d3fd58edc6f7967c6f50440dcc90625617
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362252"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311280"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
 
@@ -35,7 +35,7 @@ W przypadku środowiska języka Python można [skonfigurować automatyczne ekspe
 
 * Obszar roboczy usługi Azure Machine Learning. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md). 
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 1. Zaloguj się do Azure Machine Learning pod adresem https://ml.azure.com . 
 
@@ -80,7 +80,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.
     
-        Wybierz opcję **Dalej**.
+        Wybierz pozycję **Dalej**.
 
     1. Formularz **schematu** jest inteligentnie wypełniany na podstawie opcji wybranych w formularzu **Ustawienia i Podgląd** . W tym miejscu należy skonfigurować typ danych dla każdej kolumny, sprawdzić nazwy kolumn i wybrać kolumny, które **nie mają być dołączone** do eksperymentu. 
             
@@ -88,7 +88,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
 
     1. Formularz **Potwierdź szczegóły** to podsumowanie informacji poprzednio wypełnionych w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** . Istnieje również możliwość utworzenia profilu danych dla zestawu danych przy użyciu obliczeń z włączoną obsługą profilowania. Dowiedz się więcej na temat [profilowania danych](how-to-connect-data-ui.md#profile).
 
-        Wybierz opcję **Dalej**.
+        Wybierz pozycję **Dalej**.
 1. Wybierz nowo utworzony zestaw danych, gdy zostanie wyświetlony. Możliwe jest również wyświetlanie podglądu zestawu danych i przykładowych statystyk. 
 
 1. W formularzu **Konfigurowanie przebiegu** wprowadź unikatową nazwę eksperymentu.
@@ -113,11 +113,11 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     >[!NOTE]
     > Nazwa obliczeniowa wskazuje, czy w przypadku obliczeń, które zostały wybrane/utworzone, *włączono profilowanie*. (Szczegółowe informacje znajdują się w sekcji [Profilowanie danych](how-to-connect-data-ui.md#profile) ).
 
-    Wybierz opcję **Dalej**.
+    Wybierz pozycję **Dalej**.
 
 1. W formularzu **Typ zadania i ustawienia** wybierz typ zadania: Klasyfikacja, regresja lub prognozowanie. Aby uzyskać więcej informacji, zobacz [obsługiwane typy zadań](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
-    1. W przypadku **klasyfikacji**można również włączyć uczenie głębokie.
+    1. W przypadku **klasyfikacji** można również włączyć uczenie głębokie.
     
         Jeśli uczenie głębokie jest włączone, sprawdzanie poprawności jest ograniczone do _train_validation Split_. [Dowiedz się więcej o opcjach walidacji](how-to-configure-cross-validation-data-splits.md).
 
@@ -126,9 +126,9 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     
         1. Włącz uczenie głębokie.
     
-        1. Wybierz *kolumnę czasu*: Ta kolumna zawiera dane czasu, które mają być używane.
+        1. Wybierz *kolumnę czasu* : Ta kolumna zawiera dane czasu, które mają być używane.
 
-        1. Wybierz *horyzont prognoz*: wskaż, ile jednostek czasu (min/godzina/dni/tygodnie/miesiące/lata) będzie można przewidzieć na przyszłość. Dalszy model jest wymagany do przewidywania w przyszłości, tym mniej dokładne stanie się. [Dowiedz się więcej o prognozowaniu i prognozowaniu horyzontu](how-to-auto-train-forecast.md).
+        1. Wybierz *horyzont prognoz* : wskaż, ile jednostek czasu (min/godzina/dni/tygodnie/miesiące/lata) będzie można przewidzieć na przyszłość. Dalszy model jest wymagany do przewidywania w przyszłości, tym mniej dokładne stanie się. [Dowiedz się więcej o prognozowaniu i prognozowaniu horyzontu](how-to-auto-train-forecast.md).
 
 1. Obowiązkowe Wyświetl ustawienia konfiguracji dodawania: dodatkowe ustawienia, których można użyć w celu lepszego kontrolowania zadania szkoleniowego. W przeciwnym razie wartości domyślne są stosowane na podstawie wyboru eksperymentu i danych. 
 
@@ -136,10 +136,10 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     ------|------
     Metryka podstawowa| Główna Metryka używana do oceniania modelu. [Dowiedz się więcej o metrykach modelu](how-to-configure-auto-train.md#primary-metric).
     Wyjaśnij najlepszy model | Wybierz, aby włączyć lub wyłączyć, aby wyświetlić wyjaśnienia dla zalecanego najlepszego modelu. <br> Ta funkcja nie jest obecnie dostępna w przypadku [niektórych algorytmów prognozowania](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
-    Zablokowany algorytm| Wybierz algorytmy, które mają zostać wykluczone z zadania szkoleniowego. <br><br> Zezwalanie na algorytmy jest dostępne tylko dla [eksperymentów zestawu SDK](how-to-configure-auto-train.md#supported-models). <br> Zobacz [obsługiwane modele dla każdego typu zadania](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true).
-    Kryterium zakończenia| Po spełnieniu któregokolwiek z tych kryteriów zadanie szkolenia zostanie zatrzymane. <br> *Czas zadania szkoleniowego (godz.)*: jak długo zezwolić na uruchomienie zadania szkoleniowego. <br> *Próg wyniku metryki*: minimalny wynik metryki dla wszystkich potoków. Dzięki temu w przypadku zdefiniowania metryki docelowej, która ma zostać osiągnięta, nie poświęcasz więcej czasu na zadanie szkoleniowe niż to konieczne.
+    Zablokowany algorytm| Wybierz algorytmy, które mają zostać wykluczone z zadania szkoleniowego. <br><br> Zezwalanie na algorytmy jest dostępne tylko dla [eksperymentów zestawu SDK](how-to-configure-auto-train.md#supported-models). <br> Zobacz [obsługiwane modele dla każdego typu zadania](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
+    Kryterium zakończenia| Po spełnieniu któregokolwiek z tych kryteriów zadanie szkolenia zostanie zatrzymane. <br> *Czas zadania szkoleniowego (godz.)* : jak długo zezwolić na uruchomienie zadania szkoleniowego. <br> *Próg wyniku metryki* : minimalny wynik metryki dla wszystkich potoków. Dzięki temu w przypadku zdefiniowania metryki docelowej, która ma zostać osiągnięta, nie poświęcasz więcej czasu na zadanie szkoleniowe niż to konieczne.
     Walidacja| Wybierz jedną z opcji krzyżowego sprawdzania poprawności, która ma zostać użyta w zadaniu szkoleniowym. <br> [Dowiedz się więcej na temat krzyżowego sprawdzania poprawności](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Prognozowanie obsługuje tylko wzajemne sprawdzanie poprawności.
-    Współbieżność| *Maksymalna liczba współbieżnych iteracji*: maksymalną liczbę potoków (iteracji) do przetestowania w zadaniu szkoleniowym. Zadanie nie zostanie uruchomione więcej niż określona liczba iteracji.
+    Współbieżność| *Maksymalna liczba współbieżnych iteracji* : maksymalną liczbę potoków (iteracji) do przetestowania w zadaniu szkoleniowym. Zadanie nie zostanie uruchomione więcej niż określona liczba iteracji.
 
 1. Obowiązkowe Wyświetl ustawienia cechowania: Jeśli zdecydujesz się włączyć **Automatyczne cechowania** w formularzu **ustawień konfiguracji dodatkowej** , zostaną zastosowane domyślne techniki cechowania. W **widoku cechowania ustawienia** można zmienić te ustawienia domyślne i odpowiednio dostosować. Dowiedz się, jak [dostosować featurizations](#customize-featurization). 
 
@@ -217,6 +217,6 @@ Masz teraz działającą usługę internetową umożliwiającą generowanie prze
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak korzystać z usługi sieci Web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).
+* [Dowiedz się, jak korzystać z usługi sieci Web](./how-to-consume-web-service.md).
 * Zapoznaj się z [automatycznymi wynikami uczenia maszynowego](how-to-understand-automated-ml.md).
 * [Dowiedz się więcej o zautomatyzowanym uczeniu maszynowym](concept-automated-ml.md) i Azure Machine Learning.

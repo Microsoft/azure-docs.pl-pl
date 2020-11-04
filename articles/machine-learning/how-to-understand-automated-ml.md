@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: d66c5001d94d0c2d28ae3c55b468fbaf45871c98
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280352"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311476"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Oceń automatyczne wyniki eksperymentu w usłudze Machine Learning
 
@@ -41,7 +41,7 @@ Na przykład AutoML oferuje różne wykresy dla modeli klasyfikacji i regresji.
 
 Po zakończeniu eksperymentu automatycznego uczenia maszynowego historia przebiegów będzie dostępna w obszarze roboczym uczenia maszynowego za pośrednictwem [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md). 
 
-W przypadku eksperymentów zestawu SDK te same wyniki można zobaczyć podczas przebiegu, gdy używasz `RunDetails` [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
+W przypadku eksperymentów zestawu SDK te same wyniki można zobaczyć podczas przebiegu, gdy używasz `RunDetails` [widżetu Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py).
 
 Poniższe kroki i animacje pokazują, jak wyświetlić informacje o historii uruchamiania oraz metryki wydajności i wykresy określonego modelu w programie Studio.
 

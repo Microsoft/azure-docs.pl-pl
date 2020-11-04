@@ -1,6 +1,6 @@
 ---
-title: Wysyłanie zapytań do folderów i wielu plików przy użyciu usługi SQL na żądanie (wersja zapoznawcza)
-description: SQL na żądanie (wersja zapoznawcza) obsługuje odczytywanie wielu plików/folderów przy użyciu symboli wieloznacznych, które są podobne do symboli wieloznacznych używanych w systemie operacyjnym Windows.
+title: Wysyłanie zapytań do folderów i wielu plików przy użyciu puli SQL bezserwerowej (wersja zapoznawcza)
+description: Pula SQL bezserwerowa (wersja zapoznawcza) obsługuje odczytywanie wielu plików/folderów przy użyciu symboli wieloznacznych, które są podobne do symboli wieloznacznych używanych w systemie operacyjnym Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71ed590440a8c7e37a071b4eadfc09977ef91d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288345"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310828"
 ---
 # <a name="query-folders-and-multiple-files"></a>Wykonywanie zapytań względem folderów i wielu plików  
 
-W tym artykule dowiesz się, jak napisać zapytanie przy użyciu języka SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics.
+W tym artykule dowiesz się, jak napisać zapytanie przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics.
 
-SQL na żądanie obsługuje odczytywanie wielu plików/folderów przy użyciu symboli wieloznacznych, które są podobne do symboli wieloznacznych używanych w systemie operacyjnym Windows. Jednak większa elastyczność jest obecna, ponieważ wiele symboli wieloznacznych jest dozwolonych.
+Pula SQL bezserwerowa obsługuje odczytywanie wielu plików/folderów przy użyciu symboli wieloznacznych, które są podobne do symboli wieloznacznych używanych w systemie operacyjnym Windows. Jednak większa elastyczność jest obecna, ponieważ wiele symboli wieloznacznych jest dozwolonych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

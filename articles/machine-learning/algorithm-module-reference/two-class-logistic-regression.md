@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bd42b6e9f1498db294b57d0ea1ffdac5245be8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907700"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309988"
 ---
 # <a name="two-class-logistic-regression-module"></a>Two-Class moduł regresji logistycznej
 
@@ -40,13 +40,13 @@ Na przykład kolumna etykieta może być [głosowana] z możliwymi wartościami 
   
 2.  Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .  
   
-    -   **Pojedynczy parametr**: Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty.  
+    -   **Pojedynczy parametr** : Jeśli wiesz, jak chcesz skonfigurować model, możesz podać określony zestaw wartości jako argumenty.  
 
-    -   **Zakres parametrów**: Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Podajesz kilka wartości, a Trainer wykonuje iterację wielu kombinacji ustawień, aby określić kombinację wartości, które tworzą najlepszy wynik.
+    -   **Zakres parametrów** : Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Podajesz kilka wartości, a Trainer wykonuje iterację wielu kombinacji ustawień, aby określić kombinację wartości, które tworzą najlepszy wynik.
   
-3.  Aby uzyskać **tolerancję optymalizacji**, określ wartość progową, która ma być używana podczas optymalizowania modelu. Jeśli poprawa między iteracjami spadnie poniżej określonego progu, algorytm jest uznawany za zbieżny w rozwiązaniu, a szkolenie zostanie zatrzymane.  
+3.  Aby uzyskać **tolerancję optymalizacji** , określ wartość progową, która ma być używana podczas optymalizowania modelu. Jeśli poprawa między iteracjami spadnie poniżej określonego progu, algorytm jest uznawany za zbieżny w rozwiązaniu, a szkolenie zostanie zatrzymane.  
   
-4.  W przypadku **wag uregulowania** i **wagi L2**wpisz wartość, która ma być używana dla parametrów uregulowania L1 i L2. Dla obu tych zaleca się wartość różną od zera.  
+4.  W przypadku **wag uregulowania** i **wagi L2** wpisz wartość, która ma być używana dla parametrów uregulowania L1 i L2. Dla obu tych zaleca się wartość różną od zera.  
      *Uregulowanie* to metoda zapobiegania zastępowaniu poprzez nakładanie się modeli o wartości skrajnego współczynnika. Uregulowanie działa przez dodanie kary, która jest skojarzona z wartościami współczynnika, do błędu hipotezy. W ten sposób dokładny model z wartościami współczynnika skrajnie byłby bardziej karany, ale mniej dokładny model z bardziej bardziej nieprawidłowymi wartościami będzie mniejszy.  
   
      Uregulowanie L1 i L2 mają różne efekty i używa.  
@@ -58,24 +58,24 @@ Na przykład kolumna etykieta może być [głosowana] z możliwymi wartościami 
      Ten algorytm obsługuje liniową kombinację wartości rozliczania L1 i L2: to jest, jeśli <code>x = L1</code> i <code>y = L2</code> , następnie <code>ax + by = c</code> definiuje liniowy zakres warunków uregulowania.  
   
     > [!NOTE]
-    >  Chcesz dowiedzieć się więcej na temat uregulowania L1 i L2? Poniższy artykuł zawiera omówienie sposobu, w jaki uregulowania L1 i L2 są różne i jak wpływają na ich dopasowanie, z przykładami kodu na potrzeby regresji logistycznej i modeli sieci neuronowych:  [w przypadku Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Chcesz dowiedzieć się więcej na temat uregulowania L1 i L2? Poniższy artykuł zawiera omówienie sposobu, w jaki uregulowania L1 i L2 są różne i jak wpływają na ich dopasowanie, z przykładami kodu na potrzeby regresji logistycznej i modeli sieci neuronowych:  [w przypadku Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)  
     >
     > Dla modeli regresji logistycznej opracowano różne liniowe kombinacje warunków L1 i L2: na przykład [elastyczne uregulowanie netto](https://wikipedia.org/wiki/Elastic_net_regularization). Sugerujemy, aby odwoływać się do tych kombinacji w celu zdefiniowania kombinacji liniowej, która obowiązuje w modelu.
       
-5.  W polu **rozmiar pamięci dla l-BFGS**określ ilość pamięci, która ma być używana dla optymalizacji *l-BFGS* .  
+5.  W polu **rozmiar pamięci dla l-BFGS** określ ilość pamięci, która ma być używana dla optymalizacji *l-BFGS* .  
   
      L-BFGS oznacza "Limited Memory Broyden-Fletcher-Goldfarb-Shanno". Jest to algorytm optymalizacji, który jest popularny dla szacowania parametrów. Ten parametr wskazuje liczbę wcześniejszych pozycji i gradientów do przechowania w obliczeniach następnego kroku.  
   
      Ten parametr optymalizacji ogranicza ilość pamięci, która jest używana do obliczania następnego etapu i kierunku. W przypadku określenia mniejszej ilości pamięci szkolenie jest szybsze, ale mniej dokładne.  
   
-6.  W przypadku **liczby losowej inicjatora**wpisz wartość całkowitą. Definiowanie wartości inicjatora jest ważne, jeśli chcesz, aby wyniki były odtwarzalne dla wielu przebiegów tego samego potoku.  
+6.  W przypadku **liczby losowej inicjatora** wpisz wartość całkowitą. Definiowanie wartości inicjatora jest ważne, jeśli chcesz, aby wyniki były odtwarzalne dla wielu przebiegów tego samego potoku.  
   
   
 8. Dodawanie oznaczonego zestawu danych do potoku i uczenie modelu:
 
-    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr** , Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów** , Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 
@@ -97,4 +97,4 @@ Po zakończeniu szkolenia:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning.

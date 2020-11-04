@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195064"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311872"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Pozyskiwanie danych i zrozumienie etapu procesu nauki o danych zespołowych
 
@@ -67,8 +67,8 @@ Na tym etapie opracowujesz architekturę rozwiązania potoku danych. Potok jest 
 Poniżej znajdują się elementy dostarczane na tym etapie:
 
    * [Raport dotyczący jakości danych](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): ten raport zawiera podsumowania danych, relacje między poszczególnymi atrybutami i elementem docelowym, klasyfikację zmiennych i inne. Narzędzie [pomysł](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) udostępniane jako część przetwarzania TDSP może szybko wygenerować ten raport na dowolnym zestawie danych tabelarycznych, na przykład w pliku CSV lub w tabeli relacyjnej. 
-   * **Architektura rozwiązania**: Architektura rozwiązania może być diagramem lub opisem potoku danych, który służy do uruchamiania oceniania lub prognoz dotyczących nowych danych po skompilowaniu modelu. Zawiera również potok do ponownego uczenia modelu na podstawie nowych danych. Zapisz dokument w katalogu [projektu](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) , gdy używasz szablonu struktury katalogów przetwarzania TDSP.
-   * **Decyzja dotycząca punktów kontrolnych**: przed rozpoczęciem tworzenia inżynierów i konstruowania modelu można przeprowadzić ocenę projektu, aby określić, czy oczekiwana wartość jest wystarczająca, aby kontynuować jej działanie. Być może na przykład będzie można kontynuować, musi zbierać więcej danych lub porzucić projekt, ponieważ nie istnieją dane, aby odpowiedzieć na pytanie.
+   * **Architektura rozwiązania** : Architektura rozwiązania może być diagramem lub opisem potoku danych, który służy do uruchamiania oceniania lub prognoz dotyczących nowych danych po skompilowaniu modelu. Zawiera również potok do ponownego uczenia modelu na podstawie nowych danych. Zapisz dokument w katalogu [projektu](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) , gdy używasz szablonu struktury katalogów przetwarzania TDSP.
+   * **Decyzja dotycząca punktów kontrolnych** : przed rozpoczęciem tworzenia inżynierów i konstruowania modelu można przeprowadzić ocenę projektu, aby określić, czy oczekiwana wartość jest wystarczająca, aby kontynuować jej działanie. Być może na przykład będzie można kontynuować, musi zbierać więcej danych lub porzucić projekt, ponieważ nie istnieją dane, aby odpowiedzieć na pytanie.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -82,4 +82,4 @@ Poniżej przedstawiono linki do poszczególnych etapów cyklu życia przetwarzan
 
 Oferujemy pełne instruktaże, które pokazują wszystkie kroki procesu dla konkretnych scenariuszy. [Przykładowy artykuł instruktażowy](walkthroughs.md) zawiera listę scenariuszy z linkami i opisami miniatur. Instruktaże ilustrują sposób łączenia chmur, narzędzi lokalnych i usług do przepływu pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
 
-Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data).
+Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning]().

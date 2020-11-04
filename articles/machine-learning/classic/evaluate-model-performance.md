@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: cff4704b388594511809d92957cbbce97e948f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca369f8a3e680a4d2aae49df83dda0cdd3dc4075
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362422"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310158"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Oceń wydajność modelu w Azure Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Ten artykuł zawiera informacje na temat metryk, których można użyć do monitorowania wydajności modelu w Azure Machine Learning Studio (klasyczny).  Ocenianie wydajności modelu jest jednym z podstawowych etapów procesu analizy danych. Wskazuje, jak pomyślne ocenianie (przewidywania) zestawu danych zostało przeprowadzone przez szkolony model. Azure Machine Learning Studio (klasyczny) obsługuje Obliczanie modelu przez dwa z głównych modułów uczenia maszynowego: 
@@ -47,7 +47,7 @@ Alternatywnie można użyć weryfikacji krzyżowej do wykonywania wielu różnyc
 W poniższych sekcjach utworzysz proste modele regresji i klasyfikacji oraz Oceń ich wydajność przy użyciu zarówno [modelu oceny][evaluate-model] , jak i modułowego [sprawdzania poprawności][cross-validate-model] .
 
 ## <a name="evaluating-a-regression-model"></a>Ocenianie modelu regresji
-Załóżmy, że chcemy przewidzieć cenę samochodu przy użyciu funkcji, takich jak wymiary, możliwości techniczne, specyfikacje silnika i tak dalej. Jest to typowy problem z regresją, gdzie zmienna docelowa (*Cena*) jest stałą wartością liczbową. Możemy dopasować model regresji liniowej, który zapewnia wartości funkcji określonego samochodu, można przewidzieć cenę tego samochodu. Ten model regresji może służyć do oceny tego samego zestawu danych, który został przeszkolony. Po przeprowadzeniu przewidywanych cen samochodu możemy oszacować wydajność modelu, sprawdzając, ile prognoz odchyleń od rzeczywistych cen. Aby to zilustrować, korzystamy z *zestawu danych cen dla samochodów (RAW)* dostępnego w sekcji **zapisywanych zestawów** danych w Machine Learning Studio (klasyczny).
+Załóżmy, że chcemy przewidzieć cenę samochodu przy użyciu funkcji, takich jak wymiary, możliwości techniczne, specyfikacje silnika i tak dalej. Jest to typowy problem z regresją, gdzie zmienna docelowa ( *Cena* ) jest stałą wartością liczbową. Możemy dopasować model regresji liniowej, który zapewnia wartości funkcji określonego samochodu, można przewidzieć cenę tego samochodu. Ten model regresji może służyć do oceny tego samego zestawu danych, który został przeszkolony. Po przeprowadzeniu przewidywanych cen samochodu możemy oszacować wydajność modelu, sprawdzając, ile prognoz odchyleń od rzeczywistych cen. Aby to zilustrować, korzystamy z *zestawu danych cen dla samochodów (RAW)* dostępnego w sekcji **zapisywanych zestawów** danych w Machine Learning Studio (klasyczny).
 
 ### <a name="creating-the-experiment"></a>Tworzenie eksperymentu
 Dodaj następujące moduły do obszaru roboczego w Azure Machine Learning Studio (klasyczny):
@@ -58,14 +58,14 @@ Dodaj następujące moduły do obszaru roboczego w Azure Machine Learning Studio
 * [Klasyfikacja modelu][score-model]
 * [Ocena modelu][evaluate-model]
 
-Połącz porty, jak pokazano poniżej na rysunku 1 i ustaw kolumnę etykieta modułu [uczenie modelu][train-model] na Price ( *Cena*).
+Połącz porty, jak pokazano poniżej na rysunku 1 i ustaw kolumnę etykieta modułu [uczenie modelu][train-model] na Price ( *Cena* ).
 
 ![Ocenianie modelu regresji](./media/evaluate-model-performance/1.png)
 
 Rysunek 1. Ocenianie modelu regresji.
 
 ### <a name="inspecting-the-evaluation-results"></a>Sprawdzanie wyników oceny
-Po uruchomieniu eksperymentu możesz kliknąć port wyjściowy modułu [Oceń model][evaluate-model] i wybrać opcję *Wizualizuj* , aby wyświetlić wyniki oceny. Metryki oceny dostępne dla modeli regresji to: *średni błąd bezwzględny*, *główny średni błąd bezwzględny*, *względny*błąd względny, względny *błąd*i *współczynnik wyznaczania*.
+Po uruchomieniu eksperymentu możesz kliknąć port wyjściowy modułu [Oceń model][evaluate-model] i wybrać opcję *Wizualizuj* , aby wyświetlić wyniki oceny. Metryki oceny dostępne dla modeli regresji to: *średni błąd bezwzględny* , *główny średni błąd bezwzględny* , *względny* błąd względny, względny *błąd* i *współczynnik wyznaczania*.
 
 Termin "błąd" oznacza różnicę między wartością przewidywaną a wartością rzeczywistą. Wartość bezwzględna lub kwadrat tej różnicy jest zwykle obliczany w celu przechwycenia łącznej wielkości błędu we wszystkich wystąpieniach, ponieważ różnica między wartością przewidywaną i rzeczywistą może być ujemna w niektórych przypadkach. Metryki błędów mierzą predykcyjną wydajność modelu regresji pod względem średniego odchylenia jego prognoz od wartości true. Niższe wartości błędów oznaczają, że model jest bardziej precyzyjny podczas tworzenia prognoz. Ogólna Metryka błędu równa zero oznacza, że model dopasowuje dane.
 
@@ -107,7 +107,7 @@ Połącz porty, jak pokazano poniżej na rysunku 5 i ustaw kolumnę etykieta mod
 Rysunek 5. Ocenianie binarnego modelu klasyfikacji.
 
 ### <a name="inspecting-the-evaluation-results"></a>Sprawdzanie wyników oceny
-Po uruchomieniu eksperymentu możesz kliknąć port wyjściowy modułu [oceny modelu][evaluate-model] i wybrać opcję *Wizualizuj* , aby wyświetlić wyniki oceny (Rysunek 7). Metryki oceny dostępne dla modeli klasyfikacji binarnych są następujące: *dokładność*, *precyzja*, *odwołanie*, *wynik F1*i *AUC*. Ponadto moduł wyprowadza macierz niepoprawną, pokazując liczbę prawdziwych dodatnich, fałszywych wartości ujemnych, fałszywych dodatnich i prawdziwych wartości ujemnych, a także *Roc*, *dokładności/odwoływania*i *podnoszenia* krzywych.
+Po uruchomieniu eksperymentu możesz kliknąć port wyjściowy modułu [oceny modelu][evaluate-model] i wybrać opcję *Wizualizuj* , aby wyświetlić wyniki oceny (Rysunek 7). Metryki oceny dostępne dla modeli klasyfikacji binarnych są następujące: *dokładność* , *precyzja* , *odwołanie* , *wynik F1* i *AUC*. Ponadto moduł wyprowadza macierz niepoprawną, pokazując liczbę prawdziwych dodatnich, fałszywych wartości ujemnych, fałszywych dodatnich i prawdziwych wartości ujemnych, a także *Roc* , *dokładności/odwoływania* i *podnoszenia* krzywych.
 
 Dokładność jest po prostu proporcją poprawnie sklasyfikowanych wystąpień. Zwykle jest to pierwsza Metryka, która jest sprawdzana podczas oceny klasyfikatora. Jednak jeśli dane testowe są niezrównoważone (gdzie większość wystąpień należy do jednej z klas) lub użytkownik jest bardziej interesujący w wydajności jednej z klas, dokładność nie przechwytuje skuteczności klasyfikatora. W scenariuszu klasyfikacji poziomu dochodu przyjęto założenie, że testy są przeprowadzane na niektórych danych, gdzie 99% wystąpień reprezentuje osoby, które uzyskują mniej niż lub równą 50 000 na rok. Istnieje możliwość osiągnięcia dokładności 0,99, przewidywalność klasy "<= 50 000" dla wszystkich wystąpień. Klasyfikator w tym przypadku wygląda na to, że jest to dobre zadanie ogólne, ale w rzeczywistości nie jest klasyfikowane żadnej z dużych dochodów (1%) prawidłowego.
 
@@ -117,13 +117,13 @@ Z tego powodu warto obliczyć dodatkowe metryki, które przechwytują bardziej c
 
 Rysunek 6. Niemyląca Klasyfikacja w klasyfikacji binarnej.
 
-Powracając do problemu klasyfikacji dochodu, chcemy zadać kilka pytań dotyczących oceny, które pomogą nam zrozumieć wydajność używanego klasyfikatora. Pytanie naturalne to: "poza osobami, których model przewiduje >50 K (TP + FP), ile jest poprawnie sklasyfikowane (TP)?" Na to pytanie można uzyskać odpowiedzi, sprawdzając **precyzję** modelu, która jest proporcją liczby dodatnich, które są poprawnie sklasyfikowane: TP/(TP + FP). Innym typowym pytaniem jest "poza wszystkimi pracownikami o dużym wpływie na dochody >50 000 (TP + FN), jak wiele z nich klasyfikuje prawidłowo (TP)". W rzeczywistości jest to **odwołanie**lub prawdziwa dodatnia stawka: TP/(TP + Fn) klasyfikatora. Można zauważyć, że istnieje oczywisty kompromis między precyzją i odwołaniem. Na przykład, mając relatywnie zrównoważony zestaw danych, klasyfikator, który przewiduje większość wystąpień pozytywnych, będzie miał wysoką wartość odwołania, ale niewielka precyzja jako wiele wystąpień ujemnych byłaby błędnie sklasyfikowana, co oznacza znaczną liczbę fałszywych dodatnich. Aby zobaczyć, jak te dwie metryki zależą od siebie, można kliknąć krzywą **precyzja/odwołania** na stronie danych wyjściowych wyniku oceny (w lewej górnej części rysunku 7).
+Powracając do problemu klasyfikacji dochodu, chcemy zadać kilka pytań dotyczących oceny, które pomogą nam zrozumieć wydajność używanego klasyfikatora. Pytanie naturalne to: "poza osobami, których model przewiduje >50 K (TP + FP), ile jest poprawnie sklasyfikowane (TP)?" Na to pytanie można uzyskać odpowiedzi, sprawdzając **precyzję** modelu, która jest proporcją liczby dodatnich, które są poprawnie sklasyfikowane: TP/(TP + FP). Innym typowym pytaniem jest "poza wszystkimi pracownikami o dużym wpływie na dochody >50 000 (TP + FN), jak wiele z nich klasyfikuje prawidłowo (TP)". W rzeczywistości jest to **odwołanie** lub prawdziwa dodatnia stawka: TP/(TP + Fn) klasyfikatora. Można zauważyć, że istnieje oczywisty kompromis między precyzją i odwołaniem. Na przykład, mając relatywnie zrównoważony zestaw danych, klasyfikator, który przewiduje większość wystąpień pozytywnych, będzie miał wysoką wartość odwołania, ale niewielka precyzja jako wiele wystąpień ujemnych byłaby błędnie sklasyfikowana, co oznacza znaczną liczbę fałszywych dodatnich. Aby zobaczyć, jak te dwie metryki zależą od siebie, można kliknąć krzywą **precyzja/odwołania** na stronie danych wyjściowych wyniku oceny (w lewej górnej części rysunku 7).
 
 ![Wyniki oceny klasyfikacji danych binarnych](./media/evaluate-model-performance/7.png)
 
 Rysunek 7. Wyniki oceny klasyfikacji danych binarnych.
 
-Kolejną pokrewną metryką, która jest często używana, jest **wynik F1**, który przyjmuje precyzję i odwołanie do rozważenia. Jest to średnia harmoniczna tych dwóch metryk i jest obliczana w następujący sposób: F1 = 2 (precyzja x odwołania)/(precyzja + odwoływanie). Wynik F1 jest dobrym sposobem podsumowywania oceny w pojedynczej liczbie, ale zawsze dobrym rozwiązaniem jest zapoznanie się z dokładnością i odzyskanie, aby lepiej zrozumieć, jak działa klasyfikator.
+Kolejną pokrewną metryką, która jest często używana, jest **wynik F1** , który przyjmuje precyzję i odwołanie do rozważenia. Jest to średnia harmoniczna tych dwóch metryk i jest obliczana w następujący sposób: F1 = 2 (precyzja x odwołania)/(precyzja + odwoływanie). Wynik F1 jest dobrym sposobem podsumowywania oceny w pojedynczej liczbie, ale zawsze dobrym rozwiązaniem jest zapoznanie się z dokładnością i odzyskanie, aby lepiej zrozumieć, jak działa klasyfikator.
 
 Ponadto jeden może sprawdzać prawdziwą dodatnią stawkę w porównaniu z fałszywą dodatnią częstotliwością w krzywej **charakterystyki (ROC) odbiornika** i odpowiednim **obszarze pod wartością krzywej (AUC)** . Bliżej tej krzywej jest w lewym górnym rogu, tym lepsza wydajność klasyfikatora to (maksymalizuje prawdziwie dodatnią częstotliwość, jednocześnie minimalizując wynik fałszywie dodatni). Krzywe znajdujące się blisko przekątnej wykresu mogą wynikać z klasyfikatorów, które mają na celu wykonywanie prognoz, które są blisko losowego odgadnięcia.
 
@@ -155,7 +155,7 @@ Połącz porty, jak pokazano poniżej na rysunku 10.
 
 Ustaw indeks kolumny etykieta modułu [szkolenia model][train-model] na 5. Zestaw danych nie ma wiersza nagłówka, ale wiemy, że etykiety klas znajdują się w piątej kolumnie.
 
-Kliknij moduł [Importuj dane][import-data] i ustaw właściwość *Źródło danych* na *adres URL sieci Web za pośrednictwem protokołu HTTP*i *adres URL* do http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
+Kliknij moduł [Importuj dane][import-data] i ustaw właściwość *Źródło danych* na *adres URL sieci Web za pośrednictwem protokołu HTTP* i *adres URL* do http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
 
 Ustaw ułamek wystąpień, które mają być używane na potrzeby szkolenia w module [Split Data][split] 0,7 (na przykład).
 
@@ -182,12 +182,12 @@ Rysunek 12. Krzyżowe sprawdzanie poprawności modelu klasyfikacji wieloklasowej
 Rysunek 13. Wyniki wzajemnego sprawdzania poprawności modelu klasyfikacji wieloklasowej.
 
 <!-- Module References -->
-[cross-validate-model]: https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
+[cross-validate-model]: /azure/machine-learning/studio-module-reference/cross-validate-model
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[multiclass-decision-forest]: /azure/machine-learning/studio-module-reference/multiclass-decision-forest
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-logistic-regression]: /azure/machine-learning/studio-module-reference/two-class-logistic-regression

@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf4b321425ccaae877c2ff5c9b54f429d95a3515
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541717"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312314"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Uczenie wzmacniające (wersja zapoznawcza) dzięki Azure Machine Learning
 
@@ -49,8 +49,8 @@ Uruchom ten kod w dowolnym z następujących środowisk. Zalecamy wypróbowanie 
  
  - Własny serwer Jupyter Notebook
 
-    - Zainstaluj [zestaw SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
-    - Zainstaluj [zestaw SDK Azure Machine Learning RL](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true): `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Zainstaluj [zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+    - Zainstaluj [zestaw SDK Azure Machine Learning RL](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Utwórz [plik konfiguracji obszaru roboczego](how-to-configure-environment.md#workspace).
     - Uruchom [Notes konfiguracji](https://aka.ms/azure-rl-env-setup) sieci wirtualnej, aby otworzyć porty sieciowe używane do uczenia rozproszonego wzmacniania.
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>Utwórz eksperyment nauki wzmacniania
 
-Utwórz [eksperyment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) do śledzenia przebiegu nauki wzmacniania. W Azure Machine Learning eksperymenty są logicznymi kolekcjami powiązanych prób w celu organizowania dzienników przebiegów, historii, danych wyjściowych i nie tylko.
+Utwórz [eksperyment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) do śledzenia przebiegu nauki wzmacniania. W Azure Machine Learning eksperymenty są logicznymi kolekcjami powiązanych prób w celu organizowania dzienników przebiegów, historii, danych wyjściowych i nie tylko.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -131,7 +131,7 @@ Ten przykład używa oddzielnych elementów docelowych obliczeń dla węzłów g
 
 W tym przykładzie zastosowano klaster główny wyposażony w procesor GPU w celu zoptymalizowania wydajności uczenia głębokiego. Węzeł główny pociąga za siebie sieć neuronowychą używaną przez agenta w celu podejmowania decyzji. Węzeł główny zbiera również punkty danych z węzłów procesu roboczego w celu dalszej uczenia sieci neuronowych.
 
-Obliczenia główne używają pojedynczej [ `STANDARD_NC6` maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/nc-series) . Ma 6 procesorów wirtualnych, co oznacza, że może dystrybuować pracę na 6 roboczych procesorów CPU.
+Obliczenia główne używają pojedynczej [ `STANDARD_NC6` maszyny wirtualnej](../virtual-machines/nc-series.md) . Ma 6 procesorów wirtualnych, co oznacza, że może dystrybuować pracę na 6 roboczych procesorów CPU.
 
 
 ```python
@@ -173,7 +173,7 @@ else:
 
 ### <a name="worker-computing-cluster"></a>Klaster obliczeniowy procesu roboczego
 
-W tym przykładzie zastosowano cztery [ `STANDARD_D2_V2` maszyny wirtualne](https://docs.microsoft.com/azure/virtual-machines/nc-series) dla elementu docelowego obliczeń procesu roboczego. Każdy węzeł procesu roboczego ma 2 dostępne procesory CPU w sumie 8 dostępnych procesorów CPU do zrównoleglanie pracy.
+W tym przykładzie zastosowano cztery [ `STANDARD_D2_V2` maszyny wirtualne](../virtual-machines/nc-series.md) dla elementu docelowego obliczeń procesu roboczego. Każdy węzeł procesu roboczego ma 2 dostępne procesory CPU w sumie 8 dostępnych procesorów CPU do zrównoleglanie pracy.
 
 Procesory GPU nie są niezbędne dla węzłów procesu roboczego, ponieważ nie wykonują uczenia głębokiego. Pracownicy uruchamiają symulacje gier i zbierają dane.
 
@@ -213,7 +213,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Utwórz szacowania uczenia wzmacniania
 
-W tej sekcji dowiesz się, jak za pomocą [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) przesłać zadanie szkoleniowe do Azure Machine Learning.
+W tej sekcji dowiesz się, jak za pomocą [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) przesłać zadanie szkoleniowe do Azure Machine Learning.
 
 Azure Machine Learning używa klas szacowania do hermetyzacji informacji o konfiguracji uruchamiania. Pozwala to łatwo określić sposób konfigurowania wykonywania skryptu. 
 
@@ -248,7 +248,7 @@ Skrypt wejścia `pong_rllib.py` akceptuje listę parametrów, które definiują 
 
 Określenie poprawnej wartości `num_workers` spowoduje, że będzie to najbardziej przetwarzanie równoległee wysiłki. Ustaw liczbę procesów roboczych na taką samą jak liczba dostępnych procesorów CPU. Na potrzeby tego przykładu można obliczyć w następujący sposób:
 
-Węzeł główny jest [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) z 6 procesorów wirtualnych vCPU. Klaster roboczy to 4 [Standard_D2_V2 maszyny wirtualne](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs#dv2-series) z 2 procesorami CPU, w sumie 8 procesorów CPU. Należy jednak odjąć 1 procesor od liczby procesów roboczych, ponieważ 1 musi być dedykowany dla roli węzła głównego. 6 procesorów CPU + 8 procesorów CPU = 13 równoczesnych procesów roboczych. Azure Machine Learning używa klastrów głównych i procesów roboczych w celu rozróżnienia zasobów obliczeniowych. Jednak usługa ray nie rozróżnia między kierownikiem a pracownikami, a wszystkie procesory CPU są dostępne dla wykonywania wątku roboczego.
+Węzeł główny jest [Standard_NC6](../virtual-machines/nc-series.md) z 6 procesorów wirtualnych vCPU. Klaster roboczy to 4 [Standard_D2_V2 maszyny wirtualne](../cloud-services/cloud-services-sizes-specs.md#dv2-series) z 2 procesorami CPU, w sumie 8 procesorów CPU. Należy jednak odjąć 1 procesor od liczby procesów roboczych, ponieważ 1 musi być dedykowany dla roli węzła głównego. 6 procesorów CPU + 8 procesorów CPU = 13 równoczesnych procesów roboczych. Azure Machine Learning używa klastrów głównych i procesów roboczych w celu rozróżnienia zasobów obliczeniowych. Jednak usługa ray nie rozróżnia między kierownikiem a pracownikami, a wszystkie procesory CPU są dostępne dla wykonywania wątku roboczego.
 
 
 ```python
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Prześlij przebieg
 
-[Uruchomienie](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) obsługuje historię uruchamiania zadań wykonywanych w toku lub ukończonych. 
+[Uruchomienie](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) obsługuje historię uruchamiania zadań wykonywanych w toku lub ukończonych. 
 
 ```python
 run = exp.submit(config=rl_estimator)

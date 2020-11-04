@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708258"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311600"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Korzystanie z pakietu do interpretacji w celu wyjaśnienia modeli ML & prognoz w języku Python (wersja zapoznawcza)
 
@@ -354,7 +354,7 @@ Aby uzyskać dostęp do pulpitu nawigacyjnego wizualizacji w programie Azure Mac
    [![Ważność funkcji lokalnej pulpitu nawigacyjnego wizualizacji w programie Azure Studio w eksperymentach](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Okienko **modele**
-  1. Jeśli Twój oryginalny model został zarejestrowany przez wykonanie kroków opisanych w temacie [Wdrażanie modeli przy użyciu Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), możesz wybrać **modele** w lewym okienku, aby je wyświetlić.
+  1. Jeśli Twój oryginalny model został zarejestrowany przez wykonanie kroków opisanych w temacie [Wdrażanie modeli przy użyciu Azure Machine Learning](./how-to-deploy-and-where.md), możesz wybrać **modele** w lewym okienku, aby je wyświetlić.
   1. Wybierz model, a następnie kartę **wyjaśnienia** , aby wyświetlić pulpit nawigacyjny wizualizacji z wyjaśnieniem.
 
 ## <a name="interpretability-at-inference-time"></a>Interpretowanie w czasie wnioskowania
@@ -419,7 +419,7 @@ Można wdrożyć wyjaśnienie wraz z oryginalnym modelem i użyć go w czasie wn
 
 1. Wdróż obraz w obiekcie docelowym obliczeń, wykonując następujące czynności:
 
-   1. W razie konieczności Zarejestruj swój oryginalny model predykcyjny, wykonując kroki opisane w temacie [Wdrażanie modeli przy użyciu Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+   1. W razie konieczności Zarejestruj swój oryginalny model predykcyjny, wykonując kroki opisane w temacie [Wdrażanie modeli przy użyciu Azure Machine Learning](./how-to-deploy-and-where.md).
 
    1. Utwórz plik oceniania.
 
@@ -553,4 +553,3 @@ Można wdrożyć wyjaśnienie wraz z oryginalnym modelem i użyć go w czasie wn
 [Dowiedz się więcej o interpretacji modelu](how-to-machine-learning-interpretability.md)
 
 [Zapoznaj się z przykładowymi notesami z interpretacją Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
-

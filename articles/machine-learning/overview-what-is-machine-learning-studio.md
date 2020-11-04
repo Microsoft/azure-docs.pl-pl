@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495990"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310167"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Co to jest usługa Azure Machine Learning Studio?
 
@@ -74,16 +74,16 @@ Opublikowano w 2015, **ml Studio (klasyczny)** był naszym pierwszym konstruktor
 
 **Azure Machine Learning Studio** to portal sieci web *w* Azure Machine Learning, który zawiera opcje niskiej ilości kodu i bez kodu dla tworzenia projektów i zarządzania zasobami. 
 
-Zalecamy, aby nowi użytkownicy wybierali **Azure Machine Learning**, a nie ml Studio (klasyczny), aby uzyskać najnowszy zakres narzędzi do nauki o danych.
+Zalecamy, aby nowi użytkownicy wybierali **Azure Machine Learning** , a nie ml Studio (klasyczny), aby uzyskać najnowszy zakres narzędzi do nauki o danych.
 
 ### <a name="feature-comparison"></a>Porównanie funkcji
 
 Poniższa tabela zawiera podsumowanie podstawowych różnic między ML Studio (klasyczne) i Azure Machine Learning.
 
-| Promowanie | ML Studio (klasyczny) | Azure Machine Learning |
+| Cechy | ML Studio (klasyczny) | Azure Machine Learning |
 |---| --- | --- |
 | Przeciąganie i upuszczanie interfejsu | Środowisko klasyczne | Zaktualizowane środowisko — [projektant Azure Machine Learning](concept-designer.md)| 
-| Zestawy SDK kodu | Nieobsługiwane | W pełni zintegrowane z [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) i [języka R](tutorial-1st-r-experiment.md) SDK |
+| Zestawy SDK kodu | Nieobsługiwane | W pełni zintegrowane z [Azure Machine Learning Python](/python/api/overview/azure/ml/) i [języka R](tutorial-1st-r-experiment.md) SDK |
 | Experiment | Skalowalne (limit danych szkolenia 10 GB) | Skalowanie za pomocą elementu docelowego obliczeń |
 | Szkoleniowe cele obliczeniowe | Własnościowy obiekt docelowy obliczeń, tylko obsługa procesora CPU | Szeroki zakres dostosowywalnych [obiektów docelowych obliczeń szkoleniowych](concept-compute-target.md#train). Obejmuje obsługę procesora GPU i procesorów | 
 | Cele obliczeń wdrożenia | Własny format usługi sieci Web, niedostosowywalny | Szeroka gama [elementów docelowych obliczeniowych wdrożenia](concept-compute-target.md#deploy). Obejmuje obsługę procesora GPU i procesorów |
@@ -103,4 +103,3 @@ Odwiedź [Studio](https://ml.azure.com)lub zapoznaj się z różnymi opcjami two
   + [Korzystanie z notesów Jupyter w wystąpieniu obliczeniowym do uczenia & wdrażania modeli](tutorial-1st-experiment-sdk-setup.md)
   + [Używanie automatycznego uczenia maszynowego do uczenia & wdrażania modeli](tutorial-first-experiment-automated-ml.md)  
   + [Korzystanie z projektanta do uczenia & wdrażania modeli](tutorial-designer-automobile-price-train-score.md)
-

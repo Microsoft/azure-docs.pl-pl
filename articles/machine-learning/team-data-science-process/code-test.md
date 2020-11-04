@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090301"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312683"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Testowanie kodu analizy danych na platformie Azure z zespołowym procesem nauki danych i Azure DevOps Services
 W tym artykule przedstawiono wstępne wskazówki dotyczące testowania kodu w przepływie pracy analizy danych. Takie testowanie umożliwia analitykom danych systematyczne i wydajne sprawdzanie jakości i oczekiwanego wyniku ich kodu. Korzystamy z projektu zespołowego przetwarzania danych (przetwarzania TDSP) [, który korzysta z zestawu danych dochodów dla dorosłych](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) , który został opublikowany wcześniej, aby pokazać, jak można przeprowadzić testowanie kodu. 
@@ -89,7 +89,7 @@ Wykonaj następujące kroki, aby skonfigurować i uruchomić testy kodu oraz zau
 
       ![Kod do sprawdzania wartości przewidywania](./media/code-test/check_prediction_values.PNG)
 
-1. Umieść wszystkie funkcje testowe w skrypcie języka Python o nazwie **test_funcs. PR**:
+1. Umieść wszystkie funkcje testowe w skrypcie języka Python o nazwie **test_funcs. PR** :
 
     ![Skrypt języka Python dla funkcji testowych](./media/code-test/create_file_test_func.PNG)
 
@@ -112,7 +112,7 @@ Wykonaj następujące kroki, aby skonfigurować i uruchomić testy kodu oraz zau
 
 1. Skonfiguruj automatyczne Kompilowanie i testowanie w usłudze Azure DevOps:
 
-    a. W repozytorium projektu wybierz pozycję **kompilacja i wydanie**, a następnie wybierz pozycję **+ Nowy** , aby utworzyć nowy proces kompilacji.
+    a. W repozytorium projektu wybierz pozycję **kompilacja i wydanie** , a następnie wybierz pozycję **+ Nowy** , aby utworzyć nowy proces kompilacji.
 
     ![Wybory dotyczące rozpoczynania nowego procesu kompilacji](./media/code-test/create_new_build.PNG)
 
@@ -124,7 +124,7 @@ Wykonaj następujące kroki, aby skonfigurować i uruchomić testy kodu oraz zau
 
     ![Lista szablonów i przycisk "pusty proces"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nadaj nazwę kompilacji i wybierz agenta. W tym miejscu możesz wybrać wartość domyślną, jeśli chcesz użyć DSVM do ukończenia procesu kompilacji. Aby uzyskać więcej informacji na temat ustawiania agentów, zobacz [kompilacje i wydania agentów](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Nadaj nazwę kompilacji i wybierz agenta. W tym miejscu możesz wybrać wartość domyślną, jeśli chcesz użyć DSVM do ukończenia procesu kompilacji. Aby uzyskać więcej informacji na temat ustawiania agentów, zobacz [kompilacje i wydania agentów](/azure/devops/pipelines/agents/agents?view=vsts).
     
     ![Kompilacje i wybór agentów](./media/code-test/select_agent.PNG)
 
@@ -134,7 +134,7 @@ Wykonaj następujące kroki, aby skonfigurować i uruchomić testy kodu oraz zau
 
     f. W obszarze Szczegóły programu PowerShell wprowadź wymagane informacje, takie jak nazwa i wersja programu PowerShell. Wybierz **skrypt wbudowany** jako typ. 
     
-    W polu w obszarze **skrypt wbudowany**można wpisać **Python test1.py**. Upewnij się, że zmienna środowiskowa została prawidłowo skonfigurowana dla języka Python. Jeśli potrzebna jest inna wersja lub jądro języka Python, można jawnie określić ścieżkę, jak pokazano na rysunku: 
+    W polu w obszarze **skrypt wbudowany** można wpisać **Python test1.py**. Upewnij się, że zmienna środowiskowa została prawidłowo skonfigurowana dla języka Python. Jeśli potrzebna jest inna wersja lub jądro języka Python, można jawnie określić ścieżkę, jak pokazano na rysunku: 
     
     ![Szczegóły programu PowerShell](./media/code-test/powershell_scripts.PNG)
 
@@ -155,7 +155,7 @@ Jeśli alerty są prawidłowo skonfigurowane, użytkownik zostanie powiadomiony 
 * Postępuj zgodnie z powyższym zarysem i przykładami w scenariuszu przewidywania dochodu UCI w swoich projektach analizy danych.
 
 ## <a name="references"></a>Odwołania
-* [Zespołowe przetwarzanie danych dla celów naukowych](https://aka.ms/tdsp)
+* [Zespołowe przetwarzanie danych dla celów naukowych](./index.yml)
 * [Narzędzia testowania programu Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Zasoby testowe usługi Azure DevOps](https://www.visualstudio.com/team-services/)
 * [Maszyny wirtualne Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

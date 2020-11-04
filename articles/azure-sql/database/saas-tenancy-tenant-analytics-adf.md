@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 860fcb2948869d21eb78d0b318074b9a5e2ba0b9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 97dc53c9870112dc5d547ab477e54f15f802cc05
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790325"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310646"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Eksploruj SaaS Analytics, korzystając z Azure SQL Database, Azure Synapse Analytics, Data Factory i Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 W tym samouczku przedstawiono kompleksowe scenariusze analizy. W tym scenariuszu pokazano, jak analiza danych dzierżawcy może dać dostawcom oprogramowania możliwość podejmowania przemyślanych decyzji. Korzystając z danych wyodrębnionych z każdej bazy danych dzierżawy, można używać analiz do uzyskiwania wglądu w zachowanie dzierżawy, w tym ich używania przykładowych biletów Wingtip SaaS aplikacji. Ten scenariusz obejmuje trzy kroki:
 
-1. **Wyodrębnij dane** z każdej bazy danych dzierżawy do magazynu analitycznego, w tym przypadku w puli SQL.
+1. **Wyodrębnij dane** z każdej bazy danych dzierżawy do sklepu analitycznego, w tym przypadku dedykowanej puli SQL.
 2. **Zoptymalizuj wyodrębnione dane** na potrzeby przetwarzania analizy.
 3. Skorzystaj z narzędzi **analizy biznesowej** , aby narysować przydatne informacje, które mogą posłużyć do podejmowania decyzji.
 
@@ -45,7 +45,7 @@ Aplikacje SaaS przechowują potencjalnie ogromną ilość danych dzierżawy w ch
 
 Uzyskiwanie dostępu do danych dla wszystkich dzierżawców jest proste, gdy wszystkie dane są w tylko jednej bazie danych z wieloma dzierżawcami. Jednak dostęp jest bardziej skomplikowany, gdy jest dystrybuowany na dużą skalę w tysiącach baz danych. Jednym ze sposobów oswoić złożoności jest wyodrębnienie danych do bazy danych analizy lub magazynu danych na potrzeby zapytania.
 
-Ten samouczek przedstawia kompleksowy scenariusz analityczny dla aplikacji biletów Wingtip. Najpierw [Azure Data Factory (ADF)](../../data-factory/introduction.md) jest używany jako narzędzie aranżacji do wyodrębniania sprzedaży biletów i pokrewnych danych z każdej bazy danych dzierżawy. Te dane są ładowane do tabel przemieszczania w sklepie analitycznym. Magazyn analityczny może być SQL Database lub pulą SQL. Ten samouczek używa [usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) jako sklepu analitycznego.
+Ten samouczek przedstawia kompleksowy scenariusz analityczny dla aplikacji biletów Wingtip. Najpierw [Azure Data Factory (ADF)](../../data-factory/introduction.md) jest używany jako narzędzie aranżacji do wyodrębniania sprzedaży biletów i pokrewnych danych z każdej bazy danych dzierżawy. Te dane są ładowane do tabel przemieszczania w sklepie analitycznym. Magazyn analityczny może być SQL Database lub dedykowaną pulą SQL. Ten samouczek używa [usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) jako sklepu analitycznego.
 
 Następnie wyodrębnione dane są przekształcane i ładowane do zestawu tabel ze [schematem gwiazdy](https://www.wikipedia.org/wiki/Star_schema) . Tabele składają się z centralnej tabeli faktów oraz powiązanych tabel wymiarów:
 
@@ -64,7 +64,7 @@ Na koniec są badane zapytania dotyczące tabel schematu gwiazdy. Wyniki zapytan
 
 Ten samouczek zawiera podstawowe przykłady szczegółowych informacji, które można wydobyć z danych biletów Wingtip. Zrozumienie, w jaki sposób każdy z miejsc używa usługi, może spowodować, że dostawca biletów Wingtip będzie myśleć o różnych planach usług przeznaczonych dla więcej lub mniej aktywnych miejsc, na przykład.
 
-## <a name="setup"></a>Konfigurowanie
+## <a name="setup"></a>Konfiguracja
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -87,7 +87,7 @@ Ten samouczek eksploruje analizę danych sprzedaży biletów. W tym kroku wygene
 
 W aplikacji bilety Wingtip dane transakcyjne dzierżawców są dystrybuowane za pośrednictwem wielu baz danych. Azure Data Factory (ADF) służy do organizowania wyodrębniania, ładowania i przekształcania (ELT) tych danych w magazynie danych. Aby załadować dane do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), funkcja ADF wyodrębnia dane do pośrednich plików obiektów blob, a następnie ładuje dane do magazynu danych za pomocą [bazy](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md) danych.
 
-Ten krok polega na wdrożeniu dodatkowych zasobów używanych w samouczku: puli SQL o nazwie _tenantanalytics_ , Azure Data Factory o nazwie _dbtodwload- \<user\>_ i koncie usługi Azure Storage o nazwie _wingtipstaging \<user\>_ . Konto magazynu jest używane do tymczasowego przechowywania wyodrębnionych plików danych jako obiektów BLOB przed ich załadowaniem do magazynu danych. Ten krok umożliwia również wdrożenie schematu magazynu danych i Definiowanie potoków ADF, które organizują proces ELT.
+Ten krok obejmuje wdrożenie dodatkowych zasobów używanych w samouczku: dedykowanej puli SQL o nazwie _tenantanalytics_ , Azure Data Factory o nazwie _dbtodwload- \<user\>_ i konta usługi Azure Storage o nazwie _wingtipstaging \<user\>_. Konto magazynu jest używane do tymczasowego przechowywania wyodrębnionych plików danych jako obiektów BLOB przed ich załadowaniem do magazynu danych. Ten krok umożliwia również wdrożenie schematu magazynu danych i Definiowanie potoków ADF, które organizują proces ELT.
 
 1. W programie PowerShell ISE Otwórz pozycję *..\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* i ustaw:
     - **$DemoScenario**  =  **2** wdrażanie magazynu danych analizy dzierżawy, usługi BLOB Storage i usługi Data Factory
@@ -97,7 +97,7 @@ Teraz Przejrzyj wdrożone zasoby platformy Azure:
 
 #### <a name="tenant-databases-and-analytics-store"></a>Bazy danych dzierżaw i magazyn analityczny
 
-Użyj [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) , aby połączyć się z serwerami **tenants1-DPT- &lt; User &gt;** i **Catalog-DPT- &lt; User &gt;** . Zastąp &lt; &gt; wartość User wartością używaną podczas wdrażania aplikacji. Użyj nazwy logowania = *Developer* i Password = *P \@ ssword1* . Zobacz [samouczek wprowadzający](./saas-dbpertenant-wingtip-app-overview.md) , aby uzyskać więcej wskazówek.
+Użyj [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) , aby połączyć się z serwerami **tenants1-DPT- &lt; User &gt;** i **Catalog-DPT- &lt; User &gt;** . Zastąp &lt; &gt; wartość User wartością używaną podczas wdrażania aplikacji. Użyj nazwy logowania = *Developer* i Password = *P \@ ssword1*. Zobacz [samouczek wprowadzający](./saas-dbpertenant-wingtip-app-overview.md) , aby uzyskać więcej wskazówek.
 
 ![Nawiązywanie połączenia z SQL Databaseami z programu SSMS](./media/saas-tenancy-tenant-analytics-adf/ssmsSignIn.JPG)
 
@@ -108,7 +108,7 @@ W Eksplorator obiektów:
 1. Rozwiń węzeł *katalog-DPT- &lt; użytkownika &gt;* .
 1. Sprawdź, czy widzisz magazyn analityczny zawierający następujące obiekty:
     1. Tabele **raw_Tickets** , **raw_Customers** , **raw_Events** i **raw_Venues** przechowują nieprzetworzone dane z baz danych dzierżaw.
-    1. Tabele schematu gwiazdy to **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** i **dim_Dates** .
+    1. Tabele schematu gwiazdy to **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** i **dim_Dates**.
     1. Procedura składowana **sp_transformExtractedData** służy do przekształcania danych i ładowania ich do tabel schematu gwiazdy.
 
 ![Zrzut ekranu przedstawia Eksplorator obiektów z rozwiniętymi tabelami, aby pokazać różne obiekty bazy danych.](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
@@ -122,7 +122,7 @@ W Eksplorator obiektów:
 1. Kliknij pozycję konto magazynu **wingtipstaging \<user\>** , aby poznać obiekty obecne.
 1. Kliknij kafelek **obiektów BLOB**
 1. Kliknij kontener **ConfigFile**
-1. Sprawdź, czy **ConfigFile** zawiera plik JSON o nazwie **TableConfig.json** . Ten plik zawiera nazwy tabel źródłowych i docelowych, nazwy kolumn i nazwy kolumn śledzenia.
+1. Sprawdź, czy **ConfigFile** zawiera plik JSON o nazwie **TableConfig.json**. Ten plik zawiera nazwy tabel źródłowych i docelowych, nazwy kolumn i nazwy kolumn śledzenia.
 
 #### <a name="azure-data-factory-adf"></a>Azure Data Factory (ADF)
 
@@ -133,18 +133,18 @@ W [Azure Portal](https://ms.portal.azure.com) w grupie zasobów Sprawdź, czy do
 Ta sekcja eksploruje utworzoną fabrykę danych.
 Wykonaj poniższe kroki, aby uruchomić fabrykę danych:
 
-1. W portalu kliknij fabrykę danych o nazwie **dbtodwload- \<user\>** .
+1. W portalu kliknij fabrykę danych o nazwie **dbtodwload- \<user\>**.
 2. Kliknij kafelek **tworzenie & monitor** , aby uruchomić projektanta Data Factory na oddzielnej karcie.
 
 ## <a name="extract-load-and-transform-data"></a>Wyodrębnij, Załaduj i Przekształć dane
 
-Azure Data Factory służy do organizowania wyodrębniania, ładowania i przekształcania danych. W tym samouczku wyodrębnisz dane z czterech różnych widoków SQL z poszczególnych baz danych dzierżaw: **rawTickets** , **rawCustomers** , **rawEvents** i **rawVenues** . Te widoki obejmują identyfikator miejsca, dzięki czemu można rozróżniać dane z każdego miejsca w magazynie danych. Dane są ładowane do odpowiednich tabel przejściowych w magazynie danych: **raw_Tickets** , **raw_customers** , **raw_Events** i **raw_Venue** . Procedura składowana przekształca pierwotne dane i wypełnia tabele schematu gwiazdy: **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** i **dim_Dates** .
+Azure Data Factory służy do organizowania wyodrębniania, ładowania i przekształcania danych. W tym samouczku wyodrębnisz dane z czterech różnych widoków SQL z poszczególnych baz danych dzierżaw: **rawTickets** , **rawCustomers** , **rawEvents** i **rawVenues**. Te widoki obejmują identyfikator miejsca, dzięki czemu można rozróżniać dane z każdego miejsca w magazynie danych. Dane są ładowane do odpowiednich tabel przejściowych w magazynie danych: **raw_Tickets** , **raw_customers** , **raw_Events** i **raw_Venue**. Procedura składowana przekształca pierwotne dane i wypełnia tabele schematu gwiazdy: **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** i **dim_Dates**.
 
 W poprzedniej sekcji wdrożono i zainicjowano niezbędne zasoby platformy Azure, w tym fabrykę danych. Wdrożona Fabryka danych obejmuje potoki, zestawy danych, połączone usługi itd., wymagane do wyodrębniania, ładowania i przekształcania danych dzierżawy. Zapoznaj się z tymi obiektami, a następnie Wyzwól potok, aby przenieść dane z baz danych dzierżaw do magazynu danych.
 
 ### <a name="data-factory-pipeline-overview"></a>Przegląd potoku usługi Data Factory
 
-Ta sekcja Eksplorowanie obiektów utworzonych w fabryce danych. Na poniższej ilustracji przedstawiono ogólny przepływ pracy potoków ADF użytych w tym samouczku. Jeśli wolisz eksplorować potok później i najpierw zobaczyć wyniki, przejdź do następnej sekcji **Wyzwól uruchomienie potoku** .
+Ta sekcja Eksplorowanie obiektów utworzonych w fabryce danych. Na poniższej ilustracji przedstawiono ogólny przepływ pracy potoków ADF użytych w tym samouczku. Jeśli wolisz eksplorować potok później i najpierw zobaczyć wyniki, przejdź do następnej sekcji **Wyzwól uruchomienie potoku**.
 
 ![adf_overview](./media/saas-tenancy-tenant-analytics-adf/adf-data-factory.PNG)
 
@@ -157,9 +157,9 @@ Trzy zagnieżdżone potoki to: SQLDBToDW, dbcopy i TableCopy.
 
 **Potok 2 — dbcopy** wyszukuje nazwy tabel źródłowych i kolumn z pliku konfiguracji przechowywanego w magazynie obiektów BLOB.  Potok **TableCopy** jest następnie uruchamiany dla każdej z czterech tabel: TicketFacts, CustomerFacts, EventFacts i VenueFacts. Działanie **[foreach](../../data-factory/control-flow-for-each-activity.md)** jest wykonywane równolegle dla wszystkich 20 baz danych. ADF umożliwia równoległe uruchamianie maksymalnie 20 iteracji pętli. Rozważ utworzenie wielu potoków dla większej liczby baz danych.
 
-**Potok 3 — TableCopy** używa numerów wersji wierszy w SQL Database ( _rowversion_ ) do identyfikowania wierszy, które zostały zmienione lub zaktualizowane. To działanie wyszukuje początkową i końcową wersję wiersza w celu wyodrębnienia wierszy z tabel źródłowych. Tabela **CopyTracker** przechowywana w każdej bazie danych dzierżawy śledzi ostatni wiersz wyodrębniony z każdej tabeli źródłowej w każdym uruchomieniu. Nowe lub zmienione wiersze są kopiowane do odpowiednich tabel przejściowych w magazynie danych: **raw_Tickets** , **raw_Customers** , **raw_Venues** i **raw_Events** . Na koniec Ostatnia wersja wiersza jest zapisywana w tabeli **CopyTracker** , która będzie używana jako początkowa wersja wiersza dla następnej wyodrębniania.
+**Potok 3 — TableCopy** używa numerów wersji wierszy w SQL Database ( _rowversion_ ) do identyfikowania wierszy, które zostały zmienione lub zaktualizowane. To działanie wyszukuje początkową i końcową wersję wiersza w celu wyodrębnienia wierszy z tabel źródłowych. Tabela **CopyTracker** przechowywana w każdej bazie danych dzierżawy śledzi ostatni wiersz wyodrębniony z każdej tabeli źródłowej w każdym uruchomieniu. Nowe lub zmienione wiersze są kopiowane do odpowiednich tabel przejściowych w magazynie danych: **raw_Tickets** , **raw_Customers** , **raw_Venues** i **raw_Events**. Na koniec Ostatnia wersja wiersza jest zapisywana w tabeli **CopyTracker** , która będzie używana jako początkowa wersja wiersza dla następnej wyodrębniania.
 
-Istnieją również trzy sparametryzowane połączone usługi, które łączą fabrykę danych z źródłowymi bazami danych SQL, docelową pulą SQL i pośrednim magazynem obiektów BLOB. Na karcie **autor** kliknij pozycję **połączenia** , aby poznać połączone usługi, jak pokazano na poniższej ilustracji:
+Istnieją również trzy sparametryzowane połączone usługi, które łączą fabrykę danych z źródłowymi bazami danych SQL, docelową dedykowaną pulą SQL i pośredni magazyn obiektów BLOB. Na karcie **autor** kliknij pozycję **połączenia** , aby poznać połączone usługi, jak pokazano na poniższej ilustracji:
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -180,14 +180,14 @@ Ostatni krok przekształcenia powoduje usunięcie danych przemieszczania gotowyc
 Wykonaj poniższe kroki, aby uruchomić kompletny potok wyodrębniania, ładowania i przekształcania dla wszystkich baz danych dzierżawy:
 
 1. Na karcie **autor** w interfejsie użytkownika ADF wybierz pozycję potok **SQLDBToDW** w okienku po lewej stronie.
-1. Kliknij pozycję **wyzwalacz** i w menu rozwijanym kliknij pozycję **Wyzwól teraz** . Ta akcja powoduje natychmiastowe uruchomienie potoku. W scenariuszu produkcyjnym należy zdefiniować harmonogram uruchamiania potoku w celu odświeżenia danych zgodnie z harmonogramem.
+1. Kliknij pozycję **wyzwalacz** i w menu rozwijanym kliknij pozycję **Wyzwól teraz**. Ta akcja powoduje natychmiastowe uruchomienie potoku. W scenariuszu produkcyjnym należy zdefiniować harmonogram uruchamiania potoku w celu odświeżenia danych zgodnie z harmonogramem.
   ![Zrzut ekranu przedstawia zasoby fabryki dla potoku o nazwie S Q L D B do D w z opcją wyzwalacza rozwinięte i wyzwalane teraz.](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
-1. Na stronie **uruchomienie potoku** kliknij przycisk **Zakończ** .
+1. Na stronie **uruchomienie potoku** kliknij przycisk **Zakończ**.
 
 ### <a name="monitor-the-pipeline-run"></a>Monitorowanie działania potoku
 
 1. W interfejsie użytkownika usługi ADF przejdź do karty **monitor** z menu po lewej stronie.
-1. Kliknij przycisk **Odśwież** , dopóki stan potoku SQLDBToDW **zakończył się pomyślnie** .
+1. Kliknij przycisk **Odśwież** , dopóki stan potoku SQLDBToDW **zakończył się pomyślnie**.
   ![Zrzut ekranu przedstawia potok S p D B do D W potoku ze stanem powodzenie.](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
 1. Połącz się z magazynem danych za pomocą programu SSMS i zbadaj tabele schematu gwiazdy, aby sprawdzić, czy dane zostały załadowane w tych tabelach.
 
@@ -203,16 +203,16 @@ Wykonaj następujące kroki, aby nawiązać połączenie z usługą Power BI i z
 
 1. Uruchom Power BI pulpicie.
 2. Na Wstążce Narzędzia główne wybierz pozycję **Pobierz dane** , a następnie wybierz pozycję **więcej...** z menu.
-3. W oknie **pobieranie danych** wybierz pozycję **Azure SQL Database** .
-4. W oknie Logowanie do bazy danych wprowadź nazwę serwera ( **Catalog-DPT- &lt; User &gt; . Database.Windows.NET** ). Wybierz pozycję **Importuj** dla **trybu łączności danych** , a następnie kliknij przycisk **OK** .
+3. W oknie **pobieranie danych** wybierz pozycję **Azure SQL Database**.
+4. W oknie Logowanie do bazy danych wprowadź nazwę serwera ( **Catalog-DPT- &lt; User &gt; . Database.Windows.NET** ). Wybierz pozycję **Importuj** dla **trybu łączności danych** , a następnie kliknij przycisk **OK**.
 
     ![Logowanie do usługi Power BI](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
-5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper* i wprowadź hasło = *P \@ ssword1* . Kliknij przycisk **Podłącz** .  
+5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper* i wprowadź hasło = *P \@ ssword1*. Kliknij przycisk **Podłącz**.  
 
     ![Baza danych — logowanie](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 
-6. W okienku **Nawigator** w obszarze baza danych analizy wybierz tabele ze schematem gwiazdy: **fact_Tickets** , **dim_Events** , **dim_Venues** , **dim_Customers** i **dim_Dates** . Następnie wybierz pozycję **Załaduj** .
+6. W okienku **Nawigator** w obszarze baza danych analizy wybierz tabele ze schematem gwiazdy: **fact_Tickets** , **dim_Events** , **dim_Venues** , **dim_Customers** i **dim_Dates**. Następnie wybierz pozycję **Załaduj**.
 
 Gratulacje! Dane zostały pomyślnie załadowane do Power BI. Teraz Eksploruj interesujące wizualizacje, aby uzyskać wgląd w dzierżawy. Zapoznaj się z tematem, jak analizy mogą zapewnić pewne zalecenia oparte na danych w zespole biznesowym biletów Wingtip. Zalecenia mogą pomóc zoptymalizować model biznesowy i obsługę klienta.
 
@@ -242,7 +242,7 @@ Ten wykres łącznej sprzedaży biletów w czasie dla korytarza wspólnie Contos
 
 Szczegółowe informacje na temat wzorców sprzedaży biletów mogą prowadzić do Wingtip biletów, aby zoptymalizować model biznesowy. Zamiast naliczania wszystkich dzierżawców w równym stopniu, prawdopodobnie Wingtip powinny wprowadzać warstwy usług o różnych rozmiarach obliczeniowych. Większą liczbą miejsc, które muszą sprzedawać więcej biletów dziennie, może być oferowana wyższa warstwa z wyższą umową dotyczącą poziomu usług (SLA). Te miejsca mogą mieć swoje bazy danych umieszczane w puli z wyższymi limitami zasobów dla poszczególnych baz danych. Każda warstwa usług może mieć co godzinę alokację sprzedaży przy użyciu dodatkowych opłat naliczanych za przekroczenie przydziału. Większe miejsca, w których okresowe rozbicie sprzedaży byłyby korzystne dla wyższych warstw, a bilety Wingtip mogą wydajnie Zarabiaj swoją usługę.
 
-Tymczasem niektórzy Wingtip bilety, z których klienci mogą się zapewnić, aby sprzedać wystarczającą liczbę biletów, aby uzasadnić koszt usługi. W tych informacjach można zwiększyć sprzedaż biletów w przypadku niedopełnienia miejsc. Wyższa sprzedaż mogłaby zwiększyć postrzeganą wartość usługi. Kliknij prawym przyciskiem myszy fact_Tickets i wybierz pozycję **Nowa miara** . Wprowadź następujące wyrażenie dla nowej miary o nazwie **AverageTicketsSold** :
+Tymczasem niektórzy Wingtip bilety, z których klienci mogą się zapewnić, aby sprzedać wystarczającą liczbę biletów, aby uzasadnić koszt usługi. W tych informacjach można zwiększyć sprzedaż biletów w przypadku niedopełnienia miejsc. Wyższa sprzedaż mogłaby zwiększyć postrzeganą wartość usługi. Kliknij prawym przyciskiem myszy fact_Tickets i wybierz pozycję **Nowa miara**. Wprowadź następujące wyrażenie dla nowej miary o nazwie **AverageTicketsSold** :
 
 ```sql
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))

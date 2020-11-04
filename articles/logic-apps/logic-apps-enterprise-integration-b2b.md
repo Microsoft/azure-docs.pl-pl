@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/02/2020
+ms.openlocfilehash: e16cc8934407a5c54c84fd045c99e28116e656c9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542380"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310500"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Odbieraj i potwierdzaj wiadomości AS2 B2B przy użyciu Azure Logic Apps i Pakiet integracyjny dla przedsiębiorstw
 
@@ -39,7 +39,7 @@ W tym artykule pokazano, jak utworzyć aplikację logiki, która odbiera żądan
 
 * Co najmniej dwóch [partnerów handlowych](../logic-apps/logic-apps-enterprise-integration-partners.md) , które zostały już zdefiniowane na koncie integracji, wraz z [umowami AS2 i X12](logic-apps-enterprise-integration-agreements.md) dla tych partnerów.
 
-## <a name="add-request-trigger"></a>Dodaj wyzwalacz żądania
+## <a name="add-the-request-trigger"></a>Dodawanie wyzwalacza żądania
 
 Ten przykład korzysta z projektanta aplikacji logiki w Azure Portal, ale można wykonać podobne kroki dla projektanta aplikacji logiki w programie Visual Studio.
 
@@ -59,7 +59,7 @@ Ten przykład korzysta z projektanta aplikacji logiki w Azure Portal, ale można
 
    ![Wygenerowano adres URL dla wyzwalacza żądania, aby można było odbierać wywołania](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-## <a name="add-as2-decode-action"></a>Dodaj akcję dekodowania AS2
+## <a name="add-the-as2-decode-action"></a>Dodaj akcję dekodowania AS2
 
 Teraz Dodaj akcje B2B, których chcesz użyć. W tym przykładzie są stosowane akcje AS2 i X12.
 
@@ -67,17 +67,17 @@ Teraz Dodaj akcje B2B, których chcesz użyć. W tym przykładzie są stosowane 
 
    ![Dodawanie kolejnego kroku do przepływu pracy aplikacji logiki](./media/logic-apps-enterprise-integration-b2b/add-new-action-under-trigger.png)
 
-1. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `as2 decode` , a następnie wybierz pozycję **dekodowanie AS2 (v2)**.
+1. W obszarze **Wybierz akcję** w polu wyszukiwania wpisz `as2 decode` , a następnie wybierz pozycję **dekodowanie AS2 (v2)**.
 
    ![Znajdź i wybierz pozycję "dekodowanie AS2 (v2)"](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
 1. Dla właściwości **komunikat do dekodowania** wprowadź dane wejściowe, których akcja AS2 ma zdekodować, czyli `body` zawartość odebraną przez wyzwalacz żądania HTTP. Istnieje wiele sposobów określania tej zawartości jako dane wejściowe, z listy zawartości dynamicznej lub jako wyrażenie:
 
-   * Aby wybrać z listy, która zawiera dostępne wyjściowe wyzwalacza, kliknij wewnątrz **komunikatu, aby zdekodować** . Gdy zostanie wyświetlona lista zawartości dynamicznej, w obszarze **po odebraniu żądania HTTP**wybierz pozycję wartość właściwości **treści** , na przykład:
+   * Aby wybrać z listy, która zawiera dostępne wyjściowe wyzwalacza, kliknij wewnątrz **komunikatu, aby zdekodować** . Gdy zostanie wyświetlona lista zawartości dynamicznej, w obszarze **po odebraniu żądania HTTP** wybierz pozycję wartość właściwości **treści** , na przykład:
 
      ![Wybierz wartość "treść" z wyzwalacza](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * Aby wprowadzić wyrażenie odwołujące się do `body` danych wyjściowych wyzwalacza, kliknij wewnątrz **komunikatu, aby zdekodować** . Po wyświetleniu listy zawartości dynamicznej wybierz pozycję **wyrażenie**. W edytorze wyrażeń wprowadź wyrażenie w tym miejscu, a następnie wybierz **przycisk OK**:
+   * Aby wprowadzić wyrażenie odwołujące się do `body` danych wyjściowych wyzwalacza, kliknij wewnątrz **komunikatu, aby zdekodować** . Po wyświetleniu listy zawartości dynamicznej wybierz pozycję **wyrażenie**. W edytorze wyrażeń wprowadź wyrażenie w tym miejscu, a następnie wybierz **przycisk OK** :
 
      `triggerOutputs()['body']`
 
@@ -91,13 +91,21 @@ Teraz Dodaj akcje B2B, których chcesz użyć. W tym przykładzie są stosowane 
 
 1. Dla właściwości **nagłówki wiadomości** wprowadź wszystkie nagłówki wymagane dla akcji AS2, które są opisane przez `headers` zawartość odebraną przez wyzwalacz żądania HTTP.
 
-   Aby wprowadzić wyrażenie odwołujące się do `headers` danych wyjściowych wyzwalacza, kliknij wewnątrz pola **nagłówka komunikatu** . Po wyświetleniu listy zawartości dynamicznej wybierz pozycję **wyrażenie**. W edytorze wyrażeń wprowadź wyrażenie w tym miejscu, a następnie wybierz **przycisk OK**:
+   1. Aby wprowadzić wyrażenie odwołujące się do `headers` danych wyjściowych wyzwalacza, wybierz opcję **Przełącz nagłówki wiadomości do trybu tekstowego**.
 
-   `triggerOutputs()['Headers']`
+      ![Zrzut ekranu pokazujący, że wybrano "Przełącz nagłówki wiadomości do trybu tekstowego".](./media/logic-apps-enterprise-integration-b2b/as2-decode-switch-text-mode.png)
 
-   Aby uzyskać to wyrażenie do rozpoznania jako ten token, przełączać się między projektantem a widokiem kodu, na przykład:
+   1. Kliknij wewnątrz pola **nagłówka komunikatu** . Po wyświetleniu listy zawartości dynamicznej wybierz pozycję **wyrażenie**. W edytorze wyrażeń wprowadź wyrażenie w tym miejscu, a następnie wybierz **przycisk OK** :
 
-   ![Rozpoznane nagłówki wyjściowe z wyzwalacza](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
+      `triggerOutputs()['Headers']`
+
+      W akcji dekodowania AS2, wyrażenie jest teraz wyświetlane jako token:
+
+      ![Zrzut ekranu pokazujący @triggerOutputs token "() [" nagłówki "]" w polu "nagłówki wiadomości".](./media/logic-apps-enterprise-integration-b2b/as2-decode-message-header-expression.png)
+
+   1. Aby uzyskać token, który ma zostać rozpoznany w tokenie **nagłówków** , przełącz się między projektantem a widokiem kodu. Po wykonaniu tego kroku akcja dekodowania AS2 będzie wyglądać następująco:
+
+      ![Rozpoznane nagłówki wyjściowe z wyzwalacza](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
 ## <a name="add-response-action-for-message-receipt-notification"></a>Dodaj akcję odpowiedzi dla powiadomienia o otrzymaniu komunikatu
 
@@ -105,7 +113,7 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 
 1. W obszarze akcji **dekodowania AS2** wybierz pozycję **nowy krok**.
 
-1. W obszarze **Wybierz akcję**, w polu wyszukiwania wybierz pozycję **wbudowane**. W polu wyszukiwania wpisz `condition`. Na liście **Akcje** wybierz pozycję **Warunek**.
+1. W obszarze **Wybierz akcję** , w polu wyszukiwania wybierz pozycję **wbudowane**. W polu wyszukiwania wpisz `condition`. Na liście **Akcje** wybierz pozycję **Warunek**.
 
    ![Dodaj akcję "Condition"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 
@@ -123,7 +131,7 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 
 1. Teraz Określ odpowiedzi, aby zwrócić, czy Akcja **dekodowania AS2** powiodła się.
 
-   1. W przypadku pomyślnej akcji **dekodowania AS2** w kształcie **Jeśli prawda** wybierz pozycję **Dodaj akcję**. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `response` , a następnie wybierz pozycję **odpowiedź**.
+   1. W przypadku pomyślnej akcji **dekodowania AS2** w kształcie **Jeśli prawda** wybierz pozycję **Dodaj akcję**. W obszarze **Wybierz akcję** w polu wyszukiwania wpisz `response` , a następnie wybierz pozycję **odpowiedź**.
 
       ![Znajdź i wybierz akcję "odpowiedź"](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
 
@@ -141,7 +149,7 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 
       ![Rozpoznano wyrażenie umożliwiające dostęp do AS2 powiadomienia MDN](./media/logic-apps-enterprise-integration-b2b/response-action-success-resolved-expression.png)
 
-   1. W przypadku niepowodzenia akcji **dekodowania AS2** w kształcie **Jeśli FAŁSZ** wybierz pozycję **Dodaj akcję**. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `response` , a następnie wybierz pozycję **odpowiedź**. Skonfiguruj akcję **odpowiedź** w celu zwrócenia żądanego stanu i błędu.
+   1. W przypadku niepowodzenia akcji **dekodowania AS2** w kształcie **Jeśli FAŁSZ** wybierz pozycję **Dodaj akcję**. W obszarze **Wybierz akcję** w polu wyszukiwania wpisz `response` , a następnie wybierz pozycję **odpowiedź**. Skonfiguruj akcję **odpowiedź** w celu zwrócenia żądanego stanu i błędu.
 
 1. Zapisz aplikację logiki.
 
@@ -149,7 +157,7 @@ Aby powiadomić partnera handlowego o otrzymaniu wiadomości, można zwrócić o
 
 1. Teraz Dodaj akcję **Dekoduj X12 komunikat** . W obszarze Akcja **odpowiedzi** wybierz pozycję **Dodaj akcję**.
 
-1. W obszarze **Wybierz akcję**w polu wyszukiwania wpisz `x12 decode` , a następnie wybierz opcję **Dekoduj komunikat X12**.
+1. W obszarze **Wybierz akcję** w polu wyszukiwania wpisz `x12 decode` , a następnie wybierz opcję **Dekoduj komunikat X12**.
 
    ![Znajdź i wybierz akcję "Dekoduj komunikat X12"](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
 

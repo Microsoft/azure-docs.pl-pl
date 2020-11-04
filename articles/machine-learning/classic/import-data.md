@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 085f865b567cf67adfd6f50a37e07ac40b36f871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00501a1e17f8e085b817cfe3dac819ba890248f5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356574"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309847"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importowanie danych szkoleniowych do Azure Machine Learning Studio (klasyczne) z różnych źródeł danych
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Aby użyć własnych danych w Machine Learning Studio (klasyczny) do opracowania i uczenia rozwiązania do analizy predykcyjnej, możesz użyć danych z: 
@@ -66,19 +66,19 @@ Można jawnie określić lub zmienić nagłówki i typy danych dla kolumn za pom
 
 Następujące typy danych są rozpoznawane przez program Studio (klasyczny):
 
-* Ciąg
+* String
 * Liczba całkowita
 * Double
 * Boolean (wartość logiczna)
 * Data/godzina
 * przedział_czasu
 
-Studio używa wewnętrznego typu danych o nazwie ***tabela danych*** do przekazywania danych między modułami. Dane można jawnie przekonwertować na format tabeli danych przy użyciu modułu [Konwertuj na zestaw][convert-to-dataset] danych.
+Studio używa wewnętrznego typu danych o nazwie * **Data Table** _ do przekazywania danych między modułami. Dane można jawnie przekonwertować na format tabeli danych przy użyciu modułu [Konwertuj na zestaw][convert-to-dataset] danych.
 
 Każdy moduł, który akceptuje formaty inne niż tabela danych, przekonwertuje dane do tabeli danych dyskretnie przed przekazaniem ich do następnego modułu.
 
 W razie potrzeby można przekonwertować Format tabeli danych z powrotem do formatu CSV, TSV, ARFF lub SVMLight przy użyciu innych modułów konwersji.
-Zapoznaj się z sekcją **konwersje formatu danych** w palecie modułów dla modułów, które wykonują te funkcje.
+Zapoznaj się z sekcją _ *konwersje formatu danych* * w palecie modułów dla modułów, które wykonują te funkcje.
 
 ## <a name="data-capacities"></a>Pojemności danych
 
@@ -101,7 +101,7 @@ W przypadku następujących modułów obowiązuje ograniczenie do zestawów dany
 
 W przypadku zestawów danych o rozmiarach większych niż kilka GB należy przekazać dane do usługi Azure Storage lub Azure SQL Database lub użyć usługi Azure HDInsight zamiast przekazywania ich bezpośrednio z pliku lokalnego.
 
-Informacje o danych obrazu można znaleźć w dokumentacji modułu [Import images](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) .
+Informacje o danych obrazu można znaleźć w dokumentacji modułu [Import images](/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) .
 
 ## <a name="import-from-a-local-file"></a>Importuj z pliku lokalnego
 
@@ -160,8 +160,8 @@ Moduł **Import danych** Azure Machine Learning Studio (klasyczny) obsługuje na
 | Źródło danych | Opis | Parametry |
 | --- | --- | --- |
 | Adres URL sieci Web za pośrednictwem protokołu HTTP |Odczytuje dane w formacie wartości rozdzielanych przecinkami (CSV), wartości rozdzielane znakami tabulacji (TSV), format pliku relacji atrybutu (ARFF) i obsługują formaty maszyny wektorowe (SVM-Light) z dowolnego adresu URL sieci Web korzystającego z protokołu HTTP |<b>URL</b>: Określa pełną nazwę pliku, w tym adres URL witryny i nazwę pliku, z dowolnym rozszerzeniem. <br/><br/><b>Format danych</b>: określa jeden z obsługiwanych formatów danych: CSV, TSV, ARFF lub SVM-jasna. Jeśli dane zawierają wiersz nagłówka, jest on używany do przypisywania nazw kolumn. |
-| Hadoop/HDFS |Odczytuje dane z magazynu rozproszonego w usłudze Hadoop. Należy określić dane, które mają być używane w HiveQL, języku zapytań przypominającym język SQL. HiveQL może również służyć do agregowania danych i wykonywania filtrowania danych przed dodaniem danych do programu Studio (klasyczne). |<b>Zapytanie bazy danych Hive</b>: określa zapytanie programu Hive używane do generowania danych.<br/><br/><b>Identyfikator URI serwera HCatalog</b> : Określ nazwę klastra przy użyciu formatu * &lt; Nazwa klastra &gt; . azurehdinsight.NET.*<br/><br/><b>Nazwa konta użytkownika usługi Hadoop</b>: Określa nazwę konta użytkownika usługi Hadoop służącą do aprowizacji klastra.<br/><br/><b>Hasło konta użytkownika usługi Hadoop</b> : określa poświadczenia używane podczas aprowizacji klastra. Aby uzyskać więcej informacji, zobacz [Tworzenie klastrów Hadoop w usłudze HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Lokalizacja danych wyjściowych</b>: określa, czy dane są przechowywane w rozproszonym systemie plików HADOOP (HDFS), czy na platformie Azure. <br/><ul>Jeśli dane wyjściowe są przechowywane w systemie plików HDFS, określ identyfikator URI serwera HDFS. (Pamiętaj, aby użyć nazwy klastra usługi HDInsight bez prefiksu HTTPS://). <br/><br/>Jeśli dane wyjściowe są przechowywane na platformie Azure, należy określić nazwę konta usługi Azure Storage, klucz dostępu do magazynu i nazwę kontenera magazynu.</ul> |
-| Baza danych SQL |Odczytuje dane przechowywane w Azure SQL Database, wystąpieniu zarządzanym SQL lub w bazie danych SQL Server uruchomionej na maszynie wirtualnej platformy Azure. |<b>Nazwa serwera bazy danych</b>: Określa nazwę serwera, na którym jest uruchomiona baza danych programu.<br/><ul>W przypadku Azure SQL Database wprowadź wygenerowaną nazwę serwera. Zazwyczaj ma postać * &lt; generated_identifier &gt; . Database.Windows.NET.* <br/><br/>W przypadku programu SQL Server hostowanego na maszynie wirtualnej platformy Azure wprowadź wartość *TCP: &lt; nazwa DNS maszyny wirtualnej &gt; , 1433*</ul><br/><b>Nazwa bazy danych </b>: Określa nazwę bazy danych na serwerze. <br/><br/><b>Nazwa konta użytkownika serwera</b>: Określa nazwę użytkownika dla konta, które ma uprawnienia dostępu do bazy danych. <br/><br/><b>Hasło konta użytkownika serwera</b>: Określa hasło dla konta użytkownika.<br/><br/><b>Zapytanie bazy danych</b>: wprowadź instrukcję SQL opisującą dane, które mają zostać odczytane. |
+| Hadoop/HDFS |Odczytuje dane z magazynu rozproszonego w usłudze Hadoop. Należy określić dane, które mają być używane w HiveQL, języku zapytań przypominającym język SQL. HiveQL może również służyć do agregowania danych i wykonywania filtrowania danych przed dodaniem danych do programu Studio (klasyczne). |<b>Zapytanie bazy danych Hive</b>: określa zapytanie programu Hive używane do generowania danych.<br/><br/><b>Identyfikator URI serwera HCatalog</b> : Określ nazwę klastra przy użyciu formatu *&lt; Nazwa klastra &gt; . azurehdinsight.NET.*<br/><br/><b>Nazwa konta użytkownika usługi Hadoop</b>: Określa nazwę konta użytkownika usługi Hadoop służącą do aprowizacji klastra.<br/><br/><b>Hasło konta użytkownika usługi Hadoop</b> : określa poświadczenia używane podczas aprowizacji klastra. Aby uzyskać więcej informacji, zobacz [Tworzenie klastrów Hadoop w usłudze HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).<br/><br/><b>Lokalizacja danych wyjściowych</b>: określa, czy dane są przechowywane w rozproszonym systemie plików HADOOP (HDFS), czy na platformie Azure. <br/><ul>Jeśli dane wyjściowe są przechowywane w systemie plików HDFS, określ identyfikator URI serwera HDFS. (Pamiętaj, aby użyć nazwy klastra usługi HDInsight bez prefiksu HTTPS://). <br/><br/>Jeśli dane wyjściowe są przechowywane na platformie Azure, należy określić nazwę konta usługi Azure Storage, klucz dostępu do magazynu i nazwę kontenera magazynu.</ul> |
+| Baza danych SQL |Odczytuje dane przechowywane w Azure SQL Database, wystąpieniu zarządzanym SQL lub w bazie danych SQL Server uruchomionej na maszynie wirtualnej platformy Azure. |<b>Nazwa serwera bazy danych</b>: Określa nazwę serwera, na którym jest uruchomiona baza danych programu.<br/><ul>W przypadku Azure SQL Database wprowadź wygenerowaną nazwę serwera. Zazwyczaj ma postać *&lt; generated_identifier &gt; . Database.Windows.NET.* <br/><br/>W przypadku programu SQL Server hostowanego na maszynie wirtualnej platformy Azure wprowadź wartość *TCP: &lt; nazwa DNS maszyny wirtualnej &gt; , 1433*</ul><br/><b>Nazwa bazy danych </b>: Określa nazwę bazy danych na serwerze. <br/><br/><b>Nazwa konta użytkownika serwera</b>: Określa nazwę użytkownika dla konta, które ma uprawnienia dostępu do bazy danych. <br/><br/><b>Hasło konta użytkownika serwera</b>: Określa hasło dla konta użytkownika.<br/><br/><b>Zapytanie bazy danych</b>: wprowadź instrukcję SQL opisującą dane, które mają zostać odczytane. |
 | Lokalna baza danych SQL |Odczytuje dane przechowywane w bazie danych SQL. |<b>Brama danych</b>: Określa nazwę bramy zarządzanie danymi zainstalowanej na komputerze, na którym może uzyskać dostęp do bazy danych SQL Server. Informacje o konfigurowaniu bramy znajdują się w temacie [wykonywanie zaawansowanej analizy z Azure Machine Learning Studio (klasyczny) przy użyciu danych z programu SQL Server](use-data-from-an-on-premises-sql-server.md).<br/><br/><b>Nazwa serwera bazy danych</b>: Określa nazwę serwera, na którym jest uruchomiona baza danych programu.<br/><br/><b>Nazwa bazy danych </b>: Określa nazwę bazy danych na serwerze. <br/><br/><b>Nazwa konta użytkownika serwera</b>: Określa nazwę użytkownika dla konta, które ma uprawnienia dostępu do bazy danych. <br/><br/><b>Nazwa użytkownika i hasło</b>: kliknij przycisk <b>wprowadź wartości</b> , aby wprowadzić poświadczenia bazy danych. W zależności od konfiguracji SQL Server można użyć zintegrowanego uwierzytelniania systemu Windows lub uwierzytelniania SQL Server.<br/><br/><b>Zapytanie bazy danych</b>: wprowadź instrukcję SQL opisującą dane, które mają zostać odczytane. |
 | Tabela platformy Azure |Odczytuje dane z Table service w usłudze Azure Storage.<br/><br/>Jeśli często odczytujesz duże ilości danych, Użyj usługi Azure Table Service. Zapewnia elastyczne, nierelacyjne (NoSQLe), wysoce skalowalne i niedrogie rozwiązanie magazynu o wysokiej dostępności. |Opcje w obszarze **Importuj dane** zmieniają się w zależności od tego, czy uzyskujesz dostęp do informacji publicznych lub prywatnego konta magazynu wymagającego poświadczeń logowania. Jest to określane przez <b>Typ uwierzytelniania</b> , który może mieć wartość "PublicOrSAS" lub "Account", z których każdy ma własny zestaw parametrów. <br/><br/><b>Identyfikator URI sygnatury dostępu współdzielonego (SAS)</b>: parametry są następujące:<br/><br/><ul><b>Identyfikator URI tabeli</b>: określa publiczny lub adres URL sygnatury dostępu współdzielonego dla tabeli.<br/><br/><b>Określa wiersze do skanowania w poszukiwaniu nazw właściwości</b>: wartości są <i>TopN</i> do skanowania określonej liczby wierszy lub <i>ScanAll</i> , aby pobrać wszystkie wiersze z tabeli. <br/><br/>Jeśli dane są jednorodne i przewidywalne, zaleca się wybranie opcji *TopN* i wprowadzenie numeru N. W przypadku dużych tabel może to spowodować szybsze odczytywanie czasu.<br/><br/>Jeśli dane są strukturalne z zestawami właściwości, które różnią się w zależności od głębokości i położenia tabeli, wybierz opcję *ScanAll* , aby skanować wszystkie wiersze. Pozwala to zagwarantować integralność powstających właściwości i konwersji metadanych.<br/><br/></ul><b>Prywatne konto magazynu</b>: parametry są następujące: <br/><br/><ul><b>Nazwa konta</b>: Określa nazwę konta, które zawiera tabelę do odczytania.<br/><br/><b>Klucz konta</b>: określa klucz magazynu skojarzony z kontem.<br/><br/><b>Nazwa tabeli</b> : Określa nazwę tabeli zawierającej dane do odczytania.<br/><br/><b>Wiersze do skanowania nazw właściwości</b>: wartości są <i>TopN</i> do skanowania określonej liczby wierszy lub <i>ScanAll</i> , aby pobrać wszystkie wiersze z tabeli.<br/><br/>Jeśli dane są jednorodne i przewidywalne, zalecamy wybranie opcji *TopN* i wprowadzenie numeru N. W przypadku dużych tabel może to spowodować szybsze odczytywanie czasu.<br/><br/>Jeśli dane są strukturalne z zestawami właściwości, które różnią się w zależności od głębokości i położenia tabeli, wybierz opcję *ScanAll* , aby skanować wszystkie wiersze. Pozwala to zagwarantować integralność powstających właściwości i konwersji metadanych.<br/><br/> |
 | Azure Blob Storage |Odczytuje dane przechowywane w Blob service w usłudze Azure Storage, w tym obrazy, tekst bez struktury lub dane binarne.<br/><br/>Blob service można użyć do publicznego ujawnienia danych lub do prywatnego przechowywania danych aplikacji. Dostęp do danych można uzyskać z dowolnego miejsca przy użyciu połączeń HTTP lub HTTPS. |Opcje w module **Importuj dane** zmieniają się w zależności od tego, czy uzyskujesz dostęp do informacji publicznych lub prywatnego konta magazynu wymagającego poświadczeń logowania. Jest to określane przez <b>Typ uwierzytelniania</b> , który może mieć wartość "PublicOrSAS" lub "Account".<br/><br/><b>Identyfikator URI sygnatury dostępu współdzielonego (SAS)</b>: parametry są następujące:<br/><br/><ul><b>URI</b>: określa publiczny lub adres URL sygnatury dostępu współdzielonego dla obiektu blob magazynu.<br/><br/><b>Format pliku</b>: określa format danych w BLOB Service. Obsługiwane formaty to CSV, TSV i ARFF.<br/><br/></ul><b>Prywatne konto magazynu</b>: parametry są następujące: <br/><br/><ul><b>Nazwa konta</b>: Określa nazwę konta, które zawiera obiekt BLOB, który ma zostać odczytany.<br/><br/><b>Klucz konta</b>: określa klucz magazynu skojarzony z kontem.<br/><br/><b>Ścieżka do kontenera, katalogu lub obiektu BLOB </b> : Określa nazwę obiektu BLOB, który zawiera dane do odczytu.<br/><br/><b>Format pliku BLOB</b>: określa format danych w usłudze BLOB. Obsługiwane formaty danych to CSV, TSV, ARFF, CSV z określonym kodowaniem i program Excel. <br/><br/><ul>Jeśli format jest CSV lub TSV, należy się upewnić, czy plik zawiera wiersz nagłówka.<br/><br/>Możesz użyć opcji programu Excel, aby odczytać dane ze skoroszytów programu Excel. W opcji <i>Format danych programu Excel</i> wskaż, czy dane mieszczą się w zakresie arkusza programu Excel, czy w tabeli programu Excel. W <i>arkuszu programu Excel lub osadzonej tabeli </i>Określ nazwę arkusza lub tabeli, z której chcesz się odczytywać.</ul><br/> |
@@ -184,11 +184,11 @@ Po zakończeniu zapisywania zestaw danych będzie dostępny do użycia w ramach 
 
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[export-data]: /azure/machine-learning/studio-module-reference/export-data
 
 
 <!-- Module References -->
-[convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[convert-to-dataset]: /azure/machine-learning/studio-module-reference/convert-to-dataset
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 03/05/2020
-  ms.openlocfilehash: e31651c07cc9567af0deac8311b2321ad6dee4ba
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 6bd43c0aff79003cc998dc132a13ba4c52281ff3
+  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91337534"
+  ms.lasthandoff: 11/04/2020
+  ms.locfileid: "93309821"
 landingContent:
 - title: Wprowadzenie do usługi Studio (klasycznej)
   linkLists:
@@ -36,9 +36,9 @@ landingContent:
     - text: Moduły programu PowerShell
       url: powershell-module.md
     - text: Algorytmy i moduły
-      url: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index
+      url: /azure/machine-learning/studio-module-reference/index
     - text: Interfejsy API zarządzania — REST
-      url: https://docs.microsoft.com/rest/api/machinelearning/
+      url: /rest/api/machinelearning/
     - text: Kody błędów usługi internetowej
       url: web-service-error-codes.md
 - title: Więcej technologii usługi Azure ML
@@ -46,8 +46,8 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure Machine Learning
-      url: /azure/machine-learning/
+      url: ../index.yml
     - text: Maszyna wirtualna do analizy danych
-      url: /azure/machine-learning/data-science-virtual-machine
+      url: ../data-science-virtual-machine/index.yml
     - text: Porównanie naszych produktów do uczenia maszynowego
-      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
+      url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context

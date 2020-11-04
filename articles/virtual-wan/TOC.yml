@@ -15,6 +15,10 @@
       href: virtual-wan-expressroute-portal.md
 - name: Pojęcia
   items:
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Praca zdalna
       items:
         - name: Obsługa pracy zdalnej

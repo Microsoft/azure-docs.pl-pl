@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: f159e38eb66e1758feaf743c32d8de30c614b234
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe30a2a0885e1a579eb32ad84ef467f7162febe4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288515"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310316"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Funkcje języka Transact-SQL obsługiwane przez usługę Azure Synapse SQL
 
@@ -79,8 +79,8 @@ Synapse SQL umożliwia korzystanie z wbudowanych funkcji zabezpieczeń w celu za
 | **Użytkownicy** |  Nie dotyczy (w bazach danych są obsługiwane tylko zawarte użytkownicy) | Tak |
 | **[Zawarci użytkownicy](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | Tak. **Uwaga:** tylko jeden użytkownik usługi Azure AD może być nieograniczonym administratorem | Tak |
 | **Uwierzytelnianie hasła/nazwy użytkownika SQL**| Tak | Tak |
-| **Uwierzytelnianie Azure Active Directory (AAD)**| Tak, użytkownicy usługi Azure AD | Tak, logowania i użytkownicy usługi Azure AD |
-| **Uwierzytelnianie przekazujące Azure Active Directory magazynu (AAD)** | Tak | Tak |
+| **Uwierzytelnianie Azure Active Directory (Azure AD)**| Tak, użytkownicy usługi Azure AD | Tak, logowania i użytkownicy usługi Azure AD |
+| **Uwierzytelnianie przekazujące Azure Active Directory magazynu (Azure AD)** | Tak | Tak |
 | **Uwierzytelnianie tokenu SAS magazynu** | Nie | Tak, przy użyciu [poświadczeń w zakresie bazy danych](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) w [zewnętrznym źródle danych](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) lub [poświadczenie](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)na poziomie wystąpienia. |
 | **Uwierzytelnianie klucza dostępu do magazynu** | Tak, przy użyciu [poświadczeń w zakresie bazy danych](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) w [ZEWNĘTRZNYm źródle danych](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Nie |
 | **Uwierzytelnianie [tożsamości zarządzanej](../security/synapse-workspace-managed-identity.md) przez magazyn** | Tak, przy użyciu [poświadczeń tożsamość usługi zarządzanej](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Tak, przy użyciu `Managed Identity` poświadczeń. |
@@ -99,11 +99,11 @@ Synapse SQL umożliwia korzystanie z wbudowanych funkcji zabezpieczeń w celu za
 | **Odnajdywanie i klasyfikacja danych** | [Tak](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Nie |
 | **Ocena luk w zabezpieczeniach** | [Tak](/azure/sql-database/sql-vulnerability-assessment?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Nie |
 | **Advanced Threat Protection** | [Tak](/azure/sql-database/sql-database-threat-detection-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-| **Kontroli** | [Tak](/azure/sql-database/sql-database-auditing?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Nie |
+| **Inspekcja** | [Tak](/azure/sql-database/sql-database-auditing?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Nie |
 | **[Reguły zapory](../security/synapse-workspace-ip-firewall.md)**| Tak | Tak |
 | **[Prywatny punkt końcowy](../security/synapse-workspace-managed-private-endpoints.md)**| Tak | Tak |
 
-Usługa SQL Pool i usługa SQL na żądanie używają standardowego języka Transact-SQL do wykonywania zapytań dotyczących danych. Aby uzyskać szczegółowe różnice, zapoznaj się z dokumentacją [języka Transact-SQL](/sql/t-sql/language-reference).
+Dedykowana Pula SQL i bezserwerowa Pula SQL używają standardowego języka Transact-SQL do wykonywania zapytań dotyczących danych. Aby uzyskać szczegółowe różnice, zapoznaj się z dokumentacją [języka Transact-SQL](/sql/t-sql/language-reference).
 
 ## <a name="tools"></a>narzędzia
 
@@ -118,7 +118,7 @@ Za pomocą różnych narzędzi można nawiązać połączenie z usługą Synapse
 | **SQL Server Management Studio** | Tak | Tak, wersja 18,5 lub nowsza |
 
 > [!NOTE]
-> Program SSMS umożliwia nawiązanie połączenia z usługą SQL na żądanie (wersja zapoznawcza) i kwerendą. Jest ona częściowo obsługiwana począwszy od wersji 18,5, można jej używać do nawiązywania połączeń i tylko zapytań.
+> Możesz użyć programu SSMS do nawiązania połączenia z pulę SQL bezserwerową (wersja zapoznawcza) i kwerendą. Jest ona częściowo obsługiwana począwszy od wersji 18,5, można jej używać do nawiązywania połączeń i tylko zapytań.
 
 Większość aplikacji korzysta ze standardowego języka Transact-SQL, który może wykonywać zapytania dotyczące nieobsługiwanych i bezserwerowych modeli zużycia Synapse SQL.
 
@@ -150,7 +150,7 @@ Analizowane dane mogą być przechowywane w różnych formatach magazynu. W poni
 | **[CDM](https://docs.microsoft.com/common-data-model/)** | Nie | Nie |
 
 ## <a name="next-steps"></a>Następne kroki
-Dodatkowe informacje o najlepszych rozwiązaniach dotyczących puli SQL i SQL na żądanie można znaleźć w następujących artykułach:
+Dodatkowe informacje na temat najlepszych rozwiązań dotyczących dedykowanej puli SQL i bezserwerowej puli można znaleźć w następujących artykułach:
 
-- [Najlepsze rozwiązania dotyczące puli SQL](best-practices-sql-pool.md)
-- [Najlepsze rozwiązania dotyczące programu SQL na żądanie](best-practices-sql-on-demand.md)
+- [Najlepsze rozwiązania dotyczące dedykowanej puli SQL](best-practices-sql-pool.md)
+- [Najlepsze rozwiązania dotyczące puli SQL bezserwerowej](best-practices-sql-on-demand.md)

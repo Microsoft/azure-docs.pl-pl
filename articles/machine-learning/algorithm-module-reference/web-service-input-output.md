@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: a62f8aee0bd0a0d2b7009a48e9d5f00ea3c5155f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1bf5dd070ac12878c608f744ff450395de84c48
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883223"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310036"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Moduły danych wejściowych i usług sieci Web usługi sieci Web
 
@@ -26,7 +26,7 @@ Moduł danych wejściowych usługi sieci Web wskazuje, gdzie dane użytkownika s
 
 ## <a name="how-to-use-web-service-input-and-output"></a>Jak używać danych wejściowych i wyjściowych usługi sieci Web
 
-Gdy tworzysz [potok wnioskowania](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline) w czasie rzeczywistym z potoku szkoleniowego, moduły danych wejściowych i usług sieci Web usługi sieci Web zostaną automatycznie dodane w celu pokazania miejsca, w którym dane użytkownika są wprowadzane do potoku i gdzie są zwracane dane. 
+Gdy tworzysz [potok wnioskowania](../tutorial-designer-automobile-price-deploy.md#create-a-real-time-inference-pipeline) w czasie rzeczywistym z potoku szkoleniowego, moduły danych wejściowych i usług sieci Web usługi sieci Web zostaną automatycznie dodane w celu pokazania miejsca, w którym dane użytkownika są wprowadzane do potoku i gdzie są zwracane dane. 
 
 > [!NOTE]
 > Automatyczne generowanie potoku w czasie rzeczywistym to oparty na regułach, optymalny proces. Nie istnieje gwarancja poprawności. 
@@ -48,6 +48,6 @@ Po przesłaniu potoku i zakończeniu przebiegu można wdrożyć punkt końcowy w
 >  W powyższym przykładzie **Wprowadź dane ręcznie** udostępnia schemat danych dla danych wejściowych usługi sieci Web i jest niezbędny do wdrożenia punktu końcowego w czasie rzeczywistym. Ogólnie rzecz biorąc, należy podłączyć moduł lub zestaw danych do portu, w którym jest połączona **Usługa sieci Web** , aby zapewnić schemat danych.
    
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [wdrażaniu punktu końcowego w czasie rzeczywistym](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
+Dowiedz się więcej o [wdrażaniu punktu końcowego w czasie rzeczywistym](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
 
 Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning.

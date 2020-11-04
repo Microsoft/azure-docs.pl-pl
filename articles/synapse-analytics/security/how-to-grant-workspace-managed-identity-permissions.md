@@ -8,27 +8,27 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08ead12c99ae4919a2daf523065cfe332c644df1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 54612bee5715cdb78141a8aacfa5d24c814269d1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487198"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312400"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Przyznawanie uprawnień do tożsamości zarządzanej przez obszar roboczy (wersja zapoznawcza)
 
-W tym artykule opisano sposób udzielania uprawnień zarządzanej tożsamości w obszarze roboczym usługi Azure Synapse. Uprawnienia z kolei umożliwiają dostęp do pul SQL w obszarze roboczym i ADLS Gen2 konta magazynu za pomocą Azure Portal.
+W tym artykule opisano sposób udzielania uprawnień zarządzanej tożsamości w obszarze roboczym usługi Azure Synapse. Z kolei uprawnienia zezwalają na dostęp do dedykowanych pul SQL w obszarze roboczym i ADLS Gen2 konto magazynu za pomocą Azure Portal.
 
 >[!NOTE]
 >Ta tożsamość zarządzana w obszarze roboczym będzie określana jako tożsamość zarządzana w pozostałej części tego dokumentu.
 
-## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Przyznawanie uprawnień do zarządzania tożsamościami w puli SQL
+## <a name="grant-managed-identity-permissions-to-the-dedicated-sql-pool"></a>Przyznawanie uprawnień tożsamości zarządzanej do dedykowanej puli SQL
 
-Zarządzana tożsamość przyznaje uprawnienia do pul SQL w obszarze roboczym. Z przyznanymi uprawnieniami można organizować potoki, które wykonują działania związane z pulą SQL. Podczas tworzenia obszaru roboczego usługi Azure Synapse przy użyciu Azure Portal można przyznać zarządzanym kontrolom kontroli tożsamości w pulach SQL.
+Zarządzana tożsamość przyznaje uprawnienia do dedykowanych pul SQL w obszarze roboczym. Z przyznanymi uprawnieniami można organizować potoki wykonujące dedykowane działania związane z pulą SQL. Podczas tworzenia obszaru roboczego usługi Azure Synapse przy użyciu Azure Portal można przyznać zarządzanym kontom kontroli tożsamości dla dedykowanych pul SQL.
 
-Wybierz pozycję **zabezpieczenia i sieć** podczas tworzenia obszaru roboczego usługi Azure Synapse. Następnie wybierz pozycję **Udziel kontroli do zarządzanej tożsamości obszaru roboczego w PULACH SQL**.
+Wybierz pozycję **zabezpieczenia** podczas tworzenia obszaru roboczego usługi Azure Synapse. Następnie wybierz pozycję **Zezwalaj na potoki (uruchomioną jako tożsamość przypisaną do systemu), aby uzyskać dostęp do pul SQL.**.
 
-![Uprawnienia KONTROLki dla pul SQL](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
+![Uprawnienie kontroli dla dedykowanych pul SQL](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
 ## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Przyznawanie uprawnień tożsamości zarządzanej do ADLS Gen2 konta magazynu
 

@@ -1,6 +1,6 @@
 ---
 title: Łączenie i wykonywanie zapytań w programie SQL Synapse w programie Visual Studio i SSDT
-description: Za pomocą programu Visual Studio Zbadaj pulę SQL przy użyciu usługi Azure Synapse Analytics.
+description: Użyj programu Visual Studio, aby wykonać zapytanie dotyczące dedykowanej puli SQL przy użyciu usługi Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,36 +9,38 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93c975bbbc69a43f1bd47bd4b1e7b857338ac1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 098256c3174f5a737bec4f6a62cb1d2af99e6f4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089247"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311066"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Nawiązywanie połączenia z usługą Synapse SQL za pomocą programu Visual Studio i SSDT
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Program Visual Studio](get-started-visual-studio.md)
+> * [Visual Studio](get-started-visual-studio.md)
 > * [sqlcmd](get-started-connect-sqlcmd.md) 
 > * [SSMS](get-started-ssms.md)
 > 
 > 
 
-Za pomocą programu Visual Studio Zbadaj pulę SQL przy użyciu usługi Azure Synapse Analytics. Ta metoda używa rozszerzenia SQL Server Data Tools (SSDT) w programie Visual Studio 2019. 
+Użyj programu Visual Studio, aby wykonać zapytanie dotyczące dedykowanej puli SQL przy użyciu usługi Azure Synapse Analytics. Ta metoda używa rozszerzenia SQL Server Data Tools (SSDT) w programie Visual Studio 2019. 
 
 > [!NOTE]
-> SQL na żądanie (wersja zapoznawcza) nie jest obsługiwana przez SSDT.
+> Pula SQL bezserwerowa (wersja zapoznawcza) nie jest obsługiwana przez SSDT.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 Aby skorzystać z tego samouczka, należy dysponować następującymi składnikami:
 
-* Istniejąca Pula SQL. Jeśli go nie masz, zobacz [Tworzenie puli SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , aby ukończyć to wymaganie wstępne.
+* Istniejąca dedykowana Pula SQL. Jeśli go nie masz, zobacz [Tworzenie dedykowanej puli SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , aby ukończyć to wymaganie wstępne.
 * Rozszerzenie SSDT dla programu Visual Studio. Jeśli masz program Visual Studio, prawdopodobnie masz już ten składnik. Aby uzyskać instrukcje instalacji i informacje na temat dostępnych opcji, zobacz artykuł [Instalowanie programu Visual Studio i narzędzi SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć tę nazwę serwera, zobacz [nawiązywanie połączenia z pulą SQL](connect-overview.md).
+* W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć tę nazwę serwera, zobacz [nawiązywanie połączenia z dedykowaną pulą SQL](connect-overview.md).
 
-## <a name="1-connect-to-sql-pool"></a>1. Łączenie z pulą SQL
+## <a name="1-connect-to-a-dedicated-sql-pool"></a>1. Nawiązywanie połączenia z dedykowaną pulą SQL
 1. Otwórz program Visual Studio 2019.
 2. Otwórz Eksplorator obiektów SQL Server, wybierając pozycję **Wyświetl**  >  **Eksplorator obiektów SQL Server**.
    
@@ -50,10 +52,10 @@ Aby skorzystać z tego samouczka, należy dysponować następującymi składnika
    
     ![Łączenie z serwerem](./media/get-started-visual-studio/connection-dialog.png)
    
-   * **Nazwa serwera**: wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
-   * **Uwierzytelnianie**: wybierz opcję **uwierzytelnianie SQL Server** lub **Active Directory uwierzytelnianie zintegrowane**:
-   * **Nazwa użytkownika** i **hasło**: Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
-   * Kliknij przycisk **Połącz**.
+   * **Nazwa serwera** : wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
+   * **Uwierzytelnianie** : wybierz opcję **uwierzytelnianie SQL Server** lub **Active Directory uwierzytelnianie zintegrowane** :
+   * **Nazwa użytkownika** i **hasło** : Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
+   * Kliknij przycisk **Podłącz**.
 5. W celach poznawczych rozwiń węzeł serwera Azure SQL. Możesz przejrzeć skojarzone z serwerem bazy danych. Rozwiń węzeł AdventureWorksDW, aby zobaczyć tabele w przykładowej bazie danych.
    
     ![Poznawanie bazy danych AdventureWorksDW](./media/get-started-visual-studio/explore-sample.png)
@@ -79,5 +81,5 @@ Po nawiązaniu połączenia z bazą danych napiszesz zapytanie.
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy można nawiązać połączenie i wykonywać zapytania, spróbuj [wizualizować dane za pomocą Power BI](get-started-power-bi-professional.md).
-Aby skonfigurować środowisko do uwierzytelniania Azure Active Directory, zobacz [uwierzytelnianie w puli SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Aby skonfigurować środowisko do uwierzytelniania Azure Active Directory, zobacz [uwierzytelnianie w dedykowanej puli SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
  

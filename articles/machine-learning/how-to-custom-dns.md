@@ -11,29 +11,29 @@ author: jhirono
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b16c8873a1778b907b288486c204d74ee31683cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097961"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311561"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Jak używać obszaru roboczego z niestandardowym serwerem DNS
 
-W przypadku korzystania z Azure Machine Learning z siecią wirtualną istnieje [kilka sposobów obsługi rozpoznawania nazw DNS](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). Domyślnie platforma Azure automatycznie obsługuje rozpoznawanie nazw dla obszaru roboczego i prywatnego punktu końcowego. Jednak w __przypadku korzystania z własnego niestandardowego serwera DNS__ należy ręcznie utworzyć wpisy DNS dla obszaru roboczego.
+W przypadku korzystania z Azure Machine Learning z siecią wirtualną istnieje [kilka sposobów obsługi rozpoznawania nazw DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Domyślnie platforma Azure automatycznie obsługuje rozpoznawanie nazw dla obszaru roboczego i prywatnego punktu końcowego. Jednak w __przypadku korzystania z własnego niestandardowego serwera DNS__ należy ręcznie utworzyć wpisy DNS dla obszaru roboczego.
 
 > [!IMPORTANT]
 > W tym artykule opisano, jak znaleźć w pełni kwalifikowaną nazwę domeny (FQDN) i adresy IP dla tych wpisów, które nie zawierają informacji na temat konfigurowania rekordów DNS dla tych elementów. Zapoznaj się z dokumentacją oprogramowania DNS, aby uzyskać informacje na temat dodawania rekordów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Virtual Network platformy Azure, która używa [własnego serwera DNS](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+- Virtual Network platformy Azure, która używa [własnego serwera DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 - Obszar roboczy Azure Machine Learning z prywatnym punktem końcowym. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 
-- Znajomość korzystania z [izolacji sieci podczas szkoleń & wnioskowania](how-to-enable-virtual-network.md).
+- Znajomość korzystania z [izolacji sieci podczas szkoleń & wnioskowania](./how-to-network-security-overview.md).
 
-- Opcjonalnie [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) lub [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Opcjonalnie [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) lub [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="find-the-ip-addresses"></a>Znajdowanie adresów IP
 
@@ -69,7 +69,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 # <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
 1. W [Azure Portal](https://portal.azure.com)wybierz __obszar roboczy__ Azure Machine Learning.
-1. W sekcji __Ustawienia__ wybierz pozycję __połączenia prywatne punktów końcowych__ .
+1. W sekcji __Ustawienia__ wybierz pozycję __połączenia prywatne punktów końcowych__.
 1. Wybierz link w wyświetlanej kolumnie __prywatny punkt końcowy__ .
 1. Lista w pełni kwalifikowanych nazw domen (FQDN) i adresów IP dla prywatnego punktu końcowego obszaru roboczego znajduje się u dołu strony.
 

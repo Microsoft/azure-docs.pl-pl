@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 6bd86dc855e5a312550abe050603aeaf45b075ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 550603b9315c1abaa025aac804afc4fe674159d2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362354"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310019"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Eksportuj i usuwaj dane użytkownika w ramach produktu z Azure Machine Learning Studio (klasyczne)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 
@@ -78,4 +78,4 @@ Użyj programu PowerShell, aby wyeksportować wszystkie informacje do przenośne
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać dokumentację obejmującą usługi sieci Web i rozliczenia planu zobowiązań, zobacz [Azure Machine Learning Studio (klasyczny) Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/machinelearning/). 
+Aby uzyskać dokumentację obejmującą usługi sieci Web i rozliczenia planu zobowiązań, zobacz [Azure Machine Learning Studio (klasyczny) Dokumentacja interfejsu API REST](/rest/api/machinelearning/).

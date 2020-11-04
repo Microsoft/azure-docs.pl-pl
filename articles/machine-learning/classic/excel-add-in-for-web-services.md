@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 69eefce50cefe9f54ed931c96ccbe94b2057cae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb87afcc6edc02d241dca763aff9ecdd594e4711
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362371"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310079"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Dodatek programu Excel dla usług sieci Web Azure Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Program Excel ułatwia wywoływanie usług sieci Web bezpośrednio bez konieczności pisania kodu.
@@ -38,7 +38,7 @@ Program Excel ułatwia wywoływanie usług sieci Web bezpośrednio bez konieczno
     ![Wybierz usługę sieci Web](./media/excel-add-in-for-web-services/image1.png)
 3. Spowoduje to przejście do sekcji **przewidywania** .  Ten skoroszyt zawiera już przykładowe dane, ale dla pustego skoroszytu możesz wybrać komórkę w programie Excel i kliknąć pozycję **Użyj przykładowych danych**.
 4. Wybierz dane z nagłówkami i kliknij ikonę zakres danych wejściowych.  Upewnij się, że pole "moje dane ma nagłówki" jest zaznaczone.
-5. W obszarze **dane wyjściowe**wprowadź numer komórki, w której mają być wyświetlane dane wyjściowe, na przykład "H1" w tym miejscu.
+5. W obszarze **dane wyjściowe** wprowadź numer komórki, w której mają być wyświetlane dane wyjściowe, na przykład "H1" w tym miejscu.
 6. Kliknij pozycję **przewidywanie**. W przypadku wybrania pola wyboru "automatycznie przewidywalna" zmiana dotycząca wybranych obszarów (określonych jako dane wejściowe) spowoduje wyzwolenie żądania i zaktualizowanie komórek wyjściowych bez konieczności naciskania przycisku przewidywania.
    
     ![Sekcja przewidywania](./media/excel-add-in-for-web-services/image1.png)
@@ -65,14 +65,14 @@ Pobierz klucz interfejsu API dla usługi sieci Web. Miejsce, w którym wykonujes
 
 **Użyj nowej usługi sieci Web**
 
-1. W portalu [usług sieci web Azure Machine Learning](https://services.azureml.net) kliknij pozycję **usługi sieci Web**, a następnie wybierz usługę sieci Web. 
-2. Kliknij **pozycję**Użyj.
+1. W portalu [usług sieci web Azure Machine Learning](https://services.azureml.net) kliknij pozycję **usługi sieci Web** , a następnie wybierz usługę sieci Web. 
+2. Kliknij **pozycję** Użyj.
 3. Poszukaj sekcji **podstawowe informacje o zużyciu** . Skopiuj i Zapisz **klucz podstawowy** i adres URL **odpowiedzi żądania** .
 
 ## <a name="steps-to-add-a-new-web-service"></a>Procedura dodawania nowej usługi sieci Web
 
 1. Wdróż usługę sieci Web lub Użyj istniejącej usługi sieci Web. Aby uzyskać więcej informacji na temat wdrażania usługi sieci Web, zobacz [samouczek 3: Wdrażanie modelu ryzyka kredytowego](tutorial-part3-credit-risk-deploy.md).
-2. Kliknij **pozycję**Użyj.
+2. Kliknij **pozycję** Użyj.
 3. Poszukaj sekcji **podstawowe informacje o zużyciu** . Skopiuj i Zapisz **klucz podstawowy** i adres URL **odpowiedzi żądania** .
 4. W programie Excel przejdź do sekcji **usługi sieci Web** (Jeśli jesteś w sekcji **przewidywania** , kliknij strzałkę wstecz, aby przejść do listy usług sieci Web).
    
@@ -88,4 +88,4 @@ Pobierz klucz interfejsu API dla usługi sieci Web. Miejsce, w którym wykonujes
 ## <a name="sharing-your-workbook"></a>Udostępnianie skoroszytu
 Po zapisaniu skoroszytu zostanie również zapisany interfejs API/klucz podstawowy dla dodanych usług sieci Web. Oznacza to, że skoroszyt powinien być współużytkowany tylko z zaufanymi osobami.
 
-Zadawaj pytania w poniższej sekcji komentarza lub na naszym [forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).
+Zadawaj pytania w poniższej sekcji komentarza lub na naszym [forum](/answers/topics/azure-machine-learning.html).

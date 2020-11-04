@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea765ae5ff93625cc6a0ed36776a8925e5fce836
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738735"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311144"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ W tym artykule opisano sposób korzystania z notesów w usłudze Azure Synapse S
 
 ## <a name="create-a-notebook"></a>Tworzenie notesu
 
-Istnieją dwa sposoby tworzenia notesu. Możesz utworzyć nowy Notes lub zaimportować istniejący Notes do obszaru roboczego usługi Azure Synapse z **Eksplorator obiektów** . Notesy usługi Azure Synapse Studio mogą rozpoznawać standardowe pliki IPYNB Jupyter Notebook.
+Istnieją dwa sposoby tworzenia notesu. Możesz utworzyć nowy Notes lub zaimportować istniejący Notes do obszaru roboczego usługi Azure Synapse z **Eksplorator obiektów**. Notesy usługi Azure Synapse Studio mogą rozpoznawać standardowe pliki IPYNB Jupyter Notebook.
 
 ![Tworzenie notesu importowania](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
@@ -44,11 +44,11 @@ Notesy składają się z komórek, które są pojedynczymi blokami kodu lub teks
 
 Istnieje wiele sposobów dodawania nowej komórki do notesu.
 
-1. Rozwiń górny lewy przycisk **+ komórkę** , a następnie wybierz pozycję **Dodaj komórkę kodu** lub **Dodaj komórkę tekstową** .
+1. Rozwiń górny lewy przycisk **+ komórkę** , a następnie wybierz pozycję **Dodaj komórkę kodu** lub **Dodaj komórkę tekstową**.
 
     ![przycisk dodawania komórek z komórką](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
-2. Umieść kursor nad przestrzenią między dwiema komórkami, a następnie wybierz pozycję **Dodaj kod** lub **Dodaj tekst** .
+2. Umieść kursor nad przestrzenią między dwiema komórkami, a następnie wybierz pozycję **Dodaj kod** lub **Dodaj tekst**.
 
     ![Dodaj komórkę między spacjami](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
@@ -86,7 +86,7 @@ Na poniższej ilustracji przedstawiono przykład sposobu pisania zapytania PySpa
 
 Nie można odwoływać się do danych ani zmiennych bezpośrednio w różnych językach w notesie programu Synapse Studio. W platformie Spark można odwoływać się do tabeli tymczasowej w różnych językach. Oto przykład sposobu odczytywania `Scala` ramki danych w `PySpark` i `SparkSQL` używania tabeli tymczasowej platformy Spark jako obejścia.
 
-1. W komórce 1 Odczytaj element Dataframe z łącznika puli SQL przy użyciu Scala i Utwórz tabelę tymczasową.
+1. W komórce 1 Odczytaj ramkę danych z łącznika puli SQL przy użyciu Scala i Utwórz tabelę tymczasową.
 
    ```scala
    %%scala
@@ -142,7 +142,7 @@ Możesz również użyć [klawiszy skrótów w trybie polecenia](#shortcut-keys-
 
 ### <a name="delete-a-cell"></a>Usuń komórkę
 
-Aby usunąć komórkę, wybierz wielokropek (...), aby uzyskać dostęp do menu Akcje dodatkowe komórki, a następnie wybierz pozycję **Usuń komórkę** . 
+Aby usunąć komórkę, wybierz wielokropek (...), aby uzyskać dostęp do menu Akcje dodatkowe komórki, a następnie wybierz pozycję **Usuń komórkę**. 
 
 Możesz również użyć [klawiszy skrótów w trybie polecenia](#shortcut-keys-under-command-mode). Naciśnij **d, d,** aby usunąć bieżącą komórkę.
   
@@ -167,12 +167,12 @@ Komórki kodu w notesie można uruchamiać pojedynczo lub wszystkie jednocześni
 
 Istnieje kilka sposobów uruchamiania kodu w komórce.
 
-1. Umieść kursor na komórce, którą chcesz uruchomić, a następnie wybierz przycisk **Uruchom komórkę** lub naciśnij **klawisze CTRL + ENTER** .
+1. Umieść kursor na komórce, którą chcesz uruchomić, a następnie wybierz przycisk **Uruchom komórkę** lub naciśnij **klawisze CTRL + ENTER**.
 
    ![Run-Cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
 
-2. Aby uzyskać dostęp do menu akcji dodatkowych po prawej stronie, wybierz wielokropek ( **...** ). Następnie wybierz pozycję **Uruchom komórkę** .
+2. Aby uzyskać dostęp do menu akcji dodatkowych po prawej stronie, wybierz wielokropek ( **...** ). Następnie wybierz pozycję **Uruchom komórkę**.
 
    ![Run-Cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
    
@@ -203,7 +203,7 @@ Poniżej komórki zostanie wyświetlony stan wykonania komórki krok po kroku, a
 
 ### <a name="spark-progress-indicator"></a>Wskaźnik postępu platformy Spark
 
-Notes usługi Azure Synapse Studio jest całkowicie oparty na platformie Spark. Komórki kodu są wykonywane zdalnie w puli Spark. Zostanie wyświetlony wskaźnik postępu zadania platformy Spark z paskiem postępu w czasie rzeczywistym, który pomoże zrozumieć stan wykonywania zadania.
+Notes usługi Azure Synapse Studio jest całkowicie oparty na platformie Spark. Komórki kodu są wykonywane zdalnie Apache Spark puli bezserwerowej. Zostanie wyświetlony wskaźnik postępu zadania platformy Spark z paskiem postępu w czasie rzeczywistym, który pomoże zrozumieć stan wykonywania zadania.
 Liczba zadań poszczególnych zadań lub etapów ułatwia identyfikowanie równoległego poziomu zadania platformy Spark. Możesz również przejść do szczegółów do interfejsu użytkownika Spark określonego zadania (lub etapu) przez wybranie linku do nazwy zadania (lub etapu).
 
 
@@ -211,7 +211,7 @@ Liczba zadań poszczególnych zadań lub etapów ułatwia identyfikowanie równo
 
 ### <a name="spark-session-config"></a>Konfiguracja sesji platformy Spark
 
-Możesz określić czas trwania limitu czasu, liczbę i rozmiar wykonawców, który ma zostać przypisany do bieżącej sesji platformy Spark w obszarze **Konfigurowanie sesji** . Aby zmiany konfiguracji zaczęły obowiązywać, należy ponownie uruchomić sesję platformy Spark. Wszystkie buforowane zmienne notesu są wyczyszczone.
+Możesz określić czas trwania limitu czasu, liczbę i rozmiar wykonawców, który ma zostać przypisany do bieżącej sesji platformy Spark w obszarze **Konfigurowanie sesji**. Aby zmiany konfiguracji zaczęły obowiązywać, należy ponownie uruchomić sesję platformy Spark. Wszystkie buforowane zmienne notesu są wyczyszczone.
 
 [![Zarządzanie sesjami](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
@@ -275,7 +275,7 @@ Dostęp do danych można uzyskać bezpośrednio na podstawowym koncie magazynu. 
 
 ### <a name="produce-rendered-table-view"></a>Generuj renderowany widok tabeli
 
-Widok wyników tabelarycznych jest dostępny z opcją tworzenia wykresu słupkowego, wykresu liniowego, wykresu kołowego, wykresu punktowego i wykresu warstwowego. Możesz wizualizować dane bez konieczności pisania kodu. Wykresy można dostosować w **opcjach wykresu** . 
+Widok wyników tabelarycznych jest dostępny z opcją tworzenia wykresu słupkowego, wykresu liniowego, wykresu kołowego, wykresu punktowego i wykresu warstwowego. Możesz wizualizować dane bez konieczności pisania kodu. Wykresy można dostosować w **opcjach wykresu**. 
 
 Dane wyjściowe poleceń Magic **%% SQL** są wyświetlane domyślnie w widoku renderowanej tabeli. Możesz wywoływać <code>display(df)</code> na platformie Spark Dataframes, Pandas Dataframes, list lub odporną funkcję rozproszonego zestawu danych (RDD), aby utworzyć renderowany widok tabeli.
 
@@ -294,9 +294,9 @@ Można użyć <code>display(df, summary = True)</code> do sprawdzenia podsumowan
 
 ### <a name="render-html-or-interactive-libraries"></a>Renderowanie bibliotek HTML lub interaktywnych
 
-Możesz renderować kod HTML, w tym JavaScript, CSS, D3 lub biblioteki interaktywne, takie jak **bokeh** , przy użyciu **displayHTML ()** .
+Możesz renderować kod HTML, w tym JavaScript, CSS, D3 lub biblioteki interaktywne, takie jak **bokeh** , przy użyciu **displayHTML ()**.
 
-Na poniższej ilustracji przedstawiono przykład kreślenia symboli na mapie za pomocą **bokeh** .
+Na poniższej ilustracji przedstawiono przykład kreślenia symboli na mapie za pomocą **bokeh**.
 
    ![bokeh — przykład](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
    

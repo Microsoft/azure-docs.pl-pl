@@ -1,6 +1,6 @@
 ---
-title: Wykonywanie zapytań dotyczących plików JSON przy użyciu języka SQL na żądanie (wersja zapoznawcza)
-description: W tej sekcji opisano sposób odczytywania plików JSON przy użyciu funkcji SQL na żądanie w usłudze Azure Synapse Analytics.
+title: Wykonywanie zapytań dotyczących plików JSON przy użyciu puli SQL bezserwerowej (wersja zapoznawcza)
+description: W tej sekcji opisano sposób odczytywania plików JSON przy użyciu bezserwerowej puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86ed3f005788627166c65b30398279f04388546c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dbad07401d77a15cd860a8ae492560c5fced819
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930853"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310612"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików JSON przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików JSON przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-W tym artykule dowiesz się, jak napisać zapytanie przy użyciu języka SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Celem zapytania jest odczytywanie plików JSON przy użyciu funkcji [OPENROWSET](develop-openrowset.md). 
+W tym artykule dowiesz się, jak napisać zapytanie przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Celem zapytania jest odczytywanie plików JSON przy użyciu funkcji [OPENROWSET](develop-openrowset.md). 
 - Standardowe pliki JSON, w których wiele dokumentów JSON jest przechowywanych jako tablica JSON.
 - Rozdzielane wierszami pliki JSON, w których dokumenty JSON są rozdzielone znakami nowego wiersza. Typowymi rozszerzeniami tych typów plików są `jsonl` , `ldjson` , i `ndjson` .
 

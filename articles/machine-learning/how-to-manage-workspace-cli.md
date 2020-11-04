@@ -1,7 +1,7 @@
 ---
 title: Tworzenie obszarów roboczych przy użyciu interfejsu wiersza polecenia platformy Azure
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć nowy obszar roboczy Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure.
+description: Dowiedz się, jak użyć rozszerzenia interfejsu wiersza polecenia platformy Azure do uczenia maszynowego, aby utworzyć nowy obszar roboczy Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 42f47ad61c0d90752928a8273872b734574e02c3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 181cae525845e7cae5e8f6f178b01ee33999b8b5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740788"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312482"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -24,9 +24,9 @@ W tym artykule dowiesz się, jak utworzyć obszar roboczy Azure Machine Learning
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure** . Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
+* **Subskrypcja platformy Azure**. Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Aby korzystać z poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego** , wymagany jest [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Aby korzystać z poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego** , wymagany jest [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     Jeśli używasz [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), interfejs wiersza polecenia jest dostępny za pomocą przeglądarki i przebywa w chmurze.
 
@@ -45,7 +45,7 @@ Jeśli interfejs wiersza polecenia może otworzyć Twoją domyślną przeglądar
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-Aby poznać inne metody uwierzytelniania, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
+Aby poznać inne metody uwierzytelniania, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="install-the-machine-learning-extension"></a>Zainstaluj rozszerzenie uczenia maszynowego
 
@@ -73,7 +73,7 @@ Obszar roboczy Azure Machine Learning opiera się na następujących usługach l
 | **Grupa zasobów platformy Azure** | `-g <resource-group-name>`
 | **Konto usługi Azure Storage** | `--storage-account <service-id>` |
 | **Application Insights platformy Azure** | `--application-insights <service-id>` |
-| **Usługa Azure Key Vault** | `--keyvault <service-id>` |
+| **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
@@ -103,7 +103,7 @@ Odpowiedź z tego polecenia jest podobna do następującej:
 }
 ```
 
-Aby uzyskać więcej informacji na temat pracy z grupami zasobów, zobacz [AZ Group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest&preserve-view=true).
+Aby uzyskać więcej informacji na temat pracy z grupami zasobów, zobacz [AZ Group](//cli/azure/group?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="automatically-create-required-resources"></a>Automatycznie twórz wymagane zasoby
 
@@ -163,7 +163,7 @@ Zamiast używać klucza zarządzanego przez firmę Microsoft, możesz użyć opc
 Przed użyciem `--cmk-keyvault` parametrów i `--resource-cmk-uri` należy najpierw wykonać następujące czynności:
 
 1. Autoryzuj __aplikację Machine Learning__ (w temacie Zarządzanie tożsamościami i dostępem) z uprawnieniami współautora w ramach subskrypcji.
-1. Wykonaj kroki opisane w temacie [Konfigurowanie kluczy zarządzanych przez klienta](/azure/cosmos-db/how-to-setup-cmk) do:
+1. Wykonaj kroki opisane w temacie [Konfigurowanie kluczy zarządzanych przez klienta](../cosmos-db/how-to-setup-cmk.md) do:
     * Rejestrowanie dostawcy Azure Cosmos DB
     * Tworzenie i Konfigurowanie Azure Key Vault
     * Generowanie klucza
@@ -226,7 +226,7 @@ Aby utworzyć obszar roboczy, który korzysta z istniejących zasobów, należy 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"`
 
     > [!IMPORTANT]
-    > Aby można było używać [konta administratora](/azure/container-registry/container-registry-authentication#admin-account) z obszarem roboczym Azure Machine Learning, rejestr kontenerów musi być włączony.
+    > Aby można było używać [konta administratora](../container-registry/container-registry-authentication.md#admin-account) z obszarem roboczym Azure Machine Learning, rejestr kontenerów musi być włączony.
 
 Gdy masz identyfikatory zasobów, które mają być używane z obszarem roboczym, użyj `az workspace create -w <workspace-name> -g <resource-group-name>` polecenia Base i Dodaj parametry oraz identyfikatory dla istniejących zasobów programu. Na przykład następujące polecenie tworzy obszar roboczy, który używa istniejącego rejestru kontenerów:
 
@@ -282,7 +282,7 @@ Dane wyjściowe tego polecenia są podobne do następujących:
 ]
 ```
 
-Aby uzyskać więcej informacji, zobacz dokumentację funkcji [AZ ml Workspace list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-list) .
+Aby uzyskać więcej informacji, zobacz dokumentację funkcji [AZ ml Workspace list](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list) .
 
 ## <a name="get-workspace-information"></a>Pobierz informacje o obszarze roboczym
 
@@ -315,7 +315,7 @@ Dane wyjściowe tego polecenia są podobne do następujących:
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [AZ ml Workspace show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-show) documentation.
+Aby uzyskać więcej informacji, zobacz [AZ ml Workspace show](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show) documentation.
 
 ## <a name="update-a-workspace"></a>Aktualizowanie obszaru roboczego
 
@@ -348,7 +348,7 @@ Dane wyjściowe tego polecenia są podobne do następujących:
 }
 ```
 
-Więcej informacji można znaleźć w dokumentacji [AZ ml Workspace Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-update) .
+Więcej informacji można znaleźć w dokumentacji [AZ ml Workspace Update](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update) .
 
 ## <a name="share-a-workspace-with-another-user"></a>Udostępnianie obszaru roboczego innemu użytkownikowi
 
@@ -360,7 +360,7 @@ az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user>
 
 Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (Azure RBAC Azure Machine Learning) na platformie Azure, zobacz [Zarządzanie użytkownikami i rolami](how-to-assign-roles.md).
 
-Aby uzyskać więcej informacji, zobacz sekcję [AZ ml Workspace Share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-share) documentation.
+Aby uzyskać więcej informacji, zobacz sekcję [AZ ml Workspace Share](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) documentation.
 
 ## <a name="sync-keys-for-dependent-resources"></a>Synchronizuj klucze dla zasobów zależnych
 
@@ -372,7 +372,7 @@ az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 
 Aby uzyskać więcej informacji na temat zmieniania kluczy, zobacz Ponowne [generowanie kluczy dostępu do magazynu](how-to-change-storage-access-key.md).
 
-Więcej informacji można znaleźć w dokumentacji [AZ ml Workspace Sync-Keys](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-sync-keys) .
+Więcej informacji można znaleźć w dokumentacji [AZ ml Workspace Sync-Keys](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys) .
 
 ## <a name="delete-a-workspace"></a>Usuwanie obszaru roboczego
 
@@ -391,7 +391,7 @@ Możesz również usunąć grupę zasobów, która spowoduje usunięcie obszaru 
 az group delete -g <resource-group-name>
 ```
 
-Więcej informacji można znaleźć w dokumentacji [AZ ml Workspace Delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-delete) .
+Więcej informacji można znaleźć w dokumentacji [AZ ml Workspace Delete](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) .
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -412,4 +412,4 @@ W przypadku niektórych operacji Azure Machine Learning obszar roboczy używa Az
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat rozszerzenia interfejsu wiersza polecenia platformy Azure na potrzeby uczenia maszynowego, zobacz dokumentację [AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest&preserve-view=true) .
+Aby uzyskać więcej informacji na temat rozszerzenia interfejsu wiersza polecenia platformy Azure na potrzeby uczenia maszynowego, zobacz dokumentację [AZ ml](/cli/azure/ext/azure-cli-ml/ml?preserve-view=true&view=azure-cli-latest) .

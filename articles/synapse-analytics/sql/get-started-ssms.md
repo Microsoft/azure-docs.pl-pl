@@ -9,26 +9,26 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288787"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311121"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Nawiązywanie połączenia z usługą Synapse SQL z programem SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 > 
 > 
 
-Za pomocą [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) można nawiązać połączenie z usługą SQL Synapse i wysyłać do niej zapytania, korzystając z zasobów usługi SQL na żądanie (wersja zapoznawcza) lub w puli SQL. 
+Za pomocą [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) można nawiązać połączenie z usługą SQL Synapse i wysyłać do niej zapytania, używając bezserwerowych puli SQL (wersja zapoznawcza) lub dedykowanych zasobów puli SQL. 
 
-### <a name="supported-tools-for-sql-on-demand-preview"></a>Obsługiwane narzędzia dla SQL na żądanie (wersja zapoznawcza)
+### <a name="supported-tools-for-serverless-sql-pool-preview"></a>Obsługiwane narzędzia dla puli SQL bezserwerowej (wersja zapoznawcza)
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) jest w pełni obsługiwana począwszy od wersji 1.18.0. Program SSMS jest częściowo obsługiwany począwszy od wersji 18,5, można go używać do nawiązywania połączeń i tylko zapytań.
 
@@ -40,41 +40,41 @@ Za pomocą [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-m
 Przed rozpoczęciem upewnij się, że masz następujące wymagania wstępne:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* W przypadku puli SQL potrzebny jest istniejący magazyn danych. Aby go utworzyć, zobacz [Tworzenie puli SQL](../quickstart-create-sql-pool-portal.md). W przypadku usługi SQL na żądanie jedna została już zainicjowana w obszarze roboczym podczas tworzenia. 
+* W przypadku dedykowanej puli SQL potrzebny jest istniejący magazyn danych. Aby go utworzyć, zobacz [Tworzenie dedykowanej puli SQL](../quickstart-create-sql-pool-portal.md). W przypadku bezserwerowej puli SQL, która jest już zainicjowana, nazywa się wbudowaną w obszarze roboczym podczas tworzenia. 
 * W pełni kwalifikowana nazwa SQL Server. Aby znaleźć tę nazwę, zobacz [nawiązywanie połączenia z usługą SQL Synapse](connect-overview.md).
 
-## <a name="connect"></a>Connect
+## <a name="connect"></a>Połącz
 
-### <a name="sql-pool"></a>Pula SQL
+### <a name="dedicated-sql-pool"></a>Dedykowana Pula SQL
 
-Aby nawiązać połączenie z usługą Synapse SQL przy użyciu puli SQL, wykonaj następujące kroki: 
+Aby nawiązać połączenie z usługą Synapse SQL przy użyciu dedykowanej puli SQL, wykonaj następujące kroki: 
 
 1. Otwórz SQL Server Management Studio (SSMS). 
-1. W oknie dialogowym **łączenie z serwerem** Wypełnij pola, a następnie wybierz pozycję **Połącz**: 
+1. W oknie dialogowym **łączenie z serwerem** Wypełnij pola, a następnie wybierz pozycję **Połącz** : 
   
     ![Łączenie z serwerem 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **Nazwa serwera**: wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
-   * **Uwierzytelnianie**: Wybierz typ uwierzytelniania, na przykład **uwierzytelnianie SQL Server** lub **Active Directory uwierzytelnianie zintegrowane**.
-   * **Nazwa użytkownika** i **hasło**: Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
+   * **Nazwa serwera** : wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
+   * **Uwierzytelnianie** : Wybierz typ uwierzytelniania, na przykład **uwierzytelnianie SQL Server** lub **Active Directory uwierzytelnianie zintegrowane**.
+   * **Nazwa użytkownika** i **hasło** : Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
 
 1. Rozwiń SQL Server platformy Azure w **Eksplorator obiektów**. Można wyświetlić bazy danych skojarzone z serwerem, takie jak Przykładowa baza danych AdventureWorksDW. Bazę danych można rozwinąć, aby wyświetlić tabele:
    
     ![Eksploruj AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="sql-on-demand-preview"></a>SQL na żądanie (wersja zapoznawcza)
+### <a name="serverless-sql-pool-preview"></a>Pula SQL bezserwerowa (wersja zapoznawcza)
 
-Aby nawiązać połączenie z usługą SQL Synapse przy użyciu usługi SQL na żądanie, wykonaj następujące kroki: 
+Aby nawiązać połączenie z usługą Synapse SQL przy użyciu puli SQL bezserwerowej, wykonaj następujące kroki: 
 
 1. Otwórz SQL Server Management Studio (SSMS).
-1. W oknie dialogowym **łączenie z serwerem** Wypełnij pola, a następnie wybierz pozycję **Połącz**: 
+1. W oknie dialogowym **łączenie z serwerem** Wypełnij pola, a następnie wybierz pozycję **Połącz** : 
    
     ![Łączenie z serwerem 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **Nazwa serwera**: wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
-   * **Uwierzytelnianie**: Wybierz typ uwierzytelniania, na przykład **uwierzytelnianie SQL Server** lub **uwierzytelnianie zintegrowane Active Directory**:
-   * **Nazwa użytkownika** i **hasło**: Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
+   * **Nazwa serwera** : wprowadź wcześniej zidentyfikowaną **nazwę serwera** .
+   * **Uwierzytelnianie** : Wybierz typ uwierzytelniania, na przykład **uwierzytelnianie SQL Server** lub **uwierzytelnianie zintegrowane Active Directory** :
+   * **Nazwa użytkownika** i **hasło** : Wprowadź nazwę użytkownika i hasło w przypadku wybrania powyżej SQL Server uwierzytelniania.
    * Wybierz pozycję **Połącz**.
 
 4. W celach poznawczych rozwiń węzeł serwera Azure SQL. Możesz przejrzeć skojarzone z serwerem bazy danych. Rozwiń *demonstrację* , aby zobaczyć zawartość w przykładowej bazie danych.
@@ -84,7 +84,7 @@ Aby nawiązać połączenie z usługą SQL Synapse przy użyciu usługi SQL na �
 
 ## <a name="run-a-sample-query"></a>Uruchamianie przykładowego zapytania
 
-### <a name="sql-pool"></a>Pula SQL
+### <a name="dedicated-sql-pool"></a>Dedykowana Pula SQL
 
 Po nawiązaniu połączenia z bazą danych można wykonywać zapytania dotyczące danych.
 
@@ -104,7 +104,7 @@ Po nawiązaniu połączenia z bazą danych można wykonywać zapytania dotycząc
    
     ![Wyniki zapytania 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
-### <a name="sql-on-demand"></a>SQL na żądanie
+### <a name="serverless-sql-pool"></a>Pula SQL bezserwerowa
 
 Po nawiązaniu połączenia z bazą danych można wykonywać zapytania dotyczące danych.
 

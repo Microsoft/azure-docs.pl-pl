@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5098d87d63d4002c4f219c5d2703ec1375599e00
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 5f772bd996b126a4cd7182a2ce088c2d3edc8e7d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289453"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312031"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Wymuś minimalną wymaganą wersję Transport Layer Security (TLS) dla żądań kierowanych do konta magazynu
 
@@ -89,7 +89,7 @@ Jeśli masz pewność, że ruch od klientów korzystających ze starszych wersji
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Konfigurowanie minimalnej wersji protokołu TLS dla konta magazynu
 
-Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu, ustaw wersję **MinimumTlsVersion** dla konta. Ta właściwość jest dostępna dla wszystkich kont magazynu utworzonych przy użyciu modelu wdrażania Azure Resource Manager w chmurze publicznej platformy Azure lub w chmurach Azure Government. Aby uzyskać więcej informacji o modelu wdrażania Azure Resource Manager, zobacz temat [konto magazynu — Omówienie](storage-account-overview.md).
+Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu, ustaw wersję **MinimumTlsVersion** dla konta. Ta właściwość jest dostępna dla wszystkich kont magazynu utworzonych za pomocą modelu wdrażania Azure Resource Manager. Aby uzyskać więcej informacji o modelu wdrażania Azure Resource Manager, zobacz temat [konto magazynu — Omówienie](storage-account-overview.md).
 
 Właściwość **MinimumTlsVersion** nie jest domyślnie ustawiona i nie zwraca wartości, dopóki nie zostanie jawnie ustawiona.  Jeśli wartość właściwości jest **równa null** , konto magazynu będzie zezwalać na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej.
 

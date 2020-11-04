@@ -1,7 +1,7 @@
 ---
 title: Uczenie modelu przy użyciu niestandardowego obrazu platformy Docker
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak uczenie modeli przy użyciu niestandardowych obrazów platformy Docker w Azure Machine Learning.
+description: Dowiedz się, jak korzystać z własnych obrazów platformy Docker lub z nich nadzorowanych firmy Microsoft, aby uczenie modeli w Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6ce0885cce1861b27d6230c3807350831603684b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 23b59c80c8e44cf6473a2de9be9807eaf8a756c6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329121"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310546"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Uczenie modelu przy użyciu niestandardowego obrazu platformy Docker
 
@@ -32,8 +32,8 @@ Uruchom kod w dowolnym z następujących środowisk:
   * W repozytorium Azure Machine Learning [przykładów](https://github.com/Azure/azureml-examples)Znajdź ukończony Notes, przechodząc do katalogu **notesy**  >  **fastai**  >  **uczenie — zwierzęta domowe-resnet34. ipynb** . 
 * Twój własny serwer Jupyter Notebook:
   * Utwórz [plik konfiguracji obszaru roboczego](how-to-configure-environment.md#workspace).
-  * Zainstaluj [zestaw SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
-  * Utwórz [Rejestr kontenerów platformy Azure](/azure/container-registry) lub inny rejestr platformy Docker, który jest dostępny w Internecie.
+  * Zainstaluj [zestaw SDK Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
+  * Utwórz [Rejestr kontenerów platformy Azure](../container-registry/index.yml) lub inny rejestr platformy Docker, który jest dostępny w Internecie.
 
 ## <a name="set-up-a-training-experiment"></a>Konfigurowanie eksperymentu szkoleniowego
 
@@ -41,7 +41,7 @@ W tej sekcji skonfigurujesz eksperyment szkoleniowy przez zainicjowanie obszaru 
 
 ### <a name="initialize-a-workspace"></a>Inicjowanie obszaru roboczego
 
-[Obszar roboczy Azure Machine Learning](concept-workspace.md) jest zasobem najwyższego poziomu dla usługi. Zapewnia to centralne miejsce do pracy ze wszystkimi tworzonymi artefaktami. W zestawie SDK języka Python można uzyskać dostęp do artefaktów obszaru roboczego przez utworzenie [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) obiektu.
+[Obszar roboczy Azure Machine Learning](concept-workspace.md) jest zasobem najwyższego poziomu dla usługi. Zapewnia to centralne miejsce do pracy ze wszystkimi tworzonymi artefaktami. W zestawie SDK języka Python można uzyskać dostęp do artefaktów obszaru roboczego przez utworzenie [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) obiektu.
 
 Utwórz `Workspace` obiekt na podstawie config.jsw pliku, który został utworzony jako [warunek wstępny](#prerequisites).
 
@@ -163,7 +163,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning uruchamia skrypty szkoleniowe, kopiując cały katalog źródłowy. Jeśli masz poufne dane, które nie mają być przekazywane, użyj [pliku. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) lub nie dodawaj go do katalogu źródłowego. Zamiast tego można uzyskiwać dostęp do danych przy użyciu usługi [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
+> Azure Machine Learning uruchamia skrypty szkoleniowe, kopiując cały katalog źródłowy. Jeśli masz poufne dane, które nie mają być przekazywane, użyj [pliku. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) lub nie dodawaj go do katalogu źródłowego. Zamiast tego można uzyskiwać dostęp do danych przy użyciu usługi [datastore](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule przeszkolony model przy użyciu niestandardowego obrazu platformy Docker. Zobacz następujące artykuły, aby dowiedzieć się więcej na temat Azure Machine Learning:

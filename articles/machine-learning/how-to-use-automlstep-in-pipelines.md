@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b6c6d15b553e8b19fff2c464dfb856550f7bcbf0
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 9cde7fe32d1b7b13c5f95bf3d99497926f68c88e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494917"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311197"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Korzystanie z zautomatyzowanej tablicy w potoku Azure Machine Learning w języku Python
 
@@ -41,9 +41,9 @@ Preferowanym sposobem na wstępne przeniesienie danych _do_ potoku jest z `Datas
 
 
 > [!TIP]
-> Udoskonalone środowisko przekazywania danych tymczasowych między etapami potoku jest dostępne w publicznych wersjach zapoznawczych  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) i [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) .  Te klasy to [eksperymentalne](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true#&preserve-view=truestable-vs-experimental) funkcje w wersji zapoznawczej i mogą ulec zmianie w dowolnym momencie.
+> Udoskonalone środowisko przekazywania danych tymczasowych między etapami potoku jest dostępne w publicznych wersjach zapoznawczych  [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) i [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?preserve-view=true&view=azure-ml-py) .  Te klasy to [eksperymentalne](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) funkcje w wersji zapoznawczej i mogą ulec zmianie w dowolnym momencie.
 
-`AutoMLStep`Konfiguracja jest konfigurowana za pośrednictwem `AutoMLConfig` obiektu. `AutoMLConfig` jest elastyczną klasą, jak opisano w temacie [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
+`AutoMLStep`Konfiguracja jest konfigurowana za pośrednictwem `AutoMLConfig` obiektu. `AutoMLConfig` jest elastyczną klasą, jak opisano w temacie [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](./how-to-configure-auto-train.md#configure-your-experiment-settings). 
 
 `Pipeline`Działa w `Experiment` . Potok `Run` ma dla każdego kroku element podrzędny `StepRun` . Dane wyjściowe zautomatyzowanej części ML `StepRun` to metryki szkoleniowe i model o najwyższej wydajności.
 
@@ -106,7 +106,7 @@ compute_target = ws.compute_targets[compute_name]
 
 Pośrednie dane między przygotowaniem danych i etapem zautomatyzowanej ML mogą być przechowywane w domyślnym magazynie elementów roboczych obszaru roboczego, więc nie trzeba wykonywać więcej niż wywołania `get_default_datastore()` na `Workspace` obiekcie. 
 
-Następnie kod sprawdza, czy element docelowy obliczeń AML `'cpu-cluster'` już istnieje. Jeśli nie, firma Microsoft określa, że chcemy użyć małych procesorów opartych na procesorach. Jeśli planujesz korzystanie z funkcji uczenia głębokiego (na przykład cechowania text with DNN Support), należy wybrać obliczenia o silnej obsłudze procesora GPU, zgodnie z opisem w obszarze [rozmiary maszyn wirtualnych zoptymalizowanych pod kątem procesora GPU](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu). 
+Następnie kod sprawdza, czy element docelowy obliczeń AML `'cpu-cluster'` już istnieje. Jeśli nie, firma Microsoft określa, że chcemy użyć małych procesorów opartych na procesorach. Jeśli planujesz korzystanie z funkcji uczenia głębokiego (na przykład cechowania text with DNN Support), należy wybrać obliczenia o silnej obsłudze procesora GPU, zgodnie z opisem w obszarze [rozmiary maszyn wirtualnych zoptymalizowanych pod kątem procesora GPU](../virtual-machines/sizes-gpu.md). 
 
 Kod jest blokowany do momentu zainicjowania obsługi administracyjnej, a następnie drukuje pewne szczegóły właśnie utworzonego elementu docelowego obliczeń. Na koniec nazwanego elementu docelowego obliczeń jest pobierana z obszaru roboczego i przypisana do `compute_target` . 
 
@@ -137,7 +137,7 @@ else:
         pin_sdk_version=False)
 ```
 
-W powyższym kodzie przedstawiono dwie opcje obsługi zależności. Jak przedstawiono w programie `USE_CURATED_ENV = True` , konfiguracja jest oparta na środowisku nadzorowanym. Środowiska nadzorowane są "prebaked" z typowymi bibliotekami zależnymi i mogą być znacznie szybsze do przełączenia do trybu online. Środowiska nadzorowane zawierają wstępnie skompilowane obrazy platformy Docker w [programie Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). Ścieżka wykonana, jeśli zmieni `USE_CURATED_ENV` się, aby `False` wyświetlić wzorzec jawnego ustawiania zależności. W tym scenariuszu nowy niestandardowy obraz platformy Docker zostanie utworzony i zarejestrowany w Azure Container Registry w ramach grupy zasobów (zobacz [wprowadzenie do prywatnych rejestrów kontenerów platformy Docker na platformie Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro)). Kompilowanie i rejestrowanie tego obrazu może potrwać kilka minut. 
+W powyższym kodzie przedstawiono dwie opcje obsługi zależności. Jak przedstawiono w programie `USE_CURATED_ENV = True` , konfiguracja jest oparta na środowisku nadzorowanym. Środowiska nadzorowane są "prebaked" z typowymi bibliotekami zależnymi i mogą być znacznie szybsze do przełączenia do trybu online. Środowiska nadzorowane zawierają wstępnie skompilowane obrazy platformy Docker w [programie Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). Ścieżka wykonana, jeśli zmieni `USE_CURATED_ENV` się, aby `False` wyświetlić wzorzec jawnego ustawiania zależności. W tym scenariuszu nowy niestandardowy obraz platformy Docker zostanie utworzony i zarejestrowany w Azure Container Registry w ramach grupy zasobów (zobacz [wprowadzenie do prywatnych rejestrów kontenerów platformy Docker na platformie Azure](../container-registry/container-registry-intro.md)). Kompilowanie i rejestrowanie tego obrazu może potrwać kilka minut. 
 
 ## <a name="prepare-data-for-automated-machine-learning"></a>Przygotowywanie danych do automatycznego uczenia maszynowego
 
@@ -251,11 +251,11 @@ dataprep_step = PythonScriptStep(
 `prepped_data_path`Obiekt jest typu `PipelineOutputFileDataset` . Należy zauważyć, że jest on określony zarówno `arguments` w `outputs` argumentach, jak i. W przypadku przejrzenia poprzedniego kroku zobaczysz, że w kodzie przygotowywania danych wartość argumentu `'--output_path'` jest ścieżką pliku, do której zapisano plik Parquet. 
 
 > [!TIP]
-> Udoskonalone środowisko przekazywania pośrednich danych między etapami potoku jest dostępne z publiczną klasą zapoznawczą [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Aby zapoznać się z przykładem kodu przy użyciu `OutputFileDatasetConfig` klasy, zobacz jak [utworzyć dwa krokowe potoku](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+> Udoskonalone środowisko przekazywania pośrednich danych między etapami potoku jest dostępne z publiczną klasą zapoznawczą [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) . Aby zapoznać się z przykładem kodu przy użyciu `OutputFileDatasetConfig` klasy, zobacz jak [utworzyć dwa krokowe potoku](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 ## <a name="train-with-automlstep"></a>Uczenie z AutoMLStep
 
-Konfigurowanie zautomatyzowanego kroku potoku ML jest wykonywane z `AutoMLConfig` klasą. Ta elastyczna Klasa została opisana w artykule [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). Dane wejściowe i wyjściowe danych są jedynymi aspektami konfiguracji, które wymagają specjalnej uwagi w potoku. Dane wejściowe i wyjściowe dla `AutoMLConfig` potoków zostały omówione szczegółowo poniżej. Poza danymi, zaletą potoków ML jest możliwość używania różnych elementów docelowych obliczeń dla różnych kroków. Możesz wybrać bardziej zaawansowane `ComputeTarget` tylko dla procesu zautomatyzowanej sieci. Takie działanie jest tak proste jak przypisanie `RunConfiguration` do parametru obiektu bardziej zaawansowanego `AutoMLConfig` `run_configuration` .
+Konfigurowanie zautomatyzowanego kroku potoku ML jest wykonywane z `AutoMLConfig` klasą. Ta elastyczna Klasa została opisana w artykule [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](./how-to-configure-auto-train.md). Dane wejściowe i wyjściowe danych są jedynymi aspektami konfiguracji, które wymagają specjalnej uwagi w potoku. Dane wejściowe i wyjściowe dla `AutoMLConfig` potoków zostały omówione szczegółowo poniżej. Poza danymi, zaletą potoków ML jest możliwość używania różnych elementów docelowych obliczeń dla różnych kroków. Możesz wybrać bardziej zaawansowane `ComputeTarget` tylko dla procesu zautomatyzowanej sieci. Takie działanie jest tak proste jak przypisanie `RunConfiguration` do parametru obiektu bardziej zaawansowanego `AutoMLConfig` `run_configuration` .
 
 ### <a name="send-data-to-automlstep"></a>Wyślij dane do `AutoMLStep`
 
@@ -270,7 +270,7 @@ prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
 Poniższy fragment kodu tworzy wysoką wydajność na `PipelineOutputTabularDataset` podstawie `PipelineOutputFileDataset` danych wyjściowych kroku przygotowywania danych.
 
 > [!TIP]
-> Klasa publicznej wersji zapoznawczej [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) zawiera metodę [read_delimited_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true#&preserve-view=trueread-delimited-files-include-path-false--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none--path-glob-none--set-column-types-none-) , która konwertuje `OutputFileDatasetConfig` do na wartość w [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) celu użycia w AutoML uruchomieniach.
+> Klasa publicznej wersji zapoznawczej [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) zawiera metodę [read_delimited_files ()](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py#&preserve-view=trueread-delimited-files-include-path-false--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none--path-glob-none--set-column-types-none-) , która konwertuje `OutputFileDatasetConfig` do na wartość w [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?preserve-view=true&view=azure-ml-py) celu użycia w AutoML uruchomieniach.
 
 Innym rozwiązaniem jest użycie `Dataset` obiektów zarejestrowanych w obszarze roboczym:
 
@@ -315,7 +315,7 @@ Poniższy fragment kodu tworzy dwa `PipelineData` obiekty dla danych wyjściowyc
 
 ### <a name="configure-and-create-the-automated-ml-pipeline-step"></a>Skonfiguruj i Utwórz zautomatyzowany krok potoku
 
-Po zdefiniowaniu danych wejściowych i wyjściowych czas tworzenia `AutoMLConfig` i `AutoMLStep` . Szczegóły konfiguracji będą zależeć od zadania, zgodnie z opisem w temacie [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). W przypadku zadania klasyfikacji przeżycia Titanic w poniższym fragmencie kodu pokazano prostą konfigurację.
+Po zdefiniowaniu danych wejściowych i wyjściowych czas tworzenia `AutoMLConfig` i `AutoMLStep` . Szczegóły konfiguracji będą zależeć od zadania, zgodnie z opisem w temacie [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](./how-to-configure-auto-train.md). W przypadku zadania klasyfikacji przeżycia Titanic w poniższym fragmencie kodu pokazano prostą konfigurację.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -353,7 +353,7 @@ Fragment kodu przedstawia idiom często używany z `AutoMLConfig` . Argumenty, k
 - `task` jest ustawiony na `classification` dla tego przykładu. Inne prawidłowe wartości to `regression` i `forecasting`
 - `path` i `debug_log` opisz ścieżkę do projektu i plik lokalny, do którego zostaną nadane informacje debugowania. 
 - `compute_target` jest to wcześniej zdefiniowane, `compute_target` które w tym przykładzie jest niedrogią maszyną opartą na procesorze. Jeśli korzystasz z usług uczenia głębokiego AutoML, chcesz zmienić cel obliczeń na oparty na procesorach GPU
-- `featurization` jest ustawiony na `auto` . Więcej szczegółów znajduje się w sekcji [Data cechowania](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) w dokumencie zautomatyzowanej konfiguracji ml. 
+- `featurization` jest ustawiony na `auto` . Więcej szczegółów znajduje się w sekcji [Data cechowania](./how-to-configure-auto-train.md#data-featurization) w dokumencie zautomatyzowanej konfiguracji ml. 
 - `label_column_name` wskazuje, która kolumna chcemy przewidzieć 
 - `training_data` jest ustawiony na `PipelineOutputTabularDataset` obiekty wykonane z danych wyjściowych kroku przygotowywania 
 
@@ -525,4 +525,4 @@ Na koniec rzeczywiste metryki i modele są pobierane na maszynę lokalną, jak z
 - Uruchom ten Notes Jupyter z [pełnym przykładem zautomatyzowanej części ml w potoku](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) , który używa regresji do przewidywania opłat za taksówkę
 - [Twórz zautomatyzowane eksperymenty ML bez pisania kodu](how-to-use-automated-ml-for-ml-models.md)
 - Poznaj różne [notesy Jupyter pokazujące zautomatyzowaną ml](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
-- Zapoznaj się z tematem integrowania potoku w celu uzyskania [kompleksowej MLOps](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment#automate-the-ml-lifecycle) lub zbadania [repozytorium GitHub MLOps](https://github.com/Microsoft/MLOpspython) 
+- Zapoznaj się z tematem integrowania potoku w celu uzyskania [kompleksowej MLOps](./concept-model-management-and-deployment.md#automate-the-ml-lifecycle) lub zbadania [repozytorium GitHub MLOps](https://github.com/Microsoft/MLOpspython)

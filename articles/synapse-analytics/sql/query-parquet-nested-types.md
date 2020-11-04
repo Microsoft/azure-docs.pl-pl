@@ -1,6 +1,6 @@
 ---
-title: Parquet typów zagnieżdżonych zapytania przy użyciu języka SQL na żądanie (wersja zapoznawcza)
-description: W tym artykule dowiesz się, jak wykonywać zapytania dotyczące Parquet typów zagnieżdżonych za pomocą SQL na żądanie (wersja zapoznawcza).
+title: Parquet typy zagnieżdżone zapytania przy użyciu bezserwerowej puli SQL (wersja zapoznawcza)
+description: W tym artykule dowiesz się, jak badać Parquet typy zagnieżdżone przy użyciu bezserwerowej puli SQL (wersja zapoznawcza).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08502704515c791bf63f4803b7446a0471c0a869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3463e4dfc423a3f12ce7a42cb0def36574bcb2d3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288260"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311998"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Zapytania zagnieżdżonych typów w plikach Parquet i JSON przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Zapytania zagnieżdżonych typów w plikach Parquet i JSON przy użyciu puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-W tym artykule dowiesz się, jak napisać zapytanie przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Zapytanie będzie odczytywać Parquet typy zagnieżdżone.
+W tym artykule dowiesz się, jak napisać zapytanie przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics. Zapytanie będzie odczytywać Parquet typy zagnieżdżone.
 Zagnieżdżone typy to złożone struktury, które reprezentują obiekty lub tablice. Zagnieżdżone typy mogą być przechowywane w: 
 - [Parquet](query-parquet-files.md), w którym można mieć wiele kolumn złożonych zawierających tablice i obiekty.
 - Hierarchiczne [pliki JSON](query-json-files.md), które umożliwiają odczytywanie złożonego dokumentu JSON jako pojedynczej kolumny.
 - Kolekcje Azure Cosmos DB (obecnie w publicznej wersji zapoznawczej), gdzie każdy dokument może zawierać złożone właściwości zagnieżdżone.
 
-Usługa Azure Synapse SQL na żądanie umożliwia formatowanie wszystkich zagnieżdżonych typów jako obiektów JSON i tablic. Dzięki temu można [wyodrębnić lub zmodyfikować obiekty złożone przy użyciu funkcji JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) lub [przeanalizować dane JSON przy użyciu funkcji OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+Pula SQL bezserwerowa umożliwia formatowanie wszystkich zagnieżdżonych typów jako obiektów JSON i tablic. Dzięki temu można [wyodrębnić lub zmodyfikować obiekty złożone przy użyciu funkcji JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) lub [przeanalizować dane JSON przy użyciu funkcji OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 Oto przykład zapytania, które wyodrębnia wartość skalarną i wartości obiektów z pliku JSON [Open Research DataSet COVID-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) , który zawiera obiekty zagnieżdżone: 
 
@@ -117,7 +117,7 @@ FROM
 
 Wynik jest przedstawiony w poniższej tabeli:
 
-|title  | first_author_name | body_text | complex_column |
+|tytuł  | first_author_name | body_text | complex_column |
 | --- | --- | --- | --- |
 | Dodatkowe informacje o epidemioloach ekonomicznych... | Julien   | -Ilustracja S1: Phylogeny... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 

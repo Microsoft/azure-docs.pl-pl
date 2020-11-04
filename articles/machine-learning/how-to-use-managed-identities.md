@@ -10,16 +10,16 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3490e3004e5f5dd99795967f0deb8510200fa50b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440454"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311045"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Korzystanie z tożsamości zarządzanych z Azure Machine Learning (wersja zapoznawcza)
 
-[Zarządzane tożsamości](/azure/active-directory/managed-identities-azure-resources/overview) umożliwiają skonfigurowanie obszaru roboczego z *minimalnymi wymaganymi uprawnieniami dostępu do zasobów*. 
+[Zarządzane tożsamości](../active-directory/managed-identities-azure-resources/overview.md) umożliwiają skonfigurowanie obszaru roboczego z *minimalnymi wymaganymi uprawnieniami dostępu do zasobów*. 
 
 Podczas konfigurowania Azure Machine Learning obszaru roboczego w sposób godny zaufania należy zapewnić, że różne usługi skojarzone z obszarem roboczym mają prawidłowy poziom dostępu. Na przykład podczas przepływu pracy usługi Machine Learning obszar roboczy musi mieć dostęp do Azure Container Registry (ACR) dla obrazów platformy Docker i kont magazynu na potrzeby danych szkoleniowych. 
 
@@ -37,16 +37,16 @@ W tym artykule dowiesz się, jak używać tożsamości zarządzanych do:
 
 - Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 - [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning](reference-azure-machine-learning-cli.md)
-- [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-- Aby przypisać role, identyfikator logowania dla subskrypcji platformy Azure musi mieć rolę [operatora tożsamości zarządzanej](/azure/role-based-access-control/built-in-roles#managed-identity-operator) lub inną rolę, która przyznaje wymagane akcje (takie jak __właściciel__).
-- Musisz znać, jak tworzyć i pracować z [tożsamościami zarządzanymi](/azure/active-directory/managed-identities-azure-resources/overview).
+- [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?view=azure-ml-py).
+- Aby przypisać role, identyfikator logowania dla subskrypcji platformy Azure musi mieć rolę [operatora tożsamości zarządzanej](../role-based-access-control/built-in-roles.md#managed-identity-operator) lub inną rolę, która przyznaje wymagane akcje (takie jak __właściciel__ ).
+- Musisz znać, jak tworzyć i pracować z [tożsamościami zarządzanymi](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="configure-managed-identities"></a>Konfigurowanie tożsamości zarządzanych
 
 W niektórych sytuacjach konieczne jest niezezwalanie na dostęp użytkownika administracyjnego do Azure Container Registry. Na przykład ACR może być współużytkowany i trzeba nie zezwalać na dostęp administratora przez innych użytkowników. Lub utworzenie ACR z włączonym użytkownikiem administracyjnym nie jest dozwolone przez zasady na poziomie subskrypcji.
 
 > [!IMPORTANT]
-> W przypadku korzystania z Azure Machine Learning do wnioskowania w usłudze Azure Container Instance (ACI) __wymagane__jest uzyskanie dostępu administratora na ACR. Nie należy wyłączać go, jeśli planujesz wdrożenie modeli do ACI na potrzeby wnioskowania.
+> W przypadku korzystania z Azure Machine Learning do wnioskowania w usłudze Azure Container Instance (ACI) __wymagane__ jest uzyskanie dostępu administratora na ACR. Nie należy wyłączać go, jeśli planujesz wdrożenie modeli do ACI na potrzeby wnioskowania.
 
 Podczas tworzenia ACR bez włączania dostępu administratora, tożsamości zarządzane są używane w celu uzyskania dostępu do ACR w celu kompilowania i ściągania obrazów platformy Docker.
 
@@ -56,10 +56,10 @@ Podczas tworzenia obszaru roboczego można przenieść własne ACR z wyłączony
 
 Jeśli użytkownik administracyjny ACR jest niedozwolony przez zasady subskrypcji, należy najpierw utworzyć ACR bez administratora, a następnie skojarzyć go z obszarem roboczym. Ponadto jeśli masz istniejący ACR z wyłączonym użytkownikiem administracyjnym, możesz dołączyć go do obszaru roboczego.
 
-[Utwórz ACR z poziomu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli) bez ustawienia ```--admin-enabled``` argumentu lub z Azure Portal bez włączania użytkownika administracyjnego. Następnie podczas tworzenia obszaru roboczego Azure Machine Learning Określ identyfikator zasobu platformy Azure ACR. Poniższy przykład ilustruje tworzenie nowego obszaru roboczego usługi Azure ML, który używa istniejącej ACR:
+[Utwórz ACR z poziomu interfejsu wiersza polecenia platformy Azure](../container-registry/container-registry-get-started-azure-cli.md) bez ustawienia ```--admin-enabled``` argumentu lub z Azure Portal bez włączania użytkownika administracyjnego. Następnie podczas tworzenia obszaru roboczego Azure Machine Learning Określ identyfikator zasobu platformy Azure ACR. Poniższy przykład ilustruje tworzenie nowego obszaru roboczego usługi Azure ML, który używa istniejącej ACR:
 
 > [!TIP]
-> Aby uzyskać wartość `--container-registry` parametru, użyj polecenia [AZ ACR show](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az_acr_show) , aby wyświetlić informacje dotyczące ACR. `id`Pole zawiera identyfikator zasobu dla ACR.
+> Aby uzyskać wartość `--container-registry` parametru, użyj polecenia [AZ ACR show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) , aby wyświetlić informacje dotyczące ACR. `id`Pole zawiera identyfikator zasobu dla ACR.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -106,7 +106,7 @@ Aby uzyskać dostęp do obszaru roboczego ACR, Utwórz klaster obliczeniowy ucze
 
 # <a name="python"></a>[Python](#tab/python)
 
-Podczas tworzenia klastra obliczeniowego z [AmlComputeProvisioningConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py)należy użyć parametru, `identity_type` Aby ustawić typ tożsamości zarządzanej.
+Podczas tworzenia klastra obliczeniowego z [AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py)należy użyć parametru, `identity_type` Aby ustawić typ tożsamości zarządzanej.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -190,7 +190,7 @@ W tym scenariuszu usługa Azure Machine Learning kompiluje środowisko szkolenio
 
         Identyfikator zasobu UAI jest IDENTYFIKATORem zasobu platformy Azure dla tożsamości przypisanej do użytkownika w formacie `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAI name>` .
 
-1. Określ zewnętrzny ACR i identyfikator klienta __zarządzanej tożsamości przypisanej przez użytkownika__ w połączeniach obszaru roboczego za pomocą [metody Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-):
+1. Określ zewnętrzny ACR i identyfikator klienta __zarządzanej tożsamości przypisanej przez użytkownika__ w połączeniach obszaru roboczego za pomocą [metody Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-):
 
     ```python
     workspace.set_connection(
@@ -210,7 +210,7 @@ env = Environment(name="my-env")
 env.docker.base_image = "<acr url>/my-repo/my-image:latest"
 ```
 
-Opcjonalnie można określić adres URL zasobu tożsamości zarządzanej i identyfikator klienta w samej definicji środowiska przy użyciu [RegistryIdentity](https://docs.microsoft.com/python/api/azureml-core/azureml.core.container_registry.registryidentity?view=azure-ml-py). Jeśli używasz tożsamości rejestru jawnie, zastępuje wszystkie określone wcześniej połączenia obszaru roboczego:
+Opcjonalnie można określić adres URL zasobu tożsamości zarządzanej i identyfikator klienta w samej definicji środowiska przy użyciu [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity?view=azure-ml-py). Jeśli używasz tożsamości rejestru jawnie, zastępuje wszystkie określone wcześniej połączenia obszaru roboczego:
 
 ```python
 from azureml.core.container_registry import RegistryIdentity

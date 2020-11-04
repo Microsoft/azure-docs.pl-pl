@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186624"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312043"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza) 
 
@@ -92,7 +92,7 @@ Obszar roboczy Synapse wymaga dostępu do STG1 i CNT1, aby można było uruchami
   - Jeśli nie widzisz jej przypisanej, przypisz ją.
   - Plik MSI ma taką samą nazwę jak obszar roboczy. W takim przypadku &quot; WS1 &quot; .
 
-## <a name="step-5-configure-admin-access-for-sql-pools"></a>Krok 5. Konfigurowanie dostępu administratora dla pul SQL
+## <a name="step-5-configure-admin-access-for-synapse-sql"></a>Krok 5. Konfigurowanie dostępu administratora dla usługi Synapse SQL
 
 - Otwórz witrynę Azure Portal
 - Przejdź do WS1
@@ -114,11 +114,11 @@ Użytkownicy w każdej roli muszą wykonać następujące czynności:
 | Liczba | Krok | Administratorzy obszaru roboczego | Administratorzy platformy Spark | Administratorzy SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Przekaż plik Parquet do CNT1 | TAK | TAK | TAK |
-| 2 | Przeczytaj plik Parquet za pomocą SQL na żądanie | TAK | NO | TAK |
-| 3 | Tworzenie puli platformy Spark | TAK [1] | TAK [1] | NO  |
+| 2 | Odczytaj plik Parquet za pomocą puli SQL bezserwerowej | TAK | NO | TAK |
+| 3 | Utwórz bezserwerową pulę Apache Spark | TAK [1] | TAK [1] | NO  |
 | 4 | Odczytuje plik Parquet z notesem | TAK | TAK | NO |
 | 5 | Tworzenie potoku z poziomu notesu i wyzwalanie potoku w celu uruchomienia go teraz | TAK | NO | NO |
-| 6 | Utwórz pulę SQL i uruchom skrypt SQL, taki jak &quot; SELECT 1&quot; | TAK [1] | NO | TAK [1] |
+| 6 | Utwórz dedykowaną pulę SQL i uruchom skrypt SQL, taki jak &quot; SELECT 1&quot; | TAK [1] | NO | TAK [1] |
 
 > [!NOTE]
 > [1] aby utworzyć pule SQL lub Spark, użytkownik musi mieć co najmniej rolę współautor w obszarze roboczym Synapse.
@@ -148,8 +148,8 @@ Program Synapse Studio będzie zachowywać się inaczej w zależności od ról u
 | Centrum danych/zobacz połączone ADLS Gen2 konta i kontenery | TAK [1] | TAK [1] | TAK [1] |
 | Centrum danych/Wyświetlanie baz danych | TAK | TAK | TAK |
 | Centrum danych/wyświetlanie obiektów w bazach danych | TAK | TAK | TAK |
-| Centra danych/dostęp do danych w puli baz danych SQL | TAK   | NO   | TAK   |
-| Centra danych/dostęp do danych w bazach danych SQL na żądanie | TAK [2]  | NO  | TAK [2]  |
+| Centra danych/dostęp do danych w Synapse bazach danych SQL | TAK   | NO   | TAK   |
+| Centra danych/dostęp do danych w bezserwerowych bazach danych puli SQL | TAK [2]  | NO  | TAK [2]  |
 | Centra danych/dostęp do danych w bazach danych Spark | TAK [2] | TAK [2] | TAK [2] |
 | Korzystanie z centrum opracowywania | TAK | TAK | TAK |
 | Opracowywanie skryptów SQL Hub/autora | TAK | NO | TAK |
@@ -159,7 +159,7 @@ Program Synapse Studio będzie zachowywać się inaczej w zależności od ról u
 | Korzystanie z centrum aranżacji | TAK | TAK | TAK |
 | Organizuj centra/Użyj potoków | TAK | NO | NO |
 | Korzystanie z centrum zarządzania | TAK | TAK | TAK |
-| Zarządzanie pulami Hub/SQL | TAK | NO | TAK |
+| Zarządzanie usługą Hub/Synapse SQL | TAK | NO | TAK |
 | Zarządzanie pulami Hub/Spark | TAK | TAK | NO |
 | Zarządzaj centrum/wyzwalaczami | TAK | NO | NO |
 | Zarządzanie centrami/połączonymi usługami | TAK | TAK | TAK |
