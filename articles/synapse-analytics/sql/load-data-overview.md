@@ -1,6 +1,6 @@
 ---
-title: Projektowanie strategii ładowania danych podstawowych dla puli SQL
-description: Zamiast ETL Zaprojektuj proces wyodrębniania, ładowania i przekształcania (ELT) na potrzeby ładowania danych lub puli SQL.
+title: Projektowanie strategii ładowania danych podstawowych dla dedykowanej puli SQL
+description: Zamiast ETL Zaprojektuj proces wyodrębniania, ładowania i przekształcania (ELT) na potrzeby ładowania danych za pomocą dedykowanego języka SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a57abd080bdbbaefbe07258a2b241c093dc8c441
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474669"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308749"
 ---
-# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Projektowanie strategii ładowania danych podstawowych dla puli SQL Synapse platformy Azure
+# <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Projektowanie strategii ładowania danych podstawowych dla dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
 Tradycyjne magazyny danych SMP używają procesu wyodrębniania, transformacji i ładowania (ETL) do ładowania danych. Usługa Azure SQL Pool to architektura wysoce równoległego przetwarzania (MPP), która korzysta z skalowalności i elastyczności zasobów obliczeniowych i magazynu. Korzystanie z procesu wyodrębniania, ładowania i przekształcania (ELT) może korzystać z wbudowanych funkcji przetwarzania zapytań rozproszonych i eliminowania zasobów wymaganych do przekształcenia danych przed ich załadowaniem.
 
@@ -29,12 +29,12 @@ Chociaż Pula SQL obsługuje wiele metod ładowania, w tym opcje inne niż podst
 
 Wyodrębnij, Załaduj i Przekształć (ELT) to proces polegający na tym, że dane są wyodrębniane z systemu źródłowego, ładowane do magazynu danych, a następnie przekształcane.
 
-Podstawowe kroki związane z implementacją ELT Base dla puli SQL są następujące:
+Podstawowe kroki implementacji ELT Base dla dedykowanej puli SQL są następujące:
 
 1. Wyodrębnij dane źródłowe do plików tekstowych.
 2. Wydziel dane do usługi Azure Blob Storage lub Azure Data Lake Store.
 3. Przygotuj dane do załadowania.
-4. Załaduj dane do tabel przemieszczania puli SQL przy użyciu bazy danych.
+4. Załaduj dane do dedykowanych tabel tymczasowych puli SQL przy użyciu bazy danych.
 5. Przekształć dane.
 6. Wstaw dane do tabel produkcyjnych.
 
@@ -85,11 +85,11 @@ Narzędzia i usługi, których można użyć do przenoszenia danych do usługi A
 
 - Usługa [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) zwiększa przepustowość sieci, wydajność i przewidywalność. ExpressRoute to usługa, która przekierowuje dane za pomocą dedykowanego połączenia prywatnego z platformą Azure. Połączenia ExpressRoute nie kierują danych za pomocą publicznego Internetu. Połączenia oferują większą niezawodność, większe szybkości, krótsze opóźnienia oraz lepsze zabezpieczenia niż typowe połączenia przez publiczny Internet.
 - [Narzędzie AzCopy](../../storage/common/storage-use-azcopy-v10.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) przenosi dane do usługi Azure Storage za pośrednictwem publicznego Internetu. To działa, jeśli rozmiar danych jest mniejszy niż 10 TB. Aby przeprowadzić regularne ładowanie w programie AZCopy, przetestuj szybkość sieci, aby sprawdzić, czy jest ona akceptowalna.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) zawiera bramę, którą można zainstalować na serwerze lokalnym. Następnie możesz utworzyć potok, aby przenieść dane z serwera lokalnego do usługi Azure Storage. Aby użyć Data Factory z pulą SQL, zobacz [ładowanie danych do puli SQL](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) zawiera bramę, którą można zainstalować na serwerze lokalnym. Następnie możesz utworzyć potok, aby przenieść dane z serwera lokalnego do usługi Azure Storage. Aby użyć Data Factory z dedykowaną pulą SQL, zobacz [ładowanie danych do dedykowanej puli SQL](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Przygotuj dane do załadowania
 
-Może być konieczne przygotowanie i oczyszczenie danych na koncie magazynu przed załadowaniem ich do puli SQL. Przygotowanie danych można wykonać, gdy dane są przechowywane w źródle, podczas eksportowania danych do plików tekstowych lub po utworzeniu danych w usłudze Azure Storage.  Najłatwiej pracujesz z danymi tak wcześnie w procesie, jak to możliwe.  
+Może być konieczne przygotowanie i oczyszczenie danych na koncie magazynu przed załadowaniem ich do dedykowanej puli SQL. Przygotowanie danych można wykonać, gdy dane są przechowywane w źródle, podczas eksportowania danych do plików tekstowych lub po utworzeniu danych w usłudze Azure Storage.  Najłatwiej pracujesz z danymi tak wcześnie w procesie, jak to możliwe.  
 
 ### <a name="define-external-tables"></a>Definiowanie tabel zewnętrznych
 
@@ -110,7 +110,7 @@ Aby sformatować pliki tekstowe:
 - Sformatuj dane w pliku tekstowym, aby wyrównać je do kolumn i typów danych w tabeli docelowej puli SQL. Niezgodność między typami danych w zewnętrznych plikach tekstowych i tabeli magazynu danych powoduje odrzucenie wierszy podczas ładowania.
 - Oddziel pola w pliku tekstowym z terminatorem.  Upewnij się, że używasz znaku lub sekwencji znaków, która nie została znaleziona w danych źródłowych. Użyj terminatora określonego przy użyciu parametru [Create External File Format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. Załaduj dane do tabel przemieszczania puli SQL przy użyciu bazy danych
+## <a name="4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase"></a>4. Załaduj dane do dedykowanych tabel tymczasowych puli SQL przy użyciu bazy danych
 
 Najlepszym rozwiązaniem jest załadowanie danych do tabeli przejściowej. Tabele przemieszczania umożliwiają obsługę błędów bez zakłócania pracy z tabelami produkcyjnymi. Tabela przemieszczania daje również możliwość użycia wbudowanych funkcji przetwarzania zapytań w puli SQL na potrzeby przekształceń danych przed wstawieniem danych do tabel produkcyjnych.
 
@@ -125,7 +125,7 @@ Aby załadować dane za pomocą bazy danych Base, można użyć dowolnej z nast�
 
 ### <a name="non-polybase-loading-options"></a>Opcje ładowania inne niż podstawowe
 
-Jeśli dane nie są zgodne z bazą danych, można użyć narzędzia [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) lub [interfejsu API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Narzędzie bcp ładuje się bezpośrednio do puli SQL bez przechodzenia przez usługę Azure Blob Storage i jest przeznaczone tylko do małych obciążeń. Należy pamiętać, że wydajność ładowania tych opcji jest znacznie mniejsza niż baza Base.
+Jeśli dane nie są zgodne z bazą danych, można użyć narzędzia [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) lub [interfejsu API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). BCP ładuje się bezpośrednio do dedykowanej puli SQL bez przechodzenia przez usługę Azure Blob Storage i jest przeznaczony tylko do małych obciążeń. Należy pamiętać, że wydajność ładowania tych opcji jest znacznie mniejsza niż baza Base.
 
 ## <a name="5-transform-the-data"></a>5. Przekształć dane
 

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: korzystanie z SQL na żądanie (wersja zapoznawcza) w celu analizowania otwartych zestawów danych platformy Azure w usłudze Azure Synapse Studio (wersja zapoznawcza)'
-description: W tym samouczku pokazano, jak łatwo przeprowadzać analizę danych w celu łączenia się z różnymi wersjami otwartych zestawów danych platformy Azure przy użyciu funkcji SQL na żądanie (w wersji zapoznawczej) i wizualizować wyniki w usłudze Azure Synapse Studio.
+title: 'Samouczek: używanie bezserwerowej puli SQL (wersja zapoznawcza) do analizowania otwartych zestawów danych platformy Azure w usłudze Azure Synapse Studio (wersja zapoznawcza)'
+description: W tym samouczku pokazano, jak łatwo przeprowadzać analizę danych w celu łączenia różnych otwartych zestawów datadataset przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) i wizualizować wyniki w usłudze Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec16041edd10a57088df4ae9cfe0587906919eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539524"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309284"
 ---
-# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Samouczek: korzystanie z SQL na żądanie w celu analizowania otwartych zestawów danych platformy Azure i wizualizacji wyników w usłudze Azure Synapse Studio
+# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Samouczek: używanie bezserwerowej puli SQL do analizowania otwartych zestawów danych platformy Azure i wizualizacji wyników w usłudze Azure Synapse Studio
 
-W ramach tego samouczka nauczysz się przeprowadzać analizę danych w postaci poznawczej, łącząc różne usługi Azure Open DataSets przy użyciu funkcji SQL na żądanie, a następnie wizualizując wyniki w usłudze Azure Synapse Studio.
+W ramach tego samouczka nauczysz się przeprowadzać analizę danych w sposób naukowy, łącząc różne otwarte zestawy datadataset za pomocą puli SQL bezserwerowej, a następnie wizualizując wyniki w usłudze Azure Synapse Studio.
 
 W szczególności analizujemy [zestaw danych o taksówkach w Nowym Jorku (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) , który obejmuje:
 
@@ -102,7 +102,7 @@ Poniższy fragment kodu przedstawia wynik rocznej liczby kolarstwuówek:
 
 ![Roczna liczba taksówki kolarstwu fragmentu wyniku](./media/tutorial-data-analyst/4.png)
 
-Dane można wizualizować w programie Synapse Studio, przełączając **tabelę** w widok **wykresu** . Można wybrać różne typy wykresów, takie jak **obszar**, **pasek**, **kolumna**, **linia**, **Wykres kołowy**i **punktowy**. W takim przypadku Wykreśl wykres **kolumnowy** z kolumną **Category** ustawioną na **current_year**:
+Dane można wizualizować w programie Synapse Studio, przełączając **tabelę** w widok **wykresu** . Można wybrać różne typy wykresów, takie jak **obszar** , **pasek** , **kolumna** , **linia** , **Wykres kołowy** i **punktowy**. W takim przypadku Wykreśl wykres **kolumnowy** z kolumną **Category** ustawioną na **current_year** :
 
 ![Wykres kolumnowy przedstawiający kolarstwu na rok](./media/tutorial-data-analyst/5.png)
 
@@ -213,9 +213,9 @@ Wyniki zapytania wskazują, że wystąpił spadek liczby kolarstwu taksówki, po
 - Była zimna (temperatura była niższa od 0 ° c).
 - Była to uzwojenie (~ 10 m/s).
 
-W tym samouczku pokazano, jak analityk danych może szybko przeprowadzić analizę danych w sposób naukowy, a także łatwo łączyć z innymi zestawami DataSets przy użyciu funkcji SQL na żądanie oraz wizualizować wyniki przy użyciu usługi Azure Synapse Studio.
+W tym samouczku pokazano, jak analityk danych może szybko przeprowadzić analizę danych w sposób naukowy, a także łatwo połączyć różne zestawy, używając bezserwerowej puli SQL i wizualizować wyniki przy użyciu usługi Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak połączyć SQL na żądanie w celu Power BI Desktop i tworzenia raportów, zobacz [łączenie SQL na żądanie w celu Power BI Desktop i tworzenia raportów](tutorial-connect-power-bi-desktop.md).
+Aby dowiedzieć się, jak połączyć pulę SQL bezserwerową w celu Power BI Desktop i tworzenia raportów, zobacz [łączenie puli SQL bezserwerowej w celu Power BI Desktop i tworzenia raportów](tutorial-connect-power-bi-desktop.md).
  

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: 42433ec419ac9e02077cd0359e18b5114206f27d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af7900faff18d526686b80f23b9de3b3bce5ec5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76721833"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309603"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Tworzenie potoków ciągłej integracji/ciągłego wdrażania dla aplikacji AI przy użyciu Azure Pipelines, Docker i Kubernetes
 
@@ -34,9 +34,9 @@ Aby użyć pobranego kodu źródłowego i samouczka, potrzebne są następujące
 - [Repozytorium kodu źródłowego](https://github.com/Azure/DevOps-For-AI-Apps) rozwidlenie na konto usługi GitHub
 - [Organizacja usługi Azure DevOps](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
-- [Klaster Azure Container Service for Kubernetes (AKS)](/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+- [Klaster Azure Container Service for Kubernetes (AKS)](/previous-versions/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 - [Polecenia kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) do uruchamiania poleceń i konfiguracji pobierania z klastra AKS 
-- [Konto Azure Container Registry (ACR)](/azure/container-registry/container-registry-get-started-portal)
+- [Konto Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-portal.md)
 
 ## <a name="cicd-pipeline-summary"></a>Podsumowanie potoku ciągłej integracji/ciągłego wdrażania
 
@@ -60,9 +60,9 @@ Poniższy diagram i kroki opisują architekturę potoku CI/CD:
 10. Żądania użytkowników dla aplikacji przechodzą przez serwer DNS.
 11. Serwer DNS przekazuje żądania do modułu równoważenia obciążenia i wysyła odpowiedzi z powrotem do użytkowników.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-- [Proces nauki o danych zespołowych (przetwarzania TDSP)](/azure/machine-learning/team-data-science-process/)
-- [Azure Machine Learning (AML)](/azure/machine-learning/)
+- [Proces nauki o danych zespołowych (przetwarzania TDSP)](./index.yml)
+- [Azure Machine Learning (AML)](../index.yml)
 - [Azure DevOps](https://azure.microsoft.com/services/devops/)
-- [Usługi Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
+- [Usługi Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md)

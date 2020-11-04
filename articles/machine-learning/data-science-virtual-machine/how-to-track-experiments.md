@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254804"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307454"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Śledź eksperymenty i wdrażaj modele w Azure Machine Learning
 
@@ -26,11 +26,11 @@ Na poniższym diagramie przedstawiono, że śledzenie MLflow umożliwia śledzen
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Musisz [zainicjować obsługę administracyjną obszar roboczy usługi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* Musisz [zainicjować obsługę administracyjną obszar roboczy usługi Azure Machine Learning](../how-to-manage-workspace.md#create-a-workspace)
 
 ## <a name="create-a-new-notebook"></a>Tworzenie nowego notesu
 
-Azure Machine Learning i MLFlow SDK są preinstalowane na Data Science VM i można uzyskać do nich dostęp w środowisku **azureml_py36_ \* ** Conda. W Jupyterlab, kliknij przycisk Uruchom i wybierz następujące jądro:
+Azure Machine Learning i MLFlow SDK są preinstalowane na Data Science VM i można uzyskać do nich dostęp w środowisku * *azureml_py36_ \** _ Conda. W Jupyterlab, kliknij przycisk Uruchom i wybierz następujące jądro:
 
 ![wybór jądra](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +137,7 @@ W menu po lewej stronie w programie [Azure Studio](https://ml.azure.com) kliknij
 
 W okienku __nowe informacje o klastrze wnioskowania__ o:
 
-* Nazwa obliczeniowa
+_ Nazwa obliczenia
 * Usługa Kubernetes — wybierz pozycję Utwórz nowe
 * Wybierz region
 * Wybierz rozmiar maszyny wirtualnej (na potrzeby tego samouczka wartość domyślna Standard_D3_v2 jest wystarczająca)
@@ -165,7 +165,7 @@ Aby wdrożyć model cukrzycą, przejdź do menu po lewej stronie w [Azure Machin
 
 Następnie kliknij przycisk __Wdróż__ w okienku szczegółów modelu:
 
-![Wdrażanie](./media/how-to-track-experiments/mlflow-experiments-4.png)
+![Wdróż](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
 Zostanie wdrożony model do klastra wnioskowania (usługa Azure Kubernetes), który został utworzony w kroku 1. Wypełnij poniższe informacje, podając nazwę usługi i nazwę klastra AKS COMPUTE (utworzonego w kroku 1). Zalecamy również zwiększenie __pojemności rezerwy procesora CPU__ do 1 (od 0,1) i __pojemności rezerwowej pamięci__ do 1 (od 0,5) — można zwiększyć ten wzrost, klikając pozycję __Zaawansowane__ i wypełniając szczegóły. Następnie kliknij przycisk __Wdróż__.
 
@@ -204,4 +204,4 @@ Usuń obliczenia wnioskowania utworzone w kroku 1, tak aby nie były naliczane s
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [wdrażaniu modeli na platformie Azure](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
+* Dowiedz się więcej o [wdrażaniu modeli na platformie Azure](../how-to-deploy-and-where.md)

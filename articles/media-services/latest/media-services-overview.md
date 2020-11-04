@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220639"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308967"
 ---
 # <a name="azure-media-services-v3-overview"></a>Omówienie usługi Azure Media Services w wersji 3
 
@@ -59,12 +59,12 @@ Media Services pozwala tworzyć różne przepływy pracy multimedialnej w chmurz
 * Dzięki usłudze Azure Media Services oraz [interfejsom API usług Cognitive Services](../../index.yml?pivot=products&panel=ai) możesz dodawać napisy i podpisy do filmów, aby spełnić potrzeby szerszego grona odbiorców (na przykład osób z wadami słuchu lub osób chcących jednocześnie czytać w innym języku).
 * Włącz usługę Azure CDN, aby osiągnąć wysoką skalowalność w celu zapewnienia lepszej obsługi błyskawicznego zwiększenia obciążenia (na przykład na początku wydarzenia prezentującego nowy produkt).
 
-## <a name="how-can-i-get-started-with-v3"></a>Jak można zacząć korzystać z wersji 3? 
+## <a name="how-can-i-get-started-with-v3"></a>Jak można zacząć korzystać z wersji 3?
 
 Dowiedz się, jak kodować i spakować zawartość, przesyłać strumieniowo filmy wideo na żądanie, emitować na żywo i analizować filmy wideo za pomocą Media Services v3. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób zapewnienia bezpiecznej transmisji strumieniowej materiałów wideo lub audio na żywo lub na żądanie, którą można skalować na potrzeby milionów użytkowników.
 
 > [!TIP]
-> Przed rozpoczęciem opracowywania, przejrzyj:<br/>* [Podstawowe pojęcia](concepts-overview.md) (w tym ważne pojęcia, takie jak pakowanie, kodowanie i ochrona)<br/>* [Programowanie przy użyciu interfejsów api Media Services v3](media-services-apis-overview.md) (zawiera informacje na temat uzyskiwania dostępu do interfejsów API, konwencji nazewnictwa itd.)
+> Przed rozpoczęciem opracowywania, przejrzyj: [podstawowe koncepcje](concepts-overview.md) , w tym ważne pojęcia, takie jak pakowanie, kodowanie i ochrona, i [Programowanie przy użyciu interfejsów API Media Services v3](media-services-apis-overview.md) , które zawierają informacje na temat uzyskiwania dostępu do interfejsów API, konwencji nazewnictwa i tak dalej.
 
 ### <a name="sdks"></a>Zestawy SDK
 

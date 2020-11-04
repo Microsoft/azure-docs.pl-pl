@@ -1,6 +1,6 @@
 ---
-title: Kopiuj łącze Synapse Azure Cosmos DB danych do puli SQL przy użyciu Apache Spark
-description: Załaduj dane do ramki danych platformy Spark, zanadzoruj dane i załaduj je do tabeli puli SQL
+title: Kopiuj łącze Synapse Azure Cosmos DB danych do dedykowanej puli SQL przy użyciu Apache Spark
+description: Załaduj dane do ramki danych platformy Spark, zanadzoruj dane i załaduj je do dedykowanej tabeli puli SQL
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
@@ -9,35 +9,35 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 409f1ecee5ccf42a0168d500b40337366e07bfc0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13891f9614e658be39adbb69fed1503a0c66d5e4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287854"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309214"
 ---
-# <a name="copy-data-from-azure-cosmos-db-into-a-sql-pool-using-apache-spark"></a>Kopiowanie danych z Azure Cosmos DB do puli SQL przy użyciu Apache Spark
+# <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Kopiowanie danych z Azure Cosmos DB do dedykowanej puli SQL przy użyciu Apache Spark
 
 Link Synapse platformy Azure dla Azure Cosmos DB umożliwia użytkownikom uruchamianie analizy niemal w czasie rzeczywistym za pośrednictwem danych operacyjnych w Azure Cosmos DB. Istnieją jednak przypadki, w których niektóre dane muszą zostać zagregowane i wzbogacone w celu umożliwienia użytkownikom hurtowni danych. Opieka i eksportowanie danych łącza Synapse można wykonać za pomocą zaledwie kilku komórek w notesie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [Zainicjuj obsługę obszaru roboczego Synapse](../quickstart-create-workspace.md) przy użyciu:
-    * [Pula platformy Spark](../quickstart-create-apache-spark-pool-studio.md)
-    * [Pula SQL](../quickstart-create-sql-pool-studio.md)
+    * [Bezserwerowa Pula Apache Spark](../quickstart-create-apache-spark-pool-studio.md)
+    * [dedykowana Pula SQL](../quickstart-create-sql-pool-studio.md)
 * [Inicjowanie obsługi konta Cosmos DB z użyciem kontenera HTAP z danymi](../../cosmos-db/configure-synapse-link.md)
 * [Łączenie kontenera Azure Cosmos DB HTAP z obszarem roboczym](./how-to-connect-synapse-link-cosmos-db.md)
-* [Skonfigurowanie odpowiedniej konfiguracji w celu zaimportowania danych do puli SQL z platformy Spark](../spark/synapse-spark-sql-pool-import-export.md)
+* [Skonfigurowanie odpowiedniej konfiguracji w celu zaimportowania danych do dedykowanej puli SQL z platformy Spark](../spark/synapse-spark-sql-pool-import-export.md)
 
 ## <a name="steps"></a>Kroki
 W ramach tego samouczka nawiążesz połączenie z magazynem analitycznym, więc nie ma to wpływu na magazyn transakcyjny (nie zużywa żadnych jednostek żądania). Przejdziemy przez następujące kroki:
 1. Odczytywanie kontenera Cosmos DB HTAP w ramce Dataframe platformy Spark
 2. Agreguj wyniki w nowej ramce Dataframe
-3. Pozyskiwanie danych w puli SQL
+3. Pozyskiwanie danych w dedykowanej puli SQL
 
 [![Kroki z platformy Spark do SQL 1](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## <a name="data"></a>Dane
-W tym przykładzie używamy kontenera HTAP o nazwie **RetailSales**. Jest to część połączonej usługi o nazwie **ConnectedData**i ma następujący schemat:
+W tym przykładzie używamy kontenera HTAP o nazwie **RetailSales**. Jest to część połączonej usługi o nazwie **ConnectedData** i ma następujący schemat:
 * _rid: ciąg (nullable = true)
 * _ts: Long (nullable = true)
 * logQuantity: Double (nullable = true)
@@ -50,7 +50,7 @@ W tym przykładzie używamy kontenera HTAP o nazwie **RetailSales**. Jest to cz�
 * weekStarting: Long (nullable = true)
 * _etag: ciąg (nullable = true)
 
-Będziemy agregować sprzedaż (*ilość*, *przychód* (cena x ilość) według *productCode* i *weekStarting* na potrzeby raportowania. Na koniec będziemy eksportować te dane do tabeli puli SQL o nazwie **dbo. ProductSales**.
+Będziemy agregować sprzedaż ( *ilość* , *przychód* (cena x ilość) według *productCode* i *weekStarting* na potrzeby raportowania. Na koniec będziemy eksportować te dane do dedykowanej tabeli puli SQL o nazwie **dbo. ProductSales**.
 
 ## <a name="configure-a-spark-notebook"></a>Konfigurowanie notesu platformy Spark
 Utwórz Notes Spark z Scala jako Spark (Scala) jako język główny. Używamy domyślnego ustawienia notesu dla sesji.
@@ -67,7 +67,7 @@ val df_olap = spark.read.format("cosmos.olap").
 
 ## <a name="aggregate-the-results-in-a-new-dataframe"></a>Agreguj wyniki w nowej ramce Dataframe
 
-W drugiej komórce uruchamiamy transformację i agregacje niezbędne dla nowej ramki danych przed załadowaniem jej do bazy danych puli SQL.
+W drugiej komórce uruchamiamy transformację i agregacje niezbędne dla nowej ramki danych przed załadowaniem jej do dedykowanej usługi puli SQL.
 
 ```java
 // Select relevant columns and create revenue
@@ -77,12 +77,12 @@ val df_olap_aggr = df_olap_step1.groupBy("productCode","weekStarting").agg(sum("
     withColumn("AvgPrice",col("Sum_revenue")/col("Sum_quantity"))
 ```
 
-## <a name="load-the-results-into-a-sql-pool"></a>Załaduj wyniki do puli SQL
+## <a name="load-the-results-into-a-dedicated-sql-pool"></a>Załaduj wyniki do dedykowanej puli SQL
 
-W trzeciej komórce ładujemy dane do puli SQL. Spowoduje to automatyczne utworzenie tymczasowej tabeli zewnętrznej, zewnętrznego źródła danych i zewnętrznego formatu pliku, który zostanie usunięty po zakończeniu zadania.
+W trzeciej komórce ładujemy dane do dedykowanej puli SQL. Spowoduje to automatyczne utworzenie tymczasowej tabeli zewnętrznej, zewnętrznego źródła danych i zewnętrznego formatu pliku, który zostanie usunięty po zakończeniu zadania.
 
 ```java
-df_olap_aggr.write.sqlanalytics("arnaudpool.dbo.productsales", Constants.INTERNAL)
+df_olap_aggr.write.sqlanalytics("userpool.dbo.productsales", Constants.INTERNAL)
 ```
 
 ## <a name="query-the-results-with-sql"></a>Wykonywanie zapytań dotyczących wyników przy użyciu języka SQL

@@ -11,16 +11,16 @@ ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a963a9f10ee23c50f50e66191e92f0839c457d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc348318401c9362636893d70294496c7012408
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362852"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308468"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Wdrażanie usług sieci Web Azure Machine Learning Studio (klasycznych), które używają modułów importowania danych i eksportu danych
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Podczas tworzenia eksperymentu predykcyjnego zazwyczaj dodawane są dane wejściowe i wyjściowe usługi sieci Web. Podczas wdrażania eksperymentu klienci mogą wysyłać i odbierać dane z usługi sieci Web za pośrednictwem danych wejściowych i wyjściowych. W przypadku niektórych aplikacji dane użytkownika mogą być dostępne ze strumieniowego źródła danych lub już znajdują się w zewnętrznym źródle danych, takim jak Azure Blob Storage. W takich przypadkach nie potrzebują danych odczytu i zapisu przy użyciu wejściowych i wyjściowych usług sieci Web. Mogą zamiast tego używać usługi wykonywania wsadowego (BES) do odczytywania danych ze źródła danych przy użyciu modułu Importuj dane i zapisywania wyników oceniania w innej lokalizacji danych przy użyciu modułu eksport danych.
@@ -41,7 +41,7 @@ Aby odczytać dane z tabeli Azure SQL:
 3. Z listy wyników Dodaj moduł *Importuj dane* do kanwy eksperymentu.
 4. Połącz dane wyjściowe modułu *Importuj dane* dane wejściowe modułu *czyste brakujące dane* .
 5. W okienku właściwości wybierz pozycję **Azure SQL Database** na liście rozwijanej **Źródło danych** .
-6. W polach **Nazwa serwera bazy danych**, **Nazwa bazy danych**, **Nazwa użytkownika**i **hasło** wprowadź odpowiednie informacje dotyczące bazy danych.
+6. W polach **Nazwa serwera bazy danych** , **Nazwa bazy danych** , **Nazwa użytkownika** i **hasło** wprowadź odpowiednie informacje dotyczące bazy danych.
 7. W polu kwerenda bazy danych wprowadź następujące zapytanie.
 
     ```tsql
@@ -73,12 +73,12 @@ Następnie należy skonfigurować eksperyment predykcyjny, z którego wdrażana 
 4. Z listy wyników Dodaj moduł *eksportu danych* do kanwy eksperymentu.
 5. Połącz dane wyjściowe modułu *wynik model* dane wejściowe modułu *eksport danych* .
 6. W okienku właściwości wybierz pozycję **Azure SQL Database** na liście rozwijanej miejsce docelowe danych.
-7. W polu **Nazwa serwera bazy danych**, **Nazwa bazy danych**, **nazwa konta użytkownika serwera**i **hasło konta użytkownika serwera** wprowadź odpowiednie informacje dotyczące bazy danych.
+7. W polu **Nazwa serwera bazy danych** , **Nazwa bazy danych** , **nazwa konta użytkownika serwera** i **hasło konta użytkownika serwera** wprowadź odpowiednie informacje dotyczące bazy danych.
 8. Na **liście rozdzielanych przecinkami kolumn, które mają być zapisane** pole wpisz etykiety z wynikami.
-9. W **polu Nazwa tabeli danych**wpisz dbo. ScoredLabels. Jeśli tabela nie istnieje, jest tworzona, gdy eksperyment jest uruchamiany lub usługa sieci Web jest wywoływana.
+9. W **polu Nazwa tabeli danych** wpisz dbo. ScoredLabels. Jeśli tabela nie istnieje, jest tworzona, gdy eksperyment jest uruchamiany lub usługa sieci Web jest wywoływana.
 10. Na **liście rozdzielanej przecinkami pól kolumny DataTable** wpisz ScoredLabels.
 
-Podczas pisania aplikacji, która wywołuje końcową usługę sieci Web, może być konieczne określenie innej kwerendy wejściowej lub tabeli docelowej w czasie wykonywania. Aby skonfigurować te dane wejściowe i wyjściowe, użyj funkcji parametrów usługi sieci Web, aby ustawić właściwość *Źródło danych* modułu *Import* danych i Właściwość docelowa eksport danych trybu *dane* .  Aby uzyskać więcej informacji na temat parametrów usługi sieci Web, zobacz [wpis Azure Machine Learning Studio usługi sieci Web](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) w blogu Cortana Intelligence i Machine Learning.
+Podczas pisania aplikacji, która wywołuje końcową usługę sieci Web, może być konieczne określenie innej kwerendy wejściowej lub tabeli docelowej w czasie wykonywania. Aby skonfigurować te dane wejściowe i wyjściowe, użyj funkcji parametrów usługi sieci Web, aby ustawić właściwość *Źródło danych* modułu *Import* danych i Właściwość docelowa eksport danych trybu *dane* .  Aby uzyskać więcej informacji na temat parametrów usługi sieci Web, zobacz [wpis Azure Machine Learning Studio usługi sieci Web](/archive/blogs/machinelearning/azureml-web-service-parameters) w blogu Cortana Intelligence i Machine Learning.
 
 Aby skonfigurować parametry usługi sieci Web dla kwerendy importu i tabeli docelowej:
 
@@ -132,7 +132,7 @@ Aby wdrożyć program jako nową usługę sieci Web i utworzyć aplikację do u�
 1. W dolnej części kanwy eksperymentu kliknij pozycję **Uruchom**.
 2. Po zakończeniu przebiegu kliknij pozycję **Wdróż usługę sieci Web** i wybierz pozycję **Wdróż usługę sieci Web [New]**.
 3. Na stronie wdrażanie eksperymentu wprowadź nazwę usługi sieci Web i wybierz plan cenowy, a następnie kliknij przycisk **Wdróż**.
-4. Na stronie **Szybki Start** **kliknij pozycję**Użyj.
+4. Na stronie **Szybki Start** **kliknij pozycję** Użyj.
 5. W sekcji **przykładowy kod** kliknij pozycję **Batch**.
 6. W programie Visual Studio Utwórz aplikację konsolową w języku C#: **Nowy**  >  **projekt**  >  **Visual C#**  >  **Windows Classic**  >  **Aplikacja konsolowa (.NET Framework)**.
 7. Skopiuj i wklej przykładowy kod w języku C# do pliku Program.cs.
@@ -152,4 +152,3 @@ Aby wdrożyć program jako nową usługę sieci Web i utworzyć aplikację do u�
     };
     ```
 10. Uruchom aplikację.
-

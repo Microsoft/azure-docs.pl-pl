@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: 23ecc3bdfb0ca85caf219fc262348937923f53c3
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d4a2d9e43dadc53008c04b44ea1dda9cb337da99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286127"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308357"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Automatyczna rejestracja przy użyciu dostawcy zasobów maszyny wirtualnej SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Po włączeniu automatycznej rejestracji w ramach subskrypcji wszystkie bieżąc
 
 Aby zarejestrować SQL Server maszynę wirtualną przy użyciu dostawcy zasobów, musisz: 
 
-- [Subskrypcja platformy Azure](https://azure.microsoft.com/free/).
+- [Subskrypcja platformy Azure](https://azure.microsoft.com/free/) i co najmniej uprawnienia [roli współautor](../../../role-based-access-control/built-in-roles.md#all) .
 - Model zasobów platformy Azure [systemu Windows Server 2008 R2 (lub nowszego)](../../../virtual-machines/windows/quick-create-portal.md) z [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) wdrożony w chmurze publicznej lub Azure Government. System Windows Server 2008 nie jest obsługiwany. 
 
 

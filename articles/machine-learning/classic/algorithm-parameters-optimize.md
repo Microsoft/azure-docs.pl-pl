@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0ed958d24a7ff499c8cf33974648afb0f4e0a81d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b08318d4c12fd2e6ea8055771ca6792b0fb280dd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367992"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307859"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Wybierz parametry, aby zoptymalizować algorytmy w Machine Learning Studio (klasyczny)
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 W tym temacie opisano, jak wybrać prawy parametr ustawiony dla algorytmu w Azure Machine Learning Studio (klasyczny). Większość algorytmów uczenia maszynowego ma parametry do ustawienia. Podczas uczenia modelu należy podać wartości tych parametrów. Skuteczność przeszkolonego modelu zależy od wybranych parametrów modelu. Proces znajdowania optymalnego zestawu parametrów jest znany jako *wybór modelu*.
 
@@ -28,10 +28,10 @@ Istnieją różne sposoby wyboru modelu. W uczeniu maszynowym, krzyżowe sprawdz
 
 W procesie znajdowania najlepszego zestawu parametrów istnieją cztery etapy:
 
-1. **Zdefiniuj miejsce parametru**: dla algorytmu należy najpierw określić dokładne wartości parametrów, które mają być brane pod uwagę.
-2. **Zdefiniuj ustawienia dotyczące krzyżowego sprawdzania poprawności**: Zdecyduj, jak wybierać zgięcia krzyżowe dla zestawu danych.
-3. **Zdefiniuj metrykę**: Zdecyduj, która Metryka ma być używana do określania najlepszego zestawu parametrów, takich jak dokładność, główny znak średnika, precyzja, odwołanie lub f-Score.
-4. **Uczenie, szacowanie i porównywanie**: dla każdej unikatowej kombinacji wartości parametrów, wzajemne sprawdzanie poprawności jest wykonywane w oparciu o określoną metrykę błędu. Po dokonaniu oceny i porównaniu można wybrać model najlepiej wykonujący.
+1. **Zdefiniuj miejsce parametru** : dla algorytmu należy najpierw określić dokładne wartości parametrów, które mają być brane pod uwagę.
+2. **Zdefiniuj ustawienia dotyczące krzyżowego sprawdzania poprawności** : Zdecyduj, jak wybierać zgięcia krzyżowe dla zestawu danych.
+3. **Zdefiniuj metrykę** : Zdecyduj, która Metryka ma być używana do określania najlepszego zestawu parametrów, takich jak dokładność, główny znak średnika, precyzja, odwołanie lub f-Score.
+4. **Uczenie, szacowanie i porównywanie** : dla każdej unikatowej kombinacji wartości parametrów, wzajemne sprawdzanie poprawności jest wykonywane w oparciu o określoną metrykę błędu. Po dokonaniu oceny i porównaniu można wybrać model najlepiej wykonujący.
 
 Na poniższej ilustracji przedstawiono, jak można to osiągnąć w Azure Machine Learning Studio (klasyczny).
 
@@ -66,12 +66,12 @@ Moduł zawiera również opcjonalne dane wejściowe zestawu danych. Połącz zes
 
 ![Klasyfikator drzewa podwyższanych decyzji](./media/algorithm-parameters-optimize/fig6a.png)
 
-Model jest następnie oceniany w zestawie danych walidacji. Lewy port wyjściowy modułu pokazuje różne metryki jako funkcje wartości parametrów. Prawidłowy port wyjściowy zapewnia szkolony model, który odpowiada modelowi najlepiej działającemu zgodnie z wybraną metryką (**dokładność** w tym przypadku).  
+Model jest następnie oceniany w zestawie danych walidacji. Lewy port wyjściowy modułu pokazuje różne metryki jako funkcje wartości parametrów. Prawidłowy port wyjściowy zapewnia szkolony model, który odpowiada modelowi najlepiej działającemu zgodnie z wybraną metryką ( **dokładność** w tym przypadku).  
 
 ![Zestaw danych walidacji](./media/algorithm-parameters-optimize/fig6b.png)
 
 Można zobaczyć dokładne parametry wybrane przez wizualizację właściwego portu wyjściowego. Ten model może być używany podczas oceniania zestawu testów lub w operacyjnej usłudze sieci Web po zapisaniu jako przeszkolonego modelu.
 
 <!-- Module References -->
-[partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+[partition-and-sample]: /azure/machine-learning/studio-module-reference/partition-and-sample
+[tune-model-hyperparameters]: /azure/machine-learning/studio-module-reference/tune-model-hyperparameters

@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a8a04d9e1b17c7e65be946cb51bfc41019e0706d
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234000"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309081"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie przydziałami i zwiększanie limitów zasobów przy użyciu Azure Machine Learning
 
@@ -52,7 +52,7 @@ Ta sekcja zawiera informacje o domyślnych i maksymalnych limitach przydziału d
 + Azure Storage
 
 > [!IMPORTANT]
-> Limity mogą ulec zmianie. Aby uzyskać najnowsze informacje, zobacz [limity dotyczące subskrypcji i usług platformy Azure, przydziałów i ograniczeń](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) dla wszystkich platform Azure.
+> Limity mogą ulec zmianie. Aby uzyskać najnowsze informacje, zobacz [limity dotyczące subskrypcji i usług platformy Azure, przydziałów i ograniczeń](../azure-resource-manager/management/azure-subscription-service-limits.md) dla wszystkich platform Azure.
 
 ### <a name="virtual-machines"></a>Maszyny wirtualne
 Dla każdej subskrypcji platformy Azure obowiązuje limit liczby maszyn wirtualnych w ramach wszystkich usług. Rdzenie maszyn wirtualnych mają regionalne limity i limity regionalne dla poszczególnych rozmiarów. Oba limity są wymuszane osobno.
@@ -100,7 +100,7 @@ W poniższej tabeli przedstawiono dodatkowe limity, których nie można przekroc
 
 ### <a name="container-instances"></a>Container Instances
 
-Aby uzyskać więcej informacji, zobacz [limity Container Instances](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+Aby uzyskać więcej informacji, zobacz [limity Container Instances](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
 ### <a name="storage"></a>Magazyn
 Usługa Azure Storage ma limit 250 kont magazynu na region na subskrypcję. Ten limit obejmuje konta magazynu w warstwie Standardowa i Premium.
@@ -115,7 +115,7 @@ Przydziały na poziomie obszaru roboczego umożliwiają zarządzanie Azure Machi
 Domyślnie wszystkie obszary robocze mają ten sam limit przydziału dla rodzin maszyn wirtualnych. Można jednak ustawić limit przydziału dla poszczególnych rodzin maszyn wirtualnych w obszarze roboczym w ramach subskrypcji. Pozwala to na udostępnianie pojemności i uniknięcie problemów z rywalizacją o zasoby.
 
 1. Przejdź do dowolnego obszaru roboczego w ramach subskrypcji.
-1. W lewym okienku wybierz pozycję **użycie + przydziały** .
+1. W lewym okienku wybierz pozycję **użycie + przydziały**.
 1. Wybierz kartę **Konfigurowanie przydziałów** , aby wyświetlić przydziały.
 1. Rozwiń rodzinę maszyn wirtualnych.
 1. Ustaw limit przydziału dla każdego obszaru roboczego wymienionego w danej rodzinie maszyn wirtualnych.
@@ -156,7 +156,7 @@ Nie można podnieść limitów powyżej wartości maksymalnych przedstawionych w
 Gdy żądasz zwiększenia limitu przydziału, wybierz usługę, z której korzystasz. Na przykład wybierz Azure Machine Learning, Container Instances lub magazyn. W przypadku Azure Machine Learning obliczeń można wybrać przycisk **przydziału żądania** podczas wyświetlania przydziału w poprzednich krokach.
 
 > [!NOTE]
-> [Bezpłatne subskrypcje wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p) nie kwalifikują się do zwiększenia limitu przydziału. Jeśli masz bezpłatną subskrypcję wersji próbnej, możesz przeprowadzić uaktualnienie do subskrypcji [płatnej zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem. Aby uzyskać więcej informacji, zobacz [uaktualnianie bezpłatnej wersji próbnej platformy Azure do usługi płatność zgodnie z rzeczywistym](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) użyciem i [bezpłatne konto platformy Azure — często zadawane pytania](https://azure.microsoft.com/free/free-account-faq).
+> [Bezpłatne subskrypcje wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p) nie kwalifikują się do zwiększenia limitu przydziału. Jeśli masz bezpłatną subskrypcję wersji próbnej, możesz przeprowadzić uaktualnienie do subskrypcji [płatnej zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem. Aby uzyskać więcej informacji, zobacz [uaktualnianie bezpłatnej wersji próbnej platformy Azure do usługi płatność zgodnie z rzeczywistym](../cost-management-billing/manage/upgrade-azure-subscription.md) użyciem i [bezpłatne konto platformy Azure — często zadawane pytania](https://azure.microsoft.com/free/free-account-faq).
 
 ## <a name="private-endpoint-and-private-dns-quota-increases"></a>Zwiększanie limitu przydziału prywatnego punktu końcowego i prywatnego systemu DNS
 
@@ -172,12 +172,12 @@ Azure Machine Learning tworzy zasoby w ramach subskrypcji (klienta), ale niektó
 
 Aby zażądać przydziału dla tych scenariuszy, wykonaj następujące czynności:
 
-1. [Utwórz żądanie pomocy technicznej platformy Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) i wybierz następujące opcje w sekcji __podstawowe informacje__ :
+1. [Utwórz żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) i wybierz następujące opcje w sekcji __podstawowe informacje__ :
 
     | Pole | Wybór |
     | ----- | ----- |
     | Typ problemu | **Szczegóły techniczne** |
-    | Usługa | **Moje usługi** . Następnie na liście rozwijanej wybierz pozycję __Machine Learning__ . |
+    | Usługa | **Moje usługi**. Następnie na liście rozwijanej wybierz pozycję __Machine Learning__ . |
     | Typ problemu | **Konfiguracja i zabezpieczenia obszaru roboczego** |
     | Podtyp problemu | **Prywatne żądanie dotyczące przydziału punktów końcowych i Prywatna strefa DNS** |
 

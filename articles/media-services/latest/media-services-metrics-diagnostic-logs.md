@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296655"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309064"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitoruj Media Services metryki i dzienniki diagnostyczne za pośrednictwem Azure Monitor
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorowanie metryk Media Services i dzienników diagnostycznych za pomocą Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -67,8 +67,10 @@ Następujące metryki [punktów końcowych przesyłania strumieniowego](/rest/ap
 |Żądania|Żądania|Zapewnia łączną liczbę żądań HTTP obsłużonych przez punkt końcowy przesyłania strumieniowego.|
 |Ruch wychodzący|Ruch wychodzący|Całkowita liczba bajtów wychodzących na minutę na punkt końcowy przesyłania strumieniowego.|
 |SuccessE2ELatency|Pomyślne zakończenie oczekiwania|Czas trwania od momentu, gdy punkt końcowy przesyłania strumieniowego otrzymał żądanie do momentu wysłania ostatniego bajtu odpowiedzi.|
+|Użycie procesora| Użycie procesora dla punktów końcowych przesyłania strumieniowego w warstwie Premium. Te dane nie są dostępne dla standardowych punktów końcowych przesyłania strumieniowego. |
+|Przepustowość ruchu wychodzącego | Przepustowość w bitach na sekundę.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>Dlaczego warto używać metryk?
+### <a name="metrics-are-useful"></a>Metryki są przydatne
 
 Poniżej przedstawiono przykłady sposobu, w jaki monitorowanie Media Services metryki mogą pomóc zrozumieć sposób działania aplikacji. Oto kilka pytań, na które można rozwiązać Media Services metryki:
 
@@ -79,6 +81,8 @@ Poniżej przedstawiono przykłady sposobu, w jaki monitorowanie Media Services m
 * Jak można zobaczyć podział żądań zakończonych niepowodzeniem i przyczynę niepowodzenia?
 * Jak mogę sprawdzić, ile żądań HLS lub PAUZy jest pobieranych z Pakowarki?
 * Jak mogę ustawić alert, aby sprawdzić, czy osiągnięto wartość progową liczby nieudanych żądań?
+
+Współbieżność jest istotna dla liczby punktów końcowych przesyłania strumieniowego używanych w ramach jednego konta w czasie. Należy pamiętać o relacji między liczbą współbieżnych strumieni z złożonymi parametrami publikowania, takimi jak dynamiczne Pakowanie na wiele protokołów, wiele szyfrowania DRM itp. Każdy dodatkowy opublikowany strumień na żywo zwiększa przepustowość procesora i wyjścia w punkcie końcowym przesyłania strumieniowego. Z tego względu należy użyć Azure Monitor, aby dokładnie monitorować wykorzystanie punktu końcowego przesyłania strumieniowego (procesor i ruch wychodzący), aby upewnić się, że jest odpowiednio skalowane (lub podzielić ruchu między wieloma punktami końcowymi przesyłania strumieniowego w przypadku bardzo dużej współbieżności).
 
 ### <a name="example"></a>Przykład
 

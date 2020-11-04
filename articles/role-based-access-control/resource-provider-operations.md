@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 3f192493dfd6bfc2fb3d5802b1dd94cd4ca3a9a9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e337cef9121dc5992f87b9996cfd01d16d9cc188
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285229"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309374"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
 
@@ -4100,7 +4100,7 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/serwery/bazy danych/dataMaskingPolicies/reguły/usuwanie | Usuń regułę zasad maskowania danych dla danej bazy danych |
 > | Microsoft. SQL/serwery/bazy danych/dataWarehouseQueries/odczyt | Zwraca informacje o zapytaniu dystrybucji magazynu danych dla wybranego identyfikatora zapytania |
 > | Microsoft. SQL/serwery/bazy danych/dataWarehouseQueries/dataWarehouseQuerySteps/odczyt | Zwraca informacje o kroku zapytania rozproszonego dotyczące zapytania hurtowni danych dla wybranego identyfikatora kroku |
-> | Microsoft. SQL/serwery/bazy danych/dataWarehouseUserActivities/odczyt | Pobiera działania użytkownika wystąpienia SQL Data Warehouse, w tym uruchomione i wstrzymane zapytania |
+> | Microsoft. SQL/serwery/bazy danych/dataWarehouseUserActivities/odczyt | Pobiera działania użytkowników dedykowanej puli SQL usługi Azure Synapse Analytics, która obejmuje uruchomione i zawieszone zapytania |
 > | Microsoft. SQL/serwery/bazy danych/extendedAuditingSettings/odczyt | Pobierz szczegóły zasad rozszerzonej inspekcji obiektów BLOB skonfigurowanych dla danej bazy danych |
 > | Microsoft. SQL/serwery/bazy danych/extendedAuditingSettings/Write | Zmiana zasad rozszerzonej inspekcji obiektów BLOB dla danej bazy danych |
 > | Microsoft. SQL/serwery/bazy danych/rozszerzenia/odczyt | Pobiera kolekcję rozszerzeń dla bazy danych. |

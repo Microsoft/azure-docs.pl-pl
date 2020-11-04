@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: a0c99c05701c7f2d64fcfc2f70081f2d7475ce5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345626"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307485"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Wideo 1: analiza danych dla początkujących — 5 pytań, na które analiza danych daje odpowiedzi
 
@@ -45,7 +45,7 @@ W pierwszym filmie wideo będziemy mówić o "5 pytaniach dotyczących analizy d
 
 Nauka danych używa liczb i nazw (znanych również jako kategorie lub etykiety) do przewidywania odpowiedzi na pytania.
 
-Może się to zdarzyć, ale *istnieje tylko pięć pytań dotyczących odpowiedzi na dane*:
+Może się to zdarzyć, ale *istnieje tylko pięć pytań dotyczących odpowiedzi na dane* :
 
 * Czy to jest A czy B?
 * Czy to brzmienia?
@@ -66,7 +66,7 @@ Ta rodzina algorytmów jest nazywana klasyfikacją dwóch klas.
 
 Jest to przydatne w przypadku każdego pytania, które ma tylko dwie możliwe odpowiedzi.
 
-Na przykład:
+Przykład:
 
 * Czy ten stan kończy się niepowodzeniem w ciągu następnych 1 000 kilometrów: tak lub nie?
 * Co przynosi klientom więcej klientów: $5 kupon lub rabat w wysokości 25%?
@@ -136,4 +136,4 @@ W ten sposób można odpowiedzieć na 5 pytań dotyczących danych.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wypróbuj pierwszy eksperyment nauki o danych z Machine Learning Studio (klasyczny)](create-experiment.md)
-* [Zapoznaj się z wprowadzeniem do Machine Learning na Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Zapoznaj się z wprowadzeniem do Machine Learning na Microsoft Azure](../overview-what-is-azure-ml.md)

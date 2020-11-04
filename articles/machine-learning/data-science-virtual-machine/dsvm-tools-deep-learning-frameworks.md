@@ -11,12 +11,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 29f1949cbe9998ac569b0389986023a72e7845b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070920"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309032"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Głębokie uczenie i platformy AI dla Data Science VM platformy Azure
 Poniżej wymieniono platformy uczenia głębokiego na DSVM.
@@ -76,7 +76,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 | Jak jest on skonfigurowany/instalowany w DSVM?  | Keras jest zainstalowany w języku Python 3,6 w systemie Windows i w języku Python 3,5 w Linux |
 | Jak uruchomić go      | Aktywuj poprawne środowisko w terminalu, a następnie uruchom Język Python. |
 
-## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/)
 
 | Kategoria | Wartość |
 | ------------- | ------------- |
@@ -110,7 +110,7 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 | Obsługiwane wersje DSVM      | Windows Server 2019<br>Ubuntu 18.04<br> System Windows 2016<br> Ubuntu 16.04   |
 | Co to jest? | Narzędzie NVIDIA do wykonywania zapytań dotyczących aktywności procesora GPU |
 | Jak jest on skonfigurowany/instalowany w DSVM?  | `nvidia-smi` znajduje się na ścieżce systemowej. |
-| Jak uruchomić go      | Na maszynie wirtualnej **z procesorem GPU**Otwórz wiersz polecenia (w systemie Windows) lub terminal (na komputerze z systemem Linux), a następnie uruchom polecenie `nvidia-smi` . |
+| Jak uruchomić go      | Na maszynie wirtualnej **z procesorem GPU** Otwórz wiersz polecenia (w systemie Windows) lub terminal (na komputerze z systemem Linux), a następnie uruchom polecenie `nvidia-smi` . |
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
@@ -146,5 +146,5 @@ Poniżej wymieniono platformy uczenia głębokiego na DSVM.
 | ------------- | ------------- |
 | Obsługiwane wersje | 1.0.3 |
 | Obsługiwane wersje DSVM      | Ubuntu 16.04 |
-| Jak jest on skonfigurowany/instalowany w DSVM?  |Theano jest zainstalowany w języku Python 2,7 (_root_) i w środowisku Python 3,5 (_py35_). |
+| Jak jest on skonfigurowany/instalowany w DSVM?  |Theano jest zainstalowany w języku Python 2,7 ( _root_ ) i w środowisku Python 3,5 ( _py35_ ). |
 | Jak uruchomić go      |  Terminal: Aktywuj żądaną wersję języka Python (root lub py35), uruchom środowisko Python, a następnie zaimportuj Theano.<br/>* Jupyter: Wybierz jądro Python 2,7 lub 3,5, a następnie zaimportuj Theano.  <br/>Aby obejść ostatnią usterkę biblioteki jądra matematycznego (MKL), musisz najpierw ustawić warstwę wątku MKL w następujący sposób:<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

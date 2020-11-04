@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087679c49c3cc025268e6f895757ae5f5c47c917
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012410"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309110"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Uczenie maszynowe i narzędzia do nauki o danych w usłudze Azure Data Learning Virtual Machines
 Usługa Azure Data Learning Virtual Machines (DSVMs) oferuje bogaty zestaw narzędzi i bibliotek do uczenia maszynowego dostępnych w popularnych językach, takich jak Python, R i Julia.
@@ -24,7 +24,7 @@ Poniżej przedstawiono niektóre narzędzia i biblioteki uczenia maszynowego w s
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>Zestaw SDK usługi Azure Machine Learning dla języka Python
 
-Zobacz pełne informacje dotyczące [zestawu SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+Zobacz pełne informacje dotyczące [zestawu SDK Azure Machine Learning dla języka Python](../overview-what-is-azure-ml.md).
 
 | Kategoria | Wartość |
 | ------------- | ------------- |
@@ -113,5 +113,3 @@ Istnieje kilka innych bibliotek uczenia maszynowego w systemie DSVMs, takich jak
 | Typowe zastosowania      |  W przypadku eksploracji danych w miejscu bez konieczności wyodrębniania, przekształcania, ładowania (ETL). Badaj różne źródła danych i ich formaty, w tym pliki CSV, JSON, tabele relacyjne i Hadoop.     |
 | Jak używać i uruchamiać      | Skrót na pulpicie  <br/> [Wprowadzenie do przechodzenia do szczegółów za 10 minut](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Narzędzia pokrewne na DSVM      |   Rattle, Weka, SQL Server Management Studio      |
-
-

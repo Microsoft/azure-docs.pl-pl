@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 141cc47adb398cbd5730fbe33bcd90fece809ed3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91543478"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307961"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Szybki Start: Tworzenie nowej Azure Machine Learning połączonej usługi w programie Synapse
 
@@ -42,7 +42,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 Ten krok spowoduje utworzenie nowej nazwy głównej usługi. Jeśli chcesz użyć istniejącej nazwy głównej usługi, możesz pominąć ten krok.
 1. Otwórz witrynę Azure Portal. 
 
-1. Przejdź do **Azure Active Directory**  ->  **rejestracje aplikacji**Azure Active Directory.
+1. Przejdź do **Azure Active Directory**  ->  **rejestracje aplikacji** Azure Active Directory.
 
 1. Kliknij pozycję **Nowa rejestracja**. Następnie postępuj zgodnie z instrukcjami wyświetlanymi w interfejsie użytkownika, aby zarejestrować nową aplikację.
 
@@ -60,7 +60,7 @@ Ten krok spowoduje utworzenie nowej nazwy głównej usługi. Jeśli chcesz uży�
 
 ## <a name="create-a-linked-service"></a>Tworzenie usługi połączonej
 
-1. W obszarze roboczym Synapse, w którym chcesz utworzyć nową połączoną usługę Azure Machine Learning przejdź do pozycji **Zarządzanie**  ->  **połączonej**usługi, Utwórz nową połączoną usługę z typem "Azure Machine Learning".
+1. W obszarze roboczym Synapse, w którym chcesz utworzyć nową połączoną usługę Azure Machine Learning przejdź do pozycji **Zarządzanie**  ->  **połączonej** usługi, Utwórz nową połączoną usługę z typem "Azure Machine Learning".
 
    ![Utwórz połączoną usługę](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 
@@ -79,5 +79,5 @@ Ten krok spowoduje utworzenie nowej nazwy głównej usługi. Jeśli chcesz uży�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Samouczek: Kreator oceniania modelu uczenia maszynowego — Pula SQL](tutorial-sql-pool-model-scoring-wizard.md)
+- [Samouczek: Kreator oceniania modelu uczenia maszynowego — dedykowana Pula SQL](tutorial-sql-pool-model-scoring-wizard.md)
 - [Możliwości Machine Learning na platformie Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)](what-is-machine-learning.md)

@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738188"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307182"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Samouczek: Tworzenie definicji zadania Apache Spark w programie Synapse Studio
 
-W tym samouczku pokazano, jak utworzyć definicje zadań Apache Spark za pomocą usługi Azure Synapse Studio, a następnie przesłać je do puli Apache Spark.
+W tym samouczku pokazano, jak utworzyć definicje zadań Apache Spark za pomocą usługi Azure Synapse Studio, a następnie przesłać je do puli Apache Spark bezserwerowej.
 
 Ten samouczek obejmuje następujące zadania:
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Ten samouczek obejmuje następujące zadania:
 Przed rozpoczęciem pracy z tym samouczkiem upewnij się, że zostały spełnione następujące wymagania:
 
 * Obszar roboczy analizy usługi Azure Synapse. Aby uzyskać instrukcje, zobacz [Tworzenie obszaru roboczego usługi Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
-* Pula Apache Spark.
+* Bezserwerowa Pula Apache Spark.
 * Konto magazynu ADLS Gen2. Musisz być **właścicielem danych obiektów blob magazynu** dla systemu plików ADLS Gen2, z którym chcesz współpracować. Jeśli nie, musisz dodać uprawnienie ręcznie.
 * Jeśli nie chcesz używać magazynu domyślnego obszaru roboczego, Połącz wymagane konto magazynu ADLS Gen2 w programie Synapse Studio. 
 
@@ -197,7 +197,7 @@ W tej sekcji dodasz definicję zadania Apache Spark do potoku.
 
  1. Otwórz istniejącą definicję zadania Apache Spark.
 
- 2. Wybierz ikonę w prawym górnym rogu Apache Spark definicji zadania, wybierz pozycję **istniejący potok** lub **Nowy potok** . Więcej informacji można znaleźć na stronie potoku.
+ 2. Wybierz ikonę w prawym górnym rogu Apache Spark definicji zadania, wybierz pozycję **istniejący potok** lub **Nowy potok**. Więcej informacji można znaleźć na stronie potoku.
 
      ![Dodaj do pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 

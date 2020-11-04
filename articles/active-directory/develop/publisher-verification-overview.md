@@ -12,16 +12,20 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363423"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308769"
 ---
 # <a name="publisher-verification"></a>Weryfikacja wydawcy
 
-Weryfikacja wydawcy pomaga administratorom i użytkownikom końcowym zrozumieć autentyczność deweloperów aplikacji, którzy integrują się z platformą tożsamości firmy Microsoft. Gdy aplikacja zostanie oznaczona jako zweryfikowana przez wydawcę, oznacza to, że Wydawca zweryfikował swoją tożsamość przy użyciu konta [Microsoft Partner Network](https://partner.microsoft.com/membership) , które ukończyło proces [weryfikacji](/partner-center/verification-responses) i skojarzył to konto MPN z rejestracją aplikacji. 
+Weryfikacja wydawcy pomaga administratorom i użytkownikom końcowym zrozumieć autentyczność deweloperów aplikacji, którzy integrują się z platformą tożsamości firmy Microsoft. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+Gdy aplikacja zostanie oznaczona jako zweryfikowana przez wydawcę, oznacza to, że Wydawca zweryfikował swoją tożsamość przy użyciu konta [Microsoft Partner Network](https://partner.microsoft.com/membership) , które ukończyło proces [weryfikacji](/partner-center/verification-responses) i skojarzył to konto MPN z rejestracją aplikacji. 
 
 Niebieski wskaźnik "sprawdzony" pojawia się w monicie o zgodę usługi Azure AD i innych ekranach: ![ monit o zgodę](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -29,11 +33,11 @@ Ta funkcja jest przeznaczony głównie dla deweloperów tworzących aplikacje z 
 
 ## <a name="benefits"></a>Korzyści
 Weryfikacja wydawcy zapewnia następujące korzyści:
-- **Zwiększone przejrzystości i zmniejszanie ryzyka dla klientów**— ta funkcja pomaga klientom zrozumieć, które aplikacje są używane w organizacjach, są publikowane przez deweloperów, którym ufają. 
+- **Zwiększone przejrzystości i zmniejszanie ryzyka dla klientów** — ta funkcja pomaga klientom zrozumieć, które aplikacje są używane w organizacjach, są publikowane przez deweloperów, którym ufają. 
 
-- **Ulepszona znakowanie**— wskaźnik "zweryfikowany" pojawia się na stronie [monitu o zgodę](application-consent-experience.md)usługi Azure AD, witrynie aplikacje dla przedsiębiorstw i dodatkowych powierzchniach środowiska użytkownika używanych przez użytkowników końcowych i administratorów. 
+- **Ulepszona znakowanie** — wskaźnik "zweryfikowany" pojawia się na stronie [monitu o zgodę](application-consent-experience.md)usługi Azure AD, witrynie aplikacje dla przedsiębiorstw i dodatkowych powierzchniach środowiska użytkownika używanych przez użytkowników końcowych i administratorów. 
 
-- **Bezproblemowe wdrażanie w przedsiębiorstwie**— Administratorzy mogą konfigurować [zasady zgody użytkowników](../manage-apps/configure-user-consent.md), używając stanu weryfikacji wydawcy jako jednego z podstawowych kryteriów zasad.
+- **Bezproblemowe wdrażanie w przedsiębiorstwie** — Administratorzy mogą konfigurować [zasady zgody użytkowników](../manage-apps/configure-user-consent.md), używając stanu weryfikacji wydawcy jako jednego z podstawowych kryteriów zasad.
 
 > [!NOTE]
 > Począwszy od listopada 2020, użytkownicy końcowi nie będą już mogli przyznawać zgody na większość nowo zarejestrowanych aplikacji wielodostępnych bez zweryfikowanych wydawców. Dotyczy to aplikacji, które są zarejestrowane po 8 listopada 2020, za pomocą protokołu OAuth 2.0 można zażądać uprawnień poza podstawową rejestracją i odczytać profil użytkownika, a następnie poprosić o zgodę użytkowników w różnych dzierżawców niż ta, w której jest zarejestrowana aplikacja. Na ekranie zgody zostanie wyświetlone ostrzeżenie z informacją o tym, że te aplikacje są ryzykowne i pochodzą z niezweryfikowanych wydawców.    

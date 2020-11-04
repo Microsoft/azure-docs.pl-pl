@@ -11,12 +11,12 @@ ms.author: laobri
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e847f62c2ae3d1d68c39685a38b67e1d0ada8c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82e128ffdc215a084110a68170ac12accd8fca0e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251018"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308130"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Eksportowanie lub usuwanie danych obszaru roboczego usługi Machine Learning
 
@@ -50,7 +50,7 @@ Te zasoby można usunąć, wybierając je z listy i wybierając pozycję **Usuń
 
 Uruchom dokumenty historii, które mogą zawierać osobiste informacje o użytkowniku, są przechowywane na koncie magazynu w magazynie obiektów BLOB w podfolderach `/azureml` . Dane można pobrać i usunąć z portalu.
 
-:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Zrzut ekranu portalu z wyróżnioną ikoną usuwania":::
+:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Zrzut ekranu przedstawiający katalog usługi Azure Storage na koncie magazynu w portalu":::
 
 ## <a name="export-and-delete-machine-learning-resources-using-azure-machine-learning-studio"></a>Eksportowanie i usuwanie zasobów uczenia maszynowego za pomocą programu Azure Machine Learning Studio
 
@@ -62,7 +62,7 @@ Artefakty szkoleniowe można pobrać z doświadczalnych przebiegów przy użyciu
 
 Możesz pobrać zarejestrowany model, przechodząc do odpowiedniego **modelu** i wybierając pozycję **Pobierz**. 
 
-:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Zrzut ekranu portalu z wyróżnioną ikoną usuwania":::
+:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Zrzut ekranu strony modelu Studio z wyróżnioną opcją pobrania":::
 
 ## <a name="export-and-delete-resources-using-the-python-sdk"></a>Eksportowanie i usuwanie zasobów przy użyciu zestawu SDK języka Python
 
@@ -82,10 +82,9 @@ model_output_port.download('.', show_progress=True)
 
 Poniższe zasoby uczenia maszynowego można usunąć za pomocą zestawu SDK języka Python: 
 
-| Type | Wywołanie funkcji | Uwagi | 
+| Typ | Wywołanie funkcji | Uwagi | 
 | --- | --- | --- |
-| `Workspace` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Użyj `delete-dependent-resources` do kaskadowego usunięcia |
-| `Model` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) | | 
-| `ComputeTarget` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) | |
-| `WebService` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) | | 
-
+| `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Użyj `delete-dependent-resources` do kaskadowego usunięcia |
+| `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | | 
+| `ComputeTarget` | [`delete`](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | |
+| `WebService` | [`delete`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) | |

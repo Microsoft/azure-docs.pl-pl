@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 21821bbb41126a53c2b137bf1f5e5684ff1ae267
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: 8c042032fb12e63ae32eb5a51b06e07386e5fbfc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096295"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308842"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,16 +40,16 @@ W przypadku systemu Linux i innych nieobsługiwanych platform, w których Servic
 
 Cztery typy aplikacji wymienione tutaj używają domyślnie 32-bitowego przetwarzania hosta. Aby zmienić przetwarzanie hosta na 64-bitowe dla typu aplikacji, wykonaj następujące czynności:
 
-- W **przypadku aplikacji wykonywalnych** : w oknie **właściwości projektu** w okienku **kompilacja** ustaw wartość [docelowy platformy](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) na **x64** .
+- W **przypadku aplikacji wykonywalnych** : w oknie **właściwości projektu** w okienku **kompilacja** ustaw wartość [docelowy platformy](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) na **x64**.
 
-- W **przypadku projektów testowych opartych na VSTest** : w menu **test** programu Visual Studio wybierz kolejno pozycje **Testuj**  >  **Ustawienia testu** , a następnie ustaw **domyślną architekturę procesora** na **x64** .
+- W **przypadku projektów testowych opartych na VSTest** : w menu **test** programu Visual Studio wybierz kolejno pozycje **Testuj**  >  **Ustawienia testu** , a następnie ustaw **domyślną architekturę procesora** na **x64**.
 
-- **W przypadku lokalnie wdrożonych aplikacji sieci Web ASP.NET** : Wybierz opcje **Narzędzia**  >  **Options**  >  **projekty i rozwiązania**  >  **projekty sieci Web** , a następnie wybierz opcję **Użyj 64-bitowej wersji IIS Express dla witryn i projektów sieci Web** .
+- **W przypadku lokalnie wdrożonych aplikacji sieci Web ASP.NET** : Wybierz opcje **Narzędzia**  >  **Options**  >  **projekty i rozwiązania**  >  **projekty sieci Web** , a następnie wybierz opcję **Użyj 64-bitowej wersji IIS Express dla witryn i projektów sieci Web**.
 
 - W **przypadku aplikacji sieci web ASP.NET wdrożonych na platformie Azure** : w Azure Portal w obszarze **Ustawienia aplikacji** Wybierz platformę **64-bitową** .
 
 > [!NOTE] 
-> Domyślnie nowe projekty programu Visual Studio są ustawiane na **dowolny procesor** . Zalecamy ustawienie dla projektu wartości **x64** , aby nie przełączać się na **architekturę x86** . Projekt, który jest ustawiony na **dowolny procesor CPU** , można łatwo przełączyć na **procesor x86** , jeśli zostanie dodany zależność tylko dla architektury x86.<br/>
+> Domyślnie nowe projekty programu Visual Studio są ustawiane na **dowolny procesor**. Zalecamy ustawienie dla projektu wartości **x64** , aby nie przełączać się na **architekturę x86**. Projekt, który jest ustawiony na **dowolny procesor CPU** , można łatwo przełączyć na **procesor x86** , jeśli zostanie dodany zależność tylko dla architektury x86.<br/>
 > Plik ServiceInterop.dll musi znajdować się w folderze, z którego jest wykonywana Biblioteka DLL SDK. Ta wartość powinna być istotna tylko w przypadku ręcznego kopiowania bibliotek DLL lub niestandardowych systemów kompilacji lub wdrożenia.
     
 **Włącz odzyskiwanie pamięci po stronie serwera**

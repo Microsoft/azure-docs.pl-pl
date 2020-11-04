@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 813f229d414ab911169f404dfc6b3cbf93fa96b3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780788"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308832"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limity zasobów dla Azure SQL Database i serwerów analiz usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -131,7 +131,7 @@ Azure SQL Database Zarządzanie zasobami ma charakter hierarchiczny. Od góry do
 
 Zarządzanie we/wy danych to proces w Azure SQL Database używany do ograniczania fizycznych operacji we/wy odczytu i zapisu do plików danych bazy danych. Limity liczby IOPS są ustawiane dla każdego poziomu usługi, aby zminimalizować efekt "zakłócenia", aby zapewnić sprawiedliwość alokacji zasobów w usłudze z wieloma dzierżawcami i pozostać w ramach możliwości podstawowego sprzętu i magazynu.
 
-W przypadku pojedynczych baz danych limity grup obciążeń są stosowane do wszystkich operacji we/wy magazynu związanych z bazą danych, podczas gdy limity puli zasobów dotyczą wszystkich baz danych w tej samej puli SQL, w tym `tempdb` bazy danych programu. W przypadku pul elastycznych limity grup obciążeń dotyczą każdej bazy danych w puli, a limit puli zasobów ma zastosowanie do całej puli elastycznej, łącznie z `tempdb` bazą danych, która jest współużytkowana przez wszystkie bazy danych w puli. Ogólnie rzecz biorąc, limity puli zasobów mogą nie być osiągalne w przypadku obciążenia dla bazy danych (pojedyncza lub w puli), ponieważ limity grup obciążeń są mniejsze niż limity puli zasobów i wkrótce ograniczają liczbę operacji we/wy na sekundę. Jednak limity puli mogą być osiągane przez połączone obciążenie dla wielu baz danych w tej samej puli.
+W przypadku pojedynczych baz danych limity grup obciążeń są stosowane do wszystkich operacji we/wy magazynu związanych z bazą danych, podczas gdy limity puli zasobów dotyczą wszystkich baz danych w tej samej dedykowanej puli SQL, w tym `tempdb` bazy danych programu. W przypadku pul elastycznych limity grup obciążeń dotyczą każdej bazy danych w puli, a limit puli zasobów ma zastosowanie do całej puli elastycznej, łącznie z `tempdb` bazą danych, która jest współużytkowana przez wszystkie bazy danych w puli. Ogólnie rzecz biorąc, limity puli zasobów mogą nie być osiągalne w przypadku obciążenia dla bazy danych (pojedyncza lub w puli), ponieważ limity grup obciążeń są mniejsze niż limity puli zasobów i wkrótce ograniczają liczbę operacji we/wy na sekundę. Jednak limity puli mogą być osiągane przez połączone obciążenie dla wielu baz danych w tej samej puli.
 
 Na przykład, jeśli zapytanie generuje 1000 IOPS bez żadnego ładu zasobów we/wy, ale limit liczby IOPS dla grupy obciążenia jest ustawiony na 900 IOPS, zapytanie nie będzie w stanie generować więcej niż 900 operacji wejścia/wyjścia. Jeśli jednak limit liczby IOPS dla puli zasobów jest ustawiony na 1500 operacji we/wy na sekundę, a łączny stan wejścia/wyjścia ze wszystkich grup obciążeń skojarzonych z pulą zasobów przekracza 1500 operacji we/wy, wówczas ta sama kwerenda może zostać zmniejszona poniżej limitu grupy roboczej dla 900 IOPS.
 

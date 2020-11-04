@@ -3,12 +3,12 @@ title: Poprawianie wydajności aplikacji platformy Azure za pomocą usługi Advi
 description: Użyj zaleceń dotyczących wydajności w Azure Advisor, aby zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 44252171a714acec0a9c0e83c9272b2f845560b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077817"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308676"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
@@ -22,7 +22,7 @@ Azure Advisor identyfikuje Traffic Manager profile, dla których skonfigurowano 
 
 ## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>Poprawianie wydajności bazy danych przy użyciu SQL Database Advisor (tymczasowo wyłączone)
 
-Azure Advisor zapewnia spójny, skonsolidowany widok zaleceń dla wszystkich zasobów platformy Azure. Integruje się z SQL Database Advisor, aby uzyskać zalecenia dotyczące poprawy wydajności baz danych.SQL Database Advisor ocenia wydajność baz danych, analizując historię użycia. Następnie oferuje rekomendacje, które najlepiej nadają się do uruchamiania typowego obciążenia bazy danych.
+Azure Advisor zapewnia spójny, skonsolidowany widok zaleceń dla wszystkich zasobów platformy Azure. Integruje się z SQL Database Advisor, aby uzyskać zalecenia dotyczące poprawy wydajności baz danych. SQL Database Advisor ocenia wydajność baz danych, analizując historię użycia. Następnie oferuje rekomendacje, które najlepiej nadają się do uruchamiania typowego obciążenia bazy danych.
 
 > [!NOTE]
 > Zanim będzie można uzyskać zalecenia, baza danych musi być używana przez około tydzień, a w tym tygodniu musi być spójne działanie. SQL Database Advisor można łatwo zoptymalizować dla spójnych wzorców zapytań niż w przypadku losowych obciążeń aktywności.
@@ -108,7 +108,7 @@ Doradca wykrywa, czy można zwiększyć wydajność ładowania i przepływność
 
 ## <a name="co-locate-the-storage-account-in-the-same-region-to-minimize-latency-when-loading"></a>Lokalizowanie konta magazynu w tym samym regionie w celu zminimalizowania opóźnień podczas ładowania
 
-Doradca wykrywa, czy ładujesz z regionu innego niż Pula SQL. Rozważ załadowanie z konta magazynu znajdującego się w tym samym regionie co Pula SQL, aby zminimalizować opóźnienie podczas ładowania danych. Ta zmiana pomoże zminimalizować opóźnienia i zwiększyć wydajność ładowania.
+Doradca wykrywa, czy ładujesz z regionu innego niż dedykowana Pula SQL. Rozważ załadowanie z konta magazynu znajdującego się w tym samym regionie co dedykowana Pula SQL, aby zminimalizować opóźnienie podczas ładowania danych. Ta zmiana pomoże zminimalizować opóźnienia i zwiększyć wydajność ładowania.
 
 ## <a name="use-a-supported-kubernetes-version"></a>Użyj obsługiwanej wersji Kubernetes
 
@@ -120,17 +120,17 @@ Klasyfikator wykrywa nieobsługiwane wersje programu Kubernetes.
 Wysokie wykorzystanie procesora CPU w dłuższym okresie może spowodować powolne działanie zapytań dla obciążenia. Zwiększenie rozmiaru procesora pomoże zoptymalizować środowisko uruchomieniowe zapytań bazy danych i poprawić ogólną wydajność. Klasyfikator identyfikuje serwery o wysokim poziomie użycia procesora CPU, które mogą uruchamiać obciążenia z ograniczeniami procesora i zalecać skalowanie obliczeń.
 
 ### <a name="reduce-memory-constraints-on-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Ogranicz ograniczenia pamięci na serwerach Azure Database for MySQL, Azure Database for PostgreSQL i Azure Database for MariaDB lub przejdź do jednostki SKU zoptymalizowanej pod kątem pamięci
-Współczynnik trafień w pamięci podręcznej może spowodować wolniejszą wydajność zapytań i większe liczby operacji we/wy na sekundę. Ten stan może być spowodowany przez zły plan zapytania lub obciążenie czasochłonne w pamięci. Ustalenie planu zapytania lub [zwiększenie ilości pamięci](../postgresql/concepts-pricing-tiers.md) Azure Database for PostgreSQL, Azure Database for MySQL lub Azure Database for MariaDB Server pomoże zoptymalizować wykonywanie obciążenia bazy danych. Azure Advisor identyfikuje serwery, na które mają wpływ te duże zmiany puli buforów. Zalecane jest wykonanie jednej z następujących akcji: 
+Współczynnik trafień w pamięci podręcznej może spowodować wolniejszą wydajność zapytań i większe liczby operacji we/wy na sekundę. Ten stan może być spowodowany przez zły plan zapytania lub obciążenie czasochłonne w pamięci. Ustalenie planu zapytania lub [zwiększenie ilości pamięci](../postgresql/concepts-pricing-tiers.md) Azure Database for PostgreSQL, Azure Database for MySQL lub Azure Database for MariaDB Server pomoże zoptymalizować wykonywanie obciążenia bazy danych. Azure Advisor identyfikuje serwery, na które mają wpływ te duże zmiany puli buforów. Zalecane jest wykonanie jednej z następujących akcji: 
 - Popraw plan zapytania
 - Przejdź do jednostki SKU, która ma więcej pamięci 
 - Zwiększ rozmiar magazynu, aby uzyskać więcej operacji we/wy na sekundę.
 
 ### <a name="use-an-azure-database-for-mysql-or-azure-database-for-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Użyj Azure Database for MySQL lub Azure Database for PostgreSQL odczytu repliki, aby skalować w poziomie odczyty dla obciążeń intensywnie korzystających z odczytu
-Doradca korzysta z algorytmów heurystycznych opartych na obciążeniu, takich jak stosunek odczytów w ciągu ostatnich siedmiu dni, aby identyfikować obciążenia intensywnie korzystające z odczytu. Zasób Azure Database for PostgreSQL lub Azure Database for MySQL o wysokim współczynniku odczytu/zapisu może spowodować rywalizację o procesor lub pamięć i prowadzić do powolnej wydajności zapytań. Dodanie [repliki](../postgresql/howto-read-replicas-portal.md) ułatwia skalowanie odczytów do serwera repliki i zapobiega ograniczeń procesora CPU lub pamięci na serwerze podstawowym. Klasyfikator identyfikuje serwery z obciążeniami intensywnie korzystających z odczytu i zaleca się dodanie [repliki odczytu](../postgresql/concepts-read-replicas.md)   w celu odciążenia niektórych obciążeń odczytu.
+Doradca korzysta z algorytmów heurystycznych opartych na obciążeniu, takich jak stosunek odczytów w ciągu ostatnich siedmiu dni, aby identyfikować obciążenia intensywnie korzystające z odczytu. Zasób Azure Database for PostgreSQL lub Azure Database for MySQL o wysokim współczynniku odczytu/zapisu może spowodować rywalizację o procesor lub pamięć i prowadzić do powolnej wydajności zapytań. Dodanie [repliki](../postgresql/howto-read-replicas-portal.md) ułatwia skalowanie odczytów do serwera repliki i zapobiega ograniczeń procesora CPU lub pamięci na serwerze podstawowym. Klasyfikator identyfikuje serwery z obciążeniami intensywnie korzystających z odczytu i zaleca się dodanie [repliki odczytu](../postgresql/concepts-read-replicas.md) w celu odciążenia niektórych obciążeń odczytu.
 
 
 ### <a name="scale-your-azure-database-for-mysql-azure-database-for-postgresql-or-azure-database-for-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skalowanie serwera Azure Database for MySQL, Azure Database for PostgreSQL lub Azure Database for MariaDB do wyższej jednostki SKU w celu uniknięcia ograniczeń połączenia
-Każde nowe połączenie z serwerem bazy danych zajmuje pamięć. Obniżenie wydajności serwera bazy danych, jeśli połączenia z serwerem kończą się niepowodzeniem z powodu [górnego limitu](../postgresql/concepts-limits.md) w pamięci. Azure Advisor identyfikuje serwery z wieloma niepowodzeńmi połączeń. Zalecamy uaktualnienie limitów połączeń serwera w celu zapewnienia większej ilości pamięci dla serwera, wykonując jedną z następujących czynności:
+Każde nowe połączenie z serwerem bazy danych zajmuje pamięć. Obniżenie wydajności serwera bazy danych, jeśli połączenia z serwerem kończą się niepowodzeniem z powodu [górnego limitu](../postgresql/concepts-limits.md) w pamięci. Azure Advisor identyfikuje serwery z wieloma niepowodzeńmi połączeń. Zalecamy uaktualnienie limitów połączeń serwera w celu zapewnienia większej ilości pamięci dla serwera, wykonując jedną z następujących czynności:
 - Skalowanie zasobów obliczeniowych w górę. 
 - Użyj zoptymalizowanych pod kątem pamięci jednostek SKU, które mają więcej obliczeń na rdzeń.
 

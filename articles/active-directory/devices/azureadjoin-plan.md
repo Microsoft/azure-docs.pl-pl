@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a559b29502adb1c507b1543463d84eb3bd15d5a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3587ef6be9d6c9969dff5d1af2181ed51aea7d29
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083290"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308287"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Instrukcje: Planowanie wdrożenia usługi Azure AD Join
 
@@ -119,7 +119,7 @@ Istnieją dwa podejścia do zarządzania urządzeniami przyłączonymi do usług
 - **Tylko MDM** — urządzenie jest zarządzane wyłącznie przez dostawcę zarządzania urządzeniami przenośnymi, takie jak usługa Intune. Wszystkie zasady są dostarczane w ramach procesu rejestracji MDM. W przypadku klientów Azure AD — wersja Premium lub pakietu EMS Rejestracja w usłudze MDM to zautomatyzowany krok, który jest częścią funkcji dołączania do usługi Azure AD.
 - **Współzarządzanie** — urządzenie jest zarządzane przez dostawcę zarządzania urządzeniami przenośnymi i program SCCM. W tym podejściu Agent SCCM jest instalowany na urządzeniu zarządzanym przez rozwiązanie MDM w celu administrowania określonymi aspektami.
 
-Jeśli używasz zasad grupy, Oceń parzystość zasad MDM przy użyciu [Narzędzia do analizy migracji MDM (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
+Jeśli korzystasz z zasad grupy, Oceń zasady grupy i reguły zarządzania urządzeniami przenośnymi przy użyciu usługi [zasady grupy Analytics](/mem/intune/configuration/group-policy-analytics) w programie Microsoft Endpoint Manager. 
 
 Przejrzyj obsługiwane i nieobsługiwane zasady, aby określić, czy można użyć rozwiązania MDM zamiast zasad grupy. W przypadku nieobsługiwanych zasad należy wziąć pod uwagę następujące kwestie:
 
