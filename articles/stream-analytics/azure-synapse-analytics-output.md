@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 04c315f593b90204faaeaec562c18e9e4be301d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b3bec9c4d4476b95279e35953ff89177f4488d4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881897"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305832"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Dane wyjściowe usługi Azure Synapse Analytics z Azure Stream Analytics
 
 [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (dawniej SQL Data Warehouse) to nieograniczona Usługa analityczna, która łączy magazyn danych w przedsiębiorstwie i analizę danych Big Data. 
 
-Azure Stream Analytics zadania mogą wynikać z tabeli puli SQL w usłudze Azure Synapse Analytics i mogą przetwarzać stawki przepływności do 200 MB/s. Obsługuje to najbardziej wymagające analiz w czasie rzeczywistym i wymaga przetwarzania danych na gorąco w przypadku obciążeń, takich jak raportowanie i pulpit nawigacyjny.  
+Zadania Azure Stream Analytics mogą być wyprowadzane do dedykowanej tabeli puli SQL w usłudze Azure Synapse Analytics i mogą przetwarzać stawki przepływności do 200 MB/s. Obsługuje to najbardziej wymagające analiz w czasie rzeczywistym i wymaga przetwarzania danych na gorąco w przypadku obciążeń, takich jak raportowanie i pulpit nawigacyjny.  
 
-Tabela puli SQL musi istnieć, aby można było dodać ją jako dane wyjściowe do zadania Stream Analytics. Schemat tabeli musi pasować do pól i ich typów w danych wyjściowych zadania. 
+Aby można było dodać dane wyjściowe do zadania Stream Analytics, musi istnieć dedykowana tabela puli SQL. Schemat tabeli musi pasować do pól i ich typów w danych wyjściowych zadania. 
 
 Aby korzystać z usługi Azure Synapse jako danych wyjściowych, należy upewnić się, że konto magazynu zostało skonfigurowane. Przejdź do ustawień konta magazynu, aby skonfigurować konto magazynu. Dozwolone są tylko typy kont magazynu obsługujące tabele: ogólnego przeznaczenia w wersji 2 i ogólnego przeznaczenia w wersji 1. Wybierz tylko warstwę Standardowa. Warstwa Premium nie jest obsługiwana.
 
@@ -31,7 +31,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 |Nazwa właściwości|Opis|
 |-|-|
 |Alias danych wyjściowych |Przyjazna nazwa używana w zapytaniach do kierowania danych wyjściowych zapytania do tej bazy danych. |
-|baza danych |Nazwa puli SQL, do której wysyłane są dane wyjściowe. |
+|baza danych |Nazwa dedykowanej puli SQL, do której wysyłane są dane wyjściowe. |
 |Nazwa serwera |Nazwa serwera usługi Azure Synapse.  |
 |Nazwa użytkownika |Nazwa użytkownika, która ma dostęp do zapisu w bazie danych. Stream Analytics obsługuje tylko uwierzytelnianie SQL. |
 |Hasło |Hasło, aby połączyć się z bazą danych. |

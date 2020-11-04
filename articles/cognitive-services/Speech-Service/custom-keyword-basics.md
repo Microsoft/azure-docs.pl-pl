@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ed5c554e6307b08c412de16d1bb92b458c5f15f
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+zone_pivot_groups: keyword-quickstart
+ms.openlocfilehash: 2d15da55c0bab42571d2a9660156a780c5d27881
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166458"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305864"
 ---
 # <a name="get-started-with-custom-keyword"></a>Wprowadzenie do Niestandardowego słowa kluczowego
 
@@ -38,7 +39,7 @@ Aby można było użyć niestandardowego słowa kluczowego, należy utworzyć s�
 
 1. Na stronie [niestandardowe słowo kluczowe](https://aka.ms/sdsdk-wakewordportal) Utwórz **Nowy projekt**. 
 
-1. Wprowadź **nazwę**i opcjonalny **Opis**, a następnie wybierz język. Potrzebny jest jeden projekt dla każdego języka, a obsługa jest obecnie ograniczona do `en-US` języka.
+1. Wprowadź **nazwę** i opcjonalny **Opis** , a następnie wybierz język. Potrzebny jest jeden projekt dla każdego języka, a obsługa jest obecnie ograniczona do `en-US` języka.
 
     ![Opisz swój projekt słowa kluczowego](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -48,7 +49,7 @@ Aby można było użyć niestandardowego słowa kluczowego, należy utworzyć s�
 
 1. Aby utworzyć nowy model słów kluczowych, kliknij pozycję **uczenie modelu**.
 
-1. Wprowadź **nazwę** modelu, opcjonalny **Opis**i **słowo kluczowe** , a następnie kliknij przycisk **dalej**. Zapoznaj się ze [wskazówkami](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) dotyczącymi wybierania obowiązującego słowa kluczowego.
+1. Wprowadź **nazwę** modelu, opcjonalny **Opis** i **słowo kluczowe** , a następnie kliknij przycisk **dalej**. Zapoznaj się ze [wskazówkami](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) dotyczącymi wybierania obowiązującego słowa kluczowego.
 
     ![Wprowadź słowo kluczowe](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -64,25 +65,17 @@ Aby można było użyć niestandardowego słowa kluczowego, należy utworzyć s�
 
 ## <a name="use-a-keyword-model-with-the-sdk"></a>Używanie modelu słów kluczowych z zestawem SDK
 
-Najpierw załaduj plik modelu słowa kluczowego przy użyciu `FromFile()` funkcji statycznej, która zwraca `KeywordRecognitionModel` . Użyj ścieżki do `.table` pliku pobranego z programu Speech Studio. Ponadto tworzysz `AudioConfig` przy użyciu domyślnego mikrofonu, a następnie tworzymy nowe wystąpienie `KeywordRecognizer` przy użyciu konfiguracji audio.
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [C# Basics include](includes/how-to/keyword-recognition/keyword-basics-csharp.md)]
+::: zone-end
 
-```csharp
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Audio;
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python Basics include](includes/how-to/keyword-recognition/keyword-basics-python.md)]
+::: zone-end
 
-var keywordModel = KeywordRecognitionModel.FromFile("your/path/to/Activate_device.table");
-using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-using var keywordRecognizer = new KeywordRecognizer(audioConfig);
-```
-
-Następnie uruchamianie rozpoznawania słów kluczowych odbywa się przy użyciu jednego wywołania do `RecognizeOnceAsync()` przez przekazanie obiektu modelu. Spowoduje to uruchomienie sesji rozpoznawania słowa kluczowego, która obowiązuje do momentu rozpoznania słowa kluczowego. Z tego względu Wzorzec projektowy jest używany w aplikacjach wielowątkowych lub w przypadkach użycia, w których można oczekiwać na zakończenie wyciągania.
-
-```csharp
-KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(keywordModel);
-```
-
-> [!NOTE]
-> W poniższym przykładzie zastosowano funkcję lokalnego rozpoznawania słów kluczowych, ponieważ nie wymaga ona `SpeechConfig` obiektu dla kontekstu uwierzytelniania i nie kontaktuje się z zapleczem. Można jednak uruchomić rozpoznawanie słów kluczowych i weryfikację przy [użyciu ciągłego połączenia zaplecza](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk#view-the-source-code-that-enables-keyword).
+::: zone pivot="programming-languages-objectivec-swift"
+[!INCLUDE [ObjectiveC/Swift Basics include](includes/how-to/keyword-recognition/keyword-basics-objc.md)]
+::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki
 

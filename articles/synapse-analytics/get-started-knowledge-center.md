@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: dd055eecaef00a2f3b555034f44f3c04684a1722
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2857989fb09555ecd808bfdba95bcf58e4444594
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171869"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93304894"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Poznaj centrum wiedzy Synapse
 
@@ -37,9 +37,9 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 * **Dostępna Przykładowa przeglądarka**. Ta opcja umożliwia łączenie przykładowych zestawów danych i Dodawanie przykładowego kodu w postaci skryptów SQL, notesów i potoków.
 * **Samouczek Synapse Studio**. Ta opcja umożliwia zapoznanie się z krótkim przewodnikiem dotyczącym podstawowych części programu Synapse Studio. Jest to przydatne, jeśli wcześniej nie korzystano z programu Synapse Studio.
 
-## <a name="exploring-blob-storage-with-sql-on-demand"></a>Eksplorowanie magazynu obiektów BLOB przy użyciu programu SQL na żądanie
+## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Eksplorowanie magazynu obiektów BLOB za pomocą puli SQL bezserwerowej
 
-1. **Centrum merytoryczne**, kliknij pozycję **Użyj przykładów natychmiast**
+1. **Centrum merytoryczne** , kliknij pozycję **Użyj przykładów natychmiast**
 1. Wybieranie **danych zapytania przy użyciu języka SQL** 
 1. Kliknij pozycję **Użyj przykładów natychmiast**
 1. Spowoduje to utworzenie nowego skryptu SQL.
@@ -47,10 +47,10 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 1. Kliknij przycisk Uruchom. Zostanie uruchomiony wybrany tekst.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Ładowanie większej ilości danych NYC taksówki
-1. **Centrum wiedzy**, kliknij przycisk **Przeglądaj dostępne przykłady** 
+1. **Centrum wiedzy** , kliknij przycisk **Przeglądaj dostępne przykłady** 
 1. Wybierz kartę **skrypty SQL** u góry
 1. Wybierz pozycję **Załaduj zestaw danych Taxicab New York**
-1. W obszarze **dane wejściowe**wybierz **pozycję Wybierz istniejącą pulę** i wybierz pozycję **SQLDB1**
+1. W obszarze **dane wejściowe** wybierz **pozycję Wybierz istniejącą pulę** i wybierz pozycję **SQLDB1**
 1. Kliknij pozycję **Otwórz skrypt**
 1. Zostanie wyświetlony nowy skrypt SQL.
 1. Kliknij przycisk **Uruchom**
@@ -60,4 +60,4 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 
 * [Rozpoczynanie pracy z usługą Azure Synapse Analytics](get-started.md)
 * [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
-* [Korzystanie z bazy danych SQL na żądanie](quickstart-sql-on-demand.md)
+* [Użyj bezserwerowej puli SQL](quickstart-sql-on-demand.md)

@@ -270,7 +270,7 @@
         - name: Zarządzanie połączeniami
           href: manage-connections.md
           displayName: best practice
-        - name: Obsługa błędów
+        - name: Obsługa błędów oraz wykonywanie ponownych prób
           href: functions-bindings-error-pages.md
         - name: Ręczne uruchamianie funkcji niewyzwalanej przez protokół HTTP
           href: functions-manually-run-non-http.md

@@ -1,6 +1,6 @@
 ---
-title: Badaj pliki Parquet za pomocą SQL na żądanie (wersja zapoznawcza)
-description: W tym artykule dowiesz się, jak wysyłać zapytania o pliki Parquet przy użyciu usługi SQL na żądanie (wersja zapoznawcza).
+title: Wykonywanie zapytań dotyczących plików Parquet przy użyciu puli SQL bezserwerowej (wersja zapoznawcza)
+description: W tym artykule dowiesz się, jak wykonywać zapytania dotyczące plików Parquet przy użyciu puli SQL bezserwerowej (wersja zapoznawcza).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e00ecd6048239683951a2d1e60d3bcb0eb5aa68
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242436"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306857"
 ---
-# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików Parquet przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Badaj pliki Parquet za pomocą puli SQL bezserwerowej (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
-W tym artykule dowiesz się, jak napisać zapytanie przy użyciu programu SQL na żądanie (wersja zapoznawcza), które będzie odczytywać pliki Parquet.
+W tym artykule dowiesz się, jak napisać zapytanie przy użyciu bezserwerowej puli SQL (wersja zapoznawcza), która będzie odczytywać pliki Parquet.
 
 ## <a name="quickstart-example"></a>Przykład szybkiego startu
 
@@ -111,7 +111,7 @@ Nie musisz używać klauzuli OPENROWSET WITH podczas odczytywania plików Parque
 W poniższym przykładzie przedstawiono możliwości automatycznego wnioskowania schematu dla plików Parquet. Zwraca liczbę wierszy we wrześniu 2017 bez określania schematu.
 
 > [!NOTE]
-> Nie musisz określać kolumn w klauzuli OPENROWSET WITH podczas odczytywania plików Parquet. W takim przypadku usługa zapytań SQL na żądanie będzie używać metadanych w pliku Parquet i powiązywać kolumny według nazwy.
+> Nie musisz określać kolumn w klauzuli OPENROWSET WITH podczas odczytywania plików Parquet. W takim przypadku bezserwerowe usługi zapytań puli SQL będą korzystać z metadanych w pliku Parquet i powiązywać kolumny według nazwy.
 
 ```sql
 SELECT TOP 10 *
@@ -128,7 +128,7 @@ FROM
 Zestaw danych podany w tym przykładzie jest podzielony (podzielony na partycje) na oddzielne podfoldery. Można wskazać określone partycje przy użyciu funkcji FilePath. Ten przykład pokazuje opłaty za stawki za rok, miesiąc i payment_type przez pierwsze trzy miesiące 2017.
 
 > [!NOTE]
-> Zapytanie SQL na żądanie jest zgodne ze schematem partycjonowania Hive/Hadoop.
+> Zapytanie puli SQL bez serwera jest zgodne ze schematem partycjonowania Hive/Hadoop.
 
 ```sql
 SELECT

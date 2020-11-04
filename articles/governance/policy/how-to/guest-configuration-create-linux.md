@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gości
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676636"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305551"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak tworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -17,7 +17,7 @@ Przed utworzeniem zasad niestandardowych zapoznaj się z omówieniem w temacie [
  
 Aby dowiedzieć się więcej o tworzeniu zasad konfiguracji gościa dla systemu Windows, zobacz stronę [jak utworzyć zasady konfiguracji gościa dla systemu Windows](./guest-configuration-create.md)
 
-Podczas inspekcji systemu Linux konfiguracja gościa używa oprogramowania [Chef InSpec](https://www.inspec.io/). Profil oprogramowania InSpec definiuje stan, w jakim powinna być maszyna. Jeśli Ocena konfiguracji nie powiedzie się, zostanie wyzwolony efekt zasad **auditIfNotExists** i maszyna zostanie uznana za **niezgodną** .
+Podczas inspekcji systemu Linux konfiguracja gościa używa oprogramowania [Chef InSpec](https://www.inspec.io/). Profil oprogramowania InSpec definiuje stan, w jakim powinna być maszyna. Jeśli Ocena konfiguracji nie powiedzie się, zostanie wyzwolony efekt zasad **auditIfNotExists** i maszyna zostanie uznana za **niezgodną**.
 
 [Azure Policy konfiguracja gościa](../concepts/guest-configuration.md) może być używana tylko do inspekcji ustawień wewnątrz maszyn. Korygowanie ustawień wewnątrz maszyn nie jest jeszcze dostępne.
 
@@ -160,7 +160,7 @@ Pliki pomocnicze muszą być spakowane razem. Ukończony pakiet jest używany pr
 - **Nazwa** : Nazwa pakietu konfiguracji gościa.
 - **Konfiguracja** : pełna ścieżka do skompilowanego dokumentu konfiguracyjnego.
 - **Ścieżka** : ścieżka folderu wyjściowego. Ten parametr jest opcjonalny. Jeśli nie zostanie określony, pakiet zostanie utworzony w bieżącym katalogu.
-- **ChefProfilePath** : pełna ścieżka do profilu INSPEC. Ten parametr jest obsługiwany tylko podczas tworzenia zawartości do inspekcji systemu Linux.
+- **ChefInspecProfilePath** : pełna ścieżka do profilu INSPEC. Ten parametr jest obsługiwany tylko podczas tworzenia zawartości do inspekcji systemu Linux.
 
 Uruchom następujące polecenie, aby utworzyć pakiet przy użyciu konfiguracji podanych w poprzednim kroku:
 
@@ -191,7 +191,7 @@ Test-GuestConfigurationPackage `
 Polecenie cmdlet obsługuje również dane wejściowe z potoku programu PowerShell. Potoku dane wyjściowe `New-GuestConfigurationPackage` polecenia cmdlet do `Test-GuestConfigurationPackage` polecenia cmdlet.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
 Następnym krokiem jest opublikowanie pliku na platformie Azure Blob Storage.  Polecenie `Publish-GuestConfigurationPackage` wymaga `Az.Storage` modułu.
@@ -235,7 +235,7 @@ Dane wyjściowe polecenia cmdlet zwracają obiekt zawierający nazwę wyświetla
 
 Na koniec Opublikuj definicje zasad przy użyciu `Publish-GuestConfigurationPolicy` polecenia cmdlet. Polecenie cmdlet ma tylko parametr **Path** wskazujący lokalizację plików JSON utworzonych przez `New-GuestConfigurationPolicy` .
 
-Aby uruchomić polecenie publikowania, musisz mieć dostęp do tworzenia zasad na platformie Azure. Wymagania dotyczące autoryzacji są udokumentowane na stronie [przegląd Azure Policy](../overview.md) . Najlepsza wbudowana rola to **współautor zasad zasobów** .
+Aby uruchomić polecenie publikowania, musisz mieć dostęp do tworzenia zasad na platformie Azure. Wymagania dotyczące autoryzacji są udokumentowane na stronie [przegląd Azure Policy](../overview.md) . Najlepsza wbudowana rola to **współautor zasad zasobów**.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
@@ -271,7 +271,7 @@ describe file(attr_path) do
 end
 ```
 
-Polecenia cmdlet `New-GuestConfigurationPolicy` i `Test-GuestConfigurationPolicyPackage` zawierają parametr o nazwie **Parameter** . Ten parametr pobiera tablicę skrótów obejmującą wszystkie szczegóły każdego parametru i automatycznie tworzy wszystkie wymagane sekcje plików użytych do utworzenia każdej definicji Azure Policy.
+Polecenia cmdlet `New-GuestConfigurationPolicy` i `Test-GuestConfigurationPolicyPackage` zawierają parametr o nazwie **Parameter**. Ten parametr pobiera tablicę skrótów obejmującą wszystkie szczegóły każdego parametru i automatycznie tworzy wszystkie wymagane sekcje plików użytych do utworzenia każdej definicji Azure Policy.
 
 W poniższym przykładzie jest tworzona definicja zasad służąca do inspekcji ścieżki pliku, gdzie użytkownik udostępnia ścieżkę w momencie przypisywania zasad.
 

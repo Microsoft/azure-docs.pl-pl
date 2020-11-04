@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d10b7084cfc49d60e9d14c3c857d1ade839398ac
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474771"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305112"
 ---
-# <a name="performance-tuning-with-materialized-views"></a>Strojenie wydajności za pomocą zmaterializowanych widoków
+# <a name="performance-tuning-with-materialized-views-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Dostrajanie wydajności w przypadku widoków z materiałami przy użyciu dedykowanej puli SQL w usłudze Azure Synapse Analytics
 
-W puli SQL Synapse widoki z materiałami zapewniają niską metodę konserwacji dla złożonych zapytań analitycznych w celu uzyskania szybkiej wydajności bez żadnej zmiany w zapytaniu. W tym artykule omówiono ogólne wskazówki dotyczące korzystania z widoków z materiałami.
+W dedykowanej puli SQL widoki z materiałami zapewniają niską metodę konserwacji dla złożonych zapytań analitycznych w celu uzyskania szybkiej wydajności bez żadnej zmiany w zapytaniu. W tym artykule omówiono ogólne wskazówki dotyczące korzystania z widoków z materiałami.
 
 ## <a name="materialized-views-vs-standard-views"></a>Widoki z materiałami i widoki standardowe
 
@@ -27,7 +27,7 @@ Pula SQL obsługuje widoki standardowe i materiałowe.  Obie są tabelami wirtua
 
 Widok standardowy oblicza swoje dane za każdym razem, gdy widok jest używany.  Brak danych przechowywanych na dysku. Użytkownicy zazwyczaj używają widoków standardowych jako narzędzia, które ułatwiają organizowanie obiektów logicznych i zapytań w bazie danych.  Aby użyć widoku standardowego, zapytanie musi nawiązać bezpośrednie odwołanie do niego.
 
-Widok z materiałami umożliwia wstępne obliczenie, przechowywanie i przechowywanie danych w puli SQL w taki sam sposób jak tabela.  Obliczenia nie są wymagane za każdym razem, gdy jest używany widok z materiałami.  Dlatego, że zapytania wykorzystujące wszystkie lub podzbiór danych w widokach w postaci większej wydajności mogą zwiększyć wydajność.  Jeszcze lepsze zapytania mogą korzystać z widoku z materiałami bez bezpośredniego odniesienia do niego, dlatego nie trzeba zmieniać kodu aplikacji.  
+Wyspecjalizowany widok wstępnie oblicza, przechowuje i utrzymuje dane w dedykowanej puli SQL, podobnie jak w przypadku tabeli.  Obliczenia nie są wymagane za każdym razem, gdy jest używany widok z materiałami.  Dlatego, że zapytania wykorzystujące wszystkie lub podzbiór danych w widokach w postaci większej wydajności mogą zwiększyć wydajność.  Jeszcze lepsze zapytania mogą korzystać z widoku z materiałami bez bezpośredniego odniesienia do niego, dlatego nie trzeba zmieniać kodu aplikacji.  
 
 Większość standardowych wymagań widoku nadal ma zastosowanie do widoku z materiałami. Aby uzyskać szczegółowe informacje na temat składniowe widoku i innych wymagań, zapoznaj się z tematem [Tworzenie przykładowego widoku jako wyboru](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
@@ -46,13 +46,13 @@ Właściwie zaprojektowany widok z materiałami zapewnia następujące korzyści
 
 - Krótszy czas wykonywania złożonych zapytań z sprzężeniami i funkcjami agregującymi. Im bardziej skomplikowane jest zapytanie, tym większy potencjał do zapisu w czasie wykonywania. Jest to najbardziej korzystne, gdy koszt obliczeń zapytania jest wysoki, a wynikający z nich zestaw danych jest mały.  
 
-- Optymalizator w puli SQL może automatycznie używać wdrożonych widoków w celu usprawnienia planów wykonywania zapytań.  Ten proces jest niewidoczny dla użytkowników, którzy zapewniają szybszą wydajność zapytań i nie wymagają zapytań, aby skierować bezpośrednie odwołanie do widoków z materiałami.
+- Optymalizator zapytań w dedykowanej puli SQL może automatycznie używać wdrożonych widoków w celu usprawnienia planów wykonywania zapytań.  Ten proces jest niewidoczny dla użytkowników, którzy zapewniają szybszą wydajność zapytań i nie wymagają zapytań, aby skierować bezpośrednie odwołanie do widoków z materiałami.
 
 - Wymaga niskiej konserwacji w widokach.  Widok z materiałami przechowuje dane w dwóch miejscach, klastrowany indeks magazynu kolumn dla danych początkowych w czasie tworzenia widoku oraz magazyn zmian danych przyrostowych.  Wszystkie zmiany danych z tabel podstawowych są automatycznie dodawane do magazynu różnicowego w sposób synchroniczny.  Proces w tle (w ramach krotki) okresowo przenosi dane z magazynu różnicowego do indeksu magazynu kolumn widoku.  Ten projekt umożliwia wykonywanie zapytań dotyczących danych w postaci materiałów, które zwracają te same dane, co bezpośrednio zapytania dotyczące tabel podstawowych.
 - Dane w widoku z materiałami mogą być dystrybuowane inaczej od tabel podstawowych.  
 - Dane w widokach z materiałami uzyskują takie same korzyści wysokiej dostępności i odporności jak dane w regularnych tabelach.  
 
-W porównaniu z innymi dostawcami magazynu danych, widoki w postaci materiałów wdrożone w puli SQL oferują również następujące dodatkowe korzyści:
+W porównaniu z innymi dostawcami magazynu danych, wyspecjalizowane widoki zaimplementowane w dedykowanej puli SQL oferują również następujące dodatkowe korzyści:
 
 - Automatyczne i synchroniczne odświeżanie danych ze zmianami danych w tabelach podstawowych. Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika.
 - Szeroka Obsługa funkcji agregujących. Zobacz [Tworzenie widoku z materiałami jako Select (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
@@ -151,7 +151,7 @@ Aby uniknąć obniżenia wydajności zapytań, dobrym sposobem jest uruchomienie
 
 **Widok materiałowy i buforowanie zestawu wyników**
 
-Te dwie funkcje są wprowadzane w puli SQL w tym samym czasie na potrzeby dostrajania wydajności zapytań. Buforowanie zestawu wyników służy do osiągania dużej współbieżności i krótszych czasów odpowiedzi z powtarzalnych zapytań dotyczących danych statycznych.  
+Te dwie funkcje są wprowadzane w dedykowanej puli SQL w tym samym czasie na potrzeby dostrajania wydajności zapytań. Buforowanie zestawu wyników służy do osiągania dużej współbieżności i krótszych czasów odpowiedzi z powtarzalnych zapytań dotyczących danych statycznych.  
 
 Aby można było użyć buforowanego wyniku, formularz żądania pamięci podręcznej musi pasować do zapytania, które spowodowało wytworzenie pamięci podręcznej.  Ponadto, buforowany wynik musi dotyczyć całego zapytania.  
 

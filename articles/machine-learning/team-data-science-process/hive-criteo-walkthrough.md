@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e66bd0a4e56f63185d8361355d6cf8e0e29bc30b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336653"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305943"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proces nauki danych zespołu w akcji — Używanie klastra Azure HDInsight Hadoop w zestawie danych o pojemności 1 TB
 
@@ -50,11 +50,11 @@ Brak wartości w kolumnach liczbowych i kategorii w tym zestawie danych. Opisana
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Przykłady zadań przewidywania
 W tym instruktażu przedstawiono dwa przykładowe problemy z prognozą:
 
-1. **Klasyfikacja binarna**: przewidywanie, czy użytkownik kliknął dodanie:
+1. **Klasyfikacja binarna** : przewidywanie, czy użytkownik kliknął dodanie:
 
    * Klasa 0: nie klikaj
    * Klasa 1: kliknij przycisk
-2. **Regresja**: przewiduje prawdopodobieństwo kliknięcia usługi AD przez funkcję użytkownika.
+2. **Regresja** : przewiduje prawdopodobieństwo kliknięcia usługi AD przez funkcję użytkownika.
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-data-science"></a><a name="setup"></a>Konfigurowanie klastra usługi HDInsight Hadoop na potrzeby analizy danych
 > [!NOTE]
@@ -63,7 +63,7 @@ W tym instruktażu przedstawiono dwa przykładowe problemy z prognozą:
 Skonfiguruj środowisko nauki danych platformy Azure do tworzenia rozwiązań analizy predykcyjnej z klastrami usługi HDInsight w trzech krokach:
 
 1. [Utwórz konto magazynu](../../storage/common/storage-account-create.md): to konto magazynu służy do przechowywania danych w usłudze Azure Blob Storage. Dane używane w klastrach usługi HDInsight są przechowywane w tym miejscu.
-2. [Dostosowywanie klastrów Azure HDInsight Hadoop do analizy danych](customize-hadoop-cluster.md): w tym kroku jest tworzony klaster Azure HDInsight Hadoop z 64-bitową Anaconda Python 2,7 zainstalowany na wszystkich węzłach. W przypadku dostosowywania klastra usługi HDInsight należy wykonać dwa ważne kroki (opisane w tym temacie).
+2. [Dostosowywanie klastrów Azure HDInsight Hadoop do analizy danych](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md): w tym kroku jest tworzony klaster Azure HDInsight Hadoop z 64-bitową Anaconda Python 2,7 zainstalowany na wszystkich węzłach. W przypadku dostosowywania klastra usługi HDInsight należy wykonać dwa ważne kroki (opisane w tym temacie).
 
    * Połącz konto magazynu utworzone w kroku 1 z klastrem usługi HDInsight podczas jego tworzenia. To konto magazynu służy do uzyskiwania dostępu do danych, które mogą być przetwarzane w klastrze.
    * Włącz dostęp zdalny do węzła głównego klastra po jego utworzeniu. Zapamiętaj poświadczenia dostępu zdalnego określone w tym miejscu (inne niż poświadczenia określone podczas tworzenia klastra): wykonaj następujące procedury.
@@ -76,7 +76,7 @@ Dostęp do zestawu danych [Criteo](https://labs.criteo.com/downloads/download-te
 
 Kliknij przycisk **Kontynuuj, aby pobrać** , aby dowiedzieć się więcej na temat zestawu danych i jego dostępności.
 
-Dane znajdują się w lokalizacji [magazynu obiektów blob platformy Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ . "Wasb" odwołuje się do lokalizacji Blob Storage platformy Azure.
+Dane znajdują się w lokalizacji [magazynu obiektów blob platformy Azure](../../storage/blobs/storage-quickstart-blobs-dotnet.md) : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ . "Wasb" odwołuje się do lokalizacji Blob Storage platformy Azure.
 
 1. Dane w tym magazynie obiektów blob platformy Azure składają się z trzech podfolderów niespakowanego danych.
 
@@ -99,7 +99,7 @@ Po lewej stronie jest "wiersz polecenia usługi Hadoop", który jest nasz WorkHo
 Teraz wszystko jest gotowe do rozpoczęcia pierwszej części przewodnika: Eksploracja danych przy użyciu usługi Hive i przygotowywania danych do Azure Machine Learning.
 
 ## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Tworzenie bazy danych i tabel programu Hive
-Aby utworzyć tabele Hive dla naszego zestawu danych Criteo, Otwórz ***wiersz polecenia Hadoop*** na pulpicie węzła głównego, a następnie wprowadź katalog Hive, wprowadzając polecenie
+Aby utworzyć tabele Hive dla naszego zestawu danych Criteo, Otwórz *_wiersz polecenia programu Hadoop_* na pulpicie węzła głównego, a następnie wprowadź katalog Hive, wprowadzając polecenie
 
 ```console
 cd %hive_home%\bin
@@ -118,7 +118,7 @@ Gdy REPL Hive zostanie wyświetlony ze znakiem "Hive >", po prostu Wytnij i wkle
 
 Poniższy kod tworzy bazę danych "Criteo", a następnie generuje cztery tabele:
 
-* *tabela służąca do generowania liczników* utworzonych na dzień od \_ 00 do dnia \_ 20,
+_ *tabela służąca do generowania liczników* utworzonych na dzień od \_ 00 do dnia \_ 20,
 * tabela, która *ma być używana jako zestaw danych szkolenia* zbudowanych dnia \_ 21.
 * dwie *tabele do użycia jako testowe zestawy danych,* które zostały odpowiednio zaprojektowane w dniu \_ 22 i dnia \_ 23.
 
@@ -161,7 +161,7 @@ Wszystkie te tabele są zewnętrzne, więc możesz wskazać ich lokalizacje usł
 
 **Istnieją dwa sposoby wykonywania zapytania programu Hive:**
 
-* **Za pomocą wiersza polecenia programu Hive REPL**: pierwszy to wydanie polecenia "Hive" i skopiowanie i wklejenie zapytania w wierszu polecenia programu Hive REPL:
+* **Za pomocą wiersza polecenia programu Hive REPL** : pierwszy to wydanie polecenia "Hive" i skopiowanie i wklejenie zapytania w wierszu polecenia programu Hive REPL:
 
   ```console
   cd %hive_home%\bin
@@ -169,7 +169,7 @@ Wszystkie te tabele są zewnętrzne, więc możesz wskazać ich lokalizacje usł
   ```
 
      Teraz w wierszu polecenia REPL wycinanie i wklejanie zapytania jest wykonywane.
-* **Zapisywanie zapytań do pliku i wykonywanie polecenia**: drugi jest zapisanie zapytań do pliku ". HQL" ([przykład&#95;hive&#95;utwórz&#95;Criteo&#95;bazy danych&#95;i&#95;Tables. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), a następnie wydaj następujące polecenie, aby wykonać zapytanie:
+* **Zapisywanie zapytań do pliku i wykonywanie polecenia** : drugi jest zapisanie zapytań do pliku ". HQL" ( [przykład&#95;hive&#95;utwórz&#95;Criteo&#95;bazy danych&#95;i&#95;Tables. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), a następnie wydaj następujące polecenie, aby wykonać zapytanie:
 
   ```console
   hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
@@ -354,7 +354,7 @@ To daje:
 Time taken: 448.116 seconds, Fetched: 1 row(s)
 ```
 
-Col15 ma 19M unikatowe wartości! Użycie technik algorytmie, takich jak "jednostronicowe kodowanie", aby kodować takie zmienne kategorii, które nie są możliwe. W szczególności zapoznaj się ze szczegółowo zaawansowaną, niezawodną techniką o nazwie [uczenie się z licznami](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) służącymi do efektywnego rozwiązywania tego problemu.
+Col15 ma 19M unikatowe wartości! Użycie technik algorytmie, takich jak "jednostronicowe kodowanie", aby kodować takie zmienne kategorii, które nie są możliwe. W szczególności zapoznaj się ze szczegółowo zaawansowaną, niezawodną techniką o nazwie [uczenie się z licznami](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) służącymi do efektywnego rozwiązywania tego problemu.
 
 Na koniec sprawdź liczbę unikatowych wartości dla niektórych innych kategorii kolumn. Zawartość [przykładowej&#95;hive&#95;criteo&#95;unikatowe&#95;wartości&#95;wielu&#95;categoricals. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) :
 
@@ -472,7 +472,7 @@ Dzięki temu możesz przystąpić do użycia naszego przykładowego szkolenia i 
 Przed przejściem do Azure Machine Learning należy uzyskać końcowy składnik, który dotyczy tabeli Count. W następnej podsekcji tabela Count została omówiona szczegółowo.
 
 ## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a> Krótka dyskusja w tabeli Count
-Zgodnie z oczekiwaniami kilka zmiennych kategorii ma wysoką wymiar. W przewodniku zaprezentowano zaawansowaną technikę o nazwie [uczenie się z licznikami](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) , aby zakodować te zmienne w efektywny, niezawodny sposób. Więcej informacji na temat tej techniki znajduje się w podanym łączu.
+Zgodnie z oczekiwaniami kilka zmiennych kategorii ma wysoką wymiar. W przewodniku zaprezentowano zaawansowaną technikę o nazwie [uczenie się z licznikami](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) , aby zakodować te zmienne w efektywny, niezawodny sposób. Więcej informacji na temat tej techniki znajduje się w podanym łączu.
 
 >[!NOTE]
 >W tym instruktażu koncentruje się na korzystaniu z tabel Count, aby generować kompaktowe reprezentacje funkcji kategorii. Nie jest to jedyna metoda kodowania funkcji kategorii. Aby uzyskać więcej informacji na temat innych technik, zainteresowani użytkownicy mogą wyewidencjonować [jednostronicowe kodowanie](https://en.wikipedia.org/wiki/One-hot) i [funkcję tworzenia skrótów](https://en.wikipedia.org/wiki/Feature_hashing).
@@ -502,13 +502,13 @@ W przypadku modułu **Import danych** wartości parametrów, które są podane w
 
 1. Wybierz pozycję "zapytanie Hive" dla **źródła danych**
 2. W polu **zapytania bazy danych programu Hive** proste wybieranie * z <\_ nazwy bazy danych \_ . \_ \_ Nazwa tabeli>-jest wystarczająca.
-3. **Identyfikator URI serwera Hcatalog**: Jeśli klaster ma wartość "ABC", to po prostu: https: \/ /ABC.azurehdinsight.NET
-4. **Nazwa konta użytkownika usługi Hadoop**: Nazwa użytkownika wybrana w momencie wypróbowania klastra. (Nie jest to nazwa użytkownika dostępu zdalnego!)
-5. **Hasło konta użytkownika usługi Hadoop**: hasło dla nazwy użytkownika wybranej podczas pracy z klastrem. (Nie jest to hasło dostępu zdalnego!)
-6. **Lokalizacja danych wyjściowych**: wybierz pozycję "Azure"
-7. **Nazwa konta usługi Azure Storage**: konto magazynu skojarzone z klastrem
-8. **Klucz konta usługi Azure Storage**: klucz konta magazynu skojarzonego z klastrem.
-9. **Nazwa kontenera platformy Azure**: Jeśli nazwa klastra to "ABC", jest to po prostu "ABC", zazwyczaj.
+3. **Identyfikator URI serwera Hcatalog** : Jeśli klaster ma wartość "ABC", to po prostu: https: \/ /ABC.azurehdinsight.NET
+4. **Nazwa konta użytkownika usługi Hadoop** : Nazwa użytkownika wybrana w momencie wypróbowania klastra. (Nie jest to nazwa użytkownika dostępu zdalnego!)
+5. **Hasło konta użytkownika usługi Hadoop** : hasło dla nazwy użytkownika wybranej podczas pracy z klastrem. (Nie jest to hasło dostępu zdalnego!)
+6. **Lokalizacja danych wyjściowych** : wybierz pozycję "Azure"
+7. **Nazwa konta usługi Azure Storage** : konto magazynu skojarzone z klastrem
+8. **Klucz konta usługi Azure Storage** : klucz konta magazynu skojarzonego z klastrem.
+9. **Nazwa kontenera platformy Azure** : Jeśli nazwa klastra to "ABC", jest to po prostu "ABC", zazwyczaj.
 
 Gdy **Importowanie danych** zakończy pobieranie danych (zielony znacznik w module), Zapisz te dane jako zestaw danych (z wybraną nazwą). Co wygląda następująco:
 

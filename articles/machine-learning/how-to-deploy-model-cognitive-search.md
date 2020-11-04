@@ -1,7 +1,7 @@
 ---
 title: Wdrażanie modelu do użycia z usługą Cognitive Search
 titleSuffix: Azure Machine Learning
-description: W tym artykule przedstawiono sposób użycia Azure Machine Learning do wdrożenia modelu do użycia z usługą Azure Wyszukiwanie poznawcze. Wyszukiwanie poznawcze mogą używać modeli wdrożonych przez Azure Machine Learning jako umiejętność niestandardową w celu wzbogacania środowiska wyszukiwania.
+description: Dowiedz się, jak za pomocą programu Azure Machine Learning wdrożyć model do użycia z Wyszukiwanie poznawcze. Model jest używany jako umiejętność niestandardowa w celu wzbogacania środowiska wyszukiwania.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 06/11/2020
 ms.custom: deploy
-ms.openlocfilehash: 5d198a27d7aeca679f1ee17f35d3f4384283f13c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: e1eebf88b72c87ce9db02760c5c44a0aa25c57cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998908"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305917"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Wdrażanie modelu do użycia z usługą Cognitive Search
 
@@ -25,7 +25,7 @@ W tym artykule przedstawiono sposób użycia Azure Machine Learning do wdrożeni
 
 Wyszukiwanie poznawcze wykonuje przetwarzanie zawartości przez zawartość heterogenicznych, aby uczynić ją Queryable przez ludzi lub aplikacje. Ten proces można rozszerzyć przy użyciu modelu wdrożonego z Azure Machine Learning.
 
-Azure Machine Learning można wdrożyć przeszkolony model jako usługę sieci Web. Usługa sieci Web jest następnie osadzona w Wyszukiwanie poznawczeej _umiejętności_, która wchodzi w skład potoku przetwarzania.
+Azure Machine Learning można wdrożyć przeszkolony model jako usługę sieci Web. Usługa sieci Web jest następnie osadzona w Wyszukiwanie poznawczeej _umiejętności_ , która wchodzi w skład potoku przetwarzania.
 
 > [!IMPORTANT]
 > Informacje zawarte w tym artykule dotyczą wdrażania modelu. Zawiera informacje o obsługiwanych konfiguracjach wdrożenia, które umożliwiają modelowi użycie przez Wyszukiwanie poznawcze.
@@ -46,7 +46,7 @@ Podczas wdrażania modelu do użytku z usługą Azure Wyszukiwanie poznawcze wdr
 
 * Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 
-* Środowisko programistyczne języka Python z zainstalowanym zestawem SDK Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).  
+* Środowisko programistyczne języka Python z zainstalowanym zestawem SDK Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
 * Zarejestrowany model. Jeśli nie masz modelu, użyj przykładowego notesu w [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill) .
 
@@ -75,7 +75,7 @@ except:
 
 ## <a name="create-a-kubernetes-cluster"></a>Tworzenie klastra Kubernetes
 
-**Szacowany czas**: około 20 minut.
+**Szacowany czas** : około 20 minut.
 
 Klaster Kubernetes to zbiór wystąpień maszyn wirtualnych (nazywanych węzłami), które są używane do uruchamiania zwirtualizowanych aplikacji.
 
@@ -252,7 +252,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-Aby uzyskać więcej informacji, zobacz dokumentację referencyjną [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true).
+Aby uzyskać więcej informacji, zobacz dokumentację referencyjną [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
 
 ## <a name="deploy-the-model"></a>Wdrażanie modelu
 
@@ -277,7 +277,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-Aby uzyskać więcej informacji, zobacz dokumentację referencyjną dla [modelu](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true).
+Aby uzyskać więcej informacji, zobacz dokumentację referencyjną dla [modelu](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Wydaj przykładowe zapytanie do usługi
 

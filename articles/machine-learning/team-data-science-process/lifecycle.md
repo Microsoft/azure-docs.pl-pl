@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed54fda744978ac43bbffc6a70d6b331e85dc5e7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720456"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305597"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Cykl życia procesu nauki o danych zespołowych
 
@@ -43,12 +43,12 @@ Cykl życia przetwarzania TDSP jest modelowany jako sekwencja iteracji kroków, 
 
 Dla każdego etapu udostępniamy następujące informacje:
 
-   * **Cele**: określone cele.
-   * **Jak to zrobić**: zarys określonych zadań i wskazówki dotyczące ich kończenia.
-   * **Artefakty**: elementy dostarczane i pomoc techniczna do ich tworzenia.
+   * **Cele** : określone cele.
+   * **Jak to zrobić** : zarys określonych zadań i wskazówki dotyczące ich kończenia.
+   * **Artefakty** : elementy dostarczane i pomoc techniczna do ich tworzenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Zapewniamy kompleksowe przewodniki przedstawiające wszystkie kroki procesu dla konkretnych scenariuszy. [Przykładowy artykuł instruktażowy](walkthroughs.md) zawiera listę scenariuszy z linkami i opisami miniatur. Instruktaże ilustrują sposób łączenia chmur, narzędzi lokalnych i usług do przepływu pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
 
-Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning](./index.yml).

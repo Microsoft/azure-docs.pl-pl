@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 7214915e28158fe5dbb7b350e175b068afed1244
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5fa895964c30021452b8ce7b070a8b127d65e972
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166203"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305961"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Przykład: wykrywanie języka za pomocą analiza tekstu
 
@@ -184,7 +184,7 @@ Usługa ma teraz dodatkowy kontekst, aby zapewnić lepszą opinię:
         "documents": [
             {
                 "id": "1",
-                "detectedLanguages": [
+                "detectedLanguage": [
                     {
                         "name": "English",
                         "iso6391Name": "en",
@@ -194,7 +194,7 @@ Usługa ma teraz dodatkowy kontekst, aby zapewnić lepszą opinię:
             },
             {
                 "id": "2",
-                "detectedLanguages": [
+                "detectedLanguage": [
                     {
                         "name": "French",
                         "iso6391Name": "fr",
@@ -212,7 +212,7 @@ Jeśli analizator nie może przeanalizować danych wejściowych, zwraca `(Unknow
 ```json
     {
         "id": "5",
-        "detectedLanguages": [
+        "detectedLanguage": [
             {
                 "name": "(Unknown)",
                 "iso6391Name": "(Unknown)",
@@ -248,7 +248,7 @@ Wynikowe dane wyjściowe składają się z języka dominującego, z wynikiem ni�
       "documents": [
         {
           "id": "1",
-          "detectedLanguages": [
+          "detectedLanguage": [
             {
               "name": "Spanish",
               "iso6391Name": "es",
@@ -270,7 +270,7 @@ W tym artykule przedstawiono koncepcje i przepływ pracy wykrywania języka przy
 + Żądanie POST jest `/languages` punktem końcowym przy użyciu spersonalizowanego [klucza dostępu i punktu końcowego](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) , który jest prawidłowy dla Twojej subskrypcji.
 + Dane wyjściowe odpowiedzi składają się z identyfikatorów języka dla każdego identyfikatora dokumentu. Dane wyjściowe mogą być przesyłane strumieniowo do dowolnej aplikacji, która akceptuje kod JSON. Przykładowe aplikacje to programy Excel i Power BI, aby podać kilka nazw.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Przegląd analizy tekstu](../overview.md)
 * [Korzystanie z biblioteki klienta analiza tekstu](../quickstarts/text-analytics-sdk.md)

@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 45f63aed410c4d140259808044872cbbecfaa95b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00e75c5fda8a05f4ed0f3a756ba20cca570ba5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355571"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305981"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Zarządzanie usługami sieci Web Azure Machine Learning Studio (klasycznymi) za pomocą API Management
 
-**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ Dotyczy. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) nie ma ![ zastosowania do. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 ## <a name="overview"></a>Omówienie
 W tym przewodniku pokazano, jak szybko rozpocząć korzystanie z API Management do zarządzania usługami sieci Web Azure Machine Learning Studio (klasycznymi).
 
 ## <a name="what-is-azure-api-management"></a>Co to jest usługa Azure API Management?
-Azure API Management to usługa platformy Azure, która umożliwia zarządzanie punktami końcowymi interfejsu API REST przez definiowanie dostępu użytkowników, ograniczanie użycia i monitorowanie pulpitu nawigacyjnego. Aby uzyskać więcej informacji, zobacz [witrynę Azure API Management](https://azure.microsoft.com/services/api-management/) . Aby rozpocząć pracę z usługą Azure API Management, zobacz [Przewodnik importowania i publikowania](/azure/api-management/import-and-publish). Ten przewodnik, w którym bazuje ten przewodnik, zawiera więcej tematów, takich jak konfiguracje powiadomień, cenniki, obsługa odpowiedzi, uwierzytelnianie użytkowników, tworzenie produktów, subskrypcje deweloperów i pulpit nawigacyjny użycia.
+Azure API Management to usługa platformy Azure, która umożliwia zarządzanie punktami końcowymi interfejsu API REST przez definiowanie dostępu użytkowników, ograniczanie użycia i monitorowanie pulpitu nawigacyjnego. Aby uzyskać więcej informacji, zobacz [witrynę Azure API Management](https://azure.microsoft.com/services/api-management/) . Aby rozpocząć pracę z usługą Azure API Management, zobacz [Przewodnik importowania i publikowania](../../api-management/import-and-publish.md). Ten przewodnik, w którym bazuje ten przewodnik, zawiera więcej tematów, takich jak konfiguracje powiadomień, cenniki, obsługa odpowiedzi, uwierzytelnianie użytkowników, tworzenie produktów, subskrypcje deweloperów i pulpit nawigacyjny użycia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby ukończyć ten przewodnik, musisz wykonać następujące czynności:
@@ -38,15 +38,15 @@ Aby ukończyć ten przewodnik, musisz wykonać następujące czynności:
 
 Usługą sieci Web Azure Machine Learning można zarządzać przy użyciu wystąpienia API Management.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 2. Wybierz pozycję **+ Utwórz zasób**.
 3. W polu wyszukiwania wpisz "API Management", a następnie wybierz zasób "API Management".
-4. Kliknij przycisk **Utwórz**.
+4. Kliknij pozycję **Utwórz**.
 5. Wartość **Nazwa** zostanie użyta do utworzenia unikatowego adresu URL (w tym przykładzie użyto "demoazureml").
-6. Wybierz **subskrypcję**, **grupę zasobów**i **lokalizację** wystąpienia usługi.
+6. Wybierz **subskrypcję** , **grupę zasobów** i **lokalizację** wystąpienia usługi.
 7. Określ wartość dla **nazwy organizacji** (w tym przykładzie jest stosowane "demoazureml").
 8. Wprowadź **adres E-mail administratora** — ten adres e-mail będzie używany na potrzeby powiadomień z systemu API Management.
-9. Kliknij przycisk **Utwórz**.
+9. Kliknij pozycję **Utwórz**.
 
 Utworzenie nowej usługi może potrwać do 30 minut.
 
@@ -65,16 +65,16 @@ Aby utworzyć interfejs API:
 
 1. Kliknij pozycję **Dodaj interfejs API**.
 2. Wprowadź **nazwę interfejsu API sieci Web** (w tym przykładzie jest użyty "interfejs API demonstracyjnej usługi Azure").
-3. W przypadku **adresu URL usługi sieci Web**wpisz " `https://ussouthcentral.services.azureml.net` ".
+3. W przypadku **adresu URL usługi sieci Web** wpisz " `https://ussouthcentral.services.azureml.net` ".
 4. Wprowadź znak * * sufiks adresu URL interfejsu API sieci Web. Stanie się ona ostatnią częścią adresu URL, który będzie używany przez klientów do wysyłania żądań do wystąpienia usługi (w tym przykładzie jest używana "usługa Azure-demonstracyjna").
-5. W obszarze **schemat adresu URL interfejsu API sieci Web**wybierz pozycję **https**.
-6. W obszarze **produkty**wybierz pozycję **Starter**.
+5. W obszarze **schemat adresu URL interfejsu API sieci Web** wybierz pozycję **https**.
+6. W obszarze **produkty** wybierz pozycję **Starter**.
 7. Kliknij przycisk **Zapisz**.
 
 
 ## <a name="add-the-operations"></a>Dodaj operacje
 
-Operacje są dodawane i konfigurowane do interfejsu API w portalu wydawców. Aby uzyskać dostęp do portalu wydawców, kliknij pozycję **Portal wydawcy** w Azure Portal dla usługi API Management, wybierz pozycję **interfejsy API**, **operacje**, a następnie kliknij pozycję **Dodaj operację**.
+Operacje są dodawane i konfigurowane do interfejsu API w portalu wydawców. Aby uzyskać dostęp do portalu wydawców, kliknij pozycję **Portal wydawcy** w Azure Portal dla usługi API Management, wybierz pozycję **interfejsy API** , **operacje** , a następnie kliknij pozycję **Dodaj operację**.
 
 ![Dodaj operację](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
@@ -83,8 +83,8 @@ Zostanie wyświetlone okno **Nowa operacja** , a karta **podpis** zostanie domy�
 ## <a name="add-rrs-operation"></a>Operacja dodawania rekordów zasobów
 Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 
-1. Dla **zlecenia http**wybierz pozycję **post**.
-2. W polu **Szablon adresu URL**wpisz " `/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}` ".
+1. Dla **zlecenia http** wybierz pozycję **post**.
+2. W polu **Szablon adresu URL** wpisz " `/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}` ".
 3. Wprowadź **nazwę wyświetlaną** (w tym przykładzie jest używana funkcja "rerr Execute").
 
    ![Zrzut ekranu przedstawia stronę podpisu, na której można wprowadzić nazwę wyświetlaną.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
@@ -102,8 +102,8 @@ Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 ### <a name="submit-but-not-start-a-batch-execution-job"></a>Prześlij (ale nie Uruchom) zadanie wykonywania wsadowego
 
 1. Kliknij przycisk **Dodaj operację** , aby dodać operację BES do interfejsu API.
-2. Dla **zlecenia http**wybierz pozycję **post**.
-3. W polu **Szablon adresu URL**wpisz " `/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}` ".
+2. Dla **zlecenia http** wybierz pozycję **post**.
+3. W polu **Szablon adresu URL** wpisz " `/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie zostanie użyta wartość "BES Submit").
 5. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
 6. Kliknij przycisk **Zapisz**.
@@ -111,8 +111,8 @@ Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 ### <a name="start-a-batch-execution-job"></a>Uruchom zadanie wykonywania wsadowego
 
 1. Kliknij przycisk **Dodaj operację** , aby dodać operację BES do interfejsu API.
-2. Dla **zlecenia http**wybierz pozycję **post**.
-3. Dla **zlecenia http**wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}` ".
+2. Dla **zlecenia http** wybierz pozycję **post**.
+3. Dla **zlecenia http** wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie jest stosowana wartość "BES Start").
 6. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
 7. Kliknij przycisk **Zapisz**.
@@ -120,8 +120,8 @@ Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Pobieranie stanu lub wyniku zadania wykonywania wsadowego
 
 1. Kliknij przycisk **Dodaj operację** , aby dodać operację BES do interfejsu API.
-2. Dla **zlecenia http**wybierz pozycję **Pobierz**.
-3. W polu **Szablon adresu URL**wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}` ".
+2. Dla **zlecenia http** wybierz pozycję **Pobierz**.
+3. W polu **Szablon adresu URL** wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie jest stosowana wartość "BES status").
 6. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
 7. Kliknij przycisk **Zapisz**.
@@ -129,8 +129,8 @@ Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 ### <a name="delete-a-batch-execution-job"></a>Usuń zadanie wykonywania wsadowego
 
 1. Kliknij przycisk **Dodaj operację** , aby dodać operację BES do interfejsu API.
-2. Dla **zlecenia http**wybierz pozycję **Usuń**.
-3. W polu **Szablon adresu URL**wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}` ".
+2. Dla **zlecenia http** wybierz pozycję **Usuń**.
+3. W polu **Szablon adresu URL** wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie zostanie użyta wartość "BES Delete").
 5. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
 6. Kliknij przycisk **Zapisz**.
@@ -151,11 +151,11 @@ Operacje można wywołać bezpośrednio z portalu dla deweloperów, który zapew
 
    ![Zrzut ekranu przedstawia demonstrację systemu Azure w wersji 1, okno dialogowe z zaznaczoną opcją Opublikuj r S i przycisk Wypróbuj.](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-4. W polu **parametry żądania**wpisz swój **obszar roboczy** i  **usługę**, wpisz "2,0 dla **apiversion**i" true ", aby uzyskać **szczegółowe informacje**. **Obszar roboczy** i **usługę** można znaleźć na pulpicie nawigacyjnym usługi sieci Web Azure (zobacz **Testowanie usługi sieci Web** w dodatku A).
+4. W polu **parametry żądania** wpisz swój **obszar roboczy** i  **usługę** , wpisz "2,0 dla **apiversion** i" true ", aby uzyskać **szczegółowe informacje**. **Obszar roboczy** i **usługę** można znaleźć na pulpicie nawigacyjnym usługi sieci Web Azure (zobacz **Testowanie usługi sieci Web** w dodatku A).
 
-   W przypadku **nagłówków żądania**kliknij pozycję **Dodaj nagłówek** i wpisz "Content-Type" i "Application/JSON". Kliknij pozycję **Dodaj nagłówek** ponownie, a następnie wpisz "Authorization" i "Bearer *\<your service API-KEY\>* ". Klucz API-KEY można znaleźć na pulpicie nawigacyjnym usługi sieci Web Azure (zobacz **Testowanie usługi sieci Web** w dodatku A).
+   W przypadku **nagłówków żądania** kliknij pozycję **Dodaj nagłówek** i wpisz "Content-Type" i "Application/JSON". Kliknij pozycję **Dodaj nagłówek** ponownie, a następnie wpisz "Authorization" i "Bearer *\<your service API-KEY\>* ". Klucz API-KEY można znaleźć na pulpicie nawigacyjnym usługi sieci Web Azure (zobacz **Testowanie usługi sieci Web** w dodatku A).
 
-   Dla **treści żądania**wpisz `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}` .
+   Dla **treści żądania** wpisz `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}` .
 
    ![Zrzut ekranu przedstawia demonstrację platformy Azure w wersji 1, żądanie, nagłówki żądań, treść żądania i autoryzację.](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 
@@ -163,13 +163,13 @@ Operacje można wywołać bezpośrednio z portalu dla deweloperów, który zapew
 
    ![Zrzut ekranu przedstawia przycisk Wyślij.](./media/manage-web-service-endpoints-using-api-management/send.png)
 
-Po wywołaniu operacji Portal dla deweloperów wyświetla **żądany adres URL** z usługi zaplecza, **stan odpowiedzi**, **nagłówki odpowiedzi**i dowolną **zawartość odpowiedzi**.
+Po wywołaniu operacji Portal dla deweloperów wyświetla **żądany adres URL** z usługi zaplecza, **stan odpowiedzi** , **nagłówki odpowiedzi** i dowolną **zawartość odpowiedzi**.
 
 ![Zrzut ekranu przedstawia Portal deweloperów wyświetlający informacje o stanie odpowiedzi, opóźnieniu odpowiedzi, nagłówkach odpowiedzi i treści odpowiedzi.](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Dodatek A — tworzenie i testowanie prostej usługi sieci Web Azure
 ### <a name="creating-the-experiment"></a>Tworzenie eksperymentu
-Poniżej przedstawiono procedurę tworzenia prostego eksperymentu w usłudze Azure i wdrażania go jako usługi sieci Web. Usługa sieci Web przyjmuje jako wejściową kolumnę dowolnego tekstu i zwraca zestaw funkcji reprezentowanych jako liczby całkowite. Na przykład:
+Poniżej przedstawiono procedurę tworzenia prostego eksperymentu w usłudze Azure i wdrażania go jako usługi sieci Web. Usługa sieci Web przyjmuje jako wejściową kolumnę dowolnego tekstu i zwraca zestaw funkcji reprezentowanych jako liczby całkowite. Przykład:
 
 | Tekst | Tekst zmieszany |
 | --- | --- |
@@ -219,7 +219,7 @@ Kliknij przycisk **tak** , aby opublikować eksperyment.
 ### <a name="test-the-web-service"></a>Testowanie usługi internetowej
 Usługa sieci Web platformy Azure składa się z punktów końcowych RSS (usługa żądania/odpowiedź) i BES (usługa wykonywania wsadowego). Funkcja RSS jest do wykonania synchronicznego. BES jest przeznaczony do asynchronicznego wykonywania zadań. Aby przetestować usługę sieci Web za pomocą przykładowego źródła Python poniżej, może być konieczne pobranie i zainstalowanie zestawu Azure SDK dla języka Python (zobacz: [jak zainstalować język Python](/azure/developer/python/azure-sdk-install)).
 
-Przykładem może być również **obszar roboczy**, **Usługa**i **api_key** eksperymentu dla poniższego źródła. Obszar roboczy i usługę można znaleźć, klikając pozycję **żądanie/odpowiedź** lub **wykonanie wsadowe** dla eksperymentu na pulpicie nawigacyjnym usługi sieci Web.
+Przykładem może być również **obszar roboczy** , **Usługa** i **api_key** eksperymentu dla poniższego źródła. Obszar roboczy i usługę można znaleźć, klikając pozycję **żądanie/odpowiedź** lub **wykonanie wsadowe** dla eksperymentu na pulpicie nawigacyjnym usługi sieci Web.
 
 ![Zrzut ekranu przedstawia okienko żądania, w którym można znaleźć wartości obszaru roboczego i usługi.](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
@@ -244,7 +244,7 @@ Zobaczysz coś przypominającego
 ##### <a name="sample-code"></a>Przykładowy kod
 Innym sposobem na przetestowanie rekordów RR jest kod klienta. Jeśli klikniesz pozycję **żądanie/odpowiedź** na pulpicie nawigacyjnym i przewiniesz do dołu, zobaczysz przykładowy kod dla języków C#, Python i R. Zostanie również wyświetlona składnia żądania RR, w tym identyfikator URI żądania, nagłówki i treść.
 
-W tym przewodniku przedstawiono przykład działającego środowiska Python. Należy zmodyfikować ją z **obszarem roboczym**, **usługą**i **api_key** eksperymentu.
+W tym przewodniku przedstawiono przykład działającego środowiska Python. Należy zmodyfikować ją z **obszarem roboczym** , **usługą** i **api_key** eksperymentu.
 
 ```python
 import urllib2
@@ -278,7 +278,7 @@ try:
 #### <a name="test-bes-endpoint"></a>Test Endpoint BES
 Kliknij pozycję **wykonywanie wsadowe** na pulpicie nawigacyjnym i przewiń w dół. Zobaczysz przykładowy kod dla języków C#, Python i R. Zostanie również wyświetlona składnia żądań BES w celu przesłania zadania, uruchomienia zadania, uzyskania stanu lub wyników zadania oraz usunięcia zadania.
 
-W tym przewodniku przedstawiono przykład działającego środowiska Python. Należy zmodyfikować ją z **obszarem roboczym**, **usługą**i **api_key** eksperymentu. Ponadto należy zmodyfikować **nazwę konta magazynu**, **klucz konta magazynu**i **nazwę kontenera magazynu**. Na koniec należy zmodyfikować lokalizację **pliku wejściowego** i lokalizację **pliku wyjściowego**.
+W tym przewodniku przedstawiono przykład działającego środowiska Python. Należy zmodyfikować ją z **obszarem roboczym** , **usługą** i **api_key** eksperymentu. Ponadto należy zmodyfikować **nazwę konta magazynu** , **klucz konta magazynu** i **nazwę kontenera magazynu**. Na koniec należy zmodyfikować lokalizację **pliku wejściowego** i lokalizację **pliku wyjściowego**.
 
 ```python
 import urllib2

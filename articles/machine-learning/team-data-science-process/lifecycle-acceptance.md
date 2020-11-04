@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2294ccb1d958b229a71e45bb502b8134d8d5c7f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720524"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305669"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Etap akceptacji klienta w cyklu życia procesu nauki o danych zespołowych
 
@@ -34,13 +34,13 @@ Oto wizualna reprezentacja cyklu życia przetwarzania TDSP:
 
 
 ## <a name="goal"></a>Cel
-**Finalizowanie elementów dostarczanych projektu**: Upewnij się, że potok, model i ich wdrożenie w środowisku produkcyjnym spełniają cele klienta.
+**Finalizowanie elementów dostarczanych projektu** : Upewnij się, że potok, model i ich wdrożenie w środowisku produkcyjnym spełniają cele klienta.
 
 ## <a name="how-to-do-it"></a>Jak to zrobić
 W tym etapie są uwzględnione dwa podstawowe zadania:
 
-   * **Weryfikacja systemu**: Upewnij się, że wdrożony model i potok spełniają wymagania klienta.
-   * **Odręczny projekt**: umożliwia oddanie projektu do jednostki, która ma uruchamiać system w środowisku produkcyjnym.
+   * **Weryfikacja systemu** : Upewnij się, że wdrożony model i potok spełniają wymagania klienta.
+   * **Odręczny projekt** : umożliwia oddanie projektu do jednostki, która ma uruchamiać system w środowisku produkcyjnym.
 
 Klient powinien sprawdzić, czy system spełnia Twoje wymagania biznesowe i czy ma odpowiedzi na pytania z akceptowalną dokładnością, aby wdrożyć system w środowisku produkcyjnym do użytku przez aplikację klienta. Wszystkie dokumenty są finalizowane i analizowane. Projekt jest przekazywany do jednostki odpowiedzialnej za operacje. Ta jednostka może być na przykład zespołem ds. IT lub klientem, który jest odpowiedzialny za uruchamianie systemu w środowisku produkcyjnym. 
 
@@ -60,4 +60,4 @@ Poniżej przedstawiono linki do poszczególnych etapów cyklu życia przetwarzan
 
 Oferujemy pełne instruktaże, które pokazują wszystkie kroki procesu dla konkretnych scenariuszy. [Przykładowy artykuł instruktażowy](walkthroughs.md) zawiera listę scenariuszy z linkami i opisami miniatur. Instruktaże ilustrują sposób łączenia chmur, narzędzi lokalnych i usług do przepływu pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
 
-Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning](./index.yml).

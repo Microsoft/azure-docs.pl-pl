@@ -1,6 +1,6 @@
 ---
 title: Typy sortowania magazynu danych
-description: Typy sortowania obsługiwane w puli SQL usługi Azure Synapse Analytics.
+description: Typy sortowania obsługiwane dla dedykowanej puli SQL w usłudze Azure Synapse Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,16 +11,16 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 08a008e2f2402072dce3069c5d059b297239b7dd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 8d76d70c4c84f1d63d4643e1fba3f66d3541beff
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090458"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305259"
 ---
-# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Obsługa sortowania bazy danych dla puli SQL usługi Azure Synapse Analytics
+# <a name="database-collation-support-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Obsługa sortowania bazy danych dla dedykowanej puli SQL w usłudze Azure Synapse Analytics 
 
-Domyślne sortowanie baz danych można zmienić z Azure Portal podczas tworzenia nowej bazy danych puli SQL usługi Azure Synapse. Ta funkcja ułatwia tworzenie nowej bazy danych przy użyciu jednego z 3800 obsługiwanych baz danych.
+Domyślne sortowanie baz danych można zmienić z Azure Portal podczas tworzenia nowej dedykowanej bazy danych puli SQL. Ta funkcja ułatwia tworzenie nowej bazy danych przy użyciu jednego z 3800 obsługiwanych baz danych.
 
 Sortowania zapewniają ustawienia regionalne, strony kodowej, porządek sortowania i reguły czułości znaków dla typów danych opartych na znakach. Po wybraniu tej opcji wszystkie kolumny i wyrażenia wymagające informacji o sortowaniu dziedziczą wybrane sortowanie z poziomu bazy danych. Dziedziczenie domyślne można przesłonić, jawnie podając inne sortowanie dla typu danych opartego na znakach.
 

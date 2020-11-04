@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3845c5e5d7cf6bb372744fb3c740c44aa2b94236
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336449"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305616"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modelowanie etapów cyklu życia zespołowego procesu nauki danych
 
@@ -41,8 +41,8 @@ Oto wizualna reprezentacja cyklu życia przetwarzania TDSP:
 ## <a name="how-to-do-it"></a>Jak to zrobić
 W tym etapie istnieją trzy główne zadania:
 
-  * **Inżynieria funkcji**: Tworzenie funkcji danych z danych pierwotnych w celu ułatwienia szkolenia modeli.
-  * **Uczenie modeli**: Znajdź model, który odbierze najbardziej dokładne wyniki, porównując ich metryki sukcesu.
+  * **Inżynieria funkcji** : Tworzenie funkcji danych z danych pierwotnych w celu ułatwienia szkolenia modeli.
+  * **Uczenie modeli** : Znajdź model, który odbierze najbardziej dokładne wyniki, porównując ich metryki sukcesu.
   * Ustal, czy model jest **odpowiedni dla środowiska produkcyjnego.**
 
 ### <a name="feature-engineering"></a>Inżynieria cech
@@ -59,11 +59,11 @@ Proces szkolenia modelu obejmuje następujące kroki:
 
    * **Dziel losowo dane wejściowe** do modelowania na zestaw danych szkoleniowych i zestaw danych testowych.
    * **Kompiluj modele** przy użyciu zestawu danych szkoleniowych.
-   * **Oceń** szkolenia i zestaw danych testowych. Używaj szeregu konkurencyjnych algorytmów uczenia maszynowego wraz z różnymi, skojarzonymi parametrami strojenia (znanym jako *odchylenia parametrów*), które są skierowane do odpowiedzi na pytania związane z bieżącymi danymi.
+   * **Oceń** szkolenia i zestaw danych testowych. Używaj szeregu konkurencyjnych algorytmów uczenia maszynowego wraz z różnymi, skojarzonymi parametrami strojenia (znanym jako *odchylenia parametrów* ), które są skierowane do odpowiedzi na pytania związane z bieżącymi danymi.
    * **Określ najlepsze rozwiązanie** , aby odpowiedzieć na pytanie, porównując metryki sukcesu między metodami alternatywnymi.
 
 > [!NOTE]
-> **Unikaj wycieku**: można spowodować wyciek danych, jeśli dołączysz dane spoza zestawu danych szkoleniowych, które umożliwiają modelowi lub algorytmowi uczenia maszynowego wykonywanie nierealistycznie dobrych prognoz. Wyciek jest typowym powodem, dlaczego analityki danych uzyskują nerwy, gdy uzyskują wyniki predykcyjne, które wydaje się zbyt dobre. Wykrywanie tych zależności może być trudne. Aby uniknąć wycieków często wymaga iteracji między kompilowaniem zestawu danych analizy, tworzeniem modelu i ocenianiem dokładności wyników. 
+> **Unikaj wycieku** : można spowodować wyciek danych, jeśli dołączysz dane spoza zestawu danych szkoleniowych, które umożliwiają modelowi lub algorytmowi uczenia maszynowego wykonywanie nierealistycznie dobrych prognoz. Wyciek jest typowym powodem, dlaczego analityki danych uzyskują nerwy, gdy uzyskują wyniki predykcyjne, które wydaje się zbyt dobre. Wykrywanie tych zależności może być trudne. Aby uniknąć wycieków często wymaga iteracji między kompilowaniem zestawu danych analizy, tworzeniem modelu i ocenianiem dokładności wyników. 
 > 
 > 
 
@@ -74,7 +74,7 @@ Artefakty utworzone w tym etapie obejmują:
 
    * [Zestawy funkcji](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): funkcje opracowane dla modelowania są opisane w sekcji **zestawy funkcji** w raporcie **definicji danych** . Zawiera wskaźniki do kodu w celu wygenerowania funkcji oraz opis sposobu generowania funkcji.
    * [Raport dotyczący modelu](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): dla każdego z modeli, który został wypróbowany, standardowy, oparty na szablonach raport, który zawiera szczegółowe informacje dotyczące każdego eksperymentu.
-   * **Decyzja dotycząca punktów kontrolnych**: Oceń, czy model jest wystarczająco wydajny dla środowiska produkcyjnego. Oto kluczowe pytania, które należy zadać:
+   * **Decyzja dotycząca punktów kontrolnych** : Oceń, czy model jest wystarczająco wydajny dla środowiska produkcyjnego. Oto kluczowe pytania, które należy zadać:
      * Czy model odpowiada na pytanie z wystarczającym zaufaniem do danych testowych? 
      * Czy chcesz próbować dowolnych alternatywnych metod? Czy należy zbierać dodatkowe dane, wykonywać więcej funkcji, czy eksperymentować z innymi algorytmami?
 
@@ -90,4 +90,4 @@ Poniżej przedstawiono linki do poszczególnych etapów cyklu życia przetwarzan
 
 Zapewniamy kompleksowe przewodniki przedstawiające wszystkie kroki procesu dla konkretnych scenariuszy. [Przykładowy artykuł instruktażowy](walkthroughs.md) zawiera listę scenariuszy z linkami i opisami miniatur. Instruktaże ilustrują sposób łączenia chmur, narzędzi lokalnych i usług do przepływu pracy lub potoku w celu utworzenia inteligentnej aplikacji. 
 
-Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Aby zapoznać się z przykładami wykonywania kroków w TDSPs, które używają Azure Machine Learning Studio, zobacz [Korzystanie z przetwarzania TDSP z Azure Machine Learning](./index.yml).

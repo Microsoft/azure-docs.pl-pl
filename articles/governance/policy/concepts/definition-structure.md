@@ -1,18 +1,18 @@
 ---
 title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
-ms.date: 10/05/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8e7cea1d03b0a236b9a485c2e640d7bf3f4e8e7e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5f9a110247d4ec93c8f3fb95fc9ed61eb6806787
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132486"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305156"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
-Azure Policy ustanawia konwencje dla zasobów. Definicje zasad opisują [warunki](#conditions) zgodności zasobów i wpływ, jaki należy wykonać w przypadku spełnienia warunku. Warunek porównuje [pole](#fields) właściwości zasobu z wymaganą wartością. Pola właściwości zasobu są dostępne za pomocą [aliasów](#aliases). Pole właściwości zasobu to pole pojedynczej wartości lub [Tablica](#understanding-the--alias) wielu wartości. Ocena warunku różni się w przypadku tablic.
+Azure Policy ustanawia konwencje dla zasobów. Definicje zasad opisują [warunki](#conditions) zgodności zasobów i wpływ, jaki należy wykonać w przypadku spełnienia warunku. Warunek porównuje [pole](#fields) właściwości zasobu lub [wartość](#value) z wymaganą wartością. Pola właściwości zasobu są dostępne za pomocą [aliasów](#aliases). Gdy pole właściwości zasobu jest tablicą, można użyć specjalnego [aliasu tablicy](#understanding-the--alias) do wybrania wartości ze wszystkich elementów członkowskich tablicy i zastosować warunek do każdego z nich.
 Dowiedz się więcej o [warunkach](#conditions).
 
 Dzięki zdefiniowaniu Konwencji można kontrolować koszty i łatwiej zarządzać zasobami. Można na przykład określić, że dozwolone są tylko niektóre typy maszyn wirtualnych. Lub można wymagać, aby zasoby miały określony tag. Przypisania zasad są dziedziczone przez zasoby podrzędne. Jeśli przypisanie zasad zostanie zastosowane do grupy zasobów, ma zastosowanie do wszystkich zasobów w tej grupie zasobów.
@@ -22,7 +22,7 @@ Schemat _Klasa policyrule_ definicji zasad znajduje się tutaj: [https://schema.
 Aby utworzyć definicję zasad, należy użyć formatu JSON. Definicja zasad zawiera elementy dla:
 
 - Nazwa wyświetlana
-- description
+- description (opis)
 - tryb
 - metadane
 - parameters
@@ -75,7 +75,7 @@ Azure Policy wbudowane i wzorce są [Azure Policy próbkami](../samples/index.md
 Użyj **DisplayName** i **Description** , aby zidentyfikować definicję zasad i podać kontekst, który ma być używany. **Nazwa wyświetlana** ma maksymalną długość _128_ znaków i **Opis** ma maksymalną długość _512_ znaków.
 
 > [!NOTE]
-> Podczas tworzenia lub aktualizowania definicji zasad, **identyfikatora**, **typu**i **nazwy** są zdefiniowane przez właściwości zewnętrzne w formacie JSON i nie są wymagane w pliku JSON. Pobieranie definicji zasad za pomocą zestawu SDK zwraca **Identyfikator**, **Typ**i właściwości **nazwy** w ramach JSON, ale każda z nich jest informacjami tylko do odczytu związanymi z definicją zasad.
+> Podczas tworzenia lub aktualizowania definicji zasad, **identyfikatora** , **typu** i **nazwy** są zdefiniowane przez właściwości zewnętrzne w formacie JSON i nie są wymagane w pliku JSON. Pobieranie definicji zasad za pomocą zestawu SDK zwraca **Identyfikator** , **Typ** i właściwości **nazwy** w ramach JSON, ale każda z nich jest informacjami tylko do odczytu związanymi z definicją zasad.
 
 ## <a name="type"></a>Typ
 
@@ -106,9 +106,9 @@ Zaleca się, aby **mode** `all` w większości przypadków ustawić tryb. Wszyst
 
 Następujący tryb dostawcy zasobów jest w pełni obsługiwany:
 
-- `Microsoft.Kubernetes.Data` do zarządzania klastrami Kubernetes na platformie Azure lub w niej. Definicje używające tego trybu dostawcy zasobów służą do _inspekcji_, _odmowy_i _wyłączania_. Użycie efektu [EnforceOPAConstraint](./effects.md#enforceopaconstraint) jest _przestarzałe_.
+- `Microsoft.Kubernetes.Data` do zarządzania klastrami Kubernetes na platformie Azure lub w niej. Definicje używające tego trybu dostawcy zasobów służą do _inspekcji_ , _odmowy_ i _wyłączania_. Użycie efektu [EnforceOPAConstraint](./effects.md#enforceopaconstraint) jest _przestarzałe_.
 
-Następujące tryby dostawcy zasobów są obecnie obsługiwane jako **wersja zapoznawcza**:
+Następujące tryby dostawcy zasobów są obecnie obsługiwane jako **wersja zapoznawcza** :
 
 - `Microsoft.ContainerService.Data` Aby zarządzać regułami kontrolera przyjmowania w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md). Definicje korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Ten tryb jest _przestarzały_.
 - `Microsoft.KeyVault.Data` Zarządzanie magazynami i certyfikatami w [Azure Key Vault](../../../key-vault/general/overview.md). Aby uzyskać więcej informacji na temat tych definicji zasad, zobacz [integrowanie Azure Key Vault z Azure Policy](../../../key-vault/general/azure-policy.md).
@@ -128,7 +128,7 @@ Właściwość opcjonalna `metadata` przechowuje informacje o definicji zasad. K
 - `deprecated` (wartość logiczna): flaga true lub false, jeśli definicja zasad została oznaczona jako _przestarzała_.
 
 > [!NOTE]
-> Usługa Azure Policy używa `version` , `preview` i `deprecated` właściwości do przekazywania poziomu zmiany do wbudowanej definicji zasad lub inicjatywy i stanu. Format `version` to: `{Major}.{Minor}.{Patch}` . Określone Stany, takie jak _przestarzałe_ lub _Podgląd_, są dołączane do `version` właściwości lub w innej właściwości jako **wartość logiczna**. Aby uzyskać więcej informacji na temat sposobu, w jaki Azure Policy wersje wbudowane, zobacz [wbudowana wersja](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> Usługa Azure Policy używa `version` , `preview` i `deprecated` właściwości do przekazywania poziomu zmiany do wbudowanej definicji zasad lub inicjatywy i stanu. Format `version` to: `{Major}.{Minor}.{Patch}` . Określone Stany, takie jak _przestarzałe_ lub _Podgląd_ , są dołączane do `version` właściwości lub w innej właściwości jako **wartość logiczna**. Aby uzyskać więcej informacji na temat sposobu, w jaki Azure Policy wersje wbudowane, zobacz [wbudowana wersja](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 
 ## <a name="parameters"></a>Parametry
 
@@ -143,7 +143,7 @@ Parametry działają w ten sam sposób podczas kompilowania zasad. Dzięki doł�
 Parametr ma następujące właściwości, które są używane w definicji zasad:
 
 - `name`: Nazwa parametru. Używane przez `parameters` funkcję wdrażania w ramach reguły zasad. Aby uzyskać więcej informacji, zobacz [Używanie wartości parametru](#using-a-parameter-value).
-- `type`: Określa, czy parametr jest **ciągiem**, **tablicą**, **obiektem**, **wartością logiczną**, **liczbą całkowitą**, **zmiennoprzecinkową**lub **DateTime**.
+- `type`: Określa, czy parametr jest **ciągiem** , **tablicą** , **obiektem** , **wartością logiczną** , **liczbą całkowitą** , **zmiennoprzecinkową** lub **DateTime**.
 - `metadata`: Definiuje podwłaściwości używane głównie przez Azure Portal do wyświetlania informacji przyjaznych dla użytkownika:
   - `description`: Wyjaśnienie, do czego służy parametr. Może służyć do podania przykładów akceptowalnych wartości.
   - `displayName`: Przyjazna nazwa wyświetlana w portalu dla parametru.
@@ -189,7 +189,7 @@ Ten przykład odwołuje się do parametru **allowedLocations** , który został 
 
 ### <a name="strongtype"></a>strongtype
 
-We `metadata` właściwości można użyć **silnego** typu, aby udostępnić listę opcji dostępnych w ramach Azure Portal. **silntype** może być obsługiwanym _typem zasobu_ lub dozwoloną wartością. Aby określić, czy _Typ zasobu_ jest prawidłowy dla **silnego**elementu, użyj polecenie [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Format _typu zasobu_ **strongtype** ma wartość `<Resource Provider>/<Resource Type>` . Na przykład `Microsoft.Network/virtualNetworks/subnets`.
+We `metadata` właściwości można użyć **silnego** typu, aby udostępnić listę opcji dostępnych w ramach Azure Portal. **silntype** może być obsługiwanym _typem zasobu_ lub dozwoloną wartością. Aby określić, czy _Typ zasobu_ jest prawidłowy dla **silnego** elementu, użyj polecenie [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Format _typu zasobu_ **strongtype** ma wartość `<Resource Provider>/<Resource Type>` . Na przykład `Microsoft.Network/virtualNetworks/subnets`.
 
 Niektóre _typy zasobów_ , które nie są zwracane przez **Get-AzResourceProvider** , są obsługiwane. Te typy są następujące:
 
@@ -284,14 +284,14 @@ Warunek oblicza, czy **pole** lub metoda dostępu do **wartości** spełniają o
   `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
-W przypadku **mniej**, **lessOrEquals**, **większych**i **greaterOrEquals**, jeśli typ właściwości nie jest zgodny z typem warunku, zostanie zgłoszony błąd. Porównania ciągów są wykonywane przy użyciu `InvariantCultureIgnoreCase` .
+W przypadku **mniej** , **lessOrEquals** , **większych** i **greaterOrEquals** , jeśli typ właściwości nie jest zgodny z typem warunku, zostanie zgłoszony błąd. Porównania ciągów są wykonywane przy użyciu `InvariantCultureIgnoreCase` .
 
 W przypadku używania warunków **like** i **notLike** , w wartości można podać symbol wieloznaczny `*` .
 Wartość nie może mieć więcej niż jednego symbolu wieloznacznego `*` .
 
 W przypadku używania warunków **Match** i **notMatch** , podaj, `#` Aby dopasować cyfrę do `?` litery, `.` Aby dopasować dowolny znak, i dowolny inny znak, aby dopasować go do rzeczywistego znaku. Chociaż **dopasowuje** i **notMatch** uwzględnia wielkość liter, wszystkie inne warunki, które szacują _stringValue_ , nie uwzględniają wielkości liter. Alternatywy bez uwzględniania wielkości liter są dostępne w **matchInsensitively** i **notMatchInsensitively**.
 
-W wartości pola tablicy ** \[ \* \] aliasu** każdy element w tablicy jest obliczany indywidualnie przy użyciu koniunkcji logicznej **i** między elementami. Aby uzyskać więcej informacji, zobacz [ocenianie \[ \* \] aliasu](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+W wartości pola tablicy **\[ \* \] aliasu** każdy element w tablicy jest obliczany indywidualnie przy użyciu koniunkcji logicznej **i** między elementami. Aby uzyskać więcej informacji, zobacz [odwoływanie się do właściwości zasobów tablicy](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 ### <a name="fields"></a>Pola
 
@@ -456,12 +456,14 @@ Struktura wyrażenia **Count** jest:
 }
 ```
 
-Następujące właściwości są używane z funkcją **Count**:
+Następujące właściwości są używane z funkcją **Count** :
 
 - **Count. pole** (wymagane): zawiera ścieżkę do tablicy i musi być aliasem tablicy. Jeśli brakuje tablicy, wyrażenie jest oceniane na _wartość false_ bez uwzględniania wyrażenia warunku.
 - **Count. WHERE** (opcjonalnie): wyrażenie warunku do pojedynczej ocenia każdego elementu członkowskiego tablicy [ \[ \* \] aliasów](#understanding-the--alias) w **polu Count.** Jeśli ta właściwość nie jest określona, wszystkie elementy członkowskie tablicy ze ścieżką "pole" są oceniane na _wartość true_. Dowolny [warunek](../concepts/definition-structure.md#conditions) może być używany wewnątrz tej właściwości.
   [Operatory logiczne](#logical-operators) mogą być używane wewnątrz tej właściwości, aby utworzyć złożone wymagania dotyczące oceny.
 - **\<condition\>** (wymagane): wartość jest porównywana z liczbą elementów, które osiągnęły liczbę **.** wyrażenie warunku WHERE. Należy użyć [warunku](../concepts/definition-structure.md#conditions) liczbowego.
+
+Aby uzyskać szczegółowe informacje na temat sposobu pracy z właściwościami tablicy w Azure Policy, w tym szczegółowe wyjaśnienie sposobu oceniania wyrażenia Count, zobacz [odwoływanie się do właściwości zasobów tablicy](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="count-examples"></a>Liczba przykładów
 
@@ -548,17 +550,32 @@ Przykład 5: Sprawdź, czy co najmniej jeden element członkowski tablicy jest z
 }
 ```
 
+Przykład 6: Użyj `field()` funkcji w `where` warunkach, aby uzyskać dostęp do wartości literału aktualnie ocenianego elementu członkowskiego tablicy. Ten stan sprawdza, czy nie ma żadnych reguł zabezpieczeń z parzystą wartością _priorytetu_ .
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+          "value": "[mod(first(field('Microsoft.Network/networkSecurityGroups/securityRules[*].priority')), 2)]",
+          "equals": 0
+        }
+    },
+    "greater": 0
+}
+```
+
 ### <a name="effect"></a>Efekt
 
 Azure Policy obsługuje następujące typy efektów:
 
-- **Append**: Dodaje zdefiniowany zestaw pól do żądania
-- **Inspekcja**: generuje zdarzenie ostrzegawcze w dzienniku aktywności, ale nie kończy się niepowodzeniem żądania
-- **AuditIfNotExists**: generuje zdarzenie ostrzegawcze w dzienniku aktywności, jeśli powiązany zasób nie istnieje
-- **Odmów**: generuje zdarzenie w dzienniku aktywności i kończy się niepowodzeniem żądania
-- **DeployIfNotExists**: wdraża powiązane zasoby, jeśli jeszcze nie istnieją
-- **Wyłączone**: nie oblicza zasobów pod kątem zgodności z regułą zasad
-- **Modyfikowanie**: dodaje, aktualizuje lub usuwa zdefiniowane znaczniki z zasobu
+- **Append** : Dodaje zdefiniowany zestaw pól do żądania
+- **Inspekcja** : generuje zdarzenie ostrzegawcze w dzienniku aktywności, ale nie kończy się niepowodzeniem żądania
+- **AuditIfNotExists** : generuje zdarzenie ostrzegawcze w dzienniku aktywności, jeśli powiązany zasób nie istnieje
+- **Odmów** : generuje zdarzenie w dzienniku aktywności i kończy się niepowodzeniem żądania
+- **DeployIfNotExists** : wdraża powiązane zasoby, jeśli jeszcze nie istnieją
+- **Wyłączone** : nie oblicza zasobów pod kątem zgodności z regułą zasad
+- **Modyfikowanie** : dodaje, aktualizuje lub usuwa zdefiniowane znaczniki z zasobu
 - **EnforceOPAConstraint** (przestarzałe): konfiguruje kontroler "Open Policy Agent Admission Control" z strażnikiem v3 dla samozarządzanego klastra Kubernetes na platformie Azure
 - **EnforceRegoPolicy** (przestarzałe): konfiguruje kontroler "Open Policy Agent Admission Control" z strażnikiem v2 w usłudze Azure Kubernetes Service
 
@@ -589,10 +606,10 @@ Następująca funkcja jest dostępna do użycia w regule zasad, ale różni się
 Następujące funkcje są dostępne tylko w regułach zasad:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **DateTime**: [Required] ciąg ciągu w formacie daty/godziny uniwersalnego ISO 8601 "RRRR-MM-DDTgg: mm: SS. FFFFFFFZ'
-  - **numberOfDaysToAdd**: [Required] liczba dni do dodania
+  - **DateTime** : [Required] ciąg ciągu w formacie daty/godziny uniwersalnego ISO 8601 "RRRR-MM-DDTgg: mm: SS. FFFFFFFZ'
+  - **numberOfDaysToAdd** : [Required] liczba dni do dodania
 - `field(fieldName)`
-  - **FieldName**: [Required] — nazwa [pola](#fields) do pobrania
+  - **FieldName** : [Required] — nazwa [pola](#fields) do pobrania
   - Zwraca wartość tego pola z zasobu, który jest obliczany przez warunek IF.
   - `field` jest używany głównie z **AuditIfNotExists** i **DeployIfNotExists** do odwołań do pól w analizowanym zasobie. Przykład tego zastosowania można zobaczyć w [przykładzie DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
@@ -612,8 +629,8 @@ Następujące funkcje są dostępne tylko w regułach zasad:
 
 
 - `ipRangeContains(range, targetRange)`
-    - **zakres**: [Required] ciąg-ciąg określający zakres adresów IP.
-    - **targetRange**: [Required] ciąg ciągu określający zakres adresów IP.
+    - **zakres** : [Required] ciąg-ciąg określający zakres adresów IP.
+    - **targetRange** : [Required] ciąg ciągu określający zakres adresów IP.
 
     Zwraca czy dany zakres adresów IP zawiera docelowy zakres adresów IP. Puste zakresy lub mieszanie między rodzinami adresów IP nie są dozwolone i skutkuje niepowodzeniem oceny.
 
@@ -711,37 +728,27 @@ Lista aliasów zawsze rośnie. Aby dowiedzieć się, jakie aliasy są obecnie ob
 
 ### <a name="understanding-the--alias"></a>Informacje o aliasie [*]
 
-Kilka dostępnych aliasów ma wersję, która jest wyświetlana jako nazwa "normal" i inna, która została **\[\*\]** do niej dołączona. Na przykład:
+Kilka dostępnych aliasów ma wersję, która jest wyświetlana jako nazwa "normal" i inna, która została **\[\*\]** do niej dołączona. Przykład:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 Alias "normal" reprezentuje pole jako pojedynczą wartość. To pole jest przeznaczone do dokładnego dopasowania scenariuszy porównywania, gdy cały zestaw wartości musi być dokładnie zdefiniowany, nie więcej i nie rzadziej.
 
-**\[\*\]** Alias umożliwia porównanie wartości poszczególnych elementów w tablicy i określonych właściwości każdego elementu. Takie podejście umożliwia porównanie właściwości elementów dla elementu "If None of", "if any" lub "If all of". W przypadku bardziej złożonych scenariuszy Użyj wyrażenia warunku [Count](#count) . Za **pomocą \[ \* \] ipRules**, przykładem będzie sprawdzanie, czy każda _Akcja_ jest _odrzucana_, ale nie martw się o liczbę istniejących reguł lub _wartość_ IP.
-Ta przykładowa reguła sprawdza, czy dla dowolnych dopasowań **ipRules \[ \* \] . Value** do **10.0.4.1** i stosuje wartość **effecttype** tylko wtedy, gdy nie znajdzie co najmniej jednego dopasowania:
+**\[\*\]** Alias reprezentuje kolekcję wartości wybranych z elementów właściwości zasobu tablicy. Przykład:
 
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "10.0.4.1"
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+| Alias | Wybrane wartości |
+|:---|:---|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | Elementy `ipRules` tablicy. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | Wartości `action` właściwości z każdego elementu `ipRules` tablicy. |
 
-Aby uzyskać więcej informacji, zobacz [ocenianie \* aliasu []](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+W przypadku użycia w warunku [pola](#fields) aliasy tablic umożliwiają porównanie poszczególnych elementów tablicy z wartością docelową. W przypadku użycia z wyrażeniem [Count](#count) możliwe jest:
+
+- Sprawdzanie rozmiaru tablicy
+- Sprawdź, czy all\any\none elementów tablicy spełnia warunki złożone
+- Sprawdź, czy dokładnie ***n*** elementów tablicy spełnia warunki złożone
+
+Aby uzyskać więcej informacji i przykładów, zobacz [odwoływanie się do właściwości zasobów tablicy](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 ## <a name="next-steps"></a>Następne kroki
 

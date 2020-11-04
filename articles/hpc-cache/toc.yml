@@ -44,6 +44,8 @@
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/ext/hpc-cache/hpc-cache
+    - name: Azure PowerShell
+      href: /powershell/module/Az.HPCCache
 - name: Zasoby
   items:
     - name: Otwieranie biletu pomocy technicznej

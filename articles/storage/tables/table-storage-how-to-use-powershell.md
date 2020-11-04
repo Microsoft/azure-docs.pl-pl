@@ -8,17 +8,17 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e643a7ce5ccf4aa5107df1e505d90a0767517350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7502d48095fe18b983c1971d5145f51e766c95
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070415"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306902"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Wykonywanie operacji usługi Azure Table Storage za pomocą Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-Azure Table Storage to magazyn danych NoSQL, który służy do przechowywania i wykonywania zapytań dotyczących dużych zestawów strukturalnych danych nierelacyjnych. Głównymi składnikami usługi są tabele, jednostki i właściwości. Tabela jest kolekcją jednostek. Jednostka jest zestawem właściwości. Każda jednostka może mieć do 252 właściwości (wszystkie pary nazwa-wartość). W tym artykule przyjęto założenie, że znasz już pojęcia dotyczące usługi Azure Table Storage. Aby uzyskać szczegółowe informacje, zobacz [Omówienie modelu danych usługi Table Service](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) i rozpoczynanie [pracy z usługą Azure Table Storage przy użyciu platformy .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md).
+Azure Table Storage to magazyn danych NoSQL, który służy do przechowywania i wykonywania zapytań dotyczących dużych zestawów strukturalnych danych nierelacyjnych. Głównymi składnikami usługi są tabele, jednostki i właściwości. Tabela jest kolekcją jednostek. Jednostka jest zestawem właściwości. Każda jednostka może mieć do 252 właściwości (wszystkie pary nazwa-wartość). W tym artykule przyjęto założenie, że znasz już pojęcia dotyczące usługi Azure Table Storage. Aby uzyskać szczegółowe informacje, zobacz [Omówienie modelu danych usługi Table Service](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) i rozpoczynanie [pracy z usługą Azure Table Storage przy użyciu platformy .NET](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 W tym artykule opisano typowe operacje usługi Azure Table Storage. Omawiane kwestie: 
 
@@ -38,7 +38,7 @@ Przykłady wymagają AZ PowerShell modules `Az.Storage (1.1.0 or greater)` i `Az
 > Korzystanie z tej funkcji platformy Azure z poziomu programu PowerShell wymaga `Az` zainstalowania modułu. Bieżąca wersja programu `AzTable` nie jest zgodna ze starszym modułem AzureRM.
 > Postępuj zgodnie z [najnowszymi instrukcjami dotyczącymi instalacji polecenia AZ module w](/powershell/azure/install-az-ps) razie potrzeby.
 
-Po zainstalowaniu lub zaktualizowaniu Azure PowerShell należy zainstalować moduł **AzTable**, który zawiera polecenia służące do zarządzania jednostkami. Aby zainstalować ten moduł, uruchom program PowerShell jako administrator i użyj polecenia **Install-module** .
+Po zainstalowaniu lub zaktualizowaniu Azure PowerShell należy zainstalować moduł **AzTable** , który zawiera polecenia służące do zarządzania jednostkami. Aby zainstalować ten moduł, uruchom program PowerShell jako administrator i użyj polecenia **Install-module** .
 
 > [!IMPORTANT]
 > Ze względów zgodności nazw modułów nadal publikujemy ten sam moduł pod starą nazwą `AzureRmStorageTables` w Galeria programu PowerShell. Ten dokument odwołuje się tylko do nowej nazwy.
@@ -90,7 +90,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-new-table"></a>Utwórz nową tabelę
+## <a name="create-a-new-table"></a>Tworzenie nowej tabeli
 
 Aby utworzyć tabelę, użyj polecenia cmdlet [New-AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) . W tym przykładzie tabela jest wywoływana `pshtesttable` .
 
@@ -120,7 +120,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 > [!IMPORTANT]
 > Użycie w chmurze jest obowiązkowe podczas pracy z modułem **AzTable** PowerShell. Wywołaj polecenie **Get-AzStorageTable** , aby uzyskać odwołanie do tego obiektu. To polecenie tworzy również tabelę, jeśli jeszcze nie istnieje.
 
-Aby wykonać operacje na tabeli przy użyciu **AzTable**, należy odwołać się do właściwości w chmurze określonej tabeli.
+Aby wykonać operacje na tabeli przy użyciu **AzTable** , należy odwołać się do właściwości w chmurze określonej tabeli.
 
 ```powershell
 $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable

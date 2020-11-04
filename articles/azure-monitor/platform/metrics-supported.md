@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 59df49d320b23686a3d053335ea2b95e98125b28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1741331c57427c57507376afdb878edc18259b72
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88135559"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306841"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -38,7 +38,7 @@ Korzystanie z ustawień diagnostycznych to najprostszy sposób na kierowanie met
 
 - **Niektóre nie do eksportowania** — wszystkie metryki są eksportowane przy użyciu interfejsu API REST, ale niektórych nie można eksportować za pomocą ustawień diagnostycznych ze względu na złożonego w zapleczu Azure monitor. Kolumna, którą można *eksportować za pomocą ustawień diagnostycznych* w tabelach poniżej, umożliwia wyeksportowanie metryk w ten sposób.  
 
-- **Metryki wielowymiarowe** — wysyłanie metryk wielowymiarowych do innych lokalizacji za pośrednictwem ustawień diagnostycznych nie jest obecnie obsługiwane. Metryki wielowymiarowe są eksportowane jako spłaszczone metryki jednowymiarowe z wartościami zagregowanymi we wszystkich wymiarach. *Na przykład*: metrykę „Komunikaty przychodzące” w centrum zdarzeń można przeglądać i przedstawiać na wykresie na poziomie pojedynczej kolejki. Jednak w przypadku eksportowania za pomocą ustawień diagnostycznych metryka ta jest przedstawiana jako wszystkie komunikaty przychodzące we wszystkich kolejkach w centrum zdarzeń.
+- **Metryki wielowymiarowe** — wysyłanie metryk wielowymiarowych do innych lokalizacji za pośrednictwem ustawień diagnostycznych nie jest obecnie obsługiwane. Metryki wielowymiarowe są eksportowane jako spłaszczone metryki jednowymiarowe z wartościami zagregowanymi we wszystkich wymiarach. *Na przykład* : metrykę „Komunikaty przychodzące” w centrum zdarzeń można przeglądać i przedstawiać na wykresie na poziomie pojedynczej kolejki. Jednak w przypadku eksportowania za pomocą ustawień diagnostycznych metryka ta jest przedstawiana jako wszystkie komunikaty przychodzące we wszystkich kolejkach w centrum zdarzeń.
 
 ## <a name="guest-os-and-host-os-metrics"></a>System operacyjny gościa i metryki systemu operacyjnego hosta
 
@@ -332,7 +332,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |connectedclients7|Tak|Połączeni klienci (fragmentu 7)|Liczba|Maksimum||Brak wymiarów|
 |connectedclients8|Tak|Połączeni klienci (fragmentu 8)|Liczba|Maksimum||Brak wymiarów|
 |connectedclients9|Tak|Połączeni klienci (fragmentu 9)|Liczba|Maksimum||Brak wymiarów|
-|błędy|Tak|Errors|Liczba|Maksimum||ShardId, ErrorType|
+|błędy|Tak|błędy|Liczba|Maksimum||ShardId, ErrorType|
 |evictedkeys|Tak|Wykluczone klucze|Liczba|Łącznie||ShardId|
 |evictedkeys0|Tak|Wykluczone klucze (fragmentu 0)|Liczba|Łącznie||Brak wymiarów|
 |evictedkeys1|Tak|Wykluczone klucze (fragmentu 1)|Liczba|Łącznie||Brak wymiarów|
@@ -952,10 +952,10 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |D2C. endpoints. opóźnienie. serviceBusQueues|Tak|Routing: opóźnienie komunikatu dla kolejki Service Bus|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i telemetrii komunikatów przychodzących do punktu końcowego kolejki Service Bus.|Brak wymiarów|
 |D2C. endpoints. opóźnienie. serviceBusTopics|Tak|Routing: opóźnienie komunikatu dla Service Bus tematu|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów telemetrycznych w punkcie końcowym tematu Service Bus.|Brak wymiarów|
 |D2C. endpoints. opóźnienie. Storage|Tak|Routing: opóźnienie komunikatu dla magazynu|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów telemetrycznych w punkcie końcowym magazynu.|Brak wymiarów|
-|D2C. dane telemetryczne. wychodzące. upuszczone|Tak|Routing: porzucone komunikaty telemetryczne |Liczba|Łącznie|Liczba porzuconych komunikatów przez IoT Hub Routing ze względu na martwe punkty końcowe. Ta wartość nie zlicza komunikatów dostarczonych do trasy rezerwowej, ponieważ opuszczone wiadomości nie są tam dostarczane.|Brak wymiarów|
+|D2C. dane telemetryczne. wychodzące. upuszczone|Tak|Routing: porzucone komunikaty telemetryczne |Liczba|Łącznie|Liczba porzuconych komunikatów przez IoT Hub Routing ze względu na martwe punkty końcowe. Ta wartość nie zlicza komunikatów dostarczonych do trasy rezerwowej, ponieważ opuszczone wiadomości nie są tam dostarczane.|Brak wymiarów|
 |D2C. telemetrię. ruch wychodzący. Fallback|Tak|Routing: komunikaty dostarczane do powrotu|Liczba|Łącznie|Liczba IoT Hub komunikatów dostarczonych przez funkcję routingu do punktu końcowego skojarzonego z trasą rezerwową.|Brak wymiarów|
 |D2C. Telemetria. ruch wychodzący. nieprawidłowe|Tak|Routing: komunikaty telemetryczne są niezgodne|Liczba|Łącznie|Liczba przypadków, gdy Routing IoT Hub nie mógł dostarczyć komunikatów z powodu niezgodności z punktem końcowym. Ta wartość nie obejmuje ponownych prób.|Brak wymiarów|
-|D2C. dane telemetryczne. wychodzące. oddzielone|Tak|Routing: oddzielone komunikaty telemetryczne |Liczba|Łącznie|Liczba oddzielonych komunikatów przez IoT Hub Routing, ponieważ nie są one zgodne z żadną regułą routingu (w tym regułą rezerwową). |Brak wymiarów|
+|D2C. dane telemetryczne. wychodzące. oddzielone|Tak|Routing: oddzielone komunikaty telemetryczne |Liczba|Łącznie|Liczba oddzielonych komunikatów przez IoT Hub Routing, ponieważ nie są one zgodne z żadną regułą routingu (w tym regułą rezerwową). |Brak wymiarów|
 |D2C. telemetrię. ruch wychodzący. sukces|Tak|Routing: dostarczono komunikaty telemetryczne|Liczba|Łącznie|Liczba pomyślnie dostarczonych komunikatów do wszystkich punktów końcowych używających routingu IoT Hub. Jeśli komunikat jest kierowany do wielu punktów końcowych, ta wartość zwiększa się o jeden dla każdego pomyślnego dostarczenia. Jeśli wiadomość jest przekazywana do tego samego punktu końcowego wiele razy, ta wartość zwiększa się o jeden dla każdego pomyślnego dostarczenia.|Brak wymiarów|
 |D2C. telemetrię. allProtocol|Tak|Próby wysłania komunikatów telemetrycznych|Liczba|Łącznie|Liczba komunikatów telemetrycznych z urządzenia do chmury, które próbowano wysłać do centrum IoT Hub|Brak wymiarów|
 |D2C. telemetrię. sendThrottle|Tak|Liczba błędów ograniczania|Liczba|Łącznie|Liczba błędów ograniczania z powodu ograniczeń przepływności urządzenia|Brak wymiarów|
@@ -1007,7 +1007,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|Addregion|Tak|Dodano region|Liczba|Liczba|Dodano region|Region|
+|Addregion|Tak|Dodano region|Liczba|Liczba|Dodano region|Region (Region)|
 |AutoscaleMaxThroughput|Nie|Maksymalna przepływność skalowania automatycznego|Liczba|Maksimum|Maksymalna przepływność skalowania automatycznego|DatabaseName, CollectionName|
 |AvailableStorage|Nie|przestarzałe Dostępny magazyn|Bajty|Łącznie|"Dostępny magazyn" zostanie usunięty z Azure Monitor na koniec września 2020. Rozmiar magazynu kolekcji Cosmos DB jest teraz nieograniczony. Jedynym ograniczeniem jest to, że rozmiar magazynu dla każdego klucza partycji logicznej to 20 GB. Możesz włączyć PartitionKeyStatistics w dzienniku diagnostycznym, aby poznać użycie magazynu dla najważniejszych kluczy partycji. Aby uzyskać więcej informacji na temat przydziału magazynu Cosmos DB, zobacz ten dokument https://docs.microsoft.com/azure/cosmos-db/concepts-limits . Po zaniechaniu pozostałe reguły alertów nadal zdefiniowane na zaniechanej metryce będą automatycznie wyłączać datę zakończenia.|CollectionName, DatabaseName, region|
 |CassandraConnectionClosures|Nie|Zamknięcia połączeń Cassandra|Liczba|Łącznie|Liczba zamkniętych połączeń Cassandra, które zostały zgłoszone z dokładnością do 1 minuty|Region, ClosureReason|
@@ -1056,7 +1056,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |NormalizedRUConsumption|Nie|Znormalizowane użycie RU|Procent|Maksimum|Maksymalna wartość procentowa zużycia RU na minutę|CollectionName, DatabaseName, region, PartitionKeyRangeId|
 |ProvisionedThroughput|Nie|Aprowizowana przepływność|Liczba|Maksimum|Aprowizowana przepływność|DatabaseName, CollectionName|
 |RegionFailover|Tak|Region w trybie failover|Liczba|Liczba|Region w trybie failover|Brak wymiarów|
-|RemoveRegion|Tak|Usunięto region|Liczba|Liczba|Usunięto region|Region|
+|RemoveRegion|Tak|Usunięto region|Liczba|Liczba|Usunięto region|Region (Region)|
 |ReplicationLatency|Tak|Opóźnienie replikacji poziomie P99|)|Średnia|Opóźnienie replikacji poziomie P99 w regionach źródłowym i docelowym dla konta z obsługą geograficzną|SourceRegion, TargetRegion|
 |ServerSideLatency|Nie|Opóźnienie po stronie serwera|)|Średnia|Opóźnienie po stronie serwera|DatabaseName, CollectionName, region, Connectionmode, OperationType, PublicAPIType|
 |Dostępność|Nie|Dostępność usługi|Procent|Średnia|Dostępność żądania konta o jednej godzinie, dniu lub o dokładności|Brak wymiarów|
@@ -1415,7 +1415,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Anulowane przebiegi|Tak|Anulowane przebiegi|Liczba|Łącznie|Liczba anulowanych przebiegów dla tego obszaru roboczego. Licznik jest aktualizowany w przypadku pomyślnego anulowania przebiegu.|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |Ukończone uruchomienia|Tak|Ukończone uruchomienia|Liczba|Łącznie|Liczba przebiegów pomyślnie ukończonych dla tego obszaru roboczego. Licznik jest aktualizowany po zakończeniu przebiegu i zebraniu danych wyjściowych.|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |CpuUtilization|Tak|CpuUtilization|Liczba|Średnia|Procent użycia pamięci w węźle procesora CPU. Wykorzystanie jest zgłaszane w odstępach jednej minuty.|Scenariusz, runId, NodeId, ClusterName|
-|Errors|Tak|Errors|Liczba|Łącznie|Liczba błędów uruchomienia w tym obszarze roboczym. Liczba jest aktualizowana za każdym razem, gdy wystąpi błąd.|Scenariusz|
+|błędy|Tak|błędy|Liczba|Łącznie|Liczba błędów uruchomienia w tym obszarze roboczym. Liczba jest aktualizowana za każdym razem, gdy wystąpi błąd.|Scenariusz|
 |Nieudane uruchomienia|Tak|Nieudane uruchomienia|Liczba|Łącznie|Liczba uruchomień dla tego obszaru roboczego nie powiodła się. Licznik jest aktualizowany w przypadku niepowodzenia przebiegu.|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |Finalizowanie przebiegów|Tak|Finalizowanie przebiegów|Liczba|Łącznie|Liczba przebiegów w trakcie finalizowania stanu dla tego obszaru roboczego. Licznik jest aktualizowany, gdy przebieg został ukończony, ale kolekcja wyjściowa jest nadal w toku.|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |GpuUtilization|Tak|GpuUtilization|Liczba|Średnia|Procent użycia pamięci w węźle procesora GPU. Wykorzystanie jest zgłaszane w odstępach jednej minuty.|Scenariusz, runId, NodeId, DeviceId, ClusterName|
@@ -1439,7 +1439,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Uruchomione uruchomienia|Tak|Uruchomione uruchomienia|Liczba|Łącznie|Liczba przebiegów uruchomionych dla tego obszaru roboczego. Licznik jest aktualizowany po rozpoczęciu uruchamiania w wymaganych zasobach.|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |Uruchamianie przebiegów|Tak|Uruchamianie przebiegów|Liczba|Łącznie|Liczba rozpoczętych uruchomień dla tego obszaru roboczego. Licznik jest aktualizowany po zapisaniu żądania utworzenia i uruchomienia informacji, takich jak identyfikator przebiegu|Scenariusz, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |Łączna liczba rdzeni|Tak|Łączna liczba rdzeni|Liczba|Średnia|Łączna liczba rdzeni|Scenariusz, ClusterName|
-|Łączna liczba węzłów|Tak|Łączna liczba węzłów|Liczba|Średnia|Łączna liczba węzłów. Ta suma obejmuje niektóre aktywne węzły, bezczynne węzły, węzły niezdatne do użycia, węzły Premepted, pozostawiając węzły|Scenariusz, ClusterName|
+|Łączna liczba węzłów|Tak|Łączna liczba węzłów|Liczba|Średnia|Łączna liczba węzłów. Ta suma obejmuje niektóre aktywne węzły, bezczynne węzły, węzły niezdatne do użytku, węzły zastępujące, pozostawiając węzły|Scenariusz, ClusterName|
 |Rdzenie, których nie można używać|Tak|Rdzenie, których nie można używać|Liczba|Średnia|Liczba rdzeni, których nie można używać|Scenariusz, ClusterName|
 |Węzły niezdatne do użytku|Tak|Węzły niezdatne do użytku|Liczba|Średnia|Liczba nieużywanych węzłów. Węzły, które nie są użyteczne, nie działają z powodu problemu z nierozpoznawalne. Platforma Azure przeprowadzi odtwarzanie tych węzłów.|Scenariusz, ClusterName|
 |Ostrzeżenia|Tak|Ostrzeżenia|Liczba|Łącznie|Liczba ostrzeżeń uruchamiania w tym obszarze roboczym. Liczba jest aktualizowana za każdym razem, gdy uruchomienie napotka ostrzeżenie.|Scenariusz|
@@ -1494,7 +1494,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |AverageReadLatency|Tak|Średnie opóźnienie odczytu|)|Średnia|Średnie opóźnienie odczytu w milisekundach na operację|Brak wymiarów|
 |AverageWriteLatency|Tak|Średnie opóźnienie zapisu|)|Średnia|Średnie opóźnienie zapisu w milisekundach na operację|Brak wymiarów|
 |CbsVolumeBackupActive|Tak|Stan aktywności kopii zapasowej woluminu|Liczba|Średnia|Czy kopia zapasowa jest aktualnie wstrzymana dla woluminu.|Brak wymiarów|
-|CbsVolumeLogicalBackupBytes|Tak|Utworzono kopię zapasową bajtów logicznych|Bajty|Średnia|Toatl nieskompresowane/niezaszyfrowane bajty, których kopia zapasowa jest tworzona dla tego woluminu.|Brak wymiarów|
+|CbsVolumeLogicalBackupBytes|Tak|Utworzono kopię zapasową bajtów logicznych|Bajty|Średnia|Łączna liczba bajtów unskompresowano/unencrypted, których kopia zapasowa jest tworzona dla tego woluminu.|Brak wymiarów|
 |CbsVolumeOperationComplete|Tak|Stan operacji|Liczba|Średnia|Jest ostatnią operacją tworzenia kopii zapasowej/przywracania.|Brak wymiarów|
 |CbsVolumeOperationTransferredBytes|Tak|Bajty przesłane dla operacji|Bajty|Średnia|Łączna liczba bajtów przesłanych dla ostatniej operacji tworzenia kopii zapasowej/przywracania.|Brak wymiarów|
 |CbsVolumeProtected|Tak|Stan chroniony woluminem|Liczba|Średnia|Jest woluminem chronionym przez usługę kopii zapasowej w chmurze.|Brak wymiarów|
@@ -1860,7 +1860,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |Pamięć Average_Used pamięci (MB)|Tak|Używana pamięć (MB)|Liczba|Średnia|Pamięć Average_Used pamięci (MB)|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Users|Tak|Użytkownicy|Liczba|Średnia|Average_Users|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Virtual pamięci współdzielonej|Tak|Wirtualna pamięć udostępniona|Liczba|Średnia|Average_Virtual pamięci współdzielonej|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Wydarzenie|Tak|Wydarzenie|Liczba|Średnia|Wydarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
+|Zdarzenie|Tak|Zdarzenie|Liczba|Średnia|Zdarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 |Puls|Tak|Puls|Liczba|Łącznie|Puls|Komputer, OSType, wersja, SourceComputerId|
 |Aktualizacja|Tak|Aktualizacja|Liczba|Średnia|Aktualizacja|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
 
@@ -1929,7 +1929,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |ActiveMessages|Nie|Liczba aktywnych komunikatów w kolejce/temacie.|Liczba|Średnia|Liczba aktywnych komunikatów w kolejce/temacie.|EntityName|
 |Połączenia connectionsclosed|Nie|Zamknięte połączenia.|Liczba|Średnia|Połączenia zamknięte dla elementu Microsoft. ServiceBus.|EntityName|
 |Połączenia connectionsopened|Nie|Otwarte połączenia.|Liczba|Średnia|Połączenia otwarte dla elementu Microsoft. ServiceBus.|EntityName|
-|CPUXNS|Nie|PROCESOR (przestarzałe)|Procent|Maksimum|Metryka użycia procesora przestrzeni nazw w warstwie Premium usługi Service Bus. Ta Metryka to przestarzałe. Użyj zamiast tego metryki procesora (NamespaceCpuUsage).|Brak wymiarów|
+|CPUXNS|Nie|PROCESOR (przestarzałe)|Procent|Maksimum|Metryka użycia procesora przestrzeni nazw w warstwie Premium usługi Service Bus. Ta Metryka jest przestarzała. Użyj zamiast tego metryki procesora (NamespaceCpuUsage).|Brak wymiarów|
 |DeadletteredMessages|Nie|Liczba utraconych wiadomości w kolejce/temacie.|Liczba|Średnia|Liczba utraconych wiadomości w kolejce/temacie.|EntityName|
 |Komunikaty incomingmessages|Tak|Komunikaty przychodzące|Liczba|Łącznie|Komunikaty przychodzące dla elementu Microsoft. ServiceBus.|EntityName|
 |Żądania incomingrequests|Tak|Żądania przychodzące|Liczba|Łącznie|Żądania przychodzące dla Microsoft. ServiceBus.|EntityName|
@@ -2171,7 +2171,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |StorageSyncRecalledTotalNetworkBytes|Tak|Rozmiar odwołania do warstw w chmurze|Bajty|Łącznie|Rozmiar danych, które zostały odwołane|SyncGroupName, ServerName|
 |StorageSyncRecallIOTotalSizeBytes|Tak|Odwołanie do warstw w chmurze|Bajty|Łącznie|Łączny rozmiar danych, które zostały wywołane przez serwer|ServerName|
 |StorageSyncRecallThroughputBytesPerSecond|Tak|Przepływność odwołań do warstw w chmurze|BytesPerSecond|Średnia|Rozmiar przepływności operacji odwoływania danych|SyncGroupName, ServerName|
-|StorageSyncServerHeartbeat|Tak|Stan online serwera|Liczba|Maksimum|Metryka, która rejestruje wartość 1 za każdym razem, gdy serwer resigtered pomyślnie rejestruje puls przy użyciu punktu końcowego w chmurze|ServerName|
+|StorageSyncServerHeartbeat|Tak|Stan online serwera|Liczba|Maksimum|Metryka, która rejestruje wartość 1 za każdym razem, gdy zarejestrowany serwer pomyślnie rejestruje puls przy użyciu punktu końcowego w chmurze|ServerName|
 |StorageSyncSyncSessionAppliedFilesCount|Tak|Synchronizowane pliki|Liczba|Łącznie|Liczba synchronizowanych plików|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncSyncSessionPerItemErrorsCount|Tak|Pliki, których nie należy synchronizować|Liczba|Łącznie|Nie można zsynchronizować liczby plików|SyncGroupName, ServerEndpointName, SyncDirection|
 
@@ -2180,7 +2180,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 
 |Metryka|Eksportować za pomocą ustawień diagnostycznych?|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|---|
-|ServerHeartbeat|Tak|Stan online serwera|Liczba|Maksimum|Metryka, która rejestruje wartość 1 za każdym razem, gdy serwer resigtered pomyślnie rejestruje puls przy użyciu punktu końcowego w chmurze|ServerResourceId, ServerName|
+|ServerHeartbeat|Tak|Stan online serwera|Liczba|Maksimum|Metryka, która rejestruje wartość 1 za każdym razem, gdy zarejestrowany serwer pomyślnie rejestruje puls przy użyciu punktu końcowego w chmurze|ServerResourceId, ServerName|
 |ServerRecallIOTotalSizeBytes|Tak|Odwołanie do warstw w chmurze|Bajty|Łącznie|Łączny rozmiar danych, które zostały wywołane przez serwer|ServerResourceId, ServerName|
 
 
@@ -2213,7 +2213,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |DeserializationError|Tak|Błędy deserializacji danych wejściowych|Liczba|Łącznie|Błędy deserializacji danych wejściowych|Logicznaname, PartitionId|
 |DroppedOrAdjustedEvents|Tak|Zdarzenia poza kolejnością|Liczba|Łącznie|Zdarzenia poza kolejnością|Logicznaname, PartitionId|
 |EarlyInputEvents|Tak|Wczesne zdarzenia wejściowe|Liczba|Łącznie|Wczesne zdarzenia wejściowe|Logicznaname, PartitionId|
-|Errors|Tak|Błędy środowiska uruchomieniowego|Liczba|Łącznie|Błędy środowiska uruchomieniowego|Logicznaname, PartitionId|
+|błędy|Tak|Błędy środowiska uruchomieniowego|Liczba|Łącznie|Błędy środowiska uruchomieniowego|Logicznaname, PartitionId|
 |InputEventBytes|Tak|Bajty zdarzeń wejściowych|Bajty|Łącznie|Bajty zdarzeń wejściowych|Logicznaname, PartitionId|
 |InputEvents|Tak|Zdarzenia wejściowe|Liczba|Łącznie|Zdarzenia wejściowe|Logicznaname, PartitionId|
 |InputEventsSourcesBacklogged|Tak|Zaległe zdarzenia wejściowe|Liczba|Maksimum|Zaległe zdarzenia wejściowe|Logicznaname, PartitionId|
@@ -2231,7 +2231,7 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |OrchestrationActivityRunsEnded|Nie|Zakończone uruchomienia działań|Liczba|Łącznie|Liczba działań aranżacji zakończonych powodzeniem, zakończonych niepowodzeniem lub anulowanych|Wynik, Niepowodzenie, działanie, ActivityType, potok|
 |OrchestrationPipelineRunsEnded|Nie|Zakończono przebiegi potoku|Liczba|Łącznie|Liczba uruchomień potoków aranżacji zakończonych powodzeniem, zakończonych niepowodzeniem lub anulowanych|Wynik, Niepowodzenie, potok|
 |OrchestrationTriggersEnded|Nie|Zakończone wyzwalacze|Liczba|Łącznie|Liczba wyzwalaczy aranżacji, które zakończyły się powodzeniem, zakończyły się niepowodzeniem lub anulowane|Wynik, Niepowodzenie, wyzwalacz|
-|SQLOnDemandLoginAttempts|Nie|Próby logowania|Liczba|Łącznie|Liczba prób logowania, które zakończone lub zakończyły się niepowodzeniem|Wynik|
+|SQLOnDemandLoginAttempts|Nie|Próby logowania|Liczba|Łącznie|Liczba prób zalogowania zakończonych powodzeniem lub niepowodzeniem|Wynik|
 |SQLOnDemandQueriesEnded|Nie|Zakończono zapytania|Liczba|Łącznie|Liczba zapytań zakończonych powodzeniem, zakończonych niepowodzeniem lub anulowanych|Wynik|
 |SQLOnDemandQueryProcessedBytes|Nie|Ilość przetworzonych danych|Bajty|Łącznie|Ilość danych przetworzonych przez zapytania|Brak wymiarów|
 
@@ -2251,13 +2251,13 @@ Aby uzyskać ważne informacje dodatkowe, zobacz [Monitorowanie agentów — Om�
 |---|---|---|---|---|---|---|
 |AdaptiveCacheHitPercent|Nie|Odsetek trafień adaptacyjnej pamięci podręcznej|Procent|Maksimum|Mierzy, jak dobre obciążenia korzystają z adaptacyjnej pamięci podręcznej. Użyj tej metryki z metryką procentu trafień w pamięci podręcznej, aby określić, czy skalować w celu uzyskania dodatkowej pojemności czy ponownie uruchamiać obciążenia, aby podręczna|Brak wymiarów|
 |AdaptiveCacheUsedPercent|Nie|Procent użycia adaptacyjnej pamięci podręcznej|Procent|Maksimum|Mierzy, jak dobre obciążenia korzystają z adaptacyjnej pamięci podręcznej. Użyj tej metryki z metryką procentową wykorzystania pamięci podręcznej, aby określić, czy skalowanie ma być skalowane w celu uzyskania dodatkowej pojemności czy ponownego uruchomienia obciążeń w celu uzyskania|Brak wymiarów|
-|Połączenia|Tak|Połączenia|Liczba|Łącznie|Łączna Liczba logowań do puli SQL|Wynik|
-|ConnectionsBlockedByFirewall|Nie|Połączenia zablokowane przez zaporę|Liczba|Łącznie|Liczba połączeń blokowanych przez reguły zapory. Odwiedzaj ponownie zasady kontroli dostępu dla puli SQL i monitoruj te połączenia, jeśli liczba jest wysoka|Brak wymiarów|
-|DWULimit|Nie|Limit jednostek dwu|Liczba|Maksimum|Cel poziomu usługi puli SQL|Brak wymiarów|
-|DWUUsed|Nie|JEDNOSTEK dwu używane|Liczba|Maksimum|Reprezentuje reprezentację wysokiego poziomu użycia w puli SQL. Mierzone przez limit jednostek dwu * jednostek dwu procent|Brak wymiarów|
-|DWUUsedPercent|Nie|JEDNOSTEK dwu procent użycia|Procent|Maksimum|Reprezentuje reprezentację wysokiego poziomu użycia w puli SQL. Mierzone przez przejęcie wartości procentowej procentu procesora CPU i operacji we/wy danych|Brak wymiarów|
+|Połączenia|Tak|Połączenia|Liczba|Łącznie|Łączna Liczba logowań do dedykowanej puli SQL|Wynik|
+|ConnectionsBlockedByFirewall|Nie|Połączenia zablokowane przez zaporę|Liczba|Łącznie|Liczba połączeń blokowanych przez reguły zapory. Odwiedzaj ponownie zasady kontroli dostępu dla dedykowanej puli SQL i monitoruj te połączenia, jeśli liczba jest wysoka|Brak wymiarów|
+|DWULimit|Nie|Limit jednostek dwu|Liczba|Maksimum|Cel poziomu usługi dedykowanej puli SQL|Brak wymiarów|
+|DWUUsed|Nie|JEDNOSTEK dwu używane|Liczba|Maksimum|Reprezentuje reprezentację wysokiego poziomu użycia w dedykowanej puli SQL. Mierzone przez limit jednostek dwu * jednostek dwu procent|Brak wymiarów|
+|DWUUsedPercent|Nie|JEDNOSTEK dwu procent użycia|Procent|Maksimum|Reprezentuje reprezentację wysokiego poziomu użycia w dedykowanej puli SQL. Mierzone przez przejęcie wartości procentowej procentu procesora CPU i operacji we/wy danych|Brak wymiarów|
 |LocalTempDBUsedPercent|Nie|Procent użycia lokalnej bazy danych tempdb|Procent|Maksimum|Użycie lokalnej bazy danych tempdb we wszystkich węzłach obliczeniowych — wartości są emitowane co pięć minut.|Brak wymiarów|
-|MemoryUsedPercent|Nie|Procent wykorzystania pamięci|Procent|Maksimum|Użycie pamięci we wszystkich węzłach w puli SQL|Brak wymiarów|
+|MemoryUsedPercent|Nie|Procent wykorzystania pamięci|Procent|Maksimum|Użycie pamięci we wszystkich węzłach w dedykowanej puli SQL|Brak wymiarów|
 |wlg_effective_min_resource_percent|Tak|Efektywny minimalny procent zasobów|Procent|Minimum|Ustawienie efektywnej minimalnej wartości procentowej zasobu może uwzględniać ustawienia poziomu usług i grupy obciążeń. Efektywne min_percentage_resource można zwiększyć na niższych poziomach usługi|IsUserDefined, obciążenie|
 |WLGActiveQueries|Nie|Aktywne zapytania grupy obciążenia|Liczba|Łącznie|Aktywne zapytania w grupie obciążenia. Użycie tej metryki nie zostało odfiltrowane i rozdzielenie spowoduje wyświetlenie wszystkich aktywnych zapytań uruchomionych w systemie.|IsUserDefined, obciążenie|
 |WLGActiveQueriesTimeouts|Nie|Limity czasu zapytania grupy obciążeń|Liczba|Łącznie|Zapytania dotyczące grupy obciążeń, które przekroczyły limit czasu. Limity czasu zapytania zgłoszone przez tę metrykę są wykonywane dopiero po rozpoczęciu wykonywania zapytania (nie obejmują czasu oczekiwania z powodu blokady lub oczekiwania na zasoby)|IsUserDefined, obciążenie|

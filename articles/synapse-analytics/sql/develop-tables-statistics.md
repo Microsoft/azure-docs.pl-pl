@@ -11,30 +11,30 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 6d59d64c861b74610e82b962ddd5db2331d3db64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148256"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305012"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statystyka w programie SQL Synapse
 
-W tym artykule przedstawiono zalecenia i przykłady dotyczące tworzenia i aktualizowania statystyk optymalizacji zapytań za pomocą Synapse zasobów SQL: puli SQL i SQL na żądanie (wersja zapoznawcza).
+W tym artykule przedstawiono zalecenia i przykłady dotyczące tworzenia i aktualizowania statystyk optymalizacji zapytań za pomocą Synapse zasobów SQL: dedykowanej puli SQL i bezserwerowej puli SQL (wersja zapoznawcza).
 
-## <a name="statistics-in-sql-pool"></a>Statystyki w puli SQL
+## <a name="statistics-in-dedicated-sql-pool"></a>Statystyka w dedykowanej puli SQL
 
 ### <a name="why-use-statistics"></a>Dlaczego warto używać statystyk
 
-Im więcej zasobów puli SQL wie o danych, tym szybciej może wykonywać zapytania. Po załadowaniu danych do puli SQL zbieranie danych statystycznych jest jednym z najważniejszych rzeczy, które można wykonać w celu optymalizacji zapytań.  
+Bardziej dedykowana Pula SQL wie o danych, tym szybciej można wykonywać zapytania. Po załadowaniu danych do dedykowanej puli SQL zbieranie danych statystycznych jest jednym z najważniejszych rzeczy, które można wykonać w celu optymalizacji zapytań.  
 
-Optymalizator zapytań puli SQL jest Optymalizatorem opartym na kosztach. Porównuje koszt różnych planów zapytań, a następnie wybiera plan z najniższym kosztem. W większości przypadków wybiera plan, który będzie wykonywał najszybszy.
+Optymalizator zapytań dedykowanej puli SQL to Optymalizator oparty na kosztach. Porównuje koszt różnych planów zapytań, a następnie wybiera plan z najniższym kosztem. W większości przypadków wybiera plan, który będzie wykonywał najszybszy.
 
 Na przykład, jeśli optymalizator szacuje, że data filtrowania kwerendy zwróci jeden wiersz, wybierze jeden plan. Jeśli szacuje się, że wybrana data zwróci 1 000 000 wierszy, zwróci inny plan.
 
 ### <a name="automatic-creation-of-statistics"></a>Automatyczne tworzenie statystyk
 
-Pula SQL będzie analizować przychodzące zapytania użytkownika pod kątem braku statystyk, gdy opcja AUTO_CREATE_STATISTICS bazy danych jest ustawiona na `ON` .  Jeśli brakuje statystyk, optymalizator zapytań tworzy statystyki dla poszczególnych kolumn w predykacie zapytania lub w warunku sprzężenia. 
+Dedykowany aparat puli SQL będzie analizować przychodzące zapytania użytkownika pod kątem brakujących statystyk, gdy opcja AUTO_CREATE_STATISTICS bazy danych jest ustawiona na `ON` .  Jeśli brakuje statystyk, optymalizator zapytań tworzy statystyki dla poszczególnych kolumn w predykacie zapytania lub w warunku sprzężenia. 
 
 Ta funkcja służy do poprawiania oszacowania kardynalności dla planu zapytania.
 
@@ -166,7 +166,7 @@ W poniższych przykładach pokazano, jak używać różnych opcji tworzenia stat
 #### <a name="create-single-column-statistics-with-default-options"></a>Tworzenie statystyk z jedną kolumną z opcjami domyślnymi
 
 Aby utworzyć statystyki dla kolumny, podaj nazwę dla obiektu statystyki i nazwę kolumny.
-Ta składnia używa wszystkich opcji domyślnych. Domyślnie podczas tworzenia statystyk w puli SQL są pobierane **20 procenty** tabeli.
+Ta składnia używa wszystkich opcji domyślnych. Domyślnie dedykowana Pula SQL próbuje **20%** tabeli podczas tworzenia statystyk.
 
 ```sql
 CREATE STATISTICS [statistics_name]
@@ -430,7 +430,7 @@ Instrukcja UPDATE STATISTICs jest łatwa w użyciu. Pamiętaj, że aktualizuje *
 Jeśli wydajność nie jest problemem, ta metoda jest najłatwiejszym i najbardziej kompletnym sposobem na zagwarantowanie Aktualności statystyk.
 
 > [!NOTE]
-> Podczas aktualizowania wszystkich statystyk w tabeli usługa SQL Pool wykonuje skanowanie w celu próbkowania tabeli dla każdego obiektu statystyki. Jeśli tabela jest duża i zawiera wiele kolumn i wiele statystyk, może być bardziej wydajna aktualizacja indywidualnych statystyk w zależności od potrzeb.
+> Podczas aktualizowania wszystkich statystyk w tabeli dedykowana Pula SQL wykonuje skanowanie w celu próbkowania tabeli dla każdego obiektu statystyki. Jeśli tabela jest duża i zawiera wiele kolumn i wiele statystyk, może być bardziej wydajna aktualizacja indywidualnych statystyk w zależności od potrzeb.
 
 Aby uzyskać implementację `UPDATE STATISTICS` procedury, zobacz [tabele tymczasowe](develop-tables-temporary.md). Metoda implementacji różni się nieco od poprzedniej `CREATE STATISTICS` procedury, ale wynik jest taki sam.
 Pełną składnię można znaleźć w temacie [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
@@ -512,7 +512,7 @@ Polecenie DBCC SHOW_STATISTICS () pokazuje dane przechowywane w obiekcie statyst
 
 Nagłówek to metadane dotyczące statystyk. Histogram wyświetla rozkład wartości w pierwszej kolumnie klucza obiektu Statystyka. 
 
-Wektor gęstości mierzy korelację między kolumnami. W puli SQL są obliczane oszacowania kardynalności z dowolnymi danymi w obiekcie Statystyka.
+Wektor gęstości mierzy korelację między kolumnami. Dedykowana Pula SQL oblicza oszacowania kardynalności przy użyciu dowolnych danych w obiekcie Statystyka.
 
 #### <a name="show-header-density-and-histogram"></a>Pokaż nagłówek, gęstość i histogram
 
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="dbcc-show_statistics-differences"></a>Różnice w programie DBCC SHOW_STATISTICS ()
 
-`DBCC SHOW_STATISTICS()` jest bardziej ściśle zaimplementowany w puli SQL w porównaniu do SQL Server:
+`DBCC SHOW_STATISTICS()` jest bardziej zaimplementowana w dedykowanej puli SQL w porównaniu do SQL Server:
 
 - Nieudokumentowane funkcje nie są obsługiwane.
 - Nie można użyć Stats_stream.
@@ -556,25 +556,22 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - Nie można używać nazw kolumn do identyfikowania obiektów statystyk.
 - Błąd niestandardowy 2767 nie jest obsługiwany.
 
-### <a name="next-steps"></a>Następne kroki
 
-Aby zwiększyć wydajność zapytań, zobacz [monitorowanie obciążenia](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## <a name="statistics-in-sql-on-demand-preview"></a>Statystyki na żądanie SQL (wersja zapoznawcza)
+## <a name="statistics-in-serverless-sql-pool-preview"></a>Statystyka w puli SQL bezserwerowej (wersja zapoznawcza)
 
 Statystyki są tworzone na określoną kolumnę dla określonego zestawu danych (ścieżka magazynu).
 
 ### <a name="why-use-statistics"></a>Dlaczego warto używać statystyk
 
-Im więcej informacji na żądanie (wersja zapoznawcza) dotyczących Twoich danych, tym szybciej można wykonać zapytania. Zbieranie danych statystycznych jest jednym z najważniejszych rzeczy, które można wykonać, aby zoptymalizować zapytania. 
+Im bardziej bezserwerowa Pula SQL (wersja zapoznawcza) wie o danych, tym szybciej może ona wykonywać zapytania. Zbieranie danych statystycznych jest jednym z najważniejszych rzeczy, które można wykonać, aby zoptymalizować zapytania. 
 
-Optymalizator zapytań na żądanie SQL jest Optymalizatorem opartym na kosztach. Porównuje koszt różnych planów zapytań, a następnie wybiera plan z najniższym kosztem. W większości przypadków wybiera plan, który będzie wykonywał najszybszy. 
+Optymalizator zapytań puli SQL bezserwerowej jest Optymalizatorem opartym na kosztach. Porównuje koszt różnych planów zapytań, a następnie wybiera plan z najniższym kosztem. W większości przypadków wybiera plan, który będzie wykonywał najszybszy. 
 
 Na przykład, jeśli optymalizator szacuje, że data filtrowania zapytania zwróci jeden wiersz, wybierze jeden plan. Jeśli szacuje się, że wybrana data zwróci 1 000 000 wierszy, zwróci inny plan.
 
 ### <a name="automatic-creation-of-statistics"></a>Automatyczne tworzenie statystyk
 
-SQL na żądanie analizuje przychodzące zapytania użytkownika pod kątem brakujących statystyk. Jeśli brakuje statystyk, optymalizator zapytań tworzy statystyki dla poszczególnych kolumn w predykacie zapytania lub warunek sprzężenia, aby poprawić oszacowania kardynalności dla planu zapytania.
+Pula SQL bezserwerowa analizuje przychodzące zapytania użytkownika pod kątem brakujących statystyk. Jeśli brakuje statystyk, optymalizator zapytań tworzy statystyki dla poszczególnych kolumn w predykacie zapytania lub warunek sprzężenia, aby poprawić oszacowania kardynalności dla planu zapytania.
 
 Instrukcja SELECT wyzwoli automatyczne tworzenie statystyk.
 
@@ -585,7 +582,7 @@ Automatyczne tworzenie statystyk jest wykonywane synchronicznie, dzięki czemu m
 
 ### <a name="manual-creation-of-statistics"></a>Ręczne tworzenie statystyk
 
-SQL na żądanie umożliwia ręczne tworzenie statystyk. W przypadku plików CSV należy ręcznie utworzyć statystyki, ponieważ automatyczne tworzenie statystyk nie jest włączone dla plików CSV. 
+Pula SQL bezserwerowa umożliwia tworzenie statystyk ręcznie. W przypadku plików CSV należy ręcznie utworzyć statystyki, ponieważ automatyczne tworzenie statystyk nie jest włączone dla plików CSV. 
 
 Zapoznaj się z poniższymi przykładami, aby uzyskać instrukcje dotyczące ręcznego tworzenia statystyk.
 
@@ -593,7 +590,7 @@ Zapoznaj się z poniższymi przykładami, aby uzyskać instrukcje dotyczące rę
 
 Zmiany danych w plikach, usuwaniu i dodawaniu plików powodują zmiany dystrybucji danych i statystyk są nieaktualne. W takim przypadku statystyki należy zaktualizować.
 
-SQL na żądanie automatycznie ponownie tworzy statystyki, jeśli dane są zmieniane znacznie. Za każdym razem, gdy statystyki są tworzone automatycznie, bieżący stan zestawu danych jest również zapisywany: ścieżki plików, rozmiary, daty ostatniej modyfikacji.
+Pula SQL bezserwerowa automatycznie ponownie tworzy statystyki, jeśli dane są zmieniane znacznie. Za każdym razem, gdy statystyki są tworzone automatycznie, bieżący stan zestawu danych jest również zapisywany: ścieżki plików, rozmiary, daty ostatniej modyfikacji.
 
 Gdy statystyki są przestarzałe, zostaną utworzone nowe. Algorytm przechodzi przez dane i porównuje go z bieżącym stanem zestawu danych. Jeśli rozmiar zmian jest większy niż określony próg, stare statystyki są usuwane i zostaną ponownie utworzone przez nowy zestaw danych.
 
@@ -650,7 +647,7 @@ Argumenty: [ @stmt =] N ' statement_text '-określa instrukcję języka Transact
 
 Aby utworzyć statystyki dla kolumny, podaj zapytanie, które zwraca kolumnę, dla której potrzebujesz statystyk.
 
-Domyślnie, jeśli nie określisz inaczej, funkcja SQL na żądanie będzie używać 100% danych udostępnionych w zestawie danych podczas tworzenia statystyk.
+Domyślnie, jeśli nie określisz inaczej, Pula SQL bezserwerowa będzie używać 100% danych udostępnionych w zestawie danych podczas tworzenia statystyk.
 
 Na przykład, aby utworzyć statystyki z opcjami domyślnymi (FULLSCAN) dla kolumny Year zestawu danych na podstawie pliku population.csv:
 
@@ -816,4 +813,6 @@ CREATE STATISTICS sState
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać dalsze ulepszenia wydajności zapytań, zobacz [najlepsze rozwiązania dla puli SQL](best-practices-sql-pool.md#maintain-statistics).
+Aby zwiększyć wydajność zapytań dla dedykowanej puli SQL, zobacz [monitorowanie obciążenia](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i [najlepszych rozwiązań dla dedykowanej puli SQL](best-practices-sql-pool.md#maintain-statistics).
+
+Aby zwiększyć wydajność zapytań dla puli SQL bezserwerowej, zobacz [najlepsze rozwiązania dla puli SQL bezserwerowej](best-practices-sql-on-demand.md)

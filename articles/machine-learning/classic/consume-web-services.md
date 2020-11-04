@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
-ms.openlocfilehash: 66c9368d06960790c6dc960d2d95bd82be1a6e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9922ddf0859e4f28d5759108581f5ef538f0c294
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345965"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305556"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Jak korzystać z usługi sieci Web Machine Learning Studio (klasycznej)
 
-**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**dotyczy:** ![ tak ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klasyczny) ![ nie ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Po wdrożeniu modelu predykcyjnego Azure Machine Learning Studio (klasyczny) jako usługi sieci Web można użyć interfejsu API REST do wysyłania danych IT i uzyskiwania prognoz. Dane można wysyłać w czasie rzeczywistym lub w trybie wsadowym.
@@ -51,7 +51,7 @@ Aby pobrać klucz interfejsu API dla nowej usługi sieci Web Machine Learning:
 
 1. W portalu usług sieci Web Azure Machine Learning kliknij pozycję **usługi sieci Web** w górnym menu.
 2. Kliknij usługę sieci Web, dla której chcesz pobrać klucz.
-3. W górnym **menu kliknij pozycję**Użyj.
+3. W górnym **menu kliknij pozycję** Użyj.
 4. Skopiuj i Zapisz **klucz podstawowy**.
 
 Aby pobrać klucz interfejsu API dla klasycznej usługi sieci Web Machine Learning:
@@ -59,7 +59,7 @@ Aby pobrać klucz interfejsu API dla klasycznej usługi sieci Web Machine Learni
 1. W portalu usług sieci Web Azure Machine Learning kliknij pozycję **klasyczne usługi sieci Web** w górnym menu.
 2. Kliknij usługę sieci Web, z którą pracujesz.
 3. Kliknij punkt końcowy, dla którego chcesz pobrać klucz.
-4. W górnym **menu kliknij pozycję**Użyj.
+4. W górnym **menu kliknij pozycję** Użyj.
 5. Skopiuj i Zapisz **klucz podstawowy**.
 
 ### <a name="classic-web-service"></a>Klasyczna usługa sieci Web
@@ -77,7 +77,7 @@ Pomoc interfejsu API Machine Learning zawiera szczegółowe informacje o usłudz
 
 1. Kliknij usługę sieci Web, z którą pracujesz.
 2. Kliknij punkt końcowy, dla którego chcesz wyświetlić stronę pomocy interfejsu API.
-3. W górnym **menu kliknij pozycję**Użyj.
+3. W górnym **menu kliknij pozycję** Użyj.
 4. Kliknij pozycję **Pomoc interfejsu API** w obszarze punkty końcowe Request-Response lub wykonywania wsadowego.
 
 **Aby wyświetlić Pomoc interfejsu API Machine Learning dla nowej usługi sieci Web**
@@ -99,7 +99,7 @@ Aby nawiązać połączenie z usługą sieci Web Machine Learning, należy zains
 **Zainstaluj pakiet NuGet Microsoft. AspNet. WebApi. Client w programie Visual Studio**
 
 1. Opublikuj zestaw danych do pobrania z usługi sieci Web zestaw danych o treści 1.
-2. Kliknij kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
+2. Kliknij kolejno pozycje **Narzędzia** Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
 3. Wybierz polecenie **install-package Microsoft. ASPNET. WebApi. Client**.
 
 **Aby uruchomić przykładowy kod**

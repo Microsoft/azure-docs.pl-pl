@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631052"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305484"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -28,9 +28,9 @@ Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji przy użyciu szabl
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure** . Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
+* **Subskrypcja platformy Azure**. Jeśli go nie masz, wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Aby użyć szablonu z interfejsu wiersza polecenia, musisz mieć [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) lub [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Aby użyć szablonu z interfejsu wiersza polecenia, musisz mieć [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) lub [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 * Niektóre scenariusze wymagają otwarcia biletu pomocy technicznej. Te scenariusze są następujące:
 
@@ -46,7 +46,7 @@ Szablon Azure Resource Manager używany w tym dokumencie znajduje się w katalog
 Ten szablon umożliwia utworzenie następujących usług platformy Azure:
 
 * Konto usługi Azure Storage
-* Azure Key Vault
+* W usłudze Azure Key Vault
 * Azure Application Insights
 * Azure Container Registry
 * Obszar roboczy usługi Azure Machine Learning
@@ -69,7 +69,7 @@ Przykładowy szablon ma dwa **wymagane** parametry:
 > [!TIP]
 > Chociaż szablon skojarzony z tym dokumentem tworzy nowy Azure Container Registry, można również utworzyć nowy obszar roboczy bez tworzenia rejestru kontenerów. Jeden zostanie utworzony podczas wykonywania operacji wymagającej rejestru kontenerów. Na przykład szkolenie lub wdrożenie modelu.
 >
-> Możesz również odwoływać się do istniejącego rejestru kontenerów lub konta magazynu w szablonie Azure Resource Manager, zamiast tworzyć nowe. Jednak używany rejestr kontenerów musi mieć włączone __konto administratora__ . Aby uzyskać informacje na temat włączania konta administratora, zobacz [konto administratora](/azure/container-registry/container-registry-authentication#admin-account).
+> Możesz również odwoływać się do istniejącego rejestru kontenerów lub konta magazynu w szablonie Azure Resource Manager, zamiast tworzyć nowe. Jednak używany rejestr kontenerów musi mieć włączone __konto administratora__ . Aby uzyskać informacje na temat włączania konta administratora, zobacz [konto administratora](../container-registry/container-registry-authentication.md#admin-account).
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -77,7 +77,7 @@ Aby uzyskać więcej informacji na temat szablonów, zobacz następujące artyku
 
 * [Tworzenie szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Wdrażanie aplikacji za pomocą szablonów Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
-* [Typy zasobów Microsoft. MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Typy zasobów Microsoft. MachineLearningServices](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="deploy-template"></a>Wdrażanie szablonu
 
@@ -219,7 +219,7 @@ __Aby uzyskać wartości__ dla `cmk_keyvault` (identyfikatora Key Vault) i `reso
 
 Aby włączyć korzystanie z kluczy zarządzanych przez klienta, należy ustawić następujące parametry podczas wdrażania szablonu:
 
-* **encryption_status** do **włączenia** .
+* **encryption_status** do **włączenia**.
 * **cmk_keyvault** `cmk_keyvault` wartość uzyskaną w poprzednich krokach.
 * **resource_cmk_uri** `resource_cmk_uri` wartość uzyskaną w poprzednich krokach.
 
@@ -254,7 +254,7 @@ New-AzResourceGroupDeployment `
 
 W przypadku korzystania z klucza zarządzanego przez klienta Azure Machine Learning tworzy pomocniczą grupę zasobów zawierającą wystąpienie Cosmos DB. Aby uzyskać więcej informacji, zobacz [szyfrowanie w Cosmos DB REST](concept-enterprise-security.md#encryption-at-rest).
 
-Dodatkową konfiguracją, którą można podać dla danych, jest ustawienie dla parametru **confidential_data** **wartości true** . W tym celu program wykonuje następujące czynności:
+Dodatkową konfiguracją, którą można podać dla danych, jest ustawienie dla parametru **confidential_data** **wartości true**. W tym celu program wykonuje następujące czynności:
 
 * Program uruchamia szyfrowanie lokalnego dysku zapasowego dla Azure Machine Learning klastrów obliczeniowych, co zapewnia, że nie utworzono żadnych wcześniejszych klastrów w ramach subskrypcji. Jeśli wcześniej utworzono klaster w ramach subskrypcji, należy otworzyć bilet pomocy technicznej, aby umożliwić szyfrowanie dysku zapasowego dla klastrów obliczeniowych.
 * Czyści lokalny dysk magazynujący między przebiegami.
@@ -541,7 +541,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. Wykonaj kroki opisane w sekcji [wdrażanie zasobów z szablonu niestandardowego](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Po nadejściu ekranu __Wybierz szablon__ wybierz szablon **201-Machine-Learning-Advanced** z listy rozwijanej.
+1. Wykonaj kroki opisane w sekcji [wdrażanie zasobów z szablonu niestandardowego](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Po nadejściu ekranu __Wybierz szablon__ wybierz szablon **201-Machine-Learning-Advanced** z listy rozwijanej.
 1. Wybierz __pozycję Wybierz szablon__ , aby użyć szablonu. Podaj następujące wymagane informacje i inne parametry w zależności od scenariusza wdrażania.
 
    * Subskrypcja: wybierz subskrypcję platformy Azure, która ma być używana dla tych zasobów.
@@ -549,8 +549,8 @@ New-AzResourceGroupDeployment `
    * Region: Wybierz region świadczenia usługi Azure, w którym zostaną utworzone zasoby.
    * Nazwa obszaru roboczego: Nazwa do użycia dla obszaru roboczego Azure Machine Learning, który zostanie utworzony. Nazwa obszaru roboczego musi zawierać od 3 do 33 znaków. Może zawierać tylko znaki alfanumeryczne i znak "-".
    * Lokalizacja: Wybierz lokalizację, w której zostaną utworzone zasoby.
-1. Wybierz pozycję __Przeglądanie + tworzenie__ .
-1. Na ekranie __Recenzja + tworzenie__ Zaakceptuj wymienione warunki i postanowienia, a następnie wybierz pozycję __Utwórz__ .
+1. Wybierz pozycję __Przejrzyj i utwórz__.
+1. Na ekranie __Recenzja + tworzenie__ Zaakceptuj wymienione warunki i postanowienia, a następnie wybierz pozycję __Utwórz__.
 
 Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów z szablonu niestandardowego](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -576,7 +576,7 @@ Aby uniknąć tego problemu, zalecamy zastosowanie jednej z następujących meto
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Aby uzyskać więcej informacji na temat korzystania z `accessPolicies` sekcji szablonu, zobacz [odwołanie do obiektu AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Aby uzyskać więcej informacji na temat korzystania z `accessPolicies` sekcji szablonu, zobacz [odwołanie do obiektu AccessPolicyEntry](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
 * Sprawdź, czy zasób Key Vault już istnieje. Jeśli tak, nie należy go ponownie tworzyć za pomocą szablonu. Na przykład, aby użyć istniejącego Key Vault zamiast tworzenia nowego, wprowadź następujące zmiany w szablonie:
 
@@ -655,7 +655,7 @@ Aby uniknąć tego problemu, zalecamy zastosowanie jednej z następujących meto
 
 ### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Sieć wirtualna nie jest połączona z prywatną strefą DNS
 
-Podczas tworzenia obszaru roboczego za pomocą prywatnego punktu końcowego szablon tworzy strefę Prywatna strefa DNS o nazwie __privatelink.API.azureml.MS__ . __Łącze sieci wirtualnej__ jest automatycznie dodawane do tej prywatnej strefy DNS. Łącze jest dodawane tylko do pierwszego obszaru roboczego i prywatnego punktu końcowego tworzonego w grupie zasobów. w przypadku utworzenia innej sieci wirtualnej i obszaru roboczego z prywatnym punktem końcowym w tej samej grupie zasobów druga sieć wirtualna może nie zostać dodana do prywatnej strefy DNS.
+Podczas tworzenia obszaru roboczego za pomocą prywatnego punktu końcowego szablon tworzy strefę Prywatna strefa DNS o nazwie __privatelink.API.azureml.MS__. __Łącze sieci wirtualnej__ jest automatycznie dodawane do tej prywatnej strefy DNS. Łącze jest dodawane tylko do pierwszego obszaru roboczego i prywatnego punktu końcowego tworzonego w grupie zasobów. w przypadku utworzenia innej sieci wirtualnej i obszaru roboczego z prywatnym punktem końcowym w tej samej grupie zasobów druga sieć wirtualna może nie zostać dodana do prywatnej strefy DNS.
 
 Aby wyświetlić linki sieci wirtualnej, które już istnieją dla prywatnej strefy DNS, użyj następującego polecenia platformy Azure:
 

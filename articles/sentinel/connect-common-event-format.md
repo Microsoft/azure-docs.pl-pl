@@ -1,6 +1,6 @@
 ---
 title: Połącz dane CEF z podglądem platformy Azure — Wersja zapoznawcza | Microsoft Docs
-description: Połącz rozwiązanie zewnętrzne, które wysyła komunikaty Common Event format (CEF) do funkcji wskaźnikowej platformy Azure przy użyciu maszyny z systemem Linux jako serwera proxy.
+description: Połącz rozwiązanie zewnętrzne, które wysyła komunikaty Common Event format (CEF) do funkcji wskaźnikowej platformy Azure przy użyciu maszyny z systemem Linux jako usługi przesyłania dalej dzienników.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e09b44504623516d41b6d310a82e78619477367c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747910"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93304986"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Łączenie rozwiązania zewnętrznego przy użyciu typowego formatu zdarzeń
 
@@ -50,40 +50,49 @@ Aby można było korzystać z komunikacji TLS między źródłem dziennika syste
  
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Upewnij się, że maszyna z systemem Linux używaną jako serwer proxy ma jeden z następujących systemów operacyjnych:
+Upewnij się, że maszyna z systemem Linux używana jako usługa przesyłania dalej dzienników ma jeden z następujących systemów operacyjnych:
 
 - 64-bitowa
-  - CentOS 7 i wersje podrzędne i nowsze (nie 6)
+  - CentOS 7 i 8, w tym wersje podrzędne (nie 6)
   - Amazon Linux 2017,09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 i wersje podrzędne i nowsze (nie 6)
-  - Debian GNU/Linux 8 i 9
+  - Red Hat Enterprise Linux (RHEL) Server 7 i 8, w tym wersje podrzędne (nie 6)
+  - Debian GNU/Linux 8, 9 i 10
   - Ubuntu Linux 14,04 LTS, 16,04 LTS i 18,04 LTS
-  - SUSE Linux Enterprise Server 12
+  - SUSE Linux Enterprise Server 12, 15
+
 - 32-bitowa
-   - CentOS 7
-   - Oracle Linux 7
-   - Red Hat Enterprise Linux Server 7
-   - Debian GNU/Linux 8 i 9
-   - Ubuntu Linux 14,04 LTS i 16,04 LTS
+  - CentOS 7 i 8, w tym wersje podrzędne (nie 6)
+  - Oracle Linux 7
+  - Red Hat Enterprise Linux (RHEL) Server 7 i 8, w tym wersje podrzędne (nie 6)
+  - Debian GNU/Linux 8, 9 i 10
+  - Ubuntu Linux 14,04 LTS i 16,04 LTS
  
- - Wersje demona
-   - Dziennik systemu — NG: 2,1-3.22.1
-   - Rsyslog: V8
+- Wersje demona
+  - Dziennik systemu — NG: 2,1-3.22.1
+  - Rsyslog: V8
   
- - Obsługiwane są specyfikacje RFC dziennika systemowego
-   - Dziennik systemowy RFC 3164
-   - Dziennik systemowy RFC 5424
+- Obsługiwane są specyfikacje RFC dziennika systemowego
+  - Dziennik systemowy RFC 3164
+  - Dziennik systemowy RFC 5424
  
 Upewnij się, że komputer spełnia również następujące wymagania: 
+
 - Uprawnienia
-    - Musisz mieć podwyższony poziom uprawnień (sudo) na swojej maszynie. 
+  - Musisz mieć podwyższony poziom uprawnień (sudo) na swojej maszynie. 
+
 - Wymagania dotyczące oprogramowania
-    - Upewnij się, że na maszynie jest uruchomiony Język Python 2,7.
+  - Upewnij się, że na maszynie jest uruchomiony Język Python 2,7.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym dokumencie przedstawiono sposób łączenia urządzeń CEF z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+W tym dokumencie przedstawiono sposób zbierania dzienników CEF z rozwiązań i urządzeń zabezpieczających przez platformę Azure. Aby dowiedzieć się, jak połączyć rozwiązanie z platformą Azure, zobacz następujące artykuły:
+
+- Krok 1. [łączenie CEF przez wdrożenie dziennika systemowego/CEF usługi przesyłania dalej](connect-cef-agent.md)
+- Krok 2. [wykonanie kroków specyficznych dla rozwiązania](connect-cef-solution-config.md)
+- Krok 3. [Weryfikowanie łączności](connect-cef-verify.md)
+
+Aby dowiedzieć się więcej na temat tego, co należy zrobić z danymi zebranymi na platformie Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats.md).
 

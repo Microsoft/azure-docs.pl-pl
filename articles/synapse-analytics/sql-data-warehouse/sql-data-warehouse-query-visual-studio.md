@@ -11,33 +11,34 @@ ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a3e8ea3b0ed2840e5eee7a046fa3a145f82884dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e0aed3ceda369909c6a4aecd03637a82a2dd1b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85200702"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305374"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Nawiązywanie połączenia z usługą Azure Synapse Analytics przy użyciu programu Visual Studio i SSDT
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](../sql/get-started-azure-data-studio.md)
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Program Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
-Za pomocą programu Visual Studio Zbadaj pulę SQL w ramach usługi Azure Synapse w ciągu zaledwie kilku minut. Ta metoda używa rozszerzenia SQL Server Data Tools (SSDT) w programie Visual Studio 2019. 
+Użyj programu Visual Studio, aby wykonać zapytanie dotyczące dedykowanej puli SQL w ramach usługi Azure Synapse w ciągu zaledwie kilku minut. Ta metoda używa rozszerzenia SQL Server Data Tools (SSDT) w programie Visual Studio 2019. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby użyć tego samouczka, potrzebne są następujące elementy:
 
-* Istniejąca Pula SQL. Aby go utworzyć, zobacz [Tworzenie puli SQL](create-data-warehouse-portal.md).
+* Istniejąca dedykowana Pula SQL. Aby go utworzyć, zobacz [Tworzenie dedykowanej puli SQL](create-data-warehouse-portal.md).
 * Rozszerzenie SSDT dla programu Visual Studio. Jeśli masz program Visual Studio, prawdopodobnie masz już SSDT dla programu Visual Studio. Aby uzyskać instrukcje instalacji i informacje na temat dostępnych opcji, zobacz artykuł [Instalowanie programu Visual Studio i narzędzi SSDT](sql-data-warehouse-install-visual-studio.md).
-* W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć te informacje, zobacz [nawiązywanie połączenia z pulą SQL](../sql/connect-overview.md).
+* W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć te informacje, zobacz [nawiązywanie połączenia z dedykowaną pulą SQL](../sql/connect-overview.md).
 
-## <a name="1-connect-to-your-sql-pool"></a>1. Nawiązywanie połączenia z pulą SQL
+## <a name="1-connect-to-your-dedicated-sql-pool"></a>1. Nawiązywanie połączenia z dedykowaną pulą SQL
 1. Otwórz program Visual Studio 2019.
 2. Otwórz Eksplorator obiektów SQL Server, wybierając pozycję **Wyświetl**  >  **Eksplorator obiektów SQL Server**.
    
@@ -52,7 +53,7 @@ Aby użyć tego samouczka, potrzebne są następujące elementy:
    * **Nazwa serwera**. Wprowadź wcześniej ustaloną **nazwę serwera**.
    * **Uwierzytelnianie**. Wybierz opcję **Uwierzytelnianie na serwerze SQL Server** lub **Zintegrowane uwierzytelnianie usługi Active Directory**.
    * **Nazwa użytkownika** i **hasło**. Wprowadź nazwę użytkownika i hasło, jeżeli powyżej wybrano uwierzytelnianie na serwerze SQL Server.
-   * Kliknij przycisk **Połącz**.
+   * Kliknij przycisk **Podłącz**.
 5. W celach poznawczych rozwiń węzeł serwera Azure SQL. Możesz przejrzeć skojarzone z serwerem bazy danych. Rozwiń węzeł AdventureWorksDW, aby zobaczyć tabele w przykładowej bazie danych.
    
     ![Poznawanie bazy danych AdventureWorksDW](./media/sql-data-warehouse-query-visual-studio/explore-sample.png)
@@ -79,4 +80,4 @@ Teraz, po nawiązaniu połączenia z bazą danych, napiszemy zapytanie.
 ## <a name="next-steps"></a>Następne kroki
 Teraz, gdy można nawiązać połączenie i wykonywać zapytania, spróbuj [wizualizować dane za pomocą Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
-Aby skonfigurować środowisko do uwierzytelniania Azure Active Directory, zobacz [uwierzytelnianie w puli SQL](sql-data-warehouse-authentication.md).
+Aby skonfigurować środowisko do uwierzytelniania Azure Active Directory, zobacz [uwierzytelnianie w dedykowanej puli SQL](sql-data-warehouse-authentication.md).
