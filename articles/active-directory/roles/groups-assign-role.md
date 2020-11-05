@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28df0e420183239eae21aa18c807bb82b4ec7649
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb81b5dc98bf75a17e55abafdebfbeca68774a99
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377674"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379149"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Przypisywanie roli do grupy w chmurze w Azure Active Directory
 
@@ -30,9 +30,9 @@ Przypisywanie grupy do roli usługi Azure AD jest podobne do przypisywania użyt
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji usługi Azure AD.
 
-1. Wybierz pozycję **Azure Active Directory**  >  **role i Administratorzy**, a następnie wybierz rolę, którą chcesz przypisać.
+1. Wybierz pozycję **Azure Active Directory**  >  **role i Administratorzy** , a następnie wybierz rolę, którą chcesz przypisać.
 
-1. Na stronie ** _Nazwa roli_*_ wybierz pozycję > _* Dodaj przypisanie**.
+1. Na stronie **_Nazwa roli_*_ wybierz pozycję > _* Dodaj przypisanie**.
 
    ![Dodaj nowe przypisanie roli](./media/groups-assign-role/add-assignment.png)
 
@@ -101,5 +101,5 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie przypisaniami ról przy użyciu grup chmur](groups-concept.md)
+- [Zarządzanie przypisaniami ról za pomocą grup w chmurze](groups-concept.md)
 - [Rozwiązywanie problemów z rolami przypisanymi do grup w chmurze](groups-faq-troubleshooting.md)

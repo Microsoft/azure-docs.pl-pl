@@ -68,6 +68,8 @@
   items:
     - name: Usługa firmy Microsoft chroniąca przed złośliwym kodem
       href: antimalware.md
+    - name: Przykłady kodu usługi Microsoft Antimalware
+      href: antimalware-code-samples.md
     - name: Omówienie zabezpieczeń maszyny wirtualnej
       href: virtual-machines-overview.md
     - name: Najlepsze rozwiązania — obciążenia IaaS

@@ -13,20 +13,26 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8f573f5f00d266fe5d27857cc9e244d136f61a5
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84488889"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379268"
 ---
-# <a name="enable-kdump-service"></a>Włącz usługę kdump
+# <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump dla Oprogramowanie SAP HANA na platformie Azure — duże wystąpienia (HLI)
 
-W tym dokumencie opisano szczegółowe informacje dotyczące włączania usługi kdump na dużym wystąpieniu platformy Azure HANA (**Typ i i typ II**)
+Skonfigurowanie i włączenie kdump jest krokiem, który jest wymagany do rozwiązywania problemów z awariami systemu, które nie mają wyraźnej przyczyny.
+Czasami system nieoczekiwanie ulegnie awarii, którego nie można wyjaśnić przez problem ze sprzętem lub infrastrukturą.
+W takich przypadkach może to być problem z systemem operacyjnym lub aplikacją, a kdump będzie umożliwiał SUSEowi określenie przyczyny awarii systemu.
+
+## <a name="enable-kdump-service"></a>Włącz usługę kdump
+
+W tym dokumencie opisano szczegółowe informacje dotyczące włączania usługi kdump na dużym wystąpieniu platformy Azure HANA ( **Typ i i typ II** )
 
 ## <a name="supported-skus"></a>Obsługiwane jednostki SKU
 
-|  Typ dużego wystąpienia Hana   |  Dostawca systemu operacyjnego   |  Wersja pakietu systemu operacyjnego   |  SKU        |
+|  Typ dużego wystąpienia Hana   |  Dostawca systemu operacyjnego   |  Wersja pakietu systemu operacyjnego   |  Jednostka SKU        |
 |-----------------------------|--------------|-----------------------|-------------|
 |   Typ I                    |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S224m      |
 |   Typ I                    |  Szło        |   SLES 12 SP4         |  S224m      |
@@ -62,6 +68,10 @@ W tym dokumencie opisano szczegółowe informacje dotyczące włączania usługi
 ## <a name="setup-details"></a>Szczegóły konfiguracji
 
 - Skrypt umożliwiający włączenie kdump można znaleźć [tutaj](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
+> [!NOTE]
+> Ten skrypt jest tworzony na podstawie naszej konfiguracji laboratorium, a klient powinien skontaktować się z dostawcą systemu operacyjnego w celu doprowadzenia dalszych dostrojeń.
+> W przypadku nowych i istniejących serwerów w celu zapisania zrzutów i skryptów należy zadbać o skonfigurowanie systemu plików poza jednostką LUN.
+> Firma Microsoft nie będzie odpowiedzialna za analizowanie zrzutu. Klient musi otworzyć bilet z dostawcą systemu operacyjnego, aby go przeanalizować.
 
 - Uruchom ten skrypt na dużym wystąpieniu HANA przy użyciu poniższego polecenia
 
@@ -72,7 +82,7 @@ W tym dokumencie opisano szczegółowe informacje dotyczące włączania usługi
     sudo bash enable-kdump.sh
     ```
 
-- Jeśli dane wyjściowe polecenia kdump zostały pomyślnie włączone, należy ponownie uruchomić system w celu zastosowania zmiany, a następnie kdump zostanie pomyślnie włączona. Uruchom ponownie system, aby zastosować zmiany.
+- Jeśli dane wyjściowe polecenia kdump zostały pomyślnie włączone, należy ponownie uruchomić system, aby pomyślnie zastosować zmiany.
 
 - Jeśli wykonanie polecenia nie powiodło się, kończy!!!!, a usługa kdump nie jest włączona. Zapoznaj się z sekcją [problem z pomocą techniczną](#support-issue).
 
@@ -104,3 +114,6 @@ Jeśli skrypt zakończy się niepowodzeniem z powodu błędu lub kdump nie jest 
 * Wersja systemu operacyjnego
 
 * Wersja jądra
+
+## <a name="related-documents"></a>Powiązane dokumenty
+- Aby dowiedzieć się więcej na temat [konfigurowania kdump](https://www.suse.com/support/kb/doc/?id=3374462)

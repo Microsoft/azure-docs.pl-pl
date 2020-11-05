@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: notification-hubs
 author: jwargo
 ms.service: notification-hubs
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
-ms.openlocfilehash: 5afcc8e4524a0e8353766ba239d5ab9161b29d86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ec602f056b339a1b1dcb78d6b8d7583aeaf0434
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67509116"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376269"
 ---
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. W menu po lewej stronie wybierz pozycję **wszystkie usługi** , a następnie wybierz pozycję **Notification Hubs** w sekcji **mobilnej** . Wybierz ikonę gwiazdki obok nazwy usługi, aby dodać usługę do sekcji **Ulubione** w menu po lewej stronie. Po dodaniu **Notification Hubs** do **ulubionych**wybierz je w menu po lewej stronie.
+1. W menu po lewej stronie wybierz pozycję **wszystkie usługi** , a następnie wybierz pozycję **Notification Hubs** w sekcji **mobilnej** . Wybierz ikonę gwiazdki obok nazwy usługi, aby dodać usługę do sekcji **Ulubione** w menu po lewej stronie. Po dodaniu **Notification Hubs** do **ulubionych** wybierz je w menu po lewej stronie.
 
       ![Azure Portal — wybieranie usługi Notification Hubs](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
 
@@ -33,7 +33,7 @@ ms.locfileid: "67509116"
 
     1. Wybierz wartość z listy rozwijanej **Lokalizacja** . Ta wartość określa lokalizację, w której ma zostać utworzone centrum.
 
-    1. Wybierz istniejącą grupę zasobów w **grupie zasobów**lub Utwórz nazwę nowej grupy zasobów.
+    1. Wybierz istniejącą grupę zasobów w **grupie zasobów** lub Utwórz nazwę nowej grupy zasobów.
 
     1. Wybierz przycisk **Utwórz**.
 
@@ -41,7 +41,7 @@ ms.locfileid: "67509116"
 
 1. Wybierz pozycję **powiadomienia** (ikona dzwonka), a następnie wybierz pozycję **Przejdź do zasobu**. Możesz również odświeżyć listę na stronie **Notification Hubs** i wybrać centrum.
 
-      ![Witryna Azure Portal -> Powiadomienia -> Przejdź do zasobu](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
+      ![Azure Portal — przejdź do zasobu](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 
 1. Wybierz z listy pozycję **Zasady dostępu**. Należy pamiętać, że dwa parametry połączenia są dostępne dla Ciebie. Będą one potrzebne później do obsługi powiadomień wypychanych.
 

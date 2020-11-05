@@ -1,37 +1,31 @@
 ---
-title: Monitorowanie opublikowanych interfejsów API w usłudze Azure API Management | Microsoft Docs
-description: Wykonaj kroki tego samouczka, aby dowiedzieć się, jak monitorować interfejs API w usłudze Azure API Management.
+title: Samouczek — monitorowanie opublikowanych interfejsów API na platformie Azure API Management | Microsoft Docs
+description: Wykonaj kroki tego samouczka, aby dowiedzieć się, jak używać metryk, alertów, dzienników aktywności i dzienników zasobów do monitorowania interfejsów API w usłudze Azure API Management.
 services: api-management
 author: vladvino
-manager: cfowler
 ms.service: api-management
-ms.workload: mobile
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 7080bd98bda5c4280ff7b06b235458bea0e9103c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093586"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379419"
 ---
-# <a name="monitor-published-apis"></a>Monitorowanie opublikowanych interfejsów API
+# <a name="tutorial-monitor-published-apis"></a>Samouczek: monitorowanie opublikowanych interfejsów API
 
-Dzięki usłudze Azure Monitor możesz wykonywać wizualizacje i zapytania, ustalać trasy, archiwizować i podejmować działania dotyczące metryk lub dzienników pochodzących z zasobów platformy Azure.
+Za pomocą Azure Monitor można wizualizować, wykonywać zapytania, kierować, archiwizować i wykonywać akcje dotyczące metryk lub dzienników pochodzących z usługi Azure API Management.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Wyświetlanie dzienników aktywności
-> * Wyświetlanie dzienników zasobów
 > * Wyświetlanie metryk interfejsu API 
-> * Konfigurowanie reguły alertu, gdy interfejs API odbiera nieautoryzowane wywołania
-
-W poniższym filmie wideo pokazano, jak monitorować usługę API Management przy użyciu usługi Azure Monitor. 
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
+> * Konfigurowanie reguły alertu 
+> * Wyświetlanie dzienników aktywności
+> * Włączanie i wyświetlanie dzienników zasobów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,58 +37,70 @@ W poniższym filmie wideo pokazano, jak monitorować usługę API Management prz
 
 ## <a name="view-metrics-of-your-apis"></a>Wyświetlanie metryk interfejsów API
 
-Usługa API Management emituje metryki co minutę, oferując wgląd w stan i kondycję interfejsów API w czasie zbliżonym do rzeczywistego. Poniżej znajdują się dwa najczęściej używane metryki. Aby uzyskać listę wszystkich dostępnych metryk, zobacz [obsługiwane metryki](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
+API Management emituje [metryki](../azure-monitor/platform/data-platform-metrics.md) co minutę, dzięki czemu możesz niemal w czasie rzeczywistym uwidocznić stan i kondycję interfejsów API. Poniżej przedstawiono dwa najczęściej używane metryki. Aby uzyskać listę wszystkich dostępnych metryk, zobacz temat [obsługiwane metryki](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
 
-* Pojemność: ułatwia podejmowanie decyzji dotyczących uaktualniania/obniżania wersji usług APIM. Metryka jest emitowana co minutę i odzwierciedla pojemność bramy w momencie raportowania. Wartość metryki należy do zakresu od 0 do 100 i jest obliczana w oparciu o zasoby bramy, takie jak wykorzystanie procesora i pamięci.
-* Żądania: ułatwia analizowanie ruchu interfejsu API przechodzącego przez usługi APIM. Metryka jest emitowana na minutę i zgłasza liczbę żądań bramy z wymiarami, w tym kodami odpowiedzi, lokalizacjami, nazwą hosta i błędami. 
+* **Pojemność** — ułatwia podejmowanie decyzji o uaktualnianiu/obniżeniu wydajności usług APIM. Metryka jest emitowana co minutę i odzwierciedla pojemność bramy w momencie raportowania. Wartość metryki należy do zakresu od 0 do 100 i jest obliczana w oparciu o zasoby bramy, takie jak wykorzystanie procesora i pamięci.
+* **Żądania** — pomaga analizować ruch interfejsu API za pośrednictwem usług API Management. Metryka jest emitowana na minutę i zgłasza liczbę żądań bramy z wymiarami, w tym kodami odpowiedzi, lokalizacjami, nazwą hosta i błędami. 
 
 > [!IMPORTANT]
 > Następujące metryki zostały wycofane z maja 2019 i zostaną wycofane w sierpniu 2023: całkowita liczba żądań bramy, pomyślne żądania bramy, nieautoryzowane żądania bramy, Nieudane żądania bramy, inne żądania bramy. Przeprowadź migrację do metryki żądań, która zapewnia równoważną funkcjonalność.
 
-![wykres metryk](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+:::image type="content" source="media/api-management-howto-use-azure-monitor/apim-monitor-metrics.png" alt-text="Zrzut ekranu metryk w API Management przegląd":::
 
 Aby uzyskać dostęp do metryk:
 
-1. Wybierz pozycję **Metryki** w menu w dolnej części strony.
+1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia API Management. Na stronie **Przegląd** zapoznaj się z kluczowymi metrykami dotyczącymi interfejsów API.
+1. Aby szczegółowo zbadać metryki, wybierz pozycję **metryki** z menu w dolnej części strony.
 
-    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-metrics-blade.png" alt-text="Zrzut ekranu przedstawiający element metryk w menu monitorowanie":::
 
-2. Z listy rozwijanej wybierz interesujące Cię metryki. Na przykład **żądania**. 
-3. Wykres przedstawia łączną liczbę wywołań interfejsu API.
-4. Wykres może być filtrowany przy użyciu wymiarów metryk **żądań** . Na przykład kliknij pozycję **Dodaj filtr**, wybierz pozycję **kod odpowiedzi zaplecza**, wprowadź 500 jako wartość. Teraz wykres pokazuje liczbę żądań, które zakończyły się niepowodzeniem w zapleczu interfejsu API.   
+1. Z listy rozwijanej wybierz interesujące Cię metryki. Na przykład **żądania**. 
+1. Wykres przedstawia łączną liczbę wywołań interfejsu API.
+1. Wykres może być filtrowany przy użyciu wymiarów metryk **żądań** . Na przykład wybierz pozycję **Dodaj filtr** , wybierz **kategorię kod odpowiedzi zaplecza** , wprowadź 500 jako wartość. Teraz wykres pokazuje liczbę żądań, które zakończyły się niepowodzeniem w zapleczu interfejsu API.   
 
-## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Konfigurowanie reguły alertu na potrzeby nieautoryzowanego żądania
+## <a name="set-up-an-alert-rule"></a>Konfigurowanie reguły alertu 
 
-Można skonfigurować odbieranie alertów w oparciu o metryki i dzienniki aktywności. Usługa Azure Monitor umożliwia skonfigurowanie alertu powodującego wykonywanie następujących czynności po jego wyzwoleniu:
+[Alerty](../azure-monitor/platform/alerts-metric-overview.md) można odbierać w oparciu o metryki i dzienniki aktywności. Azure Monitor umożliwia [skonfigurowanie alertu](../azure-monitor/platform/alerts-metric.md) w celu wykonania następujących czynności podczas wyzwalania:
 
 * Wysyłanie powiadomienia e-mail
 * Wywołanie elementu webhook
 * Wywołanie aplikacji logiki platformy Azure
 
-Aby skonfigurować alerty:
+Aby skonfigurować przykładową regułę alertu na podstawie metryki żądania:
 
+1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia API Management.
 1. Wybierz pozycję **alerty** na pasku menu w dolnej części strony.
 
-    ![Zrzut ekranu pokazujący alerty w menu w dolnej części strony.](./media/api-management-azure-monitor/alert-menu-item.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/alert-menu-item.png" alt-text="Zrzut ekranu opcji alertów w menu monitorowanie":::
 
-2. Kliknij **nową regułę alertu** dla tego alertu.
-3. Kliknij pozycję **Dodaj warunek**.
-4. Wybierz pozycję **metryki** na liście rozwijanej Typ sygnału.
-5. Wybierz pozycję **nieautoryzowane żądanie bramy** jako sygnał do monitorowania.
+1. Wybierz pozycję **+ Nowa reguła alertu**.
+1. W oknie **Tworzenie reguły alertu** **Wybierz pozycję warunek**.
+1. W oknie **Konfigurowanie logiki sygnału** :
+    1. W polu **Typ sygnału** wybierz pozycję **metryki**.
+    1. W polu **Nazwa sygnału** wybierz pozycję **żądania**.
+    1. W obszarze **Podziel według wymiarów** w polu **Nazwa wymiaru** wybierz **kategorię kod odpowiedzi bramy**.
+    1. W obszarze **wartości wymiaru** wybierz pozycję **4xx** dla błędów klienta, takich jak nieautoryzowane lub nieprawidłowe żądania.
+    1. W obszarze **logika alertu** Określ próg, po którym alert powinien zostać wyzwolony, a następnie wybierz pozycję **gotowe**.
 
-    ![Zrzut ekranu, który podświetla pole Typ sygnału i nieautoryzowane żądania bramy nazwa sygnału.](./media/api-management-azure-monitor/signal-type.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold.png" alt-text="Zrzut ekranu przedstawiający Konfigurowanie logiki sygnałów systemu Windows":::
 
-6. W widoku **Konfiguracja logiki sygnału** Określ próg, po którym alert powinien zostać wyzwolony, a następnie kliknij pozycję **gotowe**.
+1. Wybierz istniejącą grupę akcji lub Utwórz nową. W poniższym przykładzie zostanie utworzona nowa grupa akcji. Wiadomość e-mail z powiadomieniem zostanie wysłana do admin@contoso.com . 
 
-    ![Zrzut ekranu przedstawiający widok konfiguracji logiki sygnałów.](./media/api-management-azure-monitor/threshold.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/action-details.png" alt-text="Zrzut ekranu przedstawiający powiadomienia dla nowej grupy akcji":::
 
-7. Wybierz istniejącą grupę akcji lub Utwórz nową. W poniższym przykładzie wiadomość e-mail zostanie wysłana do administratorów. 
+1. Wprowadź nazwę i opis reguły alertu, a następnie wybierz poziom ważności. 
+1. Wybierz pozycję **Utwórz regułę alertu**.
+1. Teraz Przetestuj regułę alertu, wywołując interfejs API konferencji bez klucza interfejsu API. Na przykład:
 
-    ![alerts](./media/api-management-azure-monitor/action-details.png)
+    ```bash
+    curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 
+    ```
 
-8. Podaj nazwę, opis reguły alertu i wybierz poziom ważności. 
-9. Naciśnij pozycję **Utwórz regułę alertu**.
-10. Teraz spróbuj wywołać interfejs API konferencji bez klucza interfejsu API. Alert zostanie wyzwolony, a wiadomość e-mail zostanie wysłana do administratorów. 
+    Alert zostanie wyzwolony w oparciu o okres próbny, a wiadomość e-mail zostanie wysłana do admin@contoso.com . 
+
+    Alerty są również wyświetlane na stronie **alerty** dla wystąpienia API Management.
+
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/portal-alerts.png" alt-text="Zrzut ekranu alertów w portalu":::
 
 ## <a name="activity-logs"></a>Dzienniki aktywności
 
@@ -105,127 +111,104 @@ Dzienniki aktywności udostępniają szczegółowe dane operacji wykonywanych w 
 
 Dostęp do dzienników aktywności można uzyskać w usłudze API Management, a dostęp do wszystkich zasobów platformy Azure — w usłudze Azure Monitor. 
 
-![dzienniki aktywności](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+:::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs.png" alt-text="Zrzut ekranu przedstawiający dziennik aktywności w portalu":::
 
-Aby wyświetlić dzienniki aktywności:
+Aby wyświetlić dziennik aktywności:
 
-1. Wybierz wystąpienie usługi APIM.
-2. Kliknij pozycję **Dziennik aktywności**.
+1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia API Management.
 
-    ![dziennik aktywności](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+1. Wybierz pozycję **Dziennik aktywności**.
 
-3. Wybierz żądany zakres filtrowania i kliknij przycisk **Zastosuj**.
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs-blade.png" alt-text="Zrzut ekranu przedstawiający element dziennika aktywności w menu monitorowanie":::
+1. Wybierz żądany zakres filtrowania, a następnie **Zastosuj**.
 
 ## <a name="resource-logs"></a>Dzienniki zasobów
 
-Dzienniki zasobów zawierają bogate informacje o operacjach i błędach, które są ważne do celów inspekcji, a także do rozwiązywania problemów. Dzienniki zasobów różnią się od dzienników aktywności. Dzienniki aktywności udostępniają szczegółowe informacje o operacjach wykonywanych na zasobach platformy Azure. Dzienniki zasobów zapewniają wgląd w operacje wykonywane przez zasób.
+Dzienniki zasobów zawierają bogate informacje o operacjach i błędach, które są ważne do celów inspekcji, a także do rozwiązywania problemów. Dzienniki zasobów różnią się od dzienników aktywności. Dziennik aktywności zawiera szczegółowe informacje o operacjach wykonywanych na zasobach platformy Azure. Dzienniki zasobów zapewniają wgląd w operacje wykonywane przez zasób.
 
 Aby skonfigurować dzienniki zasobów:
 
-1. Wybierz wystąpienie usługi APIM.
-2. Kliknij pozycję **Ustawienia diagnostyczne**.
+1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia API Management.
+2. Wybierz pozycję **Ustawienia diagnostyczne**.
 
-    ![Dzienniki zasobów](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Zrzut ekranu przedstawiający element ustawień diagnostycznych w menu monitorowanie":::
 
-3. Kliknij pozycję **Włącz diagnostykę**. Dzienniki zasobów oraz metryki można archiwizować na koncie magazynu, przesyłać strumieniowo do centrum zdarzeń lub wysyłać do dzienników Azure Monitor. 
+1. Wybierz pozycję **+ Dodaj ustawienie diagnostyczne**.
+1. Wybierz dzienniki lub metryki, które chcesz zebrać.
 
-API Management obecnie udostępnia dzienniki zasobów (wsadowe co godzinę) dotyczące poszczególnych żądań interfejsu API z każdym wpisem, który ma następujący schemat:
+   Dzienniki zasobów oraz metryki można archiwizować na koncie magazynu, przesyłać strumieniowo do centrum zdarzeń lub wysyłać do obszaru roboczego Log Analytics. 
 
-```json
-{  
-    "isRequestSuccess" : "",
-    "time": "",
-    "operationName": "",
-    "category": "",
-    "durationMs": ,
-    "callerIpAddress": "",
-    "correlationId": "",
-    "location": "",
-    "httpStatusCodeCategory": "",
-    "resourceId": "",
-    "properties": {   
-        "method": "", 
-        "url": "", 
-        "clientProtocol": "", 
-        "responseCode": , 
-        "backendMethod": "", 
-        "backendUrl": "", 
-        "backendResponseCode": ,
-        "backendProtocol": "",  
-        "requestSize": , 
-        "responseSize": , 
-        "cache": "", 
-        "cacheTime": "", 
-        "backendTime": , 
-        "clientTime": , 
-        "apiId": "",
-        "operationId": "", 
-        "productId": "", 
-        "userId": "", 
-        "apimSubscriptionId": "", 
-        "backendId": "",
-        "lastError": { 
-            "elapsed" : "", 
-            "source" : "", 
-            "scope" : "", 
-            "section" : "" ,
-            "reason" : "", 
-            "message" : ""
-        } 
-    }      
-}  
+Aby uzyskać więcej informacji, zobacz [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych](../azure-monitor/platform/diagnostic-settings.md).
+
+## <a name="view-diagnostic-data-in-azure-monitor"></a>Wyświetlanie danych diagnostycznych w Azure Monitor
+
+Włączenie kolekcji GatewayLogs lub metryk w obszarze roboczym Log Analytics może potrwać kilka minut, aby dane były widoczne w Azure Monitor. Aby wyświetlić dane:
+
+1. W [Azure Portal](https://portal.azure.com)przejdź do wystąpienia API Management.
+1. Wybierz pozycję **dzienniki** z menu w dolnej części strony.
+
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Zrzut ekranu przedstawiający element Logs w menu monitorowanie":::
+
+Uruchom zapytania, aby wyświetlić dane. Dostępne są kilka [przykładowych zapytań](../azure-monitor/log-query/saved-queries.md) lub własne. Na przykład następujące zapytanie pobiera ostatnie 24 godziny danych z tabeli GatewayLogs:
+
+```kusto
+ApiManagementGatewayLogs
+| where TimeGenerated > ago(1d) 
 ```
 
-| Właściwość  | Typ | Opis |
-| ------------- | ------------- | ------------- |
-| isRequestSuccess | boolean | Wartość true, jeśli żądanie HTTP zostało zakończone z kodem stanu odpowiedzi z zakresu 2xx lub 3xx |
-| time | data i godzina | Sygnatura czasowa rozpoczęcia przetwarzania żądania przez bramę |
-| operationName | ciąg | Wartość stała „Microsoft.ApiManagement/GatewayLogs” |
-| category | ciąg | Wartość stała „GatewayLogs” |
-| durationMs | liczba całkowita | Liczba milisekund od momentu odebrania żądania przez bramę do momentu, gdy odpowiedź na chwilę zostanie wysłana w całości. Obejmuje to clienTime, cacheTime i backendTime. |
-| callerIpAddress | ciąg | Adres IP bezpośredniego modułu wywołującego bramy (może być pośrednik) |
-| correlationId | ciąg | Unikatowy identyfikator żądania HTTP przypisany przez usługę API Management |
-| location | ciąg | Nazwa regionu platformy Azure, w którym znajdowała się brama przetwarzająca żądanie |
-| httpStatusCodeCategory | ciąg | Kategoria kodu stanu odpowiedzi HTTP: Powodzenie (301 lub mniej albo 304 lub 307), Bez autoryzacji (401, 403, 429), Błąd (400, od 500 do 600), Inne |
-| resourceId | ciąg | Identyfikator zasobu API Management/SUBSCRIPTIONS/ \<subscription> /RESOURCEGROUPS/ \<resource-group> /providers/Microsoft. APIMANAGEMENT/SERVICE/\<name> |
-| properties | object | Właściwości bieżącego żądania |
-| method | ciąg | Metoda HTTP żądania przychodzącego |
-| url | ciąg | Adres URL żądania przychodzącego |
-| clientProtocol | ciąg | Wersja protokołu HTTP żądania przychodzącego |
-| responseCode | liczba całkowita | Kod stanu odpowiedzi HTTP wysłanej do klienta |
-| backendMethod | ciąg | Metoda HTTP żądania wysłanego do zaplecza |
-| backendUrl | ciąg | Adres URL żądania wysłanego do zaplecza |
-| backendResponseCode | liczba całkowita | Kod odpowiedzi HTTP odebranej z zaplecza |
-| backendProtocol | ciąg | Wersja protokołu HTTP żądania wysłanego do zaplecza | 
-| requestSize | liczba całkowita | Liczba bajtów odebranych od klienta podczas przetwarzania żądania | 
-| responseSize | liczba całkowita | Liczba bajtów wysłanych do klienta podczas przetwarzania żądania | 
-| cache | ciąg | Stan zaangażowania pamięci podręcznej usługi API Management w przetwarzanie żądania (tj. trafienie, chybienie, brak) | 
-| cacheTime | liczba całkowita | Liczba milisekund spędzonych na wykonywaniu ogólnych operacji we/wy pamięci podręcznej w usłudze API Management (łączenie, wysyłanie i odbieranie bajtów) | 
-| backendTime | liczba całkowita | Liczba milisekund spędzonych na wykonywaniu ogólnych operacji we/wy zaplecza (łączenie, wysyłanie i odbieranie bajtów) | 
-| clientTime | liczba całkowita | Liczba milisekund spędzonych na wykonywaniu ogólnych operacji we/wy klienta (łączenie, wysyłanie i odbieranie bajtów) | 
-| apiId | ciąg | Identyfikator jednostki interfejsu API dla bieżącego żądania | 
-| operationId | ciąg | Identyfikator jednostki operacji dla bieżącego żądania | 
-| productId | ciąg | Identyfikator jednostki produktu dla bieżącego żądania | 
-| userId | ciąg | Identyfikator jednostki użytkownika dla bieżącego żądania | 
-| apimSubscriptionId | ciąg | Identyfikator jednostki subskrypcji dla bieżącego żądania | 
-| backendId | ciąg | Identyfikator jednostki zaplecza dla bieżącego żądania | 
-| LastError | object | Ostatni błąd przetwarzania żądania | 
-| elapsed | liczba całkowita | Liczba milisekund upływających od momentu odebrania żądania przez bramę i momentu wystąpienia błędu | 
-| source | string | Nazwa wewnętrznej procedury obsługi przetwarzania lub zasad, które spowodowały błąd | 
-| scope | ciąg | Zakres dokumentu zasad zawierający zasady, które spowodowały błąd | 
-| section | ciąg | Sekcja dokumentu zasad zawierająca zasady, które spowodowały błąd | 
-| reason | ciąg | Przyczyna błędu | 
-| message | ciąg | Komunikat o błędzie | 
+Aby uzyskać więcej informacji o korzystaniu z dzienników zasobów dla API Management, zobacz:
+
+* [Rozpocznij pracę z Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md)lub wypróbuj [środowisko demonstracyjne log Analytics](https://portal.loganalytics.io/demo).
+
+* [Przegląd zapytań dzienników w Azure monitor](../azure-monitor/log-query/log-query-overview.md).
+
+Poniższy kod JSON wskazuje przykładowy wpis w GatewayLogs dla pomyślnego żądania interfejsu API. Aby uzyskać szczegółowe informacje, zobacz [Informacje o schemacie](gateway-log-schema-reference.md). 
+
+```json
+{
+    "Level": 4,
+    "isRequestSuccess": true,
+    "time": "2020-10-14T17:xx:xx.xx",
+    "operationName": "Microsoft.ApiManagement/GatewayLogs",
+    "category": "GatewayLogs",
+    "durationMs": 152,
+    "callerIpAddress": "xx.xx.xxx.xx",
+    "correlationId": "3f06647e-xxxx-xxxx-xxxx-530eb9f15261",
+    "location": "East US",
+    "properties": {
+        "method": "GET",
+        "url": "https://apim-hello-world.azure-api.net/conference/speakers",
+        "backendResponseCode": 200,
+        "responseCode": 200,
+        "responseSize": 41583,
+        "cache": "none",
+        "backendTime": 87,
+        "requestSize": 526,
+        "apiId": "demo-conference-api",
+        "operationId": "GetSpeakers",
+        "apimSubscriptionId": "master",
+        "clientTime": 65,
+        "clientProtocol": "HTTP/1.1",
+        "backendProtocol": "HTTP/1.1",
+        "apiRevision": "1",
+        "clientTlsVersion": "1.2",
+        "backendMethod": "GET",
+        "backendUrl": "https://conferenceapi.azurewebsites.net/speakers"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/APIM-HELLO-WORLD"
+}
+```
 
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Wyświetlanie dzienników aktywności
-> * Wyświetlanie dzienników zasobów
 > * Wyświetlanie metryk interfejsu API
-> * Konfigurowanie reguły alertu, gdy interfejs API odbiera nieautoryzowane wywołania
+> * Konfigurowanie reguły alertu 
+> * Wyświetlanie dzienników aktywności
+> * Włączanie i wyświetlanie dzienników zasobów
+
 
 Przejdź do następnego samouczka:
 

@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a92382f397eee5e0315dda73d33f968dafa4b496
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: f327749d1bdfb8cf2cba00cf4c5f68b4b2b77999
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041714"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379557"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Samouczek: Tworzenie aplikacji zarządzanej z niestandardowymi akcjami i zasobami
 
@@ -41,7 +41,7 @@ Aby ukończyć ten samouczek, musisz znać:
 
 W tym samouczku utworzysz zarządzaną aplikację, a jej zarządzana Grupa zasobów będzie zawierać niestandardowe wystąpienie dostawcy, konto magazynu i funkcję. Funkcja platformy Azure używana w tym przykładzie implementuje interfejs API obsługujący niestandardowe operacje dostawcy dla akcji i zasobów. Konto usługi Azure Storage jest używane jako magazyn podstawowy dla niestandardowych zasobów dostawcy.
 
-Definicja interfejsu użytkownika służąca do tworzenia wystąpienia aplikacji zarządzanej `funcname` zawiera `storagename` elementy i. Nazwa konta magazynu i nazwa funkcji musi być globalnie unikatowa. Domyślnie pliki funkcji zostaną wdrożone z [przykładowego pakietu funkcji](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), ale można je zmienić przez dodanie elementu wejściowego dla linku do pakietu w *createUIDefinition.jsna* :
+Definicja interfejsu użytkownika służąca do tworzenia wystąpienia aplikacji zarządzanej `funcname` zawiera `storagename` elementy i. Nazwa konta magazynu i nazwa funkcji musi być globalnie unikatowa. Domyślnie pliki funkcji zostaną wdrożone z [przykładowego pakietu funkcji](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), ale można je zmienić przez dodanie elementu wejściowego dla linku do pakietu w *createUiDefinition.jsna* :
 
 ```json
 {
@@ -74,7 +74,7 @@ Definicja interfejsu użytkownika służąca do tworzenia wystąpienia aplikacji
 }
 ```
 
-i dane wyjściowe w *createUIDefinition.jsna* :
+i dane wyjściowe w *createUiDefinition.jsna* :
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -82,13 +82,13 @@ i dane wyjściowe w *createUIDefinition.jsna* :
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-Pełną *createUIDefinition.jsna* przykład można znaleźć w temacie [Reference: elementy interfejsu użytkownika artefakty](reference-createuidefinition-artifact.md).
+Pełną *createUiDefinition.jsna* przykład można znaleźć w temacie [Reference: elementy interfejsu użytkownika artefakty](reference-createuidefinition-artifact.md).
 
 ## <a name="template-with-custom-provider"></a>Szablon z niestandardowym dostawcą
 
 Aby utworzyć wystąpienie aplikacji zarządzanej z dostawcą niestandardowym, należy zdefiniować zasób niestandardowego dostawcy o nazwie **Public** i wpisać w **mainTemplate.js** wartość **Microsoft. CustomProviders/resourceProviders** . W tym zasobie należy zdefiniować typy zasobów i akcje dla usługi. Aby wdrożyć funkcje platformy Azure i wystąpienia konta usługi Azure Storage, zdefiniuj zasoby typu `Microsoft.Web/sites` i `Microsoft.Storage/storageAccounts` odpowiednio.
 
-W tym samouczku utworzysz jeden `users` Typ zasobu, `ping` akcję niestandardową i `users/contextAction` akcję niestandardową, która zostanie wykonana w kontekście `users` niestandardowego zasobu. Dla każdego typu zasobu i akcji Podaj punkt końcowy wskazujący funkcję o nazwie podanej w [createUIDefinition.json](#user-interface-definition). Określ typ **routingtype** jako `Proxy,Cache` dla typów zasobów i `Proxy` akcji:
+W tym samouczku utworzysz jeden `users` Typ zasobu, `ping` akcję niestandardową i `users/contextAction` akcję niestandardową, która zostanie wykonana w kontekście `users` niestandardowego zasobu. Dla każdego typu zasobu i akcji Podaj punkt końcowy wskazujący funkcję o nazwie podanej w [createUiDefinition.json](#user-interface-definition). Określ typ **routingtype** jako `Proxy,Cache` dla typów zasobów i `Proxy` akcji:
 
 ```json
 {
@@ -247,8 +247,8 @@ az managedapp definition create \
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. W Azure Portal wybierz pozycję **wszystkie usługi** . Na liście zasobów wpisz i wybierz pozycję **zarządzane aplikacje centrum** .
-2. W **centrum zarządzane aplikacje** wybierz pozycję **Definicja aplikacji katalogu usług** i kliknij przycisk **Dodaj** . 
+1. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz i wybierz pozycję **zarządzane aplikacje centrum**.
+2. W **centrum zarządzane aplikacje** wybierz pozycję **Definicja aplikacji katalogu usług** i kliknij przycisk **Dodaj**. 
     
     ![Dodaj katalog usług](./media/tutorial-create-managed-app-with-custom-provider/service-catalog-managed-application.png)
 
@@ -260,15 +260,15 @@ az managedapp definition create \
 
     ![Podaj wartości](./media/tutorial-create-managed-app-with-custom-provider/add-service-catalog-managed-application.png)
 
-4. Po wyświetleniu sekcji uwierzytelnianie i blokowanie poziomu wybierz pozycję **Dodaj autoryzację** .
+4. Po wyświetleniu sekcji uwierzytelnianie i blokowanie poziomu wybierz pozycję **Dodaj autoryzację**.
 
     ![Dodaj autoryzację](./media/tutorial-create-managed-app-with-custom-provider/add-authorization.png)
 
-5. Wybierz grupę Azure Active Directory, aby zarządzać zasobami, a następnie wybierz **przycisk OK** .
+5. Wybierz grupę Azure Active Directory, aby zarządzać zasobami, a następnie wybierz **przycisk OK**.
 
    ![Dodaj grupę autoryzacji](./media/tutorial-create-managed-app-with-custom-provider/add-auth-group.png)
 
-6. Po podaniu wszystkich wartości wybierz pozycję **Utwórz** .
+6. Po podaniu wszystkich wartości wybierz pozycję **Utwórz**.
 
    ![Utwórz definicję aplikacji zarządzanej](./media/tutorial-create-managed-app-with-custom-provider/create-service-catalog-definition.png)
 
@@ -303,12 +303,12 @@ az managedapp create \
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. W Azure Portal wybierz pozycję **wszystkie usługi** . Na liście zasobów wpisz i wybierz pozycję **zarządzane aplikacje centrum** .
-2. W **centrum zarządzane aplikacje** wybierz pozycję **aplikacje katalogu usług** i kliknij przycisk **Dodaj** . 
+1. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz i wybierz pozycję **zarządzane aplikacje centrum**.
+2. W **centrum zarządzane aplikacje** wybierz pozycję **aplikacje katalogu usług** i kliknij przycisk **Dodaj**. 
 
     ![Dodaj zarządzaną aplikację](./media/tutorial-create-managed-app-with-custom-provider/add-managed-application.png)
 
-3. Na stronie **aplikacje katalogu usług** wpisz nazwę wyświetlaną definicji katalogu usług w polu wyszukiwania. Wybierz definicję utworzoną w poprzednim kroku, a następnie kliknij pozycję **Utwórz** .
+3. Na stronie **aplikacje katalogu usług** wpisz nazwę wyświetlaną definicji katalogu usług w polu wyszukiwania. Wybierz definicję utworzoną w poprzednim kroku, a następnie kliknij pozycję **Utwórz**.
 
     ![Wybieranie katalogu usług](./media/tutorial-create-managed-app-with-custom-provider/select-service-catalog-definition.png)
 
@@ -327,7 +327,7 @@ az managedapp create \
 
 ## <a name="custom-actions-and-resources"></a>Niestandardowe akcje i zasoby
 
-Po wdrożeniu wystąpienia aplikacji wykazu usług masz dwie nowe grupy zasobów. Pierwsza grupa zasobów `applicationGroup` zawiera wystąpienie aplikacji zarządzanej. Druga grupa zasobów `managedResourceGroup` przechowuje zasoby dla aplikacji zarządzanej, w tym **dostawcę niestandardowego** .
+Po wdrożeniu wystąpienia aplikacji wykazu usług masz dwie nowe grupy zasobów. Pierwsza grupa zasobów `applicationGroup` zawiera wystąpienie aplikacji zarządzanej. Druga grupa zasobów `managedResourceGroup` przechowuje zasoby dla aplikacji zarządzanej, w tym **dostawcę niestandardowego**.
 
 ![Grupy zasobów aplikacji](./media/tutorial-create-managed-app-with-custom-provider/application-resource-groups.png)
 

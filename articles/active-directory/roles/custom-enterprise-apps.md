@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d83005599c59f6a4249014139b594764df8acf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376317"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378554"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Przypisywanie ról niestandardowych w celu zarządzania aplikacjami dla przedsiębiorstw w programie Azure Active Directory
 
@@ -46,7 +46,7 @@ Przyznanie uprawnienia do aktualizacji odbywa się w dwóch krokach:
 > Role niestandardowe są tworzone i zarządzane na poziomie całej organizacji i są dostępne tylko na stronie Przegląd w organizacji.
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji.
-1. Wybierz pozycję **Azure Active Directory**, wybierz pozycję **role i Administratorzy**, a następnie wybierz pozycję **Nowa rola niestandardowa**.
+1. Wybierz pozycję **Azure Active Directory** , wybierz pozycję **role i Administratorzy** , a następnie wybierz pozycję **Nowa rola niestandardowa**.
 
     ![Dodawanie nowej roli niestandardowej z listy role w usłudze Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
@@ -70,7 +70,7 @@ Przyznanie uprawnienia do aktualizacji odbywa się w dwóch krokach:
 
     ![Otwórz przystawkę role i Administratorzy i Wyszukaj rolę niestandardową](./media/custom-enterprise-apps/select-custom-role.png)
 
-1. Wybierz pozycję **Dodaj przypisanie**, wybierz żądanego użytkownika, a następnie kliknij pozycję **Wybierz** , aby dodać przypisanie roli do użytkownika.
+1. Wybierz pozycję **Dodaj przypisanie** , wybierz żądanego użytkownika, a następnie kliknij pozycję **Wybierz** , aby dodać przypisanie roli do użytkownika.
 
     ![Dodaj przypisanie dla roli niestandardowej do użytkownika](./media/custom-enterprise-apps/assign-user-to-role.png)
 

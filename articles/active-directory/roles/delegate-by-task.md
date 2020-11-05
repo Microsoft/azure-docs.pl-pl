@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 05/04/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc33b0bafc0d56ebf1a14769aeaa5a55508fc4a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e83ff37140369cb073f4bdc2bd24ac08ee9b1ab
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377769"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379098"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Role administratorów według zadania administratora w Azure Active Directory
 
@@ -72,7 +72,7 @@ Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
 Konfigurowanie właściwości firmy | Administrator globalny | 
 
-## <a name="connect"></a>Connect
+## <a name="connect"></a>Połącz
 
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
@@ -120,7 +120,7 @@ Utwórz wystąpienie Azure AD Domain Services | Administrator globalny |
 Wykonaj wszystkie zadania Azure AD Domain Services | Grupa administratorów kontrolera domeny usługi Azure AD ([Zobacz dokumentację](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Odczytaj całą konfigurację | Czytelnik w ramach subskrypcji platformy Azure zawierającej usługę AD DS | 
 
-## <a name="devices"></a>Urządzenia
+## <a name="devices"></a>Devices
 
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
@@ -351,6 +351,7 @@ Aktualizuj wszystkie właściwości z wyjątkiem nazwy głównej użytkownika | 
 Aktualizowanie głównej nazwy użytkownika dla ograniczonych administratorów (zobacz dokumentację) | Administrator użytkowników | 
 Zaktualizuj Właściwość głównej nazwy użytkownika dla administratorów uprzywilejowanych (zobacz dokumentację) | Administrator globalny | 
 Aktualizowanie ustawień użytkownika | Administrator globalny | 
+Aktualizowanie metod uwierzytelniania | Administrator uwierzytelniania | Administrator uwierzytelniania uprzywilejowanego, Administrator globalny
 
 
 ## <a name="support"></a>Pomoc techniczna

@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23243de192683a4811eb569b17425701381c4cd1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 74ad503374e0148e9813508b6c7f8b21e2dca7a3
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377576"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379166"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Przypisywanie roli do grupy przy użyciu Privileged Identity Management
 
@@ -103,7 +103,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie przypisaniami ról przy użyciu grup chmur](groups-concept.md)
+- [Zarządzanie przypisaniami ról za pomocą grup w chmurze](groups-concept.md)
 - [Rozwiązywanie problemów z rolami przypisanymi do grup w chmurze](groups-faq-troubleshooting.md)
 - [Skonfiguruj ustawienia roli administratora usługi Azure AD w Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Przypisywanie ról zasobów platformy Azure w Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)

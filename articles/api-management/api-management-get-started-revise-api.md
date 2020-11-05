@@ -1,28 +1,28 @@
 ---
-title: Użyj poprawek, aby bezpiecznie wprowadzać zmiany niepowodujące Nieprzerwania w API Management
+title: Samouczek — Użyj poprawek w API Management, aby bezpiecznie wprowadzać niekrytyczne zmiany interfejsu API
 titleSuffix: Azure API Management
 description: Wykonaj kroki tego samouczka, aby dowiedzieć się, jak przy użyciu poprawek wprowadzać zmiany niepowodujące niezgodności w usłudze API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 7a4655b20fabcc72e02037de05dd0ef7c4671e52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3804bfb2a269c431b1a00947f5c7613566a78f49
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254915"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377509"
 ---
-# <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Bezpieczne wprowadzanie zmian niepowodujących niezgodności przy użyciu poprawek
-Gdy interfejs API jest gotowy i zaczyna być używany przez deweloperów, zazwyczaj musisz wprowadzać zmiany w tym interfejsie API i jednocześnie nie zakłócać pracy wywołującym interfejs API. Ponadto warto poinformować deweloperów o wprowadzanych zmianach. Możemy to zrobić w usłudze Azure API Management przy użyciu **poprawek**. Aby uzyskać więcej informacji, zobacz [Wersje i poprawki](https://azure.microsoft.com/blog/versions-revisions/) oraz [Przechowywanie wersji interfejsu API w usłudze Azure API Management](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/).
+# <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Samouczek: bezpieczne wprowadzanie nieprzerwanych zmian interfejsu API
+Gdy interfejs API jest gotowy i zaczyna być używany przez deweloperów, zazwyczaj musisz wprowadzać zmiany w tym interfejsie API i jednocześnie nie zakłócać pracy wywołującym interfejs API. Ponadto warto poinformować deweloperów o wprowadzanych zmianach. 
+
+Na platformie Azure API Management Użyj *poprawek* , aby wprowadzić niekrytyczne zmiany interfejsu API, dzięki czemu można bezpiecznie modelować i testować zmiany. Gdy wszystko będzie gotowe, możesz wprowadzić poprawkę bieżącą i zastąpić bieżący interfejs API. 
+
+W przypadku programu w tle zobacz [wersje & poprawki](https://azure.microsoft.com/blog/versions-revisions/) i [wersja interfejsu API za pomocą usługi Azure API Management](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -32,7 +32,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Ustawianie poprawki jako bieżącej oraz dodawanie wpisu dziennika zmian
 > * Przeglądanie portalu dla deweloperów w celu wyświetlenia zmian i dziennika zmian
 
-![Dziennik zmian w portalu dla deweloperów](media/api-management-getstarted-revise-api/azure_portal.PNG)
+:::image type="content" source="media/api-management-getstarted-revise-api/azure-portal.png" alt-text="Poprawki interfejsu API w Azure Portal":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,18 +42,19 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="add-a-new-revision"></a>Dodawanie nowej poprawki
 
-![Dodawanie poprawki interfejsu API](media/api-management-getstarted-revise-api/07-AddRevisions-01-AddNewRevision.png)
+1. Zaloguj się do [Azure Portal](https://portal.azure.com)i przejdź do wystąpienia API Management.
+1. Wybierz pozycję **Interfejsy API**.
+2. Wybierz opcję **demona Konferencja interfejsu API** z listy interfejsów API (lub innego interfejsu API, do którego chcesz dodać poprawki).
+3. Wybierz kartę **poprawki** .
+4. Wybierz pozycję **+ Dodaj poprawkę**.
 
-1. Wybierz stronę **Interfejsy API**.
-2. Z listy interfejsów API wybierz pozycję **Wersja demonstracyjna interfejsu API Conference** (lub inny interfejs API, do którego chcesz dodać poprawki).
-3. Kliknij kartę **Poprawki** w menu w górnej części strony.
-4. Wybierz opcję **+ Dodaj poprawkę**
+   :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-01-add-new-revision.png" alt-text="Dodawanie poprawki interfejsu API":::
 
     > [!TIP]
-    > Możesz też wybrać opcję **Dodaj poprawkę** w menu kontekstowym (**...**) interfejsu API.
+    > Możesz również wybrać pozycję **Dodaj poprawkę** w menu kontekstowym ( **...** ) interfejsu API.
 
 5. Podaj opis nowej poprawki, aby łatwiej zapamiętać, do czego służy.
-6. Wybierz pozycję **Utwórz**
+6. Wybierz pozycję **Utwórz** ,
 7. Nowa poprawka zostanie utworzona.
 
     > [!NOTE]
@@ -61,40 +62,41 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="make-non-breaking-changes-to-your-revision"></a>Wprowadzanie w poprawce zmian niepowodujących niezgodności
 
-![Modyfikowanie poprawki](media/api-management-getstarted-revise-api/07-AddRevisions-02-MakeChanges.png)
-
 1. Z listy interfejsów API wybierz pozycję **Wersja demonstracyjna interfejsu API Conference**.
-2. Wybierz kartę **Projektowanie** w górnej części ekranu.
-3. Zwróć uwagę, że **selektor poprawek** (bezpośrednio nad kartą projektowania) wskazuje poprawkę **Poprawka 2** jako aktualnie wybraną.
+1. Wybierz kartę **Projektowanie** w górnej części ekranu.
+1. Zwróć uwagę, że **selektor poprawek** (bezpośrednio nad kartą projektowania) wskazuje poprawkę **Poprawka 2** jako aktualnie wybraną.
 
     > [!TIP]
     > Za pomocą selektora poprawek możesz przełączać się pomiędzy poprawkami, nad którymi chcesz pracować.
+1. Wybierz opcję **+ Dodaj operację**.
+1. Ustaw nową operację na **POST** , a nazwę, nazwę wyświetlaną i adres URL operacji na **test**.
+1. **Zapisz** nową operację.
 
-4. Wybierz opcję **+ Dodaj operację**.
-5. Ustaw nową operację na **POST**, a nazwę, nazwę wyświetlaną i adres URL operacji na **test**.
-6. **Zapisz** nową operację.
-7. Wprowadziliśmy zmianę w poprawce **Poprawka 2**. Za pomocą **selektora poprawek** w górnej części strony przełącz się z powrotem na poprawkę **Poprawka 1**.
-8. Zauważ, że nowa operacja nie pojawia się w ramach poprawki **Poprawka 1**. 
+   :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-02-make-changes.png" alt-text="Modyfikowanie poprawki":::
+1. Wprowadzono teraz zmianę w **wersji 2**. Użyj **selektora poprawek** w górnej części strony, aby przełączyć się z powrotem do **poprawki 1**.
+1. Zauważ, że nowa operacja nie pojawia się w ramach poprawki **Poprawka 1**. 
 
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Ustawianie poprawki jako bieżącej oraz dodawanie wpisu dziennika zmian
 
 1. Wybierz kartę **Poprawki** w menu w górnej części strony.
+1. Otwórz menu kontekstowe ( **...** ) dla poprawki **Poprawka 2**.
+1. Wybierz pozycję **Ustaw jako bieżącą**.
+1. Zaznacz pole wyboru **Publikuj w publicznym dzienniku zmian tego interfejsu API** , jeśli chcesz opublikować uwagi dotyczące tej zmiany. Podaj opis zmiany, którą widzą deweloperzy, na przykład: **testowanie poprawek. Dodano nową operację "test".**
+1. **Poprawka 2** jest teraz bieżącą poprawką.
 
-    ![Menu poprawki na ekranie poprawek.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
+    :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Menu poprawki w oknie poprawki":::
 
-2. Otwórz menu kontekstowe (**...**) dla poprawki **Poprawka 2**.
-3. Wybierz opcję **Ustaw jako bieżącą**.
-4. Zaznacz pole **Publikuj w publicznym dzienniku zmian tego interfejsu API**, jeśli chcesz publikować uwagi dotyczące tej zmiany. Podaj opis zmiany, którą widzą deweloperzy, na przykład: **testowanie poprawek. Dodano nową operację "test".**
-5. **Poprawka 2** jest teraz bieżącą poprawką.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Przeglądanie portalu dla deweloperów w celu wyświetlenia zmian i dziennika zmian
 
+Jeśli w [portalu dla deweloperów](api-management-howto-developer-portal-customize.md)podjęto próbę, możesz przejrzeć zmiany w interfejsie API i tam zmienić dziennik.
+
 1. W Azure Portal wybierz pozycję **interfejsy API**.
-2. Wybierz opcję **Portal dla deweloperów** z górnego menu.
-3. Wybierz pozycję **Interfejsy API**, a następnie wybierz pozycję **Wersja demonstracyjna interfejsu API Conference**.
-4. Zauważ, że nowa operacja **test** jest teraz dostępna.
-5. Kliknij pozycję **Dziennik zmian** obok nazwy interfejsu API.
-6. Zauważ, że na liście pojawia się wpis dziennika zmian.
+1. W górnym menu wybierz pozycję **Portal dla deweloperów** .
+1. W portalu dla deweloperów wybierz opcję **interfejsy API** , a następnie wybierz pozycję **interfejs API konferencji demonstracyjnej**.
+1. Zauważ, że nowa operacja **test** jest teraz dostępna.
+1. Wybierz pozycję **Dziennik zmian** obok nazwy interfejsu API.
+1. Zauważ, że na liście pojawia się wpis dziennika zmian.
 
 ## <a name="next-steps"></a>Następne kroki
 

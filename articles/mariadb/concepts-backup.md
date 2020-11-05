@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d95459797a32ab3e026ee1c3a2cf93fe6e95cc4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480738"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378962"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MariaDB
 
@@ -52,7 +52,7 @@ Długoterminowe przechowywanie kopii zapasowych poza 35 dni nie jest obecnie obs
 Azure Database for MariaDB zapewnia elastyczność wyboru między lokalnie nadmiarowym lub geograficznie nadmiarowym magazynem kopii zapasowych w warstwach Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci. Gdy kopie zapasowe są przechowywane w magazynie geograficznie nadmiarowym, nie są przechowywane tylko w regionie, w którym znajduje się serwer, ale są również replikowane do [sparowanego centrum danych](../best-practices-availability-paired-regions.md). Zapewnia to lepszą ochronę i możliwość przywracania serwera w innym regionie w przypadku awarii. Warstwa Podstawowa oferuje tylko lokalnie nadmiarowy magazyn kopii zapasowych.
 
 #### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Przechodzenie z lokalnie nadmiarowego do magazynu kopii zapasowej nadmiarowej geograficznie
-Konfiguracja lokalnie nadmiarowego lub geograficznie nadmiarowego magazynu dla kopii zapasowej jest dozwolona tylko podczas tworzenia serwera. Po aprowizacji serwera nie można zmienić opcji nadmiarowości magazynu kopii zapasowej. W celu przeniesienia magazynu kopii zapasowych z magazynu lokalnie nadmiarowego do magazynu geograficznie nadmiarowego, utworzenie nowego serwera i Migrowanie danych przy użyciu [zrzutów i przywracania](howto-migrate-dump-restore.md) jest jedyną obsługiwaną opcją.
+Konfigurowanie lokalnie nadmiarowego lub geograficznie nadmiarowego magazynu dla kopii zapasowych jest dozwolone tylko podczas tworzenia serwera. Po aprowizacji serwera nie można zmienić opcji nadmiarowości magazynu kopii zapasowych. W celu przeniesienia magazynu kopii zapasowych z magazynu lokalnie nadmiarowego do magazynu geograficznie nadmiarowego, utworzenie nowego serwera i Migrowanie danych przy użyciu [zrzutów i przywracania](howto-migrate-dump-restore.md) jest jedyną obsługiwaną opcją.
 
 ### <a name="backup-storage-cost"></a>Koszt magazynu kopii zapasowych
 
@@ -90,7 +90,12 @@ Serwer można przywrócić w innym regionie świadczenia usługi Azure, w który
 
 Przywracanie geograficzne jest domyślną opcją odzyskiwania, gdy serwer jest niedostępny z powodu zdarzenia w regionie, w którym znajduje się serwer. Jeśli zdarzenie w dużej skali w regionie powoduje niedostępność aplikacji bazy danych, można przywrócić serwer z kopii zapasowych nadmiarowych geograficznie do serwera w dowolnym innym regionie. Przywracanie geograficzne wykorzystuje najnowszą kopię zapasową serwera. Istnieje opóźnienie między wykonaniem kopii zapasowej a replikacją do innego regionu. To opóźnienie może wynosić do godziny, więc jeśli wystąpi awaria, może to oznaczać, że istnieje maksymalnie jedna godzina utraty danych.
 
+> [!IMPORTANT]
+>W przypadku wykonywania przywracania geograficznego dla nowo utworzonego serwera synchronizacja początkowej kopii zapasowej może trwać dłużej niż 24 godziny, w zależności od rozmiaru danych, ponieważ czas wstępnej kopii zapasowej pełnej migawki jest znacznie wyższy. Kolejne kopie zapasowe migawek są kopiami przyrostowymi, dlatego przywracanie jest szybsze po 24 godzinach tworzenia serwera. Jeśli oceniasz, czy przywracasz lokalizację geograficzną, aby zdefiniować RTO, zalecamy odczekanie i ocenę operacji przywracania geograficznego **tylko po 24 godzinach** tworzenia serwera w celu uzyskania lepszych oszacowań.
+
 Podczas przywracania geograficznego konfiguracje serwera, które można zmienić, obejmują generowanie obliczeń, rdzeń wirtualny, okres przechowywania kopii zapasowych i opcje nadmiarowości kopii zapasowych. Zmiana warstwy cenowej (podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci) lub rozmiaru magazynu podczas przywracania geograficznego nie jest obsługiwana.
+
+Szacowany czas odzyskiwania zależy od kilku czynników, takich jak rozmiary bazy danych, rozmiar dziennika transakcji, przepustowość sieci i łączna liczba baz danych, które są odzyskiwane w tym samym regionie w tym samym czasie. Czas odzyskiwania jest zwykle krótszy niż 12 godzin.
 
 ### <a name="perform-post-restore-tasks"></a>Wykonywanie zadań po przywróceniu
 

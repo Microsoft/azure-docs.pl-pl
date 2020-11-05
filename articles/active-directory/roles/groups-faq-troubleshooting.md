@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837750d7eeef9bc7a133a54b23a0c52c847364eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377629"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377738"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Rozwiązywanie problemów z rolami przypisanymi do grup w chmurze
 
@@ -32,9 +32,9 @@ Odp **.:** Tylko Administratorzy ról uprzywilejowanych lub Administratorzy glob
 
 Odp **.:** Domyślnie tylko administrator ról uprzywilejowanych i Administrator globalny zarządzają członkostwem grupy przypisanej do roli, ale można delegować zarządzanie grupami przypisanymi do ról, dodając właścicieli grup.
 
-**P**: jestem administratorem pomocy technicznej w mojej organizacji, ale nie mogę zaktualizować hasła użytkownika, który jest czytnikiem katalogów. Dlaczego tak się dzieje?
+**P** : jestem administratorem pomocy technicznej w mojej organizacji, ale nie mogę zaktualizować hasła użytkownika, który jest czytnikiem katalogów. Dlaczego tak się dzieje?
 
-Odp.: użytkownik może uzyskać **dostęp do czytnika**katalogów przez grupę z możliwością przypisania. Wszyscy członkowie i właściciele grup, do których można przypisać role, są chronieni. Tylko użytkownicy z rolą Administrator uwierzytelniania uprzywilejowanego lub Administrator globalny mogą resetować poświadczenia dla chronionego użytkownika.
+Odp.: użytkownik może uzyskać **dostęp do czytnika** katalogów przez grupę z możliwością przypisania. Wszyscy członkowie i właściciele grup, do których można przypisać role, są chronieni. Tylko użytkownicy z rolą Administrator uwierzytelniania uprzywilejowanego lub Administrator globalny mogą resetować poświadczenia dla chronionego użytkownika.
 
 **P:** Nie mogę zaktualizować hasła użytkownika. Nie mają przypisanej żadnej wyższej roli uprzywilejowanej. Dlaczego tak się dzieje?
 
@@ -53,8 +53,8 @@ Odp **.:** Tak. Administrator globalny i administrator użytkownika mogą wprowa
 
 Rola katalogu usługi Azure AD | Rola zarządzania uprawnieniami | Może dodać grupę zabezpieczeń\* | Może dodać grupę Microsoft 365\* | Można dodać aplikację | Może dodać witrynę usługi SharePoint Online
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
-Administrator globalny | nie dotyczy | ✔️ | ✔️ | ✔️  | ✔️
-Administrator użytkowników  | nie dotyczy  | ✔️  | ✔️  | ✔️
+Administrator globalny | n/d | ✔️ | ✔️ | ✔️  | ✔️
+Administrator użytkowników  | n/d  | ✔️  | ✔️  | ✔️
 Administrator usługi Intune | Właściciel katalogu | ✔️  | ✔️  | &nbsp;  | &nbsp;
 Administrator programu Exchange  | Właściciel katalogu  | &nbsp; | ✔️  | &nbsp;  | &nbsp;
 Administrator usługi Teams | Właściciel katalogu  | &nbsp; | ✔️  | &nbsp;  | &nbsp;
@@ -89,7 +89,7 @@ Odp **.:** Wykonaj następujące kroki:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i Otwórz **Azure Active Directory**.
 1. Wybierz pozycję Użytkownicy i Otwórz profil użytkownika.
-1. Wybierz **przypisane role**, a następnie:
+1. Wybierz **przypisane role** , a następnie:
 
     - W Azure AD — wersja Premium organizacje licencjonowane P1: wybierz ikonę koła zębatego. Zostanie otwarte okienko, które może dać te informacje.
     - W Azure AD — wersja Premium w organizacji z licencją P2: w kolumnie **członkostwo** znajdziesz bezpośrednie i odziedziczone informacje licencyjne.
@@ -100,5 +100,5 @@ Odp **.:** Jeśli przypiszesz istniejącą grupę do roli, istniejący Właścic
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zarządzanie przypisaniami ról przy użyciu grup chmur](groups-concept.md)
+- [Zarządzanie przypisaniami ról za pomocą grup w chmurze](groups-concept.md)
 - [Tworzenie grupy z możliwością przypisania do roli](groups-create-eligible.md)

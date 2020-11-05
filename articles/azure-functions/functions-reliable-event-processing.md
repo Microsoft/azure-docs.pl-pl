@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: fd784bb184ff9432efc569ac9fd40de93eec0b53
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287221"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379591"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions przetwarzanie niezawodnego zdarzenia
 
@@ -50,7 +50,7 @@ Azure Functions zużywa zdarzenia centrum zdarzeń podczas cyklicznego wykonywan
 
 To zachowanie ujawnia kilka ważnych punktów:
 
-- *Nieobsłużone wyjątki mogą spowodować utratę komunikatów.* Wykonanie, które spowoduje wyjątek, będzie nadal postępować nad wskaźnikiem.  Ustawienie [zasad ponawiania](./functions-bindings-error-pages.md#retry-policies) spowoduje opóźnienie postępu, dopóki nie zostaną ocenione wszystkie zasady ponawiania.
+- *Nieobsłużone wyjątki mogą spowodować utratę komunikatów.* Wykonanie, które spowoduje wyjątek, będzie nadal postępować nad wskaźnikiem.  Ustawienie [zasad ponawiania](./functions-bindings-error-pages.md#retry-policies-preview) spowoduje opóźnienie postępu, dopóki nie zostaną ocenione wszystkie zasady ponawiania.
 - *Funkcje gwarantują dostarczenie co najmniej jednokrotne.* Kod i systemy zależne mogą być konieczne do [uwzględnienia faktu, że ten sam komunikat może zostać odebrany dwa razy](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Obsługa wyjątków
@@ -59,7 +59,7 @@ Zgodnie z ogólną regułą każda funkcja powinna zawierać [blok try/catch](./
 
 ### <a name="retry-mechanisms-and-policies"></a>Zasady i mechanizmy ponawiania
 
-Niektóre wyjątki są przejściowe i nie pojawiają się ponownie po ponownym próbie wykonania operacji później. To dlatego, że pierwszym krokiem jest zawsze ponowienie próby wykonania operacji.  W ramach wykonywania funkcji można wykorzystać [zasady ponawiania prób](./functions-bindings-error-pages.md#retry-policies) aplikacji lub utworzyć logikę ponowień.
+Niektóre wyjątki są przejściowe i nie pojawiają się ponownie po ponownym próbie wykonania operacji później. To dlatego, że pierwszym krokiem jest zawsze ponowienie próby wykonania operacji.  W ramach wykonywania funkcji można wykorzystać [zasady ponawiania prób](./functions-bindings-error-pages.md#retry-policies-preview) aplikacji lub utworzyć logikę ponowień.
 
 Wprowadzenie zachowań obsługi błędów do funkcji pozwala definiować podstawowe i zaawansowane zasady ponawiania. Na przykład można zaimplementować zasady, które po przepływie pracy zilustrowane przez następujące reguły:
 

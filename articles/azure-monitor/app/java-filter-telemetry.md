@@ -4,14 +4,17 @@ description: Zmniejsz ruch telemetrii, filtrując zdarzenia, które nie muszą b
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: e450cf0de7dce4f626fd41252bfeed5fba294c70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 329f07a530a584a14d5312631ec977773e70af29
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761009"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378197"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrowanie danych telemetrycznych w aplikacji sieci Web Java
+
+> [!IMPORTANT]
+> Zalecanym podejściem do monitorowania aplikacji Java jest użycie autoinstrumentacji bez zmiany kodu. Postępuj zgodnie z wytycznymi dla [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
 
 Filtry umożliwiają wybranie danych telemetrycznych [wysyłanych przez aplikację internetową Java do Application Insights](java-get-started.md). Istnieje kilka wbudowanych filtrów, których można użyć, i można również pisać własne filtry niestandardowe.
 

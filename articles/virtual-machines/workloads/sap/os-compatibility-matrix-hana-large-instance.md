@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/21/2020
 ms.author: sasarava
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18e97aea5c556c4f8e6ff1fb1b91a82da6de1b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14cfd1aef3a49baa11050293fc216256f33cee7a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749366"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376667"
 ---
 # <a name="compatible-operating-systems-for-hana-large-instances"></a>Zgodne systemy operacyjne dla dużych wystąpień HANA
 
@@ -39,14 +39,15 @@ ms.locfileid: "88749366"
   | SLES 12 SP4      | Dostępne    | S224oo, S224om, S224ooo, S224oom |
   
 ## <a name="hana-large-instance-type-ii"></a>Typ dużej instancji HANA II     
-  |  System operacyjny       | Dostępność        | Jednostki SKU                                                              |
-  |-------------------------|---------------------|-------------------------------------------------------------------|
-  | SLES 12 SP2             | Nie jest już oferowane | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
-  | SLES 12 Z DODATKIEM SP3             | Dostępne           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
-  | SLES 12 SP4             | Dostępne           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
+  |  System operacyjny       | Dostępność        | Jednostki SKU                                                                     |
+  |-------------------------|---------------------|--------------------------------------------------------------------------|
+  | SLES 12 SP2             | Nie jest już oferowane | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m        |
+  | SLES 12 Z DODATKIEM SP3             | Dostępne           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m        |
+  | SLES 12 SP4             | Dostępne           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m        |
   | SLES 12 Z DODATKIEM SP5             | Dostępne           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
   | SLES 15 SP1             | Dostępne           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
-  
+  | RHEL 7,6                | Dostępne           | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S896m, S960m |
+
 ## <a name="related-documents"></a>Powiązane dokumenty
 
 - Aby dowiedzieć się więcej na temat [dostępnych jednostek SKU](hana-available-skus.md)

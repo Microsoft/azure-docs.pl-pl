@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7d31649e18f8cc687a9716c8ecafe556fa250de6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521513"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377891"
 ---
 # <a name="what-is-the-speech-service"></a>Czym jest usługa rozpoznawania mowy?
 
@@ -26,7 +26,7 @@ Usługa mowy to zjednoczenie zamiany mowy na tekst, tekstu na mowę i tłumaczen
 
 Poniższe funkcje są częścią usługi mowy. Skorzystaj z łączy w tej tabeli, aby dowiedzieć się więcej na temat typowych przypadków użycia dla każdej funkcji, lub przejrzyj odwołanie do interfejsu API.
 
-| Usługa | Cecha | Opis | SDK | REST |
+| Usługa | Cechy | Opis | SDK | REST |
 |---------|---------|-------------|-----|------|
 | [Zamiana mowy na tekst](speech-to-text.md) | Zamiana mowy na tekst w czasie rzeczywistym | Funkcja zamiany mowy na tekst przekształca lub tłumaczy strumienie audio lub pliki lokalne na tekst w czasie rzeczywistym, gdy aplikacje, narzędzia lub urządzenia mogą korzystać z lub wyświetlać. Używaj zamiany mowy na tekst za pomocą [Language Understanding (Luis)](https://docs.microsoft.com/azure/cognitive-services/luis/) , aby uzyskać intencje użytkownika z uzyskanego mowy i korzystać z poleceń głosowych. | [Tak](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Tak](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Zamiana mowy na tekst w usłudze Batch](batch-transcription.md) | Funkcja zamiany mowy na tekst w usłudze Batch umożliwia asynchroniczne transkrypcję zamiany mowy na tekst dużych ilości danych audio mowy przechowywanych w usłudze Azure Blob Storage. Oprócz konwersji dźwięku zamiany mowy na tekst, funkcja zamiany mowy na tekst usługi Batch umożliwia również obsługę diarization i tonacji. | Nie | [Tak](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
@@ -46,14 +46,12 @@ Poniższe funkcje są częścią usługi mowy. Skorzystaj z łączy w tej tabeli
 
 W przypadku następujących kroków wymagane są zarówno konto Microsoft, jak i konto platformy Azure. Jeśli nie masz konto Microsoft, możesz skorzystać z jednej bezpłatnej rejestracji w [portalu konto Microsoft](https://account.microsoft.com/account). Wybierz pozycję **Zaloguj się przy użyciu konta Microsoft** a następnie, gdy zostanie wyświetlony monit o zalogowanie się, wybierz pozycję **Utwórz konto Microsoft**. Postępuj zgodnie z instrukcjami, aby utworzyć i zweryfikować nowe konto Microsoft.
 
-Gdy masz konto Microsoft, przejdź do [strony tworzenia konta platformy Azure](https://azure.microsoft.com/free/ai/), wybierz pozycję **Rozpocznij bezpłatnie**i Utwórz nowe konto platformy Azure przy użyciu konto Microsoft.
+Gdy masz konto Microsoft, przejdź do [strony tworzenia konta platformy Azure](https://azure.microsoft.com/free/ai/), wybierz pozycję **Rozpocznij bezpłatnie** i Utwórz nowe konto platformy Azure przy użyciu konto Microsoft. Oto, [jak zarejestrować się w celu korzystania z bezpłatnego konta platformy Azure](https://www.youtube.com/watch?v=GWT2R1C_uUU).
 
 > [!NOTE]
-> Usługa mowy ma dwie warstwy usług: bezpłatna i subskrypcja, które mają różne ograniczenia i korzyści. Po zarejestrowaniu się w celu uzyskania bezpłatnego konta platformy Azure otrzymasz od $200 w wysokości, które można zastosować do płatnej subskrypcji usługi mowy, która jest ważna przez maksymalnie 30 dni.
+> Po zarejestrowaniu się w celu korzystania z bezpłatnego konta platformy Azure jest on dostępny w wysokości $200 w ramach kredytu na korzystanie z usługi, który można zastosować do płatnej subskrypcji usługi mowy, która jest ważna przez maksymalnie 30 dni. Usługi platformy Azure są wyłączone, gdy środki wygaśnie lub wygasną po upływie 30 dni. Aby nadal korzystać z usług platformy Azure, musisz uaktualnić konto. Aby uzyskać więcej informacji, zobacz [jak uaktualnić bezpłatne konto platformy Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription). 
 >
-> W przypadku korzystania z bezpłatnej warstwy usługi mowy o niskiej pojemności można zachować tę bezpłatną subskrypcję nawet po wygaśnięciu bezpłatnej wersji próbnej lub opłaty za usługę.
->
-> Aby uzyskać więcej informacji, zobacz [Cognitive Services Cennik — Speech Service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Usługa mowy ma dwie warstwy usług: bezpłatna (F0) i subskrypcja (S0), które mają różne ograniczenia i zalety. W przypadku korzystania z bezpłatnej warstwy usługi mowy o niskiej pojemności można zachować tę bezpłatną subskrypcję nawet po wygaśnięciu bezpłatnej wersji próbnej lub opłaty za usługę. Aby uzyskać więcej informacji, zobacz [Cognitive Services Cennik — Speech Service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="create-the-azure-resource"></a>Tworzenie zasobu platformy Azure
 
@@ -61,7 +59,7 @@ Aby dodać zasób usługi mowy (warstwa Bezpłatna lub płatna) do konta platfor
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) za pomocą konta Microsoft.
 
-1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu portalu. Jeśli nie widzisz opcji **Utwórz zasób**, zawsze możesz ją znaleźć, wybierając menu rozwijane w lewym górnym rogu ekranu.
+1. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu portalu. Jeśli nie widzisz opcji **Utwórz zasób** , zawsze możesz ją znaleźć, wybierając menu rozwijane w lewym górnym rogu ekranu.
 
 1. W **nowym** oknie wpisz "mowę" w polu wyszukiwania, a następnie naciśnij klawisz ENTER.
 
@@ -69,14 +67,14 @@ Aby dodać zasób usługi mowy (warstwa Bezpłatna lub płatna) do konta platfor
 
    ![Wyniki wyszukiwania mowy](media/index/speech-search.png)
 
-1. Wybierz pozycję **Utwórz**, a następnie:
+1. Wybierz pozycję **Utwórz** , a następnie:
 
    - Nadaj unikatowej nazwie nowemu zasobowi. Nazwa pomaga rozróżnić wiele subskrypcji powiązanych z tą samą usługą.
-   - Wybierz subskrypcję platformy Azure, z którą jest skojarzony nowy zasób, aby określić, w jaki sposób opłaty są naliczane.
-   - Wybierz [region](regions.md) , w którym będzie używany zasób.
-   - Wybierz opcję bezpłatna (F0) lub płatna (S0). Aby uzyskać pełne informacje na temat cen i przydziałów użycia dla każdej warstwy, wybierz pozycję **Wyświetl pełne szczegóły cennika**. Aby uzyskać ograniczenia dotyczące zasobów, które można utworzyć dla każdej subskrypcji, zobacz [limity Cognitive Services platformy Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
+   - Wybierz subskrypcję platformy Azure, z którą jest skojarzony nowy zasób, aby określić, w jaki sposób opłaty są naliczane. Poniżej przedstawiono wprowadzenie do [tworzenia subskrypcji platformy Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) w Azure Portal.
+   - Wybierz [region](regions.md) , w którym będzie używany zasób. Azure to globalna platforma w chmurze, która jest ogólnie dostępna w wielu regionach na całym świecie. Aby uzyskać najlepszą wydajność, wybierz region, który znajduje się najbliżej Ciebie lub gdzie działa aplikacja. Dostępność usługi mowy różni się od różnych regionów. Upewnij się, że zasób jest tworzony w obsługiwanym regionie. Zobacz [region obsługa usługi Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation).
+   - Wybierz opcję bezpłatna (F0) lub płatna (S0). Aby uzyskać pełne informacje na temat cen i przydziałów użycia dla każdej warstwy, wybierz pozycję **Wyświetl pełne szczegóły cennika** lub zobacz [Cennik usługi Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Limity dotyczące zasobów znajdują się w temacie [limity Cognitive Services platformy Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Utwórz nową grupę zasobów dla tej subskrypcji mowy lub Przypisz subskrypcję do istniejącej grupy zasobów. Grupy zasobów ułatwiają zachowanie różnych subskrypcji platformy Azure.
-   - Wybierz przycisk **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.
+   - Wybierz przycisk **Utwórz**. Spowoduje to przejście do omówienia wdrażania i wyświetlenie komunikatów o postępie wdrażania.  
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
@@ -89,9 +87,9 @@ Aby znaleźć klucze i region ukończonego wdrożenia, wykonaj następujące kro
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) za pomocą konta Microsoft.
 
-2. Wybierz pozycję **wszystkie zasoby**, a następnie wybierz nazwę zasobu Cognitive Services.
+2. Wybierz pozycję **wszystkie zasoby** , a następnie wybierz nazwę zasobu Cognitive Services.
 
-3. W okienku po lewej stronie w obszarze **Zarządzanie zasobami**wybierz pozycję **klucze i punkt końcowy**.
+3. W okienku po lewej stronie w obszarze **Zarządzanie zasobami** wybierz pozycję **klucze i punkt końcowy**.
 
 Każda subskrypcja ma dwa klucze: Możesz użyć dowolnego klawisza w aplikacji. Aby skopiować/wkleić klucz do edytora kodu lub innej lokalizacji, wybierz przycisk Kopiuj obok każdego klucza, Przełącz system Windows, aby wkleić zawartość schowka do żądanej lokalizacji.
 

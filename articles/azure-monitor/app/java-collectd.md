@@ -3,15 +3,17 @@ title: Monitorowanie wydajności aplikacji sieci Web w języku Java w systemie L
 description: Rozszerzone monitorowanie wydajności aplikacji w witrynie Java za pomocą zebranej wtyczki dla Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: fd061d6dd1f87456b92a61c9a62caaf3ef3189b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b64226c9e788e060298050a74d9009c8035b89
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761026"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379013"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>zebrane: metryki wydajności systemu Linux w Application Insights
 
+> [!IMPORTANT]
+> Zalecanym podejściem do monitorowania aplikacji Java jest użycie autoinstrumentacji bez zmiany kodu. Postępuj zgodnie z wytycznymi dla [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
 
 Aby poznać metryki wydajności systemu Linux w [Application Insights](./app-insights-overview.md), należy zainstalować [zebrane](https://collectd.org/)dane wraz z wtyczką Application Insights. To rozwiązanie "open source" gromadzi różne statystyki systemu i sieci.
 

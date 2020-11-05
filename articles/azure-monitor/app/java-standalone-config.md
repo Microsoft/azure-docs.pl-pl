@@ -1,47 +1,50 @@
 ---
-title: Monitoruj aplikacje Java w dowolnym miejscu — Azure Monitor Application Insights
-description: Monitorowanie wydajności aplikacji bezkodowej dla aplikacji Java działających w dowolnym środowisku bez Instrumentacji aplikacji. Znajdź główną przyczynę problemów d przy użyciu śledzenia rozproszonego i mapy aplikacji.
+title: Opcje konfiguracji — Azure Monitor Application Insights Java
+description: Opcje konfiguracji Azure Monitor Application Insights Java
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 36f2add41457d1d82b0efd6c6804496018c85225
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 710347061f072fe66987d88852045986c00812c8
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215267"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377687"
 ---
-# <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opcje konfiguracji — autonomiczny Agent Java dla Azure Monitor Application Insights
+# <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opcje konfiguracji Azure Monitor Application Insights Java
 
-
+> [!WARNING]
+> **W przypadku uaktualniania programu z wersji zapoznawczej 3,0**
+>
+> Dokładnie Przejrzyj wszystkie opcje konfiguracji, ponieważ struktura JSON została całkowicie zmieniona, oprócz samej nazwy pliku, która wystąpiła tylko małymi literami.
 
 ## <a name="connection-string-and-role-name"></a>Parametry połączenia i nazwa roli
 
+Parametry połączenia i nazwa roli to najczęściej używane ustawienia, które należy wykonać, aby rozpocząć:
+
 ```json
 {
-  "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-    "preview": {
-      "roleName": "my cloud role name"
-    }
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "role": {
+    "name": "my cloud role name"
   }
 }
 ```
 
 Parametry połączenia są wymagane, a nazwa roli jest ważna za każdym razem, gdy wysyłasz dane z różnych aplikacji do tego samego Application Insightsgo zasobu.
 
-Aby uzyskać więcej informacji, Zobacz więcej szczegółów i dodatkowe opcje konfiguracji.
+Poniżej znajdziesz więcej szczegółów i dodatkowe opcje konfiguracji.
 
 ## <a name="configuration-file-path"></a>Ścieżka pliku konfiguracji
 
-Domyślnie program Application Insights Java 3,0 Preview oczekuje, że plik konfiguracji jest nazwany `ApplicationInsights.json` i znajduje się w tym samym katalogu, co `applicationinsights-agent-3.0.0-PREVIEW.5.jar` .
+Domyślnie Application Insights Java 3,0 oczekuje, że plik konfiguracji jest nazwany `applicationinsights.json` i znajduje się w tym samym katalogu co `applicationinsights-agent-3.0.0.jar` .
 
 Ścieżkę do pliku konfiguracji można określić przy użyciu opcji
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` Zmienna środowiskowa lub
-* `applicationinsights.configurationFile` Właściwość systemu Java
+* `applicationinsights.configuration.file` Właściwość systemu Java
 
-W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.0-PREVIEW.5.jar` znajduje się lokalizacja.
+W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.0.jar` znajduje się lokalizacja.
 
 ## <a name="connection-string"></a>Parametry połączenia
 
@@ -52,9 +55,7 @@ Jest to wymagane. Parametry połączenia można znaleźć w zasobie Application 
 
 ```json
 {
-  "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
-  }
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -70,10 +71,8 @@ Jeśli chcesz ustawić nazwę roli w chmurze:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {   
-      "roleName": "my cloud role name"
-    }
+  "role": {   
+    "name": "my cloud role name"
   }
 }
 ```
@@ -90,43 +89,118 @@ Jeśli chcesz ustawić inną rolę w chmurze, a nie nazwę komputera:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "roleInstance": "my cloud role instance"
-    }
+  "role": {
+    "name": "my cloud role name",
+    "instance": "my cloud role instance"
   }
 }
 ```
 
 Możesz również ustawić wystąpienie roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_INSTANCE` .
 
-## <a name="application-log-capture"></a>Przechwytywanie dziennika aplikacji
+## <a name="sampling"></a>Próbkowanie
 
-Application Insights Java 3,0 Preview automatycznie przechwytuje rejestrowanie aplikacji za pośrednictwem Log4J, Logback i Java. util. Logging.
+Próbkowanie jest przydatne, jeśli zachodzi potrzeba obniżenia kosztów.
+Próbkowanie jest wykonywane jako funkcja w IDENTYFIKATORze operacji (znanym także jako identyfikator śledzenia), dzięki czemu ten sam Identyfikator operacji będzie zawsze powodował tę samą decyzję o próbkowaniu. Dzięki temu nie będzie można pobrać części transakcji rozproszonej próbkowanej w czasie, gdy inne części tego elementu są próbkowane.
 
-Domyślnie zostanie przechwycone rejestrowanie wykonane na `INFO` poziomie lub wyższym.
+Jeśli na przykład ustawisz próbkowanie do 10%, zobaczysz tylko 10% transakcji, ale każdy z nich będzie miał pełne szczegółowe informacje o transakcjach.
 
-Jeśli chcesz zmienić ten próg:
+Oto przykład sposobu ustawiania próbkowania do przechwytywania około **1/3 wszystkich transakcji** — upewnij się, że ustawiono częstotliwość próbkowania poprawną dla przypadku użycia:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "instrumentation": {
-        "logging": {
-          "threshold": "WARN"
-        }
-      }
+  "sampling": {
+    "percentage": 33.333
+  }
+}
+```
+
+Możesz również ustawić procent próbkowania przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
+
+> [!NOTE]
+> W polu procent próbkowania wybierz wartość procentową zbliżoną do 100/N, gdzie N jest liczbą całkowitą. Obecnie próbkowanie nie obsługuje innych wartości.
+
+## <a name="jmx-metrics"></a>Metryki JMX
+
+Jeśli chcesz zebrać pewne dodatkowe metryki JMX:
+
+```json
+{
+  "jmxMetrics": [
+    {
+      "name": "JVM uptime (millis)",
+      "objectName": "java.lang:type=Runtime",
+      "attribute": "Uptime"
+    },
+    {
+      "name": "MetaSpace Used",
+      "objectName": "java.lang:type=MemoryPool,name=Metaspace",
+      "attribute": "Usage.used"
+    }
+  ]
+}
+```
+
+`name` to nazwa metryki, która zostanie przypisana do tej metryki JMX (może być dowolna).
+
+`objectName` jest [nazwą obiektu](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) komponentu JMX, który chcesz zebrać.
+
+`attribute` to nazwa atrybutu w JMX MBean, który ma zostać zebrany.
+
+Obsługiwane są wartości liczbowe i logiczne metryki JMX. Metryki logiczne JMX są mapowane na `0` wartość false, a `1` dla wartości true.
+
+[//]: # "Uwaga: nie dokumentuje APPLICATIONINSIGHTS_JMX_METRICS tym miejscu"
+[//]: # "kod JSON osadzony w zmiennej ENV jest bałaganem i powinien być udokumentowany tylko dla scenariusza dołączania bezkodowego"
+
+## <a name="custom-dimensions"></a>Wymiary niestandardowe
+
+Jeśli chcesz dodać wymiary niestandardowe do wszystkich danych telemetrycznych:
+
+```json
+{
+  "customDimensions": {
+    "mytag": "my value",
+    "anothertag": "${ANOTHER_VALUE}"
+  }
+}
+```
+
+`${...}` można go użyć do odczytu wartości z określonej zmiennej środowiskowej podczas uruchamiania.
+
+## <a name="telemetry-processors-preview"></a>Procesory telemetrii (wersja zapoznawcza)
+
+Jest to funkcja w wersji zapoznawczej.
+
+Umożliwia konfigurowanie reguł, które będą stosowane do żądania, zależności i danych telemetrycznych śledzenia, np.
+ * Maskowanie danych poufnych
+ * Warunkowe dodawanie wymiarów niestandardowych
+ * Aktualizowanie nazwy telemetrii używanej do agregacji i wyświetlania
+
+Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [procesora telemetrii](./java-standalone-telemetry-processors.md) .
+
+## <a name="auto-collected-logging"></a>Rejestrowanie z autozbieraniem
+
+Log4J, Logback i Java. util. Logging są autoinstrumentami, a rejestrowanie wykonywane za pośrednictwem tych platform rejestrowania jest zbierane z autogromadzeniem.
+
+Domyślnie rejestrowanie jest zbierane tylko wtedy, gdy rejestrowanie odbywa się na `INFO` poziomie lub wyższym.
+
+Jeśli chcesz zmienić ten poziom kolekcji:
+
+```json
+{
+  "instrumentation": {
+    "logging": {
+      "level": "WARN"
     }
   }
 }
 ```
 
-Można również ustawić próg rejestrowania przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_LOGGING_THRESHOLD` .
+Można również ustawić próg przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` .
 
-Są to prawidłowe `threshold` wartości, które można określić w `ApplicationInsights.json` pliku i jak są one odnoszące się do poziomów rejestrowania w różnych strukturach rejestrowania:
+Są to prawidłowe `level` wartości, które można określić w `applicationinsights.json` pliku oraz jak są one zgodne z poziomami rejestrowania w różnych strukturach rejestrowania:
 
-| wartość progowa   | Log4J  | Logback | LIP     |
+| poziom             | Log4J  | Logback | LIP     |
 |-------------------|--------|---------|---------|
 | WYŁ.               | WYŁ.    | WYŁ.     | WYŁ.     |
 | KRYTYCZN             | KRYTYCZN  | ERROR   | WAŻNY  |
@@ -139,53 +213,19 @@ Są to prawidłowe `threshold` wartości, które można określić w `Applicatio
 | TRACE (lub FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="jmx-metrics"></a>Metryki JMX
+## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Zbierane metryki Micrometer (w tym metryki uruchamiającego rozruch z sprężyną)
 
-Jeśli masz pewne JMX metryki, które chcesz przechwytywać:
+Jeśli aplikacja używa [Micrometer](https://micrometer.io), metryki, które są wysyłane do rejestru globalnego Micrometer, są zbierane na podstawie autodostrajania.
 
-```json
-{
-  "instrumentationSettings": {
-    "preview": {
-      "jmxMetrics": [
-        {
-          "objectName": "java.lang:type=Runtime",
-          "attribute": "Uptime",
-          "display": "JVM uptime (millis)"
-        },
-        {
-          "objectName": "java.lang:type=MemoryPool,name=Metaspace",
-          "attribute": "Usage.used",
-          "display": "MetaSpace Used"
-        }
-      ]
-    }
-  }
-}
-```
+Ponadto, jeśli aplikacja korzysta z [uruchamiającego uruchamianie sprężynowe](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), metryki skonfigurowane przez siłownik rozruchu sprężyny są również zbierane domyślnie.
 
-Obsługiwane są wartości liczbowe i logiczne metryki JMX. Metryki logiczne JMX są mapowane na `0` wartość false, a `1` dla wartości true.
-
-[//]: # "Uwaga: nie dokumentuje APPLICATIONINSIGHTS_JMX_METRICS tym miejscu"
-[//]: # "kod JSON osadzony w zmiennej ENV jest bałaganem i powinien być udokumentowany tylko dla scenariusza dołączania bezkodowego"
-
-## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer (w tym metryki z siłownika rozruchu sprężynowego)
-
-Jeśli aplikacja używa [Micrometer](https://micrometer.io), Application Insights 3,0 (począwszy od wersji zapoznawczej. 2) teraz przechwytuje metryki wysyłane do rejestru globalnego Micrometer.
-
-Jeśli aplikacja korzysta z [siłownika uruchomienia sprężynowego](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), Application Insights 3,0 (począwszy od wersji zapoznawczej. 4) teraz przechwytuje metryki skonfigurowane przez siłownik rozruchu sprężynowego (który używa Micrometer, ale nie używa rejestru globalnego Micrometer).
-
-Jeśli chcesz wyłączyć te funkcje:
+Aby wyłączyć autozbieranie metryk Micrometer (w tym metryki uruchamiającego uruchamianie sprężynowe):
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "instrumentation": {
-        "micrometer": {
-          "enabled": false
-        }
-      }
+  "instrumentation": {
+    "micrometer": {
+      "enabled": false
     }
   }
 }
@@ -193,16 +233,12 @@ Jeśli chcesz wyłączyć te funkcje:
 
 ## <a name="heartbeat"></a>Puls
 
-Domyślnie program Application Insights Java 3,0 Preview wysyła metrykę pulsu co 15 minut. Jeśli używasz metryki pulsu do wyzwalania alertów, możesz zwiększyć częstotliwość tego pulsu:
+Domyślnie Application Insights Java 3,0 wysyła metrykę pulsu co 15 minut. Jeśli używasz metryki pulsu do wyzwalania alertów, możesz zwiększyć częstotliwość tego pulsu:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "heartbeat": {
-        "intervalSeconds": 60
-      }
-    }
+  "heartbeat": {
+    "intervalSeconds": 60
   }
 }
 ```
@@ -210,86 +246,63 @@ Domyślnie program Application Insights Java 3,0 Preview wysyła metrykę pulsu 
 > [!NOTE]
 > Nie można zmniejszyć częstotliwości tego pulsu, ponieważ dane pulsu są również używane do śledzenia użycia Application Insights.
 
-## <a name="sampling"></a>Próbkowanie
-
-Próbkowanie jest przydatne, jeśli zachodzi potrzeba obniżenia kosztów.
-Próbkowanie jest wykonywane jako funkcja w IDENTYFIKATORze operacji (znanym także jako identyfikator śledzenia), dzięki czemu ten sam Identyfikator operacji będzie zawsze powodował tę samą decyzję o próbkowaniu. Dzięki temu nie będzie można pobrać części transakcji rozproszonej próbkowanej w czasie, gdy inne części tego elementu są próbkowane.
-
-Jeśli na przykład ustawisz próbkowanie do 10%, zobaczysz tylko 10% transakcji, ale każdy z nich będzie miał pełne szczegółowe informacje o transakcjach.
-
-Oto przykład sposobu ustawiania próbkowania do **10% wszystkich transakcji** — upewnij się, że ustawiono częstotliwość próbkowania poprawną dla przypadku użycia:
-
-```json
-{
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10
-        }
-      }
-    }
-  }
-}
-```
-
-Możesz również ustawić procent próbkowania przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
-
 ## <a name="http-proxy"></a>Serwer proxy HTTP
 
-Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośrednio z Application Insights (zobacz [adresy IP używane przez Application Insights](./ip-addresses.md)), można skonfigurować Application Insights Java 3,0 Preview do korzystania z serwera proxy http:
+Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośrednio z Application Insights (zobacz [adresy IP używane przez Application Insights](./ip-addresses.md)), można skonfigurować Application Insights Java 3,0 do korzystania z serwera proxy http:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "httpProxy": {
-        "host": "myproxy",
-        "port": 8080
-      }
-    }
+  "proxy": {
+    "host": "myproxy",
+    "port": 8080
   }
 }
 ```
+
+[//]: # "Pamiętaj, aby nie ogłaszać pomocy technicznej OpenTelemetry do momentu wsparcia 0.10.0, który ma ogromne zmiany od 0.9.0"
+
+[//]: # "Obsługa # # w przypadku wersji pre-1,0 interfejsu API OpenTelemetry"
+
+[//]: # "Obsługa wersji pre-1,0 interfejsu API OpenTelemetry jest zgodą, ponieważ interfejs API OpenTelemetry nie jest jeszcze stabilny"
+[//]: # "w związku z tym każda wersja agenta obsługuje tylko specjalne wersje 1,0 interfejsu API OpenTelemetry"
+[//]: # "(to ograniczenie nie zostanie zastosowane po wydaniu interfejsu API OpenTelemetry 1,0)."
+
+[//]: # "plik JSON "" ""
+[//]: # "{"
+[//]: # "  \"wersja zapoznawcza \" : {"
+[//]: # "    \"openTelemetryApiSupport \" : true"
+[//]: # "  }"
+[//]: # "}"
+[//]: # "```"
 
 ## <a name="self-diagnostics"></a>Samodiagnostyka
 
-"Samodiagnostyka" odnosi się do rejestrowania wewnętrznego z Application Insights Java 3,0 Preview.
+"Samodiagnostyka" odnosi się do rejestrowania wewnętrznego z Application Insights Java 3,0.
 
 Może to być przydatne w przypadku wykrywania trendów i diagnozowania problemów Application Insights samego siebie.
 
-Domyślnie program loguje się do konsoli o poziomie `warn` odpowiadającym tej konfiguracji:
+Domyślnie program Application Insights dzienniki Java 3,0 na poziomie `INFO` zarówno do pliku, `applicationinsights.log` jak i konsoli programu, odpowiadającej tej konfiguracji:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "selfDiagnostics": {
-        "destination": "console",
-        "level": "WARN"
-      }
+  "selfDiagnostics": {
+    "destination": "file+console",
+    "level": "INFO",
+    "file": {
+      "path": "applicationinsights.log",
+      "maxSizeMb": 5,
+      "maxHistory": 1
     }
   }
 }
 ```
 
-Prawidłowymi poziomami są `OFF` , `ERROR` , `WARN` ,, `INFO` `DEBUG` i `TRACE` .
+`destination` może być jedną z `file` , `console` lub `file+console` .
 
-Jeśli chcesz zalogować się do pliku zamiast rejestrowania w konsoli programu:
+`level` może być jedną z `OFF` , `ERROR` ,,, `WARN` `INFO` `DEBUG` lub `TRACE` .
 
-```json
-{
-  "instrumentationSettings": {
-    "preview": {
-      "selfDiagnostics": {
-        "destination": "file",
-        "directory": "/var/log/applicationinsights",
-        "level": "WARN",
-        "maxSizeMB": 10
-      }
-    }
-  }
-}
-```
+`path` może być ścieżką bezwzględną lub względną. Ścieżki względne są rozwiązywane względem katalogu, gdzie się `applicationinsights-agent-3.0.0.jar` znajduje.
 
-W przypadku korzystania z funkcji rejestrowania plików, gdy trafią pliki `maxSizeMB` , nastąpi Przerzucanie, a oprócz bieżącego pliku dziennika zostanie zachowany tylko ostatnio ukończony plik dziennika.
+`maxSizeMb` jest maksymalnym rozmiarem pliku dziennika przed przekazaniem go.
+
+`maxHistory` to liczba rzutowanych plików dziennika (oprócz bieżącego pliku dziennika).

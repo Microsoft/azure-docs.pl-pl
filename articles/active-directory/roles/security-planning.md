@@ -6,20 +6,20 @@ keywords: ''
 author: curtand
 manager: daveba
 ms.author: curtand
-ms.date: 04/30/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf41a16975505b76e4b49fdf4e73faeb187ddfe
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 69428898ca123bf5b5fa96cf041818cc15f5ac40
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378245"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378639"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD
 
@@ -364,7 +364,7 @@ Zabezpieczanie uprzywilejowanego dostępu jest ważne, aby ustanowić gwarancje 
 * Serwery
 * Aplikacje
 * Komputery
-* Urządzenia
+* Devices
 * Sieć szkieletowa chmury
 
 Podczas zarządzania kontami uprzywilejowanego dostępu zalecamy stosowanie następujących zasad:

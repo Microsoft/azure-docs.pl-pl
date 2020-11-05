@@ -7,19 +7,19 @@ manager: daveba
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ece458960002fb6af9e0ef5065e6e926a9fc17d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d55e7f29c9ecefa7cfcf98ef890d9982b044ef30
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378301"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378826"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -69,7 +69,7 @@ Użytkownicy w tej roli mogą tworzyć rejestracje aplikacji, gdy ustawienie "u�
 
 ### <a name="authentication-administrator"></a>[Administrator uwierzytelniania](#authentication-administrator-permissions)
 
-Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędące hasłami dla niektórych użytkowników i mogą aktualizować hasła dla wszystkich użytkowników. Administratorzy uwierzytelniania mogą wymagać od użytkowników, którzy nie są administratorami lub przypisani do niektórych ról do ponownego zarejestrowania istniejących poświadczeń niezwiązanych z hasłem (na przykład MFA lub FIDO), a także do odwoływania się do **zapamiętania usługi MFA na urządzeniu**, które monituje o usługę MFA przy następnym logowaniu. Te akcje dotyczą tylko użytkowników, którzy nie są administratorami lub mają przypisane co najmniej jedną z następujących ról:
+Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędące hasłami dla niektórych użytkowników i mogą aktualizować hasła dla wszystkich użytkowników. Administratorzy uwierzytelniania mogą wymagać od użytkowników, którzy nie są administratorami lub przypisani do niektórych ról do ponownego zarejestrowania istniejących poświadczeń niezwiązanych z hasłem (na przykład MFA lub FIDO), a także do odwoływania się do **zapamiętania usługi MFA na urządzeniu** , które monituje o usługę MFA przy następnym logowaniu. Te akcje dotyczą tylko użytkowników, którzy nie są administratorami lub mają przypisane co najmniej jedną z następujących ról:
 
 * Administrator uwierzytelniania
 * Czytelnicy katalogów
@@ -233,7 +233,7 @@ Użytkownicy w tej roli mogą odczytywać ustawienia i informacje administracyjn
 >- [Centrum administracyjne usługi OneDrive](https://admin.onedrive.com/) — centrum administracyjne usługi OneDrive nie obsługuje roli czytnika globalnego
 >- [Centrum administracyjne M365](https://admin.microsoft.com/Adminportal/Home#/homepage) — globalny czytnik nie może odczytać żądań skrytki klienta. Nie znajdziesz karty **żądania skrytki klienta** w obszarze **Pomoc techniczna** w lewym okienku Centrum administracyjnego M365.
 >- [Centrum zgodności & zabezpieczeń pakietu Office](https://sip.protection.office.com/homepage) — czytnik globalny nie może odczytać dzienników inspekcji SCC, przeprowadzić wyszukiwania zawartości lub zobaczyć zabezpieczony wynik.
->- [Centrum administracyjne zespołów](https://admin.teams.microsoft.com) — globalny czytnik nie może odczytywać **zespołów cykl życia**, **Analiza & raporty**, **Zarządzanie urządzeniami telefonicznymi IP** i **wykaz aplikacji**.
+>- [Centrum administracyjne zespołów](https://admin.teams.microsoft.com) — globalny czytnik nie może odczytywać **zespołów cykl życia** , **Analiza & raporty** , **Zarządzanie urządzeniami telefonicznymi IP** i **wykaz aplikacji**.
 >- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) nie obsługuje roli czytnika globalnego.
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) — Global Reader jest obsługiwany tylko [w przypadku raportowania centralnego](/azure/information-protection/reports-aip) , a organizacja usługi Azure AD nie jest na [ujednoliconej platformie etykietowania](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
@@ -311,7 +311,7 @@ Użytkownicy w tej roli mogą monitorować powiadomienia i aktualizacje kondycji
 
 Nie używaj. Ta rola jest automatycznie przypisana z handlu i nie jest przeznaczona do użycia ani nie jest obsługiwana w żadnym innym przypadku. Zobacz szczegóły poniżej.
 
-Rola użytkownika nowoczesnego handlu zapewnia określonym użytkownikom uprawnienia dostępu do centrum administracyjnego Microsoft 365, a następnie wyświetla lewe wpisy nawigacyjne dla **domu**, **rozliczeń**i **pomocy technicznej**. Zawartość dostępna w tych obszarach jest kontrolowana przez [role specyficzne dla handlu](../../cost-management-billing/manage/understand-mca-roles.md) , które są przypisane do użytkowników w celu zarządzania produktami zakupionymi dla siebie lub w organizacji. Mogą to być takie zadania, jak płacisz rachunki lub dostęp do kont rozliczeń i profilów rozliczeń. 
+Rola użytkownika nowoczesnego handlu zapewnia określonym użytkownikom uprawnienia dostępu do centrum administracyjnego Microsoft 365, a następnie wyświetla lewe wpisy nawigacyjne dla **domu** , **rozliczeń** i **pomocy technicznej**. Zawartość dostępna w tych obszarach jest kontrolowana przez [role specyficzne dla handlu](../../cost-management-billing/manage/understand-mca-roles.md) , które są przypisane do użytkowników w celu zarządzania produktami zakupionymi dla siebie lub w organizacji. Mogą to być takie zadania, jak płacisz rachunki lub dostęp do kont rozliczeń i profilów rozliczeń. 
 
 Użytkownicy z rolą użytkownika Modern Commerce zazwyczaj mają uprawnienia administracyjne w innych systemach zakupów firmy Microsoft, ale nie mają ról administratora globalnego lub administratora rozliczeń służących do uzyskiwania dostępu do centrum administracyjnego. 
 

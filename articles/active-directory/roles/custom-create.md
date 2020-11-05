@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa5671a73c8a4de945a2013d8678d7f0f74625e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4446e5b8abf9ac308a5eb32cadf31eddfcb9d9a1
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097995"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379251"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Tworzenie i przypisywanie roli niestandardowej w Azure Active Directory
 
@@ -31,11 +31,11 @@ Role niestandardowe można tworzyć na karcie [role i Administratorzy](https://p
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Utwórz nową rolę niestandardową, aby udzielić dostępu do zarządzania rejestracjami aplikacji
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji usługi Azure AD.
-1. Wybierz pozycję **Azure Active Directory**  >  **role i Administratorzy**  >  **Nowa rola niestandardowa** .
+1. Wybierz pozycję **Azure Active Directory**  >  **role i Administratorzy**  >  **Nowa rola niestandardowa**.
 
    ![Tworzenie lub edytowanie ról na stronie role i Administratorzy](./media/custom-create/new-custom-role.png)
 
-1. Na karcie **podstawowe** Podaj nazwę i opis roli, a następnie kliknij przycisk **dalej** .
+1. Na karcie **podstawowe** Podaj nazwę i opis roli, a następnie kliknij przycisk **dalej**.
 
    ![Podaj nazwę i opis roli niestandardowej na karcie podstawowe](./media/custom-create/basics-tab.png)
 
@@ -44,8 +44,8 @@ Role niestandardowe można tworzyć na karcie [role i Administratorzy](https://p
 
       ![Wybierz uprawnienia roli niestandardowej na karcie uprawnienia](./media/custom-create/permissions-tab.png)
 
-   1. Następnie wprowadź wartość "podstawowa" na pasku wyszukiwania, wybierz `microsoft.directory/applications/basic/update` uprawnienie, a następnie kliknij przycisk **dalej** .
-1. Na karcie **Recenzja + tworzenie** Przejrzyj uprawnienia i wybierz pozycję **Utwórz** .
+   1. Następnie wprowadź wartość "podstawowa" na pasku wyszukiwania, wybierz `microsoft.directory/applications/basic/update` uprawnienie, a następnie kliknij przycisk **dalej**.
+1. Na karcie **Recenzja + tworzenie** Przejrzyj uprawnienia i wybierz pozycję **Utwórz**.
 
 Rola niestandardowa zostanie wyświetlona na liście dostępnych ról do przypisania.
 
@@ -169,12 +169,12 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 Podobnie jak wbudowane role, role niestandardowe są domyślnie przypisywane do zakresu całego całej organizacji, aby przyznać uprawnienia dostępu do wszystkich rejestracji aplikacji w organizacji. Jednak w przeciwieństwie do wbudowanych ról role niestandardowe można także przypisać do zakresu pojedynczego zasobu usługi Azure AD. Dzięki temu użytkownik może przyznać użytkownikowi uprawnienia do aktualizowania poświadczeń i podstawowych właściwości pojedynczej aplikacji bez konieczności tworzenia drugiej roli niestandardowej.
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu uprawnień dewelopera aplikacji w organizacji usługi Azure AD.
-1. Wybierz pozycję **Rejestracje aplikacji** .
+1. Wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz rejestrację aplikacji, do której chcesz udzielić dostępu do zarządzania. Może być konieczne wybranie opcji **wszystkie aplikacje** , aby wyświetlić pełną listę rejestracji aplikacji w organizacji usługi Azure AD.
 
     ![Wybierz rejestrację aplikacji jako zakres zasobów dla przypisania roli](./media/custom-create/appreg-all-apps.png)
 
-1. W obszarze Rejestracja aplikacji wybierz pozycję **role i Administratorzy** . Jeśli jeszcze tego nie zrobiono, instrukcje znajdują się w [poprzedniej procedurze](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
+1. W obszarze Rejestracja aplikacji wybierz pozycję **role i Administratorzy**. Jeśli jeszcze tego nie zrobiono, instrukcje znajdują się w [poprzedniej procedurze](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
 
 1. Wybierz rolę, aby otworzyć stronę **przypisania** .
 1. Wybierz pozycję **Dodaj przypisanie** , aby dodać użytkownika. Użytkownikowi zostaną przydzielone wszystkie uprawnienia tylko do wybranej rejestracji aplikacji.

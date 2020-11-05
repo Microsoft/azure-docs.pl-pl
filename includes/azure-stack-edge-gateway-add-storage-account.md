@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 08/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 30ca4d330d9b16214396ac81e5ab5722ca0e7569
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b6a6cbf51ef2ff1f1ef53b53a2b84c7a4f9510d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254302"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375917"
 ---
 1. W [Azure Portal](https://portal.azure.com/)wybierz Azure Stack zasobów brzegowych, a następnie przejdź do **omówienia**. Urządzenie powinno być w trybie online.
 
@@ -32,8 +32,8 @@ ms.locfileid: "89254302"
     e. Po określeniu wszystkich opcji konta magazynu wybierz pozycję **Dodaj** , aby utworzyć konto magazynu Edge. Otrzymasz powiadomienie o pomyślnym utworzeniu konta magazynu Edge. Nowe konto magazynu Edge zostanie wyświetlone na liście kont magazynu w Azure Portal. 
 
     
-4. W przypadku wybrania tego nowego konta magazynu i przejścia do opcji **klucze dostępu**można znaleźć punkt końcowy usługi BLOB i nazwę konta magazynu. Skopiuj te informacje wraz z kluczami dostępu, aby nawiązać połączenie z kontem magazynu Edge.
+4. W przypadku wybrania tego nowego konta magazynu i przejścia do opcji **klucze dostępu** można znaleźć punkt końcowy usługi BLOB i nazwę konta magazynu. Skopiuj te informacje wraz z kluczami dostępu, aby nawiązać połączenie z kontem magazynu Edge.
 
-    ![Dodawanie konta magazynu](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
+    ![Dodawanie konta magazynu 2](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 
     Klucze dostępu można uzyskać, łącząc się z [lokalnymi interfejsami API urządzenia przy użyciu Azure Resource Manager](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md). 

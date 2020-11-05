@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: e3f067647eb7bdb33b06a9ebdefd8fdd0485e4c6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0fd2312df31e61ae30f4c3fd04dc0991ac0f4675
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294290"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376859"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Samouczek rozszerzania Azure AD B2C ochrony lokalnych aplikacji przy użyciu warstwy strat
 
@@ -65,13 +65,11 @@ Na poniższym diagramie architektury przedstawiono implementację.
 | 4. | Dostawcy tożsamości wzywa użytkownika do poświadczeń. W zależności od dostawcy tożsamości użytkownik może wymagać uwierzytelniania wieloskładnikowego (MFA).|
 | 5. | Dostawcy tożsamości wysyła odpowiedź uwierzytelniania z powrotem do Azure AD B2C. Opcjonalnie podczas tego kroku użytkownik może utworzyć konto lokalne w katalogu Azure AD B2C.|
 | 6. | Azure AD B2C wysyła żądanie użytkownika do punktu końcowego określonego podczas rejestracji aplikacji programu Orchestrator w dzierżawie Azure AD B2C.|
-| 7. | Program Orchestrator szacuje zasady dostępu i oblicza wartości atrybutów do uwzględnienia w nagłówkach HTTP przesyłanych do aplikacji. W tym kroku Koordynator może wywoływać dodatkowych dostawców atrybutów, aby pobrać informacje konieczne do poprawnego ustawienia wartości nagłówka.|
-| 8. | Koordynator ustawia wartości nagłówka i wysyła żądanie do aplikacji.|
-| 9. | Użytkownik jest teraz uwierzytelniony i ma dostęp do aplikacji.|
+| 7. | Program Orchestrator szacuje zasady dostępu i oblicza wartości atrybutów do uwzględnienia w nagłówkach HTTP przesyłanych do aplikacji. W tym kroku Koordynator może wywoływać dodatkowych dostawców atrybutów, aby pobrać informacje konieczne do poprawnego ustawienia wartości nagłówka. Koordynator ustawia wartości nagłówka i wysyła żądanie do aplikacji.|
+| 8. | Użytkownik jest teraz uwierzytelniony i ma dostęp do aplikacji.|
 
 ## <a name="get-maverics-identity-orchestrator"></a>Pobierz Maverics Identity Orchestrator
 
-Aby uzyskać oprogramowanie, którego będziesz używać do integrowania starszej aplikacji lokalnej z Azure AD B2C, skontaktuj się z firmą [stratą](https://www.strata.io/contact/). Po uzyskaniu oprogramowania postępuj zgodnie z poniższymi instrukcjami, aby określić wymagania wstępne dotyczące programu Orchestrator i wykonać wymagane kroki instalacji i konfiguracji.
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>Konfigurowanie dzierżawy Azure AD B2C
 

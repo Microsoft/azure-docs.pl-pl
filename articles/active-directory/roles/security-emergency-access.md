@@ -5,20 +5,20 @@ services: active-directory
 author: markwahl-msft
 manager: daveba
 ms.author: curtand
-ms.date: 11/08/2019
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffcbd77997e230b9b21ed29b47e37236de025f6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378178"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378758"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD
 
@@ -87,34 +87,34 @@ Organizacje powinny monitorować aktywność logowania i rejestrowania inspekcji
 ### <a name="create-an-alert-rule"></a>Tworzenie reguły alertu
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta przypisanego do roli współautor monitorowania w programie Azure monitor.
-1. Wybierz pozycję **wszystkie usługi**, wprowadź ciąg "log Analytics" w obszarze wyszukiwania, a następnie wybierz pozycję **log Analytics obszary robocze**.
+1. Wybierz pozycję **wszystkie usługi** , wprowadź ciąg "log Analytics" w obszarze wyszukiwania, a następnie wybierz pozycję **log Analytics obszary robocze**.
 1. Wybierz obszar roboczy.
 1. W obszarze roboczym wybierz pozycję **alerty**  >  **Nowa reguła alertu**.
-    1. W obszarze **zasób**Sprawdź, czy subskrypcja jest tą, z którą chcesz skojarzyć regułę alertu.
-    1. W obszarze **warunek**wybierz pozycję **Dodaj**.
+    1. W obszarze **zasób** Sprawdź, czy subskrypcja jest tą, z którą chcesz skojarzyć regułę alertu.
+    1. W obszarze **warunek** wybierz pozycję **Dodaj**.
     1. Wybierz pozycję **niestandardowe wyszukiwanie w dzienniku** w obszarze **Nazwa sygnału**.
-    1. W obszarze **zapytanie wyszukiwania**wprowadź następujące zapytanie, wstawiając identyfikatory obiektów dwóch kont szklanych.
+    1. W obszarze **zapytanie wyszukiwania** wprowadź następujące zapytanie, wstawiając identyfikatory obiektów dwóch kont szklanych.
         > [!NOTE]
         > Dla każdego dodatkowego konta ze szlifem, które chcesz dołączyć, Dodaj kolejną "lub UserId = =" ObjectGuid "" do zapytania.
 
         ![Dodawanie identyfikatorów obiektów ze szkła podziału do reguły alertu](./media/security-emergency-access/query-image1.png)
 
-    1. W obszarze **logika alertu**wpisz następujące polecenie:
+    1. W obszarze **logika alertu** wpisz następujące polecenie:
 
         - Na podstawie: liczba wyników
         - Operator: większe niż
         - Wartość progowa: 0
 
-    1. W obszarze **obliczane na podstawie**wybierz **okres (w minutach) okresu** działania zapytania oraz **częstotliwość (w minutach)** , z jaką ma być uruchamiana kwerenda. Częstotliwość powinna być mniejsza lub równa okresowi.
+    1. W obszarze **obliczane na podstawie** wybierz **okres (w minutach) okresu** działania zapytania oraz **częstotliwość (w minutach)** , z jaką ma być uruchamiana kwerenda. Częstotliwość powinna być mniejsza lub równa okresowi.
 
         ![Logika alertu](./media/security-emergency-access/alert-image2.png)
 
     1. Wybierz pozycję **Gotowe**. Teraz możesz wyświetlić szacowany koszt miesięczny tego alertu.
 1. Wybierz grupę akcji użytkowników, którzy będą powiadamiani o alertach. Jeśli chcesz go utworzyć, zobacz [Tworzenie grupy akcji](#create-an-action-group).
 1. Aby dostosować powiadomienia e-mail wysyłane do członków grupy akcji, wybierz akcje w obszarze **Dostosuj akcje**.
-1. W obszarze **szczegóły alertu**Określ nazwę reguły alertu i Dodaj opcjonalny opis.
+1. W obszarze **szczegóły alertu** Określ nazwę reguły alertu i Dodaj opcjonalny opis.
 1. Ustaw **poziom ważności** zdarzenia. Zalecamy, aby ustawić ją na wartość **krytyczną (ważność 0)**.
-1. W obszarze **Włącz regułę przy tworzeniu**pozostaw wartość **tak**.
+1. W obszarze **Włącz regułę przy tworzeniu** pozostaw wartość **tak**.
 1. Aby wyłączyć alerty przez pewien czas, zaznacz pole wyboru **Pomiń alerty** , a następnie wprowadź czas oczekiwania przed ponownym wysłaniem alertu, a następnie wybierz pozycję **Zapisz**.
 1. Kliknij pozycję **Utwórz regułę alertu**.
 

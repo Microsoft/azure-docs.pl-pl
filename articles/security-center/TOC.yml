@@ -223,7 +223,8 @@
         - name: Konfigurowanie usługi Azure Defender dla bazy danych SQL na maszynach wirtualnych platformy Azure
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc'
-        - name: Dostosowywanie zasad ochrony informacji
+        - name: Dostosowywanie zasad ochrony informacji bazy danych SQL
+          displayName: 'sql, database, data discovery'
           href: security-center-info-protection-policy.md
     - name: Korzystanie z usługi Azure Defender dla rejestrów kontenerów
       items:

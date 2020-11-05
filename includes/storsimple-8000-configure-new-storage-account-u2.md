@@ -4,18 +4,18 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d6bad1ec584b28fee77bc654eba8a2d0c7b5df30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1c30b303bd1fe02e0685c7d848be92073ca2f6
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183294"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375791"
 ---
 #### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>Aby dodać poświadczenia konta magazynu w tej samej subskrypcji platformy Azure jako usługa Menedżer urządzeń StorSimple
 
 1. Przejdź do usługi Menedżer urządzeń StorSimple. W sekcji **Konfiguracja** kliknij pozycję **Poświadczenia konta magazynu**.
 
-    ![Poświadczenia konta magazynu](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
+    ![Przejdź do poświadczeń konta magazynu](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
 
 2. W bloku **Poświadczenia konta magazynu** kliknij pozycję **+ Dodaj**.
 
@@ -29,15 +29,15 @@ ms.locfileid: "67183294"
 
     3. W oparciu o wybrane konto magazynu zostanie wyświetlona **lokalizacja** (wyszarzona— nie można jej zmienić w tym miejscu).
 
-    4. Wybierz opcję **Włącz tryb SSL**, aby utworzyć bezpieczny kanał komunikacji sieciowej między urządzeniem i chmurą. Wyłącz opcję **Włącz protokół SSL** tylko, jeśli pracujesz w chmurze prywatnej.
+    4. Wybierz opcję **Włącz tryb SSL** , aby utworzyć bezpieczny kanał komunikacji sieciowej między urządzeniem i chmurą. Wyłącz opcję **Włącz protokół SSL** tylko, jeśli pracujesz w chmurze prywatnej.
 
         ![Blok dodawania poświadczeń konta magazynu](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct3.png)
 
-    5. Kliknij pozycję **Dodaj**, aby uruchomić zadanie tworzenia dla poświadczenia konta magazynu. Po pomyślnym utworzeniu poświadczenia konta magazynu otrzymasz powiadomienie.
+    5. Kliknij pozycję **Dodaj** , aby uruchomić zadanie tworzenia dla poświadczenia konta magazynu. Po pomyślnym utworzeniu poświadczenia konta magazynu otrzymasz powiadomienie.
 
         ![Powiadomienie o powodzeniu dla poświadczeń konta magazynu](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct5.png)
 
 Nowo utworzone konto magazynu zostanie wyświetlone w obszarze listy **Poświadczenia konta magazynu**.
 
-![Lista poświadczeń konta magazynu](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
+![Wyświetl listę poświadczeń konta magazynu](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
 

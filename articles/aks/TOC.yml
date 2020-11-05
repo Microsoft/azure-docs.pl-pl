@@ -59,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Networking
       href: concepts-network.md
-    - name: Storage
+    - name: Magazyn
       href: concepts-storage.md
     - name: Skalowanie
       href: concepts-scale.md
@@ -86,7 +86,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Sieć
+            - name: Networking
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md
@@ -154,6 +154,8 @@
           href: cluster-container-registry-integration.md
         - name: Tworzenie węzłów wirtualnych
           items:
+            - name: Korzystanie z węzłów wirtualnych
+              href: virtual-nodes.md
             - name: Używanie interfejsu wiersza polecenia platformy Azure
               href: virtual-nodes-cli.md
             - name: Korzystanie z witryny Azure Portal

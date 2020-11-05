@@ -4,12 +4,12 @@ description: Objawy, przyczyny i rozwiązania błędów Azure Backup związanych
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 1711652434be3d9937c8199bc1999273ef58e4d0
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: dd6f4d7884b120d2f8b5ea3f3ccb8d5385dd0880
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170289"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377109"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem Azure Backup: problemy z agentem lub rozszerzeniem
 
@@ -23,12 +23,12 @@ Najczęstsze błędy tworzenia kopii zapasowych można rozwiązać, wykonując n
 
 ### <a name="step-1-check-azure-vm-health"></a>Krok 1. Sprawdzanie kondycji maszyny wirtualnej platformy Azure
 
-- **Upewnij się, że stan aprowizacji maszyny wirtualnej platformy Azure to "uruchomiona"**: Jeśli [stan aprowizacji maszyny wirtualnej](../virtual-machines/states-lifecycle.md#provisioning-states) znajduje się w stanie **zatrzymania/cofania przydziału/aktualizacji** , będzie zakłócał operację tworzenia kopii zapasowej. Otwórz *Azure Portal > maszynie wirtualnej > przegląd >* i sprawdź stan maszyny wirtualnej, aby upewnić się, że jest **uruchomiona**  , a następnie spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
-- **Przejrzyj oczekujące aktualizacje systemu operacyjnego lub Uruchom**ponownie: Upewnij się, że nie ma żadnych oczekujących aktualizacji systemu operacyjnego lub nie ma oczekujących ponownych uruchomień na maszynie wirtualnej.
+- **Upewnij się, że stan aprowizacji maszyny wirtualnej platformy Azure to "uruchomiona"** : Jeśli [stan aprowizacji maszyny wirtualnej](../virtual-machines/states-lifecycle.md#provisioning-states) znajduje się w stanie **zatrzymania/cofania przydziału/aktualizacji** , będzie zakłócał operację tworzenia kopii zapasowej. Otwórz *Azure Portal > maszynie wirtualnej > przegląd >* i sprawdź stan maszyny wirtualnej, aby upewnić się, że jest **uruchomiona**  , a następnie spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
+- **Przejrzyj oczekujące aktualizacje systemu operacyjnego lub Uruchom** ponownie: Upewnij się, że nie ma żadnych oczekujących aktualizacji systemu operacyjnego lub nie ma oczekujących ponownych uruchomień na maszynie wirtualnej.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Krok 2. Sprawdzanie kondycji usługi agenta gościa maszyny wirtualnej platformy Azure
 
-- **Upewnij się, że usługa agenta gościa maszyny wirtualnej platformy Azure jest uruchomiona i aktualna**:
+- **Upewnij się, że usługa agenta gościa maszyny wirtualnej platformy Azure jest uruchomiona i aktualna** :
   - Na maszynie wirtualnej z systemem Windows:
     - Przejdź do programu **Services. msc** i upewnij się, że **Usługa agenta gościa maszyny wirtualnej platformy Microsoft Azure** jest uruchomiona. Upewnij się również, że zainstalowano [najnowszą wersję](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) programu. Aby dowiedzieć się więcej, zobacz [problemy z agentem gościa maszyny wirtualnej systemu Windows](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
     - Agent maszyny wirtualnej platformy Azure jest instalowany domyślnie na wszystkich maszynach wirtualnych z systemem Windows wdrożonych z obrazu portalu Azure Marketplace z poziomu witryny Portal, programu PowerShell, interfejsu wiersza polecenia lub szablonu Azure Resource Manager. [Ręczna instalacja agenta](../virtual-machines/extensions/agent-windows.md#manual-installation) może być konieczna podczas tworzenia niestandardowego obrazu maszyny wirtualnej wdrożonego na platformie Azure.
@@ -40,7 +40,7 @@ Najczęstsze błędy tworzenia kopii zapasowych można rozwiązać, wykonując n
 
 ### <a name="step-3-check-azure-vm-extension-health"></a>Krok 3. Sprawdzanie kondycji rozszerzenia maszyny wirtualnej platformy Azure
 
-- Upewnij się, że **wszystkie rozszerzenia maszyny wirtualnej platformy Azure znajdują się w stanie "Inicjowanie obsługi" zakończyło się pomyślnie**: Jeśli dowolne rozszerzenie jest w stanie niepowodzenia, może zakłócać tworzenie kopii zapasowej.
+- Upewnij się, że **wszystkie rozszerzenia maszyny wirtualnej platformy Azure znajdują się w stanie "Inicjowanie obsługi" zakończyło się pomyślnie** : Jeśli dowolne rozszerzenie jest w stanie niepowodzenia, może zakłócać tworzenie kopii zapasowej.
 - *Otwórz Azure Portal > maszynę wirtualną ustawienia > > rozszerzenia >* rozszerzenia i sprawdź, czy wszystkie rozszerzenia zostały **pomyślnie wykonane** .
 - Upewnij się, że wszystkie [problemy z rozszerzeniem](../virtual-machines/extensions/overview.md#troubleshoot-extensions) zostały rozwiązane, a następnie ponów operację tworzenia kopii zapasowej.
 - **Upewnij się, że aplikacja systemowa modelu COM+** jest uruchomiona. Ponadto **usługa Distributed Transaction Coordinator** powinna działać jako **konto usługi sieciowej**. Wykonaj kroki opisane w tym artykule, aby [rozwiązać problemy związane z modelem COM+ i usługą MSDTC](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error).
@@ -49,28 +49,28 @@ Najczęstsze błędy tworzenia kopii zapasowych można rozwiązać, wykonując n
 
 Azure Backup używa rozszerzenia migawki maszyny wirtualnej w celu utworzenia kopii zapasowej spójnej na poziomie aplikacji maszyny wirtualnej platformy Azure. Azure Backup zainstaluje rozszerzenie w ramach pierwszej zaplanowanej kopii zapasowej wyzwalanej po włączeniu kopii zapasowej.
 
-- **Upewnij się, że rozszerzenie VMSnapshot nie jest w stanie niepowodzenia**: wykonaj kroki opisane w tej [sekcji](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) , aby sprawdzić i upewnić się, że rozszerzenie Azure Backup jest w dobrej kondycji.
+- **Upewnij się, że rozszerzenie VMSnapshot nie jest w stanie niepowodzenia** : wykonaj kroki opisane w tej [sekcji](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) , aby sprawdzić i upewnić się, że rozszerzenie Azure Backup jest w dobrej kondycji.
 
-- **Sprawdź, czy program antywirusowy blokuje rozszerzenie**: Niektóre programy antywirusowe mogą uniemożliwiać wykonywanie rozszerzeń.
+- **Sprawdź, czy program antywirusowy blokuje rozszerzenie** : Niektóre programy antywirusowe mogą uniemożliwiać wykonywanie rozszerzeń.
   
-  W momencie niepowodzenia tworzenia kopii zapasowej Sprawdź, czy w ***dziennikach aplikacji Podgląd zdarzeń*** znajdują się wpisy dziennika z ***błędną nazwą aplikacji: IaaSBcdrExtension.exe***. Jeśli zobaczysz wpisy, może to oznaczać, że program antywirusowy skonfigurowany na maszynie wirtualnej ograniczy wykonywanie rozszerzenia kopii zapasowej. Przetestuj przez wykluczenie następujących katalogów w konfiguracji programu antywirusowego, a następnie spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
+  W momencie niepowodzenia tworzenia kopii zapasowej Sprawdź, czy w programie * znajdują się wpisy dziennika, *_Podgląd zdarzeń Dzienniki aplikacji_* _ z _*_nazwą aplikacji powodującej błąd: IaaSBcdrExtension.exe_*_. Jeśli zobaczysz wpisy, może to oznaczać, że program antywirusowy skonfigurowany na maszynie wirtualnej ograniczy wykonywanie rozszerzenia kopii zapasowej. Przetestuj przez wykluczenie następujących katalogów w konfiguracji programu antywirusowego, a następnie spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- **Sprawdź, czy dostęp do sieci jest wymagany**: pakiety rozszerzeń są pobierane z repozytorium rozszerzeń usługi Azure Storage, a operacje przekazywania stanu rozszerzenia są ogłaszane w usłudze Azure Storage. [Dowiedz się więcej](../virtual-machines/extensions/features-windows.md#network-access).
+- _ * Sprawdź, czy dostęp do sieci jest wymagany * *: pakiety rozszerzeń są pobierane z repozytorium rozszerzeń usługi Azure Storage, a operacje przekazywania stanu rozszerzenia są ogłaszane w usłudze Azure Storage. [Dowiedz się więcej](../virtual-machines/extensions/features-windows.md#network-access).
   - Jeśli korzystasz z nieobsługiwanej wersji agenta, musisz zezwolić na dostęp wychodzący do usługi Azure Storage w tym regionie z maszyny wirtualnej.
   - Jeśli zablokowano dostęp do `168.63.129.16` korzystania z zapory gościa lub z serwerem proxy, rozszerzenia zakończą się niepowodzeniem, niezależnie od powyższego. Porty 80, 443 i 32526 są wymagane, [Dowiedz się więcej](../virtual-machines/extensions/features-windows.md#network-access).
 
-- **Upewnij się, że usługa DHCP jest włączona wewnątrz maszyny wirtualnej gościa**: jest to wymagane, aby uzyskać adres hosta lub sieci szkieletowej z serwera DHCP na potrzeby tworzenia kopii zapasowej maszyny wirtualnej IaaS. Jeśli potrzebujesz statycznego prywatnego adresu IP, należy go skonfigurować za pomocą Azure Portal lub PowerShell i upewnić się, że opcja DHCP wewnątrz maszyny wirtualnej jest włączona, [Dowiedz się więcej](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
+- **Upewnij się, że usługa DHCP jest włączona wewnątrz maszyny wirtualnej gościa** : jest to wymagane, aby uzyskać adres hosta lub sieci szkieletowej z serwera DHCP na potrzeby tworzenia kopii zapasowej maszyny wirtualnej IaaS. Jeśli potrzebujesz statycznego prywatnego adresu IP, należy go skonfigurować za pomocą Azure Portal lub PowerShell i upewnić się, że opcja DHCP wewnątrz maszyny wirtualnej jest włączona, [Dowiedz się więcej](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
 
-- **Upewnij się, że usługa składnika zapisywania usługi VSS jest uruchomiona**: wykonaj następujące kroki, aby [rozwiązać problemy z modułem zapisywania usługi VSS](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
-- **Postępuj zgodnie z najlepszymi wskazówkami dotyczącymi tworzenia kopii zapasowych**: Zapoznaj się z [najlepszymi rozwiązaniami, aby włączyć](backup-azure-vms-introduction.md#best-practices)
-- Zapoznaj się z **zaleceniami dotyczącymi szyfrowanych dysków**: w przypadku włączenia kopii zapasowej dla maszyn wirtualnych z szyfrowanym dyskiem upewnij się, że zostały podane wszystkie wymagane uprawnienia. Aby dowiedzieć się więcej, zobacz [wykonywanie kopii zapasowej i przywracanie zaszyfrowanej maszyny wirtualnej platformy Azure](backup-azure-vms-encryption.md).
+- **Upewnij się, że usługa składnika zapisywania usługi VSS jest uruchomiona** : wykonaj następujące kroki, aby [rozwiązać problemy z modułem zapisywania usługi VSS](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
+- **Postępuj zgodnie z najlepszymi wskazówkami dotyczącymi tworzenia kopii zapasowych** : Zapoznaj się z [najlepszymi rozwiązaniami, aby włączyć](backup-azure-vms-introduction.md#best-practices)
+- Zapoznaj się z **zaleceniami dotyczącymi szyfrowanych dysków** : w przypadku włączenia kopii zapasowej dla maszyn wirtualnych z szyfrowanym dyskiem upewnij się, że zostały podane wszystkie wymagane uprawnienia. Aby dowiedzieć się więcej, zobacz [wykonywanie kopii zapasowej i przywracanie zaszyfrowanej maszyny wirtualnej platformy Azure](backup-azure-vms-encryption.md).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable — agent maszyny wirtualnej nie może komunikować się z usługą Azure Backup
 
-**Kod błędu**: UserErrorGuestAgentStatusUnavailable <br>
-**Komunikat o błędzie**: Agent maszyny wirtualnej nie może komunikować się z Azure Backup<br>
+**Kod błędu** : UserErrorGuestAgentStatusUnavailable <br>
+**Komunikat o błędzie** : Agent maszyny wirtualnej nie może komunikować się z Azure Backup<br>
 
 Agent maszyny wirtualnej platformy Azure może zostać zatrzymany, nieaktualny, w stanie niespójnym lub nie został zainstalowany. Te Stany uniemożliwiają usłudze Azure Backup wywoływanie migawek.
 
@@ -81,8 +81,8 @@ Agent maszyny wirtualnej platformy Azure może zostać zatrzymany, nieaktualny, 
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError — nie można nawiązać komunikacji z agentem maszyny wirtualnej w celu uzyskania stanu migawki
 
-**Kod błędu**: GuestAgentSnapshotTaskStatusError<br>
-**Komunikat o błędzie**: nie można nawiązać komunikacji z agentem maszyny wirtualnej w celu uzyskania stanu migawki <br>
+**Kod błędu** : GuestAgentSnapshotTaskStatusError<br>
+**Komunikat o błędzie** : nie można nawiązać komunikacji z agentem maszyny wirtualnej w celu uzyskania stanu migawki <br>
 
 Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup Backup rozpocznie zadanie, komunikując się z rozszerzeniem kopii zapasowej maszyny wirtualnej w celu przeprowadzenia migawki określonego momentu. Jeden z następujących warunków może uniemożliwić wyzwolenie migawki. Jeśli migawka nie zostanie wyzwolona, może wystąpić błąd kopii zapasowej. Wykonaj następujące kroki rozwiązywania problemów w podanej kolejności, a następnie ponów próbę wykonania operacji:  
 
@@ -98,18 +98,18 @@ Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup Ba
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed — maszyna wirtualna jest w stanie nieudanego aprowizowania
 
-**Kod błędu**: UserErrorVmProvisioningStateFailed<br>
-**Komunikat o błędzie**: stan aprowizacji maszyny wirtualnej to niepowodzenie<br>
+**Kod błędu** : UserErrorVmProvisioningStateFailed<br>
+**Komunikat o błędzie** : stan aprowizacji maszyny wirtualnej to niepowodzenie<br>
 
 Ten błąd występuje, gdy jeden z błędów rozszerzenia przełączy maszynę wirtualną w stan niepowodzenia aprowizacji.<br>**Otwórz Azure Portal > maszynę wirtualną ustawienia > > rozszerzenia >** rozszerzenia i sprawdź, czy wszystkie rozszerzenia mają stan **Pomyślne inicjowanie obsługi** . Aby dowiedzieć się więcej, zobacz [Stany aprowizacji](../virtual-machines/states-lifecycle.md#provisioning-states).
 
-- Jeśli jakiekolwiek inne rozszerzenie jest w stanie niepowodzenia, może zakłócać tworzenie kopii zapasowej. Upewnij się, że problemy z rozszerzeniem zostały rozwiązane, i spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
+- Jeśli dowolne rozszerzenie jest w stanie niepowodzenia, może zakłócać tworzenie kopii zapasowej. Upewnij się, że problemy z rozszerzeniem zostały rozwiązane, i spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
 - Jeśli stan aprowizacji maszyn wirtualnych jest w stanie aktualizacji, może to zakłócać tworzenie kopii zapasowej. Upewnij się, że jest w dobrej kondycji i spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached — osiągnięto maksymalny limit kolekcji punktów przywracania
 
-**Kod błędu**: UserErrorRpCollectionLimitReached <br>
-**Komunikat o błędzie**: Osiągnięto maksymalny limit kolekcji punktów przywracania. <br>
+**Kod błędu** : UserErrorRpCollectionLimitReached <br>
+**Komunikat o błędzie** : Osiągnięto maksymalny limit kolekcji punktów przywracania. <br>
 
 - Ten problem może wystąpić, jeśli istnieje blokada grupy zasobów punktu odzyskiwania uniemożliwiająca automatyczne czyszczenie punktów odzyskiwania.
 - Ten problem może również wystąpić w przypadku wyzwolenia wielu kopii zapasowych dziennie. Obecnie zalecamy tylko jedną kopię zapasową dziennie, ponieważ natychmiastowe punkty przywracania są zachowywane przez 1-5 dni na skonfigurowane przechowywanie migawek i tylko 18 RPS pliku można skojarzyć z maszyną wirtualną w danym momencie. <br>
@@ -125,15 +125,15 @@ Aby rozwiązać ten problem, Usuń blokadę z grupy zasobów maszyny wirtualnej,
 
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured — kopia zapasowa nie ma wystarczających uprawnień do magazynu kluczy na potrzeby tworzenia kopii zapasowych zaszyfrowanych maszyn wirtualnych
 
-**Kod błędu**: UserErrorKeyvaultPermissionsNotConfigured <br>
-**Komunikat o błędzie**: kopia zapasowa nie ma wystarczających uprawnień do magazynu kluczy na potrzeby tworzenia kopii zapasowych zaszyfrowanych maszyn wirtualnych. <br>
+**Kod błędu** : UserErrorKeyvaultPermissionsNotConfigured <br>
+**Komunikat o błędzie** : kopia zapasowa nie ma wystarczających uprawnień do magazynu kluczy na potrzeby tworzenia kopii zapasowych zaszyfrowanych maszyn wirtualnych. <br>
 
 Aby operacja tworzenia kopii zapasowej zakończyła się pomyślnie na zaszyfrowanych maszynach wirtualnych, musi mieć uprawnienia dostępu do magazynu kluczy. Uprawnienia można ustawić za pomocą [Azure Portal](./backup-azure-vms-encryption.md) lub za pomocą [programu PowerShell](./backup-azure-vms-automation.md#enable-protection).
 
 ## <a name="extensionsnapshotfailednonetwork---snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a><a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork — nie można wykonać operacji migawki z powodu braku łączności z siecią na maszynie wirtualnej
 
-**Kod błędu**: ExtensionSnapshotFailedNoNetwork<br>
-**Komunikat o błędzie**: operacja migawki nie powiodła się z powodu braku łączności sieciowej na maszynie wirtualnej<br>
+**Kod błędu** : ExtensionSnapshotFailedNoNetwork<br>
+**Komunikat o błędzie** : operacja migawki nie powiodła się z powodu braku łączności sieciowej na maszynie wirtualnej<br>
 
 Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup Backup rozpocznie zadanie, komunikując się z rozszerzeniem kopii zapasowej maszyny wirtualnej w celu przeprowadzenia migawki określonego momentu. Jeden z następujących warunków może uniemożliwić wyzwolenie migawki. Jeśli migawka nie zostanie wyzwolona, może wystąpić błąd kopii zapasowej. Wykonaj następujący krok rozwiązywania problemów, a następnie spróbuj ponownie wykonać operację:
 
@@ -141,8 +141,8 @@ Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup Ba
 
 ## <a name="extensionoperationfailedformanageddisks---vmsnapshot-extension-operation-failed"></a><a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks — nie można wykonać operacji rozszerzenia VMSnapshot
 
-**Kod błędu**: ExtensionOperationFailedForManagedDisks <br>
-**Komunikat o błędzie**: nie można wykonać operacji rozszerzenia VMSnapshot<br>
+**Kod błędu** : ExtensionOperationFailedForManagedDisks <br>
+**Komunikat o błędzie** : nie można wykonać operacji rozszerzenia VMSnapshot<br>
 
 Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup Backup rozpocznie zadanie, komunikując się z rozszerzeniem kopii zapasowej maszyny wirtualnej w celu przeprowadzenia migawki określonego momentu. Jeden z następujących warunków może uniemożliwić wyzwolenie migawki. Jeśli migawka nie zostanie wyzwolona, może wystąpić błąd kopii zapasowej. Wykonaj następujące kroki rozwiązywania problemów w podanej kolejności, a następnie ponów próbę wykonania operacji:  
 **Przyczyna 1: [nie można pobrać stanu migawki lub nie można wykonać migawki](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -151,8 +151,8 @@ Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup Ba
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed/BackUpOperationFailedV2 — nie można utworzyć kopii zapasowej z powodu błędu wewnętrznego
 
-**Kod błędu**: BackUpOperationFailed/BackUpOperationFailedV2 <br>
-**Komunikat o błędzie**: wykonywanie kopii zapasowej nie powiodło się z powodu błędu wewnętrznego — ponów próbę wykonania operacji za kilka minut <br>
+**Kod błędu** : BackUpOperationFailed/BackUpOperationFailedV2 <br>
+**Komunikat o błędzie** : wykonywanie kopii zapasowej nie powiodło się z powodu błędu wewnętrznego — ponów próbę wykonania operacji za kilka minut <br>
 
 Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup backup inicjuje zadanie, komunikując się z rozszerzeniem kopii zapasowej maszyny wirtualnej w celu przeprowadzenia migawki w danym momencie. Jeden z następujących warunków może uniemożliwić wyzwolenie migawki. Jeśli migawka nie zostanie wyzwolona, może wystąpić błąd kopii zapasowej. Wykonaj następujące kroki rozwiązywania problemów w podanej kolejności, a następnie ponów próbę wykonania operacji:  
 **Przyczyna 1: [Agent zainstalowany na maszynie wirtualnej, ale nie odpowiada (dla maszyn wirtualnych z systemem Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -162,15 +162,15 @@ Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup ba
 
 ## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize — skonfigurowane rozmiary dysków nie są obecnie obsługiwane przez Azure Backup
 
-**Kod błędu**: UserErrorUnsupportedDiskSize <br>
-**Komunikat o błędzie**: skonfigurowane rozmiary dysków nie są obecnie obsługiwane przez Azure Backup. <br>
+**Kod błędu** : UserErrorUnsupportedDiskSize <br>
+**Komunikat o błędzie** : skonfigurowane rozmiary dysków nie są obecnie obsługiwane przez Azure Backup. <br>
 
 Operacja tworzenia kopii zapasowej może zakończyć się niepowodzeniem podczas tworzenia kopii zapasowej maszyny wirtualnej o rozmiarze dysku większym niż 32 TB. Ponadto kopia zapasowa szyfrowanych dysków o rozmiarze większym niż 4 TB nie jest obecnie obsługiwana. Upewnij się, że rozmiar dysku jest mniejszy lub równy obsługiwanemu limitowi, dzieląc dysk (y).
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress — nie można zainicjować kopii zapasowej, ponieważ trwa inna operacja tworzenia kopii zapasowej
 
-**Kod błędu**: UserErrorBackupOperationInProgress <br>
-**Komunikat o błędzie**: nie można zainicjować kopii zapasowej, ponieważ trwa inna operacja tworzenia kopii zapasowej<br>
+**Kod błędu** : UserErrorBackupOperationInProgress <br>
+**Komunikat o błędzie** : nie można zainicjować kopii zapasowej, ponieważ trwa inna operacja tworzenia kopii zapasowej<br>
 
 Ostatnie zadanie tworzenia kopii zapasowej nie powiodło się, ponieważ jest w toku istniejące zadanie tworzenia kopii zapasowej. Nie można rozpocząć nowego zadania tworzenia kopii zapasowej, dopóki nie zakończy się bieżące zadanie. Upewnij się, że operacja tworzenia kopii zapasowej jest w toku, przed wyzwoleniem lub zaplanowaniem innej operacji tworzenia kopii zapasowej. Aby sprawdzić stan zadań tworzenia kopii zapasowej, wykonaj następujące czynności:
 
@@ -187,15 +187,15 @@ Jeśli operacja zaplanowanej kopii zapasowej trwa dłużej, konflikt z kolejną 
 
 ## <a name="usererrorcrpreportedusererror---backup-failed-due-to-an-error-for-details-see-job-error-message-details"></a>UserErrorCrpReportedUserError — tworzenie kopii zapasowej nie powiodło się z powodu błędu. Więcej informacji można znaleźć w szczegółach komunikatu o błędzie zadania
 
-**Kod błędu**: UserErrorCrpReportedUserError <br>
-**Komunikat o błędzie**: wykonywanie kopii zapasowej nie powiodło się z powodu błędu. Aby uzyskać szczegółowe informacje, zobacz szczegóły komunikatu o błędzie zadania.
+**Kod błędu** : UserErrorCrpReportedUserError <br>
+**Komunikat o błędzie** : wykonywanie kopii zapasowej nie powiodło się z powodu błędu. Aby uzyskać szczegółowe informacje, zobacz szczegóły komunikatu o błędzie zadania.
 
 Ten błąd jest zgłaszany z maszyny wirtualnej IaaS. Aby zidentyfikować główną przyczynę problemu, przejdź do ustawień magazynu Recovery Services. W sekcji **monitorowanie** wybierz pozycję **zadania tworzenia kopii zapasowej** , aby przefiltrować i wyświetlić stan. Wybierz pozycję **niepowodzenia** , aby przejrzeć szczegóły komunikatu o błędzie. Wykonaj dalsze działania zgodnie z zaleceniami na stronie Szczegóły błędu.
 
 ## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent — tworzenie kopii zapasowej nie powiodło się: Ta maszyna wirtualna nie jest chroniona przez Azure Backup
 
-**Kod błędu**: UserErrorBcmDatasourceNotPresent <br>
-**Komunikat o błędzie**: wykonywanie kopii zapasowej nie powiodło się: Ta maszyna wirtualna nie jest chroniona przez Azure Backup.
+**Kod błędu** : UserErrorBcmDatasourceNotPresent <br>
+**Komunikat o błędzie** : wykonywanie kopii zapasowej nie powiodło się: Ta maszyna wirtualna nie jest chroniona przez Azure Backup.
 
 Sprawdź, czy dana maszyna wirtualna jest aktywna (nie w stanie wstrzymania) chronioną przez Azure Backup. Aby rozwiązać ten problem, upewnij się, że maszyna wirtualna jest aktywna, a następnie spróbuj ponownie wykonać operację.
 
@@ -209,7 +209,7 @@ Agent maszyny wirtualnej mógł zostać uszkodzony lub usługa mogła zostać za
 
 1. Ustal, czy usługa agenta gościa systemu Windows Azure jest uruchomiona w usługach VM Services (Services. msc). Spróbuj ponownie uruchomić usługę agenta gościa systemu Windows Azure i zainicjuj wykonywanie kopii zapasowej.
 2. Jeśli usługa agenta gościa platformy Microsoft Azure nie jest widoczna w obszarze usługi, w panelu sterowania przejdź do pozycji **programy i funkcje** , aby określić, czy zainstalowano usługę agenta gościa systemu Windows Azure.
-3. Jeśli w aplecie **programy i funkcje**zostanie wyświetlony Agent gościa platformy Microsoft Azure, Odinstaluj agenta gościa platformy Microsoft Azure.
+3. Jeśli w aplecie **programy i funkcje** zostanie wyświetlony Agent gościa platformy Microsoft Azure, Odinstaluj agenta gościa platformy Microsoft Azure.
 4. Pobierz i zainstaluj [najnowszą wersję pliku msi agenta](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Aby ukończyć instalację, musisz mieć uprawnienia administratora.
 5. Sprawdź, czy usługi agenta gościa systemu Windows Azure są widoczne w obszarze usługi.
 6. Uruchom kopię zapasową na żądanie:
@@ -277,7 +277,7 @@ Następujące warunki mogą spowodować niepowodzenie zadania migawki:
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>Usuń blokadę z grupy zasobów punktu odzyskiwania
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Przejdź do **opcji wszystkie zasoby**, wybierz grupę zasobów kolekcji punktów przywracania w następującym formacie AzureBackupRG_ `<Geo>` _ `<number>` .
+2. Przejdź do **opcji wszystkie zasoby** , wybierz grupę zasobów kolekcji punktów przywracania w następującym formacie AzureBackupRG_ `<Geo>` _ `<number>` .
 3. W sekcji **Ustawienia** wybierz pozycję **blokady** , aby wyświetlić blokady.
 4. Aby usunąć blokadę, wybierz wielokropek i wybierz pozycję **Usuń**.
 
@@ -306,7 +306,7 @@ Po usunięciu blokady wykonaj kopię zapasową na żądanie. Ta akcja zapewni au
 Aby ręcznie wyczyścić kolekcję punktów przywracania, która nie została wyczyszczona z powodu blokady w grupie zasobów, spróbuj wykonać następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. W menu **centrum** wybierz pozycję **wszystkie zasoby**, a następnie wybierz grupę zasobów o następującym formacie AzureBackupRG_ _, w `<Geo>` `<number>` której znajduje się maszyna wirtualna.
+2. W menu **centrum** wybierz pozycję **wszystkie zasoby** , a następnie wybierz grupę zasobów o następującym formacie AzureBackupRG_ _, w `<Geo>` `<number>` której znajduje się maszyna wirtualna.
 
     ![Wybierz grupę zasobów](./media/backup-azure-arm-vms-prepare/resource-group.png)
 

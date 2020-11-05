@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: edb6a8e04537a74b7ea7d4c9bd9bd27fdc39e402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5013f8b7dd88340e397fd3d4d4cd93d4b911fbbb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007084"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378231"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opcje dostępu i tożsamości dla usługi Azure Kubernetes Service (AKS)
 
@@ -101,7 +101,7 @@ Azure RBAC to system autoryzacji oparty na [Azure Resource Manager](../azure-res
 
  Usługa Azure RBAC jest przeznaczona do pracy nad zasobami w ramach subskrypcji platformy Azure, a Kubernetes RBAC jest przeznaczony do pracy nad zasobami Kubernetes w ramach klastra AKS. 
 
-Za pomocą usługi Azure RBAC utworzysz *definicję roli* , która zawiera opis uprawnień do zastosowania. Użytkownik lub grupa jest następnie przypisywana do tej definicji roli za pośrednictwem *przypisania roli* dla określonego *zakresu*, który może być pojedynczym zasobem, grupą zasobów lub subskrypcją.
+Za pomocą usługi Azure RBAC utworzysz *definicję roli* , która zawiera opis uprawnień do zastosowania. Użytkownik lub grupa jest następnie przypisywana do tej definicji roli za pośrednictwem *przypisania roli* dla określonego *zakresu* , który może być pojedynczym zasobem, grupą zasobów lub subskrypcją.
 
 Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?][azure-rbac]
 
@@ -143,7 +143,7 @@ AKS udostępnia następujące cztery wbudowane role. Są one podobne do [wbudowa
 | Administrator RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp administratora, który ma być przyznany w przestrzeni nazw. Zezwala na dostęp do odczytu/zapisu do większości zasobów w przestrzeni nazw (lub zakresie klastra), w tym możliwość tworzenia ról i powiązań ról w przestrzeni nazw. Ta rola nie zezwala na dostęp do zapisu do przydziału zasobów ani do samego obszaru nazw. |
 | Administrator klastra RBAC usługi Azure Kubernetes Service  | Zezwala na dostęp administratora do wykonywania dowolnych akcji względem dowolnego zasobu. Zapewnia pełną kontrolę nad każdym zasobem w klastrze i we wszystkich przestrzeniach nazw. |
 
-**Zobacz, jak korzystać z usługi Azure RBAC na potrzeby autoryzacji Kubernetes w [tym miejscu](manage-azure-rbac.md).**
+**Aby dowiedzieć się, jak włączyć funkcję RBAC na platformie Azure na potrzeby autoryzacji Kubernetes, [Przeczytaj tutaj](manage-azure-rbac.md).**
 
 ## <a name="next-steps"></a>Następne kroki
 

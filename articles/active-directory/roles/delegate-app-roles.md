@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8139dca2896610b8a3a52f1446255bea0031dc11
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9ad21e15d33dabba74d338b339e4b2fdc25df52e
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378276"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379217"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegowanie uprawnień rejestracji aplikacji w Azure Active Directory
 
@@ -89,8 +89,8 @@ Postępuj zgodnie z instrukcjami podanymi w temacie [Assign role to users with A
 
 Tworzenie ról niestandardowych i przypisywanie ról niestandardowych są osobnymi krokami:
 
-- [Utwórz niestandardową *definicję roli* ](custom-create.md) i [Dodaj do niej uprawnienia z listy ustawień wstępnych](custom-available-permissions.md). Są to te same uprawnienia, które są używane w rolach wbudowanych.
-- [Utwórz *przypisanie roli* ](custom-assign-powershell.md) , aby przypisać rolę niestandardową.
+- [Utwórz niestandardową *definicję roli*](custom-create.md) i [Dodaj do niej uprawnienia z listy ustawień wstępnych](custom-available-permissions.md). Są to te same uprawnienia, które są używane w rolach wbudowanych.
+- [Utwórz *przypisanie roli*](custom-assign-powershell.md) , aby przypisać rolę niestandardową.
 
 Ta separacja umożliwia utworzenie jednej definicji roli, a następnie przypisanie jej wiele razy w różnych *zakresach*. Rolę niestandardową można przypisać w zakresie całej organizacji lub można ją przypisać do zakresu, jeśli pojedynczy obiekt usługi Azure AD. Przykładem zakresu obiektu jest rejestracja pojedynczej aplikacji. Korzystając z różnych zakresów, można przypisać tę samą definicję roli do Sally przez wszystkie rejestracje aplikacji w organizacji, a następnie Naveen tylko na potrzeby rejestracji aplikacji w raportach wydatków firmy Contoso.
 

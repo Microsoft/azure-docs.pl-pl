@@ -13,7 +13,7 @@
       href: quickstart-powershell.md
 - name: Samouczki
   items:
-    - name: Tworzenie i podpisywanie zasad zaświadczania
+    - name: Tworzenie zasad zaświadczania
       href: author-sign-policy.md
     - name: Przykłady kodu zaświadczania SGX
       href: /samples/browse/?expanded=azure&terms=attestation
@@ -47,5 +47,7 @@
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Biblioteka Azure DCAP dla systemu Linux
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
+    - name: Rozwiązywanie problemów
+      href: troubleshoot-guide.md
     - name: Protokół zaświadczania VBS
       href: virtualization-based-security-protocol.md

@@ -4,12 +4,12 @@ description: Monitorowanie wydajności aplikacji dla usług Azure App Services. 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875612"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377806"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -100,7 +100,8 @@ Z poziomu aplikacji internetowej App Service w obszarze **Ustawienia**  >  **Wyb
 
 # <a name="java"></a>[Java](#tab/java)
 
-Aplikacje sieci Web oparte na App Service Java nie obsługują obecnie automatycznego monitorowania opartego na agentach i rozszerzeniach. Aby włączyć monitorowanie aplikacji Java, należy [ręcznie Instrumentacja aplikacji](./java-get-started.md).
+Postępuj zgodnie z wytycznymi dla [Application Insights Java 3,0 Agent](./java-in-process-agent.md) , aby włączyć funkcję autoinstrumentacji dla aplikacji Java bez konieczności zmiany kodu.
+Integracja automatyczna nie jest jeszcze dostępna dla App Service.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -115,7 +116,7 @@ Aplikacje sieci Web oparte na App Service Python nie obsługują obecnie automat
 Monitorowanie po stronie klienta jest zgodą na ASP.NET. Aby włączyć monitorowanie po stronie klienta:
 
 * **Ustawienia** **>** **Konfiguracja**
-   * W obszarze Ustawienia aplikacji Utwórz **nowe ustawienie aplikacji**:
+   * W obszarze Ustawienia aplikacji Utwórz **nowe ustawienie aplikacji** :
 
      Nazwa: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -127,12 +128,12 @@ Aby wyłączyć monitorowanie po stronie klienta, Usuń skojarzoną parę klucz 
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Monitorowanie po stronie klienta jest **domyślnie włączone** w przypadku aplikacji .NET Core z **zalecaną kolekcją**, niezależnie od tego, czy jest obecne ustawienie aplikacji "APPINSIGHTS_JAVASCRIPT_ENABLED".
+Monitorowanie po stronie klienta jest **domyślnie włączone** w przypadku aplikacji .NET Core z **zalecaną kolekcją** , niezależnie od tego, czy jest obecne ustawienie aplikacji "APPINSIGHTS_JAVASCRIPT_ENABLED".
 
 Jeśli z jakiegoś powodu chcesz wyłączyć monitorowanie po stronie klienta:
 
 * **Ustawienia** **>** **Konfiguracja**
-   * W obszarze Ustawienia aplikacji Utwórz **nowe ustawienie aplikacji**:
+   * W obszarze Ustawienia aplikacji Utwórz **nowe ustawienie aplikacji** :
 
      Nazwij `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -350,7 +351,8 @@ Jeśli uaktualnienie zostało wykonane z wersji wcześniejszej niż 2.5.1, spraw
 Poniżej przedstawiono Przewodnik rozwiązywania problemów krok po kroku dotyczący monitorowania na podstawie rozszerzeń i programu .NET Core w przypadku aplikacji opartych na App Services platformie .NET.
 
 > [!NOTE]
-> Aplikacje Java są obsługiwane tylko na platformie Azure App Services za pośrednictwem ręcznie Instrumentacji opartej na zestawie SDK i dlatego poniższe kroki nie mają zastosowania do tych scenariuszy.
+> Zalecanym podejściem do monitorowania aplikacji Java jest użycie autoinstrumentacji bez zmiany kodu. Postępuj zgodnie z wytycznymi dla [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
+
 
 1. Sprawdź, czy aplikacja jest monitorowana za pośrednictwem programu `ApplicationInsightsAgent` .
     * Sprawdź, czy `ApplicationInsightsAgent_EXTENSION_VERSION` ustawienie aplikacji ma ustawioną wartość "~ 2".
@@ -373,7 +375,7 @@ Poniżej przedstawiono Przewodnik rozwiązywania problemów krok po kroku dotycz
 
 Poniższa tabela zawiera bardziej szczegółowy opis znaczenia tych wartości, ich podstawowych przyczyn i zalecanych poprawek:
 
-|Wartość problemu|Objaśnienie|Wprowadzanie poprawek
+|Wartość problemu|Wyjaśnienie|Wprowadzanie poprawek
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Ta wartość wskazuje, że rozszerzenie wykryło, że jakiś aspekt zestawu SDK jest już obecny w aplikacji i zostanie wycofany. Może to być spowodowane odwołaniem do `System.Diagnostics.DiagnosticSource` ,  `Microsoft.AspNet.TelemetryCorrelation` lub `Microsoft.ApplicationInsights`  | Usuń odwołania. Niektóre z tych odwołań są domyślnie dodawane z niektórych szablonów programu Visual Studio, a starsze wersje programu Visual Studio mogą dodawać odwołania do programu `Microsoft.ApplicationInsights` .
 |`AppAlreadyInstrumented:true` | Jeśli aplikacja jest przeznaczona dla platformy .NET Core 2,1 lub 2,2 i odwołuje się do [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-Package, to jest Application Insights, a rozszerzenie zostanie wycofane. | Klienci korzystający z programu .NET Core 2.1, 2.2 [zalecają](https://github.com/aspnet/Announcements/issues/287) zamiast tego użycie metadanych Microsoft. AspNetCore. app.|

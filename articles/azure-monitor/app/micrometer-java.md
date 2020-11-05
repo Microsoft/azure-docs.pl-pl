@@ -6,17 +6,20 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: 16f4cfd70cf4dbeaeb1376368787b3fa0e4b9a52
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 434d978f6a228bad9b142738767500d639017032
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994037"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378877"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Jak używać Micrometer z usługą Azure Application Insights Java SDK
 
+> [!IMPORTANT]
+> Zalecanym podejściem do monitorowania aplikacji Java jest użycie autoinstrumentacji bez zmiany kodu. Postępuj zgodnie z wytycznymi dla [Application Insights Java 3,0 Agent](./java-in-process-agent.md).
+
 > [!NOTE]
-> Application Insights Java SDK nie obsługuje sprężyny webstrumień. 
+> Application Insights SDK języka Java nie obsługuje wiosny webstrumień — zamiast tego użyj [Application Insights Java 3,0 Agent](./java-in-process-agent.md) . 
 >
 > Zarówno webstrumień, jak i Micrometer są obsługiwane w programie [Application Insights Java 3,0 Agent](./java-on-premises.md) , który nie wymaga Instrumentacji. 
 

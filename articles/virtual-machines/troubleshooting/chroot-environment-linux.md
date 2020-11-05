@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
-ms.openlocfilehash: 5d803acc7f2287d0b88791d85fa876f89e4a0955
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0d8a030061ef6aa848344152edaa3267ad916e2a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332189"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377942"
 ---
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Środowisko chroot na maszynie wirtualnej z systemem Linux
 
@@ -34,7 +34,7 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
 
    1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik główny przy użyciu następującego polecenia:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Znajdź dysk przy użyciu `dmesg` (Metoda używana do odnajdywania nowego dysku może się różnić). Poniższy przykład używa **dmesg** do filtrowania na dyskach **SCSI** :
 
@@ -53,17 +53,17 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby uzyskać dostęp do środowiska chroot:
 
       ```
-      #mkdir /rescue
-      #mount /dev/sdc1 /rescue
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/sdc1 /rescue
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Rozwiązywanie problemów ze środowiskiem chroot.
@@ -71,16 +71,16 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby zakończyć środowisko chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -101,7 +101,7 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
 
    1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik główny przy użyciu następującego polecenia:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Znajdź dysk przy użyciu `dmesg` (Metoda używana do odnajdywania nowego dysku może się różnić). Poniższy przykład używa **dmesg** do filtrowania na dyskach **SCSI** :
 
@@ -120,17 +120,17 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby uzyskać dostęp do środowiska chroot:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Rozwiązywanie problemów ze środowiskiem chroot.
@@ -138,16 +138,16 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby zakończyć środowisko chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -171,7 +171,7 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
 
    1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik główny przy użyciu następującego polecenia:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Znajdź dysk przy użyciu `dmesg` (Metoda używana do odnajdywania nowego dysku może się różnić). Poniższy przykład używa **dmesg** do filtrowania na dyskach **SCSI** :
 
@@ -190,9 +190,9 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Aby aktywować grupę woluminów logicznych, użyj następującego polecenia:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Użyj `lsblk` polecenia, aby pobrać nazwy LVM:
@@ -221,23 +221,23 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby uzyskać dostęp do środowiska chroot:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/mapper/rootvg-optlv /rescue/opt
-      #mount /dev/sdc2 /rescue/boot/
-      #mount /dev/sdc1 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/mapper/rootvg-optlv /rescue/opt
+      mount /dev/sdc2 /rescue/boot/
+      mount /dev/sdc1 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Rozwiązywanie problemów ze środowiskiem chroot.
@@ -245,22 +245,22 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby zakończyć środowisko chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue/opt
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue/opt
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -284,7 +284,7 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
 
    1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik główny przy użyciu następującego polecenia:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Znajdź dysk przy użyciu `dmesg` (Metoda używana do odnajdywania nowego dysku może się różnić). Poniższy przykład używa **dmesg** do filtrowania na dyskach **SCSI** :
 
@@ -303,9 +303,9 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Aby aktywować grupę woluminów logicznych, użyj następującego polecenia:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Użyj `lsblk` polecenia, aby pobrać nazwy LVM:
@@ -333,22 +333,22 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby uzyskać dostęp do środowiska chroot:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Rozwiązywanie problemów ze środowiskiem chroot.
@@ -356,21 +356,21 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby zakończyć środowisko chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -391,7 +391,7 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
 
    1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik główny przy użyciu następującego polecenia:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Znajdź dysk przy użyciu `dmesg` (Metoda używana do odnajdywania nowego dysku może się różnić). Poniższy przykład używa **dmesg** do filtrowania na dyskach **SCSI** :
 
@@ -410,18 +410,18 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby uzyskać dostęp do środowiska chroot:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      ##chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Rozwiązywanie problemów ze środowiskiem chroot.
@@ -429,17 +429,17 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby zakończyć środowisko chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -460,7 +460,7 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
 
    1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik główny przy użyciu następującego polecenia:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Znajdź dysk przy użyciu `dmesg` (Metoda używana do odnajdywania nowego dysku może się różnić). Poniższy przykład używa **dmesg** do filtrowania na dyskach **SCSI** :
 
@@ -479,18 +479,18 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby uzyskać dostęp do środowiska chroot:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc4 /rescue
-      #mount -o nouuid /dev/sdc3 /rescue/boot/
-      #mount /dev/sdc2 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc4 /rescue
+      mount -o nouuid /dev/sdc3 /rescue/boot/
+      mount /dev/sdc2 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Rozwiązywanie problemów ze środowiskiem chroot.
@@ -498,17 +498,17 @@ W tym artykule opisano sposób rozwiązywania problemów ze środowiskiem chroot
    1. Użyj następujących poleceń, aby zakończyć środowisko chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]

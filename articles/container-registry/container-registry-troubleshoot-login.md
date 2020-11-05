@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z logowaniem do rejestru
 description: Objawy, przyczyny i rozwiązywanie typowych problemów podczas logowania do usługi Azure Container Registry
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348903"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379506"
 ---
 # <a name="troubleshoot-registry-login"></a>Rozwiązywanie problemów z logowaniem do rejestru
 
@@ -98,7 +98,9 @@ Powiązane linki:
 
 Potwierdź uprawnienia rejestru, które są skojarzone z poświadczeniami, `AcrPull` na przykład rolę platformy Azure w celu ściągania obrazów z rejestru lub `AcrPush` roli do wypychania obrazów. 
 
-Dostęp do rejestru w portalu lub w zarządzaniu rejestrem za pomocą interfejsu wiersza polecenia platformy Azure wymaga co najmniej `Reader` roli do wykonywania Azure Resource Manager operacji.
+Dostęp do rejestru w portalu lub w zarządzaniu rejestrem za pomocą interfejsu wiersza polecenia platformy Azure wymaga co najmniej `Reader` roli lub równoważne uprawnienia do wykonywania Azure Resource Manager operacji.
+
+Jeśli Twoje uprawnienia zostały ostatnio zmienione w celu zezwolenia na dostęp do rejestru za pośrednictwem portalu, może być konieczne wypróbowanie incognito lub sesji prywatnej w przeglądarce, aby uniknąć braku starej pamięci podręcznej lub plików cookie przeglądarki.
 
 Aby dodać lub usunąć przypisania ról, właściciel rejestru musi mieć wystarczające uprawnienia w subskrypcji.
 

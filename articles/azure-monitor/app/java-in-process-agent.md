@@ -1,16 +1,16 @@
 ---
-title: Monitoruj aplikacje Java w dowolnym środowisku — Azure Monitor Application Insights
-description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku bez Instrumentacji aplikacji. Śledzenie rozproszone i mapa aplikacji.
+title: Azure Monitor Application Insights Java
+description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku bez konieczności modyfikacji kodu. Śledzenie rozproszone i mapa aplikacji.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 07be6a4ff08700ee9407fbf39946b7c24abbc01a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215284"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377041"
 ---
-# <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitorowanie aplikacji bezkodowej Java Azure Monitor Application Insights — publiczna wersja zapoznawcza
+# <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitorowanie aplikacji bezkodu Java Azure Monitor Application Insights
 
 Monitorowanie aplikacji bez kodu Java ma wszystkie informacje o prostotie — nie ma żadnych zmian w kodzie, a agent Java można włączyć za pomocą tylko kilku zmian konfiguracji.
 
@@ -26,15 +26,20 @@ Agent 3,0 obsługuje środowisko Java 8 i nowsze.
 
 **1. Pobierz agenta**
 
-Pobierz [ApplicationInsights-Agent-3.0.0-Preview. 7. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar)
+> [!WARNING]
+> **W przypadku uaktualniania programu z wersji zapoznawczej 3,0**
+>
+> Uważnie Przejrzyj wszystkie [Opcje konfiguracji](./java-standalone-config.md) , ponieważ struktura JSON została całkowicie zmieniona, oprócz samej nazwy pliku, która wystąpiła tylko małymi literami.
+
+Pobierz plik [ApplicationInsights-Agent-3.0.0. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar)
 
 **2. wskaż JVM do agenta**
 
-Dodaj `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.7.jar` do ARGUMENTÓW JVM aplikacji
+Dodaj `-javaagent:path/to/applicationinsights-agent-3.0.0.jar` do ARGUMENTÓW JVM aplikacji
 
 Typowe argumenty JVM obejmują `-Xmx512m` i `-XX:+UseG1GC` . Jeśli wiesz, gdzie je dodać, już wiesz, gdzie je dodać.
 
-Aby uzyskać dodatkową pomoc dotyczącą konfigurowania argumentów JVM aplikacji, zobacz [3,0 Preview: porady dotyczące aktualizowania ARGUMENTÓW JVM](./java-standalone-arguments.md).
+Aby uzyskać dodatkową pomoc dotyczącą konfigurowania argumentów JVM aplikacji, zobacz [porady dotyczące aktualizowania ARGUMENTÓW JVM](./java-standalone-arguments.md).
 
 **3. wskaż agenta Application Insights zasobem**
 
@@ -46,7 +51,7 @@ Wskaż agenta Application Insights zasobem, ustawiając zmienną środowiskową:
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Lub tworząc plik konfiguracji o nazwie `ApplicationInsights.json` i umieszczając go w tym samym katalogu, co `applicationinsights-agent-3.0.0-PREVIEW.7.jar` , z następującą zawartością:
+Lub tworząc plik konfiguracji o nazwie `applicationinsights.json` i umieszczając go w tym samym katalogu, co `applicationinsights-agent-3.0.0.jar` , z następującą zawartością:
 
 ```json
 {
@@ -70,19 +75,21 @@ Teraz uruchom aplikację i przejdź do zasobu Application Insights w Azure Porta
 
 ## <a name="configuration-options"></a>Opcje konfiguracji
 
-W `ApplicationInsights.json` pliku można dodatkowo skonfigurować:
+W `applicationinsights.json` pliku można dodatkowo skonfigurować:
 
 * Nazwa roli w chmurze
 * Wystąpienie roli w chmurze
-* Przechwytywanie dziennika aplikacji
-* Metryki JMX
-* Mikrometr
-* Puls
 * Próbkowanie
+* Metryki JMX
+* Wymiary niestandardowe
+* Procesory telemetrii
+* Rejestrowanie z autozbieraniem
+* Zbierane metryki Micrometer (w tym metryki uruchamiającego rozruch z sprężyną)
+* Puls
 * Serwer proxy HTTP
 * Samodiagnostyka
 
-Zobacz szczegółowe informacje o [3,0 publicznej wersji zapoznawczej: opcje konfiguracji](./java-standalone-config.md).
+Aby uzyskać szczegółowe informacje, zobacz [Opcje konfiguracji](./java-standalone-config.md) .
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Żądania, zależności, dzienniki i metryki, które są zbierane
 
@@ -226,9 +233,14 @@ Można również użyć Application Insights Java SDK 2. x:
 
 ## <a name="upgrading-from-application-insights-java-sdk-2x"></a>Uaktualnianie z Application Insights Java SDK 2. x
 
-Jeśli używasz już Application Insights Java SDK 2. x w aplikacji, nie musisz go usunąć. Agent Java 3,0 wykryje go i przechwytuje i skorelowanie wszelkich niestandardowych danych telemetrycznych wysyłanych za pośrednictwem zestawu Java SDK 2. x, pomijając wszystkie autokolekcje wykonywane przez zestaw Java SDK 2. x, aby zapobiec duplikowaniu przechwytywania.
+Jeśli używasz już Application Insights Java SDK 2. x w aplikacji, nie musisz go usunąć.
+Agent Java 3,0 wykryje go i przechwytuje i skorelowanie wszelkich niestandardowych danych telemetrycznych wysyłanych za pośrednictwem zestawu Java SDK 2. x, pomijając automatyczne kolekcje wykonywane przez zestaw Java SDK 2. x, aby zapobiec zduplikowanym telemetrii.
 
 Jeśli używasz agenta Application Insights 2. x, musisz usunąć `-javaagent:` argument JVM, który wskazuje na agenta 2. x.
 
 > [!NOTE]
-> Uwaga: zestaw Java SDK 2. x TelemetryInitializers i TelemetryProcessors nie zostanie uruchomiony w przypadku korzystania z agenta 3,0.
+> Zestaw Java SDK 2. x TelemetryInitializers i TelemetryProcessors nie zostanie uruchomiony w przypadku korzystania z agenta 3,0.
+> Wiele przypadków użycia, które wcześniej wymagały, można rozwiązać w 3,0 przez skonfigurowanie [niestandardowych wymiarów](./java-standalone-config.md#custom-dimensions) lub skonfigurowanie [procesorów telemetrii](./java-standalone-telemetry-processors.md).
+
+> [!NOTE]
+> 3,0 nie obsługuje jeszcze wielu kluczy Instrumentacji w jednym JVM.

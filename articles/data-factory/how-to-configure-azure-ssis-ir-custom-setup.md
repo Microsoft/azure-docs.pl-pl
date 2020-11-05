@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
-ms.openlocfilehash: 021c3705ff96774583438d261f894ff1bc24c21f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/06/2020
+ms.openlocfilehash: 1885dd76a94a7a4a6b91c67735103350c473ba44
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636327"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378435"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Dostosuj konfigurację dla Azure-SSIS Integration Runtime
 
@@ -76,15 +76,15 @@ W celu aprowizacji lub zmiany konfiguracji Azure-SSIS IR przy użyciu standardow
 
 1. Pobierz, zainstaluj i Otwórz [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
-   a. W obszarze **(lokalne i dołączone)** kliknij prawym przyciskiem myszy pozycję **konta magazynu** , a następnie wybierz pozycję **Połącz z usługą Azure Storage** .
+   a. W obszarze **(lokalne i dołączone)** kliknij prawym przyciskiem myszy pozycję **konta magazynu** , a następnie wybierz pozycję **Połącz z usługą Azure Storage**.
 
       ![Łączenie z usługą Azure Storage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
-   b. Wybierz pozycję **Użyj nazwy i klucza konta magazynu** , a następnie wybierz przycisk **dalej** .
+   b. Wybierz pozycję **Użyj nazwy i klucza konta magazynu** , a następnie wybierz przycisk **dalej**.
 
       ![Używanie nazwy i klucza konta magazynu](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image2.png)
 
-   c. Wprowadź nazwę i klucz konta usługi Azure Storage, wybierz pozycję **dalej** , a następnie wybierz pozycję **Połącz** .
+   c. Wprowadź nazwę i klucz konta usługi Azure Storage, wybierz pozycję **dalej** , a następnie wybierz pozycję **Połącz**.
 
       ![Podaj nazwę i klucz konta magazynu](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png)
 
@@ -96,7 +96,7 @@ W celu aprowizacji lub zmiany konfiguracji Azure-SSIS IR przy użyciu standardow
 
       ![Przekazywanie plików do kontenera obiektów BLOB](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
-   f. Kliknij prawym przyciskiem myszy kontener, a następnie wybierz pozycję **Pobierz sygnaturę dostępu współdzielonego** .
+   f. Kliknij prawym przyciskiem myszy kontener, a następnie wybierz pozycję **Pobierz sygnaturę dostępu współdzielonego**.
 
       ![Uzyskaj sygnaturę dostępu współdzielonego dla kontenera](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
@@ -127,7 +127,7 @@ W celu aprowizacji lub zmiany konfiguracji Azure-SSIS IR za pomocą instalacji n
 
 #### <a name="running-cmdkey-command"></a>Uruchamianie polecenia cmdkey
 
-W przypadku wybrania typu **polecenia Uruchom cmdkey** dla niestandardowej konfiguracji ekspresowej można uruchomić polecenie Windows cmdkey na Azure-SSIS IR. W tym celu wprowadź odpowiednio nazwę komputera lub nazwę domeny, nazwę użytkownika lub konto oraz hasło lub klucz konta w polach tekstowych **/Add** , **/User** i **/Pass** . Umożliwi to utrwalanie poświadczeń dostępu dla serwerów SQL, udziałów plików lub Azure Files na Azure-SSIS IR. Na przykład w celu uzyskania dostępu do Azure Files można odpowiednio wprowadzić, `YourAzureStorageAccountName.file.core.windows.net` `azure\YourAzureStorageAccountName` , i `YourAzureStorageAccountKey` dla **/Add** , **/User** i **/Pass** . Jest to podobne do uruchamiania polecenia Windows [cmdkey](/windows-server/administration/windows-commands/cmdkey) na komputerze lokalnym. Dla tej pory jest obsługiwane tylko jedno Express Konfiguracja niestandardowa do uruchomienia polecenia cmdkey. Aby uruchomić wiele poleceń cmdkey, zamiast tego należy użyć standardowej instalacji niestandardowej.
+W przypadku wybrania typu **polecenia Uruchom cmdkey** dla niestandardowej konfiguracji ekspresowej można uruchomić polecenie Windows cmdkey na Azure-SSIS IR. W tym celu wprowadź odpowiednio nazwę komputera lub nazwę domeny, nazwę użytkownika lub konto oraz hasło lub klucz konta w polach tekstowych **/Add** , **/User** i **/Pass** . Umożliwi to utrwalanie poświadczeń dostępu dla serwerów SQL, udziałów plików lub Azure Files na Azure-SSIS IR. Na przykład w celu uzyskania dostępu do Azure Files można odpowiednio wprowadzić, `YourAzureStorageAccountName.file.core.windows.net` `azure\YourAzureStorageAccountName` , i `YourAzureStorageAccountKey` dla **/Add** , **/User** i **/Pass**. Jest to podobne do uruchamiania polecenia Windows [cmdkey](/windows-server/administration/windows-commands/cmdkey) na komputerze lokalnym. Dla tej pory jest obsługiwane tylko jedno Express Konfiguracja niestandardowa do uruchomienia polecenia cmdkey. Aby uruchomić wiele poleceń cmdkey, zamiast tego należy użyć standardowej instalacji niestandardowej.
 
 #### <a name="adding-environment-variables"></a>Dodawanie zmiennych środowiskowych
 
@@ -135,31 +135,31 @@ W przypadku wybrania typu **zmiennej Dodawanie środowiska** dla instalacji nies
 
 #### <a name="installing-azure-powershell"></a>Instalowanie Azure PowerShell
 
-W przypadku wybrania typu **Azure PowerShell instalacji** dla niestandardowej instalacji niestandardowej można zainstalować moduł AZ module programu PowerShell na Azure-SSIS IR. Aby to zrobić, wprowadź wartość AZ module numer wersji (x. y. z) z [listy obsługiwanych](https://www.powershellgallery.com/stats/packages/Az?groupby=Version). Umożliwi to uruchamianie Azure PowerShell poleceń cmdlet/skryptów w Twoich pakietach w celu zarządzania zasobami platformy Azure, na przykład [Azure Analysis Services (AAS)](../analysis-services/analysis-services-powershell.md).
+W przypadku wybrania typu **Azure PowerShell instalacji** dla niestandardowej instalacji niestandardowej można zainstalować moduł AZ module programu PowerShell na Azure-SSIS IR. Aby to zrobić, wprowadź wartość AZ module numer wersji (x. y. z) z [listy obsługiwanych](https://www.powershellgallery.com/packages/az). Umożliwi to uruchamianie Azure PowerShell poleceń cmdlet/skryptów w Twoich pakietach w celu zarządzania zasobami platformy Azure, na przykład [Azure Analysis Services (AAS)](../analysis-services/analysis-services-powershell.md).
 
 #### <a name="installing-licensed-components"></a>Instalowanie licencjonowanych składników
 
 Jeśli wybierzesz opcję **Zainstaluj licencjonowany typ składnika** dla instalacji niestandardowej, możesz wybrać zintegrowany składnik od partnerów niezależnego dostawcy oprogramowania z listy rozwijanej **Nazwa składnika** :
 
-   * W przypadku wybrania składnika **fabryki zadań SentryOne** można zainstalować pakiet [fabryki zadań](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) dla składników z SentryOne na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Aktualna wersja zintegrowana to **2020.1.3** .
+   * W przypadku wybrania składnika **fabryki zadań SentryOne** można zainstalować pakiet [fabryki zadań](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) dla składników z SentryOne na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Aktualna wersja zintegrowana to **2020.1.3**.
 
-   * W przypadku wybrania **OH22'S HEDDA. Składnik we/wy** , można zainstalować [HEDDA.](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) Składnik jakości/oczyszczania danych we/wy z oh22 na Azure-SSIS IR. Aby to zrobić, musisz najpierw zakupić swoją usługę. Aktualna wersja zintegrowana to **1.0.14** .
+   * W przypadku wybrania **OH22'S HEDDA. Składnik we/wy** , można zainstalować [HEDDA.](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) Składnik jakości/oczyszczania danych we/wy z oh22 na Azure-SSIS IR. Aby to zrobić, musisz najpierw zakupić swoją usługę. Aktualna wersja zintegrowana to **1.0.14**.
 
-   * W przypadku wybrania składnika **oh22's SQLPhonetics.NET** można zainstalować składnik [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) (jakość danych/dopasowanie) z oh22 na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Aktualna wersja zintegrowana to **1.0.45** .
+   * W przypadku wybrania składnika **oh22's SQLPhonetics.NET** można zainstalować składnik [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) (jakość danych/dopasowanie) z oh22 na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Aktualna wersja zintegrowana to **1.0.45**.
 
-   * W przypadku wybrania składnika **KingswaySoft usług SSIS Integration** Toolkit można zainstalować pakiet [narzędzi SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) dla aplikacji CRM/ERP/Marketing/Collaboration, takich jak Microsoft Dynamics/SharePoint/Project Server, Chmura marketingowa Oracle/Salesforce, itp. z KingswaySoft na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **2020,1** .
+   * W przypadku wybrania składnika **KingswaySoft usług SSIS Integration** Toolkit można zainstalować pakiet [narzędzi SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) dla aplikacji CRM/ERP/Marketing/Collaboration, takich jak Microsoft Dynamics/SharePoint/Project Server, Chmura marketingowa Oracle/Salesforce, itp. z KingswaySoft na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **2020,1**.
 
-   * W przypadku wybrania składnika **pakietu do produkcji SSIS KingswaySoft** można zainstalować pakiet usług [SSIS pakietu Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) dla składników z KingswaySoft na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **20,1** .
+   * W przypadku wybrania składnika **pakietu do produkcji SSIS KingswaySoft** można zainstalować pakiet usług [SSIS pakietu Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) dla składników z KingswaySoft na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **20,1**.
 
-   * Jeśli wybierzesz składnik **Theobald oprogramowania yodrębnij** , możesz zainstalować [yodrębnij to](https://theobald-software.com/en/xtract-is/) pakiet łączników dla systemów SAP (ERP, s/4HANA, BW) z oprogramowania Theobald na Azure-SSIS IR. Aby to zrobić, przeciągnij & upuść/Przekaż plik licencji produktu, który został zakupiony wcześniej w polu wejściowym **plik licencji** . Aktualna wersja zintegrowana to **6.1.1.3** .
+   * Jeśli wybierzesz składnik **Theobald oprogramowania yodrębnij** , możesz zainstalować [yodrębnij to](https://theobald-software.com/en/xtract-is/) pakiet łączników dla systemów SAP (ERP, s/4HANA, BW) z oprogramowania Theobald na Azure-SSIS IR. Aby to zrobić, przeciągnij & upuść/Przekaż plik licencji produktu, który został zakupiony wcześniej w polu wejściowym **plik licencji** . Aktualna wersja zintegrowana to **6.1.1.3**.
 
-   * W przypadku wybrania składnika **usługi integracji AecorSoft** można zainstalować pakiet [usług Integration](https://www.aecorsoft.com/en/products/integrationservice) Connector dla systemów SAP i Salesforce z AecorSoft na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Aktualna wersja zintegrowana to **3.0.00** .
+   * W przypadku wybrania składnika **usługi integracji AecorSoft** można zainstalować pakiet [usług Integration](https://www.aecorsoft.com/en/products/integrationservice) Connector dla systemów SAP i Salesforce z AecorSoft na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Aktualna wersja zintegrowana to **3.0.00**.
 
-   * W przypadku wybrania składnika oprogramowania usług **SSIS w warstwie Standardowa** można zainstalować pakiet usług [SSIS w warstwie Standardowa](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) dla najpopularniejszych składników z CDATA, takich jak łączniki programu Microsoft SharePoint, na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **19,7354** .
+   * W przypadku wybrania składnika oprogramowania usług **SSIS w warstwie Standardowa** można zainstalować pakiet usług [SSIS w warstwie Standardowa](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) dla najpopularniejszych składników z CDATA, takich jak łączniki programu Microsoft SharePoint, na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **19,7354**.
 
-   * W przypadku wybrania składnika pakietu usług SSIS w warstwie **rozszerzonej CDATA** można zainstalować pakiet [SSIS Extended pakietu](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) dla wszystkich składników z CDATA, takich jak łączniki Microsoft Dynamics 365 Business Central i inne składniki w **pakiecie SSIS Standard** , na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **19,7354** . Ze względu na jego duży rozmiar, aby uniknąć limitu czasu instalacji, upewnij się, że Azure-SSIS IR ma co najmniej 4 rdzenie procesora CPU na węzeł.
+   * W przypadku wybrania składnika pakietu usług SSIS w warstwie **rozszerzonej CDATA** można zainstalować pakiet [SSIS Extended pakietu](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) dla wszystkich składników z CDATA, takich jak łączniki Microsoft Dynamics 365 Business Central i inne składniki w **pakiecie SSIS Standard** , na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **19,7354**. Ze względu na jego duży rozmiar, aby uniknąć limitu czasu instalacji, upewnij się, że Azure-SSIS IR ma co najmniej 4 rdzenie procesora CPU na węzeł.
 
-Dodane ustawienia Express Custom Setup zostaną wyświetlone na stronie **Ustawienia zaawansowane** . Aby je usunąć, zaznacz ich pola wyboru, a następnie wybierz pozycję **Usuń** .
+Dodane ustawienia Express Custom Setup zostaną wyświetlone na stronie **Ustawienia zaawansowane** . Aby je usunąć, zaznacz ich pola wyboru, a następnie wybierz pozycję **Usuń**.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -273,7 +273,7 @@ Aby wyświetlić i ponownie użyć niektórych przykładów standardowych konfig
 
 1. Połącz się z naszym publicznym kontenerem w wersji zapoznawczej przy użyciu Eksplorator usługi Azure Storage.
 
-   a. W obszarze **(lokalne i dołączone)** kliknij prawym przyciskiem myszy pozycję **konta magazynu** , wybierz pozycję **Połącz z usługą Azure Storage** , wybierz polecenie **Użyj parametrów połączenia lub identyfikatora URI sygnatury dostępu współdzielonego** , a następnie wybierz przycisk **dalej** .
+   a. W obszarze **(lokalne i dołączone)** kliknij prawym przyciskiem myszy pozycję **konta magazynu** , wybierz pozycję **Połącz z usługą Azure Storage** , wybierz polecenie **Użyj parametrów połączenia lub identyfikatora URI sygnatury dostępu współdzielonego** , a następnie wybierz przycisk **dalej**.
 
       ![Nawiązywanie połączenia z usługą Azure Storage za pomocą sygnatury dostępu współdzielonego](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 
@@ -283,13 +283,13 @@ Aby wyświetlić i ponownie użyć niektórych przykładów standardowych konfig
 
       ![Podaj sygnaturę dostępu współdzielonego dla kontenera](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image10.png)
 
-   c. Wybierz pozycję **dalej** , a następnie wybierz pozycję **Połącz** .
+   c. Wybierz pozycję **dalej** , a następnie wybierz pozycję **Połącz**.
 
    d. W lewym okienku wybierz kontener podłączony **publicpreview** , a następnie kliknij dwukrotnie folder *CustomSetupScript* . W tym folderze znajdują się następujące elementy:
 
       * *Przykładowy* folder zawierający niestandardową konfigurację służącą do instalowania podstawowego zadania na każdym węźle Azure-SSIS IR. Zadanie nie wykonuje żadnych operacji, ale w stanie uśpienia przez kilka sekund. Folder zawiera również folder *Gacutil* , którego cała zawartość ( *gacutil.exe* , *gacutil.exe.config* i *1033\gacutlrc.dll* ) może zostać skopiowana do kontenera.
 
-      * Folder *UserScenarios* , który zawiera kilka przykładów instalacji niestandardowej z scenariuszy użytkowników rzeczywistych.
+      * Folder *UserScenarios* , który zawiera kilka przykładów instalacji niestandardowej z scenariuszy użytkowników rzeczywistych. Jeśli chcesz zainstalować wiele przykładów na Azure-SSIS IR, możesz połączyć ich niestandardowe pliki skryptu Instalatora ( *Main. cmd* ) w jeden i przekazać je ze wszystkimi skojarzonymi z nimi plikami do kontenera.
 
         ![Zawartość kontenera publicznej wersji zapoznawczej](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 

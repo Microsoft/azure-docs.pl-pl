@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361206"
+ms.locfileid: "93377024"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do skalowania automatycznego na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -132,6 +132,9 @@ Zespoły programistyczne w dużych przedsiębiorstwach często muszą przestrzeg
 ### <a name="behavior"></a>Zachowanie
 
 Gdy zostanie podana ścieżka sprawdzania kondycji, App Service będzie wysyłać polecenie ping do ścieżki we wszystkich wystąpieniach. Jeśli nie otrzymasz pomyślnego kodu odpowiedzi po 5 poleceniach ping, to wystąpienie jest uznawane za "w złej kondycji". Wystąpienia w złej kondycji zostaną wykluczone z obrotu modułu równoważenia obciążenia. Można skonfigurować wymaganą liczbę nieudanych poleceń ping z `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` ustawieniem aplikacji. To ustawienie aplikacji można ustawić na dowolną liczbę całkowitą z zakresu od 2 do 10. Na przykład jeśli jest ustawiona na `2` , wystąpienia zostaną usunięte z modułu równoważenia obciążenia po dwóch nieudanych wywołaniach ping. Ponadto podczas skalowania w górę lub w dół App Service wyśle polecenie ping do ścieżki sprawdzania kondycji, aby upewnić się, że nowe wystąpienia są gotowe do żądania przed dodaniem do modułu równoważenia obciążenia.
+
+> [!NOTE]
+> Należy pamiętać, że plan App Service muszą być skalowane do 2 lub więcej wystąpień, aby wykluczać moduł równoważenia obciążenia. Jeśli masz tylko jedno wystąpienie, nie zostanie ono usunięte z modułu równoważenia obciążenia, nawet jeśli jest w złej kondycji. 
 
 Pozostałe wystąpienia w dobrej kondycji mogą zwiększyć obciążenie. Aby uniknąć przeciążenia pozostałych wystąpień, nie zostaną wykluczone więcej niż połowę wystąpień. Na przykład jeśli plan App Service zostanie przeskalowany do 4 wystąpień i 3 w złej kondycji, co najwyżej 2 zostanie wykluczone z obrotu modułu równoważenia obciążenia. Pozostałe 2 wystąpienia (1 w złej kondycji i 1 w niezdrowych) będą nadal otrzymywać żądania. W scenariuszu najgorszego przypadku, w którym wszystkie wystąpienia są złej kondycji, żaden z nich nie zostanie wykluczony. Jeśli chcesz zastąpić to zachowanie, możesz ustawić `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` dla ustawienia aplikacji wartość między `0` i `100` . Ustawienie tej opcji na wyższą wartość oznacza, że więcej wystąpień w złej kondycji zostanie usuniętych (wartość domyślna to 50).
 

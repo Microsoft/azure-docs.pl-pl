@@ -529,6 +529,8 @@
       items:
         - name: Ładowanie danych do pul SQL przy użyciu działania kopiowania
           href: quickstart-copy-activity-load-sql-pool.md
+        - name: Przekształcanie danych przy użyciu przepływów danych mapowania
+          href: quickstart-data-flow.md
     - name: Pojęcia
       items:
         - name: Potok i działanie

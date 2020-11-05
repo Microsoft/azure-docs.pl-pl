@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424575"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378010"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Rejestracja informacji o zabezpieczeniach dla Azure Active Directory przegląd
 
@@ -58,7 +58,7 @@ Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 | Token sprzętu | Nie | Nie | Tak |
 | Telefon | Tak | Tak | Tak |
 | Alternatywny numer telefonu | Tak | Tak | Tak |
-| Telefon służbowy | Nie | Nie | Nie |
+| Telefon służbowy | Tak | Tak | Tak |
 | E-mail | Tak | Tak | Tak |
 | Pytania zabezpieczające | Tak | Nie | Tak |
 | Hasła aplikacji | Tak | Nie | Tak |

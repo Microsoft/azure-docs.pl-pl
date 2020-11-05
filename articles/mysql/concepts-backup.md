@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 00cd5a76a52e1b58bc2f01315dd3a1a859074a58
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 283befd08c7802a9df6d2fca78465d50cfb2ba7b
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348461"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376820"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL
 
@@ -115,7 +115,12 @@ Serwer można przywrócić w innym regionie świadczenia usługi Azure, w który
 
 Przywracanie geograficzne jest domyślną opcją odzyskiwania, gdy serwer jest niedostępny z powodu zdarzenia w regionie, w którym znajduje się serwer. Jeśli zdarzenie w dużej skali w regionie powoduje niedostępność aplikacji bazy danych, można przywrócić serwer z kopii zapasowych nadmiarowych geograficznie do serwera w dowolnym innym regionie. Przywracanie geograficzne wykorzystuje najnowszą kopię zapasową serwera. Istnieje opóźnienie między wykonaniem kopii zapasowej a replikacją do innego regionu. To opóźnienie może wynosić do godziny, więc jeśli wystąpi awaria, może to oznaczać, że istnieje maksymalnie jedna godzina utraty danych.
 
+> [!IMPORTANT]
+>W przypadku wykonywania przywracania geograficznego dla nowo utworzonego serwera synchronizacja początkowej kopii zapasowej może trwać dłużej niż 24 godziny, w zależności od rozmiaru danych, ponieważ czas wstępnej kopii zapasowej pełnej migawki jest znacznie wyższy. Kolejne kopie zapasowe migawek są kopiami przyrostowymi, dlatego przywracanie jest szybsze po 24 godzinach tworzenia serwera. Jeśli oceniasz, czy przywracasz lokalizację geograficzną, aby zdefiniować RTO, zalecamy odczekanie i ocenę operacji przywracania geograficznego **tylko po 24 godzinach** tworzenia serwera w celu uzyskania lepszych oszacowań.
+
 Podczas przywracania geograficznego konfiguracje serwera, które można zmienić, obejmują generowanie obliczeń, rdzeń wirtualny, okres przechowywania kopii zapasowych i opcje nadmiarowości kopii zapasowych. Zmiana warstwy cenowej (podstawowa, Ogólnego przeznaczenia lub zoptymalizowana pod kątem pamięci) lub rozmiaru magazynu podczas przywracania geograficznego nie jest obsługiwana.
+
+Szacowany czas odzyskiwania zależy od kilku czynników, takich jak rozmiary bazy danych, rozmiar dziennika transakcji, przepustowość sieci i łączna liczba baz danych, które są odzyskiwane w tym samym regionie w tym samym czasie. Czas odzyskiwania jest zwykle krótszy niż 12 godzin.
 
 ### <a name="perform-post-restore-tasks"></a>Wykonywanie zadań po przywróceniu
 

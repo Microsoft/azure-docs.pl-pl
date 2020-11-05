@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: dfa2752be2da0a89c7246241177b3624984fa0d2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 303ed66b7d268a5bab33d0d857399e907764d152
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342202"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378860"
 ---
 # <a name="creating-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
@@ -23,7 +23,7 @@ W tym samouczku dowiesz się, jak utworzyć obszar roboczy Synapse, dedykowaną 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać wszystkie kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do której przypisano rolę **właściciela** . Utwórz obszar roboczy Synapse w tej grupie zasobów.
+Aby wykonać kroki tego samouczka, musisz mieć dostęp do grupy zasobów, do której przypisano rolę **właściciela** . Utwórz obszar roboczy Synapse w tej grupie zasobów.
 
 ## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Utwórz obszar roboczy Synapse w Azure Portal
 
@@ -31,7 +31,7 @@ Aby wykonać wszystkie kroki tego samouczka, musisz mieć dostęp do grupy zasob
 1. W wynikach wyszukiwania w obszarze **usługi** wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**.
 1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy.
 1. W obszarze **podstawowe** wpisz swoją preferowaną **subskrypcję** , **grupę zasobów** , **region** , a następnie wybierz nazwę obszaru roboczego. W tym samouczku użyjemy **obszaru roboczego**.
-1. Do utworzenia obszaru roboczego jest potrzebne konto ADLSGEN2 i kontener na tym koncie. Obszar roboczy Synapse będzie używać tego kontenera jako lokalizacji domyślnej do przechowywania dzienników platformy Spark i danych dla tabel Spark.
+1. Do utworzenia obszaru roboczego jest potrzebne konto ADLSGEN2 i kontener na tym koncie. Obszar roboczy Synapse będzie używać tego kontenera jako lokalizacji domyślnej do przechowywania dzienników i danych platformy Spark dla tabel Spark.
     1. Przejdź do **opcji wybierz Data Lake Storage Gen 2**. 
     1. Kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.
     1. Kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**. Spowoduje to utworzenie kontenera o nazwie **Użytkownicy**

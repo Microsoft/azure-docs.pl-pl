@@ -3,12 +3,12 @@ title: host.jsw odwołaniu dla Azure Functions 2. x
 description: Dokumentacja referencyjna host.jsAzure Functions w pliku z środowiskiem uruchomieniowym w wersji 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aaea37b100d6fadd271f48490628b38cba6cf822
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284502"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377126"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Dokumentacja pliku host.json dla usługi Azure Functions w wersji 2.x lub nowszej 
 
@@ -150,7 +150,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 > [!NOTE]
 > Próbkowanie dziennika może spowodować, że niektóre wykonania nie są wyświetlane w bloku monitora Application Insights. Aby uniknąć próbkowania dziennika, Dodaj `excludedTypes: "Request"` do `samplingSettings` wartości.
 
-| Właściwość | Domyślny | Opis |
+| Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | samplingSettings | n/d | Zobacz [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Włącza zbieranie metryk na żywo. |
@@ -162,7 +162,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|Właściwość | Domyślny | Opis |
+|Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | isEnabled | true | Włącza lub wyłącza próbkowanie. | 
 | maxTelemetryItemsPerSecond | 20 | Docelowa liczba elementów telemetrii zarejestrowanych na sekundę na każdym hoście serwera. Jeśli aplikacja działa na wielu hostach, Zmniejsz tę wartość, aby pozostała w ogólnym docelowym wskaźniku ruchu. | 
@@ -178,7 +178,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Właściwość | Domyślny | Opis |
+|Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Włącza lub wyłącza rozszerzone informacje żądania HTTP dla wyzwalaczy HTTP: nagłówki korelacji żądań przychodzących, obsługa kluczy wielu instrumentacji, metoda HTTP, ścieżka i odpowiedź. |
 | enableW3CDistributedTracing | true | Włącza lub wyłącza obsługę protokołu śledzenia rozproszonego W3C (i włącza starszą wersję schematu korelacji). Domyślnie włączone, jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość true. Jeśli `enableHttpTriggerExtendedInfoCollection` ma wartość false, ta flaga ma zastosowanie tylko do żądań wychodzących, a nie do żądań przychodzących. |
@@ -188,7 +188,7 @@ Aby uzyskać pełną strukturę JSON, zobacz wcześniejszy [przykład host.jsw p
 
 Aby uzyskać więcej informacji na temat migawek, zobacz [debugowanie migawek na wyjątkach w aplikacjach .NET](../azure-monitor/app/snapshot-debugger.md) i [Rozwiązywanie problemów z włączaniem Application Insights Snapshot Debugger lub wyświetlania migawek](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Właściwość | Domyślny | Opis |
+|Właściwość | Domyślne | Opis |
 | --------- | --------- | --------- | 
 | agentEndpoint | wartość null | Punkt końcowy używany do nawiązywania połączenia z usługą Application Insights Snapshot Debugger. Jeśli wartość jest równa null, używany jest domyślny punkt końcowy. |
 | captureSnapshotMemoryWeight | 0.5 | Waga określona dla bieżącego rozmiaru pamięci procesu podczas sprawdzania, czy jest wystarczająca ilość pamięci, aby wykonać migawkę. Oczekiwana wartość jest większa niż 0 prawidłowy ułamek (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -280,7 +280,7 @@ Ustawienia konfiguracji dla [monitora kondycji hosta](https://github.com/Azure/a
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |enabled|true|Określa, czy funkcja jest włączona. | 
 |healthCheckInterval|10 sekund|Przedział czasu między okresowymi kontrolami kondycji w tle. | 
@@ -312,7 +312,7 @@ Steruje zachowaniem rejestrowania aplikacji funkcji, w tym Application Insights.
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Określa, jaki poziom rejestrowania plików jest włączony.  Dostępne opcje to `never` , `always` , `debugOnly` . |
 |logLevel|n/d|Obiekt, który definiuje filtrowanie kategorii dzienników dla funkcji w aplikacji. W wersji 2. x i nowszych postępuj zgodnie z układem ASP.NET Core dla filtrowania kategorii dzienników. To ustawienie umożliwia filtrowanie rejestrowania dla określonych funkcji. Aby uzyskać więcej informacji, zobacz [filtrowanie dzienników](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) w dokumentacji ASP.NET Core. |
@@ -335,7 +335,7 @@ To ustawienie jest elementem podrzędnym [rejestrowania](#logging). Kontroluje R
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |isEnabled|fałsz|Włącza lub wyłącza rejestrowanie konsoli.| 
 
@@ -357,7 +357,7 @@ Ustawienia konfiguracji można znaleźć w temacie [wyzwalacze i powiązania kol
 
 ## <a name="retry"></a>retry
 
-Kontroluje opcje [zasad ponawiania prób](./functions-bindings-error-pages.md#retry-policies) dla wszystkich wykonań w aplikacji.
+Kontroluje opcje [zasad ponawiania prób](./functions-bindings-error-pages.md#retry-policies-preview) dla wszystkich wykonań w aplikacji.
 
 ```json
 {
@@ -369,7 +369,7 @@ Kontroluje opcje [zasad ponawiania prób](./functions-bindings-error-pages.md#re
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |strategii|wartość null|Wymagane. Strategia ponawiania, która ma zostać użyta. Prawidłowe wartości to `fixedDelay` lub `exponentialBackoff` .|
 |Wartość MaxRetryCount|wartość null|Wymagane. Maksymalna dozwolona liczba ponownych prób na wykonanie funkcji. `-1` oznacza, aby ponowić próbę w nieskończoność.|
@@ -401,7 +401,7 @@ Ustawienia konfiguracji dla zachowania pojedynczej blokady. Aby uzyskać więcej
 }
 ```
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Okres, w którym są wykonywane blokady poziomu funkcji. Blokady autorenew.| 
 |listenerLockPeriod|00:01:00|Okres, w którym są wykonywane blokady odbiornika.| 

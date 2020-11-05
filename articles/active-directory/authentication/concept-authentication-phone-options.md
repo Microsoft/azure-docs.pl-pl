@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165517"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377755"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metody uwierzytelniania w opcjach Azure Active Directory-Phone
 
@@ -23,7 +23,7 @@ Do bezpośredniego uwierzytelniania przy użyciu wiadomości tekstowej można [s
 
 Użytkownicy mogą również weryfikować się za pomocą telefonu komórkowego lub telefonu biurowego jako dodatkowej formy uwierzytelniania używanej podczas korzystania z usługi Azure Multi-Factor Authentication lub samoobsługowego resetowania hasła (SSPR).
 
-Aby działały prawidłowo, numery telefonów muszą mieć format *+ CountryCode*, na przykład *+ 1 4251234567*.
+Aby działały prawidłowo, numery telefonów muszą mieć format *+ CountryCode* , na przykład *+ 1 4251234567*.
 
 > [!NOTE]
 > Musi być odstęp między kodem kraju/regionu i numerem telefonu.
@@ -49,8 +49,6 @@ Za pomocą weryfikacji wiadomości tekstowych podczas SSPR lub platformy Azure M
 Podczas weryfikacji połączeń telefonicznych podczas SSPR lub platformy Azure Multi-Factor Authentication automatyczne połączenie głosowe jest nawiązywane z numerem telefonu zarejestrowanym przez użytkownika. Aby ukończyć proces logowania, użytkownik otrzymuje monit o wprowadzenie numeru PIN, po którym następuje znak # na klawiaturze.
 
 ## <a name="office-phone-verification"></a>Weryfikacja telefonu służbowego
-
-Atrybut telefon biurowy jest zarządzany przez administratora usługi Azure AD i nie może być zarejestrowany przez samego użytkownika.
 
 Podczas weryfikacji połączeń telefonicznych podczas SSPR lub platformy Azure Multi-Factor Authentication automatyczne połączenie głosowe jest nawiązywane z numerem telefonu zarejestrowanym przez użytkownika. Aby ukończyć proces logowania, użytkownik otrzymuje monit o wprowadzenie numeru PIN, po którym następuje znak # na klawiaturze.
 
@@ -81,7 +79,7 @@ Aby dowiedzieć się więcej o pojęciach SSPR, zobacz Jak działa funkcja samoo
 
 Aby dowiedzieć się więcej na temat pojęć MFA, zobacz [jak działa usługa Azure Multi-Factor Authentication][concept-mfa].
 
-Dowiedz się więcej na temat konfigurowania metod uwierzytelniania przy użyciu [interfejsu API REST Microsoft Graph w wersji beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Dowiedz się więcej na temat konfigurowania metod uwierzytelniania przy użyciu [interfejsu API REST Microsoft Graph w wersji beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

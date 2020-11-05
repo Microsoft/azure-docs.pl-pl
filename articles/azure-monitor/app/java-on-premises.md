@@ -6,14 +6,14 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 04/16/2020
-ms.openlocfilehash: c2d35a6f379b0d7cf3c4c7d61e5e679553e5302f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1afd851f5511ce7b880727c36ffb76a7f4c6d5fe
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326889"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376990"
 ---
-# <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights---public-preview"></a>Monitorowanie aplikacji bezkodowej w języku Java Azure Monitor Application Insights — publiczna wersja zapoznawcza
+# <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights"></a>Monitorowanie aplikacji bezkodowej w języku Java Azure Monitor lokalnego Application Insights
 
 Monitorowanie aplikacji bez kodu Java ma wszystkie informacje o prostotie — nie ma żadnych zmian w kodzie, a agent Java można włączyć za pomocą tylko kilku zmian konfiguracji.
 

@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 123595bb6cd0112e597b9d958763900e07b9ff38
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2dc8773dc41493e30f64c0602b4345a9491cd7b7
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633080"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379710"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
 
@@ -60,30 +60,30 @@ Wykonaj następujące kroki, aby utworzyć środowisko IR samodzielnego przy uż
 
    ![Przycisk zarządzania stroną główną](media/doc-common-process/get-started-page-manage-button.png)
 
-1. W lewym okienku wybierz pozycję **Integration Runtimes** , a następnie wybierz pozycję **+ Nowy** .
+1. W lewym okienku wybierz pozycję **Integration Runtimes** , a następnie wybierz pozycję **+ Nowy**.
 
    ![Tworzenie środowiska Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny** , a następnie wybierz pozycję **Kontynuuj** . 
+1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny** , a następnie wybierz pozycję **Kontynuuj**. 
 
-1. Na poniższej stronie wybierz pozycję **samodzielna** , aby utworzyć Self-Hosted IR, a następnie wybierz pozycję **Kontynuuj** .
+1. Na poniższej stronie wybierz pozycję **samodzielna** , aby utworzyć Self-Hosted IR, a następnie wybierz pozycję **Kontynuuj**.
    ![Tworzenie selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
-1. Wprowadź nazwę dla swojego środowiska IR, a następnie wybierz pozycję **Utwórz** .
+1. Wprowadź nazwę dla swojego środowiska IR, a następnie wybierz pozycję **Utwórz**.
 
 1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz link w obszarze **Opcja 1** , aby otworzyć program Express Setup na komputerze. Lub wykonaj kroki opisane w sekcji **Opcja 2** , aby skonfigurować ręcznie. Poniższe instrukcje są zależne od konfiguracji ręcznej:
 
    ![Instalacja środowiska Integration Runtime](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
-    1. Skopiuj i Wklej klucz uwierzytelniania. Wybierz pozycję **Pobierz i zainstaluj środowisko Integration Runtime** .
+    1. Skopiuj i Wklej klucz uwierzytelniania. Wybierz pozycję **Pobierz i zainstaluj środowisko Integration Runtime**.
 
     1. Pobierz środowisko Integration Runtime (Self-hosted) na lokalną maszynę z systemem Windows. Uruchom instalatora.
 
-    1. Na stronie **zarejestruj Integration Runtime (Self-Hosted)** wklej wcześniej zapisany klucz, a następnie wybierz pozycję **zarejestruj** .
+    1. Na stronie **zarejestruj Integration Runtime (Self-Hosted)** wklej wcześniej zapisany klucz, a następnie wybierz pozycję **zarejestruj**.
     
        ![Rejestrowanie środowiska Integration Runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
 
-    1. Na stronie **nowy węzeł Integration Runtime (Self-Hosted)** wybierz pozycję **Zakończ** .
+    1. Na stronie **nowy węzeł Integration Runtime (Self-Hosted)** wybierz pozycję **Zakończ**.
 
 1. Po pomyślnym zarejestrowaniu własnego środowiska Integration Runtime zostanie wyświetlone następujące okno:
 
@@ -147,7 +147,6 @@ Poniżej znajduje się podsumowanie etapów przepływu danych do kopiowania przy
 - Na każdym komputerze można zainstalować tylko jedno wystąpienie środowiska Integration Runtime (Single-Hosted). Jeśli istnieją dwa fabryki danych, które muszą uzyskać dostęp do lokalnych źródeł danych, użyj [funkcji samodzielnego udostępniania](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) środowiska IR do udostępniania samodzielnego środowiska IR lub zainstaluj samodzielnie hostowane środowisko IR na dwóch komputerach lokalnych, po jednym dla każdej fabryki danych.  
 - Własne środowisko Integration Runtime nie musi znajdować się na tym samym komputerze co źródło danych. Jednak środowisko Integration Runtime w pobliżu źródła danych skraca czas, w którym środowisko Integration Runtime jest połączone ze źródłem danych. Zalecamy zainstalowanie własnego środowiska Integration Runtime na komputerze, który jest inny niż ten, który jest hostem lokalnego źródła danych. Gdy własne środowisko Integration Runtime i źródło danych znajdują się na różnych komputerach, własne środowisko Integration Runtime nie konkuruje ze źródłem danych dla zasobów.
 - Na różnych komputerach, które łączą się z tym samym lokalnym źródłem danych, można mieć wiele środowisk Integration Runtime. Na przykład jeśli masz dwa własne środowiska Integration Runtime, które obsługują dwa fabryki danych, to samo lokalne źródło danych może być zarejestrowane w obu fabrykach danych.
-- Jeśli na komputerze jest już zainstalowana brama do obsługi scenariusza Power BI, zainstaluj osobne środowisko Integration Runtime dla Data Factory na innym komputerze.
 - Użyj własnego środowiska Integration Runtime do obsługi integracji danych w ramach sieci wirtualnej platformy Azure.
 - Traktuj źródło danych jako lokalne źródło danych znajdujące się za zaporą, nawet jeśli korzystasz z usługi Azure ExpressRoute. Użyj własnego środowiska Integration Runtime, aby połączyć usługę ze źródłem danych.
 - Użyj własnego środowiska Integration Runtime, nawet jeśli magazyn danych znajduje się w chmurze na maszynie wirtualnej infrastruktury platformy Azure jako usługi (IaaS).
@@ -186,12 +185,12 @@ Możesz zainstalować własne środowisko Integration Runtime, pobierając pakie
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instalowanie i rejestrowanie samodzielnego środowiska IR z centrum pobierania firmy Microsoft
 
 1. Przejdź do [strony pobierania środowiska Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-1. Wybierz pozycję **Pobierz** , wybierz wersję 64-bitową i wybierz pozycję **dalej** . Wersja 32-bitowa nie jest obsługiwana.
+1. Wybierz pozycję **Pobierz** , wybierz wersję 64-bitową i wybierz pozycję **dalej**. Wersja 32-bitowa nie jest obsługiwana.
 1. Uruchom bezpośrednio plik tożsamości zarządzanej lub Zapisz go na dysku twardym i uruchom go.
-1. W oknie **Zapraszamy** wybierz język i wybierz pozycję **dalej** .
-1. Zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft i wybierz pozycję **dalej** .
-1. Wybierz **folder** , aby zainstalować środowisko Integration Runtime (własne), a następnie wybierz przycisk **dalej** .
-1. Na stronie **gotowy do instalacji** wybierz pozycję **Zainstaluj** .
+1. W oknie **Zapraszamy** wybierz język i wybierz pozycję **dalej**.
+1. Zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft i wybierz pozycję **dalej**.
+1. Wybierz **folder** , aby zainstalować środowisko Integration Runtime (własne), a następnie wybierz przycisk **dalej**.
+1. Na stronie **gotowy do instalacji** wybierz pozycję **Zainstaluj**.
 1. Wybierz pozycję **Zakończ** , aby zakończyć instalację.
 1. Pobierz klucz uwierzytelniania przy użyciu programu PowerShell. Oto przykład programu PowerShell służący do pobierania klucza uwierzytelniania:
 
@@ -205,7 +204,7 @@ Możesz zainstalować własne środowisko Integration Runtime, pobierając pakie
 
     1. Opcjonalnie wybierz pozycję **Pokaż klucz uwierzytelniania** , aby wyświetlić tekst klucza.
 
-    1. Wybierz pozycję **Zarejestruj** .
+    1. Wybierz pozycję **Zarejestruj**.
 
 ## <a name="high-availability-and-scalability"></a>Wysoka dostępność i skalowalność
 
@@ -220,7 +219,7 @@ Możesz skojarzyć wiele węzłów, instalując własne oprogramowanie Integrati
 > Nie musisz tworzyć nowego środowiska Integration Runtime, aby skojarzyć każdy węzeł. Możesz zainstalować własne środowisko Integration Runtime na innym komputerze i zarejestrować je przy użyciu tego samego klucza uwierzytelniania.
 
 > [!NOTE]
-> Przed dodaniem kolejnego węzła w celu zapewnienia wysokiej dostępności i skalowalności upewnij się, że opcja **dostęp zdalny do sieci intranet** jest włączona w pierwszym węźle. W tym celu wybierz pozycję **Microsoft Integration Runtime Configuration Manager**  >  **Ustawienia**  >  **dostęp zdalny do intranetu** .
+> Przed dodaniem kolejnego węzła w celu zapewnienia wysokiej dostępności i skalowalności upewnij się, że opcja **dostęp zdalny do sieci intranet** jest włączona w pierwszym węźle. W tym celu wybierz pozycję **Microsoft Integration Runtime Configuration Manager**  >  **Ustawienia**  >  **dostęp zdalny do intranetu**.
 
 ### <a name="scale-considerations"></a>Zagadnienia dotyczące skalowania
 
@@ -240,7 +239,7 @@ Poniżej przedstawiono wymagania dotyczące certyfikatu TLS/SSL, który służy 
 
 - Certyfikat musi być publicznie zaufanym certyfikatem x509 v3. Zalecamy używanie certyfikatów wystawionych przez publiczny urząd certyfikacji partnera (CA).
 - Każdy węzeł Integration Runtime musi ufać temu certyfikatowi.
-- Nie zalecamy certyfikatów alternatywnej nazwy podmiotu (SAN), ponieważ jest używany tylko ostatni element sieci SAN. Wszystkie inne elementy sieci SAN są ignorowane. Jeśli na przykład masz certyfikat sieci SAN, którego sieci San są **Node1.domain.contoso.com** i **Node2.domain.contoso.com** , możesz użyć tego certyfikatu tylko na komputerze, którego w pełni KWALIFIKOWANA nazwa domeny (FQDN) to **Node2.domain.contoso.com** .
+- Nie zalecamy certyfikatów alternatywnej nazwy podmiotu (SAN), ponieważ jest używany tylko ostatni element sieci SAN. Wszystkie inne elementy sieci SAN są ignorowane. Jeśli na przykład masz certyfikat sieci SAN, którego sieci San są **Node1.domain.contoso.com** i **Node2.domain.contoso.com** , możesz użyć tego certyfikatu tylko na komputerze, którego w pełni KWALIFIKOWANA nazwa domeny (FQDN) to **Node2.domain.contoso.com**.
 - Certyfikat może używać dowolnego rozmiaru klucza obsługiwanego przez system Windows Server 2012 R2 dla certyfikatów TLS/SSL.
 - Certyfikaty używające kluczy CNG nie są obsługiwane.  
 
@@ -360,10 +359,10 @@ Usługa hosta Integration Runtime jest uruchamiana automatycznie po zapisaniu za
 
 Po zarejestrowaniu własnego środowiska Integration Runtime, jeśli chcesz wyświetlić lub zaktualizować ustawienia serwera proxy, użyj Microsoft Integration Runtime Configuration Manager.
 
-1. Otwórz **Configuration Manager Microsoft Integration Runtime** .
-1. Wybierz kartę **Ustawienia** .
+1. Otwórz **Configuration Manager Microsoft Integration Runtime**.
+1. Wybierz kartę **Ustawienia**.
 1. W obszarze **serwer proxy HTTP** wybierz łącze **Zmień** , aby otworzyć okno dialogowe **Ustawianie serwera proxy HTTP** .
-1. Wybierz pozycję **Dalej** . Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
+1. Wybierz pozycję **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
 
 Za pomocą narzędzia Configuration Manager można wyświetlać i aktualizować serwer proxy HTTP.
 
@@ -403,7 +402,7 @@ W przypadku wybrania opcji **Użyj serwera proxy** dla serwera proxy HTTP, włas
     ```
 1. Zapisz plik konfiguracji w jego pierwotnej lokalizacji. Następnie uruchom ponownie usługę hosta Integration Runtime (samodzielne), która pobiera zmiany.
 
-   Aby ponownie uruchomić usługę, użyj apletu usługi w panelu sterowania. Lub z Integration Runtime Configuration Manager wybierz przycisk **Zatrzymaj usługę** , a następnie wybierz pozycję **Uruchom usługę** .
+   Aby ponownie uruchomić usługę, użyj apletu usługi w panelu sterowania. Lub z Integration Runtime Configuration Manager wybierz przycisk **Zatrzymaj usługę** , a następnie wybierz pozycję **Uruchom usługę**.
 
    Jeśli usługa nie zostanie uruchomiona, prawdopodobnie dodano niepoprawną składnię tagu XML w edytowanym pliku konfiguracyjnym aplikacji.
 
@@ -417,7 +416,7 @@ Należy również upewnić się, że Microsoft Azure znajduje się na liście do
 W przypadku wyświetlenia komunikatów o błędach, takich jak następujące, prawdopodobnie przyczyną jest niepoprawna konfiguracja zapory lub serwera proxy. Taka konfiguracja uniemożliwia samodzielne środowisko Integration Runtime łączenie się z usługą Data Factory w celu samodzielnego uwierzytelnienia. Aby upewnić się, że Zapora i serwer proxy są prawidłowo skonfigurowane, zapoznaj się z poprzednią sekcją.
 
 * Podczas próby zarejestrowania własnego środowiska Integration Runtime zostanie wyświetlony następujący komunikat o błędzie: "nie można zarejestrować tego węzła Integration Runtime. Upewnij się, że klucz uwierzytelniania jest prawidłowy, a na tym komputerze jest uruchomiona usługa hosta usługi integracji.
-* Po otwarciu Integration Runtime Configuration Manager zostanie wyświetlony stan **odłączony** lub **nawiązanie połączenia** . Podczas wyświetlania dzienników zdarzeń systemu Windows w obszarze **Podgląd zdarzeń**  >  **Dzienniki aplikacji i usług**  >  **Microsoft Integration Runtime** są wyświetlane komunikaty o błędach podobne do tego:
+* Po otwarciu Integration Runtime Configuration Manager zostanie wyświetlony stan **odłączony** lub **nawiązanie połączenia**. Podczas wyświetlania dzienników zdarzeń systemu Windows w obszarze **Podgląd zdarzeń**  >  **Dzienniki aplikacji i usług**  >  **Microsoft Integration Runtime** są wyświetlane komunikaty o błędach podobne do tego:
 
     ```
     Unable to connect to the remote server
@@ -426,7 +425,7 @@ W przypadku wyświetlenia komunikatów o błędach, takich jak następujące, pr
 
 ### <a name="enable-remote-access-from-an-intranet"></a>Włącz dostęp zdalny z intranetu
 
-W przypadku korzystania z programu PowerShell w celu szyfrowania poświadczeń z komputera w sieci, poza miejscem, w którym zainstalowano własne środowisko Integration Runtime, można włączyć opcję **dostęp zdalny z intranetu** . Jeśli program PowerShell zostanie uruchomiony w celu szyfrowania poświadczeń na komputerze, na którym zainstalowano własne środowisko Integration Runtime, nie można włączyć **dostępu zdalnego z intranetu** .
+W przypadku korzystania z programu PowerShell w celu szyfrowania poświadczeń z komputera w sieci, poza miejscem, w którym zainstalowano własne środowisko Integration Runtime, można włączyć opcję **dostęp zdalny z intranetu** . Jeśli program PowerShell zostanie uruchomiony w celu szyfrowania poświadczeń na komputerze, na którym zainstalowano własne środowisko Integration Runtime, nie można włączyć **dostępu zdalnego z intranetu**.
 
 Włącz **dostęp zdalny z intranetu** przed dodaniem kolejnego węzła w celu zapewnienia wysokiej dostępności i skalowalności.  
 
