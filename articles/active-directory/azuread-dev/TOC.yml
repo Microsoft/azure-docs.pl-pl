@@ -147,8 +147,6 @@
       items:
         - name: Publikowanie w źródle aplikacji
           href: howto-get-appsource-certified.md
-        - name: Publikowanie w galerii aplikacji usługi Azure AD
-          href: howto-app-gallery-listing.md
         - name: Publikowanie na pulpicie nawigacyjnym sprzedawcy usługi Office 365
           href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
     - name: Azure Access Control Service

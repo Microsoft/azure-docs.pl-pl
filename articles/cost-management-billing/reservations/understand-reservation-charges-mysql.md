@@ -1,18 +1,18 @@
 ---
 title: Informacje o rabacie na rezerwacje — Azure Database for MySQL
 description: Dowiedz się, w jaki sposób rabat na rezerwacje jest stosowany do serwerów usługi Azure Database for MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 5cb4e3dd4145319361a2494ee346c0d2696edf45
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 85a8c59cce74787a7b1723850915ec133b34b3b0
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148314"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240379"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>W jaki sposób rabat za rezerwacje jest stosowany do usługi Azure Database for MySQL
 
@@ -20,7 +20,7 @@ Po zakupie pojemności zarezerwowanej usługi Azure Database for MySQL rabat za 
 
 ## <a name="how-reservation-discount-is-applied"></a>Jak jest naliczany rabat za rezerwację
 
-Rabat za rezerwację jest dostępny na zasadzie ***wykorzystaj lub strać***. Zatem jeśli w ciągu jakiejś godziny nie będziesz mieć pasujących zasobów, utracisz ilość rezerwacji dla tej godziny. Niewykorzystanych godzin zarezerwowanych nie można przenieść na później.</br>
+Rabat za rezerwację jest dostępny na zasadzie * **wykorzystaj lub strać** _. Zatem jeśli w ciągu jakiejś godziny nie będziesz mieć pasujących zasobów, utracisz ilość rezerwacji dla tej godziny. Niewykorzystanych godzin zarezerwowanych nie można przenieść na później.</br>
 
 Po wyłączeniu zasobu rabat za rezerwację automatycznie stosuje się do innego pasującego zasobu w określonym zakresie. Jeśli w określonym zakresie nie uda się znaleźć pasujących zasobów, zarezerwowane godziny zostaną utracone.
 
@@ -30,15 +30,15 @@ Rabat za pojemność zarezerwowaną usługi Azure Database for MySQL jest stosow
 
 W poniższych przykładach pokazano, w jaki sposób rabat za pojemność zarezerwowaną usługi Azure Database for MySQL jest stosowany w zależności od liczby zakupionych rdzeni oraz czasu ich działania.
 
-**Przykład 1**: Kupujesz pojemność zarezerwowaną usługi Azure Database for MySQL dla 8 rdzeni wirtualnych. W przypadku korzystania z serwera usługi Azure Database for MySQL z 16 rdzeniami wirtualnymi zgodnego z resztą atrybutów rezerwacji opłata jest naliczana według stawek płatności zgodnie z rzeczywistym użyciem za osiem rdzeni wirtualnych użycia mocy obliczeniowej serwera MySQL, a rabat za rezerwację otrzymujesz na 1 godzinę użycia mocy obliczeniowej serwera MySQL z 8 rdzeniami wirtualnymi.</br>
+_ **Przykład 1** : Kupujesz pojemność zarezerwowaną usługi Azure Database for MySQL dla 8 rdzeni wirtualnych. W przypadku korzystania z serwera usługi Azure Database for MySQL z 16 rdzeniami wirtualnymi zgodnego z resztą atrybutów rezerwacji opłata jest naliczana według stawek płatności zgodnie z rzeczywistym użyciem za osiem rdzeni wirtualnych użycia mocy obliczeniowej serwera MySQL, a rabat za rezerwację otrzymujesz na 1 godzinę użycia mocy obliczeniowej serwera MySQL z 8 rdzeniami wirtualnymi.</br>
 
 W pozostałych przykładach przyjęto założenie, że zakupiona pojemność zarezerwowana usługi Azure Database for MySQL dotyczy usługi Azure Database for MySQL z 16 rdzeniami wirtualnymi, a pozostałe atrybuty rezerwacji są zgodne z uruchomionymi serwerami MySQL.
 
-* **Przykład 2**: Uruchamiasz 2 pojedyncze serwery usługi Azure Database for MySQL, każdy z 8 rdzeniami wirtualnymi, na 1 godzinę. Rabat za rezerwację z 16 rdzeniami wirtualnymi jest stosowany do użycia mocy obliczeniowej dla obu serwerów usługi Azure Database for MySQL z 8 rdzeniami wirtualnymi.
+* **Przykład 2** : Uruchamiasz 2 pojedyncze serwery usługi Azure Database for MySQL, każdy z 8 rdzeniami wirtualnymi, na 1 godzinę. Rabat za rezerwację z 16 rdzeniami wirtualnymi jest stosowany do użycia mocy obliczeniowej dla obu serwerów usługi Azure Database for MySQL z 8 rdzeniami wirtualnymi.
 
-* **Przykład 3**: Uruchamiasz jeden serwer usługi Azure Database for MySQL z 16 rdzeniami wirtualnymi od godziny 13:00 do 13:30. Uruchamiasz kolejny serwer usługi Azure Database for MySQL z 16 rdzeniami wirtualnymi od godziny 13:30 do 14:00. Obie te bazy danych są objęte rabatem na rezerwację.
+* **Przykład 3** : Uruchamiasz jeden serwer usługi Azure Database for MySQL z 16 rdzeniami wirtualnymi od godziny 13:00 do 13:30. Uruchamiasz kolejny serwer usługi Azure Database for MySQL z 16 rdzeniami wirtualnymi od godziny 13:30 do 14:00. Obie te bazy danych są objęte rabatem na rezerwację.
 
-* **Przykład 4**: Uruchamiasz jeden serwer usługi Azure Database for MySQL z 16 rdzeniami wirtualnymi od godziny 13:00 do 13:45. Uruchamiasz kolejny serwer usługi Azure Database for MySQL z 16 rdzeniami wirtualnymi od godziny 13:30 do 14:00. Za 15-minutowy okres jednoczesnego działania obu baz danych jest naliczana opłata według stawek płatności zgodnie z rzeczywistym użyciem. Na użycie zasobów obliczeniowych przez resztę czasu jest stosowany rabat na rezerwację.
+* **Przykład 4** : Uruchamiasz jeden serwer usługi Azure Database for MySQL z 16 rdzeniami wirtualnymi od godziny 13:00 do 13:45. Uruchamiasz kolejny serwer usługi Azure Database for MySQL z 16 rdzeniami wirtualnymi od godziny 13:30 do 14:00. Za 15-minutowy okres jednoczesnego działania obu baz danych jest naliczana opłata według stawek płatności zgodnie z rzeczywistym użyciem. Na użycie zasobów obliczeniowych przez resztę czasu jest stosowany rabat na rezerwację.
 
 Aby poznać zastosowanie swoich rezerwacji platformy Azure w raportach rozliczeń użycia i przejrzeć je, zobacz [Omówienie użycia rezerwacji platformy Azure](./understand-reserved-instance-usage-ea.md).
 

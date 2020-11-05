@@ -86,6 +86,7 @@
       href: dns-settings.md
     - name: Monitorowanie dzienników diagnostycznych
       href: firewall-diagnostics.md
+      displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
     - name: Dzienniki usługi Azure Monitor
       href: log-analytics-samples.md
     - name: Skoroszyt usługi Azure Firewall

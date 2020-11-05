@@ -3,8 +3,10 @@
 - name: Omówienie
   href: media-services-overview.md
   items:
-    - name: Scenariusze i dostępność
+    - name: Typowe scenariusze
       href: scenarios-and-availability.md
+    - name: Dostępność regionalna
+      href: availability-regions-v-2.md
     - name: Pojęcia
       href: media-services-concepts.md
 - name: Rozpoczęcie pracy

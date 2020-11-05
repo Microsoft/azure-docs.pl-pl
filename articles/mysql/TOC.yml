@@ -1,4 +1,4 @@
-- name: Dokumentacja usługi Azure DB for MySQL
+- name: Dokumentacja usługi Azure Database dla MySQL
   href: index.yml
 - name: Omówienie
   items:
@@ -224,7 +224,7 @@
               displayName: 'manage, reset password, scale'
             - name: Reguły zapory
               items:
-                - name: Witryna Azure Portal
+                - name: Azure Portal
                   href: howto-manage-firewall-using-portal.md
                   displayName: firewall
                 - name: Interfejs wiersza polecenia platformy Azure
@@ -240,7 +240,7 @@
               displayName: 'managed identity, msi'
         - name: Przywracanie serwera
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-restore-server-portal.md
               displayName: 'restore server,backup'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -271,7 +271,7 @@
               displayName: 'development, redirection , php'
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Interfejs wiersza polecenia platformy Azure
@@ -286,7 +286,7 @@
               href: how-to-stop-start-server.md
         - name: Automatyczne zwiększanie rozmiaru magazynu
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'storage, business continuity , downtime, portal'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -297,7 +297,7 @@
               displayName: 'storage, business continuity , downtime, powershell'
         - name: Dzienniki wolnych zapytań
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'debug, slow query log , performance'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -305,7 +305,7 @@
               displayName: 'debug, slow query log , performance'
         - name: Dzienniki inspekcji
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-configure-audit-logs-portal.md
               displayName: 'debug, audit log'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -357,7 +357,7 @@
               displayName: 'atp, advanced thread, security'
             - name: Virtual Network
               items:
-                - name: Witryna Azure Portal
+                - name: Azure Portal
                   href: howto-manage-vnet-using-portal.md
                   displayName: 'vnet, virtual network, service endpoint'
                 - name: Interfejs wiersza polecenia platformy Azure
@@ -394,7 +394,7 @@
               displayName: 'security, public access'
         - name: Ponowne uruchamianie serwera
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-restart-server-portal.md
               displayName: restart
             - name: Interfejs wiersza polecenia platformy Azure
@@ -522,7 +522,7 @@
                   href: flexible-server/how-to-connect-tls-ssl.md
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Interfejs wiersza polecenia platformy Azure

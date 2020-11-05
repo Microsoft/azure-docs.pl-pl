@@ -1,4 +1,4 @@
-- name: Dokumentacja usługi Azure DB for PostgreSQL
+- name: Dokumentacja usługi Azure Database for PostgreSQL
   href: index.yml
 - name: Omówienie
   items:
@@ -227,7 +227,7 @@
               displayName: 'scale server, reset password'
         - name: Ponowne uruchamianie serwera
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-restart-server-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-restart-server-cli.md
@@ -235,7 +235,7 @@
               href: howto-restart-server-powershell.md
         - name: Reguły zapory
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -255,6 +255,9 @@
             - name: Azure PowerShell
               href: howto-restore-server-powershell.md
               displayName: 'restore, georestore, geo-restore, outage'
+            - name: Przywracanie usuniętego serwera
+              href: howto-restore-dropped-server.md
+              displayName: 'restore server,dropped, recover'
         - name: Włącz uwierzytelnianie
           items:
             - name: Tworzenie użytkowników
@@ -287,7 +290,7 @@
           displayName: 'application development, TLS'
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -298,7 +301,7 @@
               displayName: 'application development, server parameters'
         - name: Automatyczne zwiększanie rozmiaru magazynu
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -309,7 +312,7 @@
               displayName: 'business continuity, scale , storage'
         - name: Dzienniki dostępu
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
             - name: Interfejs wiersza polecenia platformy Azure
@@ -486,7 +489,7 @@
                   href: flexible-server/how-to-connect-tls-ssl.md
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Witryna Azure Portal
+            - name: Azure Portal
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Interfejs wiersza polecenia platformy Azure

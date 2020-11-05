@@ -558,7 +558,7 @@
     - name: Zabezpieczone maszyny wirtualne
       items:
         - name: Zalecenia
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Dostęp just in time
           href: ../../security-center/security-center-just-in-time.md
         - name: Korzystanie z usługi Bastion
@@ -666,7 +666,7 @@
         - name: Agent maszyny wirtualnej platformy Azure
           href: ../extensions/agent-windows.md
         - name: Ograniczanie ryzyka związanego z wykonywaniem spekulatywnym
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: Monitorowanie metadanych
           href: instance-metadata-service.md
         - name: Włączanie wirtualizacji zagnieżdżonej
@@ -959,7 +959,7 @@
         - name: Korzystanie z przyspieszonej sieci
           href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Przypisywanie publicznej nazwy DNS
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: Rozpoznawanie nazw DNS
           href: ../../dns/dns-for-azure-services.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Konfigurowanie tożsamości zarządzanych
