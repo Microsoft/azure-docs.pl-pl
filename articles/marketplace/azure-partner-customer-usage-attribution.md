@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 10/30/2020
+ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 3f3196e775ff9e7d8064559069414952f09a3016
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348342"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360228"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 
@@ -311,10 +311,6 @@ Klienci mogą śledzić użycie poszczególnych zasobów lub grup zasobów zdefi
 **Czy ta metodologia jest podobna do cyfrowej partnera rejestrowania (DPOR)?**
 
 Ta nowa metoda łączenia wdrożenia i użycia z rozwiązaniem partnera zapewnia mechanizm łączenia rozwiązania partnerskiego z użyciem platformy Azure. DPOR jest przeznaczony do kojarzenia partnera konsultingowego (integratora systemów) lub zarządzania (dostawca usług zarządzanych) z subskrypcją platformy Azure klienta.
-
-**Jakie korzyści niesie korzystanie z formularza generatora GUID usługi Azure Storage?**
-
-Formularz generatora GUID usługi Azure Storage jest gwarantowany do wygenerowania identyfikatora GUID wymaganego formatu. Ponadto, jeśli używasz dowolnej metody śledzenia płaszczyzny danych usługi Azure Storage, możesz użyć tego samego identyfikatora GUID do śledzenia płaszczyzny kontroli witryny Marketplace. Dzięki temu można wykorzystać jednolity ujednolicony identyfikator GUID do przypisywania przez partnera bez konieczności obsługi oddzielnych identyfikatorów GUID.
 
 **Czy można użyć prywatnego, niestandardowego wirtualnego dysku twardego dla oferty szablonu rozwiązania w portalu Azure Marketplace?**
 

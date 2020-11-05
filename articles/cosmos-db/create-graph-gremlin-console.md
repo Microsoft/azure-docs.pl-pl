@@ -1,18 +1,18 @@
 ---
 title: 'Zapytanie z interfejsem API usługi Azure Cosmos DB Gremlin przy użyciu konsoli TinkerPop Gremlin: samouczek'
 description: Przewodnik Szybki start usługi Azure Cosmos DB opisujący tworzenie wierzchołków, krawędzi i zapytań za pomocą interfejsu API języka Gremlin w usłudze Azure Cosmos DB.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: jasonh
-ms.openlocfilehash: be93df10614e32fb14e5ca7497461f0f2d6fc93e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.author: chrande
+ms.openlocfilehash: 20cb4cea52317022aea8a5b9e4b8280f8b88ff85
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099718"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361515"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Szybki start: Tworzenie elementów, wykonywanie zapytań i przechodzenie przez grafową bazę danych usługi Azure Cosmos DB przy użyciu konsoli Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -57,7 +57,7 @@ Należy również zainstalować [konsolę Gremlin](https://tinkerpop.apache.org/
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
-    hosty|[ *nazwa konta* . **Gremlin** . Cosmos.Azure.com]|Zobacz poniższy zrzut ekranu. Jest to wartość **identyfikatora URI Gremlin** na stronie Przegląd Azure Portal w nawiasach kwadratowych z końcowym: 443/usunięty. Uwaga: Pamiętaj, aby użyć wartości Gremlin, a **nie** identyfikatora URI kończącego się na [ *account-name* . Documents.Azure.com], co prawdopodobnie spowoduje, że "host nie odpowiedział w odpowiednim czasie" podczas próby wykonania zapytań Gremlin w późniejszym czasie. 
+    hosty|[ *nazwa konta*. **Gremlin**. Cosmos.Azure.com]|Zobacz poniższy zrzut ekranu. Jest to wartość **identyfikatora URI Gremlin** na stronie Przegląd Azure Portal w nawiasach kwadratowych z końcowym: 443/usunięty. Uwaga: Pamiętaj, aby użyć wartości Gremlin, a **nie** identyfikatora URI kończącego się na [ *account-name*. Documents.Azure.com], co prawdopodobnie spowoduje, że "host nie odpowiedział w odpowiednim czasie" podczas próby wykonania zapytań Gremlin w późniejszym czasie. 
     port|443|Ustaw wartość 443.
     nazwa użytkownika|*Twoja nazwa użytkownika*|Zasób w postaci `/dbs/<db>/colls/<coll>`, gdzie `<db>` jest nazwą bazy danych, a `<coll>` oznacza nazwę kolekcji.
     hasło|*Twój klucz podstawowy*| Zobacz drugi zrzut ekranu poniżej. To jest klucz podstawowy, który można pobrać ze strony Klucze w witrynie Azure Portal, z pola Klucz podstawowy. Aby skopiować wartość, użyj przycisku kopiowania po lewej stronie pola.
@@ -66,11 +66,11 @@ Należy również zainstalować [konsolę Gremlin](https://tinkerpop.apache.org/
 
    W przypadku wartości hosta skopiuj wartość **Identyfikator URI Gremlin** ze strony **Przegląd** :
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Usługa Azure Cosmos DB w konsoli Apache Gremlin":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Wyświetlanie i kopiowanie wartości Identyfikator URI Gremlin na stronie Przegląd w witrynie Azure Portal":::
 
    W przypadku wartości hasła skopiuj wartość **Klucz podstawowy** ze strony **Klucze** :
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Usługa Azure Cosmos DB w konsoli Apache Gremlin":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Wyświetlanie i kopiowanie klucza podstawowego w witrynie Azure Portal na stronie Klucze":::
 
    Zdalny plik secure.yaml powinien wyglądać następująco:
 
@@ -109,7 +109,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>Tworzenie wierzchołków i krawędzi
 
-Zacznijmy od dodania wierzchołków dla pięciu osób: *Thomas* , *Mary Kay* , *Robin* , *Ben* i *Jack* .
+Zacznijmy od dodania wierzchołków dla pięciu osób: *Thomas* , *Mary Kay* , *Robin* , *Ben* i *Jack*.
 
 Dane wejściowe (Thomas):
 
@@ -215,7 +215,7 @@ Dane wyjściowe:
 
 ## <a name="update-a-vertex"></a>Aktualizowanie wierzchołka
 
-Zaktualizujmy wierzchołek *Thomas* , podając nowy wiek: *45* .
+Zaktualizujmy wierzchołek *Thomas* , podając nowy wiek: *45*.
 
 Dane wejściowe:
 ```java

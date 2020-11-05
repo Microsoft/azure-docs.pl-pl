@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 11/02/2020
+ms.openlocfilehash: 47aada0abe2520ba81689ca8fa17787fde847d83
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147239"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360253"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformacja ujścia w przepływie danych mapowania
 
@@ -71,11 +71,13 @@ Poniższy film wideo wyjaśnia różne opcje ujścia dla typów plików rozdziel
 
 **Użyj bazy danych tempdb:** Domyślnie Data Factory będzie używać globalnej tabeli tymczasowej do przechowywania danych w ramach procesu ładowania. Można również usunąć zaznaczenie opcji "Użyj bazy danych TempDB", a zamiast tego polecić Data Factory przechowywanie tymczasowej tabeli w bazie danych użytkownika, która znajduje się w bazie danych, która jest używana dla tego ujścia.
 
-![TempDB](media/data-flow/tempdb.png "TempDB")
+![Użyj tymczasowej bazy danych](media/data-flow/tempdb.png "Użyj tymczasowej bazy danych")
 
 ## <a name="cache-sink"></a>Ujścia pamięci podręcznej
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
  
-*Ujścia pamięci podręcznej* polega na tym, że przepływ danych zapisuje dane w pamięci podręcznej Spark zamiast w magazynie danych. W mapowaniu przepływów danych można odwoływać się do tych danych w tym samym przepływie wielokrotnie przy użyciu funkcji *wyszukiwania w pamięci podręcznej* . Jest to przydatne, gdy chcesz odwoływać się do danych w ramach wyrażenia, ale nie chcesz jawnie dołączać do kolumn. Typowe przykłady, w których obiekt ujścia pamięci podręcznej może pomóc w wyszukiwaniu maksymalnej wartości w magazynie danych i dopasowania kodów błędów do bazy danych komunikatów o błędach. 
+*Ujścia pamięci podręcznej* polega na tym, że przepływ danych zapisuje dane w pamięci podręcznej Spark zamiast w magazynie danych. W mapowaniu przepływów danych można odwoływać się do tych danych w tym samym przepływie wielokrotnie przy użyciu funkcji *wyszukiwania w pamięci podręcznej*. Jest to przydatne, gdy chcesz odwoływać się do danych w ramach wyrażenia, ale nie chcesz jawnie dołączać do kolumn. Typowe przykłady, w których obiekt ujścia pamięci podręcznej może pomóc w wyszukiwaniu maksymalnej wartości w magazynie danych i dopasowania kodów błędów do bazy danych komunikatów o błędach. 
 
 Aby zapisać dane w ujściach pamięci podręcznej, Dodaj transformację ujścia i wybierz **pamięć podręczną** jako typ ujścia. W przeciwieństwie do innych typów ujścia, nie musisz wybierać zestawu danych ani połączonej usługi, ponieważ nie zapisujesz w sklepie zewnętrznym. 
 
@@ -92,7 +94,7 @@ Na przykład, jeśli określim pojedynczą kolumnę klucza `column1` w ujścia p
 
 ## <a name="field-mapping"></a>Mapowanie pola
 
-Podobnie jak w przypadku transformacji SELECT, na karcie **Mapowanie** obiektu ujścia można zdecydować, które kolumny przychodzące będą zapisywane. Domyślnie wszystkie kolumny wejściowe, w tym kolumny przedzielone, są mapowane. Takie zachowanie jest nazywane *automapowaniem* .
+Podobnie jak w przypadku transformacji SELECT, na karcie **Mapowanie** obiektu ujścia można zdecydować, które kolumny przychodzące będą zapisywane. Domyślnie wszystkie kolumny wejściowe, w tym kolumny przedzielone, są mapowane. Takie zachowanie jest nazywane *automapowaniem*.
 
 Po wyłączeniu automapowanie można dodać stałe mapowania oparte na kolumnach lub mapowania oparte na regułach. Przy użyciu mapowań opartych na regułach można pisać wyrażenia z dopasowaniem do wzorca. Stałe mapowanie mapuje nazwy kolumn logicznych i fizycznych. Aby uzyskać więcej informacji na temat mapowania opartego na regułach, zobacz [wzorce kolumn w mapowaniu przepływu danych](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 
@@ -101,6 +103,11 @@ Po wyłączeniu automapowanie można dodać stałe mapowania oparte na kolumnach
 Domyślnie dane są zapisywane w wielu ujściach w kolejności niedeterministycznej. Aparat wykonywania zapisuje dane równolegle, ponieważ logika transformacji została zakończona, a kolejność zbiornika może się różnić w zależności od przebiegu. Aby określić dokładną kolejność obiektów, Włącz **niestandardowe porządkowanie** obiektów na karcie **Ogólne** przepływu danych. Po włączeniu ujścia są zapisywane sekwencyjnie w kolejności rosnącej.
 
 ![Zrzut ekranu przedstawiający niestandardowe porządkowanie obiektów sink.](media/data-flow/custom-sink-ordering.png "Zrzut ekranu przedstawiający niestandardowe porządkowanie obiektów sink.")
+
+> [!NOTE]
+> W przypadku używania [buforowanych wyszukiwań](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup)upewnij się, że kolejność obiektów ujścia w pamięci podręcznej jest ustawiona na 0.
+
+![Niestandardowe porządkowanie obiektów sink](media/data-flow/cache-2.png "Niestandardowe porządkowanie obiektów sink")
 
 ## <a name="data-preview-in-sink"></a>Podgląd danych w usłudze ujścia
 

@@ -1,19 +1,19 @@
 ---
 title: MongoDB polecenia rozszerzenia do zarządzania danymi w interfejsie API Azure Cosmos DB dla MongoDB
 description: W tym artykule opisano sposób używania poleceń rozszerzenia MongoDB do zarządzania danymi przechowywanymi w interfejsie API Azure Cosmos DB dla MongoDB.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.author: jasonh
+ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: db230dc0bd1d5cdddf9446b22d8ae682c019c438
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2fd2fa7620e57c58f72dad73c1012a19190e8fbc
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333013"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359650"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Użyj poleceń rozszerzenia MongoDB, aby zarządzać danymi przechowywanymi w interfejsie API Azure Cosmos DB dla MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -236,7 +236,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-Spowoduje to powstanie nowej, unsharded kolekcji z 400RU/s i indeksu w `_id` polu tworzonym automatycznie. Ten typ konfiguracji będzie również stosowany podczas tworzenia nowych kolekcji za pośrednictwem `insert()` funkcji. Przykład: 
+Spowoduje to powstanie nowej, unsharded kolekcji z 400RU/s i indeksu w `_id` polu tworzonym automatycznie. Ten typ konfiguracji będzie również stosowany podczas tworzenia nowych kolekcji za pośrednictwem `insert()` funkcji. Na przykład: 
 
 ```javascript
 use test
@@ -425,7 +425,7 @@ Jeśli nie zostanie określony, niestandardowa odpowiedź zawiera dokument z nas
 | `code`    |   `int`      |   Zwracane tylko wtedy, gdy polecenie nie powiodło się (tj. ok = = 0). Zawiera kod błędu MongoDB. Jest to opcjonalny parametr odpowiedzi.      |
 |  `errMsg`   |  `string`      |    Zwracane tylko wtedy, gdy polecenie nie powiodło się (tj. ok = = 0). Zawiera przyjazny dla użytkownika komunikat o błędzie. Jest to opcjonalny parametr odpowiedzi.      |
 
-Przykład:
+Na przykład:
 
 ```javascript
 { "ok" : 1 }

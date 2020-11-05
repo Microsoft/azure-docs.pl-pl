@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: b67de07777fa3f4f2b6190d8b003eb0495e66d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 197d28b2ac3d94b6639a6611b2919bdeb2b182e2
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400489"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359905"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Wyodrębnij informacje w programie Excel przy użyciu analiza tekstu i automatyzacji 
 
@@ -44,18 +44,16 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 Pobierz przykładowy plik programu Excel z usługi [GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/TextAnalytics/sample-data/ReportedIssues.xlsx). Ten plik musi być przechowywany na koncie usługi OneDrive dla firm.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Przykłady z pliku programu Excel.":::
 
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa" w celu skategoryzowania problemów. 
+Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz "Instalacja wodociągowa" w celu skategoryzowania problemów. 
 
 ## <a name="create-a-new-power-automate-workflow"></a>Utwórz nowy przepływ pracy automatyzacji
 
 Przejdź do [witryny automatyzacji](https://preview.flow.microsoft.com/)i zaloguj się. Następnie kliknij pozycję **Utwórz** i **zaplanowana przepływ**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="Ekran tworzenia przepływu.":::
 
 
 Na stronie **Tworzenie zaplanowanego przepływu** zainicjuj przepływ przy użyciu następujących pól:
@@ -74,53 +72,41 @@ Na stronie **Tworzenie zaplanowanego przepływu** zainicjuj przepływ przy użyc
 Utwórz zmienne reprezentujące informacje, które zostaną dodane do pliku programu Excel. Kliknij przycisk **nowy krok** i Wyszukaj pozycję **zainicjuj zmienną**. Zrób to cztery razy, aby utworzyć cztery zmienne.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Inicjuj zmienne.":::
 
 Dodaj następujące informacje do utworzonych zmiennych. Reprezentują one kolumny pliku programu Excel. Jeśli jakiekolwiek zmienne są zwinięte, możesz je kliknąć, aby je rozwinąć.
 
 | Akcja |Nazwa   | Typ | Wartość |
 |---------|---------|---|---|
-| Zainicjuj zmienną | var_person | Ciąg | Osoba |
+| Zainicjuj zmienną | var_person | Ciąg | Person (Osoba) |
 | Zainicjuj zmienną 2 | var_phone | Ciąg | Phone_Number |
 | Zainicjuj zmienną 3 | var_plumbing | Ciąg | nadmiar |
 | Zainicjuj zmienną 4 | var_other | Ciąg | other | 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="Informacje zawarte w zmiennych przepływu":::
 
 ## <a name="read-the-excel-file"></a>Odczytaj plik programu Excel
 
-Kliknij pozycję **nowy krok** i wpisz polecenie **Excel**, a następnie wybierz pozycję **Lista wierszy znajdujących się w tabeli** z listy akcji.
+Kliknij pozycję **nowy krok** i wpisz polecenie **Excel** , a następnie wybierz pozycję **Lista wierszy znajdujących się w tabeli** z listy akcji.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="Dodaj wiersze programu Excel.":::
 
 Dodaj plik programu Excel do przepływu, wypełniając pola w tej akcji. Ten samouczek wymaga przekazania pliku do usługi OneDrive dla firm.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="Wypełnij wiersze programu Excel":::
 
 Kliknij pozycję **nowy krok** i Dodaj akcję **Zastosuj do każdego** .
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="Dodaj polecenie Apply.":::
 
 Kliknij pozycję **Wybierz dane wyjściowe z poprzedniego kroku**. W wyświetlonym polu zawartość dynamiczna wybierz pozycję **wartość**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Wybierz pozycję dane wyjściowe z pliku programu Excel.":::
 
 ## <a name="send-a-request-to-the-text-analytics-api"></a>Wyślij żądanie do interfejs API analizy tekstu
 
@@ -128,7 +114,7 @@ Jeśli jeszcze tego nie zrobiono, należy utworzyć [zasób analiza tekstu](http
 
 ### <a name="create-a-text-analytics-connection"></a>Utwórz połączenie analiza tekstu
 
-W obszarze **Zastosuj do każdego**kliknij pozycję **Dodaj akcję**. Przejdź do strony **klucza i punktu końcowego** zasobu analiza tekstu w Azure Portal, a następnie Pobierz klucz i punkt końcowy dla zasobu analiza tekstu.
+W obszarze **Zastosuj do każdego** kliknij pozycję **Dodaj akcję**. Przejdź do strony **klucza i punktu końcowego** zasobu analiza tekstu w Azure Portal, a następnie Pobierz klucz i punkt końcowy dla zasobu analiza tekstu.
 
 W przepływie Wprowadź poniższe informacje, aby utworzyć nowe połączenie analiza tekstu.
 
@@ -142,93 +128,69 @@ W przepływie Wprowadź poniższe informacje, aby utworzyć nowe połączenie an
 | Adres URL witryny        | Punkt końcowy dla zasobu analiza tekstu.                                                       |
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu.":::
 
 ## <a name="extract-the-excel-content"></a>Wyodrębnij zawartość programu Excel 
 
 Po utworzeniu połączenia Wyszukaj **Analiza tekstu** i wybierz pozycję **jednostki**. Spowoduje to wyodrębnienie informacji z kolumny opis problemu.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Dodaj jednostki analiza tekstu.":::
 
 Kliknij pole **tekstowe** i wybierz pozycję **Opis** w wyświetlonych oknach zawartości dynamicznej. Wprowadź `en` dla języka. (Kliknij przycisk Pokaż opcje zaawansowane, jeśli nie widzisz języka)
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Dodaj ustawienia analiza tekstu.":::
 
 
 ## <a name="extract-the-person-name"></a>Wyodrębnij nazwisko osoby
 
-Następnie odnajdziemy typ podmiotu osoby w analiza tekstu danych wyjściowych. W obszarze **Zastosuj do każdego**kliknij pozycję **Dodaj akcję**i Utwórz inną akcję **Zastosuj do poszczególnych** akcji. Kliknij wewnątrz pola tekstowego i wybierz pozycję **jednostki** w oknie zawartość dynamiczna, która zostanie wyświetlona.
+Następnie odnajdziemy typ podmiotu osoby w analiza tekstu danych wyjściowych. W obszarze **Zastosuj do każdego** kliknij pozycję **Dodaj akcję** i Utwórz inną akcję **Zastosuj do poszczególnych** akcji. Kliknij wewnątrz pola tekstowego i wybierz pozycję **jednostki** w oknie zawartość dynamiczna, która zostanie wyświetlona.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. dwóch":::
 
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
-
-W ramach nowo utworzonego działania **Zastosuj do każdego 2** kliknij przycisk **Dodaj akcję**i Dodaj kontrolkę **warunek** .
+W ramach nowo utworzonego działania **Zastosuj do każdego 2** kliknij przycisk **Dodaj akcję** i Dodaj kontrolkę **warunek** .
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. r.3":::
 
 W oknie warunek kliknij pierwsze pole tekstowe. W oknie zawartość dynamiczna Wyszukaj pozycję **typ jednostek** i wybierz ją.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. czwart":::
 
 Upewnij się, że drugie pole ma ustawioną wartość **równą**. Następnie wybierz trzecie pole i Wyszukaj `var_person` w oknie zawartość dynamiczna. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. 5000":::
 
 W warunku **if Yes** wpisz w programie Excel, a następnie wybierz pozycję **Aktualizuj wiersz**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. ust":::
 
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
-
-Wprowadź informacje w programie Excel i zaktualizuj **kolumny klucza**, **wartość klucza** i **imię** . Spowoduje to dołączenie nazwy wykrytej przez interfejs API do arkusza programu Excel. 
+Wprowadź informacje w programie Excel i zaktualizuj **kolumny klucza** , **wartość klucza** i **imię** . Spowoduje to dołączenie nazwy wykrytej przez interfejs API do arkusza programu Excel. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. 7":::
 
 ## <a name="get-the-phone-number"></a>Pobierz numer telefonu
 
 Zminimalizuj akcję **Zastosuj do każdego 2** , klikając nazwę. Następnie Dodaj kolejną akcję **Zastosuj do każdej** akcji, na przykład przed. nazwa ma **zastosowanie do każdego 3**. Zaznacz pole tekstowe i Dodaj **jednostki** jako dane wyjściowe tej akcji. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. 0,8":::
 
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
-
-W obszarze **Zastosuj do każdego 3**Dodaj kontrolkę **warunek** . Zostanie nazwany **warunek 2**. W pierwszym polu tekstowym Wyszukaj i Dodaj **typ jednostek** z okna zawartość dynamiczna. Upewnij się, że pole środkowe ma ustawioną wartość **równą**. Następnie w prawym polu tekstowym wprowadź `var_phone` . 
+W obszarze **Zastosuj do każdego 3** Dodaj kontrolkę **warunek** . Zostanie nazwany **warunek 2**. W pierwszym polu tekstowym Wyszukaj i Dodaj **typ jednostek** z okna zawartość dynamiczna. Upewnij się, że pole środkowe ma ustawioną wartość **równą**. Następnie w prawym polu tekstowym wprowadź `var_phone` . 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. 9":::
 
 W warunku **Jeśli tak** , Dodaj akcję **Aktualizuj wiersz** . Następnie wprowadź powyższe informacje w kolumnie numery telefonów arkusza programu Excel. Spowoduje to dołączenie numeru telefonu wykrytego przez interfejs API do arkusza programu Excel. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. dziesięć":::
 
 
 ## <a name="get-the-plumbing-issues"></a>Uzyskaj problemy z instalowaniem
@@ -236,32 +198,32 @@ Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania naz
 Minimalizuj **Zastosuj do każdego 3** , klikając nazwę. Następnie utwórz inny **Zastosuj do każdego** w akcji nadrzędnej. Zaznacz pole tekstowe i Dodaj **jednostki** jako dane wyjściowe tej akcji z okna zawartość dynamiczna. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. 11":::
 
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa" w kolumnie wystawca. W przeciwnym razie wprowadzimy "inne".
+
+Następnie przepływ sprawdzi, czy opis problemu w wierszu tabeli programu Excel zawiera słowo "instalacja". Jeśli tak, spowoduje to dodanie "instalacji wodociągowej" w kolumnie wystawca. W przeciwnym razie wprowadzimy "inne".
 
 Wewnątrz akcji **Zastosuj do każdego 4** Dodaj kontrolkę **warunek** . Zostanie nazwany **warunek 3**. W pierwszym polu tekstowym Wyszukaj i Dodaj **Opis** z pliku programu Excel przy użyciu okna zawartość dynamiczna. Upewnij się, że pole środkowe **zawiera**. Następnie w prawym polu tekstowym Znajdź i wybierz `var_plumbing` . 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. dwunastomiesięcznych":::
 
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa" do wiersza.
+
+W warunku **if Yes** kliknij pozycję **Dodaj akcję** , a następnie wybierz pozycję **Aktualizuj wiersz**. Następnie wprowadź informacje, jak poprzednio. W kolumnie wystawca wybierz pozycję `var_plumbing` . Spowoduje to zastosowanie do wiersza etykiety "Instalacja wodociągowa".
+
+W **przypadku braku** warunku kliknij pozycję **Dodaj akcję** , a następnie wybierz pozycję **Aktualizuj wiersz**. Następnie wprowadź informacje, jak poprzednio. W kolumnie wystawca wybierz pozycję `var_other` . Spowoduje to zastosowanie etykiety "Other" do wiersza.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Dodaj poświadczenia analiza tekstu do przepływu. trzynast":::
 
 ## <a name="test-the-workflow"></a>Testowanie przepływu pracy
 
-W prawym górnym rogu ekranu kliknij przycisk **Zapisz**, a następnie **Testuj**. Wybierz opcję  **Chcę wykonać akcję wyzwalacza**. Kliknij przycisk **zapisz & test**, **Uruchom przepływ**, a następnie **gotowe**.
+W prawym górnym rogu ekranu kliknij przycisk **Zapisz** , a następnie **Testuj**. Wybierz opcję  **Chcę wykonać akcję wyzwalacza**. Kliknij przycisk **zapisz & test** , **Uruchom przepływ** , a następnie **gotowe**.
 
 Plik programu Excel zostanie zaktualizowany na koncie w usłudze OneDrive. Będzie wyglądać tak jak poniżej.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="Przykłady z pliku programu Excel.&quot;:::
-
-Problemy są raportowane w tekście nieprzetworzonym. Użyjemy rozpoznawania nazwanych jednostek interfejs API analizy tekstu, aby wyodrębnić nazwisko osoby i numer telefonu. Następnie w opisie zostanie wyszukany wyraz &quot;Instalacja wodociągowa":::
+> :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="Zaktualizowany arkusz kalkulacyjny programu Excel.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

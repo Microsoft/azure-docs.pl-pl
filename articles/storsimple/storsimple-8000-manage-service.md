@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66244bd8e24ff62be41df72f7a39c0ce0ed13135
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249556"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360703"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Wdrażanie usługi StorSimple Menedżer urządzeń dla urządzeń z serii StorSimple 8000
 
@@ -58,7 +58,7 @@ Wykonaj następujące kroki, aby utworzyć usługę.
 Dla każdej usługi StorSimple Menedżer urządzeń istnieją następujące atrybuty:
 
 * **Name** — nazwa przypisana do usługi StorSimple Menedżer urządzeń, gdy została utworzona. **Nazwy usługi nie można zmienić po utworzeniu usługi. Dotyczy to również innych obiektów, takich jak urządzenia, woluminy, kontenery woluminów i zasady tworzenia kopii zapasowych, których nazwy nie można zmienić w Azure Portal.**
-* **Status** — stan usługi, która może być **aktywna**, **utworzona**lub w **trybie online**.
+* **Status** — stan usługi, która może być **aktywna** , **utworzona** lub w **trybie online**.
 * **Location** — lokalizacja geograficzna, w której zostanie wdrożone Urządzenie StorSimple.
 * **Subskrypcja** — subskrypcja rozliczeń skojarzona z usługą.
 
@@ -103,9 +103,9 @@ Należy ponownie wygenerować klucz rejestracji usługi, jeśli wymagane jest pr
 Wykonaj następujące kroki, aby ponownie wygenerować klucz rejestracji usługi.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Aby ponownie wygenerować klucz rejestracji usługi
-1. W bloku **StorSimple Menedżer urządzeń** przejdź do pozycji **klucze** **zarządzania &gt; ** .
+1. W bloku **StorSimple Menedżer urządzeń** przejdź do pozycji **klucze** **zarządzania &gt;** .
     
-    ![Blok Klucze](./media/storsimple-8000-manage-service/regenregkey2.png)
+    ![Przejdź do bloku klucze](./media/storsimple-8000-manage-service/regenregkey2.png)
 
 2. W bloku **klucze** kliknij polecenie **Generuj ponownie**.
 

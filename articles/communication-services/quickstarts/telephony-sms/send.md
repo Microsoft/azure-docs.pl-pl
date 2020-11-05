@@ -11,12 +11,12 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: c70028319fc0ed148fe7d102a925c4a07f2ab0f0
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 52cec861ba81a804081c4b879ab73333a3281e61
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757182"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360296"
 ---
 # <a name="quickstart-send-an-sms-message"></a>Szybki Start: wysyłanie wiadomości SMS
 
@@ -37,6 +37,10 @@ ms.locfileid: "91757182"
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Send SMS with Java client library](./includes/send-sms-java.md)]
 ::: zone-end
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+Aby rozwiązać problemy związane z dostarczaniem programu SMS, możesz [włączyć raportowanie dostarczania z Event Grid](./handle-sms-events.md) , aby przechwytywać szczegóły dostarczania.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

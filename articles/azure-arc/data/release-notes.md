@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 94074c2c5e11187252084832e5a20a197f6723fd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321721"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359820"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Informacje o wersji — usługi danych z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -90,7 +90,7 @@ Aby uzyskać instrukcje, zobacz [co to są usługi danych z włączonym usługą
 
 - Wersja zapoznawcza nie obsługuje wykonywania kopii zapasowych/przywracania dla aparatu PostgreSQL w wersji 11. Obsługuje tylko tworzenie kopii zapasowych i przywracanie dla PostgreSQL w wersji 12.
 - `azdata arc dc debug copy-logs` ndoes nie zbiera dzienników aparatu PostgreSQL w systemie Windows.
-- Ponowne utworzenie grupy serwerów o nazwie grupy serwerów, która została właśnie usunięta, może się nie powieść lub zawiesić. 
+- Ponowne utworzenie grupy serwerów o nazwie grupy serwerów, która została właśnie usunięta może zakończyć się niepowodzeniem lub przestać reagować. 
    - **Obejście problemu** Nie należy ponownie używać tej samej nazwy podczas ponownego tworzenia grupy serwerów lub oczekiwania na usługę równoważenia obciążenia/zewnętrzną wcześniej grupę serwerów. Przy założeniu, że nazwa usuniętej grupy serwerów `postgres01` i była hostowana w przestrzeni nazw `arc` , przed ponownym utworzeniem grupy serwerów o tej samej nazwie Zaczekaj, aż `postgres01-external-svc` nie zostanie wyświetlony w danych wyjściowych polecenia polecenia kubectl `kubectl get svc -n arc` .
  - Załadowanie strony przeglądu i strony Konfiguracja usługi obliczeniowej i magazynu w Azure Data Studio jest powolne. 
 

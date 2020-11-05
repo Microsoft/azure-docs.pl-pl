@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 87532876551cacbd4da03b95b10c41600989a947
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186590"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359718"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -62,7 +62,7 @@ Niezarządzane dyski maszyny wirtualnej nie są obsługiwane na kontach z hierar
 
 ## <a name="support-for-setting-access-control-lists-acls-recursively"></a>Obsługa ustawiania listy kontroli dostępu (ACL) rekursywnie
 
-Możliwość stosowania zmian listy ACL rekursywnie z katalogu nadrzędnego do elementów podrzędnych jest w [publicznej wersji zapoznawczej](recursive-access-control-lists.md). W bieżącej wersji tej możliwości można zastosować zmiany ACL przy użyciu programu PowerShell, zestawu .NET SDK i zestawu Python SDK. Pomoc techniczna nie jest jeszcze dostępna dla zestawu Java SDK, interfejsu wiersza polecenia platformy Azure, Azure Portal lub Eksplorator usługi Azure Storage.
+Możliwość stosowania zmian listy ACL rekurencyjnie z katalogu nadrzędnego do elementów podrzędnych jest ogólnie dostępna. W bieżącej wersji tej możliwości można zastosować zmiany ACL przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure oraz zestawu .NET, Java i Python SDK. Pomoc techniczna nie jest jeszcze dostępna dla Azure Portal lub Eksplorator usługi Azure Storage.
 
 <a id="known-issues-tools"></a>
 

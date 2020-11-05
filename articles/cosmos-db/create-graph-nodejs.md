@@ -1,20 +1,20 @@
 ---
 title: Tworzenie aplikacji Node.js w usłudze Azure Cosmos DB za pomocą interfejsu API języka Gremlin
 description: Przykładowy kod Node.js, którego można używać do nawiązywania połączeń z usługą Azure Cosmos DB i wykonywania w niej zapytań
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
-ms.author: jasonh
+ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: 546187b49e1186d665fe32b3f8d632a0281bffa4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b88456bd245f79c38d7829dca76de702f768c06
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099678"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360143"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Szybki Start: Tworzenie aplikacji Node.js przy użyciu konta interfejsu API usługi Azure Cosmos DB Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -71,7 +71,7 @@ Teraz sklonujemy aplikację interfejsu API języka Gremlin z repozytorium GitHub
 
 Ta czynność jest opcjonalna. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-string). 
 
-Wszystkie poniższe fragmenty kodu pochodzą z pliku *app.js* .
+Wszystkie poniższe fragmenty kodu pochodzą z pliku *app.js*.
 
 Ta Aplikacja konsolowa używa sterownika [Gremlin Node.js](https://www.npmjs.com/package/gremlin) Open Source.
 
@@ -162,7 +162,7 @@ Ta Aplikacja konsolowa używa sterownika [Gremlin Node.js](https://www.npmjs.com
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w Azure Portal, Strona przegląd":::
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Blok kluczy Azure Portal":::
 
 4. Wprowadź nazwę bazy danych i nazwę grafu (kontenera) dla wartości parametrów config.database i config.collection. 
 
@@ -192,9 +192,9 @@ module.exports = config;
 
 Teraz możesz wrócić do Eksploratora danych w witrynie Azure Portal, aby wyświetlać nowe dane grafu, wykonywać o nie zapytania, modyfikować je i pracować z nimi.
 
-W Eksploratorze danych nowa baza danych jest wyświetlana w okienku **Grafy** . Rozwiń bazę danych i kontener, a następnie wybierz pozycję **Graf** .
+W Eksploratorze danych nowa baza danych jest wyświetlana w okienku **Grafy**. Rozwiń bazę danych i kontener, a następnie wybierz pozycję **Graf**.
 
-Dane generowane przez aplikację przykładową będą wyświetlane w kolejnym okienku na karcie **Graf** , gdy wybierzesz przycisk **Zastosuj filtr** .
+Dane generowane przez aplikację przykładową będą wyświetlane w kolejnym okienku na karcie **Graf** , gdy wybierzesz przycisk **Zastosuj filtr**.
 
 Spróbuj uzupełnić wartość `g.V()` ciągiem `.has('firstName', 'Thomas')`, aby przetestować filtr. Pamiętaj, że w wartości jest uwzględniana wielkość liter.
 

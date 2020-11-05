@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bf91a3b7843d3212b62ced5b6a7c6fa54892ec9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400812"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359752"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Łączniki dla usługi Azure Logic Apps
 
@@ -81,7 +81,7 @@ Logic Apps udostępnia wbudowane wyzwalacze i akcje, dzięki którym możesz two
 
 | Nazwa | Opis |
 |------|-------------|
-| [![Planowanie harmonogramu łączników wbudowanych ][schedule-icon]<br> **Schedule**][schedule-doc] | — Uruchom aplikację logiki z określonym cyklem, od podstawowego do zaawansowanych harmonogramów z [wyzwalaczem **cyklu** ][schedule-recurrence-doc]. <br>-Uruchom aplikację logiki, która musi obsłużyć dane w ciągłych fragmentach przy użyciu [wyzwalacza **okna przewijania** ][schedule-sliding-window-doc]. <br>— Wstrzymaj aplikację logiki przez określony czas z [akcją **opóźnienia** ][schedule-delay-doc]. <br>— Wstrzymywanie aplikacji logiki do określonej daty i godziny z [ **opóźnieniem do** wykonania akcji][schedule-delay-until-doc]. |
+| [![Planowanie harmonogramu łączników wbudowanych ][schedule-icon]<br> **Schedule**][schedule-doc] | — Uruchom aplikację logiki z określonym cyklem, od podstawowego do zaawansowanych harmonogramów z [wyzwalaczem **cyklu**][schedule-recurrence-doc]. <br>-Uruchom aplikację logiki, która musi obsłużyć dane w ciągłych fragmentach przy użyciu [wyzwalacza **okna przewijania**][schedule-sliding-window-doc]. <br>— Wstrzymaj aplikację logiki przez określony czas z [akcją **opóźnienia**][schedule-delay-doc]. <br>— Wstrzymywanie aplikacji logiki do określonej daty i godziny z [ **opóźnieniem do** wykonania akcji][schedule-delay-until-doc]. |
 | [![Partia wbudowanych łączników wsadowych ][batch-icon]<br> **Batch**][batch-doc] | -Przetwarzaj komunikaty w partiach za pomocą wyzwalacza **wiadomości wsadowych** . <br>-Wywołaj Aplikacje logiki, które mają istniejące wyzwalacze wsadowe z akcją **Wyślij komunikaty do partii** . |
 | [![][http-icon]<br>**Protokół http** wbudowanego łącznika protokołu http][http-doc] | Wywoływanie punktów końcowych protokołu HTTP lub HTTPS przy użyciu wyzwalaczy i akcji dla protokołu HTTP. Inne wbudowane wyzwalacze i akcje protokołu HTTP obejmują [Łącznik wbudowanego protokołu HTTP + Swagger][http-swagger-doc] oraz [protokół http + webhook][http-webhook-doc]. |
 | [![Żądaj żądania łącznika wbudowanego ][http-request-icon]<br> **Request**][http-request-doc] | — Umożliwiaj wywoływanie aplikacji logiki z innych aplikacji lub usług, wyzwalanie na Event Grid zdarzeń zasobów lub wyzwalanie odpowiedzi w celu Azure Security Center alertów z wyzwalaczem **żądania** . <br>— Wysyłanie odpowiedzi do aplikacji lub usługi z akcją **odpowiedzi** . |
@@ -108,8 +108,8 @@ Logic Apps udostępnia wbudowane akcje do tworzenia struktury i kontrolowania ak
 |------|-------------|
 | [![][condition-icon]<br>**Condition** Warunek wbudowanej akcji warunku][condition-doc] | Oceń warunek i uruchamiaj różne akcje w zależności od tego, czy warunek ma wartość Prawda czy fałsz. |
 | [![Dla każdej wbudowanej akcji ][for-each-icon]<br> **dla każdego**][for-each-doc] | Wykonaj te same czynności dla każdego elementu w tablicy. |
-| [![Zakres akcji wbudowanego zakresu ][scope-icon]<br> **Scope**][scope-doc] | Grupuj akcje w *zakresy*, które uzyskują swój stan po zakończeniu akcji w zakresie. |
-| [![Przełącz przełącznik akcji wbudowanej ][switch-icon]<br> **Switch**][switch-doc] | Grupuj działania w *przypadkach*, do których przypisano unikatowe wartości z wyjątkiem domyślnego przypadku. Uruchom tylko te przypadki, których przypisana wartość dopasowuje wynik z wyrażenia, obiektu lub tokenu. Jeśli nie ma żadnych dopasowań, uruchom przypadek domyślny. |
+| [![Zakres akcji wbudowanego zakresu ][scope-icon]<br> **Scope**][scope-doc] | Grupuj akcje w *zakresy* , które uzyskują swój stan po zakończeniu akcji w zakresie. |
+| [![Przełącz przełącznik akcji wbudowanej ][switch-icon]<br> **Switch**][switch-doc] | Grupuj działania w *przypadkach* , do których przypisano unikatowe wartości z wyjątkiem domyślnego przypadku. Uruchom tylko te przypadki, których przypisana wartość dopasowuje wynik z wyrażenia, obiektu lub tokenu. Jeśli nie ma żadnych dopasowań, uruchom przypadek domyślny. |
 | [![Przerwij zakończenie akcji wbudowanej ][terminate-icon]<br> **Terminate**][terminate-doc] | Zatrzymaj aktywnie uruchomiony przepływ pracy aplikacji logiki. |
 | [![Przed akcją wbudowaną ][until-icon]<br> **do**][until-doc] | Powtarzaj akcje do momentu, gdy określony warunek ma wartość true lub jakiś stan uległ zmianie. |
 |||
@@ -120,9 +120,9 @@ Logic Apps udostępnia wbudowane akcje do pracy z danymi wyjściowymi i ich form
 
 | Nazwa | Opis |
 |------|-------------|
-| [![][data-operations-icon]<br>**Operacje na danych** akcji wbudowanych operacji na danych][data-operations-doc] | Wykonaj operacje z danymi: <p>- **Redaguj**: tworzy pojedyncze dane wyjściowe z wielu danych wejściowych z różnymi typami. <br>- **Utwórz tabelę CSV**: Utwórz tabelę wartości rozdzielanych przecinkami (CSV) z tablicy z obiektami JSON. <br>- **Tworzenie tabeli HTML**: Tworzenie tabeli HTML z tablicy z obiektami JSON. <br>- **Filtruj tablicę**: Utwórz tablicę z elementów w innej tablicy, która spełnia kryteria. <br>- **Sprzężenie**: Utwórz ciąg ze wszystkich elementów w tablicy i oddziel te elementy z określonym ogranicznikiem. <br>- **Analizuj dane JSON**: Utwórz przyjazne dla użytkownika tokeny na podstawie właściwości i ich wartości w zawartości JSON, aby można było używać tych właściwości w przepływie pracy. <br>- **Wybierz**: Utwórz tablicę z obiektami JSON, przekształcając elementy lub wartości w innej tablicy i mapując te elementy do określonych właściwości. |
-| ![Wbudowana akcja daty i godziny][date-time-icon]<br>**Data i godzina** | Wykonaj operacje z sygnaturami czasowymi: <p>- **Dodaj do czasu**: Dodaj określoną liczbę jednostek do sygnatury czasowej. <br>- **Konwertuj strefę czasową**: Konwertuj sygnaturę czasową ze źródłowej strefy czasowej na docelową strefę czasową. <br>- **Bieżący czas**: Zwróć bieżącą sygnaturę czasową jako ciąg. <br>- **Pobierz czas w przyszłości**: Zwróć bieżącą sygnaturę czasową i określone jednostki czasu. <br>- **Pobierz godzinę**: Zwróć bieżącą sygnaturę czasową minus określoną liczbę jednostek czasu. <br>- **Odejmij od czasu**: Odejmij liczbę jednostek czasu od sygnatury czasowej. |
-| [![][variables-icon]<br>**Variables** Zmienne akcji wbudowanych zmiennych][variables-doc] | Wykonywanie operacji przy użyciu zmiennych: <p>- **Dołącz do zmiennej tablicowej**: Wstaw wartość jako ostatni element w tablicy przechowywanej przez zmienną. <br>- **Dołącz do zmiennej ciągu**: Wstaw wartość jako ostatni znak w ciągu przechowywanym przez zmienną. <br>- Zmniejsz **zmienną**: Zmniejsz zmienną przez wartość stałą. <br>- **Zmienna przyrostowa**: zwiększanie zmiennej przez wartość stałą. <br>- **Zainicjuj zmienną**: Utwórz zmienną i Zadeklaruj jej typ danych i wartość początkową. <br>- **Ustaw zmienną**: Przypisz inną wartość do istniejącej zmiennej. |
+| [![][data-operations-icon]<br>**Operacje na danych** akcji wbudowanych operacji na danych][data-operations-doc] | Wykonaj operacje z danymi: <p>- **Redaguj** : tworzy pojedyncze dane wyjściowe z wielu danych wejściowych z różnymi typami. <br>- **Utwórz tabelę CSV** : Utwórz tabelę wartości rozdzielanych przecinkami (CSV) z tablicy z obiektami JSON. <br>- **Tworzenie tabeli HTML** : Tworzenie tabeli HTML z tablicy z obiektami JSON. <br>- **Filtruj tablicę** : Utwórz tablicę z elementów w innej tablicy, która spełnia kryteria. <br>- **Sprzężenie** : Utwórz ciąg ze wszystkich elementów w tablicy i oddziel te elementy z określonym ogranicznikiem. <br>- **Analizuj dane JSON** : Utwórz przyjazne dla użytkownika tokeny na podstawie właściwości i ich wartości w zawartości JSON, aby można było używać tych właściwości w przepływie pracy. <br>- **Wybierz** : Utwórz tablicę z obiektami JSON, przekształcając elementy lub wartości w innej tablicy i mapując te elementy do określonych właściwości. |
+| ![Wbudowana akcja daty i godziny][date-time-icon]<br>**Data i godzina** | Wykonaj operacje z sygnaturami czasowymi: <p>- **Dodaj do czasu** : Dodaj określoną liczbę jednostek do sygnatury czasowej. <br>- **Konwertuj strefę czasową** : Konwertuj sygnaturę czasową ze źródłowej strefy czasowej na docelową strefę czasową. <br>- **Bieżący czas** : Zwróć bieżącą sygnaturę czasową jako ciąg. <br>- **Pobierz czas w przyszłości** : Zwróć bieżącą sygnaturę czasową i określone jednostki czasu. <br>- **Pobierz godzinę** : Zwróć bieżącą sygnaturę czasową minus określoną liczbę jednostek czasu. <br>- **Odejmij od czasu** : Odejmij liczbę jednostek czasu od sygnatury czasowej. |
+| [![][variables-icon]<br>**Variables** Zmienne akcji wbudowanych zmiennych][variables-doc] | Wykonywanie operacji przy użyciu zmiennych: <p>- **Dołącz do zmiennej tablicowej** : Wstaw wartość jako ostatni element w tablicy przechowywanej przez zmienną. <br>- **Dołącz do zmiennej ciągu** : Wstaw wartość jako ostatni znak w ciągu przechowywanym przez zmienną. <br>- Zmniejsz **zmienną** : Zmniejsz zmienną przez wartość stałą. <br>- **Zmienna przyrostowa** : zwiększanie zmiennej przez wartość stałą. <br>- **Zainicjuj zmienną** : Utwórz zmienną i Zadeklaruj jej typ danych i wartość początkową. <br>- **Ustaw zmienną** : Przypisz inną wartość do istniejącej zmiennej. |
 |||
 
 <a name="managed-api-connectors"></a>
@@ -137,12 +137,12 @@ Logic Apps udostępnia te popularne standardowe łączniki do automatyzowania za
 | [![SQL Server SQL Server łącznika zarządzanego ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Połącz się ze swoją SQL Server lokalną lub Azure SQL Database w chmurze, aby móc zarządzać rekordami, uruchamiać procedury składowane lub wykonywać zapytania. |
 | [![Azure Blob Storage łącznik zarządzany ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | Połącz się z kontem magazynu, aby można było tworzyć zawartość obiektów blob i zarządzać nią. |
 | [![Łącznik zarządzany programu Outlook pakietu Office 365 ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Połącz się z kontem służbowym poczty e-mail, aby móc tworzyć wiadomości e-mail, zadania, zdarzenia kalendarza i spotkania, kontakty, żądania itp. oraz zarządzać nimi. |
-| [![SFTP — SSH — łącznik zarządzany, ][sftp-ssh-icon]<br> **SFTP — SSH**][sftp-ssh-doc] | Łączenie z serwerami SFTP, do których można uzyskać dostęp z Internetu za pomocą protokołu SSH, aby można było korzystać z plików i folderów. |
-| [![Łącznik zarządzany usługi SharePoint Online ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Połącz się z usługą SharePoint Online, aby móc zarządzać plikami, załącznikami, folderami i innymi. |
-| [![Kolejki platformy Azure z łącznikiem zarządzanym Azure Queues ][azure-queues-icon]<br> ** <br> **][azure-queues-doc] | Połącz się z kontem usługi Azure Storage, aby móc tworzyć kolejki i wiadomości oraz zarządzać nimi. |
+| [![SFTP — SSH — łącznik zarządzany, ][sftp-ssh-icon]<br> **SFTP — SSH**][sftp-ssh-doc] | Łącz się z serwerami SFTP dostępnymi z Internetu za pomocą protokołu SSH, aby pracować ze swoimi plikami i folderami. |
+| [![Łącznik zarządzany usługi SharePoint Online ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Nawiązywanie połączenia z usługą SharePoint Online w celu zarządzania plikami, załącznikami, folderami i nie tylko. |
+| [![Kolejki platformy Azure z łącznikiem zarządzanym Azure Queues ][azure-queues-icon]<br> **<br>**][azure-queues-doc] | Połącz się z kontem usługi Azure Storage, aby móc tworzyć kolejki i wiadomości oraz zarządzać nimi. |
 | [![FTP łącznik zarządzany przez FTP ][ftp-icon]<br> **FTP**][ftp-doc] | Połącz się z serwerami FTP, z których możesz korzystać z Internetu, aby można było korzystać z plików i folderów. |
-| [![][file-system-icon]<br>** <br> System plików** łącznika zarządzanego systemu plików][file-system-doc] | Połącz się z lokalnym udziałem plików, aby móc tworzyć pliki i zarządzać nimi. |
-| [![][azure-event-hubs-icon]<br>**Event Hubs Azure** Event Hubs łącznika zarządzanego platformy Azure][azure-event-hubs-doc] | Używanie i publikowanie zdarzeń za poorednictwem centrum zdarzeń. Na przykład pobierz dane wyjściowe z aplikacji logiki przy użyciu usługi Event Hubs, a następnie wyślij je do dostawcy analiz w czasie rzeczywistym. |
+| [![][file-system-icon]<br>**<br> System plików** łącznika zarządzanego systemu plików][file-system-doc] | Połącz się z lokalnym udziałem plików, aby móc tworzyć pliki i zarządzać nimi. |
+| [![][azure-event-hubs-icon]<br>**Event Hubs Azure** Event Hubs łącznika zarządzanego platformy Azure][azure-event-hubs-doc] | Publikuj zdarzenia i korzystaj z nich za pośrednictwem centrum zdarzeń. Na przykład pobierz dane wyjściowe z aplikacji logiki przy użyciu usługi Event Hubs, a następnie wyślij je do dostawcy analiz w czasie rzeczywistym. |
 | [![][azure-event-grid-icon]<br>**Usługa Azure Event** <br> **Grid** Azure Event Grid łącznika zarządzanego][azure-event-grid-doc] | Monitoruj zdarzenia opublikowane przez Event Grid, na przykład w przypadku zmiany zasobów platformy Azure lub zasobów innych firm. |
 | [![Salesforce zarządzanego łącznika usługi Salesforce ][salesforce-icon]<br> **Salesforce**][salesforce-doc] | Połącz się z kontem usługi Salesforce, aby można było tworzyć i zarządzać elementami, takimi jak rekordy, zadania, obiekty i wiele innych. |
 |||
@@ -151,14 +151,16 @@ Logic Apps udostępnia te popularne standardowe łączniki do automatyzowania za
 
 ## <a name="on-premises-connectors"></a>Łączniki lokalne
 
-Poniżej przedstawiono kilka typowych łączników standardowych, które Logic Apps zapewniają dostęp do danych i zasobów w systemach lokalnych. Aby można było utworzyć połączenie z systemem lokalnym, należy najpierw [pobrać, zainstalować i skonfigurować lokalną bramę danych][gateway-doc]. Ta brama zapewnia bezpieczny kanał komunikacyjny bez konieczności konfigurowania niezbędnej infrastruktury sieciowej.
+Aby można było utworzyć połączenie z systemem lokalnym, należy najpierw [pobrać, zainstalować i skonfigurować lokalną bramę danych][gateway-doc]. Ta brama zapewnia bezpieczny kanał komunikacyjny bez konieczności konfigurowania niezbędnej infrastruktury sieciowej. 
+
+Poniżej przedstawiono *kilka* typowych łączników standardowych, które Logic Apps zapewniają dostęp do danych i zasobów w systemach lokalnych. Listę łączników lokalnych można znaleźć w temacie [obsługiwane źródła danych](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::
         [![][biztalk-server-icon]<br>**BizTalk** <br> **Serwer** BizTalk Connector BizTalk Server][biztalk-server-doc]
     :::column-end:::
     :::column:::
-        [![][file-system-icon]<br>** <br> System plików** łącznika systemu plików][file-system-doc]
+        [![][file-system-icon]<br>**<br> System plików** łącznika systemu plików][file-system-doc]
     :::column-end:::
     :::column:::
         [![DB2 Connector ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
@@ -178,7 +180,7 @@ Poniżej przedstawiono kilka typowych łączników standardowych, które Logic A
         [![Łącznik PostgreSQL ][postgre-sql-icon]<br> **PostgreSQL**][postgre-sql-doc]
     :::column-end:::
     :::column:::
-        [![][sharepoint-server-icon]<br>** <br> Serwer SharePoint** łącznika programu SharePoint Server][sharepoint-server-doc]
+        [![][sharepoint-server-icon]<br>**<br> Serwer SharePoint** łącznika programu SharePoint Server][sharepoint-server-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -204,27 +206,27 @@ Logic Apps udostępnia standardowe łączniki do tworzenia rozwiązań między f
 
 :::row:::
     :::column:::
-        [![Dekodowanie AS2 akcji dekodowania AS2 ][as2-icon]<br> ** <br> **][as2-doc]
+        [![Dekodowanie AS2 akcji dekodowania AS2 ][as2-icon]<br> **<br>**][as2-doc]
     :::column-end:::
     :::column:::
-        [![][as2-icon]<br>** <br> Kodowanie AS2** AS2 akcji kodowania][as2-doc]
+        [![][as2-icon]<br>**<br> Kodowanie AS2** AS2 akcji kodowania][as2-doc]
     :::column-end:::
     :::column:::
-        [![Dekodowanie EDIFACT akcji dekodowania EDIFACT ][edifact-icon]<br> ** <br> **][edifact-decode-doc]
+        [![Dekodowanie EDIFACT akcji dekodowania EDIFACT ][edifact-icon]<br> **<br>**][edifact-decode-doc]
     :::column-end:::
     :::column:::
-        [![][edifact-icon]<br>** <br> Kodowanie EDIFACT** EDIFACT akcji kodowania][edifact-encode-doc]
+        [![][edifact-icon]<br>**<br> Kodowanie EDIFACT** EDIFACT akcji kodowania][edifact-encode-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Płaskie dekodowanie pliku akcji dekodowania pliku prostego ][flat-file-decode-icon]<br> ** <br> **][flat-file-decode-doc]
+        [![Płaskie dekodowanie pliku akcji dekodowania pliku prostego ][flat-file-decode-icon]<br> **<br>**][flat-file-decode-doc]
     :::column-end:::
     :::column:::
-        [![Proste kodowanie pliku akcji kodowania pliku prostego ][flat-file-encode-icon]<br> ** <br> **][flat-file-encode-doc]
+        [![Proste kodowanie pliku akcji kodowania pliku prostego ][flat-file-encode-icon]<br> **<br>**][flat-file-encode-doc]
     :::column-end:::
     :::column:::
-        [![Konto integracji akcji konta integracji ][integration-account-icon]<br> ** <br> **][integration-account-doc]
+        [![Konto integracji akcji konta integracji ][integration-account-icon]<br> **<br>**][integration-account-doc]
     :::column-end:::
     :::column:::
         [![Transformacje płynne operacji przekształcenia w ][liquid-icon]<br> **ciecz** <br> **transforms**][json-liquid-transform-doc]
@@ -232,16 +234,16 @@ Logic Apps udostępnia standardowe łączniki do tworzenia rozwiązań między f
 :::row-end:::
 :::row:::
     :::column:::
-        [![Dekodowanie X12 akcji dekodowania X12 ][x12-icon]<br> ** <br> **][x12-decode-doc]
+        [![Dekodowanie X12 akcji dekodowania X12 ][x12-icon]<br> **<br>**][x12-decode-doc]
     :::column-end:::
     :::column:::
-        [![][x12-icon]<br>** <br> Kodowanie X12** X12 akcji kodowania][x12-encode-doc]
+        [![][x12-icon]<br>**<br> Kodowanie X12** X12 akcji kodowania][x12-encode-doc]
     :::column-end:::
     :::column:::
         [![Przekształcenia XML operacji przekształcenia ][xml-transform-icon]<br> **XML** <br> **transforms**][xml-transform-doc]
     :::column-end:::
     :::column:::
-        [![][xml-validate-icon]<br>** <br> Sprawdzanie poprawności kodu XML** akcji walidacji XML][xml-validate-doc]
+        [![][xml-validate-icon]<br>**<br> Sprawdzanie poprawności kodu XML** akcji walidacji XML][xml-validate-doc]
     :::column-end:::
 :::row-end:::
 
@@ -288,13 +290,13 @@ W przypadku aplikacji logiki, które tworzysz i uruchamiasz w dedykowanym [środ
 :::row-end:::
 :::row:::
     :::column:::
-        [![Centrum ][azure-event-hubs-icon]<br> **zdarzeń platformy Azure <br> ** Event Hubs ISE][azure-event-hubs-doc]
+        [![Centrum ][azure-event-hubs-icon]<br> **zdarzeń platformy Azure <br>** Event Hubs ISE][azure-event-hubs-doc]
     :::column-end:::
     :::column:::
         [![Azure Event Grid łącznika ][azure-event-grid-icon]<br> **zdarzeń platformy <br> Azure** ISE][azure-event-grid-doc]
     :::column-end:::
     :::column:::
-        [![Azure File Storage ISE — ][azure-file-storage-icon]<br> ** <br> Magazyn plików Azure**][azure-file-storage-doc]
+        [![Azure File Storage ISE — ][azure-file-storage-icon]<br> **<br> Magazyn plików Azure**][azure-file-storage-doc]
     :::column-end:::
     :::column:::
         [![Azure Key Vault łącznika ][azure-key-vault-icon]<br> **usługi Azure <br> Key** ISE][azure-key-vault-doc]
@@ -302,7 +304,7 @@ W przypadku aplikacji logiki, które tworzysz i uruchamiasz w dedykowanym [środ
 :::row-end:::
 :::row:::
     :::column:::
-        [![Dzienniki dzienników dzienników Azure Monitor ISE ][azure-monitor-logs-icon]<br> **Azure monitor <br> **][azure-monitor-logs-doc]
+        [![Dzienniki dzienników dzienników Azure Monitor ISE ][azure-monitor-logs-icon]<br> **Azure monitor <br>**][azure-monitor-logs-doc]
     :::column-end:::
     :::column:::
         [![Azure Service Bus łącznika ][azure-service-bus-icon]<br> **usługi Azure Service <br> Bus** ISE][azure-service-bus-doc]
@@ -316,13 +318,13 @@ W przypadku aplikacji logiki, które tworzysz i uruchamiasz w dedykowanym [środ
 :::row-end:::
 :::row:::
     :::column:::
-        [![Kolejki platformy Azure w usłudze Azure Queue ISE ][azure-queues-icon]<br> ** <br> **][azure-queues-doc]
+        [![Kolejki platformy Azure w usłudze Azure Queue ISE ][azure-queues-icon]<br> **<br>**][azure-queues-doc]
     :::column-end:::
     :::column:::
         [![Łącznik EDIFACT ISE ][edifact-icon]<br> **EDIFACT**][edifact-doc]
     :::column-end:::
     :::column:::
-        [![][file-system-icon]<br>** <br> System plików** łącznika ISE systemu plików][file-system-doc]
+        [![][file-system-icon]<br>**<br> System plików** łącznika ISE systemu plików][file-system-doc]
     :::column-end:::
     :::column:::
         [![][ftp-icon]<br>**FTP** FTP ISE łącznika FTP][ftp-doc]
@@ -367,17 +369,17 @@ Więcej informacji można znaleźć w następujących tematach:
 
 ## <a name="triggers-and-action-types"></a>Wyzwalacze i typy akcji
 
-Łączniki mogą zapewniać *wyzwalacze*, *Akcje*lub oba te elementy. *Wyzwalacz* to pierwszy krok w dowolnej aplikacji logiki, zwykle określający zdarzenie, które wyzwala wyzwalacz i uruchamia aplikację logiki. Na przykład łącznik FTP ma wyzwalacz, który uruchamia aplikację logiki "po dodaniu lub zmodyfikowaniu pliku". Niektóre wyzwalacze regularnie sprawdzają obecność określonego zdarzenia lub danych, a następnie uruchamiają się po wykryciu określonego zdarzenia lub danych. Inne wyzwalacze oczekują, ale natychmiast po wystąpieniu określonego zdarzenia lub gdy nowe dane są dostępne. Wyzwalacze przekazują również wszystkie wymagane dane do aplikacji logiki. Aplikacja logiki może odczytywać i używać tych danych w ramach przepływu pracy. Na przykład łącznik usługi Office 365 Outlook ma wyzwalacz "po nadejściu nowej wiadomości e-mail", który może przekazać zawartość z tej wiadomości e-mail do przepływu pracy aplikacji logiki.
+Łączniki mogą zapewniać *wyzwalacze* , *Akcje* lub oba te elementy. *Wyzwalacz* to pierwszy krok w dowolnej aplikacji logiki, zwykle określający zdarzenie, które wyzwala wyzwalacz i uruchamia aplikację logiki. Na przykład łącznik FTP ma wyzwalacz, który uruchamia aplikację logiki "po dodaniu lub zmodyfikowaniu pliku". Niektóre wyzwalacze regularnie sprawdzają obecność określonego zdarzenia lub danych, a następnie uruchamiają się po wykryciu określonego zdarzenia lub danych. Inne wyzwalacze oczekują, ale natychmiast po wystąpieniu określonego zdarzenia lub gdy nowe dane są dostępne. Wyzwalacze przekazują również wszystkie wymagane dane do aplikacji logiki. Aplikacja logiki może odczytywać i używać tych danych w ramach przepływu pracy. Na przykład łącznik usługi Office 365 Outlook ma wyzwalacz "po nadejściu nowej wiadomości e-mail", który może przekazać zawartość z tej wiadomości e-mail do przepływu pracy aplikacji logiki.
 
 Po uruchomieniu wyzwalacza Azure Logic Apps tworzy wystąpienie aplikacji logiki i zacznie uruchamiać *Akcje* w przepływie pracy aplikacji logiki. Akcje to kroki, które obserwują wyzwalacz i wykonują zadania w przepływie pracy aplikacji logiki. Można na przykład utworzyć aplikację logiki, która pobiera dane klienta z bazy danych SQL i przetwarzać te dane w późniejszych akcjach.
 
 Poniżej przedstawiono ogólne rodzaje wyzwalaczy, które Azure Logic Apps zapewnia:
 
-* *Wyzwalacz cyklu*: ten wyzwalacz jest uruchamiany zgodnie z określonym harmonogramem i nie jest ściśle skojarzony z określoną usługą lub systemem.
+* *Wyzwalacz cyklu* : ten wyzwalacz jest uruchamiany zgodnie z określonym harmonogramem i nie jest ściśle skojarzony z określoną usługą lub systemem.
 
-* *Wyzwalacz sondowania*: ten wyzwalacz regularnie sonduje określoną usługę lub system zgodnie z określonym harmonogramem, wyszukując nowe dane lub w przypadku wystąpienia konkretnego zdarzenia. Jeśli nowe dane są dostępne lub wystąpi określone zdarzenie, wyzwalacz tworzy i uruchamia nowe wystąpienie aplikacji logiki, która może teraz korzystać z danych, które są przesyłane jako dane wejściowe.
+* *Wyzwalacz sondowania* : ten wyzwalacz regularnie sonduje określoną usługę lub system zgodnie z określonym harmonogramem, wyszukując nowe dane lub w przypadku wystąpienia konkretnego zdarzenia. Jeśli nowe dane są dostępne lub wystąpi określone zdarzenie, wyzwalacz tworzy i uruchamia nowe wystąpienie aplikacji logiki, która może teraz korzystać z danych, które są przesyłane jako dane wejściowe.
 
-* *Wyzwalacz wypychania*: ten wyzwalacz czeka i nasłuchuje pod kątem nowych danych lub zdarzenia. Jeśli nowe dane są dostępne lub gdy wystąpi zdarzenie, wyzwalacz tworzy i uruchamia nowe wystąpienie aplikacji logiki, która może teraz korzystać z danych, które są przesyłane jako dane wejściowe.
+* *Wyzwalacz wypychania* : ten wyzwalacz czeka i nasłuchuje pod kątem nowych danych lub zdarzenia. Jeśli nowe dane są dostępne lub gdy wystąpi zdarzenie, wyzwalacz tworzy i uruchamia nowe wystąpienie aplikacji logiki, która może teraz korzystać z danych, które są przesyłane jako dane wejściowe.
 
 <a name="connections"></a>
 

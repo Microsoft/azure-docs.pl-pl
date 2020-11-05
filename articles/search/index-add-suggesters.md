@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8959bf84e2b5629e03c2571fa494b96cec4f8e9
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8ae25c63e9c6e3bf6ad363cde9eb641703562811
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347645"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360024"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
@@ -44,6 +44,8 @@ Aby utworzyć sugestię, należy dodać jeden do [schematu indeksu](/rest/api/se
 
 + Użyj domyślnego standardowego analizatora Lucene ( `"analyzer": null` ) lub [analizatora języka](index-add-language-analyzers.md) (na przykład `"analyzer": "en.Microsoft"` ) w polu
 
+Jeśli spróbujesz utworzyć sugestię przy użyciu istniejących pól, interfejs API nie będzie go zezwalać. Prefiksy są generowane podczas indeksowania, gdy częściowe warunki w dwóch lub większej liczbie znaków są rozliczanie tokenów obok całych warunków. Mając na względzie, że istniejące pola są już tokenami, należy ponownie skompilować indeks, jeśli chcesz dodać je do sugestii. Aby uzyskać więcej informacji, zobacz [jak ponownie skompilować indeks wyszukiwanie poznawcze platformy Azure](search-howto-reindex.md).
+
 ### <a name="choose-fields"></a>Wybierz pola
 
 Chociaż funkcja sugerował ma kilka właściwości, to przede wszystkim kolekcja pól ciągów, dla których jest włączone środowisko wyszukiwania jako typ. Dla każdego indeksu istnieje jeden program sugerujący, dlatego lista Sugerowana musi zawierać wszystkie pola, które tworzą zawartość zarówno dla sugestii, jak i autouzupełniania.
@@ -64,12 +66,6 @@ Pola używające [analizatorów niestandardowych](index-add-custom-analyzers.md)
 
 > [!NOTE]
 > Jeśli musisz obejść ograniczenie analizatora, na przykład jeśli potrzebujesz słowa kluczowego lub analizatora ngram dla niektórych scenariuszy zapytań, należy użyć dwóch oddzielnych pól dla tej samej zawartości. Pozwoli to jednemu z pól na posiadanie sugestii, podczas gdy drugi można skonfigurować przy użyciu konfiguracji analizatora niestandardowego.
-
-### <a name="when-to-create-a-suggester"></a>Kiedy należy utworzyć sugestię
-
-Najlepszym terminem tworzenia sugestii jest również utworzenie samej definicji pola.
-
-Jeśli spróbujesz utworzyć sugestię przy użyciu istniejących pól, interfejs API nie będzie go zezwalać. Prefiksy są generowane podczas indeksowania, gdy częściowe warunki w dwóch lub większej liczbie znaków są rozliczanie tokenów obok całych warunków. Mając na względzie, że istniejące pola są już tokenami, należy ponownie skompilować indeks, jeśli chcesz dodać je do sugestii. Aby uzyskać więcej informacji, zobacz [jak ponownie skompilować indeks wyszukiwanie poznawcze platformy Azure](search-howto-reindex.md).
 
 ## <a name="create-using-rest"></a>Tworzenie przy użyciu REST
 

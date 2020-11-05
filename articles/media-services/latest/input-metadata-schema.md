@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295568"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360058"
 ---
 # <a name="input-metadata"></a>Metadane wejściowe
 
@@ -65,13 +65,13 @@ Zawiera kolekcję elementów AssetFile dla zadania kodowania.
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Nazwa |  | Opis |
+| Nazwa | Opis |
 | --- | --- |
 | **FourCC**<br />Wymagane |Kod kodera-dekoder wideo, który jest raportowany przez narzędzia FFmpeg.<br /><br />Przykład: `"FourCC": "avc1"` |
 | **Profil** |Profil ścieżki wideo. <br /><br />Przykład: `"Profile": "Main"`|
 | **Poziomie** |Poziom ścieżki wideo. <br /><br />Przykład: `"Level": "3.2"`|
 | **PixelFormat** |Format piksela ścieżki wideo. <br /><br />Przykład: `"PixelFormat": "yuv420p"`|
-| **Szerokość**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach). <br /><br />Przykład: `"Width": "1280"`|
+| **Width**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach). <br /><br />Przykład: `"Width": "1280"`|
 | **Proporcj**<br />Wymagane |Zakodowana wysokość wideo w pikselach.<br /><br />Przykład: `"Height": "720"` |
 | **DisplayAspectRatioNumerator**<br />Wymagane |Licznik współczynnik proporcji wyświetlania wideo.<br /><br />Przykład: `"DisplayAspectRatioNumerator": 16.0` |
 | **DisplayAspectRatioDenominator**<br />Wymagane |Mianownik współczynnika proporcji wyświetlania wideo. <br /><br />Przykład: `"DisplayAspectRatioDenominator": 9.0`|

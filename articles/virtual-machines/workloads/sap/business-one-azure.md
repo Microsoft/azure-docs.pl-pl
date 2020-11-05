@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: caabaa6fbf65787f90c0033a06af26996c2388f2
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b076045f6a106f77717159d3095ffd5973ab27aa
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994109"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359888"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One na maszynach wirtualnych platformy Azure
 Ten dokument zawiera wskazówki dotyczące wdrażania oprogramowania SAP Business One na platformie Azure Virtual Machines. Dokumentacja programu nie zastępuje dokumentacji dotyczącej instalacji dla oprogramowania SAP. Dokumentacja powinna obejmować podstawowe wytyczne dotyczące planowania i wdrażania infrastruktury platformy Azure w celu uruchamiania aplikacji firmowych.
@@ -139,7 +139,7 @@ Aby uzyskać SAP HANA strategii tworzenia kopii zapasowych i przywracania, nale�
 
  
 ### <a name="business-one-client-server"></a>Biznes jeden serwer kliencki
-Zagadnienia związane z przechowywaniem tych składników nie są zasadniczym problemem. Niemniej jednak chcesz mieć niezawodną platformę. W związku z tym należy używać Premium Storage platformy Azure dla tej maszyny wirtualnej, nawet w przypadku podstawowego wirtualnego dysku twardego. Ustalanie rozmiarów maszyny wirtualnej przy użyciu danych z [przewodnika dotyczącego wymagań sprzętowych SAP Business](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). W przypadku platformy Azure należy skoncentrować się i obliczać zgodnie z wymaganiami podanymi w rozdziale 2,4 dokumentu. Podczas obliczania wymagań należy porównać je z następującymi dokumentami, aby znaleźć idealną maszynę wirtualną:
+Zagadnienia związane z przechowywaniem tych składników nie są zasadniczym problemem. Niemniej jednak chcesz mieć niezawodną platformę. W związku z tym należy używać Premium Storage platformy Azure dla tej maszyny wirtualnej, nawet w przypadku podstawowego wirtualnego dysku twardego. Ustalanie rozmiarów maszyny wirtualnej przy użyciu danych z [przewodnika dotyczącego wymagań sprzętowych SAP Business](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). W przypadku platformy Azure należy skoncentrować się i obliczać zgodnie z wymaganiami podanymi w rozdziale 2,4 dokumentu. Podczas obliczania wymagań należy porównać je z następującymi dokumentami, aby znaleźć idealną maszynę wirtualną:
 
 - [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md)
 - [#1928533 uwagi SAP](https://launchpad.support.sap.com/#/notes/1928533)

@@ -1,18 +1,18 @@
 ---
 title: Kroki optymalizacji po migracji z interfejsem API Azure Cosmos DB dla MongoDB
 description: Ten dokument zawiera techniki optymalizacji po migracji z MongoDB do interfejsu APi usługi Mongo DB Azure Cosmos DB.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
-ms.author: jasonh
-ms.openlocfilehash: 3b0c291f942cd970f7996f0b9fa599ee8cabfdab
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.author: chrande
+ms.openlocfilehash: 300177b9d5a20ce8082db57837be3ff461fd51a0
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096448"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361660"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Kroki optymalizacji po migracji podczas korzystania z interfejsu API Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

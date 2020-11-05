@@ -1,7 +1,7 @@
 ---
 title: Rejestrowanie eksperymentów i metryk usługi ML
 titleSuffix: Azure Machine Learning
-description: Monitoruj eksperymenty usługi Azure ML i monitoruj metryki uruchamiania, aby usprawnić proces tworzenia modelu. Dodaj rejestrowanie do skryptu trenowania za pomocą polecenia run.log, Run.start_logging lub ScriptRunConfig.
+description: Włącz rejestrowanie przebiegów szkoleniowych w sieci, aby monitorować metryki uruchamiania w czasie rzeczywistym oraz pomóc w diagnozowaniu błędów i ostrzeżeń.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6680bdc525c6f07b8330277056413f886412551b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: deeee689c27008ab71df0a050be3d7a6b5109307
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318440"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361067"
 ---
-# <a name="enable-logging-in-azure-ml-training-runs"></a>Włączanie rejestrowania w przebiegach trenowania usługi Azure ML
+# <a name="enable-logging-in-ml-training-runs"></a>Włącz rejestrowanie w przypadku przebiegów szkoleniowych w ML
 
 
 Zestaw SDK języka Python usługi Azure Machine Learning umożliwia rejestrowanie informacji w czasie rzeczywistym przy użyciu domyślnego pakietu rejestrowania języka Python i funkcji specyficznej dla zestawu SDK. Możesz rejestrować lokalnie i wysyłać dzienniki do obszaru roboczego w portalu.

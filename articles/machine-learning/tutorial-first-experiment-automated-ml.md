@@ -10,12 +10,13 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: c3fd4dcfa4c01c39e4e6cab4915de807c3d19ae6
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: automl
+ms.openlocfilehash: 866be6a2449f3b10d200968782b90653e1363906
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913861"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359803"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Samouczek: Tworzenie modelu klasyfikacji przy użyciu zautomatyzowanej ML w Azure Machine Learning
 
@@ -49,7 +50,7 @@ Istnieje wiele [sposobów tworzenia obszaru roboczego](how-to-manage-workspace.m
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
-> Zanotuj swój **obszar roboczy** i **subskrypcję** . Będą one potrzebne do utworzenia eksperymentu w odpowiednim miejscu. 
+> Zanotuj swój **obszar roboczy** i **subskrypcję**. Będą one potrzebne do utworzenia eksperymentu w odpowiednim miejscu. 
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Wprowadzenie do programu Azure Machine Learning Studio
 
@@ -59,7 +60,7 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
 
 1. Wybierz swoją subskrypcję i utworzony obszar roboczy.
 
-1. Wybierz pozycję **Rozpocznij** .
+1. Wybierz pozycję **Rozpocznij**.
 
 1. W lewym okienku wybierz pozycję **zautomatyzowany ml** w sekcji **autor** .
 
@@ -67,7 +68,7 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
 
    ![Strona Wprowadzenie](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
-1. Wybierz pozycję **+ Nowy zautomatyzowany przebiegu ml** . 
+1. Wybierz pozycję **+ Nowy zautomatyzowany przebiegu ml**. 
 
 ## <a name="create-and-load-dataset"></a>Utwórz i Załaduj zestaw danych
 
@@ -75,13 +76,13 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
 
 1. Utwórz nowy zestaw danych, wybierając pozycję **z plików lokalnych** z listy rozwijanej  **+ Utwórz zestaw danych** . 
 
-    1. W **podstawowym formularzu informacji** nadaj zestawowi danych nazwę i podaj opcjonalny opis. Interfejs zautomatyzowanej sieci obsługuje obecnie tylko TabularDatasets, więc typ DataSet powinien domyślnie mieć wartość *tabelaryczną* .
+    1. W **podstawowym formularzu informacji** nadaj zestawowi danych nazwę i podaj opcjonalny opis. Interfejs zautomatyzowanej sieci obsługuje obecnie tylko TabularDatasets, więc typ DataSet powinien domyślnie mieć wartość *tabelaryczną*.
 
     1. Wybierz pozycję **dalej** w lewym dolnym rogu
 
-    1. W formularzu **Magazyn danych i wybór plików** wybierz domyślny magazyn danych, który został automatycznie skonfigurowany podczas tworzenia obszaru roboczego, **workspaceblobstore (Azure Blob Storage)** . Jest to miejsce, w którym przekażesz plik danych w celu udostępnienia go w Twoim obszarze roboczym.
+    1. W formularzu **Magazyn danych i wybór plików** wybierz domyślny magazyn danych, który został automatycznie skonfigurowany podczas tworzenia obszaru roboczego, **workspaceblobstore (Azure Blob Storage)**. Jest to miejsce, w którym przekażesz plik danych w celu udostępnienia go w Twoim obszarze roboczym.
 
-    1. Wybierz pozycję **Przeglądaj** .
+    1. Wybierz pozycję **Przeglądaj**.
     
     1. Wybierz plik **bankmarketing_train.csv** na komputerze lokalnym. Jest to plik pobrany jako [warunek wstępny](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
@@ -91,17 +92,17 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
     
        Po zakończeniu przekazywania ustawienia i formularz podglądu są wstępnie wypełniane na podstawie typu pliku. 
        
-    1. Sprawdź, czy **Ustawienia i formularz podglądu** są wypełnione w następujący sposób, a następnie wybierz przycisk **dalej** .
+    1. Sprawdź, czy **Ustawienia i formularz podglądu** są wypełnione w następujący sposób, a następnie wybierz przycisk **dalej**.
         
         Pole|Opis| Wartość dla samouczka
         ---|---|---
         Format pliku|Definiuje układ i typ danych przechowywanych w pliku.| Lista
         Ogranicznik|Jeden lub więcej znaków do określenia granicy między &nbsp; oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych. |Przecinek
-        Encoding|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
+        Kodowanie|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Wszystkie pliki mają te same nagłówki
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
 
-    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla funkcji **day_of_week** , więc nie dodawaj go do tego eksperymentu. Wybierz pozycję **Dalej** .
+    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla funkcji **day_of_week** , więc nie dodawaj go do tego eksperymentu. Wybierz pozycję **Dalej**.
 
         ![Konfiguracja karty podglądu](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
@@ -111,9 +112,9 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
     
     1. Wybierz zestaw danych, który zostanie wyświetlony na liście.
     
-    1. Przejrzyj **Podgląd danych**  , aby upewnić się, że nie doszło do **day_of_week** następnie wybierz przycisk **OK** .
+    1. Przejrzyj **Podgląd danych**  , aby upewnić się, że nie doszło do **day_of_week** następnie wybierz przycisk **OK**.
 
-    1. Wybierz pozycję  **dalej** .
+    1. Wybierz pozycję  **dalej**.
 
 ## <a name="configure-experiment-run"></a>Konfigurowanie przebiegu eksperymentu
 
@@ -140,7 +141,7 @@ Po załadowaniu i skonfigurowaniu danych możesz skonfigurować eksperyment. Ta 
 
         1. Po utworzeniu wybierz nowe miejsce docelowe obliczeń z listy rozwijanej.
 
-    1. Wybierz pozycję **Dalej** .
+    1. Wybierz pozycję **Dalej**.
 
 1. Na formularzu **Typ i ustawienia zadania** Ukończ konfigurację eksperymentu zautomatyzowanej sieci, określając typ zadania Uczenie maszynowe i ustawienia konfiguracji.
     
@@ -151,19 +152,19 @@ Po załadowaniu i skonfigurowaniu danych możesz skonfigurować eksperyment. Ta 
         Dodatkowe &nbsp; konfiguracje|Opis|Wartość &nbsp; dla &nbsp; samouczka
         ------|---------|---
         Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|AUC_weighted
-        Wyjaśnij najlepszy model| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włącz
+        Wyjaśnij najlepszy model| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włączanie
         Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Brak
         Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 1 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
         Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie &nbsp; krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 2
         Współbieżność| Maksymalna liczba wykonanych równoległych iteracji na iterację| Maksymalna liczba &nbsp; współbieżnych &nbsp; iteracji: 5
         
-        Wybierz pozycję **Zapisz** .
+        Wybierz pozycję **Zapisz**.
 
 1. Wybierz pozycję **Zakończ** , aby uruchomić eksperyment. Po rozpoczęciu przygotowania eksperymentu zostanie otwarty ekran **szczegóły uruchamiania**  ze **stanem Uruchom** na górze.
 
 >[!IMPORTANT]
 > Przygotowanie eksperymentu trwa do **10-15 minut** .
-> Po uruchomieniu usługi zajmiemy **2-3 minut więcej czasu dla każdej iteracji** .  
+> Po uruchomieniu usługi zajmiemy **2-3 minut więcej czasu dla każdej iteracji**.  
 > Wybierz pozycję **Odśwież** okresowo, aby zobaczyć stan przebiegu w miarę postępu eksperymentu.
 >
 > W środowisku produkcyjnym najkorzystniej można wyszukać trochę. Jednak w tym samouczku zalecamy rozpoczęcie eksplorowania przetestowanych algorytmów na karcie **modele** po ich zakończeniu, gdy inne nadal działają. 
@@ -206,9 +207,9 @@ Wdrażamy ten model, ale zaleca się wdrożenie trwa około 20 minut. Proces wdr
     
     W tym przykładzie używamy ustawień domyślnych, które są dostępne w menu *Zaawansowane* . 
 
-1. Wybierz pozycję **Wdróż** .  
+1. Wybierz pozycję **Wdróż**.  
 
-    W górnej części ekranu **uruchamiania** zostanie wyświetlony zielony komunikat o powodzeniu, a w okienku **Podsumowanie modelu** zostanie wyświetlony komunikat o stanie w obszarze **Wdróż stan** . Należy okresowo wybierać pozycję **Odśwież** , aby sprawdzić stan wdrożenia.
+    W górnej części ekranu **uruchamiania** zostanie wyświetlony zielony komunikat o powodzeniu, a w okienku **Podsumowanie modelu** zostanie wyświetlony komunikat o stanie w obszarze **Wdróż stan**. Należy okresowo wybierać pozycję **Odśwież** , aby sprawdzić stan wdrożenia.
     
 Teraz masz działającą usługę sieci Web do generowania prognoz. 
 
@@ -222,11 +223,11 @@ Pliki wdrożeń są większe niż pliki danych i eksperymenty, dzięki czemu są
 
 Usuń tylko wystąpienie wdrożenia z Azure Machine Learning na https: \/ /ml.Azure.com/, jeśli chcesz zachować grupę zasobów i obszar roboczy dla innych samouczków i eksploracji. 
 
-1. Przejdź do [Azure Machine Learning](https://ml.azure.com/). Przejdź do obszaru roboczego i po lewej stronie okienka **elementy zawartości** wybierz pozycję **punkty końcowe** . 
+1. Przejdź do [Azure Machine Learning](https://ml.azure.com/). Przejdź do obszaru roboczego i po lewej stronie okienka **elementy zawartości** wybierz pozycję **punkty końcowe**. 
 
-1. Wybierz wdrożenie, które chcesz usunąć, a następnie wybierz pozycję **Usuń** . 
+1. Wybierz wdrożenie, które chcesz usunąć, a następnie wybierz pozycję **Usuń**. 
 
-1. Wybierz pozycję **Zastosuj** .
+1. Wybierz pozycję **Zastosuj**.
 
 ### <a name="delete-the-resource-group"></a>Usuwanie grupy zasobów
 

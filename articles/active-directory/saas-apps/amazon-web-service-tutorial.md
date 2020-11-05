@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: eb784d02ec4c380d72438a1c000290fe3a4eea78
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 764342f237452d9322d44c86ebdb41691b44495d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307500"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360721"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą Amazon Web Services (AWS)
 
@@ -28,9 +28,12 @@ W tym samouczku dowiesz się, jak zintegrować usługę Amazon Web Services (AWS
 
 Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
+> [!Note]
+> Usługa Azure AD nie obsługuje integracji z logowaniem jednokrotnym za pomocą logowania jednokrotnego w usłudze AWS. jest to inny produkt od AWS. Chociaż w [tym miejscu AWS tutaj](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html), usługa Azure AD zaleca klientom korzystanie z integracji usługi AWS w usłudze IAM w taki sposób, aby można było osiągnąć lepsze zabezpieczenia za pomocą zasad dostępu warunkowego na poszczególnych kontach, a także usprawnić zarządzanie tymi aplikacjami.
+
 ![Diagram relacji usług Azure AD i AWS](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
-Można skonfigurować wiele identyfikatorów dla wielu wystąpień. Przykład:
+Można skonfigurować wiele identyfikatorów dla wielu wystąpień. Na przykład:
 
 * `https://signin.aws.amazon.com/saml#1`
 

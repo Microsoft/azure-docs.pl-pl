@@ -1,7 +1,7 @@
 ---
 title: Pozyskiwanie danych przy użyciu usługi Azure Data Factory
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć potok pozyskiwania danych za pomocą Azure Data Factory.
+description: Poznaj dostępne opcje tworzenia potoku pozyskiwania danych z Azure Data Factory i korzyściami z każdego z nich.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,17 +11,17 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8cf0abdeaf3a7fe71213b6fa4f78f057bf2f92eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: 73850d8022618dd6544d19564e425288aff09771
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307358"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360636"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Pozyskiwanie danych przy użyciu usługi Azure Data Factory
 
-W tym artykule dowiesz się, jak utworzyć potok pozyskiwania danych z użyciem Azure Data Factory (ADF). Ten potok służy do pozyskiwania danych do użycia z Azure Machine Learning. Azure Data Factory umożliwia łatwe wyodrębnianie, przekształcanie i ładowanie danych (ETL). Gdy dane zostaną przekształcone i załadowane do magazynu, mogą służyć do uczenia modeli uczenia maszynowego.
+Ten artykuł zawiera informacje na temat dostępnych opcji tworzenia potoku pozyskiwania danych za pomocą Azure Data Factory (ADF). Ten potok służy do pozyskiwania danych do użycia z Azure Machine Learning. Azure Data Factory umożliwia łatwe wyodrębnianie, przekształcanie i ładowanie danych (ETL). Gdy dane zostaną przekształcone i załadowane do magazynu, mogą służyć do uczenia modeli uczenia maszynowego.
 
 Prostą transformację danych można obsługiwać przy użyciu natywnych działań i instrumentów ADF, takich jak [przepływ danych](../data-factory/control-flow-execute-data-flow-activity.md). Gdy jest to bardziej skomplikowane scenariusze, dane mogą być przetwarzane z niestandardowym kodem. Na przykład kod Python lub R.
 

@@ -1,5 +1,5 @@
 ---
-title: Szybki Start — WildFly na CentOS
+title: Przewodnik Szybki start — oprogramowanie WildFly w systemie CentOS
 description: Wdrażanie aplikacji Java do WildFly na maszynie wirtualnej CentOS
 author: Theresa-Nguyen
 ms.author: bicnguy
@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.date: 10/23/2020
-ms.openlocfilehash: 875d04751475d1d5236e9f15fbca585cdc9b1ab0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 842913b8e9f83ff3b188976da55aef7c909518ca
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897684"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359922"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>Szybki Start: WildFly na CentOS 8
 
@@ -49,7 +49,9 @@ Aby uruchomić autonomiczny serwer WildFly z inną podaną konfiguracją, użyj 
 
 Na przykład, aby użyć programu Dżakarta EE platformy 8 z możliwościami klastrowania, użyj następującego polecenia:
 
-`./standalone.sh --server-config=standalone-full-ha.xml`
+```
+./standalone.sh --server-config=standalone-full-ha.xml
+```
 
 Aby dowiedzieć się więcej o konfiguracjach, zapoznaj się z [podręcznikiem wprowadzenie WildFly](https://docs.wildfly.org/18/Getting_Started_Guide.html#wildfly-10-configurations).
 
@@ -63,15 +65,23 @@ Szablon można wdrożyć na następujące trzy sposoby:
 
 - Użyj programu PowerShell — Wdróż szablon, uruchamiając następujące polecenia: (Wyewidencjonuj [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) , aby uzyskać informacje dotyczące instalowania i konfigurowania Azure PowerShell).
 
-    `New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
     
 - Korzystanie z interfejsu wiersza polecenia platformy Azure — Wdróż szablon, uruchamiając następujące polecenia: (w ramach [międzyplatformowego wiersza poleceń platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) znajdują się szczegółowe informacje dotyczące instalowania i konfigurowania interfejsu Command-Line międzyplatformowego platformy Azure).
 
-    `az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
 
 - Użyj Azure Portal — Wdróż szablon, klikając <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">tutaj</a> i logując się do Azure Portal.
 
@@ -81,7 +91,7 @@ Szablon można wdrożyć na następujące trzy sposoby:
 
 ## <a name="resource-links"></a>Linki zasobów
 
-* Dowiedz się więcej o [WildFly 18](https://wildfly.org/18)
+* Dowiedz się więcej o [WildFly 18](https://docs.wildfly.org/18/)
 * Dowiedz się więcej o [dystrybucji systemu Linux na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
 * [Dokumentacja dla deweloperów platformy Azure dla języka Java](https://github.com/JasonFreeberg/jboss-on-app-service)
 

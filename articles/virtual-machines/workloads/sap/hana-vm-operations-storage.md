@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0861d1fd3ab2a378f0b9afc4e8b35b32badfc3db
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 99c94528c13228e07327b529782f211ec92a08ea
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670674"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359854"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
@@ -44,9 +44,9 @@ Minimalny SAP HANA warunki certyfikowania dla różnych typów magazynu to:
 
 - Usługa Azure Premium Storage — **/Hana/log** jest wymagana do obsługi przez usługę Azure [Akcelerator zapisu](../../how-to-enable-write-accelerator.md). Wolumin **/Hana/Data** może być umieszczony w magazynie w warstwie Premium bez systemu Azure akcelerator zapisu lub na dysku Ultra Disk
 - Platforma Azure Ultra Disk co najmniej dla woluminu **/Hana/log** . Wolumin **/Hana/Data** można umieścić w usłudze Premium Storage bez systemu Azure akcelerator zapisu lub w celu szybszego ponownego uruchomienia komputera
-- Woluminy **NFS v 4.1** na Azure NetApp Files dla **/Hana/log i/Hana/Data** . Wolumin/Hana/Shared może korzystać z protokołu NFS v3 lub NFS v 4.1
+- Woluminy **NFS v 4.1** na Azure NetApp Files dla **/Hana/log i/Hana/Data**. Wolumin/Hana/Shared może korzystać z protokołu NFS v3 lub NFS v 4.1
 
-Niektóre typy magazynów można łączyć. Na przykład można umieścić **/Hana/Data** w usłudze Premium Storage, a **/Hana/log** może zostać umieszczony w magazynie Ultra Disk w celu uzyskania wymaganego niskiego opóźnienia. Jeśli używasz woluminu opartego na ANF dla **/Hana/Data** , wolumin  **/Hana/log** musi być oparty na systemie plików NFS również na ANF. Korzystanie z systemu plików NFS na ANF dla jednego z woluminów (na przykład/Hana/Data) i usługi Azure Premium Storage lub Ultra Disk dla innego woluminu (na przykład **/Hana/log** ) **nie jest obsługiwane** .
+Niektóre typy magazynów można łączyć. Na przykład można umieścić **/Hana/Data** w usłudze Premium Storage, a **/Hana/log** może zostać umieszczony w magazynie Ultra Disk w celu uzyskania wymaganego niskiego opóźnienia. Jeśli używasz woluminu opartego na ANF dla **/Hana/Data** , wolumin  **/Hana/log** musi być oparty na systemie plików NFS również na ANF. Korzystanie z systemu plików NFS na ANF dla jednego z woluminów (na przykład/Hana/Data) i usługi Azure Premium Storage lub Ultra Disk dla innego woluminu (na przykład **/Hana/log** ) **nie jest obsługiwane**.
 
 W lokalnym świecie rzadko trzeba zadbać o podsystemy we/wy i możliwości. Przyczyną jest to, że dostawca urządzenia jest wymagany do upewnienia się, że minimalne wymagania dotyczące magazynu są spełnione dla SAP HANA. Podczas tworzenia infrastruktury platformy Azure należy pamiętać o niektórych wymaganiach wystawionych przez SAP. Niektóre z minimalnych cech przepływności zalecane przez SAP to:
 
@@ -93,7 +93,7 @@ Zalecenia dotyczące buforowania dla dysków z systemem Azure Premium są zakła
 - **Dysk systemu operacyjnego** — nie zmieniaj domyślnego buforowania ustawionego przez platformę Azure podczas tworzenia maszyny wirtualnej
 
 
-Jeśli używasz LVM lub mdadm do tworzenia zestawów rozłożonych na kilku dyskach w warstwie Premium platformy Azure, musisz zdefiniować rozmiary rozłożenia. Rozmiary te różnią się między **/Hana/Data** i **/Hana/log** . **Zalecenie: jako rozmiary rozłożone zaleca się użycie:**
+Jeśli używasz LVM lub mdadm do tworzenia zestawów rozłożonych na kilku dyskach w warstwie Premium platformy Azure, musisz zdefiniować rozmiary rozłożenia. Rozmiary te różnią się między **/Hana/Data** i **/Hana/log**. **Zalecenie: jako rozmiary rozłożone zaleca się użycie:**
 
 - 256 KB dla **/Hana/Data**
 - 64 KB dla **/Hana/log**
@@ -179,8 +179,8 @@ W przypadku innych woluminów konfiguracja będzie wyglądać następująco:
 
 | Jednostka SKU maszyny wirtualnej | Pamięć RAM | Maksymalnie z WE/WY MASZYNY WIRTUALNEJ<br /> Przepływność | /hana/shared | wolumin/root | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts | 192 GiB | 500 MB/s | 1 x P20 | 1 x P6 | 1 x P6 |
-| M32ls | 256 GiB | 500 MB/s |  1 x P20 | 1 x P6 | 1 x P6 |
+| M32ts | 192 GiB | 500 MB/s | 1 x P15 | 1 x P6 | 1 x P6 |
+| M32ls | 256 GiB | 500 MB/s |  1 x P15 | 1 x P6 | 1 x P6 |
 | M64ls | 512 GiB | 1000 MB/s | 1 x P20 | 1 x P6 | 1 x P6 |
 | M64s | 1 000 GiB | 1 000 MB/s | 1 x P30 | 1 x P6 | 1 x P6 |
 | M64ms | 1 750 GiB | 1 000 MB/s | 1 x P30 | 1 x P6 | 1 x P6 | 

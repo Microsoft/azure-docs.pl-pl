@@ -1,7 +1,7 @@
 ---
 title: Automatyzacja & pozyskiwania danych
 titleSuffix: Azure Machine Learning
-description: Dowiedz się więcej o opcjach pozyskiwania danych służących do uczenia modeli uczenia maszynowego.
+description: Poznaj zalety i wady dostępnych opcji pozyskiwania danych służących do uczenia modeli uczenia maszynowego.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 401398da4d71f32973f720dd0ca5cc9b550892e8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 60cf97c4cb650120a4b6e2989b93d96ea120d040
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323039"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360126"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opcje pozyskiwania danych dla przepływów pracy Azure Machine Learning
 

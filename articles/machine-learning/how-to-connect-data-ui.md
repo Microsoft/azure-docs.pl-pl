@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to
-ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312790"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359871"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Łączenie się z danymi za pomocą programu Azure Machine Learning Studio
 
@@ -50,8 +50,6 @@ Aby uzyskać pierwsze środowisko kodu, zapoznaj się z następującymi artykuł
 
 Magazyny danych można tworzyć na podstawie [tych rozwiązań usługi Azure Storage](how-to-access-data.md#matrix). **W przypadku nieobsługiwanych rozwiązań magazynu** i zapisania kosztu ruchu wychodzącego w trakcie eksperymentów z sieci, należy [przenieść dane](how-to-access-data.md#move) do obsługiwanego rozwiązania usługi Azure Storage. [Dowiedz się więcej o magazynach](how-to-access-data.md)danych. 
 
-
-
 Utwórz nowy magazyn danych w kilku krokach za pomocą programu Azure Machine Learning Studio.
 
 > [!IMPORTANT]
@@ -60,7 +58,7 @@ Utwórz nowy magazyn danych w kilku krokach za pomocą programu Azure Machine Le
 1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Wybierz pozycję **magazyny** danych w lewym okienku w obszarze **Zarządzaj**.
 1. Wybierz pozycję **+ nowy magazyn** danych.
-1. Wypełnij formularz dla nowego magazynu danych. Formularz jest inteligentnie aktualizowany na podstawie wybranych opcji typu usługi Azure Storage i typu uwierzytelniania. Zapoznaj się z [sekcją dostęp do magazynu i uprawnienia](#access-validation) , aby dowiedzieć się, gdzie znaleźć poświadczenia uwierzytelniania potrzebne do wypełnienia tego formularza.
+1. Wypełnij formularz, aby utworzyć i zarejestrować nowy magazyn danych. Formularz jest inteligentnie aktualizowany na podstawie wybranych opcji typu usługi Azure Storage i typu uwierzytelniania. Zapoznaj się z [sekcją dostęp do magazynu i uprawnienia](#access-validation) , aby dowiedzieć się, gdzie znaleźć poświadczenia uwierzytelniania potrzebne do wypełnienia tego formularza.
 
 Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia **magazynu danych obiektów blob platformy Azure** :
 
@@ -157,11 +155,15 @@ Informacje na temat klucza konta, tokenu sygnatury dostępu współdzielonego i 
     * Odpowiadająca jej Strona **przeglądu** będzie zawierać wymagane informacje, takie jak identyfikator dzierżawy i identyfikator klienta.
 
 > [!IMPORTANT]
-> Ze względów bezpieczeństwa może zajść potrzeba zmiany kluczy dostępu dla konta usługi Azure Storage (klucza konta lub tokenu SAS). W takim przypadku należy zsynchronizować nowe poświadczenia z obszarem roboczym i magazynami danych, które są z nim połączone. Dowiedz się, jak [synchronizować zaktualizowane poświadczenia](how-to-change-storage-access-key.md).
+> * Jeśli musisz zmienić klucze dostępu dla konta usługi Azure Storage (klucza konta lub tokenu SAS), zsynchronizuj nowe poświadczenia z obszarem roboczym i magazynami danych, które są z nim połączone. Dowiedz się, jak [synchronizować zaktualizowane poświadczenia](how-to-change-storage-access-key.md). <br> <br>
+> * Po wyrejestrowaniu i ponownym zarejestrowaniu magazynu danych o tej samej nazwie, Azure Key Vault dla obszaru roboczego może nie mieć włączonej funkcji usuwania nietrwałego. Domyślnie funkcja usuwania nietrwałego jest włączona dla wystąpienia magazynu kluczy utworzonego w obszarze roboczym, ale może nie być włączona, jeśli użyto istniejącego magazynu kluczy lub utworzono obszar roboczy utworzony przed dniem 2020 października. Aby uzyskać informacje na temat włączania usuwania nietrwałego, zobacz [Włączanie usuwania nietrwałego dla istniejącego magazynu kluczy]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault)".
 
 ### <a name="permissions"></a>Uprawnienia
 
-W przypadku kontenera obiektów blob platformy Azure i Azure Data Lake magazynu generacji 2 Upewnij się, że poświadczenia uwierzytelniania mają dostęp do **czytnika danych obiektu blob magazynu** . Dowiedz się więcej o [czytniku danych BLOB Storage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). 
+W przypadku kontenera obiektów blob platformy Azure i Azure Data Lake magazynu generacji 2 Upewnij się, że poświadczenia uwierzytelniania mają dostęp do **czytnika danych obiektu blob magazynu** . Dowiedz się więcej o [czytniku danych BLOB Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Token sygnatury dostępu współdzielonego konta domyślnie nie ma uprawnień. 
+* W przypadku **dostępu do odczytu** danych poświadczenia uwierzytelniania muszą mieć co najmniej uprawnienia do wyświetlania i odczytu dla kontenerów i obiektów. 
+
+* W przypadku **dostępu do zapisu** danych wymagane są również uprawnienia do zapisu i dodawania.
 
 ## <a name="train-with-datasets"></a>Szkolenie przy użyciu zestawów danych
 

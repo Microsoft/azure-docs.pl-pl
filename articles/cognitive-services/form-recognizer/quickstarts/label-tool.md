@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Przetwarzanie dokumentu
-ms.openlocfilehash: 287315440199c4dc3ded1298532167d37d89a877
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976151"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360874"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
@@ -32,11 +32,19 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 * Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Utwórz zasób aparatu rozpoznawania formularzy "  target="_blank"> Utwórz zasób aparatu rozpoznawania formularza <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z interfejsem API rozpoznawania formularzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
-* Zestaw składający się z co najmniej sześciu formularzy tego samego typu. Te dane będą używane do uczenia modelu i testowania formularza. Możesz użyć [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) (Pobierz i wyodrębnij *sample_data.zip*) dla tego przewodnika Szybki Start. Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage w warstwie Standardowa wydajność.
+* Zestaw składający się z co najmniej sześciu formularzy tego samego typu. Te dane będą używane do uczenia modelu i testowania formularza. Możesz użyć [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) (Pobierz i wyodrębnij *sample_data.zip* ) dla tego przewodnika Szybki Start. Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage w warstwie Standardowa wydajność.
 
 ## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
+
+## <a name="try-it-out"></a>Wypróbowywanie działania
+
+Aby wypróbować narzędzie do etykietowania próbek aparatu rozpoznawania w trybie online, przejdź do [witryny sieci Web FOTT](https://fott-preview.azurewebsites.net/).
+
+> [!div class="nextstepaction"]
+> [Narzędzie do etykietowania przykładowego aparatu rozpoznawania formularzy](https://fott-preview.azurewebsites.net/)
+
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Konfigurowanie przykładowego narzędzia do etykietowania
 
@@ -122,7 +130,7 @@ Wypełnij pola następującymi wartościami:
 
 * **Nazwa wyświetlana** — nazwa wyświetlana połączenia.
 * **Opis** — opis projektu.
-* **Adres URL** sygnatury dostępu współdzielonego (SAS) dla kontenera BLOB Storage platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Ustaw czas wygaśnięcia na dowolną godzinę po skorzystaniu z usługi. Upewnij się, że uprawnienia **Odczyt**, **zapis**, **usuwanie**i **Wyświetlanie listy** są zaznaczone, a następnie kliknij pozycję **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna ona mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **Adres URL** sygnatury dostępu współdzielonego (SAS) dla kontenera BLOB Storage platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Ustaw czas wygaśnięcia na dowolną godzinę po skorzystaniu z usługi. Upewnij się, że uprawnienia **Odczyt** , **zapis** , **usuwanie** i **Wyświetlanie listy** są zaznaczone, a następnie kliknij pozycję **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna ona mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
 
@@ -139,7 +147,7 @@ W przykładowym narzędziu do etykietowania projekty przechowują konfiguracje i
 * **Klucz interfejsu API** — klucz subskrypcji aparatu rozpoznawania formularza.
 * **Opis** — opcjonalnie — opis projektu
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Nowa strona projektu na przykładowym narzędziu do etykietowania.":::
 
 ## <a name="label-your-forms"></a>Etykiety formularzy
 
@@ -155,7 +163,7 @@ Kliknij przycisk **Uruchom OCR dla wszystkich plików** w okienku po lewej stron
 
 Zostaną również wyświetlone tabele, które zostały wyodrębnione automatycznie. Kliknij ikonę tabela/siatka po lewej stronie dokumentu, aby wyświetlić wyodrębnioną tabelę. W tym przewodniku Szybki Start, ponieważ zawartość tabeli jest wyodrębniana automatycznie, nie będziemy etykietować zawartości tabeli, ale raczej polegają na zautomatyzowanej ekstrakcji.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Wizualizacja tabeli w przykładowym narzędziu do etykietowania.":::
 
 ### <a name="apply-labels-to-text"></a>Zastosuj etykiety do tekstu
 
@@ -201,7 +209,7 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Główne okno edytora przykładowego narzędzia do etykietowania.":::
 
 
 Postępuj zgodnie z powyższymi krokami, aby oznaczyć co najmniej pięć formularzy.
@@ -256,7 +264,7 @@ Kliknij ikonę szkolenia w okienku po lewej stronie, aby otworzyć stronę szkol
 * Lista tagów i Szacowana dokładność na tag.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Widok szkoleń.":::
 
 Po zakończeniu szkolenia Przejrzyj wartość **średnia dokładność** . Jeśli jest to niska, należy dodać więcej dokumentów wejściowych i powtórz powyższe kroki. Dokumenty, które zostały już oznaczone etykietami, pozostaną w indeksie projektu.
 
@@ -275,7 +283,7 @@ Funkcja Redagowanie modelu umożliwia utworzenie nawet 100 modeli w ramach jedne
 
 Aby zredagować modele w narzędziu przykładowego etykietowania, kliknij ikonę model redagowania (Scalanie strzałki) po lewej stronie. Po lewej stronie wybierz modele, które chcesz utworzyć razem. Modele o ikonie strzałek mają już modele. Kliknij przycisk "Zredaguj". W oknie podręcznym Nadaj nazwę nowemu modelowi złożonemu i kliknij pozycję "Zredaguj". Po zakończeniu operacji nowy model złożony powinien pojawić się na liście. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Ustawienia połączenia przykładowego narzędzia do etykietowania.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Widok redagowania modelu.":::
 
 ---
 

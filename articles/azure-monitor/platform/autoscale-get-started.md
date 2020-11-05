@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342219"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361206"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Wprowadzenie do skalowania automatycznego na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -140,6 +140,20 @@ Jeśli wystąpienie pozostaje w złej kondycji w ciągu godziny, zostanie zastą
 ### <a name="monitoring"></a>Monitorowanie
 
 Po podaniu ścieżki sprawdzania kondycji aplikacji można monitorować kondycję lokacji przy użyciu Azure Monitor. W bloku **Sprawdzanie kondycji** w portalu kliknij **metryki** na górnym pasku narzędzi. Spowoduje to otwarcie nowego bloku, w którym można zobaczyć historyczny stan kondycji lokacji i utworzyć nową regułę alertu. Więcej informacji o monitorowaniu lokacji [znajduje się w przewodniku na Azure monitor](../../app-service/web-sites-monitor.md).
+
+## <a name="moving-autoscale-to-a-different-region"></a>Przeniesienie skalowania automatycznego do innego regionu
+W tej sekcji opisano, jak przenieść automatyczne skalowanie platformy Azure do innego regionu w ramach tej samej subskrypcji i grupy zasobów. Aby przenieść ustawienia automatycznego skalowania, można użyć interfejsu API REST.
+### <a name="prerequisite"></a>Wymaganie wstępne
+1. Upewnij się, że subskrypcja i Grupa zasobów są dostępne, a szczegóły w regionach źródłowym i docelowym są identyczne.
+1. Upewnij się, że funkcja automatycznego skalowania platformy Azure jest dostępna w [regionie świadczenia usługi Azure, do którego chcesz przejść](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
+
+### <a name="move"></a>Move
+Użyj [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) , aby utworzyć ustawienie automatycznego skalowania w nowym środowisku. Ustawienie skalowania automatycznego utworzone w regionie docelowym będzie kopią ustawienia skalowania automatycznego w regionie źródłowym.
+
+Nie można przenieść [ustawień diagnostycznych](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) , które zostały utworzone w skojarzeniu z ustawieniem skalowania automatycznego w regionie źródłowym. Należy ponownie utworzyć ustawienia diagnostyczne w regionie docelowym po zakończeniu tworzenia ustawień autosprzedaży. 
+
+### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Dowiedz się więcej o przenoszeniu zasobów między regionami platformy Azure
+Aby dowiedzieć się więcej o przenoszeniu zasobów między regionami i odzyskiwaniem po awarii na platformie Azure, zapoznaj się z tematem [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) .
 
 ## <a name="next-steps"></a>Następne kroki
 - [Tworzenie alertu dziennika aktywności w celu monitorowania wszystkich operacji aparatu automatycznego skalowania w ramach subskrypcji](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
