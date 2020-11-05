@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 7720238bb7e2ff133935b9af545628f744d828d1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4beb1c31f34ec4e8d26228cfe4f30f5109a1b60c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642320"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394547"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Szybki start: Uruchamianie przepływu za pośrednictwem usługi Microsoft Genomics
 
@@ -36,7 +36,7 @@ Skonfiguruj konto usługi Genomics w sposób pokazany na wcześniejszej ilustrac
  |**Ustawienie**          |  **Sugerowana wartość**  | **Opis pola** |
  |:-------------       |:-------------         |:----------            |
  |Subskrypcja         | Nazwa subskrypcji użytkownika|Jest to jednostka rozliczeniowa usług platformy Azure — aby uzyskać szczegółowe informacje o subskrypcji, zobacz [Subskrypcje](https://account.azure.com/Subscriptions) |      
- |Grupa zasobów       | MyResourceGroup       |  Grupy zasobów umożliwiają grupowanie wielu zasobów platformy Azure (konto magazynu, konto usługi Genomics itp.) w jednej grupie, co upraszcza zarządzanie. Aby uzyskać więcej informacji, zobacz [Grupy zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Prawidłowe nazwy grup zasobów opisano w artykule [Reguły nazewnictwa](/azure/architecture/best-practices/resource-naming) |
+ |Grupa zasobów       | MyResourceGroup       |  Grupy zasobów umożliwiają grupowanie wielu zasobów platformy Azure (konto magazynu, konto usługi Genomics itp.) w jednej grupie, co upraszcza zarządzanie. Aby uzyskać więcej informacji, zobacz [Grupy zasobów](../azure-resource-manager/management/overview.md#resource-groups). Prawidłowe nazwy grup zasobów opisano w artykule [Reguły nazewnictwa](/azure/architecture/best-practices/resource-naming) |
  |Nazwa konta         | MyGenomicsAccount     |Wybierz unikatowy identyfikator konta. Aby uzyskać informacje o prawidłowych nazwach, zobacz [Reguły nazewnictwa](/azure/architecture/best-practices/resource-naming) |
  |Lokalizacja                   | Zachodnie stany USA 2                    |    Usługa jest dostępna w regionach: Zachodnie stany USA 2, Europa Zachodnia i Azja Południowo-Wschodnia |
 
@@ -74,7 +74,7 @@ Aby przetestować Microsoft Genomics klienta, Pobierz plik konfiguracji z konta 
 
 ![Znajdź Microsoft Genomics na Azure Portal](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Znajdź Microsoft Genomics na Azure Portal")
 
-Wybierz właśnie utworzone konto genomiki, przejdź do opcji **klucze dostępu**i Pobierz plik konfiguracji.
+Wybierz właśnie utworzone konto genomiki, przejdź do opcji **klucze dostępu** i Pobierz plik konfiguracji.
 
 ![Pobierz plik konfiguracji z Microsoft Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-mygenomicsaccount-box.png "Pobierz plik konfiguracji z Microsoft Genomics")
 
@@ -86,7 +86,7 @@ msgen list -f "<full path where you saved the config file>"
 
 ## <a name="create-a-microsoft-azure-storage-account"></a>Utwórz konto Microsoft Azure Storage 
 Usługa Microsoft Genomics oczekuje przechowywania danych wejściowych w formie blokowych obiektów blob na koncie magazynu platformy Azure. Usługa również zapisuje pliki wyjściowe jako blokowe obiekty blob w kontenerze określonym przez użytkownika na koncie magazynu platformy Azure. Pliki wejściowe i wyjściowe mogą znajdować się w różnych kontach magazynu.
-Jeśli masz już dane na koncie magazynu platformy Azure, musisz tylko upewnić się, że znajdują się w tej samej lokalizacji co konto usługi Genomics. W przeciwnym razie opłaty za ruch wychodzący są naliczane podczas uruchamiania usługi Microsoft Genomics. Jeśli jeszcze nie masz konta usługi Azure Storage, musisz utworzyć je i przekazać dane. Więcej informacji o kontach usługi Azure Storage można znaleźć [tutaj](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), w tym o tym, czym jest konto magazynu i jakie usługi zapewnia. Aby utworzyć konto usługi Azure Storage, przejdź do okna [Utwórz konto magazynu](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) w Azure Portal.  
+Jeśli masz już dane na koncie magazynu platformy Azure, musisz tylko upewnić się, że znajdują się w tej samej lokalizacji co konto usługi Genomics. W przeciwnym razie opłaty za ruch wychodzący są naliczane podczas uruchamiania usługi Microsoft Genomics. Jeśli jeszcze nie masz konta usługi Azure Storage, musisz utworzyć je i przekazać dane. Więcej informacji o kontach usługi Azure Storage można znaleźć [tutaj](../storage/common/storage-account-create.md), w tym o tym, czym jest konto magazynu i jakie usługi zapewnia. Aby utworzyć konto usługi Azure Storage, przejdź do okna [Utwórz konto magazynu](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) w Azure Portal.  
 
 ![Strona tworzenia konta magazynu](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade1.png "Strona tworzenia konta magazynu")
 
@@ -98,9 +98,9 @@ Skonfiguruj konto magazynu przy użyciu następujących informacji, jak pokazano
  |Grupa zasobów       | MyResourceGroup       |  Możesz wybrać tę samą grupę zasobów, która jest taka sama jak konto genomika. W przypadku prawidłowych nazw grup zasobów zobacz [reguły nazewnictwa](/azure/architecture/best-practices/resource-naming) |
  |Nazwa konta magazynu         | MyStorageAccount     |Wybierz unikatowy identyfikator konta. Poprawne nazwy można znaleźć w temacie [reguły nazewnictwa](/azure/architecture/best-practices/resource-naming) |
  |Lokalizacja                  | Zachodnie stany USA 2                  | Użyj tej samej lokalizacji co lokalizacja konta genomika, aby zmniejszyć opłaty za ruch wychodzący i skrócić opóźnienia.  | 
- |Wydajność                  | Standardowa                   | Wartość domyślna to Standardowa. Aby uzyskać więcej informacji na temat kont magazynu w warstwach Standardowa i Premium, zobacz [wprowadzenie do usługi Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
+ |Wydajność                  | Standardowa                   | Wartość domyślna to Standardowa. Aby uzyskać więcej informacji na temat kont magazynu w warstwach Standardowa i Premium, zobacz [wprowadzenie do usługi Microsoft Azure Storage](../storage/common/storage-introduction.md)    |
  |Rodzaj konta       | BlobStorage       |  Magazyn obiektów blob może być 2–5 razy szybszy od konta ogólnego przeznaczenia w przypadku pobierania i przekazywania. |
- |Replikacja                  | Magazyn lokalnie nadmiarowy                  | Magazyn lokalnie nadmiarowy replikuje dane w centrum danych w regionie, w którym utworzono konto magazynu. Aby uzyskać więcej informacji, zobacz [Replikacja usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
+ |Replikacja                  | Magazyn lokalnie nadmiarowy                  | Magazyn lokalnie nadmiarowy replikuje dane w centrum danych w regionie, w którym utworzono konto magazynu. Aby uzyskać więcej informacji, zobacz [Replikacja usługi Azure Storage](../storage/common/storage-redundancy.md)    |
  |Warstwa dostępu                  | Gorąca                   | Gorąca warstwa dostępu oznacza, że dostęp do obiektów na koncie magazynu będzie uzyskiwany częściej.    |
 
 Następnie wybierz pozycję **Recenzja + Utwórz** , aby utworzyć konto magazynu. Podobnie jak w przypadku tworzenia konta genomiki, możesz wybrać opcję **powiadomienia** na górnym pasku menu, aby monitorować proces wdrażania. 
@@ -112,7 +112,7 @@ Usługa Microsoft Genomics oczekuje sparowanych odczytów końcowych (plików fa
 [https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz)
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
-Na koncie magazynu musisz utworzyć jeden kontener obiektów blob na dane wejściowe oraz drugi kontener obiektów blob na dane wyjściowe.  Przekaż dane wejściowe do kontenera wejściowych obiektów blob. Do tego celu można użyć różnych narzędzi, w tym [Eksplorator usługi Microsoft Azure Storage](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter)lub [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
+Na koncie magazynu musisz utworzyć jeden kontener obiektów blob na dane wejściowe oraz drugi kontener obiektów blob na dane wyjściowe.  Przekaż dane wejściowe do kontenera wejściowych obiektów blob. Do tego celu można użyć różnych narzędzi, w tym [Eksplorator usługi Microsoft Azure Storage](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter)lub [AzCopy](../storage/common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
 
 ## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Uruchamianie przepływu pracy za pośrednictwem usługi Microsoft Genomics przy użyciu `msgen` klienta języka Python
 
@@ -144,4 +144,4 @@ Po zakończeniu przepływu pracy można wyświetlić pliki wyjściowe na koncie 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule zostały przekazane przykładowe dane wejściowe do usługi Azure Storage i przesłano przepływ pracy do usług Microsoft Genomics za pomocą `msgen` klienta języka Python. Aby dowiedzieć się więcej o innych typach plików wejściowych, które mogą być używane z usługą Microsoft Genomics, zobacz następujące strony: [sparowany FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple FASTQ lub BAM](quickstart-input-multiple.md). Możesz również zapoznać się z tym samouczkiem, korzystając z naszego [przykładu Azure Notebooks](https://aka.ms/genomicsnotebook) , pobierając plik "Genomika samouczka. ipynb" i korzystając z czytnika notesu, takiego jak [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) , aby otworzyć plik i uruchomić go.
+W tym artykule zostały przekazane przykładowe dane wejściowe do usługi Azure Storage i przesłano przepływ pracy do usług Microsoft Genomics za pomocą `msgen` klienta języka Python. Aby dowiedzieć się więcej o innych typach plików wejściowych, które mogą być używane z usługą Microsoft Genomics, zobacz następujące strony: [sparowany FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple FASTQ lub BAM](quickstart-input-multiple.md). Możesz również zapoznać się z tym samouczkiem, korzystając z naszego [przykładu Azure Notebooks](https://aka.ms/genomicsnotebook) , pobierając plik "Genomika samouczka. ipynb" i korzystając z czytnika notesu, takiego jak [Jupyter](../notebooks/tutorial-create-run-jupyter-notebook.md) , aby otworzyć plik i uruchomić go.

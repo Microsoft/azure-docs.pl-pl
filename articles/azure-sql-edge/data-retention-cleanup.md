@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f547f0b3219889b54364c4805c2dd5b183a9861a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888138"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392371"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Zarządzanie danymi historycznymi przy użyciu zasad przechowywania
 
@@ -66,7 +66,7 @@ Doskonałej kompresji danych i wydajne oczyszczanie przechowywania sprawia, że 
 
 ## <a name="monitoring-data-retention-cleanup"></a>Monitorowanie oczyszczania przechowywania danych
 
-Operacje czyszczenia zasad przechowywania danych można monitorować przy użyciu zdarzeń rozszerzonych (XEvents) w usłudze Azure SQL Edge. Aby uzyskać więcej informacji na temat zdarzeń rozszerzonych, zobacz [Omówienie XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
+Operacje czyszczenia zasad przechowywania danych można monitorować przy użyciu zdarzeń rozszerzonych (XEvents) w usłudze Azure SQL Edge. Aby uzyskać więcej informacji na temat zdarzeń rozszerzonych, zobacz [Omówienie XEvents](/sql/relational-databases/extended-events/extended-events). 
 
 Następujące sześć zdarzeń rozszerzonych ułatwia śledzenie stanu operacji oczyszczania. 
 

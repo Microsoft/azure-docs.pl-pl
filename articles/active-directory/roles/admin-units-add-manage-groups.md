@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 10/07/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee8ae8eeebfff61dd90aedc35a3dc04a88d6758
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 092604429cf5a527d7ee62b412e879ad9991eace
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026738"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394751"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Dodawanie grup i zarządzanie nimi w jednostce administracyjnej w Azure Active Directory
 
@@ -37,23 +37,23 @@ Do jednostki administracyjnej można przypisywać tylko pojedyncze grupy. Nie je
 
 * W okienku **grupy** :
 
-  1. W Azure Portal przejdź do **usługi Azure AD** .
+  1. W Azure Portal przejdź do **usługi Azure AD**.
   1. Wybierz pozycję **grupy** , a następnie wybierz grupę, która ma zostać przypisana do jednostki administracyjnej. 
   1. W okienku po lewej stronie wybierz pozycję **jednostki administracyjne** , aby wyświetlić listę jednostek administracyjnych, do których grupa jest przypisana. 
 
      ![Zrzut ekranu przedstawiający link "Przypisz do jednostki administracyjnej" w okienku "jednostki administracyjne".](./media/admin-units-add-manage-groups/assign-to-group-1.png)
 
-  1. Wybierz pozycję **Przypisz do jednostki administracyjnej** .
+  1. Wybierz pozycję **Przypisz do jednostki administracyjnej**.
   1. W okienku po prawej stronie wybierz jednostkę administracyjną.
 
 * W okienku **jednostki administracyjne**  >  **wszystkie grupy** :
 
-  1. W Azure Portal przejdź do **usługi Azure AD** .
+  1. W Azure Portal przejdź do **usługi Azure AD**.
   
-  1. W okienku po lewej stronie wybierz pozycję **jednostki administracyjne** , a następnie wybierz pozycję **wszystkie grupy** . 
+  1. W okienku po lewej stronie wybierz pozycję **jednostki administracyjne** , a następnie wybierz pozycję **wszystkie grupy**. 
      Wszystkie grupy, które są już przypisane do jednostki administracyjnej, są wyświetlane w okienku po prawej stronie. 
 
-  1. W okienku **grupy** wybierz pozycję **Dodaj** .
+  1. W okienku **grupy** wybierz pozycję **Dodaj**.
     W okienku po prawej stronie znajduje się lista wszystkich dostępnych grup w organizacji usługi Azure AD. 
 
      ![Zrzut ekranu przedstawiający przycisk "Dodaj" służący do dodawania grupy do jednostki administracyjnej.](./media/admin-units-add-manage-groups/assign-to-admin-unit.png)
@@ -97,11 +97,11 @@ Przykład:
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. W Azure Portal przejdź do **usługi Azure AD** .
+1. W Azure Portal przejdź do **usługi Azure AD**.
 
 1. W okienku po lewej stronie wybierz pozycję **jednostki administracyjne** , a następnie wybierz jednostkę administracyjną, której grupy chcesz wyświetlić. Domyślnie **Wszyscy użytkownicy** są wybierani w okienku po lewej stronie. 
 
-1. W okienku po lewej stronie wybierz pozycję **grupy** . W okienku po prawej stronie zostanie wyświetlona lista grup, które są członkami wybranej jednostki administracyjnej.
+1. W okienku po lewej stronie wybierz pozycję **grupy**. W okienku po prawej stronie zostanie wyświetlona lista grup, które są członkami wybranej jednostki administracyjnej.
 
    ![Zrzut ekranu przedstawiający okienko "grupy" z listą grup w jednostce administracyjnej.](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
@@ -141,7 +141,7 @@ Request body
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. W Azure Portal przejdź do **usługi Azure AD** .
+1. W Azure Portal przejdź do **usługi Azure AD**.
 
 1. W okienku po lewej stronie wybierz pozycję **grupy** , aby wyświetlić listę grup.
 
@@ -175,19 +175,19 @@ Grupę można usunąć z jednostki administracyjnej w Azure Portal na jeden z dw
 
 - Usuń go z grupy przegląd:
 
-  1. W Azure Portal przejdź do **usługi Azure AD** .
+  1. W Azure Portal przejdź do **usługi Azure AD**.
   1. W okienku po lewej stronie wybierz pozycję **grupy** , a następnie otwórz profil dla grupy, którą chcesz usunąć z jednostki administracyjnej.
   1. W okienku po lewej stronie wybierz pozycję **jednostki administracyjne** , aby wyświetlić listę wszystkich jednostek administracyjnych, do których grupa jest przypisana. 
-  1. Wybierz jednostkę administracyjną, z której chcesz usunąć grupę, a następnie wybierz pozycję **Usuń z jednostki administracyjnej** .
+  1. Wybierz jednostkę administracyjną, z której chcesz usunąć grupę, a następnie wybierz pozycję **Usuń z jednostki administracyjnej**.
 
      ![Zrzut ekranu przedstawiający okienko "jednostki administracyjne" zawierający listę grup przypisanych do wybranej jednostki administracyjnej.](./media/admin-units-add-manage-groups/group-au-remove.png)
 
 - Usuń go z jednostki administracyjnej:
 
-  1. W Azure Portal przejdź do **usługi Azure AD** .
+  1. W Azure Portal przejdź do **usługi Azure AD**.
   1. W okienku po lewej stronie wybierz pozycję **jednostki administracyjne** , a następnie wybierz jednostkę administracyjną, do której Grupa jest przypisana.
   1. W okienku po lewej stronie wybierz pozycję **grupy** , aby wyświetlić listę wszystkich grup przypisanych do jednostki administracyjnej.
-  1. Wybierz grupę, którą chcesz usunąć, a następnie wybierz pozycję **Usuń grupy** .
+  1. Wybierz grupę, którą chcesz usunąć, a następnie wybierz pozycję **Usuń grupy**.
 
     ![Zrzut ekranu przedstawiający okienko "grupy" z listą grup w jednostce administracyjnej.](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8224ae4a48bb4915492240c414b90edb86a4c258
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605111"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393136"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Przenoszenie maszyn wirtualnych platformy Azure do stref dostępności
 
@@ -62,7 +62,7 @@ W scenariuszu, w którym maszyny wirtualne są wdrażane jako *pojedyncze wystą
 4. W przypadku maszyn wirtualnych z systemem Linux postępuj zgodnie ze wskazówkami dostarczonymi przez dystrybutora systemu Linux w celu uzyskania najnowszych zaufanych certyfikatów głównych i listy odwołania certyfikatów na maszynie wirtualnej.
 5. Upewnij się, że nie używasz serwera proxy uwierzytelniania do kontrolowania łączności sieciowej dla maszyn wirtualnych, które chcesz przenieść.
 
-6. Jeśli maszyna wirtualna, którą próbujesz przenieść, nie ma dostępu do Internetu i używa serwera proxy zapory do kontrolowania dostępu wychodzącego, Sprawdź wymagania w obszarze [Konfigurowanie wychodzącej łączności sieciowej](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+6. Sprawdź [wymagania dotyczące łączności wychodzącej dla maszyn wirtualnych](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 7. Określ układ sieci źródłowej i aktualnie używane zasoby do weryfikacji, w tym moduły równoważenia obciążenia, sieciowych grup zabezpieczeń i publiczny adres IP.
 
@@ -94,21 +94,17 @@ W scenariuszu, w którym maszyny wirtualne są wdrażane jako *pojedyncze wystą
 Poniższe kroki poprowadzą Cię przez Azure Site Recovery, aby włączyć replikację danych do regionu docelowego przed przeniesieniem ich do Strefy dostępności.
 
 > [!NOTE]
-> Te kroki dotyczą pojedynczej maszyny wirtualnej. Można to zrobić na wielu maszynach wirtualnych. Przejdź do magazynu Recovery Services, wybierz pozycję **+ Replikuj**, a następnie wybierz odpowiednie maszyny wirtualne.
+> Te kroki dotyczą pojedynczej maszyny wirtualnej. Można to zrobić na wielu maszynach wirtualnych. Przejdź do magazynu Recovery Services, wybierz pozycję **+ Replikuj** , a następnie wybierz odpowiednie maszyny wirtualne.
 
-1. W Azure Portal wybierz pozycję **maszyny wirtualne**, a następnie wybierz maszynę wirtualną, do której chcesz przenieść strefy dostępności.
+1. W Azure Portal wybierz pozycję **maszyny wirtualne** , a następnie wybierz maszynę wirtualną, do której chcesz przenieść strefy dostępności.
 2. W obszarze **Operacja** wybierz pozycję **Odzyskiwanie po awarii**.
 3. W obszarze **Konfigurowanie odzyskiwania po awarii** > **Region docelowy** wybierz region docelowy, w którym maszyna będzie replikowana. Upewnij się, że ten region [obsługuje](../availability-zones/az-region.md) strefy dostępności.
-
-    ![Wybór regionu docelowego](media/azure-vms-to-zones/enable-rep-1.PNG)
-
 4. Wybierz pozycję **Dalej: Ustawienia zaawansowane**.
 5. Wybierz odpowiednie wartości dla subskrypcji docelowej, docelowej grupy zasobów maszyny wirtualnej i sieci wirtualnej.
 6. W sekcji **dostępność** wybierz strefę dostępności, w której chcesz przenieść maszynę wirtualną. 
    > [!NOTE]
    > Jeśli nie widzisz opcji zestawu dostępności lub strefy dostępności, upewnij się, że [wymagania wstępne](#prepare-the-source-vms) zostały spełnione i ukończono [Przygotowywanie](#prepare-the-source-vms) źródłowych maszyn wirtualnych.
   
-    ![Wybory dotyczące wybierania strefy dostępności](media/azure-vms-to-zones/enable-rep-2.PNG)
 
 7. Wybierz pozycję **Włącz replikację**. Ta akcja uruchamia zadanie, aby włączyć replikację dla maszyny wirtualnej.
 
@@ -119,17 +115,16 @@ Po zakończeniu zadania replikacji można sprawdzić stan replikacji, zmodyfikow
 1. W menu maszyny wirtualnej wybierz pozycję **Odzyskiwanie po awarii**.
 2. Można sprawdzić kondycję replikacji, utworzone punkty odzyskiwania oraz źródłowe i docelowe regiony na mapie.
 
-   ![Stan replikacji](media/azure-to-azure-quickstart/replication-status.png)
 
 ## <a name="test-the-configuration"></a>Testowanie konfiguracji
 
 1. W menu maszyny wirtualnej wybierz pozycję  **odzyskiwanie po awarii**.
 2. Wybierz ikonę **test pracy w trybie failover** .
-3. W obszarze **test pracy w trybie failover**wybierz punkt odzyskiwania do użycia w trybie failover:
+3. W obszarze **test pracy w trybie failover** wybierz punkt odzyskiwania do użycia w trybie failover:
 
-   - **Najnowszy przetworzony**: wprowadza maszynę wirtualną w tryb failover do najnowszego punktu odzyskiwania przetworzonego przez usługę Site Recovery. Wyświetlana jest sygnatura czasowa. Ta opcja zapewnia niską wartość celu czasu odzyskiwania (RTO, Recovery Time Objective), ponieważ nie trzeba poświęcać czasu na przetwarzanie danych.
-   - **Najnowszy spójny na poziomie aplikacji**: ta opcja wprowadza wszystkie maszyny wirtualne w tryb failover do najnowszego spójnego na poziomie aplikacji punktu odzyskiwania. Wyświetlana jest sygnatura czasowa.
-   - **Niestandardowy**: można wybrać dowolny punkt odzyskiwania.
+   - **Najnowszy przetworzony** : wprowadza maszynę wirtualną w tryb failover do najnowszego punktu odzyskiwania przetworzonego przez usługę Site Recovery. Wyświetlana jest sygnatura czasowa. Ta opcja zapewnia niską wartość celu czasu odzyskiwania (RTO, Recovery Time Objective), ponieważ nie trzeba poświęcać czasu na przetwarzanie danych.
+   - **Najnowszy spójny na poziomie aplikacji** : ta opcja wprowadza wszystkie maszyny wirtualne w tryb failover do najnowszego spójnego na poziomie aplikacji punktu odzyskiwania. Wyświetlana jest sygnatura czasowa.
+   - **Niestandardowy** : można wybrać dowolny punkt odzyskiwania.
 
 3. Wybierz testową docelową sieć wirtualną platformy Azure, do której chcesz przenieść maszyny wirtualne platformy Azure, aby przetestować konfigurację. 
 

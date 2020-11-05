@@ -9,12 +9,12 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 23e9b45c47cdbdb671146b772d16354b1ee3c31b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096482"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392626"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Zarządzanie indeksowaniem w interfejsie API Azure Cosmos DB dla MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -122,7 +122,7 @@ Następujące polecenie tworzy indeks symboli wieloznacznych na wszystkich wła�
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-W **przeciwieństwie do MongoDB, indeksy symboli wieloznacznych mogą obsługiwać wiele pól w predykatach zapytań** . W przypadku użycia jednego indeksu wieloznacznego zamiast tworzenia oddzielnego indeksu dla każdej właściwości nie będzie różnica w wydajności zapytań.
+W **przeciwieństwie do MongoDB, indeksy symboli wieloznacznych mogą obsługiwać wiele pól w predykatach zapytań**. W przypadku użycia jednego indeksu wieloznacznego zamiast tworzenia oddzielnego indeksu dla każdej właściwości nie będzie różnica w wydajności zapytań.
 
 Można utworzyć następujące typy indeksów przy użyciu składni symboli wieloznacznych:
 
@@ -211,7 +211,7 @@ globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { univ
         "ok" : 1,
         "collectionsharded" : "test.coll"
 }
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {unique:true})
+globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,

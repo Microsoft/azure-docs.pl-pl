@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015974"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392581"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Dodawanie kont innych niż Microsoft do aplikacji Microsoft Authenticator
 
@@ -36,7 +36,7 @@ Ogólnie rzecz biorąc, w przypadku wszystkich kont osobistych należy:
     >[!Note]
     >Jeśli konfigurujesz aplikację Microsoft Authenticator po raz pierwszy, może zostać wyświetlony monit z pytaniem, czy zezwolić aplikacji na dostęp do aparatu (iOS), czy zezwolić aplikacji na wykonywanie zdjęć i nagrywanie wideo (Android). Musisz wybrać opcję **Zezwól** , aby aplikacja Authenticator mogła uzyskać dostęp do Twojego aparatu, aby w następnym kroku uzyskać zdjęcie kodu QR. Jeśli nie zezwolisz na korzystanie z aparatu, nadal możesz skonfigurować aplikację uwierzytelniającej, ale musisz ręcznie dodać informacje o kodzie. Aby dowiedzieć się, jak ręcznie dodać kod, zobacz temat [Ręczne dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
 
-Udostępniamy ten proces dla kont w serwisach Facebook, Google, GitHub i Amazon, ale ten proces jest taki sam dla każdej innej aplikacji, takiej jak usługi Instagram, Netflix lub Adobe.
+Udostępniamy ten proces dla kont w serwisach Facebook, Google, GitHub i Amazon, ale proces ten jest taki sam dla innych aplikacji, takich jak usługi Instagram i Adobe.
 
 ## <a name="add-your-google-account"></a>Dodawanie konta Google
 
@@ -44,7 +44,7 @@ Dodaj swoje konto Google, włączając weryfikację dwuskładnikową, a następn
 
 ### <a name="turn-on-two-factor-verification"></a>Włącz weryfikację dwuskładnikową
 
-1. Na komputerze przejdź do https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome , wybierz pozycję **Rozpocznij pracę**, a następnie zweryfikuj swoją tożsamość.
+1. Na komputerze przejdź do https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome , wybierz pozycję **Rozpocznij pracę** , a następnie zweryfikuj swoją tożsamość.
 
 2. Postępuj zgodnie z instrukcjami na stronie, aby włączyć weryfikację dwuetapową dla osobistego konta Google.
 
@@ -80,7 +80,7 @@ Dodaj swoje konto w usłudze Facebook, włączając weryfikację dwuskładnikow�
 
 ### <a name="turn-on-two-factor-verification"></a>Włącz weryfikację dwuskładnikową
 
-1. Na komputerze otwórz serwis Facebook, wybierz menu rozwijane w prawym górnym rogu, a następnie przejdź do pozycji **Ustawienia**  >  **zabezpieczenia i zaloguj**się.
+1. Na komputerze otwórz serwis Facebook, wybierz menu rozwijane w prawym górnym rogu, a następnie przejdź do pozycji **Ustawienia**  >  **zabezpieczenia i zaloguj** się.
 
     Zostanie wyświetlona strona **zabezpieczenia i logowanie** .
 
@@ -138,7 +138,7 @@ Dodaj konto usługi GitHub, włączając weryfikację dwuskładnikową, a nastę
 
     Strona zmieni się, aby wyświetlić kod QR. Nie zamykaj tej strony.
 
-4. Otwórz aplikację Microsoft Authenticator, wybierz pozycję **Dodaj konto** z ikony **Dostosowywanie i kontrola** w prawym górnym rogu, wybierz pozycję **inne konto (Google, Facebook itp.)**, a następnie wybierz opcję **wprowadź ten kod tekstowy** z tekstu w górnej części strony.
+4. Otwórz aplikację Microsoft Authenticator, wybierz pozycję **Dodaj konto** z ikony **Dostosowywanie i kontrola** w prawym górnym rogu, wybierz pozycję **inne konto (Google, Facebook itp.)** , a następnie wybierz opcję **wprowadź ten kod tekstowy** z tekstu w górnej części strony.
 
     Aplikacja Microsoft Authenticator nie może zeskanować kodu QR, więc musisz ręcznie wprowadzić kod.
 
@@ -159,7 +159,7 @@ Dodaj konto Amazon, włączając weryfikację dwuskładnikową, a następnie dod
 
 1. Na komputerze otwórz pozycję Amazon, zaznacz menu rozwijane **konto & listy** , a następnie wybierz **konto**.
 
-2. Wybierz pozycję **zaloguj & zabezpieczenia**, zaloguj się do konta Amazon, a następnie wybierz pozycję **Edytuj** w obszarze **Zaawansowane ustawienia zabezpieczeń** .
+2. Wybierz pozycję **zaloguj & zabezpieczenia** , zaloguj się do konta Amazon, a następnie wybierz pozycję **Edytuj** w obszarze **Zaawansowane ustawienia zabezpieczeń** .
 
     Zostanie wyświetlona strona **Zaawansowane ustawienia zabezpieczeń** .
 

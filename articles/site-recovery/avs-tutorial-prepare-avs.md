@@ -1,5 +1,5 @@
 ---
-title: Przygotowywanie do odzyskiwania po awarii maszyny wirtualnej rozwiązania VMware platformy Azure z Azure Site Recovery
+title: Przygotuj rozwiązanie VMware na platformie Azure na potrzeby odzyskiwania po awarii, aby Azure Site Recovery
 description: Dowiedz się, jak przygotować serwery rozwiązań VMware platformy Azure na potrzeby odzyskiwania po awarii na platformie Azure przy użyciu usługi Azure Site Recovery.
 author: Harsha-CS
 manager: rochakm
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 9b04faf6797d04404dc0c5d617af2fd62a68c49a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e77ede7b04c95bfd6b6b8f660c8d811e7434c0f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91814608"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395448"
 ---
-# <a name="prepare-azure-vmware-solution-servers-for-disaster-recovery-to-azure"></a>Przygotowywanie serwerów rozwiązań VMware na platformie Azure na potrzeby odzyskiwania po awarii na platformie Azure
+# <a name="prepare-azure-vmware-solution-for-disaster-recovery-to-azure-site-recovery"></a>Przygotuj rozwiązanie VMware na platformie Azure na potrzeby odzyskiwania po awarii, aby Azure Site Recovery
 
 W tym artykule opisano sposób przygotowania serwerów rozwiązań VMware platformy Azure na potrzeby odzyskiwania po awarii na platformie Azure przy użyciu usług [Azure Site Recovery](site-recovery-overview.md) . 
 
@@ -68,8 +68,8 @@ Przygotuj konto w następujący sposób:
 
 Przygotuj domenę lub konto lokalne z uprawnieniami do instalowania na maszynie wirtualnej.
 
-- **Maszyny wirtualne Windows**: Aby zainstalować na maszynach wirtualnych z systemem Windows, jeśli nie korzystasz z konta domeny, wyłącz kontrolę dostępu użytkowników zdalnych na komputerze lokalnym. Aby to zrobić, w kluczu rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** dodaj wpis DWORD **LocalAccountTokenFilterPolicy** o wartości 1.
-- **Maszyny wirtualne Linux**: Aby zainstalować na maszynach wirtualnych z systemem Linux, przygotuj konto superużytkownika na serwerze źródłowym z systemem Linux.
+- **Maszyny wirtualne Windows** : Aby zainstalować na maszynach wirtualnych z systemem Windows, jeśli nie korzystasz z konta domeny, wyłącz kontrolę dostępu użytkowników zdalnych na komputerze lokalnym. Aby to zrobić, w kluczu rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** dodaj wpis DWORD **LocalAccountTokenFilterPolicy** o wartości 1.
+- **Maszyny wirtualne Linux** : Aby zainstalować na maszynach wirtualnych z systemem Linux, przygotuj konto superużytkownika na serwerze źródłowym z systemem Linux.
 
 
 ## <a name="check-vmware-requirements"></a>Sprawdzanie wymagań dotyczących programu VMware
@@ -92,12 +92,12 @@ Po przejściu w tryb failover warto nawiązać połączenie z maszynami wirtualn
 Aby nawiązać połączenie z maszynami wirtualnymi z systemem Windows przy użyciu protokołu RDP po przejściu do trybu failover, wykonaj następujące czynności:
 
 - **Dostęp do Internetu**. Przed przejściem w tryb failover Włącz protokół RDP na maszynie wirtualnej rozwiązania Azure VMware przed przejściem do trybu failover. Upewnij się, że reguły TCP i UDP zostały dodane do profilu **publicznego** oraz że w pozycji **Zapora systemu Windows** > **Dozwolone aplikacje** zezwolono na użycie protokołu RDP we wszystkich profilach.
-- **Dostęp do sieci VPN typu lokacja-lokacja**:
+- **Dostęp do sieci VPN typu lokacja-lokacja** :
     - Przed przejściem w tryb failover należy włączyć protokół RDP na maszynie wirtualnej rozwiązania VMware platformy Azure.
-    - Protokół RDP powinien być dozwolony w **Windows Firewall**  ->  przypadku**aplikacji i funkcji dozwolonych** przez zaporę systemu Windows w przypadku sieci **z domeną i siecią prywatną** .
+    - Protokół RDP powinien być dozwolony w **Windows Firewall**  ->  przypadku **aplikacji i funkcji dozwolonych** przez zaporę systemu Windows w przypadku sieci **z domeną i siecią prywatną** .
     - Upewnij się, że zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/kb/3031135).
 - Podczas wyzwalania trybu failover na maszynie wirtualnej nie powinno być żadnych oczekujących aktualizacji systemu Windows. Jeśli tak się stanie, nie będzie można zalogować się do maszyny wirtualnej do momentu ukończenia aktualizacji.
-- Na maszynie wirtualnej platformy Azure z systemem Windows po przejściu do trybu failover sprawdź **diagnostykę rozruchu**, aby wyświetlić zrzut ekranu maszyny wirtualnej. Jeśli nie możesz się połączyć, upewnij się, że maszyna wirtualna jest uruchomiona, i przejrzyj te [porady dotyczące rozwiązywania problemów](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Na maszynie wirtualnej platformy Azure z systemem Windows po przejściu do trybu failover sprawdź **diagnostykę rozruchu** , aby wyświetlić zrzut ekranu maszyny wirtualnej. Jeśli nie możesz się połączyć, upewnij się, że maszyna wirtualna jest uruchomiona, i przejrzyj te [porady dotyczące rozwiązywania problemów](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Aby nawiązać połączenie z maszynami wirtualnymi z systemem Linux przy użyciu powłoki SSH po przejściu do trybu failover, wykonaj następujące czynności:
 
@@ -105,7 +105,7 @@ Aby nawiązać połączenie z maszynami wirtualnymi z systemem Linux przy użyci
 - Sprawdź, czy reguły zapory zezwalają na połączenie SSH.
 - Na maszynie wirtualnej platformy Azure po przejściu do trybu failover zezwól na połączenia przychodzące do portu SSH w regułach grupy zabezpieczeń sieci na maszynie wirtualnej w trybie failover i w podsieci platformy Azure.
 - [Dodaj publiczny adres IP](./site-recovery-monitor-and-troubleshoot.md) dla maszyny wirtualnej.
-- Możesz sprawdzić **diagnostykę rozruchu**, aby wyświetlić zrzut ekranu maszyny wirtualnej.
+- Możesz sprawdzić **diagnostykę rozruchu** , aby wyświetlić zrzut ekranu maszyny wirtualnej.
 
 
 ## <a name="failback-requirements"></a>Wymagania dotyczące powrotu po awarii

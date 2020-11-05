@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f2cc8901ee3952f7d258d768e175412254ec5d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 114be810ea50f984c3211291691b4c4dd45ac2c7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905946"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395244"
 ---
 # <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>Tworzenie kopii zapasowych i przywracanie baz danych w usłudze Azure SQL Edge 
 
@@ -75,9 +75,9 @@ W poniższym przykładzie użyto `BACKUP DATABASE` polecenia Transact-SQL do utw
 
 ### <a name="back-up-to-url"></a>Utwórz kopię zapasową do adresu URL
 
-Usługa Azure SQL Edge obsługuje kopie zapasowe zarówno stronicowych obiektów blob, jak i blokowych obiektów BLOB. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowej do blokowego obiektu BLOB programu vs Page](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). W poniższym przykładzie kopia zapasowa bazy danych *IronOreSilicaPrediction* jest tworzona w blokowym obiekcie blob. 
+Usługa Azure SQL Edge obsługuje kopie zapasowe zarówno stronicowych obiektów blob, jak i blokowych obiektów BLOB. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowej do blokowego obiektu BLOB programu vs Page](/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). W poniższym przykładzie kopia zapasowa bazy danych *IronOreSilicaPrediction* jest tworzona w blokowym obiekcie blob. 
 
-1. Aby skonfigurować tworzenie kopii zapasowych w celu blokowania obiektów blob, należy najpierw wygenerować token sygnatury dostępu współdzielonego (SAS), za pomocą którego można utworzyć poświadczenia SQL Server w usłudze Azure SQL Edge. Skrypt tworzy sygnaturę dostępu współdzielonego, która jest skojarzona z przechowywanymi zasadami. Aby uzyskać więcej informacji, zobacz [sygnatury dostępu współdzielonego, część 1: Omówienie modelu SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/). Skrypt zapisuje również polecenie T-SQL wymagane do utworzenia poświadczenia na SQL Server. W poniższym skrypcie założono, że masz już subskrypcję platformy Azure z kontem magazynu i kontenerem magazynu dla kopii zapasowych.
+1. Aby skonfigurować tworzenie kopii zapasowych w celu blokowania obiektów blob, należy najpierw wygenerować token sygnatury dostępu współdzielonego (SAS), za pomocą którego można utworzyć poświadczenia SQL Server w usłudze Azure SQL Edge. Skrypt tworzy sygnaturę dostępu współdzielonego, która jest skojarzona z przechowywanymi zasadami. Aby uzyskać więcej informacji, zobacz [sygnatury dostępu współdzielonego, część 1: Omówienie modelu SAS](../storage/common/storage-sas-overview.md). Skrypt zapisuje również polecenie T-SQL wymagane do utworzenia poświadczenia na SQL Server. W poniższym skrypcie założono, że masz już subskrypcję platformy Azure z kontem magazynu i kontenerem magazynu dla kopii zapasowych.
 
     ```PowerShell
     # Define global variables for the script  
@@ -133,7 +133,7 @@ Usługa Azure SQL Edge obsługuje kopie zapasowe zarówno stronicowych obiektów
 
 ## <a name="restore-a-database-in-azure-sql-edge"></a>Przywracanie bazy danych w usłudze Azure SQL Edge
 
-W usłudze Azure SQL Edge można przywrócić z dysku lokalnego, lokalizacji sieciowej lub konta usługi Azure Blob Storage. Aby uzyskać więcej informacji na temat przywracania i odzyskiwania w SQL Server, zobacz [przywracanie i odzyskiwanie — Omówienie](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). Aby zapoznać się z omówieniem prostego modelu odzyskiwania w SQL Server, zobacz [Kończenie przywracania bazy danych (model odzyskiwania prostego)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
+W usłudze Azure SQL Edge można przywrócić z dysku lokalnego, lokalizacji sieciowej lub konta usługi Azure Blob Storage. Aby uzyskać więcej informacji na temat przywracania i odzyskiwania w SQL Server, zobacz [przywracanie i odzyskiwanie — Omówienie](/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). Aby zapoznać się z omówieniem prostego modelu odzyskiwania w SQL Server, zobacz [Kończenie przywracania bazy danych (model odzyskiwania prostego)](/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
 
 > [!IMPORTANT] 
 > Baz danych utworzonych w usłudze Azure SQL Edge nie można przywrócić w wystąpieniu Microsoft SQL Server lub Azure SQL. Ponadto baza danych utworzona w Microsoft SQL Server lub Azure SQL może być przywracana w usłudze Azure SQL Edge, pod warunkiem, że baza danych nie zawiera żadnych funkcji nieobsługiwanych przez usługę Azure SQL Edge. 
@@ -180,5 +180,3 @@ WITH MOVE 'IronOreSilicaPrediction' TO '/var/opt/mssql/data/IronOreSilicaPredict
 MOVE 'IronOreSilicaPrediction_log' TO '/var/opt/mssql/data/IronOreSilicaPrediction_Primary_3.ldf',
 STATS = 10;
 ```
-
-

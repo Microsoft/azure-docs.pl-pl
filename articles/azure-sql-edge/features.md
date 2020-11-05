@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19dcbbf102a1d8d21f1b14780ea33816a1677c55
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886527"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392031"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Obsługiwane funkcje usługi Azure SQL Edge 
 
 Usługa Azure SQL Edge jest oparta na najnowszej wersji aparatu SQL Database. Obsługuje ona podzestaw funkcji obsługiwanych w SQL Server 2019 w systemie Linux, a także niektóre funkcje, które nie są obecnie obsługiwane lub dostępne w SQL Server 2019 w systemie Linux (lub w SQL Server z systemem Windows).
 
-Aby zapoznać się z pełną listą funkcji obsługiwanych w SQL Server on Linux, zobacz [wersje i obsługiwane funkcje SQL Server 2019 w systemie Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). Wersje i obsługiwane funkcje SQL Server w systemie Windows znajdują się w temacie [wersje i obsługiwane funkcje SQL Server 2019 (15. x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
+Aby zapoznać się z pełną listą funkcji obsługiwanych w SQL Server on Linux, zobacz [wersje i obsługiwane funkcje SQL Server 2019 w systemie Linux](/sql/linux/sql-server-linux-editions-and-components-2019). Wersje i obsługiwane funkcje SQL Server w systemie Windows znajdują się w temacie [wersje i obsługiwane funkcje SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-15).
 
 ## <a name="azure-sql-edge-editions"></a>Wersje usługi Azure SQL Edge
 
@@ -59,7 +59,7 @@ Oprócz obsługi podzestawu funkcji programu SQL Server on Linux usługa Azure S
 
 Poniższa lista zawiera SQL Server 2019 funkcji systemu Linux, które nie są obecnie obsługiwane w usłudze Azure SQL Edge.
 
-| Warstwowy | Nieobsługiwana funkcja lub usługa |
+| Obszar | Nieobsługiwana funkcja lub usługa |
 |-----|-----|
 | **Projekt bazy danych** | OLTP w pamięci i powiązane polecenia języka DDL oraz funkcje Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |
 | &nbsp; | `HierarchyID` Typ danych i powiązane polecenia języka DDL oraz funkcje Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |

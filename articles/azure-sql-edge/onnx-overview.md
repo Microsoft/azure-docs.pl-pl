@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 47c040b0fad0211af413141a5b16b587d41d3b08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc3d44ac4396897fd43831d51ee628bb06048cb
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907133"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392065"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>Uczenie maszynowe i AI z ONNX w usłudze SQL Edge
 
@@ -28,7 +28,7 @@ Aby wywnioskować modele uczenia maszynowego w usłudze Azure SQL Edge, najpierw
 
 Aby uzyskać model w formacie ONNX:
 
-- **Usługi do kompilowania modeli**: usługi takie jak [Funkcja automatycznego Machine Learning w systemach Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) i [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) obsługują bezpośrednio eksportowanie przeszkolonego modelu w formacie ONNX.
+- **Usługi do kompilowania modeli** : usługi takie jak [Funkcja automatycznego Machine Learning w systemach Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) i [Azure Custom Vision Service](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md) obsługują bezpośrednio eksportowanie przeszkolonego modelu w formacie ONNX.
 
 - [**Konwertowanie i/lub eksportowanie istniejących modeli**](https://github.com/onnx/tutorials#converting-to-onnx-format): kilka platform szkoleniowych (np. [PyTorch](https://pytorch.org/docs/stable/onnx.html), łańcucher i Caffe2) obsługuje natywne funkcje eksportu do ONNX, co pozwala na zapisywanie przeszkolonego modelu w określonej wersji formatu ONNX. W przypadku struktur, które nie obsługują eksportu natywnego, istnieją Autonomiczne pakiety instalowalne konwertera ONNX, które umożliwiają konwersję modeli przeszkolonych z różnych platform uczenia maszynowego w formacie ONNX.
 
@@ -36,19 +36,19 @@ Aby uzyskać model w formacie ONNX:
    * [PyTorch](http://pytorch.org/docs/master/onnx.html)
    * [Tensorflow](https://github.com/onnx/tensorflow-onnx)
    * [Keras](https://github.com/onnx/keras-onnx)
-   * [Scikit-learn](https://github.com/onnx/sklearn-onnx)
+   * [Scikit — informacje](https://github.com/onnx/sklearn-onnx)
    * [CoreML](https://github.com/onnx/onnxmltools)
     
     Aby zapoznać się z pełną listą obsługiwanych platform i przykładów, zobacz [konwertowanie do formatu ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format).
 
 ## <a name="limitations"></a>Ograniczenia
 
-Obecnie nie wszystkie modele ONNX są obsługiwane przez usługę Azure SQL Edge. Obsługa jest ograniczona do modeli o **liczbowych typach danych**:
+Obecnie nie wszystkie modele ONNX są obsługiwane przez usługę Azure SQL Edge. Obsługa jest ograniczona do modeli o **liczbowych typach danych** :
 
-- [int i bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
-- [rzeczywiste i zmiennoprzecinkowe](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
+- [int i bigint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
+- [rzeczywiste i zmiennoprzecinkowe](/sql/t-sql/data-types/float-and-real-transact-sql).
   
-Inne typy liczbowe mogą być konwertowane na obsługiwane typy przy użyciu [Cast i Convert](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).
+Inne typy liczbowe mogą być konwertowane na obsługiwane typy przy użyciu [Cast i Convert](/sql/t-sql/functions/cast-and-convert-transact-sql).
 
 Dane wejściowe modelu powinny mieć strukturę, aby każde wejście do modelu odnosi się do pojedynczej kolumny w tabeli. Na przykład jeśli używasz Pandas Dataframe do uczenia modelu, każdy element wejściowy powinien być oddzielną kolumną do modelu.
 

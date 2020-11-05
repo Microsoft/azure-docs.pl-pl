@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 16ad757fc00439bb390a7e0dea902901c468dd1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90946548"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395295"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Wdrażanie kontenera usługi Azure SQL Edge w Kubernetes
 
@@ -48,7 +48,7 @@ Na poniższym diagramie węzeł, w którym znajduje `azure-sql-edge` się konten
 * **Klaster Kubernetes**
    - Samouczek wymaga klastra Kubernetes. Do zarządzania klastrem służy procedura [polecenia kubectl](https://kubernetes.io/docs/user-guide/kubectl/) . 
 
-   - Na potrzeby tego samouczka będziemy używać usługi Azure Kubernetes Service do wdrażania usługi Azure SQL Edge. Zobacz [wdrażanie klastra usługi Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-deploy-cluster) , aby utworzyć klaster Kubernetes z jednym węzłem i połączyć się z nim w AKS `kubectl` . 
+   - Na potrzeby tego samouczka będziemy używać usługi Azure Kubernetes Service do wdrażania usługi Azure SQL Edge. Zobacz [wdrażanie klastra usługi Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-deploy-cluster.md) , aby utworzyć klaster Kubernetes z jednym węzłem i połączyć się z nim w AKS `kubectl` . 
 
    >[!NOTE]
    >Aby zapewnić ochronę przed awarią węzła, klaster Kubernetes wymaga więcej niż jednego węzła.
@@ -108,7 +108,7 @@ Skonfiguruj w klastrze Kubernetes [wolumin trwały](https://kubernetes.io/docs/c
          storage: 8Gi
    ```
 
-   Zapisz plik (na przykład **PVC. YAML**).
+   Zapisz plik (na przykład **PVC. YAML** ).
 
 2. Utwórz w Kubernetes wartość trwałego żądania woluminu.
 
@@ -241,7 +241,7 @@ spec:
    >[!NOTE]
    >Przy użyciu `LoadBalancer` typu usługi wystąpienie programu Azure SQL Edge jest dostępne zdalnie (za pośrednictwem Internetu) na porcie 1433.
 
-   Zapisz plik (na przykład **sqledgedeploy. YAML**).
+   Zapisz plik (na przykład **sqledgedeploy. YAML** ).
 
 2. Utwórz wdrożenie.
 
@@ -318,8 +318,7 @@ W tym samouczku przedstawiono sposób wdrażania kontenerów usługi Azure SQL E
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie do platformy Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Wprowadzenie do platformy Kubernetes](../aks/intro-kubernetes.md)
 - [Machine Learning i sztuczna inteligencja przy użyciu ONNX w programie SQL Edge](onnx-overview.md).
 - [Tworzenie kompleksowego rozwiązania IoT za pomocą programu SQL Edge przy użyciu IoT Edge](tutorial-deploy-azure-resources.md).
 - [Przesyłanie strumieniowe danych w usłudze Azure SQL Edge](stream-data.md)
-

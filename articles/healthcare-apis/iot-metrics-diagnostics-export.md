@@ -8,16 +8,16 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: jasteppe
-ms.openlocfilehash: 2c10dc05775739a55267dd3766e533b73e12b3a1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322363"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394258"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Eksportowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza) za pomocą ustawień diagnostycznych
 
-W tym artykule dowiesz się, jak wyeksportować łącznik usługi Azure IoT dla dzienników metryk FHIR *. Funkcja umożliwiająca rejestrowanie metryk jest [**ustawieniami diagnostycznymi**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) w Azure Portal. 
+W tym artykule dowiesz się, jak wyeksportować łącznik usługi Azure IoT dla dzienników metryk FHIR *. Funkcja umożliwiająca rejestrowanie metryk jest [**ustawieniami diagnostycznymi**](../azure-monitor/platform/diagnostic-settings.md) w Azure Portal. 
 
 > [!TIP]
 > Postępuj zgodnie ze wskazówkami zawartymi w temacie [Włączanie rejestrowania diagnostycznego w usłudze Azure API for FHIR i Azure IoT Connector dla FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) w celu skonfigurowania rejestrowania inspekcji.
@@ -48,7 +48,7 @@ W tym artykule dowiesz się, jak wyeksportować łącznik usługi Azure IoT dla 
 > [!Note] 
 > Aby pierwsze dzienniki metryk były wyświetlane w wybranym repozytorium, może upłynąć do 15 minut.  
  
-Aby uzyskać więcej informacji na temat sposobu pracy z dziennikami diagnostycznymi, zobacz [dokumentację dzienników zasobów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview)
+Aby uzyskać więcej informacji na temat sposobu pracy z dziennikami diagnostycznymi, zobacz [dokumentację dzienników zasobów platformy Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="conclusion"></a>Podsumowanie 
 Posiadanie dostępu do dzienników metryk jest niezbędne do monitorowania i rozwiązywania problemów.  Łącznik usługi Azure IoT dla programu FHIR umożliwia wykonywanie tych działań za pomocą dzienników metryk. 

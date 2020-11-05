@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 4eede07b285614c061f4b59845c8f44d82083ec2
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 1702c17555d1d3c39a83fa16ca790d6f8f2b3344
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558537"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394241"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Szablony mapowania łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
 W tym artykule szczegółowo opisano sposób konfigurowania łącznika usługi Azure IoT dla FHIR * przy użyciu szablonów mapowania.
@@ -254,7 +254,7 @@ JsonPathContentTemplate umożliwia dopasowanie i wyodrębnianie wartości z komu
 #### <a name="iotjsonpathcontenttemplate"></a>IotJsonPathContentTemplate
 IotJsonPathContentTemplate jest podobna do JsonPathContentTemplate, z wyjątkiem DeviceIdExpression i TimestampExpression nie są wymagane.
 
-Założenie, że podczas korzystania z tego szablonu komunikaty są oceniane, są wysyłane przy użyciu [zestawów SDK urządzeń IoT Hub platformy Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks). W przypadku korzystania z tych zestawów SDK tożsamość urządzenia (przy założeniu, że identyfikator urządzenia z usługi Azure IoT Hub/Centrala) jest zarejestrowana jako identyfikator dla zasobu urządzenia na serwerze docelowym FHIR, a sygnatura czasowa komunikatu jest znana. Jeśli używasz zestawów SDK urządzeń z platformą Azure IoT Hub, ale używamy właściwości niestandardowych w treści komunikatu dla tożsamości urządzenia lub sygnatury czasowej, możesz nadal korzystać z JsonPathContentTemplate.
+Założenie, że podczas korzystania z tego szablonu komunikaty są oceniane, są wysyłane przy użyciu [zestawów SDK urządzeń IoT Hub platformy Azure](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks). W przypadku korzystania z tych zestawów SDK tożsamość urządzenia (przy założeniu, że identyfikator urządzenia z usługi Azure IoT Hub/Centrala) jest zarejestrowana jako identyfikator dla zasobu urządzenia na serwerze docelowym FHIR, a sygnatura czasowa komunikatu jest znana. Jeśli używasz zestawów SDK urządzeń z platformą Azure IoT Hub, ale używamy właściwości niestandardowych w treści komunikatu dla tożsamości urządzenia lub sygnatury czasowej, możesz nadal korzystać z JsonPathContentTemplate.
 
 *Uwaga: w przypadku korzystania z IotJsonPathContentTemplate, TypeMatchExpression powinien rozwiązać cały komunikat jako JToken. Zapoznaj się z poniższymi przykładami.* 
 ##### <a name="examples"></a>Przykłady

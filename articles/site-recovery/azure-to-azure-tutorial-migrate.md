@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 076adbfd4cecf7dae9ffc490e911fcb7ffce48e6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045350"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394836"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Przenoszenie maszyn wirtualnych do innego regionu platformy Azure
 
@@ -21,7 +21,7 @@ Istnieją scenariusze, w których należy przenieść istniejące maszyny wirtua
 
 Za pomocą usługi [Azure Site Recovery](site-recovery-overview.md) można przenieść maszyny wirtualne platformy Azure do regionu pomocniczego.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > 
@@ -68,7 +68,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 - W przypadku maszyn wirtualnych z systemem Linux postępuj zgodnie ze wskazówkami dostarczonymi przez dystrybutora systemu Linux w celu uzyskania najnowszych zaufanych certyfikatów głównych i listy odwołania certyfikatów na maszynie wirtualnej.
 - Upewnij się, że nie używasz serwera proxy uwierzytelniania do kontrolowania łączności sieciowej dla maszyn wirtualnych, które chcesz przenieść.
 
-- Jeśli maszyna wirtualna, którą próbujesz przenieść, nie ma dostępu do Internetu lub używa serwera proxy zapory do kontrolowania dostępu wychodzącego, [Sprawdź wymagania](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+- Jeśli maszyna wirtualna, którą próbujesz przenieść, nie ma dostępu do Internetu lub używa serwera proxy zapory do kontrolowania dostępu wychodzącego, [Sprawdź wymagania](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 - Zidentyfikuj układ sieci źródłowej i wszystkie aktualnie używane zasoby. Obejmuje to między innymi usługi równoważenia obciążenia, sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) i publiczne adresy IP.
 
@@ -100,7 +100,7 @@ Poniższe kroki pokazują, jak przygotować maszynę wirtualną do przenoszenia 
 1. W polu **Nazwa** podaj przyjazną nazwę **ContosoVMVault**. Jeśli masz więcej niż jedną subskrypcję, wybierz jedną z nich.
 1. Utwórz grupę zasobów **ContosoRG**.
 1. Określ region platformy Azure. Aby sprawdzić Obsługiwane regiony, zobacz temat dostępność geograficzna w [szczegółach cennika Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. W obszarze **magazyny Recovery Services**wybierz pozycję **ContosoVMVault**  >  **zreplikowane elementy**  >  **+ replikacja**.
+1. W obszarze **magazyny Recovery Services** wybierz pozycję **ContosoVMVault**  >  **zreplikowane elementy**  >  **+ replikacja**.
 1. Z listy rozwijanej wybierz pozycję **Azure Virtual Machines**.
 1. W obszarze **Lokalizacja źródłowa** wybierz źródłowy region świadczenia usługi Azure, w którym są uruchomione maszyny wirtualne.
 1. Wybierz model wdrażania usługi Resource Manager. Następnie wybierz pozycje **Subskrypcja źródłowa** i **Źródłowa grupa zasobów**.
@@ -111,18 +111,18 @@ Poniższe kroki pokazują, jak przygotować maszynę wirtualną do przenoszenia 
 Site Recovery pobiera listę maszyn wirtualnych skojarzonych z subskrypcją i grupą zasobów.
 
 1. W następnym kroku Wybierz maszynę wirtualną, którą chcesz przenieść, a następnie wybierz pozycję **OK**.
-1. W obszarze **Ustawienia**wybierz pozycję **odzyskiwanie po awarii**.
+1. W obszarze **Ustawienia** wybierz pozycję **odzyskiwanie po awarii**.
 1. W obszarze **Konfigurowanie odzyskiwania po awarii** > **Region docelowy** wybierz region docelowy, w którym maszyna będzie replikowana.
 1. Dla celów tego samouczka zaakceptuj inne ustawienia domyślne.
 1. Wybierz pozycję **Włącz replikację**. Ten krok umożliwia uruchomienie zadania w celu włączenia replikacji dla maszyny wirtualnej.
 
-    ![Włączanie replikacji](media/tutorial-migrate-azure-to-azure/settings.png)
+
 
 ## <a name="move"></a>Move
 
 Poniższe kroki pokazują, jak przeprowadzić przeniesienie do regionu docelowego.
 
-1. Przejdź do magazynu. W obszarze **Ustawienia**  >  **zreplikowane elementy**wybierz maszynę wirtualną, a następnie wybierz pozycję **tryb failover**.
+1. Przejdź do magazynu. W obszarze **Ustawienia**  >  **zreplikowane elementy** wybierz maszynę wirtualną, a następnie wybierz pozycję **tryb failover**.
 2. W obszarze **Tryb failover** wybierz pozycję **Najnowsze**.
 3. Wybierz pozycję **Zamknij maszynę przed rozpoczęciem pracy w trybie failover**. Usługa Site Recovery próbuje zamknąć źródłową maszynę wirtualną przed wyzwoleniem trybu failover. Przełączanie do trybu failover będzie kontynuowane, nawet jeśli zamknięcie nie powiedzie się. Postęp pracy w trybie failover można wykonać na stronie **zadań** .
 4. Po zakończeniu zadania Sprawdź, czy maszyna wirtualna jest wyświetlana w docelowym regionie platformy Azure zgodnie z oczekiwaniami.
@@ -130,12 +130,12 @@ Poniższe kroki pokazują, jak przeprowadzić przeniesienie do regionu doceloweg
 
 ## <a name="discard"></a>Odrzuć 
 
-W przypadku zaznaczenia przenoszonej maszyny wirtualnej i wprowadzenia zmiany do punktu pracy w trybie failover lub przejścia do poprzedniego punktu w obszarze **zreplikowane elementy**kliknij prawym przyciskiem myszy maszynę wirtualną > **Zmień punkt odzyskiwania**. Ten krok pozwala określić inny punkt odzyskiwania i tryb failover dla tego kroku. 
+W przypadku zaznaczenia przenoszonej maszyny wirtualnej i wprowadzenia zmiany do punktu pracy w trybie failover lub przejścia do poprzedniego punktu w obszarze **zreplikowane elementy** kliknij prawym przyciskiem myszy maszynę wirtualną > **Zmień punkt odzyskiwania**. Ten krok pozwala określić inny punkt odzyskiwania i tryb failover dla tego kroku. 
 
 
 ## <a name="commit"></a>Zatwierdzenie 
 
-Po sprawdzeniu przeniesionej maszyny wirtualnej i przygotowaniu się do zatwierdzenia zmiany w obszarze **zreplikowane elementy**kliknij prawym przyciskiem myszy pozycję > **zatwierdzenie**maszyny wirtualnej. Ten krok kończy proces przenoszenia w regionie docelowym. Poczekaj na zakończenie zadania zatwierdzania.
+Po sprawdzeniu przeniesionej maszyny wirtualnej i przygotowaniu się do zatwierdzenia zmiany w obszarze **zreplikowane elementy** kliknij prawym przyciskiem myszy pozycję > **zatwierdzenie** maszyny wirtualnej. Ten krok kończy proces przenoszenia w regionie docelowym. Poczekaj na zakończenie zadania zatwierdzania.
 
 ## <a name="clean-up"></a>Czyszczenie
 

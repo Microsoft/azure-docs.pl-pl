@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 78dec9180da2a78903ae5d5e87bca515b212f167
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 12635979d90dcc4be5b45bf7d64ceb602119faf7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87843440"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394768"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Co to jest Azure API for FHIR &reg; ?
 
@@ -24,7 +24,7 @@ Interfejs API platformy Azure dla usługi FHIR umożliwia szybkie wymianę danyc
 - Wysoka wydajność, małe opóźnienia
 - Bezpieczne zarządzanie chronionymi danymi kondycji w zgodnym środowisku chmury
 - Inteligentne FHIR dla implementacji aplikacji mobilnych i sieci Web
-- Kontrolowanie własnych danych na dużą skalę za pomocą Access Control opartej na rolach (RBAC)
+- Kontroluj własne dane w dużej skali za pomocą Role-Based Access Control (RBAC)
 - Śledzenie dzienników inspekcji na potrzeby dostępu, tworzenia, modyfikowania i odczytywania w ramach poszczególnych magazynów danych
 
 Interfejs Azure API for FHIR umożliwia tworzenie i wdrażanie usługi FHIR w zaledwie kilka minut, aby korzystać z elastycznego skalowania w chmurze.  Płacisz tylko za wymaganą przepływność i magazyn. Usługi platformy Azure, które korzystają z interfejsu API platformy Azure dla usługi FHIR, są przeznaczone do szybkiej wydajności niezależnie od tego, jakiego rozmiaru są zarządzane.
@@ -53,7 +53,7 @@ Korzystanie z interfejsu API platformy Azure dla usługi FHIR umożliwia łącze
 
 ### <a name="control-data-access-at-scale"></a>Kontrolowanie dostępu do danych na dużą skalę
 
-Kontrolujesz swoje dane. Access Control oparte na rolach (RBAC) umożliwia zarządzanie sposobem przechowywania danych i uzyskiwania do nich dostępu.  Zapewnianie zwiększonych zabezpieczeń i zmniejszenie obciążenia administracyjnego należy określić, kto ma dostęp do utworzonych zestawów danych, na podstawie definicji ról utworzonych dla danego środowiska.  
+Kontrolujesz swoje dane. Role-Based Access Control (RBAC) umożliwia zarządzanie sposobem przechowywania danych i uzyskiwania do nich dostępu.  Zapewnianie zwiększonych zabezpieczeń i zmniejszenie obciążenia administracyjnego należy określić, kto ma dostęp do utworzonych zestawów danych, na podstawie definicji ról utworzonych dla danego środowiska.  
 
 ### <a name="audit-logs-and-tracking"></a>Inspekcja dzienników i śledzenia 
 
@@ -86,7 +86,7 @@ W przypadku przypadków użycia, które wymagają rozszerzenia lub dostosowania 
 
 Łącznik usługi Azure IoT dla FHIR * to opcjonalna funkcja interfejsu API platformy Azure dla FHIR, która zapewnia możliwość pozyskiwania danych z Internetu (IoMT) urządzeń. Internet rzeczy medycznych to kategoria urządzeń IoT, które przechwytują i programu Exchange Health & dane Wellness z innymi systemami informatycznymi IT za pośrednictwem sieci. Niektóre przykłady urządzeń IoMT obejmują przydatność i kliniczne noszenia, czujniki monitorowania, śledzenie działań, punkty kiosków opieki, a nawet inteligentne pill. Funkcja łącznik usługi Azure IoT dla FHIR umożliwia szybkie skonfigurowanie usługi do pozyskiwania danych IoMT w usłudze Azure API dla FHIR w sposób skalowalny, bezpieczny i zgodny.
 
-Łącznik usługi Azure IoT dla FHIR może akceptować komunikaty oparte na notacji JSON wysyłane przez urządzenie IoMT. Te dane są najpierw przekształcane w odpowiednie FHIR [obserwacje](https://www.hl7.org/fhir/observation.html) oparte na systemie, a następnie utrwalane w interfejsie API platformy Azure dla FHIR. Logika transformacji danych jest definiowana za pośrednictwem pary szablonów mapowania skonfigurowanych w oparciu o schemat wiadomości i wymagania FHIR. Dane urządzenia mogą być wypychane bezpośrednio do łącznika usługi Azure IoT dla FHIR lub bezproblemowo wykorzystywane w połączeniu z innymi rozwiązaniami Azure IoT ([azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) i [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/)). Łącznik usługi Azure IoT dla FHIR zapewnia bezpieczny Potok danych, a jednocześnie umożliwia zarządzanie rozwiązaniami Azure IoT i konserwacją urządzeń fizycznych.
+Łącznik usługi Azure IoT dla FHIR może akceptować komunikaty oparte na notacji JSON wysyłane przez urządzenie IoMT. Te dane są najpierw przekształcane w odpowiednie FHIR [obserwacje](https://www.hl7.org/fhir/observation.html) oparte na systemie, a następnie utrwalane w interfejsie API platformy Azure dla FHIR. Logika transformacji danych jest definiowana za pośrednictwem pary szablonów mapowania skonfigurowanych w oparciu o schemat wiadomości i wymagania FHIR. Dane urządzenia mogą być wypychane bezpośrednio do łącznika usługi Azure IoT dla FHIR lub bezproblemowo wykorzystywane w połączeniu z innymi rozwiązaniami Azure IoT ([azure IoT Hub](../iot-hub/index.yml) i [Azure IoT Central](../iot-central/index.yml)). Łącznik usługi Azure IoT dla FHIR zapewnia bezpieczny Potok danych, a jednocześnie umożliwia zarządzanie rozwiązaniami Azure IoT i konserwacją urządzeń fizycznych.
 
 ### <a name="applications-of-azure-iot-connector-for-fhir-preview"></a>Aplikacje łącznika usługi Azure IoT dla FHIR (wersja zapoznawcza)
 

@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: abd1bc9b53c303d094d74683da0d6e3fad4d715f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7bb5d58e0c11ef65a6839383f79d32def4fa67a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887463"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392099"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Wdrażanie modelu ML w usłudze Azure SQL Edge przy użyciu ONNX 
 
@@ -36,7 +36,7 @@ W trzeciej części tego samouczka z trzema częściami w celu przewidywania zan
    |Nazwa użytkownika|sa|
    |Hasło|Silne hasło użyte podczas tworzenia wystąpienia usługi Azure SQL Edge|
    |baza danych|Domyślne|
-   |Grupa serwerów|Domyślne|
+   |Server group (Grupa serwerów)|Domyślne|
    |Nazwa (opcjonalnie)|Podaj nazwę opcjonalną|
 
 3. Kliknij przycisk **Połącz** .
@@ -135,7 +135,7 @@ Wprowadź następujący kod w języku Python w notesie Azure Data Studio i uruch
    df.describe()
    ```
 
-1. Rozpocznij eksperyment dotyczący uczenia maszynowego, aby znaleźć i szkolić najlepszy algorytm. W takim przypadku testuje się ze wszystkimi algorytmami regresji z podstawową metryką znormalizowanego średniego środka o wartości kwadratowej (NRMSE). Aby uzyskać więcej informacji, zobacz [Podstawowa metryka badania platformy Azure ml](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#primary-metric). Poniższy kod rozpocznie lokalne uruchomienie eksperymentu ML.
+1. Rozpocznij eksperyment dotyczący uczenia maszynowego, aby znaleźć i szkolić najlepszy algorytm. W takim przypadku testuje się ze wszystkimi algorytmami regresji z podstawową metryką znormalizowanego średniego środka o wartości kwadratowej (NRMSE). Aby uzyskać więcej informacji, zobacz [Podstawowa metryka badania platformy Azure ml](../machine-learning/how-to-configure-auto-train.md#primary-metric). Poniższy kod rozpocznie lokalne uruchomienie eksperymentu ML.
 
    ```python
    ## Define the X_train and the y_train data sets for the AutoML experiments. X_Train are the inputs or the features, while y_train is the outcome or the prediction result. 

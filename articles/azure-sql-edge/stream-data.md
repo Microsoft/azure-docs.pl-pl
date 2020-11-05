@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: ca22b3d2c00bfef128455df4ad6b9bb6411f8a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f63ab040e750c0c642c9656a5482529b926e9295
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90900567"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392116"
 ---
 # <a name="data-streaming-in-azure-sql-edge"></a>Przesyłanie strumieniowe danych w usłudze Azure SQL Edge
 
-Usługa Azure SQL Edge oferuje natywną implementację funkcji przesyłania strumieniowego danych o nazwie Streaming-SQL. Umożliwia przesyłanie strumieniowe danych w czasie rzeczywistym, analizowanie i przetwarzanie zdarzeń, co pozwala analizować i przetwarzać duże ilości szybkiego przesyłania strumieniowego danych z wielu źródeł jednocześnie. Przesyłanie strumieniowe T-SQL jest kompilowane przy użyciu tego samego aparatu przesyłania strumieniowego o wysokiej wydajności, który umożliwia [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) w Microsoft Azure. Funkcja obsługuje podobny zestaw możliwości oferowanych przez Azure Stream Analytics uruchomionych na krawędzi.
+Usługa Azure SQL Edge oferuje natywną implementację funkcji przesyłania strumieniowego danych o nazwie Streaming-SQL. Umożliwia przesyłanie strumieniowe danych w czasie rzeczywistym, analizowanie i przetwarzanie zdarzeń, co pozwala analizować i przetwarzać duże ilości szybkiego przesyłania strumieniowego danych z wielu źródeł jednocześnie. Przesyłanie strumieniowe T-SQL jest kompilowane przy użyciu tego samego aparatu przesyłania strumieniowego o wysokiej wydajności, który umożliwia [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) w Microsoft Azure. Funkcja obsługuje podobny zestaw możliwości oferowanych przez Azure Stream Analytics uruchomionych na krawędzi.
 
 Podobnie jak w przypadku Stream Analytics, przesyłanie strumieniowe T-SQL rozpoznaje wzorce i relacje w informacjach wyodrębnionych z wielu źródeł danych wejściowych IoT, w tym urządzeń, czujników i aplikacji. Można użyć tych wzorców do wyzwalania akcji i inicjowania przepływów pracy. Można na przykład utworzyć alerty, dostarczyć informacje do rozwiązania do raportowania lub wizualizacji lub przechowywać dane do późniejszego użycia. 
 
@@ -31,25 +31,25 @@ Przesyłanie strumieniowe T-SQL może pomóc:
 
 ## <a name="how-does-t-sql-streaming-work"></a>Jak działa przesyłanie strumieniowe T-SQL?
 
-Przesyłanie strumieniowe T-SQL działa w taki sam sposób jak [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction#how-does-stream-analytics-work). Na przykład używa koncepcji *zadań* przesyłania strumieniowego do przetwarzania przesyłania strumieniowego danych w czasie rzeczywistym. 
+Przesyłanie strumieniowe T-SQL działa w taki sam sposób jak [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md#how-does-stream-analytics-work). Na przykład używa koncepcji *zadań* przesyłania strumieniowego do przetwarzania przesyłania strumieniowego danych w czasie rzeczywistym. 
 
 Zadanie usługi Stream Analytics składa się z:
 
-- **Wejście strumienia**: definiuje połączenia ze źródłem danych, z którego ma zostać odczytany strumień danych. Usługa Azure SQL Edge obecnie obsługuje następujące typy danych wejściowych strumienia:
+- **Wejście strumienia** : definiuje połączenia ze źródłem danych, z którego ma zostać odczytany strumień danych. Usługa Azure SQL Edge obecnie obsługuje następujące typy danych wejściowych strumienia:
     - Centrum brzegowe
     - Kafka (obsługa danych wejściowych Kafka jest obecnie dostępna tylko w wersjach Intel/AMD64 usługi Azure SQL Edge).
 
-- **Dane wyjściowe strumienia**: definiuje połączenia ze źródłem danych, do którego ma zostać zapisany strumień danych. Usługa Azure SQL Edge obecnie obsługuje następujące typy danych wyjściowych strumienia
+- **Dane wyjściowe strumienia** : definiuje połączenia ze źródłem danych, do którego ma zostać zapisany strumień danych. Usługa Azure SQL Edge obecnie obsługuje następujące typy danych wyjściowych strumienia
     - Centrum brzegowe
     - SQL (dane wyjściowe SQL mogą być lokalną bazą danych w wystąpieniu usługi Azure SQL Edge lub SQL Server zdalnego lub Azure SQL Database). 
 
-- **Zapytanie strumienia**: definiuje transformację, agregacje, filtrowanie, sortowanie i sprzężenia, które mają być zastosowane do strumienia wejściowego, zanim zostanie on zapisany w danych wyjściowych strumienia. Zapytanie strumienia jest oparte na tym samym języku zapytań, jak używany przez Stream Analytics. Aby uzyskać więcej informacji, zobacz [Stream Analytics języka zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
+- **Zapytanie strumienia** : definiuje transformację, agregacje, filtrowanie, sortowanie i sprzężenia, które mają być zastosowane do strumienia wejściowego, zanim zostanie on zapisany w danych wyjściowych strumienia. Zapytanie strumienia jest oparte na tym samym języku zapytań, jak używany przez Stream Analytics. Aby uzyskać więcej informacji, zobacz [Stream Analytics języka zapytań](/stream-analytics-query/stream-analytics-query-language-reference).
 
 > [!IMPORTANT]
-> Przesyłanie strumieniowe T-SQL, w przeciwieństwie do Stream Analytics, nie obsługuje obecnie [korzystania z danych referencyjnych dla odnośników](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data) lub [korzystania z funkcji UDF i uda w zadaniu strumienia](https://docs.microsoft.com/azure/stream-analytics/streaming-technologies#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c).
+> Przesyłanie strumieniowe T-SQL, w przeciwieństwie do Stream Analytics, nie obsługuje obecnie [korzystania z danych referencyjnych dla odnośników](../stream-analytics/stream-analytics-use-reference-data.md) lub [korzystania z funkcji UDF i uda w zadaniu strumienia](../stream-analytics/streaming-technologies.md#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c).
 
 > [!NOTE]
-> Przesyłanie strumieniowe T-SQL obsługuje tylko podzestaw obszaru powierzchni języka obsługiwanego przez Stream Analytics. Aby uzyskać więcej informacji, zobacz [Stream Analytics języka zapytań](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
+> Przesyłanie strumieniowe T-SQL obsługuje tylko podzestaw obszaru powierzchni języka obsługiwanego przez Stream Analytics. Aby uzyskać więcej informacji, zobacz [Stream Analytics języka zapytań](/stream-analytics-query/stream-analytics-query-language-reference).
 
 ## <a name="limitations-and-restrictions"></a>Ograniczenia i ograniczenia
 

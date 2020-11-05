@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5deb84cdc2dee61474c9f2bd1f93311d89f8918
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308878"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393459"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Jak długo dane są raportowane przez usługę Azure AD Store?
 
@@ -51,12 +51,6 @@ Jeśli masz już dane dotyczące działań z bezpłatną licencją, zobaczysz j�
 
 ---
 
-### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Czy po uzyskaniu licencji usługi Azure AD Premium mogę zobaczyć dane z ostatniego miesiąca?
-
-Jeśli ostatnio przełączono się do wersji Premium (w tym wersji próbnej), dane można zobaczyć na początku do 7 dni. Po zebraniu danych można zobaczyć dane z ostatnich 30 dni.
-
----
-
 ### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Kiedy usługa Azure AD zacznie zbierać dane sygnału zabezpieczeń?  
 
 W przypadku sygnałów zabezpieczeń proces zbierania jest uruchamiany, gdy użytkownik zdecyduje się korzystać z **centrum usługi Identity Protection**. 
@@ -81,5 +75,11 @@ Dane dotyczące inspekcji i logowania można zachować dłużej niż domyślny o
 | :--            | :--           | :--                 | :--                 |
 | Narażeni użytkownicy  | 7 dni        | 30 dni             | 90 dni             |
 | Ryzykowne logowania | 7 dni        | 30 dni             | 90 dni             |
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Czy po uzyskaniu licencji usługi Azure AD Premium mogę zobaczyć dane z ostatniego miesiąca?
+
+**Nie**. System Azure przechowuje do siedmiu dni dane dotyczące aktywności w bezpłatnej wersji. Oznacza to, że po przełączeniu się z wersji bezpłatnej na wersję Premium można zobaczyć maksymalnie 7 dni.
 
 ---

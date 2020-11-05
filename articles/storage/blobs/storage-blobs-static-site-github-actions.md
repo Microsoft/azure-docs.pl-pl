@@ -9,28 +9,31 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure
-ms.openlocfilehash: 919fa0d7b6dff0361e4439b442bcfe9648ed8677
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7213cea0796197e230cc5914f7cebfac7c69ae49
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776395"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395737"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Konfigurowanie przepływu pracy akcji usługi GitHub w celu wdrożenia statycznej witryny sieci Web w usłudze Azure Storage
 
-Wprowadzenie do [akcji usługi GitHub](https://docs.github.com/en/actions) za pomocą przepływu pracy do wdrożenia lokacji statycznej w usłudze Azure Storage BLOB. Po skonfigurowaniu przepływu pracy akcji usługi GitHub będzie możliwe automatyczne wdrażanie witryny na platformie Azure z usługi GitHub po wprowadzeniu zmian w kodzie witryny. 
+Rozpocznij pracę z [akcjami usługi GitHub](https://docs.github.com/en/actions) za pomocą przepływu pracy, aby wdrożyć lokację statyczną na koncie magazynu platformy Azure. Po skonfigurowaniu przepływu pracy akcji usługi GitHub będzie możliwe automatyczne wdrażanie witryny na platformie Azure z usługi GitHub po wprowadzeniu zmian w kodzie witryny.
 
 > [!NOTE]
 > Jeśli używasz [usługi Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/), nie musisz ręcznie konfigurować przepływu pracy akcji usługi GitHub.
-> Usługa Azure static Web Apps automatycznie tworzy przepływ pracy w usłudze GitHub. 
+> Usługa Azure static Web Apps automatycznie tworzy przepływ pracy dla akcji usługi GitHub. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Subskrypcja platformy Azure i konto usługi GitHub. 
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Konto usługi GitHub z kodem statycznej witryny sieci Web. Jeśli nie masz konta usługi GitHub, [zarejestruj się bezpłatnie](https://github.com/join).  
-- Działająca statyczna witryna sieci Web hostowana w usłudze Azure Storage. Dowiedz się [, jak hostować statyczną witrynę sieci Web w usłudze Azure Storage](storage-blob-static-website-how-to.md). Statyczna Witryna internetowa powinna zawierać [Azure CDN](static-website-content-delivery-network.md).
+- Repozytorium GitHub ze statycznym kodem witryny sieci Web. Jeśli nie masz konta usługi GitHub, [zarejestruj się bezpłatnie](https://github.com/join).  
+- Działająca statyczna witryna sieci Web hostowana w usłudze Azure Storage. Dowiedz się [, jak hostować statyczną witrynę sieci Web w usłudze Azure Storage](storage-blob-static-website-how-to.md). Aby postępować zgodnie z tym przykładem, należy również wdrożyć [Azure CDN](static-website-content-delivery-network.md).
+
+> [!NOTE]
+> Często używa się usługi Content Delivery Network (CDN) w celu zmniejszenia opóźnień dla użytkowników na całym świecie i zmniejszenia liczby transakcji do konta magazynu. Wdrażanie zawartości statycznej w usłudze magazynu opartej na chmurze może zmniejszyć potrzebę wystąpienia potencjalnie kosztownych wystąpień obliczeniowych. Aby uzyskać więcej informacji, zobacz [wzorzec hostingu zawartości statycznej](/azure/architecture/patterns/static-content-hosting).
 
 ## <a name="generate-deployment-credentials"></a>Generuj poświadczenia wdrożenia
 
@@ -42,7 +45,7 @@ Zastąp symbol zastępczy `myStaticSite` nazwą swojej witryny hostowanej w usł
    az ad sp create-for-rbac --name {myStaticSite} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
-W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji i grupą zasobów. Dane wyjściowe są obiektem JSON z poświadczeniami przypisywania roli, które zapewniają dostęp do aplikacji App Service podobnej do poniższego. Skopiuj ten obiekt JSON do nowszej wersji.
+W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji i grupą zasobów. Dane wyjściowe są obiektem JSON z poświadczeniami przypisania roli, które zapewniają dostęp do konta magazynu podobnego do poniższego. Skopiuj ten obiekt JSON do nowszej wersji.
 
 ```output 
   {
@@ -63,7 +66,7 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
 
 1. Wybierz pozycję **ustawienia > wpisy tajne > nowe hasło**.
 
-1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Podaj tajną nazwę, taką jak `AZURE_CREDENTIALS` .
+1. Wklej wszystkie dane wyjściowe JSON z polecenia platformy Azure w polu wartość klucza tajnego. Nadaj wpisowi tajnemu nazwę, taką jak `AZURE_CREDENTIALS` .
 
     Podczas późniejszej konfiguracji pliku przepływu pracy należy użyć wpisu tajnego dla danych wejściowych `creds` akcji logowania platformy Azure. Na przykład:
 
@@ -77,7 +80,7 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
 
 1. Przejdź do **akcji** dla repozytorium GitHub. 
 
-    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="Element menu akcji GitHub&quot;:::
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="Element menu akcji GitHub":::
 
 1. Wybierz **samodzielnie Skonfiguruj swój przepływ pracy**. 
 
@@ -128,7 +131,7 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
         with:
             azcliversion: 2.0.72
             inlineScript: |
-            az cdn endpoint purge --content-paths  &quot;/*&quot; --profile-name &quot;CDN_PROFILE_NAME&quot; --name &quot;CDN_ENDPOINT&quot; --resource-group &quot;RESOURCE_GROUP&quot;
+            az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
     ``` 
 
 1. Ukończ przepływ pracy, dodając akcję wylogowania z platformy Azure. Oto ukończony przepływ pracy. Plik zostanie wyświetlony w `.github/workflows` folderze repozytorium.
@@ -162,7 +165,7 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
         with:
             azcliversion: 2.0.72
             inlineScript: |
-            az cdn endpoint purge --content-paths  &quot;/*&quot; --profile-name &quot;CDN_PROFILE_NAME&quot; --name &quot;CDN_ENDPOINT&quot; --resource-group &quot;RESOURCE_GROUP"
+            az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
             # Azure logout 
         - name: logout
           run: |
@@ -175,96 +178,11 @@ W powyższym przykładzie Zastąp symbole zastępcze IDENTYFIKATORem subskrypcji
 
 1. Otwórz pierwszy wynik, aby zobaczyć szczegółowe dzienniki przebiegu przepływu pracy. 
  
-    :::image type="content" source="../media/index/github-actions-run.png" alt-text="Element menu akcji GitHub&quot;:::
-
-1. Wybierz **samodzielnie Skonfiguruj swój przepływ pracy**. 
-
-1. Usuń wszystko po `on:` sekcji pliku przepływu pracy. Na przykład pozostały przepływ pracy może wyglądać następująco. 
-
-    ```yaml
-    name: CI
-
-    on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
-    ```
-
-1. Zmień nazwę przepływu pracy `Blob storage website CI` i Dodaj akcje wyewidencjonowywania i logowania. Te akcje spowodują wyewidencjonowanie kodu lokacji i uwierzytelnienie na platformie Azure przy użyciu `AZURE_CREDENTIALS` utworzonego wcześniej wpisu tajnego usługi GitHub. 
-
-    ```yaml
-    name: Blob storage website CI
-
-    on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
-
-    jobs:
-      build:
-        runs-on: ubuntu-latest
-        steps:            
-        - uses: actions/checkout@v2
-        - uses: azure/login@v1
-          with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-    ```
-
-1. Użyj akcji interfejsu wiersza polecenia platformy Azure, aby przekazać kod do magazynu obiektów blob i przeczyścić punkt końcowy usługi CDN. W przypadku programu `az storage blob upload-batch` Zastąp symbol zastępczy nazwą konta magazynu. Skrypt zostanie przekazany do `$web` kontenera. W przypadku programu `az cdn endpoint purge` Zastąp symbole zastępcze nazwą profilu CDN, nazwą punktu końcowego usługi CDN i grupą zasobów.
-
-    ```yaml
-        - name: Upload to blob storage
-        uses: azure/CLI@v1
-        with:
-            azcliversion: 2.0.72
-            inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
-        - name: Purge CDN endpoint
-        uses: azure/CLI@v1
-        with:
-            azcliversion: 2.0.72
-            inlineScript: |
-            az cdn endpoint purge --content-paths  &quot;/*&quot; --profile-name &quot;CDN_PROFILE_NAME&quot; --name &quot;CDN_ENDPOINT&quot; --resource-group &quot;RESOURCE_GROUP&quot;
-    ``` 
-
-1. Ukończ przepływ pracy, dodając akcję wylogowania z platformy Azure. Oto ukończony przepływ pracy. Plik zostanie wyświetlony w `.github/workflows` folderze repozytorium.
-
-    ```yaml
-   name: Blob storage website CI
-
-    on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
-
-    jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v2
-        - name: Azure Login
-        uses: azure/login@v1
-        with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}    
-        - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
-            azcliversion: 2.0.72
-            inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
-        - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
-            azcliversion: 2.0.72
-            inlineScript: |
-            az cdn endpoint purge --content-paths  &quot;/*&quot; --profile-name &quot;CDN_PROFILE_NAME&quot; --name &quot;CDN_ENDPOINT&quot; --resource-group &quot;RESOURCE_GROUP":::
+    :::image type="content" source="../media/index/github-actions-run.png" alt-text="Dziennik uruchamiania akcji usługi GitHub":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy witryna i repozytorium statyczne platformy Azure nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
+Gdy statyczna Witryna internetowa i repozytorium GitHub nie są już potrzebne, Oczyść wdrożone zasoby, usuwając grupę zasobów i repozytorium GitHub. 
 
 ## <a name="next-steps"></a>Następne kroki
 

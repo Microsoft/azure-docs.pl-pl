@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4fbd410a7d2a7374303e637ca81c34dbea90fcb7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791039"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391997"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ W tym artykule wymieniono Azure SQL Database i funkcje wystąpienia zarządzaneg
 
 ## <a name="whats-new"></a>Co nowego?
 
-Dokumentacja Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL zostały podzielone na oddzielne sekcje. Zaktualizowaliśmy również sposób odwoływania się do wystąpienia zarządzanego z *Azure SQL Database wystąpienia zarządzanego* do *wystąpienia zarządzanego Azure SQL* .
+Dokumentacja Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL zostały podzielone na oddzielne sekcje. Zaktualizowaliśmy również sposób odwoływania się do wystąpienia zarządzanego z *Azure SQL Database wystąpienia zarządzanego* do *wystąpienia zarządzanego Azure SQL*.
 
 Zostało to zrobione, ponieważ niektóre funkcje i funkcje różnią się w zależności od pojedynczej bazy danych i wystąpienia zarządzanego. coraz trudniejsze jest wyjaśnienie złożonej wszystkie szczegóły między Azure SQL Database i wystąpieniem zarządzanym usługi Azure SQL w poszczególnych udostępnionych artykułach.
 
@@ -39,14 +39,14 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 |**Nowy termin**  | **Poprzedni termin**  |**Wyjaśnienie** |
 |---------|---------|---------|
 |**Wystąpienie zarządzane Azure SQL** | Azure SQL Database *wystąpienie zarządzane*| Wystąpienie zarządzane Azure SQL to własny produkt należący do rodziny Azure SQL, a nie tylko opcja wdrażania w ramach Azure SQL Database. | 
-|**Baza danych SQL Azure**|Azure SQL Database *pojedynczą bazę danych*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej. |
-|**Baza danych SQL Azure**|Azure SQL Database *elastyczna Pula*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej.  |
-|**Baza danych SQL Azure** |Usługa Azure SQL Database | Mimo że termin pozostaje taki sam, ma zastosowanie tylko do wdrożeń pojedynczej bazy danych i pul elastycznych i nie obejmuje wystąpienia zarządzanego. |
-| **Azure SQL**| Nie dotyczy | Odnosi się to do rodziny SQL Server produktów aparatu bazy danych, które są dostępne na platformie Azure: Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i SQL Server na maszynach wirtualnych platformy Azure. | 
+|**Azure SQL Database**|Azure SQL Database *pojedynczą bazę danych*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej. |
+|**Azure SQL Database**|Azure SQL Database *elastyczna Pula*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej.  |
+|**Azure SQL Database** |Azure SQL Database | Mimo że termin pozostaje taki sam, ma zastosowanie tylko do wdrożeń pojedynczej bazy danych i pul elastycznych i nie obejmuje wystąpienia zarządzanego. |
+| **Azure SQL**| Brak | Odnosi się to do rodziny SQL Server produktów aparatu bazy danych, które są dostępne na platformie Azure: Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i SQL Server na maszynach wirtualnych platformy Azure. | 
 
 ## <a name="features-in-public-preview"></a>Funkcje w publicznej wersji zapoznawczej
 
-### <a name="azure-sql-database"></a>[Baza danych SQL Azure](#tab/single-database)
+### <a name="azure-sql-database"></a>[Azure SQL Database](#tab/single-database)
 
 | Cechy | Szczegóły |
 | ---| --- |
@@ -104,7 +104,7 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 |[Nazwa główna usługi nie może uzyskać dostępu do usługi Azure AD i AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 sie|Ma obejście||
 |[Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
 |[Agent przestaje odpowiadać po zmodyfikowaniu, wyłączeniu lub włączeniu istniejących zadań](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
-|[Uprawnienia do grupy zasobów nie są stosowane do wystąpienia zarządzanego SQL](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|2020 lutego|Ma obejście||
+|[Uprawnienia do grupy zasobów nie są stosowane do wystąpienia zarządzanego SQL](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|2020 lutego|Resolved|Lis 2020|
 |[Ograniczenie ręcznego trybu failover za pośrednictwem portalu dla grup trybu failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Sty 2020|Ma obejście||
 |[Role agenta SQL wymagają jawnych uprawnień do wykonywania w przypadku identyfikatorów logowania innych niż sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Ma obejście||
 |[Zadania agenta SQL można przerwać przez ponowne uruchomienie procesu agenta](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|Resolved|Mar 2020|

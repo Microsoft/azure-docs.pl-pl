@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973584"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395092"
 ---
 # <a name="deploy-azure-sql-edge"></a>Wdrażanie usługi Azure SQL Edge 
 
@@ -47,12 +47,12 @@ Portal Azure Marketplace to rynek aplikacji i usług online, w którym można pr
    |**Pole**  |**Opis**  |
    |---------|---------|
    |Subskrypcja  |  Subskrypcja platformy Azure, w ramach której utworzono IoT Hub |
-   |IoT Hub   |  Nazwa IoT Hub, w którym zarejestrowano urządzenie IoT Edge, a następnie wybierz opcję "wdróż w urządzeniu"|
+   |Usługa IoT Hub   |  Nazwa IoT Hub, w którym zarejestrowano urządzenie IoT Edge, a następnie wybierz opcję "wdróż w urządzeniu"|
    |Nazwa urządzenia IoT Edge  |  Nazwa urządzenia IoT Edgeego, na którym zostanie wdrożona Przeglądarka SQL Edge |
 
-4. Na stronie **Ustawianie modułów na urządzeniu:** kliknij moduł Azure SQL Edge w obszarze **IoT Edge**modules. Domyślna nazwa modułu jest ustawiona na *AzureSQLEdge*. 
+4. Na stronie **Ustawianie modułów na urządzeniu:** kliknij moduł Azure SQL Edge w obszarze **IoT Edge** modules. Domyślna nazwa modułu jest ustawiona na *AzureSQLEdge*. 
 
-5. W sekcji *Ustawienia modułu* w bloku **Update IoT Edge module** określ odpowiednie wartości dla *IoT Edge Nazwa modułu*, *zasady ponownego uruchamiania* i *żądany stan*. 
+5. W sekcji *Ustawienia modułu* w bloku **Update IoT Edge module** określ odpowiednie wartości dla *IoT Edge Nazwa modułu* , *zasady ponownego uruchamiania* i *żądany stan*. 
 
    > [!IMPORTANT]    
    > Nie zmieniaj ani nie Aktualizuj ustawień **identyfikatora URI obrazu** w module.
@@ -112,7 +112,7 @@ Portal Azure Marketplace to rynek aplikacji i usług online, w którym można pr
 
 ## <a name="connect-to-azure-sql-edge"></a>Łączenie z usługą Azure SQL Edge
 
-Poniższe kroki służą do nawiązywania połączenia z usługą Azure SQL Edge przy użyciu narzędzia wiersza polecenia usługi Azure SQL **Edge w**kontenerze.
+Poniższe kroki służą do nawiązywania połączenia z usługą Azure SQL Edge przy użyciu narzędzia wiersza polecenia usługi Azure SQL **Edge w** kontenerze.
 
 > [!NOTE]      
 > Narzędzia wiersza polecenia SQL (sqlcmd) nie są dostępne w wersji ARM64 kontenerów usługi Azure SQL Edge.
@@ -212,7 +212,7 @@ Teraz uruchom zapytanie, aby zwrócić dane z `Inventory` tabeli.
 
 ## <a name="connect-from-outside-the-container"></a>Nawiązywanie połączenia spoza kontenera
 
-Można łączyć i uruchamiać zapytania SQL względem wystąpienia usługi Azure SQL Edge z dowolnego zewnętrznego narzędzia Linux, Windows lub macOS, które obsługuje połączenia SQL. Aby uzyskać więcej informacji na temat łączenia się z kontenerem programu SQL Edge z zewnątrz, zapoznaj się z tematem [Connect and Query Edge Azure SQL](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+Można łączyć i uruchamiać zapytania SQL względem wystąpienia usługi Azure SQL Edge z dowolnego zewnętrznego narzędzia Linux, Windows lub macOS, które obsługuje połączenia SQL. Aby uzyskać więcej informacji na temat łączenia się z kontenerem programu SQL Edge z zewnątrz, zapoznaj się z tematem [Connect and Query Edge Azure SQL](./connect.md).
 
 W tym przewodniku szybki start wdrożono moduł programu SQL Edge na urządzeniu IoT Edge. 
 

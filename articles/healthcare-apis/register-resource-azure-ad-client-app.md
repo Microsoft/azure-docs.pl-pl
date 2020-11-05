@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e92fab392dc73d8de0b7b2547e38b3f345562930
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e22eaacd73bb15ddf43f416831ff5ff42923b6e0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975862"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393391"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Rejestrowanie aplikacji zasobów w Azure Active Directory
 
@@ -43,7 +43,7 @@ Jeśli używasz serwera FHIR typu open source dla platformy Azure, wykonaj poni�
 
 1. W witrynie [Azure Portal](https://portal.azure.com) w panelu nawigacyjnym po lewej stronie kliknij pozycję **Azure Active Directory**.
 
-2. W bloku **Azure Active Directory** kliknij pozycję **rejestracje aplikacji**:
+2. W bloku **Azure Active Directory** kliknij pozycję **rejestracje aplikacji** :
 
     ![Azure Portal. Rejestracja nowej aplikacji.](media/how-to-aad/portal-aad-new-app-registration.png)
 
@@ -71,9 +71,9 @@ Aplikacja zasobu ma identyfikator URI identyfikatora (Identyfikator aplikacji), 
 
 ### <a name="define-application-roles"></a>Definiowanie ról aplikacji
 
-Interfejs Azure API for FHIR oraz serwer OSS FHIR dla platformy Azure używają [Azure Active Directory ról aplikacji](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) na potrzeby kontroli dostępu opartej na rolach. Aby określić, które role mają być dostępne dla interfejsu API serwera FHIR, Otwórz [manifest](https://docs.microsoft.com/azure/active-directory/active-directory-application-manifest/)aplikacji zasobu:
+Interfejs Azure API for FHIR oraz serwer OSS FHIR dla platformy Azure używają [Azure Active Directory ról aplikacji](/azure/architecture/multitenant-identity/app-roles) na potrzeby kontroli dostępu opartej na rolach. Aby określić, które role mają być dostępne dla interfejsu API serwera FHIR, Otwórz [manifest](/azure/active-directory/active-directory-application-manifest/)aplikacji zasobu:
 
-1. Kliknij pozycję **manifest**:
+1. Kliknij pozycję **manifest** :
 
     ![Role aplikacji](media/how-to-aad/portal-aad-register-new-app-registration-APP-ROLES.png)
 

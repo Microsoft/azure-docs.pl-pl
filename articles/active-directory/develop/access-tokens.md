@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b60be1b3d30ab462f89dd4d72ab67d43393740b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740167"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393374"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokeny dostępu platformy tożsamości firmy Microsoft
 
@@ -33,7 +33,7 @@ Zapoznaj się z następującymi sekcjami, aby dowiedzieć się, jak zasób może
 > [!IMPORTANT]
 > Tokeny dostępu są tworzone na podstawie *odbiorców* tokenu, co oznacza, że aplikacja jest właścicielem zakresów w tokenie.  Jest to sposób ustawienia zasobu `accessTokenAcceptedVersion` w [manifeście aplikacji](reference-app-manifest.md#manifest-reference) , dzięki któremu `2` Klient wywołujący punkt końcowy v 1.0 otrzymuje token dostępu w wersji 2.0.  Analogicznie, dlatego zmiana [opcjonalnych oświadczeń](active-directory-optional-claims.md) tokenu dostępu dla klienta nie zmienia tokenu dostępu otrzymanego, gdy wymagany jest token dla `user.read` , który należy do zasobu.
 >
-> Z tego samego powodu podczas testowania aplikacji klienckiej przy użyciu interfejsu API firmy Microsoft, który obsługuje konto osobiste (na przykład hotmail.com lub outlook.com), można sprawdzić, czy token dostępu otrzymany przez klienta jest nieprzezroczystym ciągiem. Jest to spowodowane tym, że dostęp do zasobu ma zastosowanie zaszyfrowanych tokenów i nie może być zrozumiały dla klienta.  Jest to oczekiwane i nie powinno być problemem dla aplikacji klienckich, nigdy nie powinna mieć zależności od formatu tokenu dostępu. 
+> Z tego samego powodu podczas testowania aplikacji klienckiej przy użyciu interfejsu API firmy Microsoft, który obsługuje konto osobiste (na przykład hotmail.com lub outlook.com), można sprawdzić, czy token dostępu otrzymany przez klienta jest nieprzezroczystym ciągiem. Jest to spowodowane tym, że dostęp do zasobu ma zastosowanie zaszyfrowanych tokenów i nie może być zrozumiały dla klienta.  Jest to oczekiwane i nie powinno być problemem dla aplikacji klienckich, nigdy nie powinna mieć zależności od formatu tokenu dostępu.
 
 ## <a name="sample-tokens"></a>Przykładowe tokeny
 
@@ -75,10 +75,10 @@ Oświadczenia są obecne tylko wtedy, gdy istnieje wartość do wypełnienia. W 
 |Claim | Format | Opis |
 |--------|--------|-------------|
 | `typ` | Ciąg — zawsze "JWT" | Wskazuje, że token jest JWT.|
-| `nonce` | String | Unikatowy identyfikator używany do ochrony przed atakami polegającymi na powtarzaniu tokenu. Zasób może zapisać tę wartość, aby chronić przed odtwarzaniem. |
-| `alg` | String | Wskazuje algorytm, który został użyty do podpisania tokenu, na przykład "RS256" |
-| `kid` | String | Określa odcisk palca klucza publicznego, który jest używany do podpisywania tego tokenu. Emitowane w tokenach dostępu zarówno w wersji 1.0, jak i 2.0. |
-| `x5t` | String | Działa tak samo (w użyciu i wartości) jak `kid` . `x5t` czy starsze zgłoszenie jest emitowane tylko w tokenach dostępu w wersji 1.0 dla celów zgodności. |
+| `nonce` | Ciąg | Unikatowy identyfikator używany do ochrony przed atakami polegającymi na powtarzaniu tokenu. Zasób może zapisać tę wartość, aby chronić przed odtwarzaniem. |
+| `alg` | Ciąg | Wskazuje algorytm, który został użyty do podpisania tokenu, na przykład "RS256" |
+| `kid` | Ciąg | Określa odcisk palca klucza publicznego, który jest używany do podpisywania tego tokenu. Emitowane w tokenach dostępu zarówno w wersji 1.0, jak i 2.0. |
+| `x5t` | Ciąg | Działa tak samo (w użyciu i wartości) jak `kid` . `x5t` czy starsze zgłoszenie jest emitowane tylko w tokenach dostępu w wersji 1.0 dla celów zgodności. |
 
 ### <a name="payload-claims"></a>Oświadczenia ładunku
 
@@ -97,18 +97,18 @@ Oświadczenia są obecne tylko wtedy, gdy istnieje wartość do wypełnienia. W 
 | `appidacr` | "0", "1" lub "2" | Występuje tylko w tokenach v 1.0. Wskazuje, w jaki sposób klient został uwierzytelniony. W przypadku klienta publicznego wartością jest "0". Jeśli używasz identyfikatora klienta i klucza tajnego klienta, wartość jest równa "1". Jeśli certyfikat klienta został użyty do uwierzytelnienia, wartość jest równa "2". |
 | `azp` | Ciąg, identyfikator GUID | Występuje tylko w przypadku tokenów v 2.0, Zamiennik dla `appid` . Identyfikator aplikacji klienta korzystającej z tokenu. Aplikacja może działać jako sama lub w imieniu użytkownika. Identyfikator aplikacji zazwyczaj reprezentuje obiekt aplikacji, ale może również reprezentować obiekt główny usługi w usłudze Azure AD. |
 | `azpacr` | "0", "1" lub "2" | Występuje tylko w przypadku tokenów v 2.0, Zamiennik dla `appidacr` . Wskazuje, w jaki sposób klient został uwierzytelniony. W przypadku klienta publicznego wartością jest "0". Jeśli używasz identyfikatora klienta i klucza tajnego klienta, wartość jest równa "1". Jeśli certyfikat klienta został użyty do uwierzytelnienia, wartość jest równa "2". |
-| `preferred_username` | String | Podstawowa nazwa użytkownika, która reprezentuje użytkownika. Może to być adres e-mail, numer telefonu lub ogólna nazwa użytkownika bez określonego formatu. Jego wartość jest modyfikowalna i może ulec zmianie w czasie. Ponieważ jest modyfikowalny, ta wartość nie może być używana do podejmowania decyzji dotyczących autoryzacji.  Można go użyć dla wskazówek dotyczących nazwy użytkownika. `profile`Zakres jest wymagany w celu otrzymania tego żądania. |
-| `name` | String | Zapewnia czytelną dla człowieka wartość, która identyfikuje podmiot tokenu. Wartość nie może być unikatowa, jest modyfikowalna i przeznaczona do użycia tylko do celów wyświetlania. `profile`Zakres jest wymagany w celu otrzymania tego żądania. |
+| `preferred_username` | Ciąg | Podstawowa nazwa użytkownika, która reprezentuje użytkownika. Może to być adres e-mail, numer telefonu lub ogólna nazwa użytkownika bez określonego formatu. Jego wartość jest modyfikowalna i może ulec zmianie w czasie. Ponieważ jest modyfikowalny, ta wartość nie może być używana do podejmowania decyzji dotyczących autoryzacji.  Można go użyć dla wskazówek dotyczących nazwy użytkownika. `profile`Zakres jest wymagany w celu otrzymania tego żądania. |
+| `name` | Ciąg | Zapewnia czytelną dla człowieka wartość, która identyfikuje podmiot tokenu. Wartość nie może być unikatowa, jest modyfikowalna i przeznaczona do użycia tylko do celów wyświetlania. `profile`Zakres jest wymagany w celu otrzymania tego żądania. |
 | `scp` | Ciąg, rozdzielana spacjami lista zakresów | Zestaw zakresów uwidocznionych przez aplikację, dla których aplikacja kliencka zażądała (i została odebrana). Aplikacja powinna sprawdzić, czy te zakresy są prawidłowe dla danej aplikacji, i podejmować decyzje dotyczące autoryzacji na podstawie wartości tych zakresów. Uwzględnione tylko w przypadku [tokenów użytkowników](#user-and-application-tokens). |
 | `roles` | Tablica ciągów, lista uprawnień | Zestaw uprawnień uwidocznionych przez aplikację, dla których aplikacja żądająca lub użytkownik przyznał uprawnienia do wywoływania. W przypadku [tokenów aplikacji](#user-and-application-tokens)jest używany w ramach przepływu poświadczeń klienta ([v 1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v 2.0](v2-oauth2-client-creds-grant-flow.md)) zamiast zakresów użytkowników.  W przypadku [tokenów użytkowników](#user-and-application-tokens) jest to wypełniane rolami przypisanymi do użytkownika w aplikacji docelowej. |
 | `wids` | Tablica identyfikatorów GUID [RoleTemplateID](../roles/permissions-reference.md#role-template-ids) | Wskazuje role w całej dzierżawie przypisane do tego użytkownika, w sekcji ról znajdującej się na [stronie role administratora](../roles/permissions-reference.md#role-template-ids).  To zgłoszenie jest konfigurowane dla poszczególnych aplikacji, przez `groupMembershipClaims` Właściwość [manifestu aplikacji](reference-app-manifest.md).  Ustawienie go na "All" lub "DirectoryRole" jest wymagane.  Może nie być obecny w tokenach uzyskanych za pomocą niejawnego przepływu ze względu na długość tokenu. |
 | `groups` | Tablica JSON identyfikatorów GUID | Dostarcza identyfikatory obiektów, które reprezentują członkostwo w grupach podmiotu. Te wartości są unikatowe (zobacz identyfikator obiektu) i mogą być bezpiecznie używane do zarządzania dostępem, takie jak wymuszanie autoryzacji dostępu do zasobu. Grupy zawarte w ramach roszczeń grup są konfigurowane dla poszczególnych aplikacji, przez `groupMembershipClaims` Właściwość [manifestu aplikacji](reference-app-manifest.md). Wartość null spowoduje wykluczenie wszystkich grup, a wartość "Security Group" będzie zawierać tylko Active Directory przynależności do grupy zabezpieczeń, a wartość "All" będzie obejmować zarówno grupy zabezpieczeń, jak i listy dystrybucyjne Microsoft 365. <br><br>Zapoznaj się z poniższym zgłoszeniem, `hasgroups` Aby uzyskać szczegółowe informacje na temat używania `groups` roszczeń z niejawnym udzieleniem. <br>W przypadku innych przepływów, jeśli liczba grup, do których należy użytkownik, przekracza limit (150 dla protokołu SAML, 200 dla tokenu JWT), do źródeł roszczeń zostanie dodana wartość nadwyżkowa, która wskazuje na punkt końcowy Microsoft Graph zawierający listę grup dla użytkownika. |
-| `hasgroups` | Boolean | Jeśli jest obecny, zawsze `true` oznacza to, że użytkownik należy do co najmniej jednej grupy. Używane zamiast `groups` roszczeń dla JWTs w niejawnej postaci, jeśli w ramach żądania Full Groups zostanie rozszerzona wartość fragmentu identyfikatora URI poza limitami długości adresów URL (obecnie 6 lub więcej grup). Wskazuje, że klient powinien używać interfejsu API Microsoft Graph do określenia grup użytkownika ( `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` ). |
+| `hasgroups` | Wartość logiczna | Jeśli jest obecny, zawsze `true` oznacza to, że użytkownik należy do co najmniej jednej grupy. Używane zamiast `groups` roszczeń dla JWTs w niejawnej postaci, jeśli w ramach żądania Full Groups zostanie rozszerzona wartość fragmentu identyfikatora URI poza limitami długości adresów URL (obecnie 6 lub więcej grup). Wskazuje, że klient powinien używać interfejsu API Microsoft Graph do określenia grup użytkownika ( `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` ). |
 | `groups:src1` | Obiekt JSON | W przypadku żądań tokenów, które nie mają ograniczonej długości (patrz `hasgroups` powyżej), ale wciąż za duże dla tokenu, zostanie uwzględniony link do listy pełnych grup dla użytkownika. W przypadku JWTs jako roszczeń rozproszonych, w przypadku protokołu SAML jako nowego odszkodowania zamiast `groups` zgłoszenia. <br><br>**Przykładowa wartość JWT** : <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
-| `sub` | String | Podmiot zabezpieczeń, dla którego token potwierdza informacje, takie jak użytkownik aplikacji. Ta wartość jest niezmienna i nie można jej ponownie przypisać ani ponownie użyć. Może służyć do bezpiecznego sprawdzania autoryzacji, na przykład gdy token jest używany w celu uzyskania dostępu do zasobu i może być używany jako klucz w tabelach bazy danych. Ponieważ podmiot jest zawsze obecny w tokenach, które są problemy z usługą Azure AD, zalecamy użycie tej wartości w systemie autoryzacji ogólnego przeznaczenia. Podmiot jest jednak identyfikatorem parowania — jest unikatowy dla określonego identyfikatora aplikacji. W związku z tym, jeśli pojedynczy użytkownik zaloguje się do dwóch różnych aplikacji przy użyciu dwóch różnych identyfikatorów klienta, te aplikacje otrzymają dwie różne wartości dla zgłoszenia podmiotu. Może to być niepotrzebne, w zależności od wymagań dotyczących architektury i ochrony prywatności. Zobacz też, jak również to jest `oid` takie samo, jak w przypadku wszystkich aplikacji w ramach dzierżawy. |
+| `sub` | Ciąg | Podmiot zabezpieczeń, dla którego token potwierdza informacje, takie jak użytkownik aplikacji. Ta wartość jest niezmienna i nie można jej ponownie przypisać ani ponownie użyć. Może służyć do bezpiecznego sprawdzania autoryzacji, na przykład gdy token jest używany w celu uzyskania dostępu do zasobu i może być używany jako klucz w tabelach bazy danych. Ponieważ podmiot jest zawsze obecny w tokenach, które są problemy z usługą Azure AD, zalecamy użycie tej wartości w systemie autoryzacji ogólnego przeznaczenia. Podmiot jest jednak identyfikatorem parowania — jest unikatowy dla określonego identyfikatora aplikacji. W związku z tym, jeśli pojedynczy użytkownik zaloguje się do dwóch różnych aplikacji przy użyciu dwóch różnych identyfikatorów klienta, te aplikacje otrzymają dwie różne wartości dla zgłoszenia podmiotu. Może to być niepotrzebne, w zależności od wymagań dotyczących architektury i ochrony prywatności. Zobacz też, jak również to jest `oid` takie samo, jak w przypadku wszystkich aplikacji w ramach dzierżawy. |
 | `oid` | Ciąg, identyfikator GUID | Niezmienny identyfikator dla obiektu na platformie tożsamości firmy Microsoft, w tym przypadku, konto użytkownika. Może również służyć do bezpiecznego sprawdzania autoryzacji i jako klucz w tabelach bazy danych. Ten identyfikator jednoznacznie identyfikuje użytkownika w wielu aplikacjach — dwie różne aplikacje, które logują się w tym samym użytkowniku, otrzymają taką samą wartość w ramach `oid` roszczeń. W związku z tym, `oid` mogą być używane podczas wykonywania zapytań do usługi online firmy Microsoft, takich jak Microsoft Graph. Microsoft Graph zwróci ten identyfikator jako `id` Właściwość dla danego [konta użytkownika](/graph/api/resources/user). Ponieważ `oid` umożliwia wielu aplikacjom skorelowanie użytkowników, `profile` zakres jest wymagany w celu otrzymania tego żądania. Należy pamiętać, że jeśli pojedynczy użytkownik istnieje w wielu dzierżawach, użytkownik będzie zawierać inny identyfikator obiektu w każdej dzierżawie — jest uznawany za różne konta, nawet jeśli użytkownik loguje się do każdego konta z tymi samymi poświadczeniami. |
 | `tid` | Ciąg, identyfikator GUID | Reprezentuje dzierżawę usługi Azure AD, z której korzysta użytkownik. W przypadku kont służbowych identyfikator GUID jest niezmiennym IDENTYFIKATORem dzierżawy organizacji, do której należy użytkownik. W przypadku kont osobistych wartość to `9188040d-6c67-4c5b-b112-36a304b66dad` . `profile`Zakres jest wymagany w celu otrzymania tego żądania. |
-| `unique_name` | String | Występuje tylko w tokenach v 1.0. Udostępnia zrozumiałą wartość identyfikującą podmiot tokenu. Ta wartość nie powinna być unikatowa w ramach dzierżawy i powinna być używana tylko do wyświetlania. |
+| `unique_name` | Ciąg | Występuje tylko w tokenach v 1.0. Udostępnia zrozumiałą wartość identyfikującą podmiot tokenu. Ta wartość nie powinna być unikatowa w ramach dzierżawy i powinna być używana tylko do wyświetlania. |
 | `uti` | Ciąg nieprzezroczysty | Wyjątek wewnętrzny używany przez platformę Azure do weryfikacji tokenów. Zasoby nie powinny korzystać z tego żądania. |
 | `rh` | Ciąg nieprzezroczysty | Wyjątek wewnętrzny używany przez platformę Azure do weryfikacji tokenów. Zasoby nie powinny używać tego żądania. |
 | `ver` | Ciąg znaków `1.0` lub `2.0` | Wskazuje wersję tokenu dostępu. |
@@ -142,15 +142,15 @@ Następujące oświadczenia zostaną uwzględnione w tokenach w wersji 1.0, jeś
 
 | Claim | Format | Opis |
 |-----|--------|-------------|
-| `ipaddr`| String | Adres IP, z którego użytkownik został uwierzytelniony. |
+| `ipaddr`| Ciąg | Adres IP, z którego użytkownik został uwierzytelniony. |
 | `onprem_sid`| Ciąg w [formacie identyfikatora SID](/windows/desktop/SecAuthZ/sid-components) | W przypadkach, w których użytkownik ma uwierzytelnianie lokalne, to zgłoszenie zapewnia swój identyfikator SID. Programu można użyć `onprem_sid` do autoryzacji w starszych aplikacjach.|
 | `pwd_exp`| int, sygnatura czasowa systemu UNIX | Wskazuje, kiedy wygasa hasło użytkownika. |
-| `pwd_url`| String | Adres URL, pod którym można wysyłać użytkowników w celu zresetowania hasła. |
+| `pwd_url`| Ciąg | Adres URL, pod którym można wysyłać użytkowników w celu zresetowania hasła. |
 | `in_corp`| boolean | Sygnalizuje, czy klient loguje się z sieci firmowej. Jeśli nie, oświadczenia nie są uwzględniane. |
-| `nickname`| String | Dodatkowa nazwa użytkownika, oddzielona od imię lub nazwisko.|
-| `family_name` | String | Zawiera nazwisko, nazwisko lub nazwę rodziny użytkownika, zgodnie z definicją w obiekcie użytkownika. |
-| `given_name` | String | Udostępnia imię i nazwisko użytkownika, zgodnie z ustawieniem obiektu użytkownika. |
-| `upn` | String | Nazwa użytkownika. Może to być numer telefonu, adres e-mail lub niesformatowany ciąg. Powinna być używana tylko do celów wyświetlania i dostarczająca wskazówki dotyczące nazwy użytkownika w scenariuszach ponownego uwierzytelniania. |
+| `nickname`| Ciąg | Dodatkowa nazwa użytkownika, oddzielona od imię lub nazwisko.|
+| `family_name` | Ciąg | Zawiera nazwisko, nazwisko lub nazwę rodziny użytkownika, zgodnie z definicją w obiekcie użytkownika. |
+| `given_name` | Ciąg | Udostępnia imię i nazwisko użytkownika, zgodnie z ustawieniem obiektu użytkownika. |
+| `upn` | Ciąg | Nazwa użytkownika. Może to być numer telefonu, adres e-mail lub niesformatowany ciąg. Powinna być używana tylko do celów wyświetlania i dostarczająca wskazówki dotyczące nazwy użytkownika w scenariuszach ponownego uwierzytelniania. |
 
 #### <a name="the-amr-claim"></a>Zgłoszenie `amr`
 
@@ -178,7 +178,7 @@ Udostępniamy biblioteki i przykłady kodu, które pokazują, jak obsługiwać s
 
 ### <a name="validating-the-signature"></a>Weryfikowanie podpisu
 
-Token JWT zawiera trzy segmenty, które są oddzielane `.` znakiem. Pierwszy segment jest znany jako **nagłówek** , drugi jako **treść** , a trzeci jako **sygnatura** . Segment podpisu może służyć do weryfikowania autentyczności tokenu, aby mógł być zaufany przez aplikację.
+Token JWT zawiera trzy segmenty, które są oddzielane `.` znakiem. Pierwszy segment jest znany jako **nagłówek** , drugi jako **treść** , a trzeci jako **sygnatura**. Segment podpisu może służyć do weryfikowania autentyczności tokenu, aby mógł być zaufany przez aplikację.
 
 Tokeny wystawione przez usługę Azure AD są podpisywane przy użyciu standardowych algorytmów szyfrowania asymetrycznego, takich jak RS256. Nagłówek JWT zawiera informacje na temat metody klucza i szyfrowania użytej do podpisania tokenu:
 
@@ -245,7 +245,7 @@ Tokeny odświeżania można unieważniać lub odwołać w dowolnym momencie, z r
 
 ### <a name="token-timeouts"></a>Limity czasu tokenu
 
-Przy użyciu [konfiguracji okresu istnienia tokenu](active-directory-configurable-token-lifetimes.md)można zmienić okres istnienia tokenów odświeżania.  Jest to normalne i oczekiwane w przypadku niektórych tokenów bez użycia (np. użytkownik nie otwiera aplikacji przez 3 miesiące) i w związku z tym wygasa.  Aplikacje będą napotykać scenariusze, w których serwer logowania odrzuca token odświeżania z powodu jego wieku. 
+Przy użyciu [konfiguracji okresu istnienia tokenu](active-directory-configurable-token-lifetimes.md)można zmienić okres istnienia tokenów odświeżania.  Jest to normalne i oczekiwane w przypadku niektórych tokenów bez użycia (np. użytkownik nie otwiera aplikacji przez 3 miesiące) i w związku z tym wygasa.  Aplikacje będą napotykać scenariusze, w których serwer logowania odrzuca token odświeżania z powodu jego wieku.
 
 * MaxInactiveTime: Jeśli token odświeżania nie został użyty w czasie określonym przez MaxInactiveTime, token odświeżania nie będzie już prawidłowy.
 * MaxSessionAge: Jeśli MaxAgeSessionMultiFactor lub MaxAgeSessionSingleFactor została ustawiona na inną niż domyślna (do odwołania), wówczas uwierzytelnianie będzie wymagane po upływie czasu określonego w MaxAgeSession *.
@@ -255,7 +255,7 @@ Przy użyciu [konfiguracji okresu istnienia tokenu](active-directory-configurabl
 
 ### <a name="revocation"></a>Unieważni
 
-Tokeny odświeżania mogą zostać odwołane przez serwer z powodu zmiany poświadczeń lub akcji administratora.  Tokeny odświeżania dzielą się na dwie klasy — te wystawione dla klientów poufnych (kolumna z prawej stronie) i wystawione dla klientów publicznych (wszystkie inne kolumny).   
+Tokeny odświeżania mogą zostać odwołane przez serwer z powodu zmiany poświadczeń lub akcji administratora.  Tokeny odświeżania dzielą się na dwie klasy — te wystawione dla klientów poufnych (kolumna z prawej stronie) i wystawione dla klientów publicznych (wszystkie inne kolumny).
 
 | Zmiana | Plik cookie oparty na hasłach | Token oparty na hasłach | Plik cookie bez hasła | Token nieoparty na haśle | Poufny token klienta |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -275,12 +275,12 @@ Logowanie *nieoparte na hasłach* to takie, w przypadku których użytkownik nie
 - Klucz FIDO2
 - SMS
 - Połączenia głosowe
-- Kod PIN 
+- Kod PIN
 
 > [!NOTE]
 > Podstawowe tokeny odświeżania (PRT) w systemie Windows 10 są segregowane na podstawie poświadczeń. Na przykład funkcja Windows Hello i hasło mają odpowiednie PRTs, odizolowane od siebie nawzajem. Gdy użytkownik loguje się przy użyciu poświadczeń powitania (kod PIN lub biometria), a następnie zmienia hasło, zostanie odwołane PRT oparte na hasłach. Ponowne zalogowanie się przy użyciu hasła unieważnia stary PRT i żąda nowej.
 >
-> Tokeny odświeżania nie są unieważnione lub odwoływane, gdy są używane do pobierania nowego tokenu dostępu i odświeżania tokenu.  Aplikacja powinna jednak odrzucić starą, gdy tylko zostanie użyta, i zamienić ją na nową, ponieważ nowy token ma nowy czas wygaśnięcia. 
+> Tokeny odświeżania nie są unieważnione lub odwoływane, gdy są używane do pobierania nowego tokenu dostępu i odświeżania tokenu.  Aplikacja powinna jednak odrzucić starą, gdy tylko zostanie użyta, i zamienić ją na nową, ponieważ nowy token ma nowy czas wygaśnięcia.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888423"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395227"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Konfigurowanie replikacji do usługi Azure SQL Edge 
 
@@ -24,8 +24,8 @@ Można skonfigurować wystąpienie usługi Azure SQL Edge jako subskrybent wypyc
   
 - Wystąpienie usługi Azure SQL Edge musi być subskrybentem wypychanym dla wydawcy.
 - Wydawca i dystrybutor może być:
-   - Wystąpienie SQL Server uruchomione lokalnie lub wystąpienie SQL Server uruchomione na maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [SQL Server na platformie Azure — omówienie Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). Wystąpienia SQL Server muszą używać wersji nowszej niż SQL Server 2016.
-   - Wystąpienie wystąpienia zarządzanego usługi Azure SQL. Wystąpienie zarządzane SQL może hostować bazy danych wydawcy, dystrybutora i subskrybentów. Aby uzyskać więcej informacji, zobacz [replikacja z wystąpieniem zarządzanym SQL Database](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
+   - Wystąpienie SQL Server uruchomione lokalnie lub wystąpienie SQL Server uruchomione na maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [SQL Server na platformie Azure — omówienie Virtual Machines](../azure-sql/virtual-machines/index.yml). Wystąpienia SQL Server muszą używać wersji nowszej niż SQL Server 2016.
+   - Wystąpienie wystąpienia zarządzanego usługi Azure SQL. Wystąpienie zarządzane SQL może hostować bazy danych wydawcy, dystrybutora i subskrybentów. Aby uzyskać więcej informacji, zobacz [replikacja z wystąpieniem zarządzanym SQL Database](/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - Nie można umieścić bazy danych dystrybucji i agentów replikacji w wystąpieniu usługi Azure SQL Edge.  
 
@@ -36,7 +36,7 @@ Można skonfigurować wystąpienie usługi Azure SQL Edge jako subskrybent wypyc
 
 Poniższe wymagania i najlepsze rozwiązania są ważne, aby zrozumieć, jak skonfigurować replikację:
 
-- Replikację można skonfigurować przy użyciu [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Można to również zrobić, uruchamiając na wydawcy instrukcje języka Transact-SQL, korzystając z SQL Server Management Studio lub [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio).
+- Replikację można skonfigurować przy użyciu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Można to również zrobić, uruchamiając na wydawcy instrukcje języka Transact-SQL, korzystając z SQL Server Management Studio lub [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 - Aby przeprowadzić replikację do wystąpienia usługi Azure SQL Edge, musisz użyć uwierzytelniania SQL Server, aby się zalogować.
 - Zreplikowane tabele muszą mieć klucz podstawowy.
 - Jedna publikacja na SQL Server może obsługiwać zarówno usługi Azure SQL Edge, jak i SQL Server (lokalne i SQL Server w ramach maszyn wirtualnych platformy Azure).  
@@ -82,15 +82,13 @@ Następujące opcje nie są obsługiwane w przypadku subskrypcji usługi Azure S
 
 Utwórz publikację i subskrypcję wypychaną. Aby uzyskać więcej informacji, zobacz:
   
-- [Tworzenie publikacji](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Utwórz subskrypcję wypychaną](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) przy użyciu nazwy i adresu IP serwera usługi Azure SQL Edge jako subskrybenta (na przykład **myEdgeinstance, 1433**) i nazwy bazy danych w wystąpieniu usługi Azure SQL Edge jako docelowej bazy danych (na przykład **AdventureWorks**).  
+- [Tworzenie publikacji](/sql/relational-databases/replication/publish/create-a-publication)
+- [Utwórz subskrypcję wypychaną](/sql/relational-databases/replication/create-a-push-subscription/) przy użyciu nazwy i adresu IP serwera usługi Azure SQL Edge jako subskrybenta (na przykład **myEdgeinstance, 1433** ) i nazwy bazy danych w wystąpieniu usługi Azure SQL Edge jako docelowej bazy danych (na przykład **AdventureWorks** ).  
 
 ## <a name="next-steps"></a>Następne kroki  
 
-- [Tworzenie publikacji](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Tworzenie subskrypcji wypychanej](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Typy replikacji](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitorowanie (replikacja)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inicjowanie subskrypcji](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
-
-
+- [Tworzenie publikacji](/sql/relational-databases/replication/publish/create-a-publication)
+- [Tworzenie subskrypcji wypychanej](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Typy replikacji](/sql/relational-databases/replication/types-of-replication)
+- [Monitorowanie (replikacja)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inicjowanie subskrypcji](/sql/relational-databases/replication/initialize-a-subscription)

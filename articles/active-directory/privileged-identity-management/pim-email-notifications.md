@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232312"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394734"
 ---
 # <a name="email-notifications-in-pim"></a>Powiadomienia e-mail w usłudze PIM
 
@@ -54,7 +54,7 @@ Kto odbiera te wiadomości e-mail dla ról usługi Azure AD zależy od roli, zda
 | Administrator zabezpieczeń</br>(Aktywowane/kwalifikujące się) | Nie | Tak* | Tak |
 | Administrator globalny</br>(Aktywowane/kwalifikujące się) | Nie | Tak* | Tak |
 
-\*Jeśli ustawienie [ **powiadomienia** ](pim-how-to-change-default-settings.md#notifications) jest ustawione na wartość **Włącz**.
+\*Jeśli ustawienie [ **powiadomienia**](pim-how-to-change-default-settings.md#notifications) jest ustawione na wartość **Włącz**.
 
 Poniżej przedstawiono przykładową wiadomość e-mail, która jest wysyłana, gdy użytkownik aktywuje rolę usługi Azure AD dla fikcyjnej organizacji contoso.
 
@@ -79,10 +79,13 @@ Sekcja **najważniejsze role** zawiera pięć najważniejszych ról w organizacj
 
 ## <a name="email-timing-for-activation-approvals"></a>Chronometraż wiadomości e-mail dla zatwierdzeń aktywacji
 
-Gdy użytkownicy aktywują swoją rolę, a ustawienie roli wymaga zatwierdzenia, osoby zatwierdzające otrzymają trzy wiadomości e-mail dla każdego zatwierdzenia:
+Gdy użytkownicy aktywują swoją rolę, a ustawienie roli wymaga zatwierdzenia, osoby zatwierdzające będą otrzymywać dwie wiadomości e-mail dla każdego zatwierdzenia:
 
 - Żądanie zatwierdzenia lub odmowy żądania aktywacji użytkownika (wysyłane przez aparat zatwierdzania żądań)
 - Żądanie użytkownika zostało zatwierdzone (wysłane przez aparat zatwierdzania żądań)
+
+Ponadto administratorzy globalni i Administratorzy ról uprzywilejowanych otrzymają wiadomość e-mail przy każdym zatwierdzeniu:
+
 - Rola użytkownika jest aktywowana (wysłana przez Privileged Identity Management)
 
 Pierwsze dwie wiadomości e-mail wysyłane przez aparat zatwierdzania żądań mogą być opóźnione. Obecnie 90% wiadomości e-mail trwa od trzech do dziesięciu minut, ale 1% klientów może być o wiele dłużej, do 15 minut.

@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfae813f01d3e7a08e18cde76e5c26ca253a371f
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026602"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393442"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Przypisywanie ról objętych zakresem do jednostki administracyjnej
 
@@ -52,7 +52,7 @@ Rolę objętą zakresem można przypisać przy użyciu Azure Portal, programu Po
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. W Azure Portal przejdź do **usługi Azure AD** .
+1. W Azure Portal przejdź do **usługi Azure AD**.
 
 1. Wybierz pozycję **jednostki administracyjne** , a następnie wybierz jednostkę administracyjną, do której chcesz przypisać zakres roli użytkownika. 
 
@@ -60,7 +60,7 @@ Rolę objętą zakresem można przypisać przy użyciu Azure Portal, programu Po
 
    ![Zrzut ekranu okienka "rola i Administratorzy" służący do wybierania jednostki administracyjnej, której zakres roli chcesz przypisać.](./media/admin-units-assign-roles/select-role-to-scope.png)
 
-1. Wybierz rolę, która ma zostać przypisana, a następnie wybierz pozycję **Dodaj przypisania** . 
+1. Wybierz rolę, która ma zostać przypisana, a następnie wybierz pozycję **Dodaj przypisania**. 
 
 1. W okienku **Dodaj przypisania** wybierz co najmniej jednego użytkownika, który ma zostać przypisany do roli.
 
@@ -105,7 +105,7 @@ Listę administratorów o określonym zakresie można wyświetlić za pomocą Az
 
 Wszystkie przypisania ról utworzone przy użyciu zakresu jednostki administracyjnej można wyświetlić w [sekcji jednostki administracyjne w usłudze Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
-1. W Azure Portal przejdź do **usługi Azure AD** .
+1. W Azure Portal przejdź do **usługi Azure AD**.
 
 1. W lewym okienku wybierz pozycję **jednostki administracyjne** , a następnie wybierz jednostkę administracyjną dla listy przypisań ról, które chcesz wyświetlić. 
 

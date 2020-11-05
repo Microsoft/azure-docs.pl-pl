@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 240b96a47c84ec3b15a356edc35549a4a197b219
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967971"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393170"
 ---
-# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Zasady blokowania haseł i kont w Active Directory Domain Services domenach zarządzanych
+# <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Zasady blokowania haseł i kont w Azure Active Directory Domain Services domenach zarządzanych
 
 Aby zarządzać zabezpieczeniami użytkowników w Azure Active Directory Domain Services (Azure AD DS), można zdefiniować szczegółowe zasady haseł kontrolujące ustawienia blokady konta lub minimalną długość i złożoność hasła. Domyślne szczegółowe zasady haseł są tworzone i stosowane dla wszystkich użytkowników w domenie zarządzanej AD DS platformy Azure. Aby zapewnić szczegółową kontrolę i spełnić określone potrzeby biznesowe lub dotyczące zgodności, można utworzyć dodatkowe zasady i zastosować je do określonych grup użytkowników.
 
@@ -117,7 +117,7 @@ Aby utworzyć niestandardowe zasady haseł, użyj Active Directory narzędzi adm
 
     ![Wybierz użytkowników i grupy, do których mają zostać zastosowane zasady haseł](./media/password-policy/fgpp-applies-to.png)
 
-1. Zasady dotyczące haseł mogą być stosowane tylko do grup. W oknie dialogowym **lokalizacje** rozwiń nazwę domeny, na przykład *aaddscontoso.com*, a następnie wybierz jednostkę organizacyjną, taką jak **AADDC users**. Jeśli masz niestandardową jednostkę organizacyjną zawierającą grupę użytkowników, których chcesz użyć, wybierz tę jednostkę organizacyjną.
+1. Zasady dotyczące haseł mogą być stosowane tylko do grup. W oknie dialogowym **lokalizacje** rozwiń nazwę domeny, na przykład *aaddscontoso.com* , a następnie wybierz jednostkę organizacyjną, taką jak **AADDC users**. Jeśli masz niestandardową jednostkę organizacyjną zawierającą grupę użytkowników, których chcesz użyć, wybierz tę jednostkę organizacyjną.
 
     ![Wybierz jednostkę organizacyjną, do której należy Grupa](./media/password-policy/fgpp-container.png)
 

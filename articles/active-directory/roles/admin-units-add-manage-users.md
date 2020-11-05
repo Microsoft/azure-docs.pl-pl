@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c877878fe25d4c6c8904840c3c3350fbe2acf7b5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b490e03ea7ac0a3bc780fa731629217126b6828a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026670"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395533"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Dodawanie użytkowników i zarządzanie nimi w jednostce administracyjnej w Azure Active Directory
 
@@ -39,7 +39,7 @@ Użytkowników można przypisywać do jednostek administracyjnych pojedynczo lub
 
    1. Wybierz pozycję **Użytkownicy** , a następnie, aby otworzyć profil użytkownika, wybierz użytkownika, który ma zostać przypisany do jednostki administracyjnej.
    
-   1. Wybierz pozycję **jednostki administracyjne** . 
+   1. Wybierz pozycję **jednostki administracyjne**. 
    
    1. Aby przypisać użytkownika do co najmniej jednej jednostki administracyjnej, wybierz pozycję **Przypisz do jednostki administracyjnej** , a następnie w okienku po prawej stronie Wybierz jednostki administracyjne, do których chcesz przypisać użytkownika.
 
@@ -57,11 +57,11 @@ Użytkowników można przypisywać do jednostek administracyjnych pojedynczo lub
 
    1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://portal.azure.com) przy użyciu uprawnień administratora ról uprzywilejowanych.
 
-   1. Wybierz pozycję **jednostki administracyjne** .
+   1. Wybierz pozycję **jednostki administracyjne**.
 
    1. Wybierz jednostkę administracyjną, do której chcesz dodać użytkowników.
 
-   1. Wybierz pozycję **Użytkownicy** masowa  >  **działania**  >  **zbiorcze Dodaj członków** . Następnie można pobrać szablon wartości rozdzielonych przecinkami (CSV) i edytować plik. Format jest prosty i wymaga dodania pojedynczej nazwy głównej użytkownika w każdym wierszu. Gdy plik jest gotowy, Zapisz go w odpowiedniej lokalizacji, a następnie Przekaż go w ramach tego kroku.
+   1. Wybierz pozycję **Użytkownicy** masowa  >  **działania**  >  **zbiorcze Dodaj członków**. Następnie można pobrać szablon wartości rozdzielonych przecinkami (CSV) i edytować plik. Format jest prosty i wymaga dodania pojedynczej nazwy głównej użytkownika w każdym wierszu. Gdy plik jest gotowy, Zapisz go w odpowiedniej lokalizacji, a następnie Przekaż go w ramach tego kroku.
 
       ![Zrzut ekranu przedstawiający okienko "Użytkownicy" służący do przypisywania użytkowników do jednostki administracyjnej jako operacji zbiorczej.](./media/admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
@@ -103,7 +103,7 @@ Przykład:
 
 W Azure Portal można otworzyć profil użytkownika, wykonując następujące czynności:
 
-1. Przejdź do **usługi Azure AD** , a następnie wybierz pozycję **Użytkownicy** .
+1. Przejdź do **usługi Azure AD** , a następnie wybierz pozycję **Użytkownicy**.
 
 1. Wybierz użytkownika, którego profil chcesz wyświetlić.
 
@@ -135,15 +135,15 @@ https://graph.microsoft.com/v1.0/users/{id}/memberOf/$/Microsoft.Graph.Administr
 
 Użytkownika można usunąć z jednostki administracyjnej na jeden z dwóch sposobów: 
 
-* W Azure Portal przejdź do **usługi Azure AD** , a następnie wybierz pozycję **Użytkownicy** . 
+* W Azure Portal przejdź do **usługi Azure AD** , a następnie wybierz pozycję **Użytkownicy**. 
   1. Wybierz użytkownika, aby otworzyć profil użytkownika. 
-  1. Wybierz jednostkę administracyjną, z której chcesz usunąć użytkownika, a następnie wybierz pozycję **Usuń z jednostki administracyjnej** .
+  1. Wybierz jednostkę administracyjną, z której chcesz usunąć użytkownika, a następnie wybierz pozycję **Usuń z jednostki administracyjnej**.
 
      ![Zrzut ekranu przedstawiający sposób usuwania użytkownika z jednostki administracyjnej z okienka profil użytkownika.](./media/admin-units-add-manage-users/user-remove-admin-units.png)
 
-* W Azure Portal przejdź do **usługi Azure AD** , a następnie wybierz pozycję **jednostki administracyjne** .
+* W Azure Portal przejdź do **usługi Azure AD** , a następnie wybierz pozycję **jednostki administracyjne**.
   1. Wybierz jednostkę administracyjną, z której chcesz usunąć użytkownika. 
-  1. Wybierz użytkownika, a następnie wybierz pozycję **Usuń członka** .
+  1. Wybierz użytkownika, a następnie wybierz pozycję **Usuń członka**.
   
      ![Zrzut ekranu przedstawiający sposób usuwania użytkownika na poziomie jednostki administracyjnej.](./media/admin-units-add-manage-users/admin-units-remove-user.png)
 
@@ -165,7 +165,7 @@ Zastąp symbole zastępcze informacjami o teście i uruchom następujące polece
 
 Aby usunąć wielu użytkowników z jednostki administracyjnej, wykonaj następujące czynności:
 
-1. W Azure Portal przejdź do **usługi Azure AD** .
+1. W Azure Portal przejdź do **usługi Azure AD**.
 
 1. Wybierz pozycję **jednostki administracyjne** , a następnie wybierz jednostkę administracyjną, z której chcesz usunąć użytkowników. 
 
@@ -177,7 +177,7 @@ Aby usunąć wielu użytkowników z jednostki administracyjnej, wykonaj następu
 
    ![Zrzut ekranu przedstawiający edytowany plik CSV, który umożliwia zbiorcze usuwanie użytkowników z jednostki administracyjnej.](./media/admin-units-add-manage-users/bulk-user-entries.png)
 
-1. Zapisz zmiany, Przekaż plik, a następnie wybierz pozycję **Prześlij** .
+1. Zapisz zmiany, Przekaż plik, a następnie wybierz pozycję **Prześlij**.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
-ms.openlocfilehash: 4548d4956b4cd01886fb1be9a530cc1627f76b2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b56b65261950e9cf534a3755d214229ef7d5bb1e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888243"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395210"
 ---
 # <a name="connect-and-query-azure-sql-edge"></a>Łączenie i wykonywanie zapytań w usłudze Azure SQL Edge
 
@@ -29,15 +29,15 @@ W usłudze Azure SQL Edge po wdrożeniu kontenera można nawiązać połączenie
 
 Możesz połączyć się z wystąpieniem wystąpienia usługi Azure SQL Edge z dowolnego z następujących popularnych narzędzi:
 
-* [sqlcmd](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): narzędzia klienta SQLCMD są już zawarte w obrazie kontenera usługi Azure SQL Edge. Jeśli dołączysz do działającego kontenera z interaktywną powłoką bash, możesz uruchomić narzędzia lokalnie. Narzędzia klienta SQL nie są dostępne na platformie ARM64, ponieważ nie są one uwzględnione w wersji ARM64 kontenerów programu SQL Edge. 
-* [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)
-* [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)
-* [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
+* [sqlcmd](/sql/linux/sql-server-linux-setup-tools): narzędzia klienta SQLCMD są już zawarte w obrazie kontenera usługi Azure SQL Edge. Jeśli dołączysz do działającego kontenera z interaktywną powłoką bash, możesz uruchomić narzędzia lokalnie. Narzędzia klienta SQL nie są dostępne na platformie ARM64, ponieważ nie są one uwzględnione w wersji ARM64 kontenerów programu SQL Edge. 
+* [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)
+* [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
+* [Visual Studio Code](/sql/visual-studio-code/sql-server-develop-use-vscode)
 
 Aby nawiązać połączenie z aparatem bazy danych usługi Azure SQL Edge z komputera sieciowego, potrzebne są następujące elementy:
 
-- **Adres IP lub nazwa sieci komputera hosta**: jest to komputer-host, na którym działa kontener usługi Azure SQL Edge.
-- **Mapowanie portu hosta kontenera usługi Azure SQL Edge**: jest to mapowanie portu kontenera Docker na port na hoście. W kontenerze usługa Azure SQL Edge jest zawsze mapowana na port 1433. Możesz to zmienić, jeśli chcesz. Aby zmienić numer portu, zaktualizuj **Opcje tworzenia kontenera** dla modułu usługi Azure SQL Edge w Azure IoT Edge. W poniższym przykładzie port 1433 w kontenerze jest mapowany na port 1600 na hoście.
+- **Adres IP lub nazwa sieci komputera hosta** : jest to komputer-host, na którym działa kontener usługi Azure SQL Edge.
+- **Mapowanie portu hosta kontenera usługi Azure SQL Edge** : jest to mapowanie portu kontenera Docker na port na hoście. W kontenerze usługa Azure SQL Edge jest zawsze mapowana na port 1433. Możesz to zmienić, jeśli chcesz. Aby zmienić numer portu, zaktualizuj **Opcje tworzenia kontenera** dla modułu usługi Azure SQL Edge w Azure IoT Edge. W poniższym przykładzie port 1433 w kontenerze jest mapowany na port 1600 na hoście.
 
     ```JSON
     {
@@ -51,11 +51,11 @@ Aby nawiązać połączenie z aparatem bazy danych usługi Azure SQL Edge z komp
     }
     ```
 
-- **Hasło administratora wystąpienia usługi Azure SQL Edge**: jest to wartość określona dla `SA_PASSWORD` zmiennej środowiskowej podczas wdrażania usługi Azure SQL Edge.
+- **Hasło administratora wystąpienia usługi Azure SQL Edge** : jest to wartość określona dla `SA_PASSWORD` zmiennej środowiskowej podczas wdrażania usługi Azure SQL Edge.
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>Nawiązywanie połączenia z aparatem bazy danych z poziomu kontenera
 
-[Narzędzia wiersza polecenia SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) są zawarte w obrazie kontenera usługi Azure SQL Edge. Jeśli dołączysz do kontenera za pomocą interakcyjnego wiersza polecenia, możesz uruchomić narzędzia lokalnie. Narzędzia klienta SQL nie są dostępne na platformie ARM64, ponieważ nie są one uwzględnione w wersji ARM64 kontenerów programu SQL Edge. 
+[Narzędzia wiersza polecenia SQL Server](/sql/linux/sql-server-linux-setup-tools) są zawarte w obrazie kontenera usługi Azure SQL Edge. Jeśli dołączysz do kontenera za pomocą interakcyjnego wiersza polecenia, możesz uruchomić narzędzia lokalnie. Narzędzia klienta SQL nie są dostępne na platformie ARM64, ponieważ nie są one uwzględnione w wersji ARM64 kontenerów programu SQL Edge. 
 
 1. Użyj `docker exec -it` polecenia, aby uruchomić interaktywną powłokę bash wewnątrz działającego kontenera. W poniższym przykładzie `e69e056c702d` jest to identyfikator kontenera.
 
@@ -94,7 +94,7 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ## <a name="connect-to-azure-sql-edge-from-another-network-machine"></a>Nawiązywanie połączenia z usługą Azure SQL Edge z innej maszyny sieciowej
 
-Możesz chcieć nawiązać połączenie z wystąpieniem usługi Azure SQL Edge z innego komputera w sieci. Aby to zrobić, użyj adresu IP hosta platformy Docker i portu hosta, do którego zamapowany jest kontener usługi Azure SQL Edge. Jeśli na przykład adres IP hosta platformy Docker to *xxx.xxx.xxx.xxx*, a kontener usługi Azure SQL Edge jest mapowany na port hosta *1600*, adres serwera dla wystąpienia usługi Azure SQL Edge to *xxx. xxx. xxx. xxx, 1600*. Zaktualizowany skrypt w języku Python to:
+Możesz chcieć nawiązać połączenie z wystąpieniem usługi Azure SQL Edge z innego komputera w sieci. Aby to zrobić, użyj adresu IP hosta platformy Docker i portu hosta, do którego zamapowany jest kontener usługi Azure SQL Edge. Jeśli na przykład adres IP hosta platformy Docker to *xxx.xxx.xxx.xxx* , a kontener usługi Azure SQL Edge jest mapowany na port hosta *1600* , adres serwera dla wystąpienia usługi Azure SQL Edge to *xxx. xxx. xxx. xxx, 1600*. Zaktualizowany skrypt w języku Python to:
 
 ```python
 
@@ -108,14 +108,14 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ```
 
-Aby nawiązać połączenie z wystąpieniem usługi Azure SQL Edge przy użyciu SQL Server Management Studio uruchomionej na komputerze z systemem Windows, zobacz [SQL Server Management Studio](https://docs.microsoft.com/sql/linux/sql-server-linux-manage-ssms).
+Aby nawiązać połączenie z wystąpieniem usługi Azure SQL Edge przy użyciu SQL Server Management Studio uruchomionej na komputerze z systemem Windows, zobacz [SQL Server Management Studio](/sql/linux/sql-server-linux-manage-ssms).
 
-Aby nawiązać połączenie z wystąpieniem usługi Azure SQL Edge przy użyciu Visual Studio Code na komputerze z systemem Windows, Mac lub Linux, zobacz [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode).
+Aby nawiązać połączenie z wystąpieniem usługi Azure SQL Edge przy użyciu Visual Studio Code na komputerze z systemem Windows, Mac lub Linux, zobacz [Visual Studio Code](/sql/visual-studio-code/sql-server-develop-use-vscode).
 
-Aby nawiązać połączenie z wystąpieniem usługi Azure SQL Edge przy użyciu Azure Data Studio na komputerze z systemem Windows, Mac lub Linux, zobacz [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-server).
+Aby nawiązać połączenie z wystąpieniem usługi Azure SQL Edge przy użyciu Azure Data Studio na komputerze z systemem Windows, Mac lub Linux, zobacz [Azure Data Studio](/sql/azure-data-studio/quickstart-sql-server).
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Nawiązywanie połączeń i wykonywanie zapytań](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#connect-and-query)
+[Nawiązywanie połączeń i wykonywanie zapytań](/sql/linux/sql-server-linux-configure-docker#connect-and-query)
 
-[Zainstaluj narzędzia SQL Server w systemie Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools)
+[Zainstaluj narzędzia SQL Server w systemie Linux](/sql/linux/sql-server-linux-setup-tools)

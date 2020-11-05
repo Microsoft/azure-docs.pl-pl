@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ff14f8a9f236701889aea95911f2a1e381eabf83
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947374"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392082"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Wdrażanie usługi Azure SQL Edge przy użyciu platformy Docker
 
@@ -28,7 +28,7 @@ Ten obraz składa się z usługi Azure SQL Edge w oparciu o Ubuntu 18,04. Może 
 - Sterownik magazynu Docker **overlay2** . Jest to wartość domyślna dla większości użytkowników. Jeśli okaże się, że nie używasz tego dostawcy magazynu i chcesz go zmienić, zobacz instrukcje i ostrzeżenia w [dokumentacji platformy Docker dotyczące konfigurowania overlay2](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#configure-docker-with-the-overlay-or-overlay2-storage-driver).
 - Co najmniej 10 GB miejsca na dysku.
 - Co najmniej 1 GB pamięci RAM.
-- [Wymagania sprzętowe dotyczące usługi Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/features#hardware-support).
+- [Wymagania sprzętowe dotyczące usługi Azure SQL Edge](./features.md#hardware-support).
 
 
 ## <a name="pull-and-run-the-container-image"></a>Ściąganie i uruchamianie obrazu kontenera
@@ -70,7 +70,7 @@ Poprzednie polecenie pobiera najnowsze obrazy kontenerów usługi Azure SQL Edge
     | Parametr | Opis |
     |-----|-----|
     | **-e "ACCEPT_EULA = Y"** |  Ustaw zmienną **ACCEPT_EULA** na dowolną wartość w celu potwierdzenia akceptacji [umowy licencyjnej użytkownika końcowego](https://go.microsoft.com/fwlink/?linkid=2139274). Ustawienie wymagane dla obrazu usługi Azure SQL Edge. |
-    | **-e "MSSQL_SA_PASSWORD = yourStrong (!) Hasło** | Określ własne silne hasło, które ma co najmniej 8 znaków i spełnia [wymagania dotyczące hasła usługi Azure SQL Edge](https://docs.microsoft.com/sql/relational-databases/security/password-policy). Ustawienie wymagane dla obrazu usługi Azure SQL Edge. |
+    | **-e "MSSQL_SA_PASSWORD = yourStrong (!) Hasło** | Określ własne silne hasło, które ma co najmniej 8 znaków i spełnia [wymagania dotyczące hasła usługi Azure SQL Edge](/sql/relational-databases/security/password-policy). Ustawienie wymagane dla obrazu usługi Azure SQL Edge. |
     | **-p 1433:1433** | Mapuj port TCP w środowisku hosta (pierwsza wartość) na port TCP w kontenerze (druga wartość). W tym przykładzie usługa Azure SQL Edge nasłuchuje na protokole TCP 1433 w kontenerze i jest on narażony na port 1433 na hoście. |
     | **--azuresqledge nazwy** | Określ niestandardową nazwę kontenera zamiast losowo wygenerowanego. W przypadku uruchomienia więcej niż jednego kontenera nie można ponownie użyć tej samej nazwy. |
     | **-c** | Uruchamianie kontenera w tle (demon) |
@@ -83,7 +83,7 @@ Poprzednie polecenie pobiera najnowsze obrazy kontenerów usługi Azure SQL Edge
     sudo docker ps -a
    ```
 
-4. Jeśli w kolumnie **stan** zostanie wyświetlony stan **up**, usługa Azure SQL Edge jest uruchomiona w kontenerze i nasłuchuje na porcie określonym w kolumnie **porty** . Jeśli kolumna **stan** dla kontenera usługi Azure SQL Edge została **zakończona**, zapoznaj się z sekcją Rozwiązywanie problemów w dokumentacji usługi Azure SQL Edge.
+4. Jeśli w kolumnie **stan** zostanie wyświetlony stan **up** , usługa Azure SQL Edge jest uruchomiona w kontenerze i nasłuchuje na porcie określonym w kolumnie **porty** . Jeśli kolumna **stan** dla kontenera usługi Azure SQL Edge została **zakończona** , zapoznaj się z sekcją Rozwiązywanie problemów w dokumentacji usługi Azure SQL Edge.
 
     `-h`Parametr (nazwa hosta) jest również przydatny, ale nie jest używany w tym samouczku dla uproszczenia. Spowoduje to zmianę wewnętrznej nazwy kontenera na wartość niestandardową. Jest to nazwa, która zostanie zwrócona w następującej kwerendzie języka Transact-SQL:
 
@@ -114,7 +114,7 @@ Konto **sa** jest administratorem systemu w wystąpieniu usługi Azure SQL Edge,
 
 ## <a name="connect-to-azure-sql-edge"></a>Łączenie z usługą Azure SQL Edge
 
-Poniższe kroki służą do nawiązywania połączenia z usługą Azure SQL Edge przy użyciu narzędzia wiersza polecenia usługi Azure SQL **Edge w**kontenerze.
+Poniższe kroki służą do nawiązywania połączenia z usługą Azure SQL Edge przy użyciu narzędzia wiersza polecenia usługi Azure SQL **Edge w** kontenerze.
 
 > [!NOTE]
 > Narzędzie sqlcmd nie jest dostępne w wersji ARM64 kontenerów programu SQL Edge.

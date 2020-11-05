@@ -1,5 +1,5 @@
 ---
-title: Wyświetl i skonfiguruj metryki usługi Azure IoT Connector for FHIR (wersja zapoznawcza)
+title: Wyświetlanie i konfigurowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza)
 description: W tym artykule wyjaśniono sposób wyświetlania i konfigurowania łącznika usługi Azure IoT for FHIR (wersja zapoznawcza)
 services: healthcare-apis
 author: msjasteppe
@@ -8,19 +8,19 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: jasteppe
-ms.openlocfilehash: 76166fc5c525d36474a585179472e93b22dad647
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1cdae789b8286be408735fff92e2de46e28ce514
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133627"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394292"
 ---
-# <a name="view-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Wyświetl i skonfiguruj metryki usługi Azure IoT Connector for FHIR (wersja zapoznawcza) 
+# <a name="view-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Wyświetlanie i konfigurowanie metryk usługi Azure IoT Connector for FHIR (wersja zapoznawcza) 
 
 W tym artykule dowiesz się, jak wyświetlać i konfigurować łącznik usługi Azure IoT dla metryk FHIR *. 
 
 > [!TIP]
-> Postępuj zgodnie ze wskazówkami zawartymi w artykule [Eksportowanie łącznika usługi Azure IoT for FHIR (wersja zapoznawcza) za pomocą ustawień diagnostycznych](https://docs.microsoft.com/azure/healthcare-apis/iot-metrics-diagnostics-export) , aby dowiedzieć się, jak skonfigurować eksportowanie danych metryk.
+> Postępuj zgodnie ze wskazówkami zawartymi w artykule [Eksportowanie łącznika usługi Azure IoT for FHIR (wersja zapoznawcza) za pomocą ustawień diagnostycznych](./iot-metrics-diagnostics-export.md) , aby dowiedzieć się, jak skonfigurować eksportowanie danych metryk.
 
 ## <a name="view-metrics-for-azure-iot-connector-for-fhir-preview"></a>Wyświetl metryki dla usługi Azure IoT Connector for FHIR (wersja zapoznawcza)
 1. Aby wyświetlić metryki dla łączników IoT, wybierz usługę Azure API for FHIR w Azure Portal. 
@@ -33,14 +33,14 @@ W tym artykule dowiesz się, jak wyświetlać i konfigurować łącznik usługi 
 
 4. Wybierz łącznik usługi IoT, aby wyświetlić jego metryki (na przykład: istnieją (4) łączniki IoT skojarzone z tym interfejsem API platformy Azure dla usługi FHIR).
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="IoT Connector2" lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
 
 > [!NOTE]
 > Karta **niestandardowa** umożliwia tworzenie określonych kombinacji czasu/daty na potrzeby wyświetlania metryk łącznika IoT.
 
 5. Wybierz okres czasu wyświetlania metryk łącznika usługi IoT (na przykład: 1 godzina, 24 godziny, 7 dni lub niestandardowe).
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="IoT Connector3" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
 ## <a name="metrics-types-for-azure-iot-connector-for-fhir-preview"></a>Typy metryk dla łącznika usługi Azure IoT dla FHIR (wersja zapoznawcza) 
 Wyświetlone metryki łącznika IoT są następujące:
@@ -59,11 +59,11 @@ W tym przykładzie będziemy koncentrować się na **liczbie metryk komunikatów
 
 1. Wybierz punkt w czasie, na którym chcesz się skoncentrować.
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-focus.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-display/iot-metrics-focus.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-focus.png" alt-text="IoT Connector4" lightbox="media/iot-metrics-display/iot-metrics-focus.png"::: 
 
 2. Na tym ekranie możesz **dodać metrykę** , **dodać filtr** i **zastosować podział** do dalszych dostosowań. 
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-add-options.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-display/iot-metrics-add-options.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-add-options.png" alt-text="IoT Connector5" lightbox="media/iot-metrics-display/iot-metrics-add-options.png"::: 
 
 ## <a name="conclusion"></a>Podsumowanie 
 Posiadanie dostępu do metryk płaszczyzny danych jest niezbędne do monitorowania i rozwiązywania problemów.  Łącznik usługi Azure IoT dla programu FHIR ułatwia wykonywanie tych działań za pomocą metryk. 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 11/04/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 11708aeb434f3b258377c02f15214f1ac9ae4295
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377013"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393629"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Przejmowanie katalogu niezarządzanego jako administrator w usłudze Azure Active Directory
 
@@ -57,7 +57,7 @@ Po wykonaniu powyższych kroków jesteś teraz administratorem globalnym z czwar
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Dodawanie nazwy domeny do zarządzanej organizacji w usłudze Azure AD
 
 1. Otwórz [Centrum administracyjne Microsoft 365](https://admin.microsoft.com).
-2. Wybierz kartę **Użytkownicy** , a następnie utwórz nowe konto użytkownika o nazwie * \@ fourthcoffeexyz.onmicrosoft.com użytkownika* , która nie używa niestandardowej nazwy domeny. 
+2. Wybierz kartę **Użytkownicy** , a następnie utwórz nowe konto użytkownika o nazwie *\@ fourthcoffeexyz.onmicrosoft.com użytkownika* , która nie używa niestandardowej nazwy domeny. 
 3. Upewnij się, że nowe konto użytkownika ma uprawnienia administratora globalnego dla organizacji usługi Azure AD.
 4. Otwórz kartę **domeny** w centrum administracyjnym Microsoft 365, wybierz nazwę domeny i wybierz pozycję **Usuń**. 
   
@@ -67,7 +67,7 @@ Po wykonaniu powyższych kroków jesteś teraz administratorem globalnym z czwar
   
 6. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu konta, które jest administratorem globalnym dla organizacji usługi Azure AD.
   
-7. Wybierz opcję **niestandardowe nazwy domen**, a następnie Dodaj nazwę domeny. Musisz wprowadzić rekordy TXT DNS, aby zweryfikować własność nazwy domeny. 
+7. Wybierz opcję **niestandardowe nazwy domen** , a następnie Dodaj nazwę domeny. Musisz wprowadzić rekordy TXT DNS, aby zweryfikować własność nazwy domeny. 
   
    ![domena została zweryfikowana jako dodana do usługi Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
@@ -100,7 +100,7 @@ Obsługiwane plany usługi obejmują:
 
 Przejęcie zewnętrznych administratorów nie jest obsługiwane dla żadnej usługi, która ma plany usług, w tym SharePoint, OneDrive lub Skype dla firm; na przykład za poorednictwem bezpłatnej subskrypcji pakietu Office. 
 
-Opcjonalnie można użyć [opcji **ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) , aby usunąć nazwę domeny z niezarządzanej organizacji i sprawdzić ją w odpowiedniej organizacji. 
+Opcjonalnie można użyć [opcji **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) , aby usunąć nazwę domeny z niezarządzanej organizacji i sprawdzić ją w odpowiedniej organizacji. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Więcej informacji na temat usługi RMS dla użytkowników indywidualnych
 
@@ -174,7 +174,7 @@ Pomyślne wyzwanie powraca do monitu bez błędu.
 * [How to install and configure Azure PowerShell](/powershell/azure/)
 * [Azure PowerShell](/powershell/azure/)
 * [Dokumentacja poleceń cmdlet platformy Azure](/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0&preserve-view=true)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png

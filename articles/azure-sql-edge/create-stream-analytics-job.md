@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4d420bf45cd705f518df0d52929a331d23537184
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896144"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395176"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Tworzenie zadania przesyłania strumieniowego danych w usłudze Azure SQL Edge 
 
@@ -24,13 +24,13 @@ W tym artykule wyjaśniono, jak utworzyć zadanie przesyłania strumieniowego T-
 
 Funkcja przesyłania strumieniowego T-SQL używa funkcji zewnętrznego źródła danych SQL Server, aby zdefiniować źródła danych skojarzone z zewnętrznymi danymi wejściowymi strumienia i wyjściem zadania przesyłania strumieniowego. Użyj następujących poleceń T-SQL, aby utworzyć zewnętrzny obiekt wejściowy lub wyjściowy strumienia:
 
-- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
+- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
-- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
+- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql)
 
 - [Utwórz strumień zewnętrzny (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-Ponadto, jeśli usługa Azure SQL Edge, SQL Server lub Azure SQL Database jest używana jako strumień wyjściowy, konieczne jest [utworzenie poświadczeń o zakresie tworzenia bazy danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). To polecenie T-SQL definiuje poświadczenia dostępu do bazy danych.
+Ponadto, jeśli usługa Azure SQL Edge, SQL Server lub Azure SQL Database jest używana jako strumień wyjściowy, konieczne jest [utworzenie poświadczeń o zakresie tworzenia bazy danych (Transact-SQL)](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). To polecenie T-SQL definiuje poświadczenia dostępu do bazy danych.
 
 ### <a name="supported-input-and-output-stream-data-sources"></a>Obsługiwane źródła danych wejściowych i wyjściowych strumieni
 
@@ -38,7 +38,7 @@ Usługa Azure SQL Edge obecnie obsługuje tylko następujące źródła danych j
 
 | Typ źródła danych | Dane wejściowe | Dane wyjściowe | Opis |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge Hub | Y | Y | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Azure IoT Edge Hub | Y | Y | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
 | Baza danych SQL | N | Y | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
 | Kafka | Y | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Ten adapter jest obecnie dostępny tylko dla wersji Intel lub AMD usługi Azure SQL Edge. Nie jest ona dostępna dla ARM64 wersji usługi Azure SQL Edge.|
 
@@ -103,7 +103,7 @@ Poniższy przykład tworzy obiekt strumienia zewnętrznego w lokalnej bazie dany
 
 3. Utwórz zewnętrzne źródło danych z opcją Utwórz zewnętrzne źródło danych. Poniższy przykład:
 
-    * Tworzy zewnętrzne źródło danych o nazwie *LocalSQLOutput* .
+    * Tworzy zewnętrzne źródło danych o nazwie *LocalSQLOutput*.
     * Identyfikuje zewnętrzne źródło danych (LOCATION = " <vendor> :// <server> [: <port> ]"). W tym przykładzie wskazuje lokalne wystąpienie usługi Azure SQL Edge.
     * Używa wcześniej utworzonego poświadczenia.
 
@@ -117,7 +117,7 @@ Poniższy przykład tworzy obiekt strumienia zewnętrznego w lokalnej bazie dany
     go
     ```
 
-4. Utwórz obiekt strumienia zewnętrznego. Poniższy przykład tworzy obiekt strumienia zewnętrznego wskazujący na tabelę *dbo. TemperatureMeasurements* , w bazie danych *MySQLDatabase* .
+4. Utwórz obiekt strumienia zewnętrznego. Poniższy przykład tworzy obiekt strumienia zewnętrznego wskazujący na tabelę *dbo. TemperatureMeasurements* , w bazie danych *MySQLDatabase*.
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -173,7 +173,7 @@ Poniższy przykład tworzy obiekt strumienia zewnętrznego w lokalnej bazie dany
 Użyj `sys.sp_create_streaming_job` systemowej procedury składowanej, aby zdefiniować zapytania przesyłania strumieniowego i utworzyć zadanie przesyłania strumieniowego. `sp_create_streaming_job`Procedura składowana przyjmuje następujące parametry:
 
 - `job_name`: Nazwa zadania przesyłania strumieniowego. Nazwy zadań przesyłania strumieniowego są unikatowe w ramach wystąpienia.
-- `statement`: [Stream Analytics kwerendy](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?)przesyłania strumieniowego oparte na języku zapytań.
+- `statement`: [Stream Analytics kwerendy](/stream-analytics-query/stream-analytics-query-language-reference)przesyłania strumieniowego oparte na języku zapytań.
 
 Poniższy przykład tworzy proste zadanie przesyłania strumieniowego z jednym zapytaniem przesyłania strumieniowego. To zapytanie odczytuje dane wejściowe z Centrum IoT Edge i zapisuje je `dbo.TemperatureMeasurements` w bazie danych.
 

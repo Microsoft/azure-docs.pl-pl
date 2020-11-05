@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5830cedfdce54c4cd91eb60a5cd2145309e965b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5659ce5fa6f99463f58a33662563d768248fd8cb
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904115"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394904"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Samouczek: synchronizacja danych z programu SQL Edge do Azure SQL Database przy użyciu SQL Data Sync
 
@@ -55,7 +55,7 @@ Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz następujące art
 
 * [Najlepsze rozwiązania](../azure-sql/database/sql-data-sync-best-practices.md) i [Rozwiązywanie problemów z usługą Azure SQL Data Sync](../azure-sql/database/sql-data-sync-troubleshoot.md)
 
-* [Monitorowanie SQL Data Sync przy użyciu dzienników Azure Monitor](../azure-sql/database/sql-data-sync-monitor-sync.md)
+* [Monitorowanie SQL Data Sync przy użyciu dzienników Azure Monitor](../azure-sql/database/monitor-tune-overview.md)
 
 * [Aktualizowanie schematu synchronizacji przy użyciu języka Transact-SQL](../azure-sql/database/sql-data-sync-update-sync-schema.md) lub [programu PowerShell](../azure-sql/database/scripts/update-sync-schema-in-sync-group.md)
 

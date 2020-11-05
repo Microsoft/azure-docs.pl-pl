@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.author: punagpal
-ms.openlocfilehash: 3b6db74d637ac17ef5d09e1d9c5d3dac30ba8ba9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594377"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394513"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Szybki Start: wdrażanie łącznika usługi Azure IoT for FHIR (wersja zapoznawcza) przy użyciu Azure Portal
 
@@ -163,16 +163,16 @@ Zachowaj te parametry połączenia, aby można było ich użyć w późniejszym 
 
 Platforma Azure oferuje rozbudowany pakiet produktów IoT do łączenia urządzeń IoT i zarządzania nimi. Możesz utworzyć własne rozwiązanie na podstawie PaaS przy użyciu usługi Azure IoT Hub lub zacząć od platformy zarządzania aplikacjami IoT za pomocą usługi Azure IoT Central. W tym samouczku będziemy korzystać z usługi Azure IoT Central, która ma szablony rozwiązań ukierunkowanych na branżę, które ułatwią rozpoczęcie pracy.
 
-Wdróż [szablon aplikacji do monitorowania ciągłego pacjenta](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template). Ten szablon obejmuje dwa symulowane urządzenia generujące dane czasu rzeczywistego, które ułatwiają rozpoczęcie pracy: **inteligentne znaczenie poprawek** i **inteligentnych nawiasów kolanowych**.
+Wdróż [szablon aplikacji do monitorowania ciągłego pacjenta](../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-an-application-template). Ten szablon obejmuje dwa symulowane urządzenia generujące dane czasu rzeczywistego, które ułatwiają rozpoczęcie pracy: **inteligentne znaczenie poprawek** i **inteligentnych nawiasów kolanowych**.
 
 > [!NOTE]
-> Za każdym razem, gdy prawdziwe urządzenia są gotowe, możesz użyć tej samej IoT Central aplikacji do dołączenia [urządzeń](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) i zamienić symulatory urządzeń. Dane urządzenia zostaną automatycznie uruchomione i przepływają do FHIR. 
+> Za każdym razem, gdy prawdziwe urządzenia są gotowe, możesz użyć tej samej IoT Central aplikacji do dołączenia [urządzeń](../iot-central/core/howto-set-up-template.md) i zamienić symulatory urządzeń. Dane urządzenia zostaną automatycznie uruchomione i przepływają do FHIR. 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Łączenie danych IoT z łącznikiem usługi Azure IoT dla FHIR (wersja zapoznawcza)
 > [!WARNING]
 > Szablon mapowania urządzeń podany w tym przewodniku został zaprojektowany z założeniami, aby można było korzystać z eksportu danych (starsza wersja) w IoT Central.
 
-Po wdrożeniu aplikacji IoT Central Twoje dwa wbudowane urządzenia symulowane rozpoczną generowanie danych telemetrycznych. Na potrzeby tego samouczka będziemy pozyskiwać dane telemetryczne z inteligentnych funkcji symulatora *poprawek* do FHIR za pośrednictwem łącznika usługi Azure IoT dla FHIR. Aby wyeksportować dane IoT do łącznika usługi Azure IoT dla programu FHIR, należy [skonfigurować ciągły eksport danych w ramach IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-legacy). Na stronie Eksport danych ciągłych:
+Po wdrożeniu aplikacji IoT Central Twoje dwa wbudowane urządzenia symulowane rozpoczną generowanie danych telemetrycznych. Na potrzeby tego samouczka będziemy pozyskiwać dane telemetryczne z inteligentnych funkcji symulatora *poprawek* do FHIR za pośrednictwem łącznika usługi Azure IoT dla FHIR. Aby wyeksportować dane IoT do łącznika usługi Azure IoT dla programu FHIR, należy [skonfigurować ciągły eksport danych w ramach IoT Central](../iot-central/core/howto-export-data-legacy.md). Na stronie Eksport danych ciągłych:
 - Wybierz pozycję *Azure Event Hubs* jako miejsce docelowe eksportowania.
 - Zaznacz pole wyboru *Użyj wartości parametrów połączenia* dla **Event Hubs przestrzeni nazw** .
 - Udostępnij łącznik usługi Azure IoT dla parametrów połączenia FHIR uzyskanych w poprzednim kroku dla pola **Parametry połączenia** .

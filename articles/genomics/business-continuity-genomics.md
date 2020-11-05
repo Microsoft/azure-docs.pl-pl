@@ -10,12 +10,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 04/06/2018
-ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3097041c96f70dda384f0b116bbbc9bc9130be4d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72249175"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395754"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Przegląd ciągłości działania z Microsoft Genomics
 Ten przegląd zawiera opis możliwości, które Microsoft Genomics zapewnia ciągłość działania i odzyskiwanie po awarii. Informacje o opcjach odzyskiwania zdarzeń powodujących zakłócenia, takich jak awaria regionu platformy Azure, które mogą spowodować utratę danych. 
@@ -43,7 +43,7 @@ Po przywróceniu oryginalnego regionu usługa Microsoft Genomics nie migruje dan
 Jeśli chodzi o szybsze odzyskiwanie w przypadku awarii centrum danych, istnieje kilka kroków, które można wykonać, aby skrócić czas, w którym trzeba ręcznie ponownie przesłać przepływy pracy Microsoft Genomics do regionu pomocniczego:
 
 * Identyfikowanie odpowiedniego regionu pomocniczego i zaawansowanego tworzenia konta genomiki w tym regionie
-* Duplikuj dane w regionie podstawowym i pomocniczym, aby dane były natychmiast dostępne w regionie pomocniczym. Można to zrobić ręcznie lub za pomocą funkcji [magazynu geograficznie nadmiarowego](https://docs.microsoft.com/azure/storage/common/storage-redundancy) dostępnej w usłudze Azure Storage. 
+* Duplikuj dane w regionie podstawowym i pomocniczym, aby dane były natychmiast dostępne w regionie pomocniczym. Można to zrobić ręcznie lub za pomocą funkcji [magazynu geograficznie nadmiarowego](../storage/common/storage-redundancy.md) dostępnej w usłudze Azure Storage. 
 
 ## <a name="next-steps"></a>Następne kroki
-Ten artykuł zawiera informacje o opcjach zapewniania ciągłości działalności biznesowej i odzyskiwania po awarii podczas korzystania z usługi Microsoft Genomics. Aby uzyskać więcej informacji na temat ciągłości działania i odzyskiwania po awarii na platformie Azure, zobacz [Wskazówki techniczne dotyczące odporności na platformie Azure.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region) 
+Ten artykuł zawiera informacje o opcjach zapewniania ciągłości działalności biznesowej i odzyskiwania po awarii podczas korzystania z usługi Microsoft Genomics. Aby uzyskać więcej informacji na temat ciągłości działania i odzyskiwania po awarii na platformie Azure, zobacz [Wskazówki techniczne dotyczące odporności na platformie Azure.](/azure/architecture/resiliency/recovery-loss-azure-region)

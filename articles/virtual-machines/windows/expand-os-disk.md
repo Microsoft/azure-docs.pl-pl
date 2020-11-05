@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3908e5f4b7b246fe1c74e5ac4d20053242ece9f6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: df27d7b25010fa68fc86ffe093318b2b0b7f4e96
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927689"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393833"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Sposób rozszerzania dysku systemu operacyjnego maszyny wirtualnej
 
@@ -39,18 +39,18 @@ Podczas tworzenia nowej maszyny wirtualnej w grupie zasobów przez wdrożenie ob
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Zmień rozmiar dysku zarządzanego w Azure Portal
 
 1. W [Azure Portal](https://portal.azure.com)przejdź do maszyny wirtualnej, w której chcesz rozszerzyć dysk. Wybierz pozycję **Zatrzymaj** , aby cofnąć przydział maszyny wirtualnej.
-2. Po zatrzymaniu maszyny wirtualnej w menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **dyski** .
+2. Po zatrzymaniu maszyny wirtualnej w menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **dyski**.
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Zrzut ekranu przedstawiający opcję dyski wybraną w sekcji Ustawienia w menu.":::
 
  
 3. W obszarze **Nazwa dysku** wybierz dysk, którego rozmiar chcesz zmienić.
 
-    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Zrzut ekranu przedstawiający opcję dyski wybraną w sekcji Ustawienia w menu.":::
+    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Zrzut ekranu przedstawiający okienko dyski z wybraną nazwą dysku.":::
 
-4. W menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **Konfiguracja** .
+4. W menu po lewej stronie w obszarze **Ustawienia** wybierz pozycję **Konfiguracja**.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Zrzut ekranu przedstawiający opcję dyski wybraną w sekcji Ustawienia w menu.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Zrzut ekranu pokazujący opcję konfiguracji wybraną w sekcji Ustawienia w menu.":::
 
 5. W polu **rozmiar (GIB)** wybierz żądany rozmiar dysku.
    
@@ -58,11 +58,11 @@ Podczas tworzenia nowej maszyny wirtualnej w grupie zasobów przez wdrożenie ob
    > Nowy rozmiar powinien być większy niż istniejący rozmiar dysku. Maksymalna dozwolona liczba dysków systemu operacyjnego to 2 048 GB. (Istnieje możliwość rozszerzenia obiektu BLOB dysku VHD poza ten rozmiar, ale system operacyjny działa tylko z pierwszym 2 048 GB miejsca).
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Zrzut ekranu przedstawiający opcję dyski wybraną w sekcji Ustawienia w menu.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Zrzut ekranu pokazujący okienko konfiguracji z wybranym rozmiarem dysku.":::
 
-6. Wybierz pozycję **Zapisz** .
+6. Wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Zrzut ekranu przedstawiający opcję dyski wybraną w sekcji Ustawienia w menu.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Zrzut ekranu pokazujący okienko konfiguracji z wybranym przyciskiem Zapisz.":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>Zmiana rozmiaru dysku zarządzanego przy użyciu programu PowerShell
@@ -226,16 +226,16 @@ Analogicznie można odwoływać się do innych dysków z danymi dołączonych do
 **Dysk niezarządzany**
 
 ```powershell
-($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
+($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).DiskSizeGB = 1023
 ```
 
 ## <a name="expand-the-volume-within-the-os"></a>Rozwiń wolumin w systemie operacyjnym
 
-Po rozwinięciu dysku dla maszyny wirtualnej należy przejść do systemu operacyjnego i rozwinąć wolumin, aby obejmował nowe miejsce. Istnieje kilka metod rozszerzania partycji. Ta sekcja obejmuje łączenie maszyny wirtualnej przy użyciu połączenia RDP w celu rozszerzenia partycji za pomocą **narzędzia DiskPart** .
+Po rozwinięciu dysku dla maszyny wirtualnej należy przejść do systemu operacyjnego i rozwinąć wolumin, aby obejmował nowe miejsce. Istnieje kilka metod rozszerzania partycji. Ta sekcja obejmuje łączenie maszyny wirtualnej przy użyciu połączenia RDP w celu rozszerzenia partycji za pomocą **narzędzia DiskPart**.
 
 1. Otwórz połączenie RDP z maszyną wirtualną.
 
-2. Otwórz wiersz polecenia i wpisz **diskpart** .
+2. Otwórz wiersz polecenia i wpisz **diskpart**.
 
 3. W wierszu polecenia **narzędzia DiskPart** wpisz polecenie `list volume` . Zanotuj wolumin, który chcesz zwiększyć.
 

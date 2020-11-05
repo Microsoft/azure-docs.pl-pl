@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558520"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394224"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z usługą Azure IoT Connector for FHIR (wersja zapoznawcza)
 
@@ -56,7 +56,7 @@ W tej sekcji dowiesz się, jak proces sprawdzania poprawności, który usługa A
 
 ## <a name="error-messages-and-fixes-for-azure-iot-connector-for-fhir-preview"></a>Komunikaty o błędach i poprawki dla łącznika usługi Azure IoT dla FHIR (wersja zapoznawcza)
 
-|Wiadomość|Stawia|Warunek|Wprowadzanie poprawek| 
+|Komunikat|Stawia|Warunek|Wprowadzanie poprawek| 
 |-------|---------|---------|---|
 |Nieprawidłowa nazwa mapowania; nazwa mapowania powinna mieć nazwę Device lub FHIR.|Interfejs API|Podany typ mapowania nie jest urządzeniem ani FHIR.|Użyj jednego z dwóch obsługiwanych typów mapowania (na przykład: Device lub FHIR).|
 |Walidacja nie powiodła się. Brak wymaganych informacji lub są one nieprawidłowe.|Interfejs API i Azure Portal|Podjęto próbę zapisania w mapowaniu konwersji braku potrzebnych informacji lub elementu.|Dodaj brakujące informacje lub element mapowania konwersji i spróbuj ponownie zapisać mapowanie konwersji.|
@@ -91,7 +91,7 @@ Podczas otwierania biletu pomocy technicznej w celu ułatwienia rozwiązywania p
 > KOD JSON jest jedynym obsługiwanym formatem plików mapowania urządzeń i FHIR.
 
 > [!TIP]
-> Dowiedz się więcej o łączniku usługi Azure IoT dla [urządzeń FHIR i pliku JSON mapowania konwersji FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
+> Dowiedz się więcej o łączniku usługi Azure IoT dla [urządzeń FHIR i pliku JSON mapowania konwersji FHIR](./iot-mapping-templates.md)
 
 1. Wybierz pozycję **"IoT Connector (wersja zapoznawcza)"** w lewej dolnej części pulpitu nawigacyjnego zasobów usługi Azure API for FHIR w sekcji **"Dodatki"** .
 
@@ -99,18 +99,18 @@ Podczas otwierania biletu pomocy technicznej w celu ułatwienia rozwiązywania p
 
 2. Wybierz **"łącznik"** , z którego będzie KOPIOWANY kod JSON mapowania konwersji.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > Ten proces może również służyć do kopiowania i zapisywania zawartości JSON **"Konfigurowanie mapowania FHIR"** .
 
-3. Wybierz pozycję **"Konfiguruj mapowanie urządzenia"** .
+3. Wybierz pozycję **"Konfiguruj mapowanie urządzenia"**.
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Wybierz zawartość JSON i wykonaj operację kopiowania (na przykład: wybierz CTRL + c). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Wykonaj operację wklejania (na przykład: wybierz kombinację klawiszy CTRL + v) do nowego pliku w edytorze (na przykład: Visual Studio Code, Notatnik) i Zapisz plik z rozszerzeniem *. JSON.
 

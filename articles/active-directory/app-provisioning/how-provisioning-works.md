@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/20/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 31c9dcaf6c6f26d28d70e3d1664665c2dbc37ce6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424641"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393085"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
@@ -43,9 +43,7 @@ Aby zażądać automatycznego łącznika aprowizacji usługi Azure AD dla aplika
 
 ## <a name="authorization"></a>Autoryzacja
 
-Poświadczenia są wymagane do nawiązania połączenia z interfejsem API zarządzania użytkownikami aplikacji za pomocą usługi Azure AD. Podczas konfigurowania automatycznej aprowizacji użytkowników dla aplikacji należy wprowadzić prawidłowe poświadczenia. Typy poświadczeń i wymagania dotyczące aplikacji można znaleźć, odwołując się do samouczka dotyczącego aplikacji. W Azure Portal będziesz mieć możliwość przetestowania poświadczeń, ponieważ usługa Azure AD podejmie próbę nawiązania połączenia z aplikacją aprowizacji aplikacji przy użyciu podanych poświadczeń.
-
-W przypadku skonfigurowania logowania jednokrotnego opartego na protokole SAML dla aplikacji w usłudze Azure AD obowiązuje limit magazynu dla każdej aplikacji — 1024 bajtów. Ten limit obejmuje wszystkie certyfikaty, tokeny tajne, poświadczenia i powiązane dane konfiguracji skojarzone z pojedynczym wystąpieniem aplikacji (nazywanego również rekordem głównym usługi w usłudze Azure AD). W przypadku skonfigurowania logowania jednokrotnego opartego na protokole SAML certyfikat używany do podpisywania tokenów SAML często zużywa ponad 50% procent miejsca. Wszelkie dodatkowe elementy (tokeny tajne, identyfikatory URI, adresy e-mail powiadomień, nazwy użytkowników i hasła) wprowadzane podczas konfigurowania aprowizacji użytkownika mogą przekroczyć limit magazynu. Aby uzyskać więcej informacji, zobacz [problem podczas zapisywania poświadczeń administratora podczas konfigurowania aprowizacji użytkowników](./application-provisioning-config-problem-storage-limit.md).
+Poświadczenia są wymagane do nawiązania połączenia z interfejsem API zarządzania użytkownikami aplikacji za pomocą usługi Azure AD. Podczas konfigurowania automatycznej aprowizacji użytkowników dla aplikacji należy wprowadzić prawidłowe poświadczenia. W przypadku aplikacji galerii można znaleźć typy poświadczeń i wymagania dotyczące aplikacji, odwołując się do samouczka dotyczącego aplikacji. W przypadku aplikacji innych niż Galeria można zapoznać się z dokumentacją [Standard scim](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery) , aby poznać typy poświadczeń i wymagania. W Azure Portal będziesz mieć możliwość przetestowania poświadczeń, ponieważ usługa Azure AD podejmie próbę nawiązania połączenia z aplikacją aprowizacji aplikacji przy użyciu podanych poświadczeń.
 
 ## <a name="mapping-attributes"></a>Mapowanie atrybutów
 
@@ -53,7 +51,7 @@ Po włączeniu aprowizacji użytkowników dla aplikacji SaaS innej firmy Azure P
 
 Istnieje wstępnie skonfigurowany zestaw atrybutów i mapowań atrybutów między obiektami użytkowników usługi Azure AD i obiektami użytkownika aplikacji SaaS. Niektóre aplikacje zarządzają innymi typami obiektów razem z użytkownikami, takimi jak grupy.
 
-Podczas konfigurowania aprowizacji należy przejrzeć i skonfigurować mapowania atrybutów i przepływy pracy, które definiują, które właściwości użytkownika (lub grupy) będą przepływać z usługi Azure AD do aplikacji. Przejrzyj i skonfiguruj pasującą Właściwość (**Dopasuj obiekty korzystające z tego atrybutu**), która jest używana do unikatowego identyfikowania i dopasowywania użytkowników/grup między tymi dwoma systemami.
+Podczas konfigurowania aprowizacji należy przejrzeć i skonfigurować mapowania atrybutów i przepływy pracy, które definiują, które właściwości użytkownika (lub grupy) będą przepływać z usługi Azure AD do aplikacji. Przejrzyj i skonfiguruj pasującą Właściwość ( **Dopasuj obiekty korzystające z tego atrybutu** ), która jest używana do unikatowego identyfikowania i dopasowywania użytkowników/grup między tymi dwoma systemami.
 
 Domyślne mapowania atrybutów można dostosować zgodnie z potrzebami biznesowymi. W związku z tym można zmienić lub usunąć istniejące mapowania atrybutów lub utworzyć nowe mapowania atrybutów. Aby uzyskać szczegółowe informacje, zobacz [Dostosowywanie mapowania atrybutu aprowizacji użytkowników dla aplikacji SaaS](./customize-application-attributes.md).
 
@@ -64,7 +62,7 @@ Podczas konfigurowania aprowizacji do aplikacji SaaS, jeden z typów mapowań at
 
 W przypadku inicjowania obsługi ruchu wychodzącego z usługi Azure AD do aplikacji SaaS poleganie na [przypisaniach użytkowników lub grup](../manage-apps/assign-user-or-group-access-portal.md) jest najczęstszym sposobem ustalenia, którzy użytkownicy znajdują się w zakresie aprowizacji. Ponieważ przypisania użytkownika są również używane do włączania logowania jednokrotnego, ta sama metoda może służyć do zarządzania dostępem i aprowizacji. Określanie zakresu opartego na przypisaniach nie ma zastosowania do scenariuszy inicjowania obsługi ruchu przychodzącego, takich jak Workday i SuccessFactors.
 
-* **Grupowania.** Za pomocą planu licencjonowania Azure AD — wersja Premium można używać grup do przypisywania dostępu do aplikacji SaaS. Następnie, gdy zakres aprowizacji jest ustawiony do **synchronizowania tylko przypisanych użytkowników i grup**, usługa aprowizacji usługi Azure AD będzie inicjować lub cofać obsługę administracyjną użytkowników w zależności od tego, czy są członkami grupy przypisanej do aplikacji. Sam obiekt grupy nie jest inicjowany, chyba że aplikacja obsługuje obiekty grup. Upewnij się, że grupy przypisane do aplikacji mają właściwość "SecurityEnabled" ustawioną na wartość "true".
+* **Grupowania.** Za pomocą planu licencjonowania Azure AD — wersja Premium można używać grup do przypisywania dostępu do aplikacji SaaS. Następnie, gdy zakres aprowizacji jest ustawiony do **synchronizowania tylko przypisanych użytkowników i grup** , usługa aprowizacji usługi Azure AD będzie inicjować lub cofać obsługę administracyjną użytkowników w zależności od tego, czy są członkami grupy przypisanej do aplikacji. Sam obiekt grupy nie jest inicjowany, chyba że aplikacja obsługuje obiekty grup. Upewnij się, że grupy przypisane do aplikacji mają właściwość "SecurityEnabled" ustawioną na wartość "true".
 
 * **Grupy dynamiczne.** Usługa aprowizacji użytkowników w usłudze Azure AD może odczytywać i inicjować użytkowników w [grupach dynamicznych](../enterprise-users/groups-create-rule.md). Pamiętaj o następujących zastrzeżeniach i zaleceniach:
 
@@ -135,7 +133,7 @@ Po początkowym cyklu wszystkie pozostałe cykle będą:
 10. Utrwalaj nowy znak wodny na końcu przyrostowego cyklu, który zapewnia punkt początkowy dla późniejszych cykli przyrostowych.
 
 > [!NOTE]
-> Opcjonalnie można wyłączyć operacje **tworzenia**, **aktualizowania**lub **usuwania** przy użyciu pól wyboru **Akcje obiektu docelowego** w sekcji [mapowania](customize-application-attributes.md) . Logika, w której należy wyłączyć użytkownika podczas aktualizacji, jest również kontrolowana za pośrednictwem mapowania atrybutów z pola, takiego jak "accountEnabled".
+> Opcjonalnie można wyłączyć operacje **tworzenia** , **aktualizowania** lub **usuwania** przy użyciu pól wyboru **Akcje obiektu docelowego** w sekcji [mapowania](customize-application-attributes.md) . Logika, w której należy wyłączyć użytkownika podczas aktualizacji, jest również kontrolowana za pośrednictwem mapowania atrybutów z pola, takiego jak "accountEnabled".
 
 Usługa aprowizacji nadal uruchamia cykliczne cykle przyrostowe, w odstępach czasu zdefiniowanych w [samouczku specyficznym dla każdej aplikacji](../saas-apps/tutorial-list.md). Cykle przyrostowe są kontynuowane do momentu wystąpienia jednego z następujących zdarzeń:
 
@@ -192,7 +190,7 @@ Następujące scenariusze spowodują wyzwolenie wyłączenia lub usunięcia:
 * Użytkownik nie jest przypisany do aplikacji.
 * Użytkownik znajduje się w zakresie poza zakresem (nie przekazuje już filtru określania zakresu).
 
-:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Wyłącz użytkownika" lightbox="./media/how-provisioning-works/delete-user.png":::
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Usuwanie użytkownika" lightbox="./media/how-provisioning-works/delete-user.png":::
 
 Domyślnie usługa aprowizacji usługi Azure AD nie usuwa lub wyłącza użytkowników, którzy wykraczają poza zakres. Jeśli chcesz zastąpić to zachowanie domyślne, możesz ustawić flagę, aby [pominąć usuwanie poza zakresem.](skip-out-of-scope-deletions.md)
 

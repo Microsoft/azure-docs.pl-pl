@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513381"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394870"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Przepływ danych łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
 
@@ -26,7 +26,7 @@ Na powyższym diagramie przedstawiono typowe przepływy danych przy użyciu łą
 Poniżej znajdują się różne etapy, do których dane przechodzą przez łącznik usługi Azure IoT dla FHIR.
 
 ## <a name="ingest"></a>Pozyskiwanie
-Pozyskiwanie to pierwszy etap, w którym dane urządzenia są odbierane do łącznika usługi Azure IoT dla FHIR. Punkt końcowy pozyskiwania danych urządzenia jest hostowany w [centrum zdarzeń platformy Azure](https://docs.microsoft.com/azure/event-hubs/). Platforma Azure Event Hub obsługuje wysoką skalowalność i przepływność z możliwością odbierania i przetwarzania milionów komunikatów na sekundę. Umożliwia on również usłudze Azure IoT Connector FHIR używanie komunikatów asynchronicznie, co eliminuje konieczność, aby urządzenia czekały na przetwarzanie danych na urządzeniu.
+Pozyskiwanie to pierwszy etap, w którym dane urządzenia są odbierane do łącznika usługi Azure IoT dla FHIR. Punkt końcowy pozyskiwania danych urządzenia jest hostowany w [centrum zdarzeń platformy Azure](../event-hubs/index.yml). Platforma Azure Event Hub obsługuje wysoką skalowalność i przepływność z możliwością odbierania i przetwarzania milionów komunikatów na sekundę. Umożliwia on również usłudze Azure IoT Connector FHIR używanie komunikatów asynchronicznie, co eliminuje konieczność, aby urządzenia czekały na przetwarzanie danych na urządzeniu.
 
 > [!NOTE]
 > W tym momencie jedynym obsługiwanym formatem jest format JSON dla danych urządzeń.

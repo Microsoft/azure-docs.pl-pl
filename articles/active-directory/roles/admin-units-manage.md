@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0abffc9bfb1a0c6511af331d1e8dbc10cff455
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: bbe76d21d948525421790f574830da7b3a163216
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026534"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395397"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Zarządzanie jednostkami administracyjnymi w Azure Active Directory
 
@@ -31,9 +31,9 @@ Aby uzyskać bardziej szczegółową kontrolę administracyjną w Azure Active D
 
     a. W Azure Portal przejdź do usługi Azure AD. 
     
-    b. Na liście Aplikacje wybierz pozycję **Eksplorator grafów** .
+    b. Na liście Aplikacje wybierz pozycję **Eksplorator grafów**.
     
-    c. W okienku **uprawnienia** wybierz pozycję **Udziel zgody administratora dla Eksploratora grafów** .
+    c. W okienku **uprawnienia** wybierz pozycję **Udziel zgody administratora dla Eksploratora grafów**.
 
     ![Zrzut ekranu przedstawiający łącze "Udziel zgody administratora na Eksplorator grafów".](./media/admin-units-manage/select-graph-explorer.png)
 
@@ -46,7 +46,7 @@ Jednostkę administracyjną można dodać przy użyciu Azure Portal lub programu
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. W Azure Portal przejdź do usługi Azure AD. Następnie w okienku po lewej stronie wybierz pozycję **jednostki administracyjne** .
+1. W Azure Portal przejdź do usługi Azure AD. Następnie w okienku po lewej stronie wybierz pozycję **jednostki administracyjne**.
 
     ![Zrzut ekranu przedstawiający link "jednostki administracyjne" w usłudze Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
 
@@ -85,9 +85,9 @@ W usłudze Azure AD można usunąć jednostkę administracyjną, która nie jest
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-1. W Azure Portal przejdź do **usługi Azure AD** , a następnie wybierz pozycję **jednostki administracyjne** . 
-1. Wybierz jednostkę administracyjną do usunięcia, a następnie wybierz pozycję **Usuń** . 
-1. Aby potwierdzić, że chcesz usunąć jednostkę administracyjną, wybierz pozycję **tak** . Jednostka administracyjna została usunięta.
+1. W Azure Portal przejdź do **usługi Azure AD** , a następnie wybierz pozycję **jednostki administracyjne**. 
+1. Wybierz jednostkę administracyjną do usunięcia, a następnie wybierz pozycję **Usuń**. 
+1. Aby potwierdzić, że chcesz usunąć jednostkę administracyjną, wybierz pozycję **tak**. Jednostka administracyjna została usunięta.
 
 ![Zrzut ekranu przedstawiający przycisk usuwania jednostki administracyjnej i okno potwierdzenia.](./media/admin-units-manage/select-admin-unit-to-delete.png)
 

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7bee7bede0219f41d9d5e56214a6dc1b94977cb5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 20173c4ba02f53a526167a5a8e22bd0cedc85594
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322735"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393222"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Samouczek: uruchamianie "Hello World!" Skrypt języka Python (część 2 z 4)
 
@@ -138,6 +138,14 @@ Poniżej znajduje się opis sposobu działania skryptu kontroli:
 ## <a name="submit-and-run-your-code-in-the-cloud"></a>Prześlij i Uruchom swój kod w chmurze
 
 Uruchom skrypt kontrolny, który z kolei zostanie uruchomiony w `hello.py` klastrze obliczeniowym utworzonym w [samouczku Instalatora](tutorial-1st-experiment-sdk-setup-local.md).
+
+Pierwsze uruchomienie zajmie 5-10 minut. Dzieje się tak, ponieważ występują następujące sytuacje:
+
+* Obraz platformy Docker jest zbudowany w chmurze
+* Rozmiar klastra obliczeniowego jest zmieniany z 0 na 1 węzeł
+* Obraz platformy Docker zostanie pobrany do obliczenia. 
+
+Kolejne uruchomienia są znacznie szybsze (~ 15 sekund), ponieważ obraz platformy Docker jest buforowany w ramach obliczeń — można to przetestować przez ponowne przesłanie poniższego kodu po zakończeniu pierwszego uruchomienia.
 
 ```bash
 python 03-run-hello.py

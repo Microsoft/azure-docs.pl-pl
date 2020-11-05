@@ -1,58 +1,94 @@
 ---
-title: Uruchom drążenie odzyskiwania po awarii maszyny wirtualnej platformy Azure za pomocą Azure Site Recovery
-description: Dowiedz się, jak uruchomić przechodzenie awaryjne w regionie pomocniczym dla maszyn wirtualnych platformy Azure przy użyciu usługi Azure Site Recovery.
+title: Samouczek przedstawiający przechodzenie do szczegółów odzyskiwania po awarii maszyny wirtualnej platformy Azure przy użyciu Azure Site Recovery
+description: W tym samouczku Uruchom funkcję odzyskiwania po awarii maszyny wirtualnej platformy Azure w innym regionie przy użyciu Site Recovery.
 services: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 11/05/2020
 ms.custom: mvc
-ms.openlocfilehash: b2ce157f0f192135ab0507e4aae4c0a282bda1ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7cd1898f27f3b7255009efb40f6bcc8938dbf9e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76166193"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395654"
 ---
-# <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Uruchom przechodzenie do szczegółów odzyskiwania po awarii do regionu pomocniczego dla maszyn wirtualnych platformy Azure
+# <a name="tutorial-run-a-disaster-recovery-drill-for-azure-vms"></a>Samouczek: uruchamianie przechodzenia do odzyskiwania po awarii dla maszyn wirtualnych platformy Azure
 
-Usługa [Azure Site Recovery](site-recovery-overview.md) przyczynia się do strategii związanej z ciągłością biznesową i odzyskiwaniem po awarii (BCDR, business continuity and disaster recovery) przez zapewnienie niezawodnego działania aplikacji biznesowych i ich dostępności podczas planowanych lub nieplanowanych przestojów. Usługa Site Recovery zarządza odzyskiwaniem po awarii maszyn lokalnych i maszyn wirtualnych platformy Azure, a także organizuje to odzyskiwanie. Obejmuje to replikację, przechodzenie w tryb failover i odzyskiwanie.
-
-W tym samouczku przedstawiono sposób uruchamiania próbnego odzyskiwania po awarii dla maszyn wirtualnych platformy Azure z jednego regionu platformy Azure w innym, wraz z testem trybu failover. Ta próba pozwala zweryfikować strategię replikacji bez utraty danych ani przestoju i nie ma wpływu na środowisko produkcyjne. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Dowiedz się, jak przeprowadzić drążenie awaryjne w innym regionie świadczenia usługi Azure, w przypadku maszyn wirtualnych platformy Azure replikowanych za pomocą [Azure Site Recovery](site-recovery-overview.md). W tym artykule opisano następujące zagadnienia:
 
 > [!div class="checklist"]
-> * Sprawdzanie wymagań wstępnych
-> * Uruchamianie testu trybu failover dla pojedynczej maszyny wirtualnej
+> * Weryfikacja wymagań wstępnych
+> * Sprawdź ustawienia maszyny wirtualnej przed przejściem do szczegółów
+> * Wykonywanie próby przejścia w tryb failover
+> * Wyczyść po przejściu do szczegółów
+
 
 > [!NOTE]
-> Ten samouczek ułatwia przeprowadzenie drążenia awaryjnego z minimalnymi krokami. Aby dowiedzieć się więcej na temat różnych funkcji związanych z przechodzeniem do odzyskiwania po awarii, zobacz dokumentację dotyczącą [replikacji](azure-to-azure-how-to-enable-replication.md)maszyn wirtualnych platformy Azure, [sieci](azure-to-azure-about-networking.md), [automatyzacji](azure-to-azure-powershell.md)lub [rozwiązywania problemów](azure-to-azure-troubleshoot-errors.md).
+> Ten samouczek zawiera minimalne kroki uruchamiania funkcji drążenia odzyskiwania po awarii. Jeśli chcesz wykonać drążenie z pełnym testowaniem infrastruktury, Dowiedz się więcej o [sieci](azure-to-azure-about-networking.md)maszyn wirtualnych platformy Azure, [automatyzacji](azure-to-azure-powershell.md)i [rozwiązywaniu problemów](azure-to-azure-troubleshoot-errors.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed wykonaniem tego samouczka zapoznaj się z następującymi elementami:
+Przed rozpoczęciem tego samouczka musisz włączyć odzyskiwanie awaryjne dla co najmniej jednej maszyny wirtualnej platformy Azure. Aby to zrobić, [Wykonaj pierwszy samouczek](azure-to-azure-tutorial-enable-replication.md) z tej serii.
 
-- Przed uruchomieniem testowego przejścia w tryb failover zalecamy sprawdzenie właściwości maszyny wirtualnej w celu upewnienia się, że jest ona skonfigurowana pod kątem odzyskiwania po awarii. Przejdź do **Operations**  >  **Właściwości odzyskiwania po awarii**operacji maszyny wirtualnej,  >  **Properties** aby wyświetlić właściwości replikacji i trybu failover.
-- **Zalecamy, aby do testowania trybu failover użyć oddzielnej sieci maszyn wirtualnych platformy Azure**, a nie domyślnej sieci skonfigurowanej podczas włączania replikacji.
-- W zależności od konfiguracji sieci źródłowej dla każdej karty sieciowej można określić **podsieć**, **prywatny adres**IP, **publicznych adresów IP**, **sieciową grupę zabezpieczeń**lub **moduł równoważenia obciążenia** w celu dołączenia do każdej karty sieciowej w obszarze Ustawienia testu pracy w trybie failover w **obliczeniach i sieci** przed wykonaniem operacji drążenia odzyskiwania po awarii.
+## <a name="verify-vm-settings"></a>Sprawdź ustawienia maszyny wirtualnej
+
+1. W magazynie > **zreplikowane elementy** wybierz maszynę wirtualną.
+
+    ![Opcja otwierania strony odzyskiwania po awarii we właściwościach maszyny wirtualnej](./media/azure-to-azure-tutorial-dr-drill/vm-settings.png)
+
+2. Na stronie **Przegląd** Sprawdź, czy maszyna wirtualna jest chroniona i w dobrej kondycji.
+3. Po uruchomieniu testowego przejścia w tryb failover wybierz sieć wirtualną platformy Azure w regionie docelowym. Maszyna wirtualna platformy Azure utworzona po przejściu do trybu failover zostanie umieszczona w tej sieci. 
+
+    - W tym samouczku wybieramy istniejącą sieć podczas uruchamiania testowej pracy w trybie failover.
+    - Zalecamy wybranie sieci nieprodukcyjnej do przechodzenia do szczegółów, dzięki czemu adresy IP i składniki sieciowe pozostają dostępne w sieciach produkcyjnych.
+   - Możesz również wstępnie skonfigurować ustawienia sieciowe do użycia na potrzeby testowego przełączania do trybu failover. Szczegółowe ustawienia, które można przypisać dla każdej karty sieciowej, obejmują podsieć, prywatny adres IP, publiczny adres IP, moduł równoważenia obciążenia i sieciową grupę zabezpieczeń. Ta metoda nie jest używana w tym miejscu, ale możesz [zapoznać się z tym artykułem](azure-to-azure-customize-networking.md#customize-failover-and-test-failover-networking-configurations) , aby dowiedzieć się więcej.
+
 
 ## <a name="run-a-test-failover"></a>Wykonywanie próby przejścia w tryb failover
 
-Ten przykład pokazuje, jak używać magazynu Recovery Services do przeprowadzenia testowej pracy w trybie failover.
 
-1. Wybierz magazyn i przejdź do **pozycji chronione elementy**  >  **zreplikowane elementy** i wybierz maszynę wirtualną.
-1. W obszarze **test pracy w trybie failover**wybierz punkt odzyskiwania do użycia w trybie failover:
-   - **Najnowsze**: przetwarza wszystkie dane w Site Recovery i zapewnia najniższy RTO (cel czasu odzyskiwania).
-   - **Najnowszy przetworzony**: wprowadza maszynę wirtualną w tryb failover do najnowszego punktu odzyskiwania przetworzonego przez usługę Site Recovery. Wyświetlana jest sygnatura czasowa. Po wybraniu tej opcji nie ma czasu poświęcanego na przetwarzanie danych, więc zapewnia to niską RTO.
-   - **Najnowszy spójny na poziomie aplikacji**: ta opcja wprowadza wszystkie maszyny wirtualne w tryb failover do najnowszego spójnego na poziomie aplikacji punktu odzyskiwania. Wyświetlana jest sygnatura czasowa.
-   - **Niestandardowa**: przełączenie w tryb failover do określonego punktu odzyskiwania. Element Custom jest dostępny tylko po przełączeniu w tryb failover pojedynczej maszyny wirtualnej, a nie w przypadku pracy w trybie awaryjnym z planem odzyskiwania.
-1. Wybierz docelową sieć wirtualną platformy Azure, z którą maszyny wirtualne platformy Azure w regionie pomocniczym będą się łączyć po przejściu w tryb failover.
+1. Na stronie **Przegląd** wybierz pozycję **test pracy w trybie failover**.
 
-   > [!NOTE]
-   > Jeśli ustawienia testowej pracy w trybie failover są wstępnie skonfigurowane dla zreplikowanego elementu, menu rozwijane służące do wybierania sieci wirtualnej platformy Azure nie jest widoczne.
+    
+    ![Przycisk Test pracy w trybie failover dla zreplikowanego elementu](./media/azure-to-azure-tutorial-dr-drill/test-failover-button.png)
 
-1. Aby rozpocząć pracę w trybie failover, wybierz **przycisk OK**. Aby śledzić postęp z magazynu, przejdź do pozycji **monitorowanie**  >  **Site Recovery zadania** i wybierz zadanie **test pracy w trybie failover** .
-1. Po zakończeniu pracy w trybie failover replika maszyny wirtualnej platformy Azure zostanie wyświetlona w **Virtual Machines**Azure Portal. Upewnij się, że maszyna wirtualna jest uruchomiona, ma właściwy rozmiar i została połączona z odpowiednią siecią.
-1. Aby usunąć maszyny wirtualne, które zostały utworzone podczas testu pracy w trybie failover, wybierz pozycję **Oczyść test pracy w trybie failover** dla zreplikowanego elementu lub planu odzyskiwania. W obszarze **uwagi**Zarejestruj i Zapisz wszelkie obserwacje związane z testem pracy w trybie failover.
+2. W obszarze **test pracy w trybie failover** wybierz punkt odzyskiwania. Maszyna wirtualna platformy Azure w regionie docelowym jest tworzona przy użyciu danych z tego punktu odzyskiwania.
+  
+   - **Ostatnio przetwarzane** : używa najnowszego punktu odzyskiwania przetworzonego przez Site Recovery. Wyświetlana jest sygnatura czasowa. Brak czasu poświęcanego na przetwarzanie danych, więc zapewnia niski cel czasu odzyskiwania (RTO).
+   -  **Najnowsze** : przetwarza wszystkie dane wysyłane do Site Recovery, aby utworzyć punkt odzyskiwania dla każdej maszyny wirtualnej przed przełączeniem jej w tryb failover. Zapewnia najniższy cel punktu odzyskiwania (RPO), ponieważ wszystkie dane są replikowane do Site Recovery podczas wyzwolenia trybu failover.
+   - **Najnowsza spójna dla aplikacji** : Ta opcja powoduje przełączenie maszyny wirtualnej w tryb failover do najnowszego punktu odzyskiwania spójnego z aplikacją. Wyświetlana jest sygnatura czasowa.
+   - **Niestandardowa** : przełączenie w tryb failover do określonego punktu odzyskiwania. Element Custom jest dostępny tylko po przełączeniu w tryb failover pojedynczej maszyny wirtualnej i nie korzysta z planu odzyskiwania.
+
+3. W obszarze **Azure Virtual Network** wybierz sieć docelową, w której chcesz umieścić maszyny wirtualne platformy Azure utworzone po przejściu do trybu failover. Wybierz sieć nieprodukcyjną, jeśli jest to możliwe, a nie sieci, która została utworzona podczas włączania replikacji.
+
+    ![Strona ustawień testu pracy w trybie failover](./media/azure-to-azure-tutorial-dr-drill/test-failover-settings.png)    
+
+4. Aby rozpocząć pracę w trybie failover, wybierz **przycisk OK**.
+5. Monitoruj test pracy w trybie failover w powiadomieniach.
+
+    ![Powiadomienie o ](./media/azure-to-azure-tutorial-dr-drill/notification-start-test-failover.png) powodzeniu powiadomienia o postępie ![](./media/azure-to-azure-tutorial-dr-drill/notification-finish-test-failover.png)     
+
+
+5. Po zakończeniu pracy w trybie failover maszyna wirtualna platformy Azure utworzona w regionie docelowym zostanie wyświetlona w **Virtual Machines** Azure Portal. Upewnij się, że maszyna wirtualna jest uruchomiona o odpowiednim rozmiarze i połączona z wybraną siecią.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+1. Na stronie **podstawowe** wybierz pozycję **Oczyść test pracy w trybie failover**.
+
+    ![Przycisk umożliwiający rozpoczęcie procesu oczyszczania](./media/azure-to-azure-tutorial-dr-drill/select-cleanup.png)
+
+2. W obszarze notatki dotyczące **oczyszczania w trybie failover**  >  **Notes** należy zarejestrować i zapisać wszelkie obserwacje związane z testem pracy w trybie failover. 
+3. Wybierz opcję **testowanie zostało zakończone** , aby usunąć maszyny wirtualne utworzone podczas testu pracy w trybie failover.
+
+    ![Strona z opcjami czyszczenia](./media/azure-to-azure-tutorial-dr-drill/cleanup-failover.png)
+
+4. Monitoruj postęp oczyszczania w powiadomieniach.
+
+    ![](./media/azure-to-azure-tutorial-dr-drill/notification-start-cleanup.png) ![ Powiadomienie o powodzeniu oczyszczania powiadomienia o postępie oczyszczania](./media/azure-to-azure-tutorial-dr-drill/notification-finish-cleanup.png)
 
 ## <a name="next-steps"></a>Następne kroki
+
+W tym samouczku wykonano przechodzenie do szczegółów odzyskiwania po awarii w celu sprawdzenia, czy tryb failover działa zgodnie z oczekiwaniami. Teraz można wypróbować pełną pracę w trybie failover.
 
 > [!div class="nextstepaction"]
 > [Uruchamianie produkcyjnego trybu failover](azure-to-azure-tutorial-failover-failback.md)
