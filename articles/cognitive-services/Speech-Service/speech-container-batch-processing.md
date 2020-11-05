@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 80e0de73bbeae2ee1a79199fde34a3c430959ac8
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425796"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356709"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Zestaw Batch Processing Kit dla kontenerów mowy
 
@@ -25,7 +25,7 @@ Użyj zestawu Batch Processing, aby uzupełnić i skalować obciążenia w konte
 
 Kontener zestawu Batch jest dostępny bezpłatnie w witrynie [GitHub](https://github.com/microsoft/batch-processing-kit) i w usłudze   [Docker Hub](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). [Opłaty są naliczane](speech-container-howto.md#billing) tylko za używane kontenery mowy.
 
-| Cecha  | Opis  |
+| Cechy  | Opis  |
 |---------|---------|
 | Dystrybucja plików audio wsadowych     | Automatyczne wysyłanie dużej liczby plików do lokalnych lub opartych na chmurze punktów końcowych kontenerów mowy. Pliki mogą znajdować się na dowolnym woluminie zgodnym ze standardem POSIX, w tym z systemem plików sieciowych.       |
 | Integracja z zestawem SDK mowy | Przekazuj typowe flagi do zestawu Speech SDK, w tym: n-najlepsze z nich, diarization, język, maskowanie wulgarności.  |
@@ -106,7 +106,7 @@ Zestaw Batch Processing Kit oferuje trzy tryby, przy użyciu `--run-mode` parame
 
 `ONESHOT` Tryb przekształca pojedynczej partii plików audio (z katalogu wejściowego i opcjonalnej listy plików) do folderu wyjściowego.
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Diagram przedstawiający przykładowy przepływ pracy kontenera zestawu Partia zadań.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Diagram przedstawiający pliki przetwarzania kontenerów zestawu wsadowego w trybie OneShot.":::
 
 1. Zdefiniuj punkty końcowe kontenera mowy, które będą używane przez klienta programu Batch w `config.yaml` pliku. 
 2. Umieść pliki audio na potrzeby transkrypcji w katalogu wejściowym.  
@@ -121,7 +121,7 @@ Zestaw Batch Processing Kit oferuje trzy tryby, przy użyciu `--run-mode` parame
 
 `DAEMON` Tryb przekształca istniejące pliki w danym folderze i ciągle przekształca nowe pliki audio w miarę ich dodawania.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Diagram przedstawiający przykładowy przepływ pracy kontenera zestawu Partia zadań.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Diagram przedstawiający pliki przetwarzania kontenerów zestawu partii w trybie demona.":::
 
 1. Zdefiniuj punkty końcowe kontenera mowy, które będą używane przez klienta programu Batch w `config.yaml` pliku. 
 2. Wywołaj kontener w katalogu wejściowym. Klient usługi Batch rozpocznie monitorowanie katalogu dla plików przychodzących. 
@@ -134,7 +134,7 @@ Zestaw Batch Processing Kit oferuje trzy tryby, przy użyciu `--run-mode` parame
 
 `REST` Tryb to tryb serwera interfejsu API, który zapewnia podstawowy zestaw punktów końcowych HTTP na potrzeby przesłania wsadowego plików audio, sprawdzania stanu i długiego sondowania. Włącza również programistyczne użycie przy użyciu rozszerzenia modułu języka Python lub importowania jako modułu podrzędnego.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Diagram przedstawiający przykładowy przepływ pracy kontenera zestawu Partia zadań.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Diagram przedstawiający pliki przetwarzania kontenerów zestawu wsadowego w trybie REST.":::
 
 1. Zdefiniuj punkty końcowe kontenera mowy, które będą używane przez klienta programu Batch w `config.yaml` pliku. 
 2. Wyślij żądanie HTTP do jednego z punktów końcowych serwera interfejsu API. 

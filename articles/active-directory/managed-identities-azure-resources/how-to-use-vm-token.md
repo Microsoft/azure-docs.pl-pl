@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0769366ad56e1b7431dbfa7c95f1256c509d24fa
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266293"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358171"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu uzyskania tokenu dostępu 
 
@@ -64,7 +64,7 @@ Aplikacja kliencka może zażądać tożsamości zarządzanych dla [tokenu dost�
 
 Podstawowy interfejs do uzyskiwania tokenu dostępu jest oparty na REST, dzięki czemu jest dostępny dla dowolnej aplikacji klienckiej uruchomionej na maszynie wirtualnej, która może wykonywać wywołania REST protokołu HTTP. Jest to podobne do modelu programowania usługi Azure AD, z tą różnicą, że klient używa punktu końcowego na maszynie wirtualnej (vs punktu końcowego usługi Azure AD).
 
-Przykładowe żądanie przy użyciu punktu końcowego Instance Metadata Service platformy Azure ( *zalecane)*:
+Przykładowe żądanie przy użyciu punktu końcowego Instance Metadata Service platformy Azure ( *zalecane)* :
 
 ```
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
@@ -81,7 +81,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `client_id` | Obowiązkowe Parametr ciągu zapytania, wskazujący client_id tożsamości zarządzanej, dla której ma być token. Wymagane, jeśli maszyna wirtualna ma wiele zarządzanych tożsamości przypisanych przez użytkownika.|
 | `mi_res_id` | Obowiązkowe Parametr ciągu zapytania, wskazujący mi_res_id (identyfikator zasobu platformy Azure) tożsamości zarządzanej, dla której ma być token. Wymagane, jeśli maszyna wirtualna ma wiele zarządzanych tożsamości przypisanych przez użytkownika. |
 
-Przykładowe żądanie przy użyciu tożsamości zarządzanych dla punktu końcowego rozszerzenia maszyny wirtualnej Azure Resources *(zaplanowane do wycofania w styczniu 2019)*:
+Przykładowe żądanie przy użyciu tożsamości zarządzanych dla punktu końcowego rozszerzenia maszyny wirtualnej Azure Resources *(zaplanowane do wycofania w styczniu 2019)* :
 
 ```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -364,7 +364,7 @@ Jeśli wystąpi błąd, odpowiadająca treść odpowiedzi HTTP zawiera kod JSON 
 
 | Element | Opis |
 | ------- | ----------- |
-| error   | Identyfikator błędu. |
+| Błąd   | Identyfikator błędu. |
 | error_description | Pełny opis błędu. **Opis błędów można zmienić w dowolnym momencie. Nie należy pisać kodu, który oddziałuje na podstawie wartości w opisie błędu.**|
 
 ### <a name="http-response-reference"></a>Odwołanie do odpowiedzi HTTP

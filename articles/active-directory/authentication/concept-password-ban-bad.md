@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd367b337a0f26323411111ea7eb1120bf6d75d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965186"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356590"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminowanie nieprawidłowych haseł przy użyciu ochrony hasłem Azure Active Directory
 
@@ -202,7 +202,7 @@ Spójrzmy nieco inny przykład, aby pokazać, jak dodatkowa złożoność hasła
 > [!IMPORTANT]
 > Algorytm zakazanych haseł, a także globalna lista wykluczonych haseł, można zmienić w dowolnym momencie na platformie Azure na podstawie trwającej analizy zabezpieczeń i badań.
 >
-> W przypadku usługi lokalnego agenta kontrolera domeny w scenariuszach hybrydowych zaktualizowane algorytmy zaczną obowiązywać dopiero po ponownym zainstalowaniu oprogramowania agenta kontrolera domeny.
+> W przypadku usługi lokalnego agenta kontrolera domeny w scenariuszach hybrydowych zaktualizowane algorytmy zaczną obowiązywać dopiero po uaktualnieniu oprogramowania agenta kontrolera domeny.
 
 ## <a name="what-do-users-see"></a>Co widzą użytkownicy
 
@@ -214,8 +214,8 @@ Gdy użytkownik spróbuje zresetować hasło do elementu, który mógłby zosta�
 
 | Użytkownicy | Ochrona hasłem w usłudze Azure AD z listą globalnie zakazanych haseł | Ochrona hasłem w usłudze Azure AD za pomocą niestandardowej listy zablokowanych haseł|
 |-------------------------------------------|---------------------------|---------------------------|
-| Użytkownicy tylko w chmurze                          | Usługa Azure AD — warstwa Bezpłatna             | Azure AD — wersja Premium P1 lub P2 |
-| Użytkownicy zsynchronizowani z AD DS lokalnych | Azure AD — wersja Premium P1 lub P2 | Azure AD — wersja Premium P1 lub P2 |
+| Użytkownicy tylko w chmurze                          | Usługa Azure AD — warstwa Bezpłatna             | Usługa Azure AD — wersja Premium P1 lub P2 |
+| Użytkownicy zsynchronizowani z AD DS lokalnych | Usługa Azure AD — wersja Premium P1 lub P2 | Usługa Azure AD — wersja Premium P1 lub P2 |
 
 > [!NOTE]
 > Użytkownicy AD DS lokalnych, którzy nie są zsynchronizowani z usługą Azure AD, również korzystają z ochrony hasłem usługi Azure AD na podstawie istniejącej licencji dla synchronizowanych użytkowników.

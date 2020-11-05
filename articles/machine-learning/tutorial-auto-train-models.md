@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek regresji: automatyczna ML'
 titleSuffix: Azure Machine Learning
-description: W ramach tego samouczka nauczysz się generować model uczenia maszynowego przy użyciu funkcji automatycznego uczenia maszynowego. Korzystając z usługi Azure Machine Learning, można w sposób zautomatyzowany wykonywać wstępne przetwarzanie danych, wybierać algorytmy i hiperparametry.
+description: Utwórz zautomatyzowany eksperyment uczenia maszynowego, który generuje model regresji na podstawie danych szkoleniowych i ustawień konfiguracji, które zapewniasz.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 731c6c743b103111a699074e10d8ba43a353d8e6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, automl
+ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317998"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358613"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Samouczek: Przewidywanie opłat za taksówkę za pomocą zautomatyzowanego uczenia maszynowego
 

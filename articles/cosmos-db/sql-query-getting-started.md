@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: 7a4b2a778fc3d520c0ce85bed5bec0b49fc14384
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9176205b93519f0afac0c57f5da8593df6673c0f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341913"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356624"
 ---
 # <a name="getting-started-with-sql-queries"></a>Wprowadzenie do zapytań SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,26 +21,35 @@ W Azure Cosmos DB kontach interfejsu API SQL istnieją dwa sposoby odczytywania 
 
 **Odczyty punktów** — można wykonać wyszukiwanie klucza/wartości dla *identyfikatora pojedynczego elementu* i klucza partycji. Kombinacja *identyfikatora elementu* i klucza partycji jest kluczem, a sam element jest wartością. W przypadku dokumentu o 1 KB punkt odczytuje zazwyczaj jednostkę 1 [jednostki żądania](request-units.md) z opóźnieniem poniżej 10 ms. Odczyty punktów zwracają pojedynczy element.
 
-**Zapytania SQL** — możesz wykonywać zapytania dotyczące danych, pisząc zapytania przy użyciu STRUCTURED Query Language (SQL) jako języka zapytań JSON. Zapytania zawsze mają koszt co najmniej 2,3 jednostek żądań i, ogólnie rzecz biorąc, będzie miało większe i więcej zmiennych opóźnień niż odczyty punktów. Zapytania mogą zwracać wiele elementów.
-
-Większość obciążeń mocno odczytanych na Azure Cosmos DB należy używać kombinacji odczytów punktów i zapytań SQL. Jeśli musisz tylko odczytać pojedynczy element, odczyty punktów są tańsze i szybsze niż zapytania. Odczyty punktów nie muszą używać aparatu zapytań do uzyskiwania dostępu do danych i mogą odczytywać dane bezpośrednio. Oczywiście nie jest możliwe, że wszystkie obciążenia wyłącznie odczytują dane przy użyciu odczytów punktów, dlatego obsługa języka SQL jako język zapytań i [indeksowanie schematu niezależny od](index-overview.md) zapewniają bardziej elastyczny sposób uzyskiwania dostępu do danych.
-
-Poniżej przedstawiono kilka przykładów odczytu punktów przy użyciu każdego zestawu SDK:
+Poniżej przedstawiono kilka przykładów **odczytu punktów** przy użyciu każdego zestawu SDK:
 
 - [Zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
 - [Zestaw SDK Java](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [Zestaw SDK dla platformy Node.js](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
 - [Zestaw SDK dla języka Python](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
+**Zapytania SQL** — możesz wykonywać zapytania dotyczące danych, pisząc zapytania przy użyciu STRUCTURED Query Language (SQL) jako języka zapytań JSON. Zapytania zawsze mają koszt co najmniej 2,3 jednostek żądań i, ogólnie rzecz biorąc, będzie miało większe i więcej zmiennych opóźnień niż odczyty punktów. Zapytania mogą zwracać wiele elementów.
+
+Większość obciążeń mocno odczytanych na Azure Cosmos DB należy używać kombinacji odczytów punktów i zapytań SQL. Jeśli musisz tylko odczytać pojedynczy element, odczyty punktów są tańsze i szybsze niż zapytania. Odczyty punktów nie muszą używać aparatu zapytań do uzyskiwania dostępu do danych i mogą odczytywać dane bezpośrednio. Oczywiście nie jest możliwe, że wszystkie obciążenia wyłącznie odczytują dane przy użyciu odczytów punktów, dlatego obsługa języka SQL jako język zapytań i [indeksowanie schematu niezależny od](index-overview.md) zapewniają bardziej elastyczny sposób uzyskiwania dostępu do danych.
+
+Poniżej przedstawiono kilka przykładów wykonywania **zapytań SQL** przy użyciu poszczególnych zestawów SDK:
+
+- [Zestaw SDK platformy .NET](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
+- [Zestaw SDK Java](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
+- [Zestaw SDK dla platformy Node.js](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
+- [Zestaw SDK dla języka Python](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+
 W pozostałej części tego dokumentu pokazano, jak rozpocząć pisanie zapytań SQL w Azure Cosmos DB. Zapytania SQL można uruchamiać za pomocą zestawu SDK lub Azure Portal.
 
 ## <a name="upload-sample-data"></a>Przekazywanie przykładowych danych
 
-Na koncie Cosmos DB interfejsu API SQL Utwórz kontener o nazwie `Families` . Utwórz dwa proste elementy JSON w kontenerze. Większość przykładowych zapytań można uruchomić w dokumentacji zapytania Azure Cosmos DB przy użyciu tego zestawu danych.
+Na koncie Cosmos DB interfejsu API SQL Otwórz [Eksplorator danych](https://docs.microsoft.com/azure/cosmos-db/data-explorer) , aby utworzyć kontener o nazwie `Families` . Po jego utworzeniu Użyj przeglądarki struktury danych, aby znaleźć i otworzyć ją. W `Families` kontenerze zobaczysz opcję znajdującą się `Items` bezpośrednio pod nazwą kontenera. Otwórz tę opcję i zobaczysz przycisk na pasku menu na środku ekranu, aby utworzyć nowy element. Ta funkcja zostanie użyta do utworzenia poniższych elementów JSON.
 
 ### <a name="create-json-items"></a>Tworzenie elementów JSON
 
-Poniższy kod tworzy dwa proste elementy JSON dotyczące rodzin. Proste elementy JSON dla rodzin Andersen i Wakefield obejmują rodzice, dzieci i informacje o rejestracji. Pierwszy element zawiera ciągi, liczby, wartości logiczne, tablice i właściwości zagnieżdżone.
+Następujące 2 elementy JSON są dokumentami dotyczącymi rodzin Andersen i Wakefield. Obejmują one rodzice, dzieci i informacje o rejestracji. 
+
+Pierwszy element zawiera ciągi, liczby, wartości logiczne, tablice i właściwości zagnieżdżone:
 
 ```json
 {
@@ -64,7 +73,7 @@ Poniższy kod tworzy dwa proste elementy JSON dotyczące rodzin. Proste elementy
 }
 ```
 
-Drugi element używa `givenName` i `familyName` zamiast `firstName` i `lastName` .
+Drugi element używa `givenName` i `familyName` zamiast `firstName` i `lastName` :
 
 ```json
 {

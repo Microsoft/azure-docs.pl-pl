@@ -1,18 +1,18 @@
 ---
 title: Modelowanie danych programu Graph dla Azure Cosmos DB API Gremlin
 description: Dowiedz się, jak modelować bazę danych Graph przy użyciu interfejsu API Azure Cosmos DB Gremlin. W tym artykule opisano, kiedy należy używać bazy danych grafu i najlepszych rozwiązań do modelowania jednostek i relacji.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: jasonh
-ms.openlocfilehash: 70cbe3a7dae243105a659e1363a44f17f03758e2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: chrande
+ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129647"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357049"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelowanie danych programu Graph dla Azure Cosmos DB API Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -31,30 +31,30 @@ Proces przedstawiony w tym przewodniku jest oparty na następujących założeni
 Rozwiązanie bazy danych grafu można optymalnie zastosować, jeśli jednostki i relacje w domenie danych mają jedną z następujących cech: 
 
 * Jednostki są **wysoce połączone** poprzez relacje opisowe. Zaletą w tym scenariuszu jest fakt, że relacje są utrwalane w magazynie.
-* Istnieją **relacje cykliczne** lub **jednostki odwołujące się do siebie** . Ten wzorzec jest często wyzwaniem podczas korzystania z baz danych relacyjnych lub dokumentów.
+* Istnieją **relacje cykliczne** lub **jednostki odwołujące się do siebie**. Ten wzorzec jest często wyzwaniem podczas korzystania z baz danych relacyjnych lub dokumentów.
 * Istnieją **dynamicznie rozwijane relacje** między jednostkami. Ten wzorzec jest szczególnie stosowany do danych hierarchicznych lub uporządkowanych według drzewa z wieloma poziomami.
 * Między jednostkami istnieją **relacje wiele-do-wielu** .
-* Istnieją **zarówno wymagania dotyczące zapisu, jak i odczytu dotyczące jednostek i relacji** . 
+* Istnieją **zarówno wymagania dotyczące zapisu, jak i odczytu dotyczące jednostek i relacji**. 
 
-Jeśli powyższe kryteria są spełnione, prawdopodobnie podejście bazy danych grafu będzie zapewniało korzyści wynikające z **złożoności zapytań** , **skalowalności modelu danych** i **wydajności zapytań** .
+Jeśli powyższe kryteria są spełnione, prawdopodobnie podejście bazy danych grafu będzie zapewniało korzyści wynikające z **złożoności zapytań** , **skalowalności modelu danych** i **wydajności zapytań**.
 
 Następnym krokiem jest określenie, czy wykres ma być używany do celów analitycznych czy transakcyjnych. Jeśli wykres jest przeznaczony do użycia w przypadku dużych obciążeń obliczeniowych i przetwarzania danych, warto zbadać [Cosmos DB łącznika Spark](./spark-connector.md) i korzystać z [biblioteki GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Jak używać obiektów grafów
 
-[Standardowy wykres właściwości Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) definiuje dwa typy obiektów **wierzchołków** i **krawędzi** . 
+[Standardowy wykres właściwości Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) definiuje dwa typy obiektów **wierzchołków** i **krawędzi**. 
 
 Poniżej przedstawiono najlepsze rozwiązania dotyczące właściwości w obiektach grafu:
 
 | Obiekt | Właściwość | Typ | Uwagi |
 | --- | --- | --- |  --- |
-| Wierzchołka | ID (Identyfikator) | String | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
-| Wierzchołka | label | String | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
+| Wierzchołka | ID (Identyfikator) | Ciąg | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
+| Wierzchołka | label | Ciąg | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
 | Wierzchołka | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdym wierzchołku. |
 | Wierzchołka | klucz partycji | Ciąg, wartość logiczna, numeryczna | Ta właściwość określa miejsce, w którym będą przechowywane wierzchołki i jej krawędzie wychodzące. Przeczytaj więcej na temat [partycjonowania grafów](graph-partitioning.md). |
-| Microsoft Edge | ID (Identyfikator) | String | Unikatowo wymuszane na partycję. Automatycznie generowana domyślnie. Krawędzie zazwyczaj nie muszą być jednoznacznie pobierane przez identyfikator. |
-| Microsoft Edge | label | String | Ta właściwość służy do definiowania typu relacji, które mają dwa wierzchołki. |
-| Microsoft Edge | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdej krawędzi. |
+| Edge | ID (Identyfikator) | Ciąg | Unikatowo wymuszane na partycję. Automatycznie generowana domyślnie. Krawędzie zazwyczaj nie muszą być jednoznacznie pobierane przez identyfikator. |
+| Edge | label | Ciąg | Ta właściwość służy do definiowania typu relacji, które mają dwa wierzchołki. |
+| Edge | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdej krawędzi. |
 
 > [!NOTE]
 > Krawędzie nie wymagają wartości klucza partycji, ponieważ jej wartość jest przypisywana automatycznie na podstawie wierzchołka źródłowego. Dowiedz się więcej z artykułu [partycjonowania grafów](graph-partitioning.md) .
@@ -68,7 +68,7 @@ Poniżej przedstawiono zestaw wytycznych do podejścia do modelowania danych Azu
 
 ### <a name="modeling-vertices-and-properties"></a>Modelowanie wierzchołków i właściwości 
 
-Pierwszym krokiem dla modelu danych wykresu jest zamapowanie każdej identyfikowanej jednostki na **obiekt wierzchołka** . Mapowanie jeden do jednego wszystkich jednostek na wierzchołki powinno być pierwszym krokiem i może ulec zmianie.
+Pierwszym krokiem dla modelu danych wykresu jest zamapowanie każdej identyfikowanej jednostki na **obiekt wierzchołka**. Mapowanie jeden do jednego wszystkich jednostek na wierzchołki powinno być pierwszym krokiem i może ulec zmianie.
 
 Jednym z typowych Pitfall jest mapowanie właściwości pojedynczej jednostki jako oddzielnych wierzchołków. Rozważmy poniższy przykład, w którym ta sama jednostka jest reprezentowana na dwa różne sposoby:
 
@@ -78,7 +78,7 @@ Jednym z typowych Pitfall jest mapowanie właściwości pojedynczej jednostki ja
 
 * **Wierzchołki osadzone właściwości** : to podejście wykorzystuje listę par klucz-wartość do reprezentowania wszystkich właściwości jednostki w wierzchołku. Ta metoda zapewnia ograniczoną złożoność modelu, która będzie prowadzić do uproszczenia zapytań i bardziej wydajnego przechodzenia.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Model jednostki z wierzchołkami dla właściwości." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagram przedstawia wierzchołek Luis z poprzedniego diagramu z i d, etykietami i właściwościami." border="false":::
 
 > [!NOTE]
 > Powyższe przykłady przedstawiają uproszczony model grafu, aby pokazać tylko porównanie między dwoma sposobami dzielenia właściwości jednostki.
@@ -89,7 +89,7 @@ Istnieją jednak scenariusze, w których odwołanie do właściwości może mie�
 
 ### <a name="relationship-modeling-with-edge-directions"></a>Modelowanie relacji z kierunkami krawędzi
 
-Po modelowaniu wierzchołków można dodać krawędzie, aby zauważyć relacje między nimi. Pierwszy aspekt, który należy ocenić, to **kierunek relacji** . 
+Po modelowaniu wierzchołków można dodać krawędzie, aby zauważyć relacje między nimi. Pierwszy aspekt, który należy ocenić, to **kierunek relacji**. 
 
 Obiekty brzegowe mają domyślny kierunek przechodzenia przy użyciu `out()` `outE()` funkcji or. Użycie tego naturalnego kierunku skutkuje wydajną operacją, ponieważ wszystkie wierzchołki są przechowywane z wychodzącymi krawędziami. 
 
@@ -106,7 +106,7 @@ Korzystanie z opisowych etykiet relacji może poprawić wydajność operacji roz
 * Aby oznaczyć relację, użyj nieogólnych warunków.
 * Skojarz etykietę wierzchołka źródłowego z etykietą wierzchołka docelowego z nazwą relacji.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Model jednostki z wierzchołkami dla właściwości." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Przykłady etykietowania relacji." border="false":::
 
 Im bardziej szczegółowa etykieta, która będzie używana przez przechodzenie do filtrowania krawędzi, tym lepiej. Ta decyzja może mieć znaczny wpływ na koszt zapytań. Koszt zapytania można oszacować w dowolnym momencie [przy użyciu kroku executionProfile](graph-execution-profile.md).
 

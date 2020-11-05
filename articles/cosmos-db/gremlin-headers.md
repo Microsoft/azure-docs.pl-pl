@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/03/2019
-author: jasonwhowell
-ms.author: jasonh
-ms.openlocfilehash: 00394e60ad1cf86bfd75a86a0b6630505c7d7356
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+author: christopheranderson
+ms.author: chrande
+ms.openlocfilehash: 3f5996b281c1985747f754e3796e9fb84f90fdd3
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100392"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356964"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB nagłówki odpowiedzi serwera Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f105acaa4e2801ca6dc8c33b404fdb9f9d65adc8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+adobe-target: true
+ms.openlocfilehash: b42abfda863ed38eb3c29004630f905edef075c4
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633726"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359106"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Tworzenie aplikacji internetowej Node.js na platformie Azure
 
@@ -66,11 +67,11 @@ W tej sekcji wdrażasz aplikację Node.js na platformie Azure przy użyciu VS Co
 
 1. Na pasku działania VS Code Wybierz logo platformy Azure, aby wyświetlić Eksplorator **usługi Azure App Service** . Wybierz pozycję **Zaloguj się do platformy Azure...** i postępuj zgodnie z instrukcjami. (Zobacz [Rozwiązywanie problemów z logowaniem do platformy Azure poniżej w](#troubleshooting-azure-sign-in) przypadku wystąpienia błędów). Po zalogowaniu się w Eksploratorze powinien zostać wyświetlona nazwa subskrypcji platformy Azure.
 
-    ![Logowanie się do platformy Azure](media/quickstart-nodejs/sign-in.png)
+    ![Logowanie do platformy Azure](media/quickstart-nodejs/sign-in.png)
 
 1. W Eksploratorze **usługi Azure App SERVICE** vs Code wybierz ikonę niebieską Strzałka w górę, aby wdrożyć aplikację na platformie Azure. (Możesz również wywołać to samo polecenie w **palecie poleceń** ( **Ctrl** + **SHIFT** + **P** ), wpisując "Deploy to Web App" i wybierając **Azure App Service: Deploy to Web App** ).
 
-    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Zrzut ekranu usługi Azure App Service w VS Code z wybraną ikoną niebieską strzałką.&quot;:::
+    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Zrzut ekranu usługi Azure App Service w VS Code z wybraną ikoną niebieską strzałką.":::
         
 1. Wybierz folder *NodeJS-docs-Hello-World* .
 
@@ -79,7 +80,7 @@ W tej sekcji wdrażasz aplikację Node.js na platformie Azure przy użyciu VS Co
     - Linux: wybierz pozycję **Utwórz nową aplikację sieci Web**
     - System Windows: wybierz pozycję **Utwórz nową aplikację sieci Web... Zaawansowane**
 
-1. Wpisz globalnie unikatową nazwę aplikacji sieci Web, a następnie naciśnij klawisz **Enter** . Nazwa musi być unikatowa w całej platformie Azure i używać tylko znaków alfanumerycznych (&quot;A-Z&quot;, &quot;A-z&quot; i &quot;0-9&quot;) oraz łączników (&quot;-&quot;).
+1. Wpisz globalnie unikatową nazwę aplikacji sieci Web, a następnie naciśnij klawisz **Enter**. Nazwa musi być unikatowa w całej platformie Azure i używać tylko znaków alfanumerycznych ("A-Z", "A-z" i "0-9") oraz łączników ("-").
 
 1. W przypadku określania systemu Linux wybierz wersję Node.js po wyświetleniu monitu. Zalecana jest wersja **LTS** .
 
@@ -96,9 +97,9 @@ W tej sekcji wdrażasz aplikację Node.js na platformie Azure przy użyciu VS Co
 
     ![Monituj o aktualizację konfiguracji na docelowym serwerze z systemem Linux](media/quickstart-nodejs/server-build.png)
 
-1. Wybierz opcję **tak** po wyświetleniu monitu **, aby zawsze wdrażać obszar roboczy &quot;NodeJS-docs-Hello-World&quot; do (nazwa aplikacji) &quot;** . Wybranie pozycji **tak** informuje vs Code, aby automatycznie kierować tę samą aplikację App Service do aplikacji sieci Web z kolejnymi wdrożeniami.
+1. Wybierz opcję **tak** po wyświetleniu monitu **, aby zawsze wdrażać obszar roboczy "NodeJS-docs-Hello-World" do (nazwa aplikacji) "**. Wybranie pozycji **tak** informuje vs Code, aby automatycznie kierować tę samą aplikację App Service do aplikacji sieci Web z kolejnymi wdrożeniami.
 
-1. W przypadku wdrażania w systemie Linux wybierz opcję **Przeglądaj witrynę internetową** w wierszu polecenia, aby wyświetlić świeżo wdrożoną aplikację sieci Web po zakończeniu wdrażania. W przeglądarce powinna być wyświetlana wartość &quot;Hello world!"
+1. W przypadku wdrażania w systemie Linux wybierz opcję **Przeglądaj witrynę internetową** w wierszu polecenia, aby wyświetlić świeżo wdrożoną aplikację sieci Web po zakończeniu wdrażania. W przeglądarce powinna być wyświetlana wartość "Hello world!"
 
 1. W przypadku wdrażania w systemie Windows należy najpierw ustawić numer wersji Node.js dla aplikacji sieci Web:
 
@@ -112,7 +113,7 @@ W tej sekcji wdrażasz aplikację Node.js na platformie Azure przy użyciu VS Co
 
         ![Uruchom ponownie usługę App Service](media/quickstart-nodejs/restart.png)
 
-    1. Kliknij prawym przyciskiem myszy węzeł usługi App Service, a następnie wybierz pozycję **Przeglądaj witrynę sieci Web** .
+    1. Kliknij prawym przyciskiem myszy węzeł usługi App Service, a następnie wybierz pozycję **Przeglądaj witrynę sieci Web**.
 
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
@@ -136,42 +137,14 @@ Zmiany w tej aplikacji można wdrożyć przez wprowadzanie zmian w VS Code, zapi
 
 Możesz wyświetlić dane wyjściowe dziennika (wywołania do `console.log` ) z aplikacji bezpośrednio w oknie danych wyjściowych vs Code.
 
-1. W Eksploratorze **usługi Azure App Service** kliknij prawym przyciskiem myszy węzeł aplikacji, a następnie wybierz polecenie **Uruchom dzienniki przesyłania strumieniowego** .
+1. W Eksploratorze **usługi Azure App Service** kliknij prawym przyciskiem myszy węzeł aplikacji, a następnie wybierz polecenie **Uruchom dzienniki przesyłania strumieniowego**.
 
     ![Uruchom przesyłanie strumieniowe dzienników
 ](media/quickstart-nodejs/view-logs.png)
 
 1. Po wyświetleniu monitu wybierz włączenie rejestrowania i ponownie uruchom aplikację. Po ponownym uruchomieniu aplikacji zostanie otwarte okno dane wyjściowe VS Code z połączeniem ze strumieniem dziennika. 
 
-    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Zrzut ekranu usługi Azure App Service w VS Code z wybraną ikoną niebieską strzałką.&quot;:::
-        
-1. Wybierz folder *NodeJS-docs-Hello-World* .
-
-1. Wybierz opcję tworzenia opartą na systemie operacyjnym, w którym chcesz wdrożyć:
-
-    - Linux: wybierz pozycję **Utwórz nową aplikację sieci Web**
-    - System Windows: wybierz pozycję **Utwórz nową aplikację sieci Web... Zaawansowane**
-
-1. Wpisz globalnie unikatową nazwę aplikacji sieci Web, a następnie naciśnij klawisz **Enter** . Nazwa musi być unikatowa w całej platformie Azure i używać tylko znaków alfanumerycznych (&quot;A-Z&quot;, &quot;A-z&quot; i &quot;0-9&quot;) oraz łączników (&quot;-&quot;).
-
-1. W przypadku określania systemu Linux wybierz wersję Node.js po wyświetleniu monitu. Zalecana jest wersja **LTS** .
-
-1. Jeśli celem jest system Windows, postępuj zgodnie z dodatkowymi monitami:
-    1. Wybierz pozycję **Utwórz nową grupę zasobów** , a następnie wprowadź nazwę grupy zasobów, na przykład `AppServiceQS-rg` .
-    1. Wybierz **system Windows** dla systemu operacyjnego.
-    1. Wybierz pozycję **Utwórz nowy plan App Service** , a następnie wprowadź nazwę planu (na przykład `AppServiceQS-plan` ), a następnie wybierz pozycję **F1 bezpłatnie** dla warstwy cenowej.
-    1. Wybierz pozycję **Pomiń teraz** po wyświetleniu monitu o Application Insights.
-    1. Wybierz region w sąsiedztwie lub blisko zasobów, do których chcesz uzyskać dostęp.
-
-1. Po udzieleniu odpowiedzi na wszystkie monity VS Code pokaże zasoby platformy Azure, które są tworzone dla aplikacji w oknie podręcznym powiadomienia.
-
-    Podczas wdrażania w systemie Linux wybierz opcję **tak** po wyświetleniu monitu, aby zaktualizować konfigurację do uruchomienia `npm install` na docelowym serwerze z systemem Linux.
-
-    ![Monituj o aktualizację konfiguracji na docelowym serwerze z systemem Linux](media/quickstart-nodejs/server-build.png)
-
-1. Wybierz opcję **tak** po wyświetleniu monitu **, aby zawsze wdrażać obszar roboczy &quot;NodeJS-docs-Hello-World&quot; do (nazwa aplikacji) &quot;** . Wybranie pozycji **tak** informuje vs Code, aby automatycznie kierować tę samą aplikację App Service do aplikacji sieci Web z kolejnymi wdrożeniami.
-
-1. W przypadku wdrażania w systemie Linux wybierz opcję **Przeglądaj witrynę internetową** w wierszu polecenia, aby wyświetlić świeżo wdrożoną aplikację sieci Web po zakończeniu wdrażania. W przeglądarce powinna być wyświetlana wartość &quot;Hello world!":::
+    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Zrzut ekranu przedstawiający monit Visual Studio Code o włączenie rejestrowania i ponowne uruchomienie aplikacji z wybranym przyciskiem tak.":::
 
 1. Po kilku sekundach w oknie danych wyjściowych zostanie wyświetlony komunikat z informacją o tym, że masz połączenie z usługą przesyłania strumieniowego dziennika. Można generować więcej działań wyjściowych, odświeżając stronę w przeglądarce.
 
@@ -293,35 +266,16 @@ code .
 
 W Eksploratorze **usługi Azure App Service** wybierz ikonę strzałki w górę, aby wdrożyć aplikację na platformie Azure.
 
-:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Zrzut ekranu usługi Azure App Service w VS Code z wybraną ikoną niebieską strzałką.&quot;:::
-        
-1. Wybierz folder *NodeJS-docs-Hello-World* .
+:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Zrzut ekranu przedstawiający menu Azure App Service w Visual Studio Code z wybraną niebieską strzałką Deploy.":::
 
-1. Wybierz opcję tworzenia opartą na systemie operacyjnym, w którym chcesz wdrożyć:
+> [!TIP]
+> Możesz również wdrożyć z **palety poleceń** (Ctrl + Shift + P), wpisując polecenie "Deploy to Web App" i uruchamiając **Azure App Service: Deploy to Web App** .
 
-    - Linux: wybierz pozycję **Utwórz nową aplikację sieci Web**
-    - System Windows: wybierz pozycję **Utwórz nową aplikację sieci Web... Zaawansowane**
+1. Wybierz katalog, który jest aktualnie otwarty `myExpressApp` .
 
-1. Wpisz globalnie unikatową nazwę aplikacji sieci Web, a następnie naciśnij klawisz **Enter** . Nazwa musi być unikatowa w całej platformie Azure i używać tylko znaków alfanumerycznych (&quot;A-Z&quot;, &quot;A-z&quot; i &quot;0-9&quot;) oraz łączników (&quot;-&quot;).
+1. Wybierz pozycję **Utwórz nową aplikację sieci Web** , która domyślnie wdraża App Service w systemie Linux.
 
-1. W przypadku określania systemu Linux wybierz wersję Node.js po wyświetleniu monitu. Zalecana jest wersja **LTS** .
-
-1. Jeśli celem jest system Windows, postępuj zgodnie z dodatkowymi monitami:
-    1. Wybierz pozycję **Utwórz nową grupę zasobów** , a następnie wprowadź nazwę grupy zasobów, na przykład `AppServiceQS-rg` .
-    1. Wybierz **system Windows** dla systemu operacyjnego.
-    1. Wybierz pozycję **Utwórz nowy plan App Service** , a następnie wprowadź nazwę planu (na przykład `AppServiceQS-plan` ), a następnie wybierz pozycję **F1 bezpłatnie** dla warstwy cenowej.
-    1. Wybierz pozycję **Pomiń teraz** po wyświetleniu monitu o Application Insights.
-    1. Wybierz region w sąsiedztwie lub blisko zasobów, do których chcesz uzyskać dostęp.
-
-1. Po udzieleniu odpowiedzi na wszystkie monity VS Code pokaże zasoby platformy Azure, które są tworzone dla aplikacji w oknie podręcznym powiadomienia.
-
-    Podczas wdrażania w systemie Linux wybierz opcję **tak** po wyświetleniu monitu, aby zaktualizować konfigurację do uruchomienia `npm install` na docelowym serwerze z systemem Linux.
-
-    ![Monituj o aktualizację konfiguracji na docelowym serwerze z systemem Linux](media/quickstart-nodejs/server-build.png)
-
-1. Wybierz opcję **tak** po wyświetleniu monitu **, aby zawsze wdrażać obszar roboczy &quot;NodeJS-docs-Hello-World&quot; do (nazwa aplikacji) &quot;** . Wybranie pozycji **tak** informuje vs Code, aby automatycznie kierować tę samą aplikację App Service do aplikacji sieci Web z kolejnymi wdrożeniami.
-
-1. W przypadku wdrażania w systemie Linux wybierz opcję **Przeglądaj witrynę internetową** w wierszu polecenia, aby wyświetlić świeżo wdrożoną aplikację sieci Web po zakończeniu wdrażania. W przeglądarce powinna być wyświetlana wartość &quot;Hello world!" i "-".
+1. Wpisz globalnie unikatową nazwę aplikacji sieci Web, a następnie naciśnij klawisz ENTER. Prawidłowymi znakami dla nazwy aplikacji są "a-z", "0-9" i "-".
 
 1. Wybierz **wersjęNode.js** , zalecamy LTS.
 
@@ -329,67 +283,11 @@ W Eksploratorze **usługi Azure App Service** wybierz ikonę strzałki w górę,
 
 1. Wybierz opcję **tak** po wyświetleniu monitu, aby zaktualizować konfigurację do uruchomienia `npm install` na serwerze docelowym. Aplikacja zostanie wdrożona.
 
-    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Zrzut ekranu usługi Azure App Service w VS Code z wybraną ikoną niebieską strzałką.&quot;:::
-        
-1. Wybierz folder *NodeJS-docs-Hello-World* .
-
-1. Wybierz opcję tworzenia opartą na systemie operacyjnym, w którym chcesz wdrożyć:
-
-    - Linux: wybierz pozycję **Utwórz nową aplikację sieci Web**
-    - System Windows: wybierz pozycję **Utwórz nową aplikację sieci Web... Zaawansowane**
-
-1. Wpisz globalnie unikatową nazwę aplikacji sieci Web, a następnie naciśnij klawisz **Enter** . Nazwa musi być unikatowa w całej platformie Azure i używać tylko znaków alfanumerycznych (&quot;A-Z&quot;, &quot;A-z&quot; i &quot;0-9&quot;) oraz łączników (&quot;-&quot;).
-
-1. W przypadku określania systemu Linux wybierz wersję Node.js po wyświetleniu monitu. Zalecana jest wersja **LTS** .
-
-1. Jeśli celem jest system Windows, postępuj zgodnie z dodatkowymi monitami:
-    1. Wybierz pozycję **Utwórz nową grupę zasobów** , a następnie wprowadź nazwę grupy zasobów, na przykład `AppServiceQS-rg` .
-    1. Wybierz **system Windows** dla systemu operacyjnego.
-    1. Wybierz pozycję **Utwórz nowy plan App Service** , a następnie wprowadź nazwę planu (na przykład `AppServiceQS-plan` ), a następnie wybierz pozycję **F1 bezpłatnie** dla warstwy cenowej.
-    1. Wybierz pozycję **Pomiń teraz** po wyświetleniu monitu o Application Insights.
-    1. Wybierz region w sąsiedztwie lub blisko zasobów, do których chcesz uzyskać dostęp.
-
-1. Po udzieleniu odpowiedzi na wszystkie monity VS Code pokaże zasoby platformy Azure, które są tworzone dla aplikacji w oknie podręcznym powiadomienia.
-
-    Podczas wdrażania w systemie Linux wybierz opcję **tak** po wyświetleniu monitu, aby zaktualizować konfigurację do uruchomienia `npm install` na docelowym serwerze z systemem Linux.
-
-    ![Monituj o aktualizację konfiguracji na docelowym serwerze z systemem Linux](media/quickstart-nodejs/server-build.png)
-
-1. Wybierz opcję **tak** po wyświetleniu monitu **, aby zawsze wdrażać obszar roboczy &quot;NodeJS-docs-Hello-World&quot; do (nazwa aplikacji) &quot;** . Wybranie pozycji **tak** informuje vs Code, aby automatycznie kierować tę samą aplikację App Service do aplikacji sieci Web z kolejnymi wdrożeniami.
-
-1. W przypadku wdrażania w systemie Linux wybierz opcję **Przeglądaj witrynę internetową** w wierszu polecenia, aby wyświetlić świeżo wdrożoną aplikację sieci Web po zakończeniu wdrażania. W przeglądarce powinna być wyświetlana wartość &quot;Hello world!":::
+    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Zrzut ekranu przedstawiający monit o zaktualizowanie konfiguracji na serwerze docelowym z wybranym przyciskiem tak.":::
 
 1. Po uruchomieniu wdrożenia zostanie wyświetlony monit o zaktualizowanie obszaru roboczego, tak aby późniejsze wdrożenia były automatycznie ukierunkowane na tę samą App Service aplikacji sieci Web. Wybierz opcję **tak** , aby upewnić się, że zmiany zostaną wdrożone w odpowiedniej aplikacji.
 
-    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Zrzut ekranu usługi Azure App Service w VS Code z wybraną ikoną niebieską strzałką.&quot;:::
-        
-1. Wybierz folder *NodeJS-docs-Hello-World* .
-
-1. Wybierz opcję tworzenia opartą na systemie operacyjnym, w którym chcesz wdrożyć:
-
-    - Linux: wybierz pozycję **Utwórz nową aplikację sieci Web**
-    - System Windows: wybierz pozycję **Utwórz nową aplikację sieci Web... Zaawansowane**
-
-1. Wpisz globalnie unikatową nazwę aplikacji sieci Web, a następnie naciśnij klawisz **Enter** . Nazwa musi być unikatowa w całej platformie Azure i używać tylko znaków alfanumerycznych (&quot;A-Z&quot;, &quot;A-z&quot; i &quot;0-9&quot;) oraz łączników (&quot;-&quot;).
-
-1. W przypadku określania systemu Linux wybierz wersję Node.js po wyświetleniu monitu. Zalecana jest wersja **LTS** .
-
-1. Jeśli celem jest system Windows, postępuj zgodnie z dodatkowymi monitami:
-    1. Wybierz pozycję **Utwórz nową grupę zasobów** , a następnie wprowadź nazwę grupy zasobów, na przykład `AppServiceQS-rg` .
-    1. Wybierz **system Windows** dla systemu operacyjnego.
-    1. Wybierz pozycję **Utwórz nowy plan App Service** , a następnie wprowadź nazwę planu (na przykład `AppServiceQS-plan` ), a następnie wybierz pozycję **F1 bezpłatnie** dla warstwy cenowej.
-    1. Wybierz pozycję **Pomiń teraz** po wyświetleniu monitu o Application Insights.
-    1. Wybierz region w sąsiedztwie lub blisko zasobów, do których chcesz uzyskać dostęp.
-
-1. Po udzieleniu odpowiedzi na wszystkie monity VS Code pokaże zasoby platformy Azure, które są tworzone dla aplikacji w oknie podręcznym powiadomienia.
-
-    Podczas wdrażania w systemie Linux wybierz opcję **tak** po wyświetleniu monitu, aby zaktualizować konfigurację do uruchomienia `npm install` na docelowym serwerze z systemem Linux.
-
-    ![Monituj o aktualizację konfiguracji na docelowym serwerze z systemem Linux](media/quickstart-nodejs/server-build.png)
-
-1. Wybierz opcję **tak** po wyświetleniu monitu **, aby zawsze wdrażać obszar roboczy &quot;NodeJS-docs-Hello-World&quot; do (nazwa aplikacji) &quot;** . Wybranie pozycji **tak** informuje vs Code, aby automatycznie kierować tę samą aplikację App Service do aplikacji sieci Web z kolejnymi wdrożeniami.
-
-1. W przypadku wdrażania w systemie Linux wybierz opcję **Przeglądaj witrynę internetową** w wierszu polecenia, aby wyświetlić świeżo wdrożoną aplikację sieci Web po zakończeniu wdrażania. W przeglądarce powinna być wyświetlana wartość &quot;Hello world!":::
+    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Zrzut ekranu przedstawiający monit o zaktualizowanie obszaru roboczego z wybranym przyciskiem tak.":::
 
 > [!TIP]
 > Upewnij się, że aplikacja nasłuchuje na porcie dostarczonym przez zmienną środowiskową portów: `process.env.PORT` .
@@ -413,41 +311,13 @@ Zmiany w tej aplikacji można wdrożyć przy użyciu tego samego procesu i wybie
 
 W tej sekcji dowiesz się, jak wyświetlać dzienniki (lub "ogon") z działającej aplikacji App Service. Wszystkie wywołania `console.log` w aplikacji są wyświetlane w oknie dane wyjściowe w Visual Studio Code.
 
-Znajdź aplikację w Eksploratorze **usługi Azure App Service** , kliknij prawym przyciskiem myszy aplikację, a następnie wybierz polecenie **Wyświetl dzienniki przesyłania strumieniowego** .
+Znajdź aplikację w Eksploratorze **usługi Azure App Service** , kliknij prawym przyciskiem myszy aplikację, a następnie wybierz polecenie **Wyświetl dzienniki przesyłania strumieniowego**.
 
 Zostanie otwarte okno dane wyjściowe VS Code z połączeniem ze strumieniem dziennika.
 
 ![Wyświetlanie dzienników przesyłania strumieniowego](./media/quickstart-nodejs/view-logs.png)
 
-:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Zrzut ekranu usługi Azure App Service w VS Code z wybraną ikoną niebieską strzałką.&quot;:::
-        
-1. Wybierz folder *NodeJS-docs-Hello-World* .
-
-1. Wybierz opcję tworzenia opartą na systemie operacyjnym, w którym chcesz wdrożyć:
-
-    - Linux: wybierz pozycję **Utwórz nową aplikację sieci Web**
-    - System Windows: wybierz pozycję **Utwórz nową aplikację sieci Web... Zaawansowane**
-
-1. Wpisz globalnie unikatową nazwę aplikacji sieci Web, a następnie naciśnij klawisz **Enter** . Nazwa musi być unikatowa w całej platformie Azure i używać tylko znaków alfanumerycznych (&quot;A-Z&quot;, &quot;A-z&quot; i &quot;0-9&quot;) oraz łączników (&quot;-&quot;).
-
-1. W przypadku określania systemu Linux wybierz wersję Node.js po wyświetleniu monitu. Zalecana jest wersja **LTS** .
-
-1. Jeśli celem jest system Windows, postępuj zgodnie z dodatkowymi monitami:
-    1. Wybierz pozycję **Utwórz nową grupę zasobów** , a następnie wprowadź nazwę grupy zasobów, na przykład `AppServiceQS-rg` .
-    1. Wybierz **system Windows** dla systemu operacyjnego.
-    1. Wybierz pozycję **Utwórz nowy plan App Service** , a następnie wprowadź nazwę planu (na przykład `AppServiceQS-plan` ), a następnie wybierz pozycję **F1 bezpłatnie** dla warstwy cenowej.
-    1. Wybierz pozycję **Pomiń teraz** po wyświetleniu monitu o Application Insights.
-    1. Wybierz region w sąsiedztwie lub blisko zasobów, do których chcesz uzyskać dostęp.
-
-1. Po udzieleniu odpowiedzi na wszystkie monity VS Code pokaże zasoby platformy Azure, które są tworzone dla aplikacji w oknie podręcznym powiadomienia.
-
-    Podczas wdrażania w systemie Linux wybierz opcję **tak** po wyświetleniu monitu, aby zaktualizować konfigurację do uruchomienia `npm install` na docelowym serwerze z systemem Linux.
-
-    ![Monituj o aktualizację konfiguracji na docelowym serwerze z systemem Linux](media/quickstart-nodejs/server-build.png)
-
-1. Wybierz opcję **tak** po wyświetleniu monitu **, aby zawsze wdrażać obszar roboczy &quot;NodeJS-docs-Hello-World&quot; do (nazwa aplikacji) &quot;** . Wybranie pozycji **tak** informuje vs Code, aby automatycznie kierować tę samą aplikację App Service do aplikacji sieci Web z kolejnymi wdrożeniami.
-
-1. W przypadku wdrażania w systemie Linux wybierz opcję **Przeglądaj witrynę internetową** w wierszu polecenia, aby wyświetlić świeżo wdrożoną aplikację sieci Web po zakończeniu wdrażania. W przeglądarce powinna być wyświetlana wartość &quot;Hello world!":::
+:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Zrzut ekranu przedstawiający monit VS Code o włączenie rejestrowania plików i ponowne uruchomienie aplikacji sieci Web z wybranym przyciskiem tak.":::
 
 Po kilku sekundach zobaczysz komunikat informujący o tym, że masz połączenie z usługą przesyłania strumieniowego dziennika. Odśwież stronę kilka razy, aby zobaczyć więcej działań.
 

@@ -5,19 +5,20 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: 8f48f31cdaaa555e0a8f6f0fd4756bb61a9f417d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+adobe-target: true
+ms.openlocfilehash: c77465997f74d0f279080a68fd317af0d161127a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741093"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357525"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
 
 W tym przewodniku szybki start wdrożono aplikację sieci Web w języku Python w celu [App Service w systemie Linux](overview.md#app-service-on-linux)— wysoce skalowalna, samoobsługowa usługa hostingu sieci Web na platformie Azure. Za pomocą lokalnego [interfejsu wiersza polecenia platformy Azure (CLI)](/cli/azure/install-azure-cli) na komputerze Mac, Linux lub Windows można wdrożyć przykład za pomocą kolby lub platform Django. Skonfigurowana aplikacja internetowa korzysta z bezpłatnej warstwy App Service, więc nie ponosisz żadnych kosztów w ramach tego artykułu.
 
 > [!TIP]
-> Jeśli wolisz używać Visual Studio Code zamiast tego, postępuj zgodnie z naszymi **[Visual Studio Code App Service przewodnika Szybki Start](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .
+> Jeśli wolisz używać Visual Studio Code zamiast tego, postępuj zgodnie z naszymi **[Visual Studio Code App Service przewodnika Szybki Start](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
 
 ## <a name="set-up-your-initial-environment"></a>Konfigurowanie środowiska początkowego
 
@@ -116,7 +117,7 @@ Przykład zawiera kod specyficzny dla platformy, który Azure App Service rozpoz
     
     Domyślnie na serwerze założono, że moduł wprowadzania aplikacji jest w *App.py* , jak użyty w przykładzie. (Jeśli używasz innej nazwy modułu, ustaw `FLASK_APP` zmienną środowiskową na tę nazwę).
 
-1. Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:5000/` . Aplikacja wyświetla komunikat **Hello, World!** .
+1. Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:5000/` . Aplikacja wyświetla komunikat **Hello, World!**.
 
     ![Uruchamianie przykładowej aplikacji w języku Python lokalnie](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
@@ -138,7 +139,7 @@ Przykład zawiera kod specyficzny dla platformy, który Azure App Service rozpoz
     python manage.py runserver
     ```
 
-1. Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:8000/` . Aplikacja wyświetla komunikat **Hello, World!** .
+1. Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:8000/` . Aplikacja wyświetla komunikat **Hello, World!**.
 
     ![Uruchamianie przykładowej aplikacji w języku Python lokalnie](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
@@ -244,7 +245,7 @@ Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, naciś
 
 ## <a name="manage-the-azure-app"></a>Zarządzanie aplikacją platformy Azure
 
-Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać utworzoną aplikacją. Wyszukaj i wybierz **App Services** .
+Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, aby zarządzać utworzoną aplikacją. Wyszukaj i wybierz **App Services**.
 
 ![Przejdź do App Services w Azure Portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
 

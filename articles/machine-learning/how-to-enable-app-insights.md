@@ -10,13 +10,13 @@ ms.author: larryfr
 author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09eeafa99c14984f74f8807014f646379c7507f0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: 1f02c9b080b87b4fbffcd1870dd139b9d32de0c7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314222"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357675"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorowanie i zbieranie danych z punktów końcowych usługi internetowej ML
 

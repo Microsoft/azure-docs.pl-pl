@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: f1da7149a41ec8dd08e307394cba3e7feabec42a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320717"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357950"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Ponowne generowanie kluczy dostępu do konta magazynu
 
@@ -26,7 +26,8 @@ Dowiedz się, jak zmienić klucze dostępu dla kont usługi Azure Storage używa
 Ze względów bezpieczeństwa może zajść potrzeba zmiany kluczy dostępu dla konta usługi Azure Storage. Po ponownym wygenerowaniu klucza dostępu Azure Machine Learning należy zaktualizować, aby użyć nowego klucza. Azure Machine Learning może korzystać z konta magazynu zarówno dla magazynu modelowego, jak i magazynu danych.
 
 > [!IMPORTANT]
-> Poświadczenia registred z magazynami danych są zapisywane w Azure Key Vault skojarzonych z obszarem roboczym. Jeśli w Key Vault włączono opcję [nietrwałego usuwania](../key-vault/general/soft-delete-overview.md) , pamiętaj, aby postępować zgodnie z tym artykułem dotyczącym aktualizacji poświadczeń. Wyrejestrowanie magazynu danych i ponowne zarejestrowanie go w tej samej nazwie zakończy się niepowodzeniem.
+
+> Poświadczenia zarejestrowane w magazynach danych są zapisywane w Azure Key Vault skojarzonych z obszarem roboczym. Jeśli dla Key Vault włączono opcję [nietrwałego usuwania](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) , ten artykuł zawiera instrukcje dotyczące aktualizowania poświadczeń. Jeśli wyrejestrujesz magazyn danych i spróbujesz ponownie zarejestrować go pod tą samą nazwą, ta akcja zakończy się niepowodzeniem. Zobacz [Włączanie usuwania nietrwałego dla istniejącego magazynu kluczy,]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) aby dowiedzieć się, jak włączyć usuwanie nietrwałe w tym scenariuszu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

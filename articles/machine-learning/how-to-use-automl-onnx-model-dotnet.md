@@ -9,13 +9,13 @@ ms.topic: conceptual
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: how-to
-ms.openlocfilehash: cb4e57cfe8b7494b7d5c38869f83190bff76ef2a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, automl
+ms.openlocfilehash: 4fb147dc5c57c3a98607a025f566fa583bf87460
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305773"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358817"
 ---
 # <a name="make-predictions-with-an-automl-onnx-model-in-net"></a>Tworzenie prognoz z modelem ONNX AutoML w środowisku .NET
 

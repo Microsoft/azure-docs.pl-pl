@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 47cface4efbf38f2cec630745d498db674c936d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4b3256591c0aa2536fd42bcdbb2ef339fc1d5c48
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791957"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356811"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Jak używać uments Azure.Search.Docw aplikacji .NET w języku C#
 
@@ -60,7 +60,7 @@ Zestaw Azure SDK dla platformy .NET jest zgodny z [.NET Standard 2,0](/dotnet/st
 
 ## <a name="example-application"></a>Przykładowa aplikacja
 
-Ten artykuł "Naucz się na przykład", opierając się na przykładowym przykładzie kodu [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/v11) w witrynie GitHub, aby zilustrować podstawowe koncepcje na platformie Azure wyszukiwanie poznawcze — w tym informacje o sposobie tworzenia, ładowania i wykonywania zapytań względem indeksu wyszukiwania.
+Ten artykuł "Naucz się na przykład", opierając się na przykładowym przykładzie kodu [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) w witrynie GitHub, aby zilustrować podstawowe koncepcje na platformie Azure wyszukiwanie poznawcze — w tym informacje o sposobie tworzenia, ładowania i wykonywania zapytań względem indeksu wyszukiwania.
 
 W pozostałej części tego artykułu założono, że nowy indeks o nazwie "Hotele" został wypełniony kilkoma dokumentami z kilkoma zapytaniami, które pasują do wyników.
 

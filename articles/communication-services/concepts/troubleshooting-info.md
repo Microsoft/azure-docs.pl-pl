@@ -8,23 +8,23 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4921078e9e7b5d9de06fbbc9a97dc4a964569e04
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ff3e7fee87661fb89ba930b7368bd54e71ad57bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754749"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357627"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Rozwiązywanie problemów w usłudze Azure Communications Services
 
-Ten dokument pomoże Ci zebrać informacje potrzebne do rozwiązywania problemów z rozwiązaniem usług komunikacyjnych.
+Ten dokument pomoże Ci w rozwiązywaniu problemów, które mogą wystąpić w ramach rozwiązania usług komunikacyjnych. W przypadku rozwiązywania problemów z programem SMS można [włączyć raportowanie dostarczania z Event Grid](../quickstarts/telephony-sms/handle-sms-events.md) , aby przechwycić szczegóły dotyczące dostarczania wiadomości SMS.
 
 ## <a name="getting-help"></a>Uzyskiwanie pomocy
 
 Zachęcamy deweloperów do przesyłania pytań, sugerujenia funkcji i zgłaszania problemów jako problemów w [repozytorium GitHub](https://github.com/Azure/communication)usług komunikacyjnych. Inne fora obejmują:
 
 * [Pytania i odpowiedzi Microsoft](https://docs.microsoft.com/answers/questions/topics/single/101418.html)
-* [Witryna StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
+* [StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
 
 W zależności od [planu pomocy technicznej](https://azure.microsoft.com/support/plans/) dotyczącej subskrypcji platformy Azure możesz przesłać bilet pomocy technicznej bezpośrednio za pomocą [Azure Portal](https://azure.microsoft.com/support/create-ticket/).
 
@@ -33,6 +33,8 @@ Aby pomóc w rozwiązywaniu niektórych typów problemów, może zostać wyświe
 * **Identyfikator MS-CV** : ten identyfikator jest używany do rozwiązywania problemów z wywołaniami i komunikatami. 
 * **Identyfikator wywołania** : ten identyfikator jest używany do identyfikowania wywołań usług komunikacyjnych.
 * **Identyfikator wiadomości SMS** : ten identyfikator jest używany do identyfikowania wiadomości SMS.
+* **Dzienniki wywołań** : te dzienniki zawierają szczegółowe informacje, których można użyć do rozwiązywania problemów z wywoływaniem i siecią.
+
 
 ## <a name="access-your-ms-cv-id"></a>Uzyskaj dostęp do identyfikatora MS-CV
 
@@ -126,6 +128,44 @@ console.log(result); // your message ID will be in the result
 }
 ```
 ---
+
+## <a name="enable-and-access-call-logs"></a>Włączanie i uzyskiwanie dostępu do dzienników wywołań
+
+
+
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Poniższy kod może służyć do konfigurowania `AzureLogger` programu w celu wysyłania dzienników do konsoli przy użyciu biblioteki klienckiej języka JavaScript:
+
+```javascript
+import { AzureLogger } from '@azure/logger'; 
+
+AzureLogger.verbose = (...args) => { console.info(...args); } 
+AzureLogger.info = (...args) => { console.info(...args); } 
+AzureLogger.warning = (...args) => { console.info(...args); } 
+AzureLogger.error = (...args) => { console.info(...args); } 
+
+callClient = new CallClient({logger: AzureLogger}); 
+```
+
+# <a name="ios"></a>[iOS](#tab/ios)
+
+Podczas tworzenia aplikacji dla systemu iOS dzienniki są przechowywane w `.blog` plikach. Należy pamiętać, że nie można wyświetlić dzienników bezpośrednio, ponieważ są one zaszyfrowane.
+
+Dostęp do nich można uzyskać, otwierając Xcode. Przejdź do urządzeń z systemem Windows > i symulatorów > urządzeń. Wybierz urządzenie. W obszarze zainstalowane aplikacje wybierz aplikację i kliknij pozycję "Pobierz kontener". 
+
+Spowoduje to udostępnienie `xcappdata` pliku. Kliknij prawym przyciskiem myszy ten plik i wybierz polecenie "Pokaż zawartość pakietu". Następnie zobaczysz `.blog` pliki, które można następnie dołączyć do żądania pomocy technicznej platformy Azure.
+
+# <a name="android"></a>[Android](#tab/android)
+
+Podczas tworzenia aplikacji dla systemu Android dzienniki są przechowywane w `.blog` plikach. Należy pamiętać, że nie można wyświetlić dzienników bezpośrednio, ponieważ są one zaszyfrowane.
+
+Na Android Studio przejdź do Eksploratora plików urządzenia, wybierając pozycję Wyświetl > narzędzia Windows > Eksplorator plików urządzenia z symulatora i urządzenia. `.blog`Plik zostanie umieszczony w katalogu aplikacji, który powinien wyglądać podobnie do tego `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog` . Możesz dołączyć ten plik do żądania pomocy technicznej. 
+   
+
+---
+
 
 ## <a name="related-information"></a>Informacje pokrewne
 - [Dzienniki i Diagnostyka](logging-and-diagnostics.md)

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1734af799ee473d6ba75fe2e8ab8429afa51d0
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318194"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356641"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Utwórz nowy pakiet dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -89,7 +89,7 @@ Na karcie **podstawowe** można nadać pakietowi dostępu nazwę i określić ka
 
 Na karcie **role zasobów** Wybierz zasoby do uwzględnienia w pakiecie dostępu. Użytkownicy, którzy żądają i otrzymują pakiet dostępu, otrzymają wszystkie role zasobów w pakiecie dostępu.
 
-1. Kliknij typ zasobu, który chcesz dodać (**grupy i zespoły**, **aplikacje**lub **witryny programu SharePoint**).
+1. Kliknij typ zasobu, który chcesz dodać ( **grupy i zespoły** , **aplikacje** lub **witryny programu SharePoint** ).
 
 1. W wyświetlonym okienku wybierz pozycję co najmniej jeden zasób z listy.
 
@@ -125,7 +125,7 @@ Na karcie **Przegląd i tworzenie** możesz przejrzeć ustawienia i sprawdzić, 
 
 1. Przejrzyj ustawienia pakietu dostępu
 
-    ![Dostęp do pakietu — ustawienie zasad włączania zasad](./media/entitlement-management-access-package-create/review-create.png)
+    ![Pakiet dostępu — Włączanie ustawienia zasad](./media/entitlement-management-access-package-create/review-create.png)
 
 1. Kliknij przycisk **Utwórz** , aby utworzyć pakiet dostępu.
 

@@ -10,19 +10,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2
-ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperfq2, automl
+ms.openlocfilehash: fcbe0fc5049f6e892f80f048a885c75420bc636e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311476"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359089"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Oceń automatyczne wyniki eksperymentu w usłudze Machine Learning
 
-W tym artykule dowiesz się, jak wyświetlać i szacować wyniki zautomatyzowanej uczenia maszynowego, AutoML, eksperymentów. Te eksperymenty składają się z wielu przebiegów, w których każdy przebieg tworzy model. Aby ułatwić ocenę każdego modelu, AutoML automatycznie generuje metryki wydajności i wykresy specyficzne dla typu eksperymentu. 
+W tym artykule dowiesz się, jak wyświetlać i szacować wyniki zautomatyzowanej uczenia maszynowego, zautomatyzowanej ML, eksperymentów. Te eksperymenty składają się z wielu przebiegów, w których każdy przebieg tworzy model. Aby ułatwić ocenę poszczególnych modeli, zautomatyzowanej sieci automatycznie generuje metryki wydajności i wykresy specyficzne dla typu eksperymentu. 
 
-Na przykład AutoML oferuje różne wykresy dla modeli klasyfikacji i regresji. 
+Na przykład, zautomatyzowana ML oferuje różne wykresy dla modeli klasyfikacji i regresji. 
 
 |Klasyfikacja|Regresja
 |---|---|
@@ -61,7 +61,7 @@ Aby wyświetlić metryki i wykresy wydajności historii uruchamiania i modelu w 
 
 ## <a name="classification-performance-metrics"></a>Metryki wydajności klasyfikacji
 
-Poniższa tabela zawiera podsumowanie metryk wydajności modelu, które AutoML oblicza dla każdego modelu klasyfikacji wygenerowanego dla eksperymentu. 
+Poniższa tabela zawiera podsumowanie metryk wydajności modelu, które są obliczane przez automatyczne ML dla każdego modelu klasyfikacji wygenerowanego dla eksperymentu. 
 
 Metryka|Opis|Obliczenia|Dodatkowe parametry
 --|--|--|--
@@ -88,7 +88,7 @@ weighted_accuracy|Waga ważona jest dokładnością, gdzie waga określona dla k
 
 ### <a name="binary-vs-multiclass-metrics"></a>Dane binarne a wieloklasowe metryki
 
-AutoML nie rozróżnia metryk danych binarnych i wieloklasowych. Te same metryki walidacji są raportowane niezależnie od tego, czy zestaw danych ma dwie klasy, czy więcej niż dwie klasy. Niektóre metryki są jednak przeznaczone do klasyfikacji wieloklasowej. W przypadku zastosowania do binarnego zestawu danych te metryki nie traktują żadnej klasy jako `true` klasy, ponieważ może się to spodziewać. Metryki, które są wyraźnie przeznaczone dla wieloklasowych są sufiksami z `micro` , `macro` lub `weighted` . Przykłady obejmują `average_precision_score` , `f1_score` , `precision_score` , `recall_score` , i `AUC` .
+Automatyczna ML nie różni się od metryk danych binarnych i wieloklasowych. Te same metryki walidacji są raportowane niezależnie od tego, czy zestaw danych ma dwie klasy, czy więcej niż dwie klasy. Niektóre metryki są jednak przeznaczone do klasyfikacji wieloklasowej. W przypadku zastosowania do binarnego zestawu danych te metryki nie traktują żadnej klasy jako `true` klasy, ponieważ może się to spodziewać. Metryki, które są wyraźnie przeznaczone dla wieloklasowych są sufiksami z `micro` , `macro` lub `weighted` . Przykłady obejmują `average_precision_score` , `f1_score` , `precision_score` , `recall_score` , i `AUC` .
 
 Na przykład zamiast obliczać odwołanie jako `tp / (tp + fn)` , średniej klasy odwołania ( `micro` , `macro` lub) do `weighted` obu klas binarnego zestawu danych klasyfikacji. Jest to równoważne obliczaniu odwołań dla `true` klasy i `false` klasy oddzielnie, a następnie pobierając średnią z dwóch.
 
@@ -209,7 +209,7 @@ Dobrze skalibrowane modele są wyrównane z linią y = x, gdzie prawidłowo prze
 
 ## <a name="regression-performance-metrics"></a>Metryki wydajności regresji
 
-Poniższa tabela zawiera podsumowanie metryk wydajności modelu, które AutoML oblicza dla każdego regresji lub modelu prognozowania, który jest generowany dla eksperymentu. 
+Poniższa tabela zawiera podsumowanie metryk wydajności modelu, które są obliczane przez automatyczne ML dla każdego regresji lub modelu prognozowania, który jest generowany dla eksperymentu. 
 
 |Metryka|Opis|Obliczenia|Dodatkowe parametry
 --|--|--|--|

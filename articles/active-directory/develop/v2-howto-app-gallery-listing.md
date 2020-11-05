@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339439"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356352"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publikowanie aplikacji w galerii aplikacji usługi Azure AD
 
@@ -97,6 +97,7 @@ Poniższa tabela zawiera porównanie głównych standardów: Open Authentication
 | Logowanie jednokrotne oparte na urządzeniach przenośnych| √| √* |
 | Zasady dostępu warunkowego dla aplikacji mobilnych| √| X |
 | Bezproblemowe środowisko MFA dla aplikacji mobilnych| √| X |
+| Inicjowanie obsługi Standard scim| √| √ |
 | Microsoft Graph dostępu| √| X |
 
 * Możliwe, ale firma Microsoft nie udostępnia próbek ani wskazówek.
@@ -261,7 +262,7 @@ Jeśli chcesz dodać aplikację do listy w galerii przy użyciu hasła logowania
 
 ![Wyświetlanie listy aplikacji Logowanie jednokrotne w galerii](./media/howto-app-gallery-listing/passwordsso.png)
 
-Jeśli wdrażasz punkt końcowy Standard scim 2,0 na potrzeby aprowizacji użytkowników, wybierz opcję, jak pokazano. 
+Jeśli wdrażasz punkt końcowy [standard scim](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2,0 na potrzeby aprowizacji użytkowników, wybierz opcję, jak pokazano. 
 
    ![Żądanie aprowizacji użytkownika](./media/howto-app-gallery-listing/user-provisioning.png)
 

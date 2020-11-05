@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f229c52b62c740c9d955f745a6922e59163b907
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fe2f35708f6a148f8db9ef6fd0a598e19e746fbd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348563"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358630"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>Metodyka DevOps dla potoku pozyskiwania danych
 
@@ -211,18 +211,18 @@ Wartości w pliku JSON są wartościami domyślnymi skonfigurowanymi w definicji
 
 Proces ciągłego dostarczania wykonuje artefakty i wdraża je w pierwszym środowisku docelowym. Upewnij się, że rozwiązanie działa, uruchamiając testy. Jeśli to się powiedzie, przechodzi do następnego środowiska. 
 
-Potok na platformie Azure obejmuje wiele etapów przedstawiających środowiska. Każdy etap zawiera [wdrożenia](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) i [zadania](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) , które wykonują następujące czynności:
+Potok na platformie Azure obejmuje wiele etapów przedstawiających środowiska. Każdy etap zawiera [wdrożenia](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) i [zadania](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) , które wykonują następujące czynności:
 
 _ Wdróż Notes w języku Python w obszarze roboczym Azure Databricks
 * Wdróż potok Azure Data Factory 
 * Uruchamianie potoku
 * Sprawdzanie wyniku pozyskiwania danych
 
-Etapy potoku można skonfigurować przy użyciu [zatwierdzeń](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops) i [bram](/azure/devops/pipelines/release/approvals/gates?view=azure-devops) , które zapewniają dodatkową kontrolę nad sposobem rozwoju procesu wdrażania przez łańcuch środowisk.
+Etapy potoku można skonfigurować przy użyciu [zatwierdzeń](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops&preserve-view=true) i [bram](/azure/devops/pipelines/release/approvals/gates?view=azure-devops&preserve-view=true) , które zapewniają dodatkową kontrolę nad sposobem rozwoju procesu wdrażania przez łańcuch środowisk.
 
 ### <a name="deploy-a-python-notebook"></a>Wdrażanie notesu w języku Python
 
-Poniższy fragment kodu definiuje [wdrożenie](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) potoku platformy Azure, które kopiuje Notes w języku Python do klastra datakostki:
+Poniższy fragment kodu definiuje [wdrożenie](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) potoku platformy Azure, które kopiuje Notes w języku Python do klastra datakostki:
 
 ```yaml
 - stage: 'Deploy_to_QA'
@@ -258,7 +258,7 @@ Poniższy fragment kodu definiuje [wdrożenie](/azure/devops/pipelines/process/d
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-Artefakty produkowane przez CI są automatycznie kopiowane do agenta wdrażania i są dostępne w `$(Pipeline.Workspace)` folderze. W takim przypadku zadanie wdrażania odwołuje się do `di-notebooks` artefaktu zawierającego Notes języka Python. To [wdrożenie](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) używa [rozszerzenia Azure DevOps](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) w celu skopiowania plików notesu do obszaru roboczego datakosteks.
+Artefakty produkowane przez CI są automatycznie kopiowane do agenta wdrażania i są dostępne w `$(Pipeline.Workspace)` folderze. W takim przypadku zadanie wdrażania odwołuje się do `di-notebooks` artefaktu zawierającego Notes języka Python. To [wdrożenie](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) używa [rozszerzenia Azure DevOps](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) w celu skopiowania plików notesu do obszaru roboczego datakosteks.
 
 `Deploy_to_QA`Etap zawiera odwołanie do `devops-ds-qa-vg` grupy zmiennych zdefiniowanej w projekcie usługi Azure DevOps. Kroki w tym etapie odwołują się do zmiennych z tej grupy zmiennych (na przykład `$(DATABRICKS_URL)` i `$(DATABRICKS_TOKEN)` ). Pomysłem jest to, że następny etap (na przykład `Deploy_to_UAT` ) będzie działać z tymi samymi nazwami zmiennych zdefiniowanymi we własnej grupie zmiennych o zakresie przeprowadzających.
 
@@ -339,7 +339,7 @@ Kompletny potok ciągłej integracji/ciągłego wdrażania składa się z nastę
     * Wdróż w usłudze datakostki + Wdróż w usłudze ADF
     * Test integracji
 
-Zawiera kilka * etapów **wdrażania** _ równych liczbie środowisk docelowych. Każdy etap _*_wdrażania_*_ zawiera dwa [wdrożenia](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) , które są uruchamiane równolegle, a [zadanie](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) uruchamiane po wdrożeniach w celu przetestowania rozwiązania w środowisku.
+Zawiera kilka * etapów **wdrażania** _ równych liczbie środowisk docelowych. Każdy etap _*_wdrażania_*_ zawiera dwa [wdrożenia](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) , które są uruchamiane równolegle, a [zadanie](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) uruchamiane po wdrożeniach w celu przetestowania rozwiązania w środowisku.
 
 Przykładowa implementacja potoku jest przedłożono w następującym fragmencie kodu _*_YAML_*_ :
 

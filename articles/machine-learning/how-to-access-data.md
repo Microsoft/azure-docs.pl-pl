@@ -1,5 +1,5 @@
 ---
-title: Nawiązywanie połączenia z usługami Azure Storage
+title: Nawiązywanie połączenia z usługami magazynu na platformie Azure
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak używać magazynów danych do bezpiecznego łączenia się z usługami Azure Storage podczas uczenia się z Azure Machine Learning
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 07/22/2020
-ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: db641eee13350f5a774e4ffd138e38c474af4981
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/03/2020
+ms.custom: how-to, contperfq1, devx-track-python, data4ml
+ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320858"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358103"
 ---
-# <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
+# <a name="connect-to-storage-services-azure"></a>Nawiązywanie połączenia z usługami Storage Services Azure
 
-W tym artykule dowiesz się, jak **nawiązać połączenie z usługami Azure Storage za pośrednictwem Azure Machine Learning magazynów danych**. Magazyny danych bezpiecznie łączą się z usługą Azure Storage bez konieczności podawania poświadczeń uwierzytelniania i integralności oryginalnego źródła. Przechowują one informacje o połączeniach, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) skojarzony z obszarem roboczym, dzięki czemu można bezpiecznie uzyskać dostęp do magazynu bez konieczności nawiązywania w nich kodu. Możesz użyć [Azure Machine Learning Python SDK](#python) lub [Azure Machine Learning Studio](how-to-connect-data-ui.md) do tworzenia i rejestrowania magazynów danych.
+W tym artykule dowiesz się, jak **nawiązać połączenie z usługami magazynu na platformie Azure za pośrednictwem Azure Machine Learning magazynów danych**. Magazyny danych bezpiecznie łączą się z usługą Azure Storage bez konieczności podawania poświadczeń uwierzytelniania i integralności oryginalnego źródła. Przechowują one informacje o połączeniach, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) skojarzony z obszarem roboczym, dzięki czemu można bezpiecznie uzyskać dostęp do magazynu bez konieczności nawiązywania w nich kodu. Możesz użyć [Azure Machine Learning Python SDK](#python) lub [Azure Machine Learning Studio](how-to-connect-data-ui.md) do tworzenia i rejestrowania magazynów danych.
 
 Jeśli wolisz tworzyć magazyny danych i zarządzać nimi przy użyciu rozszerzenia Azure Machine Learning VS Code; Aby dowiedzieć się więcej, odwiedź stronę [pomocy dotyczącej zarządzania zasobami vs Code](how-to-manage-resources-vscode.md#datastores) .
 
@@ -109,11 +109,13 @@ Informacje na temat klucza konta, tokenu sygnatury dostępu współdzielonego i 
     * Odpowiadająca jej Strona **przeglądu** będzie zawierać wymagane informacje, takie jak identyfikator dzierżawy i identyfikator klienta.
 
 > [!IMPORTANT]
-> Ze względów bezpieczeństwa może zajść potrzeba zmiany kluczy dostępu dla konta usługi Azure Storage (klucza konta lub tokenu SAS). W takim przypadku należy zsynchronizować nowe poświadczenia z obszarem roboczym i magazynami danych, które są z nim połączone. Dowiedz się, jak [synchronizować zaktualizowane poświadczenia](how-to-change-storage-access-key.md). 
-
+> * Jeśli musisz zmienić klucze dostępu dla konta usługi Azure Storage (klucza konta lub tokenu SAS), zsynchronizuj nowe poświadczenia z obszarem roboczym i magazynami danych, które są z nim połączone. Dowiedz się, jak [synchronizować zaktualizowane poświadczenia](how-to-change-storage-access-key.md). 
 ### <a name="permissions"></a>Uprawnienia
 
-W przypadku kontenera obiektów blob platformy Azure i Azure Data Lake magazynu generacji 2 Upewnij się, że poświadczenia uwierzytelniania mają dostęp do **czytnika danych obiektu blob magazynu** . Dowiedz się więcej o [czytniku danych BLOB Storage](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Token sygnatury dostępu współdzielonego konta domyślnie nie ma uprawnień. W przypadku dostępu do odczytu danych poświadczenia uwierzytelniania muszą mieć co najmniej uprawnienia do wyświetlania i odczytu dla kontenerów i obiektów. W przypadku dostępu do zapisu danych wymagane są również uprawnienia do zapisu i dodawania.
+W przypadku kontenera obiektów blob platformy Azure i Azure Data Lake magazynu generacji 2 Upewnij się, że poświadczenia uwierzytelniania mają dostęp do **czytnika danych obiektu blob magazynu** . Dowiedz się więcej o [czytniku danych BLOB Storage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Token sygnatury dostępu współdzielonego konta domyślnie nie ma uprawnień. 
+* W przypadku **dostępu do odczytu** danych poświadczenia uwierzytelniania muszą mieć co najmniej uprawnienia do wyświetlania i odczytu dla kontenerów i obiektów. 
+
+* W przypadku **dostępu do zapisu** danych wymagane są również uprawnienia do zapisu i dodawania.
 
 <a name="python"></a>
 
@@ -130,6 +132,8 @@ W tej sekcji przedstawiono przykłady tworzenia i rejestrowania magazynu danych 
  Aby utworzyć magazyny danych dla innych obsługiwanych usług magazynu, zapoznaj się z [dokumentacją referencyjną dotyczącą odpowiednich `register_azure_*` metod](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods).
 
 Jeśli wolisz o niskim kodzie, zobacz [nawiązywanie połączenia z danymi za pomocą programu Azure Machine Learning Studio](how-to-connect-data-ui.md).
+>[!IMPORTANT]
+> Po wyrejestrowaniu i ponownym zarejestrowaniu magazynu danych o tej samej nazwie, Azure Key Vault dla obszaru roboczego może nie mieć włączonej funkcji usuwania nietrwałego. Domyślnie funkcja usuwania nietrwałego jest włączona dla wystąpienia magazynu kluczy utworzonego w obszarze roboczym, ale może nie być włączona, jeśli użyto istniejącego magazynu kluczy lub utworzono obszar roboczy utworzony przed dniem 2020 października. Aby uzyskać informacje na temat włączania usuwania nietrwałego, zobacz [Włączanie usuwania nietrwałego dla istniejącego magazynu kluczy]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault)".
 
 > [!NOTE]
 > Nazwa magazynu danych powinna zawierać tylko małe litery, cyfry i znaki podkreślenia. 

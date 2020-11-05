@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348070"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358460"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Tworzenie pętli, które powtarzają akcje przepływu pracy lub tablice procesów w usłudze Azure Logic Apps
 
 Aby przetworzyć tablicę w aplikacji logiki, można utworzyć [pętlę "foreach"](#foreach-loop). Ta pętla powtarza jedną lub więcej akcji dla każdego elementu w tablicy. Aby ograniczyć liczbę elementów tablicy, które może przetworzyć pętlę "foreach", zobacz [limity współbieżności, zapętlania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Aby powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, można utworzyć [pętlę "until"](#until-loop). Aplikacja logiki najpierw uruchamia wszystkie akcje wewnątrz pętli, a następnie sprawdza warunek lub stan. Jeśli warunek jest spełniony, pętla zostanie zatrzymana. W przeciwnym razie pętla powtarza się. Dla limitu liczby pętli "until", które mogą być uruchamiane przez aplikację logiki, zobacz [limity współbieżności, zapętlowania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Aby powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, można utworzyć [pętlę "until"](#until-loop). Aplikacja logiki najpierw uruchamia wszystkie akcje wewnątrz pętli, a następnie sprawdza warunek lub stan. Jeśli warunek jest spełniony, pętla zostanie zatrzymana. W przeciwnym razie pętla powtarza się. W przypadku domyślnych i maksymalnych limitów liczby pętli "until", które mogą być uruchamiane przez aplikację logiki, zobacz [limity współbieżności, zapętlania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
 > Jeśli masz wyzwalacz, który odbiera tablicę i chcesz uruchomić przepływ pracy dla każdego elementu tablicy, możesz *departia* tę tablicę za pomocą [Właściwości wyzwalacza **SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
@@ -152,7 +152,7 @@ Jeśli pracujesz z definicją JSON aplikacji logiki, możesz użyć `Sequential`
 
 ## <a name="until-loop"></a>Pętla "until"
   
-Aby uruchamiać i powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, należy umieścić te akcje w pętli "until". Aplikacja logiki najpierw uruchamia dowolną akcję i wszystkie akcje wewnątrz pętli, a następnie sprawdza warunek lub stan. Jeśli warunek jest spełniony, pętla zostanie zatrzymana. W przeciwnym razie pętla powtarza się. Dla limitu liczby pętli "until", które mogą być uruchamiane przez aplikację logiki, zobacz [limity współbieżności, zapętlowania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Aby uruchamiać i powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, należy umieścić te akcje w pętli "until". Aplikacja logiki najpierw uruchamia dowolną akcję i wszystkie akcje wewnątrz pętli, a następnie sprawdza warunek lub stan. Jeśli warunek jest spełniony, pętla zostanie zatrzymana. W przeciwnym razie pętla powtarza się. W przypadku domyślnych i maksymalnych limitów liczby pętli "until", które mogą być uruchamiane przez aplikację logiki, zobacz [limity współbieżności, zapętlania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Poniżej przedstawiono kilka typowych scenariuszy, w których można użyć pętli "until":
 
@@ -245,17 +245,19 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
 
       ![Odebrana wiadomość e-mail](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
+<a name="prevent-endless-loops"></a>
+
 ## <a name="prevent-endless-loops"></a>Zapobiegaj pętlom nieskończonym
 
-Pętla "until" ma domyślne limity, które przerywają wykonywanie w przypadku wystąpienia dowolnego z następujących warunków:
+Pętla "until" powoduje zatrzymanie wykonywania na podstawie tych właściwości, więc upewnij się, że odpowiednio ustawisz odpowiednie wartości:
 
-| Właściwość | Wartość domyślna | Opis | 
-| -------- | ------------- | ----------- | 
-| **Liczbą** | 60 | Największa liczba pętli, które są uruchamiane przed wyjściem z pętli. Wartość domyślna to 60 cykli. | 
-| **Limit czasu** | PT1H | Najwięcej czasu na uruchomienie pętli przed wyjściem z pętli. Wartość domyślna to jedna godzina i jest określona w formacie ISO 8601. <p>Wartość limitu czasu jest obliczana dla każdego cyklu pętli. Jeśli jakakolwiek akcja w pętli trwa dłużej niż limit czasu, bieżący cykl nie zostanie zatrzymany. Jednak następny cykl nie zostanie uruchomiony, ponieważ warunek limitu nie jest spełniony. | 
-|||| 
+* **Liczba** : Ta wartość to największa liczba pętli, które są uruchamiane przed wyjściem z pętli. W przypadku domyślnych i maksymalnych limitów liczby pętli "until", które mogą być uruchamiane przez aplikację logiki, zobacz [limity współbieżności, zapętlania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Aby zmienić te domyślne limity, wybierz pozycję **Pokaż opcje zaawansowane** w kształcie akcja pętla.
+* **Limit czasu** : Ta wartość jest największą ilością czasu uruchomienia pętli przed wyjściem i jest określona w [formacie ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). W przypadku domyślnych i maksymalnych limitów wartości **limitu czasu** można znaleźć w temacie [ograniczenia współbieżności, zapętlania i departii](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+  Wartość limitu czasu jest obliczana dla każdego cyklu pętli. Jeśli jakakolwiek akcja w pętli trwa dłużej niż limit czasu, bieżący cykl nie zostanie zatrzymany. Jednak następny cykl nie zostanie uruchomiony, ponieważ warunek limitu nie jest spełniony.
+
+Aby zmienić te limity, w akcji pętla wybierz pozycję **zmiany limity**.
 
 <a name="until-json"></a>
 

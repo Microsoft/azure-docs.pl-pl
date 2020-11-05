@@ -1,7 +1,7 @@
 ---
 title: Co to jest szkolenie rozproszone?
 titleSuffix: Azure Machine Learning
-description: Więcej informacji na temat szkoleń rozproszonych i sposobu ich obsługi przez Azure Machine Learning.
+description: Dowiedz się, jaki typ dystrybuowanego szkolenia Azure Machine Learning obsługuje i integracji platformy typu open source dostępnych w ramach szkolenia rozproszonego.
 services: machine-learning
 ms.service: machine-learning
 author: nibaccam
@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c479a64b2100cfc1a6fdf17f5e6f5636d3a689d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4e1972e0530656bf6cc0e6319191ab4ebbfbfddb
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322226"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358579"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Uczenie rozproszone z Azure Machine Learning
 
