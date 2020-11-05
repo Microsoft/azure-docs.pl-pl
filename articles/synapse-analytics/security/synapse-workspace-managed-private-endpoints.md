@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 60087dc23b804dac6644dc09cddc031526fb0f8f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 930c1f94446eb145a093bf7a8706485d40eec210
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313767"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379675"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Zarządzane prywatne punkty końcowe Synapse (wersja zapoznawcza)
 
@@ -45,11 +45,11 @@ Tylko zarządzany prywatny punkt końcowy w zatwierdzonym stanie może wysyłać
 
 ## <a name="managed-private-endpoints-for-dedicated-sql-pool-and-serverless-sql-pool"></a>Zarządzane prywatne punkty końcowe dla dedykowanej puli SQL i bezserwerowego
 
-dedykowana Pula SQL i bezserwerowa Pula SQL to możliwości analityczne w obszarze roboczym usługi Azure Synapse. Te możliwości używają infrastruktury z wieloma dzierżawcami, która nie została wdrożona w [Virtual Network zarządzanym obszarze roboczym](./synapse-workspace-managed-vnet.md).
+Dedykowana Pula SQL i bezserwerowa Pula SQL to możliwości analityczne w obszarze roboczym usługi Azure Synapse. Te możliwości używają infrastruktury z wieloma dzierżawcami, która nie została wdrożona w [Virtual Network zarządzanym obszarze roboczym](./synapse-workspace-managed-vnet.md).
 
 Po utworzeniu obszaru roboczego usługa Azure Synapse tworzy dwa zarządzane prywatne punkty końcowe w obszarze roboczym, jeden dla dedykowanej puli SQL i jeden dla puli SQL bezserwerowej. 
 
-Te dwa zarządzane prywatne punkty końcowe są wymienione w usłudze Azure Synapse Studio. Wybierz pozycję **Zarządzaj** na lewym pasku nawigacyjnym, a następnie wybierz pozycję **zarządzane sieci wirtualne** , aby zobaczyć w programie Studio.
+Te dwa zarządzane prywatne punkty końcowe są wymienione w Synapse Studio. Wybierz pozycję **Zarządzaj** na lewym pasku nawigacyjnym, a następnie wybierz pozycję **zarządzane prywatne punkty końcowe** , aby wyświetlić je w Studio.
 
 Zarządzany prywatny punkt końcowy, który jest przeznaczony dla puli SQL, nosi nazwę *Synapse-WS \<workspacename\> -SQL--* i ten, który jest przeznaczony dla puli SQL bezserwerowej, nosi nazwę *Synapse-WS-sqlOnDemand-- \<workspacename\>*.
 

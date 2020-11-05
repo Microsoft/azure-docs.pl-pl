@@ -3,12 +3,12 @@ title: Ustawianie haseł dla maszyn wirtualnych w Azure Lab Services | Microsoft
 description: Dowiedz się, jak ustawiać i resetować hasła dla maszyn wirtualnych w laboratorium z klasą Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334076"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379693"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurowanie puli maszyn wirtualnych i zarządzanie nią 
 W tym artykule przedstawiono sposób wykonywania następujących zadań:
@@ -53,6 +53,7 @@ Podobnie można zatrzymać co najmniej jedną maszynę wirtualną, przełączaj�
 > Gdy nauczycieli włącza maszynę wirtualną ucznia, nie ma to żadnego limitu przydziału dla ucznia. Przydział dla użytkownika określa liczbę godzin laboratorium dostępnych dla użytkownika poza zaplanowanym czasem klasy. Aby uzyskać więcej informacji na temat przydziałów, zobacz [Ustawianie przydziałów dla użytkowników](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="reset-vms"></a>Resetowanie maszyn wirtualnych
+
 Aby zresetować co najmniej jedną maszynę wirtualną, wybierz ją z listy, a następnie na pasku narzędzi wybierz pozycję **Zresetuj** . 
 
 ![Resetuj wybrane maszyny wirtualne](./media/how-to-set-virtual-machine-passwords/reset-vm-button.png)
@@ -60,8 +61,6 @@ Aby zresetować co najmniej jedną maszynę wirtualną, wybierz ją z listy, a n
 W oknie dialogowym **resetowanie maszyn wirtualnych** wybierz pozycję **Zresetuj**. 
 
 ![Okno dialogowe resetowania maszyny wirtualnej](./media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png)
-
-
 
 ## <a name="set-password-for-vms"></a>Ustawianie hasła dla maszyn wirtualnych
 Właściciel laboratorium (nauczycieli) może ustawić/zresetować hasło dla maszyn wirtualnych w momencie tworzenia laboratorium (Kreator tworzenia laboratorium) lub po utworzeniu laboratorium na stronie **szablonu** . 
