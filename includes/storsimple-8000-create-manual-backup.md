@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89f7be31514f0b78c3bfb3efd6e6aca14658d5cd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183306"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375974"
 ---
 #### <a name="to-create-a-manual-backup"></a>Ręczne tworzenie kopii zapasowej
 
@@ -23,13 +23,13 @@ ms.locfileid: "67183306"
 
     1. Wybierz odpowiedni **typ migawki** z listy rozwijanej: migawka **lokalna** lub migawka **w chmurze**. Wybierz migawkę lokalną, jeśli chcesz szybko tworzyć kopie zapasowe lub je przywracać, albo migawkę w chmurze, jeśli zależy Ci na odporności danych.
 
-        ![Ręczne tworzenie kopii zapasowych](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
+        ![Utwórz ręczną kopię zapasową 2](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 
-    2. Kliknij przycisk **OK**, aby uruchomić zadanie tworzenia migawki. Po pomyślnym utworzeniu zadania w górnej części strony zostanie wyświetlone powiadomienie.
+    2. Kliknij przycisk **OK** , aby uruchomić zadanie tworzenia migawki. Po pomyślnym utworzeniu zadania w górnej części strony zostanie wyświetlone powiadomienie.
 
-        ![Ręczne tworzenie kopii zapasowych](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
+        ![Utwórz ręczną kopię zapasową 3](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
 
-    3. Aby monitorować zadanie, kliknij powiadomienie. Spowoduje to przejście do bloku **Zadania**, w którym można wyświetlić postęp zadania.
+    3. Aby monitorować zadanie, kliknij powiadomienie. Spowoduje to przejście do bloku **Zadania** , w którym można wyświetlić postęp zadania.
 
 
 5. Po zakończeniu zadania tworzenia kopii zapasowej przejdź do karty **Katalog kopii zapasowej**.

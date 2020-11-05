@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
-ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16b69ce5d63723919e74b62e8c62770ed5fbec85
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183897"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375855"
 ---
 Konfiguracja oprogramowania partnerskiego pod kątem nawiązania połączenia z klientem. Aby można było połączyć się z oprogramowaniem partnerskim, zazwyczaj potrzebne są następujące informacje (mogą się różnić) zebrane ze strony **Połącz i skopiuj** lokalnego internetowego interfejsu użytkownika w poprzednim kroku:
 
@@ -27,4 +27,4 @@ Jeśli używasz Eksploratora usługi Storage po raz pierwszy, wykonaj poniższe 
 
 2. Uruchom ponownie Eksploratora usługi Storage, aby zmiany zaczęły obowiązywać.
 
-    ![Pulpit nawigacyjny urządzenia Data Box](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)
+    ![Pulpit nawigacyjny urządzenie Data Box 2](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)

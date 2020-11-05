@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9832a961562930e61e94b28ed78976fd9f8c6f78
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183429"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376007"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Aby zainstalować aktualizację z witryny Azure Portal
 
@@ -23,11 +23,11 @@ ms.locfileid: "67183429"
 
 2. Zostanie wyświetlone powiadomienie, jeśli są dostępne nowe aktualizacje. Alternatywnie w bloku **aktualizacje urządzeń** kliknij pozycję **Skanuj aktualizacje**. Zostanie utworzone zadanie skanowania dostępnych aktualizacji. Otrzymasz powiadomienie, gdy zadanie zostanie pomyślnie ukończone.
 
-    ![Kliknij pozycję Aktualizacje urządzeń](./media/storsimple-8000-install-update5-via-portal/update3.png)
+    ![Kliknij pozycję Aktualizacje urządzeń 2](./media/storsimple-8000-install-update5-via-portal/update3.png)
 
 3. Przed zastosowaniem aktualizacji na urządzeniu zalecamy przejrzenie informacji o wersji. Aby zastosować aktualizacje, kliknij przycisk **instaluj aktualizacje**. Przed zastosowaniem aktualizacji w bloku **Potwierdź regularne aktualizacje** zapoznaj się z wymaganiami wstępnymi. Zaznacz pole wyboru, aby wskazać, że wszystko jest gotowe do zaktualizowania urządzenia, a następnie kliknij przycisk **Instaluj**.
 
-    ![Kliknij pozycję Aktualizacje urządzeń](./media/storsimple-8000-install-update5-via-portal/update4.png)
+    ![Kliknij pozycję Aktualizacje urządzeń 3](./media/storsimple-8000-install-update5-via-portal/update4.png)
 
 6. Zostanie rozpoczęty zestaw testów wymagań wstępnych. Testy te obejmują:
    
@@ -45,11 +45,11 @@ ms.locfileid: "67183429"
 
 9. Aktualizacja zajmuje kilka godzin. Aby w dowolnym momencie wyświetlić szczegóły zadania, wybierz zadanie aktualizacji i kliknij pozycję **Szczegóły**.
 
-    ![Tworzenie zadania aktualizacji](./media/storsimple-8000-install-update5-via-portal/update8.png)
+    ![Aktualizowanie tworzenia zadania 2](./media/storsimple-8000-install-update5-via-portal/update8.png)
 
      Możesz również monitorować postęp zadania aktualizacji z **ustawień urządzenia > zadania**. W bloku **zadania** można zobaczyć postęp aktualizacji.
 
-     ![Tworzenie zadania aktualizacji](./media/storsimple-8000-install-update5-via-portal/update7.png)
+     ![Aktualizowanie tworzenia zadania 3](./media/storsimple-8000-install-update5-via-portal/update7.png)
 
 10. Po zakończeniu zadania przejdź do **ustawień urządzenia, > aktualizacje urządzeń**. Wersja oprogramowania powinna zostać zaktualizowana.
 

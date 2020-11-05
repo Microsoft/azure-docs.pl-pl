@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d1ca6d37d6133786aff7ad3156fea2a0c22dfb97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67183295"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375788"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>Aby utworzyć urządzenie w chmurze
 
@@ -18,7 +18,7 @@ ms.locfileid: "67183295"
     ![Tworzenie urządzenia StorSimple w chmurze](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. W bloku **Tworzenie urządzenia w chmurze** podaj poniższe informacje.
    
-    ![Tworzenie urządzenia StorSimple w chmurze](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
+    ![StorSimple Utwórz urządzenie w chmurze 2](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Nazwa** — unikatowa nazwa urządzenia w chmurze.
    2. **Model** — wybierz model urządzenia w chmurze. Urządzenie 8010 oferuje 30 TB magazynu Standard Storage, a 8020 ma 64 TB magazynu w usłudze Premium Storage. Wybierz model 8010, aby wdrożyć scenariusze pobierania z kopii zapasowych na poziomie elementów. Wybierz model 8020, aby wdrożyć obciążenia o wysokiej wydajności i małych opóźnieniach lub używać go jako urządzenia dodatkowego do odzyskiwania po awarii.
@@ -34,7 +34,7 @@ ms.locfileid: "67183295"
        * Kiedy używasz tylko urządzenia fizycznego, klucz szyfrowania jest przechowywany z urządzeniem, więc firma Microsoft nie może go odszyfrować.
 
        * Kiedy używasz urządzenia w chmurze, zarówno klucz szyfrowania, jak i klucz odszyfrowywania są przechowywane na platformie Microsoft Azure. Aby uzyskać więcej informacji, zapoznaj się z [zagadnieniami dotyczącymi zabezpieczeń podczas używania urządzenia w chmurze](../articles/storsimple/storsimple-security.md).
-   8. Kliknij przycisk **Utwórz**, aby aprowizować urządzenie w chmurze. Zainicjowanie obsługi urządzenia może zająć około 30 minut. Otrzymasz powiadomienie o pomyślnym utworzeniu urządzenia w chmurze. Przejdź do bloku Urządzenia. Lista urządzeń zostanie odświeżona w celu wyświetlenia urządzenia w chmurze. Stan urządzenia to **Gotowe do skonfigurowania**.
+   8. Kliknij przycisk **Utwórz** , aby aprowizować urządzenie w chmurze. Zainicjowanie obsługi urządzenia może zająć około 30 minut. Otrzymasz powiadomienie o pomyślnym utworzeniu urządzenia w chmurze. Przejdź do bloku Urządzenia. Lista urządzeń zostanie odświeżona w celu wyświetlenia urządzenia w chmurze. Stan urządzenia to **Gotowe do skonfigurowania**.
       
       ![Urządzenie StorSimple w chmurze gotowe do skonfigurowania](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
 
