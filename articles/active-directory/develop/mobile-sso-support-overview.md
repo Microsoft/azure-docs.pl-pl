@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740150"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331610"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Obsługa logowania jednokrotnego i zasad ochrony aplikacji w aplikacjach mobilnych, które tworzysz
 
@@ -30,7 +30,7 @@ W tym artykule wyjaśniono, dlaczego Logowanie jednokrotne i aplikacja jest waż
 
 Ponadto włączenie logowania jednokrotnego w aplikacji odblokowuje nowe mechanizmy uwierzytelniania, które mają nowoczesne uwierzytelnianie, takie jak logowania bez [hasła](../authentication/concept-authentication-passwordless.md). Nazwy użytkowników i hasła są jednym z najpopularniejszych wektorów ataków na aplikacje, a włączenie rejestracji jednokrotnej pozwala uniknąć tego ryzyka poprzez wymuszanie dostępu warunkowego lub logowania bez hasła, które zwiększają bezpieczeństwo lub polegają na bardziej bezpiecznych mechanizmach uwierzytelniania. Na koniec włączenie logowania jednokrotnego umożliwia także [Logowanie](v2-protocols-oidc.md#single-sign-out)jednokrotne. Jest to przydatne w sytuacjach, takich jak aplikacje służbowe, które będą używane na urządzeniach udostępnionych.
 
-[Zasady ochrony aplikacji (aplikacje)](/mem/intune/apps/app-protection-policy) zapewniają, że dane organizacji pozostają bezpieczne i zawarte. Umożliwiają one firmom zarządzanie danymi i ich ochronę w ramach aplikacji oraz umożliwiają kontrolę nad tym, kto może uzyskiwać dostęp do aplikacji i jej danych. Implementacja zasad ochrony aplikacji umożliwia aplikacji Łączenie użytkowników z zasobami chronionymi przez zasady dostępu warunkowego i bezpieczne Transferowanie danych do i z innych chronionych aplikacji. Scenariusze odblokowywane przez zasady ochrony aplikacji obejmują wymaganie numeru PIN do otwierania aplikacji, kontrolowanie udostępniania danych między aplikacjami i Zapobieganie zapisywaniu danych aplikacji firmowych w lokalizacji magazynu osobistego na urządzeniu.
+[Zasady ochrony aplikacji (aplikacje)](/mem/intune/apps/app-protection-policy) zapewniają, że dane organizacji pozostają bezpieczne i zawarte. Umożliwiają one firmom zarządzanie danymi i ich ochronę w ramach aplikacji oraz umożliwiają kontrolę nad tym, kto może uzyskiwać dostęp do aplikacji i jej danych. Implementacja zasad ochrony aplikacji umożliwia aplikacji Łączenie użytkowników z zasobami chronionymi przez zasady dostępu warunkowego i bezpieczne Transferowanie danych do i z innych chronionych aplikacji. Scenariusze odblokowywane przez zasady ochrony aplikacji obejmują wymaganie, aby program mógł otworzyć aplikację, kontrolować udostępnianie danych między aplikacjami i uniemożliwiać zapisywanie danych aplikacji firmowych w osobistych lokalizacjach magazynu.
 
 ## <a name="implementing-single-sign-on"></a>Implementowanie logowania jednokrotnego
 
@@ -68,13 +68,13 @@ Ponadto do uwierzytelniania należy użyć aplikacji brokera. Broker wymaga, aby
 
 Na koniec [Dodaj do aplikacji zestaw SDK usługi Intune](/mem/intune/developer/app-sdk-get-started) , aby włączyć zasady ochrony aplikacji. Zestaw SDK dla najbardziej części jest zgodny z modelem przechwytywania i automatycznie zastosuje zasady ochrony aplikacji w celu określenia, czy akcje podejmowane przez aplikację są dozwolone, czy nie. Istnieją również interfejsy API, które można wywoływać ręcznie, aby poinformować aplikację, jeśli istnieją ograniczenia dotyczące pewnych akcji.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Planowanie Azure Active Directory wdrożenia przy użyciu logowania jednokrotnego](../manage-apps/plan-sso-deployment.md)
 - [Instrukcje: Konfigurowanie logowania jednokrotnego w systemach macOS i iOS](single-sign-on-macos-ios.md)
 - [Wtyczka Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)](apple-sso-plugin.md)
 - [Uwierzytelnianie obsługiwane przez brokera w systemie Android](brokered-auth.md)
 - [Agenci autoryzacji i sposoby ich włączania](authorization-agents.md)
-- [Wprowadzenie do zestawu SDK aplikacji Microsoft Intune](/mem/intune/developer/app-sdk-get-started)
+- [Wprowadzenie do zestawu SDK aplikacji usługi Microsoft Intune](/mem/intune/developer/app-sdk-get-started)
 - [Konfigurowanie ustawień zestawu SDK aplikacji usługi Intune](/mem/intune/developer/app-sdk-ios#configure-settings-for-the-intune-app-sdk)
 - [Chronione aplikacje w usłudze Microsoft Intune](/mem/intune/apps/apps-supported-intune-apps)

@@ -4,15 +4,15 @@ description: Dowiedz się, jak wdrażać Azure File Sync od początku do końca 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/19/2018
+ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a57956de574f74308747edd463851eb1ea4dbb42
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 128a974c41b1c09196ecab2070136d9568b08f5d
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489493"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331791"
 ---
 # <a name="deploy-azure-file-sync"></a>Wdrażanie usługi Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -110,11 +110,11 @@ Dla każdego serwera, który ma być używany z Azure File Sync, włącznie z ka
 > Ten krok można pominąć, Jeśli wdrażasz Azure File Sync w systemie Windows Server Core.
 
 1. Otwórz Menedżera serwera.
-2. Kliknij pozycję **serwer lokalny**:  
+2. Kliknij pozycję **serwer lokalny** :  
     ![Pozycja „Serwer lokalny” po lewej stronie interfejsu użytkownika Menedżera serwera](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
 3. W okienku podrzędnym **Właściwości** wybierz link do funkcji **Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer**.  
     ![Okienko „Konfiguracja zwiększonych zabezpieczeń” w interfejsie użytkownika Menedżera serwera](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-2.PNG)
-4. W oknie dialogowym **Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer** wybierz pozycję **wyłączone** dla **administratorów** i **użytkowników**:  
+4. W oknie dialogowym **Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer** wybierz pozycję **wyłączone** dla **administratorów** i **użytkowników** :  
     ![Okno podręczne „Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer” z wybraną pozycją „Wyłączono”](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
@@ -153,14 +153,14 @@ Wdrożenie Azure File Sync rozpoczyna się od umieszczenia zasobu **usługi sync
 > Usługa synchronizacji magazynu dziedziczy uprawnienia dostępu od subskrypcji i grupy zasobów, w której została wdrożona. Zalecamy dokładne sprawdzenie, kto ma do niego dostęp. Jednostki z dostępem do zapisu mogą rozpocząć Synchronizowanie nowych zestawów plików z serwerów zarejestrowanych w tej usłudze synchronizacji magazynu i spowodować, że dane będą przepływać do usługi Azure Storage, która jest dla nich dostępna.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Aby wdrożyć usługę synchronizacji magazynu, przejdź do [Azure Portal](https://portal.azure.com/), kliknij pozycję *Utwórz zasób* , a następnie wyszukaj Azure File Sync. W wynikach wyszukiwania wybierz pozycję **Azure File Sync**, a następnie wybierz pozycję **Utwórz** , aby otworzyć kartę **Wdróż magazyn synchronizacji** .
+Aby wdrożyć usługę synchronizacji magazynu, przejdź do [Azure Portal](https://portal.azure.com/), kliknij pozycję *Utwórz zasób* , a następnie wyszukaj Azure File Sync. W wynikach wyszukiwania wybierz pozycję **Azure File Sync** , a następnie wybierz pozycję **Utwórz** , aby otworzyć kartę **Wdróż magazyn synchronizacji** .
 
 W otwartym okienku wprowadź następujące informacje:
 
-- **Nazwa**: unikatowa nazwa (na region) usługi synchronizacji magazynu.
-- **Subskrypcja**: subskrypcja, w której chcesz utworzyć usługę synchronizacji magazynu. W zależności od strategii konfiguracji w organizacji może być możliwe uzyskanie dostępu do co najmniej jednej subskrypcji. Subskrypcja platformy Azure to najbardziej podstawowy kontener dotyczący rozliczeń dla każdej usługi w chmurze (na przykład Azure Files).
-- **Grupa zasobów**: Grupa zasobów to logiczna Grupa zasobów platformy Azure, na przykład konto magazynu lub usługa synchronizacji magazynu. Można utworzyć nową grupę zasobów lub użyć istniejącej grupy zasobów dla Azure File Sync. (Zalecamy używanie grup zasobów jako kontenerów do izolowania zasobów logicznie dla organizacji, takich jak grupowanie zasobów kadr lub zasobów dla określonego projektu).
-- **Lokalizacja**: region, w którym ma zostać wdrożony Azure File Sync. Na tej liście są dostępne tylko Obsługiwane regiony.
+- **Nazwa** : unikatowa nazwa (na region) usługi synchronizacji magazynu.
+- **Subskrypcja** : subskrypcja, w której chcesz utworzyć usługę synchronizacji magazynu. W zależności od strategii konfiguracji w organizacji może być możliwe uzyskanie dostępu do co najmniej jednej subskrypcji. Subskrypcja platformy Azure to najbardziej podstawowy kontener dotyczący rozliczeń dla każdej usługi w chmurze (na przykład Azure Files).
+- **Grupa zasobów** : Grupa zasobów to logiczna Grupa zasobów platformy Azure, na przykład konto magazynu lub usługa synchronizacji magazynu. Można utworzyć nową grupę zasobów lub użyć istniejącej grupy zasobów dla Azure File Sync. (Zalecamy używanie grup zasobów jako kontenerów do izolowania zasobów logicznie dla organizacji, takich jak grupowanie zasobów kadr lub zasobów dla określonego projektu).
+- **Lokalizacja** : region, w którym ma zostać wdrożony Azure File Sync. Na tej liście są dostępne tylko Obsługiwane regiony.
 
 Po zakończeniu wybierz pozycję **Utwórz** , aby wdrożyć usługę synchronizacji magazynu.
 
@@ -295,9 +295,9 @@ Po zalogowaniu zostanie wyświetlony monit o podanie następujących informacji:
 
 ![Zrzut ekranu przedstawiający interfejs użytkownika rejestracji serwera](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
-- **Subskrypcja platformy Azure**: subskrypcja zawierająca usługę synchronizacji magazynu (zobacz [wdrażanie usługi synchronizacji magazynu](#deploy-the-storage-sync-service)). 
-- **Grupa zasobów**: Grupa zasobów zawierająca usługę synchronizacji magazynu.
-- **Usługa synchronizacji magazynu**: nazwa usługi synchronizacji magazynu, która ma zostać zarejestrowana.
+- **Subskrypcja platformy Azure** : subskrypcja zawierająca usługę synchronizacji magazynu (zobacz [wdrażanie usługi synchronizacji magazynu](#deploy-the-storage-sync-service)). 
+- **Grupa zasobów** : Grupa zasobów zawierająca usługę synchronizacji magazynu.
+- **Usługa synchronizacji magazynu** : nazwa usługi synchronizacji magazynu, która ma zostać zarejestrowana.
 
 Po wybraniu odpowiednich informacji wybierz pozycję **zarejestruj** , aby zakończyć rejestrację serwera. W ramach procesu rejestracji zostanie wyświetlony monit o dodatkowe logowanie.
 
@@ -322,16 +322,16 @@ Punkt końcowy w chmurze jest wskaźnikiem do udziału plików platformy Azure. 
 Administrator tworzący punkt **końcowy w chmurze** musi być członkiem roli zarządzania konta magazynu zawierającego udział plików platformy Azure wskazywanym przez punkt końcowy w chmurze. Tę konfigurację można skonfigurować w obszarze **Access Control (IAM)** w Azure Portal dla konta magazynu.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Aby utworzyć grupę synchronizacji, w [Azure Portal](https://portal.azure.com/)przejdź do usługi synchronizacji magazynu, a następnie wybierz pozycję **+ Grupa synchronizacji**:
+Aby utworzyć grupę synchronizacji, w [Azure Portal](https://portal.azure.com/)przejdź do usługi synchronizacji magazynu, a następnie wybierz pozycję **+ Grupa synchronizacji** :
 
 ![Tworzenie nowej grupy synchronizacji w witrynie Azure Portal](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
 W otwartym okienku wprowadź następujące informacje, aby utworzyć grupę synchronizacji z punktem końcowym chmury:
 
-- **Nazwa grupy synchronizacji**: Nazwa grupy synchronizacji, która ma zostać utworzona. Ta nazwa musi być unikatowa w obrębie usługi synchronizacji magazynu, ale może być to dowolna nazwa logiczna z Twojego punktu widzenia.
-- **Subskrypcja**: subskrypcja, w ramach której została wdrożona usługa synchronizacji magazynu w ramach [wdrażania usługi synchronizacji magazynu](#deploy-the-storage-sync-service).
-- **Konto magazynu**: w przypadku wybrania **opcji wybierz konto magazynu**zostanie wyświetlone inne okienko, w którym można wybrać konto magazynu, które ma udział plików platformy Azure, z którym chcesz przeprowadzić synchronizację.
-- **Udział plików platformy Azure**: nazwa udziału plików platformy Azure, z którym chcesz przeprowadzić synchronizację.
+- **Nazwa grupy synchronizacji** : Nazwa grupy synchronizacji, która ma zostać utworzona. Ta nazwa musi być unikatowa w obrębie usługi synchronizacji magazynu, ale może być to dowolna nazwa logiczna z Twojego punktu widzenia.
+- **Subskrypcja** : subskrypcja, w ramach której została wdrożona usługa synchronizacji magazynu w ramach [wdrażania usługi synchronizacji magazynu](#deploy-the-storage-sync-service).
+- **Konto magazynu** : w przypadku wybrania **opcji wybierz konto magazynu** zostanie wyświetlone inne okienko, w którym można wybrać konto magazynu, które ma udział plików platformy Azure, z którym chcesz przeprowadzić synchronizację.
+- **Udział plików platformy Azure** : nazwa udziału plików platformy Azure, z którym chcesz przeprowadzić synchronizację.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 Aby utworzyć grupę synchronizacji, wykonaj następujące polecenie programu PowerShell. Pamiętaj, aby zamienić na `<my-sync-group>` żądaną nazwę grupy synchronizacji.
@@ -414,10 +414,11 @@ Aby dodać punkt końcowy serwera, przejdź do nowo utworzonej grupy synchroniza
 
 W okienku **Dodawanie punktu końcowego serwera** wprowadź następujące informacje, aby utworzyć punkt końcowy serwera:
 
-- **Zarejestrowano serwer**: Nazwa serwera lub klastra, w którym chcesz utworzyć punkt końcowy serwera.
-- **Ścieżka**: ścieżka do systemu Windows Server, która ma zostać zsynchronizowana w ramach grupy synchronizacji.
-- Obsługa **warstw w chmurze**: przełącznik umożliwiający włączenie lub wyłączenie obsługi warstw w chmurze. W przypadku obsługi warstw w chmurze nierzadko używane lub dostępne pliki można przystąpić do Azure Files.
-- **Wolne miejsce w woluminie**: ilość wolnego miejsca do zarezerwowania na woluminie, na którym znajduje się punkt końcowy serwera. Na przykład jeśli ilość wolnego miejsca na woluminie jest ustawiona na 50% na woluminie z jednym punktem końcowym serwera, około połowy ilości danych jest warstwą Azure Files. Bez względu na to, czy włączono obsługę warstw w chmurze, udział plików platformy Azure zawsze ma kompletną kopię danych w grupie synchronizacji.
+- **Zarejestrowano serwer** : Nazwa serwera lub klastra, w którym chcesz utworzyć punkt końcowy serwera.
+- **Ścieżka** : ścieżka do systemu Windows Server, która ma zostać zsynchronizowana w ramach grupy synchronizacji.
+- Obsługa **warstw w chmurze** : przełącznik umożliwiający włączenie lub wyłączenie obsługi warstw w chmurze. W przypadku obsługi warstw w chmurze nierzadko używane lub dostępne pliki można przystąpić do Azure Files.
+- **Wolne miejsce w woluminie** : ilość wolnego miejsca do zarezerwowania na woluminie, na którym znajduje się punkt końcowy serwera. Na przykład jeśli ilość wolnego miejsca na woluminie jest ustawiona na 50% na woluminie z jednym punktem końcowym serwera, około połowy ilości danych jest warstwą Azure Files. Bez względu na to, czy włączono obsługę warstw w chmurze, udział plików platformy Azure zawsze ma kompletną kopię danych w grupie synchronizacji.
+- **Początkowy tryb pobierania** : jest to opcjonalny wybór, zaczynając od agenta wersji 11, który może być przydatny w przypadku plików w udziale plików platformy Azure, ale nie na serwerze. Taka sytuacja może istnieć, na przykład w przypadku utworzenia punktu końcowego serwera w celu dodania kolejnego serwera oddziału do grupy synchronizacji lub w przypadku awaryjnego odzyskiwania uszkodzonego serwera. W przypadku włączenia obsługi warstw w chmurze wartość domyślna to tylko odwołanie do przestrzeni nazw, a nie zawartości pliku. Jest to przydatne, jeśli uważasz, że w przypadku żądań dostępu do użytkowników należy zdecydować, która zawartość pliku jest wywoływana na serwerze. Jeśli Obsługa warstw w chmurze jest wyłączona, domyślnie zostanie wyświetlona przestrzeń nazw, a następnie pliki zostaną odwołane na podstawie sygnatury czasowej ostatniej modyfikacji, dopóki nie zostanie osiągnięta lokalna pojemność. Można jednak zmienić początkowy tryb pobierania tylko na przestrzeń nazw. Trzeciego trybu można używać tylko wtedy, gdy obsługa warstw w chmurze jest wyłączona dla tego punktu końcowego serwera. Ten tryb pozwala uniknąć wcześniejszego wywołania przestrzeni nazw. Pliki będą wyświetlane na serwerze lokalnym tylko wtedy, gdy będą mogły zostać w pełni pobrane. Ten tryb jest przydatny, jeśli w przypadku wystąpienia aplikacja wymaga, aby wszystkie pliki były obecne i nie można tolerować plików warstwowych w przestrzeni nazw.
 
 Aby dodać punkt końcowy serwera, wybierz pozycję **Utwórz**. Twoje pliki są teraz zsynchronizowane w ramach udziału plików platformy Azure i systemu Windows Server. 
 
@@ -428,6 +429,8 @@ Wykonaj następujące polecenia programu PowerShell, aby utworzyć punkt końcow
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>
+# Optional property. Choose from: [NamespaceOnly] default when cloud tiering is enabled. [NamespaceThenModifiedFiles] default when cloud tiering is disabled. [AvoidTieredFiles] only available when cloud tiering is disabled.
+$initialDownloadPolicy = NamespaceOnly
 
 if ($cloudTieringDesired) {
     # Ensure endpoint path is not the system volume
@@ -444,14 +447,16 @@ if ($cloudTieringDesired) {
         -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath `
         -CloudTiering `
-        -VolumeFreeSpacePercent $volumeFreeSpacePercentage
+        -VolumeFreeSpacePercent $volumeFreeSpacePercentage `
+        -InitialDownloadPolicy $initialDownloadPolicy
 } else {
     # Create server endpoint
     New-AzStorageSyncServerEndpoint `
         -Name $registeredServer.FriendlyName `
         -SyncGroup $syncGroup `
         -ServerResourceId $registeredServer.ResourceId `
-        -ServerLocalPath $serverEndpointPath
+        -ServerLocalPath $serverEndpointPath `
+        -InitialDownloadPolicy $initialDownloadPolicy
 }
 ```
 
@@ -478,6 +483,7 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
                                                  --cloud-tiering on \
                                                  --volume-free-space-percent 85 \
                                                  --tier-files-older-than-days 15 \
+                                                 --initial-download-policy NamespaceOnly [OR] NamespaceThenModifiedFiles [OR] AvoidTieredFiles
                                                  --offline-data-transfer on \
                                                  --offline-data-transfer-share-name myfilesharename \
 
@@ -569,6 +575,40 @@ Domyślna maksymalna liczba migawek VSS na wolumin (64), a także harmonogram do
 
 Jeśli maks. 64 migawek VSS na wolumin nie jest prawidłowym ustawieniem, można [zmienić tę wartość za pomocą klucza rejestru](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Aby nowe ograniczenie zaczęły obowiązywać, należy ponownie uruchomić polecenie cmdlet, aby włączyć zgodność poprzedniej wersji na każdym woluminie, który był wcześniej włączony, z flagą-Force, aby pobrać nową maksymalną liczbę migawek VSS na wolumin. Spowoduje to powstanie nowo obliczonej liczby zgodnych dni. Należy pamiętać, że ta zmiana zacznie obowiązywać tylko w przypadku nowych plików warstwowych i nadpisać wszelkie dostosowania w harmonogramie usługi VSS, który miał być wykonany.
+
+<a id="proactive-recall"></a>
+## <a name="proactively-recall-new-and-changed-files-from-an-azure-file-share"></a>Proaktywne odwoływanie nowych i zmienionych plików z udziału plików platformy Azure
+
+W przypadku agenta w wersji 11 nowy tryb jest dostępny w punkcie końcowym serwera. Ten tryb pozwala globalnie rozproszonym firmom na wstępne wypełnienie pamięci podręcznej serwera w regionie zdalnym, nawet przed dostępem użytkowników lokalnych do dowolnych plików. Po włączeniu w punkcie końcowym serwera ten tryb spowoduje, że ten serwer będzie przywoływany pliki, które zostały utworzone lub zmienione w udziale plików platformy Azure.
+
+### <a name="scenario"></a>Scenariusz
+
+Firma rozproszona globalnie ma biura oddziałów w Stanach Zjednoczonych i Indiach. W pracowniku przetwarzającym informacje o godzinie (USA) Utwórz nowy folder i nowe pliki dla zupełnie nowego projektu i pracuj codziennie. Azure File Sync zsynchronizuje foldery i pliki z udziałem plików platformy Azure (punkt końcowy w chmurze). Pracownicy przetwarzający informacje w Indiach będą nadal pracować nad projektem w ich strefach czasowych. Po nadejściu rano, lokalny Azure File Sync włączony serwer w Indiach musi mieć dostęp do tych nowych plików lokalnie, dzięki czemu zespół Indii może efektywnie pracować z lokalną pamięcią podręczną. Włączenie tego trybu zapobiega wolniejszemu dostępowi do pliku z powodu odwołania na żądanie i umożliwia serwerowi aktywne odwoływanie plików zaraz po ich zmianie lub utworzeniu w udziale plików platformy Azure.
+
+> [!IMPORTANT]
+> Należy pamiętać, że śledzenie zmian w udziale plików platformy Azure, który jest blisko na serwerze, może zwiększyć ruch wychodzący i rozliczanie z platformy Azure. Jeśli pliki, które są ponownie wywoływane na serwerze, nie są w rzeczywistości wymagane lokalnie, niepotrzebne odwołania do serwera mogą mieć negatywne konsekwencje. Użyj tego trybu, Jeśli wiesz, że pamięć podręczna na serwerze z najnowszymi zmianami w chmurze będzie miała pozytywny wpływ na użytkowników lub aplikacje, które korzystają z plików na tym serwerze.
+
+### <a name="enable-a-server-endpoint-to-proactively-recall-what-changed-in-an-azure-file-share"></a>Włącz punkt końcowy serwera, aby aktywnie odwołać zmiany w udziale plików platformy Azure
+
+# <a name="portal"></a>[Portal](#tab/proactive-portal)
+
+1. W [Azure Portal](https://portal.azure.com/)przejdź do usługi synchronizacji magazynu, Wybierz poprawną grupę synchronizacji, a następnie określ punkt końcowy serwera, dla którego chcesz ściśle śledzić zmiany w udziale plików platformy Azure (punkt końcowy w chmurze).
+1. W sekcji Obsługa warstw w chmurze Znajdź temat "Pobieranie udziału plików platformy Azure". Zobaczysz aktualnie wybrany tryb i będzie można go zmienić w celu dokładnego śledzenia zmian udziału plików platformy Azure i aktywnego odwoływania ich do serwera.
+
+:::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="Obraz przedstawiający zachowanie pobierania udziałów plików platformy Azure dla aktualnie obowiązującego punktu końcowego serwera i przycisk umożliwiający otwarcie menu umożliwiającego jego zmianę.":::
+
+# <a name="powershell"></a>[Program PowerShell](#tab/proactive-powershell)
+
+Właściwości punktu końcowego serwera można modyfikować w programie PowerShell za pomocą polecenia cmdlet [Set-AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) .
+
+```powershell
+# Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"
+$recallBehavior = "DownloadNewAndModifiedFiles"
+
+Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode $recallBehavior
+```
+
+---
 
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrowanie wdrożenia Replikacja systemu plików DFS (DFS-R) do Azure File Sync
 Aby przeprowadzić migrację wdrożenia systemu plików DFS-R do Azure File Sync:

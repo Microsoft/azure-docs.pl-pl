@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: networking
 author: anavinahar
 ms.service: networking
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936075"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329498"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limity sieci — Azure Resource Manager
 Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych za pomocą **Azure Resource Manager** na region na subskrypcję. Dowiedz się, jak [wyświetlić bieżące użycie zasobów względem limitów subskrypcji](../articles/networking/check-usage-against-limits.md).
@@ -55,6 +55,7 @@ Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarzą
 | Publiczne adresy IP<sup>1</sup> | 10 dla warstwy Podstawowa. | Skontaktuj się z pomocą techniczną. |
 | Statyczne publiczne adresy IP<sup>1</sup> | 10 dla warstwy Podstawowa. | Skontaktuj się z pomocą techniczną. |
 | Standardowe publiczne adresy IP<sup>1</sup> | 10 | Skontaktuj się z pomocą techniczną. |
+| [Publiczne adresy IP na grupę zasobów](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Skontaktuj się z pomocą techniczną. | 
 | Prefiksy publicznego adresu IP | ograniczone przez liczbę standardowych publicznych adresów IP w ramach subskrypcji | Skontaktuj się z pomocą techniczną. |
 | Długość prefiksu publicznego adresu IP | /28 | Skontaktuj się z pomocą techniczną. |
 
@@ -106,6 +107,6 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Trasy zdefiniowane przez użytkownika na tabelę tras |400 |400 |
 | Publiczne adresy IP (dynamiczne) |500 |500 |
 | Zastrzeżone publiczne adresy IP |500 |500 |
-| Publiczne adresy VIP na wdrożenie |5 |Kontakt z pomocą techniczną |
-| Prywatne wirtualne adresy IP (wewnętrzne równoważenie obciążenia) na wdrożenie |1 |1 |
+| Publiczny adres IP na wdrożenie |5 |Kontakt z pomocą techniczną |
+| Prywatny adres IP (wewnętrzne równoważenie obciążenia) na wdrożenie |1 |1 |
 | Listy kontroli dostępu (ACL) punktu końcowego |50 |50 |

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784222"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330295"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Zmienianie sposobu replikowania konta magazynu
 
@@ -39,10 +39,10 @@ Poniższa tabela zawiera omówienie sposobu przełączania poszczególnych typó
 
 | Włączanie | ... do LRS | ... do GRS/RA-GRS | ... do ZRS | ... do GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... z LRS</b> | Nie dotyczy | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia<sup>1</sup> | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do GRS/RA-GRS, a następnie Zażądaj migracji na żywo<sup>1</sup> |
-| <b>... z GRS/RA-GRS</b> | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Nie dotyczy | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do LRS, a następnie Zażądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo |
-| <b>... z ZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Nie dotyczy | Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby zmienić ustawienie replikacji<sup>1, 2</sup> |
-| <b>... z GZRS/RA-GZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Nie dotyczy |
+| <b>... z LRS</b> | Brak | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia<sup>1</sup> | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do GRS/RA-GRS, a następnie Zażądaj migracji na żywo<sup>1</sup> |
+| <b>... z GRS/RA-GRS</b> | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Brak | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do LRS, a następnie Zażądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo |
+| <b>... z ZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Brak | Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby zmienić ustawienie replikacji<sup>1, 2</sup> |
+| <b>... z GZRS/RA-GZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Brak |
 
 <sup>1</sup> powoduje naliczenie jednorazowej opłaty za ruch wychodzący.<br />
 <sup>2</sup> konwersja z ZRS na GZRS/RA-GZRS lub odwrotnie nie jest obsługiwana w następujących regionach: Wschodnie stany USA 2, Wschodnie stany USA, Europa Zachodnia.
@@ -66,7 +66,7 @@ Aby zmienić opcję nadmiarowości dla konta magazynu w Azure Portal, wykonaj na
 
 ![Zrzut ekranu przedstawiający sposób zmiany opcji replikacji w portalu](media/redundancy-migration/change-replication-option.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby zmienić opcję nadmiarowości dla konta magazynu za pomocą programu PowerShell, wywołaj polecenie [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) i określ `-SkuName` parametr:
 
@@ -123,26 +123,26 @@ Należy przeprowadzić migrację ręczną, jeśli:
 
 Możesz zażądać migracji na żywo za pomocą [portalu pomocy technicznej systemu Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). W portalu wybierz konto magazynu, które chcesz skonwertować do ZRS.
 
-1. Wybierz pozycję **nowe żądanie obsługi** .
+1. Wybierz pozycję **nowe żądanie obsługi**.
 2. Wypełnij **podstawowe** informacje na podstawie informacji o koncie: 
-    - **Typ problemu** : wybierz pozycję **techniczne** .
-    - **Usługa** : wybierz pozycję **Moje usługi** i **Zarządzanie kontem magazynu** .
+    - **Typ problemu** : wybierz pozycję **techniczne**.
+    - **Usługa** : wybierz pozycję **Moje usługi** i **Zarządzanie kontem magazynu**.
     - **Zasób** : wybierz zasób, który chcesz przekonwertować na ZRS.
-3. Wybierz pozycję **Dalej** .
+3. Wybierz pozycję **Dalej**.
 4. Określ następujące wartości w sekcji **problem** :
     - **Ważność** : pozostaw wartość domyślną równą-is.
-    - **Typ problemu** : wybierz pozycję **migracja danych** .
-    - **Kategoria** : wybierz pozycję **Migruj do ZRS** .
-    - **Title** : wpisz opisowy tytuł, na przykład **ZRS** .
+    - **Typ problemu** : wybierz pozycję **migracja danych**.
+    - **Kategoria** : wybierz pozycję **Migruj do ZRS**.
+    - **Title** : wpisz opisowy tytuł, na przykład **ZRS**.
     - **Szczegóły** : wpisz dodatkowe szczegóły w polu **szczegóły** , na przykład chcę przeprowadzić migrację do ZRS z [LRS, GRS] w \_ \_ regionie.
-5. Wybierz pozycję **Dalej** .
+5. Wybierz pozycję **Dalej**.
 6. Sprawdź, czy informacje kontaktowe są poprawne w bloku **informacje kontaktowe** .
-7. Wybierz pozycję **Utwórz** .
+7. Wybierz przycisk **Utwórz**.
 
 Osoba odpowiedzialna za pomoc techniczną skontaktuje się z Tobą i pomoże Ci uzyskać pomoc.
 
 > [!NOTE]
-> Migracja na żywo nie jest obecnie obsługiwana dla udziałów plików w warstwie Premium. Obecnie obsługiwane są tylko ręczne kopiowanie lub przeniesienie danych.
+> Udziały plików w warstwie Premium (konta FileStorage) są dostępne tylko dla LRS i ZRS.
 >
 > Konta magazynu GZRS nie obsługują obecnie warstwy archiwum. Aby uzyskać więcej informacji [, zobacz warstwy dostępu gorąca, chłodna i archiwalna](../blobs/storage-blob-storage-tiers.md) .
 >
@@ -169,7 +169,7 @@ Aby uaktualnić do ZRS w Azure Portal, przejdź do ustawień **konfiguracji** ko
 
 ![Uaktualnianie klasycznego magazynu ZRS do magazynu ZRS w portalu](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby uaktualnić program do ZRS przy użyciu programu PowerShell, wywołaj następujące polecenie:
 
@@ -198,7 +198,7 @@ Jeśli przeprowadzisz migrację konta magazynu z usługi GRS do LRS, nie ma żad
 > [!IMPORTANT]
 > Jeśli przeprowadzono migrację konta magazynu z usługi RA-GRS do usługi GRS lub LRS, to konto jest rozliczane jako RA-GRS przez dodatkowe 30 dni poza datą przekonwertowania.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Nadmiarowość usługi Azure Storage](storage-redundancy.md)
 - [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)

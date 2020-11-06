@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 12bec5af95e7da595d5af09fe9020992b1cf839d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 99fa8d4cf8f48d0fe72da36baef20c83add438c0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367996"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330261"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Usługa Azure ExpressRoute z Azure Site Recovery
 
@@ -31,7 +31,7 @@ Obwód usługi ExpressRoute ma skojarzone wiele domen routingu. Dowiedz się wi�
 
 Azure Site Recovery umożliwia odzyskiwanie po awarii i migrację na platformę Azure dla lokalnych [maszyn wirtualnych funkcji Hyper-V](hyper-v-azure-architecture.md), [maszyn wirtualnych VMware](vmware-azure-architecture.md)i [serwerów fizycznych](physical-azure-architecture.md). W przypadku wszystkich scenariuszy lokalnych z platformą Azure dane replikacji są wysyłane do konta usługi Azure Storage i przechowywane na nim. Podczas replikacji nie są naliczane żadne opłaty za maszyny wirtualne. Po uruchomieniu trybu failover na platformie Azure Site Recovery automatycznie tworzy maszyny wirtualne IaaS platformy Azure.
 
-Site Recovery replikuje dane do konta usługi Azure Storage lub dysku zarządzanego repliki w docelowym regionie platformy Azure za pośrednictwem publicznego punktu końcowego. Aby użyć ExpressRoute Site Recovery na potrzeby ruchu związanego z replikacją, można wykorzystać [komunikację równorzędną firmy Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) lub istniejącą [publiczną komunikację równorzędną](../expressroute/about-public-peering.md) (przestarzałą dla nowych operacji tworzenia). Komunikacja równorzędna firmy Microsoft jest zalecaną domeną routingu na potrzeby replikacji. Należy zauważyć, że replikacja nie jest obsługiwana w trybie prywatnej komunikacji równorzędnej.
+Site Recovery replikuje dane do konta usługi Azure Storage lub dysku zarządzanego repliki w docelowym regionie platformy Azure za pośrednictwem publicznego punktu końcowego. Aby użyć ExpressRoute Site Recovery na potrzeby ruchu związanego z replikacją, można wykorzystać [komunikację równorzędną firmy Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) lub istniejącą [publiczną komunikację równorzędną](../expressroute/about-public-peering.md) (przestarzałą dla nowych operacji tworzenia). Komunikacja równorzędna firmy Microsoft jest zalecaną domeną routingu na potrzeby replikacji. Należy pamiętać, że replikacja jest obsługiwana za pośrednictwem prywatnej komunikacji równorzędnej tylko wtedy [, gdy dla magazynu są włączone prywatne punkty końcowe](hybrid-how-to-enable-replication-private-endpoints.md).
 
 Upewnij się, że zostały spełnione także [wymagania dotyczące sieci](vmware-azure-configuration-server-requirements.md#network-requirements) dla serwera konfiguracji. Serwer konfiguracji wymaga połączenia z określonymi adresami URL w celu aranżacji replikacji Site Recovery. Nie można użyć ExpressRoute dla tej łączności. 
 

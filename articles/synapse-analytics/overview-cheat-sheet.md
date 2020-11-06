@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c8ae47f89dcddd2253abd21239eb1a9bffee27c7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b3ae2c958b479f5f131de871b64663c2754713b6
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307818"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330432"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Arkusz Ściągawka usługi Azure Synapse Analytics
 
@@ -40,6 +40,7 @@ Aby korzystać z usługi Spark Analytics, Utwórz i Użyj **bezserwerowych pul A
 | Termin                         | Definicja      |
 |:---                                 |:---                 |
 | **Żądanie SQL**  |   Operacja, taka jak zapytanie, jest uruchamiana za pomocą dedykowanej puli SQL lub bezserwerowej puli. |
+|**Skrypt SQL**| Zestaw poleceń SQL zapisanych w pliku. Skrypt SQL może zawierać jedną lub więcej instrukcji SQL. Może służyć do uruchamiania żądań SQL za poorednictwem dedykowanej puli SQL lub bezserwerowej puli SQL.|
 
 ## <a name="spark-terminology"></a>Terminologia platformy Spark
 | Termin                         | Definicja      |
@@ -48,17 +49,24 @@ Aby korzystać z usługi Spark Analytics, Utwórz i Użyj **bezserwerowych pul A
 | **Pula Apache Spark**  | w obszarze roboczym można wdrożyć zasoby z obsługą od 0 do N platformy Spark z odpowiednimi bazami danych. Pulę platformy Spark można automatycznie wstrzymać, wznowić i skalować.  |
 | **Aplikacja platformy Spark**  |   Składa się z procesu sterownika i zestawu procesów wykonujących. Aplikacja Spark działa w puli Spark bezserwerowej.            |
 | **Sesja platformy Spark**  |   Zunifikowany punkt wejścia aplikacji Spark. Zapewnia sposób współpracy z różnymi funkcjami platformy Spark i z mniejszą liczbą konstrukcji. Aby uruchomić Notes, należy utworzyć sesję. Sesję można skonfigurować do uruchamiania na określonej liczbie wykonawców o określonym rozmiarze. Domyślna konfiguracja sesji notesu jest uruchamiana w przypadku programów wykonawczych o rozmiarze 2 średnim. |
-|**Integracja danych**| Zapewnia możliwość pozyskiwania danych między różnymi źródłami i organizowania działań uruchomionych w obszarze roboczym lub poza obszarem roboczym.| 
-|**Artifacts**| Koncepcja, która hermetyzuje wszystkie obiekty wymagane przez użytkownika do zarządzania źródłami danych, opracowywania, organizowania i wizualizacji.|
 |**Notes**| Interaktywny i reaktywny interfejs nauki i inżynierii danych obsługujący Scala, PySpark, C# i SparkSQL. |
 |**Definicja zadania platformy Spark**|Interfejs do przesyłania zadania platformy Spark przez zestaw jar zawierający kod i jego zależności.|
+
+## <a name="pipelines-terminology"></a>Terminologia potoku
+| Termin                         | Definicja      |
+|:---                                 |:---                 |
+|**Integracja danych**| Zapewnia możliwość pozyskiwania danych między różnymi źródłami i organizowania działań uruchomionych w obszarze roboczym lub poza obszarem roboczym.| 
 |**Przepływ danych**|  Zapewnia w pełni wizualizację, bez konieczności kodowania danych Big Data. Wszystkie optymalizacje i wykonywanie są obsługiwane w sposób bezserwerowy. |
-|**Skrypt SQL**| Zestaw poleceń SQL zapisanych w pliku. Skrypt SQL może zawierać jedną lub więcej instrukcji SQL. Może służyć do uruchamiania żądań SQL za poorednictwem dedykowanej puli SQL lub bezserwerowej puli SQL.|
 |**Potok**| Logiczne grupowanie działań, które wspólnie wykonują zadanie.|
 |**Działanie**| Definiuje akcje do wykonania na danych, takich jak kopiowanie danych, uruchamianie notesu lub skryptu SQL.|
 |**Wyzwalacz**| Wykonuje potok. Może być uruchamiany ręcznie lub automatycznie (harmonogram, wirowania okno lub zdarzenia).|
+|**Zestaw danych integracji**|  Nazwany widok danych, który po prostu wskazuje lub odwołuje się do danych, które mają być używane w działaniu jako dane wejściowe i wyjściowe. Należy do połączonej usługi.|
+
+## <a name="general-terminology"></a>Ogólna terminologia
+| Termin                         | Definicja      |
+|:---                                 |:---                 |
+|**Artifacts**| Koncepcja, która hermetyzuje wszystkie obiekty wymagane przez użytkownika do zarządzania źródłami danych, opracowywania, organizowania i wizualizacji.|
 |**Połączona usługa**| Parametry połączenia, które definiują informacje o połączeniu, które są konieczne do nawiązania połączenia z zasobami zewnętrznymi.|
-|**Zestawu**|  Nazwany widok danych, który po prostu wskazuje lub odwołuje się do danych, które mają być używane w działaniu jako dane wejściowe i wyjściowe. Należy do połączonej usługi.|
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -66,5 +74,5 @@ Aby korzystać z usługi Spark Analytics, Utwórz i Użyj **bezserwerowych pul A
 - [Korzystanie z programu Synapse Studio](quickstart-synapse-studio.md)
 - [Tworzenie dedykowanej puli SQL](quickstart-create-sql-pool-portal.md)
 - [Utwórz bezserwerową pulę Apache Spark](quickstart-create-apache-spark-pool-portal.md)
-- [Użyj bezserwerowej puli SQL](quickstart-sql-on-demand.md)
+- [Korzystanie z bezserwerowej puli SQL](quickstart-sql-on-demand.md)
 

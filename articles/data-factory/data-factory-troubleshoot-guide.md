@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 3a195f9dd74353734ff65f0d5f210d861fa29a26
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6f16e4b1f9728ae8d9cb36ab442603083e83eb92
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632587"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331383"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Rozwiązywanie problemów z usługą Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -522,79 +522,30 @@ Poniższa tabela ma zastosowanie do Azure Batch.
  
 ## <a name="hdinsight"></a>HDInsight
 
-### <a name="error-code-200"></a>Kod błędu: 200
-
-- **Komunikat** : `Unexpected error happened: '%error;'.`
-
-- **Przyczyna** : Wystąpił wewnętrzny problem z usługą.
-
-- **Zalecenie** : Aby uzyskać dalszą pomoc, skontaktuj się z pomocą techniczną APD.
-
-### <a name="error-code-201"></a>Kod błędu: 201
-
-- **Komunikat** : `JobType %jobType; is not found.`
-
-- **Przyczyna** : istnieje nowy typ zadania, który nie jest obsługiwany przez ADF.
-
-- **Zalecenie** : Aby uzyskać dalszą pomoc, skontaktuj się z zespołem pomocy technicznej usługi ADF.
-
-### <a name="error-code-202"></a>Kod błędu: 202
-
-- **Komunikat** : `Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Przyczyna** : komunikat o błędzie zawiera szczegóły dotyczące tego, co poszło źle.
-
-- **Zalecenie** : szczegóły komunikatu o błędzie powinny pomóc w rozwiązaniu problemu. Jeśli nie ma wystarczającej ilości informacji, skontaktuj się z pomocą techniczną ADF w celu uzyskania dalszej pomocy.
-
-### <a name="error-code-203"></a>Kod błędu: 203
-
-- **Komunikat** : `Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Przyczyna** : komunikat o błędzie zawiera szczegóły dotyczące tego, co poszło źle.
-
-- **Zalecenie** : szczegóły komunikatu o błędzie powinny pomóc w rozwiązaniu problemu. Jeśli nie ma wystarczającej ilości informacji, skontaktuj się z pomocą techniczną ADF w celu uzyskania dalszej pomocy.
-
-### <a name="error-code-204"></a>Kod błędu: 204
-
-- **Komunikat** : `The resumption token is missing for runId '%runId;'.`
-
-- **Przyczyna** : Wystąpił wewnętrzny problem z usługą.
-
-- **Zalecenie** : Aby uzyskać dalszą pomoc, skontaktuj się z pomocą techniczną APD.
-
-### <a name="error-code-205"></a>Kod błędu: 205
-
-- **Komunikat** : `Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
-
-- **Przyczyna** : Wystąpił błąd podczas tworzenia klastra na żądanie HDI.
-
-- **Zalecenie** : Aby uzyskać dalszą pomoc, skontaktuj się z pomocą techniczną APD.
-
 ### <a name="error-code-206"></a>Kod błędu: 206
 
-- **Komunikat** : `The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **Komunikat** : `The batch ID for Spark job is invalid. Please retry your job.`
 
 - **Przyczyna** : Wystąpił wewnętrzny problem z usługą, która spowodowała wystąpienie tego błędu.
 
-- **Zalecenie** : ten problem może być przejściowy. Spróbuj ponownie wykonać zadanie, a jeśli problem będzie nadal występował, skontaktuj się z pomocą techniczną ADF w celu uzyskania dalszej pomocy.
+- **Zalecenie** : ten problem może być przejściowy. Spróbuj ponownie wykonać zadanie po pewnym czasie.
 
 ### <a name="error-code-207"></a>Kod błędu: 207
 
-- **Komunikat** : `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **Komunikat** : `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
 
 - **Przyczyna** : Wystąpił błąd wewnętrzny podczas próby ustalenia regionu z podstawowego konta magazynu.
 
-- **Zalecenie** : wypróbuj inny magazyn. Jeśli ta opcja nie jest akceptowalnym rozwiązaniem, należy skontaktować się z zespołem pomocy technicznej APD w celu uzyskania dalszej pomocy.
+- **Zalecenie** : wypróbuj inny magazyn. 
 
 ### <a name="error-code-208"></a>Kod błędu: 208
 
-- **Komunikat** : `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **Komunikat** : `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
 
 - **Przyczyna** : Wystąpił błąd wewnętrzny podczas próby odczytu nazwy głównej usługi lub wystąpienia uwierzytelniania MSI.
 
 - **Zalecenie** : Rozważ podanie nazwy głównej usługi, która ma uprawnienia do tworzenia klastra HDInsight w podanej subskrypcji, i spróbuj ponownie. Upewnij się, że [Zarządzanie tożsamościami jest prawidłowo skonfigurowane](../hdinsight/hdinsight-managed-identities.md).
 
-   Jeśli ta opcja nie jest akceptowalnym rozwiązaniem, należy skontaktować się z zespołem pomocy technicznej APD w celu uzyskania dalszej pomocy.
 
 ### <a name="error-code-2300"></a>Kod błędu: 2300
 
@@ -612,7 +563,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Zalecenie** : przyczyną problemu może być ogólna łączność z usługą HDInsight lub łączność sieciowa. Najpierw upewnij się, że interfejs użytkownika usługi HDInsight Ambari jest dostępny z dowolnej przeglądarki. Następnie sprawdź, czy poświadczenia są nadal ważne.
    
-   Jeśli używasz własnego środowiska uruchomieniowego (IR), wykonaj ten krok z maszyny wirtualnej lub maszyny, na której zainstalowano samoobsługowe środowisko IR. Następnie spróbuj ponownie przesłać zadanie z Data Factory. Jeśli nadal się nie powiedzie, skontaktuj się z zespołem Data Factory, aby uzyskać pomoc techniczną.
+   Jeśli używasz własnego środowiska uruchomieniowego (IR), wykonaj ten krok z maszyny wirtualnej lub maszyny, na której zainstalowano samoobsługowe środowisko IR. Następnie spróbuj ponownie przesłać zadanie z Data Factory.
 
    Aby uzyskać więcej informacji, Przeczytaj [Ambari internetowy interfejs użytkownika](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui).
 
@@ -1009,7 +960,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Przyczyna** : ten problem jest spowodowany przez połączenie sieciowe, błąd DNS, sprawdzenie poprawności certyfikatu serwera lub przekroczenie limitu czasu.
 
-- **Zalecenie** : Sprawdź, czy punkt końcowy, który próbujesz trafić, odpowiada na żądania. Można używać narzędzi takich jak **programu Fiddler/Poster** .
+- **Zalecenie** : Sprawdź, czy punkt końcowy, który próbujesz trafić, odpowiada na żądania. Można używać narzędzi takich jak **programu Fiddler/Poster**.
 
 ### <a name="error-code-2108"></a>Kod błędu: 2108
 
@@ -1024,17 +975,17 @@ Aby użyć **programu Fiddler** do utworzenia sesji http monitorowanej aplikacji
 
 1. Pobierz, zainstaluj i Otwórz [programu Fiddler](https://www.telerik.com/download/fiddler).
 
-1. Jeśli aplikacja sieci Web używa protokołu HTTPS, przejdź do pozycji **Narzędzia**  >  **programu Fiddler opcje**  >  **https** .
+1. Jeśli aplikacja sieci Web używa protokołu HTTPS, przejdź do pozycji **Narzędzia**  >  **programu Fiddler opcje**  >  **https**.
 
-   1. Na karcie HTTPS wybierz opcję **Przechwytuj połączenia HTTPS** i **Odszyfruj ruch https** .
+   1. Na karcie HTTPS wybierz opcję **Przechwytuj połączenia HTTPS** i **Odszyfruj ruch https**.
 
       ![Opcje programu Fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 1. Jeśli aplikacja używa certyfikatów TLS/SSL, Dodaj do urządzenia certyfikat programu Fiddler.
 
-   Przejdź do: **Narzędzia**  >  **programu Fiddler opcje**  >  **https**  >  **Actions**  >  **, Eksportuj certyfikat główny do pulpitu** .
+   Przejdź do: **Narzędzia**  >  **programu Fiddler opcje**  >  **https**  >  **Actions**  >  **, Eksportuj certyfikat główny do pulpitu**.
 
-1. Wyłącz przechwytywanie, przechodząc do **File**  >  **ruchu przechwytywania** plików. Lub naciśnij klawisz **F12** .
+1. Wyłącz przechwytywanie, przechodząc do **File**  >  **ruchu przechwytywania** plików. Lub naciśnij klawisz **F12**.
 
 1. Wyczyść pamięć podręczną przeglądarki, aby wszystkie elementy w pamięci podręcznej zostały usunięte i muszą zostać pobrane ponownie.
 
@@ -1046,11 +997,11 @@ Aby użyć **programu Fiddler** do utworzenia sesji http monitorowanej aplikacji
  
    1. W razie konieczności Dodaj nagłówki i treść żądania.
 
-   1. Wybierz pozycję **Wykonaj** .
+   1. Wybierz pozycję **Wykonaj**.
 
 1. Włącz ponownie przechwytywanie ruchu i Ukończ problematyczną transakcję na stronie.
 
-1. Przejdź do: **plik**  >  **Zapisz**  >  **wszystkie sesje** .
+1. Przejdź do: **plik**  >  **Zapisz**  >  **wszystkie sesje**.
 
 Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z usługą programu Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 

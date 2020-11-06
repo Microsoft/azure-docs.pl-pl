@@ -8,16 +8,16 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 190aaae81d51434b57b5aaa6817a443dc541d26e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c611d65c30cceba5fd6ff409ef71b906cd8674c
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069140"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330312"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Włączanie i tworzenie dużych udziałów plików
 
-Po włączeniu dużych udziałów plików na koncie magazynu udziały plików można skalować do 100 TiB. Skalowanie można włączyć na istniejących kontach magazynu dla istniejących udziałów plików.
+Po włączeniu dużych udziałów plików na koncie magazynu udziały plików można skalować w górę do 100 TiB, jednocześnie zwiększając liczbę IOPS i limity przepływności dla udziałów standardowych. Możesz również włączyć skalowanie na istniejących kontach magazynu dla istniejących udziałów plików. Szczegóły można znaleźć w temacie [udział plików i cele skalowania plików](storage-files-scale-targets.md#azure-files-scale-targets) . 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -56,8 +56,8 @@ Włączenie dużych udziałów plików na koncie jest procesem nieodwracalnym. P
    |Rodzaj konta     |StorageV2 (ogólnego przeznaczenia wersja 2)         |
    |Warstwa dostępu     |Gorąca         |
 
-1. Wybierz pozycję **Zaawansowane**, a następnie wybierz przycisk opcji **włączone** po prawej stronie **dużych udziałów plików**.
-1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
+1. Wybierz pozycję **Zaawansowane** , a następnie wybierz przycisk opcji **włączone** po prawej stronie **dużych udziałów plików**.
+1. Wybierz pozycję **Przejrzyj i utwórz** , aby przejrzeć ustawienia konta magazynu i utworzyć konto.
 
     ![Zrzut ekranu z przyciskiem opcji "Enabled" na nowym koncie magazynu w Azure Portal](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
 
@@ -94,7 +94,7 @@ Możesz również włączyć duże udziały plików na istniejących kontach. Je
 
 1. Otwórz [Azure Portal](https://portal.azure.com)i przejdź do konta magazynu, w którym chcesz włączyć duże udziały plików.
 1. Otwórz konto magazynu i wybierz pozycję **Konfiguracja**.
-1. Wybierz pozycję **włączone** w przypadku **dużych udziałów plików**, a następnie wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **włączone** w przypadku **dużych udziałów plików** , a następnie wybierz pozycję **Zapisz**.
 1. Wybierz pozycję **Przegląd** , a następnie wybierz pozycję **Odśwież**.
 
 ![Wybieranie przycisku opcji włączone na istniejącym koncie magazynu w Azure Portal](media/storage-files-how-to-create-large-file-share/enable-large-file-shares-on-existing.png)

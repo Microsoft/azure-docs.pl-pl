@@ -6,19 +6,19 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 52d7bc9ed4068d6a2e697cece7ca6cd0b12876c3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ddbfb08370b73ef8fa023816a7362f671b33d3a0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085449"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331009"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Jednostki żądania w usłudze Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB obsługuje wiele interfejsów API, takich jak SQL, MongoDB, Cassandra, Gremlin i Table. Każdy interfejs API ma swój własny zestaw operacji bazy danych. Te operacje obejmują między innymi odczyty punktów prostych i zapisów w złożonych zapytaniach. Każda operacja bazy danych zużywa zasoby systemowe na podstawie złożoności operacji.
 
-Koszt wszystkich operacji bazy danych jest znormalizowany przez Azure Cosmos DB i jest wyrażony przez *jednostki żądania* (lub jednostek ru, dla krótkich). Możesz traktować jednostek ru jako walutę wydajności, co umożliwia abstrakcję zasobów systemowych, takich jak procesor CPU, operacje we/wy i pamięć, które są wymagane do wykonania operacji bazy danych obsługiwanych przez Azure Cosmos DB.
+Koszt wszystkich operacji bazy danych jest normalizowany przez usługę Azure Cosmos DB i jest wyrażany za pomocą jednostek żądań (lub w skrócie RU). Jednostka żądania to waluta wydajności, która umożliwia abstrakcję zasobów systemowych, takich jak procesor CPU, operacje we/wy i pamięć, które są wymagane do wykonania operacji bazy danych obsługiwanych przez Azure Cosmos DB.
 
 Koszt do przeczytania punktu (tj. Pobieranie pojedynczego elementu według jego identyfikatora i wartości klucza partycji) dla elementu 1 KB to 1 jednostka żądania (lub 1 RU). Wszystkim innym operacjom bazy danych koszt jest przypisywany w podobny sposób za pomocą jednostek RU. Niezależnie od tego, którego interfejsu API używasz do interakcji z kontenerem usługi Azure Cosmos, koszty są zawsze mierzone za pomocą jednostek RU. Niezależnie od tego, czy operacja bazy danych jest zapisem, punktem odczytu lub zapytania, koszty są zawsze mierzone w jednostek ru.
 
@@ -75,7 +75,7 @@ Podczas szacowania liczby jednostek ru zużywanych przez obciążenie należy wz
 
 Jeśli zainicjujesz jednostek ru *"r"* w kontenerze Cosmos (lub bazie danych), Cosmos DB zapewnia dostępność *"r"* jednostek RU w *każdym* regionie skojarzonym z Twoim kontem Cosmos. Nie można wybiórczo przypisywać jednostek ru do określonego regionu. Obsługa jednostek RU w kontenerze Cosmos (lub bazie danych) jest obsługiwana we wszystkich regionach skojarzonych z Twoim kontem Cosmos.
 
-Przy założeniu, że kontener Cosmos jest skonfigurowany przy użyciu *"R"* jednostek ru, a istnieją regiony *"N"* skojarzone z kontem Cosmos, Łączna liczba jednostek ru dostępnych globalnie w kontenerze = *R* x *N* .
+Przy założeniu, że kontener Cosmos jest skonfigurowany przy użyciu *"R"* jednostek ru, a istnieją regiony *"N"* skojarzone z kontem Cosmos, Łączna liczba jednostek ru dostępnych globalnie w kontenerze = *R* x *N*.
 
 Wybór [modelu spójności](consistency-levels.md) wpływa również na przepływność. Możesz uzyskać około 2x przepływność odczytu dla bardziej swobodnych poziomów spójności (np. *sesji* , *spójnego prefiksu* i spójności *ostatecznej* ) w porównaniu z silniejszymi poziomami spójności (np. *z ograniczeniami nieodświeżonymi* lub *silną* spójnością).
 

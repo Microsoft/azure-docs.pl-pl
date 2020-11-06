@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: a04088fc1074949a1228794c22c1fa65a0b736a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370072"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330941"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Popraw syntezę przy użyciu narzędzia do tworzenia zawartości audio
 
@@ -131,16 +131,16 @@ Jeśli więcej niż jeden użytkownik chce użyć tworzenia zawartości audio, m
 
 Wykonaj następujące kroki, aby dodać użytkownika do zasobu mowy, aby mogli używać tworzenia zawartości audio.
 
-1. Wyszukaj **usługi poznawcze** w Azure Portal wybierz zasób mowy, do którego chcesz dodać użytkowników.
-2. Kliknij pozycję **Kontrola dostępu (IAM)** . Kliknij kartę **Przypisania ról**, aby wyświetlić wszystkie przypisania ról dla tej subskrypcji.
-    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Diagram kroków, które należy wykonać, aby dostosować wyniki zamiany tekstu na mowę":::
-1. Kliknij pozycję **Dodaj** > **Dodaj przypisanie roli**, aby otworzyć okienko Dodawanie przypisania roli. Z listy rozwijanej rola wybierz rolę **użytkownika usługi poznawczej** . Jeśli chcesz nadać użytkownikowi własność tego zasobu mowy, możesz wybrać rolę **właściciela** .
+1. Wyszukaj **usługi poznawcze** w [Azure Portal](https://portal.azure.com/)wybierz zasób mowy, do którego chcesz dodać użytkowników.
+2. Kliknij pozycję **Kontrola dostępu (IAM)** . Kliknij kartę **Przypisania ról** , aby wyświetlić wszystkie przypisania ról dla tej subskrypcji.
+    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Karta Przypisanie roli":::
+1. Kliknij pozycję **Dodaj** > **Dodaj przypisanie roli** , aby otworzyć okienko Dodawanie przypisania roli. Z listy rozwijanej rola wybierz rolę **użytkownika usługi poznawczej** . Jeśli chcesz nadać użytkownikowi własność tego zasobu mowy, możesz wybrać rolę **właściciela** .
 1. Wybierz użytkownika z listy. Jeśli nie widzisz użytkownika na liście, możesz wpisać w polu Wybierz, aby wyszukać nazwy wyświetlane i adresy e-mail w katalogu. Jeśli użytkownik nie znajduje się w tym katalogu, można wprowadzić [konto Microsoft](https://account.microsoft.com/account) użytkownika (który jest traktowany jako zaufany przez usługę Azure Active Directory).
-1. Kliknij przycisk **Zapisz**, aby przypisać rolę. Po kilku chwilach użytkownik ma przypisaną rolę użytkownika usługi poznawczej w zakresie zasobów mowy.
+1. Kliknij przycisk **Zapisz** , aby przypisać rolę. Po kilku chwilach użytkownik ma przypisaną rolę użytkownika usługi poznawczej w zakresie zasobów mowy.
 
-    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Diagram kroków, które należy wykonać, aby dostosować wyniki zamiany tekstu na mowę":::
+    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Okno dialogowe Dodawanie roli":::
 
-1. Dodawani użytkownicy otrzymają wiadomość e-mail z zaproszeniem. Po kliknięciu przycisku **Akceptuj**  >  **zaakceptowanie zaproszenia do dołączenia do platformy Azure**można użyć [tworzenia zawartości audio](https://aka.ms/audiocontentcreation).
+1. Dodawani użytkownicy otrzymają wiadomość e-mail z zaproszeniem. Po kliknięciu przycisku **Akceptuj**  >  **zaakceptowanie zaproszenia do dołączenia do platformy Azure** można użyć [tworzenia zawartości audio](https://aka.ms/audiocontentcreation).
 
 Użytkownicy, którzy znajdują się w tym samym zasobie mowy, zobaczą swoją służbową zawartość audio. Jeśli chcesz, aby każdy indywidualny użytkownik miał unikatowy i prywatny obszar roboczy w tworzeniu zawartości audio, [Utwórz nowy zasób mowy](#step-2---create-a-speech-resource) dla każdego użytkownika i nadaj każdemu użytkownikowi unikatowy dostęp do zasobu mowy. 
 
@@ -148,13 +148,13 @@ Użytkownicy, którzy znajdują się w tym samym zasobie mowy, zobaczą swoją s
 1. Wyszukaj **usługi poznawcze** w Azure Portal wybierz zasób mowy, z którego chcesz usunąć użytkowników.
 2. Kliknij pozycję **Kontrola dostępu (IAM)** . Kliknij kartę **przypisania ról** , aby wyświetlić wszystkie przypisania ról dla tego zasobu mowy.
 3. Wybierz użytkowników, których chcesz usunąć, a następnie kliknij przycisk **Usuń**  >  **OK**.
-    :::image source="media/audio-content-creation/remove-user.png" alt-text="Diagram kroków, które należy wykonać, aby dostosować wyniki zamiany tekstu na mowę":::
+    :::image source="media/audio-content-creation/remove-user.png" alt-text="Przycisk Usuń":::
 
 ### <a name="enable-users-to-grant-access"></a>Umożliwienie użytkownikom udzielenia dostępu
 Jeśli chcesz, aby jeden z użytkowników miał dostęp do innych użytkowników, musisz nadać użytkownikowi rolę właściciela dla zasobu mowy i ustawić użytkownika jako czytnika katalogów platformy Azure. 
 1. Dodaj użytkownika jako właściciela zasobu mowy. Zobacz [, jak dodać użytkowników do zasobu mowy](#add-users-to-a-speech-resource).
-    :::image source="media/audio-content-creation/add-role.png" alt-text="Diagram kroków, które należy wykonać, aby dostosować wyniki zamiany tekstu na mowę":::
-1. Wybierz menu zwinięte w lewym górnym rogu. Kliknij przycisk **Azure Active Directory**, a następnie kliknij pozycję **Użytkownicy**.
+    :::image source="media/audio-content-creation/add-role.png" alt-text="Pole właściciela roli":::
+1. Wybierz menu zwinięte w lewym górnym rogu. Kliknij przycisk **Azure Active Directory** , a następnie kliknij pozycję **Użytkownicy**.
 1. Przeszukaj konto Microsoft użytkownika i przejdź do strony szczegółów użytkownika. Kliknij pozycję **przypisane role**.
 1. Kliknij pozycję **Dodaj przydziały**  ->  **katalogów**.
 

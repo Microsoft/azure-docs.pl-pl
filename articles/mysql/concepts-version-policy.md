@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 75e24f9437257769a3d9bfd69980a9b8606d0563
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0670107d84374589aa60cc18f184b9b3d3facce1
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424115"
+ms.locfileid: "94331808"
 ---
 # <a name="azure-database-for-mysql-versioning-policy"></a>Zasady dotyczące wersji Azure Database for MySQL
 
@@ -48,12 +48,13 @@ Poniższa tabela zawiera szczegóły wycofania dla wersji głównych programu My
 ## <a name="retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql"></a>Wycofane wersje aparatu MySQL nie są obsługiwane w Azure Database for MySQL
 
 Po upływie daty wycofania dla każdej wersji bazy danych MySQL należy pamiętać o następujących ograniczeniach:
-- Ponieważ Wspólnota nie będzie wystawiać żadnych dalszych poprawek lub poprawek zabezpieczeń, platforma Azure dla programu MySQL nie będzie dostosowana do wycofanego aparatu bazy danych pod kątem błędów lub problemów z zabezpieczeniami lub w inny sposób podejmować środki bezpieczeństwa w odniesieniu do wycofanego aparatu bazy danych. Jednak platforma Azure będzie kontynuowała okresowe konserwacje i stosowanie poprawek dla hosta, systemu operacyjnego, kontenerów i innych składników związanych z usługą.
+- Ponieważ Wspólnota nie będzie zwalniać żadnych dalszych poprawek lub poprawek zabezpieczeń, Azure Database for MySQL nie będzie w żaden sposób naprawiać niewycofanego aparatu bazy danych pod kątem błędów lub problemów z zabezpieczeniami albo podjąć środki bezpieczeństwa w odniesieniu do wycofanego aparatu bazy danych. Jednak platforma Azure będzie kontynuowała okresowe konserwacje i stosowanie poprawek dla hosta, systemu operacyjnego, kontenerów i innych składników związanych z usługą.
 - W przypadku problemów z obsługą, które mogą wystąpić w odniesieniu do bazy danych MySQL, firma Microsoft może nie mieć możliwości zapewnienia pomocy technicznej. W takich przypadkach trzeba będzie uaktualnić bazę danych, aby umożliwić nam zapewnienie pomocy technicznej.
 - Nie będzie można tworzyć nowych serwerów baz danych dla wycofanej wersji. Można jednak przeprowadzić odzyskiwanie do punktu w czasie i utworzyć repliki odczytu dla istniejących serwerów.
 - Nowe możliwości usługi opracowane przez Azure Database for MySQL mogą być dostępne tylko dla obsługiwanych wersji serwera bazy danych.
 - Czas przestoju umowy SLA będzie stosowany wyłącznie do Azure Database for MySQL problemów związanych z usługą, a nie do przestojów spowodowanych błędami związanymi z aparatem bazy danych.  
-- W skrajnym zdarzeniu w przypadku poważnych zagrożeń dla usługi spowodowanej przez lukę w zabezpieczeniach aparatu bazy danych MySQL zidentyfikowaną w wycofanej wersji bazy danych, platforma Azure może zrezygnować z wcześniejszego zabezpieczenia usługi w węźle obliczeniowym serwera bazy danych. Przed przełączeniem serwera w tryb online zostanie wyświetlony monit o uaktualnienie serwera. W trakcie procesu uaktualniania dane będą zawsze chronione przy użyciu automatycznych kopii zapasowych wykonywanych w ramach usługi, których można użyć do przywrócenia starszej wersji w razie potrzeby.
+- W skrajnym zdarzeniu w przypadku poważnych zagrożeń dla usługi spowodowanej przez lukę w zabezpieczeniach aparatu bazy danych MySQL zidentyfikowaną w wycofanej wersji bazy danych, platforma Azure może zrezygnować z wcześniejszego zabezpieczenia usługi w węźle obliczeniowym serwera bazy danych. Przed przełączeniem serwera w tryb online zostanie wyświetlony monit o uaktualnienie serwera. W trakcie procesu uaktualniania dane będą zawsze chronione przy użyciu automatycznych kopii zapasowych wykonywanych w ramach usługi, których można użyć do przywrócenia starszej wersji w razie potrzeby. 
+
 
 
 ## <a name="next-steps"></a>Następne kroki

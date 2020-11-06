@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 48373c9ffc9146b6e62b62fb7d7fe10d571ce27f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ecb066c7269217af3f8cc84e0f59ab29b4b39a9e
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638112"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331616"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Wizualne monitorowanie fabryk danych platformy Azure
 
@@ -23,17 +23,21 @@ ms.locfileid: "92638112"
 
 Po utworzeniu i opublikowaniu potoku w Azure Data Factory można skojarzyć go z wyzwalaczem lub ręcznie uruchomić przebieg ad hoc. Wszystkie uruchomienia potoków można monitorować natywnie w środowisku użytkownika Azure Data Factory. Aby otworzyć środowisko monitorowania, wybierz pozycję **monitoruj & Zarządzaj** kafelkiem w bloku fabryka danych [Azure Portal](https://portal.azure.com/). Jeśli jesteś już w środowisku APD ADF, kliknij ikonę **monitora** na lewym pasku bocznym.
 
-Wszystkie uruchomienia fabryki danych są wyświetlane w lokalnej strefie czasowej w przeglądarce. Jeśli zmienisz strefę czasową, wszystkie pola daty i godziny są przyciągane do wybranego.
+Domyślnie wszystkie uruchomienia fabryki danych są wyświetlane w lokalnej strefie czasowej w przeglądarce. Jeśli zmienisz strefę czasową, wszystkie pola daty i godziny są przyciągane do wybranego.
 
 ## <a name="monitor-pipeline-runs"></a>Monitorowanie uruchomień potoku
 
-Domyślny widok monitorowania to lista uruchomień potoku w wybranym okresie. Wyświetlane są następujące kolumny:
+Domyślny widok monitorowania to lista wyzwolonych uruchomień potoków w wybranym okresie. Można zmienić zakres czasu i filtrować według stanu, nazwy potoku lub adnotacji. Umieść kursor nad konkretnym uruchomieniem potoku, aby uzyskać działania specyficzne dla uruchomienia, takie jak ponowne uruchomienie i raport zużycia.
+
+![Widok listy na potrzeby monitorowania przebiegów potoku](media/monitor-visually/pipeline-runs.png)
+
+Siatka przebiegu potoku zawiera następujące kolumny:
 
 | **Nazwa kolumny** | **Opis** |
 | --- | --- |
 | Nazwa potoku | Nazwa potoku |
-| Akcje | Ikony pozwalające wyświetlać szczegóły działania, anulować lub ponownie uruchomić potok |
 | Uruchom uruchomienie | Data i godzina rozpoczęcia dla uruchomienia potoku (MM/DD/RRRR, gg: MM: SS AM/PM) |
+| Koniec przebiegu | Data i godzina zakończenia uruchomienia potoku (MM/DD/RRRR, gg: MM: SS AM/PM) |
 | Czas trwania | Czas trwania uruchomienia (HH: MM: SS) |
 | Wyzwolone przez | Nazwa wyzwalacza, który uruchomił potok |
 | Stan | **Zakończone niepowodzeniem** , **zakończone powodzeniem** , **w toku** , **anulowane** lub **umieszczone w kolejce** |
@@ -42,15 +46,23 @@ Domyślny widok monitorowania to lista uruchomień potoku w wybranym okresie. Wy
 | Błąd | Jeśli potok nie powiódł się, błąd przebiegu |
 | Identyfikator przebiegu | Identyfikator uruchomienia potoku |
 
-![Widok listy na potrzeby monitorowania przebiegów potoku](media/monitor-visually/pipeline-runs.png)
-
 Należy ręcznie wybrać przycisk **Odśwież** , aby odświeżyć listę uruchomień potoków i działań. Autoodświeżanie nie jest obecnie obsługiwane.
 
 ![Przycisk Odśwież](media/monitor-visually/refresh.png)
 
+Aby wyświetlić wyniki przebiegu debugowania, wybierz kartę **debugowanie** .
+
+![Wybierz ikonę Wyświetl aktywne uruchomienia debugowania](media/iterative-development-debugging/view-debug-runs.png)
+
 ## <a name="monitor-activity-runs"></a>Monitorowanie uruchomień działania
 
-Aby wyświetlić uruchomienia działań dla każdego uruchomienia potoku, wybierz ikonę **Wyświetl uruchomienia działania** w kolumnie **Akcje** . Widok listy pokazuje uruchomienia działania odpowiadające poszczególnym uruchomieniem potoku.
+Aby uzyskać szczegółowy widok poszczególnych przebiegów działania określonego potoku, kliknij nazwę potoku.
+
+![Wyświetlanie uruchomień działania](media/monitor-visually/view-activity-runs.png)
+
+Widok listy pokazuje uruchomienia działania odpowiadające poszczególnym uruchomieniem potoku. Umieść kursor nad określonym uruchomieniem działania, aby uzyskać informacje dotyczące uruchamiania, takie jak dane wejściowe JSON, dane wyjściowe JSON i szczegółowe środowisko monitorowania specyficzne dla działania.
+
+![Widok listy dla uruchomionych działań monitorowania](media/monitor-visually/activity-runs.png)
 
 | **Nazwa kolumny** | **Opis** |
 | --- | --- |
@@ -65,60 +77,40 @@ Aby wyświetlić uruchomienia działań dla każdego uruchomienia potoku, wybier
 | Błąd | Jeśli działanie nie powiodło się, błąd przebiegu |
 | Identyfikator przebiegu | Identyfikator uruchomienia działania |
 
-![Widok listy dla uruchomionych działań monitorowania](media/monitor-visually/activity-runs.png)
+Jeśli działanie nie powiodło się, zobaczysz szczegółowy komunikat o błędzie, klikając ikonę w kolumnie błędu. 
+
+![Widok listy dla uruchomionych działań monitorowania](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>Podnieś poziom właściwości użytkownika do monitorowania
 
-Podnieś każdą właściwość działania potoku jako właściwość użytkownika, aby stała się ona jednostką monitorowaną. Na przykład można podwyższyć poziom właściwości **źródłowej** i **docelowej** działania kopiowania w potoku jako właściwości użytkownika. Wybierz pozycję **automatycznie Generuj** , aby wygenerować **źródłową** i **docelową** Właściwość użytkownika dla działania kopiowania.
-
-![Tworzenie właściwości użytkownika](media/monitor-visually/monitor-user-properties-image1.png)
+Podnieś każdą właściwość działania potoku jako właściwość użytkownika, aby stała się ona jednostką monitorowaną. Na przykład można podwyższyć poziom właściwości **źródłowej** i **docelowej** działania kopiowania w potoku jako właściwości użytkownika.
 
 > [!NOTE]
 > Można podwyższyć do pięciu właściwości działania potoku jako właściwości użytkownika.
 
-Po utworzeniu właściwości użytkownika można je monitorować w widokach listy monitorowania. Jeśli źródłem działania kopiowania jest nazwa tabeli, można monitorować nazwę tabeli źródłowej jako kolumnę w widoku listy dla uruchomień działania.
+![Tworzenie właściwości użytkownika](media/monitor-visually/promote-user-properties.png)
 
-![Lista uruchomień działań bez właściwości użytkownika](media/monitor-visually/monitor-user-properties-image2.png)
+Po utworzeniu właściwości użytkownika można je monitorować w widokach listy monitorowania.
 
-![Dodawanie kolumn do właściwości użytkownika na liście uruchomień działania](media/monitor-visually/monitor-user-properties-image3.png)
+![Dodawanie kolumn do właściwości użytkownika na liście uruchomień działania](media/monitor-visually/choose-user-properties.png)
 
-![Lista uruchomień działania z kolumnami dla właściwości użytkownika](media/monitor-visually/monitor-user-properties-image4.png)
+ Jeśli źródłem działania kopiowania jest nazwa tabeli, można monitorować nazwę tabeli źródłowej jako kolumnę w widoku listy dla uruchomień działania.
 
-## <a name="configure-the-list-view"></a>Skonfiguruj widok listy
+![Lista uruchomień działania z kolumnami dla właściwości użytkownika](media/monitor-visually/view-user-properties.png)
 
-### <a name="order-and-filter"></a>Kolejność i filtrowanie
+## <a name="rerun-pipelines-and-activities"></a>Uruchom ponownie potoki i działania
 
-Przełączenie przebiegów w kolejności malejącej lub rosnącej według czasu rozpoczęcia przebiegu. Filtry przebiegów potoku przy użyciu następujących kolumn:
+Aby ponownie uruchomić potok, który został wcześniej uruchomiony z poziomu ekranu startowego, umieść kursor nad określonym uruchomieniem potoku i wybierz pozycję **Uruchom ponownie**. W przypadku wybrania wielu potoków można uruchomić je wszystkie przy użyciu przycisku **Uruchom ponownie** .
 
-| **Nazwa kolumny** | **Opis** |
-| --- | --- |
-| Nazwa potoku | Filtruj według nazwy potoku. |
-| Uruchom uruchomienie |  Określ zakres czasu wyświetlanych uruchomień potoku. Opcje obejmują szybkie filtry dla **ostatnich 24 godzin** , **ubiegłego tygodnia** i **ostatnich 30 dni** lub do wybierania niestandardowej daty i godziny. |
-| Stan uruchomienia | Filtry przebiega według stanu: **zakończone powodzeniem** , **zakończone niepowodzeniem** , do **kolejki** , **anulowane** lub **w toku** . |
-| Adnotacje | Filtruj według tagów zastosowanych do każdego potoku |
-| Uruchamianie | Filtruj, czy chcesz zobaczyć potoki reran |
+![Uruchom ponownie potok](media/monitor-visually/rerun-pipeline.png)
 
-![Opcje filtrowania](media/monitor-visually/filter.png)
+Jeśli chcesz ponownie uruchomić program, rozpoczynając od określonego punktu, możesz to zrobić w widoku uruchomienia działania. Wybierz działanie, z którego chcesz się rozpocząć, a następnie wybierz pozycję **Uruchom ponownie z działania**. 
 
-### <a name="add-or-remove-columns"></a>Dodawanie lub usuwanie kolumn
-Kliknij prawym przyciskiem myszy nagłówek widoku listy i wybierz kolumny, które mają być wyświetlane w widoku listy.
-
-![Opcje kolumn](media/monitor-visually/columns.png)
-
-### <a name="adjust-column-widths"></a>Dopasuj szerokości kolumn
-Zwiększ i zmniejsz szerokości kolumn w widoku listy, umieszczając kursor na nagłówku kolumny.
-
-## <a name="rerun-activities-inside-a-pipeline"></a>Uruchom ponownie działania wewnątrz potoku
-
-Możesz ponownie uruchomić działania wewnątrz potoku. Wybierz pozycję **Wyświetl uruchomienia działania** , a następnie wybierz działanie w potoku, z którego chcesz ponownie uruchomić potok.
-
-![Wyświetlanie uruchomień działania](media/monitor-visually/rerun-activities-image1.png)
-
-![Wybierz przebieg działania](media/monitor-visually/rerun-activities-image2.png)
+![Uruchom ponownie uruchomienie działania](media/monitor-visually/rerun-activity.png)
 
 ### <a name="rerun-from-failed-activity"></a>Uruchom ponownie z działania zakończonego niepowodzeniem
 
-Jeśli działanie zakończy się niepowodzeniem, przekracza limit czasu lub zostanie anulowane, można ponownie uruchomić potok z działania zakończonego niepowodzeniem, wybierając pozycję **Uruchom ponownie z działania zakończonego niepowodzeniem** .
+Jeśli działanie zakończy się niepowodzeniem, przekracza limit czasu lub zostanie anulowane, można ponownie uruchomić potok z działania zakończonego niepowodzeniem, wybierając pozycję **Uruchom ponownie z działania zakończonego niepowodzeniem**.
 
 ![Uruchom ponownie działanie zakończone niepowodzeniem](media/monitor-visually/rerun-failed-activity.png)
 
@@ -126,11 +118,11 @@ Jeśli działanie zakończy się niepowodzeniem, przekracza limit czasu lub zost
 
 Można wyświetlić historię ponownego uruchamiania dla wszystkich uruchomień potoku w widoku listy.
 
-![Wyświetlanie historii](media/monitor-visually/rerun-history-image1.png)
+![Wyświetlanie historii](media/monitor-visually/rerun-history-1.png)
 
 Możesz również wyświetlić historię ponownego uruchamiania dla określonego uruchomienia potoku.
 
-![Wyświetl historię uruchomienia potoku](media/monitor-visually/rerun-history-image2.png)
+![Wyświetl historię uruchomienia potoku](media/monitor-visually/view-rerun-history.png)
 
 ## <a name="monitor-consumption"></a>Monitorowanie użycia
 
@@ -149,22 +141,13 @@ Te wartości można podłączyć do [kalkulatora cen platformy Azure](https://az
 
 ## <a name="gantt-views"></a>Widoki wykresu Gantta
 
-Użyj widoków wykresu Gantta, aby szybko wizualizować potoki i uruchomienia działania.
+Wykres Gantta to widok, który umożliwia wyświetlenie historii uruchamiania w przedziale czasu. Po przełączeniu do widoku wykresu Gantta zobaczysz wszystkie uruchomienia potoków pogrupowane według nazwy wyświetlanej jako słupki względem czasu trwania przebiegu. Możesz również grupować według adnotacji/tagów utworzonych w potoku. Widok wykresu Gantta jest również dostępny na poziomie uruchomienia działania.
 
-![Przykład wykresu Gantta](media/monitor-visually/gantt1.png)
-
-Widok wykresu Gantta można przeglądać na potok lub grupować według adnotacji/tagów utworzonych w potokach.
-
-![Adnotacje wykresu Gantta](media/monitor-visually/gantt2.png)
+![Przykład wykresu Gantta](media/monitor-visually/select-gantt.png)
 
 Długość paska informuje o czasie trwania potoku. Możesz również wybrać pasek, aby wyświetlić więcej szczegółów.
 
-![Czas trwania wykresu Gantta](media/monitor-visually/gantt3.png)
-
-## <a name="guided-tours"></a>Przewodniki
-Wybierz ikonę **informacji** w lewym dolnym rogu. Następnie wybierz przewodniki **instruktażowe** , aby uzyskać instrukcje krok po kroku dotyczące monitorowania uruchomienia potoku i działania.
-
-![Przewodniki](media/monitor-visually/guided-tours.png)
+![Czas trwania wykresu Gantta](media/monitor-visually/view-gantt-run.png)
 
 ## <a name="alerts"></a>Alerty
 

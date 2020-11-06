@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku bez konieczności modyfikacji kodu. Śledzenie rozproszone i mapa aplikacji.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 07be6a4ff08700ee9407fbf39946b7c24abbc01a
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31ee3c4a2dbf6f6832c0228e70aa079b5f028bc4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377041"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331927"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitorowanie aplikacji bezkodu Java Azure Monitor Application Insights
 
@@ -48,7 +48,7 @@ Jeśli nie masz jeszcze zasobu Application Insights, możesz utworzyć nowy, wyk
 Wskaż agenta Application Insights zasobem, ustawiając zmienną środowiskową:
 
 ```
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
 Lub tworząc plik konfiguracji o nazwie `applicationinsights.json` i umieszczając go w tym samym katalogu, co `applicationinsights-agent-3.0.0.jar` , z następującą zawartością:
@@ -56,7 +56,7 @@ Lub tworząc plik konfiguracji o nazwie `applicationinsights.json` i umieszczaj�
 ```json
 {
   "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+    "connectionString": "InstrumentationKey=..."
   }
 }
 ```

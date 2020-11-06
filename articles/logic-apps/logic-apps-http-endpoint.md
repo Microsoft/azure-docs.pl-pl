@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/27/2020
-ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230810"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331978"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych HTTPS w Azure Logic Apps
 
@@ -23,7 +23,8 @@ Aby umożliwić aplikacji logiki wywoływanie przy użyciu adresu URL i odbiera�
 
 W tym artykule pokazano, jak utworzyć możliwy do wywołania punkt końcowy w aplikacji logiki przy użyciu wyzwalacza żądania i wywołać ten punkt końcowy z innej aplikacji logiki. Wszystkie zasady są stosowane identycznie z innymi typami wyzwalaczy, których można użyć do odbierania żądań przychodzących.
 
-Aby uzyskać informacje na temat szyfrowania, zabezpieczeń i autoryzacji wywołań przychodzących do aplikacji logiki, takich jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako SSL (SSL) lub [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
+Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wywołań przychodzących do aplikacji logiki, takiej jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako SSL (SSL), [Azure Active Directory otwarte uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml), Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management lub ograniczanie adresów IP, które pochodzą z wywołań przychodzących, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -125,7 +126,7 @@ Aby uzyskać informacje na temat szyfrowania, zabezpieczeń i autoryzacji wywoł
 
 Domyślnie wyzwalacz żądania oczekuje na żądanie POST. Można określić inną metodę, która będzie oczekiwać, ale tylko jedną metodę.
 
-1. W wyzwalaczu żądania Otwórz listę **Dodaj nowy parametr** , a następnie wybierz **metodę**, która dodaje tę właściwość do wyzwalacza.
+1. W wyzwalaczu żądania Otwórz listę **Dodaj nowy parametr** , a następnie wybierz **metodę** , która dodaje tę właściwość do wyzwalacza.
 
    ![Dodaj właściwość "Method" do wyzwalacza](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
@@ -153,7 +154,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
 ### <a name="accept-values-through-get-parameters"></a>Akceptuj wartości za poorednictwem parametrów GET
 
-1. W wyzwalaczu żądania Otwórz **listę Dodaj nowy parametr**, Dodaj właściwość **metody** do wyzwalacza i wybierz metodę **Get** .
+1. W wyzwalaczu żądania Otwórz **listę Dodaj nowy parametr** , Dodaj właściwość **metody** do wyzwalacza i wybierz metodę **Get** .
 
    Aby uzyskać więcej informacji, zobacz [Wybierz oczekiwaną metodę żądania](#select-method).
 
@@ -161,7 +162,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
    1. W obszarze wyzwalacz żądania wybierz pozycję **nowy krok**  >  **Dodaj akcję**.
    
-   1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
+   1. W obszarze **Wybierz akcję** , w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
 
 1. Aby skompilować `triggerOutputs()` wyrażenie pobierające wartość parametru, wykonaj następujące kroki:
 
@@ -216,7 +217,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
 ### <a name="accept-values-through-a-relative-path"></a>Akceptowanie wartości za pomocą ścieżki względnej
 
-1. W wyzwalaczu żądania Otwórz listę **Dodaj nowy parametr** i wybierz pozycję **ścieżka względna**, która dodaje tę właściwość do wyzwalacza.
+1. W wyzwalaczu żądania Otwórz listę **Dodaj nowy parametr** i wybierz pozycję **ścieżka względna** , która dodaje tę właściwość do wyzwalacza.
 
    ![Dodaj właściwość "ścieżka względna" do wyzwalacza](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
@@ -228,7 +229,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
    1. W obszarze wyzwalacz żądania wybierz pozycję **nowy krok**  >  **Dodaj akcję**.
 
-   1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
+   1. W obszarze **Wybierz akcję** , w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
 
 1. We właściwości **treści** akcji odpowiedzi Dołącz token, który reprezentuje parametr określony w ścieżce względnej wyzwalacza.
 
@@ -301,11 +302,11 @@ Jeśli na przykład dodasz więcej właściwości, takich jak `"suite"` , do sch
 
 ## <a name="create-nested-logic-apps"></a>Tworzenie zagnieżdżonych aplikacji logiki
 
-Przepływy pracy w aplikacji logiki można zagnieżdżać, dodając inne aplikacje logiki, które mogą odbierać żądania. Aby dołączyć te aplikacje logiki, wykonaj następujące kroki:
+Przepływy pracy można zagnieżdżać w aplikacji logiki, dodając inne aplikacje logiki, które mogą odbierać żądania. Aby dołączyć te aplikacje logiki, wykonaj następujące kroki:
 
 1. W kroku, w którym chcesz wywołać inną aplikację logiki, wybierz pozycję **nowy krok**  >  **Dodaj akcję**.
 
-1. W obszarze **Wybierz akcję**wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `logic apps` jako filtr. Z listy Akcje wybierz pozycję **Wybierz przepływ pracy Logic Apps**.
+1. W obszarze **Wybierz akcję** wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `logic apps` jako filtr. Z listy Akcje wybierz pozycję **Wybierz przepływ pracy Logic Apps**.
 
    ![Zagnieżdżanie aplikacji logiki w bieżącej aplikacji logiki](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
@@ -383,7 +384,7 @@ Aby wyświetlić definicję JSON dla akcji odpowiedzi i kompletnej definicji JSO
 
 #### <a name="q-what-about-url-security"></a>P: Jakie są zabezpieczenia adresów URL?
 
-Odp **.: usługa**Azure bezpiecznie generuje adresy URL wywołania zwrotnego aplikacji logiki przy użyciu [sygnatury dostępu współdzielonego (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Ten podpis przechodzi przez parametr zapytania i musi być zweryfikowany, aby można było uruchomić aplikację logiki. Platforma Azure generuje podpis przy użyciu unikatowej kombinacji klucza tajnego na aplikację logiki, nazwę wyzwalacza i wykonywaną operację. Jeśli jednak ktoś nie ma dostępu do klucza aplikacji logiki tajnej, nie może wygenerować prawidłowego podpisu.
+Odp **.: usługa** Azure bezpiecznie generuje adresy URL wywołania zwrotnego aplikacji logiki przy użyciu [sygnatury dostępu współdzielonego (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Ten podpis przechodzi przez parametr zapytania i musi być zweryfikowany, aby można było uruchomić aplikację logiki. Platforma Azure generuje podpis przy użyciu unikatowej kombinacji klucza tajnego na aplikację logiki, nazwę wyzwalacza i wykonywaną operację. Jeśli jednak ktoś nie ma dostępu do klucza aplikacji logiki tajnej, nie może wygenerować prawidłowego podpisu.
 
 > [!IMPORTANT]
 > W przypadku systemów bezpieczeństwa i wyższych zabezpieczeń zdecydowanie odradzamy wywoływanie aplikacji logiki bezpośrednio z przeglądarki z następujących powodów:
@@ -391,9 +392,11 @@ Odp **.: usługa**Azure bezpiecznie generuje adresy URL wywołania zwrotnego apl
 > * Klucz dostępu współdzielonego zostanie wyświetlony w adresie URL.
 > * Nie można zarządzać zasadami zawartości zabezpieczeń ze względu na domeny udostępnione w ramach klientów Azure Logic Apps.
 
+Aby uzyskać więcej informacji o zabezpieczeniach, autoryzacji i szyfrowaniu wywołań przychodzących do aplikacji logiki, takiej jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako SSL (SSL), [Azure Active Directory otwarte uwierzytelnianie (Azure AD OAuth)](../active-directory/develop/index.yml), Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management lub ograniczanie adresów IP, które pochodzą z wywołań przychodzących, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>P: Czy można kontynuować konfigurowanie wywoływanych punktów końcowych?
 
-Odp **.: tak**, punkty końcowe HTTPS obsługują bardziej zaawansowaną konfigurację za pośrednictwem [usługi Azure API Management](../api-management/api-management-key-concepts.md). Ta usługa oferuje również możliwość spójnego zarządzania wszystkimi interfejsami API, w tym aplikacjami logiki, Konfigurowanie niestandardowych nazw domen, korzystanie z większej liczby metod uwierzytelniania i inne, na przykład:
+Odp **.: tak** , punkty końcowe HTTPS obsługują bardziej zaawansowaną konfigurację za pośrednictwem [usługi Azure API Management](../api-management/api-management-key-concepts.md). Ta usługa oferuje również możliwość spójnego zarządzania wszystkimi interfejsami API, w tym aplikacjami logiki, Konfigurowanie niestandardowych nazw domen, korzystanie z większej liczby metod uwierzytelniania i inne, na przykład:
 
 * [Zmień metodę żądania](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Zmiana segmentów adresu URL żądania](../api-management/api-management-transformation-policies.md#RewriteURL)

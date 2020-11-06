@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042898"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331859"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Ograniczenia i ograniczenia URI przekierowania (adres URL odpowiedzi)
 
@@ -62,7 +62,9 @@ Zgodnie z [sekcją RFC 8252 sekcje 8,3](https://tools.ietf.org/html/rfc8252#sect
 
 Z punktu widzenia projektowania oznacza to kilka rzeczy:
 
-* Nie należy rejestrować wielu identyfikatorów URI przekierowania, gdy tylko port jest różny. Serwer logowania wybiera arbitralnie i użyje zachowania skojarzonego z tym identyfikatorem URI przekierowania (na przykład niezależnie od tego, czy jest to `web` -, `native` -, czy `spa` -Type redirect).
+* Nie należy rejestrować wielu identyfikatorów URI przekierowania, gdy tylko port jest różny. Serwer logowania wybiera arbitralnie i użyje zachowania skojarzonego z tym identyfikatorem URI przekierowania (na przykład, czy jest to `web` -, `native` -lub `spa` przekierowania).
+
+    Jest to szczególnie ważne, gdy chcesz użyć różnych przepływów uwierzytelniania w tej samej rejestracji aplikacji, na przykład w przypadku przydzielenia kodu autoryzacji i niejawnego przepływu. Aby skojarzyć poprawne zachowanie odpowiedzi z każdym identyfikatorem URI przekierowania, serwer logowania musi być w stanie rozróżnić identyfikatory URI przekierowania i nie może tego zrobić, gdy tylko port jest różny.
 * Jeśli zachodzi potrzeba zarejestrowania wielu identyfikatorów URI przekierowania na hoście lokalnym w celu przetestowania różnych przepływów podczas opracowywania, Odróżnij je za pomocą składnika *ścieżki* identyfikatora URI. Na przykład `http://127.0.0.1/MyWebApp` nie są zgodne `http://127.0.0.1/MyNativeApp` .
 * Adres sprzężenia zwrotnego IPv6 ( `[::1]` ) nie jest obecnie obsługiwany.
 * Aby zapobiec utracie aplikacji przez błędnie skonfigurowane zapory lub zmienić nazwy interfejsów sieciowych, użyj adresu sprzężenia zwrotnego literału IP `127.0.0.1` w identyfikatorze URI przekierowania zamiast `localhost` .

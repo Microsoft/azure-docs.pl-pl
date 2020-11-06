@@ -12,18 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f4b485e79bfa89fe293c99fc4e84fc8c0729396a
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217052"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331893"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Skonfiguruj szyfrowanie Kerberos NFSv 4.1 dla Azure NetApp Files
 
 Azure NetApp Files obsługuje szyfrowanie klienta NFS w trybach protokołu Kerberos (krb5, krb5i i Krb5p) przy użyciu szyfrowania AES-256. W tym artykule opisano konfiguracje wymagane do użycia woluminu NFSv 4.1 z szyfrowaniem Kerberos.
+
+## <a name="considerations"></a>Kwestie do rozważenia
+
+* Woluminy szyfrowania Kerberos NFSv 4.1 nie obsługują obecnie Azure Active Directory Domain Services (AADDS). 
 
 ## <a name="requirements"></a>Wymagania
 
@@ -40,7 +44,7 @@ Do szyfrowania klienta NFSv 4.1 mają zastosowanie następujące wymagania:
 
 1.  Wykonaj kroki opisane w temacie [Tworzenie woluminu NFS dla Azure NetApp Files](azure-netapp-files-create-volumes.md) , aby utworzyć wolumin nfsv 4.1.   
 
-    Na stronie Tworzenie woluminu Ustaw wersję systemu plików NFS na **nfsv 4.1**i ustaw opcję Kerberos na **włączone**.
+    Na stronie Tworzenie woluminu Ustaw wersję systemu plików NFS na **nfsv 4.1** i ustaw opcję Kerberos na **włączone**.
 
     > [!IMPORTANT] 
     > Nie można zmodyfikować wyboru włączenia protokołu Kerberos po utworzeniu woluminu.
@@ -61,7 +65,7 @@ Do szyfrowania klienta NFSv 4.1 mają zastosowanie następujące wymagania:
 
     Kerberos wymaga utworzenia co najmniej jednego konta komputera w Active Directory. Informacje o koncie, które zapewniasz, są używane do tworzenia kont dla woluminów Kerberos *i* nfsv 4.1. Ten komputer jest tworzony automatycznie podczas tworzenia woluminu.
 
-2.  W obszarze **Kerberos obszaru**wprowadź **nazwę serwera usług AD** i adres **IP centrum dystrybucji kluczy** .
+2.  W obszarze **Kerberos obszaru** wprowadź **nazwę serwera usług AD** i adres **IP centrum dystrybucji kluczy** .
 
     Serwer usług AD i adres IP centrum dystrybucji kluczy mogą być tym samym serwerem. Te informacje służą do tworzenia konta komputera nazw SPN używanego przez Azure NetApp Files. Po utworzeniu konta komputera Azure NetApp Files będzie używać rekordów serwera DNS do lokalizowania dodatkowych serwerów centrum dystrybucji kluczy zgodnie z wymaganiami. 
 

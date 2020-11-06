@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 2857989fb09555ecd808bfdba95bcf58e4444594
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93304894"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331961"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Poznaj centrum wiedzy Synapse
 
@@ -39,7 +39,7 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Eksplorowanie magazynu obiektów BLOB za pomocą puli SQL bezserwerowej
 
-1. **Centrum merytoryczne** , kliknij pozycję **Użyj przykładów natychmiast**
+1. Przejdź do **centrum wiedzy** , a następnie kliknij pozycję **Użyj przykładów natychmiast**
 1. Wybieranie **danych zapytania przy użyciu języka SQL** 
 1. Kliknij pozycję **Użyj przykładów natychmiast**
 1. Spowoduje to utworzenie nowego skryptu SQL.
@@ -47,7 +47,7 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 1. Kliknij przycisk Uruchom. Zostanie uruchomiony wybrany tekst.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Ładowanie większej ilości danych NYC taksówki
-1. **Centrum wiedzy** , kliknij przycisk **Przeglądaj dostępne przykłady** 
+1. Przejdź do **centrum wiedzy** , a następnie kliknij przycisk **Przeglądaj dostępne przykłady** 
 1. Wybierz kartę **skrypty SQL** u góry
 1. Wybierz pozycję **Załaduj zestaw danych Taxicab New York**
 1. W obszarze **dane wejściowe** wybierz **pozycję Wybierz istniejącą pulę** i wybierz pozycję **SQLDB1**
@@ -60,4 +60,4 @@ Wybierz jedną z metod i Otwórz **centrum merytoryczne**.
 
 * [Rozpoczynanie pracy z usługą Azure Synapse Analytics](get-started.md)
 * [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
-* [Użyj bezserwerowej puli SQL](quickstart-sql-on-demand.md)
+* [Korzystanie z bezserwerowej puli SQL](quickstart-sql-on-demand.md)

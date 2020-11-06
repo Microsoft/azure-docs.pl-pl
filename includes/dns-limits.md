@@ -2,14 +2,14 @@
 author: rothja
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 2/14/2020
+ms.date: 11/05/2020
 ms.author: rohink
-ms.openlocfilehash: 0f7187300ec96ce417866c4fb8fa02783c1da63a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7011b92485c56187021c9043ba84bc85e448a98f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86515886"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329472"
 ---
 **Publiczne strefy DNS**
 
@@ -33,7 +33,7 @@ ms.locfileid: "86515886"
 | Linki sieci wirtualnych na prywatne strefy DNS z włączoną rejestracją autorejestrowania |100|
 | Liczba prywatnych stref DNS, z którymi można połączyć sieć wirtualną z włączoną funkcją autorejestracji |1|
 | Liczba prywatnych stref DNS, do których można połączyć sieć wirtualną |1000|
-| Liczba zapytań DNS wysyłanych przez maszynę wirtualną do Azure DNS rozpoznawania nazw na sekundę |500 <sup>1</sup> |
+| Liczba zapytań DNS wysyłanych przez maszynę wirtualną do Azure DNS rozpoznawania nazw na sekundę |1000 <sup>1</sup> |
 | Maksymalna liczba zapytań DNS umieszczonych w kolejce (oczekiwanie na odpowiedź) na maszynę wirtualną |200 <sup>1</sup> |
 
 <sup>1</sup> Limity te są stosowane do każdej pojedynczej maszyny wirtualnej, a nie na poziomie sieci wirtualnej. Zapytania DNS przekraczające te limity są usuwane.

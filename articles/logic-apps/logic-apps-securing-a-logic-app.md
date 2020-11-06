@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: dc03f2276af7c5f6121966a52d50e9c1b208d8cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/05/2020
+ms.openlocfilehash: 331c55a9f7a489aa58f9d3add7303dc18917215d
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094714"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331944"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
@@ -91,7 +91,7 @@ Aby wygenerować nowy klucz dostępu zabezpieczeń w dowolnym momencie, użyj in
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki, która ma klucz, który chcesz wygenerować ponownie.
 
-1. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **klucze dostępu** .
+1. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **klucze dostępu**.
 
 1. Wybierz klucz, który chcesz ponownie wygenerować i zakończyć proces.
 
@@ -137,7 +137,7 @@ Przed włączeniem protokołu OAuth usługi Azure AD zapoznaj się z następują
 
 * Zasady autoryzacji muszą zawierać co najmniej wystąpienie **wystawcy** , które ma wartość rozpoczynającą się od `https://sts.windows.net/` lub `https://login.microsoftonline.com/` (OAuth v2) jako identyfikator wystawcy usługi Azure AD.
 
-  Załóżmy na przykład, że aplikacja logiki ma zasady autoryzacji, które wymagają dwóch typów, **odbiorców** i **wystawcy** . Ta przykładowa [sekcja ładunku](../active-directory/develop/access-tokens.md#payload-claims) dla zdekodowanego tokenu dostępu zawiera typy zgłoszeń `aud` , gdzie jest wartością **odbiorców** i `iss` jest wartością **wystawcy** :
+  Załóżmy na przykład, że aplikacja logiki ma zasady autoryzacji, które wymagają dwóch typów, **odbiorców** i **wystawcy**. Ta przykładowa [sekcja ładunku](../active-directory/develop/access-tokens.md#payload-claims) dla zdekodowanego tokenu dostępu zawiera typy zgłoszeń `aud` , gdzie jest wartością **odbiorców** i `iss` jest wartością **wystawcy** :
 
   ```json
   {
@@ -188,7 +188,7 @@ Aby włączyć usługę Azure AD OAuth dla aplikacji logiki w Azure Portal, wyko
 
 1. W [Azure Portal](https://portal.microsoft.com)Znajdź i Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **autoryzacja** . Po otwarciu okienka autoryzacji wybierz pozycję **Dodaj zasady** .
+1. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **autoryzacja**. Po otwarciu okienka autoryzacji wybierz pozycję **Dodaj zasady**.
 
    ![Wybierz pozycję "Autoryzacja" > "Dodaj zasady"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
@@ -208,9 +208,9 @@ Aby włączyć usługę Azure AD OAuth dla aplikacji logiki w Azure Portal, wyko
 
    * Aby dodać własne zgłoszenie, wybierz pozycję **Dodaj niestandardową** pozycję i określ wartość niestandardowego żądania.
 
-1. Aby dodać kolejne zasady autoryzacji, wybierz pozycję **Dodaj zasady** . Powtórz poprzednie kroki, aby skonfigurować zasady.
+1. Aby dodać kolejne zasady autoryzacji, wybierz pozycję **Dodaj zasady**. Powtórz poprzednie kroki, aby skonfigurować zasady.
 
-1. Po zakończeniu wybierz pozycję **Zapisz** .
+1. Po zakończeniu wybierz pozycję **Zapisz**.
 
 1. Aby dołączyć `Authorization` Nagłówek z tokenu dostępu w danych wyjściowych wyzwalacza opartego na żądaniach, zobacz [Dołącz nagłówek "Autoryzacja" w danych wyjściowych wyzwalacza żądania](#include-auth-header).
 
@@ -308,28 +308,90 @@ Aby dodać więcej [protokołów uwierzytelniania](../active-directory/develop/a
 
 Wraz z sygnaturą dostępu współdzielonego można jawnie ograniczyć liczbę klientów, którzy mogą wywołać aplikację logiki. Na przykład Jeśli zarządzasz punktem końcowym żądania przy użyciu [usługi Azure API Management](../api-management/api-management-key-concepts.md), możesz ograniczyć aplikację logiki do akceptowania żądań tylko z adresu IP dla [tworzonego wystąpienia usługi API Management](../api-management/get-started-create-service-instance.md).
 
+> [!NOTE]
+> Niezależnie od określonych adresów IP można nadal uruchamiać aplikację logiki, która ma wyzwalacz oparty na żądaniach za [Logic Apps pomocą interfejsu API REST: wyzwalacze przepływu pracy — Uruchom](/rest/api/logic/workflowtriggers/run) żądanie lub przy użyciu API Management. Jednak ten scenariusz nadal wymaga [uwierzytelniania](../active-directory/develop/authentication-vs-authorization.md) względem interfejsu API REST platformy Azure. Wszystkie zdarzenia pojawiają się w dzienniku inspekcji platformy Azure. Upewnij się, że zasady kontroli dostępu zostały odpowiednio skonfigurowane.
+
+<a name="restrict-inbound-ip-portal"></a>
+
 #### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Ogranicz zakresy adresów IP dla ruchu przychodzącego w Azure Portal
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **Ustawienia przepływu pracy** .
+1. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **Ustawienia przepływu pracy**.
 
-1. W obszarze **Konfiguracja kontroli dostępu**  >  **dozwolone adresy IP dla ruchu przychodzącego** wybierz pozycję **określone zakresy adresów IP** .
+1. W sekcji **Konfiguracja kontroli dostępu** w obszarze **dozwolone adresy IP dla ruchu przychodzącego** wybierz ścieżkę dla danego scenariusza:
 
-1. Gdy pojawi się okno **zakresy IP dla wyzwalaczy** , określ zakresy adresów IP akceptowane przez wyzwalacz. Prawidłowy zakres adresów IP używa następujących formatów: *x. x. x. x/x* lub *x. x. x. x-x. x. x. x*
+   * Aby aplikację logiki można było wywołać tylko jako zagnieżdżoną aplikację logiki przy użyciu wbudowanej [akcji Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md), zaznacz opcję **tylko inne Logic Apps** , która działa *tylko* wtedy, gdy używasz akcji **Azure Logic Apps** do wywoływania zagnieżdżonej aplikacji logiki.
+   
+     Ta opcja umożliwia zapisanie pustej tablicy do zasobu aplikacji logiki i wymaga, aby tylko wywołania z nadrzędnych aplikacji logiki, które używają wbudowanej akcji **Azure Logic Apps** mogą wyzwolić zagnieżdżoną aplikację logiki.
 
-   Na przykład, aby aplikację logiki można było wywołać tylko jako zagnieżdżoną aplikację logiki za pośrednictwem akcji HTTP, użyj opcji **określonych zakresów adresów IP** (nie jest to **Jedyna inna opcja Logic Apps** ) i wprowadź [wychodzące adresy IP](../logic-apps/logic-apps-limits-and-config.md#outbound)aplikacji logiki nadrzędnej.
+   * Aby aplikację logiki można było wywołać tylko jako aplikację zagnieżdżoną przy użyciu akcji HTTP, wybierz **określone zakresy adresów IP** , a *nie* **tylko inne Logic Apps**. Gdy pojawi się okno **zakresy adresów IP dla wyzwalaczy** , wprowadź [wyjściowe adresy IP](../logic-apps/logic-apps-limits-and-config.md#outbound)aplikacji logiki nadrzędnej. Prawidłowy zakres adresów IP używa następujących formatów: *x. x. x. x/x* lub *x. x. x. x-x. x. x. x*.
+   
+     > [!NOTE]
+     > Jeśli używasz **jedynej opcji Logic Apps** i akcji HTTP do wywoływania zagnieżdżonej aplikacji logiki, wywołanie zostanie zablokowane i zostanie wyświetlony komunikat o błędzie "401 bez autoryzacji".
+        
+   * W przypadku scenariuszy, w których chcesz ograniczyć wywołania przychodzące z innych adresów IP, gdy pojawi się okno **zakresy IP dla wyzwalaczy** , określ zakresy adresów IP akceptowane przez wyzwalacz. Prawidłowy zakres adresów IP używa następujących formatów: *x. x. x. x/x* lub *x. x. x. x-x. x. x. x*.
 
-   Jednak aby aplikacja logiki mogła być wywoływana tylko jako zagnieżdżona aplikacja logiki za pomocą wbudowanej [akcji Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md), zaznacz zamiast niej opcję **tylko inne Logic Apps** . Ta opcja umożliwia zapisanie pustej tablicy do zasobu aplikacji logiki i wymaga, aby tylko wywołania z innych "nadrzędnych" aplikacji logiki mogły wyzwolić zagnieżdżoną aplikację logiki za pośrednictwem wbudowanej akcji **Azure Logic Apps** .
-
-   > [!NOTE]
-   > Niezależnie od określonych adresów IP można nadal uruchamiać aplikację logiki, która ma wyzwalacz oparty na żądaniach za [Logic Apps pomocą interfejsu API REST: wyzwalacze przepływu pracy — Uruchom](/rest/api/logic/workflowtriggers/run) żądanie lub przy użyciu API Management. Jednak ten scenariusz nadal wymaga [uwierzytelniania](../active-directory/develop/authentication-vs-authorization.md) względem interfejsu API REST platformy Azure. Wszystkie zdarzenia pojawiają się w dzienniku inspekcji platformy Azure. Upewnij się, że zasady kontroli dostępu zostały odpowiednio skonfigurowane.
+1. Opcjonalnie w obszarze **Ogranicz wywołania do pobierania komunikatów wejściowych i wyjściowych z historii uruchamiania do podanych adresów IP** można określić zakresy adresów IP dla wywołań przychodzących, które mogą uzyskiwać dostęp do komunikatów wejściowych i wyjściowych w historii uruchamiania.
 
 <a name="restrict-inbound-ip-template"></a>
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Ogranicz zakresy adresów IP dla ruchu przychodzącego w szablonie Azure Resource Manager
 
-W przypadku [automatyzowania wdrażania aplikacji logiki za pomocą szablonów Menedżer zasobów](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)można określić zakresy adresów IP w formacie *x. x. x. x/x* lub *x. x. x. x-x* . x. x. x przy użyciu sekcji i, `accessControl` dołączając `triggers` `actions` sekcje i w definicji zasobu aplikacji logiki, na przykład:
+W przypadku [automatyzowania wdrażania aplikacji logiki za pomocą szablonów Menedżer zasobów](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)można określić dozwolone zakresy przychodzącego adresu IP w definicji zasobu aplikacji logiki przy użyciu `accessControl` sekcji. W tej sekcji Użyj `triggers` , `actions` i opcjonalne sekcje odpowiednio do `contents` potrzeb, dołączając `allowedCallerIpAddresses` sekcję z `addressRange` właściwością i ustawiając wartość właściwości na dozwolony zakres adresów IP w formacie *x. x. x. x/x* lub *x. x. x. x-x* . x. x. x.
+
+* Jeśli zagnieżdżona aplikacja logiki używa **tylko innej Logic Apps** opcji, która zezwala na wywołania przychodzące tylko z innych aplikacji logiki, które używają akcji Azure Logic Apps, należy ustawić `addressRange` Właściwość na pustą tablicę ( **[]** ).
+
+* Jeśli zagnieżdżona aplikacja logiki używa opcji **określonych zakresów adresów IP** dla innych wywołań przychodzących, takich jak inne aplikacje logiki, które używają akcji http, należy ustawić `addressRange` Właściwość na dozwolony zakres adresów IP.
+
+Ten przykład przedstawia definicję zasobu dla zagnieżdżonej aplikacji logiki, która zezwala na wywołania przychodzące tylko z aplikacji logiki, które używają wbudowanej akcji Azure Logic Apps:
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {},
+   "variables": {},
+   "resources": [
+      {
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "properties": {
+            "definition": {
+               <workflow-definition>
+            },
+            "parameters": {
+            },
+            "accessControl": {
+               "triggers": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": []
+                     }
+                  ]
+               },
+               "actions": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": []
+                     }
+                  ]
+               }
+            },
+            "endpointsConfiguration": {}
+         }
+      }
+   ],
+   "outputs": {}
+}
+```
+
+Ten przykład przedstawia definicję zasobu dla zagnieżdżonej aplikacji logiki, która zezwala na wywołania przychodzące z aplikacji logiki, które używają akcji HTTP:
 
 ```json
 {
@@ -361,7 +423,11 @@ W przypadku [automatyzowania wdrażania aplikacji logiki za pomocą szablonów M
                   ]
                },
                "actions": {
-                  "allowedCallerIpAddresses": []
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": "192.168.12.0/23"
+                     }
+                  ]
                }
             },
             "endpointsConfiguration": {}
@@ -412,9 +478,9 @@ Możesz ograniczyć dostęp do danych wejściowych i wyjściowych w historii uru
 
 1. W Azure Portal Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **Ustawienia przepływu pracy** .
+1. W menu aplikacji logiki w obszarze **Ustawienia** wybierz pozycję **Ustawienia przepływu pracy**.
 
-1. W obszarze **Konfiguracja kontroli dostępu**  >  **dozwolone adresy IP dla ruchu przychodzącego** wybierz pozycję **określone zakresy adresów IP** .
+1. W obszarze **Konfiguracja kontroli dostępu**  >  **dozwolone adresy IP dla ruchu przychodzącego** wybierz pozycję **określone zakresy adresów IP**.
 
 1. W obszarze **zakresy adresów IP dla pozycji zawartość** określ zakresy adresów IP, które mogą uzyskiwać dostęp do zawartości z danych wejściowych i wyjściowych.
 
@@ -473,11 +539,11 @@ Wiele wyzwalaczy i akcji ma ustawienia umożliwiające zabezpieczenie danych wej
 
    ![Otwórz aplikację logiki w Projektancie aplikacji logiki](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
-1. Na wyzwalaczu lub akcji, w której chcesz zabezpieczyć poufne dane, wybierz przycisk wielokropka ( **...** ), a następnie wybierz pozycję **Ustawienia** .
+1. Na wyzwalaczu lub akcji, w której chcesz zabezpieczyć poufne dane, wybierz przycisk wielokropka ( **...** ), a następnie wybierz pozycję **Ustawienia**.
 
    ![Otwórz wyzwalacz lub ustawienia akcji](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
-1. Włącz opcję **Zabezpiecz dane wejściowe** , **bezpieczne wyjście** lub oba te elementy. Po zakończeniu wybierz pozycję **Gotowe** .
+1. Włącz opcję **Zabezpiecz dane wejściowe** , **bezpieczne wyjście** lub oba te elementy. Po zakończeniu wybierz pozycję **Gotowe**.
 
    ![Włącz "bezpieczne dane wejściowe" lub "bezpieczne wyjście"](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
 
@@ -546,7 +612,7 @@ Poniżej przedstawiono kilka [kwestii, które należy wziąć pod uwagę](#obfus
 
   ![Zabezpieczone wyjście jako dane wejściowe i wpływ na efekt podrzędny w większości akcji](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
-  Akcje redagowania, przeanalizowania JSON i odpowiedzi mają tylko ustawienia **zabezpieczeń danych wejściowych** . Po włączeniu tego ustawienia ukrywa także te wyniki. Jeśli te akcje jawnie wykorzystują dane wyjściowe przesyłane strumieniowo do strumienia, Logic Apps ukrywa **dane wejściowe i** wyjściowe akcji, ale *nie włączają* tych akcji. Jeśli akcja w trybie podrzędnym jawnie używa ukrytych danych wyjściowych z akcji Redaguj, Analizuj dane JSON lub odpowiedzi jako dane wejściowe, Logic Apps *nie ukrywa danych wejściowych lub wyjściowych akcji podrzędnej* .
+  Akcje redagowania, przeanalizowania JSON i odpowiedzi mają tylko ustawienia **zabezpieczeń danych wejściowych** . Po włączeniu tego ustawienia ukrywa także te wyniki. Jeśli te akcje jawnie wykorzystują dane wyjściowe przesyłane strumieniowo do strumienia, Logic Apps ukrywa **dane wejściowe i** wyjściowe akcji, ale *nie włączają* tych akcji. Jeśli akcja w trybie podrzędnym jawnie używa ukrytych danych wyjściowych z akcji Redaguj, Analizuj dane JSON lub odpowiedzi jako dane wejściowe, Logic Apps *nie ukrywa danych wejściowych lub wyjściowych akcji podrzędnej*.
 
   ![Zabezpieczone wyjścia jako dane wejściowe z wpływem podrzędnym na określone akcje](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
 
@@ -556,7 +622,7 @@ Poniżej przedstawiono kilka [kwestii, które należy wziąć pod uwagę](#obfus
 
   ![Zabezpieczanie danych wejściowych i wpływu na wpływ na większość akcji](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
-  Jeśli akcje redagowania, analizy JSON i odpowiedzi jawnie używają widocznych danych wyjściowych wyzwalacza lub akcji, które mają zabezpieczone dane wejściowe, Logic Apps ukrywają dane wejściowe i wyjściowe akcji, ale *nie włączają* ustawienia **zabezpieczonych danych wejściowych** tej akcji. Jeśli akcja w trybie podrzędnym jawnie używa ukrytych danych wyjściowych z akcji Redaguj, Analizuj dane JSON lub odpowiedzi jako dane wejściowe, Logic Apps *nie ukrywa danych wejściowych lub wyjściowych akcji podrzędnej* .
+  Jeśli akcje redagowania, analizy JSON i odpowiedzi jawnie używają widocznych danych wyjściowych wyzwalacza lub akcji, które mają zabezpieczone dane wejściowe, Logic Apps ukrywają dane wejściowe i wyjściowe akcji, ale *nie włączają* ustawienia **zabezpieczonych danych wejściowych** tej akcji. Jeśli akcja w trybie podrzędnym jawnie używa ukrytych danych wyjściowych z akcji Redaguj, Analizuj dane JSON lub odpowiedzi jako dane wejściowe, Logic Apps *nie ukrywa danych wejściowych lub wyjściowych akcji podrzędnej*.
 
   ![Zabezpieczone wejścia i wpływ na określone akcje](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
@@ -638,7 +704,7 @@ Aby chronić poufne informacje w definicji przepływu pracy aplikacji logiki, u�
 
 Poniżej znajduje się więcej informacji o tych `parameters` sekcjach:
 
-* Na najwyższego poziomu szablonu `parameters` sekcja definiuje parametry dla wartości używanych przez szablon podczas *wdrażania* . Na przykład te wartości mogą zawierać parametry połączenia dla określonego środowiska wdrożenia. Następnie można przechowywać te wartości w osobnym [pliku parametrów](../azure-resource-manager/templates/parameter-files.md), co ułatwia zmianę tych wartości.
+* Na najwyższego poziomu szablonu `parameters` sekcja definiuje parametry dla wartości używanych przez szablon podczas *wdrażania*. Na przykład te wartości mogą zawierać parametry połączenia dla określonego środowiska wdrożenia. Następnie można przechowywać te wartości w osobnym [pliku parametrów](../azure-resource-manager/templates/parameter-files.md), co ułatwia zmianę tych wartości.
 
 * W definicji zasobu aplikacji logiki, ale poza definicją przepływu pracy, `parameters` sekcja określa wartości parametrów definicji przepływu pracy. W tej sekcji można przypisać te wartości przy użyciu wyrażeń szablonu, które odwołują się do parametrów szablonu. Wyrażenia te są oceniane podczas wdrażania.
 
@@ -818,9 +884,9 @@ Oto więcej sposobów zabezpieczania punktów końcowych, które obsługują wyw
 
     1. W Projektancie aplikacji logiki wprowadź `api management` w polu wyszukiwania. Wybierz krok w zależności od tego, czy dodajesz wyzwalacz, czy akcję:<p>
 
-       * Jeśli dodajesz wyzwalacz, który jest zawsze pierwszym krokiem w przepływie pracy, wybierz pozycję **Wybierz wyzwalacz usługi Azure API Management** .
+       * Jeśli dodajesz wyzwalacz, który jest zawsze pierwszym krokiem w przepływie pracy, wybierz pozycję **Wybierz wyzwalacz usługi Azure API Management**.
 
-       * Jeśli dodajesz akcję, wybierz pozycję **Wybierz akcję API Management platformy Azure** .
+       * Jeśli dodajesz akcję, wybierz pozycję **Wybierz akcję API Management platformy Azure**.
 
        Ten przykład dodaje wyzwalacz:
 
@@ -838,7 +904,7 @@ Oto więcej sposobów zabezpieczania punktów końcowych, które obsługują wyw
 
 ### <a name="add-authentication-to-outbound-calls"></a>Dodawanie uwierzytelniania do wywołań wychodzących
 
-Punkty końcowe HTTP i HTTPS obsługują różne rodzaje uwierzytelniania. W przypadku niektórych wyzwalaczy i akcji, które są używane do wysyłania wywołań wychodzących lub żądań do tych punktów końcowych, można określić typ uwierzytelniania. W Projektancie aplikacji logiki wyzwalacze i akcje obsługujące wybór typu uwierzytelniania mają właściwość **Authentication** . Jednak ta właściwość może nie zawsze być wyświetlana domyślnie. W takich przypadkach na wyzwalaczu lub akcji Otwórz listę **Dodaj nowy parametr** , a następnie wybierz pozycję **uwierzytelnianie** .
+Punkty końcowe HTTP i HTTPS obsługują różne rodzaje uwierzytelniania. W przypadku niektórych wyzwalaczy i akcji, które są używane do wysyłania wywołań wychodzących lub żądań do tych punktów końcowych, można określić typ uwierzytelniania. W Projektancie aplikacji logiki wyzwalacze i akcje obsługujące wybór typu uwierzytelniania mają właściwość **Authentication** . Jednak ta właściwość może nie zawsze być wyświetlana domyślnie. W takich przypadkach na wyzwalaczu lub akcji Otwórz listę **Dodaj nowy parametr** , a następnie wybierz pozycję **uwierzytelnianie**.
 
 > [!IMPORTANT]
 > Aby chronić poufne informacje obsługiwane przez aplikację logiki, należy użyć zabezpieczonych parametrów i zakodować dane zgodnie z potrzebami.
@@ -863,9 +929,9 @@ Jeśli opcja [podstawowa](../active-directory-b2c/secure-rest-api.md) jest dost�
 
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Tak | Podstawowa | Typ uwierzytelniania do użycia |
+| **Authentication** | `type` | Tak | Podstawowy | Typ uwierzytelniania do użycia |
 | **Nazwa użytkownika** | `username` | Tak | <*Nazwa użytkownika*>| Nazwa użytkownika służąca do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
-| **Password** (Hasło) | `password` | Tak | <*hasło*> | Hasło do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
+| **Hasło** | `password` | Tak | <*hasło*> | Hasło do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
 ||||||
 
 W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i zabezpieczania poufnych informacji, na przykład w [szablonie Azure Resource Manager do automatyzowania wdrożenia](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. Ta przykładowa definicja akcji HTTP Określa uwierzytelnianie `type` jako `Basic` i używa [funkcji Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) w celu uzyskania wartości parametrów:
@@ -896,7 +962,7 @@ Jeśli opcja [certyfikat klienta](../active-directory/authentication/active-dire
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Tak | **Certyfikat klienta** <br>lub <br>`ClientCertificate` | Typ uwierzytelniania do użycia. Można zarządzać certyfikatami za pomocą [usługi Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Uwaga** : Łączniki niestandardowe nie obsługują uwierzytelniania opartego na certyfikatach dla wywołań przychodzących i wychodzących. |
 | **PFX** | `pfx` | Tak | <*zakodowany plik PFX — zawartość*> | Zawartość zakodowana algorytmem Base64 z pliku wymiany informacji osobistych (PFX) <p><p>Aby przekonwertować plik PFX na format szyfrowany algorytmem Base64, można użyć programu PowerShell, wykonując następujące czynności: <p>1. Zapisz zawartość certyfikatu w zmiennej: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Przekonwertuj zawartość certyfikatu przy użyciu `ToBase64String()` funkcji i Zapisz tę zawartość do pliku tekstowego: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
-| **Password** (Hasło) | `password`| Nie | <*hasło dla pliku PFX*> | Hasło do uzyskiwania dostępu do pliku PFX |
+| **Hasło** | `password`| Nie | <*hasło dla pliku PFX*> | Hasło do uzyskiwania dostępu do pliku PFX |
 |||||
 
 W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i zabezpieczania poufnych informacji, na przykład w [szablonie Azure Resource Manager do automatyzowania wdrożenia](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. Ta przykładowa definicja akcji HTTP Określa uwierzytelnianie `type` jako `ClientCertificate` i używa [funkcji Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) w celu uzyskania wartości parametrów:
@@ -941,7 +1007,7 @@ Wyzwalacze żądań umożliwiają uwierzytelnianie wywołań przychodzących po 
 | **Typ poświadczeń** | `credentialType` | Tak | Certyfikat <br>lub <br>Wpis tajny | Typ poświadczeń, którego klient używa do żądania autoryzacji. Ta właściwość i wartość nie pojawiają się w podstawowej definicji aplikacji logiki, ale określają właściwości, które są wyświetlane dla wybranego typu poświadczenia. |
 | **Wpisu** | `secret` | Tak, ale tylko dla typu poświadczeń "wpis tajny" | <*Klient-klucz tajny*> | Wpis tajny klienta na potrzeby żądania autoryzacji |
 | **PFX** | `pfx` | Tak, ale tylko dla typu poświadczeń "certyfikat" | <*zakodowany plik PFX — zawartość*> | Zawartość zakodowana algorytmem Base64 z pliku wymiany informacji osobistych (PFX) |
-| **Password** (Hasło) | `password` | Tak, ale tylko dla typu poświadczeń "certyfikat" | <*hasło dla pliku PFX*> | Hasło do uzyskiwania dostępu do pliku PFX |
+| **Hasło** | `password` | Tak, ale tylko dla typu poświadczeń "certyfikat" | <*hasło dla pliku PFX*> | Hasło do uzyskiwania dostępu do pliku PFX |
 |||||
 
 W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i zabezpieczania poufnych informacji, na przykład w [szablonie Azure Resource Manager do automatyzowania wdrożenia](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. Ta przykładowa definicja akcji HTTP Określa uwierzytelnianie `type` jako `ActiveDirectoryOAuth` , typ poświadczeń jako `Secret` i używa [funkcji Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) w celu uzyskania wartości parametrów:
@@ -1024,7 +1090,7 @@ Jeśli opcja [zarządzanej tożsamości](../active-directory/managed-identities-
    |---------------------|-----------------|----------|-------|-------------|
    | **Authentication** | `type` | Tak | **Tożsamość zarządzana** <br>lub <br>`ManagedServiceIdentity` | Typ uwierzytelniania do użycia |
    | **Tożsamość zarządzana** | `identity` | Tak | * **Tożsamość zarządzana przypisana przez system** <br>lub <br>`SystemAssigned` <p><p>* < *przypisanej do użytkownika-Identity-Name*> | Zarządzana tożsamość do użycia |
-   | **Grupy odbiorców** | `audience` | Tak | <*docelowy — identyfikator zasobu*> | Identyfikator zasobu dla zasobu docelowego, do którego chcesz uzyskać dostęp. <p>Załóżmy na przykład, że `https://storage.azure.com/` [tokeny dostępu](../active-directory/develop/access-tokens.md) są prawidłowe dla wszystkich kont magazynu. Można jednak określić adres URL usługi głównej, `https://fabrikamstorageaccount.blob.core.windows.net` na przykład dla określonego konta magazynu. <p>**Uwaga** : Właściwość **odbiorców** może być ukryta w niektórych wyzwalaczach lub akcjach. Aby ta właściwość była widoczna, w wyzwalaczu lub akcji Otwórz listę **Dodaj nowy parametr** , a następnie wybierz pozycję **odbiorcy** . <p><p>**Ważne** : Upewnij się, że identyfikator zasobu docelowego *dokładnie pasuje* do wartości oczekiwanej przez usługę Azure AD, w tym wszystkich wymaganych końcowych ukośników. W związku z tym `https://storage.azure.com/` Identyfikator zasobu dla wszystkich kont usługi Azure Blob Storage wymaga końcowego ukośnika. Jednak identyfikator zasobu dla określonego konta magazynu nie wymaga końcowej kreski ułamkowej. Aby znaleźć te identyfikatory zasobów, zobacz [usługi platformy Azure, które obsługują usługę Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Grupy odbiorców** | `audience` | Tak | <*docelowy — identyfikator zasobu*> | Identyfikator zasobu dla zasobu docelowego, do którego chcesz uzyskać dostęp. <p>Załóżmy na przykład, że `https://storage.azure.com/` [tokeny dostępu](../active-directory/develop/access-tokens.md) są prawidłowe dla wszystkich kont magazynu. Można jednak określić adres URL usługi głównej, `https://fabrikamstorageaccount.blob.core.windows.net` na przykład dla określonego konta magazynu. <p>**Uwaga** : Właściwość **odbiorców** może być ukryta w niektórych wyzwalaczach lub akcjach. Aby ta właściwość była widoczna, w wyzwalaczu lub akcji Otwórz listę **Dodaj nowy parametr** , a następnie wybierz pozycję **odbiorcy**. <p><p>**Ważne** : Upewnij się, że identyfikator zasobu docelowego *dokładnie pasuje* do wartości oczekiwanej przez usługę Azure AD, w tym wszystkich wymaganych końcowych ukośników. W związku z tym `https://storage.azure.com/` Identyfikator zasobu dla wszystkich kont usługi Azure Blob Storage wymaga końcowego ukośnika. Jednak identyfikator zasobu dla określonego konta magazynu nie wymaga końcowej kreski ułamkowej. Aby znaleźć te identyfikatory zasobów, zobacz [usługi platformy Azure, które obsługują usługę Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    W przypadku używania [zabezpieczonych parametrów](#secure-action-parameters) do obsługi i zabezpieczania poufnych informacji, na przykład w [szablonie Azure Resource Manager do automatyzowania wdrożenia](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), można użyć wyrażeń, aby uzyskać dostęp do tych wartości parametrów w czasie wykonywania. Ta przykładowa definicja akcji HTTP Określa uwierzytelnianie `type` jako `ManagedServiceIdentity` i używa [funkcji Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) w celu uzyskania wartości parametrów:
