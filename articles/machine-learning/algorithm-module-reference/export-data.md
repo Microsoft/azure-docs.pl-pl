@@ -1,7 +1,7 @@
 ---
 title: 'Eksportowanie danych: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać modułu eksport danych w Azure Machine Learning, aby zapisywać wyniki, dane pośrednie i dane robocze z potoków do miejsc docelowych magazynu w chmurze poza Azure Machine Learning.
+description: Moduł eksportowanie danych w programie Azure Machine Learning Designer umożliwia zapisywanie wyników i danych pośrednich poza programem Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/28/2020
-ms.openlocfilehash: 5964ed9773d45b809fc79252eabc754b1b04af84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6e3d56958168cd279c98a4ba4c021c2362c2694
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907992"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421315"
 ---
 # <a name="export-data-module"></a>Eksportuj moduł danych
 
@@ -40,12 +40,12 @@ Przed wyeksportowaniem danych musisz najpierw zarejestrować magazyn danych w ob
 
 1. Wybierz pozycję **Eksportuj dane** , aby otworzyć okienko **Właściwości** .
 
-1. W obszarze **Magazyn**danych wybierz istniejący magazyn danych z listy rozwijanej. Możesz również utworzyć nowy magazyn danych. Sprawdź, jak odwiedzać [dane dostępu w usługach Azure Storage](../how-to-access-data.md).
+1. W obszarze **Magazyn** danych wybierz istniejący magazyn danych z listy rozwijanej. Możesz również utworzyć nowy magazyn danych. Sprawdź, jak odwiedzać [dane dostępu w usługach Azure Storage](../how-to-access-data.md).
 
     > [!NOTE]
     > Eksportowanie danych określonego typu danych do kolumny bazy danych SQL określonej jako inny typ danych nie jest obsługiwane. Tabela docelowa nie musi najpierw istnieć.
 
-1. Pole wyboru, **Wygeneruj ponownie dane wyjściowe**, decyduje o tym, czy uruchomić moduł w celu ponownego wygenerowania danych wyjściowych w czasie wykonywania. 
+1. Pole wyboru, **Wygeneruj ponownie dane wyjściowe** , decyduje o tym, czy uruchomić moduł w celu ponownego wygenerowania danych wyjściowych w czasie wykonywania. 
 
     Jest to domyślnie niezaznaczone, co oznacza, że moduł został wykonany z tymi samymi parametrami, system użyje danych wyjściowych z ostatniego uruchomienia, aby skrócić czas wykonywania. 
 
@@ -54,7 +54,7 @@ Przed wyeksportowaniem danych musisz najpierw zarejestrować magazyn danych w ob
 1. Zdefiniuj ścieżkę w magazynie danych, w której są dane. Ścieżka jest ścieżką względną. Puste ścieżki lub ścieżki URL są niedozwolone.
 
 
-1. W polu **Format pliku**wybierz format, w którym mają być przechowywane dane.
+1. W polu **Format pliku** wybierz format, w którym mają być przechowywane dane.
  
 1. Prześlij potok.
 

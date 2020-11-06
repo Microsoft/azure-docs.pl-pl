@@ -1,7 +1,7 @@
 ---
 title: Co nowego w Azure Active Directory aprowizacji aplikacji
 description: Nowa i zaktualizowana dokumentacja dotycząca aprowizacji Azure Active Directory aplikacji.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -10,16 +10,36 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 885838e1a517ab4713f1753957f8b85f40297fd2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 83375eebdbe46fc0132f1fcf0b6d11457aa0e897
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424549"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421009"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory aprowizacji aplikacji: co nowego
 
 Zapoznaj się z nowościami w dokumentacji dotyczącej udostępniania aplikacji Azure Active Directory. W tym artykule wymieniono nowe dokumenty, które zostały dodane oraz te, które mają znaczące aktualizacje w ciągu ostatnich trzech miesięcy. Aby dowiedzieć się, co nowego w usłudze aprowizacji, zobacz [co nowego w programie Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="october-2020"></a>Październik 2020 r.
+
+### <a name="new-articles"></a>Nowe artykuły
+
+- [Informacje o sposobie integracji aprowizacji z dziennikami Azure Monitor](application-provisioning-log-analytics.md)
+
+### <a name="updated-articles"></a>Zaktualizowane artykuły
+
+- [Jak działa aprowizacja](how-provisioning-works.md)
+- [Informacje o sposobie integracji aprowizacji z dziennikami Azure Monitor](application-provisioning-log-analytics.md)
+- [Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory](customize-application-attributes.md)
+- [Odwołanie do pisania wyrażeń dla mapowań atrybutów w usłudze Azure AD](functions-for-customizing-application-data.md)
+- [Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD](use-scim-to-provision-users-and-groups.md)
+- [Włącz automatyczne Inicjowanie obsługi administracyjnej użytkowników dla aplikacji wielodostępnej](isv-automatic-provisioning-multi-tenant-apps.md)
+- [Znane problemy: Inicjowanie obsługi aplikacji](known-issues.md)
+- [Planowanie wdrożenia automatycznego aprowizowania użytkowników](plan-auto-user-provisioning.md)
+- [Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników](plan-cloud-hr-provision.md)
+- [Aprowizacja na żądanie](provision-on-demand.md)
+
 
 ## <a name="september-2020"></a>Wrzesień 2020
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 11/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893581"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420963"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Często zadawane pytania dotyczące klasyfikatora metryk
 
@@ -88,7 +88,7 @@ Pamiętaj, aby użyć poprawnego stopnia szczegółowości dla szeregów czasowy
 
 Zwróć uwagę, że te zapytania zwracają tylko dane z pojedynczej sygnatury czasowej i zawierają wszystkie kombinacje wymiarów do pozyskiwania przez klasyfikatora metryk. 
 
-:::image type="content" source="media/query-result.png" alt-text="Komunikat, gdy istnieje już zasób F0" lightbox="media/query-result.png":::
+:::image type="content" source="media/query-result.png" alt-text="Wynik zapytania z jedną sygnaturą czasową" lightbox="media/query-result.png":::
 
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Jak mogę wykryć skoki & spadnie jako anomalie?
@@ -104,6 +104,19 @@ Jeśli nie ma żadnych progów, można użyć "Inteligentne wykrywanie", które 
 
 Jeśli dane są zwykle dość niestabilne i wymagają dużej ilości danych, a użytkownik chce otrzymywać alerty, gdy zostanie on zbyt stabilny lub nawet stanie się linią płaską, "próg zmiany" można skonfigurować do wykrywania takich punktów danych, gdy zmiana jest zbyt mała.
 Szczegóły można znaleźć w [konfiguracjach wykrywania anomalii](how-tos/configure-metrics.md#anomaly-detection-methods) .
+
+### <a name="how-to-set-up-email-settings-and-enable-alerting-by-email"></a>Jak skonfigurować ustawienia poczty e-mail i włączyć alerty pocztą e-mail?
+
+1.  Użytkownik z uprawnieniami administratora subskrypcji lub grupy zasobów musi przejść do zasobu klasyfikatora metryk, który został utworzony w Azure Portal, i wybrać kartę **Kontrola dostępu (IAM)** . 
+2.  Wybierz pozycję **Dodaj przypisania ról**
+3.  Wybierz rolę **Cognitive Services administrator doradcy metryk** , zaznacz Twoje konto, tak jak na poniższej ilustracji.
+4.  Kliknij przycisk **Zapisz** , a następnie został pomyślnie dodany jako administrator zasobu klasyfikatora metryk. Należy pamiętać, że wszystkie powyższe akcje muszą zostać wykonane przez administratora subskrypcji lub administratora grupy zasobów. 
+
+:::image type="content" source="media/access-control.png" alt-text="Strona menu kontroli dostępu (IAM) z wybraną pozycją Dodaj przypisanie roli, a następnie pole z uprawnieniem Przypisz dostęp do wybranego użytkownika z rolą dostępu Cognitive Services administrator doradcy metryk, a następnie przycisk Zapisz wybranego interfejsu użytkownika do zilustrowania kroków wyszukiwania użytkownika i dodawania określonego poziomu uprawnień dostępu." lightbox="media/access-control.png":::
+
+
+5.  Propagowanie uprawnień może potrwać do jednej minuty. Następnie wybierz obszar roboczy klasyfikatora metryk i wybierz opcję **Ustawienia poczty e-mail** w lewym panelu nawigacyjnym. Wprowadź wymagane elementy, w szczególności informacje dotyczące protokołu SMTP. 
+6.  Wybierz pozycję **Zapisz** , a następnie wszystko jest ustawione z konfiguracją poczty e-mail. Możesz tworzyć nowe punkty zaczepienia i subskrybować anomalie metryk dla alertów niemal w czasie rzeczywistym. 
 
 ## <a name="advanced-concepts"></a>Pojęcia zaawansowane
 
@@ -127,7 +140,7 @@ Rozpoczynając od całkowitej `Response latency` , możemy przejść do szczegó
 
 W usłudze Metric Advisor użytkownicy mogą określić dowolną ścieżkę do przechodzenia do szczegółów lub zestawiania z jednego węzła topologii hierarchicznej. Dokładniej, hierarchiczna topologia jest ukierunkowanym wykresem acykliczne, a nie strukturą drzewa. Istnieje pełna topologia hierarchiczna, która składa się ze wszystkich możliwych kombinacji wymiarów, takich jak: 
 
-:::image type="content" source="media/dimension-combinations-view.png" alt-text="Komunikat, gdy istnieje już zasób F0" lightbox="media/dimension-combinations-view.png":::
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="hierarchiczny diagram topologii składający się z wielu wierzchołków łączących i krawędzi z wieloma wymiarami z etykietą S, DC i M z odpowiednimi numerami z zakresu od 1 do 6." lightbox="media/dimension-combinations-view.png":::
 
 Teoretycznie, jeśli wymiar `Service` ma `Ls` różne wartości, wymiar `Data center` ma `Ldc` różne wartości, a wymiar `Machine` ma `Lm` różne wartości, a następnie `(Ls + 1) * (Ldc + 1) * (Lm + 1)` w topologii hierarchicznej mogą istnieć kombinacje wymiarów. 
 

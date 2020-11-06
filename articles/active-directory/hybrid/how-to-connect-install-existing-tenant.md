@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68251270b6273f5a07391138e5c7210f1c46ba5a
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662252"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420533"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: Jeśli masz istniejącą dzierżawę
 W większości tematów dotyczących używania Azure AD Connect założono, że zaczynasz od nowej dzierżawy usługi Azure AD i nie ma żadnych użytkowników ani innych obiektów. Ale jeśli rozpoczęłasz korzystanie z dzierżawy usługi Azure AD, wypełnisz ją użytkownikami i innymi obiektami, a teraz chcesz korzystać z programu Connect, ten temat jest dla Ciebie.
@@ -34,11 +34,11 @@ Niektórymi użytkownikami można zarządzać lokalnie i w chmurze. Typowym scen
 Jeśli rozpoczęto zarządzanie użytkownikami w usłudze Azure AD, które znajdują się również w lokalnej usłudze AD, a później chcesz korzystać z programu Connect, należy wziąć pod uwagę pewne dodatkowe zagadnienia.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Synchronizuj z istniejącymi użytkownikami w usłudze Azure AD
-Po zainstalowaniu Azure AD Connect i uruchomieniu synchronizacji usługa Azure AD Sync (w usłudze Azure AD) sprawdza każdy nowy obiekt i próbuje znaleźć istniejący obiekt do dopasowania. Dla tego procesu są używane trzy atrybuty: **userPrincipalName**, **proxyAddresses**i **sourceAnchor** / **immutableID**. Dopasowanie elementu **userPrincipalName** i **proxyAddresses** jest znane jako niezrównane **dopasowanie**. Dopasowanie **sourceAnchor** jest znane jako **twarde dopasowanie**. Dla atrybutu **proxyAddresses** należy użyć tylko wartości przy użyciu **protokołu SMTP:**, czyli podstawowego adresu e-mail.
+Po zainstalowaniu Azure AD Connect i uruchomieniu synchronizacji usługa Azure AD Sync (w usłudze Azure AD) sprawdza każdy nowy obiekt i próbuje znaleźć istniejący obiekt do dopasowania. Dla tego procesu są używane trzy atrybuty: **userPrincipalName** , **proxyAddresses** i **sourceAnchor** / **immutableID**. Dopasowanie elementu **userPrincipalName** i **proxyAddresses** jest znane jako niezrównane **dopasowanie**. Dopasowanie **sourceAnchor** jest znane jako **twarde dopasowanie**. Dla atrybutu **proxyAddresses** należy użyć tylko wartości przy użyciu **protokołu SMTP:** , czyli podstawowego adresu e-mail.
 
 Dopasowanie jest oceniane tylko dla nowych obiektów pochodzących z połączenia. Jeśli zmienisz istniejący obiekt tak, aby był dopasowany do któregokolwiek z tych atrybutów, zobaczysz błąd zamiast.
 
-Jeśli usługa Azure AD odnajdzie obiekt, w którym wartości atrybutów są takie same dla obiektu pochodzącego z połączenia i że już istnieje w usłudze Azure AD, obiekt w usłudze Azure AD jest przełączany przez połączenie. Wcześniej obiekt zarządzany przez chmurę jest oflagowany jako zarządzany lokalnie. Wszystkie atrybuty w usłudze Azure AD z wartością w lokalnej usłudze AD są zastępowane wartością lokalną. Wyjątek występuje, gdy atrybut ma wartość **null** w środowisku lokalnym. W takim przypadku wartość w usłudze Azure AD pozostaje niezmieniona, ale nadal można ją zmienić lokalnie na inną.
+Jeśli usługa Azure AD odnajdzie obiekt, w którym wartości atrybutów są takie same dla obiektu pochodzącego z połączenia i że już istnieje w usłudze Azure AD, obiekt w usłudze Azure AD jest przełączany przez połączenie. Wcześniej obiekt zarządzany przez chmurę jest oflagowany jako zarządzany lokalnie. Wszystkie atrybuty w usłudze Azure AD z wartością w lokalnej usłudze AD są zastępowane wartością lokalną.
 
 > [!WARNING]
 > Ponieważ wszystkie atrybuty w usłudze Azure AD są zastępowane przez wartość lokalną, upewnij się, że masz dobre dane lokalnie. Jeśli na przykład masz tylko zarządzany adres e-mail w usłudze Microsoft 365 i nie będzie on aktualizowany w AD DS lokalnym, utracisz wszelkie wartości w usłudze Azure AD/Microsoft 365 nieobecny w AD DS.

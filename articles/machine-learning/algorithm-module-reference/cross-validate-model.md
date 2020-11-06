@@ -1,7 +1,7 @@
 ---
 title: 'Model krzyżowego sprawdzania poprawności: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać modułu wielovalidate model w Azure Machine Learning do podawania krzyżowego szacunków parametrów dla modeli klasyfikacji lub regresji przez Partycjonowanie danych.
+description: Moduł modelu krzyżowego sprawdzania poprawności w programie Azure Machine Learning Designer służy do sprawdzania poprawności szacunków parametrów dla modeli klasyfikacji lub regresji.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 63c61b12ad68a3add2e7b40ab0bec38d3c2835e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4099ecf6e6bcc6654391e54292878393fb22914
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898572"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421349"
 ---
 # <a name="cross-validate-model"></a>Krzyżowa weryfikacja modelu
 
 W tym artykule opisano sposób korzystania z modułu weryfikacji krzyżowej w programie Azure Machine Learning Designer. *Wzajemne sprawdzanie poprawności* jest techniką często używaną w uczeniu maszynowym do oceny zmienności zestawu danych i niezawodności dowolnego modelu przeszkolonego za pomocą tych danych.  
 
-Moduł sprawdzania poprawności krzyżowej przyjmuje jako wejściowy zestaw danych, wraz z niesprawdzonym modelem klasyfikacji lub regresji. Dzieli zestaw danych na pewną liczbę podzestawów (*zgięcia*), kompiluje model dla każdego zgięcia, a następnie zwraca zestaw statystyk dokładności dla każdego złożenia. Porównując statystyki dokładności dla wszystkich zagięć, można interpretować jakość zestawu danych. Następnie można zrozumieć, czy model jest podatny na różnice w danych.  
+Moduł sprawdzania poprawności krzyżowej przyjmuje jako wejściowy zestaw danych, wraz z niesprawdzonym modelem klasyfikacji lub regresji. Dzieli zestaw danych na pewną liczbę podzestawów ( *zgięcia* ), kompiluje model dla każdego zgięcia, a następnie zwraca zestaw statystyk dokładności dla każdego złożenia. Porównując statystyki dokładności dla wszystkich zagięć, można interpretować jakość zestawu danych. Następnie można zrozumieć, czy model jest podatny na różnice w danych.  
 
 Model weryfikacji krzyżowej zwraca również przewidywane wyniki i prawdopodobieństwa dla zestawu danych, dzięki czemu można ocenić niezawodność prognoz.  
 
@@ -30,7 +30,7 @@ Model weryfikacji krzyżowej zwraca również przewidywane wyniki i prawdopodobi
 
    Algorytm domyślnie przyjmuje wartość 10, jeśli zestaw danych nie został wcześniej podzielony na partycje. Aby podzielić zestaw danych na inną liczbę zagięć, można użyć [partycji i przykładowego](partition-and-sample.md) modułu i wskazać, ile zagięć ma być używanych.  
 
-2.  Moduł ustawia dane w zgięciu 1 do użycia na potrzeby walidacji. (Jest to czasami nazywane *wstrzymania zgięciem*). Moduł używa pozostałych zagięć do uczenia modelu. 
+2.  Moduł ustawia dane w zgięciu 1 do użycia na potrzeby walidacji. (Jest to czasami nazywane *wstrzymania zgięciem* ). Moduł używa pozostałych zagięć do uczenia modelu. 
 
     Jeśli na przykład utworzysz pięć zagięć, moduł generuje pięć modeli podczas weryfikacji krzyżowej. Moduł pociąga za sobą cztery piąte danych. Sprawdza każdy model w pozostałej jednej piątej.  
 
@@ -98,7 +98,7 @@ Drugi raport jest pogrupowany według zgięcia. Należy pamiętać, że podczas 
 
 W tym raporcie zgięcia są wyświetlane według wartości indeksu w kolejności rosnącej.  Aby zamówić w dowolnej innej kolumnie, można zapisać wyniki jako zestaw danych.
 
-Aby wyświetlić wyniki, w potoku kliknij prawym przyciskiem myszy moduł modelu krzyżowego sprawdzania poprawności. Wybierz opcję **Wizualizuj wyniki oceny według**złożenia.
+Aby wyświetlić wyniki, w potoku kliknij prawym przyciskiem myszy moduł modelu krzyżowego sprawdzania poprawności. Wybierz opcję **Wizualizuj wyniki oceny według** złożenia.
 
 
 |Nazwa kolumny| Opis|
@@ -109,9 +109,9 @@ Aby wyświetlić wyniki, w potoku kliknij prawym przyciskiem myszy moduł modelu
 
 Moduł zawiera również następujące metryki dla każdego zgięcia, w zależności od typu modelu, który oceniasz: 
 
-+ **Modele klasyfikacji**: dokładność, odwołanie, F-Score, AUC, dokładność  
++ **Modele klasyfikacji** : dokładność, odwołanie, F-Score, AUC, dokładność  
 
-+ **Modele regresji**: średni błąd bezwzględny, główny, średni, błąd względny, błąd bezwzględny, względny błąd kwadratowy i współczynnik wyznaczania
++ **Modele regresji** : średni błąd bezwzględny, główny, średni, błąd względny, błąd bezwzględny, względny błąd kwadratowy i współczynnik wyznaczania
 
 
 ## <a name="technical-notes"></a>Uwagi techniczne  

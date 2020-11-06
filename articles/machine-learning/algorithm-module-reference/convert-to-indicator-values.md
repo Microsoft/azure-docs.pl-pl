@@ -1,7 +1,7 @@
 ---
 title: Konwertowanie na wartości wskaźnika
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać modułu Konwertuj do wartości wskaźnika w Azure Machine Learning, aby skonwertować kolumny zawierające wartości kategorii do serii kolumn wskaźnika binarnego.
+description: Użyj modułu Konwertuj do wartości wskaźnika w programie Azure Machine Learning Designer, aby przekonwertować kolumny kategorii na serię kolumn wskaźników binarnych.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b3c113f46428327842c1555fdd1934e9ae8762
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79477667"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420856"
 ---
 # <a name="convert-to-indicator-values"></a>Konwertowanie na wartości wskaźnika
 W tym artykule opisano moduł programu Azure Machine Learning Designer.
@@ -51,7 +51,7 @@ Załóżmy, że masz kolumnę z wynikami wskazującą, czy serwer ma wysokie, ś
 | 10302     | Średniaa        |
 | 10303     | Wysoki          |
 
-Po zastosowaniu **konwersji do wartości wskaźnika**Projektant konwertuje pojedynczą kolumnę etykiet w wiele kolumn zawierających wartości logiczne:  
+Po zastosowaniu **konwersji do wartości wskaźnika** Projektant konwertuje pojedynczą kolumnę etykiet w wiele kolumn zawierających wartości logiczne:  
 
 | Identyfikator serwera | Wynik niepowodzenia — niski | Wynik niepowodzenia — średni | Wynik niepowodzenia — wysoki |
 | --------- | ------------------- | ---------------------- | -------------------- |
@@ -71,8 +71,8 @@ Teraz można użyć trzech kolumn wskaźnika jako funkcji w modelu uczenia maszy
 
 Moduł zwraca dwa dane wyjściowe:
 
-- **Zestaw danych wyników**: zestaw danych z przekonwertowane kolumny wartości wskaźnika. Kolumny niewybrane do czyszczenia są również "przenoszone przez".
-- **Przekształcanie wartości wskaźnika**: transformacja danych służąca do konwertowania na wartości wskaźnika, którą można zapisać w obszarze roboczym i zastosowana do nowych danych później.
+- **Zestaw danych wyników** : zestaw danych z przekonwertowane kolumny wartości wskaźnika. Kolumny niewybrane do czyszczenia są również "przenoszone przez".
+- **Przekształcanie wartości wskaźnika** : transformacja danych służąca do konwertowania na wartości wskaźnika, którą można zapisać w obszarze roboczym i zastosowana do nowych danych później.
 
 ## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>Zastosuj operację zapisania wartości wskaźnika do nowych danych
 
@@ -104,7 +104,7 @@ Ta sekcja zawiera szczegóły implementacji, porady i odpowiedzi na często zada
 
 -   Nie ma żadnego limitu liczby kolumn, które można przekonwertować na kolumny wskaźników. Jednak ponieważ każda kolumna wartości może zwracać wiele kolumn wskaźników, można skonwertować i przejrzeć tylko kilka kolumn naraz.  
 
--   Jeśli kolumna zawiera brakujące wartości, dla brakującej kategorii zostanie utworzona oddzielna kolumna wskaźnika o tej nazwie: * \<source column> Brak*  
+-   Jeśli kolumna zawiera brakujące wartości, dla brakującej kategorii zostanie utworzona oddzielna kolumna wskaźnika o tej nazwie: *\<source column> Brak*  
 
 -   Jeśli kolumna konwertowana na wartości wskaźników zawiera liczby, muszą one być oznaczone jako kategorii, jak każda inna kolumna funkcji. Po wykonaniu tej czynności liczby są traktowane jako odrębne wartości. Na przykład jeśli masz kolumnę liczbową z wartościami MPG z zakresu od 25 do 30, zostanie utworzona nowa kolumna wskaźnika dla każdej wartości dyskretnej:  
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 5fd949466978714fe1dc0c4ccc67a3cb8f993314
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 362d5f2046ff4e9ba52dd2e73433cc39e80f7a50
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934960"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420601"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Skalowanie pod kątem wydajności na platformie Azure Wyszukiwanie poznawcze
 
@@ -30,7 +30,7 @@ Przed przystąpieniem do większego nakładu prac związanych z wdrażaniem upew
 
 1. Zacznij od niskiej liczby zapytań na sekundę (zapytań), a następnie stopniowo Zwiększaj liczbę wykonywanych testów do momentu spadku opóźnienia zapytania poniżej wstępnie zdefiniowanego elementu docelowego. Jest to ważny test, który ułatwia planowanie skalowania w miarę zwiększania użycia aplikacji.
 
-1. Gdy to możliwe, należy ponownie użyć połączeń HTTP. Jeśli używasz zestawu SDK platformy Azure Wyszukiwanie poznawcze .NET, oznacza to, że należy ponownie użyć wystąpienia lub wystąpienia [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) , a jeśli korzystasz z interfejsu API REST, należy ponownie użyć pojedynczej HttpClient.
+1. Gdy to możliwe, należy ponownie użyć połączeń HTTP. Jeśli używasz zestawu SDK platformy Azure Wyszukiwanie poznawcze .NET, oznacza to, że należy ponownie użyć wystąpienia lub wystąpienia [SearchClient](/dotnet/api/azure.search.documents.searchclient) , a jeśli korzystasz z interfejsu API REST, należy ponownie użyć pojedynczej HttpClient.
 
 1. Różnej treści żądań zapytań, dzięki czemu wyszukiwanie odbywa się na różnych częściach indeksu. Odmiana jest ważna, ponieważ w przypadku ciągłego wykonywania tych samych żądań wyszukiwania buforowanie danych rozpocznie się, aby wydajność była lepsza niż w przypadku bardziej nieznaczącego zestawu zapytań.
 
@@ -43,7 +43,7 @@ Podczas tworzenia tych obciążeń testowych należy wziąć pod uwagę pewne ce
 + Usługa Azure Wyszukiwanie poznawcze nie uruchamia zadań indeksowania w tle. Jeśli usługa obsługuje współbieżne obciążenia zapytań i indeksowania, należy to uwzględnić, wprowadzając zadania indeksowania do testów zapytań lub przez Eksplorowanie opcji uruchamiania zadań indeksowania w godzinach szczytu.
 
 > [!Tip]
-> Możesz symulować realistyczne obciążenie zapytań za pomocą narzędzi do testowania obciążenia. Wypróbuj [testowanie obciążenia za pomocą usługi Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) lub użyj jednego z tych [wariantów](/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> Możesz symulować realistyczne obciążenie zapytań za pomocą narzędzi do testowania obciążenia. Wypróbuj [testowanie obciążenia za pomocą usługi Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) lub użyj jednego z tych [wariantów](/azure/devops/test/load-test/overview#alternatives).
 
 ## <a name="scale-for-high-query-volume"></a>Skalowanie dla dużej ilości zapytań
 

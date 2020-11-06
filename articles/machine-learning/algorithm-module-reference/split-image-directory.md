@@ -1,7 +1,7 @@
 ---
 title: Dzielenie katalogu obrazów
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać modułu Split Image Directory w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu podzielenia obrazów katalogu obrazu na dwa różne zestawy.
+description: Dowiedz się, jak używać modułu Split Image Directory w projektancie do dzielenia obrazów katalogu obrazu na dwa różne zestawy.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ee4dd9b2e344ecb3e1a6424ce7310270e7cd076
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448677"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421196"
 ---
 # <a name="split-image-directory"></a>Dzielenie katalogu obrazów
 
@@ -43,7 +43,7 @@ Ten moduł jest szczególnie przydatny, gdy trzeba podzielić dane obrazu na zes
 
 | Nazwa                                   | Typ  | Zakres | Opcjonalne | Opis                            | Domyślne |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
-| Ułamek obrazów w pierwszym elemencie wyjściowym | Liczba zmiennoprzecinkowa | 0-1   | Wymagane | Ułamek obrazów w pierwszym elemencie wyjściowym | 0,9     |
+| Ułamek obrazów w pierwszym elemencie wyjściowym | Float | 0-1   | Wymagane | Ułamek obrazów w pierwszym elemencie wyjściowym | 0,9     |
 
 ### <a name="outputs"></a>Dane wyjściowe
 

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 6f3482bdc608d97e4adba5f99393e74f2e6c7cde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d683f96f31d3b34ac311251f45456551148ca26
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795356"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420890"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Odczytywanie replik na serwerze elastycznym Azure Database for MySQL
 
@@ -31,7 +31,7 @@ Aby dowiedzieć się więcej na temat funkcji i problemów związanych z replika
 > [!NOTE]
 > Komunikacja bezpłatna bez opłat
 >
-> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_ . Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
+> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
 >
 
 ## <a name="common-use-cases-for-read-replica"></a>Typowe przypadki użycia dla repliki odczytu
@@ -61,7 +61,7 @@ Dowiedz się [, jak utworzyć replikę odczytu w Azure Portal](how-to-read-repli
 
 ## <a name="connect-to-a-replica"></a>Nawiązywanie połączenia z repliką
 
-Podczas tworzenia repliki dziedziczy Metoda łączności serwera źródłowego. Nie można zmienić metody łączności repliki. Na przykład jeśli serwer źródłowy ma **dostęp prywatny (Integracja z siecią wirtualną)** , replika nie może być **dostęp publiczny (dozwolone adresy IP)** .
+Podczas tworzenia repliki dziedziczy Metoda łączności serwera źródłowego. Nie można zmienić metody łączności repliki. Na przykład jeśli serwer źródłowy ma **dostęp prywatny (Integracja z siecią wirtualną)** , replika nie może być **dostęp publiczny (dozwolone adresy IP)**.
 
 Replika dziedziczy konto administratora z serwera źródłowego. Wszystkie konta użytkowników na serwerze źródłowym są replikowane do replik odczytu. Można nawiązać połączenie z repliką odczytu tylko przy użyciu kont użytkowników, które są dostępne na serwerze źródłowym.
 
@@ -117,6 +117,7 @@ Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w
 | Scenariusz | Ograniczenie/zagadnienie |
 |:-|:-|
 | Replika na serwerze ze strefą — nadmiarowa HA włączona | Nieobsługiwane |
+| Replikacja odczytu między regionami | Nieobsługiwane |
 | Cennik | Koszt uruchomienia serwera repliki jest oparty na regionie, w którym jest uruchomiony serwer repliki |
 | Ponowne uruchamianie serwera źródłowego | Podczas tworzenia repliki dla źródła, które nie ma istniejących replik, źródło zostanie najpierw ponownie uruchomione w celu przygotowania się do replikacji. Weź pod uwagę i wykonaj te operacje w okresie poza szczytem |
 | Nowe repliki | Replika odczytu jest tworzona jako nowy Azure Database for MySQL elastyczny serwer. Nie można wykonać istniejącego serwera w replice. Nie można utworzyć repliki innej repliki odczytu |

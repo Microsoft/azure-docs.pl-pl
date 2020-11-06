@@ -1,7 +1,7 @@
 ---
 title: Odwołanie do modułu wyznaczania wartości skrótu funkcji
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać modułu wyznaczania wartości skrótu funkcji w Azure Machine Learning do cechowanie danych tekstowych.
+description: Dowiedz się, jak cechowanie dane tekstowe przy użyciu modułu tworzenia skrótów funkcji w projektancie Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cd48b32afee320aa3d252540d566317c374c73a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323718"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420788"
 ---
 # <a name="feature-hashing-module-reference"></a>Odwołanie do modułu wyznaczania wartości skrótu funkcji
 
@@ -22,7 +22,7 @@ W tym artykule opisano moduł dostępny w programie Azure Machine Learning Desig
 
 Użyj modułu wyznaczania wartości skrótu funkcji, aby przekształcić strumień tekstu w języku angielskim do zestawu funkcji całkowitych. Następnie można przekazać tę funkcję skrótu do algorytmu uczenia maszynowego, aby szkolić model analizy tekstu.
 
-Funkcje wyznaczania wartości skrótu funkcji dostępne w tym module bazują na strukturze nimbusml. Aby uzyskać więcej informacji, zobacz [Klasa NgramHash](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+Funkcje wyznaczania wartości skrótu funkcji dostępne w tym module bazują na strukturze nimbusml. Aby uzyskać więcej informacji, zobacz [Klasa NgramHash](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true).
 
 ## <a name="what-is-feature-hashing"></a>Co to jest mieszanie funkcji?
 

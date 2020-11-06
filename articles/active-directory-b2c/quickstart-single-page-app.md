@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db18c71b09cd9beb58799ad4fbcbc944061153fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6471d1b5a5ad2b8ba34080ae1220872fa0e2e232
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87921762"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421060"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Szybki start: konfigurowanie logowania dla aplikacji jednostronicowej przy użyciu usługi Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Szybki Start: Konfigurowanie logowania dla aplikacji jednostronicowej przy użyciu Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) umożliwia zarządzanie tożsamościami w chmurze w celu zapewnienia ochrony aplikacji, firm i klientów. Usługa Azure AD B2C umożliwia aplikacjom uwierzytelnianie względem kont społecznościowych i firmowych za pomocą protokołów zgodnych z otwartymi standardami. W tym przewodniku Szybki start aplikacja jednostronicowa jest używana do logowania za pomocą dostawcy tożsamości społecznościowych i wywoływania chronionego internetowego interfejsu API usługi Azure AD B2C.
 
@@ -29,12 +29,12 @@ Azure Active Directory B2C (Azure AD B2C) umożliwia zarządzanie tożsamościam
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Node.js](https://nodejs.org/en/download/)
 - Konto społecznościowe w serwisie Facebook, Google lub Microsoft
-- Przykład kodu z witryny GitHub: [Active-Directory-B2C-JavaScript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+- Przykład kodu z usługi GitHub: [MS-Identity-B2C-JavaScript-Spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
 
-    Możesz [pobrać archiwum zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) lub sklonować repozytorium:
+    Możesz [pobrać archiwum zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) lub sklonować repozytorium:
 
     ```console
-    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
     ```
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
@@ -42,7 +42,6 @@ Azure Active Directory B2C (Azure AD B2C) umożliwia zarządzanie tożsamościam
 1. Uruchom serwer za pomocą następującego polecenia w wierszu polecenia środowiska Node.js:
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
     npm install && npm update
     npm start
     ```
@@ -60,7 +59,7 @@ Azure Active Directory B2C (Azure AD B2C) umożliwia zarządzanie tożsamościam
 ## <a name="sign-in-using-your-account"></a>Logowanie się przy użyciu swojego konta
 
 1. Wybierz pozycję **Zaloguj** , aby rozpocząć podróż użytkownika.
-1. Azure AD B2C przedstawia stronę logowania fikcyjnej firmy o nazwie Fabrikam dla przykładowej aplikacji sieci Web. Aby zarejestrować się przy użyciu dostawcy tożsamości społecznościowej, wybierz przycisk dostawcy tożsamości, którego chcesz użyć.
+1. Azure AD B2C przedstawia stronę logowania fikcyjnej firmy o nazwie "Fabrikam" dla przykładowej aplikacji sieci Web. Aby zarejestrować się przy użyciu dostawcy tożsamości społecznościowej, wybierz przycisk dostawcy tożsamości, którego chcesz użyć.
 
     ![Strona logowania lub rejestracji przedstawiająca przyciski dostawcy tożsamości](./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png)
 

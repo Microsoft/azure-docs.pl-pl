@@ -11,12 +11,12 @@ ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9fe1363ffc714754c1de333a77d36595ce4223e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 737810a7d07d0d97b2e42acffa17fdd32986c48b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442341"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421094"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Ochrona i udzielanie dostępu do Node.js internetowego interfejsu API z aplikacji jednostronicowej z Azure AD B2C
 
@@ -56,11 +56,11 @@ Zapisz wartość w obszarze **zakresy** dla `demo.read` zakresu, który ma być 
 
 Aby wywołać chroniony internetowy interfejs API z innej aplikacji, należy przyznać tej aplikacji uprawnienia do internetowego interfejsu API.
 
-W samouczku wymagań wstępnych została utworzona aplikacja sieci Web o nazwie *webapp1*. W tym samouczku skonfigurujesz aplikację do wywoływania internetowego interfejsu API utworzonego w poprzedniej sekcji *webapi1*.
+W samouczku wymagań wstępnych utworzono aplikację jednostronicową o nazwie *spaapp1*. W tym samouczku skonfigurujesz aplikację do wywoływania internetowego interfejsu API utworzonego w poprzedniej sekcji *spaapp1*.
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-Aplikacja sieci Web na jednej stronie ma teraz przyznane uprawnienia do chronionego internetowego interfejsu API dla określonych zakresów. Użytkownik jest uwierzytelniany przy użyciu Azure AD B2C do korzystania z aplikacji jednostronicowej. Aplikacja jednostronicowa używa przepływu grantu autoryzacji do uzyskiwania dostępu do chronionego internetowego interfejsu API za pomocą tokenu dostępu zwróconego przez Azure AD B2C.
+Aplikacja sieci Web na jednej stronie ma teraz przyznane uprawnienia do chronionego internetowego interfejsu API dla określonych zakresów. Użytkownik jest uwierzytelniany przy użyciu Azure AD B2C do korzystania z aplikacji jednostronicowej. Aplikacja jednostronicowa uzyskuje token dostępu od Azure AD B2C, aby uzyskać dostęp do chronionego internetowego interfejsu API.
 
 ## <a name="configure-the-sample"></a>Konfigurowanie przykładu
 
@@ -161,7 +161,7 @@ Mimo że obie aplikacje działają lokalnie w ramach tego samouczka, zostały on
 1. Otwórz inne okno konsoli i przejdź do katalogu zawierającego próbę SPA JavaScript. Na przykład:
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
+    cd ms-identity-b2c-javascript-spa
     ```
 
 1. Uruchom następujące polecenia:

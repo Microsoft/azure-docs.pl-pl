@@ -1,7 +1,7 @@
 ---
 title: Model ResNet
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć model klasyfikacji obrazów przy użyciu algorytmu ResNet.
+description: Dowiedz się, jak utworzyć model klasyfikacji obrazów w programie Azure Machine Learning Designer przy użyciu algorytmu ResNet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: bd0431a8e503605c6137d948cf207c1bd2fa45b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88a820d0f1fa9515b4f2992a8305a2d1065e0987
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442040"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421213"
 ---
 # <a name="resnet"></a>Model ResNet
 
@@ -34,9 +34,9 @@ Zapoznaj się z [tym dokumentem](https://pytorch.org/docs/stable/torchvision/mod
 
 1.  Dodaj moduł **ResNet** do potoku w projektancie.  
 
-2.  W przypadku **nazwy modelu**należy określić nazwę pewnej struktury ResNet, a można wybrać opcję z obsługiwanych ResNet: "resnet18", "resnet34", "resnet50", "resnet101", "resnet152", "resnet152", "resnext50 32x4d", "resnext101", " \_ \_ wide_resnet50 \_ 2", "wide_resnet101 \_ 2".
+2.  W przypadku **nazwy modelu** należy określić nazwę pewnej struktury ResNet, a można wybrać opcję z obsługiwanych ResNet: "resnet18", "resnet34", "resnet50", "resnet101", "resnet152", "resnet152", "resnext50 32x4d", "resnext101", " \_ \_ wide_resnet50 \_ 2", "wide_resnet101 \_ 2".
 
-3.  W przypadku wstępnego **przeszkolenia**Określ, czy model ma być używany wstępnie przez ImageNet. W przypadku wybrania tej możliwości można dostosować model na podstawie wybranego wstępnie nauczonego modelu. w przypadku zaznaczenia tej opcji można nauczyć się od podstaw.
+3.  W przypadku wstępnego **przeszkolenia** Określ, czy model ma być używany wstępnie przez ImageNet. W przypadku wybrania tej możliwości można dostosować model na podstawie wybranego wstępnie nauczonego modelu. w przypadku zaznaczenia tej opcji można nauczyć się od podstaw.
 
 4.  Połącz dane wyjściowe modułu **DenseNet** module, szkoleń i walidacji zestawu danych obrazu z [modelem uczenie Pytorch](train-pytorch-model.md). 
 
@@ -50,7 +50,7 @@ Po zakończeniu przebiegu potoku, aby użyć modelu do oceniania, Połącz [mode
 
 ###  <a name="module-parameters"></a>Parametry modułu  
 
-| Nazwa       | Zakres | Type    | Domyślne           | Opis                              |
+| Nazwa       | Zakres | Typ    | Domyślne           | Opis                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
 | Nazwa modelu | Dowolne   | Tryb    | resnext101 \_ 32x8d | Nazwa pewnej struktury ResNet       |
 | Przeduczenie | Dowolne   | Boolean | Prawda              | Czy używać modelu wstępnie nauczonego na ImageNet |

@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class sieć neuronowych: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, w jaki sposób używać modułu Two-Class Network neuronowych w Azure Machine Learning do tworzenia modelu sieci neuronowych, który może służyć do przewidywania elementu docelowego, który ma tylko dwie wartości.
+description: Dowiedz się, w jaki sposób używać modułu Two-Class neuronowych Network w Azure Machine Learning do tworzenia klasyfikatora binarnego.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 2ad4fc575a6e9d07e4e24c2d570f68edbbea46c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9131a2439facef00cae818bffef38e536a40a2fd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907683"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421162"
 ---
 # <a name="two-class-neural-network-module"></a>Moduł sieci Two-Class neuronowych
 
@@ -22,7 +22,7 @@ W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
 Ten moduł służy do tworzenia modelu sieci neuronowych, który może służyć do przewidywania elementu docelowego, który ma tylko dwie wartości.
 
-Klasyfikacja przy użyciu sieci neuronowych to nadzorowana Metoda uczenia i dlatego wymaga *oznakowanego zestawu danych*, który zawiera kolumnę etykieta. Na przykład można użyć tego modelu sieci neuronowych do przewidywania danych binarnych, takich jak to, czy pacjent ma pewną chorobę, czy też może zakończyć się niepowodzeniem w określonym przedziale czasu.  
+Klasyfikacja przy użyciu sieci neuronowych to nadzorowana Metoda uczenia i dlatego wymaga *oznakowanego zestawu danych* , który zawiera kolumnę etykieta. Na przykład można użyć tego modelu sieci neuronowych do przewidywania danych binarnych, takich jak to, czy pacjent ma pewną chorobę, czy też może zakończyć się niepowodzeniem w określonym przedziale czasu.  
 
 Po zdefiniowaniu modelu nauczenie go przez udostępnienie oznakowanego zestawu danych i modelu jako dane wejściowe do [uczenia modelu](./train-model.md). Model przeszkolony może być następnie używany do przewidywania wartości dla nowych danych wejściowych.
 
@@ -38,17 +38,17 @@ Aby obliczyć dane wyjściowe sieci dla konkretnych danych wejściowych, wartoś
   
 ## <a name="how-to-configure"></a>Jak skonfigurować
 
-1.  Dodaj moduł **sieci neuronowych z dwoma klasami** do potoku. Ten moduł można znaleźć w obszarze **Machine Learning**, **zainicjować**, w kategorii **Klasyfikacja** .  
+1.  Dodaj moduł **sieci neuronowych z dwoma klasami** do potoku. Ten moduł można znaleźć w obszarze **Machine Learning** , **zainicjować** , w kategorii **Klasyfikacja** .  
   
 2.  Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .  
   
-    -   **Pojedynczy parametr**: Wybierz tę opcję, jeśli już wiesz, jak chcesz skonfigurować model.
+    -   **Pojedynczy parametr** : Wybierz tę opcję, jeśli już wiesz, jak chcesz skonfigurować model.
 
-    -   **Zakres parametrów**: Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Podajesz kilka wartości, a Trainer wykonuje iterację wielu kombinacji ustawień, aby określić kombinację wartości, które tworzą najlepszy wynik.  
+    -   **Zakres parametrów** : Jeśli nie masz pewności co do najlepszych parametrów, możesz znaleźć optymalne parametry przy użyciu modułu [dostrajania parametrów modelu](tune-model-hyperparameters.md) . Podajesz kilka wartości, a Trainer wykonuje iterację wielu kombinacji ustawień, aby określić kombinację wartości, które tworzą najlepszy wynik.  
 
-3.  W obszarze **Specyfikacja warstwy ukrytej**wybierz typ architektury sieci do utworzenia.  
+3.  W obszarze **Specyfikacja warstwy ukrytej** wybierz typ architektury sieci do utworzenia.  
   
-    -   W **pełni połączony przypadek**: używa domyślnej architektury sieci neuronowych zdefiniowanej dla dwóch klas neuronowych sieci w następujący sposób:
+    -   W **pełni połączony przypadek** : używa domyślnej architektury sieci neuronowych zdefiniowanej dla dwóch klas neuronowych sieci w następujący sposób:
   
         -   Ma jedną ukrytą warstwę.
   
@@ -60,25 +60,25 @@ Aby obliczyć dane wyjściowe sieci dla konkretnych danych wejściowych, wartoś
   
         -   Liczba węzłów jest równa liczbie klas. W przypadku sieci z dwiema klasami neuronowych oznacza to, że wszystkie dane wejściowe muszą być mapowane na jeden z dwóch węzłów w warstwie wyjściowej.
 
-5.  W polu **stawka szkoleniowa**Zdefiniuj rozmiar kroku wykonany dla każdej iteracji przed poprawką. Większa wartość współczynnika uczenia może spowodować szybsze zbieżność modelu, ale może przekroczyć wartości minimalne.
+5.  W polu **stawka szkoleniowa** Zdefiniuj rozmiar kroku wykonany dla każdej iteracji przed poprawką. Większa wartość współczynnika uczenia może spowodować szybsze zbieżność modelu, ale może przekroczyć wartości minimalne.
 
-6.  W polu **Liczba iteracji uczenia**Określ maksymalną liczbę przypadków, w których algorytm powinien przetwarzać przypadki szkoleniowe.
+6.  W polu **Liczba iteracji uczenia** Określ maksymalną liczbę przypadków, w których algorytm powinien przetwarzać przypadki szkoleniowe.
 
-7.  W **polu Średnica początkowej wagi uczenia**Określ wagi węzłów na początku procesu uczenia.
+7.  W **polu Średnica początkowej wagi uczenia** Określ wagi węzłów na początku procesu uczenia.
 
-8.  Na czas **pędu**Określ wagę do zastosowania podczas uczenia się do węzłów z poprzednich iteracji  
+8.  Na czas **pędu** Określ wagę do zastosowania podczas uczenia się do węzłów z poprzednich iteracji  
 
 10. Wybierz opcję **losowe przykłady** , aby losowo rozróżnić przypadki między iteracjami. W przypadku zaznaczenia tej opcji przypadki są przetwarzane w dokładnie tym samym porządku przy każdym uruchomieniu potoku.
   
-11. W przypadku **liczby losowej inicjatora**wpisz wartość, która ma być używana jako inicjator.
+11. W przypadku **liczby losowej inicjatora** wpisz wartość, która ma być używana jako inicjator.
   
      Określanie wartości inicjatora jest przydatne, gdy chcesz zapewnić powtarzalność między przebiegami tego samego potoku.  W przeciwnym razie wartość zegara systemowego jest używana jako inicjator, co może spowodować nieco inne wyniki przy każdym uruchomieniu potoku.
   
 13. Dodawanie oznaczonego zestawu danych do potoku i uczenie modelu:
 
-    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr** , Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów** , Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

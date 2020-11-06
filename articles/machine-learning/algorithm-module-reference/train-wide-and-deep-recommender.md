@@ -1,7 +1,7 @@
 ---
 title: Korzystanie z modułu szkolenia & głębokiego polecania
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać modułu uczenie & głębokiego polecania do uczenia modelu rekomendacji.
+description: Dowiedz się, jak używać modułu uczenie & głębokiego polecania w programie Azure Machine Learning Designer do uczenia modelu rekomendacji.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce713167272c9e97754fdf6f6d065519aaea3d15
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907782"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421179"
 ---
 # <a name="train-wide--deep-recommender"></a>& głębokiego polecania szkolenia w szerokim zakresie
 W tym artykule opisano, jak używać modułu **uczenie szczegółowe & głębokiego polecania** w programie Azure Machine Learning Designer do uczenia modelu rekomendacji. Ten moduł jest oparty na szerokiej & głębokiej uczeniu zaproponowanym przez firmę Google.
@@ -28,7 +28,7 @@ Głównym celem systemu rekomendacji jest zalecanie co najmniej jednego *element
 Istnieją dwa główne podejścia do zalecanych systemów. 
 
 + Pierwszy jest podejściem **opartym na zawartości** , które umożliwia korzystanie z funkcji zarówno dla użytkowników, jak i elementów. Użytkownicy mogą być opisywany przez właściwości, takie jak wiek i płeć, a elementy mogą być opisane przez właściwości, takie jak autor i producent. Typowe przykłady systemów rekomendacji opartych na zawartości można znaleźć w witrynach społeczności Matchmaking. 
-+ Drugim podejściem jest **filtrowanie do współpracy**, które używa tylko identyfikatorów użytkowników i elementów i uzyskuje niejawne informacje o tych jednostkach z macierzy (rozrzedzonej) ocen określonych przez użytkowników do elementów. Możemy dowiedzieć się więcej o użytkownikach z elementów, które zostały ocenione, oraz od innych użytkowników, którzy oceniali te same elementy.  
++ Drugim podejściem jest **filtrowanie do współpracy** , które używa tylko identyfikatorów użytkowników i elementów i uzyskuje niejawne informacje o tych jednostkach z macierzy (rozrzedzonej) ocen określonych przez użytkowników do elementów. Możemy dowiedzieć się więcej o użytkownikach z elementów, które zostały ocenione, oraz od innych użytkowników, którzy oceniali te same elementy.  
 
 & głębokiego polecania łączy te podejścia przy użyciu filtrowania do współpracy z podejściem opartym na zawartości. W związku z tym jest uważany za **zalecenie hybrydowe**. 
 
@@ -77,7 +77,7 @@ Zestaw danych funkcji elementu musi zawierać identyfikatory elementów w swojej
 
 Na przykład typowy zestaw funkcji elementu może wyglądać następująco:  
 
-|MovieId|Tytuł|Język oryginalny|Gatunkami|Year (Rok)|
+|MovieId|Tytuł|Język oryginalny|Gatunkami|Rok|
 |-------------|-------------|-------------------|-----------|---------------|
 |68646|Godfather|Angielski|Dramat|1972|
 |31381|Zostało usunięte z wiatru|Angielski|Historia|1939|
@@ -88,50 +88,50 @@ Na przykład typowy zestaw funkcji elementu może wyglądać następująco:
   
 2. Jeśli masz osobny zestaw danych funkcji użytkownika i/lub funkcji elementów, podłącz je do modułu **uczenie i szerokiego zalecenia** .  
   
-    - **Zestaw danych funkcji użytkownika**: Połącz zestaw danych, który opisuje użytkowników do drugiego danych wejściowych.
-    - **Element dataset Features**: Połącz zestaw danych, który opisuje elementy do trzeciej dane wejściowe.  
+    - **Zestaw danych funkcji użytkownika** : Połącz zestaw danych, który opisuje użytkowników do drugiego danych wejściowych.
+    - **Element dataset Features** : Połącz zestaw danych, który opisuje elementy do trzeciej dane wejściowe.  
     
-3.  **Epoki**: wskazuje, ile razy algorytm powinien przetwarzać całe dane szkoleniowe. 
+3.  **Epoki** : wskazuje, ile razy algorytm powinien przetwarzać całe dane szkoleniowe. 
 
     Im wyższy numer, tym bardziej odpowiednie szkolenia; jednak szkolenia są droższe i mogą spowodować przekroczenie.
 
-4. **Rozmiar wsadu**: wpisz liczbę przykładów szkoleniowych użytych w jednym kroku szkoleniowym. 
+4. **Rozmiar wsadu** : wpisz liczbę przykładów szkoleniowych użytych w jednym kroku szkoleniowym. 
 
      Ten parametr może mieć wpływ na szybkość uczenia. Większy rozmiar wsadu prowadzi do krótszego kosztu epoki, ale może zwiększyć czas zbieżności. A jeśli partia jest zbyt duża, aby dopasować procesor GPU/procesor CPU, może wystąpić błąd pamięci.
 
-5.  **Optymalizator szerokiej części**: Wybierz jednego Optymalizatora, aby zastosować gradienty do szerokiej części modelu.
+5.  **Optymalizator szerokiej części** : Wybierz jednego Optymalizatora, aby zastosować gradienty do szerokiej części modelu.
 
-6.  **Stawka szkoleniowa dla szerokiego Optymalizatora**: wprowadź liczbę z zakresu od 0,0 do 2,0, która definiuje częstotliwość uczenia Optymalizatora częściowego.
+6.  **Stawka szkoleniowa dla szerokiego Optymalizatora** : wprowadź liczbę z zakresu od 0,0 do 2,0, która definiuje częstotliwość uczenia Optymalizatora częściowego.
 
     Ten parametr określa rozmiar kroków w każdym kroku szkoleniowym podczas przesuwania w kierunku minimalnej funkcji strat. Zbyt duża stawka szkoleniowa może spowodować przekroczenie wartości minimalne, a zbyt mała stawka szkoleniowa może spowodować problem ze spójnością.
 
-7.  **Transgraniczny wymiar funkcji**: Wpisz wymiar, wprowadzając odpowiednie identyfikatory użytkownika i identyfikator elementu. 
+7.  **Transgraniczny wymiar funkcji** : Wpisz wymiar, wprowadzając odpowiednie identyfikatory użytkownika i identyfikator elementu. 
 
     W szerokim & zalecanym rozwiązaniem jest przekształcenie między różnymi produktami i funkcjami identyfikatora elementu. Wynik przekroczenia zostanie zmieszany zgodnie z tą liczbą, aby zapewnić wymiar.
 
-8.  **Optymalizator głębokiej części**: Wybierz jednego Optymalizatora, aby zastosować gradienty do głębokiej części modelu.
+8.  **Optymalizator głębokiej części** : Wybierz jednego Optymalizatora, aby zastosować gradienty do głębokiej części modelu.
 
-9.  **Szybkość uczenia głębokiego Optymalizatora**: wprowadź liczbę z zakresu od 0,0 do 2,0, która definiuje wskaźnik uczenia dla Optymalizatora części głębokiej.
+9.  **Szybkość uczenia głębokiego Optymalizatora** : wprowadź liczbę z zakresu od 0,0 do 2,0, która definiuje wskaźnik uczenia dla Optymalizatora części głębokiej.
 
-10.  **Wymiar osadzania użytkownika**: wpisz liczbę całkowitą, aby określić wymiar osadzania identyfikatora użytkownika.
+10.  **Wymiar osadzania użytkownika** : wpisz liczbę całkowitą, aby określić wymiar osadzania identyfikatora użytkownika.
 
      W szerokiej & Szczegółowa zalecana jest możliwość tworzenia osadzania identyfikatorów użytkowników i osadzania identyfikatorów elementów zarówno dla szerokiej części, jak i częściowej.
 
-11.  **Wymiar osadzania elementów**: wpisz liczbę całkowitą, aby określić wymiar osadzania identyfikatorów elementów.
+11.  **Wymiar osadzania elementów** : wpisz liczbę całkowitą, aby określić wymiar osadzania identyfikatorów elementów.
 
-12.  **Wymiar osadzania funkcji kategorii**: wprowadź liczbę całkowitą, aby określić wymiary osadzania funkcji kategorii.
+12.  **Wymiar osadzania funkcji kategorii** : wprowadź liczbę całkowitą, aby określić wymiary osadzania funkcji kategorii.
 
      W głębokiej części szerokiej & głębokiej zalecanym wektorem osadzania jest nauka dla każdej funkcji kategorii. I te wektory osadzające współdzielą ten sam wymiar.
 
-13.  **Ukryte jednostki**: wpisz liczbę ukrytych węzłów składnika głębokiego. Numery węzłów w każdej warstwie są oddzielone przecinkami. Na przykład, według typu "1 000 500 100", należy określić, że składnik szczegółowy ma trzy warstwy, z pierwszą warstwą do ostatniego odpowiednio ma 1000 węzłów, 500 węzły i węzły 100.
+13.  **Ukryte jednostki** : wpisz liczbę ukrytych węzłów składnika głębokiego. Numery węzłów w każdej warstwie są oddzielone przecinkami. Na przykład, według typu "1 000 500 100", należy określić, że składnik szczegółowy ma trzy warstwy, z pierwszą warstwą do ostatniego odpowiednio ma 1000 węzłów, 500 węzły i węzły 100.
 
-14.  **Funkcja aktywacji**: Wybierz jedną funkcję aktywacji zastosowana do każdej warstwy, wartość domyślna to ReLU.
+14.  **Funkcja aktywacji** : Wybierz jedną funkcję aktywacji zastosowana do każdej warstwy, wartość domyślna to ReLU.
 
-15.  **Dropout**: wprowadź liczbę z zakresu od 0,0 do 1,0, aby określić prawdopodobieństwo porzucenia danych wyjściowych w poszczególnych warstwach podczas uczenia.
+15.  **Dropout** : wprowadź liczbę z zakresu od 0,0 do 1,0, aby określić prawdopodobieństwo porzucenia danych wyjściowych w poszczególnych warstwach podczas uczenia.
 
      Dropout to metoda uregulowania, która zapobiega obmontowania sieci neuronowych. Jedną z typowych decyzji dotyczących tej wartości jest rozpoczęcie od 0,5, która wygląda blisko optymalnego dla szerokiego zakresu sieci i zadań.
 
-16.  **Normalizacja partii**: Wybierz tę opcję, aby użyć normalizacji partii po każdej ukrytej warstwie w składniku głębokiego.
+16.  **Normalizacja partii** : Wybierz tę opcję, aby użyć normalizacji partii po każdej ukrytej warstwie w składniku głębokiego.
 
      Normalizacja partii jest techniką do walki z wewnętrznym problemem Shift covariate podczas szkoleń w sieci. Ogólnie rzecz biorąc, może pomóc w zwiększeniu szybkości, wydajności i stabilności sieci. 
 

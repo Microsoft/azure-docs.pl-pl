@@ -1,7 +1,7 @@
 ---
 title: Model DenseNet
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć model klasyfikacji obrazów przy użyciu algorytmu DenseNet.
+description: Dowiedz się, w jaki sposób używać modułu DenseNet w programie Azure Machine Learning Designer do tworzenia modelu klasyfikacji obrazów przy użyciu algorytmu DenseNet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: 2351012738f4cf5697fb29891c9459e4cc86cd3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d21c7443f6b30d0b7d6e8295c0c9b060a80d9a62
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536634"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421332"
 ---
 # <a name="densenet"></a>Model DenseNet
 
@@ -35,11 +35,11 @@ Aby uzyskać więcej informacji na temat DenseNet, zobacz dokument dotyczący ba
 
 1.  Dodaj moduł **DenseNet** do potoku w projektancie.  
 
-2.  W przypadku **nazwy modelu**należy określić nazwę pewnej struktury DenseNet, a można wybrać opcję z obsługiwanej DenseNet: "densenet121", "densenet161", "densenet169", "densenet201".
+2.  W przypadku **nazwy modelu** należy określić nazwę pewnej struktury DenseNet, a można wybrać opcję z obsługiwanej DenseNet: "densenet121", "densenet161", "densenet169", "densenet201".
 
-3.  W przypadku wstępnego **przeszkolenia**Określ, czy model ma być używany wstępnie przez ImageNet. W przypadku wybrania tej możliwości można dostosować model na podstawie wybranego wstępnie nauczonego modelu. w przypadku zaznaczenia tej opcji można nauczyć się od podstaw.
+3.  W przypadku wstępnego **przeszkolenia** Określ, czy model ma być używany wstępnie przez ImageNet. W przypadku wybrania tej możliwości można dostosować model na podstawie wybranego wstępnie nauczonego modelu. w przypadku zaznaczenia tej opcji można nauczyć się od podstaw.
 
-4.  W celu **zapewnienia wydajnej pamięci**należy określić, czy należy używać punktów kontrolnych, które są znacznie bardziej wydajne, ale wolniejsze. Aby uzyskać więcej informacji, zobacz dokument dotyczący badań, [wydajna implementacja DenseNets w pamięci](https://arxiv.org/pdf/1707.06990.pdf).
+4.  W celu **zapewnienia wydajnej pamięci** należy określić, czy należy używać punktów kontrolnych, które są znacznie bardziej wydajne, ale wolniejsze. Aby uzyskać więcej informacji, zobacz dokument dotyczący badań, [wydajna implementacja DenseNets w pamięci](https://arxiv.org/pdf/1707.06990.pdf).
 
 5.  Połącz dane wyjściowe modułu **DenseNet** module, szkoleń i walidacji zestawu danych obrazu z [modelem uczenie Pytorch](train-pytorch-model.md). 
 
@@ -54,11 +54,11 @@ Po zakończeniu przebiegu potoku, aby użyć modelu do oceniania, Połącz [mode
 
 ###  <a name="module-parameters"></a>Parametry modułu  
 
-| Nazwa             | Zakres | Type    | Domyślne     | Opis                              |
+| Nazwa             | Zakres | Typ    | Domyślne     | Opis                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
 | Nazwa modelu       | Dowolne   | Tryb    | densenet201 | Nazwa pewnej struktury DenseNet     |
 | Przeduczenie       | Dowolne   | Boolean | Prawda        | Czy używać modelu wstępnie nauczonego na ImageNet |
-| Wydajna pamięć | Dowolne   | Boolean (wartość logiczna) | Fałsz       | Czy należy używać punktów kontrolnych, co jest znacznie bardziej wydajne, ale wolniejsze |
+| Wydajna pamięć | Dowolne   | Wartość logiczna | Fałsz       | Czy należy używać punktów kontrolnych, co jest znacznie bardziej wydajne, ale wolniejsze |
 
 ###  <a name="output"></a>Dane wyjściowe  
 

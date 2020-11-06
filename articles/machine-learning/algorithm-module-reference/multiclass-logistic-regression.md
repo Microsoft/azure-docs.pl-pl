@@ -1,7 +1,7 @@
 ---
 title: 'Wieloklasowa regresja logistyczna: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak za pomocą wieloklasowego modułu regresji logistycznej w Azure Machine Learning utworzyć model regresji logistycznej, który może służyć do przewidywania wielu wartości.
+description: Dowiedz się, jak przewidzieć wiele wartości przy użyciu modułu regresja logistyczna dla wielu klas w programie Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 247a0bef8e166c72f185f2d384067fc5814a602e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2bbc28735bcbfd952c4941453956acd0568ea67
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893744"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420737"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Wieloklasowy moduł regresji logistycznej
 
@@ -38,13 +38,13 @@ W przypadku regresji logistycznej z wieloma klasami Klasyfikator może służyć
 
 2. Określ, w jaki sposób ma być szkolony model, ustawiając opcję **tworzenia trybu Trainer** .
 
-    + **Pojedynczy parametr**: Użyj tej opcji, Jeśli wiesz, jak chcesz skonfigurować model i udostępnić określony zestaw wartości jako argumenty.
+    + **Pojedynczy parametr** : Użyj tej opcji, Jeśli wiesz, jak chcesz skonfigurować model i udostępnić określony zestaw wartości jako argumenty.
 
-    + **Zakres parametrów**: Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki.  
+    + **Zakres parametrów** : Wybierz tę opcję, jeśli nie masz pewności co do najlepszych parametrów i chcesz uruchomić odchylenia parametrów. Wybierz zakres wartości do iteracji, a [Parametry dostrojenia modelu](tune-model-hyperparameters.md) przechodzą na wszystkie możliwe kombinacje ustawień, które podano, aby określić parametry, które generują optymalne wyniki.  
 
-3. **Tolerancja optymalizacji**, określ wartość progową zbieżności Optymalizatora. Jeśli poprawa między iteracjami jest mniejsza niż wartość progowa, algorytm zatrzyma się i zwróci bieżący model.
+3. **Tolerancja optymalizacji** , określ wartość progową zbieżności Optymalizatora. Jeśli poprawa między iteracjami jest mniejsza niż wartość progowa, algorytm zatrzyma się i zwróci bieżący model.
 
-4. **Waga uregulowania L1**, **waga uregulowania L2**: wpisz wartość, która ma być używana dla parametrów uregulowania L1 i L2. Dla obu tych zaleca się wartość różną od zera.
+4. **Waga uregulowania L1** , **waga uregulowania L2** : wpisz wartość, która ma być używana dla parametrów uregulowania L1 i L2. Dla obu tych zaleca się wartość różną od zera.
 
     Uregulowanie to metoda zapobiegania zastępowaniu poprzez nakładanie się modeli o wartości skrajnego współczynnika. Uregulowanie działa przez dodanie kary, która jest skojarzona z wartościami współczynnika, do błędu hipotezy. Dokładny model z wartościami współczynnika skrajnie byłby bardziej karany, ale mniej dokładny model z bardziej bardziej bardziej nieprawidłowymi wartościami byłyby mniejsze.
 
@@ -52,13 +52,13 @@ W przypadku regresji logistycznej z wieloma klasami Klasyfikator może służyć
 
      Dla modeli regresji logistycznej opracowano różne liniowe kombinacje warunków L1 i L2, takie jak [elastyczne uregulowanie netto](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-6. **Inicjator liczb losowych**: wpisz wartość całkowitą do użycia jako inicjator dla algorytmu, jeśli chcesz, aby wyniki były powtarzane. W przeciwnym razie wartość zegara systemowego jest używana jako inicjator, który może generować nieco inne wyniki w przebiegach tego samego potoku.
+6. **Inicjator liczb losowych** : wpisz wartość całkowitą do użycia jako inicjator dla algorytmu, jeśli chcesz, aby wyniki były powtarzane. W przeciwnym razie wartość zegara systemowego jest używana jako inicjator, który może generować nieco inne wyniki w przebiegach tego samego potoku.
 
 8. Połącz zestaw danych z etykietą i Przeszkol model:
 
-    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr**, Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
+    + Jeśli ustawisz **tryb tworzenia Trainer** na **pojedynczy parametr** , Połącz znacznikowy zestaw danych i moduł [uczenie modelu](train-model.md) .  
   
-    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów**, Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
+    + Jeśli ustawisz **tryb Trainer** na **zakres parametrów** , Połącz znacznikowy zestaw danych i nauczysz model przy użyciu funkcji [dostrajania parametrów modelu](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

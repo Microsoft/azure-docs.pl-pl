@@ -11,16 +11,18 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3a3eb77315953c3791e09c4326af7cc3e3231a69
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6daf2da5b5bac051ac110ff15ed2c44971300a30
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670036"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421043"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
 
-W tym samouczku pokazano, jak używać programu Azure Active Directory B2C (Azure AD B2C) do rejestrowania i logowania użytkowników w aplikacji jednostronicowej (SPA) przy użyciu niejawnego przepływu OAuth 2,0.
+W tym samouczku pokazano, jak używać programu Azure Active Directory B2C (Azure AD B2C) do rejestrowania i logowania użytkowników w aplikacji jednostronicowej (SPA) przy użyciu:
+* [Przepływ kodu autoryzacji OAuth 2,0](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow) (przy użyciu [MSAL.js 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
+* [Niejawny przepływ uwierzytelniania OAuth 2,0](https://docs.microsoft.com/azure/active-directory-b2c/implicit-flow-single-page-application) (przy użyciu [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
 
 W tym samouczku pierwszy z serii dwóch części:
 
@@ -39,7 +41,7 @@ W tym samouczku pierwszy z serii dwóch części:
 Przed wykonaniem kroków opisanych w tym samouczku potrzebne są następujące Azure AD B2C zasoby:
 
 * [Dzierżawa Azure AD B2C](tutorial-create-tenant.md)
-* [Aplikacja zarejestrowana](tutorial-register-spa.md) w dzierżawie (Użyj niejawnych opcji przepływu)
+* [Aplikacja zarejestrowana](tutorial-register-spa.md) w dzierżawie
 * [Przepływy użytkowników utworzone](tutorial-create-user-flows.md) w dzierżawie
 
 Ponadto w lokalnym środowisku programistycznym są potrzebne następujące elementy:
@@ -49,30 +51,41 @@ Ponadto w lokalnym środowisku programistycznym są potrzebne następujące elem
 
 ## <a name="update-the-application"></a>Aktualizowanie aplikacji
 
-W drugim samouczku, który został ukończony w ramach wymagań wstępnych, zarejestrowano aplikację sieci Web w Azure AD B2C. Aby włączyć komunikację z przykładem kodu w tym samouczku, Dodaj adres URL odpowiedzi (nazywany także identyfikatorem URI przekierowania) do rejestracji aplikacji.
+W [drugim samouczku](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) , który został ukończony w ramach wymagań wstępnych, zarejestrowano aplikację jednostronicową w Azure AD B2C. Aby włączyć komunikację z przykładem kodu w tym samouczku, Dodaj adres URL odpowiedzi (nazywany także identyfikatorem URI przekierowania) do rejestracji aplikacji.
 
 Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych  **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
 
-#### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
+#### <a name="app-registrations-auth-code-flow"></a>[Rejestracje aplikacji (przepływ kodu uwierzytelniania)](#tab/app-reg-auth/)
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
-1. W menu po lewej stronie wybierz pozycję **Azure AD B2C** . Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C** .
-1. Wybierz pozycję **rejestracje aplikacji** , wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *webapp1* .
-1. W obszarze **Sieć Web** wybierz łącze **Dodaj identyfikator URI** , a następnie wprowadź `http://localhost:6420` .
-1. W obszarze **niejawne przyznanie** zaznacz pola wyboru **tokenów dostępu** i **tokenów identyfikatorów** , jeśli nie została jeszcze wybrana, a następnie wybierz pozycję **Zapisz** .
-1. Wybierz pozycję **Omówienie** .
+1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
+1. Wybierz pozycję **rejestracje aplikacji** , wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *spaapp1* .
+1. W obszarze **aplikacja jednostronicowa** wybierz łącze **Dodaj identyfikator URI** , a następnie wprowadź `http://localhost:6420` .
+1. Wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Omówienie**.
+1. Rejestrowanie **identyfikatora aplikacji (klienta)** do użycia w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
+
+#### <a name="app-registrations-implicit-flow"></a>[Rejestracje aplikacji (przepływ niejawny)](#tab/app-reg-implicit/)
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
+1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
+1. Wybierz pozycję **rejestracje aplikacji** , wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *spaapp1* .
+1. W obszarze **aplikacja jednostronicowa** wybierz łącze **Dodaj identyfikator URI** , a następnie wprowadź `http://localhost:6420` .
+1. W obszarze **niejawne przyznanie** zaznacz pola wyboru **tokenów dostępu** i **tokenów identyfikatorów** , jeśli nie została jeszcze wybrana, a następnie wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Omówienie**.
 1. Rejestrowanie **identyfikatora aplikacji (klienta)** do użycia w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
 
 #### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
-1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure AD B2C** .
-1. Wybierz pozycję **aplikacje (starsza wersja)** , a następnie wybierz aplikację *webapp1* .
+1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure AD B2C**.
+1. Wybierz pozycję **aplikacje (starsza wersja)** , a następnie wybierz aplikację *spaapp1* .
 1. W obszarze **Adres URL odpowiedzi** dodaj `http://localhost:6420`.
-1. Wybierz pozycję **Zapisz** .
-1. Na stronie właściwości Zapisz **Identyfikator aplikacji** . IDENTYFIKATORA aplikacji można użyć w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
+1. Wybierz pozycję **Zapisz**.
+1. Na stronie właściwości Zapisz **Identyfikator aplikacji**. IDENTYFIKATORA aplikacji można użyć w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
 
 * * *
 
@@ -80,56 +93,114 @@ Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 
 W tym samouczku skonfigurujesz przykładowy kod pobrany z usługi GitHub do pracy z dzierżawcą B2C. Przykład demonstruje, jak aplikacja jednostronicowa może używać Azure AD B2C do tworzenia kont i logowania użytkowników, a także do wywoływania chronionego internetowego interfejsu API (w następnym samouczku w serii) zostanie włączony internetowy interfejs API.
 
-[Pobierz plik ZIP](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) lub sklonuj przykład z usługi GitHub.
+* Przykładowy przepływ kodu autoryzacji MSAL.js 2. x:
 
-```
-git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
-```
+    [Pobierz plik zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) lub Sklonuj przykład z witryny GitHub:
+
+    ```
+    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
+    ```
+* Przykład niejawnego przepływu MSAL.js 1. x:
+
+    [Pobierz plik zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) lub Sklonuj przykład z witryny GitHub:
+
+    ```
+    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    ```
 
 ## <a name="update-the-sample"></a>Aktualizowanie przykładu
 
 Teraz, gdy uzyskano przykład, zaktualizuj kod przy użyciu nazwy dzierżawy Azure AD B2C i identyfikatora aplikacji zapisanego w poprzednim kroku.
 
-1. Otwórz plik *authConfig.js* w folderze *JavaScriptSPA* .
-1. W `msalConfig` obiekcie zaktualizuj:
-    * `clientId` z wartością z **identyfikatorem aplikacji (klienta)** zapisanym we wcześniejszym kroku
-    * `authority` Identyfikator URI z nazwą dzierżawy Azure AD B2C i nazwą przepływu użytkownika tworzenia konta/logowania utworzonego w ramach wymagań wstępnych (na przykład *B2C_1_signupsignin1* )
+#### <a name="auth-code-flow-sample"></a>[Przykładowy przepływ kodu uwierzytelniania](#tab/config-auth/)
 
-    ```javascript
-    const msalConfig = {
-        auth: {
-          clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
-          authority: b2cPolicies.authorities.signUpSignIn.authority,
-          validateAuthority: false
+1. Otwórz plik *authConfig.js* wewnątrz folderu *aplikacji* .
+1. W `msalConfig` obiekcie Znajdź przypisanie `clientId` i zastąp je **identyfikatorem aplikacji (klienta)** zarejestrowanym we wcześniejszym kroku.
+1. Otwórz plik `policies.js`.
+1. Znajdź wpisy w obszarze `names` i Zamień ich przypisanie na nazwę przepływów użytkownika utworzonych w ramach wcześniejszego kroku, na przykład `B2C_1_signupsignin1` .
+1. Znajdź wpisy w obszarze `authorities` i zastąp je odpowiednio odpowiednimi nazwami przepływów użytkownika utworzonych w ramach wcześniejszego kroku, na przykład `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>` .
+1. Znajdź przypisanie `authorityDomain` i zastąp je elementem `<your-tenant-name>.b2clogin.com` .
+1. Otwórz plik `apiConfig.js`.
+1. Znajdź przypisanie `b2cScopes` i Zastąp adres URL adresem URL zakresu utworzonym dla internetowego interfejsu API, na przykład `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]` .
+1. Znajdź przypisanie `webApi` i zastąp bieżący adres URL adresem URL, na którym został wdrożony internetowy interfejs API w kroku 4, na przykład `webApi: http://localhost:5000/hello` .
+
+#### <a name="implicit-flow-sample"></a>[Przykładowy przepływ niejawny](#tab/config-implicit/)
+
+1. Otwórz plik *authConfig.js* w folderze *JavaScriptSPA* .
+1. W `msalConfig` obiekcie Znajdź przypisanie `clientId` i zastąp je **identyfikatorem aplikacji (klienta)** zarejestrowanym we wcześniejszym kroku.
+1. Otwórz plik `policies.js`.
+1. Znajdź wpisy w obszarze `names` i Zamień ich przypisanie na nazwę przepływów użytkownika utworzonych w ramach wcześniejszego kroku, na przykład `B2C_1_signupsignin1` .
+1. Znajdź wpisy w obszarze `authorities` i zastąp je odpowiednio odpowiednimi nazwami przepływów użytkownika utworzonych w ramach wcześniejszego kroku, na przykład `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>` .
+1. Otwórz plik `apiConfig.js`.
+1. Znajdź przypisanie `b2cScopes` i Zastąp adres URL adresem URL zakresu utworzonym dla internetowego interfejsu API, na przykład `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]` .
+1. Znajdź przypisanie `webApi` i zastąp bieżący adres URL adresem URL, na którym został wdrożony internetowy interfejs API w kroku 4, na przykład `webApi: http://localhost:5000/hello` .
+
+* * *
+
+Otrzymany kod powinien wyglądać podobnie do poniższego:
+
+#### <a name="auth-code-flow-sample"></a>[Przykładowy przepływ kodu uwierzytelniania](#tab/review-auth/)
+
+*authConfig.js* :
+
+```javascript
+const msalConfig = {
+  auth: {
+    clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902",
+    authority: b2cPolicies.authorities.signUpSignIn.authority,
+    knownAuthorities: [b2cPolicies.authorityDomain],
+  },
+  cache: {
+    cacheLocation: "localStorage",
+    storeAuthStateInCookie: true
+  }
+};
+
+const loginRequest = {
+  scopes: ["openid", "profile"],
+};
+
+const tokenRequest = {
+  scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
+};
+```
+
+*policies.js* :
+
+```javascript
+const b2cPolicies = {
+    names: {
+        signUpSignIn: "b2c_1_susi",
+        forgotPassword: "b2c_1_reset",
+        editProfile: "b2c_1_edit_profile"
+    },
+    authorities: {
+        signUpSignIn: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
         },
-        cache: {
-          cacheLocation: "localStorage",
-          storeAuthStateInCookie: true
+        forgotPassword: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
+        },
+        editProfile: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile"
         }
-    };
+    },
+    authorityDomain: "fabrikamb2c.b2clogin.com"
+}
+```
 
-    const loginRequest = {
-       scopes: ["openid", "profile"],
-    };
+*apiConfig.js* :
 
-    const tokenRequest = {
-      scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
-    };
-    ```
+```javascript
+const apiConfig = {
+  b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+  webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+};
+```
 
-1. Otwórz plik *authConfig.js* w folderze *JavaScriptSPA* .
-1. W `msalConfig` obiekcie zaktualizuj:
-    * `clientId` przy użyciu **identyfikatora aplikacji (klienta)** zapisanego we wcześniejszym kroku
-    * `authority` Identyfikator URI z nazwą dzierżawy Azure AD B2C i nazwą przepływu użytkownika tworzenia konta/logowania utworzonego w ramach wymagań wstępnych (na przykład *B2C_1_signupsignin1* )
-1. Otwórz plik *policies.js* .
-1. Znajdź wpisy dla `names` i `authorities` zastąp je odpowiednio odpowiednimi nazwami zasad, które zostały utworzone w kroku 2. Zamień na `fabrikamb2c.onmicrosoft.com` nazwę dzierżawy Azure AD B2C, na przykład `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>` .
-1. Otwórz plik *apiConfig.js* .
-1. Znajdź przypisanie zakresów `b2cScopes` i Zastąp adres URL zakresem, który został utworzony dla internetowego interfejsu API, na przykład `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]` .
-1. Znajdź przypisanie dla adresu URL interfejsu API `webApi` i zastąp bieżący adres URL adresem URL, na którym został wdrożony internetowy interfejs API w kroku 4, na przykład `webApi: http://localhost:5000/hello` .
+#### <a name="implicit-flow-sample"></a>[Przykładowy przepływ niejawny](#tab/review-implicit/)
 
-Otrzymany kod powinien wyglądać następująco:
-
-### <a name="authconfigjs"></a>authConfig.js
+*authConfig.js* :
 
 ```javascript
 const msalConfig = {
@@ -152,7 +223,8 @@ const tokenRequest = {
   scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
 };
 ```
-### <a name="policiesjs"></a>policies.js
+
+*policies.js* :
 
 ```javascript
 const b2cPolicies = {
@@ -174,7 +246,8 @@ const b2cPolicies = {
     },
 }
 ```
-### <a name="apiconfigjs"></a>apiConfig.js
+
+*apiConfig.js* :
 
 ```javascript
 const apiConfig = {
@@ -183,13 +256,24 @@ const apiConfig = {
 };
 ```
 
+* * *
+
+
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-1. Otwórz okno konsoli i przejdź do katalogu zawierającego przykład. Na przykład:
+1. Otwórz okno konsoli i przejdź do katalogu zawierającego przykład. 
 
-    ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
-    ```
+    - Przykład przepływu kodu autoryzacji dla MSAL.js 2. x:
+
+        ```console
+        cd ms-identity-b2c-javascript-spa
+        ```
+    - Przykład niejawnego przepływu dla MSAL.js 1. x: 
+
+        ```console
+        cd active-directory-b2c-javascript-msal-singlepageapp
+        ```
+
 1. Uruchom następujące polecenia:
 
     ```console
@@ -216,13 +300,13 @@ Ta przykładowa aplikacja obsługuje rejestrowanie, logowanie i resetowanie has�
 
     Użyj prawidłowego adresu e-mail i przeprowadź weryfikację przy użyciu kodu weryfikacyjnego. Ustaw hasło. Wprowadź wartości żądanych atrybutów.
 
-    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Przeglądarka sieci Web przedstawiająca aplikację jednostronicową działającą lokalnie":::
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Strona rejestracji wyświetlana przez Azure AD B2C przepływ użytkownika":::
 
 1. Wybierz pozycję **Utwórz** , aby utworzyć konto lokalne w katalogu Azure AD B2C.
 
 Po wybraniu opcji **Utwórz** aplikacja wyświetli nazwę zalogowanego użytkownika.
 
-:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Przeglądarka sieci Web przedstawiająca aplikację jednostronicową działającą lokalnie":::
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Przeglądarka sieci Web przedstawiająca jednostronicową aplikację zalogowanego użytkownika":::
 
 Jeśli chcesz przetestować logowanie, wybierz przycisk **Wyloguj** się, a następnie wybierz pozycję **Zaloguj** się i zaloguj się przy użyciu adresu e-mail i hasła wprowadzonego podczas rejestracji.
 

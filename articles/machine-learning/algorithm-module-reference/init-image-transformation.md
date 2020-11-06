@@ -1,7 +1,7 @@
 ---
 title: Przekształcenie obrazu Transformationply init Image
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak zainicjować transformację obrazu przy użyciu modułu transformacji obrazu init.
+description: Dowiedz się, jak zainicjować transformację obrazu przy użyciu modułu transformacji obrazu init w programie Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc0eb196ed24e413c35d64f0571ff29dc3725032
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907882"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421281"
 ---
 # <a name="init-image-transformation"></a>Inicjowanie transformacji obrazów
 
@@ -24,32 +24,32 @@ W tym artykule opisano, jak używać modułu **transformacji obrazu init** w pro
 
 1.  Dodaj moduł **przekształcenia obrazu init** do potoku w projektancie. 
 
-2.  W polu **rozmiar Zmień**rozmiar obrazu wejściowego PIL na dany rozmiar. W przypadku wybrania wartości "true" można określić **żądany rozmiar obrazu wyjściowego, domyślnie**256. 
+2.  W polu **rozmiar Zmień** rozmiar obrazu wejściowego PIL na dany rozmiar. W przypadku wybrania wartości "true" można określić **żądany rozmiar obrazu wyjściowego, domyślnie** 256. 
 
-3.  W przypadku **kadrowania centrum**Określ, czy dany obraz PIL ma zostać przycięty do środka. W przypadku wybrania wartości "true" można określić żądany rozmiar obrazu wyjściowego przycinania w **rozmiarze przycinania**, domyślnie 224.  
+3.  W przypadku **kadrowania centrum** Określ, czy dany obraz PIL ma zostać przycięty do środka. W przypadku wybrania wartości "true" można określić żądany rozmiar obrazu wyjściowego przycinania w **rozmiarze przycinania** , domyślnie 224.  
 
-4.  Dla **konsoli**Określ, czy dany obraz PIL ma być konsolą na wszystkich stronach z wartością pad 0. W przypadku wybrania wartości "true" można określić uzupełnienie (liczbę pikseli do dodania) dla każdego obramowania w **pełni**.
+4.  Dla **konsoli** Określ, czy dany obraz PIL ma być konsolą na wszystkich stronach z wartością pad 0. W przypadku wybrania wartości "true" można określić uzupełnienie (liczbę pikseli do dodania) dla każdego obramowania w **pełni**.
 
-5.  W celu **wahania kolorów**Określ, czy chcesz losowo zmienić jasność, kontrast i nasycenie obrazu.
+5.  W celu **wahania kolorów** Określ, czy chcesz losowo zmienić jasność, kontrast i nasycenie obrazu.
 
-6.  W obszarze **Skala szarości**Określ, czy ma zostać przekonwertowany obraz do skali szarości.
+6.  W obszarze **Skala szarości** Określ, czy ma zostać przekonwertowany obraz do skali szarości.
 
-7.  W przypadku **przycinania losowego o zmienionym rozmiarze**Określ, czy przycinanie danego obrazu PIL do wielkości losowej i współczynnika proporcji. Zostanie przycięty rozmiar losowy (zakres od 0,08 do 1,0) oryginalnego rozmiaru i losowy współczynnik proporcji (zakres od 3/4 do 4/3) oryginalnego współczynnika proporcji. To przycinanie jest ostatecznie zmieniane na przyznany rozmiar.
-    Jest to często używane w szkoleniu sieci w trakcie. W przypadku wybrania wartości "true" można określić oczekiwany rozmiar danych wyjściowych każdej krawędzi w **rozmiarze losowym**, domyślnie 256.
+7.  W przypadku **przycinania losowego o zmienionym rozmiarze** Określ, czy przycinanie danego obrazu PIL do wielkości losowej i współczynnika proporcji. Zostanie przycięty rozmiar losowy (zakres od 0,08 do 1,0) oryginalnego rozmiaru i losowy współczynnik proporcji (zakres od 3/4 do 4/3) oryginalnego współczynnika proporcji. To przycinanie jest ostatecznie zmieniane na przyznany rozmiar.
+    Jest to często używane w szkoleniu sieci w trakcie. W przypadku wybrania wartości "true" można określić oczekiwany rozmiar danych wyjściowych każdej krawędzi w **rozmiarze losowym** , domyślnie 256.
 
-8.  W przypadku **kadrowania losowego**Określ, czy dany obraz PIL ma zostać przycięty do lokalizacji losowej. W przypadku wybrania wartości "true" można określić żądany rozmiar wyjściowy kadrowania w **rozmiarze losowej uprawy**, domyślnie 224.
+8.  W przypadku **kadrowania losowego** Określ, czy dany obraz PIL ma zostać przycięty do lokalizacji losowej. W przypadku wybrania wartości "true" można określić żądany rozmiar wyjściowy kadrowania w **rozmiarze losowej uprawy** , domyślnie 224.
 
-9.  W przypadku **losowego przerzucania poziomego**należy określić, czy w poziomie należy losowo przerzucić dany obraz PIL z prawdopodobieństwem 0,5.
+9.  W przypadku **losowego przerzucania poziomego** należy określić, czy w poziomie należy losowo przerzucić dany obraz PIL z prawdopodobieństwem 0,5.
 
-10.  W przypadku **losowego przerzucania pionowego**Określ, czy w pionie przerzucasz dany obraz PIL z prawdopodobieństwem 0,5.
+10.  W przypadku **losowego przerzucania pionowego** Określ, czy w pionie przerzucasz dany obraz PIL z prawdopodobieństwem 0,5.
 
-11.  W celu **przypadkowego obrotu**Określ, czy obraz ma być obracany według kąta. W przypadku wybrania wartości "true" można określić w zakresie stopni, ustawiając **losowe stopnie rotacji**, co oznacza (-stopnie, + stopnie), domyślnie 0.
+11.  W celu **przypadkowego obrotu** Określ, czy obraz ma być obracany według kąta. W przypadku wybrania wartości "true" można określić w zakresie stopni, ustawiając **losowe stopnie rotacji** , co oznacza (-stopnie, + stopnie), domyślnie 0.
 
-12.  W przypadku **losowych afinicznym**Określ, czy losowo przekształcenie afinicznym obrazu ma być niezmienny. W przypadku wybrania wartości "true" można określić zakres stopni, który ma być wybierany **losowo afinicznym stopni**, co oznacza (-stopnie, + stopnie), domyślnie 0.
+12.  W przypadku **losowych afinicznym** Określ, czy losowo przekształcenie afinicznym obrazu ma być niezmienny. W przypadku wybrania wartości "true" można określić zakres stopni, który ma być wybierany **losowo afinicznym stopni** , co oznacza (-stopnie, + stopnie), domyślnie 0.
 
-13.  W przypadku **losowej skali odcieni szarości**Określ, czy losowo skonwertować obraz do skali odcieni szarości z prawdopodobieństwem 0,1.
+13.  W przypadku **losowej skali odcieni szarości** Określ, czy losowo skonwertować obraz do skali odcieni szarości z prawdopodobieństwem 0,1.
 
-14.  W przypadku **losowej perspektywy**Określ, czy program ma wykonywać transformację perspektywy danego obrazu PIL losowo z prawdopodobieństwem 0,5.
+14.  W przypadku **losowej perspektywy** Określ, czy program ma wykonywać transformację perspektywy danego obrazu PIL losowo z prawdopodobieństwem 0,5.
 
 
 16.  Połącz się z [zastosowaniem modułu transformacji obrazu](apply-image-transformation.md) , aby zastosować transformację określoną powyżej do zestawu danych obrazu wejściowego.
@@ -67,29 +67,29 @@ Aby [https://pytorch.org/docs/stable/torchvision/transforms.html](https://pytorc
 
 ###  <a name="module-parameters"></a>Parametry modułu  
 
-| Nazwa                    | Zakres   | Type    | Domyślne | Opis                              |
+| Nazwa                    | Zakres   | Typ    | Domyślne | Opis                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
 | Zmiana rozmiaru                  | Dowolne     | Boolean | Prawda    | Zmień rozmiar obrazu wejściowego PIL na dany rozmiar |
 | Rozmiar                    | >= 1     | Liczba całkowita | 256     | Określ żądany rozmiar wyjściowy          |
 | Przytnij do środka             | Dowolne     | Boolean | Prawda    | Przycina dany obraz PIL w środku  |
 | Rozmiar przycinania               | >= 1     | Liczba całkowita | 224     | Określ żądany rozmiar wyjściowy kadrowania |
-| Pad                     | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Zablokuj dany obraz PIL na wszystkich stronach z daną wartością "pad" |
+| Pad                     | Dowolne     | Wartość logiczna | Fałsz   | Zablokuj dany obraz PIL na wszystkich stronach z daną wartością "pad" |
 | Dopełnienie                 | >= 0     | Liczba całkowita | 0       | Uzupełnienie dla każdego obramowania                   |
-| Wahanie kolorów            | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Losowa zmiana jasności, kontrastu i nasycenia obrazu |
-| Czarn               | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Konwertuj obraz na skalę odcieni szarooci               |
-| Przycinanie losowe o zmienionym rozmiarze     | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Przytnij dany obraz PIL do wielkości losowej i współczynnika proporcji |
+| Wahanie kolorów            | Dowolne     | Wartość logiczna | Fałsz   | Losowa zmiana jasności, kontrastu i nasycenia obrazu |
+| Czarn               | Dowolne     | Wartość logiczna | Fałsz   | Konwertuj obraz na skalę odcieni szarooci               |
+| Przycinanie losowe o zmienionym rozmiarze     | Dowolne     | Wartość logiczna | Fałsz   | Przytnij dany obraz PIL do wielkości losowej i współczynnika proporcji |
 | Rozmiar losowy             | >= 1     | Liczba całkowita | 256     | Oczekiwany rozmiar danych wyjściowych każdej krawędzi        |
-| Uprawa Losowa             | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Przycinanie danego obrazu PIL w losowej lokalizacji |
+| Uprawa Losowa             | Dowolne     | Wartość logiczna | Fałsz   | Przycinanie danego obrazu PIL w losowej lokalizacji |
 | Rozmiar losowego przycinania        | >= 1     | Liczba całkowita | 224     | Żądany rozmiar wyjściowy kadrowania          |
 | Losowe Przerzucanie w poziomie  | Dowolne     | Boolean | Prawda    | W poziomie przerzucaj dany obraz PIL losowo z danym prawdopodobieństwem |
-| Losowe Przerzucanie pionowe    | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Przerzucanie w pionie danego obrazu PIL losowo z danym prawdopodobieństwem |
-| Obrót losowy         | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Obróć obraz o kąt                |
+| Losowe Przerzucanie pionowe    | Dowolne     | Wartość logiczna | Fałsz   | Przerzucanie w pionie danego obrazu PIL losowo z danym prawdopodobieństwem |
+| Obrót losowy         | Dowolne     | Wartość logiczna | Fałsz   | Obróć obraz o kąt                |
 | Losowe stopnie rotacji | [0180] | Liczba całkowita | 0       | Zakres stopni do wyboru          |
-| Losowo afinicznym           | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Losowe przekształcenie afinicznym w centrum obrazu niezmiennej |
+| Losowo afinicznym           | Dowolne     | Wartość logiczna | Fałsz   | Losowe przekształcenie afinicznym w centrum obrazu niezmiennej |
 | Losowe afinicznym stopni   | [0180] | Liczba całkowita | 0       | Zakres stopni do wyboru          |
-| Losowa Skala odcieni szarooci        | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Losowa konwersja obrazu do skali odcieni szarości z prawdopodobieństwem 0,1 |
-| Perspektywa Losowa      | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Wykonuje transformację perspektywy danego obrazu PIL losowo z prawdopodobieństwem 0,5 |
-| Losowe wymazywanie          | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Losowo wybiera region prostokąta w obrazie i wymazuje jego piksele z prawdopodobieństwem 0,5 |
+| Losowa Skala odcieni szarooci        | Dowolne     | Wartość logiczna | Fałsz   | Losowa konwersja obrazu do skali odcieni szarości z prawdopodobieństwem 0,1 |
+| Perspektywa Losowa      | Dowolne     | Wartość logiczna | Fałsz   | Wykonuje transformację perspektywy danego obrazu PIL losowo z prawdopodobieństwem 0,5 |
+| Losowe wymazywanie          | Dowolne     | Wartość logiczna | Fałsz   | Losowo wybiera region prostokąta w obrazie i wymazuje jego piksele z prawdopodobieństwem 0,5 |
 
 ###  <a name="output"></a>Dane wyjściowe  
 

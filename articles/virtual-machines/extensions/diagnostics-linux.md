@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893407"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421077"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników
 
@@ -70,10 +70,33 @@ Obsługiwane dystrybucje i wersje:
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* **Agent systemu Linux w wersji 2.2.0 lub nowszej** . Większość obrazów z galerii maszyn wirtualnych systemu Linux platformy Azure obejmuje wersję 2.2.7 lub nowszą. Uruchom `/usr/sbin/waagent -version` w celu potwierdzenia wersji zainstalowanej na maszynie wirtualnej. Jeśli na maszynie wirtualnej jest uruchomiona Starsza wersja agenta gościa, postępuj zgodnie z [tymi instrukcjami](./update-linux-agent.md) , aby je zaktualizować.
-* **Interfejs wiersza polecenia platformy Azure** . [Skonfiguruj środowisko interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) na komputerze.
+* **Agent systemu Linux w wersji 2.2.0 lub nowszej**. Większość obrazów z galerii maszyn wirtualnych systemu Linux platformy Azure obejmuje wersję 2.2.7 lub nowszą. Uruchom `/usr/sbin/waagent -version` w celu potwierdzenia wersji zainstalowanej na maszynie wirtualnej. Jeśli na maszynie wirtualnej jest uruchomiona Starsza wersja agenta gościa, postępuj zgodnie z [tymi instrukcjami](./update-linux-agent.md) , aby je zaktualizować.
+* **Interfejs wiersza polecenia platformy Azure**. [Skonfiguruj środowisko interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) na komputerze.
 * Wget polecenie, jeśli nie jest jeszcze: Uruchom `sudo apt-get install wget` .
 * Istniejąca subskrypcja platformy Azure i istniejące konto magazynu ogólnego przeznaczenia, w którym są przechowywane dane.  Konta magazynu ogólnego przeznaczenia obsługują magazyn tabel, który jest wymagany.  Konto magazynu obiektów BLOB nie będzie działało.
+* Python 2
+
+### <a name="python-requirement"></a>Wymagania dotyczące języka Python
+
+Rozszerzenie diagnostyczne systemu Linux wymaga języka Python 2. Jeśli maszyna wirtualna używa dystrybucji, która domyślnie nie zawiera języka Python 2, należy ją zainstalować. Następujące przykładowe polecenia zainstalują środowisko Python 2 na różnych dystrybucje.    
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SZŁO `zypper install -y python2`
+
+Plik wykonywalny python2 musi mieć alias do języka *Python*. Oto jedna z metod, których można użyć do ustawienia tego aliasu:
+
+1. Uruchom następujące polecenie, aby usunąć istniejące aliasy.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Uruchom następujące polecenie, aby utworzyć alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### <a name="sample-installation"></a>Przykładowa instalacja
 
@@ -175,14 +198,14 @@ Po zmianie ustawień chronionych lub publicznych należy wdrożyć je na maszyni
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>Migracja z poprzednich wersji rozszerzenia
 
-Najnowsza wersja rozszerzenia to **3,0** . **Wszystkie stare wersje (2. x) są przestarzałe i mogą być cofnięte w dniu 31 lipca 2018** .
+Najnowsza wersja rozszerzenia to **3,0**. **Wszystkie stare wersje (2. x) są przestarzałe i mogą być cofnięte w dniu 31 lipca 2018**.
 
 > [!IMPORTANT]
 > To rozszerzenie wprowadza istotne zmiany w konfiguracji rozszerzenia. Wprowadzono taką zmianę w celu poprawy bezpieczeństwa rozszerzenia; w związku z tym nie można utrzymywać zgodności z poprzednimi wersjami z 2. x. Ponadto Wydawca rozszerzenia dla tego rozszerzenia różni się od wydawcy dla wersji 2. x.
 >
 > Aby przeprowadzić migrację z 2. x do tej nowej wersji rozszerzenia, należy odinstalować stare rozszerzenie (pod nazwą starego wydawcy), a następnie zainstalować wersję 3 rozszerzenia.
 
-Mając
+Zalecenia:
 
 * Zainstaluj rozszerzenie z włączoną funkcją automatycznego uaktualniania wersji pomocniczej.
   * W przypadku maszyn wirtualnych z klasycznym modelem wdrażania należy określić wartość "3. *" jako wersję, jeśli rozszerzenie jest instalowane za pośrednictwem interfejsu wiersza polecenia platformy Azure XPLAT lub programu PowerShell.

@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 30d8fdf99da7a4854db0985bed6256ecd6f7a366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046795"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420924"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Instrukcje: Konfigurowanie alertów i otrzymywanie powiadomień przy użyciu punktu zaczepienia
 
@@ -28,7 +28,7 @@ Klasyfikator metryk obsługuje trzy różne typy punktów zaczepienia: hak poczt
 ### <a name="email-hook"></a>Hak poczty e-mail
 
 > [!Note]
-> Administratorzy zasobów klasyfikatora metryk muszą skonfigurować ustawienia poczty E-mail oraz dane wejściowe protokołu SMTP do usługi Metric Advisor przed wysłaniem alertów anomalii. Administrator grupy zasobów lub administrator subskrypcji musi przypisać co najmniej jedną Cognitive Services rolę *administratora klasyfikatora metryk* na karcie kontroli dostępu zasobu klasyfikatora metryk. 
+> Administratorzy zasobów klasyfikatora metryk muszą skonfigurować ustawienia poczty E-mail oraz dane wejściowe protokołu SMTP do usługi Metric Advisor przed wysłaniem alertów anomalii. Administrator grupy zasobów lub administrator subskrypcji musi przypisać co najmniej jedną Cognitive Services rolę *administratora klasyfikatora metryk* na karcie kontroli dostępu zasobu klasyfikatora metryk. [Dowiedz się więcej na temat konfiguracji ustawień poczty e-mail](../faq.md#how-to-set-up-email-settings-and-enable-alerting-by-email).
 
 Aby utworzyć punkt zaczepienia wiadomości e-mail, dostępne są następujące parametry: 
 
@@ -41,7 +41,7 @@ Punkt zaczepienia wiadomości e-mail to kanał służący do wysyłania alertów
 | Link zewnętrzny | Opcjonalne pole, które umożliwia niestandardowe przekierowanie, takie jak uwagi dotyczące rozwiązywania problemów. |
 | Dostosowany Tytuł alertu anomalii | Szablon tytułu obsługuje `${severity}` , `${alertSettingName}` , `${datafeedName}` , `${metricName}` , `${detectConfigName}` , `${timestamp}` , `${topDimension}` , `${incidentCount}` , `${anomalyCount}`
 
-Po kliknięciu przycisku **OK**zostanie utworzony punkt zaczepienia wiadomości e-mail. Można go użyć w dowolnym ustawieniach alertu w celu otrzymywania alertów anomalii. 
+Po kliknięciu przycisku **OK** zostanie utworzony punkt zaczepienia wiadomości e-mail. Można go użyć w dowolnym ustawieniach alertu w celu otrzymywania alertów anomalii. 
 
 ### <a name="web-hook"></a>Element webhook
 
@@ -86,17 +86,17 @@ Aby utworzyć punkt zaczepienia usługi Azure DevOps, należy dodać następują
 ## <a name="add-or-edit-alert-settings"></a>Dodawanie lub edytowanie ustawień alertów
 
 Przejdź do strony szczegółów metryk, aby znaleźć sekcję **Ustawienia alertu** w lewym dolnym rogu strony szczegółów metryk. Zawiera listę wszystkich ustawień alertów, które mają zastosowanie do wybranej konfiguracji wykrywania. Po utworzeniu nowej konfiguracji wykrywania nie ma żadnego ustawienia alertu i alerty nie będą wysyłane.  
-Aby zmodyfikować ustawienia alertów, można użyć ikon **Dodaj**, **Edytuj** i **Usuń** .
+Aby zmodyfikować ustawienia alertów, można użyć ikon **Dodaj** , **Edytuj** i **Usuń** .
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="okno tworzenia elementu webhook.":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Element menu Ustawienia alertu.":::
 
 Kliknij przycisk **Dodaj** lub **Edytuj** , aby wyświetlić okno umożliwiające dodanie lub edycję ustawień alertów.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="okno tworzenia elementu webhook.":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Dodawanie lub edytowanie ustawień alertów":::
 
-**Nazwa ustawienia alertu**: Nazwa tego ustawienia alertu. Zostanie ona wyświetlona w tytule wiadomości e-mail z alertami.
+**Nazwa ustawienia alertu** : Nazwa tego ustawienia alertu. Zostanie ona wyświetlona w tytule wiadomości e-mail z alertami.
 
-**Punkty zaczepienia**: lista punktów zaczepienia, do których mają być wysyłane alerty.
+**Punkty zaczepienia** : lista punktów zaczepienia, do których mają być wysyłane alerty.
 
 Sekcja zaznaczona na poniższym zrzucie ekranu to ustawienia dla jednej konfiguracji wykrywania. Można ustawić różne ustawienia alertów dla różnych konfiguracji wykrywania. Wybierz konfigurację docelową przy użyciu trzeciej listy rozwijanej w tym oknie. 
 
@@ -106,16 +106,16 @@ Poniżej przedstawiono ustawienia filtru dla jednej konfiguracji wykrywania.
 
 **Alert dla programu** ma 4 opcje filtrowania anomalii:
 
-* **Anomalie we wszystkich seriach**: wszystkie anomalie zostaną uwzględnione w alercie.         
-* **Anomalie w grupie serii**: Filtruj Serie według wartości wymiarów. Ustaw określone wartości dla niektórych wymiarów. Anomalie zostaną uwzględnione w alercie tylko wtedy, gdy seria pasuje do określonej wartości.       
-* **Anomalie w ulubionych seriach**: tylko seria oznaczona jako ulubiona zostanie uwzględniona w alercie.        |
-* **Anomalie w pierwszych N wszystkich seriach**: filtr jest przeznaczony dla przypadku, w którym należy zwrócić uwagę na serię, której wartość znajduje się w pierwszych N. Będziemy szukać niektórych sygnatur czasowych i sprawdzić, czy wartość serii w tych sygnaturach czasowych jest w pierwszych N. Jeśli liczba "w pierwszych n" jest większa niż określona liczba, anomalia zostanie uwzględniona w alercie.        |
+* **Anomalie we wszystkich seriach** : wszystkie anomalie zostaną uwzględnione w alercie.         
+* **Anomalie w grupie serii** : Filtruj Serie według wartości wymiarów. Ustaw określone wartości dla niektórych wymiarów. Anomalie zostaną uwzględnione w alercie tylko wtedy, gdy seria pasuje do określonej wartości.       
+* **Anomalie w ulubionych seriach** : tylko seria oznaczona jako ulubiona zostanie uwzględniona w alercie.        |
+* **Anomalie w pierwszych N wszystkich seriach** : filtr jest przeznaczony dla przypadku, w którym należy zwrócić uwagę na serię, której wartość znajduje się w pierwszych N. Będziemy szukać niektórych sygnatur czasowych i sprawdzić, czy wartość serii w tych sygnaturach czasowych jest w pierwszych N. Jeśli liczba "w pierwszych n" jest większa niż określona liczba, anomalia zostanie uwzględniona w alercie.        |
 
 **Filtrowanie opcji anomalii** jest dodatkowym filtrem z następującymi opcjami:
 
 - **ważność** : anomalia zostanie uwzględniona tylko wtedy, gdy ważność anomalii znajduje się w określonym zakresie.
 - **Odłóż** : tymczasowo Zatrzymaj alerty dla anomalii w następnych N punktach (okresie), gdy zostanie wyzwolone w alercie.
-    - odłożenie **typu** : po ustawieniu na **serie**wyzwolone anomalie przejdzie tylko na jego serię. W przypadku **metryki**jedna wyzwolona anomalia przeniesie wszystkie serie w tej metryki.
+    - odłożenie **typu** : po ustawieniu na **serie** wyzwolone anomalie przejdzie tylko na jego serię. W przypadku **metryki** jedna wyzwolona anomalia przeniesie wszystkie serie w tej metryki.
     - odłożenie **liczby** : liczba punktów (okres) do odłożenia.
     - **Resetuj dla nieprawidłowego** : w przypadku wybrania wyzwalanej anomalii spowoduje odłożenie tylko następnych niepowodzeń anomalii. Jeśli jeden z następujących punktów danych nie jest anomalią, odłożenie zostanie zresetowane z tego punktu; Po zaznaczeniu tej opcji, jedna wyzwolona anomalia odbędzie odłożyć następne n punktów (okres), nawet jeśli kolejne punkty danych nie będą anomaliami.
 - **wartość** (opcjonalnie): Filtruj według wartości. Tylko wartości punktów, które spełniają warunek, będą uwzględniane anomalie. Jeśli używasz odpowiedniej wartości innej metryki, nazwy wymiarów dwóch metryk powinny być spójne.
@@ -134,7 +134,7 @@ Selektor **operatora** jest relacją logiczną każdej sekcji, aby określić, c
 |AND     | Wyślij alert tylko wtedy, gdy seria pasuje do każdej sekcji alertu, a wszystkie punkty danych są anomaliami. Jeśli metryki mają różne nazwy wymiarów, alert nigdy nie zostanie wyzwolony.         |
 |LUB     | Wyślij alert, jeśli co najmniej jedna sekcja zawiera anomalie.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="okno tworzenia elementu webhook.":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operator dla wielu sekcji ustawień alertów":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,7 +1,7 @@
 ---
 title: Wyodrębnij funkcje N-gramowe z odwołania do modułu tekstowego
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać modułu Wyodrębnij N-gramy w Azure Machine Learning, aby cechowanie dane tekstowe.
+description: Dowiedz się, w jaki sposób używać modułu Wyodrębnij N-gramy w projektancie Azure Machine Learning, aby cechowanie dane tekstowe.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4d9c7c2cb7a0a86824a373f1b64044b6dcd6c20
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907978"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420805"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Wyodrębnij funkcje N-gramowe z odwołania do modułu tekstowego
 
@@ -44,15 +44,15 @@ Moduł obsługuje następujące scenariusze dotyczące korzystania ze słownika 
 
 1. **Funkcja ważenia** określa sposób tworzenia wektora funkcji dokumentu oraz wyodrębniania słownictwa z dokumentów.
 
-    * **Waga binarna**: przypisuje wartość obecności binarnej do wyodrębnionych n-gramów. Wartość dla każdego n-gramu wynosi 1, gdy istnieje w dokumencie, i 0 w przeciwnym razie.
+    * **Waga binarna** : przypisuje wartość obecności binarnej do wyodrębnionych n-gramów. Wartość dla każdego n-gramu wynosi 1, gdy istnieje w dokumencie, i 0 w przeciwnym razie.
 
-    * **TF wagi**: przypisuje wynik częstotliwości okresowej (TF) do wyodrębnionych n-gramów. Wartość każdego n-gramu jest częstotliwością występowania w dokumencie.
+    * **TF wagi** : przypisuje wynik częstotliwości okresowej (TF) do wyodrębnionych n-gramów. Wartość każdego n-gramu jest częstotliwością występowania w dokumencie.
 
-    * **Waga IDF**: przypisuje wynik odwrotnej częstotliwości dokumentu (IDF) do wyodrębnionych n-gramów. Wartość każdego n-grama to dziennik o rozmiarze korpus podzielonym według częstotliwości występowania w całej korpus.
+    * **Waga IDF** : przypisuje wynik odwrotnej częstotliwości dokumentu (IDF) do wyodrębnionych n-gramów. Wartość każdego n-grama to dziennik o rozmiarze korpus podzielonym według częstotliwości występowania w całej korpus.
     
       `IDF = log of corpus_size / document_frequency`
  
-    *  **TF-IDF wag**: przypisuje wynikowe częstotliwość/częstotliwość dokumentu odwrotnego (TF/IDF) do wyodrębnionych n-gramów. Wartość dla każdego n-gramu to wynik TF pomnożony przez jego ocenę IDF.
+    *  **TF-IDF wag** : przypisuje wynikowe częstotliwość/częstotliwość dokumentu odwrotnego (TF/IDF) do wyodrębnionych n-gramów. Wartość dla każdego n-gramu to wynik TF pomnożony przez jego ocenę IDF.
 
 1. Ustaw **minimalną długość wyrazu** na minimalną liczbę liter, które mogą być używane w *pojedynczym wyrazie* w n-gramowej.
 
@@ -83,7 +83,7 @@ Moduł obsługuje następujące scenariusze dotyczące korzystania ze słownika 
 
 1. Dodaj zapisany zestaw danych, który zawiera wcześniej wygenerowany słownik n-gram i połącz go z portem **słownika danych wejściowych** . Istnieje również możliwość połączenia danych wyjściowych **słownika wynikowego** wystąpienia funkcji Wyodrębnij N-gram z modułu tekstowego.
 
-1. W obszarze **tryb słownictwa**wybierz opcję aktualizacji **tylko do odczytu** z listy rozwijanej.
+1. W obszarze **tryb słownictwa** wybierz opcję aktualizacji **tylko do odczytu** z listy rozwijanej.
 
    Opcja **ReadOnly** reprezentuje korpus wejściowy dla słownictwa wejściowego. Zamiast obliczania częstotliwości okresów z nowego tekstu zestawu danych (po lewej stronie), wagi n-gramy ze słownika wejściowego są stosowane w miarę jak.
 
@@ -110,20 +110,20 @@ Moduł obsługuje następujące scenariusze dotyczące korzystania ze słownika 
 
 Funkcja wyodrębnianie N-gramów z modułu tekstu tworzy dwa typy danych wyjściowych: 
 
-* **Zestaw danych wyników**: to wyjście jest podsumowaniem analizowanego tekstu połączonego z oddzielonymi n-gramami. Kolumny, które nie zostały wybrane w **kolumnie tekstowej** , są przekazywane do danych wyjściowych. Dla każdej kolumny analizowanego tekstu moduł generuje następujące kolumny:
+* **Zestaw danych wyników** : to wyjście jest podsumowaniem analizowanego tekstu połączonego z oddzielonymi n-gramami. Kolumny, które nie zostały wybrane w **kolumnie tekstowej** , są przekazywane do danych wyjściowych. Dla każdej kolumny analizowanego tekstu moduł generuje następujące kolumny:
 
-  * **Macierz wystąpień n-gram**: moduł generuje kolumnę dla każdego n-gramu znalezionego w łącznej korpus i dodaje ocenę w każdej kolumnie, aby wskazać wagę n-grama dla tego wiersza. 
+  * **Macierz wystąpień n-gram** : moduł generuje kolumnę dla każdego n-gramu znalezionego w łącznej korpus i dodaje ocenę w każdej kolumnie, aby wskazać wagę n-grama dla tego wiersza. 
 
-* **Słownictwo wyniku**: słownictwo zawiera rzeczywisty słownik n-gramowy wraz z wynikami częstotliwości, które są generowane w ramach analizy. Zestaw danych można zapisać do ponownego użycia z innym zestawem danych wejściowych lub w późniejszej aktualizacji. Możesz również ponownie użyć słownika do modelowania i oceniania.
+* **Słownictwo wyniku** : słownictwo zawiera rzeczywisty słownik n-gramowy wraz z wynikami częstotliwości, które są generowane w ramach analizy. Zestaw danych można zapisać do ponownego użycia z innym zestawem danych wejściowych lub w późniejszej aktualizacji. Możesz również ponownie użyć słownika do modelowania i oceniania.
 
 ### <a name="result-vocabulary"></a>Słownictwo wyniku
 
 Słownictwo zawiera słownik n-gram z wynikami częstotliwości, które są generowane w ramach analizy. Wyniki DF i IDF są generowane niezależnie od innych opcji.
 
-+ **Identyfikator**: Identyfikator wygenerowany dla każdego unikatowego n-gramu.
-+ **NGram**: n-gram. Spacje lub inne separatory wyrazów są zastępowane znakiem podkreślenia.
-+ **DF**: termin częstotliwości dla n-gramu w pierwotnej korpus.
-+ **IDF**: wynik odwrotnej częstotliwości dokumentu dla n-gramów w oryginalnym korpus.
++ **Identyfikator** : Identyfikator wygenerowany dla każdego unikatowego n-gramu.
++ **NGram** : n-gram. Spacje lub inne separatory wyrazów są zastępowane znakiem podkreślenia.
++ **DF** : termin częstotliwości dla n-gramu w pierwotnej korpus.
++ **IDF** : wynik odwrotnej częstotliwości dokumentu dla n-gramów w oryginalnym korpus.
 
 Możesz ręcznie zaktualizować ten zestaw danych, ale możesz wprowadzić błędy. Na przykład:
 

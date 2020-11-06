@@ -1,20 +1,20 @@
 ---
-title: Tworzenie klienta urządzenia Plug and Play IoT przy użyciu programu MQTT | Microsoft Docs
-description: Korzystanie z protokołu MQTT bezpośrednio w celu utworzenia klienta urządzenia Plug and Play IoT bez używania zestawów SDK urządzeń usługi Azure IoT
+title: Samouczek — używanie MQTT do tworzenia klienta urządzenia usługi Azure IoT Plug and Play | Microsoft Docs
+description: Samouczek — bezpośrednie używanie protokołu MQTT do tworzenia klienta urządzenia IoT Plug and Play bez używania zestawów SDK urządzeń usługi Azure IoT
 author: ericmitt
 ms.author: ericmitt
 ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d0ac0f000b6a096ae3de1f4f00a17b64f1948c1e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6852b0532b23e46c7b986926b21cd0b7e9f9736d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046285"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421383"
 ---
-# <a name="use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Tworzenie klienta urządzenia Plug and Play IoT przy użyciu programu MQTT
+# <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Samouczek — korzystanie z programu MQTT do opracowania klienta urządzenia Plug and Play IoT
 
 Jeśli to możliwe, należy użyć jednego z zestawów SDK urządzeń usługi Azure IoT do kompilowania klientów urządzeń Plug and Play IoT. Jednak w scenariuszach, takich jak urządzenie z ograniczoną ilością pamięci, może być konieczne użycie biblioteki MQTT do komunikowania się z Centrum IoT Hub.
 
@@ -27,7 +27,7 @@ Przykład w tym samouczku używa biblioteki [Mosquitto](http://mosquitto.org/) M
 Aby ukończyć ten samouczek w systemie Windows, Zainstaluj następujące oprogramowanie w lokalnym środowisku systemu Windows:
 
 * [Visual Studio (Community, Professional lub Enterprise)](https://visualstudio.microsoft.com/downloads/) — upewnij się, że podczas [instalowania](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) programu Visual Studio dołączysz **programowanie klasyczne przy użyciu języka C++**
-* [Git](https://git-scm.com/download/)
+* [Narzędzia](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
 
 Za pomocą narzędzia *Azure IoT Explorer* Dodaj nowe urządzenie do IoT Hub. Po zakończeniu [konfigurowania środowiska dla przewodników Szybki Start i samouczków Plug and Play IoT](set-up-environment.md)została skonfigurowana usługa IoT Hub i narzędzie Azure IoT Explorer:
@@ -37,8 +37,8 @@ Za pomocą narzędzia *Azure IoT Explorer* Dodaj nowe urządzenie do IoT Hub. Po
 1. Na stronie **urządzenia** wybierz pozycję **+ Nowy**.
 1. Utwórz urządzenie o nazwie *My-MQTT-Device* , które używa automatycznie generowanego klucza symetrycznego.
 1. Na stronie **tożsamość urządzenia** rozwiń węzeł **Parametry połączenia z tokenem SAS**.
-1. Wybierz **klucz podstawowy** , który ma być używany jako **klucz symetryczny**, ustaw czas wygaśnięcia na 60 minut, a następnie wybierz pozycję **Generuj**.
-1. Skopiuj wygenerowane **Parametry połączenia tokenu sygnatury dostępu współdzielonego**, Użyj tej wartości w dalszej części tego samouczka.
+1. Wybierz **klucz podstawowy** , który ma być używany jako **klucz symetryczny** , ustaw czas wygaśnięcia na 60 minut, a następnie wybierz pozycję **Generuj**.
+1. Skopiuj wygenerowane **Parametry połączenia tokenu sygnatury dostępu współdzielonego** , Użyj tej wartości w dalszej części tego samouczka.
 
 ## <a name="clone-sample-repo"></a>Klonowanie przykładowego repozytorium
 
@@ -80,7 +80,7 @@ Przed skompilowaniem i uruchomieniem programu zaktualizuj kod ze szczegółowymi
 
 Aby wyświetlić przykładowy kod w programie Visual Studio, Otwórz plik rozwiązania *MQTTWin32. sln* w folderze *IoTMQTTSample\src\Windows* .
 
-W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt **TelemetryMQTTWin32** i wybierz pozycję **Ustaw jako projekt startowy**.
+W **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **TelemetryMQTTWin32** i wybierz pozycję **Ustaw jako projekt startowy**.
 
 W projekcie **TelemetryMQTTWin32** Otwórz plik źródłowy **MQTT_Mosquitto. cpp** . Zaktualizuj definicje informacji o połączeniu z informacjami o urządzeniu, które zostały wcześniej wykonane. Zastąp symbole zastępcze ciągu tokenu dla:
 
@@ -96,7 +96,7 @@ Uruchom aplikację (Ctrl + F5), po kilku sekundach zobaczysz dane wyjściowe, kt
 
 W programie Azure IoT Explorer można zobaczyć, że urządzenie nie jest urządzeniem Plug and Play IoT:
 
-:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Dane wyjściowe z przykładowej aplikacji MQTT":::
+:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Urządzenie Plug and Play inne niż IoT w programie Azure IoT Explorer":::
 
 ### <a name="make-the-device-an-iot-plug-and-play-device"></a>Uczyń urządzenie urządzeniem Plug and Play IoT
 
@@ -117,11 +117,11 @@ Skompiluj ponownie i uruchom przykład.
 
 Sznurki urządzenia zawiera teraz Identyfikator modelu:
 
-:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Dane wyjściowe z przykładowej aplikacji MQTT":::
+:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Wyświetlanie identyfikatora modelu w programie Azure IoT Explorer":::
 
 Teraz można nawigować po składniku Plug and Play IoT:
 
-:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Dane wyjściowe z przykładowej aplikacji MQTT":::
+:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Wyświetlanie składników w programie Azure IoT Explorer":::
 
 Teraz można zmodyfikować kod urządzenia, aby zaimplementować dane telemetryczne, właściwości i polecenia zdefiniowane w modelu. Aby zapoznać się z przykładową implementacją termostatu urządzenia za pomocą biblioteki Mosquitto, zobacz [Używanie MQTT PnP z platformą Azure IoTHub bez zestawu IoT SDK w systemie Windows](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32) w witrynie GitHub.
 

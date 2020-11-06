@@ -1,7 +1,7 @@
 ---
 title: moduł wieloklasowy „jeden przeciw wszystkim”
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, w jaki sposób używać modułu moduł wieloklasowy „jeden przeciw wszystkim” w programie Azure Machine Learning do tworzenia wieloklasowego modelu klasyfikacji na podstawie kompletnych modeli klasyfikacji binarnych.
+description: Dowiedz się, jak używać modułu moduł wieloklasowy „jeden przeciw wszystkim” w programie Azure Machine Learning Designer do tworzenia kompletów binarnych modeli klasyfikacji.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: dfe01e16b55325db03e4150a33ae5c4aa5822ae2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898506"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420686"
 ---
 # <a name="one-vs-all-multiclass"></a>moduł wieloklasowy „jeden przeciw wszystkim”
 
@@ -40,7 +40,7 @@ Model binarny jest połączony z modułem moduł wieloklasowy „jeden przeciw w
 
 W przypadku łączenia modeli moduł wieloklasowy „jeden przeciw wszystkim” tworzy wiele binarnych modeli klasyfikacji, optymalizuje algorytm dla każdej klasy, a następnie scala modele. Moduł wykonuje te zadania mimo tego, że zestaw danych szkoleniowych może mieć wiele wartości klas.
 
-1. Dodaj moduł moduł wieloklasowy „jeden przeciw wszystkim” do potoku w projektancie. Ten moduł można znaleźć w obszarze **Machine Learning-Initialize**w kategorii **Klasyfikacja** .
+1. Dodaj moduł moduł wieloklasowy „jeden przeciw wszystkim” do potoku w projektancie. Ten moduł można znaleźć w obszarze **Machine Learning-Initialize** w kategorii **Klasyfikacja** .
 
    Klasyfikator moduł wieloklasowy „jeden przeciw wszystkim” nie ma samodzielnie skonfigurowanych parametrów. Wszelkie dostosowania należy wykonać w modelu klasyfikacji binarnej, który jest dostarczany jako dane wejściowe.
 
