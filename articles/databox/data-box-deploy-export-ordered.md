@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 1e0a11ef72698d749349cce8dd7eff73e5284a86
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b514cce8128dc0b17b5cebf8f2dc42e2c4dd8c8e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122470"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336976"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box (wersja zapoznawcza)
 
@@ -58,11 +58,11 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
 2. Wybierz pozycję **+ Utwórz zasób** i wyszukaj wartość *Azure Data Box*. Wybierz pozycję **Azure Data Box**.
 
-   ![Tworzenie zasobu](media/data-box-deploy-export-ordered/azure-data-box-export-00b.png)
+   ![Tworzenie zasobu](media/data-box-deploy-export-ordered/azure-data-box-export-order-create-resource.png)
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
-   ![Utwórz Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
+   ![Tworzenie zasobu Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-order-create-data-box-resource.png)
 
 4. Sprawdź, czy usługa Azure Data Box jest dostępna w Twoim regionie. Wprowadź lub wybierz poniższe informacje, a następnie wybierz pozycję **Zastosuj**.
 
@@ -74,13 +74,13 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
     |Źródłowy region platformy Azure    |    Wybierz region platformy Azure, w którym są obecnie używane dane.         |
     |Kraj docelowy     |     Wybierz kraj, w którym chcesz wysłać urządzenie.        |
 
-   ![Wybierz ustawienia urządzenie Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-01.png)
+   ![Wybierz ustawienia urządzenie Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-box-settings.png)
 
 5. Wybierz pozycję **Data Box**. Maksymalna użyteczna pojemność dla pojedynczej kolejności wynosi 80 TB. W przypadku większych ilości danych możesz utworzyć wiele zamówień.
 
-   ![Wybierz pojemność urządzenie Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-02b.png)
+   ![Wybierz pojemność urządzenie Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
-6. W **kolejności**Określ **podstawowe** informacje o kolejności. Wprowadź lub wybierz poniższe informacje, a następnie wybierz przycisk **Dalej**.
+6. W **kolejności** Określ **podstawowe** informacje o kolejności. Wprowadź lub wybierz poniższe informacje, a następnie wybierz przycisk **Dalej**.
 
     |Ustawienie  |Wartość  |
     |---------|---------|
@@ -88,21 +88,21 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
     |Grupa zasobów | Wybrana wcześniej Grupa zasobów. |
     |Nazwa zamówienia eksportu     |  Podaj przyjazną nazwę, aby śledzić zamówienie. <br> Nazwa może zawierać od 3 do 24 znaków, które mogą być literami, cyframi i łącznikami. <br> Nazwa musi zaczynać i kończyć się literą lub cyfrą.      |
 
-    ![Podstawowe informacje o kolejności eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-03.png)
+    ![Podstawowe informacje o kolejności eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
 
     Wybierz pozycję **Dalej: wybór danych** , aby wykonać operację.
 
-7. W **obszarze Wybór danych**wybierz pozycję **Dodaj konto magazynu i typ eksportu**.
+7. W **obszarze Wybór danych** wybierz pozycję **Dodaj konto magazynu i typ eksportu**.
 
-    ![Dodaj konto magazynu i typ eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-03b.png)
+    ![Dodaj konto magazynu i typ eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
 
-8. W obszarze **Wybierz opcję eksportu**Określ szczegóły opcji eksportowania. Wprowadź lub wybierz poniższe informacje, a następnie wybierz pozycję **Dodaj**.
+8. W obszarze **Wybierz opcję eksportu** Określ szczegóły opcji eksportowania. Wprowadź lub wybierz poniższe informacje, a następnie wybierz pozycję **Dodaj**.
 
     |Ustawienie  |Wartość  |
     |---------|---------|
     |Konto magazynu     | Konto usługi Azure Storage, z którego chcesz wyeksportować dane. |
     |Typ eksportu     | Określa typ danych do wyeksportowania ze **wszystkich obiektów** i **Użyj pliku XML**.<ul><li> **Wszystkie obiekty** — określa, że zadanie eksportuje wszystkie dane w zależności od wyboru **opcji transferu**.</li><li> **Użyj pliku XML** — określa plik XML, który zawiera zestaw ścieżek i prefiksów obiektów blob i/lub plików, które mają zostać wyeksportowane z konta magazynu. Plik XML musi znajdować się w kontenerze wybranego konta magazynu, a wybieranie z udziałów plików nie jest obecnie obsługiwane. Plik musi być niepustym plikiem XML.</li></ul>        |
-    |Opcje transferu     |  Określa opcje transferu danych z opcji **Zaznacz wszystko**, **wszystkie obiekty blob**i **wszystkie pliki**. <ul><li> **Zaznacz wszystko** — określa, że eksportowane są wszystkie obiekty blob i pliki platformy Azure. Jeśli używasz konta magazynu, które obsługuje tylko obiekty blob (Blob Storage account), opcja **wszystkie pliki** nie zostanie wybrana.</li><li> **Wszystkie obiekty blob** — określa, że eksportowane są tylko obiekty blob blok i Page.</li><li> **Wszystkie pliki** — określa, że wszystkie pliki są eksportowane z wyjątkiem obiektów BLOB. Typ konta magazynu (GPv1 i GPv2, magazyn Premium Storage lub BLOB Storage) określa typy danych, które można wyeksportować. Aby uzyskać więcej informacji, zobacz [obsługiwane konta magazynu do eksportowania](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Opcje transferu     |  Określa opcje transferu danych z opcji **Zaznacz wszystko** , **wszystkie obiekty blob** i **wszystkie pliki**. <ul><li> **Zaznacz wszystko** — określa, że eksportowane są wszystkie obiekty blob i pliki platformy Azure. Jeśli używasz konta magazynu, które obsługuje tylko obiekty blob (Blob Storage account), opcja **wszystkie pliki** nie zostanie wybrana.</li><li> **Wszystkie obiekty blob** — określa, że eksportowane są tylko obiekty blob blok i Page.</li><li> **Wszystkie pliki** — określa, że wszystkie pliki są eksportowane z wyjątkiem obiektów BLOB. Typ konta magazynu (GPv1 i GPv2, magazyn Premium Storage lub BLOB Storage) określa typy danych, które można wyeksportować. Aby uzyskać więcej informacji, zobacz [obsługiwane konta magazynu do eksportowania](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Dołącz pełny dziennik     | Wskazuje, czy chcesz uzyskać pełny plik dziennika zawierający listę wszystkich plików, które zostały pomyślnie wyeksportowane.        |
 
     > [!NOTE]
@@ -111,94 +111,97 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
     Aby dowiedzieć się, jak dodać plik XML do kontenera, zobacz [Eksportowanie kolejności przy użyciu pliku XML](data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
-   ![Wybierz opcję eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+   ![Wybierz opcję eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
    Aby zobaczyć przykład danych wejściowych XML, zobacz [przykładowe dane wejściowe XML](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. W **obszarze Wybór danych**przejrzyj ustawienia, a następnie wybierz pozycję **dalej: zabezpieczenia>**.
+9. W **obszarze Wybór danych** przejrzyj ustawienia, a następnie wybierz pozycję **dalej: zabezpieczenia>**.
 
-   ![Dane kontaktowe](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+   ![Zamówienie eksportu, wybór danych](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-selection.png)
 
-1. W obszarze **zabezpieczenia**, jeśli chcesz włączyć podwójne szyfrowanie oparte na oprogramowaniu, wybierz pozycję **Włącz podwójne szyfrowanie dla zamówienia**. 
+10. W obszarze **zabezpieczenia** , jeśli chcesz włączyć podwójne szyfrowanie oparte na oprogramowaniu, wybierz pozycję **Włącz podwójne szyfrowanie dla zamówienia**. 
 
-   Szyfrowanie oparte na oprogramowaniu jest wykonywane poza szyfrowaniem AES-256 bitowym danych na urządzenie Data Box.
+    Szyfrowanie oparte na oprogramowaniu jest wykonywane poza szyfrowaniem AES-256 bitowym danych na urządzenie Data Box.
 
-   > [!NOTE]
-   > Włączenie tej opcji może spowodować wydłużenie przetwarzania zamówień i kopiowania danych. Po utworzeniu zamówienia nie można zmienić tej opcji.
+   
+    > [!NOTE]
+    > Włączenie tej opcji może spowodować wydłużenie przetwarzania zamówień i kopiowania danych. Po utworzeniu zamówienia nie można zmienić tej opcji.
 
-   ![Ekran zabezpieczenia dla importu pola danych, podwójne szyfrowanie](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+    ![Ekran zabezpieczenia dla importu pola danych, podwójne szyfrowanie](media/data-box-deploy-export-ordered/azure-data-box-export-order-security-double-encryption.png)
 
-   Wybierz pozycję **Dalej: szczegóły kontaktu** , aby kontynuować.
+    Wybierz pozycję **Dalej: szczegóły kontaktu** , aby kontynuować.
 
-10. W obszarze **szczegóły kontaktu**wybierz pozycję **+ Dodaj adres wysyłkowy** , aby wprowadzić informacje o wysyłce.
+11. W obszarze **szczegóły kontaktu** wybierz pozycję **+ Dodaj adres wysyłkowy** , aby wprowadzić informacje o wysyłce.
 
-    ![Dodaj adres wysyłkowy](media/data-box-deploy-export-ordered/azure-data-box-export-06.png)
+    ![Dodaj adres wysyłkowy](media/data-box-deploy-export-ordered/azure-data-box-export-order-add-shipping-address.png)
 
-11. W obszarze **Dodaj adres wysyłkowy**Podaj imię i nazwisko, nazwę i adres pocztowy firmy oraz prawidłowy numer telefonu. Wybierz przycisk **Weryfikuj**. Usługa zweryfikuje adres wysyłkowy pod kątem dostępności usługi. Jeśli ta usługa jest dostępna dla podanego adresu wysyłkowego, otrzymasz odpowiednie powiadomienie.
+12. W obszarze **Dodaj adres wysyłkowy** Podaj imię i nazwisko, nazwę i adres pocztowy firmy oraz prawidłowy numer telefonu. Wybierz przycisk **Weryfikuj**. Usługa zweryfikuje adres wysyłkowy pod kątem dostępności usługi. Jeśli ta usługa jest dostępna dla podanego adresu wysyłkowego, otrzymasz odpowiednie powiadomienie.
 
-    ![Zweryfikuj adres wysyłkowy](media/data-box-deploy-export-ordered/azure-data-box-export-07.png)
+    ![Zweryfikuj adres wysyłkowy](media/data-box-deploy-export-ordered/azure-data-box-export-order-validate-shipping-address.png)
 
     Jeśli porządkuje się w regionie, w którym jest dostępna samodzielna wysyłka, możesz wybrać tę opcję. Aby uzyskać więcej informacji na temat samozarządzanej wysyłki, zobacz [Korzystanie z funkcji samozarządzanej wysyłki](data-box-portal-customer-managed-shipping.md).
 
-12. Wybierz pozycję **Dodaj adres wysyłkowy** po pomyślnym sprawdzeniu szczegółów wysyłki.
+13. Wybierz pozycję **Dodaj adres wysyłkowy** po pomyślnym sprawdzeniu szczegółów wysyłki.
 
-13. W polu **szczegóły kontaktu**Przejrzyj adres wysyłkowy i adres e-mail. Usługa wysyła powiadomienia e-mail dotyczące wszystkich aktualizacji stanu zamówienia na określone adresy e-mail.
+14. W polu **szczegóły kontaktu** Przejrzyj adres wysyłkowy i adres e-mail. Usługa wysyła powiadomienia e-mail dotyczące wszystkich aktualizacji stanu zamówienia na określone adresy e-mail.
 
     Zalecamy użycie grupowego adresu e-mail, aby otrzymywać powiadomienia, jeśli administrator opuści grupę.
 
-    ![Szczegóły zamówienia](media/data-box-deploy-export-ordered/azure-data-box-export-09.png)
+    ![Szczegóły kontaktu](media/data-box-deploy-export-ordered/azure-data-box-export-order-contact-details.png)
 
-14. Wybierz kolejno pozycje **Dalej: przegląd i kolejność>**. Musisz zaakceptować warunki i postanowienia, aby kontynuować tworzenie zamówień.
+15. Wybierz kolejno pozycje **Dalej: przegląd i kolejność>**. Musisz zaakceptować warunki i postanowienia, aby kontynuować tworzenie zamówień.
 
-15. Wybierz pozycję **Zamów**. Utworzenie zamówienia trwa kilka minut.
+16. Wybierz pozycję **Zamów**. Utworzenie zamówienia trwa kilka minut.
 
-    ![Zatwierdź zamówienie](media/data-box-deploy-export-ordered/azure-data-box-export-10.png)
+    ![Zatwierdź zamówienie](media/data-box-deploy-export-ordered/azure-data-box-select-export-order-commit-order.png)
 
 ## <a name="export-order-using-xml-file"></a>Eksportowanie zamówienia przy użyciu pliku XML
 
-W przypadku wybrania opcji **Użyj pliku XML**można określić określone kontenery i obiekty blob (stronę i blok), które mają zostać wyeksportowane. Aby sformatować kod XML, należy postępować zgodnie ze specyfikacją [tabeli plików XML](#sample-xml-file) . Poniższe kroki pokazują, jak używać pliku XML do eksportowania danych:
+W przypadku wybrania opcji **Użyj pliku XML** można określić określone kontenery i obiekty blob (stronę i blok), które mają zostać wyeksportowane. Aby sformatować kod XML, należy postępować zgodnie ze specyfikacją [tabeli plików XML](#sample-xml-file) . Poniższe kroki pokazują, jak używać pliku XML do eksportowania danych:
 
-1. W obszarze **Typ eksportu**wybierz pozycję **Użyj pliku XML**. Jest to plik XML, który określa określone obiekty blob i pliki platformy Azure, które mają zostać wyeksportowane. Aby dodać plik XML, wybierz **pozycję kliknij tutaj, aby wybrać plik XML**.
-     ![Zrzut ekranu opcji Wybieranie eksportu z kliknięciem tutaj, aby wybrać opcję plik X M L o nazwie out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+1. W obszarze **Typ eksportu** wybierz pozycję **Użyj pliku XML**. Jest to plik XML, który określa określone obiekty blob i pliki platformy Azure, które mają zostać wyeksportowane. Aby dodać plik XML, wybierz **pozycję kliknij tutaj, aby wybrać plik XML**.
+
+     ![Wybieranie opcji eksportu, XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-select-xml-option.png)
 
 2. Wybierz pozycję **+ kontener** , aby utworzyć kontener.
-    ![Zrzut ekranu przedstawiający sekcję Containers.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
+
+    ![Wybierz opcję eksportu, kontenery](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-containers-option.png)
 
 3. Na karcie **nowy kontener** , która znajduje się po prawej stronie Azure Portal, Dodaj nazwę kontenera. Nazwa musi zawierać małe litery i może zawierać cyfry i myślniki "-". Następnie w polu listy rozwijanej wybierz **poziom dostępu publicznego** . Zalecamy wybranie opcji **prywatny (dostęp nieanonimowy)** , aby uniemożliwić innym osobom dostęp do danych. Aby uzyskać więcej informacji na temat poziomów dostępu do kontenera, zobacz [uprawnienia dostępu do kontenera](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
-   ![Zrzut ekranu przedstawiający kartę nowy kontener z wybraną opcją prywatny (brak dostępu anonimowego).](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
+   ![Wybierz opcję Eksportuj, nowe ustawienia kontenera](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-container-settings.png)
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
-   ![Zrzut ekranu przedstawiający kartę nowy kontener z opcją tworzenia wywołana.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
+   ![Wybierz opcję Eksportuj, Utwórz nowy kontener.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-create-container.png)
 
    Jeśli kontener zostanie utworzony pomyślnie, zostanie wyświetlony następujący komunikat:
 
-   ![Zrzut ekranu przedstawiający komunikat "pomyślnie utworzono kontener magazynu".](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
+   ![Pomyślnie utworzono kontener](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-container-success.png)
 
 5. Wybierz utworzony kontener i kliknij go dwukrotnie.
 
-   ![Zrzut ekranu przedstawiający sekcję kontenerów z kontenerem kontenera my test Private.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
+   ![Wyświetl szczegóły kontenera](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-view-container-details.png)
 
 6. Dwukrotne kliknięcie kontenera spowoduje wyświetlenie widoku właściwości kontenera. Teraz chcesz dołączyć (lub przeszukać) plik XML zawierający listę obiektów blob i/lub plików platformy Azure, które mają zostać wyeksportowane. Wybierz pozycję **Przekaż**.
 
-   ![Zrzut ekranu okna dialogowego przekazywanie obiektu BLOB z opcją przekazywania o nazwie out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
+   ![Przekaż obiekt BLOB do kontenera](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-blob-to-container.png)
 
 7. Plik XML został pomyślnie dodany do kontenera. Eksportowane są tylko obiekty blob i pliki platformy Azure określone w tym formacie XML.
 
-   ![Zrzut ekranu kreatora zamówień z opcją Next: Security o nazwie out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
+   ![Plik XML został dodany do kontenera](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-added-to-container.png)
 
 ## <a name="track-the-order"></a>Śledzenie zamówienia
 
-Po złożeniu zamówienia możesz śledzić jego stan w witrynie Azure Portal. Przejdź do zamówienia urządzenia Data Box, a następnie przejdź do obszaru **Omówienie**, aby sprawdzić stan. Zamówienie wyświetlone w portalu ma stan **Zamówione**.
+Po złożeniu zamówienia możesz śledzić jego stan w witrynie Azure Portal. Przejdź do zamówienia urządzenia Data Box, a następnie przejdź do obszaru **Omówienie** , aby sprawdzić stan. Zamówienie wyświetlone w portalu ma stan **Zamówione**.
 
 Po zakończeniu przygotowywania urządzenia kopia danych rozpocznie się z wybranych kont magazynu. W portalu jest wyświetlana kolejność **kopiowania danych w toku** .
 
-![urządzenie Data Box przetworzonej kolejności eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-15b.png)
+![Urządzenie Data Box zamówienie eksportu, kopiowanie danych w toku](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-in-progress.png)
 
 Urządzenie Data Box kopiuje dane z źródłowych kont magazynu. Po zakończeniu kopiowania danych urządzenie Data Box jest zablokowany, a w portalu będzie wyświetlana kolejność w stanie **Zakończono** .
 
-![Ukończono urządzenie Data Box eksportu danych](media/data-box-deploy-export-ordered/azure-data-box-export-15c.png)
+![Urządzenie Data Box zamówienie eksportu, ukończono kopiowanie danych](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-complete.png)
 
 Jeśli urządzenie nie jest dostępne, otrzymasz powiadomienie. Jeśli urządzenie jest dostępne, firma Microsoft zidentyfikuje urządzenie do wysłania i przygotuje wysyłkę. Podczas przygotowywania urządzenia są wykonywane następujące akcje:
 
@@ -208,11 +211,11 @@ Jeśli urządzenie nie jest dostępne, otrzymasz powiadomienie. Jeśli urządzen
 
 Następnie firma Microsoft przygotuje i przygotowuje urządzenie przez przewoźnika regionalnego. Po wysłaniu dysków otrzymasz numer służący do jego śledzenia. W portalu zamówienie zostanie wysłane ze stanem **Wysłane**.
 
-![urządzenie Data Box zamówienie eksportu zostało wysłane](media/data-box-deploy-export-ordered/azure-data-box-export-16.png)
+![urządzenie Data Box zamówienie eksportu zostało wysłane](media/data-box-deploy-export-ordered/azure-data-box-export-order-dispatched.png)
 
 Jeśli wybrano opcję wysyłki samozarządzanej, otrzymasz powiadomienie e-mail z kolejnymi krokami, gdy urządzenie będzie gotowe do pobrania z centrum danych. Aby uzyskać więcej informacji dotyczących funkcji wysyłki samozarządzanej, zobacz [samozarządzane dostarczanie](data-box-portal-customer-managed-shipping.md).
 
-![Samozarządzane dostarczanie gotowe do pobrania](media/data-box-deploy-export-ordered/azure-data-box-export-17.png)
+![Samozarządzane dostarczanie gotowe do pobrania](media/data-box-deploy-export-ordered/azure-data-box-export-order-ready-for-pickup.png)
 
 ## <a name="cancel-the-order"></a>Anulowanie zamówienia
 
@@ -228,7 +231,7 @@ Poniższy kod XML przedstawia przykład nazw obiektów blob, prefiksów obiektó
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-   <!-- BlobList/prefix/Container list for Blob storage for export  -->
+   <!-- BlobList/prefix/Container list for Blob storage for export  -->
    <BlobList>
       <BlobPath>/8tbpageblob/8tbpageblob/8tbpageblob</BlobPath>
       <BlobPathPrefix>/blockblob4dot75tbdata/</BlobPathPrefix>
@@ -237,7 +240,7 @@ Poniższy kod XML przedstawia przykład nazw obiektów blob, prefiksów obiektó
       <BlobPathPrefix>/8mbfiles/</BlobPathPrefix>
       <BlobPathPrefix>/64mbfiles/</BlobPathPrefix>
    </BlobList>
-   <!-- FileList/prefix/Share list for Azure File storage for export  -->
+   <!-- FileList/prefix/Share list for Azure File storage for export  -->
    <AzureFileList>
       <FilePathPrefix>/64mbfiles/</FilePathPrefix>
       <FilePathPrefix>/4mbfiles/prefix2/subprefix</FilePathPrefix>

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: caf492c2cd3940fd7f37e2a4462c8376a127f393
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a4fe2492433aa793d1a7e4be41c5f93043848a5
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86189821"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337869"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>Przykłady języka Python dla Cognitive Services danych Big Data
 
@@ -78,16 +78,16 @@ sentiment = (TextSentiment()
     .setLanguageCol("language"))
 
 # Show the results of your text query in a table format
-display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
+display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sentiment").alias("sentiment")))
 ```
 
 ### <a name="expected-result"></a>Oczekiwany wynik
 
 | tekst                                      | tonacji                                             |
 |:------------------------------------------|:------------------------------------------------------|
-| Dziś mam szczęście, Sunny!           | 0.9789592027664185                                    |
-| Jestem sfrustrowani przez ten szczytuy ruch godzinny | 0.023795604705810547                                  |
-| Usługi poznawcze w usłudze Spark aint są nieprawidłowe  | 0.8888956308364868                                    |
+| Dziś mam szczęście, Sunny!           | positive                                              |
+| Jestem sfrustrowani przez ten szczytuy ruch godzinny | negative                                              |
+| Usługi poznawcze w usłudze Spark aint są nieprawidłowe  | positive                                              |
 
 ## <a name="computer-vision-sample"></a>Przykład przetwarzanie obrazów
 

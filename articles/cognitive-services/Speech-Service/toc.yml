@@ -419,8 +419,6 @@
                   href: 'http://aka.ms/speech/va-samples'
                 - name: Często zadawane pytania dotyczące asystentów głosowych
                   href: faq-voice-assistants.md
-                - name: Zestaw SDK rozpoznawania mowy
-                  href: speech-sdk.md
                 - name: Szyfrowanie danych magazynowanych przy użyciu poleceń niestandardowych
                   href: custom-commands-encryption-of-data-at-rest.md
         - name: Mowa Direct Line

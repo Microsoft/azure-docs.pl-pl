@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: cfe1b66662d73c18934ef9ecc884adee79493eb6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e223b5ae072a323ad56ed396c06580fea9b8b7ab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92641008"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335251"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w aplikacji sieci Web Node przy użyciu przepływu kodu uwierzytelniania
 
@@ -42,13 +42,13 @@ Ten przewodnik Szybki Start używa biblioteki uwierzytelniania firmy Microsoft d
 > 1. Zaloguj się do [Azure portal](https://portal.azure.com).
 > 1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu, a następnie ustaw sesję portalu z dzierżawą usługi Azure AD, której chcesz użyć.
 > 1. Wybierz pozycję [Rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Wybierz pozycję **Nowa rejestracja** .
+> 1. Wybierz pozycję **Nowa rejestracja**.
 > 1. Po wyświetleniu strony **Rejestrowanie aplikacji** wprowadź nazwę aplikacji.
-> 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft** .
+> 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 > 1. Ustaw wartość **identyfikatora URI przekierowania** na `http://localhost:3000/redirect` .
-> 1. Wybierz pozycję **Zarejestruj** . 
+> 1. Wybierz pozycję **Zarejestruj**. 
 > 1. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
-> 1. W obszarze **certyfikaty & wpisy tajne** wybierz pozycję **nowy klucz tajny klienta** .  Pozostaw opis pusty i domyślny czas wygaśnięcia, a następnie kliknij przycisk **Dodaj** .
+> 1. W obszarze **certyfikaty & wpisy tajne** wybierz pozycję **nowy klucz tajny klienta**.  Pozostaw opis pusty i domyślny czas wygaśnięcia, a następnie kliknij przycisk **Dodaj**.
 > 1. Zwróć uwagę na **wartość** **klucza tajnego klienta** do późniejszego użycia.
 
 #### <a name="step-2-download-the-project"></a>Krok 2. Pobieranie projektu
@@ -66,8 +66,8 @@ Ten przewodnik Szybki Start używa biblioteki uwierzytelniania firmy Microsoft d
 > #### <a name="step-3-configure-your-node-app"></a>Krok 3. Konfigurowanie aplikacji węzła
 >
 > Wyodrębnij projekt i Otwórz folder *MS-Identity-Node-Main* , a następnie otwórz plik *index.js* .
-> Ustaw wartość `clientID` przy użyciu **identyfikatora aplikacji (klienta)** .
-> Ustaw `clientSecret` wartość przy użyciu **wartości** **klucza tajnego klienta** .
+> Ustaw wartość `clientID` przy użyciu **identyfikatora aplikacji (klienta)**.
+> Ustaw `clientSecret` wartość przy użyciu **wartości** **klucza tajnego klienta**.
 >
 >```javascript
 >const config = {
@@ -102,7 +102,7 @@ Ten przewodnik Szybki Start używa biblioteki uwierzytelniania firmy Microsoft d
 > ```
 >
 > > [!TIP]
-> > Aby znaleźć wartość **identyfikatora aplikacji (klienta)** , przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal. Przejdź do pozycji **certyfikaty & wpisy tajne** , aby pobrać lub wygenerować nowy **klucz tajny klienta** .
+> > Aby znaleźć wartość **identyfikatora aplikacji (klienta)** , przejdź do strony **Przegląd** rejestracji aplikacji w Azure Portal. Przejdź do pozycji **certyfikaty & wpisy tajne** , aby pobrać lub wygenerować nowy **klucz tajny klienta**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Krok 3. Twoja aplikacja jest skonfigurowana i gotowa do uruchomienia
@@ -141,4 +141,4 @@ npm install @azure/msal-node
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dodawanie uwierzytelniania do istniejącej aplikacji sieci Web — przykładowego kodu usługi GitHub >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code/readme.md)
+> [Dodawanie uwierzytelniania do istniejącej aplikacji sieci Web — przykładowego kodu usługi GitHub >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code)

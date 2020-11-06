@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 459cb1f7ea6c756b8cf6eba70af5ebabe76cc8b0
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88689681"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335762"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Eliminowanie sprawiedliwych modeli uczenia maszynowego (wersja zapoznawcza)
 
 Dowiedz się więcej o atrakcyjności uczenia maszynowego oraz o sposobie, w jaki pakiet języka Python [Fairlearn](https://fairlearn.github.io/) open-source może pomóc w ograniczeniu problemów z uczciwymi informacjami w modelach uczenia maszynowego. Jeśli nie chcesz, aby poznać problemy z uczciwymi działaniami i ocenić sprawiedliwość podczas kompilowania modeli uczenia maszynowego, możesz tworzyć modele, które generują nieuczciwe wyniki.
 
-Poniższe podsumowanie [podręcznika użytkownika](https://fairlearn.github.io/user_guide/index.html) dla pakietu Fairlearn Open Source zawiera opis sposobu korzystania z niego do oceny sprawiedliwej liczby tworzonych systemów AI.  Pakiet Fairlearn open source może również oferować opcje pozwalające ograniczyć lub zmniejszyć liczbę problemów, które należy obserwować.  Zobacz sekcję [instrukcje](how-to-machine-learning-fairness-aml.md) i [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) , aby włączyć ocenę godziwą systemów AI podczas szkolenia na Azure Machine Learning.
+Poniższe podsumowanie [podręcznika użytkownika](https://fairlearn.github.io/master/user_guide/index.html) dla pakietu Fairlearn Open Source zawiera opis sposobu korzystania z niego do oceny sprawiedliwej liczby tworzonych systemów AI.  Pakiet Fairlearn open source może również oferować opcje pozwalające ograniczyć lub zmniejszyć liczbę problemów, które należy obserwować.  Zobacz sekcję [instrukcje](how-to-machine-learning-fairness-aml.md) i [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) , aby włączyć ocenę godziwą systemów AI podczas szkolenia na Azure Machine Learning.
 
 
 ## <a name="what-is-fairness-in-machine-learning-models"></a>Co to jest sprawiedliwe w modelach uczenia maszynowego?
@@ -51,7 +51,7 @@ Wspólnie te składniki umożliwiają analitykom danych i liderom biznesowym naw
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Oceniaj sprawiedliwe modele uczenia maszynowego
 
-W pakiecie Fairlearn Open Source godziwa wartość jest koncepcyjna, chociaż podejście znane jako **sprawiedliwe grupy**, z pytaniem, które grupy osób narażonych są zagrożone? Odpowiednie grupy, znane także jako podpopulacji, są definiowane za pomocą **poufnych funkcji** lub atrybutów poufnych. Funkcje poufne są przesyłane do szacowania w pakiecie Fairlearn typu open source jako wektor lub macierz o nazwie  `sensitive_features` . W tym przypadku należy zasugerować, że projektant systemu powinien być poufny dla tych funkcji podczas oceniania sprawiedliwości grupy. 
+W pakiecie Fairlearn Open Source godziwa wartość jest koncepcyjna, chociaż podejście znane jako **sprawiedliwe grupy** , z pytaniem, które grupy osób narażonych są zagrożone? Odpowiednie grupy, znane także jako podpopulacji, są definiowane za pomocą **poufnych funkcji** lub atrybutów poufnych. Funkcje poufne są przesyłane do szacowania w pakiecie Fairlearn typu open source jako wektor lub macierz o nazwie  `sensitive_features` . W tym przypadku należy zasugerować, że projektant systemu powinien być poufny dla tych funkcji podczas oceniania sprawiedliwości grupy. 
 
 Należy się zastanowić, czy te funkcje zawierają kwestie dotyczące prywatności wynikające z danych prywatnych. Ale słowo "poufne" nie oznacza, że te funkcje nie powinny być używane do prognozowania.
 
@@ -108,6 +108,6 @@ Pakiet Fairlearn Open Source zapewnia dostosujesz i zmniejszanie algorytmów ogr
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak korzystać z różnych składników, sprawdzając w witrynie [GitHub](https://github.com/fairlearn/fairlearn/)Fairlearn, [podręczniku użytkownika](https://fairlearn.github.io/user_guide/index.html), [przykłady](https://fairlearn.github.io/auto_examples/)i [przykładowe notesy](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
+- Dowiedz się, jak korzystać z różnych składników, sprawdzając w witrynie [GitHub](https://github.com/fairlearn/fairlearn/)Fairlearn, [podręczniku użytkownika](https://fairlearn.github.io/master/user_guide/index.html), [przykłady](https://fairlearn.github.io/master/auto_examples/)i [przykładowe notesy](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
 - Dowiedz się [, jak](how-to-machine-learning-fairness-aml.md) włączyć ocenę godziwą modeli uczenia maszynowego w Azure Machine Learning.
 - Zapoznaj się z [przykładowymi notesami](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) , aby uzyskać dodatkowe scenariusze oceny uczciwości w Azure Machine Learning. 

@@ -3,12 +3,12 @@ title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d5875287c7af905579397164029ef0504d6b9dc
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627112"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337954"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 
@@ -1433,7 +1433,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | privatednszones / virtualnetworklinks | Tak | Tak |
 > | privatednszonesinternal | Nie | Nie |
 > | privateendpointredirectmaps | Nie | Nie |
-> | privateendpoints | Tak | Tak |
+> | privateendpoints | Nie | Nie |
 > | privatelinkservices | Nie | Nie |
 > | adresów publicipaddress | Tak — podstawowa jednostka SKU<br>Tak — standardowa jednostka SKU | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU |
 > | publicipprefixes | Tak | Tak |

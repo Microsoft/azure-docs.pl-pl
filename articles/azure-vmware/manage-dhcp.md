@@ -1,105 +1,140 @@
 ---
-title: Jak utworzyć serwer DHCP i zarządzać nim
-description: W tym artykule opisano sposób zarządzania serwerem DHCP w rozwiązaniu VMware platformy Azure.
-ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: cb74ed4474cc14081e59142f2f60915fccd47559
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+title: Zarządzanie protokołem DHCP dla rozwiązania VMware platformy Azure
+description: Dowiedz się, jak utworzyć protokół DHCP i zarządzać nim w chmurze prywatnej rozwiązania Azure VMware.
+ms.topic: how-to
+ms.date: 11/09/2020
+ms.openlocfilehash: 9143a8544fe1b98262c3e990ccdf56f5d5f65957
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461060"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335992"
 ---
-# <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Tworzenie i zarządzanie serwerem DHCP w rozwiązaniu VMware platformy Azure
+# <a name="manage-dhcp-for-azure-vmware-solution"></a>Zarządzanie protokołem DHCP dla rozwiązania VMware platformy Azure
 
-NSX-T zapewnia możliwość konfigurowania protokołu DHCP dla chmury prywatnej. Jeśli używasz NSX-T do hostowania serwera DHCP, zobacz [Tworzenie serwera DHCP](#create-dhcp-server). W przeciwnym razie, jeśli w sieci istnieje zewnętrzny serwer DHCP innej firmy, zobacz [Tworzenie usługi przekaźnika DHCP](#create-dhcp-relay-service).
+Aplikacje i obciążenia działające w środowisku chmury prywatnej wymagają usług DHCP do przypisywania adresów IP.  W tym artykule opisano sposób tworzenia i zarządzania usługą DHCP w rozwiązaniu Azure VMware na dwa sposoby:
 
-## <a name="create-dhcp-server"></a>Utwórz serwer DHCP
+- Jeśli używasz NSX-T do hostowania serwera DHCP, musisz [utworzyć serwer DHCP](#create-a-dhcp-server) i [przekazać go do tego serwera](#create-dhcp-relay-service). Podczas tworzenia serwera DHCP należy również dodać segment sieci i określić zakres adresów IP protokołu DHCP.   
 
-Wykonaj następujące kroki, aby skonfigurować serwer DHCP na NSX-T.
+- Jeśli używasz zewnętrznego serwera DHCP innej firmy w sieci, musisz [utworzyć usługę przekaźnika DHCP](#create-dhcp-relay-service). Podczas tworzenia przekaźnika na serwerze DHCP, przy użyciu NSX-T lub innej firmy do hostowania serwera DHCP, należy określić zakres adresów IP protokołu DHCP.
 
-1. W programie NSX Manager przejdź do karty **Sieć** , a następnie wybierz pozycję **DHCP**. 
-1. Wybierz pozycję **Dodaj serwer** , a następnie podaj nazwę serwera i adres IP. 
-1. Wybierz pozycję **Zapisz**.
+>[!IMPORTANT]
+>Usługa DHCP nie działa w przypadku maszyn wirtualnych w sieci rozciąganej programu VMware HCX L2, gdy serwer DHCP znajduje się w lokalnym centrum danych.  NSX domyślnie blokuje wszystkie żądania DHCP od przechodzenia do rozciągnięcia L2. W przypadku rozwiązania Zobacz procedurę [Wyślij żądania DHCP do lokalnego serwera DHCP](#send-dhcp-requests-to-the-on-premises-dhcp-server) .
 
-:::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Dodaj serwer DHCP" border="true":::
 
-### <a name="connect-dhcp-server-to-the-tier-1-gateway"></a>Połącz serwer DHCP z bramą warstwy 1.
+## <a name="create-a-dhcp-server"></a>Tworzenie serwera DHCP
 
-1. Wybierz pozycję **bramy warstwy 1**, bramę z listy, a następnie wybierz pozycję **Edytuj**.
+Jeśli chcesz używać NSX-T do hostowania serwera DHCP, utworzysz serwer DHCP. Następnie dodasz segment sieci i określisz zakres adresów IP protokołu DHCP.
 
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Dodaj serwer DHCP" border="true":::
+1. W Menedżerze NSX-T wybierz pozycję **Sieć**  >  **DHCP** , a następnie wybierz pozycję **Dodaj serwer**.
+
+1. W polu **Typ serwera** wybierz pozycję **DHCP** , podaj nazwę serwera i adres IP, a następnie wybierz pozycję **Zapisz**.
+
+   :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Dodaj serwer DHCP" border="true":::
+
+1. Wybierz pozycję **bramy warstwy 1** , wybierz wielokropek pionowy w bramie warstwy 1, a następnie wybierz pozycję **Edytuj**.
+
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Wybierz bramę do użycia" border="true":::
 
 1. Wybierz pozycję **Brak zestawu alokacji adresów IP** , aby dodać podsieć.
 
-   :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Dodaj serwer DHCP" border="true":::
+   :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Dodawanie podsieci" border="true":::
 
-1. Wybierz opcję **serwer lokalny DHCP** dla tego **typu**. 
-1. Wybierz opcję **domyślny** serwer DHCP dla **serwera DHCP** , a następnie wybierz pozycję **Zapisz**.
+1. W obszarze **Typ** wybierz opcję **serwer lokalny DHCP**. 
+   
+1. W polu **serwer DHCP** wybierz opcję **domyślny serwer DHCP** , a następnie wybierz pozycję **Zapisz**.
 
-
-1. W oknie **brama warstwy 1** wybierz pozycję **Zapisz**. 
-1. Wybierz pozycję **Zamknij edycję** , aby zakończyć.
+1. Wybierz pozycję **Zapisz** ponownie, a następnie wybierz pozycję **Zamknij edytowanie**.
 
 ### <a name="add-a-network-segment"></a>Dodawanie segmentu sieci
 
-Po utworzeniu serwera DHCP należy dodać do niego segmenty sieci.
+[!INCLUDE [add-network-segment-steps](includes/add-network-segment-steps.md)]
 
-1. W NSX-T wybierz kartę **Sieć** i wybierz **segmenty** w obszarze **łączność**. 
-1. Wybierz pozycję **Dodaj segment** i nazwij segment i połączenie z bramą warstwy 1. 
-1. Wybierz pozycję **Ustaw podsieci** , aby skonfigurować nową podsieć. 
-
-   :::image type="content" source="./media/manage-dhcp/add-segment.png" alt-text="Dodaj serwer DHCP" border="true":::
-
-1. W oknie **Ustawianie podsieci** wybierz pozycję **Dodaj podsieć**. 
-1. Wprowadź adres IP bramy i zakres DHCP, a następnie wybierz pozycję **Dodaj** , a następnie **Zastosuj**
-
-1. Wybierz pozycję **Zapisz** , aby dodać nowy segment sieci.
 
 ## <a name="create-dhcp-relay-service"></a>Tworzenie usługi przekaźnika DHCP
 
-1. Wybierz kartę **Sieć** i w obszarze **Zarządzanie IP**wybierz pozycję **DHCP**. 
-1. Wybierz pozycję **Dodaj serwer**. 
-1. W polu **Typ serwera** wybierz opcję przekaźnik DHCP, a następnie wprowadź nazwę serwera i adres IP serwera przekazywania. 
-1. Wybierz pozycję **Zapisz**.
+Jeśli chcesz użyć zewnętrznego serwera DHCP innej firmy, musisz utworzyć usługę przekaźnika DHCP. Należy również określić zakres adresów IP protokołu DHCP w Menedżerze NSX-T. 
 
-   :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Dodaj serwer DHCP" border="true":::
+1. W Menedżerze NSX-T wybierz pozycję **Sieć**  >  **DHCP** , a następnie wybierz pozycję **Dodaj serwer**.
 
-1. Wybierz pozycję **bramy warstwy 1** w obszarze **łączność**. 
-1. Wybierz wielokropek pionowy w bramie warstwy 1 i wybierz pozycję **Edytuj**.
+1. Wybierz opcję **przekaźnik DHCP** dla **typu serwera** , podaj nazwę serwera i adres IP, a następnie wybierz pozycję **Zapisz**.
 
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="Dodaj serwer DHCP" border="true":::
+   :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Tworzenie usługi przekaźnika DHCP" border="true":::
+
+1. Wybierz pozycję **bramy warstwy 1** , wybierz wielokropek pionowy w bramie warstwy 1, a następnie wybierz pozycję **Edytuj**.
+
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="Edytuj bramę warstwy 1" border="true":::
 
 1. Wybierz pozycję **Brak zestawu alokacji adresów IP** , aby zdefiniować alokację adresów IP.
 
-   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="Dodaj serwer DHCP" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="Edytuj alokację adresów IP" border="true":::
 
-1. Wybierz **serwer przekazywania DHCP** dla **typu**.
-1. Wybierz serwer przekazywania DHCP do **przekaźnika DHCP**. 
-1. Wybierz pozycję **Zapisz**.
+1. W obszarze **Typ** wybierz opcję **serwer DHCP**. 
+   
+1. W polu **serwer DHCP** wybierz opcję **przekaźnik DHCP** , a następnie wybierz pozycję **Zapisz**.
+
+1. Wybierz pozycję **Zapisz** ponownie, a następnie wybierz pozycję **Zamknij edytowanie**.
 
 
-## <a name="specify-a-dhcp-range-ip-on-a-segment"></a>Określ adres IP zakresu DHCP dla segmentu
+## <a name="specify-the-dhcp-ip-address-range"></a>Określ zakres adresów IP protokołu DHCP
 
-> [!NOTE]
-> Ta konfiguracja jest wymagana do realizacji funkcji przekazywania DHCP w segmencie klienta DHCP. 
+1. W Menedżerze NSX-T wybierz pozycję **Networking**  >  **segmenty** sieci. 
+   
+1. Wybierz wielokropek pionowy w nazwie segmentu i wybierz pozycję **Edytuj**.
+   
+1. Wybierz pozycję **Ustaw podsieci** , aby określić adres IP protokołu DHCP dla podsieci. 
+   
+   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="segmenty sieci" border="true":::
+      
+1. W razie konieczności zmodyfikuj adres IP bramy, a następnie wprowadź wartość adres IP zakresu DHCP. 
+      
+   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Edytowanie podsieci" border="true":::
+      
+1. Wybierz pozycję **Zastosuj** , a następnie **Zapisz**. Do segmentu przypisano pulę serwerów DHCP.
+      
+   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Pula serwerów DHCP przypisana do segmentu" border="true":::
 
-1. W obszarze **łączność**wybierz pozycję **segmenty**. 
-1. Wybierz wielokropek pionowy i wybierz pozycję **Edytuj**. 
 
-   >[!TIP]
-   >Jeśli chcesz dodać nowy segment, wybierz pozycję **Dodaj segment**.
+## <a name="send-dhcp-requests-to-the-on-premises-dhcp-server"></a>Wysyłanie żądań DHCP do lokalnego serwera DHCP
 
-1. Dodaj szczegóły dotyczące segmentu. 
-1. Wybierz wartość w obszarze **Ustaw podsieci** , aby dodać lub zmodyfikować podsieć.
+Jeśli chcesz wysyłać żądania DHCP z maszyn wirtualnych rozwiązań VMware platformy Azure w rozszerzonym segmencie L2 do lokalnego serwera DHCP, utworzysz profil segmentu zabezpieczeń. 
 
-   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="Dodaj serwer DHCP" border="true":::
+1. Zaloguj się do lokalnego programu vCenter i w obszarze **Strona główna** wybierz pozycję **HCX**.
 
-1. Wybierz wielokropek pionowy i wybierz pozycję **Edytuj**. Jeśli musisz utworzyć nową podsieć, wybierz pozycję **Dodaj podsieć** , aby utworzyć bramę i skonfigurować zakres DHCP. 
-1. Podaj zakres puli adresów IP i wybierz pozycję **Zastosuj**, a następnie wybierz pozycję **Zapisz** .
+1. Wybierz pozycję **rozszerzenie sieci** w obszarze **usługi**.
 
-   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Dodaj serwer DHCP" border="true":::
+1. Wybierz rozszerzenie sieci, dla którego chcesz obsługiwać żądania DHCP z rozwiązań VMware platformy Azure w środowisku lokalnym. 
 
-   Pula serwerów DHCP jest przypisana do segmentu.
+1. Zanotuj nazwę sieci docelowej.  
 
-   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Dodaj serwer DHCP" border="true":::
+   :::image type="content" source="media/manage-dhcp/hcx-find-destination-network.png" alt-text="Zrzut ekranu przedstawiający rozszerzenie sieci w kliencie VMware vSphere" lightbox="media/manage-dhcp/hcx-find-destination-network.png":::
+
+1. W Menedżerze rozwiązań Azure VMware NSX-T wybierz kolejno pozycje **Sieć**  >  **segmenty**  >  **segmentu profile**. 
+
+1. Wybierz kolejno pozycje **Dodaj profil segmentu** i **zabezpieczenia segmentu**.
+
+   :::image type="content" source="media/manage-dhcp/add-segment-profile.png" alt-text="Zrzut ekranu przedstawiający sposób dodawania profilu segmentu w NSX-T" lightbox="media/manage-dhcp/add-segment-profile.png":::
+
+1. Podaj nazwę i tag, a następnie ustaw przełącznik **filtru BPDU** na wartość włączone, a wszystkie przełączniki DHCP są wyłączone.
+
+   :::image type="content" source="media/manage-dhcp/add-segment-profile-bpdu-filter-dhcp-options.png" alt-text="Zrzut ekranu przedstawiający filtr BPDU włączony i przełączania DHCP" lightbox="media/manage-dhcp/add-segment-profile-bpdu-filter-dhcp-options.png":::
+
+1. Usuń wszystkie adresy MAC, jeśli istnieją, na **liście dozwolonych filtrów BPDU**.  Następnie wybierz pozycję **Zapisz**.
+
+   :::image type="content" source="media/manage-dhcp/add-segment-profile-bpdu-filter-allow-list.png" alt-text="Zrzut ekranu przedstawiający adresy MAC na liście dozwolonych filtrów BPDU":::
+
+1. W obszarze segmenty **sieci**  >  **Segments**  >  **segmenty** , w obszarze wyszukiwania wprowadź nazwę sieci definicji.
+
+   :::image type="content" source="media/manage-dhcp/networking-segments-search.png" alt-text="Zrzut ekranu przedstawiający pole filtru segmentów > sieci":::
+
+1. Wybierz wielokropek pionowy w nazwie segmentu i wybierz pozycję **Edytuj**.
+
+   :::image type="content" source="media/manage-dhcp/edit-network-segment.png" alt-text="Zrzut ekranu przycisku Edytuj dla segmentu" lightbox="media/manage-dhcp/edit-network-segment.png":::
+
+1. Zmień **zabezpieczenia segmentu** na utworzony wcześniej profil segmentu.
+
+   :::image type="content" source="media/manage-dhcp/edit-segment-security.png" alt-text="Zrzut ekranu przedstawiający pole zabezpieczeń segmentu" lightbox="media/manage-dhcp/edit-segment-security.png":::
+
+## <a name="next-steps"></a>Następne kroki
+
+Dowiedz się więcej na temat [konserwacji hosta i zarządzania cyklem życia](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).

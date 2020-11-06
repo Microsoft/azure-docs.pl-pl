@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: b34c6fe58873a614ee8502e052c2af5aaed898cd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3c1c7ac8fe8b7adf287bcde30a054df5ebaa63d7
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547949"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337444"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalowanie aplikacji Apache Hadoop innych firm w usłudze Azure HDInsight
 
@@ -29,7 +29,7 @@ Na poniższej liście przedstawiono opublikowane aplikacje:
 |[CDAP dla usługi HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP to pierwsza ujednolicona platforma integracji dla danych Big Data, która skraca czas do wartości dla usługi Hadoop i umożliwia udostępnienie danych samoobsługi. Polecenie Open Source i rozszerzalne, CDAP usuwa przeszkody dla innowacji. Wymagania: 4 regiony regionów, minimum D3 2. |
 |[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop |Samoobsługowa platforma Datameer na potrzeby przygotowywania, eksplorowania i zarządzania danymi na potrzeby analiz przyspiesza przekształcanie złożonych danych z wielu źródeł w cenne informacje dostępne dla działalności firmy, dostarczając szybszy, inteligentniejszy wgląd w skalę przedsiębiorstwa. |
 |[Dataiku DSS w usłudze HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS na platformie do nauki o danych w przedsiębiorstwie, która umożliwia analitykom danych i specjalistom ds. danych współpracę w celu projektowania i uruchamiania nowych produktów i usług danych w bardziej wydajny sposób, dzięki czemu nieprzetworzone dane mają wpływ na przewidywania. |
-|[Aplikacja WANdisco Fusion HDI](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.wandisco-liveanalytics) |Hadoop, Spark, HBase, burza, Kafka |Utrzymywanie spójnych danych w środowisku rozproszonym jest wyzwaniem wielu operacji na danych. WANdisco Fusion, platforma oprogramowania klasy korporacyjnej, rozwiązuje ten problem przez włączenie niestrukturalnej spójności danych w dowolnym środowisku. |
+|[Aplikacja WANdisco Fusion HDI](https://community.wandisco.com/s/article/Use-WANdisco-Fusion-for-parallel-operation-of-ADLS-Gen1-and-Gen2) |Hadoop, Spark, HBase, burza, Kafka |Utrzymywanie spójnych danych w środowisku rozproszonym jest wyzwaniem wielu operacji na danych. WANdisco Fusion, platforma oprogramowania klasy korporacyjnej, rozwiązuje ten problem przez włączenie niestrukturalnej spójności danych w dowolnym środowisku. |
 |[H2O SparklingWater dla usługi HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |platforma Spark |W przypadku wody musującej można używać następujących algorytmów rozproszonych: GLM, algorytmie Bayesa, rozproszony Las losowy, komputer do zwiększania gradientów, głębokie neuronowych sieci, uczenie głębokie, K-oznacza, PPW, uogólnione modele o niskiej rangi, wykrywanie anomalii, autokodery. |
 |[Striim do integracji danych Real-Time z usługą HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, burza, Spark, Kafka |Striim (wymawiane "Stream") to kompleksowa integracja danych przesyłania strumieniowego i platforma analizy, umożliwiająca ciągłe pozyskiwanie, przetwarzanie i analizowanie różnorodnych strumieni danych. |
 |[Jumbune Enterprise-Accelerating BigData Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |Na wysokim poziomie Jumbune wspiera przedsiębiorstwa przez, 1. Przyspieszenie tez, & MapReduce, oparty na aparacie Spark, środowisko Java, Scala wydajność obciążeń. 2. Proaktywne monitorowanie klastra Hadoop, 3. Ustanawianie zarządzania jakością danych w rozproszonym systemie plików. |
@@ -51,10 +51,10 @@ Poniższa procedura pokazuje sposób instalacji aplikacji usługi HDInsight w is
 
 **Instalowanie aplikacji usługi HDInsight**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Z menu po lewej stronie przejdź do strony **wszystkie usługi**  >  **analizy na platformie**  >  **HDInsight** .
+1. Zaloguj się do [Azure portal](https://portal.azure.com).
+2. Z menu po lewej stronie przejdź do strony **wszystkie usługi**  >  **analizy na platformie**  >  **HDInsight**.
 3. Wybierz klaster usługi HDInsight z listy.  Jeśli nie masz klastra, musisz go najpierw utworzyć.  Zobacz [Tworzenie klastrów](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-4. W kategorii **Ustawienia** wybierz pozycję **aplikacje** . W oknie głównym można zobaczyć listę zainstalowanych aplikacji. 
+4. W kategorii **Ustawienia** wybierz pozycję **aplikacje**. W oknie głównym można zobaczyć listę zainstalowanych aplikacji. 
    
     ![Aplikacje usługi HDInsight — menu portalu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Wybierz pozycję **+ Dodaj** z menu. Zostanie wyświetlona lista dostępnych aplikacji.  Jeśli **dodatek + Add** jest wyszarzony, oznacza to, że nie ma żadnych aplikacji dla tej wersji klastra usługi HDInsight.
@@ -66,7 +66,7 @@ Możesz zobaczyć stan instalacji w powiadomieniach portalu (wybierz ikonę dzwo
 
 ## <a name="install-applications-during-cluster-creation"></a>Instalowanie aplikacji podczas tworzenia klastra
 
-Aplikacje usługi HDInsight możesz także zainstalować podczas tworzenia klastra. W trakcie procesu aplikacje usługi HDInsight są instalowane po utworzeniu i uruchomieniu klastra. Aby zainstalować aplikacje podczas tworzenia klastra przy użyciu Azure Portal, na karcie **Konfiguracja i Cennik** wybierz pozycję **+ Dodaj aplikację** .
+Aplikacje usługi HDInsight możesz także zainstalować podczas tworzenia klastra. W trakcie procesu aplikacje usługi HDInsight są instalowane po utworzeniu i uruchomieniu klastra. Aby zainstalować aplikacje podczas tworzenia klastra przy użyciu Azure Portal, na karcie **Konfiguracja i Cennik** wybierz pozycję **+ Dodaj aplikację**.
 
 ![Azure Portal aplikacji konfiguracyjnych klastra](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
 
@@ -75,10 +75,10 @@ Portal zawiera listę zainstalowanych aplikacji usługi HDInsight dla klastra or
 
 **Wyświetlanie listy aplikacji i właściwości wyświetlania usługi HDInsight**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Z menu po lewej stronie przejdź do strony **wszystkie usługi**  >  **analizy na platformie**  >  **HDInsight** .
+1. Zaloguj się do [Azure portal](https://portal.azure.com).
+2. Z menu po lewej stronie przejdź do strony **wszystkie usługi**  >  **analizy na platformie**  >  **HDInsight**.
 3. Wybierz klaster usługi HDInsight z listy.
-4. W kategorii **Ustawienia** wybierz pozycję **aplikacje** . W oknie głównym można zobaczyć listę zainstalowanych aplikacji. 
+4. W kategorii **Ustawienia** wybierz pozycję **aplikacje**. W oknie głównym można zobaczyć listę zainstalowanych aplikacji. 
    
     ![Aplikacje usługi HDInsight — zainstalowane aplikacje](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Wybierz jedną z zainstalowanych aplikacji, aby wyświetlić właściwość. Lista właściwości:

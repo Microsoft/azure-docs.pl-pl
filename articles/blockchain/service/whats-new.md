@@ -4,12 +4,12 @@ description: Dowiedz się, co nowego w usłudze Azure łańcucha bloków Service
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 47e0da5a729519f2af3c5b2a2fd3e0f7485624cf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948463"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335030"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Co nowego w usłudze Azure łańcucha bloków Service?
 
@@ -27,7 +27,7 @@ Usługa Azure łańcucha bloków Service odbiera usprawnienia w sposób ciągły
 
 ### <a name="version-upgrades"></a>Uaktualnienia wersji
 
-- Uaktualnianie wersji kworum do 2.6.0. W wersji 2.6.0 można wysyłać podpisane transakcje prywatne. Aby uzyskać więcej informacji na temat wysyłania transakcji prywatnych, zobacz [dokumentację interfejsu API kworum](https://docs.goquorum.com/en/latest/Getting%20Started/api/).
+- Uaktualnianie wersji kworum do 2.6.0. W wersji 2.6.0 można wysyłać podpisane transakcje prywatne. Aby uzyskać więcej informacji na temat wysyłania transakcji prywatnych, zobacz [dokumentację interfejsu API kworum](https://docs.goquorum.consensys.net/en/latest/Reference/APIs/ContractExtensionAPIs/#apis).
 - Uaktualnij wersję Tessera do 0.10.5.
 
 ### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>Rozmiar kontraktu i rozmiar transakcji został zwiększony do 128 KB
@@ -69,7 +69,7 @@ Dwie fazy pomagają zoptymalizować scenariusze, w których element członkowski
 W 2.6.0 kworum v, wywołania funkcji *ETH. estimateGas* bez podawania dodatkowego parametru *wartości* powodują *awarię wyjątku procedury obsługi metody* . Zespół kworum został powiadomiony, a jego poprawka jest oczekiwana na koniec lipca 2020. Następujące obejścia można zastosować do momentu udostępnienia poprawki:
 
 - Należy unikać używania *ETH. estimateGas* , ponieważ może to mieć wpływ na wydajność. Aby uzyskać więcej informacji na temat problemów z wydajnością ETH. estimateGas, zobacz [wywoływanie funkcji ETH. estimateGas zmniejsza wydajność](#calling-ethestimategas-function-reduces-performance). Uwzględnij wartość gazu dla każdej transakcji. Większość bibliotek wywoła ETH. estimateGas, jeśli nie zostanie podana wartość gazu, która powoduje awarię kworum w 2.6.0.
-- Jeśli konieczne jest wywołanie *ETH. estimateGas*, zespół kworum sugeruje przekazanie dodatkowej *wartości* parametru jako " *0* " jako obejście.
+- Jeśli konieczne jest wywołanie *ETH. estimateGas* , zespół kworum sugeruje przekazanie dodatkowej *wartości* parametru jako " *0* " jako obejście.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>Wyszukiwanie jest zatrzymywane w przypadku mniej niż czterech węzłów modułu sprawdzania poprawności
 
@@ -127,5 +127,5 @@ Unikaj niepowiązanych pętli w inteligentnych kontraktach, ponieważ mogą one 
 
 - [Unikaj pętli niezwiązanych](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [Najlepsze rozwiązania w zakresie zabezpieczeń dla kontraktu inteligentnego](https://github.com/ConsenSys/smart-contract-best-practices)
-- [Wskazówki dotyczące kontraktu inteligentnego udostępniane przez kworum](http://docs.goquorum.com/en/latest/Security/Framework/Decentralized%20Application/Smart%20Contracts%20Security/)
+- [Wskazówki dotyczące kontraktu inteligentnego udostępniane przez kworum](https://docs.goquorum.consensys.net/en/stable/Concepts/Security/Framework/DecentralizedApplication/SmartContractsSecurity/)
 - [Wytyczne dotyczące limitów gazu i pętli zapewniające trwałość](https://solidity.readthedocs.io/en/develop/security-considerations.html#gas-limit-and-loops)

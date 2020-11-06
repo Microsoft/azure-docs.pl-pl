@@ -6,12 +6,12 @@ ms.author: vlvinogr
 ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 2bf9c4d233cfad454d63da4dce30a38af80d24ab
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 16788e3f547c5848893ba3867da4291c45b04408
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558401"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335489"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Zasady integracji API Management Dapr
 
@@ -25,7 +25,7 @@ Ten temat zawiera informacje dotyczące Dapr Integration API Management zasad. D
 
 ## <a name="enable-dapr-support-in-the-self-hosted-gateway"></a>Włącz obsługę Dapr w samoobsługowej bramie
 
-Aby włączyć obsługę Dapr w ramach bramy samoobsługowej, Dodaj [Adnotacje Dapr](https://github.com/dapr/docs/blob/master/howto/configure-k8s/README.md) poniżej do [szablonu wdrożenia Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md) , zastępując ciąg "App-Name" pożądaną nazwą. Pełny przewodnik konfigurowania i używania API Management z programem Dapr jest dostępny [tutaj](https://aka.ms/apim/dapr/walkthru).
+Aby włączyć obsługę Dapr w ramach bramy samoobsługowej, Dodaj [Adnotacje Dapr](https://github.com/dapr/docs/blob/master/README.md) poniżej do [szablonu wdrożenia Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md) , zastępując ciąg "App-Name" pożądaną nazwą. Pełny przewodnik konfigurowania i używania API Management z programem Dapr jest dostępny [tutaj](https://aka.ms/apim/dapr/walkthru).
 ```yml
 template:
     metadata:
@@ -39,9 +39,9 @@ template:
 
 ## <a name="distributed-application-runtime-dapr-integration-policies"></a>Zasady integracji środowiska Dapr (Distributed Application Runtime)
 
--  [Wyślij żądanie do usługi](api-management-dapr-policies.md#invoke): używa środowiska uruchomieniowego Dapr do lokalizowania i niezawodnego komunikowania się z mikrousługą Dapr. Aby dowiedzieć się więcej na temat wywołania usługi w programie Dapr, zobacz opis w tym pliku [README](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation) .
--  [Wyślij komunikat do publikowania/podtematu](api-management-dapr-policies.md#pubsub): używa środowiska uruchomieniowego Dapr, aby opublikować komunikat w temacie publikowanie/subskrybowanie. Aby dowiedzieć się więcej na temat publikowania/subskrybowania wiadomości w programie Dapr, zobacz opis w tym pliku [README](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md) .
--  [Wyzwalanie powiązania danych wyjściowych](api-management-dapr-policies.md#bind): używa środowiska uruchomieniowego Dapr do wywoływania systemu zewnętrznego za pośrednictwem powiązania danych wyjściowych. Aby dowiedzieć się więcej na temat powiązań w programie Dapr, zobacz opis w tym pliku [README](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md) .
+-  [Wyślij żądanie do usługi](api-management-dapr-policies.md#invoke): używa środowiska uruchomieniowego Dapr do lokalizowania i niezawodnego komunikowania się z mikrousługą Dapr. Aby dowiedzieć się więcej na temat wywołania usługi w programie Dapr, zobacz opis w tym pliku [README](https://github.com/dapr/docs/blob/master/README.md#service-invocation) .
+-  [Wyślij komunikat do publikowania/podtematu](api-management-dapr-policies.md#pubsub): używa środowiska uruchomieniowego Dapr, aby opublikować komunikat w temacie publikowanie/subskrybowanie. Aby dowiedzieć się więcej na temat publikowania/subskrybowania wiadomości w programie Dapr, zobacz opis w tym pliku [README](https://github.com/dapr/docs/blob/master/README.md) .
+-  [Wyzwalanie powiązania danych wyjściowych](api-management-dapr-policies.md#bind): używa środowiska uruchomieniowego Dapr do wywoływania systemu zewnętrznego za pośrednictwem powiązania danych wyjściowych. Aby dowiedzieć się więcej na temat powiązań w programie Dapr, zobacz opis w tym pliku [README](https://github.com/dapr/docs/blob/master/README.md) .
 
 ## <a name="send-request-to-a-service"></a><a name="invoke"></a> Wyślij żądanie do usługi
 
@@ -91,9 +91,9 @@ Poniższy przykład ilustruje wywoływanie metody o nazwie "Back" w mikrousłudz
 
 | Atrybut        | Opis                     | Wymagane | Domyślne |
 |------------------|---------------------------------|----------|---------|
-| Identyfikator zaplecza       | Musi być ustawiona na wartość "dapr"           | Tak      | Nie dotyczy     |
-| dapr-App-ID      | Nazwa docelowej mikrousługi. Mapuje do parametru [AppID](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) w Dapr.| Tak | Nie dotyczy |
-| dapr — Metoda      | Nazwa metody lub adresu URL, który ma zostać wywołany w przypadku mikrousługi docelowej. Mapuje do parametru [Method-Name](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) w Dapr.| Tak | Nie dotyczy |
+| Identyfikator zaplecza       | Musi być ustawiona na wartość "dapr"           | Tak      | Brak     |
+| dapr-App-ID      | Nazwa docelowej mikrousługi. Mapuje do parametru [AppID](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) w Dapr.| Tak | Brak |
+| dapr — Metoda      | Nazwa metody lub adresu URL, który ma zostać wywołany w przypadku mikrousługi docelowej. Mapuje do parametru [Method-Name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) w Dapr.| Tak | Brak |
 
 ### <a name="usage"></a>Użycie
 
@@ -120,7 +120,7 @@ Zasady założono, że środowisko uruchomieniowe Dapr jest uruchomione w konten
 
 #### <a name="example"></a>Przykład
 
-Poniższy przykład ilustruje wysyłanie treści bieżącego żądania do [tematu](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters) "nowy" składnika publikowania/ [podskładnika](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters)"Orders". Odpowiedź odebrana z środowiska uruchomieniowego Dapr jest przechowywana w wpisie "Dapr-Response" kolekcji zmiennych w obiekcie [Context](api-management-policy-expressions.md#ContextVariables) .
+Poniższy przykład ilustruje wysyłanie treści bieżącego żądania do [tematu](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters) "nowy" składnika publikowania/ [podskładnika](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters)"Orders". Odpowiedź odebrana z środowiska uruchomieniowego Dapr jest przechowywana w wpisie "Dapr-Response" kolekcji zmiennych w obiekcie [Context](api-management-policy-expressions.md#ContextVariables) .
 
 Jeśli środowisko uruchomieniowe Dapr nie może zlokalizować tematu docelowego, na przykład i reaguje na błąd, sekcja "On-Error" jest wyzwalana. Odpowiedź odebrana z środowiska uruchomieniowego Dapr jest zwracana do obiektu wywołującego Verbatim. W przeciwnym razie `200 OK` zwracana jest odpowiedź domyślna.
 
@@ -159,8 +159,8 @@ Sekcja "zaplecze" jest pusta, a żądanie nie jest przekazywane do zaplecza.
 
 | Atrybut        | Opis                     | Wymagane | Domyślne |
 |------------------|---------------------------------|----------|---------|
-| pubsub — nazwa      | Nazwa docelowego składnika PubSub. Mapuje do parametru [pubsubname](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) w Dapr. Jeśli nie istnieje, wartość atrybutu __tematu__ musi mieć postać `pubsub-name/topic-name` .    | Nie       | Brak    |
-| temat            | Nazwa tematu. Mapuje do parametru [tematu](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) w Dapr.               | Tak      | Nie dotyczy     |
+| pubsub — nazwa      | Nazwa docelowego składnika PubSub. Mapuje do parametru [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) w Dapr. Jeśli nie istnieje, wartość atrybutu __tematu__ musi mieć postać `pubsub-name/topic-name` .    | Nie       | Brak    |
+| temat            | Nazwa tematu. Mapuje do parametru [tematu](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) w Dapr.               | Tak      | Brak     |
 | Ignoruj-błąd     | Jeśli ustawiono `true` , aby nie wyzwalał instrukcji ["On-Error"](api-management-error-handling-policies.md) podczas uzyskiwania błędu z środowiska uruchomieniowego Dapr | Nie | `false` |
 | odpowiedź-zmienna-nazwa | Nazwa wpisu kolekcji [zmiennych](api-management-policy-expressions.md#ContextVariables) , który ma być używany do przechowywania odpowiedzi z środowiska uruchomieniowego Dapr | Nie | Brak |
 | timeout | Czas (w sekundach) oczekiwania na odpowiedź środowiska uruchomieniowego Dapr. Może mieć zakres od 1 do 240 sekund. | Nie | 5 |
@@ -176,7 +176,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 ## <a name="trigger-output-binding"></a><a name="bind"></a> Wyzwalanie powiązania danych wyjściowych
 
-Te zasady instruują API Management Gateway, aby wyzwolić wychodzące [powiązanie](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md)Dapr. Zasady te osiągają, dzięki czemu żądanie HTTP POST `http://localhost:3500/v1.0/bindings/{{bind-name}}` zastępujące parametr szablonu i dodanie zawartości określonej w instrukcji zasad.
+Te zasady instruują API Management Gateway, aby wyzwolić wychodzące [powiązanie](https://github.com/dapr/docs/blob/master/README.md)Dapr. Zasady te osiągają, dzięki czemu żądanie HTTP POST `http://localhost:3500/v1.0/bindings/{{bind-name}}` zastępujące parametr szablonu i dodanie zawartości określonej w instrukcji zasad.
 
 Zasady założono, że środowisko uruchomieniowe Dapr jest uruchomione w kontenerze przyczepki w tym samym obszarze co brama. Środowisko uruchomieniowe Dapr jest odpowiedzialne za wywoływanie zasobu zewnętrznego reprezentowanego przez powiązanie.
 
@@ -237,16 +237,16 @@ Sekcja "zaplecze" jest pusta, a żądanie nie jest przekazywane do zaplecza.
 | Element             | Opis  | Wymagane |
 |---------------------|--------------|----------|
 | Invoke-dapr-Binding | Element główny | Tak      |
-| metadane            | Powiązanie określonych metadanych w formie par klucz/wartość. Mapuje do właściwości [Metadata](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) w Dapr. | Nie |
-| dane            | Zawartość wiadomości. Mapuje do właściwości [Data](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) w Dapr. | Nie |
+| metadane            | Powiązanie określonych metadanych w formie par klucz/wartość. Mapuje do właściwości [Metadata](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) w Dapr. | Nie |
+| dane            | Zawartość wiadomości. Mapuje do właściwości [Data](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) w Dapr. | Nie |
 
 
 ### <a name="attributes"></a>Atrybuty
 
 | Atrybut        | Opis                     | Wymagane | Domyślne |
 |------------------|---------------------------------|----------|---------|
-| name            | Nazwa powiązania docelowego. Musi być zgodna z nazwą powiązań [zdefiniowaną](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) w Dapr.           | Tak      | Nie dotyczy     |
-| operation       | Nazwa operacji docelowej (specyficzne dla powiązania). Mapuje do właściwości [operacji](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) w Dapr. | Nie | Brak |
+| name            | Nazwa powiązania docelowego. Musi być zgodna z nazwą powiązań [zdefiniowaną](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) w Dapr.           | Tak      | Brak     |
+| operation       | Nazwa operacji docelowej (specyficzne dla powiązania). Mapuje do właściwości [operacji](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) w Dapr. | Nie | Brak |
 | Ignoruj-błąd     | Jeśli ustawiono `true` , aby nie wyzwalał instrukcji ["On-Error"](api-management-error-handling-policies.md) podczas uzyskiwania błędu z środowiska uruchomieniowego Dapr | Nie | `false` |
 | odpowiedź-zmienna-nazwa | Nazwa wpisu kolekcji [zmiennych](api-management-policy-expressions.md#ContextVariables) , który ma być używany do przechowywania odpowiedzi z środowiska uruchomieniowego Dapr | Nie | Brak |
 | timeout | Czas (w sekundach) oczekiwania na odpowiedź środowiska uruchomieniowego Dapr. Może mieć zakres od 1 do 240 sekund. | Nie | 5 |

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123719"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336506"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Użyj Azure Portal, aby administrować Azure Data Box i Azure Data Box Heavy
 
@@ -34,11 +34,11 @@ Aby anulować zamówienie, wykonaj poniższe czynności.
 
 1.  Przejdź do pozycji **Przegląd > Anuluj**.
 
-    ![Anulowanie zamówienia — 1](media/data-box-portal-admin/cancel-order1.png)
+    ![Polecenie Cancel na karcie Przegląd dla zamówienia](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  Wprowadź przyczynę anulowania zamówienia.  
 
-    ![Anulowanie zamówienia — 2](media/data-box-portal-admin/cancel-order2.png)
+    ![Anuluj zamówienie, okno dialogowe](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
 3.  Po anulowaniu zamówienia jego stan w portalu zostanie zmieniony na **Anulowane**.
 
@@ -53,7 +53,7 @@ Wykonaj następujące kroki, aby sklonować kolejność importu.
 
 1.  Przejdź do pozycji **Przegląd > Klonuj**. 
 
-    ![Klonowanie zamówienia — 1](media/data-box-portal-admin/clone-order1.png)
+    ![Klonuj polecenie na karcie Przegląd dla zamówienia](media/data-box-portal-admin/portal-admin-clone-command.png)
 
 2.  Wszystkie szczegóły zamówienia pozostaną takie same. Nazwa zamówienia będzie taka jak nazwa oryginalnego zamówienia z dodaną końcówką *— klon*. Zaznacz pole wyboru, aby potwierdzić zapoznanie się z informacjami dotyczącymi prywatności. Kliknij pozycję **Utwórz**.
 
@@ -70,7 +70,7 @@ Można usuwać tylko zamówienia, które zostały zakończone lub anulowane. Aby
 
 2. Kliknij zamówienie, które chcesz usunąć, i przejdź do sekcji **Przegląd**. Na pasku poleceń kliknij pozycję **Usuń**.
 
-    ![Usuwanie zamówienia usługi Data Box 1](media/data-box-portal-admin/delete-order1.png)
+    ![Polecenie usuwania na karcie Przegląd dla zamówienia](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Gdy pojawi się monit o potwierdzenie usunięcia zamówienia, podaj nazwę zamówienia. Kliknij polecenie **Usuń**.
 
@@ -82,11 +82,11 @@ Aby pobrać etykietę wysyłkową, wykonaj następujące czynności.
 
 1.  Przejdź do pozycji **Przegląd > Pobierz etykietę wysyłkową**. Ta opcja jest dostępna tylko po wysłaniu urządzenia. 
 
-    ![Pobieranie etykiety wysyłkowej](media/data-box-portal-admin/download-shipping-label.png)
+    ![Pobieranie etykiety wysyłkowej](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.  To spowoduje pobranie następującej zwrotnej etykiety wysyłkowej. Zapisz etykietę i wydrukuj ją. Złóż i Wstaw etykietę do jasnej rękawa na urządzeniu. Upewnij się, że etykieta jest widoczna. Usuń wszystkie znajdujące się na urządzeniu nalepki z poprzedniej wysyłki.
 
-    ![Przykładowa etykieta wysyłkowa](media/data-box-portal-admin/example-shipping-label.png)
+    ![Przykładowa etykieta wysyłkowa](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Edytowanie adresu wysyłkowego
 
@@ -96,11 +96,11 @@ Aby edytować zamówienie, wykonaj następujące czynności.
 
 1. Przejdź do pozycji **Szczegóły zamówienia > Edytuj adres wysyłkowy**.
 
-    ![Edytowanie adresu wysyłkowego — 1](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![Polecenie Edytuj adres wysyłkowy w szczegółach zamówienia](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. Przeprowadź edycję adresu wysyłkowego i sprawdź jego poprawność, a następnie zapisz zmiany.
 
-    ![Edytowanie adresu wysyłkowego — 2](media/data-box-portal-admin/edit-shipping-address2.png)
+    ![Edytowanie adresu wysyłkowego — okno dialogowe](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Edytowanie szczegółów powiadomienia
 
@@ -110,11 +110,11 @@ Aby edytować szczegóły powiadomień, wykonaj następujące czynności.
 
 1. Przejdź do pozycji **Szczegóły zamówienia > Edytowanie szczegółów powiadomienia**.
 
-    ![Edytowanie szczegółów powiadomienia — 1](media/data-box-portal-admin/edit-notification-details1.png)
+    ![Polecenie Edytuj szczegóły powiadomień w szczegółach zamówienia](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. Możesz teraz edytować szczegóły powiadomień. Następnie zapisz zmiany.
  
-    ![Edytowanie szczegółów powiadomienia — 2](media/data-box-portal-admin/edit-notification-details2.png)
+    ![Edytowanie szczegółów powiadomień — okno dialogowe](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## <a name="download-order-history"></a>Pobieranie historii zamówienia
@@ -125,7 +125,7 @@ Aby pobrać historię zamówienia, wykonaj poniższe kroki.
 
 1. W swoim zamówieniu dotyczącym urządzenia Data Box przejdź na kartę **Przegląd**. Upewnij się, że zamówienie jest zakończone. Jeśli zamówienie jest zakończone i czyszczenie urządzenia zostało ukończone, przejdź do pozycji **Szczegóły zamówienia**. Opcja **Pobieranie historii zamówienia** jest dostępna.
 
-    ![Pobieranie historii zamówienia](media/data-box-portal-admin/download-order-history-1.png)
+    ![Pobieranie historii zamówienia](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
 2. Kliknij pozycję **Pobierz historię zamówienia**. W pobranej historii zostanie wyświetlony rekord dzienników śledzenia przewoźnika. Dostępne są dwa zestawy dzienników odpowiadające dwóm węzłom na Data Box Heavy. Po przewinięciu do dołu tego dziennika możesz zobaczyć linki do następujących obiektów:
     
@@ -198,11 +198,11 @@ Aby pobrać historię zamówienia, wykonaj poniższe kroki.
 
     Następnie możesz przejść do swojego konta magazynu i wyświetlić dzienniki kopiowania.
 
-![Dzienniki w ramach kont magazynu](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![Kopie dzienników dla konta magazynu](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-Możesz również wyświetlić łańcuch dzienników nadzoru, które zawierają dzienniki inspekcji oraz pliki BOM.
+   Możesz również wyświetlić łańcuch dzienników opieki, które obejmują dzienniki inspekcji i pliki BOM.
 
-![Dzienniki na kontach magazynu 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![Łańcuch dzienników opieki nad kontem magazynu](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## <a name="view-order-status"></a>Wyświetlanie stanu zamówienia
 

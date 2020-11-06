@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 538a650c6063422f89c8ed3d1753981a293693b7
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87924757"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94338173"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Administrowanie usługą Data Box Disk w witrynie Azure Portal
 
@@ -29,15 +29,15 @@ Aby anulować zamówienie, wykonaj poniższe czynności.
 
 1.  Przejdź do pozycji **Przegląd > Anuluj**. 
 
-    ![Anulowanie zamówienia — 1](media/data-box-portal-ui-admin/cancel-order1.png)
+    ![Polecenie Cancel na karcie Przegląd dla zamówienia](media/data-box-portal-ui-admin/portal-ui-admin-cancel-command.png)
 
 2.  Wprowadź przyczynę anulowania zamówienia.  
 
-    ![Anulowanie zamówienia — 2](media/data-box-portal-ui-admin/cancel-order2.png)
+    ![Przyczyna anulowania zamówienia](media/data-box-portal-ui-admin/portal-ui-admin-cancel-order-reason.png)
 
 3.  Po anulowaniu zamówienia jego stan w portalu zostanie zmieniony na **Anulowane**.
 
-    ![Anulowanie zamówienia — 3](media/data-box-portal-ui-admin/cancel-order3.png)
+    ![Zamówienie anulowane](media/data-box-portal-ui-admin/portal-ui-admin-canceled-order.png)
 
 Po anulowaniu zamówienia nie otrzymasz powiadomienia e-mail.
 
@@ -49,13 +49,13 @@ Aby sklonować zamówienie, wykonaj następujące czynności.
 
 1.  Przejdź do pozycji **Przegląd > Klonuj**. 
 
-    ![Klonowanie zamówienia — 1](media/data-box-portal-ui-admin/clone-order1.png)
+    ![Klonuj polecenie na karcie Przegląd dla zamówienia](media/data-box-portal-ui-admin/portal-ui-admin-clone-command.png)
 
-2.  Wszystkie szczegóły zamówienia pozostaną takie same. Nazwa zamówienia będzie taka jak nazwa oryginalnego zamówienia z dodaną końcówką *— klon*. Zaznacz pole wyboru, aby potwierdzić zapoznanie się z informacjami dotyczącymi prywatności. Kliknij przycisk **Utwórz**.    
+2.  Wszystkie szczegóły zamówienia pozostaną takie same. Nazwa zamówienia będzie taka jak nazwa oryginalnego zamówienia z dodaną końcówką *— klon*. Zaznacz pole wyboru, aby potwierdzić zapoznanie się z informacjami dotyczącymi prywatności. Kliknij pozycję **Utwórz**.    
 
 W ciągu kilku minut sklonowanie zamówienie zostanie utworzone i wyświetlone w portalu.
 
-[![Klonuj kolejność 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Sklonowany porządek](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png)](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png#lightbox) 
 
 ## <a name="delete-order"></a>Usuwanie zamówienia
 
@@ -65,15 +65,15 @@ Można usuwać tylko zamówienia, które zostały zakończone lub anulowane. Aby
 
 1. Przejdź do sekcji **Wszystkie zasoby**. Wyszukaj zamówienie.
 
-    ![Wyszukiwanie zamówień w usłudze Data Box Disk](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
+    ![Wyszukaj zamówienia](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 
 2. Kliknij zamówienie, które chcesz usunąć, i przejdź do sekcji **Przegląd**. Na pasku poleceń kliknij pozycję **Usuń**.
 
-    ![Usuwanie zamówienia w usłudze Data Box Disk — 1](media/data-box-portal-ui-admin/delete-order1.png)
+    ![Usuwanie zamówienia](media/data-box-portal-ui-admin/portal-ui-admin-delete-command.png)
 
 3. Gdy pojawi się monit o potwierdzenie usunięcia zamówienia, podaj nazwę zamówienia. Kliknij polecenie **Usuń**.
 
-     ![Usuwanie zamówienia w usłudze Data Box Disk — 2](media/data-box-portal-ui-admin/delete-order2.png)
+     ![Potwierdzenie usunięcia zamówienia](media/data-box-portal-ui-admin/portal-ui-admin-confirm-deletion.png)
 
 
 ## <a name="download-shipping-label"></a>Pobieranie etykiety wysyłkowej
@@ -83,11 +83,11 @@ W przypadku zgubienia lub utraty zwrotnej etykiety wysyłkowej dostarczonej wraz
 Aby pobrać etykietę wysyłkową, wykonaj następujące czynności.
 1.  Przejdź do pozycji **Przegląd > Pobierz etykietę wysyłkową**. Ta opcja jest dostępna tylko po wysłaniu dysku. 
 
-    ![Pobieranie etykiety wysyłkowej](media/data-box-portal-ui-admin/download-shipping-label.png)
+    ![Pobieranie etykiety wysyłkowej](media/data-box-portal-ui-admin/portal-ui-admin-download-shipping-label.png)
 
 2.  To spowoduje pobranie następującej zwrotnej etykiety wysyłkowej. Zapisz etykietę, wydrukuj ją i umieść na przesyłce zwrotnej.
 
-    ![Przykładowa etykieta wysyłkowa](media/data-box-portal-ui-admin/example-shipping-label.png)
+    ![Przykładowa etykieta wysyłkowa](media/data-box-portal-ui-admin/portal-ui-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Edytowanie adresu wysyłkowego
 
@@ -97,11 +97,11 @@ Aby edytować zamówienie, wykonaj następujące czynności.
 
 1. Przejdź do pozycji **Szczegóły zamówienia > Edytuj adres wysyłkowy**.
 
-    ![Edytowanie adresu wysyłkowego — 1](media/data-box-portal-ui-admin/edit-shipping-address1.png)
+    ![Polecenie Edytuj adres wysyłkowy w szczegółach zamówienia](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-command.png)
 
 2. Możesz teraz edytować adres wysyłkowy. Następnie zapisz zmiany.
 
-    ![Edytowanie adresu wysyłkowego — 2](media/data-box-portal-ui-admin/edit-shipping-address2.png)
+    ![Edytowanie adresu wysyłkowego — okno dialogowe](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Edytowanie szczegółów powiadomienia
 
@@ -111,11 +111,11 @@ Aby edytować szczegóły powiadomień, wykonaj następujące czynności.
 
 1. Przejdź do pozycji **Szczegóły zamówienia > Edytowanie szczegółów powiadomienia**.
 
-    ![Edytowanie szczegółów powiadomienia — 1](media/data-box-portal-ui-admin/edit-notification-details1.png)
+    ![Polecenie Edytuj szczegóły powiadomień w szczegółach zamówienia](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-command.png)
 
 2. Możesz teraz edytować szczegóły powiadomień. Następnie zapisz zmiany.
  
-    ![Edytowanie szczegółów powiadomienia — 2](media/data-box-portal-ui-admin/edit-notification-details2.png)
+    ![Edytowanie szczegółów powiadomień — okno dialogowe](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-dbox.png)
 
 ## <a name="view-order-status"></a>Wyświetlanie stanu zamówienia
 
@@ -128,7 +128,7 @@ Aby edytować szczegóły powiadomień, wykonaj następujące czynności.
 |Pobrane     |Przesyłka zwrotna została pobrana. <br> Po odebraniu przesyłki w centrum danych Azure dane zostaną automatycznie przekazane na platformę Azure.         |
 |Odebrano     | Twoje dyski zostały odebrane w centrum danych Azure. Wkrótce rozpocznie się kopiowanie danych.        |
 |Skopiowane dane     |Kopiowanie danych jest w toku.<br> Poczekaj na zakończenie kopiowania danych.         |
-|Zakończone       |Zamówienie zostało pomyślnie zrealizowane.<br> Przed usunięciem danych lokalnych z serwerów upewnij się, że Twoje dane znajdują się na platformie Azure.         |
+|Ukończone       |Zamówienie zostało pomyślnie zrealizowane.<br> Przed usunięciem danych lokalnych z serwerów upewnij się, że Twoje dane znajdują się na platformie Azure.         |
 |Zakończone z błędami| Kopiowanie danych zostało ukończone, ale wystąpiły błędy. <br> Zapoznaj się z dziennikami błędów na potrzeby przekazywania, używając ścieżki podanej w **przeglądzie**. Aby uzyskać więcej informacji, przejdź do pozycji [Pobierz dzienniki błędów przekazywania](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Anulowane            |Twoje zamówienie zostało anulowane. <br> Zamówienie mogło zostać anulowane przez Ciebie lub, w przypadku wystąpienia błędu, przez usługę.     |
 

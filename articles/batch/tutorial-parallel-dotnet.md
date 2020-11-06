@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 8c8dcd01c7e97f77e994d021e39ce6a5e591ff9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ea68b8a6cf26db2e4ba440140cfa900cebbb4aa
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537586"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335659"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API .NET
 
@@ -35,7 +35,7 @@ W tym samouczku przekonwertujesz równolegle pliki multimedialne w formacie MP4 
 
 * Konto usługi Batch i połączone konto usługi Azure Storage. Aby utworzyć te konta, skorzystaj z przewodników Szybki start dla usługi Batch i [witryny Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
 
-* [Windows 64-bitowa wersja narzędzia FFmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip) (. zip). Pobierz plik zip na komputer lokalny. Na potrzeby tego samouczka potrzebujesz tylko pliku zip. Nie musisz go rozpakowywać ani instalować lokalnie.
+* [Windows 64-bitowa wersja narzędzia FFmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z) (. zip). Pobierz plik zip na komputer lokalny. Na potrzeby tego samouczka potrzebujesz tylko pliku zip. Nie musisz go rozpakowywać ani instalować lokalnie.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -45,9 +45,9 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 W witrynie Azure Portal dodaj narzędzie ffmpeg jako [pakiet aplikacji](batch-application-packages.md) do konta usługi Batch. Pakiety aplikacji ułatwiają zarządzanie aplikacjami zadań i wdrażanie ich w węzłach obliczeniowych w puli. 
 
-1. W Azure Portal kliknij pozycję **więcej usług usługa**  >  **Batch konta**, a następnie kliknij nazwę konta usługi Batch.
+1. W Azure Portal kliknij pozycję **więcej usług usługa**  >  **Batch konta** , a następnie kliknij nazwę konta usługi Batch.
 3. Kliknij pozycję **aplikacje**  >  **Dodaj**.
-4. W przypadku **identyfikatora aplikacji** wprowadź *Narzędzia FFmpeg*i wersję programu *4.3.1*. Zaznacz pobrany wcześniej plik zip narzędzia ffmpeg i kliknij przycisk **OK**. Pakiet aplikacji z narzędziem ffmpeg zostanie dodany do konta usługi Batch.
+4. W przypadku **identyfikatora aplikacji** wprowadź *Narzędzia FFmpeg* i wersję programu *4.3.1*. Zaznacz pobrany wcześniej plik zip narzędzia ffmpeg i kliknij przycisk **OK**. Pakiet aplikacji z narzędziem ffmpeg zostanie dodany do konta usługi Batch.
 
 ![Dodawanie pakietu aplikacji](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -309,7 +309,7 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po wykonaniu zadań podrzędnych aplikacja automatycznie usuwa utworzony wejściowy kontener magazynu, a opcjonalnie także pulę i zadanie usługi Batch. Dla obu klas [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) i [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) klienta BatchClient istnieją odpowiednie metody usuwania, które są wywoływane, jeśli potwierdzisz usunięcie. Mimo że nie są naliczane opłaty za same zadania i zadania podrzędne, są naliczane opłaty za węzły obliczeniowe. W związku z tym zaleca się przydzielanie pul stosownie do potrzeb. W przypadku usunięcia puli usuwane są również wszystkie dane wyjściowe zadań podrzędnych w węzłach. Pliki wyjściowe pozostają jednak na koncie magazynu.
 

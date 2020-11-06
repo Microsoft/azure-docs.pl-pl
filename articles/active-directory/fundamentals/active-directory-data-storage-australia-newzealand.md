@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 7/21/2020
 ms.custom: it-pro, seodec18, references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bbd31bf47c7ce7ae75a6934da0ea769698ef187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 812abe141f8130a198178668dc4f212f373d9bcd
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565113"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334945"
 ---
-# <a name="customer-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Magazyn danych klienta dla klientów Australii i Nowej Zelandii w Azure Active Directory
+# <a name="customer-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Magazyn danych klienta dla klientów Australii i Nowej Zelandii w Azure Active Directory 
 
 Usługa Azure Active Directory (Azure AD) przechowuje swoje dane klienta w lokalizacji geograficznej na podstawie kraju podanego podczas rejestrowania się w usłudze online firmy Microsoft. Usługi online firmy Microsoft obejmują Microsoft 365 i platformę Azure. 
 
 Aby uzyskać informacje o tym, gdzie znajdują się dane usługi Azure AD i innych usług firmy Microsoft, zobacz sekcję [gdzie znajdują się dane?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) w centrum zaufania firmy Microsoft.
 
-Od 26 lutego 2020 firma Microsoft rozpoczęła przechowywanie danych klienta usługi Azure AD dla nowych dzierżawców z adresem rozliczeniowym Australii lub Nowej Zelandii w australijskich centrach danych. Od 1 maja 2020 do 31 października 2020 firma Microsoft przeprowadzi migrację istniejących dzierżawców, którzy mają adres rozliczeniowy Australii lub Nowej Zelandii do australijskich centrów danych bez konieczności działania klienta. Proces migracji nie obejmuje żadnych przestojów dla klientów i nie ma wpływu na żadną funkcję dzierżawy podczas migracji.
+Od 26 lutego 2020 firma Microsoft rozpoczęła przechowywanie danych klienta usługi Azure AD dla nowych dzierżawców z adresem rozliczeniowym Australii lub Nowej Zelandii w australijskich centrach danych. Od 1 maja 2020 do 31 marca 2021 firma Microsoft przeprowadzi migrację istniejących dzierżawców, którzy mają adres rozliczeniowy Australii lub Nowej Zelandii do australijskich centrów danych bez konieczności działania klienta. Proces migracji nie obejmuje żadnych przestojów dla klientów i nie ma wpływu na żadną funkcję dzierżawy podczas migracji.
 
 Ponadto niektóre funkcje usługi Azure AD nie obsługują jeszcze magazynu danych klienta w Australii. Przejdź do [mapy danych usługi Azure AD](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9), aby uzyskać informacje o określonych funkcjach. Na przykład Microsoft Azure Multi-Factor Authentication przechowuje dane klienta w Stanach Zjednoczonych i przetwarza je globalnie. Zobacz [dane dotyczące miejsca zamieszkania i danych klienta dla Multi-Factor Authentication platformy Azure](../authentication/concept-mfa-data-residency.md).
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 10/26/2020
 ms.author: alkohli
-ms.openlocfilehash: a86c4c9c32f78cda1b5183a8651783fdcbb20e85
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4b54f75b7d90e4b3a0a11d2ecdc676bb48eeee99
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754746"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335686"
 ---
 # <a name="iot-edge-role-management-changes-for-your-azure-stack-edge"></a>IoT Edge zmiany zarządzania rolami dla Azure Stack Edge
 
@@ -41,7 +41,7 @@ Jeśli wykonano IoT Edge Zarządzanie rolami za pomocą interfejsu API, należy 
 
 #### <a name="current-http-request"></a>Bieżące żądanie http 
 
-- Wywołania interfejsu API są nawiązywane przy użyciu tego identyfikatora URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
+- Wywołania interfejsu API są nawiązywane przy użyciu tego identyfikatora URI: " https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01 "
 
 - Treść żądania wygląda następująco:
 
@@ -86,7 +86,7 @@ Jeśli wykonano IoT Edge Zarządzanie rolami za pomocą interfejsu API, należy 
 
 #### <a name="upcoming-http-request"></a>Nadchodzące żądanie http 
 
-- Wywołania interfejsu API dla roli Kubernetes są nawiązywane przy użyciu następującego identyfikatora URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01)
+- Wywołania interfejsu API dla roli Kubernetes są nawiązywane przy użyciu następującego identyfikatora URI: " https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01 "
 
     Treść żądania wygląda następująco:
 
@@ -110,7 +110,7 @@ Jeśli wykonano IoT Edge Zarządzanie rolami za pomocą interfejsu API, należy 
     }
     ```
 
-- Wywołania interfejsu API dla dodatku IoT Edge są nawiązywane przy użyciu następującego identyfikatora URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
+- Wywołania interfejsu API dla dodatku IoT Edge są nawiązywane przy użyciu następującego identyfikatora URI: " https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01 "
 
 
     Treść żądania wygląda następująco:
@@ -156,7 +156,7 @@ Jeśli wykonano IoT Edge Zarządzanie rolami za pomocą interfejsu API, należy 
 
 #### <a name="current-http-response"></a>Bieżąca odpowiedź http
 
-- Wywołania interfejsu API są nawiązywane przy użyciu następującego identyfikatora URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
+- Wywołania interfejsu API są nawiązywane przy użyciu następującego identyfikatora URI: " https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01 "
 
 
 - Treść odpowiedzi wygląda następująco:
@@ -192,7 +192,7 @@ Jeśli wykonano IoT Edge Zarządzanie rolami za pomocą interfejsu API, należy 
 
 #### <a name="upcoming-http-response"></a>Nadchodząca odpowiedź http
 
-- Wywołania interfejsu API są nawiązywane przy użyciu następującego identyfikatora URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
+- Wywołania interfejsu API są nawiązywane przy użyciu następującego identyfikatora URI: " https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01 "
 - Treść odpowiedzi wygląda następująco: 
 
     ```json
@@ -228,11 +228,11 @@ Jeśli wykonano IoT Edge Zarządzanie rolami za pomocą interfejsu API, należy 
 
 ### <a name="current"></a>Current
 
-Wywołania interfejsu API są nawiązywane przy użyciu następującego identyfikatora URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
+Wywołania interfejsu API są nawiązywane przy użyciu następującego identyfikatora URI: " https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01 "
 
 ### <a name="upcoming"></a>Nowego
 
-Wywołania interfejsu API są nawiązywane przy użyciu następującego identyfikatora URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
+Wywołania interfejsu API są nawiązywane przy użyciu następującego identyfikatora URI: " https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01 "
 
 
 ## <a name="sdk-usage"></a>SDK usage (Użycie zestawu SDK)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40b777342c2c565efc5b40d361a259c98eae693c
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739939"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337730"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Użyj kluczy zarządzanych przez klienta w Azure Key Vault Azure Data Box
 
@@ -47,7 +47,7 @@ Skonfigurowanie klucza zarządzanego przez klienta dla Azure Data Box jest opcjo
 
     ![Blok przeglądu urządzenie Data Box kolejności](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
 
-2. Przejdź do pozycji **ustawienia > szyfrowanie**. W obszarze **typ szyfrowania**możesz wybrać sposób ochrony klucza odblokowywania urządzenia. Domyślnie klucz zarządzany przez firmę Microsoft jest używany do ochrony hasła odblokowywania urządzenia. 
+2. Przejdź do pozycji **ustawienia > szyfrowanie**. W obszarze **typ szyfrowania** możesz wybrać sposób ochrony klucza odblokowywania urządzenia. Domyślnie klucz zarządzany przez firmę Microsoft jest używany do ochrony hasła odblokowywania urządzenia. 
 
     ![Wybierz opcję szyfrowania](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
 
@@ -55,40 +55,40 @@ Skonfigurowanie klucza zarządzanego przez klienta dla Azure Data Box jest opcjo
 
     ![Wybierz klucz zarządzany przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-5. W bloku **Wybieranie klucza z Azure Key Vault** subskrypcja zostanie automatycznie wypełniona. W przypadku **magazynu kluczy**można wybrać istniejący magazyn kluczy z listy rozwijanej.
+4. W bloku **Wybieranie klucza z Azure Key Vault** subskrypcja zostanie automatycznie wypełniona. W przypadku **magazynu kluczy** można wybrać istniejący magazyn kluczy z listy rozwijanej.
 
-    ![Utwórz nowy Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)
+    ![Wybierz istniejące Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
-    Możesz również wybrać pozycję **Utwórz nowy** , aby utworzyć nowy magazyn kluczy. W **bloku Utwórz magazyn kluczy**wprowadź grupę zasobów i nazwę magazynu kluczy. Upewnij się, że ochrona **usuwania nietrwałego** i **przeczyszczania** jest włączona. Zaakceptuj wszystkie inne ustawienia domyślne. Wybierz pozycję **Recenzja + Utwórz**.
+    Możesz również wybrać pozycję **Utwórz nowy** , aby utworzyć nowy magazyn kluczy. W **bloku Utwórz magazyn kluczy** wprowadź grupę zasobów i nazwę magazynu kluczy. Upewnij się, że ochrona **usuwania nietrwałego** i **przeczyszczania** jest włączona. Zaakceptuj wszystkie inne ustawienia domyślne. Wybierz pozycję **Recenzja + Utwórz**.
 
-    ![Utwórz nową Azure Key Vault 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![Przeglądanie i tworzenie Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-7. Przejrzyj informacje skojarzone z magazynem kluczy i wybierz pozycję **Utwórz**. Poczekaj kilka minut na ukończenie tworzenia magazynu kluczy.
+5. Przejrzyj informacje skojarzone z magazynem kluczy i wybierz pozycję **Utwórz**. Poczekaj kilka minut na ukończenie tworzenia magazynu kluczy.
 
-    ![Utwórz Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
+    ![Tworzenie Azure Key Vault przy użyciu ustawień](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
-8. W **kluczu select from Azure Key Vault**można wybrać klucz w istniejącym magazynie kluczy.
+6. W **kluczu select from Azure Key Vault** można wybrać klucz w istniejącym magazynie kluczy.
 
-    ![Utwórz nowy klucz w Azure Key Vault 3](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![Wybierz klucz z Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-9. Jeśli chcesz utworzyć nowy klucz, wybierz pozycję **Utwórz nowy** , aby utworzyć klucz. Rozmiar klucza RSA może mieć wartość 2048 lub większą.
+7. Jeśli chcesz utworzyć nowy klucz, wybierz pozycję **Utwórz nowy** , aby utworzyć klucz. Rozmiar klucza RSA może mieć wartość 2048 lub większą.
 
-    ![Utwórz nowy klucz w Azure Key Vault 4](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![Utwórz nowy klucz w Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-10. Podaj nazwę klucza, zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**. 
+8. Podaj nazwę klucza, zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**.
 
-    ![Utwórz nowy klucz](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
+    ![Nazwa nowego klucza](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
 
-11. Zostanie wyświetlony monit o utworzenie klucza w magazynie kluczy. Wybierz **wersję** , a następnie wybierz **pozycję Wybierz**.
+9. Zostanie wyświetlony monit o utworzenie klucza w magazynie kluczy. Wybierz **wersję** , a następnie wybierz **pozycję Wybierz**.
 
-    ![Nowy klucz został utworzony w magazynie kluczy](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
+    ![Wybierz wersję dla nowego klucza](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-12. W okienku **typ szyfrowania** można zobaczyć Magazyn kluczy i klucz wybrany dla klucza zarządzanego przez klienta.
+10. W okienku **typ szyfrowania** można zobaczyć Magazyn kluczy i klucz wybrany dla klucza zarządzanego przez klienta.
 
     ![Klucz i Magazyn kluczy dla klucza zarządzanego przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
-13. Zapisz klucz. 
+11. Zapisz klucz. 
 
     ![Zapisz klucz zarządzany przez klienta](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 

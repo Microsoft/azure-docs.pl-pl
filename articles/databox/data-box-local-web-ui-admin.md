@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127528"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337291"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Użyj lokalnego interfejsu użytkownika sieci Web do administrowania urządzenie Data Box i Data Box Heavy
 
@@ -212,7 +212,7 @@ Aby włączyć uprawnienia operatorów kopii zapasowych na urządzeniu platformy
 
 1. W prawym górnym rogu lokalnego interfejsu użytkownika sieci Web urządzenia wybierz pozycję **Ustawienia**.
 
-   ![Otwórz ustawienia urządzenie Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Otwórz ustawienia urządzenie Data Box-1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Włącz** Uprawnienia operatora kopii zapasowych.
 
@@ -235,7 +235,7 @@ Aby włączyć transfer list ACL dla usługi Azure Files:
 
 1. W prawym górnym rogu lokalnego interfejsu użytkownika sieci Web urządzenia wybierz pozycję **Ustawienia**.
 
-    ![Otwórz ustawienia urządzenie Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Otwórz ustawienia urządzenie Data Box-2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Włącz** Listy ACL dla plików platformy Azure.
 
@@ -255,7 +255,7 @@ Aby włączyć protokół TLS 1,1 na urządzeniu platformy Azure:
 
 1. W prawym górnym rogu lokalnego interfejsu użytkownika sieci Web urządzenia wybierz pozycję **Ustawienia**.
 
-    ![Otwórz ustawienia urządzenie Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Otwórz ustawienia urządzenie Data Box-3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Włącz** TLS 1,1.
 

@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 09/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0332400ce6808e92ba09e3bee3277495f6b6d1a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897490"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337886"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Użyj Azure Machine Learning z pakietem typu open source Fairlearn do oceny sprawiedliwości modeli ML (wersja zapoznawcza)
 
@@ -33,7 +33,7 @@ W tym przewodniku krok po kroku dowiesz się, jak używać pakietu języka Pytho
 
 ## <a name="azure-machine-learning-fairness-sdk"></a>Zestaw SDK Azure Machine Learning uczciwości 
 
-Zestaw SDK Azure Machine Learning uczciwości, `azureml-contrib-fairness` integruje pakiet języka Python Open Source, [Fairlearn](http://fairlearn.github.io)w programie Azure Machine Learning. Aby dowiedzieć się więcej o integracji z usługą Fairlearn w ramach Azure Machine Learning, zapoznaj się z tymi [przykładowymi notesami](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Aby uzyskać więcej informacji na temat Fairlearn, zobacz [przykład podręcznika](https://fairlearn.github.io/auto_examples/) i [przykładowe notesy](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
+Zestaw SDK Azure Machine Learning uczciwości, `azureml-contrib-fairness` integruje pakiet języka Python Open Source, [Fairlearn](http://fairlearn.github.io)w programie Azure Machine Learning. Aby dowiedzieć się więcej o integracji z usługą Fairlearn w ramach Azure Machine Learning, zapoznaj się z tymi [przykładowymi notesami](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Aby uzyskać więcej informacji na temat Fairlearn, zobacz [przykład podręcznika](https://fairlearn.github.io/master/auto_examples/) i [przykładowe notesy](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
 
 Użyj następujących poleceń, aby zainstalować `azureml-contrib-fairness` pakiety i `fairlearn` :
 ```bash
@@ -205,7 +205,7 @@ Poniższy przykład pokazuje, jak używać pakietu atrakcyjności do przekazywan
     1. Jeśli oryginalny model został zarejestrowany zgodnie z poprzednimi krokami, w okienku po lewej stronie możesz wybrać **modele** , aby je wyświetlić.
     1. Wybierz model, a następnie kartę **godziwość** , aby wyświetlić pulpit nawigacyjny wizualizacji z wyjaśnieniem.
 
-    Aby dowiedzieć się więcej na temat pulpitu nawigacyjnego wizualizacji i jego zawartości, zobacz [Podręcznik użytkownika](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard)programu Fairlearn.
+    Aby dowiedzieć się więcej na temat pulpitu nawigacyjnego wizualizacji i jego zawartości, zobacz [Podręcznik użytkownika](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard)programu Fairlearn.
 
 ## <a name="upload-fairness-insights-for-multiple-models"></a>Przekazywanie szczegółowych informacji dotyczących wielu modeli
 
@@ -306,14 +306,14 @@ Jeśli interesuje Cię porównanie wielu modeli i dowiesz się, jak ich oceny uc
     ```
 
 
-    Podobnie jak w poprzedniej sekcji, można wykonać jedną z opisanych powyżej ścieżek (za pośrednictwem **eksperymentów** lub **modeli**) w programie Azure Machine Learning Studio, aby uzyskać dostęp do pulpitu nawigacyjnego wizualizacji i porównać te dwa modele pod kątem godziwości i wydajności.
+    Podobnie jak w poprzedniej sekcji, można wykonać jedną z opisanych powyżej ścieżek (za pośrednictwem **eksperymentów** lub **modeli** ) w programie Azure Machine Learning Studio, aby uzyskać dostęp do pulpitu nawigacyjnego wizualizacji i porównać te dwa modele pod kątem godziwości i wydajności.
 
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Przekazywanie nieskorygowanych i nieuczciwych informacji o godziwym wglądie
 
-Można użyć [algorytmów łagodzenia](https://fairlearn.github.io/user_guide/mitigation.html)Fairlearn, porównać ich wygenerowane modele z ograniczeniami na oryginalny, nieskorygowany model, a także przejść pod kątem wydajności/atrakcyjności w porównaniu do modeli.
+Można użyć [algorytmów łagodzenia](https://fairlearn.github.io/master/user_guide/mitigation.html)Fairlearn, porównać ich wygenerowane modele z ograniczeniami na oryginalny, nieskorygowany model, a także przejść pod kątem wydajności/atrakcyjności w porównaniu do modeli.
 
-Aby zapoznać się z przykładem, który demonstruje użycie algorytmu ograniczenia [wyszukiwania w siatce](https://fairlearn.github.io/user_guide/mitigation.html#grid-search) (co powoduje utworzenie kolekcji środków z ograniczeniami o różnej sprawności i wydajności), zapoznaj się z tym [przykładowym notesem](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
+Aby zapoznać się z przykładem, który demonstruje użycie algorytmu ograniczenia [wyszukiwania w siatce](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) (co powoduje utworzenie kolekcji środków z ograniczeniami o różnej sprawności i wydajności), zapoznaj się z tym [przykładowym notesem](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
 
 Przekazanie szczegółowych informacji o atrakcyjności modeli w jednym przebiegu pozwoli na porównanie modeli w odniesieniu do uczciwości i wydajności. Możesz również kliknąć dowolny model wyświetlany na wykresie porównawczym modelu, aby zobaczyć szczegółowe informacje o sprawiedliwej szczegółowości określonego modelu.
 

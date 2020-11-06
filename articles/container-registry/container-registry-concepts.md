@@ -3,12 +3,12 @@ title: Informacje o repozytoriach & obrazów
 description: Wprowadzenie do kluczowych pojęć związanych z rejestrami kontenerów platformy Azure, repozytoriami i obrazami kontenerów.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390452"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335898"
 ---
 # <a name="about-registries-repositories-and-images"></a>Rejestry, repozytoria i obrazy — informacje
 
@@ -26,7 +26,7 @@ Adres artefaktu w rejestrze kontenerów platformy Azure obejmuje następujące e
 
 `[loginUrl]/[repository:][tag]`
 
-* **LoginUrl** — w pełni kwalifikowana nazwa hosta rejestru. Host rejestru w usłudze Azure Container Registry *ma format azurecr.IO*(wszystkie małe litery). Należy określić loginUrl podczas korzystania z platformy Docker lub innych narzędzi klienckich do ściągania i wypychania artefaktów do usługi Azure Container Registry. 
+* **LoginUrl** — w pełni kwalifikowana nazwa hosta rejestru. Host rejestru w usłudze Azure Container Registry *ma format azurecr.IO* (wszystkie małe litery). Należy określić loginUrl podczas korzystania z platformy Docker lub innych narzędzi klienckich do ściągania i wypychania artefaktów do usługi Azure Container Registry. 
 * **repozytorium** — nazwa logicznej grupy składającej się z co najmniej jednego powiązanego obrazu lub artefaktów — na przykład obrazy aplikacji lub podstawowego systemu operacyjnego. Może zawierać ścieżkę *przestrzeni nazw* . 
 * **tag** -identyfikator określonej wersji obrazu lub artefaktu przechowywanego w repozytorium.
 
@@ -45,7 +45,7 @@ Więcej informacji o tych elementach można znaleźć w poniższych sekcjach.
 - *ACR — HelloWorld: V1*
 - *ACR — HelloWorld: V2*
 
-Nazwy repozytoriów mogą również zawierać [przestrzenie nazw](container-registry-best-practices.md#repository-namespaces). Przestrzenie nazw umożliwiają identyfikowanie powiązanych repozytoriów i własności artefaktów w organizacji przy użyciu nazw rozdzielanych ukośnikami. Jednak rejestr zarządza wszystkimi repozytoriami niezależnie, a nie jako hierarchią. Przykłady:
+Nazwy repozytoriów mogą również zawierać [przestrzenie nazw](container-registry-best-practices.md#repository-namespaces). Przestrzenie nazw umożliwiają identyfikowanie powiązanych repozytoriów i własności artefaktów w organizacji przy użyciu nazw rozdzielanych ukośnikami. Jednak rejestr zarządza wszystkimi repozytoriami niezależnie, a nie jako hierarchią. Na przykład:
 
 - *Marketing/campaign10 — 18/sieć Web: V2*
 - *Marketing/campaign10 — 18/API: v3*
@@ -57,7 +57,7 @@ Nazwy repozytoriów mogą zawierać tylko małe znaki alfanumeryczne, kropki, ł
 
 Aby zapoznać się z pełnymi regułami nazewnictwa repozytorium, zobacz artykuł [Specyfikacja dystrybucji z inicjatywy Open Container Initiative](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
-## <a name="image"></a>Obraz
+## <a name="image"></a>Image (Obraz)
 
 Obraz kontenera lub inny artefakt w rejestrze jest skojarzony z co najmniej jednym tagiem, ma jedną lub więcej warstw i jest identyfikowany przez manifest. Zrozumienie, jak te składniki są powiązane ze sobą, mogą pomóc w skutecznym zarządzaniu rejestrem.
 
@@ -73,7 +73,7 @@ Aby zapoznać się z regułami nazewnictwa tagów, zobacz [dokumentację platfor
 
 ### <a name="layer"></a>Warstwa
 
-Obrazy kontenerów składają się z jednej lub kilku *warstw*, z których każdy odpowiada wierszowi w pliku dockerfile, który definiuje obraz. Obrazy w rejestrze udostępniają typowe warstwy, zwiększając wydajność magazynu. Na przykład kilka obrazów w różnych repozytoriach może współużytkować tę samą warstwę bazową Alpine Linux, ale w rejestrze jest przechowywana tylko jedna kopia tej warstwy.
+Obrazy kontenerów składają się z jednej lub kilku *warstw* , z których każdy odpowiada wierszowi w pliku dockerfile, który definiuje obraz. Obrazy w rejestrze udostępniają typowe warstwy, zwiększając wydajność magazynu. Na przykład kilka obrazów w różnych repozytoriach może współużytkować tę samą warstwę bazową Alpine Linux, ale w rejestrze jest przechowywana tylko jedna kopia tej warstwy.
 
 Udostępnianie warstwy optymalizuje także dystrybucję warstw do węzłów z wieloma obrazami udostępniającymi wspólne warstwy. Na przykład jeśli obraz już znajdujący się w węźle zawiera warstwę Alpine Linux jako podstawową, kolejna ściąganie innego obrazu odwołującego się do tej samej warstwy nie przenosi warstwy do węzła. Zamiast tego odwołuje się do warstwy już istniejącej w węźle.
 

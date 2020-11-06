@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: dbce9019e33c07dd4faa91ffd490eba4d313c675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e810a31fab4457e47329e37f54b16e6f488c9da
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630614"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337631"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Rozwiązywanie typowych problemów z routingiem
 
@@ -103,5 +103,26 @@ Istnieje kilka możliwych przyczyn tego symptomu:
             * *Akceptowane protokoły* to http i https. *Protokół przekazywania* to http. Żądanie dopasowania nie zostanie wykonane, ponieważ HTTPS jest dozwolonym protokołem, a jeśli żądanie zostało wysłane jako HTTPS, przód drzwi spróbuje przesłać je dalej przy użyciu protokołu HTTPS.
 
             * *Akceptowane protokoły* to http. *Protokół przekazywania* jest zgodny z żądaniem lub http.
-
     - Ponowne *Zapisywanie adresów URL* jest domyślnie wyłączone. To pole jest używane tylko wtedy, gdy chcesz zawęzić zakres zasobów hostowanych przez zaplecza, które mają być dostępne. Po wyłączeniu drzwi do przodu przekażą tę samą ścieżkę żądania, która otrzymuje. Możliwe jest błędna konfiguracja tego pola. W związku z tym, gdy drzwi czołowe żądają zasobu z zaplecza, który nie jest dostępny, zwróci kod stanu HTTP 404.
+
+## <a name="request-to-frontend-host-name-returns-411-status-code"></a>Żądanie nazwy hosta frontonu zwraca kod stanu 411
+
+### <a name="symptom"></a>Objaw
+
+Utworzono drzwiczki z przodu i skonfigurowano hosta frontonu, pulę zaplecza z co najmniej jednym zaplecem oraz regułę routingu łączącą hosta frontonu z pulą zaplecza. Zawartość nie jest dostępna podczas wysyłania żądania do skonfigurowanego hosta frontonu, ponieważ zwracany jest kod stanu HTTP 411.
+
+Odpowiedzi na te żądania mogą również zawierać stronę błędu HTML w treści odpowiedzi zawierającej instrukcję wyjaśniającą. Na przykład: `HTTP Error 411. The request must be chunked or have a content length`
+
+### <a name="cause"></a>Przyczyna
+
+Istnieje kilka możliwych przyczyn tego objawu; jednak ogólną przyczyną jest to, że żądanie HTTP nie jest w pełni zgodne ze standardem RFC. 
+
+Przykładem braku zgodności jest `POST` żądanie wysyłane bez `Content-Length` ani do `Transfer-Encoding` nagłówka (na przykład przy użyciu `curl -X POST https://example-front-door.domain.com` ). To żądanie nie spełnia wymagań określonych w [dokumencie RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2) i powinno zostać zablokowane przez tylne drzwi z odpowiedzią http 411.
+
+To zachowanie jest niezależne od funkcji WAF drzwi z przodu. Obecnie nie ma możliwości wyłączenia tego zachowania. Wszystkie żądania HTTP muszą spełniać wymagania, nawet jeśli funkcja WAF nie jest używana.
+
+### <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
+
+- Sprawdź, czy żądania są zgodne z wymaganiami określonymi w niezbędnych dokumentach RFC.
+
+- Zwróć uwagę na wszelkie treści wiadomości HTML, które są zwracane w odpowiedzi na żądanie, ponieważ często wyjaśniają dokładnie, w *jaki sposób* żądanie jest niezgodne.

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 972c32b5403a7e6f614161271b7cb7e88693e032
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637347"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335098"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -58,15 +58,15 @@ Log Analytics eksport danych obszaru roboczego ciągle eksportuje dane z Log Ana
 ## <a name="data-completeness"></a>Kompletność danych
 Eksport danych będzie nadal ponawiać próbę wysłania danych przez maksymalnie 30 minut w przypadku, gdy miejsce docelowe jest niedostępne. Jeśli nadal nie jest dostępna po 30 minutach, dane zostaną odrzucone do momentu udostępnienia lokalizacji docelowej.
 
-## <a name="cost"></a>Koszt
+## <a name="cost"></a>Cost (Koszt)
 Nie są obecnie naliczane dodatkowe opłaty za funkcję eksportowania danych. Cennik dotyczący eksportu danych zostanie ogłoszony w przyszłości oraz powiadomienie podane przed rozpoczęciem rozliczania. Jeśli zdecydujesz się na kontynuowanie korzystania z eksportu danych po upływie okresu wypowiedzenia, zostanie naliczona stawka ze stosowną stawką.
 
 ## <a name="export-destinations"></a>Eksportuj miejsca docelowe
 
 ### <a name="storage-account"></a>Konto magazynu
-Dane są wysyłane do kont magazynu co godzinę. Konfiguracja eksportu danych tworzy kontener dla każdej tabeli na koncie magazynu o nazwie, po *której następuje nazwa* tabeli. Na przykład tabela *SecurityEvent* będzie wysyłana do kontenera o nazwie *am-SecurityEvent* .
+Dane są wysyłane do kont magazynu co godzinę. Konfiguracja eksportu danych tworzy kontener dla każdej tabeli na koncie magazynu o nazwie, po *której następuje nazwa* tabeli. Na przykład tabela *SecurityEvent* będzie wysyłana do kontenera o nazwie *am-SecurityEvent*.
 
-Ścieżka obiektu BLOB konta magazynu to *WorkspaceResourceId =/subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.js* . Ponieważ dołączane obiekty blob są ograniczone do 50 000 zapisów w magazynie, liczba eksportowanych obiektów BLOB może zostać rozszerzona, jeśli liczba dołączeń jest wysoka. Wzorzec nazewnictwa dla obiektów BLOB w takich przypadkach zostałby PT1H_ #. JSON, gdzie # to przyrostowa liczba obiektów BLOB.
+Ścieżka obiektu BLOB konta magazynu to *WorkspaceResourceId =/subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.js*. Ponieważ dołączane obiekty blob są ograniczone do 50 000 zapisów w magazynie, liczba eksportowanych obiektów BLOB może zostać rozszerzona, jeśli liczba dołączeń jest wysoka. Wzorzec nazewnictwa dla obiektów BLOB w takich przypadkach zostałby PT1H_ #. JSON, gdzie # to przyrostowa liczba obiektów BLOB.
 
 Format danych konta magazynu to [wiersze JSON](diagnostic-logs-append-blobs.md). Oznacza to, że każdy rekord jest rozdzielony znakiem nowego wiersza, bez tablicy rekordów zewnętrznych i bez przecinków między rekordami JSON. 
 
@@ -75,7 +75,7 @@ Format danych konta magazynu to [wiersze JSON](diagnostic-logs-append-blobs.md).
 Log Analytics eksportu danych może pisać Dodawanie obiektów BLOB do niezmiennych kont magazynu, gdy zasady przechowywania oparte na czasie mają włączone ustawienie *allowProtectedAppendWrites* . Pozwala to na zapisywanie nowych bloków do dołączanego obiektu BLOB przy zachowaniu ochrony i zgodności niezmienności. Zobacz [Zezwalanie na chronione operacje Dołącz obiekty blob](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### <a name="event-hub"></a>Centrum zdarzeń
-Dane są wysyłane do centrum zdarzeń niemal w czasie rzeczywistym, gdy osiągnie Azure Monitor. Centrum zdarzeń jest tworzone dla każdego typu danych, który jest eksportowany *z nazwą i nazwą tabeli* . Na przykład tabela *SecurityEvent* będzie wysyłana do centrum zdarzeń o nazwie *am-SecurityEvent* . Jeśli chcesz, aby wyeksportowane dane miały dostęp do określonego centrum zdarzeń, lub jeśli masz tabelę o nazwie przekraczającej limit znaków 47, możesz podać własną nazwę centrum zdarzeń i wyeksportować wszystkie dane do określonych tabel.
+Dane są wysyłane do centrum zdarzeń niemal w czasie rzeczywistym, gdy osiągnie Azure Monitor. Centrum zdarzeń jest tworzone dla każdego typu danych, który jest eksportowany *z nazwą i nazwą tabeli* . Na przykład tabela *SecurityEvent* będzie wysyłana do centrum zdarzeń o nazwie *am-SecurityEvent*. Jeśli chcesz, aby wyeksportowane dane miały dostęp do określonego centrum zdarzeń, lub jeśli masz tabelę o nazwie przekraczającej limit znaków 47, możesz podać własną nazwę centrum zdarzeń i wyeksportować wszystkie dane do określonych tabel.
 
 Ilość wyeksportowanych danych często rośnie wraz z upływem czasu, a skalowanie centrum zdarzeń należy zwiększyć, aby obsługiwać większe szybkości transferu i uniknąć opóźnień i opóźnienia danych. Należy użyć funkcji automatycznego rozbudowy Event Hubs, aby automatycznie skalować w górę i zwiększyć liczbę jednostek przepływności oraz spełnić wymagania dotyczące użycia. Aby uzyskać szczegółowe informacje, zobacz [Automatyczne skalowanie jednostek przepływności usługi Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) .
 
@@ -99,7 +99,7 @@ Następujący dostawca zasobów platformy Azure musi być zarejestrowany dla Two
 
 - Microsoft. Insights
 
-Ten dostawca zasobów prawdopodobnie jest już zarejestrowany dla większości użytkowników Azure Monitor. Aby sprawdzić, przejdź do pozycji **subskrypcje** w Azure Portal. Wybierz swoją subskrypcję, a następnie kliknij pozycję **dostawcy zasobów** w sekcji **Ustawienia** w menu. Znajdź **Microsoft. Insights** . Jeśli jego stan jest **zarejestrowany** , jest już zarejestrowany. W przeciwnym razie kliknij pozycję **zarejestruj** , aby go zarejestrować.
+Ten dostawca zasobów prawdopodobnie jest już zarejestrowany dla większości użytkowników Azure Monitor. Aby sprawdzić, przejdź do pozycji **subskrypcje** w Azure Portal. Wybierz swoją subskrypcję, a następnie kliknij pozycję **dostawcy zasobów** w sekcji **Ustawienia** w menu. Znajdź **Microsoft. Insights**. Jeśli jego stan jest **zarejestrowany** , jest już zarejestrowany. W przeciwnym razie kliknij pozycję **zarejestruj** , aby go zarejestrować.
 
 Możesz również użyć dowolnej z dostępnych metod, aby zarejestrować dostawcę zasobów zgodnie z opisem w temacie [dostawcy zasobów platformy Azure i typy](../../azure-resource-manager/management/resource-providers-and-types.md). Poniżej przedstawiono przykładowe polecenie przy użyciu programu PowerShell:
 
@@ -108,7 +108,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ```
 
 ### <a name="allow-trusted-microsoft-services"></a>Zezwalaj na zaufane usługi firmy Microsoft
-Jeśli konto magazynu zostało skonfigurowane tak, aby zezwalać na dostęp z wybranych sieci, musisz dodać wyjątek, aby zezwolić Azure Monitor na zapis na koncie. Z poziomu **zapór i sieci wirtualnych** dla konta magazynu wybierz opcję **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** .
+Jeśli konto magazynu zostało skonfigurowane tak, aby zezwalać na dostęp z wybranych sieci, musisz dodać wyjątek, aby zezwolić Azure Monitor na zapis na koncie. Z poziomu **zapór i sieci wirtualnych** dla konta magazynu wybierz opcję **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu**.
 
 [![Zapory i sieci wirtualne konta magazynu](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
@@ -189,6 +189,7 @@ Poniżej znajduje się Przykładowa treść żądania REST dla centrum zdarzeń,
         ],
         "enable": true
     }
+  }
 }
 ```
 
@@ -270,7 +271,7 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 
 
 | Tabela | Ograniczenia |
-|:---|:---|:---|
+|:---|:---|
 | AADDomainServicesAccountLogon | |
 | AADDomainServicesAccountManagement | |
 | AADDomainServicesDirectoryServiceAccess | |
@@ -341,7 +342,7 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| Wydarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
+| Zdarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
 | ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
@@ -436,7 +437,6 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | WindowsEvent | |
 | WindowsFirewall | |
 | Typowe | Pomoc techniczna częściowa. Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Te dane nie są obecnie eksportowane. |
-| WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
 | WVDAgentHealthStatus | |
 | WVDCheckpoints | |

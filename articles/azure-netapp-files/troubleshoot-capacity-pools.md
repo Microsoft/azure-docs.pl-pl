@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 54e6f4abd5ca6d15a4cc5a7bc9015abb005296a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ff1899fbc89ab4a78bf793a133a7aa9a8f03dd2a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013648"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337563"
 ---
-# <a name="troubleshoot-capacity-pool-issues"></a>Rozwiązywanie problemów z pulą pojemności
+# <a name="troubleshoot-capacity-pool-issues"></a>Rozwiązywanie problemów z pulami pojemności
 
 W tym artykule opisano rozwiązania problemów, które mogą wystąpić podczas zarządzania pulami pojemności, łącznie z operacją zmiany puli. 
 
@@ -38,7 +38,6 @@ W tym artykule opisano rozwiązania problemów, które mogą wystąpić podczas 
 |-|-|
 | Zmiana puli pojemności dla woluminu nie jest dozwolona. | Być może nie masz jeszcze autoryzacji do korzystania z tej funkcji. <br> Funkcja przenoszenia woluminu do innej puli pojemności jest obecnie w wersji zapoznawczej. Jeśli ta funkcja jest używana po raz pierwszy, należy najpierw zarejestrować funkcję i ustawić ją `-FeatureName ANFTierChange` . Zapoznaj się z procedurą rejestracji w celu [dynamicznego zmiany poziomu usługi woluminu](dynamic-change-volume-service-level.md). |
 | Rozmiar puli pojemności jest za mały dla całkowitego rozmiaru woluminu. |  Ten błąd jest wynikiem docelowej puli pojemności, która nie ma dostępnej pojemności dla przenoszonego woluminu.  <br> Zwiększ rozmiar puli docelowej lub wybierz inną pulę, która jest większa.  Zobacz [zmiana rozmiaru puli pojemności lub woluminu](azure-netapp-files-resize-capacity-pools-or-volumes.md).   |
-| Nie można przenieść woluminu, gdy docelowa Pula pojemności ma inny typ szyfrowania od oryginalnej puli pojemności.  Na przykład przechodzenie z podwójnego szyfrowania do jednego szyfrowania lub odwrotnie.  | Wybierz docelową pulę wydajności z tym samym typem szyfrowania co źródłowa Pula pojemności.   |
 |  Nie można ukończyć zmiany puli, ponieważ wolumin o nazwie `'{source pool name}'` już istnieje w puli docelowej `'{target pool name}'` | Ten błąd występuje, ponieważ wolumin o tej samej nazwie już istnieje w docelowej puli pojemności.  Wybierz inną pulę pojemności, która nie ma woluminu o tej samej nazwie.   | 
 
 ## <a name="next-steps"></a>Następne kroki  

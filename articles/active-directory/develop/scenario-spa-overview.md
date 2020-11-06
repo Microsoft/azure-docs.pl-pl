@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 11a295402c925f5b8244eb3294097ff2271b5d68
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675629"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335268"
 ---
 # <a name="scenario-single-page-application"></a>Scenariusz: aplikacja jednostronicowa
 
@@ -38,7 +38,7 @@ Platforma tożsamości firmy Microsoft udostępnia **dwie** opcje umożliwiając
 
 ![Aplikacje jednostronicowe — uwierzytelnianie](./media/scenarios/spa-app-auth.svg)
 
-- [Niejawny przepływ OAuth 2,0](./v2-oauth2-implicit-grant-flow.md). Przepływ niejawnego przydzielenia umożliwia aplikacji uzyskanie tokenów dotyczących **identyfikatorów** i **dostępu** . W przeciwieństwie do przepływu kodu autoryzacji niejawny przepływ przyznania nie zwraca **tokenu odświeżania** .
+- [Niejawny przepływ OAuth 2,0](./v2-oauth2-implicit-grant-flow.md). Przepływ niejawnego przydzielenia umożliwia aplikacji uzyskanie tokenów dotyczących **identyfikatorów** i **dostępu** . W przeciwieństwie do przepływu kodu autoryzacji niejawny przepływ przyznania nie zwraca **tokenu odświeżania**.
 
 ![Aplikacje jednostronicowe — niejawne](./media/scenarios/spa-app.svg)
 
@@ -58,5 +58,4 @@ Aby włączyć ten scenariusz dla aplikacji, potrzebne są:
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Rejestrowanie aplikacji](scenario-spa-app-registration.md)
+[Rejestracja aplikacji](scenario-spa-app-registration.md)

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790614"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337648"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -153,11 +153,13 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie m
 - Ustawienie identyfikatora logowania usługi Azure AD zamapowanego na grupę usługi Azure AD jako właściciel bazy danych nie jest obsługiwane.
 - Personifikacja podmiotów zabezpieczeń na poziomie serwera usługi Azure AD przy użyciu innych podmiotów zabezpieczeń usługi Azure AD jest obsługiwana, takich jak klauzula [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) . Ograniczenia wykonywania jako są następujące:
 
-  - Wartość Uruchom jako użytkownik nie jest obsługiwana dla użytkowników usługi Azure AD, gdy nazwa jest inna niż nazwa logowania. Przykładem jest to, że użytkownik jest tworzony przy użyciu składni CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ], a Personifikacja jest podejmowana przy użyciu polecenia exec as User = _myAadUser_ . Podczas tworzenia **użytkownika** z poziomu podmiotu zabezpieczeń serwera usługi Azure AD (login) Określ user_name jako ten sam Login_name z **nazwy logowania** .
+  - Wartość Uruchom jako użytkownik nie jest obsługiwana dla użytkowników usługi Azure AD, gdy nazwa jest inna niż nazwa logowania. Przykładem jest to, że użytkownik jest tworzony przy użyciu składni CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ], a Personifikacja jest podejmowana przy użyciu polecenia exec as User = _myAadUser_. Podczas tworzenia **użytkownika** z poziomu podmiotu zabezpieczeń serwera usługi Azure AD (login) Określ user_name jako ten sam Login_name z **nazwy logowania**.
   - Tylko podmioty zabezpieczeń na poziomie SQL Server (logowania) będące częścią `sysadmin` roli mogą wykonywać następujące operacje, które są przeznaczone dla podmiotów zabezpieczeń usługi Azure AD:
 
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
+
+  - Aby spersonifikować użytkownika przy użyciu instrukcji EXECUTE AS, użytkownik musi zostać zamapowany bezpośrednio do podmiotu zabezpieczeń serwera usługi Azure AD. Użytkowników należących do grup usługi Azure AD mapowanych na podmioty zabezpieczeń serwera usługi Azure AD nie można skutecznie personifikować przy użyciu instrukcji EXECUTE AS, mimo że obiekt wywołujący ma uprawnienia personifikacji dla określonej nazwy użytkownika.
 
 - Eksportowanie/Importowanie bazy danych przy użyciu plików BACPAC jest obsługiwane dla użytkowników usługi Azure AD w wystąpieniu zarządzanym SQL przy użyciu programu [SSMS v 18.4 lub nowszego](/sql/ssms/download-sql-server-management-studio-ssms)albo [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - Następujące konfiguracje są obsługiwane za pomocą pliku BACPAC bazy danych: 
@@ -300,6 +302,7 @@ Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/a
   - Alerty nie są jeszcze obsługiwane.
   - Serwery proxy nie są obsługiwane.
 - Dziennik zdarzeń nie jest obsługiwany.
+- Użytkownik musi być bezpośrednio mapowany do podmiotu zabezpieczeń serwera usługi Azure AD, aby można było tworzyć, modyfikować lub wykonywać zadania programu SQL Agent. Użytkownicy, którzy nie są bezpośrednio zamapowane, np. Użytkownicy, którzy należą do grupy usługi Azure AD, która ma uprawnienia do tworzenia, modyfikowania lub wykonywania zadań agenta SQL, nie będą efektywnie mogli wykonywać tych czynności. Przyczyną jest personifikacja wystąpienia zarządzanego i [wykonywanie jako ograniczenia](#logins-and-users).
 
 Następujące funkcje agenta SQL nie są obecnie obsługiwane:
 

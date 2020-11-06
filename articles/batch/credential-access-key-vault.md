@@ -4,12 +4,12 @@ description: Dowiedz się, jak programowo uzyskać dostęp do poświadczeń z Ke
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71e647c05a84c70fe61a66458801bf7390dcb653
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 25cb05374fc0667306e2b1004b3cd237413b4409
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913215"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337495"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Bezpieczny dostęp do usługi Key Vault za pomocą usługi Batch
 
@@ -46,7 +46,7 @@ pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificat
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Dostęp do Key Vault jest udzielany **użytkownikowi** lub jednostce **usługi** . Aby uzyskać dostęp do Key Vault programowo, użyj [nazwy głównej usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) z certyfikatem utworzonym w poprzednim kroku. Nazwa główna usługi musi znajdować się w tej samej dzierżawie usługi Azure AD co Key Vault.
+Dostęp do Key Vault jest udzielany **użytkownikowi** lub jednostce **usługi**. Aby uzyskać dostęp do Key Vault programowo, użyj [nazwy głównej usługi](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) z certyfikatem utworzonym w poprzednim kroku. Nazwa główna usługi musi znajdować się w tej samej dzierżawie usługi Azure AD co Key Vault.
 
 ```powershell
 $now = [System.DateTime]::Parse("2020-02-10")
@@ -67,7 +67,7 @@ Adresy URL aplikacji nie są ważne, ponieważ są używane tylko do Key Vault d
 
 ## <a name="grant-rights-to-key-vault"></a>Przyznaj prawa Key Vault
 
-Nazwa główna usługi utworzona w poprzednim kroku wymaga uprawnień do pobrania wpisów tajnych z Key Vault. Uprawnienie można udzielić za pomocą [Azure Portal](/key-vault/general/assign-access-policy-portal.md) lub przy użyciu poniższego polecenia programu PowerShell.
+Nazwa główna usługi utworzona w poprzednim kroku wymaga uprawnień do pobrania wpisów tajnych z Key Vault. Uprawnienie można udzielić za pomocą [Azure Portal](/azure/key-vault/general/assign-access-policy-portal) lub przy użyciu poniższego polecenia programu PowerShell.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -77,7 +77,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"
 
 Utwórz pulę zadań wsadowych, a następnie przejdź do karty certyfikat w puli i przypisz utworzony certyfikat. Certyfikat znajduje się teraz we wszystkich węzłach w usłudze Batch.
 
-Następnie przypisz certyfikat do konta w usłudze Batch. Przypisanie certyfikatu do konta umożliwia usłudze Batch przypisanie go do pul, a następnie do węzłów. Najprostszym sposobem, aby to zrobić, przejdź do konta w usłudze Batch w portalu, przejdź do pozycji **Certyfikaty** , a następnie wybierz pozycję **Dodaj** . Przekaż `.pfx` wygenerowany wcześniej plik i podaj hasło. Po zakończeniu ten certyfikat zostanie dodany do listy i będzie można zweryfikować odcisk palca.
+Następnie przypisz certyfikat do konta w usłudze Batch. Przypisanie certyfikatu do konta umożliwia usłudze Batch przypisanie go do pul, a następnie do węzłów. Najprostszym sposobem, aby to zrobić, przejdź do konta w usłudze Batch w portalu, przejdź do pozycji **Certyfikaty** , a następnie wybierz pozycję **Dodaj**. Przekaż `.pfx` wygenerowany wcześniej plik i podaj hasło. Po zakończeniu ten certyfikat zostanie dodany do listy i będzie można zweryfikować odcisk palca.
 
 Teraz podczas tworzenia puli wsadowej można przejść do **certyfikatów** w puli i przypisać utworzony certyfikat do tej puli. Gdy to zrobisz, upewnij się, że wybrano pozycję **LocalMachine** w polu Lokalizacja magazynu. Certyfikat jest ładowany we wszystkich węzłach wsadowych w puli.
 

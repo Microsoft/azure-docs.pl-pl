@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167818"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335698"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Rozwiązywanie problemów: nie można usunąć sieci wirtualnej na platformie Azure
 
@@ -31,10 +31,11 @@ Podczas próby usunięcia sieci wirtualnej w Microsoft Azure mogą pojawić się
 
 1. [Sprawdź, czy Brama sieci wirtualnej jest uruchomiona w sieci wirtualnej](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
 2. [Sprawdź, czy Brama aplikacji jest uruchomiona w sieci wirtualnej](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
-3. [Sprawdź, czy w sieci wirtualnej jest włączona usługa Azure Active Directory Domain](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
-4. [Sprawdź, czy sieć wirtualna jest połączona z innym zasobem](#check-whether-the-virtual-network-is-connected-to-other-resource).
-5. [Sprawdź, czy maszyna wirtualna jest nadal uruchomiona w sieci wirtualnej](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
-6. [Sprawdź, czy sieć wirtualna jest zablokowana](#check-whether-the-virtual-network-is-stuck-in-migration).
+3. [Sprawdź, czy usługa Azure Container Instances wciąż istnieje w sieci wirtualnej](#check-whether-azure-container-instances-still-exist-in-the-virtual-network).
+4. [Sprawdź, czy w sieci wirtualnej jest włączona usługa Azure Active Directory Domain](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
+5. [Sprawdź, czy sieć wirtualna jest połączona z innym zasobem](#check-whether-the-virtual-network-is-connected-to-other-resource).
+6. [Sprawdź, czy maszyna wirtualna jest nadal uruchomiona w sieci wirtualnej](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
+7. [Sprawdź, czy sieć wirtualna jest zablokowana](#check-whether-the-virtual-network-is-stuck-in-migration).
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
@@ -59,6 +60,19 @@ Przejdź do strony **Przegląd** sieci wirtualnej. Sprawdź **podłączone urzą
 ![Zrzut ekranu przedstawiający listę połączonych urządzeń dla sieci wirtualnej w Azure Portal. Brama aplikacji zostanie wyróżniona na liście.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 Jeśli istnieje Brama aplikacji, należy ją usunąć przed usunięciem sieci wirtualnej.
+
+### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>Sprawdź, czy usługa Azure Container Instances wciąż istnieje w sieci wirtualnej
+
+1. W Azure Portal przejdź do strony **Przegląd** grupy zasobów.
+1. W nagłówku listy zasobów grupy zasobów wybierz pozycję **Pokaż ukryte typy**. Typ profilu sieciowego jest domyślnie ukryty w Azure Portal.
+1. Wybierz profil sieciowy powiązany z grupami kontenerów.
+1. Wybierz pozycję **Usuń**.
+
+   ![Zrzut ekranu przedstawiający listę ukrytych profilów sieci.](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
+
+1. Usuń ponownie podsieć lub sieć wirtualną.
+
+Jeśli te kroki nie rozwiążą problemu, Użyj tych [poleceń interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) , aby wyczyścić zasoby. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Sprawdź, czy w sieci wirtualnej jest włączona usługa Azure Active Directory Domain
 

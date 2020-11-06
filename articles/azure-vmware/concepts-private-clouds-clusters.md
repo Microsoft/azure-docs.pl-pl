@@ -3,12 +3,12 @@ title: Pojęcia — chmury prywatne i klastry
 description: Dowiedz się więcej na temat kluczowych możliwości rozwiązań VMware platformy Azure zdefiniowanych przez oprogramowanie oraz klastrów vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: b261eb0517e9890d9bccf12f2e5748626f4c1ff9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: daa712a722ca3252a49e4f54e0cc9e42de4ffc73
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791022"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337325"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Rozwiązanie Azure VMware Private Cloud i pojęcia dotyczące klastrów
 
@@ -52,9 +52,9 @@ Bieżące wersje oprogramowania VMware używane w klastrach chmur prywatnych roz
 
 | Oprogramowanie              |    Wersja   |
 | :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6,7 U2    | 
-| ESXi                  |    6,7 U2    | 
-| Sieci vSAN                  |    6,7 U2    |
+| VCSA/vSphere/ESXi |    6,7 U3    | 
+| ESXi                  |    6,7 U3    | 
+| Sieci vSAN                  |    6,7 U3    |
 | NSX-T                 |      2.5     |
 
 W przypadku każdego nowego klastra w chmurze prywatnej wersja oprogramowania jest zgodna z aktualnie uruchomionymi usługami. W przypadku każdej nowej chmury prywatnej w ramach subskrypcji zostanie zainstalowana najnowsza wersja stosu oprogramowania.

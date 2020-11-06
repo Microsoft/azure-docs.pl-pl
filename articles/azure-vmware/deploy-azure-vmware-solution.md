@@ -3,13 +3,13 @@ title: Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 description: Dowiedz się, jak korzystać z informacji zebranych w fazie planowania, aby wdrożyć chmurę prywatną rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.author: tredavis
-ms.date: 10/02/2020
-ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 11/09/2020
+ms.openlocfilehash: 264ad99b21150f391c367eba2da31f0d08f4ab08
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152032"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336339"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Wdrażanie i Konfigurowanie rozwiązania VMware platformy Azure
 
@@ -59,7 +59,7 @@ Pole skoku znajduje się w sieci wirtualnej, w której rozwiązanie Azure VMware
 
 Na liście efektywne trasy powinny zostać wyświetlone sieci utworzone w ramach wdrożenia rozwiązania Azure VMware. Zobaczysz wiele sieci, które pochodzą z [ `/22` sieci zdefiniowanej](production-ready-deployment-steps.md#ip-address-segment) w [kroku wdrożenia](#deploy-azure-vmware-solution) wcześniej w tym artykule.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Utwórz pole skoku rozwiązania Azure VMware" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Sprawdź trasy sieciowe anonsowane z rozwiązania Azure VMware do platformy Azure Virtual Network" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 W tym przykładzie sieć 10.74.72.0/22 została wprowadzona podczas wdrażania w sieci/24.  Jeśli zobaczysz coś podobnego, możesz połączyć się z programem vCenter w rozwiązaniu VMware platformy Azure.
 
@@ -97,10 +97,10 @@ Ponieważ jest wymagany system DNS, Zidentyfikuj serwer DNS, którego chcesz uż
 
 Jeśli planujesz używać protokołu DHCP w segmentach NSX-T, przejdź do tej sekcji. W przeciwnym razie przejdź do sekcji [Dodawanie maszyny wirtualnej w segmencie sieci NSX-T](#add-a-vm-on-the-nsx-t-network-segment) .  
 
-Po utworzeniu segmentu sieci NSX-T można wykonać jedną z następujących czynności:
+Po utworzeniu segmentu sieci NSX-T można utworzyć rozwiązanie DHCP i zarządzać nim na platformie Azure VMware na dwa sposoby:
 
-* Użyj NSX-T jako serwera DHCP dla utworzonych segmentów. W przypadku tej opcji należy [utworzyć serwer DHCP w NSX-T](manage-dhcp.md#create-dhcp-server) i [przekazać go do tego serwera](manage-dhcp.md#create-dhcp-relay-service).
-* Przekazuj żądania DHCP z segmentów NSX-T do serwera DHCP w innym miejscu w danym środowisku. W przypadku tej opcji [tylko Konfiguracja przekaźnika](manage-dhcp.md#create-dhcp-relay-service).
+* Jeśli używasz NSX-T do hostowania serwera DHCP, musisz [utworzyć serwer DHCP](manage-dhcp.md#create-a-dhcp-server) i [przekazać go do tego serwera](manage-dhcp.md#create-dhcp-relay-service). 
+* Jeśli używasz zewnętrznego serwera DHCP innej firmy w sieci, musisz [utworzyć usługę przekaźnika DHCP](manage-dhcp.md#create-dhcp-relay-service).  W przypadku tej opcji [tylko Konfiguracja przekaźnika](manage-dhcp.md#create-dhcp-relay-service).
 
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>Dodawanie maszyny wirtualnej w segmencie sieci NSX-T

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341335"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337750"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Jak używać funkcji OPENROWSET przy użyciu bezserwerowej puli SQL (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -261,12 +261,12 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | BINARNY |UTF8 |varchar \* (sortowanie UTF8) |
 | BINARNY |PARAMETRY |varchar \* (sortowanie UTF8) |
 | BINARNY |PODSTAWOWE|varchar \* (sortowanie UTF8) |
-| BINARNY |INTERFEJSU |uniqueidentifier |
+| FIXED_LEN_BYTE_ARRAY |INTERFEJSU |uniqueidentifier |
 | BINARNY |DOKŁADNOŚCI |decimal |
-| BINARNY |JSON |varchar (max) \* (sortowanie UTF8) |
-| BINARNY |BSON |varbinary (max) |
+| BINARNY |JSON |varchar (8000) \* (sortowanie UTF8) |
+| BINARNY |BSON | Nieobsługiwane |
 | FIXED_LEN_BYTE_ARRAY |DOKŁADNOŚCI |decimal |
-| BYTE_ARRAY |DAT |varchar (max), serializacji do formatu standardowego |
+| BYTE_ARRAY |DAT | Nieobsługiwane |
 | ELEMENTEM |INT (8, prawda) |smallint |
 | ELEMENTEM |INT (16, true) |smallint |
 | ELEMENTEM |INT (32, true) |int |
@@ -279,10 +279,10 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | INT64 |INT (64, true) |bigint |
 | INT64 |INT (64, false) |Liczba dziesiętna (20, 0) |
 | INT64 |DOKŁADNOŚCI |decimal |
-| INT64 |TIME (MICROS/NANOS) |time |
-|INT64 |SYGNATURA CZASOWA (MILL/MICROS/NANOS) |datetime2 |
-|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |STAW |varchar (max), serializacja do formatu JSON |
-|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|ZMAPOWAĆ|varchar (max), serializacja do formatu JSON |
+| INT64 |CZAS (MICROS) |czas czasu (NANOs) nie jest obsługiwany |
+|INT64 |SYGNATURA CZASOWA (MILL/MICROS) |datetime2 — SYGNATURa CZASowa (NANOs) nie jest obsługiwana |
+|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |STAW |varchar (8000), serializacja do formatu JSON |
+|[Typ złożony](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|ZMAPOWAĆ|varchar (8000), serializacja do formatu JSON |
 
 ## <a name="examples"></a>Przykłady
 

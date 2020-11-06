@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e426962310417fdca56ea2f7d45a6ea820d41981
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449412"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335880"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Rozwiązanie do zarządzania Application Insights Connector (przestarzałe)
 
@@ -57,9 +57,9 @@ W przeciwieństwie do większości innych rozwiązań Log Analytics dane nie są
 
 ## <a name="configuration"></a>Konfiguracja
 
-1. Włącz rozwiązanie Azure Web Apps Analytics z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) lub przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań log Analytics z Galeria rozwiązań](../insights/solutions.md).
+1. Włącz rozwiązanie Azure Web Apps Analytics z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) lub przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań log Analytics z Galeria rozwiązań](../insights/solutions.md).
 2. Przejdź do [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie usługi** , aby otworzyć Application Insights. Następnie wyszukaj Application Insights. 
-3. W obszarze **subskrypcje**wybierz subskrypcję zawierającą Application Insights zasoby, a następnie w obszarze **Nazwa**wybierz co najmniej jedną aplikację.
+3. W obszarze **subskrypcje** wybierz subskrypcję zawierającą Application Insights zasoby, a następnie w obszarze **Nazwa** wybierz co najmniej jedną aplikację.
 4. Kliknij przycisk **Zapisz**.
 
 W ciągu około 30 minut dane staną się dostępne, a kafelek Application Insights zostanie zaktualizowany danymi, takimi jak na poniższej ilustracji:
@@ -135,7 +135,7 @@ Składniki perspektywy są aktualizowane w zależności od zapytania wyszukiwani
 
 Bloki Application Insights Connector zaprojektowano w celu umożliwienia przestawiania na wybraną aplikację Application Insights *podczas korzystania z Azure Portal*. Możesz użyć rozwiązania jako platformy monitorowania wysokiego poziomu, która ułatwia rozwiązywanie problemów z aplikacją. Gdy zobaczysz potencjalny problem w dowolnej z połączonych aplikacji, możesz przejść do niego w Log Analytics wyszukiwania lub przestawić bezpośrednio do aplikacji Application Insights.
 
-Aby przestawić, kliknij wielokropek (**...**), który pojawia się na końcu każdego wiersza, a następnie wybierz pozycję **Otwórz w Application Insights**.
+Aby przestawić, kliknij wielokropek ( **...** ), który pojawia się na końcu każdego wiersza, a następnie wybierz pozycję **Otwórz w Application Insights**.
 
 >[!NOTE]
 >**Aplet Otwórz w Application Insights** nie jest dostępny w Azure Portal.
@@ -176,7 +176,7 @@ Rekord z *typem* *ApplicationInsights* jest tworzony dla każdego typu danych we
 
 | Właściwość | Opis |
 | --- | --- |
-| Type | ApplicationInsights |
+| Typ | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Czas rekordu |
 | ApplicationId | Klucz Instrumentacji aplikacji Application Insights |
@@ -225,7 +225,7 @@ Rekord z *typem* *ApplicationInsights* jest tworzony dla każdego typu danych we
 
 ### <a name="exception-specific-fields"></a>Pola specyficzne dla wyjątku
 
-| Type | ApplicationInsights |
+| Typ | ApplicationInsights |
 | --- | --- |
 | Telemetriatype | Wyjątek |
 | Typ | Typ wyjątku |
@@ -244,7 +244,7 @@ Rekord z *typem* *ApplicationInsights* jest tworzony dla każdego typu danych we
 
 | Właściwość | Opis |
 | --- | --- |
-| Type | ApplicationInsights |
+| Typ | ApplicationInsights |
 | Telemetriatype | Żądanie |
 | ResponseCode | Odpowiedź HTTP wysłana do klienta |
 | RequestSuccess | Wskazuje powodzenie lub niepowodzenie. TRUE lub FALSE. |

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147956"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337512"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Śledzenie i rejestrowanie zdarzeń dla Azure Data Box i Azure Data Box Heavy zamówień eksportu
 
@@ -50,11 +50,11 @@ Aby uzyskać więcej informacji na temat sugerowanego użycia RBAC platformy Azu
 
 ## <a name="enable-verbose-log-in-the-order"></a>Włącz pełny dziennik w kolejności
 
-W przypadku umieszczenia zamówienia eksportu dla urządzenie Data Box można włączyć zbieranie informacji o pełnym dzienniku. Oto ekran Order, w którym można włączyć pełny dziennik:
+Podczas umieszczania zamówienia eksportu dla urządzenie Data Box można włączyć zbieranie pełnych dzienników. Oto ekran Order, w którym można włączyć pełny dziennik:
 
-![Wybierz opcję eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+![Wybierz opcję eksportu](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-Po wybraniu opcji **Dołącz dziennik pełny** zostanie wygenerowany pełny plik dziennika podczas kopiowania danych z konta usługi Azure Storage. Ten dziennik zawiera listę wszystkich plików, które zostały pomyślnie wyeksportowane.      
+Po wybraniu opcji **Dołącz dziennik pełny** zostanie wygenerowany pełny plik dziennika podczas kopiowania danych z konta usługi Azure Storage. Ten dziennik zawiera listę wszystkich plików, które zostały pomyślnie wyeksportowane.
 
 Aby uzyskać więcej informacji na temat kolejności eksportu, zobacz [Tworzenie zamówienia eksportowego dla urządzenie Data Box](data-box-deploy-export-ordered.md)
 
@@ -252,7 +252,7 @@ Jeśli przewiniesz historię kolejności, zobaczysz:
 
 - Informacje o śledzeniu nośnika dla Twojego urządzenia.
 - Zdarzenia z działaniem *SecureErase* . Te zdarzenia odpowiadają za wymazywanie danych na dysku.
-- Urządzenie Data Box linki dzienników. Wyświetlane są ścieżki *dzienników inspekcji*, *kopii dzienników*i plików *BOM* .
+- Urządzenie Data Box linki dzienników. Wyświetlane są ścieżki *dzienników inspekcji* , *kopii dzienników* i plików *BOM* .
 
 Oto przykład dziennika historii kolejności z Azure Portal:
 

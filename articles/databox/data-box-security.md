@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b6fab2aeebeeb0f39e07a0751e02cefd195b28
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565767"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337362"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Zabezpieczenia i ochrona danych w usłudze Azure Data Box
 
@@ -32,11 +32,11 @@ Rozwiązanie Microsoft Azure Data Box obejmuje cztery główne składniki, któr
 
 Na poniższym diagramie przedstawiono przepływ danych za pośrednictwem rozwiązania Azure Data Box z lokalnego na platformę Azure i różnych funkcji zabezpieczeń, które są przeznaczone do przepływu danych przez rozwiązanie. Ten przepływ dotyczy kolejności importu dla urządzenie Data Box.
 
-![urządzenie Data Box zabezpieczenia importowania](media/data-box-security/data-box-security-2.png)
+![urządzenie Data Box zabezpieczenia importowania](media/data-box-security/data-box-security-import.png)
 
 Na poniższym diagramie przedstawiono kolejność eksportowania dla urządzenie Data Box.
 
-![urządzenie Data Box zabezpieczenia eksportu](media/data-box-security/data-box-security-3.png)
+![urządzenie Data Box zabezpieczenia eksportu](media/data-box-security/data-box-security-export.png)
 
 Ponieważ dane są przepływane przez to rozwiązanie, rejestrowane są zdarzenia i dzienniki są generowane. Aby uzyskać więcej informacji, przejdź do:
 
@@ -86,11 +86,11 @@ W usłudze Azure Data Box dane osobowe są zbierane i wyświetlane w następują
 
   - Nazwa kontaktu
   - Numer telefonu
-  - Poczta e-mail
+  - E-mail
   - Adres
   - City (Miasto)
   - Kod pocztowy
-  - State
+  - Stan
   - Kraj/Województwo/Region
   - Numer konta operatora
   - Numer śledzenia dostawy
